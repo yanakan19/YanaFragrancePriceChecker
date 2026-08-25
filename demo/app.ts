@@ -52,6 +52,7 @@ import { VOLUME_BANDS, volumeBandFor, type VolumeBand } from './volumeBands.js';
 import { LIST_SORT_OPTIONS, sortFragrances, type BrowseSort, type ListSort } from './listSort.js';
 import { trustpilotStateFor } from './trustpilotWidget.js';
 import { deliveryLines } from './deliveryFacts.js';
+import { deliveryPriceNote } from './priceDeliveryNote.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
@@ -1289,7 +1290,9 @@ function offerRow(row: PresentedOffer, isBest: boolean, bestTag: string | null =
           ${d ? `<span class="was">RRP ${formatGbp(d.wasPrice)}</span>` : ''}
           <span class="now t-price ${d ? 'sale' : ''}">${formatGbp(
             row.deliveredPriceGbp ?? row.itemPriceGbp,
-          )}${deliveryUnknown ? '<span class="excl-del">+ delivery</span>' : ''}</span>
+          )}<span class="del-note${deliveryUnknown ? ' excl' : ''}">${esc(
+            deliveryPriceNote(row.delivery),
+          )}</span></span>
         </span>
       </span>
       <span class="offer-bot">
