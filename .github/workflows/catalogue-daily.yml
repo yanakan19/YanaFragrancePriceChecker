@@ -743,7 +743,8 @@ jobs:
             data/catalogue demo/catalogue.generated.ts demo/priceHistory.generated.ts \
             demo/index.html demo/404.html \
             data/houses data/house-sourcing-report.json \
-            data/metered-harvest-marker.txt
+            data/metered-harvest-marker.txt \
+            data/harvest-report.json
 
       # Deliberately after the commit above, and deliberately a warning rather
       # than a failure.

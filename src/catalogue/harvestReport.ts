@@ -1,0 +1,157 @@
+/**
+ * What each shop actually gave us this run, written to disk as the run goes.
+ *
+ * ── Why this exists ─────────────────────────────────────────────────────────
+ * The harvest already prints a good per-shop line. The problem is where it
+ * prints it: a GitHub Actions log, which is exactly the wrong place for the
+ * one question worth asking after a bad run.
+ *
+ * Run #328 is the case that forced this. The sitemap harvest hit its 60-minute
+ * step cap and was killed mid-shop, so:
+ *
+ *   - the end-of-run summary never printed, because the process died before
+ *     reaching it — including the line saying how many pages the render tier
+ *     had rendered, which was the whole reason anyone was reading the log;
+ *   - the shops it never reached left no trace at all, since a shop that is
+ *     never asked prints nothing; and
+ *   - what *was* printed sits in a log that has to be tailed, so the earliest
+ *     shops — which is where the never-live ones are deliberately ordered —
+ *     are the hardest part to get at.
+ *
+ * The result was a run that looked green (the harvest commits before the cap,
+ * by design) while being unable to answer "did the render tier work" or "which
+ * shops were skipped".
+ *
+ * ── The one design decision here ────────────────────────────────────────────
+ * The file is rewritten after **every shop**, not built up and written at the
+ * end. That is the entire point. An end-of-run write is precisely what a
+ * timeout destroys, and this exists to survive a timeout. Rewriting a small
+ * JSON file thirty-odd times a run costs nothing next to the minutes each shop
+ * takes.
+ *
+ * `notReached` is computed rather than recorded, for the same reason: nothing
+ * can write a line at the moment it fails to happen. Naming the planned shops
+ * up front and subtracting the ones that reported makes silence visible.
+ *
+ * `complete` is false until `finish()` is called, so a report from a killed
+ * run is self-describing — a reader never has to infer truncation from a
+ * missing shop that might simply have been disabled.
+ */
+import { writeFileSync } from 'node:fs';
+
+/** Which retrieval tier produced this shop's listings. */
+export type HarvestTier =
+  /** The ordinary free sitemap/JSON-LD walk. */
+  | 'free'
+  /** The free walk, retried with a longer timeout for a slow shop. */
+  | 'patient'
+  /** Apify's residential proxy. Costs money. */
+  | 'apify-proxy'
+  /** A real browser render — local Chromium, or Apify's actor. */
+  | 'render'
+  /** Nothing worked. */
+  | 'none';
+
+export interface ShopHarvestOutcome {
+  retailerId: string;
+  name: string;
+  urlsDiscovered: number;
+  pagesFetched: number;
+  /** Listings that came out with a usable price. The number that matters. */
+  priced: number;
+  tier: HarvestTier;
+  /**
+   * Which renderer ran, when `tier` is 'render'. Null otherwise.
+   *
+   * Named rather than implied, because "the render tier worked" means
+   * something different depending on whether it was a free local Chromium on a
+   * datacenter IP or a paid Apify actor on a residential one — that difference
+   * is the open question the tier was built to answer.
+   */
+  renderer: string | null;
+  errorCount: number;
+  /** The first few errors, for a reader who does not have the log. */
+  errors: string[];
+  finishedAt: string;
+}
+
+export interface HarvestReport {
+  startedAt: string;
+  finishedAt: string | null;
+  /** False when the run was killed before finishing — see this file's header. */
+  complete: boolean;
+  /** Shops this run intended to ask, in the order it meant to ask them. */
+  planned: string[];
+  /** Shops that never reported. Planned minus recorded; silence made visible. */
+  notReached: string[];
+  shops: ShopHarvestOutcome[];
+}
+
+export interface HarvestReportWriter {
+  /** Record one shop and rewrite the file immediately. */
+  record: (outcome: ShopHarvestOutcome) => void;
+  /** Mark the run complete and rewrite. Not reached when the run is killed. */
+  finish: () => void;
+  /** The report as it stands. Exposed for tests and for the end-of-run log. */
+  current: () => HarvestReport;
+}
+
+/**
+ * Build the shape of a report without touching disk.
+ *
+ * Split out so the interesting logic — what counts as not-reached, what
+ * `complete` means — is testable without a filesystem.
+ */
+export function buildHarvestReport(
+  startedAt: string,
+  planned: readonly string[],
+  shops: readonly ShopHarvestOutcome[],
+  finishedAt: string | null,
+): HarvestReport {
+  const reported = new Set(shops.map((s) => s.retailerId));
+  return {
+    startedAt,
+    finishedAt,
+    complete: finishedAt !== null,
+    planned: [...planned],
+    notReached: planned.filter((id) => !reported.has(id)),
+    shops: [...shops],
+  };
+}
+
+/**
+ * A writer that keeps `path` current after every recorded shop.
+ *
+ * Write failures are swallowed deliberately: this is a report about the
+ * harvest, and it must never be the reason a harvest fails. A run that cannot
+ * write its report should still commit its prices.
+ */
+export function harvestReportWriter(
+  path: string,
+  planned: readonly string[],
+  now: () => string = () => new Date().toISOString(),
+): HarvestReportWriter {
+  const startedAt = now();
+  const shops: ShopHarvestOutcome[] = [];
+  let finishedAt: string | null = null;
+
+  const flush = (): void => {
+    try {
+      writeFileSync(path, `${JSON.stringify(buildHarvestReport(startedAt, planned, shops, finishedAt), null, 2)}\n`);
+    } catch {
+      // See the doc comment: a report is never worth failing a harvest for.
+    }
+  };
+
+  return {
+    record: (outcome) => {
+      shops.push(outcome);
+      flush();
+    },
+    finish: () => {
+      finishedAt = now();
+      flush();
+    },
+    current: () => buildHarvestReport(startedAt, planned, shops, finishedAt),
+  };
+}

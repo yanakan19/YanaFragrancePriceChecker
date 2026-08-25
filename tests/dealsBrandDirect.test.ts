@@ -24,3 +24,24 @@ describe('DEALS excludes brand-direct storefronts', () => {
     expect(offenders.map((d) => `${d.fragrance.id} via ${d.retailerId}`)).toEqual([]);
   });
 });
+
+/**
+ * Perfume Click, excluded on the owner's instruction 2026-08-25.
+ *
+ * Measured against the snapshot before the change: 3,667 of 7,134 deal
+ * entries were Perfume Click, 51.4% — more than every other shop combined.
+ * After regenerating, 0 of 4,957 are, and the drop is 2,177 rather than
+ * 3,667 because 1,490 of those fragrances kept a deal sourced from a
+ * different shop instead, which is the behaviour intended: the exclusion
+ * removes one shop's offer from consideration, never the fragrance.
+ */
+describe('DEALS excludes shops the owner has taken off the page', () => {
+  it('never surfaces a Perfume Click deal', () => {
+    expect(DEALS.filter((d) => d.retailerId === 'perfume-click')).toEqual([]);
+  });
+
+  it('still has deals from other shops, so the exclusion did not empty the page', () => {
+    const shops = new Set(DEALS.map((d) => d.retailerId));
+    expect(shops.size).toBeGreaterThan(1);
+  });
+});
