@@ -64,6 +64,41 @@ describe('marketOf', () => {
     expect(marketOf('https://www.furla.com/us/en/eshop/')).toBe('us');
   });
 
+  // The pair written the other way round. Christian Louboutin's real UK
+  // fragrance pages live at /uk_en/ and Tous's at /gb-en/; read strictly as
+  // language_REGION both say "market en", which is no market at all, so a
+  // marked UK storefront was labelled "Non-UK Site".
+  it('reads a market from a region_language path pair', () => {
+    expect(marketOf('https://eu.christianlouboutin.com/uk_en/beauty/fragrances/')).toBe('uk');
+    expect(marketOf('https://www.tous.com/gb-en/')).toBe('gb');
+    expect(marketOf('https://www.franciskurkdjian.com/uk-en')).toBe('uk');
+  });
+
+  // Both orderings have to keep working, and the ordinary one is the far more
+  // common shape in demo/brandSites.ts — a fix for the reverse that broke
+  // these would trade one wrong label for dozens.
+  it('still reads the ordinary language_REGION pair', () => {
+    expect(marketOf('https://www.dolcegabbana.com/en-gb/beauty/')).toBe('gb');
+    expect(marketOf('https://int.biotherm.com/en_GB/homepage')).toBe('gb');
+    expect(marketOf('https://www.ninaricci.com/en-uk')).toBe('uk');
+    expect(marketOf('https://www.example.com/en-us/')).toBe('us');
+  });
+
+  // The flip is only safe where the right half cannot be a country. "ar" is
+  // Arabic and Argentina at once, so /es-ar/ keeps the standard reading and
+  // resolves to Argentina rather than Spain.
+  it('leaves an ambiguous pair on the standard reading', () => {
+    expect(marketOf('https://www.example.com/es-ar/')).toBe('ar');
+    expect(marketOf('https://www.example.com/fr-de/')).toBe('de');
+    expect(marketOf('https://www.example.com/pt-br/')).toBe('br');
+  });
+
+  // "en" on the right only re-orders the pair when the left half is a market
+  // this file recognises — otherwise there is nothing to prefer it to.
+  it('does not invent a market from an unrecognised left half', () => {
+    expect(marketOf('https://www.example.com/zz-en/')).toBe('en');
+  });
+
   // A language pair naming no country stays unreadable rather than being
   // forced into one — /en/xx/ is not a market statement.
   it('reports no market when neither path segment names a country', () => {
@@ -171,6 +206,33 @@ describe('classifyLanding', () => {
     );
     expect(f.verdict).toBe('redirected-region');
     expect(f.reason).toContain('not in the UK');
+  });
+
+  // What widening marketOf to the region_language ordering changes for the
+  // probe, stated so it is a decision rather than a side effect: a /uk_en/
+  // link bounced to /us_en/ used to read as market "en" on both sides and
+  // pass as ok. It is the same wrong-market fault as the Ahmed Al Maghribi
+  // case above, and the probe now reports it.
+  it('flags a wrong market written region-first', () => {
+    const f = classifyLanding(
+      landing({
+        declared: 'https://eu.house.com/uk_en/beauty/',
+        landed: 'https://eu.house.com/us_en/beauty/',
+      }),
+    );
+    expect(f.verdict).toBe('redirected-region');
+  });
+
+  // And the other side of that: the two orderings name the same market, so a
+  // site that rewrites /en-gb/ to /gb-en/ is not a finding.
+  it('does not read the two orderings of one market as a mismatch', () => {
+    const f = classifyLanding(
+      landing({
+        declared: 'https://www.house.com/en-gb/',
+        landed: 'https://www.house.com/gb-en/',
+      }),
+    );
+    expect(f.verdict).toBe('ok');
   });
 
   it('does not read uk and gb as different markets', () => {

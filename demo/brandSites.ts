@@ -330,6 +330,9 @@ export const BRAND_SITES: Record<string, string> = {
   'les liquides imaginaires': 'https://www.liquidesimaginaires.com/',
   loewe: 'https://www.perfumesloewe.com/int/en_GB/',
   'lorenzo pazzaglia': 'https://www.lorenzopazzaglia.com/en/',
+  // /uk-en is region-then-language, so this labelled Non-UK until the
+  // 2026-08-25 marketOf fix and labels UK now — the URL is untouched, and
+  // this is the second and last of the two labels that fix moved.
   'maison francis kurkdjian': 'https://www.franciskurkdjian.com/uk-en',
   'maison martin margiela': 'https://www.maisonmargiela.com/en-gb/',
   mancera: 'https://manceraparfums.com/en/',
@@ -492,10 +495,12 @@ export const BRAND_SITES: Record<string, string> = {
   // addresses that will still render "Non-UK Site" — a false negative, which
   // is the safe direction to be wrong in here.
   'the body shop': 'https://www.thebodyshop.com/',
-  // uk.policelifestyle.com, not the .com root's own /uk-en/ path — that path
-  // segment reads "uk-en" (country before language), which marketOf's path
-  // regex parses as market "en", not "uk"; the subdomain is unambiguous where
-  // the path would have been silently wrong.
+  // uk.policelifestyle.com, not the .com root's own /uk-en/ path. When this
+  // entry was added, that path segment ("uk-en", country before language)
+  // parsed as market "en", not "uk", so the subdomain was chosen as the
+  // unambiguous form. marketOf reads both orderings since 2026-08-25, so the
+  // path would work too — the subdomain is kept because it is the address
+  // already published and probed, not because the other one is still wrong.
   police: 'https://uk.policelifestyle.com/',
   // Job B pass, 2026-08-22: louiscardin.co.uk, not .com — the brand is a UK
   // company (203 Manningham Lane, Bradford, West Yorkshire, per its own
@@ -867,9 +872,11 @@ export const BRAND_SITES: Record<string, string> = {
   // and "flavia" entries) — hamidi.ae is its own dedicated Hamidi site.
   hamidi: 'https://hamidi.ae/',
   // Genuinely tous.com's UK path — the site orders it region-then-language
-  // ("gb-en") rather than the "en-gb" shape marketOf() reads a path market
-  // from, so officialSiteFor() will still report this as Non-UK; noted here
-  // rather than silently accepted as a false negative.
+  // ("gb-en") rather than the "en-gb" shape marketOf() used to be alone in
+  // reading, so this entry was added on 2026-08-22 knowing it would render
+  // "Non-UK Site". It renders UK as of the 2026-08-25 marketOf fix; one of
+  // the two labels in this whole file that the fix moved (the other is
+  // maison francis kurkdjian's /uk-en). Nothing about the URL changed.
   tous: 'https://www.tous.com/gb-en/',
   'pino silvestre': 'https://pinosilvestre.com/',
   // French house (Grasse); geparlys.com is its own site.
@@ -1057,6 +1064,21 @@ export const BRAND_SITES: Record<string, string> = {
   kajal: 'https://kajalperfumes.com/',
   collistar: 'https://www.collistar.com/',
 
+  // ── 2026-08-25, after the marketOf fix ──────────────────────────────────
+  // Held out of the pass earlier today for the classifier's sake, not the
+  // brand's — see the note further down. Search returns
+  // eu.christianlouboutin.com/uk_en/... in its own link list under titles
+  // that name the market directly ("Parfums - Christian Louboutin United
+  // Kingdom", "Loubiworld Eaux de parfum - Fragrances - Beauty United
+  // Kingdom"), which is this file's standard, and marketOf now reads that
+  // path's region-first pair, so the brand page labels it UK.
+  'christian louboutin': 'https://eu.christianlouboutin.com/uk_en/beauty/fragrances/',
+  // The catalogue carries five more listings under a bare "Louboutin", and
+  // their own product names settle it: every one begins "Christian
+  // Louboutin ..." ("Christian Louboutin 3 * Intense Mini Set: Loubcharme
+  // + Loubiprince + Loubiluna"). Same house, a feed dropping the forename.
+  louboutin: 'https://eu.christianlouboutin.com/uk_en/beauty/fragrances/',
+
   // Left unresolved this pass — search turned up only third-party retailers
   // and Fragrantica/Parfumo listings, never a confirmed brand-owned domain:
   // Jennifer Lopez (JLo fragrances are sold only through
@@ -1107,17 +1129,13 @@ export const BRAND_SITES: Record<string, string> = {
   //    the two annickgoutal.com results returned was its Shopify /password
   //    page, and the working storefront found was us.goutalparis.com — a US
   //    store. Too many unresolved questions at once to pick an address.
-  //  - Christian Louboutin, for a reason specific to this codebase rather
-  //    than to the brand. Its UK fragrance pages are real and were
-  //    confirmed (eu.christianlouboutin.com/uk_en/beauty/fragrances/), but
-  //    that path is REGION_language, and marketOf's path rule reads a
-  //    two-letter pair as language_REGION — so it returns "en" and the
-  //    brand page would print "Non-UK Site" over a genuine UK storefront.
-  //    Under-claiming on a bare .com is this file's documented behaviour;
-  //    printing the wrong market for a marked UK page is not, and widening
-  //    marketOf is a change to the classifier brand-site-probe.ts shares,
-  //    which does not belong in a link-adding pass. Recorded here so
-  //    whoever fixes marketOf knows there is an entry waiting on it.
+  //  - Christian Louboutin was held here on 2026-08-25 for a reason specific
+  //    to this codebase rather than to the brand: its /uk_en/ path is
+  //    REGION_language and marketOf read a two-letter pair as
+  //    language_REGION, so it returned "en" and the brand page would have
+  //    printed "Non-UK Site" over a genuine UK storefront. marketOf now reads
+  //    both orderings (2026-08-25, later the same day — see LANGUAGE_ONLY_
+  //    CODES in src/catalogue/brandSiteCheck.ts), and the entry is live above.
   //  - Banana Republic. No UK site exists — the brand closed its UK stores
   //    in 2016 and now reaches UK buyers through Next — and the only
   //    confirmed storefront is bananarepublic.gap.com, a US Gap-hosted
@@ -1272,7 +1290,7 @@ function normalizeBrandKeepingDigits(brand: string): string {
  * `uk` is computed once, at module load, from the same market-detection rule
  * `scripts/brand-site-probe.ts` uses to judge a probed landing address
  * (`marketOf` in src/catalogue/brandSiteCheck.ts): a `.co.uk` domain, a `uk.`
- * subdomain, or a `/uk/` or `/en-gb/` path counts as UK; a plain global `.com`
+ * subdomain, or a `/uk/`, `/en-gb/` or `/uk_en/` path counts as UK; a plain global `.com`
  * with no market marker does not, and is labelled Non-UK rather than guessed
  * at. Reusing that function rather than a second copy is deliberate — the
  * probe's classifier and this label must never quietly disagree about what

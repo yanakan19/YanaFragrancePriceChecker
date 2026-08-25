@@ -49,6 +49,15 @@ describe('officialSiteFor', () => {
     });
   });
 
+  // The label this brand's entry waited on. eu.christianlouboutin.com/uk_en/
+  // is a genuine UK storefront written region-first, and until marketOf read
+  // that ordering the brand page would have printed "Non-UK Site" over it —
+  // which is why the entry was held back rather than shipped mislabelled.
+  it('labels a /uk_en/ storefront as UK', () => {
+    expect(officialSiteFor('Christian Louboutin')?.uk).toBe(true);
+    expect(officialSiteFor('Louboutin')?.uk).toBe(true);
+  });
+
   // Carolina Herrera used to be this file's example of a plain global .com
   // with no UK-marked page — a Job B pass (2026-08-22) found one
   // (carolinaherrera.com/uk/en/...) and swapped it in, so Lattafa (whose

@@ -115,6 +115,25 @@ export function registrableDomain(hostname: string): string {
  */
 const KNOWN_MARKETS = ['uk', 'gb', 'us', 'ae', 'fr', 'de', 'es', 'it'];
 
+/**
+ * Two-letter codes that are a *language* and cannot be a country, so a pair
+ * carrying one on the right can only be region_language.
+ *
+ * One entry, and the shortness is the point. A two-letter pair is ambiguous
+ * by shape — "fr-de" is French-in-Germany under the ISO ordering and German-
+ * in-France under the reverse, and nothing in the string settles it — so the
+ * only pairs this file can re-order safely are the ones where one half is not
+ * a country code at all. "en" is that case: no country has the ISO code EN,
+ * and it is the language every region_language address this registry has met
+ * pairs with (christianlouboutin.com/uk_en/, tous.com/gb-en/). "ar" was
+ * considered and rejected on exactly this test: it is Arabic, but it is also
+ * Argentina, so "es-ar" — Spanish in Argentina, a real shape — would start
+ * reading as the Spanish market. Anything not listed here keeps the
+ * language_REGION reading, which is both the standard and what every entry in
+ * demo/brandSites.ts was checked against before this list existed.
+ */
+const LANGUAGE_ONLY_CODES = ['en'];
+
 export function marketOf(url: string): string | null {
   let parsed: URL;
   try {
@@ -133,7 +152,19 @@ export function marketOf(url: string): string | null {
     // section name as a market — so only accept ones that are actually
     // country codes this registry uses, plus any language-REGION pair, which
     // is unambiguous by shape.
-    if (pathMatch[2]) return region;
+    if (pathMatch[2]) {
+      const left = pathMatch[1]!.toLowerCase();
+      // Some houses write the pair the other way round: Christian Louboutin
+      // publishes its UK fragrance pages at /uk_en/, Tous at /gb-en/. Read
+      // strictly as language_REGION those say "market en", which is not a
+      // market at all — so a real, marked UK storefront was labelled
+      // "Non-UK Site". Only flipped when the right half cannot be a country
+      // (see LANGUAGE_ONLY_CODES) *and* the left half is a market this file
+      // recognises; every other pair keeps the language_REGION reading, so
+      // /en-gb/, /en_us/ and /pt-br/ resolve exactly as they always did.
+      if (LANGUAGE_ONLY_CODES.includes(region) && KNOWN_MARKETS.includes(left)) return left;
+      return region;
+    }
     if (KNOWN_MARKETS.includes(region)) return region;
     // Slash-separated language then region: /en/gb/ is the same statement as
     // /en-gb/, just punctuated differently, and reading only the first segment
