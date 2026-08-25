@@ -69,7 +69,8 @@ import {
   apifyActorConfigFromEnv, apifyActorRenderer, MAX_ACTOR_PAGES_PER_RUN,
 } from '../src/catalogue/apifyActor.js';
 import {
-  localBrowserRenderer, MAX_LOCAL_RENDER_PAGES_PER_RUN,
+  localBrowserRenderer, MAX_LOCAL_RENDER_PAGES_PER_RUN, MAX_LOCAL_RENDER_MS_PER_RUN,
+  MAX_LOCAL_RENDER_MS_PER_SHOP,
 } from '../src/catalogue/localBrowser.js';
 import { harvestReportWriter, type HarvestTier } from '../src/catalogue/harvestReport.js';
 
@@ -189,7 +190,11 @@ const useActor = actorRenderer !== null;
 const renderTierName = localRenderer ? 'local browser' : 'Apify actor';
 
 if (localRenderer) {
-  console.log(`Local browser render available (free). Shops still yielding nothing get a real-browser render, capped at ${MAX_LOCAL_RENDER_PAGES_PER_RUN} pages for the whole run.\n`);
+  console.log(
+    `Local browser render available (free). Shops still yielding nothing get a real-browser render, ` +
+      `capped at ${MAX_LOCAL_RENDER_PAGES_PER_RUN} pages and ${Math.round(MAX_LOCAL_RENDER_MS_PER_RUN / 1000)}s of ` +
+      `rendering for the whole run, ${Math.round(MAX_LOCAL_RENDER_MS_PER_SHOP / 1000)}s of it per shop.\n`,
+  );
 } else if (allowMetered && !actorConfig) {
   console.log('--allow-metered was passed but APIFY_TOKEN is not set. Skipping real-browser retrieval.\n');
 } else if (useApifyActor) {
@@ -816,7 +821,14 @@ if (zeroThisRun.length) console.log(`zero this run: ${zeroThisRun.join(', ')}`);
 if (neverLive.length) console.log(`never once live: ${neverLive.join(', ')} — still on fixtures, excluded from the site`);
 if (actorRenderer) {
   const renderBudget = localRenderer ? MAX_LOCAL_RENDER_PAGES_PER_RUN : MAX_ACTOR_PAGES_PER_RUN;
-  console.log(`${renderTierName} pages rendered this run: ${actorRenderer.used()} of ${renderBudget} budgeted`);
+  console.log(
+    `${renderTierName} pages rendered this run: ${actorRenderer.used()} of ${renderBudget} budgeted` +
+      // What the tier actually cost, in the unit the harvest is short of. The
+      // page count alone cannot say whether the tier is affordable.
+      (localRenderer
+        ? `, ${Math.round(localRenderer.spentMs() / 1000)}s of ${Math.round(MAX_LOCAL_RENDER_MS_PER_RUN / 1000)}s spent rendering`
+        : ''),
+  );
 }
 
 // Only reached when the run was not killed. A report whose `complete` is still

@@ -4,6 +4,7 @@ import {
   localBrowserRenderer,
   MAX_LOCAL_RENDER_PAGES_PER_RUN,
   MAX_LOCAL_RENDER_MS_PER_RUN,
+  MAX_LOCAL_RENDER_MS_PER_SHOP,
 } from '../src/catalogue/localBrowser.js';
 
 /**
@@ -146,6 +147,74 @@ describe('localBrowserRenderer — the time budget', () => {
     // already truncates.
     expect(MAX_LOCAL_RENDER_MS_PER_RUN).toBeLessThanOrEqual(10 * 60_000);
   });
+
+  it('budgets enough time for the pages it budgets pages for', () => {
+    /**
+     * The defect this pins is run #330's: 12 pages allowed, 240s to render
+     * them in, and a page measured at 7.4s at best and 32s as the code then
+     * stood. Four shops rendered; four were refused every URL.
+     *
+     * 7,400ms is this sandbox's measured worst case for a page that never
+     * reaches networkidle under the wait strategy this module now uses (a
+     * 697KB, 2,500-image page over a local server at 120ms simulated
+     * latency). What a real retailer costs over a real network could not be
+     * measured here, so the budget carries 3x that as headroom rather than
+     * sitting on the measurement.
+     */
+    const MEASURED_WORST_PAGE_MS = 7_400;
+    expect(MAX_LOCAL_RENDER_MS_PER_RUN / MAX_LOCAL_RENDER_PAGES_PER_RUN).toBeGreaterThanOrEqual(
+      MEASURED_WORST_PAGE_MS * 3,
+    );
+  });
+
+  it('gives one shop a slice, not the run', () => {
+    // A budget that only bounds the total makes sweep order into priority
+    // order. The per-shop slice is what stops the first shops asked from
+    // spending everything, which is what happened on run #330.
+    expect(MAX_LOCAL_RENDER_MS_PER_SHOP).toBeGreaterThan(0);
+    expect(MAX_LOCAL_RENDER_MS_PER_SHOP).toBeLessThan(MAX_LOCAL_RENDER_MS_PER_RUN);
+  });
+
+  it('charges only time spent rendering, not time between calls', async () => {
+    const base = await jsPaintedServer();
+    const r = localBrowserRenderer({ gapMs: 10, ...browserPath() });
+
+    const out = await r.render([`${base}/one`]);
+    if (out.get(`${base}/one`)?.error?.includes('local browser unavailable')) {
+      await r.dispose();
+      return;
+    }
+    const afterFirst = r.spentMs();
+    expect(afterFirst).toBeGreaterThan(0);
+
+    // Between two render() calls the harvest is off walking another shop's
+    // sitemap. Charging that to this tier is exactly what spent 240s on four
+    // shops' timeouts in run #330 while this module rendered nine pages.
+    await new Promise<void>((resolve) => setTimeout(resolve, 400));
+    expect(r.spentMs()).toBe(afterFirst);
+    await r.dispose();
+  }, BROWSER_TEST_TIMEOUT_MS);
+
+  it("spends a shop's slice on that shop and leaves the next one its own", async () => {
+    const base = await jsPaintedServer();
+    // 1ms: the first page of a call always renders, and the slice is gone by
+    // the second — the same shape as the run budget test above, one level in.
+    const r = localBrowserRenderer({ maxShopMs: 1, gapMs: 10, ...browserPath() });
+
+    const first = await r.render([`${base}/a`, `${base}/b`]);
+    if (first.get(`${base}/a`)?.error?.includes('local browser unavailable')) {
+      await r.dispose();
+      return;
+    }
+    expect(first.get(`${base}/a`)?.ok).toBe(true);
+    expect(first.get(`${base}/b`)?.error).toContain('render slice');
+
+    // The next shop is a new call and gets its own slice, rather than
+    // inheriting the exhaustion of the shop before it.
+    const second = await r.render([`${base}/c`]);
+    expect(second.get(`${base}/c`)?.ok).toBe(true);
+    await r.dispose();
+  }, BROWSER_TEST_TIMEOUT_MS);
 });
 
 describe('localBrowserRenderer — a browser that will not start', () => {
