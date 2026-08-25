@@ -57,8 +57,23 @@ const NOTE_ALIASES: Record<string, string> = {
 
 const canonicalNoteName = (s: string): string => NOTE_ALIASES[noteKey(s)] ?? s;
 
-export function parseNotes(description: string | null | undefined): ParsedNotes | null {
-  if (!description) return null;
+/**
+ * The handful of HTML entities that survive into feed copy, decoded.
+ *
+ * Not a general HTML decoder and not trying to be. `&nbsp;` is the one that
+ * mattered: Nicchia Luxury publishes "Top notes:&nbsp;geranium, lemongrass,
+ * mandarin orange", and with the entity left in place the first item of every
+ * such list reads "&nbsp;geranium" and is thrown away as not a note name. 117
+ * of that shop's descriptions carry "Base notes:&" and its siblings.
+ */
+const decodeEntities = (s: string): string =>
+  s
+    .replace(/&nbsp;|&#160;|&#xa0;/gi, ' ')
+    .replace(/&amp;/gi, '&');
+
+export function parseNotes(descriptionRaw: string | null | undefined): ParsedNotes | null {
+  if (!descriptionRaw) return null;
+  const description = decodeEntities(descriptionRaw);
 
   // Each section runs until the next label or the end of the copy. Feeds
   // frequently omit any separator between one section and the next label
@@ -80,7 +95,7 @@ export function parseNotes(description: string | null | undefined): ParsedNotes 
   // Adverbs are matched by name rather than by an "ends in ly" rule, which
   // would throw away Lily of the Valley.
   const PROSE =
-    /\b(take|takes|taken|over|through|leading|with|into|from|that|which|while|before|after|creating|providing|making|giving|adding|fairly|quickly|slowly|gently|softly|deeply|subtly|really|quite|very|soon|later|eventually|immediately)\b/i;
+    /\b(take|takes|taken|over|through|leading|with|into|from|that|which|while|before|after|creating|providing|making|giving|adding|fairly|quickly|slowly|gently|softly|deeply|subtly|really|quite|very|soon|later|eventually|immediately|composed|consisting|comprising|comprised|featuring|including|blended|blending|infused|enriched|enhanced|combined|combining|accented|balanced|opens|opening)\b/i;
 
   /**
    * Trims a real note back out of a sentence describing how it behaves —
@@ -105,11 +120,32 @@ export function parseNotes(description: string | null | undefined): ParsedNotes 
   const TRAILING_CLAUSE =
     /\s+(emerge|emerges|develop|develops|settle|settles|unfold|unfolds|linger|lingers|intertwine|intertwines|provide|provides|contribute|contributes|add|adds|offer|offers|come\s+forth|comes\s+forth|greet|greets|resonate|resonates|lend|lends|uplift|steam|delivery|for\s+her|for\s+him|for\s+depth|these\b).*$/i;
 
+  /**
+   * List furniture, at either end of a candidate.
+   *
+   * Leading, because two shops write their note lists as bullets and the
+   * bullet arrives glued to the first word: Al Haramain publishes "Top note:.
+   * -Bergamot, Lemon, Tamarind" and Avon publishes "• Top note: lush greens",
+   * so "-Bergamot" and "• lush greens" were reaching the shape check with a
+   * punctuation mark where the note's first letter should be.
+   *
+   * Trailing full stops, because a source that ends every line with ".." —
+   * Avon again, "Top Notes: Black Pepper.. Middle Notes: Vanilla.." — leaves
+   * one behind after the sentence split takes the other, and a candidate
+   * carrying a full stop is rejected as a sentence. 99 Avon listings and 94
+   * Al Haramain ones carried a labelled section that parsed to nothing for
+   * exactly these two reasons.
+   */
+  const LEADING_FURNITURE = /^[\s.:;,|*•·—–-]+/;
+  const TRAILING_STOPS = /[.\s]+$/;
+
   const cleanCandidate = (s: string): string =>
     s
+      .replace(LEADING_FURNITURE, '')
       .split(/\s{2,}/)[0]!
       .replace(TRAILING_CLAUSE, '')
       .replace(/[|*•·™®—–-]+$/, '')
+      .replace(TRAILING_STOPS, '')
       .trim();
 
   /**
@@ -155,25 +191,59 @@ export function parseNotes(description: string | null | undefined): ParsedNotes 
     'nighttime',
   ]);
 
-  const looksLikeNote = (s: string): boolean =>
+  /**
+   * Everything a note must be except capitalised.
+   *
+   * Split out from `looksLikeNote` because the capitalisation rule turns out
+   * to be about the *section*, not about the candidate — see `bodyIsAList`.
+   */
+  const looksLikeNoteIgnoringCase = (s: string): boolean =>
     s.length > 1 &&
     s.length <= 24 &&
     s.split(/\s+/).length <= 3 &&
     !/[.:;!?()]/.test(s) &&
     !/\bnotes?\b/i.test(s) &&
-    // Feed copy capitalises note names. A lowercase start means the split
-    // landed inside a sentence rather than on a list item.
-    /^[A-Z]/.test(s) &&
     !NOT_A_NOTE.has(s.toLowerCase()) &&
     !PROSE.test(s) &&
-    // A real note never opens on a bare article or pronoun — nothing genuinely
-    // named "A Bright", "As It Develops" or "At Its Core" exists, those are a
-    // sentence's own opening words ("A bright, sparkling, vibrant citrus...",
-    // "As it develops...", "At its core...") caught by the comma split before
-    // the sentence itself was recognised as prose. "the" is checked only at
-    // the very start, not anywhere in the phrase — "Lily of the Valley" keeps
-    // its own "the" mid-phrase, which this must never touch.
-    !/^(a|as|at|it|its|the)\b/i.test(s);
+    // A real note never opens on a bare article, pronoun or preposition —
+    // nothing genuinely named "A Bright", "As It Develops" or "At Its Core"
+    // exists, those are a sentence's own opening words ("A bright, sparkling,
+    // vibrant citrus...", "As it develops...", "At its core...") caught by the
+    // comma split before the sentence itself was recognised as prose.
+    //
+    // The prepositions were added with the case rule below: "Top notes
+    // composed of Bergamot, Lemon, Rosemary" (Nicchia Luxury, Alchimista
+    // Enapay) splits into "of Bergamot" once the comma split runs, and a
+    // lowercase "of Bergamot" used to be discarded for its case rather than
+    // for what it is. Checked at the very start only, never anywhere in the
+    // phrase — "Lily of the Valley" keeps its own "of" and "the" mid-phrase,
+    // which this must never touch.
+    !/^(a|an|as|at|it|its|the|of|for|by|on|in|to|and|or|is|are|was|were)\b/i.test(s);
+
+  /**
+   * Whether a labelled section's content is a list of notes or a sentence
+   * about them, decided from the section as a whole.
+   *
+   * The capitalisation rule this replaces read "feed copy capitalises note
+   * names, so a lowercase start means the split landed inside a sentence".
+   * The first half is not true of every feed, and the shops it is false for
+   * are large ones: Nicchia Luxury publishes "Top notes: geranium,
+   * lemongrass, mandarin orange" and Avon publishes "• Top note: lush
+   * greens", both entirely lowercase and both unambiguously lists.
+   *
+   * But dropping the rule outright lets real prose through. Measured on
+   * mybeauty-boutique, whose copy reads "Base Notes: envelop your senses with
+   * a rich blend of...", "envelop your senses" is three lowercase words with
+   * no sentence punctuation and would be published as a note.
+   *
+   * So the question is asked of the section rather than of the item: a list is
+   * a run of things that are *all* note-shaped, and one item that is plainly a
+   * clause makes the whole thing prose. In prose the old rule still applies
+   * and only a capitalised item can be a note; in a list, case is not
+   * evidence of anything.
+   */
+  const bodyIsAList = (items: readonly string[]): boolean =>
+    items.length > 0 && items.every(looksLikeNoteIgnoringCase);
 
   /**
    * Some sources mention "top notes" twice: once loosely in marketing prose
@@ -191,19 +261,38 @@ export function parseNotes(description: string | null | undefined): ParsedNotes 
    * Emirates Oud's Hawas Elixir listing, which has exactly this shape.
    */
   const section = (label: string): string[] => {
-    const re = new RegExp(`${label}\\s*:?\\s*([\\s\\S]*?)(?=(?:top|middle|heart|base)\\s+notes?\\s*:|$)`, 'gi');
+    const re = new RegExp(
+      `${label}\\s*:?\\s*([\\s\\S]*?)(?=(?:top|middle|heart|base|bottom)\\s+notes?\\s*:|$)`,
+      'gi',
+    );
     let m: RegExpExecArray | null;
     while ((m = re.exec(description)) !== null) {
       if (m[1]) {
+        // Whatever sits between the label and the notes themselves — Al
+        // Haramain writes "Top note:. -Bergamot" and the leading full stop
+        // would otherwise make the sentence split below return an empty first
+        // segment and throw the entire list away.
+        const body = m[1].replace(LEADING_FURNITURE, '');
         // Notes are a comma separated list, never sentences, so the first full
         // stop that ends a sentence also ends the list.
-        const listOnly = m[1].split(/\.\s|\.$/)[0] ?? '';
-        const items = listOnly
-          .split(/[,;/]|\band\b/i)
+        const listOnly = body.split(/\.\s|\.$/)[0] ?? '';
+        const candidates = listOnly
+          // "&" joins two notes as readily as "and" does — Beauty Base writes
+          // "Top Notes: Pink Pepper Essence & Blackcurrant". It used to be
+          // split anyway, but by accident and in the wrong place: the source
+          // publishes the HTML entity, and the ";" that ends "&amp;" is in
+          // this character class, so the list came out as ["White Musks &amp",
+          // "Vanilla"] — one real note and one corrupted one. Decoding the
+          // entity fixed the corruption and removed the accidental split with
+          // it, so the split is now made on purpose.
+          .split(/[,;/&]|\band\b/i)
           .map((s) => cleanCandidate(s.trim()))
-          .filter(looksLikeNote)
-          .map(canonicalNoteName)
-          .slice(0, 14);
+          .filter((s) => s.length > 0);
+        // Case is only evidence when the section is prose — see bodyIsAList.
+        const keep = bodyIsAList(candidates)
+          ? looksLikeNoteIgnoringCase
+          : (s: string) => looksLikeNoteIgnoringCase(s) && /^[A-Z]/.test(s);
+        const items = candidates.filter(keep).map(canonicalNoteName).slice(0, 14);
         if (items.length > 0) return items;
       }
       // A zero-width overall match (label sits directly against the next
@@ -215,7 +304,10 @@ export function parseNotes(description: string | null | undefined): ParsedNotes 
 
   const top = section('top\\s+notes?');
   const middle = section('(?:middle|heart)\\s+notes?');
-  const base = section('base\\s+notes?');
+  // "Bottom notes" is Avon's own wording for the base — "Top Notes: Black
+  // Pepper.. Middle Notes: Vanilla.. Bottom Notes: Cashmere Woods.." — and
+  // that section was being read as ordinary prose because no label matched it.
+  const base = section('(?:base|bottom)\\s+notes?');
 
   if (top.length === 0 && middle.length === 0 && base.length === 0) return null;
   return { top, middle, base };
