@@ -1447,10 +1447,15 @@
   }
   .offer.best { border-left-color: var(--accent); }
   .offers .offer:last-child { border-bottom: 0; }
+  /* No row gap: the shop name and the stock line are one statement about one
+     shop and were reading as two, which the price's own second line only made
+     worse. The countdown, when there is one, is a separate statement and keeps
+     its space via the adjacent-sibling rule below. */
   .offer-link {
-    display: flex; flex-direction: column; gap: 4px;
+    display: flex; flex-direction: column; gap: 0;
     padding: 14px 10px; text-decoration: none; color: inherit;
   }
+  .offer-bot + .offer-bot { margin-top: 4px; }
   .offer-link:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
   .offer-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
   /* Tinted, not filled: the accent left edge already marks this row, and a
@@ -1474,14 +1479,21 @@
   .was { font-size: 12.5px; color: var(--faint); text-decoration: line-through; font-variant-numeric: tabular-nums; }
   .now.sale { color: var(--ok); }
   .now.none { color: var(--faint); font-weight: 500; }
-  /* Marks the one case where .now is an item price rather than a delivered
-     one, because the shop states no delivery cost. Sits with the number, not
-     in the facts line, so it cannot be read separately from it. */
-  .excl-del {
-    display: block; margin-top: 1px; text-align: right;
+  /* Says what the number above it contains, on every row rather than only on
+     the odd one out. Sits with the number, not in the facts line, so it can
+     never be read apart from the figure it qualifies — which is the whole
+     reason this element exists. Wraps where the note is long and the viewport
+     is narrow, hence the white-space reset against .price's nowrap: the
+     number must stay on one line, this note need not. */
+  .del-note {
+    display: block; margin-top: 1px; text-align: right; white-space: normal;
     font-size: 10px; font-weight: 600; color: var(--faint);
     text-transform: uppercase; letter-spacing: .05em;
   }
+  /* The one case where .now is an item price rather than a delivered one,
+     because the shop states no delivery cost. Given the warn ink so a price
+     with something still to add cannot be scanned as an all-in one. */
+  .del-note.excl { color: var(--warn); }
 
   .offer-bot { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
   .sep { margin: 0 5px; color: var(--faint); }
