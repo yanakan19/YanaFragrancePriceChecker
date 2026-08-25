@@ -50,6 +50,7 @@ import { parseRenderedState } from '../src/catalogue/renderedState.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import { titleWithSizeFromUrl } from '../src/catalogue/sizeFromUrl.js';
 import { checkApifyAccount } from '../src/catalogue/apifyAccount.js';
+import { checkApifyUsage } from '../src/catalogue/apifyUsage.js';
 import { looksLikeTimeouts, SLOW_SHOP_TIMEOUT_MS } from '../src/catalogue/strategy.js';
 import {
   apifyProxyConfigFromEnv, apifyProxyHttp, MAX_PROXIED_REQUESTS_PER_RUN,
@@ -103,7 +104,28 @@ if (refreshShare !== null && !(refreshShare >= 0 && refreshShare <= 1)) {
 }
 
 const proxyConfig = apifyProxyConfigFromEnv();
-const useProxy = allowMetered && proxyConfig !== null;
+const actorConfig = apifyActorConfigFromEnv();
+
+// ── The month, not just the run ────────────────────────────────────────────
+//
+// MAX_ACTOR_PAGES_PER_RUN caps one run and cannot see the month. On
+// 2026-08-21 the $5 monthly credit ran out mid-month and every tick after it
+// kept dispatching renders that were refused, logged as ordinary retrieval
+// failures. This asks first, costs nothing, and turns the metered tiers off
+// for the run when the credit is actually gone. A check that cannot read its
+// own answer reports `unknown` and changes nothing — see apifyUsage.ts.
+const usage = actorConfig
+  ? await checkApifyUsage(actorConfig.token)
+  : null;
+
+if (allowMetered && usage) {
+  for (const line of usage.lines) console.log(line);
+  console.log('');
+}
+
+const budgetAllowsMetered = usage === null || usage.meteredAllowed;
+
+const useProxy = allowMetered && proxyConfig !== null && budgetAllowsMetered;
 
 if (allowMetered && !proxyConfig) {
   console.log('--allow-metered was passed but APIFY_PROXY_PASSWORD is not set. Skipping proxied retrieval.\n');
@@ -116,8 +138,7 @@ if (allowMetered && !proxyConfig) {
 // residential IP and a real browser fix different failures. Fails soft with
 // its own clear log line, same shape as the proxy above, whether or not
 // --allow-metered or APIFY_PROXY_PASSWORD were ever set.
-const actorConfig = apifyActorConfigFromEnv();
-const useActor = allowMetered && actorConfig !== null;
+const useActor = allowMetered && actorConfig !== null && budgetAllowsMetered;
 const actorRenderer = useActor ? apifyActorRenderer(actorConfig!) : null;
 
 if (allowMetered && !actorConfig) {

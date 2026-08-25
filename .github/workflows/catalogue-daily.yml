@@ -24,13 +24,24 @@ name: Catalogue crawl
 # holds however late a run starts. See each step for its own threshold.
 #
 # --allow-metered below is a no op unless APIFY_PROXY_PASSWORD or APIFY_TOKEN
-# is set, and neither currently is. If either secret is ever added, every
-# tick would retry the blocked shops through that tier — the residential
-# proxy for APIFY_PROXY_PASSWORD, a real-browser render for APIFY_TOKEN (see
-# src/catalogue/apifyActor.ts) — worth revisiting the cadence at that point
-# rather than assuming this comment still holds, and worth watching cost
-# closely for the first few ticks after APIFY_TOKEN specifically: that tier
-# is estimated at roughly ten times the proxy's per-page cost.
+# is set. Both are now set: this comment used to end "and neither currently
+# is", which stopped being true when APIFY_TOKEN was added, and the warning it
+# then gave — watch the cost closely, the actor tier runs about ten times the
+# proxy's per-page cost — turned out to be the right warning ignored. The $5
+# monthly free credit ran out on 2026-08-21, mid-month, and the first anyone
+# knew was Apify's billing email.
+#
+# What changed as a result: scripts/catalogue-harvest.ts now asks Apify what
+# the month has cost before it spends anything, and switches both metered
+# tiers off for the run once the credit is at 90% or gone (see
+# src/catalogue/apifyUsage.ts). That check is free and consumes no compute
+# units. It is a backstop, not a budget — it can only stop the next run, so
+# the per-run cap in apifyActor.ts still does the actual rationing.
+#
+# The five shops that need the actor tier (Boots, Selfridges, John Lewis,
+# Superdrug, Zara) therefore go quiet for the rest of a month whose credit is
+# spent, and resume when it resets. Every other shop is unaffected: the
+# sitemap/JSON-LD route costs nothing.
 on:
   schedule:
     - cron: '0 */2 * * *'
