@@ -899,10 +899,34 @@
 
      Inside a tile the meta therefore drops underneath the name and becomes a
      single quiet row, which hands the name the tile's full content width
-     instead of the remainder. How many more characters that buys is a text
-     measurement in the reader's own system font; no browser could be
-     installed in the sandbox this was written in, so no figure is claimed
-     for it here.
+     instead of the remainder. How many more characters that buys was left
+     unclaimed when this rule was written, because no browser could be
+     installed in that sandbox. One can be now — see scripts/screenshot.ts —
+     so the figures are recorded here rather than left as an assertion.
+
+     Chromium 141, headless, the built demo/index.html of 2026-08-25, at the
+     15px/19.5px this stack resolves to. Width of the `.phead-name` box, and
+     how much of one fixed reference name ("Vulcan Black Friday Edition
+     Intense Eau de Parfum Absolu Cologne") survives the two-line clamp,
+     measured character by character off Range rects with the room the
+     ellipsis takes subtracted. Each row is the densest count the chooser
+     offers at that width; "was" is the same layout with this rule reverted
+     in the same browser, at the same forced column count:
+
+       viewport  densest   name box      characters of the reference name
+       1280      5 / row   132px was 93   28 was 13
+       1440      5 / row   152px was 119  40 was 17
+       1920      8 / row   137px was 99   28 was 13
+       2560     10 / row   151px was 118  40 was 17
+
+     The gain is the meta column plus the 10px gap — 33 to 38px, consistently.
+     28 characters is the number that settles the case this rule exists for:
+     "Vulcan Black Friday Edition" is 27.
+
+     The counts this rule withdrew were worse than "narrow". At 1280 with 10
+     per row the name box measured 3px and at 8 per row 25px; both showed 7
+     characters, "Vulcan " and nothing after it, because the box is narrower
+     than the first word of the name.
 
      Scoped to .tile so the detail heading and the list rows, where nothing was
      wrong, keep the side by side arrangement they have always had. */
@@ -1502,7 +1526,20 @@
      never be read apart from the figure it qualifies — which is the whole
      reason this element exists. Wraps where the note is long and the viewport
      is narrow, hence the white-space reset against .price's nowrap: the
-     number must stay on one line, this note need not. */
+     number must stay on one line, this note need not.
+
+     That wrapping is now observed rather than reasoned about (Chromium 141,
+     scripts/screenshot.ts). At 390px the note takes one line on a row with no
+     RRP and two on a row that carries one ("INCLUDES £2.95" / "DELIVERY"),
+     right-aligned under the number, touching nothing. It reaches three lines
+     only where an RRP and an unbreakable shop name compete for the same row
+     — "MyBeauty.Boutique" is the case in the catalogue — and stays inside its
+     row when it does. No row overflows .offer-top at 360, 375, 390 or 430,
+     and the document's scrollWidth equals its clientWidth at every width from
+     320 up. At 320 the cheapest row does overflow its own right edge by 16px,
+     but that is not this note's doing: the same 16px is measured with
+     .del-note display:none, so it is the pre-existing minimum width of a
+     shop name plus a "Cheapest" chip beside an RRP and a price. */
   .del-note {
     display: block; margin-top: 1px; text-align: right; white-space: normal;
     font-size: 10px; font-weight: 600; color: var(--faint);

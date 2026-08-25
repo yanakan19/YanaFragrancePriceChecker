@@ -41,6 +41,7 @@
     "images:check": "tsx scripts/image-link-check.ts",
     "icons": "tsx scripts/generate-icons.ts",
     "og:preview": "tsx scripts/generate-og-preview.ts",
+    "screenshot": "tsx scripts/screenshot.ts",
     "changelog:suggest": "tsx scripts/changelog-suggest.ts",
     "quarantine:prices": "tsx scripts/quarantine-prices.ts",
     "sitemap": "tsx scripts/build-sitemap.ts"

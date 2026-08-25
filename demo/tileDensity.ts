@@ -44,6 +44,15 @@
  * off, and the name shares that with a size, a concentration and the gap
  * between them. There is no wrapping or clamping strategy that rescues it.
  *
+ * That table was arithmetic when it was written. It has since been checked
+ * against a real render — Chromium 141 through scripts/screenshot.ts, reading
+ * the tile's own getBoundingClientRect on a brand list at each width — and
+ * every figure matches to the pixel: 177 at 1280, 194 at 1366, 209 at 1440,
+ * 241 at 1600, 185 at 1920/8, 208 at 2560/10. The offered counts came back as
+ * the fourth column says, with one detail the table does not show: at 1100
+ * only 3 fits, and perRowControl() drops a chooser with a single option, so
+ * the control is absent rather than stuck.
+ *
  * MIN_TILE_PX is 148 because that is the number the stylesheet already names
  * as a tile's minimum, in two separate places: the `.tile-grid` comment
  * ("auto-fill/minmax(148px) landed on two at every width the narrow layout

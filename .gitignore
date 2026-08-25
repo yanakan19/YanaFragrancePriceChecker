@@ -2,6 +2,9 @@ node_modules/
 dist/
 dist-demo/
 coverage/
+# `npm run screenshot` writes here by default. See scripts/screenshot.ts: these
+# are megabytes each and go stale the moment the catalogue is harvested again.
+screenshots/
 *.log
 .env
 .env.*
