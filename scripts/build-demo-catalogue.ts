@@ -31,6 +31,7 @@ import {
   trustworthyEan,
 } from '../src/catalogue/productMatch.js';
 import { auditPriceScale } from '../src/catalogue/priceScale.js';
+import { auditWasPrices } from '../src/catalogue/wasPriceCredibility.js';
 import {
   isFragrance,
   sizeMl,
@@ -122,6 +123,14 @@ interface Offer {
    * from matters for attribution.
    */
   rating: { value: number; count: number | null } | null;
+  /**
+   * Millilitres read from *this shop's own title*, not the product record's
+   * size. Carried only so the reference-price check can refuse to compare an
+   * 80ml against a 100ml — see src/catalogue/wasPriceCredibility.ts and the
+   * shared-EAN case in its header. Dropped before anything is written, exactly
+   * like `description` is, so it costs nothing in the shipped bundle.
+   */
+  sizeMl: number | null;
 }
 
 interface Product {
@@ -527,6 +536,7 @@ for (const { retailer, listings } of eligible) {
       imageUrl: IMAGE_ALLOWED.has(l.retailerId) ? l.imageUrl : null,
       description: l.description ?? null,
       rating: l.rating ?? null,
+      sizeMl: size,
     };
 
     if (existing) {
@@ -628,6 +638,31 @@ if (scaleAudit.offScale.length > 0) {
   for (const [id, product] of products) if (product.offers.length === 0) products.delete(id);
 }
 
+/* ── a reference price the rest of the market contradicts ───────────────────
+   The owner's report was that Perfume Click's RRPs are misleading. Measuring
+   it said the instinct was right and the suspect was wrong: shops agree with
+   each other about RRP (median ratio 1.000 over 5,391 comparable claims), and
+   what actually misleads is that an RRP sits far above street price across the
+   whole discount market, so a strikethrough against one advertises a saving a
+   reader cannot capture by shopping elsewhere. That is a question about what a
+   strikethrough should mean, and it is the owner's to answer.
+
+   What is answerable here is the tail: claims the market actively contradicts.
+   Those are dropped rather than published — the price itself is untouched, only
+   the reference price beside it goes — which is what stops them driving a
+   strikethrough, a percentage, or a place on Today's Deals, without any of
+   those three needing to know this check exists. Suppressing rather than
+   caveating is the same call the rest of this file already makes about a figure
+   it cannot stand behind. See src/catalogue/wasPriceCredibility.ts for the two
+   tests, the numbers behind them, and why a claim nobody else can corroborate
+   is left exactly as the merchant made it. */
+const { audit: wasAudit, verdicts: wasVerdicts } = auditWasPrices([...products.values()]);
+for (const product of products.values()) {
+  for (const offer of product.offers) {
+    if (wasVerdicts.get(offer) === 'refuted') offer.wasPrice = null;
+  }
+}
+
 /* ── houses we source direct, which we cannot price in sterling yet ────────── */
 
 /**
@@ -724,10 +759,13 @@ const ordered = [...products.values()].sort(
 // `description` is read for its notes above and then deliberately dropped: it
 // is several hundred words per product across hundreds of products, and
 // shipping all of it into a single page bundle would cost far more than the
-// handful of note names actually displayed.
-const crawled: Record<string, Omit<Offer, 'description'>[]> = {};
+// handful of note names actually displayed. `sizeMl` goes the same way and for
+// the same reason: it exists so the reference-price check can size-gate its
+// comparisons, the product record already carries the size once, and a second
+// copy on all 21,796 offers would be paid for on every page load.
+const crawled: Record<string, Omit<Offer, 'description' | 'sizeMl'>[]> = {};
 for (const p of ordered) {
-  crawled[p.id] = p.offers.map(({ description: _drop, ...rest }) => rest);
+  crawled[p.id] = p.offers.map(({ description: _drop, sizeMl: _size, ...rest }) => rest);
 }
 
 const crawledAt =
@@ -894,6 +932,34 @@ console.log(
       ? `\n  skipped: ${skippedShops.join(', ')}`
       : ''),
 );
+
+/* The three verdicts are printed together, always, including the ones nothing
+   was done about. `unchecked` is the majority and saying so is the point: it
+   is the share of the site's reference prices that no other shop stocks the
+   bottle to corroborate, and it must not read as a clean bill of health. */
+{
+  const claims = wasAudit.refuted + wasAudit.corroborated + wasAudit.unchecked;
+  const pct = (n: number) => (claims === 0 ? '0.0' : ((n / claims) * 100).toFixed(1));
+  console.log(
+    `reference prices: ${claims} offers claim a reduction — ` +
+      `${wasAudit.refuted} refuted by the market (${pct(wasAudit.refuted)}%), ` +
+      `${wasAudit.corroborated} corroborated (${pct(wasAudit.corroborated)}%), ` +
+      `${wasAudit.unchecked} unchecked (${pct(wasAudit.unchecked)}%, no two other shops stock the bottle)`,
+  );
+  for (const [retailerId, n] of [...wasAudit.refutedByShop].sort((a, b) => b[1] - a[1])) {
+    const checked = wasAudit.checkedByShop.get(retailerId) ?? 0;
+    console.log(
+      `::warning::${retailerId}: ${n} of ${checked} checkable reference prices are contradicted by the ` +
+        'other shops selling the same bottle — published without one rather than with one we cannot stand behind.',
+    );
+  }
+  if (wasAudit.productsWithMixedSizes > 0) {
+    console.log(
+      `::warning::${wasAudit.productsWithMixedSizes} products carry offers that disagree about bottle size. ` +
+        'No reference price was compared across a size boundary; see wasPriceCredibility.ts.',
+    );
+  }
+}
 
 for (const f of scaleAudit.offScale) {
   console.log(
