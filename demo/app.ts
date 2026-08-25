@@ -50,6 +50,9 @@ import { AA_TEXT, contrastRatio, parseColour, type Rgba } from './contrast.js';
 import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './gender.js';
 import { VOLUME_BANDS, volumeBandFor, type VolumeBand } from './volumeBands.js';
 import { LIST_SORT_OPTIONS, sortFragrances, type BrowseSort, type ListSort } from './listSort.js';
+import {
+  PER_ROW_CHOICES, PER_ROW_DEFAULT, clampPerRow, gridWidthFor, perRowChoicesFor,
+} from './tileDensity.js';
 import { trustpilotStateFor } from './trustpilotWidget.js';
 import { deliveryLines } from './deliveryFacts.js';
 import { deliveryPriceNote } from './priceDeliveryNote.js';
@@ -118,8 +121,9 @@ const PER_ROW_KEY = 'pricesniffs.perrow';
  */
 const YANNY_THREAD_KEY = 'pricesniffs.yanny.thread';
 
-const PER_ROW_CHOICES = [3, 5, 8, 10] as const;
-const PER_ROW_DEFAULT = 5;
+// PER_ROW_CHOICES, PER_ROW_DEFAULT and the width arithmetic that decides which
+// of those counts a given window can actually carry live in demo/tileDensity.ts
+// — see that file's header for what 10 per row was doing to product names.
 
 const state = {
   view: 'home' as View,
@@ -709,10 +713,26 @@ function setLayout(layout: Layout): void {
    Only the desktop layout honours it. At mobile width ten columns would be
    about thirty pixels each, which is not a smaller tile but an unusable one,
    so the narrow layout keeps fitting as many whole tiles as the screen has
-   room for and the control is not offered there. */
+   room for and the control is not offered there.
+
+   The same argument holds inside the desktop layout, which is what
+   demo/tileDensity.ts now enforces: ten columns on a 1440px laptop is a 96px
+   tile, and a 96px tile clips a product name down to its first word or two.
+   state.perRow stays whatever the reader picked; effectivePerRow() is what
+   gets drawn. */
+
+/** The count actually rendered right now, which the window may cap. */
+function effectivePerRow(): number {
+  return clampPerRow(state.perRow, gridWidthFor(window.innerWidth));
+}
+
+/** The counts this window is wide enough to offer, smallest first. */
+function offeredPerRow(): number[] {
+  return perRowChoicesFor(gridWidthFor(window.innerWidth));
+}
 
 function applyPerRow(): void {
-  document.documentElement.style.setProperty('--per-row', String(state.perRow));
+  document.documentElement.style.setProperty('--per-row', String(effectivePerRow()));
 }
 
 function loadPerRow(): void {
@@ -930,10 +950,19 @@ function tierFilterControl(id: string, current: BrandFilter): string {
  * markup, same component, one role each — rather than a `.hero .phead-name`
  * override quietly inventing a fourth heading size.
  */
+/*
+ * `title` on the name is the last resort, not the fix. `.phead-name` clamps to
+ * two lines, and demo/tileDensity.ts now keeps tiles wide enough that two
+ * lines is nearly always the whole name — but "nearly always" is not always,
+ * and the catalogue's longest names run past thirty words. Where the clamp
+ * still bites, the full string is at least reachable with a pointer. The
+ * tile's own button already carries `aria-label="<brand> <name>"`, so a screen
+ * reader was never reading the clipped version.
+ */
 function productHead(f: DemoFragrance, tag = 'span', nameRole = 't-title'): string {
   return `<${tag} class="phead">
     <span class="phead-text">
-      <span class="phead-name-wrap"><span class="phead-name ${nameRole}">${esc(f.name)}</span></span>
+      <span class="phead-name-wrap"><span class="phead-name ${nameRole}" title="${esc(f.name)}">${esc(f.name)}</span></span>
     </span>
     <span class="phead-meta t-caption">
       <span>${f.sizeMl}ml</span>
@@ -949,7 +978,11 @@ function productHead(f: DemoFragrance, tag = 'span', nameRole = 't-title'): stri
  * every other control in the app — see the delegated `data-brand` handler.
  */
 function brandButton(brand: string): string {
-  return `<button type="button" class="phead-brand t-eyebrow" data-brand="${esc(brand)}">${esc(brand)}</button>`;
+  // Single line with an ellipsis, by design — a wrapped pill stops reading as
+  // a pill. `title` carries the rest: "FRENCH AVEN..." is what a narrow tile
+  // was showing for French Avenue, and at the narrowest count the grid still
+  // offers, a long house name will still not fit on one line of an 11px chip.
+  return `<button type="button" class="phead-brand t-eyebrow" data-brand="${esc(brand)}" title="${esc(brand)}">${esc(brand)}</button>`;
 }
 
 /**
@@ -1046,25 +1079,70 @@ function fragranceTile(
           ${productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`)}
         </span>
         <span class="tile-price">${opts?.trailing ?? priceLine(f)}</span>
-        ${badgeRetailer ? `<span class="sold-by"><span>${badgePrefix} ${esc(badgeRetailer)}</span></span>` : `<span class="sold-by" aria-hidden="true" style="visibility:hidden"><span>&nbsp;</span></span>`}
+        ${badgeRetailer ? `<span class="sold-by" title="${esc(`${badgePrefix} ${badgeRetailer}`)}"><span>${badgePrefix} ${esc(badgeRetailer)}</span></span>` : `<span class="sold-by" aria-hidden="true" style="visibility:hidden"><span>&nbsp;</span></span>`}
       </button>
     </div>
   </li>`;
 }
 
+/** The chooser's `<option>` list, shared with the resize path below. */
+function perRowOptions(choices: number[], current: number): string {
+  return choices
+    .map((n) => `<option value="${n}" ${n === current ? 'selected' : ''}>${n} Per Row</option>`)
+    .join('');
+}
+
 /** The per-row chooser. Empty on mobile, where the count is not the reader's. */
 function perRowControl(): string {
   if (state.layout !== 'desktop') return '';
+  const choices = offeredPerRow();
+  // One option is not a choice, and a dropdown that cannot be changed is worse
+  // than no dropdown: the same reasoning that keeps the control off mobile.
+  if (choices.length < 2) return '';
   return `<label class="control">
     <span class="control-ico">${ICON_GRID}</span>
     <span class="sr">Tiles per row</span>
     <select id="per-row" class="dropdown">
-      ${PER_ROW_CHOICES.map(
-        (n) => `<option value="${n}" ${n === state.perRow ? 'selected' : ''}>${n} Per Row</option>`,
-      ).join('')}
+      ${perRowOptions(choices, effectivePerRow())}
     </select>
     <span class="control-chevron" aria-hidden="true">${ICON_CHEVRON}</span>
   </label>`;
+}
+
+/**
+ * Keep the chooser honest while the window is being dragged.
+ *
+ * Patched in place rather than re-rendered, for the reason the `per-row`
+ * change handler already gives: the grid reads a CSS variable, so the columns
+ * reflow on their own, and repainting several hundred tiles mid-drag (and
+ * resetting how far down a chunked list the reader had got) buys nothing. A
+ * full render is only asked for in the one case a patch cannot cover — the
+ * window widening past the point where a chooser is worth showing at all.
+ */
+function syncPerRowControl(): void {
+  applyPerRow();
+  const choices = offeredPerRow();
+  const wanted = choices.length > 1 ? choices : [];
+  const select = document.getElementById('per-row') as HTMLSelectElement | null;
+  if (!select) {
+    if (wanted.length > 0 && state.layout === 'desktop' && document.querySelector('.tile-grid')) render();
+    return;
+  }
+  if (wanted.length === 0) {
+    // On a results list the chooser is alone in its own .controls row, which
+    // carries 22px of margin and would be left holding nothing; on Deals it
+    // shares that row with the sort control and the facets, which must stay.
+    const label = select.closest('.control');
+    const row = label?.parentElement;
+    label?.remove();
+    if (row?.classList.contains('controls') && row.children.length === 0) row.remove();
+    return;
+  }
+  const current = effectivePerRow();
+  if (Array.from(select.options).map((o) => Number(o.value)).join(',') !== wanted.join(',')) {
+    select.innerHTML = perRowOptions(wanted, current);
+  }
+  select.value = String(current);
 }
 
 function fragranceList(list: DemoFragrance[], empty: string): string {
@@ -5022,7 +5100,10 @@ function init(): void {
 
   window.addEventListener('resize', () => {
     window.clearTimeout(resizeTimer);
-    resizeTimer = window.setTimeout(syncUpdatesHeight, 120);
+    resizeTimer = window.setTimeout(() => {
+      syncUpdatesHeight();
+      syncPerRowControl();
+    }, 120);
   });
 
   // First paint comes from whatever URL we were opened at, so a deep link,

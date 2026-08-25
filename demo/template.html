@@ -882,13 +882,32 @@
   .tile .phead-name-wrap { min-height: 2.5em; }
   /* .phead-name-wrap's own centring (above) spaces a one-line name in the
      middle of that reserved room, which reads as a gap between brand and
-     name and also drags .phead's centring of .phead-meta down against a box
-     taller than what's actually on screen. Anchoring both to the top instead
-     keeps brand and name close together and puts the meta column level with
-     them — the reserved room still exists for a wrapped second line, it just
-     no longer pushes anything visible around. */
-  .tile .phead { align-items: flex-start; }
+     name. Anchoring it to the top instead keeps brand and name close together
+     — the reserved room still exists for a wrapped second line, it just no
+     longer pushes anything visible around. */
   .tile .phead-name-wrap { align-items: flex-start; }
+  /* ── the name gets the whole tile, not what the meta leaves it ────────────
+     Everywhere else .phead is a row: name on the left, size and concentration
+     riding on the right. That is right on a detail heading and on a list row,
+     both of which have hundreds of pixels to spend. In a tile it is not: the
+     meta column is `flex: none` with `white-space: nowrap`, so it takes the
+     width "100ml"/"Extrait" needs *first* and the name clamps into whatever
+     is left, minus the 10px gap. On a narrow tile that remainder is a sliver,
+     and a two line clamp over a sliver is how three different French Avenue
+     products — "Vulcan Black Friday" in two concentrations and "Vulcan Black
+     Friday Edition" — all came to read "Vulcan Black..." and nothing else.
+
+     Inside a tile the meta therefore drops underneath the name and becomes a
+     single quiet row, which hands the name the tile's full content width
+     instead of the remainder. How many more characters that buys is a text
+     measurement in the reader's own system font; no browser could be
+     installed in the sandbox this was written in, so no figure is claimed
+     for it here.
+
+     Scoped to .tile so the detail heading and the list rows, where nothing was
+     wrong, keep the side by side arrangement they have always had. */
+  .tile .phead { flex-direction: column; align-items: stretch; gap: 2px; }
+  .tile .phead-meta { flex-direction: row; align-items: baseline; gap: 6px; }
   /* The slack absorber: with every row the same height (grid-auto-rows above),
      whatever height the text does not use ends up here, which keeps the price
      and the shop tag on the tile's bottom edge across the whole row. */
