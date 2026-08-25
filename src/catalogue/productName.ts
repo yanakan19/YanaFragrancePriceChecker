@@ -726,6 +726,22 @@ export function displayName(title: string, brand: string | null, displayedBrand:
     // CONCENTRATION_OIL's "Perfume Oil": that phrase's last word is "Oil",
     // not "Perfume", so this can never reach it).
     s = s.replace(/\s+perfume\s*$/i, '');
+    // The connector that introduced the brand, now introducing nothing.
+    //
+    // "Flower by Kenzo" becomes "Flower by"; "K by Dolce & Gabbana" becomes
+    // "K By"; "Ari by Ariana Grande" becomes "Ari By". The house is already
+    // shown beside the name, so the word is not carrying a fact — it is a
+    // sentence cut off mid-phrase, and it reads as a bug because it is one.
+    // Measured on the live catalogue: 348 product names ended this way before
+    // this rule, across houses as ordinary as Kenzo, Diesel and Dolce &
+    // Gabbana.
+    //
+    // Only ever at the very end, and only inside this block — where a brand
+    // has just been confirmed and removed from the end of the name. "for" is
+    // included because "Musk Abiyad for Afnan" leaves the same wreckage, but
+    // a mid-name "for" is untouched, so "Eilish for Her" and "9pm for Men"
+    // keep the words that tell a reader who the fragrance is for.
+    s = s.replace(/\s+(?:by|for|from|pour)\s*$/i, '');
     // The brand strip above already trims stray leading/trailing separators
     // once; removing more text off the end here can expose a fresh one
     // ("Name -" once "- Brand" is gone), so the same trim runs again.
@@ -780,6 +796,22 @@ export function displayName(title: string, brand: string | null, displayedBrand:
   // the live catalogue reaches it today (measured: 0 of 18,906), but an
   // unbranded listing whose title is nothing but a concentration and a size
   // would, and an empty name is not something the app can render.
+  // A trailing connector is wrong however the name arrived at one.
+  //
+  // The trailing-brand block above strips one for the case it handles, and
+  // that cleared 443 of 450 live names. The remaining 7 — "Flash by" (Jimmy
+  // Choo), "Libre By" (YSL), "Polo Sport by" (Ralph Lauren) among them —
+  // reached the same shape down other paths, because the brand can leave the
+  // name through several rules in this function and each would need its own
+  // copy of the cleanup.
+  //
+  // So it runs once, here, on the way out. "X by" with nothing after the "by"
+  // states no fact the house beside it does not already state, and reads as a
+  // sentence cut in half. Anchored to the very end, so a connector still doing
+  // work keeps its words: "9pm for Men" and "Black XS Pour Elle" are
+  // untouched, because something follows.
+  s = s.replace(/\s+(?:by|for|from|pour)\s*$/i, '').replace(/[\s,\-&|]+$/g, '');
+
   return s || displayedBrand || brand || title;
 }
 

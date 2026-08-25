@@ -57,6 +57,25 @@ describe('displayName: the brand is not repeated in the name', () => {
     expect(displayName(title, raw, displayed)).toBe(expected);
   });
 
+  // ── The connector that introduced the brand, once the brand is gone ──────
+  // "Flower by Kenzo" was rendering as "Flower by": a sentence cut off
+  // mid-phrase, with the house already shown beside it. 348 live product
+  // names ended this way.
+  it('drops a connector left dangling by the brand strip', () => {
+    expect(displayName('Flower by Kenzo Eau de Parfum 50ml', 'Kenzo', 'Kenzo')).toBe('Flower');
+    expect(displayName('K by Dolce & Gabbana Eau de Toilette 100ml', 'Dolce & Gabbana', 'Dolce & Gabbana')).toBe('K');
+    expect(displayName('Musk Abiyad by Afnan 100ml', 'Afnan', 'Afnan')).toBe('Musk Abiyad');
+  });
+
+  // The other half of the same rule: "for" carries a real fact in the middle
+  // of a name and must survive there.
+  it('keeps a connector that is still doing work', () => {
+    expect(displayName('Afnan 9pm for Men Eau de Parfum 100ml', 'Afnan', 'Afnan')).toBe('9pm for Men');
+    expect(displayName('Dunhill London Desire Red For Men Eau de Toilette 100ml', 'Dunhill London', 'Dunhill')).toBe(
+      'Desire Red For Men',
+    );
+  });
+
   // The regressions the longest-match rule exists to prevent. Both would ship
   // a visibly mangled name.
   it('does not leave a fragment of the brand behind', () => {

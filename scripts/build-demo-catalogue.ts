@@ -191,16 +191,59 @@ function pickNotes(offers: Offer[]): Notes | null {
 }
 
 /**
+ * Shop names reduced to a comparable core, so a retailer tagging itself is
+ * recognised however it spells its own name.
+ *
+ * Exact string equality was the original test and it missed the worst case in
+ * the catalogue. FragranceHub's registry name is "FragranceHub", and it vendors
+ * its own listings three different ways — "Fragrance Hub LTD" (39 listings),
+ * "Fragrancehub.co.uk" (28) and Shopify's untouched default "My Store" (31).
+ * None matched, so 98 products carried a shop as their fragrance house, and the
+ * real houses in those titles — Ajmal, Lattafa, Armaf, Fragrance World — lost
+ * them. Measured against demo/catalogue.generated.ts on 2026-08-25; all three
+ * strings occur at fragrancehub and at no other shop, which is what makes them
+ * a vendor-field defect rather than a small house this build has not heard of.
+ *
+ * Punctuation, spacing and a trailing company suffix all go, because they are
+ * exactly what differs between a shop's legal name, its trading name and its
+ * domain. Nothing here touches the *middle* of a name, so two genuinely
+ * different houses cannot be collapsed into one by this.
+ */
+function shopNameCore(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/\.(co\.uk|com|net|org|shop|store|uk)$/i, '')
+    .replace(/[^a-z0-9]+/g, '')
+    .replace(/(ltd|limited|llc|inc|plc|gmbh)$/i, '');
+}
+
+/**
+ * Shopify's out-of-the-box shop name, which a merchant is meant to replace.
+ *
+ * Not tied to any one retailer: it is never a fragrance house at any shop, and
+ * a listing carrying it has told us nothing about its brand. Kept as its own
+ * short list rather than folded into the retailer-name test because it is a
+ * different fact — "this is a placeholder" rather than "this is the shop".
+ */
+const PLACEHOLDER_VENDOR_NAMES: ReadonlySet<string> = new Set(['mystore', 'myshop', 'defaulttitle']);
+
+/**
  * True when a listing's own vendor field cannot be trusted as its brand.
  *
  * A multi-brand retailer's Shopify `vendor` field is supposed to name the
  * fragrance house, and for the overwhelming majority of listings it does.
  * Occasionally a shop tags its own vendor field with its own shop name
  * instead — checked against the live catalogue, this happens for 10 of
- * Emirates Oud's 2468 listings and for all 173 of Oud Arabian's (both
- * already documented in src/config/retailers.ts as multi-brand listings,
- * not a house's own storefront). "Emirates Oud" and "Oud Arabian" are shops,
- * not fragrance houses, so keeping either as a brand states something false.
+ * Emirates Oud's 2468 listings, for all 173 of Oud Arabian's, and for 98 of
+ * FragranceHub's (all three already documented in src/config/retailers.ts as
+ * multi-brand listings, not a house's own storefront). "Emirates Oud", "Oud
+ * Arabian" and "FragranceHub" are shops, not fragrance houses, so keeping any
+ * of them as a brand states something false.
+ *
+ * The comparison is against the shop's registry name *and* its domain, both
+ * reduced by shopNameCore, because a shop that vendors itself does not
+ * reliably use the same spelling the registry does — see that helper for the
+ * measurement behind it.
  *
  * `retailer.singleBrandOnly` is the reason this is never applied to a
  * house's own UK storefront: there, the vendor field naming the retailer's
@@ -208,7 +251,10 @@ function pickNotes(offers: Offer[]): Notes | null {
  */
 function isSelfVendored(rawBrand: string | null | undefined, retailer: Retailer): boolean {
   if (!rawBrand || retailer.singleBrandOnly) return false;
-  return rawBrand.trim().toLowerCase() === retailer.name.trim().toLowerCase();
+  const core = shopNameCore(rawBrand);
+  if (!core) return false;
+  if (PLACEHOLDER_VENDOR_NAMES.has(core)) return true;
+  return core === shopNameCore(retailer.name) || core === shopNameCore(retailer.domain);
 }
 
 /**
