@@ -77,7 +77,9 @@ import { harvestReportWriter, type HarvestTier } from '../src/catalogue/harvestR
 import {
   renderRefusals, type RenderRefusal, type RenderedPage,
 } from '../src/catalogue/renderRefusal.js';
-import { parseCursor, sweepOrder, withAttempt } from '../src/catalogue/harvestCursor.js';
+import {
+  parseCursor, sweepOrder, withAttempt, staleCursorIds,
+} from '../src/catalogue/harvestCursor.js';
 
 /** A file that may not exist yet, as text. Absence is not an error here. */
 function readFileIfPresent(path: string): string | null {
@@ -345,6 +347,18 @@ const shops = sweepOrder(
   enabledShops.map((r) => ({ ...r, neverLive: neverLiveYet(r.id) })),
   cursor,
 );
+
+// Stamps for shops this registry no longer sweeps. Reported rather than
+// deleted, and only on a full sweep: on a `--shop=` run every other shop is
+// "not in this list" for a reason that has nothing to do with the registry,
+// and dropping their stamps would send the whole catalogue to the front of the
+// next run. See staleCursorIds' own comment.
+if (!onlyShop) {
+  const stale = staleCursorIds(cursor, shops.map((r) => r.id));
+  if (stale.length > 0) {
+    console.log(`harvest cursor holds ${stale.length} id(s) no longer swept: ${stale.join(', ')}`);
+  }
+}
 
 /**
  * Record that a shop was asked, and put it on disk immediately.
