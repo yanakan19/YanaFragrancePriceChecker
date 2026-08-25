@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-25T19:42:05.133Z",
+  "checkedAt": "2026-08-25T21:45:29.058Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,12 +59,11 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 49,
+      "listings": 60,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded",
-        "stopped early: exceeded this house's time budget"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -91,13 +90,15 @@
     {
       "houseId": "gulf-orchid",
       "name": "Gulf Orchid",
-      "origin": "https://shop-gulforchid.com",
+      "origin": "https://www.shop-gulforchid.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
       "listings": 251,
       "pricedInGbp": 0,
       "withPhoto": 251,
-      "errors": [],
+      "errors": [
+        "https://shop-gulforchid.com did not answer; used https://www.shop-gulforchid.com instead"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "Dubai-based manufacturer, trading since 1987. Sister brand to Maison Asrar (below) — the two share a manufacturer, not a storefront, so each still needs its own harvest",
@@ -144,12 +145,10 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 37,
-      "pricedInGbp": 37,
-      "withPhoto": 37,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "listings": 60,
+      "pricedInGbp": 60,
+      "withPhoto": 59,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
@@ -195,12 +194,10 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 118,
-      "pricedInGbp": 118,
-      "withPhoto": 118,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "listings": 120,
+      "pricedInGbp": 120,
+      "withPhoto": 120,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
