@@ -1,8 +1,8 @@
 {
-  "startedAt": "2026-08-25T20:36:26.933Z",
-  "finishedAt": null,
-  "complete": false,
-  "endedReason": null,
+  "startedAt": "2026-08-25T22:20:28.206Z",
+  "finishedAt": "2026-08-25T23:16:28.242Z",
+  "complete": true,
+  "endedReason": "deadline",
   "planned": [
     "notino-uk",
     "boots",
@@ -42,6 +42,10 @@
     "home-bargains"
   ],
   "notReached": [
+    "oud-arabian",
+    "manchester-ouds",
+    "emirates-oud",
+    "perfumeo",
     "the-beauty-store-uk",
     "zimaya",
     "kayali",
@@ -65,7 +69,7 @@
       "errorCount": 6,
       "errors": [
         "[actor] rendered 4 section page(s), 0 listings parsed, 0 priced",
-        "[actor] https://www.notino.co.uk/fragrance/?page=1: HTTP 200, 698484 bytes",
+        "[actor] https://www.notino.co.uk/fragrance/?page=1: HTTP 200, 698748 bytes",
         "[actor] https://www.notino.co.uk/perfumes-for-women/?f=page-1: HTTP 403, 27520 bytes — REFUSED: the shop answered HTTP 403 — this address is refused, not empty",
         "[actor] https://www.notino.co.uk/perfumes-for-men/?f=page-1: HTTP 403, 27493 bytes — REFUSED: the shop answered HTTP 403 — this address is refused, not empty",
         "[actor] https://www.notino.co.uk/niche-perfumes/?f=page-1: HTTP 403, 27487 bytes — REFUSED: the shop answered HTTP 403 — this address is refused, not empty",
@@ -91,7 +95,7 @@
           "reason": "the shop answered HTTP 403 — this address is refused, not empty"
         }
       ],
-      "finishedAt": "2026-08-25T20:36:55.556Z"
+      "finishedAt": "2026-08-25T22:20:57.026Z"
     },
     {
       "retailerId": "boots",
@@ -104,17 +108,17 @@
       "errorCount": 2,
       "errors": [
         "[actor] rendered 1 section page(s), 0 listings parsed, 0 priced",
-        "[actor] https://www.boots.com/fragrance/shop-all-fragrance?pageNo=1: HTTP 200, 1190 bytes — REFUSED: HTTP 200 but only 1190 bytes — far too small to be a catalogue page (a real one measures 700KB-1MB), so this is a bot wall, not an empty shop"
+        "[actor] https://www.boots.com/fragrance/shop-all-fragrance?pageNo=1: HTTP 200, 1188 bytes — REFUSED: HTTP 200 but only 1188 bytes — far too small to be a catalogue page (a real one measures 700KB-1MB), so this is a bot wall, not an empty shop"
       ],
       "refusals": [
         {
           "url": "https://www.boots.com/fragrance/shop-all-fragrance?pageNo=1",
           "status": 200,
-          "bytes": 1190,
-          "reason": "HTTP 200 but only 1190 bytes — far too small to be a catalogue page (a real one measures 700KB-1MB), so this is a bot wall, not an empty shop"
+          "bytes": 1188,
+          "reason": "HTTP 200 but only 1188 bytes — far too small to be a catalogue page (a real one measures 700KB-1MB), so this is a bot wall, not an empty shop"
         }
       ],
-      "finishedAt": "2026-08-25T20:37:02.441Z"
+      "finishedAt": "2026-08-25T22:21:04.102Z"
     },
     {
       "retailerId": "the-fragrance-shop",
@@ -127,8 +131,8 @@
       "errorCount": 5,
       "errors": [
         "[actor] rendered 3 section page(s), 0 listings parsed, 0 priced",
-        "[actor] https://www.thefragranceshop.co.uk/fragrance/l?page=1: HTTP 403, 27537 bytes — REFUSED: the shop answered HTTP 403 — this address is refused, not empty",
-        "[actor] https://www.thefragranceshop.co.uk/womens-fragrance?page=1: HTTP 403, 27573 bytes — REFUSED: the shop answered HTTP 403 — this address is refused, not empty",
+        "[actor] https://www.thefragranceshop.co.uk/fragrance/l?page=1: HTTP 403, 27558 bytes — REFUSED: the shop answered HTTP 403 — this address is refused, not empty",
+        "[actor] https://www.thefragranceshop.co.uk/womens-fragrance?page=1: HTTP 403, 27552 bytes — REFUSED: the shop answered HTTP 403 — this address is refused, not empty",
         "[actor] https://www.thefragranceshop.co.uk/mens-fragrance?page=1: HTTP 403, 27546 bytes — REFUSED: the shop answered HTTP 403 — this address is refused, not empty",
         "https://www.thefragranceshop.co.uk/sitemap.xml: HTTP 403"
       ],
@@ -136,13 +140,13 @@
         {
           "url": "https://www.thefragranceshop.co.uk/fragrance/l?page=1",
           "status": 403,
-          "bytes": 27537,
+          "bytes": 27558,
           "reason": "the shop answered HTTP 403 — this address is refused, not empty"
         },
         {
           "url": "https://www.thefragranceshop.co.uk/womens-fragrance?page=1",
           "status": 403,
-          "bytes": 27573,
+          "bytes": 27552,
           "reason": "the shop answered HTTP 403 — this address is refused, not empty"
         },
         {
@@ -152,7 +156,7 @@
           "reason": "the shop answered HTTP 403 — this address is refused, not empty"
         }
       ],
-      "finishedAt": "2026-08-25T20:37:24.816Z"
+      "finishedAt": "2026-08-25T22:21:26.015Z"
     },
     {
       "retailerId": "harvey-nichols",
@@ -169,21 +173,22 @@
         "https://www.harveynichols.com/sitemap.xml: HTTP 503",
         "https://www.harveynichols.com/xmlsitemap.php: HTTP 503"
       ],
-      "finishedAt": "2026-08-25T20:37:28.583Z"
+      "finishedAt": "2026-08-25T22:21:29.897Z"
     },
     {
       "retailerId": "debenhams",
       "name": "Debenhams",
       "urlsDiscovered": 718,
-      "pagesFetched": 70,
+      "pagesFetched": 63,
       "priced": 0,
       "tier": "none",
       "renderer": null,
-      "errorCount": 1,
+      "errorCount": 2,
       "errors": [
-        "https://www.debenhams.com/sitemap.xml: HTTP 404"
+        "https://www.debenhams.com/sitemap.xml: HTTP 404",
+        "stopped early: exceeded this shop's time budget"
       ],
-      "finishedAt": "2026-08-25T20:43:52.052Z"
+      "finishedAt": "2026-08-25T22:27:34.720Z"
     },
     {
       "retailerId": "allbeauty",
@@ -195,7 +200,7 @@
       "renderer": null,
       "errorCount": 0,
       "errors": [],
-      "finishedAt": "2026-08-25T20:49:16.132Z"
+      "finishedAt": "2026-08-25T22:32:56.835Z"
     },
     {
       "retailerId": "justmylook",
@@ -207,7 +212,7 @@
       "renderer": null,
       "errorCount": 0,
       "errors": [],
-      "finishedAt": "2026-08-25T20:54:47.242Z"
+      "finishedAt": "2026-08-25T22:38:36.889Z"
     },
     {
       "retailerId": "the-perfume-shop",
@@ -220,9 +225,9 @@
       "errorCount": 6,
       "errors": [
         "[actor] rendered 4 section page(s), 0 listings parsed, 0 priced",
-        "[actor] https://www.theperfumeshop.com/womens/womens-perfume/c/W2001?page=1: HTTP 403, 330 bytes — REFUSED: the shop answered HTTP 403 — this address is refused, not empty",
-        "[actor] https://www.theperfumeshop.com/mens/mens-fragrance/c/M2001?page=1: HTTP 403, 328 bytes — REFUSED: the shop answered HTTP 403 — this address is refused, not empty",
-        "[actor] https://www.theperfumeshop.com/offers/all-offers/fragrance-offers/c/W30050?page=1: HTTP 403, 344 bytes — REFUSED: the shop answered HTTP 403 — this address is refused, not empty",
+        "[actor] https://www.theperfumeshop.com/womens/womens-perfume/c/W2001?page=1: HTTP 403, 328 bytes — REFUSED: the shop answered HTTP 403 — this address is refused, not empty",
+        "[actor] https://www.theperfumeshop.com/mens/mens-fragrance/c/M2001?page=1: HTTP 403, 326 bytes — REFUSED: the shop answered HTTP 403 — this address is refused, not empty",
+        "[actor] https://www.theperfumeshop.com/offers/all-offers/fragrance-offers/c/W30050?page=1: HTTP 403, 342 bytes — REFUSED: the shop answered HTTP 403 — this address is refused, not empty",
         "[actor] https://www.theperfumeshop.com/products/gift-sets/c/GS2001?page=1: HTTP 0, 0 bytes, local render budget of 12 pages exhausted for this run",
         "https://www.theperfumeshop.com/sitemap.xml: HTTP 403"
       ],
@@ -230,23 +235,23 @@
         {
           "url": "https://www.theperfumeshop.com/womens/womens-perfume/c/W2001?page=1",
           "status": 403,
-          "bytes": 330,
+          "bytes": 328,
           "reason": "the shop answered HTTP 403 — this address is refused, not empty"
         },
         {
           "url": "https://www.theperfumeshop.com/mens/mens-fragrance/c/M2001?page=1",
           "status": 403,
-          "bytes": 328,
+          "bytes": 326,
           "reason": "the shop answered HTTP 403 — this address is refused, not empty"
         },
         {
           "url": "https://www.theperfumeshop.com/offers/all-offers/fragrance-offers/c/W30050?page=1",
           "status": 403,
-          "bytes": 344,
+          "bytes": 342,
           "reason": "the shop answered HTTP 403 — this address is refused, not empty"
         }
       ],
-      "finishedAt": "2026-08-25T20:54:56.053Z"
+      "finishedAt": "2026-08-25T22:38:45.564Z"
     },
     {
       "retailerId": "john-lewis",
@@ -267,7 +272,7 @@
         "https://www.johnlewis.com/siteindex.xml: HTTP 0",
         "[patient] https://www.johnlewis.com/sitemap.xml: HTTP 0"
       ],
-      "finishedAt": "2026-08-25T20:57:46.350Z"
+      "finishedAt": "2026-08-25T22:41:35.927Z"
     },
     {
       "retailerId": "beautybase",
@@ -279,7 +284,7 @@
       "renderer": null,
       "errorCount": 0,
       "errors": [],
-      "finishedAt": "2026-08-25T21:03:36.346Z"
+      "finishedAt": "2026-08-25T22:47:21.041Z"
     },
     {
       "retailerId": "lookfantastic",
@@ -293,7 +298,7 @@
       "errors": [
         "https://www.lookfantastic.com/sitemap.xml: HTTP 403"
       ],
-      "finishedAt": "2026-08-25T21:08:58.544Z"
+      "finishedAt": "2026-08-25T22:52:39.486Z"
     },
     {
       "retailerId": "superdrug",
@@ -310,7 +315,7 @@
         "[actor] https://www.superdrug.com/fragrance/premium-fragrances/c/premium-brands?page=1: HTTP 0, 0 bytes, local render budget of 12 pages exhausted for this run",
         "https://www.superdrug.com/sitemap.xml: HTTP 403"
       ],
-      "finishedAt": "2026-08-25T21:08:58.809Z"
+      "finishedAt": "2026-08-25T22:52:39.803Z"
     },
     {
       "retailerId": "selfridges",
@@ -326,7 +331,7 @@
         "[actor] https://www.selfridges.com/GB/en/cat/beauty/fragrance/?pn=1: HTTP 0, 0 bytes, local render budget of 12 pages exhausted for this run",
         "https://www.selfridges.com/sitemap.xml: HTTP 403"
       ],
-      "finishedAt": "2026-08-25T21:08:59.018Z"
+      "finishedAt": "2026-08-25T22:52:39.991Z"
     },
     {
       "retailerId": "the-fragrance-counter",
@@ -338,7 +343,7 @@
       "renderer": null,
       "errorCount": 0,
       "errors": [],
-      "finishedAt": "2026-08-25T21:11:28.417Z"
+      "finishedAt": "2026-08-25T22:55:11.914Z"
     },
     {
       "retailerId": "scentstore",
@@ -350,7 +355,7 @@
       "renderer": null,
       "errorCount": 0,
       "errors": [],
-      "finishedAt": "2026-08-25T21:16:31.469Z"
+      "finishedAt": "2026-08-25T23:00:17.574Z"
     },
     {
       "retailerId": "glorious-beauty",
@@ -362,7 +367,7 @@
       "renderer": null,
       "errorCount": 0,
       "errors": [],
-      "finishedAt": "2026-08-25T21:19:51.244Z"
+      "finishedAt": "2026-08-25T23:03:41.769Z"
     },
     {
       "retailerId": "french-avenue",
@@ -374,7 +379,7 @@
       "renderer": null,
       "errorCount": 0,
       "errors": [],
-      "finishedAt": "2026-08-25T21:20:01.093Z"
+      "finishedAt": "2026-08-25T23:03:52.176Z"
     },
     {
       "retailerId": "armaf",
@@ -386,7 +391,7 @@
       "renderer": null,
       "errorCount": 0,
       "errors": [],
-      "finishedAt": "2026-08-25T21:20:22.519Z"
+      "finishedAt": "2026-08-25T23:04:13.924Z"
     },
     {
       "retailerId": "al-haramain",
@@ -398,19 +403,21 @@
       "renderer": null,
       "errorCount": 0,
       "errors": [],
-      "finishedAt": "2026-08-25T21:22:12.708Z"
+      "finishedAt": "2026-08-25T23:05:57.402Z"
     },
     {
       "retailerId": "riiffs",
       "name": "Riiffs Perfumes",
       "urlsDiscovered": 142,
-      "pagesFetched": 70,
-      "priced": 69,
+      "pagesFetched": 65,
+      "priced": 64,
       "tier": "free",
       "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "finishedAt": "2026-08-25T21:28:40.890Z"
+      "errorCount": 1,
+      "errors": [
+        "stopped early: exceeded this shop's time budget"
+      ],
+      "finishedAt": "2026-08-25T23:11:59.855Z"
     },
     {
       "retailerId": "ibraq",
@@ -422,89 +429,21 @@
       "renderer": null,
       "errorCount": 0,
       "errors": [],
-      "finishedAt": "2026-08-25T21:28:50.536Z"
+      "finishedAt": "2026-08-25T23:12:09.428Z"
     },
     {
       "retailerId": "bellavita-luxury",
       "name": "BellaVita Luxury",
       "urlsDiscovered": 83,
-      "pagesFetched": 70,
-      "priced": 70,
+      "pagesFetched": 60,
+      "priced": 60,
       "tier": "free",
       "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "finishedAt": "2026-08-25T21:33:59.193Z"
-    },
-    {
-      "retailerId": "oud-arabian",
-      "name": "Oud Arabian",
-      "urlsDiscovered": 173,
-      "pagesFetched": 70,
-      "priced": 62,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 8,
+      "errorCount": 1,
       "errors": [
-        "https://oudarabian.co.uk/products/french-avenue-safari-breeze-100ml-extrait-de-parfum: HTTP 503",
-        "https://oudarabian.co.uk/products/bujairami-hectic-100ml-extrait-de-parfum: HTTP 503",
-        "https://oudarabian.co.uk/products/bujairami-kingsman-100ml-extrait-de-parfum: HTTP 503",
-        "https://oudarabian.co.uk/products/bujairami-miss-vanilla-100ml-extrait-de-parfum: HTTP 503",
-        "https://oudarabian.co.uk/products/bujairami-candy-crush-100ml-eau-de-parfum: HTTP 503",
-        "https://oudarabian.co.uk/products/rayhaan-kiss-perfume-100ml-edp-by-rayhaan: HTTP 503",
-        "https://oudarabian.co.uk/products/bujairami-imperial-oud-100ml-extrait-de-parfum-bujairami-sydney: HTTP 503",
-        "https://oudarabian.co.uk/products/reef-19-100ml-eau-de-parfum-unisex: HTTP 503"
+        "stopped early: exceeded this shop's time budget"
       ],
-      "finishedAt": "2026-08-25T21:38:29.466Z"
-    },
-    {
-      "retailerId": "manchester-ouds",
-      "name": "Manchester Ouds",
-      "urlsDiscovered": 0,
-      "pagesFetched": 0,
-      "priced": 0,
-      "tier": "none",
-      "renderer": null,
-      "errorCount": 3,
-      "errors": [
-        "[actor] rendered 1 section page(s), 0 listings parsed, 0 priced",
-        "[actor] https://manchesterouds.com/collections/all?page=1: HTTP 0, 0 bytes, local render budget of 12 pages exhausted for this run",
-        "https://manchesterouds.com/sitemap_products_1.xml?from=15624344764756&amp;to=15671648747860: HTTP 503"
-      ],
-      "finishedAt": "2026-08-25T21:38:30.615Z"
-    },
-    {
-      "retailerId": "emirates-oud",
-      "name": "Emirates Oud",
-      "urlsDiscovered": 2503,
-      "pagesFetched": 37,
-      "priced": 2503,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "finishedAt": "2026-08-25T21:41:20.919Z"
-    },
-    {
-      "retailerId": "perfumeo",
-      "name": "Perfumeo",
-      "urlsDiscovered": 1517,
-      "pagesFetched": 27,
-      "priced": 12,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 17,
-      "errors": [
-        "https://www.perfumeo.co.uk/sitemap.xml: HTTP 404",
-        "https://perfumeo.co.uk/products/blooming-flower-gardenia-by-fragrance-world-100ml-eau-de-parfum/: HTTP 0",
-        "https://perfumeo.co.uk/products/the-white-cloud-by-maison-alhambra-100ml-eau-de-parfum/: HTTP 0",
-        "https://perfumeo.co.uk/products/iced-petal-shams-al-emarat-khususi-by-ard-al-zaafaran-100ml-eau-de-parfum/: HTTP 0",
-        "https://perfumeo.co.uk/products/glaze-glow-shams-al-emarat-khususi-by-ard-al-zaafaran-100ml-eau-de-parfum/: HTTP 0",
-        "https://perfumeo.co.uk/products/the-aurum-luxura-by-maison-alhambra-100ml-eau-de-parfum/: HTTP 0",
-        "https://perfumeo.co.uk/products/maitha-by-lattafa-20ml-perfume-oil/: HTTP 0",
-        "https://perfumeo.co.uk/products/nusuk-ateeq-eau-de-parfum-100ml/: HTTP 0"
-      ],
-      "finishedAt": "2026-08-25T21:49:29.683Z"
+      "finishedAt": "2026-08-25T23:16:28.240Z"
     }
   ]
 }

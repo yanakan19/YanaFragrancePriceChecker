@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-25T21:45:29.058Z",
+  "checkedAt": "2026-08-25T23:24:57.513Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -90,15 +90,13 @@
     {
       "houseId": "gulf-orchid",
       "name": "Gulf Orchid",
-      "origin": "https://www.shop-gulforchid.com",
+      "origin": "https://shop-gulforchid.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
       "listings": 251,
       "pricedInGbp": 0,
       "withPhoto": 251,
-      "errors": [
-        "https://shop-gulforchid.com did not answer; used https://www.shop-gulforchid.com instead"
-      ],
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "Dubai-based manufacturer, trading since 1987. Sister brand to Maison Asrar (below) — the two share a manufacturer, not a storefront, so each still needs its own harvest",
