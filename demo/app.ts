@@ -1156,6 +1156,21 @@ function fragranceList(list: DemoFragrance[], empty: string): string {
 
 const MEDALS = ['gold', 'silver', 'bronze'] as const;
 
+/**
+ * Microcopy cull, 2026-08-25 (docs/MICROCOPY-INVENTORY-2026-08-21.md row 5).
+ *
+ * This note used to open "Tell us what you would like to see." That sentence
+ * asked for nothing the reader had not been asked for twice already: the
+ * heading directly above it says "Got an idea?" and the first field is
+ * labelled "Your suggestion". What is left is the half carrying a fact — that
+ * Send hands the message to the reader's own email client rather than posting
+ * it anywhere — which is not inferable from looking at the form, and which a
+ * reader who expects a web form to submit somewhere is entitled to know
+ * before they type into it.
+ */
+const SUGGEST_NOTE =
+  'There is no server behind this page, so sending opens your own email app with this addressed and ready to go.';
+
 function homeView(): string {
   return `
     <section class="intro">
@@ -1186,8 +1201,7 @@ function homeView(): string {
     <div class="bottom-split">
       <section class="suggest-section">
         <h3 class="t-section">Got an idea?</h3>
-        <p class="panel-note t-body">Tell us what you would like to see. There is no server behind this
-          page, so sending opens your own email app with this addressed and ready to go.</p>
+        <p class="panel-note t-body">${SUGGEST_NOTE}</p>
         <form id="home-suggest-form" class="contact-form">
           <label class="field">
             <span>Your suggestion</span>
@@ -1946,7 +1960,12 @@ function detailView(): string {
                  <p class="price-box-amount t-price t-price--hero">${formatGbp(best.itemPriceGbp)}</p>
                  <p class="price-box-from t-caption">from ${esc(best.retailer.name)} &mdash; delivery not stated, so this is not a delivered price</p>
                </div>`
-            : `<p class="hero-price none">Sold out everywhere<span class="hero-at">no shop has it in stock right now</span></p>`
+            : // One line, not two. The second line used to read "no shop has it
+              // in stock right now", which is the first line again in different
+              // words — no fact the reader did not already have from "Sold out
+              // everywhere", and the shop count in the results head below says
+              // the same thing a third time. Nothing honest was lost with it.
+              `<p class="hero-price none">Sold out everywhere</p>`
         }
         ${notesBlock(frag)}
       </div>
@@ -2689,11 +2708,17 @@ function accountEntryLabel(): string {
  */
 function accountView(): string {
   if (!SUPABASE_CONFIGURED) {
+    // Microcopy cull, 2026-08-25 (docs/MICROCOPY-INVENTORY-2026-08-21.md row
+    // 78): the line used to end "Check back soon." That carried no fact —
+    // nobody has committed this deployment to a date — so it was a promise
+    // the site is not in a position to make, which is the one thing this
+    // site's copy is not allowed to do. What is left is the whole honest
+    // answer on its own.
     return `
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
         <h2 class="t-page">Account</h2>
-        <p>Accounts are not switched on for this deployment yet. Check back soon.</p>
+        <p>Accounts are not switched on for this deployment yet.</p>
       </article>`;
   }
 
