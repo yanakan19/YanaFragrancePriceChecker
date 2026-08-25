@@ -97,11 +97,28 @@ export interface ShopRefusal {
   reason: string;
 }
 
+/**
+ * How a run ended, for the three cases that are genuinely different.
+ *
+ * `null` — it did not end. The process was killed and never reached finish().
+ * `swept-every-shop` — the sweep asked every planned shop.
+ * `deadline` — the sweep stopped itself on its own wall clock, in an orderly
+ *   way, with shops left unasked. This is the ordinary state of a scheduled
+ *   run and is not a failure: see scripts/catalogue-harvest.ts's runMinutes.
+ *
+ * Without this, `complete: true` had to carry two meanings, and a reader
+ * checking it alone would take an intentionally-truncated sweep for a full
+ * one.
+ */
+export type HarvestEndedReason = 'swept-every-shop' | 'deadline';
+
 export interface HarvestReport {
   startedAt: string;
   finishedAt: string | null;
   /** False when the run was killed before finishing — see this file's header. */
   complete: boolean;
+  /** Why the run ended, or null if it never got to say. */
+  endedReason: HarvestEndedReason | null;
   /** Shops this run intended to ask, in the order it meant to ask them. */
   planned: string[];
   /** Shops that never reported. Planned minus recorded; silence made visible. */
@@ -113,7 +130,7 @@ export interface HarvestReportWriter {
   /** Record one shop and rewrite the file immediately. */
   record: (outcome: ShopHarvestOutcome) => void;
   /** Mark the run complete and rewrite. Not reached when the run is killed. */
-  finish: () => void;
+  finish: (reason?: HarvestEndedReason) => void;
   /** The report as it stands. Exposed for tests and for the end-of-run log. */
   current: () => HarvestReport;
 }
@@ -129,12 +146,14 @@ export function buildHarvestReport(
   planned: readonly string[],
   shops: readonly ShopHarvestOutcome[],
   finishedAt: string | null,
+  endedReason: HarvestEndedReason | null = null,
 ): HarvestReport {
   const reported = new Set(shops.map((s) => s.retailerId));
   return {
     startedAt,
     finishedAt,
     complete: finishedAt !== null,
+    endedReason: finishedAt === null ? null : endedReason,
     planned: [...planned],
     notReached: planned.filter((id) => !reported.has(id)),
     shops: [...shops],
@@ -156,10 +175,14 @@ export function harvestReportWriter(
   const startedAt = now();
   const shops: ShopHarvestOutcome[] = [];
   let finishedAt: string | null = null;
+  let endedReason: HarvestEndedReason | null = null;
 
   const flush = (): void => {
     try {
-      writeFileSync(path, `${JSON.stringify(buildHarvestReport(startedAt, planned, shops, finishedAt), null, 2)}\n`);
+      writeFileSync(
+        path,
+        `${JSON.stringify(buildHarvestReport(startedAt, planned, shops, finishedAt, endedReason), null, 2)}\n`,
+      );
     } catch {
       // See the doc comment: a report is never worth failing a harvest for.
     }
@@ -170,10 +193,11 @@ export function harvestReportWriter(
       shops.push(outcome);
       flush();
     },
-    finish: () => {
+    finish: (reason: HarvestEndedReason = 'swept-every-shop') => {
       finishedAt = now();
+      endedReason = reason;
       flush();
     },
-    current: () => buildHarvestReport(startedAt, planned, shops, finishedAt),
+    current: () => buildHarvestReport(startedAt, planned, shops, finishedAt, endedReason),
   };
 }

@@ -639,6 +639,29 @@ jobs:
       # below on ordinary runs, the answer is a smaller --max or --refresh-share
       # here, or shops split across runs: it is not a higher cap, because the
       # two-hourly cron is what bounds the job and there is nothing left to give.
+      #
+      # ── This cap does not stop the harvest, and never did ────────────────────
+      # Discovered on run #330 (job 97881335331). The step is recorded as
+      # running 16:29:02Z-17:29:15Z, its full 60 minutes, and then:
+      #
+      #   - data/harvest-report.json from that run carries per-shop finishedAt
+      #     stamps going on to 17:42:09Z, thirteen minutes after the step ended;
+      #   - the job's own cleanup at 17:44:59Z logs "Terminate orphan process:
+      #     pid (5125) (npm run harvest --max=70 --refresh-share=0.4)" and
+      #     "Terminate orphan process: pid (5170) (chrome-headless-shell)".
+      #
+      # A step timeout cancels the *step*. The process it started carried on for
+      # 15m44s, unsupervised, through "Harvest houses direct" and then through
+      # "Rebuild the app from harvested prices" — which reads data/catalogue
+      # while the orphan was still writing to it — and was finally killed
+      # mid-shop by the runner's orphan sweep. That race is why that run's
+      # report says complete:false and has no end-of-run summary in the log.
+      #
+      # --run-minutes below is the actual bound. The harvest now stops itself
+      # on a shop boundary, caps the last shop's crawl at whatever is left,
+      # finishes its report, disposes Chromium and exits — with the rebuild
+      # getting a catalogue nobody is writing to. This cap stays as the
+      # backstop for a hang the deadline cannot reach.
       - name: Harvest via sitemap
         id: harvest
         if: ${{ inputs.harvest || github.event_name == 'schedule' }}
@@ -692,9 +715,29 @@ jobs:
           # spends anything, and declines the tiers itself if the credit is
           # gone — see src/catalogue/apifyUsage.ts. This gate bounds how often
           # it is even offered; that one bounds what it may do when it is.
+          # ── --run-minutes: the harvest's own deadline ──────────────────────
+          # 56, inside this step's 60, because the step cap does not actually
+          # stop this process — see the block above this step for run #330's
+          # orphaned harvest and the four minutes of margin this leaves.
+          #
+          # The sweep is ordered longest-unasked-first (see
+          # src/catalogue/harvestCursor.ts), so stopping on a deadline no
+          # longer starves anyone: the shops this run does not reach are the
+          # ones the next run asks first. Run #330's report is the before
+          # picture — 36 planned, 25 reported, and the same eleven at the tail
+          # every run, one of them (avon) carrying a five-day-old snapshot.
+          #
+          # ── --shop-minutes: no one shop eats the sweep ─────────────────────
+          # The longest shops in run #330 were Debenhams at 392s (718 URLs
+          # discovered, 0 priced) and Riiffs at 390s, so 6 minutes trims those
+          # two by seconds and bounds the next shop that grows past them. It is
+          # a ceiling, not a target: the run's own deadline lowers it further
+          # for the last shop of a sweep.
           npm run harvest -- \
             --max=${{ inputs.harvest_max || '70' }} \
             --refresh-share=${{ inputs.harvest_refresh_share || '0.4' }} \
+            --run-minutes=56 \
+            --shop-minutes=6 \
             ${{ inputs.harvest_shop && format('--shop={0}', inputs.harvest_shop) || '' }} \
             ${{ inputs.harvest_gap_min && format('--gap-min={0}', inputs.harvest_gap_min) || '' }} \
             $METERED
@@ -738,12 +781,20 @@ jobs:
           # survives the run that set it. Uncommitted, every run would read a
           # missing marker as "never", offer the tiers every tick, and the
           # gate would be decorative.
+          #
+          # data/harvest-cursor.json for exactly the same reason, and it is the
+          # more load-bearing of the two: it records which shops this run
+          # asked, and the sweep is ordered longest-unasked-first from it.
+          # Uncommitted, every run would start from an empty cursor, fall back
+          # to the same never-live-then-registry order, and starve the same
+          # eleven shops it starved before — the rotation would be decorative.
           ./scripts/commit-and-push.sh \
             "Harvest: real prices $(date -u +%Y-%m-%d)" \
             data/catalogue demo/catalogue.generated.ts demo/priceHistory.generated.ts \
             demo/index.html demo/404.html \
             data/houses data/house-sourcing-report.json \
             data/metered-harvest-marker.txt \
+            data/harvest-cursor.json \
             data/harvest-report.json
 
       # Deliberately after the commit above, and deliberately a warning rather
