@@ -124,9 +124,33 @@ for (const f of DEMO_FRAGRANCES) {
   }
 }
 
-// ── Shops. Only the enabled ones: a disabled retailer's page renders empty
-//    and asking a crawler to index an empty page wastes its visit and ours.
+// ── Shops. Only the ones with something on the page ──────────────────────
+//
+// The test used to be `enabled`, with the reasoning that "a disabled
+// retailer's page renders empty and asking a crawler to index an empty page
+// wastes its visit and ours". That reasoning is right and the test did not
+// implement it: `enabled` is intent, and an enabled shop with no listings
+// renders exactly as empty as a disabled one.
+//
+// Measured 2026-08-25 against the built catalogue: 8 of the 39 enabled shops
+// carry no live offer at all — Notino, Boots, The Fragrance Shop, The Perfume
+// Shop and Harvey Nichols wait on the metered Apify tiers, while Riiffs,
+// Debenhams and Morrisons have no `catalogue` config to walk in the first
+// place. Every one of them was in the sitemap, so a fifth of the shop pages
+// this site advertised to a crawler had nothing on them.
+//
+// Asking the catalogue rather than the registry also means a shop needs no
+// registry edit to appear or disappear here: the day Debenhams' discovery
+// pass starts returning product pages instead of category pages, its page
+// enters the sitemap on the next build, and a shop that goes dark leaves it
+// the same way.
+const shopsWithListings = new Set<string>();
+for (const offers of Object.values(CRAWLED)) {
+  for (const o of offers) shopsWithListings.add(o.retailerId);
+}
+
 for (const r of enabledRetailers()) {
+  if (!shopsWithListings.has(r.id)) continue;
   entries.push({
     loc: `/retailers/${encodeURIComponent(r.id)}`,
     lastmod: gitLastModified('src/config/retailers.ts'),
@@ -156,7 +180,13 @@ const xml = [
 ].join('\n');
 
 writeFileSync(resolve(root, 'demo/sitemap.xml'), xml);
+// The shop figure counts what was actually written, not what is enabled. Those
+// were the same number until enabled-but-empty shops stopped being listed, and
+// reporting the old one would misstate the file this line is describing.
+const listedShops = enabledRetailers().filter((r) => shopsWithListings.has(r.id)).length;
+const emptyShops = enabledRetailers().length - listedShops;
 console.log(
   `demo/sitemap.xml  ${unique.length} URLs  (${DEMO_FRAGRANCES.length} fragrances, ` +
-    `${brandSlugs.size} brands, ${enabledRetailers().length} shops of ${RETAILERS.length} in the registry)`,
+    `${brandSlugs.size} brands, ${listedShops} shops of ${RETAILERS.length} in the registry` +
+    `${emptyShops ? `; ${emptyShops} enabled but carrying no listing, left out` : ''})`,
 );
