@@ -1,6 +1,10 @@
 import { describe, expect, it, afterAll } from 'vitest';
 import { createServer, type Server } from 'node:http';
-import { localBrowserRenderer, MAX_LOCAL_RENDER_PAGES_PER_RUN } from '../src/catalogue/localBrowser.js';
+import {
+  localBrowserRenderer,
+  MAX_LOCAL_RENDER_PAGES_PER_RUN,
+  MAX_LOCAL_RENDER_MS_PER_RUN,
+} from '../src/catalogue/localBrowser.js';
 
 /**
  * The budget and failure contracts are tested without a browser: they are
@@ -90,6 +94,57 @@ describe('localBrowserRenderer — the per-run budget', () => {
     // with a real browser.
     expect(MAX_LOCAL_RENDER_PAGES_PER_RUN).toBeGreaterThan(0);
     expect(MAX_LOCAL_RENDER_PAGES_PER_RUN).toBeLessThanOrEqual(100);
+  });
+});
+
+describe('localBrowserRenderer — the time budget', () => {
+  // The unit that is actually scarce. Run #328's sitemap harvest hit its own
+  // 60-minute cap, so every second this tier spends is taken from shops that
+  // were producing listings.
+  it('refuses every url once the clock is spent, and says so', async () => {
+    const base = await jsPaintedServer();
+    // 1ms: the first render call starts the clock and the budget is gone by
+    // the time the second is asked for.
+    const r = localBrowserRenderer({ maxTotalMs: 1, gapMs: 10, ...browserPath() });
+
+    await r.render([`${base}/one`]);
+    const out = await r.render([`${base}/two`]);
+    const res = out.get(`${base}/two`)!;
+
+    expect(res.ok).toBe(false);
+    expect(res.error).toContain('time budget');
+    await r.dispose();
+  }, BROWSER_TEST_TIMEOUT_MS);
+
+  it('reports every url it did not reach, rather than dropping them', async () => {
+    const base = await jsPaintedServer();
+    const r = localBrowserRenderer({ maxTotalMs: 1, gapMs: 10, ...browserPath() });
+
+    await r.render([`${base}/warm`]);
+    const urls = [`${base}/a`, `${base}/b`, `${base}/c`];
+    const out = await r.render(urls);
+
+    // A shop skipped for time and a shop that genuinely returned nothing must
+    // not look the same from the outside.
+    expect(out.size).toBe(3);
+    for (const u of urls) expect(out.get(u)?.error).toContain('time budget');
+    await r.dispose();
+  }, BROWSER_TEST_TIMEOUT_MS);
+
+  it('starts no clock on a renderer that is never asked to render', async () => {
+    const r = localBrowserRenderer({ maxTotalMs: 1 });
+    // Constructing is free; the budget must not already be spent by the time
+    // the first real call arrives on a long run.
+    expect(r.used()).toBe(0);
+    await r.dispose();
+  });
+
+  it('bounds itself in both units', () => {
+    expect(MAX_LOCAL_RENDER_PAGES_PER_RUN).toBeGreaterThan(0);
+    expect(MAX_LOCAL_RENDER_MS_PER_RUN).toBeGreaterThan(0);
+    // Small enough to be affordable inside a 60-minute harvest step that
+    // already truncates.
+    expect(MAX_LOCAL_RENDER_MS_PER_RUN).toBeLessThanOrEqual(10 * 60_000);
   });
 });
 
