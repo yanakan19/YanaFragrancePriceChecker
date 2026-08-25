@@ -15,7 +15,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-08-25T20:15:21.019Z";
+export const DEALS_GENERATED_AT = "2026-08-25T20:36:05.038Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -26078,6 +26078,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 75.99,
     "percentOff": 42,
     "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3274872451698",
+    "price": 77.95,
+    "wasPrice": 145,
+    "percentOff": 46,
+    "retailerId": "fragrance-click"
   },
   {
     "fragranceId": "mybeauty-boutique-shopify-gb-8416689553545-45147054047369",
