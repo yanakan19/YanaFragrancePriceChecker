@@ -10,6 +10,19 @@ import { marketOf } from '../src/catalogue/brandSiteCheck.js';
  * this registry runs on (see the `blurb` field on Retailer for the same
  * discipline applied to retailers).
  *
+ * ── Re-measured 2026-08-25, by the same method as the 2026-08-19 note that
+ * follows (buildBrandCanon() over every "brand" field on every product in
+ * demo/catalogue.generated.ts, then officialSiteFor() over each canonical
+ * house, minus "Unbranded"): 14,756 products, 697 houses, 341 of them
+ * resolving here — 48.9%, up from 294/697 (42.2%) before this pass. Because
+ * this file was always filled from the top of the volume ranking down, the
+ * house count understates the reach: 13,483 of the 14,560 products that sit
+ * under a named house, 92.6%, now show a website line. The 356 houses still
+ * unresolved are the long tail, and the ceiling on further work is low —
+ * the 30 largest of them are 2.5% of all products between them, the top 50
+ * reach 3.3%, the top 100 reach 4.8%. A further 196 products carry
+ * "Unbranded", which is not a house and can never resolve.
+ *
  * Measured 2026-08-19 by running buildBrandCanon() from src/catalogue/
  * brandName.ts — the module that actually decides one canonical display
  * spelling per house — over every "brand" field on every product in the live
@@ -894,13 +907,160 @@ export const BRAND_SITES: Record<string, string> = {
   // this house under a pluralised misspelling.
   'just jacks': 'https://www.sterlingparfums.com/brand/fragrance/just-jack',
 
+  // ══ 2026-08-25 pass ═════════════════════════════════════════════════════
+  //
+  // How every URL below was established, said once rather than repeated at
+  // 40 entries: by web search only. This sandbox's egress proxy refuses
+  // brand and retailer domains outright (`CONNECT tunnel failed, response
+  // 403`), so not one of these pages was opened, and nothing here is a
+  // page-verified fact. It is the same standard the 2026-08-05 Middle
+  // Eastern batch above recorded for itself, applied deliberately:
+  //
+  //   - a URL is used only when a search result's *own link list* carried
+  //     that domain, with a title identifying it as the brand's own site.
+  //     A domain that appeared only inside a result summary, or only in a
+  //     third party's prose, was not used — that is the exact trap the
+  //     Ellen Tracy / Liz Claiborne note above records, and it caught
+  //     Halston, Kenneth Cole, Missguided and Laura Ashley this pass too;
+  //   - where the search confirmed the domain but returned only
+  //     region-specific paths under it, the entry is the domain root. That
+  //     is not a guess: it is the least-specific form of an already
+  //     confirmed address, and it lets the brand's own geo-routing decide
+  //     where a UK reader lands instead of this file hard-coding someone
+  //     else's locale;
+  //   - two or more competing "official" domains for one house meant no
+  //     entry. Ed Hardy and Reyane Tradition were dropped on that alone.
+  //
+  // Verify with `npm run brand:probe` (the price-verify.yml workflow with
+  // brand_site_probe: true). It follows every link and reports dead,
+  // redirected-domain and redirected-region findings — which is the step
+  // this pass could not perform and the reason these are additions rather
+  // than confirmations.
+
+  // ── Spelling keys onto URLs this file had already verified ──────────────
+  // The cheapest additions here and the safest: no new URL is introduced by
+  // any of them, only a key that the live catalogue actually uses and that
+  // normalizeBrand was missing. Each was checked against the products the
+  // catalogue files under that spelling, not assumed from the name.
+  //
+  // "Bulgari" — the house's ordinary spelling; this file keys the stylised
+  // "BVLGARI". Products: Man Rain Essence, Splendida Patchouli Tentation.
+  bulgari: 'https://www.bulgari.com/en-gb/fragrances',
+  // "Salle Privée" with its accent. normalizeBrand strips everything but
+  // a-z, so the é becomes a space and the key is 'salle priv e' — which is
+  // why the already-verified 'salle privee' entry above was unreachable
+  // from the live catalogue's own spelling. Products: Illegal, Legal,
+  // Rialto, Concorde, Super 8.
+  'salle priv e': 'https://www.salle-privee.com/pages/fragrance',
+  // "Le Couvent" — the shortened trading name. The catalogue's own product
+  // names settle it beyond doubt: every one begins "Des Minimes ...", so
+  // the retailer split "Le Couvent des Minimes" across the brand and name
+  // fields. Same URL as the existing 'le couvent des minimes' entry.
+  'le couvent': 'https://fr.lecouventparfums.com/en',
+  // "New Brand Perfumes" — anglicised form of "New Brand Parfums", already
+  // resolved above. Products: Prestige Gold, Gold Women Prestige.
+  'new brand perfumes': 'https://pcdesignperfumes.com/new-brand/',
+  // Feed truncations, each confirmed by the product name carrying the
+  // missing characters: "Giorgio Beverly Hill" + "s Red" is Giorgio
+  // Beverly Hills Red; "L'Artisan" + "Parfumeur 4 * Mini Set..." is
+  // L'Artisan Parfumeur; "Tiffany" + "Co 1 Oz For Women" is Tiffany & Co.
+  'giorgio beverly hill': 'https://www.giorgiobeverlyhills.com/en/',
+  'l artisan': 'https://www.artisanparfumeur.com/uk/en_GB/',
+  tiffany: 'https://www.tiffany.co.uk/home-accessories/fragrances/',
+  // "VALENTINO BEAUTY" is Valentino's own beauty division, and the existing
+  // 'valentino' entry already points at that division's page.
+  'valentino beauty': 'https://www.valentino.com/en-gb/experience/valentino-beauty',
+  // "Banderas" alone; the product is "Antonio Banderas Mediterraneo".
+  banderas: 'https://www.banderasperfumes.com/',
+  // Lattafa sub-line, same domain as the existing "lattafa" entry, which
+  // carries its own /brands/asdaaf/ page — the same relationship (and the
+  // same treatment) as 'ministry of oud' under Paris Corner above.
+  asdaaf: 'https://lattafa.com/brands/asdaaf/',
+
+  // ── Newly resolved houses ───────────────────────────────────────────────
+  // Ordered roughly by how many products in the live catalogue gain a link.
+  //
+  // 91 products, and the largest single unresolved house on the list. The
+  // note further down used to say Brandy Designs had no brand-owned domain,
+  // only the distributor I&K IMPEX — that is now out of date.
+  // brandyperfumes.com carries its own /about-us/ ("UAE Perfume
+  // Manufacturer", Al Daiem Perfumes & Cosmetics) and a /brand/brandy-
+  // designs/ page, and the house's own Instagram is @brandy.designs. The
+  // catalogue's product names all read "<name> by Brandy", which is the
+  // same house under the same trading name.
+  'brandy designs': 'https://brandyperfumes.com/',
+  'dkhoon emirates': 'https://dkhoonemirates.com/en/',
+  // Two catalogue spellings, one house. The plain "Lamborghini" listings
+  // are Classico, Prestigio, Acqua, Essenza, Forza, Intenso, Invincibile
+  // and Millennials — the Tonino Lamborghini fragrance line exactly, not
+  // Automobili Lamborghini, which is a different company on a different
+  // domain (lamborghini.com). Tonino Lamborghini's own site is
+  // lamborghini.it, whose pages title themselves "TONINO LAMBORGHINI".
+  // The /collections/all-products path is used rather than a fragrance
+  // section because that is the page search actually returned; no
+  // fragrance-specific path on the domain was confirmed, and constructing
+  // one would be inventing it.
+  lamborghini: 'https://lamborghini.it/en-int/collections/all-products',
+  'tonino lamborghini': 'https://lamborghini.it/en-int/collections/all-products',
+  izod: 'https://izod.com/',
+  // British house, London; frenchconnection.com/pages/about-us titles
+  // itself "About Us – Brand Bio – French Connection UK".
+  'french connection': 'https://www.frenchconnection.com/',
+  // Two catalogue spellings of one Munich house — the lowercase "aigner"
+  // listings are literally named "Etienne Aigner Aigner No 1", "Etienne
+  // Aigner First Class" and so on. aignermunich.com's /imprint names
+  // Etienne Aigner AG, Zielstattstraße 27, München.
+  aigner: 'https://www.aignermunich.com/',
+  'etienne aigner': 'https://www.aignermunich.com/',
+  'paris hilton': 'https://parishiltonfragrances.com/',
+  travalo: 'https://www.travalo.com/',
+  'la martina': 'https://lamartina.com/',
+  'jil sander': 'https://www.jilsander.com/',
+  'maison crivelli': 'https://maisoncrivelli.com/en-int/collections/frontpage',
+  affinessence: 'https://affinessence.com/en',
+  annayake: 'https://annayake.com/en/',
+  gant: 'https://www.gant.co.uk/',
+  'philipp plein': 'https://www.plein.com/',
+  nautica: 'https://www.nautica.com/',
+  'atelier cologne': 'https://www.ateliercologne.com/',
+  'perris monte carlo': 'https://perrismontecarlo.com/collections/all-perfums-extracts',
+  'nicolai parfumeur createur': 'https://pnicolai.com/en/',
+  'thomas kosmala': 'https://thomaskosmala.com/',
+  'atelier des ors': 'https://atelierdesors.com/en',
+  'el ganso': 'https://www.elganso.com/intl_en/',
+  superdry: 'https://www.superdry.com/',
+  'makeup revolution': 'https://www.revolutionbeauty.com/uk/en',
+  // Air-Val International, Barcelona, 1979 — a children's-fragrance house
+  // whose own site names Disney as its largest partner, which is exactly
+  // what the catalogue files under this brand (Disney Princess Snow White,
+  // Disney Frozen II, Eau My Unicorn).
+  'air val': 'https://www.air-val.com/en/',
+  'mandarina duck': 'https://mandarinaduck.com/',
+  'gianfranco ferre': 'https://gianfrancoferre.com/',
+  // Same house with the accent the catalogue may also carry; normalizeBrand
+  // turns the é into a space and then trims it, so this is a different key.
+  'gianfranco ferr': 'https://gianfrancoferre.com/',
+  'the woods collection': 'https://www.thewoodscollection.com/collections/eau-de-parfums',
+  houbigant: 'https://www.houbigant-parfum.com/',
+  // Isle of Arran, Scotland. A .com with no market marker, so marketOf will
+  // label it Non-UK — the deliberate under-claim this file's own
+  // officialSiteFor doc describes, not a statement that the house is not
+  // British.
+  'arran sense of scotland': 'https://arran.com/',
+  'carner barcelona': 'https://carnerbarcelona.com/',
+  accessorize: 'https://www.accessorize.com/uk',
+  // int.biotherm.com/en_GB/homepage is the brand's own UK storefront, and
+  // the en_GB segment is a shape marketOf reads correctly, so this one
+  // labels as UK rather than falling back to the global .com.
+  biotherm: 'https://int.biotherm.com/en_GB/homepage',
+  'kajal perfumes': 'https://kajalperfumes.com/',
+  kajal: 'https://kajalperfumes.com/',
+  collistar: 'https://www.collistar.com/',
+
   // Left unresolved this pass — search turned up only third-party retailers
   // and Fragrantica/Parfumo listings, never a confirmed brand-owned domain:
-  // Dkhoon Emirates, Jennifer Lopez (JLo fragrances are sold only through
-  // retailers, no dedicated brand site found), Tonino Lamborghini
-  // (catalogue's plain "Lamborghini" — confirmed by product names,
-  // Classico/Intenso/Prestigio/Acqua/Essenza, to be this house rather than
-  // the separate "Automobili Lamborghini" line), Diane Castel, Taylor of
+  // Jennifer Lopez (JLo fragrances are sold only through
+  // retailers, no dedicated brand site found), Diane Castel, Taylor of
   // London, Cevi Les Parfums (a second, differently-spelled Cevi line — not
   // confirmed to be the same company as "Cevi Perfumes" above, so left
   // separate and unresolved rather than guessed), Marvel (sold via a
@@ -916,69 +1076,144 @@ export const BRAND_SITES: Record<string, string> = {
   // search result's own link list, or read as spammy multi-brand
   // storefronts rather than the house's own site — the "never invent, never
   // guess" rule this file runs on applies exactly here. Also left
-  // unresolved: Brandy Designs (distributed by I&K IMPEX; no dedicated
-  // brand-owned domain found, only the distributor and third-party
-  // retailers), Parfums des Champs (its "Champs" line is credited to a
+  // unresolved: Parfums des Champs (its "Champs" line is credited to a
   // Belgium-based "New Brand" business in search results, distinct from the
   // Paris-based PC Design Perfumes SARL this file's own "new brand" entry
   // above resolves to — not folded together on that ambiguity), Aubusson,
   // Daniel Hechter, Attar & Co (only fineperfumery.com's own collection
   // page turned up, a retailer rather than the house).
+  //
+  // ── Left unresolved by the 2026-08-25 pass, with the reason ─────────────
+  // Kept because "no link" is a correct outcome and the reasons are worth
+  // not re-deriving:
+  //
+  //  - Halston, Kenneth Cole, Missguided, Laura Ashley. In each case a
+  //    search *summary* named a plausible domain (halston.com,
+  //    kennethcole.com, missguided.co.uk, lauraashley.com) that no result's
+  //    own link list actually contained. Laura Ashley is the clearest
+  //    warning of why that distinction matters: the domains that were
+  //    returned were "lauraashaley.co.uk" — note the transposed letters —
+  //    and "lauraashley-uk.com", neither of them the house. Missguided also
+  //    went into administration in 2022 and is now Shein-owned, so what is
+  //    behind that name today is a separate question.
+  //  - Ed Hardy (edhardy.eu, edhardyoriginals.com, edhardyoriginal.us.com
+  //    and edhardy.com.my all present themselves as official, with no way
+  //    from search alone to say which the house runs) and Reyane Tradition
+  //    (thereyanetradition.com and myreyanetradition.com, same problem).
+  //  - Rotana, Jeanne en Provence, Jean-Louis Scherrer, Blood Concept: a
+  //    real house each, with a social presence and retailer listings, and
+  //    no brand-owned domain in any result.
+  //  - Annick Goutal. The house renamed itself Goutal Paris in 2018, one of
+  //    the two annickgoutal.com results returned was its Shopify /password
+  //    page, and the working storefront found was us.goutalparis.com — a US
+  //    store. Too many unresolved questions at once to pick an address.
+  //  - Christian Louboutin, for a reason specific to this codebase rather
+  //    than to the brand. Its UK fragrance pages are real and were
+  //    confirmed (eu.christianlouboutin.com/uk_en/beauty/fragrances/), but
+  //    that path is REGION_language, and marketOf's path rule reads a
+  //    two-letter pair as language_REGION — so it returns "en" and the
+  //    brand page would print "Non-UK Site" over a genuine UK storefront.
+  //    Under-claiming on a bare .com is this file's documented behaviour;
+  //    printing the wrong market for a marked UK page is not, and widening
+  //    marketOf is a change to the classifier brand-site-probe.ts shares,
+  //    which does not belong in a link-adding pass. Recorded here so
+  //    whoever fixes marketOf knows there is an entry waiting on it.
+  //  - Banana Republic. No UK site exists — the brand closed its UK stores
+  //    in 2016 and now reaches UK buyers through Next — and the only
+  //    confirmed storefront is bananarepublic.gap.com, a US Gap-hosted
+  //    one. A link that cannot sell a UK reader anything is not worth the
+  //    row.
+  //
+  // Not brands at all, so no site could ever be right. Reported rather
+  // than resolved, in the same spirit as "Unbranded" and the already
+  // folded-away "Fragrance Hub LTD" / "My Store" / "Fragrancehub.co.uk":
+  //
+  //  - "Essential Perfumes" (4 products) is *not* the French house
+  //    Essential Parfums this file already resolves, despite normalising to
+  //    within one letter of it. Its listings are Azlaan, Essence Of Arabia,
+  //    The Ocean and Twilight — an Arabic-style line, nothing Essential
+  //    Parfums has ever made. Deliberately left unresolved rather than
+  //    keyed onto that URL; this is the near-miss most likely to be folded
+  //    in by mistake by a later pass.
+  //  - "Designer Collection" (9), whose products are named "Aqua Man DC
+  //    Pour Homme", "I Love DC Pour Femme" — a retailer's own house line
+  //    rather than a house.
+  //  - "Scent Favourites" (8) and "Perfect Nonsense" (7) read the same way.
+  //  - Seven brand strings that look like Avon's own fragrance lines rather
+  //    than houses: Attraction (16 products), Black Suede (8), Full Speed
+  //    (5), Little Black Dress (5), Imari (4), Perceive (4), Incandessence
+  //    (3). What that reading rests on is the shape of the listings
+  //    themselves — "Attraction | Game for Her", "Attraction | Deep
+  //    Instinct for Him", "Imari | Corset", "Full Speed | Max Turbo",
+  //    "Little Black Dress | Lace" — and, tellingly, the repeated "Purse"
+  //    variants, which is Avon's own purse-spray format and not a size any
+  //    other house sells. That is a strong pattern, not a confirmation, so
+  //    none of them was keyed to the existing 'avon' entry: doing that
+  //    would be asserting a corporate relationship on the strength of
+  //    product names. Flagged for the owner, who can settle it from the
+  //    source feed in a way search cannot.
 };
 
 /**
  * ── Worklist: highest-product brands with no entry above ────────────────────
  *
  * Not code — a priority order for whoever runs the next confirmation pass,
- * ranked by product count in the live catalogue. Re-measured 2026-08-19
- * against demo/catalogue.generated.ts (12,267 products / 629 brands) using
- * the same buildBrandCanon()-based method as the file header's own count —
- * this replaces a 2026-08-17 version of this list that this pass's own
- * additions have now mostly cleared out (Ard Al Zaafaran, Police, Louis
- * Cardin, Orchid and 24 more of that list's top 30 now have entries above).
- * "cum" is what share of the whole catalogue's products would gain a website
- * line if every unresolved brand up to that point were added. 358 of 629
- * brands (56.9%) still have no entry, but they are mostly small: the 30
- * largest below cover 3.0% of all products on their own, the top 50 reach
- * 4.2%, the top 100 reach 6.2%.
+ * ranked by product count in the live catalogue. Re-measured 2026-08-25
+ * against demo/catalogue.generated.ts (14,756 products / 697 houses) using
+ * the same buildBrandCanon()-based method as the file header's own count.
+ * This replaces a 2026-08-19 version of the list that the 2026-08-25 pass
+ * cleared the head of: Cuba Paris, New Brand Parfums, Dkhoon Emirates,
+ * Lamborghini, Brandy Designs and 14 more of that list's top 30 now have
+ * entries above. "cum" is what share of all products in a named house would
+ * gain a website line if every unresolved brand up to that point were added.
  *
- * "Unbranded" (61 products) is excluded from this ranking — not a house, the
- * literal string some retailer feeds send when they have no brand for a
+ * 356 of 697 houses still have no entry, but the work left is genuinely
+ * small and getting smaller: the 30 largest below cover 2.5% of products
+ * between them, the top 50 reach 3.3%, the top 100 reach 4.8%. Nine of the
+ * thirty are on the "not a brand" or "deliberately unresolved" lists at the
+ * end of BRAND_SITES above (Attraction, Black Suede, Scent Favourites,
+ * Designer Collection, Rotana, Blood Concept, Jean-Louis Scherrer,
+ * Halston, Banana Republic), so the reachable remainder is smaller again.
+ * Whoever picks this up should read those notes first rather than
+ * re-deriving them.
+ *
+ * "Unbranded" (196 products) is excluded from this ranking — not a house,
+ * the literal string some retailer feeds send when they have no brand for a
  * listing. Its products span dozens of real houses (4711, Acqua Di Parma,
  * Aesop, Banana Republic, Calvin Klein, Diesel, DKNY, Dolce&Gabbana, ...), so
  * there is no single URL that could ever belong there — see brandName.ts's
  * own doc for why a catch-all like this can't be folded into any one brand.
  *
- *   Cuba Paris                          34 products  (cum  0.3%)
- *   New Brand Parfums                   29 products  (cum  0.5%)
- *   Dkhoon Emirates                     28 products  (cum  0.7%)
- *   Lamborghini                         26 products  (cum  1.0%)  (Tonino Lamborghini — see note above)
- *   Jennifer Lopez                      23 products  (cum  1.1%)
- *   Diane Castel                        17 products  (cum  1.3%)
- *   Ellen Tracy                         12 products  (cum  1.4%)
- *   Marvel                              12 products  (cum  1.5%)
- *   Salvador Dali                       11 products  (cum  1.6%)
- *   Taylor of London                    11 products  (cum  1.7%)
- *   Cevi Les Parfums                    11 products  (cum  1.7%)
- *   Liz Claiborne                       10 products  (cum  1.8%)
- *   Hello Kitty                         10 products  (cum  1.9%)
- *   Designer Collection                  9 products  (cum  2.0%)
- *   Oud Elixir                           9 products  (cum  2.1%)
- *   Blood Concept                        8 products  (cum  2.1%)
- *   Etienne Aigner                       8 products  (cum  2.2%)
- *   Jean-Louis Scherrer                  8 products  (cum  2.2%)
- *   Just Jack                            8 products  (cum  2.3%)
- *   Kate Spade                           8 products  (cum  2.4%)
- *   Mayfair                              8 products  (cum  2.4%)
- *   mustang                              8 products  (cum  2.5%)
- *   Oros                                 8 products  (cum  2.6%)
- *   United Colors & Prestige Beauty      8 products  (cum  2.6%)
- *   Affinessence                         8 products  (cum  2.7%)
- *   aigner                               8 products  (cum  2.8%)
- *   Attar & Co                           8 products  (cum  2.8%)
- *   Banana Republic                      8 products  (cum  2.9%)
- *   Geparlys                             8 products  (cum  3.0%)
- *   Masquerade                           8 products  (cum  3.0%)
+ *   Parfums des Champs                  43 products  (cum  0.3%)
+ *   Jennifer Lopez                      26 products  (cum  0.5%)
+ *   Rotana                              18 products  (cum  0.6%)
+ *   Diane Castel                        17 products  (cum  0.7%)
+ *   Attraction                          16 products  (cum  0.8%)  (reads as an Avon line — see note above)
+ *   Cevi Les Parfums                    15 products  (cum  0.9%)
+ *   United Colors & Prestige Beauty     15 products  (cum  1.0%)
+ *   Marvel                              14 products  (cum  1.1%)
+ *   Ellen Tracy                         13 products  (cum  1.2%)
+ *   Taylor of London                    12 products  (cum  1.3%)
+ *   Aubusson                            10 products  (cum  1.4%)
+ *   Hello Kitty                         10 products  (cum  1.4%)
+ *   Liz Claiborne                       10 products  (cum  1.5%)
+ *   Banana Republic                      9 products  (cum  1.6%)
+ *   Blood Concept                        9 products  (cum  1.6%)
+ *   Dana                                 9 products  (cum  1.7%)
+ *   Designer Collection                  9 products  (cum  1.8%)
+ *   Halston                              9 products  (cum  1.8%)
+ *   Oud Elixir                           9 products  (cum  1.9%)
+ *   Adidas                               8 products  (cum  1.9%)
+ *   Attar & Co                           8 products  (cum  2.0%)
+ *   Black Suede                          8 products  (cum  2.0%)  (reads as an Avon line — see note above)
+ *   Jean-Louis Scherrer                  8 products  (cum  2.1%)
+ *   Masquerade                           8 products  (cum  2.1%)
+ *   Mayfair                              8 products  (cum  2.2%)
+ *   Mustang                              8 products  (cum  2.3%)
+ *   Oros                                 8 products  (cum  2.3%)
+ *   Scent Favourites                     8 products  (cum  2.4%)
+ *   Whisky                               8 products  (cum  2.4%)
+ *   Daniel Hechter                       7 products  (cum  2.5%)
  *
  * (full ranked list is reproducible any time by running buildBrandCanon()
  * over the live catalogue and diffing against this file's own keys, the same
