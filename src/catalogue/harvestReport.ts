@@ -72,7 +72,29 @@ export interface ShopHarvestOutcome {
   errorCount: number;
   /** The first few errors, for a reader who does not have the log. */
   errors: string[];
+  /**
+   * Pages where the shop refused this address rather than being empty.
+   *
+   * Separate from `errors` on purpose. An error line is prose and has to be
+   * read; this is the one distinction a reader actually acts on — a shop that
+   * says no needs a different address or a partner feed, and a shop that is
+   * genuinely empty needs a parser or a different section URL. Run #330
+   * reported Boots as "0 listings parsed" when what it got was a 1,199-byte
+   * challenge page. See src/catalogue/renderRefusal.ts.
+   *
+   * Optional so that a report written before this field existed still parses,
+   * and so that a shop with nothing to say carries no empty array.
+   */
+  refusals?: ShopRefusal[];
   finishedAt: string;
+}
+
+/** One page a shop refused, as recorded in the report. */
+export interface ShopRefusal {
+  url: string;
+  status: number;
+  bytes: number;
+  reason: string;
 }
 
 export interface HarvestReport {
