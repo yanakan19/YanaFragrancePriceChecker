@@ -11,23 +11,33 @@
  * This is the route the probe proved works for the sites that allow it.
  * Guessed section URLs returned nothing; asking the sitemap returned real
  * products. For shops that refuse every free route (see docs/SPIKE-RESULTS.md
- * and docs/INGESTION.md), --allow-metered adds two independent, separately
- * credentialed escalation tiers, each only tried when the tier before it
- * still returned zero priced listings:
+ * and docs/INGESTION.md) there are escalation tiers, each only tried when the
+ * tier before it still returned zero priced listings.
  *
- *   1. Apify's residential proxy, when APIFY_PROXY_PASSWORD is set — the
- *      exact same sitemap walk and the exact same parser as the free route,
- *      only the transport changes. Fixes an IP-based refusal.
- *   2. An Apify actor (real headless browser), when APIFY_TOKEN is set —
- *      renders each configured catalogue section's first page through actual
- *      Chromium and parses whatever it painted with the same parser again.
- *      Fixes a shop whose grid needs JavaScript to exist at all, which no
- *      change of IP can — see src/catalogue/apifyActor.ts's own header, and
- *      the Harvey Nichols / John Lewis / Boots entries in retailers.ts for
- *      the evidence that this is a genuinely different failure from tier 1.
- *      Costs roughly ten times as much per page as tier 1, which is why it
- *      only ever fires after both the free route and tier 1 have failed, and
- *      why it stays capped far lower (MAX_ACTOR_PAGES_PER_RUN).
+ * Two distinct failures are being escalated against, and they need different
+ * answers: a shop that refuses this IP, and a shop whose product grid does
+ * not exist until JavaScript builds it. No change of address fixes the
+ * second, and no browser fixes the first.
+ *
+ *   1. A real browser render, free — a headless Chromium in this runner. Sits
+ *      outside --allow-metered on purpose: it costs no money, so a flag whose
+ *      whole meaning is "you may spend" is the wrong gate. On by default,
+ *      --no-local-render turns it off. See src/catalogue/localBrowser.ts.
+ *   2. Apify's residential proxy, when APIFY_PROXY_PASSWORD is set and
+ *      --allow-metered is passed — the exact same sitemap walk and the exact
+ *      same parser as the free route, only the transport changes. Fixes an
+ *      IP-based refusal, which tier 1 cannot.
+ *   3. An Apify actor (real headless browser on a residential IP), when
+ *      APIFY_TOKEN is set. Does tier 1's job from tier 2's address, and is
+ *      the only tier that costs real money per page — roughly ten times the
+ *      proxy's rate, which is how the $5 monthly credit was gone by
+ *      2026-08-21 with three weeks of the month left. Now used only where
+ *      tier 1 is unavailable or turned off, and capped far lower
+ *      (MAX_ACTOR_PAGES_PER_RUN) than the free renderer it fell behind.
+ *
+ * Tiers 1 and 3 are interchangeable to everything downstream: same
+ * { render, used } interface, same HttpResponse, same parser afterwards. The
+ * run log names which one it held.
  *
  * Nothing here fabricates a listing. A shop that yields nothing is reported as
  * yielding nothing, whichever tier was tried.
@@ -58,6 +68,9 @@ import {
 import {
   apifyActorConfigFromEnv, apifyActorRenderer, MAX_ACTOR_PAGES_PER_RUN,
 } from '../src/catalogue/apifyActor.js';
+import {
+  localBrowserRenderer, MAX_LOCAL_RENDER_PAGES_PER_RUN,
+} from '../src/catalogue/localBrowser.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -70,6 +83,16 @@ const maxPages = Number.parseInt(arg('max') ?? '40', 10);
 const onlyShop = arg('shop');
 const dryRun = process.argv.includes('--dry-run');
 const allowMetered = process.argv.includes('--allow-metered');
+/**
+ * The render tier, run here rather than bought.
+ *
+ * Deliberately NOT behind --allow-metered: a local headless Chromium costs no
+ * money, so gating it on a flag whose entire meaning is "you may spend" would
+ * be wrong. It costs seconds and it puts a real browser in front of a shop, so
+ * it is still bounded and still opt-out-able — see src/catalogue/localBrowser.ts
+ * for the budget and for what this does and does not replace.
+ */
+const noLocalRender = process.argv.includes('--no-local-render');
 // A floor on top of whatever the registry and robots.txt already require,
 // not a replacement for either — see its use below. Exists for exactly the
 // case that motivated it: run 135 hammered lookfantastic.com with 106
@@ -138,12 +161,37 @@ if (allowMetered && !proxyConfig) {
 // residential IP and a real browser fix different failures. Fails soft with
 // its own clear log line, same shape as the proxy above, whether or not
 // --allow-metered or APIFY_PROXY_PASSWORD were ever set.
-const useActor = allowMetered && actorConfig !== null && budgetAllowsMetered;
-const actorRenderer = useActor ? apifyActorRenderer(actorConfig!) : null;
+const useApifyActor = allowMetered && actorConfig !== null && budgetAllowsMetered;
 
-if (allowMetered && !actorConfig) {
+// ── Which browser renders, and why local comes first ───────────────────────
+//
+// Both renderers do the identical job — load a page, let its JavaScript run,
+// hand back the painted HTML — and expose the identical { render, used }
+// interface, so the code below neither knows nor cares which it holds. What
+// separates them is price and exit address.
+//
+// Local is a headless Chromium in this runner: free, already a dependency of
+// this repo (scripts/generate-og-preview.ts has driven it all along), and
+// bounded by wall-clock rather than by a credit. Apify's actor costs real
+// money per page — which is how the $5 monthly credit was gone by
+// 2026-08-21 — but exits through a residential address, which local cannot.
+//
+// So local is tried first because free-and-maybe-blocked strictly dominates
+// paid-and-maybe-blocked, and Apify remains available behind --allow-metered
+// for the case local turns out not to cover. Whether a shop refuses this
+// runner's datacenter IP is per shop and not yet measured: it cannot be, from
+// a sandbox whose egress proxy refuses those domains outright. CI settles it.
+const localRenderer = noLocalRender ? null : localBrowserRenderer({ gapMs: 1_000 });
+const actorRenderer = localRenderer ?? (useApifyActor ? apifyActorRenderer(actorConfig!) : null);
+const useActor = actorRenderer !== null;
+/** Named in the log so a run says which browser rendered it, not just that one did. */
+const renderTierName = localRenderer ? 'local browser' : 'Apify actor';
+
+if (localRenderer) {
+  console.log(`Local browser render available (free). Shops still yielding nothing get a real-browser render, capped at ${MAX_LOCAL_RENDER_PAGES_PER_RUN} pages for the whole run.\n`);
+} else if (allowMetered && !actorConfig) {
   console.log('--allow-metered was passed but APIFY_TOKEN is not set. Skipping real-browser retrieval.\n');
-} else if (useActor) {
+} else if (useApifyActor) {
   console.log(`Apify actor available. Shops still yielding nothing after the proxy retry get a real-browser render, capped at ${MAX_ACTOR_PAGES_PER_RUN} pages for the whole run.\n`);
 }
 
@@ -152,8 +200,14 @@ if (allowMetered && !actorConfig) {
 // separates "the shop refused us" from "our credential is wrong" — a
 // distinction the harvest cannot otherwise make, and one that was already
 // costing every proxied request in every run. See apifyAccount.ts.
-if (useActor) {
-  for (const line of (await checkApifyAccount(actorConfig!.token, proxyConfig?.password ?? null)).lines) {
+//
+// Gated on the Apify tier specifically, not on `useActor`. Those were the same
+// condition until the local renderer arrived; `useActor` now means "some
+// browser will render", which on an ordinary run is the free one and carries
+// no Apify credential to ask about. Asking anyway dereferenced a null config
+// and crashed the harvest before it fetched anything.
+if (useApifyActor && actorConfig) {
+  for (const line of (await checkApifyAccount(actorConfig.token, proxyConfig?.password ?? null)).lines) {
     console.log(line);
   }
   console.log('');
@@ -540,7 +594,7 @@ for (const retailer of shops) {
           : `[actor] every section URL disallowed by robots.txt`,
       );
     } else {
-      console.log(`      ${retailer.name}: rendering ${allowed.length} section page(s) through the Apify actor`);
+      console.log(`      ${retailer.name}: rendering ${allowed.length} section page(s) through ${renderTierName}`);
       const rendered = await actorRenderer!.render(allowed.map((t) => t.url));
       let viaRenderedState = 0;
       const listings = allowed.flatMap(({ id, url }) => {
@@ -617,7 +671,7 @@ for (const retailer of shops) {
       `${String(withPrice.length).padStart(3)} priced listings` +
       (viaPatience ? '  [via longer timeout]' : '') +
       (viaProxy ? '  [via Apify proxy]' : '') +
-      (viaActor ? '  [via Apify actor]' : '') +
+      (viaActor ? `  [via ${renderTierName}]` : '') +
       (sizesRecovered ? `  [${sizesRecovered} sizes read from product URLs]` : '') +
       (result.errors.length ? `  (${result.errors.length} errors)` : ''),
   );
@@ -724,7 +778,14 @@ console.log(`\n${reached} of ${shops.length} shops yielded real priced listings`
 console.log(`${totalListings} listings total`);
 if (zeroThisRun.length) console.log(`zero this run: ${zeroThisRun.join(', ')}`);
 if (neverLive.length) console.log(`never once live: ${neverLive.join(', ')} — still on fixtures, excluded from the site`);
-if (actorRenderer) console.log(`Apify actor pages rendered this run: ${actorRenderer.used()} of ${MAX_ACTOR_PAGES_PER_RUN} budgeted`);
+if (actorRenderer) {
+  const renderBudget = localRenderer ? MAX_LOCAL_RENDER_PAGES_PER_RUN : MAX_ACTOR_PAGES_PER_RUN;
+  console.log(`${renderTierName} pages rendered this run: ${actorRenderer.used()} of ${renderBudget} budgeted`);
+}
+// The local renderer holds a Chromium open for the whole run; nothing else
+// closes it, and a leaked browser keeps the process alive after the harvest
+// has finished reporting.
+if (localRenderer) await localRenderer.dispose();
 console.log('');
 
 if (reached === 0) {
