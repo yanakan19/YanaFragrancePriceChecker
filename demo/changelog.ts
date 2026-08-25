@@ -30,6 +30,20 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.13.0',
+    date: '22 Aug 2026',
+    title: 'Every fragrance links out to its house and to Fragrantica, and duplicate brands merged',
+    points: [
+      'Every fragrance page now links straight to the brand\'s own official site and to its Fragrantica page, instead of only offering that from the brand directory',
+      'Merged 21 more pairs of brands that were showing twice purely from spelling — "Abercrombie & Fitch" beside "Abercrombie and Fitch", accented spellings beside unaccented ones — so a house always has one page',
+      'Armaf products now show their sub-line again (Club De Nuit, Derby, Delicacy and the rest), which had been lost when the 51 separate "Armaf - …" entries were merged into the one real house',
+      'Connected 26 more brands to their official website, and corrected 14 links that pointed at an international storefront when the house has a UK one',
+      'Zara now shows real prices rather than only appearing in listings',
+      'Fixed two bugs that were throwing away fragrance notes the shops had already published — marketing copy mentioning "top notes" was being read instead of the real list, and mood words were being recorded as if they were notes',
+      'Browser tab titles are now consistent across the whole site: plain "PriceSniffs" on the home page, and "PriceSniffs: …" everywhere else',
+    ],
+  },
+  {
     version: 'v3.12.0',
     date: '21 Aug 2026',
     title: 'An honest note where a retailer has no Trustpilot rating hooked up',
