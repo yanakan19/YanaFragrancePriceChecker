@@ -1124,9 +1124,13 @@ export const BRAND_SITES: Record<string, string> = {
   //    one. A link that cannot sell a UK reader anything is not worth the
   //    row.
   //
-  // Not brands at all, so no site could ever be right. Reported rather
-  // than resolved, in the same spirit as "Unbranded" and the already
-  // folded-away "Fragrance Hub LTD" / "My Store" / "Fragrancehub.co.uk":
+  // Eleven strings that are not brands at all, so no site could ever be
+  // right. Reported rather than resolved, in the same spirit as "Unbranded"
+  // and the already folded-away "Fragrance Hub LTD" / "My Store" /
+  // "Fragrancehub.co.uk". (The commit that added this section said nine in
+  // its own subject line and heading. Eleven is the count of the list
+  // below, and the list is what is right — corrected here rather than left
+  // to be found, since the message itself can no longer be edited.)
   //
   //  - "Essential Perfumes" (4 products) is *not* the French house
   //    Essential Parfums this file already resolves, despite normalising to
