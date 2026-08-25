@@ -72,6 +72,35 @@ export interface HeadInput {
 
 /** Search engines cut the title around here; longer is wasted, not harmful. */
 const TITLE_MAX = 60;
+
+/**
+ * ── Why the fixed-route titles name the page rather than describe it ───────
+ *
+ * They used to describe: /deals was "PriceSniffs: fragrance price drops
+ * today", /retailers was "PriceSniffs: UK fragrance shops we compare". The
+ * owner's objection, with a screenshot, was that a browser tab then reads
+ * "PriceSniffs: fragrance price drops t…" while the page it belongs to is
+ * headed "Today's Deals" — the tab and the page disagree about what the page
+ * is called, and the tab is the one that gets truncated.
+ *
+ * A tab title is read at a glance, in a strip a few characters wide, next to
+ * a dozen other tabs. It is a label, not a summary. So each of these now
+ * matches the heading the page actually shows — "Today's Deals", "Brands",
+ * "Retailers", "Notes" — taken from the same words demo/app.ts renders in its
+ * own `t-page` heading and top-bar nav.
+ *
+ * The tradeoff is real and worth stating rather than pretending away: the old
+ * titles carried keywords ("UK fragrance shops", "price drops") that a short
+ * label does not, and <title> is a genuine ranking signal. The keywords have
+ * not been deleted, they have moved to `description`, which is where a longer
+ * phrase can be read in full instead of being cut at 60 characters. If search
+ * traffic to these five fixed routes measurably falls, this is the change to
+ * look at first.
+ *
+ * Entity routes (a fragrance, a brand, a shop, a note) are untouched: their
+ * titles were already the thing's own name, which is already what their
+ * heading says.
+ */
 /** The window search engines usually render in full. */
 const DESC_MIN = 140;
 const DESC_MAX = 160;
@@ -199,7 +228,7 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'brands':
       return {
-        title: 'PriceSniffs: fragrance brands',
+        title: 'PriceSniffs: Brands',
         description: describe(
           'Every fragrance brand stocked by the UK shops we track, with how many bottles each one has on the site.',
           SITE_TAIL,
@@ -210,7 +239,7 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'retailers':
       return {
-        title: 'PriceSniffs: UK fragrance shops we compare',
+        title: 'PriceSniffs: Retailers',
         description: describe(
           shops
             ? `The ${shops} UK shops whose prices this site reads, what each one charges for delivery, and how those figures were checked.`
@@ -223,7 +252,7 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'notes':
       return {
-        title: 'PriceSniffs: fragrance notes',
+        title: 'PriceSniffs: Notes',
         description: describe(
           'Browse by the notes the shops themselves publish, from vanilla and oud to iris and vetiver, never notes we guessed at.',
           SITE_TAIL,
@@ -234,7 +263,7 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'deals':
       return {
-        title: 'PriceSniffs: fragrance price drops today',
+        title: 'PriceSniffs: Today’s Deals',
         description: describe(
           'Bottles that cost less today than the last price recorded for them, measured against this site’s own price history rather than a shop’s claim.',
           SITE_TAIL,
@@ -247,7 +276,7 @@ export function headFor(input: HeadInput): HeadTags {
       return {
         // Not "PriceSniffs: About PriceSniffs" — the brand name would land
         // twice in five words.
-        title: 'PriceSniffs: about',
+        title: 'PriceSniffs: About',
         description: describe(
           'How this site gets its prices, what it earns from affiliate links, and the rule it holds to: never publish a number nobody checked.',
           SITE_TAIL,
@@ -282,7 +311,7 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'design':
       return {
-        title: 'PriceSniffs: design system',
+        title: 'PriceSniffs: Design system',
         description: describe(
           'The colours, type scale and icons this site is built from, rendered live from the same tokens the pages themselves use.',
           SITE_TAIL,
@@ -295,7 +324,7 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'search':
       return {
-        title: 'PriceSniffs: search fragrances',
+        title: 'PriceSniffs: Search',
         description: describe(
           'Search the catalogue by brand, fragrance name or concentration.',
           SITE_TAIL,
@@ -309,7 +338,7 @@ export function headFor(input: HeadInput): HeadTags {
     case 'account':
     case 'settings':
       return {
-        title: route.name === 'account' ? 'PriceSniffs: your account' : 'PriceSniffs: settings',
+        title: route.name === 'account' ? 'PriceSniffs: Account' : 'PriceSniffs: Settings',
         description: describe(
           route.name === 'account'
             ? 'Sign in to save fragrances to your list.'
@@ -322,7 +351,7 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'notFound':
       return {
-        title: 'PriceSniffs: page not found',
+        title: 'PriceSniffs: Page not found',
         description: 'That address does not match anything on this site.',
         canonical,
         noindex: true,
