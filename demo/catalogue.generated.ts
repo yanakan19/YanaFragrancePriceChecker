@@ -1263,6 +1263,38 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-6290360598871",
+    "brand": "Lattafa",
+    "name": "Nasmaat",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360598871",
+    "shops": 6,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nasmaat-Perfume-100ml-EDP-Lattafa-178953216.jpg?v=1760198028",
+    "notes": {
+      "top": [
+        "Pink pepper",
+        "Bergamot",
+        "Clary Sage"
+      ],
+      "middle": [
+        "Plum",
+        "Jasmine",
+        "Black Pepper"
+      ],
+      "base": [
+        "Leather",
+        "Amber",
+        "Moss",
+        "Patchouli"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/nasmaaat-perfume-100ml-edp-lattafa"
+      }
+    }
+  },
+  {
     "id": "ean-6290360599168",
     "brand": "Lattafa",
     "name": "Yara Candy",
@@ -3391,38 +3423,6 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290360598871",
-    "brand": "Lattafa",
-    "name": "Nasmaat",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360598871",
-    "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nasmaat-Perfume-100ml-EDP-Lattafa-178953216.jpg?v=1760198028",
-    "notes": {
-      "top": [
-        "Pink pepper",
-        "Bergamot",
-        "Clary Sage"
-      ],
-      "middle": [
-        "Plum",
-        "Jasmine",
-        "Black Pepper"
-      ],
-      "base": [
-        "Leather",
-        "Amber",
-        "Moss",
-        "Patchouli"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/nasmaaat-perfume-100ml-edp-lattafa"
-      }
-    }
-  },
-  {
     "id": "ean-6291106065114",
     "brand": "Lattafa",
     "name": "Oud Mood",
@@ -5446,6 +5446,37 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/choco-musk-perfume-50ml-edp-al-rehab"
+      }
+    }
+  },
+  {
+    "id": "ean-6290361912362",
+    "brand": "Arabiyat",
+    "name": "Uhud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290361912362",
+    "shops": 4,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Uhud-Perfume-100ml-EDP-Arabiyat-Prestige-179808524.png?v=1762022591",
+    "notes": {
+      "top": [
+        "Red Fruit",
+        "Rose",
+        "Caramel"
+      ],
+      "middle": [
+        "Tonka",
+        "Honey",
+        "Raspberry"
+      ],
+      "base": [
+        "Musk",
+        "Vanilla",
+        "Amber"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/uhud-arabiyat-prestige"
       }
     }
   },
@@ -9917,6 +9948,38 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6290360590820",
+    "brand": "Maison Alhambra",
+    "name": "Dark Door Sport",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360590820",
+    "shops": 4,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Dark-Door-Sport-100ml-EDP-Maison-Alhambra-181414910.png?v=1765409084",
+    "notes": {
+      "top": [
+        "Lemon",
+        "Grapefruit",
+        "Elemi Resin",
+        "Bergamot"
+      ],
+      "middle": [
+        "Ginger",
+        "Cedar",
+        "Vetiver"
+      ],
+      "base": [
+        "Rosemary",
+        "Lavender",
+        "Sandalwood"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/dark-door-sport-maison-alhambra"
+      }
+    }
+  },
+  {
     "id": "ean-6291108736579",
     "brand": "Maison Alhambra",
     "name": "Kismet Magic",
@@ -11549,7 +11612,10 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43174942339&a=3026001&m=106925"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
   {
     "id": "ean-6297001571262",
     "brand": "Rayhaan",
@@ -11626,10 +11692,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43174941703&a=3026001&m=106925"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
+  },
   {
     "id": "ean-810023679950",
     "brand": "Sabrina Carpenter",
@@ -14310,6 +14373,33 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-15836252832093-default-title",
+    "brand": "Arabiyat",
+    "name": "Nyla Sherbet",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": null,
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Sherbet-Perfume-80ml-EDP-Arabiyat-Prestige-183486647.png?v=1768623283",
+    "notes": {
+      "top": [
+        "Strawberry",
+        "Mandarin"
+      ],
+      "middle": [
+        "Plum"
+      ],
+      "base": [
+        "Musk",
+        "Sandalwood"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/nyla-sherbet-arabiyat-prestige"
+      }
+    }
+  },
+  {
     "id": "emirates-oud-15573104066909-default-title",
     "brand": "Arabiyat",
     "name": "Nyla Vani Elle",
@@ -14403,37 +14493,6 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/safa-arabiyat-prestige"
-      }
-    }
-  },
-  {
-    "id": "ean-6290361912362",
-    "brand": "Arabiyat",
-    "name": "Uhud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290361912362",
-    "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Uhud-Perfume-100ml-EDP-Arabiyat-Prestige-179808524.png?v=1762022591",
-    "notes": {
-      "top": [
-        "Red Fruit",
-        "Rose",
-        "Caramel"
-      ],
-      "middle": [
-        "Tonka",
-        "Honey",
-        "Raspberry"
-      ],
-      "base": [
-        "Musk",
-        "Vanilla",
-        "Amber"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/uhud-arabiyat-prestige"
       }
     }
   },
@@ -21807,7 +21866,10 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/533.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "ean-3614227758162",
     "brand": "Gucci",
@@ -21842,10 +21904,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci-guilty-absolute-pour-femme-eau-de-parfum-spray-90ml8005610524177guccilookincredible-808533__56789.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3616304175916",
     "brand": "Gucci",
@@ -26593,6 +26652,37 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-15784774730077-default-title",
+    "brand": "Lattafa",
+    "name": "Ra'ed Oud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Raed-Oud-Perfume-100ml-EDP-Lattafa-181145164.png?v=1764385369",
+    "notes": {
+      "top": [
+        "Saffron",
+        "Lavender",
+        "Bergamot"
+      ],
+      "middle": [
+        "Incense",
+        "Rose"
+      ],
+      "base": [
+        "Leather",
+        "Oud",
+        "Sandalwood",
+        "Amber"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/raed-oud-lattafa"
+      }
+    }
+  },
+  {
     "id": "ean-6291106064070",
     "brand": "Lattafa",
     "name": "Raghba Wood Intense",
@@ -27189,38 +27279,6 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6290360590820",
-    "brand": "Maison Alhambra",
-    "name": "Dark Door Sport",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360590820",
-    "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Dark-Door-Sport-100ml-EDP-Maison-Alhambra-181414910.png?v=1765409084",
-    "notes": {
-      "top": [
-        "Lemon",
-        "Grapefruit",
-        "Elemi Resin",
-        "Bergamot"
-      ],
-      "middle": [
-        "Ginger",
-        "Cedar",
-        "Vetiver"
-      ],
-      "base": [
-        "Rosemary",
-        "Lavender",
-        "Sandalwood"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/dark-door-sport-maison-alhambra"
-      }
-    }
-  },
-  {
     "id": "ean-6290362340799",
     "brand": "Maison Alhambra",
     "name": "Delilah Blanc",
@@ -27436,6 +27494,64 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/smoky-touch-maison-alhambra"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15695834743133-default-title",
+    "brand": "Maison Alhambra",
+    "name": "Victorioso Heroic",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Victorioso-Heroic-Perfume-100ml-EDP-Maison-Alhambra-179107280.png?v=1760647537",
+    "notes": {
+      "top": [
+        "Lemon",
+        "Black Pepper"
+      ],
+      "middle": [
+        "Lavender",
+        "Rosemary",
+        "Sage"
+      ],
+      "base": [
+        "Patchouli",
+        "Amber",
+        "Leather"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/victorioso-heroic-maison-alhambra"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15695834775901-default-title",
+    "brand": "Maison Alhambra",
+    "name": "Your Touch Oud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Your-Touch-Oud-Perfume-100ml-EDP-Maison-Alhambra-180634522.png?v=1763518249",
+    "notes": {
+      "top": [
+        "Honey",
+        "Amber",
+        "Resin"
+      ],
+      "middle": [
+        "Vanilla"
+      ],
+      "base": [
+        "Tobacco",
+        "Patchouli"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/your-touch-oud-maison-alhambra"
       }
     }
   },
@@ -31333,7 +31449,10 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/dubai-ocean-perfume-surrati"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-6281085040097",
     "brand": "Surrati",
@@ -31430,10 +31549,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81b0Cs1UUUL.jpg?v=1767985756",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6295124036811",
     "brand": "Swiss Arabian",
@@ -37244,33 +37360,6 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15836252832093-default-title",
-    "brand": "Arabiyat",
-    "name": "Nyla Sherbet",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Sherbet-Perfume-80ml-EDP-Arabiyat-Prestige-183486647.png?v=1768623283",
-    "notes": {
-      "top": [
-        "Strawberry",
-        "Mandarin"
-      ],
-      "middle": [
-        "Plum"
-      ],
-      "base": [
-        "Musk",
-        "Sandalwood"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/nyla-sherbet-arabiyat-prestige"
-      }
-    }
-  },
-  {
     "id": "emirates-oud-15573108752733-default-title",
     "brand": "Arabiyat",
     "name": "Nyla Suede",
@@ -41344,7 +41433,10 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 2,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "perfumeo-baraccat-brandy-designs-perfumes",
     "brand": "Brandy Designs",
@@ -41377,10 +41469,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 2,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
+  },
   {
     "id": "perfumeo-fabolous-night-brandy-designs-perfumes",
     "brand": "Brandy Designs",
@@ -48742,7 +48831,10 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/ELIZT0007.png?v=1754569752&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
   {
     "id": "ean-0719346158046",
     "brand": "Elizabeth Taylor",
@@ -48805,10 +48897,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41cXvRUo1IL.jpg?v=1763137673",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
+  },
   {
     "id": "ean-5060539180500",
     "brand": "Elle",
@@ -50268,6 +50357,33 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-15838524834141-default-title",
+    "brand": "Fragrance World",
+    "name": "Bois De Bois",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bois-De-Bois-Perfume-100ml-EDP-Fragrance-World-182032470.png?v=1766805604",
+    "notes": {
+      "top": [
+        "Basil",
+        "Pepper"
+      ],
+      "middle": [
+        "Vetiver"
+      ],
+      "base": [
+        "Mint",
+        "Akigala Wood"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/bois-de-bois-fragrance-world"
+      }
+    }
+  },
+  {
     "id": "emirates-oud-9791586664797-default-title",
     "brand": "Fragrance World",
     "name": "Bouquet of Euphoria",
@@ -50455,6 +50571,35 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/classy-chic-girl-perfume-90ml-edp-fragrance-world"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15838525063517-default-title",
+    "brand": "Fragrance World",
+    "name": "Diva",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Diva-Perfume-100ml-EDP-Fragrance-World-182032734.png?v=1766805750",
+    "notes": {
+      "top": [
+        "Citrus",
+        "Orange"
+      ],
+      "middle": [
+        "Peony",
+        "Rose",
+        "Jasmine"
+      ],
+      "base": [
+        "Musk",
+        "Amber"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/diva-fragrance-world"
       }
     }
   },
@@ -50814,6 +50959,92 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-15748185260381-default-title",
+    "brand": "Fragrance World",
+    "name": "Intro Greatness Oud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Intro-Greatness-Oud-Perfume-80ml-EDP-Fragrance-World-180407138.png?v=1763157639",
+    "notes": {
+      "top": [
+        "Lavender",
+        "Nutmeg",
+        "Saffron"
+      ],
+      "middle": [
+        "Patchouli",
+        "Oud"
+      ],
+      "base": [
+        "Musk"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/intro-greatness-oud-fragrance-world"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15723980292445-default-title",
+    "brand": "Fragrance World",
+    "name": "Invicto Legend",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Invicto-Legend-50ml-EDP-Fragrance-World-179810866.png?v=1762026055",
+    "notes": {
+      "top": [
+        "Grapefruit",
+        "Spices"
+      ],
+      "middle": [
+        "Bay Leaf",
+        "Geranium"
+      ],
+      "base": [
+        "Amber",
+        "Guaiac Wood",
+        "Labdanum"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/invicto-legend-fragrance-world"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15723980259677-default-title",
+    "brand": "Fragrance World",
+    "name": "Invicto Victorious",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Invicto-Victorious-50ml-EDP-Fragrance-World-179810926.png?v=1762026179",
+    "notes": {
+      "top": [
+        "Lavender",
+        "Cardamom",
+        "Black Pepper"
+      ],
+      "middle": [
+        "Incense",
+        "Patchouli"
+      ],
+      "base": [
+        "Vanilla",
+        "Tonka Bean"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/invicto-victorious-fragrance-world"
+      }
+    }
+  },
+  {
     "id": "ean-6290360371450",
     "brand": "Fragrance World",
     "name": "King",
@@ -50846,6 +51077,36 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-15723980423517-default-title",
+    "brand": "Fragrance World",
+    "name": "La Uno Million Elixir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Uno-Million-Elixir-50ml-EDP-Fragrance-World-179809992.png?v=1762022682",
+    "notes": {
+      "top": [
+        "Apple",
+        "Davana"
+      ],
+      "middle": [
+        "Rose",
+        "Cedar",
+        "Osmanthus"
+      ],
+      "base": [
+        "Vanilla",
+        "Tonka Bean",
+        "Patchouli"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/la-uno-million-elixir-fragrance-world"
+      }
+    }
+  },
+  {
     "id": "emirates-oud-8867626221917-default-title",
     "brand": "Fragrance World",
     "name": "La Uno Million Elixir",
@@ -50871,6 +51132,37 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/la-uno-million-elixir-100ml-eau-de-parfum-fragrance-world"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15723980489053-default-title",
+    "brand": "Fragrance World",
+    "name": "La Uno Million Royal",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Uno-Million-Royal-50ml-EDP-Fragrance-World-179810632.png?v=1762025350",
+    "notes": {
+      "top": [
+        "Cardamom",
+        "Mandarin Orange",
+        "Bergamot"
+      ],
+      "middle": [
+        "Lavender",
+        "Moss",
+        "Violet Leaf"
+      ],
+      "base": [
+        "Benzoin",
+        "Cedar",
+        "Patchouli"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/la-uno-million-royal-50ml-fragrance-world"
       }
     }
   },
@@ -51478,6 +51770,31 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/tabac-n-coke-fragrance-world"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15723980554589-default-title",
+    "brand": "Fragrance World",
+    "name": "Valentia Rome Intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Valentia-Rome-Intense-100ml-EDP-Fragrance-World-179810354.jpg?v=1762022842",
+    "notes": {
+      "top": [
+        "Black Currant"
+      ],
+      "middle": [
+        "Jasmine Absolute"
+      ],
+      "base": [
+        "Bourbon Vanilla"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/valentia-rome-intense-fragrance-world"
       }
     }
   },
@@ -52245,6 +52562,37 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 2,
     "image": null,
     "notes": null
+  },
+  {
+    "id": "emirates-oud-15793780785501-default-title",
+    "brand": "French Avenue",
+    "name": "Solitaire",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Solitaire-Perfume-100ml-EDP-French-Avenue-181317126.png?v=1764892275",
+    "notes": {
+      "top": [
+        "Clover",
+        "Bergamot",
+        "Rose"
+      ],
+      "middle": [
+        "Musk Green Tea",
+        "Heliotrope",
+        "Jasmine"
+      ],
+      "base": [
+        "Musk",
+        "Moss",
+        "Patchouli"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/solitaire-french-avenue"
+      }
+    }
   },
   {
     "id": "emirates-oud-8888896061789-default-title",
@@ -56967,7 +57315,10 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
         "url": "https://ibraquk.com/products/iconic-oud-leather-edp-75ml"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   {
     "id": "ibraq-ff-iconic-oud-rose-75",
     "brand": "Ibrahim Al Qurashi (IBRAQ)",
@@ -57344,10 +57695,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
         "url": "https://ibraquk.com/products/ocean-whisper-edp-100ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6287020283451",
     "brand": "Ibrahim Al Qurashi (IBRAQ)",
@@ -62921,6 +63269,37 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "emirates-oud-15668467892573-default-title",
+    "brand": "Lattafa",
+    "name": "Abraaj",
+    "concentration": "Perfume Oil",
+    "sizeMl": 20,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Abraaj-Concentrated-Perfume-Oil-20ml-Lattafa-178679950.png?v=1759547393",
+    "notes": {
+      "top": [
+        "Blackcurrant",
+        "Tropical Fruit",
+        "Cardamom"
+      ],
+      "middle": [
+        "Rose",
+        "Amber",
+        "Tuberose"
+      ],
+      "base": [
+        "Cashmeran",
+        "Sandalwood",
+        "Caramel"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/abraaj-concentrated-perfume-oil-lattafa"
+      }
+    }
+  },
+  {
     "id": "ean-6291108738108",
     "brand": "Lattafa",
     "name": "Afaq Gold",
@@ -63124,6 +63503,34 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "emirates-oud-15668471726429-default-title",
+    "brand": "Lattafa",
+    "name": "Amoura",
+    "concentration": "Perfume Oil",
+    "sizeMl": 20,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amoura-Concentrated-Perfume-Oil-20ml-Lattafa-178681781.png?v=1759547843",
+    "notes": {
+      "top": [
+        "Almond",
+        "Orange"
+      ],
+      "middle": [
+        "Coconut",
+        "Jasmine"
+      ],
+      "base": [
+        "Vanilla",
+        "Tonka Bean"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/amoura-concentrated-perfume-oil-lattafa"
+      }
+    }
+  },
+  {
     "id": "ean-6290360592008",
     "brand": "Lattafa",
     "name": "Art Of Nature I",
@@ -63315,6 +63722,37 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/cookie-crave-lattafa"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15668469629277-default-title",
+    "brand": "Lattafa",
+    "name": "Esraa",
+    "concentration": "Perfume Oil",
+    "sizeMl": 20,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Esraa-Concentrated-Perfume-Oil-20ml-Lattafa-178680271.png?v=1759547553",
+    "notes": {
+      "top": [
+        "Blackcurrant",
+        "Lychee",
+        "Apple"
+      ],
+      "middle": [
+        "Rose",
+        "Red Fruits",
+        "Raspberry"
+      ],
+      "base": [
+        "Musk",
+        "Caramel",
+        "Vanilla"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/esraa-concentrated-perfume-oil-lattafa"
       }
     }
   },
@@ -63520,6 +63958,31 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/fakhar-lattafa-platin"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15668470448477-default-title",
+    "brand": "Lattafa",
+    "name": "Haakem",
+    "concentration": "Perfume Oil",
+    "sizeMl": 20,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Haakem-Concentrated-Perfume-Oil-20ml-Lattafa-178681489.png?v=1759547716",
+    "notes": {
+      "top": [
+        "Rosemary"
+      ],
+      "middle": [
+        "Spices"
+      ],
+      "base": [
+        "Patchouli"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/haakem-concentrated-perfume-oil-lattafa"
       }
     }
   },
@@ -64015,37 +64478,6 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51VE69mOwTL.jpg?v=1767983816",
     "notes": null
-  },
-  {
-    "id": "emirates-oud-15784774730077-default-title",
-    "brand": "Lattafa",
-    "name": "Ra'ed Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Raed-Oud-Perfume-100ml-EDP-Lattafa-181145164.png?v=1764385369",
-    "notes": {
-      "top": [
-        "Saffron",
-        "Lavender",
-        "Bergamot"
-      ],
-      "middle": [
-        "Incense",
-        "Rose"
-      ],
-      "base": [
-        "Leather",
-        "Oud",
-        "Sandalwood",
-        "Amber"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/raed-oud-lattafa"
-      }
-    }
   },
   {
     "id": "ean-6290360590349",
@@ -65199,7 +65631,10 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/185018_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   {
     "id": "ean-6299800202057",
     "brand": "Louis Cardin",
@@ -65424,10 +65859,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/180297_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6299800202651",
     "brand": "Louis Cardin",
@@ -66368,6 +66800,99 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "emirates-oud-15832167121245-default-title",
+    "brand": "Maison Alhambra",
+    "name": "Extravagant Lover",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Extravagant-Lover-100ml-EDP-Maison-Alhambra-181697033.png?v=1766163648",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Apple",
+        "Coffee",
+        "Pineapple"
+      ],
+      "middle": [
+        "Geranium",
+        "Guaiac Wood",
+        "White Flower"
+      ],
+      "base": [
+        "Amber",
+        "Vetiver",
+        "Tonka Bean",
+        "Caramel",
+        "Musk"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/extravagant-lover-maison-alhambra"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15695835070813-default-title",
+    "brand": "Maison Alhambra",
+    "name": "Galactic Men Elixir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Galactic-Men-Elixir-Perfume-100ml-EDP-Maison-Alhambra-179108740.png?v=1760647565",
+    "notes": {
+      "top": [
+        "Tobacco"
+      ],
+      "middle": [
+        "Honey",
+        "Cacao",
+        "Labdanum"
+      ],
+      "base": [
+        "Patchouli",
+        "Vanilla",
+        "Amber"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/galactic-men-elixir-maison-alhambra"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15695834972509-default-title",
+    "brand": "Maison Alhambra",
+    "name": "Galactic Men Intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Galactic-Men-Intense-Perfume-100ml-EDP-Maison-Alhambra-179108461.png?v=1760647557",
+    "notes": {
+      "top": [
+        "White Honey",
+        "Tobacco"
+      ],
+      "middle": [
+        "Vanilla",
+        "Cacao",
+        "Patchouli"
+      ],
+      "base": [
+        "Amber",
+        "French Labdanum",
+        "Styrax"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/galactic-men-intense-maison-alhambra"
+      }
+    }
+  },
+  {
     "id": "ean-6291107459226",
     "brand": "Maison Alhambra",
     "name": "Galatea",
@@ -66598,6 +67123,39 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-15664617980253-default-title",
+    "brand": "Maison Alhambra",
+    "name": "Leonie Intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Leonie-Intense-Perfume-100ml-EDP-Maison-Alhambra-178596868.jpg?v=1759334496",
+    "notes": {
+      "top": [
+        "Lavender",
+        "Mandarin Orange",
+        "Black Currant",
+        "Petitgrain"
+      ],
+      "middle": [
+        "Lavender",
+        "Orange Blossom",
+        "Jasmine"
+      ],
+      "base": [
+        "Madagascar Vanilla",
+        "Musk",
+        "Cedar",
+        "Ambergris"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/leonie-intense-maison-alhambra"
+      }
+    }
+  },
+  {
     "id": "emirates-oud-15612332081501-default-title",
     "brand": "Maison Alhambra",
     "name": "Luxe Chic",
@@ -66627,6 +67185,39 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-15832180818269-default-title",
+    "brand": "Maison Alhambra",
+    "name": "Mia Dolcezza Verde",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mia-Dolcezza-Verde-100ml-EDP-Maison-Alhambra-181697953.png?v=1766164350",
+    "notes": {
+      "top": [
+        "Lemon",
+        "Mandarin",
+        "Pink Pepper"
+      ],
+      "middle": [
+        "Jasmine",
+        "Sugar",
+        "Rose"
+      ],
+      "base": [
+        "Amber",
+        "Vanilla",
+        "Cashmere",
+        "Cedarwood",
+        "Musk"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/mia-dolcezza-verde-maison-alhambra"
+      }
+    }
+  },
+  {
     "id": "emirates-oud-9839937585501-default-title",
     "brand": "Maison Alhambra",
     "name": "Montaigne Coco",
@@ -66652,6 +67243,120 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/montaigne-coco-perfume-100ml-edp-maison-alhambra"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15695835136349-default-title",
+    "brand": "Maison Alhambra",
+    "name": "Nebula I",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nebula-I-Perfume-100ml-EDP-Maison-Alhambra-179109051.png?v=1760647569",
+    "notes": {
+      "top": [
+        "Orange Blossom"
+      ],
+      "middle": [
+        "Jasmine"
+      ],
+      "base": [
+        "Vanilla"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/nebula-maison-alhambra"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15695835169117-default-title",
+    "brand": "Maison Alhambra",
+    "name": "Nebula II",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nebula-II-Perfume-100ml-EDP-Maison-Alhambra-179109158.png?v=1760647570",
+    "notes": {
+      "top": [
+        "Citrus",
+        "Bergamot"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose"
+      ],
+      "base": [
+        "Oud",
+        "Amber",
+        "Musk"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/nebula-ii-alhambra"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15808405995869-default-title",
+    "brand": "Maison Alhambra",
+    "name": "Nebula III",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nebula-III-Perfume-100ml-EDP-Maison-Alhambra-181415129.png?v=1765409299",
+    "notes": {
+      "top": [
+        "Warm Spices",
+        "Citrus"
+      ],
+      "middle": [
+        "Rose",
+        "Jasmine",
+        "Sandalwood"
+      ],
+      "base": [
+        "Amber",
+        "Vanilla",
+        "White Musk"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/nebula-iii-maison-alhambra"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15695835234653-default-title",
+    "brand": "Maison Alhambra",
+    "name": "Opera Rouge",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opera-Rouge-Perfume-100ml-EDP-Maison-Alhambra-179109276.png?v=1760647581",
+    "notes": {
+      "top": [
+        "Cherry",
+        "Mandarin"
+      ],
+      "middle": [
+        "Jasmine",
+        "Orange Blossom",
+        "Tea"
+      ],
+      "base": [
+        "Vanilla",
+        "Coffee",
+        "Patchouli"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/opera-rouge-alhambra"
       }
     }
   },
@@ -66753,6 +67458,38 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "emirates-oud-15705636503901-default-title",
+    "brand": "Maison Alhambra",
+    "name": "Pink Eclipse",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pink-Eclipse-100ml-EDP-Maison-Alhambra-179451895.png?v=1761176925",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Tangerine",
+        "Pear"
+      ],
+      "middle": [
+        "Orange Blossom",
+        "Jasmine",
+        "Neroli"
+      ],
+      "base": [
+        "Vanilla",
+        "Benzoin",
+        "Musk",
+        "Amber"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/pink-eclipse-100ml-edp-maison-alhambra"
+      }
+    }
+  },
+  {
     "id": "emirates-oud-15477198291293-default-title",
     "brand": "Maison Alhambra",
     "name": "Salvo Elixir",
@@ -66842,6 +67579,99 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/smoky-maison-alhambra"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15787602018653-default-title",
+    "brand": "Maison Alhambra",
+    "name": "Sugar Me Candy Floss",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sugar-Me-Candy-Floss-Perfume-100ml-EDP-Maison-Alhambra-181166015.png?v=1764546181",
+    "notes": {
+      "top": [
+        "Red Berries",
+        "Sugar",
+        "Lemon"
+      ],
+      "middle": [
+        "Vanilla",
+        "Sugar"
+      ],
+      "base": [
+        "Orange Blossom",
+        "Cotton Candy",
+        "Musk"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/sugar-me-candy-floss-maison-alhambra"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15787596480861-default-title",
+    "brand": "Maison Alhambra",
+    "name": "Sugar Me Carrot Cake",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sugar-Me-Carrot-Cake-Perfume-100ml-EDP-Maison-Alhambra-181165662.png?v=1764545241",
+    "notes": {
+      "top": [
+        "Carrot",
+        "Cake"
+      ],
+      "middle": [
+        "Cheesecake",
+        "Cinnamon",
+        "Hazelnut",
+        "Almond"
+      ],
+      "base": [
+        "Vanilla",
+        "Amber",
+        "Sandalwood",
+        "Musk"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/sugar-me-carrot-cake-maison-alhambra"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-15787596972381-default-title",
+    "brand": "Maison Alhambra",
+    "name": "Sugar Me Creme Brulee",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sugar-Me-Creme-Brulee-Perfume-100ml-EDP-Maison-Alhambra-181165740.png?v=1764545461",
+    "notes": {
+      "top": [
+        "Caramel",
+        "Vanilla"
+      ],
+      "middle": [
+        "Milk Cream",
+        "Sugar",
+        "Coconut",
+        "Tonka Bean"
+      ],
+      "base": [
+        "Amber",
+        "Sandalwood",
+        "Musk"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/sugar-me-creme-brulee"
       }
     }
   },
@@ -66961,36 +67791,6 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15695834743133-default-title",
-    "brand": "Maison Alhambra",
-    "name": "Victorioso Heroic",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Victorioso-Heroic-Perfume-100ml-EDP-Maison-Alhambra-179107280.png?v=1760647537",
-    "notes": {
-      "top": [
-        "Lemon",
-        "Black Pepper"
-      ],
-      "middle": [
-        "Lavender",
-        "Rosemary",
-        "Sage"
-      ],
-      "base": [
-        "Patchouli",
-        "Amber",
-        "Leather"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/victorioso-heroic-maison-alhambra"
-      }
-    }
-  },
-  {
     "id": "ean-6290360598680",
     "brand": "Maison Alhambra",
     "name": "Vogue Party",
@@ -67100,34 +67900,6 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/winsome-perfume-90ml-edp-maison-alhambra"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15695834775901-default-title",
-    "brand": "Maison Alhambra",
-    "name": "Your Touch Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Your-Touch-Oud-Perfume-100ml-EDP-Maison-Alhambra-180634522.png?v=1763518249",
-    "notes": {
-      "top": [
-        "Honey",
-        "Amber",
-        "Resin"
-      ],
-      "middle": [
-        "Vanilla"
-      ],
-      "base": [
-        "Tobacco",
-        "Patchouli"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/your-touch-oud-maison-alhambra"
       }
     }
   },
@@ -72597,7 +73369,10 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71Roypywd_L.jpg?v=1767984997",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
   {
     "id": "ean-0810103654822",
     "brand": "Pierre Cardin",
@@ -72950,10 +73725,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43157929921&a=3026001&m=106925"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
+  },
   {
     "id": "ean-0679602180122",
     "brand": "Police",
@@ -80525,7 +81297,10 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/FRA_V0001247_S1.jpg?v=1763142564",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "ean-7611160211767",
     "brand": "Victorinox Swiss Army",
@@ -80906,10 +81681,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51aj_0Rt7lL.jpg?v=1767986332",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8033488154158",
     "brand": "Xerjoff",
@@ -88857,7 +89629,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/180190_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-ahp1936",
     "brand": "Al Haramain",
@@ -89340,10 +90115,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "url": "https://alharamainperfumes.co.uk/products/dunes-of-dubai-attar-oil-12ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
+  },
   {
     "id": "al-haramain-ahp1860",
     "brand": "Al Haramain",
@@ -98447,7 +99219,10 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/192442_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16260954784093-default-title",
     "brand": "Ard Al Zaafaran",
@@ -99142,10 +99917,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
         "url": "https://fragrancehub.co.uk/products/bint-hooran-rose-passion-100ml-edp-by-ard-al-zaafaran"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338438062217-44927443075209",
     "brand": "Ard Al Zaafaran",
@@ -107434,7 +108206,10 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43661686318&a=3026001&m=106925"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "ean-0840797119420",
     "brand": "Banana Republic",
@@ -107761,10 +108536,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bellavitaluxury.uk/cdn/shop/files/CEOMANCEOMAN_HONEYOUD1.jpg?v=1761808763",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
+  },
   {
     "id": "bellavita-luxury-8906150345188",
     "brand": "Bellavita UK",
@@ -115975,7 +116747,10 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/1/012.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338181357705-44927004901513",
     "brand": "Burberry",
@@ -116294,10 +117069,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/85521_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338181718153-44927006998665",
     "brand": "Burberry",
@@ -122543,7 +123315,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "perfumeo-oud-miraj-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
@@ -122848,10 +123623,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/1/210.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsukdk2-40110",
     "brand": "Chanel",
@@ -128894,7 +129666,10 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/DIOR0039.png?v=1758900970&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
   {
     "id": "justmylook-dior0047",
     "brand": "Dior",
@@ -129190,10 +129965,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1764933975-46450200.jpg?v=1772624894&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
+  },
   {
     "id": "ean-0663350092745",
     "brand": "Disney",
@@ -135831,7 +136603,10 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
         "url": "https://www.beautybase.com/products/diva-eau-de-parfum-100ml-spray"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "ean-8052464893638",
     "brand": "Emanuel Ungaro",
@@ -136201,10 +136976,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51gXb6XV6jL.jpg?v=1763138017",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338412241033-44927390613641",
     "brand": "Emporio Armani",
@@ -140992,33 +141764,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15838524834141-default-title",
-    "brand": "Fragrance World",
-    "name": "Bois De Bois",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bois-De-Bois-Perfume-100ml-EDP-Fragrance-World-182032470.png?v=1766805604",
-    "notes": {
-      "top": [
-        "Basil",
-        "Pepper"
-      ],
-      "middle": [
-        "Vetiver"
-      ],
-      "base": [
-        "Mint",
-        "Akigala Wood"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/bois-de-bois-fragrance-world"
-      }
-    }
-  },
-  {
     "id": "emirates-oud-15082038919517-default-title",
     "brand": "Fragrance World",
     "name": "Bubbly Perfume",
@@ -141939,35 +142684,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/des-tentations-fragrance-world"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15838525063517-default-title",
-    "brand": "Fragrance World",
-    "name": "Diva",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Diva-Perfume-100ml-EDP-Fragrance-World-182032734.png?v=1766805750",
-    "notes": {
-      "top": [
-        "Citrus",
-        "Orange"
-      ],
-      "middle": [
-        "Peony",
-        "Rose",
-        "Jasmine"
-      ],
-      "base": [
-        "Musk",
-        "Amber"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/diva-fragrance-world"
       }
     }
   },
@@ -143572,34 +144288,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15748185260381-default-title",
-    "brand": "Fragrance World",
-    "name": "Intro Greatness Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Intro-Greatness-Oud-Perfume-80ml-EDP-Fragrance-World-180407138.png?v=1763157639",
-    "notes": {
-      "top": [
-        "Lavender",
-        "Nutmeg",
-        "Saffron"
-      ],
-      "middle": [
-        "Patchouli",
-        "Oud"
-      ],
-      "base": [
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/intro-greatness-oud-fragrance-world"
-      }
-    }
-  },
-  {
     "id": "emirates-oud-9947207696733-default-title",
     "brand": "Fragrance World",
     "name": "Intro Ivory Musk",
@@ -143746,35 +144434,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15723980292445-default-title",
-    "brand": "Fragrance World",
-    "name": "Invicto Legend",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Invicto-Legend-50ml-EDP-Fragrance-World-179810866.png?v=1762026055",
-    "notes": {
-      "top": [
-        "Grapefruit",
-        "Spices"
-      ],
-      "middle": [
-        "Bay Leaf",
-        "Geranium"
-      ],
-      "base": [
-        "Amber",
-        "Guaiac Wood",
-        "Labdanum"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/invicto-legend-fragrance-world"
-      }
-    }
-  },
-  {
     "id": "emirates-oud-9159344095581-default-title",
     "brand": "Fragrance World",
     "name": "Invicto Legend",
@@ -143798,35 +144457,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/invicto-legend-perfume-100ml-edp-fragrance-world"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15723980259677-default-title",
-    "brand": "Fragrance World",
-    "name": "Invicto Victorious",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Invicto-Victorious-50ml-EDP-Fragrance-World-179810926.png?v=1762026179",
-    "notes": {
-      "top": [
-        "Lavender",
-        "Cardamom",
-        "Black Pepper"
-      ],
-      "middle": [
-        "Incense",
-        "Patchouli"
-      ],
-      "base": [
-        "Vanilla",
-        "Tonka Bean"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/invicto-victorious-fragrance-world"
       }
     }
   },
@@ -144677,36 +145307,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15723980423517-default-title",
-    "brand": "Fragrance World",
-    "name": "La Uno Million Elixir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Uno-Million-Elixir-50ml-EDP-Fragrance-World-179809992.png?v=1762022682",
-    "notes": {
-      "top": [
-        "Apple",
-        "Davana"
-      ],
-      "middle": [
-        "Rose",
-        "Cedar",
-        "Osmanthus"
-      ],
-      "base": [
-        "Vanilla",
-        "Tonka Bean",
-        "Patchouli"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/la-uno-million-elixir-fragrance-world"
-      }
-    }
-  },
-  {
     "id": "emirates-oud-9911142351197-default-title",
     "brand": "Fragrance World",
     "name": "La Uno Million Golden Oud",
@@ -144761,37 +145361,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/la-uno-million-le-parfum-100ml-eau-de-parfum-fragrance-world"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15723980489053-default-title",
-    "brand": "Fragrance World",
-    "name": "La Uno Million Royal",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Uno-Million-Royal-50ml-EDP-Fragrance-World-179810632.png?v=1762025350",
-    "notes": {
-      "top": [
-        "Cardamom",
-        "Mandarin Orange",
-        "Bergamot"
-      ],
-      "middle": [
-        "Lavender",
-        "Moss",
-        "Violet Leaf"
-      ],
-      "base": [
-        "Benzoin",
-        "Cedar",
-        "Patchouli"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/la-uno-million-royal-50ml-fragrance-world"
       }
     }
   },
@@ -146050,7 +146619,10 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/optimystic-paradox-perfume-fragrance-world"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15765660205405-default-title",
     "brand": "Fragrance World",
@@ -146545,10 +147117,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/prohibit-parfum-intense-fragrance-world"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-8868970463581-default-title",
     "brand": "Fragrance World",
@@ -148289,31 +148858,6 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/urban-women-paradise-perfume-fragrance-world"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15723980554589-default-title",
-    "brand": "Fragrance World",
-    "name": "Valentia Rome Intense",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Valentia-Rome-Intense-100ml-EDP-Fragrance-World-179810354.jpg?v=1762022842",
-    "notes": {
-      "top": [
-        "Black Currant"
-      ],
-      "middle": [
-        "Jasmine Absolute"
-      ],
-      "base": [
-        "Bourbon Vanilla"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/valentia-rome-intense-fragrance-world"
       }
     }
   },
@@ -152217,37 +152761,6 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "emirates-oud-15793780785501-default-title",
-    "brand": "French Avenue",
-    "name": "Solitaire",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Solitaire-Perfume-100ml-EDP-French-Avenue-181317126.png?v=1764892275",
-    "notes": {
-      "top": [
-        "Clover",
-        "Bergamot",
-        "Rose"
-      ],
-      "middle": [
-        "Musk Green Tea",
-        "Heliotrope",
-        "Jasmine"
-      ],
-      "base": [
-        "Musk",
-        "Moss",
-        "Patchouli"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/solitaire-french-avenue"
-      }
-    }
-  },
-  {
     "id": "french-avenue-17954",
     "brand": "French Avenue",
     "name": "Solitaire",
@@ -155327,7 +155840,10 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "ean-3614274657876",
     "brand": "Giorgio Armani",
@@ -155562,10 +156078,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "ean-0716393088357",
     "brand": "Giorgio Beverly Hills",
@@ -162332,7 +162845,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1374598153-25471300.png?v=1763391116&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "ean-5030645841411",
     "brand": "Houbigant",
@@ -162567,10 +163083,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8005610460598",
     "brand": "Hugo Boss",
@@ -169117,7 +169630,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/157216_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338240405641-44927100747913",
     "brand": "Jojo Siwa",
@@ -169386,10 +169902,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/5125ot_Jy5L.jpg?v=1709550907",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsusdk2-00760",
     "brand": "Jovan",
@@ -176738,7 +177251,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/415vroVzdPL.jpg?v=1763139721",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416707608713-45147078852745",
     "brand": "Lalique",
@@ -176966,10 +177482,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416707412105-45147078656137",
     "brand": "Lalique",
@@ -178654,37 +179167,6 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15668467892573-default-title",
-    "brand": "Lattafa",
-    "name": "Abraaj",
-    "concentration": "Perfume Oil",
-    "sizeMl": 20,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Abraaj-Concentrated-Perfume-Oil-20ml-Lattafa-178679950.png?v=1759547393",
-    "notes": {
-      "top": [
-        "Blackcurrant",
-        "Tropical Fruit",
-        "Cardamom"
-      ],
-      "middle": [
-        "Rose",
-        "Amber",
-        "Tuberose"
-      ],
-      "base": [
-        "Cashmeran",
-        "Sandalwood",
-        "Caramel"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/abraaj-concentrated-perfume-oil-lattafa"
-      }
-    }
-  },
-  {
     "id": "emirates-oud-9026373517661-default-title",
     "brand": "Lattafa",
     "name": "Afaq Gold Perfume Lattafa Pride",
@@ -179378,34 +179860,6 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/ameerat-al-arab-sugar-crown"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15668471726429-default-title",
-    "brand": "Lattafa",
-    "name": "Amoura",
-    "concentration": "Perfume Oil",
-    "sizeMl": 20,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amoura-Concentrated-Perfume-Oil-20ml-Lattafa-178681781.png?v=1759547843",
-    "notes": {
-      "top": [
-        "Almond",
-        "Orange"
-      ],
-      "middle": [
-        "Coconut",
-        "Jasmine"
-      ],
-      "base": [
-        "Vanilla",
-        "Tonka Bean"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/amoura-concentrated-perfume-oil-lattafa"
       }
     }
   },
@@ -180885,37 +181339,6 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "emirates-oud-15668469629277-default-title",
-    "brand": "Lattafa",
-    "name": "Esraa",
-    "concentration": "Perfume Oil",
-    "sizeMl": 20,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Esraa-Concentrated-Perfume-Oil-20ml-Lattafa-178680271.png?v=1759547553",
-    "notes": {
-      "top": [
-        "Blackcurrant",
-        "Lychee",
-        "Apple"
-      ],
-      "middle": [
-        "Rose",
-        "Red Fruits",
-        "Raspberry"
-      ],
-      "base": [
-        "Musk",
-        "Caramel",
-        "Vanilla"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/esraa-concentrated-perfume-oil-lattafa"
-      }
-    }
-  },
-  {
     "id": "emirates-oud-8839488307549-default-title",
     "brand": "Lattafa",
     "name": "Eternal Oud Perfume Lattafa Pride",
@@ -181371,31 +181794,6 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/guinea-perfume-100ml-edp-lattafa"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15668470448477-default-title",
-    "brand": "Lattafa",
-    "name": "Haakem",
-    "concentration": "Perfume Oil",
-    "sizeMl": 20,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Haakem-Concentrated-Perfume-Oil-20ml-Lattafa-178681489.png?v=1759547716",
-    "notes": {
-      "top": [
-        "Rosemary"
-      ],
-      "middle": [
-        "Spices"
-      ],
-      "base": [
-        "Patchouli"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/haakem-concentrated-perfume-oil-lattafa"
       }
     }
   },
@@ -183437,6 +183835,17 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/pure-crystal-lattafa-pride"
       }
     }
+  },
+  {
+    "id": "perfumeo-pure-crystal-pride-by-lattafa-100ml-eau-de-parfum",
+    "brand": "Lattafa",
+    "name": "Pure Crystal Pride",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-8839509377373-default-title",
@@ -186239,7 +186648,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61d3vqmXa8L.jpg?v=1767983942",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416717078665-45147092254857",
     "brand": "Laurent Mazzone",
@@ -186573,10 +186985,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/fearless-perfume-laverne"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-16185592775005-default-title",
     "brand": "Laverne",
@@ -190892,40 +191301,6 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15832167121245-default-title",
-    "brand": "Maison Alhambra",
-    "name": "Extravagant Lover",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Extravagant-Lover-100ml-EDP-Maison-Alhambra-181697033.png?v=1766163648",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Apple",
-        "Coffee",
-        "Pineapple"
-      ],
-      "middle": [
-        "Geranium",
-        "Guaiac Wood",
-        "White Flower"
-      ],
-      "base": [
-        "Amber",
-        "Vetiver",
-        "Tonka Bean",
-        "Caramel",
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/extravagant-lover-maison-alhambra"
-      }
-    }
-  },
-  {
     "id": "emirates-oud-15612331524445-default-title",
     "brand": "Maison Alhambra",
     "name": "Flaming Elixir",
@@ -191060,65 +191435,6 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/fusion-intense-maison-alhambra"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15695835070813-default-title",
-    "brand": "Maison Alhambra",
-    "name": "Galactic Men Elixir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Galactic-Men-Elixir-Perfume-100ml-EDP-Maison-Alhambra-179108740.png?v=1760647565",
-    "notes": {
-      "top": [
-        "Tobacco"
-      ],
-      "middle": [
-        "Honey",
-        "Cacao",
-        "Labdanum"
-      ],
-      "base": [
-        "Patchouli",
-        "Vanilla",
-        "Amber"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/galactic-men-elixir-maison-alhambra"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15695834972509-default-title",
-    "brand": "Maison Alhambra",
-    "name": "Galactic Men Intense",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Galactic-Men-Intense-Perfume-100ml-EDP-Maison-Alhambra-179108461.png?v=1760647557",
-    "notes": {
-      "top": [
-        "White Honey",
-        "Tobacco"
-      ],
-      "middle": [
-        "Vanilla",
-        "Cacao",
-        "Patchouli"
-      ],
-      "base": [
-        "Amber",
-        "French Labdanum",
-        "Styrax"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/galactic-men-intense-maison-alhambra"
       }
     }
   },
@@ -192437,39 +192753,6 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "emirates-oud-15664617980253-default-title",
-    "brand": "Maison Alhambra",
-    "name": "Leonie Intense",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Leonie-Intense-Perfume-100ml-EDP-Maison-Alhambra-178596868.jpg?v=1759334496",
-    "notes": {
-      "top": [
-        "Lavender",
-        "Mandarin Orange",
-        "Black Currant",
-        "Petitgrain"
-      ],
-      "middle": [
-        "Lavender",
-        "Orange Blossom",
-        "Jasmine"
-      ],
-      "base": [
-        "Madagascar Vanilla",
-        "Musk",
-        "Cedar",
-        "Ambergris"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/leonie-intense-maison-alhambra"
-      }
-    }
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8416733266057-45147114340489",
     "brand": "Maison Alhambra",
     "name": "Léonie Intense",
@@ -192646,39 +192929,6 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/mia-dolcezza-maison-alhambra"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15832180818269-default-title",
-    "brand": "Maison Alhambra",
-    "name": "Mia Dolcezza Verde",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mia-Dolcezza-Verde-100ml-EDP-Maison-Alhambra-181697953.png?v=1766164350",
-    "notes": {
-      "top": [
-        "Lemon",
-        "Mandarin",
-        "Pink Pepper"
-      ],
-      "middle": [
-        "Jasmine",
-        "Sugar",
-        "Rose"
-      ],
-      "base": [
-        "Amber",
-        "Vanilla",
-        "Cashmere",
-        "Cedarwood",
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/mia-dolcezza-verde-maison-alhambra"
       }
     }
   },
@@ -193002,90 +193252,6 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15695835136349-default-title",
-    "brand": "Maison Alhambra",
-    "name": "Nebula I",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nebula-I-Perfume-100ml-EDP-Maison-Alhambra-179109051.png?v=1760647569",
-    "notes": {
-      "top": [
-        "Orange Blossom"
-      ],
-      "middle": [
-        "Jasmine"
-      ],
-      "base": [
-        "Vanilla"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/nebula-maison-alhambra"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15695835169117-default-title",
-    "brand": "Maison Alhambra",
-    "name": "Nebula II",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nebula-II-Perfume-100ml-EDP-Maison-Alhambra-179109158.png?v=1760647570",
-    "notes": {
-      "top": [
-        "Citrus",
-        "Bergamot"
-      ],
-      "middle": [
-        "Jasmine",
-        "Rose"
-      ],
-      "base": [
-        "Oud",
-        "Amber",
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/nebula-ii-alhambra"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15808405995869-default-title",
-    "brand": "Maison Alhambra",
-    "name": "Nebula III",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nebula-III-Perfume-100ml-EDP-Maison-Alhambra-181415129.png?v=1765409299",
-    "notes": {
-      "top": [
-        "Warm Spices",
-        "Citrus"
-      ],
-      "middle": [
-        "Rose",
-        "Jasmine",
-        "Sandalwood"
-      ],
-      "base": [
-        "Amber",
-        "Vanilla",
-        "White Musk"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/nebula-iii-maison-alhambra"
-      }
-    }
-  },
-  {
     "id": "emirates-oud-9242451771741-default-title",
     "brand": "Maison Alhambra",
     "name": "No. 2 Men",
@@ -193123,36 +193289,6 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/opera-noir-perfume-100ml-edp-alhambra"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15695835234653-default-title",
-    "brand": "Maison Alhambra",
-    "name": "Opera Rouge",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opera-Rouge-Perfume-100ml-EDP-Maison-Alhambra-179109276.png?v=1760647581",
-    "notes": {
-      "top": [
-        "Cherry",
-        "Mandarin"
-      ],
-      "middle": [
-        "Jasmine",
-        "Orange Blossom",
-        "Tea"
-      ],
-      "base": [
-        "Vanilla",
-        "Coffee",
-        "Patchouli"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/opera-rouge-alhambra"
       }
     }
   },
@@ -193323,38 +193459,6 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/philos-rosso-maison-alhambra"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15705636503901-default-title",
-    "brand": "Maison Alhambra",
-    "name": "Pink Eclipse",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pink-Eclipse-100ml-EDP-Maison-Alhambra-179451895.png?v=1761176925",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Tangerine",
-        "Pear"
-      ],
-      "middle": [
-        "Orange Blossom",
-        "Jasmine",
-        "Neroli"
-      ],
-      "base": [
-        "Vanilla",
-        "Benzoin",
-        "Musk",
-        "Amber"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/pink-eclipse-100ml-edp-maison-alhambra"
       }
     }
   },
@@ -193719,99 +193823,6 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/spectrum-maison-alhambra"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15787602018653-default-title",
-    "brand": "Maison Alhambra",
-    "name": "Sugar Me Candy Floss",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sugar-Me-Candy-Floss-Perfume-100ml-EDP-Maison-Alhambra-181166015.png?v=1764546181",
-    "notes": {
-      "top": [
-        "Red Berries",
-        "Sugar",
-        "Lemon"
-      ],
-      "middle": [
-        "Vanilla",
-        "Sugar"
-      ],
-      "base": [
-        "Orange Blossom",
-        "Cotton Candy",
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/sugar-me-candy-floss-maison-alhambra"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15787596480861-default-title",
-    "brand": "Maison Alhambra",
-    "name": "Sugar Me Carrot Cake",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sugar-Me-Carrot-Cake-Perfume-100ml-EDP-Maison-Alhambra-181165662.png?v=1764545241",
-    "notes": {
-      "top": [
-        "Carrot",
-        "Cake"
-      ],
-      "middle": [
-        "Cheesecake",
-        "Cinnamon",
-        "Hazelnut",
-        "Almond"
-      ],
-      "base": [
-        "Vanilla",
-        "Amber",
-        "Sandalwood",
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/sugar-me-carrot-cake-maison-alhambra"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15787596972381-default-title",
-    "brand": "Maison Alhambra",
-    "name": "Sugar Me Creme Brulee",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sugar-Me-Creme-Brulee-Perfume-100ml-EDP-Maison-Alhambra-181165740.png?v=1764545461",
-    "notes": {
-      "top": [
-        "Caramel",
-        "Vanilla"
-      ],
-      "middle": [
-        "Milk Cream",
-        "Sugar",
-        "Coconut",
-        "Tonka Bean"
-      ],
-      "base": [
-        "Amber",
-        "Sandalwood",
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/sugar-me-creme-brulee"
       }
     }
   },
@@ -196417,7 +196428,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61jmSynlo8L.jpg?v=1767984482",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416734150793-45147115290761",
     "brand": "Maison Noir",
@@ -196440,10 +196454,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43661688278&a=3026001&m=106925"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-revm0400",
     "brand": "Makeup Revolution",
@@ -203046,7 +203057,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsukdk2-36993",
     "brand": "New Brand",
@@ -203057,10 +203071,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsukdk2-37012",
     "brand": "New Brand",
@@ -204628,6 +204639,17 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "ean": "6297001574218",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1755009874-03387100.jpg?v=1763398745&width=1920",
+    "notes": null
+  },
+  {
+    "id": "perfumeo-nusuk-raheeq-100ml",
+    "brand": "Nusuk",
+    "name": "Raheeq by Nusuk | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -210639,7 +210661,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
         "url": "https://www.beautybase.com/products/parisvally-irshid-eau-de-parfum-100ml-spray"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "ean-0634240335129",
     "brand": "Parisvally",
@@ -210681,10 +210706,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1614596319-16582600.jpg?v=1763389709&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3760004322481",
     "brand": "Pascal Morabito",
@@ -218088,7 +218110,10 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/hawas-addiction-perfume-rasasi"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9881231032669-default-title",
     "brand": "Rasasi",
@@ -218149,10 +218174,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/hawas-chrome-for-him-perfume-rasasi"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15568378167645-default-title",
     "brand": "Rasasi",
@@ -228043,7 +228065,10 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/191010_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416765116553-45147150123145",
     "brand": "Sarah Jessica Parker",
@@ -228089,10 +228114,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43661688911&a=3026001&m=106925"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-sjp-152146-x",
     "brand": "Sarah Jessica Parker",
@@ -235042,7 +235064,10 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338246205577-44927107367049",
     "brand": "Tonino Lamborghini",
@@ -235064,10 +235089,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41slwdVpo5L.jpg?v=1763139751",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338246303881-44927107498121",
     "brand": "Tonino Lamborghini",
@@ -242862,7 +242884,10 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
   {
     "id": "ean-0000050518388",
     "brand": "Worth",
@@ -242884,10 +242909,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1700061365-10213300.jpg?v=1763393873&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsusdk2-00677",
     "brand": "Worth",
@@ -247368,7 +247390,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 18.99,
-      "wasPrice": 39.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687861&a=3026001&m=106925",
@@ -247768,7 +247790,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 43.99,
-      "wasPrice": 75.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686262&a=3026001&m=106925",
@@ -248248,7 +248270,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 68.99,
-      "wasPrice": 129.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686303&a=3026001&m=106925",
@@ -248568,7 +248590,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 107.49,
-      "wasPrice": 208.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686540&a=3026001&m=106925",
@@ -249060,7 +249082,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 107.49,
-      "wasPrice": 174.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687324&a=3026001&m=106925",
@@ -250207,6 +250229,86 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "ean-6290360598871": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lattafa-nasmaat-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-22T18:19:46.010Z",
+      "firstSeenAt": "2026-08-10T19:59:39.471Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1761816961-50503400.jpg?v=1763399360&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 29.25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43078731273&a=3026001&m=6561",
+      "fetchedAt": "2026-08-25T02:53:24.019Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 16.99,
+      "wasPrice": 24.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/nasmaaat-perfume-100ml-edp-lattafa",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nasmaat-Perfume-100ml-EDP-Lattafa-178953216.jpg?v=1760198028",
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 30.99,
+      "wasPrice": 57.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687920&a=3026001&m=106925",
+      "fetchedAt": "2026-08-25T14:39:53.268Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81L6Scvg9HL.jpg?v=1767983831",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 15.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/nasmaat-by-lattafa-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "the-beauty-store-uk",
+      "price": 28.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://thebeautystore.com/products/lattafa-nasmaat-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-24T20:30:03.352Z",
+      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "ean-6290360599168": [
     {
       "retailerId": "beautybase",
@@ -250224,7 +250326,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 18.3,
-      "wasPrice": 41.39,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=38892477750&a=3026001&m=6561",
@@ -250503,7 +250605,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 61.99,
-      "wasPrice": 120.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688656&a=3026001&m=106925",
@@ -250583,7 +250685,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 91.99,
-      "wasPrice": 177.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688539&a=3026001&m=106925",
@@ -251793,7 +251895,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 46.99,
-      "wasPrice": 85.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686227&a=3026001&m=106925",
@@ -252035,7 +252137,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 59.99,
-      "wasPrice": 129.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686377&a=3026001&m=106925",
@@ -252724,7 +252826,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 68.49,
-      "wasPrice": 127.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686551&a=3026001&m=106925",
@@ -253345,7 +253447,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 32.49,
-      "wasPrice": 75.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687284&a=3026001&m=106925",
@@ -253546,7 +253648,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 36.99,
-      "wasPrice": 66.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687283&a=3026001&m=106925",
@@ -253747,7 +253849,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 86.99,
-      "wasPrice": 175.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687339&a=3026001&m=106925",
@@ -254819,7 +254921,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 93.99,
-      "wasPrice": 156.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687581&a=3026001&m=106925",
@@ -254966,7 +255068,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 61.49,
-      "wasPrice": 98.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687629&a=3026001&m=106925",
@@ -255757,7 +255859,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 17.49,
-      "wasPrice": 84.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43174941556&a=3026001&m=106925",
@@ -255811,7 +255913,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "emirates-oud",
       "price": 14.99,
-      "wasPrice": 29.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://emiratesoud.co.uk/products/ana-abiyedh-rouge-eau-de-parfum-60ml",
@@ -255891,7 +255993,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrancehub",
       "price": 19.99,
-      "wasPrice": 49.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://fragrancehub.co.uk/products/angham-100ml-eau-de-parfum-by-lattafa",
@@ -255971,7 +256073,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 27.49,
-      "wasPrice": 49.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687934&a=3026001&m=106925",
@@ -256226,7 +256328,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 25.99,
-      "wasPrice": 48.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687893&a=3026001&m=106925",
@@ -256309,7 +256411,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 35.99,
-      "wasPrice": 66.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687940&a=3026001&m=106925",
@@ -256451,73 +256553,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/614zy67KahL.jpg?v=1767983871",
-      "rating": null
-    }
-  ],
-  "ean-6290360598871": [
-    {
-      "retailerId": "beautybase",
-      "price": 25,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-nasmaat-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-22T18:19:46.010Z",
-      "firstSeenAt": "2026-08-10T19:59:39.471Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1761816961-50503400.jpg?v=1763399360&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 29.25,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43078731273&a=3026001&m=6561",
-      "fetchedAt": "2026-08-25T02:53:24.019Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
-      "rating": null
-    },
-    {
-      "retailerId": "emirates-oud",
-      "price": 16.99,
-      "wasPrice": 24.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/nasmaaat-perfume-100ml-edp-lattafa",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nasmaat-Perfume-100ml-EDP-Lattafa-178953216.jpg?v=1760198028",
-      "rating": null
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 30.99,
-      "wasPrice": 57.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687920&a=3026001&m=106925",
-      "fetchedAt": "2026-08-25T14:39:53.268Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81L6Scvg9HL.jpg?v=1767983831",
-      "rating": null
-    },
-    {
-      "retailerId": "the-beauty-store-uk",
-      "price": 28.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://thebeautystore.com/products/lattafa-nasmaat-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-24T20:30:03.352Z",
-      "firstSeenAt": "2026-08-19T18:31:44.382Z",
-      "isNew": false,
-      "imageUrl": null,
       "rating": null
     }
   ],
@@ -257786,7 +257821,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 79.99,
-      "wasPrice": 159.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688428&a=3026001&m=106925",
@@ -257907,7 +257942,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 68.99,
-      "wasPrice": 129.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688653&a=3026001&m=106925",
@@ -258054,7 +258089,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 72.49,
-      "wasPrice": 136.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688546&a=3026001&m=106925",
@@ -258510,7 +258545,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 31.99,
-      "wasPrice": 66.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688701&a=3026001&m=106925",
@@ -258791,7 +258826,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 43.49,
-      "wasPrice": 82.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689063&a=3026001&m=106925",
@@ -258925,7 +258960,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 82.85,
-      "wasPrice": 135,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=35083991595&a=3026001&m=6561",
@@ -259314,7 +259349,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 59.99,
-      "wasPrice": 123.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689297&a=3026001&m=106925",
@@ -260118,7 +260153,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 67.49,
-      "wasPrice": 129.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689495&a=3026001&m=106925",
@@ -260185,7 +260220,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 88.99,
-      "wasPrice": 163.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689486&a=3026001&m=106925",
@@ -260507,7 +260542,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrancehub",
       "price": 24.99,
-      "wasPrice": 49.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://fragrancehub.co.uk/products/zimaya-sharaf-blend-extrait-de-parfum-100ml",
@@ -261181,7 +261216,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 60.49,
-      "wasPrice": 111.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686096&a=3026001&m=106925",
@@ -261351,6 +261386,60 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-08T03:23:59.585Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ALRE0004.png?v=1771499795&width=1000",
+      "rating": null
+    }
+  ],
+  "ean-6290361912362": [
+    {
+      "retailerId": "perfume-click",
+      "price": 33.9,
+      "wasPrice": 50,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44568348792&a=3026001&m=6561",
+      "fetchedAt": "2026-08-25T02:53:24.019Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 34.99,
+      "wasPrice": 50,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/uhud-arabiyat-prestige",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Uhud-Perfume-100ml-EDP-Arabiyat-Prestige-179808524.png?v=1762022591",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 31.95,
+      "wasPrice": 44.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/arabiyat-prestge-uhud-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-24T10:37:49.952Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 33.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/uhud-by-arabiyat-prestige-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -261965,7 +262054,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 33.5,
-      "wasPrice": 110,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43100019555&a=3026001&m=6561",
@@ -262909,7 +262998,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "the-beauty-store-uk",
       "price": 15.99,
-      "wasPrice": 42,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://thebeautystore.com/products/britney-spears-fantasy-sheer-100ml-edt-spray",
@@ -263081,7 +263170,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/safari-squeeze-by-bujairami-100ml-eau-de-parfum/",
-      "fetchedAt": "2026-08-22T12:24:47.539Z",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
@@ -264103,7 +264192,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 98.99,
-      "wasPrice": 228.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686537&a=3026001&m=106925",
@@ -264306,7 +264395,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 65.49,
-      "wasPrice": 159.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686613&a=3026001&m=106925",
@@ -264636,7 +264725,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 39.99,
-      "wasPrice": 80.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686737&a=3026001&m=106925",
@@ -264690,7 +264779,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 264.49,
-      "wasPrice": 508.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686785&a=3026001&m=106925",
@@ -264744,7 +264833,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 265.99,
-      "wasPrice": 508.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686786&a=3026001&m=106925",
@@ -265554,7 +265643,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 34.65,
-      "wasPrice": 101,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=34145828425&a=3026001&m=6561",
@@ -269225,7 +269314,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 89.99,
-      "wasPrice": 181.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687583&a=3026001&m=106925",
@@ -269320,7 +269409,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 67.49,
-      "wasPrice": 132.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687590&a=3026001&m=106925",
@@ -271468,7 +271557,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 25.99,
-      "wasPrice": 48.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687877&a=3026001&m=106925",
@@ -271576,7 +271665,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 27.49,
-      "wasPrice": 49.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687858&a=3026001&m=106925",
@@ -272103,7 +272192,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "emirates-oud",
       "price": 24.99,
-      "wasPrice": 40,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://emiratesoud.co.uk/products/mayar-eau-de-parfum-100ml-lattafa",
@@ -272659,7 +272748,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 29.99,
-      "wasPrice": 53.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687942&a=3026001&m=106925",
@@ -272700,7 +272789,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 18.99,
-      "wasPrice": 35.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687917&a=3026001&m=106925",
@@ -272775,6 +272864,60 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/513uPuM2bjL.jpg?v=1763144219",
+      "rating": null
+    }
+  ],
+  "ean-6290360590820": [
+    {
+      "retailerId": "perfume-click",
+      "price": 10.7,
+      "wasPrice": 30,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=42718033026&a=3026001&m=6561",
+      "fetchedAt": "2026-08-25T02:53:24.019Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/183930_ml.jpg",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 14.99,
+      "wasPrice": 24.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/dark-door-sport-maison-alhambra",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Dark-Door-Sport-100ml-EDP-Maison-Alhambra-181414910.png?v=1765409084",
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 12.69,
+      "wasPrice": 22.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661688235&a=3026001&m=106925",
+      "fetchedAt": "2026-08-25T14:39:53.268Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/513az6onN8L.jpg?v=1767984407",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/dark-door-sport-by-maison-alhambra-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -274300,7 +274443,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "the-beauty-store-uk",
       "price": 19.99,
-      "wasPrice": 70,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://thebeautystore.com/products/moschino-uomo-eau-de-toilette-spray-125ml",
@@ -275341,7 +275484,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 106.99,
-      "wasPrice": 201.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688641&a=3026001&m=106925",
@@ -277047,7 +277190,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 29.99,
-      "wasPrice": 90.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43174941703&a=3026001&m=106925",
@@ -277806,7 +277949,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 100.49,
-      "wasPrice": 170.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689235&a=3026001&m=106925",
@@ -277860,7 +278003,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 176.49,
-      "wasPrice": 328.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689227&a=3026001&m=106925",
@@ -278009,7 +278152,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 34,
-      "wasPrice": 85,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=36726301267&a=3026001&m=6561",
@@ -279159,7 +279302,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 49.99,
-      "wasPrice": 112.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689315&a=3026001&m=106925",
@@ -280090,7 +280233,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 73.99,
-      "wasPrice": 123.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689490&a=3026001&m=106925",
@@ -281042,7 +281185,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 38.49,
-      "wasPrice": 75.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686044&a=3026001&m=106925",
@@ -281137,7 +281280,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 33.99,
-      "wasPrice": 58.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686043&a=3026001&m=106925",
@@ -281342,7 +281485,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 35.99,
-      "wasPrice": 66.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686066&a=3026001&m=106925",
@@ -281493,7 +281636,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrancehub",
       "price": 9.99,
-      "wasPrice": 29.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://fragrancehub.co.uk/products/ajmal-raindrops-eau-de-parfum-50ml",
@@ -282337,6 +282480,47 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "emirates-oud-15836252832093-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/nyla-sherbet-arabiyat-prestige",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Sherbet-Perfume-80ml-EDP-Arabiyat-Prestige-183486647.png?v=1768623283",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 24.5,
+      "wasPrice": 29.95,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://fragrancehub.co.uk/products/nyla-sherbet-eau-de-parfum-80ml-by-arabiyat-prestige",
+      "fetchedAt": "2026-08-24T10:37:49.952Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/nyla-sherbet-by-arabiyat-prestige-80ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15573104066909-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -282453,47 +282637,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://fragrancehub.co.uk/products/arabiyat-prestige-safa-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-24T10:37:49.952Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "ean-6290361912362": [
-    {
-      "retailerId": "perfume-click",
-      "price": 33.9,
-      "wasPrice": 50,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44568348792&a=3026001&m=6561",
-      "fetchedAt": "2026-08-25T02:53:24.019Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
-      "rating": null
-    },
-    {
-      "retailerId": "emirates-oud",
-      "price": 34.99,
-      "wasPrice": 50,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/uhud-arabiyat-prestige",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Uhud-Perfume-100ml-EDP-Arabiyat-Prestige-179808524.png?v=1762022591",
-      "rating": null
-    },
-    {
-      "retailerId": "fragrancehub",
-      "price": 31.95,
-      "wasPrice": 44.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/arabiyat-prestge-uhud-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-24T10:37:49.952Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
@@ -283010,7 +283153,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 22.05,
-      "wasPrice": 49.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=36714318466&a=3026001&m=6561",
@@ -283407,7 +283550,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 49.95,
-      "wasPrice": 130,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=39328866830&a=3026001&m=6561",
@@ -284089,7 +284232,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 26.49,
-      "wasPrice": 48.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686254&a=3026001&m=106925",
@@ -285647,7 +285790,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 22.95,
-      "wasPrice": 80,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=42489450363&a=3026001&m=6561",
@@ -285688,7 +285831,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 25.25,
-      "wasPrice": 78,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44295371734&a=3026001&m=6561",
@@ -287079,7 +287222,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 30.05,
-      "wasPrice": 84,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=24022772343&a=3026001&m=6561",
@@ -287133,7 +287276,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "the-beauty-store-uk",
       "price": 30.99,
-      "wasPrice": 100,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://thebeautystore.com/products/burberry-weekend-for-women-eau-de-parfum-100ml",
@@ -287612,7 +287755,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 17.9,
-      "wasPrice": 40,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=26673199491&a=3026001&m=6561",
@@ -287653,7 +287796,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 21.45,
-      "wasPrice": 45,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45121117829&a=3026001&m=6561",
@@ -287804,7 +287947,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 20.1,
-      "wasPrice": 76,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44945387520&a=3026001&m=6561",
@@ -287871,7 +288014,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "the-beauty-store-uk",
       "price": 21.99,
-      "wasPrice": 59,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://thebeautystore.com/products/calvin-klein-contradiction-for-men-eau-de-toilette-100ml",
@@ -287912,7 +288055,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "the-beauty-store-uk",
       "price": 17.99,
-      "wasPrice": 46,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://thebeautystore.com/products/calvin-klein-defy-eau-de-toilette-30ml",
@@ -287940,7 +288083,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 19.15,
-      "wasPrice": 71,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=40348610224&a=3026001&m=6561",
@@ -288041,7 +288184,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "the-beauty-store-uk",
       "price": 25.99,
-      "wasPrice": 62,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://thebeautystore.com/products/calvin-klein-eternity-for-men-eau-de-toilette-spray-50ml",
@@ -288085,7 +288228,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "the-beauty-store-uk",
       "price": 15.99,
-      "wasPrice": 42,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://thebeautystore.com/products/calvin-klein-eternity-for-men-aftershave-100ml",
@@ -288340,7 +288483,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "the-beauty-store-uk",
       "price": 26.5,
-      "wasPrice": 95,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://thebeautystore.com/products/calvin-klein-obsession-for-men-eau-de-toilette-spray-200ml",
@@ -288384,7 +288527,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "the-beauty-store-uk",
       "price": 16.99,
-      "wasPrice": 60,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://thebeautystore.com/products/calvin-klein-obsession-for-men-eau-de-toilette-spray-75ml",
@@ -288428,7 +288571,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 24.99,
-      "wasPrice": 70.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928330&a=3026001&m=106925",
@@ -288825,7 +288968,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 67.49,
-      "wasPrice": 136.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686561&a=3026001&m=106925",
@@ -289304,7 +289447,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 9.6,
-      "wasPrice": 48,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=39341511616&a=3026001&m=6561",
@@ -289345,7 +289488,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 9.6,
-      "wasPrice": 48,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=39341511617&a=3026001&m=6561",
@@ -289440,7 +289583,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 27.55,
-      "wasPrice": 60,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=3389484707&a=3026001&m=6561",
@@ -290030,7 +290173,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 25.75,
-      "wasPrice": 70,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=3389487579&a=3026001&m=6561",
@@ -290130,7 +290273,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 7.25,
-      "wasPrice": 28,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=42012082934&a=3026001&m=6561",
@@ -290758,7 +290901,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 11.3,
-      "wasPrice": 40,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=39118458009&a=3026001&m=6561",
@@ -290853,7 +290996,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 21.75,
-      "wasPrice": 75,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=3389489627&a=3026001&m=6561",
@@ -290922,7 +291065,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 14.8,
-      "wasPrice": 70,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=36378075246&a=3026001&m=6561",
@@ -291086,7 +291229,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 27.45,
-      "wasPrice": 67,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43817745329&a=3026001&m=6561",
@@ -291168,7 +291311,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 36.45,
-      "wasPrice": 85,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45315818094&a=3026001&m=6561",
@@ -291468,7 +291611,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 29.49,
-      "wasPrice": 80.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928491&a=3026001&m=106925",
@@ -293647,7 +293790,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 10.25,
-      "wasPrice": 38,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=42133759379&a=3026001&m=6561",
@@ -293829,7 +293972,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 13.2,
-      "wasPrice": 53,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=38251858087&a=3026001&m=6561",
@@ -293870,7 +294013,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 14.5,
-      "wasPrice": 53,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43209939081&a=3026001&m=6561",
@@ -294517,7 +294660,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 27.99,
-      "wasPrice": 69.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928766&a=3026001&m=106925",
@@ -295368,7 +295511,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 17.99,
-      "wasPrice": 35.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687281&a=3026001&m=106925",
@@ -297103,7 +297246,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "the-beauty-store-uk",
       "price": 15.99,
-      "wasPrice": 50,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://thebeautystore.com/products/giorgio-beverly-hills-g-eau-de-parfum-90ml",
@@ -298046,7 +298189,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "the-beauty-store-uk",
       "price": 15.99,
-      "wasPrice": 63,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://thebeautystore.com/products/parfums-gres-cabochard-eau-de-parfum-100ml",
@@ -298087,7 +298230,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 12.19,
-      "wasPrice": 58.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928852&a=3026001&m=106925",
@@ -298115,7 +298258,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 18.3,
-      "wasPrice": 62,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45396490602&a=3026001&m=6561",
@@ -298143,7 +298286,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 13.9,
-      "wasPrice": 47,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=42314768863&a=3026001&m=6561",
@@ -298702,7 +298845,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 73.25,
-      "wasPrice": 123,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44908122663&a=3026001&m=6561",
@@ -299399,7 +299542,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 17.49,
-      "wasPrice": 48.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687474&a=3026001&m=106925",
@@ -300178,7 +300321,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.95,
-      "wasPrice": 60,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44265156137&a=3026001&m=124166",
@@ -300944,7 +301087,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 26.65,
-      "wasPrice": 86,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43300660232&a=3026001&m=6561",
@@ -300985,7 +301128,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 16.1,
-      "wasPrice": 36,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=41180074128&a=3026001&m=6561",
@@ -301695,7 +301838,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 130.49,
-      "wasPrice": 256.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687598&a=3026001&m=106925",
@@ -302120,7 +302263,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 93.99,
-      "wasPrice": 202.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687582&a=3026001&m=106925",
@@ -304142,7 +304285,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 54.49,
-      "wasPrice": 102.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687643&a=3026001&m=106925",
@@ -304237,7 +304380,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 16.3,
-      "wasPrice": 59,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=3389501665&a=3026001&m=6561",
@@ -306223,7 +306366,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 21.45,
-      "wasPrice": 63,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45315818382&a=3026001&m=6561",
@@ -306646,7 +306789,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 34.99,
-      "wasPrice": 66.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687812&a=3026001&m=106925",
@@ -307179,7 +307322,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 16.49,
-      "wasPrice": 40.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687901&a=3026001&m=106925",
@@ -307879,7 +308022,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 34.99,
-      "wasPrice": 76.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687881&a=3026001&m=106925",
@@ -308056,7 +308199,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrancehub",
       "price": 15.95,
-      "wasPrice": 44.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://fragrancehub.co.uk/products/lattafa-opulent-dubai-eau-de-parfum-100ml",
@@ -308231,6 +308374,47 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "emirates-oud-15784774730077-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": 30,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/raed-oud-lattafa",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Raed-Oud-Perfume-100ml-EDP-Lattafa-181145164.png?v=1764385369",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": 29.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/ra-ed-oud-perfume-edp-100ml-lattafa",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/ra-ed-oud-perfume-edp-100ml-lattafa-emirates-oud-103902019.jpg?v=1713058344",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/raed-oud-by-lattafa-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "ean-6291106064070": [
     {
       "retailerId": "perfume-click",
@@ -308302,7 +308486,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 27.49,
-      "wasPrice": 49.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687866&a=3026001&m=106925",
@@ -308384,7 +308568,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 39.49,
-      "wasPrice": 71.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687895&a=3026001&m=106925",
@@ -309232,7 +309416,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 24.99,
-      "wasPrice": 48.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689109&a=3026001&m=106925",
@@ -309437,7 +309621,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 24.99,
-      "wasPrice": 48.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689129&a=3026001&m=106925",
@@ -309458,47 +309642,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
       "isNew": false,
       "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "ean-6290360590820": [
-    {
-      "retailerId": "perfume-click",
-      "price": 10.7,
-      "wasPrice": 30,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=42718033026&a=3026001&m=6561",
-      "fetchedAt": "2026-08-25T02:53:24.019Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/183930_ml.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "emirates-oud",
-      "price": 14.99,
-      "wasPrice": 24.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/dark-door-sport-maison-alhambra",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Dark-Door-Sport-100ml-EDP-Maison-Alhambra-181414910.png?v=1765409084",
-      "rating": null
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 12.69,
-      "wasPrice": 22.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661688235&a=3026001&m=106925",
-      "fetchedAt": "2026-08-25T14:39:53.268Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/513az6onN8L.jpg?v=1767984407",
       "rating": null
     }
   ],
@@ -309683,7 +309826,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 18.49,
-      "wasPrice": 39.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688240&a=3026001&m=106925",
@@ -309823,6 +309966,88 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://thebeautystore.com/products/maison-alhambra-smoky-touch-eau-de-parfum-80ml",
+      "fetchedAt": "2026-08-24T20:30:03.352Z",
+      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15695834743133-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/victorioso-heroic-maison-alhambra",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Victorioso-Heroic-Perfume-100ml-EDP-Maison-Alhambra-179107280.png?v=1760647537",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/victorioso-heroic-by-maison-alhambra-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "the-beauty-store-uk",
+      "price": 20.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://thebeautystore.com/products/maison-alhambra-victorioso-heroic-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-24T20:30:03.352Z",
+      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15695834775901-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 14.99,
+      "wasPrice": 24.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/your-touch-oud-maison-alhambra",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Your-Touch-Oud-Perfume-100ml-EDP-Maison-Alhambra-180634522.png?v=1763518249",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/your-touch-oud-by-maison-alhambra-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "the-beauty-store-uk",
+      "price": 20.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://thebeautystore.com/products/maison-alhambra-your-touch-oud-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-24T20:30:03.352Z",
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
       "isNew": false,
@@ -310301,7 +310526,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 102.99,
-      "wasPrice": 193.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688292&a=3026001&m=106925",
@@ -311083,7 +311308,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 16.49,
-      "wasPrice": 40.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688363&a=3026001&m=106925",
@@ -311793,7 +312018,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 45.49,
-      "wasPrice": 85.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688392&a=3026001&m=106925",
@@ -312190,7 +312415,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 17.9,
-      "wasPrice": 78,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=36061330248&a=3026001&m=6561",
@@ -314461,7 +314686,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "the-beauty-store-uk",
       "price": 28.99,
-      "wasPrice": 93,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://thebeautystore.com/products/oscar-de-la-renta-bella-bouquet-eau-de-parfum-100ml",
@@ -315076,7 +315301,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "the-beauty-store-uk",
       "price": 22.99,
-      "wasPrice": 55,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://thebeautystore.com/products/police-potion-love-eau-de-parfum-100ml",
@@ -315650,7 +315875,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 86.99,
-      "wasPrice": 201.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688637&a=3026001&m=106925",
@@ -316977,7 +317202,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 32.95,
-      "wasPrice": 62,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368665&a=3026001&m=124166",
@@ -317072,7 +317297,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 36.2,
-      "wasPrice": 85,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45390457349&a=3026001&m=6561",
@@ -317469,7 +317694,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 12.9,
-      "wasPrice": 44.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=40487633217&a=3026001&m=6561",
@@ -317974,7 +318199,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 12.19,
-      "wasPrice": 22.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688737&a=3026001&m=106925",
@@ -318056,7 +318281,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 24.6,
-      "wasPrice": 75,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43387398168&a=3026001&m=6561",
@@ -318330,7 +318555,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 23.85,
-      "wasPrice": 66,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=40230781498&a=3026001&m=6561",
@@ -318753,7 +318978,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 33.49,
-      "wasPrice": 66.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689011&a=3026001&m=106925",
@@ -318794,7 +319019,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 36.99,
-      "wasPrice": 66.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689016&a=3026001&m=106925",
@@ -319258,7 +319483,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 33.49,
-      "wasPrice": 89.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689064&a=3026001&m=106925",
@@ -319340,7 +319565,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 48.99,
-      "wasPrice": 93.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689068&a=3026001&m=106925",
@@ -319491,7 +319716,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 12.35,
-      "wasPrice": 32,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43352222100&a=3026001&m=6561",
@@ -319737,7 +319962,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "perfume-click",
       "price": 14.15,
-      "wasPrice": 37,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=34689989679&a=3026001&m=6561",
@@ -320270,7 +320495,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 208.49,
-      "wasPrice": 512.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689217&a=3026001&m=106925",
@@ -320478,7 +320703,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 70.49,
-      "wasPrice": 132.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689260&a=3026001&m=106925",
@@ -321147,7 +321372,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 43.5,
-      "wasPrice": 82,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042324&a=3026001&m=124166",
@@ -321708,7 +321933,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "mybeauty-boutique",
       "price": 54.99,
-      "wasPrice": 93.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689317&a=3026001&m=106925",
@@ -328598,34 +328823,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Marwa-100ml-Extrait-De-Parfum-Arabiyat-Prestige-194406430.jpg?v=1783525783",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15836252832093-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/nyla-sherbet-arabiyat-prestige",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Sherbet-Perfume-80ml-EDP-Arabiyat-Prestige-183486647.png?v=1768623283",
-      "rating": null
-    },
-    {
-      "retailerId": "fragrancehub",
-      "price": 24.5,
-      "wasPrice": 29.95,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://fragrancehub.co.uk/products/nyla-sherbet-eau-de-parfum-80ml-by-arabiyat-prestige",
-      "fetchedAt": "2026-08-24T10:37:49.952Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
       "rating": null
     }
   ],
@@ -351706,6 +351903,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "emirates-oud-15838524834141-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 27.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/bois-de-bois-fragrance-world",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bois-De-Bois-Perfume-100ml-EDP-Fragrance-World-182032470.png?v=1766805604",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/bois-de-bois-by-fragrance-world-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-9791586664797-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -351869,6 +352094,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/classy-chic-girl-by-fragrance-world-90ml-eau-de-parfum/",
       "fetchedAt": "2026-08-23T00:55:06.679Z",
       "firstSeenAt": "2026-08-23T00:55:06.679Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15838525063517-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 14.99,
+      "wasPrice": 30,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/diva-fragrance-world",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Diva-Perfume-100ml-EDP-Fragrance-World-182032734.png?v=1766805750",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/diva-by-fragrance-world-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
       "isNew": true,
       "imageUrl": null,
       "rating": null
@@ -352210,6 +352463,90 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "emirates-oud-15748185260381-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 12.99,
+      "wasPrice": 24.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/intro-greatness-oud-fragrance-world",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Intro-Greatness-Oud-Perfume-80ml-EDP-Fragrance-World-180407138.png?v=1763157639",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 11.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/intro-greatness-oud-by-fragrance-world-80ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15723980292445-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 4.99,
+      "wasPrice": 9.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/invicto-legend-fragrance-world",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Invicto-Legend-50ml-EDP-Fragrance-World-179810866.png?v=1762026055",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 6.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/invicto-legend-by-fragrance-world-50ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15723980259677-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 4.99,
+      "wasPrice": 9.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/invicto-victorious-fragrance-world",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Invicto-Victorious-50ml-EDP-Fragrance-World-179810926.png?v=1762026179",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 6.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/invicto-victorious-by-fragrance-world-50ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "ean-6290360371450": [
     {
       "retailerId": "beautybase",
@@ -352238,6 +352575,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "emirates-oud-15723980423517-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 4.99,
+      "wasPrice": 9.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/la-uno-million-elixir-fragrance-world",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Uno-Million-Elixir-50ml-EDP-Fragrance-World-179809992.png?v=1762022682",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 6.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/la-uno-million-elixir-by-fragrance-world-50ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-8867626221917-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -352262,6 +352627,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-24T10:37:49.952Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15723980489053-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 4.99,
+      "wasPrice": 9.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/la-uno-million-royal-50ml-fragrance-world",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Uno-Million-Royal-50ml-EDP-Fragrance-World-179810632.png?v=1762025350",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 6.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/la-uno-million-royal-by-fragrance-world-50ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
       "imageUrl": null,
       "rating": null
     }
@@ -352823,6 +353216,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tabac-N-Coke-Perfume-100ml-EDP-Fragrance-World-174846153.jpg?v=1753833495",
+      "rating": null
+    }
+  ],
+  "emirates-oud-15723980554589-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 14.99,
+      "wasPrice": 24.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/valentia-rome-intense-fragrance-world",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Valentia-Rome-Intense-100ml-EDP-Fragrance-World-179810354.jpg?v=1762022842",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/valentia-rome-intense-by-fragrance-world-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -353720,6 +354141,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/shmallow-fluff-by-by-french-avenue-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-23T14:24:40.961Z",
       "firstSeenAt": "2026-08-23T14:24:40.961Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15793780785501-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 34.99,
+      "wasPrice": 45,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/solitaire-french-avenue",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Solitaire-Perfume-100ml-EDP-French-Avenue-181317126.png?v=1764892275",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 33.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/solitaire-by-french-avenue-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
       "isNew": true,
       "imageUrl": null,
       "rating": null
@@ -372752,6 +373201,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "emirates-oud-15668467892573-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 16.99,
+      "wasPrice": 25,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/abraaj-concentrated-perfume-oil-lattafa",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Abraaj-Concentrated-Perfume-Oil-20ml-Lattafa-178679950.png?v=1759547393",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 15.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/abraaj-by-lattafa-20ml-perfume-oil/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "ean-6291108738108": [
     {
       "retailerId": "perfume-click",
@@ -373088,6 +373565,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "emirates-oud-15668471726429-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 16.99,
+      "wasPrice": 25,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/amoura-concentrated-perfume-oil-lattafa",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amoura-Concentrated-Perfume-Oil-20ml-Lattafa-178681781.png?v=1759547843",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 15.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/amoura-by-lattafa-20ml-perfume-oil/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "ean-6290360592008": [
     {
       "retailerId": "perfume-click",
@@ -373280,6 +373785,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-24T10:37:49.952Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15668469629277-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 16.99,
+      "wasPrice": 25,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/esraa-concentrated-perfume-oil-lattafa",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Esraa-Concentrated-Perfume-Oil-20ml-Lattafa-178680271.png?v=1759547553",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 15.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/esraa-by-lattafa-20ml-perfume-oil/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
       "imageUrl": null,
       "rating": null
     }
@@ -373532,6 +374065,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-24T10:37:49.952Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15668470448477-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 16.99,
+      "wasPrice": 25,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/haakem-concentrated-perfume-oil-lattafa",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Haakem-Concentrated-Perfume-Oil-20ml-Lattafa-178681489.png?v=1759547716",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 15.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/haakem-by-lattafa-20ml-perfume-oil/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
       "imageUrl": null,
       "rating": null
     }
@@ -374177,34 +374738,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51VE69mOwTL.jpg?v=1767983816",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15784774730077-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": 30,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/raed-oud-lattafa",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Raed-Oud-Perfume-100ml-EDP-Lattafa-181145164.png?v=1764385369",
-      "rating": null
-    },
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": 29.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/ra-ed-oud-perfume-edp-100ml-lattafa",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/ra-ed-oud-perfume-edp-100ml-lattafa-emirates-oud-103902019.jpg?v=1713058344",
       "rating": null
     }
   ],
@@ -378492,6 +379025,90 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "emirates-oud-15832167121245-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 14.99,
+      "wasPrice": 24.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/extravagant-lover-maison-alhambra",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Extravagant-Lover-100ml-EDP-Maison-Alhambra-181697033.png?v=1766163648",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/extravagant-lover-by-maison-alhambra-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15695835070813-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 16.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/galactic-men-elixir-maison-alhambra",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Galactic-Men-Elixir-Perfume-100ml-EDP-Maison-Alhambra-179108740.png?v=1760647565",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 15.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/galactic-men-elixir-by-maison-alhambra-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15695834972509-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 16.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/galactic-men-intense-maison-alhambra",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Galactic-Men-Intense-Perfume-100ml-EDP-Maison-Alhambra-179108461.png?v=1760647557",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 15.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/galactic-men-intense-by-maison-alhambra-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "ean-6291107459226": [
     {
       "retailerId": "perfume-click",
@@ -378716,6 +379333,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "emirates-oud-15664617980253-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 16.99,
+      "wasPrice": 24.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/leonie-intense-maison-alhambra",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Leonie-Intense-Perfume-100ml-EDP-Maison-Alhambra-178596868.jpg?v=1759334496",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 15.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/leonie-intense-by-maison-alhambra-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15612332081501-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -378740,6 +379385,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-24T20:30:03.352Z",
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
       "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15832180818269-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 14.99,
+      "wasPrice": 24.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/mia-dolcezza-verde-maison-alhambra",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mia-Dolcezza-Verde-100ml-EDP-Maison-Alhambra-181697953.png?v=1766164350",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/mia-dolcezza-verde-by-maison-alhambra-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
       "imageUrl": null,
       "rating": null
     }
@@ -378769,6 +379442,118 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61BB6XxSt9L.jpg?v=1767984412",
+      "rating": null
+    }
+  ],
+  "emirates-oud-15695835136349-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 17.99,
+      "wasPrice": 24.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/nebula-maison-alhambra",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nebula-I-Perfume-100ml-EDP-Maison-Alhambra-179109051.png?v=1760647569",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 16.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/nebula-i-by-maison-alhambra-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15695835169117-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 17.99,
+      "wasPrice": 24.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/nebula-ii-alhambra",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nebula-II-Perfume-100ml-EDP-Maison-Alhambra-179109158.png?v=1760647570",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 16.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/nebula-ii-by-maison-alhambra-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15808405995869-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 17.99,
+      "wasPrice": 29.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/nebula-iii-maison-alhambra",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nebula-III-Perfume-100ml-EDP-Maison-Alhambra-181415129.png?v=1765409299",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 16.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/nebula-iii-by-maison-alhambra-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15695835234653-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 16.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/opera-rouge-alhambra",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opera-Rouge-Perfume-100ml-EDP-Maison-Alhambra-179109276.png?v=1760647581",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 15.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/opera-rouge-by-maison-alhambra-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -378912,6 +379697,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "emirates-oud-15705636503901-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": 30,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/pink-eclipse-100ml-edp-maison-alhambra",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pink-Eclipse-100ml-EDP-Maison-Alhambra-179451895.png?v=1761176925",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/pink-eclipse-by-maison-alhambra-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15477198291293-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -378992,6 +379805,90 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-24T20:30:03.352Z",
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
       "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15787602018653-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": 30,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/sugar-me-candy-floss-maison-alhambra",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sugar-Me-Candy-Floss-Perfume-100ml-EDP-Maison-Alhambra-181166015.png?v=1764546181",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/sugar-me-candy-floss-by-maison-alhambra-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15787596480861-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": 30,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/sugar-me-carrot-cake-maison-alhambra",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sugar-Me-Carrot-Cake-Perfume-100ml-EDP-Maison-Alhambra-181165662.png?v=1764545241",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/sugar-me-carrot-cake-by-maison-alhambra-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15787596972381-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": 30,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/sugar-me-creme-brulee",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sugar-Me-Creme-Brulee-Perfume-100ml-EDP-Maison-Alhambra-181165740.png?v=1764545461",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/sugar-me-creme-brulee-by-maison-alhambra-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
       "imageUrl": null,
       "rating": null
     }
@@ -379108,34 +380005,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15695834743133-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/victorioso-heroic-maison-alhambra",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Victorioso-Heroic-Perfume-100ml-EDP-Maison-Alhambra-179107280.png?v=1760647537",
-      "rating": null
-    },
-    {
-      "retailerId": "the-beauty-store-uk",
-      "price": 20.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://thebeautystore.com/products/maison-alhambra-victorioso-heroic-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-24T20:30:03.352Z",
-      "firstSeenAt": "2026-08-19T18:31:44.382Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
   "ean-6290360598680": [
     {
       "retailerId": "perfume-click",
@@ -379245,34 +380114,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-20T18:29:24.908Z",
       "isNew": true,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Winsome-_The-Tux_-Perfume-90ml-EDP-Maison-Alhambra-169479367.jpg?v=1749943570",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15695834775901-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 14.99,
-      "wasPrice": 24.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/your-touch-oud-maison-alhambra",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Your-Touch-Oud-Perfume-100ml-EDP-Maison-Alhambra-180634522.png?v=1763518249",
-      "rating": null
-    },
-    {
-      "retailerId": "the-beauty-store-uk",
-      "price": 20.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://thebeautystore.com/products/maison-alhambra-your-touch-oud-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-24T20:30:03.352Z",
-      "firstSeenAt": "2026-08-19T18:31:44.382Z",
-      "isNew": false,
-      "imageUrl": null,
       "rating": null
     }
   ],
@@ -421335,7 +422176,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/dirham-cloud-by-ard-al-zaafaran-100ml-eau-de-parfum/",
-      "fetchedAt": "2026-08-22T12:24:47.539Z",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
@@ -432687,7 +433528,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/chic-wood-by-bujairami-100ml-eau-de-parfum/",
-      "fetchedAt": "2026-08-22T12:24:47.539Z",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
@@ -433020,7 +433861,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://perfumeo.co.uk/products/bujairami-executor-100ml-extrait-de-parfum/",
-      "fetchedAt": "2026-08-22T12:24:47.539Z",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
@@ -433434,7 +434275,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/bujairami-kingsman-100ml-extrait-de-parfum/",
-      "fetchedAt": "2026-08-22T12:24:47.539Z",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
@@ -443178,7 +444019,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://perfumeo.co.uk/products/divinity-by-cevi-100ml-extrait-de-parfum/",
-      "fetchedAt": "2026-08-22T12:24:47.539Z",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
       "firstSeenAt": "2026-08-21T08:49:49.088Z",
       "isNew": true,
       "imageUrl": null,
@@ -443478,7 +444319,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/subzero-by-cevi-x-100ml-extrait-de-parfum/",
-      "fetchedAt": "2026-08-22T12:24:47.539Z",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
       "firstSeenAt": "2026-08-21T08:49:49.088Z",
       "isNew": true,
       "imageUrl": null,
@@ -443493,7 +444334,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/syndicate-by-cevi-x-100ml-extrait-de-parfum/",
-      "fetchedAt": "2026-08-22T12:24:47.539Z",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
       "firstSeenAt": "2026-08-21T08:49:49.088Z",
       "isNew": true,
       "imageUrl": null,
@@ -463378,21 +464219,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15838524834141-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 27.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/bois-de-bois-fragrance-world",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bois-De-Bois-Perfume-100ml-EDP-Fragrance-World-182032470.png?v=1766805604",
-      "rating": null
-    }
-  ],
   "emirates-oud-15082038919517-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -463858,21 +464684,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Des-Tentations-Perfume-100ml-Fragrance-World-176631623.jpg?v=1757560376",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15838525063517-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 14.99,
-      "wasPrice": 30,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/diva-fragrance-world",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Diva-Perfume-100ml-EDP-Fragrance-World-182032734.png?v=1766805750",
       "rating": null
     }
   ],
@@ -464707,21 +465518,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15748185260381-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 12.99,
-      "wasPrice": 24.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/intro-greatness-oud-fragrance-world",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Intro-Greatness-Oud-Perfume-80ml-EDP-Fragrance-World-180407138.png?v=1763157639",
-      "rating": null
-    }
-  ],
   "emirates-oud-9947207696733-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -464797,21 +465593,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15723980292445-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 4.99,
-      "wasPrice": 9.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/invicto-legend-fragrance-world",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Invicto-Legend-50ml-EDP-Fragrance-World-179810866.png?v=1762026055",
-      "rating": null
-    }
-  ],
   "emirates-oud-9159344095581-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -464824,21 +465605,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Invicto-Legend-Perfume-100ml-EDP-Fragrance-World-115791437.jpg?v=1713570057",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15723980259677-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 4.99,
-      "wasPrice": 9.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/invicto-victorious-fragrance-world",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Invicto-Victorious-50ml-EDP-Fragrance-World-179810926.png?v=1762026179",
       "rating": null
     }
   ],
@@ -465322,21 +466088,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15723980423517-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 4.99,
-      "wasPrice": 9.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/la-uno-million-elixir-fragrance-world",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Uno-Million-Elixir-50ml-EDP-Fragrance-World-179809992.png?v=1762022682",
-      "rating": null
-    }
-  ],
   "emirates-oud-9911142351197-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -465364,21 +466115,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/la-uno-million-le-parfum-100ml-eau-de-parfum-fragrance-world-emirates-oud-4.jpg?v=1713055848",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15723980489053-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 4.99,
-      "wasPrice": 9.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/la-uno-million-royal-50ml-fragrance-world",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Uno-Million-Royal-50ml-EDP-Fragrance-World-179810632.png?v=1762025350",
       "rating": null
     }
   ],
@@ -467272,21 +468008,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Urban-Women-Paradise-Perfume-100ml-EDP-Fragrance-World-168775742.jpg?v=1748135762",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15723980554589-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 14.99,
-      "wasPrice": 24.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/valentia-rome-intense-fragrance-world",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Valentia-Rome-Intense-100ml-EDP-Fragrance-World-179810354.jpg?v=1762022842",
       "rating": null
     }
   ],
@@ -469647,7 +470368,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/liquid-brun-limited-edition-by-french-avenue-150ml-extrait-de-parfum/",
-      "fetchedAt": "2026-08-22T12:24:47.539Z",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
@@ -470269,21 +470990,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-20T07:33:23.642Z",
       "isNew": false,
       "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "emirates-oud-15793780785501-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 34.99,
-      "wasPrice": 45,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/solitaire-french-avenue",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Solitaire-Perfume-100ml-EDP-French-Avenue-181317126.png?v=1764892275",
       "rating": null
     }
   ],
@@ -493914,7 +494620,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/shiyaaka-sky-by-khadlaj-100ml-eau-de-parfum/",
-      "fetchedAt": "2026-08-22T12:24:47.539Z",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
@@ -498364,21 +499070,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15668467892573-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 16.99,
-      "wasPrice": 25,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/abraaj-concentrated-perfume-oil-lattafa",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Abraaj-Concentrated-Perfume-Oil-20ml-Lattafa-178679950.png?v=1759547393",
-      "rating": null
-    }
-  ],
   "emirates-oud-9026373517661-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -498829,21 +499520,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ameerat-Al-Arab-Sugar-Crown-Perfume-100ml-EDP-Asdaaf-by-Lattafa-181693844.png?v=1766163472",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15668471726429-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 16.99,
-      "wasPrice": 25,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/amoura-concentrated-perfume-oil-lattafa",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amoura-Concentrated-Perfume-Oil-20ml-Lattafa-178681781.png?v=1759547843",
       "rating": null
     }
   ],
@@ -499780,21 +500456,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15668469629277-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 16.99,
-      "wasPrice": 25,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/esraa-concentrated-perfume-oil-lattafa",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Esraa-Concentrated-Perfume-Oil-20ml-Lattafa-178680271.png?v=1759547553",
-      "rating": null
-    }
-  ],
   "emirates-oud-8839488307549-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -500152,21 +500813,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/guinea-perfume-100ml-edp-lattafa-emirates-oud-103900133.jpg?v=1713058285",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15668470448477-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 16.99,
-      "wasPrice": 25,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/haakem-concentrated-perfume-oil-lattafa",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Haakem-Concentrated-Perfume-Oil-20ml-Lattafa-178681489.png?v=1759547716",
       "rating": null
     }
   ],
@@ -501454,6 +502100,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pure-Crystal-Perfume-100ml-EDP-Lattafa-Pride-180407865.png?v=1763158005",
+      "rating": null
+    }
+  ],
+  "perfumeo-pure-crystal-pride-by-lattafa-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 33.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/pure-crystal-pride-by-lattafa-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -507901,21 +508562,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15832167121245-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 14.99,
-      "wasPrice": 24.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/extravagant-lover-maison-alhambra",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Extravagant-Lover-100ml-EDP-Maison-Alhambra-181697033.png?v=1766163648",
-      "rating": null
-    }
-  ],
   "emirates-oud-15612331524445-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -507973,36 +508619,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fusion-Intense-Perfume-80ml-EDP-Maison-Alhambra-176625360.jpg?v=1757552056",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15695835070813-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 16.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/galactic-men-elixir-maison-alhambra",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Galactic-Men-Elixir-Perfume-100ml-EDP-Maison-Alhambra-179108740.png?v=1760647565",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15695834972509-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 16.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/galactic-men-intense-maison-alhambra",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Galactic-Men-Intense-Perfume-100ml-EDP-Maison-Alhambra-179108461.png?v=1760647557",
       "rating": null
     }
   ],
@@ -508666,21 +509282,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15664617980253-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 16.99,
-      "wasPrice": 24.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/leonie-intense-maison-alhambra",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Leonie-Intense-Perfume-100ml-EDP-Maison-Alhambra-178596868.jpg?v=1759334496",
-      "rating": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8416733266057-45147114340489": [
     {
       "retailerId": "mybeauty-boutique",
@@ -508783,21 +509384,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mia-Dolcezza-Perfume-100ml-EDP-Maison-Alhambra-177267921.jpg?v=1758673648",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15832180818269-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 14.99,
-      "wasPrice": 24.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/mia-dolcezza-verde-maison-alhambra",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mia-Dolcezza-Verde-100ml-EDP-Maison-Alhambra-181697953.png?v=1766164350",
       "rating": null
     }
   ],
@@ -508966,51 +509552,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15695835136349-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 17.99,
-      "wasPrice": 24.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/nebula-maison-alhambra",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nebula-I-Perfume-100ml-EDP-Maison-Alhambra-179109051.png?v=1760647569",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15695835169117-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 17.99,
-      "wasPrice": 24.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/nebula-ii-alhambra",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nebula-II-Perfume-100ml-EDP-Maison-Alhambra-179109158.png?v=1760647570",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15808405995869-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 17.99,
-      "wasPrice": 29.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/nebula-iii-maison-alhambra",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nebula-III-Perfume-100ml-EDP-Maison-Alhambra-181415129.png?v=1765409299",
-      "rating": null
-    }
-  ],
   "emirates-oud-9242451771741-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -509038,21 +509579,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/opera-noir-perfume-100ml-edp-maison-alhambra-emirates-oud-4-103822670.jpg?v=1713056042",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15695835234653-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 16.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/opera-rouge-alhambra",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opera-Rouge-Perfume-100ml-EDP-Maison-Alhambra-179109276.png?v=1760647581",
       "rating": null
     }
   ],
@@ -509143,21 +509669,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Philos-Rosso-Perfume-100ml-EDP-Maison-Alhambra-177277786.jpg?v=1758673885",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15705636503901-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": 30,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/pink-eclipse-100ml-edp-maison-alhambra",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pink-Eclipse-100ml-EDP-Maison-Alhambra-179451895.png?v=1761176925",
       "rating": null
     }
   ],
@@ -509353,51 +509864,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spectrum-Perfume-100ml-EDP-Maison-Alhambra-176629095.png?v=1757557343",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15787602018653-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": 30,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/sugar-me-candy-floss-maison-alhambra",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sugar-Me-Candy-Floss-Perfume-100ml-EDP-Maison-Alhambra-181166015.png?v=1764546181",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15787596480861-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": 30,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/sugar-me-carrot-cake-maison-alhambra",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sugar-Me-Carrot-Cake-Perfume-100ml-EDP-Maison-Alhambra-181165662.png?v=1764545241",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15787596972381-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": 30,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/sugar-me-creme-brulee",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sugar-Me-Creme-Brulee-Perfume-100ml-EDP-Maison-Alhambra-181165740.png?v=1764545461",
       "rating": null
     }
   ],
@@ -520930,6 +521396,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T11:06:39.819Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1755009874-03387100.jpg?v=1763398745&width=1920",
+      "rating": null
+    }
+  ],
+  "perfumeo-nusuk-raheeq-100ml": [
+    {
+      "retailerId": "perfumeo",
+      "price": 27.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/nusuk-raheeq-eau-de-parfum-100ml/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -535488,7 +535969,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://perfumeo.co.uk/products/aurum-by-reef-perfumes-150ml-eau-de-parfum/",
-      "fetchedAt": "2026-08-22T12:24:47.539Z",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
