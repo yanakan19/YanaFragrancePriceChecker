@@ -54,17 +54,35 @@ import type { Browser } from 'playwright';
 /**
  * Pages rendered per run.
  *
- * Higher than the actor tier's 10 because the constraint changed. There it
- * was money and the cap was rationing a $5 credit; here it is wall-clock time
- * inside a harvest step that already has a 60-minute cap and a job that has
- * 100. At roughly 5-15 seconds a page including its own settle wait, 40 pages
- * is a few minutes — real, bounded, and not the thing that will end a run.
+ * Close to the Apify actor tier's 10, though for a different reason. There the
+ * scarce thing was money; here it is time inside the sitemap harvest, which on
+ * run #328 hit its own 60-minute cap — as it routinely does. This is the
+ * belt-and-braces half of the bound: the time budget below is what actually
+ * stops a slow shop, and this stops a bug that queued a whole sitemap from
+ * hitting one with a real browser thousands of times, which is a far ruder
+ * failure than a wasted dollar.
  *
- * It stays a cap rather than becoming unlimited on purpose: a bug that
- * queued every URL in a sitemap would otherwise hit a shop thousands of times
- * with a real browser, which is a far ruder failure than a wasted dollar.
+ * 12 covers the section pages the five render-dependent shops configure
+ * between them, which is the entire population this tier exists for.
  */
-export const MAX_LOCAL_RENDER_PAGES_PER_RUN = 40;
+export const MAX_LOCAL_RENDER_PAGES_PER_RUN = 12;
+
+/**
+ * Wall-clock ceiling on rendering, across the whole run.
+ *
+ * A page count alone was the wrong unit here, and run #328 showed why: the
+ * sitemap harvest hit its own 60-minute cap on that run ("Note an incomplete
+ * harvest" fired), which it does routinely. Every second this tier spends is a
+ * second taken from shops that were producing listings, so the tier has to be
+ * bounded in the unit that is actually scarce.
+ *
+ * Four minutes is a small enough slice of a 60-minute step to be affordable
+ * even on a run that truncates, and at 5-15 seconds a page it still covers the
+ * dozen pages the five render-dependent shops configure between them. When it
+ * runs out, the remaining URLs are refused the same way a spent page budget
+ * refuses them: reported, never silently skipped.
+ */
+export const MAX_LOCAL_RENDER_MS_PER_RUN = 4 * 60_000;
 
 /** How long one page gets to load before it is abandoned. */
 const PAGE_TIMEOUT_MS = 30_000;
@@ -94,6 +112,8 @@ const RENDER_USER_AGENT =
 export interface LocalBrowserOptions {
   /** Pages this run may render. Defaults to MAX_LOCAL_RENDER_PAGES_PER_RUN. */
   maxTotalPages?: number;
+  /** Wall-clock this run may spend rendering. Defaults to MAX_LOCAL_RENDER_MS_PER_RUN. */
+  maxTotalMs?: number;
   /** Minimum delay between two page loads, ms. The caller's politeness gap. */
   gapMs?: number;
   /**
@@ -121,12 +141,44 @@ const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
  */
 export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRenderer {
   const maxTotalPages = options.maxTotalPages ?? MAX_LOCAL_RENDER_PAGES_PER_RUN;
+  const maxTotalMs = options.maxTotalMs ?? MAX_LOCAL_RENDER_MS_PER_RUN;
   const gapMs = options.gapMs ?? 1_000;
 
   let used = 0;
+  /** Set on the first render call, so a run that never renders starts no clock. */
+  let startedAt: number | null = null;
   let browser: Browser | null = null;
   /** Set when launching failed, so a broken environment is reported once per URL rather than retried per URL. */
   let launchError: string | null = null;
+
+  /**
+   * Close the browser if the process is going down without reaching dispose().
+   *
+   * Observed on run #328: the sitemap harvest hit its 60-minute step cap, so
+   * catalogue-harvest.ts never reached its own `dispose()` call at the end, and
+   * the runner logged `Terminate orphan process: chrome-headless-shell` while
+   * cleaning up after the job. GitHub reaped it, so nothing was harmed that
+   * time — but relying on the CI runner to close what this module opened is
+   * not a design, and a leaked Chromium on a developer's own machine has
+   * nobody to reap it.
+   *
+   * SIGKILL cannot be caught and is not attempted. This covers the ordinary
+   * termination paths, which is what a step timeout actually sends first.
+   */
+  let exitHooked = false;
+  function hookProcessExit(): void {
+    if (exitHooked) return;
+    exitHooked = true;
+    const shut = () => {
+      // Synchronous best effort: the process is already leaving, so there is
+      // no time to await a clean close.
+      void browser?.close().catch(() => undefined);
+      browser = null;
+    };
+    process.once('exit', shut);
+    process.once('SIGINT', shut);
+    process.once('SIGTERM', shut);
+  }
 
   async function ensureBrowser(): Promise<Browser | null> {
     if (browser) return browser;
@@ -140,6 +192,7 @@ export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRe
         headless: true,
         ...(options.executablePath ? { executablePath: options.executablePath } : {}),
       });
+      hookProcessExit();
       return browser;
     } catch (err) {
       launchError = String(err instanceof Error ? err.message : err).slice(0, 200);
@@ -162,7 +215,9 @@ export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRe
 
     render: async (urls: string[]): Promise<Map<string, HttpResponse>> => {
       const results = new Map<string, HttpResponse>();
-      const remaining = maxTotalPages - used;
+      if (startedAt === null) startedAt = Date.now();
+      const outOfTime = Date.now() - startedAt >= maxTotalMs;
+      const remaining = outOfTime ? 0 : maxTotalPages - used;
 
       if (remaining <= 0) {
         for (const url of urls) {
@@ -170,7 +225,9 @@ export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRe
             status: 0,
             body: '',
             ok: false,
-            error: `local render budget of ${maxTotalPages} pages exhausted for this run`,
+            error: outOfTime
+              ? `local render time budget of ${Math.round(maxTotalMs / 1000)}s exhausted for this run`
+              : `local render budget of ${maxTotalPages} pages exhausted for this run`,
           });
         }
         return results;
@@ -211,6 +268,20 @@ export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRe
       try {
         for (let i = 0; i < capped.length; i++) {
           const url = capped[i]!;
+          if (Date.now() - startedAt >= maxTotalMs) {
+            // Mid-batch exhaustion. Every URL not reached is reported, never
+            // silently dropped: a shop that was skipped for time and a shop
+            // that genuinely returned nothing must not look the same.
+            for (const rest of capped.slice(i)) {
+              results.set(rest, {
+                status: 0,
+                body: '',
+                ok: false,
+                error: `local render time budget of ${Math.round(maxTotalMs / 1000)}s exhausted for this run`,
+              });
+            }
+            break;
+          }
           if (i > 0) await sleep(gapMs);
 
           const page = await context.newPage();
