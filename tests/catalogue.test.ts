@@ -88,6 +88,50 @@ describe('parseListings', () => {
     });
   });
 
+  // ── description ──────────────────────────────────────────────────────────
+  // This parser did not read schema.org's `description` at all, so every
+  // sitemap-route shop reached the catalogue with none while the feed and
+  // Shopify routes carried real copy. Notes are parsed out of that field at
+  // build time, so the omission silently capped notes coverage for those
+  // shops at zero however well their pages were written.
+  it('captures the product description', () => {
+    const html = page({
+      '@type': 'Product',
+      name: 'A',
+      sku: 'a',
+      description: 'Top notes: Bergamot, Pepper. Base notes: Amber.',
+      offers: { price: 1 },
+    });
+    expect(parseListings(html, OPTS)[0]?.description).toBe(
+      'Top notes: Bergamot, Pepper. Base notes: Amber.',
+    );
+  });
+
+  it('strips markup so the note parser sees prose, not tags', () => {
+    // A <br> between the label and the list is the difference between the
+    // note parser reading it and not.
+    const html = page({
+      '@type': 'Product',
+      name: 'A',
+      sku: 'a',
+      description: '<p><strong>Top notes:</strong><br>Bergamot, Pepper</p>',
+      offers: { price: 1 },
+    });
+    expect(parseListings(html, OPTS)[0]?.description).toBe('Top notes: Bergamot, Pepper');
+  });
+
+  it('treats a missing or placeholder description as none', () => {
+    const none = page({ '@type': 'Product', name: 'A', sku: 'a', offers: { price: 1 } });
+    expect(parseListings(none, OPTS)[0]?.description).toBeNull();
+
+    // Shops emit a stray character or an empty tag here; carrying it costs a
+    // row in the store and can never yield a note.
+    const stub = page({
+      '@type': 'Product', name: 'A', sku: 'a', description: '<p> </p>', offers: { price: 1 },
+    });
+    expect(parseListings(stub, OPTS)[0]?.description).toBeNull();
+  });
+
   it('walks a @graph wrapper', () => {
     const html = page({
       '@context': 'https://schema.org',
