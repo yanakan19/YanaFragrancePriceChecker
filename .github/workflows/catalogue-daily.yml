@@ -746,57 +746,25 @@ jobs:
         run: |
           echo "::warning::The sitemap harvest did not run to completion — it hit its 60 minute cap or exited non-zero. Whatever it had already stored per shop has been committed by the step above; the shops it did not reach keep their previous prices and are picked up by the next run. Check the harvest step's log for where it stopped."
 
-      # No product photo is ever downloaded or hosted here — every tile links
-      # straight to the retailer's own image URL (see demo/photo.ts) — so a
-      # retailer reshuffling their CDN silently breaks a tile with nothing
-      # else here noticing. This is a report only: it does not change what a
-      # fragrance's photoUrl is, only records which ones stopped resolving.
+      # ── The image link check moved out of this job, 2026-08-25 ─────────
+      # It used to run here, last, after the harvest had committed. It could
+      # not finish. This job's cap is 100 minutes and the comment on that cap
+      # explains why the number cannot move; the step caps inside it reach
+      # "Commit harvested prices" at ~97 minutes in the worst case, leaving
+      # this check ~3 of the 20 minutes it asked for.
       #
-      # Bounded and best-effort for the same reason as the houses step above,
-      # and with more cause: this is the last step in the run, it is a report
-      # nothing else reads yet, and its cost grows with the catalogue rather
-      # than staying put. It took 4m47s on run #153 and was still going 6m47s
-      # in on #158 — by then 24,276 distinct URLs, up with every listing added.
-      # #158 had already committed its harvest when this step was cancelled, so
-      # the only thing the job timeout actually destroyed there was this
-      # report, and it marked the whole run "cancelled" to do it.
+      # What that cost, measured on the runs: data/image-link-report.json last
+      # committed 2026-08-19, and data/image-referer-report.json never
+      # committed in this repo's history at all. Runs #317, #320, #321 and
+      # #323 each ran to exactly 100 minutes and died here — four of ten runs
+      # ending "cancelled" for a report, with the harvest itself safely
+      # committed twenty minutes earlier every time.
       #
-      # Two passes now, not one. The broken-link sweep is scoped to only the
-      # retailers whose photos an `imageBasis` actually lets a reader see (see
-      # scripts/image-link-check.ts's header) and separates a real HTTP
-      # response from a connection failure that is ours, never counting the
-      # second as broken — the first version of this report conflated them and
-      # called 20,317 of its own dropped connections "broken images". The
-      # second pass is Bug 2's referer-sensitivity sample: it fetches a sample
-      # of each shown retailer's images once with a pricesniffs.space referer
-      # and once with none, because that second, refererless request is what
-      # this site's own <img referrerpolicy="no-referrer"> tags actually send
-      # (demo/photo.ts) — a host that only serves the first would show a real
-      # reader a broken tile. Its report is committed here too, since this is
-      # the one step of this file scripts/image-link-check.ts's owner may
-      # touch; the scheduled "Commit image link report" step below still
-      # handles data/image-link-report.json on its own.
-      #
-      # 20 minutes, up from 15, for the second pass's requests; still
-      # best-effort, and a run that overruns it loses these two reports rather
-      # than its status.
-      - name: Check image links
-        if: ${{ inputs.harvest || github.event_name == 'schedule' }}
-        continue-on-error: true
-        timeout-minutes: 20
-        run: |
-          npm run images:check
-          npm run images:check -- --referer-check
-          ./scripts/commit-and-push.sh \
-            "Image referer check: $(date -u +%Y-%m-%d)" \
-            data/image-referer-report.json
-
-      - name: Commit image link report
-        if: ${{ inputs.harvest || github.event_name == 'schedule' }}
-        run: |
-          ./scripts/commit-and-push.sh \
-            "Image links: $(date -u +%Y-%m-%d)" \
-            data/image-link-report.json
+      # It is now .github/workflows/image-check.yml, daily on its own
+      # schedule, in its own concurrency group, with 40 minutes to itself. See
+      # that file's header. Nothing was lost from this job by the move: the
+      # check never wrote a price or changed a listing, only a report under
+      # data/ that the build does not read.
 
       # Kept for manual comparison against the old guessed-URL approach and for
       # --source=fixtures testing. Deliberately never runs on schedule.

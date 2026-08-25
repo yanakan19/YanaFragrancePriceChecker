@@ -1,0 +1,134 @@
+name: Image link check
+
+# Checks that the product photography the site shows still loads, and commits
+# the two reports it produces.
+#
+# ── Why this is its own workflow rather than a step in "Catalogue crawl" ─────
+# Because as a step it could not finish, and had not finished since 2026-08-19.
+#
+# It ran last in that job, after the harvest had committed. The job's cap is
+# 100 minutes and its own comment explains why that number cannot move: the
+# two-hourly cron bounds it from above, and the sum of the step caps inside it
+# reaches "Commit harvested prices" at ~97 minutes in the worst case. That
+# leaves this check ~3 minutes of the 20 it asks for. Measured on the runs
+# themselves: #317, #320, #321 and #323 all ran to exactly 100 minutes and were
+# killed here, and four of the ten runs before this change ended "cancelled"
+# for no other reason.
+#
+# The harvest was never lost — it commits before this point, which is what that
+# 100-minute comment promised and what actually happened. What was lost was
+# this, every time, plus a red-looking run each time it happened:
+#
+#   data/image-link-report.json    last committed 2026-08-19, six days stale
+#   data/image-referer-report.json never committed at all
+#
+# The second one has never once existed. The referer sweep was added, capped at
+# 20 minutes, placed behind a step that leaves it three, and so has never
+# produced its report in this repo's history.
+#
+# Splitting it out fixes both without touching the harvest's budget: nothing
+# here competes with a 60-minute sitemap walk, and a run that overruns costs a
+# report rather than a snapshot.
+#
+# ── What it may and may not do ───────────────────────────────────────────────
+# Read-only against the shops. It fetches images and records whether they
+# answered; it stores no price, changes no listing, and commits exactly two
+# files, both under data/ and neither read by the build. That placement is
+# deliberate and load-bearing: a report committed inside demo/ would trigger
+# "Deploy site", and a measurement must never be able to republish the site as
+# a side effect.
+#
+# Daily rather than two-hourly. An image URL that worked this morning is
+# overwhelmingly likely to work this afternoon, and the thing this catches — a
+# shop reorganising its CDN, or starting to refuse a refererless request — moves
+# on the order of days, not hours.
+on:
+  schedule:
+    # 03:20 UTC. Deliberately off the even hours the catalogue cron uses, so
+    # this and a harvest are not competing for a runner at the same minute.
+    - cron: '20 3 * * *'
+  workflow_dispatch:
+    inputs:
+      shop:
+        description: 'Limit to one retailer id. Empty checks every retailer whose images an imageBasis actually lets a reader see.'
+        type: string
+        default: ''
+      sample:
+        description: 'Images per shop for the referer-sensitivity sweep. The broken-link sweep ignores this and checks every shown image.'
+        type: string
+        default: '10'
+      referer_check:
+        description: 'Run the referer-sensitivity sweep as well as the broken-link sweep.'
+        type: boolean
+        default: true
+      commit_reports:
+        description: 'Commit the two reports. Turn off for a throwaway look.'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+# Its own group, so it neither queues behind the harvest nor cancels it. Two
+# image sweeps at once would double the request rate at every shop's CDN,
+# which is the one thing this pass must not do.
+concurrency:
+  group: image-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    # The two sweeps asked for 20 minutes between them inside the old job. 40
+    # gives each of them that with room to spare, and is still far under
+    # anything that would matter here, since nothing else is waiting on this
+    # workflow.
+    timeout-minutes: 40
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # continue-on-error on both sweeps, for the same reason the price
+      # verification workflow does it: a shop that hangs or a route that throws
+      # should still leave its report and its log behind. A partial measurement
+      # is useful; a red run with no output is not.
+      - name: Check for broken image links
+        continue-on-error: true
+        timeout-minutes: 20
+        run: |
+          npm run images:check -- \
+            ${{ inputs.shop && format('--shop={0}', inputs.shop) || '' }}
+
+      # Bug 2's sweep: fetch a sample of each shown retailer's images once with
+      # a pricesniffs.space referer and once with none, because that second,
+      # refererless request is what this site's own <img referrerpolicy=
+      # "no-referrer"> tags actually send (demo/photo.ts). A host that serves
+      # only the first would show a real reader a broken tile.
+      #
+      # Defaults on, unlike in the step this replaced, because it now has the
+      # time to actually run.
+      - name: Check referer sensitivity
+        if: ${{ inputs.referer_check || github.event_name == 'schedule' }}
+        continue-on-error: true
+        timeout-minutes: 20
+        run: |
+          npm run images:check -- --referer-check \
+            --sample=${{ inputs.sample || '10' }} \
+            ${{ inputs.shop && format('--shop={0}', inputs.shop) || '' }}
+
+      # One commit for both reports rather than the two separate ones the old
+      # steps made. commit-and-push.sh is a no-op when nothing changed, so an
+      # unchanged report costs nothing and leaves no empty commit behind.
+      - name: Commit the image reports
+        if: ${{ inputs.commit_reports || github.event_name == 'schedule' }}
+        run: |
+          ./scripts/commit-and-push.sh \
+            "Image links: $(date -u +%Y-%m-%d)" \
+            data/image-link-report.json data/image-referer-report.json
