@@ -7,4 +7,11 @@ coverage/
 .env.*
 !.env.example
 .DS_Store
-.claude/
+
+# .claude holds per-agent worktrees, which are throwaway, alongside the session
+# hook, which has to be in the repo to reach a future session at all. Listed as
+# .claude/* rather than .claude/ so git still descends and can see the two
+# un-ignored entries — it does not look inside a directory it has excluded.
+.claude/*
+!.claude/settings.json
+!.claude/hooks/
