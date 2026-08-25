@@ -159,6 +159,39 @@ function brandName(node: JsonValue): string | null {
   return null;
 }
 
+/**
+ * The retailer's own product copy, where the Product node carries one.
+ *
+ * schema.org names this `description` and shops fill it in routinely, but this
+ * parser never read it, so every retailer ingested through the sitemap route
+ * reached the catalogue with `description: undefined` — while the Awin-feed and
+ * Shopify routes, which do capture it, reached it with real copy.
+ *
+ * That asymmetry was quietly costing fragrance notes. Notes are parsed out of
+ * `description` at display-build time (see scripts/build-demo-catalogue.ts's
+ * pickNotes), so a shop with no description can never contribute a note however
+ * carefully its pages are written. Measured 2026-08-25 across the stored
+ * catalogue: of 53,777 active listings, 36,137 carried a description and 17,640
+ * did not — and 5,716 of those blanks are Beauty Base, Justmylook and Perfumeo,
+ * three sitemap-route shops whose pages were never asked for the field.
+ *
+ * HTML is stripped rather than kept. Shops commonly put markup in this field,
+ * and pickNotes reads prose; a `<br>` between "Top notes" and the list is the
+ * difference between reading it and not. Entities are left alone — decoding
+ * them is jsonld.ts's caller's business, and the note parser handles them.
+ */
+function description(node: JsonValue): string | null {
+  const raw = str(node['description']);
+  if (!raw) return null;
+  const text = raw
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  // A description of a handful of characters is a placeholder, not copy, and
+  // carrying it costs a row in the store for nothing.
+  return text.length > 2 ? text : null;
+}
+
 function imageUrl(node: JsonValue): string | null {
   const image = node['image'];
   if (typeof image === 'string') return image;
@@ -284,6 +317,7 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
       rawBrand: brandName(node),
       ean: gtin(node),
       imageUrl: imageUrl(node),
+      description: description(node),
       priceGbp: price,
       wasPriceGbp,
       promoEndsAt: isoDate(offer?.['priceValidUntil']),
