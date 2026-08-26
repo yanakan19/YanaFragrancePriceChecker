@@ -434,6 +434,12 @@ function canonBrand(raw: string | null | undefined): string | null {
 }
 
 const products = new Map<string, Product>();
+/**
+ * Every concentration any shop's own title claimed for a product, by product
+ * id. Reporting only — see the warning at the foot of this file for what the
+ * disagreement turns out to be and why nothing acts on it.
+ */
+const concentrationsSeen = new Map<string, Set<string>>();
 let liveShops = 0;
 let considered = 0;
 const skippedShops: string[] = [];
@@ -536,6 +542,15 @@ for (const { retailer, listings } of eligible) {
     const id = fragranceId(l, untrustworthyEans);
     const effectiveRawBrand = resolveRawBrand(l, retailer);
 
+    // What each shop's own title says this bottle's concentration is, kept
+    // per product so a disagreement is visible in the build log — see the
+    // warning at the end of this file. Recorded here rather than as a field on
+    // Offer because nothing but that one line ever reads it, and a string per
+    // offer would be carried through every merge and then dropped again.
+    const seenConcentrations = concentrationsSeen.get(id);
+    if (seenConcentrations) seenConcentrations.add(concentration(l.rawTitle));
+    else concentrationsSeen.set(id, new Set([concentration(l.rawTitle)]));
+
     const existing = products.get(id);
     const offer: Offer = {
       retailerId: l.retailerId,
@@ -596,6 +611,16 @@ const duplicateGroups = findDuplicateGroups([...products.values()]);
 for (const { canonical, absorbed } of duplicateGroups) {
   for (const dupe of absorbed) {
     canonical.offers.push(...dupe.offers);
+    // Same reason the offers move: the disagreement being counted is between
+    // the shops on the *final* product, so an absorbed record's claims have to
+    // follow its offers across or the count under-reports every merge.
+    const absorbedConcentrations = concentrationsSeen.get(dupe.id);
+    if (absorbedConcentrations) {
+      const kept = concentrationsSeen.get(canonical.id);
+      if (kept) for (const c of absorbedConcentrations) kept.add(c);
+      else concentrationsSeen.set(canonical.id, new Set(absorbedConcentrations));
+      concentrationsSeen.delete(dupe.id);
+    }
     // The barcode is worth keeping if the canonical record lacked one.
     canonical.ean ??= dupe.ean;
     // Same reasoning as ean just above: if the absorbed record was the one
@@ -1190,6 +1215,72 @@ console.log(
     console.log(
       `::warning::${wasAudit.productsWithMixedSizes} products carry offers that disagree about bottle size. ` +
         'No reference price was compared across a size boundary; see wasPriceCredibility.ts.',
+    );
+  }
+
+  /* ── shops disagreeing about what is in the bottle ────────────────────────
+     Reported and not acted on, deliberately.
+
+     The owner's report was that an EDP listing had been folded into an EDT
+     product on Armaf Club De Nuit Intense Man 105ml. That specific case is
+     not a merge: every harvested title in that group says EDT, back through
+     every committed snapshot. What says "EDP" is Emirates Oud's own URL slug
+     (/club-de-nuit-intense-man-perfume-105ml-edp-armaf) and its own
+     description ("Fragrance Type: Eau de Parfum", two paragraphs above "a
+     105ml Eau de Toilette"). The shop contradicts itself; nothing here merged
+     anything. The duplicate row that made it look like two listings is gone —
+     see "one shop, one row" above.
+
+     The general question behind it is real and this counts it: products whose
+     shops' own titles do not say the same thing about concentration. 141 of
+     14,784 (0.95%), and they are two different situations:
+
+       70  one shop names a concentration and another names none. Not a
+           contradiction — a shop writing "Clinique Happy Heart Perfume 100ml
+           Spray" has not said it is something other than the Eau de Parfum
+           Allbeauty calls it. productMatch.ts bridges those deliberately;
+           see its byConcentration block for the conditions.
+       71  two shops name genuinely different concentrations:
+
+             Eau de Parfum vs Parfum             51
+             Eau de Parfum vs Extrait de Parfum  16
+             Eau de Parfum vs Eau de Toilette     2
+             Eau de Toilette vs Parfum            1
+             Extrait de Parfum vs Parfum          1
+
+     All 71 are EAN-keyed groups, and that is the whole finding: matchKey in
+     productMatch.ts includes the concentration, so the title route cannot
+     merge across one, and a shared barcode means both shops are describing
+     the same bottle. This is one shop mislabelling it, not two bottles
+     merged. EAN 3614274258080 is Azzaro Wanted Forever Elixir *Parfum* at
+     Beautybase, Just My Look, The Beauty Store and Fragrance Click, and "Eau
+     de Parfum" at Perfume Click alone; Prada Paradoxe Radical Essence
+     (3614274306217) is the same shape. Both of the EDP/EDT pairs are that
+     shape too: Yardley Gentleman Classic 100ml (6297000226163), EDP at
+     Beautybase and The Beauty Store, EDT at Perfume Click, and Lancôme La Vie
+     Est Belle Rose Extraordinaire 30ml (3614274103007).
+
+     Deciding which title is right needs the manufacturer's own word, and the
+     egress proxy refuses brand and retailer domains, so it cannot be
+     established from here. Splitting the group on a title disagreement would
+     also be the wrong move on this evidence: it would turn one correctly
+     matched bottle into two half-populated products, and the barcode says
+     they are one bottle. So it is counted where it can be seen going up or
+     down, and left alone. */
+  const mixedConcentration = [...concentrationsSeen].filter(
+    // Only products that survived to be published: the price-scale withholding
+    // above deletes whole products, and counting one of those would report a
+    // disagreement no reader can see.
+    ([id, seen]) => seen.size > 1 && products.has(id),
+  );
+  // Split, because the two halves mean different things — see above. A shop
+  // that named nothing has not contradicted a shop that named something.
+  const contradicting = mixedConcentration.filter(([, seen]) => !seen.has('Not stated'));
+  if (mixedConcentration.length > 0) {
+    console.log(
+      `::warning::${mixedConcentration.length} products carry offers whose titles differ about concentration — ` +
+        `${contradicting.length} of them a real contradiction, the rest one shop naming none. ` +
+        'Every contradiction shares an EAN, so it is a mislabelled bottle rather than two bottles merged.',
     );
   }
 }
