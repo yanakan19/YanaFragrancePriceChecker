@@ -26,21 +26,19 @@ describe('DEALS excludes brand-direct storefronts', () => {
 });
 
 /**
- * Perfume Click, excluded on the owner's instruction 2026-08-25.
- *
- * Measured against the snapshot before the change: 3,667 of 7,134 deal
- * entries were Perfume Click, 51.4% — more than every other shop combined.
- * After regenerating, 0 of 4,957 are, and the drop is 2,177 rather than
- * 3,667 because 1,490 of those fragrances kept a deal sourced from a
- * different shop instead, which is the behaviour intended: the exclusion
- * removes one shop's offer from consideration, never the fragrance.
+ * Perfume Click was excluded from here 2026-08-25 on a report that its RRPs
+ * were misleading, then reinstated 2026-08-26 once that premise was measured
+ * and found false: its stated RRP agrees with the rest of the market (median
+ * ratio 1.000 across 2,472 product/other-shop comparisons — see
+ * scripts/build-deals.ts's own comment). This test now guards the opposite
+ * regression: that a future change does not quietly bring the exclusion back.
  */
-describe('DEALS excludes shops the owner has taken off the page', () => {
-  it('never surfaces a Perfume Click deal', () => {
-    expect(DEALS.filter((d) => d.retailerId === 'perfume-click')).toEqual([]);
+describe('DEALS no longer singles out Perfume Click', () => {
+  it('surfaces Perfume Click deals like any other shop', () => {
+    expect(DEALS.some((d) => d.retailerId === 'perfume-click')).toBe(true);
   });
 
-  it('still has deals from other shops, so the exclusion did not empty the page', () => {
+  it('still has deals from other shops', () => {
     const shops = new Set(DEALS.map((d) => d.retailerId));
     expect(shops.size).toBeGreaterThan(1);
   });

@@ -82,31 +82,22 @@ const SINGLE_BRAND_ONLY_IDS = new Set(
 );
 
 /**
- * Shops kept off Today's Deals by the site owner's decision, for reasons that
- * are not `singleBrandOnly`.
- *
- * Deliberately a separate list rather than a flag folded into the set above:
- * these shops are not brand-direct storefronts, and calling them that in code
- * would be untrue and would quietly change how they are treated on the
- * Retailers directory and the Most Stocked rail, which read that same flag.
- *
- * `perfume-click` — excluded 2026-08-25 on the owner's instruction. Worth
- * recording what that removes, measured against demo/deals.generated.ts as it
- * stood: 3,667 of the 7,134 deal entries, 51.4%, more than every other shop
- * combined. A reduction here is `wasPrice > price` where `wasPrice` comes from
- * the merchant's `rrp_price` feed column (see src/catalogue/awinFeed.ts), which
- * is a stated recommended retail price rather than "what this shop charged last
- * week" — so a shop that populates RRP on most of its catalogue produces a
- * "deal" on most of its catalogue, which is a different thing from most of its
- * catalogue being reduced.
- *
- * This only removes the shop's own offer from deal consideration. The
- * fragrance itself still appears, still shows Perfume Click on its own page
- * with the same price, and a genuine reduction from any other shop on the same
- * fragrance is unaffected.
+ * `perfume-click` was excluded from here 2026-08-25 to 2026-08-26 on a report
+ * that its RRPs were misleading. That premise was then measured, not assumed:
+ * comparing its stated RRP against the RRP other shops publish for the same
+ * bottle, one ratio per (product, other shop) pair, n=2,472, the median ratio
+ * was 1.000 (p25 0.977, p75 1.051) — Perfume Click's reference prices agree
+ * with the rest of the market. It produced 51.4% of the deals pool not by
+ * inventing numbers but by *publishing* RRP on most of its catalogue where
+ * most shops publish none, and an RRP sits well above street price
+ * market-wide (see
+ * src/catalogue/wasPriceCredibility.ts) — a problem with what a strikethrough
+ * means everywhere, not a Perfume Click problem. The exclusion is removed
+ * accordingly; the general fix for the market-wide RRP-inflation problem is
+ * the corroboration requirement in wasPriceCredibility.ts and its use in
+ * scripts/build-demo-catalogue.ts, which now withholds any reference price —
+ * from any shop — that the rest of the market cannot corroborate.
  */
-const OWNER_EXCLUDED_FROM_DEALS = new Set(['perfume-click']);
-
 const deals: RawDeal[] = DEMO_FRAGRANCES.flatMap((fragrance) => {
   const reduced = (CRAWLED[fragrance.id] ?? [])
     .filter(
@@ -114,8 +105,7 @@ const deals: RawDeal[] = DEMO_FRAGRANCES.flatMap((fragrance) => {
         BUYABLE.has(o.stock) &&
         o.wasPrice !== null &&
         o.wasPrice > o.price &&
-        !SINGLE_BRAND_ONLY_IDS.has(o.retailerId) &&
-        !OWNER_EXCLUDED_FROM_DEALS.has(o.retailerId),
+        !SINGLE_BRAND_ONLY_IDS.has(o.retailerId),
     )
     .sort((a, b) => a.price - b.price);
   const best = reduced[0];
