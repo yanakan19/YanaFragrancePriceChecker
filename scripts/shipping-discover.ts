@@ -19,7 +19,11 @@
  * unverified delivery cost was, in effect, not running.
  *
  * The default population is now: every enabled shop whose delivery rule is not
- * confirmed, plus every shop of any kind with no rate at all.
+ * confirmed, plus every shop of any kind with no rate at all, plus every
+ * enabled shop whose rule *is* confirmed but has not been re-read in
+ * `STALE_CONFIRMATION_DAYS` — see src/catalogue/shippingDiscoveryQueue.ts for
+ * why a confirmation ages back into this population rather than staying
+ * trusted forever.
  *
  * ── And why it is now rationed ───────────────────────────────────────────────
  * That correction took the step from 3m59s (run #172) to 48m05s (run #180, 49
@@ -71,11 +75,12 @@ import {
   type PageEvidence,
   type ShippingPatch,
 } from '../src/catalogue/shippingRegistryPatch.js';
-import { quoteShipping, QUOTE_POSTCODE } from '../src/catalogue/shippingQuote.js';
+import { quoteShipping, QUOTE_POSTCODE, shouldAttemptCheckoutQuote } from '../src/catalogue/shippingQuote.js';
 import {
   parseDiscoveryState,
   selectDueTargets,
   recordChecked,
+  isConfirmationStale,
 } from '../src/catalogue/shippingDiscoveryQueue.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -126,14 +131,18 @@ const today = new Date().toISOString().slice(0, 10);
  *
  * Exported shape rather than an inline filter so the choice is stated once and
  * can be argued with. `--all` adds the confirmed shops back, for spot-checking
- * figures we already believe.
+ * figures we already believe. `opts.today` is threaded through (rather than
+ * this function reading the clock itself) purely so a test can pick a fixed
+ * date and assert a stale confirmation ages in on schedule; every real call
+ * site below leaves it unset and gets the actual run date.
  */
 export function discoveryTargets(
   retailers: readonly (typeof RETAILERS)[number][],
-  opts: { onlyShop?: string | null; includeEverything?: boolean } = {},
+  opts: { onlyShop?: string | null; includeEverything?: boolean; today?: string } = {},
 ) {
   if (opts.onlyShop) return retailers.filter((r) => r.id === opts.onlyShop);
   if (opts.includeEverything) return [...retailers];
+  const asOf = opts.today ?? today;
   return retailers.filter(
     (r) =>
       // Every shop we actually show, whose delivery rule has never been read
@@ -142,7 +151,12 @@ export function discoveryTargets(
       (r.enabled && r.shipping.confidence !== 'confirmed') ||
       // And every shop of any kind with no rate at all, enabled or not: that is
       // the state that keeps a researched shop switched off.
-      r.shipping.standardGbp === null,
+      r.shipping.standardGbp === null ||
+      // And every enabled shop whose confirmation has gone stale — see
+      // isConfirmationStale's own doc comment in shippingDiscoveryQueue.ts for
+      // why a confirmed rule ages back into this population rather than being
+      // trusted forever once written.
+      (r.enabled && r.shipping.confidence === 'confirmed' && isConfirmationStale(r.shipping.verifiedAt, asOf)),
   );
 }
 
@@ -325,11 +339,16 @@ for (const retailer of shops) {
   const clean = withStandard.filter((f) => f.caveats.length === 0);
   const absence = outcome.findings.filter((f) => f.standardRateNotStated && f.caveats.length === 0);
 
-  // Third tier, only where the pages could not answer cleanly: ask the shop's
-  // own checkout estimator what it would charge to send one cheap bottle to a
-  // London postcode. See src/catalogue/shippingQuote.ts for exactly what that
-  // exchange is and why it stops short of a real checkout.
-  if (clean.length === 0 && absence.length === 0) {
+  // Third tier: ask the shop's own checkout estimator what it would charge to
+  // send one cheap bottle to a London postcode. See src/catalogue/
+  // shippingQuote.ts for exactly what that exchange is and why it stops short
+  // of a real checkout, and shouldAttemptCheckoutQuote's own doc comment for
+  // why this fires whenever the page reading alone produced no *clean* rate —
+  // not only when it produced nothing at all. An absence claim or a
+  // disagreement with the registry both leave the standard rate genuinely
+  // unsettled, and a checkout quote is exactly the kind of independent second
+  // reading that helps a human settle either one.
+  if (shouldAttemptCheckoutQuote(clean.length)) {
     const rateUrl = `${origin}/cart/shipping_rates.json`;
     if (!isAllowed(robots, rateUrl)) {
       // Shopify's stock robots.txt carries `Disallow: /cart`, so on most
@@ -428,6 +447,21 @@ for (const retailer of shops) {
   const detail = outcome.verdict.slice(outcome.verdict.indexOf(':') + 1).trim();
   if (detail && !(outcome.patch && outcome.patch.write)) console.log(`      ${detail}`);
   if (outcome.quote && !outcome.quote.ok) console.log(`      quote: ${outcome.quote.error}`);
+  // A quote that succeeded is folded into `detail` above only for the
+  // PROPOSE (checkout) verdict, the one case where the quote is the entire
+  // finding. Everywhere else — DISAGREES and no-action chief among them,
+  // exactly the cases shouldAttemptCheckoutQuote's own doc comment argues for
+  // — a successful quote was computed and then dropped on the floor, visible
+  // only to someone who went and opened the JSON report. Printed here instead,
+  // as the independent second reading it is: never something this tool acts
+  // on by itself, only something placed next to the verdict for a human.
+  if (outcome.quote?.ok && !outcome.verdict.startsWith('PROPOSE (checkout)') && quotedRates.length > 0) {
+    console.log(
+      `      checkout quoted £${quotedRates[0]!.priceGbp.toFixed(2)} (${quotedRates[0]!.currency}) as ` +
+        `"${quotedRates[0]!.name}" on a £${outcome.quote.basketGbp?.toFixed(2)} basket to ` +
+        `${outcome.quote.postcode} — for a human weighing the verdict above, not acted on here`,
+    );
+  }
   for (const e of outcome.errors.slice(0, 2)) console.log(`      ${e}`);
 
   outcomes.push(outcome);
