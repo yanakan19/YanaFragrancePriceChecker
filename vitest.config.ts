@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitest/config';
+import { TestCountReporter } from './scripts/testCountReporter.js';
 
 export default defineConfig({
   test: {
@@ -10,5 +11,11 @@ export default defineConfig({
     // node_modules) rather than part of this package — it runs its own
     // tests via its own `npm test`, see YanaFreeAPIMerger/README.md.
     exclude: ['**/node_modules/**', '**/.claude/**', '**/dist/**', '**/dist-demo/**', '**/YanaFreeAPIMerger/**'],
+    // 'default' is vitest's own console reporter; TestCountReporter adds no
+    // console output of its own beyond one line when it writes a change (see
+    // its header comment) and exists purely to keep
+    // demo/testCount.generated.ts, and so demo/legal.ts's About page, honest
+    // about how many tests actually exist.
+    reporters: ['default', new TestCountReporter()],
   },
 });

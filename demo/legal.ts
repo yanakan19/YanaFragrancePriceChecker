@@ -22,12 +22,20 @@
  * after the harvest schedule had moved to every two hours. A page whose whole
  * argument is that this site does not misstate things cannot itself carry
  * seven stale figures, and a number typed by hand will always drift again.
- * The one figure still written by hand is the test count, because nothing in
- * the browser bundle can count the test suite; it is checked against
- * `npm test` when this file is touched.
+ * The test count used to be the one exception, because nothing in the browser
+ * bundle can run the test suite to count it — it was hand-checked against
+ * `npm test` whenever this file was touched, and it drifted anyway, reading
+ * 772 against a real 1,364 on 2026-08-26, then drifting again the same
+ * evening as more tests landed. It is no longer hand-written: it is imported
+ * from demo/testCount.generated.ts, which scripts/testCountReporter.ts
+ * rewrites as a side effect of every real `vitest run`, so the number here is
+ * whatever the suite actually contained the last time anyone ran it, not
+ * whatever a maintainer last remembered to type. See that reporter's own
+ * header comment for the full mechanism.
  */
 import { RETAILERS } from '../src/config/retailers.js';
 import { DEMO_FRAGRANCES } from './data.js';
+import { TEST_COUNT } from './testCount.generated.js';
 
 const n = (v: number) => v.toLocaleString('en-GB');
 
@@ -56,19 +64,6 @@ const DELIVERY_UNSTATED = ENABLED.filter((r) => r.shipping.standardGbp === null)
  */
 const DELIVERY_CONFIRMED = ENABLED.filter((r) => r.shipping.confidence === 'confirmed');
 const DELIVERY_UNCONFIRMED = ENABLED.filter((r) => r.shipping.confidence === 'unverified');
-
-/**
- * Hand checked against `npm test` whenever this file is edited.
- *
- * It drifted anyway, which is the failure this file's own header warns about:
- * it read 772 on 2026-08-26 against a suite of 1,364, so the About page was
- * understating itself by 592 tests while arguing that it does not misstate
- * things. Every other number here is computed for exactly this reason; this
- * one cannot be, because nothing in the browser bundle can count the test
- * suite. So it stays hand-written and stays a liability — if it is wrong
- * again, the fix is to re-read `npx vitest run` and correct it, not to guess.
- */
-const TEST_COUNT = 1364;
 
 export const COMPANY = {
   name: 'PriceSniffs',

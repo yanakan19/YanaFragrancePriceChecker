@@ -807,9 +807,21 @@ jobs:
           # Uncommitted, every run would start from an empty cursor, fall back
           # to the same never-live-then-registry order, and starve the same
           # eleven shops it starved before — the rotation would be decorative.
+          # demo/testCount.generated.ts rides along for the same reason as
+          # everything else in this list: "Test before crawling", above, ran
+          # `npm test` unconditionally at the top of this job, and
+          # scripts/testCountReporter.ts rewrites that file as a side effect
+          # whenever the count it holds no longer matches what the suite just
+          # ran. Leaving it uncommitted here would mean the About page's test
+          # count only ever gets fixed by a human who happens to run the
+          # suite locally and notices the diff — exactly the failure mode
+          # this mechanism exists to remove. This step runs on every
+          # scheduled tick regardless of which other inputs fired, so it is
+          # the one place guaranteed to pick the correction up within a day.
           ./scripts/commit-and-push.sh \
             "Harvest: real prices $(date -u +%Y-%m-%d)" \
             data/catalogue demo/catalogue.generated.ts demo/priceHistory.generated.ts \
+            demo/testCount.generated.ts \
             demo/index.html demo/404.html demo/sitemap.xml \
             data/houses data/house-sourcing-report.json \
             data/metered-harvest-marker.txt \
