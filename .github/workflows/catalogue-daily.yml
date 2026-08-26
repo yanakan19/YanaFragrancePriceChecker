@@ -1,27 +1,38 @@
 name: Catalogue crawl
 
-# Runs every two hours and commits the resulting snapshots. The commit is the
-# audit trail: the diff shows exactly which products a shop added, dropped or
-# repriced since the last run.
+# Runs every three hours and commits the resulting snapshots. The commit is
+# the audit trail: the diff shows exactly which products a shop added,
+# dropped or repriced since the last run.
 #
-# Two-hourly rather than hourly, because hourly was never real. A full run now
-# takes 71-79 minutes end to end (measured: run #153 finished in 70m48s, run
-# #158 reached its harvest commit at 68m04s and was still working), so an
-# hourly cron asks for a run to start while the previous one is still going.
-# The concurrency group below then holds the new one pending, and a *third*
-# tick arriving cancels the one waiting. The delivered cadence between
-# 2026-08-11 22:39Z and 2026-08-12 10:01Z was already 1h46m-2h18m between runs
-# (#153 through #159) rather than the hourly this cron claimed — so this is the
-# schedule matching what the pipeline actually does, not a reduction in
-# service. It also leaves ~40 minutes of slack between the end of one run and
-# the start of the next, which is what stops a slow run stacking at all.
+# Two-hourly, not three, was the schedule from 2026-08-12 to 2026-08-26. The
+# reasoning below for going two-hourly was sound at the time (measured then:
+# 68-79 minutes end to end) and stopped being true as the pipeline grew a
+# local render tier, storefront repricing and more periodic steps alongside
+# it: measured over runs #309-#336 (2026-08-23 to 08-26), a clean run now
+# takes 87-98 minutes, not 71-79. Against a two-hour cron that leaves as
+# little as ~22 minutes of slack instead of the ~40 the schedule was tuned
+# for, and the concurrency group's own failure mode below — "the new run
+# holds pending, and a *third* tick arriving cancels the one waiting" — was no
+# longer the rare case. Counted over that same window: 8 of 30 scheduled runs
+# (26.7%) ended cancelled this way. Three-hourly restores the margin the
+# reasoning always called for: 90-105 minutes of slack behind a 90-98 minute
+# run, comfortably ahead of the next tick.
+#
+# This is not a cut in service, for the same reason the 2026-08-12 move
+# wasn't: a nominal cadence nobody actually receives is not real service. That
+# 30-run window nominally offered 12 ticks/day but only delivered 19 clean
+# runs against 30 attempts (63.3%) once cancellations and the sitemap-gate
+# failures fixed the same day are counted — effectively ~7.6 clean
+# runs/day. Three-hourly offers 8 ticks/day with the margin to land nearly
+# all of them, which is a higher delivered rate, not a lower one.
 #
 # The three periodic steps below (Awin sync, Top Deals, shipping discovery) no
 # longer key off the clock reading a particular hour. They did, and it broke:
 # a scheduled run starts when a runner is free, not when the cron said, and
 # once the drift settled on odd hours those steps skipped every cycle in
-# silence. They now gate on time elapsed since they last ran, so the cadence
-# holds however late a run starts. See each step for its own threshold.
+# silence. They now gate on time elapsed since they last ran, so their own
+# cadence holds however late a run starts, and none of it changes with this
+# move to three-hourly either. See each step for its own threshold.
 #
 # --allow-metered below is a no op unless APIFY_PROXY_PASSWORD or APIFY_TOKEN
 # is set. Both are now set: this comment used to end "and neither currently
@@ -44,7 +55,7 @@ name: Catalogue crawl
 # sitemap/JSON-LD route costs nothing.
 on:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '0 */3 * * *'
   workflow_dispatch:
     inputs:
       crawl:
@@ -163,9 +174,12 @@ jobs:
     # saved any.
     #
     # 100 minutes covers that worst measured case with ~14 minutes of headroom
-    # for the catalogue's steady growth, and still fits inside the two-hour
-    # cron above with ~20 minutes to spare, so a long run cannot stack into the
-    # next tick. It is not papering over a hang: every cancelled run inspected
+    # for the catalogue's steady growth, and fits inside the cron above with
+    # margin to spare — ~20 minutes at the two-hourly cadence this number was
+    # first set against, ~80 now that 2026-08-26 moved the cron to
+    # three-hourly (see that comment for why) — so a long run cannot stack
+    # into the next tick. It is not papering over a hang: every cancelled run
+    # inspected
     # here showed steady progress right up to the cutoff, never a step stuck
     # doing nothing.
     #
@@ -186,9 +200,11 @@ jobs:
     # freshly stored prices were on disk and were thrown away.
     #
     # This number is now bounded from both sides and should not be raised
-    # again. Above: the two-hourly cron. A run may not exceed 120 minutes
-    # without stacking into the next tick, and the ~20 minutes between 100 and
-    # 120 is the margin that keeps a slow run from doing so. Below: the sum of
+    # again. Above: the cron, three-hourly since 2026-08-26. A run may not
+    # exceed 180 minutes without stacking into the next tick, and the margin
+    # between 100 and that ceiling is what keeps a slow run from doing so —
+    # comfortable now, and it was already the intended margin (~20 minutes)
+    # back when the cron was two-hourly and 120 was the ceiling. Below: the sum of
     # the step caps that have to fit inside it — worst case ~19 minutes of
     # setup and periodic stages, 60 for the harvest, 15 for houses, ~3 for the
     # rebuild and push, which reaches "Commit harvested prices" at ~97 minutes
@@ -637,8 +653,11 @@ jobs:
       # (#172), so 60 clears every observed run — but only just, and #172 is
       # within a minute of it. If truncation starts showing up in the warning
       # below on ordinary runs, the answer is a smaller --max or --refresh-share
-      # here, or shops split across runs: it is not a higher cap, because the
-      # two-hourly cron is what bounds the job and there is nothing left to give.
+      # here, or shops split across runs: it is not a higher cap. The job's own
+      # 100-minute ceiling is still the real constraint on this budget, not the
+      # cron above it — three-hourly since 2026-08-26 leaves the job cap far
+      # more room than it needs, but the ceiling stays where run #180 set it
+      # (see its comment) rather than growing just because the cron did.
       #
       # ── This cap does not stop the harvest, and never did ────────────────────
       # Discovered on run #330 (job 97881335331). The step is recorded as
