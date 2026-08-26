@@ -3,6 +3,8 @@ import {
   parseDiscoveryState,
   selectDueTargets,
   recordChecked,
+  isConfirmationStale,
+  STALE_CONFIRMATION_DAYS,
   type ShippingDiscoveryState,
 } from '../src/catalogue/shippingDiscoveryQueue.js';
 
@@ -136,5 +138,36 @@ describe('recordChecked', () => {
     const state: ShippingDiscoveryState = { checked: { a: '2026-01-01T00:00:00Z' } };
     recordChecked(state, ['a'], ['a'], '2026-08-14T00:00:00Z');
     expect(state.checked.a).toBe('2026-01-01T00:00:00Z');
+  });
+});
+
+describe('isConfirmationStale', () => {
+  it('is not stale the day it was confirmed', () => {
+    expect(isConfirmationStale('2026-08-05', '2026-08-05')).toBe(false);
+  });
+
+  it('is not stale one day short of the threshold', () => {
+    expect(isConfirmationStale('2026-08-05', '2026-09-18', STALE_CONFIRMATION_DAYS)).toBe(false);
+  });
+
+  it('is stale exactly on the threshold, and every day past it', () => {
+    // mybeauty-boutique, oud-arabian and the-beauty-store-uk: the oldest
+    // confirmations in this registry as measured 2026-08-26, all
+    // verifiedAt '2026-08-05'. 45 days on from that is 2026-09-19.
+    expect(isConfirmationStale('2026-08-05', '2026-09-19', STALE_CONFIRMATION_DAYS)).toBe(true);
+    expect(isConfirmationStale('2026-08-05', '2026-12-25', STALE_CONFIRMATION_DAYS)).toBe(true);
+  });
+
+  it('honours a custom threshold rather than only the default', () => {
+    expect(isConfirmationStale('2026-08-05', '2026-08-10', 5)).toBe(true);
+    expect(isConfirmationStale('2026-08-05', '2026-08-09', 5)).toBe(false);
+  });
+
+  // A bookkeeping fact that cannot be read must never force a re-check by
+  // accident — the safe failure is to leave a confirmed rule trusted.
+  it('treats an unparseable date on either side as not stale', () => {
+    expect(isConfirmationStale('not-a-date', '2026-12-25')).toBe(false);
+    expect(isConfirmationStale('2026-08-05', 'not-a-date')).toBe(false);
+    expect(isConfirmationStale('', '')).toBe(false);
   });
 });
