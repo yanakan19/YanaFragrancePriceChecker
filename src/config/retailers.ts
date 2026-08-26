@@ -1108,6 +1108,62 @@ export const RETAILERS: readonly Retailer[] = [
     // The `priceCurrency: "GBP"` on all 60 is a real sterling reading, but it
     // is recorded here as evidence and not acted on — currency confirmation
     // is its own step with its own proof requirement, and is not done here.
+    //
+    // ── The free local renderer gets the same 403 the plain fetch always ────
+    // ── did — diagnosed 2026-08-26, not a parsing problem ───────────────────
+    // The 60-listing success just above came through the Apify actor, which
+    // exits on a residential IP. src/catalogue/localBrowser.ts has since
+    // replaced that tier with a free headless Chromium running on this
+    // project's own CI runner — a datacenter IP — and every real render
+    // attempt against this shop since (as opposed to a run that never reached
+    // the network at all; see below) has come back refused:
+    //
+    //   data/harvest-report.json, commit 7b47962, run finished
+    //   2026-08-26T03:41:54Z:
+    //     [actor] https://www.superdrug.com/fragrance/c/fragrance?page=1:
+    //         HTTP 403, 317 bytes
+    //     [actor] .../premium-fragrances/c/premium-brands?page=1:
+    //         HTTP 403, 341 bytes
+    //
+    //   data/harvest-report.json, commit b9a4c1a, run finished
+    //   2026-08-26T13:24:09Z — the same two URLs, the same day's later run:
+    //     HTTP 403, 317 bytes
+    //     HTTP 403, 341 bytes
+    //
+    // Not just the same shape twice — the identical byte count twice, ten
+    // hours apart, on two independently launched browsers. That is a static
+    // WAF block page keyed on the request's origin, not two different real
+    // responses that happen to both be small. It is also exactly the earlier
+    // free-route finding this entry already recorded ("Live spike 1 Aug 2026:
+    // HTTP 403 from a datacentre IP", "403 on every free strategy" per
+    // data/strategy-memory.json 2026-08-10) — the plain fetch, the Apify
+    // proxy probe and now the free local browser all agree, because all
+    // three exit this project's own address rather than a residential one.
+    // `renderRefusal.ts` already classifies both bodies as refusals ("the
+    // shop answered HTTP 403 — this address is refused, not empty"), so this
+    // was never read as an empty catalogue.
+    //
+    // Every other committed run (2026-08-25 and the rest of 2026-08-26) shows
+    // this shop's local-render attempt reported instead as
+    // `local render budget of 12 pages exhausted for this run` — HTTP 0, 0
+    // bytes, no network reached at all. That is the render tier's shared
+    // per-run page budget being spent by whichever shops sit earlier in that
+    // run's sweep, not this shop answering anything, and it does not change
+    // the verdict above: the two runs that did reach the network both got the
+    // identical 403.
+    //
+    // So the finding is precise, not "not gettable": extraction is proven
+    // (60 real, GBP-priced listings, job 96839386128 above) and retrieval
+    // works from a residential IP (the same job) but not from this project's
+    // own — a datacenter-IP refusal the free render tier cannot fix by
+    // rendering harder, only by exiting from a different address. `adapter:
+    // 'proxied'` stays as the honest statement of what this shop actually
+    // needs. What changes here is spending: `renderRefused: true` stops
+    // scripts/catalogue-harvest.ts offering this shop a page from the local
+    // tier's shared budget for a question two real attempts have already
+    // answered, freeing that page for a shop whose local-render outcome is
+    // still open. See knownRenderRefusal in src/catalogue/renderRefusal.ts.
+    renderRefused: true,
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {

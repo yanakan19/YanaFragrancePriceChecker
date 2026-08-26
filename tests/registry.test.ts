@@ -551,4 +551,28 @@ describe('retailer registry', () => {
       }
     });
   });
+
+  describe('renderRefused — shops the local render tier has already answered', () => {
+    // Every id here carries a dated, multi-run byte-count writeup in its own
+    // entry above — see knownRenderRefusal in src/catalogue/renderRefusal.ts
+    // for what setting this actually does.
+    const flagged = ['superdrug'];
+
+    it('is set on exactly the shops this pass established, no more and no fewer', () => {
+      const actuallyFlagged = RETAILERS.filter((r) => r.renderRefused === true).map((r) => r.id).sort();
+      expect(actuallyFlagged).toEqual([...flagged].sort());
+    });
+
+    it('never turns off the shop entirely — only the render escalation', () => {
+      // This flag says "do not spend a render-tier page here", not "give up
+      // on this shop". Every one of them stays enabled with its cheaper tiers
+      // (plain fetch, the Apify proxy) intact, and keeps the catalogue
+      // section URLs those tiers and the render tier both still read from.
+      for (const id of flagged) {
+        const r = getRetailer(id)!;
+        expect(r.enabled, id).toBe(true);
+        expect(r.catalogue, id).not.toBeNull();
+      }
+    });
+  });
 });
