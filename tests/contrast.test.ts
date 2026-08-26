@@ -119,6 +119,35 @@ describe('the rank badges clear AA for the digit on them', () => {
 });
 
 /**
+ * The lowest-price box under a fragrance, which is green rather than accent
+ * red from 26 Aug 2026 — the MSRP box beside it took the red. Its ground is
+ * --ok-sf and its two inks are --ok for the label and the price and --ink-2
+ * for the shop line and the too-close-to-call caveat.
+ *
+ * --ok-sf is --ok mixed 14% into that theme's --bg, which is the same wash
+ * the countdown chip and .tag.new carry translucently. 14% is not a free
+ * choice: it is the strongest mix at which --ok on it still clears AA in the
+ * light theme (20% measures 4.31:1). These four figures are quoted in that
+ * token's own comment in demo/template.html, and this is what stops the
+ * comment describing a colour the file no longer holds.
+ */
+describe('the lowest-price box is readable on its green ground', () => {
+  const cases: [string, RegExp, string, number][] = [
+    ['dark, the price itself', DARK, '--ok', 6.39],
+    ['dark, the shop line', DARK, '--ink-2', 9.29],
+    ['light, the price itself', LIGHT, '--ok', 4.74],
+    ['light, the shop line', LIGHT, '--ink-2', 7.03],
+  ];
+
+  it.each(cases)('%s: %s on --ok-sf', (_label, block, fg, documented) => {
+    const ratio = contrastBetween(tokenIn(block, fg), tokenIn(block, '--ok-sf'));
+    expect(ratio).not.toBeNull();
+    expect(ratio!).toBeGreaterThanOrEqual(AA_TEXT);
+    expect(Number(ratio!.toFixed(2))).toBe(documented);
+  });
+});
+
+/**
  * The same guard on the palette's own load-bearing pairs. These are not
  * quoted in a comment, so the assertion is the floor itself: text on a ground
  * has to clear AA in both themes, and a retint that breaks it should not be

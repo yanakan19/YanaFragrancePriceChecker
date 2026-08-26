@@ -1898,6 +1898,108 @@ function wishlistButton(fragranceId: string): string {
   </button>`;
 }
 
+/* ── the two boxes under the product ─────────────────────────────────────────
+   Left, in red: what the house that makes the bottle asks for it. Right, in
+   green: the least anyone here charges. The pair is the whole argument of a
+   price comparison site made in one glance, which is why it sits directly
+   under the product and above everything else on the page.
+
+   Red on the left is not "bad": red is this app's brand accent (see the note
+   at the top of demo/template.html) and it is already what the single box
+   carried before there were two. Green on the right is the palette's --ok,
+   which this stylesheet already uses for a saving (.off), a sale price
+   (.now.sale) and in-stock — so the colour on the number a reader is meant to
+   act on means the same thing it means everywhere else on the site. */
+
+/**
+ * The MSRP box, and the reason it is so often absent.
+ *
+ * `houseCeiling` is the only figure in this codebase entitled to be called a
+ * manufacturer's price: the highest amount the fragrance's own house publishes
+ * for this exact size on its own UK storefront. 874 of 14,836 products carry
+ * one (5.89%); 13,962 do not. Of the 874, 709 have something buyable to put
+ * beside the figure and 165 are sold out everywhere.
+ *
+ * Those 13,962 render no box at all, rather than a box reading "MSRP not
+ * established". Two reasons, and the second is the deciding one:
+ *
+ *   - A placeholder that appears on 94.11% of pages is not an exception, it is
+ *     the layout. It would take the most valuable position on the page to
+ *     state a fact about our coverage rather than about the fragrance.
+ *   - A red box saying "unknown" sitting beside the price reads as a warning
+ *     about the price. There is nothing wrong with the price; we simply have
+ *     no manufacturer figure to set beside it.
+ *
+ * What must never happen is the third option: filling the gap from a
+ * retailer's `wasPrice`. That is the shop's own claim about a reference price,
+ * and src/catalogue/wasPriceCredibility.ts exists because those claims are
+ * demonstrably inflated. `houseCeiling` or nothing.
+ */
+function houseCeilingBox(frag: DemoFragrance): string {
+  if (frag.houseCeiling === null) return '';
+  return `<div class="price-box price-box--msrp">
+      <p class="price-box-label t-eyebrow">MSRP</p>
+      <p class="price-box-amount t-price">${formatGbp(frag.houseCeiling)}</p>
+      <p class="price-box-from t-caption">the highest price ${esc(frag.brand)} itself lists for this size</p>
+    </div>`;
+}
+
+/**
+ * The lowest price box, in green, with the three labels it has always had.
+ *
+ * The wording is a correctness guarantee about what the number underneath is,
+ * not decoration, so all three states are kept exactly as they were:
+ *
+ *   "Cheapest price"     the delivery-confidence verdict is decided, so the
+ *                        page is entitled to the word — see
+ *                        src/services/deliveryConfidence.ts
+ *   "Lowest total price" it is not decided, so the number is the lowest of
+ *                        the delivered prices we can actually compute, which
+ *                        is a weaker claim than "cheapest"
+ *   "Lowest item price"  no shop stating its delivery cost has this one, so
+ *                        there is no delivered price to name at all, and the
+ *                        second line says in as many words that this is not
+ *                        one
+ */
+function lowestPriceBox(best: PresentedOffer, verdict: CheapestVerdict): string {
+  if (best.deliveredPriceGbp === null) {
+    return `<div class="price-box price-box--best">
+        <p class="price-box-label t-eyebrow">Lowest item price</p>
+        <p class="price-box-amount t-price t-price--hero">${formatGbp(best.itemPriceGbp)}</p>
+        <p class="price-box-from t-caption">from ${esc(best.retailer.name)} &mdash; delivery not stated, so this is not a delivered price</p>
+      </div>`;
+  }
+  const caveat = tooCloseToCallNote(verdict);
+  return `<div class="price-box price-box--best">
+      <p class="price-box-label t-eyebrow">${verdict.decided ? 'Cheapest price' : 'Lowest total price'}</p>
+      <p class="price-box-amount t-price t-price--hero">${formatGbp(best.deliveredPriceGbp)}</p>
+      <p class="price-box-from t-caption">from ${esc(best.retailer.name)}, incl. delivery</p>
+      ${
+        // Said here, next to the number it qualifies, rather than in a footnote
+        // nobody reads. It names the gap and names the shop whose delivery
+        // charge is the unconfirmed one, so the reader can check the one thing
+        // that would settle it.
+        caveat ? `<p class="price-box-caveat t-caption">${esc(caveat)}</p>` : ''
+      }
+    </div>`;
+}
+
+/**
+ * The row the two boxes sit in, or the one line that replaces both.
+ *
+ * With no buyable offer there is no price box and no MSRP box either. The
+ * house figure is real, but on a page whose entire message is "you cannot buy
+ * this anywhere here" it would be a lone claim in the loudest position on the
+ * page with nothing to be a reference for — the exact reading the pair exists
+ * to give it. One line, not two: the second line used to read "no shop has it
+ * in stock right now", which is the first line again in different words, and
+ * the shop count in the results head below says the same thing a third time.
+ */
+function priceBoxRow(frag: DemoFragrance, best: PresentedOffer | null, verdict: CheapestVerdict): string {
+  if (!best) return `<p class="hero-price none">Sold out everywhere</p>`;
+  return `<div class="price-boxes">${houseCeilingBox(frag)}${lowestPriceBox(best, verdict)}</div>`;
+}
+
 function detailView(): string {
   const frag = fragranceById(state.fragranceId);
   if (!frag) return homeView();
@@ -1934,39 +2036,7 @@ function detailView(): string {
         ${productHead(frag, 'div', 't-page')}
         ${fragranceLinksBlock(frag)}
         ${wishlistButton(frag.id)}
-        ${
-          best
-            ? best.deliveredPriceGbp !== null
-              ? `<div class="price-box">
-                 <p class="price-box-label t-eyebrow">${verdict.decided ? 'Cheapest price' : 'Lowest total price'}</p>
-                 <p class="price-box-amount t-price t-price--hero">${formatGbp(best.deliveredPriceGbp)}</p>
-                 <p class="price-box-from t-caption">from ${esc(best.retailer.name)}, incl. delivery</p>
-                 ${
-                   // Said here, next to the number it qualifies, rather than in
-                   // a footnote nobody reads. It names the gap and names the
-                   // shop whose delivery charge is the unconfirmed one, so the
-                   // reader can check the one thing that would settle it.
-                   tooCloseToCallNote(verdict)
-                     ? `<p class="price-box-caveat t-caption">${esc(tooCloseToCallNote(verdict)!)}</p>`
-                     : ''
-                 }
-               </div>`
-              : // No shop that states its delivery cost has this one, so there is
-                // no cheapest delivered price to name. The box says what it is
-                // actually showing — an item price with delivery unknown —
-                // rather than calling it the cheapest anything.
-                `<div class="price-box">
-                 <p class="price-box-label t-eyebrow">Lowest item price</p>
-                 <p class="price-box-amount t-price t-price--hero">${formatGbp(best.itemPriceGbp)}</p>
-                 <p class="price-box-from t-caption">from ${esc(best.retailer.name)} &mdash; delivery not stated, so this is not a delivered price</p>
-               </div>`
-            : // One line, not two. The second line used to read "no shop has it
-              // in stock right now", which is the first line again in different
-              // words — no fact the reader did not already have from "Sold out
-              // everywhere", and the shop count in the results head below says
-              // the same thing a third time. Nothing honest was lost with it.
-              `<p class="hero-price none">Sold out everywhere</p>`
-        }
+        ${priceBoxRow(frag, best, verdict)}
         ${notesBlock(frag)}
       </div>
 
@@ -4025,6 +4095,7 @@ const DS_COLOUR_GROUPS: { title: string; note: string; tokens: TokenRow[] }[] = 
     note: 'Only positive and cautionary states carry colour, for the reason above.',
     tokens: [
       { name: '--ok', role: 'In stock, a saving, new' },
+      { name: '--ok-sf', role: 'Its ground, for the lowest-price box under a fragrance' },
       { name: '--warn', role: 'Low stock, a countdown' },
     ],
   },
@@ -4069,6 +4140,8 @@ const DS_CONTRAST_PAIRS: { fg: string; bg: string; use: string }[] = [
   { fg: '--accent-ink', bg: '--bg', use: 'A link, or a price' },
   { fg: '--accent-on', bg: '--accent', use: 'Text on the primary button' },
   { fg: '--ok', bg: '--surface', use: 'In stock, on a card' },
+  { fg: '--ok', bg: '--ok-sf', use: 'The price in the lowest-price box' },
+  { fg: '--ink-2', bg: '--ok-sf', use: 'The shop line in the lowest-price box' },
   { fg: '--warn', bg: '--surface', use: 'Low stock, on a card' },
   { fg: '--gender-women', bg: '--surface-2', use: 'Venus mark, unselected pill' },
   { fg: '--gender-men', bg: '--surface-2', use: 'Mars mark, unselected pill' },
