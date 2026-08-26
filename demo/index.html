@@ -1724,11 +1724,33 @@
      is not a price anyone can act on. */
   .offer.unavail .shop, .offer.unavail .now, .offer.unavail .was { color: var(--faint); }
   .offer.unavail .now { font-weight: 600; }
-  /* A shop with no listing at all for this fragrance, not even a sold out
-     one. Deliberately quieter than .unavail above: that shop is at least
-     confirmed to carry the bottle, this one has never been seen selling it. */
-  .offer.unavail-elsewhere .shop, .offer.unavail-elsewhere .now { color: var(--faint); }
-  .offer.unavail-elsewhere .offer-link { cursor: default; padding-block: 10px; }
+  /* The shops with no listing at all for this fragrance, not even a sold out
+     one, as one wrapping line of names (unavailableShopsLine in demo/app.ts).
+     This replaced `.offer.unavail-elsewhere`, which gave each of those shops a
+     full offer row: 50-plus rows of name-and-a-dash, in the same furniture as
+     the real offers above, to say nothing at all about a price.
+
+     Deliberately quieter than .unavail above, which is the same distinction
+     the old rows made: a sold out shop is at least confirmed to carry the
+     bottle, one of these has never been seen selling it. line-height 1.7
+     because this paragraph is a list of link targets and not prose — the
+     extra leading is what keeps two wrapped lines of underlined names from
+     reading as one block. */
+  .unavail-shops {
+    margin: 0; color: var(--faint); line-height: 1.7;
+  }
+  /* Underlined rather than coloured: --faint on --accent would fail contrast,
+     and colouring these would make a shop that does not stock the bottle the
+     most eye-catching thing under the chart. The underline says "link", the
+     ink says "not the point of this page". */
+  .unavail-shop {
+    color: inherit; text-decoration: underline;
+    text-decoration-color: var(--line-firm); text-underline-offset: 2px;
+  }
+  .unavail-shop:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (hover: hover) and (pointer: fine) {
+    .unavail-shop:hover { color: var(--ink-2); text-decoration-color: currentColor; }
+  }
 
   .gone-head {
     margin: 32px 0 16px; padding-top: 16px; border-top: 1px solid var(--line);
@@ -3062,14 +3084,7 @@ ${k}`}var C=class extends Error{constructor({message:e,code:a,cause:i,name:r}){v
       </span>
       ${r&&pi(r)?`<span class="offer-bot"><span class="ends">Offer ${g(Bu(r.endsAt))}</span></span>`:""}
     </a>
-  </li>`}function Xu(t){return`<li class="offer unavail-elsewhere">
-    <span class="offer-link">
-      <span class="offer-top">
-        <span class="shop t-title">${g(t)}</span>
-        <span class="price"><span class="now none">&minus;</span></span>
-      </span>
-    </span>
-  </li>`}function sa(t){return new Date(t).toLocaleDateString("en-GB",{day:"numeric",month:"short"})}function ma(t){return t.slice(0,10)}function Qu(t,e,a,i){let r=new Map;for(let h of t){let d=ma(h.at),b=r.get(d);(!b||h.priceGbp<b.priceGbp)&&r.set(d,h)}let s=[...r.keys()].sort().at(-1)??null,l=new Date(`${e}T00:00:00Z`),n=new Date(`${a}T00:00:00Z`),o=Math.round((n.getTime()-l.getTime())/864e5)+1,u=h=>({dateKey:h,priceGbp:null,retailerId:null,recordedAt:null,isCarried:!1}),m=[],p=null;for(let h=0;h<o;h++){let d=new Date(l.getTime()+h*864e5),b=ma(d.toISOString()),w=r.get(b);if(w){p={priceGbp:w.priceGbp,retailerId:w.retailerId,recordedAt:w.at},m.push({dateKey:b,priceGbp:w.priceGbp,retailerId:w.retailerId,recordedAt:w.at,isCarried:!1});continue}let y=s!==null&&b>s;p&&!(y&&!i)?m.push({dateKey:b,priceGbp:p.priceGbp,retailerId:p.retailerId,recordedAt:p.recordedAt,isCarried:!0}):m.push(u(b))}return m}var Tr=(()=>{let t=null,e=null;for(let a of Object.values(qi))for(let i of a){let r=ma(i.at);(t===null||r<t)&&(t=r),(e===null||r>e)&&(e=r)}return t!==null&&e!==null?{first:t,last:e}:null})(),$u=[{id:"week",label:"This week",days:7},{id:"month",label:"This month",days:30},{id:"year",label:"This year",days:365}];function ec(t,e){return ma(new Date(new Date(`${t}T00:00:00Z`).getTime()+e*864e5).toISOString())}function tc(t,e){let a=ms(t.id);if(a.length<2||Tr===null)return"";let i=a.map(m=>ma(m.at)).sort()[0]??Tr.first,r=Tr.last,s=$u.map(m=>{let p=ec(r,-(m.days-1)),h=p>i?p:i,d=Qu(a,h,r,e);return{scope:m,points:d,body:ac(d,e)}}),l=s.filter(m=>m.body!==null);if(l.length===0)return"";let n=l[0],o=s.map(m=>{let p=m.scope.id===n.scope.id,h=m.body===null;return`<button
+  </li>`}function Xu(t){return`<p class="unavail-shops t-caption">${t.map(a=>`<a class="unavail-shop" href="${g(a.homepage)}" target="_blank" rel="noopener nofollow">${g(a.name)}</a>`).join(", ")}</p>`}function sa(t){return new Date(t).toLocaleDateString("en-GB",{day:"numeric",month:"short"})}function ma(t){return t.slice(0,10)}function Qu(t,e,a,i){let r=new Map;for(let h of t){let d=ma(h.at),b=r.get(d);(!b||h.priceGbp<b.priceGbp)&&r.set(d,h)}let s=[...r.keys()].sort().at(-1)??null,l=new Date(`${e}T00:00:00Z`),n=new Date(`${a}T00:00:00Z`),o=Math.round((n.getTime()-l.getTime())/864e5)+1,u=h=>({dateKey:h,priceGbp:null,retailerId:null,recordedAt:null,isCarried:!1}),m=[],p=null;for(let h=0;h<o;h++){let d=new Date(l.getTime()+h*864e5),b=ma(d.toISOString()),w=r.get(b);if(w){p={priceGbp:w.priceGbp,retailerId:w.retailerId,recordedAt:w.at},m.push({dateKey:b,priceGbp:w.priceGbp,retailerId:w.retailerId,recordedAt:w.at,isCarried:!1});continue}let y=s!==null&&b>s;p&&!(y&&!i)?m.push({dateKey:b,priceGbp:p.priceGbp,retailerId:p.retailerId,recordedAt:p.recordedAt,isCarried:!0}):m.push(u(b))}return m}var Tr=(()=>{let t=null,e=null;for(let a of Object.values(qi))for(let i of a){let r=ma(i.at);(t===null||r<t)&&(t=r),(e===null||r>e)&&(e=r)}return t!==null&&e!==null?{first:t,last:e}:null})(),$u=[{id:"week",label:"This week",days:7},{id:"month",label:"This month",days:30},{id:"year",label:"This year",days:365}];function ec(t,e){return ma(new Date(new Date(`${t}T00:00:00Z`).getTime()+e*864e5).toISOString())}function tc(t,e){let a=ms(t.id);if(a.length<2||Tr===null)return"";let i=a.map(m=>ma(m.at)).sort()[0]??Tr.first,r=Tr.last,s=$u.map(m=>{let p=ec(r,-(m.days-1)),h=p>i?p:i,d=Qu(a,h,r,e);return{scope:m,points:d,body:ac(d,e)}}),l=s.filter(m=>m.body!==null);if(l.length===0)return"";let n=l[0],o=s.map(m=>{let p=m.scope.id===n.scope.id,h=m.body===null;return`<button
         type="button"
         class="history-scope${p?" is-on":""}"
         data-history-scope="${m.scope.id}"
@@ -3176,7 +3191,7 @@ ${k}`}var C=class extends Error{constructor({message:e,code:a,cause:i,name:r}){v
         ${tc(t,a!==null)}
 
         ${m.length?`<p class="gone-head t-eyebrow">Not available</p>
-               <ul class="offers">${m.map(p=>Xu(p.name)).join("")}</ul>`:""}
+               ${Xu(m)}`:""}
       </div>
     </div>`}function cc(){let e=[...To.filter(s=>c.brandFilter==="all"||Yr(s)===c.brandFilter)].sort((s,l)=>c.brandSort==="az"?s.localeCompare(l):l.localeCompare(s)),a=`<div class="controls">
     ${qe("brand-sort","Sort brands",fa,[{value:"az",label:"A To Z"},{value:"za",label:"Z To A"}],c.brandSort)}
