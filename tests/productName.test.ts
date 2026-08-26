@@ -201,6 +201,102 @@ describe('displayName: what it deliberately leaves in the name', () => {
   });
 });
 
+/**
+ * A separator that only ever joined two things this file already stripped —
+ * two ml sizes, a concentration and a size, a size and its own fl oz/oz
+ * restatement — left standing once both of its sides are gone. See
+ * stripOrphanedSeparators' own comment in src/catalogue/productName.ts for
+ * the measurement (53 distinct names, 71 products) and the reasoning; every
+ * title below is real, pulled from data/catalogue or data/houses rather than
+ * invented.
+ */
+describe('displayName: an orphaned separator left once both sides of it are stripped', () => {
+  // Al Haramain's own multi-size menu: "3ml + 6ml + 12ml 3ml" loses every ml
+  // number to the blanket strip, leaving the two pluses that used to sit
+  // between them joining nothing.
+  it('drops a doubled "+" left by a stripped size menu', () => {
+    expect(displayName('Al Haramain Another Perfume Oil 3ml + 6ml + 12ml 3ml', 'Al Haramain', 'Al Haramain')).toBe(
+      'Another',
+    );
+  });
+
+  // Same shop, same cause, a comma instead of a plus — the shop's own title
+  // already reads "Musk, , Concentrated" because the size that used to sit
+  // between the two commas was never printed there to begin with.
+  it('drops a doubled "," left the same way', () => {
+    expect(
+      displayName(
+        'Al Haramain Solitaire Musk, , Concentrated Unisex Perfume Oil 12ml',
+        'Al Haramain',
+        'Al Haramain',
+      ),
+    ).toBe('Solitaire Musk, Concentrated Unisex');
+  });
+
+  // A gift-with-purchase bridge whose both sides were a plain ml size: once
+  // "100ml" and "15ml"/"10ml" are both gone, the "+" that joined them has
+  // nothing left on its right at all.
+  it('drops a trailing "+" left by a stripped gift-with-purchase size', () => {
+    expect(displayName('Bvlgari Man in Black 100ml Eau de Parfum + 15ml', 'Bvlgari', 'Bvlgari')).toBe(
+      'Man in Black',
+    );
+    expect(
+      displayName('Dolce & Gabbana Devotion 100ml Eau de Parfum + 10ml', 'Dolce & Gabbana', 'Dolce & Gabbana'),
+    ).toBe('Devotion');
+  });
+
+  // Emirates Oud restates the size a second time after a colon; once both
+  // "100ml"s are gone the colon has nothing left on its right either. Real
+  // across a dozen different house lines, not an Al Haramain-only shape.
+  it('drops a trailing colon left by a stripped restated size', () => {
+    expect(
+      displayName('Raed Absolu Perfume 100ml EDP Lattafa Unboxed: 100ml', 'Lattafa', 'Lattafa'),
+    ).toBe('Raed Absolu Perfume Lattafa Unboxed');
+  });
+
+  // A duplicated unit conversion where only the ml half is ever read by the
+  // blanket ml strip: the oz half and the slash that used to join it to the
+  // ml half survive with nothing left to join.
+  it('drops a trailing "/" left by a stripped duplicate-unit size', () => {
+    expect(displayName('Clinique Happy Heart Perfume Spray 1.7oz/50ml', 'Clinique', 'Clinique')).toBe(
+      'Happy Heart 1.7oz',
+    );
+  });
+
+  // The orphan sits in the middle, not at either edge, because real content
+  // ("Case") still follows it — the chain check, not the boundary trim, is
+  // what has to catch this one.
+  it('drops a "-" stranded next to a surviving "+" in the middle of the name', () => {
+    expect(
+      displayName(
+        'Kilian Good Girl Gone Bad For Women - 50ml Eau de Parfum Refillable Spray + Case',
+        'Kilian',
+        'Kilian',
+      ),
+    ).toBe('Good Girl Gone Bad For Women + Case');
+  });
+
+  // A "+" glued straight onto the next letter is the fragrance's own name,
+  // never a stripped connector — Blood Concept markets a whole line this way.
+  it('never touches a "+" that is part of the fragrance\'s own name', () => {
+    expect(displayName('Blood Concept +MA Eau de Parfum 30ml Spray', 'Blood Concept', 'Blood Concept')).toBe(
+      '+MA',
+    );
+    expect(displayName('Blood Concept Red+MA Parfum Oil 40ml Dropper', 'Blood Concept', 'Blood Concept')).toBe(
+      'Red+MA Oil Dropper',
+    );
+  });
+
+  // A slash or comma with real content surviving past it is doing real work
+  // and is never touched.
+  it('never touches a "/" or "," that still has real content on both sides', () => {
+    expect(displayName('DKNY 24/7 Eau De Parfum 30ml Spray', 'DKNY', 'DKNY')).toBe('24/7');
+    expect(displayName('Ariana Grande Thank U, Next Eau de Parfum 50ml Spray', 'Ariana Grande', 'Ariana Grande')).toBe(
+      'Thank U, Next',
+    );
+  });
+});
+
 describe('brandTitleEnds: which spelling of the brand the title actually closes with', () => {
   it.each([
     ['Shaghaf Oud Perfume 75ml Swiss Arabian', 'Swiss Arabian', 'Swiss Arabian', 'Swiss Arabian'],
@@ -653,6 +749,17 @@ describe('stripRedundantSize: a house product name does not repeat its own sizeM
       'Absinth Extrait de Parfum',
     );
     expect(stripRedundantSize('Absinth 4 ml / 0.135 fl.oz Perfume Oil', 4)).toBe('Absinth Perfume Oil');
+  });
+
+  // Assaf's own titles restate a size a second time as a bare percent —
+  // "30% Elixir / 200 ML" — and once the "200 ML" half of that comes off, the
+  // slash that joined it to the percent has nothing left on its right. Real,
+  // from data/houses/assaf.json; see stripOrphanedSeparators for the fuller
+  // measurement across both this function and displayName's own blanket strip.
+  it('drops a trailing "/" left by a stripped duplicate-unit size', () => {
+    expect(stripRedundantSize('FRANKEL AVENTUS BLACK ELIXIR 30% Elixir / 200 ML', 200)).toBe(
+      'FRANKEL AVENTUS BLACK ELIXIR 30% Elixir',
+    );
   });
 
   // A year is not a size, and nothing here should ever touch one — but this

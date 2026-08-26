@@ -708,6 +708,124 @@ function stripGenuineConcentration(s: string, phrase: string): string {
 }
 
 /**
+ * A separator character with nothing real left on the side that used to hold
+ * the thing it was joining — because that thing was a size or a noise word
+ * this same function already deleted a few lines above, or in
+ * stripRedundantSize's own, narrower version of the identical operation.
+ *
+ * "Al Haramain Another Perfume Oil 3ml + 6ml + 12ml 3ml" is the shape this
+ * exists for: "Perfume Oil" is the stated concentration and comes off above,
+ * every "3ml"/"6ml"/"12ml" comes off by the unconditional ml strip that
+ * follows it, and what is left is "Another  +  + " — the two pluses that used
+ * to join a menu of sizes, now joining nothing. Trimmed only at the very
+ * edges, the existing boundary strip a few lines up leaves "Another + +"
+ * exactly as broken as the title it came from, because "+" was never in that
+ * strip's character class and neither plus sits at the outermost edge until
+ * the other one is gone too.
+ *
+ * Measured against the live CATALOGUE (`npx tsx scripts/orphaned-separator-report.ts`,
+ * written to make this fix and re-run after it): 53 distinct product names,
+ * 71 products once every size variant of each is counted, four genuinely
+ * different shapes:
+ *
+ *   - Al Haramain's own multi-size menu, exactly as above: 8 names, 26
+ *     products, "Another + +" / "Collection + +" / "Jd + +" / "Mukhallath
+ *     Burj + +" / "Oudh Abyat + +" / "Palm Beach + +" / "Sultan + +" (all
+ *     trailing double "+"), plus one with the same cause but a comma instead
+ *     — "Solitaire Musk, , Concentrated Unisex" — where the shop's own title
+ *     already read "Musk, , Concentrated" with the size that used to sit
+ *     between the two commas long gone before this file ever sees it.
+ *
+ *   - A gift-with-purchase bridge whose *both* sides were a plain ml size:
+ *     "Bvlgari Man in Black 100ml Eau de Parfum + 15ml" and "Dolce & Gabbana
+ *     Devotion 100ml Eau de Parfum + 10ml" each lose every "100ml"/"15ml"/
+ *     "10ml" to the same unconditional strip, leaving "Man in Black +" and
+ *     "Devotion +" — a trailing "+" with nothing on its right at all, never
+ *     doubled, so the boundary strip's blind spot is simpler here but no less
+ *     real.
+ *
+ *   - Emirates Oud's own titles restate the size a second time after a
+ *     colon: "Raed Absolu Perfume 100ml EDP Lattafa Unboxed: 100ml" strips to
+ *     "Raed Absolu Perfume Lattafa Unboxed:" once both "100ml"s are gone —
+ *     37 names, one per product, spanning house lines as different as Al
+ *     Rehab, Ard Al Zaafaran, Armaf, Fragrance World, Khadlaj, Lattafa,
+ *     Maison Alhambra, Nusuk, Paris Corner, Rasasi and Surrati. Not the
+ *     Al-Haramain-only bug the count this file was handed with described —
+ *     it is one retailer's own recurring feed shape, and it outnumbers the
+ *     Al Haramain case.
+ *
+ *   - A duplicated unit conversion where only one unit is ever read: "Clinique
+ *     Happy Heart Perfume Spray 1.7oz/50ml" strips its "50ml" and leaves
+ *     "Happy Heart 1.7oz/" (2 names), and "Escada Magnetism by Escada for
+ *     Women Eau De Parfum Spray 2.5 Oz / 75 Ml" leaves "Magnetism by Escada
+ *     for Women 2.5 Oz /" the same way (1 name) — both a bare trailing slash
+ *     with the ml half of the same measurement gone from the far side of it.
+ *
+ * One more shape reaches the identical wreckage through stripRedundantSize's
+ * own, separately-written strip rather than through this function at all:
+ * Assaf's own "FRANKEL AVENTUS BLACK ELIXIR 30% Elixir / 200 ML" and "FRANKEL
+ * BLUE ELIXIR 30% Elixir / 200 ML" (2 names) lose their one size mention and
+ * leave "... Elixir /" — the same duplicated-unit slash as Happy Heart above,
+ * just reached from the house-catalogue path instead of the retailer one.
+ * stripRedundantSize calls this same function for exactly that reason: two
+ * independently hand-written trims of the same wreckage would be a second
+ * copy to keep in step with this one, the exact failure this fix's own
+ * measurement above (the CONCENTRATION patterns' shared regexes, `fold`,
+ * `wordSet`) keeps naming as the thing to avoid.
+ *
+ * There is a fifth, related orphan this function deliberately leaves alone:
+ * "Kilian Good Girl Gone Bad For Women - 50ml Eau de Parfum Refillable Spray
+ * + Case" loses its "50ml", "Eau de Parfum" and "Refillable Spray" and is
+ * left as "Good Girl Gone Bad For Women - + Case" — a dash and a plus
+ * standing side by side in the *middle* of the name, not at either edge,
+ * because real content ("Case") still follows. A boundary trim can never
+ * reach this one; it needs the chain check below instead, and is folded into
+ * the same 53/71 count above.
+ *
+ * ── What this must never touch ──────────────────────────────────────────
+ * A separator glued to a letter or digit on the side facing away from the
+ * string's edge is never orphaned — it is either part of the name itself
+ * ("+MA", Blood Concept's own eponymous line, glued straight onto the next
+ * letter with no space) or a rating mark that only looks like a chain
+ * ("SPF50+ PA++++": every "+" but the very first sits directly against
+ * another "+", not against whitespace, so none of them reads as the
+ * "connector with a real gap on both sides" this function requires). "24/7",
+ * "17/17" and Turnbull & Asser's "71/72" are a fragrance's or a house's own
+ * name, digits glued directly to the slash on both sides, never a joined-then-
+ * emptied size. And a slash or comma with real content surviving past it —
+ * "La Petite Robe Noire / 3.3 fl.oz.", "Thank U, Next" — is doing real work
+ * and is never touched, because only the trailing and chained shapes above
+ * ever reach this function's replacements at all. Every one of these is
+ * pinned in tests/productName.test.ts alongside the real malformed titles.
+ */
+const STANDALONE_CONNECTOR_CHAIN_RE = /\s[+&-](\s+)(?=[+&,-](?:\s|$))/;
+const COMMA_CHAIN_RE = /,(\s+)(?=[+&,-](?:\s|$))/;
+const TRAILING_CONNECTOR_CHAIN_RE = /(?:\s+[+&,-])+\s*$/;
+const TRAILING_GLUED_SEPARATOR_RE = /[:/]+\s*$/;
+const LEADING_STANDALONE_PLUS_RE = /^\+(?=\s|$)/;
+
+function stripOrphanedSeparators(s: string): string {
+  // A run of two or more connectors separated only by whitespace can never
+  // all be doing real joining work — whichever one sits closest to the real
+  // content on its far side is the one still meaning anything, so every
+  // earlier one in the chain is dropped and the loop repeats until nothing
+  // more folds. "+" and "&" and "-" keep the whitespace they were sitting in
+  // (there was always a real gap around them when they were doing real work,
+  // "Aventus + Case"); a comma keeps none, because a comma is never preceded
+  // by a space when it is doing real work either ("Musk, Concentrated").
+  let prev: string;
+  do {
+    prev = s;
+    s = s.replace(STANDALONE_CONNECTOR_CHAIN_RE, '$1').replace(COMMA_CHAIN_RE, '');
+  } while (s !== prev);
+  return s
+    .replace(TRAILING_CONNECTOR_CHAIN_RE, '')
+    .replace(TRAILING_GLUED_SEPARATOR_RE, '')
+    .replace(LEADING_STANDALONE_PLUS_RE, '')
+    .trim();
+}
+
+/**
  * Strip the shop's noise off a title to get something readable.
  *
  * Deliberately conservative. Where this cannot do better it leaves the shop's
@@ -908,6 +1026,13 @@ export function displayName(title: string, brand: string | null, displayedBrand:
   // untouched, because something follows.
   s = s.replace(/\s+(?:by|for|from|pour)\s*$/i, '').replace(/[\s,\-&|]+$/g, '');
 
+  // Run once, on the way out, after every strip above has had its chance to
+  // hollow out whatever a separator was joining — see stripOrphanedSeparators
+  // for the measured shapes (53 names, 71 products) this catches that the
+  // plain boundary trim just above never could, because a doubled or
+  // mid-string "+ +" / "- +" is not a boundary problem at all.
+  s = stripOrphanedSeparators(s);
+
   return s || displayedBrand || brand || title;
 }
 
@@ -997,6 +1122,16 @@ function sizeTokenValueMl(token: string): number {
  * A name that is only ever a size — "100ml" and nothing else — is also left
  * alone rather than emptied. None exist in the catalogue today, but an empty
  * product name is not something the app can render if one ever does.
+ *
+ * The one size mention this strips is sometimes the second half of a
+ * duplicated unit conversion — Assaf's own "FRANKEL AVENTUS BLACK ELIXIR 30%
+ * Elixir / 200 ML" states the identical volume twice, once as a bare percent
+ * and once in ml, joined by a slash that has nothing left to join once the ml
+ * half is gone: "... Elixir /". stripOrphanedSeparators is the same fix
+ * displayName's own blanket ml-strip needs for the identical wreckage
+ * (Clinique's "Happy Heart 1.7oz/50ml"), called here rather than
+ * reimplemented for the reason its own comment gives — two hand-written
+ * copies of one trim drift the moment either changes.
  */
 export function stripRedundantSize(name: string, sizeMl: number | null): string {
   if (sizeMl == null) return name;
@@ -1004,12 +1139,14 @@ export function stripRedundantSize(name: string, sizeMl: number | null): string 
   if (tokens.length !== 1) return name;
   const token = tokens[0]!;
   if (sizeTokenValueMl(token[0]) !== sizeMl) return name;
-  const stripped = (name.slice(0, token.index) + name.slice(token.index! + token[0].length))
-    .replace(/\(\s*\)/g, ' ')
-    .replace(/\[\s*\]/g, ' ')
-    .replace(/\s{2,}/g, ' ')
-    .replace(/^[\s,\-&|]+|[\s,\-|]+$/g, '')
-    .trim();
+  const stripped = stripOrphanedSeparators(
+    (name.slice(0, token.index) + name.slice(token.index! + token[0].length))
+      .replace(/\(\s*\)/g, ' ')
+      .replace(/\[\s*\]/g, ' ')
+      .replace(/\s{2,}/g, ' ')
+      .replace(/^[\s,\-&|]+|[\s,\-|]+$/g, '')
+      .trim(),
+  );
   return stripped || name;
 }
 
