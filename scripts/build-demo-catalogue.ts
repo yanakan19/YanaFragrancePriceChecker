@@ -21,7 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { isNewListing } from '../src/catalogue/newBadge.js';
 import type { StoredListing } from '../src/catalogue/types.js';
-import { RETAILERS } from '../src/config/retailers.js';
+import { RETAILERS, cannotCarryBrand } from '../src/config/retailers.js';
 import type { Retailer } from '../src/types/retailer.js';
 import { HOUSES } from '../src/config/houses.js';
 import { buildBrandCanon, armafLineName } from '../src/catalogue/brandName.js';
@@ -131,6 +131,20 @@ interface Offer {
    * like `description` is, so it costs nothing in the shipped bundle.
    */
   sizeMl: number | null;
+  /**
+   * True when this offer is the product's own fragrance house selling it —
+   * armaf.uk on an Armaf bottle. Test zero in wasPriceCredibility.ts is the
+   * only reader; dropped before anything is written, like `sizeMl`.
+   *
+   * Filled in by a pass of its own further down rather than set here, because
+   * the question is about *the product's* brand and this offer may not be the
+   * one that named it: an offer joining an existing product, or a whole
+   * product absorbed by findDuplicateGroups below, would otherwise be judged
+   * against a brand string that is about to be replaced. False until then, so
+   * the failure mode of getting the pass wrong is a missing anchor rather than
+   * a wrong one.
+   */
+  brandDirect: boolean;
 }
 
 interface Product {
@@ -537,6 +551,7 @@ for (const { retailer, listings } of eligible) {
       description: l.description ?? null,
       rating: l.rating ?? null,
       sizeMl: size,
+      brandDirect: false,
     };
 
     if (existing) {
@@ -638,6 +653,78 @@ if (scaleAudit.offScale.length > 0) {
   for (const [id, product] of products) if (product.offers.length === 0) products.delete(id);
 }
 
+/* ── which offers are the fragrance house's own ─────────────────────────────
+   The strongest evidence about a bottle's RRP is what the company that makes
+   it charges for it, and fourteen houses already run a UK storefront that sits
+   in the ordinary registry flagged `singleBrandOnly` and is harvested into
+   data/catalogue in sterling like any other shop. So "go and get the brand's
+   price" is this loop: a join over data already on disk, not a fetch. See test
+   zero in src/catalogue/wasPriceCredibility.ts for what it is then used for,
+   and for why data/houses — the other brand-direct source — still cannot
+   supply this (71% of it is priced in AED, USD, EUR or IDR).
+
+   Runs here, after every same-bottle merge above has settled and before the
+   audit below, because the question is asked of the product's *final* brand:
+   an offer that joined an existing product, or one absorbed by
+   findDuplicateGroups, would otherwise be matched against a brand string that
+   is about to be replaced. See Offer.brandDirect.
+
+   `cannotCarryBrand` rather than a bare `singleBrandOnly` test, and that is
+   load-bearing rather than tidiness: a house's own shop also resells other
+   houses. armaf.uk's live catalogue carries 76 "Armaf - Club De Nuit" and 50
+   "Armaf - Odyssey Series" listings, but also 42 Jenny Glow, 8 Just Jacks and
+   7 Hamidi. Armaf's price for a Jenny Glow bottle is one shop's opinion like
+   any other, and reading it as the manufacturer's word would hand a single
+   shop the power to refute the whole market on a brand it does not make. */
+let brandDirectOffers = 0;
+const brandDirectShops = new Map<string, number>();
+for (const product of products.values()) {
+  for (const offer of product.offers) {
+    const retailer = RETAILERS.find((r) => r.id === offer.retailerId);
+    if (!retailer?.singleBrandOnly) continue;
+    if (cannotCarryBrand(retailer, product.brand)) continue;
+    offer.brandDirect = true;
+    brandDirectOffers++;
+    brandDirectShops.set(offer.retailerId, (brandDirectShops.get(offer.retailerId) ?? 0) + 1);
+  }
+}
+
+/* ── the house ceiling, kept where it can still be checked ──────────────────
+   Test zero's ceiling is not recoverable from what this script ships. The
+   house's own reference price is part of it, the withholding rule below clears
+   every uncorroborated `wasPrice` including the house's own, and `brandDirect`
+   and `sizeMl` are both dropped before writing — so the shipped catalogue can
+   only ever reconstruct a ceiling *lower* than the real one, and a test built
+   on that reconstruction reports products as violations that are nothing of
+   the kind. Five did, all Armaf, all for that reason: on Connoisseur Man,
+   Perfume Click's RRP £39.99 is exactly the figure armaf.uk itself struck
+   through, and the reconstruction saw only armaf.uk's £34.99 sale price.
+
+   So it is recorded on the product, as `houseCeiling` below, and
+   tests/dealsBrandDirect.test.ts joins Today's Deals against it. That join is
+   worth having rather than the build marking its own homework: the deals
+   snapshot is produced two steps later by a different script out of `wasPrice`
+   alone, so it catches the withholding below or build-deals.ts drifting from
+   this check — which is the failure that put "65% off RRP" on the Armaf page.
+
+   Written onto the product record rather than into a data/ report because the
+   two must move together or the join is meaningless, and the product record is
+   already committed and regenerated in lockstep with the offers it describes
+   by every path in .github/workflows/catalogue-daily.yml. A separate report
+   file would need adding to three commit lists and to commit-and-push.sh's
+   conflict rules, and would silently go stale the first time one of them was
+   missed. It is 851 numbers, one per product whose house is stocked here. */
+const houseCeilings = new Map<string, number>();
+for (const product of products.values()) {
+  let ceiling = 0;
+  for (const offer of product.offers) {
+    if (!offer.brandDirect || offer.sizeMl !== product.sizeMl) continue;
+    if (offer.price > 0) ceiling = Math.max(ceiling, offer.price);
+    if (offer.wasPrice !== null && offer.wasPrice > 0) ceiling = Math.max(ceiling, offer.wasPrice);
+  }
+  if (ceiling > 0) houseCeilings.set(product.id, ceiling);
+}
+
 /* ── what a strikethrough is allowed to mean ─────────────────────────────────
    The owner's original report was that Perfume Click's RRPs are misleading.
    Measuring it said the instinct was right and the suspect was wrong: shops
@@ -658,9 +745,15 @@ if (scaleAudit.offScale.length > 0) {
    verdicts now have the same consequence, `wasPrice` withheld, for two
    different reasons:
 
-     - `refuted`   (142 of 12,192 claims, 1.2%) — the market actively
-       contradicts the figure. Unsafe to publish full stop.
-     - `unchecked` (8,936 of 12,192 claims, 73.3%) — fewer than two other
+     - `refuted`   (307 of 12,195 claims, 2.5%) — the evidence actively
+       contradicts the figure. Unsafe to publish full stop. 163 of those 307
+       are test zero's: the shop states a reference price above what the
+       fragrance house itself charges for the identical bottle, and 136 of
+       them had passed both market tests because enough other shops repeated
+       the same inflated number. Cross-retailer agreement cannot tell a
+       manufacturer's RRP from a figure retailers copied off one another; the
+       manufacturer can.
+     - `unchecked` (8,879 of 12,195 claims, 72.8%) — fewer than two other
        shops stock the identical bottle, so the figure has never been tested
        against anything. "Nothing disproved it" is not the same claim as
        "the market confirms it", and a comparison site has no business
@@ -673,12 +766,12 @@ if (scaleAudit.offScale.length > 0) {
 
        How many is "enough" is worth stating plainly, because it is the real
        cost of this rule. MIN_REFERENCE_SHOPS is 2 and counts *other* shops,
-       so a claim needs three shops on the identical bottle before either test
-       can run — the claiming shop plus two references — and all three must
-       agree on size. Measured against this catalogue: of 14,764 products,
-       10,137 are stocked by exactly one shop and 3,001 by two, so 13,138 of
-       them (89.0%) cannot reach a verdict other than `unchecked` no matter
-       what their RRP says. Only 1,626 products (11.0%) carry three or more
+       so a claim needs three shops on the identical bottle before either
+       market test can run — the claiming shop plus two references — and all
+       three must agree on size. Measured against this catalogue: of 14,784
+       products, 10,156 are stocked by exactly one shop and 3,019 by two, so
+       13,175 of them (89.1%) are out of reach of the market tests no matter
+       what their RRP says. Only 1,609 products (10.9%) carry three or more
        offers at all. A strikethrough is therefore a thing the mainstream of
        the catalogue can show and the long tail structurally cannot, which is
        a deliberate trade — silence on a figure nothing can test, rather than
@@ -686,17 +779,23 @@ if (scaleAudit.offScale.length > 0) {
        closes on its own as the crawl widens, and it should not be described
        as if it were.
 
-   One caveat on the verdict's name, since it is now the load-bearing one:
-   `corroborated` means a test was able to run and did not refute the claim,
-   not that another shop confirmed the figure. Both tests in
-   wasPriceCredibility.ts are refutation tests — "the saving exceeds the whole
-   bottle", "the claim towers over the highest RRP anyone else states" — so
-   passing them is a sanity check the claim survived, not positive evidence
-   for it. That is still strictly stronger than the untested majority, which
-   is what this rule turns on, but it should not be read as the market having
-   vouched for the number.
+       Test zero is the one route into that 89.1%, and a narrow one: it needs
+       the product's own house to run a UK storefront we harvest, which 851 of
+       the 14,784 products have. 49 claims reach a verdict through it that no
+       market test could have reached — 27 refuted, 22 corroborated.
 
-   Only `corroborated` (3,114 of 12,192, 25.5%) survives to reach `wasPrice`
+   One caveat on the verdict's name, since it is the load-bearing one:
+   `corroborated` means a test was able to run and did not refute the claim,
+   not that anyone confirmed the figure. All three tests in
+   wasPriceCredibility.ts are refutation tests — "the saving exceeds the whole
+   bottle", "the claim towers over the highest RRP anyone else states", "the
+   claim exceeds what the manufacturer charges" — so passing them is a sanity
+   check the claim survived, not positive evidence for it. Test zero's version
+   of that is the strongest of the three, because surviving it means the
+   figure is one the company making the bottle does not contradict, but it is
+   still survival rather than endorsement.
+
+   Only `corroborated` (3,009 of 12,195, 24.7%) survives to reach `wasPrice`
    below, which is what feeds the strikethrough, the "X% off" badge and
    Today's Deals — none of those three needing to know this check exists, the
    same property the refuted-only version of this rule already had. The price
@@ -811,10 +910,15 @@ const ordered = [...products.values()].sort(
 // handful of note names actually displayed. `sizeMl` goes the same way and for
 // the same reason: it exists so the reference-price check can size-gate its
 // comparisons, the product record already carries the size once, and a second
-// copy on all 21,796 offers would be paid for on every page load.
-const crawled: Record<string, Omit<Offer, 'description' | 'sizeMl'>[]> = {};
+// copy on all 21,796 offers would be paid for on every page load. `brandDirect`
+// is dropped for the same reason and one more: it is a fact about the registry
+// (`singleBrandOnly`) that the app can already recompute from RETAILERS at any
+// time, so shipping it would be shipping a derived boolean per offer.
+const crawled: Record<string, Omit<Offer, 'description' | 'sizeMl' | 'brandDirect'>[]> = {};
 for (const p of ordered) {
-  crawled[p.id] = p.offers.map(({ description: _drop, sizeMl: _size, ...rest }) => rest);
+  crawled[p.id] = p.offers.map(
+    ({ description: _drop, sizeMl: _size, brandDirect: _house, ...rest }) => rest,
+  );
 }
 
 const crawledAt =
@@ -831,6 +935,10 @@ const catalogue = ordered.map((p) => ({
   shops: p.offers.length,
   image: pickImage(p.offers),
   notes: pickNotes(p.offers),
+  // Omitted entirely rather than written as null where the house is not
+  // stocked here — JSON.stringify drops an undefined value, so 13,933 of the
+  // 14,784 products cost nothing for a field that has nothing to say.
+  houseCeiling: houseCeilings.get(p.id),
 }));
 
 /**
@@ -913,6 +1021,21 @@ export interface CatalogueEntry {
    * rather than papering over.
    */
   notes: Notes | null;
+  /**
+   * The highest figure this fragrance's own house publishes for this bottle on
+   * its own UK storefront — its price, or its own struck-through reference
+   * price, whichever is higher. Absent for the 13,933 products whose house
+   * either has no UK storefront here or does not list this size.
+   *
+   * This is test zero's ceiling in src/catalogue/wasPriceCredibility.ts: no
+   * \`wasPrice\` above it survived into CRAWLED above, whatever the rest of the
+   * market said about it. Carried on the record because it cannot be
+   * reconstructed from the shipped offers — the house's own reference price is
+   * part of it and is itself subject to the withholding rule — and because it
+   * is the one number that makes "this shop is cheaper than buying direct"
+   * expressible without inventing anything.
+   */
+  houseCeiling?: number;
 }
 
 /** Products, most widely stocked first. */
@@ -993,9 +1116,16 @@ console.log(
   console.log(
     `reference prices: ${claims} offers claim a reduction — ` +
       `${wasAudit.corroborated} corroborated and kept (${pct(wasAudit.corroborated)}%), ` +
-      `${wasAudit.refuted} refuted by the market (${pct(wasAudit.refuted)}%), ` +
-      `${wasAudit.unchecked} unchecked (${pct(wasAudit.unchecked)}%, no two other shops stock the bottle) ` +
+      `${wasAudit.refuted} refuted (${pct(wasAudit.refuted)}%), ` +
+      `${wasAudit.unchecked} unchecked (${pct(wasAudit.unchecked)}%, no two other shops and no house price) ` +
       `— the latter two withheld, not just the refuted ones`,
+  );
+  console.log(
+    `brand-direct evidence: ${brandDirectOffers} offers are the product's own house ` +
+      `(${[...brandDirectShops].sort((a, b) => b[1] - a[1]).map(([id, n]) => `${id} ${n}`).join(', ')}); ` +
+      `${wasAudit.brandAnchored} claims had a size-matched house price to test against, ` +
+      `${wasAudit.refutedByBrand} of them stated an RRP above what the house itself charges, ` +
+      `and ${wasAudit.brandOnlyEvidence} were judged on the house price alone (no two other shops)`,
   );
   for (const [retailerId, n] of [...wasAudit.refutedByShop].sort((a, b) => b[1] - a[1])) {
     const checked = wasAudit.checkedByShop.get(retailerId) ?? 0;

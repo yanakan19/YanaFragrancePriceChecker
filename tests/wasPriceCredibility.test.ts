@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   auditWasPrices,
+  brandAnchor,
   judgeWasPrice,
   sizesAgree,
   MIN_REFERENCE_SHOPS,
@@ -8,9 +9,19 @@ import {
   type CredibilityOffer,
 } from '../src/catalogue/wasPriceCredibility.js';
 
-/** An offer with everything the check reads, defaulting to a plain 100ml listing. */
+/**
+ * An offer with everything the check reads, defaulting to a plain 100ml
+ * listing from an ordinary multi-brand shop. `brandDirect` defaults off for
+ * the same reason it does in the builder: the failure mode of forgetting to
+ * set it is a missing anchor, never a wrongly attributed one.
+ */
 function offer(p: Partial<CredibilityOffer> & { retailerId: string; price: number }): CredibilityOffer {
-  return { wasPrice: null, sizeMl: 100, ...p };
+  return { wasPrice: null, sizeMl: 100, brandDirect: false, ...p };
+}
+
+/** The bottle's own house, selling its own bottle. */
+function house(p: Partial<CredibilityOffer> & { retailerId: string; price: number }): CredibilityOffer {
+  return offer({ ...p, brandDirect: true });
 }
 
 describe('judgeWasPrice — nothing to judge', () => {
@@ -49,6 +60,111 @@ describe('judgeWasPrice — how much market it takes to have an opinion', () => 
     const a = offer({ retailerId: 'a', price: 25, wasPrice: 500 });
     const rest = [offer({ retailerId: 'b', price: 24 }), offer({ retailerId: 'c', price: 26 })];
     expect(judgeWasPrice([a, ...rest], a)).toBe('refuted');
+  });
+});
+
+describe('judgeWasPrice — test zero, the house’s own price', () => {
+  /* Armaf Club De Nuit Intense Man EDT 105ml (ean-6085010044712) as the live
+     catalogue held it on 2026-08-26. Three shops state ~£69 and corroborate
+     each other, which is exactly why the market tests passed the claim; Armaf
+     itself sells the bottle for £37.99. */
+  const armafShelf = [
+    offer({ retailerId: 'perfume-click', price: 23.8, wasPrice: 69, sizeMl: 105 }),
+    offer({ retailerId: 'the-beauty-store-uk', price: 26.99, wasPrice: 69, sizeMl: 105 }),
+    offer({ retailerId: 'mybeauty-boutique', price: 25.49, wasPrice: 68.99, sizeMl: 105 }),
+    offer({ retailerId: 'emirates-oud', price: 26.99, wasPrice: 40, sizeMl: 105 }),
+    offer({ retailerId: 'fragrancehub', price: 27.95, wasPrice: 29.95, sizeMl: 105 }),
+    offer({ retailerId: 'beautybase', price: 29, sizeMl: 105 }),
+    offer({ retailerId: 'justmylook', price: 23.99, sizeMl: 105 }),
+  ];
+  const armaf = house({ retailerId: 'armaf', price: 37.99, sizeMl: 105 });
+
+  it('refutes the £69 claim three shops corroborate, because Armaf charges £37.99', () => {
+    const claim = armafShelf[0]!;
+    expect(judgeWasPrice(armafShelf, claim)).toBe('corroborated');
+    expect(judgeWasPrice([...armafShelf, armaf], claim)).toBe('refuted');
+  });
+
+  it('refutes every claim above the house price, however many shops repeat it', () => {
+    const shelf = [...armafShelf, armaf];
+    for (const id of ['perfume-click', 'the-beauty-store-uk', 'mybeauty-boutique', 'emirates-oud']) {
+      const claim = shelf.find((o) => o.retailerId === id)!;
+      expect(judgeWasPrice(shelf, claim), id).toBe('refuted');
+    }
+  });
+
+  it('leaves a claim the house does not contradict alone', () => {
+    /* FragranceHub's RRP £29.95 is under Armaf's own £37.99, so it is not a
+       figure the manufacturer contradicts and the 6% saving survives. */
+    const shelf = [...armafShelf, armaf];
+    const claim = shelf.find((o) => o.retailerId === 'fragrancehub')!;
+    expect(judgeWasPrice(shelf, claim)).toBe('corroborated');
+  });
+
+  it('takes the house’s own stated RRP over its sale price', () => {
+    /* Armaf lists Club De Nuit Intense Man Limited Edition Pure Parfum 105ml
+       at £59.99 was £69.99. A shop stating RRP £69.99 is quoting the house. */
+    const onSale = house({ retailerId: 'armaf', price: 59.99, wasPrice: 69.99, sizeMl: 105 });
+    const claim = offer({ retailerId: 'a', price: 49.95, wasPrice: 69.99, sizeMl: 105 });
+    expect(brandAnchor([claim, onSale], claim)).toBe(69.99);
+    expect(judgeWasPrice([claim, onSale], claim)).toBe('corroborated');
+  });
+
+  it('needs only one house, where the market tests need two shops', () => {
+    const claim = offer({ retailerId: 'a', price: 20, wasPrice: 30 });
+    expect(judgeWasPrice([claim], claim)).toBe('unchecked');
+    expect(judgeWasPrice([claim, house({ retailerId: 'h', price: 45 })], claim)).toBe('corroborated');
+    expect(judgeWasPrice([claim, house({ retailerId: 'h', price: 25 })], claim)).toBe('refuted');
+  });
+
+  it('never lets a different size be the anchor', () => {
+    const claim = offer({ retailerId: 'a', price: 20, wasPrice: 60, sizeMl: 100 });
+    const wrongBottle = house({ retailerId: 'h', price: 25, sizeMl: 30 });
+    expect(brandAnchor([claim, wrongBottle], claim)).toBe(0);
+    expect(judgeWasPrice([claim, wrongBottle], claim)).toBe('unchecked');
+  });
+
+  it('does not let a house corroborate its own claim', () => {
+    /* Self is excluded from the anchor exactly like every other reference in
+       this file, so a house's own strikethrough is judged by the market or not
+       at all — never by itself. */
+    const claim = house({ retailerId: 'h', price: 20, wasPrice: 500 });
+    expect(brandAnchor([claim], claim)).toBe(0);
+    expect(judgeWasPrice([claim], claim)).toBe('unchecked');
+  });
+
+  it('still lets the market refute a claim the house price allows', () => {
+    /* £190 is under the house's £200, so test zero passes it, and the claimed
+       £90 saving is well under the ceiling, so test one does too — but two
+       other shops each state an RRP of £100 and £190 is 1.9x that. Test zero
+       adds evidence; it never overrides the other two. */
+    const claim = offer({ retailerId: 'a', price: 100, wasPrice: 190 });
+    const shelf = [
+      claim,
+      house({ retailerId: 'h', price: 200 }),
+      offer({ retailerId: 'b', price: 90, wasPrice: 100 }),
+      offer({ retailerId: 'c', price: 95, wasPrice: 100 }),
+    ];
+    expect(brandAnchor(shelf, claim)).toBe(200);
+    expect(judgeWasPrice(shelf, claim)).toBe('refuted');
+  });
+
+  it('shows no saving at all where the house undercuts the shop', () => {
+    /* The case that broke the previous attempt at brand-sourced RRP: the house
+       is cheaper than the retailer, so there is no saving to render and
+       substituting the house price in would produce a negative one. Nothing is
+       substituted; the claim is simply refuted and the strikethrough withheld,
+       leaving the house's own offer on the page to make the comparison. */
+    const claim = offer({ retailerId: 'a', price: 45, wasPrice: 60 });
+    const shelf = [claim, house({ retailerId: 'h', price: 37.99 })];
+    expect(judgeWasPrice(shelf, claim)).toBe('refuted');
+    expect(claim.wasPrice! - claim.price).toBeGreaterThan(0);
+  });
+
+  it('refutes only strictly above the house price, not at it', () => {
+    const claim = offer({ retailerId: 'a', price: 20, wasPrice: 40 });
+    expect(judgeWasPrice([claim, house({ retailerId: 'h', price: 40 })], claim)).toBe('corroborated');
+    expect(judgeWasPrice([claim, house({ retailerId: 'h', price: 39.99 })], claim)).toBe('refuted');
   });
 });
 
@@ -250,24 +366,48 @@ describe('auditWasPrices', () => {
         offer({ retailerId: 'c', price: 13, sizeMl: 100 }),
       ],
     },
+    // Refuted by the house alone: nobody else stocks it, so no market test
+    // could run and this would otherwise be unchecked.
+    {
+      offers: [
+        offer({ retailerId: 'shouty', price: 20, wasPrice: 60 }),
+        house({ retailerId: 'h', price: 30 }),
+      ],
+    },
+    // Corroborated by the house alone, on the same absent market.
+    {
+      offers: [
+        offer({ retailerId: 'quiet', price: 20, wasPrice: 28 }),
+        house({ retailerId: 'h', price: 30 }),
+      ],
+    },
   ];
 
   const { audit, verdicts } = auditWasPrices(products);
 
   it('counts every claim exactly once, under one verdict', () => {
-    expect(audit.refuted).toBe(1);
-    expect(audit.corroborated).toBe(1);
+    expect(audit.refuted).toBe(2);
+    expect(audit.corroborated).toBe(2);
     expect(audit.unchecked).toBe(2);
-    expect(verdicts.size).toBe(4);
+    expect(verdicts.size).toBe(6);
   });
 
   it('attributes refutations to the shop that made the claim', () => {
-    expect([...audit.refutedByShop]).toEqual([['shouty', 1]]);
+    expect([...audit.refutedByShop].sort()).toEqual([['shouty', 2]]);
   });
 
   it('reports the denominator, so a rate can be read off the log', () => {
-    expect(audit.checkedByShop.get('shouty')).toBe(2);
+    expect(audit.checkedByShop.get('shouty')).toBe(3);
     expect(audit.checkedByShop.has('lonely')).toBe(false);
+  });
+
+  it('reports brand-direct evidence separately from the market’s', () => {
+    // Two products carry a house offer; both claims on them are anchored.
+    expect(audit.brandAnchored).toBe(2);
+    expect(audit.refutedByBrand).toBe(1);
+    // Neither had two other shops, so both are coverage the market could not
+    // have reached — one withheld, one earned.
+    expect(audit.brandOnlyEvidence).toBe(2);
   });
 
   it('notices a product whose offers disagree about bottle size', () => {

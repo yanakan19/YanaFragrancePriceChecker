@@ -98,6 +98,28 @@ const SINGLE_BRAND_ONLY_IDS = new Set(
  * scripts/build-demo-catalogue.ts, which now withholds any reference price —
  * from any shop — that the rest of the market cannot corroborate.
  */
+
+/**
+ * Nothing below judges a reference price, and that is deliberate: a deal is
+ * ranked on `wasPrice`, and `wasPrice` has already been withheld by
+ * scripts/build-demo-catalogue.ts on every claim the evidence refuted or could
+ * not reach. A deal resting on a refuted RRP is unreachable from here rather
+ * than filtered out here, which is the stronger arrangement — one place
+ * decides what a reference price may mean, and every consumer of it inherits
+ * that decision without having to know the check exists.
+ *
+ * That began carrying real weight on 2026-08-26, when wasPriceCredibility.ts
+ * gained test zero: a reference price above what the fragrance house itself
+ * charges for the identical bottle is refuted however many retailers repeat
+ * it. Of the previous snapshot's 1,464 deals, 97 were on a fragrance whose own
+ * house is also stocked here and 72 of those advertised a saving against a
+ * figure the house's own pricing contradicts — Armaf Club De Nuit Intense Man
+ * EDT 105ml at "65% off RRP £69" while armaf.uk sells it at £37.99, and 71
+ * more. The snapshot after it is 1,413 deals, of which 0 do. The Armaf product
+ * is still here, at 6% off against FragranceHub's RRP £29.95, because £29.95
+ * is under the house's own price and so is not a figure the house contradicts.
+ * tests/dealsBrandDirect.test.ts asserts that property over the shipped file.
+ */
 const deals: RawDeal[] = DEMO_FRAGRANCES.flatMap((fragrance) => {
   const reduced = (CRAWLED[fragrance.id] ?? [])
     .filter(
