@@ -1162,11 +1162,17 @@
 
   /* Official Site + Fragrantica, under a fragrance's own title block. Same
      .brand-site-link pill as the brand page's own official-site link, so the
-     two pages agree on what this kind of link looks like — left-aligned by
-     the row itself, not centred with the rest of the hero. */
+     two pages agree on what this kind of link looks like — but this row
+     centres itself (2026-08-26), unlike the left-aligned copy on the brand
+     page, because it sits inside this hero's own centred column (art, name,
+     price boxes) rather than beside a left-aligned heading the way the brand
+     page's copy does. `justify-content: center` also covers the one-pill
+     case (Official Site absent): a single centred pill still reads as one
+     deliberate line, where a single left-aligned one would read as a
+     leftover. */
   .frag-links-row {
     display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
-    justify-content: flex-start;
+    justify-content: center;
   }
   .frag-links-row .brand-site-link { margin-top: 10px; }
 
