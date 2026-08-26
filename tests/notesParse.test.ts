@@ -130,13 +130,55 @@ describe('parseNotes', () => {
     ]);
   });
 
-  it('still drops an unlisted four-word phrase, the trade-off the allowlist accepts', () => {
-    // The three-word cap still applies to everything not named in
-    // MULTIWORD_NOTES — a genuine but rarer note like "Queen of the Night
-    // Flower" is dropped exactly like a same-length sentence fragment
-    // ("a hint of the licorice") would be, until it is checked against a real
-    // labelled listing and added by name.
-    expect(parseNotes('Top notes: Queen of the Night Flower, Rose.')?.top).toEqual(['Rose']);
+  it('reads an unlisted proper-noun note past the caps, without naming it', () => {
+    // This used to assert the opposite — that anything not in MULTIWORD_NOTES
+    // was dropped, "the trade-off the allowlist accepts". The allowlist was
+    // the right first move and the wrong stopping point: measured across
+    // every colon-headed note section in data/catalogue, 1,137 further
+    // distinct candidates were still being dropped by the caps alone, and
+    // most were real ingredient names. "Queen of the Night" is a real note
+    // (Cestrum nocturnum); it was only ever excluded for its length.
+    //
+    // What lets it through now is case, not length — see
+    // looksLikeProperNounPhrase.
+    expect(parseNotes('Top notes: Queen of the Night Flower, Rose.')?.top).toEqual([
+      'Queen of the Night Flower',
+      'Rose',
+    ]);
+  });
+
+  it('still drops a same-length sentence fragment, which is what case separates', () => {
+    // The pair that motivated the whole rule. "a hint of the licorice" is the
+    // same word count and the same punctuation as a real four-word note, and
+    // no shape rule can tell them apart — but an ingredient name is a proper
+    // noun and a sentence fragment is not, so its lowercase opening word is
+    // the evidence the caps could never supply.
+    expect(parseNotes('Top notes: a hint of the licorice, Rose.')?.top).toEqual(['Rose']);
+  });
+
+  it('does not admit an INCI declaration published in the note field', () => {
+    // Shops put the statutory ingredient list in the same field as the copy.
+    // Every word of one is capitalised, so the case signal cannot see it and
+    // the word-length rule has to: no genuine ingredient word runs past 15
+    // characters, while these run to 23.
+    expect(parseNotes('Top notes: Butyl Methoxydibenzoylmethane, Rose.')?.top).toEqual(['Rose']);
+    expect(parseNotes('Top notes: BUTYL METHOXYDIBENZOYLMETHANE, Rose.')?.top).toEqual(['Rose']);
+  });
+
+  it('does not admit a stripped marketing heading or a product name', () => {
+    // "Why You'll Love It" collapses into the list when a source's markup is
+    // stripped; a product form word is never an ingredient.
+    expect(parseNotes('Top notes: Fir Resin Why You, Rose.')?.top).toEqual(['Rose']);
+    expect(parseNotes('Top notes: Ed Hardy Eau de Toilette, Rose.')?.top).toEqual(['Rose']);
+  });
+
+  it('does not admit a comma-less run of separate notes', () => {
+    // A source that forgot its delimiters produces five capitalised names in
+    // a row. Connectives do not count toward the ceiling, so a real name that
+    // carries them is unaffected.
+    expect(parseNotes('Top notes: Cherry Strawberry Peach Apple Almond, Rose.')?.top).toEqual([
+      'Rose',
+    ]);
   });
 
   it('reads the other two names in MULTIWORD_NOTES, past the character cap too', () => {
