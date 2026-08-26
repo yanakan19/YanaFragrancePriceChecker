@@ -479,6 +479,31 @@ export interface Retailer {
    * Requires `shopifyStorefront: true`; there is no other route implemented.
    */
   storefrontIsPriceAuthority?: boolean;
+  /**
+   * This shop's catalogue section pages have been measured, more than once and
+   * on more than one day, answering a real headless-browser render — not a
+   * budget-exhausted stub, an actual network round trip — with a refusal:
+   * `src/catalogue/renderRefusal.ts`'s HTTP-403-or-tiny-2xx shape. Rendering
+   * did not change the answer, because the block sits at the network layer
+   * (an IP or WAF decision) rather than in whatever JavaScript the page would
+   * have run.
+   *
+   * `scripts/catalogue-harvest.ts` skips the render escalation entirely for a
+   * shop carrying this, rather than spending a page finding out again what
+   * every real attempt so far has already found. That page goes to a shop
+   * whose outcome is not yet settled instead — see localBrowser.ts's own
+   * header for why the render tier's per-run page budget is shared and
+   * scarce, and harvestCursor.ts's for why a shared budget starves whichever
+   * shop is last in a run's rotation.
+   *
+   * Set only from real, repeated, dated evidence recorded in the retailer's
+   * own entry below — never from a single run, and never from a run whose
+   * render was budget-exhausted rather than actually attempted. Unset (not
+   * merely `false`) for every retailer this has not been established for,
+   * matching this file's usual convention: absence means "not yet measured",
+   * not "known to be fine".
+   */
+  renderRefused?: boolean;
   shipping: ShippingRule;
   affiliate: AffiliateConfig;
   /**

@@ -75,7 +75,7 @@ import {
 } from '../src/catalogue/localBrowser.js';
 import { harvestReportWriter, type HarvestTier } from '../src/catalogue/harvestReport.js';
 import {
-  renderRefusals, type RenderRefusal, type RenderedPage,
+  renderRefusals, knownRenderRefusal, type RenderRefusal, type RenderedPage,
 } from '../src/catalogue/renderRefusal.js';
 import {
   parseCursor, sweepOrder, withAttempt, staleCursorIds,
@@ -708,6 +708,20 @@ for (const retailer of shops) {
     }
   }
 
+  // A shop that has already answered a real render, more than once, with a
+  // refusal is not asked again — see knownRenderRefusal's own comment for the
+  // evidence and for why the render tier's page budget is worth protecting
+  // from a question this project has already had answered five times over.
+  // Checked only where the render would otherwise actually be attempted, so a
+  // shop that already priced through a cheaper tier never gets a "skipped"
+  // line about a tier it was never going to need.
+  const skipRender = withPrice.length === 0 && useActor && retailer.catalogue
+    ? knownRenderRefusal(retailer)
+    : null;
+  if (skipRender) {
+    result.errors.push(`[actor] skipped: ${skipRender}`);
+  }
+
   // The third, most expensive tier: a real headless-browser render, for a
   // shop whose grid needs JavaScript to exist at all rather than an IP that
   // gets refused. Only ever tried once both cheaper tiers above have already
@@ -715,7 +729,7 @@ for (const retailer of shops) {
   // — never a walk, never one request per product — for the same cost
   // reasoning docs/INGESTION.md sets out for every tier here, applied to a
   // route that costs roughly ten times as much per page.
-  if (withPrice.length === 0 && useActor && retailer.catalogue) {
+  if (withPrice.length === 0 && useActor && retailer.catalogue && !skipRender) {
     // ── When the only way to read the rules is to render them ───────────────
     // A shop whose robots.txt neither the runner nor the proxy can fetch is a
     // shop this pipeline must treat as entirely forbidden, and rightly — but

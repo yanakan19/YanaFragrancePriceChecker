@@ -127,3 +127,39 @@ export function renderRefusal(page: RenderedPage): RenderRefusal | null {
 export function renderRefusals(pages: readonly RenderedPage[]): RenderRefusal[] {
   return pages.map(renderRefusal).filter((r): r is RenderRefusal => r !== null);
 }
+
+/**
+ * Whether a shop is worth spending a render-tier page on at all.
+ *
+ * ── The problem this solves ─────────────────────────────────────────────────
+ * The render tier's page budget (`MAX_LOCAL_RENDER_PAGES_PER_RUN`,
+ * localBrowser.ts) is one pool shared by every shop a run reaches that turn.
+ * scripts/catalogue-harvest.ts used to offer that pool to any shop with zero
+ * free-tier priced listings, with no memory of what rendering that shop has
+ * already shown. Five shops this project markets as "designer" or "niche" and
+ * confirms `renderRefused` below (data/harvest-report.json, five to six real
+ * — not budget-exhausted — render attempts each, spanning 2026-08-25 and
+ * 2026-08-26) have answered the same way every single time: Boots at
+ * 200/1188-1199 bytes, Zara at 403/325-331 bytes, Superdrug at 403/317-341
+ * bytes, The Fragrance Shop at 403/27487-27573 bytes, The Perfume Shop at
+ * 403/326-344 bytes. Between them those five consume up to 12 of the tier's
+ * 12 pages on a run where every one of them gets a real turn — the entire
+ * budget, for an answer already on file five times over — which is exactly
+ * why John Lewis and Selfridges, this project's two shops with a genuinely
+ * open or genuinely positive render outcome, were reached on at most one run
+ * in nine committed reports each.
+ *
+ * A shop is excluded here only once it clears a real bar: multiple dated,
+ * non-budget-exhausted renders, all landing in `renderRefusal`'s refused
+ * shape. A single bad render, or a run that never actually reached the
+ * network (localBrowser's `HTTP 0 ... budget ... exhausted` stub), proves
+ * nothing about the shop and must never set this.
+ */
+export function knownRenderRefusal(retailer: { name: string; renderRefused?: boolean }): string | null {
+  if (!retailer.renderRefused) return null;
+  return (
+    `${retailer.name} has answered every real render attempt on file with a refusal ` +
+    `(see its registry entry in src/config/retailers.ts for the dated evidence) — ` +
+    `skipping the render tier rather than spending a page confirming that again`
+  );
+}

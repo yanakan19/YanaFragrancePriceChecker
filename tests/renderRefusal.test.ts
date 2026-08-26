@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   renderRefusal,
   renderRefusals,
+  knownRenderRefusal,
   REFUSAL_MAX_BYTES,
 } from '../src/catalogue/renderRefusal.js';
 
@@ -102,6 +103,25 @@ describe('REFUSAL_MAX_BYTES', () => {
     // with no page around them at all: 9,526 bytes, measured over
     // data/catalogue/beautybase.json.
     expect(REFUSAL_MAX_BYTES).toBeLessThan(9_526);
+  });
+});
+
+describe('knownRenderRefusal — sparing the render tier a question already answered', () => {
+  it('says nothing about a shop the flag has not been set on', () => {
+    // Undefined must read the same as false — this file's usual convention
+    // for "not yet measured", not "known to be fine". See the field's own
+    // doc comment on Retailer in src/types/retailer.ts.
+    expect(knownRenderRefusal({ name: 'Some Shop' })).toBeNull();
+    expect(knownRenderRefusal({ name: 'Some Shop', renderRefused: false })).toBeNull();
+  });
+
+  it('names the shop and points at its registry entry once flagged', () => {
+    // Superdrug, data/harvest-report.json commits 7b47962 and b9a4c1a: two
+    // real render attempts, both HTTP 403 at 317 and 341 bytes.
+    const reason = knownRenderRefusal({ name: 'Superdrug', renderRefused: true });
+    expect(reason).not.toBeNull();
+    expect(reason).toContain('Superdrug');
+    expect(reason).toContain('registry entry');
   });
 });
 
