@@ -1519,6 +1519,21 @@
   .tag.unsure { background: var(--surface-2); color: var(--ink-2); }
   .price { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }
   .was { font-size: 12.5px; color: var(--faint); text-decoration: line-through; font-variant-numeric: tabular-nums; }
+  /* .now is a flex item of .price, which blockifies it (a flex item is always
+     laid out as a block box, whatever display it was given) and sizes it to
+     its own widest line — here, almost always .del-note's, since the note
+     text is normally wider than the price digits above it. .del-note is
+     right-aligned within that box (see below), but the price digits are a
+     plain text node with no alignment of their own, so — absent this rule —
+     they sat flush with .now's *left* edge while the note sat flush with its
+     right, on a box wider than either line: two prices reading as one
+     misaligned column. Measured (Chromium 141, scripts/screenshot.ts) on
+     /fragrance/ean-6085010044712 at 1280/1440/1920/390/360: every row now has
+     its price and its note sharing one right edge (e.g. Perfume Click's
+     "£26.75" and "Includes £2.95 delivery" both end at x=364.0 at 390px);
+     before this rule the price sat 15-80px short of that edge depending on
+     how much shorter the price text was than the note beside it. */
+  .now { text-align: right; }
   .now.sale { color: var(--ok); }
   .now.none { color: var(--faint); font-weight: 500; }
   /* Says what the number above it contains, on every row rather than only on
