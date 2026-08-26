@@ -201,6 +201,58 @@
  * The one place that argument does not reach is test zero, where a second
  * opinion is not merely scarce but non-existent: see there.
  *
+ * ── Three more candidates for widening, measured on 2026-08-26 and rejected ──
+ * The owner chose to keep MIN_REFERENCE_SHOPS strict rather than lower it.
+ * Test zero (above) is the one route found since that produces coverage on
+ * evidence *stronger* than shop-agreement, not weaker. Re-measured against
+ * this build (14,846 products; 10,233 stocked by one shop, 3,000 by two —
+ * 13,233 of them, 89.1%, structurally out of the market tests' reach, largely
+ * unchanged from the figures below) to check for further such routes. Three
+ * were checked. None qualify.
+ *
+ *   1. Test zero's remaining reach. Of the 8,869 claims sitting on a
+ *      structurally out-of-reach product, only 49 (0.55%) have a size-matched
+ *      house offer to test against at all — the same 49 already accounted for
+ *      above (27 refuted, 22 corroborated), not a larger pool waiting to be
+ *      unlocked. The other 8,820 have no house evidence because their
+ *      fragrance house runs no UK storefront in the retailer registry we
+ *      harvest, which is a source this file has none of yet, not a threshold
+ *      this file is holding shut. Widening this further means harvesting more
+ *      brand-direct storefronts, not changing a number in this file.
+ *
+ *   2. A different MIN_REFERENCE_SHOPS for test one versus test two, since a
+ *      stated RRP and an observed ceiling are different evidence. Checked by
+ *      running this file's own leave-one-out method (the 12.9% figure just
+ *      above) separately per test, holding one *other* shop's evidence out at
+ *      a time and comparing the single-shop answer against what all of them
+ *      together say, restricted to each test's own kind of evidence:
+ *
+ *          test one (ceiling)      1,362 claims, 4,877 single-shop trials, 12.98% disagree
+ *          test two (stated RRP)     212 claims,   651 single-shop trials, 10.91% disagree
+ *
+ *      The two rates are the same finding twice, not two different ones: a
+ *      lone shop's stated RRP is not meaningfully more trustworthy than a lone
+ *      shop's selling price, so there is no evidentiary basis for trusting one
+ *      of them alone while still requiring two of the other. Concretely,
+ *      dropping test two's quorum to one would resolve 2,494 currently-
+ *      unchecked claims sitting at that exact boundary — 2,167 newly
+ *      `corroborated`, 327 newly `refuted` — and the 10.91% figure says that
+ *      roughly one in nine of those new verdicts would flip if a second shop
+ *      were asked. Shipping that is shipping the exact thing test zero was
+ *      built to stop doing on cross-retailer RRPs: letting one voice's word
+ *      stand in for the market's.
+ *
+ *   3. Whether the sizeMl gate now excludes more than it needs to, since the
+ *      multi-size parsing bug (`SIZE_MENU_THEN_VARIANT_RE` in fragranceId.ts)
+ *      that used to hand this file wrong sizes is fixed. Measured directly on
+ *      the offers this file actually receives: 0 of 21,929 carry a null
+ *      `sizeMl`. `isFragrance()` already requires a parseable size before a
+ *      listing becomes a product at all (fragranceId.ts), so by the time an
+ *      offer reaches `CredibilityOffer` its size is never unknown in
+ *      practice — the null branches in `judgeWasPrice` and `brandAnchor` are a
+ *      defensive contract for a caller that does not (yet) guarantee that, not
+ *      a gate presently excluding anything. There is nothing to release here.
+ *
  * ── Three verdicts, because there are three states ──────────────────────────
  * A product only one shop sells, whose house has no UK storefront here, has no
  * cross-reference at all. The claim on it can be neither confirmed nor refuted,
@@ -297,7 +349,12 @@ export type Verdict =
 
 /**
  * How many *other* shops must supply evidence before a verdict is possible.
- * Two, never one — see the header.
+ * Two, never one — see the header. Deliberately the same number for both
+ * market tests rather than one apiece: measured separately (see "Three more
+ * candidates for widening" in the header), a lone shop's word is about as
+ * unreliable for a stated RRP (10.9% leave-one-out disagreement) as for an
+ * observed ceiling (13.0%), so there is no evidence-strength case for trusting
+ * one of them at quorum one while still requiring two of the other.
  */
 export const MIN_REFERENCE_SHOPS = 2;
 
