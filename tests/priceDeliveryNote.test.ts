@@ -28,7 +28,7 @@ describe('deliveryPriceNote', () => {
         { standardGbp: 3.99, freeOverGbp: 30, estimatedDays: DAYS, verifiedAt: '2026-08-05', confidence: 'confirmed' },
         24.99,
       ),
-    ).toBe('Includes £3.99 delivery');
+    ).toBe('Incl. £3.99 delivery');
   });
 
   it('says "includes" for a shop that ships free on every order', () => {
@@ -37,7 +37,7 @@ describe('deliveryPriceNote', () => {
         { standardGbp: 0, freeOverGbp: null, estimatedDays: DAYS, verifiedAt: '2026-08-05', confidence: 'confirmed' },
         24.99,
       ),
-    ).toBe('Includes free delivery');
+    ).toBe('Incl. free delivery');
   });
 
   it('says "includes free" once the basket has met the free-delivery threshold', () => {
@@ -46,7 +46,7 @@ describe('deliveryPriceNote', () => {
         { standardGbp: 3.99, freeOverGbp: 30, estimatedDays: DAYS, verifiedAt: '2026-08-05', confidence: 'confirmed' },
         34.0,
       ),
-    ).toBe('Includes free delivery');
+    ).toBe('Incl. free delivery');
   });
 
   // The whole reason this helper exists rather than a template literal: the
@@ -84,7 +84,7 @@ describe('deliveryPriceNote', () => {
       { standardGbp: 4.5, freeOverGbp: null, estimatedDays: DAYS, verifiedAt: '2026-08-05', confidence: 'unverified' },
       24.99,
     );
-    expect(confirmed).toBe('Includes £4.50 delivery');
+    expect(confirmed).toBe('Incl. £4.50 delivery');
     expect(indicative).toBe(confirmed);
   });
 
@@ -103,7 +103,7 @@ describe('deliveryPriceNote', () => {
 /**
  * The claim the note makes is only true because of what the row prints above
  * it. offerRow() prints `deliveredPriceGbp ?? itemPriceGbp`, so these check
- * the arithmetic that "Includes £3.99 delivery" is asserting, against the same
+ * the arithmetic that "Incl. £3.99 delivery" is asserting, against the same
  * presentOffer() the page calls — not against a restatement of it here.
  */
 describe('the number the note sits under', () => {
@@ -130,7 +130,7 @@ describe('the number the note sits under', () => {
     const row = presentOffer(offer(24.99), retailer);
     expect(row.itemPriceGbp).toBe(24.99);
     expect(row.deliveredPriceGbp).toBe(28.98);
-    expect(deliveryPriceNote(row.delivery)).toBe('Includes £3.99 delivery');
+    expect(deliveryPriceNote(row.delivery)).toBe('Incl. £3.99 delivery');
     // The stated inclusion, checked as arithmetic rather than as a string.
     expect(row.deliveredPriceGbp! - row.itemPriceGbp).toBeCloseTo(3.99, 10);
   });
@@ -159,7 +159,7 @@ describe('the number the note sits under', () => {
     });
     const row = presentOffer(offer(40), retailer);
     expect(row.deliveredPriceGbp).toBe(40);
-    expect(deliveryPriceNote(row.delivery)).toBe('Includes free delivery');
+    expect(deliveryPriceNote(row.delivery)).toBe('Incl. free delivery');
   });
 });
 
@@ -173,7 +173,7 @@ describe('across the real registry', () => {
       const delivery: DeliveryDisplay = resolveDelivery(retailer, 24.99);
       const note = deliveryPriceNote(delivery);
       const hasDeliveredPrice = delivery.costGbp !== null;
-      expect(note.startsWith('Includes')).toBe(hasDeliveredPrice);
+      expect(note.startsWith('Incl.')).toBe(hasDeliveredPrice);
       if (!hasDeliveredPrice) expect(note).not.toMatch(/[£\d]/);
     }
   });

@@ -12,8 +12,8 @@ import { formatGbp } from '../src/services/money.js';
  * item price). So the wording is not a stylistic choice: each branch below is
  * the true statement about the specific number it sits under.
  *
- *   - a stated, charged cost  → the number already contains it, so "Includes";
- *   - a stated zero           → also "Includes", because a sourced £0 is a
+ *   - a stated, charged cost  → the number already contains it, so "Incl.";
+ *   - a stated zero           → also "Incl.", because a sourced £0 is a
  *                               claim the shop ships free, not an absence of
  *                               one, and the delivered price is the item
  *                               price for a real reason worth naming;
@@ -41,6 +41,6 @@ import { formatGbp } from '../src/services/money.js';
  */
 export function deliveryPriceNote(delivery: DeliveryDisplay): string {
   if (delivery.costGbp === null) return 'Plus delivery';
-  if (delivery.costGbp === 0) return 'Includes free delivery';
-  return `Includes ${formatGbp(delivery.costGbp)} delivery`;
+  if (delivery.costGbp === 0) return 'Incl. free delivery';
+  return `Incl. ${formatGbp(delivery.costGbp)} delivery`;
 }
