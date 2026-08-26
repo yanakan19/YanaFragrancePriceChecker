@@ -215,3 +215,84 @@ describe('crawlViaSitemap: conventional root www. handling', () => {
     expect(result.listings).toHaveLength(1);
   });
 });
+
+describe('crawlViaSitemap: the gap between requests', () => {
+  // The wait between requests exists to space out every *pair* of fetches to
+  // one shop — there is no pair after the last product page, so waiting there
+  // only delays this shop's own finish (and, since scripts/catalogue-harvest.ts
+  // records a shop's attempt timestamp before crawling it, delays every shop
+  // behind it in the sweep by the same amount). N product pages need N-1
+  // gaps, not N.
+  it('waits between fetches but not after the last one', async () => {
+    const sleeps: number[] = [];
+    const sleep = async (ms: number) => {
+      sleeps.push(ms);
+    };
+    const http: Http = async (url) => {
+      if (url === 'https://www.example.co.uk/sitemap.xml') {
+        return {
+          status: 200,
+          ok: true,
+          body:
+            '<urlset>' +
+            '<url><loc>https://www.example.co.uk/products/fragrance-1</loc></url>' +
+            '<url><loc>https://www.example.co.uk/products/fragrance-2</loc></url>' +
+            '<url><loc>https://www.example.co.uk/products/fragrance-3</loc></url>' +
+            '</urlset>',
+        };
+      }
+      return { status: 200, ok: true, body: page(19.99) };
+    };
+
+    const result = await crawlViaSitemap({
+      retailer: retailer({ catalogue: null }),
+      http,
+      robots: NO_RESTRICTIONS,
+      maxPages: 5,
+      gapMs: 1500,
+      headers: {},
+      sleep,
+    });
+
+    expect(result.listings).toHaveLength(3);
+    expect(sleeps).toEqual([1500, 1500]);
+  });
+
+  // The same shape, but the budget runs out before every discovered URL is
+  // fetched — the trailing skip must track the last URL *this walk actually
+  // reaches*, not the last one the sitemap happened to list.
+  it('skips the trailing wait when maxPages cuts the walk short too', async () => {
+    const sleeps: number[] = [];
+    const sleep = async (ms: number) => {
+      sleeps.push(ms);
+    };
+    const http: Http = async (url) => {
+      if (url === 'https://www.example.co.uk/sitemap.xml') {
+        return {
+          status: 200,
+          ok: true,
+          body:
+            '<urlset>' +
+            '<url><loc>https://www.example.co.uk/products/fragrance-1</loc></url>' +
+            '<url><loc>https://www.example.co.uk/products/fragrance-2</loc></url>' +
+            '<url><loc>https://www.example.co.uk/products/fragrance-3</loc></url>' +
+            '</urlset>',
+        };
+      }
+      return { status: 200, ok: true, body: page(19.99) };
+    };
+
+    const result = await crawlViaSitemap({
+      retailer: retailer({ catalogue: null }),
+      http,
+      robots: NO_RESTRICTIONS,
+      maxPages: 2,
+      gapMs: 1500,
+      headers: {},
+      sleep,
+    });
+
+    expect(result.listings).toHaveLength(2);
+    expect(sleeps).toEqual([1500]);
+  });
+});
