@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-26T05:53:38.032Z",
+  "checkedAt": "2026-08-26T14:23:13.235Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -192,9 +192,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 104,
-      "pricedInGbp": 104,
-      "withPhoto": 104,
+      "listings": 102,
+      "pricedInGbp": 102,
+      "withPhoto": 102,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -215,7 +215,8 @@
       "withPhoto": 0,
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
-        "https://arabiyatprestige.shop/products.json?limit=250&page=1: HTTP 520"
+        "https://arabiyatprestige.shop/products.json?limit=250&page=1: HTTP 525",
+        "http://arabiyatprestige.shop/sitemap_index.xml: HTTP 403"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -537,9 +538,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 216,
-      "pricedInGbp": 216,
-      "withPhoto": 214,
+      "listings": 217,
+      "pricedInGbp": 217,
+      "withPhoto": 215,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",
