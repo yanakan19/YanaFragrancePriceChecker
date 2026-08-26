@@ -12336,10 +12336,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43661688875&a=3026001&m=106925"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
+  },
   {
     "id": "ean-810023679943",
     "brand": "Sabrina Carpenter",
@@ -12396,10 +12393,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
         "url": "https://www.beautybase.com/products/sabrina-carpenter-sweet-tooth-me-espresso-eau-de-parfum-75ml-spray"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
+  },
   {
     "id": "ean-5060426150678",
     "brand": "Sarah Jessica Parker",
@@ -12433,7 +12427,10 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/sarah-jessica-parker-lovely-eau-de-parfum-200ml"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
   {
     "id": "ean-6281085039633",
     "brand": "Surrati",
@@ -23364,10 +23361,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/gres-cabotine-eau-de-parfum-100ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3616302514281",
     "brand": "Gucci",
@@ -23500,7 +23494,10 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://bgstatic.net/photos/120111_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "ean-3616304175916",
     "brand": "Gucci",
@@ -23511,10 +23508,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://bgstatic.net/photos/170884_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3614229382129",
     "brand": "Gucci",
@@ -33406,10 +33400,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43157930865&a=3026001&m=106925"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3700358123624",
     "brand": "Serge Lutens",
@@ -33622,7 +33613,10 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/italian-tobacco-extrait-de-parfum-surrati"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-6281085040073",
     "brand": "Surrati",
@@ -33650,10 +33644,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/rosso-ombre-extrait-de-parfum-surrati"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6295124024290",
     "brand": "Swiss Arabian",
@@ -44372,10 +44363,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/168287_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
+  },
   {
     "id": "ean-0888874008007",
     "brand": "Bond No 9",
@@ -44526,7 +44514,10 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "url": "https://allbeauty.com/products/p-boucheron-pour-femme-eau-de-parfum-spray-100ml-14576981"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "ean-3386460036405",
     "brand": "Boucheron",
@@ -44569,10 +44560,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "url": "https://allbeauty.com/products/p-boucheron-pour-homme-eau-de-toilette-spray-100ml-14592675"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3386460036429",
     "brand": "Boucheron",
@@ -52591,10 +52579,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43157928676&a=3026001&m=106925"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
+  },
   {
     "id": "ean-085805390600",
     "brand": "Elizabeth Arden",
@@ -52724,7 +52709,10 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://allbeauty.com/cdn/shop/files/774475.jpg?v=1755874642&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
   {
     "id": "ean-0085805100865",
     "brand": "Elizabeth Arden",
@@ -52735,10 +52723,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/60022_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
+  },
   {
     "id": "ean-0085805248734",
     "brand": "Elizabeth Arden",
@@ -117633,6 +117618,30 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "houseCeiling": 18
   },
   {
+    "id": "avon-f1787100",
+    "brand": "Avon Cosmetics",
+    "name": "Confidence",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Blackcurrant"
+      ],
+      "middle": [
+        "Frangipani"
+      ],
+      "base": [],
+      "source": {
+        "retailerId": "avon",
+        "url": "https://avon.uk.com/products/eve-confidence-eau-de-parfum-50ml"
+      }
+    },
+    "houseCeiling": 17
+  },
+  {
     "id": "avon-f1557028",
     "brand": "Avon Cosmetics",
     "name": "Corset",
@@ -117948,7 +117957,10 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
       }
     },
     "houseCeiling": 20
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "avon-f1577004",
     "brand": "Avon Cosmetics",
@@ -117960,10 +117972,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "image": null,
     "notes": null,
     "houseCeiling": 7
-  }
-];
-
-const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
+  },
   {
     "id": "avon-f1586738",
     "brand": "Avon Cosmetics",
@@ -118331,6 +118340,32 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "houseCeiling": 14
   },
   {
+    "id": "avon-f1568270",
+    "brand": "Avon Cosmetics",
+    "name": "One",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Passion Fruit"
+      ],
+      "middle": [
+        "Rose Pepper Fusion"
+      ],
+      "base": [
+        "Cedarwood"
+      ],
+      "source": {
+        "retailerId": "avon",
+        "url": "https://avon.uk.com/products/eve-one-eau-de-parfum-50ml"
+      }
+    },
+    "houseCeiling": 18
+  },
+  {
     "id": "avon-f1570699",
     "brand": "Avon Cosmetics",
     "name": "Peppery Peaches",
@@ -118393,6 +118428,32 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
       }
     },
     "houseCeiling": 10
+  },
+  {
+    "id": "avon-f1551048",
+    "brand": "Avon Cosmetics",
+    "name": "Privé Purse",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 10,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "red apple"
+      ],
+      "middle": [
+        "jasmine petals"
+      ],
+      "base": [
+        "cedarwood"
+      ],
+      "source": {
+        "retailerId": "avon",
+        "url": "https://avon.uk.com/products/new-eve-prive-eau-de-parfum-purse-spray-10ml"
+      }
+    },
+    "houseCeiling": 7
   },
   {
     "id": "avon-f1491063",
@@ -118536,6 +118597,84 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
       }
     },
     "houseCeiling": 16
+  },
+  {
+    "id": "avon-f1574021",
+    "brand": "Avon Cosmetics",
+    "name": "Truth",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "pomegranate"
+      ],
+      "middle": [
+        "peony"
+      ],
+      "base": [
+        "cedarwood"
+      ],
+      "source": {
+        "retailerId": "avon",
+        "url": "https://avon.uk.com/products/eve-truth-eau-de-parfum-50ml"
+      }
+    },
+    "houseCeiling": 18
+  },
+  {
+    "id": "avon-f1393897",
+    "brand": "Avon Cosmetics",
+    "name": "Truth For Her",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "pomegranate"
+      ],
+      "middle": [
+        "peony"
+      ],
+      "base": [
+        "cedarwood"
+      ],
+      "source": {
+        "retailerId": "avon",
+        "url": "https://avon.uk.com/products/eve-truth-edp-for-her-100ml"
+      }
+    },
+    "houseCeiling": 28
+  },
+  {
+    "id": "avon-f1574018",
+    "brand": "Avon Cosmetics",
+    "name": "Truth Purse",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 10,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "pomegranate"
+      ],
+      "middle": [
+        "peony"
+      ],
+      "base": [
+        "cedarwood"
+      ],
+      "source": {
+        "retailerId": "avon",
+        "url": "https://avon.uk.com/products/avon-eve-truth-purse-spray-10ml"
+      }
+    },
+    "houseCeiling": 7
   },
   {
     "id": "avon-f1555263",
@@ -121301,7 +121440,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   },
   {
     "id": "selfridges-r04670143",
-    "brand": "BOTTEGA VENETA BEAUTY",
+    "brand": "Bottega Veneta",
     "name": "Ricordami",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
@@ -126558,7 +126697,10 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/tigris-bujairami"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
   {
     "id": "ean-10485636464982",
     "brand": "Bujairami",
@@ -126719,10 +126861,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "url": "https://fragrancehub.co.uk/products/bujairami-unforgettable-eau-de-parfum-100ml-by-bujairami-sydney"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-16027052999005-default-title",
     "brand": "Bujairami",
@@ -133748,7 +133887,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "ean-8480000756374",
     "brand": "Carta Blanca",
@@ -133814,10 +133956,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/71041_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3432240506726",
     "brand": "Cartier",
@@ -140469,7 +140608,10 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1704823070-67560900.jpg?v=1763393987&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
   {
     "id": "ean-3760004327431",
     "brand": "Diane Castel",
@@ -140535,10 +140677,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/165914_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3614273693509",
     "brand": "Diesel",
@@ -147477,7 +147616,10 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51uNkJGOoYL.jpg?v=1767982394",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "ean-0085805156602",
     "brand": "Elizabeth Arden",
@@ -147543,10 +147685,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/415yg01uVLL.jpg?v=1763137565",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
+  },
   {
     "id": "ean-085805036577",
     "brand": "Elizabeth Arden",
@@ -150685,154 +150824,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
       "source": {
         "retailerId": "mybeauty-boutique",
         "url": "https://www.awin1.com/pclick.php?p=43157928773&a=3026001&m=106925"
-      }
-    }
-  },
-  {
-    "id": "avon-f1787100",
-    "brand": "Eve",
-    "name": "Confidence",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Blackcurrant"
-      ],
-      "middle": [
-        "Frangipani"
-      ],
-      "base": [],
-      "source": {
-        "retailerId": "avon",
-        "url": "https://avon.uk.com/products/eve-confidence-eau-de-parfum-50ml"
-      }
-    }
-  },
-  {
-    "id": "avon-f1568270",
-    "brand": "Eve",
-    "name": "One",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Passion Fruit"
-      ],
-      "middle": [
-        "Rose Pepper Fusion"
-      ],
-      "base": [
-        "Cedarwood"
-      ],
-      "source": {
-        "retailerId": "avon",
-        "url": "https://avon.uk.com/products/eve-one-eau-de-parfum-50ml"
-      }
-    }
-  },
-  {
-    "id": "avon-f1551048",
-    "brand": "Eve",
-    "name": "Privé Purse",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "red apple"
-      ],
-      "middle": [
-        "jasmine petals"
-      ],
-      "base": [
-        "cedarwood"
-      ],
-      "source": {
-        "retailerId": "avon",
-        "url": "https://avon.uk.com/products/new-eve-prive-eau-de-parfum-purse-spray-10ml"
-      }
-    }
-  },
-  {
-    "id": "avon-f1574021",
-    "brand": "Eve",
-    "name": "Truth",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "pomegranate"
-      ],
-      "middle": [
-        "peony"
-      ],
-      "base": [
-        "cedarwood"
-      ],
-      "source": {
-        "retailerId": "avon",
-        "url": "https://avon.uk.com/products/eve-truth-eau-de-parfum-50ml"
-      }
-    }
-  },
-  {
-    "id": "avon-f1393897",
-    "brand": "Eve",
-    "name": "Truth For Her",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "pomegranate"
-      ],
-      "middle": [
-        "peony"
-      ],
-      "base": [
-        "cedarwood"
-      ],
-      "source": {
-        "retailerId": "avon",
-        "url": "https://avon.uk.com/products/eve-truth-edp-for-her-100ml"
-      }
-    }
-  },
-  {
-    "id": "avon-f1574018",
-    "brand": "Eve",
-    "name": "Truth Purse",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "pomegranate"
-      ],
-      "middle": [
-        "peony"
-      ],
-      "base": [
-        "cedarwood"
-      ],
-      "source": {
-        "retailerId": "avon",
-        "url": "https://avon.uk.com/products/avon-eve-truth-purse-spray-10ml"
       }
     }
   },
@@ -167719,7 +167710,10 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "ean-3614274298017",
     "brand": "Giorgio Armani",
@@ -167730,10 +167724,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/180249_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3614274298024",
     "brand": "Giorgio Armani",
@@ -168080,10 +168071,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/115208_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3614273636568",
     "brand": "Giorgio Armani",
@@ -175440,7 +175428,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/189420_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "ean-3346130431497",
     "brand": "Hermès",
@@ -175451,10 +175442,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3346130431503",
     "brand": "Hermès",
@@ -175786,10 +175774,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/127767_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3346131431618",
     "brand": "Hermès",
@@ -182472,7 +182457,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/854.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsusdk2-00734",
     "brand": "Jimmy Choo",
@@ -182483,10 +182471,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3386460167338",
     "brand": "Jimmy Choo",
@@ -182774,10 +182759,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/618wDYXqCSL.jpg?v=1767983376",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "ean-690251026104",
     "brand": "Jo Malone",
@@ -190313,7 +190295,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1763483532-95956000.jpg?v=1772624982&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsusdk2-00813",
     "brand": "L'Artisan",
@@ -190324,10 +190309,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416710754441-45147083112585",
     "brand": "L'Artisan Parfumeur",
@@ -190580,10 +190562,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416707117193-45147078295689",
     "brand": "Lacoste",
@@ -199817,7 +199796,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/sutoor-perfume-100ml-edp-lattafa"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15560405614941-default-title",
     "brand": "Lattafa",
@@ -199850,10 +199832,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/taureau-de-combat-perfume-100ml-edp-lattafa-pride"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "fragrancehub-teriaq",
     "brand": "Lattafa",
@@ -200345,10 +200324,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "fragrancehub-lattafayara",
     "brand": "Lattafa",
@@ -209950,7 +209926,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/soiree-maison-asrar"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15784770470237-default-title",
     "brand": "Maison Asrar",
@@ -209982,10 +209961,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/throne-maison-asrar"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15832221122909-default-title",
     "brand": "Maison Asrar",
@@ -210393,10 +210369,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/MFK0004.png?v=1772099195&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-mfk0009",
     "brand": "Maison Francis Kurkdjian",
@@ -216666,7 +216639,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/140462_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "avon-f1445763",
     "brand": "Musk",
@@ -216691,10 +216667,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
         "url": "https://avon.uk.com/products/musk-air-eau-de-toilette-75ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "avon-f1583135",
     "brand": "Musk",
@@ -217259,10 +217232,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/monaco-royale-extrait-de-parfum-mykonos"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-16268878381405-50ml",
     "brand": "Mykonos",
@@ -223663,7 +223633,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15440076177757-default-title",
     "brand": "Paris Corner",
@@ -223693,10 +223666,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/eternal-coffee-paris-corner"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15440077193565-default-title",
     "brand": "Paris Corner",
@@ -224288,10 +224258,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/mehwish-paris-corner"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15695834939741-default-title",
     "brand": "Paris Corner",
@@ -232310,7 +232277,10 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/PAC0116_f5b330ad-baf9-4ae8-b0bf-2e3589f49842.png?v=1741178531&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsukdk2-39812",
     "brand": "Rabanne",
@@ -232321,10 +232291,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416747225225-45147129741449",
     "brand": "Rabanne",
@@ -232600,10 +232567,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416753287305-45147136229513",
     "brand": "Ralph Lauren",
@@ -242575,7 +242539,10 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/SAB0006_2453ce98-832b-4fc5-ae45-22be4833b1f0_x100.jpg?v=1728987853",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416763052169-45147147108489",
     "brand": "Sabrina Carpenter",
@@ -242586,10 +242553,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/619c4hWRKbL.jpg?v=1767985427",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
+  },
   {
     "id": "ean-0810023678663",
     "brand": "Sabrina Carpenter",
@@ -242831,10 +242795,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71SYuoOdE7L.jpg?v=1767985440",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416763543689-45147147600009",
     "brand": "Salle Privée",
@@ -249981,7 +249942,10 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1350.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338282807433-44927179423881",
     "brand": "Tom Ford",
@@ -249992,10 +249956,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/14226315-1935060015810619.webp?v=1763142014",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416781238409-45147169685641",
     "brand": "Tom Ford",
@@ -250300,10 +250261,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
         "url": "https://thebeautystore.com/products/tom-ford-noir-extreme-parfum-spray-100ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-ford0015",
     "brand": "Tom Ford",
@@ -257916,7 +257874,10 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41SzGE5mZQL.jpg?v=1763142432",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsusdk2-01334",
     "brand": "Versace",
@@ -257927,10 +257888,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-vers0036",
     "brand": "Versace",
@@ -258369,10 +258327,7 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsusdk2-01337",
     "brand": "Versace",
@@ -445520,6 +445475,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "avon-f1787100": [
+    {
+      "retailerId": "avon",
+      "price": 17,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://avon.uk.com/products/eve-confidence-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-26T04:49:22.137Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "avon-f1557028": [
     {
       "retailerId": "avon",
@@ -445910,6 +445880,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "avon-f1568270": [
+    {
+      "retailerId": "avon",
+      "price": 18,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://avon.uk.com/products/eve-one-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-26T04:49:22.137Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "avon-f1570699": [
     {
       "retailerId": "avon",
@@ -445933,6 +445918,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://avon.uk.com/products/pistachio-talk-eau-de-cologne-200ml",
+      "fetchedAt": "2026-08-26T04:49:22.137Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "avon-f1551048": [
+    {
+      "retailerId": "avon",
+      "price": 7,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://avon.uk.com/products/new-eve-prive-eau-de-parfum-purse-spray-10ml",
       "fetchedAt": "2026-08-26T04:49:22.137Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
@@ -446008,6 +446008,51 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://avon.uk.com/products/full-speed-surfer-eau-de-toilette-75ml",
+      "fetchedAt": "2026-08-26T04:49:22.137Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "avon-f1574021": [
+    {
+      "retailerId": "avon",
+      "price": 13,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://avon.uk.com/products/eve-truth-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-26T04:49:22.137Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "avon-f1393897": [
+    {
+      "retailerId": "avon",
+      "price": 28,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://avon.uk.com/products/eve-truth-edp-for-her-100ml",
+      "fetchedAt": "2026-08-26T04:49:22.137Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "avon-f1574018": [
+    {
+      "retailerId": "avon",
+      "price": 7,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://avon.uk.com/products/avon-eve-truth-purse-spray-10ml",
       "fetchedAt": "2026-08-26T04:49:22.137Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
@@ -479240,96 +479285,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10042935.jpg?v=1763137833",
-      "rating": null
-    }
-  ],
-  "avon-f1787100": [
-    {
-      "retailerId": "avon",
-      "price": 17,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://avon.uk.com/products/eve-confidence-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-26T04:49:22.137Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "avon-f1568270": [
-    {
-      "retailerId": "avon",
-      "price": 18,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://avon.uk.com/products/eve-one-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-26T04:49:22.137Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "avon-f1551048": [
-    {
-      "retailerId": "avon",
-      "price": 7,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://avon.uk.com/products/new-eve-prive-eau-de-parfum-purse-spray-10ml",
-      "fetchedAt": "2026-08-26T04:49:22.137Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "avon-f1574021": [
-    {
-      "retailerId": "avon",
-      "price": 13,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://avon.uk.com/products/eve-truth-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-26T04:49:22.137Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "avon-f1393897": [
-    {
-      "retailerId": "avon",
-      "price": 28,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://avon.uk.com/products/eve-truth-edp-for-her-100ml",
-      "fetchedAt": "2026-08-26T04:49:22.137Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "avon-f1574018": [
-    {
-      "retailerId": "avon",
-      "price": 7,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://avon.uk.com/products/avon-eve-truth-purse-spray-10ml",
-      "fetchedAt": "2026-08-26T04:49:22.137Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
       "rating": null
     }
   ],
