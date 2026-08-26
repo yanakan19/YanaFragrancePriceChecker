@@ -46,6 +46,22 @@
  * counts. Before this rule, a listing status could say "still on the shelf"
  * while `inStock: false` said "you cannot buy it", and the chart plotted the
  * price anyway.
+ *
+ * ── Explicit gap markers ─────────────────────────────────────────────────
+ * A commit where every listing for a fragrance is excluded (out of stock
+ * everywhere, or delisted everywhere) produces no cheapest price at all that
+ * commit. Left silent, that is invisible to the series: if the fragrance
+ * returns later at an *unchanged* price, the "collapse a run of identical
+ * observations" rule below never fires a new point either, and
+ * src/services/priceHistoryDaily.ts's carry forward would bridge straight
+ * across the gap as though the price held steady the whole time — which is
+ * not what happened; it was not buyable for part of that stretch.
+ * `{ priceGbp: null, retailerId: null }` is written into the series at
+ * exactly the commit this happens, and nowhere else, so the frontend can
+ * tell "a fresh reading of an unchanged price" apart from "we never stopped
+ * watching, but nothing was buyable here" and reset its carry forward
+ * accordingly. It is never plotted as a price — see priceHistoryDaily.ts's
+ * own header for the frontend half of this.
  */
 import { execFileSync } from 'node:child_process';
 import { writeFileSync } from 'node:fs';
@@ -105,10 +121,17 @@ function readFileAt(sha: string, path: string): Snapshot | null {
   }
 }
 
+/**
+ * One entry in the shipped, collapsed series. `priceGbp: null` is the
+ * explicit gap marker described in this file's own header — never a real
+ * price, only ever written where one used to be buyable and stopped being
+ * so this commit. A real price point never has a null field; the two are
+ * never ambiguous to a reader of the data.
+ */
 export interface PricePoint {
   at: string;
-  priceGbp: number;
-  retailerId: string;
+  priceGbp: number | null;
+  retailerId: string | null;
 }
 
 const commits = commitsTouchingCatalogue();
@@ -190,24 +213,23 @@ for (const [i, { sha, at }] of commits.entries()) {
       history.set(id, series);
     }
   }
-  // A commit where cheapestThisCommit has no entry at all for an id — every
-  // one of its listings excluded, not just outsold — leaves that gap
-  // completely invisible here: no "unavailable" marker is ever written, only
-  // price points. If it comes back at the *same* price, no new point fires
-  // either, and demo/app.ts's carry-forward then bridges straight across the
-  // gap as though the price held steady throughout. This was already true of
-  // a fragrance every retailer delisted at once, before this file checked
-  // stock at all; requiring `inStock !== false` too (isAvailableListing) only
-  // adds "every retailer went out of stock at once" as a second, rarer way to
-  // trigger the same pre-existing gap. It is bounded at the end of the series
-  // by isCurrentlyPurchasable in demo/app.ts's dailyHistory, which is computed
-  // from live stock and stops the carry-forward — and shows "Not available"
-  // instead — the moment nothing is buyable today, so a fragrance that stays
-  // out of stock never ends on an invented flat line. A mid-series gap that
-  // later recovers at an unchanged price is the one shape this file still
-  // cannot make visible; fixing that needs the point representation itself to
-  // carry an explicit "unavailable" state, which is a larger change than this
-  // stock check on its own.
+  // The mid-series gap fix: a fragrance that has a price on record
+  // (`history.has(id)`) but no entry in `cheapestThisCommit` this round went
+  // unavailable everywhere — out of stock, delisted, or both — this commit.
+  // Write one explicit gap marker at the transition, exactly like the price
+  // collapsing above only keeps one point per unbroken run: if the last
+  // thing on record for this id is already a gap marker, nothing changed and
+  // no second marker is written; only the moment it *stops* being priced
+  // gets one. See this file's own header and
+  // src/services/priceHistoryDaily.ts for why this exists and how the
+  // frontend uses it.
+  for (const [id, series] of history) {
+    if (cheapestThisCommit.has(id)) continue;
+    const last = series.at(-1);
+    if (last && last.priceGbp !== null) {
+      series.push({ at, priceGbp: null, retailerId: null });
+    }
+  }
 
   if ((i + 1) % 10 === 0 || i === commits.length - 1) {
     console.log(`  ${i + 1}/${commits.length} commits replayed, ${history.size} fragrances with history so far`);
@@ -216,15 +238,19 @@ for (const [i, { sha, at }] of commits.entries()) {
 
 console.log(`\n${history.size} fragrances have at least one recorded price`);
 
-// A single point draws no line — demo/app.ts's priceHistoryChart already
-// refuses to render below two, so shipping the rest would only bloat the
-// bundle with data nothing ever reads. Filtered here rather than left for
+// A single *real* point draws no line — demo/app.ts's chart already refuses
+// to render below two — so shipping the rest of a sub-two series would only
+// bloat the bundle with data nothing ever reads. Counted by real price
+// points, not by series.length: a series can now also hold gap markers
+// (see this file's own header), and a single price followed by a gap marker
+// is still just one reading, not a line. Filtered here rather than left for
 // the frontend to skip, so the shipped file's own size reflects real
 // chartable coverage.
+const realPointCount = (series: PricePoint[]): number => series.filter((p) => p.priceGbp !== null).length;
 const sortedEntries = [...history.entries()]
-  .filter(([, series]) => series.length >= 2)
+  .filter(([, series]) => realPointCount(series) >= 2)
   .sort(([a], [b]) => a.localeCompare(b));
-console.log(`${sortedEntries.length} of those have 2+ points (an actual line) and are included below`);
+console.log(`${sortedEntries.length} of those have 2+ real points (an actual line) and are included below`);
 
 const body = `/**
  * Auto-generated by scripts/build-price-history.ts. Do not edit by hand.
@@ -233,13 +259,14 @@ const body = `/**
  * ${commits.at(-1)?.at.slice(0, 10)}. Every point is a price a reader could actually have
  * paid at that time — still listed and not confirmed out of stock — see the
  * script's own header for the full rules that keep fixture-era, non-fragrance
- * and unbuyable data out of this file.
+ * and unbuyable data out of this file, and for what a null priceGbp/retailerId
+ * pair means (never a price; always an explicit "not buyable here" marker).
  */
 
 export interface PriceHistoryPoint {
   at: string;
-  priceGbp: number;
-  retailerId: string;
+  priceGbp: number | null;
+  retailerId: string | null;
 }
 
 export const PRICE_HISTORY: Record<string, PriceHistoryPoint[]> = ${JSON.stringify(Object.fromEntries(sortedEntries))};

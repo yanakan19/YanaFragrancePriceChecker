@@ -64,6 +64,7 @@ import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
 import { priceHistoryFor, PRICE_HISTORY } from './priceHistory.generated.js';
+import { dayKey, dailyHistory, type DailyHistoryPoint } from '../src/services/priceHistoryDaily.js';
 import { officialSiteFor } from './brandSites.js';
 import { fragranceLinksFor } from './fragranceLinks.js';
 import { matchRoute, routeToPath, slugify, basePath, type Route, type RouteName } from './router.js';
@@ -1561,108 +1562,18 @@ function shortDate(iso: string): string {
 /**
  * The historical cheapest-price line for one fragrance, reconstructed from
  * real harvest commits — see scripts/build-price-history.ts for how. Omitted
- * entirely below two points: a single dot has no trend to show, and showing
- * one anyway would read as a chart implying history that is not there. Most
- * fragrances are below that bar today (coverage is young), which is the
- * honest state to show rather than papering over with a flat invented line.
+ * entirely below two real points: a single dot has no trend to show, and
+ * showing one anyway would read as a chart implying history that is not
+ * there. Most fragrances are below that bar today (coverage is young), which
+ * is the honest state to show rather than papering over with a flat invented
+ * line.
+ *
+ * dayKey, DailyHistoryPoint and dailyHistory itself live in
+ * src/services/priceHistoryDaily.ts, not here: that is the one piece of this
+ * chart with real decision logic in it (the carry forward rule, and the gap
+ * that used to be able to break it), and living in src/ makes it a plain,
+ * testable function rather than a private closure in this file.
  */
-/** YYYY-MM-DD in UTC, used only to bucket points onto calendar days. */
-function dayKey(iso: string): string {
-  return iso.slice(0, 10);
-}
-
-interface DailyHistoryPoint {
-  dateKey: string;
-  /**
-   * null on a day this fragrance had no price at all — every day before the
-   * site first saw it, and every day after it stopped being purchasable.
-   * Deliberately null rather than 0: it is plotted down on the baseline, but
-   * it must never be *labelled* £0.00, because nobody ever offered it for
-   * nothing. "No price recorded" is the true statement; zero would be an
-   * invented number, which is the one thing this codebase does not do.
-   */
-  priceGbp: number | null;
-  retailerId: string | null;
-  /** The real harvest timestamp this price actually came from. */
-  recordedAt: string | null;
-  /** True on a day nothing was re-harvested — the price carried forward
-   *  unchanged from recordedAt rather than a fresh reading taken that day. */
-  isCarried: boolean;
-}
-
-/**
- * One point per calendar day across the site's whole recorded span, never one
- * per harvest event, and never a ragged axis that starts wherever this
- * particular fragrance happens to have been first seen.
- *
- * The raw history can carry several points on a single busy day and none at
- * all on a quiet one — real, but noisy and gappy to plot directly. A day
- * with a real harvest takes its cheapest recorded price that day; a day with
- * none carries the last real price forward flat, which is not an invented
- * number — the price did not change, so restating it is accurate, the same
- * way a stock chart draws flat across a weekend rather than leaving a hole.
- * `isCarried` keeps that distinction visible in the tooltip rather than
- * pretending every dot was a fresh reading.
- *
- * Two kinds of day get no price rather than a carried one, and both are real
- * absences rather than gaps in the crawl:
- *
- *   - **Before the first sighting.** A fragrance added on the 9th did not
- *     have a secret price on the 3rd; it was not on the site. Carrying
- *     backwards would invent one.
- *   - **After the last sighting, when it is no longer purchasable.** Carrying
- *     a price forward for something now sold out everywhere would assert a
- *     live price that no shop is offering. Carrying forward is only honest
- *     while the thing is still buyable, which is what `stillPurchasable`
- *     decides.
- */
-function dailyHistory(
-  points: readonly { at: string; priceGbp: number; retailerId: string }[],
-  fromDayKey: string,
-  toDayKey: string,
-  stillPurchasable: boolean,
-): DailyHistoryPoint[] {
-  const byDay = new Map<string, { at: string; priceGbp: number; retailerId: string }>();
-  for (const p of points) {
-    const key = dayKey(p.at);
-    const cheapest = byDay.get(key);
-    if (!cheapest || p.priceGbp < cheapest.priceGbp) byDay.set(key, p);
-  }
-
-  const lastRealDay = [...byDay.keys()].sort().at(-1) ?? null;
-
-  const firstDay = new Date(`${fromDayKey}T00:00:00Z`);
-  const lastDay = new Date(`${toDayKey}T00:00:00Z`);
-  const totalDays = Math.round((lastDay.getTime() - firstDay.getTime()) / 86_400_000) + 1;
-
-  const blank = (key: string): DailyHistoryPoint => ({
-    dateKey: key,
-    priceGbp: null,
-    retailerId: null,
-    recordedAt: null,
-    isCarried: false,
-  });
-
-  const daily: DailyHistoryPoint[] = [];
-  let carrying: { priceGbp: number; retailerId: string; recordedAt: string } | null = null;
-  for (let i = 0; i < totalDays; i++) {
-    const d = new Date(firstDay.getTime() + i * 86_400_000);
-    const key = dayKey(d.toISOString());
-    const real = byDay.get(key);
-    if (real) {
-      carrying = { priceGbp: real.priceGbp, retailerId: real.retailerId, recordedAt: real.at };
-      daily.push({ dateKey: key, priceGbp: real.priceGbp, retailerId: real.retailerId, recordedAt: real.at, isCarried: false });
-      continue;
-    }
-    const isAfterLastReading = lastRealDay !== null && key > lastRealDay;
-    if (carrying && !(isAfterLastReading && !stillPurchasable)) {
-      daily.push({ dateKey: key, priceGbp: carrying.priceGbp, retailerId: carrying.retailerId, recordedAt: carrying.recordedAt, isCarried: true });
-    } else {
-      daily.push(blank(key));
-    }
-  }
-  return daily;
-}
 
 /**
  * The first and last calendar day any price was recorded for anything — the
@@ -1679,6 +1590,10 @@ const HISTORY_SPAN: { first: string; last: string } | null = (() => {
   let last: string | null = null;
   for (const series of Object.values(PRICE_HISTORY)) {
     for (const p of series) {
+      // Gap markers (priceGbp: null) carry a real timestamp too, but they
+      // never widen the axis on their own — they only ever fall between two
+      // real readings that already bound the same span.
+      if (p.priceGbp === null) continue;
       const key = dayKey(p.at);
       if (first === null || key < first) first = key;
       if (last === null || key > last) last = key;
@@ -1688,13 +1603,6 @@ const HISTORY_SPAN: { first: string; last: string } | null = (() => {
 })();
 
 /**
- * The historical cheapest-price line for one fragrance, reconstructed from
- * real harvest commits — see scripts/build-price-history.ts for how. Omitted
- * entirely below two points: a single dot has no trend to show, and showing
- * one anyway would read as a chart implying history that is not there. Most
- * fragrances are below that bar today (coverage is young), which is the
- * honest state to show rather than papering over with a flat invented line.
- *
  * ── Why the dots are not SVG circles ──────────────────────────────────────
  * The chart's own svg stretches non-uniformly to fill whatever width its
  * column happens to be (`preserveAspectRatio="none"`, needed so the line
@@ -1727,14 +1635,17 @@ function shiftDayKey(key: string, days: number): string {
 
 function priceHistoryChart(f: DemoFragrance, isCurrentlyPurchasable: boolean): string {
   const raw = priceHistoryFor(f.id);
-  if (raw.length < 2 || HISTORY_SPAN === null) return '';
+  // Gap markers (priceGbp: null — see scripts/build-price-history.ts) never
+  // count towards the two-point bar on their own; only real prices do.
+  const realPoints = raw.filter((p) => p.priceGbp !== null);
+  if (realPoints.length < 2 || HISTORY_SPAN === null) return '';
 
   // Where this fragrance's own record starts, rather than where the site's
   // does. Previously every chart was drawn across the whole site history, so
   // a fragrance first seen last week opened with a fortnight of empty floor
   // before its line began — space that said nothing except that other
   // fragrances are older.
-  const ownFirstDay = raw.map((p) => dayKey(p.at)).sort()[0] ?? HISTORY_SPAN.first;
+  const ownFirstDay = realPoints.map((p) => dayKey(p.at)).sort()[0] ?? HISTORY_SPAN.first;
 
   // Every scope ends on the site's most recent day, not this fragrance's, so
   // the right-hand edge is always today's price for anything still on sale —
