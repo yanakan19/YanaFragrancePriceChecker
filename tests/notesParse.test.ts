@@ -115,14 +115,45 @@ describe('parseNotes', () => {
     });
   });
 
-  it('still drops a four-word note, which is a limit this change does not lift', () => {
-    // Recorded rather than fixed. "Lily of the Valley" is four words and the
-    // shape rule allows three, so Al Haramain's Shefon listing publishes it
-    // and this parser does not read it. Widening the rule lets prose
-    // fragments of the same length through ("hint of the licorice"), which is
-    // a worse trade than a missing note, so it stays until someone has a
-    // better idea than a word count.
-    expect(parseNotes('Top notes: Lily of the Valley, Rose.')?.top).toEqual(['Rose']);
+  it('reads "Lily of the Valley" via the MULTIWORD_NOTES allowlist', () => {
+    // Four words, and used to be dropped outright by the three-word ceiling —
+    // Al Haramain's Shefon listing publishes exactly this and this parser
+    // used to throw it away. Fixed by naming the phrase in MULTIWORD_NOTES
+    // rather than raising the word cap itself: raising the cap to 4 outright
+    // was tried first and measured against every description in
+    // data/catalogue, and it let sentence fragments of the same length back
+    // in ("Alien is a warm", "makes it feel") — see MULTIWORD_NOTES' own
+    // comment for what that attempt broke.
+    expect(parseNotes('Top notes: Lily of the Valley, Rose.')?.top).toEqual([
+      'Lily of the Valley',
+      'Rose',
+    ]);
+  });
+
+  it('still drops an unlisted four-word phrase, the trade-off the allowlist accepts', () => {
+    // The three-word cap still applies to everything not named in
+    // MULTIWORD_NOTES — a genuine but rarer note like "Queen of the Night
+    // Flower" is dropped exactly like a same-length sentence fragment
+    // ("a hint of the licorice") would be, until it is checked against a real
+    // labelled listing and added by name.
+    expect(parseNotes('Top notes: Queen of the Night Flower, Rose.')?.top).toEqual(['Rose']);
+  });
+
+  it('reads the other two names in MULTIWORD_NOTES, past the character cap too', () => {
+    // "Rose de Mai Absolute" (escentual, Giorgio Armani Si) and "Mountain Oak
+    // Moss Accord" (escentual, a Jo Malone listing) are both real notes found
+    // inside a plain colon-headed list, not prose — see MULTIWORD_NOTES'
+    // comment for the exact listings. "Mountain Oak Moss Accord" is also 25
+    // characters, one past the 24-character cap, so the allowlist has to
+    // clear that too, not just the word count.
+    const description =
+      'Heart Notes: Rose de Mai Absolute, Freesia. ' +
+      'Base Notes: Haitian Vetiver, Mountain Oak Moss Accord, Sandalwood.';
+    expect(parseNotes(description)).toEqual({
+      top: [],
+      middle: ['Rose de Mai Absolute', 'Freesia'],
+      base: ['Haitian Vetiver', 'Mountain Oak Moss Accord', 'Sandalwood'],
+    });
   });
 
   it('reads "Bottom notes" as the base, which is what Avon calls it', () => {

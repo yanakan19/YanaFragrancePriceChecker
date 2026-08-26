@@ -192,6 +192,44 @@ export function parseNotes(descriptionRaw: string | null | undefined): ParsedNot
   ]);
 
   /**
+   * Real note names that run past the three-word, 24-character shape below —
+   * checked one at a time against the live catalogue and let through by name,
+   * not by loosening the shape rule itself.
+   *
+   * That rule exists to stop whole sentences being ingested as a "note", and
+   * it earns its keep: widening it to four words so "Lily of the Valley"
+   * (Al Haramain's Shefon listing, the case this set was created for) would
+   * pass on its own shape was tried first and measured against every
+   * description in `data/catalogue`. It let the real name through, but it
+   * also let through the next-shortest sentence fragments the three-word cap
+   * had been quietly stopping — "makes it feel", "Alien is a warm", "sunny"
+   * split off a longer clause — and, worse, a couple of those newly-admitted
+   * fragments were themselves note-shaped enough to satisfy a labelled
+   * section on their own, which stopped the "walk past an earlier mention"
+   * search above before it ever reached the real list further down the same
+   * description (see that function's own comment). A shape rule cannot tell
+   * "Lily of the Valley" apart from "a hint of the licorice" — both are four
+   * words, no punctuation, no PROSE verb — so the fix is the same
+   * closed, hand-checked list as NOTE_ALIASES and NOT_A_NOTE above: name the
+   * exact phrases known to be real notes, rather than opening the shape rule
+   * to every four-word phrase and hoping the rest of this file catches the
+   * fallout.
+   *
+   * Grown only when a real product's labelled notes contain one of these
+   * verbatim — checked here against a colon-headed list, not prose that
+   * merely mentions the name:
+   *   - "Lily of the Valley": Al Haramain's Shefon listing ("Middle note:
+   *     -Lily of the Valley, Rose, Rosewood, Jasmine, Orris"), and 300+
+   *     other listings across the catalogue in the same shape.
+   *   - "Rose de Mai Absolute": escentual, Giorgio Armani Si Eau de Parfum
+   *     ("Heart Notes: Rose de Mai Absolute, Freesia").
+   *   - "Mountain Oak Moss Accord": escentual, Jo Malone Wood Sage & Sea
+   *     Salt-family listings ("Base Notes: ... Haitian Vetiver, Mountain Oak
+   *     Moss Accord, Sandalwood, Tonka Bean, Vanilla").
+   */
+  const MULTIWORD_NOTES = new Set(['lily of the valley', 'rose de mai absolute', 'mountain oak moss accord']);
+
+  /**
    * Everything a note must be except capitalised.
    *
    * Split out from `looksLikeNote` because the capitalisation rule turns out
@@ -199,8 +237,8 @@ export function parseNotes(descriptionRaw: string | null | undefined): ParsedNot
    */
   const looksLikeNoteIgnoringCase = (s: string): boolean =>
     s.length > 1 &&
-    s.length <= 24 &&
-    s.split(/\s+/).length <= 3 &&
+    (s.length <= 24 || MULTIWORD_NOTES.has(s.toLowerCase())) &&
+    (s.split(/\s+/).length <= 3 || MULTIWORD_NOTES.has(s.toLowerCase())) &&
     !/[.:;!?()]/.test(s) &&
     !/\bnotes?\b/i.test(s) &&
     !NOT_A_NOTE.has(s.toLowerCase()) &&
