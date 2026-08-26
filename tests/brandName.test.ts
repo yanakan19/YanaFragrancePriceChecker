@@ -320,4 +320,32 @@ describe('buildBrandCanon', () => {
     expect(canon.get('Designer Collection')).toBe('Designer Collection');
     expect(canon.get('Scent Favourites')).toBe('Scent Favourites');
   });
+
+  // Found 2026-08-26 checking demo/brandSites.ts's worklist for mis-splits —
+  // data/catalogue/avon.json uses "Eve" as the rawBrand for its own Confidence/
+  // One/Privé Purse/Truth line, the same shape as the Avon-lines fold above.
+  it('folds "Eve" into "Avon Cosmetics" — another avon.uk.com line, not a coincidental one-word brand', () => {
+    const canon = buildBrandCanon(['Avon Cosmetics', 'Eve']);
+    expect(canon.get('Eve')).toBe('Avon Cosmetics');
+    expect(canon.get('Avon Cosmetics')).toBe('Avon Cosmetics');
+  });
+
+  // "BOTTEGA VENETA BEAUTY" is Bottega Veneta's own current fragrance-division
+  // name, not a second house — see the KNOWN_ALIASES comment for the
+  // Selfridges rawBrand/URL evidence tying it to the same manufacturer as the
+  // existing "Bottega Veneta" (Illusione) products.
+  it('folds "Bottega Veneta Beauty" into "Bottega Veneta"', () => {
+    const canon = buildBrandCanon(['Bottega Veneta', 'Bottega Veneta Beauty']);
+    expect(canon.get('Bottega Veneta Beauty')).toBe('Bottega Veneta');
+    expect(canon.get('Bottega Veneta')).toBe('Bottega Veneta');
+  });
+
+  // "CRM" spans five unrelated, already-real houses (Armani, Azzaro, Juliette
+  // Has A Gun, Tiffany, YSL) in the-beauty-store-uk's own raw data — a feed
+  // field, not a house, the same "Unbranded" shape and just as unfoldable:
+  // there is no single house to fold it into.
+  it('leaves "CRM" apart — a feed field spanning several unrelated real houses, not a house itself', () => {
+    const canon = buildBrandCanon(['Giorgio Armani', 'CRM']);
+    expect(canon.get('CRM')).toBe('CRM');
+  });
 });

@@ -10,6 +10,32 @@ import { marketOf } from '../src/catalogue/brandSiteCheck.js';
  * this registry runs on (see the `blurb` field on Retailer for the same
  * discipline applied to retailers).
  *
+ * ── Re-measured 2026-08-26 (third pass this day), after a mis-split sweep
+ * of the raw retailer data and a website-lookup pass on the real houses it
+ * left standing — both described in full where they happened
+ * (src/catalogue/brandName.ts's own KNOWN_ALIASES comment for the three
+ * mis-splits; this file's own "2026-08-26 pass, third this day" section
+ * near the end of BRAND_SITES for the eighteen new website entries and the
+ * ten researched-and-left-unresolved houses).
+ *
+ * The mis-splits: 'Eve' (6 products) and 'Bottega Veneta Beauty' (1 product)
+ * were both, on inspection of their own raw retailer data, the same house as
+ * an entry already sitting elsewhere in the canon — another avon.uk.com line
+ * and Bottega Veneta's own 2023 fragrance-relaunch division name
+ * respectively — and are folded into 'Avon Cosmetics' and 'Bottega Veneta'
+ * accordingly. 'CRM' (5 products) turned out not to be a house at all: a
+ * the-beauty-store-uk.com feed field carrying five different real houses'
+ * fragrances (Armani, Azzaro, Juliette Has A Gun, Tiffany, YSL) under one
+ * rawBrand, the same shape as "Unbranded" and just as unfoldable.
+ *
+ * Re-running the measurement: 14,814 products, 678 houses (was 680 before
+ * this pass — the two folds above merge two houses away; no fold added a
+ * new one), 366 resolving here (was 348) — 54.0%, up from 51.2%. 312 houses
+ * remain unresolved (was 332). 13,732 of the 14,618 products under a named
+ * house, 93.9%, now show a website line. The ceiling on further work keeps
+ * shrinking: the 30 largest unresolved houses are 2.3% of all products
+ * between them, the top 50 reach 3.0%, the top 100 reach 4.1%.
+ *
  * ── Re-measured 2026-08-26 (second pass this day), after a real bug fix and
  * a worklist confirmation sweep, both described in full where they happened
  * (src/catalogue/brandName.ts's own KNOWN_ALIASES comment for the fix; this
@@ -1417,6 +1443,190 @@ export const BRAND_SITES: Record<string, string> = {
   // None of the three is folded into another house or treated as "not a
   // brand" — each is confirmed real and confirmed distinct, just without a
   // confident single address to send a reader to.
+
+  // ══ 2026-08-26 pass, third this day ═════════════════════════════════════
+  //
+  // Re-measured the worklist from scratch with buildBrandCanon() before
+  // touching a single URL (per this file's own header method) rather than
+  // trusting the previous pass's numbers, then split the work the way the
+  // task that started this pass asked for: mis-splits in the raw retailer
+  // data first, website lookups for real houses second. Same WebSearch-only
+  // caveat as every pass since 2026-08-19 — the egress proxy still refuses
+  // brand domains outright, so a URL below is used only when a search
+  // result's own link list carried that domain under a title identifying it
+  // as the brand's own page, never from a search summary's prose alone.
+  //
+  // ── Mis-splits found in the raw data (fixed in src/catalogue/brandName.ts,
+  // not here) ───────────────────────────────────────────────────────────────
+  // 'Eve' (6 products) folds into the already-resolved 'Avon Cosmetics' —
+  // another avon.uk.com line, same shape as the eight lines the previous
+  // 2026-08-26 pass already found. 'Bottega Veneta Beauty' (1 product) folds
+  // into the already-present 'Bottega Veneta' (2 products, Illusione) — the
+  // same manufacturer's 2023 fragrance relaunch under its current division
+  // name, confirmed against Selfridges' own rawBrand/URL. 'CRM' (5 products:
+  // Armani, Azzaro, Juliette Has A Gun, Tiffany and YSL fragrances all under
+  // one rawBrand) is a the-beauty-store-uk.com feed field, not a house —
+  // see src/catalogue/brandName.ts's own KNOWN_ALIASES comment for the full
+  // evidence behind all three, and demo's own "not a brand" section below
+  // for CRM specifically.
+  //
+  // ── Newly resolved houses ───────────────────────────────────────────────
+  //
+  // "Victorinox Swiss Army" (16 products) — victorinox.com is the knife
+  // maker's own site, confirmed directly in search's own link list under
+  // "Victorinox Fragrances | Victorinox United Kingdom" at a UK-marked path.
+  'victorinox swiss army': 'https://www.victorinox.com/en-GB/Products/Fragrances/c/FRA_AllProducts/',
+  // "Pierre Cardin" (3 products) — pierrecardin.com carries its own
+  // /en/collections/parfums-1 page, titled "PARFUMS - pierre cardin"
+  // directly in search's own link list.
+  'pierre cardin': 'https://pierrecardin.com/en/collections/parfums-1',
+  // "Etro" (2 products) — etro.com/gb-en/ returned directly, titled "ETRO
+  // Official Website", at a path this file's own marketOf reads as UK (the
+  // gb-en region-first ordering, the same shape tous.com already uses
+  // elsewhere in this file).
+  etro: 'https://www.etro.com/gb-en/',
+  // "Mauboussin" (3 products) — mauboussinparfums.com returned directly,
+  // titled "Mauboussin Parfums I Site officiel". No UK-marked path found, so
+  // this labels Non-UK, a French .com with no market marker.
+  mauboussin: 'https://mauboussinparfums.com/',
+  // "Shiseido" (3 products) — shiseido.co.uk returned directly, titled
+  // "Japanese Skincare & Makeup | SHISEIDO UK", a .co.uk domain.
+  shiseido: 'https://www.shiseido.co.uk/gb/en/',
+  // "MCM" (5 products) — uk.mcmworldwide.com returned directly, titled
+  // "MCM® UK Official Online Store United Kingdom".
+  mcm: 'https://uk.mcmworldwide.com/en_GB/home',
+  // "Rituals" (3 products) — rituals.com/en-gb/home returned directly,
+  // titled "Home & Body Cosmetics | Official Webshop | RITUALS".
+  rituals: 'https://www.rituals.com/en-gb/home',
+  // "Stetson" (6 products) — stetson.com/collections/fragrance returned
+  // directly and repeatedly, an American classic-cologne house with no
+  // UK-marked page found, so this labels Non-UK.
+  stetson: 'https://stetson.com/collections/fragrance',
+  // "Proenza Schouler" (2 products) — proenzaschouler.com returned directly
+  // and repeatedly under titles naming it "Official Site" (fragrance
+  // licensed to L'Oréal since 2015). No UK-marked path confirmed — ships
+  // internationally per its own /pages/international-orders page, but that
+  // is not the same as a UK-marked storefront — so the domain root is used
+  // and this labels Non-UK.
+  'proenza schouler': 'https://www.proenzaschouler.com/',
+  // "Initio Parfums Privés" (5 products) — initioparfums.com returned
+  // directly, titled "Initio Parfums Privés | Site officiel". A separate
+  // us.initioparfums.com exists for the US market; the plain domain is this
+  // French niche house's own primary site.
+  'initio parfums priv s': 'https://initioparfums.com/',
+  // "Woods of Windsor" (3 products) — woodsofwindsor.co.uk returned
+  // directly, an English bath-and-fragrance house since 1770, .co.uk domain.
+  'woods of windsor': 'https://www.woodsofwindsor.co.uk/',
+  // "Paul Sebastian" (6 products) — thepaulsebastian.com returned directly,
+  // titled "Paul Sebastian® Colognes & Perfumes Website".
+  'paul sebastian': 'https://thepaulsebastian.com/',
+  // "Ferrari" (3 products) — ferrarifragrances.com returned directly. The
+  // car maker's fragrance line has been licensed to a manufacturer (Perfume
+  // Holding, which also holds La Perla, Iceberg and Ducati) since 1999; this
+  // is that licensee's own dedicated Ferrari-branded site, the same
+  // manufacturer-runs-the-brand-site shape as the existing 'jovan' and
+  // 'adidas' entries.
+  ferrari: 'https://www.ferrarifragrances.com/',
+  // "Santa Maria Novella" (1 product) — the Florentine apothecary since
+  // 1221; eu.smnovella.com returned directly (its own /pages/about-us page
+  // among the results). smn.it, also returned, is the unrelated Basilica's
+  // own site, not the perfumery's — not used here. No UK-specific path
+  // found under smnovella.com, only the "eu" region, so this labels Non-UK.
+  'santa maria novella': 'https://eu.smnovella.com/',
+  // "Le Chameau" (5 products: Clio Ambre Dark Leather, Espada Malaki, Genesis
+  // Thurath and the rest) is NOT the French bootmaker of the same name — it
+  // is a UAE oud house trading under "Le Chameau" through the House of
+  // Emper, confirmed by the product names matching Fragrantica's own
+  // Le Chameau designer page (Arabia the Beauty, Parisian in Love) and by
+  // lechameauperfumes.co.uk returning directly as "Their official UK
+  // website", a .co.uk domain.
+  'le chameau': 'https://lechameauperfumes.co.uk/',
+  // "Bespoke" (5 products: London Amber Spice & Vanilla, London Aquatic
+  // Herbs & Driftwood and three more) is beautybase.com's rawBrand for a
+  // house whose own rawTitles all open "Bespoke London ..." — the retailer
+  // split the trading name across the brand and name fields, the same shape
+  // as "Le Couvent" above. bespokelondonfragrance.com returned directly,
+  // titled "Bespoke London Fragrances" (a range sold exclusively through
+  // Superdrug). Not renamed to "Bespoke London" in src/catalogue/
+  // brandName.ts: that fuller spelling never appears as a rawBrand anywhere
+  // in the data, only inside these five rawTitles, so promoting it to canon
+  // would be inventing a spelling nobody's feed actually published — this
+  // file's own key is enough to give the existing "Bespoke" canon its site.
+  bespoke: 'https://bespokelondonfragrance.com/',
+  // "Creative Colours" (9 products, all beautybase.json) — its own rawTitles
+  // are self-consistent ("Creative Colours Legend", "Creative Colours
+  // Inferno Pour Homme" and so on, a few dropping the prefix the way "Bespoke
+  // London" sometimes does), confirming a real trading name rather than a
+  // retailer's private label. creativecoloursint.com returned directly:
+  // Creative Colours International, "designs and manufactures a complete
+  // range of Fragrance, Cosmetic and Bath Gift Sets for High Street
+  // Retailers", 40+ years in the trade — the manufacturer, not a reseller.
+  // Returned as a plain http:// link, used as found rather than upgraded to
+  // https:// unverified.
+  'creative colours': 'http://www.creativecoloursint.com/',
+  // "BALMAIN BEAUTY" (2 products) has no plain "Balmain" spelling anywhere in
+  // this catalogue to fold into, so this is a website lookup only, not a
+  // mis-split fix — balmainbeauty.com returned directly, titled "Official
+  // Site | Balmain Beauty". A separate balmainbeauty.eu exists for European
+  // (EUR-priced) customers; balmainbeauty.com is used as the brand's primary
+  // site, the same "note the regional alternative, keep the primary" choice
+  // this file already made for 'valentino'.
+  'balmain beauty': 'https://www.balmainbeauty.com/',
+
+  // ── Checked and left unresolved this pass, each for its own reason ───────
+  //
+  //  - "Bottega Veneta" (now 3 products after the 'Bottega Veneta Beauty'
+  //    fold above): bottegaveneta.com was asserted by nearly every search
+  //    summary, but never once appeared inside a result's own link list
+  //    across four separate searches — Wikipedia's infobox, a Facebook page,
+  //    an ahrefs competitor-analysis page and shopping listings were the
+  //    only actual links returned. That is the exact trap this file's own
+  //    2026-08-25 note already named for Halston and Kenneth Cole: a
+  //    plausible domain repeated in prose is not a domain confirmed by the
+  //    search's own results, so no entry is made.
+  //  - "Balenciaga Beauty" (2 products): reporting confirms Balenciaga sells
+  //    a fine-fragrance collection through its own boutiques and "its own
+  //    e-commerce site" (WWD, Business of Fashion), but no balenciaga.com
+  //    beauty/fragrance URL, and no separate balenciagabeauty.com, appeared
+  //    in any result's own link list — the same gap as Bottega Veneta above.
+  //  - "Worth" (7 products): the historic Paris couture-and-perfume house
+  //    (founded 1858) is real and still sold today, but every result was a
+  //    retailer or fragrance database (FragranceNet, Perfume Shopping,
+  //    News-Parfums) — no brand-owned domain found.
+  //  - "Jesus del Pozo" (5 products): the Spanish designer's fragrance
+  //    business is now run by Perfumes y Diseño, which announced in 2015 it
+  //    was retiring the "Jesús del Pozo" name itself, keeping only two lines
+  //    (Halloween, Arabian Nights) marketed separately — there is no longer
+  //    a house trading under this exact name for a domain to belong to.
+  //  - "Sergio Tacchini" (3 products): a real tennis-apparel house with a
+  //    long-running fragrance line, but every result was a retailer or
+  //    Fragrantica/Parfumo — no brand-owned domain found.
+  //  - "Alfa Romeo" (6 products) and "Umbro" (4 products): both real
+  //    companies licensing their name to fragrance, the same shape as the
+  //    existing 'adidas'/'ferrari' entries, but neither search turned up a
+  //    licensee's own dedicated site the way coty.com and ferrarifragrances.
+  //    com did — only third-party fragrance retailers in both cases.
+  //  - "Lambretta" (4 products) and "Scalpers" (3 products): real trading
+  //    names with an active fragrance range each, but no brand-owned domain
+  //    surfaced in any result's own link list, only Fragrantica/Parfumo and
+  //    retailers.
+  //  - "Brut" (4 products): two competing "official" sites presented
+  //    themselves — menofbrut.com (titled as the US site) and
+  //    brut-for-men.com — with nothing in either result to say which one
+  //    this catalogue's own (unmarked) products should point to. Dropped on
+  //    that alone, the same rule that already dropped Ed Hardy and Reyane
+  //    Tradition.
+  //  - "Saint Hilaire" (5 products): a real French house since 1974
+  //    (Jacques Saint Hilaire, Grasse), but every result was a retailer or
+  //    fragrance database — no brand-owned domain found.
+  //
+  // ── Confirmed not a house, added to the list below ───────────────────────
+  // "CRM" (5 products) — see the src/catalogue/brandName.ts KNOWN_ALIASES
+  // comment above for the full evidence: a the-beauty-store-uk.com feed
+  // field spanning five unrelated real houses (Armani, Azzaro, Juliette Has
+  // A Gun, Tiffany, Yves Saint Laurent), not a house of its own, the same
+  // shape as "Unbranded" and just as unfoldable — there is no one house to
+  // point the string at.
 };
 
 /**
@@ -1424,30 +1634,36 @@ export const BRAND_SITES: Record<string, string> = {
  *
  * Not code — a priority order for whoever runs the next confirmation pass,
  * ranked by product count in the live catalogue. Re-measured 2026-08-26
- * (second pass this day) against demo/catalogue.generated.ts (14,591
- * products / 681 houses) using the same buildBrandCanon()-based method as
- * the file header's own count — see that header's own new paragraph for
- * what this pass changed (a real bug fix plus five new resolved entries).
- * "Whisky" drops off the list entirely (folded into "Evaflor" by the bug fix
- * — see brandName.ts's own KNOWN_ALIASES comment), and "Evaflor",
- * "Attar & Co", "Tom Edward", "Adidas" and "Dana" drop off because this pass
- * resolved each of them. Everything else in the list moved only because a
- * day of harvesting shifted product counts, the same kind of movement the
- * 2026-08-25 -> 2026-08-26 transition already recorded — "Masquerade",
- * "Aubusson" and "Daniel Hechter" remain on the list because this pass
- * investigated and deliberately left each of them unresolved (see the notes
- * on each, above).
+ * (third pass this day) against demo/catalogue.generated.ts (14,814
+ * products / 678 houses) using the same buildBrandCanon()-based method as
+ * the file header's own count — see that header's own top paragraph for
+ * what this pass changed (three mis-splits folded away, eighteen new
+ * resolved entries). "Eve" and "Bottega Veneta Beauty" drop off the list
+ * entirely, folded into "Avon Cosmetics" and "Bottega Veneta" respectively
+ * (see brandName.ts's own KNOWN_ALIASES comment), and the eighteen houses
+ * this pass actually resolved drop off too (Victorinox Swiss Army, Pierre
+ * Cardin, Etro, Mauboussin, Shiseido, MCM, Rituals, Stetson, Proenza
+ * Schouler, Initio Parfums Privés, Woods of Windsor, Paul Sebastian,
+ * Ferrari, Santa Maria Novella, Le Chameau, Bespoke, Creative Colours,
+ * Balmain Beauty). "CRM" moves to the "not a brand" list. Everything else
+ * moved only because a day of harvesting shifted product counts, the same
+ * kind of movement every prior pass has recorded — "Bottega Veneta" (now
+ * under its post-fold count),
+ * "Balenciaga Beauty", "Worth", "Jesus del Pozo", "Sergio Tacchini", "Alfa
+ * Romeo", "Umbro", "Lambretta", "Scalpers", "Brut" and "Saint Hilaire"
+ * remain on the list because this pass investigated and deliberately left
+ * each of them unresolved (see the notes on each, above).
  *
- * 333 of 681 houses still have no entry (was 336 of 679 before this pass),
- * but the work left is genuinely small and getting smaller: the 30 largest
- * below cover 2.4% of products between them, the top 50 reach 3.2%, the top
- * 100 reach 4.4%. Two of the thirty are on the "not a brand" or
- * "deliberately unresolved" lists at the end of BRAND_SITES above (Scent
- * Favourites, Designer Collection), plus Rotana, Blood Concept, Jean-Louis
- * Scherrer, Halston, Banana Republic, Aubusson, Daniel Hechter and
- * Masquerade from the "real house, no confirmed domain" notes above, so the
- * reachable remainder is smaller again. Whoever picks this up should read
- * those notes first rather than re-deriving them.
+ * 312 of 678 houses still have no entry (was 332 of 680 before this pass),
+ * and the work left keeps shrinking: the 30 largest below cover 2.3% of
+ * products between them, the top 50 reach 3.0%, the top 100 reach 4.1%. Two
+ * of the thirty are on the "not a brand" or "deliberately unresolved" lists
+ * at the end of BRAND_SITES above (Scent Favourites, Designer Collection),
+ * plus Rotana, Aubusson, Blood Concept, Halston, Banana Republic, Jean-Louis
+ * Scherrer, Daniel Hechter, Masquerade, Worth and Alfa Romeo from the
+ * "real house, no confirmed domain" notes above, so the reachable remainder
+ * is smaller again. Whoever picks this up should read those notes first
+ * rather than re-deriving them.
  *
  * "Unbranded" (196 products) is excluded from this ranking — not a house,
  * the literal string some retailer feeds send when they have no brand for a
@@ -1460,32 +1676,32 @@ export const BRAND_SITES: Record<string, string> = {
  *   Jennifer Lopez                      26 products  (cum  0.5%)
  *   Rotana                              18 products  (cum  0.6%)
  *   Diane Castel                        17 products  (cum  0.7%)
- *   Victorinox Swiss Army               16 products  (cum  0.8%)
- *   United Colors & Prestige Beauty     15 products  (cum  0.9%)
- *   Cevi Les Parfums                    15 products  (cum  1.0%)
- *   Marvel                              14 products  (cum  1.1%)
- *   Scent Favourites                    14 products  (cum  1.2%)
- *   Ellen Tracy                         13 products  (cum  1.3%)
- *   Taylor of London                    12 products  (cum  1.4%)
- *   Aubusson                            10 products  (cum  1.5%)
- *   Liz Claiborne                       10 products  (cum  1.5%)
- *   Hello Kitty                         10 products  (cum  1.6%)
- *   Blood Concept                        9 products  (cum  1.7%)
- *   Designer Collection                  9 products  (cum  1.7%)
- *   Halston                              9 products  (cum  1.8%)
- *   Oud Elixir                           9 products  (cum  1.8%)
- *   Banana Republic                      9 products  (cum  1.9%)
- *   Mustang                              8 products  (cum  2.0%)
- *   Jean-Louis Scherrer                  8 products  (cum  2.0%)
- *   Mayfair                              8 products  (cum  2.1%)
- *   Masquerade                           8 products  (cum  2.1%)
- *   Missguided                           7 products  (cum  2.2%)
- *   Daniel Hechter                       7 products  (cum  2.2%)
- *   Worth                                7 products  (cum  2.3%)
- *   Alfa Romeo                           6 products  (cum  2.3%)
- *   Israel Philip                        6 products  (cum  2.4%)
- *   Lionel Richie                        6 products  (cum  2.4%)
- *   Creative Colours                     6 products  (cum  2.4%)
+ *   United Colors & Prestige Beauty     15 products  (cum  0.8%)
+ *   Cevi Les Parfums                    15 products  (cum  0.9%)
+ *   Marvel                              14 products  (cum  1.0%)
+ *   Scent Favourites                    14 products  (cum  1.1%)
+ *   Ellen Tracy                         13 products  (cum  1.2%)
+ *   Taylor of London                    12 products  (cum  1.3%)
+ *   Aubusson                            10 products  (cum  1.3%)
+ *   Liz Claiborne                       10 products  (cum  1.4%)
+ *   Hello Kitty                         10 products  (cum  1.5%)
+ *   Blood Concept                        9 products  (cum  1.5%)
+ *   Designer Collection                  9 products  (cum  1.6%)
+ *   Halston                              9 products  (cum  1.6%)
+ *   Oud Elixir                           9 products  (cum  1.7%)
+ *   Banana Republic                      9 products  (cum  1.8%)
+ *   Mustang                              8 products  (cum  1.8%)
+ *   Jean-Louis Scherrer                  8 products  (cum  1.9%)
+ *   Mayfair                              8 products  (cum  1.9%)
+ *   Missguided                           7 products  (cum  2.0%)
+ *   Daniel Hechter                       7 products  (cum  2.0%)
+ *   Masquerade                           7 products  (cum  2.1%)
+ *   Worth                                7 products  (cum  2.1%)
+ *   Alfa Romeo                           6 products  (cum  2.2%)
+ *   Israel Philip                        6 products  (cum  2.2%)
+ *   Lionel Richie                        6 products  (cum  2.2%)
+ *   Elysia                               6 products  (cum  2.3%)
+ *   Legion                               6 products  (cum  2.3%)
  *
  * (full ranked list is reproducible any time by running buildBrandCanon()
  * over the live catalogue and diffing against this file's own keys, the same
