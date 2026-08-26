@@ -1833,6 +1833,12 @@
      rather than hidden — a missing "This week" reads as a bug, a greyed one
      reads as an answer. */
   .history-scope[disabled] { opacity: .4; cursor: not-allowed; }
+  /* What sits under the "Price history" heading when there are not two real
+     prices to draw a line between (see priceHistoryGapMessage in
+     src/services/priceHistoryGaps.ts for the three sentences this shows).
+     Same size and colour as .notes-none, the other "we do not have that"
+     sentence on this page, so a reader who has seen one recognises the other. */
+  .history-empty { font-size: 13.5px; color: var(--faint); margin: 8px 0 0; line-height: 1.5; }
   .history-chart { position: relative; margin-top: 10px; }
   .history-svg { width: 100%; height: 160px; display: block; overflow: visible; }
   /* --chart-band carries its own alpha, so no opacity multiplier: the fill
