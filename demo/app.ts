@@ -1479,16 +1479,47 @@ function offerRow(
   </li>`;
 }
 
-/** A retailer this fragrance has no listing from at all, not even sold out. */
-function unavailableRow(name: string): string {
-  return `<li class="offer unavail-elsewhere">
-    <span class="offer-link">
-      <span class="offer-top">
-        <span class="shop t-title">${esc(name)}</span>
-        <span class="price"><span class="now none">&minus;</span></span>
-      </span>
-    </span>
-  </li>`;
+/**
+ * The shops with no listing for this fragrance at all, not even a sold out
+ * one, as one line of names.
+ *
+ * Until 2026-08-26 this was a `<ul class="offers">` of full-height rows, one
+ * per shop, each carrying a name and a "&minus;" where a price would be. The
+ * registry holds 79 shops and a fragrance is listed by a handful of them, so
+ * that was routinely 50-plus rows of identical furniture below the chart,
+ * styled exactly like the rows above that *are* offers. The owner asked for
+ * a single line of smaller text
+ * instead, which is the right weight for what this section actually says:
+ * these shops were checked and none of them has it.
+ *
+ * Each name links to that shop's own front page (`Retailer.homepage`, the
+ * registry field — the only URL we hold for a shop that has no product page
+ * to point at here). Plain informational links, deliberately not run through
+ * `buildOutboundLink`:
+ *
+ *   - That function takes a *product* URL and wraps it. There is no product
+ *     URL here; that is the entire reason this section exists.
+ *   - An affiliate deeplink is a claim that a sale can be attributed to a
+ *     click. Sending a tracked click to a shop we have just told the reader
+ *     does not stock this bottle is monetising a dead end, and the row would
+ *     have to carry `rel="sponsored"` to be honest about it.
+ *
+ * So `rel="noopener nofollow"` and no `sponsored`, matching every other
+ * unmonetised outbound link in this file (the brand site link, the notes
+ * source link) rather than the offer rows, which do carry tracking.
+ */
+function unavailableShopsLine(shops: Retailer[]): string {
+  // Comma-separated rather than one-per-line: the names are the content and
+  // the separator should cost as little vertical space as possible. The list
+  // wraps as ordinary text, so it is 3-4 lines at 390px instead of 50-plus
+  // rows, and it stays in alphabetical order (the caller sorts).
+  const names = shops
+    .map(
+      (r) =>
+        `<a class="unavail-shop" href="${esc(r.homepage)}" target="_blank" rel="noopener nofollow">${esc(r.name)}</a>`,
+    )
+    .join(', ');
+  return `<p class="unavail-shops t-caption">${names}</p>`;
 }
 
 /** "6 Aug" — enough to place a point in time without crowding a small chart. */
@@ -2169,7 +2200,7 @@ function detailView(): string {
         ${
           unavailable.length
             ? `<p class="gone-head t-eyebrow">Not available</p>
-               <ul class="offers">${unavailable.map((r) => unavailableRow(r.name)).join('')}</ul>`
+               ${unavailableShopsLine(unavailable)}`
             : ''
         }
       </div>

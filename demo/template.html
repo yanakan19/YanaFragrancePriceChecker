@@ -1694,11 +1694,33 @@
      is not a price anyone can act on. */
   .offer.unavail .shop, .offer.unavail .now, .offer.unavail .was { color: var(--faint); }
   .offer.unavail .now { font-weight: 600; }
-  /* A shop with no listing at all for this fragrance, not even a sold out
-     one. Deliberately quieter than .unavail above: that shop is at least
-     confirmed to carry the bottle, this one has never been seen selling it. */
-  .offer.unavail-elsewhere .shop, .offer.unavail-elsewhere .now { color: var(--faint); }
-  .offer.unavail-elsewhere .offer-link { cursor: default; padding-block: 10px; }
+  /* The shops with no listing at all for this fragrance, not even a sold out
+     one, as one wrapping line of names (unavailableShopsLine in demo/app.ts).
+     This replaced `.offer.unavail-elsewhere`, which gave each of those shops a
+     full offer row: 50-plus rows of name-and-a-dash, in the same furniture as
+     the real offers above, to say nothing at all about a price.
+
+     Deliberately quieter than .unavail above, which is the same distinction
+     the old rows made: a sold out shop is at least confirmed to carry the
+     bottle, one of these has never been seen selling it. line-height 1.7
+     because this paragraph is a list of link targets and not prose — the
+     extra leading is what keeps two wrapped lines of underlined names from
+     reading as one block. */
+  .unavail-shops {
+    margin: 0; color: var(--faint); line-height: 1.7;
+  }
+  /* Underlined rather than coloured: --faint on --accent would fail contrast,
+     and colouring these would make a shop that does not stock the bottle the
+     most eye-catching thing under the chart. The underline says "link", the
+     ink says "not the point of this page". */
+  .unavail-shop {
+    color: inherit; text-decoration: underline;
+    text-decoration-color: var(--line-firm); text-underline-offset: 2px;
+  }
+  .unavail-shop:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (hover: hover) and (pointer: fine) {
+    .unavail-shop:hover { color: var(--ink-2); text-decoration-color: currentColor; }
+  }
 
   .gone-head {
     margin: 32px 0 16px; padding-top: 16px; border-top: 1px solid var(--line);
