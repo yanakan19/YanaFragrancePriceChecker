@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { cheapestVariant, parseRates, QUOTE_POSTCODE } from '../src/catalogue/shippingQuote.js';
+import {
+  cheapestVariant,
+  parseRates,
+  QUOTE_POSTCODE,
+  shouldAttemptCheckoutQuote,
+} from '../src/catalogue/shippingQuote.js';
 
 describe('shipping rate quotes', () => {
   describe('picking what to quote against', () => {
@@ -82,5 +87,24 @@ describe('shipping rate quotes', () => {
     // Not a Highlands or islands postcode, which would carry a surcharge that
     // is not what most buyers pay.
     expect(QUOTE_POSTCODE).toBe('SW1A 1AA');
+  });
+
+  describe('shouldAttemptCheckoutQuote', () => {
+    // Zero clean findings covers every shape of "the page did not settle it":
+    // nothing usable at all; Emirates Oud's own shipping-policy page ("the
+    // final price is calculated at checkout" — an absence claim, not a clean
+    // rate); and KAYALI's refund-policy page, which names delivery terms with
+    // no flat rate and disagrees with the registry's stored £5.50. None of
+    // those is a clean rate, so all of them still get asked — the checkout
+    // estimator does not require the page's finding to agree with the
+    // registry first, only that it fell short of a clean answer.
+    it('attempts the quote whenever the page produced no clean rate', () => {
+      expect(shouldAttemptCheckoutQuote(0)).toBe(true);
+    });
+
+    it('skips the quote once the page already answered cleanly', () => {
+      expect(shouldAttemptCheckoutQuote(1)).toBe(false);
+      expect(shouldAttemptCheckoutQuote(2)).toBe(false);
+    });
   });
 });
