@@ -57,8 +57,18 @@ const DELIVERY_UNSTATED = ENABLED.filter((r) => r.shipping.standardGbp === null)
 const DELIVERY_CONFIRMED = ENABLED.filter((r) => r.shipping.confidence === 'confirmed');
 const DELIVERY_UNCONFIRMED = ENABLED.filter((r) => r.shipping.confidence === 'unverified');
 
-/** Hand checked against `npm test` whenever this file is edited. */
-const TEST_COUNT = 772;
+/**
+ * Hand checked against `npm test` whenever this file is edited.
+ *
+ * It drifted anyway, which is the failure this file's own header warns about:
+ * it read 772 on 2026-08-26 against a suite of 1,364, so the About page was
+ * understating itself by 592 tests while arguing that it does not misstate
+ * things. Every other number here is computed for exactly this reason; this
+ * one cannot be, because nothing in the browser bundle can count the test
+ * suite. So it stays hand-written and stays a liability — if it is wrong
+ * again, the fix is to re-read `npx vitest run` and correct it, not to guess.
+ */
+const TEST_COUNT = 1364;
 
 export const COMPANY = {
   name: 'PriceSniffs',
