@@ -28,6 +28,7 @@
 import {
   buildComparison,
   bestOffer,
+  buildHouseAnchor,
   canShowCountdown,
   cheapestVerdict,
   tooCloseToCallNote,
@@ -38,7 +39,7 @@ import {
   type CheapestVerdict,
 } from '../src/index.js';
 import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
-import type { PresentedOffer, StockState } from '../src/types/offer.js';
+import type { HouseAnchorDisplay, PresentedOffer, StockState } from '../src/types/offer.js';
 import type { Retailer, RetailerTier } from '../src/types/retailer.js';
 import {
   DEMO_FRAGRANCES, BY_POPULARITY, DEALS, NOTE_INDEX,
@@ -1326,14 +1327,60 @@ function cheapestTag(v: CheapestVerdict): string | null {
 }
 
 /**
+ * The house-anchored comparison for one row, or null where it does not apply.
+ *
+ * Two things have to both be true: the fragrance's own house has to be
+ * stocked here at all (`frag.houseCeiling` set — see CatalogueEntry, 852 of
+ * 14,784 products measured 2026-08-26) and this particular shop's price has
+ * to actually sit below it (`buildHouseAnchor` returns null otherwise, which
+ * covers the house being cheaper — 15 of 178 comparable products — without
+ * this function having to know that case exists).
+ *
+ * The house's own row is excluded on top of that. Comparing armaf.uk's price
+ * against armaf.uk's own ceiling is either meaningless (they are the same
+ * offer) or, where the house is mid-sale, would double up on the ordinary
+ * `wasPrice` strikethrough that row already earns through the ordinary
+ * corroboration pipeline if the market does not contradict it — see test
+ * zero's own note that a house's claim about its own bottle is still judged
+ * by the two market tests. The `singleBrandOnly` + `cannotCarryBrand` pair is
+ * exactly build-demo-catalogue.ts's own test for "is this offer the bottle's
+ * house", reused here rather than re-derived.
+ */
+function houseAnchorFor(row: PresentedOffer, frag: DemoFragrance): HouseAnchorDisplay | null {
+  if (frag.houseCeiling === null) return null;
+  if (row.retailer.singleBrandOnly && !cannotCarryBrand(row.retailer, frag.brand)) return null;
+  return buildHouseAnchor(row.itemPriceGbp, frag.houseCeiling, frag.brand);
+}
+
+/**
  * `isBest` marks the row the comparison put first. `bestTag` is what that row
  * is allowed to be *called*, which is a different question and is answered by
  * cheapestVerdict: when an unverified delivery figure is what puts this row in
  * front, the accent and the ordering stay — it is still our best reading — and
  * only the superlative goes.
+ *
+ * `anchor` is the house-anchored comparison from `houseAnchorFor`, computed by
+ * the caller (it needs the fragrance record, which this function does not
+ * otherwise take). Where it applies it *replaces* the shop's own `wasPrice`
+ * strikethrough on this row rather than sitting beside it: measured
+ * 2026-08-26, 72 of the 325 offers a house anchor reaches also carry a kept,
+ * corroborated retailer RRP (FragranceHub's RRP £29.95 on Armaf Club De Nuit
+ * Intense Man EDT 105ml, under armaf.uk's own £37.99, is exactly this case).
+ * Two reference prices on one row would ask the reader to decide which is
+ * real, and the house's own figure is the stronger evidence of the two — it
+ * is what test zero already elevates above market corroboration when the two
+ * disagree, so the render follows the same ordering rather than inventing a
+ * second one. Nothing here touches the offer's real `wasPrice` field or the
+ * verdict that produced it; a row not chosen for display keeps its own
+ * strikethrough on every other page that reads `row.discount` directly.
  */
-function offerRow(row: PresentedOffer, isBest: boolean, bestTag: string | null = 'Cheapest'): string {
-  const d = row.discount;
+function offerRow(
+  row: PresentedOffer,
+  isBest: boolean,
+  bestTag: string | null = 'Cheapest',
+  anchor: HouseAnchorDisplay | null = null,
+): string {
+  const d = anchor ? null : row.discount;
   // A shop that has never published a standard delivery rate gets said out
   // loud, the same way "No longer stocked" is. Anything quieter — a blank, a
   // "Free delivery", a £0 — would be us filling in a number the shop has not
@@ -1379,8 +1426,14 @@ function offerRow(row: PresentedOffer, isBest: boolean, bestTag: string | null =
             : ''
         }</span>
         <span class="price">
-          ${d ? `<span class="was">RRP ${formatGbp(d.wasPrice)}</span>` : ''}
-          <span class="now t-price ${d ? 'sale' : ''}">${formatGbp(
+          ${
+            anchor
+              ? `<span class="was anchor">${formatGbp(anchor.housePriceGbp)} at ${esc(anchor.houseName)}</span>`
+              : d
+                ? `<span class="was">RRP ${formatGbp(d.wasPrice)}</span>`
+                : ''
+          }
+          <span class="now t-price ${d || anchor ? 'sale' : ''}">${formatGbp(
             row.deliveredPriceGbp ?? row.itemPriceGbp,
           )}<span class="del-note${deliveryUnknown ? ' excl' : ''}">${esc(
             deliveryPriceNote(row.delivery),
@@ -1392,7 +1445,13 @@ function offerRow(row: PresentedOffer, isBest: boolean, bestTag: string | null =
           <span class="dot ${STOCK_CLASS[row.stock]}"></span>${STOCK_LABEL[row.stock]}${stockQtyMark(row.stock)}
           <span class="sep">·</span>${esc(sub.join(' · '))}
         </span>
-        ${d ? `<span class="off">${d.percentOff}% off RRP</span>` : ''}
+        ${
+          anchor
+            ? `<span class="off anchor">${anchor.percentOff}% below ${esc(anchor.houseName)}</span>`
+            : d
+              ? `<span class="off">${d.percentOff}% off RRP</span>`
+              : ''
+        }
       </span>
       ${
         d && canShowCountdown(d)
@@ -2053,12 +2112,12 @@ function detailView(): string {
           }, checked ${esc(age(newest))}</span>
         </div>
 
-        <ul class="offers">${live.map((r) => offerRow(r, r === best, bestTag)).join('')}</ul>
+        <ul class="offers">${live.map((r) => offerRow(r, r === best, bestTag, houseAnchorFor(r, frag))).join('')}</ul>
 
         ${
           gone.length
             ? `<p class="gone-head t-eyebrow">Sold out</p>
-               <ul class="offers">${gone.map((r) => offerRow(r, false)).join('')}</ul>`
+               <ul class="offers">${gone.map((r) => offerRow(r, false, 'Cheapest', houseAnchorFor(r, frag))).join('')}</ul>`
             : ''
         }
 
