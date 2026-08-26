@@ -74,6 +74,18 @@ describe('marketOf', () => {
     expect(marketOf('https://www.franciskurkdjian.com/uk-en')).toBe('uk');
   });
 
+  // Louis Vuitton's UK page is /eng-gb/ — ISO 639-2's three-letter "eng"
+  // rather than "en" — which the two-letter-only version of this pattern
+  // could not match at all. Before this, the path fell straight through and
+  // the entry read UK only because uk.louisvuitton.com's subdomain happened
+  // to save it; a brand publishing the same /eng-gb/ shape on a bare .com
+  // would have gone unmarked. Ordinary order, so no reversal is involved —
+  // this is purely about the left side tolerating three letters.
+  it('reads a three-letter language code paired with a market', () => {
+    expect(marketOf('https://uk.louisvuitton.com/eng-gb/homepage')).toBe('gb');
+    expect(marketOf('https://www.example.com/eng-us/')).toBe('us');
+  });
+
   // Both orderings have to keep working, and the ordinary one is the far more
   // common shape in demo/brandSites.ts — a fix for the reverse that broke
   // these would trade one wrong label for dozens.
