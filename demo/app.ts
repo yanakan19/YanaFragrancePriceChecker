@@ -2230,15 +2230,25 @@ function dealsPanel(): string {
     return `${controls}<p class="empty-note t-body">No deal matches that filter.</p>`;
   }
 
+  // `kind` decides the attribution the same way houseAnchorFor's callers do
+  // on the fragrance's own page: a 'house' deal is a fact about the
+  // manufacturer, not this shop's claim, and the tile must name the
+  // manufacturer for the same CPR reason offerRow does — see
+  // scripts/build-deals.ts's own header for the measurement.
   const dealTile = (d: (typeof sorted)[number]) =>
     fragranceTile(d.fragrance, {
-      trailing: `<span class="off">${d.percentOff}% off</span>
+      trailing:
+        d.kind === 'house'
+          ? `<span class="off anchor">${d.percentOff}% below ${esc(d.houseName!)}</span>
+        <span class="amt">${formatGbp(d.price)}</span>
+        <span class="was anchor">${formatGbp(d.wasPrice)} at ${esc(d.houseName!)}</span>`
+          : `<span class="off">${d.percentOff}% off</span>
         <span class="amt">${formatGbp(d.price)}</span>
         <span class="was">RRP ${formatGbp(d.wasPrice)}</span>`,
     });
 
   return `${controls}
-    <p class="panel-note t-body">Savings are against the shop's own published recommended retail price.</p>
+    <p class="panel-note t-body">Savings are against the shop's own published recommended retail price, or, where the fragrance's own manufacturer is stocked here too, against the manufacturer's own price.</p>
     <ul class="tile-grid">${chunked(filtered, dealTile)}</ul>`;
 }
 

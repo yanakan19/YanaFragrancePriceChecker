@@ -235,6 +235,10 @@ export interface Deal {
   wasPrice: number;
   percentOff: number;
   retailerId: string;
+  /** Whose figure `wasPrice` is — see RawDeal in scripts/build-deals.ts. */
+  kind: 'retailer' | 'house';
+  /** The manufacturer's name, set only when kind is 'house'. */
+  houseName: string | null;
 }
 
 /**
