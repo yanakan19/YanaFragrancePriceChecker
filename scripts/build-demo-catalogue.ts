@@ -668,8 +668,33 @@ if (scaleAudit.offScale.length > 0) {
        exactly what let Perfume Click's *volume* of RRP publishing look like
        a deals problem in the first place. An unchecked claim is not known to
        be false: it is left on the offer's own record (nothing here deletes
-       it from data/catalogue) and is free to earn a strikethrough the moment
-       a second shop starts stocking the same bottle and corroborates it.
+       it from data/catalogue) and is free to earn a strikethrough once enough
+       shops stock the same bottle in the same size to judge it.
+
+       How many is "enough" is worth stating plainly, because it is the real
+       cost of this rule. MIN_REFERENCE_SHOPS is 2 and counts *other* shops,
+       so a claim needs three shops on the identical bottle before either test
+       can run — the claiming shop plus two references — and all three must
+       agree on size. Measured against this catalogue: of 14,764 products,
+       10,137 are stocked by exactly one shop and 3,001 by two, so 13,138 of
+       them (89.0%) cannot reach a verdict other than `unchecked` no matter
+       what their RRP says. Only 1,626 products (11.0%) carry three or more
+       offers at all. A strikethrough is therefore a thing the mainstream of
+       the catalogue can show and the long tail structurally cannot, which is
+       a deliberate trade — silence on a figure nothing can test, rather than
+       a saving claim resting on one shop's word — but it is not a gap that
+       closes on its own as the crawl widens, and it should not be described
+       as if it were.
+
+   One caveat on the verdict's name, since it is now the load-bearing one:
+   `corroborated` means a test was able to run and did not refute the claim,
+   not that another shop confirmed the figure. Both tests in
+   wasPriceCredibility.ts are refutation tests — "the saving exceeds the whole
+   bottle", "the claim towers over the highest RRP anyone else states" — so
+   passing them is a sanity check the claim survived, not positive evidence
+   for it. That is still strictly stronger than the untested majority, which
+   is what this rule turns on, but it should not be read as the market having
+   vouched for the number.
 
    Only `corroborated` (3,114 of 12,192, 25.5%) survives to reach `wasPrice`
    below, which is what feeds the strikethrough, the "X% off" badge and
