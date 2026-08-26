@@ -161,6 +161,56 @@ export const OZ_TO_ML = 29.5735;
 const SIZE_MENU_THEN_VARIANT_RE =
   /\d{1,4}(?:\.\d)?\s*ml(?:\s*[,+]\s*\d{1,4}(?:\.\d)?\s*ml){1,}\s+(\d{1,4}(?:\.\d)?)\s*ml\s*$/i;
 
+/**
+ * A title that restates its own headline size once, in words, before ending
+ * on the row's own — possibly different — variant size.
+ *
+ * A second Shopify-variant artefact of the same underlying bug
+ * SIZE_MENU_THEN_VARIANT_RE fixes, found re-measuring the 42 multi-size
+ * titles that fix (2797294) deliberately left alone. Emirates Oud's product
+ * titles restate a "headline" size — the shop's own default/first variant —
+ * then repeat the concentration and brand ("100ml EDP Maison Asrar"), then
+ * the harvester appends *this row's own* variant size at the very end:
+ * "Milky Way Perfume 100ml EDP Maison Asrar 25ml" is the 25ml row of a
+ * product whose default variant is 100ml, not a 25ml bottle mislabelled
+ * twice. Reading the first ml number, the ordinary rule below, reads the
+ * headline every time, so this row publishes as "100ml" at its actual 25ml
+ * price — and for Odyssey Aqua, whose 60ml variant is genuinely cheaper
+ * (£16.99) than its 100ml one (£22.50), that reads as an implausibly cheap
+ * 100ml bottle rather than what it is.
+ *
+ * Confirmed against data this function cannot see, but which corroborates
+ * the trailing number rather than guesses at it: each row's own
+ * retailerSku carries the real variant directly — "...-60ml" beside
+ * "...-100ml" for Odyssey Aqua, "SMALL BOTTLE - MILKY WAY" beside "BIG
+ * BOTTLE - MILKY WAY" for Milky Way — and Odyssey Aqua's price falls with
+ * it (100ml £22.50, 60ml £16.99, a sensible smaller-costs-less relationship
+ * a same-size misreading would erase).
+ *
+ * Requires no comma, "+" or "&" anywhere in the title — the signal a
+ * genuine bundle or gift-with-purchase always carries, see
+ * SIZE_MENU_THEN_VARIANT_RE's own comment — and requires at least one real
+ * word between the two sizes, not just whitespace. That second condition is
+ * what keeps this from also firing on Armaf's Hamidi sub-line ("...100ml
+ * 110ml", nothing at all between the two numbers): re-reading that shop's
+ * own description text row by row shows the trailing number is *not*
+ * reliably the right one there — two of its four rows confirm the first
+ * number instead — so a title with nothing between its two sizes stays
+ * deliberately unresolved; see tests/fragranceFilter.test.ts's own comment
+ * on that shape for the evidence.
+ *
+ * Measured against every file in data/catalogue on 2026-08-26: fires on 110
+ * titles. On 108 of them — mostly Escentual's "...Xml Gift Set Xml" and
+ * further Al Haramain titles that restate one size rather than listing a
+ * menu — the headline and trailing numbers are identical, so this changes
+ * nothing either way. On exactly 2, both Emirates Oud, both above, it
+ * recovers a genuinely different, corroborated size. It does not fire on
+ * any of the 33 remaining multi-size titles that are genuine bundles (all
+ * of them contain a "+" or "&") nor on the bare two-size titles above.
+ */
+const SIZE_RESTATED_THEN_VARIANT_RE =
+  /\d{1,4}(?:\.\d)?\s*ml\b(?:\s+[A-Za-z][\w.'-]*)+\s+(\d{1,4}(?:\.\d)?)\s*ml\s*$/i;
+
 /** Size in millilitres, needed before two listings can be compared at all. */
 export function sizeMl(title: string): number | null {
   // Checked ahead of the ordinary first-token rule below, not instead of it —
@@ -168,6 +218,15 @@ export function sizeMl(title: string): number | null {
   // narrow shape is allowed to override "the first size mentioned wins".
   const menu = title.match(SIZE_MENU_THEN_VARIANT_RE);
   if (menu) return Math.round(Number.parseFloat(menu[1]!));
+  // A genuine bundle or gift-with-purchase always carries a ",", "+" or "&"
+  // — see SIZE_RESTATED_THEN_VARIANT_RE's own comment — so checking for
+  // their absence first, rather than folding it into the pattern, is what
+  // keeps that regex from ever having to also rule out every bundle shape
+  // itself.
+  if (!/[,+&]/.test(title)) {
+    const restated = title.match(SIZE_RESTATED_THEN_VARIANT_RE);
+    if (restated) return Math.round(Number.parseFloat(restated[1]!));
+  }
   const ml = title.match(ML_SIZE_RE);
   if (ml) return Math.round(Number.parseFloat(ml[1]!));
   const oz = title.match(OZ_SIZE_RE);
