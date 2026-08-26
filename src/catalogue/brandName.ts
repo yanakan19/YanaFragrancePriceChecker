@@ -61,9 +61,44 @@
  * Deliberately loses spaces, ampersands, hyphens and punctuation, since those
  * are exactly what shops disagree about. Everything else is preserved, so two
  * genuinely different names can never collide on it.
+ *
+ * Also folds accents mechanically, since 2026-08-26. `"Chloé".toLowerCase()`
+ * keeps the é; the old version of this function then deleted it outright as
+ * "not a letter", the same treatment punctuation gets — so "Chloe" and
+ * "Chloé" hashed to different keys and needed a hand-written KNOWN_ALIASES
+ * pair to ever meet. This module's own doc used to call that out as the
+ * mechanical grouping's "real blind spot": every accent-only pair below
+ * (Chloe/Chloé, Estee Lauder/Estée Lauder, Lancome/Lancôme, Hermes/Hermès,
+ * Courreges/Courrèges, Frederic Malle/Frédéric Malle, Salle Privee/Salle
+ * Privée, Le Falconé/Le Falcone) exists only because nobody had taught the
+ * key function the one rule that covers all of them: an accent changes how a
+ * word looks, never which word it is. `normalize('NFKD')` splits a composed
+ * accented letter into its plain base plus a separate combining mark
+ * (Unicode general category Mn, "nonspacing mark"), which `\p{Mn}` strips
+ * explicitly rather than leaving to the existing non-alnum strip — a
+ * combining mark is already outside `[a-z0-9]` so the two would collide to
+ * the same effect, but stripping it by name says what is actually being
+ * discarded and doesn't depend on that coincidence continuing to hold.
+ *
+ * Checked, not assumed: run over the then-697 canonical houses in the live
+ * catalogue (2026-08-26), this folds exactly one further pair beyond what
+ * KNOWN_ALIASES already listed by hand — "DSquared2" and "DSquared²" (the
+ * superscript 2 is a compatibility decomposition, not a combining mark, but
+ * NFKD unpacks it to a plain "2" the same way) — and both spellings already
+ * resolved to the same site under demo/brandSites.ts's own, separate
+ * normalizeBrand() (which strips digits entirely), so nothing about any
+ * brand's resolved site or display name moved. It does NOT fold everything
+ * accent-related: NFKD only decomposes letters built from a base plus a
+ * diacritic. A letter that is its own thing in Unicode — ø, æ, œ, ß, ł — has
+ * no decomposition to fall back to, so "Kanøn"/"Kanon" still needed, and
+ * still has, an explicit KNOWN_ALIASES pair below.
  */
 export function brandKey(name: string): string {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, '');
+  return name
+    .normalize('NFKD')
+    .replace(/\p{Mn}/gu, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '');
 }
 
 /** See the "Known aliases" section of the module doc above. */
@@ -513,6 +548,82 @@ const KNOWN_ALIASES: Record<string, string> = {
   //     product names in every direction. No in-catalogue evidence either
   //     way, so both stay separate rather than being swept in on the
   //     strength of sharing the words "New Brand".
+
+  // Found 2026-08-26 auditing the 354 canonical houses demo/brandSites.ts
+  // could not resolve a site for, looking for spelling splits rather than
+  // missing links: for every pair of houses sharing an exact, non-generic
+  // product name (excluding single common words like "Red" or "Sport",
+  // which dupe-fragrance houses reuse constantly and which produced dozens
+  // of false leads — Alfa Romeo/Izod/Mustang all sell a scent called "Red"
+  // without being related), checked the shared name and both houses' full
+  // product lists by hand before folding anything. Two candidates the same
+  // sweep raised were checked and rejected: 'The One' carries "Dolce
+  // Gabbana The One Pour Homme" but is Dolce & Gabbana's own famous,
+  // independently-marketed fragrance line, the same shape as Emporio Armani
+  // against Armani; 'London Fragrances' shares "Blackberry & Bay" with 'Jo
+  // Malone' but that name is a real, distinctive Jo Malone London scent —
+  // exactly the shape of a budget house naming its own product after a
+  // famous one to be found by the same search, not evidence of common
+  // ownership, so it stays separate rather than being folded on one
+  // matching title alone.
+  //
+  // 'Oros' (8 products: Pour Homme, Oros Donna, Sacre Bleu, four "Pure
+  // <name>" scents) against plain 'Armaf' (360 products): every one of the
+  // 8 has a byte-identical or "Oros "-prefixed match already listed under
+  // Armaf ("Oros Donna", "Oros Pure Affecte", "Oros Pure Sacre Bleu" and the
+  // rest) — the same sub-line Armaf's own 2026-08-21 fold above already
+  // canonised as 'Armaf - Oros Pure', reached here by a feed that dropped
+  // the "Armaf - " prefix rather than the "Pure" word.
+  [brandKey('Oros')]: 'Armaf',
+  // 'Drakkar' carried exactly one product, "Guy Laroche Drakkar Noir" — the
+  // retailer's own title names the real house in full, the same shape as
+  // 'D&G' and 'Mon Guerlain' above; 'Guy Laroche' already has 14 products,
+  // including three more "Drakkar Noir" listings.
+  [brandKey('Drakkar')]: 'Guy Laroche',
+  // 'So Poudree' carried exactly one product, "Lattafa So Poudree Musk" —
+  // again the title names the real house; 'Lattafa' already has its own
+  // entry above and a verified site in demo/brandSites.ts.
+  [brandKey('So Poudree')]: 'Lattafa',
+  // 'Eden Classic' (1 product, bare "Mandate"), 'Eden Classics' (1 product,
+  // "Eden Classic Mandate") and 'Mandate' (1 product, bare "Mandate") are
+  // one fragrance under three brand-field spellings: the "Eden Classics"
+  // listing's own product name spells out "Eden Classic" (singular) as the
+  // line, which is what settles the singular over the plural as canon, and
+  // the plain "Mandate" listing is a feed that put the fragrance's own name
+  // in the brand field, the same shape as 'MyPerfumeShop' and 'Health Pharm'
+  // above.
+  [brandKey('Eden Classic')]: 'Eden Classic',
+  [brandKey('Eden Classics')]: 'Eden Classic',
+  [brandKey('Mandate')]: 'Eden Classic',
+  // 'Kanøn' (1 product) and 'Kanon' (2 products) share a byte-identical
+  // "Nordic Elements Air" — the same Scandinavian aftershave house under a
+  // stylised-ø spelling and a plain one. `brandKey`'s accent fold (above)
+  // does not reach this pair: NFKD has no decomposition for ø, it is its
+  // own letter rather than a base letter plus a combining mark, so this
+  // still needs its own entry the way ø always will. Fragrantica's own
+  // listing for the house's 1966 original uses "Kanøn"; every current
+  // retailer selling the Nordic Elements line (Perfume.com, FragranceX,
+  // FragranceNet) spells it "Kanon" — picked as canon on the same "no
+  // independently known correct spelling, more common form wins" basis as
+  // Le Falconé above, not because the ø spelling is wrong.
+  [brandKey('Kanøn')]: 'Kanon',
+  [brandKey('Kanon')]: 'Kanon',
+  // 'Victorinox' (1 product), 'Swiss Army' (6), 'Swiss Army Victorinox' (7)
+  // and 'Victorinox Swiss Army' (2) are one house's cologne line spelled
+  // four ways, caught by products that repeat the *other* spelling's words
+  // inside their own name in both directions: 'Swiss Army' carries
+  // "Victorinox Black Steel" and "Victorinox Forget Me Not" while 'Swiss
+  // Army Victorinox' carries plain "Swiss Army Black Steel" and "Swiss Army
+  // Forget Me Not" — the same fragrances, cross-named — and 'Victorinox'
+  // alone's one product, "Swiss Army Victorinox Morning Dew", matches
+  // 'Swiss Army Victorinox''s own "Morning Dew" exactly. WebSearch confirms
+  // Fragrantica's own designer page lists this house as "Victorinox Swiss
+  // Army", which is picked as canon over the more frequent "Swiss Army
+  // Victorinox" for that reason, not on frequency.
+  [brandKey('Victorinox')]: 'Victorinox Swiss Army',
+  [brandKey('Swiss Army')]: 'Victorinox Swiss Army',
+  [brandKey('Swiss Army Victorinox')]: 'Victorinox Swiss Army',
+  [brandKey('Victorinox Swiss Army')]: 'Victorinox Swiss Army',
 };
 
 /**

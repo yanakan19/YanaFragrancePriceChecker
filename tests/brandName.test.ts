@@ -12,6 +12,34 @@ describe('brandKey', () => {
     expect(brandKey('Armaf')).not.toBe(brandKey('Armaf Online Shop'));
     expect(brandKey('Creed')).not.toBe(brandKey('Creeds'));
   });
+
+  // Added 2026-08-26: brandKey used to delete an accented letter outright as
+  // "not a letter", the same treatment punctuation gets, so an accented and
+  // unaccented spelling of the same word hashed to different keys and needed
+  // a hand-written KNOWN_ALIASES pair to ever meet (the module doc's own
+  // "real blind spot"). NFKD decomposition plus a nonspacing-mark strip folds
+  // this mechanically, for any accented pair, not just the ones already
+  // found and hand-listed.
+  it('folds an accented letter onto its plain base, mechanically', () => {
+    expect(brandKey('Chloé')).toBe(brandKey('Chloe'));
+    expect(brandKey('Estée Lauder')).toBe(brandKey('Estee Lauder'));
+    expect(brandKey('Lancôme')).toBe(brandKey('Lancome'));
+    expect(brandKey('Hermès')).toBe(brandKey('Hermes'));
+    expect(brandKey('Frédéric Malle')).toBe(brandKey('Frederic Malle'));
+    // A compatibility decomposition (superscript 2 -> plain "2"), not a
+    // combining mark, but NFKD folds both the same way.
+    expect(brandKey('DSquared²')).toBe(brandKey('DSquared2'));
+  });
+
+  // The fold only reaches letters Unicode can decompose into a base plus a
+  // combining mark. ø, æ, œ, ß and the like are their own letters, not a
+  // composed accent, so they still need their own KNOWN_ALIASES entry (see
+  // the Kanøn/Kanon pair in buildBrandCanon's tests below) — asserted here so
+  // a future change to this function cannot silently start guessing at those
+  // instead.
+  it('does not invent a fold for a letter with no diacritic decomposition', () => {
+    expect(brandKey('Kanøn')).not.toBe(brandKey('Kanon'));
+  });
 });
 
 describe('pickBrandName', () => {
@@ -206,5 +234,40 @@ describe('buildBrandCanon', () => {
     const canon = buildBrandCanon(['Avon Cosmetics', 'Avon Kids']);
     expect(canon.get('Avon Cosmetics')).toBe('Avon Cosmetics');
     expect(canon.get('Avon Kids')).toBe('Avon Kids');
+  });
+
+  // Found 2026-08-26 auditing the 354 canonical houses with no known site,
+  // for splits a spelling difference had hidden rather than for new sites —
+  // see the KNOWN_ALIASES comment above this table's 2026-08-26 block for
+  // the full per-pair product-name evidence.
+  it('folds the 2026-08-26 batch of houses split by brand-field spelling', () => {
+    const canon = buildBrandCanon([
+      'Armaf', 'Oros',
+      'Guy Laroche', 'Drakkar',
+      'Lattafa', 'So Poudree',
+      'Eden Classic', 'Eden Classics', 'Mandate',
+      'Kanon', 'Kanøn',
+      'Swiss Army', 'Swiss Army Victorinox', 'Victorinox Swiss Army', 'Victorinox',
+    ]);
+    expect(canon.get('Oros')).toBe('Armaf');
+    expect(canon.get('Drakkar')).toBe('Guy Laroche');
+    expect(canon.get('So Poudree')).toBe('Lattafa');
+    expect(canon.get('Eden Classics')).toBe('Eden Classic');
+    expect(canon.get('Mandate')).toBe('Eden Classic');
+    expect(canon.get('Eden Classic')).toBe('Eden Classic');
+    expect(canon.get('Kanøn')).toBe('Kanon');
+    expect(canon.get('Swiss Army')).toBe('Victorinox Swiss Army');
+    expect(canon.get('Swiss Army Victorinox')).toBe('Victorinox Swiss Army');
+    expect(canon.get('Victorinox')).toBe('Victorinox Swiss Army');
+    expect(canon.get('Victorinox Swiss Army')).toBe('Victorinox Swiss Army');
+  });
+
+  // Two candidates the same 2026-08-26 sweep raised and rejected, checked
+  // against each other rather than folded on one matching title alone — see
+  // the KNOWN_ALIASES comment for the full reasoning.
+  it('does not fold "The One" into Dolce & Gabbana or "London Fragrances" into Jo Malone', () => {
+    const canon = buildBrandCanon(['Dolce & Gabbana', 'The One', 'Jo Malone', 'London Fragrances']);
+    expect(canon.get('The One')).toBe('The One');
+    expect(canon.get('London Fragrances')).toBe('London Fragrances');
   });
 });

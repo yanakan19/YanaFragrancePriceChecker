@@ -10,6 +10,29 @@ import { marketOf } from '../src/catalogue/brandSiteCheck.js';
  * this registry runs on (see the `blurb` field on Retailer for the same
  * discipline applied to retailers).
  *
+ * ── Re-measured 2026-08-26, after a pass on src/catalogue/brandName.ts
+ * rather than on this file: no link below was added or changed by that pass,
+ * only the canon a raw brand string folds into. buildBrandCanon() taught a
+ * generic accent fold (any letter Unicode can decompose into a base plus a
+ * combining mark, not just the handful already hand-listed) and six
+ * evidenced house-splits (Oros -> Armaf, Drakkar -> Guy Laroche, So Poudree
+ * -> Lattafa, Eden Classic/Eden Classics/Mandate -> Eden Classic, Kanøn ->
+ * Kanon, and Victorinox/Swiss Army/Swiss Army Victorinox/Victorinox Swiss
+ * Army -> Victorinox Swiss Army — see that file's own KNOWN_ALIASES comment
+ * for the per-pair product-name evidence). Re-running the same measurement
+ * after that pass: 14,764 products, 687 houses (was 697 — nine strings that
+ * used to count as their own separate, unresolved house merged into one
+ * across those six folds), 342 resolving here (was 341; unchanged in
+ * substance — the missing DSquared² spelling merged into the same house its
+ * DSquared2 spelling already resolved to, rather than a new brand gaining a
+ * link) — 49.8%, up from 48.9%. 345 houses remain unresolved (was 356 on
+ * 2026-08-25, then 354 once the harvest that runs between passes is
+ * accounted for; the nine-house drop this pass made is the entire movement
+ * from there). 13,508 of the 14,568 products under a named house, 92.7%, now
+ * show a website line. The ceiling on further work by adding new links is
+ * unchanged and still low: the 30 largest unresolved houses are 2.5% of all
+ * products between them, the top 50 reach 3.4%, the top 100 reach 4.8%.
+ *
  * ── Re-measured 2026-08-25, by the same method as the 2026-08-19 note that
  * follows (buildBrandCanon() over every "brand" field on every product in
  * demo/catalogue.generated.ts, then officialSiteFor() over each canonical
@@ -1180,24 +1203,30 @@ export const BRAND_SITES: Record<string, string> = {
  * ── Worklist: highest-product brands with no entry above ────────────────────
  *
  * Not code — a priority order for whoever runs the next confirmation pass,
- * ranked by product count in the live catalogue. Re-measured 2026-08-25
- * against demo/catalogue.generated.ts (14,756 products / 697 houses) using
- * the same buildBrandCanon()-based method as the file header's own count.
- * This replaces a 2026-08-19 version of the list that the 2026-08-25 pass
- * cleared the head of: Cuba Paris, New Brand Parfums, Dkhoon Emirates,
- * Lamborghini, Brandy Designs and 14 more of that list's top 30 now have
- * entries above. "cum" is what share of all products in a named house would
- * gain a website line if every unresolved brand up to that point were added.
+ * ranked by product count in the live catalogue. Re-measured 2026-08-26
+ * against demo/catalogue.generated.ts (14,764 products / 687 houses) using
+ * the same buildBrandCanon()-based method as the file header's own count —
+ * this pass moved the ranking by folding brand-name variants in
+ * src/catalogue/brandName.ts, not by adding links, so "Oros" (folded into
+ * Armaf) drops off the list entirely and "Victorinox Swiss Army" (the
+ * merged form of four spellings that each used to count as their own
+ * unresolved house: Victorinox, Swiss Army, Swiss Army Victorinox and
+ * Victorinox Swiss Army) takes its place. This replaces a 2026-08-25 version
+ * of the list; nothing else in the top 30 changed identity, only the
+ * cumulative percentages, which shift slightly because the total number of
+ * unresolved houses did. "cum" is what share of all products in a named
+ * house would gain a website line if every unresolved brand up to that
+ * point were added.
  *
- * 356 of 697 houses still have no entry, but the work left is genuinely
- * small and getting smaller: the 30 largest below cover 2.5% of products
- * between them, the top 50 reach 3.3%, the top 100 reach 4.8%. Nine of the
- * thirty are on the "not a brand" or "deliberately unresolved" lists at the
- * end of BRAND_SITES above (Attraction, Black Suede, Scent Favourites,
- * Designer Collection, Rotana, Blood Concept, Jean-Louis Scherrer,
- * Halston, Banana Republic), so the reachable remainder is smaller again.
- * Whoever picks this up should read those notes first rather than
- * re-deriving them.
+ * 345 of 687 houses still have no entry (was 356 of 697 on 2026-08-25), but
+ * the work left is genuinely small and getting smaller: the 30 largest below
+ * cover 2.5% of products between them, the top 50 reach 3.4%, the top 100
+ * reach 4.8%. Nine of the thirty are on the "not a brand" or "deliberately
+ * unresolved" lists at the end of BRAND_SITES above (Attraction, Black
+ * Suede, Scent Favourites, Designer Collection, Rotana, Blood Concept,
+ * Jean-Louis Scherrer, Halston, Banana Republic), so the reachable remainder
+ * is smaller again. Whoever picks this up should read those notes first
+ * rather than re-deriving them.
  *
  * "Unbranded" (196 products) is excluded from this ranking — not a house,
  * the literal string some retailer feeds send when they have no brand for a
@@ -1211,31 +1240,31 @@ export const BRAND_SITES: Record<string, string> = {
  *   Rotana                              18 products  (cum  0.6%)
  *   Diane Castel                        17 products  (cum  0.7%)
  *   Attraction                          16 products  (cum  0.8%)  (reads as an Avon line — see note above)
- *   Cevi Les Parfums                    15 products  (cum  0.9%)
+ *   Victorinox Swiss Army               16 products  (cum  0.9%)
  *   United Colors & Prestige Beauty     15 products  (cum  1.0%)
- *   Marvel                              14 products  (cum  1.1%)
- *   Ellen Tracy                         13 products  (cum  1.2%)
- *   Taylor of London                    12 products  (cum  1.3%)
- *   Aubusson                            10 products  (cum  1.4%)
- *   Hello Kitty                         10 products  (cum  1.4%)
+ *   Cevi Les Parfums                    15 products  (cum  1.1%)
+ *   Marvel                              14 products  (cum  1.2%)
+ *   Ellen Tracy                         13 products  (cum  1.3%)
+ *   Taylor of London                    12 products  (cum  1.4%)
+ *   Aubusson                            10 products  (cum  1.5%)
  *   Liz Claiborne                       10 products  (cum  1.5%)
- *   Banana Republic                      9 products  (cum  1.6%)
- *   Blood Concept                        9 products  (cum  1.6%)
+ *   Hello Kitty                         10 products  (cum  1.6%)
+ *   Blood Concept                        9 products  (cum  1.7%)
  *   Dana                                 9 products  (cum  1.7%)
  *   Designer Collection                  9 products  (cum  1.8%)
- *   Halston                              9 products  (cum  1.8%)
+ *   Halston                              9 products  (cum  1.9%)
  *   Oud Elixir                           9 products  (cum  1.9%)
- *   Adidas                               8 products  (cum  1.9%)
- *   Attar & Co                           8 products  (cum  2.0%)
- *   Black Suede                          8 products  (cum  2.0%)  (reads as an Avon line — see note above)
+ *   Banana Republic                      9 products  (cum  2.0%)
+ *   Adidas                               8 products  (cum  2.0%)
+ *   Mustang                              8 products  (cum  2.1%)
  *   Jean-Louis Scherrer                  8 products  (cum  2.1%)
- *   Masquerade                           8 products  (cum  2.1%)
  *   Mayfair                              8 products  (cum  2.2%)
- *   Mustang                              8 products  (cum  2.3%)
- *   Oros                                 8 products  (cum  2.3%)
+ *   Attar & Co                           8 products  (cum  2.3%)
+ *   Black Suede                          8 products  (cum  2.3%)  (reads as an Avon line — see note above)
+ *   Masquerade                           8 products  (cum  2.4%)
  *   Scent Favourites                     8 products  (cum  2.4%)
- *   Whisky                               8 products  (cum  2.4%)
- *   Daniel Hechter                       7 products  (cum  2.5%)
+ *   Whisky                               8 products  (cum  2.5%)
+ *   Missguided                           7 products  (cum  2.5%)
  *
  * (full ranked list is reproducible any time by running buildBrandCanon()
  * over the live catalogue and diffing against this file's own keys, the same
