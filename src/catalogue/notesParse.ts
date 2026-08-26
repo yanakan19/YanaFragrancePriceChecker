@@ -298,9 +298,9 @@ export function parseNotes(descriptionRaw: string | null | undefined): ParsedNot
    * real list: that occurrence still wins, unchanged. Checked against
    * Emirates Oud's Hawas Elixir listing, which has exactly this shape.
    */
-  const section = (label: string): string[] => {
+  const extractSection = (label: string, connector: string): string[] => {
     const re = new RegExp(
-      `${label}\\s*:?\\s*([\\s\\S]*?)(?=(?:top|middle|heart|base|bottom)\\s+notes?\\s*:|$)`,
+      `${label}\\s*${connector}\\s*([\\s\\S]*?)(?=(?:top|middle|heart|base|bottom)\\s+notes?\\s*:|$)`,
       'gi',
     );
     let m: RegExpExecArray | null;
@@ -338,6 +338,46 @@ export function parseNotes(descriptionRaw: string | null | undefined): ParsedNot
       if (re.lastIndex === m.index) re.lastIndex++;
     }
     return [];
+  };
+
+  /**
+   * A label doesn't only ever introduce its list with a colon. Nicchia
+   * Luxury's own prose runs it straight into "of" ("top notes of spicy
+   * cinnamon, citrusy bergamot, and mandarin") or "are"/"is"/"include(s)"
+   * ("Top notes are a subtle blend of fresh lemon and bergamot", "Heart
+   * notes include..."), and without this the connector word rides along
+   * glued to the first candidate: "of spicy cinnamon" starts with "of" and
+   * is rejected outright by looksLikeNoteIgnoringCase's leading-word check
+   * below, throwing away "spicy cinnamon" along with it. Consuming the
+   * connector recovers the note instead of losing it to a word that was
+   * never part of it.
+   *
+   * But that recovery is only tried as a *second* pass, after a pass that
+   * requires an actual colon has come back empty — not run unconditionally
+   * in place of it. Al Haramain's "L'Aventure Grapefruit" listing recaps its
+   * base notes in prose first ("the lingering base notes of caramel. vanilla.
+   * patchouli...", periods standing in for commas) and *then* states them
+   * properly ("Base note: Caramel, Vanilla, Patchouli, Benzoin, Sandalwood,
+   * Musk, Vetiver."). The prose recap's stray periods make the sentence
+   * splitter above stop after the first word, so consuming "of" there
+   * recovers only "caramel" — a real note, but six short of the real list one
+   * sentence later, and `section`'s walk-past-an-earlier-mention loop (its
+   * own comment above) would have reached that real list and returned it
+   * whole, the way it did before this connector existed, if the truncated
+   * "caramel" match hadn't already looked like a complete, valid result and
+   * stopped the walk. Trying a colon-only pass across the *whole* description
+   * first, and only falling back to the wider connector when that pass finds
+   * nothing at all, means an explicit colon-headed list always wins over a
+   * prose mention of the same label, exactly as it did before — prose is
+   * read only when nothing better exists. Measured against every description
+   * in `data/catalogue` making this a two-pass search rather than one wider
+   * connector is what took this from a net win with real losses to a net win
+   * with none (see the commit message for the exact counts).
+   */
+  const section = (label: string): string[] => {
+    const strict = extractSection(label, ':');
+    if (strict.length > 0) return strict;
+    return extractSection(label, '(?::|\\b(?:are|is|include[s]?|of)\\b)?');
   };
 
   const top = section('top\\s+notes?');

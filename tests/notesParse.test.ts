@@ -221,4 +221,71 @@ describe('parseNotes', () => {
       'that the perfumer has described as difficult to place.';
     expect(parseNotes(description)?.top ?? []).not.toContain('Cécile Zarokian');
   });
+
+  // ── Prose pyramids, not just colon-headed lists ────────────────────────────
+  // Nicchia Luxury labels only a small fraction of its listings with a
+  // colon-headed "Top Notes:"/"Base Notes:" block; most state the pyramid in a
+  // sentence instead. These shapes were found by sampling Nicchia's own
+  // unlabelled descriptions directly, not assumed.
+
+  it('reads "notes of X, Y and Z", the commonest prose shape', () => {
+    // allbeauty, Elizabeth Arden "Beauty": the connector is "of", not a colon,
+    // and without consuming it the first candidate of each section reads "of
+    // iris", "of orchid", "of sandalwood" and is thrown away for starting with
+    // "of" — losing the note along with the connector, not just the connector.
+    const description =
+      'Beauty is a refreshing, crystalline, amber, woody fragrance. Top notes of iris, ' +
+      'bergamot, and rice flower. Middle notes of orchid, ginger, rhubarb, lotus and lily. ' +
+      'Base notes of sandalwood, amber and musk.';
+    expect(parseNotes(description)).toEqual({
+      top: ['iris', 'bergamot', 'rice flower'],
+      middle: ['orchid', 'ginger', 'rhubarb', 'lotus', 'lily'],
+      base: ['sandalwood', 'amber', 'musk'],
+    });
+  });
+
+  it('reads "notes are X, Y and Z", the connector Al Haramain and others use', () => {
+    // allbeauty, YSL Place Vendôme — mixes both new connectors in one
+    // description ("of" for the top section, "are" for the other two).
+    const description =
+      'Place Vendôme is a woody, floral fragrance that was launched in 2013. The scent opens ' +
+      'with top notes of pink pepper, orange blossom and rose essence. Middle notes are honey, ' +
+      'Jasmine and peony. Base notes are benzoin and cedar-wood.';
+    expect(parseNotes(description)).toEqual({
+      top: ['pink pepper', 'orange blossom', 'rose essence'],
+      middle: ['honey', 'Jasmine', 'peony'],
+      base: ['benzoin', 'Cedarwood'],
+    });
+  });
+
+  it('reads "notes include X, Y and Z"', () => {
+    const description = 'Heart notes include Rose, Jasmine and Iris.';
+    expect(parseNotes(description)?.middle).toEqual(['Rose', 'Jasmine', 'Iris']);
+  });
+
+  it('prefers a later colon-headed list over an earlier prose mention of the same label', () => {
+    // Al Haramain's "L'Aventure Grapefruit" listing recaps its own base notes
+    // in prose first, with stray periods standing in for commas ("the
+    // lingering base notes of caramel. vanilla. patchouli, benzoin.
+    // sandalwood. musk and vetiver..."), then states them properly afterwards
+    // ("Base note: Caramel, Vanilla, Patchouli, Benzoin, Sandalwood, Musk,
+    // Vetiver."). The stray periods make the sentence splitter stop after the
+    // first word, so if the prose "of" connector were tried first it would
+    // return a truncated ["caramel"] and never reach the real list — the
+    // colon-only pass has to run across the whole description before the
+    // wider connector is tried at all, not just before it for this one label.
+    const description =
+      'But it doesn\'t stop there the lingering base notes of caramel. vanilla. patchouli, ' +
+      'benzoin. sandalwood. musk and vetiver undertones ensure that this enchantment endures. ' +
+      'Base note: Caramel, Vanilla, Patchouli, Benzoin, Sandalwood, Musk, Vetiver.';
+    expect(parseNotes(description)?.base).toEqual([
+      'Caramel',
+      'Vanilla',
+      'Patchouli',
+      'Benzoin',
+      'Sandalwood',
+      'Musk',
+      'Vetiver',
+    ]);
+  });
 });
