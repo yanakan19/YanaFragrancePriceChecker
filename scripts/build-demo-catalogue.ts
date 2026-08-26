@@ -789,6 +789,19 @@ if (scaleAudit.offScale.length > 0) {
    agree by the time this runs and nothing below has to know they were ever in
    dispute.
 
+   The same correction also surfaces one dispute that was invisible before it,
+   rather than only removing them: French Avenue Ravine Ice (ean-6298042001909)
+   went uncounted pre-fix because manchester-ouds' own abbreviated title
+   ("Ravine Ice EDP 100ml") happened to read the same as Beautybase's fully
+   spelled-out one ("...Eau De Parfum 100ml Spray") — an accidental agreement,
+   not a real one, since manchester-ouds' own description independently states
+   "Extrait De Parfum" for this bottle exactly like the four it resolved. Once
+   that description is trusted, manchester-ouds no longer agrees with
+   Beautybase, and a dispute that was always there — hidden by two different
+   shops' shorthand happening to collide — is counted instead of hidden. Net
+   effect of the fix: 70 before, 67 after (four resolved, one newly counted),
+   not a plain 70 minus 4.
+
    What is left after that needs the manufacturer's own word to settle which
    shop is right, and the egress proxy this harvest runs behind refuses every
    brand and retailer domain — see the audit's own console warning below for
