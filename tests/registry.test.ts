@@ -556,7 +556,7 @@ describe('retailer registry', () => {
     // Every id here carries a dated, multi-run byte-count writeup in its own
     // entry above — see knownRenderRefusal in src/catalogue/renderRefusal.ts
     // for what setting this actually does.
-    const flagged = ['superdrug'];
+    const flagged = ['boots', 'zara', 'superdrug', 'the-fragrance-shop', 'the-perfume-shop'];
 
     it('is set on exactly the shops this pass established, no more and no fewer', () => {
       const actuallyFlagged = RETAILERS.filter((r) => r.renderRefused === true).map((r) => r.id).sort();
