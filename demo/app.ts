@@ -1004,11 +1004,23 @@ function brandButton(brand: string): string {
 
 /**
  * "Official Site" + "Fragrantica" under a fragrance's own title block —
- * item 11 of the 2026-08-20 backlog. Reuses `.brand-site-link`, the exact
- * pill brandView() already renders for the brand-homepage link, so both
- * links read at the same text size and left-aligned the same way that link
- * already does on the brand page — a second visual language here would make
- * the two pages disagree about what an official-site link looks like.
+ * item 11 of the 2026-08-20 backlog, centred per the owner's follow-up on
+ * 2026-08-26. Reuses `.brand-site-link`, the exact pill brandView() already
+ * renders for the brand-homepage link, so a pill here and the one on the
+ * brand page are pixel-for-pixel the same control — same icon, same text
+ * size, same shape — and the two pages still agree on what an official-site
+ * link *looks like*.
+ *
+ * What deliberately differs is the row around it. brandView() sits its pill
+ * left-aligned, flush with that page's own left-aligned heading. This row
+ * centres (`.frag-links-row`'s own `justify-content`, not something
+ * `.brand-site-link` carries) because the fragrance hero above it is already
+ * a centred column — art, name and price boxes all centre themselves — and a
+ * left-aligned row here would hang off the card's left edge on its own
+ * rather than sitting under the rest of the hero the way it does everywhere
+ * else. One pill and two pills both centre the same way, so the row still
+ * reads as one deliberate line even on the many products with no Official
+ * Site link.
  *
  * Official Site is absent (renders nothing) when `officialSiteFor` has no
  * entry for this brand — same rule brandView() already follows, never a
