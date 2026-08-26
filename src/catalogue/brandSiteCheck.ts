@@ -144,8 +144,15 @@ export function marketOf(url: string): string | null {
   const host = parsed.hostname.toLowerCase();
   const path = parsed.pathname.toLowerCase();
 
-  // Path prefix: /en-gb/, /uk/, /en_us/, /us/ and similar.
-  const pathMatch = path.match(/^\/(?:([a-z]{2})[-_]([a-z]{2})|([a-z]{2}))(?:\/|$)/);
+  // Path prefix: /en-gb/, /uk/, /en_us/, /us/ and similar. The left side of
+  // the pair is allowed two or three letters, not just two — Louis Vuitton
+  // publishes its UK page at /eng-gb/ (ISO 639-2 "eng" rather than "en"),
+  // which the two-letter-only version of this pattern could not match at
+  // all, so the path fell through and this entry read UK only because its
+  // uk.louisvuitton.com subdomain happened to save it. The right side stays
+  // two letters: every market this registry recognises is a two-letter code,
+  // and nothing in the data pairs a three-letter code on that side.
+  const pathMatch = path.match(/^\/(?:([a-z]{2,3})[-_]([a-z]{2})|([a-z]{2}))(?:\/|$)/);
   if (pathMatch) {
     const region = (pathMatch[2] ?? pathMatch[3] ?? '').toLowerCase();
     // A bare two-letter path segment is ambiguous — /it/ is as likely to be a
