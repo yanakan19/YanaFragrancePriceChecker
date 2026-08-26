@@ -5,4 +5,4 @@
 // before every crawl.
 
 /** How many tests vitest collected the last time the full suite ran. */
-export const TEST_COUNT = 1421;
+export const TEST_COUNT = 1425;
