@@ -71,11 +71,23 @@ export interface DiscountDisplay {
  * into `DiscountDisplay`, so the two can never be rendered by code that
  * forgot which one it was holding and attributed the house's figure to the
  * shop — the exact CPR pricing-claims problem `wasPrice`'s own comment on
- * `RawOffer` warns about. `houseName` exists so every render of this type
- * carries the attribution rather than trusting the caller to add it.
+ * `RawOffer` warns about. `houseName` exists so every render of this type has
+ * the attribution to hand rather than having to go and find it.
  */
 export interface HouseAnchorDisplay {
-  /** The company that makes the bottle, e.g. "Armaf". Always named on screen. */
+  /**
+   * The company that makes the bottle, e.g. "Armaf".
+   *
+   * Not named on every screen any more. The demo's fragrance detail page moved
+   * to "% below MSRP" on 2026-08-26 (owner's wording) and no longer prints
+   * this, which it can do because the MSRP box at the top of that same page
+   * carries the figure and the product's brand; scripts/build-deals.ts still
+   * reads it, and a deal tile — one line in a grid of many brands, with no
+   * such box above it — still prints it, because there the reference price
+   * would otherwise go unidentified. Kept on the type for that reason: the
+   * attribution has to travel with the number even where a given view has
+   * somewhere else to put it.
+   */
   houseName: string;
   /**
    * The highest figure the house itself publishes for this bottle — its own

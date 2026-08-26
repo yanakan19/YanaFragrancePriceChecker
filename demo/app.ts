@@ -1446,8 +1446,13 @@ function offerRow(
           <span class="sep">·</span>${esc(sub.join(' · '))}
         </span>
         ${
+          // "below MSRP" rather than "below Armaf" (owner's wording,
+          // 2026-08-26). The figure is unchanged and still the house's own
+          // ceiling for this size; MSRP is the word the box at the top of the
+          // page already uses for that same number, so the row and the box now
+          // name the reference the same way instead of two different ways.
           anchor
-            ? `<span class="off anchor">${anchor.percentOff}% below ${esc(anchor.houseName)}</span>`
+            ? `<span class="off anchor">${anchor.percentOff}% below MSRP</span>`
             : d
               ? `<span class="off">${d.percentOff}% off RRP</span>`
               : ''
@@ -1993,13 +1998,23 @@ function wishlistButton(fragranceId: string): string {
  * retailer's `wasPrice`. That is the shop's own claim about a reference price,
  * and src/catalogue/wasPriceCredibility.ts exists because those claims are
  * demonstrably inflated. `houseCeiling` or nothing.
+ *
+ * The caption underneath reads "Brand's Current Price" (owner's wording,
+ * 2026-08-26). It previously spelled the derivation out — "the highest price
+ * <Brand> itself lists for this size" — which is exactly what the number is,
+ * and is still exactly what the number is: nothing about the figure changed,
+ * only the words under it. The derivation stays documented here and stays
+ * enforced by the field this box reads, which is `houseCeiling` and will
+ * never be anything else. Note the caption no longer interpolates the brand
+ * name, so it is a static string with a literal apostrophe rather than an
+ * `esc()`-ed one; the surrounding markup is unchanged.
  */
 function houseCeilingBox(frag: DemoFragrance): string {
   if (frag.houseCeiling === null) return '';
   return `<div class="price-box price-box--msrp">
       <p class="price-box-label t-eyebrow">MSRP</p>
       <p class="price-box-amount t-price">${formatGbp(frag.houseCeiling)}</p>
-      <p class="price-box-from t-caption">the highest price ${esc(frag.brand)} itself lists for this size</p>
+      <p class="price-box-from t-caption">Brand's Current Price</p>
     </div>`;
 }
 
@@ -2233,8 +2248,21 @@ function dealsPanel(): string {
   // `kind` decides the attribution the same way houseAnchorFor's callers do
   // on the fragrance's own page: a 'house' deal is a fact about the
   // manufacturer, not this shop's claim, and the tile must name the
-  // manufacturer for the same CPR reason offerRow does — see
+  // manufacturer for the CPR reason offerRow used to — see
   // scripts/build-deals.ts's own header for the measurement.
+  //
+  // Left naming the house, deliberately, when the offer row moved to "% below
+  // MSRP" on 2026-08-26. That instruction was about the fragrance detail page,
+  // and the detail page is where it works: the MSRP box sits at the top of it
+  // carrying the figure and the product's own brand, so "below MSRP" on a row
+  // underneath has its referent on the same screen. A deal tile has no such
+  // context. It is one photo, one price and one line in a grid of hundreds of
+  // fragrances by hundreds of brands, and "40% below MSRP" there would be a
+  // comparison against a reference price the tile never identifies — which is
+  // the one thing a price comparison is not allowed to leave unsaid. The tile
+  // also still shows the reference figure itself beside the percentage
+  // ("£37.99 at Armaf"), so changing only the percentage would have the same
+  // tile name the same number two different ways.
   const dealTile = (d: (typeof sorted)[number]) =>
     fragranceTile(d.fragrance, {
       trailing:
