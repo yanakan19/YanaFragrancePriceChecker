@@ -624,6 +624,49 @@ const KNOWN_ALIASES: Record<string, string> = {
   [brandKey('Swiss Army')]: 'Victorinox Swiss Army',
   [brandKey('Swiss Army Victorinox')]: 'Victorinox Swiss Army',
   [brandKey('Victorinox Swiss Army')]: 'Victorinox Swiss Army',
+
+  // Found 2026-08-26 auditing demo/brandSites.ts's own "eleven strings that
+  // are not brands at all" list, which named seven of these eight as reading
+  // like Avon's own fragrance lines on product-title shape alone ("Attraction
+  // | Game for Her", the repeated Avon-only "Purse" spray size) but stopped
+  // short of folding them, in its own words, because "that is a strong
+  // pattern, not a confirmation". data/catalogue/avon.json — the raw scrape
+  // of avon.uk.com itself, not a cross-reference — settles it: every one of
+  // these eight is a `rawBrand` avon.uk.com uses for its own products, at
+  // URLs on its own domain (avon.uk.com/products/attraction-for-her-...,
+  // /products/black-suede-secret, /products/imari-queen-..., and so on for
+  // all eight). That is the house naming its own line, not a pattern.
+  //
+  // The eighth, "Perfect Nonsense" (avon.uk.com/products/perfect-nonsense-
+  // peppery-peaches-...), was not on that list at all — demo/brandSites.ts
+  // had grouped it with "Designer Collection" and "Scent Favourites" instead,
+  // on the strength of also reading like a retailer's own generic collection
+  // name. Checked against data/catalogue, "Designer Collection" and "Scent
+  // Favourites" never appear in avon.json — one is an Awin dupe-fragrance
+  // feed (Designer Collection Super Age Pour Homme / One Dollar Pour Homme,
+  // wordplay on famous fragrances, not a house), the other is bmstores.co.uk's
+  // own private label (Scent Favourites Crimson Reign, Day Dreams — B&M's
+  // in-house range) — but "Perfect Nonsense" is avon.uk.com's own product
+  // line exactly like the other seven, just missed by the pattern-only check
+  // that flagged them. Folded here alongside them rather than left on a list
+  // it does not belong on.
+  //
+  // Canon is 'Avon Cosmetics', the spelling avon.uk.com's own feed actually
+  // publishes for its ordinary, no-named-line releases (347 products in
+  // data/catalogue/avon.json) — never observed as bare "Avon" anywhere in the
+  // data, so that is not available to pick as canon without inventing a
+  // spelling nobody published. See demo/brandSites.ts's own 'avon cosmetics'
+  // entry (added alongside this fold) for why this now resolves to a site
+  // rather than just moving the "356 unresolved" count around.
+  [brandKey('Attraction')]: 'Avon Cosmetics',
+  [brandKey('Black Suede')]: 'Avon Cosmetics',
+  [brandKey('Full Speed')]: 'Avon Cosmetics',
+  [brandKey('Little Black Dress')]: 'Avon Cosmetics',
+  [brandKey('Imari')]: 'Avon Cosmetics',
+  [brandKey('Perceive')]: 'Avon Cosmetics',
+  [brandKey('Incandessence')]: 'Avon Cosmetics',
+  [brandKey('Perfect Nonsense')]: 'Avon Cosmetics',
+  [brandKey('Avon Cosmetics')]: 'Avon Cosmetics',
 };
 
 /**

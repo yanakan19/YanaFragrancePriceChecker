@@ -270,4 +270,44 @@ describe('buildBrandCanon', () => {
     expect(canon.get('The One')).toBe('The One');
     expect(canon.get('London Fragrances')).toBe('London Fragrances');
   });
+
+  // Found 2026-08-26 re-checking demo/brandSites.ts's own "eleven strings
+  // that are not brands at all" list against data/catalogue/avon.json —
+  // avon.uk.com's own raw scrape, not a cross-reference — which uses every
+  // one of these eight as a `rawBrand` for products living at its own
+  // avon.uk.com/products/... URLs. Seven were already flagged there as
+  // reading like Avon lines on product-title shape alone; "Perfect
+  // Nonsense" was not (it had been grouped with the unrelated "Designer
+  // Collection" instead) until this same domain check turned it up as an
+  // eighth. 'Avon Cosmetics' is picked as canon because it is the spelling
+  // avon.json's own feed actually uses for its unnamed-line releases —
+  // bare "Avon" never appears anywhere in the data.
+  it('folds Avon\'s own fragrance lines into "Avon Cosmetics"', () => {
+    const canon = buildBrandCanon([
+      'Avon Cosmetics', 'Attraction', 'Black Suede', 'Full Speed',
+      'Little Black Dress', 'Imari', 'Perceive', 'Incandessence', 'Perfect Nonsense',
+    ]);
+    expect(canon.get('Attraction')).toBe('Avon Cosmetics');
+    expect(canon.get('Black Suede')).toBe('Avon Cosmetics');
+    expect(canon.get('Full Speed')).toBe('Avon Cosmetics');
+    expect(canon.get('Little Black Dress')).toBe('Avon Cosmetics');
+    expect(canon.get('Imari')).toBe('Avon Cosmetics');
+    expect(canon.get('Perceive')).toBe('Avon Cosmetics');
+    expect(canon.get('Incandessence')).toBe('Avon Cosmetics');
+    expect(canon.get('Perfect Nonsense')).toBe('Avon Cosmetics');
+    expect(canon.get('Avon Cosmetics')).toBe('Avon Cosmetics');
+  });
+
+  // Checked against the same avon.json domain evidence and ruled out:
+  // neither string appears anywhere in that scrape, so neither is an Avon
+  // line — each is a different retailer's own private-label range instead
+  // (an Awin dupe-fragrance feed for Designer Collection, bmstores.co.uk's
+  // in-house range for Scent Favourites). "Avon Kids" stays apart from
+  // "Avon Cosmetics" for the reason its own existing test above gives, not
+  // because this fold changed anything about that call.
+  it('does not fold "Designer Collection" or "Scent Favourites" into Avon Cosmetics', () => {
+    const canon = buildBrandCanon(['Avon Cosmetics', 'Designer Collection', 'Scent Favourites']);
+    expect(canon.get('Designer Collection')).toBe('Designer Collection');
+    expect(canon.get('Scent Favourites')).toBe('Scent Favourites');
+  });
 });

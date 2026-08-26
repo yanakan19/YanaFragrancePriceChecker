@@ -66,4 +66,23 @@ describe('officialSiteFor', () => {
   it('labels a plain global .com as non-UK rather than guessing', () => {
     expect(officialSiteFor('Lattafa')?.uk).toBe(false);
   });
+
+  // Louis Vuitton's own UK page is /eng-gb/ (ISO 639-2's three-letter "eng"
+  // rather than "en") on a uk.louisvuitton.com subdomain — before marketOf's
+  // 2026-08-26 three-letter widening the path did not match at all, so this
+  // label only held because the subdomain happened to say "uk" too.
+  it('labels a /eng-gb/ storefront as UK', () => {
+    expect(officialSiteFor('Louis Vuitton')?.uk).toBe(true);
+  });
+
+  // 'Avon Cosmetics' — the spelling data/catalogue/avon.json's own feed
+  // actually publishes, never bare "Avon" — resolves to the same avon.uk.com
+  // the plain 'avon' key already does, so the eight Avon lines
+  // src/catalogue/brandName.ts folds onto this canon (Attraction, Black
+  // Suede, Full Speed, Little Black Dress, Imari, Perceive, Incandessence,
+  // Perfect Nonsense) resolve too rather than just moving the unresolved
+  // count around.
+  it('resolves "Avon Cosmetics" to the same site as plain "avon"', () => {
+    expect(officialSiteFor('Avon Cosmetics')?.url).toBe(BRAND_SITES['avon']);
+  });
 });
