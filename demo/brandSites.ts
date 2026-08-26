@@ -10,28 +10,39 @@ import { marketOf } from '../src/catalogue/brandSiteCheck.js';
  * this registry runs on (see the `blurb` field on Retailer for the same
  * discipline applied to retailers).
  *
- * ── Re-measured 2026-08-26, after a pass on src/catalogue/brandName.ts
- * rather than on this file: no link below was added or changed by that pass,
- * only the canon a raw brand string folds into. buildBrandCanon() taught a
- * generic accent fold (any letter Unicode can decompose into a base plus a
- * combining mark, not just the handful already hand-listed) and six
- * evidenced house-splits (Oros -> Armaf, Drakkar -> Guy Laroche, So Poudree
- * -> Lattafa, Eden Classic/Eden Classics/Mandate -> Eden Classic, Kanøn ->
- * Kanon, and Victorinox/Swiss Army/Swiss Army Victorinox/Victorinox Swiss
- * Army -> Victorinox Swiss Army — see that file's own KNOWN_ALIASES comment
- * for the per-pair product-name evidence). Re-running the same measurement
- * after that pass: 14,764 products, 687 houses (was 697 — nine strings that
- * used to count as their own separate, unresolved house merged into one
- * across those six folds), 342 resolving here (was 341; unchanged in
- * substance — the missing DSquared² spelling merged into the same house its
- * DSquared2 spelling already resolved to, rather than a new brand gaining a
- * link) — 49.8%, up from 48.9%. 345 houses remain unresolved (was 356 on
- * 2026-08-25, then 354 once the harvest that runs between passes is
- * accounted for; the nine-house drop this pass made is the entire movement
- * from there). 13,508 of the 14,568 products under a named house, 92.7%, now
- * show a website line. The ceiling on further work by adding new links is
- * unchanged and still low: the 30 largest unresolved houses are 2.5% of all
- * products between them, the top 50 reach 3.4%, the top 100 reach 4.8%.
+ * ── Re-measured 2026-08-26, after two passes on src/catalogue/brandName.ts
+ * rather than on this file (a handful of `avon cosmetics`/`avon` entries
+ * below are the only lines either pass actually touched in this file; the
+ * rest of the movement is which canon a raw brand string folds into).
+ *
+ * Pass one taught buildBrandCanon() a generic accent fold (any letter
+ * Unicode can decompose into a base plus a combining mark, not just the
+ * handful already hand-listed) and six evidenced house-splits (Oros ->
+ * Armaf, Drakkar -> Guy Laroche, So Poudree -> Lattafa, Eden Classic/Eden
+ * Classics/Mandate -> Eden Classic, Kanøn -> Kanon, and Victorinox/Swiss
+ * Army/Swiss Army Victorinox/Victorinox Swiss Army -> Victorinox Swiss
+ * Army). Pass two re-checked this file's own "eleven strings that are not
+ * brands at all" list (further down) against data/catalogue's raw
+ * per-retailer scrapes and found eight of the eleven are genuinely
+ * avon.uk.com's own fragrance lines (Attraction, Black Suede, Full Speed,
+ * Little Black Dress, Imari, Perceive, Incandessence, Perfect Nonsense),
+ * folded into 'Avon Cosmetics' — see that section, and src/catalogue/
+ * brandName.ts's own KNOWN_ALIASES comment, for the per-pair evidence
+ * behind every fold from both passes.
+ *
+ * Re-running the same measurement after both passes: 14,764 products, 679
+ * houses (was 697 — eighteen strings that used to count as their own
+ * separate house merged away across the two passes' folds), 343 resolving
+ * here (was 341 — 'Avon Cosmetics' is the one net new house this pass
+ * resolved; the DSquared² spelling merging into DSquared2's already-
+ * resolved house does not count as a second) — 50.5%, up from 48.9%. 336
+ * houses remain unresolved (was 356 on 2026-08-25, then 354 once the
+ * harvest that runs between passes is accounted for; both passes' folds
+ * account for the entire movement from there). 13,564 of the 14,568
+ * products under a named house, 93.1%, now show a website line. The
+ * ceiling on further work by adding new links is unchanged and still low:
+ * the 30 largest unresolved houses are 2.5% of all products between them,
+ * the top 50 reach 3.3%, the top 100 reach 4.6%.
  *
  * ── Re-measured 2026-08-25, by the same method as the 2026-08-19 note that
  * follows (buildBrandCanon() over every "brand" field on every product in
@@ -300,6 +311,16 @@ export const BRAND_SITES: Record<string, string> = {
   'serge lutens': 'https://www.sergelutens.co.uk/',
   'ariana grande': 'https://arianagrandefragrances.com/',
   avon: 'https://avon.uk.com/',
+  // Same site as plain 'avon' above, added 2026-08-26 alongside brandName.ts
+  // folding Attraction/Black Suede/Full Speed/Little Black Dress/Imari/
+  // Perceive/Incandessence/Perfect Nonsense into this canon (see that file's
+  // KNOWN_ALIASES comment and the "Eleven strings" note further down this
+  // file). 'Avon Cosmetics' — never bare "Avon" — is the spelling
+  // data/catalogue/avon.json's own feed actually publishes for its
+  // unnamed-line releases, so this key uses the spelling this file's own
+  // normalizeBrand() will actually be asked to look up now that those eight
+  // lines resolve to it, not a guess at what the feed might say.
+  'avon cosmetics': 'https://avon.uk.com/',
   azzaro: 'https://www.azzaro.com/',
   'boadicea the victorious': 'https://boadiceaperfume.com/',
   'bond no': 'https://www.bondno9.com/',
@@ -355,7 +376,12 @@ export const BRAND_SITES: Record<string, string> = {
   'lorenzo pazzaglia': 'https://www.lorenzopazzaglia.com/en/',
   // /uk-en is region-then-language, so this labelled Non-UK until the
   // 2026-08-25 marketOf fix and labels UK now — the URL is untouched, and
-  // this is the second and last of the two labels that fix moved.
+  // this is the second of the two labels that fix moved (the other is
+  // tous's /gb-en, below). A further 2026-08-26 marketOf pass (a three-
+  // letter language code on the ordinary side, for Louis Vuitton's
+  // /eng-gb/) moved no label in this file at all, this entry's included —
+  // "uk-en" is the two-letter reversed shape the 2026-08-25 fix already
+  // read, not the shape the later one added.
   'maison francis kurkdjian': 'https://www.franciskurkdjian.com/uk-en',
   'maison martin margiela': 'https://www.maisonmargiela.com/en-gb/',
   mancera: 'https://manceraparfums.com/en/',
@@ -521,9 +547,12 @@ export const BRAND_SITES: Record<string, string> = {
   // uk.policelifestyle.com, not the .com root's own /uk-en/ path. When this
   // entry was added, that path segment ("uk-en", country before language)
   // parsed as market "en", not "uk", so the subdomain was chosen as the
-  // unambiguous form. marketOf reads both orderings since 2026-08-25, so the
-  // path would work too — the subdomain is kept because it is the address
-  // already published and probed, not because the other one is still wrong.
+  // unambiguous form. marketOf has read both orderings of a two-letter pair
+  // since 2026-08-25 (a 2026-08-26 pass widened the reading further, to a
+  // three-letter language code on the ordinary side — "uk-en" is unaffected,
+  // it was already the shape that fix covered), so the path would work too —
+  // the subdomain is kept because it is the address already published and
+  // probed, not because the other one is still wrong.
   police: 'https://uk.policelifestyle.com/',
   // Job B pass, 2026-08-22: louiscardin.co.uk, not .com — the brand is a UK
   // company (203 Manningham Lane, Bradford, West Yorkshire, per its own
@@ -898,8 +927,12 @@ export const BRAND_SITES: Record<string, string> = {
   // ("gb-en") rather than the "en-gb" shape marketOf() used to be alone in
   // reading, so this entry was added on 2026-08-22 knowing it would render
   // "Non-UK Site". It renders UK as of the 2026-08-25 marketOf fix; one of
-  // the two labels in this whole file that the fix moved (the other is
-  // maison francis kurkdjian's /uk-en). Nothing about the URL changed.
+  // the two labels in this whole file that fix moved (the other is maison
+  // francis kurkdjian's /uk-en). A further 2026-08-26 pass widened marketOf
+  // again, to a three-letter language code on the ordinary side, which
+  // moved no label at all — "gb-en" is a two-letter reversed pair, the shape
+  // the 2026-08-25 fix already covered, not the shape the later one added.
+  // Nothing about the URL changed either time.
   tous: 'https://www.tous.com/gb-en/',
   'pino silvestre': 'https://pinosilvestre.com/',
   // French house (Grasse); geparlys.com is its own site.
@@ -1111,7 +1144,7 @@ export const BRAND_SITES: Record<string, string> = {
   // separate and unresolved rather than guessed), Marvel (sold via a
   // licensed manufacturer, JADS International, not Marvel's/Disney's own
   // site), Hello Kitty (sold via a Sanrio license, no dedicated
-  // fragrance-brand site of Sanrio's own found), Rotana, Attraction, United
+  // fragrance-brand site of Sanrio's own found), Rotana, United
   // Colors & Prestige Beauty (reads as two brand names concatenated by a
   // retailer feed, the same "Unbranded"-shaped trap noted above — not
   // guessed at as either Benetton or a single house). Ellen Tracy and Liz
@@ -1148,6 +1181,19 @@ export const BRAND_SITES: Record<string, string> = {
   //  - Rotana, Jeanne en Provence, Jean-Louis Scherrer, Blood Concept: a
   //    real house each, with a social presence and retailer listings, and
   //    no brand-owned domain in any result.
+  //  - "Essential Perfumes" (4 products: Azlaan, Essence Of Arabia, The
+  //    Ocean, Twilight — an Arabic-style line) moved here 2026-08-26 from
+  //    the "not a brand" list below, where it had sat since that list was
+  //    first written. It is *not* the French house Essential Parfums this
+  //    file already resolves, despite normalising to within one letter of
+  //    it — nothing in its own listings matches anything Essential Parfums
+  //    has made — but that only establishes it is a different brand, not
+  //    that it is not one. It reads the same as Rotana and Blood Concept
+  //    just above: a real, distinctly-named line with no confirmed
+  //    brand-owned domain in any result, not a retailer's private label the
+  //    way Designer Collection and Scent Favourites are (see below). Left
+  //    here rather than re-filed under "not a brand" on the strength of a
+  //    resemblance to a different, unrelated name.
   //  - Annick Goutal. The house renamed itself Goutal Paris in 2018, one of
   //    the two annickgoutal.com results returned was its Shopify /password
   //    page, and the working storefront found was us.goutalparis.com — a US
@@ -1165,38 +1211,56 @@ export const BRAND_SITES: Record<string, string> = {
   //    one. A link that cannot sell a UK reader anything is not worth the
   //    row.
   //
-  // Eleven strings that are not brands at all, so no site could ever be
-  // right. Reported rather than resolved, in the same spirit as "Unbranded"
-  // and the already folded-away "Fragrance Hub LTD" / "My Store" /
-  // "Fragrancehub.co.uk". (The commit that added this section said nine in
-  // its own subject line and heading. Eleven is the count of the list
-  // below, and the list is what is right — corrected here rather than left
-  // to be found, since the message itself can no longer be edited.)
+  // ── "Eleven strings that are not brands at all" — resolved 2026-08-26 ────
   //
-  //  - "Essential Perfumes" (4 products) is *not* the French house
-  //    Essential Parfums this file already resolves, despite normalising to
-  //    within one letter of it. Its listings are Azlaan, Essence Of Arabia,
-  //    The Ocean and Twilight — an Arabic-style line, nothing Essential
-  //    Parfums has ever made. Deliberately left unresolved rather than
-  //    keyed onto that URL; this is the near-miss most likely to be folded
-  //    in by mistake by a later pass.
-  //  - "Designer Collection" (9), whose products are named "Aqua Man DC
-  //    Pour Homme", "I Love DC Pour Femme" — a retailer's own house line
-  //    rather than a house.
-  //  - "Scent Favourites" (8) and "Perfect Nonsense" (7) read the same way.
-  //  - Seven brand strings that look like Avon's own fragrance lines rather
-  //    than houses: Attraction (16 products), Black Suede (8), Full Speed
-  //    (5), Little Black Dress (5), Imari (4), Perceive (4), Incandessence
-  //    (3). What that reading rests on is the shape of the listings
-  //    themselves — "Attraction | Game for Her", "Attraction | Deep
-  //    Instinct for Him", "Imari | Corset", "Full Speed | Max Turbo",
-  //    "Little Black Dress | Lace" — and, tellingly, the repeated "Purse"
-  //    variants, which is Avon's own purse-spray format and not a size any
-  //    other house sells. That is a strong pattern, not a confirmation, so
-  //    none of them was keyed to the existing 'avon' entry: doing that
-  //    would be asserting a corporate relationship on the strength of
-  //    product names. Flagged for the owner, who can settle it from the
-  //    source feed in a way search cannot.
+  // This section originally reported eleven brand strings this file could
+  // never give a site because they are not houses. (The commit that added
+  // it said nine in its own subject line and heading; eleven was the count
+  // of the list itself, corrected here once already since the message could
+  // not be edited.) Re-checked one at a time against data/catalogue's raw
+  // per-retailer scrapes rather than left standing on the reasoning that put
+  // them here:
+  //
+  //  - Eight of the eleven — Attraction, Black Suede, Full Speed, Little
+  //    Black Dress, Imari, Perceive, Incandessence and Perfect Nonsense —
+  //    turned out to be avon.uk.com's own fragrance lines, not merely
+  //    shaped like them. The original note for seven of these eight (Perfect
+  //    Nonsense was filed as a retailer-collection guess instead, see below)
+  //    had already spotted the pattern — "Attraction | Game for Her", the
+  //    Avon-only "Purse" spray size repeating across several of them — but
+  //    stopped short of folding them in, in its own words, because "that is
+  //    a strong pattern, not a confirmation". data/catalogue/avon.json,
+  //    avon.uk.com's own raw scrape rather than a cross-reference, is the
+  //    confirmation: every one of the eight is a `rawBrand` that scrape uses
+  //    for products living at avon.uk.com/products/... URLs on Avon's own
+  //    domain (attraction-for-her-..., black-suede-secret,
+  //    imari-queen-roll-on-..., perfect-nonsense-peppery-peaches-..., and so
+  //    on for all eight) — the house naming its own line in its own
+  //    first-party data, not a pattern read from someone else's listings.
+  //    All eight are now folded into 'Avon Cosmetics' in
+  //    src/catalogue/brandName.ts (the spelling avon.uk.com's own feed
+  //    actually publishes for its unnamed-line releases — never observed as
+  //    bare "Avon" anywhere in the data, so not available to pick as canon
+  //    without inventing a spelling nobody published), and 'avon cosmetics'
+  //    now has its own entry above, reusing the same avon.uk.com already
+  //    verified at the plain 'avon' key. None of the eight is a separate
+  //    canonical house any more, so none of them appears in this file's
+  //    "unresolved" count from here on.
+  //  - "Designer Collection" (9 products: "Aqua Man DC Pour Homme", "I Love
+  //    DC Pour Femme") and "Scent Favourites" (8: "Scent Favourites Crimson
+  //    Reign", "Scent Favourites Day Dreams") are genuinely not houses,
+  //    confirmed the same way rather than assumed: neither string appears
+  //    anywhere in avon.json, ruling out the same fold, and each is a
+  //    retailer's own dupe-fragrance range in its raw source instead —
+  //    Designer Collection's products (Super Age Pour Homme, One Dollar
+  //    Pour Homme) are sold through an Awin affiliate feed with names that
+  //    play on famous fragrances rather than name a house, and Scent
+  //    Favourites is bmstores.co.uk's own in-house range. Left unresolved,
+  //    correctly — there is no house here to link to.
+  //  - "Essential Perfumes" was on this list too, but moved out of it (see
+  //    the "Rotana, Jeanne en Provence..." bucket above) rather than kept:
+  //    checking it the same way the other ten were checked found evidence
+  //    it is not Essential Parfums, never evidence that it is not a brand.
 };
 
 /**
@@ -1204,29 +1268,33 @@ export const BRAND_SITES: Record<string, string> = {
  *
  * Not code — a priority order for whoever runs the next confirmation pass,
  * ranked by product count in the live catalogue. Re-measured 2026-08-26
- * against demo/catalogue.generated.ts (14,764 products / 687 houses) using
+ * against demo/catalogue.generated.ts (14,764 products / 679 houses) using
  * the same buildBrandCanon()-based method as the file header's own count —
  * this pass moved the ranking by folding brand-name variants in
- * src/catalogue/brandName.ts, not by adding links, so "Oros" (folded into
- * Armaf) drops off the list entirely and "Victorinox Swiss Army" (the
- * merged form of four spellings that each used to count as their own
- * unresolved house: Victorinox, Swiss Army, Swiss Army Victorinox and
- * Victorinox Swiss Army) takes its place. This replaces a 2026-08-25 version
- * of the list; nothing else in the top 30 changed identity, only the
- * cumulative percentages, which shift slightly because the total number of
- * unresolved houses did. "cum" is what share of all products in a named
- * house would gain a website line if every unresolved brand up to that
- * point were added.
+ * src/catalogue/brandName.ts, not by adding links (aside from the
+ * 'avon cosmetics' entry the Avon fold needed to actually resolve, see the
+ * file header and the "Eleven strings" note below), so "Oros" (folded into
+ * Armaf) and all eight of the "Eleven strings" section's confirmed Avon
+ * lines drop off the list entirely, and "Victorinox Swiss Army" (the merged
+ * form of four spellings that each used to count as their own unresolved
+ * house) and "Tom Edward" move up to fill in behind them. This replaces a
+ * 2026-08-25 version of the list; nothing else in the top 30 changed
+ * identity, only the cumulative percentages, which shift because the total
+ * number of unresolved houses did. "cum" is what share of all products in a
+ * named house would gain a website line if every unresolved brand up to
+ * that point were added.
  *
- * 345 of 687 houses still have no entry (was 356 of 697 on 2026-08-25), but
+ * 336 of 679 houses still have no entry (was 356 of 697 on 2026-08-25), but
  * the work left is genuinely small and getting smaller: the 30 largest below
- * cover 2.5% of products between them, the top 50 reach 3.4%, the top 100
- * reach 4.8%. Nine of the thirty are on the "not a brand" or "deliberately
- * unresolved" lists at the end of BRAND_SITES above (Attraction, Black
- * Suede, Scent Favourites, Designer Collection, Rotana, Blood Concept,
- * Jean-Louis Scherrer, Halston, Banana Republic), so the reachable remainder
- * is smaller again. Whoever picks this up should read those notes first
- * rather than re-deriving them.
+ * cover 2.5% of products between them, the top 50 reach 3.3%, the top 100
+ * reach 4.6%. Two of the thirty are on the "not a brand" or "deliberately
+ * unresolved" lists at the end of BRAND_SITES above (Scent Favourites,
+ * Designer Collection — the seven brand strings previously flagged there as
+ * probable Avon lines are confirmed and folded away as of this pass, so they
+ * no longer appear on either list), plus Rotana, Blood Concept, Jean-Louis
+ * Scherrer, Halston and Banana Republic from the "real house, no confirmed
+ * domain" notes above, so the reachable remainder is smaller again. Whoever
+ * picks this up should read those notes first rather than re-deriving them.
  *
  * "Unbranded" (196 products) is excluded from this ranking — not a house,
  * the literal string some retailer feeds send when they have no brand for a
@@ -1239,32 +1307,32 @@ export const BRAND_SITES: Record<string, string> = {
  *   Jennifer Lopez                      26 products  (cum  0.5%)
  *   Rotana                              18 products  (cum  0.6%)
  *   Diane Castel                        17 products  (cum  0.7%)
- *   Attraction                          16 products  (cum  0.8%)  (reads as an Avon line — see note above)
- *   Victorinox Swiss Army               16 products  (cum  0.9%)
- *   United Colors & Prestige Beauty     15 products  (cum  1.0%)
- *   Cevi Les Parfums                    15 products  (cum  1.1%)
- *   Marvel                              14 products  (cum  1.2%)
- *   Ellen Tracy                         13 products  (cum  1.3%)
- *   Taylor of London                    12 products  (cum  1.4%)
- *   Aubusson                            10 products  (cum  1.5%)
- *   Liz Claiborne                       10 products  (cum  1.5%)
- *   Hello Kitty                         10 products  (cum  1.6%)
- *   Blood Concept                        9 products  (cum  1.7%)
- *   Dana                                 9 products  (cum  1.7%)
- *   Designer Collection                  9 products  (cum  1.8%)
- *   Halston                              9 products  (cum  1.9%)
- *   Oud Elixir                           9 products  (cum  1.9%)
- *   Banana Republic                      9 products  (cum  2.0%)
- *   Adidas                               8 products  (cum  2.0%)
- *   Mustang                              8 products  (cum  2.1%)
- *   Jean-Louis Scherrer                  8 products  (cum  2.1%)
- *   Mayfair                              8 products  (cum  2.2%)
- *   Attar & Co                           8 products  (cum  2.3%)
- *   Black Suede                          8 products  (cum  2.3%)  (reads as an Avon line — see note above)
- *   Masquerade                           8 products  (cum  2.4%)
- *   Scent Favourites                     8 products  (cum  2.4%)
- *   Whisky                               8 products  (cum  2.5%)
- *   Missguided                           7 products  (cum  2.5%)
+ *   Victorinox Swiss Army               16 products  (cum  0.8%)
+ *   United Colors & Prestige Beauty     15 products  (cum  0.9%)
+ *   Cevi Les Parfums                    15 products  (cum  1.0%)
+ *   Marvel                              14 products  (cum  1.1%)
+ *   Ellen Tracy                         13 products  (cum  1.2%)
+ *   Taylor of London                    12 products  (cum  1.3%)
+ *   Aubusson                            10 products  (cum  1.4%)
+ *   Liz Claiborne                       10 products  (cum  1.4%)
+ *   Hello Kitty                         10 products  (cum  1.5%)
+ *   Blood Concept                        9 products  (cum  1.6%)
+ *   Dana                                 9 products  (cum  1.6%)
+ *   Designer Collection                  9 products  (cum  1.7%)
+ *   Halston                              9 products  (cum  1.8%)
+ *   Oud Elixir                           9 products  (cum  1.8%)
+ *   Banana Republic                      9 products  (cum  1.9%)
+ *   Adidas                               8 products  (cum  1.9%)
+ *   Mustang                              8 products  (cum  2.0%)
+ *   Jean-Louis Scherrer                  8 products  (cum  2.0%)
+ *   Mayfair                              8 products  (cum  2.1%)
+ *   Attar & Co                           8 products  (cum  2.1%)
+ *   Masquerade                           8 products  (cum  2.2%)
+ *   Scent Favourites                     8 products  (cum  2.3%)
+ *   Whisky                               8 products  (cum  2.3%)
+ *   Missguided                           7 products  (cum  2.4%)
+ *   Daniel Hechter                       7 products  (cum  2.4%)
+ *   Tom Edward                           7 products  (cum  2.5%)
  *
  * (full ranked list is reproducible any time by running buildBrandCanon()
  * over the live catalogue and diffing against this file's own keys, the same
