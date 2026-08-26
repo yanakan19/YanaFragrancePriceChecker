@@ -1493,21 +1493,38 @@ function offerRow(
  * instead, which is the right weight for what this section actually says:
  * these shops were checked and none of them has it.
  *
- * Each name links to that shop's own front page (`Retailer.homepage`, the
- * registry field — the only URL we hold for a shop that has no product page
- * to point at here). Plain informational links, deliberately not run through
- * `buildOutboundLink`:
+ * Until 2026-08-26 each name went out to `Retailer.homepage` — the shop's own
+ * front page. That field is still what a few build/harvest scripts use to
+ * find a shop's site (see e.g. src/catalogue/robotsSource.ts), but it is the
+ * wrong destination *here*: this whole section exists to say "checked, not
+ * stocked", so a click out to the shop's homepage lands a reader on a page
+ * that has never heard of this fragrance — a dead end we sent them to. Our
+ * own `/retailers/<id>` page is the better answer to the same click: it says
+ * what that shop *does* stock and what its delivery terms are, which is
+ * useful even though this one bottle is not among them.
  *
- *   - That function takes a *product* URL and wraps it. There is no product
- *     URL here; that is the entire reason this section exists.
- *   - An affiliate deeplink is a claim that a sale can be attributed to a
- *     click. Sending a tracked click to a shop we have just told the reader
- *     does not stock this bottle is monetising a dead end, and the row would
- *     have to carry `rel="sponsored"` to be honest about it.
+ * Internal, not outbound, so these are `data-retailer` buttons — the same
+ * click-delegated pattern the shop directory (`retailersPanel`) and every
+ * other id-scoped internal link in this file already uses (the document
+ * click handler below matches `[data-retailer]`, sets `state.retailerId`,
+ * and routes to the retailer view). No id-scoped internal link in this app
+ * is a plain `<a href>` — routing here is client-side against
+ * `location.pathname`, and a real anchor pointing at a route this document
+ * also serves would risk a full page reload if a click ever slipped past the
+ * delegated handler. `.unavail-shop` strips the browser's own button
+ * chrome back down to the underlined-text look the old `<a>` had.
  *
- * So `rel="noopener nofollow"` and no `sponsored`, matching every other
- * unmonetised outbound link in this file (the brand site link, the notes
- * source link) rather than the offer rows, which do carry tracking.
+ * Not every shop gets a button, though. A shop only has a real page to send
+ * a reader to when build-sitemap.ts would list one for it: `enabled` and
+ * carrying at least one live offer somewhere in the catalogue (`Retailer.
+ * enabled` and `listingCountAt(r.id) > 0` — the exact test that script
+ * runs). Measured against the registry on 2026-08-26: 32 of the 79 shops
+ * clear that bar, 47 don't — mostly the 46 disabled retailers, plus a
+ * handful of enabled ones still waiting on their first successful crawl
+ * (Notino, Boots, The Fragrance Shop, The Perfume Shop, Harvey Nichols,
+ * Riiffs, Debenhams). Those render as plain text: a page that would show "0
+ * fragrances here" is the same dead end the homepage link was, just hosted
+ * by us instead of them.
  */
 function unavailableShopsLine(shops: Retailer[]): string {
   // Comma-separated rather than one-per-line: the names are the content and
@@ -1515,9 +1532,10 @@ function unavailableShopsLine(shops: Retailer[]): string {
   // wraps as ordinary text, so it is 3-4 lines at 390px instead of 50-plus
   // rows, and it stays in alphabetical order (the caller sorts).
   const names = shops
-    .map(
-      (r) =>
-        `<a class="unavail-shop" href="${esc(r.homepage)}" target="_blank" rel="noopener nofollow">${esc(r.name)}</a>`,
+    .map((r) =>
+      r.enabled && listingCountAt(r.id) > 0
+        ? `<button type="button" class="unavail-shop" data-retailer="${esc(r.id)}">${esc(r.name)}</button>`
+        : `<span class="unavail-shop-plain">${esc(r.name)}</span>`,
     )
     .join(', ');
   return `<p class="unavail-shops t-caption">${names}</p>`;
