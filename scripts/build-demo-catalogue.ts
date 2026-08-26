@@ -39,7 +39,13 @@ import {
   repairMojibake,
   NOT_A_FRAGRANCE,
 } from '../src/catalogue/fragranceId.js';
-import { concentration, displayName, stripRedundantSize, reattachArmafLine } from '../src/catalogue/productName.js';
+import {
+  concentrationOfListing,
+  CONCENTRATION_DISPUTED,
+  displayName,
+  stripRedundantSize,
+  reattachArmafLine,
+} from '../src/catalogue/productName.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
 
 /**
@@ -542,14 +548,21 @@ for (const { retailer, listings } of eligible) {
     const id = fragranceId(l, untrustworthyEans);
     const effectiveRawBrand = resolveRawBrand(l, retailer);
 
-    // What each shop's own title says this bottle's concentration is, kept
-    // per product so a disagreement is visible in the build log — see the
-    // warning at the end of this file. Recorded here rather than as a field on
-    // Offer because nothing but that one line ever reads it, and a string per
-    // offer would be carried through every merge and then dropped again.
+    // What this shop's own listing says the bottle's concentration is —
+    // almost always its title, but see concentrationOfListing's own comment
+    // for the one narrow, measured case where its own description is trusted
+    // instead (a bare "EDP"/"EDT"/"EDC" title against a description that
+    // restates the bottle's full name at a different, specific strength).
+    const listingConcentration = concentrationOfListing(l.rawTitle, l.description ?? null);
+
+    // Kept per product so a disagreement between shops is visible in the
+    // build log — see the warning at the end of this file. Recorded here
+    // rather than as a field on Offer because nothing but that one line ever
+    // reads it, and a string per offer would be carried through every merge
+    // and then dropped again.
     const seenConcentrations = concentrationsSeen.get(id);
-    if (seenConcentrations) seenConcentrations.add(concentration(l.rawTitle));
-    else concentrationsSeen.set(id, new Set([concentration(l.rawTitle)]));
+    if (seenConcentrations) seenConcentrations.add(listingConcentration);
+    else concentrationsSeen.set(id, new Set([listingConcentration]));
 
     const existing = products.get(id);
     const offer: Offer = {
@@ -580,7 +593,7 @@ for (const { retailer, listings } of eligible) {
         id,
         brand: displayedBrand ?? 'Unbranded',
         name: displayName(l.rawTitle, effectiveRawBrand, displayedBrand),
-        concentration: concentration(l.rawTitle),
+        concentration: listingConcentration,
         sizeMl: size,
         // Not the raw `l.ean`: a code this shop's own feed has also put on a
         // different product (see untrustworthyEans above) must not survive
@@ -723,6 +736,87 @@ if (scaleAudit.offScale.length > 0) {
   }
   // A product left with no offers is no longer something anyone can buy here.
   for (const [id, product] of products) if (product.offers.length === 0) products.delete(id);
+}
+
+/* ── shops disagreeing about what is in the bottle ─────────────────────────
+   Computed here — after every merge above has settled and after the
+   price-scale withholding just above has deleted whatever it is going to
+   delete — because a product's final concentrationsSeen set has to reflect
+   every offer's *final* home, and because counting a product the withholding
+   step went on to delete would report a disagreement no reader can ever see.
+
+   The owner's original report was that an EDP listing had been folded into an
+   EDT product on Armaf Club De Nuit Intense Man 105ml. That specific case was
+   never a merge: every harvested title in that group says EDT, back through
+   every committed snapshot. What said "EDP" was Emirates Oud's own URL slug
+   and its own "Fragrance Type: Eau de Parfum" field, contradicting its own
+   title two paragraphs later. The shop contradicted itself; nothing merged
+   anything.
+
+   The general question behind it is real, and this is what counts it:
+   products whose shops' own listings do not say the same thing about
+   concentration. Two different situations —
+
+     - one shop names a concentration and another names none. Not a
+       contradiction — a shop writing "Clinique Happy Heart Perfume 100ml
+       Spray" has not said it is something other than the Eau de Parfum
+       Allbeauty calls it. productMatch.ts bridges those deliberately; see
+       its byConcentration block for the conditions.
+     - two shops name genuinely different concentrations. Every one measured
+       is an EAN-keyed group: matchKey in productMatch.ts includes the
+       concentration, so the title route cannot merge across one, and a
+       shared barcode means both shops are describing the same bottle — see
+       that file's own header on how much weight a real barcode carries here.
+       This is one shop mislabelling it, not two bottles merged: re-measured
+       2026-08-26 (commit a233279 counted 71 against an earlier harvest; the
+       live figure moves as the harvest does, and was 70 immediately before
+       the fix below, 67 after it), and independently confirmed for every one
+       of them — not one also disagrees about size (see
+       wasAudit.productsWithMixedSizes just above, which is 0 or 1 across the
+       *whole* catalogue), which is what a genuinely different, miskeyed
+       bottle would show — see the Penthouse Windsor case in
+       wasPriceCredibility.ts's own header for what that looks like when it
+       is real.
+
+   Four of those are now resolved rather than merely counted, using evidence
+   already on disk: manchester-ouds' own titles compress French Avenue's
+   "Extrait de Parfum" line to a bare "EDP", but its own description restates
+   the bottle's full name at the real concentration — see
+   CONCENTRATION_RESTATEMENT_RE in productName.ts for the shape and the
+   measurement, and concentrationOfListing for why it is trusted only there.
+   That correction runs earlier, while `listingConcentration` is still being
+   computed per offer, so those four products' concentrationsSeen sets already
+   agree by the time this runs and nothing below has to know they were ever in
+   dispute.
+
+   What is left after that needs the manufacturer's own word to settle which
+   shop is right, and the egress proxy this harvest runs behind refuses every
+   brand and retailer domain — see the audit's own console warning below for
+   the two live examples (Yardley Gentleman Classic 100ml, Lancôme La Vie Est
+   Belle Rose Extraordinaire 30ml) this cannot be resolved for today. Splitting
+   the group on a title disagreement would also be the wrong move on this
+   evidence: it would turn one correctly matched bottle into two
+   half-populated products, and the barcode says they are one bottle.
+
+   So the remainder is not silently resolved by whichever shop's snapshot file
+   happened to sort first on disk, which is what this build used to do: the
+   product's `concentration` field is overwritten with CONCENTRATION_DISPUTED,
+   so the site states the true fact — this bottle is real, every offer on it
+   is real, and what the label says is contested — rather than one shop's
+   unverified word dressed up as the product's own fact. Nothing here touches
+   price: every offer, whatever it calls the bottle, is still a real shop
+   selling the identical barcode (see the size-agreement check above), so the
+   cheapest-price comparison and the wasPrice credibility checks in
+   wasPriceCredibility.ts stay exactly as they were. See CONCENTRATION_DISPUTED
+   in productName.ts for the rest of this reasoning. */
+const mixedConcentration = [...concentrationsSeen].filter(
+  ([id, seen]) => seen.size > 1 && products.has(id),
+);
+// Split, because the two halves mean different things — see above. A shop
+// that named nothing has not contradicted a shop that named something.
+const contradicting = mixedConcentration.filter(([, seen]) => !seen.has('Not stated'));
+for (const [id] of contradicting) {
+  products.get(id)!.concentration = CONCENTRATION_DISPUTED;
 }
 
 /* ── which offers are the fragrance house's own ─────────────────────────────
@@ -1218,69 +1312,16 @@ console.log(
     );
   }
 
-  /* ── shops disagreeing about what is in the bottle ────────────────────────
-     Reported and not acted on, deliberately.
-
-     The owner's report was that an EDP listing had been folded into an EDT
-     product on Armaf Club De Nuit Intense Man 105ml. That specific case is
-     not a merge: every harvested title in that group says EDT, back through
-     every committed snapshot. What says "EDP" is Emirates Oud's own URL slug
-     (/club-de-nuit-intense-man-perfume-105ml-edp-armaf) and its own
-     description ("Fragrance Type: Eau de Parfum", two paragraphs above "a
-     105ml Eau de Toilette"). The shop contradicts itself; nothing here merged
-     anything. The duplicate row that made it look like two listings is gone —
-     see "one shop, one row" above.
-
-     The general question behind it is real and this counts it: products whose
-     shops' own titles do not say the same thing about concentration. 141 of
-     14,784 (0.95%), and they are two different situations:
-
-       70  one shop names a concentration and another names none. Not a
-           contradiction — a shop writing "Clinique Happy Heart Perfume 100ml
-           Spray" has not said it is something other than the Eau de Parfum
-           Allbeauty calls it. productMatch.ts bridges those deliberately;
-           see its byConcentration block for the conditions.
-       71  two shops name genuinely different concentrations:
-
-             Eau de Parfum vs Parfum             51
-             Eau de Parfum vs Extrait de Parfum  16
-             Eau de Parfum vs Eau de Toilette     2
-             Eau de Toilette vs Parfum            1
-             Extrait de Parfum vs Parfum          1
-
-     All 71 are EAN-keyed groups, and that is the whole finding: matchKey in
-     productMatch.ts includes the concentration, so the title route cannot
-     merge across one, and a shared barcode means both shops are describing
-     the same bottle. This is one shop mislabelling it, not two bottles
-     merged. EAN 3614274258080 is Azzaro Wanted Forever Elixir *Parfum* at
-     Beautybase, Just My Look, The Beauty Store and Fragrance Click, and "Eau
-     de Parfum" at Perfume Click alone; Prada Paradoxe Radical Essence
-     (3614274306217) is the same shape. Both of the EDP/EDT pairs are that
-     shape too: Yardley Gentleman Classic 100ml (6297000226163), EDP at
-     Beautybase and The Beauty Store, EDT at Perfume Click, and Lancôme La Vie
-     Est Belle Rose Extraordinaire 30ml (3614274103007).
-
-     Deciding which title is right needs the manufacturer's own word, and the
-     egress proxy refuses brand and retailer domains, so it cannot be
-     established from here. Splitting the group on a title disagreement would
-     also be the wrong move on this evidence: it would turn one correctly
-     matched bottle into two half-populated products, and the barcode says
-     they are one bottle. So it is counted where it can be seen going up or
-     down, and left alone. */
-  const mixedConcentration = [...concentrationsSeen].filter(
-    // Only products that survived to be published: the price-scale withholding
-    // above deletes whole products, and counting one of those would report a
-    // disagreement no reader can see.
-    ([id, seen]) => seen.size > 1 && products.has(id),
-  );
-  // Split, because the two halves mean different things — see above. A shop
-  // that named nothing has not contradicted a shop that named something.
-  const contradicting = mixedConcentration.filter(([, seen]) => !seen.has('Not stated'));
+  // See "shops disagreeing about what is in the bottle" above, where
+  // mixedConcentration and contradicting are computed and every contradicting
+  // product's `concentration` field is already overwritten with
+  // CONCENTRATION_DISPUTED by the time this runs.
   if (mixedConcentration.length > 0) {
     console.log(
       `::warning::${mixedConcentration.length} products carry offers whose titles differ about concentration — ` +
         `${contradicting.length} of them a real contradiction, the rest one shop naming none. ` +
-        'Every contradiction shares an EAN, so it is a mislabelled bottle rather than two bottles merged.',
+        'Every contradiction shares an EAN, so it is a mislabelled bottle rather than two bottles merged; ' +
+        `each now shows "${CONCENTRATION_DISPUTED}" instead of one shop's unverified word.`,
     );
   }
 }

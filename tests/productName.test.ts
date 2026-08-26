@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   CONCENTRATION_NOT_STATED, brandTitleOpens, brandTitleEnds, brandTitleEndsWithHouse, concentration, displayName,
-  stripRedundantSize, reattachArmafLine,
+  stripRedundantSize, reattachArmafLine, concentrationOfListing, CONCENTRATION_RESTATEMENT_RE,
 } from '../src/catalogue/productName.js';
 import { armafLineName } from '../src/catalogue/brandName.js';
 
@@ -952,5 +952,89 @@ describe('armafLineName: which sub-line a raw Armaf brand string named', () => {
   it('is null for no brand at all', () => {
     expect(armafLineName(null)).toBeNull();
     expect(armafLineName(undefined)).toBeNull();
+  });
+});
+
+/**
+ * concentrationOfListing: trusting a listing's own description over its own
+ * title, in the one narrow shape measured against the live harvest — see its
+ * own comment and CONCENTRATION_RESTATEMENT_RE for the numbers.
+ *
+ * These are manchester-ouds' real titles and descriptions (data/catalogue's
+ * French Avenue listings), not invented shapes: its title compresses "Extrait
+ * De Parfum" to a bare "EDP", and its own description restates the bottle's
+ * full name — "French Avenue <Name> Extrait De Parfum (<size>ml) is a ..." —
+ * at the real concentration. Beautybase independently titles the identical
+ * EAN "Extrait De Parfum" too (see scripts/build-demo-catalogue.ts's own
+ * concentration audit), which is what settled these four specifically.
+ */
+describe('concentrationOfListing: a description restating the bottle name', () => {
+  it('trusts the description over a bare "EDP" title when it restates the full name', () => {
+    expect(
+      concentrationOfListing(
+        'Aether EDP 100ml',
+        'French Avenue Aether Extrait De Parfum (100ml) is a confident and contemporary men’s fragrance.',
+      ),
+    ).toBe('Extrait de Parfum');
+    expect(
+      concentrationOfListing(
+        'Royal Blend Sequoia EDP 100ml',
+        'French Avenue Royal Blend Sequoia Extrait De Parfum (100ml) is a deeply sophisticated fragrance.',
+      ),
+    ).toBe('Extrait de Parfum');
+  });
+
+  // The gate that keeps this narrow: only a *bare abbreviation* title is ever
+  // overridden. A title that already spells out its own concentration in full
+  // is a deliberate, specific claim, not a shorthand — see the header's
+  // measurement that every one of the 441 agreeing restatement-shape listings
+  // already had a spelled-out title, and the 7 disagreements were all
+  // abbreviations.
+  it('never overrides a title that already spells out a concentration in full', () => {
+    expect(
+      concentrationOfListing(
+        'French Avenue Aether Eau De Parfum 100ml Spray',
+        'French Avenue Aether Extrait De Parfum (100ml) is a confident fragrance.',
+      ),
+    ).toBe('Eau de Parfum');
+  });
+
+  // manchester-ouds' own catalogue shows the reverse is real too: "Ripple"
+  // and "Safari Breeze" carry the identical bare-"EDP" title shape, but their
+  // own descriptions restate "Eau De Parfum" — agreeing with the title rather
+  // than contradicting it — so there is nothing here to override.
+  it('leaves a bare-abbreviation title alone when the description agrees with it', () => {
+    expect(
+      concentrationOfListing(
+        'Ripple EDP 100ml',
+        'French Avenue Ripple Eau De Parfum (100ml) is a woody aromatic fragrance.',
+      ),
+    ).toBe('Eau de Parfum');
+  });
+
+  // The false positive this stays clear of: a dupe's own description quoting
+  // the *inspiration* fragrance's concentration, not this bottle's — Emirates
+  // Oud's real "Mr England Touch ... EDP" listing describes itself with
+  // "Burberry Touch for Men Eau de Toilette", a different, named perfume. A
+  // looser rule ("does the description mention any concentration phrase
+  // anywhere") took this as evidence; the strict restatement shape does not,
+  // because the phrase here is never followed by "(<size>ml) is".
+  it('does not mistake a description naming a different, inspiring fragrance for a restatement', () => {
+    expect(
+      concentrationOfListing(
+        'Mr England Touch Perfume 100ml EDP By Fragrance World',
+        'Indulge in the timeless elegance of the quintessential English gentleman with Burberry Touch for Men Eau de Toilette.',
+      ),
+    ).toBe('Eau de Parfum');
+  });
+
+  it('falls through to the title when there is no description at all', () => {
+    expect(concentrationOfListing('Aether EDP 100ml', null)).toBe('Eau de Parfum');
+  });
+
+  it('CONCENTRATION_RESTATEMENT_RE only matches a phrase directly followed by its own size and "is"', () => {
+    expect(CONCENTRATION_RESTATEMENT_RE.test('Extrait De Parfum (100ml) is a fragrance')).toBe(true);
+    expect(CONCENTRATION_RESTATEMENT_RE.test('this fresh–fruity aromatic extrait that contrasts')).toBe(false);
+    expect(CONCENTRATION_RESTATEMENT_RE.test('is available as Eau de Parfum')).toBe(false);
   });
 });

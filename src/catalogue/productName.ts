@@ -378,6 +378,102 @@ export function concentration(title: string): string {
   return CONCENTRATION_DISPLAY[key] ?? key.replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+/**
+ * What the concentration field says when two shops' own titles genuinely
+ * disagree about it — "Eau de Parfum" and "Parfum" for the same barcode, not
+ * one shop naming a strength and another naming none (see
+ * productMatch.ts's byConcentration bridge for that case, which is not a
+ * disagreement and never reaches this value).
+ *
+ * scripts/build-demo-catalogue.ts's concentration audit is what decides a
+ * product needs this: every shop selling it shares one EAN, which is the
+ * manufacturer's own word that this is one bottle (see productMatch.ts's
+ * header on how much weight a real barcode carries here), so the two
+ * different words are one shop's mislabelling, not two products merged. But
+ * *which* shop is mislabelled needs the manufacturer's own listing to settle,
+ * and the proxy this project's harvest runs behind refuses every brand and
+ * retailer domain — see the audit's own comment for the two live examples
+ * (Yardley Gentleman Classic 100ml, Lancôme La Vie Est Belle Rose
+ * Extraordinaire 30ml) this cannot be resolved for today.
+ *
+ * Picking one shop's word anyway — which is what this field used to do,
+ * silently, by nothing more principled than which retailer's snapshot file
+ * happened to sort first on disk — states a fact nobody here can stand
+ * behind. This value states the true fact instead: the bottle is real, the
+ * offers on it are real, and what it says on the label is contested. See
+ * CONCENTRATION_NOT_STATED just above for the same reasoning applied to
+ * silence rather than to a dispute.
+ */
+export const CONCENTRATION_DISPUTED = 'Disputed';
+
+/**
+ * A specific concentration phrase immediately followed by its own size in
+ * parentheses and "is" — "Extrait De Parfum (100ml) is a ..." — the shape a
+ * supplier's own product blurb takes when its opening line restates the
+ * bottle's full name, as opposed to a phrase merely occurring somewhere in
+ * marketing prose (which is not reliable — see concentrationOfListing below).
+ *
+ * Measured across every active, priced listing that carries a description:
+ * 448 match this exact shape, from four shops (justmylook 419, manchester-
+ * ouds 18, mybeauty-boutique 10, fragrancehub 1). Of those 448, 441 already
+ * agree with what the same listing's own title says. The 7 that do not are
+ * every one of manchester-ouds' — all French Avenue bottles, all the same
+ * direction: the title compresses to a bare "EDP" while the description
+ * restates "French Avenue <Name> Extrait De Parfum (<size>ml) is a ...
+ * fragrance", word for word the shape of a manufacturer product blurb rather
+ * than manchester-ouds' own house style. Four of those seven (Aether, Amber
+ * Empire, Royal Blend Sequoia, Liquid Brun Limited Edition) are also EAN-
+ * shared with Beautybase, which independently titles the identical bottle
+ * "Extrait De Parfum" too — see scripts/build-demo-catalogue.ts's own
+ * concentration audit.
+ */
+export const CONCENTRATION_RESTATEMENT_RE =
+  /\b(eau de parfum|eau de toilette|eau de cologne|extrait de parfum|extrait de toilette)\s*\(\d{1,4}\s*ml\)\s*is\b/i;
+
+/**
+ * Concentration, trusting a listing's own description over its own title in
+ * one narrow, structural case: the title names only a bare abbreviation
+ * ("EDP"/"EDT"/"EDC" — inherently a shorthand, never a house's own way of
+ * naming a flanker line the way "Parfum" or "Le Parfum" can be, see
+ * concentrationMatch's own header) and the description independently
+ * restates the bottle's full name at a different, specific concentration —
+ * see CONCENTRATION_RESTATEMENT_RE for the shape and the measurement that
+ * justifies trusting it.
+ *
+ * Deliberately not "does the description mention a different concentration
+ * anywhere" — that question was asked first, across the whole harvest with a
+ * description at all, and it produced 308 disagreements, most of them noise:
+ * a description that quotes the *inspiration* fragrance a dupe is compared
+ * against ("Indulge in ... Burberry Touch for Men Eau de Toilette" on a
+ * listing titled "Mr England Touch ... EDP" — a description of a different,
+ * named perfume, not a second opinion on this one), a labelled
+ * "Fragrance Type:" field that disagrees with the very same shop's title in
+ * both directions on 143 of its own listings (Emirates Oud) — which is
+ * evidence that shop's own data entry is unreliable throughout, not evidence
+ * for either the title or the field. Restricting to the exact restatement
+ * shape is what keeps this from repeating either mistake: every one of the
+ * 7 real disagreements it does find sit in one shop's feed, in one
+ * direction, independently corroborated where a second shop is available —
+ * see CONCENTRATION_RESTATEMENT_RE.
+ *
+ * Every other listing — the other 441 that already agree, and everything
+ * with no description at all — falls through to `concentration(title)`
+ * unchanged.
+ */
+export function concentrationOfListing(title: string, description: string | null): string {
+  const fromTitle = concentration(title);
+  if (!description) return fromTitle;
+
+  const titleWord = concentrationMatch(title);
+  if (!titleWord || !/^(edp|edt|edc)$/i.test(titleWord)) return fromTitle;
+
+  const restated = description.match(CONCENTRATION_RESTATEMENT_RE)?.[1];
+  if (!restated) return fromTitle;
+
+  const fromDescription = concentration(restated);
+  return fromDescription === fromTitle ? fromTitle : fromDescription;
+}
+
 const escapeRe = (s: string): string => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 /**
