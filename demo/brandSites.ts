@@ -10,6 +10,23 @@ import { marketOf } from '../src/catalogue/brandSiteCheck.js';
  * this registry runs on (see the `blurb` field on Retailer for the same
  * discipline applied to retailers).
  *
+ * ── Re-measured 2026-08-26 (fourth pass this day), after a worklist sweep
+ * that checked each candidate's own raw retailer data for a mis-split before
+ * any search (none turned up this pass — see the "2026-08-26 pass, fourth
+ * this day" section near the end of BRAND_SITES for all seven), then looked
+ * up the real, independently-confirmed houses that check left standing:
+ * Oud Elixir, Legion, Israel Philip, London Fragrances (a Fine Perfumery
+ * sub-line), Perfumer's Choice (a Milton-Lloyd sub-line), Captivating
+ * Essence (Palm Beach Beauté's own line) and Millionaires Choice.
+ *
+ * Re-running the measurement: 14,846 products, 678 houses (unchanged — no
+ * fold this pass, only new links), 373 resolving here (was 366) — 55.0%, up
+ * from 54.0%. 305 houses remain unresolved (was 312). 13,798 of the 14,649
+ * products under a named house, 94.2%, now show a website line. The ceiling
+ * on further work keeps shrinking: the 30 largest unresolved houses are
+ * 2.3% of all products between them, the top 50 reach 2.9%, the top 100
+ * reach 3.9%.
+ *
  * ── Re-measured 2026-08-26 (third pass this day), after a mis-split sweep
  * of the raw retailer data and a website-lookup pass on the real houses it
  * left standing — both described in full where they happened
@@ -1627,6 +1644,159 @@ export const BRAND_SITES: Record<string, string> = {
   // A Gun, Tiffany, Yves Saint Laurent), not a house of its own, the same
   // shape as "Unbranded" and just as unfoldable — there is no one house to
   // point the string at.
+
+  // ══ 2026-08-26 pass, fourth this day ════════════════════════════════════
+  //
+  // Re-measured with buildBrandCanon() before touching anything (per this
+  // file's own header method), confirmed identical to the third pass's own
+  // numbers — a day's harvest between passes moved product counts but not
+  // the house or resolved counts. Worked the worklist top-down, checking
+  // each candidate's own raw retailer data for a mis-split before any
+  // search, per the task brief. No mis-split turned up this pass — every
+  // worklist entry below checked out as a real, independent trading name
+  // (or, for "Perfumer's Choice", a confirmed sub-line of an already-
+  // resolved house) rather than a private label or a feed artifact. Same
+  // WebSearch-only caveat as every pass since 2026-08-19: the egress proxy
+  // still refuses brand domains outright, so a URL below is used only when
+  // a search result's own link list carried that domain under a title or
+  // product page identifying it as the brand's own site, never from a
+  // search summary's prose alone.
+  //
+  // "Oud Elixir" (9 products across beautybase.json, mybeauty-boutique.json
+  // and perfume-click.json — three independent retailers, ruling out one
+  // shop's private label the same way "Masquerade" was ruled out above)
+  // checks out as a real UAE house: oudelixir.com returned directly, and its
+  // own /products/oud-elixir-dubai-oud-oil page names the same "Dubai Oud"
+  // line this catalogue carries, alongside "Dubai Nights" and "Dubai
+  // Effect" also confirmed on the same domain. Distinct from several other,
+  // unrelated fragrances that happen to share the generic phrase "oud
+  // elixir" inside a different house's own range (Swiss Arabian's "Shaghaf
+  // Oud Elixir", Hamidi's "Oud Elixir", Veronique Gabai's "Oud Elixir") —
+  // none of those is a house named "Oud Elixir" itself, so none of them was
+  // a candidate here.
+  'oud elixir': 'https://oudelixir.com/',
+  // "Legion" (8 products, all beautybase.json product name "Legion
+  // Centurion ...") — legionparfums.com returned directly and repeatedly,
+  // including its own /products/legion-parfums-centurion-100ml page naming
+  // the same "Centurion" fragrance this catalogue carries, and titled
+  // "Legion Parfums" as its own site rather than a retailer's.
+  legion: 'https://legionparfums.com/',
+  // "Israel Philip" (6 products: Avignon, L'Orient, La Rochelle, Montpellier
+  // — French city names, all data/catalogue/mybeauty-boutique.json and
+  // perfume-click.json) — israelphilipfragrances.com returned directly,
+  // titled "Israel Philip Fragrances" as its own site. A Mumbai-founded
+  // (2021) direct-to-consumer house; its own "Signature Gold Collection" is
+  // named as Montpellier, La Rochelle, Avignon and L'Orient — this
+  // catalogue's own four products, name for name.
+  'israel philip': 'https://www.israelphilipfragrances.com/',
+  // "London Fragrances" (6 products: Blackberry & Bay, Velvet Rose & Oud,
+  // Blue Agava & Cacao, Gardenia & Oud, Rose & White Musk, Violet & Amber,
+  // all data/catalogue/beautybase.json) is a Fine Perfumery sub-line, the
+  // same shape as the already-resolved "Attar & Co" and "Tom Edward" above:
+  // fineperfumery.com/collections/london-fragrances is the manufacturer's
+  // own dedicated collection page, and every one of this catalogue's six
+  // products matches one of its own product pages byte-for-byte (Velvet
+  // Rose & Oud, Blue Agava & Cacao, Gardenia & Oud and Violet & Amber all
+  // confirmed at their own fineperfumery.com/products/london-fragrances-...
+  // URLs). Kept as its own canonical house rather than folded into "Fine
+  // Perfumery" in src/catalogue/brandName.ts, for the same reason as those
+  // two: a shop selling "London Fragrances" is naming a real, distinct
+  // trading name, not decoration.
+  'london fragrances': 'https://www.fineperfumery.com/collections/london-fragrances',
+  // "Perfumer's Choice" (5 products: No. 2 Sofia, No. 8 Valerie, No. 9
+  // Victor, No. 11 Leo, all data/catalogue/mybeauty-boutique.json,
+  // perfume-click.json and the-beauty-store-uk.json) is Milton-Lloyd's own
+  // premium collection, not a separate house — already resolved above as
+  // 'milton lloyd' (uk.milton-lloyd.com). uk.milton-lloyd.com/fragrances/
+  // perfumers-choice is the manufacturer's own dedicated collection page,
+  // and its own per-fragrance pages (no8-valerie, no9-victor, 11-by-leo,
+  // no2-sofia) match this catalogue's own product names exactly. Kept as
+  // its own canonical house rather than folded into "Milton Lloyd" in
+  // src/catalogue/brandName.ts, the same "real, distinct trading name, not
+  // decoration" reasoning as "London Fragrances" above and "Attar & Co" /
+  // "Tom Edward" before it — but pointed at the manufacturer's own
+  // collection page for it, not the bare Milton-Lloyd homepage.
+  'perfumer s choice': 'https://uk.milton-lloyd.com/fragrances/perfumers-choice',
+  // "Captivating Essence" (4 products: Orange Blossom & Tuberose, Strawberry
+  // & Apple Blossom, Sweet Lychee & Rose, Vanilla Orchid & Lavender, split
+  // across data/catalogue/perfume-click.json and the-beauty-store-uk.json —
+  // two independent retailers) is Palm Beach Beauté's own line: its
+  // /product-category/captivating-essences/ page is the manufacturer's own,
+  // and its own /product/orange-blossom-tuberose/ and /product/vanilla-
+  // orchid-lavender/ pages match this catalogue's own product names
+  // directly. Unlike the "Ellen Tracy" and "Liz Claiborne" entries the same
+  // site also sells (see the "left unresolved" notes below and the
+  // 2026-08-25 pass's own note further up) — which that site's own URLs
+  // mark "by Ellen Tracy" / "by Liz Claiborne", naming someone else's
+  // trademark it merely stocks — nothing on Palm Beach Beauté's own
+  // Captivating Essences pages attributes the line to a different company,
+  // so this reads as the manufacturer's own house brand rather than a
+  // reseller's listing of someone else's.
+  'captivating essence': 'https://palmbeachbeaute.com/product-category/captivating-essences/',
+  // "Millionaires Choice" (6 products: MC1-MC6, all data/catalogue/
+  // beautybase.json) — founded by George Jatania (former Lornamead Ltd
+  // chairman, also behind Yardley of London, already resolved above) with
+  // his wife and three daughters as "Millionaires Choice Parfum London".
+  // millionaireschoiceparfum.co.uk returned directly, with its own
+  // /product/mc1, /product/mc3 and /product/mc6 pages matching this
+  // catalogue's own MC1-MC6 numbering exactly, and the identically-branded
+  // millionaireschoiceparfum.com mirrors the same MC1-MC6 catalogue under
+  // the same distributor (Jatania General Trading LLC, Dubai) — reads as
+  // one company's UK/global mirror pair, not a second competing claimant.
+  // The .co.uk is used as the UK-marked address. A third, differently-named
+  // domain, millionaireschoiceperfumes.com, also surfaced with its own
+  // "About Us" page repeating the same founder's story, but no MC-numbered
+  // product page of its own was found there to confirm it sells the same
+  // range rather than being a separate, similarly-named operation — not
+  // used here, since only the .co.uk/.com pair was confirmed against this
+  // catalogue's own products.
+  'millionaires choice': 'https://millionaireschoiceparfum.co.uk/',
+
+  // Checked and left unresolved this pass, each for its own reason:
+  //
+  //  - "Mustang" (8 products, data/catalogue/mybeauty-boutique.json,
+  //    perfume-click.json and the-beauty-store-uk.json) is a real Ford-
+  //    licensed cologne line, but three different manufacturers have held
+  //    the licence at different times with no way from search alone to say
+  //    which one, if any, is current — Aramis/Estée Lauder (launched the
+  //    original 2007 "Mustang" scent), Palm Beach Beauté (announced as "the
+  //    official Ford Licensee" for a newer "Ford Mustang" fragrance), and
+  //    First American Brands (sells "Ford Mustang Performance" today, and is
+  //    also the parent this file's own "Aubusson" note above names). The
+  //    catalogue further complicates it: several of the raw listings under
+  //    this same rawBrand are titled "Ford Legacy Cougar/Gran Torino/Falcon/
+  //    Thunderbird" — other historic Ford model names sold as one family
+  //    with "Mustang" by these retailers — not a separate house to split
+  //    out, just one more reason a single confident address is not there.
+  //  - "Mayfair" (8 products: Fleur, Pagan, Tramp, Just Musk, Lavender and
+  //    others, data/catalogue/mybeauty-boutique.json and perfume-click.json)
+  //    is a real UK company — Mayfair Perfumes Limited is a live registration
+  //    on Companies House, and it holds the rights to Lenthéric's discontinued
+  //    Feather Finish face powder and several of Lenthéric's own vintage
+  //    fragrance names (Pagan, Flair) — but no mayfairperfumes.co.uk or
+  //    equivalent domain appeared in any search result's own link list, only
+  //    retailers (Perfume Click, DirectCosmetics, Scentstore) and an
+  //    unrelated "Mayfair" scent from a different house entirely (The Savile
+  //    Row Company).
+  //  - "Lionel Richie" (6 products: the "Hello" fragrance line, data/
+  //    catalogue/mybeauty-boutique.json, perfume-click.json and the-beauty-
+  //    store-uk.json) is a real celebrity-licensed line launched 2019, but
+  //    every result was a retailer (Amazon, FragranceNet, FragranceX) or
+  //    Fragrantica — no licensee-owned domain found the way "David Beckham"
+  //    and "Cristiano Ronaldo" already resolved above have.
+  //  - "Parisvally" (6 products: Edition One-Four, Irshid, Kashab, all
+  //    beautybase.json) is a real trading name — its own Fragrantica
+  //    designer page and a dedicated Facebook page (@parisvally.info) exist
+  //    — but every result was a retailer (Perfume.com) or a fragrance
+  //    database, never a brand-owned domain.
+  //  - "Ritaj" (6 products: Abaya, Amira, La YL, Najm, Shouq, Taj, all
+  //    beautybase.json) has too many competing, unconnected claimants to
+  //    pick from: "Ritaj" by Junaid Perfumes (its own Fragrantica designer
+  //    page), a separate "RITAJ Perfumes" Instagram account, "Dar Al-Ritaj"
+  //    (a Kuwaiti retailer's brand page), and "Ritaj Mecca Perfume" from a
+  //    business called Mecca Perfumes — none confirmed as the same company
+  //    behind this catalogue's own six product names, the same shape as Ed
+  //    Hardy and Reyane Tradition above.
 };
 
 /**
@@ -1634,36 +1804,32 @@ export const BRAND_SITES: Record<string, string> = {
  *
  * Not code — a priority order for whoever runs the next confirmation pass,
  * ranked by product count in the live catalogue. Re-measured 2026-08-26
- * (third pass this day) against demo/catalogue.generated.ts (14,836
+ * (fourth pass this day) against demo/catalogue.generated.ts (14,846
  * products / 678 houses) using the same buildBrandCanon()-based method as
  * the file header's own count — see that header's own top paragraph for
- * what this pass changed (three mis-splits folded away, eighteen new
- * resolved entries). "Eve" and "Bottega Veneta Beauty" drop off the list
- * entirely, folded into "Avon Cosmetics" and "Bottega Veneta" respectively
- * (see brandName.ts's own KNOWN_ALIASES comment), and the eighteen houses
- * this pass actually resolved drop off too (Victorinox Swiss Army, Pierre
- * Cardin, Etro, Mauboussin, Shiseido, MCM, Rituals, Stetson, Proenza
- * Schouler, Initio Parfums Privés, Woods of Windsor, Paul Sebastian,
- * Ferrari, Santa Maria Novella, Le Chameau, Bespoke, Creative Colours,
- * Balmain Beauty). "CRM" moves to the "not a brand" list. Everything else
- * moved only because a day of harvesting shifted product counts, the same
- * kind of movement every prior pass has recorded — "Bottega Veneta" (now
- * under its post-fold count),
- * "Balenciaga Beauty", "Worth", "Jesus del Pozo", "Sergio Tacchini", "Alfa
- * Romeo", "Umbro", "Lambretta", "Scalpers", "Brut" and "Saint Hilaire"
- * remain on the list because this pass investigated and deliberately left
- * each of them unresolved (see the notes on each, above).
+ * what this pass changed (no mis-splits this time; seven new resolved
+ * entries). Oud Elixir, Legion, Israel Philip, London Fragrances,
+ * Perfumer's Choice, Captivating Essence and Millionaires Choice drop off
+ * the list, all seven resolved this pass (see the notes above). Mustang,
+ * Mayfair, Lionel Richie, Parisvally and Ritaj remain on the list because
+ * this pass investigated and deliberately left each of them unresolved (see
+ * the notes on each, above) — as do "Balenciaga Beauty", "Worth", "Jesus
+ * del Pozo", "Sergio Tacchini", "Alfa Romeo", "Umbro", "Lambretta",
+ * "Scalpers", "Brut" and "Saint Hilaire" from the prior pass's own
+ * investigation. Everything else moved only because a day of harvesting
+ * shifted product counts, the same kind of movement every prior pass has
+ * recorded.
  *
- * 312 of 678 houses still have no entry (was 332 of 680 before this pass),
+ * 305 of 678 houses still have no entry (was 312 of 678 before this pass),
  * and the work left keeps shrinking: the 30 largest below cover 2.3% of
- * products between them, the top 50 reach 3.0%, the top 100 reach 4.1%. Two
+ * products between them, the top 50 reach 2.9%, the top 100 reach 3.9%. Two
  * of the thirty are on the "not a brand" or "deliberately unresolved" lists
  * at the end of BRAND_SITES above (Scent Favourites, Designer Collection),
  * plus Rotana, Aubusson, Blood Concept, Halston, Banana Republic, Jean-Louis
- * Scherrer, Daniel Hechter, Masquerade, Worth and Alfa Romeo from the
- * "real house, no confirmed domain" notes above, so the reachable remainder
- * is smaller again. Whoever picks this up should read those notes first
- * rather than re-deriving them.
+ * Scherrer, Daniel Hechter, Masquerade, Worth, Alfa Romeo, Mustang, Mayfair,
+ * Lionel Richie, Parisvally and Ritaj from the "real house, no confirmed
+ * domain" notes above, so the reachable remainder is smaller again. Whoever
+ * picks this up should read those notes first rather than re-deriving them.
  *
  * "Unbranded" (196 products) is excluded from this ranking — not a house,
  * the literal string some retailer feeds send when they have no brand for a
@@ -1674,34 +1840,34 @@ export const BRAND_SITES: Record<string, string> = {
  *
  *   Parfums des Champs                  43 products  (cum  0.3%)
  *   Jennifer Lopez                      26 products  (cum  0.5%)
- *   Rotana                              18 products  (cum  0.6%)
- *   Diane Castel                        17 products  (cum  0.7%)
- *   United Colors & Prestige Beauty     15 products  (cum  0.8%)
- *   Cevi Les Parfums                    15 products  (cum  0.9%)
- *   Marvel                              14 products  (cum  1.0%)
- *   Scent Favourites                    14 products  (cum  1.1%)
+ *   Scent Favourites                    19 products  (cum  0.6%)
+ *   Rotana                              18 products  (cum  0.7%)
+ *   Diane Castel                        17 products  (cum  0.8%)
+ *   United Colors & Prestige Beauty     15 products  (cum  0.9%)
+ *   Cevi Les Parfums                    15 products  (cum  1.0%)
+ *   Marvel                              14 products  (cum  1.1%)
  *   Ellen Tracy                         13 products  (cum  1.2%)
  *   Taylor of London                    12 products  (cum  1.3%)
- *   Aubusson                            10 products  (cum  1.3%)
+ *   Aubusson                            10 products  (cum  1.4%)
  *   Liz Claiborne                       10 products  (cum  1.4%)
  *   Hello Kitty                         10 products  (cum  1.5%)
- *   Blood Concept                        9 products  (cum  1.5%)
+ *   Blood Concept                        9 products  (cum  1.6%)
  *   Designer Collection                  9 products  (cum  1.6%)
- *   Halston                              9 products  (cum  1.6%)
- *   Oud Elixir                           9 products  (cum  1.7%)
- *   Banana Republic                      9 products  (cum  1.8%)
+ *   Halston                              9 products  (cum  1.7%)
+ *   Banana Republic                      9 products  (cum  1.7%)
  *   Mustang                              8 products  (cum  1.8%)
- *   Jean-Louis Scherrer                  8 products  (cum  1.9%)
+ *   Jean-Louis Scherrer                  8 products  (cum  1.8%)
  *   Mayfair                              8 products  (cum  1.9%)
- *   Missguided                           7 products  (cum  2.0%)
+ *   Missguided                           7 products  (cum  1.9%)
  *   Daniel Hechter                       7 products  (cum  2.0%)
- *   Masquerade                           7 products  (cum  2.1%)
+ *   Masquerade                           7 products  (cum  2.0%)
  *   Worth                                7 products  (cum  2.1%)
- *   Alfa Romeo                           6 products  (cum  2.2%)
- *   Israel Philip                        6 products  (cum  2.2%)
+ *   Alfa Romeo                           6 products  (cum  2.1%)
  *   Lionel Richie                        6 products  (cum  2.2%)
- *   Elysia                               6 products  (cum  2.3%)
- *   Legion                               6 products  (cum  2.3%)
+ *   Elysia                               6 products  (cum  2.2%)
+ *   Parisvally                           6 products  (cum  2.2%)
+ *   Reyane Tradition                     6 products  (cum  2.3%)
+ *   Ritaj                                6 products  (cum  2.3%)
  *
  * (full ranked list is reproducible any time by running buildBrandCanon()
  * over the live catalogue and diffing against this file's own keys, the same
