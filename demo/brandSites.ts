@@ -10,6 +10,45 @@ import { marketOf } from '../src/catalogue/brandSiteCheck.js';
  * this registry runs on (see the `blurb` field on Retailer for the same
  * discipline applied to retailers).
  *
+ * ── Re-measured 2026-08-26 (second pass this day), after a real bug fix and
+ * a worklist confirmation sweep, both described in full where they happened
+ * (src/catalogue/brandName.ts's own KNOWN_ALIASES comment for the fix; this
+ * file's own new entries and notes below for the sweep).
+ *
+ * The bug: mybeauty-boutique.json's Awin feed carried 8 "Evaflor Whisky ..."
+ * products (Black, Black Op, Homme Sport, Origin, Red, Silver, Sugar Skull,
+ * Vntage For Men) under rawBrand "Whisky" — the line name, not the house —
+ * while a second retailer scraping the identical fragrances already had
+ * rawBrand "Evaflor" right. Folded 'Whisky' -> 'Evaflor' in brandName.ts,
+ * the same shape as the already-established Drakkar/So Poudree folds.
+ *
+ * The sweep: three worklist entries that read as though they might be
+ * mis-split lines — Masquerade, Attar & Co, Tom Edward — were checked
+ * against their own raw retailer data before any web search, per this
+ * file's usual discipline. None turned out to be a mis-split: Masquerade is
+ * a real, independently-stocked UK trading name (confirmed against three
+ * wholesalers with no connection to each other), and Attar & Co / Tom
+ * Edward are real sub-lines of Fine Perfumery (confirmed product-for-product
+ * against fineperfumery.com's own domain), not a retailer's private label.
+ * Website lookups followed for the clearer, well-known worklist entries:
+ * resolved Adidas (Coty-licensed since 1985), Dana (the real House of Dana,
+ * Barcelona 1932), Evaflor (the house the bug fix above named), and the two
+ * Fine Perfumery sub-lines just confirmed; left Diane Castel, Aubusson,
+ * Daniel Hechter and Parfums des Champs unresolved with reasons recorded
+ * below, and left Masquerade unresolved too — real, but no manufacturer-
+ * owned domain turned up for it either.
+ *
+ * Re-running the measurement: 14,591 products, 681 houses (was 679 on the
+ * first 2026-08-26 pass, purely the day's harvest moving the underlying
+ * data — this pass's own fold merges one house away, not adds one), 348
+ * resolving here (was 343) — 51.1%, up from 50.5%. 333 houses remain
+ * unresolved (was 336, then 339 once the day's harvest between passes is
+ * accounted for — this pass's own five new entries account for the rest of
+ * the movement). 13,618 of the 14,591 products under a named house, 93.3%,
+ * now show a website line. The ceiling on further work is essentially
+ * unchanged: the 30 largest unresolved houses are 2.4% of all products
+ * between them, the top 50 reach 3.2%, the top 100 reach 4.4%.
+ *
  * ── Re-measured 2026-08-26, after two passes on src/catalogue/brandName.ts
  * rather than on this file (a handful of `avon cosmetics`/`avon` entries
  * below are the only lines either pass actually touched in this file; the
@@ -1157,9 +1196,15 @@ export const BRAND_SITES: Record<string, string> = {
   // unresolved: Parfums des Champs (its "Champs" line is credited to a
   // Belgium-based "New Brand" business in search results, distinct from the
   // Paris-based PC Design Perfumes SARL this file's own "new brand" entry
-  // above resolves to — not folded together on that ambiguity), Aubusson,
-  // Daniel Hechter, Attar & Co (only fineperfumery.com's own collection
-  // page turned up, a retailer rather than the house).
+  // above resolves to — not folded together on that ambiguity; a 2026-08-26
+  // pass additionally found Fragluxe, a Florida-based distributor, named as
+  // the importer that gets Champs/Cuba product to market, one more link in
+  // a chain with no single confirmed brand-owned domain at the end of it),
+  // Aubusson, Daniel Hechter. Attar & Co was here too, on the call that
+  // fineperfumery.com's own collection page for it was "a retailer rather
+  // than the house" — corrected 2026-08-26, see that entry's own note below
+  // for why fineperfumery.com is this sub-line's actual manufacturer page,
+  // not a reseller.
   //
   // ── Left unresolved by the 2026-08-25 pass, with the reason ─────────────
   // Kept because "no link" is a correct outcome and the reasons are worth
@@ -1261,6 +1306,117 @@ export const BRAND_SITES: Record<string, string> = {
   //    the "Rotana, Jeanne en Provence..." bucket above) rather than kept:
   //    checking it the same way the other ten were checked found evidence
   //    it is not Essential Parfums, never evidence that it is not a brand.
+
+  // ── 2026-08-26 pass: worklist entries checked against their own raw
+  // retailer data before any web search, and website lookups for the
+  // clearer, well-known houses that check turned up. WebSearch only, same
+  // caveat as every pass since 2026-08-19 — this sandbox's egress proxy
+  // still refuses brand and retailer domains outright, so nothing below was
+  // opened directly; a URL is used only when a search result's own link
+  // list carried that domain under a title identifying it as the brand's or
+  // manufacturer's own page.
+  //
+  // "Masquerade" (8 products: Aventador Pour Homme, Black Onyx Pour Femme,
+  // Extra Terrestre, French Bloom, In-Vincible Sport, Ms Dream Pour Femme,
+  // Wild Saviour Pour Homme — all data/catalogue/perfume-click.json) reads
+  // like it could be a maker's dupe range under an assumed name, but it
+  // checks out as a real, if minor, UK trading name: perfume-click.co.uk
+  // carries it as its own listed brand category, and three independent
+  // wholesalers with no connection to perfume-click — Shure Cosmetics
+  // (store.shure-cosmetics.co.uk/masquerade), Apollo Wholesale
+  // (eapollowholesale.co.uk) and Well Made Gifts — all stock the identical
+  // named fragrances ("French Bloom", "Ms Dream Pour Femme") under the same
+  // "Masquerade"/"Masquerade Designer Fragrances" name, which rules out a
+  // single retailer's own private label the way "Designer Collection" and
+  // "Scent Favourites" above are. No search result named a manufacturer's
+  // own domain for it, only these wholesalers' and retailers' own sites, so
+  // it is left here unresolved rather than pointed at one of them.
+  //
+  // "Attar & Co" (8 products: Amethyst/Arabian/Diamond/Emerald/Obsidian/
+  // Pure/Ruby/Sapphire Oud Intense, all data/catalogue/beautybase.json) and
+  // "Tom Edward" (7: Belle, Charm, Maverick, Muse, Odyssey, Valor, Voyager,
+  // also all beautybase.json) both check out as real sub-lines of one
+  // manufacturer, Fine Perfumery (already resolved above as 'fine
+  // perfumery'), not a mis-split brand and not beautybase's own private
+  // label the way "Scent Favourites" is bmstores.co.uk's: every one of the
+  // 15 product names between them matches, byte-for-byte, a product on
+  // fineperfumery.com's own domain — "Sapphire Oud Intense - Attar & Co.
+  // Unisex 100ml Parfum", "Muse - Tom Edward for Her 100ml Eau de Parfum"
+  // among them — the same evidence standard as the "Emir"/"Ministry of
+  // Oud"/"North Stag" sub-lines of Paris Corner already resolved above, and
+  // the same treatment: each kept as its own canonical house (not folded
+  // into "Fine Perfumery" in src/catalogue/brandName.ts, since a shop
+  // selling "Attar & Co" is naming a real, distinct trading name, not
+  // decoration) but pointed at the manufacturer's own collection page for
+  // it, not a generic homepage link. Beautybase.json being the only feed
+  // that currently carries either line just means beautybase is the one
+  // retailer in this catalogue stocking them today, not that beautybase
+  // invented them — Fine Perfumery's own domain is what settles that.
+  'attar co': 'https://www.fineperfumery.com/collections/attar-co',
+  'tom edward': 'https://www.fineperfumery.com/collections/tom-edward-fragrances',
+
+  // "Adidas" (8 products) fragrance has been produced under license by Coty
+  // since 1985 (renewed repeatedly since, most recently reported 2023) — the
+  // same manufacturer-licenses-the-name shape as the existing 'jovan' entry
+  // above. coty.com's own site carries a dedicated brand page for it, titled
+  // "Adidas - Consumer Brand - Coty" in its own link list, at the same
+  // /our-brands/consumer-brands/<name> path jovan already uses.
+  adidas: 'https://www.coty.com/our-brands/consumer-brands/adidas',
+
+  // "Dana" (9 products, all data/catalogue: Chantilly, Rapport, Rapport
+  // Black, Rapport Sport, Valor, Navy, Monsieur Musk, English Leather,
+  // British Sterling, Canoe, Black Lace, Love's Baby Soft — the-beauty-
+  // store-uk.json, perfume-click.json and mybeauty-boutique.json between
+  // them) is the real "House of Dana", founded Barcelona 1932 by Javier
+  // Serra, first fragrance Tabu. danaclassics.com titles itself "Dana
+  // Classic Fragrances: Home of Tabu, Chantilly, English Leather" directly
+  // in search's own link list, with its own /pages/our-story and a
+  // /collections/portfolio page captioned "Buy All Dana Classic Fragrances
+  // from the Source" — its own site, not a retailer, and its listed
+  // portfolio (Tabu, Chantilly, Navy, English Leather, British Sterling,
+  // Canoe, Monsieur Musk, Love's Baby Soft) matches this catalogue's own
+  // "Dana" products name-for-name.
+  dana: 'https://danaclassics.com/',
+
+  // "Evaflor" (12 products after src/catalogue/brandName.ts's 2026-08-26
+  // 'Whisky' -> 'Evaflor' fold — see that file's own KNOWN_ALIASES comment)
+  // is EVAFLORPARIS, a real French manufacturer since 1983, founded by
+  // Albert Bonan, based Garges-lès-Gonesse. evaflor.com/en is its own
+  // homepage, confirmed directly in search's own link list alongside its
+  // own /pages/contact and /pages/la-maison-evaflor ("The Evaflor House")
+  // pages — its own site, not a retailer, and it lists "Whisky" as its own
+  // men's fragrance collection exactly as this catalogue's products say.
+  evaflor: 'https://www.evaflor.com/en',
+
+  // Checked and left unresolved this pass, each for its own reason:
+  //
+  //  - "Diane Castel" (17 products, all data/catalogue/beautybase.json) is a
+  //    real, distinctly-named fragrance house (Fragrantica and Parfumo both
+  //    carry it as its own designer entry, 2017-2024), but every search
+  //    result was a third-party retailer or fragrance database — Target,
+  //    Perfume.com, FragranceNet, Perfumes Club — never a brand-owned
+  //    domain. One of the 17 raw titles spells it "Diane Castle" ("Diane
+  //    Castle Poudre D'ivoire") rather than "Castel", but that is a
+  //    beautybase.com product-page typo, not a second brand-field spelling to
+  //    merge: every one of the 17, that product included, already carries
+  //    the identical rawBrand "Diane Castel" in beautybase's own data, so
+  //    buildBrandCanon already groups all 17 as one house and there is
+  //    nothing here for src/catalogue/brandName.ts to fold.
+  //  - "Aubusson" (10 products): a real French house (Parfums Daniel
+  //    Aubusson, founded 1984, best known for Histoire d'Amour), since
+  //    absorbed into a US parent, First American Brands (est. 2001) — but
+  //    no domain for either the original house or the parent turned up in
+  //    any search result's own link list, only retailers (FragranceNet,
+  //    99Perfume, FragranceOutlet).
+  //  - "Daniel Hechter" (7 products): a real French fashion house that has
+  //    sold fragrance since 1989 (Caractère, Hechter Paris), but again only
+  //    retailers and fragrance databases (Parfumo, Fragrantica, Nocibé,
+  //    Amazon.fr) turned up — no danielhechter.com or equivalent brand
+  //    domain appeared in any result's own link list.
+  //
+  // None of the three is folded into another house or treated as "not a
+  // brand" — each is confirmed real and confirmed distinct, just without a
+  // confident single address to send a reader to.
 };
 
 /**
@@ -1268,33 +1424,30 @@ export const BRAND_SITES: Record<string, string> = {
  *
  * Not code — a priority order for whoever runs the next confirmation pass,
  * ranked by product count in the live catalogue. Re-measured 2026-08-26
- * against demo/catalogue.generated.ts (14,764 products / 679 houses) using
- * the same buildBrandCanon()-based method as the file header's own count —
- * this pass moved the ranking by folding brand-name variants in
- * src/catalogue/brandName.ts, not by adding links (aside from the
- * 'avon cosmetics' entry the Avon fold needed to actually resolve, see the
- * file header and the "Eleven strings" note below), so "Oros" (folded into
- * Armaf) and all eight of the "Eleven strings" section's confirmed Avon
- * lines drop off the list entirely, and "Victorinox Swiss Army" (the merged
- * form of four spellings that each used to count as their own unresolved
- * house) and "Tom Edward" move up to fill in behind them. This replaces a
- * 2026-08-25 version of the list; nothing else in the top 30 changed
- * identity, only the cumulative percentages, which shift because the total
- * number of unresolved houses did. "cum" is what share of all products in a
- * named house would gain a website line if every unresolved brand up to
- * that point were added.
+ * (second pass this day) against demo/catalogue.generated.ts (14,591
+ * products / 681 houses) using the same buildBrandCanon()-based method as
+ * the file header's own count — see that header's own new paragraph for
+ * what this pass changed (a real bug fix plus five new resolved entries).
+ * "Whisky" drops off the list entirely (folded into "Evaflor" by the bug fix
+ * — see brandName.ts's own KNOWN_ALIASES comment), and "Evaflor",
+ * "Attar & Co", "Tom Edward", "Adidas" and "Dana" drop off because this pass
+ * resolved each of them. Everything else in the list moved only because a
+ * day of harvesting shifted product counts, the same kind of movement the
+ * 2026-08-25 -> 2026-08-26 transition already recorded — "Masquerade",
+ * "Aubusson" and "Daniel Hechter" remain on the list because this pass
+ * investigated and deliberately left each of them unresolved (see the notes
+ * on each, above).
  *
- * 336 of 679 houses still have no entry (was 356 of 697 on 2026-08-25), but
- * the work left is genuinely small and getting smaller: the 30 largest below
- * cover 2.5% of products between them, the top 50 reach 3.3%, the top 100
- * reach 4.6%. Two of the thirty are on the "not a brand" or "deliberately
- * unresolved" lists at the end of BRAND_SITES above (Scent Favourites,
- * Designer Collection — the seven brand strings previously flagged there as
- * probable Avon lines are confirmed and folded away as of this pass, so they
- * no longer appear on either list), plus Rotana, Blood Concept, Jean-Louis
- * Scherrer, Halston and Banana Republic from the "real house, no confirmed
- * domain" notes above, so the reachable remainder is smaller again. Whoever
- * picks this up should read those notes first rather than re-deriving them.
+ * 333 of 681 houses still have no entry (was 336 of 679 before this pass),
+ * but the work left is genuinely small and getting smaller: the 30 largest
+ * below cover 2.4% of products between them, the top 50 reach 3.2%, the top
+ * 100 reach 4.4%. Two of the thirty are on the "not a brand" or
+ * "deliberately unresolved" lists at the end of BRAND_SITES above (Scent
+ * Favourites, Designer Collection), plus Rotana, Blood Concept, Jean-Louis
+ * Scherrer, Halston, Banana Republic, Aubusson, Daniel Hechter and
+ * Masquerade from the "real house, no confirmed domain" notes above, so the
+ * reachable remainder is smaller again. Whoever picks this up should read
+ * those notes first rather than re-deriving them.
  *
  * "Unbranded" (196 products) is excluded from this ranking — not a house,
  * the literal string some retailer feeds send when they have no brand for a
@@ -1311,28 +1464,28 @@ export const BRAND_SITES: Record<string, string> = {
  *   United Colors & Prestige Beauty     15 products  (cum  0.9%)
  *   Cevi Les Parfums                    15 products  (cum  1.0%)
  *   Marvel                              14 products  (cum  1.1%)
- *   Ellen Tracy                         13 products  (cum  1.2%)
- *   Taylor of London                    12 products  (cum  1.3%)
- *   Aubusson                            10 products  (cum  1.4%)
- *   Liz Claiborne                       10 products  (cum  1.4%)
- *   Hello Kitty                         10 products  (cum  1.5%)
- *   Blood Concept                        9 products  (cum  1.6%)
- *   Dana                                 9 products  (cum  1.6%)
+ *   Scent Favourites                    14 products  (cum  1.2%)
+ *   Ellen Tracy                         13 products  (cum  1.3%)
+ *   Taylor of London                    12 products  (cum  1.4%)
+ *   Aubusson                            10 products  (cum  1.5%)
+ *   Liz Claiborne                       10 products  (cum  1.5%)
+ *   Hello Kitty                         10 products  (cum  1.6%)
+ *   Blood Concept                        9 products  (cum  1.7%)
  *   Designer Collection                  9 products  (cum  1.7%)
  *   Halston                              9 products  (cum  1.8%)
  *   Oud Elixir                           9 products  (cum  1.8%)
  *   Banana Republic                      9 products  (cum  1.9%)
- *   Adidas                               8 products  (cum  1.9%)
  *   Mustang                              8 products  (cum  2.0%)
  *   Jean-Louis Scherrer                  8 products  (cum  2.0%)
  *   Mayfair                              8 products  (cum  2.1%)
- *   Attar & Co                           8 products  (cum  2.1%)
- *   Masquerade                           8 products  (cum  2.2%)
- *   Scent Favourites                     8 products  (cum  2.3%)
- *   Whisky                               8 products  (cum  2.3%)
- *   Missguided                           7 products  (cum  2.4%)
- *   Daniel Hechter                       7 products  (cum  2.4%)
- *   Tom Edward                           7 products  (cum  2.5%)
+ *   Masquerade                           8 products  (cum  2.1%)
+ *   Missguided                           7 products  (cum  2.2%)
+ *   Daniel Hechter                       7 products  (cum  2.2%)
+ *   Worth                                7 products  (cum  2.3%)
+ *   Alfa Romeo                           6 products  (cum  2.3%)
+ *   Israel Philip                        6 products  (cum  2.4%)
+ *   Lionel Richie                        6 products  (cum  2.4%)
+ *   Creative Colours                     6 products  (cum  2.4%)
  *
  * (full ranked list is reproducible any time by running buildBrandCanon()
  * over the live catalogue and diffing against this file's own keys, the same
