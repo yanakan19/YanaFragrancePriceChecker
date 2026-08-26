@@ -2116,13 +2116,18 @@ function wishlistButton(fragranceId: string): string {
  * never be anything else. Note the caption no longer interpolates the brand
  * name, so it is a static string with a literal apostrophe rather than an
  * `esc()`-ed one; the surrounding markup is unchanged.
+ *
+ * `price-box-from--fit` (2026-08-26, alongside `lowestPriceBox`'s two-box
+ * amount sizing below) forces this caption onto one line — see the class's
+ * own comment in demo/template.html for the width it was measured against
+ * and why the box widths and hero-number sizes changed at the same time.
  */
 function houseCeilingBox(frag: DemoFragrance): string {
   if (frag.houseCeiling === null) return '';
   return `<div class="price-box price-box--msrp">
       <p class="price-box-label t-eyebrow">MSRP</p>
       <p class="price-box-amount t-price">${formatGbp(frag.houseCeiling)}</p>
-      <p class="price-box-from t-caption">Brand's Current Price</p>
+      <p class="price-box-from price-box-from--fit t-caption">Brand's Current Price</p>
     </div>`;
 }
 
@@ -2159,6 +2164,14 @@ function houseCeilingBox(frag: DemoFragrance): string {
  *     sentence described. The word is still withheld; only the paragraph
  *     explaining the withholding is gone. See src/services/deliveryConfidence.ts
  *     and the note above `tooCloseToCallNote` itself.
+ *
+ * One more caption rule, 2026-08-26: "from <shop>" must never wrap, for any
+ * shop name the registry can produce (see `.price-box-from--fit` in
+ * demo/template.html) — but only in the delivered-price branch below, where
+ * the caption is just a name. The other branch's caption is a full sentence
+ * explaining *why* there is no delivered price, and stays free to wrap; a
+ * sentence four times as long forced onto one line would need a caption too
+ * small to read for a far less urgent fact than a shop's own name.
  */
 function lowestPriceBox(best: PresentedOffer, verdict: CheapestVerdict): string {
   if (best.deliveredPriceGbp === null) {
@@ -2171,7 +2184,7 @@ function lowestPriceBox(best: PresentedOffer, verdict: CheapestVerdict): string 
   return `<div class="price-box price-box--best">
       <p class="price-box-label t-eyebrow">${verdict.decided ? 'Cheapest price' : 'Lowest total price'}</p>
       <p class="price-box-amount t-price t-price--hero">${formatGbp(best.deliveredPriceGbp)}</p>
-      <p class="price-box-from t-caption">from ${esc(best.retailer.name)}</p>
+      <p class="price-box-from price-box-from--fit t-caption">from ${esc(best.retailer.name)}</p>
     </div>`;
 }
 

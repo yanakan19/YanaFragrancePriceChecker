@@ -1548,21 +1548,29 @@
     display: flex; justify-content: center; align-items: stretch;
     gap: 10px; margin: 18px 0 0;
   }
-  /* flex-basis 0 with unequal grow, not `flex: 1`: the two boxes hold
-     different amounts of type. The right one carries the hero number and a
-     shop name that can be any length; the left carries a four letter label, a
-     20px figure and one short fixed line. A 4:5 split gives the
-     wider content the wider column — 145px and 175px at a 360px viewport.
+  /* `flex: 1 1 0` on both — equal width, not the 4:5 split this used to be
+     (2026-08-26, owner's instruction: the two boxes disagreed on width and on
+     their hero number's size, and both were asked to stop). The old split
+     gave the wider column to whichever box carried the longer content, which
+     was almost always the right one (a shop name beats a fixed four-letter
+     label), but "the argument this site exists to make, made in one glance"
+     reads as one argument, not a left box and a bigger right one — see the
+     comment atop `.price-boxes`. Equal width moves the job of fitting a long
+     shop name entirely onto `.price-box-from`'s own sizing below, since the
+     column can no longer be widened to make room for one.
      min-width: 0 because a flex item's default `min-width: auto` refuses to
      shrink below its longest word, which is how a long shop name would push
-     this row past the viewport. */
+     this row past the viewport. Side padding tightened from 20px to 8px for
+     the same reason — every pixel not spent on padding is a pixel
+     `.price-box-from` can use — and, unlike the old 430px-only tightening,
+     applied at every width: the box is narrower than it used to be
+     everywhere now, not just on a phone. */
   .price-box {
-    flex: 4 1 0; min-width: 0; max-width: 280px;
-    padding: 16px 20px 17px;
+    flex: 1 1 0; min-width: 0; max-width: 280px;
+    padding: 16px 8px 17px;
     border-radius: 16px; border: 1px solid var(--accent);
     background: var(--accent-sf);
   }
-  .price-box--best { flex-grow: 5; }
   .price-box-label { margin: 0; color: var(--accent-ink); }
   .price-box-amount { margin: 6px 0 0; color: var(--accent-ink); }
   .price-box-from { margin: 5px 0 0; color: var(--ink-2); }
@@ -1582,31 +1590,76 @@
      rule is gone with it rather than left behind matching nothing. The rule it
      described is still enforced, in the label above the number: "Lowest total
      price" instead of "Cheapest price" whenever the verdict is undecided. */
-  /* Paired, the hero number comes down from 34px to 28px, and it is the
-     presence of the sibling and not the viewport that decides. The narrowest
-     column this row ever gets is not a phone: the desktop layout pins .hero at
-     380px whatever the window is, so at 1280px and at 1440px the lowest-price
-     box measures 188px against 192px at a 390px phone. A viewport media query
-     would have left the tighter of the two untouched.
+  /* Paired sizing. Until 2026-08-26 only the green box's number ever moved —
+     34px alone, 28px beside an MSRP box — while the MSRP figure sat at
+     `.t-price`'s own 20px the entire time, so the pair disagreed about how
+     big their own headline number was even after the 28px step existed to
+     make them agree on everything else. Now both step down together, to the
+     same 24px, whenever a house figure is on the page.
+     `.price-box--msrp .price-box-amount` needs no sibling combinator on that
+     side: `houseCeilingBox()` returns nothing at all when there is no
+     `houseCeiling` (demo/app.ts), so this class only ever exists already
+     paired with the green box.
 
-     The number, measured in Chromium rather than reasoned about: --font-num
-     is a monospace stack, so a price costs 16.24px a character at 28px. The
-     widest price that can appear with a house figure beside it is £220.00
-     (Al Haramain Sheikh for Men, seven characters) at 113.7px, inside 146px of
-     content on desktop and 149px at 360px. That leaves room for nine
-     characters, i.e. a four figure price, before anything overflows. At 34px
-     the same string is 138.1px and eight characters would already be 157.9px,
-     past the 146px the desktop column has — which is what the step down buys.
+     Measured in Chromium, paired, each box is 160px wide (158px of
+     `clientWidth`, 142px of content once the padding above is subtracted) at
+     360px — narrower than the 173px/171px/155px this row gets at 1280px and
+     1440px. That is the one place the old comment's "desktop is always
+     tightest" claim needed re-checking rather than repeating: pinning .hero
+     at 380px still makes desktop tighter than 768px or 390px, exactly as
+     before, but a 360px phone turns out tighter still, by 13px of content,
+     so the figures below are taken there rather than assumed from the
+     desktop case alone. --font-num is monospace; the widest figure either
+     box ever has to show is £745.00, the highest price this catalogue has
+     ever presented as a "lowest price" (£220.00, Al Haramain Sheikh for Men,
+     is the widest house figure, and renders identically — same seven
+     characters). Cloned into a detached `.price-box-amount` at 24px and
+     measured directly rather than scaled from the old 28px figure: 81.5px,
+     against 142px of content at 360px. That leaves 60.5px to spare — room
+     for a five-figure price before anything overflows.
 
      No stacking at any width. Stacked, the MSRP sits above the lowest price
      and reads as the headline figure, which is the one thing this arrangement
      must never say. */
-  .price-box--msrp + .price-box--best .price-box-amount { font-size: 28px; }
-  /* Smallest phones still in circulation (iPhone 13 mini is 375px). Padding
-     and gap give, so the two boxes stay on one line at 360px. */
+  .price-box--msrp .price-box-amount,
+  .price-box--msrp + .price-box--best .price-box-amount { font-size: 24px; }
+  /* Nowrap always: a shop name is the one thing on this page that cannot be
+     truncated or ellipsised — a reader has to be able to read which shop it
+     is — so "from <shop>" and "Brand's Current Price" are guaranteed one
+     line rather than merely observed to fit today's roster. Harmless when
+     the green box is alone (up to 280px, the far more common case: 13,962 of
+     14,836 products carry no houseCeiling — see houseCeilingBox), where
+     `.t-caption`'s ordinary 13px already clears even the longest name with
+     room to spare; the size step below only fires once the box is squeezed
+     down to share the row with an MSRP box.
+
+     That step: font-size 9.5px, sibling-scoped the same way the amount rule
+     above is, and for the same reason (`.price-box--msrp` only exists
+     paired). Measured in Chromium against "from The Fragrance Counter" (26
+     characters — the longest "from <shop>" the 79-shop registry can
+     produce, whether or not that shop is enabled today) at 9.5px: 131.7px of
+     actual text, against the same 142px of content the amount figures above
+     were measured at — the tightest column this row ever gets — leaving
+     10.3px to spare. 11px, tried first, measures 152.8px however wide the
+     column is (text width is a function of font-size alone) — 10.8px short
+     of that same 142px.
+
+     Deliberately not the class the "delivery not stated" caption carries:
+     that branch of lowestPriceBox() is a full sentence explaining an
+     absence, not a name, and squeezing a string four times as long onto one
+     line would mean a size too small to read for a far less urgent fact. It
+     keeps `.price-box-from`'s ordinary wrap; only the two single-line
+     captions (`houseCeilingBox`'s, and lowestPriceBox's delivered-price
+     branch) carry `--fit` — see demo/app.ts. */
+  .price-box-from--fit { white-space: nowrap; }
+  .price-box--msrp .price-box-from--fit,
+  .price-box--msrp + .price-box--best .price-box-from--fit { font-size: 9.5px; }
+  /* Smallest phones still in circulation (iPhone 13 mini is 375px) and, per
+     the measurement above, the actual tightest case for this row — the gap
+     still gives here on top of the tighter padding both boxes now carry at
+     every width. */
   @media (max-width: 430px) {
     .price-boxes { gap: 8px; }
-    .price-box { padding: 14px 12px 15px; }
   }
 
   .hero-price.none { font-size: 19px; font-weight: 600; color: var(--ink-2); letter-spacing: -.01em; margin: 18px 0 0; }
@@ -3173,7 +3226,7 @@ ${k}`}var C=class extends Error{constructor({message:e,code:a,cause:i,name:r}){v
   </button>`}function p2(t){return t.houseCeiling===null?"":`<div class="price-box price-box--msrp">
       <p class="price-box-label t-eyebrow">MSRP</p>
       <p class="price-box-amount t-price">${L(t.houseCeiling)}</p>
-      <p class="price-box-from t-caption">Brand's Current Price</p>
+      <p class="price-box-from price-box-from--fit t-caption">Brand's Current Price</p>
     </div>`}function m2(t,e){return t.deliveredPriceGbp===null?`<div class="price-box price-box--best">
         <p class="price-box-label t-eyebrow">Lowest item price</p>
         <p class="price-box-amount t-price t-price--hero">${L(t.itemPriceGbp)}</p>
@@ -3181,7 +3234,7 @@ ${k}`}var C=class extends Error{constructor({message:e,code:a,cause:i,name:r}){v
       </div>`:`<div class="price-box price-box--best">
       <p class="price-box-label t-eyebrow">${e.decided?"Cheapest price":"Lowest total price"}</p>
       <p class="price-box-amount t-price t-price--hero">${L(t.deliveredPriceGbp)}</p>
-      <p class="price-box-from t-caption">from ${g(t.retailer.name)}</p>
+      <p class="price-box-from price-box-from--fit t-caption">from ${g(t.retailer.name)}</p>
     </div>`}function d2(t,e,a){return e?`<div class="price-boxes">${p2(t)}${m2(e,a)}</div>`:'<p class="hero-price none">Sold out everywhere</p>'}function h2(){let t=At(c.fragranceId);if(!t)return ui();let e=Ie(t),a=ve(e),i=gi(e),r=t2(i),s=e.filter(p=>p.isPurchasable),l=e.filter(p=>!p.isPurchasable).sort((p,h)=>p.retailer.name.localeCompare(h.retailer.name)),n=e.length?Math.min(...e.map(p=>p.ageSeconds)):0,o=new Set(e.map(p=>p.retailer.id)),m=H.filter(p=>!o.has(p.id)).sort((p,h)=>p.name.localeCompare(h.name)).filter(p=>!kt(p,t.brand));return`
     <button class="back" data-back>Back</button>
 
