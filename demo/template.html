@@ -981,8 +981,10 @@
     text-decoration: line-through; font-variant-numeric: tabular-nums;
   }
   /* A house-anchored deal tile (dealsPanel's dealTile) — same reasoning as
-     the offer row's .was.anchor / .off.anchor above: never struck through,
-     because that figure was never this shop's own claim. */
+     the offer row's .off.anchor further down: never struck through, because
+     that figure was never this shop's own claim. The tile is now the only
+     place a .was.anchor exists at all; the offer row stopped rendering its
+     own on 2026-08-26 (see offerRow in demo/app.ts). */
   .tile-price .was.anchor { text-decoration: none; border-bottom: 1px dotted var(--faint); padding-bottom: 1px; }
   .from { font-size: 10px; font-weight: 600; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
 
@@ -1491,9 +1493,9 @@
     gap: 10px; margin: 18px 0 0;
   }
   /* flex-basis 0 with unequal grow, not `flex: 1`: the two boxes hold
-     different amounts of type. The right one carries the hero number, a shop
-     name and sometimes the too-close-to-call rule; the left carries a four
-     letter label, a 20px figure and one short line. A 4:5 split gives the
+     different amounts of type. The right one carries the hero number and a
+     shop name that can be any length; the left carries a four letter label, a
+     20px figure and one short fixed line. A 4:5 split gives the
      wider content the wider column — 145px and 175px at a 360px viewport.
      min-width: 0 because a flex item's default `min-width: auto` refuses to
      shrink below its longest word, which is how a long shop name would push
@@ -1518,16 +1520,12 @@
   .price-box--best { border-color: var(--ok); background: var(--ok-sf); }
   .price-box--best .price-box-label,
   .price-box--best .price-box-amount { color: var(--ok); }
-  /* The "too close to call" line, when an unconfirmed delivery charge is what
-     separates first place from second. Inside the box, under the number it
-     qualifies, and divided from it by a rule so it reads as a condition on
-     that figure rather than as more detail about the shop. Quiet ink, because
-     it is a qualification and not a warning. */
-  .price-box-caveat {
-    margin: 9px 0 0; padding-top: 9px; text-align: left;
-    border-top: 1px solid color-mix(in srgb, var(--ok) 28%, transparent);
-    color: var(--ink-2);
-  }
+  /* `.price-box-caveat` lived here until 2026-08-26: the "too close to call"
+     line, inside the box, under the number it qualified. The line is no longer
+     rendered (owner's instruction — see lowestPriceBox in demo/app.ts), so the
+     rule is gone with it rather than left behind matching nothing. The rule it
+     described is still enforced, in the label above the number: "Lowest total
+     price" instead of "Cheapest price" whenever the verdict is undecided. */
   /* Paired, the hero number comes down from 34px to 28px, and it is the
      presence of the sibling and not the viewport that decides. The narrowest
      column this row ever gets is not a phone: the desktop layout pins .hero at
@@ -1621,12 +1619,17 @@
      genuine "was" price is — a line-through on a figure the shop never stated
      would read as its own former price, exactly the misattribution this
      exists to avoid. A dotted underline says "reference point" without
-     saying "this shop's own history". Same ink as .was: the distinction is
-     the decoration and the wording ("at Armaf" / "below Armaf"), not the
-     colour. */
-  .was.anchor, .off.anchor { text-decoration: none; border-bottom: 1px dotted var(--faint); padding-bottom: 1px; }
+     saying "this shop's own history".
+
+     Only .off.anchor is left here. The row's .was.anchor ("£37.99 at Armaf")
+     was removed on 2026-08-26 at the owner's request, leaving .price with a
+     single child on every row that carries an anchor — which the flex rule
+     above already handles, since one item in a flex row simply sits at its
+     start and the gap has nothing to apply to. The percentage keeps the
+     dotted underline for the same reason it always had it: it is still a
+     comparison against a figure this shop never published. */
+  .off.anchor { text-decoration: none; border-bottom: 1px dotted var(--faint); padding-bottom: 1px; }
   .now.sale { color: var(--ok); }
-  .now.none { color: var(--faint); font-weight: 500; }
   /* Says what the number above it contains, on every row rather than only on
      the odd one out. Sits with the number, not in the facts line, so it can
      never be read apart from the figure it qualifies — which is the whole
