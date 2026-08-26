@@ -1,75 +1,202 @@
 # Supabase setup — Module 7 accounts
 
-The signup and email verification flow is fully built and wired in
-(`demo/supabase.ts`, `demo/auth.ts`, `demo/app.ts`'s account view, tested in
-`tests/authErrors.test.ts`), but it cannot go live on its own: it needs a real
-Supabase project, and this sandbox cannot create one or hold its own secrets
-— the same "never invent a number" rule this whole project runs on, just
-applied to a credential instead of a price. Until the two values below are
-filled in, `SUPABASE_CONFIGURED` is `false` and the account page honestly
-says accounts are not switched on yet, rather than showing a form that fails
-on every submit.
+PriceSniffs is a static site with no server. Supabase is the one deliberate
+exception: hosted Postgres, hosted auth and hosted verification email, so this
+project does not have to run or secure a server of its own to have accounts.
+Everything else on the site — every price, every comparison, every page — works
+with no account, no sign-in and no network call to Supabase at all, and that
+must stay true. Accounts are an addition to this site, never a gate in front
+of it.
 
-Five minutes, no code changes beyond one file:
+## Where this stands
 
-## 1. Create the project
+**Written and in the bundle:** the Supabase client (`demo/supabase.ts`), sign
+up / sign in / sign out / resend verification / password reset
+(`demo/auth.ts`), wishlist read, save and remove (`demo/wishlist.ts`), the
+`/account` page and the Save control on a fragrance (`demo/app.ts`), the
+error-message mapping that refuses to leak whether an address has an account
+(`src/services/authErrors.ts`), the gating rules that decide who sees a write
+control (`src/services/accountState.ts`), and both database migrations
+(`supabase/migrations/`).
 
-[supabase.com](https://supabase.com) → New project. Free tier covers this
-project's expected load. Pick any region; nothing here is latency sensitive.
+**Not yet done, and only the project owner can do it:** running the two
+migrations, and setting four things in the Supabase dashboard. That is the
+whole of what is left, and it is the checklist below.
 
-## 2. Run the migration
+**Not tested against a live Supabase from inside this repo's tooling.** The
+sandbox this code was written in has no network route to
+`*.supabase.co` — a request to the project's own `/auth/v1/health` returns
+nothing at all. So no sign-up, sign-in, table read or migration has ever been
+executed from here, and nothing in this document should be read as "confirmed
+working". It is "written, type-checked, unit-tested where a unit test can
+reach, and reviewed". The browser checks in step 6 are the first time any of
+it actually runs.
 
-Dashboard → SQL Editor → paste the contents of
-`supabase/migrations/0001_profiles.sql` → Run. Creates the `profiles` table,
-its row level security policies, and the trigger that creates a profile row
-automatically the moment someone signs up. This only needs to run once, ever,
-on this project.
+---
 
-## 3. Set the Site URL
+## The checklist
+
+### 1. Confirm the credentials in the repo match your project
+
+`demo/supabase.ts` already carries a project URL and an anon key. Check they
+belong to the project you are about to run the SQL in: Dashboard → Project
+Settings → API, compare **Project URL** and the **anon / public** key.
+
+The anon key is public by design and is *meant* to ship inside
+`demo/index.html` — it grants exactly what Row Level Security allows a
+signed-out or signed-in-as-themselves visitor to do, and nothing more. The
+**`service_role` key must never appear in this repo, in a commit, in a build
+or in a log.** There is deliberately no code path anywhere in this project
+that accepts one; do not add one.
+
+If either value is ever blanked out (a fork, a fresh clone),
+`SUPABASE_CONFIGURED` goes false and the site keeps working in full with the
+account page saying accounts are not switched on. That is a supported state,
+not a broken one.
+
+### 2. Run the migrations, in this order
+
+Dashboard → SQL Editor → New query. Paste each file whole, run it, check for
+an error, then move to the next.
+
+1. `supabase/migrations/0001_profiles.sql` — the `profiles` table, its RLS
+   policies, and the trigger that creates a profile row the moment someone
+   signs up.
+2. `supabase/migrations/0002_wishlists.sql` — the `wishlists` table, its four
+   RLS policies, its bounds and its index.
+
+Order matters: nothing in 0002 references 0001 directly, but 0001 is what
+makes an account exist in the first place.
+
+Both files are safe to run more than once. Every statement in them is
+idempotent, so a half-finished paste, a re-run after fixing a typo, or simply
+not remembering whether you already did it all end in the same place.
+
+### 3. Require email confirmation — do not skip this
+
+Dashboard → Authentication → Sign In / Providers → Email → **Confirm email:
+on**.
+
+This is the setting the whole account feature leans on, and turning it off to
+make testing easier would undo the gating in the client as well as in the
+database. With it on, `signUp()` returns success and *no session at all* until
+the address is confirmed, so an unverified signup holds no key that can write
+anything. The UI agrees with that: `wishlistControl()` in
+`src/services/accountState.ts` gives an unverified reader the "Sign in to save"
+invitation and never the real toggle, and there is a test asserting exactly
+that.
+
+Also on this screen: leave the minimum password length at 8 or higher. The
+sign-up form asks for 8 (`minlength="8"`), and `authErrorMessage` has the
+matching message for a password Supabase rejects as too short.
+
+### 4. Set the Site URL and redirect URLs
 
 Dashboard → Authentication → URL Configuration:
 
 - **Site URL**: `https://pricesniffs.space`
-- **Redirect URLs**: add `https://pricesniffs.space/account` (and, if you
-  want signup to work from a local build too, `http://localhost:PORT/account`
-  for whatever port you serve `demo/` on)
+- **Redirect URLs**, add:
+  - `https://pricesniffs.space/account`
+  - `http://localhost:PORT/account` — only if you want signup to work from a
+    local build, for whatever port you serve `demo/` on
 
-This is what a verification email's link actually points at. Get it wrong
-and a reader's confirmation link lands somewhere that is not this site.
+`/account` is the exact path because that is what `demo/auth.ts` asks for, in
+three places: `signUp`, `resendVerification` and `requestPasswordReset` all
+pass `window.location.origin + '/account'`. Get this wrong and a reader's
+confirmation link lands somewhere that is not this site, and there is nothing
+in the code that can rescue that.
 
-## 4. Copy the two public values in
+One thing worth knowing before you test it: the live site is on GitHub Pages,
+which has no file at `/account`, so it serves `demo/404.html` — the same
+built document as `index.html` — with an HTTP 404 status. The app boots and
+routes to the account page as normal, and the token Supabase appends survives
+the redirect. It looks wrong in a network tab and is not.
 
-Dashboard → Project Settings → API:
+### 5. Prove the database is actually locked down
 
-- **Project URL**
-- **anon / public** key (not the `service_role` key — that one must never go
-  in this repo; see `demo/supabase.ts`'s own doc comment for why the anon key
-  is safe to ship in a public bundle and the service role key is not)
+Dashboard → SQL Editor → paste `supabase/verify.sql` and run it. It changes
+nothing; it reads the catalogue and answers four questions. Each query has the
+expected result written above it, and the first is the one that matters most:
 
-Paste both into `demo/supabase.ts`:
+> Every table in `public` must come back with `rls_enabled = true`.
 
-```ts
-const SUPABASE_URL = 'https://your-project-ref.supabase.co';
-const SUPABASE_ANON_KEY = 'your-anon-public-key';
-```
+A table with RLS off does not error and does not look different in the table
+editor. It just answers every request that arrives with the anon key — the key
+printed in the public bundle. "It works" and "it is wide open" produce an
+identical screen, which is why this gets checked rather than assumed.
 
-Then rebuild (`npm run demo`) and commit. That is the entire remaining step —
-no other file changes, since every UI and code path already checks
-`SUPABASE_CONFIGURED` and lights up the moment it is true.
+### 6. Walk the flow in a browser, once
 
-## 5. (Optional, later) Custom email sending
+None of this has been executed against a live Supabase (see "Where this
+stands"), so this is the real first run. In order, on the live site:
 
-Supabase sends verification emails through its own shared SMTP by default,
-rate limited (a handful per hour) — fine for early testing, not for real
-signup volume. Dashboard → Authentication → Emails → SMTP Settings to point
-it at a real provider (Postmark, Resend, SES) once that matters. Nothing in
-this repo needs to change for that switch; it is entirely a dashboard
-setting.
+1. `/account` shows a Sign in / Sign up form — not "accounts are not switched
+   on", which would mean step 1 is wrong.
+2. Sign up with a real address. The page should switch to **"Verify your
+   email"** with a Resend button. If it stays on the empty form, the signup
+   did not succeed.
+3. The verification email arrives. Its link points at
+   `https://pricesniffs.space/account`.
+4. Following the link lands on `/account`, now reading **"Signed in as …"**
+   with a Wishlist heading below it.
+5. Dashboard → Table Editor → `profiles` now has a row whose `id` matches the
+   new user in Authentication → Users. That is the trigger from 0001 working.
+6. Open any fragrance. The Save control now reads **Save** rather than "Sign
+   in to save". Press it; it should read **Saved**.
+7. Back to `/account`: that fragrance is in the Wishlist list. `wishlists` in
+   the Table Editor has one row, with your `user_id`.
+8. Remove it from the account page. The row disappears from both.
+9. Sign out. `/account` returns to the form, the Save control on a fragrance
+   returns to "Sign in to save", and every price on the site is exactly as it
+   was. **This last part is the one that must not break.**
 
-## What this does not cover yet
+If step 2 or 3 stalls, check the rate limit before anything else — Supabase's
+shared SMTP allows only a handful of emails per hour (see step 7).
 
-Signup, verification-gated access, resend, and password reset are built.
-Wishlists, follows, and the row-click profile UI EXECUTION-PLAN.md describes
-for the rest of Module 7 are not — they get their own migration and their
-own pass when that work starts, on top of the `profiles` table this one
-creates.
+### 7. (Optional, later) Real email sending
+
+Supabase sends verification email through its own shared SMTP by default,
+rate limited to a few per hour. Fine for the walkthrough above, not for real
+signup volume. Dashboard → Authentication → Emails → SMTP Settings to point it
+at a provider (Postmark, Resend, SES). Nothing in this repo changes for that;
+it is entirely a dashboard setting.
+
+---
+
+## What the migrations actually guarantee
+
+Worth stating plainly, because "there are RLS policies" is not the same claim
+as "a reader cannot reach another reader's rows".
+
+**`profiles`** — RLS enabled. A signed-in reader may `select` and `update`
+their own row (`auth.uid() = id`) and nothing else. There is no `insert`
+policy and no `delete` policy, and that absence *is* the policy: RLS denies by
+default, so no client can manufacture a profile for an id it does not own or
+delete one. Rows are created only by the `on_auth_user_created` trigger and
+removed only by the cascade off `auth.users`. Every policy is scoped `to
+authenticated`, so a signed-out visitor matches no policy at all.
+
+**`wishlists`** — RLS enabled. All four verbs are policed separately and every
+one is scoped to `auth.uid() = user_id`, so there is no verb through which one
+reader reaches another's rows. `select`, `insert` and `update` are all needed:
+saving a fragrance is an upsert, which PostgREST resolves to `insert … on
+conflict do update` and which is checked against the insert *and* update
+policies. Scoped `to authenticated`, so signed out is a flat deny.
+`fragrance_id` is bounded to 128 characters and `target_price_gbp` cannot be
+negative — RLS answers "whose rows" completely and says nothing about how big
+a row may be, and a signed-in reader holds a key that can write here without
+going near `demo/wishlist.ts`.
+
+`demo/wishlist.ts` also filters every query by the signed-in user's own id
+rather than leaning on the policy alone. That is redundant on purpose: a bug
+that dropped the filter would still only get back what RLS allows, and the
+client and the database saying the same thing is worth more than the database
+being the only thing that says it.
+
+## What is still not built
+
+Follows and the row-click profile UI that EXECUTION-PLAN.md sketches for the
+rest of Module 7. Those get their own migration and their own pass when that
+work starts. (Wishlists **are** built — `supabase/migrations/0002_wishlists.sql`
+and `demo/wishlist.ts` — and an earlier version of this document said
+otherwise. It was written before that pass landed and was never updated.)

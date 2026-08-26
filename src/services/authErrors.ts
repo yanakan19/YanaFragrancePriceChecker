@@ -11,6 +11,29 @@
  * unit tested through the ordinary tsconfig — demo/ carries `window` and a
  * DOM lib the rest of this project deliberately does not.
  */
+/**
+ * The one distinction a caller needs to act on rather than merely display.
+ *
+ * "Email not confirmed" on sign in is not a dead end — it is a reader who has
+ * an account and needs the verification link resent, and the message
+ * authErrorMessage returns for it says as much ("request a new one below").
+ * That sentence was pointing at nothing: the resend control only ever
+ * rendered for someone holding a session, and Supabase issues no session on a
+ * sign in it rejects. Classifying it here lets demo/app.ts put the reader on
+ * the verification screen, where the resend button actually is.
+ *
+ * Deliberately the narrowest possible classification. Everything else is
+ * 'other' and stays a plain message, because every other distinction Supabase
+ * draws here is one this site should not repeat back to a reader — telling
+ * them which of the email and the password was wrong is exactly the user
+ * enumeration authErrorMessage exists to refuse.
+ */
+export type AuthFailureReason = 'unverified' | 'other';
+
+export function authFailureReason(raw: string): AuthFailureReason {
+  return raw.toLowerCase().includes('email not confirmed') ? 'unverified' : 'other';
+}
+
 export function authErrorMessage(raw: string, context: 'signUp' | 'signIn' | 'reset'): string {
   const s = raw.toLowerCase();
   if (s.includes('already registered') || s.includes('already exists')) {
