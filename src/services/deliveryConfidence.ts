@@ -163,6 +163,23 @@ export function cheapestVerdict(rows: readonly PresentedOffer[]): CheapestVerdic
  * One line saying why the winner is not being called cheapest, for the reader
  * rather than for a log. Null when the label stands, or when the reason is one
  * the UI already words for itself.
+ *
+ * Not rendered anywhere in this repo as of 2026-08-26. The demo harness used
+ * to print it under the lowest-price figure and no longer does (owner's
+ * instruction — see `lowestPriceBox` in demo/app.ts). It is kept, exported and
+ * tested for two reasons rather than deleted:
+ *
+ *   - It is part of the published surface of the comparison core
+ *     (src/index.ts), which the demo is only one consumer of. A different
+ *     front end may well want to say why the word was withheld.
+ *   - It is the executable statement of *when* the word is withheld. The
+ *     safeguard itself lives in `cheapestVerdict` above and is very much
+ *     live: `decided: false` is what makes the page say "Lowest total price"
+ *     instead of "Cheapest price". Deleting this would not touch that rule,
+ *     but it would delete the one place the rule is spelled out in English.
+ *
+ * So: unrendered, not unused, and not dead. tests/deliveryConfidence.test.ts
+ * still asserts on it.
  */
 export function tooCloseToCallNote(verdict: CheapestVerdict): string | null {
   if (verdict.reason !== 'within-unverified-delivery') return null;

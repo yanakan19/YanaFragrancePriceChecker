@@ -31,7 +31,10 @@ import {
   buildHouseAnchor,
   canShowCountdown,
   cheapestVerdict,
-  tooCloseToCallNote,
+  // `tooCloseToCallNote` is deliberately not imported here any more: this
+  // harness no longer renders that sentence (see lowestPriceBox). It stays
+  // exported from src/index.ts for consumers of the core — the verdict it
+  // words is still computed and still drives the label swap above the price.
   formatGbp,
   RETAILERS,
   getRetailer,
@@ -758,6 +761,18 @@ function setPerRow(perRow: number): void {
 
 /* ── labels ──────────────────────────────────────────────────────────────── */
 
+/**
+ * The stock line says the state and nothing else. There is no unit count
+ * anywhere on the site and there never has been: a retailer feed carries a
+ * true/false in-stock flag, never a number, so there is nothing to show.
+ *
+ * A `stockQtyMark()` helper used to append "(-)" after "In stock" to say that
+ * absence out loud. It was removed on 2026-08-26 (owner's instruction: no
+ * stock count anywhere) and should not come back in another shape — the "(-)"
+ * read as a broken template or a missing figure rather than as the deliberate
+ * statement it was, which is the failure mode of stating an absence with a
+ * punctuation mark. The gap itself is still real and is documented here.
+ */
 const STOCK_LABEL: Record<StockState, string> = {
   inStock: 'In stock',
   lowStock: 'Low stock',
@@ -1300,18 +1315,6 @@ function browseView(): string {
 /* ── detail ──────────────────────────────────────────────────────────────── */
 
 /**
- * A retailer's own feed carries only a true/false in-stock flag, never a unit
- * count — nothing this project harvests from anywhere has ever included one.
- * "(-)" says so honestly rather than being silent about it, which otherwise
- * reads as an oversight rather than a genuine gap in what shops publish.
- * Only shown against a state that claims some stock exists; "Sold out (-)"
- * would just be a confusing way to repeat "zero".
- */
-function stockQtyMark(stock: StockState): string {
-  return stock === 'inStock' || stock === 'lowStock' ? ' (-)' : '';
-}
-
-/**
  * What the leading row may be called, in the three or four words a tag holds.
  *
  * "Cheapest" is a superlative and only survives when the evidence supports it.
@@ -1427,8 +1430,17 @@ function offerRow(
         }</span>
         <span class="price">
           ${
+            // A house-anchored row shows no reference figure here at all. Until
+            // 2026-08-26 it rendered "£37.99 at Armaf" beside the price; the
+            // owner asked for the house price off the row, and the percentage
+            // in .offer-bot below carries the comparison on its own. Note the
+            // `anchor ? ... : d ? ...` shape is kept rather than collapsed to
+            // `d ? ...`: an anchored row must still suppress the shop's own
+            // RRP strikethrough (see this function's header — two reference
+            // prices on one row is the thing that must not happen), and
+            // dropping the branch would put it straight back.
             anchor
-              ? `<span class="was anchor">${formatGbp(anchor.housePriceGbp)} at ${esc(anchor.houseName)}</span>`
+              ? ''
               : d
                 ? `<span class="was">RRP ${formatGbp(d.wasPrice)}</span>`
                 : ''
@@ -1442,7 +1454,7 @@ function offerRow(
       </span>
       <span class="offer-bot">
         <span class="facts t-caption">
-          <span class="dot ${STOCK_CLASS[row.stock]}"></span>${STOCK_LABEL[row.stock]}${stockQtyMark(row.stock)}
+          <span class="dot ${STOCK_CLASS[row.stock]}"></span>${STOCK_LABEL[row.stock]}
           <span class="sep">·</span>${esc(sub.join(' · '))}
         </span>
         ${
@@ -2034,6 +2046,23 @@ function houseCeilingBox(frag: DemoFragrance): string {
  *                        there is no delivered price to name at all, and the
  *                        second line says in as many words that this is not
  *                        one
+ *
+ * Two things this box used to say and no longer does (owner's instruction,
+ * 2026-08-26), and why neither loss is a correctness one:
+ *
+ *   - The "from X" line ended ", incl. delivery". What the number contains is
+ *     already the job of the label above it: the delivered-price branch is
+ *     reached only when `deliveredPriceGbp` is non-null, and the one branch
+ *     where the figure is *not* delivered is the branch that still spells that
+ *     out at length. So the clause was a second statement of what the label
+ *     already guarantees, on every page that has a delivered price at all.
+ *   - The `.price-box-caveat` line rendered `tooCloseToCallNote(verdict)`. The
+ *     safeguard behind that sentence is untouched and must stay untouched: the
+ *     label above still reads "Lowest total price" rather than "Cheapest price"
+ *     whenever `verdict.decided` is false, which is precisely the case the
+ *     sentence described. The word is still withheld; only the paragraph
+ *     explaining the withholding is gone. See src/services/deliveryConfidence.ts
+ *     and the note above `tooCloseToCallNote` itself.
  */
 function lowestPriceBox(best: PresentedOffer, verdict: CheapestVerdict): string {
   if (best.deliveredPriceGbp === null) {
@@ -2043,18 +2072,10 @@ function lowestPriceBox(best: PresentedOffer, verdict: CheapestVerdict): string 
         <p class="price-box-from t-caption">from ${esc(best.retailer.name)} &mdash; delivery not stated, so this is not a delivered price</p>
       </div>`;
   }
-  const caveat = tooCloseToCallNote(verdict);
   return `<div class="price-box price-box--best">
       <p class="price-box-label t-eyebrow">${verdict.decided ? 'Cheapest price' : 'Lowest total price'}</p>
       <p class="price-box-amount t-price t-price--hero">${formatGbp(best.deliveredPriceGbp)}</p>
-      <p class="price-box-from t-caption">from ${esc(best.retailer.name)}, incl. delivery</p>
-      ${
-        // Said here, next to the number it qualifies, rather than in a footnote
-        // nobody reads. It names the gap and names the shop whose delivery
-        // charge is the unconfirmed one, so the reader can check the one thing
-        // that would settle it.
-        caveat ? `<p class="price-box-caveat t-caption">${esc(caveat)}</p>` : ''
-      }
+      <p class="price-box-from t-caption">from ${esc(best.retailer.name)}</p>
     </div>`;
 }
 
