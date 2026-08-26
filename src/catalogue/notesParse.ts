@@ -230,6 +230,129 @@ export function parseNotes(descriptionRaw: string | null | undefined): ParsedNot
   const MULTIWORD_NOTES = new Set(['lily of the valley', 'rose de mai absolute', 'mountain oak moss accord']);
 
   /**
+   * Words that may sit lowercase inside an otherwise capitalised note name.
+   *
+   * These are the connectives real ingredient names carry — English "of/the"
+   * in "Lily of the Valley" and "Queen of the Night Flower", and the Romance
+   * particles perfumery borrows wholesale in "Rose de Mai", "Belle de Nuit",
+   * "Fleur du Male". Nothing here carries meaning on its own, which is why a
+   * lowercase word outside this set is evidence the split landed in a
+   * sentence rather than in a name.
+   */
+  const NAME_CONNECTIVES = new Set([
+    'of', 'the', 'de', 'du', 'des', 'di', 'da', 'del', 'della', 'la', 'le', 'les', 'el', 'y',
+  ]);
+
+  /**
+   * Function words that are still function words when title case capitalises
+   * them, so the case signal below cannot see them for what they are.
+   *
+   * Two sources produce these. Marketing headings collapse into the note list
+   * when a source's own markup is stripped — "Why You'll Love It" is where
+   * "Fir Resin Why You" and "White Musks Why You" came from — and product
+   * names sit in the same field as the copy, which is "Police To Be Green".
+   * A capitalised "Of" is the same tell in reverse: real names carry it
+   * lowercase ("Essence of Clary Sage", "Vanilla Beans of Madagascar"), so an
+   * uppercase one means the phrase was title-cased as a heading rather than
+   * written as an ingredient ("Lingering Sensuality Of Rose").
+   */
+  const CAPITALISED_STOPWORDS = new Set([
+    'why', 'you', 'your', 'to', 'be', 'it', 'is', 'are', 'was', 'were', 'my', 'our', 'their', 'of',
+  ]);
+
+  /**
+   * Words naming a product form rather than an ingredient. A note is never an
+   * "Eau de Toilette"; where one of these appears the phrase is a product
+   * name that landed in the note section ("Ed Hardy Eau de Toilette").
+   */
+  const PRODUCT_FORM = /\b(eau|toilette|parfum|parfums|cologne|elixir|edt|edp)\b/i;
+
+  /**
+   * Whether a candidate past the shape caps is a proper-noun phrase rather
+   * than a fragment of a sentence.
+   *
+   * The three named phrases above were the right first move but they do not
+   * scale: measured across every colon-headed note section in data/catalogue,
+   * 1,137 further distinct candidates (1,407 occurrences) are still dropped
+   * purely by the three-word/24-character caps, and reading them shows the
+   * majority are genuine perfumery ingredient names — "Indonesian Patchouli
+   * Leaf", "Jasmine Grandiflorum India Absolute", "Queen of the Night
+   * Flower", "Vanilla Extract Madagascar" — alongside supplier designations
+   * that are also real ("Pink Peppercorn CO2 India Orpur®", "Rose Absolute
+   * Turkish LMR", "White Tea Nature Print®"). Naming each one by hand is not
+   * a finishable job.
+   *
+   * What separates them from the junk in the same population ("such as the
+   * wrists", "resolutely feminine tones", "a hint of the licorice") is not
+   * shape — the comment above is right that word count cannot tell those
+   * apart — but *case*. An ingredient name is a proper noun and feed copy
+   * capitalises every word of it; a sentence fragment carries ordinary
+   * lowercase words. So this asks a different question from the caps: every
+   * word must be either capitalised or one of the connectives above, with at
+   * least two capitalised words present.
+   *
+   * This deliberately does nothing for a wholly lowercase multi-word name —
+   * Nicchia and Avon publish lowercase lists (see `bodyIsAList`), and there
+   * the case signal is unavailable, which is exactly why MULTIWORD_NOTES
+   * stays: "lily of the valley" in lowercase is still matched by name.
+   *
+   * PROSE runs before this, so a title-cased clause ("Envelop Your Senses
+   * With A Rich Blend") is already rejected on its verb and never reaches
+   * here. The six-word ceiling is a backstop for anything that slips both.
+   */
+  const looksLikeProperNounPhrase = (s: string): boolean => {
+    const words = s.split(/\s+/).filter((w) => w !== '');
+    if (words.length < 2 || words.length > 6) return false;
+    if (PRODUCT_FORM.test(s)) return false;
+    let capitalised = 0;
+    for (const [i, w] of words.entries()) {
+      // Trademark and registered marks belong to the name, not to the word.
+      const bare = w.replace(/[®™©]/g, '');
+      // A word is letters, optionally hyphenated or apostrophed, and nothing
+      // else. This is what rejects "CashmeranWhy You'll Love It✔ Bold", where
+      // a source's own markup collapsed a heading into the note list and left
+      // a tick character sitting in the middle of it.
+      if (!/^[\p{L}\p{M}]+(?:[-'’][\p{L}\p{M}]+)*$/u.test(bare)) return false;
+      if (/^[\p{Lu}]/u.test(bare)) {
+        // An all-capitals run is an INCI declaration, not a note name. Shops
+        // publish the statutory ingredient list in the same field as the copy
+        // — "BUTYL METHOXYDIBENZOYLMETHANE", "ETHYLHEXYL METHOXYCINNAMATE",
+        // "DIETHYLAMINO HYDROXYBENZOYL HEXYL BENZOATE" all arrived this way —
+        // and every word of one is capitalised, so the case signal this
+        // function relies on cannot see them. Three characters is the cut:
+        // it keeps the short supplier designations that are genuinely part of
+        // a name (ABS, CO2, LMR, LMP, MD) and drops the chemistry.
+        if (bare.length > 3 && bare === bare.toUpperCase()) return false;
+        // "Cedar Essence A Cool" — a bare capitalised letter is a sentence's
+        // article, never part of an ingredient name.
+        if (bare.length === 1) return false;
+        // No ingredient word runs this long. What does is INCI chemistry that
+        // arrived in title case rather than capitals, past the all-capitals
+        // rule above: "Butyl Methoxydibenzoylmethane" (23), "Ethylhexyl
+        // Methoxycinnamate" (16). The longest genuine words in the recovered
+        // set are "Superinfusion" and "Superessence" at 13.
+        if (bare.length > 15) return false;
+        if (CAPITALISED_STOPWORDS.has(bare.toLowerCase())) return false;
+        capitalised++;
+        continue;
+      }
+      // A lowercase opening word is a sentence's, never a name's.
+      if (i === 0) return false;
+      if (!NAME_CONNECTIVES.has(bare.toLowerCase())) return false;
+    }
+    // Connectives do not count toward the ceiling, so "Queen of the Night
+    // Flower" (three names) is well inside it while a comma-less run of five
+    // separate notes — "Cherry Strawberry Peach Apple Almond", a source that
+    // forgot its delimiters — is not. Four is where real supplier names stop
+    // ("Jasmine Grandiflorum India Absolute") and run-ons start.
+    return capitalised >= 2 && capitalised <= 4;
+  };
+
+  /** Past the caps by name, or by being a proper-noun phrase. */
+  const beatsShapeCaps = (s: string): boolean =>
+    MULTIWORD_NOTES.has(s.toLowerCase()) || looksLikeProperNounPhrase(s);
+
+  /**
    * Everything a note must be except capitalised.
    *
    * Split out from `looksLikeNote` because the capitalisation rule turns out
@@ -237,8 +360,8 @@ export function parseNotes(descriptionRaw: string | null | undefined): ParsedNot
    */
   const looksLikeNoteIgnoringCase = (s: string): boolean =>
     s.length > 1 &&
-    (s.length <= 24 || MULTIWORD_NOTES.has(s.toLowerCase())) &&
-    (s.split(/\s+/).length <= 3 || MULTIWORD_NOTES.has(s.toLowerCase())) &&
+    (s.length <= 24 || beatsShapeCaps(s)) &&
+    (s.split(/\s+/).length <= 3 || beatsShapeCaps(s)) &&
     !/[.:;!?()]/.test(s) &&
     !/\bnotes?\b/i.test(s) &&
     !NOT_A_NOTE.has(s.toLowerCase()) &&
