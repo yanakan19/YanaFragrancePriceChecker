@@ -11,6 +11,7 @@ export type {
   PresentedOffer,
   StockState,
   DiscountDisplay,
+  HouseAnchorDisplay,
   DeliveryDisplay,
 } from './types/offer.js';
 
@@ -23,7 +24,7 @@ export {
 export type { TikTokSeller } from './config/tiktokSellers.js';
 
 export { resolveDelivery, deliveredPrice } from './services/shipping.js';
-export { buildDiscount, canShowCountdown } from './services/discount.js';
+export { buildDiscount, buildHouseAnchor, canShowCountdown } from './services/discount.js';
 export { buildOutboundLink, pendingAffiliateSetup, hasAffiliateGaps } from './services/affiliate.js';
 export type { AffiliateGap, OutboundLink } from './services/affiliate.js';
 export {

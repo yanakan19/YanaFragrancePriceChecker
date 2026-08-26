@@ -1,4 +1,4 @@
-import type { DiscountDisplay, RawOffer } from '../types/offer.js';
+import type { DiscountDisplay, HouseAnchorDisplay, RawOffer } from '../types/offer.js';
 import { roundPence } from './money.js';
 
 /**
@@ -33,6 +33,49 @@ export function buildDiscount(offer: RawOffer): DiscountDisplay | null {
     savingGbp: saving,
     percentOff,
     endsAt: offer.promoEndsAt ?? null,
+  };
+}
+
+/**
+ * Build the "cheaper than buying direct" comparison against the fragrance
+ * house's own price — never the shop's, see `HouseAnchorDisplay`.
+ *
+ * `houseCeilingGbp` is `CatalogueEntry.houseCeiling`: the highest figure the
+ * house itself publishes for this size-matched bottle, already computed by
+ * scripts/build-demo-catalogue.ts as it runs test zero in
+ * wasPriceCredibility.ts. This function does no evidence-gathering of its
+ * own — it only turns a ceiling that already exists into a display, the same
+ * split `buildDiscount` keeps between judging a claim and rendering it.
+ *
+ * Mirrors `buildDiscount`'s two safeguards exactly, for the same reasons:
+ *
+ *   - null whenever the house is not actually more expensive (`<= price`).
+ *     15 of 178 comparable products measured 2026-08-26 are exactly this: the
+ *     house undercuts every retailer, and showing a "saving" against a price
+ *     that is not the higher one would invent a discount that does not exist
+ *     — see wasPriceCredibility.ts's "house being cheaper" section.
+ *   - the percentage is floored, never rounded up, and a saving too small to
+ *     reach one whole percent renders nothing rather than "0% below Armaf".
+ */
+export function buildHouseAnchor(
+  price: number,
+  houseCeilingGbp: number,
+  houseName: string,
+): HouseAnchorDisplay | null {
+  if (!Number.isFinite(houseCeilingGbp) || houseCeilingGbp <= price) return null;
+
+  const saving = roundPence(houseCeilingGbp - price);
+  if (saving < 0.01) return null;
+
+  const percentOff = Math.floor((saving / houseCeilingGbp) * 100);
+  if (percentOff < 1) return null;
+
+  return {
+    houseName,
+    housePriceGbp: roundPence(houseCeilingGbp),
+    nowPriceGbp: roundPence(price),
+    savingGbp: saving,
+    percentOff,
   };
 }
 

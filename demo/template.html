@@ -1612,6 +1612,15 @@
      before this rule the price sat 15-80px short of that edge depending on
      how much shorter the price text was than the note beside it. */
   .now { text-align: right; }
+  /* The house-anchored comparison (demo/app.ts's offerRow, houseAnchorFor) is
+     never this shop's own claim, so it is never struck through the way a
+     genuine "was" price is — a line-through on a figure the shop never stated
+     would read as its own former price, exactly the misattribution this
+     exists to avoid. A dotted underline says "reference point" without
+     saying "this shop's own history". Same ink as .was: the distinction is
+     the decoration and the wording ("at Armaf" / "below Armaf"), not the
+     colour. */
+  .was.anchor, .off.anchor { text-decoration: none; border-bottom: 1px dotted var(--faint); padding-bottom: 1px; }
   .now.sale { color: var(--ok); }
   .now.none { color: var(--faint); font-weight: 500; }
   /* Says what the number above it contains, on every row rather than only on

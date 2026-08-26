@@ -60,6 +60,37 @@ export interface DiscountDisplay {
   endsAt: string | null;
 }
 
+/**
+ * A comparison to the fragrance house's own price, never the retailer's.
+ *
+ * `DiscountDisplay` states a claim the shop itself made about its own former
+ * price. This states a different kind of fact entirely: what the company
+ * that makes the bottle charges for it (`CatalogueEntry.houseCeiling`,
+ * test zero in src/catalogue/wasPriceCredibility.ts), which this shop never
+ * claimed and may not even know about. Kept as its own type, never folded
+ * into `DiscountDisplay`, so the two can never be rendered by code that
+ * forgot which one it was holding and attributed the house's figure to the
+ * shop — the exact CPR pricing-claims problem `wasPrice`'s own comment on
+ * `RawOffer` warns about. `houseName` exists so every render of this type
+ * carries the attribution rather than trusting the caller to add it.
+ */
+export interface HouseAnchorDisplay {
+  /** The company that makes the bottle, e.g. "Armaf". Always named on screen. */
+  houseName: string;
+  /**
+   * The highest figure the house itself publishes for this bottle — its own
+   * price, or its own struck-through reference price, whichever is higher.
+   * Never the shop's figure.
+   */
+  housePriceGbp: number;
+  /** What this shop charges today, for the saving arithmetic. */
+  nowPriceGbp: number;
+  /** Absolute saving in GBP against the house's price, rounded to pence. */
+  savingGbp: number;
+  /** Whole-percent saving against the house's price, rounded down — see DiscountDisplay.percentOff. */
+  percentOff: number;
+}
+
 /** How delivery resolves for this offer at this basket value. */
 export interface DeliveryDisplay {
   /**
