@@ -5,6 +5,7 @@ import {
   staleCursorIds,
   withAttempt,
   EMPTY_CURSOR,
+  type HarvestCursor,
 } from '../src/catalogue/harvestCursor.js';
 
 /**
@@ -127,5 +128,105 @@ describe('staleCursorIds', () => {
   it('names stamps left behind by shops that are no longer swept', () => {
     const c = parseCursor('{"attempted":{"boots":"T","lush":"T"}}');
     expect(staleCursorIds(c, ['boots'])).toEqual(['lush']);
+  });
+});
+
+/**
+ * A faster per-shop cost must reach more shops per run without changing which
+ * shop is asked next — exercising the actual rotation, not just inspecting
+ * the sitemapCrawl.ts diff, since "a prior speed-up broke that rotation and
+ * starved shops" (see harvestCursor.ts's own header) is exactly the failure
+ * mode a faster crawl must not repeat.
+ *
+ * Mirrors scripts/catalogue-harvest.ts's own loop shape closely enough to
+ * exercise the same interaction: `sweepOrder` decides the order once per run,
+ * a shop's attempt is recorded the moment it is asked (not when it finishes),
+ * and the run stops taking new shops the moment the next one would not fit in
+ * what is left of the budget — the same "checked on a shop boundary" rule
+ * catalogue-harvest.ts itself follows, and the same reason a shop that is cut
+ * off keeps its old stamp and sorts first next run rather than being skipped.
+ */
+function runSweep(
+  shops: readonly { id: string; neverLive: boolean }[],
+  cursor: HarvestCursor,
+  runBudgetMs: number,
+  perShopMs: number,
+  runStartedAt: number,
+): { cursor: HarvestCursor; asked: string[] } {
+  const order = sweepOrder(shops, cursor);
+  let elapsedMs = 0;
+  let next = cursor;
+  const asked: string[] = [];
+  for (const shop of order) {
+    if (elapsedMs + perShopMs > runBudgetMs) break;
+    next = withAttempt(next, shop.id, new Date(runStartedAt + elapsedMs).toISOString());
+    asked.push(shop.id);
+    elapsedMs += perShopMs;
+  }
+  return { cursor: next, asked };
+}
+
+describe('sweepOrder — a faster per-shop cost cannot resurrect the starvation this fixed', () => {
+  // Twenty shops, a run budget wide enough for a slow sweep to finish only
+  // nine of them per run (the same 9-of-20 split PLANNED/REACHED models
+  // above) — this is deliberately run #330's own shape before this task's
+  // sitemapCrawl.ts fix, cast as a per-shop cost instead of a shop list, so
+  // the "faster" run below can be the same scenario with that fix applied.
+  const SLOW_PER_SHOP_MS = 5 * 60_000;
+  // The measured saving from skipping the trailing gap wait — the default
+  // 1500ms request gap, once per shop, no longer paid on the last product
+  // page fetched. Small next to a five-minute shop, which is the point: this
+  // is a real saving that adds up across a run, not a rewrite of how shops
+  // are chosen.
+  const FAST_PER_SHOP_MS = SLOW_PER_SHOP_MS - 1_500;
+  // Chosen so the saving actually matters at this budget: nine slow shops
+  // (2,700,000ms) fit with room to spare, a tenth slow shop does not
+  // (3,000,000ms), and a tenth *fast* shop does (2,985,000ms) — the exact
+  // margin the trailing-wait fix buys back.
+  const RUN_BUDGET_MS = 2_990_000;
+
+  it('reaches more shops per run once shops are individually faster', () => {
+    const slow = runSweep(candidates, EMPTY_CURSOR, RUN_BUDGET_MS, SLOW_PER_SHOP_MS, 0);
+    const fast = runSweep(candidates, EMPTY_CURSOR, RUN_BUDGET_MS, FAST_PER_SHOP_MS, 0);
+
+    expect(slow.asked).toHaveLength(9);
+    // Fitting one more shop from a few seconds saved each is the entire
+    // point of the fix — not a dramatic jump, a real one.
+    expect(fast.asked.length).toBeGreaterThan(slow.asked.length);
+  });
+
+  it('never repeats a shop before every shop has been asked once, at either speed', () => {
+    // A run does not stop just because coverage is now complete — it works
+    // through sweepOrder's list until its own budget runs out, same as
+    // scripts/catalogue-harvest.ts, so the run that finally covers the last
+    // unasked shop can go on to re-ask some already-asked ones in the same
+    // run. That is fine; what must never happen, at either speed, is a shop
+    // being asked a *second* time while another shop has never been asked at
+    // all — the exact starvation harvestCursor.ts exists to end.
+    for (const perShopMs of [SLOW_PER_SHOP_MS, FAST_PER_SHOP_MS]) {
+      let cursor = EMPTY_CURSOR;
+      const seen = new Set<string>();
+      let noRepeatBeforeFullCoverage = true;
+      // Five runs is generous at either speed (20 shops, 9 or 10 asked per
+      // run — full coverage lands inside two or three) and long enough to
+      // also observe the repeats that follow it.
+      for (let run = 0; run < 5; run++) {
+        const { cursor: nextCursor, asked } = runSweep(
+          candidates,
+          cursor,
+          RUN_BUDGET_MS,
+          perShopMs,
+          run * 24 * 60 * 60_000,
+        );
+        cursor = nextCursor;
+        for (const id of asked) {
+          if (seen.has(id) && seen.size < candidates.length) noRepeatBeforeFullCoverage = false;
+          seen.add(id);
+        }
+      }
+
+      expect(seen.size).toBe(candidates.length);
+      expect(noRepeatBeforeFullCoverage).toBe(true);
+    }
   });
 });

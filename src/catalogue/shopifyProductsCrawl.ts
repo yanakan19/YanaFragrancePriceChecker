@@ -237,7 +237,16 @@ export async function crawlViaShopifyProducts(
     if (batch.length === 0) break;
     listings.push(...batch);
 
-    if (options.gapMs > 0) await sleep(options.gapMs);
+    // Same reasoning as crawlViaSitemap's own trailing-wait skip (see its
+    // comment): the gap exists to space out the *next* request, and
+    // `pagesFetched < maxPages` failing is the one way this loop's own end
+    // can be known before paying for it, since Shopify's "fewer than asked"
+    // end-of-catalogue signal is only visible from *inside* the next fetch.
+    // A catalogue that ends naturally before maxPages still pays one wasted
+    // wait finding that out — unavoidable without fetching ahead of need —
+    // but every storefront big enough to hit its own maxPages cap (the
+    // common case this budget exists for) no longer pays it.
+    if (options.gapMs > 0 && pagesFetched < maxPages) await sleep(options.gapMs);
   }
 
   return { listings, pagesFetched, errors, isShopify, currency, market };

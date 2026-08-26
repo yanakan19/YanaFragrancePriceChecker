@@ -392,7 +392,10 @@ export async function crawlViaSitemap(
   const sampledUrls: string[] = [];
   let pagesFetched = 0;
 
-  for (const url of selectUrlsToFetch(urls, maxPages, options.knownUrls, options.refreshShare)) {
+  const picked = selectUrlsToFetch(urls, maxPages, options.knownUrls, options.refreshShare);
+
+  for (let i = 0; i < picked.length; i++) {
+    const url = picked[i]!;
     if (Date.now() >= deadlineAt) {
       errors.push(`stopped early: exceeded this shop's time budget`);
       break;
@@ -417,7 +420,17 @@ export async function crawlViaSitemap(
     const found = parseListings(res.body, { sectionId: 'sitemap', pageUrl: url });
     listings.push(...found);
 
-    if (gapMs > 0) await sleep(gapMs);
+    // Spacing exists to keep every *pair* of requests to this shop apart —
+    // there is no next request after the last URL in the list, so waiting
+    // here only delays this shop's own finish (and, via recordAttempt's
+    // "before the shop is asked" timestamp in scripts/catalogue-harvest.ts,
+    // pushes every shop behind it in the sweep back by the same amount). Over
+    // a 36-shop run at the registry's default 1500ms gap that is up to 54
+    // wasted seconds a run, paid on every single sweep, for a wait nothing is
+    // behind. `i < picked.length - 1` is the same politeness gap for the
+    // pairs that still need it and none of the delay for the pair that
+    // doesn't.
+    if (gapMs > 0 && i < picked.length - 1) await sleep(gapMs);
   }
 
   return { listings, pagesFetched, urlsDiscovered: urls.length, errors, sampledUrls };
