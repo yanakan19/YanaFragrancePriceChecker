@@ -980,6 +980,10 @@
     font-size: 11px; font-weight: 600; color: var(--faint);
     text-decoration: line-through; font-variant-numeric: tabular-nums;
   }
+  /* A house-anchored deal tile (dealsPanel's dealTile) — same reasoning as
+     the offer row's .was.anchor / .off.anchor above: never struck through,
+     because that figure was never this shop's own claim. */
+  .tile-price .was.anchor { text-decoration: none; border-bottom: 1px dotted var(--faint); padding-bottom: 1px; }
   .from { font-size: 10px; font-weight: 600; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
 
   /* Which shop the price is actually from, since we cannot show their logo:
