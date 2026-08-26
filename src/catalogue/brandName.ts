@@ -688,6 +688,54 @@ const KNOWN_ALIASES: Record<string, string> = {
   [brandKey('Incandessence')]: 'Avon Cosmetics',
   [brandKey('Perfect Nonsense')]: 'Avon Cosmetics',
   [brandKey('Avon Cosmetics')]: 'Avon Cosmetics',
+
+  // Found 2026-08-26, a third pass this day, checking demo/brandSites.ts's
+  // worklist for mis-splits before any web search — the same method the
+  // 'Whisky'/Avon-lines folds above already used, applied to two more
+  // worklist entries the ranking turned up:
+  //
+  // 'Eve' (6 products: Confidence, One, Privé Purse, Truth, Truth For Her,
+  // Truth Purse) is another avon.uk.com fragrance line reached the same way
+  // "Perfect Nonsense" was above: every one of the 6 is a `rawBrand`
+  // data/catalogue/avon.json uses for its own products, at URLs on its own
+  // domain (avon.uk.com/products/eve-one-for-her-purse-spray-10ml,
+  // /products/eve-truth-eau-de-parfum-50ml, /products/avon-eve-confidence-
+  // purse-spray-10ml and so on for all 6, including the repeated "Purse"
+  // spray-size naming this table's own Avon-lines comment above already
+  // flags as an Avon-only shape). Not a coincidental one-word brand name;
+  // the house's own scrape names it.
+  [brandKey('Eve')]: 'Avon Cosmetics',
+
+  // 'Bottega Veneta Beauty' (1 product, "Good Morning Midnight Parfum Travel
+  // Spray") is not a second, unrelated house — it is the same manufacturer
+  // as the existing 'Bottega Veneta' group (2 products: Illusione Bois Nu,
+  // Illusione for Him) under the current name its 2023 fragrance relaunch
+  // trades under. data/catalogue/selfridges.json, the only feed carrying
+  // either spelling, uses "BOTTEGA VENETA BEAUTY" as rawBrand at its own
+  // /bottega-veneta-beauty-*/ URL slugs (Good Morning Midnight, Ricordami,
+  // a Discovery set) — the retailer's own site naming the current business,
+  // the same relationship the 'valentino'/'valentino beauty' pair in
+  // demo/brandSites.ts already records for a different house that
+  // rebranded its fragrance arm the same way. Folded into the shorter,
+  // already-established spelling rather than the reverse, since 'Bottega
+  // Veneta' already carries this file's real products and 'Beauty' is the
+  // division name, not a second trading name shops search for.
+  [brandKey('Bottega Veneta Beauty')]: 'Bottega Veneta',
+
+  // Checked the same sweep and confirmed real rather than folded: "CRM"
+  // (5 products: Armani Si Passione Red Mask, AZZARO THE MOST WANTED
+  // PARFUM, JULIETTE HAS A GUN LILI FANTASY, TIFFANY SHEER, Yves Saint
+  // Laurent Libre L'Eau Naturelle) is not a house at all — every one of the
+  // 5 is a different, unrelated, already-real fragrance house, and
+  // data/catalogue/the-beauty-store-uk.json's own raw scrape shows "CRM" as
+  // the rawBrand on Biotherm and Rituals skincare listings too (filtered out
+  // here as not fragrance), the same across-many-houses shape as
+  // "Unbranded" — a feed field the-beauty-store-uk.com fills with some
+  // internal code rather than the actual vendor for a subset of its
+  // catalogue. Not fixable by a fold the way a mis-filed single-house line
+  // is: there is no one house to fold it into, so it is left alone here and
+  // documented in demo/brandSites.ts's own "not a brand" notes instead, the
+  // same treatment "Unbranded" already gets.
 };
 
 /**
