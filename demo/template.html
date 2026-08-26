@@ -46,6 +46,20 @@
     --chart-grid: #1F1F23;
     --chart-band: rgba(255,59,65,.10);
     --ok:        #4FB47B;
+    /* The green counterpart to the accent surface above — a ground for a card
+       whose whole point is that it is the positive one, today the lowest
+       price box under a fragrance. Each value is --ok mixed 14% into its own
+       --bg and frozen, so it matches the translucent
+       color-mix(in srgb, var(--ok) 14%, transparent) wash the countdown chip
+       and .tag.new already use, without depending on what happens to be
+       behind it. 14% and not more because the ink on it is --ok itself:
+                     --ok on --ok-sf      --ink-2 on --ok-sf
+         dark        6.39:1               9.29:1
+         light       4.74:1               7.03:1
+       Both inks clear AA (4.5:1) in both themes; at 20% the light theme's
+       --ok falls to 4.31:1 and would not. tests/contrast.test.ts holds these
+       four figures to the tokens as declared. */
+    --ok-sf:     #14221B;
     --warn:      #D8A24C;
     --shadow:    0 1px 3px rgba(0,0,0,.4);
     /* Card elevation. A drop shadow does not read on a near-black ground, so
@@ -114,6 +128,8 @@
     --chart-grid: #EDEDF1;
     --chart-band: rgba(200,16,46,.08);
     --ok:        #17724B;
+    /* See the dark block's note: --ok mixed 14% into this theme's --bg. */
+    --ok-sf:     #DCE9E4;
     --warn:      #8A5A00;
     --shadow:    0 1px 3px rgba(0,0,0,.18);
     --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
@@ -153,7 +169,7 @@
       --accent: #C8102E; --accent-on: #FFFFFF; --accent-sf: #FDECEE;
       --accent-ink: #A80C25; --accent-press: #9E0C22; --focus: #C8102E;
       --chart-grid: #EDEDF1; --chart-band: rgba(200,16,46,.08);
-      --ok: #17724B; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
+      --ok: #17724B; --ok-sf: #DCE9E4; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
       --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
       --mono-bg-l: 93%; --mono-fg-l: 30%; --mono-border-l: 55%;
       --gender-women: #A81B5E; --gender-women-on: #FF8FB3;
@@ -170,7 +186,7 @@
     --accent: #C8102E; --accent-on: #FFFFFF; --accent-sf: #FDECEE;
     --accent-ink: #A80C25; --accent-press: #9E0C22; --focus: #C8102E;
     --chart-grid: #EDEDF1; --chart-band: rgba(200,16,46,.08);
-    --ok: #17724B; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
+    --ok: #17724B; --ok-sf: #DCE9E4; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
     --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
     --mono-bg-l: 93%; --mono-fg-l: 30%; --mono-border-l: 55%;
     --gender-women: #A81B5E; --gender-women-on: #FF8FB3;
@@ -186,7 +202,7 @@
     --accent: #FF3B41; --accent-on: #0B0405; --accent-sf: #1E0709;
     --accent-ink: #FF6A6E; --accent-press: #D42B31; --focus: #FF3B41;
     --chart-grid: #1F1F23; --chart-band: rgba(255,59,65,.10);
-    --ok: #4FB47B; --warn: #D8A24C; --shadow: 0 1px 3px rgba(0,0,0,.4);
+    --ok: #4FB47B; --ok-sf: #14221B; --warn: #D8A24C; --shadow: 0 1px 3px rgba(0,0,0,.4);
     --shadow-lift: 0 1px 0 #26262A;
     --mono-bg-l: 20%; --mono-fg-l: 78%; --mono-border-l: 42%;
     --gender-women: #FF8FB3; --gender-women-on: #A81B5E;
@@ -1453,15 +1469,51 @@
      glow this used to carry is gone: elevation on this site is --shadow-lift,
      which is a real shadow in the light theme and a hairline in the dark one,
      and a bloom no other surface has was the box shouting on top of already
-     being the largest type on the page. */
+     being the largest type on the page.
+
+     Two boxes now, where there was one: the manufacturer's price on the left
+     and the lowest price here on the right, which is the argument this site
+     exists to make, made in one glance. See priceBoxRow() in demo/app.ts for
+     which of them renders when.
+
+     The row is a flex line and not a two-column grid precisely because the
+     left box is usually absent — only 874 of 14,836 products have a house
+     price to show. With one child, `justify-content: center` plus the 280px
+     cap below leaves the lowest-price box exactly where and how wide it was
+     before this change; with two, they share the line. A grid would have had
+     to be told about both cases. */
+  .price-boxes {
+    display: flex; justify-content: center; align-items: stretch;
+    gap: 10px; margin: 18px 0 0;
+  }
+  /* flex-basis 0 with unequal grow, not `flex: 1`: the two boxes hold
+     different amounts of type. The right one carries the hero number, a shop
+     name and sometimes the too-close-to-call rule; the left carries a four
+     letter label, a 20px figure and one short line. A 4:5 split gives the
+     wider content the wider column — 145px and 175px at a 360px viewport.
+     min-width: 0 because a flex item's default `min-width: auto` refuses to
+     shrink below its longest word, which is how a long shop name would push
+     this row past the viewport. */
   .price-box {
-    margin: 18px auto 0; max-width: 280px; padding: 16px 20px 17px;
+    flex: 4 1 0; min-width: 0; max-width: 280px;
+    padding: 16px 20px 17px;
     border-radius: 16px; border: 1px solid var(--accent);
     background: var(--accent-sf);
   }
+  .price-box--best { flex-grow: 5; }
   .price-box-label { margin: 0; color: var(--accent-ink); }
   .price-box-amount { margin: 6px 0 0; color: var(--accent-ink); }
   .price-box-from { margin: 5px 0 0; color: var(--ink-2); }
+  /* Green for the number a reader is meant to act on. --ok is already this
+     app's "a saving, in stock, new" colour (.off, .now.sale, .tag.new), so
+     this is the palette's existing meaning applied to the biggest instance of
+     it rather than a new colour language; --ok-sf is its ground, measured in
+     the palette block at the top of this file. Red stays on the left box
+     because red here is the brand accent and never means "bad" — the note at
+     the top of this file. */
+  .price-box--best { border-color: var(--ok); background: var(--ok-sf); }
+  .price-box--best .price-box-label,
+  .price-box--best .price-box-amount { color: var(--ok); }
   /* The "too close to call" line, when an unconfirmed delivery charge is what
      separates first place from second. Inside the box, under the number it
      qualifies, and divided from it by a rule so it reads as a condition on
@@ -1469,8 +1521,34 @@
      it is a qualification and not a warning. */
   .price-box-caveat {
     margin: 9px 0 0; padding-top: 9px; text-align: left;
-    border-top: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+    border-top: 1px solid color-mix(in srgb, var(--ok) 28%, transparent);
     color: var(--ink-2);
+  }
+  /* Paired, the hero number comes down from 34px to 28px, and it is the
+     presence of the sibling and not the viewport that decides. The narrowest
+     column this row ever gets is not a phone: the desktop layout pins .hero at
+     380px whatever the window is, so at 1280px and at 1440px the lowest-price
+     box measures 188px against 192px at a 390px phone. A viewport media query
+     would have left the tighter of the two untouched.
+
+     The number, measured in Chromium rather than reasoned about: --font-num
+     is a monospace stack, so a price costs 16.24px a character at 28px. The
+     widest price that can appear with a house figure beside it is £220.00
+     (Al Haramain Sheikh for Men, seven characters) at 113.7px, inside 146px of
+     content on desktop and 149px at 360px. That leaves room for nine
+     characters, i.e. a four figure price, before anything overflows. At 34px
+     the same string is 138.1px and eight characters would already be 157.9px,
+     past the 146px the desktop column has — which is what the step down buys.
+
+     No stacking at any width. Stacked, the MSRP sits above the lowest price
+     and reads as the headline figure, which is the one thing this arrangement
+     must never say. */
+  .price-box--msrp + .price-box--best .price-box-amount { font-size: 28px; }
+  /* Smallest phones still in circulation (iPhone 13 mini is 375px). Padding
+     and gap give, so the two boxes stay on one line at 360px. */
+  @media (max-width: 430px) {
+    .price-boxes { gap: 8px; }
+    .price-box { padding: 14px 12px 15px; }
   }
 
   .hero-price.none { font-size: 19px; font-weight: 600; color: var(--ink-2); letter-spacing: -.01em; margin: 18px 0 0; }

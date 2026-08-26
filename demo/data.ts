@@ -46,6 +46,22 @@ export interface DemoFragrance {
   photoUrl: string | null;
   /** Only ever notes a source explicitly labelled. Null means genuinely unknown. */
   notes: Notes | null;
+  /**
+   * The one figure on this record with a real claim to being a manufacturer's
+   * price: the highest amount this fragrance's own house publishes for this
+   * exact bottle on its own UK storefront — its selling price, or its own
+   * struck-through reference price, whichever is higher. Carried through from
+   * `CatalogueEntry.houseCeiling`; see its doc in demo/catalogue.generated.ts
+   * and the block that computes it in scripts/build-demo-catalogue.ts.
+   *
+   * Null for 13,962 of the 14,836 products here (94.11%), because most houses
+   * either run no UK storefront we harvest or do not list this size. Null is
+   * the honest reading of that and nothing may be substituted for it — a
+   * retailer's `wasPrice` is the retailer's own claim about a reference price,
+   * demonstrably inflated (three shops put Armaf Club De Nuit Intense Man
+   * 105ml at ~£69 while armaf.uk itself lists £37.99), and is not this.
+   */
+  houseCeiling: number | null;
 }
 
 /**
@@ -138,6 +154,11 @@ export const DEMO_FRAGRANCES: DemoFragrance[] = CATALOGUE.map((entry) => ({
   popularity: rankableShopCount(entry.id),
   photoUrl: entry.image,
   notes: entry.notes,
+  // `?? null` rather than passing the optional straight through: the generated
+  // field is `houseCeiling?: number`, and under exactOptionalPropertyTypes an
+  // absent key and an explicit undefined are different things. One shape here
+  // means every reader tests one thing.
+  houseCeiling: entry.houseCeiling ?? null,
 }));
 
 const BY_ID = new Map(DEMO_FRAGRANCES.map((f) => [f.id, f]));
