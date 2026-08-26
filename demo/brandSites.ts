@@ -28,10 +28,10 @@ import { marketOf } from '../src/catalogue/brandSiteCheck.js';
  * fragrances (Armani, Azzaro, Juliette Has A Gun, Tiffany, YSL) under one
  * rawBrand, the same shape as "Unbranded" and just as unfoldable.
  *
- * Re-running the measurement: 14,814 products, 678 houses (was 680 before
+ * Re-running the measurement: 14,836 products, 678 houses (was 680 before
  * this pass — the two folds above merge two houses away; no fold added a
  * new one), 366 resolving here (was 348) — 54.0%, up from 51.2%. 312 houses
- * remain unresolved (was 332). 13,732 of the 14,618 products under a named
+ * remain unresolved (was 332). 13,754 of the 14,640 products under a named
  * house, 93.9%, now show a website line. The ceiling on further work keeps
  * shrinking: the 30 largest unresolved houses are 2.3% of all products
  * between them, the top 50 reach 3.0%, the top 100 reach 4.1%.
@@ -1634,7 +1634,7 @@ export const BRAND_SITES: Record<string, string> = {
  *
  * Not code — a priority order for whoever runs the next confirmation pass,
  * ranked by product count in the live catalogue. Re-measured 2026-08-26
- * (third pass this day) against demo/catalogue.generated.ts (14,814
+ * (third pass this day) against demo/catalogue.generated.ts (14,836
  * products / 678 houses) using the same buildBrandCanon()-based method as
  * the file header's own count — see that header's own top paragraph for
  * what this pass changed (three mis-splits folded away, eighteen new
