@@ -94373,7 +94373,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15675057242461-unboxed--75ml",
     "brand": "Ahmed Al Maghribi",
-    "name": "Oud Lavender Perfume Ahmed Al Maghribi Unboxed:",
+    "name": "Oud Lavender Perfume Ahmed Al Maghribi Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 75,
     "ean": null,
@@ -96696,7 +96696,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "al-haramain-cpo5200-3",
     "brand": "Al Haramain",
-    "name": "Another + +",
+    "name": "Another",
     "concentration": "Perfume Oil",
     "sizeMl": 3,
     "ean": null,
@@ -96726,7 +96726,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "al-haramain-cpo5200-6",
     "brand": "Al Haramain",
-    "name": "Another + +",
+    "name": "Another",
     "concentration": "Perfume Oil",
     "sizeMl": 6,
     "ean": null,
@@ -96756,7 +96756,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "al-haramain-cpo5200-12",
     "brand": "Al Haramain",
-    "name": "Another + +",
+    "name": "Another",
     "concentration": "Perfume Oil",
     "sizeMl": 12,
     "ean": null,
@@ -96786,7 +96786,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "al-haramain-cpo5200-24",
     "brand": "Al Haramain",
-    "name": "Another + +",
+    "name": "Another",
     "concentration": "Perfume Oil",
     "sizeMl": 24,
     "ean": null,
@@ -96816,7 +96816,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "al-haramain-cpo5200-35",
     "brand": "Al Haramain",
-    "name": "Another + +",
+    "name": "Another",
     "concentration": "Perfume Oil",
     "sizeMl": 35,
     "ean": null,
@@ -97844,7 +97844,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0078-3",
     "brand": "Al Haramain",
-    "name": "Collection + +",
+    "name": "Collection",
     "concentration": "Perfume Oil",
     "sizeMl": 3,
     "ean": null,
@@ -97878,7 +97878,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0078-6",
     "brand": "Al Haramain",
-    "name": "Collection + +",
+    "name": "Collection",
     "concentration": "Perfume Oil",
     "sizeMl": 6,
     "ean": null,
@@ -97912,7 +97912,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0078-12",
     "brand": "Al Haramain",
-    "name": "Collection + +",
+    "name": "Collection",
     "concentration": "Perfume Oil",
     "sizeMl": 12,
     "ean": null,
@@ -99855,7 +99855,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0118-3",
     "brand": "Al Haramain",
-    "name": "Jd + +",
+    "name": "Jd",
     "concentration": "Perfume Oil",
     "sizeMl": 3,
     "ean": null,
@@ -99867,7 +99867,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0118-6",
     "brand": "Al Haramain",
-    "name": "Jd + +",
+    "name": "Jd",
     "concentration": "Perfume Oil",
     "sizeMl": 6,
     "ean": null,
@@ -99879,7 +99879,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0118-12",
     "brand": "Al Haramain",
-    "name": "Jd + +",
+    "name": "Jd",
     "concentration": "Perfume Oil",
     "sizeMl": 12,
     "ean": null,
@@ -101569,7 +101569,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0025-3",
     "brand": "Al Haramain",
-    "name": "Mukhallath Burj + +",
+    "name": "Mukhallath Burj",
     "concentration": "Perfume Oil",
     "sizeMl": 3,
     "ean": null,
@@ -101599,7 +101599,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0025-6",
     "brand": "Al Haramain",
-    "name": "Mukhallath Burj + +",
+    "name": "Mukhallath Burj",
     "concentration": "Perfume Oil",
     "sizeMl": 6,
     "ean": null,
@@ -101629,7 +101629,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0025-12",
     "brand": "Al Haramain",
-    "name": "Mukhallath Burj + +",
+    "name": "Mukhallath Burj",
     "concentration": "Perfume Oil",
     "sizeMl": 12,
     "ean": null,
@@ -103128,7 +103128,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0100-3",
     "brand": "Al Haramain",
-    "name": "Oudh Abyat + +",
+    "name": "Oudh Abyat",
     "concentration": "Perfume Oil",
     "sizeMl": 3,
     "ean": null,
@@ -103140,7 +103140,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0100-6",
     "brand": "Al Haramain",
-    "name": "Oudh Abyat + +",
+    "name": "Oudh Abyat",
     "concentration": "Perfume Oil",
     "sizeMl": 6,
     "ean": null,
@@ -103152,7 +103152,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0100-12",
     "brand": "Al Haramain",
-    "name": "Oudh Abyat + +",
+    "name": "Oudh Abyat",
     "concentration": "Perfume Oil",
     "sizeMl": 12,
     "ean": null,
@@ -103458,7 +103458,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0161-3",
     "brand": "Al Haramain",
-    "name": "Palm Beach + +",
+    "name": "Palm Beach",
     "concentration": "Perfume Oil",
     "sizeMl": 3,
     "ean": null,
@@ -103470,7 +103470,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0161-6",
     "brand": "Al Haramain",
-    "name": "Palm Beach + +",
+    "name": "Palm Beach",
     "concentration": "Perfume Oil",
     "sizeMl": 6,
     "ean": null,
@@ -103482,7 +103482,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0161-12",
     "brand": "Al Haramain",
-    "name": "Palm Beach + +",
+    "name": "Palm Beach",
     "concentration": "Perfume Oil",
     "sizeMl": 12,
     "ean": null,
@@ -104876,7 +104876,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-ahp1982",
     "brand": "Al Haramain",
-    "name": "Solitaire Musk, , Concentrated Unisex",
+    "name": "Solitaire Musk, Concentrated Unisex",
     "concentration": "Perfume Oil",
     "sizeMl": 12,
     "ean": null,
@@ -104992,7 +104992,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0088-3",
     "brand": "Al Haramain",
-    "name": "Sultan + +",
+    "name": "Sultan",
     "concentration": "Perfume Oil",
     "sizeMl": 3,
     "ean": null,
@@ -105024,7 +105024,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0088-6",
     "brand": "Al Haramain",
-    "name": "Sultan + +",
+    "name": "Sultan",
     "concentration": "Perfume Oil",
     "sizeMl": 6,
     "ean": null,
@@ -105056,7 +105056,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0088-12",
     "brand": "Al Haramain",
-    "name": "Sultan + +",
+    "name": "Sultan",
     "concentration": "Perfume Oil",
     "sizeMl": 12,
     "ean": null,
@@ -105088,7 +105088,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0088-24",
     "brand": "Al Haramain",
-    "name": "Sultan + +",
+    "name": "Sultan",
     "concentration": "Perfume Oil",
     "sizeMl": 24,
     "ean": null,
@@ -105120,7 +105120,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-atr0088-35",
     "brand": "Al Haramain",
-    "name": "Sultan + +",
+    "name": "Sultan",
     "concentration": "Perfume Oil",
     "sizeMl": 35,
     "ean": null,
@@ -106699,7 +106699,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15497642738013-unboxed--100ml",
     "brand": "Al Rehab",
-    "name": "Spanish Vanilla Perfume Al Rehab Unboxed:",
+    "name": "Spanish Vanilla Perfume Al Rehab Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -109115,7 +109115,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15573104066909-unboxed--80ml",
     "brand": "Arabiyat",
-    "name": "Nyla Vani Elle Perfume Arabiyat Prestige Unboxed:",
+    "name": "Nyla Vani Elle Perfume Arabiyat Prestige Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 80,
     "ean": null,
@@ -109389,7 +109389,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16195206381917-unboxed--100ml",
     "brand": "Arabiyat",
-    "name": "Ramad Earthy Arabiyat Prestige Unboxed:",
+    "name": "Ramad Earthy Arabiyat Prestige Unboxed",
     "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -111082,7 +111082,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "emirates-oud-8839517798749-unboxed--100ml",
     "brand": "Ard Al Zaafaran",
-    "name": "Hareem Al Sultan Perfume Ard Al Zaafaran Unboxed:",
+    "name": "Hareem Al Sultan Perfume Ard Al Zaafaran Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -113722,7 +113722,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9369918832989-unboxed--105ml",
     "brand": "Armaf",
-    "name": "Club De Nuit Intense Man Perfume Armaf Unboxed:",
+    "name": "Club De Nuit Intense Man Perfume Armaf Unboxed",
     "concentration": "Eau de Toilette",
     "sizeMl": 105,
     "ean": null,
@@ -128809,6 +128809,36 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-783320407260",
+    "brand": "Bvlgari",
+    "name": "Man in Black",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "783320407260",
+    "shops": 1,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/47.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ],
+      "source": {
+        "retailerId": "fragrance-click",
+        "url": "https://www.awin1.com/pclick.php?p=44089041695&a=3026001&m=124166"
+      }
+    }
+  },
+  {
     "id": "justmylook-bvlg0015",
     "brand": "Bvlgari",
     "name": "Man In Black",
@@ -128862,36 +128892,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/184765_ml.jpg",
     "notes": null
-  },
-  {
-    "id": "ean-783320407260",
-    "brand": "Bvlgari",
-    "name": "Man in Black +",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "783320407260",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/47.jpg",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Citrus",
-        "Fresh florals"
-      ],
-      "middle": [
-        "Jasmine",
-        "Rose",
-        "Floral bouquet"
-      ],
-      "base": [
-        "Vanilla",
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "fragrance-click",
-        "url": "https://www.awin1.com/pclick.php?p=44089041695&a=3026001&m=124166"
-      }
-    }
   },
   {
     "id": "ean-0783320416118",
@@ -137015,7 +137015,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsusdk2-00332",
     "brand": "Clinique",
-    "name": "Happy Heart 1.7oz/",
+    "name": "Happy Heart 1.7oz",
     "concentration": "Not stated",
     "sizeMl": 50,
     "ean": null,
@@ -137026,7 +137026,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsusdk2-00333",
     "brand": "Clinique",
-    "name": "Happy Heart 3.4oz/",
+    "name": "Happy Heart 3.4oz",
     "concentration": "Not stated",
     "sizeMl": 100,
     "ean": null,
@@ -144419,6 +144419,17 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-8054754403510",
+    "brand": "Dolce & Gabbana",
+    "name": "Devotion",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "8054754403510",
+    "shops": 1,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8054754403510.jpg",
+    "notes": null
+  },
+  {
     "id": "justmylook-dandg0093",
     "brand": "Dolce & Gabbana",
     "name": "Devotion",
@@ -144449,17 +144460,6 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61FW6GavsCL.jpg?v=1763137018",
-    "notes": null
-  },
-  {
-    "id": "ean-8054754403510",
-    "brand": "Dolce & Gabbana",
-    "name": "Devotion +",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "8054754403510",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8054754403510.jpg",
     "notes": null
   },
   {
@@ -150271,7 +150271,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338214256777-44927054479497",
     "brand": "Escada",
-    "name": "Magnetism by Escada for Women 2.5 Oz /",
+    "name": "Magnetism by Escada for Women 2.5 Oz",
     "concentration": "Eau de Parfum",
     "sizeMl": 75,
     "ean": null,
@@ -154438,7 +154438,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9974002221405-unboxed--100ml",
     "brand": "Fragrance World",
-    "name": "Barakkat Aqua Aevum Perfume Fragrance World Unboxed:",
+    "name": "Barakkat Aqua Aevum Perfume Fragrance World Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -154687,7 +154687,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15082289693021-unboxed--100ml",
     "brand": "Fragrance World",
-    "name": "Belle Celine Classic Perfume Fragrance World Unboxed:",
+    "name": "Belle Celine Classic Perfume Fragrance World Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -156285,7 +156285,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15386361594205-unboxed--100ml",
     "brand": "Fragrance World",
-    "name": "Elysia Vanilla Sugar Perfume Fragrance World Unboxed:",
+    "name": "Elysia Vanilla Sugar Perfume Fragrance World Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -159413,7 +159413,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15480663998813-unboxed--100ml",
     "brand": "Fragrance World",
-    "name": "Night Club Green Tweed Perfume Fragrance World Unboxed:",
+    "name": "Night Club Green Tweed Perfume Fragrance World Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -160360,7 +160360,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "emirates-oud-silver-box-2",
     "brand": "Fragrance World",
-    "name": "Pride Red Moon Perfume Fragrance World Unboxed:",
+    "name": "Pride Red Moon Perfume Fragrance World Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -162376,7 +162376,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9852097200477-unboxed--100ml",
     "brand": "Fragrance World",
-    "name": "Varakh Silver Perfume Fragrance World Unboxed:",
+    "name": "Varakh Silver Perfume Fragrance World Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -164580,7 +164580,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15430281658717-unboxed--90ml",
     "brand": "French Avenue",
-    "name": "Genesis Aries Perfume French Avenue Unboxed:",
+    "name": "Genesis Aries Perfume French Avenue Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 90,
     "ean": null,
@@ -165049,7 +165049,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15432706982237-unboxed--100ml",
     "brand": "French Avenue",
-    "name": "Grecia Perfume French Avenue Unboxed:",
+    "name": "Grecia Perfume French Avenue Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -166513,7 +166513,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9032438645085-unboxed-60ml",
     "brand": "French Avenue",
-    "name": "The Promise French Avenue by Fragrance World Unboxed:",
+    "name": "The Promise French Avenue by Fragrance World Unboxed",
     "concentration": "Extrait de Parfum",
     "sizeMl": 60,
     "ean": null,
@@ -188065,7 +188065,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15566459273565-unboxed--100ml",
     "brand": "Khadlaj",
-    "name": "Island Dreams Khadlaj Unboxed:",
+    "name": "Island Dreams Khadlaj Unboxed",
     "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -190847,7 +190847,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338244042889-44927105302665",
     "brand": "Kilian",
-    "name": "Good Girl Gone Bad For Women - + Case",
+    "name": "Good Girl Gone Bad For Women + Case",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
     "ean": null,
@@ -195023,7 +195023,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9184344506717-unboxed--100ml",
     "brand": "Lattafa",
-    "name": "Al Dana Perfume Niche Emarati By Lattafa Unboxed:",
+    "name": "Al Dana Perfume Niche Emarati By Lattafa Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -195496,7 +195496,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16172810207581-unboxed--60ml",
     "brand": "Lattafa",
-    "name": "Ana Abiyedh Passion Perfume Lattafa Unboxed:",
+    "name": "Ana Abiyedh Passion Perfume Lattafa Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 60,
     "ean": null,
@@ -196785,7 +196785,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "emirates-oud-8911270412637-unboxed--100ml",
     "brand": "Lattafa",
-    "name": "Emaan Perfume Lattafa Unboxed:",
+    "name": "Emaan Perfume Lattafa Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -197021,7 +197021,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "emirates-oud-8839505871197-unboxed--100ml",
     "brand": "Lattafa",
-    "name": "Fakhar Lattafa (For Women) Perfume Lattafa Unboxed:",
+    "name": "Fakhar Lattafa (For Women) Perfume Lattafa Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -197702,7 +197702,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16178820251997-unboxed--100ml",
     "brand": "Lattafa",
-    "name": "Khamrah Waha Perfume Lattafa Unboxed:",
+    "name": "Khamrah Waha Perfume Lattafa Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -199698,7 +199698,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15532817252701-unboxed--100ml",
     "brand": "Lattafa",
-    "name": "Queen of Arabia Perfume Lattafa Pride Unboxed:",
+    "name": "Queen of Arabia Perfume Lattafa Pride Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -199809,7 +199809,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16063174082909-unboxed--100ml",
     "brand": "Lattafa",
-    "name": "Raed Absolu Perfume Lattafa Unboxed:",
+    "name": "Raed Absolu Perfume Lattafa Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -201432,7 +201432,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "emirates-oud-8839507542365-unboxed--100ml",
     "brand": "Lattafa",
-    "name": "Yara Moi (Yara White) Perfume Lattafa Unboxed:",
+    "name": "Yara Moi (Yara White) Perfume Lattafa Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -201509,7 +201509,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "emirates-oud-8890942751069-unboxed--100ml",
     "brand": "Lattafa",
-    "name": "Yara Tous Perfume Lattafa Unboxed:",
+    "name": "Yara Tous Perfume Lattafa Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -202958,7 +202958,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16185698943325-unboxed--200ml",
     "brand": "Laverne",
-    "name": "La’Dor Bakhur Perfume Laverne Unboxed:",
+    "name": "La’Dor Bakhur Perfume Laverne Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 200,
     "ean": null,
@@ -207279,7 +207279,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "emirates-oud-8868864524637-unboxed--100ml",
     "brand": "Maison Alhambra",
-    "name": "Glacier Bella Perfume Maison Alhambra Unboxed:",
+    "name": "Glacier Bella Perfume Maison Alhambra Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -210132,7 +210132,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9839899509085-unboxed--90ml",
     "brand": "Maison Alhambra",
-    "name": "Winsome (The Tux) Perfume Maison Alhambra Unboxed:",
+    "name": "Winsome (The Tux) Perfume Maison Alhambra Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 90,
     "ean": null,
@@ -210774,7 +210774,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15838532043101-unboxed--100ml",
     "brand": "Maison Asrar",
-    "name": "Masterpiece Perfume Maison Asrar Unboxed:",
+    "name": "Masterpiece Perfume Maison Asrar Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -225292,7 +225292,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15234606596445-unboxed--100ml",
     "brand": "Paris Corner",
-    "name": "Marshmallow Blush Perfume Paris Corner Unboxed:",
+    "name": "Marshmallow Blush Perfume Paris Corner Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -225730,7 +225730,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15434674471261-unboxed--100ml",
     "brand": "Paris Corner",
-    "name": "Molten Caramel Perfume by Paris Corner Unboxed:",
+    "name": "Molten Caramel Perfume by Paris Corner Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -226290,7 +226290,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15440067952989-unboxed--85ml",
     "brand": "Paris Corner",
-    "name": "Rifaaqat Perfume Paris Corner Unboxed:",
+    "name": "Rifaaqat Perfume Paris Corner Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 85,
     "ean": null,
@@ -234883,7 +234883,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9439081496925-unboxed--100ml",
     "brand": "Rasasi",
-    "name": "Hawas For Him Perfume Rasasi Unboxed:",
+    "name": "Hawas For Him Perfume Rasasi Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -236651,7 +236651,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15728844013917-unboxed--100ml",
     "brand": "Rayhaan",
-    "name": "Tiger Cal Cologne Edition Unboxed:",
+    "name": "Tiger Cal Cologne Edition Unboxed",
     "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -237430,7 +237430,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15695835726173-unboxed--100ml",
     "brand": "Reef Perfumes",
-    "name": "Reef 33 White by Reef Perfumes Unboxed:",
+    "name": "Reef 33 White by Reef Perfumes Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -238435,7 +238435,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15808425099613-unboxed--100ml",
     "brand": "Riiffs",
-    "name": "Al Mukhtalif Nusuk Unboxed:",
+    "name": "Al Mukhtalif Nusuk Unboxed",
     "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -248201,7 +248201,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16330034676061-unboxed--140ml",
     "brand": "Surrati",
-    "name": "Dream Valley Perfume Surrati Unboxed:",
+    "name": "Dream Valley Perfume Surrati Unboxed",
     "concentration": "Eau de Parfum",
     "sizeMl": 140,
     "ean": null,
@@ -309896,7 +309896,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=44908122640&a=3026001&m=6561",
       "fetchedAt": "2026-08-26T13:10:05.252Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/120216_ml.jpg",
       "rating": null
     },
@@ -325390,7 +325390,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45677379814&a=3026001&m=6561",
       "fetchedAt": "2026-08-26T13:10:05.252Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://images2.productserve.com/noimage.gif",
       "rating": null
     },
@@ -339796,7 +339796,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45688905519&a=3026001&m=6561",
       "fetchedAt": "2026-08-26T13:10:05.252Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://images2.productserve.com/noimage.gif",
       "rating": null
     },
@@ -339837,7 +339837,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45688905520&a=3026001&m=6561",
       "fetchedAt": "2026-08-26T13:10:05.252Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://images2.productserve.com/noimage.gif",
       "rating": null
     },
@@ -339878,7 +339878,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45688905521&a=3026001&m=6561",
       "fetchedAt": "2026-08-26T13:10:05.252Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://images2.productserve.com/noimage.gif",
       "rating": null
     },
@@ -368907,7 +368907,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45677379757&a=3026001&m=6561",
       "fetchedAt": "2026-08-26T13:10:05.252Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://images2.productserve.com/noimage.gif",
       "rating": null
     },
@@ -368991,7 +368991,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45688905270&a=3026001&m=6561",
       "fetchedAt": "2026-08-26T13:10:05.252Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://images2.productserve.com/noimage.gif",
       "rating": null
     },
@@ -369019,7 +369019,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45677379758&a=3026001&m=6561",
       "fetchedAt": "2026-08-26T13:10:05.252Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://images2.productserve.com/noimage.gif",
       "rating": null
     },
@@ -456164,6 +456164,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "ean-783320407260": [
+    {
+      "retailerId": "fragrance-click",
+      "price": 69.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089041695&a=3026001&m=124166",
+      "fetchedAt": "2026-08-25T20:21:39.465Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/47.jpg",
+      "rating": null
+    }
+  ],
   "justmylook-bvlg0015": [
     {
       "retailerId": "justmylook",
@@ -456236,21 +456251,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/184765_ml.jpg",
-      "rating": null
-    }
-  ],
-  "ean-783320407260": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 69.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089041695&a=3026001&m=124166",
-      "fetchedAt": "2026-08-25T20:21:39.465Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/47.jpg",
       "rating": null
     }
   ],
@@ -457962,7 +457962,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=44173936288&a=3026001&m=6561",
       "fetchedAt": "2026-08-26T13:10:05.252Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/87853_ml.jpg",
       "rating": null
     }
@@ -472898,6 +472898,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "ean-8054754403510": [
+    {
+      "retailerId": "fragrance-click",
+      "price": 71.75,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45519036760&a=3026001&m=124166",
+      "fetchedAt": "2026-08-25T20:21:39.465Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8054754403510.jpg",
+      "rating": null
+    }
+  ],
   "justmylook-dandg0093": [
     {
       "retailerId": "justmylook",
@@ -472940,21 +472955,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61FW6GavsCL.jpg?v=1763137018",
-      "rating": null
-    }
-  ],
-  "ean-8054754403510": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 71.75,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45519036760&a=3026001&m=124166",
-      "fetchedAt": "2026-08-25T20:21:39.465Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8054754403510.jpg",
       "rating": null
     }
   ],
@@ -495810,7 +495810,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45688905290&a=3026001&m=6561",
       "fetchedAt": "2026-08-26T13:10:05.252Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/179574_ml.jpg",
       "rating": null
     }
@@ -505473,7 +505473,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45677379786&a=3026001&m=6561",
       "fetchedAt": "2026-08-26T13:10:05.252Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://images2.productserve.com/noimage.gif",
       "rating": null
     }
@@ -530370,7 +530370,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45365595637&a=3026001&m=6561",
       "fetchedAt": "2026-08-26T13:10:05.252Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/174666_ml.jpg",
       "rating": null
     }
@@ -530385,7 +530385,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=44323336613&a=3026001&m=6561",
       "fetchedAt": "2026-08-26T13:10:05.252Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/168585_ml.jpg",
       "rating": null
     }
@@ -536088,7 +536088,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45677379834&a=3026001&m=6561",
       "fetchedAt": "2026-08-26T13:10:05.252Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/175570_ml.jpg",
       "rating": null
     }
@@ -583556,7 +583556,7 @@ const HOUSE_PRODUCTS_CHUNK_0: HouseProduct[] = [
     "id": "assaf-fbkx-200-on-00650",
     "house": "Assaf",
     "brand": "Assaf Trading LLC",
-    "name": "FRANKEL AVENTUS BLACK ELIXIR 30% Elixir /",
+    "name": "FRANKEL AVENTUS BLACK ELIXIR 30% Elixir",
     "sizeMl": 200,
     "url": "https://assaf.ae/products/edp-frankel-black-elixir-200ml",
     "image": "https://cdn.shopify.com/s/files/1/0621/8081/9111/files/840c30bd-e74b-4cbc-a26c-be788c345ebf-1000x1000-uEzsee7Q5jHvyqsWo5Y9tMjkpEMcK8D9aBkIGvep.webp?v=1768490801",
@@ -583612,7 +583612,7 @@ const HOUSE_PRODUCTS_CHUNK_0: HouseProduct[] = [
     "id": "assaf-fbux-200-on-00649",
     "house": "Assaf",
     "brand": "Assaf Trading LLC",
-    "name": "FRANKEL BLUE ELIXIR 30% Elixir /",
+    "name": "FRANKEL BLUE ELIXIR 30% Elixir",
     "sizeMl": 200,
     "url": "https://assaf.ae/products/edp-frankel-blue-elixir-200ml",
     "image": "https://cdn.shopify.com/s/files/1/0621/8081/9111/files/8561b4d4-75aa-4ca5-bbed-2e328b4f9017-1000x1000-i74BJSp8VAL3rAfOsXWaWMqmJo0uuCjhDv01oWfG_8da9f4d4-0e81-4689-9a09-47b6903d9187.webp?v=1768491386",
