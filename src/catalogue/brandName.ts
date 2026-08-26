@@ -574,6 +574,27 @@ const KNOWN_ALIASES: Record<string, string> = {
   // rest) — the same sub-line Armaf's own 2026-08-21 fold above already
   // canonised as 'Armaf - Oros Pure', reached here by a feed that dropped
   // the "Armaf - " prefix rather than the "Pure" word.
+  // 'Whisky' (8 products, all data/catalogue/mybeauty-boutique.json: Black,
+  // Black Op, Homme Sport, Origin, Red, Silver, Sugar Skull, Vntage For Men)
+  // is not a house — it is EVAFLORPARIS's own men's fragrance line, and
+  // mybeauty-boutique's Awin feed put the line name in the brand field
+  // instead of the manufacturer. Every one of the 8 rawTitles opens
+  // "Evaflor Whisky ..." (the retailer's own product title naming the real
+  // house in full, the same shape as 'Drakkar'/'So Poudree' above), and a
+  // second retailer scraping the identical fragrances — data/catalogue/
+  // perfume-click.json's "Evaflor Whisky Black", "...Homme Sport", "...Red"
+  // and "...Vintage" — already carries rawBrand "Evaflor" for the same
+  // bottles, cross-confirming which field was wrong. WebSearch confirms
+  // Evaflor Paris (evaflorparis.com, trading since 1991) publishes its own
+  // dedicated "Whisky" collection page (evaflor.com/en/collections/whisky,
+  // "WHISKY ORIGIN" among its listed products), and Fragrantica's designer
+  // page for "Evaflor" lists "Whisky", "Whisky Silver" and "Whisky Vintage"
+  // as that house's own fragrances — not a different, unrelated brand that
+  // happens to be called Whisky. Folding this brand string only, not the
+  // bare word "Whisky" wherever else it might appear in a product's own
+  // name, the same way 'Drakkar' below is Guy Laroche's line and not a
+  // blanket rule about the word "Drakkar".
+  [brandKey('Whisky')]: 'Evaflor',
   [brandKey('Oros')]: 'Armaf',
   // 'Drakkar' carried exactly one product, "Guy Laroche Drakkar Noir" — the
   // retailer's own title names the real house in full, the same shape as

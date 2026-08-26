@@ -262,6 +262,16 @@ describe('buildBrandCanon', () => {
     expect(canon.get('Victorinox Swiss Army')).toBe('Victorinox Swiss Army');
   });
 
+  // Found while investigating demo/brandSites.ts's worklist entry for
+  // "Whisky" (8 products): mybeauty-boutique.json's Awin feed put EVAFLORPARIS's
+  // own "Whisky" line name in the brand field, not the house — see the
+  // KNOWN_ALIASES comment above for the cross-retailer and WebSearch evidence.
+  it('folds "Whisky" into Evaflor — a line name in the brand field, not a house', () => {
+    const canon = buildBrandCanon(['Evaflor', 'Whisky']);
+    expect(canon.get('Whisky')).toBe('Evaflor');
+    expect(canon.get('Evaflor')).toBe('Evaflor');
+  });
+
   // Two candidates the same 2026-08-26 sweep raised and rejected, checked
   // against each other rather than folded on one matching title alone — see
   // the KNOWN_ALIASES comment for the full reasoning.
