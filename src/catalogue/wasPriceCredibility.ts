@@ -90,7 +90,12 @@
  * A product only one shop sells has no cross-reference at all. The claim on it
  * can be neither confirmed nor refuted, and calling that "fine" would be the
  * same mistake as calling it "false". It is `unchecked`, and it is the majority
- * — 8,938 of 12,190 claims, 73.3%. Nothing here says anything about those.
+ * — 8,938 of 12,190 claims, 73.3%. Nothing here says anything about those:
+ * this file only ever states what the market did or did not corroborate.
+ * scripts/build-demo-catalogue.ts is the caller that decided what to do with
+ * an `unchecked` verdict — currently, the same as a `refuted` one — and that
+ * decision belongs there, not here, so it can change without this file's
+ * three verdicts having to change shape to accommodate it.
  *
  * ── Sizes ───────────────────────────────────────────────────────────────────
  * A reference price is meaningless against a different bottle, so every

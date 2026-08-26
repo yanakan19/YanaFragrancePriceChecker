@@ -638,28 +638,52 @@ if (scaleAudit.offScale.length > 0) {
   for (const [id, product] of products) if (product.offers.length === 0) products.delete(id);
 }
 
-/* ── a reference price the rest of the market contradicts ───────────────────
-   The owner's report was that Perfume Click's RRPs are misleading. Measuring
-   it said the instinct was right and the suspect was wrong: shops agree with
-   each other about RRP (median ratio 1.000 over 5,391 comparable claims), and
-   what actually misleads is that an RRP sits far above street price across the
-   whole discount market, so a strikethrough against one advertises a saving a
-   reader cannot capture by shopping elsewhere. That is a question about what a
-   strikethrough should mean, and it is the owner's to answer.
+/* ── what a strikethrough is allowed to mean ─────────────────────────────────
+   The owner's original report was that Perfume Click's RRPs are misleading.
+   Measuring it said the instinct was right and the suspect was wrong: shops
+   agree with each other about RRP (median ratio 1.000 over 5,391 comparable
+   claims — see wasPriceCredibility.ts), and what actually misleads is that an
+   RRP sits far above street price across the *whole* discount market — this
+   file's own measurement of every claiming offer against the cheapest price
+   anyone charges for the identical product puts the median at 1.72-1.9x,
+   depending on whether the comparison is restricted to products two or more
+   shops stock. A strikethrough against a bare RRP therefore advertises a
+   saving most readers cannot capture by shopping anywhere on this site, not
+   just at one shop. That was the open question the previous version of this
+   comment left to the owner: whether "was" should ever mean "RRP" at all.
 
-   What is answerable here is the tail: claims the market actively contradicts.
-   Those are dropped rather than published — the price itself is untouched, only
-   the reference price beside it goes — which is what stops them driving a
-   strikethrough, a percentage, or a place on Today's Deals, without any of
-   those three needing to know this check exists. Suppressing rather than
-   caveating is the same call the rest of this file already makes about a figure
-   it cannot stand behind. See src/catalogue/wasPriceCredibility.ts for the two
-   tests, the numbers behind them, and why a claim nobody else can corroborate
-   is left exactly as the merchant made it. */
+   The answer implemented below is that a reference price only earns a
+   strikethrough when the market has actually corroborated it — the
+   `corroborated` verdict from wasPriceCredibility.ts. Both of the other two
+   verdicts now have the same consequence, `wasPrice` withheld, for two
+   different reasons:
+
+     - `refuted`   (142 of 12,192 claims, 1.2%) — the market actively
+       contradicts the figure. Unsafe to publish full stop.
+     - `unchecked` (8,936 of 12,192 claims, 73.3%) — fewer than two other
+       shops stock the identical bottle, so the figure has never been tested
+       against anything. "Nothing disproved it" is not the same claim as
+       "the market confirms it", and a comparison site has no business
+       showing the stronger claim on the weaker evidence — that gap is
+       exactly what let Perfume Click's *volume* of RRP publishing look like
+       a deals problem in the first place. An unchecked claim is not known to
+       be false: it is left on the offer's own record (nothing here deletes
+       it from data/catalogue) and is free to earn a strikethrough the moment
+       a second shop starts stocking the same bottle and corroborates it.
+
+   Only `corroborated` (3,114 of 12,192, 25.5%) survives to reach `wasPrice`
+   below, which is what feeds the strikethrough, the "X% off" badge and
+   Today's Deals — none of those three needing to know this check exists, the
+   same property the refuted-only version of this rule already had. The price
+   itself is never touched, only the reference price beside it. Percentages
+   above are this build's own console output (see the audit log below), which
+   is reproducible by re-running this script; the 1.72-1.9x ratio is measured
+   independently by a throwaway script rather than repeating this file's own
+   numbers back at itself. */
 const { audit: wasAudit, verdicts: wasVerdicts } = auditWasPrices([...products.values()]);
 for (const product of products.values()) {
   for (const offer of product.offers) {
-    if (wasVerdicts.get(offer) === 'refuted') offer.wasPrice = null;
+    if (wasVerdicts.get(offer) !== 'corroborated') offer.wasPrice = null;
   }
 }
 
@@ -933,18 +957,20 @@ console.log(
       : ''),
 );
 
-/* The three verdicts are printed together, always, including the ones nothing
-   was done about. `unchecked` is the majority and saying so is the point: it
-   is the share of the site's reference prices that no other shop stocks the
-   bottle to corroborate, and it must not read as a clean bill of health. */
+/* The three verdicts are printed together, always. `unchecked` is the
+   majority, and unlike the version of this rule that only acted on `refuted`,
+   it is no longer idle information: only `corroborated` claims below keep
+   their `wasPrice`, so this line is the log's record of how much of the
+   site's strikethrough pricing that decision actually removes. */
 {
   const claims = wasAudit.refuted + wasAudit.corroborated + wasAudit.unchecked;
   const pct = (n: number) => (claims === 0 ? '0.0' : ((n / claims) * 100).toFixed(1));
   console.log(
     `reference prices: ${claims} offers claim a reduction — ` +
+      `${wasAudit.corroborated} corroborated and kept (${pct(wasAudit.corroborated)}%), ` +
       `${wasAudit.refuted} refuted by the market (${pct(wasAudit.refuted)}%), ` +
-      `${wasAudit.corroborated} corroborated (${pct(wasAudit.corroborated)}%), ` +
-      `${wasAudit.unchecked} unchecked (${pct(wasAudit.unchecked)}%, no two other shops stock the bottle)`,
+      `${wasAudit.unchecked} unchecked (${pct(wasAudit.unchecked)}%, no two other shops stock the bottle) ` +
+      `— the latter two withheld, not just the refuted ones`,
   );
   for (const [retailerId, n] of [...wasAudit.refutedByShop].sort((a, b) => b[1] - a[1])) {
     const checked = wasAudit.checkedByShop.get(retailerId) ?? 0;
