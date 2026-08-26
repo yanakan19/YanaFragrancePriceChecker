@@ -63,8 +63,9 @@ import { deliveryPriceNote } from './priceDeliveryNote.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
-import { priceHistoryFor, PRICE_HISTORY } from './priceHistory.generated.js';
+import { priceHistoryFor, priceHistoryGapFor, PRICE_HISTORY } from './priceHistory.generated.js';
 import { dayKey, dailyHistory, type DailyHistoryPoint } from '../src/services/priceHistoryDaily.js';
+import { priceHistoryGapMessage, type PriceHistoryGap } from '../src/services/priceHistoryGaps.js';
 import { officialSiteFor } from './brandSites.js';
 import { fragranceLinksFor } from './fragranceLinks.js';
 import { matchRoute, routeToPath, slugify, basePath, type Route, type RouteName } from './router.js';
@@ -1564,9 +1565,9 @@ function shortDate(iso: string): string {
  * real harvest commits — see scripts/build-price-history.ts for how. Omitted
  * entirely below two real points: a single dot has no trend to show, and
  * showing one anyway would read as a chart implying history that is not
- * there. Most fragrances are below that bar today (coverage is young), which
- * is the honest state to show rather than papering over with a flat invented
- * line.
+ * there. priceHistoryChart below replaces the chart with an honest sentence
+ * instead in that case — see priceHistoryGapMessage's own header for why
+ * there are three different sentences rather than one generic one.
  *
  * dayKey, DailyHistoryPoint and dailyHistory itself live in
  * src/services/priceHistoryDaily.ts, not here: that is the one piece of this
@@ -1633,12 +1634,28 @@ function shiftDayKey(key: string, days: number): string {
   return dayKey(new Date(new Date(`${key}T00:00:00Z`).getTime() + days * 86_400_000).toISOString());
 }
 
+/**
+ * The replacement for the chart when there is no line to draw. Renders into
+ * the exact same slot under the exact same "Price history" heading the
+ * chart itself uses, so a page that used to carry a chart never goes from a
+ * heading and a line to nothing at all — it goes from a line to one honest
+ * sentence about why there is not one. See src/services/priceHistoryGaps.ts
+ * for what each of the four reasons says and why a single generic sentence
+ * would misstate most of them.
+ */
+function priceHistoryGapBlock(gap: PriceHistoryGap): string {
+  return `<div class="history-block" data-history-block>
+    <p class="gone-head t-eyebrow">Price history</p>
+    <p class="history-empty t-caption">${esc(priceHistoryGapMessage(gap))}</p>
+  </div>`;
+}
+
 function priceHistoryChart(f: DemoFragrance, isCurrentlyPurchasable: boolean): string {
   const raw = priceHistoryFor(f.id);
   // Gap markers (priceGbp: null — see scripts/build-price-history.ts) never
   // count towards the two-point bar on their own; only real prices do.
   const realPoints = raw.filter((p) => p.priceGbp !== null);
-  if (realPoints.length < 2 || HISTORY_SPAN === null) return '';
+  if (realPoints.length < 2 || HISTORY_SPAN === null) return priceHistoryGapBlock(priceHistoryGapFor(f.id));
 
   // Where this fragrance's own record starts, rather than where the site's
   // does. Previously every chart was drawn across the whole site history, so
@@ -1664,7 +1681,19 @@ function priceHistoryChart(f: DemoFragrance, isCurrentlyPurchasable: boolean): s
   // so it is offered as a disabled control rather than silently missing: the
   // reader can see that "this week" exists and simply has too little in it.
   const usable = panels.filter((p) => p.body !== null);
-  if (usable.length === 0) return '';
+  // realPoints.length >= 2 got this fragrance past the guard above, but that
+  // counts raw readings, not distinct calendar days — every scope's window
+  // spans this fragrance's whole own history (see ownFirstDay above, and
+  // HISTORY_SCOPES' longest window being a year against a site under a year
+  // old), so if every real reading still collapsed onto a single day inside
+  // it (a price that changed twice in one day and never again), no scope
+  // has two distinct days to draw a line between. Measured on 2026-08-26:
+  // 17 of 5,455 chartable fragrances hit this. Named rather than left blank,
+  // for the same reason the two point guard above is.
+  if (usable.length === 0) {
+    const latest = realPoints.at(-1)!;
+    return priceHistoryGapBlock({ reason: 'same-day', priceGbp: latest.priceGbp!, retailerId: latest.retailerId!, at: latest.at });
+  }
   // Default to the shortest scope that actually has a line in it. Asking for
   // "this week" and getting an empty frame would read as a broken chart.
   const active = usable[0]!;
