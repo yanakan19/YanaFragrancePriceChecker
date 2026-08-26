@@ -1712,8 +1712,16 @@
   /* Underlined rather than coloured: --faint on --accent would fail contrast,
      and colouring these would make a shop that does not stock the bottle the
      most eye-catching thing under the chart. The underline says "link", the
-     ink says "not the point of this page". */
+     ink says "not the point of this page".
+
+     A `<button>` since 2026-08-26 (it now routes to the shop's own retailer
+     page rather than out to its homepage — see unavailableShopsLine in
+     demo/app.ts), reset back to the plain underlined-text look the old `<a>`
+     had: left un-reset, a browser's own button chrome (border, background,
+     padding) would turn this comma-separated line into a row of grey boxes. */
   .unavail-shop {
+    background: none; border: 0; padding: 0; margin: 0; font: inherit;
+    cursor: pointer;
     color: inherit; text-decoration: underline;
     text-decoration-color: var(--line-firm); text-underline-offset: 2px;
   }
@@ -1721,6 +1729,12 @@
   @media (hover: hover) and (pointer: fine) {
     .unavail-shop:hover { color: var(--ink-2); text-decoration-color: currentColor; }
   }
+  /* A shop with no retailer page to send a reader to (no live offer anywhere
+     in the catalogue, or disabled outright) — plain text among the linked
+     names rather than a button that would open an empty "0 fragrances here"
+     page. Same ink as the rest of the line; the missing underline is the
+     only thing that tells the two apart. */
+  .unavail-shop-plain { color: inherit; }
 
   .gone-head {
     margin: 32px 0 16px; padding-top: 16px; border-top: 1px solid var(--line);
