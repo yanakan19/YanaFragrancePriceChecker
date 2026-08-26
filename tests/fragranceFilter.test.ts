@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isFragrance, repairMojibake } from '../src/catalogue/fragranceId.js';
+import { isFragrance, repairMojibake, sizeMl } from '../src/catalogue/fragranceId.js';
 import { RETAILERS, getRetailer } from '../src/config/retailers.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 
@@ -428,5 +428,72 @@ describe('repairMojibake', () => {
     ['La Vie Est Belle IntensÃ©ment', 'La Vie Est Belle Intensément'],
   ])('recovers the demo catalogue mojibake name: %s', (broken, fixed) => {
     expect(repairMojibake(broken)).toBe(fixed);
+  });
+});
+
+/**
+ * sizeMl: a title stating a menu of sizes, then its own variant's size.
+ *
+ * The Al Haramain multi-size mis-grouping. Musk Al Tahara sells 3ml, 6ml,
+ * 12ml, 24ml and 35ml from a single URL, and every one of its five titles
+ * reads "Perfume Oil 3ml, 6ml, 12ml, 24ml, 35ml <this row's own size>" — the
+ * product's title spells out the whole menu, and the harvester appends the
+ * specific variant's own size after it. Reading the first ml number, the
+ * ordinary rule, reads the menu's first entry on all five rows regardless of
+ * which one they actually are: every row came back "3ml", so all five
+ * collapsed into one product under productMatch.ts's matchKey and a £4.75
+ * 3ml bottle was compared against a £26.00 35ml one as though they were the
+ * same size. See fragranceId.ts's SIZE_MENU_THEN_VARIANT_RE for the fix and
+ * the full measurement (30 listings, all Al Haramain, across 8 product URLs)
+ * that scoped it.
+ *
+ * Every title below is a real one from data/catalogue/al-haramain.json, not
+ * invented — this is the whole family the fix has to get right at once:
+ * comma-separated menus, plus-separated ones, and menus of different
+ * lengths whose own boilerplate does not always list every size the product
+ * actually comes in (see the 24ml/35ml cases below, neither of which is
+ * itself in the "3ml + 6ml + 12ml" text).
+ */
+describe('sizeMl: a size menu followed by the row’s own size', () => {
+  it.each([
+    ['Al Haramain Musk Al Tahara Perfume Oil 3ml, 6ml, 12ml, 24ml, 35ml 3ml', 3],
+    ['Al Haramain Musk Al Tahara Perfume Oil 3ml, 6ml, 12ml, 24ml, 35ml 6ml', 6],
+    ['Al Haramain Musk Al Tahara Perfume Oil 3ml, 6ml, 12ml, 24ml, 35ml 12ml', 12],
+    ['Al Haramain Musk Al Tahara Perfume Oil 3ml, 6ml, 12ml, 24ml, 35ml 24ml', 24],
+    ['Al Haramain Musk Al Tahara Perfume Oil 3ml, 6ml, 12ml, 24ml, 35ml 35ml', 35],
+    ['Al Haramain Oudh Abyat Perfume Oil 3ml + 6ml + 12ml 3ml', 3],
+    ['Al Haramain Oudh Abyat Perfume Oil 3ml + 6ml + 12ml 6ml', 6],
+    ['Al Haramain Oudh Abyat Perfume Oil 3ml + 6ml + 12ml 12ml', 12],
+    // The menu text itself only ever lists three sizes, even on the two
+    // rows whose own size is not one of them — the boilerplate does not
+    // grow with the product, so matching against menu membership (rather
+    // than just taking the trailing token) would get exactly these two
+    // rows wrong.
+    ['Al Haramain Sultan Perfume Oil 3ml + 6ml + 12ml 24ml', 24],
+    ['Al Haramain Sultan Perfume Oil 3ml + 6ml + 12ml 35ml', 35],
+  ])('reads the trailing size, not the menu’s first entry: %s', (title, expected) => {
+    expect(sizeMl(title)).toBe(expected);
+  });
+
+  /**
+   * The trap a broader "trust the last size mentioned" rule would fall
+   * into. A bottle plus a smaller companion item — a gift, a travel size —
+   * is also a title with two sizes in it, and there the *first*, headline
+   * size is the one actually being priced; the second belongs to the free
+   * extra, not this listing. None of these is Al Haramain's menu shape:
+   * each joins its two sizes with a word or a "+" that names the second
+   * item, rather than restating one option list before picking an entry
+   * from it. Real titles from fragrance-click.json, armaf.json and
+   * mybeauty-boutique.json, none of them affected by the fix above.
+   */
+  it.each([
+    ['Burberry Her 100ml Eau de Parfum + 10ml Set', 100],
+    ['Dolce & Gabbana Devotion 100ml Eau de Parfum + 10ml', 100],
+    ['Jimmy Choo Man 200ml Eau De Toilette & 30ml Set', 200],
+    ['Boss Bottled EDT 50Ml + Deo Spray 150Ml Gs', 50],
+    ['Hamidi Maison Luxe Patchouli Imperial Eau De Parfum 100ml 110ml', 100],
+    ['Red Velvet Eau De Parfum 70ml 100ml', 70],
+  ])('leaves an ordinary bundle or ambiguous two-size title alone: %s', (title, expected) => {
+    expect(sizeMl(title)).toBe(expected);
   });
 });
