@@ -133,3 +133,68 @@ export function recordChecked(
   }
   return { checked: out };
 }
+
+/**
+ * How long a `confirmed` shipping rule is trusted before it re-enters the
+ * discovery rotation on its own.
+ *
+ * ── The gap this closes ───────────────────────────────────────────────────────
+ * `discoveryTargets` (scripts/shipping-discover.ts) has only ever admitted a
+ * shop whose rule is *not* `confirmed`, or one with no rate at all. The moment
+ * a shop's page reading is promoted to `confirmed` it leaves that population
+ * for good — there has never been a mechanism to bring it back. The only way
+ * back in is `--all`, a full unrationed sweep, run by hand. A shop confirmed
+ * on day one and never touched again by this project stays "confirmed"
+ * forever, no matter how long ago that was or whether the shop has since
+ * changed its terms — and every write this pipeline makes carries a
+ * `verifiedAt` precisely so that "how long ago" is answerable, which made it
+ * strange that nothing downstream ever asked the question.
+ *
+ * Measured against this registry on 2026-08-26: the oldest confirmations
+ * (mybeauty-boutique, oud-arabian, the-beauty-store-uk — all `verifiedAt:
+ * '2026-08-05'`) are three weeks old. None has crossed a month yet, but every
+ * one of them is heading there on exactly this trajectory with nothing in the
+ * pipeline positioned to notice.
+ *
+ * ── Why 45 days, and why this belongs in the existing rotation rather than a ──
+ * ── separate one ─────────────────────────────────────────────────────────────
+ * A shop revises its standard-delivery rate rarely — this file's own header
+ * above calls checking it "the least frequent thing in the job" — and argues
+ * that the difference between visiting a given shop every few days and every
+ * few weeks is not something a reader of the site can perceive. 45 days is
+ * chosen on that same reasoning: closer to a season than a sprint, so a
+ * confirmed figure is re-read a handful of times a year rather than being
+ * either frozen forever or churned needlessly.
+ *
+ * What matters more than the exact number is the shape of the fix: a stale
+ * confirmation does not jump the queue or get a lane of its own. It simply
+ * becomes *eligible* again, the same as a shop that was never confirmed, and
+ * `selectDueTargets`'s ordinary least-recently-checked ordering does the
+ * rest — the mechanism that already reaches every unverified shop over a few
+ * cycles now reaches every confirmed one too, just far less often, because a
+ * shop re-admitted here immediately carries an old `checked` timestamp and
+ * sorts toward the front of the very next run's slice.
+ */
+export const STALE_CONFIRMATION_DAYS = 45;
+
+/**
+ * Whether a `confirmed` rule's `verifiedAt` is old enough to be re-checked.
+ *
+ * Takes `today` explicitly (an ISO date, the same shape `verifiedAt` itself
+ * is stored in) rather than reading the clock, so a run is reproducible and a
+ * test never has to race real time. An unparseable date on either side reads
+ * as "not stale" — refusing to re-check is the safe failure here, the same
+ * direction `parseDiscoveryState` above degrades in: a bookkeeping fact that
+ * cannot be read costs at most one cycle's delay, never a wrong write.
+ */
+export function isConfirmationStale(
+  verifiedAt: string,
+  today: string,
+  staleDays: number = STALE_CONFIRMATION_DAYS,
+): boolean {
+  const verified = Date.parse(`${verifiedAt}T00:00:00Z`);
+  const asOf = Date.parse(`${today}T00:00:00Z`);
+  if (!Number.isFinite(verified) || !Number.isFinite(asOf)) return false;
+  const ageDays = (asOf - verified) / (1000 * 60 * 60 * 24);
+  return ageDays >= staleDays;
+}
