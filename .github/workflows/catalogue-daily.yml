@@ -467,7 +467,7 @@ jobs:
             data/catalogue data/awin-feed-sync-state.json data/storefront-reprice-report.json \
             data/feed-sync-marker.txt \
             demo/catalogue.generated.ts \
-            demo/priceHistory.generated.ts demo/index.html demo/404.html
+            demo/priceHistory.generated.ts demo/index.html demo/404.html demo/sitemap.xml
 
       # Manual-only debug aid: prints the column headers and the values of
       # price-ish columns for one matched product row in one named Awin
@@ -545,7 +545,7 @@ jobs:
         run: |
           ./scripts/commit-and-push.sh \
             "Top Deals Today: $(date -u +%Y-%m-%d)" \
-            demo/deals.generated.ts data/deals-refresh-marker.txt demo/index.html demo/404.html
+            demo/deals.generated.ts data/deals-refresh-marker.txt demo/index.html demo/404.html demo/sitemap.xml
 
       # The route the probe proved works: ask the sitemap instead of guessing.
       # This is now what runs every night, not just on request. The plain
@@ -791,7 +791,7 @@ jobs:
           ./scripts/commit-and-push.sh \
             "Harvest: real prices $(date -u +%Y-%m-%d)" \
             data/catalogue demo/catalogue.generated.ts demo/priceHistory.generated.ts \
-            demo/index.html demo/404.html \
+            demo/index.html demo/404.html demo/sitemap.xml \
             data/houses data/house-sourcing-report.json \
             data/metered-harvest-marker.txt \
             data/harvest-cursor.json \
@@ -905,7 +905,7 @@ jobs:
         run: |
           ./scripts/commit-and-push.sh \
             "Catalogue: $(date -u +%Y-%m-%d)" \
-            data/catalogue demo/catalogue.generated.ts demo/index.html demo/404.html
+            data/catalogue demo/catalogue.generated.ts demo/index.html demo/404.html demo/sitemap.xml
 
       # Keep the failure loud. A crawl that quietly stops working leaves stale
       # prices on the site, which is worse than showing nothing.
