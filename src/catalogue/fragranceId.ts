@@ -111,8 +111,63 @@ export const OZ_SIZE_RE = /(\d{1,2}(?:\.\d)?)\s*(?:fl\.?\s*)?oz\b/i;
 /** 1 fl oz in millilitres — the imperial fluid ounce, which is what every oz size in the catalogue means. */
 export const OZ_TO_ML = 29.5735;
 
+/**
+ * A title that states a menu of the sizes a product comes in, then, at the
+ * very end and separated from that menu by nothing but whitespace, states
+ * the one size *this particular row* actually is.
+ *
+ * This is Al Haramain's Shopify feed: the product's own title spells out
+ * every option it sells ("Musk Al Tahara Perfume Oil 3ml, 6ml, 12ml, 24ml,
+ * 35ml"), and the harvester appends the variant's own title after it
+ * verbatim, producing "...35ml 3ml" for the 3ml row, "...35ml 6ml" for the
+ * 6ml row, and so on. Reading the first ml number in a title like that — the
+ * ordinary rule below — reads the *menu's* first entry every time, so all
+ * five rows come back "3ml" regardless of which one they actually are. Every
+ * price on the product then compares a real 3ml bottle against what reads as
+ * a 35ml one, and scripts/build-demo-catalogue.ts's find-duplicate-groups
+ * step, matching on that identical wrong size, folds all five rows into one
+ * product — the "Al Haramain multi-size mis-grouping" bug report.
+ *
+ * Measured against the whole of data/catalogue on 2026-08-26: this pattern
+ * matches exactly 30 listings, all thirty of them Al Haramain "Perfume Oil"
+ * rows across eight product URLs, and the size it recovers tracks price
+ * exactly — Musk Al Tahara's five rows read 3/6/12/24/35ml at £4.75/£7/£9/
+ * £18/£26, a sensible per-ml curve, where the old first-token rule read every
+ * one of them as 3ml. It does not fire anywhere else in the catalogue.
+ *
+ * Deliberately narrow, not "prefer the last size mentioned" in general.
+ * Titles that state two *different* sizes joined by "+" or "&" are common
+ * and mean something else entirely — a bottle plus a smaller gift ("Burberry
+ * Her 100ml Eau de Parfum + 10ml Set", "Boss Bottled EDT 50Ml + Deo Spray
+ * 150Ml Gs") — where the *first*, headline size is the bottle actually being
+ * priced and the trailing one is a companion product's own size, not this
+ * one's. A blanket "trust the last mention" rule would silently reprice
+ * every one of those to the free gift's size. What is checked for here is
+ * specifically a clean, bare list of two or more sizes — nothing but commas
+ * or pluses between them, no words like "Set", "Spray" or "&" — immediately
+ * followed by one more bare size and the end of the title, which a genuine
+ * bundle listing never is: there is always a word or a "+" sitting between
+ * the two sizes it names, because it is naming two different products, not
+ * restating one option list before picking one of its own entries.
+ *
+ * Also deliberately not "the trailing size must equal one of the menu's own
+ * entries" — Al Haramain's own menu text is a fixed boilerplate string that
+ * does not always list every size the product actually comes in (several
+ * titles read "...3ml + 6ml + 12ml 24ml" and "...3ml + 6ml + 12ml 35ml",
+ * where 24 and 35 never appear in the menu half at all), so requiring
+ * membership would silently fall back to the wrong first-token answer on
+ * exactly the rows furthest from the menu's own start.
+ */
+const SIZE_MENU_THEN_VARIANT_RE =
+  /\d{1,4}(?:\.\d)?\s*ml(?:\s*[,+]\s*\d{1,4}(?:\.\d)?\s*ml){1,}\s+(\d{1,4}(?:\.\d)?)\s*ml\s*$/i;
+
 /** Size in millilitres, needed before two listings can be compared at all. */
 export function sizeMl(title: string): number | null {
+  // Checked ahead of the ordinary first-token rule below, not instead of it —
+  // see SIZE_MENU_THEN_VARIANT_RE's own comment for why only this specific,
+  // narrow shape is allowed to override "the first size mentioned wins".
+  const menu = title.match(SIZE_MENU_THEN_VARIANT_RE);
+  if (menu) return Math.round(Number.parseFloat(menu[1]!));
   const ml = title.match(ML_SIZE_RE);
   if (ml) return Math.round(Number.parseFloat(ml[1]!));
   const oz = title.match(OZ_SIZE_RE);
