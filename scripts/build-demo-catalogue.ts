@@ -627,6 +627,53 @@ for (const product of products.values()) {
   product.name = reattachArmafLine(product.name, product.armafLine);
 }
 
+/* ── one shop, one row ──────────────────────────────────────────────────────
+   Emirates Oud appears twice on Armaf Club De Nuit Intense Man EDT 105ml, at
+   £26.99 was £40 both times, linking to the same page. It is not a matching
+   mistake: its feed carries three variants of Shopify product 9369918832989 —
+   "Default Title", "105ml" and "Unboxed: 105ml" — and the first two are the
+   same bottle at the same price, one of them Shopify's placeholder variant
+   that a merchant who later adds a named variant is supposed to remove.
+
+   The key is deliberately every field a reader can see (shop, link, price,
+   reference price, stock) rather than the URL alone, because two rows sharing
+   a URL are often *not* duplicates. Al Haramain's Musk Al Tahara sells 3ml,
+   6ml, 12ml, 24ml and 35ml at one URL for £4.75 to £26.00, and every one of
+   those titles reads "Perfume Oil 3ml, 6ml, 12ml, 24ml, 35ml <size>" so all
+   five parse as 3ml and land in one product. Collapsing by URL would silently
+   throw four real listings away and keep an arbitrary one. Under this key they
+   are untouched — five different prices, five rows — and the size parse that
+   put them in one product is a separate defect, still open.
+
+   Measured over the built catalogue on 2026-08-26: 42 rows across 42 products,
+   all of them Emirates Oud's. The remaining same-URL groups (Al Haramain 22
+   rows, Avon 1) all differ in price or stock and are left as they are.
+
+   The freshest of an indistinguishable set wins, not the first: on the Armaf
+   product the two rows were fetched four days apart, and the older one still
+   carried isNew — so keeping the first-seen copy would have published a stale
+   observation and a "New" tag on a listing that is not. */
+let duplicateRows = 0;
+const duplicateRowsByShop = new Map<string, number>();
+for (const product of products.values()) {
+  const bestOf = new Map<string, Offer>();
+  for (const offer of product.offers) {
+    const key = [offer.retailerId, offer.url, offer.price, offer.wasPrice, offer.stock].join('|');
+    const kept = bestOf.get(key);
+    if (kept === undefined) {
+      bestOf.set(key, offer);
+      continue;
+    }
+    duplicateRows++;
+    duplicateRowsByShop.set(
+      offer.retailerId,
+      (duplicateRowsByShop.get(offer.retailerId) ?? 0) + 1,
+    );
+    if (offer.fetchedAt > kept.fetchedAt) bestOf.set(key, offer);
+  }
+  if (bestOf.size !== product.offers.length) product.offers = [...bestOf.values()];
+}
+
 /* ── a shop whose whole price list is on the wrong scale ────────────────────
    Escentual published 2,542 offers here at about 1.44× what it charges, and
    every check upstream passed: the figures were copied faithfully from the
@@ -1099,6 +1146,11 @@ console.log(
     `  ${liveShops} shops, ${considered} listings considered, ${rejected} were not fragrance, ${unpriced} carried no price\n` +
     `  ${ordered.length} products, ${multi} of them stocked by more than one shop\n` +
     `  ${mergedProducts} duplicate listings folded into an existing product\n` +
+    `  ${duplicateRows} indistinguishable offer rows collapsed` +
+    (duplicateRowsByShop.size
+      ? ` (${[...duplicateRowsByShop].sort((a, b) => b[1] - a[1]).map(([id, n]) => `${id} ${n}`).join(', ')})`
+      : '') +
+    '\n' +
     `  ${houseProducts.length} house products, catalogue-only (no sterling price yet)` +
     (skippedShops.length
       ? `\n  skipped: ${skippedShops.join(', ')}`
