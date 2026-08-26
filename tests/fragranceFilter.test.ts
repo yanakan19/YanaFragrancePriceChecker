@@ -485,6 +485,54 @@ describe('sizeMl: a size menu followed by the row’s own size', () => {
    * item, rather than restating one option list before picking an entry
    * from it. Real titles from fragrance-click.json, armaf.json and
    * mybeauty-boutique.json, none of them affected by the fix above.
+   *
+   * Re-measured 2026-08-26, following up on the 42 multi-size titles
+   * 2797294 counted and deliberately left alone. 33 of them are this same
+   * bundle/gift-with-purchase shape (a "+" or "&" always present) across
+   * fragrance-click, mybeauty-boutique, perfume-click, the-beauty-store-uk,
+   * home-bargains and two Armaf "+ FREE Refillable" titles — every one
+   * still reads correctly as the first, headline size. Spot-checked against
+   * each shop's own description text rather than assumed: Home Bargains'
+   * "Firetrap Nocturnal Eau De Toilette 50ml & Bodywash 150ml" is confirmed
+   * 50ml by its own description ("Gift Set EDC 50ml"), and the two Armaf
+   * "250ml + FREE Refillable 5ml 250ml" titles by "presented in a grand
+   * 250ml decanter". None of the 33 needed a code change.
+   *
+   * The bare two-size titles below (Hamidi's four, Red Velvet, Club De Nuit
+   * Woman's perfume oil, and Avon's Full Speed) are a separate, smaller
+   * group of 7, and they are left alone for a different reason than "no
+   * fix was needed" — the ambiguity here is real, and title text alone
+   * cannot settle it. Reading every one of Armaf's four Hamidi Maison Luxe
+   * "...100ml 110ml" titles against that product's own description on
+   * armaf.uk: Patchouli Imperial and Gypsy Rose confirm 110ml, Midnight
+   * Amber and Elixir confirm 100ml. Same shop, same exact title shape, same
+   * token order — the first number is right for two of the four and wrong
+   * for the other two, so no title-only rule (first, last, or otherwise)
+   * gets all four right, and there is nothing in the title itself that
+   * tells them apart.
+   *
+   * The theoretically honest answer for those seven is `null` — "unknown"
+   * rather than a coin-flip. It was not made the actual answer, and that is
+   * a deliberate choice, not an oversight: `isFragrance` in this same file
+   * treats `sizeMl(t) === null` as "not a real, priced fragrance" and drops
+   * the listing from the catalogue entirely (see its own header), and every
+   * downstream consumer that keys or sorts on a built product's `sizeMl` —
+   * productMatch.ts's matchKey, demo/listSort.ts, demo/app.ts's facet and
+   * tile rendering — treats it as a definite number, never `null`. Returning
+   * `null` from here today would either silently delist seven real,
+   * correctly-priced fragrances (Hamidi Parfums, Armaf Red Velvet and Club
+   * De Nuit Woman, Avon Full Speed all genuinely sell), or, if `isFragrance`
+   * were relaxed to let them through, hand a `null` size into product
+   * matching and the UI — a broken sort (`a.sizeMl - b.sizeMl` on `null` is
+   * `NaN`), a literal "nullml" on a product tile, and a matchKey that can no
+   * longer tell two same-brand, same-concentration, unknown-size fragrances
+   * apart. Both outcomes are worse than the status quo, which is a
+   * confident size that is right five times out of seven and wrong by one
+   * size step (110ml read as 100ml, or the reverse) on the other two — never
+   * an order of magnitude off the way the pre-2797294 Al Haramain bug was.
+   * Making `null` actually safe here is a real fix, but it is a change to
+   * how the built catalogue represents "size unknown" everywhere at once,
+   * not a title-regex fix, and it is not attempted in this pass.
    */
   it.each([
     ['Burberry Her 100ml Eau de Parfum + 10ml Set', 100],
@@ -492,8 +540,37 @@ describe('sizeMl: a size menu followed by the row’s own size', () => {
     ['Jimmy Choo Man 200ml Eau De Toilette & 30ml Set', 200],
     ['Boss Bottled EDT 50Ml + Deo Spray 150Ml Gs', 50],
     ['Hamidi Maison Luxe Patchouli Imperial Eau De Parfum 100ml 110ml', 100],
+    ['Hamidi Maison Luxe Midnight Amber Eau De Parfum 100ml 110ml', 100],
     ['Red Velvet Eau De Parfum 70ml 100ml', 70],
+    ['Club De Nuit Woman Luxury French Perfume Oil 20ml 18ml', 20],
+    ['Full Speed Eau de Toilette - 100ml 75ml', 100],
   ])('leaves an ordinary bundle or ambiguous two-size title alone: %s', (title, expected) => {
+    expect(sizeMl(title)).toBe(expected);
+  });
+});
+
+/**
+ * sizeMl: a title that restates its own headline size, then ends on the
+ * row's own — possibly different — variant size.
+ *
+ * The second half of the 2026-08-26 re-measurement above. Emirates Oud's
+ * Shopify feed restates a "headline" size (its default variant) with the
+ * concentration and brand name repeated after it, then the harvester
+ * appends this row's own variant size at the very end: "Milky Way Perfume
+ * 100ml EDP Maison Asrar 25ml" is the 25ml row, not a 25ml bottle
+ * mislabelled as 100ml. See fragranceId.ts's SIZE_RESTATED_THEN_VARIANT_RE
+ * for the corroborating evidence (retailerSku, and Odyssey Aqua's price
+ * genuinely falling with its size) this function cannot see but which
+ * settled it. All four titles below are real, from
+ * data/catalogue/emirates-oud.json.
+ */
+describe('sizeMl: a headline size restated, then the row’s own variant size', () => {
+  it.each([
+    ['Milky Way Perfume 100ml EDP Maison Asrar 25ml', 25],
+    ['Milky Way Perfume 100ml EDP Maison Asrar 100ml', 100],
+    ['Odyssey Aqua Perfume 100ml EDP Armaf 60ml', 60],
+    ['Odyssey Aqua Perfume 100ml EDP Armaf 100ml', 100],
+  ])('reads the row’s own trailing size, not the restated headline: %s', (title, expected) => {
     expect(sizeMl(title)).toBe(expected);
   });
 });
