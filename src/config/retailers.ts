@@ -455,6 +455,17 @@ export const RETAILERS: readonly Retailer[] = [
     // rather than technique. Deliberately not registered in
     // src/catalogue/renderedState.ts; tests/johnLewisNextData.test.ts asserts
     // this shop has no reader and cites this run for why.
+    //
+    // ── renderRefused, added 2026-08-26 ─────────────────────────────────────
+    // The paragraph above already concluded this shop beats a real browser on
+    // a residential IP; it just never stopped scripts/catalogue-harvest.ts
+    // from spending a local-render page re-confirming that every run. Five
+    // committed reports since (data/harvest-report.json, 2026-08-25 and
+    // 2026-08-26) show the same 200-with-1188-to-1199-bytes answer through the
+    // free local renderer too, so the block is not specific to the paid
+    // actor's request shape either. See knownRenderRefusal in
+    // src/catalogue/renderRefusal.ts for what this flag now does with that.
+    renderRefused: true,
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -512,6 +523,22 @@ export const RETAILERS: readonly Retailer[] = [
     // (APIFY_TOKEN) is the fallback if a real run shows the block survives a
     // residential IP alone. Neither has run for real — no Apify credential
     // exists in this environment.
+    //
+    // ── The free local renderer confirms it, 2026-08-26 ─────────────────────
+    // src/catalogue/localBrowser.ts's free headless Chromium has since tried
+    // all three sections below on every run that reached them with an actual
+    // network round trip (as opposed to the shared render budget running out
+    // before this shop's turn — see localBrowser.ts and knownRenderRefusal's
+    // own comment for why that pool is scarce). Six such attempts across
+    // data/harvest-report.json commits 2cd38bf, 33fa366, 7f49122 and c0d8109
+    // (2026-08-25) and 5a5e852, c7725ab and 027593c (2026-08-26) all land in
+    // the same narrow band: HTTP 403 at 27,487-27,573 bytes on every one of
+    // the three sections, every time — a WAF challenge page sized within a
+    // hundred bytes of itself across six independent renders, not a shop with
+    // an occasional bad minute. `renderRefused: true` below stops offering
+    // this shop a page from that shared budget for an outcome six real
+    // attempts already agree on.
+    renderRefused: true,
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -561,6 +588,17 @@ export const RETAILERS: readonly Retailer[] = [
     // actor tier (APIFY_TOKEN) is the fallback if a real run shows the
     // refusal survives a residential IP alone. Neither has run for real — no
     // Apify credential exists in this environment.
+    //
+    // ── The free local renderer confirms it, 2026-08-26 ─────────────────────
+    // Five committed harvest reports with an actual network round trip
+    // against this shop's sections (not the shared render budget running out
+    // first — see knownRenderRefusal in src/catalogue/renderRefusal.ts),
+    // spanning both 2026-08-25 (commits c0d8109, 7f49122) and 2026-08-26
+    // (c7725ab, 7b47962, 027593c), all land the same way: HTTP 403 at
+    // 326-344 bytes on every section reached, no exceptions. `renderRefused:
+    // true` below stops spending the local render tier's shared page budget
+    // re-asking a question five real attempts already agree on.
+    renderRefused: true,
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -3095,6 +3133,20 @@ export const RETAILERS: readonly Retailer[] = [
     // known hydration-blob marker both come up empty, and this render's own
     // markup would need a shop-specific extractor to go further — not
     // pursued here.
+    //
+    // ── renderRefused, added 2026-08-26 ─────────────────────────────────────
+    // The paragraph above is the actor tier, a real browser on a residential
+    // IP, and it got through (2.92 MB, HTTP 200). scripts/catalogue-harvest.ts
+    // has since defaulted to the free local renderer instead — same browser,
+    // datacenter IP — and every real (non-budget-exhausted) attempt it has
+    // made answers HTTP 403 at 325-331 bytes: four such attempts across
+    // data/harvest-report.json commits on 2026-08-25 and 2026-08-26, none of
+    // them the tiny-byte 2xx a JS challenge would produce. That is the
+    // datacenter-vs-residential IP distinction localBrowser.ts's own header
+    // names as the one thing this tier does not solve, caught here in the
+    // one shop this registry can show both sides of directly. See
+    // knownRenderRefusal in src/catalogue/renderRefusal.ts.
+    renderRefused: true,
     enabled: true,
     adapter: 'headless',
     currency: 'GBP',
