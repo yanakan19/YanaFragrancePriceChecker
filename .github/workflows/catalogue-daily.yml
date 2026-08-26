@@ -199,22 +199,87 @@ jobs:
     # step after it, so "Commit harvested prices" never ran. Six shops' worth of
     # freshly stored prices were on disk and were thrown away.
     #
-    # This number is now bounded from both sides and should not be raised
-    # again. Above: the cron, three-hourly since 2026-08-26. A run may not
-    # exceed 180 minutes without stacking into the next tick, and the margin
-    # between 100 and that ceiling is what keeps a slow run from doing so —
-    # comfortable now, and it was already the intended margin (~20 minutes)
-    # back when the cron was two-hourly and 120 was the ceiling. Below: the sum of
-    # the step caps that have to fit inside it — worst case ~19 minutes of
-    # setup and periodic stages, 60 for the harvest, 15 for houses, ~3 for the
-    # rebuild and push, which reaches "Commit harvested prices" at ~97 minutes
-    # even if every capped step exhausts its full budget at once.
+    # ── 2026-08-26: measured against the real 3-hourly runs, and split rather
+    # than just raised ─────────────────────────────────────────────────────
+    # The paragraph above said this number was "bounded from both sides and
+    # should not be raised again", with the step-cap side pencilled at
+    # "~19 minutes of setup and periodic stages ... ~3 for the rebuild and
+    # push, which reaches 'Commit harvested prices' at ~97 minutes". Both
+    # estimates were guesses, and the real numbers, read off the jobs API for
+    # every scheduled run since the three-hourly cron started (#333-#340,
+    # 2026-08-25 22:19Z-2026-08-26 17:51Z), are worse:
     #
-    # So the run no longer needs more time; it needs the work to fit. If a
-    # stage genuinely outgrows its budget, the fix is to shrink or split that
-    # stage, not to move this line. What this cap now protects is only the
-    # tail — and losing the tail costs a report, not a harvest.
-    timeout-minutes: 100
+    #   run   total    setup+periodic   harvest   houses   rebuild  commit
+    #   #333  71m46s   1m22s (none fired)  56m01s   8m29s    5m48s   0m06s
+    #   #334  87m52s   16m56s (shipping)   56m05s   8m32s    6m05s   0m10s
+    #   #335  89m25s   22m59s (ship+awin)  56m10s   3m08s    5m49s   0m09s
+    #   #336  86m50s   16m51s (shipping)   56m05s   8m12s    5m54s   0m07s
+    #   #339  96m24s   25m11s (ship+awin)  56m25s   8m06s    6m31s   0m09s
+    #   #340  93m15s   16m54s (shipping)   56m05s   8m19s    5m58s   5m59s
+    #
+    # #339 is the run this file's own comment used as the trigger for this
+    # section: 96m24s against a 100-minute cap is 3m36s of slack, not the
+    # ~14 the old estimate claimed. And the setup+periodic figure the old
+    # estimate called "~19 minutes" is 25m11s in #339 and #335 alike, every
+    # time both shipping discovery (~15m13s, not the twice-daily rarity its
+    # own comment describes — it has fired on every one of these six runs,
+    # a discrepancy worth someone chasing separately, not fixed here) and the
+    # Awin sync (~7-8m) land in the same run. #340's commit step is the other
+    # surprise: 5m59s, not the "~1m30s push" the old estimate assumed — a
+    # rebase-and-retry cycle in commit-and-push.sh, not a hang.
+    #
+    # Add those up worst-case — 25m setup+periodic, 60m harvest cap, 15m
+    # houses cap, 6m31s rebuild, 5m59s commit — and the sum is 112m30s. That
+    # is past 100 already, without assuming anything exotic: it is six
+    # numbers this file has now separately measured, just not all in the same
+    # run yet. So the promise "this cap now protects only the tail" was not
+    # actually true: run #339 shows the tail (rebuild, then the commit that
+    # used to be named "Commit harvested prices") sitting close enough behind
+    # the harvest that a slightly worse combination of the same measured
+    # numbers lands the job's own timeout inside the rebuild step, or inside
+    # the commit step while it is mid-push — and a job timeout cancels
+    # whichever step is running, finished or not. That is run #180 again,
+    # just relocated from inside the harvest to inside the step that used to
+    # come safely after it.
+    #
+    # The fix is not a bigger number chasing a worst case that will keep
+    # growing with the catalogue — it is removing the dependency between the
+    # two. "Commit harvested prices" (below) now runs immediately after
+    # "Harvest houses direct", before the rebuild, and commits only the raw
+    # snapshots: data/catalogue, data/houses, and the report/marker/cursor
+    # files. Both the sitemap harvest and the house harvest already write
+    # store.write() per shop/house as they go (see their own step comments),
+    # so by the time this step runs, everything either of them finished is
+    # already durable on disk in the form this commit publishes verbatim —
+    # nothing here waits on the rebuild to make it safe to push. The rebuild
+    # and the demo-asset commit move after it, into a new "Commit rebuilt
+    # app" step, carrying only demo/catalogue.generated.ts,
+    # demo/priceHistory.generated.ts, demo/index.html, demo/404.html and
+    # demo/sitemap.xml. If the job's cap lands anywhere in that tail now, the
+    # harvested prices are already pushed; what is lost is a same-day demo
+    # rebuild, which the next scheduled run repeats for free from the
+    # catalogue this step just committed. That is the guarantee run #180 and
+    # run #157 both broke, now held by construction rather than by a number
+    # staying ahead of the catalogue's growth.
+    #
+    # The rebuild step also gets its own step timeout and continue-on-error
+    # for the same reason houses got one after run #157: a job timeout
+    # ignores continue-on-error on the steps around it, but a step timeout
+    # lets the ones after it still run. 10 minutes against an observed
+    # 5m48s-6m31s is roughly double.
+    #
+    # The number itself still moves, because the split does not make the cap
+    # irrelevant — it only makes what the cap can cost small. 120 minutes
+    # covers the 112m30s worst case above with margin for the same steady
+    # growth the old 100 was sized against, and still fits far inside the
+    # cron's 180-minute ceiling (60 minutes of slack behind the next tick,
+    # more than the ~20 the schedule was ever tuned to need). If a future
+    # reader is tempted to raise it again to buy more slack for the tail,
+    # the split above means that slack no longer protects data — it only
+    # decides how often a run ends green instead of a harmless "cancelled"
+    # during the rebuild. Shrink or split a stage that outgrows its budget;
+    # don't chase this number for that.
+    timeout-minutes: 120
 
     steps:
       # fetch-depth: 0 is load-bearing, not a nicety. actions/checkout@v4
@@ -785,45 +850,44 @@ jobs:
         timeout-minutes: 15
         run: npm run houses
 
-      - name: Rebuild the app from harvested prices
-        if: ${{ inputs.harvest || github.event_name == 'schedule' }}
-        run: |
-          npm run catalogue:demo
-          npm run catalogue:history
-          npm run demo
-
+      # ── Split from the rebuild, 2026-08-26 ──────────────────────────────
+      # This used to be the second half of a step named "Commit harvested
+      # prices" that ran after the rebuild below, committing the raw
+      # snapshots and the generated demo bundle together. See the job
+      # timeout's own comment above for why that ordering was the residual
+      # version of run #180's bug: the rebuild has no step cap of its own,
+      # runs #333-#340 measured it at 5m48s-6m31s, and a job timeout landing
+      # inside it (or inside the push that followed) would cancel the commit
+      # before it ran, exactly as happened to the harvest itself in #180.
+      #
+      # Moved here, immediately after both harvest steps and before the
+      # rebuild, this step now depends on nothing that can hang or overrun.
+      # scripts/catalogue-harvest.ts and scripts/houses-harvest.ts both call
+      # store.write() per shop/house as they go (see each step's own
+      # comment), so whatever either finished — including a harvest cut off
+      # mid-sweep by its own run-minutes deadline, or a house step that hit
+      # its 15-minute cap — is already sitting on disk in exactly the form
+      # this step publishes. Nothing below this line can make that data any
+      # safer than it already is; it can only delay publishing it.
+      #
+      # data/metered-harvest-marker.txt rides along deliberately: the
+      # once-a-day gate on the metered tiers is only a gate if the marker
+      # survives the run that set it. Uncommitted, every run would read a
+      # missing marker as "never", offer the tiers every tick, and the
+      # gate would be decorative.
+      #
+      # data/harvest-cursor.json for exactly the same reason, and it is the
+      # more load-bearing of the two: it records which shops this run
+      # asked, and the sweep is ordered longest-unasked-first from it.
+      # Uncommitted, every run would start from an empty cursor, fall back
+      # to the same never-live-then-registry order, and starve the same
+      # eleven shops it starved before — the rotation would be decorative.
       - name: Commit harvested prices
         if: ${{ inputs.harvest || github.event_name == 'schedule' }}
         run: |
-          # data/metered-harvest-marker.txt rides along deliberately: the
-          # once-a-day gate on the metered tiers is only a gate if the marker
-          # survives the run that set it. Uncommitted, every run would read a
-          # missing marker as "never", offer the tiers every tick, and the
-          # gate would be decorative.
-          #
-          # data/harvest-cursor.json for exactly the same reason, and it is the
-          # more load-bearing of the two: it records which shops this run
-          # asked, and the sweep is ordered longest-unasked-first from it.
-          # Uncommitted, every run would start from an empty cursor, fall back
-          # to the same never-live-then-registry order, and starve the same
-          # eleven shops it starved before — the rotation would be decorative.
-          # demo/testCount.generated.ts rides along for the same reason as
-          # everything else in this list: "Test before crawling", above, ran
-          # `npm test` unconditionally at the top of this job, and
-          # scripts/testCountReporter.ts rewrites that file as a side effect
-          # whenever the count it holds no longer matches what the suite just
-          # ran. Leaving it uncommitted here would mean the About page's test
-          # count only ever gets fixed by a human who happens to run the
-          # suite locally and notices the diff — exactly the failure mode
-          # this mechanism exists to remove. This step runs on every
-          # scheduled tick regardless of which other inputs fired, so it is
-          # the one place guaranteed to pick the correction up within a day.
           ./scripts/commit-and-push.sh \
             "Harvest: real prices $(date -u +%Y-%m-%d)" \
-            data/catalogue demo/catalogue.generated.ts demo/priceHistory.generated.ts \
-            demo/testCount.generated.ts \
-            demo/index.html demo/404.html demo/sitemap.xml \
-            data/houses data/house-sourcing-report.json \
+            data/catalogue data/houses data/house-sourcing-report.json \
             data/metered-harvest-marker.txt \
             data/harvest-cursor.json \
             data/harvest-report.json
@@ -849,6 +913,56 @@ jobs:
         if: ${{ (inputs.harvest || github.event_name == 'schedule') && steps.harvest.outcome == 'failure' }}
         run: |
           echo "::warning::The sitemap harvest did not run to completion — it hit its 60 minute cap or exited non-zero. Whatever it had already stored per shop has been committed by the step above; the shops it did not reach keep their previous prices and are picked up by the next run. Check the harvest step's log for where it stopped."
+
+      # ── The rebuild and its own commit, after the raw data is already safe ──
+      # Split out of what used to be a single "Commit harvested prices" step,
+      # see that step's own comment above for why. This step's own timeout and
+      # continue-on-error exist for the same reason "Harvest houses direct"
+      # got them after run #157: a *job* timeout ignores continue-on-error on
+      # the steps around it and cancels everything outstanding, but a *step*
+      # timeout lets the ones after it still run. Measured at 5m48s-6m31s
+      # across runs #333-#340, so 10 minutes is roughly double the observed
+      # cost — generous room without leaving a genuine hang free to eat the
+      # rest of the job's budget the way the un-timed version of this step
+      # used to.
+      #
+      # A failed or timed-out rebuild costs one cycle of stale demo output,
+      # nothing more: the catalogue data it reads was already committed above,
+      # and the next scheduled run rebuilds from whatever is on the branch by
+      # then regardless of what happened here.
+      - name: Rebuild the app from harvested prices
+        if: ${{ inputs.harvest || github.event_name == 'schedule' }}
+        continue-on-error: true
+        timeout-minutes: 10
+        run: |
+          npm run catalogue:demo
+          npm run catalogue:history
+          npm run demo
+
+      # Committed separately from the raw snapshots above on purpose — see
+      # that step's comment. A no-op, not a failure, when the rebuild above
+      # did not run to completion: commit-and-push.sh skips paths that do not
+      # exist and reports "Nothing changed" when nothing did, so a rebuild cut
+      # off by its own step timeout simply leaves the previous demo bundle
+      # live until the next run regenerates it.
+      - name: Commit rebuilt app
+        if: ${{ inputs.harvest || github.event_name == 'schedule' }}
+        run: |
+          # demo/testCount.generated.ts rides along here rather than with the
+          # raw snapshots above: "Test before crawling", near the top of this
+          # job, runs `npm test` unconditionally, and
+          # scripts/testCountReporter.ts rewrites this file as a side effect
+          # whenever the count it holds no longer matches what the suite just
+          # ran. It is generated demo output, same category as everything
+          # else in this list, not a raw harvest fact — it would be just as
+          # stale sitting uncommitted in the raw-snapshot step above, and this
+          # step runs on every scheduled tick regardless of which other
+          # inputs fired, so it is still picked up within a day either way.
+          ./scripts/commit-and-push.sh \
+            "Rebuild demo: $(date -u +%Y-%m-%d) harvest" \
+            demo/catalogue.generated.ts demo/priceHistory.generated.ts \
+            demo/testCount.generated.ts \
+            demo/index.html demo/404.html demo/sitemap.xml
 
       # ── The image link check moved out of this job, 2026-08-25 ─────────
       # It used to run here, last, after the harvest had committed. It could
