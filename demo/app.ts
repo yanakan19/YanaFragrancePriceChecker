@@ -1874,10 +1874,17 @@ function notesBlock(f: DemoFragrance): string {
       <p class="notes-none">Notes unavailable for this fragrance.</p>
     </div>`;
   }
-  // The tier is a class, not a graphic: the pyramid is drawn by each layer's
-  // own indent and rule weight (see .note-layer--* in the stylesheet), so it
-  // holds up at 360px, in either theme, and in a screen reader's document
-  // order — none of which a triangle behind the chips would do.
+  // The tier is a class, never a graphic. It used to drive an indent and a
+  // rule weight per layer, drawing the pyramid out of the layout itself; the
+  // block is centred now (owner's instruction, 2026-08-26 — see .notes-block
+  // in the stylesheet for why an indent and a centre line cannot both hold),
+  // so nothing styles `.note-layer--top|middle|base` any more. The modifier
+  // is kept on the element all the same: it is the tier of a fragrance note,
+  // which is a fact about the content and not about the old indent, and it is
+  // the hook anything reading this DOM would reach for. The ordering that
+  // indent used to show is carried where it always really was — the three
+  // labels below, in fixed document order, which is also the only version of
+  // this shape a screen reader ever had.
   const layer = (label: string, tier: 'top' | 'middle' | 'base', list: string[]) =>
     list.length === 0
       ? ''

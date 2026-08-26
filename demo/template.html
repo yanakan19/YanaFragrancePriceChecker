@@ -1223,16 +1223,36 @@
   .note-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
   .note-row-count { flex: none; color: var(--faint); }
 
-  /* Top, middle and base as three steps down a stair rather than a triangle
-     graphic: each tier is indented 18px past the one above it and hangs off a
-     lighter rule, so the shape is carried by the layout itself and survives
-     at any width, in any theme, and read aloud in document order. */
-  .notes-block { margin-top: 32px; }
-  .note-layer { margin-bottom: 14px; padding-left: 12px; }
-  .note-layer--top    { margin-left: 0;    border-left: 2px solid var(--line-firm); }
-  .note-layer--middle { margin-left: 18px; border-left: 2px solid var(--line); }
-  .note-layer--base   { margin-left: 36px; border-left: 1px solid var(--line); }
+  /* Top, middle and base, centred (owner's instruction, 2026-08-26).
+     Everything in this block shares one centre line: the "Notes" eyebrow, the
+     three tier names, the chips under each, and the source credit at the
+     foot. On desktop this is not a new alignment at all — `.hero` is already
+     `text-align: center` there (see the desktop block near the foot of this
+     file), and the notes were the one thing inside it still hanging off a
+     left edge; on a phone the block now matches what desktop always showed.
+
+     The stair went with it. Each tier used to be indented 18px past the one
+     above and hung off a left rule of its own, drawing a pyramid out of the
+     layout rather than out of a triangle graphic. That device is asymmetric
+     by construction: an indent measured from the left edge and a centre line
+     cannot both hold, and half-honouring it (centred text over indented
+     boxes) reads as a mistake rather than as a shape. What the stair carried
+     is carried without it — the tiers are three labelled groups in fixed
+     document order, top first, and the labels say which is which in words,
+     which is also the only version of the shape a screen reader ever had.
+
+     The chips centre by overriding .note-chips's `justify-content` inside
+     this block only: the same class is a left-aligned filter row on a note's
+     own profile page (.note-chips-profile), which must not move. */
+  .notes-block { margin-top: 32px; text-align: center; }
+  .note-layer { margin-bottom: 14px; }
   .note-layer-name { margin: 0 0 8px; }
+  /* A tier with many notes wraps into several rows of chips; each row is
+     centred on its own, so a last row holding one or two chips sits under the
+     middle of the row above it rather than hanging off the left. That is the
+     common case at 360-390px, where the base tier routinely takes three or
+     four rows. */
+  .notes-block .note-chips { justify-content: center; }
 
   /* The eyebrow role now lives in .t-eyebrow, which this carries in the
      markup; all that is left here is the gap to what follows. */
