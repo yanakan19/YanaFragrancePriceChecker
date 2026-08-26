@@ -73,6 +73,7 @@ import {
   signUp, signIn, signOut, resendVerification, requestPasswordReset, currentUser, isVerified, onAuthChange,
 } from './auth.js';
 import type { User } from '@supabase/supabase-js';
+import { accountState, wishlistControl, type AccountStateInput } from '../src/services/accountState.js';
 import { fetchWishlist, addToWishlist, removeFromWishlist, type WishlistEntry } from './wishlist.js';
 import {
   VIRTUAL_YANNY_CONFIGURED, checkYannyHealth, askVirtualYanny, warmVirtualYanny,
@@ -1993,16 +1994,43 @@ function loadWishlist(): void {
 }
 
 /**
+ * The four already-resolved facts that decide every account-shaped question
+ * on this site, gathered in one place and handed to the pure functions in
+ * src/services/accountState.ts.
+ *
+ * It is one function rather than two inline ladders because the account page
+ * and the detail page's Save button previously disagreed: the Save button had
+ * no notion of a reader who has signed up but holds no session yet, so a
+ * successful signup rendered as though nothing had happened. One input, one
+ * answer, and the answer is unit tested (tests/accountState.test.ts) without
+ * needing a Supabase this sandbox cannot reach.
+ */
+function accountStateInput(): AccountStateInput {
+  const user = state.authUser;
+  return {
+    configured: SUPABASE_CONFIGURED,
+    checked: state.authChecked,
+    user: user ? { email: user.email ?? null, verified: isVerified(user) } : null,
+    pendingEmail: state.authPendingEmail,
+  };
+}
+
+/**
  * Invisible while accounts are not configured (nothing to save into yet).
  * Once configured: an inviting "Sign in to save" for a signed out reader —
  * this is one of the few places worth nudging toward /account, since saving
  * something is exactly the moment an account earns its keep — and a real
  * on/off toggle once signed in and verified.
+ *
+ * An unverified reader gets the invitation, not the toggle. That is not
+ * politeness: supabase/migrations/0002_wishlists.sql is what actually refuses
+ * their write, and a button that fails on every press would be the UI lying
+ * about what the database will allow.
  */
 function wishlistButton(fragranceId: string): string {
-  if (!SUPABASE_CONFIGURED) return '';
-  if (!state.authChecked) return '';
-  if (!state.authUser || !isVerified(state.authUser)) {
+  const control = wishlistControl(accountStateInput());
+  if (control === 'hidden') return '';
+  if (control === 'prompt') {
     return `<button class="wishlist-toggle" data-go-account>${ICON_HEART}<span>Sign in to save</span></button>`;
   }
   const saved = state.wishlistIds.has(fragranceId);
@@ -2917,11 +2945,21 @@ function settingsView(): string {
 
 /** What the Settings entry row says: enough to act on without opening the page. */
 function accountEntryLabel(): string {
-  if (!state.authChecked) return 'Account';
-  const user = state.authUser;
-  if (!user) return 'Sign in or create an account';
-  if (!isVerified(user)) return 'Verify your email';
-  return user.email ?? 'Account';
+  const s = accountState(accountStateInput());
+  switch (s.kind) {
+    // Unconfigured never reaches here — the row itself is not rendered (see
+    // the SUPABASE_CONFIGURED guard on the Settings entry) — but the label
+    // has to answer for every state the type admits rather than assume that.
+    case 'unconfigured':
+    case 'loading':
+      return 'Account';
+    case 'signedOut':
+      return 'Sign in or create an account';
+    case 'verify':
+      return 'Verify your email';
+    case 'signedIn':
+      return s.email === '' ? 'Account' : s.email;
+  }
 }
 
 /**
@@ -2933,7 +2971,9 @@ function accountEntryLabel(): string {
  * being false renders as a plain, honest "not live yet" state instead.
  */
 function accountView(): string {
-  if (!SUPABASE_CONFIGURED) {
+  const s = accountState(accountStateInput());
+
+  if (s.kind === 'unconfigured') {
     // Microcopy cull, 2026-08-25 (docs/MICROCOPY-INVENTORY-2026-08-21.md row
     // 78): the line used to end "Check back soon." That carried no fact —
     // nobody has committed this deployment to a date — so it was a promise
@@ -2948,35 +2988,49 @@ function accountView(): string {
       </article>`;
   }
 
-  if (!state.authChecked) {
+  if (s.kind === 'loading') {
     return `<button class="back" data-back>Back</button><article class="doc settings-doc"><h2 class="t-page">Account</h2><p>Loading.</p></article>`;
   }
 
-  const user = state.authUser;
-
-  if (user && isVerified(user)) {
+  if (s.kind === 'signedIn') {
     return `
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
         <h2 class="t-page">Account</h2>
-        <p class="account-note">Signed in as ${esc(user.email ?? '')}.</p>
+        <p class="account-note">Signed in as ${esc(s.email)}.</p>
         <button class="contact-send" id="auth-sign-out">Sign out</button>
         ${wishlistSectionHtml()}
       </article>`;
   }
 
-  if (user && !isVerified(user)) {
+  if (s.kind === 'verify') {
+    // Two different readers land here and are owed the same instruction.
+    //
+    //   hasSession true  — Supabase issued a session but has not recorded a
+    //                      confirmed address. They can sign out of it.
+    //   hasSession false — the ordinary case with "Confirm email" switched
+    //                      on: signUp() succeeded and deliberately handed
+    //                      back no session at all, so there is nothing to
+    //                      sign out of. Before this branch existed, that
+    //                      reader saw the empty form re-render and had no
+    //                      way to tell their signup had worked.
+    //
+    // The way back for the second one is to forget the pending address, not
+    // to sign out — see the #auth-leave-pending handler.
+    const leave = s.hasSession
+      ? `<button class="link-btn" id="auth-sign-out-pending">Sign out</button>`
+      : `<button class="link-btn" id="auth-leave-pending">Back to sign in</button>`;
     return `
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
         <h2 class="t-page">Verify your email</h2>
         <p class="account-note">
-          We sent a link to ${esc(user.email ?? 'your email address')}. Follow it to finish setting up your
+          We sent a link to ${esc(s.email === '' ? 'your email address' : s.email)}. Follow it to finish setting up your
           account, then come back here.
         </p>
-        <button class="contact-send" id="auth-resend" data-email="${esc(user.email ?? '')}">Resend the email</button>
+        <button class="contact-send" id="auth-resend" data-email="${esc(s.email)}">Resend the email</button>
         <p id="auth-notice" class="contact-confirm" hidden></p>
-        <button class="link-btn" id="auth-sign-out-pending">Sign out</button>
+        ${leave}
       </article>`;
   }
 
@@ -4803,6 +4857,16 @@ function init(): void {
   const handleAuthUser = (user: User | null) => {
     state.authUser = user;
     state.authChecked = true;
+    if (user) {
+      // A real session has arrived — most often the tab that just followed a
+      // verification link back in. Whatever the form was complaining about a
+      // moment ago is now stale, and a leftover pendingEmail would otherwise
+      // hold a freshly verified reader on the "check your inbox" screen they
+      // have just finished with.
+      state.authPendingEmail = '';
+      state.authError = '';
+      state.authResetSent = false;
+    }
     if (user && isVerified(user)) {
       loadWishlist();
     } else {
@@ -5058,7 +5122,25 @@ function init(): void {
     }
 
     if (t.closest('#auth-sign-out') || t.closest('#auth-sign-out-pending')) {
+      // Clearing the remembered address here as well as in handleAuthUser:
+      // signOut() only reaches handleAuthUser via onAuthChange, and a reader
+      // whose session Supabase has already discarded server-side would
+      // otherwise stay parked on the verification screen with nothing to
+      // sign out of.
+      state.authPendingEmail = '';
       void signOut();
+      return;
+    }
+
+    // The way out of the verification screen for a reader who holds no
+    // session — a fresh signup, or a sign in that bounced off an unconfirmed
+    // address. There is nothing to sign out of, so this simply forgets the
+    // address and hands the sign-in form back.
+    if (t.closest('#auth-leave-pending')) {
+      state.authPendingEmail = '';
+      state.authError = '';
+      state.authTab = 'signIn';
+      render();
       return;
     }
 
@@ -5130,8 +5212,21 @@ function init(): void {
           // Roll back: the optimistic flip above did not actually happen.
           if (saved) state.wishlistIds.add(fragranceId);
           else state.wishlistIds.delete(fragranceId);
+          render();
+          return;
         }
-        render();
+        // The flip above only ever touched wishlistIds, which is all the
+        // button on this page needs. state.wishlistEntries — the account
+        // page's own list — was left behind, so saving something here and
+        // then opening the account page showed a heart that said "Saved"
+        // above a list that did not contain it.
+        //
+        // Refetching rather than splicing an entry in locally is the point:
+        // an entry carries an `added_at` that only the database knows, and
+        // inventing a timestamp to fill the gap is the one thing this
+        // project does not do with any other number either. One extra round
+        // trip on a deliberate tap is a fair price for the list being true.
+        loadWishlist();
       });
       return;
     }
@@ -5274,10 +5369,26 @@ function init(): void {
       action.then((result) => {
         state.authBusy = false;
         if (!result.ok) {
-          state.authError = result.message;
+          if (result.reason === 'unverified') {
+            // Not a dead end: this reader has an account and needs the link
+            // resent. Putting them on the verification screen puts them in
+            // front of the Resend button, which is what the mapped message
+            // ("request a new one below") was already telling them to use —
+            // and which, before this, was not rendered anywhere they could
+            // reach, since Supabase issues no session on a rejected sign in.
+            state.authPendingEmail = email;
+            state.authError = '';
+          } else {
+            state.authError = result.message;
+          }
           render();
           return;
         }
+        // Signup with "Confirm email" on (see docs/SUPABASE-SETUP.md, which
+        // requires it) resolves ok and returns no session at all, so
+        // onAuthChange will not fire and nothing else would tell the reader
+        // their signup worked. Remembering the address is what puts them on
+        // the verification screen — see accountState's `pendingEmail`.
         if (form.id === 'auth-signup-form') state.authPendingEmail = email;
         // A successful sign in updates state.authUser itself via
         // onAuthChange (see init), which re-renders once the session is

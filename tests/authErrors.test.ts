@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { authErrorMessage } from '../src/services/authErrors.js';
+import { authErrorMessage, authFailureReason } from '../src/services/authErrors.js';
 
 describe('authErrorMessage', () => {
   it('never confirms an address already has an account on signup', () => {
@@ -34,5 +34,29 @@ describe('authErrorMessage', () => {
 
   it('falls back to a generic message for anything unrecognised', () => {
     expect(authErrorMessage('some brand new supabase error string', 'signIn')).toBe('Something went wrong. Please try again.');
+  });
+});
+
+describe('authFailureReason', () => {
+  it('recognises an unconfirmed address, whatever case Supabase sends it in', () => {
+    // This is what routes the reader to the screen the Resend button is on,
+    // rather than leaving them at a message pointing at a control that was
+    // never rendered for them.
+    expect(authFailureReason('Email not confirmed')).toBe('unverified');
+    expect(authFailureReason('email not confirmed')).toBe('unverified');
+  });
+
+  it('does not classify a wrong password as anything actionable', () => {
+    // A bad sign in must stay indistinguishable from a sign in against an
+    // address with no account. Anything that told the two apart here would
+    // hand back the user enumeration authErrorMessage exists to refuse.
+    expect(authFailureReason('Invalid login credentials')).toBe('other');
+  });
+
+  it('classifies everything else as other rather than guessing', () => {
+    expect(authFailureReason('User already registered')).toBe('other');
+    expect(authFailureReason('email rate limit exceeded')).toBe('other');
+    expect(authFailureReason('some brand new supabase error string')).toBe('other');
+    expect(authFailureReason('')).toBe('other');
   });
 });
