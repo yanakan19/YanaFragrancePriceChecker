@@ -263,7 +263,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "id": "ean-6298042001800",
     "brand": "French Avenue",
     "name": "Safari Breeze",
-    "concentration": "Extrait de Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "6298042001800",
     "shops": 7,
@@ -2000,7 +2000,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "id": "ean-3614274258080",
     "brand": "Azzaro",
     "name": "Wanted Forever Elixir",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "3614274258080",
     "shops": 5,
@@ -2588,46 +2588,10 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "houseCeiling": 30
   },
   {
-    "id": "ean-6298042001923",
-    "brand": "French Avenue",
-    "name": "Ravine Ginger",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6298042001923",
-    "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ravine-Ginger-Perfume-100ml-EDP-French-Avenue-183920914.png?v=1769915139",
-    "notes": {
-      "top": [
-        "Ginger",
-        "Bergamot",
-        "Lemon"
-      ],
-      "middle": [
-        "Jasmine",
-        "Orange Blossom",
-        "Rose",
-        "Magnolia"
-      ],
-      "base": [
-        "Vanilla",
-        "Sandalwood",
-        "Amber",
-        "Musk",
-        "Patchouli",
-        "Cashmeran"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/ravine-ginger-french-avenue"
-      }
-    },
-    "houseCeiling": 39
-  },
-  {
     "id": "ean-6298042001909",
     "brand": "French Avenue",
     "name": "Ravine Ice",
-    "concentration": "Eau de Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "6298042001909",
     "shops": 5,
@@ -6218,7 +6182,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "id": "ean-3614273638852",
     "brand": "Azzaro",
     "name": "The Most Wanted",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "3614273638852",
     "shops": 4,
@@ -7905,36 +7869,6 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "houseCeiling": 35
   },
   {
-    "id": "ean-6298042001879",
-    "brand": "French Avenue",
-    "name": "Obsidian",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6298042001879",
-    "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Obsidian-Perfume-100ml-EDP-French-Avenue-183496326.webp?v=1768705572",
-    "notes": {
-      "top": [
-        "Grapefruit",
-        "Bergamot"
-      ],
-      "middle": [
-        "Myrrh",
-        "Jasmine",
-        "Labdanum"
-      ],
-      "base": [
-        "Vanilla",
-        "Amber",
-        "Tonka Bean"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/obsidian-french-avenue"
-      }
-    }
-  },
-  {
     "id": "emirates-oud-15082087186781-default-title",
     "brand": "French Avenue",
     "name": "Pinnace Oryn",
@@ -7961,6 +7895,42 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       }
     },
     "houseCeiling": 35
+  },
+  {
+    "id": "ean-6298042001923",
+    "brand": "French Avenue",
+    "name": "Ravine Ginger",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6298042001923",
+    "shops": 4,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ravine-Ginger-Perfume-100ml-EDP-French-Avenue-183920914.png?v=1769915139",
+    "notes": {
+      "top": [
+        "Ginger",
+        "Bergamot",
+        "Lemon"
+      ],
+      "middle": [
+        "Jasmine",
+        "Orange Blossom",
+        "Rose",
+        "Magnolia"
+      ],
+      "base": [
+        "Vanilla",
+        "Sandalwood",
+        "Amber",
+        "Musk",
+        "Patchouli",
+        "Cashmeran"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/ravine-ginger-french-avenue"
+      }
+    },
+    "houseCeiling": 39
   },
   {
     "id": "ean-6290360375595",
@@ -8903,7 +8873,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "id": "ean-8435415076944",
     "brand": "Jean Paul Gaultier",
     "name": "Le Male Elixir",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 125,
     "ean": "8435415076944",
     "shops": 4,
@@ -8932,7 +8902,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "id": "ean-8435415102339",
     "brand": "Jean Paul Gaultier",
     "name": "Le Male Elixir Absolu Intense",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 75,
     "ean": "8435415102339",
     "shops": 4,
@@ -11832,7 +11802,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "id": "ean-3349668627523",
     "brand": "Rabanne",
     "name": "Invictus",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "3349668627523",
     "shops": 4,
@@ -11862,7 +11832,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "id": "ean-3349668627530",
     "brand": "Rabanne",
     "name": "Invictus",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "3349668627530",
     "shops": 4,
@@ -11873,7 +11843,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "id": "ean-3349668627547",
     "brand": "Rabanne",
     "name": "Invictus",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 200,
     "ean": "3349668627547",
     "shops": 4,
@@ -11958,7 +11928,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "id": "ean-3349668614592",
     "brand": "Rabanne",
     "name": "Phantom",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "3349668614592",
     "shops": 4,
@@ -12366,7 +12336,10 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43661688875&a=3026001&m=106925"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
   {
     "id": "ean-810023679943",
     "brand": "Sabrina Carpenter",
@@ -13130,7 +13103,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "id": "ean-8011003891467",
     "brand": "Versace",
     "name": "Bright Crystal",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "8011003891467",
     "shops": 4,
@@ -14535,7 +14508,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "id": "ean-6290171070207",
     "brand": "Afnan",
     "name": "Supremacy In Oud",
-    "concentration": "Extrait de Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "6290171070207",
     "shops": 3,
@@ -14676,7 +14649,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "id": "ean-6290360617442",
     "brand": "Ahmed Al Maghribi",
     "name": "Summer Oud",
-    "concentration": "Extrait de Parfum",
+    "concentration": "Disputed",
     "sizeMl": 60,
     "ean": "6290360617442",
     "shops": 3,
@@ -16905,7 +16878,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "id": "ean-3614274258073",
     "brand": "Azzaro",
     "name": "Wanted Forever Elixir",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "3614274258073",
     "shops": 3,
@@ -17892,7 +17865,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "id": "ean-3616304061943",
     "brand": "Burberry",
     "name": "Her Elixir De",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "3616304061943",
     "shops": 3,
@@ -19327,7 +19300,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "id": "ean-3386460157315",
     "brand": "Coach",
     "name": "Woman Gold",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 30,
     "ean": "3386460157315",
     "shops": 3,
@@ -21662,7 +21635,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "id": "ean-6290360379203",
     "brand": "French Avenue",
     "name": "Carnal Desire Aromatix",
-    "concentration": "Extrait de Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "6290360379203",
     "shops": 3,
@@ -22138,6 +22111,74 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "houseCeiling": 45
   },
   {
+    "id": "emirates-oud-15765631467869-default-title",
+    "brand": "French Avenue",
+    "name": "Obsidian",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Obsidian-Perfume-100ml-EDP-French-Avenue-183496326.webp?v=1768705572",
+    "notes": {
+      "top": [
+        "Grapefruit",
+        "Bergamot"
+      ],
+      "middle": [
+        "Myrrh",
+        "Jasmine",
+        "Labdanum"
+      ],
+      "base": [
+        "Vanilla",
+        "Amber",
+        "Tonka Bean"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/obsidian-french-avenue"
+      }
+    }
+  },
+  {
+    "id": "ean-6298042001879",
+    "brand": "French Avenue",
+    "name": "Obsidian",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "6298042001879",
+    "shops": 3,
+    "image": "https://manchesterouds.com/cdn/shop/files/obsidian-edp-100ml-french-avenue-8539220.webp?v=1786194483&width=1920",
+    "notes": {
+      "top": [
+        "Grapefruit",
+        "Bergamot",
+        "Italian Lemon",
+        "Bitter Orange",
+        "Mandarin",
+        "Ice",
+        "Aldehydes"
+      ],
+      "middle": [
+        "Cognac",
+        "Cinnamon",
+        "Caramel"
+      ],
+      "base": [
+        "Tonka Bean",
+        "Oak",
+        "Sandalwood",
+        "Cashmere Wood",
+        "Myrrh"
+      ],
+      "source": {
+        "retailerId": "manchester-ouds",
+        "url": "https://manchesterouds.com/products/obsidian-edp-100ml"
+      }
+    },
+    "houseCeiling": 45
+  },
+  {
     "id": "ean-6290360379340",
     "brand": "French Avenue",
     "name": "Opus Magnum",
@@ -22214,7 +22255,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "id": "ean-6298042001893",
     "brand": "French Avenue",
     "name": "Ripple",
-    "concentration": "Extrait de Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "6298042001893",
     "shops": 3,
@@ -22306,7 +22347,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "id": "ean-6290360379227",
     "brand": "French Avenue",
     "name": "Royal Taboo Aromatix",
-    "concentration": "Extrait de Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "6290360379227",
     "shops": 3,
@@ -22754,7 +22795,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "id": "ean-3614274219579",
     "brand": "Giorgio Armani",
     "name": "Stronger With You",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "3614274219579",
     "shops": 3,
@@ -23323,7 +23364,10 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/gres-cabotine-eau-de-parfum-100ml"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "ean-3616302514281",
     "brand": "Gucci",
@@ -23461,7 +23505,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "id": "ean-3616304175916",
     "brand": "Gucci",
     "name": "Guilty Pour Femme Elixir de",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 60,
     "ean": "3616304175916",
     "shops": 3,
@@ -24498,7 +24542,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "id": "ean-3423474884155",
     "brand": "Issey Miyake",
     "name": "Nuit D'issey",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 75,
     "ean": "3423474884155",
     "shops": 3,
@@ -24810,7 +24854,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "id": "ean-8435415076937",
     "brand": "Jean Paul Gaultier",
     "name": "Le Male Elixir",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 75,
     "ean": "8435415076937",
     "shops": 3,
@@ -24850,7 +24894,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "id": "ean-8435415102346",
     "brand": "Jean Paul Gaultier",
     "name": "Le Male Elixir Absolu Intense",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 125,
     "ean": "8435415102346",
     "shops": 3,
@@ -24875,7 +24919,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "id": "ean-8435415102353",
     "brand": "Jean Paul Gaultier",
     "name": "Le Male Elixir Absolu Intense",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 200,
     "ean": "8435415102353",
     "shops": 3,
@@ -24911,7 +24955,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "id": "ean-8435415080415",
     "brand": "Jean Paul Gaultier",
     "name": "Scandal Absolu",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "8435415080415",
     "shops": 3,
@@ -24922,7 +24966,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "id": "ean-8435415080422",
     "brand": "Jean Paul Gaultier",
     "name": "Scandal Absolu",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 80,
     "ean": "8435415080422",
     "shops": 3,
@@ -24933,7 +24977,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "id": "ean-8435415080378",
     "brand": "Jean Paul Gaultier",
     "name": "Scandal Absolu Pour Homme",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "8435415080378",
     "shops": 3,
@@ -24944,7 +24988,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "id": "ean-8435415080385",
     "brand": "Jean Paul Gaultier",
     "name": "Scandal Absolu Pour Homme",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "8435415080385",
     "shops": 3,
@@ -29822,7 +29866,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "id": "ean-3616305033055",
     "brand": "Marc Jacobs",
     "name": "Daisy Wild Eau So Intense",
-    "concentration": "Eau de Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "3616305033055",
     "shops": 3,
@@ -32138,7 +32182,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "id": "ean-3614274306217",
     "brand": "Prada",
     "name": "Paradoxe Radical Essence",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "3614274306217",
     "shops": 3,
@@ -32149,7 +32193,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "id": "ean-3614274305401",
     "brand": "Prada",
     "name": "Paradoxe Radical Essence",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 90,
     "ean": "3614274305401",
     "shops": 3,
@@ -32268,7 +32312,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "id": "ean-3349668614516",
     "brand": "Rabanne",
     "name": "Invictus Victory Elixir Intense",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "3349668614516",
     "shops": 3,
@@ -32279,7 +32323,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "id": "ean-3349668614523",
     "brand": "Rabanne",
     "name": "Invictus Victory Elixir Intense",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "3349668614523",
     "shops": 3,
@@ -32312,7 +32356,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "id": "ean-3349668627486",
     "brand": "Rabanne",
     "name": "Olympéa",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 30,
     "ean": "3349668627486",
     "shops": 3,
@@ -32323,7 +32367,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "id": "ean-3349668627462",
     "brand": "Rabanne",
     "name": "Olympéa",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "3349668627462",
     "shops": 3,
@@ -32926,7 +32970,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "id": "ean-6297001571040",
     "brand": "Rayhaan",
     "name": "Tiger Cal Cologne",
-    "concentration": "Extrait de Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "6297001571040",
     "shops": 3,
@@ -33362,7 +33406,10 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43157930865&a=3026001&m=106925"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-3700358123624",
     "brand": "Serge Lutens",
@@ -34851,7 +34898,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "id": "ean-8011003891092",
     "brand": "Versace",
     "name": "Bright Crystal",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 90,
     "ean": "8011003891092",
     "shops": 3,
@@ -35706,7 +35753,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "id": "ean-6297000226163",
     "brand": "Yardley London",
     "name": "Gentleman Classic",
-    "concentration": "Eau de Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "6297000226163",
     "shops": 3,
@@ -37164,7 +37211,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "id": "ean-6290171075738",
     "brand": "Afnan",
     "name": "9pm Elixir Intense",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "6290171075738",
     "shops": 2,
@@ -37588,7 +37635,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "id": "ean-6290171070214",
     "brand": "Afnan",
     "name": "Supremacy Not Only Intense",
-    "concentration": "Extrait de Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "6290171070214",
     "shops": 2,
@@ -37820,7 +37867,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "id": "ean-6290360617312",
     "brand": "Ahmed Al Maghribi",
     "name": "Black Fumes",
-    "concentration": "Extrait de Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "6290360617312",
     "shops": 2,
@@ -37831,7 +37878,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "id": "ean-6290360616933",
     "brand": "Ahmed Al Maghribi",
     "name": "Blu Oud",
-    "concentration": "Extrait de Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "6290360616933",
     "shops": 2,
@@ -44325,7 +44372,10 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/168287_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "ean-0888874008007",
     "brand": "Bond No 9",
@@ -47532,7 +47582,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "id": "ean-3616303429669",
     "brand": "Calvin Klein",
     "name": "Eternity",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 200,
     "ean": "3616303429669",
     "shops": 2,
@@ -47747,7 +47797,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "id": "ean-3616303476793",
     "brand": "Calvin Klein",
     "name": "Eternity For Women Aromatic Essence Intense",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "3616303476793",
     "shops": 2,
@@ -52541,7 +52591,10 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43157928676&a=3026001&m=106925"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
   {
     "id": "ean-085805390600",
     "brand": "Elizabeth Arden",
@@ -52665,7 +52718,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "id": "ean-085805268848",
     "brand": "Elizabeth Arden",
     "name": "Green Tea Eau ée Scent",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "085805268848",
     "shops": 2,
@@ -56802,7 +56855,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "id": "ean-6298042001718",
     "brand": "French Avenue",
     "name": "Frostbite",
-    "concentration": "Extrait de Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "6298042001718",
     "shops": 2,
@@ -56938,37 +56991,6 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/moonstone-noire-french-avenue"
       }
     }
-  },
-  {
-    "id": "french-avenue-17968",
-    "brand": "French Avenue",
-    "name": "Obsidian",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10037750006102",
-    "shops": 2,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/49422BB4-385B-468F-B03F-D551FB4E3179.webp?v=1765931813&width=990",
-    "notes": {
-      "top": [
-        "Grapefruit",
-        "Bergamot",
-        "Aldehydes"
-      ],
-      "middle": [
-        "Labdanum",
-        "Myrrh",
-        "Jasmine"
-      ],
-      "base": [
-        "Tonka Bean",
-        "Vanilla"
-      ],
-      "source": {
-        "retailerId": "oud-arabian",
-        "url": "https://oudarabian.co.uk/products/french-avenue-obsidian-100ml-extrait-de-parfum"
-      }
-    },
-    "houseCeiling": 45
   },
   {
     "id": "emirates-oud-9416546025821-default-title",
@@ -57500,7 +57522,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "id": "ean-3614273953764",
     "brand": "Giorgio Armani",
     "name": "Acqua Di Gio Profondo",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "3614273953764",
     "shops": 2,
@@ -57849,7 +57871,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "id": "ean-3614273844673",
     "brand": "Giorgio Armani",
     "name": "My Way",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 30,
     "ean": "3614273844673",
     "shops": 2,
@@ -57860,7 +57882,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "id": "ean-3614273844666",
     "brand": "Giorgio Armani",
     "name": "My Way",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "3614273844666",
     "shops": 2,
@@ -64249,7 +64271,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "id": "ean-8435415080408",
     "brand": "Jean Paul Gaultier",
     "name": "Scandal Absolu",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 30,
     "ean": "8435415080408",
     "shops": 2,
@@ -64392,7 +64414,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "id": "ean-8435415054041",
     "brand": "Jean Paul Gaultier",
     "name": "Scandal Gold For Her",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 80,
     "ean": "8435415054041",
     "shops": 2,
@@ -67693,7 +67715,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "id": "ean-5012209042441",
     "brand": "L'Aimant",
     "name": "De Toilette",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "5012209042441",
     "shops": 2,
@@ -68590,7 +68612,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "id": "ean-3614274103007",
     "brand": "Lancôme",
     "name": "La Vie Est Belle Rose Extraordinaire",
-    "concentration": "Eau de Parfum",
+    "concentration": "Disputed",
     "sizeMl": 30,
     "ean": "3614274103007",
     "shops": 2,
@@ -81127,7 +81149,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "id": "ean-3349668579822",
     "brand": "Rabanne",
     "name": "1 Million",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "3349668579822",
     "shops": 2,
@@ -81152,7 +81174,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "id": "ean-3349668579839",
     "brand": "Rabanne",
     "name": "1 Million",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "3349668579839",
     "shops": 2,
@@ -81309,7 +81331,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "id": "ean-3349668617043",
     "brand": "Rabanne",
     "name": "1 Million Royal",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "3349668617043",
     "shops": 2,
@@ -81430,7 +81452,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "id": "ean-3349668641826",
     "brand": "Rabanne",
     "name": "Invictus Absolu Intense",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "3349668641826",
     "shops": 2,
@@ -81455,7 +81477,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "id": "ean-3349668641833",
     "brand": "Rabanne",
     "name": "Invictus Absolu Intense",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "3349668641833",
     "shops": 2,
@@ -81606,7 +81628,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "id": "ean-3349668627479",
     "brand": "Rabanne",
     "name": "Olympéa",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 80,
     "ean": "3349668627479",
     "shops": 2,
@@ -81617,7 +81639,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "id": "ean-3349668641758",
     "brand": "Rabanne",
     "name": "Olympéa Absolu Intense",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 30,
     "ean": "3349668641758",
     "shops": 2,
@@ -81752,7 +81774,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "id": "ean-3349668644063",
     "brand": "Rabanne",
     "name": "Phantom Elixir Intense",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "3349668644063",
     "shops": 2,
@@ -81763,7 +81785,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "id": "ean-3349668644049",
     "brand": "Rabanne",
     "name": "Phantom Elixir Intense",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "3349668644049",
     "shops": 2,
@@ -81774,7 +81796,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "id": "ean-3349668644025",
     "brand": "Rabanne",
     "name": "Phantom Elixir Intense",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 150,
     "ean": "3349668644025",
     "shops": 2,
@@ -87553,7 +87575,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "id": "ean-8011003891498",
     "brand": "Versace",
     "name": "Crystal Noir",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 50,
     "ean": "8011003891498",
     "shops": 2,
@@ -87564,7 +87586,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "id": "ean-8011003891061",
     "brand": "Versace",
     "name": "Crystal Noir",
-    "concentration": "Parfum",
+    "concentration": "Disputed",
     "sizeMl": 90,
     "ean": "8011003891061",
     "shops": 2,
@@ -90127,7 +90149,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "id": "ean-6290171070276",
     "brand": "Zimaya",
     "name": "Musk Is Great",
-    "concentration": "Extrait de Parfum",
+    "concentration": "Disputed",
     "sizeMl": 100,
     "ean": "6290171070276",
     "shops": 2,
@@ -165119,6 +165141,41 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "houseCeiling": 25
   },
   {
+    "id": "manchester-ouds-ff-ravine-ginger-100",
+    "brand": "French Avenue",
+    "name": "Ravine Ginger",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://manchesterouds.com/cdn/shop/files/ravine-ginger-edp-100ml-french-avenue-9976677.webp?v=1786194495&width=1920",
+    "notes": {
+      "top": [
+        "Ginger",
+        "Bergamot",
+        "Lemon"
+      ],
+      "middle": [
+        "Orange Blossom",
+        "Jasmine",
+        "Rose",
+        "Magnolia"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk",
+        "Sandalwood",
+        "Amber",
+        "Patchouli",
+        "Cashmere Wood"
+      ],
+      "source": {
+        "retailerId": "manchester-ouds",
+        "url": "https://manchesterouds.com/products/ravine-ginger-edp-100ml"
+      }
+    }
+  },
+  {
     "id": "fragrancehub-ravineice",
     "brand": "French Avenue",
     "name": "Ravine Ice",
@@ -168023,7 +168080,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/115208_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "ean-3614273636568",
     "brand": "Giorgio Armani",
@@ -175726,7 +175786,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/127767_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "ean-3346131431618",
     "brand": "Hermès",
@@ -182711,7 +182774,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/618wDYXqCSL.jpg?v=1767983376",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "ean-690251026104",
     "brand": "Jo Malone",
@@ -190514,7 +190580,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416707117193-45147078295689",
     "brand": "Lacoste",
@@ -200276,7 +200345,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "fragrancehub-lattafayara",
     "brand": "Lattafa",
@@ -210321,7 +210393,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/MFK0004.png?v=1772099195&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "justmylook-mfk0009",
     "brand": "Maison Francis Kurkdjian",
@@ -217184,7 +217259,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/monaco-royale-extrait-de-parfum-mykonos"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16268878381405-50ml",
     "brand": "Mykonos",
@@ -224210,7 +224288,10 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/mehwish-paris-corner"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15695834939741-default-title",
     "brand": "Paris Corner",
@@ -232519,7 +232600,10 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416753287305-45147136229513",
     "brand": "Ralph Lauren",
@@ -242747,7 +242831,10 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71SYuoOdE7L.jpg?v=1767985440",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416763543689-45147147600009",
     "brand": "Salle Privée",
@@ -250213,7 +250300,10 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
         "url": "https://thebeautystore.com/products/tom-ford-noir-extreme-parfum-spray-100ml"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
   {
     "id": "justmylook-ford0015",
     "brand": "Tom Ford",
@@ -258279,7 +258369,10 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsusdk2-01337",
     "brand": "Versace",
@@ -270154,73 +270247,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
       "isNew": false,
       "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "ean-6298042001923": [
-    {
-      "retailerId": "beautybase",
-      "price": 39,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/french-avenue-ravine-ginger-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-23T00:55:06.679Z",
-      "firstSeenAt": "2026-08-10T23:33:23.067Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769008168-09335200.jpg?v=1772624921&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "emirates-oud",
-      "price": 34.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/ravine-ginger-french-avenue",
-      "fetchedAt": "2026-08-26T13:18:43.477Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ravine-Ginger-Perfume-100ml-EDP-French-Avenue-183920914.png?v=1769915139",
-      "rating": null
-    },
-    {
-      "retailerId": "fragrancehub",
-      "price": 34.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/french-avenue-ravine-ginger-eau-de-parfum-100ml-copy",
-      "fetchedAt": "2026-08-26T04:49:22.137Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    },
-    {
-      "retailerId": "french-avenue",
-      "price": 39,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/ravine-ginger-edp-100ml",
-      "fetchedAt": "2026-08-26T13:18:43.477Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    },
-    {
-      "retailerId": "manchester-ouds",
-      "price": 23.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://manchesterouds.com/products/ravine-ginger-edp-100ml",
-      "fetchedAt": "2026-08-26T03:22:47.160Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/ravine-ginger-edp-100ml-french-avenue-9976677.webp?v=1786194495&width=1920",
       "rating": null
     }
   ],
@@ -283153,60 +283179,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-6298042001879": [
-    {
-      "retailerId": "manchester-ouds",
-      "price": 23.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://manchesterouds.com/products/obsidian-edp-100ml",
-      "fetchedAt": "2026-08-26T03:22:47.160Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/obsidian-edp-100ml-french-avenue-8539220.webp?v=1786194483&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": 45,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/obsidian-french-avenue",
-      "fetchedAt": "2026-08-26T13:18:43.477Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Obsidian-Perfume-100ml-EDP-French-Avenue-183496326.webp?v=1768705572",
-      "rating": null
-    },
-    {
-      "retailerId": "fragrancehub",
-      "price": 34.5,
-      "wasPrice": 44.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/french-avenue-obsidian-edp-100ml",
-      "fetchedAt": "2026-08-26T04:49:22.137Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    },
-    {
-      "retailerId": "perfumeo",
-      "price": 28.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "outOfStock",
-      "url": "https://perfumeo.co.uk/products/obsidian-by-french-avenue-100ml-eau-de-parfum/",
-      "fetchedAt": "2026-08-26T13:18:43.477Z",
-      "firstSeenAt": "2026-08-23T00:55:06.679Z",
-      "isNew": true,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
   "emirates-oud-15082087186781-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -283256,6 +283228,60 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/french-avenue-pinnace-oryn-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "ean-6298042001923": [
+    {
+      "retailerId": "beautybase",
+      "price": 39,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/french-avenue-ravine-ginger-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-23T00:55:06.679Z",
+      "firstSeenAt": "2026-08-10T23:33:23.067Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769008168-09335200.jpg?v=1772624921&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 34.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/ravine-ginger-french-avenue",
+      "fetchedAt": "2026-08-26T13:18:43.477Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ravine-Ginger-Perfume-100ml-EDP-French-Avenue-183920914.png?v=1769915139",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 34.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/french-avenue-ravine-ginger-eau-de-parfum-100ml-copy",
+      "fetchedAt": "2026-08-26T04:49:22.137Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 39,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/ravine-ginger-edp-100ml",
+      "fetchedAt": "2026-08-26T13:18:43.477Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
       "isNew": false,
       "imageUrl": null,
       "rating": null
@@ -312551,6 +312577,91 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "isNew": true,
       "imageUrl": null,
       "rating": null
+    }
+  ],
+  "emirates-oud-15765631467869-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": 45,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/obsidian-french-avenue",
+      "fetchedAt": "2026-08-26T13:18:43.477Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Obsidian-Perfume-100ml-EDP-French-Avenue-183496326.webp?v=1768705572",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 34.5,
+      "wasPrice": 44.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/french-avenue-obsidian-edp-100ml",
+      "fetchedAt": "2026-08-26T04:49:22.137Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 28.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/obsidian-by-french-avenue-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-26T13:18:43.477Z",
+      "firstSeenAt": "2026-08-23T00:55:06.679Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "ean-6298042001879": [
+    {
+      "retailerId": "manchester-ouds",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://manchesterouds.com/products/obsidian-edp-100ml",
+      "fetchedAt": "2026-08-26T03:22:47.160Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/obsidian-edp-100ml-french-avenue-8539220.webp?v=1786194483&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/obsidian-extrait-de-parfum-100ml",
+      "fetchedAt": "2026-08-26T13:18:43.477Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-26T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/french-avenue-obsidian-100ml-extrait-de-parfum",
+      "fetchedAt": "2026-08-26T03:22:47.160Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/49422BB4-385B-468F-B03F-D551FB4E3179.webp?v=1765931813&width=990",
+      "rating": {
+        "value": 1,
+        "count": 1
+      }
     }
   ],
   "ean-6290360379340": [
@@ -371072,37 +371183,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "isNew": true,
       "imageUrl": null,
       "rating": null
-    }
-  ],
-  "french-avenue-17968": [
-    {
-      "retailerId": "french-avenue",
-      "price": 45,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/obsidian-extrait-de-parfum-100ml",
-      "fetchedAt": "2026-08-26T13:18:43.477Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    },
-    {
-      "retailerId": "oud-arabian",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-26T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/french-avenue-obsidian-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-26T03:22:47.160Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/49422BB4-385B-468F-B03F-D551FB4E3179.webp?v=1765931813&width=990",
-      "rating": {
-        "value": 1,
-        "count": 1
-      }
     }
   ],
   "emirates-oud-9416546025821-default-title": [
@@ -488394,6 +488474,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-24T06:42:40.717Z",
       "isNew": true,
       "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "manchester-ouds-ff-ravine-ginger-100": [
+    {
+      "retailerId": "manchester-ouds",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://manchesterouds.com/products/ravine-ginger-edp-100ml",
+      "fetchedAt": "2026-08-26T03:22:47.160Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/ravine-ginger-edp-100ml-french-avenue-9976677.webp?v=1786194495&width=1920",
       "rating": null
     }
   ],

@@ -225,6 +225,27 @@
  * One of 1,300 multi-listing groups, but it is the exact shape that would let
  * an 80ml price refute a 100ml RRP.
  *
+ * ── Concentration, checked for the identical failure and found not to have it ──
+ * scripts/build-demo-catalogue.ts's own concentration audit asked the same
+ * question of concentration that this section already answers for size: can
+ * an EAN-keyed merge fold two genuinely different articles together and let
+ * one refute the other's reference price. Measured over every one of the 67
+ * products where shops' own listings name a genuinely different concentration
+ * (Eau de Parfum against Parfum, Extrait, or Eau de Toilette — see that
+ * audit's own comment): not one of them also disagrees about size, which is
+ * exactly the corroborating signal the Penthouse Windsor case above shows and
+ * this class of case does not. A concentration word does not appear on a
+ * barcode; a bottle's contents do not change to match whichever word a shop's
+ * feed happened to print, so a shared EAN plus agreeing sizes is still one
+ * bottle, priced by whoever actually sells it, whatever the label dispute.
+ * `CredibilityOffer` therefore carries no `concentration` field and needs
+ * none: every offer this file judges is judged against real other offers on
+ * the identical, size-confirmed article, and CONCENTRATION_DISPUTED in
+ * productName.ts is a display fact, not a pricing one. If a future measurement
+ * ever finds a concentration disagreement that *also* disagrees about size,
+ * treat it exactly like a Penthouse Windsor case — the sizeMl gate above
+ * already refuses it — rather than adding a second, redundant gate here.
+ *
  * ── Nothing here reads the network ──────────────────────────────────────────
  * Every figure is already on disk when this runs, which is what makes the
  * result reproducible and the numbers above re-measurable at any time.
