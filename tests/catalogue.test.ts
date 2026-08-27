@@ -1,8 +1,13 @@
+import { readFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { parseListings, parsePrice, parseAvailability, extractJsonLdBlocks } from '../src/catalogue/jsonld.js';
 import { reconcile } from '../src/catalogue/reconcile.js';
 import { isNewListing, newListings, daysSinceFirstSeen } from '../src/catalogue/newBadge.js';
 import type { RawListing, StoredListing } from '../src/catalogue/types.js';
+
+const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 const OPTS = { sectionId: 'fragrance', pageUrl: 'https://shop.example/fragrance' };
 
@@ -329,6 +334,66 @@ describe('parseListings', () => {
       aggregateRating: { reviewCount: '40' },
     });
     expect(parseListings(html, OPTS)[0]?.rating).toBeNull();
+  });
+});
+
+/*
+ * ── Notino UK render capture, 2026-08-27 ────────────────────────────────────
+ *
+ * data/render-capture/notino-uk/*.html are real bytes committed by CI dispatch
+ * run #344 (commit 0fb2cd4), captured via --capture-render-shop against
+ * localBrowserRenderer — the free tier, no Apify credential involved. These
+ * tests run the actual parsing path against them so a parser change is
+ * checked against real markup, not a hand-written fixture that only proves
+ * the parser agrees with itself.
+ *
+ * Only fragrance.html turned out to carry a real page: its `<title>` is
+ * "Fragrances" and its JSON-LD is a genuine CollectionPage. mens.html,
+ * womens.html and niche.html each rendered to Cloudflare's interactive
+ * "Just a moment..." challenge instead — confirmed by their own `<title>`
+ * and by the `cf-chl-widget`/`challenges.cloudflare.com` markup they carry,
+ * not by a string match that could be an unrelated footer widget. That is a
+ * different, harder failure than the plain HTTP 403 'proxied' documents: a
+ * managed challenge is what the *browser* got shown after rendering, so a
+ * plain headless render cannot be assumed to fix these three sections the
+ * way it fixed fragrance. See src/config/retailers.ts's notino-uk entry.
+ */
+describe('parseListings against the real Notino UK render capture', () => {
+  const capture = (name: string) =>
+    readFileSync(resolve(REPO_ROOT, 'data/render-capture/notino-uk', name), 'utf8');
+
+  it('reads 27 real, priced, in-stock listings out of fragrance.html', () => {
+    const html = capture('fragrance.html');
+    const listings = parseListings(html, {
+      sectionId: 'fragrance',
+      pageUrl: 'https://www.notino.co.uk/fragrance/?page=1',
+    });
+
+    expect(listings).toHaveLength(27);
+    expect(listings.every((l) => l.priceGbp !== null)).toBe(true);
+    expect(listings.every((l) => l.inStock === true)).toBe(true);
+
+    // Hand-checked against the raw HTML itself (grep for "Xerjoff XJ 1861
+    // Naxos" in the fixture): `"price":144.5`. Not a value this test invents.
+    const xerjoff = listings.find((l) => l.rawTitle === 'Xerjoff XJ 1861 Naxos');
+    expect(xerjoff?.priceGbp).toBe(144.5);
+    expect(xerjoff?.url).toBe('https://www.notino.co.uk/xerjoff/xj-1861-naxos-eau-de-parfum-unisex/');
+
+    // Notino's Product nodes carry none of sku/mpn/gtin13/gtin/productID — the
+    // registry's notino-uk comment must not overclaim GTIN coverage this
+    // capture never showed. Every listing still gets an identifier, but only
+    // because parseListings falls back to the URL's own slug.
+    expect(listings.every((l) => l.ean === null)).toBe(true);
+    expect(listings.every((l) => l.retailerSku.length > 0)).toBe(true);
+  });
+
+  it('finds no listings in mens.html, womens.html or niche.html — Cloudflare challenge pages, not empty grids', () => {
+    for (const name of ['mens.html', 'womens.html', 'niche.html']) {
+      const html = capture(name);
+      expect(html).toContain('cf-chl-widget');
+      expect(html).toContain('challenges.cloudflare.com');
+      expect(parseListings(html, { sectionId: name, pageUrl: 'https://www.notino.co.uk/' })).toHaveLength(0);
+    }
   });
 });
 
