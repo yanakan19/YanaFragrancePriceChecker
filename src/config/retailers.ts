@@ -309,7 +309,56 @@ export const RETAILERS: readonly Retailer[] = [
     // fallback, because it renders through the same residential proxy inside
     // an actual browser rather than a plain HTTP client. Neither tier has
     // run for real: no Apify credential exists in this environment.
-    adapter: 'proxied',
+    //
+    // ── The free local-render tier, measured, 2026-08-27 ──────────────────
+    // Nobody had tried the *free* tier (a local headless Chromium — see
+    // scripts/catalogue-harvest.ts and src/catalogue/localBrowser.ts, which
+    // runs unconditionally for every enabled shop before either paid Apify
+    // tier, `adapter` notwithstanding) against this shop specifically, so
+    // CI dispatch run #344 (commit 0fb2cd4) captured what it actually
+    // rendered: data/render-capture/notino-uk/{fragrance,mens,womens,niche}.html.
+    //
+    // fragrance.html is real: its <title> is "Fragrances" and it carries a
+    // genuine CollectionPage JSON-LD block with 27 Product entries under
+    // `mainEntity`, each with a real Offer (GBP price, availability, URL).
+    // That shape was one flatten() branch away from working — the parser
+    // followed `@graph`, `itemListElement` and `item` but had never seen a
+    // plain `mainEntity` array, so it silently found nothing here even
+    // though this exact page was already being fetched for free every run.
+    // Fixed in src/catalogue/jsonld.ts (2026-08-27); tests/catalogue.test.ts
+    // runs the real parser against this real, committed fixture and checks
+    // an exact price by hand (Xerjoff XJ 1861 Naxos, £144.50) rather than
+    // trusting a synthetic one. Notino's Product nodes carry no sku, mpn,
+    // gtin13/gtin/gtin14/gtin8 or productID at all — 0 of 27 — and only
+    // about a third embed a size in `description`; every listing still gets
+    // an identifier because parseListings falls back to the product URL's
+    // own slug, same as any other GTIN-less sitemap-route shop already in
+    // this registry.
+    //
+    // mens.html, womens.html and niche.html did NOT come back the same way:
+    // each rendered to Cloudflare's interactive "Just a moment..." challenge
+    // (title, cf-chl-widget markup, challenges.cloudflare.com script — a real
+    // bot-management verdict, not an incidental string hit like the
+    // Turnstile config in fragrance.html's own footer). All four requests
+    // went through localBrowserRenderer's one shared browser context for the
+    // whole batch (see its own comment on why: cookie continuity across
+    // pages); fragrance was rendered first and got real content, and the
+    // three requests after it in that same session, ~1s apart, all got
+    // challenged. That is consistent with the challenge being triggered by
+    // the session's own request pattern rather than by this runner's IP
+    // being refused outright — which would mean a residential proxy or actor
+    // (paid) is not obviously the fix either, since the IP was never shown to
+    // be the problem for these three. Untested and not assumed: nothing here
+    // has tried a fresh context per section URL, which the free tier could
+    // do without spending anything.
+    //
+    // `adapter` moves from 'proxied' to 'headless' on the strength of the
+    // fragrance section alone — a plain headless browser, no residential
+    // proxy, no Apify credential, is enough to get real priced listings from
+    // this shop's largest, catch-all section. It is not a claim that the
+    // other three sections are solved: they still yield nothing through
+    // every tier this run tried, for a reason not yet pinned down.
+    adapter: 'headless',
     currency: 'GBP',
     shipping: {
       standardGbp: 2.99,

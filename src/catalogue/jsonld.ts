@@ -57,6 +57,13 @@ function flatten(node: unknown, out: JsonValue[] = []): JsonValue[] {
     // ItemList pages nest the products one level down.
     if (obj['itemListElement']) flatten(obj['itemListElement'], out);
     if (obj['item']) flatten(obj['item'], out);
+    // A CollectionPage (Notino's category pages, confirmed 2026-08-27 against
+    // data/render-capture/notino-uk/fragrance.html) lists its Products
+    // straight under `mainEntity` as an array, with no ItemList wrapper at
+    // all. Without this the whole page parsed as zero listings: the outer
+    // node is a CollectionPage, which isProduct() rightly rejects, and
+    // nothing ever looked inside it for the Products it was carrying.
+    if (obj['mainEntity']) flatten(obj['mainEntity'], out);
   }
   return out;
 }
