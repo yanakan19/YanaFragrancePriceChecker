@@ -135,6 +135,10 @@ on:
         description: 'Force a Top Deals Today snapshot without waiting for its normal ~6 hourly cadence.'
         type: boolean
         default: false
+      tiktok_probe:
+        description: 'TikTok Shop pilot: run the bounded Affiliate API credential probe (two read-only calls against the owner''s own creator account). Requires the TIKTOK_APP_KEY / TIKTOK_APP_SECRET / TIKTOK_REFRESH_TOKEN secrets — without them it logs what is missing and exits cleanly. Never runs on schedule; see docs/TIKTOK-SHOP-PLAN.md.'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -576,6 +580,33 @@ jobs:
             "--shop=${{ inputs.awin_feed_diag_shop }}" \
             ${{ inputs.awin_feed_diag_match && format('"--match={0}"', inputs.awin_feed_diag_match) || '' }} \
             ${{ inputs.awin_feed_diag_sku && format('"--sku={0}"', inputs.awin_feed_diag_sku) || '' }}
+
+      # ── TikTok Shop pilot probe — dispatch-only, by design ────────────────
+      # The first live step of docs/TIKTOK-SHOP-PLAN.md, deliberately shaped
+      # like the debug steps above rather than the harvest: explicit dispatch
+      # only, never on schedule, bounded to exactly two read-only calls
+      # against the owner's own TikTok creator account (profile + showcase),
+      # and it writes a redacted report under data/tiktok/ for a human to
+      # read — no listings, no parsing, no effect on the catalogue or the
+      # demo. D8 keeps TikTok off by default; this step honours that by never
+      # being part of any scheduled run. The three secrets exist only after
+      # the owner completes the Partner Center signup (plan §6); until then
+      # the script logs exactly which secret is missing and exits 0, so
+      # dispatching early is a readable answer rather than a red run.
+      - name: TikTok Shop probe
+        if: ${{ inputs.tiktok_probe }}
+        env:
+          TIKTOK_APP_KEY: ${{ secrets.TIKTOK_APP_KEY }}
+          TIKTOK_APP_SECRET: ${{ secrets.TIKTOK_APP_SECRET }}
+          TIKTOK_REFRESH_TOKEN: ${{ secrets.TIKTOK_REFRESH_TOKEN }}
+        run: npm run tiktok:probe
+
+      - name: Commit the TikTok probe report
+        if: ${{ inputs.tiktok_probe }}
+        run: |
+          ./scripts/commit-and-push.sh \
+            "TikTok probe: what the Affiliate API answered $(date -u +%Y-%m-%d)" \
+            data/tiktok
 
       # "Top Deals Today" moves on its own fixed 6-hourly cadence rather than
       # every hourly tick like everything else — see scripts/build-deals.ts's
