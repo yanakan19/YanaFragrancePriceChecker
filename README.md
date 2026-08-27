@@ -23,6 +23,12 @@ npm run demo                  # rebuild demo/index.html, then open it
 It compiles `src/` and inlines the bundle, so the demo runs the real modules
 rather than a reimplementation and cannot drift from what ships.
 
+It is a build artefact, not source: edit `demo/app.ts`, `demo/template.html`,
+or anything else `tsconfig.demo.json` bundles, and `npm run demo` must run
+again before you commit. `tests/demoBuildFreshness.test.ts` enforces this —
+it fails `npm test` if `demo/index.html`'s stamped build hash (see
+`scripts/demoInputsHash.ts`) does not match the source tree.
+
 **Its prices are invented**, because there is no fetching layer yet. The page
 says so in a banner. Each of the six sample fragrances exercises a specific
 rule — the penny-under-threshold case, round-down discount percentages, a

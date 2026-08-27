@@ -12,12 +12,30 @@
  * Two outputs, same body:
  *   - `demo/index.html`      a standalone document you can open from disk
  *   - `dist-demo/artifact.html`  body only, for the hosted artifact wrapper
+ *
+ * Every run also stamps a fingerprint of its own inputs (see
+ * scripts/demoInputsHash.ts) into the two committed documents.
+ * tests/demoBuildFreshness.test.ts recomputes that fingerprint from the
+ * source tree on every `vitest run` and fails if it disagrees with what is
+ * stamped here — the check that this script itself was actually re-run
+ * after `demo/app.ts`, `demo/template.html` or anything else it bundles last
+ * changed. See that module's header for why: two commits shipped a stale
+ * `demo/index.html` on 2026-08-26 with every test green, because nothing
+ * compared the built page against the source it claims to represent.
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { computeDemoInputsHash, demoBuildHashComment } from './demoInputsHash.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+
+// Computed from source, before the bundle is inlined below, so this reflects
+// what actually fed the build about to happen — not the bundle's own output,
+// which esbuild's minifier makes no promise to reproduce byte-for-byte
+// across otherwise-identical runs (see demoInputsHash.ts's header for why
+// that rules out hashing the output instead).
+const inputsHash = computeDemoInputsHash(root);
 
 const template = readFileSync(resolve(root, 'demo/template.html'), 'utf8');
 const bundle = readFileSync(resolve(root, 'dist-demo/bundle.js'), 'utf8');
@@ -58,6 +76,7 @@ const SITE_URL = 'https://pricesniffs.space';
 const OG_DESCRIPTION = 'Compare real UK fragrance prices across every retailer that stocks them. No invented numbers.';
 
 const standalone = `<!doctype html>
+${demoBuildHashComment(inputsHash.hash)}
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
@@ -104,3 +123,4 @@ writeFileSync(resolve(root, 'demo/404.html'), standalone);
 console.log(`demo/index.html          ${(standalone.length / 1024).toFixed(1)} kB`);
 console.log(`demo/404.html            ${(standalone.length / 1024).toFixed(1)} kB (deep-link fallback)`);
 console.log(`dist-demo/artifact.html  ${(body.length / 1024).toFixed(1)} kB`);
+console.log(`build-hash               sha256:${inputsHash.hash.slice(0, 12)}… (${inputsHash.files.length} input files)`);
