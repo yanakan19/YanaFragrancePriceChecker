@@ -336,3 +336,117 @@ the new SHAs afterwards. That is the owner's call to make, not an agent's.
 The general lesson is the one `df0122a` already reaches for in its closing note:
 **`git commit --amend` is not safe in a shared checkout.** Stage by name, commit
 by name, and never amend a commit you did not just write.
+
+---
+
+## D12 — The snapshot revert recurs on every provisioned boot, recovery is now automatic, and the environment needs recreating
+
+**Diagnosed 2026-08-27, extending D10.** D10 established that the container's
+disk is a checkpoint frozen on 2026-08-12 and re-applied on resume. Since then
+the revert has recurred roughly eleven more times through 2026-08-26 and again
+overnight into 2026-08-27, each occurrence recovered by hand: read the diff,
+discard the phantom, fetch, move to origin. This morning's boot (07:43 UTC) came
+up reverted once more, and at 07:52:19 a session agent performed manual recovery
+number thirteen — the main checkout's reflog shows `reset: moving to
+origin/claude/scentday-retailer-registry-h92tth` at that second, jumping
+straight from `c9fc2b1` (2026-08-12 23:11:14) to `ae354a8` (2026-08-27). This
+entry records what the 2026-08-27 examination added to D10, what is now
+automatic, and the one action that actually fixes it.
+
+### The freeze is at ~23:13, not 23:11 — and that explains the phantom
+
+D10 dated the checkpoint to the second of `c9fc2b1`. A full mtime sweep of
+`/root` and `/home` on the freshly booted container sharpens that: exactly
+fifteen paths carry an mtime between 2026-08-12 23:12 and this morning's boot,
+and every one of them sits in the two minutes 23:12:27–23:13:51 — npm debug
+logs (23:12:27, 23:12:42), MCP logs (23:13:50),
+`~/.claude/backups/.claude.json.backup.1786576431798` (23:13:51), and
+`src/catalogue/awinFeed.ts` itself. The checkpoint was captured **about two
+and a half minutes after `c9fc2b1` was committed**, and at that moment the
+14-line `merchant_deep_link` comment was sitting **uncommitted** in the working
+tree. That is the whole mystery of the "phantom diff": it is not manufactured
+by anything, it is a real edit of 2026-08-12 that the snapshot preserves
+mid-flight, re-materialised byte-for-byte on every restore.
+
+Its provenance is now fully traced. The frozen working copy hashes to blob
+`62d642cb` — byte-identical to the file as committed fifteen minutes **after**
+the checkpoint in `851bae4` ("Record why an affiliate feed listing cannot be
+price verified", 2026-08-12 23:28:09), and superseded the next morning by
+`5240fae` (2026-08-13 09:51), which mapped `merchant_deep_link` and rewrote the
+very paragraph the phantom adds. So committing the phantom today would (a)
+recommit content history already has at `851bae4`, (b) republish as current a
+"known gap" that closed on 2026-08-13, and (c) do it on a HEAD two weeks
+behind origin — while the Stop hook's "uncommitted changes — commit and push"
+prompt actively invites exactly that. Thirteen recoveries in, the diff has been
+read correctly every time; the automation below removes the need to keep being
+right.
+
+### What survives a reverted boot: nothing writable from inside
+
+The same sweep answers where a recovery hook could live. On this morning's
+boot, `~/.claude/launcher-settings.json`, `stop-hook-git-check.sh`,
+`session-start-git-identity.sh` and their companions were all re-stamped at
+07:43:48–59 — they are provisioned by the harness **from outside the image at
+every boot**, and `launcher-settings.json` is where this environment's
+SessionStart and Stop hooks are actually registered. Everything else under
+`~/.claude` (`projects/` Aug 1, `uploads/` Aug 4, `skills/` Aug 12 22:09)
+predates the freeze, meaning it is simply part of the frozen image — the
+apparent "survival" of old directories is not selective persistence, it is the
+snapshot itself. Between the freeze and this boot the disk holds nothing.
+
+The consequence is stated plainly rather than optimistically: **no file
+written from inside the container — repo-committed or under `~/.claude` —
+exists on a boot restored from the 2026-08-12 image.** The repo's own
+`.claude/settings.json` and hooks postdate the freeze (`ca81313`, 2026-08-25),
+so the reverted tree does not contain them; a user-level
+`~/.claude/settings.json` written today is wiped by the same restore. The
+harness-owned files fire every boot but are not ours to edit. There is no
+in-container vector that reaches the boots that matter, and none is claimed.
+
+### What is now automatic anyway
+
+`scripts/recover-stale-checkout.sh` performs the recovery that was manual, under
+a contract that it can never destroy real work:
+
+- main checkout only — it exits untouched inside any linked worktree or on a
+  detached HEAD;
+- fetch under a hard timeout; on failure, one warning line and out — a session
+  start is never blocked on the network;
+- it acts only when `git merge-base --is-ancestor` proves HEAD is behind with
+  no divergence; any local commit origin lacks gets a loud refusal and no
+  action;
+- the phantom is discarded **only on a byte-exact match**: the tree's entire
+  dirty state must be that one file, unstaged, nothing else modified, staged
+  or untracked, and the diff must be insertion-only with exactly 14 added
+  lines whose SHA-256 equals the pinned signature (`7da5738c…`), taken from
+  the frozen image itself. One line more, one file more, one removal: it
+  prints what it found and touches nothing;
+- advancing is `git merge --ff-only` and nothing else; healthy checkouts are a
+  silent no-op, and the script is idempotent.
+
+The signature is parameterised (`RECOVER_PHANTOM_FILE` / `_SHA256` / `_LINES`),
+and `tests/recoverStaleCheckout.test.ts` exercises the contract against real
+scratch repositories in the same style as `tests/commitAndPush.test.ts`: full
+recovery from a simulated revert, refusal on a real edit, refusal on any extra
+dirty file, refusal on staged state, divergence refusal, healthy no-op,
+plain fast-forward, the level-checkout phantom, fetch failure, and the
+worktree exit. `.claude/hooks/session-start.sh` now runs it first, so on any
+boot where the hook exists on disk the revert heals before the first prompt;
+it has also been installed at `~/.claude/hooks/recover-stale-checkout.sh` with
+a minimal `~/.claude/settings.json` registering it, which costs nothing and
+covers same-container restarts — while the previous paragraph says exactly why
+neither copy reaches a boot restored from the 2026-08-12 image.
+
+### The actual fix is outside this repository
+
+Every path above is a seatbelt. The defect is that this environment's
+checkpoint has not been refreshed since 2026-08-12 23:13 — fourteen days of
+sessions, none persisted back — and that is platform state, invisible and
+unwritable from inside the container. **The owner should recreate (or
+re-provision) this environment in the claude.ai/code environment settings, so
+that a fresh base image is captured.** A fresh image taken from current origin
+contains `.claude/settings.json`, the session-start hook and the recovery
+script, at which point every subsequent boot — including any future stale
+restore — heals itself at start. Until that is done, every provisioned boot of
+this container will keep starting from 2026-08-12, and the first thing any
+session should trust is `git fetch`, not the tree it woke up on.
