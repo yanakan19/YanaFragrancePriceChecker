@@ -935,6 +935,42 @@ export const RETAILERS: readonly Retailer[] = [
     // way. Left as a dated observation for whoever reads this after the next
     // few real attempts land; the five-report bar the shops above needed
     // before `renderRefused: true` was written is the right bar here too.
+    //
+    // ── Second real attempt, 2026-08-27 — same shape, still short of the bar ─
+    // Three dispatches landed between the observation above and now, and none
+    // of them could have reached this shop by design: runs #343 and #344 (jobs
+    // 98455508015, 98457358377) were `capture_render_shop=notino-uk` dispatches
+    // whose "Harvest via sitemap" step never ran at all (skipped — only "Capture
+    // rendered HTML for one shop" runs on that path), and run #345 (job
+    // 98507799845) was a plain demo-rebuild dispatch with the same step
+    // skipped. The next scheduled sweep, run #346 (job 98541223952,
+    // 2026-08-27T13:52:32Z-15:27:29Z), is the one that actually asked again —
+    // and was not budget-starved either: "John Lewis: rendering 4 section
+    // page(s) through local browser" at 15:08:48Z, with the run's own tally
+    // reading "local browser pages rendered this run: 9 of 12 budgeted" (4 of
+    // those 9 spent here, 3 short of the cap). The result:
+    //
+    //   [actor] rendered 4 section page(s), 0 listings parsed, 0 priced
+    //   [actor] …/womens-fragrance/_/N-a63?page=1: HTTP 0, 0 bytes, local
+    //       render failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR
+    //   (identical on all four section URLs, same as run #342)
+    //
+    // Two independent real sweeps, the only two genuine local-render attempts
+    // this shop has ever gotten, now agree exactly: same error, same all-four-
+    // URLs spread, same zero-byte HTTP 0. That is one more consistent data
+    // point than "left as a dated observation" had a day ago, and it is
+    // starting to look like the real shape of this shop rather than a fluke —
+    // but it is two reports, not the five the `renderRefused` shops above were
+    // held to, so it is not applied here either. Also worth recording as
+    // negative evidence: the perpetual-budget-starvation risk flagged
+    // 2026-08-26 (a budget-exhausted shop still stamps the cursor as
+    // attempted) has not recurred in either real sweep since — #342 hit this
+    // shop first with all 12 pages free, #346 reached it with 8 of 12 still
+    // unspent going in. Two more sweeps without a repeat is not proof it
+    // cannot happen again, but it is not the recurring pattern that would
+    // justify picking one of the three named repairs over guessing, so none
+    // is made here. Left again for whoever reads this after the next few real
+    // attempts land.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
