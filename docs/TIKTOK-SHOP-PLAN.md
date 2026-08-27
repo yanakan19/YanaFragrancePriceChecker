@@ -250,23 +250,43 @@ The honesty rules bite at six named points.
 2. **Register as a developer** at
    [partner.tiktokshop.com](https://partner.tiktokshop.com/) and create an
    **Affiliate app** (Creator type). The app detail page shows the **App
-   Key** and **App Secret**. App review is reported at ~2–3 business days.
+   Key** and **App Secret** — copy both; they only need to be entered once
+   (step 4). App review is reported at ~2–3 business days.
 3. **Authorise your own creator account** through the app's authorization
    link (`auth.tiktok-shops.com/oauth/authorize?app_key=...`). The redirect
    hands back an `auth_code`; exchanging it (the app's auth page does this,
    or `GET auth.tiktok-shops.com/api/v2/token/get`) yields an
    **access token** (short-lived — one cited figure says 7-day default) and
-   a **refresh token**.
+   a **refresh token**. It is the refresh token this project needs — the
+   probe derives its own access token from it on every run (step 6).
 4. **Add three GitHub Actions secrets** to this repo — the Awin pattern,
-   never committed: `TIKTOK_APP_KEY`, `TIKTOK_APP_SECRET`,
-   `TIKTOK_REFRESH_TOKEN`.
+   never committed — with these **exact names** (the probe checks for them
+   verbatim and says which is missing if you typo one):
+   - `TIKTOK_APP_KEY`
+   - `TIKTOK_APP_SECRET`
+   - `TIKTOK_REFRESH_TOKEN`
+
+   Add them at **Settings → Secrets and variables → Actions → New repository
+   secret** on this repo (the same screen `APIFY_PROXY_PASSWORD` already
+   lives on — docs/INGESTION.md).
 5. **Add the pilot's products to your showcase**: from @yannysniffs, add
    Beauty Base products (fragrances this site already lists) to your
    showcase in the app. The pipeline reads the showcase back; this is the
    curation step and it stays human.
-6. **Dispatch the probe**: Actions → Catalogue crawl → Run workflow →
-   tick `tiktok_probe`. Read `data/tiktok/probe-report.json` in the commit
-   it pushes.
+6. **Dispatch the probe**: **Actions → Catalogue crawl → Run workflow →**
+   tick the **`tiktok_probe`** checkbox → **Run workflow**. It runs
+   `npm run tiktok:probe` (`scripts/tiktok-probe.ts`) and pushes whatever it
+   wrote in a commit titled `TikTok probe: what the Affiliate API answered
+   <date>`. Read `data/tiktok/probe-report.json` in that commit:
+   - `refreshOutcome` — `"ok"` or the exact refusal TikTok gave;
+   - `refreshTokenRotated` — `true` means TikTok issued a new refresh token
+     on this call; go back to step 4 and replace the `TIKTOK_REFRESH_TOKEN`
+     secret with the new value before the old one expires, or every
+     following run will fail;
+   - each entry in `calls` — `httpStatus`/`code`/`message` from TikTok, plus
+     `rateLimited`/`retries` if the probe had to back off a 429 (bounded at
+     3 retries; see scripts/tiktok-probe.ts);
+   - `nextStep` — what to do with the raw payload once you have it.
 7. Optional, later: ask Beauty Base whether they would authorise the app
    against their own shop (§2a). That unlocks promotion end times and stock
    directly from the source.
@@ -291,7 +311,14 @@ The honesty rules bite at six named points.
   catalogue-daily.yml — credential smoke test: refresh the token, two signed
   read-only calls (profile, showcase products), write a redacted raw report.
   Dispatch-only, never scheduled, exits cleanly with instructions when the
-  secrets are absent.
+  secrets are absent. Each call retries a 429 up to 3 times, honouring
+  `Retry-After` and falling back to bounded backoff otherwise, and the report
+  flags a rotated refresh token rather than silently losing it.
+  `tests/tiktokProbe.test.ts` covers the signature (checked against a
+  from-scratch HMAC computed in the test, matching the algorithm re-read from
+  EcomPHP/tiktokshop-php's `Client.php`), the redaction, the rotation flag,
+  and the 429 retry — all against a mocked `fetch`, since no real credentials
+  or TikTok egress exist in this sandbox.
 
 **Deliberately not built: the response parser.** TikTok's response schemas
 sit behind JavaScript-rendered documentation this project cannot cite, and a
@@ -314,10 +341,17 @@ secrets, it produces the first real payloads.
 - whether Beauty Base, PERFUMEO or Oud Arabian run open collaborations (their
   products are only searchable in the marketplace if enrolled; the showcase
   route works regardless);
-- real rate limits — TikTok allocates QPS dynamically per app/shop and
-  publishes no quota API
-  ([getphyllo rate-limit guide](https://www.getphyllo.com/post/tiktok-api-rate-limits-in-2026-quotas-errors-workarounds));
-  the client adapts to 429s;
+- the actual numbers behind real rate limits — TikTok allocates QPS
+  dynamically per app/shop and publishes no quota API
+  ([getphyllo rate-limit guide](https://www.getphyllo.com/post/tiktok-api-rate-limits-in-2026-quotas-errors-workarounds)),
+  so there is no number to size a smarter client against. What does not need
+  those numbers is already built and tested: the probe retries a 429 up to
+  3 times, honouring `Retry-After` when TikTok sends one and falling back to
+  bounded backoff when it does not (`scripts/tiktok-probe.ts`'s `signedGet`,
+  covered by `tests/tiktokProbe.test.ts` against a mocked 429 — this could
+  not be exercised against TikTok's real limiter, only against the HTTP
+  status code itself, which is standard regardless of TikTok's specific
+  quota);
 - refresh-token lifetime and whether it rotates on use — if it rotates, CI
   cannot update its own secret, and the probe flags rotation in its report so
   the owner refreshes the secret by hand until a better mechanism is chosen;
