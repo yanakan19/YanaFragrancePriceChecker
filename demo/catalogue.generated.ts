@@ -45,7 +45,16 @@ export interface CatalogueEntry {
   brand: string;
   name: string;
   concentration: string;
-  sizeMl: number;
+  /**
+   * Null for a product whose every offer's own title states two different
+   * sizes rather than one and disagrees with itself about which — see
+   * sizeConflict in src/catalogue/fragranceId.ts. Not the same fact as a
+   * title naming no size at all, which isFragrance() still excludes before
+   * a listing ever reaches this file. demo/volumeBands.ts, demo/listSort.ts
+   * and demo/app.ts's size line all read this and none of them substitute a
+   * number for the missing one.
+   */
+  sizeMl: number | null;
   ean: string | null;
   shops: number;
   /** A real, licensed product photo — see demo/photo.ts. Null means none yet. */
@@ -16924,32 +16933,6 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "houseCeiling": 13
   },
   {
-    "id": "avon-f1569640",
-    "brand": "Avon Cosmetics",
-    "name": "Avon Cosmetics",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 3,
-    "image": null,
-    "notes": {
-      "top": [
-        "juniper berry"
-      ],
-      "middle": [
-        "cypress"
-      ],
-      "base": [
-        "sandalwood"
-      ],
-      "source": {
-        "retailerId": "avon",
-        "url": "https://avon.uk.com/products/full-speed-eau-de-toilette"
-      }
-    },
-    "houseCeiling": 19
-  },
-  {
     "id": "ean-3351500011476",
     "brand": "Azzaro",
     "name": "Pour Homme",
@@ -23957,10 +23940,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/gres-cabotine-eau-de-parfum-100ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
+  },
   {
     "id": "ean-7640111500568",
     "brand": "Gres",
@@ -23985,7 +23965,10 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43661687427&a=3026001&m=106925"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "ean-3616302514281",
     "brand": "Gucci",
@@ -24607,31 +24590,6 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       "source": {
         "retailerId": "armaf",
         "url": "https://armaf.uk/products/hamidi-addicted-imperial-eau-de-parfum-120ml"
-      }
-    }
-  },
-  {
-    "id": "ean-6294015156072",
-    "brand": "Hamidi",
-    "name": "Maison Luxe Elixir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6294015156072",
-    "shops": 3,
-    "image": "https://bgstatic.net/photos/178001_ml.jpg",
-    "notes": {
-      "top": [],
-      "middle": [
-        "Lily Of The Valley",
-        "Cotton Candy",
-        "Patchouli",
-        "Frankincense",
-        "Musk"
-      ],
-      "base": [],
-      "source": {
-        "retailerId": "armaf",
-        "url": "https://armaf.uk/products/hamidi-maison-luxe-elixir-eau-de-parfum-100ml"
       }
     }
   },
@@ -34132,10 +34090,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43157930155&a=3026001&m=106925"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8056860210310",
     "brand": "Salvatore Ferragamo",
@@ -34171,7 +34126,10 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43157930977&a=3026001&m=106925"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-5060426156083",
     "brand": "Sarah Jessica Parker",
@@ -42199,18 +42157,6 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "houseCeiling": 29.99
   },
   {
-    "id": "ean-6295199815038",
-    "brand": "Armaf",
-    "name": "Delicacy Red Velvet",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 70,
-    "ean": "6295199815038",
-    "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
-    "notes": null,
-    "houseCeiling": 29.99
-  },
-  {
     "id": "armaf-arf32109121",
     "brand": "Armaf",
     "name": "Effects Of Uniq",
@@ -44460,6 +44406,32 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "houseCeiling": 20
   },
   {
+    "id": "avon-f1588919",
+    "brand": "Avon Cosmetics",
+    "name": "Avon Cosmetics",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": null,
+    "notes": {
+      "top": [
+        "juniper berry"
+      ],
+      "middle": [
+        "cypress"
+      ],
+      "base": [
+        "sandalwood"
+      ],
+      "source": {
+        "retailerId": "avon",
+        "url": "https://avon.uk.com/products/full-speed-eau-de-toilette"
+      }
+    },
+    "houseCeiling": 19
+  },
+  {
     "id": "avon-f1580413",
     "brand": "Avon Cosmetics",
     "name": "for Her",
@@ -45245,10 +45217,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "url": "https://www.beautybase.com/products/billie-eilish-your-turn-eau-de-parfum-50ml-spray"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8012423202000",
     "brand": "Blood Concept",
@@ -45287,7 +45256,10 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43157928111&a=3026001&m=106925"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "ean-0888874006836",
     "brand": "Bond No 9",
@@ -53561,10 +53533,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/179715_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
+  },
   {
     "id": "ean-085805542160",
     "brand": "Elizabeth Arden",
@@ -53628,7 +53597,10 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
         "url": "https://allbeauty.com/products/p-elizabeth-arden-beauty-eau-de-parfum-spray-100ml-3-3-fl-oz-14574812"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
   {
     "id": "ean-0085805390501",
     "brand": "Elizabeth Arden",
@@ -61340,6 +61312,36 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-6294015156072",
+    "brand": "Hamidi",
+    "name": "Maison Luxe Elixir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6294015156072",
+    "shops": 2,
+    "image": "https://bgstatic.net/photos/178001_ml.jpg",
+    "notes": {
+      "top": [
+        "Raspberry",
+        "Apricot"
+      ],
+      "middle": [
+        "Lily Of The Valley",
+        "Cotton Candy"
+      ],
+      "base": [
+        "Leather",
+        "Patchouli",
+        "Frankincense",
+        "Musk"
+      ],
+      "source": {
+        "retailerId": "mybeauty-boutique",
+        "url": "https://www.awin1.com/pclick.php?p=43174943763&a=3026001&m=106925"
+      }
+    }
+  },
+  {
     "id": "ean-6294015156096",
     "brand": "Hamidi",
     "name": "Maison Luxe Patchouli Imperial",
@@ -62660,10 +62662,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/85403_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
+  },
   {
     "id": "ean-0737052130934",
     "brand": "Hugo Boss",
@@ -62674,7 +62673,10 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/96390_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   {
     "id": "ean-737052130934",
     "brand": "Hugo Boss",
@@ -72014,10 +72016,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43174943732&a=3026001&m=106925"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
+  },
   {
     "id": "ean-5060426155963",
     "brand": "Lionel Richie",
@@ -72028,7 +72027,10 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/181572_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   {
     "id": "ean-0849017016570",
     "brand": "Liquid Brazil",
@@ -80391,10 +80393,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/95896_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-penh0005",
     "brand": "Penhaligon's",
@@ -80405,7 +80404,10 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/PENH0005_857fef5e-1c83-4003-9282-50ade05dfbb3.png?v=1764596563&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
   {
     "id": "ean-5056245019876",
     "brand": "Penhaligon's",
@@ -88862,10 +88864,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43174942262&a=3026001&m=106925"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8011003890996",
     "brand": "Versace",
@@ -88876,7 +88875,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/188893_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "ean-8018365146006",
     "brand": "Versace",
@@ -98172,10 +98174,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       }
     },
     "houseCeiling": 7
-  }
-];
-
-const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
+  },
   {
     "id": "al-haramain-ahp1664",
     "brand": "Al Haramain",
@@ -98208,7 +98207,10 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       }
     },
     "houseCeiling": 35
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-ahp1208",
     "brand": "Al Haramain",
@@ -109600,10 +109602,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-16425418916189-default-title",
     "brand": "Arabiyat",
@@ -109635,7 +109634,10 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/extradose-homme-perfume-arabiyat-prestige"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "fragrancehub-hypnoticamber",
     "brand": "Arabiyat",
@@ -114926,12 +114928,11 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "brand": "Armaf",
     "name": "Club De Nuit Woman Luxury French",
     "concentration": "Perfume Oil",
-    "sizeMl": 20,
+    "sizeMl": null,
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null,
-    "houseCeiling": 35.99
+    "notes": null
   },
   {
     "id": "justmylook-arm0020",
@@ -114986,6 +114987,17 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "ean": "6295199815045",
     "shops": 1,
     "image": "https://images2.productserve.com/noimage.gif",
+    "notes": null
+  },
+  {
+    "id": "armaf-arf32121252",
+    "brand": "Armaf",
+    "name": "Delicacy Red Velvet",
+    "concentration": "Eau de Parfum",
+    "sizeMl": null,
+    "ean": null,
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -116113,6 +116125,17 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41rjV5w-REL.jpg?v=1763145854",
+    "notes": null
+  },
+  {
+    "id": "ean-6295199815038",
+    "brand": "Armaf",
+    "name": "Red Velvet",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 70,
+    "ean": "6295199815038",
+    "shops": 1,
+    "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
   },
   {
@@ -118568,6 +118591,31 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "houseCeiling": 24
   },
   {
+    "id": "avon-f1569640",
+    "brand": "Avon Cosmetics",
+    "name": "Avon Cosmetics",
+    "concentration": "Eau de Toilette",
+    "sizeMl": null,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "juniper berry"
+      ],
+      "middle": [
+        "cypress"
+      ],
+      "base": [
+        "sandalwood"
+      ],
+      "source": {
+        "retailerId": "avon",
+        "url": "https://avon.uk.com/products/full-speed-eau-de-toilette"
+      }
+    }
+  },
+  {
     "id": "avon-f1570701",
     "brand": "Avon Cosmetics",
     "name": "Bamboozie Cocktail",
@@ -119133,7 +119181,10 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
       }
     },
     "houseCeiling": 18
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "avon-f1581234",
     "brand": "Avon Cosmetics",
@@ -119171,10 +119222,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "image": null,
     "notes": null,
     "houseCeiling": 7
-  }
-];
-
-const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
+  },
   {
     "id": "avon-f1586738",
     "brand": "Avon Cosmetics",
@@ -127877,7 +127925,10 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/tigris-bujairami"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
   {
     "id": "ean-10485636464982",
     "brand": "Bujairami",
@@ -127919,10 +127970,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/bujairami-too-damn-good"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15958500704605-limited-edition-bottle",
     "brand": "Bujairami",
@@ -135187,7 +135235,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41K-wR31jbL.jpg?v=1767981645",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsukdk2-05461",
     "brand": "Caron",
@@ -135209,10 +135260,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/4168bkj0h7L.jpg?v=1767981653",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416651411593-45146998177929",
     "brand": "Caron",
@@ -142014,7 +142062,10 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1713784620-23339500.jpg?v=1763390845&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
   {
     "id": "ean-3760004327752",
     "brand": "Diane Castel",
@@ -142036,10 +142087,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1570464895-62735100.jpg?v=1763389407&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3760004324614",
     "brand": "Diane Castel",
@@ -149534,7 +149582,10 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "ean-085805785048",
     "brand": "Elizabeth Arden",
@@ -149556,10 +149607,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/3185RYDBExL.jpg?v=1763135091",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338211143817-44927050907785",
     "brand": "Elizabeth Arden",
@@ -158877,7 +158925,10 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/invicto-legend-perfume-100ml-edp-fragrance-world"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9003885265245-default-title",
     "brand": "Fragrance World",
@@ -158931,10 +158982,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/invicto-victorious-absolu-fragrance-world"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-9529551454557-default-title",
     "brand": "Fragrance World",
@@ -169549,7 +169597,10 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/ARMA0172.png?v=1733517836&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "justmylook-arma0211",
     "brand": "Giorgio Armani",
@@ -169591,10 +169642,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/giorgio-armani-acqua-di-gio-pour-homme-profondo-parfum-100ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416688341129-45147052671113",
     "brand": "Giorgio Armani",
@@ -176989,11 +177037,36 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     }
   },
   {
+    "id": "armaf-ham36101521",
+    "brand": "Hamidi",
+    "name": "Maison Luxe Elixir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": null,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [],
+      "middle": [
+        "Lily Of The Valley",
+        "Cotton Candy",
+        "Patchouli",
+        "Frankincense",
+        "Musk"
+      ],
+      "base": [],
+      "source": {
+        "retailerId": "armaf",
+        "url": "https://armaf.uk/products/hamidi-maison-luxe-elixir-eau-de-parfum-100ml"
+      }
+    }
+  },
+  {
     "id": "armaf-ham36101520",
     "brand": "Hamidi",
     "name": "Maison Luxe Gypsy Rose",
     "concentration": "Eau de Parfum",
-    "sizeMl": 100,
+    "sizeMl": null,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -177017,7 +177090,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "brand": "Hamidi",
     "name": "Maison Luxe Midnight Amber",
     "concentration": "Eau de Parfum",
-    "sizeMl": 100,
+    "sizeMl": null,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -177041,7 +177114,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "brand": "Hamidi",
     "name": "Maison Luxe Patchouli Imperial",
     "concentration": "Eau de Parfum",
-    "sizeMl": 100,
+    "sizeMl": null,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -177608,7 +177681,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/192400_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "ean-3346133500077",
     "brand": "Hermès",
@@ -177641,10 +177717,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/170682_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3346130413769",
     "brand": "Hermès",
@@ -184855,7 +184928,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1693496825-83121100.jpg?v=1763393278&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416700858505-45147068694665",
     "brand": "Jimmy Choo",
@@ -184898,10 +184974,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsusdk2-00729",
     "brand": "Jimmy Choo",
@@ -192788,7 +192861,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43157930503&a=3026001&m=106925"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416706494601-45147077542025",
     "brand": "Krizia",
@@ -192821,10 +192897,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "selfridges-r04680160",
     "brand": "KYLIE BY KYLIE JENNER",
@@ -202230,7 +202303,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "emirates-oud-14737955553629-default-title",
     "brand": "Lattafa",
@@ -202307,10 +202383,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/stop-wait-go-kids-perfume-75ml-edp-lattafa"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-9063569129821-default-title",
     "brand": "Lattafa",
@@ -212323,7 +212396,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/hunter-maison-asrar"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16204072452445-default-title",
     "brand": "Maison Asrar",
@@ -212417,10 +212493,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/masterpiece-maison-asrar"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-small-bottle---milky-way",
     "brand": "Maison Asrar",
@@ -219316,7 +219389,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
         "url": "https://www.beautybase.com/products/mugler-angel-nova-eau-de-parfum-50ml-spray"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "ean-3614273527750",
     "brand": "Mugler",
@@ -219382,10 +219458,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
         "url": "https://www.beautybase.com/products/mugler-angel-stellar-eau-de-parfum-25ml-spray"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3614274292237",
     "brand": "Mugler",
@@ -226148,7 +226221,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/cosmic-giardino-paris-corner"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15497507209565-default-title",
     "brand": "Paris Corner",
@@ -226218,10 +226294,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/date-caramel-paris-corner"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15918708425053-default-title",
     "brand": "Paris Corner",
@@ -235185,7 +235258,10 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/PAC0077_cec30139-60c2-4189-8701-8a2469a8f0ab.png?v=1738168807&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "justmylook-pac0078",
     "brand": "Rabanne",
@@ -235232,10 +235308,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51fUXZRquOL.jpg?v=1763144832",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3349668081318",
     "brand": "Rabanne",
@@ -245460,7 +245533,10 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsukdk2-38735",
     "brand": "Rotana",
@@ -245493,10 +245569,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsukdk2-38734",
     "brand": "Rotana",
@@ -252883,7 +252956,10 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
         "url": "https://avon.uk.com/products/new-today-eau-de-parfum-50ml"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
   {
     "id": "avon-f1400976",
     "brand": "Today Tomorrow Always",
@@ -252958,10 +253034,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
         "url": "https://avon.uk.com/products/today-eau-de-parfum-purse-spray-10ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
+  },
   {
     "id": "avon-f1491056",
     "brand": "Today Tomorrow Always",
@@ -260897,7 +260970,10 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1759493382-07462200.jpg?v=1763399241&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsusdk2-01303",
     "brand": "Versace",
@@ -260930,10 +261006,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51YGXjQ5xML.jpg?v=1763146993",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338413781129-44927392481417",
     "brand": "Versace",
@@ -278442,7 +278515,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/ralph-lauren-polo-67-eau-de-toilette-75ml",
       "fetchedAt": "2026-08-25T03:00:34.149Z",
       "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/polo-67-eau-de-toilette-75ml-p37909-119408_image.jpg?v=1721322334&width=1000",
       "rating": null
     },
@@ -304543,47 +304616,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "avon-f1569640": [
-    {
-      "retailerId": "avon",
-      "price": 13,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://avon.uk.com/products/full-speed-eau-de-toilette",
-      "fetchedAt": "2026-08-26T20:12:51.250Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    },
-    {
-      "retailerId": "avon",
-      "price": 16,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://avon.uk.com/products/full-speed-eau-de-toilette",
-      "fetchedAt": "2026-08-26T20:12:51.250Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    },
-    {
-      "retailerId": "avon",
-      "price": 13.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://avon.uk.com/products/black-suede-eau-de-toilette",
-      "fetchedAt": "2026-08-26T20:12:51.250Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
   "ean-3351500011476": [
     {
       "retailerId": "fragrance-click",
@@ -319970,47 +320002,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51eglIIp9GL.jpg?v=1763147121",
-      "rating": null
-    }
-  ],
-  "ean-6294015156072": [
-    {
-      "retailerId": "perfume-click",
-      "price": 23.25,
-      "wasPrice": 32,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=40387719713&a=3026001&m=6561",
-      "fetchedAt": "2026-08-26T20:06:07.266Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/178001_ml.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "armaf",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://armaf.uk/products/hamidi-maison-luxe-elixir-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-27T00:46:56.562Z",
-      "firstSeenAt": "2026-08-19T14:29:34.313Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 34.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174943763&a=3026001&m=106925",
-      "fetchedAt": "2026-08-26T13:10:05.252Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/618DQxakpVL.jpg?v=1763146818",
       "rating": null
     }
   ],
@@ -350817,34 +350808,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-6295199815038": [
-    {
-      "retailerId": "perfume-click",
-      "price": 27.5,
-      "wasPrice": 29.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45118081262&a=3026001&m=6561",
-      "fetchedAt": "2026-08-26T20:06:07.266Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
-      "rating": null
-    },
-    {
-      "retailerId": "armaf",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://armaf.uk/products/red-velvet-eau-de-parfum-70ml",
-      "fetchedAt": "2026-08-27T00:46:56.562Z",
-      "firstSeenAt": "2026-08-19T14:29:34.313Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
   "armaf-arf32109121": [
     {
       "retailerId": "armaf",
@@ -353610,6 +353573,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://avon.uk.com/products/little-black-dress-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-26T20:12:51.250Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "avon-f1588919": [
+    {
+      "retailerId": "avon",
+      "price": 16,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://avon.uk.com/products/full-speed-eau-de-toilette",
+      "fetchedAt": "2026-08-26T20:12:51.250Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "avon",
+      "price": 13.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://avon.uk.com/products/black-suede-eau-de-toilette",
       "fetchedAt": "2026-08-26T20:12:51.250Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
@@ -380634,6 +380625,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71t8Jhh-TiL.jpg?v=1763146908",
+      "rating": null
+    }
+  ],
+  "ean-6294015156072": [
+    {
+      "retailerId": "perfume-click",
+      "price": 23.25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=40387719713&a=3026001&m=6561",
+      "fetchedAt": "2026-08-26T20:06:07.266Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/178001_ml.jpg",
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 34.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174943763&a=3026001&m=106925",
+      "fetchedAt": "2026-08-26T13:10:05.252Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/618DQxakpVL.jpg?v=1763146818",
       "rating": null
     }
   ],
@@ -445909,6 +445928,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "armaf-arf32121252": [
+    {
+      "retailerId": "armaf",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://armaf.uk/products/red-velvet-eau-de-parfum-70ml",
+      "fetchedAt": "2026-08-27T00:46:56.562Z",
+      "firstSeenAt": "2026-08-19T14:29:34.313Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "armaf-arf32101691": [
     {
       "retailerId": "armaf",
@@ -447031,6 +447065,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41rjV5w-REL.jpg?v=1763145854",
+      "rating": null
+    }
+  ],
+  "ean-6295199815038": [
+    {
+      "retailerId": "perfume-click",
+      "price": 27.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45118081262&a=3026001&m=6561",
+      "fetchedAt": "2026-08-26T20:06:07.266Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://images2.productserve.com/noimage.gif",
       "rating": null
     }
   ],
@@ -449058,6 +449107,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://avon.uk.com/products/black-suede-eau-de-toilette-125ml",
+      "fetchedAt": "2026-08-26T20:12:51.250Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "avon-f1569640": [
+    {
+      "retailerId": "avon",
+      "price": 13,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://avon.uk.com/products/full-speed-eau-de-toilette",
       "fetchedAt": "2026-08-26T20:12:51.250Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
@@ -501556,6 +501620,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "armaf-ham36101521": [
+    {
+      "retailerId": "armaf",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://armaf.uk/products/hamidi-maison-luxe-elixir-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-27T00:46:56.562Z",
+      "firstSeenAt": "2026-08-19T14:29:34.313Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "armaf-ham36101520": [
     {
       "retailerId": "armaf",
@@ -532826,7 +532905,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/maison-francis-kurkdjian-oud-satin-mood-scented-body-oil-70ml",
       "fetchedAt": "2026-08-25T03:00:34.149Z",
       "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/MFK0032_79cb327f-decb-4f20-9940-eb4f5aefd908.png?v=1770719496&width=1000",
       "rating": null
     }
@@ -537734,7 +537813,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/moncler-pour-homme-refilable-with-led-screen-eau-de-parfum-150ml",
       "fetchedAt": "2026-08-26T20:12:51.250Z",
       "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }

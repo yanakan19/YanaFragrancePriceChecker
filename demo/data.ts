@@ -26,7 +26,15 @@ export interface DemoFragrance {
   brand: string;
   name: string;
   concentration: string;
-  sizeMl: number;
+  /**
+   * Null for the handful of products whose every offer's own title states
+   * two conflicting sizes rather than one — see sizeConflict in
+   * src/catalogue/fragranceId.ts and CatalogueEntry.sizeMl's own comment in
+   * demo/catalogue.generated.ts. compareVariants below, demo/listSort.ts and
+   * demo/volumeBands.ts all treat this as "unknown", never as zero or as a
+   * value that could tie with another product's own unknown.
+   */
+  sizeMl: number | null;
   ean: string | null;
   tier: RetailerTier;
   /**
@@ -182,9 +190,15 @@ export function brandTierFor(brand: string): RetailerTier {
  * range, and it puts the entry price first rather than leading with the
  * biggest bottle. Falls back to id so the order is fully determined and the
  * build is reproducible.
+ *
+ * A null `sizeMl` (see DemoFragrance.sizeMl's own comment) sorts after every
+ * known size, in both this comparator and demo/listSort.ts's size-low and
+ * size-high — `?? Infinity` on both sides is what does it: a real number
+ * always beats it, and two unknowns tie here and fall through to id, rather
+ * than being read as though they were the same size.
  */
 export function compareVariants(a: DemoFragrance, b: DemoFragrance): number {
-  if (a.sizeMl !== b.sizeMl) return a.sizeMl - b.sizeMl;
+  if (a.sizeMl !== b.sizeMl) return (a.sizeMl ?? Infinity) - (b.sizeMl ?? Infinity);
   return a.id.localeCompare(b.id);
 }
 

@@ -67,14 +67,22 @@ export const VOLUME_BANDS: { id: VolumeBand; label: string; min: number; max: nu
 ];
 
 /**
- * Which band a bottle's size falls in. Always returns a band — sizeMl is a
- * required, always-positive field on every catalogue entry (see
- * CatalogueEntry in demo/catalogue.generated.ts), so unlike `priceBandFor`
- * there is no "no data" case to report null for. The fallback to the last
- * band mirrors `priceBandFor` anyway, so a future band list that stopped
- * covering every non-negative number would fail the same safe way price
- * bands do rather than throwing.
+ * Which band a bottle's size falls in, or null when its own title cannot be
+ * read as one size — see sizeConflict in src/catalogue/fragranceId.ts and
+ * CatalogueEntry.sizeMl's own comment in demo/catalogue.generated.ts.
+ *
+ * This used to always return a band, on the reasoning that sizeMl was a
+ * required, always-positive field on every catalogue entry. It no longer is:
+ * a handful of products carry a title that states two conflicting sizes
+ * rather than one, and banding that guess into either neighbour would be
+ * exactly the "state what we don't know" mistake this facet otherwise
+ * refuses to make. Filing an unreadable size under the fallback band (the
+ * old behaviour, before this comment) would silently claim a fact — "at
+ * least 120ml" — nobody here can stand behind, so the "no data" case now
+ * reports null instead, the same shape `priceBandFor` in demo/app.ts already
+ * uses for a delivery cost nobody states.
  */
-export function volumeBandFor(sizeMl: number): VolumeBand {
+export function volumeBandFor(sizeMl: number | null): VolumeBand | null {
+  if (sizeMl === null) return null;
   return (VOLUME_BANDS.find((b) => sizeMl >= b.min && (b.max === null || sizeMl < b.max)) ?? VOLUME_BANDS[VOLUME_BANDS.length - 1]!).id;
 }

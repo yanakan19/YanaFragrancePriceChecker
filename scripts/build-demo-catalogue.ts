@@ -158,7 +158,14 @@ interface Product {
   brand: string;
   name: string;
   concentration: string;
-  sizeMl: number;
+  /**
+   * Null for the handful of products whose every offer's title states two
+   * conflicting sizes rather than one — see sizeConflict in fragranceId.ts.
+   * Every reader of this field downstream (matchKey in productMatch.ts,
+   * houseCeilings and the final sort below, demo/volumeBands.ts,
+   * demo/listSort.ts) treats null as "cannot compare", never as a number.
+   */
+  sizeMl: number | null;
   ean: string | null;
   offers: Offer[];
   /**
@@ -544,7 +551,12 @@ for (const { retailer, listings } of eligible) {
       continue;
     }
 
-    const size = sizeMl(l.rawTitle)!;
+    // Null for the seven listings sizeConflict flags — see fragranceId.ts's
+    // own comment. Not asserted non-null: isFragrance() above now lets
+    // exactly that shape through deliberately, so a `!` here would silently
+    // hand `null` to every `number`-typed reader downstream instead of
+    // failing the build where the mistake would be visible.
+    const size = sizeMl(l.rawTitle);
     const id = fragranceId(l, untrustworthyEans);
     const effectiveRawBrand = resolveRawBrand(l, retailer);
 
@@ -897,7 +909,13 @@ const houseCeilings = new Map<string, number>();
 for (const product of products.values()) {
   let ceiling = 0;
   for (const offer of product.offers) {
-    if (!offer.brandDirect || offer.sizeMl !== product.sizeMl) continue;
+    // A null size never matches, another null included — see
+    // productMatch.ts's sizeKeyPart for the identical rule stated at
+    // length. An unread size cannot vouch for itself being the same bottle
+    // as the product record, so it is never allowed to stand as the
+    // house's own evidence for it.
+    if (!offer.brandDirect || offer.sizeMl === null || product.sizeMl === null) continue;
+    if (offer.sizeMl !== product.sizeMl) continue;
     if (offer.price > 0) ceiling = Math.max(ceiling, offer.price);
     if (offer.wasPrice !== null && offer.wasPrice > 0) ceiling = Math.max(ceiling, offer.wasPrice);
   }
@@ -1074,13 +1092,17 @@ houseProducts.sort(
 // the three sizes of one bottle came out in whatever order the Map happened to
 // hold them, which is neither reproducible between builds nor sensible to
 // read. Smallest bottle first — see compareVariants in demo/data.ts, which
-// applies the same rule at display time.
+// applies the same rule at display time. A product whose own title could not
+// be read as one size (sizeConflict in fragranceId.ts) sorts last within its
+// tie, the same `?? Infinity` rule houseProducts' own sort just above already
+// uses for a house listing with no size at all: unknown is not zero and does
+// not get to lead the group.
 const ordered = [...products.values()].sort(
   (a, b) =>
     b.offers.length - a.offers.length ||
     a.brand.localeCompare(b.brand) ||
     a.name.localeCompare(b.name) ||
-    a.sizeMl - b.sizeMl,
+    (a.sizeMl ?? Infinity) - (b.sizeMl ?? Infinity),
 );
 
 // `description` is read for its notes above and then deliberately dropped: it
@@ -1189,7 +1211,16 @@ export interface CatalogueEntry {
   brand: string;
   name: string;
   concentration: string;
-  sizeMl: number;
+  /**
+   * Null for a product whose every offer's own title states two different
+   * sizes rather than one and disagrees with itself about which — see
+   * sizeConflict in src/catalogue/fragranceId.ts. Not the same fact as a
+   * title naming no size at all, which isFragrance() still excludes before
+   * a listing ever reaches this file. demo/volumeBands.ts, demo/listSort.ts
+   * and demo/app.ts's size line all read this and none of them substitute a
+   * number for the missing one.
+   */
+  sizeMl: number | null;
   ean: string | null;
   shops: number;
   /** A real, licensed product photo — see demo/photo.ts. Null means none yet. */
@@ -1273,6 +1304,12 @@ export function isNewAt(productId: string, retailerId: string): boolean {
 writeFileSync(resolve(root, 'demo/catalogue.generated.ts'), body);
 
 const multi = ordered.filter((p) => p.offers.length > 1).length;
+// See sizeConflict in src/catalogue/fragranceId.ts and Product.sizeMl's own
+// comment just above: a product only lands here with a null size because its
+// title states two conflicting sizes, never because it stated none — that
+// case is still excluded by isFragrance() before a listing ever becomes a
+// product at all.
+const sizeUnknown = ordered.filter((p) => p.sizeMl === null).length;
 console.log(
   `demo/catalogue.generated.ts written from LIVE data only:\n` +
     `  ${liveShops} shops, ${considered} listings considered, ${rejected} were not fragrance, ${unpriced} carried no price\n` +
@@ -1283,7 +1320,8 @@ console.log(
       ? ` (${[...duplicateRowsByShop].sort((a, b) => b[1] - a[1]).map(([id, n]) => `${id} ${n}`).join(', ')})`
       : '') +
     '\n' +
-    `  ${houseProducts.length} house products, catalogue-only (no sterling price yet)` +
+    `  ${houseProducts.length} house products, catalogue-only (no sterling price yet)\n` +
+    `  ${sizeUnknown} products carry a size their own title states two conflicting ways; shown as size not confirmed` +
     (skippedShops.length
       ? `\n  skipped: ${skippedShops.join(', ')}`
       : ''),

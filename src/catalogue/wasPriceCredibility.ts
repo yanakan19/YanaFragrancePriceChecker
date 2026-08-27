@@ -245,13 +245,28 @@
  *   3. Whether the sizeMl gate now excludes more than it needs to, since the
  *      multi-size parsing bug (`SIZE_MENU_THEN_VARIANT_RE` in fragranceId.ts)
  *      that used to hand this file wrong sizes is fixed. Measured directly on
- *      the offers this file actually receives: 0 of 21,929 carry a null
- *      `sizeMl`. `isFragrance()` already requires a parseable size before a
- *      listing becomes a product at all (fragranceId.ts), so by the time an
- *      offer reaches `CredibilityOffer` its size is never unknown in
- *      practice — the null branches in `judgeWasPrice` and `brandAnchor` are a
- *      defensive contract for a caller that does not (yet) guarantee that, not
- *      a gate presently excluding anything. There is nothing to release here.
+ *      the offers this file actually receives, 2026-08-27: 7 of 21,961 carry a
+ *      null `sizeMl` — no longer zero, since `isFragrance()` (fragranceId.ts)
+ *      was loosened the same day to admit a title stating two conflicting
+ *      sizes rather than one (`sizeConflict`, same file) instead of dropping
+ *      the listing outright. Those seven (Armaf's four Hamidi Maison Luxe
+ *      lines, its own Red Velvet and Club De Nuit Woman perfume oil, Avon's
+ *      Full Speed) are exactly the shape the null branches in `judgeWasPrice`,
+ *      `brandAnchor` and `sizesAgree` below were written to handle, but in
+ *      today's harvest not one of the seven states a `wasPrice` at all — each
+ *      is `unchecked` on the ordinary "no claim to test" branch before its
+ *      unreadable size is ever consulted, and every one sells through exactly
+ *      one shop, so `sizesAgree`'s own `length > 1` guard never reaches it
+ *      either. So this measurement confirms the pipeline delivers a real
+ *      `null` sizeMl into `CredibilityOffer` rather than coercing or crashing
+ *      on one, not that today's specific seven exercise the size-gate branches
+ *      end to end — tests/wasPriceCredibility.test.ts's "cannot judge an offer
+ *      whose own size could not be read" and "does not treat an unreadable
+ *      size as matching an unreadable size" cover that directly, with a
+ *      synthetic offer that does state a `wasPrice`, which is what a caller
+ *      needs to see this file is not dead code for the shape it defends
+ *      against. A listing naming no size at all still never reaches here —
+ *      that half of the old gate is unchanged.
  *
  * ── Three verdicts, because there are three states ──────────────────────────
  * A product only one shop sells, whose house has no UK storefront here, has no

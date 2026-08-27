@@ -209,7 +209,13 @@ export interface MatchableProduct {
   brand: string;
   name: string;
   concentration: string;
-  sizeMl: number;
+  /**
+   * Null where the title states two conflicting sizes rather than one — see
+   * sizeConflict in fragranceId.ts — and matchKey/looseMatchKey below never
+   * let a null compare equal to anything, another null included. See
+   * sizeKeyPart's own comment for why.
+   */
+  sizeMl: number | null;
   ean: string | null;
 }
 
@@ -237,9 +243,39 @@ function wordSet(text: string): string {
     .join(' ');
 }
 
+/**
+ * The `sizeMl` component matchKey and looseMatchKey below actually compare
+ * on: the bottle's size, printed plainly, where the title states one — or
+ * this product's own id, where it does not.
+ *
+ * A null size is a real fact ("this listing's own title cannot be read as
+ * one number" — see MatchableProduct.sizeMl and sizeConflict in
+ * fragranceId.ts), not a value a bottle can share with another bottle. Two
+ * products that both carry a null size are not thereby known to be the same
+ * size, so letting them collide on a shared placeholder — the string
+ * "null", say — would merge two listings on the one fact neither of them
+ * actually states: that they agree. `p.id` is unique per product by
+ * construction (every MatchableProduct comes from a fragranceId() call or an
+ * equivalent), so keying an unknown size on it instead guarantees a
+ * null-sized product's key can never equal any other product's key, sized or
+ * not — it never merges with anything, exactly the "never merge with a
+ * sized product as if equal" rule this file is asked to hold, extended to
+ * the one case that rule alone does not cover: two unknowns are not
+ * evidence they are the same unknown.
+ *
+ * The seven listings this exists for today (see sizeConflict's own comment)
+ * are singly sold — no two of them share a brand, concentration and word
+ * set — so this is hardening against a shape not yet seen in the live
+ * catalogue rather than a fix for one already there; see
+ * tests/productMatch.test.ts for the case constructed to prove it anyway.
+ */
+function sizeKeyPart(p: MatchableProduct): string {
+  return p.sizeMl === null ? `unknown-size-${p.id}` : String(p.sizeMl);
+}
+
 /** The identity two listings must share to be the same bottle. */
 export function matchKey(p: MatchableProduct): string {
-  return [brandKey(p.brand), p.sizeMl, p.concentration.toLowerCase().trim(), wordSet(p.name)].join('|');
+  return [brandKey(p.brand), sizeKeyPart(p), p.concentration.toLowerCase().trim(), wordSet(p.name)].join('|');
 }
 
 /**
@@ -251,7 +287,7 @@ export function matchKey(p: MatchableProduct): string {
  * future edit to one silently stops agreeing with the other.
  */
 function looseMatchKey(p: MatchableProduct): string {
-  return [brandKey(p.brand), p.sizeMl, wordSet(p.name)].join('|');
+  return [brandKey(p.brand), sizeKeyPart(p), wordSet(p.name)].join('|');
 }
 
 /**

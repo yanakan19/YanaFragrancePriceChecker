@@ -429,7 +429,14 @@ function genderOf(f: DemoFragrance): GenderReading {
  * self-defeating — see the header comment above.
  */
 function passesFacets(f: DemoFragrance, exclude: FacetGroup | null): boolean {
-  if (exclude !== 'volume' && state.facetVolume.size && !state.facetVolume.has(volumeBandFor(f.sizeMl))) return false;
+  // A fragrance whose own title cannot be read as one size (volumeBandFor
+  // returns null — see its own comment) belongs to no band, the same
+  // "cannot answer, so it does not match a specific band" rule priceBand
+  // just below already applies to a delivery cost nobody states.
+  if (exclude !== 'volume' && state.facetVolume.size) {
+    const band = volumeBandFor(f.sizeMl);
+    if (band === null || !state.facetVolume.has(band)) return false;
+  }
   if (exclude !== 'concentration' && state.facetConcentration.size && !state.facetConcentration.has(f.concentration)) return false;
   if (exclude !== 'gender' && state.facetGender.size && !state.facetGender.has(genderOf(f))) return false;
   if (exclude !== 'tier' && state.facetTier.size && !state.facetTier.has(f.tier)) return false;
@@ -477,7 +484,7 @@ function facetGroups(list: DemoFragrance[]) {
     const rows = rowsFor(f);
     if (passesFacets(f, 'volume')) {
       const band = volumeBandFor(f.sizeMl);
-      volume.set(band, (volume.get(band) ?? 0) + 1);
+      if (band !== null) volume.set(band, (volume.get(band) ?? 0) + 1);
     }
     if (passesFacets(f, 'concentration')) {
       concentration.set(f.concentration, (concentration.get(f.concentration) ?? 0) + 1);
@@ -953,6 +960,24 @@ function tierFilterControl(id: string, current: BrandFilter): string {
 /* ── shared pieces ───────────────────────────────────────────────────────── */
 
 /**
+ * The bottle size as shown beside a product's name, or the honest admission
+ * that its own title cannot be read as one — see DemoFragrance.sizeMl's own
+ * comment and sizeConflict in src/catalogue/fragranceId.ts.
+ *
+ * Worded as a fact about the site rather than the bottle ("not confirmed",
+ * not "unknown size" or "0ml"): the shop stated a size, twice, and printing
+ * neither number is not the same claim as the shop having said nothing —
+ * that silence is what "Not stated" already means elsewhere on this page
+ * (CONCENTRATION_NOT_STATED, GenderReading's own not-stated case), and
+ * reusing that exact phrase here would flatten a real disagreement into a
+ * blank. No hyphen, matching demo/legal.ts's own house style for
+ * reader-facing text on this site.
+ */
+function sizeLabel(sizeMl: number | null): string {
+  return sizeMl === null ? 'Size not confirmed' : `${sizeMl}ml`;
+}
+
+/**
  * Name, size and concentration as one block. The brand used to live here too,
  * but it is now its own clickable control (see `brandButton`) rendered
  * beside this rather than inside it — the fragrance tile wraps most of this
@@ -984,7 +1009,7 @@ function productHead(f: DemoFragrance, tag = 'span', nameRole = 't-title'): stri
       <span class="phead-name-wrap"><span class="phead-name ${nameRole}" title="${esc(f.name)}">${esc(f.name)}</span></span>
     </span>
     <span class="phead-meta t-caption">
-      <span>${f.sizeMl}ml</span>
+      <span>${sizeLabel(f.sizeMl)}</span>
       <span>${esc(shortConcentration(f.concentration))}</span>
     </span>
   </${tag}>`;
@@ -1940,7 +1965,7 @@ function wishlistSectionHtml(): string {
               ${monogram(frag.brand)}
               <span class="shop-row-text">
                 <span class="shop-row-name t-title">${esc(frag.brand)} ${esc(frag.name)}</span>
-                <span class="shop-row-meta t-caption">${esc(frag.concentration)}, ${frag.sizeMl}ml</span>
+                <span class="shop-row-meta t-caption">${esc(frag.concentration)}, ${esc(sizeLabel(frag.sizeMl))}</span>
               </span>
               <span class="shop-row-go" aria-hidden="true">→</span>
             </button>
