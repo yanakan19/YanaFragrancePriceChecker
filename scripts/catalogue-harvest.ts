@@ -1120,6 +1120,22 @@ if (localRenderer) await localRenderer.dispose();
 console.log('');
 
 if (reached === 0) {
+  // A capture dispatch is the one run where an empty harvest is the expected
+  // outcome rather than a failure: --capture-render-shop exists precisely for
+  // a shop whose pages render but parse to zero listings (Notino's exact
+  // shape), so "0 priced" is the situation being investigated, not a defect
+  // in the run. Exiting 1 here on the first real capture dispatch (run #343,
+  // 2026-08-27) failed the job *after* the capture files were written, which
+  // skipped the "Commit captured render" step and threw away the 693KB page
+  // the dispatch existed to collect. The captured files are this run's
+  // deliverable; exit 0 so the commit step that follows can keep them.
+  if (captureRenderShop) {
+    console.error(
+      'Nothing harvested — expected for a capture dispatch. The captured HTML under ' +
+        'data/render-capture/ is this run’s deliverable; exiting 0 so it gets committed.',
+    );
+    process.exit(0);
+  }
   console.error('Nothing harvested. Not writing anything rather than showing an empty app.');
   process.exit(1);
 }
