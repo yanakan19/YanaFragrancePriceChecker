@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { DemoFragrance } from '../demo/data.js';
+import { compareVariants } from '../demo/data.js';
 import { LIST_SORT_OPTIONS, sortFragrances } from '../demo/listSort.js';
 
 /**
@@ -82,5 +83,74 @@ describe('sortFragrances by name', () => {
     ];
     expect(ids(sortFragrances(sizes, 'az'))).toEqual(['small', 'big']);
     expect(ids(sortFragrances(sizes, 'za'))).toEqual(['small', 'big']);
+  });
+});
+
+/**
+ * A product whose own title states two conflicting sizes (see
+ * DemoFragrance.sizeMl's own comment and sizeConflict in
+ * src/catalogue/fragranceId.ts) carries `sizeMl: null` by the time it
+ * reaches this comparator. These tests are the "seven ambiguous listings"
+ * case for the sort a reader actually touches: whichever direction they
+ * pick, an unreadable size must never read as the smallest or the largest
+ * bottle in the list, and it must never silently produce `NaN` the way a
+ * bare `a.sizeMl - b.sizeMl` would.
+ */
+describe('sortFragrances by size: an unknown size', () => {
+  const withUnknown = [
+    frag({ id: 'known-big', sizeMl: 100 }),
+    frag({ id: 'unknown', sizeMl: null }),
+    frag({ id: 'known-small', sizeMl: 10 }),
+  ];
+
+  it('sorts last, not first, ascending', () => {
+    expect(ids(sortFragrances(withUnknown, 'size-low'))).toEqual(['known-small', 'known-big', 'unknown']);
+  });
+
+  // The exact bug a naive `b.sizeMl - a.sizeMl` descending rule would
+  // reintroduce: negating a value built from an unknown-is-Infinity
+  // substitution would put the unknown bottle first instead of last.
+  it('still sorts last, not first, descending', () => {
+    expect(ids(sortFragrances(withUnknown, 'size-high'))).toEqual(['known-big', 'known-small', 'unknown']);
+  });
+
+  it('breaks a tie between two unknown sizes on name, not NaN', () => {
+    const bothUnknown = [
+      frag({ id: 'z', brand: 'Zimaya', sizeMl: null }),
+      frag({ id: 'a', brand: 'Armaf', sizeMl: null }),
+    ];
+    expect(ids(sortFragrances(bothUnknown, 'size-low'))).toEqual(['a', 'z']);
+    expect(ids(sortFragrances(bothUnknown, 'size-high'))).toEqual(['a', 'z']);
+  });
+
+  it('does not throw or produce NaN ordering for an all-unknown list', () => {
+    const result = sortFragrances(
+      [frag({ id: 'b', brand: 'B', sizeMl: null }), frag({ id: 'a', brand: 'A', sizeMl: null })],
+      'size-high',
+    );
+    expect(ids(result)).toEqual(['a', 'b']);
+  });
+});
+
+/**
+ * compareVariants is the tiebreaker every non-size sort ends on (az, za,
+ * price-low, price-high — see sortFragrances' own header) and the rule
+ * BY_POPULARITY in demo/data.ts uses directly. An unknown size must lose
+ * that tiebreak to any known size rather than being read as size zero, which
+ * would put it first.
+ */
+describe('compareVariants: an unknown size sorts after every known size', () => {
+  it('places the unknown-size variant last', () => {
+    const a = frag({ id: 'a', sizeMl: null });
+    const b = frag({ id: 'b', sizeMl: 10 });
+    expect(compareVariants(a, b)).toBeGreaterThan(0);
+    expect(compareVariants(b, a)).toBeLessThan(0);
+  });
+
+  it('falls back to id, not to a NaN comparison, when both are unknown', () => {
+    const a = frag({ id: 'a', sizeMl: null });
+    const b = frag({ id: 'b', sizeMl: null });
+    expect(compareVariants(a, b)).toBeLessThan(0);
+    expect(compareVariants(b, a)).toBeGreaterThan(0);
   });
 });

@@ -141,6 +141,38 @@ describe('product matching', () => {
       ]);
       expect(groups).toHaveLength(0);
     });
+
+    /**
+     * An unknown size — sizeMl: null, the seven Hamidi/Red Velvet/Club De
+     * Nuit Woman/Full Speed listings whose own titles state two conflicting
+     * sizes rather than one (see sizeConflict in src/catalogue/fragranceId.ts)
+     * — is a real fact, and "we could not read one number" is not the same
+     * fact as any other listing's own stated size, including another
+     * listing that also could not be read. See sizeKeyPart's own comment in
+     * src/catalogue/productMatch.ts for why an unknown never merges with
+     * anything, sized or not.
+     */
+    it('never merges an unknown size into a listing with a real one', () => {
+      const groups = findDuplicateGroups([p({ id: 'a', sizeMl: null }), p({ id: 'b', sizeMl: 100 })]);
+      expect(groups).toHaveLength(0);
+    });
+
+    it('never merges two listings that are each individually unknown, even when everything else agrees', () => {
+      // Same brand, name and concentration on both — the only thing telling
+      // matchKey these might be different bottles is that neither one's own
+      // size could be read, which is not evidence that they agree.
+      const groups = findDuplicateGroups([
+        p({ id: 'a', sizeMl: null }),
+        p({ id: 'b', sizeMl: null }),
+      ]);
+      expect(groups).toHaveLength(0);
+    });
+
+    it('gives two unknown-size products from the same listing set different match keys', () => {
+      // The concrete mechanism behind the two tests above: matchKey must
+      // never collapse onto a shared placeholder like the string "null".
+      expect(matchKey(p({ id: 'a', sizeMl: null }))).not.toBe(matchKey(p({ id: 'b', sizeMl: null })));
+    });
   });
 
   describe('what a shop puts in its ean field is not always a barcode', () => {

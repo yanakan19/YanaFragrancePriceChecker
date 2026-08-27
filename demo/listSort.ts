@@ -61,7 +61,24 @@ export function sortFragrances(list: DemoFragrance[], sort: ListSort): DemoFragr
       return compareVariants(a, b);
     }
     if (sort === 'size-low' || sort === 'size-high') {
-      if (a.sizeMl !== b.sizeMl) return sort === 'size-low' ? a.sizeMl - b.sizeMl : b.sizeMl - a.sizeMl;
+      // A product whose own title cannot be read as one size (see
+      // DemoFragrance.sizeMl's own comment) is not thereby the smallest
+      // bottle in a "smallest first" list or the largest in a "largest
+      // first" one — it is a bottle this site cannot honestly place on the
+      // scale at all, so it sits out of the way at the end of *either*
+      // ordering rather than a made-up position making a claim about its
+      // size. Handled before the ordinary numeric comparison, and by a
+      // fixed 1/-1 that a direction flip never reverses, rather than by
+      // mapping the unknown to +-Infinity and letting the shared "reverse
+      // for size-high" arithmetic below run over it: the value that reads
+      // as "always last" ascending would read as "always first" once
+      // negated for descending, which is exactly the claim being refused.
+      if (a.sizeMl === null || b.sizeMl === null) {
+        if (a.sizeMl === null && b.sizeMl !== null) return 1;
+        if (b.sizeMl === null && a.sizeMl !== null) return -1;
+      } else if (a.sizeMl !== b.sizeMl) {
+        return sort === 'size-low' ? a.sizeMl - b.sizeMl : b.sizeMl - a.sizeMl;
+      }
       const names = `${a.brand} ${a.name}`.localeCompare(`${b.brand} ${b.name}`);
       if (names !== 0) return names;
       return a.id.localeCompare(b.id);

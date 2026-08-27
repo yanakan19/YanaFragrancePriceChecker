@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isFragrance, repairMojibake, sizeMl } from '../src/catalogue/fragranceId.js';
+import { isFragrance, repairMojibake, sizeMl, sizeConflict } from '../src/catalogue/fragranceId.js';
 import { RETAILERS, getRetailer } from '../src/config/retailers.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 
@@ -55,6 +55,44 @@ describe('isFragrance: the concentration requirement', () => {
     'NIOD Copper Amino Isolate Lipid 1% 15ml',
     'Elemis Pro-Collagen Toning Mist 150ml',
   ])('rejects non-fragrance without a concentration word: %s', (title) => {
+    expect(isFragrance(listing('escentual', title))).toBe(false);
+  });
+});
+
+/**
+ * isFragrance: a title with two disagreeing sizes stays in, a title with no
+ * size at all still does not.
+ *
+ * These are the same seven real titles as
+ * tests/fragranceFilter.test.ts's "sizeMl/sizeConflict" describe block above
+ * this one in the file — see there for why `sizeMl` reads them as `null`.
+ * The size rule inside isFragrance has to tell that null apart from the
+ * null a title with no size at all also produces, or loosening it to admit
+ * these seven would just as easily admit "Fragrance-free baby nappy cream",
+ * which is the exact regression NOT_A_FRAGRANCE and this size gate together
+ * exist to prevent — see this describe block's second case for that.
+ */
+describe('isFragrance: a conflicting size stays in, an absent one still does not', () => {
+  it.each([
+    'Hamidi Maison Luxe Patchouli Imperial Eau De Parfum 100ml 110ml',
+    'Hamidi Maison Luxe Midnight Amber Eau De Parfum 100ml 110ml',
+    'Hamidi Maison Luxe Gypsy Rose Eau De Parfum 100ml 110ml',
+    'Hamidi Maison Luxe Elixir Eau De Parfum 100ml 110ml',
+    'Red Velvet Eau De Parfum 70ml 100ml',
+    'Club De Nuit Woman Luxury French Perfume Oil 20ml 18ml',
+    'Full Speed Eau de Toilette - 100ml 75ml',
+  ])('keeps a real fragrance whose title states two conflicting sizes: %s', (title) => {
+    expect(isFragrance(listing('armaf', title))).toBe(true);
+  });
+
+  // The rule this size gate exists for, unchanged: a title naming no size at
+  // all is still rejected, whatever else it says. Two sizes that disagree is
+  // a different fact from no size ever stated — see sizeConflict's own
+  // comment in fragranceId.ts.
+  it.each([
+    'Lancome Absolue Longevity MD Reset The Serum',
+    'Chanel Bleu de Chanel Eau de Parfum',
+  ])('still rejects a title that names no size at all: %s', (title) => {
     expect(isFragrance(listing('escentual', title))).toBe(false);
   });
 });
@@ -498,54 +536,85 @@ describe('sizeMl: a size menu followed by the row’s own size', () => {
    * "250ml + FREE Refillable 5ml 250ml" titles by "presented in a grand
    * 250ml decanter". None of the 33 needed a code change.
    *
-   * The bare two-size titles below (Hamidi's four, Red Velvet, Club De Nuit
-   * Woman's perfume oil, and Avon's Full Speed) are a separate, smaller
-   * group of 7, and they are left alone for a different reason than "no
-   * fix was needed" — the ambiguity here is real, and title text alone
-   * cannot settle it. Reading every one of Armaf's four Hamidi Maison Luxe
-   * "...100ml 110ml" titles against that product's own description on
-   * armaf.uk: Patchouli Imperial and Gypsy Rose confirm 110ml, Midnight
-   * Amber and Elixir confirm 100ml. Same shop, same exact title shape, same
-   * token order — the first number is right for two of the four and wrong
-   * for the other two, so no title-only rule (first, last, or otherwise)
-   * gets all four right, and there is nothing in the title itself that
-   * tells them apart.
-   *
-   * The theoretically honest answer for those seven is `null` — "unknown"
-   * rather than a coin-flip. It was not made the actual answer, and that is
-   * a deliberate choice, not an oversight: `isFragrance` in this same file
-   * treats `sizeMl(t) === null` as "not a real, priced fragrance" and drops
-   * the listing from the catalogue entirely (see its own header), and every
-   * downstream consumer that keys or sorts on a built product's `sizeMl` —
-   * productMatch.ts's matchKey, demo/listSort.ts, demo/app.ts's facet and
-   * tile rendering — treats it as a definite number, never `null`. Returning
-   * `null` from here today would either silently delist seven real,
-   * correctly-priced fragrances (Hamidi Parfums, Armaf Red Velvet and Club
-   * De Nuit Woman, Avon Full Speed all genuinely sell), or, if `isFragrance`
-   * were relaxed to let them through, hand a `null` size into product
-   * matching and the UI — a broken sort (`a.sizeMl - b.sizeMl` on `null` is
-   * `NaN`), a literal "nullml" on a product tile, and a matchKey that can no
-   * longer tell two same-brand, same-concentration, unknown-size fragrances
-   * apart. Both outcomes are worse than the status quo, which is a
-   * confident size that is right five times out of seven and wrong by one
-   * size step (110ml read as 100ml, or the reverse) on the other two — never
-   * an order of magnitude off the way the pre-2797294 Al Haramain bug was.
-   * Making `null` actually safe here is a real fix, but it is a change to
-   * how the built catalogue represents "size unknown" everywhere at once,
-   * not a title-regex fix, and it is not attempted in this pass.
+   * The bare two-size titles covered by their own describe block below
+   * (Hamidi's four, Red Velvet, Club De Nuit Woman's perfume oil, and Avon's
+   * Full Speed) used to sit in this same it.each, reading as a confident but
+   * occasionally wrong number. See that block for why they now read `null`
+   * instead.
    */
   it.each([
     ['Burberry Her 100ml Eau de Parfum + 10ml Set', 100],
     ['Dolce & Gabbana Devotion 100ml Eau de Parfum + 10ml', 100],
     ['Jimmy Choo Man 200ml Eau De Toilette & 30ml Set', 200],
     ['Boss Bottled EDT 50Ml + Deo Spray 150Ml Gs', 50],
-    ['Hamidi Maison Luxe Patchouli Imperial Eau De Parfum 100ml 110ml', 100],
-    ['Hamidi Maison Luxe Midnight Amber Eau De Parfum 100ml 110ml', 100],
-    ['Red Velvet Eau De Parfum 70ml 100ml', 70],
-    ['Club De Nuit Woman Luxury French Perfume Oil 20ml 18ml', 20],
-    ['Full Speed Eau de Toilette - 100ml 75ml', 100],
-  ])('leaves an ordinary bundle or ambiguous two-size title alone: %s', (title, expected) => {
+  ])('leaves an ordinary bundle alone, reading the headline size: %s', (title, expected) => {
     expect(sizeMl(title)).toBe(expected);
+  });
+});
+
+/**
+ * sizeMl/sizeConflict: a title stating two different sizes with nothing
+ * between them but whitespace.
+ *
+ * Seven real titles (Armaf's four Hamidi Maison Luxe lines, its own Red
+ * Velvet and Club De Nuit Woman perfume oil, and Avon's Full Speed), and the
+ * ambiguity is real: title text alone cannot settle it. Reading every one of
+ * Armaf's four Hamidi Maison Luxe "...100ml 110ml" titles against that
+ * product's own description on armaf.uk: Patchouli Imperial and Gypsy Rose
+ * confirm 110ml, Midnight Amber and Elixir confirm 100ml. Same shop, same
+ * exact title shape, same token order — the first number is right for two of
+ * the four and wrong for the other two, so no title-only rule (first, last,
+ * or otherwise) gets all four right, and there is nothing in the title
+ * itself that tells them apart.
+ *
+ * `sizeMl` used to return the first number anyway — a confident size that
+ * was right five times out of seven and wrong by one size step (110ml read
+ * as 100ml, or the reverse) on the other two, never an order of magnitude
+ * off the way the pre-2797294 Al Haramain bug was, but still a number stated
+ * with no more basis than a coin flip. It now returns `null`, and
+ * `sizeConflict` is what lets a caller — isFragrance below, in particular —
+ * tell this apart from a title that names no size at all: see that
+ * function's own comment for why the difference decides whether the listing
+ * stays in the catalogue. Every downstream consumer of a built product's
+ * `sizeMl` (productMatch.ts's matchKey, wasPriceCredibility.ts's
+ * CredibilityOffer, demo/volumeBands.ts, demo/listSort.ts, demo/app.ts's
+ * facet and tile rendering) now treats a null size as "cannot compare",
+ * never as a definite number to sort, key or print — see each file's own
+ * tests for the specific behaviour.
+ */
+describe('sizeMl/sizeConflict: two disagreeing sizes, nothing between them', () => {
+  it.each([
+    'Hamidi Maison Luxe Patchouli Imperial Eau De Parfum 100ml 110ml',
+    'Hamidi Maison Luxe Midnight Amber Eau De Parfum 100ml 110ml',
+    'Hamidi Maison Luxe Gypsy Rose Eau De Parfum 100ml 110ml',
+    'Hamidi Maison Luxe Elixir Eau De Parfum 100ml 110ml',
+    'Red Velvet Eau De Parfum 70ml 100ml',
+    'Club De Nuit Woman Luxury French Perfume Oil 20ml 18ml',
+    'Full Speed Eau de Toilette - 100ml 75ml',
+  ])('reads as unresolved, not as either number: %s', (title) => {
+    expect(sizeMl(title)).toBeNull();
+    expect(sizeConflict(title)).toBe(true);
+  });
+
+  // The complement: a title repeating the identical size twice has nothing
+  // to disagree about, and reads exactly as it always did — see
+  // SIZE_CONFLICT_RE's own comment in fragranceId.ts for the measurement
+  // (nine more titles like this one in the live catalogue).
+  it.each([
+    ['Club De Nuit Woman Eau De Parfum 30ml 30ml', 30],
+    ['Club De Nuit Woman Body Spray 200ml 200ml', 200],
+  ])('a repeated, agreeing size is not a conflict: %s', (title, expected) => {
+    expect(sizeMl(title)).toBe(expected);
+    expect(sizeConflict(title)).toBe(false);
+  });
+
+  // A bundle joined by "+"/"&"/"," is never mistaken for this shape, however
+  // many bare sizes it ends on — see SIZE_CONFLICT_RE's own comment.
+  it.each([
+    'Burberry Her 100ml Eau de Parfum + 10ml Set',
+    'Al Haramain Musk Al Tahara Perfume Oil 3ml, 6ml, 12ml, 24ml, 35ml 6ml',
+  ])('never fires on a title carrying a comma, plus or ampersand: %s', (title) => {
+    expect(sizeConflict(title)).toBe(false);
   });
 });
 

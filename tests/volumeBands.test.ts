@@ -53,6 +53,20 @@ describe('volumeBandFor: just under a boundary stays in the lower band', () => {
   });
 });
 
+/**
+ * A product whose own title states two conflicting sizes (see sizeConflict
+ * in src/catalogue/fragranceId.ts and CatalogueEntry.sizeMl's own comment)
+ * carries `sizeMl: null` by the time it reaches this facet. Banding it into
+ * any of the five ranges above would be exactly the "state what we don't
+ * know" mistake the Volume facet otherwise refuses to make, so it belongs to
+ * none of them.
+ */
+describe('volumeBandFor: a size the title cannot state as one number', () => {
+  it('returns null rather than guessing a band', () => {
+    expect(volumeBandFor(null)).toBeNull();
+  });
+});
+
 describe('VOLUME_BANDS: shape and house style', () => {
   it('covers five bands, narrowest to widest, with no gap or overlap', () => {
     expect(VOLUME_BANDS.map((b) => b.id)).toEqual(['0-15', '15-30', '30-70', '70-120', '120+']);

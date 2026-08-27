@@ -211,7 +211,76 @@ const SIZE_MENU_THEN_VARIANT_RE =
 const SIZE_RESTATED_THEN_VARIANT_RE =
   /\d{1,4}(?:\.\d)?\s*ml\b(?:\s+[A-Za-z][\w.'-]*)+\s+(\d{1,4}(?:\.\d)?)\s*ml\s*$/i;
 
-/** Size in millilitres, needed before two listings can be compared at all. */
+/**
+ * A title stating two different sizes with nothing between them but
+ * whitespace — the one shape 2797294 measured and deliberately left
+ * unresolved (see that commit's note, reproduced on tests/fragranceFilter.test.ts's
+ * "leaves an ordinary bundle alone" describe block): Armaf's four Hamidi
+ * Maison Luxe titles ("...Eau De Parfum 100ml 110ml"), its own "Red Velvet
+ * Eau De Parfum 70ml 100ml" and "Club De Nuit Woman Luxury French Perfume
+ * Oil 20ml 18ml", and Avon's "Full Speed Eau de Toilette - 100ml 75ml".
+ *
+ * Genuinely ambiguous, not merely unstated: the title states a size, twice,
+ * and the two statements disagree. That is a different fact from a title
+ * naming no size at all, and sizeConflict below exists so isFragrance can
+ * tell the two apart — see its own comment for why the difference matters
+ * to that function specifically.
+ *
+ * Requires no comma, "+" or "&" anywhere in the title, exactly like
+ * SIZE_RESTATED_THEN_VARIANT_RE just above and for the identical reason: a
+ * bundle or gift-with-purchase (Burberry Her 100ml Eau de Parfum + 10ml Set)
+ * also carries two sizes, but the second one is a free extra's own size, not
+ * a second statement about this bottle, and that shape always carries one of
+ * those three characters. This pattern requires the opposite of
+ * SIZE_RESTATED_THEN_VARIANT_RE's own "at least one real word between the two
+ * sizes" — nothing at all, not even a word, between them — which is exactly
+ * the shape that comment already carves out as unresolved by that rule: "a
+ * title with nothing between its two sizes stays deliberately unresolved".
+ *
+ * Measured against every file in data/catalogue on 2026-08-27: fires on
+ * exactly the seven titles named above and no others. Every other title in
+ * the catalogue with two bare ml mentions in a row states the identical
+ * number twice ("Club De Nuit Woman Eau De Parfum 30ml 30ml", nine more like
+ * it) — a restatement, not a disagreement, which is why the check below
+ * requires the two captured numbers to actually differ.
+ */
+const SIZE_CONFLICT_RE = /\b(\d{1,4}(?:\.\d)?)\s*ml\s+(\d{1,4}(?:\.\d)?)\s*ml\s*$/i;
+
+/**
+ * Whether a title states two different sizes with nothing between them but
+ * whitespace, and so has a size fact that is present but cannot be read as
+ * one number — see SIZE_CONFLICT_RE's own comment for the shape and the
+ * measurement.
+ *
+ * Exported so a caller that needs to know *why* sizeMl came back null can
+ * tell "this title never said" apart from "this title said two different
+ * things" without re-deriving the shape itself — isFragrance below is the
+ * first such caller, and the reasoning for why it needs to is on that
+ * function.
+ */
+export function sizeConflict(title: string): boolean {
+  if (/[,+&]/.test(title)) return false;
+  const m = title.match(SIZE_CONFLICT_RE);
+  return m !== null && m[1] !== m[2];
+}
+
+/**
+ * Size in millilitres, needed before two listings can be compared at all.
+ *
+ * Null means one of two different things, and sizeConflict above is what
+ * tells them apart: a title that names no size at all (silence), or one of
+ * the seven that names two and disagrees with itself (a live but unreadable
+ * fact) — see SIZE_CONFLICT_RE's own comment. This function does not choose
+ * between the two conflicting numbers for those seven; earlier versions
+ * returned the first one, which was confidently wrong for two of Hamidi
+ * Maison Luxe's four lines (checked against armaf.uk's own description text
+ * — see tests/fragranceFilter.test.ts). A wrong number that looks exactly
+ * like a right one is worse than an honest null, once every downstream
+ * consumer can actually represent one — see productMatch.ts's MatchableProduct,
+ * wasPriceCredibility.ts's CredibilityOffer and demo/volumeBands.ts, all of
+ * which treat a null size as "cannot compare" rather than "matches" or
+ * "zero".
+ */
 export function sizeMl(title: string): number | null {
   // Checked ahead of the ordinary first-token rule below, not instead of it —
   // see SIZE_MENU_THEN_VARIANT_RE's own comment for why only this specific,
@@ -226,6 +295,12 @@ export function sizeMl(title: string): number | null {
   if (!/[,+&]/.test(title)) {
     const restated = title.match(SIZE_RESTATED_THEN_VARIANT_RE);
     if (restated) return Math.round(Number.parseFloat(restated[1]!));
+    // See SIZE_CONFLICT_RE's own comment. Checked after the restated-variant
+    // rule just above (which requires a word between the two sizes) so the
+    // two patterns can never both match the same title — one requires a word
+    // between the sizes, this requires there be none.
+    const conflict = title.match(SIZE_CONFLICT_RE);
+    if (conflict && conflict[1] !== conflict[2]) return null;
   }
   const ml = title.match(ML_SIZE_RE);
   if (ml) return Math.round(Number.parseFloat(ml[1]!));
@@ -461,7 +536,24 @@ export function repairMojibake(title: string): string {
 export function isFragrance(l: StoredListing): boolean {
   const t = fold(l.rawTitle);
   if (NOT_A_FRAGRANCE.test(t)) return false;
-  if (sizeMl(t) === null) return false;
+  // A null size means one of two different facts — see sizeMl's own comment
+  // — and only one of them is a reason to reject a listing here. Silence
+  // (no size stated at all) is the load-bearing rule this gate exists for:
+  // it is what keeps "Fragrance-free baby nappy cream" and every other
+  // non-perfume a sitemap walk turns up out of the catalogue, because
+  // nothing that is actually a bottled fragrance is sold with no size ever
+  // mentioned. A conflict (two sizes stated, disagreeing — sizeConflict)
+  // is a different fact about the same listing: the shop said, twice, that
+  // this is a real, sized bottle, and simply cannot be read as one number
+  // by a title-only rule. Rejecting that would delist seven real,
+  // correctly-priced fragrances (Hamidi Maison Luxe's four Armaf lines, Red
+  // Velvet, Club De Nuit Woman's perfume oil, Avon's Full Speed) over a fact
+  // this file already knows how to state honestly downstream — see
+  // src/catalogue/productMatch.ts's MatchableProduct and
+  // src/catalogue/wasPriceCredibility.ts's CredibilityOffer, both of which
+  // already treat a null sizeMl as "cannot compare", never "matches" or
+  // "not a fragrance".
+  if (sizeMl(t) === null && !sizeConflict(t)) return false;
   if (l.priceGbp === null || l.priceGbp <= 0) return false;
   // Asked of every shop, unlike the two rules inside the branch below — see
   // MULTI_PACK for why a quantity against a size is the one multi-pack signal
