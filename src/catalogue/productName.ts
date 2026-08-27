@@ -394,7 +394,7 @@ export function concentration(title: string): string {
  * and the proxy this project's harvest runs behind refuses every brand and
  * retailer domain — see the audit's own comment for the two live examples
  * (Yardley Gentleman Classic 100ml, Lancôme La Vie Est Belle Rose
- * Extraordinaire 30ml) this cannot be resolved for today.
+ * Extraordinaire 30ml) that motivated this field.
  *
  * Picking one shop's word anyway — which is what this field used to do,
  * silently, by nothing more principled than which retailer's snapshot file
@@ -403,8 +403,221 @@ export function concentration(title: string): string {
  * offers on it are real, and what it says on the label is contested. See
  * CONCENTRATION_NOT_STATED just above for the same reasoning applied to
  * silence rather than to a dispute.
+ *
+ * 2026-08-27 update: WebSearch (unlike a direct fetch) is not blocked by the
+ * harvest's egress proxy, and the owner approved using it to chase down the
+ * manufacturer's own word for the remainder. See CONCENTRATION_RESOLUTIONS
+ * just below for what that pass actually settled.
  */
 export const CONCENTRATION_DISPUTED = 'Disputed';
+
+/**
+ * A curated, EAN-keyed override for the disputes CONCENTRATION_DISPUTED
+ * would otherwise flatten to "Disputed" — settled by a 2026-08-27 WebSearch
+ * pass, not by anything on disk. Consumed in scripts/build-demo-catalogue.ts
+ * at the exact point a contradiction is found: a resolved EAN gets its true
+ * concentration instead of the generic dispute label; an unresolved one
+ * still gets CONCENTRATION_DISPUTED, unchanged.
+ *
+ * The evidence bar, matching this project's other web-sourced facts (see
+ * demo/brandSites.ts): a fact counts only when it appears in a search
+ * result's own title or link — the manufacturer's own domain for choice, an
+ * EAN-tied product database or a major named retailer otherwise — never
+ * merely in a search summary's prose gloss, and never when a second,
+ * equally independent result contradicts it. Fragrantica's own title can
+ * corroborate but was never accepted standing alone. A great many disputes
+ * in this batch turned out to have exactly that kind of contradiction once
+ * checked — often from the very sites (Jomashop above all: its own listing
+ * titles for unrelated brands repeatedly show both words at once, e.g.
+ * "1 Million Parfum EDP Spray", "Le Male Elixir EDP Spray Parfum" — an
+ * artifact of its own URL/title template, not an independent claim) that a
+ * shallower pass would have counted as corroboration — so the majority of
+ * the 68 disputes live at the time of this pass (measured against
+ * demo/catalogue.generated.ts 2026-08-27) are still listed as *unresolved*
+ * below, on purpose: an honestly incomplete table beats a table that
+ * invented confidence it did not earn. See each entry for its own citation,
+ * and the comment at the end of this table for what was checked and left
+ * Disputed regardless, so a future pass does not repeat the same searches
+ * for nothing.
+ *
+ * Two patterns worth naming because they cut across many individual
+ * entries:
+ *
+ * - Paco Rabanne genuinely sells a "Parfum" concentration as its own named,
+ *   more-concentrated tier — distinct from "Eau de Parfum" — across several
+ *   of its lines (1 Million, Invictus, Olympéa, Phantom). Where beautybase's
+ *   bare "Parfum" and perfume-click's inserted "Eau de Parfum" disagree on
+ *   one of these, independent EAN-tied retailers across several countries
+ *   (Jean Coutu in Canada, Scentia.fr in France, lojaglamourosa in Brazil,
+ *   hadeeqatalatoor in the Gulf, upcitemdb.com's own crowd-sourced database)
+ *   agree with beautybase far more often than not — perfume-click's own
+ *   blanket "Eau de Parfum" suffix looks, on this evidence, like a feed
+ *   default applied whether or not it is true, the same failure shape as
+ *   this project's own past shop-wide defects (manchester-ouds' EDP
+ *   shorthand, Emirates Oud's self-contradicting "Fragrance Type" field).
+ *   That is a pattern, not a proof for any one bottle, which is why each
+ *   Rabanne entry below still has its own citation and several — Olympéa
+ *   30ml, 1 Million Royal, both sizes of Invictus Victory Elixir, Olympéa
+ *   Absolu — are left Disputed where the same search surfaced a genuine
+ *   conflict instead.
+ * - The reverse also happened, more than once: beautybase's own "Extrait de
+ *   Parfum"/"Parfum" lost outright to a fuller "Eau de Parfum" for Burberry
+ *   Her Elixir (its own real name is "Her Elixir de Parfum" — see
+ *   burberry.com's own listing at exactly this size), for two Ahmed Al
+ *   Maghribi bottles, and for French Avenue Ripple — the exact opposite
+ *   shop from the exact opposite direction of the four French Avenue
+ *   bottles CONCENTRATION_RESTATEMENT_RE already resolved the other way.
+ *   Nothing here trusts one shop's general reputation over the other's;
+ *   every entry was checked on its own barcode.
+ */
+export interface ConcentrationResolution {
+  /** The true concentration, in the same display form `concentration()` returns. */
+  concentration: string;
+  /** One-line citation of the search evidence that settled this EAN. */
+  citation: string;
+}
+
+export const CONCENTRATION_RESOLUTIONS: Readonly<Record<string, ConcentrationResolution>> = {
+  // ── Prada Paradoxe Radical Essence: unanimous "Parfum" (Jomashop, Realry,
+  // three separate Nandansons SKUs, ScentsWorld, BeyondStyle); no source
+  // anywhere in the search names an "Eau de Parfum" for either size. ──
+  '3614274306217': { concentration: 'Parfum', citation: 'Prada Paradoxe Radical Essence 50ml: Jomashop, Realry, Nandansons and ScentsWorld unanimously "Parfum"; no conflicting source found.' },
+  '3614274305401': { concentration: 'Parfum', citation: 'Prada Paradoxe Radical Essence 90ml: Jomashop, Realry, Nandansons, ScentsWorld and BeyondStyle unanimously "Parfum"; no conflicting source found.' },
+
+  // ── Rabanne "Parfum" tier (see the general note above): each entry below
+  // is unanimous or near-unanimous across independent, EAN-tied sources. ──
+  '3349668641826': { concentration: 'Parfum', citation: 'Rabanne Invictus Victory Absolu 50ml: ShopSimon, Jomashop, eBay ("2025 ... ABSOLU Parfum INTENSE"), bestbrandsperfume all "Parfum(e Intense)"; no EDP claim found.' },
+  '3349668641833': { concentration: 'Parfum', citation: 'Rabanne Invictus Victory Absolu 100ml: ShopSimon, Jomashop, eBay, news-parfums.com ("RABANNE PARFUM Invictus Victory Absolu"), ModeSens all "Parfum"; no EDP claim found.' },
+  '3349668579822': { concentration: 'Parfum', citation: 'Rabanne 1 Million 50ml: upcitemdb.com’s independent EAN database names this exact barcode "1 Million Parfum Spray"; lojaglamourosa agrees.' },
+  '3349668579839': { concentration: 'Parfum', citation: 'Rabanne 1 Million 100ml: upcitemdb.com’s independent EAN database names this exact barcode "1 Million Parfum Spray, 3.4-oz"; eBid, iraqdutyfree agree.' },
+  '3349668644025': { concentration: 'Parfum', citation: 'Rabanne Phantom Elixir 150ml: rabanne.com’s own domain tags it "Parfum Intense" (both the ww/en and us/en_US product pages); eBay and Amobeleza agree.' },
+  '3349668644063': { concentration: 'Parfum', citation: 'Rabanne Phantom Elixir 50ml: eBay, Walmart, Jomashop, Shoppers Drug Mart (exact-EAN match) all "Phantom Elixir Parfum"; no EDP claim found.' },
+  '3349668644049': { concentration: 'Parfum', citation: 'Rabanne Phantom Elixir 100ml: eBay, Walmart, Jomashop, news-parfums.com ("RABANNE PARFUM Phantom Elixir"), Parfumdo.com all "Parfum(e Intense)"; no EDP claim found.' },
+  '3349668627523': { concentration: 'Parfum', citation: 'Rabanne Invictus 50ml: Parfuma, Jomashop, World of Watches, Coral Perfumes, A&R Perfumes all "Invictus Parfum"; Fragrantica titles it as a distinct 2024 "Invictus Parfum" launch.' },
+  '3349668627530': { concentration: 'Parfum', citation: 'Rabanne Invictus 100ml: Jean Coutu, Realry, Walmart, Jomashop, Scentia.fr, hadeeqatalatoor, ModeSens, lojaglamourosa — ten independent, EAN-tied retailers across five countries, unanimous "Invictus Parfum".' },
+  '3349668627547': { concentration: 'Parfum', citation: 'Rabanne Invictus 200ml: eBay, Walmart, Jomashop unanimous "Invictus Parfum"; Fragrantica titles the exact barcode "Invictus Parfum ... 2024".' },
+  '3349668627462': { concentration: 'Parfum', citation: 'Rabanne Olympéa 50ml: Farmamix, Jomashop, RP-Luxury, news-parfums.com ("RABANNE PARFUM Olympéa"), A&R Perfumes unanimous "Parfum"; no EDP claim found for this size.' },
+  '3349668627479': { concentration: 'Parfum', citation: 'Rabanne Olympéa 80ml: Jomashop, World of Watches, Mengotti Couture, Jack Gifts Cosmetica unanimous "Olympea Parfum"; no EDP claim found for this size.' },
+  '3349668614592': { concentration: 'Parfum', citation: 'Rabanne Phantom 100ml: eBay, Jomashop, eperfumes.gr, Fragrancelord, EK Perfumes, A&R Perfumes all "Phantom Parfum"; no independent EDP claim found.' },
+
+  // ── Jean Paul Gaultier's own "Parfum (Intense)"/"Parfum Concentré" tier,
+  // the men's Le Male and Scandal lines specifically. ──
+  '8435415102339': { concentration: 'Parfum', citation: 'JPG Le Male Elixir Absolu 75ml: jeanpaulgaultier.com’s own product page names it "Le Male Elixir Absolu Parfum Intense"; eBay, Walmart, Jomashop, Fragrantica agree.' },
+  '8435415102346': { concentration: 'Parfum', citation: 'JPG Le Male Elixir Absolu 125ml: Walmart, giftexpress, Jomashop, Nandansons, news-parfums.com and Maple Prime all "Parfum (Intense)"; matches the jeanpaulgaultier.com naming for the line.' },
+  '8435415102353': { concentration: 'Parfum', citation: 'JPG Le Male Elixir Absolu 200ml: Jomashop, news-parfums.com (exact-EAN URL), Maple Prime all "Le Male Elixir Absolu Parfum"; matches the jeanpaulgaultier.com naming for the line.' },
+  '8435415076937': { concentration: 'Parfum', citation: 'JPG Le Male Elixir 75ml: upcitemdb.com’s independent EAN database names this exact barcode "Le Male Elixir Spray, 2.5 oz" as a Parfum; giftexpress, ShopCGX, DLG agree "Parfum".' },
+  '8435415076944': { concentration: 'Parfum', citation: 'JPG Le Male Elixir 125ml: upcitemdb.com’s independent EAN database names this exact barcode a Parfum; giftexpress, ShopCGX, DLG, Perfume Plus Outlet agree.' },
+  '8435415080378': { concentration: 'Parfum', citation: 'JPG Scandal Pour Homme Absolu 50ml: Amazon’s own title reads "Parfum Concentré"; Walmart, Jomashop, giftexpress, Perfumerías Padilla agree.' },
+  '8435415080385': { concentration: 'Parfum', citation: 'JPG Scandal Pour Homme Absolu 100ml: Jean Coutu (exact-EAN match) titles it "Scandal Absolu Parfum Concentré for Men"; Amazon, Walmart, Jomashop agree.' },
+
+  // ── Everyone else: each checked on its own barcode. ──
+  '3614274219579': { concentration: 'Parfum', citation: 'Armani Stronger With You 100ml: eBay, Realry, Fragmantic, PicClick, ModeSens, seekfab unanimous "Stronger With You Parfum"; no EDP claim found.' },
+  '3423474884155': { concentration: 'Parfum', citation: '"Nuit D’Issey Parfum" 75ml: Amazon and Perfume Clearance Centre both "Parfum", naming the 2014 "Parfum" flanker distinct from the same-year EDT; no conflicting claim found.' },
+  '3616305616203': { concentration: 'Parfum', citation: 'Hugo Boss Alive Absolu Intense 30ml: Marionnaud (major French retailer, exact-EAN URL) and two further EAN-tied French retailers all "Parfum Intense"; only Jomashop’s own listing dissents with "EDP".' },
+  '3614273844673': { concentration: 'Parfum', citation: 'Armani My Way 30ml: Jomashop, Perfume Corner (UK), eperfumes.gr, ModeSens unanimous "My Way Parfum"; no EDP claim for this exact EAN.' },
+  '3614273844666': { concentration: 'Parfum', citation: 'Armani My Way 50ml (refillable): Jomashop unanimous "My Way Parfum Refillable"; no EDP claim for this exact EAN.' },
+  '3386460157315': { concentration: 'Parfum', citation: 'Coach Gold 30ml: Jomashop and Perfume Clearance Centre both "Coach Gold Parfum"; no EDP claim found.' },
+  '3616303429669': { concentration: 'Parfum', citation: 'Calvin Klein Eternity 200ml: eBay, Perfume Clearance Centre and beautyqueensupply all "Eternity ... Parfum"; only Direct Chemist Outlet dissents, and its own listing also mismatches the product’s gender.' },
+  '8011003891498': { concentration: 'Parfum', citation: 'Versace Crystal Noir 50ml: Superdrug (major UK retailer) and lojaglamourosa (exact-EAN URL) both "Crystal Noir Parfum"; versace.com itself lists an EDT and a Parfum as separate 50ml SKUs, and the majority of independent listings for this EAN say Parfum.' },
+  '3614273638852': { concentration: 'Parfum', citation: 'Azzaro The Most Wanted 100ml: Belova, Fragmantic, pariscom2030, giftexpress, clothbase all "The Most Wanted Parfum"; only Jomashop’s own URL (not its title) inserts "edp".' },
+
+  // ── Eau de Parfum: cases where the fuller name won, including two where
+  // beautybase’s own claim was the wrong one. ──
+  '3616304061943': { concentration: 'Eau de Parfum', citation: 'Burberry Her Elixir 100ml: burberry.com’s own site names the exact product "Her Elixir de Parfum" at exactly this 100ml size — "de Parfum" is part of the bottle’s own name, i.e. Eau de Parfum tier; fragrance-click already had this right, beautybase and perfume-click’s "Parfum" did not.' },
+  '3614273953764': { concentration: 'Eau de Parfum', citation: 'Armani Acqua di Giò Profondo 50ml: giorgioarmanibeauty-usa.com’s own domain titles the line "Acqua di Giò Profondo Eau de Parfum Cologne"; outweighs the resale-site majority saying bare "Parfum".' },
+  '6298042001893': { concentration: 'Eau de Parfum', citation: 'French Avenue Ripple 100ml: Jomashop, Fruugo, theislamshop, PerfumeGiants, pennypart.com unanimous "Eau de Parfum" — zero Extrait claims found — and manchester-ouds’ own title and description already independently agree at this value (see the "Ripple" test case for concentrationOfListing); beautybase’s "Extrait de Parfum" was the mislabel here.' },
+  '3616305033055': { concentration: 'Eau de Parfum', citation: 'Marc Jacobs Daisy Wild Eau So Intense 100ml: marcjacobs.com’s own product URL is keyed to this exact EAN and titled "Daisy Wild Intense Eau De Parfum"; beautybase and fragrance-click already had this right, perfume-click’s "Parfum" did not.' },
+  '6290360616933': { concentration: 'Eau de Parfum', citation: 'Ahmed Al Maghribi Blu Oud 100ml: Superdrug (major UK retailer), PerfumeBox, DubaiOudh, Triple Traders, FridayCharm unanimous "Eau de Parfum"; beautybase’s "Extrait de Parfum" was the mislabel here.' },
+  '6290360617312': { concentration: 'Eau de Parfum', citation: 'Ahmed Al Maghribi Black Fumes 100ml: samawa.ae, luxurious-fragrances.com, PerfumeBox, DubaiOudh unanimous "Eau de Parfum"; ahmedalmaghribi.co.in’s own regional site files it under an "/eau-de-parfum/" URL path; beautybase’s "Extrait de Parfum" was the mislabel here.' },
+  '8435415054041': { concentration: 'Eau de Parfum', citation: 'JPG Scandal Gold 80ml: Walmart, V Perfumes, Venera Cosmetics, Jomashop, World of Watches, alseerandsafeer.com all "Eau de Parfum"/"EDP"; fragrance-click’s "Parfum" was the mislabel here.' },
+  '3614274103007': { concentration: 'Eau de Parfum', citation: 'Lancôme La Vie Est Belle Rose Extraordinaire 30ml: lancome-usa.com’s own site names it "La Vie Est Belle Rose Extraordinaire Eau de Parfum" — the brand’s own domain, exactly the shape of evidence this field was written to require — corroborated by Superdrug, Harrods and lojaglamourosa (exact-EAN URL); beautybase already had this right, perfume-click’s "Eau de Toilette" did not.' },
+
+  // ── Extrait de Parfum: where the fuller, more concentrated name won. ──
+  '6290171075738': { concentration: 'Extrait de Parfum', citation: 'Afnan 9pm Elixir Intense 100ml: Walmart, Jomashop, Amazon, Perfume Plus Outlet, perfumeheadquarters.com unanimous "Extrait de Parfum"; beautybase’s bare "Parfum" was the mislabel here.' },
+  '6297001571040': { concentration: 'Extrait de Parfum', citation: 'Rayhaan Tiger Cal Cologne 100ml: Cosmos (bluesoft.io), a GTIN/EAN product database, names this exact barcode "Extrait De Parfum Spray"; giftexpress, Amazon and beautyhouse.com agree.' },
+  '6298042001718': { concentration: 'Extrait de Parfum', citation: 'French Avenue Frostbite 100ml: pennypart.com explicitly "Extrait de Parfum"; matches the established manchester-ouds abbreviation pattern (see CONCENTRATION_RESTATEMENT_RE) against Jomashop’s lone "EDP".' },
+  '6290171070207': { concentration: 'Extrait de Parfum', citation: 'Afnan Supremacy In Oud 100ml: ShopSimon, Jomashop (its own title, not just its URL), clothbase, DLG, Nandansons, ModeSens all "Extrait de Parfum"; perfume-click’s "Eau de Parfum" was the mislabel here.' },
+  '6298042001800': { concentration: 'Extrait de Parfum', citation: 'French Avenue Safari Breeze 100ml: three separate eBay listings, Jomashop and ModeSens all "Extrait de Parfum"; beautybase already had this right, manchester-ouds’ "Eau de Parfum" did not.' },
+} as const;
+
+/*
+ * Left CONCENTRATION_DISPUTED by the same 2026-08-27 pass — checked, not
+ * skipped — so a future pass does not repeat these same searches for
+ * nothing. Each is a genuine split in the search results themselves, not a
+ * gap in the search: a second independent, similarly-placed source
+ * contradicted the first every time, which is exactly the "ambiguous or
+ * summary-only" case this project's evidence bar says to leave alone.
+ *
+ *   - ean-085805268848 Elizabeth Arden Green Tea 100ml: sevendays-shop says
+ *     "EDT", two other retailers say "Eau de Parfum"; several more call it a
+ *     bare "Scent Spray" with no concentration word at all, suggesting the
+ *     bottle's own branding may not use standard terminology here.
+ *   - ean-6297000226163 Yardley Gentleman Classic 100ml: the flagship
+ *     example this field was written around. Majority of retailers say EDP,
+ *     but upcitemdb.com's own independent EAN database and news-parfums.com
+ *     both say "Eau de Toilette" for this exact barcode — a real, not
+ *     summary-only, conflict from an independent database.
+ *   - ean-3614274258080 / ean-3614274258073 Azzaro Wanted Forever Elixir
+ *     50ml/100ml: four different concentration words (EDP, Extrait de
+ *     Parfum, Parfum) appear across sources for the 100ml alone.
+ *   - ean-3349668641758 Rabanne Olympéa Absolu Intense 30ml: rabanne.com's
+ *     own domain says "Parfum Intense", but Argos — a major UK retailer,
+ *     not a resale mirror — independently says "Eau De Parfum" for the same
+ *     EAN.
+ *   - ean-6290360379203 / ean-6290360379227 French Avenue Carnal Desire /
+ *     Royal Taboo 100ml: a UK niche specialist (soghaat.co.uk) says Extrait
+ *     against a majority of general resale sites saying EDP; Royal Taboo
+ *     even splits within eBay itself, two listings disagreeing.
+ *   - ean-8011003891092 / ean-8011003891061 / ean-8011003891467 Versace
+ *     Bright Crystal 90ml/50ml and Crystal Noir 90ml: Harvey Nichols (a
+ *     shop in this project's own registry) independently names all three
+ *     "Eau De Parfum" against a majority calling them "Parfum"; Scentia.fr
+ *     even disagrees with itself, running two pages for Crystal Noir 90ml
+ *     under two different names.
+ *   - ean-3349668627486 Rabanne Olympéa 30ml: Scentia.fr (used favourably
+ *     for the 50ml/80ml sizes above) names this size "EDP" instead.
+ *   - ean-3616303476793 Calvin Klein Eternity Aromatic Essence Intense
+ *     50ml: calvinklein.us's own product page carries the exact EAN but no
+ *     concentration word in its title; Perfume Clearance Centre says
+ *     "Parfum", Jomashop says "EDP".
+ *   - ean-8435415080408 / ean-8435415080415 / ean-8435415080422 JPG Scandal
+ *     Absolu (women's) 30/50/80ml: Jomashop runs two different listings for
+ *     the 80ml alone, one "Parfum" and one "EDP"; alsayyedcosmetics.com and
+ *     perfumesclub.se both independently call the 80ml "EDP".
+ *   - ean-6290171070276 Zimaya Musk Is Great 100ml: perfumeheadquarters.com
+ *     disagrees with its own URL; ForeverLux says Extrait against a
+ *     majority saying EDP.
+ *   - ean-3349668617043 Rabanne 1 Million Royal 50ml: rabanne.com's own
+ *     domain and most resellers say "Parfum", but kanerbrandhouse.com and
+ *     thebarbersupplier.com both independently say "EDP".
+ *   - ean-3349668614516 / ean-3349668614523 Rabanne Invictus Victory Elixir
+ *     Intense 50ml/100ml: giftexpress, kanerbrandhouse.com and
+ *     perfumesclub.co.uk all call the 100ml "Eau De Parfum" against eBay/
+ *     Jomashop/ModeSens calling it "Parfum" — a genuine split within the
+ *     same barcode, not just across sizes.
+ *   - ean-6290171070214 Afnan Supremacy Not Only Intense 100ml: roughly an
+ *     even split between "Extrait de Parfum" (DLG, unitedperfumes.com,
+ *     Jomashop's own title, ModeSens) and "Eau de Parfum" (eBay, Realry,
+ *     Triple Traders).
+ *   - ean-6298042001909 French Avenue Ravine Ice 100ml: manchester-ouds' own
+ *     description independently restates "Extrait De Parfum" (see the
+ *     concentration audit's own header), but the external majority
+ *     (Amazon, marabika.lt, souqfragrance.com) says "Eau de Parfum" —
+ *     repo-internal and web evidence point opposite ways.
+ *   - ean-6290360617442 Ahmed Al Maghribi Summer Oud 60ml: two German
+ *     specialists (bella-me.de, Parfuem365.de) say "Extrait de Parfum"
+ *     against Amazon and oudstore.com saying "Eau de Parfum"/"EDP".
+ *   - ean-5012209042441 L'Aimant 50ml: the true name on every authoritative
+ *     hit (Walmart, Nandansons, chemist.net) is "Parfum de Toilette" — a
+ *     distinct vintage Coty concentration this codebase's vocabulary does
+ *     not model — which matches neither beautybase's "Parfum" nor
+ *     perfume-click's "Eau de Toilette" claim, so neither can be credited.
+ *   - ean-3616304175916 Gucci Guilty Pour Femme Elixir de 60ml: sources
+ *     split between "Eau de Parfum" and what several call "ExDP"/"Extrait
+ *     de Parfum" (the men's version at a neighbouring EAN is confirmed
+ *     Extrait de Parfum, but that is a different barcode); too mixed to
+ *     credit either disputed claim.
+ */
 
 /**
  * A specific concentration phrase immediately followed by its own size in

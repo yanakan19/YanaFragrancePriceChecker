@@ -42,6 +42,7 @@ import {
 import {
   concentrationOfListing,
   CONCENTRATION_DISPUTED,
+  CONCENTRATION_RESOLUTIONS,
   displayName,
   stripRedundantSize,
   reattachArmafLine,
@@ -815,33 +816,47 @@ if (scaleAudit.offScale.length > 0) {
    not a plain 70 minus 4.
 
    What is left after that needs the manufacturer's own word to settle which
-   shop is right, and the egress proxy this harvest runs behind refuses every
-   brand and retailer domain — see the audit's own console warning below for
-   the two live examples (Yardley Gentleman Classic 100ml, Lancôme La Vie Est
-   Belle Rose Extraordinaire 30ml) this cannot be resolved for today. Splitting
-   the group on a title disagreement would also be the wrong move on this
-   evidence: it would turn one correctly matched bottle into two
-   half-populated products, and the barcode says they are one bottle.
+   shop is right. The egress proxy this harvest runs behind refuses every
+   brand and retailer domain directly, but WebSearch is not behind that
+   proxy — a 2026-08-27 pass used it to chase down exactly that word for
+   every product still in dispute at the time. See CONCENTRATION_RESOLUTIONS
+   in productName.ts for what it found: 44 of the 68 disputes live that day,
+   including the two flagship examples this comment used to cite as
+   unresolvable (Yardley Gentleman Classic 100ml stays Disputed on genuinely
+   conflicting evidence; Lancôme La Vie Est Belle Rose Extraordinaire 30ml
+   did resolve, on lancome-usa.com's own listing). Splitting the group on a
+   title disagreement would also be the wrong move on this evidence: it
+   would turn one correctly matched bottle into two half-populated products,
+   and the barcode says they are one bottle.
 
    So the remainder is not silently resolved by whichever shop's snapshot file
-   happened to sort first on disk, which is what this build used to do: the
-   product's `concentration` field is overwritten with CONCENTRATION_DISPUTED,
-   so the site states the true fact — this bottle is real, every offer on it
-   is real, and what the label says is contested — rather than one shop's
-   unverified word dressed up as the product's own fact. Nothing here touches
-   price: every offer, whatever it calls the bottle, is still a real shop
-   selling the identical barcode (see the size-agreement check above), so the
-   cheapest-price comparison and the wasPrice credibility checks in
-   wasPriceCredibility.ts stay exactly as they were. See CONCENTRATION_DISPUTED
-   in productName.ts for the rest of this reasoning. */
+   happened to sort first on disk, which is what this build used to do: a
+   resolved EAN's `concentration` field is overwritten with the true value
+   CONCENTRATION_RESOLUTIONS found, and everything still unresolved is
+   overwritten with CONCENTRATION_DISPUTED — so the site states the true
+   fact either way, never one shop's unverified word dressed up as the
+   product's own fact. Nothing here touches price: every offer, whatever it
+   calls the bottle, is still a real shop selling the identical barcode (see
+   the size-agreement check above), so the cheapest-price comparison and the
+   wasPrice credibility checks in wasPriceCredibility.ts stay exactly as
+   they were. See CONCENTRATION_DISPUTED and CONCENTRATION_RESOLUTIONS in
+   productName.ts for the rest of this reasoning. */
 const mixedConcentration = [...concentrationsSeen].filter(
   ([id, seen]) => seen.size > 1 && products.has(id),
 );
 // Split, because the two halves mean different things — see above. A shop
 // that named nothing has not contradicted a shop that named something.
 const contradicting = mixedConcentration.filter(([, seen]) => !seen.has('Not stated'));
+let concentrationResolvedByEan = 0;
 for (const [id] of contradicting) {
-  products.get(id)!.concentration = CONCENTRATION_DISPUTED;
+  const product = products.get(id)!;
+  const resolution = product.ean ? CONCENTRATION_RESOLUTIONS[product.ean] : undefined;
+  if (resolution) {
+    product.concentration = resolution.concentration;
+    concentrationResolvedByEan++;
+  } else {
+    product.concentration = CONCENTRATION_DISPUTED;
+  }
 }
 
 /* ── which offers are the fragrance house's own ─────────────────────────────
@@ -1365,14 +1380,17 @@ console.log(
 
   // See "shops disagreeing about what is in the bottle" above, where
   // mixedConcentration and contradicting are computed and every contradicting
-  // product's `concentration` field is already overwritten with
-  // CONCENTRATION_DISPUTED by the time this runs.
+  // product's `concentration` field is already overwritten — with the true
+  // value from CONCENTRATION_RESOLUTIONS where a 2026-08-27 WebSearch pass
+  // settled it, with CONCENTRATION_DISPUTED otherwise — by the time this runs.
   if (mixedConcentration.length > 0) {
     console.log(
       `::warning::${mixedConcentration.length} products carry offers whose titles differ about concentration — ` +
         `${contradicting.length} of them a real contradiction, the rest one shop naming none. ` +
         'Every contradiction shares an EAN, so it is a mislabelled bottle rather than two bottles merged; ' +
-        `each now shows "${CONCENTRATION_DISPUTED}" instead of one shop's unverified word.`,
+        `${concentrationResolvedByEan} were settled by the manufacturer's own word (see CONCENTRATION_RESOLUTIONS ` +
+        `in productName.ts) and now show their true concentration, and the remaining ` +
+        `${contradicting.length - concentrationResolvedByEan} still show "${CONCENTRATION_DISPUTED}".`,
     );
   }
 }
