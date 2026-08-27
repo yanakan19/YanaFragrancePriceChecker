@@ -12,11 +12,26 @@
  * 48m05s (20:35:23Z to 21:23:28Z) across 49 shops and 714 fetched pages, and
  * the job hit its 100-minute cap during the harvest that followed.
  *
- * Discovery is also all-or-nothing within a run: scripts/shipping-discover.ts
- * writes the registry patch and the report after its loop finishes, so a run
- * killed at minute 47 of 48 records nothing. Capping the step would therefore
- * have bought nothing — the work has to be small enough to finish, not
- * interruptible.
+ * Discovery was also all-or-nothing within a run, for as long as this queue
+ * was its only defence: scripts/shipping-discover.ts wrote the registry patch
+ * and the report after its loop finished, so a run killed at minute 47 of 48
+ * recorded nothing. Capping the step alone would therefore have bought
+ * nothing — the work had to be small enough to finish, not interruptible,
+ * which is what this rotation is for.
+ *
+ * That second half is no longer true on its own. From 2026-08-25T12:43
+ * onward, every scheduled cycle hit the job's 900s backstop mid-batch anyway
+ * — John Lewis alone was measured spending ~446s of it, roughly half the
+ * budget, on a single chronically slow shop (runs #334, #340, #341, #342) —
+ * and the end-of-loop write above lost every one of those cycles, this
+ * rotation's own bookkeeping included. scripts/shipping-discover.ts now
+ * writes each shop's outcome, registry patch and `checked` stamp the instant
+ * that shop finishes (see src/catalogue/shippingDiscoveryReport.ts), and
+ * bounds one shop's read so it cannot exhaust the run's budget by itself.
+ * The rotation this file implements is unchanged and still the right shape —
+ * a killed run's un-stamped shops still queue up exactly as a `held` one
+ * does — it no longer has to be the *only* thing standing between a bad shop
+ * and a lost cycle.
  *
  * ── The trade this makes ─────────────────────────────────────────────────────
  * So each run reads a bounded slice, least-recently-checked first, and
