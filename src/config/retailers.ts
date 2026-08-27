@@ -378,12 +378,22 @@ export const RETAILERS: readonly Retailer[] = [
     // /fragrance/ was confirmed live in a browser 6 Aug 2026 (stripped of
     // the ad-click tracking parameters it was pasted with) and added
     // alongside it as a general catch-all section.
+    // TEMP EXPERIMENT (2026-08-27, revert after CI run captures mens.html):
+    // mens moved to the front of this list to test whether the challenge on
+    // /perfumes-for-men/, /perfumes-for-women/ and /niche-perfumes/ (see the
+    // dated comment above) is a session-order effect — i.e. whether being
+    // first in localBrowserRenderer's one shared context, the way /fragrance/
+    // was in the run that found this, is what let /fragrance/ through — or
+    // whether it is specific to these three URL paths regardless of order.
+    // All four sections are still harvested; only the order changes, so a
+    // scheduled run in the meantime loses nothing. See the retailer comment
+    // above for what this settles either way.
     catalogue: {
       searchUrlTemplate: 'https://www.notino.co.uk/search.asp?exps={q}',
       sections: [
+        { id: 'mens', label: "Men's perfume", urlTemplate: 'https://www.notino.co.uk/perfumes-for-men/?f=page-{page}', tier: 'designer' },
         { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.notino.co.uk/fragrance/?page={page}', tier: 'designer' },
         { id: 'womens', label: "Women's perfume", urlTemplate: 'https://www.notino.co.uk/perfumes-for-women/?f=page-{page}', tier: 'designer' },
-        { id: 'mens', label: "Men's perfume", urlTemplate: 'https://www.notino.co.uk/perfumes-for-men/?f=page-{page}', tier: 'designer' },
         { id: 'niche', label: 'Niche perfume', urlTemplate: 'https://www.notino.co.uk/niche-perfumes/?f=page-{page}', tier: 'niche' },
       ],
       firstPage: 1, maxPages: 80, minRequestGapMs: 1500,
