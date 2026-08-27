@@ -62,3 +62,46 @@ export function authErrorMessage(raw: string, context: 'signUp' | 'signIn' | 're
   }
   return 'Something went wrong. Please try again.';
 }
+
+/**
+ * Turns a failed *URL callback* — the tab that just followed a confirmation,
+ * magic, or password recovery link back in — into an honest sentence.
+ *
+ * This is a different moment from everything above it in this file: those
+ * functions cover a reader typing into a form and getting a response back.
+ * This one covers a reader who clicked a link, landed back on the site, and
+ * whose session never appeared — a failure with no form to show it against,
+ * which is exactly how it used to go unnoticed. See demo/auth.ts's
+ * `checkEmailLinkCallback` for where this is called and why nothing called
+ * anything like it before.
+ *
+ * Deliberately keyed on the auth-js *error class name*, not on Supabase's
+ * free-text `message` (unlike authErrorMessage's raw-string matching above).
+ * The two failure modes this distinguishes are named, documented classes in
+ * `@supabase/auth-js` — `AuthPKCEGrantCodeExchangeError` and
+ * `AuthPKCECodeVerifierMissingError`, whose own source comment reads "This
+ * typically happens when the auth flow was initiated in a different browser,
+ * device, or the storage was cleared" — so matching on the name is matching
+ * on something the library itself defines and keeps stable, not on wording
+ * that could change under this project without notice.
+ *
+ * No enumeration concern here, unlike the sign in/sign up messages above: a
+ * broken confirmation link says nothing about whether an email address has
+ * an account, only that the specific link just clicked did not produce a
+ * session. It is safe, and more honest, to be specific about *why*.
+ */
+export function authCallbackErrorMessage(errorName: string): string {
+  if (errorName === 'AuthPKCEGrantCodeExchangeError' || errorName === 'AuthPKCECodeVerifierMissingError') {
+    // Kept even though this project's client is configured for the implicit
+    // flow (see demo/supabase.ts), where this pair cannot fire today: it is
+    // the one message that names the actual cause rather than a generic
+    // retry, and costs nothing to leave in place against a future change to
+    // that configuration.
+    return 'This link only works in the browser you signed up in. Open it there, or sign in and request a new one.';
+  }
+  // Every other callback failure (AuthImplicitGrantRedirectError covers an
+  // expired link, an already-used link, and a link Supabase itself rejected
+  // with an error in the redirect) shares one honest, always-true remedy:
+  // the link in hand did not work, and a new one will.
+  return 'That confirmation link did not work. It may have expired or already been used — request a new one from the sign in page.';
+}

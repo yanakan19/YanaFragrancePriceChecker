@@ -73,6 +73,7 @@ import { headFor, type HeadTags, type HeadInput } from './head.js';
 import { SUPABASE_CONFIGURED } from './supabase.js';
 import {
   signUp, signIn, signOut, resendVerification, requestPasswordReset, currentUser, isVerified, onAuthChange,
+  checkEmailLinkCallback,
 } from './auth.js';
 import type { User } from '@supabase/supabase-js';
 import { accountState, wishlistControl, type AccountStateInput } from '../src/services/accountState.js';
@@ -4892,6 +4893,18 @@ function init(): void {
   // that just followed a verification link back in — see its own comment in
   // auth.ts for why nothing here needs to poll for that.
   onAuthChange(handleAuthUser);
+  // The other half of "the tab that just followed a link back in": if that
+  // link did NOT produce a session — expired, already used, or (see
+  // supabase.ts's flowType comment) opened in a browser without a stored
+  // PKCE verifier — nothing above fires at all, and the reader would
+  // otherwise land on /account looking exactly like a fresh, signed out
+  // visit. See auth.ts's checkEmailLinkCallback for why that was silent
+  // until now.
+  checkEmailLinkCallback().then((message) => {
+    if (!message) return;
+    state.authError = message;
+    render();
+  });
 
   // The bar search is the quick one: type a name, get results. The Search
   // subpage under Explore is where the same query gains a brand filter and
