@@ -34,7 +34,7 @@
  * count cannot go stale without that same required command having already
  * fixed it first.
  */
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Reporter } from 'vitest/reporters';
@@ -80,6 +80,29 @@ export class TestCountReporter implements Reporter {
     // not evidence the suite shrank to zero. Never let that overwrite a real
     // count with a false one.
     if (total <= 0) return;
+
+    // A *filtered* non-watch run is the same trap wearing a different hat,
+    // and it was hit for real on 2026-08-27: `npx vitest run
+    // tests/recoverStaleCheckout.test.ts` sailed past the watch guard,
+    // counted the 10 tests it had been asked to run, and stamped the About
+    // page's public figure as TEST_COUNT = 10 against a real suite of 1,476.
+    // The watch guard cannot see this case because a filtered run is a
+    // perfectly ordinary non-watch run — the only thing wrong with it is
+    // that `files` is a subset. So the fullness test is made against the
+    // repository itself: every *.test.ts actually present in tests/ (the
+    // one place this repo keeps them — flat, no subdirectories, checked by
+    // the same readdir this uses) must appear in the finished run, or the
+    // run was partial and its total is not the suite's total. A deleted test
+    // file self-heals: it is absent from both sides.
+    const onDisk = readdirSync(resolve(root, 'tests')).filter((f) => f.endsWith('.test.ts'));
+    const ran = new Set(files.map((f) => f.filepath));
+    const missing = onDisk.filter((f) => !ran.has(resolve(root, 'tests', f)));
+    if (missing.length > 0) {
+      console.log(
+        `testCountReporter: partial run (${missing.length} of ${onDisk.length} test files not in this run) — leaving demo/testCount.generated.ts alone.`,
+      );
+      return;
+    }
 
     const existing = existsSync(OUT_FILE) ? readFileSync(OUT_FILE, 'utf8') : null;
     const previousMatch = existing?.match(/export const TEST_COUNT = (\d+);/);
