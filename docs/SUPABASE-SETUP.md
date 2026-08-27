@@ -36,6 +36,16 @@ it actually runs.
 
 ## The checklist
 
+A note on the menu paths below: this sandbox has no network route to
+`supabase.com` either, so none of these exact labels were re-checked against
+the live dashboard while writing this. They are believed correct as of when
+this was written, but Supabase does rename and reshuffle dashboard sections
+between releases. If a path below does not exist as written, the setting has
+almost certainly just moved rather than disappeared — search the dashboard's
+own search box (or Supabase's current docs) for the bolded setting name
+itself (e.g. "Confirm email", "Site URL") rather than assuming the feature is
+gone.
+
 ### 1. Confirm the credentials in the repo match your project
 
 `demo/supabase.ts` already carries a project URL and an anon key. Check they
@@ -193,6 +203,11 @@ default, so no client can manufacture a profile for an id it does not own or
 delete one. Rows are created only by the `on_auth_user_created` trigger and
 removed only by the cascade off `auth.users`. Every policy is scoped `to
 authenticated`, so a signed-out visitor matches no policy at all.
+`display_name` and `avatar_path` are bounded (80 and 512 characters) the same
+way `wishlists`' columns are below — nothing in this repo writes to either
+column yet, but the update policy already lets a signed-in reader write to
+them today, straight through PostgREST, and RLS alone says nothing about how
+big that write may be.
 
 **`wishlists`** — RLS enabled. All four verbs are policed separately and every
 one is scoped to `auth.uid() = user_id`, so there is no verb through which one
