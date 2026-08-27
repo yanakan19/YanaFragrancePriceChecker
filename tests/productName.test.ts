@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   CONCENTRATION_NOT_STATED, brandTitleOpens, brandTitleEnds, brandTitleEndsWithHouse, concentration, displayName,
   stripRedundantSize, reattachArmafLine, concentrationOfListing, CONCENTRATION_RESTATEMENT_RE,
+  CONCENTRATION_RESOLUTIONS, CONCENTRATION_DISPUTED,
 } from '../src/catalogue/productName.js';
 import { armafLineName } from '../src/catalogue/brandName.js';
 
@@ -1143,5 +1144,51 @@ describe('concentrationOfListing: a description restating the bottle name', () =
     expect(CONCENTRATION_RESTATEMENT_RE.test('Extrait De Parfum (100ml) is a fragrance')).toBe(true);
     expect(CONCENTRATION_RESTATEMENT_RE.test('this fresh–fruity aromatic extrait that contrasts')).toBe(false);
     expect(CONCENTRATION_RESTATEMENT_RE.test('is available as Eau de Parfum')).toBe(false);
+  });
+});
+
+/**
+ * CONCENTRATION_RESOLUTIONS: the curated, EAN-keyed override a 2026-08-27
+ * WebSearch pass produced for the disputes CONCENTRATION_DISPUTED would
+ * otherwise flatten to "Disputed" — see its own header comment in
+ * productName.ts for the evidence bar and the full citation per entry.
+ * scripts/build-demo-catalogue.ts's own consumption of this table (look up
+ * a contradicting product's EAN, fall back to CONCENTRATION_DISPUTED when
+ * absent) is one line and not separately unit-testable in isolation from a
+ * full build, so what is pinned here is the table itself: a real resolved
+ * case keeps its true concentration and citation, and a real case the same
+ * pass checked and could not settle is confirmed still absent — which is
+ * what makes the build's fallback to CONCENTRATION_DISPUTED fire for it.
+ */
+describe('CONCENTRATION_RESOLUTIONS: the curated concentration-dispute overrides', () => {
+  it('resolves a real dispute this project could not settle from data on disk alone', () => {
+    // Lancôme La Vie Est Belle Rose Extraordinaire 30ml — one of the two
+    // flagship "needs the manufacturer's word" examples CONCENTRATION_DISPUTED
+    // was originally written around. beautybase said "Eau de Parfum",
+    // perfume-click said "Eau de Toilette"; lancome-usa.com's own listing
+    // settled it.
+    const resolution = CONCENTRATION_RESOLUTIONS['3614274103007'];
+    expect(resolution?.concentration).toBe('Eau de Parfum');
+    expect(resolution?.citation).toMatch(/lancome-usa\.com/);
+  });
+
+  it('leaves the other flagship example unresolved, on a genuine conflict rather than an unchecked gap', () => {
+    // Yardley Gentleman Classic 100ml — the search pass did check this one
+    // (see the "left Disputed" comment at the end of the table): the
+    // majority of retailers say EDP, but upcitemdb.com's own independent EAN
+    // database says "Eau de Toilette" for the same barcode. A real,
+    // title-level conflict, not a summary-only claim, so it stays absent
+    // from the table and scripts/build-demo-catalogue.ts falls through to
+    // CONCENTRATION_DISPUTED for it exactly as it does for a dispute nobody
+    // has looked at yet.
+    expect(CONCENTRATION_RESOLUTIONS['6297000226163']).toBeUndefined();
+  });
+
+  it('never resolves to CONCENTRATION_DISPUTED itself, and never to an empty citation', () => {
+    for (const [ean, { concentration: resolved, citation }] of Object.entries(CONCENTRATION_RESOLUTIONS)) {
+      expect(resolved, `${ean} resolved concentration`).not.toBe(CONCENTRATION_DISPUTED);
+      expect(resolved.length, `${ean} resolved concentration`).toBeGreaterThan(0);
+      expect(citation.length, `${ean} citation`).toBeGreaterThan(0);
+    }
   });
 });
