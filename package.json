@@ -38,6 +38,7 @@
     "apify:state-probe": "tsx scripts/apify-state-probe.ts",
     "amazon:probe": "tsx scripts/amazon-probe.ts",
     "storefront:reprice": "tsx scripts/storefront-reprice.ts",
+    "tiktok:probe": "tsx scripts/tiktok-probe.ts",
     "images:check": "tsx scripts/image-link-check.ts",
     "icons": "tsx scripts/generate-icons.ts",
     "og:preview": "tsx scripts/generate-og-preview.ts",
