@@ -538,6 +538,21 @@ export const CONCENTRATION_RESOLUTIONS: Readonly<Record<string, ConcentrationRes
   '6298042001718': { concentration: 'Extrait de Parfum', citation: 'French Avenue Frostbite 100ml: pennypart.com explicitly "Extrait de Parfum"; matches the established manchester-ouds abbreviation pattern (see CONCENTRATION_RESTATEMENT_RE) against Jomashop’s lone "EDP".' },
   '6290171070207': { concentration: 'Extrait de Parfum', citation: 'Afnan Supremacy In Oud 100ml: ShopSimon, Jomashop (its own title, not just its URL), clothbase, DLG, Nandansons, ModeSens all "Extrait de Parfum"; perfume-click’s "Eau de Parfum" was the mislabel here.' },
   '6298042001800': { concentration: 'Extrait de Parfum', citation: 'French Avenue Safari Breeze 100ml: three separate eBay listings, Jomashop and ModeSens all "Extrait de Parfum"; beautybase already had this right, manchester-ouds’ "Eau de Parfum" did not.' },
+
+  // ── 2026-08-27 second pass (new since the first pass, not previously
+  // checked): Versace's own "Eau Fraiche Extreme" line name defeats this
+  // file's own CONCENTRATION_SPECIFIC matcher — "eau fraiche" is one of its
+  // alternatives and, being an unaccented ASCII match against beautybase's
+  // "...Fraiche Extreme Eau De Parfum..." title, wins leftmost over the real
+  // "Eau De Parfum" phrase sitting later in the same title, exactly the
+  // leftmost-not-most-specific failure shape this file's own header already
+  // names for Creed's "Aventus Cologne". perfume-click's title for the same
+  // two EANs happens to spell the line "Eau Fraîche Extrême" (accented), so
+  // the same bug does not fire there and it reads correctly — which is what
+  // made this look like a shop disagreement rather than a parsing artifact.
+  // Real-world evidence settles what both titles actually mean: unanimous. ──
+  '8011003890972': { concentration: 'Eau de Parfum', citation: 'Versace Eau Fraiche Extreme 50ml: eBay (x2, "EAU FRAICHE EXTREME EDP"), Jomashop, drogeria-vmd.com all "EDP"/"Eau de Parfum"; perfume-click’s own title already agrees ("Eau Fraîche Extrême Eau de Parfum"), only beautybase’s unaccented "eau fraiche" collided with this file’s own matcher.' },
+  '8011003890989': { concentration: 'Eau de Parfum', citation: 'Versace Eau Fraiche Extreme 100ml: eBay, Jean Coutu, Jomashop, Shoppers Drug Mart (all exact-EAN listings) and bestbrandsperfume unanimous "Eau de Parfum"/"EDP"; no Extrait or bare "Eau Fraiche" claim found anywhere independent.' },
 } as const;
 
 /*
@@ -617,6 +632,111 @@ export const CONCENTRATION_RESOLUTIONS: Readonly<Record<string, ConcentrationRes
  *     de Parfum" (the men's version at a neighbouring EAN is confirmed
  *     Extrait de Parfum, but that is a different barcode); too mixed to
  *     credit either disputed claim.
+ *
+ * 2026-08-27 second pass (same day, a later session): measured against
+ * demo/catalogue.generated.ts freshly rebuilt from that day's own harvest,
+ * live disputes had moved from 68 to 69 (69 contradicting, 44 resolved, 25
+ * left Disputed) — one EAN above (ean-6290171070214, Afnan Supremacy Not
+ * Only Intense) dropped out of the live set entirely between harvests and no
+ * longer needs checking; two new ones appeared that the first pass never
+ * saw, and both actually resolved — see ean-8011003890972 /
+ * ean-8011003890989 above; the "dispute" was this file's own leftmost-match
+ * parsing artifact on Versace's "Eau Fraiche Extreme" line name, not a real
+ * disagreement between shops. Every one of the other 23 was re-checked from
+ * a genuinely different angle than the first pass used (manufacturer's own
+ * domain where the first pass hadn't reached it, an EAN-first barcode-
+ * database query, or both) rather than re-run verbatim; none crossed the
+ * bar, and every one still comes back as a real conflict between two
+ * independent, title-level sources, often now with more sources on both
+ * sides rather than fewer:
+ *   - ean-6297000226163 Yardley Gentleman Classic 100ml: yardleylondon.co.uk
+ *     itself — the manufacturer's own domain, not reached by the first pass
+ *     — titles the exact 100ml "Gentleman Classic Eau de Parfum 100ml".
+ *     Doesn't move it: upcitemdb.com's independent EAN database and
+ *     news-parfums.com still say "Eau de Toilette" for the same barcode, an
+ *     EAN-tied database contradicting the manufacturer being exactly the
+ *     kind of second independent result the evidence bar treats as
+ *     disqualifying (see the Rabanne Olympéa Absolu Intense entry below for
+ *     the same shape: manufacturer vs. a strong independent source, left
+ *     Disputed on that basis already).
+ *   - ean-3614274258080 / ean-3614274258073 Azzaro Wanted Forever Elixir
+ *     50ml/100ml: azzaro.com's own official product page is internally
+ *     self-contradictory — its own title reads "Eau de toilette" while its
+ *     own URL path reads ".../eau-de-parfum" — and Jomashop's listing for
+ *     this exact EAN is separately self-contradictory the same way (title
+ *     "Parfum", URL "edp-spray"). Even the manufacturer's own page cannot be
+ *     read as a clean fact here; if anything this confirms four-way
+ *     confusion rather than resolving it.
+ *   - ean-3349668641758 Rabanne Olympéa Absolu Intense 30ml,
+ *     ean-3349668617043 Rabanne 1 Million Royal 50ml, ean-3349668627486
+ *     Rabanne Olympéa 30ml, ean-3349668614516 / ean-3349668614523 Rabanne
+ *     Invictus Victory Elixir Intense 50ml/100ml: rabanne.com's own domain
+ *     re-checked directly for each and confirms "Parfum"/"Parfum Intense"
+ *     every time, exactly as the first pass already had it via resellers —
+ *     but the same named independent dissenters the first pass already
+ *     found (Argos, kanerbrandhouse.com, thebarbersupplier.com, giftexpress,
+ *     perfumesclub.co.uk) are still there and still contradict it. Extra
+ *     confirmation of one side of an already-real conflict is not new
+ *     evidence against the other side.
+ *   - ean-6290360379203 / ean-6290360379227 French Avenue Carnal Desire /
+ *     Royal Taboo 100ml: a barcode-first search turns up far more "EDP"
+ *     sources than the first pass logged (ShopSimon, Walmart, Jomashop,
+ *     jesaida.lt, pariscom2030, SplitScents, bestbrandsperfume, ModeSens),
+ *     but it also turns up a second independent Extrait source the first
+ *     pass hadn't logged — eBay UK titles Carnal Desire itself "Perfume
+ *     extract 100ml" — alongside soghaat.co.uk's unchanged "Extrait De
+ *     Parfum". Two independent sources against many is still two genuine,
+ *     title-level dissents, not a gap. Royal Taboo's own eBay listings still
+ *     split 3-Extrait/1-EDP exactly as before.
+ *   - ean-8011003891092 / ean-8011003891061 / ean-8011003891467 Versace
+ *     Bright Crystal 90ml/50ml and Crystal Noir 90ml: versace.com's own
+ *     domain, not reached by the first pass, titles the Crystal Noir SKU
+ *     exactly "Crystal Noir Parfum 90 ml Black" — but Harvey Nichols, a shop
+ *     in this project's own registry and not a resale mirror, still
+ *     independently says "Eau De Parfum" for all three, the same weight of
+ *     dissent that kept the Rabanne Olympéa Absolu Intense entry Disputed
+ *     against rabanne.com's own word. Treated the same way here.
+ *   - ean-3616303476793 Calvin Klein Eternity Aromatic Essence Intense
+ *     50ml: a barcode-first search adds riuparfum.com (Spanish retailer) as
+ *     a second independent "Parfum Intense" source alongside Perfume
+ *     Clearance Centre — but Jomashop's own title (not merely its URL) still
+ *     independently says "EDP" for the same barcode, and calvinklein.us's
+ *     own exact-EAN page still names no concentration at all in its title.
+ *     Still a real, title-level 2-vs-1 split.
+ *   - ean-8435415080408 / ean-8435415080415 / ean-8435415080422 JPG Scandal
+ *     Absolu (women's) 30/50/80ml: jeanpaulgaultier.com's own domain, not
+ *     reached by the first pass, confirms the line as "Scandal Absolu Parfum
+ *     Concentré" in 1oz/2.7oz (≈30ml/80ml) SKUs — but alsayyedcosmetics.com
+ *     and perfumesclub.se still independently call the 80ml "EDP", and
+ *     Jomashop still runs two self-contradicting listings for it. Same
+ *     shape as Yardley and Crystal Noir above: manufacturer confirmation
+ *     doesn't erase an independent retailer's contradicting claim.
+ *   - ean-6290171070276 Zimaya Musk Is Great 100ml: re-checked by barcode;
+ *     perfumeheadquarters.com is unchanged (title "Extrait de Parfum", own
+ *     URL "eau-de-parfum"), still self-contradicting, still the only
+ *     dissent from the eBay/Walmart/Jomashop/Lyst/clothbase/ModeSens "EDP"
+ *     majority. No new source found on either side.
+ *   - ean-6298042001909 French Avenue Ravine Ice 100ml: unchanged; the
+ *     repo-internal vs. external-majority conflict already logged still
+ *     stands and no manufacturer domain exists to check (French Avenue has
+ *     no storefront of its own outside the shops that resell it).
+ *   - ean-6290360617442 Ahmed Al Maghribi Summer Oud 60ml: Ahmed Al
+ *     Maghribi's own regional domains, not reached by the first pass, are
+ *     themselves inconsistent with each other — the Oman site categorises
+ *     Summer Oud under an "/eau-de-parfum/" URL path, the Kuwait site under
+ *     "Oriental Fragrance" with no concentration word — and a further
+ *     independent source, orientalaromas.com, calls it "Extrait De Parfum"
+ *     on top of the German specialists the first pass already found. More
+ *     sources, same genuine split.
+ *   - ean-5012209042441 L'Aimant 50ml: structurally unresolvable regardless
+ *     of angle — see the first-pass note; this codebase's concentration
+ *     vocabulary has no slot for vintage Coty's "Parfum de Toilette", so no
+ *     search result could ever satisfy either disputed claim. Not re-tried.
+ *   - ean-3616304175916 Gucci Guilty Pour Femme Elixir de 60ml: a
+ *     barcode-first search reaches the same pariscom2030 ("Elixir De
+ *     Parfum") and Walmart ("ExDP Spray", i.e. Extrait de Parfum) split the
+ *     first pass found, and still fails to surface a gucci.com result for
+ *     this specific product. Unchanged.
  */
 
 /**
