@@ -143,6 +143,14 @@ is_raw_snapshot() {
     # ours.
     data/harvest-report.json|data/harvest-cursor.json) return 0 ;;
     data/metered-harvest-marker.txt) return 0 ;;
+    # scripts/catalogue-harvest.ts's debug-only --capture-render-shop=, wired
+    # through catalogue-daily.yml's capture_render_shop input (see
+    # src/catalogue/renderCapture.ts). One dispatch names one shop and writes
+    # only that shop's own subdirectory, so a conflict here is, at most, two
+    # dispatches for two different shops racing — never two runs disagreeing
+    # about the same page. Taking the incoming side is exactly as safe as it
+    # is for the harvest snapshots above.
+    data/render-capture/*) return 0 ;;
     demo/deals.generated.ts) return 0 ;;
     *) return 1 ;;
   esac

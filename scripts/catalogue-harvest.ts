@@ -77,6 +77,7 @@ import { harvestReportWriter, type HarvestTier } from '../src/catalogue/harvestR
 import {
   renderRefusals, knownRenderRefusal, type RenderRefusal, type RenderedPage,
 } from '../src/catalogue/renderRefusal.js';
+import { capturePages, type CapturePage } from '../src/catalogue/renderCapture.js';
 import {
   parseCursor, sweepOrder, withAttempt, staleCursorIds,
 } from '../src/catalogue/harvestCursor.js';
@@ -101,6 +102,22 @@ const maxPages = Number.parseInt(arg('max') ?? '40', 10);
 const onlyShop = arg('shop');
 const dryRun = process.argv.includes('--dry-run');
 const allowMetered = process.argv.includes('--allow-metered');
+// Debug-only: save one named shop's rendered section page(s) to
+// data/render-capture/<shop>/ verbatim, so a parser gap can be fixed against
+// real bytes instead of guessed at — see src/catalogue/renderCapture.ts for
+// why and catalogue-daily.yml's `capture_render_shop` input for how this is
+// dispatched. Requires --shop= naming the identical retailer: a capture that
+// could fire against every enabled shop's render is the one thing this must
+// never be, and checking it here means that holds even for a hand-run
+// command, not only for the workflow input that is meant to always pair them.
+const captureRenderShop = arg('capture-render-shop');
+if (captureRenderShop && captureRenderShop !== onlyShop) {
+  console.error(
+    `--capture-render-shop=${captureRenderShop} requires --shop=${captureRenderShop} too — ` +
+      `this debug capture must never render more than the one named shop.`,
+  );
+  process.exit(1);
+}
 /**
  * The render tier, run here rather than bought.
  *
@@ -774,6 +791,32 @@ for (const retailer of shops) {
     } else {
       console.log(`      ${retailer.name}: rendering ${allowed.length} section page(s) through ${renderTierName}`);
       const rendered = await actorRenderer!.render(allowed.map((t) => t.url));
+
+      // Debug-only, and only for the one shop named on the command line — see
+      // this file's own arg-parsing comment above and src/catalogue/
+      // renderCapture.ts's header for why. Runs before any parsing below, so
+      // it saves what the renderer actually returned regardless of whether
+      // parseListings or parseRenderedState later find anything in it.
+      if (captureRenderShop === retailer.id) {
+        const capturePagesInput: CapturePage[] = allowed.flatMap(({ id, url }) => {
+          const res = rendered.get(url);
+          return res?.body ? [{ sectionId: id, url, body: res.body }] : [];
+        });
+        if (capturePagesInput.length > 0) {
+          const written = capturePages(
+            resolve(root, 'data/render-capture'),
+            retailer.id,
+            capturePagesInput,
+            new Date().toISOString(),
+          );
+          for (const w of written) {
+            console.log(`      [capture] wrote ${w.path} (${w.bytes} bytes${w.truncated ? ', truncated' : ''})`);
+          }
+        } else {
+          console.log(`      [capture] ${retailer.name}: no rendered page had a body to save`);
+        }
+      }
+
       let viaRenderedState = 0;
       // What each rendered page turned out to be, kept per URL so a page that
       // is a bot wall can be told from a page that is a shop with nothing on

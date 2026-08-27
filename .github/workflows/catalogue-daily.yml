@@ -139,6 +139,10 @@ on:
         description: 'TikTok Shop pilot: run the bounded Affiliate API credential probe (two read-only calls against the owner''s own creator account). Requires the TIKTOK_APP_KEY / TIKTOK_APP_SECRET / TIKTOK_REFRESH_TOKEN secrets — without them it logs what is missing and exits cleanly. Never runs on schedule; see docs/TIKTOK-SHOP-PLAN.md.'
         type: boolean
         default: false
+      capture_render_shop:
+        description: 'Debug: save the rendered HTML of one retailer id''s section page(s) verbatim to data/render-capture/<shop>/ and commit it, so a parser gap (e.g. notino-uk) can be fixed against real bytes instead of guessed at. Renders only this one shop — never on schedule, never any other shop in the same dispatch. See src/catalogue/renderCapture.ts.'
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -994,6 +998,61 @@ jobs:
             demo/catalogue.generated.ts demo/priceHistory.generated.ts \
             demo/testCount.generated.ts \
             demo/index.html demo/404.html demo/sitemap.xml
+
+      # ── Debug: capture one shop's rendered HTML, manual-only ────────────────
+      # Built for notino-uk specifically: it renders a real 694,649-byte
+      # /fragrance/?page=1 page and parseListings() gets zero listings out of
+      # it — a parser gap, not the bot wall its own subsections show (those
+      # come back 403 at a few hundred bytes, the shape already known to
+      # src/catalogue/renderRefusal.ts). Nobody can fix that parser blind: the
+      # rendered HTML this pipeline sees is never kept anywhere past the run
+      # that produced it, and the sandbox this project is developed in cannot
+      # fetch a shop itself — the egress proxy refuses every retailer domain
+      # outright. This dispatch is one CI-side capture of the real bytes, so
+      # the parser can be fixed against them next pass rather than guessed at.
+      #
+      # Wired through the existing render path, not a new fetch route:
+      # `--shop=` limits the whole harvest to the one named retailer, exactly
+      # as `harvest_shop` above does for an ordinary dispatch, and
+      # `--capture-render-shop=` (src/catalogue/renderCapture.ts) only decides
+      # what to do with a render that path already performs — save it,
+      # verbatim, capped in size — never how or when a render is attempted.
+      # scripts/catalogue-harvest.ts refuses to run at all if the two flags
+      # ever name different shops, so this cannot silently widen into "every
+      # shop" the way a missing `--shop=` would.
+      #
+      # `if:` names only this input, deliberately not joined with
+      # `github.event_name == 'schedule'` the way every periodic step above
+      # is: a capture is a one-off request for evidence, not a recurring job,
+      # and it must never fire on its own.
+      #
+      # The `git checkout` after the harvest call is not cleanup for its own
+      # sake: this step's only job is the captured HTML, and running
+      # `npm run harvest` to get it incidentally rewrites
+      # data/harvest-cursor.json, data/harvest-report.json and (had the shop
+      # priced anything) data/catalogue/<shop>.json the same way any harvest
+      # dispatch does. None of that is this step's to publish — it was not
+      # asked for, and an uncommitted change sitting in the working tree when
+      # commit-and-push.sh's rebase-and-retry loop runs below is exactly the
+      # kind of stray state that loop exists to not have to reason about.
+      # Discarding it here keeps this dispatch's effect on the branch to
+      # exactly one thing: the capture.
+      - name: Capture rendered HTML for one shop
+        if: ${{ inputs.capture_render_shop != '' }}
+        run: |
+          npm run harvest -- \
+            --shop=${{ inputs.capture_render_shop }} \
+            --capture-render-shop=${{ inputs.capture_render_shop }} \
+            --run-minutes=5 --shop-minutes=5
+          git checkout -- data/catalogue data/harvest-cursor.json data/harvest-report.json \
+            data/metered-harvest-marker.txt 2>/dev/null || true
+
+      - name: Commit captured render
+        if: ${{ inputs.capture_render_shop != '' }}
+        run: |
+          ./scripts/commit-and-push.sh \
+            "Capture rendered HTML: ${{ inputs.capture_render_shop }} $(date -u +%Y-%m-%d)" \
+            data/render-capture
 
       # ── The image link check moved out of this job, 2026-08-25 ─────────
       # It used to run here, last, after the harvest had committed. It could
