@@ -28,6 +28,27 @@ create table if not exists public.profiles (
   created_at timestamptz not null default now()
 );
 
+-- ── Bounds on what a reader may write into their own row ────────────────────
+-- Neither column is written by any client code yet (see docs/SUPABASE-SETUP.md's
+-- "What is still not built" — these exist for the profile UI that has not
+-- landed), but the update policy below already grants a signed-in reader the
+-- ability to write here today, straight through PostgREST with the anon key,
+-- with no client code in the way. Same reasoning as wishlists'
+-- wishlists_fragrance_id_len: RLS answers "whose row", not "how big may this
+-- row be", so an unbounded text column is an open field on a free tier
+-- database from the moment this table exists, not from the moment a UI uses
+-- it. Added by name, dropped first, so re-running this file on a table that
+-- already exists actually applies them.
+alter table public.profiles drop constraint if exists profiles_display_name_len;
+alter table public.profiles
+  add constraint profiles_display_name_len
+  check (display_name is null or char_length(display_name) between 1 and 80);
+
+alter table public.profiles drop constraint if exists profiles_avatar_path_len;
+alter table public.profiles
+  add constraint profiles_avatar_path_len
+  check (avatar_path is null or char_length(avatar_path) between 1 and 512);
+
 -- ── Row Level Security ──────────────────────────────────────────────────────
 -- This is the only thing standing between the anon key that ships in a public
 -- JavaScript bundle and every row in this table. Supabase grants `anon` and
