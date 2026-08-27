@@ -14999,6 +14999,32 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-8916642726237-default-title",
+    "brand": "Afnan",
+    "name": "Supremacy In Oud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/supremacy-in-oud-perfume-100ml-edp-afnan-emirates-oud-103847330.jpg?v=1713056796",
+    "notes": {
+      "top": [
+        "Saffron",
+        "Nutmeg",
+        "Lavender"
+      ],
+      "middle": [],
+      "base": [
+        "Patchouli",
+        "Musk"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/supremacy-in-oud-perfume-100ml-edp-afnan"
+      }
+    }
+  },
+  {
     "id": "ean-6290171072768",
     "brand": "Afnan",
     "name": "Supremacy In Oud",
@@ -24024,7 +24050,10 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/507.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "ean-3274872372139",
     "brand": "Givenchy",
@@ -24052,10 +24081,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/givenchy-linterdit-eau-de-parfum-35ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3274872495494",
     "brand": "Givenchy",
@@ -24290,6 +24316,56 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://bgstatic.net/photos/109170_ml.jpg",
     "notes": null
+  },
+  {
+    "id": "ean-0711367108680",
+    "brand": "Goutal",
+    "name": "Folie d'un Soir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "0711367108680",
+    "shops": 3,
+    "image": "https://bgstatic.net/photos/154739_ml.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "amber",
+        "cedarwood"
+      ],
+      "source": {
+        "retailerId": "the-beauty-store-uk",
+        "url": "https://thebeautystore.com/products/goutal-folie-d-un-soir-eau-de-parfum-50ml"
+      }
+    }
+  },
+  {
+    "id": "ean-0711367108888",
+    "brand": "Goutal",
+    "name": "Folie d'un Soir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "0711367108888",
+    "shops": 3,
+    "image": "https://bgstatic.net/photos/148436_ml.jpg",
+    "notes": {
+      "top": [
+        "Turkish Rose",
+        "Pink Pepper"
+      ],
+      "middle": [
+        "Myrrh",
+        "Olibanum"
+      ],
+      "base": [
+        "Leather",
+        "Cacao"
+      ],
+      "source": {
+        "retailerId": "mybeauty-boutique",
+        "url": "https://www.awin1.com/pclick.php?p=43157927983&a=3026001&m=106925"
+      }
+    }
   },
   {
     "id": "ean-7640111491958",
@@ -34286,7 +34362,10 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://bgstatic.net/photos/177334_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-3616303445218",
     "brand": "Roberto Cavalli",
@@ -34335,10 +34414,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://bgstatic.net/photos/185640_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3616303445164",
     "brand": "Roberto Cavalli",
@@ -38716,32 +38792,6 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "emirates-oud-8916642726237-default-title",
-    "brand": "Afnan",
-    "name": "Supremacy In Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/supremacy-in-oud-perfume-100ml-edp-afnan-emirates-oud-103847330.jpg?v=1713056796",
-    "notes": {
-      "top": [
-        "Saffron",
-        "Nutmeg",
-        "Lavender"
-      ],
-      "middle": [],
-      "base": [
-        "Patchouli",
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/supremacy-in-oud-perfume-100ml-edp-afnan"
-      }
-    }
-  },
-  {
     "id": "ean-6290171002048",
     "brand": "Afnan",
     "name": "Supremacy Pink",
@@ -40455,45 +40505,6 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/85213_ml.jpg",
     "notes": null
-  },
-  {
-    "id": "ean-0711367108680",
-    "brand": "Annick Goutal",
-    "name": "Folie d'un Soir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "0711367108680",
-    "shops": 2,
-    "image": "https://bgstatic.net/photos/154739_ml.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-0711367108888",
-    "brand": "Annick Goutal",
-    "name": "Folie d'un Soir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "0711367108888",
-    "shops": 2,
-    "image": "https://bgstatic.net/photos/148436_ml.jpg",
-    "notes": {
-      "top": [
-        "Turkish Rose",
-        "Pink Pepper"
-      ],
-      "middle": [
-        "Myrrh",
-        "Olibanum"
-      ],
-      "base": [
-        "Leather",
-        "Cacao"
-      ],
-      "source": {
-        "retailerId": "mybeauty-boutique",
-        "url": "https://www.awin1.com/pclick.php?p=43157927983&a=3026001&m=106925"
-      }
-    }
   },
   {
     "id": "ean-8411061081150",
@@ -71677,6 +71688,35 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     }
   },
   {
+    "id": "fragrancehub-ishqgold",
+    "brand": "Lattafa",
+    "name": "Pride Ishq Al Shuyukh Gold",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/lattafa-ishq-al-shuyukh-gold-eau-de-parfum-100ml-spray-p83099-34184_medium_7606cc51-830a-48fa-94fe-903e6e2c749d.jpg?v=1763146411",
+    "notes": {
+      "top": [
+        "CARAMEL",
+        "SAFFRON"
+      ],
+      "middle": [
+        "TONKA BEANS",
+        "LEATHER"
+      ],
+      "base": [
+        "AMBER",
+        "VANILLA",
+        "MUSK"
+      ],
+      "source": {
+        "retailerId": "fragrancehub",
+        "url": "https://fragrancehub.co.uk/products/lattafa-pride-ishq-al-shuyukh-gold-eau-de-parfum-100ml"
+      }
+    }
+  },
+  {
     "id": "ean-6290360592039",
     "brand": "Lattafa",
     "name": "Pride Peace & Love",
@@ -72365,7 +72405,10 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   {
     "id": "ean-6294019030422",
     "brand": "Le Falcone",
@@ -72376,10 +72419,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6294019026890",
     "brand": "Le Falcone",
@@ -80750,7 +80790,10 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/khair-confection-perfume-100ml-edp-paris-corner"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15569620566365-default-title",
     "brand": "Paris Corner",
@@ -80780,10 +80823,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/khair-peach-delulu-paris-corner"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6291419205566",
     "brand": "Paris Corner",
@@ -89405,7 +89445,10 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/178759_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "ean-8011003825721",
     "brand": "Versace",
@@ -89416,10 +89459,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/92465_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8011003825738",
     "brand": "Versace",
@@ -94147,6 +94187,40 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8338283724937-44927183159433",
+    "brand": "Afnan",
+    "name": "Afnan Silver Pour Homme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41QnobpAOvL.jpg?v=1763142053",
+    "notes": {
+      "top": [
+        "Pineapple",
+        "Black Currant",
+        "Bergamot",
+        "Apple"
+      ],
+      "middle": [
+        "Rose",
+        "Birch",
+        "Moroccan Jasmine",
+        "Patchouli"
+      ],
+      "base": [
+        "Musk",
+        "Oakmoss",
+        "Ambergris",
+        "Vanilla"
+      ],
+      "source": {
+        "retailerId": "mybeauty-boutique",
+        "url": "https://www.awin1.com/pclick.php?p=43157930697&a=3026001&m=106925"
+      }
+    }
+  },
+  {
     "id": "ean-6293708021642",
     "brand": "Afnan",
     "name": "Amber Precious",
@@ -94254,6 +94328,63 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       "source": {
         "retailerId": "mybeauty-boutique",
         "url": "https://www.awin1.com/pclick.php?p=43661686040&a=3026001&m=106925"
+      }
+    }
+  },
+  {
+    "id": "fragrancehub-supheaven",
+    "brand": "Afnan",
+    "name": "in Heaven",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "BERGAMOT",
+        "MANDARIN"
+      ],
+      "middle": [
+        "GREEN TEA",
+        "BLACKCURRANT"
+      ],
+      "base": [
+        "MUSK",
+        "SANDALWOOD"
+      ],
+      "source": {
+        "retailerId": "fragrancehub",
+        "url": "https://fragrancehub.co.uk/products/supremacy-in-heaven-eau-de-parfum-100ml-by-afnan"
+      }
+    }
+  },
+  {
+    "id": "fragrancehub-supoud100ml",
+    "brand": "Afnan",
+    "name": "In Oud Unisex",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "SAFFRON",
+        "LAVENDER",
+        "NUTMEG"
+      ],
+      "middle": [
+        "AGARWOOD",
+        "SWEET"
+      ],
+      "base": [
+        "MUSK",
+        "PATCHOULI"
+      ],
+      "source": {
+        "retailerId": "fragrancehub",
+        "url": "https://fragrancehub.co.uk/products/supremacy-in-oud-unisex-edp-100-ml-by-afnan"
       }
     }
   },
@@ -98326,7 +98457,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61hqm2Rp5fL.jpg?v=1763144804",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-ahp1150",
     "brand": "Al Haramain",
@@ -98393,10 +98527,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "image": null,
     "notes": null,
     "houseCeiling": 5.75
-  }
-];
-
-const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
+  },
   {
     "id": "al-haramain-atr0183-12",
     "brand": "Al Haramain",
@@ -109773,50 +109904,6 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8416631685257-45146961674377",
-    "brand": "Annick Goutal",
-    "name": "Eau De Monsieur For Men",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71X_0a9l4ZL.jpg?v=1767980977",
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "Features sandalwood"
-      ],
-      "source": {
-        "retailerId": "mybeauty-boutique",
-        "url": "https://www.awin1.com/pclick.php?p=43661686156&a=3026001&m=106925"
-      }
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416631652489-45146961641609",
-    "brand": "Annick Goutal",
-    "name": "Rose Pompon",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61Szg4Om7XL.jpg?v=1767980976",
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "cedar",
-        "patchouli",
-        "warmth"
-      ],
-      "source": {
-        "retailerId": "mybeauty-boutique",
-        "url": "https://www.awin1.com/pclick.php?p=43661686155&a=3026001&m=106925"
-      }
-    }
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8416631750793-45146961772681",
     "brand": "Antonio Banderas",
     "name": "Diavolo For Men",
@@ -109859,7 +109946,10 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/192966_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416631816329-45146961838217",
     "brand": "Antonio Banderas",
@@ -109898,10 +109988,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/62751_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsukdk2-21792",
     "brand": "Antonio Banderas",
@@ -119367,7 +119454,10 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/Arabianoud.jpg?v=1781713489&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "ean-5055170270130",
     "brand": "Attar & Co",
@@ -119389,10 +119479,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/Intensegreenbox1.jpg?v=1780676191&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
+  },
   {
     "id": "ean-5055170270154",
     "brand": "Attar & Co",
@@ -127919,7 +128006,10 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
   {
     "id": "perfumeo-bujairami-psycho-100ml",
     "brand": "Bujairami",
@@ -127956,10 +128046,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/psycho-bujairami"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "ean-10286643118422",
     "brand": "Bujairami",
@@ -135504,7 +135591,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "ean-8411061988169",
     "brand": "Carolina Herrera",
@@ -135526,10 +135616,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/CHERR0009.png?v=1765452782&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338192302217-44927027118217",
     "brand": "Carolina Herrera",
@@ -142462,7 +142549,10 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1_49d24854-c4b5-49a3-a076-52d3510d090f.jpg?v=1780404847&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsusdk2-00360",
     "brand": "Davidoff",
@@ -142484,10 +142574,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/97a2f87a-e9d4-4802-9df4-6f23a7c04667.jpg?v=1763136895",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416666845321-45147028193417",
     "brand": "Davidoff",
@@ -149971,7 +150058,10 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43661686993&a=3026001&m=106925"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "ean-8434853002201",
     "brand": "El Ganso",
@@ -149993,10 +150083,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338209210505-44927048646793",
     "brand": "Elie Saab",
@@ -158614,7 +158701,10 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/elysia-vanilla-sugar-perfume-fragrance-world"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9206572286301-default-title",
     "brand": "Fragrance World",
@@ -158677,10 +158767,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/extreme-aoud-fragrance-world"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-8867672392029-80ml",
     "brand": "Fragrance World",
@@ -169996,7 +170083,10 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1752231218-07178300.jpg?v=1763398257&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "ean-5050456009770",
     "brand": "Ghost",
@@ -170018,10 +170108,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/pxy0xonvi0d_700x_308c97ae-256a-4a92-b637-ed593ecdd43d.jpg?v=1763137970",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416686506121-45147050705033",
     "brand": "Ghost",
@@ -174161,37 +174248,48 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "the-beauty-store-uk-tbsukdk2-03679",
+    "id": "mybeauty-boutique-shopify-gb-8416631685257-45146961674377",
     "brand": "Goutal",
-    "name": "Folie D'un Soir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
+    "name": "Eau De Monsieur For Men",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71X_0a9l4ZL.jpg?v=1767980977",
     "notes": {
       "top": [],
       "middle": [],
       "base": [
-        "amber",
-        "cedarwood"
+        "Features sandalwood"
       ],
       "source": {
-        "retailerId": "the-beauty-store-uk",
-        "url": "https://thebeautystore.com/products/goutal-folie-d-un-soir-eau-de-parfum-50ml"
+        "retailerId": "mybeauty-boutique",
+        "url": "https://www.awin1.com/pclick.php?p=43661686156&a=3026001&m=106925"
       }
     }
   },
   {
-    "id": "the-beauty-store-uk-tbsukdk2-31280",
+    "id": "mybeauty-boutique-shopify-gb-8416631652489-45146961641609",
     "brand": "Goutal",
-    "name": "Folie D'un Soir",
-    "concentration": "Eau de Parfum",
+    "name": "Rose Pompon",
+    "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
-    "notes": null
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61Szg4Om7XL.jpg?v=1767980976",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "cedar",
+        "patchouli",
+        "warmth"
+      ],
+      "source": {
+        "retailerId": "mybeauty-boutique",
+        "url": "https://www.awin1.com/pclick.php?p=43661686155&a=3026001&m=106925"
+      }
+    }
   },
   {
     "id": "ean-7640171192406",
@@ -177977,7 +178075,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "ean-8436611104912",
     "brand": "Hackett London",
@@ -177999,10 +178100,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1708602386-75805300.jpg?v=1763391015&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "ean-716393019931",
     "brand": "Halston",
@@ -185555,7 +185653,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51O3mWdh1dL.jpg?v=1763144208",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338387206281-44927322521737",
     "brand": "Jennifer Lopez",
@@ -185577,10 +185678,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61Ge1dcId1L.jpg?v=1763147514",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338236801161-44927096848521",
     "brand": "Jennifer Lopez",
@@ -193305,7 +193403,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15498689184093-default-title",
     "brand": "Khadlaj",
@@ -193347,10 +193448,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "perfumeo-shiyaaka-sky-by-khadlaj-100ml-eau-de-parfum",
     "brand": "Khadlaj",
@@ -194291,39 +194389,6 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "selfridges-r04577236",
-    "brand": "KYLIE BY KYLIE JENNER",
-    "name": "Cosmic Intense",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "selfridges-r04680159",
-    "brand": "KYLIE BY KYLIE JENNER",
-    "name": "Mood Stones Cashmere Muse",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "selfridges-r04680160",
-    "brand": "KYLIE BY KYLIE JENNER",
-    "name": "Mood Stones Velvet Brew",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "the-beauty-store-uk-kyliej-116219-x",
     "brand": "Kylie Jenner",
     "name": "Cosmic",
@@ -194376,6 +194441,39 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "ean": "4064941156840",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1763483532-95956000.jpg?v=1772624982&width=1920",
+    "notes": null
+  },
+  {
+    "id": "selfridges-r04577236",
+    "brand": "Kylie Jenner",
+    "name": "Cosmic Intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "selfridges-r04680159",
+    "brand": "Kylie Jenner",
+    "name": "Mood Stones Cashmere Muse",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "selfridges-r04680160",
+    "brand": "Kylie Jenner",
+    "name": "Mood Stones Velvet Brew",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -201018,6 +201116,37 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     }
   },
   {
+    "id": "fragrancehub-lacollection1505",
+    "brand": "Lattafa",
+    "name": "La Collection D'antiquites 1505 (Watch) Perfume Lattafa",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Cherry",
+        "Saffron"
+      ],
+      "middle": [
+        "Osmanthus",
+        "Olibanum",
+        "Amyris"
+      ],
+      "base": [
+        "Balsam",
+        "Styrax",
+        "Cypriol Oil",
+        "Guaiac Wood"
+      ],
+      "source": {
+        "retailerId": "fragrancehub",
+        "url": "https://fragrancehub.co.uk/products/la-collection-dantiquites-1505-watch-perfume-100ml-edp-lattafa-pride"
+      }
+    }
+  },
+  {
     "id": "emirates-oud-9529405571421-default-title",
     "brand": "Lattafa",
     "name": "La Collection D'antiquites 1505 (Watch) Perfume Lattafa Pride",
@@ -202354,35 +202483,6 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     }
   },
   {
-    "id": "fragrancehub-ishqgold",
-    "brand": "Lattafa",
-    "name": "Pride Ishq Al Shuyukh Gold",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "CARAMEL",
-        "SAFFRON"
-      ],
-      "middle": [
-        "TONKA BEANS",
-        "LEATHER"
-      ],
-      "base": [
-        "AMBER",
-        "VANILLA",
-        "MUSK"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/lattafa-pride-ishq-al-shuyukh-gold-eau-de-parfum-100ml"
-      }
-    }
-  },
-  {
     "id": "the-beauty-store-uk-tbsukdk2-38364",
     "brand": "Lattafa",
     "name": "Pride Maharajan Gold",
@@ -202424,7 +202524,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
         "url": "https://fragrancehub.co.uk/products/lattafa-pride-new-york-the-city-of-dreams-edp-100ml"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsukdk2-38773",
     "brand": "Lattafa",
@@ -202437,6 +202540,17 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8338398052489-44927348244617",
+    "brand": "Lattafa",
+    "name": "Pride Royal Sapphire",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10051826.webp?v=1763146407",
+    "notes": null
+  },
+  {
     "id": "the-beauty-store-uk-tbsukdk2-39074",
     "brand": "Lattafa",
     "name": "Pride Taureau de Combat",
@@ -202446,10 +202560,18 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338397921417-44927348113545",
+    "brand": "Lattafa",
+    "name": "Pride Tharwah Silver",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41n8KWpwekL.jpg?v=1763146399",
+    "notes": null
+  },
   {
     "id": "emirates-oud-15748190372189-default-title",
     "brand": "Lattafa",
@@ -204336,6 +204458,36 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/vintage-castle-perfume-100ml-edp-niche-emarati-by-lattafa"
+      }
+    }
+  },
+  {
+    "id": "fragrancehub-vintageradio",
+    "brand": "Lattafa",
+    "name": "Vintage Radio by Lattafa",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Lavender",
+        "Sage",
+        "Bergamot"
+      ],
+      "middle": [
+        "Plum",
+        "Palo Santo",
+        "Black Pepper"
+      ],
+      "base": [
+        "Sandalwood",
+        "Amberwood"
+      ],
+      "source": {
+        "retailerId": "fragrancehub",
+        "url": "https://fragrancehub.co.uk/products/vintage-radio-100ml-eau-de-parfum-by-lattafa-pride"
       }
     }
   },
@@ -212274,7 +212426,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/perseus-maison-alhambra"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15520090784093-default-title",
     "brand": "Maison Alhambra",
@@ -212407,10 +212562,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/precious-gold-maison-alhambra"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15644473065821-default-title",
     "brand": "Maison Alhambra",
@@ -220267,7 +220419,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61_K2qSIyXL.jpg?v=1763143838",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "ean-3386460143288",
     "brand": "Montblanc",
@@ -220322,10 +220477,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3386460154857",
     "brand": "Montblanc",
@@ -227053,7 +227205,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsukdk2-37069",
     "brand": "Parfums des Champs",
@@ -227108,10 +227263,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsukdk2-37156",
     "brand": "Parfums des Champs",
@@ -234238,110 +234390,6 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
       "source": {
         "retailerId": "avon",
         "url": "https://avon.uk.com/products/premiere-luxe-eau-de-parfum-50ml"
-      }
-    }
-  },
-  {
-    "id": "fragrancehub-lacollection1505",
-    "brand": "Pride",
-    "name": "La Collection D'antiquites 1505 (Watch) Perfume Lattafa",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Cherry",
-        "Saffron"
-      ],
-      "middle": [
-        "Osmanthus",
-        "Olibanum",
-        "Amyris"
-      ],
-      "base": [
-        "Balsam",
-        "Styrax",
-        "Cypriol Oil",
-        "Guaiac Wood"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/la-collection-dantiquites-1505-watch-perfume-100ml-edp-lattafa-pride"
-      }
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338398150793-44927348342921",
-    "brand": "Pride",
-    "name": "Lattafa Pride Ishq Al Shuyukh Gold",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/lattafa-ishq-al-shuyukh-gold-eau-de-parfum-100ml-spray-p83099-34184_medium_7606cc51-830a-48fa-94fe-903e6e2c749d.jpg?v=1763146411",
-    "notes": {
-      "top": [
-        "Bright"
-      ],
-      "middle": [],
-      "base": [],
-      "source": {
-        "retailerId": "mybeauty-boutique",
-        "url": "https://www.awin1.com/pclick.php?p=43174943137&a=3026001&m=106925"
-      }
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338398052489-44927348244617",
-    "brand": "Pride",
-    "name": "Lattafa Pride Royal Sapphire",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10051826.webp?v=1763146407",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338397921417-44927348113545",
-    "brand": "Pride",
-    "name": "Lattafa Pride Tharwah Silver",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41n8KWpwekL.jpg?v=1763146399",
-    "notes": null
-  },
-  {
-    "id": "fragrancehub-vintageradio",
-    "brand": "Pride",
-    "name": "Vintage Radio by Lattafa",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Lavender",
-        "Sage",
-        "Bergamot"
-      ],
-      "middle": [
-        "Plum",
-        "Palo Santo",
-        "Black Pepper"
-      ],
-      "base": [
-        "Sandalwood",
-        "Amberwood"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/vintage-radio-100ml-eau-de-parfum-by-lattafa-pride"
       }
     }
   },
@@ -252194,119 +252242,6 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8338283724937-44927183159433",
-    "brand": "Supremacy",
-    "name": "Afnan Silver Pour Homme",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41QnobpAOvL.jpg?v=1763142053",
-    "notes": {
-      "top": [
-        "Pineapple",
-        "Black Currant",
-        "Bergamot",
-        "Apple"
-      ],
-      "middle": [
-        "Rose",
-        "Birch",
-        "Moroccan Jasmine",
-        "Patchouli"
-      ],
-      "base": [
-        "Musk",
-        "Oakmoss",
-        "Ambergris",
-        "Vanilla"
-      ],
-      "source": {
-        "retailerId": "mybeauty-boutique",
-        "url": "https://www.awin1.com/pclick.php?p=43157930697&a=3026001&m=106925"
-      }
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338161467529-44926978490505",
-    "brand": "Supremacy",
-    "name": "Afnan Supremacy In Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/SupremacyOud-Product-01_1080x1080_8d677026-4ed7-44e3-9a80-ad5a4979ea6e.jpg?v=1763135028",
-    "notes": {
-      "top": [
-        "Nutmeg",
-        "Lavender"
-      ],
-      "middle": [],
-      "base": [],
-      "source": {
-        "retailerId": "mybeauty-boutique",
-        "url": "https://www.awin1.com/pclick.php?p=43157928012&a=3026001&m=106925"
-      }
-    }
-  },
-  {
-    "id": "fragrancehub-supheaven",
-    "brand": "Supremacy",
-    "name": "in Heaven By Afnan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "BERGAMOT",
-        "MANDARIN"
-      ],
-      "middle": [
-        "GREEN TEA",
-        "BLACKCURRANT"
-      ],
-      "base": [
-        "MUSK",
-        "SANDALWOOD"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/supremacy-in-heaven-eau-de-parfum-100ml-by-afnan"
-      }
-    }
-  },
-  {
-    "id": "fragrancehub-supoud100ml",
-    "brand": "Supremacy",
-    "name": "In Oud Unisex By Afnan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "SAFFRON",
-        "LAVENDER",
-        "NUTMEG"
-      ],
-      "middle": [
-        "AGARWOOD",
-        "SWEET"
-      ],
-      "base": [
-        "MUSK",
-        "PATCHOULI"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/supremacy-in-oud-unisex-edp-100-ml-by-afnan"
-      }
-    }
-  },
-  {
     "id": "ean-6281085019758",
     "brand": "Surrati",
     "name": "Ameer Al Oud",
@@ -253862,10 +253797,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338281201801-44927176016009",
     "brand": "Thierry Mugler",
@@ -253920,7 +253852,10 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338130731145-44926947328137",
     "brand": "Thierry Mugler",
@@ -261740,10 +261675,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61kTncrOPCL.jpg?v=1767986074",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416784089225-45147173388425",
     "brand": "V Canto",
@@ -261787,7 +261719,10 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1759854111-28407900.jpg?v=1763398447&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
   {
     "id": "ean-3614274337365",
     "brand": "Valentino",
@@ -287103,7 +287038,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/aromatics-elixir-eau-de-parfum-45ml-spray",
       "fetchedAt": "2026-08-24T08:47:17.673Z",
       "firstSeenAt": "2026-08-20T16:39:48.052Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1708529034-11068700.jpg?v=1763390797&width=1920",
       "rating": null
     },
@@ -303749,6 +303684,47 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "emirates-oud-8916642726237-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 44.99,
+      "wasPrice": 55,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/supremacy-in-oud-perfume-100ml-edp-afnan",
+      "fetchedAt": "2026-08-27T14:14:32.118Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/supremacy-in-oud-perfume-100ml-edp-afnan-emirates-oud-103847330.jpg?v=1713056796",
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 41.99,
+      "wasPrice": 64.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928012&a=3026001&m=106925",
+      "fetchedAt": "2026-08-27T14:05:47.427Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/SupremacyOud-Product-01_1080x1080_8d677026-4ed7-44e3-9a80-ad5a4979ea6e.jpg?v=1763135028",
+      "rating": null
+    },
+    {
+      "retailerId": "the-beauty-store-uk",
+      "price": 35.99,
+      "wasPrice": 80,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://thebeautystore.com/products/afnan-supremacy-in-oud-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-27T14:14:32.118Z",
+      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "ean-6290171072768": [
     {
       "retailerId": "beautybase",
@@ -310408,7 +310384,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/loulou-eau-de-parfum-30ml-spray",
       "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-20T16:39:48.052Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369390744-38068200.jpg?v=1763388828&width=1920",
       "rating": null
     },
@@ -321352,6 +321328,88 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "ean-0711367108680": [
+    {
+      "retailerId": "perfume-click",
+      "price": 63.65,
+      "wasPrice": 92,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=32423866625&a=3026001&m=6561",
+      "fetchedAt": "2026-08-27T14:05:47.427Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/154739_ml.jpg",
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 74.49,
+      "wasPrice": 91.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157927984&a=3026001&m=106925",
+      "fetchedAt": "2026-08-27T14:05:47.427Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/0711367108680.jpg?v=1763134926",
+      "rating": null
+    },
+    {
+      "retailerId": "the-beauty-store-uk",
+      "price": 62.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://thebeautystore.com/products/goutal-folie-d-un-soir-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-27T14:14:32.118Z",
+      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "ean-0711367108888": [
+    {
+      "retailerId": "perfume-click",
+      "price": 81.15,
+      "wasPrice": 135,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=32423866623&a=3026001&m=6561",
+      "fetchedAt": "2026-08-27T14:05:47.427Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/148436_ml.jpg",
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 98.99,
+      "wasPrice": 134.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157927983&a=3026001&m=106925",
+      "fetchedAt": "2026-08-27T14:05:47.427Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/eascent.jpg?v=1763134918",
+      "rating": null
+    },
+    {
+      "retailerId": "the-beauty-store-uk",
+      "price": 93.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://thebeautystore.com/products/goutal-folie-d-un-soir-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-27T14:14:32.118Z",
+      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "ean-7640111491958": [
     {
       "retailerId": "beautybase",
@@ -329319,7 +329377,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/lacoste-l-12-12-noir-eau-de-toilette-50ml-spray",
       "fetchedAt": "2026-08-24T08:47:17.673Z",
       "firstSeenAt": "2026-08-20T16:39:48.052Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1716370156-87955900.jpg?v=1763395198&width=1920",
       "rating": null
     },
@@ -348639,34 +348697,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-8916642726237-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 44.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/supremacy-in-oud-perfume-100ml-edp-afnan",
-      "fetchedAt": "2026-08-27T14:14:32.118Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/supremacy-in-oud-perfume-100ml-edp-afnan-emirates-oud-103847330.jpg?v=1713056796",
-      "rating": null
-    },
-    {
-      "retailerId": "the-beauty-store-uk",
-      "price": 35.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://thebeautystore.com/products/afnan-supremacy-in-oud-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-27T14:14:32.118Z",
-      "firstSeenAt": "2026-08-19T18:31:44.382Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
   "ean-6290171002048": [
     {
       "retailerId": "perfume-click",
@@ -350960,62 +350990,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-08T10:31:17.299Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ANNA0014.png?v=1743090675&width=1000",
-      "rating": null
-    }
-  ],
-  "ean-0711367108680": [
-    {
-      "retailerId": "perfume-click",
-      "price": 63.65,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=32423866625&a=3026001&m=6561",
-      "fetchedAt": "2026-08-27T14:05:47.427Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/154739_ml.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 74.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157927984&a=3026001&m=106925",
-      "fetchedAt": "2026-08-27T14:05:47.427Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/0711367108680.jpg?v=1763134926",
-      "rating": null
-    }
-  ],
-  "ean-0711367108888": [
-    {
-      "retailerId": "perfume-click",
-      "price": 81.15,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=32423866623&a=3026001&m=6561",
-      "fetchedAt": "2026-08-27T14:05:47.427Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/148436_ml.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 98.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157927983&a=3026001&m=106925",
-      "fetchedAt": "2026-08-27T14:05:47.427Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/eascent.jpg?v=1763134918",
       "rating": null
     }
   ],
@@ -398298,6 +398272,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "fragrancehub-ishqgold": [
+    {
+      "retailerId": "fragrancehub",
+      "price": 28.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://fragrancehub.co.uk/products/lattafa-pride-ishq-al-shuyukh-gold-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-27T14:14:32.118Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 29.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174943137&a=3026001&m=106925",
+      "fetchedAt": "2026-08-27T14:05:47.427Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/lattafa-ishq-al-shuyukh-gold-eau-de-parfum-100ml-spray-p83099-34184_medium_7606cc51-830a-48fa-94fe-903e6e2c749d.jpg?v=1763146411",
+      "rating": null
+    }
+  ],
   "ean-6290360592039": [
     {
       "retailerId": "perfume-click",
@@ -433662,6 +433664,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338283724937-44927183159433": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 27.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157930697&a=3026001&m=106925",
+      "fetchedAt": "2026-08-27T14:05:47.427Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41QnobpAOvL.jpg?v=1763142053",
+      "rating": null
+    }
+  ],
   "ean-6293708021642": [
     {
       "retailerId": "perfume-click",
@@ -433734,6 +433751,36 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51fAMY38eNL.jpg?v=1767980738",
+      "rating": null
+    }
+  ],
+  "fragrancehub-supheaven": [
+    {
+      "retailerId": "fragrancehub",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://fragrancehub.co.uk/products/supremacy-in-heaven-eau-de-parfum-100ml-by-afnan",
+      "fetchedAt": "2026-08-27T14:14:32.118Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "fragrancehub-supoud100ml": [
+    {
+      "retailerId": "fragrancehub",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/supremacy-in-oud-unisex-edp-100-ml-by-afnan",
+      "fetchedAt": "2026-08-27T14:14:32.118Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -444396,36 +444443,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/95581_ml.jpg",
-      "rating": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416631685257-45146961674377": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 52.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686156&a=3026001&m=106925",
-      "fetchedAt": "2026-08-27T14:05:47.427Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71X_0a9l4ZL.jpg?v=1767980977",
-      "rating": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416631652489-45146961641609": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 79.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686155&a=3026001&m=106925",
-      "fetchedAt": "2026-08-27T14:05:47.427Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61Szg4Om7XL.jpg?v=1767980976",
       "rating": null
     }
   ],
@@ -501375,33 +501392,33 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "the-beauty-store-uk-tbsukdk2-03679": [
+  "mybeauty-boutique-shopify-gb-8416631685257-45146961674377": [
     {
-      "retailerId": "the-beauty-store-uk",
-      "price": 62.99,
+      "retailerId": "mybeauty-boutique",
+      "price": 52.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://thebeautystore.com/products/goutal-folie-d-un-soir-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-27T14:14:32.118Z",
-      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686156&a=3026001&m=106925",
+      "fetchedAt": "2026-08-27T14:05:47.427Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
-      "imageUrl": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71X_0a9l4ZL.jpg?v=1767980977",
       "rating": null
     }
   ],
-  "the-beauty-store-uk-tbsukdk2-31280": [
+  "mybeauty-boutique-shopify-gb-8416631652489-45146961641609": [
     {
-      "retailerId": "the-beauty-store-uk",
-      "price": 93.99,
+      "retailerId": "mybeauty-boutique",
+      "price": 79.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://thebeautystore.com/products/goutal-folie-d-un-soir-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-27T14:14:32.118Z",
-      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686155&a=3026001&m=106925",
+      "fetchedAt": "2026-08-27T14:05:47.427Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
-      "imageUrl": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61Szg4Om7XL.jpg?v=1767980976",
       "rating": null
     }
   ],
@@ -520506,51 +520523,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "selfridges-r04577236": [
-    {
-      "retailerId": "selfridges",
-      "price": 60,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "unknown",
-      "url": "https://www.selfridges.com/GB/en/product/kylie-by-kylie-jenner-cosmic-intense-eau-de-parfum-100ml_R04577236/",
-      "fetchedAt": "2026-08-27T00:46:56.562Z",
-      "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "selfridges-r04680159": [
-    {
-      "retailerId": "selfridges",
-      "price": 48,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "unknown",
-      "url": "https://www.selfridges.com/GB/en/product/kylie-by-kylie-jenner-mood-stones-cashmere-muse-eau-de-parfum-50ml_R04680159/",
-      "fetchedAt": "2026-08-27T00:46:56.562Z",
-      "firstSeenAt": "2026-08-21T22:17:17.273Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "selfridges-r04680160": [
-    {
-      "retailerId": "selfridges",
-      "price": 48,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "unknown",
-      "url": "https://www.selfridges.com/GB/en/product/kylie-by-kylie-jenner-mood-stones-velvet-brew-eau-de-parfum-50ml_R04680160/",
-      "fetchedAt": "2026-08-27T00:46:56.562Z",
-      "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
   "the-beauty-store-uk-kyliej-116219-x": [
     {
       "retailerId": "the-beauty-store-uk",
@@ -520623,6 +520595,51 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:33:23.067Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1763483532-95956000.jpg?v=1772624982&width=1920",
+      "rating": null
+    }
+  ],
+  "selfridges-r04577236": [
+    {
+      "retailerId": "selfridges",
+      "price": 60,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "unknown",
+      "url": "https://www.selfridges.com/GB/en/product/kylie-by-kylie-jenner-cosmic-intense-eau-de-parfum-100ml_R04577236/",
+      "fetchedAt": "2026-08-27T00:46:56.562Z",
+      "firstSeenAt": "2026-08-26T13:18:43.477Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "selfridges-r04680159": [
+    {
+      "retailerId": "selfridges",
+      "price": 48,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "unknown",
+      "url": "https://www.selfridges.com/GB/en/product/kylie-by-kylie-jenner-mood-stones-cashmere-muse-eau-de-parfum-50ml_R04680159/",
+      "fetchedAt": "2026-08-27T00:46:56.562Z",
+      "firstSeenAt": "2026-08-21T22:17:17.273Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "selfridges-r04680160": [
+    {
+      "retailerId": "selfridges",
+      "price": 48,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "unknown",
+      "url": "https://www.selfridges.com/GB/en/product/kylie-by-kylie-jenner-mood-stones-velvet-brew-eau-de-parfum-50ml_R04680160/",
+      "fetchedAt": "2026-08-27T00:46:56.562Z",
+      "firstSeenAt": "2026-08-26T13:18:43.477Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -526383,6 +526400,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "fragrancehub-lacollection1505": [
+    {
+      "retailerId": "fragrancehub",
+      "price": 34.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://fragrancehub.co.uk/products/la-collection-dantiquites-1505-watch-perfume-100ml-edp-lattafa-pride",
+      "fetchedAt": "2026-08-27T14:14:32.118Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-9529405571421-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -527214,21 +527246,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "fragrancehub-ishqgold": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 28.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://fragrancehub.co.uk/products/lattafa-pride-ishq-al-shuyukh-gold-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-27T14:14:32.118Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
   "the-beauty-store-uk-tbsukdk2-38364": [
     {
       "retailerId": "the-beauty-store-uk",
@@ -527274,6 +527291,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338398052489-44927348244617": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 24.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174943133&a=3026001&m=106925",
+      "fetchedAt": "2026-08-27T14:05:47.427Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10051826.webp?v=1763146407",
+      "rating": null
+    }
+  ],
   "the-beauty-store-uk-tbsukdk2-39074": [
     {
       "retailerId": "the-beauty-store-uk",
@@ -527286,6 +527318,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
       "isNew": false,
       "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338397921417-44927348113545": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 28.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174943130&a=3026001&m=106925",
+      "fetchedAt": "2026-08-27T14:05:47.427Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41n8KWpwekL.jpg?v=1763146399",
       "rating": null
     }
   ],
@@ -528348,6 +528395,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Vintage-Castle-Perfume-100ml-EDP-Niche-Emarati-By-Lattafa-119920422.jpg?v=1714093423",
+      "rating": null
+    }
+  ],
+  "fragrancehub-vintageradio": [
+    {
+      "retailerId": "fragrancehub",
+      "price": 25.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://fragrancehub.co.uk/products/vintage-radio-100ml-eau-de-parfum-by-lattafa-pride",
+      "fetchedAt": "2026-08-27T14:14:32.118Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -555666,81 +555728,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "fragrancehub-lacollection1505": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 34.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://fragrancehub.co.uk/products/la-collection-dantiquites-1505-watch-perfume-100ml-edp-lattafa-pride",
-      "fetchedAt": "2026-08-27T14:14:32.118Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338398150793-44927348342921": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 29.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174943137&a=3026001&m=106925",
-      "fetchedAt": "2026-08-27T14:05:47.427Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/lattafa-ishq-al-shuyukh-gold-eau-de-parfum-100ml-spray-p83099-34184_medium_7606cc51-830a-48fa-94fe-903e6e2c749d.jpg?v=1763146411",
-      "rating": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338398052489-44927348244617": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174943133&a=3026001&m=106925",
-      "fetchedAt": "2026-08-27T14:05:47.427Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10051826.webp?v=1763146407",
-      "rating": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338397921417-44927348113545": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 28.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174943130&a=3026001&m=106925",
-      "fetchedAt": "2026-08-27T14:05:47.427Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41n8KWpwekL.jpg?v=1763146399",
-      "rating": null
-    }
-  ],
-  "fragrancehub-vintageradio": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 25.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://fragrancehub.co.uk/products/vintage-radio-100ml-eau-de-parfum-by-lattafa-pride",
-      "fetchedAt": "2026-08-27T14:14:32.118Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8338416992393-44927406899337": [
     {
       "retailerId": "mybeauty-boutique",
@@ -570858,66 +570845,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/184754_ml.jpg",
-      "rating": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338283724937-44927183159433": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 27.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157930697&a=3026001&m=106925",
-      "fetchedAt": "2026-08-27T14:05:47.427Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41QnobpAOvL.jpg?v=1763142053",
-      "rating": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338161467529-44926978490505": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 41.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928012&a=3026001&m=106925",
-      "fetchedAt": "2026-08-27T14:05:47.427Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/SupremacyOud-Product-01_1080x1080_8d677026-4ed7-44e3-9a80-ad5a4979ea6e.jpg?v=1763135028",
-      "rating": null
-    }
-  ],
-  "fragrancehub-supheaven": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://fragrancehub.co.uk/products/supremacy-in-heaven-eau-de-parfum-100ml-by-afnan",
-      "fetchedAt": "2026-08-27T14:14:32.118Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "fragrancehub-supoud100ml": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/supremacy-in-oud-unisex-edp-100-ml-by-afnan",
-      "fetchedAt": "2026-08-27T14:14:32.118Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
       "rating": null
     }
   ],

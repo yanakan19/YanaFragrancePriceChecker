@@ -736,6 +736,53 @@ const KNOWN_ALIASES: Record<string, string> = {
   // is: there is no one house to fold it into, so it is left alone here and
   // documented in demo/brandSites.ts's own "not a brand" notes instead, the
   // same treatment "Unbranded" already gets.
+
+  // Found 2026-08-27, ranking the live catalogue's unresolved houses by
+  // product count for a brandSites.ts confirmation pass and checking each
+  // top candidate's own raw product names before searching, the same
+  // discipline the 2026-08-26 passes used. Two line-name-in-the-brand-field
+  // mis-splits turned up, the same shape as the already-established
+  // "Armaf - Club De Nuit" fold above:
+  //
+  // 'Supremacy' (4 products) — every one of its own product names says so
+  // directly: "Afnan Silver Pour Homme", "Afnan Supremacy In Oud", "in
+  // Heaven By Afnan", "In Oud Unisex By Afnan". Not a separate house; folded
+  // into the already-resolved 'Afnan' (see demo/brandSites.ts's own
+  // uk.afnan.com entry), whose own /collections/supremacy page carries this
+  // catalogue's own "Supremacy Silver", "Supremacy in Oud" and "Supremacy
+  // Collector's Edition" lines.
+  [brandKey('Supremacy')]: 'Afnan',
+  // 'Pride' (5 products) — the same shape again: "Lattafa Pride Ishq Al
+  // Shuyukh Gold", "Lattafa Pride Royal Sapphire", "Lattafa Pride Tharwah
+  // Silver" and "Vintage Radio by Lattafa" all name the real house directly
+  // in the product title. Folded into the already-resolved 'Lattafa' (see
+  // demo/brandSites.ts's own lattafa.com entry).
+  [brandKey('Pride')]: 'Lattafa',
+
+  // 'KYLIE BY KYLIE JENNER' (3 products: Cosmic Intense, Mood Stones
+  // Cashmere Muse, Mood Stones Velvet Brew) is the same house as the
+  // already-larger 'Kylie Jenner' (5 products: Cosmic, Cosmic 2.0) — the
+  // "Cosmic" line name repeats across both spellings, and kyliecosmetics.com
+  // (confirmed in demo/brandSites.ts) sells "Cosmic Kylie Jenner", "Cosmic
+  // Kylie Jenner 2.0" and "Cosmic Kylie Jenner Intense" as one collection.
+  // Folded into the shorter, already-larger spelling, the same direction as
+  // the Rabanne/Lattafa-style calls above.
+  [brandKey('KYLIE BY KYLIE JENNER')]: 'Kylie Jenner',
+  [brandKey('Kylie Jenner')]: 'Kylie Jenner',
+
+  // 'Annick Goutal' (4 products: Folie d'un Soir, Eau De Monsieur For Men,
+  // Rose Pompon) and 'Goutal' (2 products: Folie D'un Soir) are the same
+  // French niche house split by a real 2019 rebrand — the house dropped
+  // "Annick" from its trading name when Robertet's fragrance division
+  // relaunched it as plain "Goutal Paris" — not decoration `brandKey` could
+  // ever see. In-catalogue evidence: "Folie d'un Soir" / "Folie D'un Soir"
+  // appears under both spellings, the identical bottle. Folded onto the
+  // current, shorter name, the same direction as Rabanne and Lattafa above;
+  // annickgoutal.com (confirmed in demo/brandSites.ts) is still the live
+  // domain the current business trades under despite the older name in its
+  // own title tag.
+  [brandKey('Annick Goutal')]: 'Goutal',
+  [brandKey('Goutal')]: 'Goutal',
 };
 
 /**
