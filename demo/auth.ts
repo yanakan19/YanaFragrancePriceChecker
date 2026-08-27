@@ -1,6 +1,11 @@
 import type { User } from '@supabase/supabase-js';
 import { supabase } from './supabase.js';
-import { authErrorMessage, authFailureReason, type AuthFailureReason } from '../src/services/authErrors.js';
+import {
+  authCallbackErrorMessage,
+  authErrorMessage,
+  authFailureReason,
+  type AuthFailureReason,
+} from '../src/services/authErrors.js';
 
 /**
  * `reason` is a required field on every failure, not an optional one: under
@@ -78,6 +83,38 @@ export async function requestPasswordReset(email: string): Promise<AuthResult> {
     return { ok: false, message: authErrorMessage(error.message, 'reset'), reason: 'other' };
   }
   return { ok: true };
+}
+
+/**
+ * Reads back the result of the URL callback the client already ran on its
+ * own, and returns an honest sentence if that callback failed — or `null`
+ * if there was nothing to report (nothing was configured, or the link
+ * worked, or this load was not a confirmation/recovery redirect at all).
+ *
+ * `supabase()`'s createClient() call does not pass `skipAutoInitialize`, so
+ * the underlying GoTrueClient already called its own `initialize()` once,
+ * synchronously, the moment the client was constructed — it is what
+ * actually reads the confirmation link's tokens (or `?code=`) out of the
+ * current URL. Its result, including any error, is cached on the client
+ * (`initializePromise`) and calling `.initialize()` again here does not
+ * repeat any of that work; it only lets this call site read what already
+ * happened, per the method's own documented contract in auth-js.
+ *
+ * Before this existed, nothing in this codebase ever read that result. A
+ * link that failed — expired, already used, or (see demo/supabase.ts's
+ * flowType comment) opened in a browser lacking a stored PKCE verifier —
+ * produced no session, no error event on `onAuthChange`, and nothing this
+ * app's UI reacted to: the reader landed on /account looking exactly like a
+ * fresh, signed out visit, with no way to tell a real problem from having
+ * followed a stale bookmark. Call this once at startup, alongside
+ * `currentUser()` and `onAuthChange` in app.ts's init(), and show whatever
+ * it returns.
+ */
+export async function checkEmailLinkCallback(): Promise<string | null> {
+  const client = supabase();
+  if (!client) return null;
+  const { error } = await client.auth.initialize();
+  return error ? authCallbackErrorMessage(error.name) : null;
 }
 
 export function currentUser(): Promise<User | null> {

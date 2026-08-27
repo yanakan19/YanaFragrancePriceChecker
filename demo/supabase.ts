@@ -72,6 +72,67 @@ export function supabase(): SupabaseClient | null {
           persistSession: true,
           autoRefreshToken: true,
           detectSessionInUrl: true,
+          // ── flowType, pinned rather than left to the library default ──────
+          //
+          // Verified against the exact version this project pins
+          // (@supabase/supabase-js 2.112.2, node_modules/@supabase/auth-js
+          // 2.112.2): both the supabase-js wrapper's own
+          // DEFAULT_AUTH_OPTIONS (dist/index.mjs) and auth-js's GoTrueClient
+          // DEFAULT_OPTIONS (dist/main/GoTrueClient.js) read
+          // `flowType: "implicit"`. That is the real current default for
+          // this dependency, not 'pkce' — read from the installed source,
+          // not assumed from general Supabase documentation, which mostly
+          // discusses PKCE in the context of OAuth/social redirects.
+          //
+          // Set explicitly anyway, for two reasons. First, so this is a
+          // decision on record rather than an unstated default a future
+          // reader has to go re-derive from node_modules to understand.
+          // Second, because the choice matters concretely for this project:
+          // signUp()'s request body only includes a PKCE `code_challenge`
+          // when `this.flowType === 'pkce'` (see GoTrueClient.js's
+          // signUp()) — the confirmation email's link shape is decided
+          // entirely by *this client's own configured flow*, not by
+          // anything server side, so pinning it here is what actually keeps
+          // the link shape fixed regardless of what a future dependency
+          // bump changes the default to.
+          //
+          // The choice is 'implicit', not 'pkce', because of exactly the
+          // path this project must support: a reader signs up on one
+          // device (typically a phone) and opens the confirmation link in
+          // whatever mail client they read on another. Under 'pkce', that
+          // link carries a `?code=` the browser has to exchange for a
+          // session using a `code_verifier` the *signing-up* browser
+          // stashed in its own local storage — absent in a second browser
+          // by construction. auth-js's own source names this exact case:
+          // AuthPKCECodeVerifierMissingError's message reads "This can
+          // happen if the auth flow was initiated in a different browser or
+          // device" (errors.js). Under 'implicit', the confirmation link
+          // instead carries the session's access and refresh tokens
+          // directly in its URL fragment — see _getSessionFromURL in
+          // GoTrueClient.js — so whichever browser opens the link has
+          // everything it needs in the link itself, with no per-browser
+          // storage to have missed.
+          //
+          // The honest trade-off: implicit puts real session tokens in a
+          // URL (briefly in the address bar and browser history, before
+          // this library clears the fragment on success — same file,
+          // `window.location.hash = ''`), which PKCE's authorization-code
+          // indirection avoids. That protection matters most for an OAuth
+          // redirect that bounces through a third-party authorization
+          // server's own domain, where an intercepted code is otherwise
+          // usable by whoever captured the redirect. There is no such
+          // third party here: this is a direct email/password confirmation
+          // link the reader receives in their own inbox, so accepting
+          // implicit's narrower exposure is a reasonable price for a
+          // cross-device flow this product actually needs to work.
+          //
+          // What this cannot fix on its own: a link that is expired,
+          // already used, or otherwise rejected by Supabase still fails —
+          // just for an ordinary, flow-independent reason instead of a
+          // cross-browser one. See demo/auth.ts's checkEmailLinkCallback for
+          // why that failure is now surfaced to the reader instead of
+          // silently producing a page that looks like nothing happened.
+          flowType: 'implicit',
         },
       });
     } catch (err) {

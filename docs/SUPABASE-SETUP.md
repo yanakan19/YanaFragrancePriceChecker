@@ -137,18 +137,36 @@ stands"), so this is the real first run. In order, on the live site:
    did not succeed.
 3. The verification email arrives. Its link points at
    `https://pricesniffs.space/account`.
-4. Following the link lands on `/account`, now reading **"Signed in as …"**
-   with a Wishlist heading below it.
-5. Dashboard → Table Editor → `profiles` now has a row whose `id` matches the
+4. **Open the link in a different browser than the one you signed up in** —
+   e.g. sign up in Chrome, open the email and click the link in Safari or on
+   your phone. This is the case `demo/supabase.ts` is explicitly configured
+   for (`flowType: 'implicit'`, with the reasoning at that exact line) and it
+   is a completely ordinary path for a real reader: sign up on a phone, read
+   mail on a desktop. It should land on `/account` reading **"Signed in
+   as …"** with a Wishlist heading below it, in the second browser, with no
+   error shown. If it instead lands on the signed-out form with a red message
+   about the link only working in the browser you signed up in
+   (`authCallbackErrorMessage` in `src/services/authErrors.ts`), the project
+   has drifted off the implicit flow this checklist assumes — check Dashboard
+   → Authentication → Sign In / Providers → Email for a PKCE-only setting, and
+   check `demo/supabase.ts` was actually rebuilt into the live bundle
+   (`npm run demo`; see `tests/demoBuildFreshness.test.ts`).
+5. Separately, confirm a bad link fails *visibly* rather than silently: wait
+   for a confirmation link to expire (or reuse one already followed), open
+   it, and check `/account` shows the "did not work … request a new one"
+   message instead of a plain, unexplained sign-in form. That message is the
+   fix for a link failure that used to produce no session and no error at
+   all — see `demo/auth.ts`'s `checkEmailLinkCallback`.
+6. Dashboard → Table Editor → `profiles` now has a row whose `id` matches the
    new user in Authentication → Users. That is the trigger from 0001 working.
-6. Open any fragrance. The Save control now reads **Save** rather than "Sign
+7. Open any fragrance. The Save control now reads **Save** rather than "Sign
    in to save". Press it; it should read **Saved**.
-7. Back to `/account`: that fragrance is in the Wishlist list. `wishlists` in
+8. Back to `/account`: that fragrance is in the Wishlist list. `wishlists` in
    the Table Editor has one row, with your `user_id`.
-8. Remove it from the account page. The row disappears from both.
-9. Sign out. `/account` returns to the form, the Save control on a fragrance
-   returns to "Sign in to save", and every price on the site is exactly as it
-   was. **This last part is the one that must not break.**
+9. Remove it from the account page. The row disappears from both.
+10. Sign out. `/account` returns to the form, the Save control on a fragrance
+    returns to "Sign in to save", and every price on the site is exactly as it
+    was. **This last part is the one that must not break.**
 
 If step 2 or 3 stalls, check the rate limit before anything else — Supabase's
 shared SMTP allows only a handful of emails per hour (see step 7).
