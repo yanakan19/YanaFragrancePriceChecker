@@ -259,13 +259,17 @@ describe('retailer registry', () => {
       // — but it carries `sitemapHarvestConfirmed: true` from the same
       // 10-of-10-priced harvest probe that produced the sample URL the
       // currency probe used.
+      // french-avenue left this list 2026-08-27: shipping-discover.ts read
+      // the same £4.99 standard-fee sentence off its own shipping policy on
+      // every attempt from 2026-08-22 through 2026-08-27 with no caveat, and
+      // that first figure was promoted by hand (the tool never writes one
+      // itself — see src/config/retailers.ts's own comment on this entry).
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'al-haramain',
         'armaf',
         'avon',
         'bm-stores',
         'fragrancehub',
-        'french-avenue',
         'home-bargains',
         'ibraq',
         'manchester-ouds',

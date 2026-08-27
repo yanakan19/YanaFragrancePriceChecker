@@ -836,6 +836,56 @@ export const RETAILERS: readonly Retailer[] = [
     // work — the shop was already enabled, already rendering four section
     // pages per metered sweep, and already getting nothing for them. The
     // difference is that those renders now produce listings.
+    //
+    // ── The free local renderer's first real shot, 2026-08-27 — and why it ──
+    // ── is not the same finding as above, or as the five renderRefused shops ─
+    // Every finding above came from Apify's paid actor tier. The free local
+    // renderer (src/catalogue/localBrowser.ts) never got a genuine attempt at
+    // this shop until now: run #340 (job 98237536789, 2026-08-26T17:15:30Z)
+    // and run #341 (2026-08-26, harvest-cursor.json shows no attempt at all)
+    // both reached this shop with the run's 12-page local-render budget
+    // already spent by shops earlier in sweep order, so every one of its four
+    // URLs answered "local render budget of 12 pages exhausted for this run"
+    // — never actually sent to the browser. Worth flagging on its own: a
+    // budget-exhausted shop still gets its data/harvest-cursor.json entry
+    // stamped as attempted (confirmed: run #340 stamped this shop
+    // 2026-08-26T17:12:40Z despite rendering nothing), which pushes it
+    // further back in the next run's longest-unasked-first order rather than
+    // holding it near the front until it actually gets a real page budget —
+    // a shop can in principle be perpetually budget-starved by this. Not
+    // fixed here: it did not bite this time (see below), and fixing a
+    // starvation mode that has not yet been observed to recur would be
+    // guessing at which of several plausible repairs (excluding
+    // budget-exhausted attempts from the cursor, reserving a page for the
+    // longest-unasked shop, raising the per-run budget) the evidence
+    // actually calls for.
+    //
+    // Run #342 (job 98370769894, 2026-08-27T01:00:32Z-01:00:37Z) is the one
+    // that finally spent a real page on this shop — first in the render
+    // queue that run, all 12 pages still unspent — and the result is a third
+    // failure shape, not the second confirmation of either finding already on
+    // this entry:
+    //
+    //   [actor] rendered 4 section page(s), 0 listings parsed, 0 priced
+    //   [actor] …/womens-fragrance/_/N-a63?page=1: HTTP 0, 0 bytes, local
+    //       render failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR
+    //   (identical on all four section URLs)
+    //
+    // That is not the 200-with-a-tiny-body shape the five `renderRefused`
+    // shops share (see e.g. Boots' own entry above) — there is no HTTP
+    // response at all, so knownRenderRefusal in src/catalogue/
+    // renderRefusal.ts would not even classify it as a refusal, and this
+    // shop is not being given that flag on one sample of a different
+    // failure. It is also not proof the shop is unreachable: the paid actor
+    // rendered these exact four URLs at ~1MB each, HTTP 200, as recently as
+    // the finding above. The plausible reading is that this Cloudflare-
+    // fronted shop's edge is dropping the HTTP/2 handshake from the free
+    // renderer's `--only-shell` Chromium specifically — a TLS/HTTP2
+    // fingerprint difference from whatever client the actor tier presents —
+    // but that is a hypothesis, not something this one run confirms either
+    // way. Left as a dated observation for whoever reads this after the next
+    // few real attempts land; the five-report bar the shops above needed
+    // before `renderRefused: true` was written is the right bar here too.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -2155,23 +2205,45 @@ export const RETAILERS: readonly Retailer[] = [
     // After the fix, Harvest probe run 3, job 96342168489, 2026-08-20T06:57Z,
     // commit 11f2d06: 141 urls discovered, 9 pages fetched, 141 priced
     // listings. The first real data this shop has ever produced.
+    //
+    // ── First delivery figure, promoted by hand, 2026-08-27 ─────────────────
+    // scripts/shipping-discover.ts read this shop's own shipping policy first
+    // on 2026-08-22 (checkedAt 2026-08-22T22:30:01Z, committed 92b3854a) and
+    // has re-read the identical page and sentence on every attempt since —
+    // most recently run 33027053140 job 98370769894, 2026-08-27T00:34:55Z —
+    // always one clean page, one unambiguous sentence, no caveats: verdict
+    // PROPOSE-RATE every time. The tool never writes a first figure itself
+    // (see shippingRegistryPatch.ts's own header comment — "a new figure →
+    // never written... no amount of regex confidence earns the right to make
+    // it unattended"); that is a human's call, and per the owner's standing
+    // sign-off on this area this is that human reading the same sentence and
+    // making it. The page states only the standard cost, nothing about what
+    // happens at or above £100, so freeOverGbp is left null rather than
+    // inferred from "below £100" — recording a threshold the page never
+    // states outright would be exactly the invention this file's own header
+    // rules out.
     enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
+      standardGbp: 4.99,
       freeOverGbp: null,
       estimatedDays: [2, 5],
-      verifiedAt: '2026-08-05',
-      confidence: 'unverified',
+      verifiedAt: '2026-08-27',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://uk.shopfrenchavenue.com/policies/shipping-policy',
+        quote: 'Standard Shipping Fee : A flat rate of £4.99 applies on orders below £100 .',
+        readAt: '2026-08-27',
+      },
       notes:
         'Was in houses.ts as frenchavenue.com (the global, AED-priced site) until this UK-' +
         'specific storefront turned up. A £50 free-delivery figure appears in search results ' +
         'but is attributed to third-party UK retailers stocking French Avenue, not confirmed ' +
         "as this site's own policy — do not carry it over without checking " +
-        'uk.shopfrenchavenue.com directly. No standard-delivery cost found at all. Currency ' +
-        'separately confirmed sterling; see this entry\'s comment above.',
+        'uk.shopfrenchavenue.com directly. Currency separately confirmed sterling; see this ' +
+        "entry's comment above.",
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
