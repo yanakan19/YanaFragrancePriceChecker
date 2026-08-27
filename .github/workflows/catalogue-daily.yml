@@ -410,27 +410,37 @@ jobs:
             # shop whose rule is not confirmed — covering 49 shops and 714
             # fetched pages. That is ~59s a shop, so ten shops is ~10 minutes.
             #
-            # A step cap would not have helped here and is deliberately not
-            # what this uses. scripts/shipping-discover.ts writes the registry
-            # patch and the report *after* its loop, so a sweep killed at
-            # minute 47 of 48 records nothing at all: this work has to be small
-            # enough to finish, not interruptible. Rationing makes each run
-            # finish and turns coverage into a rotation — every shop is still
+            # Rationing turns coverage into a rotation — every shop is still
             # reached, over a few cycles rather than all in one. A shop revises
             # its delivery terms a few times a year, so nobody reading the site
             # can tell the difference. Before 6b56632 these shops were checked
             # never; a rotation is not a regression against that.
             #
-            # `timeout` is a backstop against a single shop hanging, not the
-            # budget: 900s is roughly 50% over the ten-shop estimate. It wraps
-            # only the discovery, so the verification below runs either way —
-            # a step-level cap would skip it and let the commit step publish an
-            # unverified retailers.ts.
+            # `timeout` is a backstop against the process genuinely hanging,
+            # not the routine way this step ends. It used to be the latter:
+            # scripts/shipping-discover.ts wrote the registry patch and the
+            # report only *after* its loop finished, so from 2026-08-25T12:43
+            # onward every scheduled cycle hit this exact 900s kill mid-batch
+            # (runs #334, #340, #341, #342 — read from their job logs) and lost
+            # everything it had already found, including a real checkout quote
+            # for Kayali that then existed only in this job's own ephemeral
+            # log. scripts/shipping-discover.ts now writes each shop's outcome,
+            # registry write and rotation-ledger stamp the instant that shop
+            # finishes (src/catalogue/shippingDiscoveryReport.ts), and stops
+            # itself with room to spare at its own 840s internal ceiling — see
+            # that file and SHOP_TIME_CEILING_MS's doc comment there for the
+            # single chronically slow shop (John Lewis, ~446s of AbortError
+            # retries) that was eating roughly half the budget every cycle.
+            # `timeout 900` here now exists for the case that internal ceiling
+            # cannot cover: the node process itself wedged rather than one
+            # request timing out. It wraps only the discovery, so the
+            # verification below runs either way — a step-level cap would skip
+            # it and let the commit step publish an unverified retailers.ts.
             if timeout 900 npm run shipping:discover -- --write --budget=10; then
               echo "Shipping discovery finished; marking the cycle done."
               DISCOVERED=yes
             else
-              echo "::warning::Shipping discovery did not finish within its 15 minute backstop. Nothing was recorded for this cycle, and the marker is left alone so the next scheduled run retries the same shops."
+              echo "::warning::Shipping discovery hit the job's 900s outer backstop — the process itself did not stop in time, which its own 840s internal ceiling is meant to prevent and should now be rare. Whatever it had already recorded per-shop before the kill is still on disk (data/shipping-discovery-report.json, data/shipping-discover-state.json, and any registry write already applied) and the commit step below still runs; the marker is left alone so the next scheduled run retries sooner rather than waiting the full eleven hours."
               DISCOVERED=no
             fi
             # A registry the run has just edited has to still compile and still
@@ -445,9 +455,13 @@ jobs:
               echo "Registry edits failed verification — reverting them."
               git checkout -- src/config/retailers.ts
             fi
-            # Only a completed sweep advances the eleven-hour clock. Writing it
-            # after a killed run would rotate the queue past shops nothing
-            # looked at and hide the failure for eleven hours.
+            # Only a run that finished under its own steam — a full batch, or
+            # an orderly self-stop on its own 840s ceiling — advances the
+            # eleven-hour clock. Either way `report.finish()` ran and the
+            # shops actually read are already stamped in the state file
+            # individually; DISCOVERED=no means the outer `timeout 900` had to
+            # kill the process, which the marker being left alone retries
+            # sooner rather than waiting the full eleven hours.
             if [ "$DISCOVERED" = yes ]; then echo "$NOW" > "$MARKER"; fi
           else
             echo "Last shipping discovery was $(( AGE / 3600 )) hours ago, under the eleven hour threshold — skipping."

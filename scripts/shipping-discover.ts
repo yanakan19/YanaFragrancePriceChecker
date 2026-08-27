@@ -59,6 +59,26 @@
  * PROPOSE and DISAGREES for a human, exactly as this tool has always behaved.
  * See src/catalogue/shippingRegistryPatch.ts for that line and the argument
  * for where it sits.
+ *
+ * ── Why a killed run no longer loses its cycle ───────────────────────────────
+ * This used to gather every shop's outcome in memory and write the registry
+ * patch and the report once, after the loop over `shops` finished. The
+ * scheduled job wraps this whole script in `timeout 900` as a backstop
+ * against a hung request, and from 2026-08-25T12:43 onward every scheduled
+ * cycle hit that backstop mid-batch — confirmed by reading the job logs for
+ * runs #334, #340, #341 and #342 — which meant a process killed by `timeout`
+ * discarded everything the cycle had already found. See
+ * src/catalogue/shippingDiscoveryReport.ts's header for the full evidence,
+ * and SHOP_TIME_CEILING_MS's own doc comment below for the shop that was
+ * causing it.
+ *
+ * Both halves of that are fixed now, not just one: every shop's outcome,
+ * registry write and rotation-ledger stamp are written to disk the moment
+ * that shop finishes, so a killed run keeps everything up to the point it
+ * died (see the "incremental persistence" block ahead of the main loop); and
+ * SHOP_TIME_CEILING_MS plus RUN_TIME_CEILING_MS make the run stop itself with
+ * room to spare, so hitting the external `timeout 900` at all should go back
+ * to meaning a genuine hang rather than the routine way a cycle ends.
  */
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -82,6 +102,7 @@ import {
   recordChecked,
   isConfirmationStale,
 } from '../src/catalogue/shippingDiscoveryQueue.js';
+import { shippingDiscoveryReportWriter } from '../src/catalogue/shippingDiscoveryReport.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -123,6 +144,62 @@ const REQUEST_GAP_MS = 1200;
  * up, which on a well-behaved shop is the first page tried.
  */
 const MAX_PAGES_READ = 6;
+
+/**
+ * Wall-clock ceiling for one shop's entire read: its home page, every
+ * candidate path tried after it, and the checkout estimator.
+ *
+ * ── Measured, not guessed ────────────────────────────────────────────────────
+ * John Lewis is the confirmed cause of every scheduled cycle hitting the
+ * job's 900s backstop from 2026-08-25T12:43 onward (runs #334, #340, #341,
+ * #342 — read from their job logs; named explicitly in run #343's commit
+ * message). It answers every request — the home page and all sixteen
+ * SHIPPING_PAGE_PATHS candidates — with `HTTP 0 AbortError: This operation
+ * was aborted`, which is createHttp's default 25s per-request timeout firing
+ * every time. At REQUEST_GAP_MS between requests, seventeen such requests
+ * cost 17 * (25s + 1.2s) = 445.4s, which is exactly what three separate runs
+ * measured for it, back-to-back with the shop timed immediately before it:
+ *   run #340: IBRAQ done 16:26:42Z, John Lewis done 16:34:08Z — 446s
+ *   run #341: IBRAQ done 19:57:26Z, John Lewis done 20:04:51Z — 445s
+ *   run #342: IBRAQ done 00:38:01Z, John Lewis done 00:45:27Z — 446s
+ * Every other shop across those three runs finished in 4-69s. One
+ * chronically slow shop was spending roughly half of the entire 900s budget
+ * on its own, every cycle — run #342's John Lewis left only 54s of budget for
+ * the Kayali attempt that followed it, and runs #340/#341 left none at all.
+ *
+ * 90 seconds stops a shop shaped like this after its home page plus two or
+ * three candidate paths — roughly 78-105s once the checked-between-requests
+ * overshoot below is counted — instead of all seventeen: a 75-80% cut to its
+ * cost, while this same measurement shows a well-behaved shop finishing in
+ * well under a minute regardless, so nothing well-behaved is touched.
+ *
+ * Checked *between* requests, not by aborting one already in flight, so a
+ * shop can overrun this by up to one more request's own timeout (25s) plus
+ * one politeness gap. RUN_TIME_CEILING_MS's own margin below accounts for
+ * that slop.
+ */
+const SHOP_TIME_CEILING_MS = 90_000;
+
+/**
+ * Wall-clock ceiling for the whole run.
+ *
+ * The scheduled job wraps `npm run shipping:discover` in `timeout 900`
+ * (.github/workflows/catalogue-daily.yml) as a backstop against a genuinely
+ * hung request, by that workflow step's own comment — not a budget this
+ * script was ever meant to spend down to the second. This constant is that
+ * same idea turned inward: the script now stops itself with room to spare, so
+ * `timeout 900` goes back to being a backstop for a wedged process rather
+ * than the routine way every cycle ends.
+ *
+ * 840s leaves a 60s margin under the external 900s kill — covering node's own
+ * startup before this file's first line runs, the per-shop overshoot
+ * SHOP_TIME_CEILING_MS documents, and the final report-and-state flush —
+ * without growing the step itself. The job this step lives inside has
+ * already been measured tight elsewhere (see catalogue-daily.yml's comments
+ * on the harvest steps that follow it and share its runner), so the fix here
+ * is to spend the existing 900s more safely, not to ask for more of it.
+ */
+const RUN_TIME_CEILING_MS = 840_000;
 
 const today = new Date().toISOString().slice(0, 10);
 
@@ -170,7 +247,9 @@ const eligible = discoveryTargets(RETAILERS, {
 // last look at Boots" from it would answer "never" for every shop the last run
 // happened not to reach.
 const statePath = resolve(root, 'data/shipping-discover-state.json');
-const discoveryState = parseDiscoveryState(
+// Mutable and rewritten after every shop below, not just read once up front —
+// see the incremental-persistence block ahead of the main loop for why.
+let discoveryState = parseDiscoveryState(
   existsSync(statePath) ? readFileSync(statePath, 'utf8') : null,
 );
 
@@ -237,9 +316,56 @@ if (held.length) {
 }
 console.log(`writing  ${shouldWrite ? 'yes — confirmations only' : 'no (report only)'}\n`);
 
-const outcomes: ShopOutcome[] = [];
+// ── incremental persistence ──────────────────────────────────────────────────
+//
+// Everything below this line is written to disk after *every* shop, not
+// gathered in memory and flushed once the loop over `shops` finishes. That
+// end-of-loop write was the bug: the scheduled job wraps this whole script in
+// `timeout 900`, and from 2026-08-25T12:43 onward every cycle has hit that
+// backstop mid-batch and lost the lot — see SHOP_TIME_CEILING_MS's doc
+// comment above and src/catalogue/shippingDiscoveryReport.ts's for the full
+// evidence. A run killed now still leaves, on disk, every shop it had
+// already finished — registry writes included — plus a report that says
+// `complete: false` rather than silently looking like a full cycle.
+const reportPath = resolve(root, 'data/shipping-discovery-report.json');
+mkdirSync(dirname(reportPath), { recursive: true });
+const report = shippingDiscoveryReportWriter<ShopOutcome>(reportPath, {
+  eligible: eligible.length,
+  heldForLaterRuns: held.map((r) => r.id),
+  planned: shops.map((r) => r.id),
+});
+
+const registryPath = resolve(root, 'src/config/retailers.ts');
+// Loaded once, up front, and rewritten after every shop this run promotes —
+// never batched to the end for the same reason the report above is not. Only
+// touched at all when --write is passed; discovery-only runs never open it.
+let registrySource: string | null = shouldWrite ? readFileSync(registryPath, 'utf8') : null;
+let written = 0;
+
+const runStartedAt = Date.now();
+// See RUN_TIME_CEILING_MS's doc comment: this is the run stopping itself with
+// room to spare, so the job's external `timeout 900` goes back to being a
+// backstop for a genuine hang rather than the routine way every cycle ends.
+const runDeadlineAt = runStartedAt + RUN_TIME_CEILING_MS;
+let stoppedForTime = false;
 
 for (const retailer of shops) {
+  if (Date.now() >= runDeadlineAt) {
+    // Whatever is left of `shops` was never asked. Their `checked` timestamps
+    // are left untouched below (recordChecked only stamps ids actually
+    // processed), so the next cycle picks them up first — the same rotation
+    // selectDueTargets already gives a shop held out of the batch entirely,
+    // just discovered mid-cycle instead of up front.
+    stoppedForTime = true;
+    break;
+  }
+  // Whichever comes first: this shop's own ceiling, or whatever is left of
+  // the run's. A shop started with little of the run's budget left must not
+  // still get its full 90s — that would just move the overrun from "one shop"
+  // to "the last shop", which is the exact failure being fixed.
+  const shopDeadlineAt = Math.min(runDeadlineAt, Date.now() + SHOP_TIME_CEILING_MS);
+  const withinShopBudget = () => Date.now() < shopDeadlineAt;
+
   const origin = retailer.homepage.replace(/\/$/, '');
   const outcome: ShopOutcome = {
     retailerId: retailer.id,
@@ -285,11 +411,26 @@ for (const retailer of shops) {
   }
 
   let pagesRead = 0;
+  let candidatesIndex = 0;
   for (const candidate of candidates) {
+    candidatesIndex++;
     if (pagesRead >= MAX_PAGES_READ) break;
     // A clean rate is the answer. Everything after it is a request the shop did
     // not need to serve.
     if (outcome.findings.some((f) => f.standardGbp !== null && f.caveats.length === 0)) break;
+
+    // See SHOP_TIME_CEILING_MS's doc comment: a shop that answers every
+    // request with a 25s AbortError (John Lewis, measured across three runs)
+    // would otherwise burn through all sixteen SHIPPING_PAGE_PATHS at ~26s
+    // each. Checked between requests, so the shop can still overrun this by
+    // one more request's timeout — accounted for in RUN_TIME_CEILING_MS.
+    if (!withinShopBudget()) {
+      const remaining = candidates.length - candidatesIndex + 1;
+      outcome.errors.push(
+        `shop time ceiling (${SHOP_TIME_CEILING_MS / 1000}s) reached — ${remaining} candidate page(s) left unattempted`,
+      );
+      break;
+    }
 
     if (!isAllowed(robots, candidate.url)) {
       outcome.errors.push(`${candidate.url}: disallowed by robots.txt — not fetched`);
@@ -348,7 +489,11 @@ for (const retailer of shops) {
   // disagreement with the registry both leave the standard rate genuinely
   // unsettled, and a checkout quote is exactly the kind of independent second
   // reading that helps a human settle either one.
-  if (shouldAttemptCheckoutQuote(clean.length)) {
+  if (shouldAttemptCheckoutQuote(clean.length) && !withinShopBudget()) {
+    outcome.errors.push(
+      `shop time ceiling (${SHOP_TIME_CEILING_MS / 1000}s) reached — checkout estimator not attempted`,
+    );
+  } else if (shouldAttemptCheckoutQuote(clean.length)) {
     const rateUrl = `${origin}/cart/shipping_rates.json`;
     if (!isAllowed(robots, rateUrl)) {
       // Shopify's stock robots.txt carries `Disallow: /cart`, so on most
@@ -464,67 +609,53 @@ for (const retailer of shops) {
   }
   for (const e of outcome.errors.slice(0, 2)) console.log(`      ${e}`);
 
-  outcomes.push(outcome);
-}
-
-// ── writing back ─────────────────────────────────────────────────────────────
-const writable = outcomes.filter((o) => o.patch?.write);
-let written = 0;
-if (shouldWrite && writable.length > 0) {
-  const registryPath = resolve(root, 'src/config/retailers.ts');
-  let source = readFileSync(registryPath, 'utf8');
-  for (const o of writable) {
+  // ── writing back, one shop at a time ────────────────────────────────────────
+  //
+  // Applied immediately rather than gathered into a `writable` list processed
+  // once the loop finishes: that end-of-loop batching is exactly what
+  // discarded every registry write a killed cycle had already earned — see
+  // this file's incremental-persistence comment above and
+  // src/catalogue/shippingDiscoveryReport.ts for the full evidence.
+  // `registrySource` is threaded through the loop as a plain string and
+  // rewritten to disk after every shop that earns a write, the same
+  // discipline as the report and the rotation ledger below.
+  if (shouldWrite && outcome.patch?.write && registrySource !== null) {
     try {
-      source = applyShippingPatch(source, o.retailerId, o.patch!.write!);
+      registrySource = applyShippingPatch(registrySource, outcome.retailerId, outcome.patch.write);
       written++;
+      writeFileSync(registryPath, registrySource);
     } catch (err) {
       // A patch that does not apply is a bug in the patcher or an unexpected
       // shape in the registry. Either way it stops that shop and not the run,
       // and it is recorded rather than swallowed.
-      o.errors.push(`registry patch failed: ${err instanceof Error ? err.message : String(err)}`);
+      outcome.errors.push(`registry patch failed: ${err instanceof Error ? err.message : String(err)}`);
     }
   }
-  if (written > 0) writeFileSync(registryPath, source);
+
+  report.record(outcome, written);
+
+  // Stamped the instant this shop finishes, not batched with the rest of
+  // `shops` after the loop: recordChecked only stamps the ids it is given, so
+  // a shop this run never reaches keeps its old timestamp and sorts back to
+  // the front of the very next cycle's queue — exactly the treatment
+  // selectDueTargets already gives a shop held out of the batch entirely,
+  // just discovered mid-cycle instead of up front.
+  discoveryState = recordChecked(discoveryState, [retailer.id], RETAILERS.map((r) => r.id), new Date().toISOString());
+  try {
+    writeFileSync(statePath, `${JSON.stringify(discoveryState, null, 2)}\n`);
+  } catch {
+    // A rotation ledger is bookkeeping, not a fact about the world — see
+    // parseDiscoveryState's own doc comment. Never worth failing the run for.
+  }
 }
 
-const reportPath = resolve(root, 'data/shipping-discovery-report.json');
-mkdirSync(dirname(reportPath), { recursive: true });
-writeFileSync(
-  reportPath,
-  `${JSON.stringify(
-    {
-      checkedAt: new Date().toISOString(),
-      wrote: written,
-      // What this run covered, so the report is not mistaken for a full sweep.
-      // Without these a reader comparing two reports would see shops vanish and
-      // reappear and read it as shops being dropped from the registry.
-      eligible: eligible.length,
-      heldForLaterRuns: held.map((r) => r.id),
-      outcomes,
-    },
-    null,
-    2,
-  )}\n`,
-);
+// `stoppedForTime` is only ever true when the run chose to stop between
+// shops on its own RUN_TIME_CEILING_MS — never when it is killed, since a
+// killed process never reaches this line at all. Both cases leave `complete`
+// false in the report until this call; only this call can make it true.
+report.finish(stoppedForTime ? 'time-budget' : 'swept-batch');
 
-// Stamped only for the shops actually read above, and only once the run has got
-// this far. A run killed mid-loop leaves the ledger untouched, so the shops it
-// did not finish stay at the front of the queue and the next run picks them up
-// rather than rotating past them.
-writeFileSync(
-  statePath,
-  `${JSON.stringify(
-    recordChecked(
-      discoveryState,
-      shops.map((r) => r.id),
-      RETAILERS.map((r) => r.id),
-      new Date().toISOString(),
-    ),
-    null,
-    2,
-  )}\n`,
-);
-
+const { outcomes } = report.current();
 const confirmed = outcomes.filter((o) => o.patch?.action === 'confirm-rate').length;
 const absences = outcomes.filter((o) => o.patch?.action === 'confirm-absence').length;
 const proposals = outcomes.filter((o) => o.patch?.action === 'propose-rate').length;
@@ -534,6 +665,11 @@ console.log(
   `\n${confirmed} shop(s) confirmed against their own page, ${absences} recorded as publishing no rate.`,
 );
 console.log(`${proposals} first-time figure(s) waiting on a human, ${disagreements.length} disagreement(s).`);
+// Persisted into the report above, not only printed here — a disagreement
+// (Kayali, run #342: £5.99 quoted against the registry's £5.50) used to live
+// only in this ephemeral CI log once the end-of-loop write it depended on was
+// lost to the backstop. It is now one of the outcomes `report.record` already
+// wrote to disk the moment this shop finished, same as everything else.
 for (const d of disagreements) console.log(`  DISAGREES  ${d.name}: ${d.patch!.detail}`);
 console.log(
   shouldWrite
@@ -543,6 +679,13 @@ console.log(
 if (held.length) {
   console.log(
     `${held.length} shop(s) held for a later run: ${held.map((r) => r.id).join(', ')}`,
+  );
+}
+if (stoppedForTime) {
+  const notReached = shops.length - outcomes.length;
+  console.log(
+    `Stopped on the run's own ${RUN_TIME_CEILING_MS / 1000}s time budget with ${notReached} of this ` +
+      `cycle's ${shops.length} shop(s) not yet reached — they keep their place at the front of the next cycle.`,
   );
 }
 console.log(`Report: data/shipping-discovery-report.json\n`);
