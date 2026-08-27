@@ -2211,10 +2211,26 @@ function detailView(): string {
       </div>
 
       <div class="detail-offers">
-        ${live.length ? '<p class="gone-head t-eyebrow">Available at</p>' : ''}
-        <div class="results-head t-caption">
-          <span>${live.length} ${live.length === 1 ? 'shop' : 'shops'}</span>
-          <span class="dim">${
+        <div class="results-head gone-head">
+          <p class="t-eyebrow">${
+            // Was its own heading line ("Available at") sitting above a
+            // second line that carried the shop count and the delivery
+            // caption. The owner asked for one row: the count folds into
+            // this label instead of a separate "N shops" span (which is
+            // what carried the singular/plural check before — kept here,
+            // verbatim, so "1 shop" still never reads "1 shops"), and the
+            // label disappears with nothing in its place, exactly as
+            // "Available at" itself did, when there is nothing to be
+            // available at (live.length === 0 — see priceBoxRow's own note
+            // on that state, and cheapestVerdict for the rest of the
+            // reasoning). The <p> stays in the document either way, empty
+            // rather than removed, so `.results-head`'s space-between still
+            // has two children and the caption on the right does not drift
+            // left into the gap the heading used to fill — see .results-head
+            // in the stylesheet for the narrow-width version of this row.
+            live.length ? `Available at (${live.length} ${live.length === 1 ? 'shop' : 'shops'})` : ''
+          }</p>
+          <span class="dim t-caption">${
             // "delivery included" is a claim about every row underneath, so it
             // is only made when it is true of every row underneath.
             rows.some((r) => r.deliveredPriceGbp === null)
