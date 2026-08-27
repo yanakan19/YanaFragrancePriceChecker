@@ -1634,8 +1634,36 @@
 
   .hero-price.none { font-size: 19px; font-weight: 600; color: var(--ink-2); letter-spacing: -.01em; margin: 18px 0 0; }
 
+  /* "Available at (N shops)" on the left, the delivery/freshness caption on
+     the right — merged from two lines into one (owner's instruction,
+     2026-08-27; the second line used to carry the shop count and caption
+     alone, under its own standalone "Available at" heading).
+
+     `flex-wrap: wrap` rather than the `nowrap` this row had as two spans:
+     measured naturally (no other text competing for the line, `white-space:
+     nowrap` cloned off the live DOM), the label never exceeds ~173px
+     ("Available at (8 shops)", the most shops any product in the registry
+     carries — see build-demo-catalogue.ts), but the caption's longest form
+     ("delivery included where the shop states it, checked Xh ago") measures
+     ~387px. Both side by side need ~570px; `.detail-offers` is only
+     328-358px wide at 360-390px viewports (full width minus the 16px
+     `--gutter` each side) and never exceeds ~398px before the desktop rail
+     layout takes over at 900px — so sharing one line here is never possible
+     on a phone, with or without this merge. `nowrap` was tried first and
+     measured worse: the two texts fought for the same line and each one
+     wrapped internally, landing "AVAILABLE AT" itself mid-word beside a
+     caption broken into three ragged fragments. `wrap` instead drops the
+     caption to its own line as a whole (space-between still pins it to the
+     right when it fits on the shared line, and to the left, alone, when it
+     drops to its own), where it wraps at most once — since even alone at
+     full row width it can exceed the ~358px case above. Neither shape
+     overflows the viewport at any width measured (a wrapped line only grows
+     the row's height, never its width). See priceBoxRow's own note for why
+     the caption is dropped to nothing rather than reading "0 shops" when
+     there is nothing to be available at. */
   .results-head {
-    display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
+    row-gap: 4px; column-gap: 10px;
     padding: 18px 2px 8px;
   }
   .results-head .dim { color: var(--faint); }
@@ -1800,7 +1828,10 @@
   }
   /* "Available at" leads .detail-offers with nothing above it in that
      column — the separator line and the gap it implies both belong between
-     two sections, not floating above the first one. */
+     two sections, not floating above the first one. Still true now that
+     "Available at" shares its element with .results-head (see that rule's
+     own comment): the merged row is the same first child the standalone
+     heading used to be. */
   .detail-offers > .gone-head:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
   /* Why a group of shops is listed at all, where the heading alone would
      otherwise read as a claim about availability. */
