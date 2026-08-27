@@ -98,6 +98,16 @@ if ! git remote get-url origin >/dev/null 2>&1; then
   exit 0
 fi
 
+# Snapshot-revert recovery — docs/DECISIONS.md D12. The script discards the
+# one known checkpoint-frozen diff, and only on a byte-exact signature match
+# of its added lines; anything else dirty it reports and refuses to touch, so
+# the no-adjudication stance below is unchanged — it never guesses, it
+# recognises a pinned historical edit. Runs first so the replay report and the
+# fast-forward below see the recovered state rather than the reverted one.
+if [ -x "scripts/recover-stale-checkout.sh" ]; then
+  scripts/recover-stale-checkout.sh || true
+fi
+
 if ! git fetch --quiet origin "$branch" 2>/dev/null; then
   say "[session-start] Could not fetch origin/$branch. The checkout may be behind; check before committing."
   exit 0
