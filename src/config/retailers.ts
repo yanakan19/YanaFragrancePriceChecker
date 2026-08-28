@@ -338,26 +338,61 @@ export const RETAILERS: readonly Retailer[] = [
     // mens.html, womens.html and niche.html did NOT come back the same way:
     // each rendered to Cloudflare's interactive "Just a moment..." challenge
     // (title, cf-chl-widget markup, challenges.cloudflare.com script — a real
-    // bot-management verdict, not an incidental string hit like the
-    // Turnstile config in fragrance.html's own footer). All four requests
-    // went through localBrowserRenderer's one shared browser context for the
-    // whole batch (see its own comment on why: cookie continuity across
-    // pages); fragrance was rendered first and got real content, and the
-    // three requests after it in that same session, ~1s apart, all got
-    // challenged. That is consistent with the challenge being triggered by
-    // the session's own request pattern rather than by this runner's IP
-    // being refused outright — which would mean a residential proxy or actor
-    // (paid) is not obviously the fix either, since the IP was never shown to
-    // be the problem for these three. Untested and not assumed: nothing here
-    // has tried a fresh context per section URL, which the free tier could
-    // do without spending anything.
+    // bot-management verdict, `cType: 'managed'` in each page's own
+    // `_cf_chl_opt`, not an incidental string hit like the Turnstile config in
+    // fragrance.html's own footer). All four requests went through
+    // localBrowserRenderer's one shared browser context for the whole batch
+    // (see its own comment on why: cookie continuity across pages); fragrance
+    // was rendered first and got real content, and the three after it in that
+    // same session all got challenged. Their own `cITimeS` (Cloudflare's
+    // server-side timestamp, embedded per challenge) put them at 557s/565s/
+    // 573s — ~8s apart in the config's own section order, not "~1s apart" as
+    // this comment used to claim; ~8s matches localBrowser.ts's own measured
+    // per-page cost on a page whose network never goes idle (goto + the 5s
+    // NETWORK_IDLE_TIMEOUT_MS + 1.5s SETTLE_MS + 1s gapMs). So the original
+    // reading of "rapid navigation" was not what the timestamps actually show
+    // — this was ordinary sequential rendering at this tier's normal pace.
+    //
+    // ── Session-order theory tested live and refuted, 2026-08-27 ──────────
+    // Two hypotheses were left open by the above: being first in the shared
+    // context is what let /fragrance/ through, or these three URL paths carry
+    // a stricter Cloudflare rule regardless of order. CI dispatch (commit
+    // 467abec reordered `sections` to put mens first, run #348) tested it
+    // directly: with mens as the sole first request in a brand-new browser
+    // context — nothing rendered before it in that session at all — it still
+    // came back a `cType: 'managed'` challenge (cRay a31ea79598096af7,
+    // cITimeS 1787871230). fragrance, now rendered *second* in that same
+    // session, still came back real (CollectionPage JSON-LD, title
+    // "Fragrances and Aftershaves…"). Order therefore is not the variable:
+    // /fragrance/ succeeds regardless of position and the other three fail
+    // regardless of position. Reverted back to fragrance-first below — this
+    // repo's committed sitemaps and any human checking urlTemplate values by
+    // eye expect that order, and there is no longer a reason to keep it
+    // changed. See data/render-capture/notino-uk/{mens,fragrance}.html from
+    // that run for the raw bytes.
+    //
+    // What that leaves: these three section paths are, as far as this repo
+    // can tell, simply behind a stricter Cloudflare rule than /fragrance/ —
+    // by path, not by request pattern. Nothing this codebase does today
+    // (context reuse, request timing, batching) plausibly explains or fixes
+    // that, and Cloudflare's bot-management scoring is not published, so no
+    // further theory is asserted about *why* the split runs along those
+    // specific paths. A residential proxy or paid actor render (both untested
+    // here — no credential in this environment) might clear a managed
+    // challenge that a datacentre-IP headless browser cannot; that is the
+    // only remaining unexplored tier, and it is exactly the same paid
+    // escalation path already documented above for the 403 case. Nothing
+    // about this finding is grounds to fingerprint-spoof or interaction-fake
+    // past the challenge — see how this registry already treats Boots,
+    // Superdrug and Zara.
     //
     // `adapter` moves from 'proxied' to 'headless' on the strength of the
     // fragrance section alone — a plain headless browser, no residential
     // proxy, no Apify credential, is enough to get real priced listings from
     // this shop's largest, catch-all section. It is not a claim that the
     // other three sections are solved: they still yield nothing through
-    // every tier this run tried, for a reason not yet pinned down.
+    // every tier this run tried, and are left as-is rather than chased
+    // further without a credentialed proxy/actor tier to actually test.
     adapter: 'headless',
     currency: 'GBP',
     shipping: {
@@ -378,22 +413,12 @@ export const RETAILERS: readonly Retailer[] = [
     // /fragrance/ was confirmed live in a browser 6 Aug 2026 (stripped of
     // the ad-click tracking parameters it was pasted with) and added
     // alongside it as a general catch-all section.
-    // TEMP EXPERIMENT (2026-08-27, revert after CI run captures mens.html):
-    // mens moved to the front of this list to test whether the challenge on
-    // /perfumes-for-men/, /perfumes-for-women/ and /niche-perfumes/ (see the
-    // dated comment above) is a session-order effect — i.e. whether being
-    // first in localBrowserRenderer's one shared context, the way /fragrance/
-    // was in the run that found this, is what let /fragrance/ through — or
-    // whether it is specific to these three URL paths regardless of order.
-    // All four sections are still harvested; only the order changes, so a
-    // scheduled run in the meantime loses nothing. See the retailer comment
-    // above for what this settles either way.
     catalogue: {
       searchUrlTemplate: 'https://www.notino.co.uk/search.asp?exps={q}',
       sections: [
-        { id: 'mens', label: "Men's perfume", urlTemplate: 'https://www.notino.co.uk/perfumes-for-men/?f=page-{page}', tier: 'designer' },
         { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.notino.co.uk/fragrance/?page={page}', tier: 'designer' },
         { id: 'womens', label: "Women's perfume", urlTemplate: 'https://www.notino.co.uk/perfumes-for-women/?f=page-{page}', tier: 'designer' },
+        { id: 'mens', label: "Men's perfume", urlTemplate: 'https://www.notino.co.uk/perfumes-for-men/?f=page-{page}', tier: 'designer' },
         { id: 'niche', label: 'Niche perfume', urlTemplate: 'https://www.notino.co.uk/niche-perfumes/?f=page-{page}', tier: 'niche' },
       ],
       firstPage: 1, maxPages: 80, minRequestGapMs: 1500,
