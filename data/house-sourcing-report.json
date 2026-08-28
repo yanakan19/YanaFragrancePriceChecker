@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-28T01:32:12.079Z",
+  "checkedAt": "2026-08-28T16:25:40.192Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -192,9 +192,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 112,
-      "pricedInGbp": 112,
-      "withPhoto": 112,
+      "listings": 82,
+      "pricedInGbp": 82,
+      "withPhoto": 82,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -521,9 +521,9 @@
       "origin": "https://www.thebodyshop.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 417,
-      "pricedInGbp": 417,
-      "withPhoto": 417,
+      "listings": 415,
+      "pricedInGbp": 415,
+      "withPhoto": 415,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -538,8 +538,8 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 217,
-      "pricedInGbp": 217,
+      "listings": 218,
+      "pricedInGbp": 218,
       "withPhoto": 215,
       "errors": [],
       "blockers": [
