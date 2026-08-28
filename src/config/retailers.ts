@@ -1006,6 +1006,27 @@ export const RETAILERS: readonly Retailer[] = [
     // justify picking one of the three named repairs over guessing, so none
     // is made here. Left again for whoever reads this after the next few real
     // attempts land.
+    //
+    // ── 2026-08-28 check-in — two dispatches, neither able to reach this shop ─
+    // Checked the two workflow_dispatch runs that landed after #346: run #347
+    // (job 98662114309, 2026-08-27T20:28:30Z) and run #348 (job 98698173806,
+    // 2026-08-27T22:52:13Z). Neither was a full harvest sweep, so neither
+    // could have added a third report. #348 was a `capture_render_shop=
+    // notino-uk` dispatch — same shape as #343/#344 above: "Harvest via
+    // sitemap" shows `skipped` in its job steps, only "Capture rendered HTML
+    // for one shop" ran, and its head commit (467abec, "Notino: temp reorder
+    // to test session-order theory on the CF challenge") confirms the target
+    // was Notino, not this shop. #347 is stranger still: every step after
+    // "Test before crawling" shows `skipped` in the job's step list, Harvest
+    // via sitemap and Capture-render alike — the dispatch ran the test suite
+    // (1563 passing) and nothing else. Whatever inputs produced that, it
+    // reached no shop at all, so it's a non-event here too.
+    //
+    // The next scheduled sweep, run #349, started 2026-08-28T00:16:21Z and
+    // was still `in_progress` as of this check-in — not yet available to
+    // read. Tally stands at two real reports (#342, #346), still short of
+    // the five-report bar; whoever picks this up next should check #349
+    // first rather than assume this pass covered it.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
