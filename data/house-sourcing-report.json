@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-28T16:25:40.192Z",
+  "checkedAt": "2026-08-29T01:16:21.448Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -143,9 +143,9 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 59,
+      "listings": 59,
+      "pricedInGbp": 59,
+      "withPhoto": 58,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -192,9 +192,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 82,
-      "pricedInGbp": 82,
-      "withPhoto": 82,
+      "listings": 118,
+      "pricedInGbp": 118,
+      "withPhoto": 118,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -521,9 +521,9 @@
       "origin": "https://www.thebodyshop.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 415,
-      "pricedInGbp": 415,
-      "withPhoto": 415,
+      "listings": 414,
+      "pricedInGbp": 414,
+      "withPhoto": 414,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -538,8 +538,8 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 218,
-      "pricedInGbp": 218,
+      "listings": 217,
+      "pricedInGbp": 217,
       "withPhoto": 215,
       "errors": [],
       "blockers": [
