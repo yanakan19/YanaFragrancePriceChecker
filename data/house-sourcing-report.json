@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-29T01:16:21.448Z",
+  "checkedAt": "2026-08-29T08:19:16.210Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -143,9 +143,9 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 59,
-      "pricedInGbp": 59,
-      "withPhoto": 58,
+      "listings": 60,
+      "pricedInGbp": 60,
+      "withPhoto": 59,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -160,9 +160,9 @@
       "origin": "https://surrati.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 107,
+      "listings": 106,
       "pricedInGbp": 0,
-      "withPhoto": 107,
+      "withPhoto": 106,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -192,9 +192,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 118,
-      "pricedInGbp": 118,
-      "withPhoto": 118,
+      "listings": 76,
+      "pricedInGbp": 76,
+      "withPhoto": 76,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
