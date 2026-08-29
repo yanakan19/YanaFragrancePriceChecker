@@ -24,7 +24,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-08-29T00:08:06.551Z";
+export const DEALS_GENERATED_AT = "2026-08-29T07:14:22.962Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -987,6 +987,15 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 70,
     "percentOff": 38,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3616303470791",
+    "price": 68.65,
+    "wasPrice": 146,
+    "percentOff": 52,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -2985,15 +2994,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 100,
     "percentOff": 46,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3616303470791",
-    "price": 68.65,
-    "wasPrice": 146,
-    "percentOff": 52,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -10280,10 +10280,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6290362345671",
-    "price": 21.5,
-    "wasPrice": 34.99,
-    "percentOff": 38,
-    "retailerId": "fragrancehub",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud",
     "kind": "retailer",
     "houseName": null
   },
@@ -10397,10 +10397,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6291108735589",
-    "price": 17.99,
-    "wasPrice": 31.99,
-    "percentOff": 43,
-    "retailerId": "mybeauty-boutique",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud",
     "kind": "retailer",
     "houseName": null
   },
@@ -10757,10 +10757,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6290362161783",
-    "price": 34.95,
-    "wasPrice": 39.99,
+    "price": 34.99,
+    "wasPrice": 40,
     "percentOff": 12,
-    "retailerId": "fragrancehub",
+    "retailerId": "emirates-oud",
     "kind": "retailer",
     "houseName": null
   },
