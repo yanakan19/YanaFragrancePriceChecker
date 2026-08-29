@@ -5384,13 +5384,13 @@ export const RETAILERS: readonly Retailer[] = [
       // stored as freeOverGbp.
       freeOverGbp: null,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-24',
+      verifiedAt: '2026-08-29',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
         url: 'https://www.perfumeprice.co.uk/delivery-and-returns',
         quote: 'FREE TRACKED DELIVERY OVER £25',
-        readAt: '2026-08-24',
+        readAt: '2026-08-29',
       },
       notes:
         'Nothing here has been read from perfumeprice.co.uk itself: not its delivery terms, ' +
@@ -5833,13 +5833,13 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: null,
       freeOverGbp: null,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-24',
+      verifiedAt: '2026-08-29',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
         url: 'https://groceries.morrisons.com/content/delivery-pass-content-page',
         quote: '£5 off your first 3 fast orders with code: 5firstnow *min spend £30',
-        readAt: '2026-08-24',
+        readAt: '2026-08-29',
       },
       notes:
         'Nothing here has been read from groceries.morrisons.com itself: not its delivery ' +
