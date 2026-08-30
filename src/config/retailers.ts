@@ -4900,13 +4900,13 @@ export const RETAILERS: readonly Retailer[] = [
       // here, not stored as freeOverGbp.
       freeOverGbp: null,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-25',
+      verifiedAt: '2026-08-30',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
         url: 'https://www.fragrancehub.co.uk/policies/shipping-policy',
         quote: 'FREE SHIPPING FOR ORDERS OVER £90',
-        readAt: '2026-08-25',
+        readAt: '2026-08-30',
       },
       notes:
         "Their own shipping-policy page was read by shipping:discover on 2026-08-18 and states " +
