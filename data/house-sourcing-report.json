@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-30T05:26:56.675Z",
+  "checkedAt": "2026-08-30T12:48:39.624Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -141,17 +141,20 @@
       "houseId": "lattafa",
       "name": "Lattafa",
       "origin": "https://lattafa.com",
-      "routeUsed": "sitemap-jsonld",
+      "routeUsed": null,
       "currency": "USD",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 59,
-      "errors": [],
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
+      "errors": [
+        "https://lattafa.com/sitemap_index.xml: HTTP 0 AbortError: This operation was aborted"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
         "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap",
-        "prices are in USD, not GBP — needs a UK price source before these are comparable"
+        "prices are in USD, not GBP — needs a UK price source before these are comparable",
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {
@@ -192,9 +195,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 106,
-      "pricedInGbp": 106,
-      "withPhoto": 106,
+      "listings": 102,
+      "pricedInGbp": 102,
+      "withPhoto": 102,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -216,7 +219,7 @@
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
         "https://arabiyatprestige.shop/products.json?limit=250&page=1: HTTP 525",
-        "http://arabiyatprestige.shop/sitemap_index.xml: HTTP 403"
+        "https://arabiyatprestige.shop/sitemap.xml: HTTP 525"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
