@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-30T00:17:54.600Z",
+  "checkedAt": "2026-08-30T05:26:56.675Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -143,8 +143,8 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 59,
-      "pricedInGbp": 59,
+      "listings": 60,
+      "pricedInGbp": 60,
       "withPhoto": 59,
       "errors": [],
       "blockers": [
@@ -192,9 +192,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 112,
-      "pricedInGbp": 112,
-      "withPhoto": 112,
+      "listings": 106,
+      "pricedInGbp": 106,
+      "withPhoto": 106,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
