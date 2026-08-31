@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-31T05:29:59.136Z",
+  "checkedAt": "2026-08-31T14:22:07.617Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,11 +59,12 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 60,
+      "listings": 27,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "storefront currency could not be established — no sterling price recorded",
+        "stopped early: exceeded this house's time budget"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -109,9 +110,9 @@
       "origin": "https://maisonasrar.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 126,
+      "listings": 129,
       "pricedInGbp": 0,
-      "withPhoto": 126,
+      "withPhoto": 129,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -141,17 +142,21 @@
       "houseId": "lattafa",
       "name": "Lattafa",
       "origin": "https://lattafa.com",
-      "routeUsed": "sitemap-jsonld",
+      "routeUsed": null,
       "currency": "USD",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 59,
-      "errors": [],
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
+      "errors": [
+        "https://lattafa.com/products.json?limit=250&page=1: HTTP 504",
+        "https://lattafa.com/sitemap_index.xml: HTTP 504"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
         "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap",
-        "prices are in USD, not GBP — needs a UK price source before these are comparable"
+        "prices are in USD, not GBP — needs a UK price source before these are comparable",
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {
@@ -192,9 +197,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 108,
-      "pricedInGbp": 108,
-      "withPhoto": 108,
+      "listings": 104,
+      "pricedInGbp": 104,
+      "withPhoto": 104,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -216,7 +221,7 @@
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
         "https://arabiyatprestige.shop/products.json?limit=250&page=1: HTTP 525",
-        "http://arabiyatprestige.shop/sitemap_index.xml: HTTP 403"
+        "https://arabiyatprestige.shop/sitemap.xml: HTTP 525"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -435,9 +440,9 @@
       "origin": "https://www.alwataniah.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 117,
+      "listings": 116,
       "pricedInGbp": 0,
-      "withPhoto": 117,
+      "withPhoto": 116,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -451,9 +456,9 @@
       "origin": "https://amouage.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 97,
+      "listings": 99,
       "pricedInGbp": 0,
-      "withPhoto": 97,
+      "withPhoto": 99,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -538,8 +543,8 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 217,
-      "pricedInGbp": 217,
+      "listings": 218,
+      "pricedInGbp": 218,
       "withPhoto": 215,
       "errors": [],
       "blockers": [
