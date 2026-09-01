@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- demo-build-hash sha256:c4c1e7100b6c6b239d4e244a5dd75e5431c5eb28e744a425d79eb82c8a719903 — a fingerprint of the source this document was built from, written by scripts/build-demo.ts and checked by tests/demoBuildFreshness.test.ts. Do not hand-edit; run `npm run demo` instead. -->
+<!-- demo-build-hash sha256:14b45dfbdc6702c54e172a5fc8301854a4a1d0125aa7e21ea3015eb9297ef1f7 — a fingerprint of the source this document was built from, written by scripts/build-demo.ts and checked by tests/demoBuildFreshness.test.ts. Do not hand-edit; run `npm run demo` instead. -->
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
@@ -2831,7 +2831,7 @@
       <p>PriceSniffs tells you what a bottle of fragrance actually costs across ${Xe.length} UK shops, delivery included. Right now that covers ${gi(Y.length)} fragrances.</p>
       <p>Hi, I am Yanny.</p>
       <p>This started because I kept getting caught out. I bought a 100ml bottle of Club de Nuit, felt pleased with myself, and spotted it twelve pounds cheaper four days later. Comparing by hand meant nine tabs open across Boots, Notino and Beauty Base, and half of them hid the postage until I reached checkout.</p>
-      <p>So I spent five days building the thing I wanted to use. Go and look at what the shops charge right now, add the delivery they will actually bill you, put the answer on one screen. ${1645} tests keep it honest.</p>
+      <p>So I spent five days building the thing I wanted to use. Go and look at what the shops charge right now, add the delivery they will actually bill you, put the answer on one screen. ${1651} tests keep it honest.</p>
       <h3 class="t-section">What it does</h3>
       <p>Prices are checked every three hours, so 8 times a day. Boots, Selfridges, Superdrug, LOOKFANTASTIC, Escentual and the rest all get looked at on the same clock. Not one of those ${gi(Y.length)} prices is typed in by hand. A fragrance shows up here because a shop was genuinely selling it when we looked, and the number beside it came off that page.</p>
       <p>Delivery terms sit on a slower clock than prices do. Shops rewrite them maybe twice a year, so checking them every three hours would be a great deal of effort for the same answer. Boots posts free once you spend \xA325 and charges \xA33.95 under that. Harvey Nichols wants \xA3300, which one bottle will never reach, so its listings always carry \xA35.95 on top.</p>
@@ -3509,7 +3509,8 @@ ${k}`}var C=class extends Error{constructor({message:e,code:a,cause:r,name:i}){v
     <div class="search-results">${po(t)}</div>`}var F2=[{id:"brands",label:"Brands"},{id:"retailers",label:"Retailers"},{id:"notes",label:"Notes"},{id:"search",label:"Search"}];function Br(){return`<div class="explore">${c.tab==="brands"?M2():c.tab==="retailers"?z2():c.tab==="notes"?D2():x2()}</div>`}function V2(t){return`<li class="house-card">
     <a href="${w(t.url)}" target="_blank" rel="noopener nofollow sponsored">
       ${t.image?`<img class="house-img" src="${w(t.image)}" alt="" loading="lazy"
-               decoding="async" referrerpolicy="no-referrer" />`:'<span class="house-img house-img-none" aria-hidden="true"></span>'}
+               decoding="async" referrerpolicy="no-referrer"
+               onerror="const s=document.createElement('span');s.className='house-img house-img-none';s.setAttribute('aria-hidden','true');this.replaceWith(s)" />`:'<span class="house-img house-img-none" aria-hidden="true"></span>'}
       <span class="house-name">${w(t.name)}</span>
       <span class="house-price">${t.nativePrice?`${w(t.nativePrice.currency)} ${t.nativePrice.amount.toFixed(2)}`:"Price not published"}</span>
       <span class="house-caveat">at the house, not a UK price</span>
