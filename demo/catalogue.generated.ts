@@ -62876,7 +62876,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "id": "ean-3614273927352",
     "brand": "Giorgio Armani",
     "name": "My Way",
-    "concentration": "Disputed",
+    "concentration": "Parfum",
     "sizeMl": 90,
     "ean": "3614273927352",
     "shops": 2,
