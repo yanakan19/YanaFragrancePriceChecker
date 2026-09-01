@@ -28,7 +28,6 @@
 import {
   buildComparison,
   bestOffer,
-  buildHouseAnchor,
   canShowCountdown,
   cheapestVerdict,
   // `tooCloseToCallNote` is deliberately not imported here any more: this
@@ -42,7 +41,7 @@ import {
   type CheapestVerdict,
 } from '../src/index.js';
 import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
-import type { HouseAnchorDisplay, PresentedOffer, StockState } from '../src/types/offer.js';
+import type { PresentedOffer, StockState } from '../src/types/offer.js';
 import type { Retailer, RetailerTier } from '../src/types/retailer.js';
 import {
   DEMO_FRAGRANCES, BY_POPULARITY, DEALS, NOTE_INDEX,
@@ -60,6 +59,7 @@ import {
 import { trustpilotStateFor } from './trustpilotWidget.js';
 import { deliveryLines } from './deliveryFacts.js';
 import { deliveryPriceNote } from './priceDeliveryNote.js';
+import { msrpComparison, msrpComparisonLabel, type MsrpComparison } from './msrpComparison.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
@@ -1376,14 +1376,13 @@ function cheapestTag(v: CheapestVerdict): string | null {
 }
 
 /**
- * The house-anchored comparison for one row, or null where it does not apply.
+ * The MSRP comparison for one row, or null where it does not apply.
  *
  * Two things have to both be true: the fragrance's own house has to be
  * stocked here at all (`frag.houseCeiling` set — see CatalogueEntry, 852 of
  * 14,784 products measured 2026-08-26) and this particular shop's price has
- * to actually sit below it (`buildHouseAnchor` returns null otherwise, which
- * covers the house being cheaper — 15 of 178 comparable products — without
- * this function having to know that case exists).
+ * to differ from it by at least a whole percent (`msrpComparison` returns null
+ * otherwise, which is what keeps "0% below MSRP" off the page).
  *
  * The house's own row is excluded on top of that. Comparing armaf.uk's price
  * against armaf.uk's own ceiling is either meaningless (they are the same
@@ -1394,11 +1393,21 @@ function cheapestTag(v: CheapestVerdict): string | null {
  * by the two market tests. The `singleBrandOnly` + `cannotCarryBrand` pair is
  * exactly build-demo-catalogue.ts's own test for "is this offer the bottle's
  * house", reused here rather than re-derived.
+ *
+ * Until 2026-09-01 this returned `buildHouseAnchor`'s `HouseAnchorDisplay`,
+ * which by contract is null whenever the house is *not* the dearer side — so
+ * a shop charging above the house's own price rendered nothing where the
+ * comparison was at its most useful. 55 of the 411 comparable rows in today's
+ * catalogue are exactly that; see demo/msrpComparison.ts for the counts and
+ * for why widening `buildHouseAnchor` itself was the wrong place to fix it.
+ * `row.itemPriceGbp` is unchanged and remains the only price handed to the
+ * comparison — never `deliveredPriceGbp`, which would put a bottle-plus-
+ * postage figure up against a bottle-only one.
  */
-function houseAnchorFor(row: PresentedOffer, frag: DemoFragrance): HouseAnchorDisplay | null {
+function msrpFor(row: PresentedOffer, frag: DemoFragrance): MsrpComparison | null {
   if (frag.houseCeiling === null) return null;
   if (row.retailer.singleBrandOnly && !cannotCarryBrand(row.retailer, frag.brand)) return null;
-  return buildHouseAnchor(row.itemPriceGbp, frag.houseCeiling, frag.brand);
+  return msrpComparison(row.itemPriceGbp, frag.houseCeiling);
 }
 
 /**
@@ -1408,28 +1417,65 @@ function houseAnchorFor(row: PresentedOffer, frag: DemoFragrance): HouseAnchorDi
  * front, the accent and the ordering stay — it is still our best reading — and
  * only the superlative goes.
  *
- * `anchor` is the house-anchored comparison from `houseAnchorFor`, computed by
- * the caller (it needs the fragrance record, which this function does not
- * otherwise take). Where it applies it *replaces* the shop's own `wasPrice`
- * strikethrough on this row rather than sitting beside it: measured
- * 2026-08-26, 72 of the 325 offers a house anchor reaches also carry a kept,
- * corroborated retailer RRP (FragranceHub's RRP £29.95 on Armaf Club De Nuit
- * Intense Man EDT 105ml, under armaf.uk's own £37.99, is exactly this case).
- * Two reference prices on one row would ask the reader to decide which is
- * real, and the house's own figure is the stronger evidence of the two — it
- * is what test zero already elevates above market corroboration when the two
- * disagree, so the render follows the same ordering rather than inventing a
- * second one. Nothing here touches the offer's real `wasPrice` field or the
- * verdict that produced it; a row not chosen for display keeps its own
- * strikethrough on every other page that reads `row.discount` directly.
+ * `msrp` is the MSRP comparison from `msrpFor`, computed by the caller (it
+ * needs the fragrance record, which this function does not otherwise take).
+ * Where it applies it *replaces* the shop's own `wasPrice` strikethrough on
+ * this row rather than sitting beside it: measured 2026-08-26, 72 of the 325
+ * offers a house anchor reaches also carry a kept, corroborated retailer RRP
+ * (FragranceHub's RRP £29.95 on Armaf Club De Nuit Intense Man EDT 105ml,
+ * under armaf.uk's own £37.99, is exactly this case). Two reference prices on
+ * one row would ask the reader to decide which is real, and the house's own
+ * figure is the stronger evidence of the two — it is what test zero already
+ * elevates above market corroboration when the two disagree, so the render
+ * follows the same ordering rather than inventing a second one. Nothing here
+ * touches the offer's real `wasPrice` field or the verdict that produced it; a
+ * row not chosen for display keeps its own strikethrough on every other page
+ * that reads `row.discount` directly.
+ *
+ * That rule now covers an "above MSRP" row too, and it has to: a row reading
+ * "20% off RRP" beside "30% above MSRP" is the two-contradicting-reference-
+ * prices problem in its sharpest form. No row in today's catalogue is in that
+ * state — 0 of the 55 above-MSRP rows carries a surviving retailer RRP,
+ * measured 2026-09-01 — but the rule is written for the case rather than for
+ * today's data.
+ *
+ * ── The second price line ───────────────────────────────────────────────────
+ *
+ * `.now` is the *total* — delivered where the shop states a delivery cost. The
+ * MSRP percentage is not computed from that number and never was: both
+ * `msrpFor` and `buildDiscount` take the item price alone. Printed on their
+ * own two lines apart, as they were until 2026-09-01, the two invited exactly
+ * the wrong arithmetic — Perfume Click's Azzure Aoud row showed "£32.20" above
+ * "2% below MSRP", and 2% of £32.20 is not what produced that 2%; £29.25
+ * against the house's £30.00 is. So the percentage now sits on the same line
+ * as the price it was actually derived from, which is the whole point of the
+ * line: "£29.25 · 2% below MSRP" can be checked against the MSRP box at the
+ * top of the page by anyone who cares to.
+ *
+ * The item price is printed there only when it is not already the number
+ * above. Where the shop states no delivery cost, or states free delivery,
+ * `.now` *is* the item price (see PresentedOffer.deliveredPriceGbp: it is
+ * never filled in from the item price), so repeating it would put the same
+ * figure twice in two type sizes and imply two different prices where there is
+ * one. On those rows the line carries the percentage alone, and it is still
+ * sitting directly under the figure it was computed from. 12,927 of the 22,402
+ * offer rows in the catalogue have a delivered price that genuinely differs
+ * from their item price and so do print both.
  */
 function offerRow(
   row: PresentedOffer,
   isBest: boolean,
   bestTag: string | null = 'Cheapest',
-  anchor: HouseAnchorDisplay | null = null,
+  msrp: MsrpComparison | null = null,
 ): string {
-  const d = anchor ? null : row.discount;
+  const d = msrp ? null : row.discount;
+  // The total on the row's first line. Only ever a delivered price where the
+  // shop actually states a delivery cost — never the item price wearing a
+  // delivered price's clothes.
+  const totalGbp = row.deliveredPriceGbp ?? row.itemPriceGbp;
+  // See the header: the second line names the bottle price only where that is
+  // a different number from the total above it.
+  const showsItemPrice = row.itemPriceGbp !== totalGbp;
   // A shop that has never published a standard delivery rate gets said out
   // loud, the same way "No longer stocked" is. Anything quieter — a blank, a
   // "Free delivery", a £0 — would be us filling in a number the shop has not
@@ -1487,26 +1533,31 @@ function offerRow(
         }</span>
         <span class="price">
           ${
-            // A house-anchored row shows no reference figure here at all. Until
-            // 2026-08-26 it rendered "£37.99 at Armaf" beside the price; the
-            // owner asked for the house price off the row, and the percentage
-            // in .offer-bot below carries the comparison on its own. Note the
-            // `anchor ? ... : d ? ...` shape is kept rather than collapsed to
-            // `d ? ...`: an anchored row must still suppress the shop's own
-            // RRP strikethrough (see this function's header — two reference
+            // A row carrying an MSRP comparison shows no reference figure here
+            // at all. Until 2026-08-26 it rendered "£37.99 at Armaf" beside the
+            // price; the owner asked for the house price off the row, and the
+            // percentage on the second line below carries the comparison on its
+            // own. Note the `msrp ? ... : d ? ...` shape is kept rather than
+            // collapsed to `d ? ...`: such a row must still suppress the shop's
+            // own RRP strikethrough (see this function's header — two reference
             // prices on one row is the thing that must not happen), and
             // dropping the branch would put it straight back.
-            anchor
+            msrp
               ? ''
               : d
                 ? `<span class="was">RRP ${formatGbp(d.wasPrice)}</span>`
                 : ''
           }
-          <span class="now t-price ${d || anchor ? 'sale' : ''}">${formatGbp(
-            row.deliveredPriceGbp ?? row.itemPriceGbp,
-          )}<span class="del-note${deliveryUnknown ? ' excl' : ''}">${esc(
-            deliveryPriceNote(row.delivery),
-          )}</span></span>
+          <span class="now t-price ${
+            // The saving ink, and only for a saving. A retailer promotion and a
+            // price under the house's own are both good news for the reader and
+            // both earn it; a price *above* MSRP is the same news inverted and
+            // must not be painted as a bargain, so `direction` is checked here
+            // rather than the comparison merely existing.
+            d || msrp?.direction === 'below' ? 'sale' : ''
+          }">${formatGbp(totalGbp)}<span class="del-note${
+            deliveryUnknown ? ' excl' : ''
+          }">${esc(deliveryPriceNote(row.delivery))}</span></span>
         </span>
       </span>
       <span class="offer-bot">
@@ -1514,18 +1565,30 @@ function offerRow(
           <span class="dot ${STOCK_CLASS[row.stock]}"></span>${STOCK_LABEL[row.stock]}
           <span class="sep">·</span>${esc(sub.join(' · '))}
         </span>
-        ${
+        <span class="alone">${
+          // The bottle price on its own, beside the comparison actually
+          // computed from it. See this function's header for why it is omitted
+          // where it would only repeat the total above.
+          showsItemPrice
+            ? `<span class="alone-price t-price">${formatGbp(row.itemPriceGbp)}</span>`
+            : ''
+        }${
           // "below MSRP" rather than "below Armaf" (owner's wording,
           // 2026-08-26). The figure is unchanged and still the house's own
           // ceiling for this size; MSRP is the word the box at the top of the
-          // page already uses for that same number, so the row and the box now
-          // name the reference the same way instead of two different ways.
-          anchor
-            ? `<span class="off anchor">${anchor.percentOff}% below MSRP</span>`
+          // page already uses for that same number, so the row and the box name
+          // the reference the same way instead of two different ways. "above"
+          // is the same sentence about the same figure pointing the other way,
+          // and is given its own ink (.off.over) so the two can never be
+          // skimmed as the same claim.
+          msrp
+            ? `<span class="off anchor${
+                msrp.direction === 'above' ? ' over' : ''
+              }">${msrpComparisonLabel(msrp)}</span>`
             : d
               ? `<span class="off">${d.percentOff}% off RRP</span>`
               : ''
-        }
+        }</span>
       </span>
       ${
         d && canShowCountdown(d)
@@ -2247,20 +2310,29 @@ function detailView(): string {
             live.length ? `Available at (${live.length} ${live.length === 1 ? 'shop' : 'shops'})` : ''
           }</p>
           <span class="dim t-caption">${
-            // "delivery included" is a claim about every row underneath, so it
-            // is only made when it is true of every row underneath.
-            rows.some((r) => r.deliveredPriceGbp === null)
-              ? 'delivery included where the shop states it'
-              : 'delivery included'
-          }, checked ${esc(age(newest))}</span>
+            // Until 2026-09-01 this caption led with "delivery included where
+            // the shop states it" (or plain "delivery included", where every
+            // row had a stated cost) before the age. Nothing is lost by
+            // dropping it: it was a page-level summary of a fact each row
+            // already states about *itself*, on its own price, in .del-note —
+            // "INCL. £2.95 DELIVERY", "INCL. FREE DELIVERY" or "DELIVERY NOT
+            // INCLUDED", rendered on every row rather than only on the odd one
+            // out. The hedged form in particular told a reader that some row on
+            // this page excluded delivery without saying which, when the row
+            // that does says so on its own line, in warn ink. What is left is
+            // the one fact no row carries: how current the page is. age()
+            // handles its own units, so this reads "Updated 17h ago" and, past
+            // 48h, "Updated 3d ago".
+            `Updated ${esc(age(newest))}`
+          }</span>
         </div>
 
-        <ul class="offers">${live.map((r) => offerRow(r, r === best, bestTag, houseAnchorFor(r, frag))).join('')}</ul>
+        <ul class="offers">${live.map((r) => offerRow(r, r === best, bestTag, msrpFor(r, frag))).join('')}</ul>
 
         ${
           gone.length
             ? `<p class="gone-head t-eyebrow">Sold out</p>
-               <ul class="offers">${gone.map((r) => offerRow(r, false, 'Cheapest', houseAnchorFor(r, frag))).join('')}</ul>`
+               <ul class="offers">${gone.map((r) => offerRow(r, false, 'Cheapest', msrpFor(r, frag))).join('')}</ul>`
             : ''
         }
 
