@@ -855,6 +855,75 @@ export const CONCENTRATION_RESOLUTIONS: Readonly<Record<string, ConcentrationRes
  *     the exact persisting contradiction the second pass already found,
  *     confirmed unchanged rather than resolved by the new agreement on the
  *     name alone.
+ *
+ * 2026-09-01 fifth pass (later the same day): live Disputed set unchanged at
+ * 25, verified against the current demo/catalogue.generated.ts. Zero
+ * resolved. This log was read end to end first and no search recorded above
+ * was repeated — the one angle tried instead was a source type none of the
+ * four passes before it used: this project's own harvested data, rather than
+ * the web.
+ *
+ * The idea worth testing was this. Nearly every one of the 25 is beautybase
+ * against perfume-click, and the Rabanne paragraph near the top of this table
+ * already suspects "perfume-click's own blanket 'Eau de Parfum' suffix looks,
+ * on this evidence, like a feed default applied whether or not it is true."
+ * If that were demonstrably a template artefact rather than a claim, the
+ * dissent could be disqualified the same way Jomashop's self-contradicting
+ * titles already are, and a root-cause fix would settle many disputes at once
+ * instead of 25 separate web questions.
+ *
+ * Five of the 25 have a perfume-click title that names a concentration twice
+ * — the product's own tier word inside the name, and the shop's own suffix on
+ * the end — which is exactly the Jomashop shape:
+ *
+ *     ean-8011003891467  "Versace Bright Crystal Parfum Eau de Parfum 50ml Spray"
+ *     ean-8011003891092  "Versace Bright Crystal Parfum Eau de Parfum 90ml Spray"
+ *     ean-8011003891061  "Versace Crystal Noir Parfum Eau de Parfum 90ml Spray"
+ *     ean-3349668627486  "Paco Rabanne Olympéa Parfum Eau de Parfum 30ml Spray"
+ *     ean-3616304175916  "Gucci Guilty Elixir de Parfum pour Femme Eau de Parfum 60ml Spray"
+ *
+ * Measured before acting on it, and the measurement refuses the idea. Across
+ * perfume-click's 10,469 active listings, 4,720 titles end
+ * "<concentration> <size>ml Spray" and only 83 of those — 1.8% — also name a
+ * concentration inside the product name. A suffix applied to 4,720 titles
+ * that conflicts with the name in 83 of them is not a blanket default
+ * overwriting the truth; it is a suffix that is usually consistent with it.
+ * Worse for the idea, the same shape appears in the *other* shop's feed and
+ * is correct there: beautybase does it 13 times, twelve of them Elie Saab
+ * ("Elie Saab Le Parfum Eau De Parfum 90ml Spray"), where "Le Parfum" is
+ * genuinely the bottle's name and "Eau de Parfum" is genuinely its
+ * concentration. Carolina Herrera Bad Boy Le Parfum is the same shape again,
+ * in perfume-click's own feed, and also correct as written.
+ *
+ * So a title naming a concentration twice carries no information about which
+ * of the two is the concentration — the pattern occurs in both directions, in
+ * both shops, and is right at least as often as it is wrong. Nothing here
+ * disqualifies perfume-click's claim on any of the five above, and no
+ * root-cause rule could be written from it that would not break the Elie
+ * Saab and Bad Boy lines. Recorded as a foreclosed approach so a future pass
+ * does not spend the same measurement finding out.
+ *
+ * Two smaller in-repo observations from the same sweep, neither sufficient:
+ *
+ *   - fragrance-click is a third shop in this catalogue on four of the
+ *     disputes (Azzaro Wanted Forever Elixir 50ml and 100ml, JPG Scandal
+ *     Absolu 50ml, Rabanne Olympéa 30ml, Gucci Guilty Elixir de 60ml) and
+ *     independently titles every one of them "Parfum", siding with
+ *     beautybase. It does not count as a second voice: its descriptions read
+ *     as copy generated from its own title ("this 50ml parfum combines sweet
+ *     raspberry with rich leather"), so title and description are one claim,
+ *     not two — and, per the bar this table has applied throughout, one more
+ *     source on the majority side does not un-say perfume-click's dissent.
+ *   - Only two of the 25 have any shop description mentioning a
+ *     concentration at all: manchester-ouds on ean-6298042001909 (French
+ *     Avenue Ravine Ice, already logged and already the whole basis of that
+ *     entry's repo-vs-web conflict) and allbeauty on ean-085805268848,
+ *     whose description restates "Elizabeth Arden Green Tea Eau Parfumée
+ *     Scent Spray 100ml" — which is the fourth pass's finding confirmed from
+ *     a second direction: the bottle's real name matches neither disputed
+ *     claim, and this codebase's vocabulary has no slot for "Eau Parfumée".
+ *     Every other disputed listing's description is either absent or names
+ *     no concentration, so there is no unread evidence sitting on disk.
  */
 
 /**
