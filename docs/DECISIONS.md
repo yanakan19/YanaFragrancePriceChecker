@@ -1295,6 +1295,18 @@ job deleting `worktree-backup` refs whose commit already merged into the
 real branch) is a reasonable follow-up and is left as exactly that — a
 follow-up, not implemented here.
 
+**Implemented, 2026-09-01.** `prune_stale_backups()` was added to
+`scripts/backup-worktree.sh`, deliberately not as "delete anything already
+merged" (the paragraph above's own proposal is looser than what actually
+shipped): a ref is removed only once it is BOTH older than
+`BACKUP_PRUNE_DAYS` (default 14) AND its work is independently, already safe
+on a real origin branch — a `commits/` ref by ancestry, a `wip/` ref by exact
+tree-content match, never by name or by assumption. Age alone never deletes,
+and safety alone never deletes either; both conditions together are what
+keeps this consistent with the "never delete a ref whose work is not already
+safely on a real branch" rule this whole file has followed since D10. Tested
+against real scratch repos in `tests/backupWorktree.test.ts`.
+
 This also cannot protect the last few seconds between an agent finishing an
 edit and the next session start running this script, nor can it protect
 anything if `origin` itself is unreachable for the whole time a container is
@@ -1323,3 +1335,106 @@ shape (a total network outage fails both scripts' fetches together, so
 neither ever reaches its ancestry check), but not unconditionally — see the
 "Revisited 2026-09-01" note appended to D15 above for the gap found and the
 fix applied to `session-start.sh` to close it.
+
+---
+
+## D18 — Revisiting D16's "safe subset" (421 of 582 commits): still not landed, and for the same reason regardless of file size
+
+**Investigated 2026-09-01, re-opening D16's own closing question.** D16
+identified that 421 of 582 counted CI commits — `Harvest: real prices` (256),
+`Image links` (117), and `Shipping terms` (48), plus a fourth small-payload
+site not in that original count, `Price verification: measured drift`
+(`price-verify.yml`) — never touch the oversized generated files
+(`demo/catalogue.generated.ts` at 19.3 MB; `demo/index.html`/`demo/404.html`
+at 18.3 MB each) that make the naive API-commit swap unsafe for the other
+four call sites (`Awin feed sync`, `Top Deals Today`, `Rebuild demo`, and the
+probe-memory commit). D16 stopped short of landing even that subset and
+named the safe order for revisiting it: "prototype against a disposable
+scratch branch first... starting with the three small-file call sites." This
+entry is that revisit, asked directly: is the size-safe subset actually safe
+to convert now, on this pass?
+
+### What was re-confirmed, not just re-read
+
+- The workflow files and `scripts/commit-and-push.sh` were re-read directly
+  rather than trusted from D16's summary. All four small-payload call sites
+  (`Harvest: real prices` — `data/catalogue data/houses
+  data/house-sourcing-report.json data/metered-harvest-marker.txt
+  data/harvest-cursor.json data/harvest-report.json`; `Image links` —
+  `data/image-link-report.json data/image-referer-report.json`; `Shipping
+  terms` — `data/shipping-discovery-report.json
+  data/shipping-discover-marker.txt data/shipping-discover-state.json
+  src/config/retailers.ts`; `Price verification: measured drift` —
+  `data/price-verification-report.json`) confirmed: none names any `demo/*`
+  path, matching D16's finding exactly. Nothing about the paths themselves
+  has changed since D16.
+- `scripts/commit-and-push.sh` is unchanged since D16 (381 lines, same
+  rebase-and-retry structure, same `set -euo pipefail` shape, same comment
+  citing runs #15/#17, #124/#126, #236, #266/#268). It is still the one
+  script all nine call sites share.
+
+### Why the size-safe subset is still not size-safe to convert
+
+D16 gave four reasons against converting; only the first (file size) is
+specific to the four large-file call sites. The other three apply exactly as
+written to the 421-commit subset too, and none of them were resolved by this
+pass:
+
+1. **No API equivalent for the retry/conflict logic exists, at any file
+   size.** The GitHub Git Data API's model is a single atomic
+   compare-and-swap (update a ref against an expected parent SHA); there is
+   no rebase primitive. `commit-and-push.sh`'s rebase-and-retry loop is not
+   incidental complexity that happens to also run on large files — it is
+   the entire reason the script exists (the run #15/#17 "any push mid-harvest
+   fails outright" incident it was built to fix), and it would need to be
+   re-derived from scratch against a fundamentally different primitive for
+   the small-file call sites exactly as much as the large ones. This pass
+   did not attempt that re-derivation, for the same reason D16 gave: writing
+   an untested compare-and-swap retry loop and landing it directly against
+   the branch a 3-hourly cron is actively pushing to — on the same day that
+   cron was down for 12 hours — is the "guess and hope" move this project's
+   own decisions (D10/D12/D14) already refuse, not a safety property that
+   scoping to smaller files buys back.
+2. **One shared, already-hardened script split into two mechanisms still
+   doubles the incident surface**, whether the split is by file size or not.
+   `commit-and-push.sh`'s entire documented history is incidents it was
+   built in response to; a second, API-based commit path for a subset of its
+   nine call sites is a second thing that can fail in a new way, verified by
+   nothing this project has actually run yet.
+3. **The identity-change side effect is unchanged**: converting even the
+   small-file call sites moves their committer from
+   `pricesniffs-bot`/`bot@users.noreply.github.com` to `github-actions[bot]`,
+   a visible attribution change on 421 of this repo's commits — still a
+   decision for the owner to make deliberately, not a side effect of a
+   verification-badge fix.
+
+None of this was testable to a real answer inside this session either: there
+is no way here to prototype against a disposable scratch branch and observe
+a real GitHub Actions run's outcome (`send_later`/routine tooling cannot
+wait on a live workflow, and this environment has no path to trigger one and
+come back to its result). Landing a change to `commit-and-push.sh` or any of
+the nine `catalogue-daily.yml`/`image-check.yml`/`price-verify.yml` call
+sites without that verification would be exactly the kind of untested
+production change the task that reopened this explicitly warned against, on
+the same pipeline that had just come back from a 12-hour outage when this
+pass began.
+
+### What was actually changed
+
+Nothing in `scripts/commit-and-push.sh` or any workflow file. This entry is
+documentation only, matching D16's own shape: the re-confirmation that the
+file-size argument does not generalize to the four small-payload call sites,
+and the three reasons it still does not follow that those four are safe to
+convert. **Refusing to land this remains the correct call, not an
+unfinished one.**
+
+### What remains only the owner can decide
+
+Unchanged from D16: whether to convert any of the nine call sites to
+API-based commits, and in what order, informed by all four reasons above —
+including, now explicitly, that "the files are small enough" answers only
+one of the four and does not by itself make a call site safe to convert. If
+revisited again, the same order D16 named still stands: a disposable scratch
+branch first, with a real GitHub Actions run actually observed — not
+inferred from documentation — before any of this touches
+`claude/scentday-retailer-registry-h92tth` or its default-branch successor.
