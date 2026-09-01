@@ -51,15 +51,17 @@ describe('deliveryPriceNote', () => {
 
   // The whole reason this helper exists rather than a template literal: the
   // number this line sits under is only a delivered price when the shop states
-  // a delivery cost. Where it does not, the number is the item price, and the
-  // line has to read as an addition rather than an inclusion.
-  it('never says "includes" where the shop states no delivery cost', () => {
+  // a delivery cost. Where it does not, the number excludes delivery, and the
+  // line has to say so rather than claim an inclusion.
+  it('says delivery is not included where the shop states no delivery cost', () => {
     const note = noteFor(
       { standardGbp: null, freeOverGbp: null, estimatedDays: DAYS, verifiedAt: '2026-08-05', confidence: 'unverified' },
       24.99,
     );
-    expect(note).toBe('Plus delivery');
-    expect(note.toLowerCase()).not.toContain('includes');
+    expect(note).toBe('Delivery not included');
+    // "Incl." is what the other two branches lead with. This one must never be
+    // mistakable for them — including by a reader who only catches the stem.
+    expect(note).not.toMatch(/\bIncl\b/);
   });
 
   it('never names a figure, and never says "free", where delivery is unstated', () => {
@@ -135,7 +137,7 @@ describe('the number the note sits under', () => {
     expect(row.deliveredPriceGbp! - row.itemPriceGbp).toBeCloseTo(3.99, 10);
   });
 
-  it('is the item price, and says "plus", where delivery is unstated', () => {
+  it('is the item price, and says delivery is not in it, where delivery is unstated', () => {
     const retailer = withShipping({
       standardGbp: null,
       freeOverGbp: null,
@@ -146,7 +148,7 @@ describe('the number the note sits under', () => {
     const row = presentOffer(offer(40), retailer);
     expect(row.deliveredPriceGbp).toBeNull();
     expect(row.deliveredPriceGbp ?? row.itemPriceGbp).toBe(40);
-    expect(deliveryPriceNote(row.delivery)).toBe('Plus delivery');
+    expect(deliveryPriceNote(row.delivery)).toBe('Delivery not included');
   });
 
   it('equals the item price where delivery is a sourced zero, and says so', () => {
