@@ -4857,6 +4857,150 @@ export const RETAILERS: readonly Retailer[] = [
     // multi-seller pricing) and now a fourth, purely technical one (the
     // one permitted path Amazon's own robots.txt names returns 503 to this
     // network). Nothing here supports enabling a route.
+    //
+    // ── Verified against Amazon's own pages, 2026-09-01 ─────────────────────
+    // Owner asked, again, for a decision-ready answer: is there a lawful route
+    // at all, and if so what exactly would it take. This pass had something
+    // the 2026-08-19 and -20 passes did not — an environment that can actually
+    // fetch affiliate-program.amazon.com and .co.uk directly, not just read
+    // WebSearch snippets of them. Everything below is quoted from a page this
+    // pass opened itself; nothing here is a search-result summary treated as
+    // fact.
+    //
+    // Blocker 1, API eligibility — confirmed current, restated more precisely.
+    // affiliate-program.amazon.com/creatorsapi/docs, fetched directly: "Have
+    // at least 10 qualifying sales within the past 30 days to access the PA
+    // API through the Creators API." Unchanged from the 2026-08-20 finding,
+    // now read off Amazon's own page rather than inferred from a snippet. The
+    // UK-specific route is real, not a US programme pressed into service:
+    // affiliate-program.amazon.co.uk/creatorsapi redirects to Amazon's own
+    // sign-in with assoc_handle=amzn_associates_gb, a GB-scoped handle. PA-API
+    // v5's retirement is also confirmed from the source rather than a search
+    // snippet: the old v5 docs URL now redirects to
+    // .../creatorsapi/docs/en-us/paapiv5-deprecation, which states plainly
+    // "The Amazon Product Advertising API 5.0 (PA-API 5) has been deprecated
+    // and is being replaced by the Creators API," and that a v5 call now
+    // returns HTTP 403 with "Product Advertising API is deprecated. Please
+    // migrate to Creators API using the migration guide...". Consistent with
+    // what 2026-08-20 found; no exact shutdown date was on this particular
+    // page, so that earlier dated finding is not contradicted, just not
+    // re-confirmed here.
+    //
+    // Worth being exact about what "closes on itself" means, because it is
+    // not literally circular. Joining Associates is free and needs no API:
+    // an approved Associate can place plain tagged text/image links
+    // (SiteStripe) to amazon.co.uk with no price shown at all, and those
+    // links' sales count toward the 10-in-30-days bar. So the real shape of
+    // the gate is: this project could join Associates today, add "View on
+    // Amazon" links with no price beside them, and would need to sustain ten
+    // qualifying purchases through those links in every rolling 30-day window
+    // before it could even apply for the API that would let it show a price.
+    // That is a genuine, non-circular first step — and also a real traffic
+    // and conversion bar this project has no evidence yet of being able to
+    // clear, since it has no measured Amazon-directed traffic today.
+    //
+    // Blocker 2, retention/display terms — confirmed real, and now precise
+    // rather than assumed. affiliate-program.amazon.com/help/operating/policies,
+    // fetched directly, quoted exactly: "You may store other Product
+    // Advertising Content that does not consist of images for caching
+    // purposes for up to 24 hours, but if you do so you must immediately
+    // thereafter refresh and re-display the Product Advertising Content by
+    // making a call to Creators API, PA API or retrieving a new Data Feed."
+    // Images are stricter — no caching at all, only a link, also capped at 24
+    // hours. A timestamp must sit next to any displayed price with the exact
+    // wording "Product prices and availability are accurate as of the
+    // date/time indicated and are subject to change," unless the display is
+    // refreshed hourly. One carve-out: "Individual ASINs...may be retained
+    // indefinitely until the license terminates" — the identifier, not the
+    // price or content attached to it.
+    //
+    // The conflict this entry already named is real: data/catalogue/*.json
+    // holds prices at rest indefinitely and demo/priceHistory.generated.ts
+    // exists specifically to keep a price-history timeline, both flatly
+    // incompatible with a 24-hour cache-then-refresh-or-purge rule. It goes
+    // further than a missing cron job, too. This repo's own rule is never to
+    // rewrite published history, and git is an append-only store — so once an
+    // Amazon-sourced price lands in a tracked file, `git log` keeps it
+    // retrievable forever regardless of what the live page later shows,
+    // which is itself indefinite retention of licensed content. A compliant
+    // design could not commit amazon-uk's fetched rows to a tracked file the
+    // way the harvest does for every other retailer: no
+    // data/catalogue/amazon-uk.json snapshot, no priceHistory.generated.ts
+    // line, a live/short-cache-only fetch path instead, a visible timestamp
+    // plus Amazon's exact disclaimer text next to every price, no cached
+    // image, and only the ASIN persisted anywhere. That is a different
+    // product for this one retailer than every other row in this file gets,
+    // not a config flag — worth weighing on its own before deciding this is
+    // worth pursuing at all.
+    //
+    // Blocker 3, multi-seller pricing — checked, not resolved. Older PA-API
+    // documentation describes the API returning one "BuyBox winner" offer per
+    // item when one exists, rather than every seller's price — which, if
+    // still true of the Creators API, would hand this project the one number
+    // it needs the way every other retailer's page already does. That claim
+    // could not be confirmed here from a primary source: the legacy docs
+    // pages that describe it now 403 or redirect straight to the deprecation
+    // notice above, and no equivalent page was found and fetched for the
+    // current Creators API. Left open rather than claimed, in the spirit this
+    // file already treats an unread page.
+    //
+    // Also checked: whether Amazon UK runs through any network feed this
+    // project could apply to the way it already does for Awin (see
+    // src/catalogue/awinFeed.ts) — no. Amazon Associates/Creators is Amazon's
+    // own direct, in-house channel; nothing found puts amazon.co.uk's general
+    // catalogue on Awin, Rakuten, Partnerize or Tradedoubler, consistent with
+    // this entry's own `affiliate.network: 'direct'`. The nearest adjacent
+    // thing, CJ Affiliate's "Amazon Sellers" programme
+    // (junction.cj.com/article/publishers-now-have-access-to-amazon-sellers-in-cj,
+    // fetched directly), is not a substitute: it is a partnership, via
+    // PartnerBoost, giving access to roughly 800 individually-enrolled
+    // third-party sellers' own catalogues ("Amazon sellers from Europe and
+    // North America," 400,000+ products) — not Amazon's own retail catalogue,
+    // and a fundamentally different shape than one feed per retailer: it
+    // would mean thin-slicing "Amazon UK" into hundreds of individual seller
+    // relationships, each answering blocker 3 by making it worse, not better.
+    //
+    // Blocker 4, the 503 to the one robots.txt-permitted path — not re-tested
+    // this pass. Out of scope for a check about the lawful route, and
+    // touching it again would mean re-probing amazon.co.uk's own defences,
+    // which this project does not do. Left exactly as measured 2026-08-20.
+    //
+    // The answer the owner asked for: no lawful route is available today.
+    // Nothing above supports flipping `enabled`, and nothing was added toward
+    // one — no adapter, no credentials, no secret names guessed ahead of an
+    // account that does not exist. If this is ever pursued anyway, the
+    // concrete sequence, in order, is:
+    //
+    //   1. Join Amazon Associates UK, free, at
+    //      https://affiliate-program.amazon.co.uk/, registering this site's
+    //      own domain as the property.
+    //   2. Build nothing API-shaped yet. Add plain SiteStripe-tagged "View on
+    //      Amazon" links with no price displayed — these need no API access
+    //      and are the only lawful way to earn qualifying sales before any
+    //      API application exists.
+    //   3. Sustain at least 10 qualifying Associates sales in every trailing
+    //      30-day window (completed, un-returned, properly tagged purchases —
+    //      Amazon's own definition). Access to apply does not open before
+    //      this is demonstrated, and per the docs above it is checked on a
+    //      rolling basis afterwards too, not just once.
+    //   4. Once that bar is being cleared, apply for Creators API access at
+    //      https://affiliate-program.amazon.co.uk/creatorsapi and follow the
+    //      credential setup the console shows at that point. The exact
+    //      credential/secret field names sit behind that login and were not
+    //      guessed here — read them from the console once the account exists
+    //      rather than from this comment.
+    //   5. Add the resulting credentials as GitHub Actions secrets only once
+    //      they exist. Do not pre-add placeholder secret names.
+    //   6. Before writing any adapter, re-read the Creators API's full
+    //      current licence (not just the caching clause quoted above) and
+    //      confirm with the owner explicitly that a live-only, non-historical
+    //      Amazon row — no committed snapshot, no price-history line, a
+    //      visible per-price timestamp and disclaimer — is an acceptable
+    //      product before building it, since it is not what this file gives
+    //      any other retailer.
+    //   7. Resolve blocker 3 only once the API can actually be called: what
+    //      GetItems/GetOffers returns for a multi-seller listing is testable,
+    //      not researchable, from outside an approved account.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -4878,10 +5022,13 @@ export const RETAILERS: readonly Retailer[] = [
     },
     catalogue: null,
     // Amazon Associates is Amazon's own in-house programme, not one of the
-    // networks this account already uses. `verified: false` because nobody
-    // has opened the programme's own page from here to confirm its terms —
-    // egress to arbitrary hosts is blocked in the environment this was
-    // written in (see docs/INGESTION.md).
+    // networks this account already uses — confirmed 2026-09-01 by reading
+    // Amazon's own operating-policies and Creators API docs pages directly
+    // (see the dated comment block above); no network-distributed feed for
+    // it was found. `verified: false` stays exactly that: this account has
+    // still never applied or signed in, so nothing about signup itself —
+    // as opposed to the publicly-readable policy pages — has been confirmed
+    // from here.
     affiliate: {
       ...NO_AFFILIATE_YET,
       network: 'direct',
