@@ -581,6 +581,7 @@ export const CONCENTRATION_RESOLUTIONS: Readonly<Record<string, ConcentrationRes
   '3616305616203': { concentration: 'Parfum', citation: 'Hugo Boss Alive Absolu Intense 30ml: Marionnaud (major French retailer, exact-EAN URL) and two further EAN-tied French retailers all "Parfum Intense"; only Jomashop’s own listing dissents with "EDP".' },
   '3614273844673': { concentration: 'Parfum', citation: 'Armani My Way 30ml: Jomashop, Perfume Corner (UK), eperfumes.gr, ModeSens unanimous "My Way Parfum"; no EDP claim for this exact EAN.' },
   '3614273844666': { concentration: 'Parfum', citation: 'Armani My Way 50ml (refillable): Jomashop unanimous "My Way Parfum Refillable"; no EDP claim for this exact EAN.' },
+  '3614273927352': { concentration: 'Parfum', citation: 'Armani My Way 90ml Refillable (new dispute, 2026-09-01): eBay ("My Way PARFUM 90ml"), lojaglamourosa (exact-EAN URL, "My Way Le Parfum - 90ml"), supercosmetics.com, fathyibrahim.com, mengotticouture.com and pariscom2030.com all "My Way Parfum"/"Le Parfum"; armani.com’s own page for this exact EAN reads "MY WAY PARFUM 90 ml Eau de Parfum", but the identical "Eau de Parfum" suffix sits on every My Way flanker on that same domain regardless of tier (base, Intense, Nectar, Parfum alike, confirmed by fetching armani.com directly) — a fixed category-page template, not a per-bottle claim — so it neither corroborates nor contradicts; no independent source anywhere calls this exact EAN a bare, unqualified Eau de Parfum.' },
   '3386460157315': { concentration: 'Parfum', citation: 'Coach Gold 30ml: Jomashop and Perfume Clearance Centre both "Coach Gold Parfum"; no EDP claim found.' },
   '3616303429669': { concentration: 'Parfum', citation: 'Calvin Klein Eternity 200ml: eBay, Perfume Clearance Centre and beautyqueensupply all "Eternity ... Parfum"; only Direct Chemist Outlet dissents, and its own listing also mismatches the product’s gender.' },
   '8011003891498': { concentration: 'Parfum', citation: 'Versace Crystal Noir 50ml: Superdrug (major UK retailer) and lojaglamourosa (exact-EAN URL) both "Crystal Noir Parfum"; versace.com itself lists an EDT and a Parfum as separate 50ml SKUs, and the majority of independent listings for this EAN say Parfum.' },
@@ -794,6 +795,33 @@ export const CONCENTRATION_RESOLUTIONS: Readonly<Record<string, ConcentrationRes
  *     Parfum") and Walmart ("ExDP Spray", i.e. Extrait de Parfum) split the
  *     first pass found, and still fails to surface a gucci.com result for
  *     this specific product. Unchanged.
+ *
+ * 2026-09-01 third pass: alongside the CONCENTRATION_SPECIFIC root-cause fix
+ * (see concentrationMatch's own doc comment), the harvest had moved on since
+ * the second pass — measured against demo/catalogue.generated.ts rebuilt
+ * fresh that day: 26 live Disputed products, two of them genuinely new
+ * (ean-6290171070214, one of the 23 already logged above, simply reappeared
+ * after having dropped out for one harvest; not re-checked, its conflict is
+ * unchanged and already fully logged). The two actually new EANs:
+ *
+ *   - ean-3614273927352 Armani My Way 90ml Refillable: resolved — see
+ *     CONCENTRATION_RESOLUTIONS above. Six independent, non-templated
+ *     sources unanimous "Parfum"/"Le Parfum"; armani.com's own matching
+ *     "Eau de Parfum" suffix turned out, on fetching the domain directly, to
+ *     sit on every My Way flanker regardless of tier and so isn't a genuine
+ *     per-bottle claim either way.
+ *   - ean-6290171072775 Afnan Supremacy Not Only Intense 150ml: checked and
+ *     left Disputed — the sibling case to ean-6290171070214 (100ml, already
+ *     logged above), same shop, same product line, same shape of conflict.
+ *     us.afnan.com's own domain, fetched directly, states "EXTRAIT DE
+ *     PARFUM" for this exact 150ml product in so many words — but
+ *     Superdrug, a major UK retailer already in this project's own registry
+ *     and not a resale mirror, independently titles the identical EAN
+ *     "Afnan Supremacy Not Only Intense Eau de Parfum 150ml Spray" (its own
+ *     search-result title, not a summary). Manufacturer confirmation
+ *     doesn't erase an independent retailer's contradicting claim — the same
+ *     ruling this file already applied to Yardley Gentleman Classic,
+ *     Rabanne Olympéa Absolu Intense and Versace Crystal Noir above.
  */
 
 /**
