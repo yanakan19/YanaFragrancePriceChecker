@@ -277,4 +277,177 @@ describe('scripts/backup-worktree.sh', () => {
     expect(output).toContain('WARNING');
     expect(readFileSync(join(linked, 'file.txt'), 'utf8')).toBe('line-1\nunbacked-up change\n');
   });
+
+  // ── Pruning ─────────────────────────────────────────────────────────────
+  // refs/worktree-backup/<branch>/... never gets fast-forwarded or replaced,
+  // so with nothing removing old ones they accumulate on origin forever.
+  // Every case below is a clause of the pruning contract in the script's own
+  // header: a ref is removed only once it is BOTH old enough AND its work is
+  // independently, already safe on a real origin branch — age or safety
+  // alone must never be enough, and a ref this script cannot positively
+  // prove safe must be left alone.
+  describe('pruning stale backup refs', () => {
+    /** Push a ref directly (bypassing the script) with a fabricated age, the
+     * same shape backup-worktree.sh itself writes. */
+    function pushFabricated(
+      source: string,
+      remote: string,
+      branch: string,
+      kind: 'commits' | 'wip',
+      sha: string,
+      ageSeconds: number,
+    ): string {
+      const epoch = Math.floor(Date.now() / 1000) - ageSeconds;
+      const ref = `refs/worktree-backup/${branch}/${kind}/${epoch}-${sha.slice(0, 12)}`;
+      git(source, ['push', '-q', remote, `${sha}:${ref}`]);
+      return ref;
+    }
+
+    const THIRTY_DAYS = 30 * 24 * 60 * 60;
+
+    it('prunes a stale commit-backup ref once that exact commit is already on an origin branch', () => {
+      const { root, remote, linked } = setup();
+      cleanupDirs.push(root);
+      writeFileSync(join(linked, 'file.txt'), 'line-1\nshared commit\n');
+      git(linked, ['add', '-A']);
+      git(linked, ['commit', '-q', '-m', 'shared commit']);
+      const sha = git(linked, ['rev-parse', 'HEAD']);
+      const staleRef = pushFabricated(linked, remote, 'side', 'commits', sha, THIRTY_DAYS);
+      // The exact same commit lands on a real branch too — this is what
+      // makes the fabricated backup ref redundant.
+      git(linked, ['push', '-q', remote, 'HEAD:master']);
+
+      const { status, output } = runScript(linked);
+
+      expect(status).toBe(0);
+      expect(output).toContain('Pruned stale backup');
+      expect(output).toContain(staleRef);
+      expect(backupRefs(remote).some((r) => r.ref === staleRef)).toBe(false);
+
+      // Untouched worktree, exactly as every other case in this file.
+      expect(git(linked, ['rev-parse', 'HEAD'])).toBe(sha);
+      expect(git(linked, ['status', '--porcelain'])).toBe('');
+    });
+
+    it('prunes a stale wip-backup ref once its exact tree content is already on an origin branch', () => {
+      const { root, remote, worker, linked } = setup();
+      cleanupDirs.push(root);
+      const headSha = git(linked, ['rev-parse', 'HEAD']);
+
+      // A real commit elsewhere supplies the tree this wip snapshot claims —
+      // built without ever touching `linked`'s own working tree or index.
+      writeFileSync(join(worker, 'file.txt'), 'line-1\nwip content, later committed for real\n');
+      git(worker, ['add', '-A']);
+      git(worker, ['commit', '-q', '-m', 'the real commit this wip snapshot anticipated']);
+      const realTree = git(worker, ['rev-parse', 'HEAD^{tree}']);
+      git(worker, ['push', '-q', remote, 'HEAD:master']);
+
+      const wipSha = git(linked, [
+        'commit-tree', realTree, '-p', headSha, '-m', 'Worktree backup snapshot: side @ fabricated',
+      ]);
+      const staleRef = pushFabricated(linked, remote, 'side', 'wip', wipSha, THIRTY_DAYS);
+
+      const { status, output } = runScript(linked);
+
+      expect(status).toBe(0);
+      expect(output).toContain('Pruned stale backup');
+      expect(backupRefs(remote).some((r) => r.ref === staleRef)).toBe(false);
+      expect(git(linked, ['rev-parse', 'HEAD'])).toBe(headSha);
+    });
+
+    it('never prunes a stale commit-backup ref whose commit has not landed on any origin branch', () => {
+      const { root, remote, linked } = setup();
+      cleanupDirs.push(root);
+      writeFileSync(join(linked, 'file.txt'), 'line-1\nnever landed anywhere else\n');
+      git(linked, ['add', '-A']);
+      git(linked, ['commit', '-q', '-m', 'orphan commit']);
+      const sha = git(linked, ['rev-parse', 'HEAD']);
+      const staleRef = pushFabricated(linked, remote, 'side', 'commits', sha, THIRTY_DAYS);
+      // Deliberately not pushed to master or anywhere else.
+
+      const { status, output } = runScript(linked);
+
+      expect(status).toBe(0);
+      expect(output).not.toContain('Pruned stale backup');
+      expect(backupRefs(remote).some((r) => r.ref === staleRef)).toBe(true);
+    });
+
+    it('never prunes a stale wip-backup ref whose exact tree content has not landed on any origin branch', () => {
+      const { root, remote, linked } = setup();
+      cleanupDirs.push(root);
+      const headSha = git(linked, ['rev-parse', 'HEAD']);
+      // Give the snapshot content nothing else on origin shares, so no
+      // commit anywhere carries this exact tree. Built via a private temp
+      // index — same technique the script itself uses — so `linked`'s own
+      // real index and working tree are never touched by the test either.
+      writeFileSync(join(linked, 'never-shared.txt'), 'only this snapshot ever had this\n');
+      const tmpIndex = join(root, 'scratch-index');
+      execFileSync('git', ['read-tree', 'HEAD'], { cwd: linked, env: { ...process.env, GIT_INDEX_FILE: tmpIndex } });
+      execFileSync('git', ['add', '-A'], { cwd: linked, env: { ...process.env, GIT_INDEX_FILE: tmpIndex } });
+      const distinctTree = execFileSync('git', ['write-tree'], {
+        cwd: linked, encoding: 'utf8', env: { ...process.env, GIT_INDEX_FILE: tmpIndex },
+      }).trim();
+      rmSync(join(linked, 'never-shared.txt'));
+      const wipSha = git(linked, [
+        'commit-tree', distinctTree, '-p', headSha, '-m', 'Worktree backup snapshot: side @ fabricated, orphaned',
+      ]);
+      const staleRef = pushFabricated(linked, remote, 'side', 'wip', wipSha, THIRTY_DAYS);
+
+      const { status, output } = runScript(linked);
+
+      expect(status).toBe(0);
+      expect(output).not.toContain('Pruned stale backup');
+      expect(backupRefs(remote).some((r) => r.ref === staleRef)).toBe(true);
+    });
+
+    it('never prunes a backup ref inside the retention window, safe or not', () => {
+      const { root, remote, linked } = setup();
+      cleanupDirs.push(root);
+      writeFileSync(join(linked, 'file.txt'), 'line-1\nrecent and already safe\n');
+      git(linked, ['add', '-A']);
+      git(linked, ['commit', '-q', '-m', 'recent safe commit']);
+      const sha = git(linked, ['rev-parse', 'HEAD']);
+      // One minute old — safe, but nowhere near BACKUP_PRUNE_DAYS (14).
+      const recentRef = pushFabricated(linked, remote, 'side', 'commits', sha, 60);
+      git(linked, ['push', '-q', remote, 'HEAD:master']);
+
+      const { status, output } = runScript(linked);
+
+      expect(status).toBe(0);
+      expect(output).not.toContain('Pruned stale backup');
+      expect(backupRefs(remote).some((r) => r.ref === recentRef)).toBe(true);
+    });
+
+    it('honours BACKUP_PRUNE_DAYS when set lower than the default', () => {
+      const { root, remote, linked } = setup();
+      cleanupDirs.push(root);
+      writeFileSync(join(linked, 'file.txt'), 'line-1\nsafe within a day\n');
+      git(linked, ['add', '-A']);
+      git(linked, ['commit', '-q', '-m', 'safe within a day']);
+      const sha = git(linked, ['rev-parse', 'HEAD']);
+      // Two days old: kept under the 14-day default, prunable under a 1-day override.
+      const ref = pushFabricated(linked, remote, 'side', 'commits', sha, 2 * 24 * 60 * 60);
+      git(linked, ['push', '-q', remote, 'HEAD:master']);
+
+      const { output } = runScript(linked, { BACKUP_PRUNE_DAYS: '1' });
+
+      expect(output).toContain('Pruned stale backup');
+      expect(backupRefs(remote).some((r) => r.ref === ref)).toBe(false);
+    });
+
+    it('never touches this branch\'s backup refs for a different branch', () => {
+      const { root, remote, linked } = setup();
+      cleanupDirs.push(root);
+      const headSha = git(linked, ['rev-parse', 'HEAD']);
+      // A stale-and-safe ref, but filed under a different branch name than
+      // this worktree's own ('side') — pruning is scoped to this branch only.
+      const otherRef = pushFabricated(linked, remote, 'unrelated-branch', 'commits', headSha, THIRTY_DAYS);
+      git(linked, ['push', '-q', remote, `${headSha}:refs/heads/master`]);
+
+      const { status } = runScript(linked);
+
+      expect(status).toBe(0);
+      expect(backupRefs(remote).some((r) => r.ref === otherRef)).toBe(true);
+    });
+  });
 });
