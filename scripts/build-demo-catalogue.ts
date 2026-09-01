@@ -27,6 +27,8 @@ import { HOUSES } from '../src/config/houses.js';
 import { buildBrandCanon, armafLineName } from '../src/catalogue/brandName.js';
 import {
   findDuplicateGroups,
+  matchKey,
+  rawTitlesAgree,
   untrustworthyEans as computeUntrustworthyEans,
   trustworthyEan,
 } from '../src/catalogue/productMatch.js';
@@ -153,6 +155,28 @@ interface Offer {
    * a wrong one.
    */
   brandDirect: boolean;
+  /**
+   * productMatch.ts's matchKey computed from *this listing's own* brand,
+   * size, concentration and name — the project's existing definition of "two
+   * listings are the same bottle", asked of one shop's own two listings
+   * rather than of two shops'. Read only by the same-shop collapse further
+   * down, and dropped before anything is written, exactly like `sizeMl` and
+   * `description`.
+   *
+   * Computed from the listing and never from the product it lands on: a
+   * product's brand and name can be replaced wholesale by findDuplicateGroups
+   * absorbing it into another shop's canonical record, and the question this
+   * answers is what *this shop* said about *this listing*, which no later
+   * merge changes.
+   */
+  matchKey: string;
+  /**
+   * This shop's own unprocessed title for this listing. Read only by the
+   * same-shop collapse's second test — see there for why the processed name
+   * inside `matchKey` is not enough on its own — and dropped before anything
+   * is written, like `description`.
+   */
+  rawTitle: string;
 }
 
 interface Product {
@@ -574,6 +598,14 @@ for (const { retailer, listings } of eligible) {
     else concentrationsSeen.set(id, new Set([listingConcentration]));
 
     const existing = products.get(id);
+    // The displayed brand and name this listing would carry if it were the
+    // first of its product. Hoisted out of the `else` branch below because
+    // the offer's own matchKey needs them too, and both have to be the same
+    // strings the product record would have got — a matchKey built from
+    // anything else would be answering a different question from the one
+    // findDuplicateGroups asks of two shops.
+    const displayedBrand = canonBrand(effectiveRawBrand);
+    const displayedName = displayName(l.rawTitle, effectiveRawBrand, displayedBrand);
     const offer: Offer = {
       retailerId: l.retailerId,
       price: l.priceGbp!,
@@ -589,6 +621,24 @@ for (const { retailer, listings } of eligible) {
       rating: l.rating ?? null,
       sizeMl: size,
       brandDirect: false,
+      // `id` and `ean` only fill MatchableProduct's shape. matchKey never
+      // reads `ean`, and reads `id` solely as sizeKeyPart's stand-in for an
+      // unknown size, whose job is to keep two *different* products' unknown
+      // sizes from comparing equal. The collapse below only ever compares
+      // offers already sitting on one product, so that stand-in is constant
+      // across everything it compares and the size simply drops out — two
+      // same-shop listings whose titles state no readable size are then
+      // judged on brand, concentration and name alone, which is the most
+      // that can honestly be said about them.
+      matchKey: matchKey({
+        id,
+        brand: displayedBrand ?? 'Unbranded',
+        name: displayedName,
+        concentration: listingConcentration,
+        sizeMl: size,
+        ean: null,
+      }),
+      rawTitle: l.rawTitle,
     };
 
     if (existing) {
@@ -597,11 +647,10 @@ for (const { retailer, listings } of eligible) {
       // The displayed brand is handed to displayName as well as the raw
       // vendor field: it is the string that will sit beside the name on
       // screen, so it is the one whose duplication a reader actually sees.
-      const displayedBrand = canonBrand(effectiveRawBrand);
       products.set(id, {
         id,
         brand: displayedBrand ?? 'Unbranded',
-        name: displayName(l.rawTitle, effectiveRawBrand, displayedBrand),
+        name: displayedName,
         concentration: listingConcentration,
         sizeMl: size,
         // Not the raw `l.ean`: a code this shop's own feed has also put on a
@@ -719,6 +768,114 @@ for (const product of products.values()) {
     if (offer.fetchedAt > kept.fetchedAt) bestOf.set(key, offer);
   }
   if (bestOf.size !== product.offers.length) product.offers = [...bestOf.values()];
+}
+
+/* ── one shop, one row: the same bottle on two of its own pages ─────────────
+   Layout report, 2026-09-01: Tom Ford Black Orchid Eau de Parfum 150ml
+   (ean-888066124287) showed two "The Beauty Store UK" rows, £139.99 and
+   £152.59. The pass above cannot see them — its key is every field a reader
+   can see, and these differ in two of them (link and price), which is exactly
+   what it is for.
+
+   From the shop's own feed they are two whole Shopify products, not two
+   variants of one: SKU TBSUKDK2-15123 at /tom-ford-black-orchid-edp-spray-150ml
+   and SKU TBSUKDK2-40107 at /tom-ford-black-orchid-eau-de-parfum-150ml, titled
+   "Tom Ford Black Orchid Eau de Parfum Spray 150ml" and "Tom Ford Black Orchid
+   Eau de Parfum 150ml", neither with an EAN, both in stock. One bottle, listed
+   twice by the merchant. Not a mis-grouping to unpick: the two titles describe
+   the identical article and the project's own definition of sameness agrees.
+
+   So the test is that definition, unchanged and not a second one invented
+   here: productMatch.ts's matchKey — same house, same size, same
+   concentration, same set of words in the name — asked of one shop's own two
+   listings rather than of two shops'. Offer.matchKey carries each listing's
+   own, computed from what that shop said before any merge could rewrite it.
+
+   And a second test beside it, productMatch.ts's rawTitlesAgree, because
+   matchKey compares the *displayed* name and displayName can empty that name
+   out — Avon's Perceive, Incandessence and Little Black Dress all reduce to
+   brand "Avon Cosmetics" and a name with no fragrance in it. See that
+   function for the full case; collapsing on matchKey alone would hide two of
+   those three real perfumes behind the third.
+
+   Scoped to a *different URL* deliberately, and this is the line that keeps
+   the pass above intact rather than superseding it. Two rows sharing a URL
+   are variants of one page — Al Haramain's Musk Al Tahara sells 3ml to 35ml
+   at one link for £4.75 to £26.00, and every one of those titles parses as
+   3ml so all five land in one product with one matchKey between them. Those
+   are five things a reader can actually choose between, and the size parse
+   that put them in one product is a separate defect (still open). Two rows at
+   *different* URLs are two of the shop's own product pages, and whichever one
+   the reader opens they buy the same bottle.
+
+   The cheapest wins, not the freshest. Both pages are live and buyable, so
+   the honest answer to "what does this shop charge for this bottle" is the
+   lower of the two — showing the dearer page while the shop sells the same
+   thing for less on the next page along is the exact failure a price
+   comparison exists to prevent. Ties break on the freshest, for the same
+   reason the pass above does: the older copy can carry a stale observation
+   and a "New" tag that is no longer true.
+
+   Measured over the built catalogue, in this file's own build log as
+   `same-bottle rows collapsed`. */
+let sameBottleRows = 0;
+const sameBottleRowsByShop = new Map<string, number>();
+for (const product of products.values()) {
+  const sameBottle = new Map<string, Offer[]>();
+  for (const offer of product.offers) {
+    const key = `${offer.retailerId}|${offer.matchKey}`;
+    const group = sameBottle.get(key);
+    if (group) group.push(offer);
+    else sameBottle.set(key, [offer]);
+  }
+
+  const dropped = new Set<Offer>();
+  for (const group of sameBottle.values()) {
+    const byUrl = new Map<string, Offer[]>();
+    for (const offer of group) {
+      const rows = byUrl.get(offer.url);
+      if (rows) rows.push(offer);
+      else byUrl.set(offer.url, [offer]);
+    }
+    // One page, however many variant rows it has: nothing to choose between.
+    if (byUrl.size < 2) continue;
+
+    let winningUrl = '';
+    let best: Offer | null = null;
+    for (const [url, rows] of byUrl) {
+      for (const offer of rows) {
+        if (
+          best === null ||
+          offer.price < best.price ||
+          (offer.price === best.price && offer.fetchedAt > best.fetchedAt)
+        ) {
+          best = offer;
+          winningUrl = url;
+        }
+      }
+    }
+
+    // The whole of the winning page survives, variants included — the choice
+    // being made here is between the shop's *pages*, never between the
+    // options on one of them. A page whose own title disagrees with the
+    // winner's survives too: see rawTitlesAgree in productMatch.ts for the
+    // Avon case that test exists for, and why matchKey equality alone is not
+    // enough to drop a row.
+    for (const [url, rows] of byUrl) {
+      if (url === winningUrl) continue;
+      if (!rows.every((o) => rawTitlesAgree(best!.rawTitle, o.rawTitle))) continue;
+      for (const offer of rows) {
+        dropped.add(offer);
+        sameBottleRows++;
+        sameBottleRowsByShop.set(
+          offer.retailerId,
+          (sameBottleRowsByShop.get(offer.retailerId) ?? 0) + 1,
+        );
+      }
+    }
+  }
+
+  if (dropped.size > 0) product.offers = product.offers.filter((o) => !dropped.has(o));
 }
 
 /* ── a shop whose whole price list is on the wrong scale ────────────────────
@@ -1169,10 +1326,24 @@ const ordered = [...products.values()].sort(
 // is dropped for the same reason and one more: it is a fact about the registry
 // (`singleBrandOnly`) that the app can already recompute from RETAILERS at any
 // time, so shipping it would be shipping a derived boolean per offer.
-const crawled: Record<string, Omit<Offer, 'description' | 'sizeMl' | 'brandDirect'>[]> = {};
+// `matchKey` and `rawTitle` join them: both exist only for the same-shop
+// collapse above, which has already run by here, and both are strings on the
+// order of the product title itself — the whole catalogue's worth of them,
+// twice over, for something no reader of the shipped file consults.
+const crawled: Record<
+  string,
+  Omit<Offer, 'description' | 'sizeMl' | 'brandDirect' | 'matchKey' | 'rawTitle'>[]
+> = {};
 for (const p of ordered) {
   crawled[p.id] = p.offers.map(
-    ({ description: _drop, sizeMl: _size, brandDirect: _house, ...rest }) => rest,
+    ({
+      description: _drop,
+      sizeMl: _size,
+      brandDirect: _house,
+      matchKey: _key,
+      rawTitle: _title,
+      ...rest
+    }) => rest,
   );
 }
 
@@ -1372,6 +1543,11 @@ console.log(
     `  ${duplicateRows} indistinguishable offer rows collapsed` +
     (duplicateRowsByShop.size
       ? ` (${[...duplicateRowsByShop].sort((a, b) => b[1] - a[1]).map(([id, n]) => `${id} ${n}`).join(', ')})`
+      : '') +
+    '\n' +
+    `  ${sameBottleRows} same-bottle rows collapsed (one shop, the same bottle on two of its own pages)` +
+    (sameBottleRowsByShop.size
+      ? ` (${[...sameBottleRowsByShop].sort((a, b) => b[1] - a[1]).map(([id, n]) => `${id} ${n}`).join(', ')})`
       : '') +
     '\n' +
     `  ${houseProducts.length} house products, catalogue-only (no sterling price yet)\n` +
