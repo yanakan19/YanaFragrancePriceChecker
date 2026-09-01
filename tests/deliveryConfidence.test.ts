@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { presentOffer } from '../src/services/priceService.js';
+import { presentOffer, STALE_OFFER_DAYS } from '../src/services/priceService.js';
 import {
   cheapestVerdict,
   deliveredPriceRange,
@@ -37,7 +37,12 @@ function shop(id: string, shipping: Partial<ShippingRule>): Retailer {
   };
 }
 
-function row(retailer: Retailer, price: number, stock: RawOffer['stock'] = 'inStock'): PresentedOffer {
+function row(
+  retailer: Retailer,
+  price: number,
+  stock: RawOffer['stock'] = 'inStock',
+  fetchedAt = '2026-08-13T11:55:00Z',
+): PresentedOffer {
   const raw: RawOffer = {
     retailerId: retailer.id,
     variantId: 'v1',
@@ -45,9 +50,14 @@ function row(retailer: Retailer, price: number, stock: RawOffer['stock'] = 'inSt
     currency: 'GBP',
     stock,
     url: 'https://example.com/p/1',
-    fetchedAt: '2026-08-13T11:55:00Z',
+    fetchedAt,
   };
   return presentOffer(raw, retailer, NOW);
+}
+
+/** `fetchedAt` `days` before NOW, as an ISO string — for staleness tests. */
+function daysAgo(days: number): string {
+  return new Date(NOW.getTime() - days * 24 * 60 * 60 * 1000).toISOString();
 }
 
 describe('deliveredPriceRange', () => {
@@ -176,5 +186,53 @@ describe('cheapestVerdict', () => {
     const alwaysFree = shop('free-shop', { standardGbp: 0, confidence: 'unverified' });
     const r = deliveredPriceRange(row(alwaysFree, 20))!;
     expect(r).toEqual({ lowGbp: 20, highGbp: 20, uncertain: false });
+  });
+});
+
+describe('cheapestVerdict and staleness', () => {
+  const confirmed = shop('confirmed-shop', { standardGbp: 3.99 });
+  const other = shop('confirmed-two', { standardGbp: 3.99 });
+
+  it('picks the fresh, costlier row over a cheaper stale one, and still calls it Cheapest', () => {
+    const stale = row(other, 10, 'inStock', daysAgo(STALE_OFFER_DAYS + 1));
+    const fresh = row(confirmed, 15, 'inStock', daysAgo(1));
+    const v = cheapestVerdict([stale, fresh]);
+    expect(v.offer!.retailer.id).toBe('confirmed-shop');
+    expect(v.decided).toBe(true);
+    expect(v.reason).toBe('sole-offer');
+  });
+
+  it('withholds "Cheapest" when every buyable row is stale, but still names one', () => {
+    const bothStale = [
+      row(confirmed, 20, 'inStock', daysAgo(STALE_OFFER_DAYS + 3)),
+      row(other, 25, 'inStock', daysAgo(STALE_OFFER_DAYS + 1)),
+    ];
+    const v = cheapestVerdict(bothStale);
+    expect(v.offer!.retailer.id).toBe('confirmed-shop');
+    expect(v.offer!.stale).toBe(true);
+    expect(v.decided).toBe(false);
+    expect(v.reason).toBe('stale-only');
+  });
+
+  it('does not call a stale row stale-only when a fresh one is available instead', () => {
+    const v = cheapestVerdict([
+      row(confirmed, 999, 'inStock', daysAgo(STALE_OFFER_DAYS + 5)),
+      row(other, 20, 'inStock', daysAgo(2)),
+    ]);
+    expect(v.reason).not.toBe('stale-only');
+    expect(v.offer!.stale).toBe(false);
+  });
+
+  it('does not flag a shop visited a handful of days ago as stale-only', () => {
+    // The rotation case that must never be caught — see STALE_OFFER_DAYS.
+    const v = cheapestVerdict([row(confirmed, 20, 'inStock', daysAgo(6))]);
+    expect(v.reason).toBe('sole-offer');
+    expect(v.decided).toBe(true);
+  });
+
+  it('exactly at the boundary is still fresh, not stale-only', () => {
+    const v = cheapestVerdict([row(confirmed, 20, 'inStock', daysAgo(STALE_OFFER_DAYS))]);
+    expect(v.offer!.stale).toBe(false);
+    expect(v.reason).toBe('sole-offer');
   });
 });

@@ -1,6 +1,6 @@
 import type { PresentedOffer } from '../types/offer.js';
 import { roundPence } from './money.js';
-import { purchasableOffers } from './priceService.js';
+import { preferFreshOffers } from './priceService.js';
 
 /**
  * Whether the site is entitled to call a listing "Cheapest".
@@ -86,7 +86,13 @@ export type CheapestReason =
   /** The winner holds regardless of how the unverified figures resolve. */
   | 'clear'
   /** An unverified delivery figure is what puts this row first. */
-  | 'within-unverified-delivery';
+  | 'within-unverified-delivery'
+  /**
+   * Every buyable row is stale (see `STALE_OFFER_DAYS`) — `preferFreshOffers`
+   * had nothing fresher to fall back to. The winner is still the cheapest
+   * figure on record, just not evidence of today's price.
+   */
+  | 'stale-only';
 
 export interface CheapestVerdict {
   /** The row `bestOffer` picked. Unchanged by any of this. */
@@ -121,10 +127,20 @@ export interface CheapestVerdict {
  * Only the top two rows are compared. If the winner survives the runner up it
  * survives everything below, because the sort has already put them in order and
  * every lower row's low end is at least the runner up's item price.
+ *
+ * Draws its candidate pool from `preferFreshOffers`, not `purchasableOffers`
+ * directly, so the same offer `bestOffer` picks is the one this verdict is
+ * ever about — a stale-priced row is passed over for a fresher one exactly
+ * where `bestOffer` passes it over, and only falls through when nothing
+ * fresher exists. See `STALE_OFFER_DAYS` in priceService.ts.
  */
 export function cheapestVerdict(rows: readonly PresentedOffer[]): CheapestVerdict {
-  const buyable = purchasableOffers(rows);
+  const buyable = preferFreshOffers(rows);
   const comparable = buyable.filter((r) => r.deliveredPriceGbp !== null);
+  // preferFreshOffers only ever returns an all-stale pool as its fallback —
+  // when it found even one fresh buyable row, every stale one was filtered
+  // out already. So "every row here is stale" is exactly the fallback firing.
+  const staleOnly = buyable.length > 0 && buyable.every((r) => r.stale);
 
   const empty = { runnerUp: null, marginGbp: null, overlapGbp: 0 } as const;
 
@@ -134,11 +150,22 @@ export function cheapestVerdict(rows: readonly PresentedOffer[]): CheapestVerdic
   if (comparable.length === 0) {
     // Every buyable row has an unstated delivery cost. `bestOffer` still names
     // one so the reader learns who has it, and the UI already labels that as an
-    // item price rather than a delivered one.
-    return { offer: buyable[0]!, ...empty, decided: false, reason: 'delivery-unstated' };
+    // item price rather than a delivered one. Staleness is the rarer of the two
+    // facts to be missing, so it only names itself here when delivery is fine.
+    return {
+      offer: buyable[0]!,
+      ...empty,
+      decided: false,
+      reason: staleOnly ? 'stale-only' : 'delivery-unstated',
+    };
   }
 
   const best = comparable[0]!;
+  if (staleOnly) {
+    // Still the cheapest figure this site holds for it, but "cheapest" is a
+    // claim about today, and nothing here has reconfirmed today's price.
+    return { offer: best, ...empty, decided: false, reason: 'stale-only' };
+  }
   if (comparable.length === 1) {
     return { offer: best, ...empty, decided: true, reason: 'sole-offer' };
   }

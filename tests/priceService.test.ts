@@ -5,11 +5,20 @@ import {
   outOfStockOffers,
   purchasableOffers,
   presentOffer,
+  preferFreshOffers,
+  isStaleFetch,
+  STALE_OFFER_DAYS,
 } from '../src/services/priceService.js';
 import { getRetailer } from '../src/config/retailers.js';
 import type { RawOffer, StockState } from '../src/types/offer.js';
 
 const NOW = new Date('2026-08-01T12:00:00Z');
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+/** `fetchedAt` exactly `days` before NOW, as an ISO string. */
+function daysAgo(days: number): string {
+  return new Date(NOW.getTime() - days * DAY_MS).toISOString();
+}
 
 function offer(
   retailerId: string,
@@ -271,5 +280,83 @@ describe('result grouping', () => {
   it('returns null when nothing is buyable', () => {
     const none = buildComparison([offer('boots', 20, 'outOfStock')], { now: NOW });
     expect(bestOffer(none)).toBeNull();
+  });
+});
+
+describe('isStaleFetch', () => {
+  it('is not stale exactly at the boundary — only strictly past it counts', () => {
+    expect(isStaleFetch(daysAgo(STALE_OFFER_DAYS), NOW)).toBe(false);
+  });
+
+  it('is stale one second past the boundary', () => {
+    const justOver = new Date(NOW.getTime() - STALE_OFFER_DAYS * DAY_MS - 1000).toISOString();
+    expect(isStaleFetch(justOver, NOW)).toBe(true);
+  });
+
+  it('is not stale one second inside the boundary', () => {
+    const justUnder = new Date(NOW.getTime() - STALE_OFFER_DAYS * DAY_MS + 1000).toISOString();
+    expect(isStaleFetch(justUnder, NOW)).toBe(false);
+  });
+
+  it('is never stale for the ordinary case: a healthy shop simply visited a few days ago', () => {
+    // The rotating least-recently-checked queue means a healthy shop can
+    // legitimately go several days between visits — that must never read as
+    // "broken". See STALE_OFFER_DAYS's own comment for the measured spread
+    // this threshold is chosen against.
+    expect(isStaleFetch(daysAgo(3), NOW)).toBe(false);
+    expect(isStaleFetch(daysAgo(7), NOW)).toBe(false);
+  });
+
+  it('does not treat an unparseable timestamp as stale', () => {
+    expect(isStaleFetch('not-a-date', NOW)).toBe(false);
+  });
+});
+
+describe('preferFreshOffers and the stale-priced fallback', () => {
+  it('never lets a stale-priced row outrank a fresh, costlier one', () => {
+    const rows = buildComparison(
+      [
+        offer('boots', 50, 'inStock', { fetchedAt: daysAgo(1) }),
+        offer('john-lewis', 30, 'inStock', { fetchedAt: daysAgo(STALE_OFFER_DAYS + 1) }),
+      ],
+      { now: NOW },
+    );
+    // john-lewis is cheaper on price alone, but its price was captured over
+    // STALE_OFFER_DAYS ago — see src/services/priceService.ts's own header
+    // on the John Lewis case this exists for. It is still listed; it just
+    // does not get to be the headline.
+    expect(bestOffer(rows)!.retailer.id).toBe('boots');
+  });
+
+  it('falls back to a stale offer only when nothing fresher exists', () => {
+    const rows = buildComparison(
+      [offer('john-lewis', 30, 'inStock', { fetchedAt: daysAgo(STALE_OFFER_DAYS + 1) })],
+      { now: NOW },
+    );
+    const best = bestOffer(rows)!;
+    expect(best.retailer.id).toBe('john-lewis');
+    expect(best.stale).toBe(true);
+  });
+
+  it('leaves a fresh, healthy-shop-visited-a-few-days-ago row alone', () => {
+    // The exact case the threshold must not fire on: one shop, visited a
+    // handful of days ago, still healthy.
+    const rows = buildComparison([offer('boots', 40, 'inStock', { fetchedAt: daysAgo(5) })], {
+      now: NOW,
+    });
+    expect(preferFreshOffers(rows)).toHaveLength(1);
+    expect(bestOffer(rows)!.stale).toBe(false);
+  });
+
+  it('never removes a stale offer from the row set itself — nothing is hidden', () => {
+    const rows = buildComparison(
+      [
+        offer('boots', 50, 'inStock', { fetchedAt: daysAgo(1) }),
+        offer('john-lewis', 30, 'inStock', { fetchedAt: daysAgo(STALE_OFFER_DAYS + 1) }),
+      ],
+      { now: NOW },
+    );
+    expect(rows).toHaveLength(2);
+    expect(rows.some((r) => r.retailer.id === 'john-lewis' && r.stale)).toBe(true);
   });
 });
