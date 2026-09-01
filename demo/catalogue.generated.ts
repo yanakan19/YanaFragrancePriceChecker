@@ -92,7 +92,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360375687",
     "shops": 8,
-    "image": "https://manchesterouds.com/cdn/shop/files/azzure-aoud-edp-100ml-french-avenue-2367933.webp?v=1786194485&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738074984-82163400.jpg?v=1763397021&width=1920",
     "notes": {
       "top": [
         "Saffron",
@@ -123,7 +123,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360378602",
     "shops": 8,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Cocoa-Morado-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-170031285.jpg?v=1751223102",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738061215-92497000.jpg?v=1763397024&width=1920",
     "notes": {
       "top": [
         "Saffron",
@@ -170,7 +170,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360378053",
     "shops": 8,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Vulcan-Feu-Perfume-100ml-EDP-By-French-Avenue-169422417.jpg?v=1749774998",
+    "image": "https://www.beautybase.com/cdn/shop/files/1743585217-75672100.jpg?v=1763397551&width=1920",
     "notes": {
       "top": [
         "Mango",
@@ -203,7 +203,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": "6085010044712",
     "shops": 7,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Club-De-Nuit-Intense-Man-Perfume-100ml-EDP-Armaf-134694784.jpg?v=1719182132",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_d4414ad7-b431-44e9-b7dc-16bca3c02fcd.jpg?v=1774521707&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -238,7 +238,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360375694",
     "shops": 7,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Liquid-Brun-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-170030882.jpg?v=1751222936",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737455812-49592700.jpg?v=1763395487&width=1920",
     "notes": {
       "top": [
         "Cinnamon",
@@ -271,7 +271,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298042001800",
     "shops": 7,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Safari-Breeze-Extrait-De-Parfum-100ml-French-Avenue-180954317.png?v=1763867912",
+    "image": "https://www.beautybase.com/cdn/shop/files/1771253888-26549500.jpg?v=1772624925&width=1920",
     "notes": {
       "top": [
         "Blackcurrant",
@@ -302,7 +302,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360378060",
     "shops": 7,
-    "image": "https://manchesterouds.com/cdn/shop/files/vulcan-sable-edp-100ml-french-avenue-5329338.webp?v=1786194471&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1743583972-12382900.jpg?v=1763397552&width=1920",
     "notes": {
       "top": [
         "Whiskey",
@@ -340,7 +340,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360599168",
     "shops": 7,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Yara-Candy-Perfume-100ml-EDP-Lattafa-149858487.jpg?v=1727371917",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727195155-08348900.jpg?v=1763395753&width=1920",
     "notes": {
       "top": [
         "Black Currant",
@@ -370,7 +370,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171075639",
     "shops": 7,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tiramisu-Coco-Perfume-100ml-EDP-Zimaya-By-Afnan-169376984.jpg?v=1749428306",
+    "image": "https://www.beautybase.com/cdn/shop/files/1730815582-75789300.jpg?v=1763396404&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -394,7 +394,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171072836",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/9am-dive-perfume-100ml-edp-afnan-emirates-oud-2-103830030.jpg?v=1713056267",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731671607-88829400.jpg?v=1763393769&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -427,7 +427,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171075288",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/9pm-Rebel-Perfume-by-Afnan-Latest-Winter-Scent-164620839.jpg?v=1741399933",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731677623-97199000.jpg?v=1763396486&width=1920",
     "notes": {
       "top": [
         "Granny Smith Apple",
@@ -459,7 +459,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "6290171076001",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Turathi-Electric-Perfume-90ml-EDP-Afnan-169994071.jpg?v=1750966701",
+    "image": "https://www.beautybase.com/cdn/shop/files/1749025856-10181800.jpg?v=1763398053&width=1920",
     "notes": {
       "top": [
         "Pear",
@@ -519,7 +519,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": "6295199801116",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Club-de-Nuit-Maleka-Perfume-105ml-EDP-Armaf-175455077.jpg?v=1755777915",
+    "image": "https://www.beautybase.com/cdn/shop/files/1749830137-87010300.jpg?v=1763398128&width=1920",
     "notes": {
       "top": [
         "Lychee",
@@ -608,7 +608,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199807217",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Odyssey-Marshmallow-Perfume-100ml-EDP-Armaf-177278070.webp?v=1758673887",
+    "image": "https://www.beautybase.com/cdn/shop/files/1771422380-51746200.jpg?v=1772624819&width=1920",
     "notes": {
       "top": [
         "Pink Apple",
@@ -647,7 +647,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273903172",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/168404_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1732096560-00412300.jpg?v=1763393973&width=1920",
     "notes": {
       "top": [
         "Juniper Berries"
@@ -670,7 +670,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3351500009848",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/107862_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/852_0cd8cc13-35d4-4707-81cc-c037560f8a69.jpg?v=1774520726&width=1920",
     "notes": {
       "top": [
         "Cinnamon",
@@ -705,7 +705,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346065405",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/83793_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1473437351-55810800.jpg?v=1763388805&width=1920",
     "notes": {
       "top": [
         "red lychee",
@@ -737,7 +737,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346094665",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/88383_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1643029056-37145400.jpg?v=1763390698&width=1920",
     "notes": {
       "top": [
         "plum",
@@ -768,7 +768,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342306134",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/76519_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761825299-55467000.jpg?v=1763398921&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -798,7 +798,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061056752",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/168516_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728462581-52271800.jpg?v=1763393271&width=1920",
     "notes": {
       "top": [
         "Mandarin Oil"
@@ -821,7 +821,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "020714156893",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/71316_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1640001068-06395400.jpg?v=1763390803&width=1920",
     "notes": {
       "top": [
         "Orange",
@@ -850,7 +850,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "027131006534",
     "shops": 6,
-    "image": "https://allbeauty.com/cdn/shop/files/3965.jpg?v=1755875306&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1640098868-72742800.jpg?v=1763390910&width=1920",
     "notes": {
       "top": [
         "Mimosa",
@@ -895,7 +895,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 67,
     "ean": "027131017752",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/Estee-Lauder-Youth-Dew-Eau-de-Parfum.jpg?v=1763137778",
+    "image": "https://www.beautybase.com/cdn/shop/files/1640184556-16176000.jpg?v=1763390921&width=1920",
     "notes": {
       "top": [
         "rose",
@@ -927,7 +927,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360377902",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Veneno-Perfume-100ml-EDP-French-Avenue-169423263.jpg?v=1749774958",
+    "image": "https://www.beautybase.com/cdn/shop/files/1743589720-64672000.jpg?v=1763397548&width=1920",
     "notes": {
       "top": [
         "Apple",
@@ -957,7 +957,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614272907690",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/137605_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1598971439-08774800.jpg?v=1763389873&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -986,7 +986,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3274872424982",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/168364_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1652794564-95331600.jpg?v=1763392396&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -1016,7 +1016,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8005610481005",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/100105_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731414968-23326200.jpg?v=1763396408&width=1920",
     "notes": {
       "top": [
         "Jasmine"
@@ -1041,7 +1041,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616303470869",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/169719_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731414086-66639300.jpg?v=1763395191&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -1067,7 +1067,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3423470311365",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/84067_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1655893555-75287700.jpg?v=1763391063&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -1101,7 +1101,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460048125",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/93669_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641922281-58518400.jpg?v=1763391161&width=1920",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -1131,7 +1131,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460048118",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/59113_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641922372-23883600.jpg?v=1763391165&width=1920",
     "notes": {
       "top": [
         "strawberry",
@@ -1161,7 +1161,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460129879",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/157712_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1664880165-94679300.jpg?v=1763392762&width=1920",
     "notes": {
       "top": [
         "Rose",
@@ -1183,7 +1183,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6290362349938",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ana-Abiyedh-Scarlet-Perfume-60ml-EDP-Lattafa-175278033.jpg?v=1755525375",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755852528-22656700.jpg?v=1763398825&width=1920",
     "notes": {
       "top": [
         "Black cherry",
@@ -1214,7 +1214,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291108735411",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Asad-Perfume-100ml-EDP-Lattafa-177441450.png?v=1759029996",
+    "image": "https://www.beautybase.com/cdn/shop/files/1730741127-32336500.jpg?v=1763396457&width=1920",
     "notes": {
       "top": [
         "Black Pepper",
@@ -1247,7 +1247,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362340362",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Asad-Bourbon-Perfume-100ml-EDP-Lattafa-154947669.jpg?v=1735550527",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739440085-49795200.jpg?v=1763397170&width=1920",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -1278,7 +1278,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360599441",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-Al-Oud-Noble-Blush-Perfume-100ml-EDP-Lattafa-153213738.jpg?v=1731935597",
+    "image": "https://www.beautybase.com/cdn/shop/files/1732296591-66388400.jpg?v=1763396723&width=1920",
     "notes": {
       "top": [
         "Rose Milk"
@@ -1306,7 +1306,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360593142",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-al-Oud-Sublime-Perfume-100ml-EDP-Lattafa-153339227.jpg?v=1732557245",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728475488-86188700.jpg?v=1763394379&width=1920",
     "notes": {
       "top": [
         "Apple",
@@ -1336,7 +1336,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360599120",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Her-Confession-Perfume-100ml-EDP-Lattafa-153135637.jpg?v=1731343825",
+    "image": "https://www.beautybase.com/cdn/shop/files/1746090232-40386000.jpg?v=1763397822&width=1920",
     "notes": {
       "top": [
         "Fruity",
@@ -1367,7 +1367,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360598871",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nasmaat-Perfume-100ml-EDP-Lattafa-178953216.jpg?v=1760198028",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761816961-50503400.jpg?v=1763399360&width=1920",
     "notes": {
       "top": [
         "Pink pepper",
@@ -1399,7 +1399,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360594552",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Yara-Tous-Perfume-100ml-EDP-Lattafa-177441182.jpg?v=1759029441",
+    "image": "https://www.beautybase.com/cdn/shop/files/1713871434-01555000.jpg?v=1763395049&width=1920",
     "notes": {
       "top": [
         "Mango",
@@ -1430,7 +1430,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614225452079",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/104813_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731432613-08759200.jpg?v=1763391485&width=1920",
     "notes": {
       "top": [
         "Crystalized Cloudberries"
@@ -1456,7 +1456,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460135832",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/165388_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1693497147-46128900.jpg?v=1763393564&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -1478,7 +1478,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460135825",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/164124_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1693497448-03462500.jpg?v=1763393566&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -1500,7 +1500,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435137759811",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/111822_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1643388324-09757300.jpg?v=1763391606&width=1920",
     "notes": null
   },
   {
@@ -1511,7 +1511,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668594412",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/151275_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738163149-74132100.jpg?v=1763392739&width=1920",
     "notes": {
       "top": [
         "Radiant jasmine",
@@ -1537,7 +1537,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668508587",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/186479_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728393678-07812700.jpg?v=1763392285&width=1920",
     "notes": {
       "top": [
         "Neroli",
@@ -1629,7 +1629,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171075646",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Modhesh-Aura-Perfume-100ml-EDP-Zimaya-By-Afnan-178738599.png?v=1772775615",
+    "image": "https://www.beautybase.com/cdn/shop/files/1743756261-91422500.jpg?v=1763397538&width=1920",
     "notes": {
       "top": [
         "Woods",
@@ -1658,7 +1658,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171074205",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/177393_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/blend.jpg?v=1784197323&width=1920",
     "notes": {
       "top": [
         "Woods",
@@ -1688,7 +1688,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171075622",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tiramisu-Caramel-Perfume-100ml-EDP-Zimaya-By-Afnan-169362894.jpg?v=1749338959",
+    "image": "https://www.beautybase.com/cdn/shop/files/1730816328-14517900.jpg?v=1763396405&width=1920",
     "notes": {
       "top": [
         "Caramel"
@@ -1741,7 +1741,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "085715710307",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/97259_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1484323543-44201600.jpg?v=1763395957&width=1920",
     "notes": null
   },
   {
@@ -1752,7 +1752,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6291100131709",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amber-Oud-Perfume-60ml-EDP-Al-Haramain-136550130.jpg?v=1719701684",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_925f933d-77a5-4605-ab12-1c92ed17d090.jpg?v=1774449613&width=1920",
     "notes": {
       "top": [
         "Rosemary",
@@ -1815,7 +1815,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0812256020301",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/79417_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/100ari.jpg?v=1773763461&width=1920",
     "notes": {
       "top": [
         "Pink Grapefruit",
@@ -1840,7 +1840,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "810101502798",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/180313_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/clpink1.jpg?v=1773758400&width=1920",
     "notes": {
       "top": [
         "Berries",
@@ -1868,7 +1868,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": "6294015164152",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/165082_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1677087599-55849500.jpg?v=1763393204&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -2010,7 +2010,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273521345",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/171677_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1732029940-98589500.jpg?v=1763393966&width=1920",
     "notes": {
       "top": [
         "Cardamom"
@@ -2035,7 +2035,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273521307",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/174800_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1732031280-14442600.jpg?v=1763393968&width=1920",
     "notes": {
       "top": [
         "Cardamom"
@@ -2060,7 +2060,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274258080",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/187954_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755683304-45783200.jpg?v=1763398465&width=1920",
     "notes": {
       "top": [
         "Raspberry",
@@ -2091,7 +2091,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "608940585818",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/186238_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744362797-03695100.jpg?v=1763397524&width=1920",
     "notes": {
       "top": [
         "Cardamom",
@@ -2122,7 +2122,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346228992",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/151209_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1666011627-50972400.jpg?v=1763392809&width=1920",
     "notes": {
       "top": [
         "Applejack",
@@ -2153,7 +2153,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614227693876",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31bltu9bEJL.jpg?v=1763135628",
+    "image": "https://www.beautybase.com/cdn/shop/files/1733840716-42991400.jpg?v=1763396797&width=1920",
     "notes": {
       "top": [
         "Raspberry",
@@ -2183,7 +2183,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614226905994",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/79242_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750263093-08404300.jpg?v=1763398029&width=1920",
     "notes": {
       "top": [
         "Sweet Pea",
@@ -2208,7 +2208,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360374533205",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/90365_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1473437628-60504900.jpg?v=1763388823&width=1920",
     "notes": {
       "top": [
         "Orange Blossom",
@@ -2240,7 +2240,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360373016358",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/97131_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_b011d750-1dbe-4902-a2c2-20deebc828ca.jpg?v=1774536270&width=1920",
     "notes": null
   },
   {
@@ -2282,7 +2282,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300608409",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/85815_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738840819-27037500.jpg?v=1763397053&width=1920",
     "notes": null
   },
   {
@@ -2293,7 +2293,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "088300606511",
     "shops": 5,
-    "image": "https://allbeauty.com/cdn/shop/files/3326.jpg?v=1755875385&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1524582636-06482300.png?v=1763388871&width=1920",
     "notes": {
       "top": [
         "Cinnamon",
@@ -2324,7 +2324,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061099735",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/122260_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728375213-81347000.jpg?v=1763389675&width=1920",
     "notes": null
   },
   {
@@ -2335,7 +2335,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061099728",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/177478_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728376024-19211000.jpg?v=1763389676&width=1920",
     "notes": {
       "top": [
         "Clary Sage"
@@ -2356,7 +2356,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8411061056776",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/163404_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728316817-57748200.jpg?v=1763393270&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -2384,7 +2384,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8411061083673",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/183077_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728462385-22944200.jpg?v=1763394550&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -2412,7 +2412,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061083666",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/177841_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728390232-55643800.jpg?v=1763394552&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -2440,7 +2440,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8411061041659",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/137689_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728304620-08811600.jpg?v=1763390127&width=1920",
     "notes": {
       "top": [
         "Redcurrant",
@@ -2467,7 +2467,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "020714999346",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/71344_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1645102790-32816900.jpg?v=1763390801&width=1920",
     "notes": {
       "top": [
         "bergamot",
@@ -2504,7 +2504,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "020714997298",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/94741_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1640000895-04236000.jpg?v=1763390803&width=1920",
     "notes": {
       "top": [
         "orange",
@@ -2527,7 +2527,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "027131086871",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/11141496-3575059448831163.webp?v=1763137745",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731514729-58177700.jpg?v=1763390905&width=1920",
     "notes": {
       "top": [
         "Galbanum",
@@ -2553,7 +2553,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "027131020424",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/White-Linen-Eau-de-Parfum-60ml.png?v=1763137775",
+    "image": "https://www.beautybase.com/cdn/shop/files/1640184466-60943500.jpg?v=1763390919&width=1920",
     "notes": {
       "top": [
         "White Linen"
@@ -2578,7 +2578,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298042001206",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/191855_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1756288999-17373100.jpg?v=1763398837&width=1920",
     "notes": {
       "top": [
         "Mandarin Orange",
@@ -2667,7 +2667,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "6298042001831",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Liquid-Brun-Limited-Edition-Extrait-De-Parfum-150ml-French-Avenue-184347653.png?v=1772086432",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770296008-01656500.jpg?v=1772624920&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -2762,7 +2762,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298042001909",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ravine-Ice-Perfume-100ml-EDP-French-Avenue-183920848.png?v=1769915105",
+    "image": "https://www.beautybase.com/cdn/shop/files/1769008239-60047000.jpg?v=1772624921&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -2793,7 +2793,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298042000414",
     "shops": 5,
-    "image": "https://manchesterouds.com/cdn/shop/files/royal-blend-sequoia-edp-100ml-french-avenue-3674845.webp?v=1786194499&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752057466-36472000.jpg?v=1763398267&width=1920",
     "notes": {
       "top": [
         "Cognac",
@@ -2855,7 +2855,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272907676",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/138397_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1598970723-85653900.jpg?v=1763389873&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -2878,7 +2878,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3274872448773",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/179885_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727350017-55599200.jpg?v=1763393315&width=1920",
     "notes": {
       "top": [
         "Cardamom",
@@ -2904,7 +2904,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872441989",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/163608_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1665497228-02890500.jpg?v=1763392648&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -2928,7 +2928,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872372153",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/114725_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1638876451-60461700.jpg?v=1763390988&width=1920",
     "notes": {
       "top": [
         "Ginger"
@@ -2956,7 +2956,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "737052925028",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/80094_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1713782271-50454600.jpg?v=1763391000&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -2977,7 +2977,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052925073",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/79927_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1479213354-59205600.jpg?v=1763394705&width=1920",
     "notes": {
       "top": [
         "Italian Bergamot"
@@ -3036,7 +3036,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8005610481081",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/100365_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1713780336-29089800.jpg?v=1763391004&width=1920",
     "notes": {
       "top": [
         "Jasmine"
@@ -3086,7 +3086,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616302022465",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/158930_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731415558-17488200.jpg?v=1763396412&width=1920",
     "notes": {
       "top": [
         "Pear Blossom",
@@ -3144,7 +3144,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616305169259",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/179587_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761924272-51894600.jpg?v=1763399341&width=1920",
     "notes": {
       "top": [
         "Vanilla"
@@ -3167,7 +3167,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "737052057989",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/95890_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738750950-39987900.jpg?v=1763391050&width=1920",
     "notes": {
       "top": [
         "Mango",
@@ -3189,7 +3189,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052041285",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/93111_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1771415400-51226700.jpg?v=1772624834&width=1920",
     "notes": {
       "top": [
         "Freesia",
@@ -3220,7 +3220,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423470300154",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/67886_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1643027888-18653400.jpg?v=1763391062&width=1920",
     "notes": null
   },
   {
@@ -3269,7 +3269,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423474867158",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/67902_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641989869-57162800.jpg?v=1763391069&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -3291,7 +3291,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415017206",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/174933_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752769548-62745500.jpg?v=1763396065&width=1920",
     "notes": {
       "top": [
         "bergamot"
@@ -3323,7 +3323,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460119276",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/141811_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641921907-32608600.jpg?v=1763391219&width=1920",
     "notes": {
       "top": [
         "mandarin juice",
@@ -3351,7 +3351,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460119269",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/142924_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626797550-14848700.jpg?v=1763390121&width=1920",
     "notes": {
       "top": [
         "Mandarin Juice",
@@ -3379,7 +3379,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460071727",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/100498_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641898524-33251200.jpg?v=1763391225&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -3407,7 +3407,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460075343",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/90528_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641898751-49928300.jpg?v=1763395975&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -3429,7 +3429,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460025485",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/85996_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626788779-21720600.jpg?v=1763391170&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -3459,7 +3459,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460073882",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/95164_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641899005-91168700.jpg?v=1763397275&width=1920",
     "notes": {
       "top": [
         "Hibiscus",
@@ -3486,7 +3486,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460073875",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/96236_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738923604-05166800.jpg?v=1763391232&width=1920",
     "notes": {
       "top": [
         "Hibiscus",
@@ -3508,7 +3508,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460064118",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/86488_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641894265-86351900.jpg?v=1763393497&width=1920",
     "notes": {
       "top": [
         "Lavender",
@@ -3530,7 +3530,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460067508",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/112625_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1530198568-35094500.png?v=1763388974&width=1920",
     "notes": {
       "top": [
         "Clary Sage",
@@ -3594,7 +3594,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414200640015",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/80173_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641994689-16777100.jpg?v=1763391243&width=1920",
     "notes": {
       "top": [
         "Caraway",
@@ -3624,7 +3624,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386461515619",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/82545_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739355283-35891100.jpg?v=1763391461&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -3646,7 +3646,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386461515671",
     "shops": 5,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/975.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739293977-94520400.jpg?v=1763391465&width=1920",
     "notes": null
   },
   {
@@ -3657,7 +3657,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360591551",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/ajayeb-dubai-perfume-100ml-edp-lattafa-emirates-oud-103872266.jpg?v=1713057432",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_612cd867-1cb4-41ac-bdde-0946ab75ef47.jpg?v=1778062179&width=1920",
     "notes": {
       "top": [
         "Saffron",
@@ -3780,7 +3780,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6291107454412",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ana-Abiyedh-Rouge-Perfume-60ml-EDP-Lattafa-153344047.jpg?v=1732558806",
+    "image": "https://www.beautybase.com/cdn/shop/files/1615537312-07237200.jpg?v=1763389472&width=1920",
     "notes": {
       "top": [
         "Nashi Pear",
@@ -3810,7 +3810,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360598666",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Asad-Zanzibar-Perfume-100ml-EDP-Lattafa-177441771.png?v=1759030030",
+    "image": "https://www.beautybase.com/cdn/shop/files/1718616931-94457300.jpg?v=1763395273&width=1920",
     "notes": {
       "top": [
         "Lavender",
@@ -3839,7 +3839,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291108733875",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-Al-Oud-Amethyst-Perfume-100ml-EDP-Lattafa-153338420.jpg?v=1732557144",
+    "image": "https://www.beautybase.com/cdn/shop/files/1717585229-76983700.jpg?v=1763395246&width=1920",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -3868,7 +3868,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360593135",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-Al-Oud-Honor-_-Glory-Perfume-100ml-EDP-Lattafa-153338695.jpg?v=1732557171",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738837567-76603700.jpg?v=1763397087&width=1920",
     "notes": {
       "top": [
         "Pineapple brulee"
@@ -3899,7 +3899,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362340638",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Eclaire-Perfume-100ml-EDP-Lattafa-131064128.jpg?v=1717383328",
+    "image": "https://www.beautybase.com/cdn/shop/files/1718616119-54899300.jpg?v=1763395273&width=1920",
     "notes": {
       "top": [
         "Caramel",
@@ -3929,7 +3929,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362349129",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Eclaire-Pistache-Perfume-100ml-EDP-Lattafa-175550657.jpg?v=1755995538",
+    "image": "https://www.beautybase.com/cdn/shop/files/1758026014-19962700.jpg?v=1763398977&width=1920",
     "notes": {
       "top": [
         "Pistachio Spread Cream",
@@ -3959,7 +3959,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107457895",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hayaati-Gold-Elixir-Perfume-100ml-EDP-Lattafa-153345811.jpg?v=1732559272",
+    "image": "https://www.beautybase.com/cdn/shop/files/1719918125-00905000.jpg?v=1763395347&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -3990,7 +3990,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360599113",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/His-Confession-Perfume-100ml-EDP-Lattafa-153135555.jpg?v=1731343811",
+    "image": "https://www.beautybase.com/cdn/shop/files/1747219879-84385700.jpg?v=1763397897&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -4053,7 +4053,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291108737194",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Khamrah-Perfume-100ml-EDP-Lattafa-153337882.jpg?v=1732556798",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728472803-94611900.jpg?v=1763394345&width=1920",
     "notes": {
       "top": [
         "Cinnamon",
@@ -4088,7 +4088,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362342373",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Khamrah-Dukhan-Perfume-100ml-EDP-Lattafa-165676769.jpg?v=1744294497",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755531246-47172800.jpg?v=1763397560&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -4116,7 +4116,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291106065114",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Oud-Mood-Perfume-100ml-EDP-Lattafa-153342876.jpg?v=1732558356",
+    "image": "https://www.beautybase.com/cdn/shop/files/1561394216-70731700.jpg?v=1763389330&width=1920",
     "notes": {
       "top": [
         "Rose",
@@ -4147,7 +4147,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360598796",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/184966_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750157053-15869000.jpg?v=1763398123&width=1920",
     "notes": {
       "top": [
         "Plum",
@@ -4176,7 +4176,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "6291107455365",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Qaed-Al-Fursan-Perfume-90ml-EDP-Lattafa-145125764.jpg?v=1721786305",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728475649-35723800.jpg?v=1763394379&width=1920",
     "notes": {
       "top": [
         "Pineapple",
@@ -4204,7 +4204,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "6290362340645",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Qaed-Al-Fursan-Untamed-Perfume-90ml-EDP-Lattafa-167853250.jpg?v=1746536835",
+    "image": "https://www.beautybase.com/cdn/shop/files/1747219701-66731800.jpg?v=1763397857&width=1920",
     "notes": {
       "top": [
         "Nutmeg",
@@ -4301,7 +4301,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360595764",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Teriaq-Perfume-100ml-EDP-Lattafa-179660916.jpg?v=1761698719",
+    "image": "https://www.beautybase.com/cdn/shop/files/1717662391-16639000.jpg?v=1763395256&width=1920",
     "notes": {
       "top": [
         "Caramel",
@@ -4362,7 +4362,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362346531",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Yara-Elixir-Perfume-100ml-EDP-Lattafa-179071196.png?v=1760476123",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761816159-56719200.jpg?v=1763399366&width=1920",
     "notes": {
       "top": [
         "Strawberry",
@@ -4454,7 +4454,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3607349764289",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/59414_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739287436-44547900.jpg?v=1763391476&width=1920",
     "notes": {
       "top": [
         "Blackberries",
@@ -4485,7 +4485,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616302779994",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/152063_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1665060322-60388900.jpg?v=1763392719&width=1920",
     "notes": null
   },
   {
@@ -4496,7 +4496,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "022548289655",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/75137_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1666950674-51823800.jpg?v=1763391494&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -4519,7 +4519,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460135818",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/163613_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1693497760-79483200.jpg?v=1763393566&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -4549,7 +4549,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460074827",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/86580_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761837956-48713000.jpg?v=1763399044&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -4579,7 +4579,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003991617",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/82733_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1561133688-12483700.jpg?v=1763389348&width=1920",
     "notes": null
   },
   {
@@ -4590,7 +4590,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274066999",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/172837_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736846019-78734600.jpg?v=1763394530&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -4620,7 +4620,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3423222055516",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/169134_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/123_02ec6fd3-57e1-4513-9d9f-d5d62df6efd2.jpg?v=1778507275&width=1920",
     "notes": null
   },
   {
@@ -4631,7 +4631,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273760713",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/184237_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/2030.jpg?v=1773333850&width=1920",
     "notes": {
       "top": [
         "Pear",
@@ -4664,7 +4664,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273760164",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/150235_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/90mlpara.jpg?v=1773334022&width=1920",
     "notes": null
   },
   {
@@ -4675,7 +4675,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668594429",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/150995_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738162480-11456800.jpg?v=1763392745&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -4705,7 +4705,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668617173",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/163565_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728398653-21152300.jpg?v=1763393558&width=1920",
     "notes": {
       "top": [
         "Pomegranate"
@@ -4777,7 +4777,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668545667",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/179546_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1666948823-93958900.jpg?v=1763391575&width=1920",
     "notes": {
       "top": [
         "Thyme",
@@ -4811,7 +4811,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349666010518",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/84626_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1511343024-63779200.png?v=1763392292&width=1920",
     "notes": {
       "top": [
         "Russian Coriander",
@@ -4840,7 +4840,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3605972910264",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/173960_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1726156889-08886400.jpg?v=1763395115&width=1920",
     "notes": null
   },
   {
@@ -4851,7 +4851,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3360377022928",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/69927_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736851760-99404000.jpg?v=1763391627&width=1920",
     "notes": {
       "top": [
         "Citron",
@@ -4880,7 +4880,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "614514464441",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hawas-Tropical-Perfume-100ml-EDP-Rasasi-184447037.png?v=1771115888",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752245450-25874000.jpg?v=1763398332&width=1920",
     "notes": {
       "top": [
         "Coconut Water",
@@ -4945,7 +4945,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6295124024832",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Shaghaf-Oud-Perfume-75ml-Swiss-Arabian-173901065.jpg?v=1752375995",
+    "image": "https://www.beautybase.com/cdn/shop/files/1636041233-15633900.jpg?v=1763389474&width=1920",
     "notes": {
       "top": [
         "Saffron"
@@ -5027,7 +5027,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "888066000055",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/57846_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1749116992-30366300.jpg?v=1763398073&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -5078,7 +5078,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273790840",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/188185_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1692709673-08842400.jpg?v=1763393333&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -5106,7 +5106,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272732087",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/112728_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738924685-99844700.jpg?v=1763391675&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -5136,7 +5136,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274024760",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/175444_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727778826-75241600.jpg?v=1763394425&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -5157,7 +5157,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272732230",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/183655_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1643891618-43147600.jpg?v=1763391678&width=1920",
     "notes": {
       "top": [
         "Bergamot Essence",
@@ -5189,7 +5189,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342166875",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/121480_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1719851734-80138400.jpg?v=1763395317&width=1920",
     "notes": {
       "top": [
         "Pink Guava",
@@ -5217,7 +5217,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8011003817498",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/65153_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738256570-12248900.jpg?v=1763391684&width=1920",
     "notes": {
       "top": [
         "Yuzu",
@@ -5248,7 +5248,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "8011003818112",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/65147_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1659693394-33828600.jpg?v=1763391684&width=1920",
     "notes": {
       "top": [
         "Pomegranate",
@@ -5278,7 +5278,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8018365270756",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/65025_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1603467388-27378300.jpg?v=1763393417&width=1920",
     "notes": {
       "top": [
         "Peach",
@@ -5312,7 +5312,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605521879905",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/93526_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737383515-53201600.jpg?v=1763391731&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -5341,7 +5341,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3360374000004",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/56540_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1561549359-28235400.jpg?v=1763398564&width=1920",
     "notes": {
       "top": [
         "Jasmine"
@@ -5367,7 +5367,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360374000059",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/61447_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1642179113-96289700.jpg?v=1763391732&width=1920",
     "notes": {
       "top": [
         "Tea",
@@ -5394,7 +5394,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273987936",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/184478_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/147_3f30fdb9-2329-4a5a-9a9d-874793a2182a.jpg?v=1778073829&width=1920",
     "notes": {
       "top": [
         "Tea Accord",
@@ -5426,7 +5426,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274081183",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/172460_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725981742-14151600.jpg?v=1763395565&width=1920",
     "notes": {
       "top": [
         "Coconut Milk",
@@ -5455,7 +5455,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3605521515346",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/61449_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1642179251-54069700.jpg?v=1763391735&width=1920",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -5487,7 +5487,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614272191556",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/115564_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1554976773-32818200.jpg?v=1763389183&width=1920",
     "notes": {
       "top": [
         "Granny Smith Apple",
@@ -5521,7 +5521,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3365440787858",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/81961_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/23.jpg?v=1773330990&width=1920",
     "notes": {
       "top": [
         "pear",
@@ -5550,7 +5550,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3365440003866",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/84183_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_e84031a6-edaf-4058-a4a4-7036319c868f.jpg?v=1774021757&width=1920",
     "notes": {
       "top": [
         "Aldehydes",
@@ -5592,7 +5592,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272648418",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/122648_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/50_1be8e7a0-49ed-40ef-b0d6-dd4eda062c6b.jpg?v=1773243616&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -5626,7 +5626,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273776127",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/162809_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/90_86c8996c-544a-4151-8f06-36ff26eacc6a.jpg?v=1773249390&width=1920",
     "notes": {
       "top": [
         "ginger",
@@ -5657,7 +5657,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614270561665",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/98657_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_f56cfdbd-6450-40b7-bdff-e5b416d87af1.jpg?v=1773836268&width=1920",
     "notes": {
       "top": [
         "Raspberry",
@@ -5683,7 +5683,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171071051",
     "shops": 5,
-    "image": "https://bgstatic.net/photos/167537_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1747389860-19837600.jpg?v=1763397960&width=1920",
     "notes": {
       "top": [
         "Litchi",
@@ -5929,7 +5929,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171002338",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/9pm-perfume-100ml-edp-afnan-emirates-oud-2-103829296.jpg?v=1713056242",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731671573-75414700.jpg?v=1763393282&width=1920",
     "notes": {
       "top": [
         "Apple",
@@ -5961,7 +5961,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171077459",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/9pm-Night-Out-Perfume-100ml-Extrait-de-Parfum-Afnan-183711713.jpg?v=1769359782",
+    "image": "https://www.beautybase.com/cdn/shop/files/1769515370-09783100.jpg?v=1773226974&width=1920",
     "notes": {
       "top": [
         "Lavender",
@@ -5996,7 +5996,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171075073",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Supremacy-Collector_s-Edition-100ml-EDP-Afnan-169454657.jpg?v=1771338847",
+    "image": "https://www.beautybase.com/cdn/shop/files/1730806749-91094100.jpg?v=1763396492&width=1920",
     "notes": {
       "top": [
         "Pineapple",
@@ -6028,7 +6028,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "6290171070580",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Turathi-Blue-Perfume-90ml-EDP-Afnan-183927376.webp?v=1769990037",
+    "image": "https://www.beautybase.com/cdn/shop/files/1718631150-89291900.jpg?v=1763395247&width=1920",
     "notes": {
       "top": [
         "Citruses"
@@ -6056,7 +6056,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360613543",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Exotic-Perfume-100ml-EDP-Ahmed-Al-Maghribi-185374873.png?v=1773313062",
+    "image": "https://www.beautybase.com/cdn/shop/files/exotic.jpg?v=1787921263&width=1920",
     "notes": {
       "top": [
         "Petitgrain",
@@ -6118,7 +6118,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "6290360610122",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/187889_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759764170-46811300.jpg?v=1775035179&width=1920",
     "notes": null
   },
   {
@@ -6129,7 +6129,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6293708009893",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/176029_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1696412897-52374700.jpg?v=1763390658&width=1920",
     "notes": {
       "top": [
         "POMEGRANATE",
@@ -6186,7 +6186,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291100130122",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/141021_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1732018350-31959800.jpg?v=1763395786&width=1920",
     "notes": {
       "top": [
         "Bergamot"
@@ -6244,7 +6244,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "6291110091642",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Choco-Musk-Perfume-50ml-EDP-Al-Rehab-165255338.png?v=1741898297",
+    "image": "https://www.beautybase.com/cdn/shop/files/1686579408-39039500.jpg?v=1763393633&width=1920",
     "notes": {
       "top": [
         "Warm Spicy",
@@ -6337,7 +6337,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "0812256020325",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/79418_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/30ari.jpg?v=1773763375&width=1920",
     "notes": {
       "top": [
         "Crispy Pear",
@@ -6369,7 +6369,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0812256020318",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/80159_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/50ari.jpg?v=1773763426&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -6391,7 +6391,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "812256028482",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/172277_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1639650564-16023100.jpg?v=1763391897&width=1920",
     "notes": {
       "top": [
         "Ambrette Juicy Pear"
@@ -6445,7 +6445,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "812256025474",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/135652_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/rem50.jpg?v=1773756784&width=1920",
     "notes": {
       "top": [
         "Caramel",
@@ -6472,7 +6472,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "812256025467",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/134920_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/rem100.jpg?v=1773756979&width=1920",
     "notes": {
       "top": [
         "Caramel",
@@ -6499,7 +6499,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "812256021728",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/88670_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/ariii.jpg?v=1773764465&width=1920",
     "notes": {
       "top": [
         "Blackberry",
@@ -6532,7 +6532,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "812256021711",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/88667_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/ariii.jpg?v=1773764465&width=1920",
     "notes": {
       "top": [
         "Italian Bergamot",
@@ -6565,7 +6565,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "6294015157789",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/159287_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_31c0a87a-ecd4-41ae-a8e9-7d808909ea71.jpg?v=1774526001&width=1920",
     "notes": {
       "top": [
         "Orange",
@@ -6589,7 +6589,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": "6085010094151",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/108575_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1645101138-56642600.jpg?v=1763390679&width=1920",
     "notes": null
   },
   {
@@ -6600,7 +6600,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": "6294015164169",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Club-De-Nuit-Imperiale-Perfume-105ml-EDP-Armaf-182863910.png?v=1768259742",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_ce7d696a-b2b3-49f0-8d30-1a87ccb49515.jpg?v=1774525686&width=1920",
     "notes": {
       "top": [
         "Litchi",
@@ -6634,7 +6634,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "6294015131024",
     "shops": 4,
-    "image": "https://www.justmylook.com/cdn/shop/files/ARM0004.png?v=1758900964&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1696416231-27183200.jpg?v=1763390680&width=1920",
     "notes": null,
     "houseCeiling": 79.99
   },
@@ -6646,7 +6646,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "6294015169928",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/167230_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737393708-76129200.jpg?v=1763394319&width=1920",
     "notes": {
       "top": [
         "Saffron",
@@ -6675,7 +6675,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199800942",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Island-Bliss-Perfume-100ml-EDP-Armaf-174843596.jpg?v=1753829233",
+    "image": "https://www.beautybase.com/cdn/shop/files/1749824778-68692900.jpg?v=1763398129&width=1920",
     "notes": {
       "top": [
         "Wild Berries"
@@ -6706,7 +6706,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199811771",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Island-Breeze-Perfume-100ml-EDP-Armaf-177423560.jpg?v=1758906579",
+    "image": "https://www.beautybase.com/cdn/shop/files/1760353985-19099200.jpg?v=1763399286&width=1920",
     "notes": {
       "top": [
         "Pink Peach",
@@ -6738,7 +6738,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199805022",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Odyssey-Mandarin-Sky-Elixir-Perfume-100ml-EDP-Armaf-175454250.jpg?v=1755777640",
+    "image": "https://www.beautybase.com/cdn/shop/files/mandarinelixir.jpg?v=1782380202&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -6812,7 +6812,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273638852",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/172157_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1732027123-46730800.jpg?v=1763393970&width=1920",
     "notes": {
       "top": [
         "Ginger"
@@ -6856,7 +6856,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "608940583753",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/163441_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_39614975-a1ab-4d88-80fa-3f9dfa17f07d.jpg?v=1774527752&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -6886,7 +6886,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460036528",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/90525_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1639582299-37817000.jpg?v=1763390691&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -6909,7 +6909,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346117722",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/88125_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737024237-99204900.jpg?v=1763390696&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -6931,7 +6931,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "719346263573",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/175539_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1735576270-02872700.jpg?v=1763396829&width=1920",
     "notes": {
       "top": [
         "Red litchi",
@@ -7044,7 +7044,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "719346107297",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/375x500.802_6d724b5d-3d74-49aa-b564-e5f7f6480743.jpg?v=1763135486",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737025613-22298000.jpg?v=1763393832&width=1920",
     "notes": {
       "top": [
         "plum",
@@ -7075,7 +7075,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014011801",
     "shops": 4,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/79D1DA33-C242-4F9C-B0FC-15E9B8327EA1.webp?v=1783642541&width=720",
+    "image": "https://www.beautybase.com/cdn/shop/files/Fullthrotle.jpg?v=1784627572&width=1920",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -7109,7 +7109,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014001826",
     "shops": 4,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/IMG-0943.webp?v=1778162262&width=1200",
+    "image": "https://www.beautybase.com/cdn/shop/files/Ghost.jpg?v=1784628582&width=1920",
     "notes": {
       "top": [
         "Sapodilla"
@@ -7137,7 +7137,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014011627",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Real-Deal-100ml-Extrait-De-Parfum-Bujairami-195627993.png?v=1786437209",
+    "image": "https://www.beautybase.com/cdn/shop/files/RealDeal.jpg?v=1784630858&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -7169,7 +7169,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014000737",
     "shops": 4,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/IMG-0959.webp?v=1778168010&width=1200",
+    "image": "https://www.beautybase.com/cdn/shop/files/BujairamiSafariSqueezeEauDeParfum100mlSpray1.jpg?v=1778844050&width=1920",
     "notes": null
   },
   {
@@ -7180,7 +7180,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014001116",
     "shops": 4,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/IMG-0957.webp?v=1778165215&width=1200",
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairami_web_1.jpg?v=1779197702&width=1920",
     "notes": null
   },
   {
@@ -7191,7 +7191,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616302020652",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/184252_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1740653048-73224400.jpg?v=1763395160&width=1920",
     "notes": {
       "top": [
         "Vanilla",
@@ -7219,7 +7219,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252668184",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31o7nB-CNlL_0a864660-0edd-4106-9794-401d3da19c11.jpg?v=1763135677",
+    "image": "https://www.beautybase.com/cdn/shop/files/1518610559-92070500.png?v=1763388813&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -7248,7 +7248,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616301838210",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/101563_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1733841652-92847600.jpg?v=1763396802&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -7306,7 +7306,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5045252649015",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71mnzqzmkCL._SL1500.jpg?v=1763135705",
+    "image": "https://www.beautybase.com/cdn/shop/files/1747822480-45718900.jpg?v=1763397647&width=1920",
     "notes": {
       "top": [
         "Violet Leaf",
@@ -7334,7 +7334,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614227748446",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/172577_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1579610777-00863400.jpg?v=1763389366&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -7366,7 +7366,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300100514",
     "shops": 4,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/024.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1604685049-41099400.jpg?v=1763388849&width=1920",
     "notes": {
       "top": [
         "Eucalyptus",
@@ -7407,7 +7407,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614225670435",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/124584_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1557823233-53792000.jpg?v=1763389315&width=1920",
     "notes": null
   },
   {
@@ -7418,7 +7418,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614225358463",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/180020_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1534347326-42520500.png?v=1763389042&width=1920",
     "notes": null
   },
   {
@@ -7429,7 +7429,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061043844",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/98183_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728400287-90183400.jpg?v=1763389284&width=1920",
     "notes": null
   },
   {
@@ -7440,7 +7440,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061088166",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/96949_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728403052-39933500.jpg?v=1763389928&width=1920",
     "notes": {
       "top": [
         "Caviar Lime",
@@ -7465,7 +7465,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061777183",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/87568_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728391010-28806500.jpg?v=1763389286&width=1920",
     "notes": {
       "top": [
         "Champagne Rosé"
@@ -7516,7 +7516,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061056769",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/163165_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728315861-12128600.jpg?v=1763393270&width=1920",
     "notes": {
       "top": [
         "bergamot",
@@ -7539,7 +7539,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061083659",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/177838_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728390632-98279700.jpg?v=1763394554&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -7569,7 +7569,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061077160",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/187445_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1757325181-18446400.jpg?v=1763398881&width=1920",
     "notes": {
       "top": [
         "Pitaya"
@@ -7607,7 +7607,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061106228",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/181808_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739270896-32189600.jpg?v=1763397098&width=1920",
     "notes": null
   },
   {
@@ -7618,7 +7618,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3607346232347",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/79637_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1642003794-39658600.jpg?v=1763389939&width=1920",
     "notes": {
       "top": [
         "Peony"
@@ -7645,7 +7645,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3607342635838",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/64090_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1554470768-46031100.jpg?v=1763394638&width=1920",
     "notes": {
       "top": [
         "Orange Blossom"
@@ -7746,7 +7746,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616303477943",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/173977_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725458107-76308000.jpg?v=1763394936&width=1920",
     "notes": null
   },
   {
@@ -7757,7 +7757,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "020714005887",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/103955_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728920139-10542000.jpg?v=1763396034&width=1920",
     "notes": null
   },
   {
@@ -7768,7 +7768,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 45,
     "ean": "020714001940",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/104014_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1708529034-11068700.jpg?v=1763390797&width=1920",
     "notes": null
   },
   {
@@ -7779,7 +7779,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460142182",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/169769_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1720169499-51811500.jpg?v=1763394518&width=1920",
     "notes": {
       "top": [
         "Coach"
@@ -7861,7 +7861,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060524510008",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/103430_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1708514753-24587600.jpg?v=1763390823&width=1920",
     "notes": null
   },
   {
@@ -7872,7 +7872,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060524511142",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/146444_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736868282-96396100.jpg?v=1763394400&width=1920",
     "notes": {
       "top": [
         "Mandarin Orange",
@@ -7902,7 +7902,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060524510725",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/186231_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736865975-34034000.jpg?v=1763394236&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -7925,7 +7925,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060524510749",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/141108_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736866183-55677100.jpg?v=1763393115&width=1920",
     "notes": null
   },
   {
@@ -7936,7 +7936,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414200204415",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/88637_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1503070262-54091400.jpg?v=1763389945&width=1920",
     "notes": {
       "top": [
         "Mandarin Orange",
@@ -7962,7 +7962,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414202011752",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/85625_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1554822568-78308200.jpg?v=1763389957&width=1920",
     "notes": {
       "top": [
         "Honeydew Melon",
@@ -7989,7 +7989,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607347565321",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/54667_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/cw1.jpg?v=1776438606&width=1920",
     "notes": null
   },
   {
@@ -8000,7 +8000,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 110,
     "ean": "3607344163773",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/83702_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1548867476-73694500.jpg?v=1763389960&width=1920",
     "notes": {
       "top": [
         "Basil"
@@ -8026,7 +8026,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605520385568",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/171670_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1751452250-09161400.jpg?v=1763398229&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -8054,7 +8054,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605520680014",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/55723_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731333405-53682000.jpg?v=1763389967&width=1920",
     "notes": {
       "top": [
         "Amalfi Lemon",
@@ -8084,7 +8084,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "763511100019",
     "shops": 4,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/054.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1377169026-24665500.jpg?v=1763389992&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -8114,7 +8114,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8054754404739",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/184397_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1741013549-06158700.jpg?v=1763397187&width=1920",
     "notes": {
       "top": [
         "Lemon"
@@ -8138,7 +8138,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8054754401059",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/185248_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1741013999-50735200.jpg?v=1763397188&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -8160,7 +8160,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8054754405095",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/186844_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1741011737-93430800.jpg?v=1763397197&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -8192,7 +8192,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8057971181346",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/113120_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755768824-81385900.jpg?v=1763398620&width=1920",
     "notes": {
       "top": [
         "Granny Smith apple"
@@ -8213,7 +8213,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971188116",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/183586_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/D_glightblue.jpg?v=1783429396&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -8246,7 +8246,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8057971187836",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/182307_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729170047-91179500.jpg?v=1763394880&width=1920",
     "notes": null
   },
   {
@@ -8257,7 +8257,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971187829",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/175920_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729171030-24420400.jpg?v=1763394883&width=1920",
     "notes": null
   },
   {
@@ -8291,7 +8291,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003852741",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/142142_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1583169458-03170300.jpg?v=1763389706&width=1920",
     "notes": null
   },
   {
@@ -8302,7 +8302,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "7640233341391",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/167951_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731497379-35770100.jpg?v=1763393298&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -8324,7 +8324,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "085805378639",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/177508_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_c5dc2023-887c-4d63-893f-0fea385adff8.jpg?v=1784192044&width=1920",
     "notes": null
   },
   {
@@ -8335,7 +8335,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "085805378622",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/177231_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_467c4c63-46e5-449b-a15d-71facd7166ce.jpg?v=1784192999&width=1920",
     "notes": null
   },
   {
@@ -8346,7 +8346,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805555313",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/59977_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1507815594-67613100.png?v=1763389998&width=1920",
     "notes": {
       "top": [
         "Rose",
@@ -8380,7 +8380,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "085805120900",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/60056_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729764847-92259600.jpg?v=1763390003&width=1920",
     "notes": {
       "top": [
         "Wisteria",
@@ -8431,7 +8431,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8005610516134",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/106629_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1634650865-07443100.jpg?v=1763390484&width=1920",
     "notes": {
       "top": [
         "Ginger"
@@ -8455,7 +8455,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "027131261612",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61zRtX36-HL._AC_SL1500.png?v=1763137756",
+    "image": "https://www.beautybase.com/cdn/shop/files/1713794446-34006900.jpg?v=1763390910&width=1920",
     "notes": null
   },
   {
@@ -8466,7 +8466,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "027131286905",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/510te0uOfpL.jpg?v=1763137769",
+    "image": "https://www.beautybase.com/cdn/shop/files/1763636404-65974200.jpg?v=1772624908&width=1920",
     "notes": {
       "top": [
         "Peony",
@@ -8530,7 +8530,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379135",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Elysia-Sugar-Patchouli-Perfume-100ml-EDP-Fragrance-World-167747793.jpg?v=1746307928",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744711470-46943700.jpg?v=1763397697&width=1920",
     "notes": {
       "top": [
         "Rum",
@@ -8562,7 +8562,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379159",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Elysia-Vanilla-Sugar-Perfume-100ml-EDP-Fragrance-World-167852260.jpg?v=1746534932",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744711606-12978600.jpg?v=1763397699&width=1920",
     "notes": {
       "top": [
         "Vanilla",
@@ -8601,7 +8601,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298042000957",
     "shops": 4,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1760111858-22519700.jpg?v=1763399310&width=1920",
     "notes": {
       "top": [
         "Oriental Accord",
@@ -8664,7 +8664,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379524",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Firestorm-Perfume-100ml-EDP-French-Avenue-175517066.jpg?v=1755880741",
+    "image": "https://www.beautybase.com/cdn/shop/files/1758532303-43157800.jpg?v=1763399071&width=1920",
     "notes": {
       "top": [
         "Red Apple",
@@ -8758,7 +8758,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298042001923",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ravine-Ginger-Perfume-100ml-EDP-French-Avenue-183920914.png?v=1769915139",
+    "image": "https://www.beautybase.com/cdn/shop/files/1769008168-09335200.jpg?v=1772624921&width=1920",
     "notes": {
       "top": [
         "Ginger",
@@ -8825,7 +8825,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360378411",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Royal-Blend-Bourbon-Extrait-De-Parfum-100ml-French-Avenue-168753380.jpg?v=1748003224",
+    "image": "https://www.beautybase.com/cdn/shop/files/1743583507-66994600.jpg?v=1763397545&width=1920",
     "notes": {
       "top": [
         "Cinnamon Bark Lmr",
@@ -8855,7 +8855,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360375601",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/190796_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1722329988-34981600.jpg?v=1763395378&width=1920",
     "notes": null,
     "houseCeiling": 35
   },
@@ -8931,7 +8931,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379517",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Thunder-Perfume-100ml-EDP-French-Avenue-175526343.jpg?v=1755887032",
+    "image": "https://www.beautybase.com/cdn/shop/files/1758532316-01980600.jpg?v=1763399072&width=1920",
     "notes": {
       "top": [
         "Elemi",
@@ -9124,7 +9124,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614272907652",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/137268_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1598971699-54767000.jpg?v=1763389869&width=1920",
     "notes": {
       "top": [
         "Calabrian Bergamot",
@@ -9153,7 +9153,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605521816580",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/162444_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/50mlsi.jpg?v=1773740766&width=1920",
     "notes": {
       "top": [
         "Blackcurrant Liqueur"
@@ -9180,7 +9180,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614271994844",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/105361_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/si100.jpg?v=1773743462&width=1920",
     "notes": null
   },
   {
@@ -9191,7 +9191,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274459708",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/179912_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744367805-45742100.jpg?v=1763397574&width=1920",
     "notes": {
       "top": [
         "Strawberry",
@@ -9219,7 +9219,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274459869",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/186568_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744366025-84487300.jpg?v=1763397574&width=1920",
     "notes": {
       "top": [
         "Strawberry",
@@ -9286,7 +9286,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872423008",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/169918_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727338157-36198300.jpg?v=1763390974&width=1920",
     "notes": null
   },
   {
@@ -9297,7 +9297,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872372146",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/110144_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1638876228-60369500.jpg?v=1763390986&width=1920",
     "notes": {
       "top": [
         "ginger",
@@ -9354,7 +9354,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616301794615",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/161262_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1697624275-64935200.jpg?v=1763393730&width=1920",
     "notes": {
       "top": [
         "Lavender",
@@ -9382,7 +9382,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "8005610328256",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/104717_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731411413-88905100.jpg?v=1763393730&width=1920",
     "notes": {
       "top": [
         "Frankincense",
@@ -9415,7 +9415,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3360372017332",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/89951_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1639142948-07753500.jpg?v=1763391871&width=1920",
     "notes": {
       "top": [
         "Basil",
@@ -9452,7 +9452,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360372009641",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/72361_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1605262488-54129300.jpg?v=1763389757&width=1920",
     "notes": {
       "top": [
         "Galbanum",
@@ -9485,7 +9485,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "737052189765",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/190995_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Bossbottled200ml.jpg?v=1783951541&width=1920",
     "notes": null
   },
   {
@@ -9496,7 +9496,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614228220903",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/122401_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Bossbottledinfinite1_cb75500e-6750-4f78-855c-ba09e1d8ee43.jpg?v=1785153678&width=1920",
     "notes": {
       "top": [
         "Apple",
@@ -9527,7 +9527,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052766775",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/191295_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Boss1.jpg?v=1774457361&width=1920",
     "notes": {
       "top": [
         "Iced Violet Leaves"
@@ -9553,7 +9553,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616301623311",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/138991_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1646934992-56539100.jpg?v=1763392042&width=1920",
     "notes": null
   },
   {
@@ -9564,7 +9564,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614229823790",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/143646_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1523982609-51930100.png?v=1763391136&width=1920",
     "notes": {
       "top": [
         "Red Apple",
@@ -9593,7 +9593,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222090937",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/171549_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753106929-93689400.jpg?v=1763392495&width=1920",
     "notes": {
       "top": [
         "Green accord",
@@ -9620,7 +9620,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3423470486018",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/67885_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1381230859-00959400.jpg?v=1763391148&width=1920",
     "notes": null
   },
   {
@@ -9631,7 +9631,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423474874651",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/79313_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1638964321-70886300.jpg?v=1763391187&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -9664,7 +9664,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8435415012638",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/85292_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728898125-45310400.jpg?v=1763391162&width=1920",
     "notes": {
       "top": [
         "Mint",
@@ -9697,7 +9697,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8435415076814",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/173384_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729257976-73149100.jpg?v=1763393990&width=1920",
     "notes": null
   },
   {
@@ -9708,7 +9708,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415076821",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/173383_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729258288-96746600.jpg?v=1763393994&width=1920",
     "notes": null
   },
   {
@@ -9719,7 +9719,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415017244",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/173381_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752768337-95642500.jpg?v=1763396060&width=1920",
     "notes": null
   },
   {
@@ -9730,7 +9730,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415076944",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/173926_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728918906-44988100.jpg?v=1763393592&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -9760,7 +9760,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8435415102339",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/192648_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1745422126-22390900.jpg?v=1763397664&width=1920",
     "notes": {
       "top": [
         "Plum"
@@ -9785,7 +9785,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8435415032278",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/174928_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1597997971-91657900.jpg?v=1763389845&width=1920",
     "notes": {
       "top": [
         "Cardamom"
@@ -9811,7 +9811,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415032390",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/174929_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1597998299-48473200.jpg?v=1763389846&width=1920",
     "notes": {
       "top": [
         "Cardamom"
@@ -9863,7 +9863,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415065207",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/179974_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728922855-40554800.jpg?v=1763392675&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -9886,7 +9886,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5050456110018",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/104260_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1556788061-22291000.jpg?v=1763391152&width=1920",
     "notes": null
   },
   {
@@ -9897,7 +9897,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460066297",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/96509_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1664543902-03465100.jpg?v=1763391211&width=1920",
     "notes": {
       "top": [
         "Juicy red fruits"
@@ -9949,7 +9949,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460066273",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/88591_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641990359-49554300.jpg?v=1763391216&width=1920",
     "notes": {
       "top": [
         "Red Berries"
@@ -9976,7 +9976,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460097345",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/113114_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626792067-26654000.jpg?v=1763389031&width=1920",
     "notes": {
       "top": [
         "plum",
@@ -10003,7 +10003,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460097321",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/113113_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626792824-89623800.jpg?v=1763389032&width=1920",
     "notes": {
       "top": [
         "Black Plum Nectar",
@@ -10034,7 +10034,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460129886",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/157714_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1664880265-19018700.jpg?v=1763392761&width=1920",
     "notes": {
       "top": [
         "Pink Peppercorn"
@@ -10055,7 +10055,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460142014",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61bzxl6UHQL.jpg?v=1767983349",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721982816-97940600.jpg?v=1763395465&width=1920",
     "notes": {
       "top": [
         "Pear",
@@ -10087,7 +10087,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460071741",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/79884_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641898005-54144400.jpg?v=1763391222&width=1920",
     "notes": {
       "top": [
         "Ginger",
@@ -10131,7 +10131,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460025522",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/107276_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641893261-50589400.jpg?v=1763391230&width=1920",
     "notes": {
       "top": [
         "Pear",
@@ -10159,7 +10159,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460025492",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/86244_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626788438-91865700.jpg?v=1763391168&width=1920",
     "notes": {
       "top": [
         "Sweet Italian Orange"
@@ -10185,7 +10185,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460025478",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/80054_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626789129-32999700.jpg?v=1763391170&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -10215,7 +10215,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460137553",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/164125_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1684513905-95713100.jpg?v=1763393597&width=1920",
     "notes": {
       "top": [
         "Coconut"
@@ -10240,7 +10240,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460109383",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/134710_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1565109418-43191300.jpg?v=1763389393&width=1920",
     "notes": null
   },
   {
@@ -10286,7 +10286,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3414206000608",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/91200_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1478599361-42309800.jpg?v=1763393475&width=1920",
     "notes": {
       "top": [
         "Orange Blossom",
@@ -10321,7 +10321,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607345809915",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/84098_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737386568-01791000.jpg?v=1763393780&width=1920",
     "notes": {
       "top": [
         "Orange Blossom",
@@ -10454,7 +10454,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3274872404113",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/84275_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626778742-80816000.jpg?v=1763389886&width=1920",
     "notes": {
       "top": [
         "Bulgarian Rose",
@@ -10487,7 +10487,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107978789",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Khadlaj-Island-Extrait-de-Parfum-100ml-Khadlaj-173963894.jpg?v=1752641936",
+    "image": "https://www.beautybase.com/cdn/shop/files/1742377652-32521400.jpg?v=1763397410&width=1920",
     "notes": {
       "top": [
         "bergamot"
@@ -10516,7 +10516,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460149365",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/183404_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1747307619-68954800.jpg?v=1763397929&width=1920",
     "notes": null
   },
   {
@@ -10527,7 +10527,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272629370",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/188184_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1565951619-03699700.jpg?v=1763389397&width=1920",
     "notes": {
       "top": [
         "Pear",
@@ -10549,7 +10549,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273069175",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/132985_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737019404-38151200.jpg?v=1763391441&width=1920",
     "notes": {
       "top": [
         "Pear",
@@ -10582,7 +10582,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3147758029406",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51YGjN_ouiL.jpg?v=1767983649",
+    "image": "https://www.beautybase.com/cdn/shop/files/147_a0dd00f5-80cb-4ef9-b3bb-d6e480769956.jpg?v=1782313316&width=1920",
     "notes": {
       "top": [
         "Lychee",
@@ -10612,7 +10612,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3147758029390",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/93891_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1551289833-84139700.jpg?v=1763392245&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -10642,7 +10642,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360598338",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Angham-Perfume-100ml-EDP-Lattafa-154570748.jpg?v=1734543582",
+    "image": "https://www.beautybase.com/cdn/shop/files/1763981205-38556300.jpg?v=1772625001&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -10673,7 +10673,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362346548",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Asad-Elixir-Perfume-100ml-EDP-Lattafa-179071295.png?v=1760476142",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761816473-81668000.jpg?v=1763399359&width=1920",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -10734,7 +10734,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107458328",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-Al-Oud-Oud-for-Glory-Perfume-EDP-100ml-Lattafa-153338948.jpg?v=1732557195",
+    "image": "https://www.beautybase.com/cdn/shop/files/1651074596-45882100.jpg?v=1763391948&width=1920",
     "notes": {
       "top": [
         "Saffron",
@@ -10762,7 +10762,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360598857",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Dynasty-Perfume-100ml-EDP-Lattafa-175285654.jpg?v=1755548160",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759334259-67914700.jpg?v=1763399123&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -10828,7 +10828,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291108738504",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Haya-Perfume-100ml-EDP-Lattafa-153340723.jpg?v=1732557851",
+    "image": "https://www.beautybase.com/cdn/shop/files/1746806093-24969800.jpg?v=1763397893&width=1920",
     "notes": {
       "top": [
         "Champagne",
@@ -10860,7 +10860,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107450193",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hayaati-Perfume-100ml-EDP-Lattafa-153346144.jpg?v=1732559298",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755679741-48714900.jpg?v=1763395898&width=1920",
     "notes": {
       "top": [
         "Nutmeg",
@@ -10893,7 +10893,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291108734056",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hayaati-Al-Maleky-Perfume-100ml-EDP-Lattafa-153345511.jpg?v=1732559244",
+    "image": "https://www.beautybase.com/cdn/shop/files/1747220688-36145600.jpg?v=1763397893&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -10924,7 +10924,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360593661",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Khamrah-Qahwa-Perfume-100ml-EDP-Lattafa-153338150.jpg?v=1732556971",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728474648-34987300.jpg?v=1763395255&width=1920",
     "notes": {
       "top": [
         "Cardamom",
@@ -10956,7 +10956,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107456744",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/maahir-perfume-100ml-edp-lattafa-emirates-oud-4.jpg?v=1713055463",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738837365-62237200.jpg?v=1763397090&width=1920",
     "notes": {
       "top": [
         "Saffron",
@@ -11023,7 +11023,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 20,
     "ean": "6290360599656",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Maitha-Concentrated-Perfume-Oil-20ml-Lattafa-184587398.png?v=1771482219",
+    "image": "https://www.beautybase.com/cdn/shop/files/Mahia1.jpg?v=1779274699&width=1920",
     "notes": {
       "top": [
         "Anise"
@@ -11050,7 +11050,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360598321",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mashrabya-Perfume-100ml-EDP-Lattafa-167097080.png?v=1744036959",
+    "image": "https://www.beautybase.com/cdn/shop/files/1748943933-89159700.jpg?v=1763398068&width=1920",
     "notes": {
       "top": [
         "Apple Shisha Accord",
@@ -11080,7 +11080,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291108732496",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mayar-Perfume-100ml-EDP-Lattafa-153340134.jpg?v=1732557612",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728471685-71992300.jpg?v=1763395499&width=1920",
     "notes": {
       "top": [
         "Litchi",
@@ -11110,7 +11110,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360598956",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mishlah-Perfume-100ml-EDP-Lattafa-184348236.png?v=1770857379",
+    "image": "https://www.beautybase.com/cdn/shop/files/1771001847-30499600.jpg?v=1772625008&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -11172,7 +11172,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362348054",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/188633_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759334105-44292300.jpg?v=1763399124&width=1920",
     "notes": {
       "top": [
         "Candy",
@@ -11202,7 +11202,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107450438",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/170949_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1697725791-94186900.jpg?v=1763394073&width=1920",
     "notes": null
   },
   {
@@ -11213,7 +11213,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362347095",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/185780_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761817600-49917200.jpg?v=1763399362&width=1920",
     "notes": {
       "top": [
         "Cognac",
@@ -11255,7 +11255,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "6291108739020",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Qaed-Al-Fursan-Unlimited-Perfume-90ml-EDP-Lattafa-145125933.jpg?v=1721786437",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728475844-22638400.jpg?v=1763394381&width=1920",
     "notes": {
       "top": [
         "Coconut",
@@ -11320,7 +11320,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362347484",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sherif-Perfume-100ml-EDP-Lattafa-176145033.jpg?v=1756744959",
+    "image": "https://www.beautybase.com/cdn/shop/files/1758292436-94213200.jpg?v=1763398979&width=1920",
     "notes": {
       "top": [
         "Apple",
@@ -11351,7 +11351,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360595771",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Teriaq-Intense-Perfume-100ml-EDP-Lattafa-179660699.jpg?v=1761698678",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759851308-70895300.jpg?v=1763399273&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -11380,7 +11380,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360592909",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/184535_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728314382-19723800.jpg?v=1763395787&width=1920",
     "notes": null
   },
   {
@@ -11422,7 +11422,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360591421",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/171310_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728475162-83834900.jpg?v=1763394374&width=1920",
     "notes": {
       "top": [
         "Jasmine",
@@ -11550,7 +11550,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362164494",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Faris-Al-Arab-Perfume-100ml-EDP-Maison-Asrar-178749481.jpg?v=1759906110",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759419443-07550000.jpg?v=1763399132&width=1920",
     "notes": {
       "top": [
         "Oriental Accord",
@@ -11583,7 +11583,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362163107",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Legacy-Perfume-100ml-EDP-Maison-Asrar-184445886.png?v=1771114873",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752066909-12400300.jpg?v=1763398269&width=1920",
     "notes": {
       "top": [
         "Ginger",
@@ -11614,7 +11614,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362164487",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Muharib-Perfume-100ml-EDP-Maison-Asrar-178820999.jpg?v=1759962182",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759418530-99274200.jpg?v=1763399139&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -11645,7 +11645,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362164890",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Regent-Perfume-100ml-EDP-Maison-Asrar-190987270.png?v=1779109448",
+    "image": "https://www.beautybase.com/cdn/shop/files/123_79f322ee-2686-4743-be9b-93c6df716b96.jpg?v=1780390774&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -11680,7 +11680,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362164906",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Vanguard-Perfume-100ml-EDP-Maison-Asrar-184446074.png?v=1771114914",
+    "image": "https://www.beautybase.com/cdn/shop/files/1769789926-51639000.jpg?v=1772625024&width=1920",
     "notes": {
       "top": [
         "Blackcurrant",
@@ -11718,7 +11718,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362164630",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Vanilla-Seduction-Perfume-100ml-EDP-Maison-Asrar-184444774.png?v=1771114493",
+    "image": "https://www.beautybase.com/cdn/shop/files/1762338587-87677200.jpg?v=1763399388&width=1920",
     "notes": {
       "top": [
         "Plum",
@@ -11781,7 +11781,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614229159035",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/137802_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1584617778-16192900.jpg?v=1763389721&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -11811,7 +11811,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3607342221161",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/100786_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731429896-31822400.jpg?v=1763391478&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -11841,7 +11841,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3607342221208",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/86217_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731430072-69093100.jpg?v=1763391478&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -11871,7 +11871,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616301776017",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/145560_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731431022-39844600.jpg?v=1763391480&width=1920",
     "notes": {
       "top": [
         "Ruby Red Grapefruit",
@@ -11905,7 +11905,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3616303423841",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/152853_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1657102737-01878300.jpg?v=1763392090&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -11935,7 +11935,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616304254871",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/190472_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1760623460-32230700.jpg?v=1763399318&width=1920",
     "notes": {
       "top": [
         "Banana Blossom Accord"
@@ -11962,7 +11962,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616304254888",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/191137_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731082265-87512200.jpg?v=1763396222&width=1920",
     "notes": null
   },
   {
@@ -11973,7 +11973,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616305187307",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/181889_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731083890-27842600.jpg?v=1763396228&width=1920",
     "notes": {
       "top": [
         "Purple Rhubarb"
@@ -12000,7 +12000,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003826827",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/95568_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1708613262-20736800.jpg?v=1763391505&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -12033,7 +12033,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "679602911214",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/182893_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752053580-33577000.jpg?v=1763398288&width=1920",
     "notes": {
       "top": [
         "Pear",
@@ -12061,7 +12061,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3386460118675",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51SMT06beUL.jpg?v=1767984649",
+    "image": "https://www.beautybase.com/cdn/shop/files/11_2c60d2d7-30ec-43f8-943d-a4b8fcdca0d8.jpg?v=1776433405&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -12091,7 +12091,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3386460146081",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/714Q-qjnsXL.jpg?v=1767984647",
+    "image": "https://www.beautybase.com/cdn/shop/files/MC200ml.jpg?v=1774456944&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -12113,7 +12113,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460032704",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/86164_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626799039-61116400.jpg?v=1763392257&width=1920",
     "notes": {
       "top": [
         "showcasing Lavender",
@@ -12145,7 +12145,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460032698",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/84255_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626799286-29625800.jpg?v=1763392262&width=1920",
     "notes": {
       "top": [
         "Pineapple",
@@ -12176,7 +12176,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460118132",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/190120_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1631203203-73220600.jpg?v=1763390326&width=1920",
     "notes": null
   },
   {
@@ -12187,7 +12187,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460144230",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/172077_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1719484897-37019100.jpg?v=1763395103&width=1920",
     "notes": null
   },
   {
@@ -12198,7 +12198,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460127950",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/144330_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1644931692-15401700.jpg?v=1763391958&width=1920",
     "notes": {
       "top": [
         "Blood Orange",
@@ -12224,7 +12224,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003878611",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/171086_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1706798336-49996500.jpg?v=1775559433&width=1920",
     "notes": null
   },
   {
@@ -12235,7 +12235,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003845132",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/136253_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/toyboy.jpg?v=1775555690&width=1920",
     "notes": null
   },
   {
@@ -12246,7 +12246,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8011003064106",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/97085_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1510329290-66183800.jpg?v=1763392269&width=1920",
     "notes": {
       "top": [
         "Coriander",
@@ -12280,7 +12280,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3439600055726",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/177719_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736848588-57154200.jpg?v=1763396026&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -12310,7 +12310,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3439600056969",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/190303_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736847731-74953900.jpg?v=1763394837&width=1920",
     "notes": null
   },
   {
@@ -12321,7 +12321,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 15,
     "ean": "3614273606417",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/190899_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738841177-67339000.jpg?v=1763396972&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -12344,7 +12344,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3439600056655",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/177720_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750842903-59619000.jpg?v=1763394837&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -12374,7 +12374,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222080952",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/172081_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/123_fed05aea-ba0e-4d1f-9356-390affcaa87b.jpg?v=1778508124&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -12432,7 +12432,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423470890013",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/101862_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736863571-90225100.jpg?v=1763393786&width=1920",
     "notes": null
   },
   {
@@ -12443,7 +12443,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222055547",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/165893_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1655120442-56907000.jpg?v=1763392501&width=1920",
     "notes": null
   },
   {
@@ -12454,7 +12454,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3423222107604",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/177273_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736864957-36271800.jpg?v=1763395299&width=1920",
     "notes": null
   },
   {
@@ -12465,7 +12465,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222107611",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/172824_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736865177-98821600.jpg?v=1763395303&width=1920",
     "notes": null
   },
   {
@@ -12506,7 +12506,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3137370207016",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/84515_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_27209ea0-8651-4a5a-a299-c472961aab79.jpg?v=1776759319&width=1920",
     "notes": null
   },
   {
@@ -12517,7 +12517,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8435137727087",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/63260_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/pradacandy.jpg?v=1773332762&width=1920",
     "notes": {
       "top": [
         "Caramel"
@@ -12543,7 +12543,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137764433",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/109614_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/lefmem_b37f5ca1-11e1-4bd0-9ab8-ce107ba2e4f8.jpg?v=1775639416&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -12573,7 +12573,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137782949",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61WZrSEcVTL.jpg?v=1767985047",
+    "image": "https://www.beautybase.com/cdn/shop/files/black.jpg?v=1773331404&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -12603,7 +12603,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273556187",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/615YrjNG6gL.jpg?v=1767985064",
+    "image": "https://www.beautybase.com/cdn/shop/files/50ml_54d45508-0264-4469-8c24-a21bd90f9dab.jpg?v=1775561896&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -12633,7 +12633,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273768825",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/163047_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/50ML_24251355-7ba9-468d-b276-5e3cec2bc494.jpg?v=1775561052&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -12654,7 +12654,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273768832",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/163050_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/100ML.jpg?v=1775561112&width=1920",
     "notes": null
   },
   {
@@ -12665,7 +12665,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273556620",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/138700_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/100ml_43e55946-d4cb-4887-ade7-6ca02f715d51.jpg?v=1775561459&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -12695,7 +12695,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3614273556637",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/184476_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/150ml.jpg?v=1775561926&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -12722,7 +12722,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274089349",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/179566_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/50ml_3294d2b3-d96c-4442-8ed5-44b1fd557ec9.jpg?v=1775561153&width=1920",
     "notes": {
       "top": [
         "Lemon essence"
@@ -12748,7 +12748,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274089356",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/179569_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/100ml_a08fc6e8-4089-41fa-a409-f287036e2e21.jpg?v=1775561164&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -12778,7 +12778,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273544955",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/79516_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/sport50ml.jpg?v=1773247535&width=1920",
     "notes": {
       "top": [
         "Juniper Berries",
@@ -12805,7 +12805,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274182897",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/186561_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753373565-15757500.jpg?v=1764322468&width=1920",
     "notes": {
       "top": [
         "Calabrian bergamot",
@@ -12834,7 +12834,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274172997",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/186558_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753374002-76618800.jpg?v=1763398439&width=1920",
     "notes": {
       "top": [
         "Calabrian bergamot",
@@ -12863,7 +12863,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274000566",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/173522_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/VF50.jpg?v=1773334605&width=1920",
     "notes": {
       "top": [
         "Vert de Bergamot"
@@ -12888,7 +12888,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668600304",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/189649_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728316429-55929100.jpg?v=1763391929&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -12913,7 +12913,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668555093",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/115207_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1563200849-97720600.jpg?v=1763389375&width=1920",
     "notes": null
   },
   {
@@ -12924,7 +12924,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668555062",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/174418_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739187427-83072600.jpg?v=1763395866&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -12954,7 +12954,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3349668630127",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/184624_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738165078-07387100.jpg?v=1763394577&width=1920",
     "notes": {
       "top": [
         "Coconut Water",
@@ -12985,7 +12985,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668630110",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/174422_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738165145-03064600.jpg?v=1763394577&width=1920",
     "notes": {
       "top": [
         "Coconut Water",
@@ -13016,7 +13016,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668630448",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/173945_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738165246-41873200.jpg?v=1763394581&width=1920",
     "notes": {
       "top": [
         "Coconut Water",
@@ -13047,7 +13047,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668627523",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/177648_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1715335549-90857700.jpg?v=1763395141&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -13077,7 +13077,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668627530",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/178608_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1715335030-26815700.jpg?v=1763395141&width=1920",
     "notes": {
       "top": [
         "Lavender"
@@ -13102,7 +13102,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3349668627547",
     "shops": 4,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1715335366-21403900.jpg?v=1763395143&width=1920",
     "notes": {
       "top": [
         "Lavender"
@@ -13157,7 +13157,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668592364",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/138956_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728399817-41151700.jpg?v=1763390174&width=1920",
     "notes": {
       "top": [
         "Milky Tuberose"
@@ -13182,7 +13182,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3349668617159",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/158796_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728398012-53667500.jpg?v=1763393552&width=1920",
     "notes": {
       "top": [
         "Pomegranate Accord",
@@ -13213,7 +13213,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668617166",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/162802_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728398402-02953000.jpg?v=1763393555&width=1920",
     "notes": {
       "top": [
         "Pomegranate Accord",
@@ -13274,7 +13274,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668614592",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/166422_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738236603-88229100.jpg?v=1763394006&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -13301,7 +13301,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3605972910240",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/173491_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1726157181-27174200.jpg?v=1763395116&width=1920",
     "notes": {
       "top": [
         "Calabrian Bergamot",
@@ -13329,7 +13329,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360377009356",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/68761_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736852536-91320200.jpg?v=1763393925&width=1920",
     "notes": {
       "top": [
         "Apple Tree Leaves",
@@ -13387,7 +13387,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "614514331033",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/182257_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761819472-69143400.jpg?v=1763399326&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -13417,7 +13417,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "614514465059",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hawas-London-Perfume-100ml-EDP-Rasasi-183574758.png?v=1769061117",
+    "image": "https://www.beautybase.com/cdn/shop/files/1769520598-81642900.jpg?v=1772625113&width=1920",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -13448,7 +13448,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297001571415",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rayhaan-Azul-Perfume-100ml-EDP-Rayhaan-192185225.png?v=1781211281",
+    "image": "https://www.beautybase.com/cdn/shop/files/2_01773cb5-5ad8-47b7-af44-15fa96a52ab5.jpg?v=1781711126&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -13475,7 +13475,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297001571002",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/185621_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1745489105-91925900.jpg?v=1763397791&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -13541,7 +13541,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297001571033",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/185624_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1742548408-98210900.jpg?v=1763397495&width=1920",
     "notes": {
       "top": [
         "Sage",
@@ -13605,7 +13605,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297001571262",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/190708_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1762336040-91122900.jpg?v=1763399391&width=1920",
     "notes": {
       "top": [
         "Frankincense",
@@ -13679,7 +13679,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303445119",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/Untitledhrtfvds.webp?v=1763143323",
+    "image": "https://www.beautybase.com/cdn/shop/files/1734542677-18851400.jpg?v=1763396839&width=1920",
     "notes": {
       "top": [
         "Pink Pepper"
@@ -13706,7 +13706,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "810023679950",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/184776_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1704472920-54021700.jpg?v=1763394216&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -13727,7 +13727,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "810023679943",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/183071_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725524293-19794500.jpg?v=1763395586&width=1920",
     "notes": {
       "top": [
         "Almond Milk",
@@ -13753,7 +13753,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "810023679646",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/185078_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1751450251-85633700.jpg?v=1763398240&width=1920",
     "notes": {
       "top": [
         "Cappuccino Smell-the-Taste",
@@ -13784,7 +13784,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 140,
     "ean": "6281085039633",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Atlantis-Perfume-140ml-EDP-Surrati-194848478.png?v=1784540156",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753190487-31558500.jpg?v=1763398437&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -13816,7 +13816,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 140,
     "ean": "6281085036854",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Dream-Valley-Perfume-140ml-EDP-Surrati-194848924.png?v=1784540723",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753189379-87832100.jpg?v=1763398440&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -13847,7 +13847,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "6281085040035",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Gray-Oud-150ml-Extrait-De-Parfum-Surrati-194850862.png?v=1784544897",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759413327-51744400.jpg?v=1763399095&width=1920",
     "notes": {
       "top": [
         "Oud",
@@ -13875,7 +13875,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 140,
     "ean": "6281085036915",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Honey-Oud-Perfume-140ml-EDP-Surrati-194849168.png?v=1784540969",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753189965-95605400.jpg?v=1763398444&width=1920",
     "notes": {
       "top": [
         "Cardamom"
@@ -13996,7 +13996,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295124048494",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Soul-Of-Bali-Extrait-De-Parfum-100ml-Swiss-Arabian-173902281.jpg?v=1752376902",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750149297-82806000.jpg?v=1763398174&width=1920",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -14226,7 +14226,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614272761421",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/137073_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727774324-74390100.jpg?v=1763391666&width=1920",
     "notes": {
       "top": [
         "Blackcurrant",
@@ -14257,7 +14257,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272761445",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/127834_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1643890595-41220700.jpg?v=1763391671&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -14287,7 +14287,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272761469",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/137075_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1611770440-98501700.jpg?v=1763389478&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -14317,7 +14317,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273672412",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/165298_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1645012630-38092900.jpg?v=1763391981&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -14338,7 +14338,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273261425",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/149307_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1612198970-00941000.jpg?v=1763390119&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -14359,7 +14359,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614272731943",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61vlJ_xfSjL.jpg?v=1763144454",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738924465-75345600.jpg?v=1763391673&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -14390,7 +14390,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274024777",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/177322_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727778303-88700900.jpg?v=1763394421&width=1920",
     "notes": null
   },
   {
@@ -14401,7 +14401,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272732209",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/179464_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1643891585-06654500.jpg?v=1763391677&width=1920",
     "notes": {
       "top": [
         "Bergamot Essence",
@@ -14433,7 +14433,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8018365260757",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/65150_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1603467625-45561200.jpg?v=1763393489&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -14471,7 +14471,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003891467",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/175917_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1716212542-22976800.jpg?v=1763395159&width=1920",
     "notes": null
   },
   {
@@ -14482,7 +14482,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003993819",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/80153_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1643969886-67900200.jpg?v=1763393403&width=1920",
     "notes": {
       "top": [
         "Pomegranate Grains",
@@ -14513,7 +14513,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "8011003993826",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/65157_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/BC.jpg?v=1771845753&width=1920",
     "notes": {
       "top": [
         "Yuzu",
@@ -14541,7 +14541,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8018365070264",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/181621_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1696522381-67775200.jpg?v=1763391687&width=1920",
     "notes": {
       "top": [
         "Cardamom",
@@ -14572,7 +14572,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "8018365070462",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/137954_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1510307343-37588200.jpg?v=1763397287&width=1920",
     "notes": {
       "top": [
         "Ginger"
@@ -14631,7 +14631,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003839100",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/124693_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1543411116-55735000.jpg?v=1763399455&width=1920",
     "notes": null
   },
   {
@@ -14642,7 +14642,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003839117",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/122515_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1638439662-99771400.jpg?v=1763391702&width=1920",
     "notes": {
       "top": [
         "Granny Smith Apple",
@@ -14678,7 +14678,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003890798",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/179836_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1724943655-94361700.jpg?v=1763395595&width=1920",
     "notes": {
       "top": [
         "Italian Bergamot",
@@ -14712,7 +14712,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003890804",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/183960_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1724943460-58400300.jpg?v=1763395598&width=1920",
     "notes": {
       "top": [
         "Italian Bergamot",
@@ -14746,7 +14746,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8011003846627",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/125361_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1628596332-37281900.jpg?v=1763390309&width=1920",
     "notes": {
       "top": [
         "Black Pepper",
@@ -14780,7 +14780,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003823529",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/85480_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1653396117-05614900.jpg?v=1763391704&width=1920",
     "notes": {
       "top": [
         "Sicilian lemon",
@@ -14812,7 +14812,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003823536",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/68587_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1510309542-63798500.jpg?v=1763394644&width=1920",
     "notes": {
       "top": [
         "Sicilian Lemon",
@@ -14835,7 +14835,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003995967",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/65016_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1371210229-59452900.jpg?v=1763393414&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -14896,7 +14896,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8018365250468",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/88390_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1665419077-32226400.jpg?v=1763391719&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -14956,7 +14956,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360374000011",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/61443_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1498309908-19439100.jpg?v=1763398568&width=1920",
     "notes": {
       "top": [
         "tea",
@@ -14979,7 +14979,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273987868",
     "shops": 4,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/v_rflowerbomb.jpg?v=1781797111&width=1920",
     "notes": {
       "top": [
         "Tea Accord",
@@ -15011,7 +15011,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273662543",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/148058_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1657290124-91652000.jpg?v=1763392574&width=1920",
     "notes": {
       "top": [
         "Fennel",
@@ -15037,7 +15037,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273662581",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/157763_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1657554888-95830700.jpg?v=1763392575&width=1920",
     "notes": {
       "top": [
         "Fennel",
@@ -15063,7 +15063,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605521515629",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/88743_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1498313038-26181200.jpg?v=1763398568&width=1920",
     "notes": {
       "top": [
         "Manderin",
@@ -15094,7 +15094,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614270659652",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/69479_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737384300-20473600.jpg?v=1763391738&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -15126,7 +15126,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614270659706",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/188183_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737384342-19054300.jpg?v=1763391739&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -15158,7 +15158,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273067768",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/140619_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1642178966-54031900.jpg?v=1763391732&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -15230,7 +15230,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273863384",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/183897_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_56e9e732-fd97-48f5-b169-0264e356cd4c.jpg?v=1773767357&width=1920",
     "notes": null
   },
   {
@@ -15241,7 +15241,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3614274222982",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/179909_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739542043-06506200.jpg?v=1763397172&width=1920",
     "notes": {
       "top": [
         "Lychee",
@@ -15274,7 +15274,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614272648401",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/130467_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/30.jpg?v=1773238212&width=1920",
     "notes": {
       "top": [
         "Tangerine",
@@ -15299,7 +15299,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614272648425",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/139231_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/90.jpg?v=1773243766&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -15333,7 +15333,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273069533",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/136333_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/30_aa57250a-3830-4dec-bea9-1d00614d3704.jpg?v=1773244832&width=1920",
     "notes": {
       "top": [
         "Lavender",
@@ -15364,7 +15364,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614270561634",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/99819_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_aa714a26-ec6e-4a5c-963d-f4f8c24782f7.jpg?v=1773836853&width=1920",
     "notes": {
       "top": [
         "Pear",
@@ -15392,7 +15392,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3614274114652",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/174458_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_a1a08205-2883-4716-a6e4-a9c2952d69e9.jpg?v=1774003898&width=1920",
     "notes": {
       "top": [
         "Black Pepper"
@@ -15445,7 +15445,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171072027",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/167380_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/ilham.jpg?v=1784197511&width=1920",
     "notes": {
       "top": [
         "JASMINE",
@@ -15477,7 +15477,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171072874",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/night-shadow-perfume-100ml-edp-zimaya-by-afnan-emirates-oud-1-103913055.jpg?v=1772775345",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727346282-60665500.jpg?v=1763393666&width=1920",
     "notes": {
       "top": [
         "Incense",
@@ -15520,7 +15520,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171074199",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/184698_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/the_club.jpg?v=1784196824&width=1920",
     "notes": {
       "top": [
         "FRUIT",
@@ -15551,7 +15551,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "085715167804",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/172528_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/963_a2a81a73-41d1-4130-b540-12a6345dd930.jpg?v=1774438885&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -15689,7 +15689,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303321932",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/75830_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738315449-63507800.jpg?v=1763390643&width=1920",
     "notes": null
   },
   {
@@ -15700,7 +15700,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303322052",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/66579_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1461601073-07469400.jpg?v=1774439430&width=1920",
     "notes": null
   },
   {
@@ -15711,7 +15711,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171072591",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/9am-pour-femme-perfume-100ml-edp-afnan-emirates-oud-2-103830284.jpg?v=1713056273",
+    "image": "https://www.beautybase.com/cdn/shop/files/1692796374-30833000.png?v=1763393773&width=1920",
     "notes": {
       "top": [
         "Mandarin Orange",
@@ -15854,7 +15854,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171070207",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/175348_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731672437-86290500.jpg?v=1763390188&width=1920",
     "notes": {
       "top": [
         "Saffron",
@@ -15909,7 +15909,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "6290171072768",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-in-oud-extrait-de-parfum-150ml-p35655-108061_image.jpg?v=1721322155&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1712926785-36093100.jpg?v=1763394219&width=1920",
     "notes": {
       "top": [
         "SAFFRON",
@@ -15938,7 +15938,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171000976",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/167344_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731672226-10534000.jpg?v=1763390650&width=1920",
     "notes": {
       "top": [
         "Apple",
@@ -16033,7 +16033,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6290360617442",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/187890_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770296344-34791300.jpg?v=1772624795&width=1920",
     "notes": {
       "top": [
         "Cypriol",
@@ -16139,7 +16139,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291106814910",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amber-Oud-Dubai-Night-Extrait-De-Parfum-100ml-Al-Haramain-173955091.jpg?v=1752622832",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_0f03f6ab-15b0-4612-8e01-938cc5ecf65f.jpg?v=1774458081&width=1920",
     "notes": {
       "top": [
         "Saffron",
@@ -16171,7 +16171,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 120,
     "ean": "6291100130498",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/135570_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_c7b42d59-3b16-4381-afea-b0f3e5fb9a80.jpg?v=1774458521&width=1920",
     "notes": {
       "top": [
         "Bergamot"
@@ -16301,7 +16301,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291100139668",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/140816_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/147_877c67fa-1a5d-4c7e-836c-a935c7eeda4d.jpg?v=1774447854&width=1920",
     "notes": {
       "top": [
         "Elemi",
@@ -16687,7 +16687,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6423080608517",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41DnWzfRcEL.jpg?v=1767981006",
+    "image": "https://www.beautybase.com/cdn/shop/files/1733826504-16567200.jpg?v=1763394366&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -16711,7 +16711,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199793817",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Dirham-Gold-Perfume-100ml-EDP-Ard-Al-Zaafaran-163213865.jpg?v=1740063661",
+    "image": "https://www.beautybase.com/cdn/shop/files/dirhamgold.jpg?v=1783430987&width=1920",
     "notes": {
       "top": [
         "Pineapple",
@@ -16776,7 +16776,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199793831",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Shams-Al-Emarat-Khususi-Red-Oud-Perfume-100ml-EDP-Ard-Al-Zaafaran-163215859.jpg?v=1740066083",
+    "image": "https://www.beautybase.com/cdn/shop/files/Shamsred1.jpg?v=1783432345&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -16846,7 +16846,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "812256023296",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/115822_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/cl50ml.jpg?v=1773751147&width=1920",
     "notes": {
       "top": [
         "Lavender Blossom",
@@ -16876,7 +16876,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "812256028475",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/168274_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1639650692-11914800.jpg?v=1763391900&width=1920",
     "notes": {
       "top": [
         "Ambrette Juicy Pear"
@@ -16901,7 +16901,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "812256021735",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/88671_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/ariii.jpg?v=1773764465&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -16955,7 +16955,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 10,
     "ean": "6294015170566",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61Tg6LbaFBL.jpg?v=1763146809",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737393873-65143100.jpg?v=1763395050&width=1920",
     "notes": {
       "top": [
         "Mandarin Orange",
@@ -16989,7 +16989,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "6294015169935",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/167118_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737393666-14828200.jpg?v=1763394314&width=1920",
     "notes": null,
     "houseCeiling": 22.99
   },
@@ -17001,7 +17001,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 10,
     "ean": "6294015171280",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/177804_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Clubdenuit1.jpg?v=1781789635&width=1920",
     "notes": {
       "top": [
         "Rose",
@@ -17034,7 +17034,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "6294015157765",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/159284_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_314f0baa-b4a3-49d2-9e42-f17a5cc45176.jpg?v=1774521032&width=1920",
     "notes": null,
     "houseCeiling": 25.99
   },
@@ -17081,7 +17081,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "6294015158823",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/159289_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1696417508-89959900.jpg?v=1763393133&width=1920",
     "notes": null,
     "houseCeiling": 22.99
   },
@@ -17093,7 +17093,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": "6085010094977",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/137889_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1751531017-05167200.jpg?v=1763398228&width=1920",
     "notes": {
       "top": [
         "Rose",
@@ -17125,7 +17125,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "6294015158816",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/162420_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/11_82490e98-f9ae-441b-9dd5-053139ef07da.jpg?v=1776933165&width=1920",
     "notes": null,
     "houseCeiling": 22.99
   },
@@ -17308,7 +17308,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199810613",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/188663_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770806555-10520600.jpg?v=1772624815&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -17342,7 +17342,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199800959",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/185003_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1749824224-37488300.jpg?v=1763398143&width=1920",
     "notes": {
       "top": [
         "Cherry",
@@ -17827,7 +17827,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6294015189575",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/183737_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750160076-80315000.jpg?v=1763398136&width=1920",
     "notes": {
       "top": [
         "Orange"
@@ -17848,7 +17848,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015149371",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/178351_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1742485683-36138000.jpg?v=1763397478&width=1920",
     "notes": {
       "top": [
         "Mandarin Orange",
@@ -17880,7 +17880,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199812075",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Odyssey-Mandarin-Sky-Vintage-Edition-Perfume-100ml-EDP-Armaf-184370842.jpg?v=1770947571",
+    "image": "https://www.beautybase.com/cdn/shop/files/Vintage2.jpg?v=1782381136&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -17906,7 +17906,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199805787",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Odyssey-Revolution-Perfume-100ml-EDP-Armaf-182864630.png?v=1768259873",
+    "image": "https://www.beautybase.com/cdn/shop/files/1754392535-36185300.jpg?v=1763398638&width=1920",
     "notes": {
       "top": [
         "Blackcurrant",
@@ -17974,7 +17974,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015160734",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/176818_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1742486524-68701100.jpg?v=1763397481&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -18005,7 +18005,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199815823",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_5a9e2c7f-8058-47e6-a026-95cef355bb6f.jpg?v=1784189514&width=1920",
     "notes": null,
     "houseCeiling": 34.99
   },
@@ -18338,7 +18338,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273638869",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273638869.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1732026962-29472900.jpg?v=1763393965&width=1920",
     "notes": {
       "top": [
         "Ginger"
@@ -18361,7 +18361,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274129267",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/184241_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755684236-51177200.jpg?v=1763398460&width=1920",
     "notes": {
       "top": [
         "Bergamot Essence"
@@ -18386,7 +18386,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273905428",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/168407_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1732096863-40982700.jpg?v=1763393973&width=1920",
     "notes": null
   },
   {
@@ -18397,7 +18397,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274258073",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/182015_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755683556-54990800.jpg?v=1763398469&width=1920",
     "notes": {
       "top": [
         "Raspberry",
@@ -18597,7 +18597,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640111497547",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71zgfhBptTL_51c1c051-73ab-4718-b2ac-da25fb6f4be4.jpg?v=1767981282",
+    "image": "https://www.beautybase.com/cdn/shop/files/1555340158-85440700.jpg?v=1763388800&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -18631,7 +18631,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640163970012",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/86763_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Bentleyinfinte.jpg?v=1783954732&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -18653,7 +18653,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640163970029",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/85176_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1718630059-45057600.jpg?v=1763395302&width=1920",
     "notes": null
   },
   {
@@ -18664,7 +18664,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "608940583777",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/163444_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_cc316742-872e-4669-a0c4-8e38e30206fa.jpg?v=1774528285&width=1920",
     "notes": null
   },
   {
@@ -18675,7 +18675,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "608940583760",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/14510072-1295050891769721.webp?v=1763137418",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_f743abab-0977-47ee-8799-28e2d75ee1fc.jpg?v=1774528758&width=1920",
     "notes": {
       "top": [
         "Italian bergamot"
@@ -18707,7 +18707,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460057059",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/95533_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1639582463-39624200.jpg?v=1763390692&width=1920",
     "notes": {
       "top": [
         "pink pepper",
@@ -18857,7 +18857,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014001147",
     "shops": 3,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/4D7ADE69-277A-49CE-BE93-5378DD328BC1.png?v=1783986395&width=1254",
+    "image": "https://www.beautybase.com/cdn/shop/files/Breathless.jpg?v=1786705595&width=1920",
     "notes": {
       "top": [
         "Rose",
@@ -18888,7 +18888,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014000072",
     "shops": 3,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/0D241144-0BCD-49B6-AF14-0A194F6F5F1B.webp?v=1767392782&width=256",
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairami_Candy_Crush1.jpg?v=1774612797&width=1920",
     "notes": {
       "top": [
         "Vanilla",
@@ -18927,7 +18927,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014001413",
     "shops": 3,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/IMG-0941.webp?v=1778161770&width=1200",
+    "image": "https://www.beautybase.com/cdn/shop/files/Chubby.jpg?v=1784623073&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -19001,7 +19001,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014011122",
     "shops": 3,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/F0548D6D-EDB0-4CFB-8100-519599FB1884.webp?v=1783642697&width=456",
+    "image": "https://www.beautybase.com/cdn/shop/files/Dirtymoney.jpg?v=1786705957&width=1920",
     "notes": {
       "top": [
         "Cardamom"
@@ -19058,7 +19058,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014011610",
     "shops": 3,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/05D6C6CD-16D3-47B9-BFE9-F8DEE232DB38.webp?v=1783643051&width=720",
+    "image": "https://www.beautybase.com/cdn/shop/files/FirstClass.jpg?v=1784625642&width=1920",
     "notes": {
       "top": [
         "Saffron",
@@ -19121,7 +19121,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014000157",
     "shops": 3,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/4F2884D3-1752-4BD1-94AA-BF76221E9C6E.webp?v=1765932594&width=1200",
+    "image": "https://www.beautybase.com/cdn/shop/files/1766511040-60500600.jpg?v=1774611897&width=1920",
     "notes": {
       "top": [
         "Vibrant Citrus",
@@ -19146,7 +19146,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014000539",
     "shops": 3,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/914424B4-893A-4101-A129-2FCB75389597.webp?v=1767390492&width=990",
+    "image": "https://www.beautybase.com/cdn/shop/files/1766511054-30086700.jpg?v=1774612180&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -19219,7 +19219,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014000461",
     "shops": 3,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/IMG-0951.webp?v=1778164339&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairamimadnes1.jpg?v=1778845139&width=1920",
     "notes": {
       "top": [
         "Raspberry",
@@ -19264,7 +19264,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014000546",
     "shops": 3,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/BA6E9B85-643D-413D-8510-48FEB892F1FC.png?v=1776009567&width=1086",
+    "image": "https://www.beautybase.com/cdn/shop/files/3dac9163e93a4cc4a1453b57a8ab5cf0_tplv-t5fjg24jzw-origin-jpeg.jpg?v=1776427358&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -19291,7 +19291,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014007309",
     "shops": 3,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/IMG-0953.webp?v=1778164618&width=1200",
+    "image": "https://www.beautybase.com/cdn/shop/files/Ozonicinspired1.jpg?v=1778845328&width=1920",
     "notes": null
   },
   {
@@ -19333,7 +19333,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014000577",
     "shops": 3,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/2302-26_jpg.webp?v=1767717778&width=1159",
+    "image": "https://www.beautybase.com/cdn/shop/files/1769091814-98598800.jpg?v=1772624853&width=1920",
     "notes": {
       "top": [
         "Cherry",
@@ -19389,7 +19389,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014002052",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/The-Rock-Powerfully-Perfume-100ml-EDP-Bujairami-185849728.png?v=1774386346",
+    "image": "https://www.beautybase.com/cdn/shop/files/BujairamiTheRockPowerfully1.jpg?v=1774614467&width=1920",
     "notes": {
       "top": [
         "Cherry",
@@ -19450,7 +19450,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014001550",
     "shops": 3,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/IMG-0916.png?v=1777990628&width=1104",
+    "image": "https://www.beautybase.com/cdn/shop/files/Burjairamitoodamngood.jpg?v=1778839283&width=1920",
     "notes": {
       "top": [
         "Blackcurrant",
@@ -19480,7 +19480,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014012280",
     "shops": 3,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/F1D44D72-0850-42BF-B178-E94AD4A438E1.webp?v=1783493491&width=304",
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairamivibration.jpg?v=1783936704&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -19512,7 +19512,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014000829",
     "shops": 3,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/09FEAD90-ECD4-41B2-BC27-43DCA7ECEF44.png?v=1776200322&width=1266",
+    "image": "https://www.beautybase.com/cdn/shop/files/w1.jpg?v=1776435806&width=1920",
     "notes": null
   },
   {
@@ -19549,7 +19549,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252667309",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/_/4_1.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1579606241-09666000.jpg?v=1763388811&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -19579,7 +19579,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616301975700",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/186166_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1733915704-40038900.jpg?v=1763396795&width=1920",
     "notes": null
   },
   {
@@ -19590,7 +19590,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616304061943",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/192999_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1733917707-71867000.jpg?v=1773417142&width=1920",
     "notes": null
   },
   {
@@ -19699,7 +19699,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614227748682",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/60319_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1579604356-03346700.jpg?v=1763393462&width=1920",
     "notes": {
       "top": [
         "Artemisia",
@@ -19730,7 +19730,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252667484",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/BURB0026.png?v=1765452779&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1639585256-45295500.jpg?v=1763390737&width=1920",
     "notes": {
       "top": [
         "Mignonette",
@@ -19994,7 +19994,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360373063703",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/87922_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1645101743-56120000.jpg?v=1763390739&width=1920",
     "notes": null
   },
   {
@@ -20035,7 +20035,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3360370512044",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/101622_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1480705780-45795100.jpg?v=1763388821&width=1920",
     "notes": {
       "top": [
         "Hiacynth",
@@ -20062,7 +20062,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3360373048861",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/84119_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1373621802-35554500.jpg?v=1763388827&width=1920",
     "notes": {
       "top": [
         "Water Lily",
@@ -20094,7 +20094,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3360373000074",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/58538_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1369390744-38068200.jpg?v=1763388828&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -20125,7 +20125,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360373016341",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/55293_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761826566-65358100.jpg?v=1763399037&width=1920",
     "notes": null
   },
   {
@@ -20210,7 +20210,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300000319",
     "shops": 3,
-    "image": "https://allbeauty.com/cdn/shop/files/5450.jpg?v=1755875234&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1524823575-78730600.png?v=1763388848&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -20257,7 +20257,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616304175978",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/177683_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1763640600-66072000.jpg?v=1772624858&width=1920",
     "notes": {
       "top": [
         "Mandarin oil",
@@ -20288,7 +20288,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "088300605385",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/310lLfyWQoL.jpg?v=1763135993",
+    "image": "https://www.beautybase.com/cdn/shop/files/eternity_for_men.jpg?v=1783526971&width=1920",
     "notes": {
       "top": [
         "Freesia",
@@ -20362,7 +20362,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303476809",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/120.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737382290-24019800.jpg?v=1763394932&width=1920",
     "notes": null
   },
   {
@@ -20373,7 +20373,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 160,
     "ean": "3607342686229",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61kQ30rb9wL.jpg?v=1763136043",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_803a9bfe-e21b-4400-95d7-f732ccd5eae0.jpg?v=1774539766&width=1920",
     "notes": {
       "top": [
         "Pomegranate",
@@ -20405,7 +20405,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300178278",
     "shops": 3,
-    "image": "https://allbeauty.com/cdn/shop/files/7016.jpg?v=1755875128&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_f9a60f8c-115d-4ae8-a8a7-b64918e0ead3.jpg?v=1774538799&width=1920",
     "notes": {
       "top": [
         "Ginger Pepper Cocktail",
@@ -20427,7 +20427,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "031655644851",
     "shops": 3,
-    "image": "https://allbeauty.com/cdn/shop/files/9085.jpg?v=1755875052&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1474993187-22648800.jpg?v=1763393461&width=1920",
     "notes": null
   },
   {
@@ -20519,7 +20519,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614221537763",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/112649_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/CalvinKleingold.jpg?v=1782305691&width=1920",
     "notes": null
   },
   {
@@ -20561,7 +20561,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061043868",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/85730_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728398413-30622400.jpg?v=1763389921&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -20598,7 +20598,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061133019",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/86849_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728400841-71010900.jpg?v=1763389927&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -20654,7 +20654,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061099759",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/144689_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728380995-43556700.jpg?v=1763392381&width=1920",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -20732,7 +20732,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061106297",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/190420_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744802263-10806400.jpg?v=1763397652&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -20773,7 +20773,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061954966",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/67247_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759412813-82966200.jpg?v=1763399228&width=1920",
     "notes": {
       "top": [
         "Italian bergamot",
@@ -20807,7 +20807,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061083765",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/179866_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728383585-59359800.jpg?v=1763395612&width=1920",
     "notes": null
   },
   {
@@ -20818,7 +20818,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061083772",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/180071_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728383767-17466200.jpg?v=1763395613&width=1920",
     "notes": null
   },
   {
@@ -20829,7 +20829,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061026342",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/97246_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728303785-64942500.jpg?v=1763399451&width=1920",
     "notes": {
       "top": [
         "Almond"
@@ -20856,7 +20856,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8411061077146",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/188285_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1757320634-37662100.jpg?v=1763398879&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -20878,7 +20878,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061043875",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/139058_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728304977-93902300.jpg?v=1763390129&width=1920",
     "notes": {
       "top": [
         "Redcurrant",
@@ -20933,7 +20933,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8411061106204",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/189760_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739271602-94204200.jpg?v=1763397094&width=1920",
     "notes": null
   },
   {
@@ -20977,7 +20977,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5050456522736",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/90381_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1640085789-75372500.jpg?v=1763389935&width=1920",
     "notes": {
       "top": [
         "Linen Flower",
@@ -21046,7 +21046,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "0688575201901",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/55766_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1507804864-09937300.png?v=1763389935&width=1920",
     "notes": {
       "top": [
         "Peony"
@@ -21100,7 +21100,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616303445577",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/184888_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729783241-28660900.jpg?v=1763396191&width=1920",
     "notes": null
   },
   {
@@ -21111,7 +21111,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303445584",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61XDu_y2PGL.jpg?v=1763147571",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729784653-20578000.jpg?v=1763396192&width=1920",
     "notes": null
   },
   {
@@ -21122,7 +21122,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614228842785",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/143223_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1638971177-54960500.jpg?v=1763391884&width=1920",
     "notes": {
       "top": [
         "Black Currant",
@@ -21147,7 +21147,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616302038312",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/188043_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1714386647-54131600.jpg?v=1763393344&width=1920",
     "notes": null
   },
   {
@@ -21169,7 +21169,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414208000040",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61nch5thUWL.jpg?v=1767981712",
+    "image": "https://www.beautybase.com/cdn/shop/files/1375189451-89315000.jpg?v=1763389940&width=1920",
     "notes": {
       "top": [
         "Coconut",
@@ -21220,7 +21220,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "7640177366160",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41jfYyUJ71L.jpg?v=1763136469",
+    "image": "https://www.beautybase.com/cdn/shop/files/1371028772-83469800.jpg?v=1763389940&width=1920",
     "notes": {
       "top": [
         "Coconut",
@@ -21326,7 +21326,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "020714080310",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/94799_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1700494798-22818000.jpg?v=1763393312&width=1920",
     "notes": null
   },
   {
@@ -21358,7 +21358,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460157315",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759412367-40661200.jpg?v=1763399195&width=1920",
     "notes": {
       "top": [
         "Pink Peppercorn"
@@ -21587,7 +21587,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060524511517",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/175347_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736510850-03136500.jpg?v=1763396943&width=1920",
     "notes": null
   },
   {
@@ -21623,7 +21623,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060524511494",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/175344_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736511891-57604500.jpg?v=1763396934&width=1920",
     "notes": null
   },
   {
@@ -21634,7 +21634,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060524510909",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/152265_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1696956646-46494200.jpg?v=1763394079&width=1920",
     "notes": {
       "top": [
         "papaya",
@@ -21687,7 +21687,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "5425017733508",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/96299_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1643373746-44518000.jpg?v=1763390835&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -21710,7 +21710,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5425017736363",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/99545_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1643373643-70984300.jpg?v=1763390834&width=1920",
     "notes": null
   },
   {
@@ -21743,7 +21743,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3414202000572",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/92436_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1478602520-63763000.jpg?v=1763389951&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -21773,7 +21773,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3616303467371",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/164552_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736769465-38491400.jpg?v=1763396623&width=1920",
     "notes": null
   },
   {
@@ -21784,7 +21784,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303467388",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/165587_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1743762229-09593500.jpg?v=1763397458&width=1920",
     "notes": null
   },
   {
@@ -21795,7 +21795,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3414202011820",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/85539_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1371657605-91995100.jpg?v=1763389955&width=1920",
     "notes": {
       "top": [
         "Honeydew Melon",
@@ -21827,7 +21827,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3614220080499",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/115933_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761826045-64662600.jpg?v=1763399039&width=1920",
     "notes": {
       "top": [
         "invigorating rosemary",
@@ -21860,7 +21860,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274139341",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/188495_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/DD.jpg?v=1774519339&width=1920",
     "notes": null
   },
   {
@@ -21871,7 +21871,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3614274139365",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/192300_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753280681-61108800.jpg?v=1763398473&width=1920",
     "notes": null
   },
   {
@@ -21882,7 +21882,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3605521034014",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/55725_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731333278-94736300.jpg?v=1763389969&width=1920",
     "notes": null
   },
   {
@@ -21893,7 +21893,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3605521922830",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/91k-m7Fi7rL.jpg?v=1767982163",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761825906-15972300.jpg?v=1763399261&width=1920",
     "notes": {
       "top": [
         "Granny Smith Apple",
@@ -22055,7 +22055,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8057971183715",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/166477_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1697729406-18975600.jpg?v=1763394067&width=1920",
     "notes": null
   },
   {
@@ -22066,7 +22066,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8057971183722",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/189333_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1697729611-09673600.jpg?v=1763394072&width=1920",
     "notes": null
   },
   {
@@ -22077,7 +22077,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971183739",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/166762_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1696503916-18694800.jpg?v=1763394073&width=1920",
     "notes": null
   },
   {
@@ -22099,7 +22099,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8057971187997",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/187600_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/d_gbluejasmine.jpg?v=1782216274&width=1920",
     "notes": null
   },
   {
@@ -22170,7 +22170,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8057971186945",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/139191_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/d_grose1.jpg?v=1781784408&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -22215,7 +22215,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8054754405088",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/186366_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1741011671-12567200.jpg?v=1763397198&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -22306,7 +22306,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971187911",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/175921_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729173730-71060600.jpg?v=1763394899&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -22336,7 +22336,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3423473020523",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41xfIuex3xL.jpg?v=1763137221",
+    "image": "https://www.beautybase.com/cdn/shop/files/1771415609-83752800.jpg?v=1772625022&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -22401,7 +22401,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8057971183647",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/163158_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1674649099-31650900.jpg?v=1763393160&width=1920",
     "notes": {
       "top": [
         "Sicilian Lemon",
@@ -22430,7 +22430,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8057971183654",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/154743_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1674649800-90817300.jpg?v=1763393161&width=1920",
     "notes": null
   },
   {
@@ -22441,7 +22441,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971183661",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/dolce-gabbana-women-s-perfume-dolce-gabbana-q-women-s-eau-de-parfum-perfume-spray-30ml-50ml-100ml-34605473202335.png?v=1763137263",
+    "image": "https://www.beautybase.com/cdn/shop/files/1674650747-73194400.jpg?v=1763393162&width=1920",
     "notes": {
       "top": [
         "Sicilian Lemon",
@@ -22470,7 +22470,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8057971187843",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/174068_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729170341-76083200.jpg?v=1763394882&width=1920",
     "notes": null
   },
   {
@@ -22481,7 +22481,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "737052036625",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/128925_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/D_Gtheoneformen.jpg?v=1781789090&width=1920",
     "notes": {
       "top": [
         "Litchi",
@@ -22509,7 +22509,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423473021230",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61wZ3nfri6L.jpg?v=1763136998",
+    "image": "https://www.beautybase.com/cdn/shop/files/1381492839-44567300.jpg?v=1763389991&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -22595,7 +22595,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003852697",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/142803_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1583167579-97718900.jpg?v=1763389707&width=1920",
     "notes": null
   },
   {
@@ -22628,7 +22628,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085715806345",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61hHDjY3yLL_57fb7d77-6ad9-4b3b-89a1-cb38c4c0fbf4.jpg?v=1767982327",
+    "image": "https://www.beautybase.com/cdn/shop/files/1732098192-14994500.jpg?v=1763396086&width=1920",
     "notes": null
   },
   {
@@ -22661,7 +22661,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640233341414",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/192176_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731497902-03219900.jpg?v=1763393300&width=1920",
     "notes": null
   },
   {
@@ -22722,7 +22722,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423470398021",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/11079420-1625014344424791_d8a14841-9615-4e7a-9d60-5236b97f28a9.webp?v=1763137489",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731499169-02387000.jpg?v=1763393934&width=1920",
     "notes": null
   },
   {
@@ -22733,7 +22733,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "7640233341698",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/167955_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731500931-55751900.jpg?v=1763394922&width=1920",
     "notes": null
   },
   {
@@ -22744,7 +22744,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "7640233341704",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/167958_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731501293-38679200.jpg?v=1763394924&width=1920",
     "notes": null
   },
   {
@@ -22755,7 +22755,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "7640233341711",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/187899_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731502042-47950600.jpg?v=1763394925&width=1920",
     "notes": null
   },
   {
@@ -22766,7 +22766,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3423473998556",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51qZmNTZbvL.jpg?v=1767982381",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731496956-28386400.jpg?v=1763390884&width=1920",
     "notes": {
       "top": [
         "Patchouli"
@@ -22791,7 +22791,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "7640233341001",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/185036_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1733755756-30431100.jpg?v=1763396713&width=1920",
     "notes": null
   },
   {
@@ -22802,7 +22802,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "085805390402",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/c61b996a-0175-42c8-9795-4e25e6fccbe9_cfe45ce6-2d6d-4156-b926-434f0a8f23b3.jpg?v=1763137523",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729701047-86160300.jpg?v=1763393766&width=1920",
     "notes": {
       "top": [
         "lilac",
@@ -22875,7 +22875,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "085805268749",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/60007_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1665068815-45588900.jpg?v=1763390891&width=1920",
     "notes": null
   },
   {
@@ -22897,7 +22897,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805260101",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/172339_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1771416049-21432300.jpg?v=1772624899&width=1920",
     "notes": null
   },
   {
@@ -22919,7 +22919,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805378349",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/183806_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1771416277-49132200.jpg?v=1772624901&width=1920",
     "notes": {
       "top": [
         "Italian Bergamot Oil",
@@ -22987,7 +22987,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "085805757847",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/60060_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/8_f8883f77-4610-4c89-a44f-f05c577e3945.jpg?v=1776759897&width=1920",
     "notes": {
       "top": [
         "luminous lemon",
@@ -23200,7 +23200,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616301789239",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/141787_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1743591921-80921100.jpg?v=1763397540&width=1920",
     "notes": {
       "top": [
         "Nashi Pear",
@@ -23274,7 +23274,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616303452414",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/170713_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1758536385-22824400.jpg?v=1763399061&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -23295,7 +23295,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "027131086864",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10026229-5235059447447932.webp?v=1763137738",
+    "image": "https://www.beautybase.com/cdn/shop/files/1484585899-45363900.jpg?v=1763397269&width=1920",
     "notes": {
       "top": [
         "Rose",
@@ -23343,7 +23343,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "887167525559",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/166127_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1668772550-50277900.png?v=1763393030&width=1920",
     "notes": null
   },
   {
@@ -23354,7 +23354,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "887167095878",
     "shops": 3,
-    "image": "https://allbeauty.com/cdn/shop/files/3665.jpg?v=1755875338&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731515135-39455400.jpg?v=1763390907&width=1920",
     "notes": {
       "top": [
         "Spices",
@@ -23392,7 +23392,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "887167095885",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10019183.jpg?v=1763137752",
+    "image": "https://www.beautybase.com/cdn/shop/files/1668781739-24823500.png?v=1763393025&width=1920",
     "notes": null
   },
   {
@@ -23403,7 +23403,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "027131043294",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41m40Fz4PSL.jpg?v=1763137764",
+    "image": "https://www.beautybase.com/cdn/shop/files/1714063193-29561200.jpg?v=1763390916&width=1920",
     "notes": null
   },
   {
@@ -23425,7 +23425,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "027131521433",
     "shops": 3,
-    "image": "https://allbeauty.com/cdn/shop/files/3548_a241f3eb-074f-4583-8bc5-5bded50072f3.jpg?v=1761748430&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738924874-10053400.jpg?v=1763390916&width=1920",
     "notes": {
       "top": [
         "Citrus effervescence"
@@ -23450,7 +23450,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "887167095915",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10016506.jpg?v=1763144007",
+    "image": "https://www.beautybase.com/cdn/shop/files/1733915114-62965300.jpg?v=1763396816&width=1920",
     "notes": null
   },
   {
@@ -23664,7 +23664,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379012",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Blue-Magician-Perfume-100ml-EDP-Fragrance-World-174056119.jpg?v=1752976472",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755247645-39686500.jpg?v=1763398811&width=1920",
     "notes": {
       "top": [
         "Pear",
@@ -23693,7 +23693,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379319",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Cafe-N-Cream-Perfume-100ml-EDP-Fragrance-World-174846553.jpg?v=1753833706",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753351112-30784000.jpg?v=1763398490&width=1920",
     "notes": {
       "top": [
         "Coffee",
@@ -23723,7 +23723,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379142",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Elysia-Lychee-Fizz-Perfume-100ml-EDP-Fragrance-World-167852521.jpg?v=1746535218",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744711572-75650900.jpg?v=1763397698&width=1920",
     "notes": {
       "top": [
         "Lychee",
@@ -23758,7 +23758,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379708",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Elysia-Sweet-Banana-Perfume-100ml-EDP-Fragrance-World-177430287.jpg?v=1759015313",
+    "image": "https://www.beautybase.com/cdn/shop/files/1760366412-24292800.jpg?v=1763399311&width=1920",
     "notes": {
       "top": [
         "Banana",
@@ -23786,7 +23786,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379111",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Elysia-Vanilla-Perfume-100ml-EDP-Fragrance-World-167852811.jpg?v=1746536333",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744711619-42740600.jpg?v=1763397703&width=1920",
     "notes": {
       "top": [
         "Vanilla Orchid",
@@ -23816,7 +23816,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360373218",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hayaati-Rose-Perfume-100ml-EDP-Fragrance-World-174028021.jpg?v=1752769081",
+    "image": "https://www.beautybase.com/cdn/shop/files/1748619657-02329600.jpg?v=1763398007&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -23848,7 +23848,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379005",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Immortal-London-Perfume-100ml-EDP-Fragrance-World-174055726.jpg?v=1752976337",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755247846-07473800.jpg?v=1763398811&width=1920",
     "notes": {
       "top": [
         "Saffron",
@@ -23876,7 +23876,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360378848",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nudo-Tutti-Frutti-Perfume-100ml-EDP-Fragrance-World-170000944.jpg?v=1751040894",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752066393-70491800.jpg?v=1763398263&width=1920",
     "notes": {
       "top": [
         "Pineapple",
@@ -23939,7 +23939,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379302",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tabac-N-Coke-Perfume-100ml-EDP-Fragrance-World-174846153.jpg?v=1753833495",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753351584-79612200.jpg?v=1763398493&width=1920",
     "notes": {
       "top": [
         "Coca-Cola",
@@ -24031,7 +24031,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360376608",
     "shops": 3,
-    "image": "https://manchesterouds.com/cdn/shop/files/aether-edp-100ml-french-avenue-7640063.webp?v=1786194479&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1748620070-53146100.jpg?v=1763398014&width=1920",
     "notes": {
       "top": [
         "Green Apple",
@@ -24126,7 +24126,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379203",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Aromatix-Carnal-Desire-Extrait-de-Parfum-100ml-French-Avenue-179805249.jpg?v=1762015220",
+    "image": "https://www.beautybase.com/cdn/shop/files/1748620361-56907800.jpg?v=1763398014&width=1920",
     "notes": {
       "top": [
         "Raspberry",
@@ -24746,7 +24746,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298042001893",
     "shops": 3,
-    "image": "https://manchesterouds.com/cdn/shop/files/ripple-edp-100ml-french-avenue-3608387.webp?v=1786194503&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/9632_7a6a269f-8781-4a7e-abe3-831bc6f9c58e.jpg?v=1777997943&width=1920",
     "notes": {
       "top": [
         "Lavender",
@@ -24838,7 +24838,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379227",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Aromatix-Royal-Taboo-Extrait-de-Parfum-100ml-French-Avenue-179805330.jpg?v=1762015615",
+    "image": "https://www.beautybase.com/cdn/shop/files/1748620453-89204700.jpg?v=1763398020&width=1920",
     "notes": {
       "top": [
         "Amber",
@@ -24904,7 +24904,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298042002364",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spirito-Ignite-100ml-Extrait-De-Parfum-French-Avenue-194135816.jpg?v=1782928957",
+    "image": "https://www.beautybase.com/cdn/shop/files/Ignite.jpg?v=1782399672&width=1920",
     "notes": {
       "top": [
         "Iris",
@@ -24935,7 +24935,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298042002357",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spirito-Mystic-100ml-Extrait-De-Parfum-French-Avenue-194136213.jpg?v=1782928985",
+    "image": "https://www.beautybase.com/cdn/shop/files/Spirito1.jpg?v=1782399206&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -25000,7 +25000,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "6290360375014",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sultan-The-Founder-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184723989.png?v=1771616731",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738068711-06258600.jpg?v=1763397025&width=1920",
     "notes": {
       "top": [
         "Oud",
@@ -25120,7 +25120,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3614273636513",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/163521_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721837632-37685200.jpg?v=1763393244&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -25150,7 +25150,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273347853",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/501_17.png?v=1763138039",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626954069-32050500.jpg?v=1763390268&width=1920",
     "notes": {
       "top": [
         "Orange Blossom"
@@ -25171,7 +25171,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273947770",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/169874_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721649751-01589000.jpg?v=1763395065&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -25193,7 +25193,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605521816658",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/product_2025-389.png",
+    "image": "https://www.beautybase.com/cdn/shop/files/100mlsi_f783c7e1-1eca-4e07-aa46-f3536b76378d.jpg?v=1773740884&width=1920",
     "notes": {
       "top": [
         "Blackcurrant Liqueur"
@@ -25220,7 +25220,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273734882",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/174447_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/30mlsii.jpg?v=1773830984&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -25243,7 +25243,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273734790",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/173516_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/50mlsii.jpg?v=1773830962&width=1920",
     "notes": {
       "top": [
         "Black Currant"
@@ -25271,7 +25271,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614271994806",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/108092_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/si50.jpg?v=1773743457&width=1920",
     "notes": null
   },
   {
@@ -25282,7 +25282,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274459685",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744365874-73789200.jpg?v=1763397574&width=1920",
     "notes": {
       "top": [
         "Strawberry",
@@ -25310,7 +25310,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605522040588",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/113400_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1498734864-42386300.jpg?v=1763398557&width=1920",
     "notes": {
       "top": [
         "cardamom",
@@ -25338,7 +25338,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274219579",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/186562_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738755961-60718100.jpg?v=1763397068&width=1920",
     "notes": null
   },
   {
@@ -25349,7 +25349,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3614271992727",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/116070_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1531477588-61748100.png?v=1763389014&width=1920",
     "notes": null
   }
 ];
@@ -25394,7 +25394,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872396180",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/72336_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1379596157-25716100.jpg?v=1763391105&width=1920",
     "notes": null
   },
   {
@@ -25405,7 +25405,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3274872422995",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/516LMi2AvEL.jpg?v=1763143714",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727185705-04025900.jpg?v=1763390970&width=1920",
     "notes": {
       "top": [
         "Cardamom",
@@ -25439,7 +25439,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872439078",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/152200_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1646934720-49631400.jpg?v=1763392048&width=1920",
     "notes": null
   },
   {
@@ -25461,7 +25461,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872480810",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/192449_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1746004970-18694700.jpg?v=1763397305&width=1920",
     "notes": {
       "top": [
         "Clary Sage essence"
@@ -25487,7 +25487,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872467965",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/174855_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727771189-30599900.jpg?v=1763395069&width=1920",
     "notes": null
   },
   {
@@ -25523,7 +25523,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872419292",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/143605_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727341735-88721700.jpg?v=1763390980&width=1920",
     "notes": null
   },
   {
@@ -25545,7 +25545,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872468993",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/181356_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727451094-20951700.jpg?v=1763394504&width=1920",
     "notes": null
   },
   {
@@ -25556,7 +25556,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872469013",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727453861-19058800.jpg?v=1763394504&width=1920",
     "notes": null
   },
   {
@@ -25567,7 +25567,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872372139",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/109377_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1638875542-65945300.jpg?v=1763390986&width=1920",
     "notes": {
       "top": [
         "Ginger"
@@ -25595,7 +25595,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872495494",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/193132_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1756977937-41353600.jpg?v=1763398676&width=1920",
     "notes": {
       "top": [
         "Bitter Almond Essence"
@@ -25627,7 +25627,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872473669",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/182801_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725466976-95934200.jpg?v=1763395603&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -25657,7 +25657,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872411678",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/148666_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1638876757-44789600.jpg?v=1763390986&width=1920",
     "notes": {
       "top": [
         "Black Pepper"
@@ -25727,7 +25727,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872456334",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/172442_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727445655-74656200.jpg?v=1763393750&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -25757,7 +25757,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872447561",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727429574-56873100.jpg?v=1763393322&width=1920",
     "notes": null
   },
   {
@@ -25850,7 +25850,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640111491958",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/gres-cabochard-eau-de-parfum-100ml-p23217-87932_image.jpg?v=1721322210&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641986646-38429500.jpg?v=1763390998&width=1920",
     "notes": {
       "top": [
         "Aldehydes",
@@ -25882,7 +25882,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640111494027",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/f36ef48a-70d3-465f-a520-6b1a115dc30b.jpg?v=1763138198",
+    "image": "https://www.beautybase.com/cdn/shop/files/1371458783-30015000.jpg?v=1763391111&width=1920",
     "notes": {
       "top": [
         "Blackcurrant Buds",
@@ -25923,7 +25923,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640111494133",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/79256_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641987018-79741000.jpg?v=1763390998&width=1920",
     "notes": {
       "top": [
         "Coriander",
@@ -26041,7 +26041,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616304249716",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/170424_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1733934920-21874200.jpg?v=1763396810&width=1920",
     "notes": null
   },
   {
@@ -26052,7 +26052,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614229461367",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/169992_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729267387-25343200.jpg?v=1763396264&width=1920",
     "notes": null
   },
   {
@@ -26283,7 +26283,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3346470301856",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/80053_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736948509-45326200.jpg?v=1763390626&width=1920",
     "notes": null
   },
   {
@@ -26322,7 +26322,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3346470114746",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/guerlain_la_petite_robe_noire_eau_de_toilette_100ml_spray_.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1666617494-10732300.jpg?v=1763392906&width=1920",
     "notes": null
   },
   {
@@ -26497,7 +26497,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362163572",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mango-Heaven-Perfume-100ml-EDP-Gulf-Orchid-184368688.jpg?v=1770942627",
+    "image": "https://www.beautybase.com/cdn/shop/files/1758539986-49286100.jpg?v=1763399081&width=1920",
     "notes": {
       "top": [
         "Mango",
@@ -26527,7 +26527,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362162629",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mango-Ice-Perfume-100ml-EDP-Gulf-Orchid-184340478.jpg?v=1770854956",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752242470-46614000.jpg?v=1763398314&width=1920",
     "notes": {
       "top": [
         "Mango",
@@ -26590,7 +26590,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274309072",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/183426_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750259976-12206300.jpg?v=1763397941&width=1920",
     "notes": null
   },
   {
@@ -26696,7 +26696,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616302968220",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/173030_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1748947698-65685700.jpg?v=1763398036&width=1920",
     "notes": null
   },
   {
@@ -26707,7 +26707,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616302968237",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61A06IoSkjL.jpg?v=1763147267",
+    "image": "https://www.beautybase.com/cdn/shop/files/1760449085-12109800.jpg?v=1763398892&width=1920",
     "notes": {
       "top": [
         "Raspberry"
@@ -26764,7 +26764,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303173098",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/165198_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1666084983-86689600.jpg?v=1763392882&width=1920",
     "notes": null
   },
   {
@@ -26775,7 +26775,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614228220897",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31lEvsQjn4L.jpg?v=1763138454",
+    "image": "https://www.beautybase.com/cdn/shop/files/hugobossinfinite.jpg?v=1782307427&width=1920",
     "notes": {
       "top": [
         "Apple",
@@ -26803,7 +26803,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616306661264",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/104948_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/tonic_aa4f7c33-aaf5-46ba-b789-c53af89261af.jpg?v=1775125721&width=1920",
     "notes": null
   },
   {
@@ -26884,7 +26884,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "737052041247",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/86635_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1708532635-52175800.jpg?v=1763391039&width=1920",
     "notes": null
   },
   {
@@ -26895,7 +26895,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052987569",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/100001_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1595581822-99399300.jpg?v=1763389792&width=1920",
     "notes": {
       "top": [
         "Italian mandarin"
@@ -26916,7 +26916,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052130729",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/m/images.jpeg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1669307615-13724900.png?v=1763393064&width=1920",
     "notes": {
       "top": [
         "Lychee",
@@ -26944,7 +26944,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616301623359",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/168600_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1638970117-37118700.jpg?v=1763391887&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -27186,7 +27186,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222090593",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/164925_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738677693-90236700.jpg?v=1763393617&width=1920",
     "notes": null
   },
   {
@@ -27197,7 +27197,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222090708",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/164133_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738677587-67912400.jpg?v=1763393618&width=1920",
     "notes": {
       "top": [
         "Peony",
@@ -27221,7 +27221,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423470486025",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/cHJvZHVjdC9yZWJyYW5kLzkwMi5wbmc.jpg?v=1763138887",
+    "image": "https://www.beautybase.com/cdn/shop/files/1512729200-18894900.jpg?v=1763391148&width=1920",
     "notes": null
   },
   {
@@ -27278,7 +27278,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222090722",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/164336_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738677236-04332300.jpg?v=1763393621&width=1920",
     "notes": null
   },
   {
@@ -27311,7 +27311,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423474884155",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/112938_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641990186-88631800.jpg?v=1763391188&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -27339,7 +27339,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423473949954",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/70897_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1763640016-27131700.jpg?v=1772625075&width=1920",
     "notes": {
       "top": [
         "Pear"
@@ -27429,7 +27429,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3562700373084",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/85310_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1664554433-75465700.jpg?v=1763391194&width=1920",
     "notes": null
   },
   {
@@ -27440,7 +27440,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3562700373145",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/67910_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1664555000-80897100.jpg?v=1763391191&width=1920",
     "notes": null
   },
   {
@@ -27451,7 +27451,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415076838",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/173382_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729258875-71808000.jpg?v=1763393994&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -27481,7 +27481,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8435415091145",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/175236_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728911494-68046500.jpg?v=1763395616&width=1920",
     "notes": null
   },
   {
@@ -27492,7 +27492,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415091152",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/173386_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1724945874-13487000.jpg?v=1763395622&width=1920",
     "notes": null
   },
   {
@@ -27503,7 +27503,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415017213",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/167082_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752768267-61792400.jpg?v=1763389412&width=1920",
     "notes": null
   },
   {
@@ -27550,7 +27550,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8435415017190",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/174932_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752769247-36342700.jpg?v=1763391204&width=1920",
     "notes": {
       "top": [
         "Bergamot"
@@ -27575,7 +27575,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415102537",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/179663_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1745421730-33420200.jpg?v=1763397659&width=1920",
     "notes": {
       "top": [
         "Kumquat"
@@ -27600,7 +27600,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8435415062213",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/174768_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728660223-18719400.jpg?v=1763396065&width=1920",
     "notes": {
       "top": [
         "Iris",
@@ -27628,7 +27628,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415062190",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/174931_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728917738-19067600.jpg?v=1763392382&width=1920",
     "notes": {
       "top": [
         "Pineapple"
@@ -27654,7 +27654,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8435415076937",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/173927_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728918524-33375400.jpg?v=1763393590&width=1920",
     "notes": {
       "top": [
         "Lavender",
@@ -27694,7 +27694,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415102346",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/187915_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1745422388-51200900.jpg?v=1763397668&width=1920",
     "notes": {
       "top": [
         "Plum"
@@ -27719,7 +27719,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8435415102353",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/191341_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1745422470-35428300.jpg?v=1763397669&width=1920",
     "notes": {
       "top": [
         "Plum"
@@ -27744,7 +27744,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8435415059060",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/175612_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1700734328-72152600.jpg?v=1763391209&width=1920",
     "notes": {
       "top": [
         "Blood Orange",
@@ -27776,7 +27776,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415080415",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/177844_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1713875288-63875800.jpg?v=1763395041&width=1920",
     "notes": null
   },
   {
@@ -27787,7 +27787,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8435415080422",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/182314_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1713875025-89530200.jpg?v=1763395043&width=1920",
     "notes": null
   },
   {
@@ -27798,7 +27798,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415080378",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/179657_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729263562-12400100.jpg?v=1763395032&width=1920",
     "notes": null
   },
   {
@@ -27820,7 +27820,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8435415050777",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/8435415050777_26b4c2cd2fa0f020ffa25e539e39c861.jpg?v=1763139076",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728920043-85336500.jpg?v=1763392677&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -27846,7 +27846,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415030908",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/140710_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1628870775-83801800.jpg?v=1763390303&width=1920",
     "notes": {
       "top": [
         "Mandarin Orange",
@@ -27870,7 +27870,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "8435415055963",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/140401_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1628871260-42116800.jpg?v=1763390307&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -28912,7 +28912,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460150392",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/177012_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1710772933-19397300.jpg?v=1763394568&width=1920",
     "notes": null
   },
   {
@@ -28923,7 +28923,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460103701",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/116724_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641921616-98609000.jpg?v=1763391218&width=1920",
     "notes": null
   },
   {
@@ -28934,7 +28934,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460119252",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/o/p/open-box-jimmy-choo-ladies-i-want-choo-edp-spray-34-oz-fragrances-3386460119252.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641922125-16382500.jpg?v=1763391224&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -28964,7 +28964,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460129893",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61zMCXB60XL.jpg?v=1763139229",
+    "image": "https://www.beautybase.com/cdn/shop/files/1664880214-60217100.jpg?v=1763392758&width=1920",
     "notes": {
       "top": [
         "Rose",
@@ -28995,7 +28995,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460160827",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/189975_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755526486-74640600.jpg?v=1763398764&width=1920",
     "notes": {
       "top": [
         "Raspberry",
@@ -29027,7 +29027,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460075367",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/88178_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1532450667-81618400.png?v=1763395974&width=1920",
     "notes": {
       "top": [
         "Mandarin Orange",
@@ -29065,7 +29065,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460025515",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/84634_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641893404-90653700.jpg?v=1763391232&width=1920",
     "notes": {
       "top": [
         "Pear",
@@ -29123,7 +29123,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460064132",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/96055_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626789834-55324300.jpg?v=1763393494&width=1920",
     "notes": null
   },
   {
@@ -29134,7 +29134,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460072588",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/111479_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1530198385-95163300.png?v=1763388973&width=1920",
     "notes": null
   },
   {
@@ -29145,7 +29145,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460137560",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/163792_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1684513851-20992800.jpg?v=1763393593&width=1920",
     "notes": {
       "top": [
         "Coconut"
@@ -29166,7 +29166,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460127073",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/151284_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1631200559-04514300.jpg?v=1763390331&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -29187,7 +29187,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460127066",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/150470_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1631200831-11303500.jpg?v=1763390333&width=1920",
     "notes": null
   },
   {
@@ -29243,7 +29243,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414200064064",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/85848_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641994776-58717600.jpg?v=1763391243&width=1920",
     "notes": null
   },
   {
@@ -29532,7 +29532,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872404175",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/112304_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1643026823-27442300.jpg?v=1763391272&width=1920",
     "notes": {
       "top": [
         "Bulgarian Rose",
@@ -29595,7 +29595,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107979311",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738581981-99619200.jpg?v=1763396978&width=1920",
     "notes": {
       "top": [
         "Sweet Almond",
@@ -29626,7 +29626,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107978819",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Cream-Velvet-Extrait-de-Parfum-100ml-By-Khadlaj-173963356.jpg?v=1752641870",
+    "image": "https://www.beautybase.com/cdn/shop/files/1745424834-68842700.jpg?v=1763397786&width=1920",
     "notes": {
       "top": [
         "Buttery",
@@ -29688,7 +29688,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107979991",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Island-Dreams-Extrait-de-Parfum-100ml-Khadlaj-175452753.jpg?v=1755776168",
+    "image": "https://www.beautybase.com/cdn/shop/files/1758535174-70552700.jpg?v=1763399087&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -29715,7 +29715,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107979748",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Island-Vanilla-Dunes-Extrait-De-Parfum-100ml-By-Khadlaj-174003161.jpg?v=1752686802",
+    "image": "https://www.beautybase.com/cdn/shop/files/1745405118-62026400.jpg?v=1763397787&width=1920",
     "notes": {
       "top": [
         "Cinnamon",
@@ -29747,7 +29747,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298043070010",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nafais-Magrib-Perfume-100ml-EDP-Khadlaj-181017649.jpg?v=1764028457",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770976201-63600300.jpg?v=1772624975&width=1920",
     "notes": {
       "top": [
         "Yuzu",
@@ -29777,7 +29777,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298043071161",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Onyx-Silver-Perfume-100ml-EDP-Khadlaj-183712231.png?v=1769360458",
+    "image": "https://www.beautybase.com/cdn/shop/files/onyxsilver.jpg?v=1780483536&width=1920",
     "notes": {
       "top": [
         "Vanilla",
@@ -29805,7 +29805,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298043070768",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sawaar-Vanille-Blanc-Extrait-de-Parfum-100ml-Khadlaj-182033872.png?v=1766806420",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770976673-00444800.jpg?v=1772624975&width=1920",
     "notes": {
       "top": [
         "Vanilla",
@@ -29836,7 +29836,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107979359",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Shiyaaka-Shadow-Perfume-100ml-EDP-Khadlaj-174007684.jpg?v=1752702181",
+    "image": "https://www.beautybase.com/cdn/shop/files/1756290898-65481900.jpg?v=1763398847&width=1920",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -29867,7 +29867,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298043072694",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Shiyaaka-Sky-Perfume-100ml-EDP-Khadlaj-194476284.png?v=1783730226",
+    "image": "https://www.beautybase.com/cdn/shop/files/khadlaj_sky.jpg?v=1785754788&width=1920",
     "notes": {
       "top": [
         "Bergamot"
@@ -29892,7 +29892,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107979335",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Shiyaaka-Snow-Perfume-100ml-EDP-Khadlaj-179451427.png?v=1761176795",
+    "image": "https://www.beautybase.com/cdn/shop/files/1763981683-89072400.jpg?v=1772624978&width=1920",
     "notes": {
       "top": [
         "Mandarin Orange",
@@ -29921,7 +29921,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298043070065",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Titan-Perfume-100ml-EDP-Khadlaj-178634052.jpg?v=1759447038",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761818677-55247500.jpg?v=1763399355&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -30226,7 +30226,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3386460149303",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/172649_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1716371388-48522200.jpg?v=1763392238&width=1920",
     "notes": {
       "top": [
         "Fresh Aquatic Citrus",
@@ -30259,7 +30259,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460149150",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/166825_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1747307197-88516000.jpg?v=1763397926&width=1920",
     "notes": {
       "top": [
         "Mandarin Orange",
@@ -30285,7 +30285,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460149181",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/191106_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1716370156-87955900.jpg?v=1763395198&width=1920",
     "notes": null
   },
   {
@@ -30407,7 +30407,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3614274078541",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/174451_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736958468-16295600.jpg?v=1763395076&width=1920",
     "notes": null
   },
   {
@@ -30418,7 +30418,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274078558",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/174452_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736958341-35037700.jpg?v=1763395077&width=1920",
     "notes": null
   },
   {
@@ -30429,7 +30429,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274078565",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/174453_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736958294-01372000.jpg?v=1763395077&width=1920",
     "notes": null
   },
   {
@@ -30470,7 +30470,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274169706",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/177330_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_aa483943-6596-432c-849e-d7ade9b0cf6a.jpg?v=1774434480&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -30500,7 +30500,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605533286555",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/74727_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/2_307b0c2a-5eeb-4608-9364-9684e0995986.jpg?v=1774364259&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -30551,7 +30551,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3147758155112",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/83421_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_609a6913-62b8-4701-8d15-bd4fcae5b270.jpg?v=1774435367&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -30683,7 +30683,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6291106066890",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/169830_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1561393908-50494900.jpg?v=1763389329&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -30710,7 +30710,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6290362341826",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ana-Abiyedh-Coral-Perfume-60ml-EDP-Lattafa-169882936.jpg?v=1750809334",
+    "image": "https://www.beautybase.com/cdn/shop/files/1740755511-53948900.jpg?v=1763397385&width=1920",
     "notes": {
       "top": [
         "Peach",
@@ -30772,7 +30772,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6290362349723",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ana-Abiyedh-Passion-Perfume-60ML-EDP-Lattafa-189221613.png?v=1777794411",
+    "image": "https://www.beautybase.com/cdn/shop/files/lattafapassion.jpg?v=1780394542&width=1920",
     "notes": {
       "top": [
         "Passionfruit",
@@ -30800,7 +30800,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362345671",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Angham-Second-Song-Perfume-100ml-EDP-Lattafa-183914577.png?v=1769880581",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770980900-39640300.jpg?v=1772625002&width=1920",
     "notes": {
       "top": [
         "Pear Blossom",
@@ -30914,7 +30914,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 55,
     "ean": "6298043160520",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Atlas-Canyon-Perfume-55ml-EDP-Lattafa-195668392.png?v=1786553847",
+    "image": "https://www.beautybase.com/cdn/shop/files/atlascanyon1.jpg?v=1787921964&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -30944,7 +30944,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 55,
     "ean": "6298043160537",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Atlas-Glacier-Perfume-55ml-EDP-Lattafa-195628640.png?v=1786438420",
+    "image": "https://www.beautybase.com/cdn/shop/files/atlasglacialvalley1.jpg?v=1787921627&width=1920",
     "notes": {
       "top": [
         "Fig",
@@ -30987,7 +30987,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298043160056",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-Al-Oud-Amethyst-Fusion-Perfume-100ml-EDP-Lattafa-194580933.png?v=1784032360",
+    "image": "https://www.beautybase.com/cdn/shop/files/Lattafaamythest.jpg?v=1785755223&width=1920",
     "notes": {
       "top": [
         "Amaretto",
@@ -31140,7 +31140,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362349112",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Eclaire-Banoffi-Perfume-100ml-EDP-Lattafa-175550419.jpg?v=1755995332",
+    "image": "https://www.beautybase.com/cdn/shop/files/1758025728-35311500.jpg?v=1763399033&width=1920",
     "notes": {
       "top": [
         "Banana Cream",
@@ -31227,7 +31227,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 110,
     "ean": "6290360598901",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fire-On-Ice-Perfume-100ml-EDP-Lattafa-174027241.jpg?v=1752765746",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753959913-37379400.jpg?v=1763398635&width=1920",
     "notes": {
       "top": [
         "Black Raspberry",
@@ -31259,7 +31259,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360598864",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755681963-82258800.jpg?v=1763398704&width=1920",
     "notes": {
       "top": [
         "Cardamom",
@@ -31293,7 +31293,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360593180",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hayaati-Florence-Perfume-100ml-EDP-Lattafa-153346486.jpg?v=1732559342",
+    "image": "https://www.beautybase.com/cdn/shop/files/1719917801-92262100.jpg?v=1763395345&width=1920",
     "notes": {
       "top": [
         "Lychee",
@@ -31335,7 +31335,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362347156",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Jouri-Perfume-100ml-EDP-Lattafa-189221979.png?v=1777794627",
+    "image": "https://www.beautybase.com/cdn/shop/files/Lattafajouri2.jpg?v=1779273549&width=1920",
     "notes": {
       "top": [
         "Orange",
@@ -31367,7 +31367,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362349730",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Khamrah-Waha-Perfume-100ml-EDP-Lattafa-190911355.png?v=1778604422",
+    "image": "https://www.beautybase.com/cdn/shop/files/963_a4c846e1-fa81-4d7b-a8a5-a03e64083fd8.jpg?v=1780391908&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -31437,7 +31437,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362347002",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Maahir-Honor-Perfume-100ml-EDP-Lattafa-188153793.png?v=1775920654",
+    "image": "https://www.beautybase.com/cdn/shop/files/Mahirhonor.jpg?v=1779273044&width=1920",
     "notes": {
       "top": [
         "Mint",
@@ -31470,7 +31470,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360598963",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mayar-Cherry-Intense-Perfume-100ml-EDP-Lattafa-153839354.jpg?v=1733144911",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738748989-55559000.jpg?v=1763397070&width=1920",
     "notes": {
       "top": [
         "Strawberry",
@@ -31564,7 +31564,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362345527",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Musamam-Black-Intense-Perfume-100ml-EDP-Lattafa-181625651.webp?v=1766087757",
+    "image": "https://www.beautybase.com/cdn/shop/files/1767184805-93728200.jpg?v=1772625012&width=1920",
     "notes": {
       "top": [
         "Lavender",
@@ -31599,7 +31599,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291108738276",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/169560_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728472133-84370000.jpg?v=1763394327&width=1920",
     "notes": null
   },
   {
@@ -31654,7 +31654,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362341321",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opulent-Dubai-Perfume-100ml-EDP-Lattafa-169108781.jpg?v=1748915905",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755003858-67504700.jpg?v=1774444548&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -31682,7 +31682,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298043161732",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Petra-Viola-Perfume-100ml-EDP-Lattafa-195158815.png?v=1785215528",
+    "image": "https://www.beautybase.com/cdn/shop/files/petraviola.jpg?v=1787925881&width=1920",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -31713,7 +31713,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360592756",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/187886_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1733753851-40800100.jpg?v=1763396726&width=1920",
     "notes": null
   },
   {
@@ -31724,7 +31724,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107450605",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/169557_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/456321472.jpg?v=1781255269&width=1920",
     "notes": null
   },
   {
@@ -31832,7 +31832,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291108738658",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/177662_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1754917926-98115500.jpg?v=1763398687&width=1920",
     "notes": {
       "top": [
         "Cassis",
@@ -31893,7 +31893,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298043160025",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/188666_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1756290982-00878600.jpg?v=1763398848&width=1920",
     "notes": {
       "top": [
         "Amber",
@@ -32047,7 +32047,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291108730515",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10046537.jpg?v=1763144359",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728475277-20841100.jpg?v=1763394292&width=1920",
     "notes": null
   },
   {
@@ -32110,7 +32110,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3610400000387",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/140263_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739548643-12410900.jpg?v=1763397128&width=1920",
     "notes": null
   },
   {
@@ -32285,7 +32285,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800203931",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/171713_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1684426423-44748500.jpg?v=1763393586&width=1920",
     "notes": null
   },
   {
@@ -32353,7 +32353,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362340799",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Delilah-Blanc-100ml-EDP-Maison-Alhambra-175285172.jpg?v=1755545858",
+    "image": "https://www.beautybase.com/cdn/shop/files/2_85f5fadd-c802-4edf-88ea-e0595bc00c73.jpg?v=1781260419&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -32811,7 +32811,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362163879",
     "shops": 3,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/D3E9CD79-80B7-4541-BCC4-542B8F4C30D9.webp?v=1758206006&width=990",
+    "image": "https://www.beautybase.com/cdn/shop/files/1756291061-31543900.jpg?v=1763398849&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -32840,7 +32840,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362165002",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Librae-Perfume-100ml-EDP-Maison-Asrar-184679388.png?v=1771545605",
+    "image": "https://www.beautybase.com/cdn/shop/files/2_4feb1090-01d5-416c-b3c7-0a42cdd60121.jpg?v=1778056101&width=1920",
     "notes": {
       "top": [
         "Aromatic",
@@ -32871,7 +32871,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362163381",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Majesty-Perfume-100ml-EDP-Maison-Asrar-184446448.png?v=1771115208",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752069007-31171600.jpg?v=1763398270&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -32905,7 +32905,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362164623",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Milky-Way-Perfume-100ml-EDP-Maison-Asrar-184445458.png?v=1771114811",
+    "image": "https://www.beautybase.com/cdn/shop/files/1769765099-08911200.jpg?v=1772625023&width=1920",
     "notes": {
       "top": [
         "Caramel",
@@ -32937,7 +32937,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362164944",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Vanilla-Aura-Perfume-100ml-EDP-Maison-Asrar-184444516.png?v=1771114479",
+    "image": "https://www.beautybase.com/cdn/shop/files/1762339415-88777200.jpg?v=1763399386&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -32969,7 +32969,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362161783",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Vanilla-Voyage-Perfume-EDP-Maison-Asrar-184444961.png?v=1771114717",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752059044-68744400.jpg?v=1763398276&width=1920",
     "notes": {
       "top": [
         "Caramel",
@@ -32999,7 +32999,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362162841",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Vision-Perfume-100ml-EDP-Maison-Asrar-184446277.png?v=1771114961",
+    "image": "https://www.beautybase.com/cdn/shop/files/1756291561-86136300.jpg?v=1763398850&width=1920",
     "notes": {
       "top": [
         "Orange",
@@ -33223,7 +33223,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607349764241",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/184642_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1655715679-16834800.jpg?v=1763392542&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -33253,7 +33253,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614229159073",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/137266_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1700135833-41736600.jpg?v=1763393944&width=1920",
     "notes": null
   },
   {
@@ -33264,7 +33264,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616301776000",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/152339_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1636105912-26658400.jpg?v=1763390473&width=1920",
     "notes": null
   },
   {
@@ -33371,7 +33371,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616302777228",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/153334_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1647534196-27251200.jpg?v=1763392092&width=1920",
     "notes": {
       "top": [
         "Rhubarb",
@@ -33435,7 +33435,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "850049716314",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/177482_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1718621154-90861400.jpg?v=1763395280&width=1920",
     "notes": null
   },
   {
@@ -33446,7 +33446,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "022548366448",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71GcCfwpyHL.jpg?v=1767984589",
+    "image": "https://www.beautybase.com/cdn/shop/files/1698407473-40435200.jpg?v=1763391498&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -33536,7 +33536,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003838493",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/125241_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739292905-03382000.jpg?v=1763394390&width=1920",
     "notes": null
   },
   {
@@ -33724,7 +33724,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460101042",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/120056_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1554801723-69670500.jpg?v=1763389293&width=1920",
     "notes": null
   },
   {
@@ -33735,7 +33735,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460153737",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1020_1.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1746008613-20590300.jpg?v=1763397626&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -33765,7 +33765,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460153720",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1031.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1746008320-75362400.jpg?v=1763397626&width=1920",
     "notes": {
       "top": [
         "Bergamot"
@@ -33790,7 +33790,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460121514",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/810Qlx-8gEL.jpg?v=1767984652",
+    "image": "https://www.beautybase.com/cdn/shop/files/1664544231-77402200.jpg?v=1763391509&width=1920",
     "notes": {
       "top": [
         "Italian bergamot"
@@ -33814,7 +33814,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3386460124195",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1061.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750156482-06346100.jpg?v=1763398192&width=1920",
     "notes": {
       "top": [
         "Sicilian Bergamot",
@@ -33873,7 +33873,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460127981",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/146144_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738923828-67123800.jpg?v=1763393107&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -33894,7 +33894,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460127974",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/146948_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1644932284-65839500.jpg?v=1763391956&width=1920",
     "notes": null
   },
   {
@@ -33979,7 +33979,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003807871",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/93445_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1510328456-01443700.jpg?v=1763392268&width=1920",
     "notes": {
       "top": [
         "Bergamot"
@@ -34005,7 +34005,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003839308",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/120875_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1556637217-50965700.jpg?v=1763389305&width=1920",
     "notes": null
   },
   {
@@ -34016,7 +34016,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8011003878598",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/172264_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1706796959-73098100.jpg?v=1775559461&width=1920",
     "notes": null
   },
   {
@@ -34027,7 +34027,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003878604",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/175177_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1706797648-16892900.jpg?v=1775559451&width=1920",
     "notes": null
   },
   {
@@ -34089,7 +34089,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274126884",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/174672_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755765484-30421400.jpg?v=1763398415&width=1920",
     "notes": {
       "top": [
         "Bergamot essence"
@@ -34117,7 +34117,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 15,
     "ean": "3614273606400",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/163042_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1640170853-85662900.jpg?v=1763391908&width=1920",
     "notes": null
   },
   {
@@ -34128,7 +34128,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3439600056921",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/141439_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1730378996-71778300.jpg?v=1763394830&width=1920",
     "notes": null
   },
   {
@@ -34139,7 +34139,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274289473",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/184248_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739964924-46475800.jpg?v=1763397348&width=1920",
     "notes": {
       "top": [
         "Petitgrain"
@@ -34167,7 +34167,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3439601204611",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/150475_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1633000400-99837700.jpg?v=1763390289&width=1920",
     "notes": null
   },
   {
@@ -34178,7 +34178,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273560405",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/152331_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736785361-51380900.jpg?v=1763391517&width=1920",
     "notes": {
       "top": [
         "Italian Bergamot essence",
@@ -34230,7 +34230,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3614273927925",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/164517_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1692702668-98615300.jpg?v=1763393716&width=1920",
     "notes": null
   },
   {
@@ -34241,7 +34241,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3614274066982",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/168593_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736845956-88180900.jpg?v=1763394527&width=1920",
     "notes": {
       "top": [
         "Pear",
@@ -34272,7 +34272,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3439600056525",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/181827_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750844292-95521500.jpg?v=1763390146&width=1920",
     "notes": {
       "top": [
         "Bergamot"
@@ -34298,7 +34298,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3439600056532",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/188473_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750843991-77912800.jpg?v=1763390149&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -34339,7 +34339,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3614273772488",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/162755_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750844751-41120900.jpg?v=1763393254&width=1920",
     "notes": null
   },
   {
@@ -34350,7 +34350,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273764933",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/162552_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750845246-12135700.jpg?v=1763393255&width=1920",
     "notes": null
   },
   {
@@ -34361,7 +34361,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3614274085525",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/174456_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727867185-12589300.jpg?v=1763395524&width=1920",
     "notes": null
   },
   {
@@ -34372,7 +34372,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274085501",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51zERkEqksL.jpg?v=1767984715",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727867793-70695400.jpg?v=1763395525&width=1920",
     "notes": null
   },
   {
@@ -34383,7 +34383,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274076745",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/174450_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727868857-90773000.jpg?v=1763395527&width=1920",
     "notes": null
   },
   {
@@ -34562,7 +34562,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222012687",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31HVOFFHRuL.jpg?v=1763140755",
+    "image": "https://www.beautybase.com/cdn/shop/files/1627029940-02807300.jpg?v=1763390246&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -34588,7 +34588,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222055523",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/150820_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1655303396-93205400.jpg?v=1763392501&width=1920",
     "notes": null
   },
   {
@@ -34621,7 +34621,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222056063",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/165894_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1655120324-95209100.jpg?v=1763392501&width=1920",
     "notes": null
   },
   {
@@ -34632,7 +34632,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423478807655",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/107528_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736864103-42347400.jpg?v=1763393840&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -34671,7 +34671,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423473053958",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/134715_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1599228093-71760600.jpg?v=1763389879&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -34701,7 +34701,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222055615",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/165657_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1664540998-15807600.jpg?v=1763392778&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -34731,7 +34731,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423222055639",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/166236_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1664541263-25236200.jpg?v=1763392779&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -34805,7 +34805,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3137370302131",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370302131.png",
+    "image": "https://www.beautybase.com/cdn/shop/files/852_ec2ada6c-bbcc-4658-8dec-ed17967d78d2.jpg?v=1776933217&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -34904,7 +34904,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "085715561039",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/110110_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739524777-13986500.jpg?v=1763393922&width=1920",
     "notes": null
   },
   {
@@ -34938,7 +34938,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360370600192",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/186485_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1488909030-67794300.jpg?v=1763392303&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -35052,7 +35052,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004322030",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/183832_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1614595823-78540500.jpg?v=1763389214&width=1920",
     "notes": null
   },
   {
@@ -35063,7 +35063,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004322016",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/182831_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/pascalmorabito_25953706-4b3d-47aa-85d3-eb5bda4a73d9.jpg?v=1775568049&width=1920",
     "notes": null
   },
   {
@@ -35195,7 +35195,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "679602601245",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/77901_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1658238778-77779700.jpg?v=1763391600&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -35222,7 +35222,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "679602601122",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/69895_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1549905661-51794100.jpg?v=1763392308&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -35306,7 +35306,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "679602611121",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/84494_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1369146229-76692100.jpg?v=1763392308&width=1920",
     "notes": {
       "top": [
         "Granny Smith apple",
@@ -35333,7 +35333,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137749607",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61IgtNtIkEL.jpg?v=1763145545",
+    "image": "https://www.beautybase.com/cdn/shop/files/LHedt100.jpg?v=1773327295&width=1920",
     "notes": {
       "top": [
         "Black Pepper"
@@ -35366,7 +35366,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137765362",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/122566_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Prada-LHomme-Leau-Eau-de-Toilette.jpg?v=1773317607&width=1920",
     "notes": {
       "top": [
         "Citrus",
@@ -35396,7 +35396,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435137749294",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/91553_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1720022946-57942900.jpg?v=1763394841&width=1920",
     "notes": null
   },
   {
@@ -35407,7 +35407,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137749287",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51b5v_6nGTL.jpg?v=1767985039",
+    "image": "https://www.beautybase.com/cdn/shop/files/whiteprada.jpg?v=1773329034&width=1920",
     "notes": null
   },
   {
@@ -35429,7 +35429,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273478755",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1277.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1745583214-36326200.jpg?v=1763392313&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -35459,7 +35459,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137759781",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51VOUXrfZQL.jpg?v=1767985052",
+    "image": "https://www.beautybase.com/cdn/shop/files/1643388471-03291900.jpg?v=1763391608&width=1920",
     "notes": null
   },
   {
@@ -35470,7 +35470,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273961738",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/175297_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Prada30mlParadoxe.jpg?v=1773245416&width=1920",
     "notes": null
   },
   {
@@ -35481,7 +35481,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273961752",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/175298_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Prada50mlParadoxe.jpg?v=1773245310&width=1920",
     "notes": null
   },
   {
@@ -35492,7 +35492,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273961707",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada_paradoxe_intense_90ml_eau_de_parfum.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Prada100mlParadoxe.jpg?v=1773244765&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -35522,7 +35522,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274306217",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/182721_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/RADICAL_ESSENCE50ML.jpg?v=1773335162&width=1920",
     "notes": null
   },
   {
@@ -35533,7 +35533,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274305401",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/185545_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753368466-01816600.jpg?v=1773335164&width=1920",
     "notes": null
   },
   {
@@ -35555,7 +35555,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668630332",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/177262_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1million50ml.jpg?v=1784300448&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -35585,7 +35585,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668630349",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/176566_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1millgold_46588e56-eaba-4502-9fd2-ce8908b78394.jpg?v=1784301005&width=1920",
     "notes": null
   },
   {
@@ -35596,7 +35596,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3349668614646",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/167091_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738164054-04428100.jpg?v=1763393996&width=1920",
     "notes": null
   },
   {
@@ -35607,7 +35607,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3349668594603",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/150997_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738161913-58723300.jpg?v=1763392741&width=1920",
     "notes": null
   },
   {
@@ -35618,7 +35618,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668614660",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/167094_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738164710-17046500.jpg?v=1763394003&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -35652,7 +35652,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668614516",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/174995_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750175073-07871100.jpg?v=1763393184&width=1920",
     "notes": {
       "top": [
         "Fresh Aromatic Lavandin",
@@ -35681,7 +35681,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668614523",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/166231_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750175178-40942300.jpg?v=1763393188&width=1920",
     "notes": {
       "top": [
         "Fresh Aromatic Lavandin",
@@ -35751,7 +35751,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3349668627486",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/189015_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1715334041-71508100.jpg?v=1763395145&width=1920",
     "notes": null
   },
   {
@@ -35762,7 +35762,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668627462",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/180220_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1715332426-63273500.jpg?v=1763395150&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -35871,7 +35871,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668630035",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/179894_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738240981-92731000.jpg?v=1763394437&width=1920",
     "notes": {
       "top": [
         "Frosted Orange Blossom",
@@ -35940,7 +35940,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3360377022911",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/69926_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1643025457-92161000.jpg?v=1763391626&width=1920",
     "notes": {
       "top": [
         "Melon",
@@ -35983,7 +35983,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605971512612",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/139997_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1632411667-50196700.jpg?v=1763390274&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -36004,7 +36004,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360377002951",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/96829_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736851870-28934700.jpg?v=1763391635&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -36070,7 +36070,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3360372013648",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/77879_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1643026298-20040800.jpg?v=1763391640&width=1920",
     "notes": null
   },
   {
@@ -36081,7 +36081,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "614514331057",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hawas-Elixir-Perfume-100ml-EDP-Rasasi-169880756.jpg?v=1750807597",
+    "image": "https://www.beautybase.com/cdn/shop/files/1760951811-98652700.jpg?v=1763399328&width=1920",
     "notes": {
       "top": [
         "Mint",
@@ -36114,7 +36114,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "614514331040",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/RAHA0002_4b7271d6-6af0-417b-9612-ab14d9c717c8.png?v=1761047572&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1720001358-94199800.jpg?v=1763395243&width=1920",
     "notes": {
       "top": [
         "Frozen Apple",
@@ -36212,7 +36212,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "614514465165",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hawas-Reina-Perfume-100ml-EDP-Rasasi-194567925.png?v=1783989733",
+    "image": "https://www.beautybase.com/cdn/shop/files/Hawasreina.jpg?v=1783675488&width=1920",
     "notes": {
       "top": [
         "Apricot",
@@ -36284,7 +36284,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297001571194",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81_6B_X6MdL.jpg?v=1767985140",
+    "image": "https://www.beautybase.com/cdn/shop/files/1756283297-47622200.jpg?v=1774437608&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -36346,7 +36346,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297001571057",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/RAYH0004.png?v=1747408653&width=2000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1745488742-00932600.jpg?v=1763397788&width=1920",
     "notes": {
       "top": [
         "Cinnamon",
@@ -36376,7 +36376,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297001571026",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nocturno-Pour-Homme-Elixir-Perfume-100ml-EDP-Rayhaan-188678985.png?v=1776696192",
+    "image": "https://www.beautybase.com/cdn/shop/files/123_b5e9a2bf-308c-4b59-ad31-40614c2215d7.jpg?v=1776683102&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -36405,7 +36405,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297001571040",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/184722_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1742548185-58818800.jpg?v=1763397498&width=1920",
     "notes": {
       "top": [
         "Cypress Leaf",
@@ -36440,7 +36440,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297001571361",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_268b2bff-b69b-4fd8-ad27-dab9e5f3c28d.jpg?v=1776683375&width=1920",
     "notes": {
       "top": [
         "Green Mandarin",
@@ -36471,7 +36471,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297001571255",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/190705_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1758532130-81636700.jpg?v=1763399094&width=1920",
     "notes": {
       "top": [
         "Mango",
@@ -36503,7 +36503,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297001571378",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rayhaan-Wolf-Perfume-100ml-EDP-Rayhaan-188153649.png?v=1775920087",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_1ed5dd35-dccf-4a22-9057-4826bc318453.jpg?v=1780393639&width=1920",
     "notes": {
       "top": [
         "Ginger"
@@ -36526,7 +36526,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5000386004628",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/96775_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1372851596-64595000.jpg?v=1763392324&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -36548,7 +36548,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5000386111838",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/84660_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1473437852-26222400.jpg?v=1763392325&width=1920",
     "notes": null
   },
   {
@@ -36559,7 +36559,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5000386147745",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/93473_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1523351166-80753300.png?v=1763392325&width=1920",
     "notes": null
   },
   {
@@ -36570,7 +36570,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5000386101310",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/96853_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1372859144-19681900.jpg?v=1763392325&width=1920",
     "notes": null
   },
   {
@@ -36592,7 +36592,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297001574201",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Momento-Extrait-de-Parfum-100ml-Riiffs-181417367.png?v=1765410768",
+    "image": "https://www.beautybase.com/cdn/shop/files/1746005778-65465000.jpg?v=1763397815&width=1920",
     "notes": {
       "top": [
         "Sugar",
@@ -36622,7 +36622,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "8052464899104",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/186365_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/RobertCavalli.jpg?v=1783587744&width=1920",
     "notes": null
   },
   {
@@ -36687,7 +36687,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303445232",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/177334_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1734618999-69608500.jpg?v=1763396837&width=1920",
     "notes": null
   },
   {
@@ -36848,7 +36848,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060426157868",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/168659_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750260606-48880000.jpg?v=1763397968&width=1920",
     "notes": {
       "top": [
         "like Neroli",
@@ -37042,7 +37042,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6281085040394",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Dubai-Ocean-Perfume-100ml-EDP-Surrati-195652073.png?v=1786487204",
+    "image": "https://www.beautybase.com/cdn/shop/files/d1_55318521-f2a6-4cbf-99f6-6d6f6187f286.jpg?v=1776846040&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -37101,7 +37101,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "6281085039954",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Italian-Tobacco-150ml-Extrait-De-Parfum-Surrati-194851150.png?v=1784545169",
+    "image": "https://www.beautybase.com/cdn/shop/files/surrati1.jpg?v=1774456183&width=1920",
     "notes": {
       "top": [
         "Aromatic Spices",
@@ -37132,7 +37132,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "6281085040073",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rosso-Ombre-150ml-Extrait-De-Parfum-Surrati-194851819.png?v=1784546058",
+    "image": "https://www.beautybase.com/cdn/shop/files/rosso1.jpg?v=1774456668&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -37234,7 +37234,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "6295124051456",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Patchouli-01-50ml-Extrait-De-Parfum-Swiss-Arabian-185220466.png?v=1772922141",
+    "image": "https://www.beautybase.com/cdn/shop/files/pathcouli.jpg?v=1775060719&width=1920",
     "notes": {
       "top": [
         "Lavender",
@@ -37276,7 +37276,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6295124051432",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/blush.jpg?v=1775059710&width=1920",
     "notes": {
       "top": [
         "Yuzu",
@@ -37507,7 +37507,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "5060523017584",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/174926_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1655458758-56906600.jpg?v=1763395957&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -37544,7 +37544,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060523017669",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/149874_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1743760941-60046900.jpg?v=1763397516&width=1920",
     "notes": null
   },
   {
@@ -37555,7 +37555,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060523017652",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/147194_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729523842-52055100.jpg?v=1763396364&width=1920",
     "notes": null
   },
   {
@@ -37566,7 +37566,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060412678377",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/175492_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1743761173-65754900.jpg?v=1763397518&width=1920",
     "notes": {
       "top": [
         "green tea",
@@ -37590,7 +37590,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060523017546",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/177546_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1666195227-76140300.jpg?v=1763392597&width=1920",
     "notes": {
       "top": [
         "Fresh Peach",
@@ -38007,7 +38007,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5055193549381",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/174598_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736765421-47266400.jpg?v=1763396623&width=1920",
     "notes": null
   },
   {
@@ -38068,7 +38068,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272761438",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/137074_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1645030946-61239100.jpg?v=1763391668&width=1920",
     "notes": {
       "top": [
         "Blackcurrant",
@@ -38099,7 +38099,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273672474",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41yglo87_YL.jpg?v=1763142293",
+    "image": "https://www.beautybase.com/cdn/shop/files/1645012369-56543500.jpg?v=1763391975&width=1920",
     "notes": {
       "top": [
         "Kiwi",
@@ -38121,7 +38121,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273790864",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/177762_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1692709493-06395400.jpg?v=1763393330&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -38149,7 +38149,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273790857",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1402.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1692709591-19461400.jpg?v=1763393333&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -38177,7 +38177,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273261401",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/151165_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1612194361-86239600.jpg?v=1763390114&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -38233,7 +38233,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273672122",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/181434_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1645012546-33128900.jpg?v=1763391980&width=1920",
     "notes": {
       "top": [
         "Red Apple",
@@ -38260,7 +38260,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273790833",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71PMJAJqUIL.jpg?v=1763145058",
+    "image": "https://www.beautybase.com/cdn/shop/files/1692709759-28365800.jpg?v=1763393335&width=1920",
     "notes": {
       "top": [
         "Vanilla"
@@ -38281,7 +38281,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273790826",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1418.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1692709868-89590700.jpg?v=1763393337&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -38302,7 +38302,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274024807",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/714DSd83o4L.jpg?v=1767986082",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727772349-72120000.jpg?v=1763394430&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -38332,7 +38332,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274217117",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/182145_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1758632682-61722700.jpg?v=1763396959&width=1920",
     "notes": {
       "top": [
         "Truffle",
@@ -38363,7 +38363,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "688575001778",
     "shops": 3,
-    "image": "https://allbeauty.com/cdn/shop/files/7015.jpg?v=1755875129&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_5003b6e0-e7e2-4784-bfbf-ca919890c86d.jpg?v=1775144362&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -38393,7 +38393,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "8011003891092",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/176088_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1719930224-62317000.jpg?v=1763395291&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -38415,7 +38415,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8018365071261",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/93566_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1371220897-67385000.jpg?v=1763393406&width=1920",
     "notes": {
       "top": [
         "Blackcurrant",
@@ -38447,7 +38447,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003876280",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/169331_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738255602-23739800.jpg?v=1763393238&width=1920",
     "notes": {
       "top": [
         "Bitter Orange",
@@ -38480,7 +38480,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003861903",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/142444_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1614669873-83246500.jpg?v=1763390140&width=1920",
     "notes": {
       "top": [
         "Mint"
@@ -38507,7 +38507,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003861224",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/188728_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1614670279-32666200.jpg?v=1763390142&width=1920",
     "notes": null
   },
   {
@@ -38518,7 +38518,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8011003890811",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61UljpDMx0L.jpg?v=1767986099",
+    "image": "https://www.beautybase.com/cdn/shop/files/1724943316-90723300.jpg?v=1763395599&width=1920",
     "notes": {
       "top": [
         "Italian Bergamot",
@@ -38552,7 +38552,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8011003845330",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/122718_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728918990-15932600.jpg?v=1763393888&width=1920",
     "notes": {
       "top": [
         "Mandarin Orange"
@@ -38577,7 +38577,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003845347",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10013214.jpg?v=1763142414",
+    "image": "https://www.beautybase.com/cdn/shop/files/1552051576-33021000.jpg?v=1763389196&width=1920",
     "notes": {
       "top": [
         "Candy Apple",
@@ -38602,7 +38602,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003845354",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41IKF2v6TcL.jpg?v=1763142421",
+    "image": "https://www.beautybase.com/cdn/shop/files/1552051860-11873400.jpg?v=1763389196&width=1920",
     "notes": {
       "top": [
         "lively Mandarin Orange",
@@ -38627,7 +38627,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003827336",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/92053_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1643970044-83351000.jpg?v=1763391706&width=1920",
     "notes": {
       "top": [
         "Sicilian Lemon",
@@ -38660,7 +38660,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8018365500037",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/65174_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1473512332-74230100.jpg?v=1763393412&width=1920",
     "notes": null
   },
   {
@@ -38671,7 +38671,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8011003803132",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/74413_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1714472309-91541200.jpg?v=1763391716&width=1920",
     "notes": {
       "top": [
         "White lemon",
@@ -38760,7 +38760,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3605521880147",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/81973_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737383539-87685800.jpg?v=1763391729&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -38870,7 +38870,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274158151",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1340_1.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/963254.jpg?v=1778069410&width=1920",
     "notes": {
       "top": [
         "Tea Accord",
@@ -38902,7 +38902,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273622639",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/152838_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/fb.jpg?v=1775646792&width=1920",
     "notes": null
   },
   {
@@ -38913,7 +38913,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273662598",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/148395_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1657289979-21288800.jpg?v=1763392573&width=1920",
     "notes": {
       "top": [
         "Fennel",
@@ -38935,7 +38935,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274158113",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/172163_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728910125-55043800.jpg?v=1763395541&width=1920",
     "notes": null
   },
   {
@@ -38946,7 +38946,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3614274158137",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/176155_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728909717-81700100.jpg?v=1763395542&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -38976,7 +38976,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273308229",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/142700_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1642178440-67611800.jpg?v=1763390156&width=1920",
     "notes": null
   },
   {
@@ -38987,7 +38987,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274293906",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/184038_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755685724-29027000.jpg?v=1763398484&width=1920",
     "notes": {
       "top": [
         "Black Pepper"
@@ -39012,7 +39012,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274293890",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/191123_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755685552-11414500.jpg?v=1763398485&width=1920",
     "notes": {
       "top": [
         "Black Pepper"
@@ -39037,7 +39037,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273067775",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61HOYByw4GL.jpg?v=1767986173",
+    "image": "https://www.beautybase.com/cdn/shop/files/1599744828-88398900.jpg?v=1763389805&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -39078,7 +39078,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272191549",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71TH4AhH9CL.jpg?v=1767986173",
+    "image": "https://www.beautybase.com/cdn/shop/files/1554976505-61737000.jpg?v=1763389179&width=1920",
     "notes": {
       "top": [
         "Granny Smith Apple",
@@ -39112,7 +39112,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273919999",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/164546_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737385360-23076800.jpg?v=1763393754&width=1920",
     "notes": null
   },
   {
@@ -39298,7 +39298,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297000226163",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/104458_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729677074-58390300.jpg?v=1763391762&width=1920",
     "notes": null
   },
   {
@@ -39309,7 +39309,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297000226439",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/137447_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729677675-93450500.jpg?v=1763391763&width=1920",
     "notes": null
   },
   {
@@ -39320,7 +39320,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297000669311",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/108309_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729678637-68203200.jpg?v=1763391764&width=1920",
     "notes": null
   },
   {
@@ -39363,7 +39363,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3365440787971",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61M46ZqMPLL.jpg?v=1767986390",
+    "image": "https://www.beautybase.com/cdn/shop/files/12.jpg?v=1773330575&width=1920",
     "notes": {
       "top": [
         "vivacious Pink Pepper",
@@ -39392,7 +39392,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274185317",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/178799_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/3_eb72a11a-b1c0-4090-ae23-39e63b610d8a.jpg?v=1773327125&width=1920",
     "notes": null
   },
   {
@@ -39403,7 +39403,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274185300",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/179754_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_f8e2f0ad-55cc-4dc7-be4b-fb366e6b1426.jpg?v=1773329027&width=1920",
     "notes": {
       "top": [
         "coffee",
@@ -39427,7 +39427,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274185294",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/177654_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_7d78aa15-c681-4c5a-b126-a482b57dbb14.jpg?v=1773329232&width=1920",
     "notes": null
   },
   {
@@ -39438,7 +39438,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273863377",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/165704_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_a8c6b01c-2062-4587-ac80-ac5b90a7e450.jpg?v=1773768575&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -39462,7 +39462,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274076202",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/177326_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_b295e2e8-6349-4e50-96c1-758ac0a94c59.jpg?v=1773765107&width=1920",
     "notes": null
   },
   {
@@ -39473,7 +39473,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3365440375079",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61GRZlM9liL.jpg?v=1767986411",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_bfd9f412-0fa0-4d39-bea7-8164c1b900aa.jpg?v=1774021403&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -39504,7 +39504,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273776110",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/jhsjsjsj.jpg?v=1763142674",
+    "image": "https://www.beautybase.com/cdn/shop/files/50_cdaf7a7f-0670-4156-b08e-a0768c7e9afd.jpg?v=1773248880&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -39536,7 +39536,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614270561658",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/11791406-3114587183112512_2a561961-788a-49f0-865b-79f91bd10ac9.webp?v=1763142684",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_68d0e39a-0076-4aab-8a35-b8942f698460.jpg?v=1773836591&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -39558,7 +39558,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3614274329391",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753281334-41750500.jpg?v=1763398456&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -39585,7 +39585,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274329384",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/188496_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_acf1ca4d-e954-4546-830e-2e83bfdc21e7.jpg?v=1774001997&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -39612,7 +39612,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274114645",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/172704_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/2_385aa482-df10-47e8-897b-337b4aa62bc8.jpg?v=1774004345&width=1920",
     "notes": {
       "top": [
         "Black Pepper"
@@ -39671,7 +39671,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3365440556386",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/59572_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/opium11.jpg?v=1776439213&width=1920",
     "notes": null
   },
   {
@@ -39771,7 +39771,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171074946",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/182869_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1746087999-32112600.jpg?v=1763397832&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -39793,7 +39793,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171074991",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/183497_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1746088681-58359700.jpg?v=1763397834&width=1920",
     "notes": {
       "top": [
         "Black currant",
@@ -39827,7 +39827,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171074731",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mazaaj-Infused-Perfume-100ml-EDP-Zimaya-179891880.jpg?v=1762297031",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_c9d345de-b95f-48c9-804a-d092015db822.jpg?v=1775142348&width=1920",
     "notes": {
       "top": [
         "Citron",
@@ -39857,7 +39857,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171077282",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mazaaj-Rhythm-Perfume-100ml-EDP-Zimaya-by-Afnan-179806524.jpg?v=1762296600",
+    "image": "https://www.beautybase.com/cdn/shop/files/1762427749-86319000.jpg?v=1763399394&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -40687,7 +40687,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616305265784",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/175305_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1743759194-20110600.jpg?v=1763397522&width=1920",
     "notes": {
       "top": [
         "Cardamum essential oil"
@@ -40737,7 +40737,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303322021",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/66561_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1483630248-89363400.jpg?v=1763388782&width=1920",
     "notes": null
   },
   {
@@ -40748,7 +40748,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171002345",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/169818_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/123456.jpg?v=1774437792&width=1920",
     "notes": null
   },
   {
@@ -40968,7 +40968,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171077558",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Kianna-Vibes-Perfume-100ml-EDP-Afnan-188787810.png?v=1777287856",
+    "image": "https://www.beautybase.com/cdn/shop/files/Kaiaanavibes.jpg?v=1783430519&width=1920",
     "notes": {
       "top": [
         "Pitahaya",
@@ -41101,7 +41101,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "6290171073840",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mystique-Bouquet-Perfume-80ml-EDP-Afnan-169348490.jpg?v=1749177476",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_76fa7c87-39d7-4b8e-be79-8807d865ba78.jpg?v=1786551763&width=1920",
     "notes": {
       "top": [
         "White Peach",
@@ -41260,7 +41260,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171074786",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61-qfnpTDGL.jpg?v=1767980765",
+    "image": "https://www.beautybase.com/cdn/shop/files/1735815296-73958900.jpg?v=1763396905&width=1920",
     "notes": null
   },
   {
@@ -41300,7 +41300,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171070214",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/167461_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731672339-12274700.jpg?v=1763390198&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -41331,7 +41331,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "6290171072775",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/169658_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731671765-56087300.jpg?v=1763394035&width=1920",
     "notes": null
   },
   {
@@ -41494,7 +41494,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "6290360615219",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Aqua-Oud-Perfume-90ml-EDP-Ahmed-Al-Maghribi-182838149.png?v=1768174174",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759508862-91439000.jpg?v=1775035774&width=1920",
     "notes": {
       "top": [
         "Bergamot"
@@ -41563,7 +41563,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360617312",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192949_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/blackfume.jpg?v=1787243075&width=1920",
     "notes": {
       "top": [
         "Raspberry"
@@ -41592,7 +41592,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360616933",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/188620_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/blu.jpg?v=1775037083&width=1920",
     "notes": null
   },
   {
@@ -41636,7 +41636,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360618135",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spectrum-Chill-Perfume-100ml-EDP-Ahmed-Al-Maghribi-184349063.png?v=1770882466",
+    "image": "https://www.beautybase.com/cdn/shop/files/147_fb367c98-7402-4b3d-ba91-b3b1b7b68999.jpg?v=1784017061&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -41817,7 +41817,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6290360616490",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192755_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/dasda.jpg?v=1775036064&width=1920",
     "notes": null
   },
   {
@@ -41828,7 +41828,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360613628",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192752_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1760368614-57196400.jpg?v=1775037272&width=1920",
     "notes": {
       "top": [
         "Red Fruits",
@@ -41861,7 +41861,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6290360614731",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Summer-Oud-Perfume-60ml-EDP-Ahmed-Al-Maghribi-178722088.jpg?v=1759840023",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770296343-26343300.jpg?v=1775036463&width=1920",
     "notes": {
       "top": [
         "Saffron",
@@ -42042,7 +42042,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6293708021307",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/190660_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1734947632-84938400.jpg?v=1763396906&width=1920",
     "notes": null
   },
   {
@@ -42053,7 +42053,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6293708021291",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/190657_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1734947670-17672500.jpg?v=1763396911&width=1920",
     "notes": null
   },
   {
@@ -42121,7 +42121,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6293708019533",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191266_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1716282149-91564600.jpg?v=1763394348&width=1920",
     "notes": null
   },
   {
@@ -42671,7 +42671,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 12,
     "ean": "6291100130801",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/189160_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1557397595-89087800.jpg?v=1763389177&width=1920",
     "notes": null
   },
   {
@@ -42715,7 +42715,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291110113375",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Choco-Musk-Perfume-100ml-EDP-Al-Rehab-170024545.jpg?v=1751054781",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761907362-10290300.jpg?v=1763399354&width=1920",
     "notes": {
       "top": [
         "Warm Spicy",
@@ -42772,7 +42772,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "6291110116277",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Choco-Musk-Marshmallow-Perfume-50ml-EDP-Al-Rehab-196614540.jpg?v=1788063540",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759422596-54162200.jpg?v=1763399146&width=1920",
     "notes": {
       "top": [
         "Strawberry",
@@ -42799,7 +42799,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "6291110116291",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Choco-Musk-Pistachio-Perfume-50ml-EDP-Al-Rehab-196614320.jpg?v=1788063524",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759412522-49829500.jpg?v=1763399147&width=1920",
     "notes": {
       "top": [
         "Pistachio",
@@ -42856,7 +42856,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "6291110108821",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/French-Coffee-Perfume-50ml-EDP-Al-Rehab-145969055.jpg?v=1721858258",
+    "image": "https://www.beautybase.com/cdn/shop/files/1726676069-15313500.jpg?v=1763394746&width=1920",
     "notes": {
       "top": [
         "Coffee",
@@ -42947,7 +42947,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "6291110099679",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Oud-_-Rose-Perfume-50ml-EDP-Al-Rehab-169951629.jpg?v=1750892157",
+    "image": "https://www.beautybase.com/cdn/shop/files/Oud_Rose.jpg?v=1784105496&width=1920",
     "notes": {
       "top": [
         "Strawberry",
@@ -43662,7 +43662,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290361912355",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191840_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752237334-94491000.jpg?v=1763398271&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -43693,7 +43693,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "6290102040149",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/190194_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1742923052-22592500.jpg?v=1763397501&width=1920",
     "notes": {
       "top": [
         "Fruity Accord",
@@ -43722,7 +43722,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "6290361911563",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191464_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1747397233-78737200.jpg?v=1763397932&width=1920",
     "notes": {
       "top": [
         "Jasmine",
@@ -43997,7 +43997,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199790021",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hareem-Al-Sultan-Perfume-100ml-EDP-Ard-Al-Zaafaran-163214319.jpg?v=1740063996",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761826154-19159000.jpg?v=1763399353&width=1920",
     "notes": {
       "top": [
         "Red Apple",
@@ -44259,7 +44259,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "812256023302",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/ariana-grande-cloud-eau-de-parfum-30ml-p20957-44098_image.jpg?v=1721322127&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/ari30.jpg?v=1773750786&width=1920",
     "notes": null
   },
   {
@@ -44270,7 +44270,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "812256023289",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/cloud-eau-de-parfum-100ml-p20959-44100_image.jpg?v=1721322133&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/cl1000.jpg?v=1773751154&width=1920",
     "notes": null
   },
   {
@@ -44281,7 +44281,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "810101502774",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/ARI0054.jpg?v=1729263489&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/clpink3.jpg?v=1773758371&width=1920",
     "notes": {
       "top": [
         "Berries",
@@ -44320,7 +44320,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "810101500091",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/ARI0048.png?v=1755094072&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1691682692-03159900.jpg?v=1763393810&width=1920",
     "notes": null
   },
   {
@@ -44331,7 +44331,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "810101501227",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/ARI0053.png?v=1755094074&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1691487044-80513800.jpg?v=1763393813&width=1920",
     "notes": null
   },
   {
@@ -44588,7 +44588,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 10,
     "ean": "6294015170610",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/177905_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737393737-54031500.jpg?v=1763395049&width=1920",
     "notes": null
   },
   {
@@ -44610,7 +44610,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199823941",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Club-De-Nuit-Intense-Overdose-100ml-Extrait-De-Parfum-Armaf-194968178.png?v=1784772314",
+    "image": "https://www.beautybase.com/cdn/shop/files/58.jpg?v=1784191595&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -45462,7 +45462,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199818862",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/Litchi2.jpg?v=1782380749&width=1920",
     "notes": null
   },
   {
@@ -45507,7 +45507,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015196467",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/186292_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1751530779-50948400.jpg?v=1763398226&width=1920",
     "notes": {
       "top": [
         "Vanilla",
@@ -45600,7 +45600,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015168174",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/167078_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737393606-87761700.jpg?v=1763394245&width=1920",
     "notes": null
   },
   {
@@ -45729,7 +45729,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015166149",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/177708_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1749829116-00673000.jpg?v=1763398131&width=1920",
     "notes": {
       "top": [
         "Lavender",
@@ -45954,7 +45954,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199804360",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/182043_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1749827451-03550400.jpg?v=1763398136&width=1920",
     "notes": {
       "top": [
         "Coffee",
@@ -46102,7 +46102,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6295199800751",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/184159_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750159860-09024300.jpg?v=1763398136&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -46133,7 +46133,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015188639",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/177943_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1742485169-31480100.jpg?v=1763397476&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -46207,7 +46207,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6294015189582",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/183857_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/2.webp?v=1776941608&width=1920",
     "notes": null
   },
   {
@@ -46288,7 +46288,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015160727",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/176372_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1749829801-19411800.jpg?v=1763398137&width=1920",
     "notes": {
       "top": [
         "Pepper",
@@ -46670,7 +46670,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199818855",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192009_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Sodapop.jpg?v=1782379272&width=1920",
     "notes": null
   },
   {
@@ -46863,7 +46863,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015182903",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/178072_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1742487369-04752800.jpg?v=1763397483&width=1920",
     "notes": {
       "top": [
         "Pear",
@@ -47383,7 +47383,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3351500011469",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/92477_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/123_d6e7f7a9-76fb-47a5-a8ce-9132889d5864.jpg?v=1774459567&width=1920",
     "notes": null
   },
   {
@@ -47394,7 +47394,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274129281",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/182012_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755684378-12582700.jpg?v=1763398464&width=1920",
     "notes": {
       "top": [
         "Bergamot Essence"
@@ -47419,7 +47419,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3351500016600",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/91786_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1732028413-78356100.jpg?v=1763395807&width=1920",
     "notes": null
   },
   {
@@ -47430,7 +47430,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3351500016617",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/103679_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1732028018-27282000.jpg?v=1763394822&width=1920",
     "notes": null
   },
   {
@@ -47441,7 +47441,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3351500013791",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/157977_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/789.jpg?v=1774518792&width=1920",
     "notes": {
       "top": [
         "Ginger Flower"
@@ -47827,7 +47827,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640171190334",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/100648_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Bentleymomentumintense.jpg?v=1783419416&width=1920",
     "notes": null
   },
   {
@@ -47962,7 +47962,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "608940582220",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/billie-eilish-eilish-by-billie-eilish-eau-de-parfum-30ml-p28458-71633_image.jpg?v=1721322149&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_83376bbe-eb20-4b8b-a321-8aa4125636ff.jpg?v=1774529609&width=1920",
     "notes": {
       "top": [
         "Sugar",
@@ -48065,7 +48065,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "608940585825",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/BIL0014.png?v=1745593487&width=2000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744362919-39775500.jpg?v=1763397523&width=1920",
     "notes": {
       "top": [
         "Cardamom",
@@ -48639,7 +48639,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "719346262187",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81VPcAiu1gL.jpg?v=1763144622",
+    "image": "https://www.beautybase.com/cdn/shop/files/1763638470-66006300.jpg?v=1772624840&width=1920",
     "notes": {
       "top": [
         "Watermelon Blossom",
@@ -48858,7 +48858,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014000621",
     "shops": 2,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/0042AF04-425C-4A29-A857-92CCD533378C.png?v=1776010605&width=1241",
+    "image": "https://www.beautybase.com/cdn/shop/files/boujee1.jpg?v=1776435373&width=1920",
     "notes": {
       "top": [
         "Sweet fruits",
@@ -48927,7 +48927,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014001079",
     "shops": 2,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/IMG-0920.png?v=1777992359&width=1254",
+    "image": "https://www.beautybase.com/cdn/shop/files/Chicwood1.jpg?v=1784624307&width=1920",
     "notes": {
       "top": [
         "Aldehydes",
@@ -48987,7 +48987,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014002083",
     "shops": 2,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/83CF8E77-8652-4C88-963A-7F143176BE51.webp?v=1785023672&width=1600",
+    "image": "https://www.beautybase.com/cdn/shop/files/DaddyIssues1.jpg?v=1782894472&width=1920",
     "notes": {
       "top": [
         "Fig",
@@ -49124,7 +49124,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014000478",
     "shops": 2,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/Bujairami-Emperor-EDP-100ml-Bujairami-Sydney-182547758_jpg.webp?v=1767875320&width=1946",
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairami_Emperor1.jpg?v=1774613735&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -49238,7 +49238,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014002168",
     "shops": 2,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/C7B58C20-C467-4C2C-B273-51C669C04A4F.png?v=1776010418&width=1241",
+    "image": "https://www.beautybase.com/cdn/shop/files/freeze1.jpg?v=1776435238&width=1920",
     "notes": {
       "top": [
         "Icy citrus",
@@ -49460,7 +49460,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014000690",
     "shops": 2,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/IMG-0925.png?v=1777994792&width=1402",
+    "image": "https://www.beautybase.com/cdn/shop/files/Marshmeltbujairami1.jpg?v=1778849003&width=1920",
     "notes": {
       "top": [
         "Marshmallow"
@@ -49483,7 +49483,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014000645",
     "shops": 2,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/A2C87ABC-0F9B-484F-888E-6D685046365F.jpg?v=1767391368&width=2048",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770813347-85847300.jpg?v=1774613023&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -49507,7 +49507,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014000232",
     "shops": 2,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/IMG-0929.webp?v=1777996362&width=512",
+    "image": "https://www.beautybase.com/cdn/shop/files/Newyork2.jpg?v=1778850061&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -49570,7 +49570,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014012563",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Powder-Affair-100ml-Extrait-De-Parfum-Bujairami-194602264.png?v=1784056206",
+    "image": "https://www.beautybase.com/cdn/shop/files/powderaffair.jpg?v=1784630391&width=1920",
     "notes": {
       "top": [
         "Coconut"
@@ -49594,7 +49594,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014001482",
     "shops": 2,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/IMG-0932.webp?v=1777996880&width=1024",
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairamilady1.jpg?v=1778844398&width=1920",
     "notes": {
       "top": [
         "Lavender",
@@ -49679,7 +49679,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014007958",
     "shops": 2,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/IMG-0954.webp?v=1778164747&width=1200",
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairamib_g1.jpg?v=1778840584&width=1920",
     "notes": null
   },
   {
@@ -49724,7 +49724,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014001499",
     "shops": 2,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/IMG-0956.webp?v=1778165046&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/BujairamiGreen2.jpg?v=1778840105&width=1920",
     "notes": null
   },
   {
@@ -49765,7 +49765,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014002120",
     "shops": 2,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/D0B8306C-48AA-4ADD-8DFD-818FF1689566.webp?v=1783640830&width=1200",
+    "image": "https://www.beautybase.com/cdn/shop/files/ShadowScript.jpg?v=1784632125&width=1920",
     "notes": {
       "top": [
         "Frankincense",
@@ -49930,7 +49930,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014002106",
     "shops": 2,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/IMG-0964.webp?v=1778169103&width=400",
+    "image": "https://www.beautybase.com/cdn/shop/files/BujairamiVanilla1.jpg?v=1782894132&width=1920",
     "notes": null
   },
   {
@@ -50057,7 +50057,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252667392",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/7/27.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641981357-49202500.jpg?v=1763390723&width=1920",
     "notes": {
       "top": [],
       "middle": [],
@@ -50079,7 +50079,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5045252667330",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61fdDAn1H7S.jpg?v=1763144506",
+    "image": "https://www.beautybase.com/cdn/shop/files/1579608831-28758600.jpg?v=1763388807&width=1920",
     "notes": null
   },
   {
@@ -50090,7 +50090,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616302020645",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/BURB0040_b6b61b75-a5d3-4606-a78c-d3857999ce6f.png?v=1765536304&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1740652731-12039600.jpg?v=1763395152&width=1920",
     "notes": {
       "top": [
         "Vanilla",
@@ -50118,7 +50118,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616302020676",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/BURB0041_152fe777-2d72-456e-a531-6f59bb7cc703.png?v=1765536324&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1740652534-52843600.jpg?v=1763395158&width=1920",
     "notes": {
       "top": [
         "Vanilla",
@@ -50168,7 +50168,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614227693241",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/BURB0056.png?v=1765536668&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1733840836-19636800.jpg?v=1763396796&width=1920",
     "notes": {
       "top": [
         "Blackcurrant",
@@ -50198,7 +50198,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614228838030",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/BURB0046_98d434e6-f93e-4de7-aa4e-88f8cd492f87.png?v=1765552817&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729507698-95094300.jpg?v=1763395873&width=1920",
     "notes": {
       "top": [
         "Pine Needles",
@@ -50253,7 +50253,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614228838016",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/BURB0047.png?v=1765452781&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738325489-74673700.jpg?v=1763395160&width=1920",
     "notes": {
       "top": [
         "Pine Needles",
@@ -50333,7 +50333,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252668085",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/BURB0012.png?v=1765452780&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1369146785-35516700.jpg?v=1763388816&width=1920",
     "notes": {
       "top": [
         "Rose",
@@ -50375,7 +50375,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "5045419039611",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/25_1.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1754395353-52471100.jpg?v=1763398465&width=1920",
     "notes": {
       "top": [
         "Quince",
@@ -50468,7 +50468,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045294100406",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/9/29.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1579603964-50813200.jpg?v=1763388817&width=1920",
     "notes": null
   },
   {
@@ -50490,7 +50490,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614227748484",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/86063_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1764586285-94644800.jpg?v=1772625192&width=1920",
     "notes": null
   },
   {
@@ -50501,7 +50501,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614227748323",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/162636_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1733916242-94080100.jpg?v=1763390735&width=1920",
     "notes": null
   },
   {
@@ -50997,7 +50997,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360373001774",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/87076_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1555592623-30626800.jpg?v=1763388825&width=1920",
     "notes": null
   },
   {
@@ -51008,7 +51008,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360373000081",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/90377_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/5_1eb71aff-4cd6-4452-b2b8-2475e22fc913.jpg?v=1774536688&width=1920",
     "notes": null
   },
   {
@@ -51019,7 +51019,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3360373016334",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/84949_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1369392549-46137100.jpg?v=1763388830&width=1920",
     "notes": null
   },
   {
@@ -51030,7 +51030,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614223162963",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/93756_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737375720-35032900.jpg?v=1763390741&width=1920",
     "notes": null
   },
   {
@@ -51041,7 +51041,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342107977",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/86013_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_d68abf3f-52cf-417a-a8d6-0f5550dc33a4.jpg?v=1774544858&width=1920",
     "notes": null
   },
   {
@@ -51052,7 +51052,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "0088300104437",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-be-eau-de-toilette-200ml-p20028-96626_image_x100.jpg?v=1721322150",
+    "image": "https://www.beautybase.com/cdn/shop/files/1524579971-15533200.png?v=1763388837&width=1920",
     "notes": null
   },
   {
@@ -51063,7 +51063,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607340213267",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/126233.jpg?v=1755874800&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731688157-65924700.jpg?v=1763391982&width=1920",
     "notes": {
       "top": [
         "Citrus cocktail",
@@ -51188,7 +51188,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607342401426",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/101.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/ckshock.jpg?v=1783355217&width=1920",
     "notes": null
   },
   {
@@ -51199,7 +51199,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300602513",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/3349.jpg?v=1755875380&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1369146236-25573500.jpg?v=1763388848&width=1920",
     "notes": null
   },
   {
@@ -51243,7 +51243,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616302016716",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_defy_eau_de_parfum_50ml_spray_.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737380189-83911500.jpg?v=1763393710&width=1920",
     "notes": null
   },
   {
@@ -51582,7 +51582,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300605514",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-eternity-for-men-eau-de-toilette-100ml-p20021-44330_image_x100.jpg?v=1721322156",
+    "image": "https://www.beautybase.com/cdn/shop/files/1524580632-18442300.png?v=1763388852&width=1920",
     "notes": null
   },
   {
@@ -51614,7 +51614,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616303476793",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191806_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737382206-04915000.jpg?v=1763394932&width=1920",
     "notes": null
   },
   {
@@ -51677,7 +51677,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "088300162550",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/CK0002_x100.png?v=1767110433",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_d3a3c08b-3ee3-4325-8a29-ddd522a9d0db.jpg?v=1774540090&width=1920",
     "notes": null
   },
   {
@@ -51710,7 +51710,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "088300178322",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/CK0064_a0f730b9-1f9b-4bdd-b0d2-b6453eed3aa0_x100.png?v=1733328147",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_1cd1d3ac-1f49-4ee5-a055-ae96bca39bb6.jpg?v=1774538462&width=1920",
     "notes": {
       "top": [
         "Ginger Pepper Cocktail",
@@ -51870,7 +51870,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "088300603305",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41z4pWMSMBL.jpg?v=1763136104",
+    "image": "https://www.beautybase.com/cdn/shop/files/Ckobsession1.jpg?v=1782296087&width=1920",
     "notes": {
       "top": [
         "Vanilla",
@@ -51921,7 +51921,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300607402",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-one-eau-de-toilette-100ml-p20024-96684_image_x100.jpg?v=1721322167",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_f3f68559-0e2e-4048-9047-f977a26cc919.jpg?v=1774540780&width=1920",
     "notes": null
   },
   {
@@ -51932,7 +51932,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "088300607433",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/one-eau-de-toilette-200ml-p20025-96681_image_x100.jpg?v=1721322178",
+    "image": "https://www.beautybase.com/cdn/shop/files/2_8ad7d463-66ae-43a8-a6f6-8e688338ed4b.jpg?v=1774543581&width=1920",
     "notes": null
   },
   {
@@ -51943,7 +51943,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607342401860",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/98.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1380195011-70803200.jpg?v=1763388845&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -52063,7 +52063,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061896259",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/65103_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1734092470-95151300.jpg?v=1763396766&width=1920",
     "notes": null
   },
   {
@@ -52074,7 +52074,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "8411061894026",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/93703_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728404003-75908700.jpg?v=1763389921&width=1920",
     "notes": {
       "top": [
         "Orange Blossom",
@@ -52102,7 +52102,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061088173",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/96345_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728401573-25746000.jpg?v=1763389922&width=1920",
     "notes": {
       "top": [
         "Tangerine",
@@ -52255,7 +52255,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061099766",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/145170_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728381935-57035300.jpg?v=1763392381&width=1920",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -52305,7 +52305,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061057193",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/165097_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728384680-79862500.jpg?v=1763393823&width=1920",
     "notes": null
   },
   {
@@ -52316,7 +52316,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061099780",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/166481_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728385228-17155700.jpg?v=1763393826&width=1920",
     "notes": null
   },
   {
@@ -52366,7 +52366,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061991909",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0046_830adc64-b0d8-43a7-9ba4-3589e1915422.png?v=1766569598&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728382150-38435000.jpg?v=1763390458&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -52394,7 +52394,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061991886",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0047.png?v=1765452785&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728377396-77586200.jpg?v=1763390458&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -52422,7 +52422,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "8411061002865",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8411061002865.png",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728377788-84970200.jpg?v=1763390459&width=1920",
     "notes": null
   },
   {
@@ -52531,7 +52531,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8411061041673",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/87915_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728304101-48864900.jpg?v=1763399448&width=1920",
     "notes": {
       "top": [
         "Almond"
@@ -52558,7 +52558,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061026250",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/174938_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728299362-00231600.jpg?v=1763399450&width=1920",
     "notes": {
       "top": [
         "Almond"
@@ -52624,7 +52624,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061113851",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/180.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761905710-28773000.jpg?v=1763399383&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -52654,7 +52654,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061123607",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1771339192-94638300.jpg?v=1774437625&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -52682,7 +52682,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061123614",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1771340935-07722500.jpg?v=1772624872&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -52710,7 +52710,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061077153",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61Q5PAkcriL.jpg?v=1767981589",
+    "image": "https://www.beautybase.com/cdn/shop/files/1757321604-62323600.jpg?v=1763398881&width=1920",
     "notes": {
       "top": [
         "Pitaya"
@@ -52748,7 +52748,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8411061137970",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/Labombaintense30ml.jpg?v=1786360645&width=1920",
     "notes": null
   },
   {
@@ -52759,7 +52759,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061137949",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/193275_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/labombaintense50ml.jpg?v=1786362088&width=1920",
     "notes": null
   },
   {
@@ -52770,7 +52770,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061137918",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/193227_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/labombaintense80ml.jpg?v=1786362323&width=1920",
     "notes": null
   },
   {
@@ -52781,7 +52781,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061995754",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/184.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728305354-71305100.jpg?v=1763390132&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -52811,7 +52811,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061106211",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/190243_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739269949-67385400.jpg?v=1763397095&width=1920",
     "notes": null
   },
   {
@@ -52983,7 +52983,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3432240506610",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/177651_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1771430022-01613300.jpg?v=1772624875&width=1920",
     "notes": {
       "top": [
         "Dried Fruits",
@@ -53029,7 +53029,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3432240506306",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/174657_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738840434-57051200.jpg?v=1763397056&width=1920",
     "notes": null
   },
   {
@@ -53096,7 +53096,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5050456522729",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/80087_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1640085849-99285500.jpg?v=1763389933&width=1920",
     "notes": {
       "top": [
         "Linen Flower",
@@ -53127,7 +53127,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "688575003659",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/cerruti-1881-homme-eau-de-toilette-100ml-p20947-44091_image.jpg?v=1721322187&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/18881.jpg?v=1773765811&width=1920",
     "notes": null
   },
   {
@@ -53263,7 +53263,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614228842839",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/151722_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1638970271-39248800.jpg?v=1763391883&width=1920",
     "notes": {
       "top": [
         "Cedrat Essence",
@@ -53342,7 +53342,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616303459666",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/184889_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1724423308-48710200.jpg?v=1763395579&width=1920",
     "notes": null
   },
   {
@@ -53574,7 +53574,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "020714881436",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/4006.jpg?v=1760534700&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1614851043-15937600.jpg?v=1763390074&width=1920",
     "notes": null
   },
   {
@@ -53585,7 +53585,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "020714881429",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/4020.jpg?v=1786619791&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738761933-00833300.jpg?v=1763390804&width=1920",
     "notes": null
   },
   {
@@ -53596,7 +53596,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460078320",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/140595_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1470388076-06162000.jpg?v=1763397204&width=1920",
     "notes": {
       "top": [
         "Raspberry leaf",
@@ -53694,7 +53694,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460142199",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1720168888-41555900.jpg?v=1763394517&width=1920",
     "notes": null
   },
   {
@@ -53705,7 +53705,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3386460126571",
     "shops": 2,
-    "image": "https://www.thefragrancecounter.co.uk/user/products/large/coachwildrose90mlbottle.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761824737-24429100.jpg?v=1763399335&width=1920",
     "notes": {
       "top": [
         "Redcurrant"
@@ -53730,7 +53730,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460157308",
     "shops": 2,
-    "image": "https://www.thefragrancecounter.co.uk/user/products/large/coachgoldsmallbottle.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759411702-54874200.jpg?v=1763399196&width=1920",
     "notes": {
       "top": [
         "Pink Peppercorn"
@@ -53755,7 +53755,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3386460156707",
     "shops": 2,
-    "image": "https://www.thefragrancecounter.co.uk/user/products/large/coachgoldforherbottle.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759411832-89630700.jpg?v=1763399198&width=1920",
     "notes": {
       "top": [
         "Pink Peppercorn"
@@ -53791,7 +53791,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6001567788435",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/141527_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739361770-00183000.jpg?v=1763393536&width=1920",
     "notes": null
   },
   {
@@ -54234,7 +54234,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060524510022",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/4206b223-fe44-4365-959e-b7ff698d1229.jpg?v=1763136720",
+    "image": "https://www.beautybase.com/cdn/shop/files/1708365410-11700900.jpg?v=1763394061&width=1920",
     "notes": {
       "top": [
         "bergamot",
@@ -54393,7 +54393,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060524510886",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/25872foto_550x.progressive_30cc804a-afb6-41d7-8da5-865d3de31371.jpg?v=1763136747",
+    "image": "https://www.beautybase.com/cdn/shop/files/1771411425-06155000.jpg?v=1772624881&width=1920",
     "notes": {
       "top": [
         "Crisp Apple",
@@ -54427,7 +54427,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060524511166",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61p2Wi82kEL.jpg?v=1763136773",
+    "image": "https://www.beautybase.com/cdn/shop/files/1771411120-83414700.jpg?v=1772624882&width=1920",
     "notes": null
   },
   {
@@ -54438,7 +54438,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060524511357",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/167115_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736867046-64517700.jpg?v=1763394584&width=1920",
     "notes": null
   },
   {
@@ -54449,7 +54449,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060524511333",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/167010_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736867298-26689900.jpg?v=1763394586&width=1920",
     "notes": null
   },
   {
@@ -54664,7 +54664,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303461980",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/168326_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1748946359-96772200.jpg?v=1763398035&width=1920",
     "notes": null
   },
   {
@@ -54675,7 +54675,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303462062",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10046385.jpg?v=1763143564",
+    "image": "https://www.beautybase.com/cdn/shop/files/1748946109-24403400.jpg?v=1763398036&width=1920",
     "notes": {
       "top": [
         "Lime",
@@ -54708,7 +54708,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "5012874248872",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/86611_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1478607106-71552300.jpg?v=1763393473&width=1920",
     "notes": null
   },
   {
@@ -54730,7 +54730,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3616304895685",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/172172_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728467990-41329200.jpg?v=1763395800&width=1920",
     "notes": null
   },
   {
@@ -54741,7 +54741,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3607340188602",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3607340188602.png",
+    "image": "https://www.beautybase.com/cdn/shop/files/1548867446-51429200.jpg?v=1763389958&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -54826,7 +54826,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614228174237",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/cool-water-intense-eau-de-parfum-75ml-p30145-78346_image.jpg?v=1721322179&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738924092-80546600.jpg?v=1763393737&width=1920",
     "notes": null
   },
   {
@@ -54837,7 +54837,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3614228174275",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-intense-eau-de-parfum-125ml-p22253-56712_image.jpg?v=1721322175&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738924156-82768600.jpg?v=1763393738&width=1920",
     "notes": null
   },
   {
@@ -54848,7 +54848,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607342359789",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/4/243.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1369146072-28015800.jpg?v=1763389951&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -54889,7 +54889,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3414202011769",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/85538_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1507807249-29634000.png?v=1763389957&width=1920",
     "notes": {
       "top": [
         "Luscious Aquatic",
@@ -54927,7 +54927,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607341186805",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/981852.jpg?v=1755874540&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1369146616-95807100.jpg?v=1763389962&width=1920",
     "notes": {
       "top": [
         "Gin",
@@ -54954,7 +54954,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3414202000534",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/86938_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1708535321-74749500.jpg?v=1763390840&width=1920",
     "notes": null
   },
   {
@@ -55115,7 +55115,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605522052826",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/138376_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1471248912-89651100.jpg?v=1763397213&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -55143,7 +55143,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273694766",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/162883_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1660052438-22243700.jpg?v=1763392567&width=1920",
     "notes": null
   },
   {
@@ -55154,7 +55154,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273924443",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/183898_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1720107639-45918000.jpg?v=1763395108&width=1920",
     "notes": null
   },
   {
@@ -55187,7 +55187,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3605521132499",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/83927_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1369066103-16264300.jpg?v=1763389974&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -55229,7 +55229,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3614272320833",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/410iapLiCWL.jpg?v=1763137157",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750155984-33286000.jpg?v=1763398173&width=1920",
     "notes": null
   },
   {
@@ -55240,7 +55240,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605521534064",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/101806_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1455902861-97237000.jpg?v=1763389975&width=1920",
     "notes": {
       "top": [
         "Crisp Apple",
@@ -55269,7 +55269,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3614273476768",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71sfpSRoL3L.jpg?v=1767982162",
+    "image": "https://www.beautybase.com/cdn/shop/files/d1_9127fcab-2f8b-429c-9dbe-056d2e6a173d.jpg?v=1774517761&width=1920",
     "notes": {
       "top": [
         "spices"
@@ -55696,7 +55696,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "085715950376",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71dUIcflbeL.jpg?v=1767982261",
+    "image": "https://www.beautybase.com/cdn/shop/files/5_53eb619d-d29c-4f69-a641-1cb86599c169.jpg?v=1782311154&width=1920",
     "notes": null
   },
   {
@@ -55718,7 +55718,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "085715950352",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/dkny-be-delicious-mai-tai-eau-de-toilette-50ml.webp?v=1763146015",
+    "image": "https://www.beautybase.com/cdn/shop/files/DKNYmaitai.jpg?v=1782488691&width=1920",
     "notes": {
       "top": [
         "Fresh fruity explosion"
@@ -55908,7 +55908,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423473020042",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/1044326.jpg?v=1755874418&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1697729914-38576200.jpg?v=1763393093&width=1920",
     "notes": null
   },
   {
@@ -56088,7 +56088,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8057971183791",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/167969_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Violet.jpg?v=1781784783&width=1920",
     "notes": null
   },
   {
@@ -56141,7 +56141,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971181544",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/119343_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1572599684-22843200.jpg?v=1763389412&width=1920",
     "notes": null
   },
   {
@@ -56152,7 +56152,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8057971187904",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/172392_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729173176-34050400.jpg?v=1763394896&width=1920",
     "notes": null
   },
   {
@@ -56163,7 +56163,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222015565",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/72713.jpg?v=1755874881&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1604073483-84811200.jpg?v=1763389980&width=1920",
     "notes": {
       "top": [
         "Rhubarb",
@@ -56214,7 +56214,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3423473032793",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/357.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737027133-55446800.jpg?v=1763390861&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -56315,7 +56315,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3423473020776",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_pour_homme_eau_de_toilette_125ml_spray.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1382630876-93962700.jpg?v=1763389985&width=1920",
     "notes": {
       "top": [
         "Neroli",
@@ -56357,7 +56357,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8054754405040",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/188742_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1741010580-06932300.jpg?v=1763397191&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -56391,7 +56391,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423473021209",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/DANDG0049_673e801c-265b-424c-9033-6537cc3f63c5.png?v=1765199497&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1639997627-18308400.jpg?v=1763390867&width=1920",
     "notes": null
   },
   {
@@ -56402,7 +56402,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8057971188710",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/150450_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1720012229-96542900.jpg?v=1763394886&width=1920",
     "notes": null
   },
   {
@@ -56413,7 +56413,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8057971188673",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/151713_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1720007658-81993600.jpg?v=1763394891&width=1920",
     "notes": null
   },
   {
@@ -56424,7 +56424,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8057971188680",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/150653_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729171940-62893300.jpg?v=1763394891&width=1920",
     "notes": null
   },
   {
@@ -56435,7 +56435,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423478452657",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/8/080.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737027349-60198100.jpg?v=1763390870&width=1920",
     "notes": null
   },
   {
@@ -56494,7 +56494,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003864294",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/148756_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1628695034-04332300.jpg?v=1763390315&width=1920",
     "notes": null
   },
   {
@@ -56604,7 +56604,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085715806352",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/u/dunhill_icon_racing_blue_edp_100ml_.png",
+    "image": "https://www.beautybase.com/cdn/shop/files/1732098164-26563900.jpg?v=1763396086&width=1920",
     "notes": null
   }
 ];
@@ -56723,7 +56723,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "7640233341407",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/174547_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731497648-46823300.jpg?v=1763393298&width=1920",
     "notes": null
   },
   {
@@ -56858,7 +56858,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640233342565",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71DHf29KEsL.jpg?v=1767982374",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744363136-48905100.jpg?v=1763397533&width=1920",
     "notes": {
       "top": [
         "Bergamot Oil Italy",
@@ -56887,7 +56887,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423470398014",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/le-parfum-eau-de-parfum-50ml-p27122-65545_image.jpg?v=1721322172&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731498681-85527100.jpg?v=1763393766&width=1920",
     "notes": null
   },
   {
@@ -56974,7 +56974,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "7640233340707",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/159332_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731499870-58389100.jpg?v=1763393938&width=1920",
     "notes": null
   },
   {
@@ -57021,7 +57021,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "085805390600",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/4966.jpg?v=1755875249&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1507819313-70608200.png?v=1763389997&width=1920",
     "notes": {
       "top": [
         "Lilac",
@@ -57071,7 +57071,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805542160",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61jHmfMynrL.jpg?v=1767982387",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753096146-03804400.jpg?v=1763397148&width=1920",
     "notes": {
       "top": [
         "Red plum",
@@ -57102,7 +57102,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805785345",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/3633.jpg?v=1755875344&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1507818412-25525400.png?v=1763389997&width=1920",
     "notes": {
       "top": [
         "iris",
@@ -57146,7 +57146,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "085805763749",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0055_x100.png?v=1777037406",
+    "image": "https://www.beautybase.com/cdn/shop/files/1548852900-74829800.jpg?v=1763395920&width=1920",
     "notes": null
   },
   {
@@ -57157,7 +57157,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805268848",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/774475.jpg?v=1755874642&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1369220169-22457400.jpg?v=1763390002&width=1920",
     "notes": {
       "top": [
         "Caraway",
@@ -57282,7 +57282,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805069308",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/802c116b-9289-4a56-9b5c-06edbb490731.jpg?v=1763137572",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729698513-42574700.jpg?v=1763390896&width=1920",
     "notes": null
   },
   {
@@ -57397,7 +57397,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346373906",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/5211.jpg?v=1755875246&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729760557-99272500.jpg?v=1763393836&width=1920",
     "notes": null
   },
   {
@@ -57450,7 +57450,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805210458",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0139_dae970a1-95f5-4293-86a5-dcfba58c95c0_x100.png?v=1777389340",
+    "image": "https://www.beautybase.com/cdn/shop/files/Elizabethardenwhtietea1.jpg?v=1785835782&width=1920",
     "notes": null
   },
   {
@@ -57542,7 +57542,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "719346266154",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Hba5b2PNL.jpg?v=1763143681",
+    "image": "https://www.beautybase.com/cdn/shop/files/elizabethtaylor.jpg?v=1783950314&width=1920",
     "notes": null
   },
   {
@@ -58110,7 +58110,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616304203572",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/167907_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1723464918-47812200.jpg?v=1763395421&width=1920",
     "notes": null
   },
   {
@@ -58164,7 +58164,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616304203626",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/168963_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1760517097-31818100.jpg?v=1763398887&width=1920",
     "notes": {
       "top": [
         "Black Currant",
@@ -58244,7 +58244,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616304668791",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/168416_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1723538250-26630700.jpg?v=1763395425&width=1920",
     "notes": {
       "top": [
         "Cherry"
@@ -58270,7 +58270,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616303456306",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/170716_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725454755-92504600.jpg?v=1763395630&width=1920",
     "notes": null
   },
   {
@@ -58372,7 +58372,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8005610619323",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/106694_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739455713-45353800.jpg?v=1763393799&width=1920",
     "notes": null
   },
   {
@@ -58587,7 +58587,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "027131019817",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/download_22.png?v=1763137749",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725964075-25471900.jpg?v=1763395587&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -58611,7 +58611,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "027131043287",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/102589_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731516327-44588800.jpg?v=1763390913&width=1920",
     "notes": null
   },
   {
@@ -58622,7 +58622,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "027131043317",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/102590_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1710430591-66919200.jpg?v=1763390916&width=1920",
     "notes": null
   },
   {
@@ -59623,7 +59623,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379104",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Elysia-Apple-Rouge-Perfume-100ml-EDP-Fragrance-World-167852673.jpg?v=1746535482",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744711663-16531300.jpg?v=1763397694&width=1920",
     "notes": {
       "top": [
         "Red Apple",
@@ -59656,7 +59656,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298042002012",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Elysia-Elegance-Perfume-100ml-EDP-Fragrance-World-180794776.png?v=1763754534",
+    "image": "https://www.beautybase.com/cdn/shop/files/1763980342-32072100.jpg?v=1772624916&width=1920",
     "notes": {
       "top": [
         "Pear",
@@ -59692,7 +59692,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379692",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Elysia-Marshmallow-Perfume-100ml-EDP-Fragrance-World-175551926.jpg?v=1755997895",
+    "image": "https://www.beautybase.com/cdn/shop/files/1756395874-65758500.jpg?v=1763398854&width=1920",
     "notes": {
       "top": [
         "Lemon",
@@ -59724,7 +59724,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379128",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Elysia-Pista-Sundae-Perfume-100ml-EDP-Fragrance-World-167852141.jpg?v=1746535664",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744711558-62682600.jpg?v=1763397698&width=1920",
     "notes": {
       "top": [
         "Pistachio",
@@ -59755,7 +59755,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360376066",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Extremely-Unique-Pista-Perfume-100ml-EDP-Fragrance-World-151174723.jpg?v=1729261075",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721038011-11274200.jpg?v=1763395367&width=1920",
     "notes": {
       "top": [
         "Pistachios",
@@ -59873,7 +59873,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360375342",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hayaati-Beau-Perfume-100ml-EDP-Fragrance-World-148906717.jpg?v=1725631547",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725880288-36370900.jpg?v=1763395659&width=1920",
     "notes": {
       "top": [
         "Orange",
@@ -60152,7 +60152,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "6290360371450",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/king-perfume-100ml-edp-fragrance-world-emirates-oud-103911448.jpg?v=1713058630",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725879754-44667700.jpg?v=1763395375&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -60334,7 +60334,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "6290360373591",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/lush-cherry-50ml-edp-fragrance-world-emirates-oud-1.jpg?v=1713056687",
+    "image": "https://www.beautybase.com/cdn/shop/files/1743760005-54159700.jpg?v=1763397488&width=1920",
     "notes": {
       "top": [
         "Cherry",
@@ -60366,7 +60366,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "6291108321591",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Lush-Cherry-Perfume-80ml-EDP-Fragrance-World-169454260.jpg?v=1749771850",
+    "image": "https://www.beautybase.com/cdn/shop/files/1748619829-52992500.jpg?v=1763398009&width=1920",
     "notes": {
       "top": [
         "Black Cherry",
@@ -60497,7 +60497,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379487",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Notes-Jazz-Perfume-100ml-EDP-Fragrance-World-170002085.jpg?v=1751041577",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753352073-56246800.jpg?v=1763398492&width=1920",
     "notes": {
       "top": [
         "Cinnamon",
@@ -60766,7 +60766,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "6290360371443",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Queen-Perfume-100ml-EDP-Fragrance-World-136477532.jpg?v=1762132270",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725879349-19506100.jpg?v=1763395376&width=1920",
     "notes": {
       "top": [
         "Sour Cherry",
@@ -61699,7 +61699,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298042001718",
     "shops": 2,
-    "image": "https://manchesterouds.com/cdn/shop/files/aromatix-frostbite-edp-100ml-french-avenue-5381786.webp?v=1786194488&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/123_bf601154-b3ae-4eec-8aa7-39faf1bc7599.jpg?v=1780415506&width=1920",
     "notes": {
       "top": [
         "Blueberry",
@@ -62118,7 +62118,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298042000926",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755159692-05349600.jpg?v=1763398787&width=1920",
     "notes": {
       "top": [
         "Black Currant",
@@ -62284,7 +62284,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "766124130404",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/ghost-the-fragrance-eau-de-toilette-100ml-p36759-113808_image.jpg?v=1721322195&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1557501457-07687400.jpg?v=1763391082&width=1920",
     "notes": null
   },
   {
@@ -62391,7 +62391,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273954167",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/177764_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721831914-89751500.jpg?v=1763395173&width=1920",
     "notes": null
   },
   {
@@ -62402,7 +62402,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3614273954297",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/172585_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1723558184-26053500.jpg?v=1763395507&width=1920",
     "notes": null
   },
   {
@@ -62413,7 +62413,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3614273954150",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/182720_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1723557653-00652800.jpg?v=1763395509&width=1920",
     "notes": null
   },
   {
@@ -62488,7 +62488,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274361339",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/190320_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755706930-87868600.jpg?v=1763398403&width=1920",
     "notes": null
   },
   {
@@ -62499,7 +62499,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273953764",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/174449_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1723209438-08347700.jpg?v=1763395514&width=1920",
     "notes": null
   },
   {
@@ -62510,7 +62510,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274361322",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/187507_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755707134-70719400.jpg?v=1763398403&width=1920",
     "notes": null
   },
   {
@@ -62521,7 +62521,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273953696",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/185896_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1723208157-06790600.jpg?v=1763395514&width=1920",
     "notes": null
   },
   {
@@ -62532,7 +62532,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3614273953672",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/172584_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1723207683-93646300.jpg?v=1763395517&width=1920",
     "notes": null
   },
   {
@@ -62613,7 +62613,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3360375004049",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/93043_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721833962-04620500.jpg?v=1763390950&width=1920",
     "notes": {
       "top": [
         "Jasmine",
@@ -62662,7 +62662,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273636445",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/183131_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721896113-51587700.jpg?v=1763395056&width=1920",
     "notes": null
   },
   {
@@ -62673,7 +62673,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614273636414",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/174446_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721896317-88782800.jpg?v=1763395062&width=1920",
     "notes": null
   },
   {
@@ -62684,7 +62684,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3614273604932",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/3/434.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1665060936-18674200.jpg?v=1763392713&width=1920",
     "notes": null
   },
   {
@@ -62721,7 +62721,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605520380259",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/95823_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1500629187-65371800.jpg?v=1763398570&width=1920",
     "notes": {
       "top": [
         "Lychee",
@@ -62753,7 +62753,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605520380310",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/95470_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1493377552-02468200.jpg?v=1763391093&width=1920",
     "notes": null
   },
   {
@@ -62764,7 +62764,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3605520381096",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/95824_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721897315-75668300.jpg?v=1763393572&width=1920",
     "notes": null
   },
   {
@@ -62858,7 +62858,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273844673",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/163207_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721835168-83009200.jpg?v=1763393246&width=1920",
     "notes": null
   },
   {
@@ -62869,7 +62869,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273844666",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/163206_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721835305-99736700.jpg?v=1763393252&width=1920",
     "notes": null
   },
   {
@@ -62880,7 +62880,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273927352",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/163056_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721836542-49557000.jpg?v=1763393253&width=1920",
     "notes": null
   },
   {
@@ -62902,7 +62902,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273947787",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721831196-63499300.jpg?v=1763395062&width=1920",
     "notes": null
   },
   {
@@ -62913,7 +62913,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273947763",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/190471_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721646427-69366900.jpg?v=1763395068&width=1920",
     "notes": null
   },
   {
@@ -62924,7 +62924,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274752717",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/r/armani_emporia_armani_power_of_you_eau_de_parfum_90ml_spray_.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1769707405-09686400.jpg?v=1772624909&width=1920",
     "notes": null
   },
   {
@@ -62935,7 +62935,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360372061809",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1629458041-31692000.jpg?v=1763391097&width=1920",
     "notes": null
   },
   {
@@ -62946,7 +62946,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360372061793",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441_1.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1629457932-96497000.jpg?v=1763391094&width=1920",
     "notes": null
   },
   {
@@ -62957,7 +62957,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3605521816511",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/ARMA0048.png?v=1749024342&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/100mlsi.jpg?v=1773739885&width=1920",
     "notes": {
       "top": [
         "Blackcurrant Liqueur"
@@ -62984,7 +62984,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274322293",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/189283_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755767428-98488500.jpg?v=1763398403&width=1920",
     "notes": null
   },
   {
@@ -62995,7 +62995,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274322262",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/189280_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755767637-13333900.jpg?v=1763398406&width=1920",
     "notes": {
       "top": [
         "Blackcurrant",
@@ -63088,7 +63088,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274752663",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/SI50ML.jpg?v=1774440016&width=1920",
     "notes": null
   },
   {
@@ -63142,7 +63142,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274653335",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/50ml.jpg?v=1774436291&width=1920",
     "notes": null
   },
   {
@@ -63153,7 +63153,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272225701",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/118024_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1548246436-93825600.jpg?v=1763389183&width=1920",
     "notes": null
   },
   {
@@ -63164,7 +63164,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272225718",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/9/090.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1548247575-65397600.jpg?v=1763389184&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -63194,7 +63194,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274748949",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1768394136-75294400.jpg?v=1772624825&width=1920",
     "notes": null
   },
   {
@@ -63205,7 +63205,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274624380",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191124_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/syspic.jpg?v=1774435603&width=1920",
     "notes": null
   },
   {
@@ -63484,7 +63484,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3274872505780",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/68905_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1474542610-37949300.jpg?v=1763391103&width=1920",
     "notes": null
   },
   {
@@ -63550,7 +63550,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3274872424999",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/150645_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1652794389-50032500.jpg?v=1763392398&width=1920",
     "notes": null
   },
   {
@@ -63561,7 +63561,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872441033",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/120893_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727281073-50078100.jpg?v=1763390974&width=1920",
     "notes": null
   },
   {
@@ -63717,7 +63717,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3274872467958",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/188815_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727771300-20445500.jpg?v=1763395069&width=1920",
     "notes": null
   },
   {
@@ -63761,7 +63761,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872419308",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/143770_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727341880-40068800.jpg?v=1763390980&width=1920",
     "notes": null
   },
   {
@@ -63783,7 +63783,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872469006",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727453705-43159400.jpg?v=1763394504&width=1920",
     "notes": null
   },
   {
@@ -63827,7 +63827,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872495470",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1756977312-41525000.jpg?v=1763398673&width=1920",
     "notes": {
       "top": [
         "Bitter Almond Essence"
@@ -63859,7 +63859,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872495487",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191080_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1756978701-92562800.jpg?v=1763398676&width=1920",
     "notes": {
       "top": [
         "Bitter Almond Essence"
@@ -63891,7 +63891,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872473676",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/182190_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725897499-41667500.jpg?v=1763395605&width=1920",
     "notes": null
   },
   {
@@ -63902,7 +63902,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872473683",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/181855_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725897594-33865200.jpg?v=1763395606&width=1920",
     "notes": null
   },
   {
@@ -64025,7 +64025,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872447547",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727424702-51735400.jpg?v=1763393320&width=1920",
     "notes": null
   },
   {
@@ -64036,7 +64036,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872447554",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192241_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727427045-42934600.jpg?v=1763393321&width=1920",
     "notes": null
   },
   {
@@ -64047,7 +64047,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274870042362",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/515.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1697816027-69003600.jpg?v=1763391109&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -64077,7 +64077,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3357554720012",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/93659_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1480619483-75397700.jpg?v=1763391110&width=1920",
     "notes": null
   },
   {
@@ -64088,7 +64088,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3600551124902",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/179558_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738937309-84034300.jpg?v=1763393791&width=1920",
     "notes": null
   },
   {
@@ -64155,7 +64155,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3418130110204",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/gres-cabochard-eau-de-toilette-100ml-p31744-87936_image.jpg?v=1721322226&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641986906-98078300.jpg?v=1763390998&width=1920",
     "notes": {
       "top": [
         "Aldehydes",
@@ -64224,7 +64224,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616302514274",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/713toNnCb2L.jpg?v=1763143720",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731412952-96727900.jpg?v=1763395191&width=1920",
     "notes": null
   },
   {
@@ -64235,7 +64235,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614229461336",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/142369_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729266599-73134100.jpg?v=1763396263&width=1920",
     "notes": null
   },
   {
@@ -64257,7 +64257,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616302968589",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0008.png?v=1775142585&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731413797-36408800.jpg?v=1763395192&width=1920",
     "notes": {
       "top": [
         "Italian Mandarin",
@@ -64444,7 +64444,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8005610328799",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/6/560.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729862900-54569400.jpg?v=1763391112&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -64725,7 +64725,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3346470241046",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/5921.jpg?v=1755875177&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/963_5de227a7-b39d-4a4e-a10d-ee2628802f3b.jpg?v=1776933962&width=1920",
     "notes": null
   },
   {
@@ -64809,7 +64809,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3346470113558",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shali_edp.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1666615164-87022900.jpg?v=1763392908&width=1920",
     "notes": null
   },
   {
@@ -65005,7 +65005,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362164432",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/190820_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759764257-21033100.jpg?v=1763399075&width=1920",
     "notes": {
       "top": [
         "Apple",
@@ -65036,7 +65036,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362164449",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/190630_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759764347-04081600.jpg?v=1763399075&width=1920",
     "notes": {
       "top": [
         "Cardamom",
@@ -65075,7 +65075,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362163367",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Coco-Blanco-Perfume-100ml-EDP-Gulf-Orchid-178741234.png?v=1759875152",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759767339-62479000.jpg?v=1763399081&width=1920",
     "notes": {
       "top": [
         "Buttery",
@@ -65149,7 +65149,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362164968",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192160_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/741258_deb1744a-d4c4-4bdc-ada5-5be20cc24237.jpg?v=1781258554&width=1920",
     "notes": null
   },
   {
@@ -65160,7 +65160,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362164951",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191467_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/74125879.jpg?v=1781255901&width=1920",
     "notes": null
   },
   {
@@ -65203,7 +65203,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 20,
     "ean": "6290362162889",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/188248_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752247116-49134600.jpg?v=1763398326&width=1920",
     "notes": {
       "top": [
         "Cocoa",
@@ -65867,7 +65867,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616305616203",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/184648_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/47.jpg?v=1783940699&width=1920",
     "notes": null
   },
   {
@@ -65933,7 +65933,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616303173081",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/164933_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1666084659-03494100.jpg?v=1763392881&width=1920",
     "notes": null
   },
   {
@@ -65944,7 +65944,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616304691652",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/685.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1699981765-41711200.jpg?v=1763393941&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -66054,7 +66054,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616301623335",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/140021_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1637252632-17210100.jpg?v=1763390471&width=1920",
     "notes": null
   },
   {
@@ -66159,7 +66159,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "737052351001",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/HB0004.jpg?v=1733130581&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1517568130-53955300.png?v=1763391123&width=1920",
     "notes": {
       "top": [
         "Apple",
@@ -66255,7 +66255,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052351100",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/657.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1517568324-24126200.png?v=1763391125&width=1920",
     "notes": null
   },
   {
@@ -66266,7 +66266,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052351018",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/662.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1523983042-36415600.png?v=1763391124&width=1920",
     "notes": null
   },
   {
@@ -66339,7 +66339,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "737052488257",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/668.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770296151-62689900.jpg?v=1772624830&width=1920",
     "notes": {
       "top": [
         "Birch Leaf"
@@ -66364,7 +66364,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052352060",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/667.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1523976922-05452900.png?v=1763391130&width=1920",
     "notes": null
   },
   {
@@ -66375,7 +66375,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052031415",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/162_2.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1657102178-91115600.jpg?v=1763391054&width=1920",
     "notes": null
   },
   {
@@ -66415,7 +66415,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3616306721722",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/189027_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/hugo_deep_red.jpg?v=1782308575&width=1920",
     "notes": null
   },
   {
@@ -66437,7 +66437,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052041353",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/695.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_6f336ee8-21a9-4ea2-810a-808da2c5b95f.jpg?v=1781860832&width=1920",
     "notes": null
   },
   {
@@ -66491,7 +66491,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3614229823806",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/137807_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Hugoman.jpg?v=1785153885&width=1920",
     "notes": null
   },
   {
@@ -66513,7 +66513,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "737052515045",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/697.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1760449308-11149800.jpg?v=1763399262&width=1920",
     "notes": null
   },
   {
@@ -66524,7 +66524,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3616301623380",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/140305_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1650473036-77988000.jpg?v=1763392193&width=1920",
     "notes": {
       "top": [
         "Apple"
@@ -66621,7 +66621,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3616301623410",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/170422_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1654609610-63957200.jpg?v=1763391050&width=1920",
     "notes": null
   },
   {
@@ -66707,7 +66707,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052802800",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/704.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1708013582-62041900.jpg?v=1763391041&width=1920",
     "notes": null
   },
   {
@@ -66818,7 +66818,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "737052238050",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/orange-woman-eau-de-toilette-30ml-p28113-70141_image.jpg?v=1721324044&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1369145196-89822600.jpg?v=1763391129&width=1920",
     "notes": {
       "top": [
         "Red Apple",
@@ -66850,7 +66850,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052238128",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/7/675.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641988767-16668700.jpg?v=1763391044&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -66954,7 +66954,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616304247651",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/174878_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738689943-48177500.jpg?v=1763393345&width=1920",
     "notes": null
   },
   {
@@ -66987,7 +66987,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052130934",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200_3.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1763640750-91626500.jpg?v=1772624932&width=1920",
     "notes": null
   },
   {
@@ -68772,7 +68772,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423470300161",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/1/716.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1380882213-09203900.jpg?v=1763391146&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -68802,7 +68802,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3423470480986",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/93322_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738676716-49102300.jpg?v=1763393777&width=1920",
     "notes": null
   },
   {
@@ -68813,7 +68813,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222048020",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/164129_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1664788786-49225300.jpg?v=1763392772&width=1920",
     "notes": null
   },
   {
@@ -68835,7 +68835,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3423470485547",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-homme-eau-de-toilette-40ml-p20236-65062_image.jpg?v=1721322247&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1530205021-70805300.png?v=1763391143&width=1920",
     "notes": {
       "top": [
         "Yuzu",
@@ -68914,7 +68914,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222090715",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/164926_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738677309-59968400.jpg?v=1763393619&width=1920",
     "notes": null
   },
   {
@@ -68947,7 +68947,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423478782655",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/121095_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1639479015-57752500.jpg?v=1763391184&width=1920",
     "notes": null
   },
   {
@@ -69012,7 +69012,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3423474874750",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/67892_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1771320619-08617100.jpg?v=1772625061&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -69045,7 +69045,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423473947158",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/94081_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738678008-97649300.jpg?v=1763391190&width=1920",
     "notes": null
   },
   {
@@ -69284,7 +69284,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415011310",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/59850_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728655800-74262600.jpg?v=1763396057&width=1920",
     "notes": null
   },
   {
@@ -69295,7 +69295,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415011341",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/59851_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728656482-96928100.jpg?v=1763396059&width=1920",
     "notes": null
   },
   {
@@ -69306,7 +69306,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8435415114776",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770807787-35471900.jpg?v=1772624945&width=1920",
     "notes": {
       "top": [
         "Raspberry"
@@ -69331,7 +69331,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415114783",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/193231_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770808056-89084600.jpg?v=1772624946&width=1920",
     "notes": {
       "top": [
         "Raspberry"
@@ -69356,7 +69356,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415114790",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191531_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770808472-69487100.jpg?v=1772624943&width=1920",
     "notes": {
       "top": [
         "Raspberry"
@@ -69461,7 +69461,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415102483",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/179660_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1745419135-79479400.jpg?v=1763397662&width=1920",
     "notes": {
       "top": [
         "Apricot"
@@ -69543,7 +69543,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415114363",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/190435_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Lemaleinblue_8045ab84-865b-41a3-877d-5d690cf1a736.jpg?v=1779807849&width=1920",
     "notes": null
   },
   {
@@ -69671,7 +69671,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8435415059084",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/185881_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728915400-67995100.jpg?v=1763391208&width=1920",
     "notes": null
   },
   {
@@ -69682,7 +69682,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8435415080408",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/184796_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729265547-58869600.jpg?v=1763395036&width=1920",
     "notes": null
   },
   {
@@ -69748,7 +69748,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8435415113984",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1768388478-07140300.jpg?v=1772624952&width=1920",
     "notes": {
       "top": [
         "Blackberry"
@@ -69773,7 +69773,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415113977",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1768392365-95805300.jpg?v=1772624953&width=1920",
     "notes": {
       "top": [
         "Blackberry"
@@ -69798,7 +69798,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8435415113960",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1768392597-28453800.jpg?v=1772624954&width=1920",
     "notes": {
       "top": [
         "Blackberry"
@@ -69823,7 +69823,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415114004",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192585_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1768393333-67164500.jpg?v=1772624961&width=1920",
     "notes": {
       "top": [
         "Black Cherry"
@@ -69848,7 +69848,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415114028",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1768393401-70488000.jpg?v=1772624957&width=1920",
     "notes": {
       "top": [
         "Black Cherry"
@@ -69873,7 +69873,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "8435415114011",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/190429_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1768393553-88958100.jpg?v=1772624960&width=1920",
     "notes": {
       "top": [
         "Black Cherry"
@@ -69920,7 +69920,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8435415102681",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192582_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744799197-73962200.jpg?v=1763397670&width=1920",
     "notes": {
       "top": [
         "Cardamom"
@@ -69943,7 +69943,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415102698",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744799558-83651500.jpg?v=1763397674&width=1920",
     "notes": {
       "top": [
         "Cardamom"
@@ -69966,7 +69966,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415102711",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/189621_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744798975-74205700.jpg?v=1763397678&width=1920",
     "notes": {
       "top": [
         "Clary Sage"
@@ -69989,7 +69989,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415102728",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/189526_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744798701-01836500.jpg?v=1763397679&width=1920",
     "notes": {
       "top": [
         "Clary Sage"
@@ -70012,7 +70012,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8435415050760",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/165821_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1665397957-78425600.png?v=1763392683&width=1920",
     "notes": null
   },
   {
@@ -70057,7 +70057,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 108,
     "ean": "795144040097",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/108137_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/123_30062fae-7664-4247-a198-18f01436bd82.jpg?v=1774443623&width=1920",
     "notes": null
   },
   {
@@ -70817,7 +70817,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460150408",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/173448_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1710772709-79212600.jpg?v=1763394567&width=1920",
     "notes": null
   },
   {
@@ -70948,7 +70948,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460142021",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0080_bc71b6d1-4104-47e7-88d8-d22cc5ff5ed0.png?v=1741178529&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721982551-67206200.jpg?v=1763395465&width=1920",
     "notes": {
       "top": [
         "Pear",
@@ -70980,7 +70980,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460141703",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0082_6fc0f210-d3cc-418b-af96-088c9358ce5a.png?v=1741178528&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721983985-22788000.jpg?v=1763395472&width=1920",
     "notes": {
       "top": [
         "Pear",
@@ -71023,7 +71023,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460160841",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191110_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755526235-03746500.jpg?v=1763398762&width=1920",
     "notes": {
       "top": [
         "Raspberry",
@@ -71055,7 +71055,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460160834",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/193140_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755526315-60634000.jpg?v=1763398764&width=1920",
     "notes": {
       "top": [
         "Raspberry",
@@ -71098,7 +71098,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460064125",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/59110_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626790199-13977400.jpg?v=1763393495&width=1920",
     "notes": null
   },
   {
@@ -71109,7 +71109,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460129848",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/874.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1653659482-33062900.jpg?v=1763392454&width=1920",
     "notes": null
   },
   {
@@ -71120,7 +71120,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460129831",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61_QCs7_n7L.jpg?v=1767983364",
+    "image": "https://www.beautybase.com/cdn/shop/files/1655302935-48943100.jpg?v=1763392453&width=1920",
     "notes": null
   },
   {
@@ -71131,7 +71131,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460072625",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/1ebf8633-3c53-4e7d-99fa-2779b4b66734.jpg?v=1763139270",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626794257-58524200.jpg?v=1763388972&width=1920",
     "notes": null
   },
   {
@@ -71142,7 +71142,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460148733",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/512uu1YpeGL.jpg?v=1767983364",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738148949-62549100.jpg?v=1763397041&width=1920",
     "notes": {
       "top": [
         "Black Pepper"
@@ -71163,7 +71163,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460148726",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/612MPB2FDEL.jpg?v=1763148157",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738150835-17511900.jpg?v=1763397042&width=1920",
     "notes": null
   },
   {
@@ -71174,7 +71174,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460148719",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/882.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738151178-69176600.jpg?v=1763397043&width=1920",
     "notes": null
   },
   {
@@ -71185,7 +71185,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460082198",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/96256_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738923412-56332100.jpg?v=1763391233&width=1920",
     "notes": null
   },
   {
@@ -71239,7 +71239,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460078870",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/88181_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626795808-67869000.jpg?v=1763397210&width=1920",
     "notes": {
       "top": [
         "Lavender",
@@ -71298,7 +71298,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460109369",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/125206_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1664543653-00264500.jpg?v=1763391237&width=1920",
     "notes": null
   },
   {
@@ -71501,7 +71501,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 88,
     "ean": "035017009029",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51UuHU4EE1L.jpg?v=1763139389",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739186921-35836600.jpg?v=1763391245&width=1920",
     "notes": null
   },
   {
@@ -72453,7 +72453,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3274872404328",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/109129_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1700760938-06946200.jpg?v=1763394249&width=1920",
     "notes": null
   },
   {
@@ -72827,7 +72827,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6291107976556",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/184150_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744370058-67578600.jpg?v=1763397610&width=1920",
     "notes": {
       "top": [
         "Rose",
@@ -72886,7 +72886,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107975870",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Karus-Secret-Musk-Perfume-100ml-EDP-Khadlaj-174008778.jpg?v=1752702783",
+    "image": "https://www.beautybase.com/cdn/shop/files/1740756752-34500100.jpg?v=1763397381&width=1920",
     "notes": {
       "top": [
         "Musk",
@@ -72973,7 +72973,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298043070003",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nafais-Sharq-Perfume-100ml-EDP-Khadlaj-175049778.jpg?v=1754580682",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753954044-62103500.jpg?v=1763398628&width=1920",
     "notes": {
       "top": [
         "Gardenia",
@@ -73005,7 +73005,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "6291107979175",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nuha-Cherry-Blush-Perfume-85ml-EDP-Khadlaj-173961880.jpg?v=1752631920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744369782-89579400.jpg?v=1763397611&width=1920",
     "notes": {
       "top": [
         "Cherry",
@@ -73041,7 +73041,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "6291107979182",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nuha-Vanilla-Pearl-Perfume-100ml-EDP-Khadlaj-173961364.jpg?v=1752631709",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744369629-30697100.jpg?v=1763397611&width=1920",
     "notes": {
       "top": [
         "Freesia",
@@ -73132,7 +73132,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107979410",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Private-Blend-Musk-Ice-Perfume-100ml-EDP-Khadlaj-178675666.png?v=1759542516",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750411041-08426500.jpg?v=1763398199&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -73162,7 +73162,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107976716",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Wow-Oud-Perfume-100ml-EDP-Khadlaj-178670476.png?v=1759539129",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753954770-63090500.jpg?v=1763398630&width=1920",
     "notes": {
       "top": [
         "Saffron"
@@ -73549,7 +73549,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5012209042441",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/184671_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1373623041-27433600.jpg?v=1763392233&width=1920",
     "notes": null
   },
   {
@@ -73731,7 +73731,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460149174",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/98447_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1716370280-66328800.jpg?v=1763395198&width=1920",
     "notes": null
   },
   {
@@ -73776,7 +73776,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616303459956",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/168610_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739190245-61457700.jpg?v=1763395428&width=1920",
     "notes": null
   },
   {
@@ -73787,7 +73787,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460149266",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/167323_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/BBPicturesTemplatecopy_4e7c4ca5-faeb-4e3b-8a06-6c483393cf4e.jpg?v=1778143329&width=1920",
     "notes": null
   },
   {
@@ -73798,7 +73798,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8005610521220",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lacoste-mens-lhomme-edt-spray-33-oz-100-ml-8005610521220_2.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Lacostel_homme.jpg?v=1783954114&width=1920",
     "notes": null
   },
   {
@@ -73891,7 +73891,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "737052949215",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/2/922.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1760629988-89875500.jpg?v=1763399041&width=1920",
     "notes": {
       "top": [
         "Jamaican Pepper",
@@ -73921,7 +73921,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460149457",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/73458_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1716371741-04416600.jpg?v=1763392239&width=1920",
     "notes": {
       "top": [
         "Blood Orange",
@@ -73949,7 +73949,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3386460149440",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/77159_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1716371809-58272800.jpg?v=1763392240&width=1920",
     "notes": {
       "top": [
         "Blood Orange",
@@ -74252,7 +74252,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3614272639638",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/122097_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1565951320-65358400.jpg?v=1763389395&width=1920",
     "notes": null
   },
   {
@@ -74263,7 +74263,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273749459",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/157769_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1658327868-51927000.jpg?v=1763392548&width=1920",
     "notes": null
   },
   {
@@ -74322,7 +74322,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274335675",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192045_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1746005137-14053300.jpg?v=1763397811&width=1920",
     "notes": {
       "top": [
         "Raspberry",
@@ -74464,7 +74464,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273922968",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/168590_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737021605-91894200.jpg?v=1763393263&width=1920",
     "notes": null
   },
   {
@@ -74475,7 +74475,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273922975",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/169717_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737021349-95283300.jpg?v=1763393269&width=1920",
     "notes": null
   },
   {
@@ -74486,7 +74486,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274169720",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_7da47980-6c0d-48ad-86c3-c45a9656c0da.jpg?v=1774371824&width=1920",
     "notes": null
   },
   {
@@ -74497,7 +74497,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274169713",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/174676_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_afeb3fa1-b31a-4176-9340-332ba54b919d.jpg?v=1774373242&width=1920",
     "notes": null
   },
   {
@@ -74508,7 +74508,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274103007",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/173973_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737018705-38808200.jpg?v=1763394851&width=1920",
     "notes": null
   },
   {
@@ -74519,7 +74519,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274104448",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/174804_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737018409-55894200.jpg?v=1763394851&width=1920",
     "notes": null
   },
   {
@@ -74530,7 +74530,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274104370",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome-la-vie-est-belle-rose-extraordinaire-eau-de-parfum.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736961518-77096000.jpg?v=1763394854&width=1920",
     "notes": null
   },
   {
@@ -74552,7 +74552,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3605532612690",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/93826_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/852147_ec9ef9a3-b4aa-4930-abac-2add9812b7c2.jpg?v=1774363722&width=1920",
     "notes": {
       "top": [
         "Pear",
@@ -74583,7 +74583,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3614274509779",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770044551-29003800.jpg?v=1772624993&width=1920",
     "notes": {
       "top": [
         "Red Berries Accord"
@@ -74608,7 +74608,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274510089",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770044704-08701600.jpg?v=1772624994&width=1920",
     "notes": {
       "top": [
         "Red Berries Accord"
@@ -74633,7 +74633,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274510133",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770046662-82646300.jpg?v=1772624991&width=1920",
     "notes": {
       "top": [
         "Red Berries Accord"
@@ -74658,7 +74658,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273924368",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/172831_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737020305-71308400.jpg?v=1763393961&width=1920",
     "notes": null
   },
   {
@@ -74669,7 +74669,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274397246",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192123_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_54e5bbd2-796d-441e-adfd-e460eecea1cb.jpg?v=1774367721&width=1920",
     "notes": {
       "top": [
         "Bergamot Essence",
@@ -74700,7 +74700,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274397253",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_02c3a1d7-01be-4286-836d-72d1cc92c3d3.jpg?v=1774369652&width=1920",
     "notes": {
       "top": [
         "Bergamot Essence",
@@ -74797,7 +74797,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3147758034905",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-edp-vapo-50ml-lancome-1.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737022052-99050800.jpg?v=1763391459&width=1920",
     "notes": null
   },
   {
@@ -74983,7 +74983,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360592695",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192624_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1735577153-01308600.jpg?v=1763396887&width=1920",
     "notes": null
   },
   {
@@ -75112,7 +75112,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107456348",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/174505_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1735819808-76559000.jpg?v=1763396655&width=1920",
     "notes": null
   },
   {
@@ -75123,7 +75123,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107458571",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/169674_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1713870687-08333200.jpg?v=1763395042&width=1920",
     "notes": null
   },
   {
@@ -75186,7 +75186,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362347101",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Asad-Limited-Edition-Perfume-100ml-EDP-Lattafa-184730535.png?v=1771638193",
+    "image": "https://www.beautybase.com/cdn/shop/files/Lattafaasad.jpg?v=1781779336&width=1920",
     "notes": {
       "top": [
         "Lavender",
@@ -75248,7 +75248,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298043160049",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-Al-Oud-Black-Exposed-Perfume-100ml-EDP-Lattafa-195119917.png?v=1785164295",
+    "image": "https://www.beautybase.com/cdn/shop/files/Blackoud.jpg?v=1786006160&width=1920",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -75413,7 +75413,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107456058",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/169268_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1713866335-90337200.jpg?v=1763394371&width=1920",
     "notes": null
   },
   {
@@ -75424,7 +75424,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107456041",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/170041_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1713866039-32975700.jpg?v=1763390528&width=1920",
     "notes": null
   },
   {
@@ -75472,7 +75472,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360593166",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/169882_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1716210018-78051300.jpg?v=1763395185&width=1920",
     "notes": null
   },
   {
@@ -75703,7 +75703,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360598970",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mayar-Natural-Intense-Perfume-100ml-Lattafa-153340410.jpg?v=1732557783",
+    "image": "https://www.beautybase.com/cdn/shop/files/LattafaMayar.jpg?v=1786006780&width=1920",
     "notes": {
       "top": [
         "Fig",
@@ -75853,7 +75853,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107450445",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61OtV0X9NbL.jpg?v=1763144249",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759417723-19099100.jpg?v=1763399234&width=1920",
     "notes": {
       "top": [
         "White Musk",
@@ -75886,7 +75886,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291106066159",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/oud-najdia-perfume-100ml-edp-lattafa-emirates-oud-1-103851571.jpg?v=1713056925",
+    "image": "https://www.beautybase.com/cdn/shop/files/1747220301-71636600.jpg?v=1763397899&width=1920",
     "notes": {
       "top": [
         "Citruses",
@@ -76061,7 +76061,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360590349",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rave-Now-White-Perfume-100ml-EDP-Lattafa-174161290.jpg?v=1753408224",
+    "image": "https://www.beautybase.com/cdn/shop/files/1764934349-91190600.jpg?v=1772625015&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -76174,7 +76174,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291108738177",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71kCYYt09EL.jpg?v=1767983841",
+    "image": "https://www.beautybase.com/cdn/shop/files/1748877918-49602100.jpg?v=1763398022&width=1920",
     "notes": null
   },
   {
@@ -76196,7 +76196,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360598345",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/185187_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1746089183-24868300.jpg?v=1763397825&width=1920",
     "notes": {
       "top": [
         "Sage",
@@ -76635,7 +76635,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "6294019014880",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/kk1.jpg?v=1774535298&width=1920",
     "notes": null
   },
   {
@@ -76646,7 +76646,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294019030422",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/love1.jpg?v=1774537982&width=1920",
     "notes": null
   },
   {
@@ -76657,7 +76657,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294019026890",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/pp_1.jpg?v=1774541204&width=1920",
     "notes": null
   },
   {
@@ -76668,7 +76668,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294019026883",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192335_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/vv1.jpg?v=1774603162&width=1920",
     "notes": null
   },
   {
@@ -76679,7 +76679,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "6294019026135",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/aa1.jpg?v=1774603695&width=1920",
     "notes": null
   },
   {
@@ -76690,7 +76690,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "6294019033447",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/hero_1.jpg?v=1774610020&width=1920",
     "notes": null
   },
   {
@@ -77606,7 +77606,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800203948",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/louis-cardin-exotic-scent-100ml-eau-de-parfum-spray-p46886-80963_medium_13ed9235-686d-41ae-a14f-fe54f3737ad3.jpg?v=1763140098",
+    "image": "https://www.beautybase.com/cdn/shop/files/1684426346-56478300.jpg?v=1763393579&width=1920",
     "notes": null
   },
   {
@@ -78183,7 +78183,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9911100200010",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51xumac6tPL.jpg?v=1763140128",
+    "image": "https://www.beautybase.com/cdn/shop/files/1684426403-66326800.jpg?v=1763393583&width=1920",
     "notes": null
   },
   {
@@ -80943,7 +80943,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "6290362164920",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Coffee-Blend-Perfume-EDP-Maison-Asrar-184445219.png?v=1771114766",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770806955-56042100.jpg?v=1772625023&width=1920",
     "notes": {
       "top": [
         "Sweet Almond",
@@ -80975,7 +80975,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362161776",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Coffee-Blend-Perfume-EDP-Maison-Asrar-184445219.png?v=1771114766",
+    "image": "https://www.beautybase.com/cdn/shop/files/1748876082-21488400.jpg?v=1763398027&width=1920",
     "notes": {
       "top": [
         "Sweet Almond",
@@ -81007,7 +81007,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362160830",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Masterpiece-Perfume-100ml-EDP-Maison-Asrar-182035183.png?v=1766807931",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753966754-80809100.jpg?v=1763398618&width=1920",
     "notes": {
       "top": [
         "Apple",
@@ -81038,7 +81038,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362163800",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tornado-Perfume-100ml-EDP-Maison-Asrar-181143234.png?v=1764384691",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759418825-06277200.jpg?v=1763399140&width=1920",
     "notes": {
       "top": [
         "Peach",
@@ -81071,7 +81071,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "6290362164913",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Vanilla-Voyage-Perfume-EDP-Maison-Asrar-184444961.png?v=1771114717",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770806792-99755100.jpg?v=1772625028&width=1920",
     "notes": {
       "top": [
         "Caramel",
@@ -81826,7 +81826,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616301776024",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/142866_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1636107194-49861300.jpg?v=1763390475&width=1920",
     "notes": null
   },
   {
@@ -81881,7 +81881,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616305033031",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_intense_eau_de_parfum_30ml_spray_.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/MarcJacobsDaisy1.jpg?v=1778257789&width=1920",
     "notes": null
   },
   {
@@ -81892,7 +81892,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616305033055",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/190136_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Marc_Jacobs_Daisy_2.jpg?v=1778257651&width=1920",
     "notes": null
   },
   {
@@ -81903,7 +81903,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342522732",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1002.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1740397196-16859000.jpg?v=1763397368&width=1920",
     "notes": {
       "top": [
         "Red Berries",
@@ -81934,7 +81934,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607349389062",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/996158.jpg?v=1755874513&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1657102566-03850100.jpg?v=1763391489&width=1920",
     "notes": null
   },
   {
@@ -81956,7 +81956,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614227086227",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/MJ0024_6c7429e4-21f8-4363-805a-0bb1c5ca2ce1.png?v=1770982475&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_197fbb78-d1c7-4344-a6a8-158599809c0d.jpg?v=1778165532&width=1920",
     "notes": null
   },
   {
@@ -81967,7 +81967,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616305187321",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/MJ0051.png?v=1765552818&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731084807-63283300.jpg?v=1763396231&width=1920",
     "notes": {
       "top": [
         "Purple Rhubarb"
@@ -81994,7 +81994,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616302025930",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/144163_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1638965728-80987100.jpg?v=1763391888&width=1920",
     "notes": null
   },
   {
@@ -82532,7 +82532,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "9349830100964",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/Messioriginal.jpg?v=1785836186&width=1920",
     "notes": null
   },
   {
@@ -82543,7 +82543,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "9349830104252",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/Messi100ml1.jpg?v=1780055705&width=1920",
     "notes": null
   },
   {
@@ -82554,7 +82554,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9349830102746",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192439_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Messi100ml1_086eef16-e7f2-41d6-a570-9384b0ea5d56.jpg?v=1780056145&width=1920",
     "notes": null
   },
   {
@@ -82642,7 +82642,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "022548420010",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/michael-kors-gorgeous-eau-de-parfum-30ml-p29688-76190_image_x100.jpg?v=1721322282",
+    "image": "https://www.beautybase.com/cdn/shop/files/1666171104-81345300.png?v=1763392886&width=1920",
     "notes": null
   },
   {
@@ -82653,7 +82653,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "022548419953",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/michael-kors-gorgeous-eau-de-parfum-100ml-p29690-76194_image_x100.jpg?v=1721322279",
+    "image": "https://www.beautybase.com/cdn/shop/files/gorge_534c86ac-eb1d-41d1-926f-f50d4d95efca.jpg?v=1775649257&width=1920",
     "notes": null
   },
   {
@@ -82664,7 +82664,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "850049716321",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/pour-femme-eau-de-parfum-100ml-p38287-122423_image.png?v=1721322275&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1718371960-83214900.jpg?v=1763395281&width=1920",
     "notes": null
   },
   {
@@ -82675,7 +82675,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "850049716161",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/186400_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1718373505-49697900.jpg?v=1763395288&width=1920",
     "notes": null
   },
   {
@@ -82686,7 +82686,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "850059827345",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755178910-82387400.jpg?v=1763398714&width=1920",
     "notes": null
   },
   {
@@ -82697,7 +82697,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "022548289662",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/87045_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1760006315-59818100.jpg?v=1763399272&width=1920",
     "notes": {
       "top": [
         "Amber"
@@ -82722,7 +82722,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "022548366462",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/92249_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1698424969-64104700.jpg?v=1763391496&width=1920",
     "notes": null
   },
   {
@@ -82953,7 +82953,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003858156",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10036991.jpg?v=1763146454",
+    "image": "https://www.beautybase.com/cdn/shop/files/1764946839-71269300.jpg?v=1772625046&width=1920",
     "notes": {
       "top": [
         "Sicilian mandarin",
@@ -82985,7 +82985,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274520521",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/MIU0010.png?v=1756486921&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755690700-50134900.jpg?v=1763398721&width=1920",
     "notes": {
       "top": [
         "Juicy Mango"
@@ -83010,7 +83010,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274520514",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/MIU0011.png?v=1756486921&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755690878-22204700.jpg?v=1763398723&width=1920",
     "notes": {
       "top": [
         "Juicy Mango"
@@ -83035,7 +83035,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274569155",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/MIU0012.png?v=1756486920&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755705828-48274100.jpg?v=1763398734&width=1920",
     "notes": {
       "top": [
         "Wild Strawberry"
@@ -83062,7 +83062,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274569148",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/MIU0013.png?v=1756486921&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755705884-31880800.jpg?v=1763398736&width=1920",
     "notes": {
       "top": [
         "Wild Strawberry"
@@ -83089,7 +83089,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274569131",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/MIU0014.png?v=1756486921&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755706024-96886800.jpg?v=1763398739&width=1920",
     "notes": {
       "top": [
         "Wild Strawberry"
@@ -83174,7 +83174,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "679602681148",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61tF03sfAmL.jpg?v=1763145643",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752134640-93514900.jpg?v=1763398305&width=1920",
     "notes": {
       "top": [
         "Lemon Flower",
@@ -83226,7 +83226,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "679602681117",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61y_rg7DoXL.jpg?v=1763145643",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752135287-23773500.jpg?v=1763398307&width=1920",
     "notes": {
       "top": [
         "Bitter Orange"
@@ -83543,7 +83543,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460101035",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1025.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626857980-05400600.jpg?v=1763389293&width=1920",
     "notes": null
   },
   {
@@ -83554,7 +83554,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460101059",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/116714_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626857424-32973400.jpg?v=1763389291&width=1920",
     "notes": null
   },
   {
@@ -83687,7 +83687,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460144247",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10049136.jpg?v=1763145806",
+    "image": "https://www.beautybase.com/cdn/shop/files/1719483483-01713100.jpg?v=1763395102&width=1920",
     "notes": null
   },
   {
@@ -83698,7 +83698,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460074841",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31l9Jp3Rx1L.jpg?v=1763140546",
+    "image": "https://www.beautybase.com/cdn/shop/files/1743762901-15129800.jpg?v=1763397410&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -83964,7 +83964,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003991457",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/73558_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1557248080-79879000.jpg?v=1763392268&width=1920",
     "notes": {
       "top": [
         "Orange",
@@ -84042,7 +84042,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8011003839285",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/120784_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1556633129-55231400.jpg?v=1763389304&width=1920",
     "notes": null
   },
   {
@@ -84053,7 +84053,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003839292",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/moschino-toy-2-eau-de-parfum-50ml-p20720-43642_image.jpg?v=1721322280&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1556633275-89771800.jpg?v=1763389304&width=1920",
     "notes": null
   },
   {
@@ -84087,7 +84087,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8011003864065",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/140177_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1714471912-79223600.jpg?v=1775555485&width=1920",
     "notes": {
       "top": [
         "Candied Fruits",
@@ -84122,7 +84122,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003864072",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/141932_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1698407019-75906400.jpg?v=1775555445&width=1920",
     "notes": {
       "top": [
         "Candied Fruits",
@@ -84192,7 +84192,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003845125",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/moschino-toy-boy-eau-de-parfum-50ml-p20713-43635_image.jpg?v=1721322294&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1580752090-75840700.jpg?v=1763389682&width=1920",
     "notes": null
   },
   {
@@ -84203,7 +84203,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8011003906321",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191306_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Moschinotoyboy230ml.jpg?v=1779264950&width=1920",
     "notes": null
   },
   {
@@ -84225,7 +84225,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274317855",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191794_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755764955-84863100.jpg?v=1763398420&width=1920",
     "notes": {
       "top": [
         "Bergamot"
@@ -84250,7 +84250,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274317862",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192409_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755765118-06366700.jpg?v=1763398420&width=1920",
     "notes": {
       "top": [
         "Bergamot"
@@ -84275,7 +84275,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3439600056914",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/155907_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1614764038-88308700.jpg?v=1763390144&width=1920",
     "notes": null
   },
   {
@@ -84286,7 +84286,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3439600056204",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/mugler-alien-eau-de-toilette-30ml-p28079-70106_image.jpg?v=1721322294&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736847368-69018200.jpg?v=1763394828&width=1920",
     "notes": null
   },
   {
@@ -84297,7 +84297,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274289497",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/190902_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739964710-92258000.jpg?v=1763397345&width=1920",
     "notes": {
       "top": [
         "Petitgrain"
@@ -84325,7 +84325,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3614274289466",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/179570_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739964905-07129400.jpg?v=1763397348&width=1920",
     "notes": {
       "top": [
         "Petitgrain"
@@ -84353,7 +84353,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3439601204642",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/mugler-alien-goddess-eau-de-parfum-30ml-p27901-69720_image.jpg?v=1721322291&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1633000174-69591000.jpg?v=1763390288&width=1920",
     "notes": null
   },
   {
@@ -84388,7 +84388,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273927949",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/164339_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736786450-68608600.jpg?v=1763393716&width=1920",
     "notes": null
   },
   {
@@ -84399,7 +84399,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273927932",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_supra_florale_eau_de_parfum_90ml_spray.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736786408-83958300.jpg?v=1763393720&width=1920",
     "notes": {
       "top": [],
       "middle": [
@@ -84422,7 +84422,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274067002",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/174803_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736789448-59072700.jpg?v=1763394526&width=1920",
     "notes": null
   },
   {
@@ -84507,7 +84507,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3614274292213",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755766014-08967800.jpg?v=1763398421&width=1920",
     "notes": {
       "top": [
         "Bergamot"
@@ -84532,7 +84532,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274292220",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/184249_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755766745-31653600.jpg?v=1763398424&width=1920",
     "notes": {
       "top": [
         "Bergamot"
@@ -84557,7 +84557,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274292237",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/183661_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1754394722-15915300.jpg?v=1763398621&width=1920",
     "notes": {
       "top": [
         "Bergamot"
@@ -84583,7 +84583,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614274797213",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191964_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/starliciousberry.jpg?v=1780579324&width=1920",
     "notes": null
   },
   {
@@ -84594,7 +84594,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614274797244",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191130_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/starliciouspineapple.jpg?v=1780579044&width=1920",
     "notes": null
   },
   {
@@ -84605,7 +84605,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614274797220",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191430_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Starliciouspistachio.jpg?v=1780579613&width=1920",
     "notes": null
   },
   {
@@ -84953,7 +84953,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222012700",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41EXayYv1fL.jpg?v=1763140767",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736862974-93465500.jpg?v=1763393624&width=1920",
     "notes": null
   },
   {
@@ -85054,7 +85054,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3423473053750",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/144801_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736864422-04206400.jpg?v=1763393840&width=1920",
     "notes": null
   },
   {
@@ -85065,7 +85065,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423473053859",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/144977_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1599227889-47807300.jpg?v=1763389875&width=1920",
     "notes": {
       "top": [
         "Ylang-Ylang",
@@ -85123,7 +85123,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3423222055608",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192254_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1664541169-60569300.jpg?v=1763392775&width=1920",
     "notes": null
   },
   {
@@ -85134,7 +85134,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423478840454",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/97021_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736860665-52085700.jpg?v=1763391525&width=1920",
     "notes": {
       "top": [
         "White Jasmine Petals",
@@ -85162,7 +85162,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423478840652",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/105644_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736863704-85150300.jpg?v=1763393842&width=1920",
     "notes": null
   },
   {
@@ -85372,7 +85372,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5425017734277",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/189143_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739186092-75826700.jpg?v=1763390835&width=1920",
     "notes": null
   },
   {
@@ -86228,7 +86228,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085715003515",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/102890_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1708601857-47762000.jpg?v=1763391564&width=1920",
     "notes": {
       "top": [
         "Amalfi Lemon",
@@ -86307,7 +86307,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298596723548",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41PhULKANfL.jpg?v=1767984883",
+    "image": "https://www.beautybase.com/cdn/shop/files/1730214214-69931600.jpg?v=1763395578&width=1920",
     "notes": null
   },
   {
@@ -86318,7 +86318,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060143795763",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51XIPNHJzqL.jpg?v=1767984883",
+    "image": "https://www.beautybase.com/cdn/shop/files/1699094393-51484000.jpg?v=1763394222&width=1920",
     "notes": null
   },
   {
@@ -86351,7 +86351,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3360373000159",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/179455_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1511444422-22375800.jpg?v=1763392302&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -86879,7 +86879,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004321194",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51XeHiUh4xL.jpg?v=1767984968",
+    "image": "https://www.beautybase.com/cdn/shop/files/1552038954-53649200.jpg?v=1763389208&width=1920",
     "notes": null
   },
   {
@@ -88346,7 +88346,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273478298",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/79511_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1369831370-87136900.jpg?v=1763392314&width=1920",
     "notes": {
       "top": [
         "Orange Blossom",
@@ -88443,7 +88443,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137742226",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/53453.jpg?v=1755874886&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/orange1.jpg?v=1773250173&width=1920",
     "notes": {
       "top": [
         "Neroli"
@@ -88530,7 +88530,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137765065",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/128429_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/femmepink.jpg?v=1773328882&width=1920",
     "notes": null
   },
   {
@@ -88541,7 +88541,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137742233",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/127547_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Amande.jpg?v=1773310776&width=1920",
     "notes": {
       "top": [
         "Bergamot"
@@ -88567,7 +88567,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137743223",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/77181991_xxl.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/cedre.jpg?v=1773312014&width=1920",
     "notes": null
   },
   {
@@ -88578,7 +88578,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273906678",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/176631_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/figue.jpg?v=1773249218&width=1920",
     "notes": {
       "top": [
         "Mandarin"
@@ -88632,7 +88632,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3614273478762",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/164811_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1629194990-15909500.jpg?v=1763392313&width=1920",
     "notes": {
       "top": [
         "Bitter Orange Essence",
@@ -88660,7 +88660,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435137782970",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/prada-luna-rossa-black-eau-de-parfum-50ml-p27946-91194_image.jpg?v=1721322313&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/black50.jpg?v=1773331423&width=1920",
     "notes": null
   },
   {
@@ -88671,7 +88671,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273544962",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/193052_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/sport50ml.jpg?v=1773247535&width=1920",
     "notes": null
   },
   {
@@ -88682,7 +88682,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273760652",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/prada-paradoxe-eau-de-parfum-50ml-p27963-71852_image.jpg?v=1721322309&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/50mlpara.jpg?v=1773333981&width=1920",
     "notes": null
   },
   {
@@ -88704,7 +88704,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274000610",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51p7krZElfL.jpg?v=1767985062",
+    "image": "https://www.beautybase.com/cdn/shop/files/vf30.jpg?v=1773334499&width=1920",
     "notes": null
   },
   {
@@ -88715,7 +88715,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274000597",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/PRA0071.jpg?v=1728385836&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/90ml23.jpg?v=1773334608&width=1920",
     "notes": {
       "top": [
         "Vert de Bergamot"
@@ -88927,7 +88927,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668579822",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191096_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725015290-74385000.jpg?v=1763389866&width=1920",
     "notes": {
       "top": [
         "Vibrant Grapefruit"
@@ -88952,7 +88952,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668579839",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/175273_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725264519-53432100.jpg?v=1763389866&width=1920",
     "notes": {
       "top": [
         "Vibrant Grapefruit"
@@ -89076,7 +89076,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668562671",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/107522_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1768219879-44666600.jpg?v=1772625078&width=1920",
     "notes": {
       "top": [
         "crunchy"
@@ -89097,7 +89097,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668662289",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/189483_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Rabanne1milnightelixir50ml.jpg?v=1779381029&width=1920",
     "notes": null
   },
   {
@@ -89108,7 +89108,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668662388",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/189562_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Rabanne1milnightelixir100ml1.jpg?v=1779380064&width=1920",
     "notes": null
   },
   {
@@ -89119,7 +89119,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668617043",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/189014_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728317889-19284500.jpg?v=1763393547&width=1920",
     "notes": null
   },
   {
@@ -89185,7 +89185,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668550685",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/165652_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Blackxs.jpg?v=1782478843&width=1920",
     "notes": null
   },
   {
@@ -89207,7 +89207,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668566730",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/95767_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1493385977-53670400.jpg?v=1763392280&width=1920",
     "notes": null
   },
   {
@@ -89240,7 +89240,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668643929",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1769012394-33731100.jpg?v=1772625088&width=1920",
     "notes": {
       "top": [
         "Green Mandarin",
@@ -89271,7 +89271,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668641826",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750256447-38551800.jpg?v=1763398152&width=1920",
     "notes": {
       "top": [
         "Fresh Black Pepper"
@@ -89296,7 +89296,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668641833",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750256345-96048900.jpg?v=1763398152&width=1920",
     "notes": {
       "top": [
         "Fresh Black Pepper"
@@ -89346,7 +89346,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668683031",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/PAC0083_3f4a889e-28f2-4032-b59a-1a2f5d0fb589.png?v=1766583603&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750176490-84682600.jpg?v=1763390225&width=1920",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -89490,7 +89490,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3349668679263",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51wemoB8N2L.jpg?v=1763141033",
+    "image": "https://www.beautybase.com/cdn/shop/files/1522328750-43153900.png?v=1763394702&width=1920",
     "notes": null
   },
   {
@@ -89501,7 +89501,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668627479",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/181527_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1715333162-11504900.jpg?v=1763395151&width=1920",
     "notes": null
   },
   {
@@ -89512,7 +89512,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3349668641758",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191098_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750245262-26612000.jpg?v=1763398151&width=1920",
     "notes": {
       "top": [
         "Luminous Apricot"
@@ -89548,7 +89548,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668614479",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/177676_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1716374854-73324000.jpg?v=1763393196&width=1920",
     "notes": null
   },
   {
@@ -89559,7 +89559,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668599448",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/145231_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1716376338-30245800.jpg?v=1763392390&width=1920",
     "notes": {
       "top": [
         "Tangerine Orange Blossom"
@@ -89664,7 +89664,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3349668614608",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/PAC0113_a691c3e5-a510-46aa-8a34-182e21f35d0a.png?v=1741178530&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738236693-21645300.jpg?v=1763394009&width=1920",
     "notes": {
       "top": [
         "Cardamom",
@@ -89697,7 +89697,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668644063",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/184633_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738065351-98184500.jpg?v=1763396993&width=1920",
     "notes": null
   },
   {
@@ -89708,7 +89708,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668644049",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738066646-21067500.jpg?v=1763396996&width=1920",
     "notes": null
   },
   {
@@ -89719,7 +89719,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3349668644025",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/184629_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738067518-76692900.jpg?v=1763396991&width=1920",
     "notes": null
   },
   {
@@ -89730,7 +89730,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668661916",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1768318881-84709900.jpg?v=1772625106&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -89762,7 +89762,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668661640",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1769011708-31201700.jpg?v=1772625098&width=1920",
     "notes": {
       "top": [
         "BERGAMOT",
@@ -89794,7 +89794,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3349668661657",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1768318297-57018300.jpg?v=1772625101&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -89850,7 +89850,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668545759",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1233.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1500383071-42649900.jpg?v=1763398582&width=1920",
     "notes": null
   },
   {
@@ -89934,7 +89934,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605973048270",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/135953_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/ralphlaurenpink.jpg?v=1783424817&width=1920",
     "notes": null
   },
   {
@@ -90043,7 +90043,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3605972768957",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191425_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736850644-40223400.jpg?v=1763393558&width=1920",
     "notes": null
   },
   {
@@ -90054,7 +90054,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3605970416003",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/polo-red-eau-de-toilette-125ml-p21079-44856_image.jpg?v=1721322323&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1597333100-02194500.jpg?v=1763389777&width=1920",
     "notes": {
       "top": [
         "Red Grapefruit",
@@ -90085,7 +90085,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3605972768919",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/181372_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736850849-13191900.jpg?v=1763393562&width=1920",
     "notes": null
   },
   {
@@ -90107,7 +90107,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3360372055419",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/64678_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1697620196-80777900.jpg?v=1763391634&width=1920",
     "notes": {
       "top": [
         "Mint"
@@ -90135,7 +90135,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3360372055402",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/139182_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736852976-84259700.jpg?v=1763395812&width=1920",
     "notes": null
   },
   {
@@ -90189,7 +90189,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605972698780",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/175632_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1665589731-90426400.jpg?v=1763392619&width=1920",
     "notes": {
       "top": [
         "Mandarin Oil",
@@ -90334,7 +90334,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "614514331026",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/RAHA0001.png?v=1761047571&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1695114518-13229300.jpg?v=1763394042&width=1920",
     "notes": null
   },
   {
@@ -90578,7 +90578,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297001571392",
     "shops": 2,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/D2092F4A-72F0-4604-BA28-CEFECA1CA364.webp?v=1781093414&width=1200",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_53900b7e-21d0-47f5-99a4-f705ef761074.jpg?v=1781711429&width=1920",
     "notes": {
       "top": [
         "Orange",
@@ -91405,7 +91405,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5000386008466",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/93472_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1552654467-55724400.jpg?v=1763393454&width=1920",
     "notes": null
   },
   {
@@ -91416,7 +91416,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297001574188",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Areebah-100ml-Extrait-De-Parfum-Riiffs-184729976.png?v=1771636999",
+    "image": "https://www.beautybase.com/cdn/shop/files/1746004208-96167400.jpg?v=1763397813&width=1920",
     "notes": {
       "top": [
         "Tropical Fruits",
@@ -91447,7 +91447,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295151506462",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Aswaar-Extrait-de-Parfum-100ml-Riiffs-194594573.png?v=1784053952",
+    "image": "https://www.beautybase.com/cdn/shop/files/Aswarrriiffs.jpg?v=1786627743&width=1920",
     "notes": {
       "top": [
         "Spicy Accords"
@@ -91473,7 +91473,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295151501146",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fareed-Perfume-100ml-EDP-Riiffs-194593860.png?v=1784053788",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_9a91387d-8fe5-4c0e-9d46-d9fc708c650d.jpg?v=1774621252&width=1920",
     "notes": {
       "top": [
         "Cardamom",
@@ -91569,7 +91569,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295151505083",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Virtessa-100ml-Extrait-De-Parfum-Riiffs-195626942.png?v=1786435757",
+    "image": "https://www.beautybase.com/cdn/shop/files/Virtessariiffs.jpg?v=1786628694&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -91599,7 +91599,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295151505076",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Virtus-100ml-Extrait-De-Parfum-Riiffs-195626719.png?v=1786435434",
+    "image": "https://www.beautybase.com/cdn/shop/files/RiiffsVirtus.jpg?v=1786551751&width=1920",
     "notes": {
       "top": [
         "Cardamom",
@@ -92232,7 +92232,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "6290171010456",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/183710_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1676367358-78376300.jpg?v=1763391921&width=1920",
     "notes": null
   },
   {
@@ -92243,7 +92243,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "810192820108",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/185874_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1751451007-18252400.jpg?v=1763398237&width=1920",
     "notes": {
       "top": [
         "Cappuccino Smell-the-Taste",
@@ -92307,7 +92307,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3760040114125",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192726_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1747820266-32314200.jpg?v=1763397794&width=1920",
     "notes": {
       "top": [
         "Aldehydes",
@@ -92501,7 +92501,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414200161022",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/SJP0001.png?v=1776691994&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1394211591-21391400.jpg?v=1763393481&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -92620,7 +92620,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060426151798",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/117167_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750260290-43273900.jpg?v=1763397972&width=1920",
     "notes": {
       "top": [
         "Strawberry",
@@ -92653,7 +92653,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "5060426157004",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/190001_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/sjpnyc1.jpg?v=1784190616&width=1920",
     "notes": null
   },
   {
@@ -93782,7 +93782,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060412678360",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/188918_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/tedbakerlimitededition.jpg?v=1783527828&width=1920",
     "notes": null
   },
   {
@@ -93793,7 +93793,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060523017539",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/skinwear-eau-de-toilette-100ml-p28216-71432_image.jpg?v=1763142127",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739276617-11015100.jpg?v=1763393006&width=1920",
     "notes": null
   },
   {
@@ -93804,7 +93804,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "688003100356",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/ted-baker-skinwear-eau-de-toilette-100ml-p28216-106644_image.jpg?v=1721322335&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/skin.jpg?v=1775648377&width=1920",
     "notes": {
       "top": [
         "Lime",
@@ -93897,7 +93897,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060523018499",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/150511_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761924574-99287300.jpg?v=1763399098&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -93934,7 +93934,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "5060523019199",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191054_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/Tedbaker200ml.jpg?v=1783592894&width=1920",
     "notes": null
   },
   {
@@ -93945,7 +93945,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060412674348",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/189681_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/xo.jpg?v=1775646099&width=1920",
     "notes": null
   },
   {
@@ -93956,7 +93956,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060412674386",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/TEDB0040.jpg?v=1728385405&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1707993211-68019700.jpg?v=1763394079&width=1920",
     "notes": {
       "top": [
         "Grapefruit",
@@ -93996,7 +93996,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3355992000260",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/83137_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_a94e1b1d-6cbd-4c88-81b1-a2a07bcf6b4d.jpg?v=1785918409&width=1920",
     "notes": null
   },
   {
@@ -95333,7 +95333,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5055193547493",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/166488_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1700577209-64248300.jpg?v=1763394231&width=1920",
     "notes": null
   },
   {
@@ -95465,7 +95465,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273672054",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/144818_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1645012434-63754100.jpg?v=1763391979&width=1920",
     "notes": null
   },
   {
@@ -95476,7 +95476,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273261333",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1612198030-79436100.jpg?v=1763390114&width=1920",
     "notes": null
   },
   {
@@ -95515,7 +95515,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274350722",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/VAL0078.jpg?v=1737651013&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738754512-23563000.jpg?v=1763397082&width=1920",
     "notes": {
       "top": [
         "Vanilla Bourbon",
@@ -95544,7 +95544,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274350739",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/VAL0079.jpg?v=1737651015&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738754380-51375500.jpg?v=1763397084&width=1920",
     "notes": {
       "top": [
         "Vanilla Bourbon",
@@ -95594,7 +95594,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274024784",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/178108_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727772599-95604900.jpg?v=1763394428&width=1920",
     "notes": null
   },
   {
@@ -95605,7 +95605,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272731899",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/valentino-uomo-intense-eau-de-parfum-50ml-p27979-69787_image.jpg?v=1721322363&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1468921891-05524100.jpg?v=1763395994&width=1920",
     "notes": {
       "top": [
         "Mandarin Orange",
@@ -95633,7 +95633,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272732278",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/uomo-intense-eau-de-parfum-100ml-p27980-69788_image.jpg?v=1721322359&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1561564784-22544000.jpg?v=1763395997&width=1920",
     "notes": {
       "top": [
         "Mandarin Orange",
@@ -95682,7 +95682,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273459082",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_voce_viva_intense_eau_de_parfum_30ml_spray_.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626867807-46836900.jpg?v=1763390277&width=1920",
     "notes": null
   },
   {
@@ -95727,7 +95727,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8011003993802",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/versace-bright-crystal-eau-de-toilette-30ml-p36122-110379_image.jpg?v=1721322356&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1543411365-88353100.jpg?v=1763393401&width=1920",
     "notes": {
       "top": [
         "Pomegranate Grains",
@@ -95758,7 +95758,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8011003819423",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51iveqUCJNL.jpg?v=1763142336",
+    "image": "https://www.beautybase.com/cdn/shop/files/1392811327-67755200.jpg?v=1763393456&width=1920",
     "notes": {
       "top": [
         "Pomegranate",
@@ -95780,7 +95780,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003818174",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/83832_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1510307741-12894500.jpg?v=1763398576&width=1920",
     "notes": null
   },
   {
@@ -95791,7 +95791,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003901630",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/188896_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1759493236-08244600.jpg?v=1763399240&width=1920",
     "notes": null
   },
   {
@@ -95834,7 +95834,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003891498",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/178762_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1716212743-54742400.jpg?v=1763395164&width=1920",
     "notes": null
   },
   {
@@ -95845,7 +95845,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "8011003891061",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/178759_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1719931084-22738300.jpg?v=1763395294&width=1920",
     "notes": null
   },
   {
@@ -95856,7 +95856,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8011003825721",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/92465_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1643907705-16840800.jpg?v=1763391691&width=1920",
     "notes": null
   },
   {
@@ -95867,7 +95867,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003825738",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/92240_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1653397001-60619600.jpg?v=1763391693&width=1920",
     "notes": null
   },
   {
@@ -95878,7 +95878,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003825745",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/95702_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1510316593-79738300.jpg?v=1763395988&width=1920",
     "notes": null
   },
   {
@@ -95889,7 +95889,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8011003826490",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/versace-versace-dylan-blue-eau-de-toilette-200ml_16407267_31897477_1000.jpg?v=1763142384",
+    "image": "https://www.beautybase.com/cdn/shop/files/1510250124-01026400.jpg?v=1763399441&width=1920",
     "notes": null
   },
   {
@@ -95900,7 +95900,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8011003876266",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/165589_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738256337-30515700.jpg?v=1763393237&width=1920",
     "notes": null
   },
   {
@@ -95911,7 +95911,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003876273",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/163772_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738255698-48146200.jpg?v=1763393237&width=1920",
     "notes": null
   },
   {
@@ -95922,7 +95922,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8011003858538",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/138715_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1616597350-28825000.jpg?v=1763390163&width=1920",
     "notes": null
   },
   {
@@ -95933,7 +95933,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003858545",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/138537_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1616597693-30044200.jpg?v=1763390166&width=1920",
     "notes": null
   },
   {
@@ -95944,7 +95944,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003858552",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/136992_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1616598991-82809800.jpg?v=1763390166&width=1920",
     "notes": null
   },
   {
@@ -95955,7 +95955,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003890972",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1754390101-00962000.jpg?v=1763398505&width=1920",
     "notes": null
   },
   {
@@ -95966,7 +95966,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003890989",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1754390424-56022100.jpg?v=1763398507&width=1920",
     "notes": null
   },
   {
@@ -95977,7 +95977,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8011003890996",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/188893_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1754390729-87982500.jpg?v=1763398509&width=1920",
     "notes": null
   },
   {
@@ -95988,7 +95988,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003809202",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/106695_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1510309805-93078900.jpg?v=1763393408&width=1920",
     "notes": null
   },
   {
@@ -95999,7 +95999,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003872077",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/164568_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1645529241-02155400.jpg?v=1763391952&width=1920",
     "notes": null
   },
   {
@@ -96010,7 +96010,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003809219",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/65165_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1510310060-72923400.jpg?v=1763393409&width=1920",
     "notes": null
   },
   {
@@ -96021,7 +96021,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8011003861910",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/152393_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1638439743-01490700.jpg?v=1763391709&width=1920",
     "notes": null
   },
   {
@@ -96065,7 +96065,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8011003827329",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10035314.jpg?v=1763144042",
+    "image": "https://www.beautybase.com/cdn/shop/files/1659693575-26008400.jpg?v=1763391702&width=1920",
     "notes": {
       "top": [
         "Sicilian Lemon",
@@ -96098,7 +96098,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8011003823512",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/68583_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1429006649-84552600.jpg?v=1763394641&width=1920",
     "notes": null
   },
   {
@@ -96143,7 +96143,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003811274",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191005_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1653400399-01284600.jpg?v=1763391707&width=1920",
     "notes": null
   },
   {
@@ -96370,7 +96370,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274505368",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192361_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1771248997-88865800.jpg?v=1772625192&width=1920",
     "notes": null
   },
   {
@@ -96381,7 +96381,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274506150",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192567_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1771249285-53807800.jpg?v=1772625193&width=1920",
     "notes": null
   },
   {
@@ -96414,7 +96414,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274081176",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/flowerbomb-tiger-lily-eau-de-parfum-50ml-p36562-113264_image.jpg?v=1721322369&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725981742-14151600.jpg?v=1763395565&width=1920",
     "notes": {
       "top": [
         "Coconut Milk",
@@ -96443,7 +96443,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274158120",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/174459_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728910179-11364300.jpg?v=1763395541&width=1920",
     "notes": null
   },
   {
@@ -96454,7 +96454,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3605521820891",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3605521820891.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737383880-10839100.jpg?v=1763391738&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -96513,7 +96513,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273886819",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/viktor-rolf-spicebomb-infrared-eau-de-parfum-90ml-p32353-90133_image.jpg?v=1721322389&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737384903-27830600.jpg?v=1763393726&width=1920",
     "notes": {
       "top": [
         "Red Pepper Accord",
@@ -96541,7 +96541,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273919982",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/172830_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737385322-46130900.jpg?v=1763393756&width=1920",
     "notes": null
   },
   {
@@ -97051,7 +97051,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297000442839",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/119772_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761925600-54441500.jpg?v=1763399341&width=1920",
     "notes": null
   },
   {
@@ -97062,7 +97062,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297000442938",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/138236_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729678089-41690300.jpg?v=1763391764&width=1920",
     "notes": null
   },
   {
@@ -97126,7 +97126,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273863360",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/165701_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_a8c6b01c-2062-4587-ac80-ac5b90a7e450.jpg?v=1773768575&width=1920",
     "notes": null
   },
   {
@@ -97137,7 +97137,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274076585",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/179470_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_f29f15b2-7e83-4331-a560-06ff753c19f9.jpg?v=1773766837&width=1920",
     "notes": null
   },
   {
@@ -97148,7 +97148,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274076578",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/3614274076202_black_opium_over_red_90ML_alt1_efac9fd0-8da5-46e6-b36b-cdc53256bb63.jpg?v=1763143008",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_c0340747-b041-417b-8ac0-c85ab45809c5.jpg?v=1773766118&width=1920",
     "notes": null
   },
   {
@@ -97170,7 +97170,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3365440316546",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61TLmqRH8SL.jpg?v=1767986418",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_7effc44a-b38b-4134-ab14-617c56afd065.jpg?v=1774021113&width=1920",
     "notes": null
   },
   {
@@ -97243,7 +97243,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3365440037045",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/770885.jpg?v=1782208258&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1639412681-32433500.jpg?v=1763391802&width=1920",
     "notes": null
   },
   {
@@ -97283,7 +97283,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3365440621015",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/75996_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_6154477f-be49-4e95-a832-815336a00b32.jpg?v=1774023385&width=1920",
     "notes": {
       "top": [
         "Pepper",
@@ -97405,7 +97405,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3614273011785",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/libre-eau-de-parfum-150ml-p30509-79692_image.jpg?v=1721322385&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/11_acdfdd55-a4ee-4a3d-b053-eae63412d105.jpg?v=1776438201&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -97439,7 +97439,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274151152",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/173319_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/147_7b8b0e1c-895b-4423-9ae7-260d448d1b28.jpg?v=1773313752&width=1920",
     "notes": null
   },
   {
@@ -97450,7 +97450,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274151701",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/173320_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/90_7d352496-bc12-4096-836c-1083f5856c2a.jpg?v=1773313532&width=1920",
     "notes": null
   },
   {
@@ -97525,7 +97525,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273776134",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51iTqDarPAL.jpg?v=1767986423",
+    "image": "https://www.beautybase.com/cdn/shop/files/30_efe75f72-b710-4b74-a8af-2faa9f99fbe3.jpg?v=1773248571&width=1920",
     "notes": null
   },
   {
@@ -97547,7 +97547,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273852814",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/166499_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_f3ad1aa4-c2df-43ba-ae83-c9156f545b58.jpg?v=1774004807&width=1920",
     "notes": null
   },
   {
@@ -97558,7 +97558,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3614274289527",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191592_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1753282310-99229500.jpg?v=1763398456&width=1920",
     "notes": {
       "top": [
         "Fresh"
@@ -97647,7 +97647,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3365440556423",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/000082475.jpg?v=1763142700",
+    "image": "https://www.beautybase.com/cdn/shop/files/25.jpg?v=1774000362&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -97710,7 +97710,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3365440556263",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/yves-saint-laurent-opium-eau-de-parfum-90ml-p28044-69845_image.jpg?v=1721322385&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_c3258b7e-224b-4844-b62c-3ca07f94031d.jpg?v=1773329644&width=1920",
     "notes": {
       "top": [
         "Mandarin Orange",
@@ -97741,7 +97741,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3365440556461",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/4478.jpg?v=1755875281&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1640254565-95596600.jpg?v=1763391790&width=1920",
     "notes": {
       "top": [
         "Mandarin",
@@ -97773,7 +97773,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3365440002197",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/YSL0162.png?v=1738255200&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_9c8da9c0-8d8d-4b1f-83ae-4e446cd3e01b.jpg?v=1773835677&width=1920",
     "notes": {
       "top": [
         "Mimosa",
@@ -97809,7 +97809,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3365440398009",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/YSL0161.png?v=1739985731&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_c3b8d18f-b1a7-4a7d-bf3a-bb5877013522.jpg?v=1773836368&width=1920",
     "notes": {
       "top": [
         "Violet",
@@ -97871,7 +97871,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3365440246737",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/59587_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_e9a18ae3-837d-4cf0-ad75-2985b9a049c9.jpg?v=1774021259&width=1920",
     "notes": null
   },
   {
@@ -97882,7 +97882,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272050358",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/120070_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1542365297-28837100.jpg?v=1763389166&width=1920",
     "notes": null
   },
   {
@@ -97893,7 +97893,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273898478",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/164318_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_4a84ebb6-6e87-4907-a398-6a06b7492477.jpg?v=1774020056&width=1920",
     "notes": null
   },
   {
@@ -97904,7 +97904,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274266801",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/184481_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/ysly.jpg?v=1784205172&width=1920",
     "notes": null
   },
   {
@@ -97983,7 +97983,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3614274025637",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/173969_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_a9de0ab4-4504-467a-9841-9c4c5a942306.jpg?v=1774010598&width=1920",
     "notes": null
   },
   {
@@ -98238,7 +98238,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171074465",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/190530_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1735813263-23363100.jpg?v=1763396932&width=1920",
     "notes": null
   },
   {
@@ -98368,7 +98368,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171070276",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/184517_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1706636540-26172200.jpg?v=1763394016&width=1920",
     "notes": null
   },
   {
@@ -98408,7 +98408,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171070269",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/712a9DXXk9L.jpg?v=1767986437",
+    "image": "https://www.beautybase.com/cdn/shop/files/1706636286-06388900.jpg?v=1763394080&width=1920",
     "notes": {
       "top": [
         "Warm Spicy",
