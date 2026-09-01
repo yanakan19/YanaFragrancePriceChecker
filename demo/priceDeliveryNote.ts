@@ -17,10 +17,10 @@ import { formatGbp } from '../src/services/money.js';
  *                               claim the shop ships free, not an absence of
  *                               one, and the delivered price is the item
  *                               price for a real reason worth naming;
- *   - no stated cost          → "Plus delivery", with no figure of any kind.
- *                               The number above excludes delivery and nobody
- *                               has established what delivery is, so the line
- *                               may only say that something is still to be
+ *   - no stated cost          → "Delivery not included", with no figure of any
+ *                               kind. The number above excludes delivery and
+ *                               nobody has established what delivery is, so the
+ *                               line may only say that something is still to be
  *                               added. It must never name an amount, and it
  *                               must never say "free" — see DeliveryDisplay's
  *                               doc comment on why null and 0 are different
@@ -38,9 +38,17 @@ import { formatGbp } from '../src/services/money.js';
  * Lives in its own module rather than in demo/app.ts so it can be unit tested
  * directly: app.ts calls init() at import time, so nothing in it is importable
  * from a plain Node test. Same reason as demo/deliveryFacts.ts.
+ *
+ * The third case read "Plus delivery" until 2026-09-01 (owner's wording).
+ * "Delivery not included" is the same statement about the same number, phrased
+ * against the two branches above it rather than away from them: all three now
+ * answer the one question this line exists to answer — is delivery inside the
+ * figure it sits under — and the odd one out no longer answers a different
+ * question ("what happens next") in a different grammar. It stays the only
+ * branch given `.del-note.excl`'s warn ink, for the reason that class exists.
  */
 export function deliveryPriceNote(delivery: DeliveryDisplay): string {
-  if (delivery.costGbp === null) return 'Plus delivery';
+  if (delivery.costGbp === null) return 'Delivery not included';
   if (delivery.costGbp === 0) return 'Incl. free delivery';
   return `Incl. ${formatGbp(delivery.costGbp)} delivery`;
 }
