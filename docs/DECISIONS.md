@@ -582,3 +582,154 @@ behaviour (documented in the workflow's own comment: a third tick cancels a
 second one still queued) is unchanged in kind; scoping it to the `crawl` job
 only, rather than the whole workflow, keeps it from ever applying to
 `guard`, which is the point, not a behaviour change for `crawl` itself.
+---
+
+## D14 — "Unverified" commits are mostly genuine CI-bot commits; the fix is forward-only, not a history rewrite
+
+**Diagnosed 2026-09-01.** A stop-hook reported that many commits on this
+branch show as "Unverified" on GitHub because the committer identity is
+`bot@users.noreply.github.com` rather than `noreply@anthropic.com`, and
+suggested `git rebase --root --exec "git commit --amend --no-edit
+--reset-author"` followed by a force-push to fix it. **That remedy was not
+run.** Both of its stated reasons were checked against the repository rather
+than assumed, and both held up.
+
+### The measured breakdown
+
+The working checkout was a shallow clone (`git rev-parse
+--is-shallow-repository` → `true`, 59 commits reachable). `git fetch
+--unshallow` against `origin/claude/scentday-retailer-registry-h92tth`
+brought in the full history — 1126 commits total, more than the 360-odd this
+branch carried when this task was written, itself a small extra data point
+for "an active cron keeps pushing here." Every commit's author was counted
+with `git log --format='%ae|%an' | sort | uniq -c`:
+
+| author email | name | commits |
+|---|---|---|
+| `bot@users.noreply.github.com` | `pricesniffs-bot` | 598 |
+| `bot@users.noreply.github.com` | `scentday-bot` | 331 |
+| `noreply@anthropic.com` | `Claude` | 148 |
+| `urkoppan@gmail.com` | `Yana` | 44 |
+| `urkoppan@gmail.com` | `Claude` | 5 |
+
+929 of 1126 commits (82%) carry the bot identity the stop-hook flagged.
+Grepping those 929 subjects for the exact six templates
+`catalogue-daily.yml`'s harvest jobs write (`scripts/commit-and-push.sh`
+hard-codes `pricesniffs-bot <bot@users.noreply.github.com>` as the committer
+— see that script) found:
+
+| message template | count |
+|---|---|
+| `Harvest: real prices …` | 256 |
+| `Rebuild demo: … harvest` | 18 |
+| `Awin feed sync: …` | 72 |
+| `Top Deals Today: …` | 71 |
+| `Image links: …` | 117 |
+| `Shipping terms: …` | 48 |
+| **subtotal** | **582** |
+
+A further 36 match other mechanical, clearly-automated templates the same
+workflows and their sibling scripts write (`Probe: what the crawler learned
+…` 7, `Catalogue: …` 7, `Rebuild demo bundle to match current source hash` 3,
+`Shipping discovery: …` 2, `Price verification: …` 2, `Price history: …` 3,
+`Catalogue crawl: …` 2, `Regenerate demo/…` 8, `Update history: …` 2) — 618
+of 929 bot-identity commits (67%) are report/rebuild output from a scheduled
+job, not authored prose.
+
+The remaining 311 bot-identity commits were sampled rather than assumed away:
+subjects like "Virtual Yanny: a declined suggest resolver must keep its own
+grounding" (22 commits, 2026-08-10–16), "Design system: two red glows behind
+the page, and nothing else moving" (8 commits, all 2026-08-12), and
+individually-authored entries like `sizeMl:`, `brandName:`, `marketOf:`,
+`testCountReporter:`, `wasPriceCredibility:` read as genuine hand/agent
+narrative development commits, not job output — they were committed under
+the bot identity rather than under `noreply@anthropic.com`, evidently because
+whatever ran them left `scripts/commit-and-push.sh`'s `git config user.*`
+in place for interactive work too. `noreply@anthropic.com` commits span the
+same window (2026-08-01 to 2026-08-20), so this was inconsistent practice
+within the period, not a clean "before/after" switch.
+
+At the moment this was read, `.github/workflows/catalogue-daily.yml`
+scheduled `cron: '0 */3 * * *'` — every three hours — confirming the second
+reason not to force-push: any rewrite of 1126 commits races a job that
+pushes to this exact branch on that cadence, on top of
+`scripts/commit-and-push.sh`'s own retry-and-rebase logic existing
+specifically because two ordinary pushes colliding here has already lost
+real harvest data (see that script's own header, runs #15/#17, #124/#126,
+#236, #266/#268). D13 above, landing on this same branch while this entry
+was being written, moves that cron to hourly at `:15` with a completion
+guard — a *tighter* cadence in the worst case (as often as every ~150
+minutes) — so the conclusion here is unaffected: whichever schedule is
+current, it is active and it is not "every few hours in theory, dormant in
+practice."
+
+### Why the rebase was refused
+
+1. **Most flagged commits are genuinely CI output, correctly unverified.**
+   At minimum 618 of 929 (67%) are scheduled-job commits with no human or
+   agent author behind the specific keystrokes — `--reset-author` would
+   stamp them as authored by whoever ran the rebase, which is false for
+   all of them. GitHub showing a bot-committed, unsigned automation commit
+   as "Unverified" is not a bug to fix; it is the correct signal.
+2. **`--reset-author` cannot correctly attribute the other third either.**
+   Even the ~311 commits that read as hand/agent work were not necessarily
+   written by whoever would run the rebase — reassigning authorship on
+   1126 historical commits based on a message-pattern guess is exactly the
+   kind of "adjudicate a diff by guessing" move D10 and D12 already refuse
+   to make for working-tree state, for the same reason: guessing wrong is
+   worse than the problem being fixed, and here it cannot be checked
+   without asking whoever actually ran each of those hundreds of sessions.
+3. **The force-push itself is the more dangerous part.** `rebase --root`
+   rewrites every one of 1126 commits' SHAs; the push would need
+   `--force` (or `--force-with-lease`, still racing the same window) against
+   a branch a 3-hourly cron pushes to and that D11 already documented as
+   unsafe to rewrite even four commits deep, for the same reason: a losing
+   race strands `commit-and-push.sh`'s in-flight rebase, every live agent
+   worktree based on the old SHAs, and possibly the harvest data itself.
+
+### What was done instead — forward-looking only
+
+- **Local git identity, set explicitly.** `git config user.email
+  noreply@anthropic.com` and `git config user.name Claude`, run against this
+  worktree's `.git/config`. Because this worktree was not created with
+  `extensions.worktreeConfig` enabled, `git rev-parse --git-common-dir`
+  resolves to the main checkout's own `.git`, so this write lands in the
+  same shared config file the main checkout reads — there is no per-worktree
+  override to reconcile separately. `git config --show-origin --get
+  user.email` already returned `file:/root/.gitconfig` with the correct
+  address before this change: the harness provisions a
+  `session-start-git-identity.sh` companion from outside the image at every
+  boot (named in D12's mtime sweep, re-stamped 07:43:48–59 alongside
+  `launcher-settings.json`), which is a global (not repo-local) fix and
+  explains why interactive commits since roughly 2026-08-20 already carry
+  the right identity. This change adds an explicit repo-local value as a
+  second, independent copy of the same fact.
+- **Honest limit: this is not durable on its own.** `git config`, local or
+  global, is a write to the container's filesystem. Per D12, nothing written
+  from inside the container survives a boot restored from the frozen
+  2026-08-12 image — a config value set today is exactly the kind of write
+  that boot silently discards. Only two things are durable here: the
+  harness's own external provisioning (outside this repo's control) and
+  whatever this repository has actually committed.
+- **The one thing that is durable: `.claude/hooks/session-start.sh`.**
+  Following the exact pattern D12 already established for
+  `recover-stale-checkout.sh` (a harness-provisioned copy plus a
+  repo-committed fallback that self-heals once the environment image is
+  refreshed), the main-checkout-only branch of the session-start hook now
+  sets `user.email`/`user.name` locally, but only when neither is already
+  set — so it can never override a deliberately different identity, and it
+  is a pure no-op on every boot where the harness's own copy has already
+  done the job. No new test file: `session-start.sh` has never been under
+  `tests/` (it is exercised the same way the rest of the hook always has
+  been, by running at session start), unlike `recover-stale-checkout.sh`,
+  which does have its own suite and is unaffected by this change.
+
+### What remains only the owner can decide
+
+Nothing here rewrites, relabels, or hides the 929 bot-identity commits.
+Reattributing history — if ever wanted — is the same operation and the same
+risk D11 already declined for a single commit, at roughly 280x the blast
+radius: `git rebase --root`, a force-push racing a 3-hourly cron, and every
+live agent worktree stranded on SHAs that stop existing. That trade was not
+this task's to make, and the measurement above is the reason, not an
+assertion.

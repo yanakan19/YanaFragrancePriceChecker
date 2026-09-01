@@ -94,6 +94,26 @@ if [ -z "$branch" ]; then
   exit 0
 fi
 
+# Commit identity for interactive work — docs/DECISIONS.md "Task 1"
+# (2026-09-01). The harness already provisions ~/.claude/hooks and a
+# `session-start-git-identity.sh` companion from outside the image at every
+# boot (see D12's mtime sweep), which is why `git config --global user.email`
+# normally already reads noreply@anthropic.com. This is a second, repo-owned
+# copy of that one fact, for the same reason recover-stale-checkout.sh is
+# installed both ways: D12 established that nothing written from *inside* the
+# container survives a boot restored from the frozen image, except what is
+# already committed to this repo — so a repo-committed fallback is the one
+# copy that heals itself the moment the environment is re-provisioned from
+# current origin, same as everything else in this file. Only ever a local
+# (repo-level) override, and only when unset, so it can never fight a
+# deliberately different identity someone has set on purpose.
+if ! git config --local --get user.email >/dev/null 2>&1; then
+  git config --local user.email 'noreply@anthropic.com' 2>/dev/null || true
+fi
+if ! git config --local --get user.name >/dev/null 2>&1; then
+  git config --local user.name 'Claude' 2>/dev/null || true
+fi
+
 if ! git remote get-url origin >/dev/null 2>&1; then
   exit 0
 fi
