@@ -1248,6 +1248,19 @@ export const RETAILERS: readonly Retailer[] = [
     // paragraph above), it gets a real attempt rather than being skipped on
     // evidence that never came from that tier.
     renderRefused: 'local',
+    //
+    // ── The per-shop preference itself now exists, 2026-09-01 ───────────────
+    // The owner action two paragraphs up asked for exactly this: a way to
+    // route this one shop's render calls to the actor tier without moving
+    // every other render-dependent shop off the free one. scripts/catalogue-
+    // harvest.ts's rendererForShop() and the `renderTier` field on Retailer
+    // (src/types/retailer.ts) are that mechanism — `renderTier: 'actor'`
+    // here would do it. Deliberately NOT set: this is still the owner's
+    // priced decision (about $0.008-0.02 per run this shop is reached, per
+    // the estimate above, against a $5 monthly credit that has already run
+    // out once), not a default this pass makes on its own. Flipping it on is
+    // now a one-line change to this entry rather than new plumbing.
+    // renderTier: 'actor',
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
