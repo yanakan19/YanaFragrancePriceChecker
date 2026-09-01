@@ -363,6 +363,33 @@ const SIZE_CONFLICT_RESOLVED: ReadonlyMap<string, number> = new Map([
  * sources, the same shape the evidence bar in productName.ts's
  * CONCENTRATION_RESOLUTIONS comment treats as disqualifying regardless of
  * how the majority leans. Left unresolved.
+ *
+ * Re-checked 2026-09-01 (later the same day) from angles this comment had
+ * not yet used, and still left unresolved:
+ *
+ *   - This row's own `ean` field is `null` (data/catalogue/armaf.json,
+ *     retailerSku ARF32121252) — no barcode exists to cross-reference
+ *     against an independent barcode database. Not a route here, just
+ *     confirmed absent rather than left unchecked.
+ *   - Amazon.com's own listing ("Armaf Parfums Red Velvet EDP Unisex 2.37
+ *     Fl Oz", B0G1Z3JRGX — a source not previously named for this specific
+ *     product) states 2.37 fl oz, ≈70ml: one more independent source on the
+ *     70ml side, not previously counted. It does not change the outcome —
+ *     the disqualifying fact is not that 70ml lacks support, it is that
+ *     100ml and 75ml each have independent, title-level support too, and
+ *     one more voice for the majority does not un-say either dissent.
+ *   - fragrantica.com, perfume.com and fragrancex.com all refused this
+ *     project's fetch tool with HTTP 403 — not pursued further, consistent
+ *     with this project's standing rule against evading a bot wall.
+ *   - armaf.com's own product page, re-fetched rather than assumed
+ *     unchanged: still states no size anywhere, and carries no link to a
+ *     "Delicacies Collection" landing page that might have listed one in a
+ *     size chart — its own listed collections are Club De Nuit, Odyssey,
+ *     Tres Nuit, Checkmate, Eter, Bucephalus, Tag and Delights, not
+ *     Delicacies.
+ *
+ * Nothing found here resolves it. The genuine three-way independent
+ * disagreement stands exactly as before.
  */
 
 /**
