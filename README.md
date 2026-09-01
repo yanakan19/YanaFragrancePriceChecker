@@ -43,7 +43,7 @@ of checkout.
 
 ```bash
 npm install
-npm test                      # 71 tests
+npm test                      # the full suite; it prints and stamps the count
 npm run typecheck
 npm run affiliate:status      # what's still unmonetised, and the next step
 npm run shipping:staleness    # which delivery rules need confirming
@@ -86,6 +86,14 @@ default most sessions use; (2) whether this exact key stays stable across a
 future container was not established — if the harness ever rotates it, the
 badge would go back to missing and there is no way from inside a session to
 detect that it happened.
+
+Re-checked 2026-09-01: the key above is still the one this container signs
+with, and the default identity is still `noreply@anthropic.com`. Verified by
+decoding the SSHSIG blob out of commit `413ac81d` on this branch rather than
+by re-reading D16 — same `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKy87Hx…` key,
+byte for byte. That is one more data point for caveat (2), not an answer to
+it: it says the key survived within this environment, not that it survives a
+fresh one.
 
 ## Demo
 
