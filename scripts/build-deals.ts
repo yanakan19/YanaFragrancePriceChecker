@@ -37,7 +37,7 @@ import { fileURLToPath } from 'node:url';
 import { DEMO_FRAGRANCES } from '../demo/data.js';
 import { CRAWLED } from '../demo/catalogue.generated.js';
 import { RETAILERS } from '../src/config/retailers.js';
-import { buildHouseAnchor } from '../src/services/discount.js';
+import { dealCandidateForOffer } from '../src/services/dealCandidates.js';
 import type { StockState } from '../src/types/offer.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -173,47 +173,25 @@ const SINGLE_BRAND_ONLY_IDS = new Set(
  * tests/dealsBrandDirect.test.ts's "never out-claim the fragrance house" test
  * still holds automatically here: a house-anchored deal's `wasPrice` field
  * *is* `fragrance.houseCeiling`, so it can never exceed it.
+ *
+ * The candidate logic itself — house-anchored first, a corroborated retailer
+ * wasPrice otherwise — now lives in src/services/dealCandidates.ts as
+ * `dealCandidateForOffer`, not inline here. It moved there 2026-09-01 so it
+ * could be unit tested directly (tests/dealCandidates.test.ts) rather than
+ * only through the live-snapshot check above, and picked up a fix in the
+ * move: the retailer branch is now gated against `fragrance.houseCeiling`
+ * too, closing exactly the gap this paragraph's own claim did not cover — see
+ * that function's own header comment for the real ean-6290171071051 case that
+ * exposed it, and why the fix belongs there rather than as a second check
+ * bolted on beside it.
  */
-function houseAnchorDeal(
-  fragrance: (typeof DEMO_FRAGRANCES)[number],
-  offer: { price: number; retailerId: string },
-): RawDeal | null {
-  if (fragrance.houseCeiling === null) return null;
-  const anchor = buildHouseAnchor(offer.price, fragrance.houseCeiling, fragrance.brand);
-  if (!anchor) return null;
-  return {
-    fragranceId: fragrance.id,
-    price: offer.price,
-    wasPrice: anchor.housePriceGbp,
-    percentOff: anchor.percentOff,
-    retailerId: offer.retailerId,
-    kind: 'house',
-    houseName: anchor.houseName,
-  };
-}
-
 const deals: RawDeal[] = DEMO_FRAGRANCES.flatMap((fragrance) => {
   const candidates: RawDeal[] = [];
   for (const o of CRAWLED[fragrance.id] ?? []) {
     if (!BUYABLE.has(o.stock) || SINGLE_BRAND_ONLY_IDS.has(o.retailerId)) continue;
 
-    const houseDeal = houseAnchorDeal(fragrance, o);
-    if (houseDeal) {
-      candidates.push(houseDeal);
-      continue;
-    }
-
-    if (o.wasPrice !== null && o.wasPrice > o.price) {
-      candidates.push({
-        fragranceId: fragrance.id,
-        price: o.price,
-        wasPrice: o.wasPrice,
-        percentOff: Math.floor((1 - o.price / o.wasPrice) * 100),
-        retailerId: o.retailerId,
-        kind: 'retailer',
-        houseName: null,
-      });
-    }
+    const candidate = dealCandidateForOffer(fragrance, o);
+    if (candidate) candidates.push({ fragranceId: fragrance.id, ...candidate });
   }
 
   // The cheapest qualifying offer wins, same rule as before test zero: a deal
