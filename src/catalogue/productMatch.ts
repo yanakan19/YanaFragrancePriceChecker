@@ -230,6 +230,20 @@ export interface MatchableProduct {
  * quietly stop agreeing with this one the first time either was edited.
  */
 function wordSet(text: string): string {
+  return titleWords(text).sort().join(' ');
+}
+
+/**
+ * The same normalisation wordSet performs, stopped one step earlier: the
+ * words themselves, unsorted and unjoined.
+ *
+ * Factored out for rawTitlesAgree below, which needs to ask whether one
+ * title's words are a subset of another's — a question a joined string
+ * cannot answer — and must ask it with exactly this normalisation or it
+ * would be comparing different words from the ones every match in this file
+ * is decided on.
+ */
+function titleWords(text: string): string[] {
   return text
     .toLowerCase()
     // Apostrophes vanish rather than splitting the word around them: one feed
@@ -238,9 +252,7 @@ function wordSet(text: string): string {
     .replace(/['’]/g, '')
     .replace(/[^a-z0-9]+/g, ' ')
     .split(' ')
-    .filter(Boolean)
-    .sort()
-    .join(' ');
+    .filter(Boolean);
 }
 
 /**
@@ -276,6 +288,49 @@ function sizeKeyPart(p: MatchableProduct): string {
 /** The identity two listings must share to be the same bottle. */
 export function matchKey(p: MatchableProduct): string {
   return [brandKey(p.brand), sizeKeyPart(p), p.concentration.toLowerCase().trim(), wordSet(p.name)].join('|');
+}
+
+/**
+ * Whether one shop's own two raw titles are saying the same thing, one of
+ * them possibly saying a little more: every word of the shorter appears in
+ * the longer.
+ *
+ * The second test scripts/build-demo-catalogue.ts's same-shop collapse
+ * applies, on top of matchKey equality, and it is not redundant with it.
+ * matchKey compares the *displayed* name, and displayName can reduce a title
+ * to nothing distinguishing when the shop's own brand field is where the
+ * fragrance's name lives. Avon publishes exactly that: "Perceive Eau de
+ * Parfum 30ml" with rawBrand "Perceive", "Incandessence Eau de Parfum - 30
+ * ml" with rawBrand "Incandessence" and "Little Black Dress Eau de Parfum
+ * 30ml" with rawBrand "Little Black Dress" all canonicalise to brand "Avon
+ * Cosmetics" and a name with no fragrance in it, so all three share a
+ * matchKey and findDuplicateGroups has already merged them into one product.
+ * They are three different perfumes. That merge is a real defect and not the
+ * collapse's to fix — but collapsing on matchKey alone would hide two of the
+ * three behind the third and make it very much harder to see. Their raw
+ * titles disagree outright, so this declines and all three rows survive.
+ *
+ * Subset rather than equality, because the case the collapse exists for is a
+ * shop's own two pages differing by a word carrying no product information:
+ * The Beauty Store UK's "Tom Ford Black Orchid Eau de Parfum Spray 150ml"
+ * and "Tom Ford Black Orchid Eau de Parfum 150ml", SKUs TBSUKDK2-15123 and
+ * TBSUKDK2-40107, £139.99 and £152.59.
+ *
+ * Deliberately conservative in both directions. It declines pairs that are
+ * genuine duplicates but word their titles differently — leaving a row that
+ * could have been collapsed is the cheap failure. And a word that *does*
+ * carry product information, "Unboxed" or "Tester", makes one title a strict
+ * superset of the other, so a boxed listing could be collapsed into an
+ * unboxed one on this test alone; matchKey is what stops that, since
+ * displayName keeps those words in the name and the two keys differ. Both
+ * tests have to pass.
+ */
+export function rawTitlesAgree(a: string, b: string): boolean {
+  const aw = new Set(titleWords(a));
+  const bw = new Set(titleWords(b));
+  const [small, large] = aw.size <= bw.size ? [aw, bw] : [bw, aw];
+  for (const word of small) if (!large.has(word)) return false;
+  return true;
 }
 
 /**
