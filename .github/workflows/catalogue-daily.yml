@@ -238,7 +238,7 @@ on:
         type: string
         default: ''
       deals_refresh:
-        description: 'Force a Top Deals Today snapshot without waiting for its normal ~6 hourly cadence.'
+        description: 'Rebuild the app (catalogue, price history, Top Deals Today) from the catalogue already on the branch, without harvesting first. Deals no longer have a cadence gate of their own to skip — they are rebuilt with the catalogue on every scheduled run — so this is for a deals refresh outside the schedule.'
         type: boolean
         default: false
       tiktok_probe:
@@ -804,56 +804,20 @@ jobs:
             "TikTok probe: what the Affiliate API answered $(date -u +%Y-%m-%d)" \
             data/tiktok
 
-      # "Top Deals Today" moves on its own fixed 6-hourly cadence rather than
-      # every hourly tick like everything else — see scripts/build-deals.ts's
-      # own header comment for why.
+      # "Top Deals Today" used to be built HERE, near the top of the run and
+      # ahead of the harvest, on its own 5-hour age gate. It is now built in
+      # "Rebuild the app from harvested prices" below, straight after
+      # `npm run catalogue:demo`, on every run that rebuilds the catalogue.
+      # See that step for the reasoning; the short version is that
+      # demo/deals.generated.ts stopped being an independent snapshot on
+      # 2026-08-26 and became half of a consistent pair with
+      # demo/catalogue.generated.ts, and a pair cannot be regenerated on two
+      # different cadences.
       #
-      # Ordered here, near the top of the run, for a specific reason: the
-      # sitemap harvest below takes ~38 minutes. With this step after it, the
-      # 00:00 tick did not actually publish its deals until ~00:45, so a
-      # snapshot named for midnight went live three quarters of an hour late,
-      # four times a day. Running it here instead publishes within a couple of
-      # minutes of the hour, against the Awin feeds just synced above plus the
-      # scraped prices committed by the previous hourly run — which finished
-      # around :48 of the previous hour, so nothing it reads is more than an
-      # hour old, and the two thirds of the catalogue that comes from feeds is
-      # seconds old. Fresh and on time beats fresher and late for a snapshot
-      # whose whole purpose is a fixed publication time.
-      #
-      # The rebuild only happens if the snapshot actually changed: an unchanged
-      # deals list costs nothing further.
-      - name: Refresh Top Deals Today
-        if: ${{ inputs.deals_refresh || github.event_name == 'schedule' }}
-        run: |
-          # Age based for the same reason as the feed sync above: a scheduled
-          # run starts when a runner is free, not when the cron said, so an
-          # exact-hour test skips silently and indefinitely once the drift
-          # settles on odd hours. Deals are meant to move on a six hourly
-          # cadence so a reader is not watching the list reshuffle mid visit
-          # (see scripts/build-deals.ts) — that intent is preserved here, it is
-          # just measured in elapsed time rather than read off the clock.
-          MARKER=data/deals-refresh-marker.txt
-          NOW=$(date -u +%s)
-          LAST=0
-          if [ -f "$MARKER" ]; then LAST=$(cat "$MARKER" 2>/dev/null || echo 0); fi
-          case "$LAST" in ''|*[!0-9]*) LAST=0 ;; esac
-          AGE=$(( NOW - LAST ))
-          if [ "${{ inputs.deals_refresh }}" = "true" ] || [ "$AGE" -ge 18000 ]; then
-            npm run deals:build
-            if ! git diff --quiet -- demo/deals.generated.ts; then
-              npm run demo
-            fi
-            echo "$NOW" > "$MARKER"
-          else
-            echo "Last deals refresh was $(( AGE / 60 )) minutes ago, under the five hour threshold — skipping."
-          fi
-
-      - name: Commit refreshed deals
-        if: ${{ inputs.deals_refresh || github.event_name == 'schedule' }}
-        run: |
-          ./scripts/commit-and-push.sh \
-            "Top Deals Today: $(date -u +%Y-%m-%d)" \
-            demo/deals.generated.ts data/deals-refresh-marker.txt demo/index.html demo/404.html demo/sitemap.xml
+      # The `deals_refresh` dispatch input survives the move: it no longer
+      # skips an age gate (there is none) but still opts a non-harvest
+      # dispatch into the rebuild step, so a deals-only refresh is still one
+      # dispatch away.
 
       # The route the probe proved works: ask the sitemap instead of guessing.
       # This is now what runs every night, not just on request. The plain
@@ -1157,12 +1121,56 @@ jobs:
       # nothing more: the catalogue data it reads was already committed above,
       # and the next scheduled run rebuilds from whatever is on the branch by
       # then regardless of what happened here.
+      #
+      # ── Why `deals:build` is in here now, and not before the harvest ──
+      # It used to run near the top of the job, ahead of the harvest, on a
+      # 5-hour age gate, so that a snapshot could publish within minutes of
+      # the hour instead of ~45 minutes into the run. That ordering broke
+      # twice on 2026-09-01 in the same way, and the second time it wedged the
+      # branch: run #368 built demo/deals.generated.ts at 17:31 (124b610c),
+      # its own harvest landed at 18:36 (03d2c375) and moved Al Haramain
+      # L'Aventure Femme 100ml (ean-6291100137565) to £45 on the house's own
+      # storefront, and the deals file — an hour older than the catalogue
+      # beside it — was still striking through Perfume Click's £50. The next
+      # run's "Test before crawling" then failed on
+      # tests/dealsBrandDirect.test.ts, as it should, and no harvest could
+      # start at all.
+      #
+      # This is not a scheduling accident that a longer gap would fix. Until
+      # 2026-08-26 the deals snapshot depended only on `wasPrice` — a shop's
+      # own published figure — so an old snapshot was merely old, never
+      # wrong, and a cadence of its own was free. wasPriceCredibility.ts's
+      # test zero made a deal depend on `CatalogueEntry.houseCeiling` as well,
+      # which lives in demo/catalogue.generated.ts. From that day the two
+      # files are one consistent pair: rebuild the catalogue without the
+      # deals and the older file can assert a saving the newer one refutes.
+      # A pair cannot be regenerated on two different cadences, so deals now
+      # move on the catalogue's, which is the coarsest cadence that keeps them
+      # honest. 4f3ddc97 (src/services/dealCandidates.ts) made each build
+      # honest about the catalogue in front of it; this makes sure the build
+      # sees the catalogue this run just harvested.
+      #
+      # The anti-reshuffle intent behind the old cadence (see
+      # scripts/build-deals.ts's header) survives as far as that allows: the
+      # list now moves every three hours with the cron rather than every six,
+      # which is still nothing like the per-tick churn that comment was
+      # written against.
+      #
+      # Ordered immediately after `catalogue:demo` deliberately: those two
+      # commands write the pair, and everything between them is time in which
+      # a step timeout could commit one without the other. Adjacent, that
+      # window is seconds out of a ~6 minute step.
+      #
+      # Still after "Commit harvested prices" above, which is the protection
+      # that must not move: raw harvested prices are published first and
+      # nothing derived from them can cost us an hour of crawling.
       - name: Rebuild the app from harvested prices
-        if: ${{ inputs.harvest || github.event_name == 'schedule' }}
+        if: ${{ inputs.harvest || inputs.deals_refresh || github.event_name == 'schedule' }}
         continue-on-error: true
         timeout-minutes: 10
         run: |
           npm run catalogue:demo
+          npm run deals:build
           npm run catalogue:history
           npm run demo
 
@@ -1173,7 +1181,7 @@ jobs:
       # off by its own step timeout simply leaves the previous demo bundle
       # live until the next run regenerates it.
       - name: Commit rebuilt app
-        if: ${{ inputs.harvest || github.event_name == 'schedule' }}
+        if: ${{ inputs.harvest || inputs.deals_refresh || github.event_name == 'schedule' }}
         run: |
           # demo/testCount.generated.ts rides along here rather than with the
           # raw snapshots above: "Test before crawling", near the top of this
@@ -1185,9 +1193,16 @@ jobs:
           # stale sitting uncommitted in the raw-snapshot step above, and this
           # step runs on every scheduled tick regardless of which other
           # inputs fired, so it is still picked up within a day either way.
+          # demo/deals.generated.ts rides along here rather than in a commit
+          # of its own, which is where it used to be. It is generated demo
+          # output like everything else in this list, and — since test zero —
+          # it is only meaningful next to the demo/catalogue.generated.ts it
+          # was built from, so committing the two apart is the thing that
+          # went wrong on 2026-09-01. One commit, one consistent pair.
           ./scripts/commit-and-push.sh \
             "Rebuild demo: $(date -u +%Y-%m-%d) harvest" \
             demo/catalogue.generated.ts demo/priceHistory.generated.ts \
+            demo/deals.generated.ts \
             demo/testCount.generated.ts \
             demo/index.html demo/404.html demo/sitemap.xml
 

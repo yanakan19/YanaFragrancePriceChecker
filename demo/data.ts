@@ -256,10 +256,12 @@ export interface Deal {
 }
 
 /**
- * "Today's Deals" — a fixed snapshot refreshed at most every 6 hours, not
- * recomputed on every hourly build the way everything else here is. See
- * scripts/build-deals.ts's own header comment for why deals move on a
- * schedule instead of reshuffling under a reader mid-visit.
+ * "Today's Deals" — a snapshot in a file of its own rather than something
+ * recomputed here on every build, written by scripts/build-deals.ts. It is
+ * rebuilt with demo/catalogue.generated.ts and from the same data, so the two
+ * always agree about what a fragrance's house charges for it; see that
+ * script's own header for why they used to move on separate cadences and no
+ * longer can.
  *
  * deals.generated.ts stores only a fragrance id per deal, resolved against
  * DEMO_FRAGRANCES here rather than the generated file carrying a second,

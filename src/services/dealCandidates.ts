@@ -41,13 +41,13 @@ export interface DealCandidate {
  * src/catalogue/wasPriceCredibility.ts's own "test zero", which already
  * refutes (nulls) a wasPrice above the house ceiling — inside a single
  * `scripts/build-demo-catalogue.ts` run, over one consistent snapshot. Today's
- * Deals is built by a *separate* script on its own ~6-hourly cadence (this
- * file's caller, scripts/build-deals.ts), and .github/workflows/catalogue-
- * daily.yml runs that refresh *before* the same run's harvest step — so a
- * fragrance that gains a houseCeiling for the first time this run (a new
- * brand-direct offer landing) can hand this function a wasPrice the market
- * has not yet had the chance to refute against it, and the next deals refresh
- * may not run for hours.
+ * Deals is built by a *separate* script (this file's caller,
+ * scripts/build-deals.ts), and when this gate was written that script ran on
+ * a ~6-hourly cadence of its own, *before* the same run's harvest step in
+ * .github/workflows/catalogue-daily.yml — so a fragrance that gained a
+ * houseCeiling for the first time in a run (a new brand-direct offer landing)
+ * could hand this function a wasPrice the market had not yet had the chance
+ * to refute against it, and the next deals refresh might not run for hours.
  *
  * ean-6290171071051 is exactly that shape, confirmed from the real history
  * rather than assumed: Zimaya added its own £35 Fatima 100ml storefront
@@ -61,6 +61,15 @@ export interface DealCandidate {
  * touch it. No deals refresh ran again before this repository's tests were
  * checked, so the stale £50 reference shipped in demo/deals.generated.ts
  * against a £35 house price it now contradicts.
+ *
+ * That ordering was itself fixed on 2026-09-01 — deals are now built straight
+ * after `npm run catalogue:demo`, from the catalogue the same run just
+ * harvested — because this gate could only ever make each *build* honest, and
+ * ean-6291100137565 showed the other half of the problem: a snapshot left
+ * unrebuilt beside a catalogue that moved under it goes stale without any
+ * build being wrong. The gate stays regardless. It is what makes a single
+ * build correct no matter which catalogue it is pointed at, which is a
+ * property worth having independently of the workflow doing the pointing.
  *
  * Re-checking the ceiling here closes that gap independent of timing: this
  * function is now the single place that decides whether a retailer wasPrice

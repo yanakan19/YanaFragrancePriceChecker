@@ -113,17 +113,20 @@ is_generated() {
 # scripts/image-link-check.ts's own write targets.
 #
 # demo/deals.generated.ts belongs here too, deliberately not in
-# GENERATED_PATHS, even though scripts/build-deals.ts could technically
-# rebuild it from data already on disk: the whole point of that file is that
-# it changes on its own 6-hourly schedule regardless of what else lands in
-# between, not on every conflict a rebuild would silently trigger.
-# Regenerating it mid-conflict would defeat the one thing it exists to do.
+# GENERATED_PATHS. The original reason was its own 6-hourly cadence, which it
+# lost on 2026-09-01 (see scripts/build-deals.ts's header): it is now written
+# in the same breath as demo/catalogue.generated.ts, from that same file, and
+# the two are committed together as one consistent pair. That is precisely
+# why regenerating it mid-conflict is still the wrong move — a rebuild here
+# would rebuild it alone, against whichever catalogue happened to be on disk
+# mid-rebase, which is the exact split this pairing exists to prevent. Taking
+# the incoming side keeps it with the catalogue it was built from.
 #
 # The *-marker.txt / *-state.json entries are the cadence-gate bookkeeping
-# the workflow's periodic steps (shipping discovery, Awin sync, deals
-# refresh) read to decide "have I run recently enough" — see
-# catalogue-daily.yml's MARKER= lines. Machine-written timestamps, never
-# hand-edited, same category as the report files above.
+# the workflow's periodic steps (shipping discovery, Awin sync) read to
+# decide "have I run recently enough" — see catalogue-daily.yml's MARKER=
+# lines. Machine-written timestamps, never hand-edited, same category as the
+# report files above. Deals used to have one; it went with the cadence.
 is_raw_snapshot() {
   case "$1" in
     data/catalogue/*.json|data/houses/*.json) return 0 ;;
@@ -131,7 +134,7 @@ is_raw_snapshot() {
     data/image-link-report.json|data/awin-feed-sync-state.json|data/strategy-memory.json) return 0 ;;
     data/price-verification-report.json|data/storefront-reprice-report.json) return 0 ;;
     data/shipping-discover-marker.txt|data/shipping-discover-state.json) return 0 ;;
-    data/feed-sync-marker.txt|data/deals-refresh-marker.txt) return 0 ;;
+    data/feed-sync-marker.txt) return 0 ;;
     # The harvest's own three, and they were missing. Every one of them is
     # passed to this script by catalogue-daily.yml's "Commit harvested prices",
     # every one of them is rewritten by every scheduled harvest, and so every
