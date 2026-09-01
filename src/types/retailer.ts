@@ -512,6 +512,37 @@ export interface Retailer {
    * actually tried.
    */
   renderRefused?: boolean | 'local';
+  /**
+   * Per-shop render-tier preference, added 2026-09-01. Unset (the case for
+   * every retailer today) means exactly the prior behaviour: this shop's
+   * render escalation uses whichever renderer the run defaults to — the free
+   * local browser when it is on, else the paid Apify actor when that is
+   * configured and allowed.
+   *
+   * `'actor'` asks scripts/catalogue-harvest.ts to route THIS shop's render
+   * calls to the paid actor tier specifically, independent of every other
+   * shop's renderer. It exists because the only way to reach the actor used
+   * to be `--no-local-render`, a run-wide switch that moves every render-
+   * dependent shop onto the metered tier at once — which is exactly what
+   * emptied the shared $5 monthly Apify credit on 2026-08-21, darkening five
+   * shops together (Boots, Selfridges, John Lewis, Superdrug, Zara) when only
+   * one of them needed rescuing. See John Lewis's own registry entry for the
+   * worked example this was built for: its actor route is proven (real
+   * ~1MB section pages, real priced listings) while its local-render route
+   * is refused ten times over, so it is the shop this field was designed to
+   * let the owner flip on deliberately — without the recovery of one shop
+   * costing every other render-dependent shop its free route again.
+   *
+   * Honoured only when the actor tier is actually available this run
+   * (APIFY_TOKEN set, --allow-metered passed, budget not exhausted) — it can
+   * never turn a run with no metered tier configured into one that needs
+   * one, and it never changes any other shop's renderer. Setting it spends
+   * real money on every run that reaches this shop's render escalation
+   * (docs/INGESTION.md's own estimate: roughly $2-5 per 1,000 actor-rendered
+   * pages) — a deliberate owner decision with the cost in front of them, not
+   * a default. No retailer sets this today.
+   */
+  renderTier?: 'actor';
   shipping: ShippingRule;
   affiliate: AffiliateConfig;
   /**

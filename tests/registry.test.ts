@@ -603,4 +603,21 @@ describe('retailer registry', () => {
       }
     });
   });
+
+  describe('renderTier — the per-shop actor-tier preference, added 2026-09-01', () => {
+    // This is a capability, not a decision: scripts/catalogue-harvest.ts's
+    // rendererForShop() (src/catalogue/renderTier.ts) can route one named
+    // shop's render calls to the paid Apify actor tier without moving every
+    // other render-dependent shop off the free local one, but turning it on
+    // for a shop spends real money on every run that reaches that shop's
+    // render escalation. See the Retailer field's own doc comment in
+    // src/types/retailer.ts. No retailer sets it yet — enabling one (John
+    // Lewis is the worked example in its own registry entry) is a deliberate
+    // owner decision with the cost in front of them, not a default this pass
+    // makes on its own.
+    it('is set on no shop', () => {
+      const withPreference = RETAILERS.filter((r) => r.renderTier !== undefined).map((r) => r.id);
+      expect(withPreference).toEqual([]);
+    });
+  });
 });

@@ -77,6 +77,7 @@ import { harvestReportWriter, type HarvestTier } from '../src/catalogue/harvestR
 import {
   renderRefusals, knownRenderRefusal, type RenderRefusal, type RenderedPage,
 } from '../src/catalogue/renderRefusal.js';
+import { rendererForShop, renderTierLabel } from '../src/catalogue/renderTier.js';
 import { capturePages, type CapturePage } from '../src/catalogue/renderCapture.js';
 import {
   parseCursor, sweepOrder, withAttempt, staleCursorIds,
@@ -266,10 +267,18 @@ const useApifyActor = allowMetered && actorConfig !== null && budgetAllowsMetere
 // runner's datacenter IP is per shop and not yet measured: it cannot be, from
 // a sandbox whose egress proxy refuses those domains outright. CI settles it.
 const localRenderer = noLocalRender ? null : localBrowserRenderer({ gapMs: 1_000 });
-const actorRenderer = localRenderer ?? (useApifyActor ? apifyActorRenderer(actorConfig!) : null);
-const useActor = actorRenderer !== null;
-/** Named in the log so a run says which browser rendered it, not just that one did. */
-const renderTierName = localRenderer ? 'local browser' : 'Apify actor';
+// A standing actor-renderer instance, built whenever the actor tier is
+// available this run (APIFY_TOKEN set, --allow-metered passed, budget not
+// exhausted) — independent of whether the local renderer is also available.
+// Needed so a per-shop `renderTier: 'actor'` preference (see rendererForShop
+// below and the Retailer field's own doc comment) can route that one shop to
+// the actor even on an ordinary run where the local renderer handles every
+// other shop. Before this, the actor was only ever constructed when the
+// local renderer was entirely OFF (`localRenderer ?? ...`), which is exactly
+// why reaching it for one shop meant --no-local-render — a run-wide switch —
+// moving every render-dependent shop onto the metered tier at once.
+const sharedActorRenderer = useApifyActor ? apifyActorRenderer(actorConfig!) : null;
+const useActor = localRenderer !== null || sharedActorRenderer !== null;
 
 if (localRenderer) {
   console.log(
@@ -725,6 +734,14 @@ for (const retailer of shops) {
     }
   }
 
+  // Which renderer THIS shop uses — see rendererForShop's own comment in
+  // src/catalogue/renderTier.ts for the default (identical to the prior
+  // run-wide behaviour) and for what `retailer.renderTier === 'actor'`
+  // changes, per shop, for the one shop that ever sets it.
+  const { renderer: shopRenderer, tier: shopRenderTier } = rendererForShop(retailer, localRenderer, sharedActorRenderer);
+  const useActorForShop = shopRenderer !== null;
+  const shopRenderTierName = renderTierLabel(shopRenderTier);
+
   // A shop that has already answered a real render, more than once, with a
   // refusal is not asked again — see knownRenderRefusal's own comment for the
   // evidence and for why the render tier's page budget is worth protecting
@@ -732,13 +749,13 @@ for (const retailer of shops) {
   // Checked only where the render would otherwise actually be attempted, so a
   // shop that already priced through a cheaper tier never gets a "skipped"
   // line about a tier it was never going to need.
-  // Tier-aware: `localRenderer` non-null means this run's render calls all
-  // go to the free local browser, so that is the tier knownRenderRefusal
-  // checks the flag against — a shop refused only on the local tier is not
-  // skipped once a future run actually reaches the actor. See
-  // knownRenderRefusal's own comment in src/catalogue/renderRefusal.ts.
-  const skipRender = withPrice.length === 0 && useActor && retailer.catalogue
-    ? knownRenderRefusal(retailer, localRenderer ? 'local' : 'actor')
+  // Tier-aware: checked against the tier THIS shop's render call actually
+  // uses (shopRenderTier), not merely whichever renderer the run defaults
+  // to — a shop refused only on the local tier is not skipped once its own
+  // render actually reaches the actor. See knownRenderRefusal's own comment
+  // in src/catalogue/renderRefusal.ts.
+  const skipRender = withPrice.length === 0 && useActorForShop && retailer.catalogue
+    ? knownRenderRefusal(retailer, shopRenderTier)
     : null;
   if (skipRender) {
     result.errors.push(`[actor] skipped: ${skipRender}`);
@@ -751,7 +768,7 @@ for (const retailer of shops) {
   // — never a walk, never one request per product — for the same cost
   // reasoning docs/INGESTION.md sets out for every tier here, applied to a
   // route that costs roughly ten times as much per page.
-  if (withPrice.length === 0 && useActor && retailer.catalogue && !skipRender) {
+  if (withPrice.length === 0 && useActorForShop && retailer.catalogue && !skipRender) {
     // ── When the only way to read the rules is to render them ───────────────
     // A shop whose robots.txt neither the runner nor the proxy can fetch is a
     // shop this pipeline must treat as entirely forbidden, and rightly — but
@@ -767,7 +784,7 @@ for (const retailer of shops) {
     if (robotsForActor.unavailable) {
       const robotsUrl = robotsCandidateUrls(retailer)[0]!;
       console.log(`      ${retailer.name}: robots.txt unreadable every other way, rendering it through the actor`);
-      const renderedRobots = await actorRenderer!.render([robotsUrl]);
+      const renderedRobots = await shopRenderer!.render([robotsUrl]);
       const painted = renderedRobots.get(robotsUrl);
       const text = painted?.ok ? robotsTextFromRenderedHtml(painted.body) : null;
       if (text) {
@@ -794,8 +811,8 @@ for (const retailer of shops) {
           : `[actor] every section URL disallowed by robots.txt`,
       );
     } else {
-      console.log(`      ${retailer.name}: rendering ${allowed.length} section page(s) through ${renderTierName}`);
-      const rendered = await actorRenderer!.render(allowed.map((t) => t.url));
+      console.log(`      ${retailer.name}: rendering ${allowed.length} section page(s) through ${shopRenderTierName}`);
+      const rendered = await shopRenderer!.render(allowed.map((t) => t.url));
 
       // Debug-only, and only for the one shop named on the command line — see
       // this file's own arg-parsing comment above and src/catalogue/
@@ -924,7 +941,7 @@ for (const retailer of shops) {
       `${String(withPrice.length).padStart(3)} priced listings` +
       (viaPatience ? '  [via longer timeout]' : '') +
       (viaProxy ? '  [via Apify proxy]' : '') +
-      (viaActor ? `  [via ${renderTierName}]` : '') +
+      (viaActor ? `  [via ${shopRenderTierName}]` : '') +
       (sizesRecovered ? `  [${sizesRecovered} sizes read from product URLs]` : '') +
       (refusals.length ? `  [refused ${refusals.length} page(s)]` : '') +
       (result.errors.length ? `  (${result.errors.length} errors)` : ''),
@@ -969,7 +986,7 @@ for (const retailer of shops) {
     pagesFetched: result.pagesFetched,
     priced: withPrice.length,
     tier,
-    renderer: viaActor ? renderTierName : null,
+    renderer: viaActor ? shopRenderTierName : null,
     errorCount: result.errors.length,
     // Metered first, same ordering and same reasoning as the log above.
     errors: [...metered, ...rest].slice(0, 8),
@@ -1075,16 +1092,20 @@ if (refusedThisRun.length) {
   );
 }
 if (neverLive.length) console.log(`never once live: ${neverLive.join(', ')} — still on fixtures, excluded from the site`);
-if (actorRenderer) {
-  const renderBudget = localRenderer ? MAX_LOCAL_RENDER_PAGES_PER_RUN : MAX_ACTOR_PAGES_PER_RUN;
+// Reported as two independent lines, not one combined line picking whichever
+// renderer the run defaults to: a per-shop `renderTier: 'actor'` preference
+// (see rendererForShop above) means both can genuinely have rendered pages
+// in the same run now, where before it was always exactly one or the other.
+if (localRenderer) {
   console.log(
-    `${renderTierName} pages rendered this run: ${actorRenderer.used()} of ${renderBudget} budgeted` +
+    `local browser pages rendered this run: ${localRenderer.used()} of ${MAX_LOCAL_RENDER_PAGES_PER_RUN} budgeted, ` +
       // What the tier actually cost, in the unit the harvest is short of. The
       // page count alone cannot say whether the tier is affordable.
-      (localRenderer
-        ? `, ${Math.round(localRenderer.spentMs() / 1000)}s of ${Math.round(MAX_LOCAL_RENDER_MS_PER_RUN / 1000)}s spent rendering`
-        : ''),
+      `${Math.round(localRenderer.spentMs() / 1000)}s of ${Math.round(MAX_LOCAL_RENDER_MS_PER_RUN / 1000)}s spent rendering`,
   );
+}
+if (sharedActorRenderer) {
+  console.log(`Apify actor pages rendered this run: ${sharedActorRenderer.used()} of ${MAX_ACTOR_PAGES_PER_RUN} budgeted`);
 }
 
 // Only reached when the run was not killed. A report whose `complete` is still
