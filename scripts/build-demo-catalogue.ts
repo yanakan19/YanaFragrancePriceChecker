@@ -1079,6 +1079,49 @@ if (existsSync(housesDir)) {
         url: l.url,
         // A house's own photography of its own bottle, hot-linked exactly like
         // every other image here — nothing is downloaded or rehosted.
+        //
+        // Deliberately NOT run through pickImage (src/catalogue/pickImage.ts),
+        // and this was checked rather than assumed when the bottle-only
+        // preference was extended everywhere else on the site (2026-09-01).
+        // pickImage picks among several offers *of the same product*; a house
+        // product is built from exactly one listing, so ordinarily there is
+        // nothing to pick between. The real question was whether that single
+        // listing is really the only photo of this bottle on the site, or
+        // whether the identical bottle also sits in data/catalogue under a
+        // retailer offer (beautybase, say) with a bottle-only shot pickImage
+        // would otherwise prefer.
+        //
+        // It is not reachable by the project's own matching. House listings
+        // carry an `ean` in only 16 of 3,596 active listings (0.4% — most
+        // house feeds simply don't expose one), and none of those 16 EANs
+        // appears anywhere among the 19,627 distinct EANs the retailer
+        // catalogue holds — zero overlap. fragranceId/matchKey, the join this
+        // whole build is keyed on, never fires between data/houses and
+        // data/catalogue: there is no EAN bridge for pickImage to use.
+        //
+        // A looser brand+size+name match was also tried, purely to see what
+        // it would even look like — the codebase runs no such join today, and
+        // this was not added as one. It found 77 loose matches (of 2,676
+        // house products), only 3 of which (2 distinct pairs) also had a
+        // beautybase offer. Both pairs' images were downloaded and viewed
+        // directly, not assumed: one (Paris Corner "Lueur d'Espoir Serene
+        // Grove") was genuinely the same bottle. The other (Gulf Orchid
+        // "Sweet Heaven Cherry") was not — beautybase's photo under that
+        // "match" showed a visibly different bottle, no "Cherry" labelling,
+        // a different colour. One wrong bottle in a sample of two is not a
+        // bridge worth building without per-item verification this project
+        // has no mechanism for, on a site whose one rule is never showing a
+        // reader something invented or wrong.
+        //
+        // And even where the bottle genuinely is the same, this is not an
+        // obvious win to chase: the house's own photo carries `own-storefront`
+        // basis, the strongest and safest licensing this project has, while
+        // beautybase's is `hotlink-unlicensed` (see PREFERRED_IMAGE_RETAILERS
+        // in pickImage.ts). Swapping a strongly-licensed photo of the right
+        // bottle for a weakly-licensed one that is only sometimes the right
+        // bottle is a real trade-off, not a strict improvement — so this stays
+        // exactly what it says it is: the house's own photo of its own
+        // product, unconditionally.
         image: l.imageUrl,
         nativePrice: l.nativePrice ?? null,
         inStock: l.inStock,
