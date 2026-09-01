@@ -803,7 +803,12 @@ const STOCK_CLASS: Record<StockState, string> = {
 function age(seconds: number): string {
   if (seconds < 90) return 'just now';
   const m = Math.round(seconds / 60);
-  return m < 60 ? `${m} min ago` : `${Math.round(m / 60)}h ago`;
+  if (m < 60) return `${m} min ago`;
+  const h = Math.round(m / 60);
+  // Past two days, "Nh ago" stops being readable at a glance (a stale offer
+  // sitting at STALE_OFFER_DAYS would otherwise read "240h ago") — days is
+  // the unit a reader actually judges freshness in beyond that point.
+  return h < 48 ? `${h}h ago` : `${Math.round(h / 24)}d ago`;
 }
 
 function countdown(iso: string): string {
@@ -1446,6 +1451,17 @@ function offerRow(
   ];
   if (row.delivery.spendMoreForFreeGbp !== null) {
     sub.push(`${formatGbp(row.delivery.spendMoreForFreeGbp)} more for free postage`);
+  }
+  // The page-level "checked N ago" caption above the offer list (see
+  // detailView) reports the *freshest* row's age, which is exactly the fact
+  // that let John Lewis's four stale prices render with nothing beside them
+  // saying so — a reader glancing at "checked 2h ago" had no way to know one
+  // specific row was 11 days old. Said on the row it actually applies to
+  // instead, and only there: every fresh row already reads as current from
+  // that shared caption, so repeating an age on every line would bury the
+  // one that matters.
+  if (row.stale) {
+    sub.push(`price last confirmed ${age(row.ageSeconds)}`);
   }
   // This retailer's own published rating for this listing — read from its
   // schema.org aggregateRating (src/catalogue/jsonld.ts), never computed and
