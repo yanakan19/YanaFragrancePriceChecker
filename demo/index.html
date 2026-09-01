@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- demo-build-hash sha256:0a4dd64e29c21df41396f62b582623840deecd85d0ac6e0a6476ab52bf3e0d2d — a fingerprint of the source this document was built from, written by scripts/build-demo.ts and checked by tests/demoBuildFreshness.test.ts. Do not hand-edit; run `npm run demo` instead. -->
+<!-- demo-build-hash sha256:5e8c111fc0b2d68636707dfc8ba45781dc7fe01c4a355d27ab0367e247a5cc74 — a fingerprint of the source this document was built from, written by scripts/build-demo.ts and checked by tests/demoBuildFreshness.test.ts. Do not hand-edit; run `npm run demo` instead. -->
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
@@ -1737,7 +1737,24 @@
      that swap is the entire point, and a tag that looked the same would undo
      it. */
   .tag.unsure { background: var(--surface-2); color: var(--ink-2); }
-  .price { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }
+  /* `flex-wrap: wrap` lets the struck-through RRP drop above the price instead
+     of forcing the row wider than the viewport. `white-space: nowrap` keeps
+     each figure whole, so before this the only way a row could fit was for
+     .offer-top to grow, and at 320px a shop name with no break opportunity in
+     it plus an RRP plus a price simply did not: Zimaya Royal Paragon's
+     MyBeauty.Boutique row (an RRP £34.99 beside £24.98) pushed the document's
+     scrollWidth to 352 against a 320 clientWidth. MyBeauty.Boutique is the
+     unbreakable name the catalogue happens to contain, and .del-note's own
+     note above already records it as the case that pushes this row hardest.
+     Wrapping is the honest fix: the RRP is the least important figure in the
+     group, so it is the one that should move. `justify-content: flex-end`
+     keeps both lines on the right edge .now and .del-note already share. On
+     any width where the row fits — every viewport from 360 up, measured — no
+     wrap happens and nothing about the row changes. */
+  .price {
+    display: flex; flex-wrap: wrap; justify-content: flex-end;
+    align-items: baseline; gap: 8px; white-space: nowrap;
+  }
   .was { font-size: 12.5px; color: var(--faint); text-decoration: line-through; font-variant-numeric: tabular-nums; }
   /* .now is a flex item of .price, which blockifies it (a flex item is always
      laid out as a block box, whatever display it was given) and sizes it to
@@ -1777,18 +1794,23 @@
      is narrow, hence the white-space reset against .price's nowrap: the
      number must stay on one line, this note need not.
 
-     That wrapping is now observed rather than reasoned about (Chromium 141,
+     That wrapping is observed rather than reasoned about (Chromium 141,
      scripts/screenshot.ts). At 390px the note takes one line on a row with no
-     RRP and two on a row that carries one ("INCLUDES £2.95" / "DELIVERY"),
-     right-aligned under the number, touching nothing. It reaches three lines
-     only where an RRP and an unbreakable shop name compete for the same row
-     — "MyBeauty.Boutique" is the case in the catalogue — and stays inside its
-     row when it does. No row overflows .offer-top at 360, 375, 390 or 430,
-     and the document's scrollWidth equals its clientWidth at every width from
-     320 up. At 320 the cheapest row does overflow its own right edge by 16px,
-     but that is not this note's doing: the same 16px is measured with
-     .del-note display:none, so it is the pre-existing minimum width of a
-     shop name plus a "Cheapest" chip beside an RRP and a price. */
+     RRP and two on a row that carries one ("INCL. £2.95" / "DELIVERY"),
+     right-aligned under the number, touching nothing. No row overflows
+     .offer-top at 360, 375, 390 or 430, and the document's scrollWidth equals
+     its clientWidth at every width from 320 up.
+
+     The three-line case this note used to record — an RRP and an unbreakable
+     shop name competing for one row, "MyBeauty.Boutique" and "The Beauty
+     Store UK" being the names in the catalogue that do it — no longer
+     happens. `.price` gained `flex-wrap: wrap` on 2026-09-01, so the RRP
+     drops above the price instead of squeezing everything to its right.
+     Re-measured on /fragrance/ean-3423222106225, whose two RRP rows were the
+     worst case: del-note line counts went from 3, 2 and 1 to 1, 1 and 1 at
+     both 360 and 390, and no other page's counts moved. See `.price` for why
+     that rule is there — it was added to stop a 320px overflow, and this is
+     the same fight seen from the other end. */
   .del-note {
     display: block; margin-top: 1px; text-align: right; white-space: normal;
     font-size: 10px; font-weight: 600; color: var(--faint);
