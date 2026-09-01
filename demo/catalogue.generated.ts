@@ -38655,8 +38655,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-8018365500037",
     "brand": "Versace",
-    "name": "Man Eau De Toilette",
-    "concentration": "Eau Fraiche",
+    "name": "Man Eau Fraiche",
+    "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "8018365500037",
     "shops": 3,
@@ -38666,8 +38666,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-8011003803132",
     "brand": "Versace",
-    "name": "Man Eau De Toilette",
-    "concentration": "Eau Fraiche",
+    "name": "Man Eau Fraiche",
+    "concentration": "Eau de Toilette",
     "sizeMl": 200,
     "ean": "8011003803132",
     "shops": 3,
@@ -58571,8 +58571,8 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
   {
     "id": "ean-0887167466135",
     "brand": "Estée Lauder",
-    "name": "Bronze Goddess 2019 Eau de Toilette",
-    "concentration": "Eau Fraiche",
+    "name": "Bronze Goddess Eau Fraiche 2019",
+    "concentration": "Eau de Toilette",
     "sizeMl": 50,
     "ean": "0887167466135",
     "shops": 2,
@@ -73737,8 +73737,8 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   {
     "id": "ean-3386460149242",
     "brand": "Lacoste",
-    "name": "L.12.12 Rose Eau de Toilette",
-    "concentration": "Eau Fraiche",
+    "name": "L.12.12 Rose Eau Fraiche",
+    "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "3386460149242",
     "shops": 2,
@@ -95948,6 +95948,39 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-8011003890972",
+    "brand": "Versace",
+    "name": "Eau Fraiche Extreme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "8011003890972",
+    "shops": 2,
+    "image": "https://images2.productserve.com/noimage.gif",
+    "notes": null
+  },
+  {
+    "id": "ean-8011003890989",
+    "brand": "Versace",
+    "name": "Eau Fraiche Extreme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "8011003890989",
+    "shops": 2,
+    "image": "https://images2.productserve.com/noimage.gif",
+    "notes": null
+  },
+  {
+    "id": "ean-8011003890996",
+    "brand": "Versace",
+    "name": "Eau Fraiche Extreme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 200,
+    "ean": "8011003890996",
+    "shops": 2,
+    "image": "https://bgstatic.net/photos/188893_ml.jpg",
+    "notes": null
+  },
+  {
     "id": "ean-8011003809202",
     "brand": "Versace",
     "name": "Eros",
@@ -96069,43 +96102,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-8011003890972",
-    "brand": "Versace",
-    "name": "Extreme Eau De Parfum",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "8011003890972",
-    "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
-    "notes": null
-  },
-  {
-    "id": "ean-8011003890989",
-    "brand": "Versace",
-    "name": "Extreme Eau De Parfum",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "8011003890989",
-    "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
-    "notes": null
-  },
-  {
-    "id": "ean-8011003890996",
-    "brand": "Versace",
-    "name": "Extreme Eau De Parfum",
-    "concentration": "Eau Fraiche",
-    "sizeMl": 200,
-    "ean": "8011003890996",
-    "shops": 2,
-    "image": "https://bgstatic.net/photos/188893_ml.jpg",
-    "notes": null
-  },
-  {
     "id": "ean-8018365500013",
     "brand": "Versace",
-    "name": "Man Eau de Toilette",
-    "concentration": "Eau Fraiche",
+    "name": "Man Eau Fraiche",
+    "concentration": "Eau de Toilette",
     "sizeMl": 30,
     "ean": "8018365500013",
     "shops": 2,
@@ -96115,8 +96115,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "ean-8018365500020",
     "brand": "Versace",
-    "name": "Man Eau de Toilette",
-    "concentration": "Eau Fraiche",
+    "name": "Man Eau Fraiche",
+    "concentration": "Eau de Toilette",
     "sizeMl": 50,
     "ean": "8018365500020",
     "shops": 2,
@@ -115940,8 +115940,8 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "ean-8427395016386",
     "brand": "Angel Schlesser",
-    "name": "Citrus Marino Eau de Toilette",
-    "concentration": "Eau Fraiche",
+    "name": "Eau Fraiche Citrus Marino",
+    "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "8427395016386",
     "shops": 1,
@@ -159479,33 +159479,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8338339397769-44927250235529",
-    "brand": "Elizabeth Arden",
-    "name": "White Tea Eau de Toilette",
-    "concentration": "Eau Fraiche",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71_16sckEcL.jpg?v=1763143123",
-    "notes": {
-      "top": [
-        "Pear",
-        "Blood Orange",
-        "Mandarin Orange"
-      ],
-      "middle": [],
-      "base": [
-        "Water Lily",
-        "Mahonial",
-        "Lily-of-the-Valley"
-      ],
-      "source": {
-        "retailerId": "mybeauty-boutique",
-        "url": "https://www.awin1.com/pclick.php?p=43157930908&a=3026001&m=106925"
-      }
-    }
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8416674250889-45147037302921",
     "brand": "Elizabeth Arden",
     "name": "White Tea Eau Florale",
@@ -159537,6 +159510,33 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338339397769-44927250235529",
+    "brand": "Elizabeth Arden",
+    "name": "White Tea Eau Fraiche",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71_16sckEcL.jpg?v=1763143123",
+    "notes": {
+      "top": [
+        "Pear",
+        "Blood Orange",
+        "Mandarin Orange"
+      ],
+      "middle": [],
+      "base": [
+        "Water Lily",
+        "Mahonial",
+        "Lily-of-the-Valley"
+      ],
+      "source": {
+        "retailerId": "mybeauty-boutique",
+        "url": "https://www.awin1.com/pclick.php?p=43157930908&a=3026001&m=106925"
+      }
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416675135625-45147038253193",
@@ -161844,8 +161844,8 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-estee-985402-x",
     "brand": "Estée Lauder",
-    "name": "Bronze Goddess Eau de Toilette Unboxed",
-    "concentration": "Eau Fraiche",
+    "name": "Bronze Goddess Eau Fraiche Unboxed",
+    "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -205317,8 +205317,8 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "ean-3616301799603",
     "brand": "Lacoste",
-    "name": "L.12.12 Pour Elle Rose Eau de Toilette",
-    "concentration": "Eau Fraiche",
+    "name": "L.12.12 Pour Elle Eau Fraiche Rose",
+    "concentration": "Eau de Toilette",
     "sizeMl": 50,
     "ean": "3616301799603",
     "shops": 1,
@@ -205328,8 +205328,8 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338341101705-44927252267145",
     "brand": "Lacoste",
-    "name": "L.12.12 Pour Elle Rose Eau de Toilette",
-    "concentration": "Eau Fraiche",
+    "name": "L.12.12 Pour Elle Eau Fraiche Rose",
+    "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -205411,8 +205411,8 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsukdk2-06230",
     "brand": "Lacoste",
-    "name": "L.12.12. Rose Eau de Toilette",
-    "concentration": "Eau Fraiche",
+    "name": "L.12.12. Rose Eau Fraiche",
+    "concentration": "Eau de Toilette",
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
@@ -230427,8 +230427,8 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsusdk2-00951",
     "brand": "Montblanc",
-    "name": "5 * Mini Set For Men: Explorer + Explorer Extreme Parfum + Legend Eau De Toilette + Legend Blue Eau De Parfum + Legend Spirit Eau De Toilette",
-    "concentration": "Eau de Parfum",
+    "name": "5 * Mini Set For Men: Explorer Eau De Parfum + Explorer Extreme Parfum + Legend + Legend Blue Eau De Parfum + Legend Spirit Eau De Toilette",
+    "concentration": "Eau de Toilette",
     "sizeMl": 5,
     "ean": null,
     "shops": 1,
@@ -253810,8 +253810,8 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsukdk2-17383",
     "brand": "Revlon",
-    "name": "Charlie Blue Eau de Toilette",
-    "concentration": "Eau Fraiche",
+    "name": "Charlie Blue Eau Fraiche",
+    "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -276761,8 +276761,8 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsusdk2-01318",
     "brand": "Versace",
-    "name": "Eau De Toilette Mini",
-    "concentration": "Eau Fraiche",
+    "name": "Eau Fraiche Mini",
+    "concentration": "Eau de Toilette",
     "sizeMl": 5,
     "ean": null,
     "shops": 1,
@@ -277411,8 +277411,8 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsukdk2-41543",
     "brand": "Versace",
-    "name": "Pour Homme Eau de Toilette",
-    "concentration": "Eau Fraiche",
+    "name": "Pour Homme Eau Fraiche",
+    "concentration": "Eau de Toilette",
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
@@ -292049,7 +292049,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/al-nashama-caprice-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -318787,7 +318787,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/shams-al-emarat-khususi-red-oud-by-ard-al-zaafaran-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -344558,7 +344558,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/al-dur-al-maknoon-silver-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -364784,7 +364784,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/al-haramain-laventure-eau-de-parfum-200ml-spray",
       "fetchedAt": "2026-08-25T04:33:38.600Z",
       "firstSeenAt": "2026-08-25T04:33:38.600Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     },
@@ -389845,7 +389845,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/azzure-hunted-by-fragrance-world-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -412160,7 +412160,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/eternal-vanille-pride-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -443552,6 +443552,90 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "ean-8011003890972": [
+    {
+      "retailerId": "beautybase",
+      "price": 69.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/versace-eau-fraiche-extreme-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-26T04:49:22.137Z",
+      "firstSeenAt": "2026-08-10T07:37:56.832Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1754390101-00962000.jpg?v=1763398505&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 58.4,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45795158312&a=3026001&m=6561",
+      "fetchedAt": "2026-08-31T20:42:49.177Z",
+      "firstSeenAt": "2026-08-27T14:05:47.427Z",
+      "isNew": true,
+      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "rating": null
+    }
+  ],
+  "ean-8011003890989": [
+    {
+      "retailerId": "beautybase",
+      "price": 105,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/versace-eau-fraiche-extreme-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-26T16:35:15.830Z",
+      "firstSeenAt": "2026-08-10T07:37:56.832Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1754390424-56022100.jpg?v=1763398507&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 63.05,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45390457841&a=3026001&m=6561",
+      "fetchedAt": "2026-08-31T20:42:49.177Z",
+      "firstSeenAt": "2026-08-27T14:05:47.427Z",
+      "isNew": true,
+      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "rating": null
+    }
+  ],
+  "ean-8011003890996": [
+    {
+      "retailerId": "beautybase",
+      "price": 152,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/versace-eau-fraiche-extreme-eau-de-parfum-200ml-spray",
+      "fetchedAt": "2026-08-26T16:35:15.830Z",
+      "firstSeenAt": "2026-08-10T07:37:56.832Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1754390729-87982500.jpg?v=1763398509&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43996288813&a=3026001&m=6561",
+      "fetchedAt": "2026-08-31T20:42:49.177Z",
+      "firstSeenAt": "2026-08-19T00:53:51.281Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/188893_ml.jpg",
+      "rating": null
+    }
+  ],
   "ean-8011003809202": [
     {
       "retailerId": "beautybase",
@@ -443801,90 +443885,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-27T14:05:47.427Z",
       "isNew": true,
       "imageUrl": "https://bgstatic.net/photos/68583_ml.jpg",
-      "rating": null
-    }
-  ],
-  "ean-8011003890972": [
-    {
-      "retailerId": "beautybase",
-      "price": 69.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/versace-eau-fraiche-extreme-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-26T04:49:22.137Z",
-      "firstSeenAt": "2026-08-10T07:37:56.832Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1754390101-00962000.jpg?v=1763398505&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 58.4,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45795158312&a=3026001&m=6561",
-      "fetchedAt": "2026-08-31T20:42:49.177Z",
-      "firstSeenAt": "2026-08-27T14:05:47.427Z",
-      "isNew": true,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
-      "rating": null
-    }
-  ],
-  "ean-8011003890989": [
-    {
-      "retailerId": "beautybase",
-      "price": 105,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/versace-eau-fraiche-extreme-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-26T16:35:15.830Z",
-      "firstSeenAt": "2026-08-10T07:37:56.832Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1754390424-56022100.jpg?v=1763398507&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 63.05,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45390457841&a=3026001&m=6561",
-      "fetchedAt": "2026-08-31T20:42:49.177Z",
-      "firstSeenAt": "2026-08-27T14:05:47.427Z",
-      "isNew": true,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
-      "rating": null
-    }
-  ],
-  "ean-8011003890996": [
-    {
-      "retailerId": "beautybase",
-      "price": 152,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/versace-eau-fraiche-extreme-eau-de-parfum-200ml-spray",
-      "fetchedAt": "2026-08-26T16:35:15.830Z",
-      "firstSeenAt": "2026-08-10T07:37:56.832Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1754390729-87982500.jpg?v=1763398509&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43996288813&a=3026001&m=6561",
-      "fetchedAt": "2026-08-31T20:42:49.177Z",
-      "firstSeenAt": "2026-08-19T00:53:51.281Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/188893_ml.jpg",
       "rating": null
     }
   ],
@@ -458337,7 +458337,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/french-coffee-by-al-rehab-50ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -458730,7 +458730,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/soft-by-al-rehab-6ml-perfume-oil/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -461844,7 +461844,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/bint-hooran-by-ard-al-zaafaran-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -462519,7 +462519,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/jazzab-gold-by-ard-al-zaafaran-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -462939,7 +462939,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/oud-24-hours-by-ard-al-zaafaran-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -463407,7 +463407,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/yara-by-ard-al-zaafaran-50ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -499541,21 +499541,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8338339397769-44927250235529": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 24.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157930908&a=3026001&m=106925",
-      "fetchedAt": "2026-08-31T13:10:14.089Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71_16sckEcL.jpg?v=1763143123",
-      "rating": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8416674250889-45147037302921": [
     {
       "retailerId": "mybeauty-boutique",
@@ -499598,6 +499583,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
       "isNew": false,
       "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338339397769-44927250235529": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 24.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157930908&a=3026001&m=106925",
+      "fetchedAt": "2026-08-31T13:10:14.089Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71_16sckEcL.jpg?v=1763143123",
       "rating": null
     }
   ],
@@ -504837,7 +504837,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/barakkat-rouge-540-by-fragrance-world-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -507726,7 +507726,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/oud-wonder-by-fragrance-world-80ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -507936,7 +507936,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/prohibit-parfum-intense-by-fragrance-world-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -510240,7 +510240,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/chaos-extrait-by-french-avenue-100ml-extrait-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -510525,7 +510525,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/enigma-deux-by-by-french-avenue-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -510645,7 +510645,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/firestorm-by-french-avenue-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -511065,7 +511065,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/haydan-equestrian-series-by-french-avenue-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -511140,7 +511140,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/inej-parfum-by-french-avenue-100ml/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -511215,7 +511215,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/irida-extrait-by-french-avenue-100ml-extrait-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -511758,7 +511758,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/pinnace-noir-by-french-avenue-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -512046,7 +512046,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/spectre-by-french-avenue-80ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -512091,7 +512091,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/spectre-wraith-by-by-french-avenue-80ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -512256,7 +512256,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/veneno-scarlet-by-french-avenue-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -512589,7 +512589,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/zenith-vanilla-by-french-avenue-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -534309,7 +534309,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/biscotti-melon-misk-by-khadlaj-100ml-extrait-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -534849,7 +534849,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://emiratesoud.co.uk/products/island-sun-khadlaj",
       "fetchedAt": "2026-08-31T20:52:52.068Z",
       "firstSeenAt": "2026-08-25T00:53:25.018Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Island-Sun-Extrait-de-Parfum-100ml-Khadlaj-195994571.png?v=1787609968",
       "rating": null
     }
@@ -541383,7 +541383,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/al-qiam-pride-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -541443,7 +541443,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/ameer-al-arab-asdaaf-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -541608,7 +541608,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/ana-abiyedh-by-lattafa-10ml-perfume-oil/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -541623,7 +541623,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/ana-abiyedh-by-lattafa-60ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -542646,7 +542646,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/eternal-oud-pride-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -542751,7 +542751,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/fakhar-extrait-by-lattafa-100ml-extrait-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -542781,7 +542781,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/fakhar-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -543114,7 +543114,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/hayaati-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -543177,7 +543177,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/jasoor-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -543780,7 +543780,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/musamam-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -544083,7 +544083,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/oud-mood-reminiscence-silver-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -545037,7 +545037,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/shaheen-silver-by-pride-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -545625,7 +545625,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/yara-moi-yara-white-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-24T22:33:12.470Z",
       "firstSeenAt": "2026-08-24T22:33:12.470Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -579234,7 +579234,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://emiratesoud.co.uk/products/freeze-in-flames-riiffs",
       "fetchedAt": "2026-08-29T14:22:33.646Z",
       "firstSeenAt": "2026-08-25T06:34:42.861Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Freeze-In-Flames-Extrait-de-Parfum-100ml-Riiffs-195818619.png?v=1787264611",
       "rating": null
     }
