@@ -732,8 +732,13 @@ for (const retailer of shops) {
   // Checked only where the render would otherwise actually be attempted, so a
   // shop that already priced through a cheaper tier never gets a "skipped"
   // line about a tier it was never going to need.
+  // Tier-aware: `localRenderer` non-null means this run's render calls all
+  // go to the free local browser, so that is the tier knownRenderRefusal
+  // checks the flag against — a shop refused only on the local tier is not
+  // skipped once a future run actually reaches the actor. See
+  // knownRenderRefusal's own comment in src/catalogue/renderRefusal.ts.
   const skipRender = withPrice.length === 0 && useActor && retailer.catalogue
-    ? knownRenderRefusal(retailer)
+    ? knownRenderRefusal(retailer, localRenderer ? 'local' : 'actor')
     : null;
   if (skipRender) {
     result.errors.push(`[actor] skipped: ${skipRender}`);

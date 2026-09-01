@@ -565,10 +565,30 @@ describe('retailer registry', () => {
     // #342/#346/#350/#352/#353/#355/#357/#359/#360/#362) but was held to the
     // same five-report bar before being added here.
     const flagged = ['boots', 'zara', 'superdrug', 'the-fragrance-shop', 'the-perfume-shop', 'john-lewis'];
+    // Tier-aware as of 2026-09-01: only Boots' refusal evidence covers every
+    // render tier this project has tried (the actor tier answered its own
+    // 2,513-byte challenge page too). The other five carry `'local'` — their
+    // refusal evidence is the free local renderer only, either because the
+    // actor tier has demonstrably NOT refused them (john-lewis, superdrug,
+    // zara all have real actor-tier successes on file) or because the actor
+    // tier has never been tried against them at all (the-fragrance-shop,
+    // the-perfume-shop). See knownRenderRefusal's own comment.
+    const bothTiers = ['boots'];
+    const localTierOnly = ['zara', 'superdrug', 'the-fragrance-shop', 'the-perfume-shop', 'john-lewis'];
 
     it('is set on exactly the shops this pass established, no more and no fewer', () => {
-      const actuallyFlagged = RETAILERS.filter((r) => r.renderRefused === true).map((r) => r.id).sort();
+      const actuallyFlagged = RETAILERS.filter((r) => r.renderRefused).map((r) => r.id).sort();
       expect(actuallyFlagged).toEqual([...flagged].sort());
+    });
+
+    it('is `true` only for the shop refused on every render tier tried', () => {
+      const actuallyBoth = RETAILERS.filter((r) => r.renderRefused === true).map((r) => r.id).sort();
+      expect(actuallyBoth).toEqual([...bothTiers].sort());
+    });
+
+    it("is `'local'` for every shop whose refusal evidence is local-render-only", () => {
+      const actuallyLocalOnly = RETAILERS.filter((r) => r.renderRefused === 'local').map((r) => r.id).sort();
+      expect(actuallyLocalOnly).toEqual([...localTierOnly].sort());
     });
 
     it('never turns off the shop entirely — only the render escalation', () => {

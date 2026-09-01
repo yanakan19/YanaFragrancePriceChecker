@@ -502,8 +502,16 @@ export interface Retailer {
    * merely `false`) for every retailer this has not been established for,
    * matching this file's usual convention: absence means "not yet measured",
    * not "known to be fine".
+   *
+   * Tier-aware as of 2026-09-01 (see knownRenderRefusal in
+   * src/catalogue/renderRefusal.ts): `'local'` means the refusal evidence on
+   * file is from the free local-browser renderer only — the paid Apify
+   * actor tier is either untested or has demonstrably NOT refused this shop,
+   * so it must still be offered a real attempt. Plain `true` is reserved for
+   * a shop whose refusal evidence covers every render tier this project has
+   * actually tried.
    */
-  renderRefused?: boolean;
+  renderRefused?: boolean | 'local';
   shipping: ShippingRule;
   affiliate: AffiliateConfig;
   /**

@@ -111,17 +111,43 @@ describe('knownRenderRefusal — sparing the render tier a question already answ
     // Undefined must read the same as false — this file's usual convention
     // for "not yet measured", not "known to be fine". See the field's own
     // doc comment on Retailer in src/types/retailer.ts.
-    expect(knownRenderRefusal({ name: 'Some Shop' })).toBeNull();
-    expect(knownRenderRefusal({ name: 'Some Shop', renderRefused: false })).toBeNull();
+    expect(knownRenderRefusal({ name: 'Some Shop' }, 'local')).toBeNull();
+    expect(knownRenderRefusal({ name: 'Some Shop', renderRefused: false }, 'local')).toBeNull();
+    expect(knownRenderRefusal({ name: 'Some Shop' }, 'actor')).toBeNull();
   });
 
-  it('names the shop and points at its registry entry once flagged', () => {
-    // Superdrug, data/harvest-report.json commits 7b47962 and b9a4c1a: two
-    // real render attempts, both HTTP 403 at 317 and 341 bytes.
-    const reason = knownRenderRefusal({ name: 'Superdrug', renderRefused: true });
-    expect(reason).not.toBeNull();
-    expect(reason).toContain('Superdrug');
-    expect(reason).toContain('registry entry');
+  it('names the shop and points at its registry entry once flagged `true`, on either tier', () => {
+    // Boots: refused on both the free local renderer and the paid actor —
+    // the only shop with refusal evidence from both tiers, so `true` blocks
+    // whichever tier a run is currently using.
+    for (const tier of ['local', 'actor'] as const) {
+      const reason = knownRenderRefusal({ name: 'Boots', renderRefused: true }, tier);
+      expect(reason, tier).not.toBeNull();
+      expect(reason, tier).toContain('Boots');
+      expect(reason, tier).toContain('registry entry');
+    }
+  });
+
+  // ── Tier-aware, added 2026-09-01 ──────────────────────────────────────────
+  // John Lewis, Superdrug and Zara each carry `renderRefused: 'local'`: ten,
+  // two and four refusals respectively, every one from the free local
+  // renderer, while the paid Apify actor tier has demonstrably NOT refused
+  // any of them (John Lewis's own ~1MB section pages, Superdrug's 60 real
+  // listings, Zara's 2.92MB render — see each shop's registry entry). A
+  // plain boolean flag would have wrongly blocked that working actor route
+  // too; the tier-aware flag must not.
+  describe("'local' evidence blocks the local tier only", () => {
+    it('skips the local render tier', () => {
+      const reason = knownRenderRefusal({ name: 'John Lewis', renderRefused: 'local' }, 'local');
+      expect(reason).not.toBeNull();
+      expect(reason).toContain('John Lewis');
+    });
+
+    it('does not skip the actor tier — that route is not established as refused', () => {
+      expect(knownRenderRefusal({ name: 'John Lewis', renderRefused: 'local' }, 'actor')).toBeNull();
+      expect(knownRenderRefusal({ name: 'Superdrug', renderRefused: 'local' }, 'actor')).toBeNull();
+      expect(knownRenderRefusal({ name: 'Zara', renderRefused: 'local' }, 'actor')).toBeNull();
+    });
   });
 });
 
