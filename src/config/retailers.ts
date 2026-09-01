@@ -4995,6 +4995,94 @@ export const RETAILERS: readonly Retailer[] = [
     // currency was established either way — a 403 answers nothing — so this
     // stays on CURRENCY_UNCONFIRMED, now for a different, harder reason than
     // "unread": what has been read is a refusal.
+    //
+    // ── 2026-09-01: audited for a legitimate ingestion route — none found ────
+    // Six real requests, two tools, one shape. WebFetch and a direct curl (a
+    // real browser User-Agent, this sandbox's own egress) both hit
+    // harrods.com/robots.txt itself and got HTTP 403 before any body came
+    // back — so even the robots file, the thing a crawler is supposed to
+    // read *before* deciding anything, cannot be read here. The same 403
+    // repeated identically on /sitemap.xml, /products.json (a Shopify-
+    // convention probe — a shop that *is* Shopify answers this with JSON;
+    // this got the same refusal as everything else, so it is uninformative
+    // rather than a "no"), /en-gb/perfume (the fragrance category page),
+    // /en-gb/become-an-affiliate and /en-gb/i-need-help/delivery. This
+    // project's own harvest tooling reproduces it independently:
+    //
+    //     npx tsx scripts/catalogue-harvest.ts --dry-run --shop=harrods --max=10
+    //       Harrods   0 urls   0 fetched   0 priced listings  (1 errors)
+    //           https://www.harrods.com/sitemap.xml: HTTP 403
+    //
+    // Six for six, refused before a single byte of markup, exactly the
+    // "bot mitigation, not a parsing problem" shape the 2026-08-20 currency
+    // probe above already found and this reconfirms with a different tool.
+    // Platform cannot be established from a 403: no BuiltWith-style report
+    // or public source naming Harrods' storefront stack (Shopify, Salesforce
+    // Commerce Cloud, commercetools or otherwise) turned up on a targeted
+    // WebSearch either, so that stays unknown too, not "ruled out".
+    //
+    // Awin: checked and ruled out, not just unresearched. A WebSearch for
+    // "Harrods Awin affiliate programme merchant profile" surfaced several
+    // ui.awin.com/merchant-profile/{id} links, but following two of them
+    // (23108, 20851) shows neither is Harrods — 23108 is a dead profile
+    // (HTTP 404) and 20851 is Innermost, a nutrition brand. The search hits
+    // were false positives, not a genuine listing. This project's only
+    // affiliate-feed ingestion code is Awin's (src/catalogue/awinFeed.ts),
+    // so `adapter: 'affiliate-feed'` is not available here regardless of
+    // what follows below.
+    //
+    // Multiple independent third-party affiliate-directory aggregators
+    // (uppromote.com, two separate FlexOffers pages for "Harrods (UK)" and
+    // "Harrods (US)", admitad.com, getlasso.co, affilitizer.com) instead
+    // consistently name Partnerize and Rakuten Advertising (formerly
+    // LinkShare) as Harrods' actual affiliate networks, tracked since May
+    // 2024 with a UK-specific Partnerize programme reported live from
+    // January 2026. Deliberately NOT written into the `affiliate` field
+    // below the way Selfridges' Partnerize finding was: that one rested on
+    // a named trade-press article (PerformanceIN); this one is aggregator
+    // directories only, harrods.com/en-gb/become-an-affiliate itself 403s
+    // here so no primary source could be read, and the aggregators
+    // disagree with each other on the cookie window (one says "up to 20
+    // days", others say "30-day cookie") — an internal contradiction, not
+    // just staleness. Recorded here as a lead for the owner, not as a
+    // confirmed programme. It would not open a route by itself even if
+    // confirmed: this codebase has no Partnerize or Rakuten feed-ingestion
+    // code, only awinFeed.ts.
+    //
+    // The free local-browser render tier (src/catalogue/localBrowser.ts)
+    // was considered and deliberately not attempted. Its own header states
+    // its limit plainly: it changes the render, not the address, and "a
+    // shop that refuses datacenter traffic will refuse this too". Every 403
+    // measured above came back before any markup at all, on the first
+    // connection, the exact IP-level-refusal shape that module says it does
+    // not solve — and it only ever fires for a retailer with a real
+    // `catalogue.sections` list (scripts/catalogue-harvest.ts's render
+    // step), which this entry deliberately does not have, because no
+    // Harrods URL could be verified to resolve to anything but the same
+    // refusal. Inventing section URLs just to feed the render tier would
+    // mean guessing at addresses this pass could not confirm, which is
+    // exactly what task rule 4's "real section URLs you verified resolve"
+    // forbids.
+    //
+    // The tier that actually got Selfridges and John Lewis past an
+    // identically-shaped block — the Apify actor, on a residential IP — has
+    // never been run against Harrods: no `harrods` key exists anywhere in
+    // data/strategy-memory.json, and this sandbox holds neither
+    // `APIFY_TOKEN` nor `APIFY_PROXY_PASSWORD` to run one now. Whether it
+    // clears this block, and if so whether the result carries JSON-LD, a
+    // hydration blob (as Selfridges' RSC stream did), or nothing at all, is
+    // open and cannot be settled without a real credential and a real run —
+    // not guessed at here.
+    //
+    // Conclusion: no legitimate ingestion route currently exists for this
+    // shop. Not Awin (checked), no proven crawl route (blocked six for six,
+    // robots.txt included), no feed-integrated affiliate network, and the
+    // one tier that has beaten this exact block shape elsewhere has never
+    // been run here for real. Stays enabled: false, adapter: 'unknown',
+    // catalogue: null, affiliate unchanged. The delivery page 403'd too
+    // (see above), so the shipping block below is untouched rather than
+    // guessed at — same standing rule as fragrancehub's and every other
+    // `unverified` entry in this file.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -5004,7 +5092,10 @@ export const RETAILERS: readonly Retailer[] = [
       // over £100", but that is marketing copy read secondhand, not a
       // shipping:discover run against Harrods' own delivery page — see
       // fragrancehub's entry above for the same distinction — so the figure
-      // is named here, not stored as freeOverGbp.
+      // is named here, not stored as freeOverGbp. Still true as of
+      // 2026-09-01: harrods.com/en-gb/i-need-help/delivery returned HTTP 403
+      // when checked directly (see the dated comment above), so this has
+      // still never been read from the shop's own page.
       freeOverGbp: null,
       estimatedDays: [3, 5],
       verifiedAt: '2026-08-20',
@@ -5013,7 +5104,9 @@ export const RETAILERS: readonly Retailer[] = [
         'Nothing here has been read from harrods.com itself: not its delivery terms, not its ' +
         'robots.txt, not its checkout currency. The £100 free-delivery figure above and the ' +
         'brand list in the tiers comment both come from WebSearch result snippets, quoted as ' +
-        'far as they go and no further. No affiliate programme has been researched.',
+        'far as they go and no further. No affiliate programme runs through Awin (checked and ' +
+        'ruled out 2026-09-01); aggregator sources point at Partnerize/Rakuten instead but are ' +
+        'not primary-sourced — see the dated comment above for the full audit.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
