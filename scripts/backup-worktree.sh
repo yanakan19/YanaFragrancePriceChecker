@@ -91,16 +91,23 @@
 #                          even considered for pruning (default 14)
 #   BACKUP_PRUNE_TIMEOUT   seconds before a single prune git call is abandoned
 set -uo pipefail
+# So the ERR trap below also fires for a failure inside prune_stale_backups()
+# — bash does not inherit an ERR trap into functions otherwise.
+set -E
 
-# A session hook must never wedge startup: every exit from here is 0.
-trap 'exit 0' ERR
+say() { printf '[backup-worktree] %s\n' "$*"; }
+
+# A session hook must never wedge startup: every exit from here is 0 — but
+# never silently. Report exactly what failed (line, command, its exit code)
+# before exiting, so an operator can tell "nothing needed doing" from
+# "something broke" instead of seeing the same blank, successful-looking run
+# either way.
+trap 'say "WARNING: internal error at line ${LINENO} (\"${BASH_COMMAND}\" exited ${?}) — this run stopped early with nothing backed up. Commit and push by hand to be safe."; exit 0' ERR
 
 FETCH_TIMEOUT="${BACKUP_FETCH_TIMEOUT:-20}"
 PUSH_TIMEOUT="${BACKUP_PUSH_TIMEOUT:-30}"
 PRUNE_DAYS="${BACKUP_PRUNE_DAYS:-14}"
 PRUNE_TIMEOUT="${BACKUP_PRUNE_TIMEOUT:-20}"
-
-say() { printf '[backup-worktree] %s\n' "$*"; }
 
 # Removes this branch's own backup refs once they are both old enough and
 # already safe — see the "Pruning" section above for the full contract.
@@ -108,7 +115,7 @@ say() { printf '[backup-worktree] %s\n' "$*"; }
 # working tree, index or HEAD (only origin refs and a private scratch ref).
 prune_stale_backups() {
   local listing now_epoch cutoff scratch_ref sha refname rest kind epoch_part
-  local snap_sha snap_tree safe
+  local snap_sha snap_tree safe containing_refs origin_trees
 
   listing="$(timeout "$PRUNE_TIMEOUT" git ls-remote --refs origin \
     "refs/worktree-backup/${branch}/*" 2>/dev/null)" || return 0
@@ -146,9 +153,17 @@ prune_stale_backups() {
       # branch — the same containment test this script already applies to
       # its own HEAD above.
       snap_sha="$(git rev-parse --quiet --verify "$scratch_ref" 2>/dev/null)" || snap_sha=""
-      if [ -n "$snap_sha" ] && git for-each-ref --contains="$snap_sha" \
-          --format='%(refname)' refs/remotes/origin 2>/dev/null | grep -q .; then
-        safe=1
+      if [ -n "$snap_sha" ]; then
+        # Captured to a variable rather than piped straight into `grep -q`:
+        # under pipefail, a producer with more than one line of output that
+        # is still writing when `grep -q`/`-m1` finds its match and closes
+        # early gets SIGPIPE, which pipefail then reports as this whole
+        # check having failed — even though the match was real. A variable
+        # has no live producer for grep to race, so this can't happen once
+        # the command substitution below has already completed.
+        containing_refs="$(git for-each-ref --contains="$snap_sha" \
+          --format='%(refname)' refs/remotes/origin 2>/dev/null)"
+        [ -n "$containing_refs" ] && safe=1
       fi
     elif [ "$kind" = "wip" ]; then
       # A wip snapshot is a synthetic commit; it will not become an ancestor
@@ -157,9 +172,13 @@ prune_stale_backups() {
       # identical tree, meaning this exact uncommitted state really was
       # committed and pushed for real afterwards.
       snap_tree="$(git rev-parse --quiet --verify "${scratch_ref}^{tree}" 2>/dev/null)" || snap_tree=""
-      if [ -n "$snap_tree" ] && git log --remotes=origin --format='%T' 2>/dev/null \
-          | grep -qx "$snap_tree"; then
-        safe=1
+      if [ -n "$snap_tree" ]; then
+        # Same reasoning as the containing_refs capture above: grep must
+        # never be live-piped from a multi-line git producer under pipefail.
+        origin_trees="$(git log --remotes=origin --format='%T' 2>/dev/null)"
+        if grep -qx "$snap_tree" <<< "$origin_trees"; then
+          safe=1
+        fi
       fi
     fi
 
@@ -214,9 +233,13 @@ if ! timeout "$FETCH_TIMEOUT" git fetch --quiet origin 2>/dev/null; then
 fi
 
 head_contained=""
-if git for-each-ref --contains="$local_head" --format='%(refname)' refs/remotes/origin 2>/dev/null | grep -q .; then
-  head_contained=1
-fi
+# Captured to a variable rather than piped straight into `grep -q`: under
+# pipefail, a producer that still has more to write when `grep -q` finds its
+# match and closes early gets SIGPIPE, which pipefail then reports as this
+# whole check having failed — even though the match was real. A variable has
+# no live producer for grep to race.
+head_containing_refs="$(git for-each-ref --contains="$local_head" --format='%(refname)' refs/remotes/origin 2>/dev/null)"
+[ -n "$head_containing_refs" ] && head_contained=1
 
 # Build the full current-state snapshot without touching the real index or
 # working tree: a private temporary index, read against HEAD's tree, then
