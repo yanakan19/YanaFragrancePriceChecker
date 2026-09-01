@@ -39,6 +39,15 @@
 # session start is never blocked on the network. Healthy checkout: silent
 # no-op. The script is idempotent and safe to run on every boot.
 #
+# In a shallow repository, "any local commit origin lacks" is asked twice
+# before it is trusted: once against the graph as fetched, and — only if
+# that says no and only because `--is-shallow-repository` is true — once
+# more after a single `git fetch --unshallow`, under the same fetch timeout
+# as everything else here. This never widens what counts as safe: it only
+# replaces an unprovable "no" (a shallow graph missing the link) with a
+# provable one. A HEAD that is genuinely diverged is refused exactly as
+# before, deepened or not (docs/DECISIONS.md D15).
+#
 # ── Parameters (all optional, env) ───────────────────────────────────────────
 #   RECOVER_PHANTOM_FILE    path of the one file the phantom appears in
 #   RECOVER_PHANTOM_SHA256  sha256 of the insertion's added lines, in order,
@@ -95,6 +104,46 @@ local_head="$(git rev-parse --quiet --verify HEAD 2>/dev/null)" || exit 0
 
 # Divergence: any local commit origin does not have. This script has no
 # business reconciling someone's unpushed commits, so it says so and stops.
+#
+# ── The shallow-clone false refusal (2026-08-31) ────────────────────────────
+# `--is-ancestor` walks the LOCAL commit graph only. In a shallow repository
+# that graph can be missing the link between an old, genuinely-shared HEAD
+# and a since-advanced origin — not because the two disagree, but because a
+# later shallow fetch grafted a new boundary ahead of HEAD, leaving two
+# disconnected islands of history that happen to share no commit either
+# walk can reach. Reproduced directly against a scratch repo: clone
+# `--depth=3`, advance origin, `git fetch --depth=3` again (an ordinary
+# re-shallow, not a bug) — `--is-ancestor` reports non-ancestor and
+# `rev-list --count` reports a false, perfectly symmetric N-ahead/N-behind
+# for a HEAD that is provably, actually behind and nothing else. On
+# 2026-08-31 this produced exactly that shape on the real branch: "50
+# commit(s) origin does not have (50 behind)" for a HEAD GitHub's own API
+# confirmed was genuinely on origin's line. `git fetch --unshallow` against
+# the same scratch repo — one call, gated on `--is-shallow-repository` so it
+# is never attempted on a complete repo, and under the same fetch timeout as
+# every other network call here — made the graph complete and both
+# `merge-base` and `--is-ancestor` agree correctly afterwards; run again
+# against a scratch repo that had *also* picked up a genuine local-only
+# commit alongside the shallow artefact, the deepen still leaves
+# `--is-ancestor` correctly refusing. So: never trust a shallow graph's "no"
+# without first trying to complete it, but never let that attempt widen what
+# counts as safe to act on.
+if ! git merge-base --is-ancestor "$local_head" "$remote" 2>/dev/null; then
+  if [ "$(git rev-parse --is-shallow-repository 2>/dev/null)" = "true" ]; then
+    say "Ancestry check failed on a shallow repository — deepening once before trusting it."
+    if timeout "$FETCH_TIMEOUT" git fetch --quiet --unshallow origin "$branch" 2>/dev/null; then
+      remote="$(git rev-parse --quiet --verify FETCH_HEAD 2>/dev/null)" || remote="$remote"
+      if git merge-base --is-ancestor "$local_head" "$remote" 2>/dev/null; then
+        say "Deepened: the shallow graph was hiding a real ancestor relationship. Proceeding."
+      fi
+    else
+      say "WARNING: could not deepen the shallow history within ${FETCH_TIMEOUT}s. Treating the ancestry"
+      say "check as unproven rather than trusting a shallow 'no' — nothing was changed."
+      exit 0
+    fi
+  fi
+fi
+
 if ! git merge-base --is-ancestor "$local_head" "$remote" 2>/dev/null; then
   ahead="$(git rev-list --count "$remote..$local_head" 2>/dev/null || echo '?')"
   behind="$(git rev-list --count "$local_head..$remote" 2>/dev/null || echo '?')"

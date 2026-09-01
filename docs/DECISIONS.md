@@ -733,3 +733,118 @@ radius: `git rebase --root`, a force-push racing a 3-hourly cron, and every
 live agent worktree stranded on SHAs that stop existing. That trade was not
 this task's to make, and the measurement above is the reason, not an
 assertion.
+
+---
+
+## D15 — The stale-checkout guard's ancestry test can be wrong in a shallow repository, and now deepens once before trusting a "no"
+
+**Diagnosed 2026-08-31, fixed 2026-09-01.** `scripts/recover-stale-checkout.sh`
+(D12) and `.claude/hooks/session-start.sh` (D10) both refuse to advance a
+checkout unless `git merge-base --is-ancestor HEAD origin/<branch>` proves
+HEAD is genuinely behind with no divergence. On 2026-08-31 that check
+produced a false refusal on the real branch:
+
+- The session-start hook printed: `REFUSING to act: 'claude/…' has 50
+  commit(s) origin does not (50 behind)`.
+- `git branch -vv` agreed: `ahead 50, behind 50`.
+- HEAD was `ece56a9` ("Rebuild demo: 2026-08-27 harvest"), a real, dated
+  commit.
+- `git merge-base HEAD origin/<branch>` returned `ece56a9` itself — which,
+  by definition, means HEAD *is* an ancestor of origin.
+- `git merge-base --is-ancestor ece56a9 origin/<branch>` exited 1 (false),
+  directly contradicting the line above.
+- `git rev-parse --is-shallow-repository` was `true`.
+- Cross-checked against GitHub's own API rather than the local clone:
+  `ece56a9` and its predecessors are genuinely part of origin's linear
+  history. There was no real divergence — the "50 ahead" was an artefact of
+  the shallow clone's truncated commit graph.
+
+### Reproduced, with one detail not matched
+
+The general defect — a shallow repository's local graph making a genuine
+ancestor look diverged — was reproduced directly against scratch repos,
+following the same style as `tests/recoverStaleCheckout.test.ts`'s existing
+fixtures (see that file, `setupShallowAncestor`, and its own comment):
+shallow-clone a worker at `--depth=3` (from a `file://` remote — plain paths
+silently ignore `--depth`, per git's own warning), advance the origin by
+more commits than the clone depth, then re-shallow the worker at that same
+fixed depth against the new tip. That re-shallow severs the local graph:
+the new shallow boundary lands strictly after the old HEAD, so HEAD and the
+new tip end up as two islands that share no commit either walk can reach,
+even though they are the same linear history. After that: `git merge-base
+--is-ancestor HEAD origin/master` → exit 1, `git rev-list --count
+origin/master..HEAD` → a false "3 ahead" for a HEAD that is provably nothing
+but 5 commits behind — the same symmetric ahead/behind shape as the real
+incident's "50/50". An ordinary `git fetch` with no `--depth` — exactly what
+the script itself calls — neither causes this on its own nor repairs an
+already-severed graph; it was confirmed empirically that only an *explicit*
+re-shallow (the same fixed depth applied again against a moved tip)
+produces the severed state, and that a plain fetch afterwards leaves
+`.git/shallow` untouched.
+
+**Not reproduced:** the real incident's `git merge-base` (without
+`--is-ancestor`) returning `ece56a9` itself — i.e. finding the correct
+answer — while `--is-ancestor` on the very same two commits returned false.
+Every reproduction here had `merge-base` and `--is-ancestor` agreeing (both
+wrong) before the fix and both agreeing (both right) after it; the plain
+`merge-base` call never independently found the right answer on a graph
+`--is-ancestor` had already failed on. That asymmetry may be a more specific
+git internal (a stale commit-graph generation number, or a different git
+version's behaviour) than the general severed-graph shape reproduced here.
+It is recorded as unreproduced rather than asserted away — the fix below
+does not depend on it: whatever the precise mechanism, the underlying claim
+this repo can act on is the one that was actually demonstrated — **a
+shallow repository's local graph can misreport a genuine ancestor as
+diverged** — and that is what the fix addresses.
+
+### The fix — deepen once, only when shallow, only when the check has already failed
+
+`scripts/recover-stale-checkout.sh`: when `--is-ancestor` says no, the
+script now checks `git rev-parse --is-shallow-repository` before believing
+it. Only if that is true does it attempt one `timeout "$FETCH_TIMEOUT" git
+fetch --quiet --unshallow origin "$branch"`, under the same hard timeout
+every other network call in this script already uses, and only then does it
+re-ask the same question. Three outcomes, each covered by a new test in
+`tests/recoverStaleCheckout.test.ts`:
+
+1. **Genuinely just shallow.** The deepen completes, `--is-ancestor` now
+   agrees with the real history, and the checkout fast-forwards exactly as
+   it would have if the repo had never been shallow. Verified against the
+   scratch fixture: `git rev-parse --is-shallow-repository` is `false`
+   afterwards and HEAD lands on `origin/master`.
+2. **Genuinely diverged, shallow or not.** The deepen still runs — shallowness
+   alone does not tell you which case you are in — but `--is-ancestor` still
+   correctly says no afterwards, because the divergence is real, not a graph
+   artefact. The script refuses exactly as before. Verified with a fixture
+   that adds one genuine local-only commit on top of the same severed-graph
+   setup.
+3. **The deepen itself fails** (network trouble, timeout). The script never
+   trusts an unproven ancestry check either way: it warns and leaves the
+   checkout untouched, the same fail-safe shape as every other network
+   failure in this script. Verified with a `git` shim on `PATH` that fails
+   only the `--unshallow` fetch and passes everything else through to the
+   real binary, confirming the script's own preceding ordinary fetch still
+   succeeds and only the deepen attempt is what's simulated as broken.
+
+What this does **not** change: the contract itself. `--unshallow` is
+attempted at most once, gated strictly on `is-shallow-repository` being
+true and the plain check having already failed — it is never run on a
+non-shallow repo (where it would simply error), never run when the ordinary
+check already succeeds, and its result is re-checked with the exact same
+`--is-ancestor` call as before, not assumed. Nothing here widens what counts
+as safe to act on; it only replaces an unprovable local "no" with a proven
+one wherever that is possible within the existing timeout, and fails
+exactly as before wherever it isn't.
+
+### What was deliberately left alone
+
+`.claude/hooks/session-start.sh`'s own, separate `--is-ancestor` check
+(used for the ordinary fast-forward-and-report path, not the phantom-diff
+recovery) was not given the same deepen step. `recover-stale-checkout.sh`
+already runs first on every boot (per D12) and, after this fix, leaves the
+repository unshallowed whenever it successfully deepens — so by the time
+`session-start.sh`'s own check runs, a shallow repository that could be
+deepened already has been, and one that could not already produced a
+warning. Duplicating the deepen logic there would be exercising the same
+fix twice for no case it would newly cover; if that assumption turns out
+wrong in practice, the fix belongs in the same place, not copied.
