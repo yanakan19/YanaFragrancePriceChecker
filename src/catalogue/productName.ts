@@ -822,6 +822,39 @@ export const CONCENTRATION_RESOLUTIONS: Readonly<Record<string, ConcentrationRes
  *     doesn't erase an independent retailer's contradicting claim — the same
  *     ruling this file already applied to Yardley Gentleman Classic,
  *     Rabanne Olympéa Absolu Intense and Versace Crystal Noir above.
+ *
+ * 2026-09-01 fourth pass (later the same day): live Disputed set unchanged
+ * at 25 (measured against the current demo/catalogue.generated.ts). Read
+ * this entire log first, per this pass's own brief, rather than repeating
+ * any search already logged above. Picked two of the least-revisited
+ * entries — checked from a genuinely different angle each — and resolved
+ * neither; both stay Disputed, one with materially stronger evidence for
+ * exactly why:
+ *
+ *   - ean-085805268848 Elizabeth Arden Green Tea 100ml: the first pass
+ *     (2026-08-27) only inferred a vocabulary gap from several retailers
+ *     calling it a bare "Scent Spray"; never revisited since. Checked the
+ *     manufacturer's own domain directly this pass — elizabetharden.co.uk's
+ *     own fragrance collection page — and it confirms the inference as
+ *     fact: the product's own name there is "Green Tea Scent Spray", not
+ *     "Eau de Toilette" or "Eau de Parfum" at all, matching neither
+ *     disputed claim. Same shape as ean-5012209042441 L'Aimant above (a
+ *     true name outside this codebase's modelled vocabulary), now
+ *     confirmed from the manufacturer's own domain rather than inferred
+ *     from resellers.
+ *   - ean-3616304175916 Gucci Guilty Pour Femme Elixir de 60ml: re-checked
+ *     by product name rather than repeating the second pass's barcode-first
+ *     search. Ten major, independent retailers (Harrods, Sephora, John
+ *     Lewis — a shop in this project's own registry, Liberty London,
+ *     Dillard's, Ulta, DFS, Frankfurt Airport's own shop, Fragrantica)
+ *     unanimously name the bottle itself "Elixir de Parfum" — strong
+ *     agreement, but still not gucci.com directly, and still not decisive
+ *     on its own: Walmart's own listing, re-checked specifically, still
+ *     independently tags the identical product "ExDP Spray" (Extrait de
+ *     Parfum) even while using the same "Elixir de Parfum" product name —
+ *     the exact persisting contradiction the second pass already found,
+ *     confirmed unchanged rather than resolved by the new agreement on the
+ *     name alone.
  */
 
 /**
