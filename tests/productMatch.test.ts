@@ -143,14 +143,15 @@ describe('product matching', () => {
     });
 
     /**
-     * An unknown size — sizeMl: null, the seven Hamidi/Red Velvet/Club De
-     * Nuit Woman/Full Speed listings whose own titles state two conflicting
-     * sizes rather than one (see sizeConflict in src/catalogue/fragranceId.ts)
-     * — is a real fact, and "we could not read one number" is not the same
-     * fact as any other listing's own stated size, including another
-     * listing that also could not be read. See sizeKeyPart's own comment in
-     * src/catalogue/productMatch.ts for why an unknown never merges with
-     * anything, sized or not.
+     * An unknown size — sizeMl: null, Red Velvet's own case among the seven
+     * listings whose titles state two conflicting sizes rather than one (see
+     * sizeConflict in src/catalogue/fragranceId.ts; the other six of the
+     * seven now read a real, confirmed size — see SIZE_CONFLICT_RESOLVED in
+     * that same file) — is a real fact, and "we could not read one number"
+     * is not the same fact as any other listing's own stated size, including
+     * another listing that also could not be read. See sizeKeyPart's own
+     * comment in src/catalogue/productMatch.ts for why an unknown never
+     * merges with anything, sized or not.
      */
     it('never merges an unknown size into a listing with a real one', () => {
       const groups = findDuplicateGroups([p({ id: 'a', sizeMl: null }), p({ id: 'b', sizeMl: 100 })]);
