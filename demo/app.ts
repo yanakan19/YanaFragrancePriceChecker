@@ -2983,9 +2983,24 @@ function houseCard(p: (typeof HOUSE_PRODUCTS)[number]): string {
   return `<li class="house-card">
     <a href="${esc(p.url)}" target="_blank" rel="noopener nofollow sponsored">
       ${
+        /* The onerror is the same protection demo/photo.ts's productArt has
+           carried since photography went hot-linked, and this was the one
+           product-image surface on the site still without it. Every one of
+           these is hot-linked from the house's own storefront, and a house
+           that deletes a product, reshuffles its CDN or turns on hot-link
+           protection would otherwise leave a browser's broken-image glyph in
+           the grid. On failure the img replaces itself with the identical
+           placeholder the no-image branch below already renders, so the two
+           cases are indistinguishable on screen — which is the point: the
+           reader sees a shop with no photo, not a page that is broken.
+
+           Written as DOM rather than markup because an inline handler cannot
+           carry nested double quotes, and built to match the branch below
+           exactly rather than approximately. */
         p.image
           ? `<img class="house-img" src="${esc(p.image)}" alt="" loading="lazy"
-               decoding="async" referrerpolicy="no-referrer" />`
+               decoding="async" referrerpolicy="no-referrer"
+               onerror="const s=document.createElement('span');s.className='house-img house-img-none';s.setAttribute('aria-hidden','true');this.replaceWith(s)" />`
           : `<span class="house-img house-img-none" aria-hidden="true"></span>`
       }
       <span class="house-name">${esc(p.name)}</span>
