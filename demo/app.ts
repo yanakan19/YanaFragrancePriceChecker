@@ -2266,6 +2266,28 @@ function detailView(): string {
   // read as if these were live, buyable offers, which they are not.
   const gone = rows.filter((r) => !r.isPurchasable).sort((a, b) => a.retailer.name.localeCompare(b.retailer.name));
   const newest = rows.length ? Math.min(...rows.map((r) => r.ageSeconds)) : 0;
+  /**
+   * Whether this page may print the word MSRP at all.
+   *
+   * The rows and the box are one decision, not two, and they were two. With no
+   * buyable offer `priceBoxRow` deliberately drops both boxes for the single
+   * "Sold out everywhere" line — see its own note for why the MSRP figure is
+   * not worth the loudest position on a page whose whole message is that you
+   * cannot buy this. But the rows below kept rendering "57% below MSRP", so on
+   * every one of those pages (165 of the 874 products carrying a houseCeiling,
+   * per houseCeilingBox's own count) a reader met the term up to five times
+   * with nothing anywhere on the page saying what the figure is. Zimaya Royal
+   * Paragon is the case looked at: four rows naming MSRP, no MSRP stated.
+   *
+   * Tied to `best` rather than given its own rule, because `best` is exactly
+   * the condition `priceBoxRow` already branches on — so the page now names
+   * MSRP only where it also states it, and the two cannot drift apart again.
+   * Nothing is invented and nothing else moves: a row losing its house
+   * comparison falls back through offerRow's existing `msrp ? null :
+   * row.discount` to the shop's own RRP, which is self-defining because the
+   * struck-through figure is printed beside it.
+   */
+  const mayNameMsrp = best !== null;
 
   const shownIds = new Set(rows.map((r) => r.retailer.id));
   const missing = RETAILERS.filter((r) => !shownIds.has(r.id)).sort((a, b) => a.name.localeCompare(b.name));
@@ -2327,12 +2349,12 @@ function detailView(): string {
           }</span>
         </div>
 
-        <ul class="offers">${live.map((r) => offerRow(r, r === best, bestTag, msrpFor(r, frag))).join('')}</ul>
+        <ul class="offers">${live.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>
 
         ${
           gone.length
             ? `<p class="gone-head t-eyebrow">Sold out</p>
-               <ul class="offers">${gone.map((r) => offerRow(r, false, 'Cheapest', msrpFor(r, frag))).join('')}</ul>`
+               <ul class="offers">${gone.map((r) => offerRow(r, false, 'Cheapest', mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
             : ''
         }
 
