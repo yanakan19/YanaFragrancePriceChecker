@@ -224,11 +224,14 @@ const SIZE_RESTATED_THEN_VARIANT_RE =
  * states a size, twice, and the two statements disagree. That is a different
  * fact from a title naming no size at all, and sizeConflict below exists so
  * isFragrance can tell the two apart — see its own comment for why the
- * difference matters to that function specifically. Two of these seven —
+ * difference matters to that function specifically. Six of these seven —
  * see SIZE_CONFLICT_RESOLVED just below — turn out not to be ambiguous once
- * the shop's own description text is read; this pattern still matches all
- * seven titles (the shape it names is unchanged), but sizeMl no longer
- * returns null for those two.
+ * a field the title itself never carries is read, either on the row (its own
+ * `description`) or, for four of them, on the manufacturer's own separate
+ * domain; this pattern still matches all seven titles (the shape it names is
+ * unchanged), but sizeMl no longer returns null for those six. Red Velvet is
+ * the one that stays genuinely unresolved — see SIZE_CONFLICT_RESOLVED's own
+ * comment for what was checked and why.
  *
  * Requires no comma, "+" or "&" anywhere in the title, exactly like
  * SIZE_RESTATED_THEN_VARIANT_RE just above and for the identical reason: a
@@ -251,14 +254,17 @@ const SIZE_RESTATED_THEN_VARIANT_RE =
 const SIZE_CONFLICT_RE = /\b(\d{1,4}(?:\.\d)?)\s*ml\s+(\d{1,4}(?:\.\d)?)\s*ml\s*$/i;
 
 /**
- * Two of SIZE_CONFLICT_RE's seven titles, resolved by reading fields
+ * Six of SIZE_CONFLICT_RE's seven titles, resolved by reading fields
  * SIZE_CONFLICT_RE itself never sees — the same method that solved Emirates
- * Oud's restated-headline shape (SIZE_RESTATED_THEN_VARIANT_RE above), but
- * unlike that case the distinguishing fact lives in the row's own
- * `description`, not in a title-generalisable pattern or in `retailerSku`,
- * so it is recorded here as an exact-title lookup rather than a second
- * regex. Checked 2026-08-27 against data/catalogue/armaf.json and
- * data/catalogue/avon.json:
+ * Oud's restated-headline shape (SIZE_RESTATED_THEN_VARIANT_RE above). Two
+ * were settled 2026-08-27 by a field on the row itself
+ * (data/catalogue/armaf.json's and data/catalogue/avon.json's own
+ * `description`); four more were settled 2026-09-01 by going further than
+ * the row itself — the manufacturer's own separate domain, via WebSearch —
+ * once the row's own description turned out to be internally inconsistent
+ * for two of the four. The distinguishing fact in every case lives outside
+ * the title, not in a title-generalisable pattern or in `retailerSku`, so
+ * each is recorded here as an exact-title lookup rather than a second regex.
  *
  *   - "Club De Nuit Woman Luxury French Perfume Oil 20ml 18ml"
  *     (retailerSku ARF32108731): the row's own description opens "CLUB DE
@@ -279,25 +285,85 @@ const SIZE_CONFLICT_RE = /\b(\d{1,4}(?:\.\d)?)\s*ml\s+(\d{1,4}(?:\.\d)?)\s*ml\s*
  *     wrong either — the description bullet is the real evidence here, the
  *     price is only corroborating it.
  *
- * The other five SIZE_CONFLICT_RE titles — Hamidi Maison Luxe's four lines
- * and Red Velvet — are deliberately not in this map. Hamidi's own
- * description text does distinguish its four rows (Patchouli Imperial and
- * Gypsy Rose confirm 110ml, Midnight Amber and Elixir confirm 100ml — see
- * sizeMl's own comment and tests/fragranceFilter.test.ts), but the title's
- * first number is right for two of the four and wrong for the other two, so
- * unlike the pair above there is no way to fold that fact into a rule keyed
- * on anything sizeMl actually receives (it takes only the title string, not
- * retailerSku or description) without hardcoding all four by name — a
- * fundamentally different, per-product fact each of these two entries
- * happens to share with its own title's first number, not a general "first
- * number wins" rule. Red Velvet's own description never states a size at
- * all (checked the same way, retailerSku ARF32121252): nothing to read.
- * Both stay unresolved.
+ *   - Armaf's four Hamidi Maison Luxe lines ("...Eau De Parfum 100ml
+ *     110ml"): a 2026-08-27 pass read armaf.uk's own description for each
+ *     and took it at face value — Patchouli Imperial and Gypsy Rose read
+ *     "...110ml", Midnight Amber and Elixir read "...100ml" — and left all
+ *     four unresolved anyway because no title-only rule could get all four
+ *     right from that split. What that pass never checked is whether
+ *     armaf.uk's own description was itself correct. Hamidi is a real
+ *     manufacturer with its own separate US storefront, hamidi.us, entirely
+ *     outside armaf.uk's own feed — checked directly by WebSearch and
+ *     WebFetch, 2026-09-01, and it names one, unambiguous size for every one
+ *     of the four: "MAISON LUXE PATCHOULI IMPERIAL EAU DE PARFUM - 110ML",
+ *     "MAISON LUXE GYPSY ROSE EAU DE PARFUM - 110ML", "MAISON LUXE MIDNIGHT
+ *     AMBER EAU DE PARFUM - 110ML", "MAISON LUXE ELIXIR EAU DE PARFUM -
+ *     110ML" — all four, including the two armaf.uk's own description called
+ *     100ml. Independently corroborated by a long list of other retailers
+ *     unrelated to armaf.uk or Hamidi's own site, unanimous 110ml for all
+ *     four: Amazon, eBay, Jomashop, fragrancenet.com, intenseoud.com (and
+ *     its own wholesale.intenseoud.com), Target, Walmart, makeupstore.com,
+ *     rubnic.com, snoonu.com and anabis.com, between them. Exactly one
+ *     dissenting source anywhere, for exactly one of the four: Elixir, where
+ *     maisondesfragrances.fr's own title reads "...eau-de-parfum-100ml" —
+ *     one French retailer mirror against ten-plus independent sources
+ *     including the manufacturer's own domain is not the kind of even split
+ *     that left the concentration disputes in productName.ts unresolved (see
+ *     that file's own CONCENTRATION_RESOLUTIONS comment); armaf.uk's own
+ *     100ml for Midnight Amber and Elixir reads, on this evidence, as a
+ *     copy-paste error in its own feed, not a second true size. All four
+ *     resolve to 110ml.
+ *
+ * Red Velvet is the one title left in this set of seven that stays
+ * unresolved — see the comment on SIZE_CONFLICT_RE's own describe block in
+ * tests/fragranceFilter.test.ts and the note at the end of this file's own
+ * negative-result log below for what was checked 2026-09-01 and why it
+ * still fails.
  */
 const SIZE_CONFLICT_RESOLVED: ReadonlyMap<string, number> = new Map([
   ['Club De Nuit Woman Luxury French Perfume Oil 20ml 18ml', 20],
   ['Full Speed Eau de Toilette - 100ml 75ml', 100],
+  ['Hamidi Maison Luxe Patchouli Imperial Eau De Parfum 100ml 110ml', 110],
+  ['Hamidi Maison Luxe Midnight Amber Eau De Parfum 100ml 110ml', 110],
+  ['Hamidi Maison Luxe Gypsy Rose Eau De Parfum 100ml 110ml', 110],
+  ['Hamidi Maison Luxe Elixir Eau De Parfum 100ml 110ml', 110],
 ]);
+
+/*
+ * Red Velvet ("Red Velvet Eau De Parfum 70ml 100ml", retailerSku
+ * ARF32121252, rawBrand "Armaf - Delicacy"): checked from angles the
+ * 2026-08-27 pass never used, 2026-09-01, and still left unresolved — a
+ * genuine, not merely absent, conflict once it was actually looked for.
+ *
+ * Every field on the row itself beyond the title: description states no
+ * size anywhere (confirmed again). The row's own `url`
+ * ("armaf.uk/products/red-velvet-eau-de-parfum-70ml") states "70ml" — but
+ * this is the same shape already seen and distrusted for the four Hamidi
+ * titles above: armaf.uk's product-URL slugs there all read "...-100ml"
+ * regardless of a product's real, manufacturer-confirmed size (110ml for
+ * every one of the four), i.e. the slug appears to be auto-generated from
+ * the title's own first number rather than independently verified — so
+ * Red Velvet's matching "70ml" slug (also the title's own first number) is
+ * not independent evidence either, just the same auto-generated echo.
+ * `imageUrl` is a WhatsApp-shared photo with no legible size text reachable
+ * by this project's tools. No `retailerSku`-keyed pattern, no variant field.
+ *
+ * armaf.com — the manufacturer's own domain, checked directly by WebFetch —
+ * carries a "RED VELVET" product page that states no size at all, only a
+ * price; the manufacturer's own word is silent here, unlike the Hamidi
+ * case above where it was decisive.
+ *
+ * WebSearch surfaces a real, three-way size split across independent
+ * retailers, not the "quiet apart from one auto-generated echo" shape the
+ * Hamidi resolution had: several independent sources agree on 70ml (eBay,
+ * boozyshop.com, intenseoud.com, orioudh.com), but a separate eBay listing
+ * independently titles the same line "ARMAF DELIGHTS RED VELVET EDP
+ * 3.4FL.OZ |100ML" (100ml) and shangrilaperfumes.com independently titles
+ * it "75ml" — a real, title-level three-way disagreement from independent
+ * sources, the same shape the evidence bar in productName.ts's
+ * CONCENTRATION_RESOLUTIONS comment treats as disqualifying regardless of
+ * how the majority leans. Left unresolved.
+ */
 
 /**
  * Whether a title states two different sizes with nothing between them but
@@ -331,16 +397,18 @@ export function sizeConflict(title: string): boolean {
  * not choose between the two conflicting numbers by guessing from the title;
  * earlier versions returned the first one, which was confidently wrong for
  * two of Hamidi Maison Luxe's four lines (checked against armaf.uk's own
- * description text — see tests/fragranceFilter.test.ts). A wrong number that
- * looks exactly like a right one is worse than an honest null, once every
- * downstream consumer can actually represent one — see productMatch.ts's
- * MatchableProduct, wasPriceCredibility.ts's CredibilityOffer and
- * demo/volumeBands.ts, all of which treat a null size as "cannot compare"
- * rather than "matches" or "zero". Two of the seven — see
- * SIZE_CONFLICT_RESOLVED's own comment for the evidence — are the exception:
- * not a guess from the title, but a real field (the row's own description)
- * this function does not otherwise read, checked and recorded by exact title
- * rather than re-derived here.
+ * description text, and later against hamidi.us's own domain directly — see
+ * tests/fragranceFilter.test.ts). A wrong number that looks exactly like a
+ * right one is worse than an honest null, once every downstream consumer can
+ * actually represent one — see productMatch.ts's MatchableProduct,
+ * wasPriceCredibility.ts's CredibilityOffer and demo/volumeBands.ts, all of
+ * which treat a null size as "cannot compare" rather than "matches" or
+ * "zero". Six of the seven — see SIZE_CONFLICT_RESOLVED's own comment for
+ * the evidence, gathered across two passes — are the exception: not a guess
+ * from the title, but a real field this function does not otherwise read
+ * (the row's own description, or for four of them the manufacturer's own
+ * separate domain), checked and recorded by exact title rather than
+ * re-derived here. Red Velvet is the seventh, still genuinely unresolved.
  */
 export function sizeMl(title: string): number | null {
   // Checked ahead of the ordinary first-token rule below, not instead of it —
@@ -362,12 +430,13 @@ export function sizeMl(title: string): number | null {
     // between the sizes, this requires there be none.
     const conflict = title.match(SIZE_CONFLICT_RE);
     if (conflict && conflict[1] !== conflict[2]) {
-      // See SIZE_CONFLICT_RESOLVED's own comment: two of these seven titles
-      // are settled by the row's own description text, not guessed from the
-      // title. Looked up by exact title rather than folded into the regex
-      // above because the distinguishing fact is per-product, not a pattern
-      // that generalises across the shape the way SIZE_RESTATED_THEN_VARIANT_RE's
-      // does.
+      // See SIZE_CONFLICT_RESOLVED's own comment: six of these seven titles
+      // are settled by a field outside the title itself, not guessed from
+      // the title — the row's own description for two, the manufacturer's
+      // own separate domain for four more. Looked up by exact title rather
+      // than folded into the regex above because the distinguishing fact is
+      // per-product, not a pattern that generalises across the shape the way
+      // SIZE_RESTATED_THEN_VARIANT_RE's does.
       const resolved = SIZE_CONFLICT_RESOLVED.get(title.trim());
       return resolved ?? null;
     }
