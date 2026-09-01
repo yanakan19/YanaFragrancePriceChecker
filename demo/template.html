@@ -1634,33 +1634,35 @@
 
   .hero-price.none { font-size: 19px; font-weight: 600; color: var(--ink-2); letter-spacing: -.01em; margin: 18px 0 0; }
 
-  /* "Available at (N shops)" on the left, the delivery/freshness caption on
-     the right — merged from two lines into one (owner's instruction,
-     2026-08-27; the second line used to carry the shop count and caption
-     alone, under its own standalone "Available at" heading).
+  /* "Available at (N shops)" on the left, the freshness caption on the right —
+     merged from two lines into one (owner's instruction, 2026-08-27; the second
+     line used to carry the shop count and caption alone, under its own
+     standalone "Available at" heading).
 
-     `flex-wrap: wrap` rather than the `nowrap` this row had as two spans:
-     measured naturally (no other text competing for the line, `white-space:
-     nowrap` cloned off the live DOM), the label never exceeds ~173px
-     ("Available at (8 shops)", the most shops any product in the registry
-     carries — see build-demo-catalogue.ts), but the caption's longest form
-     ("delivery included where the shop states it, checked Xh ago") measures
-     ~387px. Both side by side need ~570px; `.detail-offers` is only
-     328-358px wide at 360-390px viewports (full width minus the 16px
-     `--gutter` each side) and never exceeds ~398px before the desktop rail
-     layout takes over at 900px — so sharing one line here is never possible
-     on a phone, with or without this merge. `nowrap` was tried first and
-     measured worse: the two texts fought for the same line and each one
-     wrapped internally, landing "AVAILABLE AT" itself mid-word beside a
-     caption broken into three ragged fragments. `wrap` instead drops the
-     caption to its own line as a whole (space-between still pins it to the
-     right when it fits on the shared line, and to the left, alone, when it
-     drops to its own), where it wraps at most once — since even alone at
-     full row width it can exceed the ~358px case above. Neither shape
-     overflows the viewport at any width measured (a wrapped line only grows
-     the row's height, never its width). See priceBoxRow's own note for why
-     the caption is dropped to nothing rather than reading "0 shops" when
-     there is nothing to be available at. */
+     `flex-wrap: wrap` rather than `nowrap`, which was tried first and measured
+     worse: the two texts fought for the same line and each one wrapped
+     internally, landing "AVAILABLE AT" itself mid-word beside a caption broken
+     into three ragged fragments. `wrap` instead drops the caption to its own
+     line as a whole — space-between still pins it to the right when it fits on
+     the shared line, and to the left, alone, when it drops to its own.
+
+     What that rule has to cope with changed on 2026-09-01, when the caption
+     went from "delivery included where the shop states it, checked Xh ago" to
+     "Updated Xh ago" (see detailView in demo/app.ts for why the dropped clause
+     is not information lost). Re-measured off the live DOM at that date
+     (Chromium 141, `white-space: nowrap`, no other text competing): the label
+     still never exceeds 172.8px ("Available at (8 shops)", the most shops any
+     product in the registry carries — see build-demo-catalogue.ts), but the
+     caption fell from 386.9px to 111.1px, and stays 111.1px in its longest
+     "Updated 30d ago" form. Both side by side now need ~294px including the
+     10px column-gap, against the 358px `.detail-offers` measures at a 390px
+     viewport and 328px at 360px — so the row that could never share one line
+     on a phone now does at every width from 360 up, and only wraps at 320.
+     `wrap` is kept exactly as it was: it is what makes 320 degrade instead of
+     overflow. Neither shape overflows the viewport at any width measured (a
+     wrapped line only grows the row's height, never its width). See
+     priceBoxRow's own note for why the caption is dropped to nothing rather
+     than reading "0 shops" when there is nothing to be available at. */
   .results-head {
     display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
     row-gap: 4px; column-gap: 10px;
@@ -1772,14 +1774,58 @@
   .dot.ok { background: var(--ok); }
   .dot.warn { background: var(--warn); }
   .dot.muted, .dot.gone { background: var(--faint); }
+  /* The row's small second price line: the bottle price on its own, beside the
+     MSRP/RRP comparison that was computed from that same figure (offerRow in
+     demo/app.ts). `justify-content: flex-end` puts it under `.now`/`.del-note`'s
+     shared right edge, so the row's right-hand column reads down as total,
+     what the total contains, then bottle price and how it compares.
+
+     `flex: 0 0 auto` is the load-bearing part. Without it — a plain flex item,
+     free to shrink — flexbox squeezes this down to its widest child and wraps
+     the price onto its own line as soon as the facts on the left want the
+     room, which at a 390px viewport is every row that has a comparison to
+     make. Measured both ways on /fragrance/ean-6290360375687 (Chromium 141,
+     scripts/screenshot.ts): shrinking gave "£29.25" and "2% below MSRP" on
+     two lines with the stock facts on two, holding gives them on one line
+     with the facts on three — the same row height either way, so nothing is
+     paid for it. And the pairing is the entire point of this line: the
+     percentage is computed from the bottle price, not from the delivered
+     total above it, so a percentage that drifts away from the figure beside
+     it lands back under the one that did not produce it.
+
+     `flex-wrap: wrap` is kept as the escape hatch for the narrowest case.
+     Measured at 320, 360, 375, 390, 430, 768, 1280 and 1440: the line holds
+     on one row at every one of them, no `.alone` escapes its `.offer-bot`,
+     and the document's scrollWidth equals its clientWidth throughout. */
+  .alone {
+    display: flex; flex-wrap: wrap; align-items: baseline; flex: 0 0 auto;
+    justify-content: flex-end; column-gap: 7px; row-gap: 1px;
+  }
+  /* Quieter and smaller than `.now` above it, because it is the same purchase
+     described twice and only one of the two is the amount that leaves the
+     reader's account. Tabular so a column of them lines up digit for digit. */
+  .alone-price {
+    font-size: 12.5px; font-weight: 600; color: var(--ink-2);
+    font-variant-numeric: tabular-nums;
+  }
   .off { font-size: 11.5px; font-weight: 700; color: var(--ok); white-space: nowrap; }
+  /* A shop charging more than the house's own price. Same sentence, same
+     figure, opposite direction — so it must not arrive in the saving colour.
+     --warn is the ink this stylesheet already uses for "there is something
+     here you would not want to miss" (.del-note.excl, .ends) rather than for
+     an error, which is exactly the weight this claim carries: it is a fact
+     about the price, not a fault. Never --ok, and never green-on-green with
+     `.now.sale`, which offerRow withholds from these rows for the same
+     reason. */
+  .off.over { color: var(--warn); }
   .ends { font-size: 11.5px; color: var(--warn); font-weight: 500; }
 
   /* Sold out reads as sold out by dropping to --faint, not by fading the
      whole row: opacity on text that is already the quietest ink on the page
      is how a row stops clearing AA. The price goes quiet with it, since it
      is not a price anyone can act on. */
-  .offer.unavail .shop, .offer.unavail .now, .offer.unavail .was { color: var(--faint); }
+  .offer.unavail .shop, .offer.unavail .now, .offer.unavail .was,
+  .offer.unavail .alone-price { color: var(--faint); }
   .offer.unavail .now { font-weight: 600; }
   /* The shops with no listing at all for this fragrance, not even a sold out
      one, as one wrapping line of names (unavailableShopsLine in demo/app.ts).
