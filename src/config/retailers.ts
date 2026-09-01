@@ -5428,6 +5428,49 @@ export const RETAILERS: readonly Retailer[] = [
     // (see above), so the shipping block below is untouched rather than
     // guessed at — same standing rule as fragrancehub's and every other
     // `unverified` entry in this file.
+    //
+    // ── A second, fresh pass, 2026-09-01 (later the same day) — still nothing ─
+    // Three angles the audit above did not try, none of them a repeat of it:
+    //
+    //   1. Harrods' own tech-stack partnerships (WebSearch: "product data
+    //      feed API partner integration"). Turned up EDI via TrueCommerce
+    //      (B2B supplier onboarding, not a price/catalogue feed), an SAP
+    //      Integration Suite writeup (internal platform migration, nothing
+    //      public), and a Farfetch "Black & White Solutions" white-label
+    //      partnership. That last one looked genuinely promising — Farfetch
+    //      runs its own marketplace with real affiliate/API routes — so it
+    //      was chased directly (WebFetch, retaildive.com's own coverage):
+    //      confirmed private backend technology only ("Harrods will
+    //      continue to manage marketing, brand relationship and product
+    //      strategy"), not a Farfetch storefront listing. No public feed or
+    //      API is mentioned anywhere in that partnership's own coverage.
+    //   2. A Google Merchant Center-style public XML/RSS product feed,
+    //      hosted separately from the WAF-fronted main site the way some
+    //      shops expose one for Shopping ads. No such feed URL surfaced on a
+    //      targeted search; nothing here found one to fetch or would have
+    //      fetched it if found — Google Merchant feeds are generally
+    //      access-controlled to Google itself, not published for public
+    //      reuse, so this would not have been a real route even located.
+    //   3. Affiliate networks the first pass's aggregator sources did not
+    //      name: CJ Affiliate/Commission Junction and Skimlinks/Sovrn.
+    //      Searched directly rather than assumed absent. Confirmed CJ is
+    //      NOT one of Harrods' networks; Rakuten Advertising is reconfirmed
+    //      as the primary one (consistent with the first pass). Skimlinks
+    //      surfaced as a secondary, indirect route, but it is a link-
+    //      monetization layer that rewrites outbound links after the fact —
+    //      it carries no product or price data feed, so it could not feed
+    //      this project's catalogue even in principle, independent of the
+    //      fact that this codebase has no Skimlinks ingestion code either
+    //      (only src/catalogue/awinFeed.ts, per the paragraph above).
+    //
+    // Nothing here changes the conclusion. The concrete next step remains
+    // exactly what the audit above already named: the Apify actor tier's
+    // residential-proxy render, the one route this project has never tried
+    // against Harrods and the one that has cleared an identically-shaped
+    // datacenter-IP block for Selfridges and John Lewis elsewhere in this
+    // registry. It needs a real APIFY_TOKEN and a real run this sandbox has
+    // neither — not evaded, not guessed at, left for whoever has the
+    // credential to actually spend one page finding out.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
