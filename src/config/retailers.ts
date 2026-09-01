@@ -1027,6 +1027,52 @@ export const RETAILERS: readonly Retailer[] = [
     // read. Tally stands at two real reports (#342, #346), still short of
     // the five-report bar; whoever picks this up next should check #349
     // first rather than assume this pass covered it.
+    //
+    // ── 2026-09-01: the bar is cleared — eight more real attempts, all identical ─
+    // Every scheduled run between #349 and the present was checked (job logs
+    // read via the GitHub Actions API, not inferred). Eight reached this shop
+    // with real local-render budget; the rest did not, for a reason visible
+    // in their own logs, not silence:
+    //
+    //   #349, #351, #354, #356, #358, #361, #363 — "never reached this run:
+    //     ... john-lewis ... — out of time before being asked, keeping their
+    //     previous prices". Not an observation of this shop either way: the
+    //     sweep's own run-minutes deadline landed before john-lewis's turn.
+    //   #364, #365 — never reached the harvest step at all. "Test before
+    //     crawling" fails on both (tests/dealsBrandDirect.test.ts, a
+    //     catalogue data-drift issue unrelated to this shop or this entry),
+    //     so "Harvest via sitemap" shows `skipped` in the job's own step
+    //     list. Outside this entry's scope; noted for whoever looks at why
+    //     the schedule has stopped harvesting at all.
+    //
+    // The eight that did reach it, every one the same shape as #342 and
+    // #346 above — 4 section pages rendered, 0 listings, HTTP 0/0 bytes,
+    // `net::ERR_HTTP2_PROTOCOL_ERROR` on all four URLs, no exceptions:
+    //
+    //   #350 (job 98888276129) 2026-08-28T15:56:27Z
+    //   #352 (job 99066739197) 2026-08-29T07:34:31Z
+    //   #353 (job 99112266790) 2026-08-29T15:19:30Z
+    //   #355 (job 99173337128) 2026-08-29T23:52:36Z
+    //   #357 (job 99250321415) 2026-08-30T12:05:36Z
+    //   #359 (job 99318453071) 2026-08-30T21:00:51Z
+    //   #360 (job 99337408720) 2026-08-31T00:09:01Z
+    //   #362 (job 99495164138) 2026-08-31T13:43:09Z
+    //
+    // Sampled line, identical in shape across all eight (#357's, run
+    // 33308924371, job 99250321415):
+    //
+    //   [actor] rendered 4 section page(s), 0 listings parsed, 0 priced
+    //   [actor] …/womens-fragrance/_/N-a63?page=1: HTTP 0, 0 bytes, local
+    //       render failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR
+    //
+    // Ten real attempts now (#342, #346 above, plus these eight), ten for
+    // ten on the identical signature — the five-report bar the other
+    // `renderRefused` shops on this file were held to, cleared with margin
+    // rather than just reached. `renderRefused: true` below stops
+    // scripts/catalogue-harvest.ts spending a render-tier page confirming
+    // this again every run; see knownRenderRefusal in
+    // src/catalogue/renderRefusal.ts for what the flag does with it.
+    renderRefused: true,
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {

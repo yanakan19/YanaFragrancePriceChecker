@@ -557,10 +557,14 @@ describe('retailer registry', () => {
   });
 
   describe('renderRefused — shops the local render tier has already answered', () => {
-    // Every id here carries a dated, multi-run byte-count writeup in its own
-    // entry above — see knownRenderRefusal in src/catalogue/renderRefusal.ts
-    // for what setting this actually does.
-    const flagged = ['boots', 'zara', 'superdrug', 'the-fragrance-shop', 'the-perfume-shop'];
+    // Every id here carries a dated, multi-run writeup in its own entry
+    // above — see knownRenderRefusal in src/catalogue/renderRefusal.ts for
+    // what setting this actually does. Five are a 200-with-tiny-body wall;
+    // john-lewis is a different shape (HTTP 0, net::ERR_HTTP2_PROTOCOL_ERROR
+    // on every section URL, ten for ten real attempts as of 2026-09-01,
+    // #342/#346/#350/#352/#353/#355/#357/#359/#360/#362) but was held to the
+    // same five-report bar before being added here.
+    const flagged = ['boots', 'zara', 'superdrug', 'the-fragrance-shop', 'the-perfume-shop', 'john-lewis'];
 
     it('is set on exactly the shops this pass established, no more and no fewer', () => {
       const actuallyFlagged = RETAILERS.filter((r) => r.renderRefused === true).map((r) => r.id).sort();

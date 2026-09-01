@@ -136,18 +136,24 @@ export function renderRefusals(pages: readonly RenderedPage[]): RenderRefusal[] 
  * localBrowser.ts) is one pool shared by every shop a run reaches that turn.
  * scripts/catalogue-harvest.ts used to offer that pool to any shop with zero
  * free-tier priced listings, with no memory of what rendering that shop has
- * already shown. Five shops this project markets as "designer" or "niche" and
- * confirms `renderRefused` below (data/harvest-report.json, five to six real
- * — not budget-exhausted — render attempts each, spanning 2026-08-25 and
- * 2026-08-26) have answered the same way every single time: Boots at
- * 200/1188-1199 bytes, Zara at 403/325-331 bytes, Superdrug at 403/317-341
- * bytes, The Fragrance Shop at 403/27487-27573 bytes, The Perfume Shop at
- * 403/326-344 bytes. Between them those five consume up to 12 of the tier's
- * 12 pages on a run where every one of them gets a real turn — the entire
- * budget, for an answer already on file five times over — which is exactly
- * why John Lewis and Selfridges, this project's two shops with a genuinely
- * open or genuinely positive render outcome, were reached on at most one run
- * in nine committed reports each.
+ * already shown. Six shops this project markets as "designer" or "niche" and
+ * confirms `renderRefused` below have answered the same way every single
+ * time: Boots at 200/1188-1199 bytes, Zara at 403/325-331 bytes, Superdrug at
+ * 403/317-341 bytes, The Fragrance Shop at 403/27487-27573 bytes, The Perfume
+ * Shop at 403/326-344 bytes (data/harvest-report.json, five to six real — not
+ * budget-exhausted — render attempts each, spanning 2026-08-25 and
+ * 2026-08-26), and John Lewis at HTTP 0/0 bytes,
+ * `net::ERR_HTTP2_PROTOCOL_ERROR` on all four of its section URLs, ten for
+ * ten real attempts spanning 2026-08-27 to 2026-08-31 (see its own registry
+ * entry for every run number and job id). John Lewis is the odd shape here —
+ * no HTTP response at all rather than a 200 or 403 with a tiny body — but the
+ * outcome for this function is the same: a real, repeated, non-budget-
+ * exhausted refusal, not a fluke. Between the six of them they could consume
+ * the entire render tier's 12-page budget on a run where every one gets a
+ * real turn, for an answer already on file several times over — which is
+ * exactly why Selfridges, this project's one remaining shop with a
+ * genuinely positive render outcome, was starved of a real turn on most
+ * runs before this flag existed.
  *
  * A shop is excluded here only once it clears a real bar: multiple dated,
  * non-budget-exhausted renders, all landing in `renderRefusal`'s refused
