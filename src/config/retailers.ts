@@ -1249,17 +1249,43 @@ export const RETAILERS: readonly Retailer[] = [
     // evidence that never came from that tier.
     renderRefused: 'local',
     //
-    // ── The per-shop preference itself now exists, 2026-09-01 ───────────────
-    // The owner action two paragraphs up asked for exactly this: a way to
-    // route this one shop's render calls to the actor tier without moving
-    // every other render-dependent shop off the free one. scripts/catalogue-
-    // harvest.ts's rendererForShop() and the `renderTier` field on Retailer
-    // (src/types/retailer.ts) are that mechanism — `renderTier: 'actor'`
-    // here would do it. Deliberately NOT set: this is still the owner's
-    // priced decision (about $0.008-0.02 per run this shop is reached, per
-    // the estimate above, against a $5 monthly credit that has already run
-    // out once), not a default this pass makes on its own. Flipping it on is
-    // now a one-line change to this entry rather than new plumbing.
+    // ── OWNER DECISION: the paid render tier for this one shop ──────────────
+    // Everything needed to make the call, restated here so it is all in one
+    // place rather than spread through the history above. Deliberately NOT
+    // enabled: this spends real money, so it is the owner's decision, not a
+    // default any pass makes on her behalf.
+    //
+    // THE CHANGE, in full: delete the two slashes on the line below, so the
+    // entry reads `renderTier: 'actor',`. Nothing else. The plumbing already
+    // exists and is tested — rendererForShop() in src/catalogue/renderTier.ts
+    // (tests/renderTier.test.ts, 8 tests), called per retailer at
+    // scripts/catalogue-harvest.ts:741, and `renderRefused: 'local'` above
+    // already leaves the actor route open for this shop while keeping the
+    // free tier skipped.
+    //
+    // WHAT IT COSTS, per run this shop is actually reached: four section
+    // pages at docs/INGESTION.md's own published-pricing estimate of $2-5 per
+    // 1,000 actor-rendered pages, so roughly $0.008-0.02. That is the whole
+    // direct cost, and on its own it is small.
+    //
+    // WHAT IT RISKS: the credit is shared, and it has already run out once.
+    // On 2026-08-21 the $5 monthly Apify credit emptied on day 21 of the
+    // month and five shops went dark together — Boots, Selfridges, John
+    // Lewis, Superdrug, Zara (see src/catalogue/localBrowser.ts's header).
+    // That outage came from the run-wide --no-local-render switch, which this
+    // field exists to avoid: setting it moves this shop and no other. The
+    // spend is still drawn from the same shared pool, so the risk that
+    // remains is the pool being emptied early for everything else that draws
+    // on it, not five shops moving at once. Whether September's credit is
+    // available, and how much of it, is not visible from this environment —
+    // no Apify account exists here.
+    //
+    // WHAT IT BUYS: this shop's four stored listings have no route back to a
+    // live price check today. Local rendering is refused ten times over; the
+    // actor route is proven (run 19, 2026-08-20: all four sections rendered
+    // at ~1MB, HTTP 200, real priced listings read out by
+    // src/catalogue/johnLewisNextData.ts, which still exists and is still
+    // wired). Nothing else on file recovers them.
     // renderTier: 'actor',
     adapter: 'proxied',
     currency: 'GBP',
