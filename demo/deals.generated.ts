@@ -24,7 +24,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-09-01T08:40:19.677Z";
+export const DEALS_GENERATED_AT = "2026-09-01T17:30:52.322Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -9749,10 +9749,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-0719346652773",
-    "price": 23.99,
-    "wasPrice": 44,
-    "percentOff": 45,
-    "retailerId": "the-beauty-store-uk",
+    "price": 24.55,
+    "wasPrice": 42,
+    "percentOff": 41,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -12368,10 +12368,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3386460136754",
-    "price": 32.99,
+    "price": 34.35,
     "wasPrice": 75,
-    "percentOff": 56,
-    "retailerId": "the-beauty-store-uk",
+    "percentOff": 54,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -13650,15 +13650,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 125,
     "percentOff": 11,
     "retailerId": "perfume-click",
-    "kind": "house",
-    "houseName": "Escentric Molecules"
-  },
-  {
-    "fragranceId": "the-beauty-store-uk-tbsukdk2-02740",
-    "price": 75.99,
-    "wasPrice": 125,
-    "percentOff": 39,
-    "retailerId": "the-beauty-store-uk",
     "kind": "house",
     "houseName": "Escentric Molecules"
   },
