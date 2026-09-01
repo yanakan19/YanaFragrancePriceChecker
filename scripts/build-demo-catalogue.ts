@@ -48,6 +48,7 @@ import {
   reattachArmafLine,
 } from '../src/catalogue/productName.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
+import { pickImage } from '../src/catalogue/pickImage.js';
 
 /**
  * Retailers whose product photos may be displayed, and on what grounds.
@@ -182,18 +183,13 @@ interface Product {
   armafLine: string | null;
 }
 
-/**
- * Picks the product-level photo from whichever licensed offer has one, most
- * recently fetched first. A stale licensed photo is worse than none, so
- * freshness — not a fixed retailer ranking — breaks the tie when more than
- * one licensed source ever exists.
- */
-function pickImage(offers: Offer[]): string | null {
-  const licensed = offers
-    .filter((o) => o.imageUrl !== null)
-    .sort((a, b) => b.fetchedAt.localeCompare(a.fetchedAt));
-  return licensed[0]?.imageUrl ?? null;
-}
+// Image-picking policy (which licensed offer's photo wins) lives in
+// src/catalogue/pickImage.ts, not here — see that file's own header for the
+// full reasoning and the 2026-09-01 sample it is built from. Kept out of
+// this script deliberately: build-demo-catalogue.ts runs its whole harvest
+// pass as an import-time side effect (see the header comment), so a test
+// that wants pickImage's logic without paying for a full catalogue build
+// needs it importable on its own.
 
 export interface Notes {
   top: string[];
@@ -1149,7 +1145,7 @@ const catalogue = ordered.map((p) => ({
   sizeMl: p.sizeMl,
   ean: p.ean,
   shops: p.offers.length,
-  image: pickImage(p.offers),
+  image: pickImage(p.offers, now),
   notes: pickNotes(p.offers),
   // Omitted entirely rather than written as null where the house is not
   // stocked here — JSON.stringify drops an undefined value, so 13,933 of the
