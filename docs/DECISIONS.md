@@ -848,3 +848,286 @@ deepened already has been, and one that could not already produced a
 warning. Duplicating the deepen logic there would be exercising the same
 fix twice for no case it would newly cover; if that assumption turns out
 wrong in practice, the fix belongs in the same place, not copied.
+
+---
+
+## D16 — Unverified is a missing-signature problem, not an identity problem; fixed forward for interactive commits, refused for CI, and the nag was already narrower than assumed
+
+**Diagnosed and partly fixed 2026-09-01, as the direct follow-on to D14.** D14
+established *who* the 929 bot-identity commits are (mostly genuine scheduled
+CI output) and refused to rewrite history to relabel them. It did not
+explain why GitHub shows commits "Unverified" in the first place, and
+changing `user.name`/`user.email` — everything D14 actually changed — cannot
+fix that: identity and signature are different fields entirely.
+
+### The real mechanism, confirmed against GitHub's own docs
+
+GitHub's own definitions ([About commit signature
+verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification)):
+"Verified" means "the commit is signed and the signature was successfully
+verified"; a commit with no signature at all gets no verification badge (not
+"Unverified" as a distinct status, just absent) — so every commit landing
+here as literally *Unverified* rather than badge-less is more precisely a
+"signed but the signature could not be verified" case, per [Checking your
+commit and tag signature verification
+status](https://docs.github.com/en/authentication/troubleshooting-commit-signature-verification/checking-your-commit-and-tag-signature-verification-status).
+Three signature types are accepted: GPG, SSH, and S/MIME. For verification
+to succeed, GitHub's own troubleshooting guidance is explicit that the
+committer email must be "an email address that is verified for your GitHub
+account" — the key alone is not enough; the account holding the key must
+also own the exact committer email as a verified address on that account.
+
+For automation specifically, the crux the task asked to confirm: commits
+made **through the GitHub API** (REST Contents API, REST Git Data API, or
+the `createCommitOnBranch` GraphQL mutation) using a workflow's
+`GITHUB_TOKEN` are automatically GPG-signed by GitHub itself and come back
+Verified — this is corroborated by GitHub's changelog for
+`createCommitOnBranch` ("Commits authored using the new API are
+automatically GPG signed and are marked as verified in the GitHub UI") and
+is the entire premise behind the Marketplace actions that exist solely to
+convert `git commit`/`git push` workflows to API-based commits for this
+reason (`verified-bot-commit`, `push-signed-commits`, and similar). A commit
+made the ordinary way — `git commit` on a runner, then `git push` — carries
+no signature GitHub adds on its own; that mechanism is what
+`scripts/commit-and-push.sh` uses today, unconditionally, for all 582+
+counted CI commits.
+
+### What was tested directly, not just read
+
+Rather than trust the docs alone, this was checked against the actual
+container:
+
+- `git config --show-origin --list` shows the harness (`/root/.gitconfig`)
+  already sets `commit.gpgsign=true`, `gpg.format=ssh`, and
+  `gpg.ssh.program=/tmp/code-sign` (a symlink to
+  `/opt/env-runner/environment-manager`) — SSH commit signing infrastructure
+  already exists for interactive sessions, independent of anything D14 or
+  this entry changed.
+- A throwaway commit in a scratch repo (`/tmp/.../sigtest/repo`, never
+  pushed anywhere) confirmed this is not inert config: `git commit` there
+  produced a real `gpgsig` trailer, an SSH signature, not an empty one.
+  `git log --show-signature` itself reported "no signature" — but that is a
+  *local display* limitation (`gpg.ssh.allowedSignersFile` isn't configured
+  in this container, so git can't verify locally), not evidence the
+  signature is missing; `git cat-file -p` on the raw commit object shows the
+  `gpgsig` block directly, and the same is true of this branch's own recent
+  `noreply@anthropic.com` commits (e.g. `471459d0`, `4a775289` — both carry
+  a real `gpgsig` trailer, confirmed the same way).
+- The public key itself isn't readable from disk —
+  `/home/claude/.ssh/commit_signing_key.pub`, the path `user.signingkey`
+  points at, is a 0-byte placeholder; `/tmp/code-sign` doesn't read it, it
+  signs via whatever the environment-manager holds and only takes the path
+  as a label. The actual key was recovered by parsing the real SSHSIG
+  wire format (`SSHSIG` magic, version, length-prefixed publickey/namespace/
+  reserved/hash-alg/signature fields — the same structure two independent
+  test commits both decoded to) out of a produced signature:
+  `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKy87HxSEheG8vEPhSs9u2KZCtVErAQfpmprtUJCZ2w7`.
+  Two commits made minutes apart in this container decoded to the exact same
+  key, so it is stable at least within one container's lifetime; whether it
+  is stable across a fresh container/session was not testable from here and
+  is not claimed.
+- `mcp__github__get_commit` on `471459d0` (a `noreply@anthropic.com` commit
+  already on `origin/claude/scentday-retailer-registry-h92tth`) resolves
+  `author.login` / `committer.login` to a real GitHub account: `claude` (id
+  `81847`, https://github.com/claude). That account is not this repo's
+  owner's — `noreply@anthropic.com` is not a mailbox `urkoppan@gmail.com`
+  can receive mail at or verify on her own account. The GitHub REST API's
+  raw `commit.verification` object (which would state the exact
+  verified/reason for this commit) was not retrievable: direct
+  `api.github.com` calls are blocked by this environment's proxy ("GitHub
+  access is not enabled for this session... connect the Claude GitHub App"),
+  and the MCP `get_commit`/`list_commits` tools available here don't surface
+  that field. So the *exact* GitHub-stated reason for Unverified on this
+  specific commit could not be read — but every fact that can be checked
+  points at the same explanation the docs give: the commit is genuinely
+  signed, with a real and stable key, under an email that resolves to a
+  real but not owner-controlled GitHub account, and GitHub's own
+  requirement is that the account with the matching verified email must
+  also hold the signing key.
+
+### What this means for each of the three commit paths
+
+**Interactive Claude-session commits (`noreply@anthropic.com`, 148+ commits
+per D14's table).** Signing already happens, automatically, on every commit
+this session makes — nothing needed changing here technically. What is
+missing is registration: the SSH public key above needs to be added, as a
+*signing* key, to whichever GitHub account's verified emails include
+`noreply@anthropic.com`. That is `github.com/claude` (id 81847) — an
+Anthropic-controlled account, not this repo owner's. **This is not an action
+the repo owner can take.** She cannot verify `noreply@anthropic.com` on her
+own account (she doesn't control that mailbox), and without that no key
+registered anywhere makes these specific commits Verified.
+
+There is one path that *is* in the owner's control, evidenced by D14's own
+table: 5 of the sampled interactive commits already carry
+`urkoppan@gmail.com` (name "Claude") rather than `noreply@anthropic.com`,
+alongside 44 under her own name — meaning a session identity of
+`urkoppan@gmail.com` is a real, already-occurring configuration, not a
+hypothetical. Because the signing key is provisioned per-container by the
+harness regardless of which `user.email` is configured (the key comes from
+`/tmp/code-sign`, not from the email), any future commit made under
+`urkoppan@gmail.com` would be signed with the same mechanism. If she adds
+this exact key —
+
+    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKy87HxSEheG8vEPhSs9u2KZCtVErAQfpmprtUJCZ2w7
+
+— to her own GitHub account as a **signing** key (Settings → SSH and GPG
+keys → New SSH key → Key type: "Signing Key" → paste the line above → Add
+SSH key), then any commit made under `urkoppan@gmail.com` in a container
+carrying this key would come back Verified. Two things she should know
+before doing this: (1) it applies only to commits actually made as
+`urkoppan@gmail.com`, not the `noreply@anthropic.com` default — worth
+confirming with whoever configures session identity policy whether that's
+the intended default identity to standardize on; (2) whether this exact key
+is stable across every future container was not established here (see
+above) — if the harness rotates it per-container, the key would need
+re-adding whenever that happens, and there is no way from inside a session
+to detect that it changed other than commits reverting to Unverified again.
+
+**CI harvest commits (`bot@users.noreply.github.com`, 582+ commits, the
+large majority of D14's count).** No signing infrastructure exists for this
+path at all today — `scripts/commit-and-push.sh` runs a plain `git commit` +
+retry-loop `git push` on a self-hosted Actions runner, with no
+`gpgsign`/key configured. The theoretical fix — route these commits through
+the GitHub API (REST Git Data API: blob/tree/commit/ref, or
+`createCommitOnBranch`) using the workflow's own `GITHUB_TOKEN` — was
+investigated, and **deliberately not landed.** Reasons, weighed against this
+being the pipeline that was down for ~12 hours today and unblocked only an
+hour before this task began:
+
+1. **File sizes make the naive per-call-site swap unsafe for 4 of 9 call
+   sites.** `demo/catalogue.generated.ts` is 19.3 MB and
+   `demo/index.html`/`demo/404.html` are 18.3 MB each (measured directly,
+   `ls -la demo/`). GitHub's Git Data API blob endpoint is documented to
+   support blobs "up to 100 megabytes" for retrieval; creation isn't
+   separately size-documented but is presumed to share the same underlying
+   100 MiB object ceiling `git`/GitHub enforce everywhere else (["About
+   large files on
+   GitHub"](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github):
+   "GitHub blocks files larger than 100 MiB"). These files are individually
+   under that, but base64 inflates each ~1.37x for the request body (~26 MB
+   for the largest), multiplied across however many of the 4-5 files a
+   given call site touches, in a single Actions job. Whether GitHub's API
+   actually accepts a request that shape reliably was not established —
+   real-world reports for the simpler single-file Contents `PUT` endpoint
+   describe 422s in the 50 MB range in practice even though the documented
+   ceiling is higher, and no equivalent field data exists for the
+   multi-blob Git Data API. **Testing this against the real production
+   branch to find out is exactly the kind of gamble the task setup warned
+   against.**
+2. **The retry/conflict logic has no API equivalent, and reimplementing it
+   blind is the larger risk.** `commit-and-push.sh`'s rebase-and-retry loop
+   exists because of specific, named incidents (runs #15/#17, #124/#126,
+   #236, #266/#268 — see that script's own comments) and encodes real
+   lessons: which conflicts are safe to auto-resolve
+   (`is_generated`/`is_raw_snapshot`), which direction `--ours`/`--theirs`
+   means inside a rebase, and how to tell a stalled rebase from a dirty
+   tree. The Git Data API's model is a single atomic compare-and-swap
+   (`update-ref` with an expected parent SHA) with no rebase primitive at
+   all — porting this script's behavior means re-deriving the equivalent of
+   a three-way tree merge against the Git Data API's primitives from
+   scratch, with no prior incident history to have already shaken the bugs
+   out of it, on the exact branch that a 3-hourly (per D14/D13) cron is
+   actively pushing to.
+3. **The 9 call sites are not uniform.** Grep found `commit-and-push.sh`
+   invoked from `catalogue-daily.yml` (7 sites), `image-check.yml`, and
+   `price-verify.yml`, each committing a different subset of paths.
+   `Harvest: real prices` (256, the single largest template),
+   `Image links` (117), and `Shipping terms` (48) — 421 of the 582 counted
+   mechanical commits, 72% — never touch the oversized `demo/*` files at
+   all, so file size isn't actually a blocker for the majority of commit
+   *volume*. But `Awin feed sync` (72), `Top Deals Today` (71), and
+   `Rebuild demo` (18) all do, and `commit-and-push.sh` is one shared,
+   already-hardened script; splitting it into two commit mechanisms
+   (API for small payloads, git for large ones) doubles the surface a
+   future incident can come from, on a script whose entire documented
+   history is incidents.
+4. **Bonus finding, unprompted:** converting would also change the CI
+   committer identity from `pricesniffs-bot`/`bot@users.noreply.github.com`
+   to `github-actions[bot]` (the identity the API/`GITHUB_TOKEN` commits
+   under) — a visible attribution change beyond just the badge, worth the
+   owner deciding on deliberately rather than as a side effect.
+
+If this is ever revisited, the safe order is: prototype against a disposable
+scratch branch first (never this production branch), starting with the
+three small-file call sites where size is a non-issue (72% of volume, zero
+of the size risk), and leave the four large-file call sites on the git path
+until the Git Data API's actual behavior at ~20 MB blobs has been observed
+directly rather than inferred from documentation and forum reports.
+
+**The stop-hook (`/root/.claude/stop-hook-git-check.sh`).** This entry's
+task description said the hook "flags immutable historical commits... on
+every single run" and proposes a full-history rebase. Reading the actual
+installed script does not match that: it scopes to `git rev-list HEAD --not
+--remotes` — commits reachable from local HEAD but from no remote-tracking
+ref, i.e. never-yet-pushed commits only — and separately reports commits
+ahead of upstream. It never walks full project history, and its rebase
+advice (`git commit --amend` / `git rebase --exec ... $rebase_onto`, where
+`$rebase_onto` is always a boundary inside the *unpushed* range) never
+touches a commit already on `origin`, so it never actually recommends a
+force-push despite this task's framing suggesting it does. Run directly
+against this session's real, clean, fully-pushed worktree
+(`echo '{"stop_hook_active": false}' | bash
+/root/.claude/stop-hook-git-check.sh`), it exits 0 with no output — it does
+not cry wolf here today. Whatever produced the "every single run" framing
+this task started from was evidently a different or earlier state of this
+file (its own comments cite specific fixed issues, e.g.
+`anthropics/claude-code#69586`, so it is an actively maintained piece of
+harness infrastructure, not a static artifact).
+
+The one real, evidenced gap: this hook's `--not --remotes` computation never
+checks `git rev-parse --is-shallow-repository` before trusting it, unlike
+D15's fix to `recover-stale-checkout.sh` in this same repo — and D15 proved
+directly, by reproduction, that a shallow repository's local graph can
+misreport genuinely-published commits as locally-diverged. In principle the
+same pathology could make this hook over-count "local-only" commits and
+recommend amending/rebasing commits that are secretly already public. This
+was not reproduced against this specific script (it is not part of this
+repo's test suite, and this task's scope did not extend to building a
+harness-level repro for a script this repo does not own). It is very
+plausibly already covered in practice, for the same reason D15 gave for not
+duplicating its own deepen fix into `session-start.sh`'s separate check:
+`recover-stale-checkout.sh` runs at the start of every session (per D12) and
+unshallows the repo whenever it finds one, before this Stop hook ever runs
+later in the same session — so by the time this hook's ancestry check runs,
+the shallow-graph pathology D15 fixed has typically already been cleared.
+The residual case D15 itself did not close either: a checkout that becomes
+shallow again *after* `recover-stale-checkout.sh` has already run in the
+same session.
+
+**No change was made to `stop-hook-git-check.sh`.** Two independent reasons,
+both sufficient alone: (1) nothing here was actually observed to misfire —
+inventing a fix for an unreproduced bug is exactly the "guess and hope" move
+D10/D12/D14 already refuse; and (2) per D12's established finding, this file
+lives outside the repo (`/root/.claude/`), is provisioned by the harness,
+and is not durable across a container rebuild regardless — the same honest
+limit already recorded for the SessionStart identity fix in D14 applies
+here without needing to be re-derived.
+
+### What was actually changed
+
+Nothing in this repository's runtime code. This entry is documentation only:
+the mechanism, what was verified directly against this container and
+against GitHub's API, and the reasoning for not landing the CI-path
+conversion or hand-editing harness-owned infrastructure. No key material,
+generated or otherwise, was added to the repository — the public key quoted
+above was recovered by decoding an already-produced signature, not
+generated here, and only the public half is quoted, which is safe to record
+(an SSH signing public key is not a secret; it's the thing meant to be
+published to an account's key list).
+
+### What remains only the owner can decide
+
+- **Registering the interactive-path key is not owner-actionable for the
+  default identity.** `noreply@anthropic.com` resolves to an
+  Anthropic-controlled account (`github.com/claude`), not
+  `urkoppan@gmail.com`'s. Only whoever controls that account can register a
+  signing key against it.
+- **Registering it for `urkoppan@gmail.com` is owner-actionable in minutes**
+  (steps above), but only fixes commits actually made under that identity,
+  and depends on the signing key being stable across containers — unverified
+  here.
+- **Whether to convert any of the CI path to API-based commits, and in what
+  order, is the owner's call**, informed by the size/retry/identity findings
+  above — not something this entry decided for her, on a pipeline that had
+  just come back from a 12-hour outage.
