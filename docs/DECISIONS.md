@@ -849,6 +849,25 @@ warning. Duplicating the deepen logic there would be exercising the same
 fix twice for no case it would newly cover; if that assumption turns out
 wrong in practice, the fix belongs in the same place, not copied.
 
+**Revisited 2026-09-01 (D17):** checked rather than left as an assumption.
+It holds for the common failure shape — when the network is down entirely,
+both `recover-stale-checkout.sh`'s fetch and `session-start.sh`'s own
+subsequent fetch fail together, and neither ever reaches its ancestry check.
+But it does not hold unconditionally: `recover-stale-checkout.sh`'s ordinary
+fetch (no `--depth`) can succeed while its own `git fetch --unshallow`
+independently times out or fails, since an unshallow fetch pulls the entire
+remaining history and is a heavier, slower operation than an incremental
+fetch. In that case the recover script leaves the repository shallow and
+exits with a warning — and `session-start.sh`'s own later, equally-ordinary
+fetch has no reason to fail the same way, so its own `--is-ancestor` check
+would run against the still-severed shallow graph with no deepen attempt to
+save it. Real, if narrow. `session-start.sh` now carries the identical,
+independently-gated deepen-and-recheck step directly around its own ancestry
+check (same contract: only on a shallow repo, only after the plain check has
+already failed, never widening what counts as safe) — duplicated rather than
+shared, since the two scripts are separate processes with no code-sharing
+mechanism between them today and the block is small.
+
 ---
 
 ## D16 — Unverified is a missing-signature problem, not an identity problem; fixed forward for interactive commits, refused for CI, and the nag was already narrower than assumed
@@ -1131,3 +1150,176 @@ published to an account's key list).
   order, is the owner's call**, informed by the size/retry/identity findings
   above — not something this entry decided for her, on a pipeline that had
   just come back from a 12-hour outage.
+
+---
+
+## D17 — The stale-checkout guard is correct to refuse a linked worktree, so worktrees get a different protection: backed up to origin, not fast-forwarded
+
+**Diagnosed and fixed 2026-09-01.** `tests/recoverStaleCheckout.test.ts`
+carries a passing test named "exits immediately inside a linked worktree" —
+`scripts/recover-stale-checkout.sh` deliberately does nothing there. Every
+agent session on this project runs inside a linked worktree under
+`.claude/worktrees/`, so the checkouts most likely to be carrying hours of
+uncommitted work were getting no protection at all from the one mechanism
+built to protect against the D10/D12 disk revert. This has already cost real
+work: one worktree was killed with a finished, uncommitted diff in it and
+was only recovered because a human happened to notice the worktree still
+existed on disk, read the diff by hand, and committed it; on a separate
+occasion three agent worktrees were killed at once and that work was lost
+outright.
+
+### The guard is right, and it was not touched
+
+Read for what it actually does before anything was designed. Its own
+comment states the reasoning precisely: "A linked worktree is an agent's own
+throwaway branch with its own base; fast-forwarding it to origin would be
+wrong." That holds up under inspection, not just assertion — the ten
+worktrees live on this container right now were checked directly
+(`git worktree list`, `git branch -vv`): every one sits on a branch named
+`worktree-agent-<id>`, and **not one carries an upstream** — `git branch -vv`
+shows no `[origin/...]` tracking information for any of them, only their own
+local HEAD commit. A worktree branch's relationship to `origin` is not "N
+commits behind, fast-forward to catch up" the way the main checkout's is; it
+is its own independent line that happens to have forked from somewhere on
+`origin` and may have local commits, local edits, or both that the shared
+branch has never seen. Running the main checkout's `git merge --ff-only`
+logic against that would at best no-op (refused as diverged, which the
+existing test for divergence already covers) and at worst — if a future edit
+ever loosened that refusal — silently discard exactly the kind of
+in-progress work a worktree exists to hold. **The fix is not to delete or
+loosen this guard.** It stays exactly as strict as D12 built it.
+
+### The danger in a worktree is the opposite of the danger in the main checkout
+
+The main checkout's risk is a stale HEAD that should be moved forward. A
+worktree's risk is losing work that has nowhere else to go. Three candidate
+protections were weighed against that:
+
+1. **A local backup (stash, copy-to-disk, WIP commit left uncommitted).**
+   Rejected outright. D12 already measured this with a full mtime sweep of a
+   freshly reverted boot: no file written from inside the container survives
+   the revert. A `git stash` entry lives in `.git/refs/stash` on the same
+   disk as everything else that vanishes — it is exactly as vulnerable as
+   the file it was meant to protect, and claiming otherwise would be the
+   kind of comforting untruth this project has specifically been trying to
+   avoid (see D10's own framing of the Stop hook's false reassurance).
+2. **A loud warning only, no automated action.** Genuinely valuable and
+   implemented anyway (below), but incomplete on its own: a warning printed
+   once at session start does nothing between then and the moment the
+   container is killed, which per the brief that reopened this is often
+   mid-session, with no further chance for a human or the agent to act on
+   the warning before the work is gone.
+3. **Get the work onto `origin`, automatically, as early as possible.**
+   `origin` is the one place established to survive both failure modes this
+   task is about — the disk-checkpoint revert (D12) and an ordinary
+   container kill-and-restart. This is the design implemented, because it is
+   the only one of the three that is actually durable rather than merely
+   comforting.
+
+### What was implemented
+
+**`scripts/backup-worktree.sh`**, wired into `.claude/hooks/session-start.sh`
+in the branch that previously did nothing but `exit 0` for a linked
+worktree. On every worktree session start, it:
+
+- Confirms it is running inside a linked worktree (the exact mirror of
+  `recover-stale-checkout.sh`'s own guard — it does nothing on the main
+  checkout, which already has its own recovery path) with a branch checked
+  out and an `origin` remote configured.
+- Fetches `origin` (best-effort, under a timeout) and checks, by ancestry —
+  `git for-each-ref --contains=<HEAD>` against `refs/remotes/origin` — not
+  by branch name, whether this worktree's current HEAD already exists on
+  some branch on `origin`. Checking by content rather than name matters
+  precisely because these branches have no upstream of their own to check
+  against.
+- Builds a complete snapshot of the current working tree — tracked edits and
+  untracked files, respecting `.gitignore` — **without ever touching the
+  real index or working tree.** This is the load-bearing safety property,
+  so it is worth stating exactly how: a private `GIT_INDEX_FILE` pointed at
+  a temp file, `git read-tree HEAD` into it, then `git add -A` against the
+  real files on disk but writing only into that temp index, then
+  `git write-tree`. No `git add`, `git commit`, `git stash push`, or
+  `git checkout` is ever run against the worktree's own `.git/index`.
+- If HEAD is not yet reachable from any `origin` branch, pushes HEAD itself
+  — the real commit, unmodified — to
+  `refs/worktree-backup/<branch>/commits/<epoch>-<sha>`.
+- If the working tree is not clean, builds a commit object from the snapshot
+  tree (parent: HEAD) with `git commit-tree` and pushes it to
+  `refs/worktree-backup/<branch>/wip/<epoch>-<sha>`.
+- Every push targets a ref name unique to that push and that push alone —
+  never force, never overwrites anything already on `origin`, never touches
+  a real branch. A push that fails leaves the worktree exactly as it found
+  it and prints an explicit `WARNING` naming what is not backed up and
+  telling whoever is watching to commit and push it by hand.
+- A private per-worktree marker (under this worktree's own git-dir, which is
+  not shared with the main checkout or other worktrees) remembers the last
+  HEAD and the last snapshot tree actually pushed, so an unchanged worktree
+  does not grow a fresh backup ref on every single session start — only when
+  the branch, or its top-level content, has actually moved since. When the
+  worktree is clean and already safe on `origin`, the script prints nothing
+  at all — matching this repo's existing contract that a healthy checkout
+  produces silence.
+
+**The loud warning, done properly.** Every branch of the script that cannot
+protect something says so explicitly, by name, rather than failing quietly:
+unreachable `origin`, a failed push, a `git commit-tree` that cannot run
+(e.g. no git identity configured) each print a `WARNING` line naming exactly
+what is at risk and what to do about it by hand. This is not a fallback
+bolted on for appearances — per the honest read of what survives a revert,
+the push succeeding is the actual protection, and the warning is what is left
+whenever it cannot.
+
+**Tested against real scratch repositories**, `tests/backupWorktree.test.ts`,
+same no-mocking style as `tests/recoverStaleCheckout.test.ts`: a plain clone
+plus a real `git worktree add` on its own branch, exactly the shape every
+agent session runs in. Covers: no-op outside a worktree; silent no-op on a
+clean worktree already safe on origin; a dirty tracked file plus an
+untracked file both captured and pushed while the worktree itself is
+provably untouched (HEAD, `git status`, and file contents all asserted
+unchanged before and after); a committed-but-unpushed HEAD backed up by its
+own SHA; both at once in a single run; dedup across a second identical run
+(no second ref); a fresh push once the content actually changes again;
+containment recognised by ancestry rather than local branch name (a
+worktree that has not diverged from wherever it forked needs no push at
+all); untracked files staying untracked afterward; and a loud warning, tree
+left alone, when `origin` is unreachable.
+
+### What this does not solve
+
+`refs/worktree-backup/*` refs accumulate on `origin` over time — nothing
+here prunes them, and none of the three refusal-driven scripts in this repo
+(D10, D12, D15) delete anything, so adding deletion logic to this one would
+be inconsistent with the rest of the file for a cost that is cheap object
+storage on `origin`, not correctness. A periodic cleanup (e.g. a scheduled
+job deleting `worktree-backup` refs whose commit already merged into the
+real branch) is a reasonable follow-up and is left as exactly that — a
+follow-up, not implemented here.
+
+This also cannot protect the last few seconds between an agent finishing an
+edit and the next session start running this script, nor can it protect
+anything if `origin` itself is unreachable for the whole time a container is
+alive. Nothing converts this into a substitute for committing and pushing
+real work through the normal branch promptly; it is a safety net under that
+discipline, not a replacement for it.
+
+### The session-start hook previously did nothing at all for a worktree
+
+Worth recording plainly: before this change, `.claude/hooks/session-start.sh`
+exited at its very first worktree check, before the git-identity fallback,
+the fetch, the stale-replay report, or the fast-forward logic — none of
+which apply to a worktree in the first place, so this was not itself a
+defect, but it meant a worktree got zero session-start behaviour of any
+kind. It now gets exactly one thing there: the backup above, then exits, by
+design — none of the main-checkout-only logic belongs in a worktree, per the
+reasoning above.
+
+### The session-start hook's own D15 assumption was checked, and mostly held
+
+D15 assumed `session-start.sh`'s own separate `--is-ancestor` check never
+needs its own shallow-deepen step, because `recover-stale-checkout.sh`
+already runs first and leaves the repository unshallowed whenever it can.
+Checked directly rather than left standing: it holds for the common failure
+shape (a total network outage fails both scripts' fetches together, so
+neither ever reaches its ancestry check), but not unconditionally — see the
+"Revisited 2026-09-01" note appended to D15 above for the gap found and the
+fix applied to `session-start.sh` to close it.
