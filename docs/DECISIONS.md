@@ -582,6 +582,49 @@ behaviour (documented in the workflow's own comment: a third tick cancels a
 second one still queued) is unchanged in kind; scoping it to the `crawl` job
 only, rather than the whole workflow, keeps it from ever applying to
 `guard`, which is the point, not a behaviour change for `crawl` itself.
+
+### Revisited 2026-09-01, later the same day — five ticks missing, then a real run fired
+
+By ~11:35 UTC the new `15 * * * *` schedule had not yet produced a single
+run since taking effect at ~08:27: the latest scheduled run was still #365
+at 08:22:49Z (which predates the schedule change and FAILED), with the
+09:15, 10:15, 11:15, 12:15 and 13:15 ticks all missing — not merely late,
+absent: `list_workflow_runs` for this workflow shows no run object at all in
+that span, which is the "some queued jobs may be dropped" shape GitHub's own
+docs describe (quoted above), not "guard ran and said not yet due" (which
+would still create a completed run).
+
+Checked directly, not guessed at, before assuming a defect in this repo:
+
+- **The workflow file's YAML is valid.** `python3 -c "import yaml;
+  yaml.safe_load(open('.github/workflows/catalogue-daily.yml'))"` parses
+  clean, and the `schedule:` block is exactly `- cron: '15 * * * *'` — a
+  well-formed 5-field cron, one list item, correctly nested under `on:`.
+- **This branch genuinely is the repository's default branch** — confirmed
+  from GitHub's own repository API (`search_repositories`,
+  `default_branch: "claude/scentday-retailer-registry-h92tth"`), not
+  inferred. Scheduled workflows only run from the default branch; if this
+  were false, no scheduled run could fire here at all.
+- **A real scheduled run then fired**: run #366 (id 33517606714), event
+  `schedule`, created 2026-09-01T14:07:58Z, `head_sha` the branch's own
+  current tip. `guard`'s "Decide whether a real harvest is due" step
+  completed successfully and correctly computed `should-run=true` (the last
+  harvest was well past the 150-minute threshold), and `crawl` is running a
+  genuine harvest as a direct result — checkout, `npm ci`, and the Chromium
+  install all completed before this was written. That is the mechanism
+  working exactly as designed: a run that would have been silently absent
+  under the old three-hourly cron caught the next hourly attempt instead.
+
+None of this points to a defect this repository introduced. A YAML syntax
+error or a malformed `schedule:` block would mean GitHub never schedules
+*any* run for this workflow at all — not five missing ticks followed by a
+sixth that fires correctly with a valid `guard` decision. The five-tick gap
+is worse than the ~48% drop rate measured above, but it is the same
+documented GitHub-side phenomenon this entry already diagnosed and already
+designed the guard/hourly-retry mechanism to absorb, not a new failure mode
+introduced by moving off `:00`. No change made to the workflow — there is
+nothing here for a code change to fix.
+
 ---
 
 ## D14 — "Unverified" commits are mostly genuine CI-bot commits; the fix is forward-only, not a history rewrite
