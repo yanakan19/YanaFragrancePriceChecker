@@ -37,6 +37,43 @@ npm run shipping:staleness    # which delivery rules need confirming
 npm run demo                  # rebuild demo/index.html, then open it
 ```
 
+## Owner action optional: register a commit-signing key to fix the "Unverified" badge
+
+Purely cosmetic, unlike the environment bug above — nothing is broken, and
+skipping this changes nothing about the pipeline. It only affects whether
+commits made under `urkoppan@gmail.com` (rather than the session default,
+`noreply@anthropic.com`) show GitHub's green "Verified" badge instead of no
+badge at all. Full diagnosis, including what was and was not testable from
+inside a session, is in
+[`docs/DECISIONS.md` D16](docs/DECISIONS.md#d16--unverified-is-a-missing-signature-problem-not-an-identity-problem-fixed-forward-for-interactive-commits-refused-for-ci-and-the-nag-was-already-narrower-than-assumed).
+
+**What's confirmed:** every commit an interactive Claude Code session makes
+here is already SSH-signed automatically (the harness's own
+`commit.gpgsign=true` config) — the badge is missing only because no GitHub
+account has this container's signing key registered against a verified
+email that matches the commit's committer email. `noreply@anthropic.com`
+resolves to an Anthropic-controlled account, not this repo owner's, so that
+default identity's badge is not something she can fix. `urkoppan@gmail.com`
+is different: it is a real, already-occurring session identity (not
+hypothetical), and she does control that account's verified emails.
+
+**To fix it for commits made under her own identity:** GitHub → **Settings**
+→ **SSH and GPG keys** → **New SSH key** → set **Key type** to **"Signing
+Key"** → paste this exact public key (recovered by decoding a real signature
+this container produced, not generated for this purpose — an SSH signing
+public key is not secret) → **Add SSH key**:
+
+```
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKy87HxSEheG8vEPhSs9u2KZCtVErAQfpmprtUJCZ2w7
+```
+
+Two caveats D16 could not resolve from inside a session: (1) this fixes only
+commits actually made as `urkoppan@gmail.com`, not the `noreply@anthropic.com`
+default most sessions use; (2) whether this exact key stays stable across a
+future container was not established — if the harness ever rotates it, the
+badge would go back to missing and there is no way from inside a session to
+detect that it happened.
+
 ## Demo
 
 `demo/index.html` is a single self-contained page — open it straight from disk.
