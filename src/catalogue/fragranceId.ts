@@ -317,8 +317,10 @@ const SIZE_CONFLICT_RE = /\b(\d{1,4}(?:\.\d)?)\s*ml\s+(\d{1,4}(?:\.\d)?)\s*ml\s*
  * Red Velvet is the one title left in this set of seven that stays
  * unresolved — see the comment on SIZE_CONFLICT_RE's own describe block in
  * tests/fragranceFilter.test.ts and the note at the end of this file's own
- * negative-result log below for what was checked 2026-09-01 and why it
- * still fails.
+ * negative-result log below for what was checked across six passes on
+ * 2026-09-01 and why it still fails. The sixth pass moved it from a
+ * three-way split to 70ml against a single live dissenter, which is closer
+ * but still not the standard the six above were held to.
  */
 const SIZE_CONFLICT_RESOLVED: ReadonlyMap<string, number> = new Map([
   ['Club De Nuit Woman Luxury French Perfume Oil 20ml 18ml', 20],
@@ -390,6 +392,70 @@ const SIZE_CONFLICT_RESOLVED: ReadonlyMap<string, number> = new Map([
  *
  * Nothing found here resolves it. The genuine three-way independent
  * disagreement stands exactly as before.
+ *
+ * Sixth pass, 2026-09-01, from a source type none of the five before it
+ * used: this project's own catalogue, on the other side of the shop that
+ * publishes the conflicting title. Still not resolved — but the shape of
+ * the disagreement has changed enough to be worth recording precisely.
+ *
+ *   - This project already holds an independent UK retailer's listing for
+ *     the same bottle, and it carries a barcode. data/catalogue/
+ *     perfume-click.json, retailerSku 171683: "Armaf Red Velvet Eau de
+ *     Parfum 70ml Spray", £27.50, ean 6295199815038. Every earlier pass
+ *     recorded only that *armaf.uk's own row* has `ean: null` and treated a
+ *     barcode as unavailable; nobody had asked whether another shop in this
+ *     same catalogue publishes one. The code is well formed: 13 digits, GS1
+ *     prefix 629 (United Arab Emirates, where Sterling Parfums/Armaf is
+ *     based), and the check digit computes to the 8 it carries. No other
+ *     listing anywhere in data/catalogue/ carries the same code, so
+ *     untrustworthyEans (productMatch.ts) has nothing against it either.
+ *   - Its consecutive neighbour in Armaf's own barcode block is the sibling
+ *     product. 6295199815045 — the very next item reference — is "Armaf
+ *     Delicacy Cotton Candy Eau de Parfum 70ml Spray", also at Perfume
+ *     Click, also £27.50 to the penny. Both are from the Dubai Delicacies
+ *     collection this row's own armaf.uk description names ("Part of the
+ *     new Delicacies Collection"), and Cotton Candy's 70ml is independently
+ *     corroborated (deloox.com "Armaf Delicacy Cotton Candy Eau de Parfum
+ *     ... 70 ml", fetched directly; anabis.com and intenseoud.com likewise).
+ *     That is the manufacturer's own numbering putting two members of one
+ *     uniformly-priced collection side by side, both stated at 70ml —
+ *     stronger than another retailer repeating a title, though still not
+ *     the manufacturer stating a size.
+ *   - The 100ml source is gone. eBay item 227173024780 ("ARMAF DELIGHTS RED
+ *     VELVET EDP 3.4FL.OZ |100ML"), the only 100ml evidence on file, now
+ *     returns HTTP 404 — the listing no longer exists. The same search that
+ *     surfaces it also surfaces the same product from the same family of
+ *     sellers at 2.37 fl oz (item 236575254327, "ARMAF DELIGHTS DUBAI
+ *     DELICACY RED VELVET 2.37 EDP SPRAY"), which is 70ml. Recorded as a
+ *     dead source, not as a refutation: a delisted eBay item is not the
+ *     seller withdrawing a claim.
+ *   - The 75ml source is not gone. shangrilaperfumes.com, re-fetched rather
+ *     than assumed unchanged, still reads "Armaf Delights Dubai Delicacy
+ *     Red Velvet Eau de Parfum 75ml / 2.5 oz Spray For Women - New" — and
+ *     it is internally consistent (2.5 fl oz is 74ml, so this is not 70
+ *     rounded up; 70ml is 2.37 fl oz, which is what every other source
+ *     prints). An independent retailer's own title, still live, still
+ *     saying a different number.
+ *   - armaf.com's own page, fetched a third time: still states no size
+ *     anywhere — no variant selector, no specification, nothing in the
+ *     description. The manufacturer stays silent.
+ *   - parfumo.com, a database this log had not tried (fragrantica,
+ *     perfume.com and fragrancex were the three already refused), returns
+ *     HTTP 403 to this project's fetch tool as well. Not pursued further,
+ *     same standing rule.
+ *
+ * Left unresolved, and deliberately. The bar this file borrows from
+ * productName.ts's CONCENTRATION_RESOLUTIONS is the manufacturer's own word
+ * or overwhelming independent agreement *with no persisting title-level
+ * contradiction*, and the second clause is exactly what still fails: 70ml is
+ * now much better supported than it was — a valid manufacturer barcode, a
+ * same-collection sibling at the adjacent code and the same price, and the
+ * one dissenting 100ml listing dead — but shangrilaperfumes.com's 75ml is
+ * live, independent, and stated in its own title. Resolving on "the majority
+ * is bigger now" would be applying a different rule to this product than the
+ * one the six Hamidi and Avon titles above were held to. The honest summary
+ * is that this is no longer a three-way split; it is 70ml against one live
+ * dissenter, and one live dissenter is still one too many for this bar.
  */
 
 /**
