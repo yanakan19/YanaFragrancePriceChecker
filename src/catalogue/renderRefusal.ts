@@ -160,9 +160,38 @@ export function renderRefusals(pages: readonly RenderedPage[]): RenderRefusal[] 
  * shape. A single bad render, or a run that never actually reached the
  * network (localBrowser's `HTTP 0 ... budget ... exhausted` stub), proves
  * nothing about the shop and must never set this.
+ *
+ * ── Why this is tier-aware, added 2026-09-01 ────────────────────────────────
+ * `retailer.renderRefused` used to be a plain boolean, and this function
+ * skipped "whichever render tier is active" without asking which one the
+ * evidence behind the flag actually came from. That was wrong for three of
+ * the six shops that carry it: John Lewis (ten refusals, every one the free
+ * local renderer; the paid Apify actor has rendered its real ~1MB pages
+ * every time it has ever been tried), Superdrug (two local-render 403s, but
+ * 60 real GBP-priced listings came back through the actor on a residential
+ * IP) and Zara (four local-render 403s, but the actor retrieved a genuine
+ * 2.92MB page). For those three, `true` would have blocked a render tier
+ * this project's own evidence shows actually working.
+ *
+ * `renderRefused: 'local'` now means exactly that: refused evidence exists
+ * for the free local renderer only, so the actor tier is not skipped on it.
+ * `renderRefused: true` stays reserved for a shop whose refusal evidence
+ * covers every tier this project has actually tried — today that is Boots
+ * alone, whose 2,513-byte challenge page came back from the paid actor on a
+ * residential IP three separate times (state probe run 32505341082 among
+ * them; see its registry entry). The Fragrance Shop and The Perfume Shop
+ * carry `'local'` too, not because the actor has ever refused them, but
+ * because it has never been tried against them at all — no Apify credential
+ * has existed in this environment — so there is no actor-tier evidence to
+ * claim either way, and a per-tier flag must not manufacture some.
  */
-export function knownRenderRefusal(retailer: { name: string; renderRefused?: boolean }): string | null {
+export function knownRenderRefusal(
+  retailer: { name: string; renderRefused?: boolean | 'local' },
+  tier: 'local' | 'actor',
+): string | null {
   if (!retailer.renderRefused) return null;
+  // 'local' evidence only ever blocks the local tier; `true` blocks both.
+  if (retailer.renderRefused === 'local' && tier !== 'local') return null;
   return (
     `${retailer.name} has answered every real render attempt on file with a refusal ` +
     `(see its registry entry in src/config/retailers.ts for the dated evidence) — ` +

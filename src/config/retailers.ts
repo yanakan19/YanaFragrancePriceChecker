@@ -549,6 +549,12 @@ export const RETAILERS: readonly Retailer[] = [
     // free local renderer too, so the block is not specific to the paid
     // actor's request shape either. See knownRenderRefusal in
     // src/catalogue/renderRefusal.ts for what this flag now does with that.
+    //
+    // Left `true`, not `'local'`, once knownRenderRefusal became tier-aware
+    // (2026-09-01): the actor tier's own 2,513-byte challenge page (state
+    // probe run 32505341082, cited above) is real refusal evidence from that
+    // tier too, so this is the one shop this registry can genuinely say has
+    // been refused on every render tier this project has tried.
     renderRefused: true,
     adapter: 'proxied',
     currency: 'GBP',
@@ -619,10 +625,16 @@ export const RETAILERS: readonly Retailer[] = [
     // the same narrow band: HTTP 403 at 27,487-27,573 bytes on every one of
     // the three sections, every time — a WAF challenge page sized within a
     // hundred bytes of itself across six independent renders, not a shop with
-    // an occasional bad minute. `renderRefused: true` below stops offering
-    // this shop a page from that shared budget for an outcome six real
-    // attempts already agree on.
-    renderRefused: true,
+    // an occasional bad minute. `renderRefused` below stops offering this
+    // shop a page from that shared budget for an outcome six real attempts
+    // already agree on.
+    //
+    // Set to `'local'`, not `true`, as of 2026-09-01: every attempt on file
+    // is the free local renderer. The Apify actor tier has never run against
+    // this shop at all — no credential has existed in this environment — so
+    // there is no actor-tier refusal to claim, and a plain boolean would
+    // have wrongly skipped an untested route too.
+    renderRefused: 'local',
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -679,10 +691,16 @@ export const RETAILERS: readonly Retailer[] = [
     // first — see knownRenderRefusal in src/catalogue/renderRefusal.ts),
     // spanning both 2026-08-25 (commits c0d8109, 7f49122) and 2026-08-26
     // (c7725ab, 7b47962, 027593c), all land the same way: HTTP 403 at
-    // 326-344 bytes on every section reached, no exceptions. `renderRefused:
-    // true` below stops spending the local render tier's shared page budget
+    // 326-344 bytes on every section reached, no exceptions. `renderRefused`
+    // below stops spending the local render tier's shared page budget
     // re-asking a question five real attempts already agree on.
-    renderRefused: true,
+    //
+    // Set to `'local'`, not `true`, as of 2026-09-01: every attempt on file
+    // is the free local renderer. The Apify actor tier has never run against
+    // this shop at all — no credential has existed in this environment — so
+    // there is no actor-tier refusal to claim, and a plain boolean would
+    // have wrongly skipped an untested route too.
+    renderRefused: 'local',
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -1215,15 +1233,21 @@ export const RETAILERS: readonly Retailer[] = [
     // their free route. Not a decision to make inside a retailer entry.
     //
     // What this means for the four listings currently stored: not fixed by
-    // anything above. `renderRefused: true` is left unchanged — the only
-    // tier this shop's ordinary runs actually reach (local render) has ten
-    // real refusals on file and this pass adds no eleventh, so nothing here
-    // changes what an ordinary scheduled run does for this shop. The
-    // catalogue's four live listings have no route back to a live price
-    // check under the pipeline as it runs today: the free tier is refused,
-    // and the paid tier that could refresh them needs the owner decision
-    // above, which this entry does not make for it.
-    renderRefused: true,
+    // anything above. The catalogue's four live listings have no route back
+    // to a live price check under the pipeline as it runs today: the free
+    // tier is refused, and the paid tier that could refresh them needs the
+    // owner decision above, which this entry does not make for it.
+    //
+    // ── renderRefused made tier-aware, 2026-09-01 ───────────────────────────
+    // The gap the paragraph above named — one boolean flag skipping whichever
+    // render tier is active, when this shop's refusal evidence is entirely
+    // local — is now fixed in knownRenderRefusal (src/catalogue/
+    // renderRefusal.ts): `renderRefused: 'local'` blocks the free local
+    // renderer only. If a future run ever does give this shop the actor
+    // route (per-shop preference, not built here — see the owner-action
+    // paragraph above), it gets a real attempt rather than being skipped on
+    // evidence that never came from that tier.
+    renderRefused: 'local',
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -1584,12 +1608,17 @@ export const RETAILERS: readonly Retailer[] = [
     // own — a datacenter-IP refusal the free render tier cannot fix by
     // rendering harder, only by exiting from a different address. `adapter:
     // 'proxied'` stays as the honest statement of what this shop actually
-    // needs. What changes here is spending: `renderRefused: true` stops
+    // needs. What changes here is spending: `renderRefused` stops
     // scripts/catalogue-harvest.ts offering this shop a page from the local
     // tier's shared budget for a question two real attempts have already
     // answered, freeing that page for a shop whose local-render outcome is
     // still open. See knownRenderRefusal in src/catalogue/renderRefusal.ts.
-    renderRefused: true,
+    //
+    // Set to `'local'`, not `true`, as of 2026-09-01: both 403s above came
+    // from the free local renderer, and the actor tier's own 60-listing
+    // success earlier in this entry is real evidence it is NOT refused here
+    // — a plain boolean would have wrongly skipped that working route too.
+    renderRefused: 'local',
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -3556,7 +3585,12 @@ export const RETAILERS: readonly Retailer[] = [
     // names as the one thing this tier does not solve, caught here in the
     // one shop this registry can show both sides of directly. See
     // knownRenderRefusal in src/catalogue/renderRefusal.ts.
-    renderRefused: true,
+    //
+    // Set to `'local'`, not `true`, as of 2026-09-01: the actor-tier
+    // paragraph directly above is real evidence of a 2.92MB page actually
+    // retrieved, the opposite of a refusal — only the free local renderer
+    // has ever refused this shop, so only that tier should be skipped.
+    renderRefused: 'local',
     enabled: true,
     adapter: 'headless',
     currency: 'GBP',
