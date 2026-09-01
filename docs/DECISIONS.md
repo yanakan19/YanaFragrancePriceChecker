@@ -450,3 +450,135 @@ script, at which point every subsequent boot — including any future stale
 restore — heals itself at start. Until that is done, every provisioned boot of
 this container will keep starting from 2026-08-12, and the first thing any
 session should trust is `git fetch`, not the tree it woke up on.
+
+---
+
+## D13 — The catalogue cron was missing most of its ticks, and firing hourly at minute 0 was the reason
+
+**Decided, 2026-09-01.** `.github/workflows/catalogue-daily.yml` was
+`cron: '0 */3 * * *'`. Observed behaviour was far short of what that
+promises — gaps between consecutive `schedule`-event runs of 5, 6, 7 and once
+~14 hours, reported by the owner across 2026-08-27 → 2026-08-31. A prior
+investigation had already tested and ruled out the `concurrency: { group:
+catalogue, cancel-in-progress: false }` block as the cause — idle at 5 of 6
+sampled missing-tick times, the 6th inconsistent with GitHub's own documented
+queueing behaviour. That investigation is not recorded in this file and was
+not rerun here; it is taken as given, per the brief that reopened this. What
+follows is new measurement, not a repeat of it.
+
+### The real numbers
+
+Every `schedule`-event run of `catalogue-daily.yml` since the three-hourly
+cron itself took effect (`1b009d0c`, 2026-08-26T09:46:55Z), read from the
+GitHub Actions API:
+
+- **Window measured:** run #339 (2026-08-26T12:53:27Z) through run #364
+  (2026-09-01T00:25:12Z) — 131.7 hours.
+- **Delivered:** 21 schedule-triggered runs.
+- **Expected:** ~44 ticks at a strict 3-hourly cadence over that span.
+- **Delivery rate: ~48%.** Roughly half of every scheduled tick in this
+  window produced no run at all.
+- **Gaps between consecutive delivered runs** (20 gaps): 2h34m
+  (#359→#360) to 14h43m (#349→#350), mean 6h35m, median 5h03m — both close
+  to double the nominal 3h.
+- **Run durations** (the 20 that completed): 76m56s to 96m34s, mean 86m44s
+  — confirming the header comment's own "80-95 minutes" and, independently
+  of the prior concurrency finding, arguing against overlap as the cause:
+  even the longest run leaves ~83 minutes of slack behind a 180-minute
+  cron.
+
+### What matches GitHub's own documented behaviour
+
+["Events that trigger workflows"](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows),
+under the `schedule` heading, GitHub Docs (fetched 2026-09-01): "The
+`schedule` event can be delayed during periods of high loads of GitHub
+Actions workflow runs. High load times include the start of every hour. If
+the load is sufficiently high enough, some queued jobs may be dropped."
+
+`cron: '0 */3 * * *'` fires at minute 0 on every single tick — literally
+every one of the ~44 expected ticks in the measured window landed on the
+exact instant GitHub's own docs name as the worst time to ask. The other two
+scheduled workflows in this repo already avoid it (`image-check.yml` at
+`:20`, `price-verify.yml` at `:40`); this one did not. The measured 48%
+delivery rate, the gap sizes, and the drift in when runs actually land are
+all consistent with that documented mechanism and with nothing else found —
+this is confirmation, not a new hypothesis.
+
+### The mitigation, and why it was implemented rather than declined
+
+The candidate evaluated: fire far more often (hourly, at a non-zero minute)
+and add a guard that only lets a real harvest run once enough time has
+genuinely passed since the last one committed. The measurement supports it —
+the drop pattern is load-shaped exactly as GitHub's docs describe, so more
+attempts at a less contested instant should catch a much larger share of
+them, and a dropped tick now costs at most the wait to the next hourly
+attempt instead of 3+ hours, sometimes 14.
+
+Implemented in `catalogue-daily.yml`:
+
+- `cron: '15 * * * *'` — hourly, 15 minutes past.
+- A new `guard` job, outside the `catalogue` concurrency group and without a
+  checkout, that reads the commit timestamp of `data/harvest-cursor.json`
+  (written by "Commit harvested prices" on every harvest attempt, truncated
+  or not) via the GitHub commits API and outputs whether it is ≥150 minutes
+  old. `crawl` now carries `needs: guard` and only runs when that output is
+  `true` — except for anything that is not a `schedule` trigger, which
+  `guard` always waves through regardless of the commit history, and which
+  `crawl`'s own `if:` honours even if `guard` fails outright (`always()`,
+  deliberately not relying on the implicit success-gate `needs` adds). A
+  `workflow_dispatch`, including the `capture_render_shop` debug path,
+  always runs in full.
+- The guard reads git history, not a marker file, on purpose — every other
+  age-gated step in this job (shipping discovery, Awin sync, Top Deals) uses
+  a marker file, and that shape is right for a step gating itself inside a
+  job already committed to running. It is the wrong shape for a gate that
+  decides whether the job runs at all: the marker would not even be checked
+  out yet, and one more committed-but-fragile state file to depend on is the
+  same class of thing D10 and D12 above already are. Commit history cannot
+  drift out of sync with what happened.
+- Threshold 150 minutes, not 180: the gate reads the *previous* harvest's
+  commit time, which is necessarily its completion, not its start (the file
+  is written once, at the end). So the achieved start-to-start interval is
+  threshold plus that run's own duration — ~150 + 87 ≈ 237 minutes in the
+  common case, closer to the original 3-hour design than 180 would produce
+  (~267 minutes), while staying safely above the measured 76-97 minute run
+  range so the guard does not fire while a run it should wait on is likely
+  still going.
+- A failed API read runs the harvest in full rather than guessing a skip.
+
+The full reasoning, including the cost accounting below, is written into the
+workflow file itself (`catalogue-daily.yml`, the dated section above its
+`on:` block) rather than only here, following this repo's own convention
+that a workflow's operational decisions live beside the workflow.
+
+### The cost, and why it stays inside the existing budget
+
+`guard` adds ~24 billable minutes/day at GitHub's 1-minute floor — a runner
+boot and one `curl` call, 24 times a day, no checkout. `crawl` itself is now
+capped by the 150-minute guard rather than by whichever ticks happen to
+land, so its ceiling is real: at most one harvest every ~237 minutes if
+every hourly attempt after the threshold landed, ~6.1/day. That is below the
+8/day this cron was already provisioned and budgeted for at the 2026-08-26
+three-hourly move (see that move's own comment, `1b009d0c`), and above what
+it has actually delivered this window (21 runs / 5.49 days ≈ 3.8/day). The
+worst case does not exceed the budget already committed to; the realistic
+case is a recovery toward it, not past it.
+
+Nothing here changes Apify spend. The actor tier's own 20-hour marker gate
+(`data/metered-harvest-marker.txt`) and the independent age gates on
+shipping discovery, Awin sync and Top Deals all cap themselves on elapsed
+time already, regardless of how often the outer job runs — only the
+sitemap/houses harvest steps run more often, and only up to the ceiling
+above.
+
+### What was deliberately left alone
+
+The harvest budget parameters (`--max=70`, `--refresh-share=0.4`,
+`--run-minutes=56`) are unchanged — this is a scheduling fix, not a
+re-tuning of what one run does, and there is no evidence here that they need
+to move. The job's own 120-minute timeout and the per-step caps inside it
+are unchanged for the same reason. The concurrency group's cancellation
+behaviour (documented in the workflow's own comment: a third tick cancels a
+second one still queued) is unchanged in kind; scoping it to the `crawl` job
+only, rather than the whole workflow, keeps it from ever applying to
+`guard`, which is the point, not a behaviour change for `crawl` itself.

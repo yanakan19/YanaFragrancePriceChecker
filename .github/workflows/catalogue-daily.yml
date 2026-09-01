@@ -53,9 +53,115 @@ name: Catalogue crawl
 # Superdrug, Zara) therefore go quiet for the rest of a month whose credit is
 # spent, and resume when it resets. Every other shop is unaffected: the
 # sitemap/JSON-LD route costs nothing.
+#
+# ── 2026-09-01: the schedule was starving itself, not colliding with itself ──
+# The reasoning above sizes the crawl comfortably inside its own concurrency
+# group — it does not explain why the cadence it delivers falls so far short
+# of what "every three hours" promises. Measured off every schedule-event run
+# since the three-hourly cron in 1b009d0c took effect (run #339,
+# 2026-08-26T12:53:27Z, through run #364, 2026-09-01T00:25:12Z — 131.7 hours,
+# read from the GitHub Actions API, not guessed): 21 schedule-triggered runs
+# landed against ~44 ticks a strict 3-hourly cron should have fired in that
+# span — a 48% delivery rate. The 20 gaps between those 21 runs range 2h34m
+# (runs #359→#360) to 14h43m (runs #349→#350), mean 6h35m, median 5h03m —
+# both roughly double the nominal 3h.
+#
+# None of this is the concurrency group. A prior investigation (not itself
+# recorded in this file — taken as given here, not rechecked) already found
+# the concurrency group idle at 5 of 6 sampled missing-tick times, with the
+# 6th inconsistent with GitHub's documented queueing behaviour. The run
+# durations measured in this same window independently point the same way:
+# the 20 completed runs took 76m56s-96m34s, mean 86m44s — even the longest
+# leaves ~83 minutes of slack behind a 180-minute cron, so a run still going
+# when the next tick is due is not the common case.
+#
+# What the pattern does match, exactly, is GitHub's own documented behaviour
+# for the `schedule` trigger: "The schedule event can be delayed during
+# periods of high loads of GitHub Actions workflow runs. High load times
+# include the start of every hour. If the load is sufficiently high enough,
+# some queued jobs may be dropped." (GitHub Docs, "Events that trigger
+# workflows", under the `schedule` heading —
+# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows.)
+# `cron: '0 */3 * * *'` fires at minute 0 every time: literally every one of
+# this workflow's ~44 expected ticks in the measured window landed on the
+# exact high-load instant GitHub's own docs name — which the two other
+# scheduled workflows in this repo already avoid (image-check.yml fires at
+# :20, price-verify.yml at :40).
+#
+# The fix below is the candidate the owner asked to be evaluated: fire far
+# more often (hourly, at a non-zero minute so each attempt is not itself
+# aimed at the worst instant of the hour) and add a cheap guard that only
+# lets a real harvest through once enough time has genuinely passed since
+# the last one committed. A dropped tick under the old cron cost 3+ hours of
+# staleness, sometimes 14; under this one it costs at most the wait to the
+# next hourly attempt, because there are now ~8x as many chances to catch a
+# tick GitHub is willing to deliver.
+#
+# ── Why a separate job, not an early-exit step inside `crawl` ──────────────
+# `guard` below runs on every trigger and decides whether `crawl` runs at
+# all, via `needs`/`if`, rather than an early exit inside the job. That
+# split is deliberate: an early exit inside `crawl` would still have to pay
+# for checkout, `npm ci` and the Chromium install for the local-render tier
+# before discovering it should skip. A separate job means a skipped hour
+# costs one runner boot and one read-only API call — no checkout, no
+# dependencies — and it never enters the `catalogue` concurrency group at
+# all, so an hourly skip-check can never queue behind, or get cancelled
+# ahead of, a real harvest still in flight. `permissions: contents: read` on
+# `guard` reflects that it only ever reads.
+#
+# The guard reads the timestamp of the most recent commit that touched
+# data/harvest-cursor.json — the file "Commit harvested prices" writes on
+# every harvest attempt, truncated or not — via the GitHub commits API, not
+# a marker file. A marker file is what every other age-gated step in this
+# job already uses (Discover shipping terms, Sync Awin product feeds,
+# Refresh Top Deals Today below), and it is the wrong shape specifically
+# here: those steps gate themselves, written by the same process that reads
+# them, inside a job already committed to running this trigger. This gate
+# decides whether the job runs at all, before checkout — a marker file
+# would not even be checked out yet to read, and adding one more
+# committed-but-fragile state file to depend on is exactly the shape of
+# incident docs/DECISIONS.md's D10/D12 already are. Commit history cannot
+# drift out of sync with what actually happened; it is what happened.
+#
+# 150 minutes (9000s), not 180: gating on the previous harvest's commit time
+# (necessarily its completion, not its start — the file is only written
+# once, at the end) means the achieved start-to-start interval is threshold
+# plus that run's own duration, roughly 150 + 87 = 237 minutes in the common
+# case — closer to the original 3-hour design than 180 would be (180 + 87 =
+# 267 minutes). It also stays comfortably above the 76-97 minute range runs
+# are actually measured at, so the guard does not routinely fire while a run
+# it should be waiting on is still in progress.
+#
+# If the API read itself fails (rate limit, outage, network hiccup) the
+# guard runs the harvest in full rather than guess a skip — see the step
+# below. Guessing wrong in the "skip" direction is the one thing this design
+# exists to stop happening silently.
+#
+# ── The cost, honestly ──────────────────────────────────────────────────
+# `guard` adds 24 job-starts/day at GitHub's 1-minute billing floor: ~24
+# billable minutes/day this did not cost before, for a runner boot and one
+# curl call each.
+#
+# `crawl` itself is now capped by the 150-minute guard rather than by
+# whichever ticks happen to land, so its ceiling is real: at most one
+# harvest every ~237 minutes if every hourly attempt after the threshold
+# landed, ~6.1/day — below the 8/day this cron was already provisioned and
+# budgeted for at the 2026-08-26 three-hourly move, and above what it has
+# actually been delivering (21 runs / 5.49 days ≈ 3.8/day, measured this
+# window). So the worst case does not exceed the budget this schedule was
+# already sized against; the realistic case is a meaningful recovery toward
+# it, not past it. None of the per-shop Apify spend changes: the actor
+# tier's own 20-hour marker gate (data/metered-harvest-marker.txt) and the
+# independent age gates on shipping discovery, Awin sync and deals all cap
+# themselves on elapsed time already, regardless of how often the outer job
+# runs.
 on:
   schedule:
-    - cron: '0 */3 * * *'
+    # Hourly, 15 minutes past the hour — not on it. See the section above:
+    # every prior tick fired at minute 0, GitHub's own documented worst
+    # instant to ask for a runner. `guard` below decides which of these 24
+    # daily attempts actually does anything.
+    - cron: '15 * * * *'
   workflow_dispatch:
     inputs:
       crawl:
@@ -147,14 +253,80 @@ on:
 permissions:
   contents: write
 
-concurrency:
-  # Two crawls writing snapshots at once would race and lose listings.
-  group: catalogue
-  cancel-in-progress: false
-
 jobs:
-  crawl:
+  # Decides whether `crawl` below does real work this trigger. See the dated
+  # section above this file's `on:` block for the measurement and the
+  # reasoning behind every number here. Deliberately outside the `catalogue`
+  # concurrency group and does not check out the repo — see that section for
+  # why both are load-bearing, not incidental.
+  guard:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      should-run: ${{ steps.decide.outputs.should-run }}
+    steps:
+      - name: Decide whether a real harvest is due
+        id: decide
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # A manual dispatch is a human asking for this run specifically —
+          # including the capture_render_shop debug path, which is
+          # dispatch-only already — so it is never gated here, whatever the
+          # commit history says.
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "should-run=true" >> "$GITHUB_OUTPUT"
+            echo "Not a scheduled tick (event: ${{ github.event_name }}) — runs in full."
+            exit 0
+          fi
+          # data/harvest-cursor.json is written by "Commit harvested prices"
+          # on every harvest attempt, complete or truncated by its own
+          # deadline — see that step's comment. Reading its commit history
+          # rather than a marker file is deliberate; see the dated section
+          # above `on:`.
+          RESP=$(curl -sS --max-time 20 -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/commits?path=data/harvest-cursor.json&sha=${{ github.ref_name }}&per_page=1") || RESP=""
+          LAST_ISO=$(printf '%s' "$RESP" | jq -r '.[0].commit.committer.date // empty' 2>/dev/null)
+          if [ -z "$LAST_ISO" ]; then
+            echo "should-run=true" >> "$GITHUB_OUTPUT"
+            echo "::warning::Could not read the last harvest commit's timestamp from the GitHub API — running in full rather than guessing a skip."
+            exit 0
+          fi
+          LAST_EPOCH=$(date -u -d "$LAST_ISO" +%s)
+          NOW_EPOCH=$(date -u +%s)
+          AGE=$(( NOW_EPOCH - LAST_EPOCH ))
+          # 150 minutes — see the dated section above `on:` for why this
+          # number and not 180.
+          THRESHOLD=9000
+          if [ "$AGE" -ge "$THRESHOLD" ]; then
+            echo "should-run=true" >> "$GITHUB_OUTPUT"
+            echo "Last harvest commit (data/harvest-cursor.json) was $(( AGE / 60 )) minutes ago — due, running in full."
+          else
+            echo "should-run=false" >> "$GITHUB_OUTPUT"
+            echo "Last harvest commit was $(( AGE / 60 )) minutes ago, under the 150 minute threshold — skipping this tick."
+          fi
+
+  crawl:
+    needs: guard
+    # `always()` overrides the default implicit success() gate that `needs`
+    # adds — load-bearing here: if `guard` fails outright (a runner
+    # provisioning problem, not the API read failing closed inside it,
+    # which already runs in full on error), a schedule tick should simply
+    # be skipped and retried next hour, but a workflow_dispatch must never
+    # be skipped by any state of the guard job. The event-type check does
+    # not depend on `guard` having succeeded at all, only on what its
+    # output says when it did.
+    if: always() && (github.event_name != 'schedule' || needs.guard.outputs.should-run == 'true')
+    runs-on: ubuntu-latest
+    concurrency:
+      # Two crawls writing snapshots at once would race and lose listings.
+      # Scoped to this job, not the whole workflow, so `guard` above never
+      # competes for it — an hourly skip-check must never queue behind, or
+      # get cancelled ahead of, a real harvest already running.
+      group: catalogue
+      cancel-in-progress: false
     # Measured from the runs themselves, not guessed. Every number below is a
     # step duration read off the GitHub jobs API.
     #
