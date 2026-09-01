@@ -63,6 +63,40 @@ fi
 git commit -m "$message"
 
 branch="$(git rev-parse --abbrev-ref HEAD)"
+
+# ── The retry budget ─────────────────────────────────────────────────────────
+# Five attempts with a plain doubling backoff (2s, 4s, 8s, 16s — 30 seconds of
+# waiting in total) from this script's first version until 2026-09-01. That
+# was tuned for the case in the header above: one scheduled run racing the
+# occasional push from a person, where the branch moves once and the first
+# rebase wins.
+#
+# Run #366 (2026-09-01) was the other case. Five agents were pushing to the
+# branch at once; the harvest lost every one of its five attempts and died
+# with "Still could not push after 5 attempts. The commit exists locally on
+# the runner but is not on the branch." An hour of real price data was
+# discarded, having already been crawled.
+#
+# Two things were wrong for a burst rather than a single collision. The budget
+# was too short: 30 seconds does not outlast a group of agents that each take
+# longer than that to prepare a push. And the backoff was deterministic, which
+# is worse than it looks — every loser of a race waits the same 2s, then the
+# same 4s, so a burst does not spread out, it re-collides in lockstep at each
+# step. That is the classic thundering herd, and the classic fix is jitter.
+#
+# So: eight attempts, exponential to a 30s cap, each wait plus a random extra
+# of up to its own length (2-4s, 4-8s, 8-16s, 16-32s, then 30-60s), which
+# spreads racers apart instead of resynchronising them. The seven waits sum to
+# 120s of base, so the budget is 2-4 minutes of waiting before giving up
+# against the 30 seconds it was — set against a job that has often just spent
+# an hour crawling, that is cheap insurance for the thing it insures.
+#
+# What is deliberately unchanged: the set of files committed, and how a
+# conflict is resolved (resolve_generated_conflicts above, unchanged, and
+# still a loud abort for anything that is neither generated nor a raw
+# snapshot). A push that cannot be made honestly is still not made.
+max_attempts=8
+delay_cap=30
 delay=2
 
 # Files that are built, never authored. A conflict in one of these is not two
@@ -305,18 +339,31 @@ resolve_generated_conflicts() {
   fi
 }
 
-for attempt in 1 2 3 4 5; do
+attempt=0
+while [ "$attempt" -lt "$max_attempts" ]; do
+  attempt=$(( attempt + 1 ))
+
   if git push origin "$branch"; then
     echo "Pushed on attempt ${attempt}."
     exit 0
   fi
 
-  if [ "$attempt" -eq 5 ]; then break
+  if [ "$attempt" -eq "$max_attempts" ]; then break
   fi
 
-  echo "Push rejected — the branch moved. Rebasing and retrying in ${delay}s (attempt ${attempt}/5)."
-  sleep "$delay"
+  # Jitter is the whole point of this line — see the retry-budget comment
+  # above. Up to a full extra delay, uniformly, so two racers that lost the
+  # same push do not wake at the same instant and lose the next one together.
+  wait_for=$(( delay + (RANDOM % (delay + 1)) ))
+  echo "Push rejected — the branch moved. Rebasing and retrying in ${wait_for}s (attempt ${attempt}/${max_attempts})."
+  sleep "$wait_for"
   delay=$(( delay * 2 ))
+  if [ "$delay" -gt "$delay_cap" ]; then delay="$delay_cap"; fi
+
+  # The sleep is before the fetch-rebase below, not after it, and that
+  # ordering matters under contention: we want the freshest possible base at
+  # the moment we push, so the wait belongs on the far side of the rebase from
+  # the push, not between them.
 
   # A rebase will not start at all while the tree is dirty, and the build
   # reliably leaves it dirty: `npm run demo` writes demo/404.html (and other
@@ -380,5 +427,5 @@ for attempt in 1 2 3 4 5; do
   fi
 done
 
-echo "::error::Still could not push after 5 attempts. The commit exists locally on the runner but is not on the branch." >&2
+echo "::error::Still could not push after ${max_attempts} attempts. The commit exists locally on the runner but is not on the branch." >&2
 exit 1
