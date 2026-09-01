@@ -1,5 +1,27 @@
 # Microcopy inventory — 2026-08-21, with a recommendation pass — 2026-08-25
 
+> **This is a dated snapshot, not a living inventory. Do not read a quoted
+> string or a line number here as current.**
+>
+> Added 2026-09-01. The file is a record of two decision passes and what they
+> were looking at: what the copy said on 21 August, what it said on 25 August
+> when every row was re-resolved and recommended on, and which three rows were
+> cut. Its value is the reasoning and the Keep/Cut/Owner distribution, which
+> stand whatever the strings do next. Finding 4 below already said the line
+> numbers "will drift again the same way", and the strings drift with them —
+> so refreshing it in place would destroy a record of a decision in order to
+> maintain a duplicate of the source, which is what `demo/app.ts`,
+> `demo/deliveryFacts.ts` and `demo/priceDeliveryNote.ts` are for.
+>
+> Known drift since, as examples rather than an exhaustive list: finding 2's
+> "Includes £2.99 delivery" became "Incl. £2.99 delivery" on 2026-08-26
+> (40641de9) and its "Plus delivery" became "Delivery not included" on
+> 2026-09-01 (000a347a). Both are in `demo/priceDeliveryNote.ts`, which states
+> the current wording and why.
+>
+> A future pass wanting current copy should re-run the exercise and date its
+> own file, exactly as the 25 August pass did to the 21 August one.
+
 The original file (21 Aug) was a report: it walked every page type and listed
 every piece of descriptive or explanatory text that isn't a label, a price or a
 raw data value, with an empty Keep/Cut column for the owner to fill in. It sat
