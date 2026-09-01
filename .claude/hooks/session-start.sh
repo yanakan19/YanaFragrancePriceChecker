@@ -81,10 +81,18 @@ cd "$repo" 2>/dev/null || exit 0
 
 git rev-parse --git-dir >/dev/null 2>&1 || exit 0
 
-# Only ever act on the main checkout. Agent worktrees under .claude/worktrees
-# are on their own throwaway branches with their own bases; fast-forwarding one
-# of those to origin would be meaningless at best.
+# The fast-forward-to-origin logic below only ever makes sense on the main
+# checkout. Agent worktrees under .claude/worktrees are on their own
+# throwaway branches with their own bases; fast-forwarding one of those to
+# origin would be meaningless at best, destructive at worst — see
+# docs/DECISIONS.md D17. But a linked worktree is exactly the checkout most
+# likely to be carrying hours of an agent's uncommitted work, and gets no
+# protection at all from the recovery logic below, which is why it gets a
+# different one here: back up what it is carrying to origin, then get out.
 if [ "$(git rev-parse --git-dir 2>/dev/null)" != "$(git rev-parse --git-common-dir 2>/dev/null)" ]; then
+  if [ -x "scripts/backup-worktree.sh" ]; then
+    scripts/backup-worktree.sh || true
+  fi
   exit 0
 fi
 
@@ -170,6 +178,29 @@ report_stale_replays() {
 }
 
 report_stale_replays "$remote"
+
+# Shallow-repository false refusal (docs/DECISIONS.md D15): a shallow local
+# graph can misreport a genuine ancestor as diverged. scripts/recover-stale-
+# checkout.sh already runs first, above, and deepens when it can — but its own
+# deepen attempt can fail independently of the ordinary fetch that just
+# succeeded (an --unshallow fetch is heavier and can time out on its own), in
+# which case this check would inherit the exact same false refusal with no
+# deepen attempt of its own. So it gets the identical, narrowly-scoped fix:
+# never trust a shallow graph's "no" without trying once to complete it, never
+# let that attempt widen what counts as safe.
+if ! git merge-base --is-ancestor "$local_head" "$remote" 2>/dev/null; then
+  if [ "$(git rev-parse --is-shallow-repository 2>/dev/null)" = "true" ]; then
+    say "[session-start] Ancestry check failed on a shallow repository — deepening once before trusting it."
+    if timeout 20 git fetch --quiet --unshallow origin "$branch" 2>/dev/null; then
+      remote="$(git rev-parse --quiet --verify FETCH_HEAD 2>/dev/null)" || true
+      if git merge-base --is-ancestor "$local_head" "$remote" 2>/dev/null; then
+        say "[session-start] Deepened: the shallow graph was hiding a real ancestor relationship."
+      fi
+    else
+      say "[session-start] WARNING: could not deepen the shallow history — treating the ancestry check as unproven."
+    fi
+  fi
+fi
 
 if [ "$local_head" = "$remote" ]; then
   say "[session-start] Checkout is level with origin/$branch (${remote:0:7})."

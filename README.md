@@ -8,6 +8,26 @@ logic that turns a captured offer into a comparison row you can trust. There is
 no fetching layer yet — that is the Phase 0 spike (JSON-LD vs managed scraper per
 domain), and `adapter` is `'unknown'` on every retailer until it lands.
 
+## Owner action needed: recreate this repo's Claude Code environment
+
+This branch's remote container has a standing bug: on some resumes its disk
+comes back from a frozen checkpoint dated **2026-08-12 ~23:13 UTC**, weeks
+behind whatever origin actually has. It has recurred well over a dozen times
+and has already cost finished, uncommitted agent work more than once — full
+diagnosis in [`docs/DECISIONS.md` D10, D12, D17](docs/DECISIONS.md#d10--the-checkout-can-come-up-thirteen-days-stale-and-the-guard-is-a-guard).
+Every mitigation inside this repo (`scripts/recover-stale-checkout.sh`,
+`scripts/backup-worktree.sh`, the session-start hook) is a seatbelt, not the
+fix — nothing written from inside the container survives that revert, so no
+in-repo change can reach it.
+
+**The actual fix, and it takes a few minutes:** in
+[claude.ai/code](https://claude.ai/code) → this repository's **Environment**
+settings, recreate (re-provision) the environment so a fresh base image gets
+captured from current `origin`. Do this once, and every subsequent boot —
+including any future stale restore — starts from an image that already
+contains this repo's own recovery scripts and self-heals on its own. Until
+it's done, expect this to keep recurring.
+
 ```bash
 npm install
 npm test                      # 71 tests
