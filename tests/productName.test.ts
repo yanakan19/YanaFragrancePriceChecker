@@ -202,6 +202,43 @@ describe('displayName: what it deliberately leaves in the name', () => {
   });
 });
 
+// 2026-09-01: within CONCENTRATION_SPECIFIC's own single alternation, "eau
+// fraiche" — a real Versace/Lacoste/Estée Lauder/Revlon flanker-line name,
+// not a stated strength — used to beat a real "eau de parfum"/"eau de
+// toilette" phrase sitting later in the same title, because a plain
+// `.match()` stops at the first alternative to match at the earliest
+// position rather than the most specific one: the same leftmost-not-most-
+// specific failure shape as "Aventus Cologne" above, one tier up. See
+// concentrationMatch's own doc comment and longestSpecificMatch for the fix
+// (longest matched phrase wins, not leftmost) and the real rawTitles below,
+// taken verbatim from data/catalogue/beautybase.json and perfume-click.json.
+describe('displayName: "eau fraiche" as a line name, not a concentration', () => {
+  it('prefers a real "eau de parfum" over an earlier "eau fraiche" line name', () => {
+    expect(concentration('Versace Eau Fraiche Extreme Eau De Parfum 100ml Spray')).toBe('Eau de Parfum');
+    expect(displayName('Versace Eau Fraiche Extreme Eau De Parfum 100ml Spray', 'Versace', 'Versace'))
+      .toBe('Eau Fraiche Extreme');
+  });
+
+  it('prefers a real "eau de toilette" over an earlier "eau fraiche" line name', () => {
+    expect(concentration('Versace Man Eau Fraiche Eau De Toilette 200ml Spray')).toBe('Eau de Toilette');
+    expect(displayName('Versace Man Eau Fraiche Eau De Toilette 200ml Spray', 'Versace', 'Versace'))
+      .toBe('Man Eau Fraiche');
+  });
+
+  // Lacoste's own L.12.12 "Rose Eau Fraiche" flanker, same collision, a
+  // different house.
+  it('gets a Lacoste "Eau Fraiche" flanker right too', () => {
+    expect(concentration('Lacoste L.12.12 Rose Eau Fraiche Eau de Toilette 100ml Spray')).toBe('Eau de Toilette');
+  });
+
+  // A title naming genuinely nothing but "eau fraiche" still gets it as the
+  // stated concentration — this fix changes which phrase wins when more than
+  // one is present, not whether a lone "eau fraiche" is read at all.
+  it('still reads a lone "eau fraiche" as the concentration when nothing else is stated', () => {
+    expect(concentration('Some Brand Eau Fraiche 100ml')).toBe('Eau Fraiche');
+  });
+});
+
 /**
  * A separator that only ever joined two things this file already stripped —
  * two ml sizes, a concentration and a size, a size and its own fl oz/oz

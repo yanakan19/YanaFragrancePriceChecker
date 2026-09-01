@@ -340,14 +340,79 @@ function firstGenuineOccurrence(title: string, pattern: RegExp): string | null {
  * position. Without this, "Oud & Roses Perfume 60ml EDP" matched bare "Oud"
  * at position 0 for the exact same reason "Cologne" won above: leftmost, not
  * most reliable.
+ *
+ * 2026-09-01: the same leftmost-not-most-specific failure was still live one
+ * level *up* — inside CONCENTRATION_SPECIFIC's own single alternation, which
+ * this function used to hand straight to `.match()` unmodified. Two of its
+ * six alternatives, "eau fraiche" and "eau de parfum", both genuinely occur
+ * in real titles — Versace's own "Eau Fraiche Extreme" and "Eau Fraiche"
+ * lines (also Lacoste's L.12.12 "Rose Eau Fraiche", Elizabeth Arden's "White
+ * Tea Eau Fraiche", Estée Lauder's "Bronze Goddess Eau Fraiche", Revlon's
+ * "Charlie Red Eau Fraiche", Angel Schlesser's own "Eau Fraiche Citrus
+ * Marino") name "Eau Fraiche" as part of the fragrance's own line, exactly
+ * the same shape as Creed's "Cologne" above, with the real stated strength
+ * ("Eau De Toilette"/"Eau De Parfum") sitting later in the same title.
+ * `.match()` against the combined alternation still scans left to right and
+ * still stops at the first alternative to match at the earliest position —
+ * "eau fraiche" beat "eau de parfum" in "Versace Eau Fraiche Extreme Eau De
+ * Parfum 50ml Spray" for that reason alone, mislabelling the concentration
+ * "Eau Fraiche" and leaving "Eau De Parfum" sitting unremoved in the display
+ * name. Confirmed by running concentrationMatch directly against that exact
+ * rawTitle from data/catalogue/beautybase.json before touching anything:
+ * it returned "Eau Fraiche". Two EANs (8011003890972, 8011003890989) had
+ * this patched in CONCENTRATION_RESOLUTIONS rather than at the root; those
+ * two override entries were removed once this fix made them redundant —
+ * verified by removing them and rebuilding before deleting them for real:
+ * identical audit counts either way, and both EANs' own `concentration`
+ * field still comes out "Eau de Parfum" with no override consulted. See
+ * CONCENTRATION_RESOLUTIONS' own 2026-08-27 second-pass note for where they
+ * used to sit.
+ *
+ * One EAN this fix corrects that the audit-driven override table could
+ * never have reached at all: ean-8011003890996, Versace Eau Fraiche Extreme
+ * 200ml. Both shops selling it (beautybase, perfume-click) spell the line
+ * name in unaccented ASCII at that size — "Versace Man Eau Fraiche Extreme
+ * Eau de Parfum 200ml Spray" — so both titles hit the identical leftmost bug
+ * and both computed "Eau Fraiche", agreeing with each other and therefore
+ * never flagged as a contradiction, never entering CONCENTRATION_RESOLUTIONS'
+ * reach at all. It sat wrong, silently, until this root-cause fix.
+ *
+ * longestSpecificMatch below is the fix: every occurrence of every
+ * CONCENTRATION_SPECIFIC alternative in the title is found (not just the
+ * first), and the textually longest one wins, regardless of where it sits.
+ * This is a safe proxy for "most specific" here specifically because the six
+ * alternatives happen to have six distinct lengths (11 to 20 characters), so
+ * there is never a tie to break arbitrarily, and because "eau fraiche" — the
+ * one alternative that is also a common line name — is the shortest of the
+ * six, so it can only ever lose to a real stated concentration elsewhere in
+ * the same title, never wrongly beat one. Measured against every title in
+ * data/catalogue/*.json carrying more than one distinct CONCENTRATION_SPECIFIC
+ * alternative (66 titles, `scripts/concentration-specific-multi-report.ts`):
+ * the other 60-odd are multi-item gift sets genuinely naming two or three
+ * different concentrations for two or three different bottles in one listing
+ * ("Eau De Toilette 15ml & Eau De Parfum 15ml & Parfum 15ml Gift Set") — for
+ * those there was never one true single answer, leftmost was already
+ * arbitrary, and swapping to longest is neither better nor worse, just a
+ * different arbitrary pick among several truths. Only the "eau fraiche"
+ * cases have one actually-correct answer, and longest gets every one of them
+ * right. See scripts/build-demo-catalogue.ts's rebuild for the measured
+ * blast radius across the live catalogue.
  */
+function longestSpecificMatch(title: string): string | null {
+  const global = new RegExp(CONCENTRATION_SPECIFIC.source, `${CONCENTRATION_SPECIFIC.flags}g`);
+  let longest: string | null = null;
+  for (const m of title.matchAll(global)) {
+    if (!longest || m[0].length > longest.length) longest = m[0];
+  }
+  return longest;
+}
 export function concentrationMatch(title: string): string | null {
   // Ahead of the specific tier, not inside it: see CONCENTRATION_OIL. A
   // title that names an oil has named the form, and the only phrase that
   // could outrank it is one naming a strength the oil does not have.
   const oil = title.match(CONCENTRATION_OIL)?.[0];
   if (oil) return oil;
-  const specific = title.match(CONCENTRATION_SPECIFIC)?.[0];
+  const specific = longestSpecificMatch(title);
   if (specific) return specific;
   for (const word of CONCENTRATION_GENERIC_PRIORITY) {
     const pattern = CONCENTRATION_GENERIC_PATTERNS[word]!;
@@ -538,21 +603,6 @@ export const CONCENTRATION_RESOLUTIONS: Readonly<Record<string, ConcentrationRes
   '6298042001718': { concentration: 'Extrait de Parfum', citation: 'French Avenue Frostbite 100ml: pennypart.com explicitly "Extrait de Parfum"; matches the established manchester-ouds abbreviation pattern (see CONCENTRATION_RESTATEMENT_RE) against Jomashop’s lone "EDP".' },
   '6290171070207': { concentration: 'Extrait de Parfum', citation: 'Afnan Supremacy In Oud 100ml: ShopSimon, Jomashop (its own title, not just its URL), clothbase, DLG, Nandansons, ModeSens all "Extrait de Parfum"; perfume-click’s "Eau de Parfum" was the mislabel here.' },
   '6298042001800': { concentration: 'Extrait de Parfum', citation: 'French Avenue Safari Breeze 100ml: three separate eBay listings, Jomashop and ModeSens all "Extrait de Parfum"; beautybase already had this right, manchester-ouds’ "Eau de Parfum" did not.' },
-
-  // ── 2026-08-27 second pass (new since the first pass, not previously
-  // checked): Versace's own "Eau Fraiche Extreme" line name defeats this
-  // file's own CONCENTRATION_SPECIFIC matcher — "eau fraiche" is one of its
-  // alternatives and, being an unaccented ASCII match against beautybase's
-  // "...Fraiche Extreme Eau De Parfum..." title, wins leftmost over the real
-  // "Eau De Parfum" phrase sitting later in the same title, exactly the
-  // leftmost-not-most-specific failure shape this file's own header already
-  // names for Creed's "Aventus Cologne". perfume-click's title for the same
-  // two EANs happens to spell the line "Eau Fraîche Extrême" (accented), so
-  // the same bug does not fire there and it reads correctly — which is what
-  // made this look like a shop disagreement rather than a parsing artifact.
-  // Real-world evidence settles what both titles actually mean: unanimous. ──
-  '8011003890972': { concentration: 'Eau de Parfum', citation: 'Versace Eau Fraiche Extreme 50ml: eBay (x2, "EAU FRAICHE EXTREME EDP"), Jomashop, drogeria-vmd.com all "EDP"/"Eau de Parfum"; perfume-click’s own title already agrees ("Eau Fraîche Extrême Eau de Parfum"), only beautybase’s unaccented "eau fraiche" collided with this file’s own matcher.' },
-  '8011003890989': { concentration: 'Eau de Parfum', citation: 'Versace Eau Fraiche Extreme 100ml: eBay, Jean Coutu, Jomashop, Shoppers Drug Mart (all exact-EAN listings) and bestbrandsperfume unanimous "Eau de Parfum"/"EDP"; no Extrait or bare "Eau Fraiche" claim found anywhere independent.' },
 } as const;
 
 /*
@@ -639,10 +689,17 @@ export const CONCENTRATION_RESOLUTIONS: Readonly<Record<string, ConcentrationRes
  * left Disputed) — one EAN above (ean-6290171070214, Afnan Supremacy Not
  * Only Intense) dropped out of the live set entirely between harvests and no
  * longer needs checking; two new ones appeared that the first pass never
- * saw, and both actually resolved — see ean-8011003890972 /
- * ean-8011003890989 above; the "dispute" was this file's own leftmost-match
- * parsing artifact on Versace's "Eau Fraiche Extreme" line name, not a real
- * disagreement between shops. Every one of the other 23 was re-checked from
+ * saw (ean-8011003890972, ean-8011003890989 — Versace Eau Fraiche Extreme
+ * 50ml/100ml), and both actually resolved; the "dispute" was this file's own
+ * leftmost-match parsing artifact on Versace's "Eau Fraiche Extreme" line
+ * name, not a real disagreement between shops. Both were originally patched
+ * here as per-EAN overrides; a 2026-09-01 pass fixed the root cause instead
+ * — see concentrationMatch's own doc comment and longestSpecificMatch below
+ * it — after which concentrationMatch alone gets both EANs right and they no
+ * longer register as a contradiction at all (confirmed: removing the two
+ * override entries and rebuilding reproduces the identical 145/70/44/26
+ * concentration-audit counts), so the entries were removed rather than kept
+ * as dead weight. Every one of the other 23 was re-checked from
  * a genuinely different angle than the first pass used (manufacturer's own
  * domain where the first pass hadn't reached it, an EAN-first barcode-
  * database query, or both) rather than re-run verbatim; none crossed the
