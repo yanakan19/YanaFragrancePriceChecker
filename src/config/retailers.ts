@@ -1072,6 +1072,157 @@ export const RETAILERS: readonly Retailer[] = [
     // scripts/catalogue-harvest.ts spending a render-tier page confirming
     // this again every run; see knownRenderRefusal in
     // src/catalogue/renderRefusal.ts for what the flag does with it.
+    //
+    // ── 2026-09-01: both leads chased down — neither restores a route today ──
+    //
+    // Lead 1: is ERR_HTTP2_PROTOCOL_ERROR an HTTP/2 negotiation problem, the
+    // kind forcing HTTP/1.1 fixes? The project's own prior evidence already
+    // answers this without spending a new CI run. src/catalogue/httpFetch.ts's
+    // createHttp() calls Node's global fetch() with no dispatcher config, and
+    // Node's built-in fetch (undici) never negotiates HTTP/2 unless a caller
+    // opts a dispatcher into allowH2 — nothing here does. That route has
+    // therefore always been HTTP/1.1 only, and it is exactly the route
+    // crawlViaSitemap used against this shop's sitemap.xml/siteindex.xml on
+    // job 96345673451 (cited further up this entry, 2026-08-20): "Both
+    // sitemap addresses, at 25 seconds and again at 60" — HTTP 0, total
+    // silence, on a route that was never HTTP/2 to begin with. Whatever is
+    // failing here is not specific to HTTP/2 ALPN negotiation, because this
+    // shop's already-HTTP/1.1 route fails the identical way.
+    //
+    // Tried to confirm this directly against the live site too, from this
+    // sandbox, with a hard caveat first: this sandbox's own egress proxy
+    // (127.0.0.1:34323, see /root/.ccr/README.md) is a relay, and its own
+    // /__agentproxy/status endpoint, read during this test, listed
+    // www.johnlewis.com among recentRelayFailures ("tunnel closed (code
+    // 1006, Connection ended) after 6s") interleaved with the identical
+    // failure against www.google.com, accounts.google.com and
+    // android.clients.google.com in the same few seconds — sites that are
+    // plainly not blocking anyone. That proves the relay itself was
+    // unreliable in this window and disqualifies anything routed through it
+    // as evidence about johnlewis.com. Bypassing that relay (curl --noproxy
+    // '*'; separately, Node's own fetch(), which does not consult the proxy
+    // env vars at all) did reach a real johnlewis.com — a DigiCert-issued
+    // certificate for CN=johnlewis.com, O=John Lewis plc, and robots.txt
+    // answered HTTP 200 with real, correct content, fast, every time (see
+    // the robots.txt paragraph below). But every dynamic path tried this
+    // way — the homepage, /sitemap.xml, /siteindex.xml, and all four
+    // section URLs — answered instead with an immediate (150-300ms),
+    // byte-identical HTTP 503, 108 bytes, over both HTTP/2 (curl, ALPN
+    // negotiated) and HTTP/1.1 (Node's fetch) equally:
+    //
+    //     upstream connect error or disconnect/reset before headers.
+    //     retried and the latest reset reason: remote reset
+    //
+    // That is textbook Envoy-gateway error text, not a Cloudflare/Incapsula-
+    // style challenge (no branding, no cookie, no CAPTCHA, no HTML) — but
+    // getting the identical body over both protocol versions, through a
+    // "direct" path this sandbox cannot fully vouch for either (its own
+    // network layer presents a certificate Chromium itself refuses to
+    // trust, net::ERR_CERT_AUTHORITY_INVALID, even with every proxy env var
+    // unset — so "direct" from this sandbox is still mediated by
+    // something), means this sandbox cannot isolate protocol version as the
+    // variable, and cannot say with confidence whether that 503 is
+    // johnlewis.com's own edge or a description of this sandbox's network
+    // layer failing to reach it. Playwright's own Chromium could not be
+    // gotten to reach johnlewis.com from this sandbox at all, on any path
+    // tried (via the proxy: net::ERR_CONNECTION_RESET; env vars unset:
+    // net::ERR_CERT_AUTHORITY_INVALID) — so the exact CI failure,
+    // net::ERR_HTTP2_PROTOCOL_ERROR, could not be reproduced or fixed here
+    // either way, and confirming a fix needs a real CI run this pass cannot
+    // spend and then wait on.
+    //
+    // Net effect: the strongest evidence available — CI's own already-
+    // HTTP/1.1 plain-fetch route failing identically against this same
+    // domain — argues against Lead 1, and nothing gathered here contradicts
+    // it. --disable-http2 is a real, legitimate Chromium launch flag
+    // (forcing ALPN to skip h2 is protocol negotiation, not evasion), but is
+    // not added to src/catalogue/localBrowser.ts in this pass: the evidence
+    // on file says it would not help.
+    //
+    // robots.txt, re-read today: unchanged in substance from the analysis
+    // above (Last-Modified: Fri, 07 Aug 2026). "Real N Values" still Allows
+    // /browse/*/_/N-* ahead of the shorter */_/N-* Disallow, so all four
+    // section URLs remain permitted; /search* remains Disallowed (not used
+    // by this entry's routes); the Sitemap: directive still names
+    // https://www.johnlewis.com/siteindex.xml. Nothing this shop's routes
+    // touch is forbidden.
+    //
+    // Lead 2: the Apify actor tier worked before (run 19, 2026-08-20) —
+    // does it still, and what would routing this shop through it cost?
+    //
+    // Technically, this shop's own history above already answers "would it
+    // work": run 19 rendered all four sections through the actor at ~1MB
+    // each, HTTP 200, and by 2026-08-21 johnLewisNextData.ts was reading
+    // real priced listings out of them. Neither piece of code has been
+    // removed — src/catalogue/apifyActor.ts and
+    // src/catalogue/johnLewisNextData.ts both still exist, and
+    // parseRenderedState (src/catalogue/renderedState.ts) still wires
+    // 'john-lewis': parseJohnLewisListings. On the same evidence, the actor
+    // tier should still work against this shop today.
+    //
+    // But it has not run against this shop even once since local rendering
+    // arrived (2026-08-26, per this entry above), and will not on any
+    // ordinary sweep, by design rather than by accident.
+    // scripts/catalogue-harvest.ts builds one renderer per run:
+    //
+    //     const localRenderer = noLocalRender ? null : localBrowserRenderer(...);
+    //     const actorRenderer = localRenderer ?? (useApifyActor ? apifyActorRenderer(actorConfig!) : null);
+    //
+    // The free local renderer is non-null whenever it is not explicitly
+    // turned off, so it is what every shop's render call actually uses on
+    // every ordinary run — the Apify actor is only ever reached with
+    // --no-local-render passed, a run-wide switch, not a per-shop one.
+    // There is no code path today that sends this one shop to the actor
+    // while every other render-dependent shop keeps using the free tier.
+    // Running with --no-local-render --allow-metered would restore this
+    // shop's actor route — and would also move every other render-
+    // dependent shop (Selfridges included, this project's one remaining
+    // shop with a genuinely positive *local*-render outcome, per
+    // knownRenderRefusal's own comment in src/catalogue/renderRefusal.ts)
+    // onto the metered tier for that entire run, which is the exact shape
+    // of the 2026-08-21 outage src/catalogue/localBrowser.ts's own header
+    // records: five shops (Boots, Selfridges, John Lewis, Superdrug, Zara)
+    // dark at once when the $5 monthly credit ran out on day 21 of the
+    // month. Whether September's credit is available, and how much of it,
+    // is not visible from here — no Apify account exists in this
+    // environment (docs/INGESTION.md says the same) — so that trade is not
+    // one to make blind, and is not made here. Roughly what it would cost
+    // if made: four pages a run at docs/INGESTION.md's own $2-5/1,000-page
+    // actor estimate is about $0.008-0.02 per run this shop is reached —
+    // cheap alone, and exactly what already emptied a $5 shared credit
+    // early once with four other shops drawing on the same pool.
+    //
+    // A smaller, real gap worth naming precisely: knownRenderRefusal reads
+    // one flag (retailer.renderRefused) and, when set, skips whichever
+    // renderer actorRenderer currently holds — local or Apify, it does not
+    // distinguish. Every one of this shop's ten refusals on file is a
+    // *local*-render result; the actor has only ever answered this shop
+    // with a real catalogue page. So if a future --no-local-render run ever
+    // did try to route this shop through the actor to recover it,
+    // `renderRefused: true` below would skip that attempt too, on evidence
+    // that never actually came from that tier. Not fixed here — it has
+    // never yet mattered, because no --no-local-render run has happened
+    // since this flag was set — but worth flagging for whoever next touches
+    // knownRenderRefusal or runs the harvest with that flag: this shop's
+    // refusal evidence covers the local tier only.
+    //
+    // The concrete owner action, matching how this entry has recorded that
+    // before: decide whether this shop's proven, working actor route is
+    // worth a standing claim on the shared monthly credit that has already
+    // run out once with five shops depending on it — and if so, give it a
+    // per-shop preference in the harvest script rather than the run-wide
+    // --no-local-render switch, so the other render-dependent shops keep
+    // their free route. Not a decision to make inside a retailer entry.
+    //
+    // What this means for the four listings currently stored: not fixed by
+    // anything above. `renderRefused: true` is left unchanged — the only
+    // tier this shop's ordinary runs actually reach (local render) has ten
+    // real refusals on file and this pass adds no eleventh, so nothing here
+    // changes what an ordinary scheduled run does for this shop. The
+    // catalogue's four live listings have no route back to a live price
+    // check under the pipeline as it runs today: the free tier is refused,
+    // and the paid tier that could refresh them needs the owner decision
+    // above, which this entry does not make for it.
     renderRefused: true,
     adapter: 'proxied',
     currency: 'GBP',
