@@ -12,9 +12,13 @@ domain), and `adapter` is `'unknown'` on every retailer until it lands.
 
 This branch's remote container has a standing bug: on some resumes its disk
 comes back from a frozen checkpoint dated **2026-08-12 ~23:13 UTC**, weeks
-behind whatever origin actually has. It has recurred well over a dozen times
-and has already cost finished, uncommitted agent work more than once — full
-diagnosis in [`docs/DECISIONS.md` D10, D12, D17](docs/DECISIONS.md#d10--the-checkout-can-come-up-thirteen-days-stale-and-the-guard-is-a-guard).
+behind whatever origin actually has. Confirmed at least thirteen times by
+2026-08-27 (D12's own count, from the container's reflog and mtimes — not a
+guess), and the same underlying container instability has kept costing real
+work since: a finished, uncommitted worktree diff killed and recovered only
+because a human happened to notice it on disk, and separately three agent
+worktrees killed at once with that work lost outright (D17) — full diagnosis
+in [`docs/DECISIONS.md` D10, D12, D17](docs/DECISIONS.md#d10--the-checkout-can-come-up-thirteen-days-stale-and-the-guard-is-a-guard).
 Every mitigation inside this repo (`scripts/recover-stale-checkout.sh`,
 `scripts/backup-worktree.sh`, the session-start hook) is a seatbelt, not the
 fix — nothing written from inside the container survives that revert, so no
@@ -23,10 +27,19 @@ in-repo change can reach it.
 **The actual fix, and it takes a few minutes:** in
 [claude.ai/code](https://claude.ai/code) → this repository's **Environment**
 settings, recreate (re-provision) the environment so a fresh base image gets
-captured from current `origin`. Do this once, and every subsequent boot —
-including any future stale restore — starts from an image that already
-contains this repo's own recovery scripts and self-heals on its own. Until
-it's done, expect this to keep recurring.
+captured from current `origin`. That is what actually fixes this — it stops
+the checkpoint being fourteen-plus days stale in the first place, rather
+than making the in-repo scripts newly capable of something they cannot do
+today. Once it's done, a boot of the **main checkout** fast-forwards itself
+from wherever it lands via `scripts/recover-stale-checkout.sh`; a boot into
+a **linked worktree** (`.claude/worktrees/...`, where every agent session
+actually runs) gets a different protection instead —
+`scripts/backup-worktree.sh` pushes its own uncommitted and unpushed work to
+origin rather than fast-forwarding, because a worktree's branch is its own
+and is never something to catch up to origin (see D17 for why those are
+different problems with different fixes). Until the environment is
+recreated, expect the underlying staleness to keep recurring for both kinds
+of checkout.
 
 ```bash
 npm install
