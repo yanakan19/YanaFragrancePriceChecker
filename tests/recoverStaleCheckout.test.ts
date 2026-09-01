@@ -97,6 +97,82 @@ function runScript(
   return { status: result.status ?? -1, output: (result.stdout ?? '') + (result.stderr ?? '') };
 }
 
+/** A shallow worker whose HEAD is genuinely an ancestor of origin, but whose
+ * local shallow graph cannot prove it on its own — the 2026-08-31 false
+ * refusal (docs/DECISIONS.md D15). `git rev-list --count` reports a false,
+ * perfectly symmetric N-ahead/N-behind for a HEAD that is provably nothing
+ * but behind, matching the real incident's "50 commit(s) origin does not
+ * have (50 behind)" shape.
+ *
+ * Built by: shallow-cloning at a fixed depth (`--depth` only takes effect
+ * for a *local* clone over `file://` — plain paths silently ignore it, per
+ * git's own "warning: --depth is ignored in local clones"), then advancing
+ * origin and re-shallowing the worker at that same fixed depth against the
+ * new tip. That re-shallow is what severs the graph: verified directly
+ * against a scratch repo before this fixture was written — an ordinary
+ * `git fetch` with no `--depth` (exactly what the script itself calls) does
+ * NOT sever it, and does not repair an already-severed one either. Origin is
+ * then advanced once more, unrelated to the severing, so the fixture also
+ * matches the incident's ordinary "cron kept pushing while the container
+ * was frozen" shape. */
+function setupShallowAncestor(opts: { alsoDiverge: boolean }) {
+  const root = mkdtempSync(join(tmpdir(), 'recover-stale-shallow-test-'));
+  const seed = join(root, 'seed');
+  const remote = join(root, 'remote.git');
+  mkdirSync(seed, { recursive: true });
+  git(seed, ['init', '-q', '-b', 'master']);
+  git(seed, ['config', 'user.email', 'seed@test']);
+  git(seed, ['config', 'user.name', 'seed']);
+  writeFileSync(join(seed, 'depth.txt'), 'seed 0\n');
+  git(seed, ['add', '-A']);
+  git(seed, ['commit', '-q', '-m', 'seed 0']);
+  for (let i = 1; i < 5; i++) {
+    writeFileSync(join(seed, 'depth.txt'), `seed ${i}\n`, { flag: 'a' });
+    git(seed, ['add', '-A']);
+    git(seed, ['commit', '-q', '-m', `seed ${i}`]);
+  }
+  execFileSync('git', ['init', '-q', '--bare', remote]);
+  git(seed, ['push', '-q', remote, 'master']);
+
+  const worker = join(root, 'worker');
+  execFileSync('git', [
+    'clone', '-q', '--depth=3', '--branch', 'master', `file://${remote}`, worker,
+  ]);
+  git(worker, ['config', 'user.email', 'bot@test']);
+  git(worker, ['config', 'user.name', 'bot']);
+
+  // Advance origin, then re-shallow the worker at the SAME depth against the
+  // new tip — the step that severs the local graph. The advance must run
+  // strictly more commits than the clone depth (3): fewer, and the old HEAD
+  // still falls inside the freshly re-shallowed window and stays connected
+  // — verified directly against a scratch repo, where a 2-commit advance
+  // left the graph intact and only a 4-commit advance severed it.
+  for (let i = 0; i < 4; i++) {
+    writeFileSync(join(seed, 'depth.txt'), `sever ${i}\n`, { flag: 'a' });
+    git(seed, ['add', '-A']);
+    git(seed, ['commit', '-q', '-m', `sever advance ${i}`]);
+  }
+  git(seed, ['push', '-q', remote, 'master']);
+  git(worker, ['fetch', '-q', '--depth=3', 'origin', 'master']);
+
+  if (opts.alsoDiverge) {
+    writeFileSync(join(worker, 'local-only.txt'), 'genuinely local, unpushed\n');
+    git(worker, ['add', '-A']);
+    git(worker, ['commit', '-q', '-m', 'genuinely local, unpushed']);
+  }
+
+  // Origin keeps moving, unrelated to the sever — matching the harvest cron
+  // pushing on while the container sat frozen.
+  for (let i = 0; i < 2; i++) {
+    writeFileSync(join(seed, 'depth.txt'), `post-sever ${i}\n`, { flag: 'a' });
+    git(seed, ['add', '-A']);
+    git(seed, ['commit', '-q', '-m', `post-sever advance ${i}`]);
+  }
+  git(seed, ['push', '-q', remote, 'master']);
+
+  return { root, remote, worker };
+}
+
 const cleanupDirs: string[] = [];
 afterEach(() => {
   while (cleanupDirs.length) {
@@ -247,5 +323,99 @@ describe('scripts/recover-stale-checkout.sh', () => {
     expect(status).toBe(0);
     expect(output).toBe('');
     expect(readFileSync(join(linked, FILE), 'utf8')).toBe(PHANTOM_CONTENT);
+  });
+
+  // D15 (2026-08-31): a shallow repo's `git merge-base --is-ancestor` can
+  // misreport a genuine ancestor as diverged, turning a recoverable stale
+  // checkout into the "REFUSING to act" manual-intervention stop. These
+  // three cases were run manually against scratch repos before this file
+  // was touched (see the fixture's own comment) to confirm the defect is
+  // real and that deepening fixes it without loosening the contract.
+  describe('shallow-repository ancestry (D15, 2026-08-31 false refusal)', () => {
+    it('recovers a checkout whose HEAD is a genuine ancestor but whose shallow graph cannot prove it', () => {
+      const { root, worker } = setupShallowAncestor({ alsoDiverge: false });
+      cleanupDirs.push(root);
+
+      expect(
+        execFileSync('git', ['rev-parse', '--is-shallow-repository'], { cwd: worker, encoding: 'utf8' }).trim(),
+      ).toBe('true');
+
+      // Sanity check the fixture actually reproduces the defect before the
+      // script ever runs: fetch exactly as the script itself will, then ask
+      // the same question it asks. It must fail here, or this test is not
+      // exercising the bug.
+      execFileSync('git', ['fetch', '-q', 'origin', 'master'], { cwd: worker });
+      const preCheck = spawnSync(
+        'git', ['merge-base', '--is-ancestor', 'HEAD', 'origin/master'], { cwd: worker },
+      );
+      expect(preCheck.status).not.toBe(0);
+
+      const { status, output } = runScript(worker);
+
+      expect(status).toBe(0);
+      expect(output).toContain('deepening once');
+      expect(output).toContain('Deepened: the shallow graph was hiding a real ancestor relationship');
+      expect(output).toContain('Fast-forwarded');
+      expect(output).not.toContain('REFUSING to act');
+      expect(git(worker, ['rev-parse', 'HEAD'])).toBe(git(worker, ['rev-parse', 'origin/master']));
+      expect(git(worker, ['rev-parse', '--is-shallow-repository'])).toBe('false');
+    });
+
+    it('still refuses a shallow checkout that is genuinely diverged, even after deepening', () => {
+      const { root, worker } = setupShallowAncestor({ alsoDiverge: true });
+      cleanupDirs.push(root);
+      const headBefore = git(worker, ['rev-parse', 'HEAD']);
+
+      const { status, output } = runScript(worker);
+
+      expect(status).toBe(0);
+      // It does attempt to deepen — the divergence is real regardless of
+      // shallowness, so the deepen alone must not be mistaken for proof of
+      // ancestry.
+      expect(output).toContain('deepening once');
+      expect(output).toContain('REFUSING to act');
+      expect(output).toContain('Reconcile by hand');
+      expect(git(worker, ['rev-parse', 'HEAD'])).toBe(headBefore);
+      expect(readFileSync(join(worker, 'local-only.txt'), 'utf8')).toBe('genuinely local, unpushed\n');
+    });
+
+    it('fails safe when the deepen attempt itself fails — nothing is trusted or changed', () => {
+      const { root, worker } = setupShallowAncestor({ alsoDiverge: false });
+      cleanupDirs.push(root);
+      const headBefore = git(worker, ['rev-parse', 'HEAD']);
+
+      // A `git` on PATH that fails only the `--unshallow` fetch, passing
+      // everything else through to the real binary — simulating a network
+      // failure that hits specifically during the deepen attempt, after the
+      // script's own first, ordinary fetch already succeeded.
+      const realGit = execFileSync('sh', ['-c', 'command -v git'], { encoding: 'utf8' }).trim();
+      const shimDir = mkdtempSync(join(tmpdir(), 'git-unshallow-shim-'));
+      cleanupDirs.push(shimDir);
+      writeFileSync(
+        join(shimDir, 'git'),
+        [
+          '#!/usr/bin/env bash',
+          'for a in "$@"; do',
+          '  if [ "$a" = "--unshallow" ]; then',
+          '    echo "shim: simulated network failure on --unshallow" >&2',
+          '    exit 1',
+          '  fi',
+          'done',
+          `exec "${realGit}" "$@"`,
+          '',
+        ].join('\n'),
+        { mode: 0o755 },
+      );
+
+      const { status, output } = runScript(worker, { PATH: `${shimDir}:${process.env.PATH ?? ''}` });
+
+      expect(status).toBe(0);
+      expect(output).toContain('deepening once');
+      expect(output).toContain('could not deepen');
+      expect(output).toContain('nothing was changed');
+      expect(output).not.toContain('Fast-forwarded');
+      expect(output).not.toContain('REFUSING to act');
+      expect(git(worker, ['rev-parse', 'HEAD'])).toBe(headBefore);
+    });
   });
 });
