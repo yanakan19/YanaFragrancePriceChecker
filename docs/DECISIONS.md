@@ -1481,3 +1481,33 @@ revisited again, the same order D16 named still stands: a disposable scratch
 branch first, with a real GitHub Actions run actually observed — not
 inferred from documentation — before any of this touches
 `claude/scentday-retailer-registry-h92tth` or its default-branch successor.
+
+### Correction, 2026-09-02: one statement above went out of date the same day
+
+D18's re-confirmation section states that `scripts/commit-and-push.sh` "is
+unchanged since D16 (381 lines, same rebase-and-retry structure…)". That
+stopped being true a few hours after D18 was written. Commit `fd3f70ae`
+(2026-09-01, "commit-and-push.sh: jittered backoff and a longer budget for
+bursty pushes") changed the retry loop: 5 attempts of deterministic 2/4/8/16s
+backoff became 8 attempts of jittered backoff capped at 30s, roughly 30
+seconds of total waiting becoming 2-4 minutes. The script is 431 lines today,
+not 381.
+
+The reasoning above is left exactly as written — it is a dated investigation
+record, and it was accurate on its own date. What the correction changes is
+the reading of reason 1, and it strengthens it rather than weakening it.
+`fd3f70ae` was written after run #366 harvested for an hour and then lost the
+whole thing to a failed push, with five agents racing the same branch. The
+fix was not a tidy-up: it added jitter specifically because a deterministic
+backoff makes a burst worse than merely short, since every loser of a race
+re-collides in lockstep at each step. That is one more named incident encoded
+into the rebase-and-retry loop, on top of the runs #15/#17, #124/#126, #236
+and #266/#268 the script's own comments already cite — so "there is no API
+equivalent for the retry/conflict logic" is now a claim about a loop that has
+absorbed one more production failure than it had when D18 measured it, and
+that a fifth incident has already tested since.
+
+The only part of D18 that needs re-reading in light of this is its own
+sentence "same rebase-and-retry structure". The structure is the same; the
+timing policy inside it is not, and the difference is exactly the part an
+API-based compare-and-swap has no primitive for.
