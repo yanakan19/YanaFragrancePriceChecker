@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-02T05:53:46.252Z",
+  "checkedAt": "2026-09-02T10:43:44.567Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,11 +59,12 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 60,
+      "listings": 34,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "storefront currency could not be established — no sterling price recorded",
+        "stopped early: exceeded this house's time budget"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -192,9 +193,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 96,
-      "pricedInGbp": 96,
-      "withPhoto": 96,
+      "listings": 48,
+      "pricedInGbp": 48,
+      "withPhoto": 48,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
