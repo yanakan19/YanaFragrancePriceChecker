@@ -30,12 +30,55 @@ export interface ImageCandidate {
  *     list is ever consulted. Adding it here would change nothing — it is
  *     never reached.
  *
- * So this list holds one entry, not two. ORDER matters — earlier wins a tie
- * — but the ordering is untested until a second retailer clears the same
- * bar: a real sample, viewed, majority bottle-only. Do not add one on the
- * strength of its name or the owner's impression of it.
+ * ORDER matters — earlier wins a tie — and the list's own note used to say
+ * the ordering was untested "until a second retailer clears the same bar: a
+ * real sample, viewed, majority bottle-only. Do not add one on the strength
+ * of its name or the owner's impression of it."
+ *
+ * ── 2026-09-02: fragrance-click added, ahead of beautybase, on licence ──────
+ * A second retailer now clears that bar, and it is ranked first for a reason
+ * that is not about photography at all.
+ *
+ * THE PROBLEM. Of the 14 retailers this project may show photos from
+ * (IMAGE_ALLOWED in scripts/build-demo-catalogue.ts, i.e. those with any
+ * `imageBasis` at all), thirteen carry `hotlink-unlicensed` — explicitly not
+ * a licence, just a note that the image is hot-linked from the shop's own
+ * server with no permission read. Exactly one carries a stronger basis:
+ * fragrance-click, `affiliate-terms`. None carries `own-storefront`. Measured
+ * against the 2026-09-02 catalogue, beautybase alone supplies the displayed
+ * photo for 2,727 products, every one of them on that unlicensed footing.
+ *
+ * WHAT IS ACTUALLY AVAILABLE. Of those 2,727, only 265 — 9.7% — have a
+ * fragrance-click photo to move to. The other 1,537 that have any alternative
+ * at all have it only from another `hotlink-unlicensed` shop, which trades one
+ * unlicensed hotlink for another and reduces nothing. So the honest ceiling on
+ * this exposure is about a tenth of it, and that ceiling is the whole
+ * available population rather than a first instalment: there is no second
+ * licensed source to find.
+ *
+ * WHETHER THE PHOTOS ARE COMPARABLE, checked the way this list requires and
+ * not assumed. Ten fragrance-click photos were downloaded from the products
+ * that would actually move and viewed directly (Azzaro Wanted and Wanted By
+ * Night, CK Sheer Beauty, Carolina Herrera Good Girl Blush, Clinique Happy,
+ * Estée Lauder Youth Dew, Armani My Way, Givenchy Gentleman, Gucci Bloom,
+ * Gucci Flora Gorgeous Magnolia). All ten are bottle-only, face-on, on a plain
+ * white ground, with no box — 10 of 10, against beautybase's measured 14 of 18.
+ * Comparable is an understatement; on this sample it is the better shot.
+ *
+ * SO IT GOES FIRST. The tie-break here is licence, not freshness or framing:
+ * where both shops have a usable photo of the same bottle, the one this
+ * project has a stated basis for wins. Measured effect on the live catalogue:
+ * 276 products change photo, 265 of them off beautybase (2,727 -> 2,462) and
+ * 11 off three other unlicensed shops, with fragrance-click going 441 -> 717.
+ * Every one of the 276 moves from `hotlink-unlicensed` to `affiliate-terms`.
+ * Nothing moves the other way.
+ *
+ * The bar for a third entry is unchanged and still applies: a real sample,
+ * downloaded and viewed, majority bottle-only. A stronger `imageBasis` is a
+ * reason to rank a shop ABOVE another that already qualifies — it is not a
+ * reason to add one whose photography has never been looked at.
  */
-export const PREFERRED_IMAGE_RETAILERS = ['beautybase'];
+export const PREFERRED_IMAGE_RETAILERS = ['fragrance-click', 'beautybase'];
 
 /**
  * How much older a preferred retailer's photo may be than the freshest
@@ -57,17 +100,27 @@ export const PREFERRED_IMAGE_RETAILERS = ['beautybase'];
  * always preferred outright, and only the stale tail — the crawl having
  * missed this listing for several cycles running — falls back to whichever
  * licensed offer is actually freshest.
+ *
+ * One threshold serves both ranked retailers, and it is worth saying why that
+ * is safe rather than merely convenient. fragrance-click's rhythm is not
+ * beautybase's; it is far tighter. Its photos arrive through an Awin product
+ * feed rather than a page crawl, so they refresh wholesale — measured on the
+ * 2026-09-02 catalogue, all 717 of its images share one age, 10.3 hours, and
+ * not one is near this cap. The threshold therefore never binds for that shop
+ * today. It is here so that a feed which stops syncing eventually stops being
+ * preferred, rather than going on serving a photo of a bottle that may no
+ * longer be the one on sale.
  */
 export const PREFERRED_IMAGE_MAX_AGE_HOURS = 336;
 
 /**
  * Picks the product-level photo from whichever licensed offer has one.
  *
- * A verified bottle-only retailer (see PREFERRED_IMAGE_RETAILERS above) wins
- * first, provided its photo is not stale by its own normal standard; failing
- * either condition, the freshest licensed photo wins instead, most recently
- * fetched first — a stale licensed photo is worse than none, so freshness is
- * still the fallback whenever no ranked retailer has a fresh enough offer.
+ * The ranked retailers (see PREFERRED_IMAGE_RETAILERS above) are tried in
+ * order, each one taken only if its photo is not stale by the shared standard
+ * above; once none of them offers a fresh enough photo, the freshest licensed
+ * photo wins instead, most recently fetched first — a stale licensed photo is
+ * worse than none, so freshness is still the fallback.
  *
  * Callers are trusted to have already applied the licensing gate (see
  * IMAGE_ALLOWED in build-demo-catalogue.ts): this function ranks and dates
@@ -83,7 +136,16 @@ export function pickImage(offers: readonly ImageCandidate[], now: Date): string 
     if (!preferred) continue;
     const ageHours = (now.getTime() - new Date(preferred.fetchedAt).getTime()) / 3_600_000;
     if (ageHours <= PREFERRED_IMAGE_MAX_AGE_HOURS) return preferred.imageUrl;
-    break; // this retailer's photo exists but is stale; freshness decides instead
+    // Stale: try the next ranked retailer before giving up on the ranking.
+    //
+    // This was `break` while the list held one entry, where it made no
+    // difference — the loop ended either way. With a ranked list it would:
+    // a stale first choice would skip every other ranked shop and hand the
+    // decision straight to raw freshness, which is the one outcome the
+    // ranking exists to avoid. The fallback still happens, just after the
+    // ranking has actually been exhausted rather than abandoned at its
+    // first miss.
+    continue;
   }
 
   // licensed.length > 0 was already checked above, so this always has an element.
