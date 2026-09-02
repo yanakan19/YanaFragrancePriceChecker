@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-01T18:36:32.449Z",
+  "checkedAt": "2026-09-02T00:35:39.010Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,12 +59,11 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 33,
+      "listings": 60,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded",
-        "stopped early: exceeded this house's time budget"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -144,10 +143,12 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 59,
-      "errors": [],
+      "listings": 54,
+      "pricedInGbp": 54,
+      "withPhoto": 54,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
@@ -193,9 +194,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 96,
-      "pricedInGbp": 96,
-      "withPhoto": 96,
+      "listings": 116,
+      "pricedInGbp": 116,
+      "withPhoto": 116,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
