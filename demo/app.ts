@@ -60,6 +60,7 @@ import { trustpilotStateFor } from './trustpilotWidget.js';
 import { deliveryLines } from './deliveryFacts.js';
 import { deliveryPriceNote } from './priceDeliveryNote.js';
 import { msrpComparison, msrpComparisonLabel, type MsrpComparison } from './msrpComparison.js';
+import { pickReferencePrice } from './referencePrice.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
@@ -2116,10 +2117,12 @@ function wishlistButton(fragranceId: string): string {
 }
 
 /* ── the two boxes under the product ─────────────────────────────────────────
-   Left, in red: what the house that makes the bottle asks for it. Right, in
-   green: the least anyone here charges. The pair is the whole argument of a
-   price comparison site made in one glance, which is why it sits directly
-   under the product and above everything else on the page.
+   Left, in red: the strongest reference price available — the house that
+   makes the bottle where it is stocked here, a shop's corroborated RRP where
+   it is not (see referenceBox and demo/referencePrice.ts). Right, in green:
+   the least anyone here charges. The pair is the whole argument of a price
+   comparison site made in one glance, which is why it sits directly under the
+   product and above everything else on the page.
 
    Red on the left is not "bad": red is this app's brand accent (see the note
    at the top of demo/template.html) and it is already what the single box
@@ -2174,6 +2177,73 @@ function houseCeilingBox(frag: DemoFragrance): string {
       <p class="price-box-amount t-price">${formatGbp(frag.houseCeiling)}</p>
       <p class="price-box-from price-box-from--fit t-caption">Brand's Current Price</p>
     </div>`;
+}
+
+/**
+ * The second report and the fix, after the first ("I only see the MSRP box
+ * under French Avenue listings") got a narrower answer than the owner asked
+ * for. The renewed report was explicit: applied everywhere else, not just
+ * documented as rare. See demo/referencePrice.ts's own header for the
+ * measurement this responds to and the three tiers it establishes; this
+ * function is only the render half.
+ *
+ * `pickReferencePrice` decides which tier applies and never reads a shop's
+ * raw `wasPrice` to do it — `row.discount` is already the corroborated
+ * survivor of src/catalogue/wasPriceCredibility.ts by the time it reaches
+ * here (build-demo-catalogue.ts nulls everything else before the catalogue
+ * is written), so this box is exactly as strict as the strikethrough on the
+ * offer row underneath it, never more permissive.
+ *
+ * Same class, same measured widths, same font-size steps as the MSRP box —
+ * `.price-box--msrp` in demo/template.html sizes itself and its paired
+ * `.price-box--best` sibling off that one class name regardless of which
+ * label sits inside it, so a second class was not worth adding for a box
+ * that looks identical either way. What must differ, and does, is the two
+ * strings a reader actually reads: "MSRP" only ever names the house's own
+ * figure (`houseCeilingBox` above, untouched), never a shop's claim about
+ * it, and the retailer tier below is labelled "RRP" — the same word the
+ * offer row already uses for a shop's own corroborated reference price
+ * (`offerRow`'s `RRP ${formatGbp(d.wasPrice)}`) — with a caption that says
+ * whose word it is rather than the brand's. Kept a static string rather than
+ * naming the specific shop, for the same reason `houseCeilingBox`'s caption
+ * dropped the brand name (2026-08-26): the shop is already named on its own
+ * row directly below, and `price-box-from--fit`'s nowrap budget was measured
+ * against "from <shop>", not against "As stated by <the 26-character shop
+ * name the registry can produce>" — a caption naming the shop here would
+ * need its own width audit this file has no reason to take on when the
+ * attribution is already one glance away.
+ */
+function retailerRrpBox(amountGbp: number): string {
+  return `<div class="price-box price-box--msrp">
+      <p class="price-box-label t-eyebrow">RRP</p>
+      <p class="price-box-amount t-price">${formatGbp(amountGbp)}</p>
+      <p class="price-box-from price-box-from--fit t-caption">Shop's Stated RRP</p>
+    </div>`;
+}
+
+/**
+ * The box `priceBoxRow` actually renders on the left: the house's own price
+ * where one exists, a corroborated retailer RRP where it does not, or
+ * nothing. `rows` must be every offer on the page — live and gone alike, the
+ * same set `offerRow` itself reads `discount` off of — because a reference
+ * price is a fact about the bottle, not about today's stock, exactly the
+ * reasoning `houseCeiling` already rests on.
+ *
+ * The house's own storefront offer is excluded from the retailer scan via
+ * `isHouseOffer`, computed the same way `msrpFor` already does it —
+ * `singleBrandOnly` crossed with `cannotCarryBrand` — rather than re-derived,
+ * so the two can never disagree about which offer is the house's own.
+ */
+function referenceBox(frag: DemoFragrance, rows: readonly PresentedOffer[]): string {
+  const ref = pickReferencePrice(
+    frag.houseCeiling,
+    rows.map((row) => ({
+      wasPriceGbp: row.discount?.wasPrice ?? null,
+      isHouseOffer: Boolean(row.retailer.singleBrandOnly) && !cannotCarryBrand(row.retailer, frag.brand),
+    })),
+  );
+  if (!ref) return '';
+  return ref.tier === 'house' ? houseCeilingBox(frag) : retailerRrpBox(ref.amountGbp);
 }
 
 /**
@@ -2236,17 +2306,24 @@ function lowestPriceBox(best: PresentedOffer, verdict: CheapestVerdict): string 
 /**
  * The row the two boxes sit in, or the one line that replaces both.
  *
- * With no buyable offer there is no price box and no MSRP box either. The
- * house figure is real, but on a page whose entire message is "you cannot buy
- * this anywhere here" it would be a lone claim in the loudest position on the
- * page with nothing to be a reference for — the exact reading the pair exists
- * to give it. One line, not two: the second line used to read "no shop has it
- * in stock right now", which is the first line again in different words, and
- * the shop count in the results head below says the same thing a third time.
+ * With no buyable offer there is no price box and no reference box either —
+ * house price or retailer RRP, whichever `referenceBox` would otherwise pick.
+ * The figure is real either way, but on a page whose entire message is "you
+ * cannot buy this anywhere here" it would be a lone claim in the loudest
+ * position on the page with nothing to be a reference for — the exact reading
+ * the pair exists to give it. One line, not two: the second line used to read
+ * "no shop has it in stock right now", which is the first line again in
+ * different words, and the shop count in the results head below says the same
+ * thing a third time.
  */
-function priceBoxRow(frag: DemoFragrance, best: PresentedOffer | null, verdict: CheapestVerdict): string {
+function priceBoxRow(
+  frag: DemoFragrance,
+  rows: readonly PresentedOffer[],
+  best: PresentedOffer | null,
+  verdict: CheapestVerdict,
+): string {
   if (!best) return `<p class="hero-price none">Sold out everywhere</p>`;
-  return `<div class="price-boxes">${houseCeilingBox(frag)}${lowestPriceBox(best, verdict)}</div>`;
+  return `<div class="price-boxes">${referenceBox(frag, rows)}${lowestPriceBox(best, verdict)}</div>`;
 }
 
 function detailView(): string {
@@ -2307,7 +2384,7 @@ function detailView(): string {
         ${productHead(frag, 'div', 't-page')}
         ${fragranceLinksBlock(frag)}
         ${wishlistButton(frag.id)}
-        ${priceBoxRow(frag, best, verdict)}
+        ${priceBoxRow(frag, rows, best, verdict)}
         ${notesBlock(frag)}
       </div>
 
