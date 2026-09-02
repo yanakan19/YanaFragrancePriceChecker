@@ -1739,7 +1739,78 @@ export function displayName(title: string, brand: string | null, displayedBrand:
   // mid-string "+ +" / "- +" is not a boundary problem at all.
   s = stripOrphanedSeparators(s);
 
-  return s || displayedBrand || brand || title;
+  return s || emptiedNameFallback(opener, brand, displayedBrand) || title;
+}
+
+/**
+ * What the name is when every strip above has left nothing behind.
+ *
+ * There are two completely different reasons a title can empty out, they look
+ * identical from inside displayName, and answering both the same way is a
+ * defect that had been sitting in the live catalogue.
+ *
+ * ── The eponymous case, which the old single answer got right ──
+ * Chloé's "Chloé", Aramis's "Aramis", Jimmy Choo's "Jimmy Choo" are real
+ * fragrances whose own name is the house's name, so the title genuinely was
+ * nothing but the brand, a concentration and a size. The name is the brand,
+ * which is what the fragrance is actually called; it reads as the eponymous
+ * scent it is and states nothing untrue. (Before that, the answer was the
+ * whole raw title, which threw away every strip that had just succeeded and
+ * displayed "Aramis Eau de Toilette 110ml Spray" beside a brand field reading
+ * "Aramis", a size field reading 110ml and a concentration field reading Eau
+ * de Toilette — the same three facts, three times.)
+ *
+ * ── The vendor-field-is-the-fragrance case, which it got wrong ──
+ * A shop whose `rawBrand` names the *line* rather than the house. Avon
+ * publishes "Perceive Eau de Parfum 30ml" with rawBrand "Perceive",
+ * "Incandessence Eau de Parfum - 30 ml" with rawBrand "Incandessence" and
+ * "Little Black Dress Eau de Parfum 30ml" with rawBrand "Little Black Dress";
+ * brandName.ts's alias table correctly folds all three onto the house,
+ * "Avon Cosmetics", because that is who makes them. brandTitleOpens then
+ * strips the raw spelling off the front — correctly, it is a candidate and
+ * the title does open with it — the concentration and size go, and nothing is
+ * left. Handing back the brand made all three products *named* "Avon
+ * Cosmetics", identical in brand, name, concentration and size, which is a
+ * single matchKey, which is findDuplicateGroups merging three different
+ * perfumes into one product. That merge is live today: `avon-f1595848` shows
+ * "shops: 3" against a notes source of .../perceive-eau-de-parfum-30ml, and
+ * `avon-f6895200` the same for Little Black Dress. rawTitlesAgree (see
+ * productMatch.ts) already declines to *collapse* the three offer rows, so
+ * they stay visible, but that guard was written knowing it treated a symptom
+ * — this is the grouping itself.
+ *
+ * ── Telling them apart ──
+ * By what was stripped off the front, which is the only thing that actually
+ * differs. In the eponymous case the opener *is* the house: the name and the
+ * brand are the same word, so falling back to the brand loses nothing. In the
+ * Avon case the opener is a different name from the house, and it is the
+ * fragrance's own — the shop wrote it in its own title, so restoring it
+ * invents nothing. Compared on brandKey over foldDiacritics, the same
+ * normalisation the parenthesised-brand strip above already uses, so
+ * beautybase's unaccented "Chloe" against a displayed "Chloé" is still one
+ * house and still takes the eponymous answer rather than being mistaken for a
+ * second name.
+ *
+ * Measured across every live active listing (55,589 at 170e86e4): 32 reach
+ * this function at all. 12 are the eponymous case — Chloé across four shops,
+ * Tiffany & Co, Avon's own "LOV|U" — and every one is unchanged. The other 20
+ * are this bug, and not only at Avon: mybeauty-boutique publishes "Cinnabar
+ * 50ml Edp Spray" under rawBrand "Cinnabar" against a displayed "Estée
+ * Lauder", "Mandate Eau de Toilette Spray 100ml" under "Mandate" against
+ * "Eden Classic", and — the plainest of them — "Mon Guerlain 30ml Eau de
+ * Parfum Spray" under rawBrand "Mon Guerlain" against a displayed "Guerlain",
+ * which displayed as a product named "Guerlain" by Guerlain when the bottle
+ * says Mon Guerlain on the front.
+ */
+function emptiedNameFallback(
+  opener: string | null,
+  brand: string | null,
+  displayedBrand: string | null,
+): string | null {
+  const house = displayedBrand || brand;
+  if (!opener) return house;
+  if (!house) return opener;
+  return brandKey(foldDiacritics(opener)) === brandKey(foldDiacritics(house)) ? house : opener;
 }
 
 /**

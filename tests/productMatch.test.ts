@@ -9,7 +9,7 @@ import {
   type EanListing,
 } from '../src/catalogue/productMatch.js';
 import { fragranceId } from '../src/catalogue/fragranceId.js';
-import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
+import { CONCENTRATION_NOT_STATED, displayName } from '../src/catalogue/productName.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 
 const p = (o: Partial<MatchableProduct> & { id: string }): MatchableProduct => ({
@@ -173,6 +173,60 @@ describe('product matching', () => {
       // The concrete mechanism behind the two tests above: matchKey must
       // never collapse onto a shared placeholder like the string "null".
       expect(matchKey(p({ id: 'a', sizeMl: null }))).not.toBe(matchKey(p({ id: 'b', sizeMl: null })));
+    });
+
+    /**
+     * Avon's own three 30ml eau de parfums, end to end from the raw titles.
+     *
+     * These really were one product: brand "Avon Cosmetics", name "Avon
+     * Cosmetics", 30ml, Eau de Parfum, three times, because displayName's
+     * empty-name fallback handed back the house for a title whose own vendor
+     * field was the fragrance's name rather than the house's — see
+     * emptiedNameFallback in productName.ts. rawTitlesAgree, added the day
+     * before that fix, stopped the same-shop *offer row* collapse from hiding
+     * two of the three behind the third; it never touched the grouping, and
+     * this is the grouping.
+     *
+     * Driven through displayName rather than by hand-written names, so this
+     * fails if the fallback ever regresses rather than only if someone edits
+     * the constants beside it.
+     */
+    it('keeps three of one house\'s own perfumes apart when its vendor field names the line', () => {
+      const avon = (title: string, raw: string, sku: string): MatchableProduct => ({
+        id: `avon-${sku}`,
+        brand: 'Avon Cosmetics',
+        name: displayName(title, raw, 'Avon Cosmetics'),
+        concentration: 'Eau de Parfum',
+        sizeMl: 30,
+        ean: null,
+      });
+      const products = [
+        avon('Perceive Eau de Parfum 30ml', 'Perceive', 'F1595848'),
+        avon('Incandessence Eau de Parfum - 30 ml', 'Incandessence', 'F1580406'),
+        avon('Little Black Dress Eau de Parfum 30ml', 'Little Black Dress', 'F1551623'),
+      ];
+      expect(products.map((x) => x.name)).toEqual(['Perceive', 'Incandessence', 'Little Black Dress']);
+      expect(findDuplicateGroups(products)).toHaveLength(0);
+    });
+
+    /**
+     * The other half of the same fix, and the reason it is not simply "never
+     * fall back to the brand": Avon lists Perceive 30ml under two separate
+     * SKUs pointing at one product page, and those two genuinely are one
+     * bottle. They must still merge.
+     */
+    it('still merges one house perfume listed under two SKUs of the same page', () => {
+      const perceive = (sku: string): MatchableProduct => ({
+        id: `avon-${sku}`,
+        brand: 'Avon Cosmetics',
+        name: displayName('Perceive Eau de Parfum 30ml', 'Perceive', 'Avon Cosmetics'),
+        concentration: 'Eau de Parfum',
+        sizeMl: 30,
+        ean: null,
+      });
+      const groups = findDuplicateGroups([perceive('F1595848'), perceive('F1490739')]);
+      expect(groups).toHaveLength(1);
+      expect(groups[0]!.absorbed.map((x) => x.id)).toEqual(['avon-F1490739']);
     });
   });
 
