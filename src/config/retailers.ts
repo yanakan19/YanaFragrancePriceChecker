@@ -5708,6 +5708,71 @@ export const RETAILERS: readonly Retailer[] = [
     // registry. It needs a real APIFY_TOKEN and a real run this sandbox has
     // neither — not evaded, not guessed at, left for whoever has the
     // credential to actually spend one page finding out.
+    //
+    // ── 2026-09-02: the owner has EXCLUDED the Apify route. So: nothing. ─────
+    // Both passes above end by naming the Apify residential-proxy render as
+    // "the concrete next step" and "the one route never tried". The owner has
+    // now ruled that route out. Every conclusion above therefore has to be
+    // re-read without its escape hatch, and what is left is not "blocked
+    // pending a credential" — it is that this shop has no available route at
+    // all.
+    //
+    // One further look, for routes neither earlier pass tried, and confined to
+    // things that are not evasion of the WAF: an official partner or data
+    // feed, a syndication arrangement, or a public dataset.
+    //
+    //   1. A NON-WAF HOST. The plainest untried idea, and the one most likely
+    //      to have worked: both passes above only ever asked www.harrods.com,
+    //      and a WAF is often scoped to the storefront host alone. Probed
+    //      eleven hosts directly. `www.harrods.com` 403 (795 bytes),
+    //      `images.harrods.com` 403 (372 bytes), `harrods.com` 301 to www —
+    //      and the rest (media, press, about, careers, api, static, assets, m)
+    //      do not resolve to anything this sandbox can connect to at all.
+    //      No host on this estate answers.
+    //   2. partnerships.harrods.com — a genuinely separate host, surfaced by
+    //      search as "Luxury Brand Marketing with Harrods Partnerships", and
+    //      exactly the kind of primary source both passes above wanted and
+    //      could not reach (the first pass could only cite aggregator
+    //      directories for Partnerize/Rakuten, and flagged that they
+    //      contradict each other on the cookie window). It 403s too, 378
+    //      bytes, on both a direct request with a desktop Safari user agent
+    //      and WebFetch. So the affiliate network still cannot be
+    //      primary-sourced, for the same reason as everything else.
+    //   3. A NON-GB LOCALE. If the block were geo-scoped, another locale's own
+    //      path would answer. /en-us/become-an-affiliate: 403, 836 bytes.
+    //      /en-gb/affiliate-pages, a different path from the /become-an-
+    //      affiliate the first pass tried: 403, 826 bytes. The block is
+    //      site-wide across hosts, locales and paths, not scoped to the GB
+    //      storefront.
+    //   4. AN OFFICIAL PUBLIC FEED OR API. Searched specifically for one
+    //      ("public product data feed OR developer API OR open data catalogue
+    //      partner"). None exists. What that search does surface about
+    //      Harrods' data is cio.com's own writeup of an internal product hub
+    //      feeding its POS and eCommerce site — an internal system, never a
+    //      published resource. The only "Harrods API" that exists anywhere is
+    //      a third-party Apify actor built to scrape the site, which is both
+    //      the excluded route and a scraper rather than an official feed.
+    //
+    // Conclusion, and it is a different one from the two passes above: with
+    // Apify excluded, Harrods has NO available route. Not a blocked one, not
+    // one pending a credential — none. Every retrieval path is refused
+    // site-wide before a byte of markup, on every host, locale and path tried;
+    // the affiliate networks that aggregators name (Partnerize, Rakuten) still
+    // cannot be primary-sourced because the pages that would confirm them are
+    // behind the same block, and neither has feed-ingestion code here in any
+    // case (only src/catalogue/awinFeed.ts, and Awin was ruled out by
+    // following the merchant-profile ids in 2026-09-01's audit); no official
+    // feed, API or public dataset exists; and no partner or syndication
+    // arrangement carries the catalogue anywhere public (Farfetch's Black &
+    // White deal was chased in the second pass and is private backend
+    // technology).
+    //
+    // What would change this is not another search. It is either the owner
+    // reinstating the Apify route, or joining Harrods' affiliate programme
+    // through whichever network actually runs it and this project growing the
+    // ingestion code for that network — both owner decisions, neither
+    // available here. `enabled: false` stays, and it is now the accurate
+    // description of the shop's position rather than a holding state.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
