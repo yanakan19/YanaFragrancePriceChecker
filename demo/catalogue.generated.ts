@@ -288652,7 +288652,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/lattafa-yara-candy-eau-de-parfum-100ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -291154,7 +291154,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/lattafa-bade-e-al-oud-sublime-eau-de-parfum-100ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -293486,7 +293486,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/cacharel-noa-eau-de-toilette-spray-100ml-for-her",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -293553,7 +293553,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/calvin-klein-ck-all-eau-de-toilette-spray-200ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -295587,7 +295587,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/gucci-bloom-eau-de-parfum-30ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -296994,7 +296994,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/joop-jump-eau-de-toilette-spray-100ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -301718,7 +301718,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45780627212&a=3026001&m=6561",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/84183_ml.jpg",
       "rating": null
     },
@@ -302270,7 +302270,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/acqua-di-parma-blu-mediterraneo-mirto-di-panarea-30ml-edt-spray",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -310517,7 +310517,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/issey-miyake-a-drop-dissey-essentielle-eau-de-parfum-spray-50ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -321680,7 +321680,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/yves-saint-laurent-libre-eau-de-parfum-spray-90ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -327828,7 +327828,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/oasis-by-bujairami-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -336835,7 +336835,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/estee-lauder-pleasures-for-men-cologne-spray-100ml",
       "fetchedAt": "2026-08-31T04:25:13.655Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -349497,7 +349497,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=42454856768&a=3026001&m=6561",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/93401_ml.jpg",
       "rating": null
     },
@@ -357312,7 +357312,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/paloma-picasso-eau-de-toilette-spray-50ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -365994,7 +365994,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45780627213&a=3026001&m=6561",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/188496_ml.jpg",
       "rating": null
     },
@@ -386340,7 +386340,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=41860301047&a=3026001&m=6561",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/140648_ml.jpg",
       "rating": null
     },
@@ -401954,7 +401954,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45780626814&a=3026001&m=6561",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/182021_ml.jpg",
       "rating": null
     },
@@ -407806,7 +407806,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/issey-miyake-a-drop-d-issey-eau-de-parfum-30ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -409346,7 +409346,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/jean-paul-gaultier-le-male-le-parfum-intense-edp-spray-75ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -414140,7 +414140,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/la-fede-intoxicate-blue-elixir-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -430106,7 +430106,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/montblanc-lady-emblem-elixir-edp-spray-75ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -449923,7 +449923,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/versace-pour-homme-eau-de-toilette-spray-50ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -452303,7 +452303,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/ysl-rive-gauche-edt-spray-100ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -477465,7 +477465,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/billie-eilish-no-2-eau-de-parfum-spray-50ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -478005,7 +478005,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/bond-no-9-lafayette-street-eau-de-parfum-50ml_R04183855/",
       "fetchedAt": "2026-08-27T00:46:56.562Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -483540,7 +483540,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/burberry-goddess-intense-amber-vanilla-eau-de-parfum-30ml_R04682665/",
       "fetchedAt": "2026-08-27T00:46:56.562Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -488199,7 +488199,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=44933596249&a=3026001&m=6561",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/54945_ml.jpg",
       "rating": null
     }
@@ -492006,7 +492006,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/chantal-thomass-211-eau-de-parfum-spray-100ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -492021,7 +492021,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/chantal-thomass-pink-eau-de-parfum-spray-100ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -499839,7 +499839,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/blue-by-dkhoon-emirates-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -499869,7 +499869,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/dkhoon-rose-by-dkhoon-emirates-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -499899,7 +499899,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/doha-skyline-by-dkhoon-emirates-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -499929,7 +499929,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/gold-tears-by-dkhoon-emirates-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -499959,7 +499959,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/khalifa-by-dkhoon-emirates-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -499989,7 +499989,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/khayal-by-dkhoon-emirates-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -500019,7 +500019,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/muscat-by-dkhoon-emirates-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -500139,7 +500139,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/private-2nd-december-by-dkhoon-emirates-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -500169,7 +500169,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/private-musk-vip-by-dkhoon-emirates-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -500229,7 +500229,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/riyadh-by-dkhoon-emirates-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -500289,7 +500289,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/signature-black-by-dkhoon-emirates-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -500319,7 +500319,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/signature-gold-by-dkhoon-emirates-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -500379,7 +500379,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/signature-white-by-dkhoon-emirates-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -500409,7 +500409,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/so-sweet-by-dkhoon-emirates-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -500469,7 +500469,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/velvet-rose-by-dkhoon-emirates-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -500499,7 +500499,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/zayed-by-dkhoon-emirates-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -503034,7 +503034,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45780626753&a=3026001&m=6561",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/88221_ml.jpg",
       "rating": null
     }
@@ -503064,7 +503064,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45780626754&a=3026001&m=6561",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/85170_ml.jpg",
       "rating": null
     }
@@ -522309,7 +522309,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/givenchy-ange-ou-demon-eau-de-parfum-spray-30ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -523554,7 +523554,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/givenchy-pour-homme-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -525804,7 +525804,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/guerlain-shalimar-50ml-edp-spray",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -529404,7 +529404,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/hugh-parsons-camden-town-eau-de-parfum-spray-100ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -529764,7 +529764,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45780626826&a=3026001&m=6561",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/142035_ml.jpg",
       "rating": null
     }
@@ -532734,7 +532734,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/issey-miyake-l-eau-d-issey-pour-homme-eau-cedre-eau-de-toilette-100ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -538824,7 +538824,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/karl-lagerfeld-new-york-mercer-street-100ml-edt-spray",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -540429,7 +540429,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/aura-vanilla-milk-la-fede-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -540444,7 +540444,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/azure-velvet-by-khadlaj-100ml-extrait-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -540684,7 +540684,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/empire-crown-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -540774,7 +540774,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/fursan-brown-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -541014,7 +541014,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/icon-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -541044,7 +541044,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/ihthiraam-by-khadlaj-60ml-extrait-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -541074,7 +541074,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/infini-absolute-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -541269,7 +541269,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/karus-gold-absolu-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -541509,7 +541509,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/la-fede-celeste-aqua-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -541569,7 +541569,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/la-fede-celeste-joice-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -541659,7 +541659,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/la-fede-coveted-diamond-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -541689,7 +541689,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/la-fede-coveted-shade-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -541989,7 +541989,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/le-prestige-royal-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -542019,7 +542019,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/maison-flor-oud-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -542139,7 +542139,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/musk-couture-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -542169,7 +542169,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/musk-pour-amber-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -542379,7 +542379,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/onyx-gold-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -542394,7 +542394,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/onyx-silver-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -542547,7 +542547,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/private-blend-musk-ice-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -542577,7 +542577,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/pure-musk-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -542607,7 +542607,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/qarar-by-khadlaj-60ml-extrait-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -542697,7 +542697,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/rose-couture-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -542727,7 +542727,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/sara-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -543120,7 +543120,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/wow-oud-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -543705,7 +543705,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/kylie-by-kylie-jenner-cosmic-intense-eau-de-parfum-100ml_R04577236/",
       "fetchedAt": "2026-08-28T15:20:45.989Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -543735,7 +543735,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/kylie-by-kylie-jenner-mood-stones-velvet-brew-eau-de-parfum-50ml_R04680160/",
       "fetchedAt": "2026-08-30T23:25:24.829Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -558741,7 +558741,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/maison-crivelli-hibiscus-mahajad-extrait-de-parfum-100ml_R04218125/",
       "fetchedAt": "2026-08-31T13:18:17.199Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -561276,7 +561276,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/matiere-premiere-vanilla-powder-extrait-de-parfum-50ml_R04550474/",
       "fetchedAt": "2026-08-28T15:20:45.989Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -580530,7 +580530,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45780627121&a=3026001&m=6561",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://images2.productserve.com/noimage.gif",
       "rating": null
     }
@@ -580545,7 +580545,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45780627122&a=3026001&m=6561",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://images2.productserve.com/noimage.gif",
       "rating": null
     }
@@ -580560,7 +580560,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45780627123&a=3026001&m=6561",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://images2.productserve.com/noimage.gif",
       "rating": null
     }
@@ -581865,7 +581865,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/ralph-lauren-polo-cologne-intense-eau-de-toilette-spray-59ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -583158,7 +583158,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45780627159&a=3026001&m=6561",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/193181_ml.jpg",
       "rating": null
     }
@@ -587013,7 +587013,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45780627160&a=3026001&m=6561",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://images2.productserve.com/noimage.gif",
       "rating": null
     }
@@ -589047,7 +589047,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/sabrina-carpenter-sweet-tooth-cherry-baby-eau-de-parfum-spray-30ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -595560,7 +595560,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/thierry-mugler-mugler-angel-eau-de-toilette-spray-100ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -595710,7 +595710,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/tiffany-co-edp-spray-50ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -609129,7 +609129,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/yves-saint-laurent-libre-labsolu-platine-eau-de-parfum-spray-50ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -609489,7 +609489,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/yves-saint-laurent-y-elixir-eau-de-parfum-spray-60ml",
       "fetchedAt": "2026-09-02T04:49:45.398Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
