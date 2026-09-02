@@ -699,6 +699,16 @@ export const CONCENTRATION_RESOLUTIONS: Readonly<Record<string, ConcentrationRes
   // written around, and the clearest case of the AND reading refusing a fact
   // it had in hand. ──
   '6297000226163': { concentration: 'Eau de Parfum', citation: 'Yardley Gentleman Classic 100ml: yardleylondon.co.uk — the manufacturer’s own domain — titles the exact 100ml "Gentleman Classic Eau de Parfum 100ml" (read directly, 2026-08-27 second pass). upcitemdb.com and news-parfums.com say "Eau de Toilette" for the same barcode; outranked by the manufacturer under the 2026-09-02 ruling.' },
+
+  // ── French Avenue: added 2026-09-02 by the pass after the ruling, which
+  // found the storefront five earlier passes had recorded as not existing.
+  // frenchavenue.com is operated by Fragrance World — "one of the leading
+  // manufacturers and distributors in UAE", its own About page, which also
+  // states that it launched French Avenue as a brand in 2012 — so this is
+  // route (A), the manufacturer's own domain, not another reseller. See the
+  // 2026-09-02 second-pass note after this table. ──
+  '6298042001909': { concentration: 'Extrait de Parfum', citation: 'French Avenue Ravine Ice 100ml: frenchavenue.com — Fragrance World’s own storefront for the brand it owns — states "Product: Extrait De Parfum, Size: 100 ml" in its own specifications block (fetched directly, 2026-09-02). Agrees with manchester-ouds’ own harvested description; the Amazon/marabika.lt/souqfragrance "Eau de Parfum" majority is outranked by the manufacturer under the 2026-09-02 ruling.' },
+  '6290360379227': { concentration: 'Extrait de Parfum', citation: 'French Avenue Royal Taboo 100ml: frenchavenue.com’s own page is titled "Royal Taboo By French Avenue | Unisex Extrait De Parfum" and its specifications read "Product - Extrait, Size - 100ml" (fetched directly, 2026-09-02) — title and spec agree. The eBay/ShopSimon/Walmart "EDP" listings are outranked by the manufacturer under the 2026-09-02 ruling.' },
 } as const;
 
 /*
@@ -1110,6 +1120,98 @@ export const CONCENTRATION_RESOLUTIONS: Readonly<Record<string, ConcentrationRes
  * spoken and was being overruled by a shop. Where no house has spoken, the
  * table is as empty as it was, which is the correct outcome and not a
  * shortfall.
+ *
+ * ══ 2026-09-02, second pass: 10 Disputed -> 8. The one thing worth taking ══
+ * ══ from it is that "no manufacturer exists" was never checked. ══
+ *
+ * The pass above closed the question the ruling opened and left ten entries
+ * whose common feature was that route (A) does not apply. This pass asked one
+ * question of those ten, deliberately not a repeat of anything logged: for
+ * each shape of "route (A) does not apply", is that actually true, or is it an
+ * inherited assumption?
+ *
+ * For three of the ten it was an inherited assumption, and a false one.
+ *
+ * FRENCH AVENUE HAS A STOREFRONT. Every pass from 2026-08-27 onward records
+ * some form of "French Avenue has no storefront of its own outside the shops
+ * that resell it", and the pass above repeated it as settled. It is wrong.
+ * frenchavenue.com exists, answers, and is not a reseller: its own About page
+ * reads "Fragrance World stands tall as one of the leading manufacturers and
+ * distributors in UAE. With an enriching portfolio of 500+ fragrances across
+ * multiple brands…", and states that Fragrance World launched French Avenue
+ * as its own brand in 2012. Its social links point at @fragranceworldofficial.
+ * Fragrance World is a house this codebase already knows by name —
+ * KNOWN_TRAILING_HOUSES further down this very file lists 'fragranceworld' as
+ * one of three manufacturers Emirates Oud credits in its own titles. So this
+ * is route (A) squarely, and the same shape that resolved Zimaya in the pass
+ * above: a sub-brand's concentration read off the house's own storefront.
+ *
+ * The angle that found it, recorded because it generalises: searching for the
+ * *parent house's* domain rather than the sub-brand's. Nobody had asked
+ * fragranceworld what French Avenue is, only French Avenue.
+ *
+ * All three disputed French Avenue products are on that site at the disputed
+ * 100ml size, and they do not all answer the same way — which is itself the
+ * evidence that this is a real read rather than a house style being copied
+ * across a range:
+ *
+ *   - ean-6298042001909 Ravine Ice: specifications block reads "Product:
+ *     Extrait De Parfum, Size: 100 ml", with nothing contradicting it
+ *     anywhere on the page. RESOLVED, Extrait de Parfum — and note it lands
+ *     on the side this repo's own harvested manchester-ouds description was
+ *     already on, against the external majority. The repo-vs-web conflict
+ *     logged since the first pass is settled in the repo's favour.
+ *   - ean-6290360379227 Royal Taboo: page title "Royal Taboo By French Avenue
+ *     | Unisex Extrait De Parfum", specifications "Product - Extrait, Size -
+ *     100ml". Title and spec agree. RESOLVED, Extrait de Parfum.
+ *   - ean-6290360379203 Carnal Desire: STILL DISPUTED, and for a reason worth
+ *     reading carefully before anyone "fixes" it. Its page title also reads
+ *     "…| Unisex Extrait De Parfum", but its own specifications block reads
+ *     "Product - EDP". The manufacturer's page contradicts itself, in exactly
+ *     the shape azzaro.com does (own title "Eau de toilette", own URL path
+ *     "eau-de-parfum") and for which this table already refuses to resolve. A
+ *     house that says two things has not said one. Taking the title because
+ *     the two siblings resolved that way would be reading the range rather
+ *     than the bottle, which is the whole error the per-EAN discipline here
+ *     exists to prevent.
+ *
+ * The other seven were each re-examined for the same "is the assumption
+ * actually true" question, and for all seven it is:
+ *
+ *   - ean-3616304175916 Gucci Guilty Pour Femme Elixir de 60ml: gucci.com's
+ *     refusal was confirmed a second, independent way rather than accepted
+ *     from one tool's error message. A direct request from this sandbox with
+ *     an ordinary desktop user agent fails at the transport layer ("HTTP/2
+ *     stream 1 was not closed cleanly: INTERNAL_ERROR", no HTTP status at
+ *     all), alongside the search tool's own "domain not accessible to our
+ *     user agent". Two different mechanisms, same wall. Route (A) genuinely
+ *     cannot be attempted here by any means available.
+ *   - ean-3616303476793 Calvin Klein Eternity Aromatic Essence Intense 50ml:
+ *     calvinklein.co.uk was checked this pass, the US site having been checked
+ *     before. Its own product title is "Eternity Aromatic Essence for Women -
+ *     50ml" — no concentration word, same as the US page. The same domain
+ *     does title neighbouring products "Eternity For Women Amber Essence
+ *     Parfum Intense" and "Eternity Eau de Parfum Intense For Women", so the
+ *     omission is specific to this bottle rather than a house that never names
+ *     a concentration. Manufacturer read on two of its own national sites,
+ *     silent on both.
+ *   - ean-3614274258080 / ean-3614274258073 Azzaro Wanted Forever Elixir:
+ *     unchanged — azzaro.com contradicts itself, and Carnal Desire above is
+ *     now a second instance of the same disqualifier, which makes it a rule
+ *     this table applies rather than a one-off.
+ *   - ean-6290360617442 Ahmed Al Maghribi Summer Oud 60ml, ean-085805268848
+ *     Elizabeth Arden Green Tea 100ml, ean-5012209042441 L'Aimant 50ml:
+ *     unchanged, and all three for reasons no further search can touch — the
+ *     house's regional sites disagree and its product page states nothing;
+ *     the house names the bottle something outside this codebase's vocabulary
+ *     ("Scent Spray"); the true name is a concentration this codebase cannot
+ *     express ("Parfum de Toilette").
+ *
+ * Eight remain. Two of the eight (Elizabeth Arden, L'Aimant) are unresolvable
+ * at any evidence bar because the manufacturer's own answer is a word this
+ * codebase has no slot for, and one (Gucci) is unresolvable from this project
+ * for as long as gucci.com refuses it. A future pass should not expect a ninth
+ * angle to exist; the honest expectation is zero.
  */
 
 /**
