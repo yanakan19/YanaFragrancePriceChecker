@@ -484,26 +484,70 @@ export const CONCENTRATION_DISPUTED = 'Disputed';
  * concentration instead of the generic dispute label; an unresolved one
  * still gets CONCENTRATION_DISPUTED, unchanged.
  *
- * The evidence bar, matching this project's other web-sourced facts (see
- * demo/brandSites.ts): a fact counts only when it appears in a search
- * result's own title or link — the manufacturer's own domain for choice, an
- * EAN-tied product database or a major named retailer otherwise — never
- * merely in a search summary's prose gloss, and never when a second,
- * equally independent result contradicts it. Fragrantica's own title can
- * corroborate but was never accepted standing alone. A great many disputes
- * in this batch turned out to have exactly that kind of contradiction once
- * checked — often from the very sites (Jomashop above all: its own listing
- * titles for unrelated brands repeatedly show both words at once, e.g.
- * "1 Million Parfum EDP Spray", "Le Male Elixir EDP Spray Parfum" — an
- * artifact of its own URL/title template, not an independent claim) that a
- * shallower pass would have counted as corroboration — so the majority of
- * the 68 disputes live at the time of this pass (measured against
- * demo/catalogue.generated.ts 2026-08-27) are still listed as *unresolved*
- * below, on purpose: an honestly incomplete table beats a table that
- * invented confidence it did not earn. See each entry for its own citation,
- * and the comment at the end of this table for what was checked and left
- * Disputed regardless, so a future pass does not repeat the same searches
- * for nothing.
+ * ── THE EVIDENCE BAR (owner ruling, 2026-09-02 — read this before adding or
+ * refusing an entry) ──
+ *
+ * Two independent routes clear it. They are alternatives, not conditions to
+ * be met together. Either one is sufficient on its own:
+ *
+ *   (A) THE MANUFACTURER'S OWN WORD about its own product, read on the
+ *       manufacturer's own domain, naming this product at this size. This is
+ *       sufficient BY ITSELF. A retailer's title that says something else does
+ *       not block it and never has to be argued away: a shop mislabelling a
+ *       bottle does not make the house that filled the bottle wrong. This is
+ *       the whole point of the ruling — a contradicting retailer title is
+ *       simply outranked, not weighed.
+ *
+ *   (B) OVERWHELMING INDEPENDENT AGREEMENT, where the manufacturer is silent,
+ *       unreachable, or says something this codebase's vocabulary cannot
+ *       express. Here — and ONLY here — a persisting title-level contradiction
+ *       from a second, equally independent source does still disqualify, for
+ *       the reason it always did: with no manufacturer to break the tie there
+ *       is nothing left to prefer one retailer's word over another's.
+ *
+ * For (A), the manufacturer must genuinely have been *read*: a real prior
+ * citation in this file naming what its own domain said, or a retrieval done
+ * in the pass that adds the entry. "The house presumably calls it X" is not
+ * route (A) and never counts. Three real ways route (A) fails to apply even
+ * though the domain was opened, all of them live in the log below: the house
+ * has no storefront at all (French Avenue); its own page names no
+ * concentration (calvinklein.us, ahmedalmaghribi.co.in), or its own regional
+ * sites disagree with each other (Ahmed Al Maghribi) or with themselves
+ * (azzaro.com's title says "Eau de toilette" while its own URL path says
+ * "eau-de-parfum"); or it names a real concentration this codebase has no slot
+ * for (Elizabeth Arden's "Green Tea Scent Spray", vintage Coty's "Parfum de
+ * Toilette"). Silence, self-contradiction and an unmodellable answer are not
+ * the manufacturer's word — they are the absence of one, which drops the
+ * question back to route (B).
+ *
+ * Route (A) also requires the claim to be a claim. A concentration suffix that
+ * a domain applies to every product on a template regardless of tier is not
+ * the manufacturer saying anything about this bottle — see the Armani My Way
+ * 90ml entry below, where armani.com's blanket "Eau de Parfum" was checked by
+ * fetching the domain and found to sit on every My Way flanker alike.
+ *
+ * Whichever route is used, a fact counts only when it appears in a search
+ * result's own title or link, never merely in a search summary's prose gloss —
+ * the same rule this project's other web-sourced facts follow (see
+ * demo/brandSites.ts). Fragrantica's own title can corroborate but is never
+ * accepted standing alone. Jomashop is the standing example of a source whose
+ * own listing titles show both words at once ("1 Million Parfum EDP Spray",
+ * "Le Male Elixir EDP Spray Parfum") — a URL/title template artifact, not an
+ * independent claim, and so not a route-(B) dissent either.
+ *
+ * History, because the entries below were written under two different rules
+ * and it matters which: the 2026-08-27 through 2026-09-01 passes (five of
+ * them) read the bar as requiring (A) AND the absence of any contradiction,
+ * and on that reading refused fifteen EANs where the manufacturer's own
+ * domain had actually been read and had actually answered. The owner ruled on
+ * 2026-09-02 that (A) alone is sufficient. Those fifteen were re-derived from
+ * their own logged citations — not assumed — and moved into the table below;
+ * see the 2026-09-02 pass note after the table for which moved, on whose
+ * word, and why the remaining ten did not.
+ *
+ * See each entry for its own citation, and the comment at the end of this
+ * table for what was checked and left Disputed regardless, so a future pass
+ * does not repeat the same searches for nothing.
  *
  * Two patterns worth naming because they cut across many individual
  * entries:
@@ -604,6 +648,57 @@ export const CONCENTRATION_RESOLUTIONS: Readonly<Record<string, ConcentrationRes
   '6298042001718': { concentration: 'Extrait de Parfum', citation: 'French Avenue Frostbite 100ml: pennypart.com explicitly "Extrait de Parfum"; matches the established manchester-ouds abbreviation pattern (see CONCENTRATION_RESTATEMENT_RE) against Jomashop’s lone "EDP".' },
   '6290171070207': { concentration: 'Extrait de Parfum', citation: 'Afnan Supremacy In Oud 100ml: ShopSimon, Jomashop (its own title, not just its URL), clothbase, DLG, Nandansons, ModeSens all "Extrait de Parfum"; perfume-click’s "Eau de Parfum" was the mislabel here.' },
   '6298042001800': { concentration: 'Extrait de Parfum', citation: 'French Avenue Safari Breeze 100ml: three separate eBay listings, Jomashop and ModeSens all "Extrait de Parfum"; beautybase already had this right, manchester-ouds’ "Eau de Parfum" did not.' },
+
+  // ══ Added 2026-09-02, on route (A) of the evidence bar above — the
+  // manufacturer's own domain, read, naming this product at this size. Each
+  // one had a contradicting retailer title that the five passes before the
+  // owner's ruling treated as disqualifying; under the ruling it is
+  // outranked, and each entry names it so a reader can see exactly what was
+  // set aside and by whose word. Nothing here is new agreement; every one of
+  // these turns on a manufacturer statement that was already read (citation
+  // carried over from the log below) or was retrieved in this pass. ══
+
+  // ── Rabanne: rabanne.com re-checked directly for each of these five in the
+  // 2026-08-27 second pass, "Parfum"/"Parfum Intense" every time. See the
+  // Rabanne paragraph near the top of this table for why the house's own
+  // "Parfum" tier is a real, separately-marketed concentration and not a
+  // sloppier way of writing Eau de Parfum. ──
+  '3349668641758': { concentration: 'Parfum', citation: 'Rabanne Olympéa Absolu Intense 30ml: rabanne.com’s own domain states "Parfum Intense" (read directly, 2026-08-27 second pass). Argos independently says "Eau De Parfum" for the same EAN; outranked by the manufacturer under the 2026-09-02 ruling.' },
+  '3349668617043': { concentration: 'Parfum', citation: 'Rabanne 1 Million Royal 50ml: rabanne.com’s own domain states "Parfum" (read directly, 2026-08-27 second pass); most resellers agree. kanerbrandhouse.com and thebarbersupplier.com say "EDP"; outranked by the manufacturer under the 2026-09-02 ruling.' },
+  '3349668627486': { concentration: 'Parfum', citation: 'Rabanne Olympéa 30ml: rabanne.com’s own domain states "Parfum" (read directly, 2026-08-27 second pass), consistent with the already-resolved 50ml and 80ml. Scentia.fr says "EDP" at this size only; outranked by the manufacturer under the 2026-09-02 ruling.' },
+  '3349668614516': { concentration: 'Parfum', citation: 'Rabanne Invictus Victory Elixir Intense 50ml: rabanne.com’s own domain states "Parfum Intense" (read directly, 2026-08-27 second pass); eBay, Jomashop and ModeSens agree. giftexpress, kanerbrandhouse.com and perfumesclub.co.uk say "Eau De Parfum"; outranked by the manufacturer under the 2026-09-02 ruling.' },
+  '3349668614523': { concentration: 'Parfum', citation: 'Rabanne Invictus Victory Elixir Intense 100ml: rabanne.com’s own domain states "Parfum Intense" (read directly, 2026-08-27 second pass); eBay, Jomashop and ModeSens agree. giftexpress, kanerbrandhouse.com and perfumesclub.co.uk say "Eau De Parfum"; outranked by the manufacturer under the 2026-09-02 ruling.' },
+
+  // ── Versace: versace.com runs the Crystal lines as two separately-titled
+  // SKU families at the same sizes — an EDT and a Parfum — and names no "Eau
+  // de Parfum" in either line at all, which is what perfume-click's suffix
+  // claims. Crystal Noir 90ml was read on versace.com in the 2026-08-27
+  // second pass; both Bright Crystal sizes were retrieved 2026-09-02. ──
+  '8011003891061': { concentration: 'Parfum', citation: 'Versace Crystal Noir 90ml: versace.com’s own product page is titled exactly "Crystal Noir Parfum 90 ml Black" (read directly, 2026-08-27 second pass). Harvey Nichols independently says "Eau De Parfum"; outranked by the manufacturer under the 2026-09-02 ruling. Consistent with the already-resolved Crystal Noir 50ml.' },
+  '8011003891092': { concentration: 'Parfum', citation: 'Versace Bright Crystal 90ml: versace.com’s own product page (R512032-R090MLS) is titled "Bright Crystal Parfum 90 ml Pink", and the same domain runs the alternative as a separately-titled "Bright Crystal EDT 90 ml Pink" (R510032) — the house names no Bright Crystal "Eau de Parfum" at any size. Harvey Nichols says "Eau De Parfum"; outranked by the manufacturer under the 2026-09-02 ruling.' },
+  '8011003891467': { concentration: 'Parfum', citation: 'Versace Bright Crystal 50ml: versace.com’s own product page (R512030-R050MLS) is titled "Bright Crystal Parfum 50 ml Pink"; same two-family Parfum/EDT structure as the 90ml, no "Eau de Parfum" anywhere in the line. Harvey Nichols says "Eau De Parfum"; outranked by the manufacturer under the 2026-09-02 ruling.' },
+
+  // ── Jean Paul Gaultier Scandal Absolu (women's), all three sizes: the
+  // house's own UK product page titles the bottle "Scandal Absolu Parfum
+  // Concentré" and offers exactly 30ml, 50ml and 80ml under that one name, so
+  // every disputed size is covered by the manufacturer's own word rather than
+  // inferred from a neighbouring one. ──
+  '8435415080408': { concentration: 'Parfum', citation: 'JPG Scandal Absolu 30ml: jeanpaulgaultier.com’s own UK product page names it "Scandal Absolu Parfum Concentré" and lists 30/50/80ml under it (retrieved 2026-09-02; the 2026-09-01 third pass had already read the US site’s 1oz/2.7oz SKUs). Jomashop runs two self-contradicting listings for the line; outranked by the manufacturer under the 2026-09-02 ruling.' },
+  '8435415080415': { concentration: 'Parfum', citation: 'JPG Scandal Absolu 50ml: jeanpaulgaultier.com’s own UK product page names it "Scandal Absolu Parfum Concentré" and offers this exact 50ml under that name (retrieved 2026-09-02 — the size the US site does not carry, which is why earlier passes reached only 30ml/80ml). fragrance-click titles it "Parfum" too; perfume-click’s "Eau de Parfum" is outranked under the 2026-09-02 ruling.' },
+  '8435415080422': { concentration: 'Parfum', citation: 'JPG Scandal Absolu 80ml: jeanpaulgaultier.com’s own UK product page names it "Scandal Absolu Parfum Concentré" at this size (retrieved 2026-09-02). alsayyedcosmetics.com and perfumesclub.se say "EDP"; outranked by the manufacturer under the 2026-09-02 ruling.' },
+
+  // ── Afnan / Zimaya (Zimaya is Afnan's own sub-brand, with its own house
+  // storefront): the house's own product pages state the concentration in so
+  // many words, in both directions — Extrait for Supremacy Not Only Intense,
+  // EDP for Musk Is Great. Nothing here favours one label over the other. ──
+  '6290171072775': { concentration: 'Extrait de Parfum', citation: 'Afnan Supremacy Not Only Intense 150ml: us.afnan.com’s own product page states "EXTRAIT DE PARFUM" for this exact 150ml product (fetched directly, 2026-09-01 third pass). Superdrug titles the same EAN "Eau de Parfum"; outranked by the manufacturer under the 2026-09-02 ruling.' },
+  '6290171070214': { concentration: 'Extrait de Parfum', citation: 'Afnan Supremacy Not Only Intense 100ml: us.afnan.com’s own product page for the 100ml states type "EXTRAIT DE PARFUM" (fetched directly, 2026-09-02 — the 150ml sibling had been read before, this size had not). eBay, Realry and Triple Traders say "Eau de Parfum"; outranked by the manufacturer under the 2026-09-02 ruling.' },
+  '6290171070276': { concentration: 'Eau de Parfum', citation: 'Zimaya Musk Is Great 100ml: us.zimayaperfumes.com — the house’s own storefront — titles it "Musk Is Great EDP 100ml" and states "100ML | EDP | Unisex" (fetched directly, 2026-09-02; no manufacturer domain had been checked for this EAN in any earlier pass). perfumeheadquarters.com’s "Extrait de Parfum" title, itself contradicted by its own URL, is outranked under the 2026-09-02 ruling.' },
+
+  // ── Yardley: the flagship example the Disputed value was originally
+  // written around, and the clearest case of the AND reading refusing a fact
+  // it had in hand. ──
+  '6297000226163': { concentration: 'Eau de Parfum', citation: 'Yardley Gentleman Classic 100ml: yardleylondon.co.uk — the manufacturer’s own domain — titles the exact 100ml "Gentleman Classic Eau de Parfum 100ml" (read directly, 2026-08-27 second pass). upcitemdb.com and news-parfums.com say "Eau de Toilette" for the same barcode; outranked by the manufacturer under the 2026-09-02 ruling.' },
 } as const;
 
 /*
@@ -924,6 +1019,97 @@ export const CONCENTRATION_RESOLUTIONS: Readonly<Record<string, ConcentrationRes
  *     claim, and this codebase's vocabulary has no slot for "Eau Parfumée".
  *     Every other disputed listing's description is either absent or names
  *     no concentration, so there is no unread evidence sitting on disk.
+ *
+ * ══ 2026-09-02: the owner's OR ruling applied. 25 Disputed -> 10. ══
+ *
+ * Everything above this line was written under the AND reading of the
+ * evidence bar: manufacturer confirmation was treated as insufficient while
+ * any independent retailer title contradicted it. Five passes applied it, and
+ * the phrase that recurs through the entries above — "manufacturer
+ * confirmation doesn't erase an independent retailer's contradicting claim" —
+ * is that reading in so many words. The owner has ruled the other way, and
+ * the bar's own statement above the table has been rewritten to say so
+ * unambiguously: the manufacturer's own word about its own product is
+ * sufficient by itself, and a retailer mislabelling a bottle does not make the
+ * manufacturer wrong.
+ *
+ * The reasoning in the entries above is left exactly as it was, because it is
+ * a true record of what was found; only the ruling on top of it has changed.
+ * What follows is which of the 25 moved and on whose word.
+ *
+ * Method, so this is auditable rather than a re-shuffle: every one of the 25
+ * was re-read from this log, and the *only* question asked of each was
+ * whether the manufacturer's own domain had actually been read for that exact
+ * product and what it said. Where a prior pass recorded reading it, that
+ * citation was carried into the table verbatim as to substance. Where no pass
+ * had read it, the domain was retrieved in this pass or the entry stayed
+ * Disputed; nothing was assumed from a house's general naming habits. Five
+ * entries needed a fresh retrieval (both Versace Bright Crystal sizes, JPG
+ * Scandal Absolu 50ml, Afnan Supremacy Not Only Intense 100ml, Zimaya Musk Is
+ * Great 100ml) and all five answered.
+ *
+ * Fifteen resolved — see CONCENTRATION_RESOLUTIONS above for each citation:
+ *   ean-6297000226163 Yardley Gentleman Classic 100ml          (yardleylondon.co.uk)
+ *   ean-3349668641758 Rabanne Olympéa Absolu Intense 30ml      (rabanne.com)
+ *   ean-3349668617043 Rabanne 1 Million Royal 50ml             (rabanne.com)
+ *   ean-3349668627486 Rabanne Olympéa 30ml                     (rabanne.com)
+ *   ean-3349668614516 Rabanne Invictus Victory Elixir 50ml     (rabanne.com)
+ *   ean-3349668614523 Rabanne Invictus Victory Elixir 100ml    (rabanne.com)
+ *   ean-8011003891061 Versace Crystal Noir 90ml                (versace.com)
+ *   ean-8011003891092 Versace Bright Crystal 90ml              (versace.com, new)
+ *   ean-8011003891467 Versace Bright Crystal 50ml              (versace.com, new)
+ *   ean-8435415080408 JPG Scandal Absolu 30ml                  (jeanpaulgaultier.com)
+ *   ean-8435415080415 JPG Scandal Absolu 50ml                  (jeanpaulgaultier.com, new)
+ *   ean-8435415080422 JPG Scandal Absolu 80ml                  (jeanpaulgaultier.com)
+ *   ean-6290171072775 Afnan Supremacy Not Only Intense 150ml   (us.afnan.com)
+ *   ean-6290171070214 Afnan Supremacy Not Only Intense 100ml   (us.afnan.com, new)
+ *   ean-6290171070276 Zimaya Musk Is Great 100ml               (us.zimayaperfumes.com, new)
+ *
+ * Ten stay Disputed, and not one of them for the reason the ruling
+ * overturned. In every case route (A) does not apply at all — the
+ * manufacturer is silent, unreachable, self-contradictory, or names something
+ * this codebase cannot express — so the question falls back to route (B),
+ * where a persisting independent contradiction still disqualifies:
+ *
+ *   - ean-3614274258080 / ean-3614274258073 Azzaro Wanted Forever Elixir
+ *     50ml/100ml: azzaro.com contradicts *itself* (own title "Eau de
+ *     toilette", own URL path "eau-de-parfum"). A house that says two things
+ *     has not said one; there is no manufacturer's word here to outrank
+ *     anything with.
+ *   - ean-6298042001909 French Avenue Ravine Ice 100ml,
+ *     ean-6290360379203 Carnal Desire, ean-6290360379227 Royal Taboo 100ml:
+ *     French Avenue has no storefront of its own anywhere — route (A) is not
+ *     merely unmet, it is unavailable — and route (B) splits genuinely (see
+ *     the entries above; Ravine Ice additionally has this repo's own
+ *     harvested description pointing opposite to the external majority).
+ *   - ean-6290360617442 Ahmed Al Maghribi Summer Oud 60ml: the house's own
+ *     regional domains still disagree with each other, and the .co.in product
+ *     page was re-read this pass to be sure — its title is "SUMMER OUD 60ML
+ *     H/B", it sits under a plain "Perfumes" collection, and it states no
+ *     concentration at all. Silence plus inconsistency is not the
+ *     manufacturer's word.
+ *   - ean-3616304175916 Gucci Guilty Pour Femme Elixir de 60ml: gucci.com has
+ *     never been reachable for this product. Tried again this pass from a
+ *     different direction and hit a hard wall rather than a miss: gucci.com
+ *     refuses this project's search user agent outright ("domain not
+ *     accessible to our user agent"), so route (A) cannot be attempted at
+ *     all by any means available here. Route (B) still has Walmart's "ExDP"
+ *     standing against ten retailers' "Elixir de Parfum".
+ *   - ean-3616303476793 Calvin Klein Eternity Aromatic Essence Intense 50ml:
+ *     calvinklein.us's own exact-EAN page names no concentration in its
+ *     title. Manufacturer read, manufacturer silent.
+ *   - ean-085805268848 Elizabeth Arden Green Tea 100ml: the manufacturer's
+ *     own domain was read (fourth pass) and names the bottle "Green Tea Scent
+ *     Spray" — matching *neither* disputed claim. A manufacturer answering a
+ *     different question than the one asked cannot settle it.
+ *   - ean-5012209042441 L'Aimant 50ml: the true name is "Parfum de Toilette",
+ *     a vintage Coty concentration this codebase's vocabulary has no slot
+ *     for. Structurally unresolvable at any evidence bar.
+ *
+ * So the ruling's whole effect is on the ten-of-twenty-five where a house had
+ * spoken and was being overruled by a shop. Where no house has spoken, the
+ * table is as empty as it was, which is the correct outcome and not a
+ * shortfall.
  */
 
 /**

@@ -1209,16 +1209,33 @@ describe('CONCENTRATION_RESOLUTIONS: the curated concentration-dispute overrides
     expect(resolution?.citation).toMatch(/lancome-usa\.com/);
   });
 
-  it('leaves the other flagship example unresolved, on a genuine conflict rather than an unchecked gap', () => {
-    // Yardley Gentleman Classic 100ml — the search pass did check this one
-    // (see the "left Disputed" comment at the end of the table): the
-    // majority of retailers say EDP, but upcitemdb.com's own independent EAN
-    // database says "Eau de Toilette" for the same barcode. A real,
-    // title-level conflict, not a summary-only claim, so it stays absent
-    // from the table and scripts/build-demo-catalogue.ts falls through to
-    // CONCENTRATION_DISPUTED for it exactly as it does for a dispute nobody
-    // has looked at yet.
-    expect(CONCENTRATION_RESOLUTIONS['6297000226163']).toBeUndefined();
+  it('settles the other flagship example on the manufacturer\'s own word, over a contradicting retailer', () => {
+    // Yardley Gentleman Classic 100ml — the case the OR ruling of 2026-09-02
+    // turns on, pinned here because it is the one entry in this table whose
+    // value changed for a reason that was not new evidence. Five earlier
+    // passes had yardleylondon.co.uk's own title in hand ("Gentleman Classic
+    // Eau de Parfum 100ml") and still refused to use it, because
+    // upcitemdb.com's EAN database says "Eau de Toilette" for the same
+    // barcode. The owner ruled that the manufacturer's own word about its own
+    // product is sufficient by itself: a retailer — or a crowd-sourced
+    // barcode database — mislabelling a bottle does not make the house that
+    // filled it wrong. See the evidence bar above CONCENTRATION_RESOLUTIONS.
+    const resolution = CONCENTRATION_RESOLUTIONS['6297000226163'];
+    expect(resolution?.concentration).toBe('Eau de Parfum');
+    expect(resolution?.citation).toMatch(/yardleylondon\.co\.uk/);
+  });
+
+  it('still leaves a dispute unresolved where no manufacturer ever spoke', () => {
+    // French Avenue Ravine Ice 100ml. The OR ruling widened route (A) — the
+    // manufacturer's own word — but route (B), overwhelming independent
+    // agreement, is unchanged, and this product cannot use either: French
+    // Avenue has no storefront of its own anywhere to read, and the external
+    // sources genuinely split (this repo's own harvested manchester-ouds
+    // description says "Extrait De Parfum" against an Amazon/marabika/
+    // souqfragrance majority saying "Eau de Parfum"). Absent from the table,
+    // so scripts/build-demo-catalogue.ts falls through to
+    // CONCENTRATION_DISPUTED exactly as before.
+    expect(CONCENTRATION_RESOLUTIONS['6298042001909']).toBeUndefined();
   });
 
   it('never resolves to CONCENTRATION_DISPUTED itself, and never to an empty citation', () => {
