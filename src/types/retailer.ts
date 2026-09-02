@@ -540,7 +540,18 @@ export interface Retailer {
    * real money on every run that reaches this shop's render escalation
    * (docs/INGESTION.md's own estimate: roughly $2-5 per 1,000 actor-rendered
    * pages) — a deliberate owner decision with the cost in front of them, not
-   * a default. No retailer sets this today.
+   * a default.
+   *
+   * 2026-09-02: the owner approved it for John Lewis, and it is set on that
+   * one shop and no other. Setting it does NOT mean "render this shop every
+   * run": ACTOR_TIER_MIN_INTERVAL_HOURS in src/catalogue/renderTier.ts caps
+   * one shop to a single actor render per 24 hours, because at the hourly
+   * cron this shop's four pages would cost $5.84-$14.60 a month against a
+   * $5 pool — more than the whole pool, spent by one shop. Inside that window
+   * the shop gets no render at all rather than dropping to the free local
+   * tier it is already refused by. Anything added here has to have that
+   * arithmetic redone for it; tests/registry.test.ts pins the scope to one
+   * shop so a second cannot appear quietly.
    */
   renderTier?: 'actor';
   shipping: ShippingRule;

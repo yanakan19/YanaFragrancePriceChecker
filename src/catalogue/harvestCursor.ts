@@ -59,9 +59,27 @@
 export interface HarvestCursor {
   /** ISO timestamp of the last run that reached this shop, per retailer id. */
   attempted: Record<string, string>;
+  /**
+   * ISO timestamp of the last run that actually spent an Apify actor render on
+   * this shop, per retailer id. Empty for every shop that has never reached
+   * the paid tier, which is all but the one that sets `renderTier: 'actor'`.
+   *
+   * Separate from `attempted` because they answer different questions and must
+   * be allowed to disagree. `attempted` is written for every shop the sweep
+   * reaches, whether or not it rendered anything, precisely so a shop that
+   * fails fast still rotates to the back — see this module's own header. A
+   * money-spending bound cannot use that: John Lewis is *attempted* on most
+   * runs and would have its bound reset by attempts that spent nothing, which
+   * would make the bound meaningless in the one direction that costs. This map
+   * is written only where a real actor render actually happened.
+   *
+   * Read by actorTierDue in src/catalogue/renderTier.ts. Optional in shape
+   * only: parseCursor always fills it, so callers never see undefined.
+   */
+  actorRendered: Record<string, string>;
 }
 
-export const EMPTY_CURSOR: HarvestCursor = { attempted: {} };
+export const EMPTY_CURSOR: HarvestCursor = { attempted: {}, actorRendered: {} };
 
 /**
  * Read a cursor out of whatever was on disk, tolerating anything.
@@ -71,6 +89,15 @@ export const EMPTY_CURSOR: HarvestCursor = { attempted: {} };
  * asked", which orders by the fallbacks below and harvests exactly as the old
  * fixed order did. It must never be a reason a harvest fails.
  */
+function stampMap(value: unknown): Record<string, string> {
+  if (!value || typeof value !== 'object') return {};
+  const out: Record<string, string> = {};
+  for (const [id, at] of Object.entries(value as Record<string, unknown>)) {
+    if (typeof at === 'string' && at.length > 0) out[id] = at;
+  }
+  return out;
+}
+
 export function parseCursor(raw: string | null | undefined): HarvestCursor {
   if (!raw) return EMPTY_CURSOR;
   try {
@@ -78,11 +105,15 @@ export function parseCursor(raw: string | null | undefined): HarvestCursor {
     if (!parsed || typeof parsed !== 'object') return EMPTY_CURSOR;
     const attempted = (parsed as { attempted?: unknown }).attempted;
     if (!attempted || typeof attempted !== 'object') return EMPTY_CURSOR;
-    const out: Record<string, string> = {};
-    for (const [id, at] of Object.entries(attempted as Record<string, unknown>)) {
-      if (typeof at === 'string' && at.length > 0) out[id] = at;
-    }
-    return { attempted: out };
+    // A cursor written before `actorRendered` existed has no such key, and
+    // that must read as "no shop has ever spent an actor render" rather than
+    // failing the whole parse — the first run after this ships reads exactly
+    // that file. It is also the safe direction: an absent stamp means the
+    // bound allows one render, which is the same as a fresh install.
+    return {
+      attempted: stampMap(attempted),
+      actorRendered: stampMap((parsed as { actorRendered?: unknown }).actorRendered),
+    };
   } catch {
     return EMPTY_CURSOR;
   }
@@ -129,7 +160,26 @@ export function sweepOrder<T extends SweepCandidate>(
 
 /** A cursor with `id` marked as asked at `at`. Pure; the caller writes it. */
 export function withAttempt(cursor: HarvestCursor, id: string, at: string): HarvestCursor {
-  return { attempted: { ...cursor.attempted, [id]: at } };
+  return { ...cursor, attempted: { ...cursor.attempted, [id]: at } };
+}
+
+/**
+ * A cursor with `id` marked as having spent a real Apify actor render at `at`.
+ * Pure; the caller writes it.
+ *
+ * Spread over the whole cursor, not just its own map, for the reason
+ * withAttempt now is too: these two maps are written by different call sites
+ * at different moments in the same run, and a rebuild-from-one-field would
+ * silently drop whichever the other had just recorded. A dropped `attempted`
+ * stamp starves a shop; a dropped `actorRendered` stamp spends money.
+ */
+export function withActorRender(cursor: HarvestCursor, id: string, at: string): HarvestCursor {
+  return { ...cursor, actorRendered: { ...cursor.actorRendered, [id]: at } };
+}
+
+/** When this shop last spent an actor render, or null if it never has. */
+export function lastActorRender(cursor: HarvestCursor, id: string): string | null {
+  return cursor.actorRendered[id] ?? null;
 }
 
 /**

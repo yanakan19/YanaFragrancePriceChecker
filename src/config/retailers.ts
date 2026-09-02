@@ -1368,7 +1368,42 @@ export const RETAILERS: readonly Retailer[] = [
     // at ~1MB, HTTP 200, real priced listings read out by
     // src/catalogue/johnLewisNextData.ts, which still exists and is still
     // wired). Nothing else on file recovers them.
-    // renderTier: 'actor',
+    //
+    // ── ENABLED 2026-09-02, BOUNDED. The owner approved it; the arithmetic ──
+    // ── decided the shape ───────────────────────────────────────────────────
+    // The cost paragraph above was written when the cron fired three-hourly.
+    // It now fires hourly (`15 * * * *`), and redoing the sum at that cadence
+    // is what changed the answer from "enable it" to "enable it with a bound":
+    //
+    //     4 pages/run at $2-5 per 1,000 (docs/INGESTION.md)
+    //     hourly       2,918 pages/month   $5.84 - $14.60/month
+    //     every 24h      122 pages/month   $0.24 -  $0.61/month
+    //
+    // The shared pool is $5/month. Hourly rendering of this one shop overruns
+    // it alone — 117% of the pool at the cheap end of the estimate, 292% at
+    // the dear end — before Boots, Selfridges, Superdrug or Zara draw a single
+    // page. That is the 2026-08-21 outage's own mechanism, arrived at from a
+    // different direction, and enabling this unbounded would have set it up to
+    // happen again. Every-24-hours costs 5-12% of the pool and leaves the
+    // other four shops the room they have today.
+    //
+    // So the bound is implemented in code, per shop, not left to the two
+    // run-wide YAML gates that already exist. Those gates are real and they
+    // help — the workflow's `guard` job holds a real harvest to roughly one
+    // per 237 minutes, and the harvest step only passes `--allow-metered` when
+    // data/metered-harvest-marker.txt is 20+ hours old — but neither is
+    // per-shop, and the second is deliberately overridden by a hand dispatch
+    // ("An explicit allow_metered dispatch always wins"). A few dispatches in
+    // one afternoon would each hand this shop four more paid pages with
+    // nothing counting them. ACTOR_TIER_MIN_INTERVAL_HOURS
+    // (src/catalogue/renderTier.ts) counts them: at most one actor render of
+    // this shop per 24 hours, measured from data/harvest-cursor.json's own
+    // `actorRendered` stamp, which is written at dispatch rather than on
+    // success so a failing render still counts against the bound. When the
+    // bound declines, this shop gets NO render that run — not a fallback to
+    // the local tier it is already refused by. See tests/renderTier.test.ts
+    // and tests/harvestCursor.test.ts.
+    renderTier: 'actor',
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
