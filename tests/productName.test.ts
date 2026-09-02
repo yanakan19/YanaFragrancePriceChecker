@@ -1271,17 +1271,40 @@ describe('CONCENTRATION_RESOLUTIONS: the curated concentration-dispute overrides
     expect(resolution?.citation).toMatch(/yardleylondon\.co\.uk/);
   });
 
-  it('still leaves a dispute unresolved where no manufacturer ever spoke', () => {
-    // French Avenue Ravine Ice 100ml. The OR ruling widened route (A) — the
-    // manufacturer's own word — but route (B), overwhelming independent
-    // agreement, is unchanged, and this product cannot use either: French
-    // Avenue has no storefront of its own anywhere to read, and the external
-    // sources genuinely split (this repo's own harvested manchester-ouds
-    // description says "Extrait De Parfum" against an Amazon/marabika/
-    // souqfragrance majority saying "Eau de Parfum"). Absent from the table,
-    // so scripts/build-demo-catalogue.ts falls through to
-    // CONCENTRATION_DISPUTED exactly as before.
-    expect(CONCENTRATION_RESOLUTIONS['6298042001909']).toBeUndefined();
+  it('still leaves a dispute unresolved where the manufacturer is silent', () => {
+    // Calvin Klein Eternity Aromatic Essence Intense 50ml. The OR ruling
+    // widened route (A) — the manufacturer's own word — but route (B),
+    // overwhelming independent agreement, is unchanged, and this product can
+    // use neither. calvinklein.us and calvinklein.co.uk both title it
+    // "Eternity Aromatic Essence for Women - 50ml" with no concentration word
+    // at all, while the same domain does name one on neighbouring Eternity
+    // products — so the omission is about this bottle, not a house that never
+    // says. Perfume Clearance Centre says "Parfum", Jomashop says "EDP", and
+    // there is nothing above them to break the tie.
+    //
+    // This test used to name French Avenue Ravine Ice, on the ground that
+    // "French Avenue has no storefront of its own anywhere" — which five
+    // passes of the log asserted and the pass after the ruling found to be
+    // false. frenchavenue.com is Fragrance World's own, and it settled two of
+    // the three French Avenue disputes. The replacement is deliberately a case
+    // whose manufacturer has actually been read and has actually said nothing,
+    // rather than one whose manufacturer was assumed not to exist.
+    expect(CONCENTRATION_RESOLUTIONS['3616303476793']).toBeUndefined();
+  });
+
+  it('refuses a manufacturer page that contradicts itself, even beside two siblings it settled', () => {
+    // French Avenue Carnal Desire 100ml, and the sharpest case in the table
+    // for what route (A) does and does not permit. frenchavenue.com — the
+    // manufacturer's own storefront — settled its siblings Ravine Ice and
+    // Royal Taboo as Extrait de Parfum. Carnal Desire's page on that same
+    // site is titled "... | Unisex Extrait De Parfum" and its own
+    // specifications block reads "Product - EDP". A house that says two things
+    // has not said one, exactly as azzaro.com's own title/URL split already
+    // establishes. Resolving it on the title because its two siblings resolved
+    // that way would be reading the range rather than the bottle.
+    expect(CONCENTRATION_RESOLUTIONS['6290360379203']).toBeUndefined();
+    expect(CONCENTRATION_RESOLUTIONS['6298042001909']?.concentration).toBe('Extrait de Parfum');
+    expect(CONCENTRATION_RESOLUTIONS['6290360379227']?.concentration).toBe('Extrait de Parfum');
   });
 
   it('never resolves to CONCENTRATION_DISPUTED itself, and never to an empty citation', () => {
