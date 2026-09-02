@@ -611,13 +611,34 @@ describe('retailer registry', () => {
     // other render-dependent shop off the free local one, but turning it on
     // for a shop spends real money on every run that reaches that shop's
     // render escalation. See the Retailer field's own doc comment in
-    // src/types/retailer.ts. No retailer sets it yet — enabling one (John
-    // Lewis is the worked example in its own registry entry) is a deliberate
-    // owner decision with the cost in front of them, not a default this pass
-    // makes on its own.
-    it('is set on no shop', () => {
+    // src/types/retailer.ts.
+    //
+    // 2026-09-02: the owner approved it for exactly one shop. This test is
+    // now the guard on that scope rather than on the field being unused —
+    // every shop added here costs from the same $5 monthly pool that ran out
+    // on 2026-08-21 and took five shops dark with it, so a second one
+    // appearing without the arithmetic being redone should fail loudly.
+    it('is set on exactly one shop, John Lewis', () => {
       const withPreference = RETAILERS.filter((r) => r.renderTier !== undefined).map((r) => r.id);
-      expect(withPreference).toEqual([]);
+      expect(withPreference).toEqual(['john-lewis']);
+    });
+
+    it("only ever holds the value 'actor'", () => {
+      for (const r of RETAILERS.filter((x) => x.renderTier !== undefined)) {
+        expect(r.renderTier, r.id).toBe('actor');
+      }
+    });
+
+    it('is set only where the free local tier is genuinely refused', () => {
+      // The tier is the expensive answer to "the free renderer cannot get
+      // this shop". A shop whose local render works has no business on it,
+      // and John Lewis qualifies on ten recorded local refusals — see its
+      // registry entry. `'local'` rather than `true` is what leaves the actor
+      // route open for it while the free one stays skipped (see
+      // knownRenderRefusal in src/catalogue/renderRefusal.ts).
+      for (const r of RETAILERS.filter((x) => x.renderTier === 'actor')) {
+        expect(r.renderRefused, r.id).toBe('local');
+      }
     });
   });
 });

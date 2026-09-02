@@ -4,6 +4,8 @@ import {
   sweepOrder,
   staleCursorIds,
   withAttempt,
+  withActorRender,
+  lastActorRender,
   EMPTY_CURSOR,
   type HarvestCursor,
 } from '../src/catalogue/harvestCursor.js';
@@ -66,6 +68,7 @@ describe('sweepOrder — the starvation this exists to end', () => {
         boots: '2026-08-23T09:00:00.000Z',
         justmylook: '2026-08-24T12:00:00.000Z',
       },
+      actorRendered: {},
     };
     const order = sweepOrder(
       [
@@ -228,5 +231,69 @@ describe('sweepOrder — a faster per-shop cost cannot resurrect the starvation 
       expect(seen.size).toBe(candidates.length);
       expect(noRepeatBeforeFullCoverage).toBe(true);
     }
+  });
+});
+
+
+/**
+ * The `actorRendered` map, added 2026-09-02 alongside the per-shop bound on
+ * paid Apify rendering (see ACTOR_TIER_MIN_INTERVAL_HOURS in
+ * src/catalogue/renderTier.ts for the cost arithmetic that motivates it).
+ *
+ * It shares this file with `attempted` because they are two facts about the
+ * same shop written by the same run, but they answer different questions and
+ * are deliberately allowed to disagree: `attempted` is stamped for every shop
+ * the sweep reaches, so a shop that fails in four seconds still rotates to the
+ * back, while `actorRendered` is stamped only where money was actually spent.
+ * Using `attempted` for the bound would reset it on runs that spent nothing,
+ * which is exactly the direction that costs.
+ */
+describe('actorRendered: the stamp a money bound reads', () => {
+  it('is empty for a cursor written before it existed, rather than failing the parse', () => {
+    // The first run after this ships reads exactly this file. An absent map
+    // must mean "no shop has ever spent an actor render", which is also the
+    // safe reading: it allows one render, same as a fresh install.
+    const legacy = parseCursor(JSON.stringify({ attempted: { boots: '2026-08-30T00:00:00.000Z' } }));
+    expect(legacy.attempted.boots).toBe('2026-08-30T00:00:00.000Z');
+    expect(legacy.actorRendered).toEqual({});
+    expect(lastActorRender(legacy, 'john-lewis')).toBeNull();
+  });
+
+  it('survives a round trip through JSON, which is how the harvest stores it', () => {
+    const written = withActorRender(EMPTY_CURSOR, 'john-lewis', '2026-09-02T09:00:00.000Z');
+    const readBack = parseCursor(JSON.stringify(written));
+    expect(lastActorRender(readBack, 'john-lewis')).toBe('2026-09-02T09:00:00.000Z');
+  });
+
+  it('drops a non-string stamp rather than handing a money bound something it cannot parse', () => {
+    const cursor = parseCursor(JSON.stringify({ attempted: {}, actorRendered: { 'john-lewis': 42 } }));
+    expect(lastActorRender(cursor, 'john-lewis')).toBeNull();
+  });
+
+  it('keeps both maps when either is written', () => {
+    // The bug this pins: withAttempt used to rebuild the cursor from its own
+    // field alone. The two maps are written by different call sites at
+    // different moments of one run, so a rebuild-from-one-field silently drops
+    // whatever the other had just recorded - a dropped `attempted` stamp
+    // starves a shop, a dropped `actorRendered` stamp spends money.
+    let cursor: HarvestCursor = EMPTY_CURSOR;
+    cursor = withActorRender(cursor, 'john-lewis', '2026-09-02T09:00:00.000Z');
+    cursor = withAttempt(cursor, 'john-lewis', '2026-09-02T09:00:05.000Z');
+    cursor = withAttempt(cursor, 'boots', '2026-09-02T09:01:00.000Z');
+    expect(lastActorRender(cursor, 'john-lewis')).toBe('2026-09-02T09:00:00.000Z');
+    expect(cursor.attempted).toEqual({
+      'john-lewis': '2026-09-02T09:00:05.000Z',
+      boots: '2026-09-02T09:01:00.000Z',
+    });
+  });
+
+  it('leaves the sweep order alone - it is a spend record, not an ordering hint', () => {
+    const cursor = withActorRender(
+      { attempted: { a: '2026-09-01T00:00:00.000Z', b: '2026-08-01T00:00:00.000Z' }, actorRendered: {} },
+      'a',
+      '2026-09-02T00:00:00.000Z',
+    );
+    const order = sweepOrder([{ id: 'a', neverLive: false }, { id: 'b', neverLive: false }], cursor).map((s) => s.id);
+    expect(order).toEqual(['b', 'a']);
   });
 });

@@ -80,7 +80,7 @@ import {
 import { rendererForShop, renderTierLabel } from '../src/catalogue/renderTier.js';
 import { capturePages, type CapturePage } from '../src/catalogue/renderCapture.js';
 import {
-  parseCursor, sweepOrder, withAttempt, staleCursorIds,
+  parseCursor, sweepOrder, withAttempt, withActorRender, lastActorRender, staleCursorIds,
 } from '../src/catalogue/harvestCursor.js';
 
 /** A file that may not exist yet, as text. Absence is not an error here. */
@@ -400,6 +400,37 @@ function recordAttempt(retailerId: string): void {
     writeFileSync(cursorPath, `${JSON.stringify(cursor, null, 2)}\n`);
   } catch {
     // See above: ordering is an optimisation, harvesting is not.
+  }
+}
+
+/**
+ * Record that a shop actually spent a paid Apify actor render, and put it on
+ * disk immediately.
+ *
+ * Written at the moment the render is dispatched, not after its result is
+ * parsed, and that is the point rather than a shortcut: the money is spent by
+ * the call, so a render that comes back empty, refused or malformed must still
+ * count against this shop's bound. Recording it on success would let a shop
+ * whose renders keep failing spend on every single run — precisely the case
+ * where a bound matters most.
+ *
+ * Written per shop and immediately for the same reason recordAttempt is: a run
+ * killed mid-sweep must not lose the record of what it has already spent, or
+ * the next run spends it again. Unlike the ordering cursor, a lost stamp here
+ * costs money rather than latency, so the write failure is logged rather than
+ * swallowed silently — it still does not stop the harvest, because a harvest
+ * that aborts leaves the site stale and the page is already paid for either
+ * way.
+ */
+function recordActorRender(retailerId: string): void {
+  cursor = withActorRender(cursor, retailerId, new Date().toISOString());
+  try {
+    writeFileSync(cursorPath, `${JSON.stringify(cursor, null, 2)}\n`);
+  } catch (err) {
+    console.log(
+      `      WARNING: could not record ${retailerId}'s actor render in the cursor ` +
+        `(${err instanceof Error ? err.message : String(err)}) — the next run may render it again`,
+    );
   }
 }
 
@@ -738,7 +769,21 @@ for (const retailer of shops) {
   // src/catalogue/renderTier.ts for the default (identical to the prior
   // run-wide behaviour) and for what `retailer.renderTier === 'actor'`
   // changes, per shop, for the one shop that ever sets it.
-  const { renderer: shopRenderer, tier: shopRenderTier } = rendererForShop(retailer, localRenderer, sharedActorRenderer);
+  //
+  // The `bound` argument is the per-shop frequency cap on paid rendering: at
+  // most one actor render per shop per ACTOR_TIER_MIN_INTERVAL_HOURS, read
+  // from this run's own cursor. See that constant for the cost arithmetic —
+  // the short version is that four pages an hour against a $5 monthly pool
+  // overruns it on one shop alone, and four pages a day does not. It applies
+  // only to a shop that sets `renderTier: 'actor'`; every other shop's
+  // decision is byte-for-byte what it was.
+  const { renderer: shopRenderer, tier: shopRenderTier, deferred: renderDeferred } = rendererForShop(
+    retailer,
+    localRenderer,
+    sharedActorRenderer,
+    { lastActorRenderAt: lastActorRender(cursor, retailer.id), now: new Date() },
+  );
+  if (renderDeferred) result.errors.push(renderDeferred);
   const useActorForShop = shopRenderer !== null;
   const shopRenderTierName = renderTierLabel(shopRenderTier);
 
@@ -784,6 +829,9 @@ for (const retailer of shops) {
     if (robotsForActor.unavailable) {
       const robotsUrl = robotsCandidateUrls(retailer)[0]!;
       console.log(`      ${retailer.name}: robots.txt unreadable every other way, rendering it through the actor`);
+      // Counted against the bound before the call, not after: this page costs
+      // the same whether or not it comes back readable. See recordActorRender.
+      if (shopRenderTier === 'actor') recordActorRender(retailer.id);
       const renderedRobots = await shopRenderer!.render([robotsUrl]);
       const painted = renderedRobots.get(robotsUrl);
       const text = painted?.ok ? robotsTextFromRenderedHtml(painted.body) : null;
@@ -812,6 +860,9 @@ for (const retailer of shops) {
       );
     } else {
       console.log(`      ${retailer.name}: rendering ${allowed.length} section page(s) through ${shopRenderTierName}`);
+      // Same rule as the robots render above: the bound counts pages paid
+      // for, not pages that turned out to be useful. See recordActorRender.
+      if (shopRenderTier === 'actor') recordActorRender(retailer.id);
       const rendered = await shopRenderer!.render(allowed.map((t) => t.url));
 
       // Debug-only, and only for the one shop named on the command line — see
