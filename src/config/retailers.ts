@@ -700,6 +700,88 @@ export const RETAILERS: readonly Retailer[] = [
     // this shop at all — no credential has existed in this environment — so
     // there is no actor-tier refusal to claim, and a plain boolean would
     // have wrongly skipped an untested route too.
+    //
+    // ── 2026-09-02: frozen eleven days. What actually happens now ───────────
+    // All 74 stored offers sit on two dates, 2026-08-20 (38) and 2026-08-22
+    // (36), and nothing since — the dead-route signature this file first
+    // named on John Lewis, and the same window in which the shared $5 Apify
+    // credit ran out on 2026-08-21.
+    //
+    // Read from the crawl job's own log rather than inferred — run #371, job
+    // 100062672226, harvest step 2026-09-01T23:28:57Z-2026-09-02T00:25:06Z,
+    // which did reach this shop:
+    //
+    //     The Perfume Shop   0 urls  0 fetched  0 priced listings  (2 errors)
+    //       [actor] skipped: The Perfume Shop has answered every real render
+    //           attempt on file with a refusal … — skipping the render tier
+    //           rather than spending a page confirming that again
+    //       https://www.theperfumeshop.com/sitemap.xml: HTTP 403
+    //     zero this run: … the-perfume-shop, john-lewis, superdrug, scentstore
+    //
+    // Run #372 (job 100124753779, 2026-09-02T04:49:44Z) did not reach it at
+    // all: "never reached this run: … the-perfume-shop … — out of time before
+    // being asked, keeping their previous prices". So the freeze is the free
+    // sitemap route's 403 plus `renderRefused: 'local'` correctly declining to
+    // re-ask a question five real local renders have already answered. Nothing
+    // is malfunctioning; there is no unmetered route left.
+    //
+    // ── The refusal covers robots.txt too — checked by hand 2026-09-02 ──────
+    // Three URLs from this sandbox, every one 389-419 bytes in under 0.35s:
+    //
+    //     /robots.txt                          403   390 bytes
+    //     /sitemap.xml                         403   389 bytes
+    //     /womens/womens-perfume/c/W2001       403   419 bytes
+    //
+    // The body is an Akamai edge deny — "<TITLE>Access Denied</TITLE> … You
+    // don't have permission to access … Reference #18.d7bd7768.1788344315…
+    // https://errors.edgesuite.net/…" — with a real per-request reference id,
+    // so it is this shop's own CDN answering rather than a sandbox relay
+    // failure (that shape produces no HTTP status at all; see John Lewis's
+    // entry). Byte-for-byte the same block shape Superdrug returns, from the
+    // same Akamai host, which is what one would expect: both are AS Watson
+    // brands, and this reads as one group-wide edge rule rather than two
+    // shops' independent decisions.
+    //
+    // That /robots.txt is itself refused matters beyond the sections: this
+    // project cannot read this shop's own crawl rules from a datacentre
+    // address at all, so "is this path allowed" is not answerable here.
+    // Nothing treats that as permission — the robots read fails closed.
+    //
+    // ── Is any route left? ──────────────────────────────────────────────────
+    // Materially worse than Superdrug's position, and worth being plain about:
+    //
+    //   1. The Apify actor tier is UNPROVEN here, not proven. It has never run
+    //      against this shop once. Superdrug's own entry can point at job
+    //      96839386128 and 60 parsed listings; there is no equivalent here,
+    //      and the reasonable expectation that a residential IP would get
+    //      through is an expectation, not a result. Enabling a paid tier on
+    //      that basis would be spending shared credit to find out.
+    //   2. No affiliate route is on file: `affiliate` below is
+    //      NO_AFFILIATE_YET. A search on 2026-09-02 found
+    //      theperfumeshop.com/affiliates (itself 403 from here, like
+    //      everything else on the domain) and third-party pages naming Rakuten
+    //      as the network — but only in summary prose, with no result's own
+    //      title or link establishing it, which is below the bar this project
+    //      uses for web-sourced facts (see demo/brandSites.ts). Recorded as an
+    //      unverified lead for an owner who can open that page from an
+    //      ordinary connection, not as a finding.
+    //   3. Nothing else. Plain fetch, browser-header fetch, sitemap walk,
+    //      search page, homepage probe and the free local renderer have all
+    //      been refused from this project's own address.
+    //
+    // So: genuinely dark on every route this project can reach today, and with
+    // no proven paid route either. That is a stronger statement than
+    // Superdrug's, where a working route exists and is merely unfunded.
+    //
+    // ── Should the 74 stored offers be delisted? No ─────────────────────────
+    // Same reasoning as Superdrug's entry, and it applies here too:
+    // STALE_OFFER_DAYS (src/services/priceService.ts) is 10, these are past
+    // it, so each row already renders "price last confirmed 11 days ago"
+    // (demo/app.ts's offer renderer) and is already outranked by any fresher
+    // offer in preferFreshOffers. The shop has not stopped selling these
+    // bottles; it has stopped answering this address. Deleting a real observed
+    // price in favour of nothing, while the reader can be told exactly how old
+    // it is, would lose information rather than add honesty.
     renderRefused: 'local',
     adapter: 'proxied',
     currency: 'GBP',
@@ -1657,6 +1739,100 @@ export const RETAILERS: readonly Retailer[] = [
     // from the free local renderer, and the actor tier's own 60-listing
     // success earlier in this entry is real evidence it is NOT refused here
     // — a plain boolean would have wrongly skipped that working route too.
+    //
+    // ── 2026-09-02: frozen twelve days. What actually happens now, from the ──
+    // ── job logs rather than from this entry's own history ──────────────────
+    // Every one of this shop's 112 stored offers carries the same lastSeenAt,
+    // 2026-08-21 — one timestamp for an entire catalogue, the dead-route
+    // signature this file first named on John Lewis. That date is not a
+    // coincidence: it is the day the shared $5 Apify credit ran out (see
+    // src/catalogue/localBrowser.ts's header), and the actor tier is the only
+    // route that has ever produced listings here.
+    //
+    // Read directly from the crawl job's own log, not inferred — run #371,
+    // job 100062672226, harvest step 2026-09-01T23:28:57Z-2026-09-02T00:25:06Z,
+    // which did reach this shop:
+    //
+    //     Superdrug          0 urls  0 fetched  0 priced listings  (2 errors)
+    //       [actor] skipped: Superdrug has answered every real render attempt
+    //           on file with a refusal … — skipping the render tier rather
+    //           than spending a page confirming that again
+    //       https://www.superdrug.com/sitemap.xml: HTTP 403
+    //     zero this run: boots, the-fragrance-shop, harvey-nichols,
+    //         debenhams, the-perfume-shop, john-lewis, superdrug, scentstore
+    //
+    // The next scheduled run, #372 (job 100124753779, 2026-09-02T04:49:44Z),
+    // did not reach this shop at all — "never reached this run: … superdrug …
+    // — out of time before being asked, keeping their previous prices" — which
+    // is why the freeze persists between the runs that do ask.
+    //
+    // So the mechanism is exactly two things and nothing else: the free
+    // sitemap route gets HTTP 403, and `renderRefused: 'local'` correctly
+    // skips the free renderer that has already been refused twice. Nothing is
+    // broken and nothing is being retried pointlessly; there is simply no
+    // unmetered route left.
+    //
+    // ── The refusal is broader than any earlier note recorded ───────────────
+    // Checked by hand from this sandbox, 2026-09-02, and worth writing down
+    // because it changes what "403 on the sections" means: robots.txt itself
+    // answers 403. Six URLs, every one of them 384-398 bytes in 0.2-0.5s:
+    //
+    //     /robots.txt                     403   385 bytes
+    //     /sitemap.xml                    403   384 bytes
+    //     /fragrance/c/fragrance          403   398 bytes
+    //
+    // The body is an Akamai edge deny — "<TITLE>Access Denied</TITLE> … You
+    // don't have permission to access … Reference #18.9ebd7768.1788344314…
+    // https://errors.edgesuite.net/…" — with a real per-request reference id,
+    // i.e. the shop's own CDN answering, not this sandbox's relay failing (a
+    // relay failure produces no HTTP status at all; see John Lewis's entry for
+    // that shape). The same 403, same body, same Akamai host, comes back for
+    // The Perfume Shop, which is not surprising: both are AS Watson brands.
+    //
+    // A blanket deny that includes /robots.txt is a different fact from a
+    // section-level block. It means this project cannot even read this shop's
+    // own crawl rules from a datacentre address — so "is this path allowed"
+    // is not a question that can be asked here, let alone answered. Nothing in
+    // the pipeline treats that as permission: crawlViaSitemap's robots read
+    // fails closed, exactly as it should.
+    //
+    // ── Is any route left? ──────────────────────────────────────────────────
+    // Three, in descending order of how real they are:
+    //
+    //   1. The Apify actor tier. PROVEN on this shop specifically: job
+    //      96839386128 (2026-08-21) rendered /fragrance/c/fragrance and
+    //      parseListings read 60 GBP-priced schema.org Products out of it,
+    //      with no new parser needed. That is a working route today, gated
+    //      only on credit and on a per-shop preference existing — which it
+    //      now does (`renderTier` in src/catalogue/renderTier.ts). Deliberately
+    //      NOT enabled here: the owner's ruling covered John Lewis only, and
+    //      2026-08-21 is the standing demonstration of what happens when
+    //      several shops draw on one $5 pool at once — this shop was one of
+    //      the five that went dark that day.
+    //   2. Awin. `affiliate` below already records this shop as Awin-verified
+    //      with `status: 'not-applied'`. A joined programme brings a product
+    //      feed, and a feed is not a crawl — it is the one route on this list
+    //      that the Akamai deny cannot touch, because it is served by Awin
+    //      rather than by superdrug.com. Owner action (apply to the
+    //      programme); nothing here can do it.
+    //   3. Nothing else. There is no second free retrieval path to try: the
+    //      plain fetch, the browser-header fetch, the sitemap walk, the
+    //      search page, the homepage probe and the free local renderer have
+    //      each been refused from this project's own address, and the deny now
+    //      covers robots.txt too.
+    //
+    // ── Should the 112 stored offers be delisted? No ────────────────────────
+    // They are already handled honestly by the code that exists.
+    // STALE_OFFER_DAYS (src/services/priceService.ts) is 10, these are past
+    // it, so every one of them already renders with "price last confirmed 12
+    // days ago" on its own row (demo/app.ts's offer renderer) and is already
+    // outranked by any fresher offer in preferFreshOffers. Deleting them would
+    // remove a real price this project genuinely observed, in favour of no
+    // information at all, on no evidence that the shop has stopped selling
+    // the bottle — the shop has not refused to tell us its price, it has
+    // refused to tell *this address*. Delisting is the right answer when a
+    // listing is gone; it is the wrong answer when the reader can be told
+    // exactly how old the number is, which they already are.
     renderRefused: 'local',
     adapter: 'proxied',
     currency: 'GBP',
