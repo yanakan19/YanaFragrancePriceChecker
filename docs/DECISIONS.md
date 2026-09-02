@@ -1511,3 +1511,113 @@ The only part of D18 that needs re-reading in light of this is its own
 sentence "same rebase-and-retry structure". The structure is the same; the
 timing policy inside it is not, and the difference is exactly the part an
 API-based compare-and-swap has no primitive for.
+
+
+---
+
+## D19 - CI commit signing, fourth attempt: landed, as an additive attempt that can only decline
+
+**Built 2026-09-02.** D16 refused this, D18 re-confirmed the refusal, and the
+2026-09-02 correction appended to D18 strengthened one of its reasons. Both were
+read in full before anything here was written. This entry does not overturn
+their reasoning; it takes each of their four objections as a constraint on the
+shape of the change, and the shape that survives all four is not the one they
+refused.
+
+### What they refused, and what is different
+
+D16 and D18 both examined **converting** `scripts/commit-and-push.sh`'s commit
+path to the GitHub API, for the 421 small-payload commits. Four objections:
+
+1. File size, for the four call sites carrying `demo/catalogue.generated.ts`
+   (19.3 MB) and `demo/index.html`/`demo/404.html` (18.3 MB each).
+2. No API equivalent for the rebase-and-retry conflict logic, at any file size.
+   `createCommitOnBranch` is an atomic compare-and-swap with no rebase
+   primitive, and re-deriving a three-way merge against it, blind, on the
+   branch a cron is pushing to, is the larger risk.
+3. One shared, already-hardened script split into two mechanisms doubles the
+   incident surface.
+4. The committer identity changes from `pricesniffs-bot` to
+   `github-actions[bot]` on 421 commits.
+
+Objections 1, 2 and 4 are all objections to *replacing* the git path. This
+change does not replace it. `scripts/signed-commit.sh` runs **before**
+`git commit`, and refuses - returning exit code 3, having sent nothing and
+touched nothing - unless every one of the following holds:
+
+* `SIGNED_COMMITS` is not switched off;
+* a `GITHUB_TOKEN`/`GH_TOKEN` and `GITHUB_REPOSITORY` are present, which
+  outside CI they are not;
+* the staged set contains none of the three oversized generated files, and its
+  total staged content is under 4 MB;
+* **local HEAD is already exactly the freshly-fetched remote head** - i.e. the
+  push it is replacing would have been a plain fast-forward with no rebase to
+  do.
+
+That fourth condition is what answers objection 2, and it answers it by
+agreeing with it. The moment there is anything to rebase, this declines and
+`commit-and-push.sh`'s own loop does the entire job. Nothing anywhere in this
+change re-derives conflict resolution against the Git Data API. Objection 1 is
+answered by never asking the question: the four large call sites fall back
+before a byte is read.
+
+Objection 3 is the one that cannot be argued away, only bounded. The bound is
+that the second mechanism can only ever *add* an outcome and never remove one.
+Because it runs before the local commit, any failure - a 500, a timeout, a
+missing token, a payload the API rejects, a branch that moved between the fetch
+and the mutation - leaves the tree exactly as it was, and execution falls into
+the ordinary path unchanged. There is no code path in which a harvest is lost
+because this script existed and misbehaved; the worst it can cost is one HTTPS
+round trip. Nothing in `commit-and-push.sh` below the new block changed:
+`resolve_generated_conflicts`, the generated/raw-snapshot classification, the
+jittered retry budget from `fd3f70ae`, and the loud abort for anything that is
+neither, are byte-for-byte what they were.
+
+Objection 4 is real, unavoidable and accepted rather than solved. The signature
+*is* GitHub signing on behalf of the token's identity, so there is no version
+of this that keeps `pricesniffs-bot` as committer and gains the badge. That is
+what the off switch is for.
+
+### The off switch
+
+`SIGNED_COMMITS`, read from the environment, populated in all three workflows
+from the repository variable of the same name (Settings -> Secrets and
+variables -> Actions -> Variables). Set it to `off`, `false`, `0` or `no` and
+every attempt declines immediately, restoring exactly the prior behaviour. It
+is checked first, before the token, the staged set or any network call, so
+turning it off cannot fail in some new way of its own. Unset reads as on, so
+the variable only has to exist in order to switch this off - no code change,
+no redeploy.
+
+### What was verified, and what was not
+
+Verified, in `tests/signedCommit.test.ts` (17 tests, real scratch git
+repositories, no network): every refusal path returns 3 with nothing sent; a
+refusal leaves HEAD, the index and the branch untouched; the oversized paths
+are refused by name; a moved branch is refused; the payload carries the staged
+content rather than the working tree's (they genuinely differ in production,
+which is what `commit-and-push.sh`'s own discard steps exist for); content full
+of quotes, backslashes and newlines survives, which is why the body is built by
+`JSON.stringify` in `scripts/signed-commit-payload.mjs` and not by shell
+concatenation; the cap refuses rather than truncates; and
+`commit-and-push.sh` still commits and pushes normally both with the switch off
+and with the signed path merely unavailable.
+
+**Not verified: that GitHub accepts these payloads and returns a Verified
+commit.** No live Actions run was available from this session, which is the
+same blocker D16 and D18 both named last. The design's safety property is
+therefore "cannot make anything worse", not "is known to work". The first real
+run either produces a signed commit or falls back to the path that has been
+running all along, and the run log says plainly which - `[signed-commit]` lines
+for the attempt, "Continuing on the ordinary git commit-and-push path" for the
+fallback.
+
+### What remains only the owner can decide
+
+* Whether the committer-identity change on the four small call sites
+  (`Harvest: real prices`, `Image links`, `Shipping terms`,
+  `Price verification: measured drift`) is wanted. If not, one repository
+  variable turns it off.
+* Whether to extend this to the large-payload call sites. Nothing here makes
+  that safer than D16 found it; the size question is still unanswered, and is
+  still not one to answer on the production branch.

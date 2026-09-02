@@ -467,6 +467,28 @@ jobs:
     # don't chase this number for that.
     timeout-minutes: 120
 
+    # ── The signed-commit attempt ────────────────────────────────────────────
+    # Job-level rather than per-step because scripts/commit-and-push.sh is
+    # invoked from seven steps in this file and copying two env lines into each
+    # is how one of them silently gets missed.
+    #
+    # GITHUB_TOKEN is what makes a commit created through the API GPG-signed by
+    # GitHub and Verified; a `git commit` on a runner never is. See
+    # scripts/signed-commit.sh for the whole design and for the three
+    # docs/DECISIONS.md refusals (D16, D18) it is shaped around. The short
+    # version: it only runs when the push would have been a plain fast-forward,
+    # it never touches the oversized generated files, and any failure falls
+    # straight back to the existing git path with nothing lost.
+    #
+    # SIGNED_COMMITS is the off switch, and it needs no code change: create a
+    # repository variable of that name (Settings → Secrets and variables →
+    # Actions → Variables) set to `off` and every attempt declines immediately,
+    # restoring exactly today's behaviour. Unset reads as on, so the variable
+    # only ever has to exist in order to turn this off.
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SIGNED_COMMITS: ${{ vars.SIGNED_COMMITS }}
+
     steps:
       # fetch-depth: 0 is load-bearing, not a nicety. actions/checkout@v4
       # defaults to a shallow clone (depth 1) — fine for every other step
