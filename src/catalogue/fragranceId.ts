@@ -456,6 +456,59 @@ const SIZE_CONFLICT_RESOLVED: ReadonlyMap<string, number> = new Map([
  * one the six Hamidi and Avon titles above were held to. The honest summary
  * is that this is no longer a three-way split; it is 70ml against one live
  * dissenter, and one live dissenter is still one too many for this bar.
+ *
+ * ── Seventh pass, 2026-09-02, under the owner's OR ruling. Still unresolved ──
+ * The bar quoted just above was rewritten the same day (see the EVIDENCE BAR
+ * block above CONCENTRATION_RESOLUTIONS in productName.ts): the owner ruled
+ * that route (A), the manufacturer's own word about its own product, is
+ * sufficient BY ITSELF, and that a contradicting retailer title is outranked
+ * rather than weighed. That ruling settled fifteen of the twenty-five
+ * concentration disputes in one pass.
+ *
+ * It does nothing for this one, and the reason is worth stating plainly rather
+ * than leaving to be re-derived: the OR ruling widens what counts as decisive
+ * evidence, it does not manufacture evidence that does not exist. Route (A)
+ * needs the manufacturer to have said something. Armaf never has.
+ *
+ * The one question this pass asked — has the manufacturer stated a size
+ * anywhere reachable, by any route not already tried:
+ *
+ *   - armaf.com/products/red-velvet, fetched directly for the fourth time
+ *     across these passes and specifically re-checked for a size in the
+ *     product title, a variant selector, a specifications table and the page
+ *     title as well as the description. Product title is exactly "RED VELVET";
+ *     no size in ml or fl oz appears anywhere on the page, and there is no
+ *     variant selector at all. Search-result *summaries* for this URL do gloss
+ *     it as "a 70ml Eau de Parfum" — that is prose about the product, not the
+ *     page's own words, and it is precisely the kind of summary gloss the
+ *     evidence bar has refused throughout.
+ *   - Two manufacturer-controlled channels no earlier pass had tried.
+ *     sterlingparfums.com — Sterling Perfumes Industries, the house that owns
+ *     Armaf, confirmed on its own site ("Sterling Group, founded in 1998",
+ *     Armaf listed among its brands, /brand/fragrance/armaf) — publishes no
+ *     product catalogue with sizes at all, only brand pages. And
+ *     sterlingmegastore.ae, the group's own retail storefront, does not stock
+ *     this product: a search for "red velvet armaf" there returns 33 results,
+ *     every one of them Armaf Marjan and Enchanted body sprays and mists, and
+ *     no Dubai Delicacy Red Velvet.
+ *
+ * So the manufacturer is not merely unread here, it is silent across every
+ * property it controls that this project can reach. Route (A) does not apply.
+ *
+ * Route (B) is unchanged and still fails on the same single fact, re-verified
+ * this pass rather than assumed: shangrilaperfumes.com is still live, still
+ * titles it "Armaf Delights Dubai Delicacy Red Velvet Eau de Parfum 75ml /
+ * 2.5 oz Spray For Women - New", still in stock at $29.99, and is still
+ * internally consistent (2.5 fl oz is 74ml, so it is not 70 rounded up — 70ml
+ * is 2.37 fl oz, which is what every source on the other side prints).
+ *
+ * Seven passes, and the position is now precise enough to be worth stating as
+ * a conclusion rather than a status: this product cannot be resolved by
+ * evidence, only by a rule change. The OR ruling was the rule change that was
+ * available, and it does not reach here. Anything that resolves this in future
+ * is either Armaf finally publishing a size, or shangrilaperfumes.com's
+ * listing changing or going away — both facts about the world, not angles left
+ * unsearched. A future pass should check those two things and nothing else.
  */
 
 /**
