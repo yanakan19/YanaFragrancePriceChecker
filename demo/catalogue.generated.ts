@@ -647,7 +647,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273903172",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1732096560-00412300.jpg?v=1763393973&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/_/8.jpg",
     "notes": {
       "top": [
         "Lemon",
@@ -680,7 +680,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3351500009848",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/852_0cd8cc13-35d4-4707-81cc-c037560f8a69.jpg?v=1774520726&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/_/6.jpg",
     "notes": {
       "top": [
         "Cinnamon",
@@ -778,7 +778,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342306134",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1761825299-55467000.jpg?v=1763398921&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14381884006_xl.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -808,7 +808,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061056752",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728462581-52271800.jpg?v=1763393271&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/164.jpg",
     "notes": {
       "top": [
         "Mandarin Oil"
@@ -831,7 +831,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "020714156893",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1640001068-06395400.jpg?v=1763390803&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/230.jpg",
     "notes": {
       "top": [
         "Orange",
@@ -860,7 +860,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 67,
     "ean": "027131017752",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1640184556-16176000.jpg?v=1763390921&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/9/099.jpg",
     "notes": {
       "top": [
         "rose",
@@ -922,7 +922,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614272907690",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1598971439-08774800.jpg?v=1763389873&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/350_1.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -951,7 +951,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3274872424982",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1652794564-95331600.jpg?v=1763392396&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/487_1.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -981,7 +981,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8005610481005",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1731414968-23326200.jpg?v=1763396408&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8005610481005.jpg",
     "notes": {
       "top": [
         "Jasmine"
@@ -1006,7 +1006,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616303470869",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1731414086-66639300.jpg?v=1763395191&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_flora_gorgeous_magnolia_eau_de_parfum_30ml_spray_b.jpg",
     "notes": {
       "top": [],
       "middle": [
@@ -1032,7 +1032,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3423470311365",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1655893555-75287700.jpg?v=1763391063&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/723.jpg",
     "notes": {
       "top": [
         "Lemon",
@@ -1066,7 +1066,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460048125",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1641922281-58518400.jpg?v=1763391161&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460048125.png",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -1096,7 +1096,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460048118",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1641922372-23883600.jpg?v=1763391165&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/834.jpg",
     "notes": {
       "top": [
         "strawberry",
@@ -1126,7 +1126,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460129879",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1664880165-94679300.jpg?v=1763392762&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/e/perfume_21nov_25282450.jpg",
     "notes": {
       "top": [
         "Juicy Rose",
@@ -1433,7 +1433,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614225452079",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1731432613-08759200.jpg?v=1763391485&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/250_1.jpg",
     "notes": {
       "top": [
         "Crystalized Cloudberries"
@@ -1459,7 +1459,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460135832",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1693497147-46128900.jpg?v=1763393564&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1055.jpg",
     "notes": {
       "top": [],
       "middle": [],
@@ -1481,7 +1481,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460135825",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1693497448-03462500.jpg?v=1763393566&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1057.jpg",
     "notes": {
       "top": [],
       "middle": [],
@@ -1503,7 +1503,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435137759811",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1643388324-09757300.jpg?v=1763391606&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1275.jpg",
     "notes": null
   },
   {
@@ -1514,7 +1514,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668594412",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1738163149-74132100.jpg?v=1763392739&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_fame_80ml_eau_de_parfum.jpg",
     "notes": {
       "top": [
         "Radiant jasmine",
@@ -1540,7 +1540,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668508587",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728393678-07812700.jpg?v=1763392285&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668508587.jpg",
     "notes": {
       "top": [
         "Neroli",
@@ -1923,7 +1923,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273521345",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1732029940-98589500.jpg?v=1763393966&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273521345.gif",
     "notes": {
       "top": [
         "Cardamom"
@@ -1948,7 +1948,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273521307",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1732031280-14442600.jpg?v=1763393968&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/h/themost.jpg",
     "notes": {
       "top": [
         "Cardamom"
@@ -1973,7 +1973,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274258080",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1755683304-45783200.jpg?v=1763398465&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/w/a/wael_1.jpg",
     "notes": {
       "top": [
         "Raspberry",
@@ -2066,7 +2066,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614227693876",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1733840716-42991400.jpg?v=1763396797&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14.jpg",
     "notes": {
       "top": [
         "Raspberry",
@@ -2096,7 +2096,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614226905994",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1750263093-08404300.jpg?v=1763398029&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/25.jpg",
     "notes": {
       "top": [
         "Sweet Pea",
@@ -2233,7 +2233,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "088300606511",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1524582636-06482300.png?v=1763388871&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_obsession_for_men_125ml_eau_de_toilette_bot.jpg",
     "notes": {
       "top": [],
       "middle": [],
@@ -2475,7 +2475,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "027131086871",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1731514729-58177700.jpg?v=1763390905&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/403.jpg",
     "notes": {
       "top": [
         "Galbanum",
@@ -2848,7 +2848,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272907676",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1598970723-85653900.jpg?v=1763389873&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/352_1.jpg",
     "notes": {
       "top": [],
       "middle": [],
@@ -2897,7 +2897,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872441989",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1665497228-02890500.jpg?v=1763392648&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_eau_de_toilette_80ml_spray.jpg",
     "notes": {
       "top": [
         "Bitter Orange Essence",
@@ -2921,7 +2921,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872372153",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1638876451-60461700.jpg?v=1763390988&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61r_mpn1fsl.jpg",
     "notes": {
       "top": [
         "Ginger"
@@ -2970,7 +2970,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052925073",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1479213354-59205600.jpg?v=1763394705&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/1677181408_874110-d5b71fe697dd851ade05fb5d6021.jpg",
     "notes": {
       "top": [
         "Italian Bergamot"
@@ -3112,7 +3112,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616305169259",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1761924272-51894600.jpg?v=1763399341&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305169259.png",
     "notes": {
       "top": [
         "Vanilla"
@@ -3135,7 +3135,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "737052057989",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1738750950-39987900.jpg?v=1763391050&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/680.jpg",
     "notes": {
       "top": [
         "Mango",
@@ -3157,7 +3157,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052041285",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1771415400-51226700.jpg?v=1772624834&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/693.jpg",
     "notes": {
       "top": [
         "Freesia",
@@ -3188,7 +3188,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423470300154",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1643027888-18653400.jpg?v=1763391062&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/1/719.jpg",
     "notes": null
   },
   {
@@ -3237,7 +3237,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423474867158",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1641989869-57162800.jpg?v=1763391069&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/721.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -3267,7 +3267,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415017206",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1752769548-62745500.jpg?v=1763396065&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/770.jpg",
     "notes": {
       "top": [
         "bergamot"
@@ -3317,7 +3317,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460119276",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1641921907-32608600.jpg?v=1763391219&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/182_1.jpg",
     "notes": {
       "top": [
         "mandarin juice",
@@ -3345,7 +3345,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460119269",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1626797550-14848700.jpg?v=1763390121&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/836_1.jpg",
     "notes": {
       "top": [],
       "middle": [
@@ -3367,7 +3367,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460071727",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1641898524-33251200.jpg?v=1763391225&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/858.jpg",
     "notes": {
       "top": [],
       "middle": [],
@@ -3417,7 +3417,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460025485",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1626788779-21720600.jpg?v=1763391170&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/180_1.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -3496,7 +3496,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460064118",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1641894265-86351900.jpg?v=1763393497&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/877.jpg",
     "notes": {
       "top": [
         "Lavender",
@@ -3518,7 +3518,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460067508",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1530198568-35094500.png?v=1763388974&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14691276-1675265767319063.jpg",
     "notes": {
       "top": [
         "Clary Sage",
@@ -3612,7 +3612,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386461515619",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1739355283-35891100.jpg?v=1763391461&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/973.jpg",
     "notes": {
       "top": [
         "Aldehydes",
@@ -3656,7 +3656,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386461515671",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1739293977-94520400.jpg?v=1763391465&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/975.jpg",
     "notes": {
       "top": [
         "Lemon Leaf",
@@ -4485,7 +4485,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3607349764289",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1739287436-44547900.jpg?v=1763391476&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_dream_eau_de_toilette_50ml_spray.jpg",
     "notes": {
       "top": [
         "Blackberries",
@@ -4516,7 +4516,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616302779994",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1665060322-60388900.jpg?v=1763392719&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1006.jpg",
     "notes": {
       "top": [
         "Roasted Almonds",
@@ -4569,7 +4569,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460135818",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1693497760-79483200.jpg?v=1763393566&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1051.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -4599,7 +4599,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460074827",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1761837956-48713000.jpg?v=1763399044&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/1538foto.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -4640,7 +4640,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274066999",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1736846019-78734600.jpg?v=1763394530&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_hypersense_90ml_eau_de_parfum.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -4739,7 +4739,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668594429",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1738162480-11456800.jpg?v=1763392745&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1173.jpg",
     "notes": {
       "top": [
         "Mango",
@@ -4839,7 +4839,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668545667",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1666948823-93958900.jpg?v=1763391575&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1237.jpg",
     "notes": {
       "top": [
         "Thyme",
@@ -5060,7 +5060,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "888066000055",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1749116992-30366300.jpg?v=1763398073&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1328.jpg",
     "notes": {
       "top": [],
       "middle": [],
@@ -5153,7 +5153,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273790840",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1692709673-08842400.jpg?v=1763393333&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1400.jpg",
     "notes": {
       "top": [
         "Mandarin",
@@ -5181,7 +5181,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272732087",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1738924685-99844700.jpg?v=1763391675&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_100ml_eau_de_parfum_1.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -5211,7 +5211,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274024760",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1727778826-75241600.jpg?v=1763394425&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1394.jpg",
     "notes": {
       "top": [],
       "middle": [],
@@ -5264,7 +5264,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342166875",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1719851734-80138400.jpg?v=1763395317&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/e/vera_wang_lovestruck_100ml_eau_de_parfum.jpg",
     "notes": {
       "top": [
         "Pink Guava",
@@ -5387,7 +5387,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605521879905",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737383515-53201600.jpg?v=1763391731&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1433.jpg",
     "notes": {
       "top": [
         "Mandarin",
@@ -5416,7 +5416,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3360374000004",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1561549359-28235400.jpg?v=1763398564&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_flowerbomb_eau_de_parfum_30ml_spray_.jpg",
     "notes": {
       "top": [
         "Jasmine"
@@ -5442,7 +5442,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360374000059",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1642179113-96289700.jpg?v=1763391732&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1438.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -5472,7 +5472,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273987936",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/147_3f30fdb9-2329-4a5a-9a9d-874793a2182a.jpg?v=1778073829&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_flowerbomb_extreme_intense_edp_100ml_.jpg",
     "notes": {
       "top": [
         "Raspberry"
@@ -5499,7 +5499,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274081183",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1725981742-14151600.jpg?v=1763395565&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktorandrolfflowerbombtigerlilyperfume.jpg",
     "notes": {
       "top": [
         "Coconut Milk",
@@ -5528,7 +5528,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3605521515346",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1642179251-54069700.jpg?v=1763391735&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_spicebomb-3605521515629-1.jpg",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -5560,7 +5560,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614272191556",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1554976773-32818200.jpg?v=1763389183&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_spice_bomb_night_vision_edt_90ml_.jpg",
     "notes": {
       "top": [
         "Granny Smith Apple",
@@ -6278,7 +6278,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291100130122",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1732018350-31959800.jpg?v=1763395786&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/l/al_haramain_amber_oud_gold_eau_de_parfum_100ml_spray.jpg",
     "notes": {
       "top": [
         "Bergamot"
@@ -6952,7 +6952,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273638852",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1732027123-46730800.jpg?v=1763393970&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/_/3.jpg",
     "notes": {
       "top": [
         "Ginger"
@@ -7347,7 +7347,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616302020652",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1740653048-73224400.jpg?v=1763395160&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/_/7_1.jpg",
     "notes": {
       "top": [
         "Vanilla",
@@ -7404,7 +7404,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616301838210",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1733841652-92847600.jpg?v=1763396802&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/11_1.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -7528,7 +7528,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300100514",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1604685049-41099400.jpg?v=1763388849&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/024.jpg",
     "notes": {
       "top": [
         "Eucalyptus",
@@ -7558,7 +7558,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614224821944",
     "shops": 4,
-    "image": "https://www.justmylook.com/cdn/shop/files/CK0143.png?v=1751368188&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/114.jpg",
     "notes": {
       "top": [
         "Grapefruit Oil",
@@ -7588,7 +7588,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614225670435",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1557823233-53792000.jpg?v=1763389315&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/028.jpg",
     "notes": null
   },
   {
@@ -7599,7 +7599,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614225358463",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1534347326-42520500.png?v=1763389042&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/x/gxp-11099.jpg",
     "notes": {
       "top": [
         "Eucalyptus",
@@ -7689,7 +7689,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061083659",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728390632-98279700.jpg?v=1763394554&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/168_1.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -7719,7 +7719,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061077160",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1757325181-18446400.jpg?v=1763398881&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/3/030.jpg",
     "notes": {
       "top": [
         "Pitaya"
@@ -7757,7 +7757,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061106228",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1739270896-32189600.jpg?v=1763397098&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8411061106228_w_1000_h_1000_.jpg",
     "notes": null
   },
   {
@@ -7896,7 +7896,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616303477943",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1725458107-76308000.jpg?v=1763394936&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616303477943.jpg",
     "notes": null
   },
   {
@@ -8112,7 +8112,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414202011752",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1554822568-78308200.jpg?v=1763389957&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/coolwater-women-by-davidoff-edt-spray-34-oz-100-ml-3414202011752_2_1.jpg",
     "notes": {
       "top": [
         "Honeydew Melon",
@@ -8139,7 +8139,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607347565321",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/cw1.jpg?v=1776438606&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3k3f00mr80n4sxy4tmrz-c72d75a0-a6a9-4465-bb84-00064bffb2e0.png",
     "notes": null
   },
   {
@@ -8237,7 +8237,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "763511100019",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1377169026-24665500.jpg?v=1763389992&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/054.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -8291,7 +8291,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8054754401059",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1741013999-50735200.jpg?v=1763397188&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/328.jpg",
     "notes": {
       "top": [],
       "middle": [],
@@ -8313,7 +8313,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8054754405095",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1741011737-93430800.jpg?v=1763397197&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/342.jpg",
     "notes": {
       "top": [],
       "middle": [
@@ -8334,7 +8334,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8057971183913",
     "shops": 4,
-    "image": "https://www.justmylook.com/cdn/shop/files/k-eau-de-toilette-200ml-p38086-120206_image.jpg?v=1721322170&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_k_eau_de_toilette_200ml_spray.png",
     "notes": {
       "top": [
         "Juniper Berries",
@@ -8367,7 +8367,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8057971181346",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1755768824-81385900.jpg?v=1763398620&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/357_1.jpg",
     "notes": {
       "top": [
         "Granny Smith apple"
@@ -8388,7 +8388,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971188116",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/D_glightblue.jpg?v=1783429396&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/361.jpg",
     "notes": {
       "top": [
         "Grapefruit",
@@ -8442,7 +8442,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971187829",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1729171030-24420400.jpg?v=1763394883&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/371.jpg",
     "notes": null
   },
   {
@@ -9402,7 +9402,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614271994844",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/si100.jpg?v=1773743462&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614271994844.png",
     "notes": null
   },
   {
@@ -9659,7 +9659,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "8005610328256",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1731411413-88905100.jpg?v=1763393730&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/122.jpg",
     "notes": {
       "top": [
         "Frankincense",
@@ -9762,7 +9762,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "737052189765",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/Bossbottled200ml.jpg?v=1783951541&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/660.jpg",
     "notes": null
   },
   {
@@ -9804,7 +9804,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052766775",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/Boss1.jpg?v=1774457361&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/7/672.jpg",
     "notes": {
       "top": [
         "Iced Violet Leaves"
@@ -9830,7 +9830,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616301623311",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1646934992-56539100.jpg?v=1763392042&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616301623311_1.jpg",
     "notes": null
   },
   {
@@ -9996,7 +9996,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415017244",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1752768337-95642500.jpg?v=1763396060&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/755.jpg",
     "notes": null
   },
   {
@@ -10007,7 +10007,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415076944",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728918906-44988100.jpg?v=1763393592&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/796.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -10037,7 +10037,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8435415102339",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1745422126-22390900.jpg?v=1763397664&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/794.jpg",
     "notes": {
       "top": [
         "Plum"
@@ -10062,7 +10062,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8435415032278",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1597997971-91657900.jpg?v=1763389845&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791_1_2.jpg",
     "notes": {
       "top": [
         "Cardamom"
@@ -10088,7 +10088,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415032390",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1597998299-48473200.jpg?v=1763389846&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791_1.jpg",
     "notes": {
       "top": [
         "Cardamom"
@@ -10280,7 +10280,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460097321",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1626792824-89623800.jpg?v=1763389032&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460097321.png",
     "notes": {
       "top": [
         "Black Plum Nectar",
@@ -10342,7 +10342,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460142014",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1721982816-97940600.jpg?v=1763395465&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/i/jimmy-choo-i-want-choo-le-parfum.jpg",
     "notes": {
       "top": [
         "Pear",
@@ -10480,7 +10480,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460025478",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1626789129-32999700.jpg?v=1763391170&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/c/screenshot_2026-05-13_at_15.34.48.png",
     "notes": {
       "top": [
         "Bergamot",
@@ -10581,7 +10581,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3414206000608",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1478599361-42309800.jpg?v=1763393475&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_homme_eau_de_toilette_125ml_spray_.jpg",
     "notes": {
       "top": [
         "Orange Blossom",
@@ -10616,7 +10616,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607345809915",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737386568-01791000.jpg?v=1763393780&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/903.jpg",
     "notes": {
       "top": [
         "Orange Blossom",
@@ -10811,7 +10811,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272629370",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1565951619-03699700.jpg?v=1763389397&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/945.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -10841,7 +10841,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273069175",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737019404-38151200.jpg?v=1763391441&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/942.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -10901,7 +10901,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3147758029390",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1551289833-84139700.jpg?v=1763392245&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/969.jpg",
     "notes": {
       "top": [
         "Juicy Lychee",
@@ -12074,7 +12074,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614229159035",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1584617778-16192900.jpg?v=1763389721&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/984.jpg",
     "notes": {
       "top": [
         "Wild Berries",
@@ -12100,7 +12100,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3607342221161",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1731429896-31822400.jpg?v=1763391478&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marcj-daisy-eau-so-fresh-edt-125ml-1.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -12130,7 +12130,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3607342221208",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1731430072-69093100.jpg?v=1763391478&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/990.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -12160,7 +12160,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616301776017",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1731431022-39844600.jpg?v=1763391480&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_eau_so_intense_eau_de_parfum_50ml_spray_.jpg",
     "notes": {
       "top": [
         "Ruby Red Grapefruit",
@@ -12194,7 +12194,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3616303423841",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1657102737-01878300.jpg?v=1763392090&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/996.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -12224,7 +12224,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616304254871",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1760623460-32230700.jpg?v=1763399318&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_de_parfum_30ml_spray.jpg",
     "notes": {
       "top": [
         "Banana Blossom Accord"
@@ -12251,7 +12251,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616304254888",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1731082265-87512200.jpg?v=1763396222&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_de_parfum_50ml_spray_.jpg",
     "notes": null
   },
   {
@@ -12262,7 +12262,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616305187307",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1731083890-27842600.jpg?v=1763396228&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_perfect_elixir_eau_de_parfum_30ml_spray.jpg",
     "notes": {
       "top": [
         "Purple Rhubarb"
@@ -12350,7 +12350,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3386460118675",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/11_2c60d2d7-30ec-43f8-943d-a4b8fcdca0d8.jpg?v=1776433405&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1027.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -12380,7 +12380,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3386460146081",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/MC200ml.jpg?v=1774456944&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1053.jpg",
     "notes": {
       "top": [],
       "middle": [],
@@ -12490,7 +12490,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460144230",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1719484897-37019100.jpg?v=1763395103&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1065.jpg",
     "notes": null
   },
   {
@@ -12583,7 +12583,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3439600055726",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1736848588-57154200.jpg?v=1763396026&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1068.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -12613,7 +12613,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3439600056969",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1736847731-74953900.jpg?v=1763394837&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1083.jpg",
     "notes": null
   },
   {
@@ -12624,7 +12624,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 15,
     "ean": "3614273606417",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1738841177-67339000.jpg?v=1763396972&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_eau_de_parfum_15ml_refillable_spray_.jpg",
     "notes": {
       "top": [],
       "middle": [],
@@ -12647,7 +12647,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3439600056655",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1750842903-59619000.jpg?v=1763394837&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12737292-7745268591794907.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -12677,7 +12677,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222080952",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/123_fed05aea-ba0e-4d1f-9356-390affcaa87b.jpg?v=1778508124&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1097.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -12772,7 +12772,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222055547",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1655120442-56907000.jpg?v=1763392501&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1109.jpg",
     "notes": null
   },
   {
@@ -12863,7 +12863,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8435137727087",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/pradacandy.jpg?v=1773332762&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435137727087.png",
     "notes": {
       "top": [
         "Caramel"
@@ -12889,7 +12889,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137764433",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/lefmem_b37f5ca1-11e1-4bd0-9ab8-ce107ba2e4f8.jpg?v=1775639416&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada-la-femme-intense-eau-de-parfum-spray-100ml.jpg",
     "notes": {
       "top": [
         "Frangipani"
@@ -13066,7 +13066,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274089356",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/100ml_a08fc6e8-4089-41fa-a409-f287036e2e21.jpg?v=1775561164&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1279.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -13206,7 +13206,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668600304",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728316429-55929100.jpg?v=1763391929&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1155.jpg",
     "notes": {
       "top": [],
       "middle": [],
@@ -13231,7 +13231,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668555093",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1563200849-97720600.jpg?v=1763389375&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1168.jpg",
     "notes": null
   },
   {
@@ -13242,7 +13242,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668555062",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1739187427-83072600.jpg?v=1763395866&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_black_xs_for_her_80ml_eau_de_parfum.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -13303,7 +13303,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668630110",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1738165145-03064600.jpg?v=1763394577&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1180.jpg",
     "notes": {
       "top": [
         "Coconut Water",
@@ -13334,7 +13334,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668630448",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1738165246-41873200.jpg?v=1763394581&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1184.jpg",
     "notes": {
       "top": [
         "Coconut Water",
@@ -13365,7 +13365,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668627523",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1715335549-90857700.jpg?v=1763395141&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1192.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -13395,7 +13395,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668627530",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1715335030-26815700.jpg?v=1763395141&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1190.jpg",
     "notes": {
       "top": [
         "Lavender"
@@ -13420,7 +13420,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3349668627547",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1715335366-21403900.jpg?v=1763395143&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668627547.png",
     "notes": {
       "top": [
         "Lavender"
@@ -14523,7 +14523,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272761445",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1643890595-41220700.jpg?v=1763391671&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_born_in_roma_eau_de_parfum_100ml_spray_.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -14553,7 +14553,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272761469",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1611770440-98501700.jpg?v=1763389478&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1410.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -14583,7 +14583,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273672412",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1645012630-38092900.jpg?v=1763391981&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1408.jpg",
     "notes": {
       "top": [],
       "middle": [],
@@ -14604,7 +14604,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273261425",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1612198970-00941000.jpg?v=1763390119&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1420.jpg",
     "notes": {
       "top": [],
       "middle": [],
@@ -14667,7 +14667,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272732209",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1643891585-06654500.jpg?v=1763391677&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1423.jpg",
     "notes": {
       "top": [
         "Bergamot Essence",
@@ -15303,7 +15303,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273662581",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1657554888-95830700.jpg?v=1763392575&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_good_fortune_edp_90ml_.jpg",
     "notes": {
       "top": [
         "Fennel",
@@ -15405,7 +15405,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614270659706",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737384342-19054300.jpg?v=1763391739&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1450.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -18419,7 +18419,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273638869",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1732026962-29472900.jpg?v=1763393965&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273638869.gif",
     "notes": {
       "top": [
         "Ginger"
@@ -19602,7 +19602,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252667309",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1579606241-09666000.jpg?v=1763388811&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/_/4_1.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -19643,7 +19643,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616304061943",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1733917707-71867000.jpg?v=1773417142&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_her_elixir_de_parfum_eau_de_parfum_100ml_spray_.jpg",
     "notes": null
   },
   {
@@ -20419,7 +20419,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303476809",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737382290-24019800.jpg?v=1763394932&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/120.jpg",
     "notes": null
   },
   {
@@ -20430,7 +20430,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 160,
     "ean": "3607342686229",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1_803a9bfe-e21b-4400-95d7-f732ccd5eae0.jpg?v=1774539766&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3607342686229.png",
     "notes": {
       "top": [
         "Pomegranate",
@@ -20805,7 +20805,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061106297",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1744802263-10806400.jpg?v=1763397652&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/160.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -20880,7 +20880,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061083765",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728383585-59359800.jpg?v=1763395612&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154_2.jpg",
     "notes": null
   },
   {
@@ -20891,7 +20891,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061083772",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728383767-17466200.jpg?v=1763395613&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154.jpg",
     "notes": null
   },
   {
@@ -20902,7 +20902,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061026342",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728303785-64942500.jpg?v=1763399451&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/7/171_1.jpg",
     "notes": {
       "top": [
         "Almond"
@@ -21182,7 +21182,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303445584",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1729784653-20578000.jpg?v=1763396192&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_intense_eau_de_parfum_100ml_spray_.jpg",
     "notes": null
   },
   {
@@ -21893,7 +21893,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3414202000572",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1478602520-63763000.jpg?v=1763389951&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3k3e00mh80n4xqi8i949-fc1f0a15-0aae-4595-9b3c-00e89478b8f9.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -22247,7 +22247,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971183739",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1696503916-18694800.jpg?v=1763394073&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/060.jpg",
     "notes": null
   },
   {
@@ -22479,7 +22479,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8057971183937",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/k-eau-de-parfum-200ml-p38085-120205_image.jpg?v=1721322171&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/006.jpg",
     "notes": {
       "top": [
         "Sicilian Lemon",
@@ -22514,7 +22514,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971187911",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1729173730-71060600.jpg?v=1763394899&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/340.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -22576,7 +22576,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8057971188123",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/DANDG0131.png?v=1751039277&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/23836foto.jpg",
     "notes": {
       "top": [
         "Grapefruit",
@@ -22670,7 +22670,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971183661",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1674650747-73194400.jpg?v=1763393162&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/367.jpg",
     "notes": {
       "top": [
         "Sicilian Lemon",
@@ -22868,7 +22868,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085715806345",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1732098192-14994500.jpg?v=1763396086&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/8/385.jpg",
     "notes": null
   },
   {
@@ -25483,7 +25483,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605521816658",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/100mlsi_f783c7e1-1eca-4e07-aa46-f3536b76378d.jpg?v=1773740884&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/product_2025-389.png",
     "notes": {
       "top": [
         "Blackcurrant Liqueur"
@@ -25628,7 +25628,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274219579",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1738755961-60718100.jpg?v=1763397068&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/t/str.jpg",
     "notes": null
   },
   {
@@ -25639,7 +25639,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3614271992727",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1531477588-61748100.png?v=1763389014&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/9/394.jpg",
     "notes": null
   },
   {
@@ -25692,7 +25692,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3274872422995",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1727185705-04025900.jpg?v=1763390970&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/494.jpg",
     "notes": {
       "top": [
         "Cardamom",
@@ -25726,7 +25726,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872439078",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1646934720-49631400.jpg?v=1763392048&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/e/gentleman_reserve_privee.png",
     "notes": null
   },
   {
@@ -25748,7 +25748,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872480810",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1746004970-18694700.jpg?v=1763397305&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_gentleman_society_ambree_eau_de_parfum_100ml_spray_.jpg",
     "notes": {
       "top": [
         "Clary Sage essence"
@@ -25777,7 +25777,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872467965",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1727771189-30599900.jpg?v=1763395069&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/494_1.jpg",
     "notes": null
   },
   {
@@ -25846,7 +25846,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872469013",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1727453861-19058800.jpg?v=1763394504&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/507.jpg",
     "notes": null
   },
   {
@@ -25885,7 +25885,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872495494",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1756977937-41353600.jpg?v=1763398676&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_parfum_80ml_spray.jpg",
     "notes": {
       "top": [
         "Bitter Almond Essence"
@@ -25917,7 +25917,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872473669",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1725466976-95934200.jpg?v=1763395603&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_absolu_35ml_eau_de_parfum_intense.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -25947,7 +25947,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872411678",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1638876757-44789600.jpg?v=1763390986&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/_/l_interdit_intense_35ml_.png",
     "notes": {
       "top": [
         "Black Pepper"
@@ -26006,7 +26006,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872428058",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/GIV0028.png?v=1756720376&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_rouge_eau_de_parfum_80ml_spray_.jpg",
     "notes": null
   },
   {
@@ -26017,7 +26017,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872456334",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1727445655-74656200.jpg?v=1763393750&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/509.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -26047,7 +26047,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872447561",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1727429574-56873100.jpg?v=1763393322&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/505.jpg",
     "notes": null
   },
   {
@@ -26579,7 +26579,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3346470114746",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1666617494-10732300.jpg?v=1763392906&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/guerlain_la_petite_robe_noire_eau_de_toilette_100ml_spray_.jpg",
     "notes": null
   },
   {
@@ -26968,7 +26968,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616302968237",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1760449085-12109800.jpg?v=1763398892&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/4/645.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -27030,7 +27030,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303173098",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1666084983-86689600.jpg?v=1763392882&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hugo_boss_boss_bottled_100ml_parfum.jpg",
     "notes": {
       "top": [
         "Mandarin",
@@ -27058,7 +27058,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614228220897",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/hugobossinfinite.jpg?v=1782307427&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/665.jpg",
     "notes": {
       "top": [
         "Apple",
@@ -27188,7 +27188,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052130729",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1669307615-13724900.png?v=1763393064&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/m/images.jpeg",
     "notes": {
       "top": [
         "Lychee",
@@ -27216,7 +27216,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616301623359",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1638970117-37118700.jpg?v=1763391887&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hugo-boss-orange-man-woda-toaletowa-100ml-spray.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -27493,7 +27493,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423470486025",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1512729200-18894900.jpg?v=1763391148&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_l_eau_d_issey_pour_homme_intense_eau_de_toilette_75ml_spray.jpg",
     "notes": null
   },
   {
@@ -27734,7 +27734,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415017213",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1752768267-61792400.jpg?v=1763389412&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/759.jpg",
     "notes": null
   },
   {
@@ -27806,7 +27806,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415102537",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1745421730-33420200.jpg?v=1763397659&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/7/170_1.jpg",
     "notes": {
       "top": [
         "Kumquat"
@@ -27950,7 +27950,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8435415102353",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1745422470-35428300.jpg?v=1763397669&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415102353.jpg",
     "notes": {
       "top": [
         "Plum"
@@ -28007,7 +28007,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415080415",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1713875288-63875800.jpg?v=1763395041&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/801.jpg",
     "notes": null
   },
   {
@@ -28018,7 +28018,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8435415080422",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1713875025-89530200.jpg?v=1763395043&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/801_1.jpg",
     "notes": null
   },
   {
@@ -28102,7 +28102,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "8435415055963",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1628871260-42116800.jpg?v=1763390307&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/811.jpg",
     "notes": {
       "top": [
         "Clary Sage"
@@ -28127,7 +28127,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415065191",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61guEdOZAgL.jpg?v=1767983286",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/812_1.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -29161,7 +29161,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460119252",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1641922125-16382500.jpg?v=1763391224&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/o/p/open-box-jimmy-choo-ladies-i-want-choo-edp-spray-34-oz-fragrances-3386460119252.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -29494,7 +29494,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3607345849867",
     "shops": 3,
-    "image": "https://allbeauty.com/cdn/shop/files/958854.jpg?v=1755874603&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/905.jpg",
     "notes": null
   },
   {
@@ -30687,7 +30687,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274169706",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1_aa483943-6596-432c-849e-d7ade9b0cf6a.jpg?v=1774434480&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/965.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -30717,7 +30717,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605533286555",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/2_307b0c2a-5eeb-4608-9364-9684e0995986.jpg?v=1774364259&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/960.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -30768,7 +30768,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3147758155112",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1_609a6913-62b8-4701-8d15-bd4fcae5b270.jpg?v=1774435367&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_perfume_women_poeme_eau_de_parfum_edp_100ml.jpg",
     "notes": {
       "top": [
         "Blue Himalayan Poppy",
@@ -33442,7 +33442,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607349764241",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1655715679-16834800.jpg?v=1763392542&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/981.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -34001,7 +34001,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460153720",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1746008320-75362400.jpg?v=1763397626&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1031.jpg",
     "notes": {
       "top": [
         "Bergamot"
@@ -34050,7 +34050,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3386460124195",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1750156482-06346100.jpg?v=1763398192&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1061.jpg",
     "notes": {
       "top": [
         "Sicilian Bergamot",
@@ -34353,7 +34353,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 15,
     "ean": "3614273606400",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1640170853-85662900.jpg?v=1763391908&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_eau_de_parfum_15ml_refillable_spray_.jpg",
     "notes": null
   },
   {
@@ -34375,7 +34375,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274289473",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1739964924-46475800.jpg?v=1763397348&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614274289473_6.png",
     "notes": {
       "top": [
         "Petitgrain"
@@ -34442,7 +34442,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3614273673419",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1665411677-10910000.jpg?v=1763392655&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_60ml_eau_de_parfum_intense_bot.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -34472,7 +34472,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3614273927925",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1692702668-98615300.jpg?v=1763393716&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1079.jpg",
     "notes": null
   },
   {
@@ -34614,7 +34614,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274085501",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1727867793-70695400.jpg?v=1763395525&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_fantasm_eau_de_parfum_50ml_spray.jpg",
     "notes": null
   },
   {
@@ -34625,7 +34625,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274076745",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1727868857-90773000.jpg?v=1763395527&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_fantasm_sensuelle_100ml_eau_de_parfum.jpg",
     "notes": null
   },
   {
@@ -34778,7 +34778,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222012687",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1627029940-02807300.jpg?v=1763390246&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1116.jpg",
     "notes": {
       "top": [],
       "middle": [],
@@ -34876,7 +34876,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423473053958",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1599228093-71760600.jpg?v=1763389879&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1120.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -34906,7 +34906,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222055615",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1664540998-15807600.jpg?v=1763392778&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1122.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -34937,7 +34937,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423222055639",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1664541263-25236200.jpg?v=1763392779&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_narciso_cristal_90ml_eau_de_parfum.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -35012,7 +35012,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3137370302131",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/852_ec2ada6c-bbcc-4658-8dec-ed17967d78d2.jpg?v=1776933217&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370302131.png",
     "notes": {
       "top": [
         "Carnation",
@@ -35143,7 +35143,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360370600192",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1488909030-67794300.jpg?v=1763392303&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1249.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -35622,7 +35622,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137749287",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/whiteprada.jpg?v=1773329034&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12271415-2304710348696057.jpg",
     "notes": null
   },
   {
@@ -35644,7 +35644,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273478755",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1745583214-36326200.jpg?v=1763392313&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1277.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -35718,7 +35718,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273961707",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/Prada100mlParadoxe.jpg?v=1773244765&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada_paradoxe_intense_90ml_eau_de_parfum.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -35781,7 +35781,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668630332",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1million50ml.jpg?v=1784300448&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1203.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -35811,7 +35811,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668630349",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1millgold_46588e56-eaba-4502-9fd2-ce8908b78394.jpg?v=1784301005&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1200.jpg",
     "notes": null
   },
   {
@@ -36024,7 +36024,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3349668627486",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1715334041-71508100.jpg?v=1763395145&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1214.jpg",
     "notes": null
   },
   {
@@ -36035,7 +36035,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668627462",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1715332426-63273500.jpg?v=1763395150&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1216.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -36144,7 +36144,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668630035",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1738240981-92731000.jpg?v=1763394437&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1223.jpg",
     "notes": {
       "top": [
         "Frosted Orange Blossom",
@@ -36343,7 +36343,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3360372013648",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1643026298-20040800.jpg?v=1763391640&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph-lauren-safari-eau-de-toilette-for-men-125ml-102729-677588.jpg",
     "notes": null
   },
   {
@@ -38430,7 +38430,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273672474",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1645012369-56543500.jpg?v=1763391975&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_born_in_roma_coral_fantasy_eau_de_parfum_50ml_spray_.jpg",
     "notes": {
       "top": [
         "Kiwi",
@@ -38480,7 +38480,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273790857",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1692709591-19461400.jpg?v=1763393333&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1402.jpg",
     "notes": {
       "top": [
         "Mandarin",
@@ -38612,7 +38612,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273790826",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1692709868-89590700.jpg?v=1763393337&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1418.jpg",
     "notes": {
       "top": [],
       "middle": [],
@@ -38633,7 +38633,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274024807",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1727772349-72120000.jpg?v=1763394430&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1413.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -38694,7 +38694,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "688575001778",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1_5003b6e0-e7e2-4784-bfbf-ca919890c86d.jpg?v=1775144362&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1428.jpg",
     "notes": {
       "top": [
         "Lily",
@@ -39201,7 +39201,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274158151",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/963254.jpg?v=1778069410&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1340_1.jpg",
     "notes": {
       "top": [
         "Raspberry"
@@ -39228,7 +39228,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273622639",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/fb.jpg?v=1775646792&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273622639_1-scaled.jpeg",
     "notes": null
   },
   {
@@ -39261,7 +39261,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274158113",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728910125-55043800.jpg?v=1763395541&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614274158113.jpg",
     "notes": null
   },
   {
@@ -39272,7 +39272,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3614274158137",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728909717-81700100.jpg?v=1763395542&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/p/spicebomb_dark_leather_150ml.png",
     "notes": {
       "top": [
         "Bergamot",
@@ -39438,7 +39438,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273919999",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737385360-23076800.jpg?v=1763393754&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_good_fortune_elixir_intense_eau_de_parfum_50ml_spray_.jpg",
     "notes": null
   },
   {
@@ -48692,7 +48692,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460036405",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/27825.jpg?v=1766143869&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/o/boucheron_pour_homme_100ml_eau_de_toilette.jpg",
     "notes": {
       "top": [
         "orange",
@@ -50366,7 +50366,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252667392",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1641981357-49202500.jpg?v=1763390723&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/7/27.jpg",
     "notes": {
       "top": [],
       "middle": [],
@@ -50455,7 +50455,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616304967115",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/BURB0069.png?v=1756720376&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12.jpg",
     "notes": {
       "top": [
         "Lavender Essence"
@@ -50701,7 +50701,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "5045419039611",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1754395353-52471100.jpg?v=1763398465&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/25_1.jpg",
     "notes": {
       "top": [
         "Quince",
@@ -51500,7 +51500,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607342401426",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/ckshock.jpg?v=1783355217&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/101.jpg",
     "notes": null
   },
   {
@@ -51555,7 +51555,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616302016716",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737380189-83911500.jpg?v=1763393710&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_defy_eau_de_parfum_50ml_spray_.jpg",
     "notes": null
   },
   {
@@ -52255,7 +52255,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607342401860",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1380195011-70803200.jpg?v=1763388845&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/98.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -52765,7 +52765,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "8411061002865",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728377788-84970200.jpg?v=1763390459&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8411061002865.png",
     "notes": null
   },
   {
@@ -52967,7 +52967,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061113851",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1761905710-28773000.jpg?v=1763399383&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/180.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -53124,7 +53124,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061995754",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728305354-71305100.jpg?v=1763390132&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/184.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -55199,7 +55199,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3607340188602",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1548867446-51429200.jpg?v=1763389958&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3607340188602.png",
     "notes": {
       "top": [
         "Bergamot",
@@ -55348,7 +55348,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607342359789",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1369146072-28015800.jpg?v=1763389951&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/4/243.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -56174,7 +56174,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "763511009824",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/5319.jpg?v=1755875239&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/051.jpg",
     "notes": null
   },
   {
@@ -56724,7 +56724,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3423473032793",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737027133-55446800.jpg?v=1763390861&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/357.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -56825,7 +56825,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3423473020776",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1382630876-93962700.jpg?v=1763389985&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_pour_homme_eau_de_toilette_125ml_spray.jpg",
     "notes": {
       "top": [
         "Neroli",
@@ -56934,7 +56934,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423478452657",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737027349-60198100.jpg?v=1763390870&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/8/080.jpg",
     "notes": null
   },
   {
@@ -57103,7 +57103,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085715806352",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1732098164-26563900.jpg?v=1763396086&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/u/dunhill_icon_racing_blue_edp_100ml_.png",
     "notes": null
   },
   {
@@ -64264,7 +64264,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3614273604932",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1665060936-18674200.jpg?v=1763392713&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/3/434.jpg",
     "notes": {
       "top": [
         "Citron",
@@ -64507,7 +64507,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274752717",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1769707405-09686400.jpg?v=1772624909&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/r/armani_emporia_armani_power_of_you_eau_de_parfum_90ml_spray_.jpg",
     "notes": null
   },
   {
@@ -64518,7 +64518,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360372061809",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1629458041-31692000.jpg?v=1763391097&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441.jpg",
     "notes": null
   },
   {
@@ -64529,7 +64529,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360372061793",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1629457932-96497000.jpg?v=1763391094&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441_1.jpg",
     "notes": null
   },
   {
@@ -64782,7 +64782,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272225718",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1548247575-65397600.jpg?v=1763389184&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/9/090.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -65643,7 +65643,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274870303166",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/3058.jpg?v=1755875401&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/110_1.jpg",
     "notes": {
       "top": [
         "grapefruit",
@@ -65689,7 +65689,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274870042362",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1697816027-69003600.jpg?v=1763391109&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/515.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -66075,7 +66075,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8005610328799",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1729862900-54569400.jpg?v=1763391112&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/6/560.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -66465,7 +66465,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3346470113558",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1666615164-87022900.jpg?v=1763392908&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shali_edp.jpg",
     "notes": null
   },
   {
@@ -67617,7 +67617,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616304691652",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1699981765-41711200.jpg?v=1763393941&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/685.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -67959,7 +67959,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052351100",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1517568324-24126200.png?v=1763391125&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/657.jpg",
     "notes": null
   },
   {
@@ -67970,7 +67970,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052351018",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1523983042-36415600.png?v=1763391124&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/662.jpg",
     "notes": null
   },
   {
@@ -68043,7 +68043,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "737052488257",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1770296151-62689900.jpg?v=1772624830&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/668.jpg",
     "notes": {
       "top": [
         "Birch Leaf"
@@ -68068,7 +68068,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052352060",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1523976922-05452900.png?v=1763391130&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/667.jpg",
     "notes": null
   },
   {
@@ -68079,7 +68079,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052031415",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1657102178-91115600.jpg?v=1763391054&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/162_2.jpg",
     "notes": null
   },
   {
@@ -68141,7 +68141,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052041353",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1_6f336ee8-21a9-4ea2-810a-808da2c5b95f.jpg?v=1781860832&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/695.jpg",
     "notes": null
   },
   {
@@ -68217,7 +68217,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "737052515045",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1760449308-11149800.jpg?v=1763399262&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/697.jpg",
     "notes": null
   },
   {
@@ -68411,7 +68411,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052802800",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1708013582-62041900.jpg?v=1763391041&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/704.jpg",
     "notes": null
   },
   {
@@ -68554,7 +68554,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052238128",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1641988767-16668700.jpg?v=1763391044&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/7/675.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -68691,7 +68691,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052130934",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1763640750-91626500.jpg?v=1772624932&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200_3.jpg",
     "notes": null
   },
   {
@@ -70476,7 +70476,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423470300161",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1380882213-09203900.jpg?v=1763391146&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/1/716.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -72929,7 +72929,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460129848",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1653659482-33062900.jpg?v=1763392454&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/874.jpg",
     "notes": null
   },
   {
@@ -72994,7 +72994,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460148719",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1738151178-69176600.jpg?v=1763397043&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/882.jpg",
     "notes": null
   },
   {
@@ -75610,7 +75610,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8005610521220",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/Lacostel_homme.jpg?v=1783954114&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lacoste-mens-lhomme-edt-spray-33-oz-100-ml-8005610521220_2.jpg",
     "notes": null
   },
   {
@@ -75703,7 +75703,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "737052949215",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1760629988-89875500.jpg?v=1763399041&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/2/922.jpg",
     "notes": {
       "top": [
         "Jamaican Pepper",
@@ -76346,7 +76346,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274104370",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1736961518-77096000.jpg?v=1763394854&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome-la-vie-est-belle-rose-extraordinaire-eau-de-parfum.jpg",
     "notes": null
   },
   {
@@ -76663,7 +76663,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3147758034905",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737022052-99050800.jpg?v=1763391459&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-edp-vapo-50ml-lancome-1.jpg",
     "notes": null
   },
   {
@@ -83951,7 +83951,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616305033031",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/MarcJacobsDaisy1.jpg?v=1778257789&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_intense_eau_de_parfum_30ml_spray_.jpg",
     "notes": null
   },
   {
@@ -83973,7 +83973,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342522732",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1740397196-16859000.jpg?v=1763397368&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1002.jpg",
     "notes": {
       "top": [
         "Red Berries",
@@ -85653,7 +85653,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460101035",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1626857980-05400600.jpg?v=1763389293&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1025.jpg",
     "notes": null
   },
   {
@@ -86462,7 +86462,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273673402",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1665412039-23493900.jpg?v=1763392656&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_intense_90ml_eau_de_parfum.jpg",
     "notes": {
       "top": [
         "Tangy"
@@ -86497,7 +86497,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273927932",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1736786408-83958300.jpg?v=1763393720&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_supra_florale_eau_de_parfum_90ml_spray.jpg",
     "notes": {
       "top": [],
       "middle": [
@@ -90757,7 +90757,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137743223",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/cedre.jpg?v=1773312014&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/77181991_xxl.jpg",
     "notes": null
   },
   {
@@ -92032,7 +92032,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668545759",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1500383071-42649900.jpg?v=1763398582&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1233.jpg",
     "notes": null
   },
   {
@@ -92401,7 +92401,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605972698742",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1665590335-15617300.jpg?v=1763392620&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph-lauren-ralphs-club-parfum.jpg",
     "notes": {
       "top": [
         "Mandarin Oil",
@@ -97984,7 +97984,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273459082",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1626867807-46836900.jpg?v=1763390277&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_voce_viva_intense_eau_de_parfum_30ml_spray_.jpg",
     "notes": null
   },
   {
@@ -98745,7 +98745,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3605521820891",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737383880-10839100.jpg?v=1763391738&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3605521820891.jpg",
     "notes": {
       "top": [
         "Bergamot",

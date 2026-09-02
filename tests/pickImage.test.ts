@@ -95,11 +95,77 @@ describe('pickImage', () => {
     expect(pickImage(offers, NOW)).toBe('https://perfume-click.example/photo.jpg');
   });
 
-  it('is the sole entry in PREFERRED_IMAGE_RETAILERS, matching what was actually verified', () => {
-    // See this constant's own doc comment: the-beauty-store-uk's photos were
-    // sampled and found majority box-and-bottle, not bottle-only, so it does
-    // not belong here regardless of the owner's original premise about it.
-    expect(PREFERRED_IMAGE_RETAILERS).toEqual(['beautybase']);
+  it('holds exactly the two retailers whose photos were sampled and viewed, licence first', () => {
+    // See this constant's own doc comment for both halves. the-beauty-store-uk
+    // was sampled and found majority box-and-bottle, so it does not belong
+    // here regardless of the owner's original premise about it. fragrance-click
+    // was sampled the same way on 2026-09-02 — ten photos downloaded from the
+    // products that would actually move and viewed, ten of ten bottle-only on
+    // white — and is ranked FIRST because of its licence, not its framing: it
+    // is the one retailer in the whole registry carrying `affiliate-terms`
+    // rather than `hotlink-unlicensed`.
+    expect(PREFERRED_IMAGE_RETAILERS).toEqual(['fragrance-click', 'beautybase']);
+  });
+
+  it('prefers the licensed retailer over the unlicensed one when both have a fresh photo', () => {
+    // The whole point of the reordering: 265 products currently showing a
+    // hot-linked beautybase photo have a fragrance-click photo of the same
+    // bottle, and this is what moves them.
+    const offers = [
+      offer({ retailerId: 'beautybase', fetchedAt: hoursAgo(1) }),
+      offer({ retailerId: 'fragrance-click', fetchedAt: hoursAgo(20) }),
+    ];
+    expect(pickImage(offers, NOW)).toBe('https://fragrance-click.example/photo.jpg');
+  });
+
+  it('falls through to the next ranked retailer when the first one is stale, not straight to freshness', () => {
+    // The `break` this loop used to end on was harmless while the list held
+    // one entry and is not harmless now: a stale first choice would skip every
+    // other ranked shop and hand the decision to raw freshness, which is the
+    // one outcome the ranking exists to prevent. Here beautybase's photo is
+    // fresh and bottle-only, and must win over an unranked shop's fresher one.
+    const offers = [
+      offer({ retailerId: 'fragrance-click', fetchedAt: hoursAgo(PREFERRED_IMAGE_MAX_AGE_HOURS + 1) }),
+      offer({ retailerId: 'beautybase', fetchedAt: hoursAgo(48) }),
+      offer({ retailerId: 'perfume-click', fetchedAt: hoursAgo(1) }),
+    ];
+    expect(pickImage(offers, NOW)).toBe('https://beautybase.example/photo.jpg');
+  });
+
+  it('still reaches freshness once every ranked retailer is stale', () => {
+    const offers = [
+      offer({ retailerId: 'fragrance-click', fetchedAt: hoursAgo(PREFERRED_IMAGE_MAX_AGE_HOURS + 1) }),
+      offer({ retailerId: 'beautybase', fetchedAt: hoursAgo(PREFERRED_IMAGE_MAX_AGE_HOURS + 2) }),
+      offer({ retailerId: 'perfume-click', fetchedAt: hoursAgo(1) }),
+    ];
+    expect(pickImage(offers, NOW)).toBe('https://perfume-click.example/photo.jpg');
+  });
+
+  it('leaves a product with no licensed alternative exactly where it was', () => {
+    // The honest limit of this change, pinned so it is not mistaken for a
+    // fix to the whole exposure: only 265 of the 2,727 beautybase-sourced
+    // photos have a fragrance-click counterpart at all. The other 2,462 are
+    // unchanged, and swapping them to another `hotlink-unlicensed` shop would
+    // trade one unlicensed hotlink for another and reduce nothing.
+    const offers = [
+      offer({ retailerId: 'beautybase', fetchedAt: hoursAgo(3) }),
+      offer({ retailerId: 'justmylook', fetchedAt: hoursAgo(1) }),
+    ];
+    expect(pickImage(offers, NOW)).toBe('https://beautybase.example/photo.jpg');
+  });
+});
+
+describe('the licence ranking reflects the registry rather than a preference', () => {
+  it('fragrance-click is the only image-allowed retailer with a basis stronger than a bare hotlink', () => {
+    // The measurement the reordering rests on, asserted against the registry
+    // itself so it fails if that ever stops being true — which is the case
+    // worth knowing about, in either direction. If a second retailer gains
+    // `affiliate-terms` or `own-storefront`, this ranking should be revisited;
+    // if fragrance-click loses its basis, it must leave the list entirely.
+    const allowed = RETAILERS.filter((r) => r.affiliate.imageBasis != null);
+    const stronger = allowed.filter((r) => r.affiliate.imageBasis !== 'hotlink-unlicensed').map((r) => r.id);
+    expect(stronger).toEqual(['fragrance-click']);
+    expect(PREFERRED_IMAGE_RETAILERS[0]).toBe('fragrance-click');
   });
 });
 
