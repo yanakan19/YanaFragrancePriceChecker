@@ -60,9 +60,56 @@ if git diff --cached --quiet; then
   exit 0
 fi
 
-git commit -m "$message"
-
 branch="$(git rev-parse --abbrev-ref HEAD)"
+
+# ── The signed-commit attempt, added 2026-09-02 ───────────────────────────────
+# A commit made the ordinary way below — `git commit` on a runner, then
+# `git push` — carries no signature GitHub can verify, which is why every one
+# of this pipeline's commits shows as unverified. A commit created through
+# GitHub's own API with the workflow token is signed by GitHub and comes back
+# Verified. docs/DECISIONS.md D16 and D18 established that mechanism and then
+# refused to land it three times; read both before touching this.
+#
+# What is different this time is the *shape*, not the appetite for risk. This
+# is not a conversion of this script to the API. Everything below this block —
+# the commit, the retry budget, the rebase, resolve_generated_conflicts, every
+# named incident encoded in them — is byte-for-byte what it was, and it is
+# still what runs on every path but one narrow, self-refusing case:
+#
+#   * signed-commit.sh refuses unless local HEAD is already exactly the remote
+#     head, i.e. unless this push would have been a plain fast-forward with no
+#     rebase to do. The instant there is anything to rebase it declines and
+#     this script does the whole job. Nothing re-derives a three-way merge
+#     against the Git Data API, which is the specific thing D16 called the
+#     larger risk and D18 re-confirmed.
+#   * It refuses outright for the four call sites carrying the oversized
+#     generated files, so D16's size question is not merely unanswered here,
+#     it is never asked.
+#   * It runs BEFORE `git commit`, so a failure of any kind leaves the tree
+#     exactly as it was and execution continues into the ordinary path. There
+#     is no outcome in which this block loses a harvest; the worst it can cost
+#     is one HTTPS round trip.
+#   * `SIGNED_COMMITS=off` in the environment turns it off with no code change.
+#
+# On success the branch already carries our content, so the local checkout is
+# resynced to it and we stop. `--hard` is safe here for the same reason the
+# discard further down is: at this point everything not staged is reproducible
+# build output, and everything staged is what the remote now has.
+signed_commit_script="$(dirname "$0")/signed-commit.sh"
+if [ -f "$signed_commit_script" ]; then
+  # `if <cmd>; then` rather than `set +e` around it: this must not disable -e
+  # even briefly, and a non-zero exit from the helper is an ordinary, expected
+  # answer here rather than an error to be trapped.
+  if bash "$signed_commit_script" "$message" "$branch"; then
+    git fetch -q origin "$branch"
+    git reset -q --hard FETCH_HEAD
+    echo "Landed as a signed commit through the GitHub API; nothing to push."
+    exit 0
+  fi
+  echo "Continuing on the ordinary git commit-and-push path."
+fi
+
+git commit -m "$message"
 
 # ── The retry budget ─────────────────────────────────────────────────────────
 # Five attempts with a plain doubling backoff (2s, 4s, 8s, 16s — 30 seconds of

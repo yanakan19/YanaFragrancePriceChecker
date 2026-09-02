@@ -85,6 +85,17 @@ jobs:
     # workflow.
     timeout-minutes: 40
 
+    # See the identical block in catalogue-daily.yml's `crawl` job, and
+    # scripts/signed-commit.sh, for what these two do. GITHUB_TOKEN is what
+    # lets a commit be created through GitHub's API and come back Verified;
+    # SIGNED_COMMITS is the no-code-change off switch (a repository variable
+    # set to `off`). This workflow's only commit — "Image links", two small
+    # JSON reports — is one of the four small-payload call sites the design
+    # covers.
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SIGNED_COMMITS: ${{ vars.SIGNED_COMMITS }}
+
     steps:
       - uses: actions/checkout@v4
 
