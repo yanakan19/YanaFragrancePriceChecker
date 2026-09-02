@@ -288386,7 +288386,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/montblanc-explorer-platinum-eau-de-parfum-spray-60ml",
       "fetchedAt": "2026-09-01T17:31:16.915Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -292912,7 +292912,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 35.99,
       "wasPrice": 50.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157929401&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -293971,7 +293971,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 17.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43174941556&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -295394,7 +295394,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 29.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "outOfStock",
+      "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687942&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -301527,7 +301527,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/ghost-by-bujairami-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -301698,7 +301698,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/v-luxe-by-bujairami-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -303253,7 +303253,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 31.49,
       "wasPrice": 57.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157929067&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -304482,7 +304482,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 15.19,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43174943076&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -306092,7 +306092,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 79.99,
       "wasPrice": 152.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687334&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -306457,7 +306457,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 70.99,
       "wasPrice": 94.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157930358&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -309882,7 +309882,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/maitha-by-lattafa-20ml-perfume-oil/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -313478,7 +313478,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 106.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688641&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -313733,7 +313733,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 91.49,
       "wasPrice": 152.99,
       "promoEndsAt": null,
-      "stock": "outOfStock",
+      "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688646&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -315032,7 +315032,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 17.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157930675&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -323901,7 +323901,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/breathless-by-bujairami-100ml-extrait-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -324118,7 +324118,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/drip-by-bujairami-100ml-extrait-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -326839,7 +326839,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 66.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157929011&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -331588,7 +331588,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 52.49,
       "wasPrice": 91.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687001&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -337854,7 +337854,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 136.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "outOfStock",
+      "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928882&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -347045,7 +347045,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/jouri-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -347168,7 +347168,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/maahir-honor-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -347742,7 +347742,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/raed-absolu-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -351232,7 +351232,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 88.49,
       "wasPrice": 165.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688405&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -357823,7 +357823,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 42.99,
       "wasPrice": 113.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43174941813&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -365768,7 +365768,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 19.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686071&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -365785,7 +365785,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/ajmal-unisex-viola-edp-spray-75ml",
       "fetchedAt": "2026-09-01T17:31:16.915Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -368000,7 +368000,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/miami-blue-by-ard-al-zaafaran-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -371552,7 +371552,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 16.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43174942298&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -371776,7 +371776,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 30.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "outOfStock",
+      "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686286&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -372323,7 +372323,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 59.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928302&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -373344,7 +373344,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 36.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928977&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -374309,7 +374309,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/burnt-sugar-by-bujairami-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -374340,7 +374340,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/cherry-reign-by-bujairami-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -374523,7 +374523,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/dominus-by-bujairami-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -374616,7 +374616,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/endless-blue-by-bujairami-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -374706,7 +374706,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/guava-vice-by-bujairami-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -374734,7 +374734,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/imperial-oud-by-bujairami-100ml-extrait-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -374796,7 +374796,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/inferno-by-bujairami-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -375181,7 +375181,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/pulse-fiction-by-bujairami-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -375243,7 +375243,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/rising-sun-by-bujairami-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -375457,7 +375457,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/the-sheikh-by-bujairami-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -376638,7 +376638,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 99.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686452&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -376666,7 +376666,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 71.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686461&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -380305,7 +380305,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 86.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686581&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -387482,7 +387482,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 12.19,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928679&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -387880,7 +387880,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 14.29,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157931049&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -390855,7 +390855,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/allusive-canale-sport-by-fragrance-world-80ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -391082,7 +391082,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/barakkat-gentle-gold-by-fragrance-world-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -395393,7 +395393,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 79.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687335&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -400788,7 +400788,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/hugo-boss-bottled-night-eau-de-toilette-100ml",
       "fetchedAt": "2026-09-01T17:31:16.915Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -404144,7 +404144,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 14.29,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157929309&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -410409,7 +410409,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 27.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687734&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -414346,7 +414346,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/raed-intensely-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -418630,7 +418630,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/maison-alhambra-black-origami-eau-de-parfum-100ml",
       "fetchedAt": "2026-09-01T17:31:16.915Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -419246,7 +419246,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/jean-lowe-fantasme-by-maison-alhambra-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -419274,7 +419274,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/jean-lowe-verde-aura-by-maison-alhambra-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -420506,7 +420506,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/the-aurum-luxura-by-maison-alhambra-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -420590,7 +420590,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/the-white-cloud-by-maison-alhambra-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -422882,7 +422882,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 25.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157930560&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -426207,7 +426207,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 53.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157929810&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -427172,7 +427172,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 15.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688443&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -431260,7 +431260,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 18.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43174942122&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -436291,7 +436291,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/ralph-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-26T03:22:47.160Z",
       "firstSeenAt": "2026-08-26T03:22:47.160Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     },
@@ -441442,7 +441442,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 30.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689136&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -450772,7 +450772,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 27.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157930697&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -472804,7 +472804,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 30.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928978&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -473584,7 +473584,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 34.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686415&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -476276,7 +476276,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/gas-by-bujairami-100ml-extrait-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -479809,7 +479809,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 95.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686454&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -488927,7 +488927,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/coach-eau-de-toilette-90ml",
       "fetchedAt": "2026-09-01T17:31:16.915Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -496813,7 +496813,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 76.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928564&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -508979,7 +508979,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/fragrance-world-montera-instant-love-100ml-edp/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -516002,7 +516002,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/armani-because-its-you-eau-de-parfum-50ml-sprayray",
       "fetchedAt": "2026-08-26T03:22:47.160Z",
       "firstSeenAt": "2026-08-26T03:22:47.160Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -519703,7 +519703,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 57.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157930360&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -521773,7 +521773,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 25.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928930&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -526123,7 +526123,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 46.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157929226&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -534928,7 +534928,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 23.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157929487&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -535363,7 +535363,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 52.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43174943023&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -541474,7 +541474,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 93.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157929635&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -542254,7 +542254,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 61.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687805&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -544229,7 +544229,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/creative-art-pride-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -545315,7 +545315,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/love-in-paris-pride-by-lattafa-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -564962,7 +564962,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/nusuk-ateeq-eau-de-parfum-100ml/",
       "fetchedAt": "2026-08-26T01:10:26.361Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -572404,7 +572404,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 12.29,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157930009&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -586298,7 +586298,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.bmstores.co.uk/products/scent-favourites-gorgeous-bloom-edt-100ml-431987",
       "fetchedAt": "2026-08-30T23:25:24.829Z",
       "firstSeenAt": "2026-08-26T01:10:26.361Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -590674,7 +590674,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 36.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "outOfStock",
+      "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43174943005&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -592174,7 +592174,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 101.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689236&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -592729,7 +592729,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 98.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157930276&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -604873,7 +604873,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 79.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "outOfStock",
+      "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689501&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -605218,7 +605218,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 100.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43174941645&a=3026001&m=106925",
       "fetchedAt": "2026-09-01T23:18:58.807Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
