@@ -127,6 +127,52 @@ describe('displayName: a fragrance named after its own house', () => {
     // but an empty name is not something the app can render.
     expect(displayName('Eau de Parfum 100ml Spray', null, null)).toBe('Eau de Parfum 100ml Spray');
   });
+});
+
+describe('displayName: a shop whose vendor field names the line, not the house', () => {
+  // The other reason a title can strip down to nothing, and the one that used
+  // to be answered as though it were the eponymous case above. Avon's own feed
+  // tags each fragrance with its own line name — rawBrand "Perceive",
+  // "Incandessence", "Little Black Dress" — which brandName.ts's alias table
+  // correctly folds onto the house that makes them, "Avon Cosmetics".
+  // brandTitleOpens then strips the raw spelling off the front, the
+  // concentration and size go, and the old fallback named every one of them
+  // "Avon Cosmetics": one brand, one name, one size, one concentration, so one
+  // matchKey, so findDuplicateGroups merged three different perfumes into one
+  // product. See emptiedNameFallback in productName.ts for the live products
+  // this was happening to.
+  it.each([
+    ['Perceive Eau de Parfum 30ml', 'Perceive', 'Perceive'],
+    ['Incandessence Eau de Parfum - 30 ml', 'Incandessence', 'Incandessence'],
+    ['Little Black Dress Eau de Parfum 30ml', 'Little Black Dress', 'Little Black Dress'],
+    ['Black Suede Eau de Toilette - 125ml', 'Black Suede', 'Black Suede'],
+    ['Full Speed Eau de Toilette - 30ml', 'Full Speed', 'Full Speed'],
+    ['Imari Eau de Toilette - 50ml 50ml', 'Imari', 'Imari'],
+  ])('%s keeps its own name rather than becoming the house', (title, raw, expected) => {
+    expect(displayName(title, raw, 'Avon Cosmetics')).toBe(expected);
+  });
+
+  // Not an Avon-only shape. Three of mybeauty-boutique's own listings do the
+  // same thing against three different houses, the last of them the plainest
+  // case of all: a bottle with "Mon Guerlain" written on the front was
+  // displayed as a product called "Guerlain", by Guerlain.
+  it.each([
+    ['Cinnabar 50ml Edp Spray', 'Cinnabar', 'Estée Lauder', 'Cinnabar'],
+    ['Mandate Eau de Toilette Spray 100ml', 'Mandate', 'Eden Classic', 'Mandate'],
+    ['Mon Guerlain 30ml Eau de Parfum Spray', 'Mon Guerlain', 'Guerlain', 'Mon Guerlain'],
+  ])('%s under a different displayed house keeps its own name', (title, raw, displayed, expected) => {
+    expect(displayName(title, raw, displayed)).toBe(expected);
+  });
+
+  // The line the fix has to hold: a vendor field that is merely a different
+  // *spelling* of the same house is still the eponymous case, and must still
+  // answer with the displayed spelling. beautybase writes "Chloe" unaccented
+  // where the displayed brand is "Chloé"; folding diacritics before brandKey
+  // is what keeps that one house rather than two names.
+  it('an unaccented vendor spelling of the same house is still the eponymous case', () => {
+    expect(displayName('Chloe Eau De Parfum 50ml Spray', 'Chloe', 'Chloé')).toBe('Chloé');
+    expect(displayName('Tiffany&co Eau de Parfum 30 ml', 'Tiffany & Co', 'Tiffany & Co')).toBe('Tiffany & Co');
+  });
 
   it('still prefers a real name over the house name where one exists', () => {
     expect(displayName('Chloé Nomade Eau De Parfum 50ml', 'Chloé', 'Chloé')).toBe('Nomade');

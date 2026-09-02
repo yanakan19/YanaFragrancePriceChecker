@@ -303,12 +303,22 @@ export function matchKey(p: MatchableProduct): string {
  * Parfum 30ml" with rawBrand "Perceive", "Incandessence Eau de Parfum - 30
  * ml" with rawBrand "Incandessence" and "Little Black Dress Eau de Parfum
  * 30ml" with rawBrand "Little Black Dress" all canonicalise to brand "Avon
- * Cosmetics" and a name with no fragrance in it, so all three share a
- * matchKey and findDuplicateGroups has already merged them into one product.
- * They are three different perfumes. That merge is a real defect and not the
- * collapse's to fix — but collapsing on matchKey alone would hide two of the
- * three behind the third and make it very much harder to see. Their raw
- * titles disagree outright, so this declines and all three rows survive.
+ * Cosmetics", and all three used to reduce to a name with no fragrance in it,
+ * so all three shared a matchKey and findDuplicateGroups merged them into one
+ * product. They are three different perfumes. When this guard was written
+ * that merge was live and was not the collapse's to fix — collapsing on
+ * matchKey alone would have hidden two of the three behind the third and made
+ * it very much harder to see, and their raw titles disagree outright, so this
+ * declined and all three rows survived.
+ *
+ * 2026-09-02: the grouping itself is fixed — see emptiedNameFallback in
+ * productName.ts, which distinguishes "the strip emptied the name because the
+ * fragrance is named after its house" from "because the vendor field was the
+ * fragrance's own name". The three Avon bottles now carry three different
+ * names and never reach one bucket. This guard is unchanged and stays: it was
+ * never only about Avon (see the Tom Ford case below, which is the shape it
+ * was actually written for), and a second, independent reason to refuse a
+ * collapse is worth keeping whether or not today's catalogue still needs it.
  *
  * Subset rather than equality, because the case the collapse exists for is a
  * shop's own two pages differing by a word carrying no product information:
