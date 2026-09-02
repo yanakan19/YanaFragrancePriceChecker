@@ -95,6 +95,35 @@ byte for byte. That is one more data point for caveat (2), not an answer to
 it: it says the key survived within this environment, not that it survives a
 fresh one.
 
+Re-checked again 2026-09-02, the same way, against commit `93d0367b`: same
+key, byte for byte, and the default identity is still `noreply@anthropic.com`.
+The same limit applies and is worth restating rather than letting the count of
+re-checks imply more than it shows — this container has been alive across both
+checks, so what has been established is that the key is stable *within* one
+environment's lifetime, which was never the open question. Caveat (2) is
+unchanged.
+
+**The CI half of this is a separate thing, and as of 2026-09-02 it is
+attempted rather than refused.** This section is only about commits an
+interactive session makes. The pipeline's own ~582 scheduled commits go
+through `scripts/commit-and-push.sh`, which D16 and D18 twice declined to
+route through GitHub's API for the badge. `scripts/signed-commit.sh` now makes
+that attempt for the four small-payload call sites (`Harvest: real prices`,
+`Image links`, `Shipping terms`, `Price verification: measured drift`), in a
+shape that declines rather than risks anything — full reasoning in
+[`docs/DECISIONS.md` D19](docs/DECISIONS.md#d19---ci-commit-signing-fourth-attempt-landed-as-an-additive-attempt-that-can-only-decline).
+
+Two things about it are the owner's, not this repo's, and neither is claimed
+done here. It is **not verified to work**: no live Actions run was available
+when it was written, so the first real scheduled run is what decides whether
+GitHub accepts the payload or the existing `git push` path quietly carries on
+as before (the run log says plainly which). And it changes the committer on
+those commits from `pricesniffs-bot` to `github-actions[bot]`, which is
+inherent to the mechanism — the signature is GitHub signing on behalf of the
+token. **To switch it off, no code change needed:** GitHub → **Settings** →
+**Secrets and variables** → **Actions** → **Variables** → **New repository
+variable** → name `SIGNED_COMMITS`, value `off`.
+
 ## Demo
 
 `demo/index.html` is a single self-contained page — open it straight from disk.
