@@ -32,9 +32,18 @@ export const CHANGELOG: ChangelogEntry[] = [
   {
     version: 'v3.19.0',
     date: '3 Sep 2026',
-    title: 'A more honest "Most Stocked" count',
+    title: 'A more honest "Most Stocked" ordering',
     points: [
-      "The \"Most Stocked\" tile now shows the same number it's actually ranked by, instead of a larger count that included every offer",
+      'The "Most Stocked" list is now ordered by the same count it always claimed to be ranked by, instead of a larger one that included every offer',
+    ],
+  },
+  {
+    version: 'v3.20.0',
+    date: '3 Sep 2026',
+    title: 'Tidier product tiles',
+    points: [
+      'Removed the shop-count line from every tile in the grid and the home rail — it repeated the ordering rather than adding to it, and the count is still shown on each fragrance’s own page under "Available at"',
+      'Closed the gap that used to sit between a perfume’s name and its size/strength line, so every tile in a row lines up the same way whether the name takes one line or two',
     ],
   },
   {
