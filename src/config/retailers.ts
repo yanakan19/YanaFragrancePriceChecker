@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 79 retailers, 39 of them `enabled: true`. Every one of them is a legitimate
+ * 79 retailers, 38 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -4218,7 +4218,26 @@ export const RETAILERS: readonly Retailer[] = [
     // properly rather than a shop that cannot be compared. Not fixed here —
     // reordering that discovery pass changes which URLs all 29 shops fetch,
     // which is not a change to make without a sweep to measure it against.
-    enabled: true,
+    //
+    // ── Switched off, 2026-09-03 ──────────────────────────────────────────
+    // That deferral stood for two weeks and produced nothing: this is still
+    // the only enabled retailer in the file with no data/catalogue/*.json at
+    // all — every harvest run spends its whole budget on the same wrong
+    // category pages the run above already found, because discover()'s SCENT
+    // set fills first from /categories/beauty-*-fragrance and the generic
+    // product-sitemap set never gets a turn (see the run-5/run-9 log above).
+    // A shop advertised as enabled that has never once produced a priced
+    // listing is worse than an honest `false`: this site's product pages
+    // list Debenhams under "Not available at" as though it were checked,
+    // and it never has been. Fixing the actual cause means reordering
+    // src/catalogue/sitemapCrawl.ts's `discover()` for every shop that
+    // shares it, which is a change to make with a sweep across all 29
+    // affected shops to measure against, not as a side effect of one
+    // retailer's entry — still not done here for that reason. Re-enable
+    // once either that reordering ships and is measured, or this shop gets
+    // its own verified product-sitemap address to seed discovery with
+    // directly.
+    enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
