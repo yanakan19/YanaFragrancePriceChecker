@@ -30,6 +30,15 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.22.0',
+    date: '3 Sep 2026',
+    title: 'Sharper photos from a few shops, at no extra cost',
+    points: [
+      "Looked into whether shops publish several photos per product we could pick a better one from — they don't; every shop we harvest from gives us exactly one picture per listing, so that idea went nowhere and nothing changed because of it",
+      "Along the way found that a few shops' own product pages were quietly asking for a smaller copy of the photo than they actually have on file — we now ask for the size they really have instead, so photos from those shops (Beauty Base among them) come through a little larger and crisper without any shop doing anything differently",
+    ],
+  },
+  {
     version: 'v3.21.0',
     date: '3 Sep 2026',
     title: 'Better product pictures for thousands more fragrances',
