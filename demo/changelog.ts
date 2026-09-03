@@ -30,6 +30,18 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.17.0',
+    date: '1 Sep 2026',
+    title: "A stricter \"cheapest\" badge, corrected photos, and honester sold-out pages",
+    points: [
+      'A price more than 10 days old can no longer be shown as the cheapest option',
+      'Corrected product photos for 1,497 fragrances to show a confirmed picture of the actual bottle rather than a guess',
+      "A fragrance that's sold out everywhere no longer shows a recommended price the page doesn't actually state",
+      'A product photo that fails to load now shows a placeholder instead of a broken image',
+      "Delivery notes now say \"Delivery not included\" instead of the vaguer \"Plus delivery\"",
+    ],
+  },
+  {
     version: 'v3.16.0',
     date: '27 to 31 Aug 2026',
     title: 'Honest bottle sizes, a sign-up fix, and more brands linked to their own sites',
