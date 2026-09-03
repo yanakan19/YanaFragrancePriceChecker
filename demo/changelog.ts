@@ -30,6 +30,14 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.19.0',
+    date: '3 Sep 2026',
+    title: 'A more honest "Most Stocked" count',
+    points: [
+      "The \"Most Stocked\" tile now shows the same number it's actually ranked by, instead of a larger count that included every offer",
+    ],
+  },
+  {
     version: 'v3.18.0',
     date: '2 Sep 2026',
     title: 'Untangled duplicate Avon listings, and a wider rollout of brand price comparisons',
