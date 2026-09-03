@@ -30,6 +30,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.24.0',
+    date: '3 Sep 2026',
+    title: 'A brand-direct shop that had been quietly invisible',
+    points: [
+      'Riiffs Perfumes had been switched on and reachable for weeks but was showing up nowhere on the site — its product names never say "eau de parfum" or similar, only the brand\'s own name, which is how the listing checker was reading them as not being perfume at all',
+      'Fixed that misreading and also taught the checker to find a bottle size in the shop\'s own product description when the name itself does not state one, which was the other thing keeping every one of its listings out',
+      'A handful of real Riiffs bottles and prices now show up where they never did before; most of its catalogue still has neither fact stated anywhere the site can read, so it stays out honestly rather than being guessed at',
+    ],
+  },
+  {
     version: 'v3.23.0',
     date: '3 Sep 2026',
     title: 'Pictures back on hundreds of a brand’s own products',

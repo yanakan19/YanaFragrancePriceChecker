@@ -199006,6 +199006,38 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-15852605440349-default-title",
+    "brand": "Ibraheem Al Qurashi",
+    "name": "Vintage Tobacco Extrait Ibrahim Al Qurashi",
+    "concentration": "Not stated",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Vintage-Tobacco-Perfume-Extrait-Ibrahim-Al-Qurashi-182688670.png?v=1767846786",
+    "notes": {
+      "top": [
+        "Cognac",
+        "Raspberry"
+      ],
+      "middle": [
+        "Tonka Bean",
+        "Caramel",
+        "Oud"
+      ],
+      "base": [
+        "Oak",
+        "Praline",
+        "Vanilla",
+        "Oakmoss",
+        "Musk"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/vintage-tobacco-ibrahim-al-qurashi"
+      }
+    }
+  },
+  {
     "id": "emirates-oud-15852606456157-default-title",
     "brand": "Ibraheem Al Qurashi",
     "name": "White Regent Diamond Perfume Ibrahim Al Qurashi",
@@ -199424,7 +199456,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
         "url": "https://manchesterouds.com/products/sapphire-leather-edp-150ml"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-7941379686537-43197017620617",
     "brand": "Ice",
@@ -199435,10 +199470,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10051704.jpg?v=1733932606",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsukdk2-37917",
     "brand": "Iceberg",
@@ -207157,7 +207189,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "image": "https://cdn.shopify.com/s/files/1/0890/1253/5624/files/oudgasm-milky-musk-50_aa17b620-8524-42da-81fe-7c45735cd141.png?v=1757410649",
     "notes": null,
     "houseCeiling": 119
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "kayali-ky00176",
     "brand": "KAYALI",
@@ -207169,10 +207204,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "image": "https://cdn.shopify.com/s/files/1/0890/1253/5624/files/oudgasm-milky-musk-50_aa17b620-8524-42da-81fe-7c45735cd141.png?v=1757410649",
     "notes": null,
     "houseCeiling": 35
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "kayali-ky00238",
     "brand": "KAYALI",
@@ -215793,7 +215825,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/lancome-magie-noire-eau-de-toilette-75ml"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "ean-3614272451995",
     "brand": "Lancôme",
@@ -215804,10 +215839,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/165430_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3614270829529",
     "brand": "Lancôme",
@@ -226237,7 +226269,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61ExOIeFpcL.jpg?v=1767983975",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "ean-3701139903138",
     "brand": "Le Couvent des Minimes",
@@ -226248,10 +226283,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/190918_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3701139900588",
     "brand": "Le Couvent des Minimes",
@@ -235632,7 +235664,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/175713_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsukdk2-07978",
     "brand": "Mercedes-Benz",
@@ -235643,10 +235678,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsukdk2-36756",
     "brand": "Mercedes-Benz",
@@ -240318,6 +240350,41 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-16216704975197-default-title",
+    "brand": "Mykonos",
+    "name": "Eclipse",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Eclipse-50ml-Extrait-De-Parfum-Mykonos-191224175.png?v=1779540325",
+    "notes": {
+      "top": [
+        "Blackcurrant",
+        "Mixed Citrus Fruits",
+        "Red Apple",
+        "Strawberry"
+      ],
+      "middle": [
+        "Freesia",
+        "Jasmine",
+        "Rose",
+        "Sweet Pea"
+      ],
+      "base": [
+        "Amber",
+        "Musk",
+        "Raspberry",
+        "Sandalwood",
+        "Vanilla"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/eclipse-extrait-de-parfum-mykonos"
+      }
+    }
+  },
+  {
     "id": "emirates-oud-16260961108317-50ml",
     "brand": "Mykonos",
     "name": "Glitch",
@@ -243376,7 +243443,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "ean-6291105874427",
     "brand": "Orchid",
@@ -243398,10 +243468,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6291105874434",
     "brand": "Orchid",
@@ -252549,7 +252616,10 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51uFg3z-9JL.jpg?v=1763141439",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416750698633-45147133378697",
     "brand": "Police",
@@ -252571,10 +252641,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsukdk2-38077",
     "brand": "Police",
@@ -262017,7 +262084,10 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/reef-volcano-reef-perfumes"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "emirates-oud-mini-bottle---reef-summer-pink",
     "brand": "Reef Perfumes",
@@ -262067,10 +262137,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/summer-pink-reef-perfumes"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-big-bottle---reef-summer-pink",
     "brand": "Reef Perfumes",
@@ -271453,7 +271520,10 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/sistelleelegance.jpg?v=1787919208&width=3000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
   {
     "id": "ean-3442151001586",
     "brand": "Sistelle",
@@ -271475,10 +271545,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1616072945-78677400.jpg?v=1763389885&width=3000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3442151002286",
     "brand": "Sistelle",
@@ -273399,6 +273466,36 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71kPB-4ze2L.jpg?v=1767985739",
     "notes": null
+  },
+  {
+    "id": "ean-10261281210710",
+    "brand": "Swiss Arabian",
+    "name": "Patchouli 01 75",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 75,
+    "ean": "10261281210710",
+    "shops": 1,
+    "image": "https://oudarabian.co.uk/cdn/shop/files/05613F76-A46E-44D1-B22D-A2641DF618C4.webp?v=1773446349&width=3000",
+    "notes": {
+      "top": [
+        "Fresh Woods",
+        "Subtle Spice"
+      ],
+      "middle": [
+        "Patchouli",
+        "Warm Woods"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk",
+        "Sweet",
+        "Sealed"
+      ],
+      "source": {
+        "retailerId": "oud-arabian",
+        "url": "https://oudarabian.co.uk/products/swiss-arabian-patchouli-01-75-eau-de-parfum"
+      }
+    }
   },
   {
     "id": "emirates-oud-15721303507293-default-title",
@@ -279412,7 +279509,10 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
         "url": "https://fragrancehub.co.uk/products/amor-essences-i-eau-de-parfum-50ml"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
   {
     "id": "fragrancehub-amor2",
     "brand": "Unbranded",
@@ -279507,10 +279607,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
         "url": "https://fragrancehub.co.uk/products/amor-essences-iv-eau-de-parfum-50ml-alcohol-free"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
+  },
   {
     "id": "fragrancehub-amorff",
     "brand": "Unbranded",
@@ -279831,6 +279928,17 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "name": "Aseel Highfly by Le Falcone - Perfumeo",
     "concentration": "Eau de Parfum",
     "sizeMl": 85,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "riiffs-hoor-1",
+    "brand": "Unbranded",
+    "name": "Aswaar - RIIFFS PARFUMS",
+    "concentration": "Not stated",
+    "sizeMl": 100,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -280506,6 +280614,28 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     }
   },
   {
+    "id": "riiffs-elyssia-aura",
+    "brand": "Unbranded",
+    "name": "Elyssia Aura - RIIFFS PARFUMS",
+    "concentration": "Not stated",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "riiffs-elyssia-scarlet",
+    "brand": "Unbranded",
+    "name": "Elyssia Scarlet - RIIFFS PARFUMS",
+    "concentration": "Not stated",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "perfumeo-empire-by-mykonos-eau-de-parfum",
     "brand": "Unbranded",
     "name": "Empire by Mykonos and | Perfumeo UK",
@@ -280699,6 +280829,17 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "riiffs-gladius",
+    "brand": "Unbranded",
+    "name": "Gladius - RIIFFS PARFUMS",
+    "concentration": "Not stated",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "perfumeo-glitch-by-mykonos-eau-de-parfum",
     "brand": "Unbranded",
     "name": "Glitch by Mykonos and | Perfumeo UK",
@@ -280823,6 +280964,17 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "riiffs-hoor",
+    "brand": "Unbranded",
+    "name": "Hoor - RIIFFS PARFUMS",
+    "concentration": "Not stated",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "perfumeo-hope-dose-citrus-amber-by-ibrahim-al-qurashi-75ml-eau-de-parfum",
     "brand": "Unbranded",
     "name": "Hope Dose - Citrus Amber by Ibrahim Al Qurashi | Perfumeo UK",
@@ -280916,6 +281068,17 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "name": "Hugo Boss HUGO Man",
     "concentration": "Eau de Toilette",
     "sizeMl": 200,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "riiffs-hulm",
+    "brand": "Unbranded",
+    "name": "Hulm - RIIFFS PARFUMS",
+    "concentration": "Not stated",
+    "sizeMl": 100,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -283152,6 +283315,17 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "brand": "Unbranded",
     "name": "Symphony Melody by Le Falcone - Perfumeo",
     "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "riiffs-tahira",
+    "brand": "Unbranded",
+    "name": "Tahira - RIIFFS PARFUMS",
+    "concentration": "Not stated",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -286976,7 +287150,10 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/188832_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
   {
     "id": "ean-3614273321907",
     "brand": "Viktor & Rolf",
@@ -287106,10 +287283,7 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/185217_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3614273886826",
     "brand": "Viktor & Rolf",
@@ -536986,6 +537160,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "emirates-oud-15852605440349-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 69.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/vintage-tobacco-ibrahim-al-qurashi",
+      "fetchedAt": "2026-09-03T14:42:18.943Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Vintage-Tobacco-Perfume-Extrait-Ibrahim-Al-Qurashi-182688670.png?v=1767846786",
+      "rating": null
+    }
+  ],
   "emirates-oud-15852606456157-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -571681,6 +571870,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "emirates-oud-16216704975197-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/eclipse-extrait-de-parfum-mykonos",
+      "fetchedAt": "2026-09-03T14:42:18.943Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Eclipse-50ml-Extrait-De-Parfum-Mykonos-191224175.png?v=1779540325",
+      "rating": null
+    }
+  ],
   "emirates-oud-16260961108317-50ml": [
     {
       "retailerId": "emirates-oud",
@@ -599617,6 +599821,24 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "ean-10261281210710": [
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-09-03T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://oudarabian.co.uk/products/swiss-arabian-patchouli-01-75-eau-de-parfum",
+      "fetchedAt": "2026-09-03T09:58:19.633Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/05613F76-A46E-44D1-B22D-A2641DF618C4.webp?v=1773446349&width=1000",
+      "rating": {
+        "value": 0,
+        "count": 0
+      }
+    }
+  ],
   "emirates-oud-15721303507293-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -605338,6 +605560,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "riiffs-hoor-1": [
+    {
+      "retailerId": "riiffs",
+      "price": 44.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://uk.riiffsperfumes.com/product/aswaar/",
+      "fetchedAt": "2026-09-03T00:32:26.000Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "perfumeo-balas-rose-by-ibrahim-al-qurashi-150ml-eau-de-parfum": [
     {
       "retailerId": "perfumeo",
@@ -606160,6 +606397,36 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       }
     }
   ],
+  "riiffs-elyssia-aura": [
+    {
+      "retailerId": "riiffs",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://uk.riiffsperfumes.com/product/elyssia-aura/",
+      "fetchedAt": "2026-09-03T09:58:19.633Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "riiffs-elyssia-scarlet": [
+    {
+      "retailerId": "riiffs",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://uk.riiffsperfumes.com/product/elyssia-scarlet/",
+      "fetchedAt": "2026-09-03T09:58:19.633Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "perfumeo-empire-by-mykonos-eau-de-parfum": [
     {
       "retailerId": "perfumeo",
@@ -606308,6 +606575,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.superdrug.com/fragrance/perfume-for-women/womens-perfume/ghost-lunar-goddess-eau-de-parfum-30ml/p/865664",
       "fetchedAt": "2026-08-21T20:31:23.502Z",
       "firstSeenAt": "2026-08-21T20:31:23.502Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "riiffs-gladius": [
+    {
+      "retailerId": "riiffs",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://uk.riiffsperfumes.com/product/gladius/",
+      "fetchedAt": "2026-09-03T09:58:19.633Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
       "rating": null
@@ -606466,6 +606748,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "riiffs-hoor": [
+    {
+      "retailerId": "riiffs",
+      "price": 34.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://uk.riiffsperfumes.com/product/hoor/",
+      "fetchedAt": "2026-09-03T09:58:19.633Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "perfumeo-hope-dose-citrus-amber-by-ibrahim-al-qurashi-75ml-eau-de-parfum": [
     {
       "retailerId": "perfumeo",
@@ -606596,6 +606893,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.superdrug.com/fragrance/fragrance-for-him/mens-aftershave/hugo-man-eau-de-toilette-200ml/p/851357",
       "fetchedAt": "2026-08-21T20:31:23.502Z",
       "firstSeenAt": "2026-08-21T20:31:23.502Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "riiffs-hulm": [
+    {
+      "retailerId": "riiffs",
+      "price": 34.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://uk.riiffsperfumes.com/product/hulm/",
+      "fetchedAt": "2026-09-03T09:58:19.633Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
       "rating": null
@@ -609051,6 +609363,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-02T18:52:50.179Z",
       "firstSeenAt": "2026-09-02T18:52:50.179Z",
       "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "riiffs-tahira": [
+    {
+      "retailerId": "riiffs",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://uk.riiffsperfumes.com/product/tahira/",
+      "fetchedAt": "2026-09-02T18:52:50.179Z",
+      "firstSeenAt": "2026-08-20T16:39:48.052Z",
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
