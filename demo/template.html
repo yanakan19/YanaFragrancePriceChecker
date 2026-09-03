@@ -948,6 +948,12 @@
      wrong, keep the side by side arrangement they have always had. */
   .tile .phead { flex-direction: column; align-items: stretch; gap: 2px; }
   .tile .phead-meta { flex-direction: row; align-items: baseline; gap: 6px; }
+  /* The count a Most Stocked tile is actually ranked on — fragranceTile's own
+     shopCountLine in app.ts. Left-aligned with the rest of the tile's facts,
+     pulled up against .phead-meta above it rather than sitting the full
+     8px .tile-body gap away, so it reads as one more line about the product
+     rather than a separately spaced annotation. */
+  .tile-rankcount { margin-top: -4px; }
   /* The slack absorber: with every row the same height (grid-auto-rows above),
      whatever height the text does not use ends up here, which keeps the price
      and the shop tag on the tile's bottom edge across the whole row. */
