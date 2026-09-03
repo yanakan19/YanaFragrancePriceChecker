@@ -30,6 +30,18 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.15.0',
+    date: '26 Aug 2026',
+    title: 'Fairer reference prices on deals, and cleaner duplicate listings',
+    points: [
+      "A deal's reference price is now taken from the brand itself rather than from shops copying each other, and only shown as a saving when what other shops actually charge backs it up",
+      "The brand's own price is now shown alongside the lowest price found, colour-coded to show whether you're paying more or less",
+      'Fragrance notes are now read correctly from more of the ways shops describe them, including multi-word notes like Lily of the Valley that were being broken apart',
+      "Multiple listings for the exact same fragrance at one shop are now shown as a single entry instead of several a reader couldn't tell apart",
+      'The price history chart now explains plainly when there is nothing to show instead of leaving blank space, and only plots prices you could actually have paid at the time',
+    ],
+  },
+  {
     version: 'v3.14.0',
     date: '25 Aug 2026',
     title: 'Corrected brand names on the site, and a fairer check on deal prices',
