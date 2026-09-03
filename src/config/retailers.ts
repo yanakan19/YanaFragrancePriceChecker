@@ -1450,6 +1450,30 @@ export const RETAILERS: readonly Retailer[] = [
     // Advertising publisher search once that pending signup clears — both
     // are a few minutes' work for a logged-in human and neither is
     // guessable from here.
+    //
+    // ── Re-checked 2026-09-03 — same dead end, one sandbox change noted ─────
+    // This sandbox's WebFetch can now reach ui.awin.com and
+    // rakutenadvertising.com directly (2026-08-20's EGRESS_BLOCKED no longer
+    // applies), so the block that stopped the search above is gone. It did
+    // not open a route: Awin has no public "search merchants by name"
+    // surface without a logged-in session, only individual merchant-profile
+    // pages by numeric id, and those ids are not guessable or discoverable
+    // by search — WebSearch for "John Lewis" + Awin merchant-profile
+    // repeatedly surfaced ids that turned out to be unrelated merchants
+    // once actually fetched (id 5566 is "John Greed", a jewellery retailer,
+    // not John Lewis; id 3 is Awin's own administrative programme). No
+    // ui.awin.com/merchant-profile/{id} for John Lewis was found. Direct
+    // requests to johnlewis.com/affiliates and
+    // johnlewis.com/customer-services/john-lewis-partnership both HTTP 404.
+    // Targeted searches for a case study, press release or any primary
+    // John-Lewis-plus-network pairing (site:awin.com, site:johnlewis.com,
+    // "John Lewis" Awin case study) returned nothing beyond the same
+    // inconsistent third-party aggregator claims already on file above —
+    // Awin, Impact and CJ are all still asserted by different low-quality
+    // sources, none traceable to a primary page. The owner action from the
+    // paragraph above is unchanged and is the only route left: search inside
+    // the logged-in Awin dashboard, and the Rakuten publisher search once
+    // that pending signup clears.
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -5792,6 +5816,23 @@ export const RETAILERS: readonly Retailer[] = [
     // ingestion code for that network — both owner decisions, neither
     // available here. `enabled: false` stays, and it is now the accurate
     // description of the shop's position rather than a holding state.
+    //
+    // ── Re-checked 2026-09-03 — same conclusion, one sandbox change noted ───
+    // This sandbox's WebFetch can now reach ui.awin.com and
+    // rakutenadvertising.com directly (a change from the EGRESS_BLOCKED
+    // state earlier passes recorded), and harrods.com/en-gb/become-an-
+    // affiliate was retried directly: still HTTP 403, identical to every
+    // prior attempt on this domain. Neither Awin nor Rakuten Advertising
+    // exposes a public "search merchants/advertisers by name" page without a
+    // logged-in session — only Rakuten's generic publisher-signup flow and
+    // Awin's generic ui.awin.com/publisher-signup, neither of which lists
+    // Harrods or confirms which network actually carries it. Targeted
+    // searches for a Partnerize or Rakuten case study, press release, or any
+    // primary Harrods-plus-network pairing found none — only the same
+    // aggregator claims already on file above (uppromote, getlasso, etc.,
+    // "tracked since May 2024", "added to Partnerize January 2026"), still
+    // uncorroborated by anything Harrods, Partnerize or Rakuten published
+    // themselves. Nothing here changes the conclusion above.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
