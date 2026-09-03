@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-03T05:41:15.494Z",
+  "checkedAt": "2026-09-03T11:05:30.444Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,11 +59,12 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 60,
+      "listings": 37,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "storefront currency could not be established — no sterling price recorded",
+        "stopped early: exceeded this house's time budget"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -143,10 +144,12 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 59,
-      "errors": [],
+      "listings": 38,
+      "pricedInGbp": 38,
+      "withPhoto": 38,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
@@ -192,9 +195,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 110,
-      "pricedInGbp": 110,
-      "withPhoto": 110,
+      "listings": 112,
+      "pricedInGbp": 112,
+      "withPhoto": 112,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -216,7 +219,7 @@
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
         "https://arabiyatprestige.shop/products.json?limit=250&page=1: HTTP 525",
-        "http://arabiyatprestige.shop/sitemap_index.xml: HTTP 403"
+        "https://arabiyatprestige.shop/sitemap.xml: HTTP 525"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -435,9 +438,9 @@
       "origin": "https://www.alwataniah.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 117,
+      "listings": 113,
       "pricedInGbp": 0,
-      "withPhoto": 117,
+      "withPhoto": 113,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
