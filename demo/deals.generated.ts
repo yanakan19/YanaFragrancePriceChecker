@@ -25,7 +25,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-09-03T01:34:12.615Z";
+export const DEALS_GENERATED_AT = "2026-09-03T05:41:25.524Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -1362,6 +1362,15 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6290360591599",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6290360591605",
     "price": 19.99,
     "wasPrice": 35,
     "percentOff": 42,
@@ -3782,7 +3791,7 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "emirates-oud-15532820332893-default-title",
+    "fragranceId": "ean-6290360591629",
     "price": 19.99,
     "wasPrice": 35,
     "percentOff": 42,
@@ -3791,7 +3800,7 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6290360591605",
+    "fragranceId": "emirates-oud-15532820332893-default-title",
     "price": 19.99,
     "wasPrice": 35,
     "percentOff": 42,
@@ -7949,6 +7958,15 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "emirates-oud-9852097200477-default-title",
+    "price": 17.99,
+    "wasPrice": 34.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3575070054422",
     "price": 73.99,
     "wasPrice": 175.5,
@@ -10757,15 +10775,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6290360591629",
-    "price": 19.99,
-    "wasPrice": 35,
-    "percentOff": 42,
-    "retailerId": "emirates-oud",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-6290362343240",
     "price": 15,
     "wasPrice": 30,
@@ -12009,10 +12018,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3349668630028",
-    "price": 39.99,
+    "price": 59.55,
     "wasPrice": 79,
-    "percentOff": 49,
-    "retailerId": "the-beauty-store-uk",
+    "percentOff": 24,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
