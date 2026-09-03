@@ -30,6 +30,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.18.0',
+    date: '2 Sep 2026',
+    title: 'Untangled duplicate Avon listings, and a wider rollout of brand price comparisons',
+    points: [
+      'Fixed three separate Avon perfumes that were wrongly being shown as a single product',
+      "The brand's own price comparison, first added for French Avenue, now shows wherever there's a reliable price to compare against",
+      'Fixed a hosting problem that could break the photos for 276 products with a properly licensed picture',
+    ],
+  },
+  {
     version: 'v3.17.0',
     date: '1 Sep 2026',
     title: "A stricter \"cheapest\" badge, corrected photos, and honester sold-out pages",
