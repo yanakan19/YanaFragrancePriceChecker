@@ -236,22 +236,6 @@ export const BY_POPULARITY: DemoFragrance[] = [...DEMO_FRAGRANCES].sort((a, b) =
   return compareVariants(a, b);
 });
 
-/**
- * The shop count a Most Stocked tile itself prints — see fragranceTile's
- * shopCountLine in demo/app.ts. Exactly `.popularity`, the field BY_POPULARITY
- * sorts on, and nothing else: the owner's report ("the no1 listing is less
- * stocked than the no2 and no3") was this list being *ordered* on that count
- * while a *different*, all-inclusive count (rows.length, brand-direct
- * storefronts included) was what actually rendered on the tile. Named
- * separately from a bare `f.popularity` read, and exported so
- * tests/byPopularity.test.ts can pin the two together, precisely so a future
- * change cannot repeat that split by having app.ts start computing its own
- * number again without this file's tests noticing.
- */
-export function mostStockedShopCount(f: DemoFragrance): number {
-  return f.popularity;
-}
-
 /** Lowest listed price for a fragrance, before delivery. Infinity when unlisted. */
 export function lowestPrice(id: string): number {
   return Math.min(...(CRAWLED[id] ?? []).map((o) => o.price), Infinity);

@@ -837,6 +837,18 @@
     display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-rows: 1fr; gap: 16px;
   }
+  /* "…and .tile stretching to fill its row" above was not true of this grid
+     until this rule: the <li> is the grid item and does stretch to the track,
+     but .tile is a plain block child of it and sat at its own content height
+     instead. Nothing showed, because every tile head used to reserve two
+     lines for the name whether it needed them or not, so every tile's content
+     was the same height anyway. With that reservation removed (see
+     .phead-name-wrap) a one-line-name tile is genuinely shorter, and without
+     this its price and shop pill rode 19.5px above its neighbours' — measured
+     in Chromium 141 on /search at 1440, five per row, against "Club De Nuit
+     Intense Man" wrapping beside "9am Dive" not wrapping. The rail has always
+     said the same thing for itself, in .pop-item .tile. */
+  .tile-grid > li > .tile { height: 100%; }
   /* The tile itself follows the theme; only the image well inside it stays
      white. This narrows an earlier decision that made the whole card white
      in both themes: feed photography is shot on a white ground, so something
@@ -881,27 +893,30 @@
   @media (hover: hover) and (pointer: fine) {
     .tile .phead-brand:hover { border-color: var(--accent); color: var(--accent); }
   }
-  /* Two lines' worth of room whether the name needs one or two, so the picture
-     starts at the same offset in every tile and the grid reads as columns
-     rather than as tiles that happen to sit near each other. */
-  /* .phead-name-wrap reserves room for a second line so tiles in the same
-     row stay equal height when one name wraps and another doesn't; the
-     clamped text itself sits inside it. -webkit-box (needed for
+  /* The wrapper the clamped name sits inside. -webkit-box (needed for
      -webkit-line-clamp) does not reliably centre its own content — tested
-     -webkit-box-pack: center here and Chromium ignored it — so the
-     centering has to happen one level up, on a plain flex wrapper, rather
-     than relying on the legacy box model to do it. Without this a one-line
-     name reads flush against the top of its reserved space while
-     .phead-meta, centred by .phead against that same box, lands lower —
-     visibly misaligned from the brand/name beside it. */
+     -webkit-box-pack: center here and Chromium ignored it — so where the name
+     has to sit centred against something beside it (.phead is a row on the
+     detail hero and in a list row, with .phead-meta riding on the right) the
+     centring happens one level up, on this plain flex wrapper. */
   .phead-name-wrap { display: flex; align-items: center; }
-  .tile .phead-name-wrap { min-height: 2.5em; }
-  /* .phead-name-wrap's own centring (above) spaces a one-line name in the
-     middle of that reserved room, which reads as a gap between brand and
-     name. Anchoring it to the top instead keeps brand and name close together
-     — the reserved room still exists for a wrapped second line, it just no
-     longer pushes anything visible around. */
-  .tile .phead-name-wrap { align-items: flex-start; }
+  /* No second line of room is reserved here. This used to carry
+     `min-height: 2.5em` on .tile, so a tile always held two lines' worth of
+     name whether it needed them or not, plus an `align-items: flex-start`
+     to stop that reserved room from centring a one-line name inside itself.
+     Both are gone: on a tile .phead is a column (see below), so the reserved
+     line had nothing beside it to line up with and simply sat as a blank
+     1.25em between the name and the "100ml EDP" meta line under it — visible
+     on every one-line name and absent on every two-line one, which is the
+     inconsistency the owner reported as making the grid look unprofessional.
+     Row height no longer depends on it, but only because the grid was made to
+     say so itself: grid-auto-rows: 1fr sizes every row track to the tallest
+     tile, `.tile-grid > li > .tile { height: 100% }` (above) makes each tile
+     take that whole track, and .tile-art below is flex: 1, so the line a
+     one-line name does not use is absorbed as room around the picture instead.
+     Measured in Chromium 141: the picture is the same 162.7px square in a
+     one-line and a two-line tile, and the price, the shop pill and the tile's
+     bottom edge land on the same pixel across the row either way. */
   /* ── the name gets the whole tile, not what the meta leaves it ────────────
      Everywhere else .phead is a row: name on the left, size and concentration
      riding on the right. That is right on a detail heading and on a list row,
@@ -948,18 +963,24 @@
      wrong, keep the side by side arrangement they have always had. */
   .tile .phead { flex-direction: column; align-items: stretch; gap: 2px; }
   .tile .phead-meta { flex-direction: row; align-items: baseline; gap: 6px; }
-  /* The count a Most Stocked tile is actually ranked on — fragranceTile's own
-     shopCountLine in app.ts. Left-aligned with the rest of the tile's facts,
-     pulled up against .phead-meta above it rather than sitting the full
-     8px .tile-body gap away, so it reads as one more line about the product
-     rather than a separately spaced annotation. */
-  .tile-rankcount { margin-top: -4px; }
   /* The slack absorber: with every row the same height (grid-auto-rows above),
      whatever height the text does not use ends up here, which keeps the price
-     and the shop tag on the tile's bottom edge across the whole row. */
+     and the shop tag on the tile's bottom edge across the whole row.
+
+     The picture sits at the bottom of that slack rather than centred in it.
+     Centring was the older behaviour and it was invisible while every tile
+     head reserved a second line for the name, because then there was no slack
+     to centre in. Now that a one-line-name tile really is shorter in the head,
+     centring split the difference and left the white image well 10px lower in
+     a two-line tile than in its neighbours — plainly visible in dark mode,
+     where the well is white against a dark card. Anchoring to the bottom puts
+     every well on the same pixel across a row instead (they are all the same
+     size — .art-md is a percentage of a tile width the grid makes uniform),
+     and the room a missing name line frees up opens above the picture, which
+     is where the eye already expects the head to end. */
   .tile-art {
     position: relative; flex: 1; min-height: 0;
-    display: flex; align-items: center; justify-content: center; padding: 4px 0;
+    display: flex; align-items: flex-end; justify-content: center; padding: 4px 0;
   }
   /* One value per line, never side by side: price first, then what it was.
      A row that mixes the two invites reading the struck-through number as the

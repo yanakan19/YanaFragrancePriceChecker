@@ -46,7 +46,6 @@ import type { Retailer, RetailerTier } from '../src/types/retailer.js';
 import {
   DEMO_FRAGRANCES, BY_POPULARITY, DEALS, NOTE_INDEX,
   brandTierFor, fragranceById, fragrancesAt, listingCountAt, fragrancesWithNote, lowestPrice, compareVariants,
-  mostStockedShopCount,
   type DemoFragrance, type NoteLayer,
 } from './data.js';
 import { productArt, type ArtSize } from './photo.js';
@@ -1111,7 +1110,7 @@ function priceLine(f: DemoFragrance): string {
  */
 function fragranceTile(
   f: DemoFragrance,
-  opts?: { rank?: number; trailing?: string; rail?: boolean; shopCount?: number },
+  opts?: { rank?: number; trailing?: string; rail?: boolean },
 ): string {
   const rows = rowsFor(f);
   const best = bestOffer(rows);
@@ -1130,22 +1129,16 @@ function fragranceTile(
   // shown.
   const badgePrefix = best && best.deliveredPriceGbp !== null ? 'from' : 'at';
   const medal = opts?.rank !== undefined && opts.rank < 3 ? MEDALS[opts.rank] : null;
-  // The count this tile is actually ranked on — DemoFragrance.popularity,
-  // never rows.length above — printed on the tile itself wherever the tile
-  // sits in a list ordered by it (the home rail and the capped Most Stocked
-  // list; see their own call sites). This is the fix for the owner's report
-  // that "the no1 listing is less stocked than the no2 and no3": before this,
-  // nothing on the tile stated a shop count at all, so the only way to see
-  // one was to open the fragrance's own page, which shows a *different*,
-  // all-inclusive count (a brand's own storefront counts there — see
-  // priceBoxRow's "Available at" and DemoFragrance.popularity's own comment
-  // for why it does not count here). "Ranked at" rather than "Available at"
-  // so the two never read as the same claim: this list can now never
-  // contradict its own order on its face.
-  const shopCountLine =
-    opts?.shopCount !== undefined
-      ? `<span class="tile-rankcount t-caption">Ranked at ${opts.shopCount} ${opts.shopCount === 1 ? 'shop' : 'shops'}</span>`
-      : '';
+  // The tile states no shop count. It used to print one — "Ranked at N shops",
+  // the DemoFragrance.popularity figure the Most Stocked list is ordered on —
+  // added so the list could not appear to contradict its own order after the
+  // owner's report that "the no1 listing is less stocked than the no2 and no3".
+  // That report was about the *ordering*, which is fixed where it belongs, in
+  // BY_POPULARITY and the `.popularity` field itself (see demo/data.ts and
+  // tests/byPopularity.test.ts). The line on the tile was the owner's own next
+  // complaint: a fourth row of small grey text between the product and its
+  // picture, on every tile of the two lists that carry it. The count is still
+  // one click away on the fragrance's own page, under "Available at".
   // Two sibling buttons, not one wrapping the other: the brand's own control
   // and the rest of the tile (name, art, price, shop) each need their own
   // click and keyboard target, and a button cannot contain another button.
@@ -1154,7 +1147,6 @@ function fragranceTile(
       ${brandButton(f.brand)}
       <button class="tile-body" data-frag="${f.id}" aria-label="${esc(f.brand)} ${esc(f.name)}">
         ${productHead(f)}
-        ${shopCountLine}
         <span class="tile-art">
           ${medal ? `<span class="medal ${medal}" aria-label="Number ${opts!.rank! + 1} most popular">${opts!.rank! + 1}</span>` : ''}
           ${productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`)}
@@ -1227,24 +1219,16 @@ function syncPerRowControl(): void {
 }
 
 /**
- * `shopCounts` prints each tile's own ranking count (DemoFragrance.popularity)
- * on the tile — see fragranceTile's own comment on shopCountLine. Only ever
- * passed by browseView for the capped Most Stocked list: that is the one list
- * on the site actually ordered by that count, so it is the one list where a
- * reader can otherwise watch position and displayed count disagree. Every
- * other caller (a brand, a retailer, a note, a search) leaves it off — the
- * count would still be a true fact about the product, but printing it on a
- * list that is not ordered by it invites exactly the same "why doesn't this
- * match the order" question it exists to answer here.
+ * Every tile grid on the site: browse, search, deals, a retailer's, a brand's
+ * and a note's own list. One tile shape and one chooser above it, whatever the
+ * list is of — the Most Stocked list once rendered a shop count on each of its
+ * tiles that no other list carried, and it no longer does (see fragranceTile).
  */
-function fragranceList(list: DemoFragrance[], empty: string, opts?: { shopCounts?: boolean }): string {
+function fragranceList(list: DemoFragrance[], empty: string): string {
   if (list.length === 0) return `<p class="empty-note t-body">${esc(empty)}</p>`;
   const control = perRowControl();
-  const renderTile = opts?.shopCounts
-    ? (f: DemoFragrance) => fragranceTile(f, { shopCount: mostStockedShopCount(f) })
-    : fragranceTile;
   return `${control ? `<div class="controls">${control}</div>` : ''}
-    <ul class="tile-grid">${chunked(list, renderTile)}</ul>`;
+    <ul class="tile-grid">${chunked(list, fragranceTile)}</ul>`;
 }
 
 /* ── home ────────────────────────────────────────────────────────────────── */
@@ -1289,7 +1273,7 @@ function homeView(): string {
         <button class="link-btn see-top" data-browse>See Top ${TOP_N} <span aria-hidden="true">→</span></button>
       </div>
       <ul class="pop-rail">
-        ${POPULAR.map((f, i) => fragranceTile(f, { rank: i, rail: true, shopCount: mostStockedShopCount(f) })).join('')}
+        ${POPULAR.map((f, i) => fragranceTile(f, { rank: i, rail: true })).join('')}
       </ul>
     </section>
 
@@ -1389,7 +1373,7 @@ function browseView(): string {
       ${browseSortControl(state.browseSort)}
       ${facetsBlock(filtered)}
     </div>
-    ${fragranceList(list, 'Nothing here matches that search.', { shopCounts: isTop })}`;
+    ${fragranceList(list, 'Nothing here matches that search.')}`;
 }
 
 /* ── detail ──────────────────────────────────────────────────────────────── */
