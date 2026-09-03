@@ -30,6 +30,18 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.16.0',
+    date: '27 Aug 2026',
+    title: 'Honest bottle sizes, a sign-up fix, and more brands linked to their own sites',
+    points: [
+      "When a bottle size can't be confirmed, the site now says so plainly instead of guessing at a number that could be wrong",
+      "Confirmed and added French Avenue's delivery charge for the first time",
+      "Resolved more disputes over a fragrance's concentration (EDP, EDT and so on) using the perfume house's own stated word instead of leaving them unclear",
+      'Connected 21 more brands to their own website, and untangled four that had been wrongly split apart',
+      'Fixed a broken email confirmation link during sign-up being silently ignored instead of telling you something went wrong',
+    ],
+  },
+  {
     version: 'v3.15.0',
     date: '26 Aug 2026',
     title: 'Fairer reference prices on deals, and cleaner duplicate listings',
