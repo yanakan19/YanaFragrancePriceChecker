@@ -92,12 +92,32 @@ export interface ImageCandidate {
  * directly (Cocoa Morado, Lovely, I Want Choo, DKNY Be Tempted, Silver
  * Scent, Impact Spark, Private Key, Chloé Rose Tangerine, My Passion, La
  * Rochelle, Lalique Amethyst, 4711 among them): 10 of 16 bottle-only,
- * face-on, no box (62.5%) — a real majority, though a thinner one than
- * beautybase's 78%. Resolution measured on every one of the 16 downloads:
- * 191x500 up to 2312x2560, every long edge at least 500px — comfortably
- * above the ~400px floor this site's grid and detail views need, so nothing
- * here reads as upscaled. Both bars clear, so it is ranked, behind
- * beautybase on the measured bottle-only rate. Its own image ages, measured
+ * face-on, no box (62.5%).
+ *
+ * That figure was then checked against a SECOND, independently drawn sample
+ * of 10 (Club de Nuit Bling, Lempicka Homme, Eternity Cologne, Patou
+ * Vacances, Moschino Funny, This Is Her! Undressed, La Panthère, Stronger
+ * With You, Rumeur 2 Rose, Olympéa Flora), spread across the same pool but
+ * chosen without reference to the first: 5 of 10 — exactly half, not a
+ * majority. Pooled across both samples the honest figure is 15 of 26
+ * (57.7%), and that is the number to trust: a real majority, but a thin one,
+ * and well short of beautybase's 78%. Recorded here rather than quietly
+ * keeping the flattering half, because a later reader deciding whether to
+ * promote this shop needs the spread, not the best run.
+ *
+ * Resolution, measured on all 26 downloads: 191x500 up to 2312x2560. Nearly
+ * all sit far above the ~400px floor this site's grid and detail views need,
+ * but not every one — Moschino Funny came back 350x350, so the earlier
+ * "every long edge at least 500px" was too strong. One in 26 under the floor
+ * is a tolerable rate, not a clean sweep.
+ *
+ * Ranked THIRD on that evidence, and the ordering is what makes a 57.7% shop
+ * safe to rank at all: it is reached only where neither fragrance-click nor
+ * beautybase has a photo, and what it displaces is overwhelmingly
+ * perfume-click — measured at ~26% bottle-only on thumbnail-sized files. The
+ * gain is real because of what it replaces, not because this photography is
+ * good. If a shop with a stronger measured rate ever appears, this one should
+ * drop below it without hesitation. Its own image ages, measured
  * across all 4,475 products it supplies a photo for, are the tightest of any
  * ranked shop: every one is 10.4 hours old, a single feed-wide refresh like
  * fragrance-click's rather than beautybase's page-by-page crawl rhythm — the
