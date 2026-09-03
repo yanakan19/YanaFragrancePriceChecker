@@ -30,6 +30,15 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.21.0',
+    date: '3 Sep 2026',
+    title: 'Better product pictures for thousands more fragrances',
+    points: [
+      "Checked two more shops' photos by hand before trusting either of them, the same way we already had for two shops on the site — one of the two passed and now supplies the picture for around 3,850 fragrances, up from about 2,160",
+      'About 1,690 products now show a clearer, more consistent photo as a result, most of them moving off a shop whose pictures were smaller and blurrier up close',
+    ],
+  },
+  {
     version: 'v3.19.0',
     date: '3 Sep 2026',
     title: 'A more honest "Most Stocked" ordering',
