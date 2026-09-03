@@ -30,6 +30,18 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.14.0',
+    date: '25 Aug 2026',
+    title: 'Corrected brand names on the site, and a fairer check on deal prices',
+    points: [
+      "Fixed three retailers' own shop names, and a generic default label, that were wrongly showing up as the fragrance brand",
+      "Connected 47 more brands to their own website, and marked the nine that don't have one",
+      'Fixed fragrance names in browsing and search grids being cut down to only the part every product on the page shared',
+      'Added scent notes for 524 more listings, read from information the shops had already published',
+      "Stopped showing an inflated \"was\" price on a deal once what other shops are actually charging shows it isn't real",
+    ],
+  },
+  {
     version: 'v3.13.0',
     date: '22 Aug 2026',
     title: 'Every fragrance links out to its house and to Fragrantica, and duplicate brands merged',
