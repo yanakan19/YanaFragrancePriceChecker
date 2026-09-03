@@ -582,7 +582,13 @@ for (const { retailer, listings } of eligible) {
     // exactly that shape through deliberately, so a `!` here would silently
     // hand `null` to every `number`-typed reader downstream instead of
     // failing the build where the mistake would be visible.
-    const size = sizeMl(l.rawTitle);
+    //
+    // `l.description` is passed through as the same fallback isFragrance()
+    // just used to admit this listing in the first place (see sizeMl's own
+    // comment) — without it, a listing whose only stated size lives in its
+    // description would pass the gate above and then still show "size not
+    // confirmed" on screen, disagreeing with the very fact that let it in.
+    const size = sizeMl(l.rawTitle, l.description);
     const id = fragranceId(l, untrustworthyEans);
     const effectiveRawBrand = resolveRawBrand(l, retailer);
 

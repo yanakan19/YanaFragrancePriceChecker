@@ -3068,6 +3068,23 @@ export const RETAILERS: readonly Retailer[] = [
     // requires a stated real ingestion route — the generic sitemap walk
     // already measured against this shop is that route, just never named as
     // one until now.
+    //
+    // ── contributing zero offers, and why ────────────────────────────────
+    // Measured 2026-09-03, instrumenting scripts/build-demo-catalogue.ts
+    // directly rather than inferring it from the built catalogue: all 141
+    // active, priced listings on disk were failing isFragrance(), so this
+    // shop reached the app with zero offers despite `enabled: true` and a
+    // confirmed ingestion route. Every one of the 141 fails the same way
+    // Escentric Molecules did (see fragranceOnlyCatalogue's own doc comment):
+    // its titles name the bottle and this shop's own name — "Golden Elixir
+    // Reserve – Riiffs Perfumes" — never a concentration word ("EDP",
+    // "parfum"), and only "RIIFFS PARFUMS"/"Riiffs Perfumes" as a fixed
+    // suffix, which fails CONCENTRATION's `\bparfum\b`/`\bperfume\b` word
+    // boundary on the plural. None are non-fragrance items (checked: zero of
+    // 141 titles match NOT_A_FRAGRANCE), so this is the same fix as
+    // escentric-molecules and zimaya below: a single fragrance house naming
+    // its own products after itself, not a reason to doubt what it sells.
+    fragranceOnlyCatalogue: true,
     enabled: true,
     adapter: 'unknown',
     sitemapHarvestConfirmed: true,

@@ -112,6 +112,34 @@ export const OZ_SIZE_RE = /(\d{1,2}(?:\.\d)?)\s*(?:fl\.?\s*)?oz\b/i;
 export const OZ_TO_ML = 29.5735;
 
 /**
+ * A size stated only in a listing's description, never its title — riiffs
+ * (uk.riiffsperfumes.com) is the measured case: none of its 141 active
+ * titles ever states a size ("Golden Elixir Reserve – Riiffs Perfumes"), so
+ * `sizeMl` on the title alone always returns null for every one of them. 19
+ * of the 141 do state one, but only inside a structured description the
+ * product page itself writes as "NOTES: ... SIZE: 100 ml" — a real fact the
+ * shop published, just in a field this function did not used to read.
+ *
+ * Deliberately a single strict labelled pattern rather than reusing
+ * `ML_SIZE_RE` against the whole description: description text is free-form
+ * marketing copy across the catalogue (notes lists, shipping blurbs, unrelated
+ * numbers), and scanning it for any bare "<n>ml" the way a title is scanned
+ * would risk reading a false size out of prose that was never stating one.
+ * The literal "SIZE:" label is the one part of that shape that is actually a
+ * size statement rather than incidental text; measured against the whole of
+ * data/catalogue on 2026-09-03 it matches 497 listings with no title size
+ * across six shops (riiffs among them) and nothing else.
+ */
+export const DESCRIPTION_SIZE_RE = /\bsize:\s*(\d{1,4}(?:\.\d)?)\s*ml\b/i;
+
+/** The size `DESCRIPTION_SIZE_RE` finds in a listing's own description, or null. */
+function descriptionStatedSizeMl(description: string | null | undefined): number | null {
+  if (!description) return null;
+  const m = description.match(DESCRIPTION_SIZE_RE);
+  return m ? Math.round(Number.parseFloat(m[1]!)) : null;
+}
+
+/**
  * A title that states a menu of the sizes a product comes in, then, at the
  * very end and separated from that menu by nothing but whitespace, states
  * the one size *this particular row* actually is.
@@ -556,7 +584,7 @@ export function sizeConflict(title: string): boolean {
  * separate domain), checked and recorded by exact title rather than
  * re-derived here. Red Velvet is the seventh, still genuinely unresolved.
  */
-export function sizeMl(title: string): number | null {
+export function sizeMl(title: string, description?: string | null): number | null {
   // Checked ahead of the ordinary first-token rule below, not instead of it —
   // see SIZE_MENU_THEN_VARIANT_RE's own comment for why only this specific,
   // narrow shape is allowed to override "the first size mentioned wins".
@@ -591,7 +619,9 @@ export function sizeMl(title: string): number | null {
   if (ml) return Math.round(Number.parseFloat(ml[1]!));
   const oz = title.match(OZ_SIZE_RE);
   if (oz) return Math.round(Number.parseFloat(oz[1]!) * OZ_TO_ML);
-  return null;
+  // The title never states one. Before giving up, check the one other place
+  // a shop's own page states it — see descriptionStatedSizeMl's own comment.
+  return descriptionStatedSizeMl(description);
 }
 
 /**
@@ -838,7 +868,7 @@ export function isFragrance(l: StoredListing): boolean {
   // src/catalogue/wasPriceCredibility.ts's CredibilityOffer, both of which
   // already treat a null sizeMl as "cannot compare", never "matches" or
   // "not a fragrance".
-  if (sizeMl(t) === null && !sizeConflict(t)) return false;
+  if (sizeMl(t, l.description) === null && !sizeConflict(t)) return false;
   if (l.priceGbp === null || l.priceGbp <= 0) return false;
   // Asked of every shop, unlike the two rules inside the branch below — see
   // MULTI_PACK for why a quantity against a size is the one multi-pack signal

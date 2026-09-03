@@ -154,7 +154,7 @@ function canonBrand(raw: string | null | undefined): string {
 }
 
 for (const [id, l] of rawByListing) {
-  const size = sizeMl(l.rawTitle);
+  const size = sizeMl(l.rawTitle, l.description);
   if (size === null) continue;
   const existing = products.get(id);
   if (existing) {

@@ -17,7 +17,12 @@ import type { StoredListing } from '../src/catalogue/types.js';
  * (`fragranceOnlyCatalogue`), not a weaker regex.
  */
 
-function listing(retailerId: string, rawTitle: string, priceGbp: number | null = 95): StoredListing {
+function listing(
+  retailerId: string,
+  rawTitle: string,
+  priceGbp: number | null = 95,
+  description: string | null = null,
+): StoredListing {
   return {
     retailerId,
     retailerSku: 'sku-1',
@@ -38,6 +43,7 @@ function listing(retailerId: string, rawTitle: string, priceGbp: number | null =
     relistedAt: null,
     eligibleForNewBadge: false,
     variantId: null,
+    description,
   };
 }
 
@@ -138,6 +144,44 @@ describe('isFragrance: fragranceOnlyCatalogue shops', () => {
   });
 });
 
+describe('sizeMl/isFragrance: a size stated only in the description', () => {
+  // riiffs (uk.riiffsperfumes.com): none of its 141 active titles ever state
+  // a size, but 19 of them carry a structured "SIZE: <n> ml" label in the
+  // description the way a product page's own notes block would. Measured
+  // 2026-09-03: before this fallback existed, sizeMl(title) returned null for
+  // every one of those 19 and isFragrance() rejected all 141 riiffs listings,
+  // so the retailer contributed zero offers to the built catalogue despite
+  // being enabled with a confirmed ingestion route.
+  const RIIFFS_DESCRIPTION =
+    'NOTES: TOP: Guangdong, Raspberry, Suede HEART: Orange, Blossom, Tonka Bean, Ginger BASE: Amber, Pralines, Vanilla SIZE: 100 ml';
+
+  it('sizeMl reads a description-only "SIZE:" label once the title has nothing', () => {
+    expect(sizeMl('Hoor - RIIFFS PARFUMS')).toBeNull();
+    expect(sizeMl('Hoor - RIIFFS PARFUMS', RIIFFS_DESCRIPTION)).toBe(100);
+  });
+
+  it('a title size always wins over a description one, never the reverse', () => {
+    expect(sizeMl('Hoor 50ml - RIIFFS PARFUMS', RIIFFS_DESCRIPTION)).toBe(50);
+  });
+
+  it('is not fooled by an unlabelled "ml" mention elsewhere in free-form description text', () => {
+    // The label itself ("SIZE:") is what makes this a real size statement —
+    // bare prose mentioning millilitres is not treated as one, unlike a
+    // title, which is scanned for a bare number.
+    expect(sizeMl('Some Perfume', 'A rich, 100ml-strength trail that lingers all day.')).toBeNull();
+  });
+
+  it('isFragrance recovers a riiffs-shaped listing (fragranceOnlyCatalogue + description size, no title size or concentration)', () => {
+    const l = listing('riiffs', 'Hoor - RIIFFS PARFUMS', 44.99, RIIFFS_DESCRIPTION);
+    expect(isFragrance(l)).toBe(true);
+  });
+
+  it('still rejects a riiffs-shaped listing whose description states no size either', () => {
+    const l = listing('riiffs', 'Golden Elixir Reserve – Riiffs Perfumes', 44.99, 'A rich and opulent fragrance.');
+    expect(isFragrance(l)).toBe(false);
+  });
+});
+
 describe('fragranceOnlyCatalogue is opt-in and deliberately narrow', () => {
   it('is set on exactly the shops a human has vouched for', () => {
     const flagged = RETAILERS.filter((r) => r.fragranceOnlyCatalogue).map((r) => r.id).sort();
@@ -145,7 +189,13 @@ describe('fragranceOnlyCatalogue is opt-in and deliberately narrow', () => {
     // after its whole harvested catalogue was read title by title: 84
     // listings, every one a fine fragrance, none naming a concentration. See
     // its entry in src/config/retailers.ts.
-    expect(flagged).toEqual(['escentric-molecules', 'zimaya']);
+    //
+    // Riiffs joined 2026-09-03 on the same evidence: all 141 active listings
+    // read, none matching NOT_A_FRAGRANCE, none naming a concentration word —
+    // "RIIFFS PARFUMS"/"Riiffs Perfumes" is a fixed suffix, not a per-bottle
+    // statement, and fails CONCENTRATION's word-boundary test on the plural
+    // regardless. See its entry in src/config/retailers.ts.
+    expect(flagged).toEqual(['escentric-molecules', 'riiffs', 'zimaya']);
   });
 
   // The trap this guards. LUSH and Bath & Body Works are also single-brand,
