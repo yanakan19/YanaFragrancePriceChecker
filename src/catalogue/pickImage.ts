@@ -148,6 +148,27 @@ export interface ImageCandidate {
  * The bar for a fourth entry is unchanged: a real sample, downloaded and
  * viewed, majority bottle-only, at a resolution that will not read as
  * upscaled on this site's own image sizes.
+ *
+ * ── 2026-09-03: "pick among a shop's several photos" investigated, and killed ──
+ * The idea: shops usually publish more than one product photo, so instead of
+ * ranking whole retailers, pick a bottle-only shot from among each listing's
+ * own several. Checked against real harvested data before writing a line of
+ * selection logic, as it should be: every listing in every one of the 14
+ * IMAGE_ALLOWED shops' `data/catalogue/*.json` files carries exactly one
+ * image-shaped field — a scalar `imageUrl`, string or null, nothing else
+ * named image/photo/gallery/picture/thumb/media anywhere in the schema, and
+ * no shop's `description` field smuggles a second photo URL either (checked
+ * across all 14; the two matches found were noise, not a real second image).
+ * The reason traces to src/catalogue/jsonld.ts's own `imageUrl()`, which
+ * already discards every entry but the first when a page's schema.org
+ * `image` property is an array — and even that branch turned out to be
+ * defensive: live JSON-LD pulled from beautybase and allbeauty product pages
+ * both publish `image` as a single string, not an array, so there was
+ * nothing multi-valued to keep even at the source. There is exactly one
+ * photo per listing throughout this pipeline, not several we were only
+ * showing one of. Idea dead in its current form; no code follows from it.
+ * (What DID follow from checking is the resolution finding below —
+ * upgradeImageResolution() — found while running this investigation down.)
  */
 export const PREFERRED_IMAGE_RETAILERS = ['fragrance-click', 'beautybase', 'mybeauty-boutique'];
 
@@ -206,7 +227,7 @@ export function pickImage(offers: readonly ImageCandidate[], now: Date): string 
     const preferred = licensed.find((o) => o.retailerId === retailerId);
     if (!preferred) continue;
     const ageHours = (now.getTime() - new Date(preferred.fetchedAt).getTime()) / 3_600_000;
-    if (ageHours <= PREFERRED_IMAGE_MAX_AGE_HOURS) return preferred.imageUrl;
+    if (ageHours <= PREFERRED_IMAGE_MAX_AGE_HOURS) return upgradeImageResolution(preferred.imageUrl);
     // Stale: try the next ranked retailer before giving up on the ranking.
     //
     // This was `break` while the list held one entry, where it made no
@@ -221,5 +242,68 @@ export function pickImage(offers: readonly ImageCandidate[], now: Date): string 
 
   // licensed.length > 0 was already checked above, so this always has an element.
   const freshest = [...licensed].sort((a, b) => b.fetchedAt.localeCompare(a.fetchedAt))[0]!;
-  return freshest.imageUrl;
+  return upgradeImageResolution(freshest.imageUrl);
+}
+
+/**
+ * The width this project asks a Shopify-hosted photo to be resized to, when
+ * it asks at all. Not a guess: every native size actually measured while
+ * investigating this (2026-09-03, see below) was at or under it, and
+ * Shopify's own image service never upscales past a photo's real size — it
+ * silently caps the response to whatever the source file actually is. So
+ * asking for more than any of them need costs nothing and reaches whichever
+ * of them needs it.
+ */
+const SHOPIFY_UPGRADE_WIDTH = 3000;
+
+const SHOPIFY_CDN_WIDTH = /^(https?:\/\/[^/]*(?:cdn\.shopify\.com|\/cdn\/shop\/)[^\s]*[?&]width=)(\d+)(.*)$/;
+
+/**
+ * Requests the same photo at a larger size, when the stored URL is already
+ * asking a Shopify CDN to shrink it and a bigger size is free for the asking.
+ *
+ * WHERE THIS CAME FROM. Investigating whether a shop's several product
+ * photos could be picked among (2026-09-03) found no shop's harvested
+ * listing carries more than one image URL in any field — see this file's
+ * own commit for that finding, which killed the multi-photo idea outright.
+ * But the search also turned up something smaller and safe to take: several
+ * Shopify-hosted shops' own product pages already publish their photo URL
+ * with a `width=` query parameter attached, and on every one of them
+ * checked, that parameter asked for LESS than the file actually is —
+ *
+ *   - allbeauty:       stored width=1920, real file 2000x2000 (measured on
+ *     the Lanvin Eclat d'Arpège listing's photo)
+ *   - beautybase:      stored width=1920, real file 2000x2000 (measured on
+ *     four listings' photos: Coach Cherry x2, Jimmy Choo, Lacoste L.12.12,
+ *     Montblanc Legend Elixir — all four, not a cherry-picked one)
+ *   - manchester-ouds: stored width=1920, real file 2048x2048 (measured on
+ *     the Maroon Wish Set listing's photo)
+ *
+ * beautybase alone supplies the displayed photo for thousands of products
+ * (see PREFERRED_IMAGE_RETAILERS' own header), so this is not a rounding
+ * error — it is real pixels this project was leaving on the table on its
+ * single most-used photo source. Two other shops checked the same way
+ * turned up no gain to take: mybeauty-boutique's stored URLs carry no
+ * `width` parameter at all and already return the native file (measured
+ * 1000x1000 either way on a 4711 shower-gel listing), and fragrance-click's
+ * host ignores the parameter outright — appending `?width=3000` to one of
+ * its photo URLs still came back 750x750, so there is no bigger variant to
+ * ask that shop for.
+ *
+ * Deliberately narrow: only a `width=<number>` parameter already present in
+ * the URL is touched, and only on a URL that already looks like a Shopify
+ * CDN link (`cdn.shopify.com`, or a shop's own domain serving through
+ * `/cdn/shop/`). No parameter is ever added to a URL that lacks one — a
+ * resize parameter implies a resize service on the other end, and this
+ * project has only confirmed that for the shops named above, not for every
+ * host that happens to look similar. A non-Shopify URL, or one with no
+ * `width` parameter, is returned unchanged.
+ */
+export function upgradeImageResolution(url: string | null): string | null {
+  if (url === null) return null;
+  const match = url.match(SHOPIFY_CDN_WIDTH);
+  if (!match) return url;
+  const requested = Number.parseInt(match[2]!, 10);
+  if (!Number.isFinite(requested) || requested >= SHOPIFY_UPGRADE_WIDTH) return url;
+  return `${match[1]}${SHOPIFY_UPGRADE_WIDTH}${match[3]}`;
 }

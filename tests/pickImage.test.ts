@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   pickImage,
+  upgradeImageResolution,
   PREFERRED_IMAGE_RETAILERS,
   PREFERRED_IMAGE_MAX_AGE_HOURS,
   type ImageCandidate,
@@ -223,5 +224,72 @@ describe('the licensing gate still governs every retailer named in PREFERRED_IMA
     expect(retailer).toBeDefined();
     expect(retailer!.affiliate.imageBasis).toBeUndefined();
     expect(PREFERRED_IMAGE_RETAILERS).not.toContain('the-beauty-store-uk');
+  });
+});
+
+describe('upgradeImageResolution', () => {
+  // Real URLs, real measured native sizes (2026-09-03) — see this function's
+  // own doc comment in pickImage.ts for how each was checked.
+  it('bumps a beautybase width parameter up to the upgrade width', () => {
+    expect(
+      upgradeImageResolution(
+        'https://www.beautybase.com/cdn/shop/files/Coach_Cherry_30ml_1.jpg?v=1778147740&width=1920',
+      ),
+    ).toBe('https://www.beautybase.com/cdn/shop/files/Coach_Cherry_30ml_1.jpg?v=1778147740&width=3000');
+  });
+
+  it('bumps an allbeauty width parameter the same way', () => {
+    expect(upgradeImageResolution('https://allbeauty.com/cdn/shop/files/5608.jpg?v=1766138711&width=1920')).toBe(
+      'https://allbeauty.com/cdn/shop/files/5608.jpg?v=1766138711&width=3000',
+    );
+  });
+
+  it('bumps a manchester-ouds width parameter the same way', () => {
+    expect(
+      upgradeImageResolution(
+        'https://manchesterouds.com/cdn/shop/files/maroon-wish-set-3x75ml-ibrahim-al-qurashi-ibraq-5833834.webp?v=1784480613&width=1920',
+      ),
+    ).toBe(
+      'https://manchesterouds.com/cdn/shop/files/maroon-wish-set-3x75ml-ibrahim-al-qurashi-ibraq-5833834.webp?v=1784480613&width=3000',
+    );
+  });
+
+  it('leaves a Shopify CDN URL with no width parameter alone', () => {
+    // mybeauty-boutique's stored URLs are exactly this shape and already
+    // return the native file — measured 1000x1000 either way on a real
+    // download, so there is nothing to add a parameter for.
+    const url = 'https://cdn.shopify.com/s/files/1/0621/6541/8121/files/613cHTxqsgL.jpg?v=1709545694';
+    expect(upgradeImageResolution(url)).toBe(url);
+  });
+
+  it('leaves a non-Shopify URL alone even if it happens to carry a width parameter', () => {
+    // fragrance-click's own host ignores this parameter outright (measured:
+    // appending ?width=3000 to a real photo URL still came back 750x750) —
+    // and more importantly, this project has only confirmed the resize
+    // behaviour for a Shopify CDN, not for every host in general.
+    const url = 'https://www.fragranceclick.co.uk/media/catalog/product/8/5/85715163035_bottle.jpg?width=100';
+    expect(upgradeImageResolution(url)).toBe(url);
+  });
+
+  it('never lowers a width parameter that already meets or exceeds the upgrade width', () => {
+    const url = 'https://cdn.shopify.com/s/files/1/x/y.jpg?width=4000';
+    expect(upgradeImageResolution(url)).toBe(url);
+  });
+
+  it('passes null through unchanged', () => {
+    expect(upgradeImageResolution(null)).toBeNull();
+  });
+
+  it('applies through pickImage itself, on the offer it actually selects', () => {
+    const offers: ImageCandidate[] = [
+      {
+        retailerId: 'beautybase',
+        imageUrl: 'https://www.beautybase.com/cdn/shop/files/x.jpg?v=1&width=1920',
+        fetchedAt: new Date('2026-09-01T00:00:00.000Z').toISOString(),
+      },
+    ];
+    expect(pickImage(offers, new Date('2026-09-01T01:00:00.000Z'))).toBe(
+      'https://www.beautybase.com/cdn/shop/files/x.jpg?v=1&width=3000',
+    );
   });
 });
