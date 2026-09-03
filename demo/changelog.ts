@@ -31,7 +31,7 @@ export interface ChangelogEntry {
 export const CHANGELOG: ChangelogEntry[] = [
   {
     version: 'v3.16.0',
-    date: '27 Aug 2026',
+    date: '27 to 31 Aug 2026',
     title: 'Honest bottle sizes, a sign-up fix, and more brands linked to their own sites',
     points: [
       "When a bottle size can't be confirmed, the site now says so plainly instead of guessing at a number that could be wrong",
