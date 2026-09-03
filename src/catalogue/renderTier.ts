@@ -43,6 +43,23 @@
  * actorTierDue below, with the arithmetic written out on the constant. Inside
  * the window the shop gets no renderer at all, deliberately, rather than
  * falling back to the free tier it is already refused by.
+ *
+ * ── Whether a feed could retire this bound, checked 2026-09-03 ─────────────
+ * The owner wants John Lewis reachable without paying Apify if a free route
+ * exists. The candidate free route is an affiliate product feed (this project
+ * already consumes Awin feeds for several shops — see src/catalogue/
+ * awinFeed.ts), which would replace rendering entirely rather than make it
+ * cheaper. No such feed is confirmed for John Lewis as of this date: its own
+ * registry entry in src/config/retailers.ts records no primary source for
+ * which network (if any) its affiliate programme runs on — third-party
+ * aggregators disagree across Awin, Impact and CJ, none traceable to a real
+ * merchant profile or the retailer's own affiliate page, and the owner's Awin
+ * and Rakuten publisher accounts are the only way left to settle it (both
+ * pending, per that entry). Until one of those searches turns up a real
+ * merchant id with a data feed, and ingestion code is written for whichever
+ * network it is, `renderTier: 'actor'` on the John Lewis entry is this shop's
+ * only working route and stays as-is. If a feed is later confirmed and wired,
+ * this field becomes unnecessary and can be removed then — not before.
  */
 import type { HttpResponse } from './attempt.js';
 
