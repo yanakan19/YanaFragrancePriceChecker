@@ -73,12 +73,63 @@ export interface ImageCandidate {
  * Every one of the 276 moves from `hotlink-unlicensed` to `affiliate-terms`.
  * Nothing moves the other way.
  *
- * The bar for a third entry is unchanged and still applies: a real sample,
+ * The bar for a third entry was unchanged through 2026-09-02: a real sample,
  * downloaded and viewed, majority bottle-only. A stronger `imageBasis` is a
  * reason to rank a shop ABOVE another that already qualifies — it is not a
  * reason to add one whose photography has never been looked at.
+ *
+ * ── 2026-09-03: mybeauty-boutique added third; emirates-oud sampled and rejected ──
+ * The two biggest unsampled photo suppliers, both `hotlink-unlicensed` like
+ * beautybase — no licensing question, only the photography question the bar
+ * above asks. Both were actually sampled, downloaded and viewed for the
+ * first time this pass, joined against the live catalogue via CRAWLED (not
+ * the raw feed's own `ean` field, which is null on every listing either shop
+ * publishes — these two are matched into catalogue products by title, not
+ * barcode, so the feed's own EAN column has nothing to join on).
+ *
+ * mybeauty-boutique: pool of 2,311 products where its photo differs from
+ * what is currently shown. 16 sampled evenly across that pool and viewed
+ * directly (Cocoa Morado, Lovely, I Want Choo, DKNY Be Tempted, Silver
+ * Scent, Impact Spark, Private Key, Chloé Rose Tangerine, My Passion, La
+ * Rochelle, Lalique Amethyst, 4711 among them): 10 of 16 bottle-only,
+ * face-on, no box (62.5%) — a real majority, though a thinner one than
+ * beautybase's 78%. Resolution measured on every one of the 16 downloads:
+ * 191x500 up to 2312x2560, every long edge at least 500px — comfortably
+ * above the ~400px floor this site's grid and detail views need, so nothing
+ * here reads as upscaled. Both bars clear, so it is ranked, behind
+ * beautybase on the measured bottle-only rate. Its own image ages, measured
+ * across all 4,475 products it supplies a photo for, are the tightest of any
+ * ranked shop: every one is 10.4 hours old, a single feed-wide refresh like
+ * fragrance-click's rather than beautybase's page-by-page crawl rhythm — the
+ * shared 336-hour cap never binds for it either. Measured effect: 1,690
+ * products change photo, 1,645 of them off perfume-click and 42 off
+ * emirates-oud (the rest single digits off three smaller shops), and
+ * mybeauty-boutique's own supply rises from 2,164 products (wherever it was
+ * already the freshest available licensed photo, pre-ranking) to 3,854.
+ * Nothing moves off fragrance-click or beautybase — both still outrank it.
+ * The no-photo count is untouched at 3,036: ranking only reorders among
+ * photos that already exist, it manufactures none.
+ *
+ * emirates-oud: pool of 314. 16 sampled evenly and viewed directly (Azzure
+ * Aoud, Asad Bourbon, Al Nashama Caprice, Victoria, Club De Nuit Impériale,
+ * Emeer, Faris Al Arab, Amber Oud Gold Edition, Hayaati Rose, Island Vanilla
+ * Dunes, Jouri, Librae, Spirit Of Valencia, Club De Nuit Lionheart Man,
+ * Karus Secret Musk, Coffee Blend): 0 of 16 bottle-only. Every single one
+ * shows the retail box standing beside the bottle — worse than
+ * the-beauty-store-uk's already-disqualifying 4/15, and decisive on a sample
+ * this size. Resolution was never the question here — every download was
+ * 1080px or larger on its short edge, 1600-2400px common — the photography
+ * itself fails the bar outright. Not ranked. Nothing in
+ * PREFERRED_IMAGE_RETAILERS changes for emirates-oud, and this file records
+ * the finding for the same reason the-beauty-store-uk's and perfume-click's
+ * rejections are recorded here: so a future pass does not re-spend the time
+ * re-discovering it.
+ *
+ * The bar for a fourth entry is unchanged: a real sample, downloaded and
+ * viewed, majority bottle-only, at a resolution that will not read as
+ * upscaled on this site's own image sizes.
  */
-export const PREFERRED_IMAGE_RETAILERS = ['fragrance-click', 'beautybase'];
+export const PREFERRED_IMAGE_RETAILERS = ['fragrance-click', 'beautybase', 'mybeauty-boutique'];
 
 /**
  * How much older a preferred retailer's photo may be than the freshest

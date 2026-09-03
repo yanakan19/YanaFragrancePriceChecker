@@ -70,7 +70,30 @@ describe('pickImage', () => {
   it('falls back to freshness when no offer is from a preferred retailer', () => {
     const offers = [
       offer({ retailerId: 'perfume-click', fetchedAt: hoursAgo(48) }),
+      offer({ retailerId: 'justmylook', fetchedAt: hoursAgo(2) }),
+    ];
+    expect(pickImage(offers, NOW)).toBe('https://justmylook.example/photo.jpg');
+  });
+
+  it('ranks mybeauty-boutique behind beautybase but ahead of an unranked retailer', () => {
+    // mybeauty-boutique is the third entry added 2026-09-03, on a real but
+    // thinner majority (10 of 16, 62.5%) than beautybase's 78% — so it must
+    // still lose to a fresh beautybase photo, and still beat a fresher photo
+    // from a shop that was never sampled at all.
+    const offers = [
+      offer({ retailerId: 'perfume-click', fetchedAt: hoursAgo(1) }),
       offer({ retailerId: 'mybeauty-boutique', fetchedAt: hoursAgo(2) }),
+      offer({ retailerId: 'beautybase', fetchedAt: hoursAgo(48) }),
+    ];
+    expect(pickImage(offers, NOW)).toBe('https://beautybase.example/photo.jpg');
+  });
+
+  it('falls through to mybeauty-boutique once fragrance-click and beautybase are both stale', () => {
+    const offers = [
+      offer({ retailerId: 'fragrance-click', fetchedAt: hoursAgo(PREFERRED_IMAGE_MAX_AGE_HOURS + 1) }),
+      offer({ retailerId: 'beautybase', fetchedAt: hoursAgo(PREFERRED_IMAGE_MAX_AGE_HOURS + 2) }),
+      offer({ retailerId: 'mybeauty-boutique', fetchedAt: hoursAgo(3) }),
+      offer({ retailerId: 'perfume-click', fetchedAt: hoursAgo(1) }),
     ];
     expect(pickImage(offers, NOW)).toBe('https://mybeauty-boutique.example/photo.jpg');
   });
@@ -95,16 +118,20 @@ describe('pickImage', () => {
     expect(pickImage(offers, NOW)).toBe('https://perfume-click.example/photo.jpg');
   });
 
-  it('holds exactly the two retailers whose photos were sampled and viewed, licence first', () => {
-    // See this constant's own doc comment for both halves. the-beauty-store-uk
-    // was sampled and found majority box-and-bottle, so it does not belong
-    // here regardless of the owner's original premise about it. fragrance-click
-    // was sampled the same way on 2026-09-02 — ten photos downloaded from the
-    // products that would actually move and viewed, ten of ten bottle-only on
-    // white — and is ranked FIRST because of its licence, not its framing: it
-    // is the one retailer in the whole registry carrying `affiliate-terms`
-    // rather than `hotlink-unlicensed`.
-    expect(PREFERRED_IMAGE_RETAILERS).toEqual(['fragrance-click', 'beautybase']);
+  it('holds exactly the three retailers whose photos were sampled and viewed, licence first', () => {
+    // See this constant's own doc comment for all three halves. the-beauty-store-uk
+    // and emirates-oud were both sampled and found majority box-and-bottle, so
+    // neither belongs here regardless of size or impression. fragrance-click
+    // was sampled on 2026-09-02 — ten photos downloaded from the products that
+    // would actually move and viewed, ten of ten bottle-only on white — and is
+    // ranked FIRST because of its licence, not its framing: it is the one
+    // retailer in the whole registry carrying `affiliate-terms` rather than
+    // `hotlink-unlicensed`. mybeauty-boutique was sampled on 2026-09-03 — 16
+    // photos downloaded from products that would actually move and viewed, 10
+    // of 16 bottle-only (62.5%) at resolutions well above this site's upscaling
+    // floor — a real but thinner majority than beautybase's 78%, so it ranks
+    // last of the three.
+    expect(PREFERRED_IMAGE_RETAILERS).toEqual(['fragrance-click', 'beautybase', 'mybeauty-boutique']);
   });
 
   it('prefers the licensed retailer over the unlicensed one when both have a fresh photo', () => {
