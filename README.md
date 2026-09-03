@@ -8,7 +8,7 @@ logic that turns a captured offer into a comparison row you can trust. There is
 no fetching layer yet — that is the Phase 0 spike (JSON-LD vs managed scraper per
 domain), and `adapter` is `'unknown'` on every retailer until it lands.
 
-## Owner action needed: recreate this repo's Claude Code environment
+## Owner action needed: force this repo's cloud environment cache to rebuild
 
 This branch's remote container has a standing bug: on some resumes its disk
 comes back from a frozen checkpoint dated **2026-08-12 ~23:13 UTC**, weeks
@@ -24,22 +24,49 @@ Every mitigation inside this repo (`scripts/recover-stale-checkout.sh`,
 fix — nothing written from inside the container survives that revert, so no
 in-repo change can reach it.
 
-**The actual fix, and it takes a few minutes:** in
-[claude.ai/code](https://claude.ai/code) → this repository's **Environment**
-settings, recreate (re-provision) the environment so a fresh base image gets
-captured from current `origin`. That is what actually fixes this — it stops
-the checkpoint being fourteen-plus days stale in the first place, rather
-than making the in-repo scripts newly capable of something they cannot do
-today. Once it's done, a boot of the **main checkout** fast-forwards itself
+**The actual fix, and it takes a few minutes.** An earlier version of this
+section told the owner to "recreate (re-provision) the environment". That
+control does not exist, and the attempt to follow it on 2026-09-03 found
+nothing of the kind under Edit Environment. Anthropic's own documentation
+([Configure cloud environments → Environment
+caching](https://code.claude.com/docs/en/cloud-environments#environment-caching))
+describes the real mechanism, and it is precisely this bug:
+
+> The setup script runs the first time you start a session in an
+> environment. After it completes, Anthropic snapshots the filesystem and
+> reuses that snapshot as the starting point for later sessions.
+
+That snapshot **is** the 2026-08-12 checkpoint. The documented way to throw
+it away is to invalidate the cache:
+
+> The setup script runs again to rebuild the cache when you change the
+> environment's setup script or allowed network hosts, and when the cache
+> reaches its expiry after roughly seven days.
+
+So: in [claude.ai/code](https://claude.ai/code) → this repository's
+**Environment** → Edit, make any change to the **setup script** (a single
+added comment line is enough) or to the **allowed network hosts**, and save.
+The next session then starts from a freshly built filesystem instead of the
+stale one. Deleting the environment is not an option the product offers —
+"You can't delete an environment, only archive it" — so if a setup-script
+edit does not take, the fallback is to **Archive** this environment and
+create a new one.
+
+One thing that does not add up and is worth reporting upstream if the revert
+survives the cache bust: the cache is documented to expire on its own after
+about seven days, but this checkpoint was still being served on 2026-09-03,
+twenty-two days after its date. Either the expiry is not firing for this
+environment or something keeps re-pinning it.
+
+Once the cache is rebuilt, a boot of the **main checkout** fast-forwards itself
 from wherever it lands via `scripts/recover-stale-checkout.sh`; a boot into
 a **linked worktree** (`.claude/worktrees/...`, where every agent session
 actually runs) gets a different protection instead —
 `scripts/backup-worktree.sh` pushes its own uncommitted and unpushed work to
 origin rather than fast-forwarding, because a worktree's branch is its own
 and is never something to catch up to origin (see D17 for why those are
-different problems with different fixes). Until the environment is
-recreated, expect the underlying staleness to keep recurring for both kinds
-of checkout.
+different problems with different fixes). Until the cache is rebuilt, expect
+the underlying staleness to keep recurring for both kinds of checkout.
 
 ```bash
 npm install
