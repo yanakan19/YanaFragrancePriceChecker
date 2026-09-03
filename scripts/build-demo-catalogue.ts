@@ -122,7 +122,12 @@ interface Offer {
   fetchedAt: string;
   firstSeenAt: string;
   isNew: boolean;
-  /** Only ever set for a retailer in IMAGE_ALLOWED — see that constant. */
+  /**
+   * Only ever set for a retailer in IMAGE_ALLOWED, or an offer with
+   * `brandDirect` true — see the "image licensing, brand-direct offers" pass
+   * below, which nulls out everything else. Carries the raw harvested value
+   * until that pass runs.
+   */
   imageUrl: string | null;
   /** The retailer's own copy, read only to extract labelled notes from. */
   description: string | null;
@@ -616,7 +621,12 @@ for (const { retailer, listings } of eligible) {
       fetchedAt: l.lastSeenAt,
       firstSeenAt: l.firstSeenAt,
       isNew: isNewListing(l, now),
-      imageUrl: IMAGE_ALLOWED.has(l.retailerId) ? l.imageUrl : null,
+      // Gated below, once `offer.brandDirect` is known (see the pass that
+      // sets it) — a brand-direct offer is allowed through on `own-storefront`
+      // basis even when the retailer carries no `imageBasis` of its own. Kept
+      // as the raw value here rather than pre-gated, so that later pass has
+      // something to restore.
+      imageUrl: l.imageUrl,
       description: l.description ?? null,
       rating: l.rating ?? null,
       sizeMl: size,
@@ -1045,6 +1055,39 @@ for (const product of products.values()) {
     offer.brandDirect = true;
     brandDirectOffers++;
     brandDirectShops.set(offer.retailerId, (brandDirectShops.get(offer.retailerId) ?? 0) + 1);
+  }
+}
+
+/* ── image licensing, brand-direct offers ────────────────────────────────
+   IMAGE_ALLOWED (top of file) is a per-*retailer* gate: it says whether a
+   shop's photography may be shown at all, and stays exactly as conservative
+   as the licensing registry in retailers.ts says it should. A brand-direct
+   offer is a different question, decided per *offer* rather than per
+   retailer, on grounds retailers.ts's own ImageBasis type already names —
+   "own-storefront": the brand's own photograph of its own product,
+   published by the brand itself.
+   `offer.brandDirect`, just set above, is exactly that photograph: a
+   singleBrandOnly retailer's listing that survived `cannotCarryBrand` for
+   this product's own brand. It is deliberately not the same thing as
+   granting that retailer `imageBasis` in the registry — armaf.uk also
+   resells Jenny Glow, Just Jacks and Hamidi (see the comment just above),
+   and none of those offers has `brandDirect` set, so none of them is
+   unlocked here. Only the shop's photography of its own bottle is.
+   Runs after `offer.brandDirect` so it has the answer to gate on, and before
+   `pickImage` is ever called on these offers (the `catalogue` array below,
+   and the deals/history builds that follow). A non-brand-direct offer from a
+   retailer with no `imageBasis` keeps carrying `imageUrl: null`, exactly as
+   before this pass existed. */
+let brandDirectImagesUnlocked = 0;
+for (const product of products.values()) {
+  for (const offer of product.offers) {
+    if (offer.imageUrl === null) continue;
+    if (IMAGE_ALLOWED.has(offer.retailerId)) continue;
+    if (!offer.brandDirect) {
+      offer.imageUrl = null;
+      continue;
+    }
+    brandDirectImagesUnlocked++;
   }
 }
 
@@ -1577,7 +1620,9 @@ console.log(
       `(${[...brandDirectShops].sort((a, b) => b[1] - a[1]).map(([id, n]) => `${id} ${n}`).join(', ')}); ` +
       `${wasAudit.brandAnchored} claims had a size-matched house price to test against, ` +
       `${wasAudit.refutedByBrand} of them stated an RRP above what the house itself charges, ` +
-      `and ${wasAudit.brandOnlyEvidence} were judged on the house price alone (no two other shops)`,
+      `and ${wasAudit.brandOnlyEvidence} were judged on the house price alone (no two other shops); ` +
+      `${brandDirectImagesUnlocked} brand-direct offers show their own photo on own-storefront basis ` +
+      `despite their retailer carrying no imageBasis`,
   );
   for (const [retailerId, n] of [...wasAudit.refutedByShop].sort((a, b) => b[1] - a[1])) {
     const checked = wasAudit.checkedByShop.get(retailerId) ?? 0;

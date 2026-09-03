@@ -30,6 +30,15 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.23.0',
+    date: '3 Sep 2026',
+    title: 'Pictures back on hundreds of a brand’s own products',
+    points: [
+      'Looked into the roughly 3,000 fragrances showing a blank photo well and found most are a genuine gap — no shop we track has published a picture of that bottle at all — but 656 of them were a brand selling its own fragrance on its own website, with a perfectly good photo of it that the site just was not allowed to use yet',
+      'Those 656 now show the brand’s own photo of its own bottle — the clearest kind of picture to trust, since it comes straight from the maker — without changing anything about photos from any other shop',
+    ],
+  },
+  {
     version: 'v3.22.0',
     date: '3 Sep 2026',
     title: 'Sharper photos from a few shops, at no extra cost',
