@@ -356,7 +356,7 @@ detail hero, and (implicitly) nowhere else.
 
 | State | Implemented | Notes |
 |---|---|---|
-| One-line name | Yes | `.phead-name-wrap { min-height: 2.5em }` reserves 2-line room regardless |
+| One-line name | Yes | No reserved second line: `.tile .phead-name-wrap { min-height: 2.5em }` was removed on the owner's report that the blank line it left between a one-line name and the meta row under it made the grid look inconsistent. Row height is held by `grid-auto-rows: 1fr` + `.tile-grid > li > .tile { height: 100% }` + `.tile-art { flex: 1 }`, not by the name box |
 | Two-line name (clamped) | Yes, `-webkit-line-clamp: 2` | Bug fixed in `6e42710`: `-webkit-box` does not centre its own content (`-webkit-box-pack: center` verified ignored in Chromium), so centring was moved one level up onto a plain flex wrapper (`.phead-name-wrap`) instead |
 | Three-line variant (detail hero) | Yes | `.hero .phead-name { -webkit-line-clamp: 3 }` (720) |
 | Overflow name (brand) | Yes | `.phead-brand` gets `text-overflow: ellipsis` |
