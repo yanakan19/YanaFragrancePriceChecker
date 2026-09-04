@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-04T05:46:46.345Z",
+  "checkedAt": "2026-09-04T11:00:08.583Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -143,10 +143,12 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 59,
-      "errors": [],
+      "listings": 50,
+      "pricedInGbp": 50,
+      "withPhoto": 50,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
@@ -192,9 +194,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 102,
-      "pricedInGbp": 102,
-      "withPhoto": 102,
+      "listings": 72,
+      "pricedInGbp": 72,
+      "withPhoto": 72,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -216,7 +218,7 @@
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
         "https://arabiyatprestige.shop/products.json?limit=250&page=1: HTTP 525",
-        "https://arabiyatprestige.shop/sitemap.xml: HTTP 525"
+        "http://arabiyatprestige.shop/sitemap_index.xml: HTTP 403"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
