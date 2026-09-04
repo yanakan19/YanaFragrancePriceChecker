@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-03T19:58:39.936Z",
+  "checkedAt": "2026-09-04T01:25:44.312Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -192,9 +192,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 112,
-      "pricedInGbp": 112,
-      "withPhoto": 112,
+      "listings": 108,
+      "pricedInGbp": 108,
+      "withPhoto": 108,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -216,7 +216,7 @@
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
         "https://arabiyatprestige.shop/products.json?limit=250&page=1: HTTP 525",
-        "https://arabiyatprestige.shop/sitemap.xml: HTTP 525"
+        "http://arabiyatprestige.shop/sitemap_index.xml: HTTP 403"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
