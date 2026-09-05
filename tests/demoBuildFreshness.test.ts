@@ -52,6 +52,21 @@ describe('demo build freshness', () => {
     ).toBe(current.hash);
   });
 
+  it('does not fingerprint the file this very test run rewrites', () => {
+    // demo/testCount.generated.ts is written by scripts/testCountReporter.ts
+    // at the end of the run that this test is part of. Hashing it made the
+    // verdict depend on whether the reporter or this test ran first, and
+    // failed run #397 on the runner for a page that had passed locally. See
+    // HASH_EXCLUDED_INPUTS in scripts/demoInputsHash.ts.
+    const { files } = computeDemoInputsHash(root);
+    expect(files).not.toContain('demo/testCount.generated.ts');
+    // The exclusion is exactly that one file: everything else the bundle
+    // reads, including the other generated inputs, is still covered.
+    expect(files).toContain('demo/catalogue.generated.ts');
+    expect(files).toContain('demo/priceHistory.generated.ts');
+    expect(files).toContain('demo/template.html');
+  });
+
   it('demo/404.html is byte-identical to demo/index.html', () => {
     // build-demo.ts writes the same standalone document to both paths on
     // purpose (see its own header: GitHub Pages serves 404.html for every
