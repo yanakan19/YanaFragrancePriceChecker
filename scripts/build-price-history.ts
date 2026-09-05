@@ -1,12 +1,13 @@
 /**
  * Reconstructs a real price history from git, and keeps extending it.
  *
- *   npm run catalogue:history
+ *   npm run catalogue:history          # resumes from the last checkpoint
+ *   npm run catalogue:history -- --full   # replays every commit from scratch
  *
  * data/catalogue/*.json only ever stores each retailer's current snapshot —
  * there is no time series on disk. But every harvest commits that snapshot,
- * and 49+ of those commits go back to 1 Aug 2026. Replaying them in order
- * reconstructs a genuine history: every point below is a price that was
+ * and hundreds of those commits go back to 1 Aug 2026. Replaying them in
+ * order reconstructs a genuine history: every point below is a price that was
  * really recorded at that time, read straight out of a real commit, not
  * interpolated or invented.
  *
@@ -23,7 +24,7 @@
  *      imported from src/catalogue/fragranceId.ts rather than reimplemented,
  *      so a listing's id here can never drift from what
  *      build-demo-catalogue.ts calls the same product. That now includes
- *      fragranceId's optional untrustworthy-EAN argument: this script
+ *      fragranceId's optional untrustworthy-EAN argument: the replay
  *      recomputes productMatch.ts's untrustworthyEans fresh for each replayed
  *      commit's own snapshot (an EAN collision in today's feed says nothing
  *      about whether it existed last month) and passes it through exactly as
@@ -47,331 +48,110 @@
  * while `inStock: false` said "you cannot buy it", and the chart plotted the
  * price anyway.
  *
+ * A shop whose currency was never established (CURRENCY_UNCONFIRMED) has no
+ * price history either, and clearing its current snapshot cannot reach the
+ * past: the replay reads old commits, so the pre-quarantine files are still
+ * right there holding the figures the quarantine took down. Before that
+ * rule, 4,961 of 16,437 published points were nicchia-luxury-uk's (2,942)
+ * and escentual's (2,019) — the second set being exactly the ~1.44x-inflated
+ * list that 86c4660 found and cleared. A chart whose whole claim is that
+ * every point is a price that was really charged cannot plot a number nobody
+ * can say the unit of. Likewise a listing with no price is not a price
+ * point: an unguarded `l.priceGbp!` once let a null win "cheapest" as £0,
+ * and clearing a shop's prices is now how this project records "we cannot
+ * stand behind these figures" (src/catalogue/priceQuarantine.ts), so nulls
+ * arrive by design.
+ *
  * ── Two things this file ships beyond the price line itself ────────────────
  * 1. **Explicit gap markers.** A commit where every listing for a fragrance
  *    is excluded (out of stock everywhere, or delisted everywhere) produces
  *    no cheapest price at all that commit. Left silent, that is invisible to
  *    the series: if the fragrance returns later at an *unchanged* price, the
- *    "collapse a run of identical observations" rule below never fires a new
- *    point either, and src/services/priceHistoryDaily.ts's carry forward
- *    would bridge straight across the gap as though the price held steady
- *    the whole time — which is not what happened; it was not buyable for
- *    part of that stretch. `{ priceGbp: null, retailerId: null }` is written
- *    into the series at exactly the commit this happens, and nowhere else,
- *    so the frontend can tell "a fresh reading of an unchanged price" apart
- *    from "we never stopped watching, but nothing was buyable here" and
- *    reset its carry forward accordingly. It is never plotted as a price —
- *    see priceHistoryDaily.ts's own header for the frontend half of this.
+ *    "collapse a run of identical observations" rule never fires a new point
+ *    either, and src/services/priceHistoryDaily.ts's carry forward would
+ *    bridge straight across the gap as though the price held steady the
+ *    whole time — which is not what happened; it was not buyable for part of
+ *    that stretch. `{ priceGbp: null, retailerId: null }` is written into the
+ *    series at exactly the commit this happens, and nowhere else, so the
+ *    frontend can tell "a fresh reading of an unchanged price" apart from
+ *    "we never stopped watching, but nothing was buyable here" and reset its
+ *    carry forward accordingly. It is never plotted as a price — see
+ *    priceHistoryDaily.ts's own header for the frontend half of this.
  * 2. **A reason for every fragrance that still does not reach a chart.**
- *    Below two *real* (non null) points is still too little to draw a line,
- *    exactly as before. What changed is what a reader sees instead of
- *    nothing: PRICE_HISTORY_GAP names one of three honest, mutually
- *    exclusive facts — never priced at all, priced but only ever out of
- *    stock, or exactly one buyable price on record — computed below from a
- *    parallel, unfiltered by stock replay (`everPriced`) kept only for this
- *    classification and never merged into the shipped price line itself.
- *    See src/services/priceHistoryGaps.ts for the wording each one gets and
- *    why a single generic sentence would misstate most of them.
+ *    Below two *real* (non null) points is still too little to draw a line.
+ *    PRICE_HISTORY_GAP names one of three honest, mutually exclusive facts —
+ *    never priced at all, priced but only ever out of stock, or exactly one
+ *    buyable price on record — computed from a parallel, unfiltered by stock
+ *    replay (`everPriced`) kept only for this classification and never
+ *    merged into the shipped price line itself. See
+ *    src/services/priceHistoryGaps.ts for the wording each one gets.
+ *
+ * ── Resuming, since 2026-09-05 ──────────────────────────────────────────────
+ * The replay itself lives in scripts/priceHistoryReplay.ts and resumes from
+ * data/price-history-checkpoint.json rather than starting at the first
+ * commit every time: the fold's state after commit k is a complete
+ * checkpoint, replaying k+1..n from it equals replaying 1..n from nothing
+ * (tests/priceHistoryReplay.test.ts proves that against real history), and
+ * a scheduled harvest only ever adds a handful of commits. That module's
+ * header records why — eight consecutive red runs from 2026-09-04, a
+ * replay that had grown past the workflow's 10-minute step timeout — and
+ * when a full replay is still forced (any change to the rules above, which
+ * the checkpoint fingerprints). `--full` forces one by hand.
  */
-import { execFileSync } from 'node:child_process';
 import { writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { isFragrance, fragranceId } from '../src/catalogue/fragranceId.js';
-import { isAvailableListing } from '../src/catalogue/listingAvailability.js';
-import { untrustworthyEans } from '../src/catalogue/productMatch.js';
-import { CURRENCY_UNCONFIRMED } from '../src/config/retailers.js';
-import type { StoredListing } from '../src/catalogue/types.js';
-import type { PriceHistoryGap } from '../src/services/priceHistoryGaps.js';
+import {
+  CHECKPOINT_PATH,
+  OUTPUT_PATH,
+  commitsTouchingCatalogue,
+  emptyState,
+  readCheckpoint,
+  render,
+  replay,
+  resumeFrom,
+  rulesFingerprint,
+  toCheckpoint,
+  writeCheckpoint,
+} from './priceHistoryReplay.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const CATALOGUE_PATH = 'data/catalogue';
+const fullReplay = process.argv.includes('--full');
 
-interface Snapshot {
-  retailerId: string;
-  updatedAt?: string;
-  source?: string;
-  listings: StoredListing[];
+const commits = commitsTouchingCatalogue(root);
+const rules = rulesFingerprint(root);
+
+const decision = fullReplay
+  ? ({ resume: false, reason: '--full was passed' } as const)
+  : resumeFrom(readCheckpoint(root), rules, commits);
+
+let state = emptyState();
+let from = 0;
+if (decision.resume) {
+  state = decision.state;
+  from = decision.from;
+  console.log(
+    `Resuming from checkpoint: ${decision.commitsReplayed} of ${commits.length} commits touching data/catalogue ` +
+      `already replayed, ${commits.length - from} to go.`,
+  );
+} else {
+  console.log(`Full replay of ${commits.length} commits touching data/catalogue (${decision.reason}).`);
 }
 
-function git(args: string[]): string {
-  return execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 1024 * 1024 * 64 });
-}
+replay(root, commits.slice(from), state, (done, total, fragrances) => {
+  console.log(`  ${from + done}/${commits.length} commits replayed, ${fragrances} fragrances with history so far`);
+});
 
-/** Every commit that touched the catalogue, oldest first, with its real timestamp. */
-function commitsTouchingCatalogue(): { sha: string; at: string }[] {
-  const log = git(['log', '--reverse', '--format=%H %aI', '--', CATALOGUE_PATH]);
-  return log
-    .trim()
-    .split('\n')
-    .filter(Boolean)
-    .map((line) => {
-      const [sha, at] = line.split(' ');
-      return { sha: sha!, at: at! };
-    });
-}
-
-/** Every data/catalogue/*.json path that existed at a given commit. */
-function catalogueFilesAt(sha: string): string[] {
-  return git(['ls-tree', '-r', '--name-only', sha, '--', CATALOGUE_PATH])
-    .trim()
-    .split('\n')
-    .filter((p) => p.endsWith('.json'));
-}
-
-function readFileAt(sha: string, path: string): Snapshot | null {
-  try {
-    const raw = git(['show', `${sha}:${path}`]);
-    return JSON.parse(raw) as Snapshot;
-  } catch {
-    // A file that exists in the tree can still fail to parse if a commit
-    // caught it mid-write in some earlier, less careful version of the
-    // harvest script. Treated as no data for that retailer at that commit
-    // rather than aborting the whole reconstruction over one bad snapshot.
-    return null;
-  }
-}
-
-/**
- * One entry in the shipped, collapsed series. `priceGbp: null` is the
- * explicit gap marker described in this file's own header — never a real
- * price, only ever written where one used to be buyable and stopped being
- * so this commit. A real price point never has a null field; the two are
- * never ambiguous to a reader of the data.
- */
-export interface PricePoint {
-  at: string;
-  priceGbp: number | null;
-  retailerId: string | null;
-}
-
-const commits = commitsTouchingCatalogue();
-console.log(`Replaying ${commits.length} commits touching ${CATALOGUE_PATH}...`);
-
-const history = new Map<string, PricePoint[]>();
-
-// Every fragrance that was ever priced by a live, currency confirmed,
-// fragrance flagged listing under the OLD rule (status active, regardless of
-// stock) — the same population isAvailableListing's own header measures.
-// Tracked purely as a first/last-seen date range, never as a price, and
-// never merged into `history` above: its only job is answering "did this
-// fragrance ever have a recorded price at all", so PRICE_HISTORY_GAP below
-// can tell a fragrance nobody has ever priced apart from one that was priced
-// only while out of stock, without ever naming the out-of-stock figure
-// itself. See src/services/priceHistoryGaps.ts for why that distinction
-// matters and the wording each side of it gets.
-const everPriced = new Map<string, { first: string; last: string }>();
-
-for (const [i, { sha, at }] of commits.entries()) {
-  const cheapestThisCommit = new Map<string, { priceGbp: number; retailerId: string }>();
-
-  // Read every live snapshot at this commit once, up front — not per file
-  // inside the pricing loop below — because untrustworthyEans (see its own
-  // header comment in productMatch.ts) has to see every retailer's listings
-  // before any of them is turned into a price point, for the same reason
-  // build-demo-catalogue.ts computes it before its own product loop: an EAN
-  // collision within one shop's feed has to be known before the first
-  // colliding listing is read, not discovered after the second one has
-  // already been read as though it agreed with the first.
-  const activeAtCommit: StoredListing[][] = [];
-  // The same snapshots, filtered only by lifecycle status — the OLD rule's
-  // population, kept solely to feed `everPriced` above. Built from the same
-  // read rather than a second pass over git, since the expensive part here
-  // is `git show`, not the filtering.
-  const statusOnlyAtCommit: StoredListing[][] = [];
-  for (const path of catalogueFilesAt(sha)) {
-    const snapshot = readFileAt(sha, path);
-    if (!snapshot || snapshot.source !== 'live') continue;
-    const statusOnly = snapshot.listings.filter((l) => l.status === 'active');
-    statusOnlyAtCommit.push(statusOnly);
-    // status === 'active' alone is a lifecycle check, not a buyability one —
-    // see isAvailableListing's own header for what that means and the
-    // measurements behind also requiring `inStock !== false` here.
-    activeAtCommit.push(statusOnly.filter(isAvailableListing));
-  }
-  const untrustworthy = untrustworthyEans(activeAtCommit.flat());
-
-  for (const listings of activeAtCommit) {
-    for (const l of listings) {
-      if (!isFragrance(l)) continue;
-      // A shop whose currency was never established has no price history, and
-      // clearing its current snapshot cannot reach the past: this script
-      // replays old commits, so the pre-quarantine files are still right there
-      // holding the figures the quarantine took down. Before this line,
-      // 4,961 of 16,437 published points were nicchia-luxury-uk's (2,942) and
-      // escentual's (2,019) — the second set being exactly the ~1.44x-inflated
-      // list that 86c4660 found and cleared. A chart whose whole claim is that
-      // every point is a price that was really charged cannot plot a number
-      // nobody can say the unit of.
-      if (CURRENCY_UNCONFIRMED.has(l.retailerId)) continue;
-      // A listing with no price is not a price point. This was an unguarded
-      // `l.priceGbp!`, and the comparison below reads a null as smaller than
-      // every real figure — so an unpriced listing would win "cheapest" and
-      // be plotted as a £0 low that no shop ever charged, on a chart whose
-      // whole claim is that every point was genuinely live. That is not
-      // hypothetical: clearing a shop's prices is now how this project
-      // records "we cannot stand behind these figures" (see
-      // src/catalogue/priceQuarantine.ts), so nulls arrive here by design.
-      // build-demo-catalogue.ts already guards the same way, for the same
-      // reason.
-      if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) continue;
-      const id = fragranceId(l, untrustworthy);
-      const price = l.priceGbp;
-      const current = cheapestThisCommit.get(id);
-      // Retailer id as the tiebreaker keeps this deterministic run to run —
-      // an arbitrary object-iteration-order pick would make the recorded
-      // "cheapest" retailer flicker between reconstructions of the exact
-      // same commit, which is a worse kind of wrong than picking either one
-      // consistently.
-      if (!current || price < current.priceGbp || (price === current.priceGbp && l.retailerId < current.retailerId)) {
-        cheapestThisCommit.set(id, { priceGbp: price, retailerId: l.retailerId });
-      }
-    }
-  }
-
-  // The OLD rule's own untrustworthy-EAN computation, over its own (larger,
-  // stock-inclusive) population — not reused from `untrustworthy` above,
-  // because that was computed over a different set of listings and an EAN
-  // collision only that stricter set avoids might still exist in this wider
-  // one. This mirrors exactly what a real pre-4464daf run would have seen.
-  const untrustworthyEverPriced = untrustworthyEans(statusOnlyAtCommit.flat());
-  for (const listings of statusOnlyAtCommit) {
-    for (const l of listings) {
-      if (!isFragrance(l)) continue;
-      if (CURRENCY_UNCONFIRMED.has(l.retailerId)) continue;
-      if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) continue;
-      const id = fragranceId(l, untrustworthyEverPriced);
-      const rec = everPriced.get(id);
-      // Commits are replayed oldest first, so `at` only ever grows.
-      if (!rec) everPriced.set(id, { first: at, last: at });
-      else rec.last = at;
-    }
-  }
-
-  for (const [id, point] of cheapestThisCommit) {
-    const series = history.get(id) ?? [];
-    const last = series.at(-1);
-    // Collapse a run of identical observations into one point. The shop held
-    // the same cheapest price across several commits far more often than it
-    // changed, and a dot at every single commit for a price that never moved
-    // would flood the chart and the hover targets with redundant points for
-    // no information gain — the line between two kept points already reads
-    // as "held steady" for exactly as long as it did.
-    if (!last || last.priceGbp !== point.priceGbp || last.retailerId !== point.retailerId) {
-      series.push({ at, priceGbp: point.priceGbp, retailerId: point.retailerId });
-      history.set(id, series);
-    }
-  }
-  // The mid-series gap fix: a fragrance that has a price on record
-  // (`history.has(id)`) but no entry in `cheapestThisCommit` this round went
-  // unavailable everywhere — out of stock, delisted, or both — this commit.
-  // Write one explicit gap marker at the transition, exactly like the price
-  // collapsing above only keeps one point per unbroken run: if the last
-  // thing on record for this id is already a gap marker, nothing changed and
-  // no second marker is written; only the moment it *stops* being priced
-  // gets one. See this file's own header and
-  // src/services/priceHistoryDaily.ts for why this exists and how the
-  // frontend uses it.
-  for (const [id, series] of history) {
-    if (cheapestThisCommit.has(id)) continue;
-    const last = series.at(-1);
-    if (last && last.priceGbp !== null) {
-      series.push({ at, priceGbp: null, retailerId: null });
-    }
-  }
-
-  if ((i + 1) % 10 === 0 || i === commits.length - 1) {
-    console.log(`  ${i + 1}/${commits.length} commits replayed, ${history.size} fragrances with history so far`);
-  }
-}
-
-console.log(`\n${history.size} fragrances have at least one recorded price`);
-
-// A single *real* point draws no line — demo/app.ts's chart already refuses
-// to render below two — so shipping the rest of a sub-two series would only
-// bloat the bundle with data nothing ever reads. Counted by real price
-// points, not by series.length: a series can now also hold gap markers
-// (see this file's own header), and a single price followed by a gap marker
-// is still just one reading, not a line. Filtered here rather than left for
-// the frontend to skip, so the shipped file's own size reflects real
-// chartable coverage.
-const realPointCount = (series: PricePoint[]): number => series.filter((p) => p.priceGbp !== null).length;
-const sortedEntries = [...history.entries()]
-  .filter(([, series]) => realPointCount(series) >= 2)
-  .sort(([a], [b]) => a.localeCompare(b));
-console.log(`${sortedEntries.length} of those have 2+ real points (an actual line) and are included below`);
-
-// One reason for every fragrance that does not reach the bar above, so a
-// reader sees an honest sentence instead of blank space where a chart isn't
-// drawn — see src/services/priceHistoryGaps.ts for the wording and the
-// argument that a single generic sentence would misstate most of these.
-const gapReasons: Record<string, PriceHistoryGap> = {};
-const allKnownIds = new Set<string>([...history.keys(), ...everPriced.keys()]);
-for (const id of allKnownIds) {
-  const series = history.get(id);
-  if (series && realPointCount(series) >= 2) continue; // has a real chart
-  const realPoints = series?.filter((p) => p.priceGbp !== null) ?? [];
-  if (realPoints.length === 1) {
-    const p = realPoints[0]!;
-    gapReasons[id] = { reason: 'not-enough', priceGbp: p.priceGbp!, retailerId: p.retailerId!, at: p.at };
-    continue;
-  }
-  const ever = everPriced.get(id);
-  gapReasons[id] = ever ? { reason: 'sold-out', firstAt: ever.first, lastAt: ever.last } : { reason: 'never' };
-}
-// 'same-day' is never produced here — it is a presentation time reason
-// demo/app.ts computes for itself (see priceHistoryGaps.ts's own header) —
-// but the tally still has to name it to stay exhaustive over the shared type.
-const gapCounts = { never: 0, 'sold-out': 0, 'not-enough': 0, 'same-day': 0 };
-for (const g of Object.values(gapReasons)) gapCounts[g.reason]++;
+const rendered = render(state, commits);
+console.log(`\n${rendered.fragrancesWithHistory} fragrances have at least one recorded price`);
+console.log(`${rendered.charted} of those have 2+ real points (an actual line) and are included below`);
+const gaps = rendered.gapCounts;
 console.log(
-  `${Object.keys(gapReasons).length} fragrances short of a chart get a reason instead of blank space: ` +
-    `${gapCounts.never} never priced, ${gapCounts['sold-out']} priced only while out of stock, ${gapCounts['not-enough']} exactly one buyable reading`,
+  `${gaps.never + gaps['sold-out'] + gaps['not-enough']} fragrances short of a chart get a reason instead of blank space: ` +
+    `${gaps.never} never priced, ${gaps['sold-out']} priced only while out of stock, ${gaps['not-enough']} exactly one buyable reading`,
 );
 
-const body = `/**
- * Auto-generated by scripts/build-price-history.ts. Do not edit by hand.
- *
- * Reconstructed from ${commits.length} real harvest commits, ${commits[0]?.at.slice(0, 10)} to
- * ${commits.at(-1)?.at.slice(0, 10)}. Every point is a price a reader could actually have
- * paid at that time — still listed and not confirmed out of stock — see the
- * script's own header for the full rules that keep fixture-era, non-fragrance
- * and unbuyable data out of this file, and for what a null priceGbp/retailerId
- * pair means (never a price; always an explicit "not buyable here" marker).
- *
- * PRICE_HISTORY_GAP names, for every fragrance that falls short of the 2+
- * real point bar above, which of three honest reasons applies — see
- * src/services/priceHistoryGaps.ts for the wording each one gets.
- */
-
-export interface PriceHistoryPoint {
-  at: string;
-  priceGbp: number | null;
-  retailerId: string | null;
-}
-
-export type PriceHistoryGap =
-  | { reason: 'never' }
-  | { reason: 'sold-out'; firstAt: string; lastAt: string }
-  | { reason: 'not-enough'; priceGbp: number; retailerId: string; at: string };
-
-export const PRICE_HISTORY: Record<string, PriceHistoryPoint[]> = ${JSON.stringify(Object.fromEntries(sortedEntries))};
-
-export const PRICE_HISTORY_GAP: Record<string, PriceHistoryGap> = ${JSON.stringify(gapReasons)};
-
-export function priceHistoryFor(fragranceId: string): PriceHistoryPoint[] {
-  return PRICE_HISTORY[fragranceId] ?? [];
-}
-
-// Falls back to 'never' for an id absent from PRICE_HISTORY_GAP entirely —
-// a fragrance that has never once appeared in a replayed commit at all
-// (added to the catalogue after the last one, or sourced only from
-// fixtures throughout). "Never priced" is the true statement for that case
-// too, so the fallback needs no special case of its own.
-export function priceHistoryGapFor(fragranceId: string): PriceHistoryGap {
-  return PRICE_HISTORY_GAP[fragranceId] ?? { reason: 'never' };
-}
-`;
-
-writeFileSync(resolve(root, 'demo/priceHistory.generated.ts'), body);
-console.log(`\ndemo/priceHistory.generated.ts written (${(body.length / 1024).toFixed(0)} kB)`);
+writeFileSync(resolve(root, OUTPUT_PATH), rendered.body);
+console.log(`\n${OUTPUT_PATH} written (${(rendered.body.length / 1024).toFixed(0)} kB)`);
+const checkpointBytes = writeCheckpoint(root, toCheckpoint(state, rules, commits));
+console.log(`${CHECKPOINT_PATH} written (${(checkpointBytes / 1024).toFixed(0)} kB) at commit ${commits.at(-1)?.sha.slice(0, 8)}`);

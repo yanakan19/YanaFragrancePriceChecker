@@ -1621,3 +1621,77 @@ fallback.
 * Whether to extend this to the large-payload call sites. Nothing here makes
   that safer than D16 found it; the size question is still unanswered, and is
   still not one to answer on the production branch.
+
+## D20 — The price-history replay grew past its own timeout and wedged the branch; it now resumes from a checkpoint, and a half-finished rebuild can no longer be committed
+
+Runs #388 through #395 (2026-09-04 18:22 to 2026-09-05 18:17) all failed the same
+assertion in tests/demoBuildFreshness.test.ts: demo/index.html stamped
+`5520216e…`, source on disk `8a5158cc…`. Because "Test before crawling" runs
+before every harvest, no harvest ran for over a day and live prices froze.
+
+### What actually happened, from run #387's own log
+
+Run #387 was green. Its "Rebuild the app from harvested prices" step ran
+`catalogue:demo` (4s), `deals:build` (2s), then `catalogue:history`, which
+printed `Replaying 368 commits touching data/catalogue...` and was at 360/368
+when the step's 10-minute timeout killed it at 15:35:13. `npm run demo`, the
+fourth command, never ran. The step carried `continue-on-error: true`, so
+"Commit rebuilt app" ran anyway and pushed 7465fe44: `demo/catalogue.generated.ts`
+and `demo/deals.generated.ts` changed, `demo/index.html` untouched. That is the
+exact state the freshness test exists to reject, and it did, on every run after.
+
+The replay's cost is linear in the number of commits that have ever touched
+data/catalogue — 49 when the script was written, 368 that day, four to six more
+every day since. The workflow comment that set the timeout at "roughly double" a
+measured six minutes was true when written and guaranteed to stop being true. A
+second comment claimed a timed-out rebuild "costs one cycle of stale demo
+output, nothing more"; nothing enforced that, and it was false the first time it
+mattered.
+
+### What was done
+
+1. **The replay resumes.** scripts/priceHistoryReplay.ts is the loop from
+   build-price-history.ts, unchanged in what it decides, made restartable: the
+   fold's state after commit k (collapsed series plus the `everPriced` date
+   ranges) is a complete checkpoint, written to data/price-history-checkpoint.json,
+   and the next run folds in only the commits since. A scheduled harvest adds one
+   to three, so the step is back to the cost of the demo build alone, for any
+   number of commits. tests/priceHistoryReplay.test.ts asserts against real
+   history that resuming after k gives byte-for-byte the document a full replay
+   gives.
+2. **A rules change still forces a full replay.** The checkpoint carries a
+   fingerprint of the modules that decide what a price point is — walked through
+   their relative imports, so a new helper is covered without a list to maintain
+   — plus the two facts read from the retailer registry (the currency-unconfirmed
+   set, the fragrance-only-catalogue set) as *values*, because retailers.ts is
+   edited most days for reasons that cannot move a point. A mismatch is refused
+   with its reason printed, and the replay starts from the first commit. The
+   2026-09-03 Riiffs fix is the concrete case this protects against.
+3. **A half-finished rebuild commits nothing.** The rebuild step has an `id`,
+   and "Commit rebuilt app" is gated on `steps.rebuild.outcome == 'success'` —
+   the result *before* `continue-on-error` is applied. A timeout now leaves the
+   branch consistent with itself; the next run harvests normally and only the
+   page is a cycle old. A warning annotation says so. The timeout is 25 minutes
+   for the one slow path that remains (the full replay after a rules change,
+   about ten minutes on 2026-09-05).
+4. **The commit script will not push a stale page.** scripts/check-demo-freshness.ts
+   is the freshness test callable from bash. commit-and-push.sh runs it before
+   committing whenever a caller names demo/index.html, and refuses with nothing
+   committed if the stamp disagrees with the source. It runs it again after every
+   successful rebase: a clean rebase onto someone else's source change leaves the
+   page just as stale as a timeout does, and until now nothing looked. On that
+   path it regenerates from the merged inputs, re-stages exactly the caller's
+   set, and amends the still-unpushed commit.
+
+### What was deliberately not done
+
+The freshness test still gates the harvest. It was suggested that the harvest
+does not need demo/index.html and should not be blocked by it. It should: the
+same gate is what caught the deals-ordering bug on 2026-09-01, and a harvest that
+runs while the page is provably wrong just publishes wrong prices faster. The fix
+belongs on the side that produced the stale page, and that is where it went.
+
+The replay was not made faster per commit. Its cost is `git show` plus
+JSON.parse of ~40 multi-megabyte snapshots per commit and is inherent to reading
+every commit; resuming makes that cost a one-off rather than a daily tax, which
+is the property that matters.
