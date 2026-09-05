@@ -1695,3 +1695,24 @@ The replay was not made faster per commit. Its cost is `git show` plus
 JSON.parse of ~40 multi-megabyte snapshots per commit and is inherent to reading
 every commit; resuming makes that cost a one-off rather than a daily tax, which
 is the property that matters.
+
+### Addendum, 2026-09-05 22:00 — the fix above went red one push later, from the other side
+
+f5a3f44e passed the full suite locally (1746) and failed "Test before
+crawling" on the runner (run #397) on the same freshness assertion: page
+stamped `ed2c8662…`, runner disk `8ef75de7…`. Reproduced exactly:
+demo/testCount.generated.ts hashed with `TEST_COUNT = 1734` gives the first,
+with `1746` the second. The commit added twelve tests, ran `npm run demo`
+while the file still said 1734, then ran the suite — which passed, because
+the freshness test read the file before scripts/testCountReporter.ts
+rewrote it at the end of that same run — and committed both.
+
+That is a circularity, not a one-off ordering slip: the freshness check's
+inputs included a file that the check's own run rewrites, so the verdict
+depended on which of the two happened first inside one process. Fixed by
+leaving demo/testCount.generated.ts out of the fingerprint
+(`HASH_EXCLUDED_INPUTS`, with the incident recorded beside it), pinned by a
+test, with the reporter now printing a rebuild prompt whenever it changes the
+number. The cost is that the About page's test count can be one rebuild
+behind, which every scheduled harvest closes. The harvest itself can no
+longer be blocked by it.

@@ -69,6 +69,31 @@ import { join } from 'node:path';
  */
 const EXTRA_INPUTS = ['demo/template.html'];
 
+/**
+ * Bundled inputs deliberately left OUT of the fingerprint.
+ *
+ * demo/testCount.generated.ts is written by scripts/testCountReporter.ts as a
+ * side effect of the very `vitest run` that checks this fingerprint. That
+ * makes it circular: the verifier's own output is one of the verifier's
+ * inputs, and the verdict then depends on which of the two ran first inside
+ * the same process. Run #397 (2026-09-05, f5a3f44e) is what that costs. A
+ * commit added twelve tests, ran `npm run demo` (stamping a page built while
+ * the file still said 1734), then ran the suite — which passed, because the
+ * freshness test read the file before the reporter rewrote it to 1746 at the
+ * end of the run — and committed both. On the runner the file said 1746 from
+ * the start, the fingerprint differed, and "Test before crawling" failed:
+ * the same red that had just been fixed, from the opposite direction, one
+ * push later.
+ *
+ * Leaving it out means the About page's test count can be one rebuild
+ * behind — until the next `npm run demo`, which every scheduled harvest
+ * performs. That is a cosmetic lag on a number nobody's price depends on.
+ * A harvest blocked by it is not. The reporter says so, loudly, whenever it
+ * changes the number, so a local rebuild is one prompt away rather than a
+ * rule to remember.
+ */
+const HASH_EXCLUDED_INPUTS = new Set(['demo/testCount.generated.ts']);
+
 /** The handful of fields this reads out of tsconfig.demo.json. */
 interface DemoTsConfigShape {
   include: string[];
@@ -142,7 +167,7 @@ export function computeDemoInputsHash(root: string): DemoInputsHash {
   const files = new Set<string>();
   for (const dir of dirs) {
     for (const file of listTsFilesUnder(root, dir)) {
-      if (!excluded.has(file)) files.add(file);
+      if (!excluded.has(file) && !HASH_EXCLUDED_INPUTS.has(file)) files.add(file);
     }
   }
   for (const extra of EXTRA_INPUTS) files.add(extra);

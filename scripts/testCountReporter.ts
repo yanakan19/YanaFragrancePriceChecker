@@ -132,5 +132,15 @@ export const TEST_COUNT = ${total};
     // Visible in the same run's output, the same way build-demo.ts and the
     // other generators here report what they wrote.
     console.log(`demo/testCount.generated.ts  TEST_COUNT = ${total}`);
+    // This file is bundled into the page but deliberately left out of the
+    // page's freshness fingerprint (see HASH_EXCLUDED_INPUTS in
+    // scripts/demoInputsHash.ts for the incident that decided it), so a
+    // changed count never fails a build — but the page will show the old
+    // number until someone rebuilds. Say so here, at the moment the number
+    // moves, rather than rely on anyone remembering the ordering.
+    console.log(
+      `testCountReporter: the count changed (was ${previousMatch ? previousMatch[1] : 'unset'}); ` +
+        'run `npm run demo` before committing so the About page shows it.',
+    );
   }
 }
