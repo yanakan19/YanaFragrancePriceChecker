@@ -258,3 +258,105 @@ describe('scripts/commit-and-push.sh', () => {
     expect(remoteContent).toBe('export const RETAILERS = "HUMAN-EDIT";\n');
   });
 });
+
+// Runs #388–#395 (2026-09-04/05). The rebuild step timed out before
+// `npm run demo` ran, "Commit rebuilt app" pushed a new
+// demo/catalogue.generated.ts beside the OLD demo/index.html (7465fe44), and
+// tests/demoBuildFreshness.test.ts then failed every run after — which, since
+// that test gates the harvest, froze live prices for over a day. The workflow
+// now refuses to reach this script after a rebuild that did not finish; these
+// cover the script's own lock on the same door, for any caller that forgets.
+//
+// The page and its freshness are simulated in the smallest shape that has the
+// real property: a page is "built from" whatever src/app.ts said at the time,
+// FRESHNESS_CHECK compares the two, and REGENERATE rebuilds the page from the
+// src/app.ts on disk — exactly the relationship scripts/check-demo-freshness.ts
+// and `npm run demo` have with the real bundle.
+describe('scripts/commit-and-push.sh never pushes a demo/index.html that is stale against its source', () => {
+  const PAGE_MATCHES_SOURCE = '[ "$(cat demo/index.html)" = "BUILT-FROM:$(cat src/app.ts)" ] || { echo "sim: stale" >&2; exit 2; }';
+  const REBUILD_PAGE = 'echo "BUILT-FROM:$(cat src/app.ts)" > demo/index.html';
+
+  it('refuses before committing when the page on disk is already stale, and leaves the tree as it found it', () => {
+    const { root, worker } = setupTrio({
+      relPath: 'demo/index.html',
+      content: 'BUILT-FROM:OLDER-SOURCE\n',
+      extra: { 'src/app.ts': 'BASE\n', 'demo/catalogue.generated.ts': 'BASE\n' },
+    });
+    cleanupDirs.push(root);
+
+    writeFileSync(join(worker, 'demo/catalogue.generated.ts'), 'NEW-CATALOGUE\n');
+    const before = git(worker, ['rev-parse', 'HEAD']);
+
+    const { status, output } = runScript(
+      worker,
+      ['Rebuild demo: sim', 'demo/catalogue.generated.ts', 'demo/index.html'],
+      { FRESHNESS_CHECK: PAGE_MATCHES_SOURCE },
+    );
+
+    expect(status).toBe(1);
+    expect(output).toContain('Refusing to commit demo/index.html');
+    expect(git(worker, ['rev-parse', 'HEAD'])).toBe(before);
+    expect(git(worker, ['rev-parse', 'origin/master'])).toBe(before);
+    // Unstaged again rather than left half-done: the caller's change is still
+    // in the working tree for a human to rebuild and commit properly.
+    expect(git(worker, ['diff', '--cached', '--name-only'])).toBe('');
+    expect(readFileSync(join(worker, 'demo/catalogue.generated.ts'), 'utf8')).toBe('NEW-CATALOGUE\n');
+  });
+
+  it('rebuilds the page after a clean rebase brings in a source change, and pushes it fresh in one commit', () => {
+    const { root, worker, concurrent } = setupTrio({
+      relPath: 'demo/index.html',
+      content: 'BUILT-FROM:BASE\n',
+      extra: { 'src/app.ts': 'BASE\n', 'demo/catalogue.generated.ts': 'BASE\n' },
+    });
+    cleanupDirs.push(root);
+
+    // A different file from anything we stage, so the rebase is clean — the
+    // path resolve_generated_conflicts never sees, and the one that used to
+    // push a stale page without anyone looking.
+    pushConcurrentChange(concurrent, 'src/app.ts', 'CHANGED-WHILE-WE-BUILT\n');
+    writeFileSync(join(worker, 'demo/catalogue.generated.ts'), 'OUR-HARVEST-DATA\n');
+
+    const { status, output } = runScript(
+      worker,
+      ['Rebuild demo: sim', 'demo/catalogue.generated.ts', 'demo/index.html'],
+      { FRESHNESS_CHECK: PAGE_MATCHES_SOURCE, REGENERATE: REBUILD_PAGE },
+    );
+
+    expect(status).toBe(0);
+    expect(output).toContain('rebuilding the page so it is not pushed stale');
+    expect(output).toContain('Pushed on attempt 2');
+
+    expect(git(worker, ['show', 'origin/master:demo/index.html'])).toBe('BUILT-FROM:CHANGED-WHILE-WE-BUILT');
+    expect(git(worker, ['show', 'origin/master:demo/catalogue.generated.ts'])).toBe('OUR-HARVEST-DATA');
+    // Amended into our own commit, not stacked as a second one.
+    expect(git(worker, ['log', '--format=%s', 'origin/master'])).toBe('Rebuild demo: sim\nconcurrent push\nbase');
+  });
+
+  it('leaves a page alone after a clean rebase that touched nothing it was built from', () => {
+    const { root, worker, concurrent } = setupTrio({
+      relPath: 'demo/index.html',
+      content: 'BUILT-FROM:BASE\n',
+      extra: { 'src/app.ts': 'BASE\n', 'README.md': 'BASE\n', 'data/notes.json': '{"v":1}\n' },
+    });
+    cleanupDirs.push(root);
+
+    // The concurrent push changes a file the page is not built from, and
+    // which we do not stage: a clean rebase with nothing for the check to
+    // object to. The rebuild must not fire — a needless `npm run demo` is a
+    // minute or two per push, and a check that cries wolf gets removed.
+    pushConcurrentChange(concurrent, 'README.md', 'DOCS-EDITED-CONCURRENTLY\n');
+    writeFileSync(join(worker, 'data/notes.json'), '{"v":1,"ours":true}\n');
+
+    const { status, output } = runScript(worker, ['Rebuild demo: sim', 'data/notes.json', 'demo/index.html'], {
+      FRESHNESS_CHECK: PAGE_MATCHES_SOURCE,
+      REGENERATE: 'echo "REGENERATE MUST NOT RUN" > demo/index.html',
+    });
+
+    expect(status).toBe(0);
+    expect(output).toContain('Pushed on attempt 2');
+    expect(output).not.toContain('rebuilding the page');
+    expect(git(worker, ['show', 'origin/master:demo/index.html'])).toBe('BUILT-FROM:BASE');
+    expect(git(worker, ['show', 'origin/master:data/notes.json'])).toBe('{"v":1,"ours":true}');
+  });
+});

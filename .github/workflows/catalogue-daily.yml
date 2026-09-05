@@ -770,7 +770,8 @@ jobs:
             data/catalogue data/awin-feed-sync-state.json data/storefront-reprice-report.json \
             data/feed-sync-marker.txt \
             demo/catalogue.generated.ts \
-            demo/priceHistory.generated.ts demo/index.html demo/404.html demo/sitemap.xml
+            demo/priceHistory.generated.ts data/price-history-checkpoint.json \
+            demo/index.html demo/404.html demo/sitemap.xml
 
       # Manual-only debug aid: prints the column headers and the values of
       # price-ish columns for one matched product row in one named Awin
@@ -1133,16 +1134,43 @@ jobs:
       # continue-on-error exist for the same reason "Harvest houses direct"
       # got them after run #157: a *job* timeout ignores continue-on-error on
       # the steps around it and cancels everything outstanding, but a *step*
-      # timeout lets the ones after it still run. Measured at 5m48s-6m31s
-      # across runs #333-#340, so 10 minutes is roughly double the observed
-      # cost — generous room without leaving a genuine hang free to eat the
-      # rest of the job's budget the way the un-timed version of this step
-      # used to.
+      # timeout lets the ones after it still run.
       #
-      # A failed or timed-out rebuild costs one cycle of stale demo output,
-      # nothing more: the catalogue data it reads was already committed above,
-      # and the next scheduled run rebuilds from whatever is on the branch by
-      # then regardless of what happened here.
+      # ── The timeout, and what it must never be allowed to do (runs #387–#395) ──
+      # This carried `timeout-minutes: 10`, set when the step measured
+      # 5m48s–6m31s across runs #333–#340 — "roughly double the observed
+      # cost". The cost was not constant. `catalogue:history` replayed every
+      # commit that ever touched data/catalogue, 49 when it was written and
+      # 368 by 2026-09-04, and on run #387 the replay alone crossed ten
+      # minutes at 360/368. The step was killed before `npm run demo` ran;
+      # `continue-on-error` let "Commit rebuilt app" run anyway; and it
+      # pushed 7465fe44 — a new demo/catalogue.generated.ts beside the OLD
+      # demo/index.html. tests/demoBuildFreshness.test.ts caught exactly
+      # that, as it exists to, on every run from #388 to #395, and since
+      # "Test before crawling" gates the harvest, no harvest could start:
+      # live prices froze for over a day, and rebuilding the page by hand
+      # would have bought exactly one run.
+      #
+      # The paragraph that used to sit here said a timed-out rebuild "costs
+      # one cycle of stale demo output, nothing more". That was only ever
+      # true if a half-finished rebuild was never committed, and nothing
+      # enforced it. Now two things do. The commit step below is gated on
+      # this step's *outcome* (`steps.rebuild.outcome`, which sees the
+      # failure `continue-on-error` hides from `conclusion`), so a rebuild
+      # that did not finish commits nothing and the branch stays consistent
+      # with itself — the next run still harvests, and only the page is a
+      # cycle old. And scripts/commit-and-push.sh now refuses outright to
+      # commit a demo/index.html whose stamp disagrees with the source
+      # beside it, for whichever caller forgets the first lock.
+      #
+      # The replay itself no longer grows: scripts/priceHistoryReplay.ts
+      # resumes from data/price-history-checkpoint.json and folds in only
+      # the commits since, so this step is back to the cost of the demo
+      # build alone. 25 minutes rather than 10 is for the one slow path
+      # left — a change to the fragrance rules invalidates the checkpoint
+      # and forces a replay from the first commit (about ten minutes on
+      # 2026-09-05, growing slowly) — and the gate above means that even
+      # outrunning 25 costs a cycle, not the branch.
       #
       # ── Why `deals:build` is in here now, and not before the harvest ──
       # It used to run near the top of the job, ahead of the harvest, on a
@@ -1187,9 +1215,10 @@ jobs:
       # that must not move: raw harvested prices are published first and
       # nothing derived from them can cost us an hour of crawling.
       - name: Rebuild the app from harvested prices
+        id: rebuild
         if: ${{ inputs.harvest || inputs.deals_refresh || github.event_name == 'schedule' }}
         continue-on-error: true
-        timeout-minutes: 10
+        timeout-minutes: 25
         run: |
           npm run catalogue:demo
           npm run deals:build
@@ -1197,13 +1226,25 @@ jobs:
           npm run demo
 
       # Committed separately from the raw snapshots above on purpose — see
-      # that step's comment. A no-op, not a failure, when the rebuild above
-      # did not run to completion: commit-and-push.sh skips paths that do not
-      # exist and reports "Nothing changed" when nothing did, so a rebuild cut
-      # off by its own step timeout simply leaves the previous demo bundle
-      # live until the next run regenerates it.
+      # that step's comment.
+      #
+      # Gated on the rebuild's *outcome*, not merely on the job still being
+      # alive. This step used to run unconditionally, on the reasoning that a
+      # rebuild cut off by its timeout would leave nothing changed for
+      # commit-and-push.sh to find. That was wrong in the way that mattered:
+      # the four commands above run in sequence, and a timeout that lands in
+      # the third has already let the first rewrite demo/catalogue.generated.ts
+      # while leaving demo/index.html — built from the previous catalogue —
+      # untouched. Run #387 committed exactly that pair (7465fe44), and
+      # tests/demoBuildFreshness.test.ts then failed every run from #388 to
+      # #395. `steps.rebuild.outcome` is the result before continue-on-error
+      # is applied: 'success' only if all four finished, 'failure' for a
+      # timeout or a failed command, and nothing but 'success' reaches here.
+      # data/price-history-checkpoint.json rides with priceHistory.generated.ts
+      # because it is the same replay's resume point, written in the same
+      # breath — see scripts/priceHistoryReplay.ts.
       - name: Commit rebuilt app
-        if: ${{ inputs.harvest || inputs.deals_refresh || github.event_name == 'schedule' }}
+        if: ${{ (inputs.harvest || inputs.deals_refresh || github.event_name == 'schedule') && steps.rebuild.outcome == 'success' }}
         run: |
           # demo/testCount.generated.ts rides along here rather than with the
           # raw snapshots above: "Test before crawling", near the top of this
@@ -1224,9 +1265,19 @@ jobs:
           ./scripts/commit-and-push.sh \
             "Rebuild demo: $(date -u +%Y-%m-%d) harvest" \
             demo/catalogue.generated.ts demo/priceHistory.generated.ts \
+            data/price-history-checkpoint.json \
             demo/deals.generated.ts \
             demo/testCount.generated.ts \
             demo/index.html demo/404.html demo/sitemap.xml
+
+      # Visible, not fatal: the harvest is already on the branch, the page is
+      # one cycle old, and the next run rebuilds it. A warning annotation on
+      # the run is the right size for that; failing the job would say prices
+      # are stale when they are not.
+      - name: Note a rebuild that did not finish
+        if: ${{ (inputs.harvest || inputs.deals_refresh || github.event_name == 'schedule') && steps.rebuild.outcome != 'success' }}
+        run: |
+          echo "::warning::The rebuild step ended with outcome '${{ steps.rebuild.outcome }}', so nothing derived from this harvest was committed. The harvested prices are on the branch; the page will be rebuilt by the next run. If this repeats, the replay's checkpoint was probably invalidated by a rules change — see scripts/priceHistoryReplay.ts."
 
       # ── Debug: capture one shop's rendered HTML, manual-only ────────────────
       # Built for notino-uk specifically: it renders a real 694,649-byte

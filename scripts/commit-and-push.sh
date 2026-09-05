@@ -43,11 +43,13 @@ git config user.email 'bot@users.noreply.github.com'
 # Paths that do not exist yet are skipped rather than fatal: the house harvest
 # only writes its files once a storefront has actually returned something.
 staged_any=0
+wants_fresh_demo=0
 for path in "$@"; do
   if [ -e "$path" ]; then
     git add "$path"
     staged_any=1
   fi
+  if [ "$path" = "demo/index.html" ]; then wants_fresh_demo=1; fi
 done
 
 if [ "$staged_any" -eq 0 ]; then
@@ -58,6 +60,39 @@ fi
 if git diff --cached --quiet; then
   echo "Nothing changed."
   exit 0
+fi
+
+# ── Never commit a page that is stale against the source beside it ──────────
+# demo/index.html is not source; it is the source, already built, and it
+# carries a stamp of exactly which source it was built from (see
+# scripts/demoInputsHash.ts). A caller that names it is promising that the
+# page on disk matches the *.ts and template on disk. Runs #388–#395
+# (2026-09-04/05) are what happens when that promise is broken by accident:
+# the rebuild step timed out before `npm run demo` ran, the caller committed
+# a new demo/catalogue.generated.ts beside the old page regardless, the
+# freshness test then failed on every later run, and — because that test
+# gates every harvest — no prices moved for over a day. The workflow now
+# refuses to reach this script after a rebuild that did not finish; this is
+# the second lock on the same door, for whichever caller forgets the first.
+#
+# Checked here, before anything is committed, and again after every rebase
+# below — a clean rebase onto someone else's source change leaves our page
+# just as stale as a timeout does, and until now nothing looked.
+# Overridable like REGENERATE, and self-skipping outside this app (the
+# checker exits 0 wherever there is no tsconfig.demo.json to check against).
+FRESHNESS_CHECK="${FRESHNESS_CHECK:-npx tsx \"$(dirname "$0")/check-demo-freshness.ts\"}"
+
+demo_is_fresh() {
+  if [ "$wants_fresh_demo" -eq 0 ]; then return 0; fi
+  sh -c "$FRESHNESS_CHECK"
+}
+
+if ! demo_is_fresh; then
+  git reset -q
+  echo "::error::Refusing to commit demo/index.html: it was built from different source than is on" >&2
+  echo "::error::disk now (see the check above). Run \`npm run demo\` and commit the result. Nothing was" >&2
+  echo "::error::committed or pushed; the branch is exactly as it was." >&2
+  exit 1
 fi
 
 branch="$(git rev-parse --abbrev-ref HEAD)"
@@ -163,13 +198,22 @@ delay=2
 # worked. Fixed by removing the path rather than trusting that quirk; see
 # also the explicit exit-code checks below, added so a future mistake here
 # fails loudly instead of vanishing the same way.
-GENERATED_PATHS="demo/index.html demo/404.html demo/catalogue.generated.ts demo/priceHistory.generated.ts"
+#
+# data/price-history-checkpoint.json is the replay's own resume point (see
+# scripts/priceHistoryReplay.ts) and belongs in this list for the same reason
+# priceHistory.generated.ts does: it is a deterministic function of the
+# catalogue commits and nothing else. On a conflict the incoming side is
+# checked out first, like every path here, and the regenerate then *resumes
+# from that* — so a conflict costs a replay of the few commits since the
+# incoming checkpoint, never the ten-minute-and-growing replay from the first
+# commit that a checkpoint left with conflict markers would force.
+GENERATED_PATHS="demo/index.html demo/404.html demo/catalogue.generated.ts demo/priceHistory.generated.ts data/price-history-checkpoint.json"
 
 # How to rebuild them. Overridable so this script does not hard-code knowledge
 # of the app's build for callers that generate something else.
 #
-# priceHistory.generated.ts is a full deterministic replay of every catalogue
-# commit in git, never a diff against its own previous content — so unlike a
+# priceHistory.generated.ts is a deterministic replay of the catalogue commits
+# in git, never a diff against its own previous content — so unlike a
 # hand-maintained file, there is no real ambiguity to a conflict in it: both
 # sides are trying to say the same thing from the same source of truth, and
 # rebuilding it fresh is not picking a winner, it is the only correct answer
@@ -469,6 +513,41 @@ while [ "$attempt" -lt "$max_attempts" ]; do
       echo "::error::in a file that is neither generated nor a raw harvest snapshot. Refusing to" >&2
       echo "::error::guess which version wins." >&2
       echo "::error::Nothing was pushed; resolve by hand." >&2
+      exit 1
+    fi
+  fi
+
+  # The rebase succeeded — cleanly, or with conflicts confined to generated
+  # files and resolved above. Either way our commit now sits on top of
+  # whatever landed while we were building, and if that included a change to
+  # a bundled source file, the page in our commit was built without it and is
+  # stale on arrival. The conflict path already regenerates; the clean path
+  # never did, and it is the more common one. Same check as before the first
+  # commit, same remedy as the conflict path: rebuild from the merged inputs,
+  # re-stage exactly the caller's own set (no widening — anything else the
+  # build wrote is discarded, as resolve_generated_conflicts does), and fold
+  # it into our commit. That commit is local and unpushed — the push was just
+  # rejected — so amending it rewrites nothing anyone has seen.
+  if ! demo_is_fresh; then
+    echo "The rebase brought in a source change; rebuilding the page so it is not pushed stale."
+    if ! sh -c "$REGENERATE"; then
+      echo "::error::Could not rebuild the page after rebasing. Nothing was pushed." >&2
+      exit 1
+    fi
+    for path in "$@"; do
+      if [ -e "$path" ] && ! git add -- "$path"; then
+        echo "::error::git add failed for ${path} after the post-rebase rebuild." >&2
+        exit 1
+      fi
+    done
+    if [ -n "$(git diff --name-only)" ]; then
+      echo "Discarding build output the rebuild wrote outside the committed set."
+      git checkout -- .
+    fi
+    git commit -q --amend --no-edit
+    if ! demo_is_fresh; then
+      echo "::error::The page is still stale after a rebuild — something outside this script is wrong." >&2
+      echo "::error::Nothing was pushed." >&2
       exit 1
     fi
   fi
