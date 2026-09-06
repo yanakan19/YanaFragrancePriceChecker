@@ -1,6 +1,6 @@
-import { test } from 'node:test';
+import { test } from 'vitest';
 import assert from 'node:assert/strict';
-import { classifyIntent, INTENTS } from '../server/intent.js';
+import { classifyIntent, INTENTS } from '../../demo/yanny/intent.js';
 
 /**
  * The routing corpus.

@@ -1,6 +1,6 @@
-import { test } from 'node:test';
+import { test } from 'vitest';
 import assert from 'node:assert/strict';
-import { suggestContextFor, extractNotes } from '../server/siteData.js';
+import { suggestContextFor, extractNotes, loadSite } from '../../demo/yanny/siteData.js';
 
 /**
  * Part 2's "clean up the format" finding: a note-based suggestion could list
@@ -15,18 +15,34 @@ import { suggestContextFor, extractNotes } from '../server/siteData.js';
  * Chocolate, Incense, Amber, Vanilla}) — exactly the shape that used to
  * render as two "different" recommendations for the same bottle.
  */
-test('suggestContextFor: the same product across sizes is one candidate, not a duplicate with two different note lists', async () => {
-  const block = await suggestContextFor('amber');
-  const brandNameOccurrences = block.match(/Tom Ford Black Orchid \(Eau de Parfum\)/g) ?? [];
-  assert.equal(
-    brandNameOccurrences.length,
-    1,
-    `expected Tom Ford Black Orchid to appear once, got:\n${block}`,
-  );
-  // Every note actually published for either size is still present — merging
-  // must not silently drop information from the size that lost the dedup.
-  assert.match(block, /Vanilla/, 'a note only published on the 100ml row must survive the merge');
-  assert.match(block, /Amber/, 'a note published on both rows must survive the merge');
+test('suggestContextFor: a listed product\'s notes are the union across every row of it, so no size\'s notes are lost to the merge', async () => {
+  const { data } = await loadSite();
+  const rowsByProduct = new Map();
+  for (const f of data.DEMO_FRAGRANCES) {
+    const key = `${f.brand} ${f.name}|${f.concentration}`.toLowerCase();
+    if (!rowsByProduct.has(key)) rowsByProduct.set(key, []);
+    rowsByProduct.get(key).push(f);
+  }
+  let checked = 0;
+  for (const question of ['amber', 'vanilla', 'oud', 'rose', 'citrus and bergamot']) {
+    const block = await suggestContextFor(question);
+    for (const line of block.split('\n')) {
+      const m = line.match(/^(.+?) \((.+?)\) — shares: .+ — notes on file: (.+)$/);
+      if (!m) continue;
+      const listed = new Set(m[3].split(', ').map((n) => n.toLowerCase()));
+      const rows = [...rowsByProduct.entries()].find(([k]) => k === `${m[1]}|${m[2]}`.toLowerCase())?.[1];
+      if (!rows) continue; // a label the regex read differently from the key; the dedupe test below still covers it
+      for (const row of rows) {
+        for (const layer of ['top', 'middle', 'base']) {
+          for (const note of row.notes?.[layer] ?? []) {
+            assert.ok(listed.has(note.toLowerCase()), `"${question}": ${m[1]} lists no "${note}" from its ${row.sizeMl}ml row:\n${line}`);
+          }
+        }
+        checked += 1;
+      }
+    }
+  }
+  assert.ok(checked > 0, 'expected at least one listed product to be checked against its rows');
 });
 
 test('suggestContextFor: never lists the same product name twice, for any note query — a general invariant, not pinned to one brand staying in the live catalogue\'s current top 5', async () => {

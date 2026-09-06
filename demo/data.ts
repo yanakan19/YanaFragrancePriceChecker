@@ -151,6 +151,32 @@ function rankableShopCount(id: string): number {
   return (CRAWLED[id] ?? []).filter((o) => !SINGLE_BRAND_ONLY_IDS.has(o.retailerId)).length;
 }
 
+/**
+ * Notes as the shops published them, with two harvest artefacts removed:
+ * the same note listed twice in one layer under two casings ("plum" and
+ * "Plum" — two shops' pages merged into one list), and a note shouted in
+ * capitals ("SWEET") where every other shop writes it as a word. Nothing is
+ * added, reordered or dropped beyond the exact duplicate; the first
+ * spelling seen wins, title-cased only when it was all capitals.
+ */
+function tidyNotes(notes: Notes | null): Notes | null {
+  if (!notes) return notes;
+  const tidyLayer = (raw: string[]): string[] => {
+    const seen = new Set<string>();
+    const out: string[] = [];
+    for (const n of raw) {
+      const name = n.trim();
+      if (!name) continue;
+      const key = name.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(name === name.toUpperCase() && /[A-Z]/.test(name) ? name.charAt(0) + name.slice(1).toLowerCase() : name);
+    }
+    return out;
+  };
+  return { ...notes, top: tidyLayer(notes.top), middle: tidyLayer(notes.middle), base: tidyLayer(notes.base) };
+}
+
 export const DEMO_FRAGRANCES: DemoFragrance[] = CATALOGUE.map((entry) => ({
   id: entry.id,
   brand: entry.brand,
@@ -161,7 +187,7 @@ export const DEMO_FRAGRANCES: DemoFragrance[] = CATALOGUE.map((entry) => ({
   tier: priceTierFor(entry.id, entry.brand),
   popularity: rankableShopCount(entry.id),
   photoUrl: entry.image,
-  notes: entry.notes,
+  notes: tidyNotes(entry.notes),
   // `?? null` rather than passing the optional straight through: the generated
   // field is `houseCeiling?: number`, and under exactOptionalPropertyTypes an
   // absent key and an explicit undefined are different things. One shape here

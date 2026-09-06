@@ -228,8 +228,6 @@ const state = {
   yannyThread: [] as YannyThreadItem[],
   yannyBusy: false,
   yannySplash: '',
-  yannyAgentChips: [] as { agentNumber: number; ok: boolean }[],
-  yannyLastResult: null as YannyResult | null,
   // "Clear chat" asks once before it wipes anything — see clearYannyChat for
   // why one extra press beats both a modal and no guard at all. False is the
   // resting state; the button only reads "Clear chat?" while this is true.
@@ -4005,13 +4003,17 @@ function handleBack(): void {
 
 /* ── virtual yanny ───────────────────────────────────────────────────────── */
 
+/** Where a bot message came from, shown as a small line under it: the
+ *  page's own catalogue (no request made), or an AI model writing from
+ *  that catalogue — and whether that answer passed the groundedness gate. */
+type YannySource = 'catalogue' | 'model' | 'model-unchecked';
+
 type YannyThreadItem =
-  | { kind: 'msg'; who: 'user' | 'bot'; text: string }
-  | { kind: 'ranking'; result: YannyResult }
+  | { kind: 'msg'; who: 'user' | 'bot'; text: string; source?: YannySource }
   // A turn the reader stopped before it finished. It is its own kind rather
   // than a bot message so a truncated turn can never be mistaken for an
   // answer Virtual Yanny actually gave — it renders as a note, not a bubble.
-  | { kind: 'stopped'; responded: number };
+  | { kind: 'stopped' };
 
 /**
  * The in-flight request, if there is one, and a sequence number that makes
@@ -4047,7 +4049,7 @@ const YANNY_THREAD_MAX_CHARS = 32_000;
  * happens to have a stale tab open gets an empty chat instead of a widget
  * that throws on load.
  */
-const YANNY_THREAD_VERSION = 1;
+const YANNY_THREAD_VERSION = 2;
 
 /**
  * Writes the visible conversation to sessionStorage (see YANNY_THREAD_KEY).
@@ -4057,16 +4059,10 @@ const YANNY_THREAD_VERSION = 1;
  * breaking a working chat over — the conversation simply will not outlive
  * the page, which is where it was before any of this.
  *
- * `ranking` items are dropped on the way out. The scoring matrix is working
- * detail attached to a live answer rather than part of the conversation,
- * and it is most of the bytes; keeping it would mean storing 28 rows of
- * per-criterion scores per turn to redraw a collapsed <details> nobody
- * opened.
  */
 function saveYannyThread(): void {
   try {
-    const keep = state.yannyThread.filter((item) => item.kind !== 'ranking');
-    let items = keep.slice(-YANNY_THREAD_MAX_ITEMS);
+    let items = state.yannyThread.slice(-YANNY_THREAD_MAX_ITEMS);
     let payload = JSON.stringify({ v: YANNY_THREAD_VERSION, items });
     // Oldest turns go first until it fits, rather than refusing to store
     // anything: the end of a conversation is the part still being read.
@@ -4113,9 +4109,10 @@ function loadYannyThread(): void {
       if (!entry || typeof entry !== 'object') continue;
       const item = entry as Record<string, unknown>;
       if (item.kind === 'msg' && typeof item.text === 'string' && (item.who === 'user' || item.who === 'bot')) {
-        items.push({ kind: 'msg', who: item.who, text: item.text });
-      } else if (item.kind === 'stopped' && typeof item.responded === 'number' && Number.isFinite(item.responded)) {
-        items.push({ kind: 'stopped', responded: Math.max(0, Math.trunc(item.responded)) });
+        const source = item.source === 'catalogue' || item.source === 'model' || item.source === 'model-unchecked' ? item.source : undefined;
+        items.push(source ? { kind: 'msg', who: item.who, text: item.text, source } : { kind: 'msg', who: item.who, text: item.text });
+      } else if (item.kind === 'stopped') {
+        items.push({ kind: 'stopped' });
       }
     }
     state.yannyThread = items.slice(-YANNY_THREAD_MAX_ITEMS);
@@ -4175,38 +4172,28 @@ function yannyHeadHtml(): string {
     <span class="yanny-head-mark" aria-hidden="true">🤖</span>
     <div class="yanny-head-text">
       <p class="yanny-head-name">Virtual Yanny</p>
-      <p class="yanny-head-sub">Grounded only in what this site actually shows</p>
-      <!-- The one place on the site where what a reader types leaves their
-           browser, said where they type it. The privacy notice carries the
-           full account; this is the sentence that has to be seen first. -->
-      <p class="yanny-head-note">What you send goes to our chat service and an AI provider to be answered,
-        and is not stored by us. Please leave out personal details.</p>
+      <p class="yanny-head-sub">Answers from this site's own catalogue</p>
+      <!-- The one place on the site where what a reader types can leave
+           their browser, said where they type it. The privacy notice
+           carries the full account; this is the sentence that has to be
+           seen first. -->
+      <p class="yanny-head-note">Prices, stock, sizes and notes are looked up in your browser and never leave it.
+        Open questions go to our chat service and an AI provider, and are not stored by us. Please leave out personal details.</p>
     </div>
     ${yannyClearHtml()}
     <button class="yanny-close" id="yanny-close" aria-label="Close chat">${ICON_CLOSE}</button>
   </div>`;
 }
 
-function yannyRankingHtml(result: YannyResult): string {
-  if (!result.ok || !result.matrix || !result.criteria) return '';
-  const critKeys = result.criteria.map((c) => c.key);
-  return `<details class="yanny-ranking">
-    <summary>Scoring matrix, ${result.respondedCount}/${result.agentCount} agents responded, ranked anonymously</summary>
-    <table>
-      <thead><tr><th>Rank</th><th>Agent</th>${critKeys.map((k) => `<th>${esc(k)}</th>`).join('')}<th>Total</th></tr></thead>
-      <tbody>
-        ${result.matrix
-          .map(
-            (m) => `<tr class="${m.rank === 1 ? 'winner' : ''}">
-              <td>#${m.rank}</td><td>Agent ${m.agentNumber}</td>
-              ${critKeys.map((k) => `<td>${m.criteriaScores[k]}</td>`).join('')}
-              <td><strong>${m.totalScore}</strong></td>
-            </tr>`,
-          )
-          .join('')}
-      </tbody>
-    </table>
-  </details>`;
+const YANNY_SOURCE_COPY: Record<YannySource, string> = {
+  catalogue: 'From the catalogue, looked up in your browser.',
+  model: 'Written by an AI model from the catalogue data.',
+  'model-unchecked': 'Written by an AI model; it could not be fully checked against the catalogue, so treat it with care.',
+};
+
+function yannySourceHtml(source: YannySource | undefined): string {
+  if (!source) return '';
+  return `<p class="yanny-source">${esc(YANNY_SOURCE_COPY[source])}</p>`;
 }
 
 function yannyThreadHtml(): string {
@@ -4225,101 +4212,63 @@ function yannyThreadHtml(): string {
 
   const items = state.yannyThread
     .map((item) => {
-      if (item.kind === 'msg') return `<div class="yanny-msg ${item.who}">${esc(item.text)}</div>`;
-      if (item.kind === 'ranking') return yannyRankingHtml(item.result);
-      // A stopped turn. Deliberately not a bot bubble: the council sends its
-      // answer as one final event rather than token by token, so a stop
-      // genuinely leaves nothing of the answer behind, and saying that
-      // plainly is better than a bubble a reader could take for a short
-      // reply. The tally is the only thing that had actually arrived.
-      const tally =
-        item.responded > 0
-          ? ` ${item.responded} ${item.responded === 1 ? 'agent had' : 'agents had'} replied, but nothing had been ranked yet.`
-          : '';
-      return `<p class="yanny-stopped">You stopped this one, so there is no answer to it.${tally}</p>`;
+      if (item.kind === 'msg') {
+        return `<div class="yanny-msg ${item.who}">${esc(item.text)}</div>${item.who === 'bot' ? yannySourceHtml(item.source) : ''}`;
+      }
+      // A stopped turn. Deliberately not a bot bubble: an answer arrives as
+      // one final event rather than token by token, so a stop genuinely
+      // leaves nothing of the answer behind, and saying that plainly is
+      // better than a bubble a reader could take for a short reply.
+      return `<p class="yanny-stopped">You stopped this one, so there is no answer to it.</p>`;
     })
     .join('');
 
   if (!state.yannyBusy) return items;
-
-  const chips = state.yannyAgentChips.length
-    ? `<div class="yanny-agent-chips">${state.yannyAgentChips
-        .map((c) => `<span class="yanny-agent-chip ${c.ok ? 'ok' : 'fail'}">Agent ${c.agentNumber} ${c.ok ? '✓' : '✗'}</span>`)
-        .join('')}</div>`
-    : '';
-  return `${items}<div class="yanny-splash"><span class="yanny-spinner" aria-hidden="true"></span><span>${esc(state.yannySplash)}</span></div>${chips}`;
+  return `${items}<div class="yanny-splash"><span class="yanny-spinner" aria-hidden="true"></span><span>${esc(state.yannySplash)}</span></div>`;
 }
 
+/**
+ * The one status line about the AI side, shown only when it is not fully
+ * up. Catalogue answers work in every one of these states, and each line
+ * says so, because that is the thing a reader wants to know before typing.
+ */
 const YANNY_UNAVAILABLE_COPY: Record<YannyHealth['reason'], { mark: string; text: string }> = {
   none: { mark: '🤖', text: 'Virtual Yanny is available.' },
   'not-built': {
-    mark: '🤖🔧',
-    text: "Virtual Yanny isn't switched on in this build of the site yet.",
+    mark: '🔧',
+    text: "The AI side isn't connected in this build yet. Prices, stock, sizes, notes, delivery, deals and budgets still answer from the catalogue.",
   },
   'no-answer': {
-    mark: '🤖💤',
-    text: "Virtual Yanny didn't answer in time. It sleeps when nobody's chatting, so give it a few seconds and open this again.",
+    mark: '💤',
+    text: "The AI side didn't answer. Catalogue questions still work; open ones may not until it's back.",
   },
   'not-configured': {
-    mark: '🤖🔧',
-    text: "Virtual Yanny is running but hasn't been given its key, so it can't answer anything yet.",
+    mark: '🔧',
+    text: "The AI side is running but hasn't been given a provider key. Catalogue questions still work.",
   },
   'router-down': {
-    mark: '🤖⏳',
-    text: "Virtual Yanny is up, but the free model service behind it is busy or rate-limited right now. It usually clears within a few minutes. Try again shortly.",
+    mark: '⏳',
+    text: 'The free AI providers behind the chat are busy or rate-limited right now. Catalogue questions still work; open ones should clear in a few minutes.',
   },
 };
 
 /**
- * The panel in each of its three states, and in all three the conversation
- * stays on screen if there is one.
+ * The panel, with the composer always present.
  *
- * That is the whole of what changed here, and it is the bug behind "it loses
- * my history when I click on and off it". The transcript was never actually
- * thrown away — `state.yannyThread` outlives a close, since closing only
- * empties the host element — but the health check runs again on every open
- * (deliberately; see openYanny), and both the states it passes through on
- * the way replaced the entire panel body. So a reopen showed a spinner and
- * then, if the backend happened to be asleep, an "unavailable" splash with
- * the conversation nowhere in it. It came back on the next successful open,
- * which is not a thing a reader can be expected to discover.
- *
- * Now the checking and unavailable states put what they have to say in a
- * strip where the composer goes, and leave the body alone. The composer
- * itself is still withheld until the backend has answered for itself —
- * offering a text box that cannot send anything is worse than saying why.
+ * Catalogue questions are answered in the browser, so there is no state in
+ * which the text box cannot send anything, and withholding it until a
+ * health check came back (as this used to) would be making the reader wait
+ * on a service most of their questions never touch. The health check still
+ * runs on every open (see openYanny), and what it has to say about the AI
+ * side goes in one strip where it can be read and ignored.
  */
 function yannyPanelHtml(): string {
-  const hasHistory = state.yannyThread.length > 0;
   const transcript = `<div class="yanny-body" id="yanny-body">${yannyThreadHtml()}</div>`;
 
-  if (state.yannyStatus === 'idle' || state.yannyStatus === 'checking') {
-    // With nothing to show yet, the spinner keeps the whole body — there is
-    // no history for it to be sitting under.
-    const body = hasHistory ? transcript : `<div class="yanny-checking"><span class="yanny-spinner" aria-hidden="true"></span></div>`;
-    const foot = hasHistory
-      ? `<p class="yanny-foot" role="status"><span class="yanny-spinner" aria-hidden="true"></span>Reconnecting to Virtual Yanny…</p>`
-      : '';
-    return `<div class="yanny-panel">${yannyHeadHtml()}${body}${foot}</div>`;
-  }
-
+  let foot = '';
   if (state.yannyStatus === 'unavailable') {
-    // Each line says what is actually true and what the reader can do about
-    // it. "Try again" only appears where trying again could plausibly work:
-    // a suspended machine wakes and a rate limit clears, whereas an
-    // unconfigured or unbuilt backend will answer identically all day.
     const { mark, text } = YANNY_UNAVAILABLE_COPY[state.yannyReason] ?? YANNY_UNAVAILABLE_COPY['no-answer'];
-    if (!hasHistory) {
-      return `<div class="yanny-panel">${yannyHeadHtml()}
-        <div class="yanny-unavailable">
-          <div class="yanny-unavailable-mark" aria-hidden="true">${mark}</div>
-          <p>${esc(text)}</p>
-        </div>
-      </div>`;
-    }
-    return `<div class="yanny-panel">${yannyHeadHtml()}${transcript}
-      <p class="yanny-foot" role="status"><span aria-hidden="true">${mark}</span>${esc(text)}</p>
-    </div>`;
+    foot = `<p class="yanny-foot" role="status"><span aria-hidden="true">${mark}</span>${esc(text)}</p>`;
   }
 
   // Send and stop are two different buttons rather than one relabelled one.
@@ -4336,6 +4285,7 @@ function yannyPanelHtml(): string {
   return `<div class="yanny-panel">
     ${yannyHeadHtml()}
     ${transcript}
+    ${foot}
     <form id="yanny-composer" class="yanny-composer">
       <label class="sr" for="yanny-input">Message Virtual Yanny</label>
       <input id="yanny-input" type="text" placeholder="${esc(YANNY_PLACEHOLDER)}" autocomplete="off" ${state.yannyBusy ? 'disabled' : ''} />
@@ -4363,7 +4313,7 @@ function renderYanny(): void {
 
   launcher.toggleAttribute('data-open', state.yannyOpen);
   host.innerHTML = state.yannyOpen ? yannyPanelHtml() : '';
-  if (state.yannyOpen && state.yannyStatus === 'ready') {
+  if (state.yannyOpen) {
     const body = $('#yanny-body') as HTMLElement | null;
     if (body) body.scrollTop = body.scrollHeight;
   }
@@ -4385,30 +4335,31 @@ function renderYanny(): void {
 }
 
 /**
- * The health check runs every single time the panel opens, never cached
- * from an earlier open in the same session — the backend or its own
- * FreeLLMAPI router can go down between one open and the next, and a stale
- * "it worked last time" would show a chat box that then hangs on the first
- * real question instead of the honest unavailable state up front.
+ * Opens with the composer live at once, and checks the AI side in the
+ * background. The check runs on every open, never cached from an earlier
+ * one — the Worker or the providers behind it can go down between one
+ * open and the next — but it gates only the status strip, never the box.
+ * The product index is warmed here too, so the first catalogue answer does
+ * not pay for building it.
  */
 function openYanny(triggeredBy: HTMLElement): void {
   state.yannyOpen = true;
   state.yannyOpenedFrom = triggeredBy;
-  state.yannyStatus = 'checking';
+  state.yannyStatus = 'ready';
+  warmVirtualYanny();
   renderYanny();
-  (document.querySelector('#yanny-close') as HTMLElement | null)?.focus();
+  (document.querySelector('#yanny-input') as HTMLElement | null)?.focus({ preventScroll: true });
 
+  const opened = ++yannyOpenSeq;
   checkYannyHealth().then((health) => {
+    if (opened !== yannyOpenSeq || !state.yannyOpen) return;
     state.yannyStatus = health.ok ? 'ready' : 'unavailable';
     state.yannyReason = health.reason;
-    // No greeting is pushed into the thread any more. It said the same thing
-    // the empty state now says, but as a message, which made the transcript
-    // open with a turn nobody took and pushed the real first answer down.
-    // See yannyThreadHtml's empty branch.
     renderYanny();
-    (document.querySelector('#yanny-close') as HTMLElement | null)?.focus();
   });
 }
+/** Makes a slow health answer from an earlier open a no-op. */
+let yannyOpenSeq = 0;
 
 function closeYanny(): void {
   state.yannyOpen = false;
@@ -4449,7 +4400,6 @@ function sendYannyMessage(text: string): void {
   state.yannyThread.push({ kind: 'msg', who: 'user', text: trimmed });
   state.yannyBusy = true;
   state.yannySplash = 'Thinking…';
-  state.yannyAgentChips = [];
   const controller = new AbortController();
   yannyAbort = controller;
   const seq = ++yannySeq;
@@ -4464,14 +4414,19 @@ function sendYannyMessage(text: string): void {
       if (event.type === 'status') {
         state.yannySplash = event.message;
       } else if (event.type === 'agent') {
-        state.yannyAgentChips.push({ agentNumber: event.agentNumber, ok: event.ok });
+        // Per-model progress from the Worker. The splash line is enough;
+        // which model answered is not something a reader needs to watch.
       } else if (event.type === 'result') {
         state.yannyBusy = false;
         if (event.result.ok && event.result.winner) {
-          state.yannyThread.push({ kind: 'msg', who: 'bot', text: event.result.winner.content });
-          state.yannyThread.push({ kind: 'ranking', result: event.result });
+          const source: YannySource =
+            event.result.source === 'model' ? (event.result.grounded === false ? 'model-unchecked' : 'model') : 'catalogue';
+          state.yannyThread.push({ kind: 'msg', who: 'bot', text: event.result.winner.content, source });
         } else {
-          state.yannyThread.push({ kind: 'msg', who: 'bot', text: `The council could not answer that: ${event.result.error ?? 'unknown error'}.` });
+          const why = event.result.error === 'no_agents_responded'
+            ? 'none of the AI providers answered in time. Catalogue questions still work; try this one again in a minute.'
+            : `${event.result.error ?? 'unknown error'}.`;
+          state.yannyThread.push({ kind: 'msg', who: 'bot', text: `I couldn't answer that: ${why}` });
         }
         saveYannyThread();
       } else if (event.type === 'error') {
@@ -4529,8 +4484,7 @@ function stopYanny(): void {
   yannyAbort?.abort();
   yannyAbort = null;
   state.yannyBusy = false;
-  state.yannyThread.push({ kind: 'stopped', responded: state.yannyAgentChips.filter((c) => c.ok).length });
-  state.yannyAgentChips = [];
+  state.yannyThread.push({ kind: 'stopped' });
   state.yannySplash = '';
   saveYannyThread();
   renderYanny();
@@ -4575,7 +4529,6 @@ function disarmYannyClear(): void {
 function clearYannyChat(): void {
   disarmYannyClear();
   state.yannyThread = [];
-  state.yannyAgentChips = [];
   state.yannySplash = '';
   try {
     window.sessionStorage.removeItem(YANNY_THREAD_KEY);

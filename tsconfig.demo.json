@@ -6,9 +6,16 @@
   "compilerOptions": {
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "outDir": "dist-demo",
-    "types": []
+    "types": [],
+    // Virtual Yanny's engine (demo/yanny/*.js) is plain JavaScript that
+    // used to live in YanaFreeAPIMerger/server and run under tsx on a
+    // server; it now ships inside this bundle. tsc copies it through to
+    // dist-demo so esbuild can bundle it. It is not type-checked (no
+    // checkJs): the TypeScript side reaches it only through
+    // demo/virtualYanny.ts, which declares the few shapes it consumes.
+    "allowJs": true
   },
-  "include": ["src/**/*.ts", "demo/**/*.ts"],
+  "include": ["src/**/*.ts", "demo/**/*.ts", "demo/yanny/*.js"],
   // The crawl runs on a server and reaches for node:fs. The browser bundle only
   // ever reads its output, so these never belong in it.
   "exclude": [

@@ -128,8 +128,8 @@ export const COMPANY = {
   privacyEmail: 'yannysniffs@gmail.com',
   /** Where the site is served from, and who runs the chat backend and accounts. */
   hosting: 'GitHub Pages',
-  chatHost: 'Fly.io',
-  chatProvider: 'FreeLLMAPI',
+  chatHost: 'Cloudflare',
+  chatProvider: 'Groq or Google',
   accountsProvider: 'Supabase',
   updated: '6 September 2026',
 } as const;
@@ -319,16 +319,20 @@ export const LEGAL_PAGES: LegalPage[] = [
         mobile or desktop layout and tiles per row are saved on your own device
         only, using your browser's local storage. They never leave it and we
         never see them. Listed in full on the <a href="#" data-page="cookies">cookies page</a>.</li>
-        <li><strong>Virtual Yanny, the chat.</strong> When you send a message,
-        the text you typed and which kind of question it is are sent to our chat
-        service, which runs on ${COMPANY.chatHost}, and from there to an AI
-        provider, ${COMPANY.chatProvider}, which generates the answer. Our chat
-        service does not store your messages and keeps no record of the
-        conversation; the copy you see is held in your browser's session storage
-        and is gone when the tab closes, or the moment you press Clear. The AI
-        provider handles what it receives under its own terms, and we cannot
-        control that, so please do not type personal details, yours or anyone
-        else's, into the chat. Nothing is sent until you press send.</li>
+        <li><strong>Virtual Yanny, the chat.</strong> Questions about prices,
+        stock, sizes, notes, delivery, deals and budgets are answered inside
+        your browser from the catalogue the page already holds; nothing you
+        type for those leaves your device. An open question, such as a
+        request for something that smells a certain way, is sent with the
+        catalogue extract it needs to our chat service, which runs on
+        ${COMPANY.chatHost}, and from there to an AI provider,
+        ${COMPANY.chatProvider}, which writes the answer. Our chat service does
+        not store your messages and keeps no record of the conversation; the
+        copy you see is held in your browser's session storage and is gone
+        when the tab closes, or the moment you press Clear. The AI provider
+        handles what it receives under its own terms, and we cannot control
+        that, so please do not type personal details, yours or anyone else's,
+        into the chat. Nothing is sent until you press send.</li>
         <li><strong>Anything you send us.</strong> If you email us, whether
         through the contact form or directly, we keep that message and your
         address so that we can reply, the same as any inbox. The forms on this
@@ -355,8 +359,9 @@ export const LEGAL_PAGES: LegalPage[] = [
         such as IP addresses, to deliver the page. That is governed by GitHub's
         own privacy statement; we do not receive or store it.</li>
         <li><strong>${COMPANY.chatHost}</strong> hosts the chat service, and
-        <strong>${COMPANY.chatProvider}</strong> generates the chat answers, as
-        described above.</li>
+        <strong>${COMPANY.chatProvider}</strong> writes the answers to open
+        chat questions, as described above. Catalogue questions never reach
+        either.</li>
         <li><strong>${COMPANY.accountsProvider}</strong> holds account data,
         your email, login and wishlist, if you create an account. We do not run
         a server of our own. Row level security on that database means only

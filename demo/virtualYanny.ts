@@ -1,42 +1,47 @@
 /**
  * Virtual Yanny: pricesniffs.space's own fragrance chatbot widget.
  *
- * The backend (YanaFreeAPIMerger/, a separate Node service — see its own
- * README and docs/VIRTUAL-YANNY-DEPLOY.md) is not something this static
- * site can run itself. This value shipped blank until the backend had
- * somewhere to live — the same "absent rather than invented" pattern
- * demo/supabase.ts uses, because a guessed or placeholder URL makes the
- * widget fail on every single use instead of failing once, openly, at the
- * health check below.
+ * ── Where an answer comes from ───────────────────────────────────────────
+ * Two places, and the reader's browser decides which:
  *
- * Live since 2026-08-13. Set to the app deployed by
- * .github/workflows/deploy-yanny.yml, whose name comes from
- * YanaFreeAPIMerger/fly.toml and whose hostname is always <app>.fly.dev.
+ *   1. The page itself. demo/index.html inlines the whole catalogue, and
+ *      demo/yanny/ (the engine that used to run on a server) is bundled
+ *      beside it. Prices, stock, sizes, notes, delivery, deals, budgets,
+ *      comparisons, brand coverage and questions about the site are looked
+ *      up here, in a few milliseconds, with no request of any kind. Nothing
+ *      the reader types leaves the browser for these.
  *
- * Normally this line is written by deploy/set-yanny-api-base-url.sh, which
- * refuses to write a URL it has not just seen report itself healthy. That
- * script could not run where this edit was made — the environment has no
- * outbound network, and the health request 403s at its proxy before it
- * leaves. What stands in its place is the same check, made from a machine
- * that does have network: run 2 of the deploy workflow (job 94432961781,
- * commit 600ada3, 2026-08-13T11:30) passed step "Verify the deployed
- * backend reports healthy", which exits non-zero unless the response body
- * reports ok, configured and freellmapiReachable all true. It passed on its
- * first poll. Nobody here has fetched this host; that job has.
+ *   2. A small Cloudflare Worker (workers/yanny/), for the two question
+ *      shapes whose answer is a model's phrasing — "something sweet, no
+ *      florals", "do you have anything nice" — and for questions about the
+ *      site's own policy pages. The browser builds the SITE DATA block from
+ *      its own catalogue first, so the Worker holds no data at all: it
+ *      holds the provider keys and forwards one grounded question.
  *
- * If it ever needs repointing, prefer the script over editing this by hand.
+ * Until 2026-09-06 everything went to an Express service on Fly.io (see
+ * the header of demo/yanny/siteData.js for what that cost and why it went).
  *
- * The `: string` is load-bearing, not decoration. Without it TypeScript
- * infers the literal type of whatever is on the right, and the check below
- * — the one that decides whether the widget even tries — becomes a
- * comparison between two literals that the compiler can settle on its own.
- * That is an error under tsconfig.demo.json, so the site stops building the
- * moment this stops being blank. Annotating it keeps the value a plain
- * string and the check a real runtime question, which is what it is: this
- * line is meant to be edited.
+ * ── The base URL ─────────────────────────────────────────────────────────
+ * Blank until the Worker has been deployed and reported healthy — the same
+ * "absent rather than invented" pattern demo/supabase.ts uses, because a
+ * guessed URL makes the model path fail on every use instead of failing
+ * once, openly, in the panel. The catalogue answers work regardless.
+ *
+ * Set it to the URL `npx wrangler deploy --config workers/yanny/wrangler.toml`
+ * prints (https://<name>.<subdomain>.workers.dev), run `npm run demo`, and
+ * commit. docs/VIRTUAL-YANNY-DEPLOY.md has the whole path.
+ *
+ * The `: string` is load-bearing: without it TypeScript infers the literal
+ * type and the `!== ''` check below becomes a compile-time constant, which
+ * tsconfig.demo.json rejects. This line is meant to be edited.
  */
-const VIRTUAL_YANNY_API_BASE_URL: string = 'https://pricesniffs-yanny.fly.dev';
+import { classifyIntent } from './yanny/intent.js';
+import { resolveQuestion } from './yanny/engine.js';
+import { warmProductIndex } from './yanny/siteData.js';
 
+const VIRTUAL_YANNY_API_BASE_URL: string = '';
+
+/** Whether the model path has somewhere to go. The catalogue path always works. */
 export const VIRTUAL_YANNY_CONFIGURED = VIRTUAL_YANNY_API_BASE_URL !== '';
 
 function apiUrl(path: string): string {
@@ -46,58 +51,28 @@ function apiUrl(path: string): string {
 export interface YannyHealth {
   ok: boolean;
   configured: boolean;
-  freellmapiReachable: boolean;
+  providersReachable: number;
   agentCount: number;
   /**
-   * Why it is not ok, when it is not. Present so the panel can say which of
-   * three quite different things went wrong instead of one blanket line —
-   * "we could not reach the service" and "the service is up but the model
-   * router is rate-limited" need different words and have different
-   * lifetimes, and telling them apart from the outside was impossible.
+   * Why it is not ok, when it is not, so the panel can say which of three
+   * quite different things is true rather than one blanket line:
+   * 'not-built' (no Worker URL in this build), 'no-answer' (the Worker did
+   * not respond), 'not-configured' (it responded but has no provider key),
+   * 'router-down' (keys present, no provider reachable right now).
    */
   reason: 'none' | 'not-built' | 'no-answer' | 'not-configured' | 'router-down';
 }
 
-const UNAVAILABLE: YannyHealth = {
-  ok: false,
-  configured: false,
-  freellmapiReachable: false,
-  agentCount: 0,
-  reason: 'no-answer',
-};
+const UNAVAILABLE: YannyHealth = { ok: false, configured: false, providersReachable: 0, agentCount: 0, reason: 'no-answer' };
+
+/** A Worker answers a cached health check in well under a second; this is a
+ *  bound on a bad network, not on the service. */
+const HEALTH_TIMEOUT_MS = 8000;
 
 /**
- * How long the browser waits for /api/health before giving up.
- *
- * This was 6000, and 6000 could not work. The handler on the other end
- * budgets HEALTH_TIMEOUT_MS = 5000 for its own call to the model router
- * (YanaFreeAPIMerger/server/index.js), so six seconds left one second for
- * everything around it: DNS, TLS, a Fly machine resuming from suspend
- * (fly.toml runs min_machines_running = 0, so an idle backend is suspended
- * between readers), Express, two file reads, and the response back. The
- * first reader after a quiet spell lost that race and was told the chatbot
- * was unavailable when it was merely asleep.
- *
- * 15000 clears the server's own 5s ceiling with room for a resume and the
- * round trip, and is still short enough that a genuinely dead backend gives
- * up in a way a person will wait through rather than abandon. It is a
- * client-side bound on somebody else's latency, so it is a judgement, not a
- * measured figure — but the old value was not a judgement, it was smaller
- * than the timeout it was waiting on.
- *
- * fly.toml's [http_service] comment offers the other lever for this exact
- * symptom: min_machines_running = 1, which keeps a machine warm. That costs
- * a machine running 24/7 and would still leave only one second of margin
- * once the router itself is slow, so it is the fallback, not the fix.
- */
-const HEALTH_TIMEOUT_MS = 15000;
-
-/**
- * Run every time the popup opens, never assumed from a previous check — see
- * the panel's own comment in app.ts. Confirms both that this backend is
- * reachable at all and that it can in turn reach FreeLLMAPI, since a
- * listening server with a dead router behind it would otherwise look
- * healthy right up until the first real question hung or failed.
+ * Whether the model path is up. Run when the panel opens; it gates only
+ * the model path — the composer is usable for catalogue questions whatever
+ * this says, and the panel shows the result as one status line.
  */
 export async function checkYannyHealth(): Promise<YannyHealth> {
   if (!VIRTUAL_YANNY_CONFIGURED) return { ...UNAVAILABLE, reason: 'not-built' };
@@ -113,17 +88,14 @@ export async function checkYannyHealth(): Promise<YannyHealth> {
     if (!res.ok) return UNAVAILABLE;
     const body = (await res.json()) as Partial<YannyHealth>;
     const configured = body.configured === true;
-    const freellmapiReachable = body.freellmapiReachable === true;
+    const providersReachable = typeof body.providersReachable === 'number' ? body.providersReachable : 0;
     const ok = body.ok === true;
     return {
       ok,
       configured,
-      freellmapiReachable,
+      providersReachable,
       agentCount: typeof body.agentCount === 'number' ? body.agentCount : 0,
-      // Order matters: an unconfigured backend also reports the router
-      // unreachable, and naming the router there would send someone to
-      // debug a third party's rate limit over a missing key.
-      reason: ok ? 'none' : !configured ? 'not-configured' : !freellmapiReachable ? 'router-down' : 'no-answer',
+      reason: ok ? 'none' : !configured ? 'not-configured' : providersReachable === 0 ? 'router-down' : 'no-answer',
     };
   } catch {
     return UNAVAILABLE;
@@ -131,57 +103,35 @@ export async function checkYannyHealth(): Promise<YannyHealth> {
 }
 
 /**
- * Wakes the backend before anybody has asked it anything.
+ * Gets the first question's cost out of the way before it is asked.
  *
- * fly.toml runs `min_machines_running = 0` with `auto_stop_machines =
- * "suspend"`, so a backend nobody has chatted with is suspended and the
- * first reader after a quiet spell pays for it to come back. That resume is
- * the same work whenever it happens; the only thing that can be changed for
- * free is *when*. This starts it at the first sign the reader is heading for
- * the chat — the pointer arriving over the launcher, or the launcher taking
- * keyboard focus — rather than after they have clicked, so the resume
- * overlaps with them deciding to press it instead of following it. On touch,
- * `pointerenter` fires as the finger lands, which is still ahead of the tap.
+ * The product index (demo/yanny/productMatch.js) is built once per page,
+ * on the first question, and that build is the only part of a catalogue
+ * answer that takes longer than a few milliseconds. Building it when the
+ * pointer reaches the launcher, or the launcher takes focus, moves that
+ * behind the reader deciding to click. Throttled to once a minute so a
+ * pointer sweeping the corner of the page cannot turn into a stream of
+ * requests to the Worker's health endpoint, which is also pinged here so a
+ * cold isolate is warm by the time a model question arrives.
  *
- * Be clear about what this is: it does not make the backend one millisecond
- * faster. It moves an unavoidable wait behind something the reader is
- * already doing. Actual backend latency is a different problem and lives in
- * YanaFreeAPIMerger/.
- *
- * Deliberately inert: it ignores the response entirely and sets no state.
- * The real check still runs on open, every open, and is still the only thing
- * that decides whether the panel is usable — a warm request that happened to
- * succeed a moment ago is not evidence the service is up now.
- *
- * Throttled to once a minute so that sweeping a pointer across the corner of
- * the page cannot turn into a stream of requests. One consequence worth
- * naming: a reader who keeps the pointer moving over the launcher will keep
- * the machine from suspending. That is a request a minute at most, and it is
- * only ever somebody who looks like they are about to use the thing.
+ * Deliberately inert: nothing here sets state or is read back.
  */
 let lastWarmedAt = 0;
 const WARM_INTERVAL_MS = 60_000;
 
 export function warmVirtualYanny(): void {
-  if (!VIRTUAL_YANNY_CONFIGURED) return;
   const now = Date.now();
   if (now - lastWarmedAt < WARM_INTERVAL_MS) return;
   lastWarmedAt = now;
+  void warmProductIndex().catch(() => {});
+  if (!VIRTUAL_YANNY_CONFIGURED) return;
   try {
-    // No await, no signal, no timeout: nothing here reads the answer, and a
-    // warm request that fails has cost nothing and is not worth reporting.
     void fetch(apiUrl('/api/health'), { cache: 'no-store' }).catch(() => {});
   } catch {
-    // Some environments throw synchronously rather than rejecting. Same
-    // outcome either way: the reader waits exactly as long as before.
+    /* some environments throw synchronously; same outcome */
   }
 }
 
-export interface YannyCriterion {
-  key: string;
-  weight: number;
-  describe: string;
-}
 export interface YannyMatrixRow {
   agentNumber: number;
   content: string;
@@ -193,11 +143,13 @@ export interface YannyResult {
   ok: boolean;
   error?: string;
   winner?: YannyMatrixRow;
-  criteria?: YannyCriterion[];
-  matrix?: YannyMatrixRow[];
+  /** 'site-data-direct' — answered from the page's own catalogue, no
+   *  request made; 'model' — an AI model wrote it from that data. */
+  source?: 'site-data-direct' | 'model';
+  /** Model answers only: whether the answer passed the groundedness gate. */
+  grounded?: boolean;
   agentCount?: number;
   respondedCount?: number;
-  failedCount?: number;
 }
 export type YannyEvent =
   | { type: 'status'; message: string }
@@ -207,32 +159,30 @@ export type YannyEvent =
 
 export type YannyIntent = 'price' | 'suggest' | 'general';
 
+/** What the engine hands back when a question needs a model. Typed here
+ *  because the engine is plain JavaScript. */
+interface EngineResult {
+  ok: boolean;
+  source: 'site-data-direct' | 'model';
+  intent: string;
+  winner?: YannyMatrixRow;
+  siteData?: string;
+}
+
+const MODEL_PATH_MISSING =
+  "That one needs the AI side of me, which isn't connected in this build yet. " +
+  'I can still answer prices, stock, sizes, notes, delivery, deals, budgets and comparisons from the catalogue.';
+
 /**
- * Streams the council's progress via Server-Sent Events, calling `onEvent`
- * for each one as it arrives — the splash sequence, each agent chip, and
- * finally the ranked result all come through this one callback rather than
- * a single awaited response, so the UI can show real progress instead of a
- * blank wait.
+ * Answers one question, calling `onEvent` for each step as it happens —
+ * the status line, then the result — so the panel shows real progress.
  *
- * ── `signal`, and what aborting it actually stops ────────────────────────
- * Passed straight to `fetch`, which is the only thing that makes the stop
- * button in demo/app.ts mean anything: aborting a `fetch` errors the
- * response body stream and closes the underlying connection, so the browser
- * stops reading and the socket to the backend goes away. It is a real
- * teardown, not a flag the UI checks. The `reader.cancel()` below is
- * belt-and-braces for the case where the abort lands between two reads.
- *
- * What it does not do on its own is stop the *server* working. The council
- * fans one question out to every configured agent model, and those calls
- * would run to completion into a socket nobody is reading. The backend
- * change that pairs with this — server/index.js aborting the council when
- * the request closes — is what makes the far half true, and it only takes
- * effect once that service is redeployed.
- *
- * Once aborted, nothing further is emitted: the caller already knows it
- * stopped, so an `error` event on the way out would only be noise it has to
- * filter back out. A promise that resolves with no terminal event having
- * been delivered is the abort signature.
+ * The catalogue path never touches the network and cannot fail for network
+ * reasons; it is a local computation that ends in a `result`. The model
+ * path streams Server-Sent Events from the Worker. `signal` is the stop
+ * button: aborting it tears down the `fetch`, which closes the connection,
+ * which is what tells the Worker to abort its own provider calls. Once
+ * aborted, nothing further is emitted.
  */
 export async function askVirtualYanny(
   message: string,
@@ -241,13 +191,39 @@ export async function askVirtualYanny(
   signal?: AbortSignal,
 ): Promise<void> {
   if (signal?.aborted) return;
+  onEvent({ type: 'status', message: 'Looking that up in the catalogue…' });
+
+  let local: EngineResult;
+  try {
+    local = (await resolveQuestion({ question: message, intent: intent ?? classifyIntent(message) })) as EngineResult;
+  } catch {
+    if (signal?.aborted) return;
+    onEvent({ type: 'error', message: 'Something went wrong looking that up. Try asking it another way.' });
+    return;
+  }
+  if (signal?.aborted) return;
+
+  if (local.source === 'site-data-direct' && local.winner) {
+    onEvent({ type: 'result', result: { ok: true, source: 'site-data-direct', winner: local.winner } });
+    return;
+  }
+
+  if (!VIRTUAL_YANNY_CONFIGURED) {
+    onEvent({
+      type: 'result',
+      result: { ok: true, source: 'site-data-direct', winner: { agentNumber: 0, content: MODEL_PATH_MISSING, totalScore: 0, criteriaScores: {}, rank: 1 } },
+    });
+    return;
+  }
+
+  onEvent({ type: 'status', message: 'Asking the AI, with the catalogue in front of it…' });
 
   let res: Response;
   try {
     res = await fetch(apiUrl('/api/chat'), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message, intent }),
+      body: JSON.stringify({ question: message, intent: local.intent, siteData: local.siteData }),
       // `?? null` rather than passing the optional straight through:
       // tsconfig.demo.json runs exactOptionalPropertyTypes, under which
       // RequestInit.signal accepts an AbortSignal or null but not an
@@ -256,7 +232,7 @@ export async function askVirtualYanny(
     });
   } catch {
     if (signal?.aborted) return;
-    onEvent({ type: 'error', message: 'Could not reach Virtual Yanny. Check your connection and try again.' });
+    onEvent({ type: 'error', message: 'Could not reach the AI side of Virtual Yanny. Catalogue questions still work; try this one again in a moment.' });
     return;
   }
 

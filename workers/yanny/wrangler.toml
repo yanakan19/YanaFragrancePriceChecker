@@ -1,0 +1,47 @@
+# Virtual Yanny's model path, as a Cloudflare Worker on the free plan.
+#
+# Deploy from the REPO ROOT (the Worker imports demo/yanny/prompt.js and
+# demo/yanny/scoring.js, which sit above this folder):
+#
+#   npx wrangler deploy --config workers/yanny/wrangler.toml
+#
+# or press "Run workflow" on .github/workflows/deploy-yanny.yml, which does
+# the same with the CLOUDFLARE_API_TOKEN repository secret. The public URL
+# is https://<name>.<your-subdomain>.workers.dev; the deploy prints it.
+#
+# ── Secrets never go in this file ─────────────────────────────────────────
+# This repo is public. Provider keys are set with `wrangler secret put
+# <NAME>` (or by the deploy workflow from repository secrets) and live only
+# in Cloudflare's encrypted store:
+#   GROQ_API_KEY, GEMINI_API_KEY, CEREBRAS_API_KEY, OPENROUTER_API_KEY,
+#   CUSTOM_API_KEY (+ CUSTOM_BASE_URL, which may be a var instead)
+# Only the providers whose key is present are used; the others are ignored.
+
+name = "pricesniffs-yanny"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[vars]
+# Which models answer, in the order they are started. All are asked at
+# once; the first answer that passes the groundedness gate is sent. Keep it
+# to two or three — every entry spends a request on that provider's daily
+# free allowance for every question. Ids must be ones the provider currently
+# serves on its free tier; /api/health reports a provider that rejects its
+# key or its model id.
+YANNY_MODELS = '[{"provider":"groq","model":"llama-3.3-70b-versatile"},{"provider":"gemini","model":"gemini-2.5-flash"}]'
+
+# The only origins allowed to POST /api/chat. Add a local origin while
+# developing (e.g. http://127.0.0.1:8080) and remove it afterwards.
+ALLOWED_ORIGINS = "https://pricesniffs.space,https://www.pricesniffs.space"
+
+# Per-IP rate limit: 20 questions a minute. The binding is optional — the
+# Worker runs without it — but it is what keeps the free provider keys from
+# being drained by one caller. Available on the free plan.
+[[ratelimits]]
+name = "RATE"
+namespace_id = "1001"
+simple = { limit = 20, period = 60 }
+
+[observability]
+enabled = true

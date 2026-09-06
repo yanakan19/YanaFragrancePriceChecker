@@ -1,23 +1,12 @@
-import { test } from 'node:test';
+import { test } from 'vitest';
 import assert from 'node:assert/strict';
-import fs from 'node:fs/promises';
-import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
 import v8 from 'node:v8';
 import vm from 'node:vm';
-import {
-  buildSiteDataBlock,
-  changedSince,
-  findFragranceMatch,
-  loadSite,
-  siteDataFreshness,
-} from '../server/siteData.js';
-
-const here = path.dirname(fileURLToPath(import.meta.url));
+import { buildSiteDataBlock, findFragranceMatch, loadSite } from '../../demo/yanny/siteData.js';
 
 /** A forced full collection, so "retained" below means retained and not
- *  merely uncollected yet. `node --test` gives no `--expose-gc`, hence the
- *  flag being turned on from inside the process. */
+ *  merely uncollected yet. vitest gives no `--expose-gc`, hence the flag
+ *  being turned on from inside the process. */
 const gc = (() => {
   v8.setFlagsFromString('--expose-gc');
   const fn = vm.runInNewContext('gc');
@@ -67,20 +56,20 @@ test('findFragranceMatch: returns null for an empty or all-filler query rather t
 });
 
 // ── The module-loading contract ─────────────────────────────────────────
-// These are the tests for the thing that used to make this process grow by
-// ~129 MB of permanently retained heap per question: `loadSite()` importing
-// the site's ~15 MB of generated TypeScript afresh, under a cache-busted
-// specifier, three or four times per answer. Unlike the matching tests
-// above these do touch the live catalogue, because the property under test
-// is exactly "how many times does this process read the real thing" — but
-// none of them assert anything about its contents, so an hourly harvest
+// The engine used to run on a server whose `loadSite()` imported the site's
+// ~15 MB of generated TypeScript afresh, under a cache-busted specifier,
+// three or four times per answer, retaining ~129 MB of heap per question.
+// It now holds one static snapshot — the modules the page itself was built
+// from — and these pin that there is exactly one, shared by every caller,
+// and that answering questions retains nothing. They touch the live
+// catalogue but assert nothing about its contents, so an hourly harvest
 // changing what is in it cannot make them flaky.
 
 test('loadSite: hands back one and the same snapshot rather than re-importing per call', async () => {
   const a = await loadSite();
   const b = await loadSite();
   assert.equal(a, b, 'loadSite() must be memoised — a second import is a permanently retained copy');
-  for (const key of ['data', 'catalogue', 'priceService', 'index', 'brandSites', 'legal', 'retailers']) {
+  for (const key of ['data', 'catalogue', 'priceService', 'brandSites', 'legal', 'retailers', 'gender']) {
     assert.ok(a[key], `snapshot is missing ${key}`);
     assert.equal(a[key], b[key], `${key} was re-imported`);
   }
@@ -92,9 +81,9 @@ test('loadSite: concurrent first callers share a single import, not one each', a
 });
 
 test('buildSiteDataBlock: answering many questions retains no measurable extra heap', async () => {
-  // Warm-up outside the measurement: the first question legitimately pays
-  // for the one-time import of the site modules. Everything after it must
-  // cost nothing that survives a collection.
+  // Warm-up outside the measurement: the first question pays for the
+  // engine's own lazily built indexes. Everything after it must cost
+  // nothing that survives a collection.
   await buildSiteDataBlock('how much is Dior Sauvage EDT', 'price');
   await gc();
   const before = process.memoryUsage().heapUsed;
@@ -153,68 +142,4 @@ test('buildSiteDataBlock: a price answer is computed from the same snapshot as t
   // this same snapshot can produce — a figure from a different import of
   // the catalogue could not be.
   assert.ok(best.deliveredPriceGbp !== null);
-});
-
-test('siteDataFreshness: reports the snapshot it loaded, and no staleness on an unchanged tree', async () => {
-  await loadSite();
-  const fresh = await siteDataFreshness();
-  assert.equal(fresh.loaded, true);
-  assert.ok(Date.parse(fresh.loadedAt) > 0, 'loadedAt should be an ISO timestamp');
-  assert.equal(typeof fresh.catalogueCrawledAt, 'string');
-  assert.deepEqual(fresh.changedFiles, [], 'nothing should have changed under a test run');
-  assert.equal(fresh.stale, false);
-});
-
-test('changedSince: a rewritten, added or removed watched file all read as changed', () => {
-  const before = new Map([['demo/catalogue.generated.ts', '1:100'], ['demo/legal.ts', '2:200']]);
-  assert.deepEqual(changedSince(before, before), []);
-  assert.deepEqual(
-    changedSince(before, new Map([['demo/catalogue.generated.ts', '9:900'], ['demo/legal.ts', '2:200']])),
-    ['demo/catalogue.generated.ts'],
-  );
-  assert.deepEqual(
-    changedSince(before, new Map([...before, ['demo/deals.generated.ts', '3:300']])),
-    ['demo/deals.generated.ts'],
-  );
-  assert.deepEqual(
-    changedSince(before, new Map([['demo/legal.ts', '2:200']])),
-    ['demo/catalogue.generated.ts'],
-  );
-});
-
-test('the loader cannot refresh a module graph in place — which is why loadSite() does not try', async () => {
-  // This pins the resolver behaviour that server/siteData.js's header gives
-  // as its reason for loading once and reporting staleness rather than
-  // reloading: a `?t=` query is honoured on the specifier you hand to
-  // `import()`, but it is dropped by relative resolution *inside* the module
-  // that specifier loaded, so the graph below the entry point stays pinned
-  // to whatever was first imported. If a future Node or tsx ever changes
-  // that, this test fails and the comment needs rewriting.
-  const dir = path.join(here, `.tmp-loader-fixture-${process.pid}`);
-  await fs.rm(dir, { recursive: true, force: true });
-  await fs.mkdir(dir, { recursive: true });
-  try {
-    await fs.writeFile(path.join(dir, 'dep.ts'), 'export const V = 1;\n');
-    await fs.writeFile(path.join(dir, 'entry.ts'), "export { V } from './dep.js';\n");
-    const entry = pathToFileURL(path.join(dir, 'entry.js')).href;
-    const dep = pathToFileURL(path.join(dir, 'dep.js')).href;
-
-    const first = await import(`${entry}?t=1`);
-    assert.equal(first.V, 1);
-
-    await new Promise((r) => setTimeout(r, 1100)); // outside mtime granularity
-    await fs.writeFile(path.join(dir, 'dep.ts'), 'export const V = 2;\n');
-
-    const directAgain = await import(`${dep}?t=2`);
-    assert.equal(directAgain.V, 2, 'a directly cache-busted entry does re-read from disk');
-
-    const entryAgain = await import(`${entry}?t=2`);
-    assert.equal(
-      entryAgain.V,
-      1,
-      'the transitive dependency stayed pinned to its first import — a reloaded snapshot would be half fresh and half stale',
-    );
-  } finally {
-    await fs.rm(dir, { recursive: true, force: true });
-  }
 });
