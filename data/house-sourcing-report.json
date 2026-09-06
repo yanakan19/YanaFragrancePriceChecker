@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-06T07:08:18.412Z",
+  "checkedAt": "2026-09-06T12:13:27.212Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,10 +59,12 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "GBP",
-      "listings": 60,
+      "listings": 34,
       "pricedInGbp": 0,
       "withPhoto": 0,
-      "errors": [],
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
@@ -89,14 +91,12 @@
       "houseId": "gulf-orchid",
       "name": "Gulf Orchid",
       "origin": "https://shop-gulforchid.com",
-      "routeUsed": "sitemap-jsonld",
+      "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 112,
-      "pricedInGbp": 56,
-      "withPhoto": 112,
-      "errors": [
-        "https://shop-gulforchid.com/products.json?limit=250&page=1: HTTP 503"
-      ],
+      "listings": 251,
+      "pricedInGbp": 0,
+      "withPhoto": 251,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "Dubai-based manufacturer, trading since 1987. Sister brand to Maison Asrar (below) — the two share a manufacturer, not a storefront, so each still needs its own harvest",
@@ -192,9 +192,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 98,
-      "pricedInGbp": 98,
-      "withPhoto": 98,
+      "listings": 102,
+      "pricedInGbp": 102,
+      "withPhoto": 102,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -216,7 +216,7 @@
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
         "https://arabiyatprestige.shop/products.json?limit=250&page=1: HTTP 525",
-        "https://arabiyatprestige.shop/sitemap.xml: HTTP 525"
+        "http://arabiyatprestige.shop/sitemap_index.xml: HTTP 403"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
