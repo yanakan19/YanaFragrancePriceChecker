@@ -103,8 +103,12 @@ words rather than inventing a value:
   requires one of a UK service provider. `COMPANY.postalAddress` is `null`
   and the terms and contact pages say it is not yet published. A service
   address is acceptable. Set it and the sentence disappears.
-- **The operator's name.** The trading name is published; a personal name is
-  not (`COMPANY.operator`). The rules expect the provider's name.
+- ~~**The operator's name.**~~ Published 2026-09-06 (`COMPANY.operator`).
+  The address was deliberately left `null` at the same time rather than
+  filled with a placeholder: an invented geographic address on a legal page
+  is a false statement of a fact the regulations require to be true, and
+  the honest "not yet published" sentence is the lesser risk until a real
+  one is supplied.
 - **ICO registration.** Accounts hold email addresses, which may take the
   site outside the fee exemptions. Run the ICO's self-assessment; if a fee is
   due, pay it and set `COMPANY.icoRegistration`.

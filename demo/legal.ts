@@ -101,12 +101,12 @@ export const COMPANY = {
   /** The trading name the site is run under. */
   legalName: 'YannySniffs',
   /**
-   * The legal name of the person who runs it. Not yet published on the site:
-   * the operator has not supplied one for publication. UK service provider
-   * rules expect the provider's name to be available; the trading name is
-   * given, the person's name is not.
+   * The person who runs it, published 2026-09-06 at the owner's request. UK
+   * service provider rules expect the provider's name to be available
+   * alongside the trading name. `null` here renders "a personal name has not
+   * yet been published" on every page that would show it.
    */
-  operator: null as string | null,
+  operator: 'Ur Koppan' as string | null,
   /**
    * A geographic (postal) address. Required of a UK service provider by
    * regulation 6 of the Electronic Commerce Regulations 2002 and by the
@@ -148,7 +148,7 @@ function businessDetails(): string {
   const row = (term: string, value: string) => `<div class="biz-row"><dt>${term}</dt><dd>${value}</dd></div>`;
   return `<dl class="biz-details">
     ${row('Site', COMPANY.name)}
-    ${row('Run by', COMPANY.operator ?? `one person, trading as ${COMPANY.legalName}. A personal name has not yet been published on this site; it will be supplied on request by email.`)}
+    ${row('Run by', COMPANY.operator ? `${COMPANY.operator}, trading as ${COMPANY.legalName}` : `one person, trading as ${COMPANY.legalName}. A personal name has not yet been published on this site; it will be supplied on request by email.`)}
     ${row('Email', `<a href="mailto:${COMPANY.email}">${COMPANY.email}</a>`)}
     ${row('Postal address', COMPANY.postalAddress ?? 'not yet published on this site. UK service provider rules ask for one, and it will be supplied on request by email and published here once settled.')}
     ${row('Company number', 'none. This is not a registered company.')}
@@ -299,7 +299,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       it. It is written to meet UK GDPR and the Data Protection Act 2018.</p>
 
       <h2 class="t-section">Who we are</h2>
-      <p>PriceSniffs is run by one person trading as ${COMPANY.legalName}, not a
+      <p>PriceSniffs is run by ${COMPANY.operator ? `${COMPANY.operator}, one person` : 'one person'} trading as ${COMPANY.legalName}, not a
       registered company. You can reach us at
       <a href="mailto:${COMPANY.privacyEmail}">${COMPANY.privacyEmail}</a> for
       anything to do with your data. Our full business details are on the
