@@ -43,12 +43,15 @@
     "icons": "tsx scripts/generate-icons.ts",
     "og:preview": "tsx scripts/generate-og-preview.ts",
     "screenshot": "tsx scripts/screenshot.ts",
+    "a11y": "tsx scripts/a11y-audit.ts",
     "changelog:suggest": "tsx scripts/changelog-suggest.ts",
     "quarantine:prices": "tsx scripts/quarantine-prices.ts",
     "sitemap": "tsx scripts/build-sitemap.ts"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@types/node": "^26.1.2",
+    "axe-core": "^4.13.0",
     "esbuild": "^0.28.1",
     "playwright": "^1.62.1",
     "tsx": "^4.19.2",

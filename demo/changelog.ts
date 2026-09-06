@@ -30,6 +30,18 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.25.0',
+    date: '6 Sep 2026',
+    title: 'Clearer policies, marked affiliate links, and a more accessible site',
+    points: [
+      'New cookies and refunds pages, and a rewritten privacy notice that explains where chat messages and account details actually go',
+      'Every link that can earn us commission is now marked Affiliate link on the page, before you click',
+      'The affiliate disclosure now names the shops whose programmes are live instead of saying none were',
+      'Every page now has a proper heading, the search box is a landmark for screen readers, and the update history can be scrolled from the keyboard',
+      'The home page now says what the site can show rather than claiming to be the only tool for the best price on any fragrance',
+    ],
+  },
+  {
     version: 'v3.24.0',
     date: '3 Sep 2026',
     title: 'A brand-direct shop that had been quietly invisible',
