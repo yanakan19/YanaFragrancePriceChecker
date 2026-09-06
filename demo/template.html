@@ -1406,24 +1406,38 @@
     margin: 2px 0 10px; padding: 14px; background: var(--surface);
     border: 1px solid var(--line); border-radius: 12px;
   }
+  /* Every group after the first gets a rule above it, so the panel reads as
+     a stack of clearly separated lists rather than one run-on block — the
+     same visual language (rule, legend, list) regardless of how many
+     options a group has or how long its labels are. */
   .facet-group { border: 0; margin: 0; padding: 0; min-width: 0; }
+  .facet-group + .facet-group { border-top: 1px solid var(--line); padding-top: 12px; }
   .facet-group legend {
     font-size: 10.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
-    color: var(--faint); margin: 0 0 7px; padding: 0;
+    color: var(--faint); margin: 0 0 6px; padding: 0;
   }
-  .facet-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  /* One option per row rather than a wrapped run of pill widths: a "Volume"
+     group whose labels range from "EDP" to "120ml And Over" cannot wrap into
+     even rows at the 248px sidebar width (or even at a phone's width) without
+     leaving a ragged half-empty line wherever a short label follows a long
+     one. A fixed-height row list has no such failure mode — every option is
+     exactly as wide as its container at every width, so nothing about the
+     panel's tidiness depends on how the label text happens to break. */
+  .facet-pills { display: flex; flex-direction: column; gap: 2px; }
   .facet-pill {
-    background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px;
-    padding: 5px 11px; font: inherit; font-size: 12.5px; font-weight: 600; color: var(--ink);
-    cursor: pointer; transition: border-color .12s ease, color .12s ease, background .12s ease;
+    display: flex; align-items: center; gap: 8px; width: 100%;
+    background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px;
+    padding: 6px 10px; font: inherit; font-size: 13px; font-weight: 600; color: var(--ink);
+    text-align: left; cursor: pointer; transition: border-color .12s ease, color .12s ease, background .12s ease;
   }
-  .facet-count { color: var(--faint); }
+  .facet-label { flex: 1 1 auto; min-width: 0; }
+  .facet-count { color: var(--faint); flex: none; font-variant-numeric: tabular-nums; }
   .facet-pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   @media (hover: hover) and (pointer: fine) {
     .facet-pill:hover { border-color: var(--accent); }
   }
-  /* Selected chips invert to the ink ramp, deliberately not the accent: a
-     browse screen can carry six selections at once, and six red pills would
+  /* Selected rows invert to the ink ramp, deliberately not the accent: a
+     browse screen can carry six selections at once, and six red rows would
      stop red meaning "best price" anywhere on the page. Accent is reserved
      for the primary action, the best-price marker, the live chart line and
      focus rings. */
@@ -1434,22 +1448,20 @@
   .facets-clear { align-self: flex-start; }
 
   /* ── the Gender group ──────────────────────────────────────────────────────
-     Same pills as every other group, with a mark and a sentence. The mark is
-     Venus, Mars, the two interlocked, or a broken ring for "Not stated"; see
-     the ICON_GENDER_* set in demo/app.ts. flex rather than inline so the mark
-     and the word sit on one baseline at any label length.
+     Same rows as every other group, with a mark. The mark is Venus, Mars, the
+     two interlocked, or a broken ring for "Not stated"; see the ICON_GENDER_*
+     set in demo/app.ts.
 
      The colours come from --gender-women / --gender-men, defined in all five
      palette blocks at the top of this file with their measured contrast. Only
      the classed strokes take them: the unisex ring and the whole "Not stated"
      mark are currentColor, so they follow the pill's own ink and stay right
-     when a selected pill inverts. That is deliberate as well as convenient —
+     when a selected row inverts. That is deliberate as well as convenient —
      "Not stated" is not a gender and does not get a gender's colour.
 
-     A selected pill's ground becomes --ink, so both colours swap to their
+     A selected row's ground becomes --ink, so both colours swap to their
      --on variant there. Nothing about the meaning depends on which one is
      showing: the word beside the mark says it either way. */
-  .facet-pill.has-ico { display: inline-flex; align-items: center; gap: 6px; }
   .facet-pill .gender-ico { width: 15px; height: 15px; flex: none; }
   .gender-ico .g-women { stroke: var(--gender-women); }
   .gender-ico .g-men   { stroke: var(--gender-men); }
