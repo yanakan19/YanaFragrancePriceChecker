@@ -1155,7 +1155,7 @@ function fragranceTile(
       <button class="tile-body" data-frag="${f.id}" aria-label="${esc(f.brand)} ${esc(f.name)}">
         ${productHead(f)}
         <span class="tile-art">
-          ${medal ? `<span class="medal ${medal}" aria-label="Number ${opts!.rank! + 1} most popular">${opts!.rank! + 1}</span>` : ''}
+          ${medal ? `<span class="medal ${medal}" aria-label="Number ${opts!.rank! + 1} most popular"><span class="medal-disc">${opts!.rank! + 1}</span></span>` : ''}
           ${productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`)}
         </span>
         <span class="tile-price">${opts?.trailing ?? priceLine(f)}</span>

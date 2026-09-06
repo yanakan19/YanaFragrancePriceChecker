@@ -837,16 +837,26 @@
   .medal {
     --medal-size: 24px;
     position: absolute; top: -3px; right: -3px; z-index: 2;
-    width: var(--medal-size); height: var(--medal-size); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
+    width: var(--medal-size); height: var(--medal-size);
     font-weight: 800; line-height: 1;
     font-size: calc(var(--medal-size) * 0.46);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .45), 0 0 0 2px #fff;
   }
   :root[data-layout="desktop"] .medal { --medal-size: 30px; }
+  /* The disc is its own element so it can paint OVER the ribbon tails: a
+     pseudo-element with z-index -1 still paints above its parent's own
+     background, which is why the first cut of this medal showed the tails
+     across the number. The tails are the .medal's pseudos with no z-index;
+     the disc sits on top of them with z-index 1. */
+  .medal-disc {
+    position: relative; z-index: 1;
+    width: 100%; height: 100%; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: inherit; color: inherit;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .45), 0 0 0 2px #fff;
+  }
   .medal::before,
   .medal::after {
-    content: ""; position: absolute; z-index: -1;
+    content: ""; position: absolute;
     top: calc(var(--medal-size) * 0.56);
     width: calc(var(--medal-size) * 0.32); height: calc(var(--medal-size) * 0.92);
     background: inherit; filter: brightness(0.74);

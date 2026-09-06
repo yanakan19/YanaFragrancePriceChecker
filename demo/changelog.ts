@@ -30,80 +30,27 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
-    version: 'v3.26.0',
-    date: '6 Sep 2026',
-    title: 'Virtual Yanny answers in your browser, and finds the bottle you meant',
-    points: [
-      'Prices, stock, sizes, notes, delivery, deals and budgets are now looked up on your own device, so an answer arrives in a fraction of a second and nothing you type for those leaves your browser',
-      'A misspelt house or product name is read as the one you meant, so "bleu de channel edp" finds Chanel Bleu De instead of eight other bottles with Bleu in the name',
-      'A price answer now names the closest match, lists every size with its cheapest delivered price, and ends with a one-line way to correct it if the match was wrong',
-      'The old 28-model council and its ranking table are gone; open questions go to one small free service with the catalogue in hand, and every answer says where it came from',
-    ],
-  },
-  {
     version: 'v3.25.0',
     date: '6 Sep 2026',
-    title: 'Clearer policies, marked affiliate links, and a more accessible site',
+    title: 'A faster, sharper Virtual Yanny, clearer policies and marked affiliate links',
     points: [
-      'New cookies and refunds pages, and a rewritten privacy notice that explains where chat messages and account details actually go',
-      'Every link that can earn us commission is now marked Affiliate link on the page, before you click',
-      'The affiliate disclosure now names the shops whose programmes are live instead of saying none were',
-      'Every page now has a proper heading, the search box is a landmark for screen readers, and the update history can be scrolled from the keyboard',
-      'The home page now says what the site can show rather than claiming to be the only tool for the best price on any fragrance',
-    ],
-  },
-  {
-    version: 'v3.24.0',
-    date: '3 Sep 2026',
-    title: 'A brand-direct shop that had been quietly invisible',
-    points: [
-      'Riiffs Perfumes had been switched on and reachable for weeks but was showing up nowhere on the site — its product names never say "eau de parfum" or similar, only the brand\'s own name, which is how the listing checker was reading them as not being perfume at all',
-      'Fixed that misreading and also taught the checker to find a bottle size in the shop\'s own product description when the name itself does not state one, which was the other thing keeping every one of its listings out',
-      'A handful of real Riiffs bottles and prices now show up where they never did before; most of its catalogue still has neither fact stated anywhere the site can read, so it stays out honestly rather than being guessed at',
-    ],
-  },
-  {
-    version: 'v3.23.0',
-    date: '3 Sep 2026',
-    title: 'Pictures back on hundreds of a brand’s own products',
-    points: [
-      'Looked into the roughly 3,000 fragrances showing a blank photo well and found most are a genuine gap — no shop we track has published a picture of that bottle at all — but 656 of them were a brand selling its own fragrance on its own website, with a perfectly good photo of it that the site just was not allowed to use yet',
-      'Those 656 now show the brand’s own photo of its own bottle — the clearest kind of picture to trust, since it comes straight from the maker — without changing anything about photos from any other shop',
-    ],
-  },
-  {
-    version: 'v3.22.0',
-    date: '3 Sep 2026',
-    title: 'Sharper photos from a few shops, at no extra cost',
-    points: [
-      "Looked into whether shops publish several photos per product we could pick a better one from — they don't; every shop we harvest from gives us exactly one picture per listing, so that idea went nowhere and nothing changed because of it",
-      "Along the way found that a few shops' own product pages were quietly asking for a smaller copy of the photo than they actually have on file — we now ask for the size they really have instead, so photos from those shops (Beauty Base among them) come through a little larger and crisper without any shop doing anything differently",
-    ],
-  },
-  {
-    version: 'v3.21.0',
-    date: '3 Sep 2026',
-    title: 'Better product pictures for thousands more fragrances',
-    points: [
-      "Checked two more shops' photos by hand before trusting either of them, the same way we already had for two shops on the site — one of the two passed and now supplies the picture for around 3,850 fragrances, up from about 2,160",
-      'About 1,690 products now show a clearer, more consistent photo as a result, most of them moving off a shop whose pictures were smaller and blurrier up close',
+      'Price, stock, size and note questions are now answered on your own device in a fraction of a second',
+      'A misspelt name is read as the one you meant, so "bleu de channel" finds Chanel Bleu De, not eight other bottles',
+      'Every price answer names the closest match, lists each size with its cheapest price, and tells you how to correct it',
+      'Every link that can earn us commission is now marked Affiliate link before you click',
+      'New cookies and refunds pages, and a privacy notice that says exactly where a chat message goes',
     ],
   },
   {
     version: 'v3.19.0',
     date: '3 Sep 2026',
-    title: 'A more honest "Most Stocked" ordering',
+    title: 'Better photos, an honest ordering, and a shop that had gone missing',
     points: [
-      'The "Most Stocked" list is now ordered by the same count it always claimed to be ranked by, instead of a larger one that included every offer',
-    ],
-  },
-  {
-    version: 'v3.20.0',
-    date: '3 Sep 2026',
-    title: 'Tidier product tiles',
-    points: [
-      'Removed the shop-count line from every tile in the grid and the home rail — it repeated the ordering rather than adding to it, and the count is still shown on each fragrance’s own page under "Available at"',
-      'Closed the gap that used to sit between a perfume’s name and its size/strength line, so every tile in a row lines up the same way whether the name takes one line or two',
+      'Two more shops had their photos checked by hand, and one now supplies the picture for thousands more fragrances',
+      'Brands selling their own bottles now show their own photos, filling 656 empty picture wells',
+      'Photos from a few shops, Beauty Base among them, now come through larger and crisper',
+      'Riiffs Perfumes had been live but invisible for weeks, and its bottles and prices now show up',
+      'Tiles lost the shop-count line and the gap under the name, and Most Stocked is ordered by the count it claims',
     ],
   },
   {
