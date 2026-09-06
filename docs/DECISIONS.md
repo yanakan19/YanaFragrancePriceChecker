@@ -1716,3 +1716,72 @@ test, with the reporter now printing a rebuild prompt whenever it changes the
 number. The cost is that the About page's test count can be one rebuild
 behind, which every scheduled harvest closes. The harvest itself can no
 longer be blocked by it.
+
+## D21 — Virtual Yanny moved into the browser; the model half became a Cloudflare Worker; Fly.io is gone
+
+Recorded 2026-09-06. Three complaints arrived together and had one cause:
+the chat "takes ages", the owner was charged by Fly.io and wants nothing
+paid for, and "how much is bleu de channel edp" was answered with eight
+unrelated "Bleu" products while the catalogue held Chanel's Bleu De.
+
+### Where the time went
+
+Every question, including a plain price lookup, made one HTTP call to an
+Express service on Fly.io (`YanaFreeAPIMerger/`), which resumed from
+suspend, held a ~15 MB parse of the catalogue, and — for the two intents
+that needed a model — fanned the question out to 28 models behind a second
+Fly app running a shared free-tier router, waited for a quorum of eight,
+then ranked. Eleven of the thirteen intents never needed any of that:
+their answer is a lookup against data the page has already downloaded,
+because `demo/index.html` inlines the whole catalogue.
+
+### What changed
+
+- **The engine runs in the reader's browser.** `YanaFreeAPIMerger/server/`
+  became `demo/yanny/` (plain JavaScript, bundled by the existing
+  `tsc` + `esbuild` pipeline with `allowJs`). Static imports of the same
+  `demo/*.ts` and `src/*.ts` modules the site renders from, so there is one
+  snapshot per page and no server. Measured in the built page under
+  Playwright: the reported question answers in 82 ms, no request made.
+- **Only `suggest` and `general` leave the browser**, to `workers/yanny/`,
+  a Cloudflare Worker on the free plan that holds the provider keys and
+  forwards one grounded question (the SITE DATA block is built in the
+  browser and sent with it) to two free-tier models at once, sending the
+  first answer that passes `groundednessScore`. Origin allowlist, body
+  caps, per-IP rate limit, fixed system prompt, capped `max_tokens`. No
+  router, no second hop. The system prompt is one file (`prompt.js`)
+  imported by both halves so it cannot drift.
+- **Fly.io is removed entirely**: `fly.toml`, the Dockerfile, the deploy
+  workflow, the bare-metal `deploy/` scripts and the Express server are
+  deleted. `VIRTUAL_YANNY_API_BASE_URL` is blank until the Worker is
+  deployed (docs/VIRTUAL-YANNY-DEPLOY.md); the widget answers every
+  catalogue question regardless and says plainly when an open question
+  needs the AI side that is not yet connected. Deleting the two Fly apps and
+  the card is the owner's step; nothing in the repo references them.
+- **The matcher was rewritten** (`demo/yanny/productMatch.js`). Identity is
+  brand + name; a concentration in the question is a preference, not part
+  of the name; words match exactly, as a prefix, or within one or two
+  edits ("channel" → "chanel"); function words weigh a quarter; number
+  words and accents are folded; house abbreviations ("ysl") are read as the
+  house; two shops' spellings of one product fold into one; between
+  products that cover the words equally the one whose name the words
+  describe most completely wins. A price answer now always names the
+  closest match, gives every size with its cheapest delivered price, and
+  ends with the one-line correction — the shape the owner asked for. What
+  it still refuses: two different products that tie completely, a query
+  that names only a house, anything under the floor.
+- **Tests moved with the code**: `YanaFreeAPIMerger/test/` became
+  `tests/yanny/` under vitest, so CI runs them (it never ran the old
+  suite). Eight of them were already failing on the old server against the
+  live catalogue; all pass now, and the Worker has its own tests with the
+  provider calls injected.
+
+### What was given up
+
+The 28-model council and its anonymous scoring matrix. The matrix's
+highest-weighted criterion, groundedness, is kept as the gate on the
+Worker; the other seven criteria scored phrasing, and the whole matrix
+chose between answers that only two intents ever produced. A reader
+waiting eight seconds for the best-phrased of twenty answers was the
+complaint. The widget no longer shows agent chips or a ranking table; it
+shows one line saying where the answer came from.

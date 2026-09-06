@@ -2480,7 +2480,7 @@
   .yanny-close .ico { width: 18px; height: 18px; }
 
   /* Clear chat. The quiet pill this site already uses for a secondary
-     control — same tokens as .yanny-agent-chip, sized to sit level with the
+     control — same tokens as the old agent chips, sized to sit level with the
      close button beside it — because it is not the thing anyone came to the
      panel to press. Armed, it borrows the accent the same way every other
      "this one is live" state here does, so the change of colour and the
@@ -2536,19 +2536,7 @@
   }
   @keyframes yanny-spin { to { transform: rotate(360deg); } }
 
-  .yanny-agent-chips { display: flex; flex-wrap: wrap; gap: 5px; margin: 0 0 10px; }
-  .yanny-agent-chip {
-    font-size: 10.5px; font-weight: 700; padding: 3px 8px; border-radius: 20px;
-    background: var(--surface); border: 1px solid var(--line);
-  }
-  .yanny-agent-chip.ok { color: var(--ok); border-color: var(--ok); }
-  .yanny-agent-chip.fail { color: var(--faint); }
-
-  .yanny-ranking { margin: 0 0 10px; font-size: 12px; }
-  .yanny-ranking summary { cursor: pointer; color: var(--faint); font-weight: 600; }
-  .yanny-ranking table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 11px; }
-  .yanny-ranking th, .yanny-ranking td { padding: 4px 6px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
-  .yanny-ranking tr.winner { color: var(--accent); font-weight: 700; }
+  .yanny-source { margin: -6px 0 10px 4px; font-size: 11px; color: var(--faint); max-width: 84%; }
 
   /* The opening state of an empty chat. Centred in the body's own space
      rather than pinned above the composer, so it reads as an invitation

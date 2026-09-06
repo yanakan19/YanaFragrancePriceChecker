@@ -33,12 +33,13 @@ up and both should stay true:
   only. If a paid placement is ever added it has to sit outside the results and
   be labelled advertising, or the disclosure becomes false.
 - **What leaves the browser is named.** Three things do, each only on the
-  reader's own action: Virtual Yanny chat messages (to the Fly.io backend,
-  onward to FreeLLMAPI, stored by neither), account details (Supabase), and
-  email. The notice names all three and the processors behind them. Adding a
-  fourth means revisiting the notice *before* it ships, not after — the chat
-  went live on 2026-08-13 and the notice still said nothing left the browser
-  until 2026-09-06.
+  reader's own action: open Virtual Yanny questions (to the Cloudflare
+  Worker in `workers/yanny/`, onward to Groq or Google, stored by neither —
+  catalogue questions are answered in the browser and never leave it),
+  account details (Supabase), and email. The notice names all three and the
+  processors behind them. Adding a fourth means revisiting the notice
+  *before* it ships, not after — the chat went live on 2026-08-13 and the
+  notice still said nothing left the browser until 2026-09-06.
 - **Prices are indicative.** The terms lean on this, and the UI backs it by
   showing when each price was checked. Keep the timestamp visible.
 - **Product images are other people's photographs.** The terms used to claim

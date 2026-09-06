@@ -1,6 +1,3 @@
-import { fileURLToPath, pathToFileURL } from 'node:url';
-import path from 'node:path';
-import fs from 'node:fs/promises';
 import {
   NOTE_FAMILY_CANDIDATES,
   descriptorsIn,
@@ -9,244 +6,66 @@ import {
   detectOccasionRequest,
   parseBudget,
 } from './requestPhrases.js';
+import { normalizeText, readConcentration, matchProduct, warmIndex } from './productMatch.js';
+import * as data from '../data';
+import * as catalogue from '../catalogue.generated';
+import * as priceService from '../../src/services/priceService';
+import * as brandSites from '../brandSites';
+import * as legal from '../legal';
+import * as retailers from '../../src/config/retailers';
+import * as gender from '../gender';
 
 /**
- * The only place this app touches pricesniffs.space's actual data.
+ * The only place Virtual Yanny touches pricesniffs.space's actual data.
  *
  * There is no database and no API to call: pricesniffs.space is a static
- * site, and its real "database" is the TypeScript modules the rest of that
+ * site, and its real "database" is the TypeScript modules the rest of this
  * repo already builds and ships from — `demo/data.ts`, `demo/catalogue.
- * generated.ts`, `src/services/priceService.ts`, `src/index.ts`, `demo/
- * brandSites.ts`, `demo/legal.ts`, `src/config/retailers.ts`. Importing those
- * directly, from this subfolder of the same repo, is the whole integration:
- * no re-scrape, no JSON copy, no second source of truth that can drift from
- * the one the site itself renders from.
+ * generated.ts`, `src/services/priceService.ts`, `demo/brandSites.ts`,
+ * `demo/legal.ts`, `src/config/retailers.ts`, `demo/gender.ts`. Importing
+ * those directly is the whole integration: no re-scrape, no JSON copy, no
+ * second source of truth that can drift from the one the site renders from.
  *
- * ── The site modules are imported exactly once per process ───────────────
- * This file used to append a changing query string (`?t=...`) to every
- * specifier, so that Node's module loader — which caches a module the first
- * time it is imported and never re-reads it — would treat each call as a
- * brand new module and re-read the file from disk. The intent was that a
- * long-running server should not keep answering from whatever prices
- * existed the moment it booted. Three measured facts killed that approach:
+ * ── This runs in the reader's browser ────────────────────────────────────
+ * Until 2026-09-06 this engine lived in `YanaFreeAPIMerger/server/` and ran
+ * as an Express process on Fly.io, importing the same modules through tsx
+ * and paying a ~15 MB TypeScript parse on every cold start. That put a
+ * network round trip, a machine resume from suspend and a shared free-tier
+ * model router in front of every question — including the eleven intents
+ * (price, stock, sizes, notes, delivery, deals, budget, compare, brand,
+ * meta, greeting) that never needed a model at all, because their answer
+ * is a lookup against data the page has *already downloaded*: demo/index.html
+ * inlines the entire catalogue. So the engine now ships inside the site's
+ * own bundle (see demo/virtualYanny.ts) and those questions are answered
+ * on the reader's machine with no request of any kind. Only the two
+ * intents whose answer is a model's phrasing (`suggest`, `general`) leave
+ * the browser, and they go to a small Cloudflare Worker (workers/yanny/)
+ * with the SITE DATA block already built here.
  *
- *   1. **It leaked, hard.** Every cache-busted specifier is a module Node's
- *      registry pins for the life of the process. `demo/catalogue.
- *      generated.ts` alone is ~15 MB of TypeScript, and `buildSiteDataBlock`
- *      called `loadSite()` three or four times per question. Measured on
- *      this repo's catalogue with `--expose-gc`, forcing a full collection
- *      between samples: heapUsed went 6.6 MB at boot → 209.7 MB after one
- *      question → 6,549 MB after fifty, i.e. ~129 MB of *permanently
- *      retained* heap per question. Nothing about that is reclaimable; the
- *      collector cannot free a live entry in the module registry.
+ * The modules are static imports, so there is exactly one snapshot — the
+ * one the page was built from — and every part of one answer is computed
+ * from it. Freshness is the page's own freshness: the hourly harvest
+ * rebuilds demo/index.html, and the engine inside it is rebuilt with it.
+ * The old server had a per-process staleness report for a checkout that
+ * could change underneath it; a static bundle has no such state, so that
+ * machinery is gone with the server.
  *
- *   2. **It only ever refreshed half the graph, so the halves disagreed.**
- *      A query string survives on the specifier you pass to `import()`, but
- *      it does not propagate through the relative specifiers *inside* the
- *      module you just loaded: `new URL('./catalogue.generated.js', '.../
- *      data.ts?t=2')` drops the query, so `demo/data.ts`'s own view of the
- *      catalogue resolved to the plain, first-import-wins URL and was pinned
- *      at boot no matter how many times `demo/data.js?t=N` was re-imported.
- *      The net effect was the worst of both: `catalogue.CRAWLED_AT` and
- *      `catalogue.offersFor()` were fresh, while `data.DEMO_FRAGRANCES` —
- *      the number `aboutContext()` states as "currently tracks N
- *      fragrances" — was boot-stale, and the two were quoted side by side in
- *      the same system prompt. Worse, because each `loadSite()` call built
- *      its own set of modules, `aboutContext()` and `priceContextFor()`
- *      within a *single answer* were reading different catalogues.
- *      (`test/siteData.test.js` pins this loader behaviour so the claim is
- *      checked rather than remembered.)
- *
- *   3. **In the container there was nothing to refresh.** The image COPYs
- *      `demo/*.ts` and `src/` at build time and the process never writes to
- *      the filesystem, so the bytes on disk cannot change while the server
- *      runs. Re-reading them per question bought precisely nothing there.
- *
- * So the seven modules below are imported once, plainly, as one coherent
- * graph: `catalogue` and the catalogue `data.ts` sees are now the same
- * module instance rather than two copies that can disagree, and every part
- * of one answer is computed from the same snapshot.
- *
- * ── How freshness is answered instead ────────────────────────────────────
- * By restarting, and honestly rather than silently. The chatbot's data is
- * as fresh as the last deploy — that was already true in production before
- * this change (see fact 3, and the "Data freshness" note in
- * docs/VIRTUAL-YANNY-DEPLOY.md), and re-running the deploy workflow is what
- * closes the gap. For the deployments where the files genuinely can change
- * under a running process — the bare-metal `deploy/` path, where a `git
- * pull` updates the checkout a systemd service is serving from —
- * `siteDataFreshness()` below stats the files this snapshot was built from
- * and reports whether any of them has changed since. `/api/health` surfaces
- * that as `siteData.stale`, so "this process is serving an older catalogue
- * than the disk holds" is a visible, monitorable fact with a one-line fix
- * (restart), instead of a silent drift. It deliberately does not trigger an
- * automatic in-process reload: fact 2 above is a property of Node's
- * resolver, not of this file, so a reload could only ever refresh the seven
- * entry modules and would hand back a snapshot whose halves disagree —
- * trading a clean staleness signal for a quiet correctness bug.
- *
- * ── Why this file has to run under tsx, not plain node ───────────────────
- * `demo/data.ts` and friends are TypeScript, and this app's own `npm start`
- * points at `tsx server/index.js` for exactly that reason: tsx installs a
- * loader hook that resolves the `.js` specifiers below to their real `.ts`
- * files and transpiles on the fly, the same way every script in the parent
- * repo already runs. Plain `node` would fail to resolve these imports at all.
+ * `loadSite()` stays async and returns the same shape it always did so the
+ * lookups and their tests read unchanged; the `await` costs one microtask.
  */
-const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
-
-/** Every site module this backend reads from, keyed by the name `loadSite()`
- *  returns it under. Specifiers are `.js`; tsx resolves them to the `.ts`
- *  files that actually exist (see the header). */
-const SITE_MODULES = {
-  data: 'demo/data.js',
-  catalogue: 'demo/catalogue.generated.js',
-  priceService: 'src/services/priceService.js',
-  index: 'src/index.js',
-  brandSites: 'demo/brandSites.js',
-  legal: 'demo/legal.js',
-  retailers: 'src/config/retailers.js',
-  // The site's own reading of who a fragrance is sold to, imported rather
-  // than reimplemented. There is no gender field in the catalogue; the
-  // filter panel on pricesniffs.space reads it off the product title with
-  // `readGender`, and this backend has to give the *same* reading or the
-  // chatbot and the panel will disagree about a bottle in front of a
-  // reader. A second copy of those regexes here would drift on the first
-  // exclusion anyone adds ("Portrait Of A Lady" is not a women's fragrance —
-  // see demo/gender.ts), so there is one copy and both consumers import it.
-  // Nothing about the demo/ -> YanaFreeAPIMerger/ boundary makes this
-  // awkward: this file already imports six other `demo/*.ts` and `src/*.ts`
-  // modules through tsx, and the Dockerfile already does `COPY demo/*.ts`,
-  // so gender.ts arrives in the image with the rest of them.
-  gender: 'demo/gender.js',
-};
+const SITE = Object.freeze({ data, catalogue, priceService, brandSites, legal, retailers, gender });
 
 /**
- * The files whose contents this snapshot's answers depend on, for staleness
- * reporting only — never for cache invalidation (see the header).
- *
- * The seven entry modules, plus every `demo/*.generated.ts`: the generated
- * files are the ones the harvest actually rewrites hour to hour, they reach
- * this snapshot transitively through `demo/data.ts` rather than as entries
- * of their own, and globbing them means a new generated file added by a
- * later harvest is watched without anyone having to remember to list it.
- */
-async function watchedFiles() {
-  const files = new Set(
-    Object.values(SITE_MODULES).map((rel) => path.join(repoRoot, rel.replace(/\.js$/, '.ts'))),
-  );
-  try {
-    const demoDir = path.join(repoRoot, 'demo');
-    for (const name of await fs.readdir(demoDir)) {
-      if (name.endsWith('.generated.ts')) files.add(path.join(demoDir, name));
-    }
-  } catch {
-    // No demo/ directory to glob (a trimmed image, a test fixture): the seven
-    // entries above are still watched, and a missing file is reported as
-    // 'missing' by fingerprint() rather than thrown.
-  }
-  return [...files].sort();
-}
-
-/** mtime+size per watched file. Cheap enough to recompute on every health
- *  check, and precise enough that a rewritten catalogue cannot look
- *  unchanged even if it happens to land on the same byte count. */
-async function fingerprint() {
-  const files = await watchedFiles();
-  const stamped = await Promise.all(
-    files.map(async (file) => {
-      try {
-        const st = await fs.stat(file);
-        return [path.relative(repoRoot, file), `${st.mtimeMs}:${st.size}`];
-      } catch {
-        return [path.relative(repoRoot, file), 'missing'];
-      }
-    }),
-  );
-  return new Map(stamped);
-}
-
-/** Names present in either fingerprint whose stamp differs. Pure, and
- *  exported so the staleness rule is testable without touching the real
- *  catalogue files (which other jobs in this repo are writing to). */
-export function changedSince(before, after) {
-  const names = new Set([...before.keys(), ...after.keys()]);
-  const changed = [];
-  for (const name of names) {
-    if (before.get(name) !== after.get(name)) changed.push(name);
-  }
-  return changed.sort();
-}
-
-/**
- * The one snapshot, as a promise so that concurrent first questions share a
- * single import rather than each starting their own ~15 MB parse.
- * @type {Promise<{ site: Record<string, object>, fingerprint: Map<string, string>, loadedAt: string }> | null}
- */
-let snapshotPromise = null;
-
-async function buildSnapshot() {
-  // Fingerprinted *before* the import, deliberately: a file rewritten while
-  // the import is in flight then reads as changed afterwards, which is the
-  // safe direction to be wrong in.
-  const fp = await fingerprint();
-  const loadedAt = new Date().toISOString();
-  const names = Object.keys(SITE_MODULES);
-  const mods = await Promise.all(
-    names.map((name) => import(pathToFileURL(path.join(repoRoot, SITE_MODULES[name])).href)),
-  );
-  const site = {};
-  names.forEach((name, i) => {
-    site[name] = mods[i];
-  });
-  return { site, fingerprint: fp, loadedAt };
-}
-
-/**
- * Every site module this backend reads from, as one coherent snapshot.
- *
- * Returns the same object on every call for the life of the process — see
- * the header for why that is the correct answer here and not a shortcut.
+ * Every site module this engine reads from, as one coherent snapshot.
  * Callers must treat it as read-only.
  */
 export async function loadSite() {
-  if (!snapshotPromise) {
-    snapshotPromise = buildSnapshot().catch((err) => {
-      // A failed first import must not poison every later call: the most
-      // likely cause is a generated file caught mid-rewrite by a concurrent
-      // harvest, which succeeds on the next attempt.
-      snapshotPromise = null;
-      throw err;
-    });
-  }
-  return (await snapshotPromise).site;
+  return SITE;
 }
 
-/**
- * Whether the data this process is answering from still matches the data on
- * disk. Reported by `/api/health` as `siteData`; see the header's freshness
- * note for why this reports rather than reloads.
- */
-export async function siteDataFreshness() {
-  // Captured locally: `loadSite()` clears `snapshotPromise` if the import
-  // fails, and a health check racing that must report "not loaded", never
-  // throw out of a handler whose whole contract is to answer 200 with facts.
-  const pending = snapshotPromise;
-  const notLoaded = { loaded: false, loadedAt: null, catalogueCrawledAt: null, stale: false, changedFiles: [] };
-  if (!pending) return notLoaded;
-  const snap = await pending.catch(() => null);
-  if (!snap) return notLoaded;
-  const changedFiles = changedSince(snap.fingerprint, await fingerprint());
-  return {
-    loaded: true,
-    loadedAt: snap.loadedAt,
-    catalogueCrawledAt: snap.site.catalogue?.CRAWLED_AT ?? null,
-    stale: changedFiles.length > 0,
-    changedFiles,
-  };
-}
 
 function normalize(s) {
-  return (s ?? '').toLowerCase().replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
+  return normalizeText(s);
 }
 
 function stripHtml(html) {
@@ -268,7 +87,6 @@ const QUERY_STOPWORDS = new Set([
   'want', 'looking', 'find', 'get', 'buy', 'cheapest', 'lowest',
 ]);
 
-const CONCENTRATION_ABBR = { 'eau de parfum': 'edp', 'eau de toilette': 'edt', 'eau de cologne': 'edc' };
 
 /* ── "Not stated" is not a concentration ───────────────────────────────── */
 
@@ -456,31 +274,19 @@ export function productWords(question, intent) {
 }
 
 /**
- * Same shape of fuzzy match the mock version used (fraction of query words
- * found in brand+name), now run against every real fragrance the site
- * currently carries rather than a 6 row fixture, with two fixes a natural
- * question needs that a bare "Brand Name" query did not: filler words
- * filtered out (see QUERY_STOPWORDS above), and both "Eau de Toilette" and
- * "EDT" recognised as the same concentration in either direction.
+ * The fixture-friendly face of the matcher: one best row for a query, or
+ * null. Used by tests with a synthetic list and by nothing else — the
+ * catalogue paths go through `resolveProductQuery`, which reports ties and
+ * weak fits instead of collapsing them to a row. Same scorer underneath
+ * (see productMatch.js), so the two cannot disagree about what a query
+ * names.
  */
 export function findFragranceMatch(query, fragrances) {
-  const qWords = normalize(query).split(' ').filter((w) => w && !QUERY_STOPWORDS.has(w));
-  if (qWords.length === 0) return null;
-
-  let best = null;
-  let bestScore = 0;
-  for (const frag of fragrances) {
-    const concentrationLower = (frag.concentration ?? '').toLowerCase();
-    const abbr = CONCENTRATION_ABBR[concentrationLower] ?? '';
-    const haystack = normalize(`${frag.brand} ${frag.name} ${frag.concentration} ${abbr}`);
-    const hits = qWords.filter((w) => haystack.includes(w)).length;
-    const score = hits / qWords.length;
-    if (score > bestScore) {
-      bestScore = score;
-      best = frag;
-    }
-  }
-  return bestScore >= 0.34 ? { fragrance: best, matchConfidence: Math.round(bestScore * 100) } : null;
+  const { wanted, rest } = readConcentration(query);
+  const words = rest.split(' ').filter((w) => w && !QUERY_STOPWORDS.has(w) && !/^[a-z]$/.test(w));
+  const r = matchProduct({ words, wantedConcentration: wanted }, fragrances);
+  if (r.status !== 'matched' && r.status !== 'low_confidence') return null;
+  return { fragrance: r.anchor, matchConfidence: r.matchConfidence };
 }
 
 /** Where a "no <this>" exclusion starts, and what it excludes. Free text on
@@ -664,47 +470,31 @@ const SIMILAR_TO_RE = /\b(?:similar to|smells? like|smelling like|dupes? (?:for|
  * fragrance.
  */
 async function priceContextFor(question) {
-  const { data, catalogue, priceService } = await loadSite();
-  const match = findFragranceMatch(question, data.DEMO_FRAGRANCES);
-  if (!match) {
+  const r = await resolvePriceQuery(question);
+  if (r.status === 'no_match') {
     return 'PRICE MATCH: none. No fragrance in the current catalogue matched this query closely enough to quote a price.';
   }
-
-  const { fragrance, matchConfidence } = match;
-  const offers = catalogue.offersFor(fragrance.id);
-  const rows = priceService.buildComparison(offers, { sortBy: 'delivered', tier: fragrance.tier });
-  const best = priceService.bestOffer(rows);
-
-  if (!best) {
-    return (
-      `PRICE MATCH (${matchConfidence}% confidence): ${fragrance.brand} ${fragrance.name}, ` +
-      `${concentrationLabel(fragrance.concentration) ?? 'concentration not stated'}, ` +
-      `${fragrance.sizeMl}ml. Currently out of stock everywhere this site tracks.`
-    );
+  if (r.status === 'ambiguous') {
+    const names = r.candidates.slice(0, 5).map((f) => productLabel(f)).join('; ');
+    return `PRICE MATCH: none settled. Several distinct products match the words equally well: ${names}. Ask which was meant rather than quoting one.`;
   }
 
-  const gbp = (pence) => `£${(pence).toFixed(2)}`;
-
-  // Some purchasable rows for this exact fragrance can still have no delivered
-  // price: `buildComparison`'s own sort already keeps `bestOffer` from ever
-  // picking one of these as cheapest (see priceService.ts's own comment on
-  // that), but a reader can still reasonably ask "what about <that shop>?", so
-  // naming them here — rather than only enforcing the rule silently upstream
-  // — gives Virtual Yanny the words to answer honestly instead of guessing.
-  const unstatedDelivery = rows.filter((r) => r.isPurchasable && r.deliveredPriceGbp === null);
-  const unstatedNote = unstatedDelivery.length
-    ? ` Also stocked (item price only, delivery not stated, never the cheapest option) by: ${unstatedDelivery
-        .map((r) => `${r.retailer.name} (${gbp(r.itemPriceGbp)} item price)`)
-        .join(', ')}.`
+  const gbp = (n) => `£${n.toFixed(2)}`;
+  const sizeLine = (v) =>
+    v.best
+      ? `${v.sizeMl}ml ${gbp(v.best.deliveredPriceGbp)} delivered from ${v.best.retailerName} (stocked by ${v.purchasableCount} shop(s))`
+      : `${v.sizeMl}ml currently out of stock everywhere this site tracks`;
+  const label = productLabel({ brand: r.brand, name: r.name, concentration: r.concentration });
+  const weak = r.status === 'low_confidence' ? ', weak fit — hedge on identity' : '';
+  const mismatch = r.concentrationMismatch
+    ? ` The question asked for ${r.wantedConcentration}, which this product is not tracked in.`
     : '';
-
-  return (
-    `PRICE MATCH (${matchConfidence}% confidence): ${fragrance.brand} ${fragrance.name}, ` +
-    `${concentrationLabel(fragrance.concentration) ?? 'concentration not stated'}, ` +
-    `${fragrance.sizeMl}ml. Cheapest right now: ${gbp(best.deliveredPriceGbp)} ` +
-    `delivered, from ${best.retailer.name}. Stocked by ${rows.filter((r) => r.isPurchasable).length} shop(s) ` +
-    `this site tracks in total.${unstatedNote}`
-  );
+  const also = r.alternatives.length
+    ? ` Also tracked as: ${r.alternatives
+        .map((a) => `${concentrationLabel(a.concentration) ?? 'concentration not stated'} (${a.variants.map(sizeLine).join('; ')})`)
+        .join('; ')}.`
+    : '';
+  return `PRICE MATCH (${r.matchConfidence}% confidence${weak}): ${label}. Sizes: ${r.variants.map(sizeLine).join('; ')}.${mismatch}${also}`;
 }
 
 /* ── who a fragrance is sold to ────────────────────────────────────────── */
@@ -834,30 +624,59 @@ function groupKeyFor(f) {
  * (different brand+name+concentration, not just different sizes of the same
  * one) at the top score, and reports `ambiguous` rather than guessing.
  */
+/**
+ * A matched group's rows, one slice per size, smallest first. A size with
+ * no stated volume (`sizeMl` null) is its own slice at the end.
+ */
+export function sizeSlices(group) {
+  const by = new Map();
+  for (const f of group) {
+    const key = f.sizeMl ?? 'unknown';
+    if (!by.has(key)) by.set(key, { sizeMl: f.sizeMl, frags: [] });
+    by.get(key).frags.push(f);
+  }
+  return [...by.values()].sort((a, b) => (a.sizeMl ?? Infinity) - (b.sizeMl ?? Infinity));
+}
+
 export async function resolvePriceQuery(question) {
   const { catalogue, priceService } = await loadSite();
   const resolved = await resolveProductQuery(question, 'price');
-  if (resolved.status !== 'matched') return resolved;
+  if (resolved.status !== 'matched' && resolved.status !== 'low_confidence') return resolved;
 
-  const { anchor, group, matchConfidence } = resolved;
-  const variants = group.map((f) => {
-    const offers = catalogue.offersFor(f.id);
-    const rows = priceService.buildComparison(offers, { sortBy: 'delivered', tier: f.tier });
-    const best = priceService.bestOffer(rows);
-    return {
-      sizeMl: f.sizeMl,
-      purchasableCount: rows.filter((r) => r.isPurchasable).length,
-      best: best ? { deliveredPriceGbp: best.deliveredPriceGbp, retailerName: best.retailer.name } : null,
-    };
-  });
+  // One entry per size. Two shops' listings of the same bottle are separate
+  // catalogue rows with separate ids (different EANs, or one shop without
+  // one), and a price answer that read "50ml, 50ml, 50ml" was listing rows,
+  // not sizes. Their offers are pooled before the comparison is built, so
+  // the cheapest is the cheapest across both.
+  const variantsOf = (group) =>
+    sizeSlices(group).map(({ sizeMl, frags }) => {
+      const offers = frags.flatMap((f) => catalogue.offersFor(f.id));
+      const rows = priceService.buildComparison(offers, { sortBy: 'delivered', tier: frags[0].tier });
+      const best = priceService.bestOffer(rows);
+      return {
+        sizeMl,
+        purchasableCount: rows.filter((r) => r.isPurchasable).length,
+        best: best ? { deliveredPriceGbp: best.deliveredPriceGbp, retailerName: best.retailer.name } : null,
+      };
+    });
 
+  const { group, matchConfidence, alternatives, alsoNamed, wantedConcentration, concentrationMismatch } = resolved;
   return {
-    status: 'matched',
+    status: resolved.status,
     matchConfidence,
-    brand: anchor.brand,
-    name: anchor.name,
-    concentration: anchor.concentration,
-    variants,
+    brand: resolved.brand,
+    name: resolved.name,
+    concentration: resolved.concentration,
+    variants: variantsOf(group),
+    alsoNamed,
+    alternatives: alternatives.map((a) => ({
+      brand: a.brand,
+      name: a.name,
+      concentration: a.concentration,
+      variants: variantsOf(a.group),
+    })),
+    wantedConcentration,
+    concentrationMismatch,
   };
 }
 
@@ -911,159 +730,41 @@ export function seemsFollowUp(question) {
 }
 
 /**
- * Every fragrance's match haystack and title length, computed once per
- * process instead of once per question.
+ * Which product a question names, if any — the single identity step every
+ * deterministic lookup shares, so "is X in stock", "what does X smell
+ * like", "what sizes of X" and "how much is X" can never disagree about
+ * what X is. The scoring lives in productMatch.js, whose header explains
+ * it and the reported case it was rewritten for; this reads the question's
+ * concentration and size out first (a preference and a filter, not part of
+ * the name) and strips the intent's own filler (see `stopwordsFor`).
  *
- * Safe to memoise for the same reason `deliveredPriceIndex` in lookups.js
- * is: the snapshot `loadSite()` returns cannot change while the process
- * runs (see this file's header), so a derivation of it cannot go stale.
- * The strings are byte-for-byte what the per-question loop built before —
- * only *when* they are built moved. Measured with `npm run bench`: every
- * product-anchored lookup (price, availability, notes, size) dropped from
- * ~17-19ms to ~2-3ms, and compare (two lookups) from ~36ms to ~5ms,
- * because the dominant cost was re-running `normalize` over ~10,000
- * brand+name+concentration strings per question.
+ * Four outcomes, and two of them are refusals:
+ *   - `no_match`       nothing scored above the floor.
+ *   - `ambiguous`      several *distinct products* tied. Returns up to 8 so
+ *                      the caller can ask which was meant rather than pick.
+ *   - `low_confidence` one product, but a weak fit: callers hedge on identity.
+ *   - `matched`        one product. `group` is every size of the chosen
+ *                      concentration, smallest first; `alternatives` its
+ *                      other concentrations; `concentrationMismatch` says the
+ *                      question asked for a concentration it is not tracked in.
  */
-let productIndexCache = null;
-async function productIndex() {
-  if (productIndexCache) return productIndexCache;
-  const { data } = await loadSite();
-  productIndexCache = data.DEMO_FRAGRANCES.map((frag) => {
-    const concentrationLower = (frag.concentration ?? '').toLowerCase();
-    const abbr = CONCENTRATION_ABBR[concentrationLower] ?? '';
-    return {
-      frag,
-      haystack: normalize(`${frag.brand} ${frag.name} ${frag.concentration} ${abbr}`),
-      titleWords: normalize(`${frag.brand} ${frag.name}`).split(' ').length,
-    };
-  });
-  return productIndexCache;
-}
-
 export async function resolveProductQuery(question, intent = 'price') {
   const { data } = await loadSite();
-  const qWords = productWords(question, intent);
+  const { wanted, rest } = readConcentration(question);
+  // A bare size is part of the question, never part of a product's name:
+  // "is there a 30ml of Aventus" is about Aventus. Every caller that cares
+  // reads the size back off the raw question with its own regex.
+  const qWords = productWords(rest.replace(/\b\d+(?:\.\d+)?\s?ml\b/g, ' '), intent);
   if (qWords.length === 0) return { status: 'no_match', followUp: seemsFollowUp(question) };
+  const result = matchProduct({ words: qWords, wantedConcentration: wanted }, data.DEMO_FRAGRANCES);
+  if (result.status === 'no_match') return { status: 'no_match', followUp: seemsFollowUp(question) };
+  return result;
+}
 
-  let bestScore = 0;
-  const scored = [];
-  for (const { frag, haystack, titleWords } of await productIndex()) {
-    const hits = qWords.filter((w) => haystack.includes(w)).length;
-    const score = hits / qWords.length;
-    if (score > bestScore) bestScore = score;
-    if (score > 0) scored.push({ frag, score, titleWords });
-  }
-  if (bestScore < 0.34) return { status: 'no_match', followUp: seemsFollowUp(question) };
-
-  const top = scored.filter((s) => s.score === bestScore);
-  const topGroupKeys = new Set(top.map((s) => groupKeyFor(s.frag)));
-  const matchConfidence = Math.round(bestScore * 100);
-
-  let resolvedTop = top;
-  if (topGroupKeys.size > 1) {
-    /**
-     * Tightest fit, and only when the fit is total.
-     *
-     * Word-overlap scoring gives every product *containing* the query the
-     * same 1.0, so "who has Aventus" tied Creed Aventus with Creed Aventus
-     * Cologne, Creed Absolu Aventus Limited Edition, Creed Aventus For Her
-     * and Assaf Frankel Aventus Assaf, and the only available answer was to
-     * ask which was meant. Measured across the shapes in
-     * test/lookups.test.js, that was almost every single-word product
-     * question — a clarifying question in place of an answer the data
-     * plainly has.
-     *
-     * When every query word is found (bestScore === 1) the products are
-     * ordered by how little else is in their title: the query fully
-     * describes "Creed Aventus" and only partly describes "Creed Aventus
-     * Cologne", so the former is the tighter fit and, if it is uniquely the
-     * tightest, it is the answer. This is a containment argument, not a
-     * popularity guess: nothing outside the title is consulted.
-     *
-     * Two guards keep it from ever manufacturing confidence:
-     *
-     *   - It requires bestScore === 1. Below that the query is only
-     *     partially matched and a tie is genuine ignorance — "bleu de
-     *     chanel" hits 0.5 against Guy Laroche Drakkar Bleu, Armaf Voyage
-     *     Bleu and Chanel Allure Homme Sport alike (the site does not carry
-     *     Chanel's Bleu de Chanel), and picking the shortest of those would
-     *     be a confident wrong answer of exactly the kind this work exists
-     *     to remove.
-     *   - It refuses when the query names only a brand. Every word of "how
-     *     much is Rabanne" sits inside the brand, which identifies a house
-     *     and not a bottle, so no title length can settle which bottle was
-     *     meant.
-     *
-     * If the tightest fit is not unique, nothing is picked and the caller
-     * asks. "Dior Sauvage" ties the EDT, EDP and Parfum at two words each
-     * and stays a question, which is right — those are three products.
-     */
-    const brandOnly = top.some((s) => {
-      const brand = normalize(s.frag.brand);
-      return qWords.every((w) => brand.includes(w));
-    });
-    if (bestScore === 1 && !brandOnly) {
-      const fewest = Math.min(...top.map((s) => s.titleWords));
-      const tightest = top.filter((s) => s.titleWords === fewest);
-      if (new Set(tightest.map((s) => groupKeyFor(s.frag))).size === 1) resolvedTop = tightest;
-    }
-  }
-
-  if (new Set(resolvedTop.map((s) => groupKeyFor(s.frag))).size > 1) {
-    const seen = new Set();
-    const candidates = [];
-    // Tightest fit first. The list is capped at 8, so which 8 survive
-    // matters: catalogue order put "Creed Neroli Sauvage" and "Privee
-    // Couture Collection Sauvage Perfume Privee Couture Collection" ahead of
-    // plain "Dior Sauvage" for the query "Sauvage", which makes the
-    // clarifying question harder to answer than it needs to be. Ordering by
-    // title length puts the products the query describes most completely at
-    // the front without dropping any of the others.
-    for (const s of [...resolvedTop].sort((a, b) => a.titleWords - b.titleWords)) {
-      const key = groupKeyFor(s.frag);
-      if (seen.has(key)) continue;
-      seen.add(key);
-      candidates.push(s.frag);
-      if (candidates.length >= 8) break; // Enough to ask a real question, not a wall of names.
-    }
-    // `exact` tells the caller whether these tied on a *complete* match of
-    // the question's words or only a partial one. The words for those two
-    // cases are different and must be: "a few products match that" is true
-    // of the first and misleading about the second, where the honest line is
-    // that nothing matched exactly and these are merely the closest.
-    return { status: 'ambiguous', matchConfidence, exact: bestScore === 1, candidates };
-  }
-
-  const anchor = resolvedTop[0].frag;
-
-  // A single top-scoring product, but only a weak one: `findFragranceMatch`
-  // (and the SITE DATA block it grounds the council with) already accepts
-  // anything at or above 0.34, which is deliberately loose so a natural
-  // question full of filler still matches. That is fine when an LLM sees
-  // the whole picture and can use its own judgement about whether the
-  // "closest" thing found is worth mentioning; it is not fine for a reply
-  // with no judgement in the loop, which would otherwise state a specific
-  // price for what might be entirely the wrong product — measured case: "how
-  // cheap is the fragrance you've ever heard of philosophically" scores 40%
-  // against Mexx Whenever Wherever For Him on word overlap alone. Below 0.5
-  // this hedges on identity instead of asserting a price for a guess.
-  if (bestScore < 0.5) {
-    return {
-      status: 'low_confidence',
-      matchConfidence,
-      anchor,
-      brand: anchor.brand,
-      name: anchor.name,
-      concentration: anchor.concentration,
-    };
-  }
-
-  const key = groupKeyFor(anchor);
-  const group = data.DEMO_FRAGRANCES
-    .filter((f) => groupKeyFor(f) === key)
-    .sort((a, b) => a.sizeMl - b.sizeMl);
-
-  return { status: 'matched', matchConfidence, anchor, group };
+/** "A, B and C". */
+function listWords(items) {
+  if (items.length <= 1) return items[0] ?? '';
+  return `${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}`;
 }
 
 const ANSWER_SIZE_RE = /(\d+(?:\.\d+)?)\s?ml\b/i;
@@ -1073,18 +774,23 @@ const ANSWER_CHEAPEST_RE = /\b(cheapest|lowest|all sizes|every size|each size|fu
  * The deterministic reply text for a `resolvePriceQuery` result — the only
  * place user-facing words get attached to that data. Every price, size and
  * retailer here is read straight off `result`; nothing is composed from the
- * question or invented to sound complete. Three shapes, per the reported
- * request for what a price answer should actually do: name the product, say
- * which sizes are tracked, and either answer the one the reader asked about
- * or offer the two real next steps (a specific size, or the full cheapest
- * list) rather than dumping every row of a bulleted, hedge-heavy wall of text.
+ * question or invented to sound complete.
+ *
+ * One shape, per the owner's request for what a price answer should do:
+ * name the closest match, give every tracked size with its cheapest
+ * delivered price, and end with the one-line way to correct it if the match
+ * was wrong. A question that names a size gets that size's price and the
+ * other sizes by name only; one that asks for a concentration the product
+ * is not tracked in is told so before the sizes rather than quietly given
+ * a different bottle.
  */
 export function formatPriceAnswer(question, result) {
-  const gbp = (pence) => `£${pence.toFixed(2)}`;
-  const priceLine = (v) =>
+  const gbp = (n) => `£${n.toFixed(2)}`;
+  const priced = (v) =>
     v.best
-      ? `${v.sizeMl}ml: ${gbp(v.best.deliveredPriceGbp)} delivered from ${v.best.retailerName}.`
-      : `${v.sizeMl}ml: currently out of stock everywhere this site tracks.`;
+      ? `${v.sizeMl}ml: ${gbp(v.best.deliveredPriceGbp)} delivered from ${v.best.retailerName}`
+      : `${v.sizeMl}ml: out of stock everywhere we track`;
+  const CORRECTION = "Not the one you meant? Type the exact brand and product name and I'll look again.";
 
   if (result.status === 'no_match') {
     // Same follow-up honesty as formatIdentityRefusal in lookups.js: a
@@ -1101,70 +807,61 @@ export function formatPriceAnswer(question, result) {
   }
 
   if (result.status === 'ambiguous') {
-    const names = result.candidates.map((f) => productLabel(f));
-    // matchConfidence is deliberately not printed here. It is a matcher
-    // score, and on this branch it is a score for the *set* — "100%
-    // confidence" beside a list of eight different perfumes reads as a
-    // claim about the answer when it is really "all eight matched your
-    // words equally well", which is the opposite of confident. The
-    // question already says everything the reader needs.
-    //
-    // `exact` splits two cases that used to share this one sentence. When
-    // every word of the question was found, "a few products match that" is
-    // literally true. When only some were, it is not: "bleu de chanel" ties
-    // Guy Laroche Drakkar Bleu with Armaf Voyage Bleu at half the words
-    // each, and calling those a match overstates what happened. The site
-    // does not carry Chanel's Bleu de Chanel, and the reader is better
-    // served by being told that nothing matched exactly.
+    // At most five: enough to pick from, not a wall of names. The matcher
+    // score is deliberately not printed — on this branch it is a score for
+    // the set, not for an answer.
+    const names = result.candidates.slice(0, 5).map((f) => productLabel(f));
     if (result.exact === false) {
-      return `Nothing in the catalogue matches that exactly. The closest I have: ${names.join(', ')}. Did you mean one of those?`;
+      return `Nothing matches that exactly. Closest I have: ${names.join(', ')}. Type the full name of the one you meant and I'll look again.`;
     }
-    return `A few products match that: ${names.join(', ')}. Which one did you mean?`;
+    return `A few products match that: ${names.join(', ')}. Which one did you mean? Type its full name.`;
   }
 
-  if (result.status === 'low_confidence') {
-    // Here the number is genuinely load-bearing — it is why this reply
-    // hedges instead of stating a price — but a percentage invites the
-    // reader to arbitrate a score they cannot see the basis for. Say the
-    // uncertainty in words and let them correct it.
-    return (
-      `The closest I can find is ${productLabel(result)}, ` +
-      `though I'm not certain that's the one. ` +
-      `Is that what you meant? If not, try the exact brand and product name.`
-    );
-  }
-
-  const { brand, name, concentration, variants } = result;
+  const { brand, name, concentration, variants = [], alternatives = [], alsoNamed = [], wantedConcentration, concentrationMismatch } = result;
   const label = productLabel({ brand, name, concentration });
+  const exact = result.status === 'matched' && result.matchConfidence >= 97;
+  const lead =
+    result.status === 'low_confidence'
+      ? `Closest I can find, though I'm not certain it's the one: ${label}.`
+      : exact
+        ? `${label}.`
+        : `Closest match: ${label}.`;
+  const mismatch = concentrationMismatch
+    ? ` I don't track it as ${wantedConcentration}; this is the ${concentrationLabel(concentration) ?? 'listing with no concentration stated'}.`
+    : '';
+  const also = alternatives.length
+    ? ` Also tracked as ${listWords(alternatives.map((a) => concentrationLabel(a.concentration) ?? 'a listing with no concentration stated'))}.`
+    : '';
 
-  // Checked before the single-variant shortcut below, deliberately: a
-  // question that names a size this product does NOT carry must say so even
-  // when the product only has one tracked size at all — answering with that
-  // one size's price regardless of what was asked would silently substitute
-  // a different bottle for the one the reader named.
+  let sizes = '';
   const sizeMatch = question.match(ANSWER_SIZE_RE);
-  if (sizeMatch) {
+  if (variants.length === 0) {
+    sizes = '';
+  } else if (result.status === 'low_confidence') {
+    // A weak fit names its sizes so the reader can recognise the bottle,
+    // and quotes nothing: a price beside a guess reads as a price for the
+    // thing that was asked about.
+    sizes = `Tracked in ${listWords(variants.map((v) => `${v.sizeMl}ml`))}.`;
+  } else if (sizeMatch) {
     const wantedSize = Number(sizeMatch[1]);
-    const exact = variants.find((v) => v.sizeMl === wantedSize);
-    if (exact) return `${label}, ${exact.sizeMl}ml. ${priceLine(exact).replace(/^\d+ml: /, 'Cheapest right now: ')}`;
-    const tracked = variants.map((v) => `${v.sizeMl}ml`).join(', ');
-    return `${label} is on file, but not in ${sizeMatch[1]}ml. Sizes tracked: ${tracked}.`;
+    const hit = variants.find((v) => v.sizeMl === wantedSize);
+    if (hit) {
+      const others = variants.filter((v) => v !== hit).map((v) => `${v.sizeMl}ml`);
+      sizes = `${priced(hit)}.${others.length ? ` Also in ${others.join(', ')}.` : ''}`;
+    } else {
+      sizes = `Not tracked in ${sizeMatch[1]}ml. Sizes I have — ${variants.map(priced).join(' · ')}.`;
+    }
+  } else {
+    sizes = `${variants.length === 1 ? 'Size' : 'Sizes'} — ${variants.map(priced).join(' · ')}.`;
   }
 
-  if (variants.length === 1) {
-    return `${label}, ${variants[0].sizeMl}ml. Cheapest right now: ${
-      variants[0].best
-        ? `${gbp(variants[0].best.deliveredPriceGbp)} delivered from ${variants[0].best.retailerName}.`
-        : 'currently out of stock everywhere this site tracks.'
-    }`;
-  }
+  // Another house sells a bottle of the same name; say so beside the
+  // answer rather than silently choosing, so the correction is one line.
+  const namesake = alsoNamed.length
+    ? ` There is also ${listWords(alsoNamed.map((p) => productLabel(p)))}, if that was the one.`
+    : '';
 
-  if (ANSWER_CHEAPEST_RE.test(question)) {
-    return `${label} — cheapest per size:\n${variants.map(priceLine).join('\n')}`;
-  }
-
-  const tracked = variants.map((v) => `${v.sizeMl}ml`).join(', ');
-  return `${label} is tracked in ${variants.length} sizes: ${tracked}. Want the price for one size, or the cheapest across all of them?`;
+  return [`${lead}${mismatch}${also}${namesake}`, sizes, CORRECTION].filter(Boolean).join('\n');
 }
 
 /**
@@ -1365,6 +1062,34 @@ export async function offerableDescriptors() {
  * testable against a known live-catalogue case, the same reason
  * `policyContextFor` above is exported.
  */
+/** Every catalogue row of each product, keyed like `groupKeyFor`. Built
+ *  once; the snapshot never changes. */
+let rowsByGroupCache = null;
+async function rowsByGroup() {
+  if (rowsByGroupCache) return rowsByGroupCache;
+  const { data } = await loadSite();
+  const map = new Map();
+  for (const f of data.DEMO_FRAGRANCES) {
+    const key = groupKeyFor(f);
+    if (!map.has(key)) map.set(key, []);
+    map.get(key).push(f);
+  }
+  rowsByGroupCache = map;
+  return map;
+}
+
+/**
+ * Builds the product index ahead of the first question, so the first
+ * answer does not pay for it. The widget calls this when the reader looks
+ * like they are about to open the chat (demo/virtualYanny.ts); the tests
+ * call it once up front so timings measure the lookup, not the build.
+ */
+export async function warmProductIndex() {
+  const { data } = await loadSite();
+  warmIndex(data.DEMO_FRAGRANCES);
+  await rowsByGroup();
+}
+
 export async function suggestContextFor(question) {
   const { data } = await loadSite();
   const request = await parseSuggestRequest(question);
@@ -1400,7 +1125,13 @@ export async function suggestContextFor(question) {
   // real recommendation. Grouping by product and merging every size's notes
   // into one set keeps the real information from every size instead of
   // silently dropping whichever variant lost the id race.
+  //
+  // Every row of the product contributes its notes, not only the rows that
+  // carried the requested note: a 50ml row can list "Bellini accord" that
+  // the 100ml row (the one that matched on Rose) does not, and the line the
+  // model reads should be the product's full published set.
   const groups = new Map();
+  const rowsOf = await rowsByGroup();
   for (const note of wanted) {
     for (const frag of data.fragrancesWithNote(note, 'any')) {
       const key = groupKeyFor(frag);
@@ -1408,11 +1139,13 @@ export async function suggestContextFor(question) {
       if (!entry) {
         entry = { frag, matched: new Set(), notes: { top: new Set(), middle: new Set(), base: new Set() } };
         groups.set(key, entry);
+        for (const row of rowsOf.get(key) ?? [frag]) {
+          for (const layer of ['top', 'middle', 'base']) {
+            for (const n of row.notes?.[layer] ?? []) entry.notes[layer].add(n);
+          }
+        }
       }
       entry.matched.add(note);
-      for (const layer of ['top', 'middle', 'base']) {
-        for (const n of frag.notes?.[layer] ?? []) entry.notes[layer].add(n);
-      }
     }
   }
 
@@ -1548,10 +1281,18 @@ const POLICY_QUERY_EXPANSIONS = [
 
 export async function policyContextFor(question) {
   const { legal } = await loadSite();
-  const qWords = normalize(question).split(' ').filter((w) => w.length > 3 && !POLICY_FILLER.has(w));
+  let asked = normalize(question);
+  const qWords = [];
   for (const [re, extra] of POLICY_QUERY_EXPANSIONS) {
-    if (re.test(question)) qWords.push(...extra);
+    if (re.test(question)) {
+      // The words that triggered the expansion are replaced by it, not
+      // added to: "make money" is answered by the page's own "commission"
+      // and must not then count as two words the page failed to contain.
+      asked = asked.replace(re, ' ');
+      qWords.push(...extra);
+    }
   }
+  qWords.push(...asked.split(' ').filter((w) => w.length > 3 && !POLICY_FILLER.has(w)));
   if (qWords.length === 0) return null;
 
   let best = null;
@@ -1568,6 +1309,12 @@ export async function policyContextFor(question) {
   // word: "do you get commission" reduces to exactly ['commission'], and a
   // hard floor of 2 made it unmatchable on principle.
   if (!best || bestHits < Math.min(2, qWords.length)) return null;
+  // And the page has to account for most of the question. "price of
+  // zorblax nebula parfum" hits the about page on "price" and "parfum" and
+  // is not a question about the site: the two words that carry its meaning
+  // appear nowhere on any page. A policy match is allowed at most half as
+  // many unexplained words as explained ones.
+  if (qWords.length - bestHits > bestHits / 2) return null;
 
   const text = stripHtml(best.body);
   return `SITE POLICY (${best.title}): ${text.slice(0, 1200)}${text.length > 1200 ? '…' : ''}`;

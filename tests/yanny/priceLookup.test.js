@@ -1,9 +1,9 @@
-import { test } from 'node:test';
+import { test } from 'vitest';
 import assert from 'node:assert/strict';
-import { formatPriceAnswer, resolvePriceQuery } from '../server/siteData.js';
-import { groundednessScore } from '../server/scoring.js';
-import { classifyIntent } from '../server/intent.js';
-import { runCouncil } from '../server/council.js';
+import { formatPriceAnswer, resolvePriceQuery } from '../../demo/yanny/siteData.js';
+import { groundednessScore } from '../../demo/yanny/scoring.js';
+import { classifyIntent } from '../../demo/yanny/intent.js';
+import { resolveQuestion } from '../../demo/yanny/engine.js';
 
 /**
  * The question corpus for the reported "One Million Elixir" defect and the
@@ -25,8 +25,6 @@ import { runCouncil } from '../server/council.js';
  *     and not going to become false between harvests.
  */
 
-const noopEmit = () => {};
-const emptyModels = { baseUrl: 'https://unused.invalid', apiKey: 'unused', models: [] };
 
 /* ── formatPriceAnswer: pure formatting, synthetic fixtures ────────────── */
 
@@ -62,7 +60,7 @@ test('formatPriceAnswer: low_confidence hedges on identity and states no price',
   // is unsure and quotes no price — both still asserted below.
   assert.match(text, /not certain/i);
   assert.doesNotMatch(text, /%/, 'an internal matcher score must not reach the reader');
-  assert.match(text, /is that what you meant/i);
+  assert.match(text, /not the one you meant/i);
   assert.doesNotMatch(text, /£/, 'a weak match must not be quoted a price against');
 });
 
@@ -80,7 +78,7 @@ test('formatPriceAnswer: a single-size product states the price directly, no siz
   assert.doesNotMatch(text, /want the price for one size/i);
 });
 
-test('formatPriceAnswer: a multi-size product with no size named names the product, the tracked sizes, and offers the next step', () => {
+test('formatPriceAnswer: a multi-size product with no size named names the product and every size with its price', () => {
   const result = {
     status: 'matched',
     matchConfidence: 100,
@@ -95,8 +93,12 @@ test('formatPriceAnswer: a multi-size product with no size named names the produ
   };
   const text = formatPriceAnswer('how much is One Million Elixir', result);
   assert.match(text, /Rabanne One Million Elixir Intense \(Parfum\)/);
-  assert.match(text, /50ml, 100ml, 200ml/);
-  assert.match(text, /one size.*cheapest across all/i);
+  // Every size with its own cheapest delivered price, in one answer, then
+  // the one-line correction — the shape the owner asked for.
+  assert.match(text, /50ml: £56\.50 delivered from Justmylook/);
+  assert.match(text, /100ml: £70\.99 delivered from Justmylook/);
+  assert.match(text, /200ml: £108\.99 delivered from Justmylook/);
+  assert.match(text, /not the one you meant/i);
   // The bug this whole fix exists for: never deny a product the data just named.
   assert.doesNotMatch(text, /don'?t have|no fragrance|not on file/i);
 });
@@ -135,7 +137,7 @@ test('formatPriceAnswer: "cheapest" lists every tracked size with its own retail
   const text = formatPriceAnswer('cheapest One Million Elixir', result);
   assert.match(text, /50ml: £56\.50 delivered from Justmylook/);
   assert.match(text, /100ml: £70\.99 delivered from Justmylook/);
-  assert.match(text, /200ml: currently out of stock/);
+  assert.match(text, /200ml: out of stock/);
 });
 
 test('formatPriceAnswer: a size that genuinely is not tracked says so, without inventing one', () => {
@@ -148,8 +150,8 @@ test('formatPriceAnswer: a size that genuinely is not tracked says so, without i
     variants: [{ sizeMl: 50, best: { deliveredPriceGbp: 56.5, retailerName: 'Justmylook' } }],
   };
   const text = formatPriceAnswer('how much is One Million Elixir 75ml', result);
-  assert.match(text, /not in 75ml/);
-  assert.match(text, /Sizes tracked: 50ml/);
+  assert.match(text, /Not tracked in 75ml/);
+  assert.match(text, /50ml: £56\.50 delivered from Justmylook/);
 });
 
 /* ── Cross-check: formatPriceAnswer output can never trip the false-denial
@@ -166,7 +168,7 @@ test('formatPriceAnswer output is never scored as a false denial by groundedness
   assert.equal(groundednessScore(text, siteData), 100);
 });
 
-/* ── resolvePriceQuery + runCouncil: live catalogue, facts safe to pin ──── */
+/* ── resolvePriceQuery + resolveQuestion: live catalogue, facts safe to pin ──── */
 
 test('resolvePriceQuery: "One Million Elixir" is found — the reported defect, re-run against the live catalogue', async () => {
   const result = await resolvePriceQuery('how much is One Million Elixir');
@@ -183,13 +185,8 @@ test('resolvePriceQuery: partial name "one million eli" — the exact phrase fro
   assert.match(result.name, /Elixir/);
 });
 
-test('runCouncil: a real price question for "One Million Elixir" is answered from site data alone, with zero model calls, and never denies the product', async () => {
-  const result = await runCouncil({
-    question: 'how much is One Million Elixir',
-    intent: 'price',
-    config: emptyModels, // no models configured at all — a network call would throw, proving none was made
-    onEvent: noopEmit,
-  });
+test('resolveQuestion: a real price question for "One Million Elixir" is answered from site data alone, with zero model calls, and never denies the product', async () => {
+  const result = await resolveQuestion({ question: 'how much is One Million Elixir', intent: 'price' });
   assert.equal(result.ok, true);
   assert.equal(result.source, 'site-data-direct');
   assert.doesNotMatch(result.winner.content, /don'?t have|no fragrance|not on file/i);
@@ -197,13 +194,8 @@ test('runCouncil: a real price question for "One Million Elixir" is answered fro
   assert.match(result.winner.content, /Elixir/);
 });
 
-test('runCouncil: "cheapest One Million Elixir" states a real delivered price with its retailer, from site data, no LLM', async () => {
-  const result = await runCouncil({
-    question: 'cheapest One Million Elixir',
-    intent: 'price',
-    config: emptyModels,
-    onEvent: noopEmit,
-  });
+test('resolveQuestion: "cheapest One Million Elixir" states a real delivered price with its retailer, from site data, no LLM', async () => {
+  const result = await resolveQuestion({ question: 'cheapest One Million Elixir', intent: 'price' });
   assert.equal(result.ok, true);
   assert.match(result.winner.content, /£\d+\.\d{2} delivered from \S/);
 });
@@ -243,17 +235,15 @@ test('classifyIntent: "how does your price comparison work" is a question about 
   assert.equal(classifyIntent('how does your price comparison work'), 'meta');
 });
 
-test('runCouncil: a price-intent question that names no fragrance but does match a site policy page is NOT answered as a flat "no fragrance" denial — council.js\'s fallback still holds independently of intent.js', async () => {
-  const result = await runCouncil({
+test('resolveQuestion: a price-intent question that names no fragrance but does match a site policy page is NOT answered as a flat "no fragrance" denial — engine.js\'s fallback still holds independently of intent.js', async () => {
+  const result = await resolveQuestion({
     question: 'how does your price comparison work',
     intent: 'price', // forced, to exercise the fallback rather than the fixed classifier
-    config: emptyModels, // no agents configured, so the council path fails loudly...
-    onEvent: noopEmit,
   });
-  // ...which is exactly the point: reaching the "no agents responded" error
-  // (rather than an ok:true site-data-direct denial) proves this question
-  // was routed to the council, not answered as a missing fragrance.
+  // A `model` result (rather than an ok:true site-data-direct denial)
+  // proves this question was handed to the model with the policy page as
+  // its grounding, not answered as a missing fragrance.
   assert.equal(result.ok, false);
-  assert.equal(result.error, 'no_agents_responded');
+  assert.equal(result.source, 'model');
   assert.notEqual(result.source, 'site-data-direct');
 });

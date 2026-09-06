@@ -1,8 +1,8 @@
-import { test } from 'node:test';
+import { test } from 'vitest';
 import assert from 'node:assert/strict';
-import { runCouncil } from '../server/council.js';
-import { classifyIntent } from '../server/intent.js';
-import { loadSite, productLabel } from '../server/siteData.js';
+import { resolveQuestion } from '../../demo/yanny/engine.js';
+import { classifyIntent } from '../../demo/yanny/intent.js';
+import { loadSite, productLabel } from '../../demo/yanny/siteData.js';
 import {
   findRetailerInQuestion,
   resolveDeliveryQuery,
@@ -19,7 +19,7 @@ import {
   formatMetaAnswer,
   resolveConcentrationQuery,
   formatConcentrationAnswer,
-} from '../server/lookups.js';
+} from '../../demo/yanny/lookups.js';
 
 /**
  * The catalogue-wide lookups: delivery terms, deals, budget filters,
@@ -34,8 +34,6 @@ import {
 
 const site = await loadSite();
 const enabled = site.retailers.RETAILERS.filter((r) => r.enabled !== false);
-const emptyModels = { baseUrl: 'https://unused.invalid', apiKey: 'unused', models: [] };
-const noop = () => {};
 
 /* ── delivery ──────────────────────────────────────────────────────────── */
 
@@ -180,7 +178,7 @@ test('comparison: comparing different bottle sizes says so rather than implying 
 });
 
 test('comparison: one unidentifiable side means no comparison at all, and it says which side', async () => {
-  const result = await resolveCompareQuery('is Sauvage cheaper than Aventus');
+  const result = await resolveCompareQuery('is Zorblax Nebula cheaper than Aventus');
   assert.equal(result.kind, 'unresolved');
   const answer = formatCompareAnswer(result);
   assert.match(answer, /can't pin down/);
@@ -259,12 +257,7 @@ test('routing: the catalogue-wide question shapes are answered with no model cal
     'how many fragrances do you have',
   ];
   for (const question of questions) {
-    const result = await runCouncil({
-      question,
-      intent: classifyIntent(question),
-      config: emptyModels,
-      onEvent: noop,
-    });
+    const result = await resolveQuestion({ question, intent: classifyIntent(question) });
     assert.equal(result.ok, true, `"${question}" did not answer: ${JSON.stringify(result)}`);
     assert.equal(result.source, 'site-data-direct', `"${question}" reached the council`);
     assert.ok(result.winner.content.length > 20, `"${question}" answered with nothing useful`);
@@ -282,14 +275,9 @@ test('routing: genuinely open questions still reach the council', async () => {
     'do you have anything nice',
   ];
   for (const question of questions) {
-    const result = await runCouncil({
-      question,
-      intent: classifyIntent(question),
-      config: emptyModels,
-      onEvent: noop,
-    });
+    const result = await resolveQuestion({ question, intent: classifyIntent(question) });
     assert.equal(result.ok, false, `"${question}" was answered deterministically: ${JSON.stringify(result)}`);
-    assert.equal(result.error, 'no_agents_responded');
+    assert.equal(result.source, 'model');
   }
 });
 

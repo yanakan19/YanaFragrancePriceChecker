@@ -1,7 +1,7 @@
-import { test } from 'node:test';
+import { test } from 'vitest';
 import assert from 'node:assert/strict';
-import { classifyIntent } from '../server/intent.js';
-import { parseBudget, detectAudience, detectPerformanceRequest } from '../server/requestPhrases.js';
+import { classifyIntent } from '../../demo/yanny/intent.js';
+import { parseBudget, detectAudience, detectPerformanceRequest } from '../../demo/yanny/requestPhrases.js';
 import {
   loadSite,
   requestedNotes,
@@ -10,8 +10,8 @@ import {
   suggestContextFor,
   buildSiteDataBlock,
   genderCoverage,
-} from '../server/siteData.js';
-import { councilIntentFor } from '../server/council.js';
+} from '../../demo/yanny/siteData.js';
+import { councilIntentFor } from '../../demo/yanny/engine.js';
 import {
   resolveBudgetQuery,
   formatBudgetAnswer,
@@ -19,7 +19,7 @@ import {
   formatSuggestAnswer,
   resolveGenderQuery,
   formatGenderAnswer,
-} from '../server/lookups.js';
+} from '../../demo/yanny/lookups.js';
 
 /**
  * The messy-question corpus.
@@ -302,10 +302,14 @@ test('gender: there is still no gender field, so the reading comes off the title
 
   // The rule the whole design rests on: silence is its own reading and is
   // never folded into unisex. Unisex is only ever the word itself.
-  assert.ok(
-    coverage.counts.unisex < coverage.counts.notStated / 100,
-    `${coverage.counts.unisex} titles say unisex against ${coverage.counts.notStated} that say nothing — ` +
-      'if these were ever conflated, the smaller number would swallow the larger one silently',
+  // Checked as an identity, not a ratio: the unisex count must be exactly
+  // the number of titles that carry the word (or its two phrasings), so the
+  // thousands that say nothing can never have been folded into it.
+  const saidUnisex = data.DEMO_FRAGRANCES.filter((f) => /\b(?:unisex|for men and women|for him and her)\b/i.test(`${f.brand} ${f.name} ${f.concentration}`)).length;
+  assert.equal(
+    coverage.counts.unisex,
+    saidUnisex,
+    `${coverage.counts.unisex} read as unisex against ${saidUnisex} titles that say so — silence is being folded into unisex`,
   );
   const [id, evidence] = [...coverage.byId].find(([, e]) => e.reading === 'unisex');
   const unisexProduct = data.DEMO_FRAGRANCES.find((f) => f.id === id);
@@ -535,14 +539,14 @@ test("the owner's example: price, scent and audience are all honoured, and the a
  */
 test('multi-constraint: every matched note is genuinely on the fragrance it is claimed for', async () => {
   const { data } = await loadSite();
-  // Keyed including the size. Different bottle sizes of one perfume are
-  // separate catalogue rows and can carry different note lists (see
-  // suggestContextFor's own note on Tom Ford Black Orchid), so a key
-  // without the size would compare an item's matched notes against a
-  // different row's data and report a mismatch that is not there.
+  // Keyed by the row's id. Different sizes of one perfume — and two shops'
+  // listings of the same size — are separate catalogue rows that can carry
+  // different note lists, so any key short of the id would compare an
+  // item's matched notes against a different row's data and report a
+  // mismatch that is not there.
   const byKey = new Map();
   for (const f of data.DEMO_FRAGRANCES) {
-    byKey.set(`${f.brand}|${f.name}|${f.concentration}|${f.sizeMl}`.toLowerCase(), f);
+    byKey.set(f.id, f);
   }
 
   for (const question of [
@@ -552,7 +556,7 @@ test('multi-constraint: every matched note is genuinely on the fragrance it is c
   ]) {
     const result = await resolveBudgetQuery(question);
     for (const item of result.items) {
-      const frag = byKey.get(`${item.brand}|${item.name}|${item.concentration}|${item.sizeMl}`.toLowerCase());
+      const frag = byKey.get(item.id);
       assert.ok(frag, `${item.brand} ${item.name} is not in the catalogue`);
       const own = ['top', 'middle', 'base']
         .flatMap((l) => frag.notes?.[l] ?? [])

@@ -1,7 +1,7 @@
-import { test } from 'node:test';
+import { test } from 'vitest';
 import assert from 'node:assert/strict';
-import { runCouncil } from '../server/council.js';
-import { loadSite, resolveProductQuery, productWords } from '../server/siteData.js';
+import { resolveQuestion } from '../../demo/yanny/engine.js';
+import { loadSite, resolveProductQuery, productWords } from '../../demo/yanny/siteData.js';
 import {
   resolveAvailabilityQuery,
   formatAvailabilityAnswer,
@@ -9,7 +9,7 @@ import {
   formatNotesAnswer,
   resolveSizeQuery,
   formatSizeAnswer,
-} from '../server/lookups.js';
+} from '../../demo/yanny/lookups.js';
 
 /**
  * These run against the live catalogue, which a scheduled workflow rewrites
@@ -91,14 +91,24 @@ test('resolveProductQuery: a single distinctive word resolves to the product who
   assert.equal(result.anchor.name, 'Aventus');
 });
 
-test('resolveProductQuery: the tightest-fit tie-break never fires on a partial match — a query the catalogue has no exact answer for stays a question', async () => {
-  // The site does not carry Chanel's Bleu de Chanel; "bleu" and "chanel"
-  // each hit different, unrelated products at half the query's words. Left
-  // to a shortest-title rule with no completeness guard, one of those would
-  // be returned as the answer.
-  const result = await resolveProductQuery('is Bleu de Chanel sold out', 'availability');
-  assert.equal(result.status, 'ambiguous');
-  assert.equal(result.exact, false);
+test('resolveProductQuery: a misspelt house name is read as the house — the reported "bleu de channel edp" case', async () => {
+  // The catalogue carries Chanel's Bleu De as an EDT and a Parfum. The old
+  // matcher answered this with eight unrelated "Bleu" EDPs: "channel" hit
+  // nothing and "edp" hit every Eau de Parfum. Now the misspelling lands on
+  // the house, the concentration is a preference, and the mismatch is
+  // reported rather than silently swapped for a different bottle.
+  const result = await resolveProductQuery('how much is bleu de channel edp', 'price');
+  assert.equal(result.status, 'matched');
+  assert.equal(result.brand, 'Chanel');
+  assert.match(result.name, /^Bleu/i);
+  assert.equal(result.wantedConcentration, 'Eau de Parfum');
+  assert.equal(result.concentrationMismatch, true);
+  assert.ok(result.alternatives.length >= 1, 'the Parfum is reported as an alternative');
+});
+
+test('resolveProductQuery: a query nothing resembles stays no_match, never the tightest of some weak set', async () => {
+  const result = await resolveProductQuery('is Zorblax Quixotic sold out', 'availability');
+  assert.equal(result.status, 'no_match');
 });
 
 test('resolveProductQuery: the tie-break never fires on a brand-only query — a house is not a bottle', async () => {
@@ -108,14 +118,21 @@ test('resolveProductQuery: the tie-break never fires on a brand-only query — a
   assert.ok(result.candidates.length > 1);
 });
 
-test('resolveProductQuery: genuinely distinct concentrations of one perfume stay a question, not a pick', async () => {
+test('resolveProductQuery: the concentrations of one perfume are an answer plus alternatives, not a question', async () => {
   const result = await resolveProductQuery('what sizes of Sauvage do you have', 'size');
-  assert.equal(result.status, 'ambiguous');
-  const dior = result.candidates.filter((c) => c.brand === 'Dior' && c.name === 'Sauvage');
-  assert.ok(dior.length > 1, 'expected more than one Dior Sauvage concentration among the candidates');
-  // Tightest fit first, so the clarifying question leads with the products
-  // the query describes rather than whatever sat first in catalogue order.
-  assert.equal(result.candidates[0].name, 'Sauvage');
+  assert.equal(result.status, 'matched');
+  assert.equal(result.brand, 'Dior');
+  assert.equal(result.name, 'Sauvage');
+  // The other concentrations travel with the answer so the reader can
+  // correct it in one line, rather than being asked before any answer.
+  assert.ok(result.alternatives.length >= 1, 'expected the other Dior Sauvage concentrations as alternatives');
+  for (const a of result.alternatives) assert.equal(a.name, 'Sauvage');
+  assert.equal(result.wantedConcentration, null);
+  // Asking for one by name picks it.
+  const parfum = await resolveProductQuery('what sizes of Sauvage parfum do you have', 'size');
+  assert.equal(parfum.status, 'matched');
+  assert.equal(parfum.concentration, 'Parfum');
+  assert.equal(parfum.concentrationMismatch, false);
 });
 
 test('productWords: intent-scoped stopwords keep a real product question above the match floor', async () => {
@@ -246,15 +263,14 @@ test('sizes: "out of stock everywhere" and "no shop lists it" are different sent
  * made — the same trick test/priceLookup.test.js already uses for the price
  * path, applied to the intents added alongside it.
  */
-test('runCouncil: availability, notes and size questions are answered from site data with no model call at all', async () => {
-  const emptyModels = { baseUrl: 'https://unused.invalid', apiKey: 'unused', models: [] };
+test('resolveQuestion: availability, notes and size questions are answered from site data with no model call at all', async () => {
   const cases = [
     ['who stocks One Million Elixir', 'availability'],
     ['what does One Million Elixir smell like', 'notes'],
     ['what sizes of One Million Elixir do you have', 'size'],
   ];
   for (const [question, intent] of cases) {
-    const result = await runCouncil({ question, intent, config: emptyModels, onEvent: () => {} });
+    const result = await resolveQuestion({ question, intent });
     assert.equal(result.ok, true, `${intent} did not answer: ${JSON.stringify(result)}`);
     assert.equal(result.source, 'site-data-direct');
     assert.match(result.winner.content, /Rabanne/, `${intent}: ${result.winner.content}`);

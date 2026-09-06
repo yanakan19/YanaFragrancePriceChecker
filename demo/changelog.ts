@@ -30,6 +30,17 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.26.0',
+    date: '6 Sep 2026',
+    title: 'Virtual Yanny answers in your browser, and finds the bottle you meant',
+    points: [
+      'Prices, stock, sizes, notes, delivery, deals and budgets are now looked up on your own device, so an answer arrives in a fraction of a second and nothing you type for those leaves your browser',
+      'A misspelt house or product name is read as the one you meant, so "bleu de channel edp" finds Chanel Bleu De instead of eight other bottles with Bleu in the name',
+      'A price answer now names the closest match, lists every size with its cheapest delivered price, and ends with a one-line way to correct it if the match was wrong',
+      'The old 28-model council and its ranking table are gone; open questions go to one small free service with the catalogue in hand, and every answer says where it came from',
+    ],
+  },
+  {
     version: 'v3.25.0',
     date: '6 Sep 2026',
     title: 'Clearer policies, marked affiliate links, and a more accessible site',

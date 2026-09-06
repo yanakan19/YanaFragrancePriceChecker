@@ -1,6 +1,6 @@
-import { test } from 'node:test';
+import { test } from 'vitest';
 import assert from 'node:assert/strict';
-import { scoreAndRank, groundednessScore } from '../server/scoring.js';
+import { scoreAndRank, groundednessScore } from '../../demo/yanny/scoring.js';
 
 test('groundednessScore: a price present in SITE DATA is not penalised', () => {
   const siteData = 'PRICE MATCH (100% confidence): Dior Sauvage, Eau de Toilette, 30ml. Cheapest right now: £56.99 delivered, from Justmylook.';

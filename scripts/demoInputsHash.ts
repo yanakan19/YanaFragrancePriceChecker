@@ -113,22 +113,27 @@ function readDemoTsConfig(root: string): DemoTsConfigShape {
   return JSON.parse(withoutComments) as DemoTsConfigShape;
 }
 
-/** Every `.ts` file under `dir` (root-relative, forward-slash, e.g. `src/config/retailers.ts`). */
-function listTsFilesUnder(root: string, dir: string): string[] {
+/** Every file with extension `ext` under `dir` (root-relative, forward-slash,
+ *  e.g. `src/config/retailers.ts`), recursing into subdirectories only when
+ *  `recursive` is set. */
+function listFilesUnder(root: string, dir: string, ext: string, recursive: boolean): string[] {
   const found: string[] = [];
   for (const entry of readdirSync(join(root, dir), { withFileTypes: true })) {
     const relPath = `${dir}/${entry.name}`;
     if (entry.isDirectory()) {
-      found.push(...listTsFilesUnder(root, relPath));
-    } else if (entry.isFile() && relPath.endsWith('.ts')) {
+      if (recursive) found.push(...listFilesUnder(root, relPath, ext, recursive));
+    } else if (entry.isFile() && relPath.endsWith(`.${ext}`)) {
       found.push(relPath);
     }
   }
   return found;
 }
 
-/** Matches the one include shape tsconfig.demo.json actually uses: `"<dir>/**\/*.ts"`. */
-const INCLUDE_DIR_PATTERN = /^([\w.-]+)\/\*\*\/\*\.ts$/;
+/** The two include shapes tsconfig.demo.json uses: `"<dir>/**\/*.ts"` (every
+ *  TypeScript file under a tree) and `"<dir>/*.js"` (the plain-JavaScript
+ *  Virtual Yanny engine in one directory, added 2026-09-06). Captures the
+ *  directory, whether it recurses, and the extension. */
+const INCLUDE_DIR_PATTERN = /^([\w./-]+?)\/(\*\*\/)?\*\.(ts|js)$/;
 
 export interface DemoInputsHash {
   /** sha256, hex encoded, over every input file's path and content. */
@@ -144,7 +149,7 @@ export interface DemoInputsHash {
 export function computeDemoInputsHash(root: string): DemoInputsHash {
   const config = readDemoTsConfig(root);
 
-  const dirs: string[] = [];
+  const dirs: { dir: string; ext: string; recursive: boolean }[] = [];
   for (const pattern of config.include) {
     const match = INCLUDE_DIR_PATTERN.exec(pattern);
     // Loud and specific on purpose: a silent fallback here (e.g. "just skip
@@ -155,18 +160,18 @@ export function computeDemoInputsHash(root: string): DemoInputsHash {
     if (!match) {
       throw new Error(
         `demoInputsHash: tsconfig.demo.json's include entry "${pattern}" is not the ` +
-          '"<dir>/**/*.ts" shape scripts/demoInputsHash.ts knows how to walk. Update the ' +
+          '"<dir>/**/*.ts" or "<dir>/*.js" shape scripts/demoInputsHash.ts knows how to walk. Update the ' +
           'INCLUDE_DIR_PATTERN handling there to match, or files this pattern was meant to ' +
           'add will silently fall outside the freshness stamp.',
       );
     }
-    dirs.push(match[1]!);
+    dirs.push({ dir: match[1]!, ext: match[3]!, recursive: Boolean(match[2]) });
   }
 
   const excluded = new Set(config.exclude ?? []);
   const files = new Set<string>();
-  for (const dir of dirs) {
-    for (const file of listTsFilesUnder(root, dir)) {
+  for (const { dir, ext, recursive } of dirs) {
+    for (const file of listFilesUnder(root, dir, ext, recursive)) {
       if (!excluded.has(file) && !HASH_EXCLUDED_INPUTS.has(file)) files.add(file);
     }
   }

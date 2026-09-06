@@ -5,6 +5,7 @@ import {
   loadSite,
   productLabel,
   resolveProductQuery,
+  sizeSlices,
   requestedNotes,
   parseSuggestRequest,
   offerableDescriptors,
@@ -87,21 +88,21 @@ function nameList(names, max = 4) {
  */
 export function formatIdentityRefusal(result, subject) {
   if (result.status === 'ambiguous') {
-    const names = result.candidates.map((f) => productLabel(f));
+    const names = result.candidates.slice(0, 5).map((f) => productLabel(f));
     // See formatPriceAnswer's own note on `exact`: a tie on a complete match
     // and a tie on a partial one are different facts and get different
     // words. Saying "a few products match" about a partial tie overstates
     // what the matcher found.
     if (result.exact === false) {
-      return `Nothing in the catalogue matches that exactly. The closest I have: ${names.join(', ')}. Did you mean one of those?`;
+      return `Nothing in the catalogue matches that exactly. The closest I have: ${names.join(', ')}. Did you mean one of those? Type its full name and I'll look again.`;
     }
-    return `A few products match that: ${names.join(', ')}. Which one did you mean?`;
+    return `A few products match that: ${names.join(', ')}. Which one did you mean? Type its full name.`;
   }
   if (result.status === 'low_confidence') {
     return (
-      `The closest I can find is ${productLabel(result)}, ` +
-      `though I'm not certain that's the one, so I'd rather not state ${subject} for it. ` +
-      `Is that what you meant? If not, try the exact brand and product name.`
+      `Closest I can find, though I'm not certain it's the one: ${productLabel(result)}. ` +
+      `I'd rather not state ${subject} for a guess. ` +
+      `Not the one you meant? Type the exact brand and product name and I'll look again.`
     );
   }
   // A follow-up shape ("what about the 50ml", "is it in stock") failed for a
@@ -145,6 +146,15 @@ function rowsFor(site, frag) {
   });
 }
 
+/** The same, with two shops' rows for one size pooled — see `sizeSlices`
+ *  in siteData.js for why one size can be several catalogue rows. */
+function rowsForAll(site, frags) {
+  return site.priceService.buildComparison(
+    frags.flatMap((f) => site.catalogue.offersFor(f.id)),
+    { sortBy: 'delivered', tier: frags[0].tier },
+  );
+}
+
 /** The date part of the catalogue's own crawl timestamp, for the freshness
  *  caveat every stock answer carries. Never formatted from `new Date()`. */
 function crawledOn(site) {
@@ -169,12 +179,12 @@ export async function resolveAvailabilityQuery(question) {
   const resolved = await resolveProductQuery(question, 'availability');
   if (resolved.status !== 'matched') return resolved;
 
-  const sizes = resolved.group.map((frag) => {
-    const rows = rowsFor(site, frag);
-    const byState = (state) => rows.filter((r) => r.stock === state).map((r) => r.retailer.name).sort();
+  const sizes = sizeSlices(resolved.group).map(({ sizeMl, frags }) => {
+    const rows = rowsForAll(site, frags);
+    const byState = (state) => [...new Set(rows.filter((r) => r.stock === state).map((r) => r.retailer.name))].sort();
     const best = site.priceService.bestOffer(rows);
     return {
-      sizeMl: frag.sizeMl,
+      sizeMl,
       inStock: byState('inStock'),
       lowStock: byState('lowStock'),
       preOrder: byState('preOrder'),
@@ -299,11 +309,11 @@ export async function resolveSizeQuery(question) {
   const resolved = await resolveProductQuery(question, 'size');
   if (resolved.status !== 'matched') return resolved;
 
-  const sizes = resolved.group.map((frag) => {
-    const rows = rowsFor(site, frag);
+  const sizes = sizeSlices(resolved.group).map(({ sizeMl, frags }) => {
+    const rows = rowsForAll(site, frags);
     const best = site.priceService.bestOffer(rows);
     return {
-      sizeMl: frag.sizeMl,
+      sizeMl,
       // Three distinguishable states, not two. "No shop lists it" and "every
       // shop that lists it says out of stock" are different facts, and both
       // are different again from "listed and buyable but nobody states a
@@ -571,7 +581,7 @@ export async function resolveDealsQuery(question) {
     nowGbp: d.price,
     wasGbp: d.wasPrice,
     percentOff: d.percentOff,
-    retailerName: site.index.getRetailer(d.retailerId)?.name ?? null,
+    retailerName: site.retailers.getRetailer(d.retailerId)?.name ?? null,
   });
 
   const ranked = [...site.data.DEALS].sort((a, b) => b.percentOff - a.percentOff || a.price - b.price);
@@ -765,6 +775,7 @@ export async function resolveBudgetQuery(question) {
     })
     .slice(0, 5)
     .map((r) => ({
+      id: r.frag.id,
       brand: r.frag.brand,
       name: r.frag.name,
       concentration: r.frag.concentration,
