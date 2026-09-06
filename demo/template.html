@@ -707,7 +707,9 @@
     display: flex; gap: 12px;
     overflow-x: auto; scroll-snap-type: x proximity; scroll-behavior: smooth;
     /* Snapping aligns items to the scrollport, not the padding box, so without
-       this the first card snaps flush to the edge and clips its medal. */
+       this an edge card snaps flush against the scrollport and clips its
+       medal — the first card when the medal sat top-left, the last now that
+       it sits top-right (see .medal below). */
     scroll-padding-inline: var(--gutter);
     -webkit-overflow-scrolling: touch;
     /* A visible scrollbar matters more here than almost anywhere else in the
@@ -804,18 +806,59 @@
   .art-none { width: 82%; height: 82%; }
   .art-sm .art-none { width: 68%; height: 68%; }
 
-  /* Medals mark the top three by popularity. A real rank, not decoration. */
+  /* Medals mark the top three by popularity. A real rank, not decoration.
+     Top-right corner of the tile, over the art, rather than top-left: left
+     put the medal at the exact spot the pop-rail's own edge cards get
+     clipped against the scrollport (see the scroll-padding-inline note on
+     .pop-rail above), and nothing else sits in the top-right corner of a
+     tile to share it with — the wishlist heart lives on the account page's
+     wishlist rows and the fragrance detail hero, never on a grid tile.
+
+     Disc-and-ribbon rather than a bare circle: a flat number-in-a-circle at
+     22px read as a coloured dot with digit soup inside, not a rank. The
+     ribbon tails are two ::before/::after wedges, a shade darker than the
+     disc (filter: brightness on the same background — still the one gold/
+     silver/bronze token, not a colour invented at the point of use) so they
+     read as fabric under the metal rather than a repeat of the disc itself.
+     They start under the disc's own curve (top: 56% of --medal-size, inside
+     the disc's square bounding box but below the inscribed circle, so the
+     join is hidden by the disc's rounded fill) and run to 148%, so very
+     nearly half the disc's height hangs clear below it — the first version
+     of this only cleared 8% and read as a coin with a notch, not a ribbon.
+     Stacked behind the disc (z-index: -1 inside the .medal stacking
+     context, which its own position + z-index establish) and V-notched at
+     the tip with clip-path so they read as cut ribbon ends rather than
+     square tabs. The white ring is a fixed 2px #fff, not a theme colour,
+     because .art (below) is unconditionally white in both palettes and the
+     ring's job is to cut the disc out of a photo, not out of the theme —
+     so it stays correct if the photo is pale near that corner. --medal-size
+     drives every other dimension so the two breakpoints below are the only
+     numbers that change. */
   .medal {
-    position: absolute; top: -2px; left: -4px; z-index: 2;
-    width: 22px; height: 22px; border-radius: 50%;
+    --medal-size: 24px;
+    position: absolute; top: -3px; right: -3px; z-index: 2;
+    width: var(--medal-size); height: var(--medal-size); border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 800;
+    font-weight: 800; line-height: 1;
+    font-size: calc(var(--medal-size) * 0.46);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .45), 0 0 0 2px #fff;
   }
+  :root[data-layout="desktop"] .medal { --medal-size: 30px; }
+  .medal::before,
+  .medal::after {
+    content: ""; position: absolute; z-index: -1;
+    top: calc(var(--medal-size) * 0.56);
+    width: calc(var(--medal-size) * 0.32); height: calc(var(--medal-size) * 0.92);
+    background: inherit; filter: brightness(0.74);
+    clip-path: polygon(0 0, 100% 0, 100% 58%, 50% 100%, 0 58%);
+  }
+  .medal::before { left: calc(var(--medal-size) * 0.11); transform: rotate(-9deg); transform-origin: top center; }
+  .medal::after  { right: calc(var(--medal-size) * 0.11); transform: rotate(9deg); transform-origin: top center; }
   /* Flat, and from tokens. These were three two-stop linear-gradients built
      from six hardcoded hex values belonging to no palette and moving with no
      theme: the one place in this stylesheet where a colour was invented at
-     the point of use. A rank badge is 22px across, so the gradient inside it
-     was never legible as a gradient in the first place. */
+     the point of use. A rank badge is small, so the gradient inside it was
+     never legible as a gradient in the first place. */
   .medal.gold   { background: var(--rank-1); color: var(--rank-1-on); }
   .medal.silver { background: var(--rank-2); color: var(--rank-2-on); }
   .medal.bronze { background: var(--rank-3); color: var(--rank-3-on); }
