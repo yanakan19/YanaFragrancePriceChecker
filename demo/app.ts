@@ -57,6 +57,7 @@ import {
   PER_ROW_CHOICES, PER_ROW_DEFAULT, clampPerRow, gridWidthFor, perRowChoicesFor,
 } from './tileDensity.js';
 import { trustpilotStateFor } from './trustpilotWidget.js';
+import { ENABLED_SHOP_COUNT } from './legal.js';
 import { deliveryLines } from './deliveryFacts.js';
 import { deliveryPriceNote } from './priceDeliveryNote.js';
 import { msrpComparison, msrpComparisonLabel, type MsrpComparison } from './msrpComparison.js';
@@ -1011,10 +1012,18 @@ function sizeLabel(sizeMl: number | null): string {
  * reader was never reading the clipped version.
  */
 function productHead(f: DemoFragrance, tag = 'span', nameRole = 't-title'): string {
+  // In a tile this whole block sits inside a <button>, which may only hold
+  // phrasing content, so everything is a span. On the detail page (`tag`
+  // 'div') it is the page's own heading: the name is the one h1, and its
+  // wrappers are divs so the heading is not nested inside inline elements.
+  // Styling is by class throughout, so nothing moves.
+  const block = tag !== 'span';
+  const wrap = block ? 'div' : 'span';
+  const name = block ? 'h1' : 'span';
   return `<${tag} class="phead">
-    <span class="phead-text">
-      <span class="phead-name-wrap"><span class="phead-name ${nameRole}" title="${esc(f.name)}">${esc(f.name)}</span></span>
-    </span>
+    <${wrap} class="phead-text">
+      <${wrap} class="phead-name-wrap"><${name} class="phead-name ${nameRole}" title="${esc(f.name)}">${esc(f.name)}</${name}></${wrap}>
+    </${wrap}>
     <span class="phead-meta t-caption">
       <span>${sizeLabel(f.sizeMl)}</span>
       <span>${esc(shortConcentration(f.concentration))}</span>
@@ -1254,13 +1263,22 @@ function homeView(): string {
   return `
     <section class="intro">
       <div class="hero-logo">
-        <p class="hero-wordmark">Price<em>Sniffs</em></p>
+        <!-- The site name is the home page's one level-one heading; every
+             other view's title carries .t-page as an h1 of its own. The class
+             does the styling, so the element can be the honest one. -->
+        <h1 class="hero-wordmark">Price<em>Sniffs</em></h1>
         <p class="hero-by">by YannySniffs</p>
       </div>
-      <p class="hero-mission">The only tool you need to find the best price on any fragrance.</p>
+      <!-- Replaced "The only tool you need to find the best price on any
+           fragrance" on 2026-09-06: "only", "best" and "any" are three claims
+           this site cannot support, and the CAP Code treats an unsupportable
+           superlative as misleading. What follows is what the site can show.
+           "Real and Live Prices" went the same way: prices are checked every
+           three hours, which is the true sentence, not "live". -->
+      <p class="hero-mission">See what a fragrance really costs across ${ENABLED_SHOP_COUNT} UK shops, delivery included.</p>
       <p class="intro-points">
         <span>Delivery Costs Reflected</span>
-        <span>Real and Live Prices</span>
+        <span>Prices Checked Every 3 Hours</span>
         <span>No Promoted Listings</span>
       </p>
       <p class="db-count">Current Database: ${DEMO_FRAGRANCES.length.toLocaleString('en-GB')} fragrances
@@ -1269,7 +1287,7 @@ function homeView(): string {
 
     <section class="pop-section">
       <div class="section-head">
-        <h3 class="t-section">Most stocked</h3>
+        <h2 class="t-section">Most stocked</h2>
         <button class="link-btn see-top" data-browse>See Top ${TOP_N} <span aria-hidden="true">→</span></button>
       </div>
       <ul class="pop-rail">
@@ -1279,7 +1297,7 @@ function homeView(): string {
 
     <div class="bottom-split">
       <section class="suggest-section">
-        <h3 class="t-section">Got an idea?</h3>
+        <h2 class="t-section">Got an idea?</h2>
         <p class="panel-note t-body">${SUGGEST_NOTE}</p>
         <form id="home-suggest-form" class="contact-form">
           <label class="field">
@@ -1296,12 +1314,19 @@ function homeView(): string {
           </label>
           <button type="submit" class="contact-send">Send</button>
         </form>
+        <p class="form-privacy t-caption">We keep what you send only for as long as it takes to reply.
+          <button type="button" class="link-btn" data-page="privacy">Privacy notice</button></p>
         <p id="home-suggest-confirm" class="contact-confirm" hidden></p>
       </section>
 
       <section class="updates-section">
-        <h3 class="t-section">Update History</h3>
-        <ul class="updates-list">
+        <h2 class="t-section">Update History</h2>
+        <!-- The list scrolls on desktop (max-height in the stylesheet), and a
+             region that scrolls must be reachable from the keyboard or its
+             lower entries are unreachable without a mouse: tabindex="0" puts
+             it in the tab order, and the label says what the reader has
+             landed on. axe scrollable-region-focusable, 2026-09-06. -->
+        <ul class="updates-list" tabindex="0" aria-label="Update history">
           ${CHANGELOG.map(
             (entry) => {
               const isPrelaunch = entry.version.startsWith('v0.');
@@ -1357,7 +1382,7 @@ function browseView(): string {
 
   return `
     <button class="back" data-back-home>Back</button>
-    <div class="page-head"><h2 class="t-page">${esc(title)}</h2><span class="count t-count">${list.length}</span></div>
+    <div class="page-head"><h1 class="t-page">${esc(title)}</h1><span class="count t-count">${list.length}</span></div>
     ${
       isTop && state.browseSort === 'stocked'
         ? `<p class="panel-note t-body">Ranked by how many of our ${SHOP_COUNT} shops carry each one — not counting
@@ -1539,11 +1564,22 @@ function offerRow(
     );
   }
 
+  // The CAP Code asks for an affiliate relationship to be obvious before the
+  // click, not only on a policy page. So a commissioned shop's link carries
+  // the marker on the row itself, and rel="sponsored" alongside nofollow so
+  // search engines are told the same thing a reader is. Decided from the
+  // registry's own affiliate status, the same fact the disclosure page
+  // computes its list from, so the two can never disagree.
+  const commissioned = row.retailer.affiliate.status === 'active';
   return `<li class="offer ${isBest ? 'best' : ''} ${row.isPurchasable ? '' : 'unavail'}">
-    <a class="offer-link" href="${esc(row.outboundUrl)}" rel="nofollow noopener" target="_blank">
+    <a class="offer-link" href="${esc(row.outboundUrl)}" rel="nofollow noopener${commissioned ? ' sponsored' : ''}" target="_blank">
       <span class="offer-top">
         <span class="shop t-title">${esc(row.retailer.name)}${
           isNewAt(row.variantId, row.retailer.id) ? '<span class="tag new">New</span>' : ''
+        }${
+          commissioned
+            ? '<span class="tag affiliate" title="PriceSniffs may earn commission if you buy after following this link. It does not change the price you pay.">Affiliate link</span>'
+            : ''
         }${
           isBest && bestTag
             ? `<span class="tag ${bestTag === 'Cheapest' ? '' : 'unsure'}">${esc(bestTag)}</span>`
@@ -2043,18 +2079,18 @@ function notesBlock(f: DemoFragrance): string {
  *  than rendered as a broken link; the row in the database is untouched, so
  *  it would reappear if the fragrance ever comes back into stock somewhere. */
 function wishlistSectionHtml(): string {
-  if (!state.wishlistLoaded) return `<h3 class="t-section">Wishlist</h3><p class="settings-note t-caption">Loading.</p>`;
+  if (!state.wishlistLoaded) return `<h2 class="t-section">Wishlist</h2><p class="settings-note t-caption">Loading.</p>`;
 
   const rows = state.wishlistEntries
     .map((e) => ({ entry: e, frag: fragranceById(e.fragranceId) }))
     .filter((x): x is { entry: WishlistEntry; frag: DemoFragrance } => x.frag != null);
 
   if (rows.length === 0) {
-    return `<h3 class="t-section">Wishlist</h3><p class="settings-note t-caption">Nothing saved yet. Tap Save on a fragrance to add it here.</p>`;
+    return `<h2 class="t-section">Wishlist</h2><p class="settings-note t-caption">Nothing saved yet. Tap Save on a fragrance to add it here.</p>`;
   }
 
   return `
-    <h3 class="t-section">Wishlist</h3>
+    <h2 class="t-section">Wishlist</h2>
     <ul class="shop-list">
       ${rows
         .map(
@@ -2486,7 +2522,8 @@ function brandsPanel(): string {
   </div>`;
 
   if (list.length === 0) {
-    return `${controls}<p class="empty-note t-body">No brands match that filter yet.</p>`;
+    return `<div class="page-head"><h1 class="t-page">Brands</h1><span class="count t-count">0</span></div>
+    ${controls}<p class="empty-note t-body">No brands match that filter yet.</p>`;
   }
 
   // Group under the initial so a long alphabetical list stays scannable. The
@@ -2502,7 +2539,10 @@ function brandsPanel(): string {
     }
     out += `<li><button class="brand-row t-title" data-brand="${esc(b)}">${esc(b)}</button></li>`;
   }
-  return `${controls}<ul class="brand-list">${out}</ul>`;
+  // A heading of its own, like Shops and Results: the tab bar names the
+  // view but a tab is not a heading (axe page-has-heading-one, 2026-09-06).
+  return `<div class="page-head"><h1 class="t-page">Brands</h1><span class="count t-count">${list.length}</span></div>
+  ${controls}<ul class="brand-list">${out}</ul>`;
 }
 
 /* ── deals ────────────────────────────────────────────────────────────────
@@ -2517,7 +2557,7 @@ function brandsPanel(): string {
 /** The page shell: a heading (Explore's own tabs used to do that job) over
  *  the unchanged panel below. */
 function dealsView(): string {
-  return `<div class="page-head"><h2 class="t-page">Today’s Deals</h2></div>${dealsPanel()}`;
+  return `<div class="page-head"><h1 class="t-page">Today’s Deals</h1></div>${dealsPanel()}`;
 }
 
 function dealsPanel(): string {
@@ -2657,7 +2697,11 @@ function retailersPanel(): string {
   const shops = [...RETAILERS]
     .filter((r) => !r.singleBrandOnly)
     .sort((a, b) => a.name.localeCompare(b.name));
-  return `<ul class="shop-list">
+  // The one view that rendered a bare list with no heading of its own —
+  // the tab bar named it, but a tab is not a heading, and the page had no
+  // h1 (axe page-has-heading-one, 2026-09-06). Same head as Results.
+  return `<div class="page-head"><h1 class="t-page">Shops</h1><span class="count t-count">${shops.length}</span></div>
+  <ul class="shop-list">
     ${shops
       .map((r) => {
         return `<li>
@@ -2693,20 +2737,59 @@ function trustpilotWidget(r: Retailer): string {
   if (state.kind === 'unavailable') {
     return `<p class="trustpilot-unavailable t-caption dimmer">${esc(state.message)}</p>`;
   }
-  return `<div class="trustpilot-block">
-    <div
+  // Nothing is fetched from Trustpilot until the reader asks for it. Their
+  // bootstrap script is the one third-party script this site can load, and
+  // loading it on page view would store and send things on Trustpilot's
+  // behalf before anyone had agreed to anything — the exact case PECR
+  // regulation 6 requires consent for. A button that says what it will do,
+  // and does it only when pressed, is that consent, given where it is
+  // needed and withheld by simply not pressing it. The plain link to the
+  // review page is there regardless, so the fact is never hidden behind the
+  // widget. See the cookies page.
+  return `<div class="trustpilot-block trustpilot-consent">
+    <button type="button" class="link-btn tp-show"
+            data-tp-show="${esc(state.businessId)}" data-tp-review="${esc(state.reviewUrl)}"
+            aria-describedby="tp-consent-note">Show ${esc(r.name)}'s Trustpilot rating</button>
+    <a href="${esc(state.reviewUrl)}" target="_blank" rel="noopener nofollow">See reviews on Trustpilot</a>
+    <span id="tp-consent-note" class="t-caption dimmer">Loads Trustpilot's widget from their servers, under their privacy policy.</span>
+  </div>`;
+}
+
+/** The TrustBox itself, rendered only after showTrustpilot() has been asked to. */
+function trustpilotWidgetMarkup(businessId: string, reviewUrl: string, theme: 'light' | 'dark'): string {
+  return `<div
       class="trustpilot-widget"
       data-trustpilot-widget
       data-locale="en-GB"
       data-template-id="5419b6ffb0d04a076446a9af"
-      data-businessunit-id="${esc(state.businessId)}"
+      data-businessunit-id="${esc(businessId)}"
       data-style-height="24px"
       data-style-width="100%"
-      data-theme="dark"
+      data-theme="${theme}"
     >
-      <a href="${esc(state.reviewUrl)}" target="_blank" rel="noopener nofollow">See reviews on Trustpilot</a>
-    </div>
-  </div>`;
+      <a href="${esc(reviewUrl)}" target="_blank" rel="noopener nofollow">See reviews on Trustpilot</a>
+    </div>`;
+}
+
+/** The palette the page is actually showing, so the widget is drawn to match rather than always dark. */
+function currentTheme(): 'light' | 'dark' {
+  const root = document.documentElement;
+  const host = root.getAttribute('data-theme');
+  if (host === 'light' || host === 'dark') return host;
+  const mode = root.getAttribute('data-mode');
+  if (mode === 'light' || mode === 'dark') return mode;
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+/** Swaps the consent button for the live widget, then mounts it. */
+function showTrustpilot(button: HTMLElement): void {
+  const businessId = button.getAttribute('data-tp-show') ?? '';
+  const reviewUrl = button.getAttribute('data-tp-review') ?? '';
+  const block = button.closest<HTMLElement>('.trustpilot-block');
+  if (!block || !businessId) return;
+  block.classList.remove('trustpilot-consent');
+  block.innerHTML = trustpilotWidgetMarkup(businessId, reviewUrl, currentTheme());
+  mountTrustpilotWidgets();
 }
 
 /** Whether this retailer's own offer for `f` — not any other shop's — is
@@ -2737,7 +2820,7 @@ function retailerView(): string {
     <div class="org-hero">
       ${monogram(r.name)}
       <div class="org-hero-text">
-        <h2 class="org-hero-name t-page">${esc(r.name)} <span class="org-hero-count t-count">${retailerCountMark(r.id)}</span></h2>
+        <h1 class="org-hero-name t-page">${esc(r.name)} <span class="org-hero-count t-count">${retailerCountMark(r.id)}</span></h1>
         <p class="org-hero-domain t-caption">${esc(r.domain)}</p>
         ${r.blurb ? `<p class="org-hero-blurb t-body">${esc(r.blurb)}</p>` : ''}
         <ul class="fact-list">
@@ -2803,7 +2886,7 @@ function brandView(): string {
     <div class="org-hero">
       ${monogram(b)}
       <div class="org-hero-text">
-        <h2 class="org-hero-name t-page">${esc(b)}</h2>
+        <h1 class="org-hero-name t-page">${esc(b)}</h1>
         ${
           site
             ? `<a class="brand-site-link" href="${esc(site.url)}" target="_blank" rel="noopener nofollow">
@@ -2945,7 +3028,8 @@ function notesPanel(): string {
     </button></li>`;
   }
 
-  return `${groups}
+  return `<div class="page-head"><h1 class="t-page">Notes</h1><span class="count t-count">${list.length}</span></div>
+    ${groups}
     ${controls}
     <p class="panel-note t-body">Only notes a shop has explicitly published. ${DEMO_FRAGRANCES.filter((f) => f.notes).length} of ${DEMO_FRAGRANCES.length} fragrances list them.</p>
     <div class="notes-browse">
@@ -2993,7 +3077,7 @@ function noteView(): string {
 
   return `
     <button class="back" data-back-explore>Back</button>
-    <div class="page-head"><h2 class="t-page">${esc(titleCase(state.noteName))}</h2><span class="count t-count">${list.length}</span></div>
+    <div class="page-head"><h1 class="t-page">${esc(titleCase(state.noteName))}</h1><span class="count t-count">${list.length}</span></div>
     ${layerChips ? `<p class="note-chips note-chips-profile">${layerChips}</p>` : ''}
     <p class="panel-note t-body">Fragrances listing ${esc(titleCase(state.noteName))}${state.noteLayer === 'any' ? '' : ` as a ${state.noteLayer} note`}.</p>
     ${controls}
@@ -3011,7 +3095,7 @@ function searchResultsHtml(q: string): string {
   if (!q) return `<p class="empty-note t-body">Type to search all ${DEMO_FRAGRANCES.length} fragrances.</p>`;
   const filtered = visibleFragrances();
   const list = applyFacets(filtered);
-  return `<div class="page-head"><h2 class="t-page">Results</h2><span class="count t-count">${list.length}</span></div>
+  return `<div class="page-head"><h1 class="t-page">Results</h1><span class="count t-count">${list.length}</span></div>
     <div class="controls">${facetsBlock(filtered)}</div>
     ${fragranceList(list, 'Nothing matches that search.')}`;
 }
@@ -3122,7 +3206,7 @@ function settingsView(): string {
   return `
     <button class="back" data-back>Back</button>
     <article class="doc settings-doc">
-      <h2 class="t-page">Settings</h2>
+      <h1 class="t-page">Settings</h1>
 
       ${SUPABASE_CONFIGURED ? `<button class="account-entry" data-go-account>
         <span>${accountEntryLabel()}</span>${ICON_CHEVRON}
@@ -3148,7 +3232,7 @@ function settingsView(): string {
 
       <p class="settings-note t-caption">Your preference will be remembered on this device.</p>
 
-      <h3 class="t-section">Contact us</h3>
+      <h2 class="t-section">Contact us</h2>
       <form id="contact-form" class="contact-form">
         <label class="field">
           <span>What is this about</span>
@@ -3162,9 +3246,12 @@ function settingsView(): string {
         </label>
         <button type="submit" class="contact-send">Send</button>
       </form>
+      <p class="form-privacy t-caption">Sending opens your own email app; nothing goes to a server of ours.
+        We keep what you send only for as long as it takes to reply.
+        <button type="button" class="link-btn" data-page="privacy">Privacy notice</button></p>
       <p id="contact-confirm" class="contact-confirm" hidden></p>
 
-      <h3 class="t-section">Follow</h3>
+      <h2 class="t-section">Follow</h2>
       <a class="social" href="https://www.tiktok.com/@yannysniffs">
         ${ICON_TIKTOK}<span>TikTok</span><span class="social-handle">@yannysniffs</span>
       </a>
@@ -3172,7 +3259,7 @@ function settingsView(): string {
         ${ICON_INSTAGRAM}<span>Instagram</span><span class="social-handle">@yannysniffs</span>
       </a>
 
-      <h3 class="t-section">Legal</h3>
+      <h2 class="t-section">Legal</h2>
       <nav class="foot-links">
         ${LEGAL_PAGES
           // About has its own place in the top bar now, so it is not repeated
@@ -3181,7 +3268,10 @@ function settingsView(): string {
           .map((p) => `<button class="link-btn" data-page="${p.id}">${esc(p.short)}</button>`)
           .join('')}
       </nav>
-      <p class="foot-legal dimmer">© ${new Date().getFullYear()} ${esc(COMPANY.name)}.</p>
+      <p class="foot-legal">Some shop links are affiliate links, marked on the page. We may earn
+        commission if you buy, at no cost to you, and it never changes the order of results.
+        <button class="link-btn" data-page="affiliate">How that works</button></p>
+      <p class="foot-legal dimmer">© ${new Date().getFullYear()} ${esc(COMPANY.name)}, run by ${esc(COMPANY.legalName)}.</p>
     </article>`;
 }
 
@@ -3227,20 +3317,20 @@ function accountView(): string {
     return `
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
-        <h2 class="t-page">Account</h2>
+        <h1 class="t-page">Account</h1>
         <p>Accounts are not switched on for this deployment yet.</p>
       </article>`;
   }
 
   if (s.kind === 'loading') {
-    return `<button class="back" data-back>Back</button><article class="doc settings-doc"><h2 class="t-page">Account</h2><p>Loading.</p></article>`;
+    return `<button class="back" data-back>Back</button><article class="doc settings-doc"><h1 class="t-page">Account</h1><p>Loading.</p></article>`;
   }
 
   if (s.kind === 'signedIn') {
     return `
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
-        <h2 class="t-page">Account</h2>
+        <h1 class="t-page">Account</h1>
         <p class="account-note">Signed in as ${esc(s.email)}.</p>
         <button class="contact-send" id="auth-sign-out">Sign out</button>
         ${wishlistSectionHtml()}
@@ -3267,7 +3357,7 @@ function accountView(): string {
     return `
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
-        <h2 class="t-page">Verify your email</h2>
+        <h1 class="t-page">Verify your email</h1>
         <p class="account-note">
           We sent a link to ${esc(s.email === '' ? 'your email address' : s.email)}. Follow it to finish setting up your
           account, then come back here.
@@ -3282,7 +3372,7 @@ function accountView(): string {
   return `
     <button class="back" data-back>Back</button>
     <article class="doc settings-doc">
-      <h2 class="t-page">Account</h2>
+      <h1 class="t-page">Account</h1>
 
       <div class="seg" role="group" aria-label="Sign in or sign up">
         <button class="seg-btn ${!signUpTab ? 'on' : ''}" data-auth-tab="signIn">Sign in</button>
@@ -3312,6 +3402,20 @@ function accountView(): string {
         <button type="submit" class="contact-send" ${state.authBusy ? 'disabled' : ''}>
           ${signUpTab ? 'Create account' : 'Sign in'}
         </button>
+        ${
+          // Said at the point of signing up, where it is decided, not only on
+          // a page the reader has to go and find: what is collected, who holds
+          // it, and which terms apply. Plain buttons rather than links because
+          // every in-app page is reached by data-page; type="button" so they
+          // can never submit the form they sit inside.
+          signUpTab
+            ? `<p class="form-privacy t-caption">Creating an account stores your email address, login and wishlist
+                with our account provider, Supabase, and means you accept our
+                <button type="button" class="link-btn" data-page="terms">terms</button>. See the
+                <button type="button" class="link-btn" data-page="privacy">privacy notice</button> for
+                what is kept and how to have it deleted.</p>`
+            : ''
+        }
       </form>
 
       ${!signUpTab ? `<button class="link-btn" id="auth-forgot">Forgot your password</button>` : ''}
@@ -3346,7 +3450,7 @@ function notFoundView(): string {
   const path = state.notFoundPath.replace(/^\/+/, '/');
   return `
     <article class="doc">
-      <h2 class="t-page">Page not found</h2>
+      <h1 class="t-page">Page not found</h1>
       <p class="t-body">Nothing on this site answers to
         ${path && path !== '/' ? `<code>${esc(path)}</code>` : 'that address'}.
         It may have been a fragrance or a shop that has since been delisted.</p>
@@ -3365,7 +3469,7 @@ function aboutView(): string {
   if (!page) return homeView();
   return `
     <article class="doc">
-      <h2 class="t-page">${esc(page.title)}</h2>
+      <h1 class="t-page">${esc(page.title)}</h1>
       ${page.body}
     </article>`;
 }
@@ -3376,7 +3480,7 @@ function legalView(): string {
   return `
     <button class="back" data-back>Back</button>
     <article class="doc">
-      <h2 class="t-page">${esc(page.title)}</h2>
+      <h1 class="t-page">${esc(page.title)}</h1>
       ${page.body}
     </article>`;
 }
@@ -4072,6 +4176,11 @@ function yannyHeadHtml(): string {
     <div class="yanny-head-text">
       <p class="yanny-head-name">Virtual Yanny</p>
       <p class="yanny-head-sub">Grounded only in what this site actually shows</p>
+      <!-- The one place on the site where what a reader types leaves their
+           browser, said where they type it. The privacy notice carries the
+           full account; this is the sentence that has to be seen first. -->
+      <p class="yanny-head-note">What you send goes to our chat service and an AI provider to be answered,
+        and is not stored by us. Please leave out personal details.</p>
     </div>
     ${yannyClearHtml()}
     <button class="yanny-close" id="yanny-close" aria-label="Close chat">${ICON_CLOSE}</button>
@@ -4685,7 +4794,7 @@ function dsTokenTable(rows: TokenRow[], swatch: boolean): string {
 function designView(): string {
   const colour = DS_COLOUR_GROUPS.map(
     (g) => `<div class="ds-group">
-      <h4 class="ds-group-title t-eyebrow">${esc(g.title)}</h4>
+      <h3 class="ds-group-title t-eyebrow">${esc(g.title)}</h3>
       <p class="ds-group-note t-caption">${esc(g.note)}</p>
       ${dsTokenTable(g.tokens, true)}
     </div>`,
@@ -4716,7 +4825,7 @@ function designView(): string {
   return `
     <button class="back" data-back>Back</button>
     <article class="doc design-doc">
-      <h2 class="t-page">Design system</h2>
+      <h1 class="t-page">Design system</h1>
       <p class="t-body">Every value on this page was read out of the live stylesheet at the
         moment the page rendered. The swatches are painted with the tokens themselves and the
         text samples are real elements carrying the real classes, so nothing here is a copy of
@@ -4724,7 +4833,7 @@ function designView(): string {
         demo/template.html and this page changes with it.</p>
 
       <section class="ds-section">
-        <h3 class="t-section">Theme</h3>
+        <h2 class="t-section">Theme</h2>
         <p class="t-body">The palette is five near identical blocks of custom properties, one per
           state the page can be in: the dark default, the light theme, the system theme following
           the operating system, and the two a host page can force by stamping data-theme on the
@@ -4738,12 +4847,12 @@ function designView(): string {
       </section>
 
       <section class="ds-section">
-        <h3 class="t-section">Colour</h3>
+        <h2 class="t-section">Colour</h2>
         ${colour}
       </section>
 
       <section class="ds-section">
-        <h3 class="t-section">Contrast, measured now</h3>
+        <h2 class="t-section">Contrast, measured now</h2>
         <p class="t-body">Computed in the browser from the two tokens named on each row, in
           whichever theme is showing. AA asks 4.5:1 of text and 3:1 of a graphic; every pair here
           is held to the text bar. A row that fails says so rather than being left off the list.</p>
@@ -4751,7 +4860,7 @@ function designView(): string {
       </section>
 
       <section class="ds-section">
-        <h3 class="t-section">Type</h3>
+        <h2 class="t-section">Type</h2>
         <p class="t-body">Eight roles, one size, weight and tracking each. The specification
           beside each sample is read off the sample itself.</p>
         <div class="ds-table ds-type-table">${type}</div>
@@ -4759,7 +4868,7 @@ function designView(): string {
       </section>
 
       <section class="ds-section">
-        <h3 class="t-section">Space and layout</h3>
+        <h2 class="t-section">Space and layout</h2>
         ${dsTokenTable(DS_CONSTANTS, false)}
         <p class="t-caption ds-gap">There is no radius or spacing scale to read: corner radii and
           gaps are written as literals where they are used. Naming that here rather than inventing
@@ -4768,7 +4877,7 @@ function designView(): string {
       </section>
 
       <section class="ds-section">
-        <h3 class="t-section">Elevation</h3>
+        <h2 class="t-section">Elevation</h2>
         <p class="t-body">One level, and it is for things that genuinely float: the dialog and the
           chart's own tooltip. Cards, tiles, badges and the price box carried it too until
           17 Aug 2026; each of them already had a border or a ground of its own doing the same
@@ -4779,14 +4888,14 @@ function designView(): string {
       </section>
 
       <section class="ds-section">
-        <h3 class="t-section">Motion</h3>
+        <h2 class="t-section">Motion</h2>
         <p class="t-body">Four durations and two curves. Motion explains a change of state, never
           arrival, and nothing animates a price.</p>
         ${dsTokenTable(DS_MOTION, false)}
       </section>
 
       <section class="ds-section">
-        <h3 class="t-section">Icons</h3>
+        <h2 class="t-section">Icons</h2>
         <p class="t-body">Line drawn, one 24 unit box, one weight, no fills, and inline in the
           bundle so the page makes no request for a picture of anything. The four gender marks at
           the end carry their own colour; every other icon takes the colour of the text around it.</p>
@@ -5325,6 +5434,14 @@ function init(): void {
     if (page) {
       state.legalId = page.getAttribute('data-page')!;
       go('legal');
+      return;
+    }
+
+    // The Trustpilot consent button — see trustpilotWidget(). Delegated like
+    // everything else because the retailer page re-renders.
+    const tpShow = t.closest<HTMLElement>('[data-tp-show]');
+    if (tpShow) {
+      showTrustpilot(tpShow);
       return;
     }
 
