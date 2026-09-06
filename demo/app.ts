@@ -558,7 +558,7 @@ function facetGroups(list: DemoFragrance[]) {
  *  for a sighted reader, never the thing carrying the meaning. */
 function facetPill(group: FacetGroup, value: string, label: string, count: number, active: boolean, ico = ''): string {
   return `<button type="button" class="facet-pill${ico ? ' has-ico' : ''}${active ? ' is-active' : ''}" data-facet-group="${group}" data-facet-value="${esc(value)}" aria-pressed="${active}">
-    ${ico}<span>${esc(label)}</span> <span class="facet-count t-count">${count}</span>
+    ${ico}<span class="facet-label">${esc(label)}</span> <span class="facet-count t-count">${count}</span>
   </button>`;
 }
 
