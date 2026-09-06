@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- demo-build-hash sha256:1554ba36a0a0291e24e7133d71bb219d9b87e2d601459f10514e6182f29f8551 — a fingerprint of the source this document was built from, written by scripts/build-demo.ts and checked by tests/demoBuildFreshness.test.ts. Do not hand-edit; run `npm run demo` instead. -->
+<!-- demo-build-hash sha256:df5a980ab6aeb02f3f792d5567e458feebf922e8b3e756a4eab508d8466301dc — a fingerprint of the source this document was built from, written by scripts/build-demo.ts and checked by tests/demoBuildFreshness.test.ts. Do not hand-edit; run `npm run demo` instead. -->
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
@@ -1480,24 +1480,38 @@
     margin: 2px 0 10px; padding: 14px; background: var(--surface);
     border: 1px solid var(--line); border-radius: 12px;
   }
+  /* Every group after the first gets a rule above it, so the panel reads as
+     a stack of clearly separated lists rather than one run-on block — the
+     same visual language (rule, legend, list) regardless of how many
+     options a group has or how long its labels are. */
   .facet-group { border: 0; margin: 0; padding: 0; min-width: 0; }
+  .facet-group + .facet-group { border-top: 1px solid var(--line); padding-top: 12px; }
   .facet-group legend {
     font-size: 10.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
-    color: var(--faint); margin: 0 0 7px; padding: 0;
+    color: var(--faint); margin: 0 0 6px; padding: 0;
   }
-  .facet-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  /* One option per row rather than a wrapped run of pill widths: a "Volume"
+     group whose labels range from "EDP" to "120ml And Over" cannot wrap into
+     even rows at the 248px sidebar width (or even at a phone's width) without
+     leaving a ragged half-empty line wherever a short label follows a long
+     one. A fixed-height row list has no such failure mode — every option is
+     exactly as wide as its container at every width, so nothing about the
+     panel's tidiness depends on how the label text happens to break. */
+  .facet-pills { display: flex; flex-direction: column; gap: 2px; }
   .facet-pill {
-    background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px;
-    padding: 5px 11px; font: inherit; font-size: 12.5px; font-weight: 600; color: var(--ink);
-    cursor: pointer; transition: border-color .12s ease, color .12s ease, background .12s ease;
+    display: flex; align-items: center; gap: 8px; width: 100%;
+    background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px;
+    padding: 6px 10px; font: inherit; font-size: 13px; font-weight: 600; color: var(--ink);
+    text-align: left; cursor: pointer; transition: border-color .12s ease, color .12s ease, background .12s ease;
   }
-  .facet-count { color: var(--faint); }
+  .facet-label { flex: 1 1 auto; min-width: 0; }
+  .facet-count { color: var(--faint); flex: none; font-variant-numeric: tabular-nums; }
   .facet-pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   @media (hover: hover) and (pointer: fine) {
     .facet-pill:hover { border-color: var(--accent); }
   }
-  /* Selected chips invert to the ink ramp, deliberately not the accent: a
-     browse screen can carry six selections at once, and six red pills would
+  /* Selected rows invert to the ink ramp, deliberately not the accent: a
+     browse screen can carry six selections at once, and six red rows would
      stop red meaning "best price" anywhere on the page. Accent is reserved
      for the primary action, the best-price marker, the live chart line and
      focus rings. */
@@ -1508,22 +1522,20 @@
   .facets-clear { align-self: flex-start; }
 
   /* ── the Gender group ──────────────────────────────────────────────────────
-     Same pills as every other group, with a mark and a sentence. The mark is
-     Venus, Mars, the two interlocked, or a broken ring for "Not stated"; see
-     the ICON_GENDER_* set in demo/app.ts. flex rather than inline so the mark
-     and the word sit on one baseline at any label length.
+     Same rows as every other group, with a mark. The mark is Venus, Mars, the
+     two interlocked, or a broken ring for "Not stated"; see the ICON_GENDER_*
+     set in demo/app.ts.
 
      The colours come from --gender-women / --gender-men, defined in all five
      palette blocks at the top of this file with their measured contrast. Only
      the classed strokes take them: the unisex ring and the whole "Not stated"
      mark are currentColor, so they follow the pill's own ink and stay right
-     when a selected pill inverts. That is deliberate as well as convenient —
+     when a selected row inverts. That is deliberate as well as convenient —
      "Not stated" is not a gender and does not get a gender's colour.
 
-     A selected pill's ground becomes --ink, so both colours swap to their
+     A selected row's ground becomes --ink, so both colours swap to their
      --on variant there. Nothing about the meaning depends on which one is
      showing: the word beside the mark says it either way. */
-  .facet-pill.has-ico { display: inline-flex; align-items: center; gap: 6px; }
   .facet-pill .gender-ico { width: 15px; height: 15px; flex: none; }
   .gender-ico .g-women { stroke: var(--gender-women); }
   .gender-ico .g-men   { stroke: var(--gender-men); }
@@ -3392,7 +3404,7 @@ ${t.examples.map(e).join(`
 `)}`}var f6=/\b(thanks|thank\s+you|thankyou|ta|cheers|nice\s+one)\b/i;async function Tn(t){let e=await C();return{kind:f6.test(t)?"thanks":"hello",fragranceCount:e.data.DEMO_FRAGRANCES.length,retailerCount:e.retailers.RETAILERS.filter(a=>a.enabled!==!1).length}}function An(t){return t.kind==="thanks"?"No problem. Ask any time \u2014 prices, stock, sizes, deals and delivery for anything this site tracks.":`Hello. I answer from this site's own data: ${t.fragranceCount.toLocaleString("en-GB")} fragrances across ${t.retailerCount} UK shops. Ask me a price ("how much is Dior Sauvage EDT"), what's on sale, what you can get under a budget, or for something by scent \u2014 sweet, fresh, woody and so on.`}var h6=/\b(who are you|what are you\b|are you (a |an )?(bot|robot|chatbot|human|ai|real)|what (is|are) (this site|this website|pricesniffs)|what does (this site|this website|pricesniffs) do)\b/i,b6=/\b(how (fresh|old|current|recent|up.to.date)|last (updated|refreshed|checked)|when (was|were|did) .{0,40}(updated|refreshed|crawled|checked|harvested))\b/i,w6=/\b((which|what|how many) (shops?|retailers?|stores?|sites?|merchants?)|do you (cover|track|include|check)|shops? do you|retailers? do you)\b/i,g6=/\bhow many (fragrances?|perfumes?|products?|brands?|scents?|bottles?)\b/i,y6=/\b(concentrations?|strengths?)\b.{0,30}\b(do you|you (cover|have|list|track|stock)|are (there|available)|available)\b|\b(what|which|how many)\b.{0,20}\b(concentrations?|strengths?)\b/i;async function In(t){let e=await C();if(h6.test(t))return{kind:"identity",companyName:e.legal.COMPANY.name,fragranceCount:e.data.DEMO_FRAGRANCES.length,retailerCount:e.retailers.RETAILERS.filter(a=>a.enabled!==!1).length,crawledOn:Yo(e)};if(b6.test(t))return{kind:"freshness",crawledAt:e.catalogue.CRAWLED_AT??null,dealsGeneratedAt:e.data.DEALS_GENERATED_AT??null};if(g6.test(t)){let a=e.data.DEMO_FRAGRANCES,r=0;for(let i of a)r+=e.catalogue.offersFor(i.id).length;return{kind:"size",fragranceCount:a.length,brandCount:new Set(a.map(i=>i.brand)).size,offerCount:r,retailerCount:e.retailers.RETAILERS.filter(i=>i.enabled!==!1).length,withNotesCount:a.filter(i=>i.notes).length}}if(y6.test(t))return{kind:"concentration-vocabulary",stated:await Mi()};if(w6.test(t)){let a=e.retailers.RETAILERS.filter(r=>r.enabled!==!1);return{kind:"coverage",names:a.map(r=>r.name),notStated:a.filter(r=>r.shipping.standardGbp===null).map(r=>r.name)}}return null}function Sn(t){let e=a=>a.toLocaleString("en-GB");return t.kind==="concentration-vocabulary"?gn(t):t.kind==="identity"?`I'm Virtual Yanny, ${t.companyName}'s fragrance assistant \u2014 an automated price checker, not a person. I answer only from this site's own data: ${e(t.fragranceCount)} fragrances across ${t.retailerCount} UK shops, last refreshed ${t.crawledOn}. Ask me prices, stock, sizes, deals, delivery, or for something by scent.`:t.kind==="freshness"?`Prices come from the last catalogue harvest, ${String(t.crawledAt).replace("T"," ").slice(0,16)} UTC. The deals list is rebuilt on its own slower schedule, last ${String(t.dealsGeneratedAt).replace("T"," ").slice(0,16)} UTC. Shops can change a price or sell out between harvests, so check the shop before you buy.`:t.kind==="coverage"?`${t.names.length} shops: ${t.names.join(", ")}.`+(t.notStated.length?` ${ue(t.notStated)} publish no standard delivery cost, so they show as "delivery not stated" and never rank as cheapest.`:"")+" None of them pays for placement.":`${e(t.fragranceCount)} bottles across ${e(t.brandCount)} brands, ${e(t.offerCount)} live listings from ${t.retailerCount} shops. ${e(t.withNotesCount)} of the bottles carry notes, which are only stored where a retailer published them.`}var k6={greeting:{resolve:Tn,format:(t,e)=>An(e)},price:{resolve:Ei,format:(t,e)=>xo(t,e)},availability:{resolve:Xo,format:(t,e)=>$o(e)},notes:{resolve:Qo,format:(t,e)=>en(e)},size:{resolve:tn,format:(t,e)=>an(e)},delivery:{resolve:rn,format:(t,e)=>ln(e)},deals:{resolve:sn,format:(t,e)=>on(e)},budget:{resolve:un,format:(t,e)=>hn(e)},compare:{resolve:bn,format:(t,e)=>wn(e)},brand:{resolve:yn,format:(t,e)=>kn(e)},meta:{resolve:In,format:(t,e)=>Sn(e)},suggest:{resolve:mn,format:(t,e)=>fn(e)}},T6=new Set(["price","suggest"]);function A6(t,{declined:e,policyInDisguise:a}){return a?"general":e&&T6.has(t)?t:"general"}async function Pn({question:t,intent:e}){let a=e,r=k6[e];if(r){let l=await r.resolve(t),s=l===null,o=!s&&l.status==="no_match"&&!l.followUp&&!!await ji(t);if(s||o)a=A6(e,{declined:s,policyInDisguise:o});else{let n=r.format(t,l);return{ok:!0,source:"site-data-direct",intent:e,winner:{agentNumber:0,content:n,totalScore:100,criteriaScores:{},rank:1},priceMatchStatus:l.status}}}let i=await Ho(t,a);return{ok:!1,source:"model",intent:a,siteData:i}}var vn="",Ui=vn!=="";function zi(t){return`${vn}${t}`}var qi={ok:!1,configured:!1,providersReachable:0,agentCount:0,reason:"no-answer"},I6=8e3;async function Zn(){if(!Ui)return{...qi,reason:"not-built"};try{let t=new AbortController,e=setTimeout(()=>t.abort(),I6),a;try{a=await fetch(zi("/api/health"),{signal:t.signal})}finally{clearTimeout(e)}if(!a.ok)return qi;let r=await a.json(),i=r.configured===!0,l=typeof r.providersReachable=="number"?r.providersReachable:0,s=r.ok===!0;return{ok:s,configured:i,providersReachable:l,agentCount:typeof r.agentCount=="number"?r.agentCount:0,reason:s?"none":i?l===0?"router-down":"no-answer":"not-configured"}}catch{return qi}}var En=0,S6=6e4;function Ua(){let t=Date.now();if(!(t-En<S6)&&(En=t,Vo().catch(()=>{}),!!Ui))try{fetch(zi("/api/health"),{cache:"no-store"}).catch(()=>{})}catch{}}var P6="That one needs the AI side of me, which isn't connected in this build yet. I can still answer prices, stock, sizes, notes, delivery, deals, budgets and comparisons from the catalogue.";async function jn(t,e,a,r){if(r?.aborted)return;a({type:"status",message:"Looking that up in the catalogue\u2026"});let i;try{i=await Pn({question:t,intent:e??jo(t)})}catch{if(r?.aborted)return;a({type:"error",message:"Something went wrong looking that up. Try asking it another way."});return}if(r?.aborted)return;if(i.source==="site-data-direct"&&i.winner){a({type:"result",result:{ok:!0,source:"site-data-direct",winner:i.winner}});return}if(!Ui){a({type:"result",result:{ok:!0,source:"site-data-direct",winner:{agentNumber:0,content:P6,totalScore:0,criteriaScores:{},rank:1}}});return}a({type:"status",message:"Asking the AI, with the catalogue in front of it\u2026"});let l;try{l=await fetch(zi("/api/chat"),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:t,intent:i.intent,siteData:i.siteData}),signal:r??null})}catch{if(r?.aborted)return;a({type:"error",message:"Could not reach the AI side of Virtual Yanny. Catalogue questions still work; try this one again in a moment."});return}if(!l.ok||!l.body){let u=await l.json().catch(()=>({}));if(r?.aborted)return;a({type:"error",message:u.message??"Something went wrong."});return}let s=l.body.getReader(),o=new TextDecoder,n="";try{for(;;){let{value:u,done:m}=await s.read();if(m)break;if(r?.aborted)return;n+=o.decode(u,{stream:!0});let c=n.split(`
 
 `);n=c.pop()??"";for(let f of c){if(r?.aborted)return;let d=f.trim();if(d.startsWith("data:"))try{a(JSON.parse(d.slice(5).trim()))}catch{}}}}catch{if(r?.aborted)return;a({type:"error",message:"The connection to Virtual Yanny dropped part-way through. Try that again."})}finally{s.cancel().catch(()=>{})}}var xn="pricesniffs.display",Fn="pricesniffs.layout",Vn="pricesniffs.perrow",Lt="pricesniffs.yanny.thread",p={view:"home",tab:"brands",fragranceId:"",retailerId:"",brandProfile:"",noteName:"",legalId:"",notFoundPath:"",brand:null,query:"",mode:"dark",layout:"mobile",perRow:hl,brandSort:"az",brandFilter:"all",dealSort:"discount",noteSort:"common",noteLayer:"any",noteDetailSort:"az",noteDetailFilter:"all",browseSort:"stocked",brandDetailSort:"az",retailerDetailSort:"az",retailerDetailFilter:"all",retailerInStockOnly:!1,facetsOpen:!1,facetVolume:new Set,facetConcentration:new Set,facetGender:new Set,facetPriceBand:new Set,facetTier:new Set,facetOnSale:!1,facetInStock:!1,authUser:null,authChecked:!1,authTab:"signIn",authBusy:!1,authError:"",authPendingEmail:"",authResetSent:!1,wishlistIds:new Set,wishlistLoaded:!1,wishlistBusy:!1,wishlistEntries:[],yannyOpen:!1,yannyStatus:"idle",yannyReason:"no-answer",yannyIntent:null,yannyThread:[],yannyBusy:!1,yannySplash:"",yannyClearArmed:!1,yannyOpenedFrom:null};function xi(){p.facetsOpen=!1,p.facetVolume.clear(),p.facetConcentration.clear(),p.facetGender.clear(),p.facetPriceBand.clear(),p.facetTier.clear(),p.facetOnSale=!1,p.facetInStock=!1}function E6(){return p.facetVolume.size+p.facetConcentration.size+p.facetGender.size+p.facetPriceBand.size+p.facetTier.size+(p.facetOnSale?1:0)+(p.facetInStock?1:0)}function E0(t,e){t.has(e)?t.delete(e):t.add(e)}var y=t=>t.replace(/[&<>"']/g,e=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[e]),z=t=>document.querySelector(t),N0=t=>t.replace(/\S+/g,e=>e[0].toUpperCase()+e.slice(1).toLowerCase()),Hn=[...new Set([...ee.map(t=>t.brand),...C0.map(t=>t.house)])].sort(),Fi={designer:"Designer",niche:"Niche",mideast:"Middle Eastern / Dupe Houses"},Ci=50,Wn=t=>t.concentration==="Perfume Oil",v6=We.filter(t=>!Wn(t)).slice(0,12);function Le(t){return L0(ur(t.id),{sortBy:"delivered"})}var La=[{id:"0-20",label:"Under \xA320",min:0,max:20},{id:"20-30",label:"\xA320 - \xA330",min:20,max:30},{id:"30-50",label:"\xA330 - \xA350",min:30,max:50},{id:"50-80",label:"\xA350 - \xA380",min:50,max:80},{id:"80-150",label:"\xA380 - \xA3150",min:80,max:150},{id:"150-300",label:"\xA3150 - \xA3300",min:150,max:300},{id:"300+",label:"\xA3300 And Over",min:300,max:null}];function Jn(t){if(t===null)return null;let e=t;return(La.find(a=>e>=a.min&&(a.max===null||e<a.max))??La[La.length-1]).id}var Gn=new Map;function Kn(t){let e=Gn.get(t.id);if(e)return e;let a=wr(`${t.brand} ${t.name} ${t.concentration}`);return Gn.set(t.id,a),a}function ze(t,e){if(e!=="volume"&&p.facetVolume.size){let a=Tr(t.sizeMl);if(a===null||!p.facetVolume.has(a))return!1}if(e!=="concentration"&&p.facetConcentration.size&&!p.facetConcentration.has(t.concentration)||e!=="gender"&&p.facetGender.size&&!p.facetGender.has(Kn(t))||e!=="tier"&&p.facetTier.size&&!p.facetTier.has(t.tier))return!1;if(e!=="priceBand"&&p.facetPriceBand.size){let a=Ze(Le(t)),r=a?Jn(a.deliveredPriceGbp):null;if(r===null||!p.facetPriceBand.has(r))return!1}return!(e!=="onSale"&&p.facetOnSale&&!Le(t).some(a=>a.discount!==null)||e!=="inStock"&&p.facetInStock&&!Le(t).some(a=>a.isPurchasable))}function U0(t){return t.filter(e=>ze(e,null))}function Z6(t){let e=new Map,a=new Map,r=new Map,i=new Map,l=new Map,s=0,o=0;for(let c of t){let f=Le(c);if(ze(c,"volume")){let d=Tr(c.sizeMl);d!==null&&e.set(d,(e.get(d)??0)+1)}if(ze(c,"concentration")&&a.set(c.concentration,(a.get(c.concentration)??0)+1),ze(c,"gender")){let d=Kn(c);r.set(d,(r.get(d)??0)+1)}if(ze(c,"tier")&&l.set(c.tier,(l.get(c.tier)??0)+1),ze(c,"priceBand")){let d=Ze(f),b=d?Jn(d.deliveredPriceGbp):null;b!==null&&i.set(b,(i.get(b)??0)+1)}ze(c,"onSale")&&f.some(d=>d.discount!==null)&&s++,ze(c,"inStock")&&f.some(d=>d.isPurchasable)&&o++}let n=(c,f)=>[...c.entries()].filter(([,d])=>d>0).sort((d,b)=>typeof d[0]=="number"?d[0]-b[0]:String(d[0]).localeCompare(String(b[0]))).map(([d,b])=>({value:String(d),label:f(d),count:b})),u=n(a,c=>e1(c)),m=u.filter(c=>c.value===sr);return{volume:Ft.filter(c=>(e.get(c.id)??0)>0).map(c=>({value:c.id,label:c.label,count:e.get(c.id)})),concentration:[...u.filter(c=>c.value!==sr),...m],gender:gr.filter(c=>(r.get(c)??0)>0).map(c=>({value:c,label:yr[c],count:r.get(c)})),priceBand:La.filter(c=>(i.get(c.id)??0)>0).map(c=>({value:c.id,label:c.label,count:i.get(c.id)})),tier:n(l,c=>Fi[c]),onSale:s,inStock:o}}function za(t,e,a,r,i,l=""){return`<button type="button" class="facet-pill${l?" has-ico":""}${i?" is-active":""}" data-facet-group="${t}" data-facet-value="${y(e)}" aria-pressed="${i}">
-    ${l}<span>${y(a)}</span> <span class="facet-count t-count">${r}</span>
+    ${l}<span class="facet-label">${y(a)}</span> <span class="facet-count t-count">${r}</span>
   </button>`}function Ct(t){let e=Z6(t),a=E6(),r=(n,u,m,c)=>m.length<2?"":`<fieldset class="facet-group">
       <legend>${y(n)}</legend>
       <div class="facet-pills">${m.map(f=>za(u,f.value,f.label,f.count,c(f.value))).join("")}</div>
