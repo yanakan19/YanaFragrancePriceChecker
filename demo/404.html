@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- demo-build-hash sha256:6e4c84163d9fdda10279aaba4765ecebb303a069a654f05bf21a70742e90dd8c — a fingerprint of the source this document was built from, written by scripts/build-demo.ts and checked by tests/demoBuildFreshness.test.ts. Do not hand-edit; run `npm run demo` instead. -->
+<!-- demo-build-hash sha256:c2e41c44c85e80174f9294eb50d14d4bd305de867ce43102906c2b61389fa1ae — a fingerprint of the source this document was built from, written by scripts/build-demo.ts and checked by tests/demoBuildFreshness.test.ts. Do not hand-edit; run `npm run demo` instead. -->
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
@@ -847,10 +847,18 @@
 
      Disc-and-ribbon rather than a bare circle: a flat number-in-a-circle at
      22px read as a coloured dot with digit soup inside, not a rank. The
-     ribbon tails are two ::before/::after wedges in the same colour,
-     stacked behind the disc (z-index: -1 inside the .medal stacking
-     context, which its own position + z-index establish), notched at the
-     bottom with clip-path so they read as cut ribbon ends rather than
+     ribbon tails are two ::before/::after wedges, a shade darker than the
+     disc (filter: brightness on the same background — still the one gold/
+     silver/bronze token, not a colour invented at the point of use) so they
+     read as fabric under the metal rather than a repeat of the disc itself.
+     They start under the disc's own curve (top: 56% of --medal-size, inside
+     the disc's square bounding box but below the inscribed circle, so the
+     join is hidden by the disc's rounded fill) and run to 148%, so very
+     nearly half the disc's height hangs clear below it — the first version
+     of this only cleared 8% and read as a coin with a notch, not a ribbon.
+     Stacked behind the disc (z-index: -1 inside the .medal stacking
+     context, which its own position + z-index establish) and V-notched at
+     the tip with clip-path so they read as cut ribbon ends rather than
      square tabs. The white ring is a fixed 2px #fff, not a theme colour,
      because .art (below) is unconditionally white in both palettes and the
      ring's job is to cut the disc out of a photo, not out of the theme —
@@ -870,13 +878,13 @@
   .medal::before,
   .medal::after {
     content: ""; position: absolute; z-index: -1;
-    top: calc(var(--medal-size) * 0.62);
-    width: calc(var(--medal-size) * 0.34); height: calc(var(--medal-size) * 0.46);
-    background: inherit;
-    clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
+    top: calc(var(--medal-size) * 0.56);
+    width: calc(var(--medal-size) * 0.32); height: calc(var(--medal-size) * 0.92);
+    background: inherit; filter: brightness(0.74);
+    clip-path: polygon(0 0, 100% 0, 100% 58%, 50% 100%, 0 58%);
   }
-  .medal::before { left: calc(var(--medal-size) * 0.08); transform: rotate(-10deg); transform-origin: top center; }
-  .medal::after  { right: calc(var(--medal-size) * 0.08); transform: rotate(10deg); transform-origin: top center; }
+  .medal::before { left: calc(var(--medal-size) * 0.11); transform: rotate(-9deg); transform-origin: top center; }
+  .medal::after  { right: calc(var(--medal-size) * 0.11); transform: rotate(9deg); transform-origin: top center; }
   /* Flat, and from tokens. These were three two-stop linear-gradients built
      from six hardcoded hex values belonging to no palette and moving with no
      theme: the one place in this stylesheet where a colour was invented at
