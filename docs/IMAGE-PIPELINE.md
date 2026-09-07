@@ -561,3 +561,126 @@ None of 1–4 requires touching production data or the licensing gate. None of
 5–6 alters a single retailer image byte. 7 is a copy fix, not a code fix, and
 is out of scope for this document to perform — named here because this
 investigation is what surfaced it.
+
+---
+
+## 6. Box-beside-bottle detection: scripts/image-box-check.ts (built and run, 2026-09-06)
+
+Unlike every section above, this one describes something actually coded,
+validated against real hand-viewed photos, and run against the live
+catalogue — not a specification. It exists because pickImage.ts's own
+sampling already found mybeauty-boutique and beautybase are only a
+*majority* bottle-only (57.7% and 78% respectively on small samples), and
+the owner wants the boxed minority — a photo of the bottle standing next to
+its retail box — never shown at all.
+
+### What it does
+
+`scripts/image-box-classify.py` downloads nothing itself; it takes one
+already-downloaded image file and returns `boxed`, `bottle-only`, or
+`unsure`. The method: threshold the near-white background away to get a
+foreground silhouette, then measure that silhouette's bounding-box width
+divided by its height. A bottle photographed alone is reliably taller than
+it is wide; a bottle photographed beside its box is not, because the box
+adds width without adding height. Two thresholds, not one — below 0.70 is
+confidently `bottle-only`, at or above 0.87 is confidently `boxed`, and the
+band between is `unsure` (deliberately not forced either way: pickImage only
+ever demotes a confirmed `boxed` call, so leaving an ambiguous photo alone is
+the safe failure mode). No paid API, no model call, and no new dependency —
+Pillow was already on the machine this was built on; numpy and scipy were
+checked for and are not, and nothing in package.json does image decoding
+either, so plain pixel access was the cheapest correct option available
+rather than the only one considered.
+
+`scripts/image-box-check.ts` is the orchestrator: it reads every
+`imageUrl` out of `data/catalogue/*.json` for every retailer in
+`IMAGE_ALLOWED` except fragrance-click (already sampled at 10/10
+bottle-only on a licensed, wholesale-refreshed feed — see pickImage.ts —
+so re-checking it photo by photo would spend downloads confirming a
+finding already made), downloads each one it has not already verdicted
+(concurrency 5 by default, one retry-free attempt per URL, cached under
+the git-ignored `.image-box-cache/` so a re-run never re-fetches a photo
+it already has), classifies it, and merges the result into
+`data/image-box-verdicts.json` — keyed by the exact `imageUrl` string as
+stored in the catalogue file (before `upgradeImageResolution` touches it),
+sorted for a deterministic diff. A `--limit` (default 2000) caps how much
+*new* work one run does; a URL already in the verdict file is skipped
+before it is ever queued, so the backlog is worked down over several runs
+rather than one unbounded one.
+
+```
+npx tsx scripts/image-box-check.ts                    # every IMAGE_ALLOWED retailer but fragrance-click
+npx tsx scripts/image-box-check.ts --shop=beautybase   # one retailer only
+npx tsx scripts/image-box-check.ts --limit=500         # cap this run's new downloads
+npm run images:box-check                               # same as the first form
+```
+
+### Validated accuracy — the actual numbers, not an estimate
+
+46 photos were downloaded and viewed directly (the Read tool, one at a
+time — not inferred, not sampled by proxy) before any wiring was written:
+21 sampled evenly across mybeauty-boutique's candidate pool, 21 across
+beautybase's, plus the four boxed examples the owner named by URL
+(Versace Woman, Jaguar Classic Black, Jenny Glow Reve, Sarah Jessica Parker
+Lovely). One sampled beautybase URL 404'd (a genuinely dead link, not a
+classifier failure) and was replaced with the next one in the same pool
+before labelling, keeping the sample at 46. Running the classifier over
+those same 46 files and comparing to the hand labels:
+
+| | predicted boxed | predicted bottle-only | predicted unsure |
+|---|---:|---:|---:|
+| **truth: boxed** (15) | 13 | 1 | 1 |
+| **truth: bottle-only** (31) | 1 | 27 | 3 |
+
+**Precision on `boxed` = 13 / 14 = 92.9%** (one false positive: a Volante
+Harmattan bottle whose glass reflection split into two foreground blobs,
+mimicking a box beside it). **Recall = 13 / 15 = 86.7%** (two boxed photos
+missed — both close to the aspect-ratio boundary, one of them the Versace
+Woman example itself; see below). Recall was never the bar this had to
+clear — the brief set 90% *precision* on `boxed` specifically, because a
+false demotion (calling a good bottle-only photo `boxed`) is the mistake
+that must not happen, and a missed one just leaves a boxed photo showing
+exactly as it did before this shipped. 92.9% clears that bar; the numbers
+above are the whole confusion matrix, not a cherry-picked slice of it.
+
+One correction the sampling itself produced: the Jaguar Classic Black photo
+named as a known-boxed example is, as currently hot-linked, actually
+bottle-only (aspect 0.642, and confirmed by eye) — either the retailer
+swapped the photo since that example was written down, or the original
+note was mistaken. It is reported here rather than quietly treated as a
+successful demotion, because it was not one: pickImage never needed to
+touch it, and the "before" and "after" catalogue entries for that EAN are
+identical.
+
+### Wiring: `pickImage(offers, now, imageBoxVerdicts?)`
+
+`src/catalogue/pickImage.ts` takes an optional third argument, a
+`ReadonlyMap<string, 'boxed' | 'bottle-only' | 'unsure'>` built by
+`scripts/build-demo-catalogue.ts` from `data/image-box-verdicts.json` (an
+absent file, or a missing entry for a given URL, is treated exactly like
+`unsure` — additive, never a new requirement on a caller that has no
+verdict data at all). A preferred retailer's offer whose photo is verdicted
+`boxed` loses its ranked place, precisely like a stale one: the next ranked
+retailer gets a turn instead. And because the point of a demotion is to
+lose to something *better*, not just to change which rule wins by the same
+margin, the plain-freshness fallback is boxed-aware too — it prefers the
+freshest offer among whichever licensed offers are not confirmed `boxed`,
+and only reaches for a boxed one when every licensed offer is. A product
+whose only photo is `boxed` still gets that photo: this never removes an
+offer's only image, it only reorders among more than one. See that file's
+own doc comment on `pickImage` for the full reasoning, and `tests/
+pickImage.test.ts`'s `imageBoxVerdicts` block for the ranking behaviour
+itself.
+
+### Re-running this for new images
+
+New photos accumulate as retailers add products; nothing here re-checks a
+URL that already has a verdict, so the right way to extend coverage is
+simply to run `npm run images:box-check` again (optionally with a larger
+`--limit`) after a harvest, before the next `npm run catalogue:demo`. There
+is no cron wiring this into CI yet — it is a manual, low-cost step, not a
+build-blocking one — and no verdict ever expires: a photo a retailer swaps
+out gets a fresh `imageUrl` (harvested from the shop's own feed), which is
+simply a new, unverdicted key the next run will pick up. A stale verdict
+against a URL a shop no longer serves is inert, not wrong — it is never
+looked up again once that URL drops out of the catalogue.

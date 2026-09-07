@@ -5,6 +5,9 @@ coverage/
 # `npm run screenshot` writes here by default. See scripts/screenshot.ts: these
 # are megabytes each and go stale the moment the catalogue is harvested again.
 screenshots/
+# scripts/image-box-check.ts's downloaded-photo cache: retailer images it
+# fetched to classify, never the project's to redistribute or commit.
+.image-box-cache/
 *.log
 .env
 .env.*

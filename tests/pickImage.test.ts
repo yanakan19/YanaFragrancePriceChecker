@@ -5,6 +5,7 @@ import {
   PREFERRED_IMAGE_RETAILERS,
   PREFERRED_IMAGE_MAX_AGE_HOURS,
   type ImageCandidate,
+  type ImageBoxVerdict,
 } from '../src/catalogue/pickImage.js';
 import { RETAILERS } from '../src/config/retailers.js';
 
@@ -291,5 +292,120 @@ describe('upgradeImageResolution', () => {
     expect(pickImage(offers, new Date('2026-09-01T01:00:00.000Z'))).toBe(
       'https://www.beautybase.com/cdn/shop/files/x.jpg?v=1&width=3000',
     );
+  });
+});
+
+describe('pickImage with imageBoxVerdicts (scripts/image-box-check.ts findings)', () => {
+  /** A fixture verdict map, built the way build-demo-catalogue.ts builds a real one. */
+  function verdicts(entries: Record<string, ImageBoxVerdict>): Map<string, ImageBoxVerdict> {
+    return new Map(Object.entries(entries));
+  }
+
+  it('demotes a boxed photo from the top-ranked preferred retailer below a bottle-only one from a lower-ranked preferred retailer', () => {
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/boxed.jpg', fetchedAt: hoursAgo(1) }),
+      offer({
+        retailerId: 'mybeauty-boutique',
+        imageUrl: 'https://mybeauty-boutique.example/clean.jpg',
+        fetchedAt: hoursAgo(2),
+      }),
+    ];
+    const v = verdicts({ 'https://beautybase.example/boxed.jpg': 'boxed' });
+    expect(pickImage(offers, NOW, v)).toBe('https://mybeauty-boutique.example/clean.jpg');
+  });
+
+  it('leaves ranking untouched when the top-ranked preferred retailer\'s photo is not verified boxed', () => {
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/clean.jpg', fetchedAt: hoursAgo(1) }),
+      offer({
+        retailerId: 'mybeauty-boutique',
+        imageUrl: 'https://mybeauty-boutique.example/clean.jpg',
+        fetchedAt: hoursAgo(2),
+      }),
+    ];
+    const v = verdicts({ 'https://beautybase.example/clean.jpg': 'bottle-only' });
+    expect(pickImage(offers, NOW, v)).toBe('https://beautybase.example/clean.jpg');
+  });
+
+  it('does not demote an "unsure" verdict -- only a confirmed boxed call ever loses its tier', () => {
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/maybe.jpg', fetchedAt: hoursAgo(1) }),
+      offer({
+        retailerId: 'mybeauty-boutique',
+        imageUrl: 'https://mybeauty-boutique.example/clean.jpg',
+        fetchedAt: hoursAgo(2),
+      }),
+    ];
+    const v = verdicts({ 'https://beautybase.example/maybe.jpg': 'unsure' });
+    expect(pickImage(offers, NOW, v)).toBe('https://beautybase.example/maybe.jpg');
+  });
+
+  it('treats an offer with no verdict at all exactly like before -- the map is additive, never a new requirement', () => {
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/unchecked.jpg', fetchedAt: hoursAgo(1) }),
+    ];
+    const v = verdicts({ 'https://some-other-shop.example/photo.jpg': 'boxed' });
+    expect(pickImage(offers, NOW, v)).toBe('https://beautybase.example/unchecked.jpg');
+  });
+
+  it('falls through every preferred retailer to the freshness fallback when all of them are boxed', () => {
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/boxed.jpg', fetchedAt: hoursAgo(5) }),
+      offer({
+        retailerId: 'mybeauty-boutique',
+        imageUrl: 'https://mybeauty-boutique.example/boxed.jpg',
+        fetchedAt: hoursAgo(2),
+      }),
+      offer({ retailerId: 'justmylook', imageUrl: 'https://justmylook.example/clean.jpg', fetchedAt: hoursAgo(1) }),
+    ];
+    const v = verdicts({
+      'https://beautybase.example/boxed.jpg': 'boxed',
+      'https://mybeauty-boutique.example/boxed.jpg': 'boxed',
+    });
+    // Neither preferred retailer's photo is usable at its tier, so the
+    // freshest *licensed* offer overall wins -- exactly the existing
+    // no-preferred-retailer-available fallback, just reached for a
+    // different reason.
+    expect(pickImage(offers, NOW, v)).toBe('https://justmylook.example/clean.jpg');
+  });
+
+  it('never removes a product\'s only image, even when that image is a confirmed boxed photo', () => {
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/only-photo.jpg', fetchedAt: hoursAgo(1) }),
+    ];
+    const v = verdicts({ 'https://beautybase.example/only-photo.jpg': 'boxed' });
+    // No other offer exists to fall through to -- the boxed photo it has is
+    // still better than no photo, so pickImage must still return it.
+    expect(pickImage(offers, NOW, v)).toBe('https://beautybase.example/only-photo.jpg');
+  });
+
+  it('still applies the resolution upgrade to a photo that survives the boxed check', () => {
+    const offers = [
+      offer({
+        retailerId: 'beautybase',
+        imageUrl: 'https://www.beautybase.com/cdn/shop/files/x.jpg?v=1&width=1920',
+        fetchedAt: hoursAgo(1),
+      }),
+    ];
+    const v = verdicts({ 'https://www.beautybase.com/cdn/shop/files/x.jpg?v=1&width=1920': 'bottle-only' });
+    expect(pickImage(offers, NOW, v)).toBe('https://www.beautybase.com/cdn/shop/files/x.jpg?v=1&width=3000');
+  });
+
+  it('falls through a boxed top preference to a stale-but-not-boxed second preference rather than jumping straight to freshness', () => {
+    const offers = [
+      offer({ retailerId: 'fragrance-click', imageUrl: 'https://fragrance-click.example/boxed.jpg', fetchedAt: hoursAgo(1) }),
+      offer({
+        retailerId: 'beautybase',
+        imageUrl: 'https://beautybase.example/clean-but-stale.jpg',
+        fetchedAt: hoursAgo(PREFERRED_IMAGE_MAX_AGE_HOURS + 1),
+      }),
+      offer({ retailerId: 'perfume-click', imageUrl: 'https://perfume-click.example/clean.jpg', fetchedAt: hoursAgo(2) }),
+    ];
+    const v = verdicts({ 'https://fragrance-click.example/boxed.jpg': 'boxed' });
+    // fragrance-click is demoted for being boxed, and beautybase -- next in
+    // rank -- is itself stale, so this must land on the same freshness
+    // fallback a stale-without-boxed run would reach, not on beautybase's
+    // stale photo just because it beat perfume-click's rank.
+    expect(pickImage(offers, NOW, v)).toBe('https://perfume-click.example/clean.jpg');
   });
 });
