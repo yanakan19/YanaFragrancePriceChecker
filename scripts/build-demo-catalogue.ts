@@ -15,7 +15,7 @@
  *
  * Run after a harvest: npm run catalogue:demo
  */
-import { readdirSync, existsSync, writeFileSync } from 'node:fs';
+import { readdirSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CatalogueStore } from '../src/catalogue/store.js';
@@ -50,7 +50,7 @@ import {
   reattachArmafLine,
 } from '../src/catalogue/productName.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
-import { pickImage } from '../src/catalogue/pickImage.js';
+import { pickImage, type ImageBoxVerdict } from '../src/catalogue/pickImage.js';
 
 /**
  * Retailers whose product photos may be displayed, and on what grounds.
@@ -68,6 +68,23 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dir = resolve(root, 'data/catalogue');
 const store = new CatalogueStore(dir);
 const now = new Date();
+
+/**
+ * scripts/image-box-check.ts's findings, keyed by the exact `imageUrl` it
+ * downloaded and looked at — see that script and pickImage's own
+ * `imageBoxVerdicts` parameter for what a `boxed` verdict actually changes.
+ * Missing entirely (no run yet) is not an error: every offer is then simply
+ * unverified, which pickImage already treats the same as `unsure`.
+ */
+const imageBoxVerdictsPath = resolve(root, 'data/image-box-verdicts.json');
+const imageBoxVerdicts = new Map<string, ImageBoxVerdict>();
+if (existsSync(imageBoxVerdictsPath)) {
+  const raw = JSON.parse(readFileSync(imageBoxVerdictsPath, 'utf8')) as Record<
+    string,
+    { verdict: ImageBoxVerdict }
+  >;
+  for (const [url, entry] of Object.entries(raw)) imageBoxVerdicts.set(url, entry.verdict);
+}
 
 /* ── deciding what is actually a fragrance ─────────────────────────────────── */
 
@@ -1408,7 +1425,7 @@ const catalogue = ordered.map((p) => ({
   sizeMl: p.sizeMl,
   ean: p.ean,
   shops: p.offers.length,
-  image: pickImage(p.offers, now),
+  image: pickImage(p.offers, now, imageBoxVerdicts),
   notes: pickNotes(p.offers),
   // Omitted entirely rather than written as null where the house is not
   // stocked here — JSON.stringify drops an undefined value, so 13,933 of the
