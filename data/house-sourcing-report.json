@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-07T05:52:44.153Z",
+  "checkedAt": "2026-09-07T11:27:32.109Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -58,16 +58,18 @@
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "USD",
-      "listings": 60,
+      "currency": "EUR",
+      "listings": 9,
       "pricedInGbp": 0,
       "withPhoto": 0,
-      "errors": [],
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
         "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
-        "prices are in USD, not GBP — needs a UK price source before these are comparable"
+        "prices are in EUR, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -191,9 +193,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 106,
-      "pricedInGbp": 106,
-      "withPhoto": 106,
+      "listings": 108,
+      "pricedInGbp": 108,
+      "withPhoto": 108,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -215,7 +217,7 @@
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
         "https://arabiyatprestige.shop/products.json?limit=250&page=1: HTTP 525",
-        "http://arabiyatprestige.shop/sitemap_index.xml: HTTP 403"
+        "https://arabiyatprestige.shop/sitemap.xml: HTTP 525"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -245,9 +247,9 @@
       "origin": "https://bujairami.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 81,
+      "listings": 82,
       "pricedInGbp": 0,
-      "withPhoto": 81,
+      "withPhoto": 82,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -432,9 +434,9 @@
       "origin": "https://www.alwataniah.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 113,
+      "listings": 112,
       "pricedInGbp": 0,
-      "withPhoto": 113,
+      "withPhoto": 112,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
