@@ -29,6 +29,15 @@ export type ImageBoxVerdict = 'boxed' | 'bottle-only' | 'unsure';
  */
 export type ImageBoxVerdicts = ReadonlyMap<string, ImageBoxVerdict>;
 
+/**
+ * Retailers whose photos are thumbnail-sized files (perfume-click: 82x130,
+ * measured on the samples recorded in PREFERRED_IMAGE_RETAILERS' header).
+ * They may still be a product's only photo, and then they are shown; what
+ * they never are is the *replacement* for a demoted boxed photo, because a
+ * blurred bottle is not an improvement on a sharp bottle with its box.
+ */
+export const THUMBNAIL_IMAGE_RETAILERS: ReadonlySet<string> = new Set(['perfume-click']);
+
 function isVerifiedBoxed(imageUrl: string | null, verdicts: ImageBoxVerdicts | undefined): boolean {
   if (imageUrl === null || !verdicts) return false;
   return verdicts.get(imageUrl) === 'boxed';
@@ -300,10 +309,29 @@ export function pickImage(
   }
 
   // licensed.length > 0 was already checked above, so `pool` always has an
-  // element: prefer a not-confirmed-boxed offer if any licensed offer is
-  // one, otherwise fall back to the boxed photo rather than showing none.
-  const notBoxed = licensed.filter((o) => !isVerifiedBoxed(o.imageUrl, imageBoxVerdicts));
-  const pool = notBoxed.length > 0 ? notBoxed : licensed;
+  // element. With no boxed verdict in play this is the freshness fallback
+  // it always was. When a boxed photo IS what brought us here, a
+  // not-confirmed-boxed offer replaces it only if it is not a thumbnail:
+  // measured on the first full run (2026-09-07), 204 of the 331 photos the
+  // demotion changed had swapped a sharp boxed photo for one of
+  // perfume-click's 82x130 files, which on a tile reads as a blur. A box
+  // beside the bottle at full size is the better of those two, so a boxed
+  // photo gives way to a bottle-only one from a real-sized source, and is
+  // otherwise kept rather than replaced by something worse.
+  const boxedOffers = licensed.filter((o) => isVerifiedBoxed(o.imageUrl, imageBoxVerdicts));
+  let pool = licensed;
+  if (boxedOffers.length > 0) {
+    const replacements = licensed.filter(
+      (o) => !isVerifiedBoxed(o.imageUrl, imageBoxVerdicts) && !THUMBNAIL_IMAGE_RETAILERS.has(o.retailerId),
+    );
+    // Every candidate is boxed (the thumbnail shops' photos are boxed at
+    // the same rate as anyone's): keep the full-sized boxed photo over a
+    // boxed thumbnail. Measured on the first run, 174 products had both
+    // and, with identical harvest timestamps, the tie fell to whichever
+    // offer came first — the thumbnail, more often than not.
+    const fullSizedBoxed = boxedOffers.filter((o) => !THUMBNAIL_IMAGE_RETAILERS.has(o.retailerId));
+    pool = replacements.length > 0 ? replacements : fullSizedBoxed.length > 0 ? fullSizedBoxed : boxedOffers;
+  }
   const freshest = [...pool].sort((a, b) => b.fetchedAt.localeCompare(a.fetchedAt))[0]!;
   return upgradeImageResolution(freshest.imageUrl);
 }
