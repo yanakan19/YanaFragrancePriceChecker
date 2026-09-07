@@ -684,3 +684,15 @@ out gets a fresh `imageUrl` (harvested from the shop's own feed), which is
 simply a new, unverdicted key the next run will pick up. A stale verdict
 against a URL a shop no longer serves is inert, not wrong — it is never
 looked up again once that URL drops out of the catalogue.
+
+### What a boxed photo may be replaced by
+
+Measured on the first full run (2026-09-07): 204 of the 331 photos the
+demotion changed had swapped a sharp boxed photo for one of perfume-click's
+82x130 thumbnails, which reads as a blur on a tile. `pickImage` therefore
+lets a confirmed-boxed photo give way only to a bottle-only (or unchecked)
+photo from a retailer not in `THUMBNAIL_IMAGE_RETAILERS`; with no such
+alternative the boxed photo is kept. The classifier's recall gap is also
+worth knowing: Versace Woman 50ml (the owner's own example) scores in the
+`unsure` band and is not demoted, and its only alternative is a perfume-click
+thumbnail that shows the box too, so it stays as it is.

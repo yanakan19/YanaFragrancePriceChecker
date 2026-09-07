@@ -19624,7 +19624,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3351500013807",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/126779_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31QHQw8i6rL.jpg?v=1763135229",
     "notes": {
       "top": [
         "Ginger Flower",
@@ -19729,7 +19729,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5056528421013",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/184136_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/515ABH0RLCL.jpg?v=1767981209",
     "notes": null
   },
   {
@@ -19875,7 +19875,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460036467",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/87123_ml.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/619153.jpg?v=1766146578&width=3000",
     "notes": null
   },
   {
@@ -20898,7 +20898,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614229829037",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/101564_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41b8F6cxOFL.jpg?v=1767981416",
     "notes": null
   },
   {
@@ -23594,7 +23594,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0085715950215",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/126052_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31EIg40mnwL.jpg?v=1763136941",
     "notes": null
   },
   {
@@ -23839,7 +23839,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3423220006893",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/179735_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41KkKjipYtL.jpg?v=1763137046",
     "notes": {
       "top": [
         "Blood Orange",
@@ -23865,7 +23865,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3423473049654",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/133930_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41qu77-ngBL.jpg?v=1763137056",
     "notes": {
       "top": [
         "sparkling blood orange",
@@ -24353,7 +24353,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5026445000516",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/85633_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41tqT4CfH7S.jpg?v=1763140179",
     "notes": null
   },
   {
@@ -24660,7 +24660,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0085805063665",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/92842_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/412gEwu4QVL.jpg?v=1763137572",
     "notes": {
       "top": [],
       "middle": [
@@ -24872,7 +24872,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0849017015382",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/185109_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41jt5Slo0aL.jpg?v=1767982456",
     "notes": null
   },
   {
@@ -26015,7 +26015,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3516642139321",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/190305_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/5179Sx1CjGL.jpg?v=1767982810",
     "notes": null
   },
   {
@@ -27749,7 +27749,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872432918",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/157068_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0007.png?v=1753445102&width=3000",
     "notes": {
       "top": [
         "Raspberry Accord"
@@ -27781,7 +27781,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0711367108680",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/154739_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/0711367108680.jpg?v=1763134926",
     "notes": {
       "top": [],
       "middle": [],
@@ -28815,7 +28815,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616305040480",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/122481_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Gbfkp-E1L_c641627d-d749-4e5e-8abb-60056d2add97.jpg?v=1763138470",
     "notes": null
   },
   {
@@ -29092,7 +29092,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423222010324",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/162803_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31R-qq18BwL.jpg?v=1763138815",
     "notes": {
       "top": [
         "Damask rose"
@@ -30547,7 +30547,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "6294015153439",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/177998_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41nq629JD9L.jpg?v=1763147132",
     "notes": {
       "top": [
         "Ylang-Ylang",
@@ -30667,7 +30667,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "6294015182675",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/177922_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71Xt3j00qGL.jpg?v=1763146935",
     "notes": {
       "top": [
         "Rose"
@@ -31332,7 +31332,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0719346257107",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/146594_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41zeyxtNq8L.jpg?v=1763139430",
     "notes": null
   },
   {
@@ -32372,7 +32372,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3454960020917",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/68254_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51KB81Kw9PL.jpg?v=1767983567",
     "notes": {
       "top": [],
       "middle": [],
@@ -34165,7 +34165,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800204778",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/193216_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/517mrrr-6RL.jpg?v=1767984104",
     "notes": null
   },
   {
@@ -35153,7 +35153,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 70,
     "ean": "3700559613610",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/168239_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/MFK0002.png?v=1772099193&width=3000",
     "notes": {
       "top": [
         "Aldehydes",
@@ -35951,7 +35951,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760260452144",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/182149_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10047809.jpg?v=1763145568",
     "notes": null
   },
   {
@@ -36252,7 +36252,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003838066",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/111746_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/moschino-pink-fresh-couture-eau-de-toilette-100ml-p20733-43655_image.jpg?v=1721322274&width=3000",
     "notes": {
       "top": [
         "Black Currant",
@@ -37225,7 +37225,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874083",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/1vivid-by-orchid-min.webp?v=1763147946",
     "notes": null
   },
   {
@@ -39428,7 +39428,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460081030",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/100717_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41OfZzfdpQL.jpg?v=1763141724",
     "notes": {
       "top": [
         "Candy apple",
@@ -39460,7 +39460,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8034097950025",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/133359_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31aKRJTR2aL.jpg?v=1763141774",
     "notes": {
       "top": [],
       "middle": [],
@@ -40378,7 +40378,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0888066007795",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/89739_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31tOhpnJxOL.jpg?v=1763142138",
     "notes": null
   },
   {
@@ -40642,7 +40642,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "0195106001560",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/184611_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/517kiMF5uiL.jpg?v=1767986013",
     "notes": null
   },
   {
@@ -41412,7 +41412,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003804559",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/78622_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/2c2affd3-b6ee-420e-9f78-ca4723c4ac73.jpg?v=1763142536",
     "notes": {
       "top": [
         "Amalfi Lemon",
@@ -41858,7 +41858,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004324690",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/175738_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10049392_1000x1000_5e370607-fbe3-4fd5-9755-56e559d10562.webp?v=1763146414",
     "notes": {
       "top": [],
       "middle": [],
@@ -42063,7 +42063,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5056179300279",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/117116_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41HYILjBOzL.jpg?v=1763147375",
     "notes": null
   },
   {
@@ -42890,7 +42890,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0085715167811",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/139161_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31NbvsrTjES.jpg?v=1763134835",
     "notes": null
   },
   {
@@ -42901,7 +42901,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "5055654025768",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/124844_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41d-7cQSWYL.jpg?v=1763134876",
     "notes": null
   },
   {
@@ -43463,7 +43463,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303321987",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/66508_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10046363.jpg?v=1763143553",
     "notes": {
       "top": [
         "citrus",
@@ -44204,7 +44204,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171072256",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/168110_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10045650.jpg?v=1763142743",
     "notes": null
   },
   {
@@ -44987,7 +44987,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6291100130153",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/140891_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41f3kJ1ghYL.jpg?v=1763135058",
     "notes": null
   },
   {
@@ -44998,7 +44998,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291100130160",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/141022_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/518wwxHDf2L.jpg?v=1767980825",
     "notes": null
   },
   {
@@ -45173,7 +45173,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6291100131990",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/181604_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51I4uYTFnKL.jpg?v=1763147134",
     "notes": {
       "top": [
         "Mandarin",
@@ -45476,7 +45476,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6600001258291",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/186726_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51FwI30w3uL.jpg?v=1767980851",
     "notes": null
   },
   {
@@ -46012,7 +46012,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061081150",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/62735_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41bqFINOIVL.jpg?v=1763134927",
     "notes": null
   },
   {
@@ -48435,7 +48435,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015102642",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/108730_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10007828.jpg?v=1763143648",
     "notes": {
       "top": [],
       "middle": [],
@@ -48567,7 +48567,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6085010093987",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/124805_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/14602084-1525058778702917.webp?v=1763143653",
     "notes": {
       "top": [
         "Heliotrope",
@@ -50267,7 +50267,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015101386",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/130563_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41bIowbkfkL.jpg?v=1763144536",
     "notes": null
   },
   {
@@ -50663,7 +50663,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760027140192",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/167913_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10044294.jpg?v=1763135172",
     "notes": {
       "top": [
         "Bergamot",
@@ -50739,7 +50739,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003866311",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/186781_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51HFNJcBKbL.jpg?v=1767981136",
     "notes": null
   },
   {
@@ -51009,7 +51009,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3351500017461",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/137734_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41ema7g3lGL.jpg?v=1763135232",
     "notes": {
       "top": [
         "Kiwi",
@@ -51034,7 +51034,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3351500017478",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/138071_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41pA6HIUNkL.jpg?v=1763135235",
     "notes": null
   },
   {
@@ -51159,7 +51159,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "4011700908103",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/141492_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41sEewdhVBL.jpg?v=1763135257",
     "notes": {
       "top": [
         "Cypress",
@@ -51198,7 +51198,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "4011700911134",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/179096_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10048851.jpg?v=1763145569",
     "notes": null
   },
   {
@@ -51278,7 +51278,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0860004550372",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/176140_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Dze3txqHL.jpg?v=1767981276",
     "notes": null
   },
   {
@@ -51434,7 +51434,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640171191140",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/119585_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/2857bda7-f4eb-4882-ae84-3a16d5d9885a.jpg?v=1763135353",
     "notes": {
       "top": [
         "Green Apple",
@@ -51740,7 +51740,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0888874006836",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/185490_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10046723.jpg?v=1763145830",
     "notes": null
   },
   {
@@ -52143,7 +52143,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 20,
     "ean": "0737052904177",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/152923_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/417tWtx7w0L.jpg?v=1763135499",
     "notes": {
       "top": [
         "Pink Grapefruit",
@@ -53946,7 +53946,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614229840117",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/87548_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41NeTcOp5iL.jpg?v=1763135696",
     "notes": null
   },
   {
@@ -54236,7 +54236,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "0783320403903",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/139046_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/414OR-ZQskL.jpg?v=1763135753",
     "notes": null
   },
   {
@@ -54323,7 +54323,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "0783320417023",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/168146_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51KSf-PH8vL.jpg?v=1763145861",
     "notes": null
   },
   {
@@ -54448,7 +54448,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "7340032862614",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/185446_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10041832.jpg?v=1763135777",
     "notes": {
       "top": [],
       "middle": [
@@ -54524,7 +54524,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7340032876697",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/181355_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41yFoIbE9jL.jpg?v=1767981512",
     "notes": {
       "top": [],
       "middle": [
@@ -54546,7 +54546,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "7340032857801",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/162270_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41cfT88xJ9L.jpg?v=1763135787",
     "notes": {
       "top": [],
       "middle": [],
@@ -55201,7 +55201,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614228834834",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/150478_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10042900.jpg?v=1763143948",
     "notes": {
       "top": [
         "Freesia",
@@ -55825,7 +55825,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8437011481757",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/185989_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41GffYYp1bL.jpg?v=1767981570",
     "notes": null
   },
   {
@@ -56677,7 +56677,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3387957110134",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/186104_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41d4s7usQGL.jpg?v=1767981640",
     "notes": {
       "top": [],
       "middle": [],
@@ -56731,7 +56731,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3387956502039",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/187346_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41r629pWjmL.jpg?v=1767981650",
     "notes": null
   },
   {
@@ -56742,7 +56742,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3387956502053",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/186101_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/415F-GOGNnL.jpg?v=1767981639",
     "notes": null
   },
   {
@@ -56753,7 +56753,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3387956603057",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/169130_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41k9B9-h01L.jpg?v=1767981648",
     "notes": null
   },
   {
@@ -57018,7 +57018,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "0688575003666",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/140339_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31CqKL5qhBL_14a2db03-fd6f-40fe-b962-9df06bafc836.jpg?v=1763136369",
     "notes": {
       "top": [
         "Mimosa",
@@ -57222,7 +57222,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3616303459673",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/180026_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/5166qlam_RL.jpg?v=1763146953",
     "notes": null
   },
   {
@@ -57277,7 +57277,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614229395631",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/141464_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31lyEhRoS9L.jpg?v=1763136431",
     "notes": null
   },
   {
@@ -57288,7 +57288,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614229396997",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/139871_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31wnJBqU2EL.jpg?v=1763136435",
     "notes": null
   },
   {
@@ -57530,7 +57530,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3386460151962",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/180227_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10048392.jpg?v=1763146074",
     "notes": null
   },
   {
@@ -58280,7 +58280,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5060524510015",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/101401_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10005065.jpg?v=1763136724",
     "notes": {
       "top": [
         "Bergamot",
@@ -59410,7 +59410,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3614272631908",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/136630_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/415pP-XBWUL.jpg?v=1763137177",
     "notes": {
       "top": [
         "Bergamot",
@@ -59778,7 +59778,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "0085715950048",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/99958_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10034534.jpg?v=1763136920",
     "notes": null
   },
   {
@@ -59800,7 +59800,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0085715950345",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/172980_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/1732884586176-675794462-85715950345-2.png?v=1763146024",
     "notes": null
   },
   {
@@ -59838,7 +59838,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "0085715950109",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/62213_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10047568.jpg?v=1763144706",
     "notes": null
   },
   {
@@ -59921,7 +59921,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0085715950154",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/142298_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41jI00NZMbL.jpg?v=1763136931",
     "notes": null
   },
   {
@@ -59965,7 +59965,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "0085715950192",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/99581_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51DYGs-4PXL.jpg?v=1767982256",
     "notes": null
   },
   {
@@ -59976,7 +59976,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0085715950062",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/169078_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/3278214_800x600_b.jpg?v=1763144062",
     "notes": null
   },
   {
@@ -60197,7 +60197,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8057971180035",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/133080_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10017623.jpg?v=1763143987",
     "notes": {
       "top": [
         "Quince",
@@ -60580,7 +60580,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8057971180455",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/93654_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41Sq2CukQ6L.jpg?v=1763137041",
     "notes": null
   },
   {
@@ -60700,7 +60700,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "0810023673439",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/174761_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51D5lb-YJIL.jpg?v=1767982302",
     "notes": {
       "top": [
         "Lily-of-the-Valley"
@@ -61005,7 +61005,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640233340837",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/117917_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41uyCadNmwL.jpg?v=1767982368",
     "notes": null
   },
   {
@@ -61077,7 +61077,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "7640233341063",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/169019_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10042020.jpg?v=1763137459",
     "notes": null
   },
   {
@@ -61208,7 +61208,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "7640233340066",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/136453_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10041278.jpg?v=1763137496",
     "notes": {
       "top": [
         "Mandarin",
@@ -61915,7 +61915,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060539181880",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/150901_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41cXvRUo1IL.jpg?v=1763137673",
     "notes": null
   },
   {
@@ -62420,7 +62420,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8005610516073",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/99323_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10016499.jpg?v=1763143692",
     "notes": {
       "top": [],
       "middle": [],
@@ -62488,7 +62488,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0737052565064",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/86119_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41vvCRPGx2L.jpg?v=1767982500",
     "notes": null
   },
   {
@@ -62499,7 +62499,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616301789277",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/141957_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/318KYKtQc3L_4aca3428-0363-4e7a-b9ee-a9d32bc732ff.jpg?v=1763137720",
     "notes": {
       "top": [
         "Nashi Pear",
@@ -62613,7 +62613,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616303452421",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/170714_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41Yjrs3NJLL._SY445_SX342_QL70_FMwebp.webp?v=1763137736",
     "notes": {
       "top": [
         "blueberry"
@@ -62964,7 +62964,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3509164891273",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/164146_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10042936.jpg?v=1763137807",
     "notes": {
       "top": [
         "Lemon",
@@ -62999,7 +62999,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3509166891202",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/164302_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10042937.jpg?v=1763137817",
     "notes": {
       "top": [
         "Mandarin",
@@ -63027,7 +63027,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3509160400141",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/164143_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10042939.jpg?v=1763137820",
     "notes": {
       "top": [
         "Galbanum",
@@ -63170,7 +63170,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0886266091132",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/174408_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10015970.jpg?v=1763145690",
     "notes": null
   },
   {
@@ -63282,7 +63282,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0886266461034",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/176170_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10050298.jpg?v=1763146676",
     "notes": null
   },
   {
@@ -63334,7 +63334,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0886266441043",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/176992_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10046274.jpg?v=1763146588",
     "notes": null
   },
   {
@@ -69149,7 +69149,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3516641225124",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/107533_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10043812_62d5f003-e85f-48c2-911f-c605aa6058e4.jpg?v=1763143542",
     "notes": null
   },
   {
@@ -70669,7 +70669,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8016741522284",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/185982_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41lmpVYQP4L.jpg?v=1767982866",
     "notes": null
   },
   {
@@ -70691,7 +70691,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8016741542282",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/185983_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41JQKWqbqaL.jpg?v=1767982865",
     "notes": null
   },
   {
@@ -72168,7 +72168,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872482005",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/167864_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10047824.jpg?v=1763145791",
     "notes": {
       "top": [
         "Black Pepper",
@@ -72245,7 +72245,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3274872439061",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/171257_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41OBlxwwl_L.jpg?v=1763144750",
     "notes": null
   },
   {
@@ -72992,7 +72992,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8005610524146",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/117374_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41w0LZoy4-L.jpg?v=1763138260",
     "notes": {
       "top": [
         "Rose",
@@ -73999,7 +73999,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360372009627",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/69108_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41knAAw7h8L.jpg?v=1763138679",
     "notes": {
       "top": [
         "Hyacinth",
@@ -74065,7 +74065,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0719346020480",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/103574_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/3f86e0fe-48b7-4649-b584-1838e7f33000.jpg?v=1763138692",
     "notes": null
   },
   {
@@ -74338,7 +74338,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3346130009603",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/67793_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41eXhfy2O_L.jpg?v=1763138754",
     "notes": null
   },
   {
@@ -75761,7 +75761,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0737052130729",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/85403_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10001065.jpg?v=1763138655",
     "notes": null
   },
   {
@@ -77522,7 +77522,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222048174",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/161255_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/375x500.73900.jpg?v=1763138817",
     "notes": {
       "top": [],
       "middle": [],
@@ -77644,7 +77644,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 20,
     "ean": "3423478972551",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/140461_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41h6D_1BMrL.jpg?v=1763138853",
     "notes": null
   },
   {
@@ -77839,7 +77839,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0849017008254",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/142455_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10034250.jpg?v=1763138906",
     "notes": null
   },
   {
@@ -77872,7 +77872,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3355991006003",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/174999_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10049436.webp?v=1763146462",
     "notes": null
   },
   {
@@ -77938,7 +77938,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640111493693",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/98065_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41eGK8QZJnL.jpg?v=1763138938",
     "notes": null
   },
   {
@@ -79141,7 +79141,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3430750046015",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/155236_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41wGS2708XL.jpg?v=1763139111",
     "notes": null
   },
   {
@@ -79163,7 +79163,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3430750008907",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/171263_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/121f7d6c35d1d8f243b7592b3b3a6e07.jpg?v=1763145018",
     "notes": {
       "top": [],
       "middle": [
@@ -79566,7 +79566,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8431754006741",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/136410_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41CmQMCL0xL.jpg?v=1763139191",
     "notes": null
   },
   {
@@ -79743,7 +79743,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460103695",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/118635_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41qV_uSYNTL.jpg?v=1763139212",
     "notes": null
   },
   {
@@ -79782,7 +79782,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 5,
     "ean": "3386460133340",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/171655_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51AKLbcF8NL.jpg?v=1767983369",
     "notes": null
   },
   {
@@ -81086,7 +81086,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460059183",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/103373_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/418yeItHsuL.jpg?v=1763139488",
     "notes": null
   },
   {
@@ -81277,7 +81277,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0608940556016",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/133008_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41inQLSqkSL.jpg?v=1763139517",
     "notes": null
   },
   {
@@ -82395,7 +82395,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "0810023673637",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/151407_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/375x500.77471.jpg?v=1763139651",
     "notes": {
       "top": [
         "Apple",
@@ -82773,7 +82773,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616303429560",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/167104_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10046194.jpg?v=1763139691",
     "notes": {
       "top": [],
       "middle": [],
@@ -83014,7 +83014,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640171191461",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/186739_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/515-qMC8mvL.jpg?v=1767983605",
     "notes": {
       "top": [
         "Grapefruit Essence",
@@ -83041,7 +83041,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640171191478",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/188718_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41kgX2yzmdL.jpg?v=1767983602",
     "notes": null
   },
   {
@@ -83409,7 +83409,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272964679",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/136332_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41rfjlHY7tL.jpg?v=1763139995",
     "notes": null
   },
   {
@@ -84047,7 +84047,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291108738252",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/189713_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/518UNsylPNL.jpg?v=1767983830",
     "notes": null
   },
   {
@@ -87088,7 +87088,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9911100199949",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/128464_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41-7m8RLgTL.jpg?v=1763140089",
     "notes": null
   },
   {
@@ -87099,7 +87099,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800200237",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/132347_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51LyS0UfPuL.jpg?v=1767984095",
     "notes": {
       "top": [
         "Bergamot",
@@ -87287,7 +87287,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "6299800203184",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/517Me2xu4KL.jpg?v=1763145613",
     "notes": {
       "top": [
         "Cardamom"
@@ -87781,7 +87781,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800202576",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/172743_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41Or-6sHVlL.jpg?v=1767984079",
     "notes": {
       "top": [
         "Strawberry",
@@ -88039,7 +88039,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800202590",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/169682_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/000000000001089800_1.jpg?v=1763140144",
     "notes": {
       "top": [
         "fresh florals invigorate",
@@ -88484,7 +88484,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291108736326",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/188262_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/518meCqiQ9L.jpg?v=1767984409",
     "notes": null
   },
   {
@@ -92387,7 +92387,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 120,
     "ean": "3760265191826",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/176694_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10045398.jpg?v=1763143581",
     "notes": {
       "top": [
         "Mandarin Orange",
@@ -92423,7 +92423,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 120,
     "ean": "3760265192113",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/176697_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10045399.jpg?v=1763143584",
     "notes": {
       "top": [
         "Incense",
@@ -93063,7 +93063,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "4011700750009",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/143844_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10034382.jpg?v=1763140284",
     "notes": {
       "top": [
         "Osmanthus",
@@ -93093,7 +93093,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "4011700750184",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/142235_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10034385.jpg?v=1763140285",
     "notes": {
       "top": [
         "Cucumber",
@@ -93142,7 +93142,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "4011700747733",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/143045_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10034204.jpg?v=1763140293",
     "notes": null
   },
   {
@@ -93186,7 +93186,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 170,
     "ean": "4011700745371",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/112547_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41VfOjm0fbL_d264db60-7f26-4cfd-895b-fb91ae3d3fae.jpg?v=1763140299",
     "notes": null
   },
   {
@@ -93231,7 +93231,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "4011700745364",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/145903_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10022350.jpg?v=1763140340",
     "notes": null
   },
   {
@@ -93275,7 +93275,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5038633042260",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/80135_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41AMnMUAE4L.jpg?v=1763140373",
     "notes": {
       "top": [
         "succulent peach",
@@ -93298,7 +93298,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5038633042758",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/79671_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41_sloLJ0SL.jpg?v=1763140378",
     "notes": null
   },
   {
@@ -93342,7 +93342,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "0085715151032",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/170817_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/0085715151032.webp?v=1763143248",
     "notes": {
       "top": [],
       "middle": [],
@@ -93407,7 +93407,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3595471071125",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/186151_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51J8V0g6J4L.jpg?v=1767984582",
     "notes": null
   },
   {
@@ -93484,7 +93484,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 15,
     "ean": "0737052991436",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/171580_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/512gSgG4KsL.jpg?v=1763144980",
     "notes": null
   },
   {
@@ -93509,7 +93509,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614229408461",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/138384_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/416GfObHqTL.jpg?v=1763140406",
     "notes": null
   },
   {
@@ -94292,7 +94292,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760260451383",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/175748_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10047805.jpg?v=1763145564",
     "notes": null
   },
   {
@@ -95028,7 +95028,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003991600",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/69653_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31UKuhjJ1gL.jpg?v=1763140626",
     "notes": null
   },
   {
@@ -95083,7 +95083,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003807864",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/95900_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41nCkDS8AGL.jpg?v=1763140631",
     "notes": {
       "top": [
         "Raspberry",
@@ -95332,7 +95332,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8011003064083",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/84421_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51ItRkN9MGL.jpg?v=1763140681",
     "notes": null
   },
   {
@@ -95818,7 +95818,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3439600056488",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/181428_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/512qkvGi16L.jpg?v=1767984717",
     "notes": null
   },
   {
@@ -96224,7 +96224,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423478805958",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/96262_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41IXy2xYMQL.jpg?v=1763144469",
     "notes": null
   },
   {
@@ -96846,7 +96846,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3137370183822",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/80232_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/513LT0E7ZML.jpg?v=1767984800",
     "notes": null
   },
   {
@@ -96857,7 +96857,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3137370321521",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/94587_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41Edk_2B7w_2BIL.jpg?v=1763140816",
     "notes": {
       "top": [
         "Wild Berries",
@@ -96946,7 +96946,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3137370357476",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/162659_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10001527.jpg?v=1763148147",
     "notes": null
   },
   {
@@ -96968,7 +96968,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3137370357346",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/168361_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41gWyj0TUyL.jpg?v=1767984805",
     "notes": null
   },
   {
@@ -97004,7 +97004,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3137370357339",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/169513_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41zK6tr8rvL.jpg?v=1763143286",
     "notes": {
       "top": [
         "Italian Lemon",
@@ -97051,7 +97051,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3137370352167",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/164286_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/415NhITs7XL.jpg?v=1763140825",
     "notes": null
   },
   {
@@ -97062,7 +97062,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3137370352914",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/137333_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41tXCfCyxqS.jpg?v=1763140829",
     "notes": null
   },
   {
@@ -98256,7 +98256,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3770027188063",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/171165_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51-7TuZQs-L.jpg?v=1763144655",
     "notes": null
   },
   {
@@ -98408,7 +98408,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8436611101126",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/171438_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/453693540.webp?v=1763145360",
     "notes": null
   },
   {
@@ -98419,7 +98419,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8436611101072",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/179871_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/453703742.jpg?v=1763145353",
     "notes": null
   },
   {
@@ -98628,7 +98628,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 120,
     "ean": "3616302968282",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/163210_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/3616302968282_PHF_PG_LE_21_Pop_of_Sun_EDT_120ml_pack-scaled.jpg?v=1763141334",
     "notes": {
       "top": [
         "Lavender",
@@ -98676,7 +98676,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "0679602111225",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/153474_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51DieCIh9zL.jpg?v=1763141344",
     "notes": null
   },
   {
@@ -98775,7 +98775,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "0679602143127",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/169011_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/1431252_02_1000x_2x_a3bd59be-500e-4a58-a5da-51831a78c35c.png?v=1763141401",
     "notes": null
   },
   {
@@ -98786,7 +98786,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "0679602144124",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/169012_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/1441252_02_1000x_2x_b7b0acdd-4a18-4020-b746-d2bbf7377a91.png?v=1763141406",
     "notes": null
   },
   {
@@ -98808,7 +98808,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0679602144117",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/167689_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/1441101_02_1000x_2x_b83b0286-31b8-4093-aa63-659c4721fa1f.png?v=1763141404",
     "notes": null
   },
   {
@@ -98939,7 +98939,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "0679602601085",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/74345_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/21fb-XvSr3L.jpg?v=1763141503",
     "notes": {
       "top": [],
       "middle": [
@@ -99000,7 +99000,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "0679602158121",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/151048_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51KiwxZUYYL.jpg?v=1763141475",
     "notes": {
       "top": [
         "Mandarin Orange"
@@ -99053,7 +99053,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "0679602158114",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/149885_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41dS3TMzmJL.jpg?v=1763141467",
     "notes": null
   },
   {
@@ -99064,7 +99064,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "0679602159135",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/151373_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41azZTM6TLL.jpg?v=1763141476",
     "notes": null
   },
   {
@@ -99086,7 +99086,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "0679602771214",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/82886_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/436240d9-4cfc-4100-9eb8-22c035d1d974.jpg?v=1763141483",
     "notes": {
       "top": [
         "Red Apple",
@@ -99172,7 +99172,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "0679602851084",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/141552_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/411acjEauuL.jpg?v=1763141184",
     "notes": {
       "top": [
         "Bergamot",
@@ -99420,7 +99420,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "0679602157124",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/171576_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/1571242_02_1000x_2x_12e82623-030f-42c1-958f-969ea764b92b.png?v=1763141196",
     "notes": {
       "top": [
         "Pepper"
@@ -99443,7 +99443,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "0679602157100",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/172611_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/1571081_02_1000x_2x_301c546f-f54e-4f2e-bd68-666ccf9b2882.png?v=1763141205",
     "notes": {
       "top": [
         "Grapefruit",
@@ -99531,7 +99531,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "0679602161114",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/167357_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10007782.jpg?v=1763141217",
     "notes": null
   },
   {
@@ -100186,7 +100186,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3587925403330",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/177852_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Jvui2e2AL.jpg?v=1763147088",
     "notes": null
   },
   {
@@ -100515,7 +100515,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668617050",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/169988_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Ij2knbbnL.jpg?v=1767984907",
     "notes": null
   },
   {
@@ -100626,7 +100626,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 62,
     "ean": "3349668593996",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/150790_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/150790_xl_1.jpg?v=1763140946",
     "notes": null
   },
   {
@@ -101261,7 +101261,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349666005972",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/131924_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/411MUj3lOKL.jpg?v=1763141108",
     "notes": null
   },
   {
@@ -101442,7 +101442,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 59,
     "ean": "3605972454652",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/142688_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41zRjVzS6JS_e0d4da7a-d63d-41e9-82e1-6971204b89a1.jpg?v=1763141297",
     "notes": {
       "top": [
         "grapefruit",
@@ -101802,7 +101802,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8002683000904",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/108811_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/516J2doaPML.jpg?v=1767985123",
     "notes": null
   },
   {
@@ -102774,7 +102774,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0679602951616",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/132375_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41dR98iyueL.jpg?v=1763141609",
     "notes": {
       "top": [
         "Apple",
@@ -102806,7 +102806,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0679602940610",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/173348_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41HC6WELtBL.jpg?v=1763141612",
     "notes": null
   },
   {
@@ -102817,7 +102817,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0679602941013",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/148924_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41IO3_XN81L.jpg?v=1763141559",
     "notes": {
       "top": [
         "Cardamom",
@@ -102849,7 +102849,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0679602636964",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/148747_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51DJ4FU9q-L.jpg?v=1763141561",
     "notes": {
       "top": [],
       "middle": [],
@@ -102926,7 +102926,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5051389020078",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/179605_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41czJwbrzTL.jpg?v=1763145455",
     "notes": {
       "top": [],
       "middle": [
@@ -103288,7 +103288,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3607346236420",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/93471_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51-T7vdyYvL.jpg?v=1763141649",
     "notes": {
       "top": [
         "Neroli",
@@ -103564,7 +103564,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460098151",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/135059_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41C5ZItYnjL.jpg?v=1763141714",
     "notes": null
   },
   {
@@ -104016,7 +104016,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8034097959707",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/127394_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Lv1Jmt7GL.jpg?v=1767985470",
     "notes": null
   },
   {
@@ -104038,7 +104038,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "7640111505495",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/176079_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10037420_1000x1000_c755aa08-ca0a-4181-b324-234d011ea5f7.webp?v=1763146260",
     "notes": {
       "top": [],
       "middle": [],
@@ -104178,7 +104178,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060426157066",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/147539_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41-fzVnIk1L.jpg?v=1763141819",
     "notes": {
       "top": [
         "Water Lily",
@@ -104338,7 +104338,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060426152603",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/166675_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10044669.jpg?v=1763141839",
     "notes": {
       "top": [
         "floral heart",
@@ -104360,7 +104360,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5060426152627",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/165929_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10044670.jpg?v=1763141845",
     "notes": null
   },
   {
@@ -105813,7 +105813,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0679602480123",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/151051_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41c8o2GVv5L.jpg?v=1763139814",
     "notes": null
   },
   {
@@ -105948,7 +105948,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614222401919",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/103890_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41nzawi9xVL.jpg?v=1763141969",
     "notes": {
       "top": [],
       "middle": [],
@@ -106901,7 +106901,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0195106001409",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/177234_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51AVM-SH8WL.jpg?v=1763145785",
     "notes": {
       "top": [],
       "middle": [
@@ -107930,7 +107930,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8018365500020",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/169694_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/06f08eac-f4f7-4dcd-b7a9-93417fd77bed.jpg?v=1763142452",
     "notes": {
       "top": [],
       "middle": [],
@@ -108030,7 +108030,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003997022",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/65033_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51KBg3KRqyL.jpg?v=1763142515",
     "notes": {
       "top": [
         "Bergamot",
@@ -108158,7 +108158,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614272872363",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/135480_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/418HRnDs67L.jpg?v=1763142573",
     "notes": null
   },
   {
@@ -108360,7 +108360,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004324744",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/175741_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10049394_1000x1000_9590175f-963e-4d86-8bfa-b70d99c2ff63.webp?v=1763146395",
     "notes": {
       "top": [
         "Bright"
@@ -108383,7 +108383,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004324713",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/177355_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10049397.webp?v=1763146392",
     "notes": {
       "top": [
         "Revel in the"
@@ -108507,7 +108507,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8033488154516",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/191915_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51JTxru7NHL.jpg?v=1767986338",
     "notes": {
       "top": [
         "cinnamon",
@@ -108730,7 +108730,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8033488153762",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/179957_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10042242.jpg?v=1763142832",
     "notes": null
   },
   {
@@ -108741,7 +108741,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8033488154561",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/189457_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Gq7sRaieL.jpg?v=1767986338",
     "notes": {
       "top": [],
       "middle": [],
@@ -108774,7 +108774,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8033488151973",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/180154_ml.jpg",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10042234.jpg?v=1763142841",
     "notes": null
   },
   {

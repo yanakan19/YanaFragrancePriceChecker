@@ -369,6 +369,45 @@ describe('pickImage with imageBoxVerdicts (scripts/image-box-check.ts findings)'
     expect(pickImage(offers, NOW, v)).toBe('https://justmylook.example/clean.jpg');
   });
 
+  it('keeps a boxed photo rather than replacing it with a perfume-click thumbnail', () => {
+    // 204 of the first run's 331 swaps went to perfume-click's 82x130 files.
+    // A sharp bottle-with-box beats a blurred bottle, so the thumbnail is
+    // not an acceptable replacement -- the boxed photo stays.
+    const offers = [
+      offer({ retailerId: 'mybeauty-boutique', imageUrl: 'https://mybeauty-boutique.example/boxed.jpg', fetchedAt: hoursAgo(5) }),
+      offer({ retailerId: 'perfume-click', imageUrl: 'https://bgstatic.example/thumb_ml.jpg', fetchedAt: hoursAgo(1) }),
+    ];
+    const v = verdicts({ 'https://mybeauty-boutique.example/boxed.jpg': 'boxed', 'https://bgstatic.example/thumb_ml.jpg': 'bottle-only' });
+    expect(pickImage(offers, NOW, v)).toBe('https://mybeauty-boutique.example/boxed.jpg');
+  });
+
+  it('when every candidate is boxed, a full-sized boxed photo beats a boxed thumbnail regardless of order or freshness', () => {
+    const offers = [
+      offer({ retailerId: 'perfume-click', imageUrl: 'https://bgstatic.example/thumb_ml.jpg', fetchedAt: hoursAgo(1) }),
+      offer({ retailerId: 'mybeauty-boutique', imageUrl: 'https://mybeauty-boutique.example/boxed.jpg', fetchedAt: hoursAgo(1) }),
+    ];
+    const v = verdicts({ 'https://mybeauty-boutique.example/boxed.jpg': 'boxed', 'https://bgstatic.example/thumb_ml.jpg': 'boxed' });
+    expect(pickImage(offers, NOW, v)).toBe('https://mybeauty-boutique.example/boxed.jpg');
+  });
+
+  it('replaces a boxed photo with a bottle-only one from a full-sized, non-preferred retailer', () => {
+    const offers = [
+      offer({ retailerId: 'mybeauty-boutique', imageUrl: 'https://mybeauty-boutique.example/boxed.jpg', fetchedAt: hoursAgo(1) }),
+      offer({ retailerId: 'perfume-click', imageUrl: 'https://bgstatic.example/thumb_ml.jpg', fetchedAt: hoursAgo(1) }),
+      offer({ retailerId: 'justmylook', imageUrl: 'https://justmylook.example/clean.png', fetchedAt: hoursAgo(9) }),
+    ];
+    const v = verdicts({ 'https://mybeauty-boutique.example/boxed.jpg': 'boxed' });
+    expect(pickImage(offers, NOW, v)).toBe('https://justmylook.example/clean.png');
+  });
+
+  it('with no boxed verdict in play, the freshness fallback is unchanged even when the freshest is a thumbnail', () => {
+    const offers = [
+      offer({ retailerId: 'perfume-click', imageUrl: 'https://bgstatic.example/thumb_ml.jpg', fetchedAt: hoursAgo(1) }),
+      offer({ retailerId: 'justmylook', imageUrl: 'https://justmylook.example/clean.png', fetchedAt: hoursAgo(9) }),
+    ];
+    expect(pickImage(offers, NOW, verdicts({}))).toBe('https://bgstatic.example/thumb_ml.jpg');
+  });
+
   it('never removes a product\'s only image, even when that image is a confirmed boxed photo', () => {
     const offers = [
       offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/only-photo.jpg', fetchedAt: hoursAgo(1) }),
@@ -399,13 +438,14 @@ describe('pickImage with imageBoxVerdicts (scripts/image-box-check.ts findings)'
         imageUrl: 'https://beautybase.example/clean-but-stale.jpg',
         fetchedAt: hoursAgo(PREFERRED_IMAGE_MAX_AGE_HOURS + 1),
       }),
-      offer({ retailerId: 'perfume-click', imageUrl: 'https://perfume-click.example/clean.jpg', fetchedAt: hoursAgo(2) }),
+      offer({ retailerId: 'justmylook', imageUrl: 'https://justmylook.example/clean.jpg', fetchedAt: hoursAgo(2) }),
     ];
     const v = verdicts({ 'https://fragrance-click.example/boxed.jpg': 'boxed' });
     // fragrance-click is demoted for being boxed, and beautybase -- next in
     // rank -- is itself stale, so this must land on the same freshness
     // fallback a stale-without-boxed run would reach, not on beautybase's
-    // stale photo just because it beat perfume-click's rank.
-    expect(pickImage(offers, NOW, v)).toBe('https://perfume-click.example/clean.jpg');
+    // stale photo just because it beat justmylook's rank. (A perfume-click
+    // thumbnail would not qualify as the replacement; see the test above.)
+    expect(pickImage(offers, NOW, v)).toBe('https://justmylook.example/clean.jpg');
   });
 });
