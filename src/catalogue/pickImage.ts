@@ -11,6 +11,30 @@ export interface ImageCandidate {
 }
 
 /**
+ * The three outcomes scripts/image-box-check.ts records for a photo it has
+ * actually downloaded and looked at (see data/image-box-verdicts.json and
+ * docs/IMAGE-PIPELINE.md). `boxed` means the shot showed the retail box
+ * standing beside the bottle — exactly what PREFERRED_IMAGE_RETAILERS' own
+ * header says mybeauty-boutique and beautybase serve a real minority of the
+ * time. `unsure` is not `boxed`: a photo the checker could not confidently
+ * call either way is never treated as a reason to demote it.
+ */
+export type ImageBoxVerdict = 'boxed' | 'bottle-only' | 'unsure';
+
+/**
+ * Looked-up-by-URL verdicts from a prior scripts/image-box-check.ts run.
+ * Optional everywhere it is threaded through: a caller with no verdict file
+ * (or an offer whose photo was never checked) gets exactly the pre-verdict
+ * behaviour below — this is additive, not a new requirement on every caller.
+ */
+export type ImageBoxVerdicts = ReadonlyMap<string, ImageBoxVerdict>;
+
+function isVerifiedBoxed(imageUrl: string | null, verdicts: ImageBoxVerdicts | undefined): boolean {
+  if (imageUrl === null || !verdicts) return false;
+  return verdicts.get(imageUrl) === 'boxed';
+}
+
+/**
  * Retailers whose product photo, when they have one, was actually looked at
  * — not assumed — and shows a bottle-only, face-on shot (no box) often
  * enough to prefer over a fresher photo from an unranked source.
@@ -218,14 +242,49 @@ export const PREFERRED_IMAGE_MAX_AGE_HOURS = 336;
  * IMAGE_ALLOWED in build-demo-catalogue.ts): this function ranks and dates
  * whatever `imageUrl`s it is handed, and does not itself decide whether a
  * retailer's photography may be shown at all.
+ *
+ * ── `imageBoxVerdicts` (2026-09-06): a verified box-beside-bottle photo loses
+ * its place, at both tiers ────────────────────────────────────────────────
+ * PREFERRED_IMAGE_RETAILERS' own header already says mybeauty-boutique and
+ * beautybase are majority bottle-only, not unanimously — scripts/image-box-
+ * check.ts downloads and classifies individual photos, and this is where
+ * that verdict actually changes anything.
+ *
+ * A preferred retailer's offer whose `imageUrl` the verdict map calls
+ * `boxed` is treated exactly like a stale one at that tier: skipped, so the
+ * next ranked retailer gets a turn instead of this one winning on rank
+ * alone. And the point of a demotion is to lose to something better, not
+ * merely to change *why* the same photo wins — so the freshness fallback
+ * below is boxed-aware too: it prefers the freshest offer among whichever
+ * licensed offers are NOT confirmed boxed, and only reaches for a boxed one
+ * when every licensed offer is. Skipping the preferred tier alone would not
+ * have been enough on its own: a boxed photo that also happens to be the
+ * single freshest licensed offer would otherwise win the fallback despite a
+ * perfectly good, merely-less-fresh alternative sitting right there.
+ *
+ * Either way, a boxed photo is never discarded outright — a product with
+ * only a boxed photo still gets that photo back, because a boxed photo is
+ * worse than a bottle-only one but still better than no photo at all. An
+ * `unsure` verdict, or an offer the checker never reached, is left exactly
+ * as before: this is a demotion for a confirmed `boxed` call only.
  */
-export function pickImage(offers: readonly ImageCandidate[], now: Date): string | null {
+export function pickImage(
+  offers: readonly ImageCandidate[],
+  now: Date,
+  imageBoxVerdicts?: ImageBoxVerdicts,
+): string | null {
   const licensed = offers.filter((o) => o.imageUrl !== null);
   if (licensed.length === 0) return null;
 
   for (const retailerId of PREFERRED_IMAGE_RETAILERS) {
     const preferred = licensed.find((o) => o.retailerId === retailerId);
     if (!preferred) continue;
+    if (isVerifiedBoxed(preferred.imageUrl, imageBoxVerdicts)) {
+      // A confirmed box-beside-bottle shot never wins this tier, no matter
+      // how fresh — see the header above. The next ranked retailer (or,
+      // failing all of them, the freshness fallback) gets a turn instead.
+      continue;
+    }
     const ageHours = (now.getTime() - new Date(preferred.fetchedAt).getTime()) / 3_600_000;
     if (ageHours <= PREFERRED_IMAGE_MAX_AGE_HOURS) return upgradeImageResolution(preferred.imageUrl);
     // Stale: try the next ranked retailer before giving up on the ranking.
@@ -240,8 +299,12 @@ export function pickImage(offers: readonly ImageCandidate[], now: Date): string 
     continue;
   }
 
-  // licensed.length > 0 was already checked above, so this always has an element.
-  const freshest = [...licensed].sort((a, b) => b.fetchedAt.localeCompare(a.fetchedAt))[0]!;
+  // licensed.length > 0 was already checked above, so `pool` always has an
+  // element: prefer a not-confirmed-boxed offer if any licensed offer is
+  // one, otherwise fall back to the boxed photo rather than showing none.
+  const notBoxed = licensed.filter((o) => !isVerifiedBoxed(o.imageUrl, imageBoxVerdicts));
+  const pool = notBoxed.length > 0 ? notBoxed : licensed;
+  const freshest = [...pool].sort((a, b) => b.fetchedAt.localeCompare(a.fetchedAt))[0]!;
   return upgradeImageResolution(freshest.imageUrl);
 }
 
