@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-06T08:19:24.145Z",
+  "checkedAt": "2026-09-07T08:48:25.595Z",
   "note": "referrerpolicy=\"no-referrer\" is set on every product <img> in demo/photo.ts, so \"blocksNoReferer\" is the finding that predicts a broken tile for a real reader today; \"blocks-pricesniffs-referer\" currently has no effect on what readers see.",
   "sampledUrls": 140,
   "perRetailer": [
@@ -103,7 +103,8 @@
       "retailer": "perfume-click",
       "sampled": 10,
       "counts": {
-        "ok": 10
+        "inconclusive": 9,
+        "ok": 1
       },
       "blocksNoReferer": 0
     },
@@ -119,7 +120,7 @@
   "results": [
     {
       "retailer": "allbeauty",
-      "url": "https://allbeauty.com/cdn/shop/files/770805_b241471b-6c3b-4bdb-8f7b-2bda160c6cc8.jpg?v=1784119118&width=1920",
+      "url": "https://allbeauty.com/cdn/shop/files/3358.jpg?v=1755875379&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -135,7 +136,7 @@
     },
     {
       "retailer": "allbeauty",
-      "url": "https://allbeauty.com/cdn/shop/files/5515.jpg?v=1773833261&width=1920",
+      "url": "https://allbeauty.com/cdn/shop/files/75053.jpg?v=1770289058&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -151,7 +152,7 @@
     },
     {
       "retailer": "allbeauty",
-      "url": "https://allbeauty.com/cdn/shop/files/1006685.jpg?v=1755874490&width=1920",
+      "url": "https://allbeauty.com/cdn/shop/files/996158.jpg?v=1755874513&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -167,7 +168,7 @@
     },
     {
       "retailer": "allbeauty",
-      "url": "https://allbeauty.com/cdn/shop/files/8879.jpg?v=1770302314&width=1920",
+      "url": "https://allbeauty.com/cdn/shop/files/5921.jpg?v=1755875177&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -183,7 +184,7 @@
     },
     {
       "retailer": "allbeauty",
-      "url": "https://allbeauty.com/cdn/shop/files/446963.jpg?v=1755874726&width=1920",
+      "url": "https://allbeauty.com/cdn/shop/files/820503.jpg?v=1773854528&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -199,7 +200,7 @@
     },
     {
       "retailer": "allbeauty",
-      "url": "https://allbeauty.com/cdn/shop/files/6602.jpg?v=1755875151&width=1920",
+      "url": "https://allbeauty.com/cdn/shop/files/3354.jpg?v=1755875379&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -215,7 +216,7 @@
     },
     {
       "retailer": "allbeauty",
-      "url": "https://allbeauty.com/cdn/shop/files/81493.jpg?v=1764781658&width=1920",
+      "url": "https://allbeauty.com/cdn/shop/files/5504.jpg?v=1773830979&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -231,7 +232,7 @@
     },
     {
       "retailer": "allbeauty",
-      "url": "https://allbeauty.com/cdn/shop/files/2968.jpg?v=1755875418&width=1920",
+      "url": "https://allbeauty.com/cdn/shop/files/963480.jpg?v=1755874583&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -247,7 +248,7 @@
     },
     {
       "retailer": "allbeauty",
-      "url": "https://allbeauty.com/cdn/shop/files/1010092.jpg?v=1766415001&width=1920",
+      "url": "https://allbeauty.com/cdn/shop/files/9035.jpg?v=1770288375&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -263,7 +264,7 @@
     },
     {
       "retailer": "allbeauty",
-      "url": "https://allbeauty.com/cdn/shop/files/970837.jpg?v=1755874571&width=1920",
+      "url": "https://allbeauty.com/cdn/shop/files/513983.jpg?v=1755874708&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -279,7 +280,7 @@
     },
     {
       "retailer": "beautybase",
-      "url": "https://www.beautybase.com/cdn/shop/files/Shamsred1.jpg?v=1783432345&width=1920",
+      "url": "https://www.beautybase.com/cdn/shop/files/3652147_82a67139-afe3-4a77-b19b-108973719cc1.jpg?v=1784627291&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -295,7 +296,7 @@
     },
     {
       "retailer": "beautybase",
-      "url": "https://www.beautybase.com/cdn/shop/files/1731497648-46823300.jpg?v=1763393298&width=1920",
+      "url": "https://www.beautybase.com/cdn/shop/files/lattafaCoral.jpg?v=1781780013&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -311,7 +312,7 @@
     },
     {
       "retailer": "beautybase",
-      "url": "https://www.beautybase.com/cdn/shop/files/52_06422de9-c3d5-423a-b6df-02b57e3bc461.jpg?v=1774624635&width=1920",
+      "url": "https://www.beautybase.com/cdn/shop/files/3dac9163e93a4cc4a1453b57a8ab5cf0_tplv-t5fjg24jzw-origin-jpeg.jpg?v=1776427358&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -327,7 +328,7 @@
     },
     {
       "retailer": "beautybase",
-      "url": "https://www.beautybase.com/cdn/shop/files/1759412069-99756300.jpg?v=1772624803&width=1920",
+      "url": "https://www.beautybase.com/cdn/shop/files/1769189304-68830100.jpg?v=1772625055&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -343,7 +344,7 @@
     },
     {
       "retailer": "beautybase",
-      "url": "https://www.beautybase.com/cdn/shop/files/1759328056-62271500.jpg?v=1763398916&width=1920",
+      "url": "https://www.beautybase.com/cdn/shop/files/1758025728-35311500.jpg?v=1763399033&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -359,7 +360,7 @@
     },
     {
       "retailer": "beautybase",
-      "url": "https://www.beautybase.com/cdn/shop/files/1714472309-91541200.jpg?v=1763391716&width=1920",
+      "url": "https://www.beautybase.com/cdn/shop/files/1_acf1ca4d-e954-4546-830e-2e83bfdc21e7.jpg?v=1774001997&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -375,7 +376,7 @@
     },
     {
       "retailer": "beautybase",
-      "url": "https://www.beautybase.com/cdn/shop/files/1742915593-90026700.jpg?v=1763397515&width=1920",
+      "url": "https://www.beautybase.com/cdn/shop/files/lhommeintense.jpg?v=1773314268&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -391,7 +392,7 @@
     },
     {
       "retailer": "beautybase",
-      "url": "https://www.beautybase.com/cdn/shop/files/1724945874-13487000.jpg?v=1763395622&width=1920",
+      "url": "https://www.beautybase.com/cdn/shop/files/1736522147-60037200.jpg?v=1763396760&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -407,7 +408,7 @@
     },
     {
       "retailer": "beautybase",
-      "url": "https://www.beautybase.com/cdn/shop/files/50ml_3294d2b3-d96c-4442-8ed5-44b1fd557ec9.jpg?v=1775561153&width=1920",
+      "url": "https://www.beautybase.com/cdn/shop/files/1725879349-19506100.jpg?v=1763395376&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -423,103 +424,7 @@
     },
     {
       "retailer": "beautybase",
-      "url": "https://www.beautybase.com/cdn/shop/files/1737375720-35032900.jpg?v=1763390741&width=1920",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
-      "withReferer": {
-        "status": 200,
-        "contentType": "image/webp",
-        "error": null
-      },
-      "withoutReferer": {
-        "status": 200,
-        "contentType": "image/webp",
-        "error": null
-      }
-    },
-    {
-      "retailer": "bellavita-luxury",
-      "url": "https://bellavitaluxury.uk/cdn/shop/files/1_1_ea0b4369-da7b-4ac2-a278-bf12387cf156.jpg?v=1783514611",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
-      "withReferer": {
-        "status": 200,
-        "contentType": "image/webp",
-        "error": null
-      },
-      "withoutReferer": {
-        "status": 200,
-        "contentType": "image/webp",
-        "error": null
-      }
-    },
-    {
-      "retailer": "bellavita-luxury",
-      "url": "https://bellavitaluxury.uk/cdn/shop/files/1_429e1e89-d765-4956-957d-ab9fd54531e4.jpg?v=1783573783",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
-      "withReferer": {
-        "status": 200,
-        "contentType": "image/webp",
-        "error": null
-      },
-      "withoutReferer": {
-        "status": 200,
-        "contentType": "image/webp",
-        "error": null
-      }
-    },
-    {
-      "retailer": "bellavita-luxury",
-      "url": "https://bellavitaluxury.uk/cdn/shop/files/1_1_faad5d97-9d22-4637-a723-9c503b8e429d.jpg?v=1783511048",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
-      "withReferer": {
-        "status": 200,
-        "contentType": "image/webp",
-        "error": null
-      },
-      "withoutReferer": {
-        "status": 200,
-        "contentType": "image/webp",
-        "error": null
-      }
-    },
-    {
-      "retailer": "bellavita-luxury",
-      "url": "https://bellavitaluxury.uk/cdn/shop/files/1_1_f382166d-de4e-4eb7-9c3c-d163439a9f54.jpg?v=1783687531",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
-      "withReferer": {
-        "status": 200,
-        "contentType": "image/webp",
-        "error": null
-      },
-      "withoutReferer": {
-        "status": 200,
-        "contentType": "image/webp",
-        "error": null
-      }
-    },
-    {
-      "retailer": "bellavita-luxury",
-      "url": "https://bellavitaluxury.uk/cdn/shop/files/1_d17b066d-2edc-4818-bcbf-9ac1d121008e.jpg?v=1783511895",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
-      "withReferer": {
-        "status": 200,
-        "contentType": "image/webp",
-        "error": null
-      },
-      "withoutReferer": {
-        "status": 200,
-        "contentType": "image/webp",
-        "error": null
-      }
-    },
-    {
-      "retailer": "bellavita-luxury",
-      "url": "https://bellavitaluxury.uk/cdn/shop/files/1_7fa21ed9-bb8f-4c4e-9881-46eb881a9d70.jpg?v=1783520497",
+      "url": "https://www.beautybase.com/cdn/shop/files/1737025867-84043100.jpg?v=1763394385&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -551,7 +456,7 @@
     },
     {
       "retailer": "bellavita-luxury",
-      "url": "https://bellavitaluxury.uk/cdn/shop/files/CEOMANCEOMAN_HONEYOUD1.jpg?v=1761808763",
+      "url": "https://bellavitaluxury.uk/cdn/shop/files/1_7fa21ed9-bb8f-4c4e-9881-46eb881a9d70.jpg?v=1783520497",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -567,7 +472,7 @@
     },
     {
       "retailer": "bellavita-luxury",
-      "url": "https://bellavitaluxury.uk/cdn/shop/files/Artboard_14_556645f9-67f4-4cf3-9bc8-742107f41f91.jpg?v=1749470917",
+      "url": "https://bellavitaluxury.uk/cdn/shop/files/1_d17b066d-2edc-4818-bcbf-9ac1d121008e.jpg?v=1783511895",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -583,7 +488,103 @@
     },
     {
       "retailer": "bellavita-luxury",
-      "url": "https://bellavitaluxury.uk/cdn/shop/files/1_23.jpg?v=1760684129",
+      "url": "https://bellavitaluxury.uk/cdn/shop/files/1_1_f382166d-de4e-4eb7-9c3c-d163439a9f54.jpg?v=1783687531",
+      "verdict": "ok",
+      "reason": "served the image regardless of referer",
+      "withReferer": {
+        "status": 200,
+        "contentType": "image/webp",
+        "error": null
+      },
+      "withoutReferer": {
+        "status": 200,
+        "contentType": "image/webp",
+        "error": null
+      }
+    },
+    {
+      "retailer": "bellavita-luxury",
+      "url": "https://bellavitaluxury.uk/cdn/shop/files/1_1_faad5d97-9d22-4637-a723-9c503b8e429d.jpg?v=1783511048",
+      "verdict": "ok",
+      "reason": "served the image regardless of referer",
+      "withReferer": {
+        "status": 200,
+        "contentType": "image/webp",
+        "error": null
+      },
+      "withoutReferer": {
+        "status": 200,
+        "contentType": "image/webp",
+        "error": null
+      }
+    },
+    {
+      "retailer": "bellavita-luxury",
+      "url": "https://bellavitaluxury.uk/cdn/shop/files/1_429e1e89-d765-4956-957d-ab9fd54531e4.jpg?v=1783573783",
+      "verdict": "ok",
+      "reason": "served the image regardless of referer",
+      "withReferer": {
+        "status": 200,
+        "contentType": "image/webp",
+        "error": null
+      },
+      "withoutReferer": {
+        "status": 200,
+        "contentType": "image/webp",
+        "error": null
+      }
+    },
+    {
+      "retailer": "bellavita-luxury",
+      "url": "https://bellavitaluxury.uk/cdn/shop/files/1_1_ea0b4369-da7b-4ac2-a278-bf12387cf156.jpg?v=1783514611",
+      "verdict": "ok",
+      "reason": "served the image regardless of referer",
+      "withReferer": {
+        "status": 200,
+        "contentType": "image/webp",
+        "error": null
+      },
+      "withoutReferer": {
+        "status": 200,
+        "contentType": "image/webp",
+        "error": null
+      }
+    },
+    {
+      "retailer": "bellavita-luxury",
+      "url": "https://bellavitaluxury.uk/cdn/shop/files/1_4f10fbb9-7191-41a7-9013-892f834d180f.jpg?v=1783512118",
+      "verdict": "ok",
+      "reason": "served the image regardless of referer",
+      "withReferer": {
+        "status": 200,
+        "contentType": "image/webp",
+        "error": null
+      },
+      "withoutReferer": {
+        "status": 200,
+        "contentType": "image/webp",
+        "error": null
+      }
+    },
+    {
+      "retailer": "bellavita-luxury",
+      "url": "https://bellavitaluxury.uk/cdn/shop/files/1_6268d26b-4ec2-4946-927e-e4209e04468a.jpg?v=1761810040",
+      "verdict": "ok",
+      "reason": "served the image regardless of referer",
+      "withReferer": {
+        "status": 200,
+        "contentType": "image/webp",
+        "error": null
+      },
+      "withoutReferer": {
+        "status": 200,
+        "contentType": "image/webp",
+        "error": null
+      }
+    },
+    {
+      "retailer": "bellavita-luxury",
+      "url": "https://bellavitaluxury.uk/cdn/shop/files/GOATMANCEOMAN_HONEYOUD1.jpg?v=1761809048",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -599,7 +600,7 @@
     },
     {
       "retailer": "emirates-oud",
-      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mykonos-Aphrodite-Extrait-de-Parfum-196665593.png?v=1788544401",
+      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rayhaan-Vantage-Perfume-100ml-EDP-By-Rayhaan-196686150.jpg?v=1788739729",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -615,7 +616,7 @@
     },
     {
       "retailer": "emirates-oud",
-      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Untitleddesign_26.png?v=1781521812",
+      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Saheb-Emotions-Perfume-100ml-EDP-Ard-Al-Zaafaran-192597195.jpg?v=1781650705",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -631,7 +632,7 @@
     },
     {
       "retailer": "emirates-oud",
-      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hawas-Kobra-Perfume-Sample-2ml-EDP-Rasasi-184593361.png?v=1771509283",
+      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hawas-Ice-For-Him-Perfume-Sample-2ml-EDP-Rasasi-184593477.png?v=1771509393",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -647,7 +648,7 @@
     },
     {
       "retailer": "emirates-oud",
-      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Passion-Fruit-Mojito-Perfume-50ml-EDP-Tubbees-180839543.png?v=1763764731",
+      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sweet-Mango-Melody-Perfume-50ml-EDP-Tubbees-180840450.png?v=1763764932",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -663,7 +664,7 @@
     },
     {
       "retailer": "emirates-oud",
-      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Island-Breeze-Perfume-100ml-EDP-Armaf-177423560.jpg?v=1758906579",
+      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Elysia-Sweet-Banana-Perfume-100ml-EDP-Fragrance-World-177430287.jpg?v=1759015313",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -679,7 +680,7 @@
     },
     {
       "retailer": "emirates-oud",
-      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Elysia-Vanilla-Perfume-Sample-2ml-EDP-Fragrance-World-174178043.png?v=1753644953",
+      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hawas-Atlantis-Perfume-100ml-EDP-Rasasi-184446687.png?v=1771115794",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -695,7 +696,7 @@
     },
     {
       "retailer": "emirates-oud",
-      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Coconut-Leche-Perfume-100ml-EDP-French-Avenue-169532256.jpg?v=1750210953",
+      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opus-Grande-Perfume-100ml-EDP-French-Avenue-169532995.jpg?v=1750211431",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -711,7 +712,7 @@
     },
     {
       "retailer": "emirates-oud",
-      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ramz-Lattafa-Body-Spray-200ml-Lattafa-154331178.jpg?v=1734005504",
+      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-Al-Oud-Deodorant-Body-Spray-200ml-Lattafa-168777483.jpg?v=1748192066",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -727,7 +728,7 @@
     },
     {
       "retailer": "emirates-oud",
-      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Privee-Couture-Collection-Men-Combo-Deal-162240414.png?v=1739106489",
+      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Caramel-Macchiato-Perfume-100ml-EDP-Fragrance-World-130922355.jpg?v=1717383453",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -743,7 +744,7 @@
     },
     {
       "retailer": "emirates-oud",
-      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Al-Areeq-Gold-Perfume-100ml-EDP-By-Lattafa-Pride-174162141.jpg?v=1753408755",
+      "url": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/al-qiam-silver-perfume-100ml-edp-lattafa-pride-emirates-oud-103874828.jpg?v=1713057511",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -951,7 +952,39 @@
     },
     {
       "retailer": "fragrance-click",
-      "url": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/378.jpg",
+      "url": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8054754400755.png",
+      "verdict": "ok",
+      "reason": "served the image regardless of referer",
+      "withReferer": {
+        "status": 200,
+        "contentType": "image/png",
+        "error": null
+      },
+      "withoutReferer": {
+        "status": 200,
+        "contentType": "image/png",
+        "error": null
+      }
+    },
+    {
+      "retailer": "fragrance-click",
+      "url": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305169259.png",
+      "verdict": "ok",
+      "reason": "served the image regardless of referer",
+      "withReferer": {
+        "status": 200,
+        "contentType": "image/png",
+        "error": null
+      },
+      "withoutReferer": {
+        "status": 200,
+        "contentType": "image/png",
+        "error": null
+      }
+    },
+    {
+      "retailer": "fragrance-click",
+      "url": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791_1.jpg",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -967,7 +1000,7 @@
     },
     {
       "retailer": "fragrance-click",
-      "url": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/535_1.jpg",
+      "url": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/984.jpg",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -983,7 +1016,7 @@
     },
     {
       "retailer": "fragrance-click",
-      "url": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/796.jpg",
+      "url": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668623624_bab.jpg",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -999,7 +1032,7 @@
     },
     {
       "retailer": "fragrance-click",
-      "url": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_100ml_eau_de_toilette.jpg",
+      "url": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1418.jpg",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1015,39 +1048,7 @@
     },
     {
       "retailer": "fragrance-click",
-      "url": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668508587.jpg",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
-      "withReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
-      },
-      "withoutReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
-      }
-    },
-    {
-      "retailer": "fragrance-click",
-      "url": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1410.jpg",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
-      "withReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
-      },
-      "withoutReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
-      }
-    },
-    {
-      "retailer": "fragrance-click",
-      "url": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_her_elixir_de_parfum_eau_de_parfum_100ml_spray_.jpg",
+      "url": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shiseido_bio-performance-_advanced_super_revitalizing_cream_50ml_.jpg",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1239,7 +1240,7 @@
     },
     {
       "retailer": "justmylook",
-      "url": "https://www.justmylook.com/cdn/shop/files/ariana-grande-ari-eau-de-parfum-30ml-p20951-44092_image.jpg?v=1721322146&width=1000",
+      "url": "https://www.justmylook.com/cdn/shop/files/armani-code-eau-de-parfum-50ml-p38166-121232_image.jpg?v=1721322214&width=1000",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1255,7 +1256,7 @@
     },
     {
       "retailer": "justmylook",
-      "url": "https://www.justmylook.com/cdn/shop/files/for-her-musc-noir-rose-eau-de-parfum-50ml-p28504-71676_image.jpg?v=1721322309&width=1000",
+      "url": "https://www.justmylook.com/cdn/shop/files/tommy-hilfiger-tommy-girl-eau-de-toilette-30ml-p28395-71369_image_x100.jpg?v=1721322335",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1271,7 +1272,7 @@
     },
     {
       "retailer": "justmylook",
-      "url": "https://www.justmylook.com/cdn/shop/files/SOL0066_1036ba1a-b163-4a92-abe1-8d1872962618.png?v=1756720326&width=1000",
+      "url": "https://www.justmylook.com/cdn/shop/files/montblanc-signature-eau-de-parfum-90ml-p26020-63810_image.jpg?v=1721322287&width=1000",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1287,7 +1288,7 @@
     },
     {
       "retailer": "justmylook",
-      "url": "https://www.justmylook.com/cdn/shop/files/GUER0022_501ffea0-7699-47f7-afd1-e873aa41f268.png?v=1766569598&width=1000",
+      "url": "https://www.justmylook.com/cdn/shop/files/PDM0030_55c4ecd4-6c0f-4c15-9d59-91dab80776eb.png?v=1766583611&width=1000",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1303,7 +1304,7 @@
     },
     {
       "retailer": "justmylook",
-      "url": "https://www.justmylook.com/cdn/shop/files/beauty-eau-de-parfum-100ml-p20063-96602_image.jpg?v=1721322168&width=1000",
+      "url": "https://www.justmylook.com/cdn/shop/files/poeme-eau-de-parfum-100ml-p38100-120364_image.jpg?v=1721322268&width=1000",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1319,7 +1320,7 @@
     },
     {
       "retailer": "justmylook",
-      "url": "https://www.justmylook.com/cdn/shop/files/BDK0001.png?v=1775142595&width=1000",
+      "url": "https://www.justmylook.com/cdn/shop/files/PENH0006_44174616-966c-435e-a7ca-6bb239bbcc1e.png?v=1764596564&width=1000",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1335,7 +1336,7 @@
     },
     {
       "retailer": "justmylook",
-      "url": "https://www.justmylook.com/cdn/shop/files/ALRE0002_51dcc1d2-d947-45b7-85f7-d84bf95889f2.png?v=1771499796&width=1000",
+      "url": "https://www.justmylook.com/cdn/shop/files/PURI0003.png?v=1760897928&width=1000",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1351,7 +1352,7 @@
     },
     {
       "retailer": "justmylook",
-      "url": "https://www.justmylook.com/cdn/shop/files/PAC0075_2a42f2ed-1a03-40fa-a862-ceedc78a133e.png?v=1738168806&width=1000",
+      "url": "https://www.justmylook.com/cdn/shop/files/EST0027_x100.png?v=1762190965",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1367,7 +1368,7 @@
     },
     {
       "retailer": "justmylook",
-      "url": "https://www.justmylook.com/cdn/shop/files/CREED0036.png?v=1751897613&width=1000",
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0120_1c34348b-d262-4350-b440-4949ba81b9ef.jpg?v=1730712139&width=1000",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1383,7 +1384,7 @@
     },
     {
       "retailer": "justmylook",
-      "url": "https://www.justmylook.com/cdn/shop/files/viktor-rolf-bonbon-eau-de-parfum-90ml-p28013-77991_image.jpg?v=1721322391&width=1000",
+      "url": "https://www.justmylook.com/cdn/shop/files/lamp-fragrance-tea-rose-500ml-p37248-116466_image.jpg?v=1721323233&width=1000",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1559,7 +1560,7 @@
     },
     {
       "retailer": "manchester-ouds",
-      "url": "https://manchesterouds.com/cdn/shop/files/grey-wish-set-2-3x75ml-ibrahim-al-qurashi-ibraq-5388819.webp?v=1784480614&width=1920",
+      "url": "https://manchesterouds.com/cdn/shop/files/maroon-wish-set-3x75ml-ibrahim-al-qurashi-ibraq-5833834.webp?v=1784480613&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1575,7 +1576,7 @@
     },
     {
       "retailer": "manchester-ouds",
-      "url": "https://manchesterouds.com/cdn/shop/files/emerald-soul-diamond-edp-150ml-ibrahim-al-qurashi-ibraq-6287403.webp?v=1784480701&width=1920",
+      "url": "https://manchesterouds.com/cdn/shop/files/iconic-oud-leather-edp-75ml-ibrahim-al-qurashi-ibraq-7964938.webp?v=1784480655&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1591,7 +1592,7 @@
     },
     {
       "retailer": "manchester-ouds",
-      "url": "https://manchesterouds.com/cdn/shop/files/special-musk-edp-75ml-ibrahim-al-qurashi-ibraq-9127180.webp?v=1784480722&width=1920",
+      "url": "https://manchesterouds.com/cdn/shop/files/french-tobacco-edp-100ml-ibrahim-al-qurashi-ibraq-6645747.webp?v=1784480680&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1607,7 +1608,7 @@
     },
     {
       "retailer": "manchester-ouds",
-      "url": "https://manchesterouds.com/cdn/shop/files/royal-blend-nero-edp-100ml-french-avenue-3668924.webp?v=1786194476&width=1920",
+      "url": "https://manchesterouds.com/cdn/shop/files/grow-edp-100ml-french-avenue-8280880.webp?v=1786194502&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1671,7 +1672,7 @@
     },
     {
       "retailer": "manchester-ouds",
-      "url": "https://manchesterouds.com/cdn/shop/files/musk-al-layl-edp-75ml-ibrahim-al-qurashi-ibraq-5596304.webp?v=1784480641&width=1920",
+      "url": "https://manchesterouds.com/cdn/shop/files/brazilian-tobacco-edp-100ml-ibrahim-al-qurashi-ibraq-9414423.webp?v=1784480687&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1687,7 +1688,7 @@
     },
     {
       "retailer": "manchester-ouds",
-      "url": "https://manchesterouds.com/cdn/shop/files/riviera-sunset-edp-100ml-ibrahim-al-qurashi-ibraq-2277928.webp?v=1784480663&width=1920",
+      "url": "https://manchesterouds.com/cdn/shop/files/blue-diamond-aqua-edp-150ml-ibrahim-al-qurashi-ibraq-3693384.webp?v=1784480708&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1703,7 +1704,7 @@
     },
     {
       "retailer": "manchester-ouds",
-      "url": "https://manchesterouds.com/cdn/shop/files/aromatix-frostbite-edp-100ml-french-avenue-5381786.webp?v=1786194488&width=1920",
+      "url": "https://manchesterouds.com/cdn/shop/files/powder-musk-edp-75ml-ibrahim-al-qurashi-ibraq-7402149.webp?v=1784480731&width=1920",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1879,7 +1880,7 @@
     },
     {
       "retailer": "oud-arabian",
-      "url": "https://oudarabian.co.uk/cdn/shop/files/FullSizeRender.jpg?v=1788449339&width=1206",
+      "url": "https://oudarabian.co.uk/cdn/shop/files/BA6E9B85-643D-413D-8510-48FEB892F1FC.png?v=1776009567&width=1086",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1895,7 +1896,7 @@
     },
     {
       "retailer": "oud-arabian",
-      "url": "https://oudarabian.co.uk/cdn/shop/files/8AE78E7A-B9D4-4C69-AC60-9055FA6F20BF.webp?v=1768522917&width=990",
+      "url": "https://oudarabian.co.uk/cdn/shop/files/IMG-0926.webp?v=1777995370&width=720",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1911,7 +1912,23 @@
     },
     {
       "retailer": "oud-arabian",
-      "url": "https://oudarabian.co.uk/cdn/shop/files/IMG-0948.webp?v=1778163755&width=1200",
+      "url": "https://oudarabian.co.uk/cdn/shop/files/D7C36DC2-52D6-4779-9BDD-F70172D0C9D3.jpg?v=1764949645&width=225",
+      "verdict": "ok",
+      "reason": "served the image regardless of referer",
+      "withReferer": {
+        "status": 200,
+        "contentType": "image/avif",
+        "error": null
+      },
+      "withoutReferer": {
+        "status": 200,
+        "contentType": "image/avif",
+        "error": null
+      }
+    },
+    {
+      "retailer": "oud-arabian",
+      "url": "https://oudarabian.co.uk/cdn/shop/files/5D213FDE-45D5-481F-BA0D-46F8AD8FC51B.jpg?v=1773788223&width=180",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1927,7 +1944,7 @@
     },
     {
       "retailer": "oud-arabian",
-      "url": "https://oudarabian.co.uk/cdn/shop/files/IMG-0980.webp?v=1778239382&width=800",
+      "url": "https://oudarabian.co.uk/cdn/shop/files/C37E757D-C90C-4E61-9D36-EE5A8F1AE010.jpg?v=1758317780&width=1170",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1943,7 +1960,7 @@
     },
     {
       "retailer": "oud-arabian",
-      "url": "https://oudarabian.co.uk/cdn/shop/files/IMG-0013.png?v=1773702855&width=1024",
+      "url": "https://oudarabian.co.uk/cdn/shop/files/9F53C53D-08F3-4805-854A-7A94011FB416.webp?v=1758391462&width=432",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -1959,23 +1976,7 @@
     },
     {
       "retailer": "oud-arabian",
-      "url": "https://oudarabian.co.uk/cdn/shop/files/C94D5D11-3E14-4E4A-8E95-02AA6503BE79.webp?v=1777058014&width=1200",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
-      "withReferer": {
-        "status": 200,
-        "contentType": "image/webp",
-        "error": null
-      },
-      "withoutReferer": {
-        "status": 200,
-        "contentType": "image/webp",
-        "error": null
-      }
-    },
-    {
-      "retailer": "oud-arabian",
-      "url": "https://oudarabian.co.uk/cdn/shop/files/494CD9C9-92BA-4B69-84BA-F040373CC5E0.jpg?v=1758299110&width=1170",
+      "url": "https://oudarabian.co.uk/cdn/shop/files/011AAD59-7151-4D20-9B1E-BE44F10427BC.webp?v=1770660784&width=918",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -2023,7 +2024,7 @@
     },
     {
       "retailer": "oud-arabian",
-      "url": "https://oudarabian.co.uk/cdn/shop/files/4F9B38FF-6CF3-4385-955D-32B2D6ECFF27.webp?v=1765931400&width=990",
+      "url": "https://oudarabian.co.uk/cdn/shop/files/IMG-0973.webp?v=1778235838&width=1200",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -2040,6 +2041,86 @@
     {
       "retailer": "perfume-click",
       "url": "https://bgstatic.net/photos/163063_ml.jpg",
+      "verdict": "inconclusive",
+      "reason": "one of the paired requests never reached the shop — a network failure on our end, not a fact about referer handling — so this pair proves nothing",
+      "withReferer": {
+        "status": 200,
+        "contentType": "image/jpeg",
+        "error": null
+      },
+      "withoutReferer": {
+        "status": null,
+        "contentType": null,
+        "error": "TypeError: fetch failed (AggregateError)"
+      }
+    },
+    {
+      "retailer": "perfume-click",
+      "url": "https://bgstatic.net/photos/190854_ml.jpg",
+      "verdict": "inconclusive",
+      "reason": "one of the paired requests never reached the shop — a network failure on our end, not a fact about referer handling — so this pair proves nothing",
+      "withReferer": {
+        "status": null,
+        "contentType": null,
+        "error": "TypeError: fetch failed (AggregateError)"
+      },
+      "withoutReferer": {
+        "status": null,
+        "contentType": null,
+        "error": "TypeError: fetch failed (AggregateError)"
+      }
+    },
+    {
+      "retailer": "perfume-click",
+      "url": "https://bgstatic.net/photos/175587_ml.jpg",
+      "verdict": "inconclusive",
+      "reason": "one of the paired requests never reached the shop — a network failure on our end, not a fact about referer handling — so this pair proves nothing",
+      "withReferer": {
+        "status": null,
+        "contentType": null,
+        "error": "TypeError: fetch failed (AggregateError)"
+      },
+      "withoutReferer": {
+        "status": null,
+        "contentType": null,
+        "error": "TypeError: fetch failed (AggregateError)"
+      }
+    },
+    {
+      "retailer": "perfume-click",
+      "url": "https://bgstatic.net/photos/115208_ml.jpg",
+      "verdict": "inconclusive",
+      "reason": "one of the paired requests never reached the shop — a network failure on our end, not a fact about referer handling — so this pair proves nothing",
+      "withReferer": {
+        "status": null,
+        "contentType": null,
+        "error": "TypeError: fetch failed (AggregateError)"
+      },
+      "withoutReferer": {
+        "status": null,
+        "contentType": null,
+        "error": "TypeError: fetch failed (AggregateError)"
+      }
+    },
+    {
+      "retailer": "perfume-click",
+      "url": "https://bgstatic.net/photos/138617_ml.jpg",
+      "verdict": "inconclusive",
+      "reason": "one of the paired requests never reached the shop — a network failure on our end, not a fact about referer handling — so this pair proves nothing",
+      "withReferer": {
+        "status": null,
+        "contentType": null,
+        "error": "TypeError: fetch failed (AggregateError)"
+      },
+      "withoutReferer": {
+        "status": null,
+        "contentType": null,
+        "error": "TypeError: fetch failed (AggregateError)"
+      }
+    },
+    {
+      "retailer": "perfume-click",
+      "url": "https://bgstatic.net/photos/178538_ml.jpg",
       "verdict": "ok",
       "reason": "served the image regardless of referer",
       "withReferer": {
@@ -2055,13 +2136,13 @@
     },
     {
       "retailer": "perfume-click",
-      "url": "https://bgstatic.net/photos/129799_ml.jpg",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
+      "url": "https://bgstatic.net/photos/97021_ml.jpg",
+      "verdict": "inconclusive",
+      "reason": "one of the paired requests never reached the shop — a network failure on our end, not a fact about referer handling — so this pair proves nothing",
       "withReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
+        "status": null,
+        "contentType": null,
+        "error": "TypeError: fetch failed (AggregateError)"
       },
       "withoutReferer": {
         "status": 200,
@@ -2071,125 +2152,45 @@
     },
     {
       "retailer": "perfume-click",
-      "url": "https://bgstatic.net/photos/108533_ml.jpg",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
+      "url": "https://bgstatic.net/photos/173751_ml.jpg",
+      "verdict": "inconclusive",
+      "reason": "one of the paired requests never reached the shop — a network failure on our end, not a fact about referer handling — so this pair proves nothing",
       "withReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
+        "status": null,
+        "contentType": null,
+        "error": "TypeError: fetch failed (AggregateError)"
       },
       "withoutReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
+        "status": null,
+        "contentType": null,
+        "error": "TypeError: fetch failed (AggregateError)"
       }
     },
     {
       "retailer": "perfume-click",
-      "url": "https://bgstatic.net/photos/182720_ml.jpg",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
+      "url": "https://bgstatic.net/photos/142900_ml.jpg",
+      "verdict": "inconclusive",
+      "reason": "one of the paired requests never reached the shop — a network failure on our end, not a fact about referer handling — so this pair proves nothing",
       "withReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
+        "status": null,
+        "contentType": null,
+        "error": "TypeError: fetch failed (AggregateError)"
       },
       "withoutReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
-      }
-    },
-    {
-      "retailer": "perfume-click",
-      "url": "https://bgstatic.net/photos/175612_ml.jpg",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
-      "withReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
-      },
-      "withoutReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
-      }
-    },
-    {
-      "retailer": "perfume-click",
-      "url": "https://bgstatic.net/photos/188864_ml.jpg",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
-      "withReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
-      },
-      "withoutReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
-      }
-    },
-    {
-      "retailer": "perfume-click",
-      "url": "https://bgstatic.net/photos/192296_ml.jpg",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
-      "withReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
-      },
-      "withoutReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
-      }
-    },
-    {
-      "retailer": "perfume-click",
-      "url": "https://bgstatic.net/photos/173078_ml.jpg",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
-      "withReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
-      },
-      "withoutReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
-      }
-    },
-    {
-      "retailer": "perfume-click",
-      "url": "https://bgstatic.net/photos/164812_ml.jpg",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
-      "withReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
-      },
-      "withoutReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
+        "status": null,
+        "contentType": null,
+        "error": "TypeError: fetch failed (AggregateError)"
       }
     },
     {
       "retailer": "perfume-click",
       "url": "https://bgstatic.net/photos/189242_ml.jpg",
-      "verdict": "ok",
-      "reason": "served the image regardless of referer",
+      "verdict": "inconclusive",
+      "reason": "one of the paired requests never reached the shop — a network failure on our end, not a fact about referer handling — so this pair proves nothing",
       "withReferer": {
-        "status": 200,
-        "contentType": "image/jpeg",
-        "error": null
+        "status": null,
+        "contentType": null,
+        "error": "TypeError: fetch failed (AggregateError)"
       },
       "withoutReferer": {
         "status": 200,
