@@ -66,9 +66,28 @@ const onlyShop = arg('shop');
 const limit = Number.parseInt(arg('limit') ?? '2000', 10);
 const concurrency = Number.parseInt(arg('concurrency') ?? '5', 10);
 
-/** Mirrors IMAGE_ALLOWED in build-demo-catalogue.ts: only these retailers' */
-/** photos are ever shown, so only these are worth checking at all. */
-const IMAGE_ALLOWED = new Set(RETAILERS.filter((r) => r.affiliate.imageBasis != null).map((r) => r.id));
+/**
+ * The retailers whose photos can actually appear on the site, which is the
+ * only reason to spend a download on one.
+ *
+ * Two groups, not one, and missing the second was a real gap. IMAGE_ALLOWED in
+ * build-demo-catalogue.ts is the per-retailer licensing gate (`imageBasis`),
+ * and this mirrored it exactly — but that build also unlocks a second group
+ * per *offer*: a `singleBrandOnly` storefront showing its own house's product
+ * publishes its own photograph, which retailers.ts's ImageBasis type already
+ * names "own-storefront". 844 live offers are displayed on that basis, and
+ * because none of those shops carries an `imageBasis` of its own, not one of
+ * their photos was ever queued here. Royal Blend Nero was the case that found
+ * it: after six listings merged into one row, the photo shown came from
+ * french-avenue.co.uk and had never been looked at.
+ *
+ * A house's own storefront is not exempt from the question. Its photography is
+ * usually the best on the product, but "usually" is what the whole sweep
+ * exists to replace with a per-photo answer.
+ */
+const IMAGE_ALLOWED = new Set(
+  RETAILERS.filter((r) => r.affiliate.imageBasis != null || r.singleBrandOnly).map((r) => r.id),
+);
 
 /**
  * Already sampled and viewed at 10/10 bottle-only on a licensed, wholesale-

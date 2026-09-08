@@ -291,6 +291,28 @@ export function matchKey(p: MatchableProduct): string {
 }
 
 /**
+ * The same identity with the concentration component blanked: two products
+ * share this key exactly when they would share a matchKey if only they agreed
+ * about the strength. It is the question "is this the same bottle apart from
+ * what the shops call its concentration?", and nothing else.
+ *
+ * Written as matchKey with one field emptied rather than as its own list of
+ * components, so the two cannot drift: a future change to how brands, sizes or
+ * names are compared reaches both at once, and there is no second copy of the
+ * rule to forget.
+ *
+ * Deliberately *not* a merge key. Two shops disagreeing about the strength is
+ * a real disagreement and this file leaves it alone; the one caller
+ * (scripts/build-demo-catalogue.ts) uses it only to find the products a
+ * fragrance house's own storefront has already answered the question for, and
+ * a null size still keys on the product's own id via sizeKeyPart, so an
+ * unsized listing can never be settled by another bottle's evidence.
+ */
+export function concentrationBlindKey(p: MatchableProduct): string {
+  return matchKey({ ...p, concentration: '' });
+}
+
+/**
  * Whether one shop's own two raw titles are saying the same thing, one of
  * them possibly saying a little more: every word of the shorter appears in
  * the longer.

@@ -154,6 +154,30 @@ export const CONCENTRATION_NOT_STATED = 'Not stated';
  * through to the blanket title-case at the foot of `concentration`. It is a
  * real concentration and keeps its own value; it just spells it the way the
  * other three "de" phrases already do.
+ *
+ * ── A fifth, added 2026-09-08 ─────────────────────────────────────────────
+ * "Extrait" (105) and "Extrait de Parfum" (621) are one value, not two, and
+ * bare "Extrait" now maps to the full phrase. This is the Cologne decision
+ * above applied to the other abbreviated form, on the same kind of evidence:
+ * five brand+name+size groups in the live catalogue are split *only* by
+ * which of the two spellings a shop used, and in each the fuller phrase is
+ * the better-attested side —
+ *
+ *   French Avenue Royal Blend Sequoia 100ml   5 shops "Extrait de Parfum",
+ *                                             1 shop  "Extrait"
+ *   French Avenue Liquid Brun Ltd Ed  150ml   5 vs 1
+ *   Maison Alhambra Kaaf Noir         100ml   3 vs 1
+ *   ... and Island Vanilla Dunes, La Fede Intoxicate Mystique
+ *
+ * — one product line written both ways, which is exactly the 4711 evidence
+ * that settled Cologne. Splitting them showed a reader two pills for one
+ * thing and neither shop's full stock under either.
+ *
+ * Note what this deliberately does NOT touch: "Parfum" (306) stays its own
+ * value, per the paragraph above. Whether Parfum and Extrait de Parfum are
+ * the same strength is the open question recorded there and is not answered
+ * here; "Extrait" is merely the short way to write "Extrait de Parfum", the
+ * way "EDP" is the short way to write "Eau de Parfum".
  */
 const CONCENTRATION_DISPLAY: Record<string, string> = {
   edp: 'Eau de Parfum', edt: 'Eau de Toilette', edc: 'Eau de Cologne',
@@ -163,7 +187,7 @@ const CONCENTRATION_DISPLAY: Record<string, string> = {
   'concentrated perfume oil': 'Perfume Oil', 'perfume oil': 'Perfume Oil',
   'perfumed oil': 'Perfume Oil', 'fragrance oil': 'Perfume Oil',
   parfum: 'Parfum', aftershave: 'Aftershave',
-  cologne: 'Eau de Cologne', extrait: 'Extrait', attar: 'Attar',
+  cologne: 'Eau de Cologne', extrait: 'Extrait de Parfum', attar: 'Attar',
   perfume: CONCENTRATION_NOT_STATED, oud: CONCENTRATION_NOT_STATED,
 };
 
@@ -1463,10 +1487,41 @@ export function brandTitleEnds(title: string, candidates: (string | null)[]): st
  *
  * Returns the whole span to remove — "Zimaya By Afnan", not just "Zimaya" —
  * so the caller need not know the house was ever there.
+ *
+ * ── The same credit written the other way round ─────────────────────────────
+ * One shop writes the two names in the opposite order and parenthesises the
+ * house: "Royal Blend Nero 100ml EDP by French Avenue (Fragrance World)",
+ * "Al Barari Coral by Zimaya (Afnan)", "Penthouse Larvotto by Rue Broca
+ * (Afnan)". It is the identical fact — sub-brand, then the house behind it —
+ * and it left Royal Blend Nero standing as a second row beside the six
+ * listings that spell it plainly, which is the duplicate a reader actually
+ * complains about.
+ *
+ * Held to the same two locks as the shape above, both of which have to hold:
+ * the parenthesised name must be one of KNOWN_TRAILING_HOUSES, and the name
+ * between "by" and the bracket must be *this product's own brand*, not merely
+ * some brand. Measured against the live catalogue, 16 product names end in a
+ * parenthesised confirmed brand and this strips 3 of them; the 13 it declines
+ * are declined on purpose. "Femme (Rochas)" has no "by" at all and is left
+ * exactly as the brandTitleEnds tests already pin it. Ten "… by FA Paris
+ * (Fragrance World)" names keep their bracket because "FA Paris" is not the
+ * brand those products carry, and inventing the link between the two would be
+ * this function guessing rather than reading. "Khanjar by Niche Emarati
+ * Perfumes (Lattafa)" is left for the same reason, plus "Lattafa" not being
+ * in the trailing-house set — a house is added to that set on evidence, never
+ * to make one more name come out tidy.
  */
 const KNOWN_TRAILING_HOUSES = new Set(['afnan', 'fragranceworld', 'pariscorner']);
 
 export function brandTitleEndsWithHouse(title: string, candidates: (string | null)[]): string | null {
+  const parenthesised = title.match(/\s+by\s+(\S(?:.*\S)?)\s+\(([^()]+)\)\s*$/i);
+  if (parenthesised && KNOWN_TRAILING_HOUSES.has(brandKey(parenthesised[2]!))) {
+    const credited = brandKey(parenthesised[1]!);
+    if (credited && candidates.some((c) => c && brandKey(c) === credited)) {
+      return title.slice(parenthesised.index!);
+    }
+  }
+
   const m = title.match(/\s+by\s+(\S(?:.*\S)?)\s*$/i);
   if (!m) return null;
   if (!KNOWN_TRAILING_HOUSES.has(brandKey(m[1]!))) return null;
@@ -1841,7 +1896,63 @@ export function displayName(title: string, brand: string | null, displayedBrand:
   // mid-string "+ +" / "- +" is not a boundary problem at all.
   s = stripOrphanedSeparators(s);
 
-  return s || emptiedNameFallback(opener, brand, displayedBrand) || title;
+  return canonicalSeriesSpelling(s) || emptiedNameFallback(opener, brand, displayedBrand) || title;
+}
+
+/**
+ * One spelling per fragrance series, where the shops genuinely disagree
+ * about how to spell the series' own name.
+ *
+ * ── Why this is not the same problem as a brand alias ─────────────────────
+ * `brandName.ts`'s KNOWN_ALIASES settles what a *house* is called.
+ * `productMatch.ts` already folds apostrophes away before comparing names,
+ * so two spellings of one series never stop two listings of the *same
+ * bottle* from merging. What is left is purely what a reader sees, and it
+ * is a real complaint: Lattafa's Bade'e Al Oud line appears on the site as
+ * "Badee Al Oud Sublime" next to "Bade'e Al Oud Noble Blush", which reads
+ * as two unrelated products rather than one series.
+ *
+ * ── The evidence, counted over every raw listing ──────────────────────────
+ * The shops are split, and two of them are split *within their own
+ * catalogue* — the same shape as the 4711 evidence that settled Cologne
+ * above:
+ *
+ *   "Bade'e Al Oud"   43 listings, 6 shops   <- canonical
+ *   "Badee Al Oud"    40 listings, 4 shops
+ *   "Bade'e Al Oud"   5 listings,  2 shops   (curly apostrophe)
+ *
+ *   beautybase and justmylook each publish both spellings themselves.
+ *
+ * The apostrophe form is the more used and the more widely used, and the
+ * curly variant is the same string typed with a different quote character,
+ * so all three fold to one.
+ *
+ * ── What this may and may not do ──────────────────────────────────────────
+ * It rewrites the *spelling of a series name a shop already used*, never
+ * the product's own distinguishing words: "Sublime", "Noble Blush" and
+ * "Honor & Glory" are untouched, and a name that does not contain the
+ * series at all is returned exactly as it came in. It is deliberately a
+ * table of specific series rather than a general "normalise apostrophes"
+ * rule, because a general rule would rewrite every name on the site to
+ * settle a disagreement that, so far, is measured in exactly one line.
+ */
+const SERIES_SPELLINGS: readonly { readonly canonical: string; readonly variants: RegExp }[] = [
+  // Lattafa's Bade'e Al Oud. Matches the series wherever it sits in the
+  // name, with any of the three spellings and either quote character.
+  { canonical: "Bade'e Al Oud", variants: /\bbad[e\u2019']*e?\s+al\s+oud\b/gi },
+];
+
+/**
+ * The name with any series in SERIES_SPELLINGS spelled its canonical way.
+ * Exported so the table's claims are testable directly rather than only
+ * through a full `displayName` call.
+ */
+export function canonicalSeriesSpelling(name: string): string {
+  let out = name;
+  for (const { canonical, variants } of SERIES_SPELLINGS) {
+    out = out.replace(variants, canonical);
+  }
+  return out;
 }
 
 /**

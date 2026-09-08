@@ -26,6 +26,7 @@ import type { Retailer } from '../src/types/retailer.js';
 import { HOUSES } from '../src/config/houses.js';
 import { buildBrandCanon, armafLineName } from '../src/catalogue/brandName.js';
 import {
+  concentrationBlindKey,
   findDuplicateGroups,
   matchKey,
   rawTitlesAgree,
@@ -227,6 +228,34 @@ interface Product {
    * regardless of which side of the merge it started on.
    */
   armafLine: string | null;
+  /**
+   * The concentration this product's own fragrance house states on its own UK
+   * storefront, or null where the house does not sell it here. Set by the
+   * brand-direct concentration pass below, which runs before the same-bottle
+   * merge; carried on the record for the same reason `armafLine` is, and it is
+   * the more load-bearing of the two. That pass exists precisely to let two
+   * records with different concentrations merge, so by the time the dispute
+   * audit further down asks whether the shops agree, the fact that the house
+   * already settled it lives only here — on whichever of the merged records
+   * survived, which is not knowable when the pass runs.
+   */
+  concentrationFromHouse: string | null;
+}
+
+/**
+ * Whether this offer is the product's own fragrance house selling it: a
+ * `singleBrandOnly` storefront, on a brand it actually makes.
+ *
+ * Both readers ask the identical question of the identical registry — the
+ * brand-direct concentration pass before the merge, and the `Offer.brandDirect`
+ * pass after it — and the `cannotCarryBrand` half is the part that is easy to
+ * write once and forget the second time. See the brandDirect pass below for why
+ * that half is load-bearing rather than tidiness.
+ */
+function isBrandDirectOffer(retailerId: string, brand: string): boolean {
+  const retailer = RETAILERS.find((r) => r.id === retailerId);
+  if (!retailer?.singleBrandOnly) return false;
+  return !cannotCarryBrand(retailer, brand);
 }
 
 // Image-picking policy (which licensed offer's photo wins) lives in
@@ -384,12 +413,42 @@ const knownFragranceBrands: ReadonlySet<string> = (() => {
  * Arabian's own titles overwhelmingly open with the house name).
  *
  * Deliberately not a fuzzy or partial match, and never a guess at a word
- * that merely looks brand-shaped — mid-title text is never considered, so
- * "Yara Perfume 100ml EDP Lattafa Set Of 4" cannot produce "Lattafa" (it
- * sits in the middle, not at either end) or "4" (not a real, confirmed
- * brand). A title with no confirmed brand at either end returns null, which
- * canonBrand/'Unbranded' downstream turns into an honest gap rather than an
- * invented fact.
+ * that merely looks brand-shaped: "Yara Perfume 100ml EDP Lattafa Set Of 4"
+ * cannot produce "Lattafa" (it sits in the middle, and nothing here reads
+ * bare mid-title words) or "4" (not a real, confirmed brand). A title with no
+ * confirmed brand returns null, which canonBrand/'Unbranded' downstream turns
+ * into an honest gap rather than an invented fact.
+ *
+ * The one exception to "neither end, no answer" is an explicit attribution —
+ * the shop writing "<fragrance> by <house>" in so many words, tried last,
+ * after both ends have failed. That is not the same move as reading a
+ * mid-title word and hoping: "by" is the shop stating whose fragrance this is,
+ * in English, and the house has to be one already confirmed elsewhere just as
+ * at either end.
+ *
+ * Measured against the live catalogue on 2026-09-08, in two numbers that are
+ * worth keeping apart. The *shape* is common: 125 self-vendored listings write
+ * a real fragrance house after a "by", 116 of them Perfumeo, whose titles are
+ * almost all this ("Absolute Chill by Atralia 100ml Eau De Parfum | Atralia |
+ * Perfumeo UK" — the house is named twice and neither is at an end, because
+ * the shop's own name is). What this actually recovers is 8 listings across 7
+ * houses, at FragranceHub and Oud Arabian.
+ *
+ * The gap between the two is knownFragranceBrands doing its job, and is the
+ * reason this can be safe rather than merely narrow: a house is admitted only
+ * once two listings that are not self-vendored have named it somewhere else in
+ * the catalogue. Perfumeo is the only shop here selling Mykonos, Atralia or Le
+ * Falcone, and it names them only in listings whose vendor field is its own
+ * name — so nothing independent confirms those houses exist, and their 116
+ * listings stay honestly "Unbranded" rather than being brand-named on the word
+ * of the same field that was already wrong. Whatever this does admit is
+ * confirmed the same way a leading or trailing brand is.
+ *
+ * "Inspired by" is excluded outright, and that exclusion is the whole reason
+ * this can be done safely. A dupe house's "inspired by Creed Aventus" names
+ * the fragrance it is imitating, not its own maker; attributing those five
+ * listings to Creed would state something false about a bottle Creed did not
+ * make, which is worse than the gap it fills.
  */
 function recoverBrandFromTitle(rawTitle: string, retailerName: string): string | null {
   const words = rawTitle.trim().split(/\s+/).filter(Boolean);
@@ -418,7 +477,22 @@ function recoverBrandFromTitle(rawTitle: string, retailerName: string): string |
       trailingLen = len;
     }
   }
-  return trailing;
+  if (trailing) return trailing;
+
+  // "<fragrance> by <house>", tried only now that both ends have failed. See
+  // the header for the measurement and for why "inspired by" is skipped.
+  for (let i = 0; i + 1 < words.length; i++) {
+    if (words[i]!.toLowerCase() !== 'by') continue;
+    if (i > 0 && words[i - 1]!.toLowerCase() === 'inspired') continue;
+    // Longest first, so "by Swiss Arabian" is not read as a house called
+    // "Swiss" — the same preference the two passes above apply.
+    for (let end = words.length; end > i + 1; end--) {
+      const candidate = words.slice(i + 1, end).join(' ');
+      const key = candidate.toLowerCase();
+      if (key !== shopName && knownFragranceBrands.has(key)) return candidate;
+    }
+  }
+  return null;
 }
 
 /**
@@ -699,9 +773,83 @@ for (const { retailer, listings } of eligible) {
         // exactly the same 'Unbranded'-style no-op it always was before this
         // field existed.
         armafLine: armafLineName(effectiveRawBrand),
+        // Filled in by the brand-direct concentration pass below, which needs
+        // every product to exist before it can ask what the house said.
+        concentrationFromHouse: null,
       });
     }
   }
+}
+
+/* ── the house's own word on the strength ──────────────────────────────────
+   Royal Blend Nero, 100ml, French Avenue, was three rows on the site: an
+   Extrait de Parfum (beauty base, perfume click, justmylook and the brand's
+   own french-avenue.co.uk), an Eau de Parfum (emirates oud, manchester ouds)
+   and a third from Fragrancehub. Same house, same bottle, same size, same
+   name, three prices the reader could not compare — which is the one failure a
+   price comparison exists to prevent.
+
+   The concentration is what kept them apart: matchKey (productMatch.ts)
+   requires the shops to agree about it, deliberately, because EDT and EDP
+   really are two different Sauvages. So the fix is not to relax the merge. It
+   is to settle the disagreement first, where it can be settled honestly.
+
+   CONCENTRATION_RESOLUTIONS in productName.ts already holds this project's
+   standard for that — the manufacturer's own word beats a reseller's — but it
+   is keyed on EAN, and only one side of this split publishes a barcode. Which
+   is the ordinary case rather than bad luck: the shops that mislabel a bottle
+   are usually the ones not publishing its code either, so the EAN table can
+   never reach the split it would be most useful on.
+
+   Fourteen houses already run a UK storefront harvested into data/catalogue
+   like any other shop (see the brandDirect pass further down for the same join
+   and the same `cannotCarryBrand` guard). Where one of them lists this exact
+   bottle and states a strength, that is the manufacturer's word, arriving by
+   the same evidentiary route CONCENTRATION_RESOLUTIONS took and needing no
+   barcode to get here. french-avenue.co.uk sells "Royal Blend Nero Extrait De
+   Parfum 100ml", so the site can say Extrait de Parfum on all seven listings
+   and show one row with one cheapest price.
+
+   Three refusals, all of them measured rather than defensive:
+
+   - A house contradicting *itself* across two of its own listings settles
+     nothing, so the whole bucket is left in dispute for the audit below.
+   - "Not stated" is not a statement. A house listing that names no strength
+     is silent, not evidence for the bare-titled reading.
+   - An unsized listing is never touched: concentrationBlindKey keys a null
+     size on the product's own id (see sizeKeyPart), so it cannot collide with
+     the bottle whose size the house actually stated.
+
+   Runs here — after every product exists, before findDuplicateGroups — because
+   both halves need it: the evidence has to be gathered across products, and
+   changing a concentration after the merge would be too late to merge on. */
+const houseConcentrations = new Map<string, Set<string>>();
+for (const product of products.values()) {
+  for (const offer of product.offers) {
+    if (!isBrandDirectOffer(offer.retailerId, product.brand)) continue;
+    const stated = concentrationOfListing(offer.rawTitle, offer.description);
+    if (stated === 'Not stated') continue;
+    const key = concentrationBlindKey(product);
+    const seen = houseConcentrations.get(key);
+    if (seen) seen.add(stated);
+    else houseConcentrations.set(key, new Set([stated]));
+  }
+}
+let concentrationResolvedByHouse = 0;
+let concentrationCorrectedByHouse = 0;
+for (const product of products.values()) {
+  const stated = houseConcentrations.get(concentrationBlindKey(product));
+  // size > 1 is the house disagreeing with itself — see the refusals above.
+  if (!stated || stated.size !== 1) continue;
+  const truth = [...stated][0]!;
+  concentrationResolvedByHouse++;
+  // Recorded even where it changes nothing, because the point of the record is
+  // to tell the dispute audit below that this bottle is settled, and the
+  // record that survives the merge may well be one that was already right.
+  product.concentrationFromHouse = truth;
+  if (product.concentration === truth) continue;
+  product.concentration = truth;
+  concentrationCorrectedByHouse++;
 }
 
 /* ── one bottle, one product ───────────────────────────────────────────────
@@ -1040,6 +1188,14 @@ for (const [id] of contradicting) {
   if (resolution) {
     product.concentration = resolution.concentration;
     concentrationResolvedByEan++;
+  } else if (product.concentrationFromHouse) {
+    // Already settled by the house's own storefront before the merge, and the
+    // shops' disagreement is the very thing that pass exists to overrule — see
+    // it above. Without this branch the fix would undo itself: merging the two
+    // halves is what puts both their claims into `concentrationsSeen`, so
+    // every bottle the house resolved would arrive here looking contradicted
+    // and be relabelled "Disputed" on the strength of the losing shop's title.
+    product.concentration = product.concentrationFromHouse;
   } else {
     product.concentration = CONCENTRATION_DISPUTED;
   }
@@ -1665,17 +1821,33 @@ console.log(
   // mixedConcentration and contradicting are computed and every contradicting
   // product's `concentration` field is already overwritten — with the true
   // value from CONCENTRATION_RESOLUTIONS where a 2026-08-27 WebSearch pass
-  // settled it, with CONCENTRATION_DISPUTED otherwise — by the time this runs.
+  // settled it, with the house's own storefront word where the pass before the
+  // merge found one, with CONCENTRATION_DISPUTED otherwise — by the time this
+  // runs.
   if (mixedConcentration.length > 0) {
+    // The same order of precedence the loop above applies, counted the same
+    // way: the EAN table first, the house's storefront only where that table
+    // had nothing to say.
+    const resolvedByHouse = contradicting.filter(([id]) => {
+      const p = products.get(id);
+      if (!p?.concentrationFromHouse) return false;
+      return !(p.ean && CONCENTRATION_RESOLUTIONS[p.ean]);
+    }).length;
     console.log(
       `::warning::${mixedConcentration.length} products carry offers whose titles differ about concentration — ` +
         `${contradicting.length} of them a real contradiction, the rest one shop naming none. ` +
-        'Every contradiction shares an EAN, so it is a mislabelled bottle rather than two bottles merged; ' +
         `${concentrationResolvedByEan} were settled by the manufacturer's own word (see CONCENTRATION_RESOLUTIONS ` +
-        `in productName.ts) and now show their true concentration, and the remaining ` +
-        `${contradicting.length - concentrationResolvedByEan} still show "${CONCENTRATION_DISPUTED}".`,
+        `in productName.ts), ${resolvedByHouse} more by the house's own UK storefront, and the remaining ` +
+        `${contradicting.length - concentrationResolvedByEan - resolvedByHouse} still show ` +
+        `"${CONCENTRATION_DISPUTED}".`,
     );
   }
+  console.log(
+    `house concentration: ${concentrationResolvedByHouse} products state the strength their own ` +
+      `fragrance house states on its own UK storefront; ${concentrationCorrectedByHouse} of them ` +
+      'had been carrying a reseller-titled strength the house contradicts, so those merge with the ' +
+      'listings that already had it right (see "the house\'s own word on the strength" above).',
+  );
 }
 
 for (const f of scaleAudit.offScale) {
