@@ -327,7 +327,10 @@ describe('pickImage with imageBoxVerdicts (scripts/image-box-check.ts findings)'
     expect(pickImage(offers, NOW, v)).toBe('https://beautybase.example/clean.jpg');
   });
 
-  it('does not demote an "unsure" verdict -- only a confirmed boxed call ever loses its tier', () => {
+  it('does not demote an "unsure" verdict for an alternative nobody has looked at', () => {
+    // The distinction the rule below turns on: an unchecked photo is not
+    // evidence of anything, so it cannot displace one that has at least been
+    // looked at, however inconclusively.
     const offers = [
       offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/maybe.jpg', fetchedAt: hoursAgo(1) }),
       offer({
@@ -338,6 +341,56 @@ describe('pickImage with imageBoxVerdicts (scripts/image-box-check.ts findings)'
     ];
     const v = verdicts({ 'https://beautybase.example/maybe.jpg': 'unsure' });
     expect(pickImage(offers, NOW, v)).toBe('https://beautybase.example/maybe.jpg');
+  });
+
+  // The reported photo, as its offers actually stand in the live catalogue:
+  // Emirates Oud's Azzure Aoud shot scored 0.5 -- dead on the boundary -- and
+  // held the top-ranked slot while three other shops had a photo the checker
+  // had confirmed shows the bottle alone.
+  it('demotes an "unsure" photo when a confirmed bottle-only one is available', () => {
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/maybe.jpg', fetchedAt: hoursAgo(1) }),
+      offer({
+        retailerId: 'mybeauty-boutique',
+        imageUrl: 'https://mybeauty-boutique.example/clean.jpg',
+        fetchedAt: hoursAgo(2),
+      }),
+    ];
+    const v = verdicts({
+      'https://beautybase.example/maybe.jpg': 'unsure',
+      'https://mybeauty-boutique.example/clean.jpg': 'bottle-only',
+    });
+    expect(pickImage(offers, NOW, v)).toBe('https://mybeauty-boutique.example/clean.jpg');
+  });
+
+  it('keeps an "unsure" photo when the only confirmed bottle-only one is a thumbnail', () => {
+    // Same measured trade-off as the boxed demotion: perfume-click's files are
+    // 82x130, and a blurred confirmed bottle is not an improvement on a sharp
+    // photo that merely could not be read.
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/maybe.jpg', fetchedAt: hoursAgo(1) }),
+      offer({ retailerId: 'perfume-click', imageUrl: 'https://perfume-click.example/tiny.jpg', fetchedAt: hoursAgo(2) }),
+    ];
+    const v = verdicts({
+      'https://beautybase.example/maybe.jpg': 'unsure',
+      'https://perfume-click.example/tiny.jpg': 'bottle-only',
+    });
+    expect(pickImage(offers, NOW, v)).toBe('https://beautybase.example/maybe.jpg');
+  });
+
+  it('demotes an unsure photo in the freshness fallback too, not just at the ranked tier', () => {
+    // Neither shop is a preferred retailer, so the ranked loop never runs and
+    // the fallback is the whole decision. Without the same rule there, the
+    // fresher unsure photo would simply win on its timestamp.
+    const offers = [
+      offer({ retailerId: 'manchester-ouds', imageUrl: 'https://manchester-ouds.example/maybe.jpg', fetchedAt: hoursAgo(1) }),
+      offer({ retailerId: 'emirates-oud', imageUrl: 'https://emirates-oud.example/clean.jpg', fetchedAt: hoursAgo(9) }),
+    ];
+    const v = verdicts({
+      'https://manchester-ouds.example/maybe.jpg': 'unsure',
+      'https://emirates-oud.example/clean.jpg': 'bottle-only',
+    });
+    expect(pickImage(offers, NOW, v)).toBe('https://emirates-oud.example/clean.jpg');
   });
 
   it('treats an offer with no verdict at all exactly like before -- the map is additive, never a new requirement', () => {

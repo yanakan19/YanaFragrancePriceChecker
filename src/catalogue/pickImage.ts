@@ -44,6 +44,34 @@ function isVerifiedBoxed(imageUrl: string | null, verdicts: ImageBoxVerdicts | u
 }
 
 /**
+ * The checker looked at this exact photo and said it shows the bottle alone.
+ *
+ * Kept apart from "not boxed", which is a much weaker claim covering three
+ * different situations: a confirmed bottle, a photo the checker could not
+ * read, and a photo nobody has looked at. Only the first is evidence.
+ */
+function isVerifiedBottleOnly(imageUrl: string | null, verdicts: ImageBoxVerdicts | undefined): boolean {
+  if (imageUrl === null || !verdicts) return false;
+  return verdicts.get(imageUrl) === 'bottle-only';
+}
+
+/**
+ * The checker looked and could not tell — a silhouette right on the boundary
+ * between the two shapes (see BOXED_ASPECT/BOTTLE_ASPECT in
+ * scripts/image-box-classify.py).
+ *
+ * Distinct from a photo with no verdict at all, and the distinction is what
+ * the rule below turns on: an unchecked photo may well be a perfect bottle
+ * shot nobody has got to yet, while an `unsure` one is a photo that has had
+ * its turn and failed to convince. When a *confirmed* bottle-only shot of the
+ * same product is available, the unsure one has nothing left to offer.
+ */
+function isUnsure(imageUrl: string | null, verdicts: ImageBoxVerdicts | undefined): boolean {
+  if (imageUrl === null || !verdicts) return false;
+  return verdicts.get(imageUrl) === 'unsure';
+}
+
+/**
  * Retailers whose product photo, when they have one, was actually looked at
  * — not assumed — and shows a bottle-only, face-on shot (no box) often
  * enough to prefer over a fresher photo from an unranked source.
@@ -273,9 +301,29 @@ export const PREFERRED_IMAGE_MAX_AGE_HOURS = 336;
  *
  * Either way, a boxed photo is never discarded outright — a product with
  * only a boxed photo still gets that photo back, because a boxed photo is
- * worse than a bottle-only one but still better than no photo at all. An
- * `unsure` verdict, or an offer the checker never reached, is left exactly
- * as before: this is a demotion for a confirmed `boxed` call only.
+ * worse than a bottle-only one but still better than no photo at all.
+ *
+ * ── `unsure` gives way to a confirmed bottle, and only to that (2026-09-08) ─
+ * The reported photo was Azzure Aoud: Emirates Oud's shot shows the box, the
+ * checker scored it 0.5 — the exact midpoint between the two shapes — and
+ * called it `unsure`, so it kept the top-ranked slot while Beauty Base,
+ * Manchester Ouds and Justmylook each had a photo the checker had confirmed
+ * shows the bottle alone. Nothing here was broken; the demotion simply had
+ * nothing to say about a verdict that is not `boxed`.
+ *
+ * It does now, but only in the one direction the evidence supports: an
+ * `unsure` photo loses its place to a *confirmed* `bottle-only` one, at both
+ * tiers, and never to anything weaker. The asymmetry is the point. `unsure`
+ * means this photo has been looked at and failed to convince, so a photo that
+ * has been looked at and did convince is strictly better evidence. A photo
+ * with no verdict at all is a different thing — nobody has looked yet, and it
+ * may well be the best shot on the product — so it keeps its place exactly as
+ * before, which is also what keeps fragrance-click's deliberately unswept
+ * feed (see SKIP_RETAILERS in scripts/image-box-check.ts) where it is.
+ *
+ * Held to the same thumbnail rule as the boxed demotion, for the same measured
+ * reason: a sharp maybe-boxed photo beats an 82x130 blur, so the replacement
+ * has to come from a full-sized source or the unsure photo stays.
  */
 export function pickImage(
   offers: readonly ImageCandidate[],
@@ -285,6 +333,13 @@ export function pickImage(
   const licensed = offers.filter((o) => o.imageUrl !== null);
   if (licensed.length === 0) return null;
 
+  // Whether this product has a photo the checker confirmed shows the bottle
+  // alone, from a source whose files are big enough to be worth swapping to.
+  // Computed once: both tiers below ask the same question of the same offers.
+  const confirmedBottleAvailable = licensed.some(
+    (o) => isVerifiedBottleOnly(o.imageUrl, imageBoxVerdicts) && !THUMBNAIL_IMAGE_RETAILERS.has(o.retailerId),
+  );
+
   for (const retailerId of PREFERRED_IMAGE_RETAILERS) {
     const preferred = licensed.find((o) => o.retailerId === retailerId);
     if (!preferred) continue;
@@ -292,6 +347,11 @@ export function pickImage(
       // A confirmed box-beside-bottle shot never wins this tier, no matter
       // how fresh — see the header above. The next ranked retailer (or,
       // failing all of them, the freshness fallback) gets a turn instead.
+      continue;
+    }
+    if (confirmedBottleAvailable && isUnsure(preferred.imageUrl, imageBoxVerdicts)) {
+      // Looked at, and it did not convince — while a photo of the same
+      // product did. Azzure Aoud is this exact case; see the header.
       continue;
     }
     const ageHours = (now.getTime() - new Date(preferred.fetchedAt).getTime()) / 3_600_000;
@@ -318,6 +378,19 @@ export function pickImage(
   // beside the bottle at full size is the better of those two, so a boxed
   // photo gives way to a bottle-only one from a real-sized source, and is
   // otherwise kept rather than replaced by something worse.
+  // The same demotion the ranked tier just applied, so an unsure photo cannot
+  // walk back in through the fallback as the freshest of the pool. Narrower
+  // than the boxed pool below on purpose: this keeps only the *confirmed*
+  // bottles rather than everything that is not unsure, because the whole
+  // reason for skipping the unsure photo was that a confirmed one exists.
+  if (confirmedBottleAvailable && licensed.some((o) => isUnsure(o.imageUrl, imageBoxVerdicts))) {
+    const confirmed = licensed.filter(
+      (o) => isVerifiedBottleOnly(o.imageUrl, imageBoxVerdicts) && !THUMBNAIL_IMAGE_RETAILERS.has(o.retailerId),
+    );
+    const freshestConfirmed = [...confirmed].sort((a, b) => b.fetchedAt.localeCompare(a.fetchedAt))[0]!;
+    return upgradeImageResolution(freshestConfirmed.imageUrl);
+  }
+
   const boxedOffers = licensed.filter((o) => isVerifiedBoxed(o.imageUrl, imageBoxVerdicts));
   let pool = licensed;
   if (boxedOffers.length > 0) {

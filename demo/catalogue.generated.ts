@@ -92,7 +92,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360375687",
     "shops": 8,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Azzure-Aoud-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-170031076.jpg?v=1751223044",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_20257a28-47c6-4088-a0ab-1bfaefac11ba.jpg?v=1756995930",
     "notes": {
       "top": [
         "Passionfruit",
@@ -166,6 +166,38 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       }
     },
     "houseCeiling": 30
+  },
+  {
+    "id": "ean-6298042000414",
+    "brand": "French Avenue",
+    "name": "Royal Blend Sequoia",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "6298042000414",
+    "shops": 8,
+    "image": "https://www.beautybase.com/cdn/shop/files/1752057466-36472000.jpg?v=1763398267&width=3000",
+    "notes": {
+      "top": [
+        "Cognac",
+        "Raspberry",
+        "Liquor"
+      ],
+      "middle": [
+        "Tonka Bean",
+        "Bulgarian Rose",
+        "Oakmoss"
+      ],
+      "base": [
+        "Praline",
+        "Oak",
+        "Sandalwood"
+      ],
+      "source": {
+        "retailerId": "manchester-ouds",
+        "url": "https://manchesterouds.com/products/royal-blend-sequoia-edp-100ml"
+      }
+    },
+    "houseCeiling": 35
   },
   {
     "id": "ean-6290360378053",
@@ -301,6 +333,39 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "source": {
         "retailerId": "manchester-ouds",
         "url": "https://manchesterouds.com/products/liquid-brun-edp-100ml"
+      }
+    },
+    "houseCeiling": 35
+  },
+  {
+    "id": "ean-6290360375601",
+    "brand": "French Avenue",
+    "name": "Royal Blend Nero",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360375601",
+    "shops": 7,
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_d4eecbc7-a4bc-44ce-b369-34b26558f00c.jpg?v=1756994098",
+    "notes": {
+      "top": [
+        "Nutmeg",
+        "Apple",
+        "Bergamot"
+      ],
+      "middle": [
+        "Cinnamon",
+        "Dry Wood",
+        "Saffron"
+      ],
+      "base": [
+        "Vanilla",
+        "Tonka",
+        "Benzoin",
+        "Musk"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/royal-blend-nero-100ml-edp-fa-paris-by-fragrance-world"
       }
     },
     "houseCeiling": 35
@@ -491,7 +556,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": "6295199801116",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1749830137-87010300.jpg?v=1763398128&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51aKqr9LZ_L.jpg?v=1767981056",
     "notes": {
       "top": [
         "Lychee",
@@ -857,6 +922,197 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-6298042000957",
+    "brand": "French Avenue",
+    "name": "Amber Empire",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "6298042000957",
+    "shops": 6,
+    "image": "https://manchesterouds.com/cdn/shop/files/amber-empire-edp-100ml-french-avenue-1334679.webp?v=1786194491&width=3000",
+    "notes": {
+      "top": [
+        "Oriental Accord",
+        "Cashmere Wood",
+        "Vanilla Wood",
+        "Liquorous Accord"
+      ],
+      "middle": [
+        "Cedarwood",
+        "Amber",
+        "Cane Sugar"
+      ],
+      "base": [
+        "Musk",
+        "Tonka Beans",
+        "Labdanum",
+        "Sandalwood"
+      ],
+      "source": {
+        "retailerId": "manchester-ouds",
+        "url": "https://manchesterouds.com/products/amber-empire-edp-100ml"
+      }
+    },
+    "houseCeiling": 45
+  },
+  {
+    "id": "ean-6298042001206",
+    "brand": "French Avenue",
+    "name": "Atlantis",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "6298042001206",
+    "shops": 6,
+    "image": "https://www.beautybase.com/cdn/shop/files/1756288999-17373100.jpg?v=1763398837&width=3000",
+    "notes": {
+      "top": [
+        "Mandarin Orange",
+        "Orange",
+        "Lemon"
+      ],
+      "middle": [
+        "Watermelon",
+        "Coconut"
+      ],
+      "base": [
+        "Ambergris",
+        "Amberwood",
+        "Cacao"
+      ],
+      "source": {
+        "retailerId": "fragrancehub",
+        "url": "https://fragrancehub.co.uk/products/atlantis-extrait-de-parfum-by-french-avenue-100ml"
+      }
+    },
+    "houseCeiling": 35
+  },
+  {
+    "id": "ean-6298042001831",
+    "brand": "French Avenue",
+    "name": "Liquid Brun Limited Edition",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 150,
+    "ean": "6298042001831",
+    "shops": 6,
+    "image": "https://www.beautybase.com/cdn/shop/files/1770296008-01656500.jpg?v=1772624920&width=3000",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Cardamom",
+        "Cinnamon",
+        "Orange Blossom"
+      ],
+      "middle": [
+        "Elemi",
+        "Vanilla"
+      ],
+      "base": [
+        "Ambroxan",
+        "Praline",
+        "Guaiac Wood",
+        "Musk"
+      ],
+      "source": {
+        "retailerId": "manchester-ouds",
+        "url": "https://manchesterouds.com/products/liquid-brun-limited-edition-edp-100ml"
+      }
+    }
+  },
+  {
+    "id": "ean-6298042001879",
+    "brand": "French Avenue",
+    "name": "Obsidian",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "6298042001879",
+    "shops": 6,
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_34.jpg?v=1767795639",
+    "notes": {
+      "top": [
+        "Grapefruit",
+        "Bergamot"
+      ],
+      "middle": [
+        "Myrrh",
+        "Jasmine",
+        "Labdanum"
+      ],
+      "base": [
+        "Vanilla",
+        "Amber",
+        "Tonka Bean"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/obsidian-french-avenue"
+      }
+    },
+    "houseCeiling": 45
+  },
+  {
+    "id": "ean-6298042001909",
+    "brand": "French Avenue",
+    "name": "Ravine Ice",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "6298042001909",
+    "shops": 6,
+    "image": "https://www.beautybase.com/cdn/shop/files/1769008239-60047000.jpg?v=1772624921&width=3000",
+    "notes": {
+      "top": [
+        "Lemon",
+        "Geranium"
+      ],
+      "middle": [
+        "Lavender",
+        "Sage",
+        "Salt"
+      ],
+      "base": [
+        "Moss",
+        "Ambroxan",
+        "Cedar"
+      ],
+      "source": {
+        "retailerId": "manchester-ouds",
+        "url": "https://manchesterouds.com/products/ravine-ice-edp-100ml"
+      }
+    },
+    "houseCeiling": 39
+  },
+  {
+    "id": "ean-6298042001893",
+    "brand": "French Avenue",
+    "name": "Ripple",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6298042001893",
+    "shops": 6,
+    "image": "https://www.beautybase.com/cdn/shop/files/9632_7a6a269f-8781-4a7e-abe3-831bc6f9c58e.jpg?v=1777997943&width=3000",
+    "notes": {
+      "top": [
+        "Lavender",
+        "Sage",
+        "Bergamot"
+      ],
+      "middle": [
+        "Sea Water",
+        "Cedarwood",
+        "Sandalwood"
+      ],
+      "base": [
+        "Incense",
+        "Amber",
+        "Musk"
+      ],
+      "source": {
+        "retailerId": "manchester-ouds",
+        "url": "https://manchesterouds.com/products/ripple-edp-100ml"
+      }
+    },
+    "houseCeiling": 35
+  },
+  {
     "id": "ean-6290360377902",
     "brand": "French Avenue",
     "name": "Veneno",
@@ -864,7 +1120,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360377902",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Veneno-Perfume-100ml-EDP-French-Avenue-169423263.jpg?v=1749774958",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_a4f20738-67ed-4ba4-99d3-d7ef65bc9602.jpg?v=1756988137",
     "notes": {
       "top": [
         "Apple",
@@ -1086,7 +1342,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360591544",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61AlRv4q1vL.jpg?v=1763144219",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Al-Nashama-Perfume-100ml-EDP-Lattafa-138612696.jpg?v=1720734974",
     "notes": {
       "top": [
         "Bergamot",
@@ -1213,7 +1469,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360599441",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-Al-Oud-Noble-Blush-Perfume-100ml-EDP-Lattafa-153213738.jpg?v=1731935597",
+    "image": "https://www.beautybase.com/cdn/shop/files/1732296591-66388400.jpg?v=1763396723&width=3000",
     "notes": {
       "top": [
         "Rose Milk"
@@ -1236,12 +1492,12 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
   {
     "id": "ean-6290360593142",
     "brand": "Lattafa",
-    "name": "Badee Al Oud Sublime",
+    "name": "Bade'e Al Oud Sublime",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "6290360593142",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/7124hx9O-zL.jpg?v=1763144225",
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0021_b1884840-f9be-4e5e-9ae7-ec48f831d917.png?v=1758900973&width=3000",
     "notes": {
       "top": [
         "Apple",
@@ -1365,7 +1621,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360598796",
     "shops": 6,
-    "image": "https://www.beautybase.com/cdn/shop/files/1750157053-15869000.jpg?v=1763398123&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71tmcyFr3oL.jpg?v=1767983807",
     "notes": {
       "top": [
         "Plum",
@@ -1668,7 +1924,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171075622",
     "shops": 6,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tiramisu-Caramel-Perfume-100ml-EDP-Zimaya-By-Afnan-169362894.jpg?v=1749338959",
+    "image": "https://cdn.shopify.com/s/files/1/0941/4551/1791/files/Untitled_design_36.png?v=1762863210",
     "notes": {
       "top": [
         "Caramel"
@@ -1698,7 +1954,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "6290171076001",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1749025856-10181800.jpg?v=1763398053&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/616RXTUvpGL.jpg?v=1763147894",
     "notes": {
       "top": [
         "Pear",
@@ -1730,7 +1986,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "085715710307",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61TjRx_ujOL.jpg?v=1767980776",
+    "image": "https://www.justmylook.com/cdn/shop/files/agent-provocateur-eau-de-parfum-200ml-p22269-48175_image_x100.jpg?v=1721322125",
     "notes": {
       "top": [
         "Pure"
@@ -1783,7 +2039,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71BtQ_TuKUS.jpg?v=1767981006",
+    "image": "https://www.justmylook.com/cdn/shop/files/ALZA0003.png?v=1753455809&width=3000",
     "notes": {
       "top": [
         "Citrus",
@@ -1814,7 +2070,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0812256020301",
     "shops": 5,
-    "image": "https://www.justmylook.com/cdn/shop/files/ari-eau-de-parfum-100ml-p20953-44094_image.jpg?v=1721322147&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/4f80a7cdaa498d565b39488657cb132b.jpg?v=1763135088",
     "notes": {
       "top": [
         "Pink Grapefruit",
@@ -1839,7 +2095,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "810101502798",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/clpink1.jpg?v=1773758400&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61TFi8M3JFL.jpg?v=1767981018",
     "notes": {
       "top": [
         "Pitahaya",
@@ -1871,7 +2127,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": "6294015164152",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1677087599-55849500.jpg?v=1763393204&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_6f7d9b60-a327-4781-876f-50a2c4e0473c.png?v=1773764013",
     "notes": {
       "top": [
         "Grapefruit",
@@ -1909,7 +2165,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": "6294015136470",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61hLHcZoRIL.jpg?v=1763135148",
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_5a54dd95-494c-4890-a450-0740adbb887a.png?v=1773828742",
     "notes": {
       "top": [
         "Bergamot",
@@ -1945,7 +2201,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6295199801550",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61ZTtsdsCLL.jpg?v=1767981049",
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_b05d0075-9f99-47ae-a7b2-d8ae19a2690f.png?v=1776418358",
     "notes": {
       "top": [
         "Lime",
@@ -2056,7 +2312,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "608940585818",
     "shops": 5,
-    "image": "https://www.justmylook.com/cdn/shop/files/BIL0015.png?v=1745593485&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51LbXrwK4CL.jpg?v=1767981305",
     "notes": {
       "top": [
         "Cardamom",
@@ -2205,7 +2461,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360373016358",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1_b011d750-1dbe-4902-a2c2-20deebc828ca.jpg?v=1774536270&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51M-nBcTxTL._SL1200.jpg?v=1763135829",
     "notes": {
       "top": [
         "White Musk",
@@ -2573,37 +2829,6 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6298042001206",
-    "brand": "French Avenue",
-    "name": "Atlantis",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "6298042001206",
-    "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1756288999-17373100.jpg?v=1763398837&width=3000",
-    "notes": {
-      "top": [
-        "Mandarin Orange",
-        "Orange",
-        "Lemon"
-      ],
-      "middle": [
-        "Watermelon",
-        "Coconut"
-      ],
-      "base": [
-        "Ambergris",
-        "Amberwood",
-        "Cacao"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/atlantis-extrait-de-parfum-by-french-avenue-100ml"
-      }
-    },
-    "houseCeiling": 35
-  },
-  {
     "id": "ean-6290360378091",
     "brand": "French Avenue",
     "name": "Coconut Leche",
@@ -2631,38 +2856,6 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6298042001831",
-    "brand": "French Avenue",
-    "name": "Liquid Brun Limited Edition",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 150,
-    "ean": "6298042001831",
-    "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1770296008-01656500.jpg?v=1772624920&width=3000",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Cardamom",
-        "Cinnamon",
-        "Orange Blossom"
-      ],
-      "middle": [
-        "Elemi",
-        "Vanilla"
-      ],
-      "base": [
-        "Ambroxan",
-        "Praline",
-        "Guaiac Wood",
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "manchester-ouds",
-        "url": "https://manchesterouds.com/products/liquid-brun-limited-edition-edp-100ml"
-      }
-    }
-  },
-  {
     "id": "ean-6290360376714",
     "brand": "French Avenue",
     "name": "Pinnace",
@@ -2670,7 +2863,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360376714",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51ogSfwIg9L.jpg?v=1767982834",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pinnace-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-170030060.jpg?v=1751222615",
     "notes": {
       "top": [
         "Grapefruit",
@@ -2699,7 +2892,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360376707",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61lUwqjI7oL.jpg?v=1767982814",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pinnace-Noir-100ml-EDP-French-Avenue-by-Fragrance-World-170030252.jpg?v=1751222722",
     "notes": {
       "top": [
         "Apple",
@@ -2733,7 +2926,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61QgWEblKHL.jpg?v=1767982826",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pinnace-Oryn-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-163860255.jpg?v=1741038858",
     "notes": {
       "top": [
         "Bergamot",
@@ -2754,67 +2947,40 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "houseCeiling": 35
   },
   {
-    "id": "ean-6298042001909",
+    "id": "ean-6298042001923",
     "brand": "French Avenue",
-    "name": "Ravine Ice",
-    "concentration": "Extrait de Parfum",
+    "name": "Ravine Ginger",
+    "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6298042001909",
+    "ean": "6298042001923",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1769008239-60047000.jpg?v=1772624921&width=3000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1769008168-09335200.jpg?v=1772624921&width=3000",
     "notes": {
       "top": [
-        "Lemon",
-        "Geranium"
+        "Ginger",
+        "Bergamot",
+        "Lemon"
       ],
       "middle": [
-        "Lavender",
-        "Sage",
-        "Salt"
+        "Jasmine",
+        "Orange Blossom",
+        "Rose",
+        "Magnolia"
       ],
       "base": [
-        "Moss",
-        "Ambroxan",
-        "Cedar"
+        "Vanilla",
+        "Sandalwood",
+        "Amber",
+        "Musk",
+        "Patchouli",
+        "Cashmeran"
       ],
       "source": {
-        "retailerId": "manchester-ouds",
-        "url": "https://manchesterouds.com/products/ravine-ice-edp-100ml"
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/ravine-ginger-french-avenue"
       }
     },
     "houseCeiling": 39
-  },
-  {
-    "id": "ean-6298042000414",
-    "brand": "French Avenue",
-    "name": "Royal Blend Sequoia",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "6298042000414",
-    "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1752057466-36472000.jpg?v=1763398267&width=3000",
-    "notes": {
-      "top": [
-        "Cognac",
-        "Raspberry",
-        "Liquor"
-      ],
-      "middle": [
-        "Tonka Bean",
-        "Bulgarian Rose",
-        "Oakmoss"
-      ],
-      "base": [
-        "Praline",
-        "Oak",
-        "Sandalwood"
-      ],
-      "source": {
-        "retailerId": "manchester-ouds",
-        "url": "https://manchesterouds.com/products/royal-blend-sequoia-edp-100ml"
-      }
-    },
-    "houseCeiling": 35
   },
   {
     "id": "emirates-oud-14702323925341-default-title",
@@ -2847,6 +3013,66 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       }
     },
     "houseCeiling": 25
+  },
+  {
+    "id": "emirates-oud-15497317974365-default-title",
+    "brand": "French Avenue",
+    "name": "Zenith Blue",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9952840941910",
+    "shops": 5,
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-14T140231.638.jpg?v=1756977835",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Elemi"
+      ],
+      "middle": [
+        "Geranium",
+        "Pepper",
+        "Lavender"
+      ],
+      "base": [
+        "Patchouli",
+        "Vetiver",
+        "Ambroxan"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/zenith-blue-french-avenue"
+      }
+    },
+    "houseCeiling": 35
+  },
+  {
+    "id": "emirates-oud-15831431610717-default-title",
+    "brand": "French Avenue",
+    "name": "Zenith Santal",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 5,
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_31.jpg?v=1767796332",
+    "notes": {
+      "top": [
+        "Saffron"
+      ],
+      "middle": [
+        "Lavender",
+        "Chestnut"
+      ],
+      "base": [
+        "Sandalwood",
+        "Cedarwood",
+        "Vanilla"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/zenith-santal-french-avenue"
+      }
+    },
+    "houseCeiling": 35
   },
   {
     "id": "ean-3605521172525",
@@ -3096,7 +3322,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8005610481081",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/8359e788-1f1e-4d4e-9976-1ebfac643994.jpg?v=1763138230",
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0025.png?v=1775142584&width=3000",
     "notes": {
       "top": [
         "Jasmine"
@@ -3121,7 +3347,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616302022465",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51baknqYh8L.jpg?v=1763138242",
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0005.png?v=1776075219&width=3000",
     "notes": {
       "top": [
         "Pear Blossom",
@@ -3437,7 +3663,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460075343",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/bec8a229-b3d3-4cde-912f-0bca35da3d7d.jpg?v=1763139238",
+    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0023.png?v=1766583597&width=3000",
     "notes": {
       "top": [],
       "middle": [],
@@ -3516,7 +3742,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460073875",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/JIMCHLF0006002.jpg?v=1763139256",
+    "image": "https://www.justmylook.com/cdn/shop/files/leau-eau-de-toilette-60ml-p22657-65797_image.jpg?v=1721322250&width=3000",
     "notes": {
       "top": [
         "Hibiscus",
@@ -3624,7 +3850,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414200640015",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/f75433cd-e572-4b21-a534-a7dc9e29e27e_b3029870-3f22-4d0a-972d-01abe421e46f.jpg?v=1763139382",
+    "image": "https://www.justmylook.com/cdn/shop/files/JOOP0005.png?v=1766583598&width=3000",
     "notes": {
       "top": [
         "Caraway",
@@ -3858,7 +4084,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291108733875",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/gjjztnycbmox.jpg?v=1763144267",
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0004.png?v=1758900965&width=3000",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -3918,7 +4144,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362340638",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51nyrqSOiRL.jpg?v=1767983802",
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0017.png?v=1758900973&width=3000",
     "notes": {
       "top": [
         "Caramel",
@@ -4009,7 +4235,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360591513",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51bJPY4UXSL.jpg?v=1767983731",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Jasoor-Perfume-100ml-EDP-Lattafa-153686596.jpg?v=1732723099",
     "notes": {
       "top": [
         "Apple",
@@ -4076,7 +4302,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362342373",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/614zy67KahL.jpg?v=1767983871",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755531246-47172800.jpg?v=1763397560&width=3000",
     "notes": {
       "top": [
         "Mandarin",
@@ -4166,7 +4392,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "6291107455365",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61djyqRmekL.jpg?v=1767983737",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728475649-35723800.jpg?v=1763394379&width=3000",
     "notes": {
       "top": [
         "Pineapple",
@@ -4230,7 +4456,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291106066722",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/ramz-lattafa-silver-perfume-100ml-lattafa-emirates-oud-103848617.jpg?v=1713056836",
+    "image": "https://www.justmylook.com/cdn/shop/files/ramz-lattafa-silver-eau-de-parfum-100ml-p38198-121261_image.jpg?v=1721322261&width=3000",
     "notes": {
       "top": [
         "Vanilla",
@@ -4261,7 +4487,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360595764",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51t6VWKRo4L.jpg?v=1763144235",
+    "image": "https://www.beautybase.com/cdn/shop/files/1717662391-16639000.jpg?v=1763395256&width=3000",
     "notes": {
       "top": [
         "Caramel",
@@ -4609,7 +4835,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273760713",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/2030.jpg?v=1773333850&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/519wtTbiQYL.jpg?v=1767985062",
     "notes": {
       "top": [
         "Pear",
@@ -4642,7 +4868,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273760164",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/90mlpara.jpg?v=1773334022&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/4123gJm2d6L_605b08cd-1cd9-4002-a304-797c34409d28.jpg?v=1763141259",
     "notes": {
       "top": [
         "Tangerine",
@@ -4703,7 +4929,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668617173",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728398653-21152300.jpg?v=1763393558&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/5113uO5BRxL.jpg?v=1763141010",
     "notes": {
       "top": [
         "Pomegranate"
@@ -4936,7 +5162,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6295124024832",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/710yxLa54ML.jpg?v=1767985732",
+    "image": "https://www.justmylook.com/cdn/shop/files/SHAG0003.jpg?v=1733506983&width=3000",
     "notes": {
       "top": [
         "Saffron"
@@ -4979,6 +5205,35 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/shaghaf-oud-royale-perfume-75ml-edp-swiss-arabian"
+      }
+    }
+  },
+  {
+    "id": "ean-6295124045578",
+    "brand": "Swiss Arabian",
+    "name": "Shaghaf Oud Tonka",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 75,
+    "ean": "6295124045578",
+    "shops": 5,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Oh_nFcLZL.jpg?v=1767985737",
+    "notes": {
+      "top": [
+        "Almond"
+      ],
+      "middle": [
+        "Tunisian Orange Blossom",
+        "Cinnamon",
+        "Turkish Rose"
+      ],
+      "base": [
+        "Tonka Bean",
+        "Vanilla",
+        "Amberwood"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/shaghaf-oud-tonka-perfume-75ml-edp-swiss-arabian"
       }
     }
   },
@@ -5165,7 +5420,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614272731943",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1738924465-75345600.jpg?v=1763391673&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61vlJ_xfSjL.jpg?v=1763144454",
     "notes": {
       "top": [
         "Grapefruit Accord",
@@ -5248,7 +5503,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272732230",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1643891618-43147600.jpg?v=1763391678&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71VpJaMZolL.jpg?v=1767986083",
     "notes": {
       "top": [
         "Bergamot Essence",
@@ -5308,7 +5563,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8011003817498",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1738256570-12248900.jpg?v=1763391684&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/bright-crystal-eau-de-toilette-200ml-p21348-45794_image.jpg?v=1763142349",
     "notes": {
       "top": [
         "Pomegranate Grains",
@@ -5339,7 +5594,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "8011003818112",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1659693394-33828600.jpg?v=1763391684&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/c3be6779-2c01-4354-badc-2b0740aec4b5.jpg?v=1763142339",
     "notes": {
       "top": [
         "Pomegranate",
@@ -5369,7 +5624,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8018365270756",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1603467388-27378300.jpg?v=1763393417&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31B7TYO2PKL.jpg?v=1763142507",
     "notes": {
       "top": [
         "Peach",
@@ -5626,7 +5881,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3365440787858",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61HijmHTxOL.jpg?v=1767986419",
+    "image": "https://www.justmylook.com/cdn/shop/files/yves-saint-laurent-black-opium-eau-de-parfum-30ml-p28030-90409_image.jpg?v=1721322398&width=3000",
     "notes": {
       "top": [
         "pear",
@@ -5853,7 +6108,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171077510",
     "shops": 5,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tiramisu-S_mores-Perfume-100ml-EDP-Zimaya-By-Afnan-181372597.png?v=1765251596",
+    "image": "https://oudarabian.co.uk/cdn/shop/files/3C3F9D5A-4099-4A12-AC47-F8F2805FA056.webp?v=1777415332&width=3000",
     "notes": {
       "top": [
         "Marshmallow",
@@ -6155,7 +6410,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171075073",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Supremacy-Collector_s-Edition-100ml-EDP-Afnan-169454657.jpg?v=1771338847",
+    "image": "https://www.justmylook.com/cdn/shop/files/AFNN0018.png?v=1732899721&width=3000",
     "notes": {
       "top": [
         "Pineapple",
@@ -6270,6 +6525,39 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-15993097912669-default-title",
+    "brand": "Ahmed Al Maghribi",
+    "name": "Kaaf Noir",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 4,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41izYe9lWZL.jpg?v=1767980782",
+    "notes": {
+      "top": [
+        "Red Fruits",
+        "Watermelon",
+        "Lavender",
+        "Sicilian Orange"
+      ],
+      "middle": [
+        "Lily of the Valley",
+        "Lotus",
+        "Jasmine",
+        "Sea Accords"
+      ],
+      "base": [
+        "Sandalwood",
+        "White Musk",
+        "Ambroxan"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/kaaf-noir-perfume-100ml-ahmed-al-maghribi"
+      }
+    }
+  },
+  {
     "id": "ean-6290360610122",
     "brand": "Ahmed Al Maghribi",
     "name": "Oud Classic",
@@ -6333,7 +6621,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291106814873",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amber-Oud-Aqua-Dubai-Extrait-De-Parfum-100ml-Al-Haramain-173955462.jpg?v=1752623157",
+    "image": "https://www.justmylook.com/cdn/shop/files/ALHA0015.png?v=1743090673&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -6393,7 +6681,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291100137565",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/Al-Haramain-EDP-Spray-L_aventureFemme-100ML_851x851_ca3de60f-5095-495a-93ee-f682fa6ee2dc.jpg?v=1763135071",
+    "image": "https://cdn.shopify.com/s/files/1/0256/2683/7043/files/Femme-Bottle.jpg?v=1722338824",
     "notes": {
       "top": [
         "Bergamot",
@@ -6427,7 +6715,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "6291110091642",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1686579408-39039500.jpg?v=1763393633&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/ALRE0004.png?v=1771499795&width=3000",
     "notes": {
       "top": [
         "Warm Spicy",
@@ -6488,7 +6776,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362343097",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/Ard-Al-Zaafaran-Dirham-Wardi-Eau-de-Parfum-100ml-at-MyPerfumeShop-Best-Price-for-Eau-De-Parfum-64590326858102.jpg?v=1763147316",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Dirham-Wardi-Perfume-100ml-EDP-Ard-Al-Zaafaran-163214123.jpg?v=1740063794",
     "notes": {
       "top": [
         "Rose",
@@ -6520,7 +6808,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "0812256020325",
     "shops": 4,
-    "image": "https://www.justmylook.com/cdn/shop/files/ariana-grande-ari-eau-de-parfum-30ml-p20951-44092_image.jpg?v=1721322146&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41wpgjw7pzL.jpg?v=1763135093",
     "notes": {
       "top": [
         "Crispy Pear",
@@ -6552,7 +6840,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0812256020318",
     "shops": 4,
-    "image": "https://www.justmylook.com/cdn/shop/files/ari-eau-de-parfum-50ml-p20952-44093_image.jpg?v=1721322140&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41TsxmfDlCL.jpg?v=1763135094",
     "notes": {
       "top": [],
       "middle": [],
@@ -6655,7 +6943,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "812256025467",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/Ariana-Grande-R.E.M.-Eau-De-Parfum-100ml_900x_7d903b80-42a0-498d-92b7-ef79ce5a040b.jpg?v=1763135103",
+    "image": "https://www.justmylook.com/cdn/shop/files/ariana-grande-r-e-m-eau-de-parfum-100ml-p20965-44106_image.jpg?v=1721322130&width=3000",
     "notes": {
       "top": [
         "Caramel",
@@ -6682,7 +6970,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "812256021728",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/ariii.jpg?v=1773764465&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41aV-3nZpCL.jpg?v=1763135116",
     "notes": {
       "top": [
         "Blackberry",
@@ -6715,7 +7003,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "812256021711",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/ariii.jpg?v=1773764465&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41pj-WPYnKL.jpg?v=1763135112",
     "notes": {
       "top": [
         "Bergamot",
@@ -6819,6 +7107,44 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "houseCeiling": 79.99
   },
   {
+    "id": "ean-6294015180251",
+    "brand": "Armaf",
+    "name": "Club de Nuit Oud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 105,
+    "ean": "6294015180251",
+    "shops": 4,
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_31acf655-7ffa-49e4-bea3-415c72bae23c.png?v=1773826599",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Pineapple",
+        "Peach",
+        "Passion Fruit",
+        "Plum",
+        "Pear"
+      ],
+      "middle": [
+        "Jasmine",
+        "Freesia",
+        "Cashmere Wood",
+        "Violet Leaves"
+      ],
+      "base": [
+        "Cambodian Oud",
+        "Cypriol",
+        "Crystal Amber",
+        "Musk",
+        "Vanilla"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/club-de-nuit-oud-armaf"
+      }
+    },
+    "houseCeiling": 79.99
+  },
+  {
     "id": "ean-6294015169928",
     "brand": "Armaf",
     "name": "Club De Nuit Untold",
@@ -6893,7 +7219,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199800942",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1749824778-68692900.jpg?v=1763398129&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_5c05e9f3-5033-4bd6-b45c-fe4f93214347.png?v=1776417421",
     "notes": {
       "top": [
         "Wild Berries"
@@ -6947,6 +7273,32 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       }
     },
     "houseCeiling": 39.99
+  },
+  {
+    "id": "ean-6085010041773",
+    "brand": "Armaf",
+    "name": "Niche Oud",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 90,
+    "ean": "6085010041773",
+    "shops": 4,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61A-7DbplfS.jpg?v=1763144942",
+    "notes": {
+      "top": [
+        "Sage",
+        "Bergamot"
+      ],
+      "middle": [
+        "Iris",
+        "Black Pepper"
+      ],
+      "base": [],
+      "source": {
+        "retailerId": "mybeauty-boutique",
+        "url": "https://www.awin1.com/pclick.php?p=43174942374&a=3026001&m=106925"
+      }
+    },
+    "houseCeiling": 29.99
   },
   {
     "id": "ean-6295199805022",
@@ -7192,7 +7544,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346117722",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737024237-99204900.jpg?v=1763390696&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71llYwEclqL._SL1500.jpg?v=1763135443",
     "notes": {
       "top": [],
       "middle": [],
@@ -7214,7 +7566,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "719346263573",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/57942_xl_1.jpg?v=1763146302",
+    "image": "https://www.beautybase.com/cdn/shop/files/1735576270-02872700.jpg?v=1763396829&width=3000",
     "notes": {
       "top": [
         "Red litchi",
@@ -7270,7 +7622,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "0719346099677",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71vIQA3qp1L._SL1500_95985e77-0740-49d4-afa2-6ba4cc3be57f.jpg?v=1763135464",
+    "image": "https://www.justmylook.com/cdn/shop/files/BRIT0011.png?v=1740751657&width=3000",
     "notes": {
       "top": [
         "Red Lychee",
@@ -7300,7 +7652,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "719346107297",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737025613-22298000.jpg?v=1763393832&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/375x500.802_6d724b5d-3d74-49aa-b564-e5f7f6480743.jpg?v=1763135486",
     "notes": {
       "top": [
         "Plum",
@@ -7718,7 +8070,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300608409",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41Qq_jSBSgL.jpg?v=1763135951",
+    "image": "https://allbeauty.com/cdn/shop/files/3354.jpg?v=1755875379&width=3000",
     "notes": null
   },
   {
@@ -7842,7 +8194,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061088166",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728403052-39933500.jpg?v=1763389928&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0065.png?v=1765452237&width=3000",
     "notes": {
       "top": [
         "Caviar Lime",
@@ -7969,7 +8321,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3607346232347",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1642003794-39658600.jpg?v=1763389939&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/chloe-fleur-de-parfum-eau-de-parfum-50ml.jpg?v=1763136402",
     "notes": {
       "top": [
         "Peony"
@@ -7996,7 +8348,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3607342635838",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/chloe-love-story-eau-de-parfum-50ml.jpg?v=1763136411",
+    "image": "https://www.justmylook.com/cdn/shop/files/CHL0011_1054b0f5-6a20-41d4-bbf7-067aa0da993b.png?v=1765452235&width=3000",
     "notes": {
       "top": [
         "Orange Blossom"
@@ -8108,7 +8460,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414208000040",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1375189451-89315000.jpg?v=1763389940&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61nch5thUWL.jpg?v=1767981712",
     "notes": {
       "top": [
         "Coconut",
@@ -8367,7 +8719,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414200204415",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1503070262-54091400.jpg?v=1763389945&width=3000",
+    "image": "https://allbeauty.com/cdn/shop/files/9089.jpg?v=1755875051&width=3000",
     "notes": {
       "top": [
         "Mandarin Orange",
@@ -9211,7 +9563,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/amber-d-or-perfume-100ml-edp-fa-paris-by-fragrance-world-emirates-oud-2.jpg?v=1713056571",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/2405031404430031.png?v=1757605306",
     "notes": {
       "top": [
         "Bergamot"
@@ -9232,40 +9584,6 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "houseCeiling": 25
   },
   {
-    "id": "ean-6298042000957",
-    "brand": "French Avenue",
-    "name": "Amber Empire",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "6298042000957",
-    "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1760111858-22519700.jpg?v=1763399310&width=3000",
-    "notes": {
-      "top": [
-        "Oriental Accord",
-        "Cashmere Wood",
-        "Vanilla Wood",
-        "Liquorous Accord"
-      ],
-      "middle": [
-        "Cedarwood",
-        "Amber",
-        "Cane Sugar"
-      ],
-      "base": [
-        "Musk",
-        "Tonka Beans",
-        "Labdanum",
-        "Sandalwood"
-      ],
-      "source": {
-        "retailerId": "manchester-ouds",
-        "url": "https://manchesterouds.com/products/amber-empire-edp-100ml"
-      }
-    },
-    "houseCeiling": 45
-  },
-  {
     "id": "emirates-oud-15082127917405-default-title",
     "brand": "French Avenue",
     "name": "Eclair Affair",
@@ -9273,7 +9591,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Eclair-Affair-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-163822388.jpg?v=1740773823",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_e4ab2d2b-c345-4edc-a4d9-52be3eb20674.jpg?v=1756996710",
     "notes": {
       "top": [
         "Jasmine",
@@ -9304,7 +9622,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61zM3alOX8L.jpg?v=1767982822",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Enigma-Deux-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-184724489.png?v=1771617509",
     "notes": {
       "top": [
         "Warm Spices",
@@ -9364,7 +9682,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379524",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1758532303-43157800.jpg?v=1763399071&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_67ea5b99-871d-4ced-a32e-9f03cd5f137f.png?v=1757597569",
     "notes": {
       "top": [
         "Red Apple",
@@ -9423,6 +9741,37 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "houseCeiling": 35
   },
   {
+    "id": "ean-6298042001749",
+    "brand": "French Avenue",
+    "name": "Jasmere",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6298042001749",
+    "shops": 4,
+    "image": "https://www.beautybase.com/cdn/shop/files/147_5602c966-3e5c-46f1-b4fc-f49615cd9469.jpg?v=1778057653&width=3000",
+    "notes": {
+      "top": [
+        "Broom",
+        "Jasmine Sambac",
+        "Linden Blossom"
+      ],
+      "middle": [
+        "Orange Blossom",
+        "Vetiver",
+        "Heliotrope"
+      ],
+      "base": [
+        "Musk",
+        "Dry Wood"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/jasmere-perfume-french-avenue"
+      }
+    },
+    "houseCeiling": 30
+  },
+  {
     "id": "french-avenue-16454",
     "brand": "French Avenue",
     "name": "Meringue",
@@ -9435,40 +9784,45 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "houseCeiling": 25
   },
   {
-    "id": "ean-6298042001923",
+    "id": "ean-6290360379340",
     "brand": "French Avenue",
-    "name": "Ravine Ginger",
-    "concentration": "Eau de Parfum",
+    "name": "Opus Magnum",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
-    "ean": "6298042001923",
+    "ean": "6290360379340",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1769008168-09335200.jpg?v=1772624921&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opus-Magnum-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-163825257.jpg?v=1740775345",
     "notes": {
       "top": [
-        "Ginger",
-        "Bergamot",
-        "Lemon"
+        "Olibanum",
+        "Anis",
+        "Elemi-harpiks",
+        "Kardemomme",
+        "Basilikum og Bergamott"
       ],
       "middle": [
-        "Jasmine",
-        "Orange Blossom",
-        "Rose",
-        "Magnolia"
+        "Tobakk",
+        "lakris",
+        "bukkehornkløver",
+        "prunol",
+        "lavendel",
+        "osmanthus",
+        "appelsinblomst og rose"
       ],
       "base": [
-        "Vanilla",
-        "Sandalwood",
-        "Amber",
-        "Musk",
-        "Patchouli",
-        "Cashmeran"
+        "Olibanum",
+        "Bourbon Vanilje",
+        "Myrra",
+        "Bjørketjære",
+        "Benzoin",
+        "Agarwood"
       ],
       "source": {
         "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/ravine-ginger-french-avenue"
+        "url": "https://emiratesoud.co.uk/products/opus-magnum-perfume-by-french-avenue-by-fragrance-world"
       }
     },
-    "houseCeiling": 39
+    "houseCeiling": 40
   },
   {
     "id": "ean-6290360375595",
@@ -9509,7 +9863,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360378411",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Royal-Blend-Bourbon-Extrait-De-Parfum-100ml-French-Avenue-168753380.jpg?v=1748003224",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_9a8e4e17-5787-40f3-b2ed-443460747074.jpg?v=1756992361",
     "notes": {
       "top": [
         "Cinnamon Bark Lmr",
@@ -9532,38 +9886,67 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "houseCeiling": 35
   },
   {
-    "id": "ean-6290360375601",
+    "id": "ean-6298042002364",
     "brand": "French Avenue",
-    "name": "Royal Blend Nero",
-    "concentration": "Extrait de Parfum",
+    "name": "Spirito Ignite",
+    "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6290360375601",
+    "ean": "6298042002364",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_d4eecbc7-a4bc-44ce-b369-34b26558f00c.jpg?v=1756994098",
+    "image": "https://www.beautybase.com/cdn/shop/files/Ignite.jpg?v=1782399672&width=3000",
     "notes": {
       "top": [
-        "Mandarin",
-        "Apple",
-        "Vanilla"
+        "Iris",
+        "Pink Pepper",
+        "Popcorn"
       ],
       "middle": [
-        "Rose",
-        "Vanilla",
-        "Spices",
-        "Ylang-Ylang"
+        "Leather",
+        "Magnolia",
+        "Violet"
       ],
       "base": [
-        "Oud",
-        "White Musk",
-        "Sandalwood",
-        "Patchouli"
+        "Cedarwood",
+        "Vetiver",
+        "Musk"
       ],
       "source": {
-        "retailerId": "justmylook",
-        "url": "https://www.justmylook.com/products/french-avenue-royal-blend-nero-extrait-de-parfum-100ml"
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/spirito-ignite-perfume-french-avenue"
       }
     },
-    "houseCeiling": 35
+    "houseCeiling": 40
+  },
+  {
+    "id": "ean-6298042002357",
+    "brand": "French Avenue",
+    "name": "Spirito Mystic",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6298042002357",
+    "shops": 4,
+    "image": "https://www.beautybase.com/cdn/shop/files/Spirito1.jpg?v=1782399206&width=3000",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Rose",
+        "Cardamom"
+      ],
+      "middle": [
+        "Sandalwood",
+        "Tonka Bean"
+      ],
+      "base": [
+        "Vanilla",
+        "Patchouli",
+        "Musk"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/spirito-mystic-french-avenue"
+      }
+    },
+    "houseCeiling": 40
   },
   {
     "id": "ean-6290360375120",
@@ -9573,7 +9956,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "6290360375120",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sultan-The-Conqueror-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184724156.png?v=1771616733",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/05103_1_771809b8-cc34-49a4-b258-10f4c87a86a1.webp?v=1756978105",
     "notes": {
       "top": [
         "Cardamom",
@@ -9608,7 +9991,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "6290360375014",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sultan-The-Founder-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184723989.png?v=1771616731",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/05102_1_ccfdf29f-4b45-49ba-90fb-e15867b4797b.webp?v=1756986947",
     "notes": {
       "top": [
         "Oud",
@@ -9639,7 +10022,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "6290360375656",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71yxDI99SnL.jpg?v=1767982838",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_d1389317-dbfa-4bf2-8a9a-7d4720cebff4.jpg?v=1756991065",
     "notes": {
       "top": [
         "Turkish Rose",
@@ -9671,7 +10054,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379517",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1758532316-01980600.jpg?v=1763399072&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-14T135147.181.jpg?v=1756977022",
     "notes": {
       "top": [
         "Elemi",
@@ -9705,7 +10088,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": null,
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tropical-Kiss-80ml-EDP-French-Avenue-by-Fragrance-World-169530545.jpg?v=1750210481",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_82aa2084-4bea-4093-8cbd-676119d5ce22.jpg?v=1756995038",
     "notes": {
       "top": [
         "Chamomile",
@@ -9737,7 +10120,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Veneno-Bianco-Perfume-100ml-EDP-French-Avenue-169423940.jpg?v=1749774967",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_645ac29b-1ef4-4b3c-9114-acf94ee524e1.jpg?v=1756974234",
     "notes": {
       "top": [
         "Apple",
@@ -9760,37 +10143,6 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "houseCeiling": 40
   },
   {
-    "id": "emirates-oud-15497317974365-default-title",
-    "brand": "French Avenue",
-    "name": "Zenith Blue",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Zenith-Blue-Perfume-100ml-EDP-French-Avenue-175521777.jpg?v=1755886525",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Elemi"
-      ],
-      "middle": [
-        "Geranium",
-        "Pepper",
-        "Lavender"
-      ],
-      "base": [
-        "Patchouli",
-        "Vetiver",
-        "Ambroxan"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/zenith-blue-french-avenue"
-      }
-    },
-    "houseCeiling": 35
-  },
-  {
     "id": "emirates-oud-15831431840093-default-title",
     "brand": "French Avenue",
     "name": "Zenith Deep",
@@ -9798,7 +10150,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Zenith-Deep-Perfume-100ml-EDP-French-Avenue-181630093.jpg?v=1766092908",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_32_af6bb26a-815f-44d6-8d5c-0254b1e7f4cf.jpg?v=1767796535",
     "notes": {
       "top": [
         "Grapefruit",
@@ -9823,35 +10175,6 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/zenith-deep-french-avenue"
-      }
-    },
-    "houseCeiling": 35
-  },
-  {
-    "id": "emirates-oud-15831431610717-default-title",
-    "brand": "French Avenue",
-    "name": "Zenith Santal",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Zenith-Santal-Perfume-100ml-EDP-French-Avenue-181629866.jpg?v=1766092791",
-    "notes": {
-      "top": [
-        "Saffron"
-      ],
-      "middle": [
-        "Lavender",
-        "Chestnut"
-      ],
-      "base": [
-        "Sandalwood",
-        "Cedarwood",
-        "Vanilla"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/zenith-santal-french-avenue"
       }
     },
     "houseCeiling": 35
@@ -9931,7 +10254,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274459708",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/179912_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/ARMA0182.png?v=1745593487&width=3000",
     "notes": {
       "top": [
         "Strawberry",
@@ -10423,7 +10746,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222090937",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1753106929-93689400.jpg?v=1763392495&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/issey_miyake_a_drop_d_issey_essentielle_eau_de_parfum_spray_50_ml_3423222090937_236834_20230623123207.jpg?v=1763145013",
     "notes": {
       "top": [
         "Green accord",
@@ -10461,7 +10784,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3423470486018",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41-0sLkGPqL_d3a7318f-c8a3-4029-af38-49f7f81854c8.jpg?v=1763138885",
+    "image": "https://www.beautybase.com/cdn/shop/files/1381230859-00959400.jpg?v=1763391148&width=3000",
     "notes": null
   },
   {
@@ -10472,7 +10795,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423474874651",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/79313_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/nuit-dissey-eau-de-toilette-75ml-p24878-57230_image.jpg?v=1721322239&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -10769,7 +11092,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460066297",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/a3f2ce42-96ff-45dc-b2e3-51749caa4799.jpg?v=1763139193",
+    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0016_54b21b7c-6b14-414f-ab3e-fef5eef03520.png?v=1738342917&width=3000",
     "notes": {
       "top": [
         "Juicy red fruits"
@@ -11066,7 +11389,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460025492",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/6dde48f7-4cfd-4a91-b304-25776badee55.jpg?v=1763139202",
+    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0006.png?v=1738168658&width=3000",
     "notes": {
       "top": [
         "Sweet Italian Orange"
@@ -11122,7 +11445,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460137553",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1684513905-95713100.jpg?v=1763393597&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51B9sZwcdfL.jpg?v=1763139298",
     "notes": {
       "top": [
         "Coconut"
@@ -11407,7 +11730,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107978789",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Khadlaj-Island-Extrait-de-Parfum-100ml-Khadlaj-173963894.jpg?v=1752641936",
+    "image": "https://www.justmylook.com/cdn/shop/files/KHAD0001_6578243c-d3c6-495c-9696-a4351a6d2e14.png?v=1771605439&width=3000",
     "notes": {
       "top": [
         "bergamot"
@@ -11429,6 +11752,38 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-6291107979748",
+    "brand": "Khadlaj",
+    "name": "Island Vanilla Dunes",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "6291107979748",
+    "shops": 4,
+    "image": "https://www.justmylook.com/cdn/shop/files/KHAD0002_ceb48e4c-84b8-4b90-99f7-37809a3ed502.png?v=1773420938&width=3000",
+    "notes": {
+      "top": [
+        "Cinnamon",
+        "Vanilla",
+        "Bergamot",
+        "Cardamom"
+      ],
+      "middle": [
+        "Orange Blossom",
+        "Guaiacwood",
+        "Bourbon"
+      ],
+      "base": [
+        "Praline",
+        "Amber",
+        "Musk"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/island-vanilla-dunes-khadlaj"
+      }
+    }
+  },
+  {
     "id": "ean-3454960022522",
     "brand": "Lalique",
     "name": "Encre Noire",
@@ -11436,7 +11791,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3454960022522",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71YnoHT-cCL.jpg?v=1767983578",
+    "image": "https://www.justmylook.com/cdn/shop/files/LALI0003.png?v=1741364767&width=3000",
     "notes": {
       "top": [
         "Cypress",
@@ -11930,7 +12285,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360593661",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Khamrah-Qahwa-Perfume-100ml-EDP-Lattafa-153338150.jpg?v=1732556971",
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0011_fd7eccce-02c6-41ca-a611-8bca76eb1ccd.png?v=1758900970&width=3000",
     "notes": {
       "top": [
         "Cardamom",
@@ -12263,7 +12618,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "6291108739020",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Qaed-Al-Fursan-Unlimited-Perfume-90ml-EDP-Lattafa-145125933.jpg?v=1721786437",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728475844-22638400.jpg?v=1763394381&width=3000",
     "notes": {
       "top": [
         "Coconut",
@@ -12420,7 +12775,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360597294",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51_16iReSQL.jpg?v=1767983726",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Velvet-Musk-Perfume-100ml-EDP-Lattafa-169392774.png?v=1749524191",
     "notes": {
       "top": [
         "White Musk",
@@ -12449,7 +12804,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360592909",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51e16an5yzL.jpg?v=1767983808",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728314382-19723800.jpg?v=1763395787&width=3000",
     "notes": null
   },
   {
@@ -12606,7 +12961,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61whLQze-DL.jpg?v=1767984402",
+    "image": "https://www.justmylook.com/cdn/shop/files/MAAL0001_78e0b056-2efd-467e-923f-74cbae233c3d.png?v=1753717520&width=3000",
     "notes": {
       "top": [
         "Ginger",
@@ -12729,7 +13084,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71QIs9QjwIL.jpg?v=1767984403",
+    "image": "https://www.justmylook.com/cdn/shop/files/MAAL0003.png?v=1754061065&width=3000",
     "notes": {
       "top": [
         "Green Tangerine",
@@ -13253,7 +13608,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003826827",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/95568_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/missoni-eau-de-parfum-50ml-p31319-84764_image.jpg?v=1721322274&width=3000",
     "notes": {
       "top": [
         "Lemon",
@@ -13366,7 +13721,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460121514",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/810Qlx-8gEL.jpg?v=1767984652",
+    "image": "https://www.justmylook.com/cdn/shop/files/MON0012.png?v=1770982476&width=3000",
     "notes": {
       "top": [
         "Italian bergamot"
@@ -13390,7 +13745,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460032704",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1626799039-61116400.jpg?v=1763392257&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/MON0020.jpg?v=1728558911&width=3000",
     "notes": {
       "top": [
         "showcasing Lavender",
@@ -13450,7 +13805,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460032698",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1626799286-29625800.jpg?v=1763392262&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/cfa0baa4-774c-47ac-b173-aca317409424.jpg?v=1763140529",
     "notes": {
       "top": [
         "Pineapple",
@@ -13492,7 +13847,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460127950",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1644931692-15401700.jpg?v=1763391958&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/MON0019.png?v=1770982486&width=3000",
     "notes": {
       "top": [
         "Blood Orange",
@@ -13518,7 +13873,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003878611",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61VP-k84v0L.jpg?v=1763145112",
+    "image": "https://www.justmylook.com/cdn/shop/files/toy-2-pearl-eau-de-parfum-100ml-p36193-111622_image.jpg?v=1721322279&width=3000",
     "notes": {
       "top": [
         "Lemon Sorbet",
@@ -13549,7 +13904,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003845132",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71Ktvx7RYsL_9f53cc5f-6c08-472f-8deb-f8e0484982f7.jpg?v=1763145941",
+    "image": "https://www.justmylook.com/cdn/shop/files/moschino-toy-boy-eau-de-parfum-100ml-p20714-43636_image.jpg?v=1721322285&width=3000",
     "notes": {
       "top": [
         "Italian Bergamot",
@@ -13967,7 +14322,10 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/nina-ricci-lair-du-temps-eau-de-toilette-100ml"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
   {
     "id": "ean-8435137727087",
     "brand": "Prada",
@@ -14269,10 +14627,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/prada-paradigme-eau-de-parfum-50ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3614274172997",
     "brand": "Prada",
@@ -14595,7 +14950,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668592364",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728399817-41151700.jpg?v=1763390174&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/163668-paco-rabanne-lady-million-fabulous-eau-de-parfum-intense-spray-50ml.jpg?v=1763140990",
     "notes": {
       "top": [
         "Milky Tuberose"
@@ -14620,7 +14975,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3349668617159",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728398012-53667500.jpg?v=1763393552&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/Paco-Rabanne-Lady-Million-Royal-Eau-de-Parfum-Notes.jpg?v=1763141002",
     "notes": {
       "top": [],
       "middle": [
@@ -14641,7 +14996,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668617166",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728398402-02953000.jpg?v=1763393555&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51hN1Qa_imL.jpg?v=1763141004",
     "notes": {
       "top": [],
       "middle": [
@@ -15015,7 +15370,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5000386111838",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1473437852-26222400.jpg?v=1763392325&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/1504085724-80017900.jpg?v=1763141631",
     "notes": null
   },
   {
@@ -15082,7 +15437,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "810023679950",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1704472920-54021700.jpg?v=1763394216&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/514NClY_ABL.jpg?v=1767985424",
     "notes": {
       "top": [],
       "middle": [],
@@ -15103,7 +15458,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "810023679943",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71ut70VvW0L.jpg?v=1767985423",
+    "image": "https://www.justmylook.com/cdn/shop/files/SAB0005_9cf12784-ae55-481f-aa98-222c7a98c254.jpg?v=1728987436&width=3000",
     "notes": {
       "top": [
         "Almond Milk",
@@ -15129,7 +15484,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "810023679646",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1751450251-85633700.jpg?v=1763398240&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51ERS27wy3L.jpg?v=1767985421",
     "notes": {
       "top": [
         "Cappuccino Smell-the-Taste",
@@ -15334,35 +15689,6 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/shaghaf-oud-elixir-swiss-arabian"
-      }
-    }
-  },
-  {
-    "id": "ean-6295124045578",
-    "brand": "Swiss Arabian",
-    "name": "Shaghaf Oud Tonka",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 75,
-    "ean": "6295124045578",
-    "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Oh_nFcLZL.jpg?v=1767985737",
-    "notes": {
-      "top": [
-        "Almond"
-      ],
-      "middle": [
-        "Tunisian Orange Blossom",
-        "Cinnamon",
-        "Turkish Rose"
-      ],
-      "base": [
-        "Tonka Bean",
-        "Vanilla",
-        "Amberwood"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/shaghaf-oud-tonka-perfume-75ml-edp-swiss-arabian"
       }
     }
   },
@@ -15606,7 +15932,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614272761421",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1727774324-74390100.jpg?v=1763391666&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/born-in-roma-donna-eau-de-parfum-30ml-p27970-91616_image.jpg?v=1721322351&width=3000",
     "notes": {
       "top": [
         "Bergamot Essence",
@@ -15725,7 +16051,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274024777",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/100ML-Donna.jpg?v=1763142299",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727778303-88700900.jpg?v=1763394421&width=3000",
     "notes": null
   },
   {
@@ -15768,7 +16094,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8018365260757",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1603467625-45561200.jpg?v=1763393489&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/blue-jeans-eau-de-toilette-75ml-p21286-45732_image.jpg?v=1721322366&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -15837,7 +16163,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003891467",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1716212542-22976800.jpg?v=1763395159&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10049551.jpg?v=1763146466",
     "notes": null
   },
   {
@@ -15848,7 +16174,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "8011003993826",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/BC.jpg?v=1771845753&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/Versace-Bright-Crystal-90ml-Eau-de-Toilette-for-Women-8011003993826-1-1.jpg?v=1763142354",
     "notes": {
       "top": [
         "Yuzu",
@@ -15876,7 +16202,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "8018365070462",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/crystal-noir-eau-de-parfum-90ml-spray-p45545-13160_image.jpg?v=1763142375",
+    "image": "https://www.beautybase.com/cdn/shop/files/1510307343-37588200.jpg?v=1763397287&width=3000",
     "notes": {
       "top": [
         "Ginger"
@@ -16018,7 +16344,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8011003846627",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1628596332-37281900.jpg?v=1763390309&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/versace-eros-flame-eau-de-parfum-200ml-p21313-45759_image.jpg?v=1721322361&width=3000",
     "notes": {
       "top": [
         "Black Pepper",
@@ -16084,7 +16410,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003823536",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51yFCzw8rhL.jpg?v=1763142434",
+    "image": "https://www.beautybase.com/cdn/shop/files/1510309542-63798500.jpg?v=1763394644&width=3000",
     "notes": {
       "top": [
         "Sicilian Lemon",
@@ -16107,7 +16433,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003995967",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51vYxWym3HL.jpg?v=1763142497",
+    "image": "https://www.justmylook.com/cdn/shop/files/versace-pour-homme-eau-de-toilette-100ml-p21305-45751_image.jpg?v=1721322363&width=3000",
     "notes": {
       "top": [
         "Lemon",
@@ -16140,7 +16466,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8018365250260",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/417ce9f8-6043-41c7-8e65-8acec516f507.jpg?v=1763142520",
+    "image": "https://www.justmylook.com/cdn/shop/files/versace-woman-eau-de-parfum-50ml-p21336-45782_image.jpg?v=1721322355&width=3000",
     "notes": {
       "top": [
         "Frangipani Blossoms",
@@ -16228,7 +16554,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360374000011",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1498309908-19439100.jpg?v=1763398568&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/12740377-1744935030703335.webp?v=1763142588",
     "notes": {
       "top": [
         "tea",
@@ -16338,7 +16664,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605521515629",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1498313038-26181200.jpg?v=1763398568&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/spicebomb-eau-de-toilette-50ml-p27997-77921_image.jpg?v=1721322367&width=3000",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -16475,7 +16801,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614273642880",
     "shops": 4,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61-TetsvvxL.jpg?v=1763142998",
+    "image": "https://www.justmylook.com/cdn/shop/files/black-opium-illicit-green-eau-de-parfum-75ml-p25404-59389_image.jpg?v=1721322421&width=3000",
     "notes": {
       "top": [
         "Pear",
@@ -16595,7 +16921,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614272648425",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/139231_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/libre-eau-de-parfum-90ml-p28024-69825_image.jpg?v=1721322373&width=3000",
     "notes": {
       "top": [
         "Mandarin",
@@ -16828,7 +17154,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8028713828171",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/ADP22002-100ML.master.1.H1.jpg?v=1763134877",
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0060.png?v=1765452779&width=3000",
     "notes": {
       "top": [
         "aromatic florals"
@@ -16849,7 +17175,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8028713210013",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/610u_EimdRL.jpg?v=1767980694",
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0065_b538a699-76d7-4fba-a8c9-a185441bd60a.png?v=1765452782&width=3000",
     "notes": {
       "top": [
         "Cardamom",
@@ -16979,7 +17305,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303322052",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1461601073-07469400.jpg?v=1774439430&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10046365.jpg?v=1763143552",
     "notes": {
       "top": [
         "Bergamot",
@@ -17071,7 +17397,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171076698",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.justmylook.com/cdn/shop/files/AFNN0022.png?v=1752245613&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -17207,7 +17533,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "6290171072768",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1712926785-36093100.jpg?v=1763394219&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-in-oud-extrait-de-parfum-150ml-p35655-108061_image.jpg?v=1721322155&width=3000",
     "notes": {
       "top": [
         "SAFFRON",
@@ -17253,39 +17579,6 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/azure-royal-ahmed-al-maghribi"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15993097912669-default-title",
-    "brand": "Ahmed Al Maghribi",
-    "name": "Kaaf Noir",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41izYe9lWZL.jpg?v=1767980782",
-    "notes": {
-      "top": [
-        "Red Fruits",
-        "Watermelon",
-        "Lavender",
-        "Sicilian Orange"
-      ],
-      "middle": [
-        "Lily of the Valley",
-        "Lotus",
-        "Jasmine",
-        "Sea Accords"
-      ],
-      "base": [
-        "Sandalwood",
-        "White Musk",
-        "Ambroxan"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/kaaf-noir-perfume-100ml-ahmed-al-maghribi"
       }
     }
   },
@@ -17403,7 +17696,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291106814910",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amber-Oud-Dubai-Night-Extrait-De-Parfum-100ml-Al-Haramain-173955091.jpg?v=1752622832",
+    "image": "https://www.justmylook.com/cdn/shop/files/ALHA0016.png?v=1743090672&width=3000",
     "notes": {
       "top": [
         "Saffron",
@@ -17502,7 +17795,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/L_Aventure-Perfume-100ml-EDP-Alharamain-136549381.jpg?v=1719700604",
+    "image": "https://www.justmylook.com/cdn/shop/files/ALHA0004-1.jpg?v=1728385640&width=3000",
     "notes": {
       "top": [
         "Lemon",
@@ -17564,7 +17857,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51ic2utZlPL.jpg?v=1767980835",
+    "image": "https://www.justmylook.com/cdn/shop/files/ALHA0009_8dc27e12-fe24-447b-891e-32989c980dbc.png?v=1765364507&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -17605,7 +17898,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6291100130825",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61_ZLZMIHOL.jpg?v=1763145593",
+    "image": "https://cdn.shopify.com/s/files/1/0256/2683/7043/files/10_e5b63927-abbd-4b0d-b91f-decd515fd3f0.jpg?v=1759226404",
     "notes": {
       "top": [
         "Bergamot",
@@ -17637,7 +17930,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 6,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Choco-Musk-Perfume-Oil-6ml-Al-Rehab-126692615.jpg?v=1715600821",
+    "image": "https://www.justmylook.com/cdn/shop/files/ALRE0003_a8b80cd1-7b31-48bf-9896-8e787382ee58.png?v=1771499796&width=3000",
     "notes": {
       "top": [
         "Warm Spicy",
@@ -17689,7 +17982,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "0085715297204",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/Anna-Sui-Fantasia-Eau-de-Toilette-75ml-at-MyPerfumeShop-Best-Price-for-Eau-De-Toilette-64590366409078.jpg?v=1763147215",
+    "image": "https://www.justmylook.com/cdn/shop/files/ANNA0006.png?v=1742577213&width=3000",
     "notes": {
       "top": [
         "Pink pomelo",
@@ -17821,7 +18114,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Perfume-80ml-EDP-Arabiyat-Prestige-175656224.jpg?v=1756219613",
+    "image": "https://www.justmylook.com/cdn/shop/files/ARAB0001_a4ef0fdb-e9e7-451d-9542-99a4b7cfafd1.png?v=1760692588&width=3000",
     "notes": {
       "top": [
         "Coconut",
@@ -18445,7 +18738,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 18,
     "ean": "6294015164374",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51NR0RWJj_L.jpg?v=1741272161",
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_90e1df49-8061-493a-8069-827ad32061c0.png?v=1777374959",
     "notes": null,
     "houseCeiling": 39.99
   },
@@ -18498,44 +18791,6 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6294015180251",
-    "brand": "Armaf",
-    "name": "Club de Nuit Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 105,
-    "ean": "6294015180251",
-    "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_31acf655-7ffa-49e4-bea3-415c72bae23c.png?v=1773826599",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Pineapple",
-        "Peach",
-        "Passion Fruit",
-        "Plum",
-        "Pear"
-      ],
-      "middle": [
-        "Jasmine",
-        "Freesia",
-        "Cashmere Wood",
-        "Violet Leaves"
-      ],
-      "base": [
-        "Cambodian Oud",
-        "Cypriol",
-        "Crystal Amber",
-        "Musk",
-        "Vanilla"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/club-de-nuit-oud-armaf"
-      }
-    },
-    "houseCeiling": 79.99
-  },
-  {
     "id": "ean-6294015181944",
     "brand": "Armaf",
     "name": "Club de Nuit Precieux IV",
@@ -18578,7 +18833,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 10,
     "ean": "6294015170573",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51zdIJgOriL.jpg?v=1763146971",
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_8840935b-0f30-4e61-9b9e-371d4eaed903.png?v=1774613253",
     "notes": {
       "top": [
         "Bergamot",
@@ -18859,7 +19114,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "6294015163957",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71O9nz0aMbL.jpg?v=1763142799",
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Produc.png?v=1776421809",
     "notes": {
       "top": [],
       "middle": [
@@ -18884,7 +19139,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "6294015163971",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71fIbhfLtrL.jpg?v=1763144284",
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_adad3efe-0427-457a-8026-78e177c60541.png?v=1776421851",
     "notes": {
       "top": [
         "Bergamot",
@@ -19013,31 +19268,6 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       }
     },
     "houseCeiling": 49.99
-  },
-  {
-    "id": "ean-6085010041773",
-    "brand": "Armaf",
-    "name": "Niche Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 90,
-    "ean": "6085010041773",
-    "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61A-7DbplfS.jpg?v=1763144942",
-    "notes": {
-      "top": [
-        "Sage",
-        "Bergamot"
-      ],
-      "middle": [
-        "Iris",
-        "Black Pepper"
-      ],
-      "base": [],
-      "source": {
-        "retailerId": "mybeauty-boutique",
-        "url": "https://www.awin1.com/pclick.php?p=43174942374&a=3026001&m=106925"
-      }
-    }
   },
   {
     "id": "ean-6294015189612",
@@ -19408,6 +19638,130 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "houseCeiling": 34.99
   },
   {
+    "id": "ean-6294015164992",
+    "brand": "Armaf",
+    "name": "Private Key To My Dreams",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "6294015164992",
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51t34xPNZxL.jpg?v=1767981037",
+    "notes": {
+      "top": [
+        "Black Pepper",
+        "Pineapple Leaf",
+        "Cardamom",
+        "Pink Pepper",
+        "Lavender",
+        "Apple",
+        "Orange Blossom",
+        "Vetiver",
+        "Vanilla Absolute",
+        "Leather",
+        "Cedarwood",
+        "LIMONENE",
+        "LINALOOL",
+        "CITRONELLOL"
+      ],
+      "middle": [
+        "Bourbon Geranium",
+        "Lavender",
+        "Apple",
+        "Orange Blossom",
+        "Vetiver",
+        "Vanilla Absolute",
+        "Leather",
+        "Cedarwood",
+        "LIMONENE",
+        "LINALOOL",
+        "CITRONELLOL",
+        "BENZYL BENZOATE",
+        "COUMARIN",
+        "HYDROXYCITRONELLAL"
+      ],
+      "base": [
+        "Patchouli",
+        "Vetiver",
+        "Vanilla Absolute",
+        "Leather",
+        "Cedarwood",
+        "LIMONENE",
+        "LINALOOL",
+        "CITRONELLOL",
+        "BENZYL BENZOATE",
+        "COUMARIN",
+        "HYDROXYCITRONELLAL",
+        "CITRAL",
+        "GERANIOL",
+        "BENZYL SALICYLATE"
+      ],
+      "source": {
+        "retailerId": "mybeauty-boutique",
+        "url": "https://www.awin1.com/pclick.php?p=43661686219&a=3026001&m=106925"
+      }
+    },
+    "houseCeiling": 110
+  },
+  {
+    "id": "ean-6294015165012",
+    "brand": "Armaf",
+    "name": "Private Key To My Life",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "6294015165012",
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/517czXoshGL.jpg?v=1767981036",
+    "notes": {
+      "top": [
+        "grapefruit",
+        "pineapple",
+        "bergamot",
+        "jasmine"
+      ],
+      "middle": [],
+      "base": [],
+      "source": {
+        "retailerId": "mybeauty-boutique",
+        "url": "https://www.awin1.com/pclick.php?p=43661686217&a=3026001&m=106925"
+      }
+    },
+    "houseCeiling": 110
+  },
+  {
+    "id": "ean-6294015165029",
+    "brand": "Armaf",
+    "name": "Private Key To My Love",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "6294015165029",
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-product_204.jpg?v=1769204483",
+    "notes": {
+      "top": [
+        "Passionfruit",
+        "Peach",
+        "Pear",
+        "Cassis"
+      ],
+      "middle": [
+        "White Wood",
+        "Amberwood",
+        "Lily of the Valley"
+      ],
+      "base": [
+        "Musk",
+        "Sandalwood",
+        "Vanilla",
+        "Patchouli"
+      ],
+      "source": {
+        "retailerId": "mybeauty-boutique",
+        "url": "https://www.awin1.com/pclick.php?p=43661686220&a=3026001&m=106925"
+      }
+    },
+    "houseCeiling": 110
+  },
+  {
     "id": "ean-6294015175943",
     "brand": "Armaf",
     "name": "Private Key To My Soul",
@@ -19415,8 +19769,33 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015175943",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51y6TPp1w4L.jpg?v=1767981042",
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_2567b922-80f9-4ae8-b939-ed7285e5ea6f.png?v=1776414975",
     "notes": null,
+    "houseCeiling": 110
+  },
+  {
+    "id": "ean-6294015165005",
+    "brand": "Armaf",
+    "name": "Private Key To My Success",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "6294015165005",
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Pc2y_G1iL.jpg?v=1767981043",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Ginger"
+      ],
+      "middle": [],
+      "base": [
+        "Akigalawood"
+      ],
+      "source": {
+        "retailerId": "mybeauty-boutique",
+        "url": "https://www.awin1.com/pclick.php?p=43661686223&a=3026001&m=106925"
+      }
+    },
     "houseCeiling": 110
   },
   {
@@ -19464,7 +19843,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015166163",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71vwiLgOU3L.jpg?v=1763147005",
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_50c6bb55-32f7-4fe5-9c4a-26782b51c3a5.png?v=1774272277",
     "notes": null,
     "houseCeiling": 39.99
   },
@@ -19563,7 +19942,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015102260",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71CFdlqkXmS.jpg?v=1763143901",
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-ventana.jpg?v=1769204506",
     "notes": {
       "top": [],
       "middle": [],
@@ -19883,7 +20262,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640163970012",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/Bentleyinfinte.jpg?v=1783954732&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/BL1304_Bentley_Infinite_EDT_60ml_jpg_2048x2048_9f5cb6bc-14a4-4ed2-bd76-e83f1d58d56e.jpg?v=1763135346",
     "notes": {
       "top": [],
       "middle": [],
@@ -19905,7 +20284,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640163970029",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41abaEnX2pL.jpg?v=1763135346",
+    "image": "https://www.beautybase.com/cdn/shop/files/1718630059-45057600.jpg?v=1763395302&width=3000",
     "notes": null
   },
   {
@@ -20042,7 +20421,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0719346065399",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71vIQA3qp1L._SL1500_697eda79-238e-4353-a9e2-eb29ceeb8ab4.jpg?v=1763135465",
+    "image": "https://www.thefragrancecounter.co.uk/user/products/large/image_336.jpg",
     "notes": null
   },
   {
@@ -20053,7 +20432,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81twQ6DaN0L.jpg?v=1763142812",
+    "image": "https://www.justmylook.com/cdn/shop/files/BRIT0019.png?v=1736413694&width=3000",
     "notes": {
       "top": [
         "Quince",
@@ -20080,7 +20459,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0719346250436",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71KO8jj9KYL.jpg?v=1763142808",
+    "image": "https://www.justmylook.com/cdn/shop/files/BRIT0020.png?v=1736413694&width=3000",
     "notes": {
       "top": [],
       "middle": [
@@ -20419,7 +20798,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014000157",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1766511040-60500600.jpg?v=1774611897&width=3000",
+    "image": "https://oudarabian.co.uk/cdn/shop/files/4F2884D3-1752-4BD1-94AA-BF76221E9C6E.webp?v=1765932594&width=3000",
     "notes": {
       "top": [
         "Vibrant Citrus",
@@ -20444,7 +20823,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014000539",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1766511054-30086700.jpg?v=1774612180&width=3000",
+    "image": "https://oudarabian.co.uk/cdn/shop/files/914424B4-893A-4101-A129-2FCB75389597.webp?v=1767390492&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -21280,7 +21659,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7340032875393",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/710gpDh6VCL.jpg?v=1763147454",
+    "image": "https://www.justmylook.com/cdn/shop/files/BYRE0015.png?v=1753445105&width=3000",
     "notes": {
       "top": [
         "Juniper Berries",
@@ -21333,7 +21712,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3360373063697",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51wd6L95WNL_a4f935f7-c94b-48ce-a1f1-a0d2ab326b68.jpg?v=1763135805",
+    "image": "https://www.justmylook.com/cdn/shop/files/amor-amor-eau-de-toilette-30ml-p23894-53755_image.jpg?v=1721322428&width=3000",
     "notes": {
       "top": [
         "Blackcurrant",
@@ -21504,7 +21883,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61RCXtCmNdL.jpg?v=1763145862",
+    "image": "https://www.justmylook.com/cdn/shop/files/pour-lhomme-eau-de-toilette-100ml-p21062-44847_image.jpg?v=1721322159&width=3000",
     "notes": {
       "top": [
         "Orange blossom",
@@ -21556,7 +21935,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/calvin-klein-ck-all-unisex-edt-100-ml-1598265230.jpg?v=1763135850",
+    "image": "https://www.justmylook.com/cdn/shop/files/CK0122.jpg?v=1729263417&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -21936,7 +22315,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "088300606504",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1757425502-63166900.jpg?v=1763398899&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-for-men-eau-de-toilette-75ml-p30458-96634_image_x100.jpg?v=1721322164",
     "notes": {
       "top": [
         "mandarin",
@@ -21982,7 +22361,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614221537763",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/CalvinKleingold.jpg?v=1782305691&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71dWxJ0psOL._SL1500.jpg?v=1763136115",
     "notes": {
       "top": [
         "Fig",
@@ -22039,7 +22418,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061043868",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/85730_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0024_d1fa5c13-7369-4513-9c9b-3034ab247dda.png?v=1765452782&width=3000",
     "notes": {
       "top": [
         "Orange Blossom",
@@ -22070,7 +22449,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061133019",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/86849_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0031_d44a9ffd-1cec-49bc-a855-8749d8169c1c.png?v=1765452783&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -22235,7 +22614,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51beFr7ahKL.jpg?v=1763146922",
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0068-1_01fb9c52-8571-46a7-8f6f-290a37a71e6a.png?v=1764086518&width=3000",
     "notes": {
       "top": [
         "Sage",
@@ -22263,7 +22642,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61baMfr8orL.jpg?v=1767981615",
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0063.png?v=1764086753&width=3000",
     "notes": {
       "top": [
         "Sage"
@@ -22329,7 +22708,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061954966",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1759412813-82966200.jpg?v=1763399228&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/510MnHIM_dL.jpg?v=1763144477",
     "notes": {
       "top": [
         "Italian bergamot",
@@ -22506,7 +22885,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5050456522736",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1640085789-75372500.jpg?v=1763389935&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/cerruti-1881-femme-eau-de-toilette-100ml-p20976-44117_image.jpg?v=1721322172&width=3000",
     "notes": {
       "top": [
         "Freesia",
@@ -22572,7 +22951,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "0688575201901",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1507804864-09937300.png?v=1763389935&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/CHL0019_95bddcb6-2150-4082-81c1-2c5b64066153.png?v=1765452236&width=3000",
     "notes": {
       "top": [
         "Peony"
@@ -22621,7 +23000,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614228842785",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1638971177-54960500.jpg?v=1763391884&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51X0BDc6OrL.jpg?v=1767981695",
     "notes": {
       "top": [
         "Black Currant",
@@ -22696,7 +23075,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "7640177366160",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1371028772-83469800.jpg?v=1763389940&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41jfYyUJ71L.jpg?v=1763136469",
     "notes": {
       "top": [
         "Coconut",
@@ -22836,7 +23215,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "020714080310",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1700494798-22818000.jpg?v=1763393312&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/CLQ0009_x100.png?v=1738168657",
     "notes": null
   },
   {
@@ -23102,7 +23481,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3508440001337",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.justmylook.com/cdn/shop/files/CREED0043.png?v=1751897614&width=3000",
     "notes": {
       "top": [
         "Cardamom",
@@ -23267,7 +23646,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "5425017733508",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1643373746-44518000.jpg?v=1763390835&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81WJP1bSiSL.jpg?v=1767982075",
     "notes": {
       "top": [],
       "middle": [
@@ -23312,7 +23691,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3414202000626",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/103538_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-aftershave-75ml-p20009-56706_image.jpg?v=1721322181&width=3000",
     "notes": {
       "top": [
         "Coriander",
@@ -23344,7 +23723,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3414202000664",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/94218_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-aftershave-125ml-p20010-56725_image.jpg?v=1721322175&width=3000",
     "notes": {
       "top": [
         "Coriander",
@@ -24293,7 +24672,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "737052036625",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/D_Gtheoneformen.jpg?v=1781789090&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41HXhv-B1LL.jpg?v=1763137298",
     "notes": {
       "top": [
         "Litchi",
@@ -24593,7 +24972,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "7640233341001",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61hAodeoOVL.jpg?v=1767982373",
+    "image": "https://www.beautybase.com/cdn/shop/files/1733755756-30431100.jpg?v=1763396713&width=3000",
     "notes": null
   },
   {
@@ -24688,7 +25067,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0085805907006",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/prd-front-688192-600x600.jpg?v=1763137553",
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0001_x100.png?v=1777037424",
     "notes": null
   },
   {
@@ -25037,7 +25416,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616301789246",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/ESCD0007.png?v=1740748752&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/318KYKtQc3L.jpg?v=1763137717",
     "notes": {
       "top": [
         "Nashi Pear"
@@ -25062,7 +25441,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616301789239",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1743591921-80921100.jpg?v=1763397540&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/318KYKtQc3L_463d21af-3658-4ee6-8fb6-59abd3f38220.jpg?v=1763137720",
     "notes": {
       "top": [
         "Nashi Pear",
@@ -25136,7 +25515,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616303452414",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1758536385-22824400.jpg?v=1763399061&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/escada-show-me-love-edp-30ml_xl.jpg?v=1763137729",
     "notes": {
       "top": [],
       "middle": [],
@@ -25148,6 +25527,18 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43157928748&a=3026001&m=106925"
       }
     }
+  },
+  {
+    "id": "ean-5060103310036",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 02",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "5060103310036",
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0855/9220/files/E02_EDP_100ml_Bottle.jpg?v=1750843750",
+    "notes": null,
+    "houseCeiling": 200
   },
   {
     "id": "ean-5060103310029",
@@ -25217,7 +25608,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "887167525559",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1668772550-50277900.png?v=1763393030&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61HQG6LttbL.jpg?v=1767982532",
     "notes": null
   },
   {
@@ -25613,7 +26004,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379708",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1760366412-24292800.jpg?v=1763399311&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Elysia-Sweet-Banana-Perfume-100ml-EDP-Fragrance-World-177430287.jpg?v=1759015313",
     "notes": {
       "top": [
         "Banana",
@@ -25671,7 +26062,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360375342",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hayaati-Beau-Perfume-100ml-EDP-Fragrance-World-148906717.jpg?v=1725631547",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725880288-36370900.jpg?v=1763395659&width=3000",
     "notes": {
       "top": [
         "Orange",
@@ -25701,7 +26092,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360373218",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hayaati-Rose-Perfume-100ml-EDP-Fragrance-World-174028021.jpg?v=1752769081",
+    "image": "https://www.beautybase.com/cdn/shop/files/1748619657-02329600.jpg?v=1763398007&width=3000",
     "notes": {
       "top": [
         "Mandarin",
@@ -25761,7 +26152,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "6290360371450",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/king-perfume-100ml-edp-fragrance-world-emirates-oud-103911448.jpg?v=1713058630",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725879754-44667700.jpg?v=1763395375&width=3000",
     "notes": {
       "top": [
         "Mandarin",
@@ -25822,7 +26213,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "6290360373591",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/lush-cherry-50ml-edp-fragrance-world-emirates-oud-1.jpg?v=1713056687",
+    "image": "https://www.beautybase.com/cdn/shop/files/1743760005-54159700.jpg?v=1763397488&width=3000",
     "notes": {
       "top": [
         "Cherry",
@@ -25893,7 +26284,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379487",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1753352073-56246800.jpg?v=1763398492&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Notes-Jazz-Perfume-100ml-EDP-Fragrance-World-170002085.jpg?v=1751041577",
     "notes": {
       "top": [
         "Cinnamon",
@@ -25988,7 +26379,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "6290360371443",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Queen-Perfume-100ml-EDP-Fragrance-World-136477532.jpg?v=1762132270",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725879349-19506100.jpg?v=1763395376&width=3000",
     "notes": {
       "top": [
         "Sour Cherry",
@@ -26136,6 +26527,42 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6298042001947",
+    "brand": "French Avenue",
+    "name": "8th Wonder",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6298042001947",
+    "shops": 3,
+    "image": "https://www.beautybase.com/cdn/shop/files/1769008011-62310100.jpg?v=1772624919&width=3000",
+    "notes": {
+      "top": [
+        "Pink Pepper",
+        "Cardamom",
+        "Candy Apple"
+      ],
+      "middle": [
+        "Osmanthus",
+        "Liquor",
+        "Davana",
+        "Dates"
+      ],
+      "base": [
+        "Patchouli",
+        "Labdanum",
+        "Benzoin",
+        "Styrax",
+        "Myrrh",
+        "Amber Xtreme"
+      ],
+      "source": {
+        "retailerId": "fragrancehub",
+        "url": "https://fragrancehub.co.uk/products/8th-wonder-100ml-extrait-de-parfum-by-french-avenue"
+      }
+    },
+    "houseCeiling": 32
+  },
+  {
     "id": "ean-6290360376608",
     "brand": "French Avenue",
     "name": "Aether",
@@ -26143,7 +26570,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360376608",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1748620070-53146100.jpg?v=1763398014&width=3000",
+    "image": "https://manchesterouds.com/cdn/shop/files/aether-edp-100ml-french-avenue-7640063.webp?v=1786194479&width=3000",
     "notes": {
       "top": [
         "Green Apple",
@@ -26222,7 +26649,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Axis-Perfume-100ml-EDP-French-Avenue-170026050.jpg?v=1751056186",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_aee2491e-b2dc-47a9-90ed-511b1593b991.png?v=1757604978",
     "notes": {
       "top": [
         "Freesia",
@@ -26332,14 +26759,14 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     }
   },
   {
-    "id": "french-avenue-12778",
+    "id": "emirates-oud-9032467775837-default-title",
     "brand": "French Avenue",
     "name": "Divin Aoud",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Divin_Aoud_EDP_100ml.jpg?v=1756799359",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Divin-Aoud-Perfume-100ml-French-Avenue-by-Fragrance-World-180427434.png?v=1763359010",
     "notes": {
       "top": [
         "Lemon",
@@ -26381,7 +26808,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fierte-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-153653923.jpg?v=1732638676",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_d52d9c99-3560-42bd-8d50-10f210237217.jpg?v=1756977390",
     "notes": {
       "top": [
         "Black",
@@ -26414,7 +26841,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fierte-Luna-Perfume-80ml-EDP-French-Avenue-169962018.jpg?v=1750907045",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1.jpg?v=1758616505",
     "notes": {
       "top": [
         "Lavender",
@@ -26447,7 +26874,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Grecia-Perfume-100ml-EDP-French-Avenue-170031480.jpg?v=1751223215",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_479f96d4-6ecc-4f69-b4c1-745d6f5624ca.jpg?v=1756979747",
     "notes": {
       "top": [
         "Milk",
@@ -26479,7 +26906,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Grecia-Rosa-Perfume-100ml-EDP-French-Avenue-175457258.jpg?v=1755779114",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_28800be8-ea83-45dc-b4e0-053e1872d7e7.png?v=1757598477",
     "notes": {
       "top": [
         "Grapefruit",
@@ -26549,37 +26976,6 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "houseCeiling": 35
   },
   {
-    "id": "emirates-oud-16155772879197-default-title",
-    "brand": "French Avenue",
-    "name": "Jasmere",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Jasmere-Perfume-100ml-EDP-French-Avenue-194136558.png?v=1782929041",
-    "notes": {
-      "top": [
-        "Broom",
-        "Jasmine Sambac",
-        "Linden Blossom"
-      ],
-      "middle": [
-        "Orange Blossom",
-        "Vetiver",
-        "Heliotrope"
-      ],
-      "base": [
-        "Musk",
-        "Dry Wood"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/jasmere-perfume-french-avenue"
-      }
-    },
-    "houseCeiling": 30
-  },
-  {
     "id": "emirates-oud-9416597340509-default-title",
     "brand": "French Avenue",
     "name": "Lumiere Elle",
@@ -26587,7 +26983,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Lumiere-Elle-Perfume-100ml-EDP-FA-Paris-by-Fragrance-World-133026368.jpg?v=1718672594",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_c66592dd-163c-4d1a-9692-3dba28d24335.jpg?v=1756993223",
     "notes": {
       "top": [
         "Ginger",
@@ -26619,7 +27015,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Lumiere-Garcon-100ml-EDP-FA-Paris-by-Fragrance-World-133025774.jpg?v=1718672227",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_a8353d76-0cef-4841-bbbf-1b2842b114a8.jpg?v=1756981526",
     "notes": {
       "top": [
         "Black Pepper",
@@ -26642,7 +27038,10 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       }
     },
     "houseCeiling": 25
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9674817044829-default-title",
     "brand": "French Avenue",
@@ -26651,7 +27050,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Luscious-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-153911355.jpg?v=1733258002",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/5457_2_d0f80313-e15f-445d-8f0e-f1145abfacbc.webp?v=1756984579",
     "notes": {
       "top": [
         "Pistachio",
@@ -26676,6 +27075,37 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "houseCeiling": 25
   },
   {
+    "id": "emirates-oud-15765625045341-default-title",
+    "brand": "French Avenue",
+    "name": "Marmara",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_39.jpg?v=1770172447",
+    "notes": {
+      "top": [
+        "Black Pepper",
+        "Italian Bergamot",
+        "Saffron"
+      ],
+      "middle": [
+        "Cashmere Wood",
+        "Ambroxan",
+        "Powdery Accord"
+      ],
+      "base": [
+        "Musk",
+        "White Sandalwood"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/marmara-french-avenue"
+      }
+    },
+    "houseCeiling": 35
+  },
+  {
     "id": "emirates-oud-15765621768541-default-title",
     "brand": "French Avenue",
     "name": "Nabatieh",
@@ -26683,7 +27113,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nabatieh-Perfume-100ml-EDP-French-Avenue-184679829.png?v=1771552198",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_96.jpg?v=1771591845",
     "notes": {
       "top": [
         "Cardamom",
@@ -26745,105 +27175,40 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "houseCeiling": 45
   },
   {
-    "id": "emirates-oud-15765631467869-default-title",
+    "id": "emirates-oud-15765627535709-default-title",
     "brand": "French Avenue",
-    "name": "Obsidian",
+    "name": "Nomad",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Obsidian-Perfume-100ml-EDP-French-Avenue-183496326.webp?v=1768705572",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_45_cfbcb299-4c4d-453b-8559-3acbdd58358d.jpg?v=1770174043",
     "notes": {
       "top": [
-        "Grapefruit",
-        "Bergamot"
+        "Saffron",
+        "Lemon",
+        "Marine Accord",
+        "Sea Salt"
       ],
       "middle": [
-        "Myrrh",
-        "Jasmine",
-        "Labdanum"
-      ],
-      "base": [
-        "Vanilla",
-        "Amber",
+        "White Flowers",
+        "Ambergris",
         "Tonka Bean"
       ],
+      "base": [
+        "Patchouli",
+        "Cypriol",
+        "Oud",
+        "Vanilla",
+        "Amber",
+        "Sandalwood"
+      ],
       "source": {
         "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/obsidian-french-avenue"
-      }
-    }
-  },
-  {
-    "id": "ean-6298042001879",
-    "brand": "French Avenue",
-    "name": "Obsidian",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "6298042001879",
-    "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_34.jpg?v=1767795639",
-    "notes": {
-      "top": [
-        "Grapefruit",
-        "Bergamot",
-        "Aldehydes"
-      ],
-      "middle": [
-        "Labdanum",
-        "Myrrh",
-        "Jasmine"
-      ],
-      "base": [
-        "Tonka Bean",
-        "Vanilla"
-      ],
-      "source": {
-        "retailerId": "oud-arabian",
-        "url": "https://oudarabian.co.uk/products/french-avenue-obsidian-100ml-extrait-de-parfum"
+        "url": "https://emiratesoud.co.uk/products/nomad-perfume-100ml-french-avenue"
       }
     },
-    "houseCeiling": 45
-  },
-  {
-    "id": "ean-6290360379340",
-    "brand": "French Avenue",
-    "name": "Opus Magnum",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360379340",
-    "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opus-Magnum-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-163825257.jpg?v=1740775345",
-    "notes": {
-      "top": [
-        "Olibanum",
-        "Anis",
-        "Elemi-harpiks",
-        "Kardemomme",
-        "Basilikum og Bergamott"
-      ],
-      "middle": [
-        "Tobakk",
-        "lakris",
-        "bukkehornkløver",
-        "prunol",
-        "lavendel",
-        "osmanthus",
-        "appelsinblomst og rose"
-      ],
-      "base": [
-        "Olibanum",
-        "Bourbon Vanilje",
-        "Myrra",
-        "Bjørketjære",
-        "Benzoin",
-        "Agarwood"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/opus-magnum-perfume-by-french-avenue-by-fragrance-world"
-      }
-    }
+    "houseCeiling": 30
   },
   {
     "id": "emirates-oud-15655513686365-default-title",
@@ -26879,69 +27244,6 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "houseCeiling": 25
   },
   {
-    "id": "ean-6298042001893",
-    "brand": "French Avenue",
-    "name": "Ripple",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6298042001893",
-    "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/9632_7a6a269f-8781-4a7e-abe3-831bc6f9c58e.jpg?v=1777997943&width=3000",
-    "notes": {
-      "top": [
-        "Lavender",
-        "Sage",
-        "Bergamot"
-      ],
-      "middle": [
-        "Sea Water",
-        "Cedarwood",
-        "Sandalwood"
-      ],
-      "base": [
-        "Incense",
-        "Amber",
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "manchester-ouds",
-        "url": "https://manchesterouds.com/products/ripple-edp-100ml"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15937771143517-default-title",
-    "brand": "French Avenue",
-    "name": "Ripple",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ripple-Perfume-100ml-EDP-French-Avenue-184725714.png?v=1771618709",
-    "notes": {
-      "top": [
-        "Lavender",
-        "Sage",
-        "Bergamot"
-      ],
-      "middle": [
-        "Sea water",
-        "Cedarwood",
-        "Sandalwood"
-      ],
-      "base": [
-        "Incense",
-        "Amber",
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/ripple-french-avenue"
-      }
-    },
-    "houseCeiling": 35
-  },
-  {
     "id": "emirates-oud-15422850105693-default-title",
     "brand": "French Avenue",
     "name": "Royal Blend Vintage",
@@ -26949,7 +27251,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Royal-Blend-Vintage-Extrait-De-Parfum-100ml-French-Avenue-168844319.jpg?v=1748353103",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_5f975a03-07c4-4009-ab66-ebe1201e4815.jpg?v=1756993958",
     "notes": {
       "top": [
         "Davana",
@@ -27005,6 +27307,38 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-15793780785501-default-title",
+    "brand": "French Avenue",
+    "name": "Solitaire",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Solitaire-Perfume-100ml-EDP-French-Avenue-181317126.png?v=1764892275",
+    "notes": {
+      "top": [
+        "Clover",
+        "Bergamot",
+        "Rose"
+      ],
+      "middle": [
+        "Musk Green Tea",
+        "Heliotrope",
+        "Jasmine"
+      ],
+      "base": [
+        "Musk",
+        "Moss",
+        "Patchouli"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/solitaire-french-avenue"
+      }
+    },
+    "houseCeiling": 40
+  },
+  {
     "id": "emirates-oud-9256039514461-default-title",
     "brand": "French Avenue",
     "name": "Spectre Ghost",
@@ -27012,7 +27346,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spectre-Ghost-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184726566.png?v=1771619897",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_bbf70765-475e-46bd-9dfa-dfbc0d984986.jpg?v=1756994506",
     "notes": {
       "top": [
         "Ginger",
@@ -27035,70 +27369,6 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       }
     },
     "houseCeiling": 25
-  }
-];
-
-const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
-  {
-    "id": "ean-6298042002364",
-    "brand": "French Avenue",
-    "name": "Spirito Ignite",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "6298042002364",
-    "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/Ignite.jpg?v=1782399672&width=3000",
-    "notes": {
-      "top": [
-        "Iris",
-        "Pink Pepper",
-        "Popcorn"
-      ],
-      "middle": [
-        "Leather",
-        "Magnolia",
-        "Violet"
-      ],
-      "base": [
-        "Cedarwood",
-        "Vetiver",
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/spirito-ignite-perfume-french-avenue"
-      }
-    }
-  },
-  {
-    "id": "ean-6298042002357",
-    "brand": "French Avenue",
-    "name": "Spirito Mystic",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "6298042002357",
-    "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/Spirito1.jpg?v=1782399206&width=3000",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Rose",
-        "Cardamom"
-      ],
-      "middle": [
-        "Sandalwood",
-        "Tonka Bean"
-      ],
-      "base": [
-        "Vanilla",
-        "Patchouli",
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/spirito-mystic-french-avenue"
-      }
-    }
   },
   {
     "id": "emirates-oud-9032438645085-60ml",
@@ -27161,6 +27431,56 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "houseCeiling": 40
   },
   {
+    "id": "ean-6298042000926",
+    "brand": "French Avenue",
+    "name": "Vulcan Baie",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6298042000926",
+    "shops": 3,
+    "image": "https://www.beautybase.com/cdn/shop/files/1755159692-05349600.jpg?v=1763398787&width=3000",
+    "notes": {
+      "top": [
+        "Black Currant",
+        "Rosemary",
+        "Blackberry",
+        "Bergamot"
+      ],
+      "middle": [
+        "Raspberry",
+        "Vodka",
+        "Basil",
+        "Lily of the Valley"
+      ],
+      "base": [
+        "Musk",
+        "Strawberry",
+        "Sandalwood",
+        "Peach",
+        "Amber",
+        "Incense",
+        "Patchouli"
+      ],
+      "source": {
+        "retailerId": "beautybase",
+        "url": "https://www.beautybase.com/products/french-avenue-vulcan-baie-extrait-de-parfum-100ml-spray"
+      }
+    },
+    "houseCeiling": 35
+  },
+  {
+    "id": "ean-6298042001558",
+    "brand": "French Avenue",
+    "name": "Vulcan Black Friday",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6298042001558",
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_10.jpg?v=1762856020",
+    "notes": null,
+    "houseCeiling": 40
+  },
+  {
     "id": "emirates-oud-15703695982941-default-title",
     "brand": "French Avenue",
     "name": "Zenith Noire",
@@ -27194,7 +27514,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Zenith-Vanilla-Perfume-100ml-EDP-French-Avenue-175522341.jpg?v=1755886585",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-14T140736.640.jpg?v=1756986380",
     "notes": {
       "top": [
         "Candied Orange",
@@ -27364,7 +27684,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274459685",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.justmylook.com/cdn/shop/files/ARMA0181.png?v=1745593491&width=3000",
     "notes": {
       "top": [
         "Strawberry",
@@ -27392,7 +27712,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605522040588",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1498734864-42386300.jpg?v=1763398557&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61XLpzKlYUL.jpg?v=1767982899",
     "notes": {
       "top": [
         "cardamom",
@@ -27490,7 +27810,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872396180",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10037711.jpg?v=1763143710",
+    "image": "https://www.beautybase.com/cdn/shop/files/1379596157-25716100.jpg?v=1763391105&width=3000",
     "notes": null
   },
   {
@@ -28148,7 +28468,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614229461367",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61LGIpaWcOL.jpg?v=1763146032",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729267387-25343200.jpg?v=1763396264&width=3000",
     "notes": null
   },
   {
@@ -28651,7 +28971,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274309072",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61eLIXM6LuL.jpg?v=1767983106",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750259976-12206300.jpg?v=1763397941&width=3000",
     "notes": null
   },
   {
@@ -28662,7 +28982,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360372009436",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51y2pUBNEbL.jpg?v=1763138446",
+    "image": "https://www.justmylook.com/cdn/shop/files/drakkar-noir-eau-de-toilette-100ml-p32513-91095_image.jpg?v=1721322229&width=3000",
     "notes": {
       "top": [
         "Basil",
@@ -28782,7 +29102,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616302968220",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1748947698-65685700.jpg?v=1763398036&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61SkpyTyi2L.jpg?v=1767983170",
     "notes": null
   },
   {
@@ -29334,7 +29654,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423474867059",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61AhVJZB0hL.jpg?v=1763144529",
+    "image": "https://www.justmylook.com/cdn/shop/files/leau-dissey-pour-homme-sport-eau-de-toilette-50ml-p38037-120110_image.jpg?v=1721322247&width=3000",
     "notes": {
       "top": [
         "Lemon",
@@ -29416,7 +29736,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423474884155",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/112938_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/ISS0037.png?v=1731675663&width=3000",
     "notes": {
       "top": [
         "Grapefruit",
@@ -29545,7 +29865,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8435415091145",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/175236_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728911494-68046500.jpg?v=1763395616&width=3000",
     "notes": null
   },
   {
@@ -29556,7 +29876,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415091152",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/173386_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/JPG0071_e0f4f94f-fcdc-4118-847b-652d9a751f0e.png?v=1756720380&width=3000",
     "notes": {
       "top": [
         "Salt"
@@ -29628,7 +29948,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8435415017190",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/174932_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/JPG0028.png?v=1753445104&width=3000",
     "notes": {
       "top": [
         "Bergamot"
@@ -29678,7 +29998,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8435415062213",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/sdfsdf_b5e101d9-e0e8-4763-9d45-2292db35f98e.webp?v=1763139033",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728660223-18719400.jpg?v=1763396065&width=3000",
     "notes": {
       "top": [
         "Iris",
@@ -29772,7 +30092,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415102346",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/187915_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/JPG0069_75a14031-8dc0-4f05-9c94-074487f92275.png?v=1756720379&width=3000",
     "notes": {
       "top": [
         "Plum"
@@ -29822,7 +30142,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8435415059060",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/175612_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/JPG0012.png?v=1782729456&width=3000",
     "notes": {
       "top": [
         "Blood Orange",
@@ -31033,7 +31353,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460150392",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81gdZUKA67L.jpg?v=1763139201",
+    "image": "https://www.beautybase.com/cdn/shop/files/1710772933-19397300.jpg?v=1763394568&width=3000",
     "notes": null
   },
   {
@@ -31286,7 +31606,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460137560",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1684513851-20992800.jpg?v=1763393593&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51pgdbXC5GL.jpg?v=1763139296",
     "notes": {
       "top": [
         "Coconut"
@@ -31587,7 +31907,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460087261",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/db053332-5310-4d15-b926-3740843c4699.jpg?v=1763139471",
+    "image": "https://www.justmylook.com/cdn/shop/files/KARL0004.png?v=1766583600&width=3000",
     "notes": {
       "top": [
         "Blood Orange",
@@ -31742,7 +32062,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107979311",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738581981-99619200.jpg?v=1763396978&width=3000",
     "notes": {
       "top": [
         "Sweet Almond",
@@ -31773,7 +32093,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107978819",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Cream-Velvet-Extrait-de-Parfum-100ml-By-Khadlaj-173963356.jpg?v=1752641870",
+    "image": "https://www.beautybase.com/cdn/shop/files/1745424834-68842700.jpg?v=1763397786&width=3000",
     "notes": {
       "top": [
         "Buttery",
@@ -31851,38 +32171,6 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/island-dreams-khadlaj"
-      }
-    }
-  },
-  {
-    "id": "ean-6291107979748",
-    "brand": "Khadlaj",
-    "name": "Island Vanilla Dunes",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "6291107979748",
-    "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Island-Vanilla-Dunes-Extrait-De-Parfum-100ml-By-Khadlaj-174003161.jpg?v=1752686802",
-    "notes": {
-      "top": [
-        "Cinnamon",
-        "Vanilla",
-        "Bergamot",
-        "Cardamom"
-      ],
-      "middle": [
-        "Orange Blossom",
-        "Guaiacwood",
-        "Bourbon"
-      ],
-      "base": [
-        "Praline",
-        "Amber",
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/island-vanilla-dunes-khadlaj"
       }
     }
   },
@@ -32099,7 +32387,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3700550216094",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71Pu2cKMFQL.jpg?v=1763146072",
+    "image": "https://www.justmylook.com/cdn/shop/files/KIL0013_bcddc03f-1649-472b-a7b7-43ef89d59682.png?v=1766583602&width=3000",
     "notes": {
       "top": [
         "Cognac Oil",
@@ -32373,7 +32661,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3386460149303",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1716371388-48522200.jpg?v=1763392238&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/lacoste_essential_edt_1.jpg?v=1763139673",
     "notes": {
       "top": [
         "Fresh Aquatic Citrus",
@@ -32794,7 +33082,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460010399",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81kQRy918yL.jpg?v=1767983685",
+    "image": "https://allbeauty.com/cdn/shop/files/16635.jpg?v=1755874980&width=3000",
     "notes": {
       "top": [
         "Wild Blackberry"
@@ -32889,7 +33177,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6291106066890",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81GQ7pHLGJL.jpg?v=1763144243",
+    "image": "https://www.beautybase.com/cdn/shop/files/1561393908-50494900.jpg?v=1763389329&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -32916,7 +33204,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6290362341826",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ana-Abiyedh-Coral-Perfume-60ml-EDP-Lattafa-169882936.jpg?v=1750809334",
+    "image": "https://www.beautybase.com/cdn/shop/files/1740755511-53948900.jpg?v=1763397385&width=3000",
     "notes": {
       "top": [
         "Peach",
@@ -33193,7 +33481,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298043160056",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/Lattafaamythest.jpg?v=1785755223&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-Al-Oud-Amethyst-Fusion-Perfume-100ml-EDP-Lattafa-194580933.png?v=1784032360",
     "notes": {
       "top": [
         "Amaretto",
@@ -33546,7 +33834,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/617C2qSya6L.jpg?v=1763145091",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Liam-Blue-Shine-Perfume-100ml-EDP-Lattafa-153339591.jpg?v=1732557414",
     "notes": {
       "top": [
         "Bergamot",
@@ -33673,7 +33961,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360598963",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mayar-Cherry-Intense-Perfume-100ml-EDP-Lattafa-153839354.jpg?v=1733144911",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738748989-55559000.jpg?v=1763397070&width=3000",
     "notes": {
       "top": [
         "Strawberry",
@@ -34018,7 +34306,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291106064070",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61SgLRAzBJL.jpg?v=1763144234",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/raghba-wood-intense-perfume-100ml-edp-lattafa-emirates-oud-2-103808669.jpg?v=1713055614",
     "notes": {
       "top": [
         "Caramel",
@@ -34521,7 +34809,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800203931",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1684426423-44748500.jpg?v=1763393586&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/IMG_4010-scaled.png?v=1763140142",
     "notes": null
   },
   {
@@ -34880,7 +35168,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61BB6XxSt9L.jpg?v=1767984412",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Montaigne-Coco-Perfume-100ml-EDP-Maison-Alhambra-178596288.jpg?v=1759334340",
     "notes": {
       "top": [
         "Coconut",
@@ -34992,7 +35280,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61NAG8KTaKL.jpg?v=1767984434",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Salvo-Elixir-Perfume-100ml-EDP-Maison-Alhambra-170708815.jpg?v=1751472133",
     "notes": {
       "top": [
         "Cardamom",
@@ -35045,7 +35333,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/617KXJZvKFL.jpg?v=1767984404",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Victorioso-Perfume-100ml-EDP-Maison-Alhambra-127136921.jpg?v=1715710750",
     "notes": {
       "top": [
         "Bergamot"
@@ -35434,7 +35722,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10041757.jpg?v=1763140168",
+    "image": "https://www.justmylook.com/cdn/shop/files/MASM0029.png?v=1732820649&width=3000",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -35476,7 +35764,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10041758.jpg?v=1763140170",
+    "image": "https://www.justmylook.com/cdn/shop/files/MASM0017.png?v=1732820647&width=3000",
     "notes": {
       "top": [
         "Pear Accord",
@@ -35566,7 +35854,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/1639674c-bb7b-4202-a6ca-03247bd4fc65.jpg?v=1763140188",
+    "image": "https://www.justmylook.com/cdn/shop/files/MJ0015_f572f2c8-6309-44c3-8528-af2556593369.png?v=1765459932&width=3000",
     "notes": {
       "top": [
         "Blackberry",
@@ -35827,7 +36115,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0022548420003",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41is56RK6tL.jpg?v=1763140422",
+    "image": "https://www.justmylook.com/cdn/shop/files/michael-kors-gorgeous-eau-de-parfum-50ml-p29689-76192_image.jpg?v=1721322286&width=3000",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -36306,7 +36594,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460127981",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1738923828-67123800.jpg?v=1763393107&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/312aMLDRyAL.jpg?v=1763140538",
     "notes": {
       "top": [],
       "middle": [],
@@ -36327,7 +36615,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460127974",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1644932284-65839500.jpg?v=1763391956&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/21u9-7laLXL.jpg?v=1763140542",
     "notes": null
   },
   {
@@ -36419,7 +36707,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003826711",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41elHAi1PjL.jpg?v=1763140609",
+    "image": "https://www.justmylook.com/cdn/shop/files/moschino-fresh-couture-eau-de-toilette-100ml-p20730-43652_image.jpg?v=1721322277&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -36717,7 +37005,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273560405",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/152331_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/mugler-alien-goddess-eau-de-parfum-90ml-p27902-69721_image.jpg?v=1721322283&width=3000",
     "notes": {
       "top": [
         "Coconut Water",
@@ -37913,7 +38201,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "679602601122",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1549905661-51794100.jpg?v=1763392308&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/053a9976-75ca-4bd8-9410-b6de8c1a3bd6.jpg?v=1763141495",
     "notes": {
       "top": [
         "Grapefruit",
@@ -37986,7 +38274,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "679602611121",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1369146229-76692100.jpg?v=1763392308&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/c3b0b6a4-4808-4abb-84b7-89788b26f9ff.jpg?v=1763141236",
     "notes": {
       "top": [
         "Granny Smith apple",
@@ -38013,7 +38301,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137749607",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61IgtNtIkEL.jpg?v=1763145545",
+    "image": "https://www.justmylook.com/cdn/shop/files/prada-lhomme-eau-de-toilette-100ml-p27959-69771_image.jpg?v=1721322310&width=3000",
     "notes": {
       "top": [
         "Neroli",
@@ -38269,7 +38557,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274306217",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/RADICAL_ESSENCE50ML.jpg?v=1773335162&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/PRA0080.png?v=1754061062&width=3000",
     "notes": {
       "top": [
         "Neroli Oil",
@@ -38295,7 +38583,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274305401",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1753368466-01816600.jpg?v=1773335164&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/PRA0081.png?v=1754061064&width=3000",
     "notes": {
       "top": [
         "Neroli Oil",
@@ -38633,7 +38921,10 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1214.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-3349668627462",
     "brand": "Rabanne",
@@ -38864,10 +39155,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "url": "https://thebeautystore.com/products/ralph-lauren-polo-blue-eau-de-toilette-spray-75ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3605972455338",
     "brand": "Ralph Lauren",
@@ -39216,7 +39504,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6297001571057",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/RAYH0004.png?v=1747408653&width=3000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1745488742-00932600.jpg?v=1763397788&width=3000",
     "notes": {
       "top": [
         "Cinnamon",
@@ -39523,7 +39811,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "8052464896943",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51YVwUBgzYL.jpg?v=1763141650",
+    "image": "https://www.justmylook.com/cdn/shop/files/CAV0014_331bfebe-bb24-40c3-a94b-086ac197a2cd.png?v=1766583608&width=3000",
     "notes": {
       "top": [
         "Pepper"
@@ -39548,7 +39836,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303445188",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61Zj9c6QQQL.jpg?v=1767985290",
+    "image": "https://www.justmylook.com/cdn/shop/files/CAV0021.png?v=1739985405&width=3000",
     "notes": {
       "top": [
         "Citruses",
@@ -39577,7 +39865,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303445232",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61s5zkwrv0L.jpg?v=1767985290",
+    "image": "https://www.beautybase.com/cdn/shop/files/1734618999-69608500.jpg?v=1763396837&width=3000",
     "notes": null
   },
   {
@@ -39588,7 +39876,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303445218",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61y-9vIXohL.jpg?v=1767985295",
+    "image": "https://www.justmylook.com/cdn/shop/files/CAV00024.png?v=1766583268&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -39614,7 +39902,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303445119",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61ELYjLej_L.jpg?v=1767985293",
+    "image": "https://www.justmylook.com/cdn/shop/files/CAV0022_75cb7a2c-b88e-46af-8082-2b3bdaf3c4bc.png?v=1766569598&width=3000",
     "notes": {
       "top": [
         "Pink Pepper"
@@ -39693,6 +39981,68 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "source": {
         "retailerId": "the-beauty-store-uk",
         "url": "https://thebeautystore.com/products/rochas-mademoiselle-rochas-eau-de-parfum-spray-30ml"
+      }
+    }
+  },
+  {
+    "id": "ean-6290171010470",
+    "brand": "Rue Broca",
+    "name": "Penthouse Larvotto",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": "6290171010470",
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61ht7Vy9vdL.jpg?v=1767985409",
+    "notes": {
+      "top": [
+        "Coriander",
+        "Bergamot",
+        "Violet Leaf"
+      ],
+      "middle": [
+        "Rose",
+        "Black Pepper",
+        "Spices"
+      ],
+      "base": [
+        "Vanilla",
+        "Patchouli",
+        "Ambergris"
+      ],
+      "source": {
+        "retailerId": "fragrancehub",
+        "url": "https://fragrancehub.co.uk/products/penthouse-larvotto-100ml-eau-de-parfum-by-rue-broca-afnan"
+      }
+    }
+  },
+  {
+    "id": "ean-6290171010456",
+    "brand": "Rue Broca",
+    "name": "Penthouse Windsor",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": "6290171010456",
+    "shops": 3,
+    "image": "https://www.beautybase.com/cdn/shop/files/1676367358-78376300.jpg?v=1763391921&width=3000",
+    "notes": {
+      "top": [
+        "Agarwood",
+        "Benzoin",
+        "Rose"
+      ],
+      "middle": [
+        "Saffron",
+        "Amberwood",
+        "Leather"
+      ],
+      "base": [
+        "Incense",
+        "Birch",
+        "Raspberry"
+      ],
+      "source": {
+        "retailerId": "fragrancehub",
+        "url": "https://fragrancehub.co.uk/products/penthouse-windsor-100ml-eau-de-parfum-by-rue-broca-afnan"
       }
     }
   },
@@ -39790,7 +40140,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3700358123624",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51oaz7PcRML.jpg?v=1767985582",
+    "image": "https://www.justmylook.com/cdn/shop/files/five-oclock-au-gingembre-eau-de-parfum-100ml-p38111-120231_image.jpg?v=1721322329&width=3000",
     "notes": {
       "top": [
         "Ginger"
@@ -39815,7 +40165,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3700358123662",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51L7OD7sX1L.jpg?v=1767985584",
+    "image": "https://www.justmylook.com/cdn/shop/files/lorpheline-eau-de-parfum-100ml-p38113-122487_image.jpg?v=1721322328&width=3000",
     "notes": {
       "top": [
         "Black Pepper"
@@ -40094,7 +40444,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295124042782",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Passion-of-Venice-Extrait-De-Parfum-100ml-Swiss-Arabian-182838556.png?v=1768174931",
+    "image": "https://www.justmylook.com/cdn/shop/files/SHAG0011.png?v=1752246523&width=3000",
     "notes": {
       "top": [
         "Pink Pepper",
@@ -40271,7 +40621,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71282AxV4KL.jpg?v=1767985752",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tobacco-01-Extrait-De-Parfum-50ml-Swiss-Arabian-179746174.png?v=1761858859",
     "notes": {
       "top": [
         "Plum",
@@ -40403,7 +40753,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060523017669",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61a4WkY_HjL.jpg?v=1763144013",
+    "image": "https://www.beautybase.com/cdn/shop/files/1743760941-60046900.jpg?v=1763397516&width=3000",
     "notes": null
   },
   {
@@ -40436,7 +40786,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060412678377",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/ted-baker-women-s-perfume-ted-baker-woman-limited-edition-eau-de-toilette-women-s-perfume-spray-100ml-72817276387705.webp?v=1763146881",
+    "image": "https://www.beautybase.com/cdn/shop/files/1743761173-65754900.jpg?v=1763397518&width=3000",
     "notes": {
       "top": [
         "green tea",
@@ -40496,7 +40846,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060412674386",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1707993211-68019700.jpg?v=1763394079&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/TEDB0040.jpg?v=1728385405&width=3000",
     "notes": {
       "top": [
         "Grapefruit",
@@ -40833,7 +41183,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0888066023948",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/7302e53a-b77b-4c14-9873-b369a258c9e7.jpg?v=1763142201",
+    "image": "https://www.justmylook.com/cdn/shop/files/FORD0011.png?v=1751897996&width=3000",
     "notes": {
       "top": [
         "Honey",
@@ -41009,7 +41359,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272761438",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1645030946-61239100.jpg?v=1763391668&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/valentino-born-in-roma-donna-eau-de-parfum-50ml-p27971-91622_image.jpg?v=1721322344&width=3000",
     "notes": {
       "top": [
         "Bergamot Essence",
@@ -41117,7 +41467,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273261401",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1612194361-86239600.jpg?v=1763390114&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/valentino-born-in-roma-donna-yellow-dream-eau-de-parfum-100ml-p27992-91673_image.jpg?v=1721322343&width=3000",
     "notes": {
       "top": [
         "Lemon",
@@ -41145,7 +41495,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272761452",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1643890740-79510300.jpg?v=1763391671&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/valentino-uomo-born-in-roma-eau-de-toilette-50ml-p25658-91643_image.jpg?v=1721322354&width=3000",
     "notes": {
       "top": [
         "Minerals",
@@ -41293,7 +41643,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274217117",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/VAL0083.jpg?v=1737651012&width=3000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1758632682-61722700.jpg?v=1763396959&width=3000",
     "notes": {
       "top": [
         "Truffle",
@@ -41408,7 +41758,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8018365070264",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1696522381-67775200.jpg?v=1763391687&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41hjEMqTy-L.jpg?v=1763142364",
     "notes": {
       "top": [
         "Cardamom",
@@ -41439,7 +41789,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/versace-crystal-noir-eau-de-toilette-90ml-p21351-45797_image.jpg?v=1721322355&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31g6aX1NIhL.jpg?v=1763142372",
     "notes": {
       "top": [
         "Blackcurrant",
@@ -41804,7 +42154,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3605521880147",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737383539-87685800.jpg?v=1763391729&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/viktor-rolf-bonbon-eau-de-parfum-30ml-p28011-77981_image.jpg?v=1721322369&width=3000",
     "notes": {
       "top": [
         "Mandarin",
@@ -42467,7 +42817,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274185317",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/91g1YcEuO5L.jpg?v=1763147287",
+    "image": "https://www.beautybase.com/cdn/shop/files/3_eb72a11a-b1c0-4090-ae23-39e63b610d8a.jpg?v=1773327125&width=3000",
     "notes": null
   },
   {
@@ -42478,7 +42828,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274185300",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/91OdQSWl_dL.jpg?v=1763147495",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_f8e2f0ad-55cc-4dc7-be4b-fb366e6b1426.jpg?v=1773329027&width=3000",
     "notes": {
       "top": [
         "coffee",
@@ -42502,7 +42852,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274185294",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81G6DHRe6HL.jpg?v=1767986386",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_7d78aa15-c681-4c5a-b126-a482b57dbb14.jpg?v=1773329232&width=3000",
     "notes": null
   },
   {
@@ -42686,7 +43036,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8431240177078",
     "shops": 3,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/Yves-Saint-Laurent-Opium-Eau-de-Parfum-Pack-Shot.jpg?v=1763144435",
+    "image": "https://www.justmylook.com/cdn/shop/files/opium-eau-de-toilette-50ml-p28046-69847_image.jpg?v=1721322391&width=3000",
     "notes": {
       "top": [
         "Mandarin",
@@ -42718,7 +43068,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3365440025578",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/83808_ml.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/5466.jpg?v=1755875232&width=3000",
     "notes": {
       "top": [
         "Black Currant",
@@ -43093,7 +43443,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0085715169587",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/176518_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/ABER0017_x100.png?v=1740748575",
     "notes": null
   },
   {
@@ -43104,7 +43454,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "0085715169594",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/178505_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/ABER0018_x100.png?v=1740748576",
     "notes": null
   },
   {
@@ -43281,7 +43631,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61U7Lpgc6FL.jpg?v=1767980687",
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0029_21933450-aa12-47d3-9feb-1ed23f7e4000.png?v=1765452778&width=3000",
     "notes": {
       "top": [
         "Italian Sweet Orange",
@@ -43310,7 +43660,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61VKSYtae5L.jpg?v=1767980701",
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0127_b36f6f5e-97b3-45b4-abef-b4cc25c5ebf8.png?v=1765452785&width=3000",
     "notes": {
       "top": [
         "Italian Sweet Orange",
@@ -43466,7 +43816,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61v8KC50TqL.jpg?v=1767980692",
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0044.png?v=1765452778&width=3000",
     "notes": {
       "top": [
         "Italian Lemon",
@@ -43497,7 +43847,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/710SNsmGsQL.jpg?v=1767980681",
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0045_e87e2314-2083-432b-922e-0d7a333f9715.png?v=1765452777&width=3000",
     "notes": {
       "top": [
         "Italian Lemon",
@@ -44367,7 +44717,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171076704",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1748880073-70531800.jpg?v=1763398043&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/AFNN0021.png?v=1752245614&width=3000",
     "notes": {
       "top": [
         "Blackcurrant",
@@ -44414,7 +44764,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71VeH9L6kRL.jpg?v=1767980747",
+    "image": "https://www.justmylook.com/cdn/shop/files/AFNN0019_47dd9bcb-d3be-428d-b813-b646413960b2.png?v=1743610750&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -45448,7 +45798,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51ZXxBYq1rL.jpg?v=1767980823",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amber-Oud-Ruby-Edition-Perfume-60ml-EDP-Al-Haramain-136548540.jpg?v=1719699522",
     "notes": {
       "top": [
         "Bitter Almond",
@@ -45613,7 +45963,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Detour-Noir-Perfume-100ml-EDP-Alharamain-167378395.png?v=1745239701",
+    "image": "https://www.justmylook.com/cdn/shop/files/ALHA0019.png?v=1743090673&width=3000",
     "notes": {
       "top": [
         "Apple",
@@ -46065,7 +46415,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/French-Coffee-Perfume-100ml-EDP-Al-Rehab-169953818.jpg?v=1750894904",
+    "image": "https://www.justmylook.com/cdn/shop/files/ALRE0002_51dcc1d2-d947-45b7-85f7-d84bf95889f2.png?v=1771499796&width=3000",
     "notes": {
       "top": [
         "Coffee",
@@ -46301,7 +46651,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81qWE-5eRRL.jpg?v=1767980969",
+    "image": "https://www.justmylook.com/cdn/shop/files/ANNA0009.png?v=1742577214&width=3000",
     "notes": {
       "top": [
         "Blood Orange",
@@ -46915,7 +47265,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 240,
     "ean": "022548386231",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1750156581-02092900.jpg?v=1763398094&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/AR0003_x100.png?v=1766583596",
     "notes": {
       "top": [
         "Artemisia",
@@ -48302,7 +48652,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/thank-u-next-eau-de-parfum-100ml-p20962-44103_image.jpg?v=1721322124&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/375x500.56741.jpg?v=1763135119",
     "notes": {
       "top": [
         "Raspberry",
@@ -49365,7 +49715,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61tvJltgbHL.jpg?v=1767981032",
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-d-art--arturetto-landi-art-07---bottle.jpg?v=1771581501",
     "notes": {
       "top": [
         "Violet Leaves",
@@ -50385,6 +50735,18 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "armaf-arf32102765",
+    "brand": "Armaf",
+    "name": "Oros Pure Sacre Bleu",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 85,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/product-14.jpg?v=1769431193",
+    "notes": null,
+    "houseCeiling": 100
+  },
+  {
     "id": "ean-6295199801567",
     "brand": "Armaf",
     "name": "Perle d'Or",
@@ -50406,151 +50768,6 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71IUqLI-WRL.jpg?v=1767984870",
     "notes": null
-  },
-  {
-    "id": "ean-6294015164992",
-    "brand": "Armaf",
-    "name": "Private Key To My Dreams",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6294015164992",
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51t34xPNZxL.jpg?v=1767981037",
-    "notes": {
-      "top": [
-        "Black Pepper",
-        "Pineapple Leaf",
-        "Cardamom",
-        "Pink Pepper",
-        "Lavender",
-        "Apple",
-        "Orange Blossom",
-        "Vetiver",
-        "Vanilla Absolute",
-        "Leather",
-        "Cedarwood",
-        "LIMONENE",
-        "LINALOOL",
-        "CITRONELLOL"
-      ],
-      "middle": [
-        "Bourbon Geranium",
-        "Lavender",
-        "Apple",
-        "Orange Blossom",
-        "Vetiver",
-        "Vanilla Absolute",
-        "Leather",
-        "Cedarwood",
-        "LIMONENE",
-        "LINALOOL",
-        "CITRONELLOL",
-        "BENZYL BENZOATE",
-        "COUMARIN",
-        "HYDROXYCITRONELLAL"
-      ],
-      "base": [
-        "Patchouli",
-        "Vetiver",
-        "Vanilla Absolute",
-        "Leather",
-        "Cedarwood",
-        "LIMONENE",
-        "LINALOOL",
-        "CITRONELLOL",
-        "BENZYL BENZOATE",
-        "COUMARIN",
-        "HYDROXYCITRONELLAL",
-        "CITRAL",
-        "GERANIOL",
-        "BENZYL SALICYLATE"
-      ],
-      "source": {
-        "retailerId": "mybeauty-boutique",
-        "url": "https://www.awin1.com/pclick.php?p=43661686219&a=3026001&m=106925"
-      }
-    }
-  },
-  {
-    "id": "ean-6294015165012",
-    "brand": "Armaf",
-    "name": "Private Key To My Life",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6294015165012",
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/517czXoshGL.jpg?v=1767981036",
-    "notes": {
-      "top": [
-        "grapefruit",
-        "pineapple",
-        "bergamot",
-        "jasmine"
-      ],
-      "middle": [],
-      "base": [],
-      "source": {
-        "retailerId": "mybeauty-boutique",
-        "url": "https://www.awin1.com/pclick.php?p=43661686217&a=3026001&m=106925"
-      }
-    }
-  },
-  {
-    "id": "ean-6294015165029",
-    "brand": "Armaf",
-    "name": "Private Key To My Love",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6294015165029",
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61YqLwuNmeL.jpg?v=1767981039",
-    "notes": {
-      "top": [
-        "Passionfruit",
-        "Peach",
-        "Pear",
-        "Cassis"
-      ],
-      "middle": [
-        "White Wood",
-        "Amberwood",
-        "Lily of the Valley"
-      ],
-      "base": [
-        "Musk",
-        "Sandalwood",
-        "Vanilla",
-        "Patchouli"
-      ],
-      "source": {
-        "retailerId": "mybeauty-boutique",
-        "url": "https://www.awin1.com/pclick.php?p=43661686220&a=3026001&m=106925"
-      }
-    }
-  },
-  {
-    "id": "ean-6294015165005",
-    "brand": "Armaf",
-    "name": "Private Key To My Success",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6294015165005",
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Pc2y_G1iL.jpg?v=1767981043",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Ginger"
-      ],
-      "middle": [],
-      "base": [
-        "Akigalawood"
-      ],
-      "source": {
-        "retailerId": "mybeauty-boutique",
-        "url": "https://www.awin1.com/pclick.php?p=43661686223&a=3026001&m=106925"
-      }
-    }
   },
   {
     "id": "ean-6294015128185",
@@ -50668,7 +50885,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61emrqZ-7pS.jpg?v=1767981061",
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_7efe6585-12e4-4d69-aeb2-4b9e7d5a2f72.png?v=1776437402",
     "notes": null,
     "houseCeiling": 24.99
   },
@@ -50866,7 +51083,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61bsxPMUHJL.jpg?v=1767981076",
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_8ab27be1-1390-4dcd-8410-5608d078b0fa.png?v=1774283289",
     "notes": null,
     "houseCeiling": 29.99
   },
@@ -50998,7 +51215,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71QueCaEFZL.jpg?v=1763143901",
+    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_a257f741-aa5b-46d8-b6e5-3d0881a9a7f0.png?v=1774431106",
     "notes": {
       "top": [
         "Bergamot",
@@ -51022,7 +51239,10 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       }
     },
     "houseCeiling": 34.99
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "ean-6290360599465",
     "brand": "Asdaaf",
@@ -51131,10 +51351,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61-JYDwAOLL.jpg?v=1767981150",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
+  },
   {
     "id": "ean-0850051296118",
     "brand": "Atralia",
@@ -51209,7 +51426,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0327/1498/1421/files/prod_1239488_1.jpg?v=1759230155",
+    "image": "https://cdn.shopify.com/s/files/1/0327/1498/1421/products/1225332-SP-001-GD-MAY2721-CMYK.jpg?v=1635172240",
     "notes": {
       "top": [
         "Blackberry"
@@ -52370,7 +52587,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81tMZZ1o9uL.jpg?v=1763146430",
+    "image": "https://www.justmylook.com/cdn/shop/files/BRIT0017.png?v=1736413694&width=3000",
     "notes": {
       "top": [
         "Bubblegum Delight",
@@ -52401,7 +52618,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71b3sOl-4gL._SL1500.jpg?v=1763135450",
+    "image": "https://www.justmylook.com/cdn/shop/files/BRIT0016.png?v=1736413694&width=3000",
     "notes": {
       "top": [
         "Raspberry",
@@ -52460,7 +52677,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/712FpJ3hB6L.jpg?v=1763143924",
+    "image": "https://www.justmylook.com/cdn/shop/files/BRIT0018.png?v=1736413695&width=3000",
     "notes": {
       "top": [
         "Red Litchi",
@@ -53426,7 +53643,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9362014000645",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1770813347-85847300.jpg?v=1774613023&width=3000",
+    "image": "https://oudarabian.co.uk/cdn/shop/files/A2C87ABC-0F9B-484F-888E-6D685046365F.jpg?v=1767391368&width=3000",
     "notes": {
       "top": [],
       "middle": [
@@ -54643,7 +54860,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51PTfaLxlLL.jpg?v=1767981434",
+    "image": "https://www.justmylook.com/cdn/shop/files/BVLG0003_c3b1b3a0-4faa-4ec0-8dc6-d89270f15f02.png?v=1756720380&width=3000",
     "notes": {
       "top": [
         "Mandarin orange"
@@ -54791,7 +55008,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/UK200034200_BYREDO.jpg?v=1763146040",
+    "image": "https://www.justmylook.com/cdn/shop/files/BYRE0017.png?v=1753445106&width=3000",
     "notes": {
       "top": [
         "Aldehyde",
@@ -55804,7 +56021,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/CK0001_x100.png?v=1767110434",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Lrti_tE_L.jpg?v=1767981537",
     "notes": null
   },
   {
@@ -55935,7 +56152,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0088300103300",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/85422_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/CK0051.png?v=1744383214&width=3000",
     "notes": {
       "top": [
         "Mandarin Orange",
@@ -56029,7 +56246,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "088300603305",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/Ckobsession1.jpg?v=1782296087&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41z4pWMSMBL.jpg?v=1763136104",
     "notes": {
       "top": [
         "Vanilla",
@@ -57088,7 +57305,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71-RYMIgJnL.jpg?v=1767981573",
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0036.png?v=1774622952&width=3000",
     "notes": {
       "top": [
         "Red Currant",
@@ -57291,7 +57508,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3432240506306",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/174657_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738840434-57051200.jpg?v=1763397056&width=3000",
     "notes": null
   },
   {
@@ -58024,7 +58241,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460142199",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1720168888-41555900.jpg?v=1763394517&width=3000",
     "notes": null
   },
   {
@@ -58035,7 +58252,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3386460126571",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1761824737-24429100.jpg?v=1763399335&width=3000",
+    "image": "https://www.thefragrancecounter.co.uk/user/products/large/coachwildrose90mlbottle.jpg",
     "notes": {
       "top": [
         "Redcurrant"
@@ -58060,7 +58277,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460157308",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1759411702-54874200.jpg?v=1763399196&width=3000",
+    "image": "https://www.thefragrancecounter.co.uk/user/products/large/coachgoldsmallbottle.jpg",
     "notes": {
       "top": [
         "Pink Peppercorn"
@@ -58085,7 +58302,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3386460156707",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1759411832-89630700.jpg?v=1763399198&width=3000",
+    "image": "https://www.thefragrancecounter.co.uk/user/products/large/coachgoldforherbottle.jpg",
     "notes": {
       "top": [
         "Pink Peppercorn"
@@ -58223,7 +58440,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/715gfqJ6o_L.jpg?v=1767982008",
+    "image": "https://www.justmylook.com/cdn/shop/files/CREED0037.png?v=1751897613&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -58266,7 +58483,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61ARe2ScgLL.jpg?v=1767981983",
+    "image": "https://www.justmylook.com/cdn/shop/files/CREED0026.png?v=1751897612&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -58299,7 +58516,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3508440001238",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.justmylook.com/cdn/shop/files/CREED0045_4797cc48-dc57-4770-a322-df11f2c48ef4.png?v=1751897614&width=3000",
     "notes": {
       "top": [
         "Black Pepper",
@@ -58528,7 +58745,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3508441001053",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/99075_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/CREED0014.png?v=1751897610&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -59423,7 +59640,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3616303467371",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10043129.jpg?v=1763136883",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736769465-38491400.jpg?v=1763396623&width=3000",
     "notes": null
   },
   {
@@ -59710,7 +59927,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273924443",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/183898_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1720107639-45918000.jpg?v=1763395108&width=3000",
     "notes": null
   },
   {
@@ -59805,7 +60022,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3614272320833",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1750155984-33286000.jpg?v=1763398173&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/410iapLiCWL.jpg?v=1763137157",
     "notes": null
   },
   {
@@ -59845,7 +60062,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3614273476768",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/d1_9127fcab-2f8b-429c-9dbe-056d2e6a173d.jpg?v=1774517761&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71sfpSRoL3L.jpg?v=1767982162",
     "notes": {
       "top": [
         "spices"
@@ -59997,7 +60214,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "id": "john-lewis-115525009",
     "brand": "Dior",
     "name": "Sauvage",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 50,
     "ean": null,
     "shops": 2,
@@ -60272,7 +60489,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "085715950376",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/5_53eb619d-d29c-4f69-a641-1cb86599c169.jpg?v=1782311154&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71dUIcflbeL.jpg?v=1767982261",
     "notes": {
       "top": [
         "Cool Coconut Water",
@@ -60338,7 +60555,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "085715950352",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/DKNYmaitai.jpg?v=1782488691&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/dkny-be-delicious-mai-tai-eau-de-toilette-50ml.webp?v=1763146015",
     "notes": {
       "top": [
         "Fresh fruity explosion"
@@ -61077,7 +61294,10 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1729170341-76083200.jpg?v=1763394882&width=3000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
   {
     "id": "ean-8057971180509",
     "brand": "Dolce & Gabbana",
@@ -61211,10 +61431,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1628695034-04332300.jpg?v=1763390315&width=3000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8011003852727",
     "brand": "DSquared2",
@@ -61601,7 +61818,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640233342565",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71DHf29KEsL.jpg?v=1767982374",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744363136-48905100.jpg?v=1763397533&width=3000",
     "notes": {
       "top": [
         "Bergamot Oil Italy",
@@ -62043,7 +62260,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805558420",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1507817368-94373800.png?v=1763390003&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0006_x100.png?v=1777037412",
     "notes": {
       "top": [
         "Ylang-Ylang",
@@ -62147,7 +62364,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346373906",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1729760557-99272500.jpg?v=1763393836&width=3000",
+    "image": "https://allbeauty.com/cdn/shop/files/5211.jpg?v=1755875246&width=3000",
     "notes": {
       "top": [
         "Peach",
@@ -62905,7 +63122,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616304203572",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/167907_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1723464918-47812200.jpg?v=1763395421&width=3000",
     "notes": null
   },
   {
@@ -63342,7 +63559,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51ssaxqcGBL.jpg?v=1763137737",
+    "image": "https://cdn.shopify.com/s/files/1/0855/9220/files/M05_100ml_Solo_St_On_Bottle_OnBaseLine.jpg?v=1740485165",
     "notes": null,
     "houseCeiling": 125
   },
@@ -65652,7 +65869,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360379692",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1756395874-65758500.jpg?v=1763398854&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Elysia-Marshmallow-Perfume-100ml-EDP-Fragrance-World-175551926.jpg?v=1755997895",
     "notes": {
       "top": [
         "Lemon",
@@ -65746,7 +65963,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360376066",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Extremely-Unique-Pista-Perfume-100ml-EDP-Fragrance-World-151174723.jpg?v=1729261075",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721038011-11274200.jpg?v=1763395367&width=3000",
     "notes": {
       "top": [
         "Pistachios",
@@ -69737,7 +69954,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61OhTBeuy2L.jpg?v=1767982791",
+    "image": "https://www.justmylook.com/cdn/shop/files/FRED0002_115127c6-2b2a-46b7-9c0a-df37a0ca83a5.png?v=1772804346&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -69767,7 +69984,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61CWHfNHHAL.jpg?v=1767982791",
+    "image": "https://www.justmylook.com/cdn/shop/files/FRED0009_3b6f3ba6-01c5-4e3e-9b99-138d42d7a818.png?v=1773420937&width=3000",
     "notes": {
       "top": [
         "Rose",
@@ -69799,18 +70016,6 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/frederic-malle-portrait-of-a-lady-eau-de-parfum-100ml"
       }
     }
-  },
-  {
-    "id": "ean-6298042001947",
-    "brand": "French Avenue",
-    "name": "8th Wonder",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6298042001947",
-    "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1769008011-62310100.jpg?v=1772624919&width=3000",
-    "notes": null,
-    "houseCeiling": 32
   },
   {
     "id": "emirates-oud-15441386963293-default-title",
@@ -69885,7 +70090,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/After-Effect-Extrait-de-Parfum-80ml-French-Avenue-184726757.png?v=1771620140",
+    "image": "https://www.justmylook.com/cdn/shop/files/FRAV0012_0c29be3d-3a38-4262-b623-de34240367c1.png?v=1756720380&width=3000",
     "notes": {
       "top": [
         "Rum"
@@ -69906,37 +70111,16 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15618612134237-default-title",
+    "id": "french-avenue-16712",
     "brand": "French Avenue",
-    "name": "Amber Empire",
-    "concentration": "Eau de Parfum",
+    "name": "Amber Saffron",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amber-Empire-Perfume-100ml-EDP-French-Avenue-179400247.png?v=1761064014",
-    "notes": {
-      "top": [
-        "Oriental Accord",
-        "Cashmere Wood",
-        "Vanilla Wood",
-        "Liquorous Accord"
-      ],
-      "middle": [
-        "Cedarwood",
-        "Amber",
-        "Cane Sugar"
-      ],
-      "base": [
-        "Musk",
-        "Tonka Beans",
-        "Labdanum",
-        "Sandalwood"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/amber-empire-french-avenue"
-      }
-    }
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_be401855-c27a-489e-a0b9-f247f7800c1a.png?v=1757598939",
+    "notes": null,
+    "houseCeiling": 45
   },
   {
     "id": "fragrancehub-naughtydates",
@@ -70065,14 +70249,26 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     }
   },
   {
-    "id": "french-avenue-12779",
+    "id": "ean-6290360378749",
+    "brand": "French Avenue",
+    "name": "Cosmic Tonka",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360378749",
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_40.jpg?v=1770173793",
+    "notes": null,
+    "houseCeiling": 30
+  },
+  {
+    "id": "emirates-oud-15752247050589-default-title",
     "brand": "French Avenue",
     "name": "Divin Asylum",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Divin_Asylum_EDP_100ml.jpg?v=1756799437",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Divin-Asylum-Perfume-100ml-French-Avenue-by-Fragrance-World-180427995.png?v=1763359121",
     "notes": {
       "top": [
         "Grapefruit",
@@ -70231,7 +70427,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81D-1reqx3L.jpg?v=1767982819",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_7c7d8967-aa7e-411a-b580-fa984d15d5a1.png?v=1757604568",
     "notes": {
       "top": [],
       "middle": [
@@ -70658,37 +70854,6 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15765625045341-default-title",
-    "brand": "French Avenue",
-    "name": "Marmara",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Marmara-Perfume-100ml-French-Avenue-183488168.jpg?v=1768625759",
-    "notes": {
-      "top": [
-        "Black Pepper",
-        "Italian Bergamot",
-        "Saffron"
-      ],
-      "middle": [
-        "Cashmere Wood",
-        "Ambroxan",
-        "Powdery Accord"
-      ],
-      "base": [
-        "Musk",
-        "White Sandalwood"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/marmara-french-avenue"
-      }
-    },
-    "houseCeiling": 35
-  },
-  {
     "id": "emirates-oud-15480638898525-default-title",
     "brand": "French Avenue",
     "name": "Moonstone Noire",
@@ -70777,67 +70942,68 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-9416546025821-default-title",
+    "id": "emirates-oud-15451850244445-default-title",
     "brand": "French Avenue",
-    "name": "Royal Blend Nero",
-    "concentration": "Eau de Parfum",
+    "name": "Opus Grande",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Royal-Blend-Nero-100ml-EDP-FA-Paris-by-Fragrance-World-153647133.jpg?v=1732636578",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opus-Grande-Perfume-100ml-EDP-French-Avenue-169532995.jpg?v=1750211431",
     "notes": {
       "top": [
-        "Nutmeg",
-        "Apple",
+        "Lychee",
+        "Cassis",
+        "Mandarin Orange"
+      ],
+      "middle": [
+        "Peony",
+        "Water Lily",
+        "Jasmine"
+      ],
+      "base": [
+        "Ambroxan",
+        "Vanilla",
+        "Musk",
+        "Oakmoss"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/opus-grande-french-avenue"
+      }
+    },
+    "houseCeiling": 40
+  },
+  {
+    "id": "emirates-oud-15441402757469-default-title",
+    "brand": "French Avenue",
+    "name": "Rose Explosion",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rose-Explosion-Extrait-de-Parfum-80ml-French-Avenue-184727141.png?v=1771620354",
+    "notes": {
+      "top": [
+        "Pink Pepper",
+        "Hedione",
         "Bergamot"
       ],
       "middle": [
-        "Cinnamon",
-        "Dry Wood",
-        "Saffron"
-      ],
-      "base": [
-        "Vanilla",
-        "Tonka",
-        "Benzoin",
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/royal-blend-nero-100ml-edp-fa-paris-by-fragrance-world"
-      }
-    }
-  },
-  {
-    "id": "emirates-oud-15464871133533-default-title",
-    "brand": "French Avenue",
-    "name": "Royal Blend Sequoia",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Royal-Blend-Sequoia-Perfume-100ml-EDP-French-Avenue-175524225.jpg?v=1755886851",
-    "notes": {
-      "top": [
-        "Cognac",
-        "Raspberry",
-        "Liquor"
-      ],
-      "middle": [
-        "Tonka Bean",
         "Bulgarian Rose",
-        "Oakmoss"
+        "Turkish Rose",
+        "Egyptian Jasmine"
       ],
       "base": [
-        "Praline",
-        "Oak",
-        "Sandalwood"
+        "Madagascar Vanilla",
+        "Amber"
       ],
       "source": {
         "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/royal-blend-sequoia-french-avenue"
+        "url": "https://emiratesoud.co.uk/products/rose-explosion-extrait-french-avenue"
       }
-    }
+    },
+    "houseCeiling": 25
   },
   {
     "id": "fragrancehub-9851252670793-default-title",
@@ -70873,37 +71039,6 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15793780785501-default-title",
-    "brand": "French Avenue",
-    "name": "Solitaire",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Solitaire-Perfume-100ml-EDP-French-Avenue-181317126.png?v=1764892275",
-    "notes": {
-      "top": [
-        "Clover",
-        "Bergamot",
-        "Rose"
-      ],
-      "middle": [
-        "Musk Green Tea",
-        "Heliotrope",
-        "Jasmine"
-      ],
-      "base": [
-        "Musk",
-        "Moss",
-        "Patchouli"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/solitaire-french-avenue"
-      }
-    }
-  },
-  {
     "id": "emirates-oud-8888896061789-default-title",
     "brand": "French Avenue",
     "name": "Spectre",
@@ -70911,7 +71046,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spectre-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184726461.png?v=1771619820",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_500d706b-8a07-4c24-b0b3-e8145ead418d.png?v=1757603561",
     "notes": {
       "top": [
         "Incense",
@@ -70945,7 +71080,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spectre-Wraith-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184726625.png?v=1771620005",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_e2456672-87c0-41a1-a289-fb4e4248065b.jpg?v=1756983846",
     "notes": {
       "top": [
         "Rum",
@@ -71058,7 +71193,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/tobacco-d-feu-perfume-100ml-edp-fa-paris-by-fragrance-world-emirates-oud.jpg?v=1713057756",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_637504bc-a84c-4cfc-88e3-5e8083f7a844.png?v=1757601308",
     "notes": {
       "top": [
         "Cumin",
@@ -71095,55 +71230,6 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "houseCeiling": 35
   },
   {
-    "id": "ean-6298042000926",
-    "brand": "French Avenue",
-    "name": "Vulcan Baie",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "6298042000926",
-    "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1755159692-05349600.jpg?v=1763398787&width=3000",
-    "notes": {
-      "top": [
-        "Black Currant",
-        "Rosemary",
-        "Blackberry",
-        "Bergamot"
-      ],
-      "middle": [
-        "Raspberry",
-        "Vodka",
-        "Basil",
-        "Lily of the Valley"
-      ],
-      "base": [
-        "Musk",
-        "Strawberry",
-        "Sandalwood",
-        "Peach",
-        "Amber",
-        "Incense",
-        "Patchouli"
-      ],
-      "source": {
-        "retailerId": "beautybase",
-        "url": "https://www.beautybase.com/products/french-avenue-vulcan-baie-extrait-de-parfum-100ml-spray"
-      }
-    }
-  },
-  {
-    "id": "french-avenue-17853",
-    "brand": "French Avenue",
-    "name": "Vulcan Black Friday",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9950783799638",
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_10.jpg?v=1762856020",
-    "notes": null,
-    "houseCeiling": 40
-  },
-  {
     "id": "emirates-oud-15568456679773-default-title",
     "brand": "French Avenue",
     "name": "Zenith Tobacco",
@@ -71151,7 +71237,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Zenith-Tobacco-Perfume-100ml-EDP-French-Avenue-175521185.jpg?v=1755886435",
+    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-14T141233.474_d946e747-d958-4c52-a66d-465158a85525.jpg?v=1756984095",
     "notes": {
       "top": [
         "Mandarin",
@@ -71707,7 +71793,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614273636414",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/174446_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721896317-88782800.jpg?v=1763395062&width=3000",
     "notes": null
   },
   {
@@ -72031,7 +72117,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273947787",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1721831196-63499300.jpg?v=1763395062&width=3000",
     "notes": null
   },
   {
@@ -72762,7 +72848,10 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1652794389-50032500.jpg?v=1763392398&width=3000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   {
     "id": "ean-3274872441033",
     "brand": "Givenchy",
@@ -72837,10 +72926,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43174942919&a=3026001&m=106925"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-giv0024",
     "brand": "Givenchy",
@@ -73008,7 +73094,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872469006",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727453705-43159400.jpg?v=1763394504&width=3000",
     "notes": null
   },
   {
@@ -73500,7 +73586,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616302514274",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/713toNnCb2L.jpg?v=1763143720",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731412952-96727900.jpg?v=1763395191&width=3000",
     "notes": null
   },
   {
@@ -73586,7 +73672,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3616303470845",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/182021_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0059.png?v=1754061066&width=3000",
     "notes": {
       "top": [
         "Dewberry",
@@ -73825,7 +73911,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51riAB8J2fL.jpg?v=1763144090",
+    "image": "https://www.justmylook.com/cdn/shop/files/GUER0019_646dbb30-08c1-4e42-9abb-c4b93012b6a2.png?v=1766569598&width=3000",
     "notes": {
       "top": [],
       "middle": [],
@@ -74100,7 +74186,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51W693BPmoL.jpg?v=1763138382",
+    "image": "https://www.justmylook.com/cdn/shop/files/GUER0010.png?v=1766569596&width=3000",
     "notes": {
       "top": [
         "Citruses"
@@ -74997,7 +75083,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71mmcYDSN4L.jpg?v=1763144886",
+    "image": "https://www.justmylook.com/cdn/shop/files/HERM0003_1e1b2dba-d069-40f3-81db-8a3b71909b14.png?v=1775142588&width=3000",
     "notes": {
       "top": [
         "Orange",
@@ -75834,7 +75920,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0737052683522",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/88313_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-deep-red-eau-de-parfum-50ml-p25999-61647_image.jpg?v=1721322232&width=3000",
     "notes": {
       "top": [
         "Clementine",
@@ -78626,7 +78712,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3562700373084",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/7bd467a9-c64b-476f-80eb-77483efd9dfc.jpg?v=1763138930",
+    "image": "https://www.beautybase.com/cdn/shop/files/1664554433-75465700.jpg?v=1763391194&width=3000",
     "notes": null
   },
   {
@@ -78799,7 +78885,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415011310",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/59850_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728655800-74262600.jpg?v=1763396057&width=3000",
     "notes": null
   },
   {
@@ -78810,7 +78896,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415011341",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/59851_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728656482-96928100.jpg?v=1763396059&width=3000",
     "notes": null
   },
   {
@@ -79481,7 +79567,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8435415102681",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/192582_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744799197-73962200.jpg?v=1763397670&width=3000",
     "notes": {
       "top": [
         "Cardamom"
@@ -79504,7 +79590,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415102698",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744799558-83651500.jpg?v=1763397674&width=3000",
     "notes": {
       "top": [
         "Cardamom"
@@ -79598,7 +79684,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51arqlUtqaL.jpg?v=1767983288",
+    "image": "https://www.justmylook.com/cdn/shop/files/JPG0041.png?v=1753445107&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -81143,7 +81229,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 88,
     "ean": "035017009029",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51UuHU4EE1L.jpg?v=1763139389",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739186921-35836600.jpg?v=1763391245&width=3000",
     "notes": null
   },
   {
@@ -81658,7 +81744,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460101837",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/117908_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/KARL0005.png?v=1766583598&width=3000",
     "notes": {
       "top": [
         "Ginger",
@@ -81712,7 +81798,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51uR3bk8bhL.jpg?v=1767983443",
+    "image": "https://www.justmylook.com/cdn/shop/files/KARL0001.png?v=1766583597&width=3000",
     "notes": {
       "top": [
         "Redcurrant",
@@ -81740,7 +81826,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460087254",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/104767_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/KARL0002.png?v=1766583598&width=3000",
     "notes": {
       "top": [
         "Yuzu",
@@ -81934,7 +82020,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/918OF5h2z6L.jpg?v=1767983467",
+    "image": "https://www.justmylook.com/cdn/shop/files/KP0003.png?v=1738255241&width=3000",
     "notes": {
       "top": [
         "Wild Berry",
@@ -82571,7 +82657,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107975870",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Karus-Secret-Musk-Perfume-100ml-EDP-Khadlaj-174008778.jpg?v=1752702783",
+    "image": "https://www.beautybase.com/cdn/shop/files/1740756752-34500100.jpg?v=1763397381&width=3000",
     "notes": {
       "top": [
         "Musk",
@@ -82618,6 +82704,34 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       "source": {
         "retailerId": "emirates-oud",
         "url": "https://emiratesoud.co.uk/products/la-fede-intoxicate-blue-elixir-khadlaj"
+      }
+    }
+  },
+  {
+    "id": "emirates-oud-16181116928349-default-title",
+    "brand": "Khadlaj",
+    "name": "La Fede Intoxicate Mystique",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Fede-Intoxicate-Mystique-100ml-Extrait-De-Parfum-Khadlaj-190715363.png?v=1778098751",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Musk"
+      ],
+      "middle": [
+        "Guaiac Wood",
+        "Geranium"
+      ],
+      "base": [
+        "Siam Benzoin",
+        "Vanilla"
+      ],
+      "source": {
+        "retailerId": "emirates-oud",
+        "url": "https://emiratesoud.co.uk/products/la-fede-intoxicate-mystique-khadlaj"
       }
     }
   },
@@ -82690,7 +82804,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "6291107979175",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nuha-Cherry-Blush-Perfume-85ml-EDP-Khadlaj-173961880.jpg?v=1752631920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744369782-89579400.jpg?v=1763397611&width=3000",
     "notes": {
       "top": [
         "Cherry",
@@ -82726,7 +82840,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "6291107979182",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nuha-Vanilla-Pearl-Perfume-100ml-EDP-Khadlaj-173961364.jpg?v=1752631709",
+    "image": "https://www.beautybase.com/cdn/shop/files/1744369629-30697100.jpg?v=1763397611&width=3000",
     "notes": {
       "top": [
         "Freesia",
@@ -83236,7 +83350,10 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51eXShsBXpL.jpg?v=1767983696",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   {
     "id": "ean-3660463015941",
     "brand": "L'Artisan Parfumeur",
@@ -83307,10 +83424,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41FdzNmODiL.jpg?v=1763145278",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8051013370699",
     "brand": "LA MARTINA",
@@ -84027,7 +84141,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/lancome-la-nuit-tresor-eau-de-parfum-50ml-p27893-69714_image.jpg?v=1721322263&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/375x500.29157.jpg?v=1763139976",
     "notes": {
       "top": [
         "Tangerine",
@@ -84228,7 +84342,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274169720",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_7da47980-6c0d-48ad-86c3-c45a9656c0da.jpg?v=1774371824&width=3000",
     "notes": null
   },
   {
@@ -85938,7 +86052,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291106068177",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1562342654-42392000.jpg?v=1763389366&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Oud-Mood-Elixir-Perfume-100ml-EDP-Lattafa-153342580.jpg?v=1732558332",
     "notes": {
       "top": [
         "Nutmeg",
@@ -85968,7 +86082,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291106066159",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/oud-najdia-perfume-100ml-edp-lattafa-emirates-oud-1-103851571.jpg?v=1713056925",
+    "image": "https://www.beautybase.com/cdn/shop/files/1747220301-71636600.jpg?v=1763397899&width=3000",
     "notes": {
       "top": [
         "Citruses",
@@ -86105,7 +86219,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Qimmah-For-Men-Perfume-100ml-EDP-Lattafa-153341651.jpg?v=1732558166",
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0027.png?v=1758900973&width=3000",
     "notes": {
       "top": [
         "Agarwood",
@@ -88176,7 +88290,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800203948",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1684426346-56478300.jpg?v=1763393579&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/louis-cardin-exotic-scent-100ml-eau-de-parfum-spray-p46886-80963_medium_13ed9235-686d-41ae-a14f-fe54f3737ad3.jpg?v=1763140098",
     "notes": null
   },
   {
@@ -92863,7 +92977,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71Ho2svP0pL.jpg?v=1767984446",
+    "image": "https://www.justmylook.com/cdn/shop/files/MFK0007.png?v=1771605432&width=3000",
     "notes": {
       "top": [
         "Grandiflorum Jasmine",
@@ -93027,7 +93141,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 70,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81f3kG8iNML.jpg?v=1767984446",
+    "image": "https://www.justmylook.com/cdn/shop/files/MFK0027.png?v=1771605432&width=3000",
     "notes": {
       "top": [
         "Violet"
@@ -93053,7 +93167,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61TgO5gXhTL.jpg?v=1767984442",
+    "image": "https://www.justmylook.com/cdn/shop/files/MFK0028.png?v=1772099197&width=3000",
     "notes": {
       "top": [
         "Violet"
@@ -94088,7 +94202,10 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81KvNwOCw-L.jpg?v=1767984171",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
   {
     "id": "ean-4011700757381",
     "brand": "Mäurer & Wirtz",
@@ -94155,10 +94272,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/316UTdMk03L.jpg?v=1763140367",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
+  },
   {
     "id": "ean-5038633042260",
     "brand": "Mayfair",
@@ -95454,7 +95568,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51RiD_FLNVL.jpg?v=1767984658",
+    "image": "https://www.justmylook.com/cdn/shop/files/emblem-eau-de-toilette-100ml-p29994-78150_image.jpg?v=1721322278&width=3000",
     "notes": {
       "top": [
         "Bitter Grapefruit",
@@ -95616,7 +95730,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31vme5RK6aL.jpg?v=1763140521",
+    "image": "https://www.justmylook.com/cdn/shop/files/MON0022.jpg?v=1727346302&width=3000",
     "notes": {
       "top": [
         "Lavender",
@@ -95708,7 +95822,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460144247",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1719483483-01713100.jpg?v=1763395102&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10049136.jpg?v=1763145806",
     "notes": null
   },
   {
@@ -96184,7 +96298,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003864089",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1622028524-88692400.jpg?v=1775555463&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/moschino-toy-2-bubblegum-eau-de-toilette-100ml-p21339-45785_image.jpg?v=1721322283&width=3000",
     "notes": {
       "top": [
         "Candied Citrus Fruits",
@@ -97553,7 +97667,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51qs6_IaX-L.jpg?v=1763140796",
+    "image": "https://www.justmylook.com/cdn/shop/files/NAU0004_cdd83917-67b6-43ea-a6e7-91d23ddbb9bc.png?v=1766583612&width=3000",
     "notes": {
       "top": [
         "Sea Salt",
@@ -100950,7 +101064,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273760652",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/50mlpara.jpg?v=1773333981&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/prada-paradoxe-eau-de-parfum-50ml-p27963-71852_image.jpg?v=1721322309&width=3000",
     "notes": {
       "top": [
         "Tangerine",
@@ -101023,7 +101137,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274305388",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/RADICAL_ESSENCE30ML.jpg?v=1773335161&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/PRA0079.png?v=1754061064&width=3000",
     "notes": {
       "top": [
         "Neroli Oil",
@@ -101297,7 +101411,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668579839",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/175273_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1725264519-53432100.jpg?v=1763389866&width=3000",
     "notes": {
       "top": [
         "Vibrant Grapefruit"
@@ -102046,7 +102160,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/6187ilCwE_L.jpg?v=1763141050",
+    "image": "https://www.justmylook.com/cdn/shop/files/PAC0079_e09f60d8-3364-44d1-809f-f919c97dde99.png?v=1738168807&width=3000",
     "notes": {
       "top": [
         "Oud"
@@ -102147,7 +102261,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668644049",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": "https://www.beautybase.com/cdn/shop/files/1738066646-21067500.jpg?v=1763396996&width=3000",
     "notes": null
   },
   {
@@ -102587,7 +102701,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41z9hNm7tqL.jpg?v=1763141307",
+    "image": "https://www.justmylook.com/cdn/shop/files/polo-sport-eau-de-toilette-75ml-p21080-44857_image.jpg?v=1721322312&width=3000",
     "notes": {
       "top": [
         "Lemon",
@@ -102651,7 +102765,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3360372055402",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/139182_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1736852976-84259700.jpg?v=1763395812&width=3000",
     "notes": null
   },
   {
@@ -102841,7 +102955,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "614514331026",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1695114518-13229300.jpg?v=1763394042&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/RAHA0001.png?v=1761047571&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -103182,7 +103296,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9959931543894",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rayhaan-Aquatica-Perfume-100ml-EDP-by-Rayhaan-183497431.jpg?v=1768779235",
+    "image": "https://oudarabian.co.uk/cdn/shop/files/3797C66A-816A-4E61-AA8E-5D5A2C47B04F.webp?v=1763121819&width=3000",
     "notes": {
       "top": [
         "Lime",
@@ -103275,7 +103389,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/77613863-f98a-44b2-87ca-546b4305239b_695x695_a601ff45-769a-408a-a1be-3e518ec0a297.jpg?v=1763143486",
+    "image": "https://www.justmylook.com/cdn/shop/files/RAYH0007_33cc1716-a163-4da0-8973-a3af45b626fe.png?v=1755519022&width=3000",
     "notes": {
       "top": [
         "Star Anise",
@@ -103403,7 +103517,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "10062888010070",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rayhaan-Kiss-Perfume-100ml-EDP-by-Rayhaan-183497730.jpg?v=1768779787",
+    "image": "https://oudarabian.co.uk/cdn/shop/files/F0F1BE51-D762-402A-83FF-C48A8133CA7C.webp?v=1767480745&width=3000",
     "notes": {
       "top": [
         "Strawberry",
@@ -103550,7 +103664,10 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/rayhaan-pacific-aloha-perfume-rayhaan"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15858027594077-default-title",
     "brand": "Rayhaan",
@@ -103651,10 +103768,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41oe2r4TitL.jpg?v=1763145326",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8436581945898",
     "brand": "Reebok",
@@ -104068,7 +104182,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295151506462",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/Aswarrriiffs.jpg?v=1786627743&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Aswaar-Extrait-de-Parfum-100ml-Riiffs-194594573.png?v=1784053952",
     "notes": {
       "top": [
         "Spicy Accords"
@@ -104869,28 +104983,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6290171010470",
-    "brand": "Rue Broca",
-    "name": "Penthouse Larvotto",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": "6290171010470",
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61ht7Vy9vdL.jpg?v=1767985409",
-    "notes": null
-  },
-  {
-    "id": "ean-6290171010456",
-    "brand": "Rue Broca",
-    "name": "Penthouse Windsor",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": "6290171010456",
-    "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1676367358-78376300.jpg?v=1763391921&width=3000",
-    "notes": null
-  },
-  {
     "id": "ean-810192820108",
     "brand": "Sabrina Carpenter",
     "name": "Sweet Tooth Me Espresso",
@@ -105286,7 +105378,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060426151798",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/117167_ml.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1750260290-43273900.jpg?v=1763397972&width=3000",
     "notes": {
       "top": [
         "Strawberry",
@@ -105352,7 +105444,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/4f7946d8-9980-4d5b-94b3-418985a28eee.jpg?v=1763141828",
+    "image": "https://www.justmylook.com/cdn/shop/files/SJP0004.png?v=1776691994&width=3000",
     "notes": {
       "top": [],
       "middle": [
@@ -106096,7 +106188,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opulence-Of-Dubai-Extrait-De-Parfum-100ml-Swiss-Arabian-182838982.png?v=1768175119",
+    "image": "https://www.justmylook.com/cdn/shop/files/SHAG0012.png?v=1752246525&width=3000",
     "notes": {
       "top": [
         "Nigerian Ginger",
@@ -106283,7 +106375,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6295124016882",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/141025_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/SHAG0002.jpg?v=1733506997&width=3000",
     "notes": {
       "top": [
         "Lime",
@@ -106599,7 +106691,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71PjqgZASQL.jpg?v=1763143479",
+    "image": "https://www.justmylook.com/cdn/shop/files/ted-baker-tonics-ag-silver-eau-de-toilette-100ml-p35065-104822_image.jpg?v=1721322339&width=3000",
     "notes": {
       "top": [
         "violet leaf",
@@ -107709,7 +107801,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "888066000512",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/102081_ml.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/9035.jpg?v=1770288375&width=3000",
     "notes": null
   },
   {
@@ -107828,7 +107920,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51It3Kw9f9L.jpg?v=1763142190",
+    "image": "https://www.justmylook.com/cdn/shop/files/FORD0041.png?v=1753445108&width=3000",
     "notes": {
       "top": [
         "Tobacco Leaf",
@@ -107877,7 +107969,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "7640496670146",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/88612_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/tommy-hilfiger-tommy-eau-de-toilette-30ml-p28394-71381_image.jpg?v=1721322340&width=3000",
     "notes": {
       "top": [
         "Tangy Citrus"
@@ -107904,7 +107996,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640496670160",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/68512_ml.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/tommy-eau-de-toilette-100ml-p23981-71385_image_x100.jpg?v=1721322346",
     "notes": null
   },
   {
@@ -108483,7 +108575,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8011003819423",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1392811327-67755200.jpg?v=1763393456&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51iveqUCJNL.jpg?v=1763142336",
     "notes": {
       "top": [
         "Pomegranate",
@@ -108516,7 +108608,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8018365071162",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1638439850-47240400.jpg?v=1763391685&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/versace-crystal-noir-eau-de-toilette-30ml-p21349-45795_image.jpg?v=1721322361&width=3000",
     "notes": {
       "top": [
         "Blackcurrant",
@@ -109738,7 +109830,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51HykokJhkL.jpg?v=1767986332",
+    "image": "https://www.justmylook.com/cdn/shop/files/XERJ0004.png?v=1760366390&width=3000",
     "notes": {
       "top": [
         "Smoky Labdanum",
@@ -109983,7 +110075,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61hb-9vLY2L.jpg?v=1767986379",
+    "image": "https://www.justmylook.com/cdn/shop/files/black-opium-eau-de-parfum-150ml-p30508-90427_image.jpg?v=1721322390&width=3000",
     "notes": {
       "top": [
         "Pear Accord",
@@ -110110,7 +110202,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/75043ec2-6f9a-425b-8f4c-835337a2996f.jpg?v=1763143032",
+    "image": "https://www.justmylook.com/cdn/shop/files/yves-saint-laurent-lhomme-eau-de-toilette-100ml-p28062-69863_image.jpg?v=1721322375&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -110183,7 +110275,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3365440375055",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1_a0f8b7a6-01fe-4e05-a58f-711b27777ee8.jpg?v=1774023570&width=3000",
+    "image": "https://www.justmylook.com/cdn/shop/files/la-nuit-de-lhomme-eau-de-toilette-60ml-p28063-69864_image.jpg?v=1721322373&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -110603,7 +110695,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3365440556423",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/25.jpg?v=1774000362&width=3000",
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/000082475.jpg?v=1763142700",
     "notes": {
       "top": [
         "Mandarin",
@@ -110698,7 +110790,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3365440556386",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/opium11.jpg?v=1776439213&width=3000",
+    "image": "https://allbeauty.com/cdn/shop/files/103335.jpg?v=1755874829&width=3000",
     "notes": {
       "top": [
         "Mandarin",
@@ -110904,7 +110996,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71lPNCagAFL.jpg?v=1767986412",
+    "image": "https://www.justmylook.com/cdn/shop/files/y-eau-de-parfum-intense-60ml-p32748-91971_image.jpg?v=1721322398&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -110938,7 +111030,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61GezqU6sOL.jpg?v=1763142713",
+    "image": "https://www.justmylook.com/cdn/shop/files/y-eau-de-parfum-intense-100ml-p32749-91972_image.jpg?v=1721322398&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -111299,7 +111391,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/fatima-velvet-love-perfume-100ml-edp-zimaya-by-afnan-emirates-oud-103912163.jpg?v=1713058651",
+    "image": "https://cdn.shopify.com/s/files/1/0941/4551/1791/files/5_3cb53e01-89fb-4636-a47b-011b9c9d4b78.png?v=1762863237",
     "notes": {
       "top": [
         "Juicy pear",
@@ -111566,7 +111658,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "10408351203670",
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sharaf-Divine-Perfume-100ml-EDP-Zimaya-By-Afnan-185058861.webp?v=1772776470",
+    "image": "https://oudarabian.co.uk/cdn/shop/files/CE18303F-5F8A-48AE-B569-00D88AAB6BA3.webp?v=1777415119&width=3000",
     "notes": {
       "top": [
         "Bergamot",
@@ -111599,7 +111691,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sharaf-The-Club-Perfume-100ml-EDP-Zimaya-By-Afnan-185058950.jpg?v=1772776741",
+    "image": "https://www.justmylook.com/cdn/shop/files/zimaya-sharaf-the-club-eau-de-parfum-100ml-p35720-108195_image.jpg?v=1721322385&width=3000",
     "notes": {
       "top": [
         "Pineapple",
@@ -113342,7 +113434,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51YHubkIl6L.jpg?v=1767980686",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416624574601-45146952433801",
     "brand": "Acqua Di Parma",
@@ -113375,10 +113470,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/126165_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-acq0070",
     "brand": "Acqua Di Parma",
@@ -115310,17 +115402,6 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "perfumeo-ahmed-al-maghribi-kaaf-noir-100ml",
-    "brand": "Ahmed Al Maghribi",
-    "name": "Kaaf Noir",
-    "concentration": "Extrait",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-6290360618012",
     "brand": "Ahmed Al Maghribi",
     "name": "Kaaf Pink",
@@ -116009,7 +116090,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "id": "perfumeo-ahmed-al-maghribi-rose-noir-75ml",
     "brand": "Ahmed Al Maghribi",
     "name": "Rose Noir by Ahmed Al Maghribi | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
@@ -124799,7 +124880,10 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       }
     },
     "houseCeiling": 16
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "al-haramain-ahp1884",
     "brand": "Al Haramain",
@@ -124843,10 +124927,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "image": "https://cdn.shopify.com/s/files/1/0256/2683/7043/products/MOX_9691_7e7ee16d-8a35-40a8-a943-5f70761b7788.jpg?v=1591217925",
     "notes": null,
     "houseCeiling": 3.5
-  }
-];
-
-const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
+  },
   {
     "id": "al-haramain-atr0155-6",
     "brand": "Al Haramain",
@@ -134543,7 +134624,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "id": "perfumeo-meethaq-extrait-de-rouge-by-by-ard-al-zaafaran-100ml-extrait-de-parfum",
     "brand": "Ard Al Zaafaran",
     "name": "Meethaq De Rouge by Ard Al Zaafaran Extrait",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -135861,7 +135942,10 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/ariana-grande-thank-u-next-eau-de-parfum-30ml"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "ean-812256024293",
     "brand": "Ariana Grande",
@@ -135883,10 +135967,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/50mltyn.jpg?v=1773756172&width=3000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
+  },
   {
     "id": "ean-812256024279",
     "brand": "Ariana Grande",
@@ -136948,17 +137029,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product-11-scaled-1.jpg?v=1769163190",
     "notes": null,
     "houseCeiling": 17.99
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338398281865-44927348965513",
-    "brand": "Armaf",
-    "name": "Club De Nuit Oud",
-    "concentration": "Parfum",
-    "sizeMl": 105,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10049431.jpg?v=1763146418",
-    "notes": null
   },
   {
     "id": "armaf-arf32120412",
@@ -138345,18 +138415,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "houseCeiling": 79.99
   },
   {
-    "id": "armaf-arf32102765",
-    "brand": "Armaf",
-    "name": "Oros Pure Sacre Bleu",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 85,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/product-14.jpg?v=1769431193",
-    "notes": null,
-    "houseCeiling": 100
-  },
-  {
     "id": "armaf-arf32109976",
     "brand": "Armaf",
     "name": "Oros Pure Twist Debois",
@@ -138367,18 +138425,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/oros.jpg?v=1779366146",
     "notes": null,
     "houseCeiling": 79.99
-  },
-  {
-    "id": "armaf-arf32101963",
-    "brand": "Armaf",
-    "name": "Oud Niche",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 90,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-product2.png?v=1769431205",
-    "notes": null,
-    "houseCeiling": 29.99
   },
   {
     "id": "armaf-arf32109076",
@@ -138393,54 +138439,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "houseCeiling": 39.99
   },
   {
-    "id": "armaf-arf32105715",
-    "brand": "Armaf",
-    "name": "Private Key To My Dreams",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-product_201_4.jpg?v=1769204482",
-    "notes": null,
-    "houseCeiling": 110
-  },
-  {
-    "id": "armaf-arf32105717",
-    "brand": "Armaf",
-    "name": "Private Key To My Life",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-product_203.jpg?v=1769204482",
-    "notes": null,
-    "houseCeiling": 110
-  },
-  {
-    "id": "armaf-arf32105718",
-    "brand": "Armaf",
-    "name": "Private Key To My Love",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-product_204.jpg?v=1769204483",
-    "notes": null,
-    "houseCeiling": 110
-  },
-  {
-    "id": "armaf-arf32105716",
-    "brand": "Armaf",
-    "name": "Private Key To My Success",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-product_202.jpg?v=1769204484",
-    "notes": null,
-    "houseCeiling": 110
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8338385993865-44927318720649",
     "brand": "Armaf",
     "name": "Radical Chocolate Brown",
@@ -138449,17 +138447,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41rjV5w-REL.jpg?v=1763145854",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416746635401-45147129151625",
-    "brand": "Armaf",
-    "name": "Sacre Bleu",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 85,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Ao88vLLWL.jpg?v=1767984870",
     "notes": null
   },
   {
@@ -144761,10 +144748,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsukdk2-39677",
     "brand": "Bharara",
@@ -144830,7 +144814,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51CnFQ-2LBL.jpg?v=1767981293",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
   {
     "id": "ean-0850050062394",
     "brand": "Bharara Beauty",
@@ -145616,7 +145603,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "selfridges-r04671970",
     "brand": "BORNTOSTANDOUT®",
     "name": "Drunk Lovers Extrême",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
@@ -146060,7 +146047,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-amber-rose-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Amber Rose by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146104,7 +146091,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-aurum-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Aurum by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146159,7 +146146,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-bloom-theory-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Bloom Theory by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146192,7 +146179,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-caf-noir-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Café Noir by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146247,7 +146234,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-choco-luxe-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Choco Luxe by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146302,7 +146289,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-egoiste-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Egoiste by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146335,7 +146322,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-fiorum-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Fiorum by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146445,7 +146432,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-hayyati-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Hayyati by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146467,7 +146454,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-hermoso-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Hermoso by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146511,7 +146498,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-imperium-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Imperium by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146577,7 +146564,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-leonor-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Leonor by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146621,7 +146608,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-magnus-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Magnus by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146643,7 +146630,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-mallow-magic-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Mallow Magic by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146665,7 +146652,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-mangue-99-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Mangue 99 by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146737,6 +146724,46 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
+  },
+  {
+    "id": "fragrancehub-ombreryrover",
+    "brand": "Brandy Designs",
+    "name": "Ombery Rover",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Labdanum",
+        "Patchouli",
+        "Sandalwood",
+        "Cedarwood",
+        "Amber",
+        "Incense",
+        "Amberwood"
+      ],
+      "middle": [
+        "Melon",
+        "Jasmine",
+        "Ginger",
+        "Nutmeg"
+      ],
+      "base": [
+        "Lemon",
+        "Grapefruit",
+        "Pink pepper",
+        "Bergamot",
+        "Coriander",
+        "Mint",
+        "Aldehydes"
+      ],
+      "source": {
+        "retailerId": "fragrancehub",
+        "url": "https://fragrancehub.co.uk/products/ombery-rover-by-brandy-designs-eau-de-parfum-100ml"
+      }
+    }
   },
   {
     "id": "perfumeo-ombery-rover-by-brandy-100ml-eau-de-parfum",
@@ -146818,7 +146845,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-oud-magique-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Oud Magique by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146840,7 +146867,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-oud-mystery-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Oud Mystery by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146862,7 +146889,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-oud-regalia-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Oud Regalia by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146884,7 +146911,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-oud-secrete-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Oud Secrete by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146895,7 +146922,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-paradise-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Paradise by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146939,7 +146966,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-qalbi-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Qalbi by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -146961,7 +146988,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-roohi-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Roohi by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -147093,7 +147120,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-umari-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Umari by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -147148,7 +147175,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-vannila-vio-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Vannila Vio by Brandy Prestige | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -147821,7 +147848,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-bujairami-bosslife-100ml",
     "brand": "Bujairami",
     "name": "Boss Life by Bujairami | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -148210,7 +148237,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-bujairami-chubby-100ml",
     "brand": "Bujairami",
     "name": "Chubby by Bujairami | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -148646,7 +148673,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-bujairami-executor-100ml",
     "brand": "Bujairami",
     "name": "Executor by Bujairami | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -149127,7 +149154,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-bujairami-houdini-100ml",
     "brand": "Bujairami",
     "name": "Houdini by Bujairami | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -149438,7 +149465,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-bujairami-legacy-100ml",
     "brand": "Bujairami",
     "name": "Legacy by Bujairami | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -149729,7 +149756,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-bujairami-mafiaboss-100ml",
     "brand": "Bujairami",
     "name": "Mafia Boss by Bujairami | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -150062,7 +150089,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-bujairami-nextlevel-100ml",
     "brand": "Bujairami",
     "name": "Next Level by Bujairami | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -150107,7 +150134,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-bujairami-nonstop-100ml",
     "brand": "Bujairami",
     "name": "Non Stop by Bujairami | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -150182,7 +150209,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-bujairami-oceaneyes-100ml",
     "brand": "Bujairami",
     "name": "Ocean Eyes by Bujairami | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -150607,7 +150634,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-bujairami-rizz-100ml",
     "brand": "Bujairami",
     "name": "Rizz by Bujairami | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -150981,7 +151008,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-bujairami-smokilla-100ml",
     "brand": "Bujairami",
     "name": "Smokilla by Bujairami | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -151595,7 +151622,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-bujairami-toodamngood-100ml",
     "brand": "Bujairami",
     "name": "Too Damn Good by Bujairami | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -151775,7 +151802,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "perfumeo-bujairami-vibration-100ml",
     "brand": "Bujairami",
     "name": "Vibration by Bujairami | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -153691,10 +153718,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
+  },
   {
     "id": "ean-783320421174",
     "brand": "Bvlgari",
@@ -153785,7 +153809,10 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61jYLW-rPVL.jpg?v=1767981435",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "ean-0783320425394",
     "brand": "Bvlgari",
@@ -160698,7 +160725,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-crucible-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Crucible by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160709,7 +160736,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-cypher-blue-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Cypher Blue by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160720,7 +160747,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-divinity-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Divinity by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160731,7 +160758,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-element-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Element by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160742,7 +160769,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-elysian-essence-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Elysian Essence by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160753,7 +160780,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-ethereal-elixir-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Ethereal Elixir by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160764,7 +160791,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-ezel-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Ezel by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160775,7 +160802,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-femme-absolue-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Femme Absolue by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160786,7 +160813,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-homme-absolu-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Homme Absolu by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160797,7 +160824,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-infinity-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Infinity by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160808,7 +160835,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-kalbem-by-cevi-x-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Kalbem by CEVI X | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160819,7 +160846,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-monarc-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Monarc by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160830,7 +160857,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-najwa-bloom-by-cevi-x-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Najwa Bloom by CEVI X | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160841,7 +160868,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-najwa-seduction-by-cevi-x-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Najwa Seduction by CEVI X | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160852,7 +160879,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-obsidius-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Obsidius by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160863,7 +160890,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-omaage-by-cevi-x-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Omaage by CEVI X | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160874,7 +160901,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-oud-alif-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Oud Alif by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160885,7 +160912,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-oud-miraj-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Oud Miraj by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160896,7 +160923,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-santal-eternel-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Santal Eternel by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160907,7 +160934,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-santalea-by-cevi-x-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Santalea by CEVI X | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160918,7 +160945,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-seraphia-by-cevi-x-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Seraphia by CEVI X | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160929,7 +160956,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-sovrin-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Sovrin by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160940,7 +160967,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-subzero-by-cevi-x-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Subzero by CEVI X | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160951,7 +160978,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-syndicate-by-cevi-x-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Syndicate by CEVI X | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160962,7 +160989,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-vanilla-affair-by-cevi-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Vanilla Affair by CEVI | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -160973,7 +161000,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "perfumeo-veredian-by-cevi-x-100ml-extrait-de-parfum",
     "brand": "Cevi Perfumes",
     "name": "Veredian by CEVI X | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -161644,10 +161671,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/179744_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338352537737-44927268585609",
     "brand": "Chloé",
@@ -161717,7 +161741,10 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338338480265-44927249023113",
     "brand": "Chloé",
@@ -169992,10 +170019,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/khalifa-perfume-dkhoon-emirates"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
+  },
   {
     "id": "perfumeo-khalifa-by-dkhoon-emirates-100ml-eau-de-parfum",
     "brand": "Dkhoon Emirates",
@@ -170082,7 +170106,10 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16314843464029-default-title",
     "brand": "Dkhoon Emirates",
@@ -178491,10 +178518,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/emporio-armani-stronger-with-you-for-him-parfum-50ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-arma0105",
     "brand": "Emporio Armani",
@@ -178653,7 +178677,10 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/emporio-armani-stronger-with-you-intensely-mens-eau-de-parfum-100ml"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "justmylook-arma0178",
     "brand": "Emporio Armani",
@@ -179113,41 +179140,6 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "image": "https://cdn.shopify.com/s/files/1/0855/9220/files/E02_30ml_Solo_Bottle.jpg?v=1739881408",
     "notes": null,
     "houseCeiling": 65
-  },
-  {
-    "id": "escentric-molecules-e02-edp-100ml-unit",
-    "brand": "Escentric Molecules",
-    "name": "Escentric 02",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0855/9220/files/E02_EDP_100ml_Bottle.jpg?v=1750843750",
-    "notes": null,
-    "houseCeiling": 200
-  },
-  {
-    "id": "escentric-molecules-e02-100ml-unit",
-    "brand": "Escentric Molecules",
-    "name": "Escentric 02",
-    "concentration": "Not stated",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0855/9220/files/E02_100ml_Solo_St_On_Bottle.jpg?v=1739881566",
-    "notes": null,
-    "houseCeiling": 130
-  },
-  {
-    "id": "ean-5060103310036",
-    "brand": "Escentric Molecules",
-    "name": "Escentric 02",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "5060103310036",
-    "shops": 1,
-    "image": "https://bgstatic.net/photos/67617_ml.jpg",
-    "notes": null
   },
   {
     "id": "escentric-molecules-e02-30c-unit",
@@ -180592,7 +180584,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "id": "selfridges-r04683019",
     "brand": "Ex Nihilo",
     "name": "Vendomania",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -182979,7 +182971,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "id": "perfumeo-barakkat-540-extrait-by-fragrance-world-50ml-extrait-de-parfum",
     "brand": "Fragrance World",
     "name": "Barakkat 540 by Fragrance World Extrait De",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
@@ -183215,7 +183207,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "id": "perfumeo-barakkat-rouge-540-extrait-by-fragrance-world-100ml-extrait-de-parfum",
     "brand": "Fragrance World",
     "name": "Barakkat Rouge 540 Fragrance World | UK",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -184152,7 +184144,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "id": "perfumeo-eclipse-extrait-nova-by-fragrance-world-100ml-extrait-de-parfum",
     "brand": "Fragrance World",
     "name": "Eclipse Nova by Fragrance World Extrait De",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -188159,10 +188151,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/frederic-malle-musc-ravageur-eau-de-parfum-100ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-fred0007",
     "brand": "Frédéric Malle",
@@ -188388,42 +188377,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43157928793&a=3026001&m=106925"
       }
     }
-  },
-  {
-    "id": "fragrancehub-8thwonder",
-    "brand": "French Avenue",
-    "name": "8th Wonder",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Pink Pepper",
-        "Cardamom",
-        "Candy Apple"
-      ],
-      "middle": [
-        "Osmanthus",
-        "Liquor",
-        "Davana",
-        "Dates"
-      ],
-      "base": [
-        "Patchouli",
-        "Labdanum",
-        "Benzoin",
-        "Styrax",
-        "Myrrh",
-        "Amber Xtreme"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/8th-wonder-100ml-extrait-de-parfum-by-french-avenue"
-      }
-    }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15441389322589-default-title",
     "brand": "French Avenue",
@@ -188636,7 +188593,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "id": "perfumeo-french-avenue-aether-100ml-extrait",
     "brand": "French Avenue",
     "name": "Aether by French Avenue | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -188679,7 +188636,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "id": "perfumeo-french-avenue-amber-empire-100ml",
     "brand": "French Avenue",
     "name": "Amber Empire by French Avenue | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -188716,29 +188673,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/amber-saffron-perfume-100ml-edp-french-avenue-by-fragrance-world"
       }
     }
-  },
-  {
-    "id": "french-avenue-16712",
-    "brand": "French Avenue",
-    "name": "Amber Saffron",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_be401855-c27a-489e-a0b9-f247f7800c1a.png?v=1757598939",
-    "notes": null,
-    "houseCeiling": 45
-  },
-  {
-    "id": "perfumeo-amber-saffron-by-by-french-avenue-100ml-eau-de-parfum",
-    "brand": "French Avenue",
-    "name": "Amber Saffron",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "french-avenue-17382",
@@ -188803,7 +188737,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "id": "perfumeo-aromatix-carnal-desire-by-french-avenue-100ml-extrait-de-parfum",
     "brand": "French Avenue",
     "name": "Aromatix Carnal Desire by French Avenue De",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -189115,7 +189049,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "id": "perfumeo-aromatix-platine-blanc-by-french-avenue-100ml-extrait-de-parfum",
     "brand": "French Avenue",
     "name": "Aromatix Platine Blanc by French Avenue De",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -189137,7 +189071,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "id": "perfumeo-aromatix-royal-taboo-by-french-avenue-100ml-extrait-de-parfum",
     "brand": "French Avenue",
     "name": "Aromatix Royal Taboo by French Avenue De",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -189210,40 +189144,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     }
   },
   {
-    "id": "manchester-ouds-ff-atlantis-100",
-    "brand": "French Avenue",
-    "name": "Atlantis",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://manchesterouds.com/cdn/shop/files/atlantis-edp-100ml-french-avenue-4440736.webp?v=1786194480&width=3000",
-    "notes": {
-      "top": [
-        "Orange",
-        "Lemon",
-        "Mandarin Orange"
-      ],
-      "middle": [
-        "Watermelon",
-        "Coconut"
-      ],
-      "base": [
-        "Cacao",
-        "Ambergris",
-        "Amberwood"
-      ],
-      "source": {
-        "retailerId": "manchester-ouds",
-        "url": "https://manchesterouds.com/products/atlantis-edp-100ml"
-      }
-    }
-  },
-  {
     "id": "perfumeo-french-avenue-atlantis-100ml-extrait",
     "brand": "French Avenue",
     "name": "Atlantis by French Avenue | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -189409,29 +189313,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
-  },
-  {
-    "id": "french-avenue-18061",
-    "brand": "French Avenue",
-    "name": "Cosmic Tonka",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_40.jpg?v=1770173793",
-    "notes": null,
-    "houseCeiling": 30
-  },
-  {
-    "id": "ean-6290360378749",
-    "brand": "French Avenue",
-    "name": "Cosmic Tonka",
-    "concentration": "Parfum",
-    "sizeMl": 100,
-    "ean": "6290360378749",
-    "shops": 1,
-    "image": "https://bgstatic.net/photos/191837_ml.jpg",
     "notes": null
   },
   {
@@ -190024,7 +189905,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "id": "perfumeo-glorious-oud-royal-blanc-by-french-avenue-80ml-extrait-de-parfum",
     "brand": "French Avenue",
     "name": "Glorious Oud Royal Blanc by French Avenue De",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 80,
     "ean": null,
     "shops": 1,
@@ -190328,36 +190209,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "houseCeiling": 39
   },
   {
-    "id": "ean-6298042001749",
-    "brand": "French Avenue",
-    "name": "Jasmere",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "6298042001749",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/147_5602c966-3e5c-46f1-b4fc-f49615cd9469.jpg?v=1778057653&width=3000",
-    "notes": {
-      "top": [
-        "Broom",
-        "Jasmine Sambac",
-        "Linden Blossom"
-      ],
-      "middle": [
-        "Orange Blossom",
-        "Vetiver",
-        "Heliotrope"
-      ],
-      "base": [
-        "Musk",
-        "Dry Wood"
-      ],
-      "source": {
-        "retailerId": "beautybase",
-        "url": "https://www.beautybase.com/products/french-avenue-jasmere-extrait-de-parfum-100ml-spray"
-      }
-    }
-  },
-  {
     "id": "perfumeo-jasmere-by-french-avenue-100ml-eau-de-parfum",
     "brand": "French Avenue",
     "name": "Jasmere by French Avenue | Perfumeo",
@@ -190378,47 +190229,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://oudarabian.co.uk/cdn/shop/files/6C535346-DA99-4D6E-8862-ED9EE52EB473.webp?v=1779423045&width=3000",
     "notes": null
-  },
-  {
-    "id": "perfumeo-liquid-brun-limited-edition-by-french-avenue-150ml-extrait-de-parfum",
-    "brand": "French Avenue",
-    "name": "Liquid Brun Limited Edition",
-    "concentration": "Extrait",
-    "sizeMl": 150,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "fragrancehub-marmara",
-    "brand": "French Avenue",
-    "name": "Marmara",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Black Pepper",
-        "Italian Bergamot",
-        "Saffron"
-      ],
-      "middle": [
-        "Cashmere Wood",
-        "Ambroxan",
-        "Powdery Accord"
-      ],
-      "base": [
-        "Musk",
-        "White Sandalwood"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/marmara-100ml-extrait-de-parfum-by-french-avenue"
-      }
-    }
   },
   {
     "id": "perfumeo-marmara-by-french-avenue-100ml-eau-de-parfum",
@@ -190695,138 +190505,15 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15765627535709-default-title",
-    "brand": "French Avenue",
-    "name": "Nomad",
-    "concentration": "Not stated",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nomad-Perfume-100ml-French-Avenue-183489776.jpg?v=1768626619",
-    "notes": {
-      "top": [
-        "Saffron",
-        "Lemon",
-        "Marine Accord",
-        "Sea Salt"
-      ],
-      "middle": [
-        "White Flowers",
-        "Ambergris",
-        "Tonka Bean"
-      ],
-      "base": [
-        "Patchouli",
-        "Cypriol",
-        "Oud",
-        "Vanilla",
-        "Amber",
-        "Sandalwood"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/nomad-perfume-100ml-french-avenue"
-      }
-    }
-  },
-  {
-    "id": "fragrancehub-nomad",
-    "brand": "French Avenue",
-    "name": "Nomad",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Marine Accord",
-        "Sea Salt",
-        "Bergamot"
-      ],
-      "middle": [
-        "Ambergris Accord",
-        "Tonka Bean",
-        "Saffron"
-      ],
-      "base": [
-        "Vanilla",
-        "Oud",
-        "Musk",
-        "Sandalwood"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/nomad-100ml-extrait-de-parfum-by-french-avenue"
-      }
-    }
-  },
-  {
-    "id": "french-avenue-18057",
-    "brand": "French Avenue",
-    "name": "Nomad",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_45_cfbcb299-4c4d-453b-8559-3acbdd58358d.jpg?v=1770174043",
-    "notes": null,
-    "houseCeiling": 30
-  },
-  {
     "id": "perfumeo-french-avenue-obsidian-100ml-extrait",
     "brand": "French Avenue",
     "name": "Obsidian by French Avenue | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
-  },
-  {
-    "id": "emirates-oud-15451850244445-default-title",
-    "brand": "French Avenue",
-    "name": "Opus Grande",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opus-Grande-Perfume-100ml-EDP-French-Avenue-169532995.jpg?v=1750211431",
-    "notes": {
-      "top": [
-        "Lychee",
-        "Cassis",
-        "Mandarin Orange"
-      ],
-      "middle": [
-        "Peony",
-        "Water Lily",
-        "Jasmine"
-      ],
-      "base": [
-        "Ambroxan",
-        "Vanilla",
-        "Musk",
-        "Oakmoss"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/opus-grande-french-avenue"
-      }
-    }
-  },
-  {
-    "id": "french-avenue-17257",
-    "brand": "French Avenue",
-    "name": "Opus Grande",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_3d2eedfa-ab17-490b-825c-f0e7e68e35d6.jpg?v=1756993422",
-    "notes": null,
-    "houseCeiling": 40
   },
   {
     "id": "perfumeo-opus-grande-by-french-avenue-100ml-eau-de-parfum",
@@ -190838,18 +190525,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
-  {
-    "id": "french-avenue-17258",
-    "brand": "French Avenue",
-    "name": "Opus Magnum",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_5f3f3eb1-2a6e-4da6-838e-15cfb04aa734.jpg?v=1756990057",
-    "notes": null,
-    "houseCeiling": 40
   },
   {
     "id": "emirates-oud-15234905506141-default-title",
@@ -190917,41 +190592,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "houseCeiling": 25
   },
   {
-    "id": "manchester-ouds-ff-ravine-ginger-100",
-    "brand": "French Avenue",
-    "name": "Ravine Ginger",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://manchesterouds.com/cdn/shop/files/ravine-ginger-edp-100ml-french-avenue-9976677.webp?v=1786194495&width=3000",
-    "notes": {
-      "top": [
-        "Ginger",
-        "Bergamot",
-        "Lemon"
-      ],
-      "middle": [
-        "Orange Blossom",
-        "Jasmine",
-        "Rose",
-        "Magnolia"
-      ],
-      "base": [
-        "Vanilla",
-        "Musk",
-        "Sandalwood",
-        "Amber",
-        "Patchouli",
-        "Cashmere Wood"
-      ],
-      "source": {
-        "retailerId": "manchester-ouds",
-        "url": "https://manchesterouds.com/products/ravine-ginger-edp-100ml"
-      }
-    }
-  },
-  {
     "id": "perfumeo-french-avenue-ravine-ginger-100ml",
     "brand": "French Avenue",
     "name": "Ravine Ginger by French Avenue | Perfumeo",
@@ -190963,40 +190603,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "fragrancehub-ravineice",
-    "brand": "French Avenue",
-    "name": "Ravine Ice",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Mandarin Orange",
-        "Bergamot",
-        "Green Tea"
-      ],
-      "middle": [
-        "Blackcurrant",
-        "Galbanum"
-      ],
-      "base": [
-        "Musk",
-        "Sandalwood",
-        "Petitgrain"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/ravine-ice-100ml-extrait-de-parfum-by-french-avenue"
-      }
-    }
-  },
-  {
     "id": "perfumeo-french-avenue-ravine-ice-100ml-extrait",
     "brand": "French Avenue",
     "name": "Ravine Ice by French Avenue | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -191004,52 +190614,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "emirates-oud-15441402757469-default-title",
-    "brand": "French Avenue",
-    "name": "Rose Explosion",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rose-Explosion-Extrait-de-Parfum-80ml-French-Avenue-184727141.png?v=1771620354",
-    "notes": {
-      "top": [
-        "Pink Pepper",
-        "Hedione",
-        "Bergamot"
-      ],
-      "middle": [
-        "Bulgarian Rose",
-        "Turkish Rose",
-        "Egyptian Jasmine"
-      ],
-      "base": [
-        "Madagascar Vanilla",
-        "Amber"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/rose-explosion-extrait-french-avenue"
-      }
-    }
-  },
-  {
-    "id": "french-avenue-12802",
-    "brand": "French Avenue",
-    "name": "Rose Explosion",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Rose_Explosion_EDP_80ml.jpg?v=1756799365",
-    "notes": null,
-    "houseCeiling": 25
-  },
-  {
     "id": "perfumeo-rose-explosion-by-french-avenue-80ml-extrait-de-parfum",
     "brand": "French Avenue",
     "name": "Rose Explosion by French Avenue | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 80,
     "ean": null,
     "shops": 1,
@@ -191124,17 +190692,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/royal-blend-extract-perfume-100ml-edp-fa-paris-by-fragrance-world"
       }
     }
-  },
-  {
-    "id": "perfumeo-french-avenue-royal-blend-sequoia-100ml-extrait",
-    "brand": "French Avenue",
-    "name": "Royal Blend Sequoia",
-    "concentration": "Extrait",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "ean-10412667306326",
@@ -191232,18 +190789,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "houseCeiling": 30
   },
   {
-    "id": "french-avenue-17954",
-    "brand": "French Avenue",
-    "name": "Solitaire",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null,
-    "houseCeiling": 40
-  },
-  {
     "id": "perfumeo-spectre-by-french-avenue-80ml-eau-de-parfum",
     "brand": "French Avenue",
     "name": "Spectre French Avenue Perfume | UK",
@@ -191335,30 +190880,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
       }
     },
     "houseCeiling": 20
-  },
-  {
-    "id": "french-avenue-18347",
-    "brand": "French Avenue",
-    "name": "Spirito Ignite",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Spirito_Ignite_EDP_100ml.jpg?v=1787553927",
-    "notes": null,
-    "houseCeiling": 40
-  },
-  {
-    "id": "french-avenue-18346",
-    "brand": "French Avenue",
-    "name": "Spirito Mystic",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Spirito_Mystic_EDP_100ml.jpg?v=1787553823",
-    "notes": null,
-    "houseCeiling": 40
   },
   {
     "id": "french-avenue-17256",
@@ -191525,18 +191046,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "houseCeiling": 25
   },
   {
-    "id": "french-avenue-17631",
-    "brand": "French Avenue",
-    "name": "Vulcan Baie",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-14T141703.485.jpg?v=1756996389",
-    "notes": null,
-    "houseCeiling": 35
-  },
-  {
     "id": "perfumeo-french-avenue-vulcan-baie-100ml",
     "brand": "French Avenue",
     "name": "Vulcan Baie by French Avenue | Perfumeo",
@@ -191576,17 +191085,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/vulcan-baie-french-avenue"
       }
     }
-  },
-  {
-    "id": "ean-6298042001558",
-    "brand": "French Avenue",
-    "name": "Vulcan Black Friday",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "6298042001558",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1763474132-59076000.jpg?v=1772624926&width=3000",
-    "notes": null
   },
   {
     "id": "perfumeo-french-avenue-vulcan-black-friday-100ml",
@@ -191803,34 +191301,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  },
-  {
-    "id": "fragrancehub-zenithsantal",
-    "brand": "French Avenue",
-    "name": "Zenith Santal",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Saffron"
-      ],
-      "middle": [
-        "Lavender",
-        "Chestnut"
-      ],
-      "base": [
-        "Sandalwood",
-        "Cedarwood",
-        "Vanilla"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/zenith-santal-100ml-extrait-de-parfum-by-french-avenue"
-      }
-    }
   },
   {
     "id": "perfumeo-zenith-tobacco-by-french-avenue-100ml-eau-de-parfum",
@@ -196721,10 +196191,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/511.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338402279561-44927359025289",
     "brand": "Givenchy",
@@ -197263,7 +196730,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "home-bargains-f181acdf-3c2b-428b-ac1c-a1ae44c36bb8",
     "brand": "Glow",
@@ -205491,10 +204961,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/hugo-boss-the-scent-for-him-eau-de-toilette-50ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-hb0097",
     "brand": "Hugo Boss",
@@ -206366,7 +205833,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "perfumeo-balas-rose-by-ibrahim-al-qurashi-75ml-eau-de-parfum",
     "brand": "Ibrahim Al Qurashi",
@@ -213592,10 +213062,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "url": "https://armaf.uk/products/santal-bloom-eau-de-toilette-100ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "armaf-jut36101025",
     "brand": "Just Jacks",
@@ -214140,7 +213607,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
         "url": "https://thebeautystore.com/products/karl-lagerfeld-pour-homme-eau-de-toilette-100ml"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338242568329-44927103205513",
     "brand": "Karl Lagerfeld",
@@ -215589,7 +215059,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "id": "perfumeo-azure-velvet-by-khadlaj-100ml-extrait-de-parfum",
     "brand": "Khadlaj",
     "name": "Azure Velvet by Khadlaj | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -215641,7 +215111,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "id": "perfumeo-biscotti-caramel-pop-by-khadlaj-100ml-extrait-de-parfum",
     "brand": "Khadlaj",
     "name": "Biscotti Caramel Pop Khadlaj | Sweet Gourmand | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -215797,7 +215267,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "id": "perfumeo-khadlaj-caffe-latte-100ml",
     "brand": "Khadlaj",
     "name": "Caffe Latte by Khadlaj | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -215850,7 +215320,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "id": "perfumeo-cream-velvet-by-khadlaj-100ml-extrait-de-parfum",
     "brand": "Khadlaj",
     "name": "Cream Velvet by Khadlaj | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -216337,7 +215807,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "id": "perfumeo-ihthiraam-by-khadlaj-60ml-extrait-de-parfum",
     "brand": "Khadlaj",
     "name": "Ihthiraam by Khadlaj | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 60,
     "ean": null,
     "shops": 1,
@@ -216389,7 +215859,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "id": "perfumeo-island-by-khadlaj-100ml-extrait-de-parfum",
     "brand": "Khadlaj",
     "name": "Island by Khadlaj | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -216400,7 +215870,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "id": "perfumeo-khadlaj-island-dreams-100ml",
     "brand": "Khadlaj",
     "name": "Island Dreams by Khadlaj | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -216433,17 +215903,6 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/island-dreams-khadlaj"
       }
     }
-  },
-  {
-    "id": "perfumeo-khadlaj-island-vanilla-dunes-100ml",
-    "brand": "Khadlaj",
-    "name": "Island Vanilla Dunes",
-    "concentration": "Extrait",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-15498916561245-default-title",
@@ -217297,45 +216756,6 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "emirates-oud-16181116928349-default-title",
-    "brand": "Khadlaj",
-    "name": "La Fede Intoxicate Mystique",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Fede-Intoxicate-Mystique-100ml-Extrait-De-Parfum-Khadlaj-190715363.png?v=1778098751",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Musk"
-      ],
-      "middle": [
-        "Guaiac Wood",
-        "Geranium"
-      ],
-      "base": [
-        "Siam Benzoin",
-        "Vanilla"
-      ],
-      "source": {
-        "retailerId": "emirates-oud",
-        "url": "https://emiratesoud.co.uk/products/la-fede-intoxicate-mystique-khadlaj"
-      }
-    }
-  },
-  {
-    "id": "perfumeo-la-fede-intoxicate-mystique-by-khadlaj-100ml-extrait-de-parfum",
-    "brand": "Khadlaj",
-    "name": "La Fede Intoxicate Mystique",
-    "concentration": "Extrait",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-15498956603741-default-title",
     "brand": "Khadlaj",
     "name": "La Fede Symbol of Love",
@@ -217692,7 +217112,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "id": "perfumeo-mocha-latte-by-khadlaj-100ml-extrait-de-parfum",
     "brand": "Khadlaj",
     "name": "Mocha Latte by Khadlaj | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -218377,7 +217797,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "id": "perfumeo-qarar-by-khadlaj-60ml-extrait-de-parfum",
     "brand": "Khadlaj",
     "name": "Qarar by Khadlaj | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 60,
     "ean": null,
     "shops": 1,
@@ -218547,10 +217967,21 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-10145091715414",
+    "brand": "Khadlaj",
+    "name": "Sawaar Vanille Blanc by Khadlaj – Luxurious Creamy Vanilla Scent",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "10145091715414",
+    "shops": 1,
+    "image": "https://oudarabian.co.uk/cdn/shop/files/11712E7E-5F5F-4D14-B46B-A6482490280F.jpg?v=1769280911&width=3000",
+    "notes": null
+  },
+  {
     "id": "perfumeo-sawaar-vanille-blanc-by-khadlaj-100ml-extrait-de-parfum",
     "brand": "Khadlaj",
     "name": "Sawaar Vanille Blanc by Khadlaj | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -222232,10 +221663,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43157929598&a=3026001&m=106925"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-lanc0066",
     "brand": "Lancôme",
@@ -222847,7 +222275,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/964.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "ean-3614272520875",
     "brand": "Lancôme",
@@ -225700,9 +225131,40 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "justmylook-lat0003",
+    "brand": "Lattafa",
+    "name": "Bade'e Al Oud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0003.png?v=1758900965&width=3000",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Pink Peppercorn",
+        "Blackcurrant"
+      ],
+      "middle": [
+        "Peony",
+        "Caramel",
+        "Oud Wood"
+      ],
+      "base": [
+        "Raspberry",
+        "Patchouli",
+        "Dry Amber"
+      ],
+      "source": {
+        "retailerId": "justmylook",
+        "url": "https://www.justmylook.com/products/lattafa-badee-al-oud-eau-de-parfum-100ml"
+      }
+    }
+  },
+  {
     "id": "fragrancehub-badeealoudamethyst",
     "brand": "Lattafa",
-    "name": "Bade’e Al Oud Amethyst (Oud For Glory Amethyst)",
+    "name": "Bade'e Al Oud Amethyst (Oud For Glory Amethyst)",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -225730,9 +225192,31 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-badee-al-oud-amethyst-fusion-by-lattafa-100ml-eau-de-parfum",
+    "brand": "Lattafa",
+    "name": "Bade'e Al Oud Amethyst Fusion Lattafa | Boozy Gourmand | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "perfumeo-lattafa-badee-al-oud-black-exposed-100ml",
+    "brand": "Lattafa",
+    "name": "Bade'e Al Oud Black Exposed by Lattafa | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "fragrancehub-honorandglory",
     "brand": "Lattafa",
-    "name": "Bade’e Al Oud Honor & Glory by Lattafa (White)",
+    "name": "Bade'e Al Oud Honor & Glory by Lattafa (White)",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -225762,9 +225246,31 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-badee-al-oud-honor-glory-by-lattafa-100ml-eau-de-parfum",
+    "brand": "Lattafa",
+    "name": "Bade'e Al Oud Honor &amp; Glory Lattafa | Sweet Spicy Pineapple | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "perfumeo-badee-al-oud-noble-blush-by-lattafa-100ml-eau-de-parfum",
+    "brand": "Lattafa",
+    "name": "Bade'e Al Oud Noble Blush Lattafa | Sweet Almond Rose | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "fragrancehub-badeealoud",
     "brand": "Lattafa",
-    "name": "Bade’e Al Oud Perfume",
+    "name": "Bade'e Al Oud Perfume",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -225793,7 +225299,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "fragrancehub-badeealoudsub",
     "brand": "Lattafa",
-    "name": "Bade’e Al Oud Sublime (Oud For Glory Sublime)",
+    "name": "Bade'e Al Oud Sublime (Oud For Glory Sublime)",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -225821,84 +225327,9 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     }
   },
   {
-    "id": "justmylook-lat0003",
-    "brand": "Lattafa",
-    "name": "Badee Al Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/LAT0003.png?v=1758900965&width=3000",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Pink Peppercorn",
-        "Blackcurrant"
-      ],
-      "middle": [
-        "Peony",
-        "Caramel",
-        "Oud Wood"
-      ],
-      "base": [
-        "Raspberry",
-        "Patchouli",
-        "Dry Amber"
-      ],
-      "source": {
-        "retailerId": "justmylook",
-        "url": "https://www.justmylook.com/products/lattafa-badee-al-oud-eau-de-parfum-100ml"
-      }
-    }
-  },
-  {
-    "id": "perfumeo-badee-al-oud-amethyst-fusion-by-lattafa-100ml-eau-de-parfum",
-    "brand": "Lattafa",
-    "name": "Badee Al Oud Amethyst Fusion Lattafa | Boozy Gourmand | Perfumeo",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "perfumeo-lattafa-badee-al-oud-black-exposed-100ml",
-    "brand": "Lattafa",
-    "name": "Badee Al Oud Black Exposed by Lattafa | Perfumeo",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "perfumeo-badee-al-oud-honor-glory-by-lattafa-100ml-eau-de-parfum",
-    "brand": "Lattafa",
-    "name": "Badee Al Oud Honor &amp; Glory Lattafa | Sweet Spicy Pineapple | Perfumeo",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "perfumeo-badee-al-oud-noble-blush-by-lattafa-100ml-eau-de-parfum",
-    "brand": "Lattafa",
-    "name": "Badee Al Oud Noble Blush Lattafa | Sweet Almond Rose | Perfumeo",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "perfumeo-lattafa-badee-al-oud-50ml-travel-size",
     "brand": "Lattafa",
-    "name": "Badee Al Oud Travel Size by Lattafa | Perfumeo",
+    "name": "Bade'e Al Oud Travel Size by Lattafa | Perfumeo",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
     "ean": null,
@@ -226690,7 +226121,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "id": "perfumeo-fakhar-extrait-by-lattafa-100ml-extrait-de-parfum",
     "brand": "Lattafa",
     "name": "Fakhar Lattafa | Spicy Floral Amber | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -228412,6 +227843,37 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
+  },
+  {
+    "id": "fragrancehub-nebras",
+    "brand": "Lattafa",
+    "name": "Nebras by Lattafa Pride for Women",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "RED BERRIES",
+        "MANDARIN"
+      ],
+      "middle": [
+        "VANILLA",
+        "CACAO",
+        "ROSE"
+      ],
+      "base": [
+        "TONKA BEANS",
+        "MUSK",
+        "AMBER",
+        "SUGAR"
+      ],
+      "source": {
+        "retailerId": "fragrancehub",
+        "url": "https://fragrancehub.co.uk/products/nebras-by-lattafa-pride-eau-de-parfum-100ml-for-women"
+      }
+    }
   },
   {
     "id": "fragrancehub-nebraselixir",
@@ -232210,10 +231672,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41pkQoJRn8L.jpg?v=1767983941",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416716849289-45147091959945",
     "brand": "Laurent Mazzone",
@@ -233109,7 +232568,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/sense-laverne"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16185625608541-default-title",
     "brand": "Laverne",
@@ -238089,7 +237551,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "id": "perfumeo-your-touch-extrait-by-maison-alhambra-100ml-extrait-de-parfum",
     "brand": "Maison Alhambra",
     "name": "Your Touch by Maison Alhambra Extrait De",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -241949,10 +241411,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/164189_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3616303461881",
     "brand": "Marc Jacobs",
@@ -242464,7 +241923,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/191815_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "ean-4011700749317",
     "brand": "Mäurer & Wirtz",
@@ -250499,10 +249961,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1739357279-08302900.jpg?v=1763391941&width=3000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsukdk2-37023",
     "brand": "New Brand Prestige",
@@ -250887,7 +250346,10 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "home-bargains-ef770c4c-f92c-4546-9970-5d5295d38242",
     "brand": "Nicce",
@@ -259876,10 +259338,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/honeyed-fantasy-pendora-scents-paris-corner"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-16363077108061-default-title",
     "brand": "Pendora Scents",
@@ -260720,7 +260179,10 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/penhaligons-the-coveted-duchess-rose-eau-de-parfum-75ml"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338268323977-44927136333961",
     "brand": "Penhaligon's",
@@ -269233,10 +268695,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
         "url": "https://fragrancehub.co.uk/products/rasasi-hawas-sapphire-eau-de-parfum-100ml-fbfragrances-edition-copy"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-16268860293469-default-title",
     "brand": "Rasasi",
@@ -270027,7 +269486,10 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/rayhaan-nava-sol"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "fragrancehub-nocturno",
     "brand": "Rayhaan",
@@ -279677,10 +279139,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
         "url": "https://thebeautystore.com/products/sarah-jessica-parker-lovely-sheer-eau-de-parfum-rollerball-10ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
+  },
   {
     "id": "ean-5060426157080",
     "brand": "Sarah Jessica Parker",
@@ -280122,7 +279581,10 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338279694473-44927171592329",
     "brand": "Scotch & Soda",
@@ -282855,7 +282317,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "id": "perfumeo-surrati-cuban-tobacco-100ml",
     "brand": "Surrati",
     "name": "Cuban Tobacco by Surrati | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -282981,7 +282443,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "id": "perfumeo-surrati-fabrica-1929-150ml",
     "brand": "Surrati",
     "name": "Fabrica 1929 by Surrati | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
@@ -283019,7 +282481,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "id": "perfumeo-surrati-golden-musk-150ml",
     "brand": "Surrati",
     "name": "Golden Musk by Surrati | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
@@ -283030,7 +282492,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "id": "perfumeo-surrati-gray-oud-150ml",
     "brand": "Surrati",
     "name": "Gray Oud by Surrati | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
@@ -283108,7 +282570,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "id": "perfumeo-surrati-italian-tobacco-150ml",
     "brand": "Surrati",
     "name": "Italian Tobacco by Surrati | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
@@ -283172,7 +282634,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "id": "perfumeo-surrati-miss-world-150ml",
     "brand": "Surrati",
     "name": "Miss World by Surrati | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
@@ -283211,7 +282673,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "id": "perfumeo-surrati-miss-world-charisma-150ml",
     "brand": "Surrati",
     "name": "Miss World Charisma by Surrati | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
@@ -283308,7 +282770,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "id": "perfumeo-surrati-rosso-ombre-150ml",
     "brand": "Surrati",
     "name": "Rosso Ombre by Surrati | Perfumeo",
-    "concentration": "Extrait",
+    "concentration": "Extrait de Parfum",
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
@@ -287722,10 +287184,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/70992_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsukdk2-00283",
     "brand": "Tommy Hilfiger",
@@ -288290,7 +287749,10 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43174942913&a=3026001&m=106925"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsusdk2-01268",
     "brand": "Tory Burch",
@@ -292682,37 +292144,6 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "fragrancehub-nebras",
-    "brand": "Unbranded",
-    "name": "Nebras by Lattafa Pride for Women",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "RED BERRIES",
-        "MANDARIN"
-      ],
-      "middle": [
-        "VANILLA",
-        "CACAO",
-        "ROSE"
-      ],
-      "base": [
-        "TONKA BEANS",
-        "MUSK",
-        "AMBER",
-        "SUGAR"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/nebras-by-lattafa-pride-eau-de-parfum-100ml-for-women"
-      }
-    }
-  },
-  {
     "id": "fragrancehub-8870971244873-default-title",
     "brand": "Unbranded",
     "name": "Obsede Citrus Bliss",
@@ -292756,46 +292187,6 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
-  {
-    "id": "fragrancehub-ombreryrover",
-    "brand": "Unbranded",
-    "name": "Ombery Rover by Brandy Designs",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Labdanum",
-        "Patchouli",
-        "Sandalwood",
-        "Cedarwood",
-        "Amber",
-        "Incense",
-        "Amberwood"
-      ],
-      "middle": [
-        "Melon",
-        "Jasmine",
-        "Ginger",
-        "Nutmeg"
-      ],
-      "base": [
-        "Lemon",
-        "Grapefruit",
-        "Pink pepper",
-        "Bergamot",
-        "Coriander",
-        "Mint",
-        "Aldehydes"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/ombery-rover-by-brandy-designs-eau-de-parfum-100ml"
-      }
-    }
   },
   {
     "id": "perfumeo-on-the-rocks-by-mykonos-100ml-eau-de-parfum",
@@ -292878,68 +292269,6 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
-  {
-    "id": "fragrancehub-larvotto",
-    "brand": "Unbranded",
-    "name": "Penthouse Larvotto by Rue Broca (Afnan)",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Coriander",
-        "Bergamot",
-        "Violet Leaf"
-      ],
-      "middle": [
-        "Rose",
-        "Black Pepper",
-        "Spices"
-      ],
-      "base": [
-        "Vanilla",
-        "Patchouli",
-        "Ambergris"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/penthouse-larvotto-100ml-eau-de-parfum-by-rue-broca-afnan"
-      }
-    }
-  },
-  {
-    "id": "fragrancehub-windsor",
-    "brand": "Unbranded",
-    "name": "Penthouse Windsor by Rue Broca (Afnan)",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Agarwood",
-        "Benzoin",
-        "Rose"
-      ],
-      "middle": [
-        "Saffron",
-        "Amberwood",
-        "Leather"
-      ],
-      "base": [
-        "Incense",
-        "Birch",
-        "Raspberry"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/penthouse-windsor-100ml-eau-de-parfum-by-rue-broca-afnan"
-      }
-    }
   },
   {
     "id": "bm-stores-399694",
@@ -293377,39 +292706,6 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "fragrancehub-rbnero",
-    "brand": "Unbranded",
-    "name": "Royal Blend Nero by French Avenue (Fragrance World)",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Nutmeg",
-        "Date",
-        "Apple"
-      ],
-      "middle": [
-        "Cinnamon",
-        "Saffron",
-        "Dry Wood"
-      ],
-      "base": [
-        "Vanilla",
-        "Benzoin",
-        "Tonka Beans",
-        "Musk"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/royal-blend-nero-100ml-edp-by-french-avenue-fragrance-world"
-      }
-    }
-  },
-  {
     "id": "superdrug-861539",
     "brand": "Unbranded",
     "name": "Sabrina Carpenter Sweet Tooth Sabrina Carpenter Lemon Pie",
@@ -293487,17 +292783,6 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-10145091715414",
-    "brand": "Unbranded",
-    "name": "Sawaar Vanille Blanc by Khadlaj – Luxurious Creamy Vanilla Scent",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10145091715414",
-    "shops": 1,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/11712E7E-5F5F-4D14-B46B-A6482490280F.jpg?v=1769280911&width=3000",
-    "notes": null
-  },
-  {
     "id": "perfumeo-sea-breeze-by-ibrahim-al-qurashi-100ml-eau-de-parfum",
     "brand": "Unbranded",
     "name": "Sea Breeze by Ibrahim Al Qurashi | Perfumeo UK",
@@ -293518,35 +292803,6 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
-  {
-    "id": "fragrancehub-satonka",
-    "brand": "Unbranded",
-    "name": "Shaghaf Oud Tonka by Swiss Arabian",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 75,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Almond"
-      ],
-      "middle": [
-        "Cinnamon Bark",
-        "Tunisian Orange Flower",
-        "Turkish Rose"
-      ],
-      "base": [
-        "Tonka",
-        "Vanilla",
-        "Amberwood"
-      ],
-      "source": {
-        "retailerId": "fragrancehub",
-        "url": "https://fragrancehub.co.uk/products/shaghaf-oud-tonka-eau-de-parfum-by-swiss-arabian-75ml"
-      }
-    }
   },
   {
     "id": "perfumeo-shouq-by-le-falcone-90ml-eau-de-parfum",
@@ -294286,17 +293542,6 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-9952840941910",
-    "brand": "Unbranded",
-    "name": "Zenith Blue By French Avenue",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9952840941910",
-    "shops": 1,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/5B603881-7A45-4F17-B98F-9BBAC5B792AC.webp?v=1762872281&width=3000",
     "notes": null
   },
   {
@@ -295205,10 +294450,7 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
         "url": "https://www.justmylook.com/products/van-cleef-arpels-gardenia-petale-eau-de-parfum-75ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-van0004",
     "brand": "Van Cleef & Arpels",
@@ -296210,7 +295452,10 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416784908425-45147174273161",
     "brand": "Versace",
@@ -301415,7 +300660,7 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
   {
     "id": "fragrancehub-albararicoral",
     "brand": "Zimaya",
-    "name": "Al Barari Coral by Zimaya (Afnan)",
+    "name": "Al Barari Coral",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -301447,7 +300692,7 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
   {
     "id": "fragrancehub-bararishore",
     "brand": "Zimaya",
-    "name": "Al Barari Shore by Zimaya (Afnan)",
+    "name": "Al Barari Shore",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -303010,6 +302255,112 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "ean-6298042000414": [
+    {
+      "retailerId": "beautybase",
+      "price": 30,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/french-avenue-royal-blend-sequoia-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-25T22:20:28.067Z",
+      "firstSeenAt": "2026-08-09T23:29:35.966Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1752057466-36472000.jpg?v=1763398267&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://manchesterouds.com/products/royal-blend-sequoia-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/royal-blend-sequoia-edp-100ml-french-avenue-3674845.webp?v=1786194499&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/royal-blend-sequoia-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Royal-Blend-Sequoia-Perfume-100ml-EDP-French-Avenue-175524225.jpg?v=1755886851",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 31.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://fragrancehub.co.uk/products/royal-blend-sequoia-100ml-extrait-de-parfum-by-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/royal-blend-sequoia-extrait-de-parfum-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-14T133533.648.jpg?v=1756994247",
+      "rating": null
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/french-avenue-royal-blend-sequoia-extrait-de-parfum-100ml",
+      "fetchedAt": "2026-09-03T14:42:18.943Z",
+      "firstSeenAt": "2026-08-09T23:29:35.966Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0014_537eea47-f4c1-43af-940e-3b9b477a225d.png?v=1756720382&width=1000",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 28.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/royal-blend-sequoia-by-french-avenue-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-09-02T04:49:45.398Z",
+      "firstSeenAt": "2026-09-02T04:49:45.398Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/french-avenue-royal-blend-sequoia-extrait-de-parfum-100ml/",
+      "fetchedAt": "2026-08-26T13:18:43.477Z",
+      "firstSeenAt": "2026-08-23T00:55:06.679Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "ean-6290360378053": [
     {
       "retailerId": "beautybase",
@@ -303405,6 +302756,99 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-08T22:27:14.777Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0007_20-_201.png?v=1772395424&width=1000",
+      "rating": null
+    }
+  ],
+  "ean-6290360375601": [
+    {
+      "retailerId": "beautybase",
+      "price": 40,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/french-avenue-royal-blend-nero-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-25T00:53:25.018Z",
+      "firstSeenAt": "2026-08-08T03:23:59.585Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1722329988-34981600.jpg?v=1763395378&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 29.25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44541007990&a=3026001&m=6561",
+      "fetchedAt": "2026-09-08T11:17:31.134Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/190796_ml.jpg",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/royal-blend-nero-100ml-edp-fa-paris-by-fragrance-world",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Royal-Blend-Nero-100ml-EDP-FA-Paris-by-Fragrance-World-153647133.jpg?v=1732636578",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 31.99,
+      "wasPrice": 32.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/royal-blend-nero-100ml-edp-by-french-avenue-fragrance-world",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/royal-blend-nero-extrait-de-parfum-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_d4eecbc7-a4bc-44ce-b369-34b26558f00c.jpg?v=1756994098",
+      "rating": null
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 24.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/french-avenue-royal-blend-nero-extrait-de-parfum-100ml",
+      "fetchedAt": "2026-09-02T09:36:51.703Z",
+      "firstSeenAt": "2026-08-08T22:27:14.777Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0003.png?v=1771605438&width=1000",
+      "rating": null
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://manchesterouds.com/products/royal-blend-nero-edp-100ml",
+      "fetchedAt": "2026-09-08T06:10:00.620Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/royal-blend-nero-edp-100ml-french-avenue-3668924.webp?v=1786194476&width=1920",
       "rating": null
     }
   ],
@@ -304891,6 +304335,492 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/estee-lauder-youth-dew-eau-de-parfum-spray-67ml",
       "fetchedAt": "2026-09-08T18:52:11.659Z",
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "ean-6298042000957": [
+    {
+      "retailerId": "beautybase",
+      "price": 40,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/french-avenue-amber-empire-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-29T18:20:28.757Z",
+      "firstSeenAt": "2026-08-10T19:59:39.471Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1760111858-22519700.jpg?v=1763399310&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://manchesterouds.com/products/amber-empire-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/amber-empire-edp-100ml-french-avenue-1334679.webp?v=1786194491&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 34,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45051220022&a=3026001&m=6561",
+      "fetchedAt": "2026-09-08T11:17:31.134Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/amber-empire-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amber-Empire-Perfume-100ml-EDP-French-Avenue-179400247.png?v=1761064014",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 31.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/french-avenue-amber-empire-eau-de-parfum-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/amber-empire-extrait-de-parfum-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_8.jpg?v=1762770945",
+      "rating": null
+    }
+  ],
+  "ean-6298042001206": [
+    {
+      "retailerId": "beautybase",
+      "price": 40,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/french-avenue-atlantis-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-27T14:14:32.118Z",
+      "firstSeenAt": "2026-08-10T13:03:59.151Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1756288999-17373100.jpg?v=1763398837&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 33.55,
+      "wasPrice": 35,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44977389805&a=3026001&m=6561",
+      "fetchedAt": "2026-09-08T11:17:31.134Z",
+      "firstSeenAt": "2026-08-27T14:05:47.427Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/191855_ml.jpg",
+      "rating": null
+    },
+    {
+      "retailerId": "scentstore",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://www.scentstore.com/product/french-avenue-atlantis-extrait-de-parfum-100ml/",
+      "fetchedAt": "2026-09-08T06:10:00.620Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 34.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://fragrancehub.co.uk/products/atlantis-extrait-de-parfum-by-french-avenue-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 28,
+      "wasPrice": 35,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/atlantis-extrait-de-parfum-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-20T113257.096.jpg?v=1756996552",
+      "rating": null
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://manchesterouds.com/products/atlantis-edp-100ml",
+      "fetchedAt": "2026-09-08T06:10:00.620Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/atlantis-edp-100ml-french-avenue-4440736.webp?v=1786194480&width=1920",
+      "rating": null
+    }
+  ],
+  "ean-6298042001831": [
+    {
+      "retailerId": "beautybase",
+      "price": 56,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/french-avenue-liquid-brun-limited-edition-extrait-de-parfum-150ml-spray",
+      "fetchedAt": "2026-08-30T20:52:12.706Z",
+      "firstSeenAt": "2026-08-10T23:33:23.067Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770296008-01656500.jpg?v=1772624920&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "price": 33.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://manchesterouds.com/products/liquid-brun-limited-edition-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/liquid-brun-limited-edition-edp-100ml-french-avenue-3514887.webp?v=1786194497&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 39.99,
+      "wasPrice": 50,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/liquid-brun-limited-edition-extrait-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Liquid-Brun-Limited-Edition-Extrait-De-Parfum-150ml-French-Avenue-184347653.png?v=1772086432",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 39.95,
+      "wasPrice": 54.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/french-avenue-liquid-brun-limited-edition-extrait-de-parfum-150ml-copy",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.95,
+      "wasPrice": null,
+      "promoEndsAt": "2027-09-08T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/liquid-brun-limited-edition-release-150ml-extrait-de-parfum-by-french-avenue-pre-order",
+      "fetchedAt": "2026-09-08T06:10:00.620Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/5936C7A6-4AE1-419A-AAB6-0B27355C97DA.webp?v=1767552417&width=990",
+      "rating": {
+        "value": 4.14,
+        "count": 7
+      }
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 38.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/liquid-brun-limited-edition-by-french-avenue-150ml-extrait-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "ean-6298042001879": [
+    {
+      "retailerId": "manchester-ouds",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://manchesterouds.com/products/obsidian-edp-100ml",
+      "fetchedAt": "2026-09-08T06:10:00.620Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/obsidian-edp-100ml-french-avenue-8539220.webp?v=1786194483&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": 45,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/obsidian-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Obsidian-Perfume-100ml-EDP-French-Avenue-183496326.webp?v=1768705572",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 34.5,
+      "wasPrice": 44.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/french-avenue-obsidian-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/obsidian-extrait-de-parfum-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_34.jpg?v=1767795639",
+      "rating": null
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-09-08T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/french-avenue-obsidian-100ml-extrait-de-parfum",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/49422BB4-385B-468F-B03F-D551FB4E3179.webp?v=1765931813&width=990",
+      "rating": {
+        "value": 1,
+        "count": 1
+      }
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 28.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/obsidian-by-french-avenue-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-26T13:18:43.477Z",
+      "firstSeenAt": "2026-08-23T00:55:06.679Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "ean-6298042001909": [
+    {
+      "retailerId": "beautybase",
+      "price": 39,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/french-avenue-ravine-ice-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-30T20:52:12.706Z",
+      "firstSeenAt": "2026-08-10T23:33:23.067Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769008239-60047000.jpg?v=1772624921&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://manchesterouds.com/products/ravine-ice-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/ravine-ice-edp-100ml-french-avenue-4712748.webp?v=1786194493&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 34.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/ravine-ice-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ravine-Ice-Perfume-100ml-EDP-French-Avenue-183920848.png?v=1769915105",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 34.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/ravine-ice-100ml-extrait-de-parfum-by-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 39,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/ravine-ice-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_61.jpg?v=1770173088",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 33.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/ravine-ice-by-french-avenue-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T20:36:26.795Z",
+      "firstSeenAt": "2026-08-25T20:36:26.795Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "ean-6298042001893": [
+    {
+      "retailerId": "beautybase",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/french-avenue-ripple-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-09-03T00:32:26.000Z",
+      "firstSeenAt": "2026-08-11T10:57:36.925Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/9632_7a6a269f-8781-4a7e-abe3-831bc6f9c58e.jpg?v=1777997943&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://manchesterouds.com/products/ripple-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/ripple-edp-100ml-french-avenue-3608387.webp?v=1786194503&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/ripple-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ripple-Perfume-100ml-EDP-French-Avenue-184725714.png?v=1771618709",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 33.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://fragrancehub.co.uk/products/ripple-100ml-extrait-de-parfum-by-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/ripple-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_95.jpg?v=1773390740",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 28.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/ripple-by-french-avenue-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-30T16:14:28.073Z",
+      "firstSeenAt": "2026-08-23T14:24:40.961Z",
       "isNew": false,
       "imageUrl": null,
       "rating": null
@@ -309250,73 +309180,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-6298042001206": [
-    {
-      "retailerId": "beautybase",
-      "price": 40,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/french-avenue-atlantis-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-27T14:14:32.118Z",
-      "firstSeenAt": "2026-08-10T13:03:59.151Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1756288999-17373100.jpg?v=1763398837&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 33.55,
-      "wasPrice": 35,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44977389805&a=3026001&m=6561",
-      "fetchedAt": "2026-09-08T11:17:31.134Z",
-      "firstSeenAt": "2026-08-27T14:05:47.427Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/191855_ml.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "scentstore",
-      "price": 45,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "outOfStock",
-      "url": "https://www.scentstore.com/product/french-avenue-atlantis-extrait-de-parfum-100ml/",
-      "fetchedAt": "2026-09-08T06:10:00.620Z",
-      "firstSeenAt": "2026-08-12T12:55:07.912Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    },
-    {
-      "retailerId": "fragrancehub",
-      "price": 34.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://fragrancehub.co.uk/products/atlantis-extrait-de-parfum-by-french-avenue-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    },
-    {
-      "retailerId": "french-avenue",
-      "price": 28,
-      "wasPrice": 35,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/atlantis-extrait-de-parfum-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-20T113257.096.jpg?v=1756996552",
-      "rating": null
-    }
-  ],
   "ean-6290360378091": [
     {
       "retailerId": "perfume-click",
@@ -309382,76 +309245,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "isNew": false,
       "imageUrl": null,
       "rating": null
-    }
-  ],
-  "ean-6298042001831": [
-    {
-      "retailerId": "beautybase",
-      "price": 56,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/french-avenue-liquid-brun-limited-edition-extrait-de-parfum-150ml-spray",
-      "fetchedAt": "2026-08-30T20:52:12.706Z",
-      "firstSeenAt": "2026-08-10T23:33:23.067Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770296008-01656500.jpg?v=1772624920&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "manchester-ouds",
-      "price": 33.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://manchesterouds.com/products/liquid-brun-limited-edition-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/liquid-brun-limited-edition-edp-100ml-french-avenue-3514887.webp?v=1786194497&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": 50,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/liquid-brun-limited-edition-extrait-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Liquid-Brun-Limited-Edition-Extrait-De-Parfum-150ml-French-Avenue-184347653.png?v=1772086432",
-      "rating": null
-    },
-    {
-      "retailerId": "fragrancehub",
-      "price": 39.95,
-      "wasPrice": 54.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/french-avenue-liquid-brun-limited-edition-extrait-de-parfum-150ml-copy",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    },
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.95,
-      "wasPrice": null,
-      "promoEndsAt": "2027-09-08T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/liquid-brun-limited-edition-release-150ml-extrait-de-parfum-by-french-avenue-pre-order",
-      "fetchedAt": "2026-09-08T06:10:00.620Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/5936C7A6-4AE1-419A-AAB6-0B27355C97DA.webp?v=1767552417&width=990",
-      "rating": {
-        "value": 4.14,
-        "count": 7
-      }
     }
   ],
   "ean-6290360376714": [
@@ -309655,31 +309448,18 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-6298042001909": [
+  "ean-6298042001923": [
     {
       "retailerId": "beautybase",
       "price": 39,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/french-avenue-ravine-ice-eau-de-parfum-100ml-spray",
+      "url": "https://www.beautybase.com/products/french-avenue-ravine-ginger-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-30T20:52:12.706Z",
       "firstSeenAt": "2026-08-10T23:33:23.067Z",
       "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769008239-60047000.jpg?v=1772624921&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "manchester-ouds",
-      "price": 23.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://manchesterouds.com/products/ravine-ice-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/ravine-ice-edp-100ml-french-avenue-4712748.webp?v=1786194493&width=1920",
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769008168-09335200.jpg?v=1772624921&width=1920",
       "rating": null
     },
     {
@@ -309688,74 +309468,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/ravine-ice-french-avenue",
+      "url": "https://emiratesoud.co.uk/products/ravine-ginger-french-avenue",
       "fetchedAt": "2026-09-08T18:52:11.659Z",
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ravine-Ice-Perfume-100ml-EDP-French-Avenue-183920848.png?v=1769915105",
-      "rating": null
-    },
-    {
-      "retailerId": "french-avenue",
-      "price": 39,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/ravine-ice-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_61.jpg?v=1770173088",
-      "rating": null
-    },
-    {
-      "retailerId": "perfumeo",
-      "price": 33.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "outOfStock",
-      "url": "https://perfumeo.co.uk/products/ravine-ice-by-french-avenue-100ml-eau-de-parfum/",
-      "fetchedAt": "2026-08-25T20:36:26.795Z",
-      "firstSeenAt": "2026-08-25T20:36:26.795Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "ean-6298042000414": [
-    {
-      "retailerId": "beautybase",
-      "price": 30,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/french-avenue-royal-blend-sequoia-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-25T22:20:28.067Z",
-      "firstSeenAt": "2026-08-09T23:29:35.966Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1752057466-36472000.jpg?v=1763398267&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "manchester-ouds",
-      "price": 22.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://manchesterouds.com/products/royal-blend-sequoia-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/royal-blend-sequoia-edp-100ml-french-avenue-3674845.webp?v=1786194499&width=1920",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ravine-Ginger-Perfume-100ml-EDP-French-Avenue-183920914.png?v=1769915139",
       "rating": null
     },
     {
       "retailerId": "fragrancehub",
-      "price": 31.99,
+      "price": 34.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://fragrancehub.co.uk/products/royal-blend-sequoia-100ml-extrait-de-parfum-by-french-avenue",
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/french-avenue-ravine-ginger-eau-de-parfum-100ml-copy",
       "fetchedAt": "2026-09-08T18:52:11.659Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
@@ -309764,28 +309490,28 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     },
     {
       "retailerId": "french-avenue",
-      "price": 35,
+      "price": 39,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/royal-blend-sequoia-extrait-de-parfum-100ml",
+      "url": "https://uk.shopfrenchavenue.com/products/ravine-ginger-edp-100ml",
       "fetchedAt": "2026-09-08T18:52:11.659Z",
       "firstSeenAt": "2026-08-20T07:33:23.642Z",
       "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-14T133533.648.jpg?v=1756994247",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_62.jpg?v=1770173572",
       "rating": null
     },
     {
-      "retailerId": "justmylook",
-      "price": 29.99,
+      "retailerId": "manchester-ouds",
+      "price": 23.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/french-avenue-royal-blend-sequoia-extrait-de-parfum-100ml",
-      "fetchedAt": "2026-09-03T14:42:18.943Z",
-      "firstSeenAt": "2026-08-09T23:29:35.966Z",
+      "stock": "outOfStock",
+      "url": "https://manchesterouds.com/products/ravine-ginger-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
       "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0014_537eea47-f4c1-43af-940e-3b9b477a225d.png?v=1756720382&width=1000",
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/ravine-ginger-edp-100ml-french-avenue-9976677.webp?v=1786194495&width=1920",
       "rating": null
     }
   ],
@@ -309851,6 +309577,143 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/french-avenue-sweet-paradise-eau-de-parfum-100ml",
       "fetchedAt": "2026-09-08T18:52:11.659Z",
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15497317974365-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/zenith-blue-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Zenith-Blue-Perfume-100ml-EDP-French-Avenue-175521777.jpg?v=1755886525",
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/zenith-blue-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-14T140231.638.jpg?v=1756977835",
+      "rating": null
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "price": 24.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://manchesterouds.com/products/zenith-blue-edp-100ml",
+      "fetchedAt": "2026-09-08T06:10:00.620Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/zenith-blue-edp-100ml-french-avenue-6265358.webp?v=1786194475&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 36.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-09-08T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/zenith-blue-by-french-avenue-100ml-eau-de-parfum",
+      "fetchedAt": "2026-09-08T06:10:00.620Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/5B603881-7A45-4F17-B98F-9BBAC5B792AC.webp?v=1762872281&width=990",
+      "rating": {
+        "value": 0,
+        "count": 0
+      }
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/zenith-blue-by-french-avenue-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-31T20:52:52.068Z",
+      "firstSeenAt": "2026-08-23T14:24:40.961Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-15831431610717-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/zenith-santal-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Zenith-Santal-Perfume-100ml-EDP-French-Avenue-181629866.jpg?v=1766092791",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 31.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/zenith-santal-100ml-extrait-de-parfum-by-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/zenith-santal-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_31.jpg?v=1767796332",
+      "rating": null
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "price": 24.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://manchesterouds.com/products/zenith-santal-edp-100ml",
+      "fetchedAt": "2026-09-08T06:10:00.620Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/zenith-santal-edp-100ml-french-avenue-6209497.webp?v=1786194468&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 28.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/zenith-santal-by-french-avenue-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-30T16:14:28.073Z",
+      "firstSeenAt": "2026-08-23T14:24:40.961Z",
       "isNew": false,
       "imageUrl": null,
       "rating": null
@@ -314887,6 +314750,73 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "ean-6295124045578": [
+    {
+      "retailerId": "perfume-click",
+      "price": 40.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=42745841320&a=3026001&m=6561",
+      "fetchedAt": "2026-09-08T11:17:31.134Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/185325_ml.jpg",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 39.99,
+      "wasPrice": 55,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/shaghaf-oud-tonka-perfume-75ml-edp-swiss-arabian",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Shaghaf-Oud-Tonka-Perfume-75ml-EDP-Swiss-Arabian-173900630.jpg?v=1752375908",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 42.99,
+      "wasPrice": 59.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://fragrancehub.co.uk/products/shaghaf-oud-tonka-eau-de-parfum-by-swiss-arabian-75ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 42.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/swiss-arabian-shaghaf-oud-tonka-eau-de-parfum-75ml",
+      "fetchedAt": "2026-08-28T15:20:45.989Z",
+      "firstSeenAt": "2026-08-08T01:25:07.447Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/SHAG0005.jpg?v=1733506992&width=1000",
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 43.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661689060&a=3026001&m=106925",
+      "fetchedAt": "2026-09-08T18:50:25.226Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Oh_nFcLZL.jpg?v=1767985737",
+      "rating": null
+    }
+  ],
   "ean-6295124047817": [
     {
       "retailerId": "perfume-click",
@@ -317481,6 +317411,60 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "emirates-oud-15993097912669-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/kaaf-noir-perfume-100ml-ahmed-al-maghribi",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Kaaf-Noir-Perfume-100ml-Extrait-De-Parfum-Ahmed-Al-Maghribi-185375419.png?v=1773313635",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 29.99,
+      "wasPrice": 34.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://fragrancehub.co.uk/products/kaaf-noir-100ml-extrait-de-parfum-by-ahmed-al-maghribi",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 35.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686066&a=3026001&m=106925",
+      "fetchedAt": "2026-09-08T18:50:25.226Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41izYe9lWZL.jpg?v=1767980782",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 25.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/ahmed-al-maghribi-kaaf-noir-extrait-de-parfum-100ml/",
+      "fetchedAt": "2026-08-28T00:27:15.059Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "ean-6290360610122": [
     {
       "retailerId": "beautybase",
@@ -318507,6 +318491,60 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "ean-6294015180251": [
+    {
+      "retailerId": "perfume-click",
+      "price": 49.85,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=39328866830&a=3026001&m=6561",
+      "fetchedAt": "2026-09-08T11:17:31.134Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/174828_ml.jpg",
+      "rating": null
+    },
+    {
+      "retailerId": "armaf",
+      "price": 79.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://armaf.uk/products/club-de-nuit-oud-eau-de-parfum-105ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-19T14:29:34.313Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_31acf655-7ffa-49e4-bea3-415c72bae23c.png?v=1773826599",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 44.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/club-de-nuit-oud-armaf",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Club-De-Nuit-Oud-Perfume-105ml-EDP-Armaf-182864190.png?v=1768259809",
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 56.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174943139&a=3026001&m=106925",
+      "fetchedAt": "2026-09-08T18:50:25.226Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10049431.jpg?v=1763146418",
+      "rating": null
+    }
+  ],
   "ean-6294015169928": [
     {
       "retailerId": "beautybase",
@@ -318720,6 +318758,60 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Island-Breeze-Perfume-100ml-EDP-Armaf-177423560.jpg?v=1758906579",
+      "rating": null
+    }
+  ],
+  "ean-6085010041773": [
+    {
+      "retailerId": "perfume-click",
+      "price": 23.65,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=40387719601&a=3026001&m=6561",
+      "fetchedAt": "2026-09-08T11:17:31.134Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/108724_ml.jpg",
+      "rating": null
+    },
+    {
+      "retailerId": "armaf",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://armaf.uk/products/oud-niche-eau-de-toilette-90ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-19T14:29:34.313Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-product2.png?v=1769431205",
+      "rating": null
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 20.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/armaf-oud-niche-eau-de-parfum-90ml",
+      "fetchedAt": "2026-09-04T09:54:36.159Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARM0034.png?v=1758900964&width=1000",
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942374&a=3026001&m=106925",
+      "fetchedAt": "2026-09-08T18:50:25.226Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61A-7DbplfS.jpg?v=1763144942",
       "rating": null
     }
   ],
@@ -323688,60 +323780,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-6298042000957": [
-    {
-      "retailerId": "beautybase",
-      "price": 40,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/french-avenue-amber-empire-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-29T18:20:28.757Z",
-      "firstSeenAt": "2026-08-10T19:59:39.471Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1760111858-22519700.jpg?v=1763399310&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "manchester-ouds",
-      "price": 26.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://manchesterouds.com/products/amber-empire-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/amber-empire-edp-100ml-french-avenue-1334679.webp?v=1786194491&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 34,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45051220022&a=3026001&m=6561",
-      "fetchedAt": "2026-09-08T11:17:31.134Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
-      "rating": null
-    },
-    {
-      "retailerId": "french-avenue",
-      "price": 45,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/amber-empire-extrait-de-parfum-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_8.jpg?v=1762770945",
-      "rating": null
-    }
-  ],
   "emirates-oud-15082127917405-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -324012,6 +324050,60 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "ean-6298042001749": [
+    {
+      "retailerId": "beautybase",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/french-avenue-jasmere-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-09-03T00:32:26.000Z",
+      "firstSeenAt": "2026-08-11T10:57:36.925Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/147_5602c966-3e5c-46f1-b4fc-f49615cd9469.jpg?v=1778057653&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 34.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/jasmere-perfume-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Jasmere-Perfume-100ml-EDP-French-Avenue-194136558.png?v=1782929041",
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 30,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/jasmere-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Jasmere_EDP_100ml.jpg?v=1781590873",
+      "rating": null
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "price": 27.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://manchesterouds.com/products/jasmere-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/jasmere-edp-100ml-french-avenue-2905067.webp?v=1786194505&width=1920",
+      "rating": null
+    }
+  ],
   "french-avenue-16454": [
     {
       "retailerId": "french-avenue",
@@ -324066,57 +324158,57 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-6298042001923": [
+  "ean-6290360379340": [
     {
-      "retailerId": "beautybase",
-      "price": 39,
+      "retailerId": "perfume-click",
+      "price": 46.1,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/french-avenue-ravine-ginger-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-30T20:52:12.706Z",
-      "firstSeenAt": "2026-08-10T23:33:23.067Z",
+      "url": "https://www.awin1.com/pclick.php?p=43494864249&a=3026001&m=6561",
+      "fetchedAt": "2026-09-08T11:17:31.134Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769008168-09335200.jpg?v=1772624921&width=1920",
+      "imageUrl": "https://bgstatic.net/photos/186694_ml.jpg",
       "rating": null
     },
     {
       "retailerId": "emirates-oud",
-      "price": 34.99,
+      "price": 39.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/ravine-ginger-french-avenue",
+      "url": "https://emiratesoud.co.uk/products/opus-magnum-perfume-by-french-avenue-by-fragrance-world",
       "fetchedAt": "2026-09-08T18:52:11.659Z",
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ravine-Ginger-Perfume-100ml-EDP-French-Avenue-183920914.png?v=1769915139",
-      "rating": null
-    },
-    {
-      "retailerId": "fragrancehub",
-      "price": 34.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/french-avenue-ravine-ginger-eau-de-parfum-100ml-copy",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opus-Magnum-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-163825257.jpg?v=1740775345",
       "rating": null
     },
     {
       "retailerId": "french-avenue",
-      "price": 39,
+      "price": 40,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/ravine-ginger-edp-100ml",
+      "url": "https://uk.shopfrenchavenue.com/products/opus-magnum-extrait-de-parfum-100ml",
       "fetchedAt": "2026-09-08T18:52:11.659Z",
       "firstSeenAt": "2026-08-20T07:33:23.642Z",
       "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_62.jpg?v=1770173572",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_5f3f3eb1-2a6e-4da6-838e-15cfb04aa734.jpg?v=1756990057",
+      "rating": null
+    },
+    {
+      "retailerId": "the-beauty-store-uk",
+      "price": 41.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://thebeautystore.com/products/french-avenue-opus-magnum-eau-de-parfum-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -324228,57 +324320,111 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-6290360375601": [
+  "ean-6298042002364": [
     {
       "retailerId": "beautybase",
       "price": 40,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/french-avenue-royal-blend-nero-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-25T00:53:25.018Z",
-      "firstSeenAt": "2026-08-08T03:23:59.585Z",
+      "url": "https://www.beautybase.com/products/french-avenue-spirito-ignite-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-09-05T23:09:22.805Z",
+      "firstSeenAt": "2026-08-11T20:34:55.929Z",
       "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1722329988-34981600.jpg?v=1763395378&width=1920",
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Ignite.jpg?v=1782399672&width=1920",
       "rating": null
     },
     {
-      "retailerId": "perfume-click",
-      "price": 29.25,
+      "retailerId": "emirates-oud",
+      "price": 39.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44541007990&a=3026001&m=6561",
-      "fetchedAt": "2026-09-08T11:17:31.134Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "url": "https://emiratesoud.co.uk/products/spirito-ignite-perfume-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/190796_ml.jpg",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spirito-Ignite-100ml-Extrait-De-Parfum-French-Avenue-194135816.jpg?v=1782928957",
       "rating": null
     },
     {
       "retailerId": "french-avenue",
-      "price": 35,
+      "price": 40,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/royal-blend-nero-extrait-de-parfum-100ml",
+      "stock": "outOfStock",
+      "url": "https://uk.shopfrenchavenue.com/products/spirito-ignite-edp-100ml",
       "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
       "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_d4eecbc7-a4bc-44ce-b369-34b26558f00c.jpg?v=1756994098",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Spirito_Ignite_EDP_100ml.jpg?v=1787553927",
       "rating": null
     },
     {
-      "retailerId": "justmylook",
-      "price": 24.95,
+      "retailerId": "perfumeo",
+      "price": 38.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/spirito-ignite-by-french-avenue-100ml-extrait-de-parfum/",
+      "fetchedAt": "2026-08-30T16:14:28.073Z",
+      "firstSeenAt": "2026-08-23T14:24:40.961Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "ean-6298042002357": [
+    {
+      "retailerId": "beautybase",
+      "price": 40,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.justmylook.com/products/french-avenue-royal-blend-nero-extrait-de-parfum-100ml",
-      "fetchedAt": "2026-09-02T09:36:51.703Z",
-      "firstSeenAt": "2026-08-08T22:27:14.777Z",
+      "url": "https://www.beautybase.com/products/french-avenue-spirito-mystic-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-09-05T23:09:22.805Z",
+      "firstSeenAt": "2026-08-11T20:34:55.929Z",
       "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0003.png?v=1771605438&width=1000",
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Spirito1.jpg?v=1782399206&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/spirito-mystic-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spirito-Mystic-100ml-Extrait-De-Parfum-French-Avenue-194136213.jpg?v=1782928985",
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 40,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/spirito-mystic-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Spirito_Mystic_EDP_100ml.jpg?v=1787553823",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 38.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/spirito-mystic-by-french-avenue-100ml-extrait-de-parfum/",
+      "fetchedAt": "2026-08-30T16:14:28.073Z",
+      "firstSeenAt": "2026-08-23T14:24:40.961Z",
+      "isNew": false,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -324606,60 +324752,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15497317974365-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/zenith-blue-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Zenith-Blue-Perfume-100ml-EDP-French-Avenue-175521777.jpg?v=1755886525",
-      "rating": null
-    },
-    {
-      "retailerId": "french-avenue",
-      "price": 35,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/zenith-blue-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-14T140231.638.jpg?v=1756977835",
-      "rating": null
-    },
-    {
-      "retailerId": "manchester-ouds",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://manchesterouds.com/products/zenith-blue-edp-100ml",
-      "fetchedAt": "2026-09-08T06:10:00.620Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/zenith-blue-edp-100ml-french-avenue-6265358.webp?v=1786194475&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "perfumeo",
-      "price": 23.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://perfumeo.co.uk/products/zenith-blue-by-french-avenue-100ml-eau-de-parfum/",
-      "fetchedAt": "2026-08-31T20:52:52.068Z",
-      "firstSeenAt": "2026-08-23T14:24:40.961Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
   "emirates-oud-15831431840093-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -324707,60 +324799,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/zenith-deep-by-french-avenue-100ml-eau-de-parfum/",
-      "fetchedAt": "2026-08-30T16:14:28.073Z",
-      "firstSeenAt": "2026-08-23T14:24:40.961Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "emirates-oud-15831431610717-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/zenith-santal-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Zenith-Santal-Perfume-100ml-EDP-French-Avenue-181629866.jpg?v=1766092791",
-      "rating": null
-    },
-    {
-      "retailerId": "french-avenue",
-      "price": 35,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/zenith-santal-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_31.jpg?v=1767796332",
-      "rating": null
-    },
-    {
-      "retailerId": "manchester-ouds",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://manchesterouds.com/products/zenith-santal-edp-100ml",
-      "fetchedAt": "2026-09-08T06:10:00.620Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/zenith-santal-edp-100ml-french-avenue-6209497.webp?v=1786194468&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "perfumeo",
-      "price": 28.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://perfumeo.co.uk/products/zenith-santal-by-french-avenue-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-30T16:14:28.073Z",
       "firstSeenAt": "2026-08-23T14:24:40.961Z",
       "isNew": false,
@@ -327951,6 +327989,60 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-09T03:40:47.179Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/KHAD0001_6578243c-d3c6-495c-9696-a4351a6d2e14.png?v=1771605439&width=1000",
+      "rating": null
+    }
+  ],
+  "ean-6291107979748": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/khadlaj-island-vanilla-dunes-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-25T16:29:03.350Z",
+      "firstSeenAt": "2026-08-09T03:40:47.179Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1745405118-62026400.jpg?v=1763397787&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 27.99,
+      "wasPrice": 35,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/island-vanilla-dunes-khadlaj",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Island-Vanilla-Dunes-Extrait-De-Parfum-100ml-By-Khadlaj-174003161.jpg?v=1752686802",
+      "rating": null
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 24.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/khadlaj-island-vanilla-dunes-extrait-de-parfum-100ml",
+      "fetchedAt": "2026-09-02T09:36:51.703Z",
+      "firstSeenAt": "2026-08-09T03:40:47.179Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/KHAD0002_ceb48e4c-84b8-4b90-99f7-37809a3ed502.png?v=1773420938&width=1000",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/khadlaj-island-vanilla-dunes-extrait-de-parfum-100ml/",
+      "fetchedAt": "2026-08-27T14:14:32.118Z",
+      "firstSeenAt": "2026-08-27T14:14:32.118Z",
+      "isNew": false,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -335385,60 +335477,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-6295124045578": [
-    {
-      "retailerId": "perfume-click",
-      "price": 40.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=42745841320&a=3026001&m=6561",
-      "fetchedAt": "2026-09-08T11:17:31.134Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/185325_ml.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": 55,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/shaghaf-oud-tonka-perfume-75ml-edp-swiss-arabian",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Shaghaf-Oud-Tonka-Perfume-75ml-EDP-Swiss-Arabian-173900630.jpg?v=1752375908",
-      "rating": null
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 42.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/swiss-arabian-shaghaf-oud-tonka-eau-de-parfum-75ml",
-      "fetchedAt": "2026-08-28T15:20:45.989Z",
-      "firstSeenAt": "2026-08-08T01:25:07.447Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/SHAG0005.jpg?v=1733506992&width=1000",
-      "rating": null
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 43.49,
-      "wasPrice": 96.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661689060&a=3026001&m=106925",
-      "fetchedAt": "2026-09-08T18:50:25.226Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Oh_nFcLZL.jpg?v=1767985737",
-      "rating": null
-    }
-  ],
   "ean-6295124048494": [
     {
       "retailerId": "beautybase",
@@ -338731,47 +338769,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15993097912669-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/kaaf-noir-perfume-100ml-ahmed-al-maghribi",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Kaaf-Noir-Perfume-100ml-Extrait-De-Parfum-Ahmed-Al-Maghribi-185375419.png?v=1773313635",
-      "rating": null
-    },
-    {
-      "retailerId": "fragrancehub",
-      "price": 29.99,
-      "wasPrice": 34.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://fragrancehub.co.uk/products/kaaf-noir-100ml-extrait-de-parfum-by-ahmed-al-maghribi",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 35.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686066&a=3026001&m=106925",
-      "fetchedAt": "2026-09-08T18:50:25.226Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41izYe9lWZL.jpg?v=1767980782",
-      "rating": null
-    }
-  ],
   "ean-6290360617442": [
     {
       "retailerId": "beautybase",
@@ -340617,47 +340614,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-6294015180251": [
-    {
-      "retailerId": "perfume-click",
-      "price": 49.85,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=39328866830&a=3026001&m=6561",
-      "fetchedAt": "2026-09-08T11:17:31.134Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/174828_ml.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "armaf",
-      "price": 79.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://armaf.uk/products/club-de-nuit-oud-eau-de-parfum-105ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-19T14:29:34.313Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_31acf655-7ffa-49e4-bea3-415c72bae23c.png?v=1773826599",
-      "rating": null
-    },
-    {
-      "retailerId": "emirates-oud",
-      "price": 44.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/club-de-nuit-oud-armaf",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Club-De-Nuit-Oud-Perfume-105ml-EDP-Armaf-182864190.png?v=1768259809",
-      "rating": null
-    }
-  ],
   "ean-6294015181944": [
     {
       "retailerId": "perfume-click",
@@ -341273,47 +341229,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-6085010041773": [
-    {
-      "retailerId": "perfume-click",
-      "price": 23.65,
-      "wasPrice": 55,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=40387719601&a=3026001&m=6561",
-      "fetchedAt": "2026-09-08T11:17:31.134Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/108724_ml.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 20.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/armaf-oud-niche-eau-de-parfum-90ml",
-      "fetchedAt": "2026-09-04T09:54:36.159Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARM0034.png?v=1758900964&width=1000",
-      "rating": null
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 26.99,
-      "wasPrice": 42,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942374&a=3026001&m=106925",
-      "fetchedAt": "2026-09-08T18:50:25.226Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61A-7DbplfS.jpg?v=1763144942",
-      "rating": null
-    }
-  ],
   "ean-6294015189612": [
     {
       "retailerId": "perfume-click",
@@ -341806,6 +341721,129 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "ean-6294015164992": [
+    {
+      "retailerId": "perfume-click",
+      "price": 62.05,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=42437172487&a=3026001&m=6561",
+      "fetchedAt": "2026-09-08T11:17:31.134Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/186714_ml.jpg",
+      "rating": null
+    },
+    {
+      "retailerId": "armaf",
+      "price": 110,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://armaf.uk/products/private-key-to-my-dreams-eau-de-parfum-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-19T14:29:34.313Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-product_201_4.jpg?v=1769204482",
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 63.99,
+      "wasPrice": 98.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686219&a=3026001&m=106925",
+      "fetchedAt": "2026-09-08T18:50:25.226Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51t34xPNZxL.jpg?v=1767981037",
+      "rating": null
+    }
+  ],
+  "ean-6294015165012": [
+    {
+      "retailerId": "perfume-click",
+      "price": 56,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=42437172488&a=3026001&m=6561",
+      "fetchedAt": "2026-09-08T11:17:31.134Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/186283_ml.jpg",
+      "rating": null
+    },
+    {
+      "retailerId": "armaf",
+      "price": 110,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://armaf.uk/products/private-key-to-my-life-eau-de-parfum-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-19T14:29:34.313Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-product_203.jpg?v=1769204482",
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 63.99,
+      "wasPrice": 98.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686217&a=3026001&m=106925",
+      "fetchedAt": "2026-09-08T18:50:25.226Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/517czXoshGL.jpg?v=1767981036",
+      "rating": null
+    }
+  ],
+  "ean-6294015165029": [
+    {
+      "retailerId": "perfume-click",
+      "price": 62.05,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=42437172489&a=3026001&m=6561",
+      "fetchedAt": "2026-09-08T11:17:31.134Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "rating": null
+    },
+    {
+      "retailerId": "armaf",
+      "price": 110,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://armaf.uk/products/private-key-to-my-love-eau-de-parfum-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-19T14:29:34.313Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-product_204.jpg?v=1769204483",
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 62.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686220&a=3026001&m=106925",
+      "fetchedAt": "2026-09-08T18:50:25.226Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61YqLwuNmeL.jpg?v=1767981039",
+      "rating": null
+    }
+  ],
   "ean-6294015175943": [
     {
       "retailerId": "perfume-click",
@@ -341844,6 +341882,47 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51y6TPp1w4L.jpg?v=1767981042",
+      "rating": null
+    }
+  ],
+  "ean-6294015165005": [
+    {
+      "retailerId": "perfume-click",
+      "price": 62.05,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=42437172491&a=3026001&m=6561",
+      "fetchedAt": "2026-09-08T11:17:31.134Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "rating": null
+    },
+    {
+      "retailerId": "armaf",
+      "price": 110,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://armaf.uk/products/private-key-to-my-success-eau-de-parfum-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-19T14:29:34.313Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-product_202.jpg?v=1769204484",
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 62.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686223&a=3026001&m=106925",
+      "fetchedAt": "2026-09-08T18:50:25.226Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Pc2y_G1iL.jpg?v=1767981043",
       "rating": null
     }
   ],
@@ -352316,6 +352395,47 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "ean-5060103310036": [
+    {
+      "retailerId": "perfume-click",
+      "price": 121.45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45669372557&a=3026001&m=6561",
+      "fetchedAt": "2026-09-08T11:17:31.134Z",
+      "firstSeenAt": "2026-08-19T00:53:51.281Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/67617_ml.jpg",
+      "rating": null
+    },
+    {
+      "retailerId": "escentric-molecules",
+      "price": 200,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-02-extrait-de-parfum",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0855/9220/files/E02_EDP_100ml_Bottle.jpg?v=1750843750",
+      "rating": null
+    },
+    {
+      "retailerId": "escentric-molecules",
+      "price": 130,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-02-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0855/9220/files/E02_100ml_Solo_St_On_Bottle.jpg?v=1739881566",
+      "rating": null
+    }
+  ],
   "ean-5060103310029": [
     {
       "retailerId": "perfume-click",
@@ -353924,6 +354044,47 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "ean-6298042001947": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/french-avenue-8th-wonder-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-30T20:52:12.706Z",
+      "firstSeenAt": "2026-08-10T23:33:23.067Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769008011-62310100.jpg?v=1772624919&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/8th-wonder-100ml-extrait-de-parfum-by-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 32,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/8th-wonder-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_44.jpg?v=1770173246",
+      "rating": null
+    }
+  ],
   "ean-6290360376608": [
     {
       "retailerId": "beautybase",
@@ -354211,7 +354372,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "french-avenue-12778": [
+  "emirates-oud-9032467775837-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/divin-aoud-perfume-100ml-fa-paris-by-fragrance-world",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Divin-Aoud-Perfume-100ml-French-Avenue-by-Fragrance-World-180427434.png?v=1763359010",
+      "rating": null
+    },
     {
       "retailerId": "french-avenue",
       "price": 25,
@@ -354236,19 +354410,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
       "isNew": false,
       "imageUrl": null,
-      "rating": null
-    },
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/divin-aoud-perfume-100ml-fa-paris-by-fragrance-world",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Divin-Aoud-Perfume-100ml-French-Avenue-by-Fragrance-World-180427434.png?v=1763359010",
       "rating": null
     }
   ],
@@ -354457,47 +354618,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-16155772879197-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 34.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/jasmere-perfume-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Jasmere-Perfume-100ml-EDP-French-Avenue-194136558.png?v=1782929041",
-      "rating": null
-    },
-    {
-      "retailerId": "french-avenue",
-      "price": 30,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/jasmere-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Jasmere_EDP_100ml.jpg?v=1781590873",
-      "rating": null
-    },
-    {
-      "retailerId": "manchester-ouds",
-      "price": 27.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://manchesterouds.com/products/jasmere-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/jasmere-edp-100ml-french-avenue-2905067.webp?v=1786194505&width=1920",
-      "rating": null
-    }
-  ],
   "emirates-oud-9416597340509-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -354621,6 +354741,47 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "emirates-oud-15765625045341-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 34.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/marmara-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Marmara-Perfume-100ml-French-Avenue-183488168.jpg?v=1768625759",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://fragrancehub.co.uk/products/marmara-100ml-extrait-de-parfum-by-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/marmara-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_39.jpg?v=1770172447",
+      "rating": null
+    }
+  ],
   "emirates-oud-15765621768541-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -354703,27 +354864,27 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15765631467869-default-title": [
+  "emirates-oud-15765627535709-default-title": [
     {
       "retailerId": "emirates-oud",
       "price": 29.99,
-      "wasPrice": 45,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/obsidian-french-avenue",
+      "url": "https://emiratesoud.co.uk/products/nomad-perfume-100ml-french-avenue",
       "fetchedAt": "2026-09-08T18:52:11.659Z",
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Obsidian-Perfume-100ml-EDP-French-Avenue-183496326.webp?v=1768705572",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nomad-Perfume-100ml-French-Avenue-183489776.jpg?v=1768626619",
       "rating": null
     },
     {
       "retailerId": "fragrancehub",
-      "price": 34.5,
-      "wasPrice": 44.99,
+      "price": 39.99,
+      "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/french-avenue-obsidian-edp-100ml",
+      "stock": "outOfStock",
+      "url": "https://fragrancehub.co.uk/products/nomad-100ml-extrait-de-parfum-by-french-avenue",
       "fetchedAt": "2026-09-08T18:52:11.659Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
@@ -354731,101 +354892,16 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     },
     {
-      "retailerId": "perfumeo",
-      "price": 28.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "outOfStock",
-      "url": "https://perfumeo.co.uk/products/obsidian-by-french-avenue-100ml-eau-de-parfum/",
-      "fetchedAt": "2026-08-26T13:18:43.477Z",
-      "firstSeenAt": "2026-08-23T00:55:06.679Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "ean-6298042001879": [
-    {
-      "retailerId": "manchester-ouds",
-      "price": 23.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://manchesterouds.com/products/obsidian-edp-100ml",
-      "fetchedAt": "2026-09-08T06:10:00.620Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/obsidian-edp-100ml-french-avenue-8539220.webp?v=1786194483&width=1920",
-      "rating": null
-    },
-    {
       "retailerId": "french-avenue",
-      "price": 45,
+      "price": 30,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/obsidian-extrait-de-parfum-100ml",
+      "url": "https://uk.shopfrenchavenue.com/products/nomad-edp-100ml",
       "fetchedAt": "2026-09-08T18:52:11.659Z",
       "firstSeenAt": "2026-08-20T07:33:23.642Z",
       "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_34.jpg?v=1767795639",
-      "rating": null
-    },
-    {
-      "retailerId": "oud-arabian",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-09-08T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/french-avenue-obsidian-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/49422BB4-385B-468F-B03F-D551FB4E3179.webp?v=1765931813&width=990",
-      "rating": {
-        "value": 1,
-        "count": 1
-      }
-    }
-  ],
-  "ean-6290360379340": [
-    {
-      "retailerId": "perfume-click",
-      "price": 46.1,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43494864249&a=3026001&m=6561",
-      "fetchedAt": "2026-09-08T11:17:31.134Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/186694_ml.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": 50,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/opus-magnum-perfume-by-french-avenue-by-fragrance-world",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opus-Magnum-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-163825257.jpg?v=1740775345",
-      "rating": null
-    },
-    {
-      "retailerId": "the-beauty-store-uk",
-      "price": 41.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://thebeautystore.com/products/french-avenue-opus-magnum-eau-de-parfum-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-19T18:31:44.382Z",
-      "isNew": false,
-      "imageUrl": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_45_cfbcb299-4c4d-453b-8559-3acbdd58358d.jpg?v=1770174043",
       "rating": null
     }
   ],
@@ -354863,88 +354939,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/paradigm-by-french-avenue-80ml-extrait-de-parfum/",
-      "fetchedAt": "2026-08-30T16:14:28.073Z",
-      "firstSeenAt": "2026-08-23T14:24:40.961Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "ean-6298042001893": [
-    {
-      "retailerId": "beautybase",
-      "price": 45,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/french-avenue-ripple-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-09-03T00:32:26.000Z",
-      "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/9632_7a6a269f-8781-4a7e-abe3-831bc6f9c58e.jpg?v=1777997943&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "manchester-ouds",
-      "price": 22.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://manchesterouds.com/products/ripple-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/ripple-edp-100ml-french-avenue-3608387.webp?v=1786194503&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "fragrancehub",
-      "price": 33.99,
-      "wasPrice": 39.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://fragrancehub.co.uk/products/ripple-100ml-extrait-de-parfum-by-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "emirates-oud-15937771143517-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/ripple-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ripple-Perfume-100ml-EDP-French-Avenue-184725714.png?v=1771618709",
-      "rating": null
-    },
-    {
-      "retailerId": "french-avenue",
-      "price": 35,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/ripple-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_95.jpg?v=1773390740",
-      "rating": null
-    },
-    {
-      "retailerId": "perfumeo",
-      "price": 28.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://perfumeo.co.uk/products/ripple-by-french-avenue-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-30T16:14:28.073Z",
       "firstSeenAt": "2026-08-23T14:24:40.961Z",
       "isNew": false,
@@ -355034,6 +355028,47 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "emirates-oud-15793780785501-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 34.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/solitaire-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Solitaire-Perfume-100ml-EDP-French-Avenue-181317126.png?v=1764892275",
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 40,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/solitaire-extrait-de-parfum-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 33.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/solitaire-by-french-avenue-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-25T18:30:57.486Z",
+      "firstSeenAt": "2026-08-25T18:30:57.486Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-9256039514461-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -355072,88 +355107,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-08T22:27:14.777Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0004_298b2ae4-f374-4dca-b9d0-3b4056b8fdb1.png?v=1771605436&width=1000",
-      "rating": null
-    }
-  ],
-  "ean-6298042002364": [
-    {
-      "retailerId": "beautybase",
-      "price": 40,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/french-avenue-spirito-ignite-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-09-05T23:09:22.805Z",
-      "firstSeenAt": "2026-08-11T20:34:55.929Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Ignite.jpg?v=1782399672&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/spirito-ignite-perfume-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spirito-Ignite-100ml-Extrait-De-Parfum-French-Avenue-194135816.jpg?v=1782928957",
-      "rating": null
-    },
-    {
-      "retailerId": "perfumeo",
-      "price": 38.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://perfumeo.co.uk/products/spirito-ignite-by-french-avenue-100ml-extrait-de-parfum/",
-      "fetchedAt": "2026-08-30T16:14:28.073Z",
-      "firstSeenAt": "2026-08-23T14:24:40.961Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "ean-6298042002357": [
-    {
-      "retailerId": "beautybase",
-      "price": 40,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/french-avenue-spirito-mystic-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-09-05T23:09:22.805Z",
-      "firstSeenAt": "2026-08-11T20:34:55.929Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Spirito1.jpg?v=1782399206&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/spirito-mystic-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spirito-Mystic-100ml-Extrait-De-Parfum-French-Avenue-194136213.jpg?v=1782928985",
-      "rating": null
-    },
-    {
-      "retailerId": "perfumeo",
-      "price": 38.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://perfumeo.co.uk/products/spirito-mystic-by-french-avenue-100ml-extrait-de-parfum/",
-      "fetchedAt": "2026-08-30T16:14:28.073Z",
-      "firstSeenAt": "2026-08-23T14:24:40.961Z",
-      "isNew": false,
-      "imageUrl": null,
       "rating": null
     }
   ],
@@ -355237,6 +355190,91 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-14T142430.816.jpg?v=1756978335",
       "rating": null
+    }
+  ],
+  "ean-6298042000926": [
+    {
+      "retailerId": "beautybase",
+      "price": 29,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/french-avenue-vulcan-baie-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-27T00:46:56.562Z",
+      "firstSeenAt": "2026-08-10T11:06:39.819Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1755159692-05349600.jpg?v=1763398787&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 33.25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44502036844&a=3026001&m=6561",
+      "fetchedAt": "2026-09-08T11:17:31.134Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 26.25,
+      "wasPrice": 35,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/vulcan-baie-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-14T141703.485.jpg?v=1756996389",
+      "rating": null
+    }
+  ],
+  "ean-6298042001558": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/french-avenue-vulcan-black-friday-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-23T00:55:06.679Z",
+      "firstSeenAt": "2026-08-10T23:33:23.067Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1763474132-59076000.jpg?v=1772624926&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 40,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/vulcan-black-friday-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_10.jpg?v=1762856020",
+      "rating": null
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 24.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-09-08T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/vulcan-black-100ml-eau-de-parfum-limited-edition",
+      "fetchedAt": "2026-09-08T06:10:00.620Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/B03742B4-F05E-4C5A-A0DD-AE0872AF40B6.webp?v=1762791366&width=1100",
+      "rating": {
+        "value": 0,
+        "count": 0
+      }
     }
   ],
   "emirates-oud-15703695982941-default-title": [
@@ -363685,47 +363723,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "ean-6291107979748": [
-    {
-      "retailerId": "beautybase",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/khadlaj-island-vanilla-dunes-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-25T16:29:03.350Z",
-      "firstSeenAt": "2026-08-09T03:40:47.179Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1745405118-62026400.jpg?v=1763397787&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "emirates-oud",
-      "price": 27.99,
-      "wasPrice": 35,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/island-vanilla-dunes-khadlaj",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Island-Vanilla-Dunes-Extrait-De-Parfum-100ml-By-Khadlaj-174003161.jpg?v=1752686802",
-      "rating": null
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 24.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/khadlaj-island-vanilla-dunes-extrait-de-parfum-100ml",
-      "fetchedAt": "2026-09-02T09:36:51.703Z",
-      "firstSeenAt": "2026-08-09T03:40:47.179Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/KHAD0002_ceb48e4c-84b8-4b90-99f7-37809a3ed502.png?v=1773420938&width=1000",
       "rating": null
     }
   ],
@@ -376941,6 +376938,88 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://thebeautystore.com/products/rochas-mademoiselle-rochas-eau-de-parfum-spray-30ml",
       "fetchedAt": "2026-09-08T18:52:11.659Z",
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "ean-6290171010470": [
+    {
+      "retailerId": "perfume-click",
+      "price": 18.8,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=42159922975&a=3026001&m=6561",
+      "fetchedAt": "2026-09-08T11:17:31.134Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/182848_ml.jpg",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 22.99,
+      "wasPrice": 29.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://fragrancehub.co.uk/products/penthouse-larvotto-100ml-eau-de-parfum-by-rue-broca-afnan",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 18.99,
+      "wasPrice": 31.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661688786&a=3026001&m=106925",
+      "fetchedAt": "2026-09-08T18:50:25.226Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61ht7Vy9vdL.jpg?v=1767985409",
+      "rating": null
+    }
+  ],
+  "ean-6290171010456": [
+    {
+      "retailerId": "beautybase",
+      "price": 15,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/penthouse-windsor-eau-de-parfum-80ml-spray",
+      "fetchedAt": "2026-08-27T00:46:56.562Z",
+      "firstSeenAt": "2026-08-05T08:37:06.512Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1676367358-78376300.jpg?v=1763391921&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 14.85,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=42159922977&a=3026001&m=6561",
+      "fetchedAt": "2026-09-08T11:17:31.134Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/183710_ml.jpg",
+      "rating": null
+    },
+    {
+      "retailerId": "fragrancehub",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/penthouse-windsor-100ml-eau-de-parfum-by-rue-broca-afnan",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
       "rating": null
@@ -390818,6 +390897,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "armaf-arf32102765": [
+    {
+      "retailerId": "armaf",
+      "price": 100,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://armaf.uk/products/sacre-bleu-eau-de-toilette-85ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-19T14:29:34.313Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/product-14.jpg?v=1769431193",
+      "rating": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 60.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661688528&a=3026001&m=106925",
+      "fetchedAt": "2026-09-08T18:50:25.226Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Ao88vLLWL.jpg?v=1767984870",
+      "rating": null
+    }
+  ],
   "ean-6295199801567": [
     {
       "retailerId": "perfume-click",
@@ -390871,118 +390978,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71IUqLI-WRL.jpg?v=1767984870",
-      "rating": null
-    }
-  ],
-  "ean-6294015164992": [
-    {
-      "retailerId": "perfume-click",
-      "price": 62.05,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=42437172487&a=3026001&m=6561",
-      "fetchedAt": "2026-09-08T11:17:31.134Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/186714_ml.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 63.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686219&a=3026001&m=106925",
-      "fetchedAt": "2026-09-08T18:50:25.226Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51t34xPNZxL.jpg?v=1767981037",
-      "rating": null
-    }
-  ],
-  "ean-6294015165012": [
-    {
-      "retailerId": "perfume-click",
-      "price": 56,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=42437172488&a=3026001&m=6561",
-      "fetchedAt": "2026-09-08T11:17:31.134Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/186283_ml.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 63.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686217&a=3026001&m=106925",
-      "fetchedAt": "2026-09-08T18:50:25.226Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/517czXoshGL.jpg?v=1767981036",
-      "rating": null
-    }
-  ],
-  "ean-6294015165029": [
-    {
-      "retailerId": "perfume-click",
-      "price": 62.05,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=42437172489&a=3026001&m=6561",
-      "fetchedAt": "2026-09-08T11:17:31.134Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
-      "rating": null
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 62.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686220&a=3026001&m=106925",
-      "fetchedAt": "2026-09-08T18:50:25.226Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61YqLwuNmeL.jpg?v=1767981039",
-      "rating": null
-    }
-  ],
-  "ean-6294015165005": [
-    {
-      "retailerId": "perfume-click",
-      "price": 62.05,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=42437172491&a=3026001&m=6561",
-      "fetchedAt": "2026-09-08T11:17:31.134Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
-      "rating": null
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 62.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686223&a=3026001&m=106925",
-      "fetchedAt": "2026-09-08T18:50:25.226Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Pc2y_G1iL.jpg?v=1767981043",
       "rating": null
     }
   ],
@@ -416084,34 +416079,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-6298042001947": [
-    {
-      "retailerId": "beautybase",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/french-avenue-8th-wonder-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-30T20:52:12.706Z",
-      "firstSeenAt": "2026-08-10T23:33:23.067Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769008011-62310100.jpg?v=1772624919&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "french-avenue",
-      "price": 32,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/8th-wonder-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_44.jpg?v=1770173246",
-      "rating": null
-    }
-  ],
   "emirates-oud-15441386963293-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -416196,29 +416163,29 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15618612134237-default-title": [
+  "french-avenue-16712": [
     {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
+      "retailerId": "french-avenue",
+      "price": 45,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/amber-empire-french-avenue",
+      "url": "https://uk.shopfrenchavenue.com/products/amber-saffron-extrait-de-parfum-100ml",
       "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
       "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amber-Empire-Perfume-100ml-EDP-French-Avenue-179400247.png?v=1761064014",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_be401855-c27a-489e-a0b9-f247f7800c1a.png?v=1757598939",
       "rating": null
     },
     {
-      "retailerId": "fragrancehub",
-      "price": 31.5,
+      "retailerId": "perfumeo",
+      "price": 48.99,
       "wasPrice": null,
-      "promoEndsAt": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/french-avenue-amber-empire-eau-de-parfum-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "url": "https://perfumeo.co.uk/products/amber-saffron-by-by-french-avenue-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-09-02T18:52:50.179Z",
+      "firstSeenAt": "2026-08-23T16:17:45.501Z",
       "isNew": false,
       "imageUrl": null,
       "rating": null
@@ -416336,20 +416303,35 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "french-avenue-12779": [
+  "ean-6290360378749": [
     {
-      "retailerId": "french-avenue",
-      "price": 25,
+      "retailerId": "perfume-click",
+      "price": 32.95,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/divin-asylum-edp-100ml",
+      "url": "https://www.awin1.com/pclick.php?p=45051220031&a=3026001&m=6561",
+      "fetchedAt": "2026-09-08T11:17:31.134Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/191837_ml.jpg",
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 30,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/cosmic-tonka-edp-100ml",
       "fetchedAt": "2026-09-08T18:52:11.659Z",
       "firstSeenAt": "2026-08-20T07:33:23.642Z",
       "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Divin_Asylum_EDP_100ml.jpg?v=1756799437",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_40.jpg?v=1770173793",
       "rating": null
-    },
+    }
+  ],
+  "emirates-oud-15752247050589-default-title": [
     {
       "retailerId": "emirates-oud",
       "price": 24.99,
@@ -416361,6 +416343,19 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Divin-Asylum-Perfume-100ml-French-Avenue-by-Fragrance-World-180427995.png?v=1763359121",
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/divin-asylum-edp-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Divin_Asylum_EDP_100ml.jpg?v=1756799437",
       "rating": null
     }
   ],
@@ -416896,34 +416891,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15765625045341-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 34.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/marmara-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Marmara-Perfume-100ml-French-Avenue-183488168.jpg?v=1768625759",
-      "rating": null
-    },
-    {
-      "retailerId": "french-avenue",
-      "price": 35,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/marmara-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_39.jpg?v=1770172447",
-      "rating": null
-    }
-  ],
   "emirates-oud-15480638898525-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -417008,59 +416975,59 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-9416546025821-default-title": [
+  "emirates-oud-15451850244445-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/opus-grande-french-avenue",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opus-Grande-Perfume-100ml-EDP-French-Avenue-169532995.jpg?v=1750211431",
+      "rating": null
+    },
+    {
+      "retailerId": "french-avenue",
+      "price": 40,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://uk.shopfrenchavenue.com/products/opus-grande-extrait-de-parfum-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_3d2eedfa-ab17-490b-825c-f0e7e68e35d6.jpg?v=1756993422",
+      "rating": null
+    }
+  ],
+  "emirates-oud-15441402757469-default-title": [
     {
       "retailerId": "emirates-oud",
       "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/royal-blend-nero-100ml-edp-fa-paris-by-fragrance-world",
+      "url": "https://emiratesoud.co.uk/products/rose-explosion-extrait-french-avenue",
       "fetchedAt": "2026-09-08T18:52:11.659Z",
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Royal-Blend-Nero-100ml-EDP-FA-Paris-by-Fragrance-World-153647133.jpg?v=1732636578",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rose-Explosion-Extrait-de-Parfum-80ml-French-Avenue-184727141.png?v=1771620354",
       "rating": null
     },
     {
-      "retailerId": "manchester-ouds",
-      "price": 23.99,
+      "retailerId": "french-avenue",
+      "price": 25,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://manchesterouds.com/products/royal-blend-nero-edp-100ml",
-      "fetchedAt": "2026-09-08T06:10:00.620Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/royal-blend-nero-edp-100ml-french-avenue-3668924.webp?v=1786194476&width=1920",
-      "rating": null
-    }
-  ],
-  "emirates-oud-15464871133533-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/royal-blend-sequoia-french-avenue",
+      "url": "https://uk.shopfrenchavenue.com/products/rose-explosion-edp-80ml",
       "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "firstSeenAt": "2026-08-20T07:33:23.642Z",
       "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Royal-Blend-Sequoia-Perfume-100ml-EDP-French-Avenue-175524225.jpg?v=1755886851",
-      "rating": null
-    },
-    {
-      "retailerId": "perfumeo",
-      "price": 28.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "outOfStock",
-      "url": "https://perfumeo.co.uk/products/royal-blend-sequoia-by-french-avenue-100ml-eau-de-parfum/",
-      "fetchedAt": "2026-09-02T04:49:45.398Z",
-      "firstSeenAt": "2026-09-02T04:49:45.398Z",
-      "isNew": true,
-      "imageUrl": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Rose_Explosion_EDP_80ml.jpg?v=1756799365",
       "rating": null
     }
   ],
@@ -417087,34 +417054,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/shmallow-fluff-by-by-french-avenue-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-31T20:52:52.068Z",
       "firstSeenAt": "2026-08-23T14:24:40.961Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "emirates-oud-15793780785501-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 34.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/solitaire-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Solitaire-Perfume-100ml-EDP-French-Avenue-181317126.png?v=1764892275",
-      "rating": null
-    },
-    {
-      "retailerId": "perfumeo",
-      "price": 33.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "outOfStock",
-      "url": "https://perfumeo.co.uk/products/solitaire-by-french-avenue-100ml-eau-de-parfum/",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-25T18:30:57.486Z",
       "isNew": false,
       "imageUrl": null,
       "rating": null
@@ -417314,65 +417253,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "isNew": true,
       "imageUrl": null,
       "rating": null
-    }
-  ],
-  "ean-6298042000926": [
-    {
-      "retailerId": "beautybase",
-      "price": 29,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/french-avenue-vulcan-baie-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-27T00:46:56.562Z",
-      "firstSeenAt": "2026-08-10T11:06:39.819Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1755159692-05349600.jpg?v=1763398787&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 33.25,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44502036844&a=3026001&m=6561",
-      "fetchedAt": "2026-09-08T11:17:31.134Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
-      "rating": null
-    }
-  ],
-  "french-avenue-17853": [
-    {
-      "retailerId": "french-avenue",
-      "price": 40,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/vulcan-black-friday-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_10.jpg?v=1762856020",
-      "rating": null
-    },
-    {
-      "retailerId": "oud-arabian",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-09-08T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/vulcan-black-100ml-eau-de-parfum-limited-edition",
-      "fetchedAt": "2026-09-08T06:10:00.620Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/B03742B4-F05E-4C5A-A0DD-AE0872AF40B6.webp?v=1762791366&width=1100",
-      "rating": {
-        "value": 0,
-        "count": 0
-      }
     }
   ],
   "emirates-oud-15568456679773-default-title": [
@@ -433152,6 +433032,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/la-fede-intoxicate-blue-elixir-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-26T13:18:43.477Z",
       "firstSeenAt": "2026-08-26T13:18:43.477Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "emirates-oud-16181116928349-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 34.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/la-fede-intoxicate-mystique-khadlaj",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Fede-Intoxicate-Mystique-100ml-Extrait-De-Parfum-Khadlaj-190715363.png?v=1778098751",
+      "rating": null
+    },
+    {
+      "retailerId": "perfumeo",
+      "price": 33.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://perfumeo.co.uk/products/la-fede-intoxicate-mystique-by-khadlaj-100ml-extrait-de-parfum/",
+      "fetchedAt": "2026-08-26T13:18:43.477Z",
+      "firstSeenAt": "2026-08-23T00:55:06.679Z",
       "isNew": false,
       "imageUrl": null,
       "rating": null
@@ -463757,62 +463665,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-6290171010470": [
-    {
-      "retailerId": "perfume-click",
-      "price": 18.8,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=42159922975&a=3026001&m=6561",
-      "fetchedAt": "2026-09-08T11:17:31.134Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/182848_ml.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 18.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661688786&a=3026001&m=106925",
-      "fetchedAt": "2026-09-08T18:50:25.226Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61ht7Vy9vdL.jpg?v=1767985409",
-      "rating": null
-    }
-  ],
-  "ean-6290171010456": [
-    {
-      "retailerId": "beautybase",
-      "price": 15,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/penthouse-windsor-eau-de-parfum-80ml-spray",
-      "fetchedAt": "2026-08-27T00:46:56.562Z",
-      "firstSeenAt": "2026-08-05T08:37:06.512Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1676367358-78376300.jpg?v=1763391921&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 14.85,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=42159922977&a=3026001&m=6561",
-      "fetchedAt": "2026-09-08T11:17:31.134Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/183710_ml.jpg",
-      "rating": null
-    }
-  ],
   "ean-810192820108": [
     {
       "retailerId": "beautybase",
@@ -476359,21 +476211,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/ahmed-al-maghribi-kaaf-eau-de-parfum-100ml/",
-      "fetchedAt": "2026-08-28T00:27:15.059Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "perfumeo-ahmed-al-maghribi-kaaf-noir-100ml": [
-    {
-      "retailerId": "perfumeo",
-      "price": 25.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://perfumeo.co.uk/products/ahmed-al-maghribi-kaaf-noir-extrait-de-parfum-100ml/",
       "fetchedAt": "2026-08-28T00:27:15.059Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
@@ -490817,21 +490654,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8338398281865-44927348965513": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 56.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174943139&a=3026001&m=106925",
-      "fetchedAt": "2026-09-08T18:50:25.226Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10049431.jpg?v=1763146418",
-      "rating": null
-    }
-  ],
   "armaf-arf32120412": [
     {
       "retailerId": "armaf",
@@ -492122,21 +491944,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "armaf-arf32102765": [
-    {
-      "retailerId": "armaf",
-      "price": 100,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://armaf.uk/products/sacre-bleu-eau-de-toilette-85ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-19T14:29:34.313Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/product-14.jpg?v=1769431193",
-      "rating": null
-    }
-  ],
   "armaf-arf32109976": [
     {
       "retailerId": "armaf",
@@ -492149,21 +491956,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-19T14:29:34.313Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/oros.jpg?v=1779366146",
-      "rating": null
-    }
-  ],
-  "armaf-arf32101963": [
-    {
-      "retailerId": "armaf",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://armaf.uk/products/oud-niche-eau-de-toilette-90ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-19T14:29:34.313Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-product2.png?v=1769431205",
       "rating": null
     }
   ],
@@ -492182,66 +491974,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "armaf-arf32105715": [
-    {
-      "retailerId": "armaf",
-      "price": 110,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://armaf.uk/products/private-key-to-my-dreams-eau-de-parfum-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-19T14:29:34.313Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-product_201_4.jpg?v=1769204482",
-      "rating": null
-    }
-  ],
-  "armaf-arf32105717": [
-    {
-      "retailerId": "armaf",
-      "price": 110,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://armaf.uk/products/private-key-to-my-life-eau-de-parfum-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-19T14:29:34.313Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-product_203.jpg?v=1769204482",
-      "rating": null
-    }
-  ],
-  "armaf-arf32105718": [
-    {
-      "retailerId": "armaf",
-      "price": 110,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://armaf.uk/products/private-key-to-my-love-eau-de-parfum-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-19T14:29:34.313Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-product_204.jpg?v=1769204483",
-      "rating": null
-    }
-  ],
-  "armaf-arf32105716": [
-    {
-      "retailerId": "armaf",
-      "price": 110,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://armaf.uk/products/private-key-to-my-success-eau-de-parfum-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-19T14:29:34.313Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/products-product_202.jpg?v=1769204484",
-      "rating": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8338385993865-44927318720649": [
     {
       "retailerId": "mybeauty-boutique",
@@ -492254,21 +491986,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41rjV5w-REL.jpg?v=1763145854",
-      "rating": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416746635401-45147129151625": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 60.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661688528&a=3026001&m=106925",
-      "fetchedAt": "2026-09-08T18:50:25.226Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Ao88vLLWL.jpg?v=1767984870",
       "rating": null
     }
   ],
@@ -499578,6 +499295,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/noche-en-paris-pour-homme-black-by-brandy-100ml-extrait-de-parfum/",
       "fetchedAt": "2026-08-21T16:24:54.470Z",
       "firstSeenAt": "2026-08-21T16:24:54.470Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "fragrancehub-ombreryrover": [
+    {
+      "retailerId": "fragrancehub",
+      "price": 14.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://fragrancehub.co.uk/products/ombery-rover-by-brandy-designs-eau-de-parfum-100ml",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
       "rating": null
@@ -527996,51 +527728,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "escentric-molecules-e02-edp-100ml-unit": [
-    {
-      "retailerId": "escentric-molecules",
-      "price": 200,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://escentric.com/products/escentric-02-extrait-de-parfum",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-12T12:55:07.912Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0855/9220/files/E02_EDP_100ml_Bottle.jpg?v=1750843750",
-      "rating": null
-    }
-  ],
-  "escentric-molecules-e02-100ml-unit": [
-    {
-      "retailerId": "escentric-molecules",
-      "price": 130,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://escentric.com/products/escentric-02-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-12T12:55:07.912Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0855/9220/files/E02_100ml_Solo_St_On_Bottle.jpg?v=1739881566",
-      "rating": null
-    }
-  ],
-  "ean-5060103310036": [
-    {
-      "retailerId": "perfume-click",
-      "price": 121.45,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45669372557&a=3026001&m=6561",
-      "fetchedAt": "2026-09-08T11:17:31.134Z",
-      "firstSeenAt": "2026-08-19T00:53:51.281Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/67617_ml.jpg",
-      "rating": null
-    }
-  ],
   "escentric-molecules-e02-30c-unit": [
     {
       "retailerId": "escentric-molecules",
@@ -535199,21 +534886,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "fragrancehub-8thwonder": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/8th-wonder-100ml-extrait-de-parfum-by-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
   "emirates-oud-15441389322589-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -535406,36 +535078,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amber-Saffron-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-170031910.jpg?v=1751223434",
-      "rating": null
-    }
-  ],
-  "french-avenue-16712": [
-    {
-      "retailerId": "french-avenue",
-      "price": 45,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/amber-saffron-extrait-de-parfum-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_be401855-c27a-489e-a0b9-f247f7800c1a.png?v=1757598939",
-      "rating": null
-    }
-  ],
-  "perfumeo-amber-saffron-by-by-french-avenue-100ml-eau-de-parfum": [
-    {
-      "retailerId": "perfumeo",
-      "price": 48.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://perfumeo.co.uk/products/amber-saffron-by-by-french-avenue-100ml-eau-de-parfum/",
-      "fetchedAt": "2026-09-02T18:52:50.179Z",
-      "firstSeenAt": "2026-08-23T16:17:45.501Z",
-      "isNew": false,
-      "imageUrl": null,
       "rating": null
     }
   ],
@@ -535760,21 +535402,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "manchester-ouds-ff-atlantis-100": [
-    {
-      "retailerId": "manchester-ouds",
-      "price": 23.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://manchesterouds.com/products/atlantis-edp-100ml",
-      "fetchedAt": "2026-09-08T06:10:00.620Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/atlantis-edp-100ml-french-avenue-4440736.webp?v=1786194480&width=1920",
-      "rating": null
-    }
-  ],
   "perfumeo-french-avenue-atlantis-100ml-extrait": [
     {
       "retailerId": "perfumeo",
@@ -535952,36 +535579,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-30T04:19:55.107Z",
       "isNew": false,
       "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "french-avenue-18061": [
-    {
-      "retailerId": "french-avenue",
-      "price": 30,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/cosmic-tonka-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_40.jpg?v=1770173793",
-      "rating": null
-    }
-  ],
-  "ean-6290360378749": [
-    {
-      "retailerId": "perfume-click",
-      "price": 32.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45051220031&a=3026001&m=6561",
-      "fetchedAt": "2026-09-08T11:17:31.134Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/191837_ml.jpg",
       "rating": null
     }
   ],
@@ -536690,21 +536287,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-6298042001749": [
-    {
-      "retailerId": "beautybase",
-      "price": 45,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/french-avenue-jasmere-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-09-03T00:32:26.000Z",
-      "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/147_5602c966-3e5c-46f1-b4fc-f49615cd9469.jpg?v=1778057653&width=1920",
-      "rating": null
-    }
-  ],
   "perfumeo-jasmere-by-french-avenue-100ml-eau-de-parfum": [
     {
       "retailerId": "perfumeo",
@@ -536736,36 +536318,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
         "value": 5,
         "count": 1
       }
-    }
-  ],
-  "perfumeo-liquid-brun-limited-edition-by-french-avenue-150ml-extrait-de-parfum": [
-    {
-      "retailerId": "perfumeo",
-      "price": 38.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://perfumeo.co.uk/products/liquid-brun-limited-edition-by-french-avenue-150ml-extrait-de-parfum/",
-      "fetchedAt": "2026-08-25T18:30:57.486Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "fragrancehub-marmara": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://fragrancehub.co.uk/products/marmara-100ml-extrait-de-parfum-by-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
     }
   ],
   "perfumeo-marmara-by-french-avenue-100ml-eau-de-parfum": [
@@ -537023,51 +536575,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15765627535709-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/nomad-perfume-100ml-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nomad-Perfume-100ml-French-Avenue-183489776.jpg?v=1768626619",
-      "rating": null
-    }
-  ],
-  "fragrancehub-nomad": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://fragrancehub.co.uk/products/nomad-100ml-extrait-de-parfum-by-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "french-avenue-18057": [
-    {
-      "retailerId": "french-avenue",
-      "price": 30,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/nomad-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_45_cfbcb299-4c4d-453b-8559-3acbdd58358d.jpg?v=1770174043",
-      "rating": null
-    }
-  ],
   "perfumeo-french-avenue-obsidian-100ml-extrait": [
     {
       "retailerId": "perfumeo",
@@ -537083,36 +536590,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "emirates-oud-15451850244445-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/opus-grande-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opus-Grande-Perfume-100ml-EDP-French-Avenue-169532995.jpg?v=1750211431",
-      "rating": null
-    }
-  ],
-  "french-avenue-17257": [
-    {
-      "retailerId": "french-avenue",
-      "price": 40,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/opus-grande-extrait-de-parfum-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_3d2eedfa-ab17-490b-825c-f0e7e68e35d6.jpg?v=1756993422",
-      "rating": null
-    }
-  ],
   "perfumeo-opus-grande-by-french-avenue-100ml-eau-de-parfum": [
     {
       "retailerId": "perfumeo",
@@ -537125,21 +536602,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-30T04:19:55.107Z",
       "isNew": false,
       "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "french-avenue-17258": [
-    {
-      "retailerId": "french-avenue",
-      "price": 40,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/opus-magnum-extrait-de-parfum-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_5f3f3eb1-2a6e-4da6-838e-15cfb04aa734.jpg?v=1756990057",
       "rating": null
     }
   ],
@@ -537203,21 +536665,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "manchester-ouds-ff-ravine-ginger-100": [
-    {
-      "retailerId": "manchester-ouds",
-      "price": 23.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://manchesterouds.com/products/ravine-ginger-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/ravine-ginger-edp-100ml-french-avenue-9976677.webp?v=1786194495&width=1920",
-      "rating": null
-    }
-  ],
   "perfumeo-french-avenue-ravine-ginger-100ml": [
     {
       "retailerId": "perfumeo",
@@ -537228,21 +536675,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/french-avenue-ravine-ginger-eau-de-parfum-100ml/",
       "fetchedAt": "2026-08-29T18:20:28.757Z",
       "firstSeenAt": "2026-08-29T18:20:28.757Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "fragrancehub-ravineice": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 34.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/ravine-ice-100ml-extrait-de-parfum-by-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
       "rating": null
@@ -537260,36 +536692,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-29T18:20:28.757Z",
       "isNew": false,
       "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "emirates-oud-15441402757469-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/rose-explosion-extrait-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rose-Explosion-Extrait-de-Parfum-80ml-French-Avenue-184727141.png?v=1771620354",
-      "rating": null
-    }
-  ],
-  "french-avenue-12802": [
-    {
-      "retailerId": "french-avenue",
-      "price": 25,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/rose-explosion-edp-80ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Rose_Explosion_EDP_80ml.jpg?v=1756799365",
       "rating": null
     }
   ],
@@ -537353,21 +536755,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "perfumeo-french-avenue-royal-blend-sequoia-100ml-extrait": [
-    {
-      "retailerId": "perfumeo",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://perfumeo.co.uk/products/french-avenue-royal-blend-sequoia-extrait-de-parfum-100ml/",
-      "fetchedAt": "2026-08-26T13:18:43.477Z",
-      "firstSeenAt": "2026-08-23T00:55:06.679Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
   "ean-10412667306326": [
     {
       "retailerId": "oud-arabian",
@@ -537428,21 +536815,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-20T07:33:23.642Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_9d55daa7-fa11-4fb7-8e52-94bcd0f29027.png?v=1757598577",
-      "rating": null
-    }
-  ],
-  "french-avenue-17954": [
-    {
-      "retailerId": "french-avenue",
-      "price": 40,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/solitaire-extrait-de-parfum-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": null,
       "rating": null
     }
   ],
@@ -537518,36 +536890,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-20T07:33:23.642Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_d4ba4d2c-bfc8-4a3b-b396-f24025ba3cf8.png?v=1757600834",
-      "rating": null
-    }
-  ],
-  "french-avenue-18347": [
-    {
-      "retailerId": "french-avenue",
-      "price": 40,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://uk.shopfrenchavenue.com/products/spirito-ignite-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-24T06:42:40.717Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Spirito_Ignite_EDP_100ml.jpg?v=1787553927",
-      "rating": null
-    }
-  ],
-  "french-avenue-18346": [
-    {
-      "retailerId": "french-avenue",
-      "price": 40,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/spirito-mystic-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-24T06:42:40.717Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Spirito_Mystic_EDP_100ml.jpg?v=1787553823",
       "rating": null
     }
   ],
@@ -537716,21 +537058,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "french-avenue-17631": [
-    {
-      "retailerId": "french-avenue",
-      "price": 26.25,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://uk.shopfrenchavenue.com/products/vulcan-baie-edp-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T07:33:23.642Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-14T141703.485.jpg?v=1756996389",
-      "rating": null
-    }
-  ],
   "perfumeo-french-avenue-vulcan-baie-100ml": [
     {
       "retailerId": "perfumeo",
@@ -537758,21 +537085,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Vulcan-Baie-Perfume-100ml-EDP-By-French-Avenue-175524090.jpg?v=1755886785",
-      "rating": null
-    }
-  ],
-  "ean-6298042001558": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/french-avenue-vulcan-black-friday-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-23T00:55:06.679Z",
-      "firstSeenAt": "2026-08-10T23:33:23.067Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1763474132-59076000.jpg?v=1772624926&width=1920",
       "rating": null
     }
   ],
@@ -537926,21 +537238,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
       "imageUrl": "https://images2.productserve.com/noimage.gif",
-      "rating": null
-    }
-  ],
-  "fragrancehub-zenithsantal": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 31.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/zenith-santal-100ml-extrait-de-parfum-by-french-avenue",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
       "rating": null
     }
   ],
@@ -560372,21 +559669,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "perfumeo-khadlaj-island-vanilla-dunes-100ml": [
-    {
-      "retailerId": "perfumeo",
-      "price": 26.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://perfumeo.co.uk/products/khadlaj-island-vanilla-dunes-extrait-de-parfum-100ml/",
-      "fetchedAt": "2026-08-27T14:14:32.118Z",
-      "firstSeenAt": "2026-08-27T14:14:32.118Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
   "emirates-oud-15498916561245-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -560997,36 +560279,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/la-fede-intoxicate-by-khadlaj-100ml-eau-de-parfum/",
       "fetchedAt": "2026-09-06T21:21:24.335Z",
       "firstSeenAt": "2026-08-24T06:42:40.717Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "emirates-oud-16181116928349-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 34.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/la-fede-intoxicate-mystique-khadlaj",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Fede-Intoxicate-Mystique-100ml-Extrait-De-Parfum-Khadlaj-190715363.png?v=1778098751",
-      "rating": null
-    }
-  ],
-  "perfumeo-la-fede-intoxicate-mystique-by-khadlaj-100ml-extrait-de-parfum": [
-    {
-      "retailerId": "perfumeo",
-      "price": 33.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "stock": "outOfStock",
-      "url": "https://perfumeo.co.uk/products/la-fede-intoxicate-mystique-by-khadlaj-100ml-extrait-de-parfum/",
-      "fetchedAt": "2026-08-26T13:18:43.477Z",
-      "firstSeenAt": "2026-08-23T00:55:06.679Z",
       "isNew": false,
       "imageUrl": null,
       "rating": null
@@ -561948,6 +561200,24 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "isNew": false,
       "imageUrl": null,
       "rating": null
+    }
+  ],
+  "ean-10145091715414": [
+    {
+      "retailerId": "oud-arabian",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-09-08T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://oudarabian.co.uk/products/sawaar-vanille-blanc-100ml-extrait-de-parfum-by-khadlaj-luxurious-creamy-vanilla-scent",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/11712E7E-5F5F-4D14-B46B-A6482490280F.jpg?v=1769280911&width=2048",
+      "rating": {
+        "value": 0,
+        "count": 0
+      }
     }
   ],
   "perfumeo-sawaar-vanille-blanc-by-khadlaj-100ml-extrait-de-parfum": [
@@ -567899,66 +567169,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "fragrancehub-badeealoudamethyst": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 22.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://fragrancehub.co.uk/products/bade-e-al-oud-amethyst-oud-for-glory-amethyst-100ml-edp-by-lattafa",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "fragrancehub-honorandglory": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 21.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/bade-e-al-oud-honor-glory-100ml-edp-by-lattafa-white",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "fragrancehub-badeealoud": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 22.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/bade-e-al-oud-perfume-100ml-edp-by-lattafa",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "fragrancehub-badeealoudsub": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 21.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/bade-e-al-oud-sublime-oud-for-glory-sublime-100ml-edp-by-lattafa",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
   "justmylook-lat0003": [
     {
       "retailerId": "justmylook",
@@ -567971,6 +567181,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-05T04:06:55.385Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0003.png?v=1758900965&width=1000",
+      "rating": null
+    }
+  ],
+  "fragrancehub-badeealoudamethyst": [
+    {
+      "retailerId": "fragrancehub",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://fragrancehub.co.uk/products/bade-e-al-oud-amethyst-oud-for-glory-amethyst-100ml-edp-by-lattafa",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -568004,6 +567229,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "fragrancehub-honorandglory": [
+    {
+      "retailerId": "fragrancehub",
+      "price": 21.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/bade-e-al-oud-honor-glory-100ml-edp-by-lattafa-white",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "perfumeo-badee-al-oud-honor-glory-by-lattafa-100ml-eau-de-parfum": [
     {
       "retailerId": "perfumeo",
@@ -568030,6 +567270,36 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-02T18:52:50.179Z",
       "firstSeenAt": "2026-09-02T18:52:50.179Z",
       "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "fragrancehub-badeealoud": [
+    {
+      "retailerId": "fragrancehub",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/bade-e-al-oud-perfume-100ml-edp-by-lattafa",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "fragrancehub-badeealoudsub": [
+    {
+      "retailerId": "fragrancehub",
+      "price": 21.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/bade-e-al-oud-sublime-oud-for-glory-sublime-100ml-edp-by-lattafa",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -569749,6 +569019,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-04T14:21:53.510Z",
       "firstSeenAt": "2026-09-04T14:21:53.510Z",
       "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "fragrancehub-nebras": [
+    {
+      "retailerId": "fragrancehub",
+      "price": 23.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://fragrancehub.co.uk/products/nebras-by-lattafa-pride-eau-de-parfum-100ml-for-women",
+      "fetchedAt": "2026-09-08T18:52:11.659Z",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -622619,21 +621904,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "fragrancehub-nebras": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 23.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/nebras-by-lattafa-pride-eau-de-parfum-100ml-for-women",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
   "fragrancehub-8870971244873-default-title": [
     {
       "retailerId": "fragrancehub",
@@ -622659,21 +621929,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/ocean-whisper-by-ibrahim-al-qurashi-100ml-eau-de-parfum/",
       "fetchedAt": "2026-08-29T00:08:25.068Z",
       "firstSeenAt": "2026-08-29T00:08:25.068Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "fragrancehub-ombreryrover": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 14.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://fragrancehub.co.uk/products/ombery-rover-by-brandy-designs-eau-de-parfum-100ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
       "rating": null
@@ -622767,36 +622022,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/penthouse-by-mykonos-eau-de-parfum/",
       "fetchedAt": "2026-08-28T00:27:15.059Z",
       "firstSeenAt": "2026-08-28T00:27:15.059Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "fragrancehub-larvotto": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 22.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://fragrancehub.co.uk/products/penthouse-larvotto-100ml-eau-de-parfum-by-rue-broca-afnan",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "fragrancehub-windsor": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 22.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/penthouse-windsor-100ml-eau-de-parfum-by-rue-broca-afnan",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
       "rating": null
@@ -623354,21 +622579,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "fragrancehub-rbnero": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 31.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://fragrancehub.co.uk/products/royal-blend-nero-100ml-edp-by-french-avenue-fragrance-world",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
   "superdrug-861539": [
     {
       "retailerId": "superdrug",
@@ -623474,24 +622684,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-10145091715414": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-09-08T00:00:00.000Z",
-      "stock": "outOfStock",
-      "url": "https://oudarabian.co.uk/products/sawaar-vanille-blanc-100ml-extrait-de-parfum-by-khadlaj-luxurious-creamy-vanilla-scent",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/11712E7E-5F5F-4D14-B46B-A6482490280F.jpg?v=1769280911&width=2048",
-      "rating": {
-        "value": 0,
-        "count": 0
-      }
-    }
-  ],
   "perfumeo-sea-breeze-by-ibrahim-al-qurashi-100ml-eau-de-parfum": [
     {
       "retailerId": "perfumeo",
@@ -623517,21 +622709,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/senja-by-mykonos-50ml-eau-de-parfum/",
       "fetchedAt": "2026-08-28T00:27:15.059Z",
       "firstSeenAt": "2026-08-28T00:27:15.059Z",
-      "isNew": false,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "fragrancehub-satonka": [
-    {
-      "retailerId": "fragrancehub",
-      "price": 42.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://fragrancehub.co.uk/products/shaghaf-oud-tonka-eau-de-parfum-by-swiss-arabian-75ml",
-      "fetchedAt": "2026-09-08T18:52:11.659Z",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
       "rating": null
@@ -624408,24 +623585,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "isNew": false,
       "imageUrl": null,
       "rating": null
-    }
-  ],
-  "ean-9952840941910": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 36.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-09-08T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/zenith-blue-by-french-avenue-100ml-eau-de-parfum",
-      "fetchedAt": "2026-09-08T06:10:00.620Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/5B603881-7A45-4F17-B98F-9BBAC5B792AC.webp?v=1762872281&width=990",
-      "rating": {
-        "value": 0,
-        "count": 0
-      }
     }
   ],
   "ean-0860004550341": [

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   matchKey,
+  concentrationBlindKey,
   findDuplicateGroups,
   untrustworthyEans,
   trustworthyEan,
@@ -574,6 +575,43 @@ describe('product matching', () => {
     // guard that stops the copy silently drifting from the original.
     it('NOT_STATED_MATCH_KEY never drifts from CONCENTRATION_NOT_STATED', () => {
       expect(NOT_STATED_MATCH_KEY).toBe(CONCENTRATION_NOT_STATED.toLowerCase());
+    });
+  });
+
+  describe('concentrationBlindKey: the same bottle apart from the strength', () => {
+    // The real split it exists for: French Avenue's Royal Blend Nero 100ml,
+    // called an Extrait de Parfum by four shops including the house's own
+    // storefront and an Eau de Parfum by two others, which stood as two rows
+    // because matchKey requires the shops to agree about the strength.
+    const extrait = p({ id: 'ean-6290360375601', brand: 'French Avenue', name: 'Royal Blend Nero', concentration: 'Extrait de Parfum' });
+    const edp = p({ id: 'emirates-oud-1', brand: 'French Avenue', name: 'Royal Blend Nero', concentration: 'Eau de Parfum' });
+
+    it('matches two records that differ only in the concentration', () => {
+      expect(matchKey(extrait)).not.toBe(matchKey(edp));
+      expect(concentrationBlindKey(extrait)).toBe(concentrationBlindKey(edp));
+    });
+
+    it('still separates two genuinely different bottles', () => {
+      // Everything matchKey compares apart from the strength is still
+      // compared, so this is not a looser merge rule wearing a different name.
+      expect(concentrationBlindKey(p({ id: 'a', name: 'Sauvage' }))).not.toBe(
+        concentrationBlindKey(p({ id: 'b', name: 'Sauvage Elixir' })),
+      );
+      expect(concentrationBlindKey(p({ id: 'a', sizeMl: 100 }))).not.toBe(
+        concentrationBlindKey(p({ id: 'b', sizeMl: 50 })),
+      );
+      expect(concentrationBlindKey(p({ id: 'a', brand: 'Afnan' }))).not.toBe(
+        concentrationBlindKey(p({ id: 'b', brand: 'Lattafa' })),
+      );
+    });
+
+    it('never lets two unknown sizes collide', () => {
+      // sizeKeyPart's rule, inherited whole: two products that both state no
+      // size are not thereby known to be the same size, so a house's word
+      // about one of them can never be applied to the other.
+      expect(concentrationBlindKey(p({ id: 'a', sizeMl: null }))).not.toBe(
+        concentrationBlindKey(p({ id: 'b', sizeMl: null })),
+      );
     });
   });
 });

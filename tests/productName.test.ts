@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   CONCENTRATION_NOT_STATED, brandTitleOpens, brandTitleEnds, brandTitleEndsWithHouse, concentration, displayName,
   stripRedundantSize, reattachArmafLine, concentrationOfListing, CONCENTRATION_RESTATEMENT_RE,
-  CONCENTRATION_RESOLUTIONS, CONCENTRATION_DISPUTED,
+  CONCENTRATION_RESOLUTIONS, CONCENTRATION_DISPUTED, canonicalSeriesSpelling,
 } from '../src/catalogue/productName.js';
 import { armafLineName } from '../src/catalogue/brandName.js';
 
@@ -458,6 +458,47 @@ describe('brandTitleEndsWithHouse: a manufacturer credited at the very end, "<br
 
   it('refuses when there is no "by" at all', () => {
     expect(brandTitleEndsWithHouse('Shaghaf Oud Perfume 75ml Swiss Arabian', ['Swiss Arabian', 'Swiss Arabian'])).toBeNull();
+  });
+
+  // The same credit with the two names the other way round and the house in
+  // brackets, which is how FragranceHub writes it. Royal Blend Nero was the
+  // reported duplicate: six shops sell it plainly and a seventh wrote "Royal
+  // Blend Nero 100ml EDP by French Avenue (Fragrance World)", so it stood as
+  // its own row with its own price beside the merged six.
+  it.each([
+    [
+      'Royal Blend Nero by French Avenue (Fragrance World)',
+      'French Avenue',
+      ' by French Avenue (Fragrance World)',
+    ],
+    ['Al Barari Coral by Zimaya (Afnan)', 'Zimaya', ' by Zimaya (Afnan)'],
+    ['Penthouse Larvotto by Rue Broca (Afnan)', 'Rue Broca', ' by Rue Broca (Afnan)'],
+  ])('%s -> strips %s', (title, candidate, expected) => {
+    expect(brandTitleEndsWithHouse(title, [candidate, candidate])).toBe(expected);
+  });
+
+  // Both locks, one test each. Together they are why this cannot run away with
+  // a name: the bracket has to hold a known manufacturer, and the credited
+  // name has to be the brand this very product carries.
+  it('refuses a bracketed name that is not a known manufacturer', () => {
+    expect(
+      brandTitleEndsWithHouse('Khanjar by Niche Emarati Perfumes (Lattafa)', ['Lattafa', 'Lattafa']),
+    ).toBeNull();
+  });
+
+  it('refuses when the credited name is not this product\'s own brand', () => {
+    // Ten live names read "… by FA Paris (Fragrance World)". FA Paris is a
+    // real sub-line, but it is not the brand these products carry, and this
+    // function is not allowed to decide the two are the same thing.
+    expect(
+      brandTitleEndsWithHouse('Aether by FA Paris (Fragrance World)', ['French Avenue', 'French Avenue']),
+    ).toBeNull();
+  });
+
+  it('leaves a bracketed brand with no "by" in front of it alone', () => {
+    // Rochas' own "Femme (Rochas)" — the bracket is part of how the name is
+    // written, not a manufacturer credit, and brandTitleEnds already pins it.
+    expect(brandTitleEndsWithHouse('Femme (Rochas)', ['Rochas', 'Rochas'])).toBeNull();
   });
 });
 
@@ -950,6 +991,56 @@ describe('concentration: values a reader can act on', () => {
 
   it('spells Extrait de Parfum like the other "de" phrases', () => {
     expect(concentration('Maison Asrar Cal Cologne Thriller Extrait De Parfum 100ml Spray')).toBe('Extrait de Parfum');
+  });
+
+  // The short form is the same value as the long one, the way EDP is the
+  // same value as Eau de Parfum. Five brand+name+size groups in the live
+  // catalogue were split only by which spelling a shop happened to use —
+  // French Avenue's own storefront writes "Extrait de Parfum" for Royal
+  // Blend Sequoia while one reseller writes "Extrait", and the site showed
+  // them as two products.
+  it('reads a bare Extrait as the same value as Extrait de Parfum', () => {
+    expect(concentration('French Avenue Royal Blend Sequoia 100ml Extrait')).toBe('Extrait de Parfum');
+    expect(concentration('Maison Alhambra Kaaf Noir Extrait 100ml')).toBe('Extrait de Parfum');
+  });
+
+  // ...without disturbing Parfum, which the note above keeps deliberately
+  // separate: whether it is the same strength as an extrait is unestablished.
+  it('still does not fold Parfum into Extrait de Parfum', () => {
+    expect(concentration('Azzaro The Most Wanted Parfum 100ml')).toBe('Parfum');
+  });
+});
+
+describe('canonicalSeriesSpelling: one spelling per series', () => {
+  // The owner's report: "Badee Al Oud Sublime" sat next to "Bade'e Al Oud
+  // Noble Blush" on the site and read as two unrelated products rather than
+  // one Lattafa series. The shops genuinely disagree — 43 listings across 6
+  // shops write the apostrophe form, 40 across 4 write it without, and
+  // beautybase and justmylook each publish both themselves.
+  it.each([
+    ['Badee Al Oud Sublime', "Bade'e Al Oud Sublime"],
+    ['Bade\u2019e Al Oud Honor & Glory', "Bade'e Al Oud Honor & Glory"],
+    ["Bade'e Al Oud Noble Blush", "Bade'e Al Oud Noble Blush"],
+    ['Badee Al Oud', "Bade'e Al Oud"],
+    ['BADEE AL OUD AMETHYST', "Bade'e Al Oud AMETHYST"],
+  ])('%s -> %s', (input, expected) => {
+    expect(canonicalSeriesSpelling(input)).toBe(expected);
+  });
+
+  // It rewrites a series' spelling, never a product's own words, and never
+  // a name that merely looks similar.
+  it.each([
+    'Badee Al Sublime All Over',
+    'Bleu Barbade',
+    'Aventus',
+    'Oud For Glory',
+  ])('leaves %s alone', (name) => {
+    expect(canonicalSeriesSpelling(name)).toBe(name);
+  });
+
+  it('applies through displayName, which is what a reader actually sees', () => {
+    expect(displayName('Lattafa Badee Al Oud Sublime Eau de Parfum 100ml', 'Lattafa', 'Lattafa'))
+      .toBe("Bade'e Al Oud Sublime");
   });
 });
 
