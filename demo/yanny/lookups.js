@@ -1089,21 +1089,41 @@ export function formatBudgetAnswer(result) {
     : '';
 
   if (result.items.length === 0) {
+    // Two things can be absent here, and only one of them is a price
+    // ceiling. "Under £30" has a threshold to quote back; "the cheapest
+    // niche fragrance you list" has none — `maxGbp` is null on that branch
+    // by design (see resolveBudgetQuery). Quoting it regardless is what
+    // this used to do, and `gbp(null)` threw, which reached the reader as
+    // the widget's generic "something went wrong" on a question the data
+    // could have answered honestly. Measured on the 2026-09-08 catalogue:
+    // "cheapest niche fragrance you list" and "cheapest middle eastern
+    // fragrance" both took it.
+    // The wording for a named ceiling is left exactly as it was; only the
+    // no-ceiling branch is new, because only it was unreachable-without-
+    // crashing before.
+    const capped = result.maxGbp !== null;
+    const priced = `${result.pricedTotal.toLocaleString('en-GB')} entries with a buyable, delivery-priced listing`;
+
     // A scent filter that emptied a non-empty price list is a different
     // fact from an empty price list, and saying which is which is the
     // difference between a dead end and a next step.
     if (scent.any && result.pricedMatching > 0) {
+      const lead = capped
+        ? `Nothing ${tierWord}with those notes on file comes in at ${gbp(result.maxGbp)} delivered.`
+        : `Nothing ${tierWord}with those notes on file has a buyable, delivery-priced listing right now.`;
+      const without = capped
+        ? `${result.pricedMatching.toLocaleString('en-GB')} ${tierWord}bottles are under that without the scent filter`
+        : `${result.pricedMatching.toLocaleString('en-GB')} ${tierWord}bottles have one without the scent filter`;
       return (
-        `Nothing ${tierWord}with those notes on file comes in at ${gbp(result.maxGbp)} delivered. ` +
-        `${result.pricedMatching.toLocaleString('en-GB')} ${tierWord}bottles are under that without the scent filter, ` +
+        `${lead} ${without}, ` +
         `and only ${result.withNotesTotal.toLocaleString('en-GB')} of the ${result.pricedTotal.toLocaleString('en-GB')} ` +
         `priced entries have any notes published at all.${reading}${unmatchedLine}${caveat}${genderNote}`
       );
     }
-    return (
-      `Nothing ${tierWord}comes in at ${gbp(result.maxGbp)} delivered right now, out of the ` +
-      `${result.pricedTotal.toLocaleString('en-GB')} entries with a buyable, delivery-priced listing.${caveat}${genderNote}`
-    );
+    const lead = capped
+      ? `Nothing ${tierWord}comes in at ${gbp(result.maxGbp)} delivered right now`
+      : `Nothing ${tierWord}has a buyable, delivery-priced listing right now`;
+    return `${lead}, out of the ${priced}.${caveat}${genderNote}`;
   }
 
   const scentSource = scent.any

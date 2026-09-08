@@ -1,7 +1,7 @@
 name: Deploy Virtual Yanny worker
 
-# Deploys workers/yanny/ to Cloudflare Workers (free plan) and pushes the
-# provider keys into the Worker's encrypted secret store.
+# Deploys workers/yanny/ to Cloudflare Workers (free plan). It needs no
+# provider API key: the Worker answers through Cloudflare's own AI binding.
 #
 # ── Why this is manual-only ──────────────────────────────────────────────
 # There is no `push` trigger on purpose. This branch is the live site's
@@ -12,13 +12,17 @@ name: Deploy Virtual Yanny worker
 # demo/yanny/prompt.js or demo/yanny/scoring.js change.
 #
 # ── Secrets this needs (Settings -> Secrets and variables -> Actions) ─────
+# Two, and only two:
 #   CLOUDFLARE_API_TOKEN   an API token with the "Edit Cloudflare Workers"
 #                          template. Never printed.
 #   CLOUDFLARE_ACCOUNT_ID  from the Workers overview page (not a secret in
 #                          the strict sense, but kept there for one place).
-#   GROQ_API_KEY and/or GEMINI_API_KEY (and CEREBRAS_API_KEY,
-#   OPENROUTER_API_KEY if used): the free-tier provider keys. Each present
-#   one is pushed to the Worker; absent ones are skipped.
+#
+# NO provider API key is required. The Worker answers through Cloudflare's
+# own AI binding (see workers/yanny/wrangler.toml), which is free and needs
+# no credential. GROQ_API_KEY, GEMINI_API_KEY, CEREBRAS_API_KEY and
+# OPENROUTER_API_KEY are read only if they happen to be set, and pushed to
+# the Worker as a fallback for the day the free allocation runs out.
 #
 # ── What it never does ───────────────────────────────────────────────────
 # Print a key, write one to the checkout, or put one in an image. Keys go
@@ -58,12 +62,8 @@ jobs:
           missing=0
           [ -n "${CLOUDFLARE_API_TOKEN}" ] || { echo "::error::CLOUDFLARE_API_TOKEN is not set. Create an API token at dash.cloudflare.com -> My Profile -> API Tokens with the 'Edit Cloudflare Workers' template, and add it as a repository secret."; missing=1; }
           [ -n "${CLOUDFLARE_ACCOUNT_ID}" ] || { echo "::error::CLOUDFLARE_ACCOUNT_ID is not set. It is shown on the Workers & Pages overview page of the Cloudflare dashboard."; missing=1; }
-          if [ -z "${GROQ_API_KEY}" ] && [ -z "${GEMINI_API_KEY}" ] && [ -z "${CEREBRAS_API_KEY}" ] && [ -z "${OPENROUTER_API_KEY}" ]; then
-            echo "::error::No provider key is set. Add at least one of GROQ_API_KEY (console.groq.com) or GEMINI_API_KEY (aistudio.google.com) as a repository secret. Both have free tiers."
-            missing=1
-          fi
           [ "${missing}" -eq 0 ] || exit 1
-          echo "Secrets present."
+          echo "Cloudflare secrets present. No provider API key is needed: the Worker answers through Cloudflare's own AI binding."
 
       # The Worker is deployed from the repo root because it imports two
       # files from demo/yanny/ (see workers/yanny/wrangler.toml).
@@ -80,9 +80,10 @@ jobs:
           fi
           echo "url=${url}" >> "$GITHUB_OUTPUT"
 
-      # Each key goes over stdin, straight from the environment. Only keys
-      # that are set are pushed; a Worker with fewer providers still works.
-      - name: Push the provider keys as Worker secrets
+      # Optional, and normally a no-op. Each key goes over stdin, straight
+      # from the environment; only keys that are actually set are pushed. A
+      # Worker with none of them still answers, through the AI binding.
+      - name: Push any optional provider keys as Worker secrets
         run: |
           set -euo pipefail
           for name in GROQ_API_KEY GEMINI_API_KEY CEREBRAS_API_KEY OPENROUTER_API_KEY; do
@@ -91,7 +92,7 @@ jobs:
               printf '%s' "${value}" | npx --yes wrangler@4 secret put "${name}" --config workers/yanny/wrangler.toml >/dev/null
               echo "${name}: set"
             else
-              echo "${name}: not provided, skipped"
+              echo "${name}: not provided, skipped (not needed — the AI binding answers without it)"
             fi
           done
 
@@ -112,7 +113,7 @@ jobs:
           done
           echo "Health: ${body}"
           printf '%s' "${body}" | jq -e '.ok == true' >/dev/null || {
-            echo "::error::The Worker is deployed but not healthy. configured=false means no provider key reached it; providersReachable=0 means the keys were rejected or the model ids in workers/yanny/wrangler.toml are not ones the provider serves. The 'providers' list in the body says which."
+            echo "::error::The Worker is deployed but not healthy. configured=false means neither the AI binding nor any provider key reached it — check that workers/yanny/wrangler.toml still carries its [ai] binding. providersReachable=0 means a model id in that file is not one the provider serves. The 'providers' list in the body says which."
             exit 1
           }
           {

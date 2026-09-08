@@ -352,6 +352,34 @@ function splitOnExclusion(lower) {
 const NON_NOTE_VOCABULARY = new Set([
   'summer', 'autumn', 'winter', 'spring', 'fall',
   'women', 'men', 'unisex', 'ladies', 'gents', 'him', 'her',
+  // ── The words that mean "perfume", not a smell ────────────────────────
+  // Added 2026-09-08 after the harvest put an ingredients declaration into
+  // some products' note lists: a shop's page lists "Parfum, Fragrance,
+  // Aqua, Water, Linalool, Limonene, Ci 15985" as if those were notes, so
+  // NOTE_INDEX gained a literal note called "Fragrance" (5 products) and
+  // another called "Water" (11). Nothing guards a question against that,
+  // and the effect was immediate and wrong in two directions at once:
+  //
+  //   "recommend me a summer fragrance"  — the season is already refused,
+  //     but "fragrance" then matched a real note, so the question read as
+  //     groundable and went to a model instead of the honest refusal.
+  //   "cheapest niche fragrance you list" — 273 priced niche bottles were
+  //     filtered down to the 0 that carry the note literally named
+  //     "Fragrance", which then crashed the empty-answer branch (see
+  //     formatBudgetAnswer). "cheapest designer fragrance" was worse: it
+  //     survived with 4 bottles chosen for carrying an ingredients
+  //     declaration, presented as the cheapest designer fragrances. A
+  //     confident wrong answer, which is the one thing this path exists to
+  //     rule out.
+  //
+  // So the words a shopper uses for the product itself are barred from
+  // being read out of a question as a request for a note. As with the
+  // seasons above, this governs only what a *question* may ask for; the
+  // fragrances' own stored notes are untouched, and a genuine aroma
+  // material that doubles as an allergen declaration (Coumarin, Linalool,
+  // Geraniol, Citral) stays a note, because it really is one.
+  'fragrance', 'fragrances', 'perfume', 'perfumes', 'scent', 'scents',
+  'parfum', 'aqua', 'water', 'eau', 'alcohol',
 ]);
 
 let noteVocabulary = null;

@@ -9,13 +9,22 @@
 # the same with the CLOUDFLARE_API_TOKEN repository secret. The public URL
 # is https://<name>.<your-subdomain>.workers.dev; the deploy prints it.
 #
-# ── Secrets never go in this file ─────────────────────────────────────────
+# ── No API key is needed at all ───────────────────────────────────────────
+# The default provider is Cloudflare's own inference, reached through the
+# [ai] binding at the bottom of this file. A binding is not a credential:
+# the runtime hands it to the Worker, so there is nothing to obtain, set or
+# leak, and a free Cloudflare account with no card gets 10,000 Neurons a day
+# at no charge.
+#
+# ── If a third-party key IS added later ───────────────────────────────────
 # This repo is public. Provider keys are set with `wrangler secret put
 # <NAME>` (or by the deploy workflow from repository secrets) and live only
-# in Cloudflare's encrypted store:
+# in Cloudflare's encrypted store, never here:
 #   GROQ_API_KEY, GEMINI_API_KEY, CEREBRAS_API_KEY, OPENROUTER_API_KEY,
 #   CUSTOM_API_KEY (+ CUSTOM_BASE_URL, which may be a var instead)
-# Only the providers whose key is present are used; the others are ignored.
+# All are optional. Only the providers whose key is present are used, and
+# adding one is worth doing only as a second string for the day the free
+# allocation runs out — put it after the binding in YANNY_MODELS.
 
 name = "pricesniffs-yanny"
 main = "src/index.js"
@@ -25,23 +34,34 @@ workers_dev = true
 [vars]
 # Which models answer, in the order they are started. All are asked at
 # once; the first answer that passes the groundedness gate is sent. Keep it
-# to two or three — every entry spends a request on that provider's daily
-# free allowance for every question. Ids must be ones the provider currently
-# serves on its free tier; /api/health reports a provider that rejects its
-# key or its model id.
-YANNY_MODELS = '[{"provider":"groq","model":"llama-3.3-70b-versatile"},{"provider":"gemini","model":"gemini-2.5-flash"}]'
+# short — every entry spends one request per question against that
+# provider's daily allowance. Ids must be ones the provider currently
+# serves; /api/health reports one that has been retired.
+#
+# `workers-ai` needs no key (see the [ai] binding below). To add a fallback
+# for the day the free allocation runs out, set that provider's key as a
+# secret and append it here, e.g.
+#   [{"provider":"workers-ai","model":"@cf/meta/llama-3.3-70b-instruct-fp8-fast"},
+#    {"provider":"groq","model":"llama-3.3-70b-versatile"}]
+YANNY_MODELS = '[{"provider":"workers-ai","model":"@cf/meta/llama-3.3-70b-instruct-fp8-fast"}]'
 
 # The only origins allowed to POST /api/chat. Add a local origin while
 # developing (e.g. http://127.0.0.1:8080) and remove it afterwards.
 ALLOWED_ORIGINS = "https://pricesniffs.space,https://www.pricesniffs.space"
 
 # Per-IP rate limit: 20 questions a minute. The binding is optional — the
-# Worker runs without it — but it is what keeps the free provider keys from
-# being drained by one caller. Available on the free plan.
+# Worker runs without it — but it is what keeps one caller from spending the
+# day's free inference allocation on their own. Available on the free plan.
 [[ratelimits]]
 name = "RATE"
 namespace_id = "1001"
 simple = { limit = 20, period = 60 }
+
+# Cloudflare's own inference, and the reason this Worker needs no API key.
+# Included on the free plan (10,000 Neurons a day); the Worker reads it as
+# `env.AI` and calls `env.AI.run(model, { messages })`.
+[ai]
+binding = "AI"
 
 [observability]
 enabled = true

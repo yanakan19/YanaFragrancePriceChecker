@@ -1,6 +1,6 @@
 import { test } from 'vitest';
 import assert from 'node:assert/strict';
-import worker, { allowedOrigins, configuredModels, health, race, validateChatBody, DEFAULT_MODELS } from '../../workers/yanny/src/index.js';
+import worker, { allowedOrigins, callModel, configuredModels, health, race, validateChatBody, DEFAULT_MODELS } from '../../workers/yanny/src/index.js';
 
 /**
  * The Worker's own logic, exercised without a network: which models are
@@ -12,7 +12,101 @@ import worker, { allowedOrigins, configuredModels, health, race, validateChatBod
 
 const SITE_DATA = 'ABOUT THIS SITE: test.\n\nNOTE MATCHED CANDIDATES (requested: Vanilla):\nHouse Bottle (Eau de Parfum) — shares: Vanilla — notes on file: Vanilla, Musk. Cheapest £42.00.';
 
+const models = [
+  { provider: 'groq', model: 'fast' },
+  { provider: 'gemini', model: 'slow' },
+];
+const messages = [{ role: 'user', content: 'something vanilla' }];
+
 /* ── configuration ─────────────────────────────────────────────────────── */
+
+test('configuredModels: workers-ai needs no key, only the binding — the default with no secrets at all', () => {
+  const ai = { run: async () => ({ response: 'x' }) };
+  // The shipped default: nothing configured but the binding.
+  const fromDefault = configuredModels({ AI: ai });
+  assert.equal(fromDefault.length, 1);
+  assert.equal(fromDefault[0].provider, 'workers-ai');
+  assert.equal(fromDefault[0].model, DEFAULT_MODELS[0].model);
+  assert.equal(fromDefault[0].ai, ai);
+  assert.equal(fromDefault[0].apiKey, undefined, 'a binding provider carries no key field at all');
+
+  // No binding bound: the provider is dropped rather than half-configured.
+  assert.deepEqual(configuredModels({}), []);
+
+  // The binding and an HTTP fallback together, in the configured order.
+  const both = configuredModels({
+    AI: ai,
+    YANNY_MODELS: JSON.stringify([
+      { provider: 'workers-ai', model: '@cf/meta/llama-3.3-70b-instruct-fp8-fast' },
+      { provider: 'groq', model: 'llama-3.3-70b-versatile' },
+    ]),
+    GROQ_API_KEY: 'k',
+  });
+  assert.deepEqual(both.map((m) => m.provider), ['workers-ai', 'groq']);
+});
+
+test('callModel: the binding is called with the messages and its `response` becomes the answer', async () => {
+  let sawModel = null;
+  let sawOptions = null;
+  const m = {
+    provider: 'workers-ai',
+    model: '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
+    ai: {
+      run: async (model, options) => {
+        sawModel = model;
+        sawOptions = options;
+        return { response: '  House Bottle lists vanilla; cheapest £42.00 delivered.  ' };
+      },
+    },
+  };
+  const result = await callModel(m, messages, new AbortController().signal);
+  assert.equal(result.ok, true);
+  assert.equal(sawModel, m.model);
+  assert.deepEqual(sawOptions.messages, messages);
+  assert.ok(sawOptions.max_tokens > 0, 'the token cap is applied to the binding too');
+  assert.equal(result.content, 'House Bottle lists vanilla; cheapest £42.00 delivered.');
+});
+
+test('callModel: an empty or failed binding answer is a failure, never an empty bubble', async () => {
+  const empty = await callModel(
+    { provider: 'workers-ai', model: 'm', ai: { run: async () => ({ response: '   ' }) } },
+    messages,
+    new AbortController().signal,
+  );
+  assert.equal(empty.ok, false);
+  assert.match(empty.error, /empty completion/);
+
+  const threw = await callModel(
+    { provider: 'workers-ai', model: 'm', ai: { run: async () => { throw new Error('out of neurons'); } } },
+    messages,
+    new AbortController().signal,
+  );
+  assert.equal(threw.ok, false);
+  assert.match(threw.error, /out of neurons/);
+});
+
+test('callModel: a binding answer that arrives after the reader left is dropped, not returned', async () => {
+  const controller = new AbortController();
+  const m = {
+    provider: 'workers-ai',
+    model: 'm',
+    // The binding takes no AbortSignal, so the call runs to completion; what
+    // must not happen is the answer being handed back to a caller that has
+    // already gone.
+    ai: { run: async () => { controller.abort(); return { response: 'too late' }; } },
+  };
+  const result = await callModel(m, messages, controller.signal);
+  assert.equal(result.ok, false);
+  assert.match(result.error, /cancelled/);
+});
+
+test('health: the binding counts as reachable without spending a generation on the check', async () => {
+  const body = await health({ AI: { run: async () => ({ response: 'x' }) } }, { now: 100_000 });
+  assert.equal(body.ok, true);
+  assert.equal(body.configured, true);
+  assert.equal(body.providersReachable, 1);
+  assert.deepEqual(body.providers.map((p) => p.provider), ['workers-ai']);
+});
 
 test('configuredModels: only providers with a key are used, in the configured order', () => {
   const env = {
@@ -34,8 +128,13 @@ test('configuredModels: a custom endpoint needs both its URL and key; unparseabl
   const custom = configuredModels({ YANNY_MODELS: '[{"provider":"custom","model":"x"}]', CUSTOM_API_KEY: 'k', CUSTOM_BASE_URL: 'https://router.example/v1' });
   assert.equal(custom.length, 1);
   assert.equal(custom[0].baseUrl, 'https://router.example/v1');
-  const fallback = configuredModels({ YANNY_MODELS: 'not json', GROQ_API_KEY: 'k', GEMINI_API_KEY: 'k' });
+  // Unparseable config falls back to DEFAULT_MODELS, which is the binding
+  // alone — so it needs the binding, not a key, to survive the filter.
+  const fallback = configuredModels({ YANNY_MODELS: 'not json', AI: { run: async () => ({}) } });
   assert.deepEqual(fallback.map((m) => m.model), DEFAULT_MODELS.map((m) => m.model));
+  // ...and with keys but no binding, the default resolves to nothing at all,
+  // which is what makes /api/chat answer not_configured rather than hang.
+  assert.deepEqual(configuredModels({ YANNY_MODELS: 'not json', GROQ_API_KEY: 'k' }), []);
 });
 
 test('allowedOrigins: comma-separated, trimmed, empty entries dropped', () => {
@@ -56,11 +155,6 @@ test('validateChatBody: caps and shapes', () => {
 
 /* ── the race ──────────────────────────────────────────────────────────── */
 
-const models = [
-  { provider: 'groq', model: 'fast' },
-  { provider: 'gemini', model: 'slow' },
-];
-const messages = [{ role: 'user', content: 'something vanilla' }];
 
 /** A stand-in for callModel: answers per model after a delay, and records
  *  whether it saw the abort signal fire. */
@@ -139,7 +233,16 @@ test('health: unconfigured without keys; ok only when a provider is reachable; c
   const none = await health({}, { now: 1_000_000 });
   assert.deepEqual({ ok: none.ok, configured: none.configured, agentCount: none.agentCount }, { ok: false, configured: false, agentCount: 0 });
 
-  const env = { GROQ_API_KEY: 'k', GEMINI_API_KEY: 'k' };
+  const env = {
+    // Two HTTP providers, named explicitly: the shipped default is the
+    // binding alone, and this case is about probing real endpoints.
+    YANNY_MODELS: JSON.stringify([
+      { provider: 'groq', model: 'a' },
+      { provider: 'gemini', model: 'b' },
+    ]),
+    GROQ_API_KEY: 'k',
+    GEMINI_API_KEY: 'k',
+  };
   let calls = 0;
   const fetchImpl = async (m) => {
     calls += 1;
@@ -159,7 +262,7 @@ test('health: unconfigured without keys; ok only when a provider is reachable; c
 /* ── the handler ───────────────────────────────────────────────────────── */
 
 test('fetch: /api/chat refuses an origin that is not the site, and a preflight from the site is allowed', async () => {
-  const env = { ALLOWED_ORIGINS: 'https://pricesniffs.space', GROQ_API_KEY: 'k' };
+  const env = { ALLOWED_ORIGINS: 'https://pricesniffs.space', AI: { run: async () => ({ response: 'x' }) } };
   const denied = await worker.fetch(
     new Request('https://w.example/api/chat', { method: 'POST', headers: { Origin: 'https://evil.example', 'Content-Type': 'application/json' }, body: '{}' }),
     env,

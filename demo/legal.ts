@@ -128,10 +128,22 @@ export const COMPANY = {
   privacyEmail: 'yannysniffs@gmail.com',
   /** Where the site is served from, and who runs the chat backend and accounts. */
   hosting: 'GitHub Pages',
+  /**
+   * The chat service and the AI that writes its answers are the same
+   * company as of 2026-09-08: the Worker runs on Cloudflare and calls
+   * Cloudflare's own inference through a binding, so an open chat question
+   * reaches one processor rather than two. Both fields are kept, and both
+   * are rendered, because that is a fact about today's configuration and
+   * not a permanent one — `workers/yanny/wrangler.toml` can be pointed at
+   * Groq or Google as a fallback, and the day it is, this value changes
+   * and the notice changes with it. Naming one processor twice is honest;
+   * collapsing the two fields into one would hide the join that has to be
+   * revisited.
+   */
   chatHost: 'Cloudflare',
-  chatProvider: 'Groq or Google',
+  chatProvider: 'Cloudflare',
   accountsProvider: 'Supabase',
-  updated: '6 September 2026',
+  updated: '8 September 2026',
 } as const;
 
 /** Storage this site writes in the reader's browser, listed on the cookies page. */
@@ -325,8 +337,9 @@ export const LEGAL_PAGES: LegalPage[] = [
         type for those leaves your device. An open question, such as a
         request for something that smells a certain way, is sent with the
         catalogue extract it needs to our chat service, which runs on
-        ${COMPANY.chatHost}, and from there to an AI provider,
-        ${COMPANY.chatProvider}, which writes the answer. Our chat service does
+        ${COMPANY.chatHost}, and is answered by an AI model run by
+        ${COMPANY.chatProvider} as well, so it goes to one company and no
+        further. Our chat service does
         not store your messages and keeps no record of the conversation; the
         copy you see is held in your browser's session storage and is gone
         when the tab closes, or the moment you press Clear. The AI provider
@@ -358,10 +371,9 @@ export const LEGAL_PAGES: LegalPage[] = [
         website involves the host handling standard connection information,
         such as IP addresses, to deliver the page. That is governed by GitHub's
         own privacy statement; we do not receive or store it.</li>
-        <li><strong>${COMPANY.chatHost}</strong> hosts the chat service, and
-        <strong>${COMPANY.chatProvider}</strong> writes the answers to open
-        chat questions, as described above. Catalogue questions never reach
-        either.</li>
+        <li><strong>${COMPANY.chatHost}</strong> both hosts the chat service
+        and runs the AI model that writes the answers to open chat questions,
+        as described above. Catalogue questions never reach it at all.</li>
         <li><strong>${COMPANY.accountsProvider}</strong> holds account data,
         your email, login and wishlist, if you create an account. We do not run
         a server of our own. Row level security on that database means only

@@ -4178,7 +4178,7 @@ function yannyHeadHtml(): string {
            carries the full account; this is the sentence that has to be
            seen first. -->
       <p class="yanny-head-note">Prices, stock, sizes and notes are looked up in your browser and never leave it.
-        Open questions go to our chat service and an AI provider, and are not stored by us. Please leave out personal details.</p>
+        Open questions go to our chat service, which answers them with its own AI, and are not stored by us. Please leave out personal details.</p>
     </div>
     ${yannyClearHtml()}
     <button class="yanny-close" id="yanny-close" aria-label="Close chat">${ICON_CLOSE}</button>
