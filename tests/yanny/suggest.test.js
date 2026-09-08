@@ -109,6 +109,22 @@ test('extractNotes: a season is listing metadata, not a note request', async () 
   assert.deepEqual(await extractNotes('something for winter'), []);
 });
 
+test('extractNotes: the words that mean "perfume" are not read as a note request', async () => {
+  // The 2026-09-08 harvest put an ingredients declaration into some
+  // products' note lists ("Parfum, Fragrance, Aqua, Water, Limonene"), so
+  // NOTE_INDEX gained real entries named Fragrance and Water. Left
+  // readable, the noun in almost every question a shopper types becomes a
+  // scent filter: "cheapest designer fragrance" was answered with the four
+  // bottles that happened to carry an ingredients declaration.
+  assert.deepEqual(await extractNotes('recommend me a fragrance'), []);
+  assert.deepEqual(await extractNotes('cheapest niche fragrance you list'), []);
+  assert.deepEqual(await extractNotes('what perfume should i buy'), []);
+  assert.deepEqual(await extractNotes('a nice scent for work'), []);
+  // ...and a genuine aroma material that doubles as an allergen
+  // declaration is still a note, because it really is one.
+  assert.deepEqual(await extractNotes('something with coumarin'), ['Coumarin']);
+});
+
 test('suggestContextFor: a multi-note request leads with the products matching most of it', async () => {
   const block = await suggestContextFor('something with vanilla, amber and sandalwood');
   const shares = block

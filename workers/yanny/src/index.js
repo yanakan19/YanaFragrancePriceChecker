@@ -30,18 +30,38 @@ import { groundednessScore } from '../../../demo/yanny/scoring.js';
  * per IP, the system prompt is fixed here and not accepted from the body,
  * `max_tokens` is capped, and every provider call is bounded by a timeout.
  *
+ * ── No third-party key is needed ─────────────────────────────────────────
+ * The default provider is `workers-ai`: Cloudflare's own inference, reached
+ * through the `AI` binding declared in wrangler.toml rather than over HTTP
+ * with somebody else's API key. Cloudflare gives every account, including a
+ * free one with no card on file, 10,000 Neurons a day at no charge
+ * (developers.cloudflare.com/workers-ai/platform/pricing, read 2026-09-08),
+ * which is far past what this widget's two model-bound intents will spend.
+ *
+ * That matters beyond convenience: the owner asked for everything to run
+ * free, and a setup that needs a Groq account and a Google AI Studio
+ * account before the chat answers anything is three sign-ups where one
+ * would do. The HTTP providers below are kept because they are genuinely
+ * useful as a second string — if the daily allocation runs out, a
+ * configured Groq key answers instead — but every one of them is optional
+ * and none is configured by default.
+ *
  * ── Configuration ────────────────────────────────────────────────────────
  * Vars (wrangler.toml [vars], public):
- *   YANNY_MODELS    JSON list of {provider, model}. Providers: groq,
- *                   gemini, cerebras, openrouter, custom.
+ *   YANNY_MODELS    JSON list of {provider, model}. Providers: workers-ai
+ *                   (the binding), groq, gemini, cerebras, openrouter, custom.
  *   ALLOWED_ORIGINS comma-separated origins allowed to call /api/chat.
- * Secrets (`wrangler secret put`, never in the repo):
+ * Secrets (`wrangler secret put`, never in the repo, all optional):
  *   GROQ_API_KEY, GEMINI_API_KEY, CEREBRAS_API_KEY, OPENROUTER_API_KEY,
  *   CUSTOM_BASE_URL + CUSTOM_API_KEY (any other OpenAI-compatible endpoint).
- * Binding (optional): RATE — a Workers rate-limit binding, see wrangler.toml.
+ * Bindings: AI (Cloudflare's inference, `[ai]` in wrangler.toml) and,
+ *   optionally, RATE — a Workers rate-limit binding.
  */
 
 export const PROVIDERS = {
+  /** Cloudflare's own inference. No base URL and no key: it is a binding on
+   *  `env`, so there is nothing to authenticate and nothing to leak. */
+  'workers-ai': { binding: 'AI' },
   groq: { baseUrl: 'https://api.groq.com/openai/v1', keyVar: 'GROQ_API_KEY' },
   gemini: { baseUrl: 'https://generativelanguage.googleapis.com/v1beta/openai', keyVar: 'GEMINI_API_KEY' },
   cerebras: { baseUrl: 'https://api.cerebras.ai/v1', keyVar: 'CEREBRAS_API_KEY' },
@@ -49,13 +69,11 @@ export const PROVIDERS = {
   custom: { baseUrl: null, keyVar: 'CUSTOM_API_KEY' },
 };
 
-/** Fallback when YANNY_MODELS is unset or unparseable. Model ids are the
- *  providers' published free-tier ids as of the file's date; the health
- *  check reports a provider whose id has been retired. */
-export const DEFAULT_MODELS = [
-  { provider: 'groq', model: 'llama-3.3-70b-versatile' },
-  { provider: 'gemini', model: 'gemini-2.5-flash' },
-];
+/** Fallback when YANNY_MODELS is unset or unparseable: Cloudflare's own
+ *  inference alone, so a Worker deployed with no secrets at all still
+ *  answers. The model id is one Cloudflare serves in its catalogue as of
+ *  2026-09-08; /api/health reports an id that has since been retired. */
+export const DEFAULT_MODELS = [{ provider: 'workers-ai', model: '@cf/meta/llama-3.3-70b-instruct-fp8-fast' }];
 
 const QUESTION_MAX = 500;
 const SITE_DATA_MAX = 16_000;
@@ -85,10 +103,15 @@ export function configuredModels(env) {
     .filter((m) => m && typeof m.model === 'string' && PROVIDERS[m.provider])
     .map((m) => {
       const p = PROVIDERS[m.provider];
+      // A binding provider is usable when the binding is bound; an HTTP one
+      // when it has both an endpoint and a key. Neither can stand in for the
+      // other, so they are built as two different shapes rather than one
+      // shape with empty fields.
+      if (p.binding) return { provider: m.provider, model: m.model, ai: env[p.binding] ?? null };
       const baseUrl = m.provider === 'custom' ? env.CUSTOM_BASE_URL : p.baseUrl;
       return { provider: m.provider, model: m.model, baseUrl, apiKey: env[p.keyVar] ?? '' };
     })
-    .filter((m) => m.baseUrl && m.apiKey);
+    .filter((m) => (PROVIDERS[m.provider].binding ? Boolean(m.ai) : Boolean(m.baseUrl && m.apiKey)));
 }
 
 export function allowedOrigins(env) {
@@ -122,6 +145,15 @@ function json(body, status, origin) {
 let healthCache = { at: 0, body: null };
 
 async function providerReachable(m) {
+  // A binding is either bound or it is not, and `configuredModels` has
+  // already dropped it if it is not. Deliberately NOT probed with a real
+  // generation: /api/health runs every time a reader opens the chat panel,
+  // and spending a day's free allocation on health checks would take the
+  // service down in exactly the way the check exists to report. So this
+  // reports what is genuinely knowable for free — the binding is there —
+  // and a day's allocation actually running out surfaces on the question
+  // itself, where the widget already says so plainly.
+  if (PROVIDERS[m.provider].binding) return true;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), HEALTH_TIMEOUT_MS);
   try {
@@ -158,6 +190,7 @@ export async function health(env, { now = Date.now(), fetchImpl } = {}) {
 /* ── one model call ────────────────────────────────────────────────────── */
 
 export async function callModel(m, messages, signal) {
+  if (PROVIDERS[m.provider].binding) return callBoundModel(m, messages, signal);
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), MODEL_TIMEOUT_MS);
   const onOuter = () => controller.abort();
@@ -190,6 +223,39 @@ export async function callModel(m, messages, signal) {
   } finally {
     clearTimeout(timer);
     signal?.removeEventListener('abort', onOuter);
+  }
+}
+
+/**
+ * Cloudflare's own inference, through the binding.
+ *
+ * No fetch, no key, no base URL — `env.AI.run` is a method on an object the
+ * runtime hands the Worker. It takes the same `messages` array the HTTP
+ * providers take and returns `{ response }` rather than OpenAI's
+ * `choices[0].message.content`, which is the whole of the difference.
+ *
+ * The binding takes no AbortSignal, so a caller that goes away (the reader
+ * pressing stop) cannot tear this call down mid-flight the way it can an
+ * HTTP one. What it can do is decline the answer, which is what the check
+ * after the await is for: the work finishes and is dropped rather than
+ * reaching a socket nobody is reading.
+ */
+async function callBoundModel(m, messages, signal) {
+  const startedAt = Date.now();
+  try {
+    const out = await m.ai.run(m.model, { messages, temperature: 0.4, max_tokens: MAX_TOKENS });
+    if (signal?.aborted) throw new Error('cancelled');
+    const content = String(out?.response ?? '').trim();
+    if (!content) throw new Error('empty completion');
+    return { ok: true, provider: m.provider, model: m.model, content, latencyMs: Date.now() - startedAt };
+  } catch (err) {
+    return {
+      ok: false,
+      provider: m.provider,
+      model: m.model,
+      error: String(err?.message ?? err),
+      latencyMs: Date.now() - startedAt,
+    };
   }
 }
 
@@ -315,7 +381,11 @@ export default {
 
       const models = configuredModels(env);
       if (models.length === 0) {
-        return json({ error: 'not_configured', message: 'No model provider is configured on the chat service.' }, 503, origin);
+        return json(
+          { error: 'not_configured', message: 'No model provider is configured on the chat service. The AI binding is missing and no provider key is set.' },
+          503,
+          origin,
+        );
       }
 
       const messages = [

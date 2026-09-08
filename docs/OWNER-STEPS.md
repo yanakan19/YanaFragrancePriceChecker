@@ -24,24 +24,18 @@ anything.
 
 ---
 
-## 2. Switch on the AI side of Virtual Yanny, for free (15 minutes)
+## 2. Switch on the AI side of Virtual Yanny, for free (10 minutes)
 
 Prices, stock, sizes and notes already work without this. This step only
 matters for open questions like "something sweet, no florals".
 
-### 2a. Get two free AI keys
+**You do not need any AI keys.** Cloudflare has its own AI built in, free,
+with no card and no third-party sign-ups. One account is the whole of it.
 
-1. **Groq**: go to https://console.groq.com, sign up (free), click
-   **API Keys** → **Create API Key** → copy it somewhere safe.
-2. **Google AI Studio**: go to https://aistudio.google.com, sign in with a
-   Google account, click **Get API key** → **Create API key** → copy it.
+### 2a. A free Cloudflare account
 
-(One of the two is enough; both is better.)
-
-### 2b. Get a free Cloudflare account and a token
-
-1. Go to https://dash.cloudflare.com/sign-up and create a free account.
-   No card is needed.
+1. Go to https://dash.cloudflare.com/sign-up and create an account. It is
+   free and it does not ask for a card.
 2. In the dashboard, click **Workers & Pages**. On that overview page, on
    the right, copy your **Account ID**.
 3. Click your profile picture (top right) → **My Profile** → **API Tokens**
@@ -49,17 +43,17 @@ matters for open questions like "something sweet, no florals".
    **Use template** → **Continue to summary** → **Create Token** → copy it.
    It is shown once.
 
-### 2c. Put the four values into GitHub
+### 2b. Put the two values into GitHub
 
 1. Open https://github.com/yanakan19/yanafragrancepricechecker/settings/secrets/actions
-2. Click **New repository secret** and add these, one at a time, name
-   exactly as written:
-   - `CLOUDFLARE_API_TOKEN` = the Cloudflare token
-   - `CLOUDFLARE_ACCOUNT_ID` = the Account ID
-   - `GROQ_API_KEY` = the Groq key
-   - `GEMINI_API_KEY` = the Google key
+2. Click **New repository secret** and add these two, name exactly as
+   written:
+   - `CLOUDFLARE_API_TOKEN` = the token from 2a
+   - `CLOUDFLARE_ACCOUNT_ID` = the Account ID from 2a
 
-### 2d. Press the button
+That is all the secrets there are. Nothing else is needed.
+
+### 2c. Press the button
 
 1. Open https://github.com/yanakan19/yanafragrancepricechecker/actions
 2. In the left list click **Deploy Virtual Yanny worker**.
@@ -69,16 +63,34 @@ matters for open questions like "something sweet, no florals".
 4. Wait about two minutes. Open the run. If it is green, click **Summary**
    at the top: it shows a line like
    `URL: https://pricesniffs-yanny.<something>.workers.dev`. Copy that URL.
-5. If it is red, open the failed step; its last lines say what to fix (a
-   missing secret, or a key a provider rejected).
+5. If it is red, open the failed step; its last lines say what to fix.
 
-### 2e. Tell the site where the Worker is
+### 2d. Tell the site where the Worker is
 
-Send me (Claude) the URL from step 2d in this chat and say "set the Yanny
-URL". I will put it in `demo/virtualYanny.ts`, rebuild and push. Or do it
+Send me (Claude) the URL from 2c in this chat and say "set the Yanny URL".
+I will put it in `demo/virtualYanny.ts`, rebuild and push. Or do it
 yourself: edit that file, change `''` on the `VIRTUAL_YANNY_API_BASE_URL`
 line to the URL in quotes, run `npm run demo`, commit
 `demo/virtualYanny.ts`, `demo/index.html` and `demo/404.html`, push.
+
+### What the free allowance is
+
+Cloudflare gives 10,000 Neurons a day at no charge, which is thousands of
+chat answers. Only open questions use any of it; prices, stock, sizes and
+notes cost nothing because they are answered in the reader's own browser.
+If it ever did run out, the chat says so plainly for the rest of the day
+and everything else keeps working. If that ever became a real problem you
+could add a free Groq key as a backup, but there is no reason to now.
+
+### Doing it from a terminal instead
+
+If you would rather not use the GitHub button, this does the same thing
+and needs no tokens at all (it signs you in through the browser):
+
+```
+npx wrangler login
+npx wrangler deploy --config workers/yanny/wrangler.toml
+```
 
 ---
 

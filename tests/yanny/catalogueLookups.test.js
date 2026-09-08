@@ -158,6 +158,44 @@ test('budget: a budget-shaped question with no threshold in it is handed to the 
   assert.equal(await resolveBudgetQuery('is anything good value at the moment'), null);
 });
 
+test('budget: a "cheapest" question that filters down to nothing answers, and quotes no price it does not have', async () => {
+  // The empty branch used to print `gbp(result.maxGbp)` unconditionally,
+  // but a "cheapest X" question names no ceiling — maxGbp is null there by
+  // design — so this threw and the widget showed its generic failure line
+  // for a question the data could answer honestly. Built from a result
+  // shape rather than a live question, because whether any real query
+  // empties depends on the day's harvest.
+  const empty = {
+    kind: 'cheapest',
+    maxGbp: null,
+    tier: 'niche',
+    items: [],
+    totalMatching: 0,
+    pricedMatching: 0,
+    pricedTotal: 9176,
+    withNotesTotal: null,
+    gender: null,
+    scent: { any: false, families: [], literal: [], unmatchedDescriptors: [] },
+    unsupported: [],
+  };
+  const answer = formatBudgetAnswer(empty);
+  assert.match(answer, /niche/);
+  assert.doesNotMatch(answer, /£/, 'a question with no ceiling must not quote one');
+  assert.doesNotMatch(answer, /NaN|undefined|null/);
+
+  // The same, with a scent filter that emptied a non-empty pool: it still
+  // says which of the two facts it is, and still quotes no ceiling.
+  const scented = { ...empty, pricedMatching: 273, withNotesTotal: 7077, scent: { any: true, families: [], literal: ['Vanilla'], unmatchedDescriptors: [] } };
+  const scentedAnswer = formatBudgetAnswer(scented);
+  assert.match(scentedAnswer, /without the scent filter/);
+  assert.doesNotMatch(scentedAnswer, /£/);
+  assert.doesNotMatch(scentedAnswer, /NaN|undefined|null/);
+
+  // A real ceiling is still quoted.
+  const under = { ...empty, kind: 'under', maxGbp: 30 };
+  assert.match(formatBudgetAnswer(under), /£30\.00 delivered/);
+});
+
 /* ── comparison ────────────────────────────────────────────────────────── */
 
 test('comparison: the side named as cheaper really is the cheaper of the two figures given', async () => {
