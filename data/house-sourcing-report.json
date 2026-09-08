@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-08T07:16:14.099Z",
+  "checkedAt": "2026-09-08T12:28:11.967Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,10 +59,12 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "GBP",
-      "listings": 60,
+      "listings": 27,
       "pricedInGbp": 0,
       "withPhoto": 0,
-      "errors": [],
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
@@ -141,10 +143,12 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 59,
-      "errors": [],
+      "listings": 49,
+      "pricedInGbp": 49,
+      "withPhoto": 49,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
@@ -190,9 +194,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 90,
-      "pricedInGbp": 90,
-      "withPhoto": 90,
+      "listings": 104,
+      "pricedInGbp": 104,
+      "withPhoto": 104,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -517,9 +521,9 @@
       "origin": "https://www.thebodyshop.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 413,
-      "pricedInGbp": 413,
-      "withPhoto": 413,
+      "listings": 418,
+      "pricedInGbp": 418,
+      "withPhoto": 418,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -534,9 +538,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 218,
-      "pricedInGbp": 218,
-      "withPhoto": 216,
+      "listings": 217,
+      "pricedInGbp": 217,
+      "withPhoto": 215,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",
