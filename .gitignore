@@ -9,6 +9,12 @@ screenshots/
 # fetched to classify, never the project's to redistribute or commit.
 .image-box-cache/
 *.log
+# Python's own bytecode cache. scripts/image-box-classify.py is invoked as a
+# subprocess by scripts/image-box-check.ts, and CPython writes a .pyc beside it
+# on the first call — a machine- and version-specific build artefact of a file
+# already in the repo, so there is nothing here to commit.
+__pycache__/
+*.pyc
 .env
 .env.*
 !.env.example
