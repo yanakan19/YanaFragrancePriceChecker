@@ -1971,7 +1971,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "085715710307",
     "shops": 5,
-    "image": "https://www.justmylook.com/cdn/shop/files/agent-provocateur-eau-de-parfum-200ml-p22269-48175_image_x100.jpg?v=1721322125",
+    "image": "https://www.justmylook.com/cdn/shop/files/agent-provocateur-eau-de-parfum-200ml-p22269-48175_image.jpg?v=1721322125&width=3000",
     "notes": {
       "top": [
         "Pure"
@@ -22267,7 +22267,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "088300606504",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-for-men-eau-de-toilette-75ml-p30458-96634_image_x100.jpg?v=1721322164",
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-for-men-eau-de-toilette-75ml-p30458-96634_image.jpg?v=1721322164&width=3000",
     "notes": {
       "top": [
         "mandarin",
@@ -23167,7 +23167,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "020714080310",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/CLQ0009_x100.png?v=1738168657",
+    "image": "https://www.justmylook.com/cdn/shop/files/CLQ0009.png?v=1738168657&width=3000",
     "notes": null
   },
   {
@@ -25043,7 +25043,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0085805907006",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0001_x100.png?v=1777037424",
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0001.png?v=1777037424&width=3000",
     "notes": null
   },
   {
@@ -42209,7 +42209,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274760552",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -42220,7 +42220,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274760569",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -42231,7 +42231,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274760545",
     "shops": 3,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -43485,7 +43485,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0085715169587",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/ABER0017_x100.png?v=1740748575",
+    "image": "https://www.justmylook.com/cdn/shop/files/ABER0017.png?v=1740748575&width=3000",
     "notes": null
   },
   {
@@ -43496,7 +43496,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "0085715169594",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/ABER0018_x100.png?v=1740748576",
+    "image": "https://www.justmylook.com/cdn/shop/files/ABER0018.png?v=1740748576&width=3000",
     "notes": null
   },
   {
@@ -46679,7 +46679,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0840881132038",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -47304,7 +47304,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 240,
     "ean": "022548386231",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/AR0003_x100.png?v=1766583596",
+    "image": "https://www.justmylook.com/cdn/shop/files/AR0003.png?v=1766583596&width=3000",
     "notes": {
       "top": [
         "Artemisia",
@@ -51680,7 +51680,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0746480135220",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -51691,7 +51691,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0746480135428",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -56068,7 +56068,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "088300162550",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/CK0002_x100.png?v=1767110433",
+    "image": "https://www.justmylook.com/cdn/shop/files/CK0002.png?v=1767110433&width=3000",
     "notes": {
       "top": [
         "Pomegranate",
@@ -56271,7 +56271,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "0088300106530",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-aftershave-125ml-p23484-96598_image_x100.jpg?v=1721322163",
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-aftershave-125ml-p23484-96598_image.jpg?v=1721322163&width=3000",
     "notes": null
   },
   {
@@ -58108,7 +58108,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0020714080303",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/CLQ0008_fee870ad-6f1e-43e0-8406-b229bfc6edad_x100.png?v=1741166557",
+    "image": "https://www.justmylook.com/cdn/shop/files/CLQ0008_fee870ad-6f1e-43e0-8406-b229bfc6edad.png?v=1741166557&width=3000",
     "notes": null
   },
   {
@@ -58412,7 +58412,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0849017013975",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -60375,7 +60375,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0663350092783",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -60448,7 +60448,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0663350084153",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -60503,7 +60503,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0663350095180",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -61019,7 +61019,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8057971183784",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -61739,7 +61739,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0849017011216",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -62263,7 +62263,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "085805763749",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0055_x100.png?v=1777037406",
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0055.png?v=1777037406&width=3000",
     "notes": null
   },
   {
@@ -62366,7 +62366,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805558420",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0006_x100.png?v=1777037412",
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0006.png?v=1777037412&width=3000",
     "notes": {
       "top": [
         "Ylang-Ylang",
@@ -62844,7 +62844,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0849017016716",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -71634,7 +71634,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274644432",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -71645,7 +71645,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274644449",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -75346,7 +75346,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0085715268518",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/HOL0005_x100.png?v=1758900975",
+    "image": "https://www.justmylook.com/cdn/shop/files/HOL0005.png?v=1758900975&width=3000",
     "notes": {
       "top": [
         "Birch Leaves"
@@ -75367,7 +75367,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0085715261014",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/HOL0001_901aac92-2b67-4569-9ea5-042a4f8bcff1_x100.png?v=1758900974",
+    "image": "https://www.justmylook.com/cdn/shop/files/HOL0001_901aac92-2b67-4569-9ea5-042a4f8bcff1.png?v=1758900974&width=3000",
     "notes": null
   },
   {
@@ -75378,7 +75378,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0085715000941",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/HOL0004_d34dcd14-a53a-4bb8-9481-ffb003ab0267_x100.png?v=1758900976",
+    "image": "https://www.justmylook.com/cdn/shop/files/HOL0004_d34dcd14-a53a-4bb8-9481-ffb003ab0267.png?v=1758900976&width=3000",
     "notes": {
       "top": [
         "Grapefruit",
@@ -81477,7 +81477,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0098691047695",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/viva-la-juicy-eau-de-parfum-50ml-p27084-65516_image_x100.jpg?v=1721322256",
+    "image": "https://www.justmylook.com/cdn/shop/files/viva-la-juicy-eau-de-parfum-50ml-p27084-65516_image.jpg?v=1721322256&width=3000",
     "notes": null
   },
   {
@@ -85438,7 +85438,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362347163",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -86088,7 +86088,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360593104",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88047,7 +88047,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800204389",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88058,7 +88058,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800204396",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88069,7 +88069,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800204372",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88102,7 +88102,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800203092",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88146,7 +88146,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800203214",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88202,7 +88202,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800204969",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88213,7 +88213,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800203788",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88333,7 +88333,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800204723",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88344,7 +88344,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800203825",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88355,7 +88355,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800205263",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88366,7 +88366,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800205270",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88377,7 +88377,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800205294",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88537,7 +88537,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6299800200367",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88587,7 +88587,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800202613",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88598,7 +88598,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800202606",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88609,7 +88609,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800202071",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88620,7 +88620,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800202293",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88631,7 +88631,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800205348",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88674,7 +88674,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "6299800203177",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88730,7 +88730,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800203801",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88773,7 +88773,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800203900",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -88942,7 +88942,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800205393",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -89010,7 +89010,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800205362",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -89032,7 +89032,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800205355",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -89065,7 +89065,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800204273",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -89076,7 +89076,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800204297",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -89087,7 +89087,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800204303",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -89109,7 +89109,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800204266",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -89120,7 +89120,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800204259",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -89131,7 +89131,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800204884",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -96853,7 +96853,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3614274704914",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -96864,7 +96864,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274704921",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -96875,7 +96875,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274704891",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -97893,7 +97893,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5425039220130",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -97915,7 +97915,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5425039221175",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98427,7 +98427,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874373",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98438,7 +98438,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873833",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98449,7 +98449,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874397",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98460,7 +98460,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874465",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98471,7 +98471,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874069",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98482,7 +98482,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874076",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98493,7 +98493,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873840",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98504,7 +98504,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873796",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98515,7 +98515,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873802",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98526,7 +98526,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874151",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98548,7 +98548,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873857",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98559,7 +98559,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874991",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98570,7 +98570,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873864",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98581,7 +98581,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873871",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98592,7 +98592,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873888",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98603,7 +98603,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873895",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98614,7 +98614,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874366",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98625,7 +98625,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873819",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98691,7 +98691,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873710",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98702,7 +98702,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873727",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98713,7 +98713,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873741",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98735,7 +98735,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873772",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98746,7 +98746,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873789",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98757,7 +98757,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874311",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98768,7 +98768,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874328",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98779,7 +98779,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874410",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -98790,7 +98790,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874403",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -100554,7 +100554,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "0679602001571",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -100565,7 +100565,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "0679602001595",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -107360,7 +107360,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8016741162534",
     "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": {
       "top": [
         "Iris",
@@ -108178,7 +108178,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640496670160",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/tommy-eau-de-toilette-100ml-p23981-71385_image_x100.jpg?v=1721322346",
+    "image": "https://www.justmylook.com/cdn/shop/files/tommy-eau-de-toilette-100ml-p23981-71385_image.jpg?v=1721322346&width=3000",
     "notes": null
   },
   {
@@ -112299,7 +112299,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "4011700750351",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -112591,7 +112591,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/ABER0010_x100.png?v=1742576779",
+    "image": "https://www.justmylook.com/cdn/shop/files/ABER0010.png?v=1742576779&width=3000",
     "notes": null
   },
   {
@@ -115500,7 +115500,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360616674",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -115621,7 +115621,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290360616117",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -116839,7 +116839,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6293708011278",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -117331,7 +117331,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291100130634",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -130527,7 +130527,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8427395016386",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -130571,7 +130571,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8058045427032",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -130582,7 +130582,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8058045426998",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -130593,7 +130593,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8059049001518",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -131433,7 +131433,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "sizeMl": 250,
     "ean": "8421916506271",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -133049,7 +133049,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "sizeMl": 110,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/AR0002_x100.png?v=1766583596",
+    "image": "https://www.justmylook.com/cdn/shop/files/AR0002.png?v=1766583596&width=3000",
     "notes": null
   },
   {
@@ -135047,7 +135047,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199790380",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -136264,7 +136264,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199802106",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -136275,7 +136275,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199802144",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -136286,7 +136286,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199802212",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -136297,7 +136297,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199802069",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -136308,7 +136308,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199802205",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -136341,7 +136341,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199802120",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -136352,7 +136352,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199802175",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -136363,7 +136363,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199802045",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -136374,7 +136374,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199802168",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -136385,7 +136385,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199802182",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -136396,7 +136396,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199802052",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -136407,7 +136407,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199802137",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -136418,7 +136418,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199802151",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -136429,7 +136429,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199802083",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -136440,7 +136440,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199802113",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -137644,7 +137644,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 70,
     "ean": "6295199815045",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -138262,7 +138262,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015188660",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -138745,7 +138745,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199800263",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -138768,7 +138768,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199800270",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -138791,7 +138791,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199810774",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -139083,7 +139083,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199803561",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -139094,7 +139094,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199803578",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -139105,7 +139105,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295199803592",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -139257,7 +139257,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0787907068264",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -139268,7 +139268,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0787907068271",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -139279,7 +139279,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0787907068257",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -143427,7 +143427,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0850009634740",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -143438,7 +143438,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0850009634764",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -143493,7 +143493,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "4011700905157",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -143504,7 +143504,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "4011700905164",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -143515,7 +143515,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0011700902002",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -143548,7 +143548,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "4011700912124",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -154615,7 +154615,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274304374",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -154769,7 +154769,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273756419",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -154846,7 +154846,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-be-eau-de-toilette-100ml-p20027-96604_image_x100.jpg?v=1721322154",
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-be-eau-de-toilette-100ml-p20027-96604_image.jpg?v=1721322154&width=3000",
     "notes": null
   },
   {
@@ -155760,7 +155760,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-contradiction-eau-de-parfum-100ml-p20059-96593_image_x100.jpg?v=1721322158",
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-contradiction-eau-de-parfum-100ml-p20059-96593_image.jpg?v=1721322158&width=3000",
     "notes": null
   },
   {
@@ -155804,7 +155804,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-contradiction-men-eau-de-toilette-100ml-p20023-96622_image_x100.jpg?v=1721322158",
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-contradiction-men-eau-de-toilette-100ml-p20023-96622_image.jpg?v=1721322158&width=3000",
     "notes": null
   },
   {
@@ -155927,7 +155927,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/escape-men-eau-de-toilette-100ml-p20066-44333_image_x100.jpg?v=1721322167",
+    "image": "https://www.justmylook.com/cdn/shop/files/escape-men-eau-de-toilette-100ml-p20066-44333_image.jpg?v=1721322167&width=3000",
     "notes": null
   },
   {
@@ -156393,7 +156393,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616303549749",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -156415,7 +156415,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/eternity-moment-eau-de-parfum-30ml-p23687-96618_image_x100.jpg?v=1721322153",
+    "image": "https://www.justmylook.com/cdn/shop/files/eternity-moment-eau-de-parfum-30ml-p23687-96618_image.jpg?v=1721322153&width=3000",
     "notes": null
   },
   {
@@ -156509,7 +156509,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/eternity-moment-eau-de-parfum-50ml-p20053-96699_image_x100.jpg?v=1721322151",
+    "image": "https://www.justmylook.com/cdn/shop/files/eternity-moment-eau-de-parfum-50ml-p20053-96699_image.jpg?v=1721322151&width=3000",
     "notes": null
   },
   {
@@ -156553,7 +156553,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/eternity-moment-eau-de-parfum-100ml-p20054-96600_image_x100.jpg?v=1721322164",
+    "image": "https://www.justmylook.com/cdn/shop/files/eternity-moment-eau-de-parfum-100ml-p20054-96600_image.jpg?v=1721322164&width=3000",
     "notes": null
   },
   {
@@ -156689,7 +156689,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/eternity-women-eau-de-parfum-30ml-p33597-95906_image_x100.jpg?v=1721322164",
+    "image": "https://www.justmylook.com/cdn/shop/files/eternity-women-eau-de-parfum-30ml-p33597-95906_image.jpg?v=1721322164&width=3000",
     "notes": null
   },
   {
@@ -156700,7 +156700,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-eternity-women-eau-de-parfum-50ml-p20583-71501_image_x100.png?v=1721322163",
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-eternity-women-eau-de-parfum-50ml-p20583-71501_image.png?v=1721322163&width=3000",
     "notes": null
   },
   {
@@ -156711,7 +156711,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-eternity-women-eau-de-parfum-100ml-p20057-96588_image_x100.jpg?v=1721322153",
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-eternity-women-eau-de-parfum-100ml-p20057-96588_image.jpg?v=1721322153&width=3000",
     "notes": null
   },
   {
@@ -156787,7 +156787,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/CK0003_x100.png?v=1767110433",
+    "image": "https://www.justmylook.com/cdn/shop/files/CK0003.png?v=1767110433&width=3000",
     "notes": null
   },
   {
@@ -156864,7 +156864,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/in-2-u-man-eau-de-toilette-100ml-p20018-96679_image_x100.jpg?v=1721322167",
+    "image": "https://www.justmylook.com/cdn/shop/files/in-2-u-man-eau-de-toilette-100ml-p20018-96679_image.jpg?v=1721322167&width=3000",
     "notes": null
   },
   {
@@ -156875,7 +156875,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-in-2-u-man-eau-de-toilette-150ml-p20019-96642_image_x100.jpg?v=1721322168",
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-in-2-u-man-eau-de-toilette-150ml-p20019-96642_image.jpg?v=1721322168&width=3000",
     "notes": null
   },
   {
@@ -156886,7 +156886,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/CK0006_x100.png?v=1773312482",
+    "image": "https://www.justmylook.com/cdn/shop/files/CK0006.png?v=1773312482&width=3000",
     "notes": null
   },
   {
@@ -156897,7 +156897,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-in-2-u-woman-eau-de-toilette-150ml-p20385-96630_image_x100.jpg?v=1721322158",
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-in-2-u-woman-eau-de-toilette-150ml-p20385-96630_image.jpg?v=1721322158&width=3000",
     "notes": null
   },
   {
@@ -157054,7 +157054,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-man-eau-de-toilette-50ml-p23899-53760_image_x100.jpg?v=1721322166",
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-man-eau-de-toilette-50ml-p23899-53760_image.jpg?v=1721322166&width=3000",
     "notes": null
   },
   {
@@ -157143,7 +157143,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/CK0022_x100.jpg?v=1728297388",
+    "image": "https://www.justmylook.com/cdn/shop/files/CK0022.jpg?v=1728297388&width=3000",
     "notes": null
   },
   {
@@ -157355,7 +157355,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-night-eau-de-parfum-100ml-p20061-96612_image_x100.jpg?v=1721322167",
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-night-eau-de-parfum-100ml-p20061-96612_image.jpg?v=1721322167&width=3000",
     "notes": null
   },
   {
@@ -157641,7 +157641,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-truth-femme-eau-de-parfum-100ml-p21088-44863_image_x100.jpg?v=1721322158",
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-truth-femme-eau-de-parfum-100ml-p21088-44863_image.jpg?v=1721322158&width=3000",
     "notes": {
       "top": [
         "Vetiver"
@@ -157691,7 +157691,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-truth-homme-eau-de-toilette-100ml-p31273-84722_image_x100.jpg?v=1721322167",
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-truth-homme-eau-de-toilette-100ml-p31273-84722_image.jpg?v=1721322167&width=3000",
     "notes": null
   },
   {
@@ -158031,7 +158031,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061125007",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -158726,7 +158726,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061055199",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -161821,7 +161821,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616303475413",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -162912,7 +162912,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/clinique-happy-heart-eau-de-parfum-100ml-p22840-61818_image_x100.jpg?v=1721322170",
+    "image": "https://www.justmylook.com/cdn/shop/files/clinique-happy-heart-eau-de-parfum-100ml-p22840-61818_image.jpg?v=1721322170&width=3000",
     "notes": null
   },
   {
@@ -163921,7 +163921,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3770029648855",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -163943,7 +163943,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3770029648886",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -163998,7 +163998,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3770029648596",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -164020,7 +164020,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3770029648831",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -164031,7 +164031,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3770018007298",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -164064,7 +164064,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3770029648725",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -164075,7 +164075,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3770029648879",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -165399,7 +165399,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3508440561800",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -167257,7 +167257,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3616305938497",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -167665,7 +167665,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015161007",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -167676,7 +167676,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015160925",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -167687,7 +167687,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015161014",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -172127,7 +172127,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8054754403138",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -175349,7 +175349,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0085715801968",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -175715,7 +175715,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060933120256",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -175726,7 +175726,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060933120294",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -175737,7 +175737,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060933120607",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -175748,7 +175748,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060933120096",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -175759,7 +175759,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060933120041",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -175770,7 +175770,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060933120300",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -175781,7 +175781,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060933120348",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -175792,7 +175792,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060933120140",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -175803,7 +175803,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5060933120522",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -176624,7 +176624,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0003_x100.png?v=1777023584",
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0003.png?v=1777023584&width=3000",
     "notes": null
   },
   {
@@ -176925,7 +176925,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0080_0ea95c1b-8716-4e25-89a2-34a3be043092_x100.png?v=1778226640",
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0080_0ea95c1b-8716-4e25-89a2-34a3be043092.png?v=1778226640&width=3000",
     "notes": null
   },
   {
@@ -177125,7 +177125,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0008_x100.png?v=1777037393",
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0008.png?v=1777037393&width=3000",
     "notes": null
   },
   {
@@ -177390,7 +177390,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0002_x100.png?v=1777037400",
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0002.png?v=1777037400&width=3000",
     "notes": null
   },
   {
@@ -180474,7 +180474,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/EST0030_x100.png?v=1741178529",
+    "image": "https://www.justmylook.com/cdn/shop/files/EST0030.png?v=1741178529&width=3000",
     "notes": null
   },
   {
@@ -182034,7 +182034,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015151701",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -182775,7 +182775,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8904238300081",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -191644,7 +191644,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298042001701",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -191655,7 +191655,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298042001541",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -192125,7 +192125,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0679602251112",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -193559,7 +193559,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274298000",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -196066,7 +196066,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3274872481688",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -196395,7 +196395,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872501676",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -196546,7 +196546,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872456327",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -197328,7 +197328,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8052204136858",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -199606,7 +199606,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0085715323576",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -199639,7 +199639,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0085715002358",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -200137,7 +200137,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362162803",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -200868,7 +200868,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362164715",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -200940,7 +200940,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362164685",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -201301,7 +201301,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362163329",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -201312,7 +201312,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290362164722",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -201472,7 +201472,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8436611107845",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -202321,7 +202321,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 15,
     "ean": "3346131797073",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -202376,7 +202376,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3346130431497",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -202387,7 +202387,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3346130431503",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -202734,7 +202734,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 15,
     "ean": "3346131431007",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -203072,7 +203072,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 15,
     "ean": "3346133600029",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -203323,7 +203323,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/HOL0002_e3820077-8d1d-4457-afe8-c5ef6ef14700_x100.png?v=1758900975",
+    "image": "https://www.justmylook.com/cdn/shop/files/HOL0002_e3820077-8d1d-4457-afe8-c5ef6ef14700.png?v=1758900975&width=3000",
     "notes": null
   },
   {
@@ -203356,7 +203356,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0085715261007",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -203367,7 +203367,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0085715260093",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -203530,7 +203530,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616305616210",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -207153,7 +207153,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3701415903432",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -208147,7 +208147,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0849017010615",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -208158,7 +208158,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0849017013609",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -208180,7 +208180,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0849017010592",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -208235,7 +208235,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0849017010622",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -208691,7 +208691,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5050456024056",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -208980,7 +208980,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8435415105293",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -209225,7 +209225,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8435415115032",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -209355,7 +209355,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8435415115209",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -209366,7 +209366,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415115193",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -210136,7 +210136,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3430750792813",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -210629,7 +210629,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015193596",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -210640,7 +210640,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015193619",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -210651,7 +210651,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015193633",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -210662,7 +210662,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015193640",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -210673,7 +210673,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015193602",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -210723,7 +210723,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015193626",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -210784,7 +210784,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294015193657",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -213835,7 +213835,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460149839",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -213846,7 +213846,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460149822",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -220099,7 +220099,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460149204",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -220569,7 +220569,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3386460149235",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -221856,7 +221856,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "0810876038119",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -221900,7 +221900,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "0810876037921",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -221933,7 +221933,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "0810876037990",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -221944,7 +221944,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0810876039598",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -221955,7 +221955,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0810876039970",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -221966,7 +221966,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0810876039581",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -222546,7 +222546,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274335682",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -223431,7 +223431,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460119030",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -225793,7 +225793,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291108738245",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -233732,7 +233732,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3701139901325",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -233809,7 +233809,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294019017539",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -233820,7 +233820,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294019010639",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -233831,7 +233831,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107920207",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -233980,7 +233980,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "6294019017515",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -234276,7 +234276,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6294019015948",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -235707,7 +235707,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6299800205278",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -235729,7 +235729,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "sizeMl": 95,
     "ean": "6299800200725",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -235796,7 +235796,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "9911100199970",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -235840,7 +235840,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -240831,7 +240831,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3760265190379",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -241799,7 +241799,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616303461867",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -242020,7 +242020,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5013692273848",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -242031,7 +242031,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5013692280532",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -242042,7 +242042,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5013692273824",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -242821,7 +242821,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/MCM0002_b70380b6-8be6-4969-984f-7e0c36c17a1a_x100.png?v=1756720379",
+    "image": "https://www.justmylook.com/cdn/shop/files/MCM0002_b70380b6-8be6-4969-984f-7e0c36c17a1a.png?v=1756720379&width=3000",
     "notes": null
   },
   {
@@ -244246,7 +244246,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "5055654089456",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -244770,7 +244770,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3386460153188",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -244814,7 +244814,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3386460136938",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -246105,7 +246105,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460132787",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -249074,7 +249074,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3423222121600",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -249096,7 +249096,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423222121624",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -249610,7 +249610,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8717774840580",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -249887,7 +249887,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5425017734826",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -250217,7 +250217,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5425039222974",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -250734,7 +250734,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5013692278744",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -250745,7 +250745,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5013692276863",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -250957,7 +250957,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5214002966034",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -251118,7 +251118,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3137370359500",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -251129,7 +251129,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3137370359487",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -251728,7 +251728,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873826",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -251750,7 +251750,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874441",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -251761,7 +251761,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874427",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -251772,7 +251772,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874458",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -251849,7 +251849,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105875097",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -251860,7 +251860,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3534886893120",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -251926,7 +251926,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3534886893137",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -251948,7 +251948,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3534886893113",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -251970,7 +251970,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3534886893106",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -251992,7 +251992,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105875004",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252014,7 +252014,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105875144",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252025,7 +252025,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105875073",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252036,7 +252036,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "3534886810332",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252058,7 +252058,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "3534886810349",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252080,7 +252080,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "3534886810363",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252113,7 +252113,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "3534886810356",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252124,7 +252124,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105875066",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252146,7 +252146,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874205",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252157,7 +252157,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873994",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252168,7 +252168,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874007",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252179,7 +252179,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874045",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252190,7 +252190,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874342",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252201,7 +252201,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874168",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252212,7 +252212,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874229",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252223,7 +252223,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874212",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252245,7 +252245,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874335",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252256,7 +252256,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874106",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252267,7 +252267,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874021",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252278,7 +252278,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874199",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252289,7 +252289,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874175",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252300,7 +252300,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874182",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252311,7 +252311,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874038",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252322,7 +252322,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874113",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252333,7 +252333,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105874984",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -252344,7 +252344,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291105873758",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -253573,7 +253573,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0085715564214",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -256775,7 +256775,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "6290064558416",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -257149,7 +257149,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6298141924505",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -257865,7 +257865,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291534659153",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -259112,7 +259112,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004322481",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -260695,7 +260695,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8436581949131",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -260783,7 +260783,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8436581949971",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -261265,7 +261265,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "0679602111089",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -263168,7 +263168,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3494800019022",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -263992,7 +263992,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3349668567287",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -265582,7 +265582,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3349668645220",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -265593,7 +265593,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668645213",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -265763,7 +265763,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668641772",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -265846,7 +265846,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3349668662913",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -265857,7 +265857,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668662920",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -265868,7 +265868,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668662937",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -276083,7 +276083,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8719134194296",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -276611,7 +276611,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8056860214660",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -277920,7 +277920,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/SAB0012_x100.png?v=1749830586",
+    "image": "https://www.justmylook.com/cdn/shop/files/SAB0012.png?v=1749830586&width=3000",
     "notes": null
   },
   {
@@ -278026,7 +278026,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/SAB0006_2453ce98-832b-4fc5-ae45-22be4833b1f0_x100.jpg?v=1728987853",
+    "image": "https://www.justmylook.com/cdn/shop/files/SAB0006_2453ce98-832b-4fc5-ae45-22be4833b1f0.jpg?v=1728987853&width=3000",
     "notes": null
   },
   {
@@ -278081,7 +278081,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/SAB0008_x100.jpg?v=1736953311",
+    "image": "https://www.justmylook.com/cdn/shop/files/SAB0008.jpg?v=1736953311&width=3000",
     "notes": null
   },
   {
@@ -278147,7 +278147,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/SAB0009_x100.jpg?v=1736953320",
+    "image": "https://www.justmylook.com/cdn/shop/files/SAB0009.jpg?v=1736953320&width=3000",
     "notes": null
   },
   {
@@ -280609,7 +280609,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "0810876039710",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282385,7 +282385,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001343",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282396,7 +282396,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001350",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282429,7 +282429,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001367",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282451,7 +282451,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001244",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282462,7 +282462,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6290360379876",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282473,7 +282473,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001251",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282484,7 +282484,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001381",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282506,7 +282506,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001268",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282528,7 +282528,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001275",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282539,7 +282539,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001404",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282550,7 +282550,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6290360379791",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282561,7 +282561,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6290360379807",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282572,7 +282572,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001282",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282594,7 +282594,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6290360379869",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282605,7 +282605,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6290360379845",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282627,7 +282627,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001435",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282649,7 +282649,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001312",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282660,7 +282660,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001442",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282671,7 +282671,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001459",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282682,7 +282682,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001329",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282693,7 +282693,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6290360379746",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282715,7 +282715,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6290360379777",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282726,7 +282726,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6290360379838",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282737,7 +282737,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001466",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282748,7 +282748,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6298042001336",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282836,7 +282836,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6281085019758",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282847,7 +282847,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6281085041391",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -282869,7 +282869,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6281085033594",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -283175,7 +283175,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6281085040417",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -283236,7 +283236,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6281085034430",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -283333,7 +283333,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6281085041377",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -283355,7 +283355,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "6295124031250",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -283388,7 +283388,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6295124031199",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -285169,7 +285169,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616304477584",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -285257,7 +285257,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8016741262715",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -285268,7 +285268,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8016741312717",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -285348,7 +285348,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8016741142710",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -285370,7 +285370,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8016741122323",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -285506,7 +285506,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8016741172434",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -286843,7 +286843,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "0888066150279",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -287337,7 +287337,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "0888066177979",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -287719,7 +287719,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/tommy-hilfiger-tommy-girl-eau-de-toilette-50ml-p23983-71371_image_x100.jpg?v=1721322334",
+    "image": "https://www.justmylook.com/cdn/shop/files/tommy-hilfiger-tommy-girl-eau-de-toilette-50ml-p23983-71371_image.jpg?v=1721322334&width=3000",
     "notes": null
   },
   {
@@ -294322,7 +294322,7 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8016741502712",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -294333,7 +294333,7 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8016741552717",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -296815,7 +296815,7 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003848225",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -297539,7 +297539,7 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274506167",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -297583,7 +297583,7 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
     "sizeMl": 10,
     "ean": "3614273665926",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -297952,7 +297952,7 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8033488154509",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -298547,7 +298547,7 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5056179307834",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -298558,7 +298558,7 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5056179307827",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -298580,7 +298580,7 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5056179308367",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -298591,7 +298591,7 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5056179308343",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -298602,7 +298602,7 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5056179308329",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -298613,7 +298613,7 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5056179308381",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -300264,7 +300264,7 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3614274223101",
     "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
+    "image": null,
     "notes": null
   },
   {
@@ -304945,7 +304945,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -306701,7 +306701,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -317895,7 +317895,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -319245,7 +319245,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -319299,7 +319299,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -320448,7 +320448,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -325007,7 +325007,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -334456,7 +334456,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -335063,7 +335063,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -335418,7 +335418,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-09-07T10:18:13.639Z",
       "isNew": true,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -335691,7 +335691,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -335745,7 +335745,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -337638,7 +337638,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -339007,7 +339007,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -339909,7 +339909,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-27T14:05:47.427Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -341344,7 +341344,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -342054,7 +342054,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -342218,7 +342218,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -342328,7 +342328,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -342369,7 +342369,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -342410,7 +342410,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -342574,7 +342574,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -342984,7 +342984,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -344896,7 +344896,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -348578,7 +348578,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -348729,7 +348729,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -348770,7 +348770,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -348975,7 +348975,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -349438,7 +349438,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://home.bargains/product/da426f6b-c1b7-4179-9f17-cace67b70ecd/davidoff-cool-water-125ml-aftershave",
       "fetchedAt": "2026-09-02T09:36:51.703Z",
       "firstSeenAt": "2026-09-02T09:36:51.703Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     },
@@ -355676,7 +355676,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -355730,7 +355730,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -356143,7 +356143,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -356771,7 +356771,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -357099,7 +357099,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -364100,7 +364100,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -366970,7 +366970,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -368638,7 +368638,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -368679,7 +368679,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -368720,7 +368720,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -369540,7 +369540,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -373570,7 +373570,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -376825,7 +376825,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -378301,7 +378301,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -378370,7 +378370,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -381092,7 +381092,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -381133,7 +381133,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -381174,7 +381174,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -381940,7 +381940,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -382322,7 +382322,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-27T14:05:47.427Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -387107,7 +387107,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -389322,7 +389322,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -389350,7 +389350,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -389882,7 +389882,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -389910,7 +389910,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -389994,7 +389994,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -390511,7 +390511,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -391506,7 +391506,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -391534,7 +391534,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -391562,7 +391562,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -391618,7 +391618,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -391674,7 +391674,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -392878,7 +392878,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -392906,7 +392906,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -400163,7 +400163,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-20T15:18:34.147Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -400219,7 +400219,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -400247,7 +400247,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -400303,7 +400303,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-20T15:18:34.147Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -401989,7 +401989,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -402172,7 +402172,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -402340,7 +402340,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -403068,7 +403068,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -404664,7 +404664,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -404776,7 +404776,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -404916,7 +404916,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -405784,7 +405784,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -406960,7 +406960,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -408565,7 +408565,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -409937,7 +409937,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -409993,7 +409993,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -410021,7 +410021,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -417332,7 +417332,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -418269,7 +418269,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -418297,7 +418297,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -419165,7 +419165,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -419473,7 +419473,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-17T18:31:36.899Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -419585,7 +419585,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -419669,7 +419669,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -420705,7 +420705,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -420748,7 +420748,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -420817,7 +420817,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -421069,7 +421069,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -427760,7 +427760,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -428361,7 +428361,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-21T20:25:59.761Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -429033,7 +429033,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -429061,7 +429061,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-21T20:25:59.761Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -429089,7 +429089,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -429285,7 +429285,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -435899,7 +435899,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -436095,7 +436095,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -436123,7 +436123,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -436151,7 +436151,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -436235,7 +436235,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -436306,7 +436306,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -437118,7 +437118,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-09-02T18:42:05.360Z",
       "isNew": true,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -437846,7 +437846,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -439651,7 +439651,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -439679,7 +439679,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -439707,7 +439707,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -439778,7 +439778,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -439862,7 +439862,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -440086,7 +440086,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-27T14:05:47.427Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -440562,7 +440562,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -440590,7 +440590,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -440618,7 +440618,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -440702,7 +440702,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -440730,7 +440730,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -440786,7 +440786,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -440842,7 +440842,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -440870,7 +440870,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -440898,7 +440898,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441010,7 +441010,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441066,7 +441066,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441094,7 +441094,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441122,7 +441122,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441150,7 +441150,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441178,7 +441178,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441206,7 +441206,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441290,7 +441290,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441346,7 +441346,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441402,7 +441402,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441430,7 +441430,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441486,7 +441486,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441514,7 +441514,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441542,7 +441542,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441570,7 +441570,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441598,7 +441598,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441654,7 +441654,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441682,7 +441682,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441766,7 +441766,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441794,7 +441794,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -441878,7 +441878,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -442046,7 +442046,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -442102,7 +442102,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -442158,7 +442158,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -442298,7 +442298,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -442354,7 +442354,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -442438,7 +442438,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -442466,7 +442466,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -442494,7 +442494,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -442550,7 +442550,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -442578,7 +442578,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -442606,7 +442606,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -446510,7 +446510,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/maison-francis-kurkdjian-baccarat-rouge-540-extrait-de-parfum-200ml_R00017734/",
       "fetchedAt": "2026-09-09T00:16:59.537Z",
       "firstSeenAt": "2026-09-02T09:36:51.703Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -448779,7 +448779,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -449205,7 +449205,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -452033,7 +452033,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -452061,7 +452061,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -452089,7 +452089,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -452173,7 +452173,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -453364,7 +453364,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -453420,7 +453420,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454288,7 +454288,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454316,7 +454316,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454344,7 +454344,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454372,7 +454372,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454400,7 +454400,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454428,7 +454428,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454456,7 +454456,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454484,7 +454484,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454512,7 +454512,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454540,7 +454540,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454596,7 +454596,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454624,7 +454624,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454652,7 +454652,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454680,7 +454680,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454708,7 +454708,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454736,7 +454736,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454764,7 +454764,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454792,7 +454792,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454960,7 +454960,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -454988,7 +454988,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -455016,7 +455016,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -455072,7 +455072,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -455100,7 +455100,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -455128,7 +455128,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -455156,7 +455156,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -455184,7 +455184,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -455212,7 +455212,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -455968,7 +455968,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -457984,7 +457984,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -458012,7 +458012,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -460125,7 +460125,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-09-04T09:43:24.695Z",
       "isNew": true,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -460153,7 +460153,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-24T14:35:22.942Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -460209,7 +460209,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -460237,7 +460237,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -460797,7 +460797,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -460853,7 +460853,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-24T14:35:22.942Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -460881,7 +460881,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-24T14:35:22.942Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -460909,7 +460909,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-20T15:18:34.147Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -463167,7 +463167,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-09-07T10:18:13.639Z",
       "isNew": true,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -465030,7 +465030,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -465058,7 +465058,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -465674,7 +465674,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -465702,7 +465702,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -466402,7 +466402,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -467270,7 +467270,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     },
     {
@@ -467479,7 +467479,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -469106,7 +469106,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -469834,7 +469834,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-27T14:05:47.427Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -471682,7 +471682,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-09-08T01:13:43.553Z",
       "isNew": true,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -474053,7 +474053,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -476681,7 +476681,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-28T15:12:06.885Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -476741,7 +476741,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -477749,7 +477749,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -478154,7 +478154,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -486353,7 +486353,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -486413,7 +486413,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -486428,7 +486428,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -486443,7 +486443,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -487103,7 +487103,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -489434,7 +489434,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -490292,7 +490292,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -490307,7 +490307,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -490322,7 +490322,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -490337,7 +490337,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -490352,7 +490352,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -490397,7 +490397,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -490412,7 +490412,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -490427,7 +490427,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -490442,7 +490442,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -490457,7 +490457,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -490472,7 +490472,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -490487,7 +490487,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -490502,7 +490502,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -490517,7 +490517,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -490532,7 +490532,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -491492,7 +491492,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -492212,7 +492212,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -492587,7 +492587,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -492617,7 +492617,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -492647,7 +492647,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -492992,7 +492992,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -493007,7 +493007,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -493022,7 +493022,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -493190,7 +493190,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-27T14:05:47.427Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -493205,7 +493205,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-27T14:05:47.427Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -493220,7 +493220,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-27T14:05:47.427Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -496043,7 +496043,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -496058,7 +496058,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -496133,7 +496133,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -496148,7 +496148,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -496163,7 +496163,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -496208,7 +496208,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -498487,7 +498487,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/borntostandout-drunk-lovers-extrait-extreme-50ml_R04671970/",
       "fetchedAt": "2026-09-09T00:16:59.537Z",
       "firstSeenAt": "2026-09-02T09:36:51.703Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -505730,7 +505730,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -505940,7 +505940,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -507512,7 +507512,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -509015,7 +509015,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-20T15:18:34.147Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -509678,7 +509678,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -510805,7 +510805,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/caron-pour-un-homme-eau-de-toilette-75ml_R04680221/",
       "fetchedAt": "2026-09-09T00:16:59.537Z",
       "firstSeenAt": "2026-09-02T09:36:51.703Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -510820,7 +510820,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/caron-pour-un-homme-parfum-125ml_R04680223/",
       "fetchedAt": "2026-09-04T09:54:36.159Z",
       "firstSeenAt": "2026-09-02T09:36:51.703Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -510835,7 +510835,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/caron-pour-un-homme-le-matin-eau-de-toilette-125ml_R04680222/",
       "fetchedAt": "2026-09-03T00:32:26.000Z",
       "firstSeenAt": "2026-09-02T09:36:51.703Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -512651,7 +512651,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-26T20:06:07.266Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -514709,7 +514709,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -514739,7 +514739,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -514814,7 +514814,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -514844,7 +514844,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -514859,7 +514859,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -514904,7 +514904,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -514919,7 +514919,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -515984,7 +515984,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -516118,7 +516118,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/creed-wild-vetiver-eau-de-parfum-100ml_R04611727/",
       "fetchedAt": "2026-09-04T09:54:36.159Z",
       "firstSeenAt": "2026-09-02T09:36:51.703Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -517829,7 +517829,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-09-03T09:47:42.906Z",
       "isNew": true,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -518174,7 +518174,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -518189,7 +518189,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -518204,7 +518204,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -521939,7 +521939,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-09-05T23:07:26.432Z",
       "isNew": true,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -524729,7 +524729,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -525119,7 +525119,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -525134,7 +525134,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -525149,7 +525149,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -525164,7 +525164,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -525179,7 +525179,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -525194,7 +525194,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -525209,7 +525209,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -525224,7 +525224,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -525239,7 +525239,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -530792,7 +530792,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -531497,7 +531497,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -537749,7 +537749,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -537764,7 +537764,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -538259,7 +538259,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-19T00:53:51.281Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -539534,7 +539534,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -541889,7 +541889,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -542219,7 +542219,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -542399,7 +542399,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -542923,7 +542923,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://home.bargains/product/d6eec4f8-23cc-44bd-862b-f65be4e4d839/glow-perfume-mist-250ml-pink-lychee-and-crystal-waters",
       "fetchedAt": "2026-09-02T09:36:51.703Z",
       "firstSeenAt": "2026-09-02T09:36:51.703Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -543179,7 +543179,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -544303,7 +544303,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/guerlain-absolus-allegoria-santal-royal-eau-de-parfum-125ml_R04376267/",
       "fetchedAt": "2026-09-02T09:36:51.703Z",
       "firstSeenAt": "2026-09-02T09:36:51.703Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -544543,7 +544543,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/guerlain-lheure-bleue-eau-de-parfum-50ml_R04691694/",
       "fetchedAt": "2026-09-04T09:54:36.159Z",
       "firstSeenAt": "2026-09-02T09:36:51.703Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -545039,7 +545039,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -545084,7 +545084,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-17T18:31:36.899Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -545579,7 +545579,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -546044,7 +546044,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -546089,7 +546089,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -546329,7 +546329,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -546344,7 +546344,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -546509,7 +546509,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-17T18:31:36.899Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -547274,7 +547274,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -547349,7 +547349,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -547364,7 +547364,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -547679,7 +547679,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-29T00:00:39.351Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -548024,7 +548024,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -548357,7 +548357,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -548372,7 +548372,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -548507,7 +548507,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -551267,7 +551267,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-21T14:27:57.039Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -552227,7 +552227,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -552242,7 +552242,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -552272,7 +552272,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -552347,7 +552347,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -552842,7 +552842,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -553097,7 +553097,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-24T14:35:22.942Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -553322,7 +553322,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-24T14:35:22.942Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -553442,7 +553442,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-21T20:25:59.761Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -553457,7 +553457,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-19T18:26:55.149Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -554192,7 +554192,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -554717,7 +554717,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -554732,7 +554732,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -554747,7 +554747,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -554762,7 +554762,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -554777,7 +554777,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -554807,7 +554807,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -554867,7 +554867,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -557732,7 +557732,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -557747,7 +557747,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -563156,7 +563156,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -563486,7 +563486,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -564701,7 +564701,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -564761,7 +564761,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -564806,7 +564806,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -564821,7 +564821,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -564836,7 +564836,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -564851,7 +564851,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -565331,7 +565331,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -565420,7 +565420,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/lancome-la-vie-est-belle-elixir-cherry-eau-de-parfum-100ml_R04694390/",
       "fetchedAt": "2026-09-03T00:32:26.000Z",
       "firstSeenAt": "2026-09-02T09:36:51.703Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -566141,7 +566141,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -567917,7 +567917,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -573911,7 +573911,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-27T14:05:47.427Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -574016,7 +574016,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -574031,7 +574031,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -574046,7 +574046,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -574151,7 +574151,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -574286,7 +574286,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -575543,7 +575543,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -575573,7 +575573,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -575633,7 +575633,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -575693,7 +575693,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -579230,7 +579230,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -579950,7 +579950,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -580205,7 +580205,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -580220,7 +580220,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -580235,7 +580235,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -582368,7 +582368,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -582893,7 +582893,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -582953,7 +582953,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -584078,7 +584078,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -585998,7 +585998,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -586028,7 +586028,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -586508,7 +586508,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -586823,7 +586823,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -587273,7 +587273,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -587978,7 +587978,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -587993,7 +587993,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -588218,7 +588218,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -588383,7 +588383,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-24T20:22:54.410Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -588398,7 +588398,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-24T20:22:54.410Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -588953,7 +588953,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -588983,7 +588983,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -588998,7 +588998,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589013,7 +589013,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589118,7 +589118,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589133,7 +589133,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589223,7 +589223,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589253,7 +589253,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589283,7 +589283,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589313,7 +589313,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589343,7 +589343,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589358,7 +589358,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589373,7 +589373,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589403,7 +589403,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589433,7 +589433,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589478,7 +589478,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589493,7 +589493,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589523,7 +589523,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589538,7 +589538,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589553,7 +589553,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589568,7 +589568,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589583,7 +589583,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589598,7 +589598,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589613,7 +589613,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589628,7 +589628,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589658,7 +589658,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589673,7 +589673,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589688,7 +589688,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589703,7 +589703,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589718,7 +589718,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589733,7 +589733,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589748,7 +589748,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589763,7 +589763,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589778,7 +589778,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -589793,7 +589793,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -590708,7 +590708,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -593069,7 +593069,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -593264,7 +593264,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -593654,7 +593654,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -594419,7 +594419,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -595604,7 +595604,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -595724,7 +595724,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -596189,7 +596189,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-19T00:53:51.281Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -598034,7 +598034,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -598529,7 +598529,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-24T20:22:54.410Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -599774,7 +599774,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-24T14:35:22.942Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -599789,7 +599789,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -599969,7 +599969,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-24T14:35:22.942Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -600044,7 +600044,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -600059,7 +600059,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -600074,7 +600074,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -606692,7 +606692,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-26T13:10:05.252Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -607202,7 +607202,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-29T00:00:39.351Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -611099,7 +611099,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -612689,7 +612689,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -612704,7 +612704,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -612749,7 +612749,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -612779,7 +612779,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -612794,7 +612794,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -612809,7 +612809,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -612824,7 +612824,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -612854,7 +612854,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -612884,7 +612884,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -612899,7 +612899,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -612914,7 +612914,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -612929,7 +612929,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -612944,7 +612944,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -612974,7 +612974,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -612989,7 +612989,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613019,7 +613019,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613049,7 +613049,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613064,7 +613064,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613079,7 +613079,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613094,7 +613094,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613109,7 +613109,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613139,7 +613139,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613154,7 +613154,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613169,7 +613169,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613184,7 +613184,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613304,7 +613304,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613319,7 +613319,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613349,7 +613349,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613589,7 +613589,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613649,7 +613649,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613724,7 +613724,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613754,7 +613754,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -613799,7 +613799,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -614746,7 +614746,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/the-merchant-of-venice-saffron-lumiere-parfum-30ml_R04679243/",
       "fetchedAt": "2026-09-09T00:16:59.537Z",
       "firstSeenAt": "2026-09-02T09:36:51.703Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -615452,7 +615452,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-09-07T16:02:23.885Z",
       "isNew": true,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -615572,7 +615572,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-09-04T09:43:24.695Z",
       "isNew": true,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -615587,7 +615587,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-09-04T09:43:24.695Z",
       "isNew": true,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -615647,7 +615647,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-09-08T11:17:31.134Z",
       "isNew": true,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -615677,7 +615677,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-09-08T11:17:31.134Z",
       "isNew": true,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -615797,7 +615797,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-09-04T09:43:24.695Z",
       "isNew": true,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -616772,7 +616772,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -617207,7 +617207,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-27T14:05:47.427Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -617266,7 +617266,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.selfridges.com/GB/en/product/tom-ford-tobacco-chocolat-eau-de-parfum-100ml_R04697230/",
       "fetchedAt": "2026-09-09T00:16:59.537Z",
       "firstSeenAt": "2026-09-02T09:36:51.703Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null,
       "rating": null
     }
@@ -624485,7 +624485,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -624500,7 +624500,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-09-04T09:43:24.695Z",
       "isNew": true,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -626435,7 +626435,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -627140,7 +627140,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -627200,7 +627200,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-27T14:05:47.427Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -627635,7 +627635,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -628265,7 +628265,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -628280,7 +628280,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -628310,7 +628310,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-27T14:05:47.427Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -628325,7 +628325,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-27T14:05:47.427Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -628340,7 +628340,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-27T14:05:47.427Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -628355,7 +628355,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-27T14:05:47.427Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -629735,7 +629735,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-09-08T11:17:31.134Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif",
+      "imageUrl": null,
       "rating": null
     }
   ],

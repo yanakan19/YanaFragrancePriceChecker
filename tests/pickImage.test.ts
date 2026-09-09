@@ -297,6 +297,220 @@ describe('upgradeImageResolution', () => {
   });
 });
 
+/**
+ * justmylook's `_x100` thumbnails — Shopify's OTHER resize convention.
+ *
+ * Every URL and every size below was measured on 2026-09-09, and exhaustively
+ * rather than by sample: all 104 `_x100` URLs in data/catalogue/justmylook.json
+ * were requested with the suffix dropped and `width=3000` added, and all 104
+ * came back at or above the 400px floor (103 at 1000x1000, one at 1056x1065).
+ * Six were downloaded beside their originals and viewed to confirm the same
+ * photograph comes back, not a different shot. The exhaustive check was the
+ * point: the only real hazard in dropping a filename suffix is a file whose
+ * name genuinely ends that way, which would 404, and zero of 104 did.
+ */
+describe('upgradeImageResolution — justmylook _x100 (Shopify filename size suffix)', () => {
+  it('drops the suffix and asks for the upgrade width, keeping the ?v= cache-buster', () => {
+    // Real stored URL; the result is the exact string that was fetched and
+    // measured at 1000x1000 (the original measures 100x100).
+    expect(
+      upgradeImageResolution(
+        'https://www.justmylook.com/cdn/shop/files/calvin-klein-be-eau-de-toilette-100ml-p20027-96604_image_x100.jpg?v=1721322156',
+      ),
+    ).toBe(
+      'https://www.justmylook.com/cdn/shop/files/calvin-klein-be-eau-de-toilette-100ml-p20027-96604_image.jpg?v=1721322156&width=3000',
+    );
+  });
+
+  it('works on a .png too, not only .jpg', () => {
+    // Real stored URL; the upgraded form was fetched and measured 1000x1000.
+    expect(upgradeImageResolution('https://www.justmylook.com/cdn/shop/files/EST0027_x100.png?v=1762190965')).toBe(
+      'https://www.justmylook.com/cdn/shop/files/EST0027.png?v=1762190965&width=3000',
+    );
+  });
+
+  it('opens a query string with ? when the URL has none', () => {
+    // Constructed, not observed: all 104 real URLs carry Shopify's `?v=`.
+    // Pinned because getting the separator wrong produces a URL that 404s
+    // rather than one that merely fails to upgrade.
+    expect(upgradeImageResolution('https://www.justmylook.com/cdn/shop/files/plain_x100.jpg')).toBe(
+      'https://www.justmylook.com/cdn/shop/files/plain.jpg?width=3000',
+    );
+  });
+
+  it('replaces rather than duplicates a width parameter if a URL somehow carries both', () => {
+    // No URL in this project's data has both — the 104 `_x100` URLs and the
+    // 1,870 `width=` ones are disjoint, counted 2026-09-09. Pinned anyway
+    // because a URL asking for the small rendition in its filename and a
+    // large one in its query would be served the small one.
+    expect(upgradeImageResolution('https://cdn.shopify.com/s/files/1/1/x_x100.jpg?v=1&width=100')).toBe(
+      'https://cdn.shopify.com/s/files/1/1/x.jpg?v=1&width=3000',
+    );
+  });
+
+  it('leaves a non-Shopify URL with the same-shaped filename completely alone', () => {
+    // The suffix only means "resize me" on a host running Shopify's image
+    // service. Anywhere else it may simply be part of the real filename, and
+    // rewriting it would break a working photo.
+    const url = 'https://example.test/photo_x100.jpg';
+    expect(upgradeImageResolution(url)).toBe(url);
+  });
+
+  it('leaves perfume-click alone — its host has no resize service at all', () => {
+    // Recorded in THUMBNAIL_IMAGE_RETAILERS' own header: bgstatic.net is a
+    // plain GCS bucket, and 240 requests for eight suffix variants across 30
+    // real URLs returned 240 misses.
+    const url = 'https://bgstatic.net/photos/169259_ml.jpg';
+    expect(upgradeImageResolution(url)).toBe(url);
+  });
+
+  it('does not touch a Shopify URL whose filename has no size suffix', () => {
+    const url = 'https://cdn.shopify.com/s/files/1/0621/6541/8121/files/613cHTxqsgL.jpg?v=1709545694';
+    expect(upgradeImageResolution(url)).toBe(url);
+  });
+});
+
+/**
+ * The interaction the whole `_x100` upgrade turns on, and the reason it was
+ * left undone until 2026-09-09.
+ *
+ * Sizes in data/image-box-verdicts.json are keyed on the URL as STORED and
+ * measure the file that URL returns. justmylook's `_x100` URLs really are
+ * 100x100 — a quarter of MIN_SWAPPABLE_LONG_EDGE — so once those sizes are
+ * backfilled, a naive size rule would refuse to swap to a photo that in fact
+ * renders at 1000x1000.
+ *
+ * Measured consequence on the live catalogue (2026-09-09, replaying pickImage
+ * over demo/catalogue.generated.ts's own CRAWLED offers): with the backfilled
+ * sizes but WITHOUT the upgrade, 15 products lose their justmylook photo, 9 of
+ * them onto a perfume-click thumbnail. With both landed together, none of those
+ * 15 moves; they keep the same photograph at ten times the resolution.
+ */
+describe('a measured size describes the photo as DISPLAYED, not as stored', () => {
+  function verdicts(entries: Record<string, ImageBoxVerdict>): Map<string, ImageBoxVerdict> {
+    return new Map(Object.entries(entries));
+  }
+  function sizes(entries: Record<string, [number, number]>): Map<string, ImageDimensions> {
+    return new Map(Object.entries(entries).map(([u, [width, height]]) => [u, { width, height }]));
+  }
+
+  // ── Calvin Klein Obsession For Men 75ml (ean-088300606504), a real case ──
+  // One of the 15 products the backfill would otherwise have moved. Its
+  // justmylook photo is stored at `_x100` and measures 100x100; beautybase
+  // has a boxed photo of the same bottle.
+  const JML_X100 =
+    'https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-for-men-eau-de-toilette-75ml-p30458-96634_image_x100.jpg?v=1721322164';
+  const JML_UPGRADED =
+    'https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-for-men-eau-de-toilette-75ml-p30458-96634_image.jpg?v=1721322164&width=3000';
+  const BEAUTYBASE_BOXED = 'https://www.beautybase.com/cdn/shop/files/1757425502-63166900.jpg?v=1763398899';
+
+  const obsessionOffers = [
+    offer({ retailerId: 'beautybase', imageUrl: BEAUTYBASE_BOXED, fetchedAt: hoursAgo(5) }),
+    offer({ retailerId: 'justmylook', imageUrl: JML_X100, fetchedAt: hoursAgo(1) }),
+  ];
+  const obsessionVerdicts = verdicts({ [BEAUTYBASE_BOXED]: 'boxed' });
+
+  it('does not let a 100x100 measurement block a photo that is displayed at 1000x1000', () => {
+    // The stored URL measures 100x100 (measured; it is one of the 104). The
+    // URL actually requested measures 1000x1000 (measured). The 100 must not
+    // be the number that decides.
+    const d = sizes({ [JML_X100]: [100, 100], [BEAUTYBASE_BOXED]: [2000, 2000] });
+    expect(pickImage(obsessionOffers, NOW, obsessionVerdicts, d)).toBe(JML_UPGRADED);
+  });
+
+  it('picks the same photo whether or not the sizes have been backfilled', () => {
+    // The backfill must be inert for these products, not merely survivable.
+    expect(pickImage(obsessionOffers, NOW, obsessionVerdicts)).toBe(JML_UPGRADED);
+  });
+
+  it('still trusts a measurement exactly when the stored URL is the one requested', () => {
+    // The other half of the rule, and the half that must not be weakened: for
+    // a URL this file does not rewrite, the measurement is exact and a small
+    // photo is still refused as a replacement. Same shop, same shapes, no
+    // upgradeable suffix.
+    const flat = 'https://www.justmylook.com/cdn/shop/files/no-suffix.jpg?v=1&width=1920';
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: BEAUTYBASE_BOXED, fetchedAt: hoursAgo(5) }),
+      offer({ retailerId: 'justmylook', imageUrl: 'https://justmylook.example/small.jpg', fetchedAt: hoursAgo(1) }),
+    ];
+    const v = verdicts({ [BEAUTYBASE_BOXED]: 'boxed' });
+    expect(pickImage(offers, NOW, v, sizes({ 'https://justmylook.example/small.jpg': [100, 100] }))).toBe(
+      upgradeImageResolution(BEAUTYBASE_BOXED),
+    );
+    // And the same URL made upgradeable is no longer conclusively too small.
+    expect(upgradeImageResolution(flat)).not.toBe(flat);
+  });
+
+  it('a measurement above the floor still decides, upgradeable or not', () => {
+    // First branch of isTooSmallToSwapTo: an upgrade only ever asks for MORE
+    // pixels, so a stored size that already clears 400 proves the displayed
+    // photo clears it too. No need to fall back to the retailer list there.
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: BEAUTYBASE_BOXED, fetchedAt: hoursAgo(5) }),
+      offer({ retailerId: 'perfume-click', imageUrl: 'https://bgstatic.example/hypothetical.jpg', fetchedAt: hoursAgo(1) }),
+    ];
+    const v = verdicts({ [BEAUTYBASE_BOXED]: 'boxed' });
+    // perfume-click is on the retailer list, so only a real measurement can
+    // let this through — and it does, because 1200x1600 is not ambiguous.
+    expect(pickImage(offers, NOW, v, sizes({ 'https://bgstatic.example/hypothetical.jpg': [1200, 1600] }))).toBe(
+      'https://bgstatic.example/hypothetical.jpg',
+    );
+  });
+
+  it('falls back to the retailer list, not to "big enough", for an under-floor upgradeable photo', () => {
+    // The third branch: measurement below the floor AND the URL will be
+    // rewritten, so the number describes a request no longer made. That is
+    // "unknown", which is the pre-2026-09-09 fallback — and for a shop ON the
+    // thumbnail list the fallback still says no. Constructed: perfume-click's
+    // host has no resize service (see the test above), so this shape does not
+    // occur. It pins that the unknown branch defers to the list rather than
+    // waving the photo through.
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: BEAUTYBASE_BOXED, fetchedAt: hoursAgo(5) }),
+      offer({
+        retailerId: 'perfume-click',
+        imageUrl: 'https://perfumeclick.example/cdn/shop/files/thumb_x100.jpg?v=1',
+        fetchedAt: hoursAgo(1),
+      }),
+    ];
+    const v = verdicts({ [BEAUTYBASE_BOXED]: 'boxed' });
+    const d = sizes({ 'https://perfumeclick.example/cdn/shop/files/thumb_x100.jpg?v=1': [100, 100] });
+    expect(pickImage(offers, NOW, v, d)).toBe(upgradeImageResolution(BEAUTYBASE_BOXED));
+  });
+
+  it('leaves the Shopify width= path exactly where it was', () => {
+    // beautybase's stored `width=1920` URLs are also rewritten, so they take
+    // the same branches. Their real files are 2000x2000 (measured 2026-09-03
+    // on four listings), which clears the floor on the FIRST branch — nothing
+    // about that shop's behaviour depends on the new fallback.
+    const url = 'https://www.beautybase.com/cdn/shop/files/Coach_Cherry_30ml_1.jpg?v=1778147740&width=1920';
+    const offers = [
+      offer({ retailerId: 'emirates-oud', imageUrl: 'https://emirates-oud.example/boxed.jpg', fetchedAt: hoursAgo(1) }),
+      offer({ retailerId: 'beautybase', imageUrl: url, fetchedAt: hoursAgo(5) }),
+    ];
+    const v = verdicts({ 'https://emirates-oud.example/boxed.jpg': 'boxed' });
+    expect(pickImage(offers, NOW, v, sizes({ [url]: [2000, 2000] }))).toBe(
+      'https://www.beautybase.com/cdn/shop/files/Coach_Cherry_30ml_1.jpg?v=1778147740&width=3000',
+    );
+  });
+
+  it('verdicts are still looked up on the stored URL, never on the upgraded one', () => {
+    // The half of the keying that must NOT change. A `boxed` verdict is
+    // recorded against the URL the sweep downloaded; if the demotion started
+    // asking about the rewritten URL it would find nothing and every boxed
+    // photo would quietly walk back in.
+    const boxedX100 = 'https://www.justmylook.com/cdn/shop/files/boxed_x100.jpg?v=1';
+    const offers = [
+      offer({ retailerId: 'justmylook', imageUrl: boxedX100, fetchedAt: hoursAgo(1) }),
+      offer({ retailerId: 'emirates-oud', imageUrl: 'https://emirates-oud.example/bottle.jpg', fetchedAt: hoursAgo(5) }),
+    ];
+    const v = verdicts({ [boxedX100]: 'boxed', 'https://emirates-oud.example/bottle.jpg': 'bottle-only' });
+    expect(pickImage(offers, NOW, v, sizes({ [boxedX100]: [100, 100] }))).toBe(
+      'https://emirates-oud.example/bottle.jpg',
+    );
+  });
+});
+
 describe('pickImage with imageBoxVerdicts (scripts/image-box-check.ts findings)', () => {
   /** A fixture verdict map, built the way build-demo-catalogue.ts builds a real one. */
   function verdicts(entries: Record<string, ImageBoxVerdict>): Map<string, ImageBoxVerdict> {
@@ -573,24 +787,29 @@ describe('"too small to swap to" measured per photo rather than per retailer', (
   });
 
   it('blocks a measurably small photo from a shop that is not on the thumbnail list', () => {
-    // The generalisation the retailer list could not express: under-floor
-    // photos are not a perfume-click speciality. PREFERRED_IMAGE_RETAILERS'
-    // own header records one at 350x350 among the 26 mybeauty-boutique files
-    // it downloaded, sitting indistinguishably beside that shop's 2312x2560
+    // The generalisation the retailer list could not express: thumbnails are
+    // not a perfume-click speciality. 104 of justmylook's photos are stored at
+    // exactly 100x100 and sit indistinguishably beside that shop's 2000x2000
     // ones -- the retailer list has no way to tell those two apart, and a
     // measurement does.
     //
-    // The shops here are justmylook and emirates-oud rather than that real
-    // pair because neither is in PREFERRED_IMAGE_RETAILERS: a ranked shop
-    // wins its own tier before the replacement logic below is ever consulted,
-    // so the rule under test would never be reached (see the note in the
-    // report on this being unchanged, pre-existing behaviour).
+    // 100x100 rather than the 350x350 mybeauty-boutique file this test first
+    // used, and the difference is the whole point of where the floor now sits:
+    // a 350px photograph is small, not a thumbnail, and disqualifying it is
+    // what cost Issey Miyake A Drop d'Issey Essentielle its bottle-only shot
+    // (pinned two tests below). Only the sub-200px cluster is genuinely not a
+    // photograph.
+    //
+    // The shops here are justmylook and emirates-oud because neither is in
+    // PREFERRED_IMAGE_RETAILERS: a ranked shop wins its own tier before the
+    // replacement logic below is ever consulted, so the rule under test would
+    // never be reached.
     const offers = [
       offer({ retailerId: 'emirates-oud', imageUrl: 'https://emirates-oud.example/boxed.jpg', fetchedAt: hoursAgo(5) }),
       offer({ retailerId: 'justmylook', imageUrl: 'https://justmylook.example/small.jpg', fetchedAt: hoursAgo(1) }),
     ];
     const v = verdicts({ 'https://emirates-oud.example/boxed.jpg': 'boxed' });
-    const d = sizes({ 'https://justmylook.example/small.jpg': [350, 350] });
+    const d = sizes({ 'https://justmylook.example/small.jpg': [100, 100] });
     // Without the measurement the small photo replaces the boxed one, since
     // its shop is not on the thumbnail list.
     expect(pickImage(offers, NOW, v)).toBe('https://justmylook.example/small.jpg');
@@ -646,21 +865,58 @@ describe('"too small to swap to" measured per photo rather than per retailer', (
     );
   });
 
-  it('treats a photo exactly at the 400px floor as big enough to swap to', () => {
-    // The floor is what this site actually draws a photo at -- .art-lg caps
-    // the detail hero at 340 CSS px (demo/template.html) -- so 400 is a photo
-    // that renders cleanly, not a marginal one. Inclusive on purpose.
+  it('treats a photo exactly at the 200px floor as big enough to swap to', () => {
+    // The floor sits in a real gap in the catalogue's own photo sizes, not at
+    // a rendering threshold -- see MIN_SWAPPABLE_LONG_EDGE. Inclusive on
+    // purpose: 200 is the first size that is a photograph rather than a
+    // thumbnail, so it must qualify.
     const offers = [
       offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/boxed.jpg', fetchedAt: hoursAgo(5) }),
       offer({ retailerId: 'justmylook', imageUrl: 'https://justmylook.example/exact.jpg', fetchedAt: hoursAgo(1) }),
     ];
     const v = verdicts({ 'https://beautybase.example/boxed.jpg': 'boxed' });
-    expect(pickImage(offers, NOW, v, sizes({ 'https://justmylook.example/exact.jpg': [400, 400] }))).toBe(
+    expect(pickImage(offers, NOW, v, sizes({ 'https://justmylook.example/exact.jpg': [200, 200] }))).toBe(
       'https://justmylook.example/exact.jpg',
     );
-    expect(pickImage(offers, NOW, v, sizes({ 'https://justmylook.example/exact.jpg': [399, 399] }))).toBe(
+    expect(pickImage(offers, NOW, v, sizes({ 'https://justmylook.example/exact.jpg': [199, 199] }))).toBe(
       'https://beautybase.example/boxed.jpg',
     );
+  });
+
+  it('keeps a 370x370 photo of the bottle over a 1920x1920 one with the box', () => {
+    // Issey Miyake A Drop d'Issey Essentielle (ean-3423222090937), with the
+    // real sizes of its two real photos. Both are verdicted `boxed` -- the
+    // 370x370 wrongly, because the bottle is a wide glass disc and the aspect
+    // test misreads it -- so neither can be a `replacement` and the pick falls
+    // to the full-sized-boxed pool, where freshness decides. Both were
+    // downloaded and viewed: the 370 shows the bottle alone, the 1920 has the
+    // carton beside it.
+    //
+    // What the floor decides here is not the winner but the *pool*: at 400 the
+    // 370x370 was not full-sized, so it dropped out and the boxed photo won by
+    // being the only candidate left. At 200 both are eligible and the existing
+    // freshness tie-break reaches the right one, exactly as it did before any
+    // of this existed. This is the case that moved the floor, so it is pinned
+    // rather than left to the constant's comment.
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/box-and-bottle.jpg', fetchedAt: hoursAgo(5) }),
+      offer({ retailerId: 'mybeauty-boutique', imageUrl: 'https://mybeauty-boutique.example/bottle.jpg', fetchedAt: hoursAgo(1) }),
+    ];
+    const v = verdicts({
+      'https://beautybase.example/box-and-bottle.jpg': 'boxed',
+      'https://mybeauty-boutique.example/bottle.jpg': 'boxed',
+    });
+    const d = sizes({
+      'https://beautybase.example/box-and-bottle.jpg': [1920, 1920],
+      'https://mybeauty-boutique.example/bottle.jpg': [370, 370],
+    });
+    expect(pickImage(offers, NOW, v, d)).toBe('https://mybeauty-boutique.example/bottle.jpg');
+    // And the shape of the regression it replaced: had the 370 been treated as
+    // a thumbnail, the only thing left in the pool is the box-and-bottle shot.
+    expect(pickImage(offers, NOW, v, sizes({
+      'https://beautybase.example/box-and-bottle.jpg': [1920, 1920],
+      'https://mybeauty-boutique.example/bottle.jpg': [150, 150],
+    }))).toBe('https://beautybase.example/box-and-bottle.jpg');
   });
 
   it('perfume-click is still the only retailer the unmeasured fallback condemns', () => {
