@@ -3,6 +3,7 @@ import {
   CONCENTRATION_NOT_STATED, brandTitleOpens, brandTitleEnds, brandTitleEndsWithHouse, concentration, displayName,
   stripRedundantSize, reattachArmafLine, concentrationOfListing, CONCENTRATION_RESTATEMENT_RE,
   CONCENTRATION_RESOLUTIONS, CONCENTRATION_DISPUTED, canonicalSeriesSpelling,
+  stripTrailingShopCredit,
 } from '../src/catalogue/productName.js';
 import { armafLineName } from '../src/catalogue/brandName.js';
 
@@ -1404,5 +1405,87 @@ describe('CONCENTRATION_RESOLUTIONS: the curated concentration-dispute overrides
       expect(resolved.length, `${ean} resolved concentration`).toBeGreaterThan(0);
       expect(citation.length, `${ean} citation`).toBeGreaterThan(0);
     }
+  });
+});
+
+describe('stripTrailingShopCredit: a shop signing the end of its own title', () => {
+  // Perfumeo signs 674 of its 1,679 live titles, and every signature reached
+  // the site inside the displayed name -- an Afnan bottle was listed as
+  // "9 PM Rebel | Perfumeo".
+  const perfumeo = ['Perfumeo', 'perfumeo.co.uk'] as const;
+
+  it.each([
+    ['Delilah by Maison Alhambra 100ml EDP | Perfumeo', 'Delilah by Maison Alhambra 100ml EDP'],
+    ['Absolute Chill by Atralia 100ml Eau De Parfum | Perfumeo UK', 'Absolute Chill by Atralia 100ml Eau De Parfum'],
+    ['Al Fursan Highfly by Le Falcone 85ml Eau De Parfum - Perfumeo', 'Al Fursan Highfly by Le Falcone 85ml Eau De Parfum'],
+  ])('%s', (title, expected) => {
+    expect(stripTrailingShopCredit(title, ...perfumeo)).toBe(expected);
+  });
+
+  // The 47 Riiffs titles the same rule reaches, where the shop signs with its
+  // full trading name. Its own brand is shown beside the name already, so the
+  // signature is pure repetition.
+  it('strips a shop trading name that is longer than its brand', () => {
+    expect(stripTrailingShopCredit('Goodness Oud Black – Riiffs Perfumes', 'Riiffs Perfumes', 'riiffs.co.uk')).toBe(
+      'Goodness Oud Black',
+    );
+  });
+
+  // ── The refusals. Each of these is a real live name that a looser rule ate.
+  //
+  // Matching any registry shop name as a substring flags 881 products, and
+  // most are innocent: these five are the measured collisions, one per shop.
+  it.each([
+    ['Good Girl Blush', 'Lush', 'lush.com'],
+    ['Very Good Girl Elixir', 'Very', 'very.co.uk'],
+    ['HUGO Woman Extreme', 'Next', 'next.co.uk'],
+    ['Asdaaf Raneen', 'Asda', 'asda.com'],
+    ['Amazonas Avalanche', 'Amazon UK', 'amazon.co.uk'],
+  ])('leaves %s alone', (title, name, domain) => {
+    expect(stripTrailingShopCredit(title, name, domain)).toBe(title);
+  });
+
+  it('needs a separator, so a name merely ending in the shop word survives', () => {
+    // The lock that makes the rule safe on its own terms: without it, any
+    // fragrance whose last word matched its seller would lose that word.
+    expect(stripTrailingShopCredit('Something Perfumeo', ...perfumeo)).toBe('Something Perfumeo');
+  });
+
+  it('leaves a scent family that is not the shop', () => {
+    // A few Perfumeo titles end "| Woody Oud" or "| Spicy Leather". Same
+    // shape, different fact, untouched.
+    expect(stripTrailingShopCredit('Kaaf Noir by Ahmed Al Maghribi | Woody Oud', ...perfumeo)).toBe(
+      'Kaaf Noir by Ahmed Al Maghribi | Woody Oud',
+    );
+  });
+
+  it('never empties the name', () => {
+    expect(stripTrailingShopCredit('| Perfumeo', ...perfumeo)).toBe('| Perfumeo');
+  });
+
+  it('only the shop that published the listing is considered', () => {
+    // The whole basis of the rule: this is a fact about provenance, not about
+    // the words. Perfumeo's own signature is invisible to Justmylook.
+    expect(stripTrailingShopCredit('9 PM Rebel | Perfumeo', 'Justmylook', 'justmylook.com')).toBe(
+      '9 PM Rebel | Perfumeo',
+    );
+  });
+
+  it('removes a signature repeated twice', () => {
+    expect(stripTrailingShopCredit('Turathi Blue | Perfumeo | Perfumeo UK', ...perfumeo)).toBe('Turathi Blue');
+  });
+});
+
+describe('displayName, once the shop signature is off the end', () => {
+  // Why the strip has to run BEFORE displayName rather than after: every one
+  // of displayName's rules asks what sits at the end of the title, and a
+  // parked "| Perfumeo" hides all of them. With it gone, the existing
+  // trailing-brand strip and its "by" cleanup finish the job unaided.
+  it('lets the existing trailing-brand rule reach the brand behind it', () => {
+    const signed = 'Aqua Oud by Ahmed Al Maghribi 100ml EDP | Perfumeo';
+    const brand = 'Ahmed Al Maghribi';
+    expect(displayName(stripTrailingShopCredit(signed, 'Perfumeo', 'perfumeo.co.uk'), brand, brand)).toBe('Aqua Oud');
+    // And what it did before: the shop name blocks the brand strip entirely.
+    expect(displayName(signed, brand, brand)).toContain('Perfumeo');
   });
 });

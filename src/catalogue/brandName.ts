@@ -1092,3 +1092,37 @@ export function buildBrandCanon(allBrandStrings: readonly string[]): Map<string,
   }
   return canon;
 }
+
+/**
+ * Shop names reduced to a comparable core, so a retailer naming itself is
+ * recognised however it spells its own name.
+ *
+ * Exact string equality was the original test and it missed the worst case in
+ * the catalogue. FragranceHub's registry name is "FragranceHub", and it vendors
+ * its own listings three different ways — "Fragrance Hub LTD" (39 listings),
+ * "Fragrancehub.co.uk" (28) and Shopify's untouched default "My Store" (31).
+ * None matched, so 98 products carried a shop as their fragrance house, and the
+ * real houses in those titles — Ajmal, Lattafa, Armaf, Fragrance World — lost
+ * them. Measured against demo/catalogue.generated.ts on 2026-08-25; all three
+ * strings occur at fragrancehub and at no other shop, which is what makes them
+ * a vendor-field defect rather than a small house this build has not heard of.
+ *
+ * Punctuation, spacing and a trailing company suffix all go, because they are
+ * exactly what differs between a shop's legal name, its trading name and its
+ * domain. Nothing here touches the *middle* of a name, so two genuinely
+ * different houses cannot be collapsed into one by this.
+ *
+ * Lives here rather than in scripts/build-demo-catalogue.ts, where it was
+ * written, because two different questions now need the identical answer: "is
+ * this shop's vendor field naming itself?" (isSelfVendored, still there) and
+ * "is this shop's title signing itself at the end?"
+ * (stripTrailingShopCredit in productName.ts). A second copy is how the
+ * FragranceHub case above got missed the first time.
+ */
+export function shopNameCore(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/\.(co\.uk|com|net|org|shop|store|uk)$/i, '')
+    .replace(/[^a-z0-9]+/g, '')
+    .replace(/(ltd|limited|llc|inc|plc|gmbh)$/i, '');
+}
