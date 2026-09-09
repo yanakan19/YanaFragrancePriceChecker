@@ -12,7 +12,7 @@
  * fragranceId.ts, which is a different question with a different failure mode.
  */
 import { ML_SIZE_RE, OZ_SIZE_RE, OZ_TO_ML } from './fragranceId.js';
-import { brandKey } from './brandName.js';
+import { brandKey, shopNameCore } from './brandName.js';
 
 /**
  * Concentrations, split into two tiers so a match can be tried by
@@ -1721,6 +1721,89 @@ function stripOrphanedSeparators(s: string): string {
  * decide the concentration badge leaves the rest of the title's own words
  * alone, which is the whole rule this function follows everywhere else.
  */
+/**
+ * The word a shop may put after its own name when signing a title, and the
+ * only one that actually appears in the live data.
+ *
+ * "Perfumeo UK" is 178 of the 674 signed titles; every other signed title ends
+ * with the bare shop name. Kept as a short explicit list rather than a
+ * permissive `\w+` because anything after the shop's name is, by default, part
+ * of the fragrance's name — the failure mode of guessing here is eating a real
+ * word off the end of a real product.
+ */
+const SHOP_CREDIT_QUALIFIERS: ReadonlySet<string> = new Set(['uk']);
+
+/** Separators a shop uses to sign a title. Measured: 651 "|", 23 "-". */
+const SHOP_CREDIT_SEPARATOR = /\s*[|–—-]\s*([^|–—-]+?)\s*$/;
+
+/**
+ * Remove a shop's own name where it has signed the end of its own title.
+ *
+ * Perfumeo writes "Delilah by Maison Alhambra 100ml EDP | Perfumeo", and that
+ * last word is not part of what the bottle is called — it is the shop putting
+ * its name on its own listing, exactly as a vendor field does. 674 of its
+ * 1,679 live titles are signed this way (473 "| Perfumeo", 178 "| Perfumeo UK",
+ * 23 "- Perfumeo"), and every one of them reached the site inside the product's
+ * displayed name: "9 PM Rebel | Perfumeo" is how an Afnan bottle was listed.
+ *
+ * ── Why this is anchored to the publishing shop, and must stay that way ──────
+ * The obvious implementation is to look for any known retailer's name in the
+ * title, and it is badly wrong. Checked against the live catalogue, matching
+ * every registry name as a substring flags 881 products and most are innocent:
+ * "Good Girl Blush" and "Bade'e Al Oud Noble Blush" contain `lush`, "Very Good
+ * Girl" and "CK Everyone" contain `very`, "Woman Extreme" and "Alien
+ * ExtraIntense" contain `next`, "Asdaaf Raneen" contains `asda`, "Amazonas
+ * Avalanche" contains `amazon`. Stripping on those would have cut real
+ * fragrance names apart.
+ *
+ * Only the shop that actually published this listing is considered, so the
+ * question is never "does this name mention a shop?" but "has this shop signed
+ * its own title?" — which is a fact about provenance, not about the words. A
+ * fragrance genuinely named after the shop that happens to be selling it is not
+ * a thing that occurs.
+ *
+ * Three further locks, each of which alone would have prevented a bad strip:
+ *   - a separator is required. All 674 have one, and requiring it means a name
+ *     that merely ends with the shop's word cannot be touched.
+ *   - the tail must be the shop's name and nothing else, compared through
+ *     shopNameCore so a shop's trading name, legal name and domain all match
+ *     (see that function for the FragranceHub case that forced it).
+ *   - a strip that would leave nothing behind is refused, so a listing whose
+ *     title is only the shop's name keeps it rather than becoming blank.
+ *
+ * Repeats while it keeps matching, because a title signed twice is still just
+ * a signed title, and stops the moment the tail is anything else — the scent
+ * families a few Perfumeo titles end with ("| Woody Oud", "| Spicy Leather")
+ * are left exactly where they are.
+ */
+export function stripTrailingShopCredit(
+  title: string,
+  retailerName: string,
+  retailerDomain: string,
+): string {
+  const cores = new Set([shopNameCore(retailerName), shopNameCore(retailerDomain)].filter(Boolean));
+  if (cores.size === 0) return title;
+
+  let s = title;
+  // Bounded rather than `while (true)`: each pass must shorten the string, but
+  // a bound makes that a fact about this loop rather than a fact about the
+  // regex above.
+  for (let pass = 0; pass < 3; pass++) {
+    const m = s.match(SHOP_CREDIT_SEPARATOR);
+    if (!m) break;
+    const words = m[1]!.trim().split(/\s+/);
+    const last = words[words.length - 1]!.toLowerCase();
+    const withoutQualifier =
+      words.length > 1 && SHOP_CREDIT_QUALIFIERS.has(last) ? words.slice(0, -1) : words;
+    if (!cores.has(shopNameCore(withoutQualifier.join(' ')))) break;
+    const remainder = s.slice(0, m.index!).trim();
+    // Never leave the name empty — see the third lock above.
+    if (!remainder) break;
+    s = remainder;
+  }
+  return s;
+}
+
 export function displayName(title: string, brand: string | null, displayedBrand: string | null): string {
   let s = title;
   const opener = brandTitleOpens(title, [displayedBrand, brand]);

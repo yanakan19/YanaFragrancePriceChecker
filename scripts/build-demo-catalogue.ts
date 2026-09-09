@@ -28,6 +28,7 @@ import {
   buildBrandCanon,
   armafLineName,
   recoverBrandFromTitle,
+  shopNameCore,
   CONFIRMED_FRAGRANCE_HOUSES,
 } from '../src/catalogue/brandName.js';
 import {
@@ -53,6 +54,7 @@ import {
   CONCENTRATION_RESOLUTIONS,
   displayName,
   stripRedundantSize,
+  stripTrailingShopCredit,
   reattachArmafLine,
 } from '../src/catalogue/productName.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
@@ -316,33 +318,6 @@ function pickNotes(offers: Offer[]): Notes | null {
     if (parsed) return { ...parsed, source: { retailerId: o.retailerId, url: o.url } };
   }
   return null;
-}
-
-/**
- * Shop names reduced to a comparable core, so a retailer tagging itself is
- * recognised however it spells its own name.
- *
- * Exact string equality was the original test and it missed the worst case in
- * the catalogue. FragranceHub's registry name is "FragranceHub", and it vendors
- * its own listings three different ways — "Fragrance Hub LTD" (39 listings),
- * "Fragrancehub.co.uk" (28) and Shopify's untouched default "My Store" (31).
- * None matched, so 98 products carried a shop as their fragrance house, and the
- * real houses in those titles — Ajmal, Lattafa, Armaf, Fragrance World — lost
- * them. Measured against demo/catalogue.generated.ts on 2026-08-25; all three
- * strings occur at fragrancehub and at no other shop, which is what makes them
- * a vendor-field defect rather than a small house this build has not heard of.
- *
- * Punctuation, spacing and a trailing company suffix all go, because they are
- * exactly what differs between a shop's legal name, its trading name and its
- * domain. Nothing here touches the *middle* of a name, so two genuinely
- * different houses cannot be collapsed into one by this.
- */
-function shopNameCore(value: string): string {
-  return value
-    .toLowerCase()
-    .replace(/\.(co\.uk|com|net|org|shop|store|uk)$/i, '')
-    .replace(/[^a-z0-9]+/g, '')
-    .replace(/(ltd|limited|llc|inc|plc|gmbh)$/i, '');
 }
 
 /**
@@ -686,7 +661,14 @@ for (const { retailer, listings } of eligible) {
     // anything else would be answering a different question from the one
     // findDuplicateGroups asks of two shops.
     const displayedBrand = canonBrand(effectiveRawBrand);
-    const displayedName = displayName(l.rawTitle, effectiveRawBrand, displayedBrand);
+    // The shop's signature comes off before the name is read, not after: every
+    // one of displayName's own rules asks what sits at the end of the title —
+    // the trailing brand, the "<brand> by <house>" credit, the bracketed house
+    // — and a "| Perfumeo" parked after all of them hides the lot. See
+    // stripTrailingShopCredit for why it is anchored to this listing's own
+    // retailer and nothing else.
+    const titleWithoutShopCredit = stripTrailingShopCredit(l.rawTitle, retailer.name, retailer.domain);
+    const displayedName = displayName(titleWithoutShopCredit, effectiveRawBrand, displayedBrand);
     const offer: Offer = {
       retailerId: l.retailerId,
       price: l.priceGbp!,
