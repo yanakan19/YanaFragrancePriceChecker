@@ -35,6 +35,63 @@ against the same 46 photos, and dropped: it did not improve on plain aspect
 ratio and it was that failure mode's whole cause. It is exactly one false
 positive (of 46) in the validated sample; see the confusion matrix in
 docs/IMAGE-PIPELINE.md.
+
+── 2026-09-09: the method needs a background to threshold away, and one shop
+   does not give it one ─────────────────────────────────────────────────────
+The paragraph above says the method rests on "a plain near-white ground"
+around the product. That is a real precondition, and it was being assumed
+rather than checked. perfume-click's photos (bgstatic.net) are cropped tight
+to the product with no ground left at all: the foreground silhouette IS the
+whole file. Measured on 30 of its photos drawn evenly across the 10,402
+distinct URLs in data/catalogue/perfume-click.json, the bounding-box aspect
+this script computes came out equal to the file's own width/height on 30 of
+30 (identical to three decimal places on 26, within 0.011 on the other four).
+On such a crop the ratio carries no information about what is IN the frame —
+it only restates the file's shape.
+
+That mattered in one direction and not the other, which is why the fix below
+is asymmetric rather than a blanket `unsure`:
+
+  - a NARROW zero-margin crop was being called `bottle-only`, and that call is
+    simply wrong: a retail carton photographed alone is every bit as tall and
+    narrow as a bottle. All 12 photos in the live catalogue where such a call
+    would have displaced a full-sized boxed photo were downloaded and viewed
+    (Lattafa Al Nashama, John Varvatos Artisan, Mustang GT, Acqua di Parma
+    Lily of the Valley, Courrèges Seconde Peau, Floris Chypress, Tabac Man,
+    Montale Boise Fruite, Montale Rose & Spices, Hugo Boss, Escada
+    Especially, Atelier Oud): 0 of 12 showed a bottle alone. Every one was
+    either the carton by itself or the carton standing beside the bottle. Al
+    Nashama is the reported case — an 81x130 shot of the box, scored 0.788
+    `bottle-only` purely because 81/130 < 0.70.
+  - a WIDE zero-margin crop called `boxed` was checked the same way and holds
+    up: 15 of the same 30 scored `boxed`, all 15 were viewed, and all 15 do
+    show the box beside the product. Something wider than it is tall cannot
+    be a lone upright bottle, cropped or not, so this half of the rule
+    survives the missing background.
+
+So a zero-margin crop can still be called `boxed`, but never `bottle-only`;
+it degrades to `unsure`, which pickImage already treats as "not evidence".
+
+TWO THINGS TO BE PRECISE ABOUT, because the obvious summary of the above is
+wrong in both directions.
+
+First, `margin_free` below is stricter than the diagnostic measurement. The
+"aspect equals the file's own shape" finding held on 30 of 30; the flag, which
+additionally requires the OCC_THRESH-occupied column span to reach both edges,
+fires on rather fewer — 8 of the 9 photos in that sample that had been called
+`bottle-only`, and 10 of the 12 live displacement cases. The two it misses are
+near-white products whose own edges threshold away as background. They are not
+left unguarded: at 77x130 and 91x130 both are far under the long-edge floor in
+src/catalogue/pickImage.ts, so they still cannot displace anything.
+
+Second, this is NOT a perfume-click-only condition, and must not be turned
+into a per-retailer rule. Sampling the 15,707 photos in .image-box-cache at up
+to 40 per host found flush crops elsewhere too: glorious-beauty 3 of 40,
+oud-arabian 1 of 40, Zara 1 of 8 — against 0 of 40 for each of cdn.shopify.com,
+beautybase, justmylook, manchester-ouds, thgimages and the-fragrance-counter.
+A flush crop defeats this method whoever served it, so the test is on the
+photo. perfume-click is simply the one shop that crops this way as a matter of
+course.
 """
 import json
 import sys
@@ -61,6 +118,11 @@ def classify(path: str) -> dict:
     elif im.mode != "RGB":
         im = im.convert("RGB")
 
+    # The file's own size, before the downscale below. Reported on every
+    # verdict so pickImage can ask "is this photo big enough to be worth
+    # swapping to" of the photo itself rather than of the shop that served it
+    # — see MIN_SWAPPABLE_LONG_EDGE in src/catalogue/pickImage.ts. Free here:
+    # the image is already open and decoded.
     w0, h0 = im.size
     scale = MAX_SIDE / max(w0, h0)
     if scale < 1:
@@ -84,11 +146,11 @@ def classify(path: str) -> dict:
 
     total_fg = sum(col_fg)
     if total_fg == 0:
-        return {"verdict": "unsure", "score": 0.0, "reason": "no-foreground"}
+        return {"verdict": "unsure", "score": 0.0, "reason": "no-foreground", "width": w0, "height": h0}
 
     occupied = [c / h > OCC_THRESH for c in col_fg]
     if not any(occupied):
-        return {"verdict": "unsure", "score": 0.0, "reason": "no-occupied-columns"}
+        return {"verdict": "unsure", "score": 0.0, "reason": "no-occupied-columns", "width": w0, "height": h0}
 
     first = next(x for x in range(w) if occupied[x])
     last = next(x for x in reversed(range(w)) if occupied[x])
@@ -99,13 +161,25 @@ def classify(path: str) -> dict:
 
     aspect = span_w / max(1, bbox_h)
 
+    # No background was left around the product, so the silhouette this
+    # measured is the crop, not the object — see the 2026-09-09 note in the
+    # module docstring for the 30-photo measurement behind this.
+    margin_free = span_w >= w and bbox_h >= h
+
     if aspect >= BOXED_ASPECT:
         score = min(1.0, 0.75 + (aspect - BOXED_ASPECT) * 0.5)
-        return {"verdict": "boxed", "score": round(score, 3), "reason": f"aspect={aspect:.3f}"}
-    if aspect < BOTTLE_ASPECT:
+        return {"verdict": "boxed", "score": round(score, 3), "reason": f"aspect={aspect:.3f}", "width": w0, "height": h0}
+    if aspect < BOTTLE_ASPECT and not margin_free:
         score = min(1.0, 0.75 + (BOTTLE_ASPECT - aspect) * 0.5)
-        return {"verdict": "bottle-only", "score": round(score, 3), "reason": f"aspect={aspect:.3f}"}
-    return {"verdict": "unsure", "score": 0.5, "reason": f"aspect={aspect:.3f}"}
+        return {
+            "verdict": "bottle-only",
+            "score": round(score, 3),
+            "reason": f"aspect={aspect:.3f}",
+            "width": w0,
+            "height": h0,
+        }
+    reason = f"aspect={aspect:.3f}" + ("; margin-free crop" if margin_free else "")
+    return {"verdict": "unsure", "score": 0.5, "reason": reason, "width": w0, "height": h0}
 
 
 if __name__ == "__main__":

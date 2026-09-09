@@ -4,8 +4,10 @@ import {
   upgradeImageResolution,
   PREFERRED_IMAGE_RETAILERS,
   PREFERRED_IMAGE_MAX_AGE_HOURS,
+  THUMBNAIL_IMAGE_RETAILERS,
   type ImageCandidate,
   type ImageBoxVerdict,
+  type ImageDimensions,
 } from '../src/catalogue/pickImage.js';
 import { RETAILERS } from '../src/config/retailers.js';
 
@@ -364,9 +366,10 @@ describe('pickImage with imageBoxVerdicts (scripts/image-box-check.ts findings)'
   });
 
   it('keeps an "unsure" photo when the only confirmed bottle-only one is a thumbnail', () => {
-    // Same measured trade-off as the boxed demotion: perfume-click's files are
-    // 82x130, and a blurred confirmed bottle is not an improvement on a sharp
-    // photo that merely could not be read.
+    // Same measured trade-off as the boxed demotion: perfume-click's files
+    // top out at 195x130 (30 sampled 2026-09-09), and a blurred confirmed
+    // bottle is not an improvement on a sharp photo that merely could not be
+    // read.
     const offers = [
       offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/maybe.jpg', fetchedAt: hoursAgo(1) }),
       offer({ retailerId: 'perfume-click', imageUrl: 'https://perfume-click.example/tiny.jpg', fetchedAt: hoursAgo(2) }),
@@ -423,9 +426,10 @@ describe('pickImage with imageBoxVerdicts (scripts/image-box-check.ts findings)'
   });
 
   it('keeps a boxed photo rather than replacing it with a perfume-click thumbnail', () => {
-    // 204 of the first run's 331 swaps went to perfume-click's 82x130 files.
-    // A sharp bottle-with-box beats a blurred bottle, so the thumbnail is
-    // not an acceptable replacement -- the boxed photo stays.
+    // 204 of the first run's 331 swaps went to perfume-click's files, which
+    // never exceed 195x130 (30 sampled 2026-09-09). A sharp bottle-with-box
+    // beats a blurred bottle, so the thumbnail is not an acceptable
+    // replacement -- the boxed photo stays.
     const offers = [
       offer({ retailerId: 'mybeauty-boutique', imageUrl: 'https://mybeauty-boutique.example/boxed.jpg', fetchedAt: hoursAgo(5) }),
       offer({ retailerId: 'perfume-click', imageUrl: 'https://bgstatic.example/thumb_ml.jpg', fetchedAt: hoursAgo(1) }),
@@ -500,5 +504,169 @@ describe('pickImage with imageBoxVerdicts (scripts/image-box-check.ts findings)'
     // stale photo just because it beat justmylook's rank. (A perfume-click
     // thumbnail would not qualify as the replacement; see the test above.)
     expect(pickImage(offers, NOW, v)).toBe('https://justmylook.example/clean.jpg');
+  });
+});
+
+describe('"too small to swap to" measured per photo rather than per retailer', () => {
+  function verdicts(entries: Record<string, ImageBoxVerdict>): Map<string, ImageBoxVerdict> {
+    return new Map(Object.entries(entries));
+  }
+  function sizes(entries: Record<string, [number, number]>): Map<string, ImageDimensions> {
+    return new Map(Object.entries(entries).map(([u, [width, height]]) => [u, { width, height }]));
+  }
+
+  // ── Lattafa Al Nashama 100ml (ean-6290360591544), the reported product ────
+  // Its three licensed photos as they actually stand in the live catalogue,
+  // all three downloaded and viewed on 2026-09-09:
+  //
+  //   perfume-click       81x130     verdict bottle-only (score 0.788) -- and
+  //                                  the verdict is WRONG. The photo is the
+  //                                  retail carton alone, no bottle in frame.
+  //                                  It scored bottle-only only because
+  //                                  81/130 = 0.62 is under BOTTLE_ASPECT,
+  //                                  and the file is cropped flush to the
+  //                                  product so that ratio describes the crop
+  //                                  rather than its contents.
+  //   emirates-oud        1600x1600  verdict boxed -- correct, box beside
+  //                                  bottle. This is what the site shows.
+  //   mybeauty-boutique   1200x1200  verdict boxed -- correct, box beside
+  //                                  bottle.
+  //
+  // There is no bottle-only photograph of this product anywhere in the
+  // licensed offers, so no selection rule can produce one. The most this layer
+  // can do is refuse to trade a sharp 1600x1600 box-and-bottle shot for an
+  // 81x130 picture of the box on its own, and that is what these two pin.
+  const AL_NASHAMA_PERFUME_CLICK = 'https://bgstatic.net/photos/169259_ml.jpg';
+  const AL_NASHAMA_EMIRATES_OUD =
+    'https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Al-Nashama-Perfume-100ml-EDP-Lattafa-138612696.jpg?v=1720734974';
+  const AL_NASHAMA_MYBEAUTY = 'https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61AlRv4q1vL.jpg?v=1763144219';
+
+  const alNashamaOffers = [
+    offer({ retailerId: 'perfume-click', imageUrl: AL_NASHAMA_PERFUME_CLICK, fetchedAt: hoursAgo(18) }),
+    offer({ retailerId: 'emirates-oud', imageUrl: AL_NASHAMA_EMIRATES_OUD, fetchedAt: hoursAgo(1) }),
+    offer({ retailerId: 'mybeauty-boutique', imageUrl: AL_NASHAMA_MYBEAUTY, fetchedAt: hoursAgo(4) }),
+  ];
+  const alNashamaVerdicts = verdicts({
+    [AL_NASHAMA_PERFUME_CLICK]: 'bottle-only',
+    [AL_NASHAMA_EMIRATES_OUD]: 'boxed',
+    [AL_NASHAMA_MYBEAUTY]: 'boxed',
+  });
+
+  it('keeps Al Nashama on the full-sized boxed photo when no size has been measured', () => {
+    // Today's data: no verdict entry carries width/height yet, so the
+    // retailer-list fallback decides and the answer is the one the site
+    // already shows.
+    expect(pickImage(alNashamaOffers, NOW, alNashamaVerdicts)).toBe(AL_NASHAMA_EMIRATES_OUD);
+  });
+
+  it('keeps Al Nashama on the same photo once the sizes are measured, now for the measured reason', () => {
+    // The point of the change: the same outcome stops depending on
+    // perfume-click being named in a list and starts depending on the photo
+    // being 81x130. If perfume-click ever served a full-sized photo, this
+    // product would follow the pixels rather than the shop name.
+    const d = sizes({
+      [AL_NASHAMA_PERFUME_CLICK]: [81, 130],
+      [AL_NASHAMA_EMIRATES_OUD]: [1600, 1600],
+      [AL_NASHAMA_MYBEAUTY]: [1200, 1200],
+    });
+    expect(pickImage(alNashamaOffers, NOW, alNashamaVerdicts, d)).toBe(AL_NASHAMA_EMIRATES_OUD);
+  });
+
+  it('blocks a measurably small photo from a shop that is not on the thumbnail list', () => {
+    // The generalisation the retailer list could not express: under-floor
+    // photos are not a perfume-click speciality. PREFERRED_IMAGE_RETAILERS'
+    // own header records one at 350x350 among the 26 mybeauty-boutique files
+    // it downloaded, sitting indistinguishably beside that shop's 2312x2560
+    // ones -- the retailer list has no way to tell those two apart, and a
+    // measurement does.
+    //
+    // The shops here are justmylook and emirates-oud rather than that real
+    // pair because neither is in PREFERRED_IMAGE_RETAILERS: a ranked shop
+    // wins its own tier before the replacement logic below is ever consulted,
+    // so the rule under test would never be reached (see the note in the
+    // report on this being unchanged, pre-existing behaviour).
+    const offers = [
+      offer({ retailerId: 'emirates-oud', imageUrl: 'https://emirates-oud.example/boxed.jpg', fetchedAt: hoursAgo(5) }),
+      offer({ retailerId: 'justmylook', imageUrl: 'https://justmylook.example/small.jpg', fetchedAt: hoursAgo(1) }),
+    ];
+    const v = verdicts({ 'https://emirates-oud.example/boxed.jpg': 'boxed' });
+    const d = sizes({ 'https://justmylook.example/small.jpg': [350, 350] });
+    // Without the measurement the small photo replaces the boxed one, since
+    // its shop is not on the thumbnail list.
+    expect(pickImage(offers, NOW, v)).toBe('https://justmylook.example/small.jpg');
+    // With it, the sharp boxed photo is kept -- the same trade-off already
+    // made for perfume-click, now made on evidence rather than on a name.
+    expect(pickImage(offers, NOW, v, d)).toBe('https://emirates-oud.example/boxed.jpg');
+  });
+
+  it('lets a measurement override the retailer list in the other direction too', () => {
+    // No perfume-click photo like this exists -- 30 sampled on 2026-09-09 all
+    // fit inside 195x130, and the bucket serves no larger variant (see
+    // THUMBNAIL_IMAGE_RETAILERS). This pins the precedence, not a real photo:
+    // a measured size is the better evidence, so it wins over the shop's name
+    // if the shop's photography ever changes.
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/boxed.jpg', fetchedAt: hoursAgo(5) }),
+      offer({ retailerId: 'perfume-click', imageUrl: 'https://bgstatic.example/hypothetical.jpg', fetchedAt: hoursAgo(1) }),
+    ];
+    const v = verdicts({ 'https://beautybase.example/boxed.jpg': 'boxed' });
+    const d = sizes({ 'https://bgstatic.example/hypothetical.jpg': [1200, 1600] });
+    expect(pickImage(offers, NOW, v, d)).toBe('https://bgstatic.example/hypothetical.jpg');
+  });
+
+  it('treats a photo with no measurement by its retailer, never as big enough', () => {
+    // The correctness condition for shipping this before a re-sweep: all
+    // 29,711 verdict entries written before 2026-09-09 carry no size, so a
+    // dimensions map that simply does not mention a URL must leave that
+    // photo's handling exactly as it was. Here the map knows only about the
+    // beautybase photo; perfume-click's is unmeasured and must still be
+    // refused as a replacement.
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/boxed.jpg', fetchedAt: hoursAgo(5) }),
+      offer({ retailerId: 'perfume-click', imageUrl: 'https://bgstatic.example/unmeasured.jpg', fetchedAt: hoursAgo(1) }),
+    ];
+    const v = verdicts({ 'https://beautybase.example/boxed.jpg': 'boxed' });
+    const d = sizes({ 'https://beautybase.example/boxed.jpg': [2000, 2000] });
+    expect(pickImage(offers, NOW, v, d)).toBe('https://beautybase.example/boxed.jpg');
+  });
+
+  it('measures the long edge, so a wide-but-short photo is judged on its width', () => {
+    // perfume-click's widest sampled files are 195x105 and 195x119 -- short,
+    // but it is the 195 that decides, not the 105.
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/boxed.jpg', fetchedAt: hoursAgo(5) }),
+      offer({ retailerId: 'justmylook', imageUrl: 'https://justmylook.example/wide.jpg', fetchedAt: hoursAgo(1) }),
+    ];
+    const v = verdicts({ 'https://beautybase.example/boxed.jpg': 'boxed' });
+    expect(pickImage(offers, NOW, v, sizes({ 'https://justmylook.example/wide.jpg': [900, 120] }))).toBe(
+      'https://justmylook.example/wide.jpg',
+    );
+    expect(pickImage(offers, NOW, v, sizes({ 'https://justmylook.example/wide.jpg': [195, 105] }))).toBe(
+      'https://beautybase.example/boxed.jpg',
+    );
+  });
+
+  it('treats a photo exactly at the 400px floor as big enough to swap to', () => {
+    // The floor is what this site actually draws a photo at -- .art-lg caps
+    // the detail hero at 340 CSS px (demo/template.html) -- so 400 is a photo
+    // that renders cleanly, not a marginal one. Inclusive on purpose.
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/boxed.jpg', fetchedAt: hoursAgo(5) }),
+      offer({ retailerId: 'justmylook', imageUrl: 'https://justmylook.example/exact.jpg', fetchedAt: hoursAgo(1) }),
+    ];
+    const v = verdicts({ 'https://beautybase.example/boxed.jpg': 'boxed' });
+    expect(pickImage(offers, NOW, v, sizes({ 'https://justmylook.example/exact.jpg': [400, 400] }))).toBe(
+      'https://justmylook.example/exact.jpg',
+    );
+    expect(pickImage(offers, NOW, v, sizes({ 'https://justmylook.example/exact.jpg': [399, 399] }))).toBe(
+      'https://beautybase.example/boxed.jpg',
+    );
+  });
+
+  it('perfume-click is still the only retailer the unmeasured fallback condemns', () => {
+    // Not a style assertion: the whole point of the fallback is that it stays
+    // exactly as coarse as it was until real measurements replace it. Growing
+    // this list would be a way of guessing at photos nobody has looked at.
+    expect([...THUMBNAIL_IMAGE_RETAILERS]).toEqual(['perfume-click']);
   });
 });
