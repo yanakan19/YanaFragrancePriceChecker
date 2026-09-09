@@ -786,6 +786,229 @@ const KNOWN_ALIASES: Record<string, string> = {
 };
 
 /**
+ * One hand-checked fragrance house, and the URL that proves it is one.
+ *
+ * See CONFIRMED_FRAGRANCE_HOUSES below for when an entry is allowed here.
+ */
+export interface ConfirmedHouse {
+  /**
+   * The house's name exactly as the shop's own title spells it, because that
+   * is the string a title-recovered brand has to match. Display spelling is
+   * still settled downstream by buildBrandCanon like every other brand's.
+   */
+  name: string;
+  /**
+   * The URL that confirms this is a real fragrance house making real
+   * fragrance, and what was read there. Not optional — see the bar above.
+   */
+  citation: string;
+}
+
+/**
+ * Fragrance houses confirmed real by hand, for the one narrow case the
+ * build's own evidence rule cannot reach.
+ *
+ * ── The rule this does NOT relax ─────────────────────────────────────────────
+ * scripts/build-demo-catalogue.ts admits a name as a fragrance house only once
+ * at least two listings that are NOT self-vendored have carried it as their
+ * `rawBrand` somewhere in the catalogue — see `knownFragranceBrands` there for
+ * why two, and why one is not enough. That rule stays the default for every
+ * name, and this table is not a way round it. It is a list of names a person
+ * checked one at a time against a source outside this catalogue, in the same
+ * shape as productName.ts's CONCENTRATION_RESOLUTIONS (EAN -> concentration +
+ * citation): the fact is recorded because someone looked, never because a
+ * pattern suggested it.
+ *
+ * ── The bar for adding a name here ───────────────────────────────────────────
+ * A `citation` naming a source INDEPENDENT of the shop whose listing prompted
+ * the question, showing the house sells fragrance under that name, and showing
+ * that the specific bottles being attributed to it plausibly belong to it. A
+ * house's own site, a Fragrantica/Parfumo brand page, or a different retailer's
+ * own brand-collection page all qualify. A marketplace listing scraped from the
+ * same feed, an AI summary, or anything that traces back to the prompting shop
+ * does not. **A name with no citation may not be added**, and a house nobody
+ * could confirm stays out — its listings then stay honestly "Unbranded", which
+ * is the correct outcome and not a gap to fill by guessing.
+ *
+ * Be careful about a house name that is also an ordinary word: "Mykonos" is a
+ * Greek island before it is a perfumer, so confirming it meant matching the
+ * house's own product list against the bottles in question, not just finding
+ * the word next to the word "perfume".
+ *
+ * ── 2026-09-09 pass: six candidates checked, one needed ──────────────────────
+ * Perfumeo publishes 120 active fragrance listings with NO vendor field at all
+ * (measured over data/catalogue/perfumeo.json: 122 active listings with
+ * `rawBrand: null`, 120 of them passing isFragrance), whose titles name the
+ * house in so many words — "Absolute Chill by Atralia 100ml Eau De Parfum |
+ * Atralia | Perfumeo UK". Six distinct houses across those 120. Five of them
+ * turn out to be independently attested inside this catalogue already, so the
+ * ordinary two-listings rule admits them with no help from this table and they
+ * are deliberately NOT listed here — adding them would put a hand-maintained
+ * copy of a fact the data already proves:
+ *
+ *   - Mykonos: 51 emirates-oud + 9 fragrancehub listings carry it as rawBrand.
+ *   - Rayhaan: 32 emirates-oud, 22 beautybase, 13 justmylook, 6 mybeauty-
+ *     boutique, 6 perfume-click.
+ *   - Le Falcone: 12 emirates-oud, 9 beautybase, 3 fragrancehub.
+ *   - Atralia: 11 emirates-oud, 5 perfume-click, 4 mybeauty-boutique, 4
+ *     the-beauty-store-uk.
+ *   - Ibrahim Al Qurashi: 20 Perfumeo listings that DO carry a vendor field,
+ *     which the rule counts because Perfumeo naming another house is not
+ *     Perfumeo naming itself. Corroborated anyway by ibraquk.com, the house's
+ *     own UK storefront, already harvested into data/catalogue/ibraq.json as a
+ *     `singleBrandOnly` retailer.
+ *
+ * That leaves one, below.
+ */
+export const CONFIRMED_FRAGRANCE_HOUSES: readonly ConfirmedHouse[] = [
+  {
+    name: 'La Beaute Paris',
+    // Confirmed 2026-09-09. Nothing in this catalogue but Perfumeo has ever
+    // named this house — zero `rawBrand` matches at any other shop — so the
+    // two-listings rule cannot reach it and its 4 listings (Silk Musc, Duke of
+    // Edinburgh, Oud of London, Oud of Dubai) were the only ones of the 120
+    // left with no honest brand to give them.
+    //
+    // Two other retailers file it as a BRAND of its own, which is the part
+    // that matters: a shop that shelves nineteen bottles under one house name
+    // is not repeating Perfumeo's word for it.
+    //
+    // A UK retailer independently states the maker in the same words:
+    // alamira.co.uk's own "Oud of London by La Beaute Paris" page says
+    // "Manufactured by La Beaute Paris" and "Made in U.A.E.". Like Maison
+    // Alhambra and French Avenue elsewhere in this catalogue, this is a
+    // Gulf-made house trading under a French name; that is a marketing choice,
+    // not a reason to doubt the house exists.
+    //
+    // Checked and not claimed: "Oud of Dubai" was NOT found on either brand
+    // page above, so that one product name rests on Perfumeo's title alone.
+    // The house is confirmed; that single bottle's existence is not, and this
+    // entry says so rather than rounding up.
+    citation:
+      'filledwithbarakah.com/collections/la-beaute-paris-1 lists 19 products under this house, including Silk Musc, Duke Of Edinburgh and Oud Of London; dubaiperfumehub.com/collections/labeaute-paris lists 10 more, including Oud of London and Duke of Edinburgh; alamira.co.uk names it "Manufactured by La Beaute Paris". Read 2026-09-09.',
+  },
+];
+
+/**
+ * Recover a real fragrance house from a listing's own title text, for the
+ * listings whose vendor field cannot answer — it names the shop rather than
+ * the house, or there is no vendor field at all.
+ *
+ * `confirmedBrands` is the set of names this build is willing to call a
+ * fragrance house, lowercased; scripts/build-demo-catalogue.ts builds it from
+ * the catalogue's own evidence and unions in CONFIRMED_FRAGRANCE_HOUSES above.
+ * Nothing here decides that question — a candidate that is not in that set is
+ * never returned, so a title cannot talk this function into naming a house
+ * nobody has confirmed. That is what makes reading brand names out of free
+ * text safe rather than merely convenient.
+ *
+ * ── Three passes, and why the explicit one goes first ────────────────────────
+ * 1. An explicit attribution — the shop writing "<fragrance> by <house>" in so
+ *    many words. That is the shop stating whose fragrance this is, in English,
+ *    and it beats both positional guesses below for the reason a sentence beats
+ *    a coincidence. Measured 2026-09-09: with the positional passes first (the
+ *    order this had until today), "Musk Al Qamar by Ibrahim Al Qurashi 75ml
+ *    EDP" resolved to a house called "Musk", "Risala For You by Le Falcone" to
+ *    "Risala" and "Mayfair by Mykonos" to "Mayfair" — every one of them a
+ *    product or line word that some other shop had put in a brand field twice,
+ *    and every one of them a false statement about who made the bottle. Eight
+ *    listings, fixed by the order alone.
+ *
+ *    Checked before reordering, not assumed safe: across all 272 self-vendored
+ *    active fragrance listings — the only ones this ran on before today — the
+ *    new order changes exactly 3 answers, and all 3 land on the SAME displayed
+ *    brand after KNOWN_ALIASES above ("Supremacy in Heaven ... By Afnan" now
+ *    reads "Afnan" directly instead of "Supremacy", which that table already
+ *    folds to Afnan; "Vintage Radio ... by Lattafa Pride" reads "Lattafa"
+ *    instead of "Pride", likewise folded). No product changes brand.
+ *
+ *    "Inspired by" is excluded outright, and that exclusion is the whole reason
+ *    this pass can exist. A dupe house's "inspired by Creed Aventus" names the
+ *    fragrance it is imitating, not its own maker; attributing those listings
+ *    to Creed would state something false about a bottle Creed did not make,
+ *    which is worse than the gap it fills. The exclusion applies to all three
+ *    passes, not just this one: a title ending "... Inspired by Creed" would
+ *    otherwise be caught by the trailing pass below and credited to Creed by
+ *    the back door, which is the same false statement arriving the long way
+ *    round. Nothing in the live catalogue hits that today — all 15 "inspired
+ *    by" titles on 2026-09-09 name a fragrance rather than a house after the
+ *    "by" ("Maraaj Illusion ... Inspired by Aventus", "... Inspired by Oud
+ *    Wood"), so this guard changes no current answer — but the shape is one
+ *    dupe feed away and the cost of refusing it is nothing.
+ *
+ * 2. The longest leading run of words that is a confirmed house. Superdrug and
+ *    Lookfantastic both write the house name first and nothing else about it
+ *    ("Molton Brown Fiery Pink Pepper Eau de Parfum 100ml"), which is the
+ *    commonest shape in this catalogue by a wide margin.
+ *
+ * 3. The longest trailing run, for the shops that put it last instead — "Costa
+ *    de Amalfi Perfume 100ml EDP Riiffs" is a genuine Riiffs fragrance.
+ *
+ * Longest-first inside each pass, so "by Swiss Arabian" is not read as a house
+ * called "Swiss".
+ *
+ * ── What it will not do ──────────────────────────────────────────────────────
+ * Never a fuzzy or partial match, and never a bare mid-title word: "Yara
+ * Perfume 100ml EDP Lattafa Set Of 4" cannot produce "Lattafa" (it sits in the
+ * middle, and only an explicit "by" reads mid-title text) or "4" (not a
+ * confirmed house). A title with no confirmed house returns null, which the
+ * caller turns into an honest "Unbranded" rather than an invented fact.
+ *
+ * The shop's own name is refused explicitly, so a shop that has managed to get
+ * its own name into `confirmedBrands` cannot then be handed back as the house.
+ */
+export function recoverBrandFromTitle(
+  rawTitle: string,
+  retailerName: string,
+  confirmedBrands: ReadonlySet<string>,
+): string | null {
+  const words = rawTitle.trim().split(/\s+/).filter(Boolean);
+  const shopName = retailerName.trim().toLowerCase();
+  /** The words at `start` are what a dupe is imitating, not who made it. */
+  const imitated = (start: number): boolean =>
+    start >= 2 && words[start - 1]!.toLowerCase() === 'by' && words[start - 2]!.toLowerCase() === 'inspired';
+  const isHouse = (candidate: string, start: number): boolean => {
+    if (imitated(start)) return false;
+    const key = candidate.toLowerCase();
+    return key !== shopName && confirmedBrands.has(key);
+  };
+
+  // 1. "<fragrance> by <house>" — see the header for why this goes first.
+  for (let i = 0; i + 1 < words.length; i++) {
+    if (words[i]!.toLowerCase() !== 'by') continue;
+    for (let end = words.length; end > i + 1; end--) {
+      const candidate = words.slice(i + 1, end).join(' ');
+      if (isHouse(candidate, i + 1)) return candidate;
+    }
+  }
+
+  // 2. The longest leading run.
+  let leading: string | null = null;
+  let leadingLen = 0;
+  for (let end = words.length; end > 0; end--) {
+    const candidate = words.slice(0, end).join(' ');
+    if (isHouse(candidate, 0) && end > leadingLen) {
+      leading = candidate;
+      leadingLen = end;
+    }
+  }
+  if (leading) return leading;
+
+  // 3. The longest trailing run.
+  let trailing: string | null = null;
+  let trailingLen = 0;
+  for (let start = 0; start < words.length; start++) {
+    const candidate = words.slice(start).join(' ');
+    const len = words.length - start;
+    if (isHouse(candidate, start) && len > trailingLen) {
+      trailing = candidate;
+      trailingLen = len;
+    }
+  }
+  return trailing;
+}
+
+/**
  * The Armaf sub-line a raw brand string named before the fold above — 'Armaf
  * - Landi' -> 'Landi', 'Armaf - Oros Pure' -> 'Oros Pure' — for exactly the
  * 51 strings the block above already reviewed and blessed as real, documented

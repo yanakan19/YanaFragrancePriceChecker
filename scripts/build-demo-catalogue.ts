@@ -24,7 +24,12 @@ import type { StoredListing } from '../src/catalogue/types.js';
 import { RETAILERS, cannotCarryBrand } from '../src/config/retailers.js';
 import type { Retailer } from '../src/types/retailer.js';
 import { HOUSES } from '../src/config/houses.js';
-import { buildBrandCanon, armafLineName } from '../src/catalogue/brandName.js';
+import {
+  buildBrandCanon,
+  armafLineName,
+  recoverBrandFromTitle,
+  CONFIRMED_FRAGRANCE_HOUSES,
+} from '../src/catalogue/brandName.js';
 import {
   concentrationBlindKey,
   findDuplicateGroups,
@@ -390,6 +395,13 @@ function isSelfVendored(rawBrand: string | null | undefined, retailer: Retailer)
  * catalogue is real (checked: mybeauty-boutique has exactly one DKNY
  * listing tagged rawBrand "Women") and one match is not enough to call it a
  * genuine house rather than someone else's dirty data leaking in.
+ *
+ * CONFIRMED_FRAGRANCE_HOUSES is unioned in at the end, and is the one way a
+ * name gets in without those two listings: a house somebody checked by hand
+ * against a source outside this catalogue and recorded a URL for. That is an
+ * exception list, never a relaxation — see its own comment in
+ * src/catalogue/brandName.ts for the bar an entry has to clear, which is a
+ * citation, and for why a house nobody could confirm stays out.
  */
 const knownFragranceBrands: ReadonlySet<string> = (() => {
   const counts = new Map<string, number>();
@@ -410,116 +422,68 @@ const knownFragranceBrands: ReadonlySet<string> = (() => {
   }
   const confirmed = new Set<string>();
   for (const [key, count] of counts) if (count >= 2) confirmed.add(key);
+  for (const house of CONFIRMED_FRAGRANCE_HOUSES) confirmed.add(house.name.trim().toLowerCase());
   return confirmed;
 })();
 
 /**
- * Recover a real brand from a title's own text when the vendor field is
- * unusable (see isSelfVendored).
+ * The brand to actually use for a listing.
  *
- * The shop still usually writes the true house name inside the title even
- * when its vendor field names itself instead — "Costa de Amalfi Perfume
- * 100ml EDP Riiffs" is a genuine Riiffs fragrance despite Emirates Oud's own
- * vendor tag reading "Emirates Oud". This looks for it at either end of the
- * title: the longest leading run of words, then the longest trailing run,
- * that exactly matches (case-insensitively) a brand independently confirmed
- * elsewhere (knownFragranceBrands above). Leading is tried first because
- * that is the far more common shape across the retailers checked (Oud
- * Arabian's own titles overwhelmingly open with the house name).
+ * Its own vendor field, wherever that field says anything usable. Where it
+ * does not, the house is read out of the title's own text instead
+ * (recoverBrandFromTitle, src/catalogue/brandName.ts — that is where the
+ * three passes and the evidence rule behind them are documented), and where
+ * that finds nothing either the answer is null, which canonBrand downstream
+ * turns into an honest 'Unbranded' rather than a guess.
  *
- * Deliberately not a fuzzy or partial match, and never a guess at a word
- * that merely looks brand-shaped: "Yara Perfume 100ml EDP Lattafa Set Of 4"
- * cannot produce "Lattafa" (it sits in the middle, and nothing here reads
- * bare mid-title words) or "4" (not a real, confirmed brand). A title with no
- * confirmed brand returns null, which canonBrand/'Unbranded' downstream turns
- * into an honest gap rather than an invented fact.
+ * Two different ways a vendor field fails to name the house, and both reach
+ * the same recovery:
  *
- * The one exception to "neither end, no answer" is an explicit attribution —
- * the shop writing "<fragrance> by <house>" in so many words, tried last,
- * after both ends have failed. That is not the same move as reading a
- * mid-title word and hoping: "by" is the shop stating whose fragrance this is,
- * in English, and the house has to be one already confirmed elsewhere just as
- * at either end.
+ *   1. It names the SHOP (isSelfVendored) — "Emirates Oud" tagged on a Riiffs
+ *      bottle. The field is wrong, so it cannot be used.
+ *   2. There is no field at all. Measured 2026-09-09 over data/catalogue:
+ *      257 active fragrance listings across four shops publish no `rawBrand`
+ *      and still name a confirmed house in their own title — 120 at Perfumeo
+ *      ("Absolute Chill by Atralia 100ml Eau De Parfum | Atralia | Perfumeo
+ *      UK"), 94 at Superdrug, 35 at Lookfantastic, 8 at Scentstore, all
+ *      three of the others simply opening the title with the house name
+ *      ("Molton Brown Fiery Pink Pepper Eau de Parfum 100ml").
  *
- * Measured against the live catalogue on 2026-09-08, in two numbers that are
- * worth keeping apart. The *shape* is common: 125 self-vendored listings write
- * a real fragrance house after a "by", 116 of them Perfumeo, whose titles are
- * almost all this ("Absolute Chill by Atralia 100ml Eau De Parfum | Atralia |
- * Perfumeo UK" — the house is named twice and neither is at an end, because
- * the shop's own name is). What this actually recovers is 8 listings across 7
- * houses, at FragranceHub and Oud Arabian.
+ * Case 2 used to fall straight through to null, because this function asked
+ * only whether the field was self-vendored and a null field is not. That was
+ * the whole reason 255 products sat at 'Unbranded' with the house written
+ * plainly in their own titles. It is not a weaker case than 1, it is a
+ * strictly weaker CLAIM: a shop that says nothing has not said anything wrong,
+ * so there is even less to override. Nothing about the evidence bar moves —
+ * recoverBrandFromTitle still returns only a house `knownFragranceBrands`
+ * already confirms, by two independent listings or by a cited hand-check.
  *
- * The gap between the two is knownFragranceBrands doing its job, and is the
- * reason this can be safe rather than merely narrow: a house is admitted only
- * once two listings that are not self-vendored have named it somewhere else in
- * the catalogue. Perfumeo is the only shop here selling Mykonos, Atralia or Le
- * Falcone, and it names them only in listings whose vendor field is its own
- * name — so nothing independent confirms those houses exist, and their 116
- * listings stay honestly "Unbranded" rather than being brand-named on the word
- * of the same field that was already wrong. Whatever this does admit is
- * confirmed the same way a leading or trailing brand is.
+ * Correcting the record, because the version of this comment written on
+ * 2026-09-08 got the mechanism wrong and would have sent the next reader
+ * looking in the wrong place: it said Perfumeo's 116 unbranded listings were
+ * self-vendored and that "Perfumeo is the only shop here selling Mykonos,
+ * Atralia or Le Falcone". Neither holds. Perfumeo has never once put its own
+ * name in a vendor field — checked across all 45 revisions of perfumeo.json in
+ * git history, back to 2026-08-20: "Perfumeo" occurs as a `rawBrand` value
+ * zero times, while today's snapshot has 122 active listings whose `rawBrand`
+ * is simply absent, 120 of them fragrance — and five of the six houses
+ * its titles name are attested by two or more non-self-vendored listings at
+ * other shops already (60 for Mykonos at emirates-oud and fragrancehub, 79 for
+ * Rayhaan, 24 each for Le Falcone and Atralia, 20 for Ibrahim Al Qurashi; see
+ * CONFIRMED_FRAGRANCE_HOUSES for the per-shop split). knownFragranceBrands was
+ * doing its job all along and had all five; the listings never reached it.
  *
- * "Inspired by" is excluded outright, and that exclusion is the whole reason
- * this can be done safely. A dupe house's "inspired by Creed Aventus" names
- * the fragrance it is imitating, not its own maker; attributing those five
- * listings to Creed would state something false about a bottle Creed did not
- * make, which is worse than the gap it fills.
- */
-function recoverBrandFromTitle(rawTitle: string, retailerName: string): string | null {
-  const words = rawTitle.trim().split(/\s+/).filter(Boolean);
-  const shopName = retailerName.trim().toLowerCase();
-
-  let leading: string | null = null;
-  let leadingLen = 0;
-  for (let end = words.length; end > 0; end--) {
-    const candidate = words.slice(0, end).join(' ');
-    const key = candidate.toLowerCase();
-    if (key !== shopName && knownFragranceBrands.has(key) && end > leadingLen) {
-      leading = candidate;
-      leadingLen = end;
-    }
-  }
-  if (leading) return leading;
-
-  let trailing: string | null = null;
-  let trailingLen = 0;
-  for (let start = 0; start < words.length; start++) {
-    const candidate = words.slice(start).join(' ');
-    const key = candidate.toLowerCase();
-    const len = words.length - start;
-    if (key !== shopName && knownFragranceBrands.has(key) && len > trailingLen) {
-      trailing = candidate;
-      trailingLen = len;
-    }
-  }
-  if (trailing) return trailing;
-
-  // "<fragrance> by <house>", tried only now that both ends have failed. See
-  // the header for the measurement and for why "inspired by" is skipped.
-  for (let i = 0; i + 1 < words.length; i++) {
-    if (words[i]!.toLowerCase() !== 'by') continue;
-    if (i > 0 && words[i - 1]!.toLowerCase() === 'inspired') continue;
-    // Longest first, so "by Swiss Arabian" is not read as a house called
-    // "Swiss" — the same preference the two passes above apply.
-    for (let end = words.length; end > i + 1; end--) {
-      const candidate = words.slice(i + 1, end).join(' ');
-      const key = candidate.toLowerCase();
-      if (key !== shopName && knownFragranceBrands.has(key)) return candidate;
-    }
-  }
-  return null;
-}
-
-/**
- * The brand to actually use for a listing: its own vendor field, unless that
- * field is self-vendored (see isSelfVendored), in which case the real brand
- * is recovered from the title text or, failing that, left null so
- * canonBrand turns it into the honest 'Unbranded' rather than the shop's own
- * name masquerading as a fragrance house.
+ * Checked before shipping, not assumed: replaying both rules over every live
+ * snapshot, no listing that already had a brand changes brand, and no product
+ * that is currently branded moves. The only movement is 255 products leaving
+ * 'Unbranded'.
  */
 function resolveRawBrand(l: StoredListing, retailer: Retailer): string | null {
-  if (!isSelfVendored(l.rawBrand, retailer)) return l.rawBrand ?? null;
-  return recoverBrandFromTitle(l.rawTitle, retailer.name);
+  if (isSelfVendored(l.rawBrand, retailer)) {
+    return recoverBrandFromTitle(l.rawTitle, retailer.name, knownFragranceBrands);
+  }
+  if (l.rawBrand) return l.rawBrand;
+  return recoverBrandFromTitle(l.rawTitle, retailer.name, knownFragranceBrands);
 }
 
 /**
