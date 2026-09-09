@@ -105,10 +105,21 @@ interface CatalogueFile {
   listings: Listing[];
 }
 
+/**
+ * `width`/`height` are the photo's real pixel size, added 2026-09-09 and
+ * therefore absent from every one of the 29,711 entries written before that.
+ * Optional for exactly that reason, and consumed as optional: pickImage falls
+ * back to its per-retailer THUMBNAIL_IMAGE_RETAILERS rule for any photo whose
+ * size is not recorded, so an unswept entry behaves as it always did rather
+ * than being guessed at. They cost nothing to produce — the classifier has
+ * the image open and decoded already.
+ */
 interface VerdictEntry {
   verdict: ImageBoxVerdict;
   score: number;
   checkedAt: string;
+  width?: number;
+  height?: number;
 }
 
 /** Presented as a real browser would — mirrors scripts/image-link-check.ts. */
@@ -179,11 +190,18 @@ async function download(url: string, dest: string): Promise<boolean> {
   }
 }
 
-function classify(path: string): { verdict: ImageBoxVerdict; score: number } {
+function classify(path: string): { verdict: ImageBoxVerdict; score: number; width?: number; height?: number } {
   try {
     const out = execFileSync('python3', [classifierPath, path], { encoding: 'utf8', timeout: 15_000 });
-    const parsed = JSON.parse(out) as { verdict: ImageBoxVerdict; score: number };
-    return { verdict: parsed.verdict, score: parsed.score };
+    const parsed = JSON.parse(out) as { verdict: ImageBoxVerdict; score: number; width?: number; height?: number };
+    // The classifier omits both only when it could not open the file at all,
+    // in which case there is no size to record and the entry keeps the shape
+    // every pre-2026-09-09 entry already has.
+    const size =
+      typeof parsed.width === 'number' && typeof parsed.height === 'number'
+        ? { width: parsed.width, height: parsed.height }
+        : {};
+    return { verdict: parsed.verdict, score: parsed.score, ...size };
   } catch {
     return { verdict: 'unsure', score: 0 };
   }
@@ -229,9 +247,14 @@ async function main() {
       }
       downloaded++;
     }
-    const { verdict, score } = classify(dest);
+    const { verdict, score, width, height } = classify(dest);
     counts[verdict]++;
-    verdicts[url] = { verdict, score, checkedAt: new Date().toISOString() };
+    verdicts[url] = {
+      verdict,
+      score,
+      checkedAt: new Date().toISOString(),
+      ...(width !== undefined && height !== undefined ? { width, height } : {}),
+    };
   });
 
   saveVerdicts(verdicts);

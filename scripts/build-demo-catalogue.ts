@@ -51,7 +51,7 @@ import {
   reattachArmafLine,
 } from '../src/catalogue/productName.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
-import { pickImage, type ImageBoxVerdict } from '../src/catalogue/pickImage.js';
+import { pickImage, type ImageBoxVerdict, type ImageDimensions } from '../src/catalogue/pickImage.js';
 
 /**
  * Retailers whose product photos may be displayed, and on what grounds.
@@ -79,12 +79,26 @@ const now = new Date();
  */
 const imageBoxVerdictsPath = resolve(root, 'data/image-box-verdicts.json');
 const imageBoxVerdicts = new Map<string, ImageBoxVerdict>();
+/**
+ * The same file's `width`/`height`, when it has them. Added to the sweep on
+ * 2026-09-09, so an entry recorded before that has neither and simply never
+ * enters this map — which is what pickImage's own fallback to
+ * THUMBNAIL_IMAGE_RETAILERS is there to handle. Both halves are read in one
+ * pass because they come from one file and are keyed the same way: by the URL
+ * exactly as stored on the offer, before upgradeImageResolution() touches it.
+ */
+const imageDimensions = new Map<string, ImageDimensions>();
 if (existsSync(imageBoxVerdictsPath)) {
   const raw = JSON.parse(readFileSync(imageBoxVerdictsPath, 'utf8')) as Record<
     string,
-    { verdict: ImageBoxVerdict }
+    { verdict: ImageBoxVerdict; width?: number; height?: number }
   >;
-  for (const [url, entry] of Object.entries(raw)) imageBoxVerdicts.set(url, entry.verdict);
+  for (const [url, entry] of Object.entries(raw)) {
+    imageBoxVerdicts.set(url, entry.verdict);
+    if (typeof entry.width === 'number' && typeof entry.height === 'number') {
+      imageDimensions.set(url, { width: entry.width, height: entry.height });
+    }
+  }
 }
 
 /* ── deciding what is actually a fragrance ─────────────────────────────────── */
@@ -1581,7 +1595,7 @@ const catalogue = ordered.map((p) => ({
   sizeMl: p.sizeMl,
   ean: p.ean,
   shops: p.offers.length,
-  image: pickImage(p.offers, now, imageBoxVerdicts),
+  image: pickImage(p.offers, now, imageBoxVerdicts, imageDimensions),
   notes: pickNotes(p.offers),
   // Omitted entirely rather than written as null where the house is not
   // stocked here — JSON.stringify drops an undefined value, so 13,933 of the

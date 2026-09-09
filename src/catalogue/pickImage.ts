@@ -30,13 +30,106 @@ export type ImageBoxVerdict = 'boxed' | 'bottle-only' | 'unsure';
 export type ImageBoxVerdicts = ReadonlyMap<string, ImageBoxVerdict>;
 
 /**
- * Retailers whose photos are thumbnail-sized files (perfume-click: 82x130,
- * measured on the samples recorded in PREFERRED_IMAGE_RETAILERS' header).
- * They may still be a product's only photo, and then they are shown; what
- * they never are is the *replacement* for a demoted boxed photo, because a
- * blurred bottle is not an improvement on a sharp bottle with its box.
+ * Measured pixel size of one photo, keyed below by the URL as STORED on the
+ * offer — the same key `imageBoxVerdicts` uses, and for the same reason: both
+ * are looked up before upgradeImageResolution() rewrites anything, so an
+ * upgrade never has to invalidate a measurement.
+ */
+export interface ImageDimensions {
+  readonly width: number;
+  readonly height: number;
+}
+
+/**
+ * Real pixel sizes recorded by scripts/image-box-check.ts alongside its
+ * verdicts. Optional throughout, exactly like the verdict map: none of the
+ * 29,711 entries written before 2026-09-09 carries a size, and a photo with no
+ * measurement must behave precisely as it did before rather than be guessed
+ * at. See isTooSmallToSwapTo() for what happens when a size is missing.
+ */
+export type ImageDimensionsByUrl = ReadonlyMap<string, ImageDimensions>;
+
+/**
+ * The long edge, in pixels, at or above which a photo is big enough to be
+ * worth swapping another photo out for.
+ *
+ * Measured against what this site actually draws rather than picked: the grid
+ * tile's picture is `.art-md { width: min(90%, 300px) }` and the fragrance
+ * detail hero is `.art-lg { max-width: 340px }` (demo/template.html), so 340
+ * CSS pixels is the largest a product photo is ever rendered. 400 clears that
+ * at 1x with room to spare. It is deliberately not set at the 680 a 2x display
+ * would want, because this number only ever decides whether a photo may
+ * *displace* another one: too high a bar blocks good swaps, and the safe
+ * failure here is leaving a photo where it is.
+ */
+const MIN_SWAPPABLE_LONG_EDGE = 400;
+
+/**
+ * Retailers whose photos are thumbnail-sized files. Consulted only for a photo
+ * whose own size has never been measured — see isTooSmallToSwapTo() below,
+ * which prefers the real measurement whenever the sweep has recorded one.
+ *
+ * perfume-click is the only entry, and 2026-09-09 re-measured it rather than
+ * carrying the old "82x130" note forward on trust. 30 of its stored
+ * `imageUrl`s, drawn evenly across the 10,402 distinct bgstatic.net URLs in
+ * data/catalogue/perfume-click.json, were downloaded and opened with Pillow:
+ * every one fits inside a 195x130 box — widths 41 to 195, heights 75 to 130,
+ * not one long edge above 195, none within half of the floor above.
+ *
+ * That is the shop's ONLY size, which is the part that had never been checked.
+ * bgstatic.net is a plain Google Cloud Storage bucket with no resize service
+ * in front of it: a missing object returns `NoSuchKey`, not a rendered image,
+ * and listing the bucket is denied. Eight plausible siblings of the `_ml`
+ * suffix every one of these URLs carries — `_xl`, `_l`, `_lg`, `_big`,
+ * `_large`, `_zoom`, `_xxl`, `_2x` — plus the bare unsuffixed name were tried
+ * against all 30: 240 requests, 240 misses, 0 hits. Nor does the source feed
+ * hold a bigger one. These listings arrive through Awin, and
+ * src/catalogue/awinFeed.ts already takes `merchant_image_url` in preference
+ * to `aw_image_url`; the only other image-shaped column in that feed's schema
+ * is `aw_thumb_url`, which is smaller by definition. There is no larger
+ * perfume-click photo to fetch, so this entry stays.
+ *
+ * A second, independent reason it stays, found the same day: perfume-click's
+ * photos are cropped flush to the product, which is the one input
+ * scripts/image-box-classify.py's whole method assumes it has (a plain ground
+ * to threshold away). Its `bottle-only` calls on this shop were therefore
+ * measuring the file's shape and nothing else — 0 of 12 such photos in the
+ * live catalogue actually showed a bottle alone when downloaded and viewed.
+ * The classifier now degrades those to `unsure` (see its own docstring), but
+ * this rule is what has been holding the line in the meantime, and it is what
+ * still holds it for the two of those 12 whose near-white product leaves a
+ * hair of margin and so keeps a `bottle-only` call.
+ *
+ * What this list is NOT is the shape of the problem. Measuring the 15,707
+ * photos held in .image-box-cache found 175 under the floor above, and only
+ * 13 of them were perfume-click's; 104 were justmylook's. That is precisely
+ * why the size question moved to the photo — see isTooSmallToSwapTo below.
  */
 export const THUMBNAIL_IMAGE_RETAILERS: ReadonlySet<string> = new Set(['perfume-click']);
+
+/**
+ * Too small to be worth displacing another photo with.
+ *
+ * Asked of the PHOTO where the sweep has measured it, and only of the shop
+ * where it has not. The per-retailer rule was always a stand-in for the real
+ * question — scripts/image-box-check.ts downloads every photo it classifies,
+ * so the pixels were knowable per photo all along — and it is a coarse one in
+ * both directions: it condemns every perfume-click photo without looking, and
+ * it lets a genuinely small photo from any other shop through unchallenged
+ * (PREFERRED_IMAGE_RETAILERS' own header records a 350x350 mybeauty-boutique
+ * photo, well under the floor above, among 26 it sampled).
+ *
+ * The fallback is not a transitional nicety, it is the correctness condition:
+ * verdict entries written before 2026-09-09 carry no size at all, so until a
+ * re-sweep has filled them in this function answers from the retailer list for
+ * every existing photo and nothing whatsoever changes. A missing measurement
+ * is never read as "big enough".
+ */
+function isTooSmallToSwapTo(offer: ImageCandidate, dimensions: ImageDimensionsByUrl | undefined): boolean {
+  const measured = offer.imageUrl === null ? undefined : dimensions?.get(offer.imageUrl);
+  if (measured) return Math.max(measured.width, measured.height) < MIN_SWAPPABLE_LONG_EDGE;
+  return THUMBNAIL_IMAGE_RETAILERS.has(offer.retailerId);
+}
 
 function isVerifiedBoxed(imageUrl: string | null, verdicts: ImageBoxVerdicts | undefined): boolean {
   if (imageUrl === null || !verdicts) return false;
@@ -321,14 +414,25 @@ export const PREFERRED_IMAGE_MAX_AGE_HOURS = 336;
  * before, which is also what keeps fragrance-click's deliberately unswept
  * feed (see SKIP_RETAILERS in scripts/image-box-check.ts) where it is.
  *
- * Held to the same thumbnail rule as the boxed demotion, for the same measured
- * reason: a sharp maybe-boxed photo beats an 82x130 blur, so the replacement
+ * Held to the same too-small rule as the boxed demotion, for the same measured
+ * reason: a sharp maybe-boxed photo beats a 195x130 blur, so the replacement
  * has to come from a full-sized source or the unsure photo stays.
+ *
+ * ── `imageDimensions` (2026-09-09): "too small to swap to" is now asked of the
+ * photo, not of the shop ───────────────────────────────────────────────────
+ * Every "is this a thumbnail" test below used to read THUMBNAIL_IMAGE_RETAILERS
+ * directly. They now go through isTooSmallToSwapTo(), which prefers the real
+ * measured size when the sweep has recorded one and falls back to that
+ * retailer list when it has not. Purely additive, and inert until a re-sweep
+ * writes sizes: no existing verdict entry carries one, so on today's data
+ * every one of these calls still resolves through the retailer list to exactly
+ * the answer it gave before.
  */
 export function pickImage(
   offers: readonly ImageCandidate[],
   now: Date,
   imageBoxVerdicts?: ImageBoxVerdicts,
+  imageDimensions?: ImageDimensionsByUrl,
 ): string | null {
   const licensed = offers.filter((o) => o.imageUrl !== null);
   if (licensed.length === 0) return null;
@@ -337,7 +441,7 @@ export function pickImage(
   // alone, from a source whose files are big enough to be worth swapping to.
   // Computed once: both tiers below ask the same question of the same offers.
   const confirmedBottleAvailable = licensed.some(
-    (o) => isVerifiedBottleOnly(o.imageUrl, imageBoxVerdicts) && !THUMBNAIL_IMAGE_RETAILERS.has(o.retailerId),
+    (o) => isVerifiedBottleOnly(o.imageUrl, imageBoxVerdicts) && !isTooSmallToSwapTo(o, imageDimensions),
   );
 
   for (const retailerId of PREFERRED_IMAGE_RETAILERS) {
@@ -374,7 +478,8 @@ export function pickImage(
   // not-confirmed-boxed offer replaces it only if it is not a thumbnail:
   // measured on the first full run (2026-09-07), 204 of the 331 photos the
   // demotion changed had swapped a sharp boxed photo for one of
-  // perfume-click's 82x130 files, which on a tile reads as a blur. A box
+  // perfume-click's files, measured 2026-09-09 at 195x130 at the very
+  // largest across a 30-photo sample, which on a tile reads as a blur. A box
   // beside the bottle at full size is the better of those two, so a boxed
   // photo gives way to a bottle-only one from a real-sized source, and is
   // otherwise kept rather than replaced by something worse.
@@ -385,7 +490,7 @@ export function pickImage(
   // reason for skipping the unsure photo was that a confirmed one exists.
   if (confirmedBottleAvailable && licensed.some((o) => isUnsure(o.imageUrl, imageBoxVerdicts))) {
     const confirmed = licensed.filter(
-      (o) => isVerifiedBottleOnly(o.imageUrl, imageBoxVerdicts) && !THUMBNAIL_IMAGE_RETAILERS.has(o.retailerId),
+      (o) => isVerifiedBottleOnly(o.imageUrl, imageBoxVerdicts) && !isTooSmallToSwapTo(o, imageDimensions),
     );
     const freshestConfirmed = [...confirmed].sort((a, b) => b.fetchedAt.localeCompare(a.fetchedAt))[0]!;
     return upgradeImageResolution(freshestConfirmed.imageUrl);
@@ -395,14 +500,14 @@ export function pickImage(
   let pool = licensed;
   if (boxedOffers.length > 0) {
     const replacements = licensed.filter(
-      (o) => !isVerifiedBoxed(o.imageUrl, imageBoxVerdicts) && !THUMBNAIL_IMAGE_RETAILERS.has(o.retailerId),
+      (o) => !isVerifiedBoxed(o.imageUrl, imageBoxVerdicts) && !isTooSmallToSwapTo(o, imageDimensions),
     );
     // Every candidate is boxed (the thumbnail shops' photos are boxed at
     // the same rate as anyone's): keep the full-sized boxed photo over a
     // boxed thumbnail. Measured on the first run, 174 products had both
     // and, with identical harvest timestamps, the tie fell to whichever
     // offer came first — the thumbnail, more often than not.
-    const fullSizedBoxed = boxedOffers.filter((o) => !THUMBNAIL_IMAGE_RETAILERS.has(o.retailerId));
+    const fullSizedBoxed = boxedOffers.filter((o) => !isTooSmallToSwapTo(o, imageDimensions));
     pool = replacements.length > 0 ? replacements : fullSizedBoxed.length > 0 ? fullSizedBoxed : boxedOffers;
   }
   const freshest = [...pool].sort((a, b) => b.fetchedAt.localeCompare(a.fetchedAt))[0]!;

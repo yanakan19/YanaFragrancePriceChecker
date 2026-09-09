@@ -689,10 +689,47 @@ looked up again once that URL drops out of the catalogue.
 
 Measured on the first full run (2026-09-07): 204 of the 331 photos the
 demotion changed had swapped a sharp boxed photo for one of perfume-click's
-82x130 thumbnails, which reads as a blur on a tile. `pickImage` therefore
+thumbnails, which reads as a blur on a tile. `pickImage` therefore
 lets a confirmed-boxed photo give way only to a bottle-only (or unchecked)
-photo from a retailer not in `THUMBNAIL_IMAGE_RETAILERS`; with no such
+photo that is not itself too small to be worth the swap; with no such
 alternative the boxed photo is kept. The classifier's recall gap is also
 worth knowing: Versace Woman 50ml (the owner's own example) scores in the
 `unsure` band and is not demoted, and its only alternative is a perfume-click
 thumbnail that shows the box too, so it stays as it is.
+
+**How "too small" is decided (2026-09-09).** It used to be decided per
+retailer, by membership of `THUMBNAIL_IMAGE_RETAILERS`. It is now decided per
+photo, on the `width`/`height` the sweep records, with the retailer list kept
+as the fallback for any photo whose size has not been measured — which today
+is every one of them, so nothing changes until a re-sweep runs. The floor is
+a 400px long edge, chosen against what the site actually draws: `.art-md`
+caps a grid tile's picture at 300 CSS px and `.art-lg` caps the detail hero
+at 340 (`demo/template.html`).
+
+The per-retailer rule was coarse in both directions, and both were measured
+rather than supposed. Re-measuring perfume-click on 2026-09-09 — 30 photos
+drawn evenly across its 10,402 distinct URLs, downloaded and opened with
+Pillow — put every one inside a 195x130 box, so it belongs on the list; nine
+suffix variants of the `_ml` its URLs carry were tried against all 30 (240
+requests) and every one 404'd, so there is no larger file to fetch either.
+But measuring the 15,707 photos still sitting in `.image-box-cache` found 175
+under the floor, and only 13 of those were perfume-click's. 104 were
+justmylook's, from a shop the list has never named.
+
+**The classifier needs a background, and perfume-click does not give it one.**
+Its photos are cropped flush to the product, so the bounding-box aspect
+`image-box-classify.py` measures is the crop's own shape, not the object's —
+identical to the file's width/height on 30 of 30 sampled. That made its
+`bottle-only` calls meaningless: all 12 photos where such a call would have
+displaced a full-sized boxed photo were downloaded and viewed, and 0 of 12
+showed a bottle alone. Its `boxed` calls survive the same check (15 of 15
+viewed were genuinely box-beside-bottle), because nothing wider than it is
+tall is a lone upright bottle. The classifier now degrades a margin-free
+narrow crop to `unsure` and leaves `boxed` alone.
+
+This is a property of the photo, not of the shop, and the test is written
+that way deliberately. Sampling the cache at up to 40 photos per host found
+flush crops at glorious-beauty (3 of 40), oud-arabian (1 of 40) and Zara (1 of
+8) as well, against 0 of 40 for each of `cdn.shopify.com`, beautybase,
+justmylook, manchester-ouds, thgimages and the-fragrance-counter.
+perfume-click is only the shop that does it as a matter of course.
