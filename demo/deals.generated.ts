@@ -25,7 +25,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-09-09T13:03:37.082Z";
+export const DEALS_GENERATED_AT = "2026-09-09T15:44:22.426Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -471,10 +471,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6290362340362",
-    "price": 19.99,
-    "wasPrice": 29.99,
-    "percentOff": 33,
-    "retailerId": "emirates-oud",
+    "price": 18.5,
+    "wasPrice": 39.99,
+    "percentOff": 53,
+    "retailerId": "fragrancehub",
     "kind": "retailer",
     "houseName": null
   },
@@ -2414,6 +2414,15 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-9362014012280",
+    "price": 49.99,
+    "wasPrice": 59.99,
+    "percentOff": 16,
+    "retailerId": "fragrancehub",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3616302020652",
     "price": 75.95,
     "wasPrice": 138,
@@ -4021,6 +4030,15 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 23,
     "percentOff": 30,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6298043161732",
+    "price": 39.99,
+    "wasPrice": 44.99,
+    "percentOff": 11,
+    "retailerId": "fragrancehub",
     "kind": "retailer",
     "houseName": null
   },
@@ -6545,6 +6563,15 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-9362014000539",
+    "price": 49.99,
+    "wasPrice": 54.99,
+    "percentOff": 9,
+    "retailerId": "fragrancehub",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-9362014011993",
     "price": 49.99,
     "wasPrice": 59.99,
@@ -6690,10 +6717,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3616300892442",
-    "price": 76.99,
-    "wasPrice": 137,
-    "percentOff": 43,
-    "retailerId": "the-beauty-store-uk",
+    "price": 78.9,
+    "wasPrice": 99,
+    "percentOff": 20,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
