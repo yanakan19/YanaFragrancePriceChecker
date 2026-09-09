@@ -53,16 +53,42 @@ export type ImageDimensionsByUrl = ReadonlyMap<string, ImageDimensions>;
  * The long edge, in pixels, at or above which a photo is big enough to be
  * worth swapping another photo out for.
  *
- * Measured against what this site actually draws rather than picked: the grid
- * tile's picture is `.art-md { width: min(90%, 300px) }` and the fragrance
- * detail hero is `.art-lg { max-width: 340px }` (demo/template.html), so 340
- * CSS pixels is the largest a product photo is ever rendered. 400 clears that
- * at 1x with room to spare. It is deliberately not set at the 680 a 2x display
- * would want, because this number only ever decides whether a photo may
- * *displace* another one: too high a bar blocks good swaps, and the safe
- * failure here is leaving a photo where it is.
+ * Set from the measured shape of the catalogue's own photos, because that is
+ * the question this constant is actually asked. Of the 15,707 photos now
+ * carrying a size, 593 have a long edge under 600px, and they do not tail off
+ * smoothly — they cluster:
+ *
+ *     50-99px      1        200-249px   16
+ *     100-149px  112        250-299px    6
+ *     150-199px   10        300-349px    8
+ *                           350-399px   22
+ *
+ * The 123 under 200px are not small photographs, they are thumbnails, and they
+ * are the whole of that population: 104 justmylook `_x100` files at exactly
+ * 100x100, 13 perfume-click bgstatic files at 130-195, the 70x70 Awin "no
+ * image" placeholder, and five strays. Nothing above 200px is one. So the
+ * floor sits in that gap, where the data puts a real boundary, rather than at
+ * a number reasoned out from CSS.
+ *
+ * It was 400 for one day, reasoned from what the page draws: the grid tile is
+ * `.art-md { width: min(90%, 300px) }` and the detail hero `.art-lg
+ * { max-width: 340px }` (demo/template.html), so 340 CSS pixels is the largest
+ * a photo is ever rendered, and 400 cleared that at 1x. The reasoning was
+ * sound and the number was still wrong, because it answers "will this look
+ * sharp" when the question is "is this a real photograph or a thumbnail". It
+ * disqualified the 52 photos between 200 and 400px, which render perfectly
+ * well, and it cost a real product: Issey Miyake A Drop d'Issey Essentielle
+ * (ean-3423222090937) lost a 370x370 shot of the bottle alone and gained a
+ * 1920x1920 one with the box beside it, because at 400 the good photo counted
+ * as a thumbnail and dropped out of the pool. Both were downloaded and viewed.
+ *
+ * Erring low is also the safer direction here. This number only decides
+ * whether a photo may *displace* another one, so too high a bar blocks good
+ * swaps and quietly promotes worse photos, while too low a one merely allows a
+ * slightly soft photo to win a swap it would have won anyway before any of
+ * this existed.
  */
-const MIN_SWAPPABLE_LONG_EDGE = 400;
+const MIN_SWAPPABLE_LONG_EDGE = 200;
 
 /**
  * Retailers whose photos are thumbnail-sized files. Consulted only for a photo
@@ -124,10 +150,50 @@ export const THUMBNAIL_IMAGE_RETAILERS: ReadonlySet<string> = new Set(['perfume-
  * re-sweep has filled them in this function answers from the retailer list for
  * every existing photo and nothing whatsoever changes. A missing measurement
  * is never read as "big enough".
+ *
+ * ── A measurement of an UPGRADEABLE URL is a floor, not the answer ─────────
+ * 2026-09-09, and this is the subtlety the whole justmylook `_x100` upgrade
+ * below turns on. Sizes in data/image-box-verdicts.json are keyed on the URL
+ * as STORED, and measure the file that URL returns. But the site does not
+ * request the stored URL — it requests upgradeImageResolution(storedUrl), and
+ * where those differ the recorded number describes a request this project no
+ * longer makes. justmylook's 104 `_x100` URLs are exactly that case: the
+ * stored URL really is 100x100, and the URL actually displayed really is
+ * 1000x1000 (measured on all 104, see upgradeImageResolution).
+ *
+ * The obvious repair — look the size up on the upgraded URL, fall back to the
+ * stored one — does not work, and it is worth writing down why so nobody
+ * re-attempts it: the sweep only ever downloads STORED URLs, so an upgraded
+ * URL is never a key in that map, the fallback always fires, and the 100x100
+ * blocks the very swap the upgrade exists to enable.
+ *
+ * What is true instead is a one-sided fact. Both upgrades this file performs
+ * only ever ask a resize service for MORE pixels, and neither service
+ * upscales past the source file — so the stored measurement is a lower bound
+ * on what will be displayed, never an upper one. A lower bound can prove a
+ * photo big enough; it can never prove one too small. So:
+ *
+ *   - stored URL === displayed URL: the measurement is exact, and answers
+ *     both ways. This is every non-upgradeable photo, i.e. almost all of them.
+ *   - they differ, and the measurement already clears the floor: still a
+ *     definite "big enough" — the upgrade cannot have made it smaller.
+ *   - they differ, and it does not clear the floor: genuinely unknown. Treated
+ *     exactly like a photo nobody has measured, which is what it is, and falls
+ *     through to the retailer list below.
+ *
+ * That last branch is what lets justmylook's upgraded photos through
+ * (justmylook is not a THUMBNAIL_IMAGE_RETAILER), and it leaves the Shopify
+ * `width=` path exactly where it was: those files measure 2000x2000 and
+ * clear the floor on the first branch.
  */
 function isTooSmallToSwapTo(offer: ImageCandidate, dimensions: ImageDimensionsByUrl | undefined): boolean {
   const measured = offer.imageUrl === null ? undefined : dimensions?.get(offer.imageUrl);
-  if (measured) return Math.max(measured.width, measured.height) < MIN_SWAPPABLE_LONG_EDGE;
+  if (measured) {
+    if (Math.max(measured.width, measured.height) >= MIN_SWAPPABLE_LONG_EDGE) return false;
+    // Below the floor, and only conclusive when the measured URL is the one
+    // that will actually be requested. See the header above.
+    if (upgradeImageResolution(offer.imageUrl) === offer.imageUrl) return true;
+  }
   return THUMBNAIL_IMAGE_RETAILERS.has(offer.retailerId);
 }
 
@@ -528,6 +594,20 @@ const SHOPIFY_UPGRADE_WIDTH = 3000;
 const SHOPIFY_CDN_WIDTH = /^(https?:\/\/[^/]*(?:cdn\.shopify\.com|\/cdn\/shop\/)[^\s]*[?&]width=)(\d+)(.*)$/;
 
 /**
+ * A Shopify CDN URL whose FILENAME carries a legacy `_x<n>` resize suffix,
+ * captured as (everything before the suffix)(extension)(query string).
+ *
+ * Shopify's older image API encodes the requested size in the filename rather
+ * than in a query parameter — `photo_x100.jpg` is a request for a 100px-tall
+ * render of `photo.jpg`. Anchored to the same two Shopify markers as
+ * SHOPIFY_CDN_WIDTH above, for the same reason: the suffix only means "resize
+ * me" on a host that runs Shopify's image service, and on any other host it
+ * could perfectly well be part of the real filename.
+ */
+const SHOPIFY_CDN_SIZE_SUFFIX =
+  /^(https?:\/\/[^/]*(?:cdn\.shopify\.com|\/cdn\/shop\/)[^\s?]*)_x\d+(\.(?:jpe?g|png|webp|gif))(\?[^\s]*)?$/i;
+
+/**
  * Requests the same photo at a larger size, when the stored URL is already
  * asking a Shopify CDN to shrink it and a bigger size is free for the asking.
  *
@@ -567,9 +647,67 @@ const SHOPIFY_CDN_WIDTH = /^(https?:\/\/[^/]*(?:cdn\.shopify\.com|\/cdn\/shop\/)
  * project has only confirmed that for the shops named above, not for every
  * host that happens to look similar. A non-Shopify URL, or one with no
  * `width` parameter, is returned unchanged.
+ *
+ * ── 2026-09-09: the same job for Shopify's OTHER, older resize convention ──
+ * The rule above reads "no parameter is ever added to a URL that lacks one".
+ * That is still the rule, and this second branch does not break it: it only
+ * adds `width=` to a URL that is *already* asking Shopify's image service to
+ * resize the photo, just through the older filename suffix rather than a
+ * query parameter. `…/photo_x100.jpg` means "render photo.jpg 100px tall".
+ * The resize service is demonstrably there; only the spelling differs.
+ *
+ * WHAT WAS MEASURED. justmylook stores 1,974 distinct image URLs, all on
+ * `www.justmylook.com/cdn/shop/…`. 1,870 of them already carry a `width=`
+ * parameter and are handled by the branch above. The remaining 104 carry an
+ * `_x100` filename suffix and no `width` parameter at all — the two sets are
+ * disjoint, checked, 0 overlap — and every one of those 104 measured exactly
+ * 100x100, which is a quarter of the 400px floor MIN_SWAPPABLE_LONG_EDGE
+ * needs and reads as a visible blur on a 300px grid tile.
+ *
+ * All 104 were then re-requested with the suffix dropped and `width=3000`
+ * added, and measured with Pillow — not a sample, the whole set, because the
+ * one real hazard here is a filename that genuinely ends in `_x100`, which
+ * would 404. 104 of 104 returned a real image at or above 400px: 103 at
+ * 1000x1000 and one at 1056x1065. Zero failures, zero fallbacks.
+ *
+ * Six of the upgraded photos were then downloaded beside their originals and
+ * viewed directly (CK Be, Estée Lauder Sensuous, Sabon soap bar, Clinique
+ * Happy For Men, Aramis, Michael Kors Gorgeous) to confirm the upgrade
+ * returns the SAME photograph and not a different shot or a placeholder: all
+ * six are pixel-for-pixel the same composition, the same bottle, the same
+ * crop, at ten times the resolution.
+ *
+ * `_x\d+` rather than `_x100` literally: the digits name the size being
+ * asked for and are thrown away by the rewrite either way, so matching only
+ * the one value observed today would leave an `_x200` sibling silently
+ * unhandled for no benefit. Only `_x100` occurs in this project's data
+ * (104 listings, no other suffix value on any retailer) — that much is
+ * measured; the generalisation is of the mechanism, not of the evidence.
+ *
+ * This is the only non-`width=` upgrade in this file, and it stays that way
+ * until another is measured the same way: exhaustively, and looked at.
  */
 export function upgradeImageResolution(url: string | null): string | null {
   if (url === null) return null;
+
+  const sized = url.match(SHOPIFY_CDN_SIZE_SUFFIX);
+  if (sized) {
+    // The suffix goes and `width=` replaces it. The rest of the query string
+    // is kept — justmylook's URLs all carry Shopify's `?v=` cache-buster, and
+    // dropping it would change which cached rendition is served — but any
+    // `width` already in there is dropped first rather than duplicated. No
+    // URL in this project's data has both (the 104 `_x100` URLs and the 1,870
+    // `width=` ones are disjoint, counted 2026-09-09), so this is belt and
+    // braces; it is here because a URL carrying both would be asking for the
+    // small rendition in the filename and a large one in the query, and the
+    // filename would win.
+    const kept = (sized[3] ?? '')
+      .replace(/^\?/, '')
+      .split('&')
+      .filter((p) => p !== '' && !/^width=/i.test(p));
+    return `${sized[1]}${sized[2]}?${[...kept, `width=${SHOPIFY_UPGRADE_WIDTH}`].join('&')}`;
+  }
+
   const match = url.match(SHOPIFY_CDN_WIDTH);
   if (!match) return url;
   const requested = Number.parseInt(match[2]!, 10);

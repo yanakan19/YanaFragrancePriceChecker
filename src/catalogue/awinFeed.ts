@@ -1,6 +1,7 @@
 import type { RawListing } from './types.js';
 import { parsePrice } from './jsonld.js';
 import { repairMojibake } from './fragranceId.js';
+import { rejectPlaceholderImage } from './placeholderImage.js';
 
 /**
  * Parser for Awin's standard "generic" datafeed format.
@@ -257,8 +258,21 @@ export function parseAwinFeed(csvText: string): RawListing[] {
       digitsOnly(col(row, 'ean'));
     if (!retailerSku) continue;
 
+    // Awin publishes its own "No image available" graphic as a perfectly
+    // ordinary image URL when a merchant supplies none — see
+    // src/catalogue/placeholderImage.ts for the file itself, downloaded and
+    // viewed. Rejected here, at the point the feed is read, so a placeholder
+    // is never stored as though it were a photograph in the first place; a
+    // row with no real image ends up with `imageUrl: null`, which is what the
+    // merchant actually meant.
+    //
+    // Applied to each column separately, before the `??`, rather than to the
+    // result: a merchant whose `merchant_image_url` is the placeholder may
+    // still have a real `aw_image_url`, and rejecting after the fallback had
+    // already been skipped would throw that away.
     const imageUrl =
-      trimmedOrNull(col(row, 'merchant_image_url')) ?? trimmedOrNull(col(row, 'aw_image_url'));
+      rejectPlaceholderImage(trimmedOrNull(col(row, 'merchant_image_url'))) ??
+      rejectPlaceholderImage(trimmedOrNull(col(row, 'aw_image_url')));
 
     const inStockFromFlag = truthy(col(row, 'in_stock'));
     const stockQuantity = trimmedOrNull(col(row, 'stock_quantity'));

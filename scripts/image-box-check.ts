@@ -44,13 +44,14 @@
  * does, so a multi-thousand-image backlog is worked down over several runs
  * rather than one long one.
  */
-import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { resolve, dirname, extname } from 'node:path';
+import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
 import type { ImageBoxVerdict } from '../src/catalogue/pickImage.js';
+import { imageBoxCacheFilename } from '../src/catalogue/imageBoxCache.js';
+import { isPlaceholderImageUrl } from '../src/catalogue/placeholderImage.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const catalogueDir = resolve(root, 'data/catalogue');
@@ -156,6 +157,13 @@ function collectCandidateUrls(): Map<string, Set<string>> {
     if (onlyShop && data.retailerId !== onlyShop) continue;
     for (const listing of data.listings) {
       if (!listing.imageUrl) continue;
+      // A placeholder graphic is not a photo, so there is nothing here to
+      // classify. Worth stating rather than leaving to chance: Awin's
+      // "No image available" icon WAS swept, on 2026-09-08, and came back
+      // `boxed` with score 0.787 — the grey camera outline is wider than it is
+      // tall, so the aspect rule read it as a box beside a bottle. A verdict on
+      // a non-photograph is meaningless whichever way it falls.
+      if (isPlaceholderImageUrl(listing.imageUrl)) continue;
       const set = urlToRetailers.get(listing.imageUrl) ?? new Set<string>();
       set.add(data.retailerId);
       urlToRetailers.set(listing.imageUrl, set);
@@ -165,10 +173,10 @@ function collectCandidateUrls(): Map<string, Set<string>> {
 }
 
 function cachePathFor(url: string): string {
-  const hash = createHash('sha1').update(url).digest('hex');
-  let ext = extname(new URL(url).pathname).toLowerCase();
-  if (!/^\.(jpe?g|png|webp|gif|avif)$/.test(ext)) ext = '.jpg';
-  return resolve(cacheDir, `${hash}${ext}`);
+  // The naming rule itself lives in src/catalogue/imageBoxCache.ts, so that
+  // scripts/image-size-backfill.ts finds exactly the files this script wrote.
+  // See that module for why it is not simply imported from here.
+  return resolve(cacheDir, imageBoxCacheFilename(url));
 }
 
 async function download(url: string, dest: string): Promise<boolean> {

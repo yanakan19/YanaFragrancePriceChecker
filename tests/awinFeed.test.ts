@@ -124,6 +124,73 @@ describe('parseAwinFeed — header-driven column mapping', () => {
   });
 });
 
+/**
+ * Awin publishes its own "No image available" graphic as an ordinary image
+ * URL when a merchant supplies none. This is the one URL in this file that is
+ * real rather than invented, and it has to be: it is the exact string this
+ * parser must reject, downloaded and viewed 2026-09-09 (70x70 GIF, 959 bytes,
+ * grey camera outline over that wording). It reached this project through
+ * perfume-click's Awin feed and was stored on 1,237 of its 11,639 listings.
+ *
+ * Rejecting it here rather than only in the build is what stops a placeholder
+ * ever being *stored* as though it were a photograph. See
+ * src/catalogue/placeholderImage.ts.
+ */
+describe('parseAwinFeed — the placeholder graphic is not a photo', () => {
+  const AWIN_NO_IMAGE = 'https://images2.productserve.com/noimage.gif';
+
+  it('stores no image at all when merchant_image_url is the placeholder', () => {
+    const csv = `${STANDARD_HEADER}\n${standardRow({ merchant_image_url: AWIN_NO_IMAGE })}\n`;
+    expect(parseAwinFeed(csv)[0]?.imageUrl).toBeNull();
+  });
+
+  it('keeps the rest of the row: a missing photo is not a reason to drop a listing', () => {
+    // 1,237 real perfume-click listings are in exactly this state. Their
+    // prices, stock and links are all good data; only the image is not.
+    const csv = `${STANDARD_HEADER}\n${standardRow({ merchant_image_url: AWIN_NO_IMAGE })}\n`;
+    const [l] = parseAwinFeed(csv);
+    expect(l).toMatchObject({ retailerSku: 'MP-1001', priceGbp: 29.99, imageUrl: null });
+  });
+
+  it('falls through to a real aw_image_url when only merchant_image_url is the placeholder', () => {
+    // Why each column is filtered separately, before the `??` rather than
+    // after it: rejecting the merged result would throw away a perfectly good
+    // aw_image_url that the fallback had already been skipped over.
+    const header = 'aw_deep_link,product_name,merchant_product_id,search_price,merchant_image_url,aw_image_url';
+    const row = [
+      'https://www.awin1.com/cread.php?awinmid=999999&p=test-fragrance-edp-100ml',
+      csvField('Test Fragrance EDP 100ml'),
+      'MP-1001',
+      '29.99',
+      AWIN_NO_IMAGE,
+      'https://img.example.test/real-photo-100ml.jpg',
+    ].join(',');
+    expect(parseAwinFeed(`${header}\n${row}\n`)[0]?.imageUrl).toBe(
+      'https://img.example.test/real-photo-100ml.jpg',
+    );
+  });
+
+  it('rejects the placeholder in aw_image_url too, not only in merchant_image_url', () => {
+    const header = 'aw_deep_link,product_name,merchant_product_id,search_price,merchant_image_url,aw_image_url';
+    const row = [
+      'https://www.awin1.com/cread.php?awinmid=999999&p=test-fragrance-edp-100ml',
+      csvField('Test Fragrance EDP 100ml'),
+      'MP-1001',
+      '29.99',
+      '',
+      AWIN_NO_IMAGE,
+    ].join(',');
+    expect(parseAwinFeed(`${header}\n${row}\n`)[0]?.imageUrl).toBeNull();
+  });
+
+  it('leaves an ordinary merchant photo untouched', () => {
+    // The guard must be inert on every normal row — 10,402 perfume-click
+    // listings carry a real photo and none of them may change.
+    const csv = `${STANDARD_HEADER}\n${standardRow()}\n`;
+    expect(parseAwinFeed(csv)[0]?.imageUrl).toBe('https://img.example.test/test-fragrance-100ml.jpg');
+  });
+});
+
 describe('parseAwinFeed — merchant_deep_link is carried beside the tracking link', () => {
   // The whole point of this field is that it is a *second* URL. If it ever
   // displaces `url`, the site stops earning on every affiliate-feed click, so

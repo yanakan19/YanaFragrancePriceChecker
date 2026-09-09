@@ -52,6 +52,7 @@ import {
 } from '../src/catalogue/productName.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
 import { pickImage, type ImageBoxVerdict, type ImageDimensions } from '../src/catalogue/pickImage.js';
+import { rejectPlaceholderImage } from '../src/catalogue/placeholderImage.js';
 
 /**
  * Retailers whose product photos may be displayed, and on what grounds.
@@ -737,7 +738,13 @@ for (const { retailer, listings } of eligible) {
       // basis even when the retailer carries no `imageBasis` of its own. Kept
       // as the raw value here rather than pre-gated, so that later pass has
       // something to restore.
-      imageUrl: l.imageUrl,
+      // Belt-and-braces against a placeholder graphic stored as a photo. The
+      // real fix is in src/catalogue/awinFeed.ts, which never lets one into
+      // the store; this line is what protects a build running over listings
+      // harvested BEFORE that fix, which persist until the hourly crawl
+      // overwrites them. Same shared list either way — see
+      // src/catalogue/placeholderImage.ts — never a second copy of it.
+      imageUrl: rejectPlaceholderImage(l.imageUrl),
       description: l.description ?? null,
       rating: l.rating ?? null,
       sizeMl: size,
@@ -1515,7 +1522,13 @@ if (existsSync(housesDir)) {
         // bottle is a real trade-off, not a strict improvement — so this stays
         // exactly what it says it is: the house's own photo of its own
         // product, unconditionally.
-        image: l.imageUrl,
+        // Same placeholder guard as the retailer offers above. No house
+        // storefront serves one today (the only placeholder this project has
+        // found is Awin's, and no house is harvested through Awin), but a
+        // house photo is displayed on exactly the same terms as any other and
+        // there is no reason for the two paths to disagree about what counts
+        // as a photograph.
+        image: rejectPlaceholderImage(l.imageUrl),
         nativePrice: l.nativePrice ?? null,
         inStock: l.inStock,
       });
