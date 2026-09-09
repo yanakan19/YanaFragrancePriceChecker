@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { brandKey, pickBrandName, buildBrandCanon } from '../src/catalogue/brandName.js';
+import {
+  brandKey, pickBrandName, buildBrandCanon,
+  recoverBrandFromTitle, CONFIRMED_FRAGRANCE_HOUSES,
+} from '../src/catalogue/brandName.js';
 
 describe('brandKey', () => {
   it('ignores the decoration shops disagree about', () => {
@@ -347,5 +350,156 @@ describe('buildBrandCanon', () => {
   it('leaves "CRM" apart — a feed field spanning several unrelated real houses, not a house itself', () => {
     const canon = buildBrandCanon(['Giorgio Armani', 'CRM']);
     expect(canon.get('CRM')).toBe('CRM');
+  });
+});
+
+/**
+ * CONFIRMED_FRAGRANCE_HOUSES: the hand-checked, citation-carrying exception to
+ * scripts/build-demo-catalogue.ts's "two independent listings" rule, added
+ * 2026-09-09. The same shape as productName.ts's CONCENTRATION_RESOLUTIONS,
+ * and held to the same standard — a name is here because somebody read a
+ * source outside this catalogue and wrote down the URL, never because a
+ * pattern suggested it.
+ *
+ * These tests pin the discipline rather than the contents: what would actually
+ * go wrong is a future maintainer adding an uncited name, or letting the table
+ * grow into a general-purpose bypass of the evidence rule.
+ */
+describe('CONFIRMED_FRAGRANCE_HOUSES', () => {
+  it('carries a citation for every house — an uncited name is not allowed in', () => {
+    for (const house of CONFIRMED_FRAGRANCE_HOUSES) {
+      expect(house.name.trim()).not.toBe('');
+      // A real, checkable source, not a bare assertion that someone looked.
+      expect(house.citation).toMatch(/\.(com|co\.uk|uk|net|org|io)\b/);
+      expect(house.citation.length).toBeGreaterThan(40);
+    }
+  });
+
+  it('stays an exception list, not a second brand registry', () => {
+    // The measured 2026-09-09 pass found six houses named in Perfumeo's
+    // vendor-field-less titles and needed exactly ONE of them here; the other
+    // five were already attested by two or more non-self-vendored listings
+    // elsewhere in the catalogue, so the ordinary rule admits them. If this
+    // ever runs into double figures, the thing to check is whether the
+    // evidence rule itself is mis-set, not whether to keep adding names.
+    expect(CONFIRMED_FRAGRANCE_HOUSES.length).toBeLessThan(10);
+  });
+
+  it('holds La Beaute Paris, the one house of the 2026-09-09 pass this catalogue cannot confirm on its own', () => {
+    // No shop but Perfumeo has ever carried "La Beaute Paris" as a rawBrand
+    // (checked across every data/catalogue snapshot), so its four listings —
+    // Silk Musc, Duke of Edinburgh, Oud of London, Oud of Dubai — had no
+    // honest brand available until this entry. Two other retailers shelve it
+    // as a house of its own; see the entry's own citation.
+    const entry = CONFIRMED_FRAGRANCE_HOUSES.find((h) => h.name === 'La Beaute Paris');
+    expect(entry).toBeDefined();
+    expect(entry!.citation).toContain('filledwithbarakah.com');
+    expect(entry!.citation).toContain('dubaiperfumehub.com');
+  });
+
+  it('does not list a house the two-listings rule already confirms', () => {
+    // Mykonos (60 non-self-vendored listings at emirates-oud and
+    // fragrancehub), Rayhaan (79), Le Falcone (24), Atralia (24) and Ibrahim
+    // Al Qurashi (20) are all admitted by the evidence rule itself. Listing
+    // them here would be a hand-maintained copy of a fact the data proves,
+    // which is exactly how a curated table starts drifting from reality.
+    const names = CONFIRMED_FRAGRANCE_HOUSES.map((h) => h.name);
+    for (const attested of ['Mykonos', 'Rayhaan', 'Le Falcone', 'Atralia', 'Ibrahim Al Qurashi']) {
+      expect(names).not.toContain(attested);
+    }
+  });
+});
+
+/**
+ * recoverBrandFromTitle: reading the house out of a listing's own title when
+ * its vendor field cannot say. Moved here from scripts/build-demo-catalogue.ts
+ * on 2026-09-09 so the rule that makes it safe — a candidate must already be a
+ * confirmed house — can be tested rather than only described.
+ *
+ * The confirmed set is passed in, so these tests state their own evidence
+ * instead of depending on whatever the live catalogue happens to contain
+ * today. Every title below is a real one from data/catalogue except the two
+ * marked CONSTRUCTED, which pin guards nothing in the live data currently
+ * exercises — those are the ones most worth keeping, since a guard with no
+ * live example is exactly the kind a refactor silently drops.
+ */
+describe('recoverBrandFromTitle', () => {
+  const confirmed = new Set([
+    'atralia', 'mykonos', 'le falcone', 'ibrahim al qurashi', 'rayhaan',
+    'riiffs', 'molton brown', 'lattafa', 'afnan', 'swiss arabian', 'creed',
+    // Deliberately included: real brand strings some shop published twice
+    // that are ALSO ordinary product or sub-line words. These are what the
+    // pass ordering has to survive.
+    'musk', 'risala', 'mayfair', 'pride', 'supremacy',
+    // Not a house anyone publishes; here only so the longest-first preference
+    // below has something shorter to wrongly prefer.
+    'swiss',
+  ]);
+
+  it('takes the shop at its word when the shop states the maker', () => {
+    expect(recoverBrandFromTitle('Absolute Chill by Atralia 100ml Eau De Parfum | Atralia | Perfumeo UK', 'Perfumeo', confirmed)).toBe('Atralia');
+    expect(recoverBrandFromTitle('Al Fursan Highfly by Le Falcone 85ml Eau De Parfum - Perfumeo', 'Perfumeo', confirmed)).toBe('Le Falcone');
+  });
+
+  // Measured 2026-09-09: with the positional passes running first — the order
+  // this had until then — eight of Perfumeo's 120 titles resolved to a product
+  // or sub-line word that happened to sit at the front, and every one of them
+  // was a false statement about who made the bottle. An explicit "by" is the
+  // shop saying it in English; a leading word is a guess about position.
+  it('prefers an explicit "by <house>" over a leading word that merely looks like a brand', () => {
+    expect(recoverBrandFromTitle('Musk Al Qamar by Ibrahim Al Qurashi 75ml EDP | Perfumeo UK', 'Perfumeo', confirmed)).toBe('Ibrahim Al Qurashi');
+    expect(recoverBrandFromTitle('Risala For You by Le Falcone 100ml Eau De Parfum - Perfumeo', 'Perfumeo', confirmed)).toBe('Le Falcone');
+    expect(recoverBrandFromTitle('Mayfair by Mykonos 100ml EDP | Perfumeo UK', 'Perfumeo', confirmed)).toBe('Mykonos');
+  });
+
+  // The three self-vendored recoveries the reorder changed, checked before it
+  // shipped: all three already folded onto the same displayed brand through
+  // KNOWN_ALIASES ('Supremacy' -> Afnan, 'Pride' -> Lattafa), so no product's
+  // brand moved — but naming the house directly is the more honest answer.
+  it('reads the house rather than its own sub-line where a title names both', () => {
+    expect(recoverBrandFromTitle('Supremacy in Heaven Eau De Parfum 100ml By Afnan', 'FragranceHub', confirmed)).toBe('Afnan');
+    expect(recoverBrandFromTitle('Vintage Radio 100ml Eau De Parfum by Lattafa Pride', 'FragranceHub', confirmed)).toBe('Lattafa');
+  });
+
+  it('still reads a leading or trailing house where the title has no attribution', () => {
+    // Superdrug and Lookfantastic publish no vendor field and open the title
+    // with the house name; Emirates Oud puts it last.
+    expect(recoverBrandFromTitle('Molton Brown Fiery Pink Pepper Eau de Parfum 100ml', 'Lookfantastic', confirmed)).toBe('Molton Brown');
+    expect(recoverBrandFromTitle('Costa de Amalfi Perfume 100ml EDP Riiffs', 'Emirates Oud', confirmed)).toBe('Riiffs');
+  });
+
+  it('refuses a house nobody has confirmed, rather than guessing from the title', () => {
+    // "La Beaute Paris" is a real house, but only because someone checked and
+    // cited it — take it out of the confirmed set and the title alone is not
+    // enough. This is the whole safety property.
+    expect(recoverBrandFromTitle('Silk Musc by La Beaute Paris 100ml Eau De Parfum - Perfumeo', 'Perfumeo', confirmed)).toBeNull();
+    expect(recoverBrandFromTitle('Silk Musc by La Beaute Paris 100ml Eau De Parfum - Perfumeo', 'Perfumeo', new Set([...confirmed, 'la beaute paris']))).toBe('La Beaute Paris');
+  });
+
+  it('never credits a dupe to the house it is imitating', () => {
+    // CONSTRUCTED. "inspired by <house>" names the fragrance being imitated,
+    // not the maker; crediting Creed would state something false about a
+    // bottle Creed did not make. All 15 live "inspired by" titles today name
+    // a fragrance rather than a house after the "by" (FragranceHub's "Maraaj
+    // Illusion ... Inspired by Aventus" and the rest), so none of them would
+    // resolve anyway — which is precisely why this guard needs a test of its
+    // own rather than relying on the data to keep exercising it.
+    expect(recoverBrandFromTitle('Maraaj Illusion Eau De Parfum 100ml Inspired by Creed', 'FragranceHub', confirmed)).toBeNull();
+  });
+
+  it('prefers the longest house name after "by", so "Swiss Arabian" is not read as "Swiss"', () => {
+    expect(recoverBrandFromTitle('Essence Of Casablanca Extrait De Parfum 100ml by Swiss Arabian', 'FragranceHub', confirmed)).toBe('Swiss Arabian');
+  });
+
+  it('never reads a bare mid-title word with no attribution behind it', () => {
+    // "Lattafa" sits in the middle with no "by", and "4" is not a house.
+    expect(recoverBrandFromTitle('Yara Perfume 100ml EDP Lattafa Set Of 4', 'Emirates Oud', confirmed)).toBeNull();
+  });
+
+  it('refuses to hand back the shop itself as the fragrance house', () => {
+    // CONSTRUCTED, and the confirmed set is deliberately poisoned with the
+    // shop's own name — the situation isSelfVendored exists to catch, arriving
+    // one layer lower. A shop is not a house however it got into the set.
+    expect(recoverBrandFromTitle('Oud Wood 100ml EDP by Perfumeo', 'Perfumeo', new Set([...confirmed, 'perfumeo']))).toBeNull();
   });
 });
