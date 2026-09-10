@@ -172,6 +172,48 @@ export type ImageBasis =
   | 'hotlink-unlicensed';
 
 /**
+ * Where a logo comes from and why we may show it — mirrors `ImageBasis`
+ * above, but for a shop's or a house's mark rather than a product photo.
+ * See docs/LOGOS-PLAN.md §4e for the full reasoning; nothing here is
+ * displayed without one of these recorded, the same "record the reason,
+ * then show it" discipline `imageBasis` already runs on.
+ */
+export interface LogoRef {
+  /** Hot-linked URL on the owner's own server, or a repo path under /logos/. */
+  src: string;
+  /** Which slot it may fill — see docs/LOGOS-PLAN.md §4c. */
+  shape: 'square' | 'wordmark';
+  /** Measured, not eyeballed: which ground it needs. */
+  ink: 'dark' | 'light' | 'own';
+  basis: LogoBasis;
+  /** The page the declaration was read off, so anyone can re-read it. */
+  source: string;
+  /** ISO-8601 date it was read and measured. */
+  readAt: string;
+}
+
+export type LogoBasis =
+  /**
+   * Declared by the owner on their own site — <link rel="icon">,
+   * apple-touch-icon, or schema.org Organization.logo — and hot-linked from
+   * their server. Referential use under the conditions in
+   * docs/LOGOS-PLAN.md §2c. Unset it the moment they object.
+   */
+  | 'own-site-declared'
+  /**
+   * Wikimedia Commons, whose licence template states public domain (a
+   * wordmark below the threshold of originality). `source` is the Commons
+   * file page; the Wikidata QID goes in a comment beside the entry, because
+   * name matching to Wikidata mis-resolves — see §3 source 2.
+   */
+  | 'commons-public-domain'
+  /**
+   * That merchant's own affiliate creative terms have been read and permit
+   * its logo. Strongest available; today nothing holds it.
+   */
+  | 'affiliate-creative';
+
+/**
  * A retailer's standard UK delivery rules.
  *
  * Only *standard* delivery is modelled, because that is what the comparison
@@ -602,4 +644,11 @@ export interface Retailer {
    * retailer at a time, from https://www.trustpilot.com/review/<domain>.
    */
   trustpilotBusinessId?: string | null;
+  /**
+   * This shop's own mark, shown beside its name on the Shops directory row
+   * and its profile hero — see docs/LOGOS-PLAN.md. Unset means the monogram,
+   * which is the default and needs no field to say so. Not populated as part
+   * of adding this type: see the plan's step 5, deferred.
+   */
+  logo?: LogoRef;
 }

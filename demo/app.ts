@@ -42,7 +42,8 @@ import {
 } from '../src/index.js';
 import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
 import type { PresentedOffer, StockState } from '../src/types/offer.js';
-import type { Retailer, RetailerTier } from '../src/types/retailer.js';
+import type { Retailer, RetailerTier, LogoRef } from '../src/types/retailer.js';
+import { logoFor } from './brandLogos.js';
 import {
   DEMO_FRAGRANCES, BY_POPULARITY, DEALS, NOTE_INDEX,
   brandTierFor, fragranceById, fragrancesAt, listingCountAt, fragrancesWithNote, lowestPrice, compareVariants,
@@ -2639,11 +2640,12 @@ function dealsPanel(): string {
 /**
  * Deterministic hue (0-359) from a name, so the same shop or brand always
  * tints the same way and different ones are visually distinct at a glance.
- * Not a lookup of that brand's real colour — this project has no licence to
- * reproduce brand identity, the same restriction .monogram's initials-only
- * rule already applies, just extended to colour. A plain djb2-style hash: no
- * cryptographic property needed, only that it is stable and spreads names
- * across the wheel rather than clustering them.
+ * Not a lookup of that brand's real colour: the monogram tint is deliberately
+ * never the brand's own palette, whether or not this shop or brand also has a
+ * real logo shown elsewhere on its page (docs/LOGOS-PLAN.md §2c) — the two
+ * are unrelated questions, and this hue answers only the first. A plain
+ * djb2-style hash: no cryptographic property needed, only that it is stable
+ * and spreads names across the wheel rather than clustering them.
  */
 function monogramHue(name: string): number {
   let hash = 5381;
@@ -2653,16 +2655,62 @@ function monogramHue(name: string): number {
   return Math.abs(hash) % 360;
 }
 
-/** Initials, drawn as a monogram. Deliberately not a copy of the shop's logo. */
-function monogram(name: string): string {
-  const initials = name
+/** Up to two initials from a name, the same reduction both `monogram` and
+ *  `orgMark`'s CSS-drawn fallback use. */
+function initialsOf(name: string): string {
+  return name
     .replace(/[^A-Za-z ]/g, '')
     .split(/\s+/)
     .filter(Boolean)
     .slice(0, 2)
     .map((w) => w[0]!.toUpperCase())
     .join('');
+}
+
+/** Initials, drawn as a monogram. Deliberately not a copy of the shop's logo. */
+function monogram(name: string): string {
+  const initials = initialsOf(name);
   return `<span class="monogram" style="--mh:${monogramHue(name)}" aria-hidden="true">${esc(initials || '?')}</span>`;
+}
+
+/**
+ * The tile CSS class for a `LogoRef.ink` — see docs/LOGOS-PLAN.md §4c. Dark
+ * ink needs a light tile to read against; light ink needs a dark one; an
+ * opaque mark carrying its own background needs no fill at all, only a
+ * boundary so the tile still reads as a tile.
+ */
+function orgMarkInkClass(ink: LogoRef['ink']): string {
+  return ink === 'dark' ? 'org-mark--light' : ink === 'light' ? 'org-mark--dark' : 'org-mark--own';
+}
+
+/**
+ * The logo in place of the monogram, when one is on file and fits the slot —
+ * docs/LOGOS-PLAN.md §3/§4c/§4d. Render order is monogram-unless-logo: with
+ * no `LogoRef`, or a `shape: 'wordmark'` asset offered to the directory row
+ * (`hero: false`, which only ever takes a square asset), this returns exactly
+ * `monogram(name)` and nothing about the logo path runs at all.
+ *
+ * The `<img>` carries the same `onerror` `productArt` has carried since
+ * photography went hot-linked (demo/photo.ts) — remove the image, mark the
+ * container, let CSS draw the monogram. What makes that last part possible
+ * without a second, hidden copy of the monogram in the DOM (the exact
+ * duplication `productArt`'s own comment rejects for photos) is that the
+ * initials and hue this shop or brand would draw are cheap to compute and are
+ * placed on the container from the start, as a `data-fallback` attribute and
+ * the same `--mh` custom property `monogram()` itself sets: `.org-mark-failed`
+ * in demo/template.html paints the background from `--mh` and the monogram
+ * tokens, and a `::after` reads `content: attr(data-fallback)`. Nothing is
+ * rendered from that data unless the image actually fails.
+ */
+function orgMark(name: string, logo: LogoRef | null | undefined, hero = false): string {
+  if (!logo || (logo.shape === 'wordmark' && !hero)) return monogram(name);
+  const shapeClass = logo.shape === 'wordmark' ? 'org-mark--wordmark' : 'org-mark--square';
+  const inkClass = orgMarkInkClass(logo.ink);
+  return `<span class="org-mark ${shapeClass} ${inkClass}" style="--mh:${monogramHue(name)}"
+      data-fallback="${esc(initialsOf(name) || '?')}">
+    <img src="${esc(logo.src)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"
+      onerror="this.closest('.org-mark').classList.add('org-mark-failed');this.remove()" />
+  </span>`;
 }
 
 /**
@@ -2704,7 +2752,7 @@ function retailersPanel(): string {
       .map((r) => {
         return `<li>
           <button class="shop-row" data-retailer="${esc(r.id)}">
-            ${monogram(r.name)}
+            ${orgMark(r.name, r.logo)}
             <span class="shop-row-text">
               <span class="shop-row-name t-title">${esc(r.name)}</span>
               <span class="shop-row-meta t-caption">${retailerCountMark(r.id)}</span>
@@ -2816,7 +2864,7 @@ function retailerView(): string {
   return `
     <button class="back" data-back-explore>Back</button>
     <div class="org-hero">
-      ${monogram(r.name)}
+      ${orgMark(r.name, r.logo, true)}
       <div class="org-hero-text">
         <h1 class="org-hero-name t-page">${esc(r.name)} <span class="org-hero-count t-count">${retailerCountMark(r.id)}</span></h1>
         <p class="org-hero-domain t-caption">${esc(r.domain)}</p>
@@ -2882,7 +2930,7 @@ function brandView(): string {
   return `
     <button class="back" data-back-explore>Back</button>
     <div class="org-hero">
-      ${monogram(b)}
+      ${orgMark(b, logoFor(b), true)}
       <div class="org-hero-text">
         <h1 class="org-hero-name t-page">${esc(b)}</h1>
         ${

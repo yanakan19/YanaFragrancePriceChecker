@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { COMPANY, LEGAL_PAGES, STORAGE_KEYS, legalPage } from '../demo/legal.js';
 import { RETAILERS } from '../src/config/retailers.js';
+import { BRAND_LOGOS } from '../demo/brandLogos.js';
 
 /** Reader-facing text only: tags, attributes and code spans stripped. */
 function proseOf(html: string): string {
@@ -72,6 +73,18 @@ describe('the legal pages describe the site as it actually is', () => {
     for (const key of ['pricesniffs.display', 'pricesniffs.layout', 'pricesniffs.perrow', 'pricesniffs.yanny.thread']) {
       expect(STORAGE_KEYS.map((s) => s.key)).toContain(key);
     }
+  });
+
+  it('the Terms carry the logo paragraph, and it counts what the registry actually holds — docs/LOGOS-PLAN.md §4f', () => {
+    const body = legalPage('terms')!.body;
+    // Collapsed whitespace: the source template literal wraps these sentences
+    // across lines for readability, which a plain toContain would otherwise
+    // have to match a literal newline and indentation for.
+    const flat = proseOf(body).replace(/\s+/g, ' ');
+    expect(flat).toContain('not affiliated with, endorsed by or sponsored by');
+    expect(body).toMatch(/<h2[^>]*>Logos<\/h2>/);
+    const total = RETAILERS.filter((r) => r.logo != null).length + Object.keys(BRAND_LOGOS).length;
+    expect(flat).toContain(`Today ${total} shops and houses carry a logo we show`);
   });
 
   it('no page quotes a retailer count by hand', () => {
