@@ -173,6 +173,55 @@ describe('body text clears AA in both themes', () => {
 });
 
 /**
+ * The org-mark tile — a shop's or a house's real logo, docs/LOGOS-PLAN.md
+ * §4c — sits on one of three grounds depending on the measured `ink`: a
+ * light fill for dark ink, a dark fill for light ink, or no fill at all for a
+ * mark that carries its own background (`own`). All three are declared once,
+ * identically in every theme (see the plain `:root {}` block in
+ * demo/template.html, not the per-theme ones DARK/LIGHT above) — the tile is
+ * a property of the artwork, not of which palette happens to be on screen.
+ *
+ * What actually has to clear WCAG's 3:1 non-text-contrast floor against the
+ * page is the tile's boundary, not its fill: a light fill sits deliberately
+ * close to this app's light --bg (that is the whole point of a light tile
+ * for dark ink), so the fill itself cannot also be 3:1 from the light page —
+ * exactly the same trade `.art`'s white product tile already makes. One
+ * shared border colour, --org-mark-border, is what makes every one of the
+ * three tile kinds still read as a distinct box, in both themes at once.
+ */
+describe('the three org-mark tile grounds clear 3:1 against the page in both themes', () => {
+  const ORG_MARK_ROOT = /:root \{/;
+  const border = tokenIn(ORG_MARK_ROOT, '--org-mark-border');
+
+  // The two fills are deliberately NOT tested against the same-toned page:
+  // --org-mark-light-bg is white, and sits close to this theme's own light
+  // --bg by design (that closeness is what makes it read as a light ground
+  // for dark ink) — the same trade .art's white product tile already makes,
+  // and the reason WCAG's non-text-contrast rule is checked against a
+  // component's *boundary*, not its fill, whenever the fill legitimately
+  // has to sit near the page colour. --org-mark-border is that boundary, one
+  // value shared by all three ink variants (`--light`, `--dark`, `--own`),
+  // and it is what is actually being pinned here.
+  const cases: [string, string][] = [
+    ['ink: own — the border is its only ground, no fill at all', border],
+    ['ink: dark — light tile fill, bordered', border],
+    ['ink: light — dark tile fill, bordered', border],
+  ];
+
+  it.each(cases)('%s: clears 3:1 against --bg on the dark theme', (_label, ground) => {
+    const ratio = contrastBetween(ground, tokenIn(DARK, '--bg'));
+    expect(ratio).not.toBeNull();
+    expect(ratio!).toBeGreaterThanOrEqual(3);
+  });
+
+  it.each(cases)('%s: clears 3:1 against --bg on the light theme', (_label, ground) => {
+    const ratio = contrastBetween(ground, tokenIn(LIGHT, '--bg'));
+    expect(ratio).not.toBeNull();
+    expect(ratio!).toBeGreaterThanOrEqual(3);
+  });
+});
+
+/**
  * The five palette blocks have to agree with each other. "Match my device" is
  * the default, and it resolves through three of them, so a token added to the
  * dark block and forgotten in the system-light one is a colour that silently
