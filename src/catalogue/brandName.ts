@@ -118,6 +118,31 @@ const KNOWN_ALIASES: Record<string, string> = {
   [brandKey('Hermes')]: 'Hermès',
   [brandKey('Hermès')]: 'Hermès',
 
+  // One Makkah house standing as three rows over 104 products, reported
+  // 2026-09-10. "Ibrahim Al Qurashi (IBRAQ)" (65 products, at manchester-ouds,
+  // fragrancehub and the house's own ibraquk.com), "Ibrahim Al Qurashi" (58,
+  // perfumeo) and "Ibraheem Al Qurashi" (19, emirates-oud).
+  //
+  // Not a judgement call about transliteration. Emirates Oud spells it three
+  // ways inside its OWN listings: every one of its 22 carries rawBrand
+  // "Ibraheem Al Qurashi" while the titles read "Blue Oud Perfume 100ml EDP
+  // Ibrahim Al Qurashi", and one title opens "IBRAQ Diamond Collection". A
+  // shop contradicting itself within a single listing is the house telling us
+  // these are one name, not three. Corroborated by product overlap: all 58 of
+  // the perfumeo row's bottles have a same-name, same-size counterpart in the
+  // (IBRAQ) row — Abaq Pomegranate Musk 75ml, Amethyst Khozam 75ml, Black
+  // Carbon Diamond 150ml and 55 more.
+  //
+  // "Ibrahim Al Qurashi" is the display name because it is the house's actual
+  // name and what both the perfumeo listings and emirates-oud's own titles
+  // call it; "(IBRAQ)" is a storefront tag and "IBRAQ" its abbreviation, not
+  // names a reader searches for.
+  [brandKey('Ibrahim Al Qurashi')]: 'Ibrahim Al Qurashi',
+  [brandKey('Ibrahim Al Qurashi (IBRAQ)')]: 'Ibrahim Al Qurashi',
+  [brandKey('Ibraheem Al Qurashi')]: 'Ibrahim Al Qurashi',
+  [brandKey('Ibraheem Al Quraishi')]: 'Ibrahim Al Qurashi',
+  [brandKey('IBRAQ')]: 'Ibrahim Al Qurashi',
+
   // Added 2026-08-11 after a live-catalogue sweep for the same "generic
   // descriptor word appended to an otherwise identical name" shape as the
   // pairs above — 'Al Haramain' / 'Al Haramain Perfumes' was reported

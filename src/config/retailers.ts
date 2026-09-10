@@ -3113,7 +3113,18 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'ibraquk.com',
     homepage: 'https://ibraquk.com',
     tiers: ['mideast'],
-    singleBrandOnly: 'IBRAQ',
+    // The house's own name, not the storefront's abbreviation, and the
+    // difference was doing real damage. cannotCarryBrand compares this against
+    // the product's brand through brandKey with a prefix test, and 'ibraq' is
+    // not a prefix of 'ibrahimalqurashi' (they diverge at the fourth letter),
+    // so this shop was judged unable to carry the very house it exclusively
+    // sells. Its 57 offers were therefore excluded from every brand-direct
+    // pass: no house price to test a reseller's RRP against, and no
+    // own-storefront photo unlock. Confirmed by the build's own brand-direct
+    // report, which lists eight storefronts and never ibraq.
+    // See KNOWN_ALIASES in brandName.ts for the evidence that IBRAQ, Ibrahim
+    // Al Qurashi and Ibraheem Al Qurashi are one house.
+    singleBrandOnly: 'Ibrahim Al Qurashi',
     // Currency probe, run 32256269411 job 96078682112, 2026-08-19T13:07Z,
     // commit 14eede4: the plain origin quotes a US GitHub runner GBP, settles
     // GBP, at rate 1, and every UK-market address tried (?country=GB, both
