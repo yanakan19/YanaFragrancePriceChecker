@@ -51,6 +51,7 @@ import {
 import {
   concentrationOfListing,
   CONCENTRATION_DISPUTED,
+  CONCENTRATION_NOT_STATED,
   CONCENTRATION_RESOLUTIONS,
   displayName,
   stripRedundantSize,
@@ -899,24 +900,40 @@ for (const product of products.values()) {
    observation and a "New" tag on a listing that is not. */
 let duplicateRows = 0;
 const duplicateRowsByShop = new Map<string, number>();
-for (const product of products.values()) {
-  const bestOf = new Map<string, Offer>();
-  for (const offer of product.offers) {
-    const key = [offer.retailerId, offer.url, offer.price, offer.wasPrice, offer.stock].join('|');
-    const kept = bestOf.get(key);
-    if (kept === undefined) {
-      bestOf.set(key, offer);
-      continue;
+
+/**
+ * Fold away offers a reader could not tell apart, and count what was folded.
+ *
+ * A function rather than a loop written once, because it has to run TWICE and
+ * for two different reasons — see both call sites. Running it once was a real
+ * bug: 16 indistinguishable rows shipped on 2026-09-10, the Armaf case this
+ * pass was written for among them, back after having been fixed in August.
+ */
+function collapseIndistinguishableRows(): void {
+  for (const product of products.values()) {
+    const bestOf = new Map<string, Offer>();
+    for (const offer of product.offers) {
+      const key = [offer.retailerId, offer.url, offer.price, offer.wasPrice, offer.stock].join('|');
+      const kept = bestOf.get(key);
+      if (kept === undefined) {
+        bestOf.set(key, offer);
+        continue;
+      }
+      duplicateRows++;
+      duplicateRowsByShop.set(
+        offer.retailerId,
+        (duplicateRowsByShop.get(offer.retailerId) ?? 0) + 1,
+      );
+      if (offer.fetchedAt > kept.fetchedAt) bestOf.set(key, offer);
     }
-    duplicateRows++;
-    duplicateRowsByShop.set(
-      offer.retailerId,
-      (duplicateRowsByShop.get(offer.retailerId) ?? 0) + 1,
-    );
-    if (offer.fetchedAt > kept.fetchedAt) bestOf.set(key, offer);
+    if (bestOf.size !== product.offers.length) product.offers = [...bestOf.values()];
   }
-  if (bestOf.size !== product.offers.length) product.offers = [...bestOf.values()];
 }
+
+// First pass, here, before the reference-price audit further down: two
+// identical rows would otherwise each cast a vote in that audit's corroboration
+// count, and a shop agreeing with itself is not two shops agreeing.
+collapseIndistinguishableRows();
 
 /* ── one shop, one row: the same bottle on two of its own pages ─────────────
    Layout report, 2026-09-01: Tom Ford Black Orchid Eau de Parfum 150ml
@@ -1168,6 +1185,43 @@ for (const [id] of contradicting) {
   }
 }
 
+/* ── a resolution also applies where every shop stayed silent ──────────────
+   The loop just above only ever looks at `contradicting` — products where
+   shops actively disagree — because that set is deliberately built to
+   exclude any product where a shop said "Not stated" at all (see the
+   `contradicting` filter above: "'Not stated' is not a statement"). That is
+   the right call for *merging*: a silent shop hasn't contradicted one that
+   named a strength. But it means a product every shop left silent on never
+   reaches CONCENTRATION_RESOLUTIONS at all — its own `concentration` field
+   is never touched by either loop, so it sails through to the site still
+   reading "Not stated" even when the manufacturer's own word is sitting
+   right there in the table, keyed on its EAN.
+   That is the 2026-09-10 owner report this loop exists to fix: nine
+   deals-page products, and more like them, showing "Not stated" while
+   CONCENTRATION_RESOLUTIONS already held (or was extended to hold) their
+   answer. A confirmed resolution is the manufacturer's word either way, so
+   it must win here exactly as it wins a real dispute — same precedence,
+   same table, just reached from the opposite starting condition. Nothing
+   about the dispute logic above changes: a product with no resolution and
+   no house word is still left "Not stated" here (not "Disputed" — no shop
+   ever stated anything to disagree about), and every genuinely unresolved
+   contradiction above still becomes "Disputed" exactly as before. */
+let concentrationResolvedFromNotStated = 0;
+for (const product of products.values()) {
+  if (product.concentration !== CONCENTRATION_NOT_STATED) continue;
+  const resolution = product.ean ? CONCENTRATION_RESOLUTIONS[product.ean] : undefined;
+  if (!resolution) continue;
+  product.concentration = resolution.concentration;
+  concentrationResolvedFromNotStated++;
+}
+if (concentrationResolvedFromNotStated > 0) {
+  console.log(
+    `${concentrationResolvedFromNotStated} more products went from "${CONCENTRATION_NOT_STATED}" ` +
+      `straight to a manufacturer-confirmed concentration (CONCENTRATION_RESOLUTIONS in productName.ts), ` +
+      `never having been in dispute at all.`,
+  );
+}
+
 /* ── which offers are the fragrance house's own ─────────────────────────────
    The strongest evidence about a bottle's RRP is what the company that makes
    it charges for it, and fourteen houses already run a UK storefront that sits
@@ -1364,6 +1418,24 @@ for (const product of products.values()) {
     if (wasVerdicts.get(offer) !== 'corroborated') offer.wasPrice = null;
   }
 }
+
+/* Second pass, and the reason the first one is not enough.
+   `wasPrice` is one of the five fields that decide whether two rows look the
+   same, and the loop directly above rewrites it — so two rows that were
+   genuinely distinguishable when the first pass ran ("£26.99, was £40" beside
+   "£26.99, no reference price") become the identical row the moment the
+   uncorroborated figure is withheld. Collapsing on a value that is about to
+   change cannot see that coming.
+
+   Not hypothetical: on 2026-09-10 sixteen such rows shipped, all Emirates
+   Oud's, including the Armaf Club De Nuit Intense Man 105ml pair that is the
+   whole reason this pass exists — two rows at £26.99, same link, both
+   reference prices withheld, one shop counted twice. The August fix was
+   correct and the field it keyed on simply stopped being final underneath it.
+
+   Cheap to run twice: it is a map build over offers already in memory, and on
+   a clean catalogue the second pass finds nothing. */
+collapseIndistinguishableRows();
 
 /* ── houses we source direct, which we cannot price in sterling yet ────────── */
 
