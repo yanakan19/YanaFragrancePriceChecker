@@ -305,6 +305,32 @@ export interface CatalogueSection {
   urlTemplate: string;
   /** Which catalogue segment this section maps to, for matching hints. */
   tier: RetailerTier;
+  /**
+   * How many consecutive pages of this section the render tier fetches, from
+   * `firstPage` upward. Unset means one — the first page only, which is what
+   * every render-dependent shop got before this field existed and what every
+   * shop that does not set it still gets.
+   *
+   * Exists for exactly one measured shape: a shop whose product pages and
+   * sitemap refuse a plain fetch, whose subsection URLs are challenged even in
+   * a real browser, and whose single catch-all section renders cleanly — so
+   * that one section's pagination is the only free route to anything past
+   * its first 27 products. Notino UK is that shop (see its registry entry):
+   * a render tier that renders page 1 of four sections got 28 listings and
+   * three challenge pages, every run, for two weeks. Rendering four pages of
+   * the one section that answers costs the same four pages of the shared
+   * render budget and gets four times the products.
+   *
+   * Only ever honoured by scripts/catalogue-harvest.ts's render step, through
+   * `renderTargets` in src/catalogue/renderTargets.ts, and only when the
+   * template actually carries `{page}` — a literal URL cannot paginate and is
+   * rendered once whatever this says. Capped by MAX_RENDER_PAGES_PER_SECTION
+   * there, because the render tier's page budget is one pool shared by every
+   * render-dependent shop in a run (src/catalogue/localBrowser.ts). The
+   * adaptive probe's browser-render strategy (src/catalogue/attempt.ts) and
+   * the paid actor path through it stay first-page-only regardless.
+   */
+  renderPages?: number;
 }
 
 export interface CatalogueConfig {
