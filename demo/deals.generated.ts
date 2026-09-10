@@ -25,7 +25,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-09-10T11:31:18.213Z";
+export const DEALS_GENERATED_AT = "2026-09-10T15:44:24.791Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -411,6 +411,15 @@ export const DEALS_RAW: RawDeal[] = [
     "price": 41.95,
     "wasPrice": 59,
     "percentOff": 28,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-737052925127",
+    "price": 49.95,
+    "wasPrice": 109,
+    "percentOff": 54,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -1195,15 +1204,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 90,
     "percentOff": 61,
     "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-737052925127",
-    "price": 49.95,
-    "wasPrice": 109,
-    "percentOff": 54,
-    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -5456,20 +5456,20 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003993819",
-    "price": 46.1,
-    "wasPrice": 78,
-    "percentOff": 40,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8011003891467",
     "price": 57.75,
     "wasPrice": 121,
     "percentOff": 52,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8011003993819",
+    "price": 46.1,
+    "wasPrice": 78,
+    "percentOff": 40,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -5772,10 +5772,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6290171072874",
-    "price": 16.99,
+    "price": 25,
     "wasPrice": 45,
-    "percentOff": 62,
-    "retailerId": "justmylook",
+    "percentOff": 44,
+    "retailerId": "beautybase",
     "kind": "house",
     "houseName": "Zimaya"
   },
