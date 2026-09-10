@@ -78,6 +78,7 @@ import {
   renderRefusals, knownRenderRefusal, type RenderRefusal, type RenderedPage,
 } from '../src/catalogue/renderRefusal.js';
 import { rendererForShop, renderTierLabel } from '../src/catalogue/renderTier.js';
+import { renderTargets } from '../src/catalogue/renderTargets.js';
 import { capturePages, type CapturePage } from '../src/catalogue/renderCapture.js';
 import {
   parseCursor, sweepOrder, withAttempt, withActorRender, lastActorRender, staleCursorIds,
@@ -846,10 +847,14 @@ for (const retailer of shops) {
       }
     }
 
-    const targets = retailer.catalogue.sections.map((section) => ({
-      id: section.id,
-      url: section.urlTemplate.replace('{page}', String(retailer.catalogue!.firstPage)),
-    }));
+    // Every configured section's first page — plus the further pages a
+    // section asks for through `renderPages`, capped. See
+    // src/catalogue/renderTargets.ts for the cap and for the one shop
+    // (Notino UK) whose only free route is its one rendering section's own
+    // pagination. Each page carries its own `id` (the section's id for page
+    // one, `<section>-p<N>` after it), used below as the listing's sectionId
+    // and as the capture file name, so pages never overwrite each other.
+    const targets = renderTargets(retailer.catalogue);
     const allowed = targets.filter((t) => isAllowed(robotsForActor, t.url));
 
     if (allowed.length === 0) {

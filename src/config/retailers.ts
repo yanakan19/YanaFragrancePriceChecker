@@ -46,9 +46,10 @@ import { brandKey } from '../catalogue/brandName.js';
  * MyBeauty.Boutique, Glorious Beauty, The Beauty Store UK and Nicchia Luxury
  * through Awin, Emirates Oud through its own in-house tool. Their links carry
  * tracking; every other entry's resolve to the plain retailer URL. Twelve
- * retailers are confirmed Awin merchants and one (Selfridges) a confirmed
- * Partnerize merchant; 21 applications are in flight and 46 entries have not
- * been researched at all. See `docs/AFFILIATE_SETUP.md` for
+ * retailers are confirmed Awin merchants, one (Selfridges) a confirmed
+ * Partnerize merchant and one (Notino UK) a confirmed CJ merchant; 19
+ * applications are in flight and 44 entries have not been researched at all
+ * (counts as of 2026-09-10). See `docs/AFFILIATE_SETUP.md` for
  * how to apply, and `npm run affiliate:status` for the current breakdown —
  * that command reads the array, so it is right when this paragraph is not.
  */
@@ -408,22 +409,125 @@ export const RETAILERS: readonly Retailer[] = [
         'Evri home £2.99, DPD home £3.49, Evri pickup £2.49. Free delivery is per-product ' +
         'or promotional, not spend-based — model it per offer, not per retailer.',
     },
-    // The gendered/niche split below was never confirmed live, only
-    // guessed, so it stays rather than being removed on suspicion alone.
-    // /fragrance/ was confirmed live in a browser 6 Aug 2026 (stripped of
-    // the ad-click tracking parameters it was pasted with) and added
-    // alongside it as a general catch-all section.
+    // ── 2026-09-10: why the snapshot holds 95, and what changes it ──────────
+    // data/catalogue/notino-uk.json: 95 active, 95 priced, every one of them
+    // `sectionId: 'fragrance'`, lastSeenAt 2026-08-28 to 2026-09-09. The
+    // committed harvest reports say why it is 95 and not thousands. Every
+    // report that reached this shop between 2026-09-06 and 2026-09-09
+    // (commits 44b71ccb, be98e343, 102c42ff) records the identical shape:
+    //
+    //     notino-uk: urls=4 fetched=4 priced=28 tier=render renderer=local browser
+    //       REFUSAL https://www.notino.co.uk/perfumes-for-women/?f=page-1 403 28819b
+    //       REFUSAL https://www.notino.co.uk/perfumes-for-men/?f=page-1   403 28813b
+    //       REFUSAL https://www.notino.co.uk/niche-perfumes/?f=page-1     403 28807b
+    //
+    // Four render pages spent, one page of products back — 28 listings — and
+    // three Cloudflare challenges (the same `cType: 'managed'` pages the
+    // 2026-08-27 captures above are). The render tier fetches exactly one
+    // page per section, so this shop can never yield more than /fragrance/'s
+    // first page in a run; 95 is the union of what that one page has shown
+    // over two weeks as its own ordering drifted. Coverage, not absence.
+    //
+    // The cheaper routes were re-tested the same day, from a sandbox that can
+    // now reach the domain (every earlier pass could not). robots.txt: HTTP
+    // 200, 2,552 bytes. Its `User-agent: *` group disallows only order,
+    // checkout, account, cart, /api/, /productDetail, /cdn-cgi/ and image
+    // paths, names `Sitemap: https://www.notino.co.uk/sitemap.xml`, and sets
+    // no crawl-delay for us — /fragrance/, product pages and the sitemap are
+    // all permitted. But the sitemap answered HTTP 403 (5,567 bytes, the
+    // Cloudflare "Just a moment..." challenge) and a product page — one this
+    // snapshot already holds — answered HTTP 403 (5,846 bytes, same page) to
+    // a plain fetch with the project's own PriceSniffsBot user agent. That is
+    // the 2026-08-10 probe's finding again, a decision made about the address
+    // before the path is read, so the sitemap-plus-JSON-LD route stays closed
+    // by the network layer and not by robots.txt. Not evaded: a challenge
+    // page is an answer, and it is recorded here as one.
+    //
+    // Affiliate feed, checked and not Awin. Notino's own /affiliate-program/
+    // page answers the same challenge (HTTP 403 to WebFetch), so the primary
+    // source here is the network operator's own catalogue page instead:
+    // vivnetworks.com/en/affiliate-catalog/notinocom/ says the NOTINO.co.uk
+    // programme runs through VIVnetworks (Publicis Groupe) with sign-up via
+    // CJ, and lists "XML feed: yes" in its conditions table. So a feed
+    // exists, and it is a real route — but this codebase ingests Awin feeds
+    // only (src/catalogue/awinFeed.ts), so it needs the owner to join CJ/
+    // VIVnetworks and be accepted onto the programme, and then a CJ feed
+    // ingestion module. Recorded on `affiliate` below as `network: 'cj'`.
+    //
+    // ── What is done about it: the one section that answers, paginated ─────
+    // The page Cloudflare serves links its own next page. The 2026-08-27
+    // capture (data/render-capture/notino-uk/fragrance.html, a real render)
+    // carries `<link rel="next" href="https://www.notino.co.uk/fragrance/
+    // ?f=2-1-55544">`, and every facet link on that page is
+    // `/fragrance/?f=1-1-55544-<facet>` — so `?f=<page>-1-55544` is Notino's
+    // own pagination for this section, read off its own markup, not guessed.
+    // (`?page=1`, the template used until today, was a parameter the shop
+    // ignored; it served page 1 regardless. `?f=page-{page}` on the three
+    // subsections was never the shop's shape at all.)
+    //
+    // `renderPages: 4` (new field — see CatalogueSection.renderPages in
+    // src/types/retailer.ts and src/catalogue/renderTargets.ts) makes the
+    // render tier fetch pages 1-4 of /fragrance/ instead of page 1 plus three
+    // challenges: the same four pages of the shared render budget this shop
+    // already spends every run, for four pages of products rather than one.
+    // At the measured 27-28 products a page that is ~110 listings a run
+    // against 28 — and reconcile() never delists on a render-tier run
+    // (`actorPartial`), so the snapshot accumulates across runs as the
+    // section's ordering moves, exactly as it accumulated the 95.
+    //
+    // The three subsection entries are removed rather than kept beside it.
+    // Their URLs were guessed on 2026-08-06 in a pagination shape the shop
+    // does not use; their paths have answered a managed challenge on every
+    // real render since 2026-08-27 (captures, then every report above); and
+    // with the budget shared across every render-dependent shop in a run,
+    // three pages spent re-confirming that is three pages Selfridges and
+    // Harvey Nichols do not get. Nothing about them is lost: every listing
+    // they would have carried is in /fragrance/, the catch-all.
+    //
+    // Measured and not measured, plainly. Measured: page 1's yield (27 in the
+    // capture, 28 in each report), the shop's own next-page link, and the
+    // plain-fetch refusals above. Not measured: pages 2-4 actually rendering.
+    // This sandbox's egress proxy closes Chromium's TLS tunnel before a
+    // ServerHello (proxy status: "1,828 B sent, 39 B received, tunnel closed
+    // after 6s" against www.notino.co.uk:443, on three tries including a
+    // TLS-1.2-capped handshake) while curl's classic handshake to the same
+    // host succeeds — a sandbox limitation, so no render of any URL could be
+    // made from here. The first scheduled run after this lands measures it:
+    // data/harvest-report.json will carry four /fragrance/ URLs with bytes
+    // and listings each, and a `refusals` entry for any page Cloudflare
+    // challenges. If pages 2-4 come back challenged, `renderPages` drops to 1
+    // and this shop is back exactly where it was, one page a run.
     catalogue: {
       searchUrlTemplate: 'https://www.notino.co.uk/search.asp?exps={q}',
       sections: [
-        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.notino.co.uk/fragrance/?page={page}', tier: 'designer' },
-        { id: 'womens', label: "Women's perfume", urlTemplate: 'https://www.notino.co.uk/perfumes-for-women/?f=page-{page}', tier: 'designer' },
-        { id: 'mens', label: "Men's perfume", urlTemplate: 'https://www.notino.co.uk/perfumes-for-men/?f=page-{page}', tier: 'designer' },
-        { id: 'niche', label: 'Niche perfume', urlTemplate: 'https://www.notino.co.uk/niche-perfumes/?f=page-{page}', tier: 'niche' },
+        {
+          id: 'fragrance',
+          label: 'Fragrance',
+          urlTemplate: 'https://www.notino.co.uk/fragrance/?f={page}-1-55544',
+          tier: 'designer',
+          renderPages: 4,
+        },
       ],
       firstPage: 1, maxPages: 80, minRequestGapMs: 1500,
     },
-    affiliate: { ...NO_AFFILIATE_YET },
+    // CJ via VIVnetworks, per the network operator's own catalogue page
+    // (vivnetworks.com/en/affiliate-catalog/notinocom/, read 2026-09-10) —
+    // see the dated comment above. `verified: true` because that page is the
+    // network's own listing of the programme, not an aggregator's; `signupUrl`
+    // is that page, which carries the join link. Not applied. No CJ feed
+    // ingestion exists in this codebase yet, so acceptance alone would not
+    // open a route — see docs/AFFILIATE_SETUP.md's "Other networks" table
+    // for the deeplink shape and the dated comment above for what else is
+    // needed.
+    affiliate: {
+      network: 'cj',
+      verified: true,
+      status: 'not-applied',
+      publisherId: null,
+      deeplinkTemplate: null,
+      querySuffixTemplate: null,
+      signupUrl: 'https://www.vivnetworks.com/en/affiliate-catalog/notinocom/',
+    },
   },
   {
     id: 'boots',
@@ -555,6 +659,64 @@ export const RETAILERS: readonly Retailer[] = [
     // probe run 32505341082, cited above) is real refusal evidence from that
     // tier too, so this is the one shop this registry can genuinely say has
     // been refused on every render tier this project has tried.
+    //
+    // ── Re-tested 2026-09-10, not trusted: still refused, by Imperva now ────
+    // The refusal evidence above is dated 2026-08-20 to 2026-08-26, and
+    // blocks change, so every free route was asked again from a sandbox that
+    // can now reach boots.com, with the project's own PriceSniffsBot user
+    // agent. What each answered:
+    //
+    //   robots.txt                HTTP 200, 1,008 bytes. `User-agent: *`
+    //                             disallows /search/*, /sitesearch*,
+    //                             /*CategoryDisplay*, /content/, checkout and
+    //                             account paths and *.jsp. Neither
+    //                             /fragrance/shop-all-fragrance nor
+    //                             /wcsstore/*/sitemap/* is disallowed. Names
+    //                             `Sitemap: https://www.boots.com/sitemap_11352.xml`.
+    //   sitemap_11352.xml         HTTP 200, 261 bytes, content-encoding: gzip
+    //                             — a four-entry index naming uk-product-
+    //                             sitemap.xml, uk-total-sitemap.xml and two
+    //                             content sitemaps under /wcsstore/eBoots
+    //                             StorefrontAssetStore/sitemap/. Served with
+    //                             `x-cache: HIT` and `x-cdn: Imperva`: a
+    //                             cached copy, which is why it answered.
+    //   uk-product-sitemap.xml    HTTP 403, 855 bytes: the Imperva Incapsula
+    //                             challenge (`/_Incapsula_Resource?...` script
+    //                             and iframe). The product sitemap — the
+    //                             whole point of the sitemap route — is
+    //                             refused.
+    //   /fragrance/shop-all-fragrance?pageNo=1
+    //                             HTTP 403, 963 bytes, the same Incapsula
+    //                             challenge. The August evidence was a 200
+    //                             carrying 1,188-2,513 bytes; today it is a
+    //                             403 carrying Imperva's markup. Same verdict,
+    //                             different wrapper.
+    //
+    // Nothing here is a robots.txt refusal — the file permits every path
+    // asked — and every product-bearing path is refused before a byte of
+    // markup, at the network layer, exactly as before. The scheduled runs of
+    // 2026-09-06 to 2026-09-09 (reports in 44b71ccb, be98e343, 102c42ff) all
+    // record `[actor] skipped` through renderRefused, so no render page has
+    // been spent here in that window either. Not Shopify: the storefront is
+    // WebSphere Commerce (/wcsstore/, /webapp/wcs/stores/servlet/ in its own
+    // robots.txt), so there is no /products.json to ask. Not evaded: a
+    // challenge page is the answer, and it is recorded as one.
+    //
+    // So the route is still Awin merchant 2041, applied 2026-08-11 and
+    // pending since. Whether it has moved is one dispatch away: run
+    // .github/workflows/catalogue-daily.yml with `awin_memberships: true`
+    // (reads AWIN_FEED_LIST_URL, writes and commits nothing) and read
+    // `2041  boots — <status>` off its log; or open
+    // https://ui.awin.com/merchant-profile/2041 in a logged-in Awin session.
+    // That dispatch could not run on 2026-09-10: run #430 on e5b32175 failed
+    // at "Test before crawling" (tests/demoBuildFreshness.test.ts — demo/
+    // index.html not rebuilt after the registry edit in that commit), and
+    // every step after it, memberships included, is skipped when that step
+    // fails. The commit carrying this note rebuilds demo/ so the next
+    // dispatch reaches it. On acceptance: `adapter: 'affiliate-feed'`,
+    // `affiliate: awinActive('2041', <publisherId>)`, and scripts/awin-feed-
+    // sync.ts picks the feed up by merchant id with no further code — the
+    // route Fragrance Click UK already runs on.
     renderRefused: true,
     adapter: 'proxied',
     currency: 'GBP',
@@ -4961,6 +5123,32 @@ export const RETAILERS: readonly Retailer[] = [
     // zimaya's entry below) — this storefront is simply silent about its
     // currency rather than confirming anything, and no harvest route has been
     // established either.
+    //
+    // ── 2026-09-10: there is no storefront to harvest ───────────────────────
+    // Asked directly, three URLs, one answer. `/` (HTTP 200), `/robots.txt`
+    // (HTTP 404) and `/sitemap.xml` (HTTP 404) all return the same 5,063-byte
+    // page titled "Fragrance Direct | We're making some changes": "Fragrance
+    // Direct is making improvements behind the scenes. Visit our sister site
+    // allbeauty.com for the best deals on your fragrance favourites." It
+    // carries `<meta name="robots" content="noindex, nofollow">` and a link
+    // to allbeauty.com, and nothing else — no navigation, no products, no
+    // JSON-LD. The 2026-08-19 probe's "no candidate published any currency"
+    // was this page too: a holding page has no currency to publish.
+    //
+    // So there is nothing to enable. No catalogue exists at this domain today
+    // (its sister, Allbeauty, is already enabled above), no route is blocked
+    // — a 404 robots.txt is "no restrictions" under RFC 9309, and nothing
+    // refused us — and no adapter could extract listings from a page that
+    // has none. Stays `enabled: false`, `catalogue: null`.
+    //
+    // The Awin application (merchant 9, 2026-08-11) is unchanged. Even if it
+    // has been accepted, a product feed for a shop with no storefront would
+    // be stale at best and empty at worst; the `awin_memberships` dispatch
+    // named in Boots' entry above lists this merchant's status alongside
+    // 2041's, and if a feed row does exist for it, `npm run awin:feed-diag
+    // -- --shop=fragrancedirect` from CI says whether it carries anything.
+    // Re-check the domain itself first: a storefront that comes back is the
+    // thing that would change this entry.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -4973,7 +5161,9 @@ export const RETAILERS: readonly Retailer[] = [
       notes:
         // Merchant id 9, same account-wide network as Fragrance Click UK's — found while
         // confirming this domain, not guessed.
-        'Applied via Awin 2026-08-11 (merchant id 9). Delivery terms and page structure not yet read.',
+        'Applied via Awin 2026-08-11 (merchant id 9). Delivery terms and page structure not yet read. ' +
+        'As of 2026-09-10 the domain serves only a holding page pointing at allbeauty.com — see the ' +
+        'dated comment above.',
     },
     catalogue: null,
     affiliate: { ...awinRequested('9') },
@@ -5761,6 +5951,21 @@ export const RETAILERS: readonly Retailer[] = [
     // "tracked since May 2024", "added to Partnerize January 2026"), still
     // uncorroborated by anything Harrods, Partnerize or Rakuten published
     // themselves. Nothing here changes the conclusion above.
+    //
+    // ── Re-tested 2026-09-10 — refused at robots.txt, again; stopped there ──
+    // One plain fetch of https://www.harrods.com/robots.txt with the
+    // project's own PriceSniffsBot user agent, from a sandbox that reaches
+    // every other shop in this pass: HTTP 403, 809 bytes, Akamai's "Access
+    // Denied" page ("You don't have permission to access
+    // "http://www.harrods.com/robots.txt" on this server", with an
+    // errors.edgesuite.net reference). The same answer as 2026-08-20,
+    // 2026-09-01 (twice), 2026-09-02 and 2026-09-03. A shop that will not
+    // hand over the file that states its crawl policy cannot be crawled
+    // under any policy, so no further request was made — not a sitemap, not
+    // a section, not a render. Nothing about the affiliate picture changed
+    // either: still no Awin programme, still only aggregator claims for
+    // Rakuten Advertising and Partnerize, and still no ingestion code here
+    // for either network. The owner actions above stand unchanged.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -5914,6 +6119,44 @@ export const RETAILERS: readonly Retailer[] = [
     // refusal, not a mixed reading — and nothing about currency was
     // established either way. Stays on CURRENCY_UNCONFIRMED for that reason
     // rather than "unread".
+    //
+    // ── 2026-09-10: refused at robots.txt; the route is Awin, merchant 22773 ─
+    // Crawling: one plain fetch of https://www.sephora.co.uk/robots.txt with
+    // the project's own PriceSniffsBot user agent, from a sandbox that
+    // reaches every other shop in this pass: HTTP 403, 389 bytes, Akamai's
+    // "Access Denied" ("You don't have permission to access
+    // "http://www.sephora.co.uk/robots.txt" on this server", an
+    // errors.edgesuite.net reference) — the same edge and the same answer as
+    // Harrods above. The file that states the crawl policy is refused, so no
+    // further request was made: no sitemap, no section, no render. Nothing
+    // here is a robots.txt directive being tested; it is the file itself
+    // being withheld.
+    //
+    // Affiliate, and this is the part that moves: Sephora UK runs on Awin.
+    // Awin's own site indexes "Awin | Sephora UK Affiliate Programme" at
+    // ui.awin.com/merchant-profile/22773/commission-groups (a search scoped
+    // to awin.com alone, 2026-09-10; the snippet quotes the programme's own
+    // commission groups — 8% new customer, 6% existing, 4% The Ordinary, 2%
+    // electricals — and a 30-day cookie). The profile page itself answers
+    // HTTP 404 to an unauthenticated fetch, both bare and at
+    // /commission-groups, which is how Awin profiles behave without a
+    // session and is why `verified` is left false below rather than the
+    // `awinPending()` shape: the id is Awin's own, the page has not been
+    // read. This project's only feed ingestion is Awin's, so unlike Harrods
+    // and Notino, acceptance here would open a route with no new code.
+    //
+    // Owner action, in order: (1) in a logged-in Awin session open
+    // https://ui.awin.com/merchant-profile/22773 and apply — a price
+    // comparison with fragrance pages is the case to make; (2) once accepted,
+    // dispatch catalogue-daily.yml with `awin_memberships: true` and confirm
+    // 22773 shows as joined and publishes a feed; (3) run `npm run
+    // awin:feed-diag -- --shop=sephora-uk` from CI and read the `currency`
+    // column, because this id is on CURRENCY_UNCONFIRMED and scripts/awin-
+    // feed-sync.ts refuses to ingest a feed for a shop still on that list;
+    // (4) then `adapter: 'affiliate-feed'`, `affiliate: awinActive('22773',
+    // <publisherId>)`, remove the id from CURRENCY_UNCONFIRMED on the feed's
+    // own sterling reading, and `enabled: true`. The sync does the rest on
+    // its existing five-hourly cadence.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -5925,14 +6168,25 @@ export const RETAILERS: readonly Retailer[] = [
       confidence: 'unverified',
       notes:
         'Nothing here has been read from sephora.co.uk itself: not its delivery terms, not its ' +
-        'robots.txt, not its checkout currency. A search snippet mentions "free delivery & ' +
-        'returns for all My Sephora Members" — a loyalty-scheme perk, not a standard-delivery ' +
-        'figure, and the membership caveat this registry already applies to Boots Advantage and ' +
-        'Superdrug Beautycard applies here too, so nothing is recorded from it. No affiliate ' +
-        'programme has been researched.',
+        'robots.txt (HTTP 403 on 2026-09-10 as well), not its checkout currency. A search ' +
+        'snippet mentions "free delivery & returns for all My Sephora Members" — a loyalty-scheme ' +
+        'perk, not a standard-delivery figure, and the membership caveat this registry already ' +
+        'applies to Boots Advantage and Superdrug Beautycard applies here too, so nothing is ' +
+        'recorded from it. Affiliate programme: Awin merchant 22773, not yet applied to — see ' +
+        'the dated comment above.',
     },
     catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
+    // Awin merchant 22773 — the id from Awin's own indexed profile page, the
+    // page itself unreadable without a session (see the dated comment above),
+    // so this deliberately is not `awinPending('22773')`: that helper asserts
+    // `verified: true`, which means the profile has been read. `signupUrl` is
+    // still set so `npm run affiliate:status` shows the owner where to go.
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      network: 'awin',
+      status: 'not-applied',
+      signupUrl: 'https://ui.awin.com/merchant-profile/22773',
+    },
   },
   {
     id: 'space-nk',
