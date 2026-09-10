@@ -125,6 +125,39 @@ describe('buildBrandCanon', () => {
     expect(canon.get('Emporio Armani')).toBe('Emporio Armani');
   });
 
+  // One Makkah house was standing as three brand rows over 104 products. The
+  // evidence is Emirates Oud contradicting itself inside a single listing —
+  // rawBrand "Ibraheem Al Qurashi" against a title reading "...100ml EDP
+  // Ibrahim Al Qurashi", and another title opening "IBRAQ Diamond Collection"
+  // — so this is the shop telling us the three are one name rather than a
+  // judgement about transliteration. See the KNOWN_ALIASES entry for the
+  // product-overlap corroboration.
+  it('folds every spelling of Ibrahim Al Qurashi into one house', () => {
+    const canon = buildBrandCanon([
+      'Ibrahim Al Qurashi',
+      'Ibrahim Al Qurashi (IBRAQ)',
+      'Ibraheem Al Qurashi',
+      'Ibraheem Al Quraishi',
+      'IBRAQ',
+    ]);
+    for (const spelling of [
+      'Ibrahim Al Qurashi',
+      'Ibrahim Al Qurashi (IBRAQ)',
+      'Ibraheem Al Qurashi',
+      'Ibraheem Al Quraishi',
+      'IBRAQ',
+    ]) {
+      expect(canon.get(spelling)).toBe('Ibrahim Al Qurashi');
+    }
+  });
+
+  it('does not fold a different house that merely starts the same way', () => {
+    // The guard against the fold above being read as "anything Al-something".
+    const canon = buildBrandCanon(['Ibrahim Al Qurashi', 'Al Qurashi Oud', 'Ard Al Zaafaran']);
+    expect(canon.get('Al Qurashi Oud')).toBe('Al Qurashi Oud');
+    expect(canon.get('Ard Al Zaafaran')).toBe('Ard Al Zaafaran');
+  });
+
   // One feed puts the product line in the brand field, producing 51 separate
   // "Armaf - X" brand strings — measured against demo/catalogue.generated.ts
   // on 2026-08-21 (see the KNOWN_ALIASES comment above this table's Armaf
