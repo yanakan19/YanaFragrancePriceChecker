@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-09T19:44:09.191Z",
+  "checkedAt": "2026-09-10T11:31:07.987Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -58,8 +58,8 @@
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "EUR",
-      "listings": 46,
+      "currency": "USD",
+      "listings": 4,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
@@ -69,7 +69,7 @@
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
         "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
-        "prices are in EUR, not GBP — needs a UK price source before these are comparable"
+        "prices are in USD, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -143,7 +143,7 @@
       "name": "Lattafa",
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "USD",
+      "currency": "AED",
       "listings": 60,
       "pricedInGbp": 60,
       "withPhoto": 59,
@@ -152,7 +152,7 @@
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
         "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap",
-        "prices are in USD, not GBP — needs a UK price source before these are comparable"
+        "prices are in AED, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -193,9 +193,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 114,
-      "pricedInGbp": 114,
-      "withPhoto": 114,
+      "listings": 110,
+      "pricedInGbp": 110,
+      "withPhoto": 110,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -261,21 +261,18 @@
       "houseId": "maison-alhambra",
       "name": "Maison Alhambra",
       "origin": "https://maisonalhambra.co",
-      "routeUsed": null,
+      "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 0,
-      "pricedInGbp": 0,
-      "withPhoto": 0,
+      "listings": 72,
+      "pricedInGbp": 47,
+      "withPhoto": 47,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded",
-        "https://maisonalhambra.co/products.json?limit=250&page=1: HTTP 500",
-        "https://maisonalhambra.co/sitemap_index.xml: HTTP 500"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "a Lattafa Perfumes Industries brand, so it shares a manufacturer with the Lattafa entry above but is sold separately",
-        "several near-identical domains exist (themaison-alhambra.com, maisonalhambraperfume.com, maisonalhambras.com) — only maisonalhambra.co presents itself as the official one, confirm before trusting listings from any other",
-        "no listings retrieved from the storefront on this run"
+        "several near-identical domains exist (themaison-alhambra.com, maisonalhambraperfume.com, maisonalhambras.com) — only maisonalhambra.co presents itself as the official one, confirm before trusting listings from any other"
       ]
     },
     {
@@ -357,7 +354,9 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "storefront currency could not be established — no sterling price recorded",
+        "https://www.alrehab.com/products.json?limit=250&page=1: HTTP 403",
+        "https://www.alrehab.com/sitemap.xml: HTTP 403"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -486,9 +485,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 668,
+      "listings": 669,
       "pricedInGbp": 0,
-      "withPhoto": 668,
+      "withPhoto": 669,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
