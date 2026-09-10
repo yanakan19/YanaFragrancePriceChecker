@@ -82,6 +82,32 @@ describe('a hot-linked image that fails degrades to the placeholder', () => {
     expect(offenders).toEqual([]);
   });
 
+  it('gives orgMark\'s logo <img> the same onerror fallback, reverting to the monogram', () => {
+    /* orgMark is not exported (demo/app.ts runs init() at import time), so
+       this reads the source the same way the houseCard assertion below does.
+       docs/LOGOS-PLAN.md §4d: remove the image, mark the container, let CSS
+       draw the monogram from the data already sitting on it. */
+    const app = readFileSync(resolve(root, 'demo/app.ts'), 'utf8');
+    const fn = (app.match(/function orgMark\([\s\S]*?\n}/) ?? [])[0];
+    expect(fn).toBeDefined();
+    expect(fn).toContain('<img');
+    expect(fn).toContain('onerror=');
+    expect(fn).toContain("classList.add('org-mark-failed')");
+    expect(fn).toContain('this.remove()');
+    // The fallback data has to already be on the container before the image
+    // can fail — data-fallback (initials) and --mh (hue), the same two
+    // things monogram() itself draws from.
+    expect(fn).toContain('data-fallback=');
+    expect(fn).toContain('--mh:');
+  });
+
+  it('draws the failed org-mark with the same monogram tokens, not a blank box', () => {
+    const template = readFileSync(resolve(root, 'demo/template.html'), 'utf8');
+    expect(template).toMatch(/\.org-mark\.org-mark-failed\s*\{/);
+    expect(template).toMatch(/\.org-mark\.org-mark-failed::after\s*\{/);
+    expect(template).toContain('content: attr(data-fallback)');
+  });
+
   it('replaces a failed house photo with exactly the no-photo placeholder', () => {
     /* houseCard is not exported — demo/app.ts runs init() at import time — so
        this reads the source. What matters is that the fallback produces the

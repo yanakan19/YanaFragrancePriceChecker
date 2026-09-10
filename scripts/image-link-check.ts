@@ -62,11 +62,29 @@
  * already do; only .github/workflows/catalogue-daily.yml's "Check image
  * links" step, which already runs this on every scheduled crawl, can
  * actually prove it.
+ *
+ * ── Logos, swept the same way, never failing the build ────────────────────────
+ * docs/LOGOS-PLAN.md §5 step 7: a shop's or a house's logo is hot-linked the
+ * same way a product photo is, and can go dark the same way — a CDN path
+ * churns, a shop turns on hot-link protection — with nothing else here
+ * noticing. Every `LogoRef` whose `basis` is `own-site-declared` or
+ * `affiliate-creative` (src/config/retailers.ts's `logo` field, and every
+ * entry in demo/brandLogos.ts) is added to the same URL set below, labelled
+ * `logo:<retailer id>` or `logo:brand:<key>` so a reader of the report can
+ * tell a dead logo from a dead product photo at a glance. A
+ * `commons-public-domain` entry is deliberately excluded: it names a file
+ * this repo commits and serves itself (demo/logos/), not a live shop
+ * endpoint, so there is no remote path here for a CDN reshuffle to break —
+ * tests/brandLogos.test.ts is what checks that file still exists on disk.
+ * This is still only ever a report: nothing here edits the registry, and a
+ * broken logo never fails the build, the same non-blocking contract this
+ * script already holds for a broken product photo.
  */
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
+import { BRAND_LOGOS } from '../demo/brandLogos.js';
 import {
   classifyImageAttempt,
   classifyRefererSensitivity,
@@ -158,6 +176,33 @@ for (const file of readdirSync(catalogueDir)) {
     set.add(data.retailerId);
     urlToRetailers.set(listing.imageUrl, set);
   }
+}
+
+// Logos: one URL per shop or house, not per product — added alongside the
+// catalogue-derived URLs above so the same sweep, the same retry policy and
+// the same report cover both. See the file header's "Logos, swept the same
+// way" section for why commons-public-domain is excluded.
+let skippedCommonsLogos = 0;
+for (const r of RETAILERS) {
+  if (!r.logo) continue;
+  if (r.logo.basis === 'commons-public-domain') {
+    skippedCommonsLogos++;
+    continue;
+  }
+  if (onlyShop && r.id !== onlyShop) continue;
+  const set = urlToRetailers.get(r.logo.src) ?? new Set<string>();
+  set.add(`logo:${r.id}`);
+  urlToRetailers.set(r.logo.src, set);
+}
+for (const [brandKey, logo] of Object.entries(BRAND_LOGOS)) {
+  if (logo.basis === 'commons-public-domain') {
+    skippedCommonsLogos++;
+    continue;
+  }
+  if (onlyShop) continue; // --shop names a retailer id; brand logos have no retailer id to match.
+  const set = urlToRetailers.get(logo.src) ?? new Set<string>();
+  set.add(`logo:brand:${brandKey}`);
+  urlToRetailers.set(logo.src, set);
 }
 
 const urls = [...urlToRetailers.keys()];
@@ -283,7 +328,8 @@ async function runBrokenLinkSweep(): Promise<void> {
     `Checking ${urls.length} distinct image URLs across ` +
       `${new Set([...urlToRetailers.values()].flatMap((s) => [...s])).size} retailers whose photos are shown.` +
       (skippedFixtures > 0 ? ` Skipped ${skippedFixtures} fixture URLs.` : '') +
-      (skippedInvisible > 0 ? ` Skipped ${skippedInvisible} URLs from retailers with no imageBasis (never shown).` : ''),
+      (skippedInvisible > 0 ? ` Skipped ${skippedInvisible} URLs from retailers with no imageBasis (never shown).` : '') +
+      (skippedCommonsLogos > 0 ? ` Skipped ${skippedCommonsLogos} commons-public-domain logo(s) — files we host, not a live shop endpoint.` : ''),
   );
 
   const gate = new HostGate();

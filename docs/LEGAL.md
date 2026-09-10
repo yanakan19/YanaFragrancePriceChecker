@@ -124,5 +124,12 @@ words rather than inventing a value:
   shops whose photographs appear are hot-linked without a licence, on the
   terms the site states and with an opt-out offered. That is a known risk,
   not a bug, and only a licence or a decision to stop changes it.
+- ~~**Logo referential-use basis.**~~ Answered 2026-09-10 — the owner accepted
+  docs/LOGOS-PLAN.md §2c's referential-use basis (Trade Marks Act 1994
+  s.11(2)(c)) under its four conditions, and accepted committing up to 400 KB
+  of Wikimedia Commons public-domain wordmarks to `demo/logos/`. Both are now
+  implemented: `LogoRef`/`LogoBasis` in src/types/retailer.ts, `demo/brandLogos.ts`
+  for the top-100 brand pass, and the Terms' new Logos paragraph. The
+  retailer-side pass (docs/LOGOS-PLAN.md §5 step 5) is still deferred.
 - **A solicitor's read** of the privacy notice and terms before the site is
   relied on at any scale. These pages are accurate; they are not advice.
