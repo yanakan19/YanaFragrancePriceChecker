@@ -1895,6 +1895,114 @@ export function stripTrailingShopCredit(
   return s;
 }
 
+/**
+ * ─────────────────────────────────────────────────────────────────────────────
+ * The words a shop may put in a trailing pipe-delimited segment that say
+ * nothing about what the bottle is called.
+ *
+ * ── Why this is a vocabulary and not "strip anything after a pipe" ──────────
+ * A pipe-delimited segment is NOT automatically noise, and the counter-example
+ * is not hypothetical: KAYALI's own Oudgasm line is *named* with a pipe and a
+ * number — "Oudgasm Vanilla Oud | 36", "Oudgasm Café | 19", "Oudgasm Smoky |
+ * 07" — and those titles come from kayali.json, the house's own storefront,
+ * where the number is as much part of the name as "Oudgasm" is. 21 live
+ * products carry it. A blanket rule deletes the half of the name that
+ * distinguishes seven different fragrances from one another, which is a worse
+ * bug than the one it fixes.
+ *
+ * So this is a closed list of words, and every word on it was read off the
+ * measured data rather than imagined — `npx tsx scripts/name-noise-report.ts`
+ * prints the distinct trailing segments and their counts. At the build this
+ * was written against, 196 of 15,173 CATALOGUE names carried a "|" and the
+ * segments after the last one were, in full: 56 "UK", 44 "Brandy", 21 KAYALI
+ * numbers, and the rest scent families ("Aromatic Woody", "Spicy Rose Honey
+ * Woods", "Saffron Rose Oud Leather"), stock qualifiers ("In Stock UK",
+ * "Authentic UK Stock", "CPO UK"), release markers ("New 2023", "New 2026
+ * Release"), one oz size ("/ 3.4 fl oz"), one gender ("Unisex") and one shop's
+ * internal status code ("DNL RECALLED"). Nothing on this list is a word that
+ * could be doing naming work *in this position*; a word that could is not on
+ * it.
+ *
+ * Note what is deliberately absent: digits. Not one entry here is a number and
+ * `noiseSegment` refuses a segment containing one, which is the single lock
+ * that keeps every KAYALI Oudgasm name intact whatever else changes.
+ *
+ * ── Why this cannot destroy a real fragrance called "Rose" or "Oud" ─────────
+ * It applies only to text *after* a pipe, and only when real text remains in
+ * front of it. Lattafa's "Velvet Oud", "Raghba" and Ard Al Zaafaran's own
+ * "Oud 24 Hours" keep every word they have; what comes off "Velvet Oud
+ * Lattafa | Smoky Leather Oud" is the segment, never the name. A name that is
+ * nothing but a descriptor word, with no pipe, is never even looked at.
+ */
+const NAME_NOISE_SEGMENT_WORDS: ReadonlySet<string> = new Set([
+  // Stock and market qualifiers. Where the shop trades is not the bottle's name.
+  'uk', 'in', 'stock', 'authentic', 'cpo',
+  // Concentration and form, each of which already has its own field on the
+  // product — the same reasoning the size and "spray"/"splash" strips above use.
+  'extrait', 'perfume', 'roll-on',
+  // Gender, likewise its own field (see demo/gender.ts).
+  'unisex',
+  // Scent families and notes. Every one observed in a real trailing segment.
+  'almond', 'amber', 'aquatic', 'aromatic', 'boozy', 'champagne', 'cherry',
+  'citrus', 'clean', 'coconut', 'coffee', 'creamy', 'floral', 'fresh',
+  'fruity', 'gourmand', 'honey', 'incense', 'leather', 'lemon', 'mint',
+  'musk', 'oud', 'pineapple', 'powdery', 'raspberry', 'resin', 'rose',
+  'saffron', 'salty', 'smoky', 'spice', 'spicy', 'suede', 'sweet', 'tea',
+  'tobacco', 'vanilla', 'warm', 'white', 'woods', 'woody',
+]);
+
+/**
+ * A trailing segment that is entirely an ounce size — the one live case is
+ * Superdrug's "Arabian Oud Resala | Unisex | / 3.4 fl oz", where the size is
+ * already the product's own sizeMl field. Written against fl-oz specifically
+ * rather than any number, because a bare number after a pipe is KAYALI's
+ * Oudgasm naming and must survive (see NAME_NOISE_SEGMENT_WORDS).
+ */
+const NOISE_SEGMENT_OZ_RE = /^\/?\s*\d+(?:\.\d+)?\s*fl\s*oz$/i;
+
+/**
+ * A trailing segment that is a release marker — "New 2023", "New 2026
+ * Release", 4 live products across two shops. The literal word "new" is
+ * required, so this can never reach a bare number segment.
+ */
+const NOISE_SEGMENT_RELEASE_RE = /^new(?:\s+\d{4})?(?:\s+release)?$/i;
+
+/**
+ * Whether the text after the last "|" in `s` is noise, by one of four
+ * measured tests. Returns the name without that segment, or null to leave the
+ * name exactly as it is.
+ *
+ * The fourth test is the one that is not a vocabulary: a segment every one of
+ * whose words already appears earlier in the same name is a restatement and
+ * carries no new fact. That is what "Amber Oud by Brandy | Brandy" is — 44
+ * live Brandy Designs products, where the shop repeats the house it has
+ * already named. It cannot reach KAYALI's numbers (no Oudgasm name repeats
+ * its own number) and it cannot reach a segment carrying any word the name
+ * does not already have, so by construction it never removes information.
+ */
+function stripTrailingNoiseSegment(s: string): string | null {
+  const at = s.lastIndexOf('|');
+  if (at < 0) return null;
+  const segment = s.slice(at + 1).trim();
+  const head = s.slice(0, at).replace(/[\s,\-&|]+$/g, '');
+  // Never the whole name: something real has to be left in front of it.
+  if (!segment || !head) return null;
+
+  const words = segment.split(/\s+/).map((w) => w.toLowerCase().replace(/[^a-z0-9-]+/g, ''));
+  const vocabulary = words.every((w) => NAME_NOISE_SEGMENT_WORDS.has(w));
+  const headWords = new Set(head.toLowerCase().match(/[a-z0-9]+/g) ?? []);
+  const restatement = words.every((w) => w !== '' && headWords.has(w));
+  if (
+    !vocabulary &&
+    !restatement &&
+    !NOISE_SEGMENT_OZ_RE.test(segment) &&
+    !NOISE_SEGMENT_RELEASE_RE.test(segment)
+  ) {
+    return null;
+  }
+  return head;
+}
+
 export function displayName(title: string, brand: string | null, displayedBrand: string | null): string {
   let s = title;
   const opener = brandTitleOpens(title, [displayedBrand, brand]);
@@ -1942,6 +2050,27 @@ export function displayName(title: string, brand: string | null, displayedBrand:
   // front instead of the back), the other a shade name — and neither's
   // brandKey matches any candidate here, so this leaves both exactly as they
   // are.
+  // A shop's own trailing pipe-delimited segment — the scent family, the
+  // stock qualifier, the repeated house name — see stripTrailingNoiseSegment
+  // for the four measured tests and, more importantly, for the one shape it
+  // must never touch (KAYALI's "Oudgasm Vanilla Oud | 36", where the pipe is
+  // the house's own naming).
+  //
+  // Run here, ahead of the trailing-brand block below, and repeatedly: one
+  // title carries two of these segments at once ("Arabian Oud Resala | Unisex
+  // | / 3.4 fl oz"), and removing the outermost is what exposes the next. The
+  // ordering is load-bearing for the brand case too — perfumeo writes
+  // "Abraaj Brackish French Avenue | Aromatic Woody", where the brand sits
+  // mid-name and brandTitleEnds cannot see it at all. Taking the segment off
+  // first leaves "Abraaj Brackish French Avenue", which is the plain trailing
+  // brand that block has always handled, so the mid-name case needs no second
+  // brand rule of its own — it becomes the case already solved.
+  for (let pass = 0; pass < 4; pass++) {
+    const trimmed = stripTrailingNoiseSegment(s);
+    if (trimmed === null) break;
+    s = trimmed;
+  }
+
   const parenBrand = s.match(/^\(([^()]+)\)\s*/);
   const parenBrandKey = parenBrand ? brandKey(foldDiacritics(parenBrand[1]!)) : '';
   if (parenBrandKey && [displayedBrand, brand].some((c) => c && brandKey(foldDiacritics(c)) === parenBrandKey)) {
@@ -1963,7 +2092,29 @@ export function displayName(title: string, brand: string | null, displayedBrand:
   // function's own comment for why the check has to stay this narrow: a
   // generic "brand anywhere, then by, then anything" rule is exactly the one
   // that was measured and rejected for wrecking 14 real fragrance names.
-  const closer = brandTitleEndsWithHouse(s, [displayedBrand, brand]) ?? brandTitleEnds(s, [displayedBrand, brand]);
+  //
+  // One shop writes the appended brand and the generic word the other way
+  // round — "Yara Lattafa Perfume", "Barakkat Rouge 540 Fragrance World
+  // Perfume" — so the brand is no longer the last thing in the name and
+  // brandTitleEnds, which is anchored strictly at the end, cannot see it.
+  // 34 live names reach this shape once the pipe segment above is gone (all
+  // perfumeo, whose own titles read "<name> <Brand> Perfume | <family> |
+  // Perfumeo"). Handled by asking brandTitleEnds the same question again with
+  // that one trailing word set aside, and only accepting the answer if the
+  // brand really is what sits behind it — the word is dropped only when a
+  // brand was actually found there, never on its own, which is the identical
+  // lock the `\s+perfume\s*$` strip a few lines below already uses.
+  let closer = brandTitleEndsWithHouse(s, [displayedBrand, brand]) ?? brandTitleEnds(s, [displayedBrand, brand]);
+  if (!closer) {
+    const withoutGeneric = s.replace(/\s+perfume\s*$/i, '');
+    if (withoutGeneric !== s) {
+      const behind = brandTitleEnds(withoutGeneric, [displayedBrand, brand]);
+      if (behind) {
+        s = withoutGeneric;
+        closer = behind;
+      }
+    }
+  }
   if (closer) {
     s = s.slice(0, s.length - closer.length);
     // A shop that appends its own brand often prefixes that append with the
