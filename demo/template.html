@@ -1142,6 +1142,21 @@
   .dropdown:focus, .dropdown:focus-visible { outline: none; }
   .control-chevron { display: flex; color: var(--faint); pointer-events: none; margin-left: -2px; }
   .control-chevron .ico { width: 13px; height: 13px; }
+  /* The open dropdown's popup is drawn by the OS, not this stylesheet — the
+     closed control above only sets `color`, so the engine is free to pair
+     that light (or dark) text with whichever background the platform's own
+     light-mode-flavoured popup chrome uses, and in dark mode that pairing
+     goes light-on-light. `color-scheme` is the actual signal the platform
+     reads to pick a dark-flavoured popup chrome in the first place, so it is
+     the root fix; the `background`/`color` on <option> are the belt-and-
+     braces half, because a UA that ignores color-scheme (or a forced-colours
+     mode) still needs its own explicit pairing rather than one inherited
+     property. Same reasoning applies to .field select below. */
+  .dropdown, .field select { color-scheme: light dark; }
+  .dropdown option, .dropdown optgroup,
+  .field select option, .field select optgroup {
+    background: var(--surface); color: var(--ink);
+  }
 
   /* ── brands ────────────────────────────────────────────────────────────── */
   .brand-list { list-style: none; margin: 0; padding: 0; }
