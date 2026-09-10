@@ -733,6 +733,97 @@ export const CONCENTRATION_RESOLUTIONS: Readonly<Record<string, ConcentrationRes
   // 2026-09-02 second-pass note after this table. ──
   '6298042001909': { concentration: 'Extrait de Parfum', citation: 'French Avenue Ravine Ice 100ml: frenchavenue.com — Fragrance World’s own storefront for the brand it owns — states "Product: Extrait De Parfum, Size: 100 ml" in its own specifications block (fetched directly, 2026-09-02). Agrees with manchester-ouds’ own harvested description; the Amazon/marabika.lt/souqfragrance "Eau de Parfum" majority is outranked by the manufacturer under the 2026-09-02 ruling.' },
   '6290360379227': { concentration: 'Extrait de Parfum', citation: 'French Avenue Royal Taboo 100ml: frenchavenue.com’s own page is titled "Royal Taboo By French Avenue | Unisex Extrait De Parfum" and its specifications read "Product - Extrait, Size - 100ml" (fetched directly, 2026-09-02) — title and spec agree. The eBay/ShopSimon/Walmart "EDP" listings are outranked by the manufacturer under the 2026-09-02 ruling.' },
+
+  // ══ Added 2026-09-10, prompted by the owner seeing "Not stated" as a filter
+  // value on the Today's Deals page, with nine named examples. Investigation
+  // found the real bug wasn't missing evidence but a structural blocker: the
+  // build only ever consulted this table inside the loop over `contradicting`
+  // products (shops actively disagreeing), and that set is deliberately
+  // filtered to exclude any product where a shop said "Not stated" — so a
+  // product every shop left silent on could never reach this table at all,
+  // no matter how many entries were added here. build-demo-catalogue.ts now
+  // has a second pass, right after the dispute loop, that applies a
+  // confirmed resolution to a "Not stated" product exactly as it would to a
+  // disputed one — same table, same precedence, reached from the opposite
+  // starting condition. See that pass's own comment for the reasoning.
+  //
+  // First cut of this pass (still visible in this file's own history) leaned
+  // on johnlewis.com's product specification field as a stand-in for the
+  // manufacturer wherever a brand's own site refused the fetch. The owner's
+  // instruction was for the brand's own dedicated site specifically, and a
+  // retailer's spec field is exactly the kind of second-hand data that
+  // produced a real error: johnlewis.com's field for "MYSLF Le Parfum" read
+  // "Eau de Parfum", but ysl.com/yslbeauty.com sell "MYSLF Eau de Parfum" and
+  // "MYSLF Le Parfum" as two separate products, the Le Parfum line described
+  // by YSL itself as outperforming the EDP in projection and depth — i.e. a
+  // genuinely stronger, different product, not a retailer's rewording of the
+  // same one. Recording it as "Eau de Parfum" would have stated something
+  // false and risked merging it with the actual MYSLF EDP, since the merge
+  // key includes concentration. Every johnlewis.com-only entry from that
+  // first cut has been removed rather than re-labelled: re-fetching each
+  // candidate directly against the brand's own domain (ysl.com,
+  // yslbeauty.com/.co.uk/.com-us, jimmychoo.com, prada.com, prada-beauty.com,
+  // hugoboss.com) hit a 403 or 503 on every one of them — none can currently
+  // be confirmed against the manufacturer's own site by automated fetch, so
+  // per the owner's ruling ("where it does not [confirm], DELETE the entry")
+  // they are gone. The Chloé entry from that cut is gone too, for a related
+  // reason: it cited chloe.com's own URL *path* ("/fragrances/eau-de-parfum/
+  // ") rather than the page actually stating a concentration in words, which
+  // is not the same evidence and was rightly rejected.
+  //
+  // What survives this pass is only what was read in words on the brand's
+  // own domain directly: Carolina Herrera's carolinaherrera.com (Bad Boy Le
+  // Parfum, all three sizes) and Jean Paul Gaultier's jeanpaulgaultier.com
+  // (Scandal Le Parfum both sizes, Scandal Pour Homme Le Parfum, Divine For
+  // Her Le Parfum Intense) — see each entry for the exact page and wording.
+  // Nothing here treats "Le Parfum" as one fixed strength, at Jean Paul
+  // Gaultier or anywhere else: it names a real, separately-marketed "Parfum"
+  // tier at Carolina Herrera and is simply this house's own flanker name for
+  // an Eau de Parfum Intense at Jean Paul Gaultier, confirmed on jpg's own
+  // site for each bottle rather than assumed from either the name or a
+  // sibling size.
+  //
+  // Left unresolved for the same reason: YSL Black Opium/Libre/Myslf/Y for
+  // Men Le Parfum, La Nuit de L'Homme Le Parfum, Jimmy Choo I Want Choo Le
+  // Parfum, Prada Paradigme Le Parfum, Hugo Boss Boss The Scent Le Parfum for
+  // Her, Chloé Le Parfum, Lancôme La Nuit Trésor Le Parfum, and every
+  // "Le Parfum" product with no EAN in this catalogue at all (this table is
+  // keyed on EAN and cannot reach a product that does not publish one). All
+  // of these stay "Not stated" until the manufacturer's own site can
+  // actually be read, which is the correct outcome and better than a
+  // retailer's guess.
+  //
+  // Also investigated and deliberately NOT resolved: the 27 "Mist" products,
+  // almost all Sol de Janeiro. soldejaneiro.com's own site sells these as
+  // "Perfume Mist" / "Body Fragrance Mist" — a real product category, not an
+  // Eau de Parfum or Eau de Toilette in a mislabelled bottle, and Sol de
+  // Janeiro's own site never states a concentration for them at all. Forcing
+  // one of CONCENTRATION_DISPLAY's existing values onto a body mist would be
+  // inventing a fact the manufacturer does not state; "Not stated" was
+  // arguably always the honest answer here, and if the owner wants the
+  // Concentration filter to say something more specific for mists, that
+  // needs a new display value (e.g. "Body Mist") added to
+  // CONCENTRATION_DISPLAY first — a product decision, not a data fix, so
+  // raised here rather than made unilaterally. ══
+
+  // ── Carolina Herrera Bad Boy Le Parfum: carolinaherrera.com's own product
+  // page (fetched directly) states this tier is "Also known as extrait de
+  // parfum, the most concentrated product" — the manufacturer's own word,
+  // in its own educational copy on the Bad Boy Le Parfum product page
+  // itself, not a generic definition page. ──
+  '8411061991886': { concentration: 'Extrait de Parfum', citation: 'Carolina Herrera Bad Boy Le Parfum 100ml: carolinaherrera.com’s own product page (fetched directly, 2026-09-10) states this tier is "Also known as extrait de parfum, this is the most concentrated product." One of the nine deals-page examples the owner reported.' },
+  '8411061002865': { concentration: 'Extrait de Parfum', citation: 'Carolina Herrera Bad Boy Le Parfum 150ml: same carolinaherrera.com product line and statement as the 100ml sibling (fetched directly, 2026-09-10). One of the nine deals-page examples the owner reported.' },
+  '8411061991909': { concentration: 'Extrait de Parfum', citation: 'Carolina Herrera Bad Boy Le Parfum 50ml: same carolinaherrera.com product line and statement as the 100ml/150ml siblings (fetched directly, 2026-09-10).' },
+
+  // ── Jean Paul Gaultier: jeanpaulgaultier.com's own product pages
+  // (fetched directly) name these products, in full, "... le Parfum Eau de
+  // Parfum Intense" — "Le Parfum" is this house's flanker name, and the
+  // fragrance's actual stated concentration, in the same breath, is Eau de
+  // Parfum (Intense). ──
+  '8435415050760': { concentration: 'Eau de Parfum', citation: 'JPG Scandal Le Parfum 80ml: jeanpaulgaultier.com’s own product page (fetched directly, 2026-09-10) names the product "Scandal le parfum Eau de Parfum Intense".' },
+  '8435415050753': { concentration: 'Eau de Parfum', citation: 'JPG Scandal Le Parfum 50ml: same jeanpaulgaultier.com naming as the 80ml sibling, "Scandal le parfum Eau de Parfum Intense" (fetched directly, 2026-09-10).' },
+  '8435415065214': { concentration: 'Eau de Parfum', citation: 'JPG Scandal Pour Homme Le Parfum 150ml: jeanpaulgaultier.com’s own product page (fetched directly, 2026-09-10) names the product "Scandal pour homme le Parfum Eau de Parfum Intense", exact wording "Eau de Parfum Intense".' },
+  '8435415091169': { concentration: 'Eau de Parfum', citation: 'JPG Divine For Her Le Parfum Intense 100ml: jeanpaulgaultier.com’s own product page (fetched directly, 2026-09-10) names the product "Gaultier Divine Le Parfum Eau de Parfum Intense".' },
 } as const;
 
 /*

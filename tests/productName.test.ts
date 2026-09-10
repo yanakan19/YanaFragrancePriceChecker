@@ -1406,6 +1406,93 @@ describe('CONCENTRATION_RESOLUTIONS: the curated concentration-dispute overrides
       expect(citation.length, `${ean} citation`).toBeGreaterThan(0);
     }
   });
+
+  /**
+   * 2026-09-10: the owner saw "Not stated" on the Today's Deals page —
+   * not a dispute, every shop simply silent. build-demo-catalogue.ts's
+   * `contradicting` set is deliberately filtered to exclude any product a
+   * shop left "Not stated" on (see its own comment: "'Not stated' is not a
+   * statement"), which meant this table was previously consulted only
+   * inside that loop and could never resolve a product no shop had disputed
+   * in the first place — an entry could sit here correctly evidenced and
+   * still never reach the site. build-demo-catalogue.ts now runs a second
+   * pass straight after the dispute loop that looks up this same table for
+   * any product still reading "Not stated", with the same precedence. That
+   * pass is build logic, not pure data, so — like the dispute lookup itself
+   * — it is not independently unit-testable here (see this describe
+   * block's own header comment); what is pinned below is that the table
+   * itself carries a real entry for one of the nine deals-page examples the
+   * owner named, so the second pass has something to find.
+   */
+  it('carries a manufacturer-confirmed entry for a product every shop left "Not stated" on', () => {
+    // Carolina Herrera Bad Boy Le Parfum 100ml — one of the nine deals-page
+    // examples the owner reported by name. No shop's title carried any
+    // concentration word for it at all (that is what put it on the deals
+    // page as "Not stated" rather than "Disputed"), so before the
+    // 2026-09-10 fix this entry — even once written — could never have
+    // reached the product; only the build's new second pass makes it count.
+    // Confirmed directly on carolinaherrera.com's own product page, not a
+    // retailer's spec field — see the 2026-09-10 second-pass note above the
+    // table for why a retailer-sourced version of this entry was rejected.
+    const resolution = CONCENTRATION_RESOLUTIONS['8411061991886'];
+    expect(resolution?.concentration).toBe('Extrait de Parfum');
+    expect(resolution?.citation).toMatch(/carolinaherrera\.com/);
+  });
+
+  it('does not accept a retailer spec field as the brand\'s own word, even where it turns out wrong', () => {
+    // YSL MYSLF Le Parfum: the 2026-09-10 pass's own first cut recorded this
+    // as "Eau de Parfum" from johnlewis.com's product specification field —
+    // and that was wrong. ysl.com/yslbeauty.com sell "MYSLF Eau de Parfum"
+    // and "MYSLF Le Parfum" as two separate products, the Le Parfum line
+    // described by YSL itself as outperforming the EDP in projection and
+    // depth: a genuinely stronger, different product, not a rewording of
+    // the same one. Recording "Eau de Parfum" here would have stated
+    // something false and risked merging it with the real MYSLF EDP, since
+    // the merge key includes concentration. ysl.com and every yslbeauty.*
+    // domain refused the fetch outright (403), so per the owner's ruling —
+    // manufacturer confirmation or nothing — there is no entry for MYSLF Le
+    // Parfum at all; it stays "Not stated" rather than guessed either way.
+    expect(CONCENTRATION_RESOLUTIONS['3614274114652']).toBeUndefined();
+    expect(CONCENTRATION_RESOLUTIONS['3614274114645']).toBeUndefined();
+  });
+
+  it('leaves a "Le Parfum" product with real evidence for its size alone, not assumed from a sibling', () => {
+    // Jean Paul Gaultier: the 2026-09-10 pass deliberately checked each
+    // "Le Parfum"-named product on jeanpaulgaultier.com's own page rather
+    // than treating "Le Parfum" as one fixed concentration — every JPG
+    // entry in this table turned out to be Eau de Parfum Intense (the
+    // house's own flanker name, not a promise of a stronger "Parfum" tier),
+    // confirmed on each bottle's own product page rather than inferred from
+    // the "Le Parfum" name or a sibling size.
+    expect(CONCENTRATION_RESOLUTIONS['8435415050760']?.concentration).toBe('Eau de Parfum');
+    expect(CONCENTRATION_RESOLUTIONS['8435415050760']?.citation).toMatch(/jeanpaulgaultier\.com/);
+    expect(CONCENTRATION_RESOLUTIONS['8435415091169']?.concentration).toBe('Eau de Parfum');
+    expect(CONCENTRATION_RESOLUTIONS['8435415091169']?.citation).toMatch(/jeanpaulgaultier\.com/);
+  });
+
+  it('deleted every entry that could only be sourced from a retailer, not the brand\'s own site', () => {
+    // The 2026-09-10 pass's first cut resolved 15 EANs from johnlewis.com's
+    // spec field or a chloe.com URL path rather than the brand's own site
+    // stating a concentration in words. Re-fetching each directly against
+    // ysl.com/yslbeauty.com, jimmychoo.com, prada.com/prada-beauty.com and
+    // hugoboss.com hit a 403 or 503 every time — none could be confirmed
+    // against the manufacturer, so all were deleted rather than re-labelled
+    // with a weaker citation. Pinned here so a future pass does not
+    // silently reintroduce them on the same retailer-only evidence.
+    const deleted = [
+      '3614273863377', '3614273863360', // YSL Black Opium Le Parfum
+      '3614273776134', '3614273776110', // YSL Libre Le Parfum
+      '3614274266818', '3614274266801', // YSL Y for Men Le Parfum
+      '3614274114652', '3614274114645', // YSL Myslf Le Parfum
+      '3386460142021', '3386460141703', '3386460142038', // Jimmy Choo I Want Choo Le Parfum
+      '3616306110885', // Chloé Le Parfum
+      '3614274485028', '3614274485004', // Prada Paradigme Le Parfum
+      '3616302681099', // Hugo Boss Boss The Scent Le Parfum for Her
+    ];
+    for (const ean of deleted) {
+      expect(CONCENTRATION_RESOLUTIONS[ean], `${ean} should have been deleted, not retailer-sourced`).toBeUndefined();
+    }
+  });
 });
 
 describe('stripTrailingShopCredit: a shop signing the end of its own title', () => {
