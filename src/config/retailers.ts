@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 79 retailers, 38 of them `enabled: true`. Every one of them is a legitimate
+ * 77 retailers, 38 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -4523,61 +4523,6 @@ export const RETAILERS: readonly Retailer[] = [
     affiliate: { ...awinRequested() },
   },
   {
-    id: 'wowcher',
-    name: 'Wowcher',
-    domain: 'wowcher.co.uk',
-    homepage: 'https://www.wowcher.co.uk',
-    tiers: ['designer'],
-    enabled: false,
-    adapter: 'unknown',
-    currency: 'GBP',
-    shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [3, 7],
-      verifiedAt: '2026-08-11',
-      confidence: 'unverified',
-      notes:
-        'Applied via Awin 2026-08-11. A deals marketplace rather than a dedicated fragrance ' +
-        'retailer — most listings will not be fragrance at all. Delivery terms and page ' +
-        'structure not yet read.',
-    },
-    // ── Apify harvest evaluation, 2026-08-19: not a scraper candidate ────────
-    // Assigned to the bot-defended-majors review on the assumption it was a
-    // shelf retailer like the rest of this file. It is not, and no amount of
-    // rendering technology changes that.
-    //
-    // Wowcher sells time-limited voucher deals, not SKU prices. Its product
-    // model is fundamentally different from every other entry here: a "Dior
-    // Sauvage 100ml" listing on this site would be a voucher good for a
-    // redemption window, priced against whatever discount that specific deal
-    // is running that week, not a standing shelf price a shopper can compare
-    // against Boots or LOOKFANTASTIC on the day they read it. This site's
-    // whole premise — "what does this fragrance cost right now, at this
-    // retailer" — presumes a price the retailer is charging for the product
-    // itself, continuously. A voucher deal is a different offer shape:
-    // discontinuous (expires and is replaced by a different deal at a
-    // different discount), often bundled or quantity-limited, and frequently
-    // not for the product at all but for a redemption code or experience
-    // that happens to be fragrance-adjacent. Comparing it against a standing
-    // retail price the way this site compares Boots against Superdrug would
-    // misrepresent both sides: the "price" would be a snapshot of a
-    // promotion's current state, not a price, and would go stale the moment
-    // the deal rotates or sells out — which a nightly harvest has no way to
-    // detect mid-cycle the way it detects an ordinary price change.
-    //
-    // This is a product-model mismatch, not a retrieval problem, so no Apify
-    // config was designed and no bot-defence status was established — an
-    // actor could render Wowcher's pages perfectly and the output still
-    // would not be an honest fragrance price. Keeping this disabled is the
-    // right call independent of anything Apify could fix. If this is ever
-    // revisited, the question to answer first is not "can we scrape it" but
-    // "does a redeemed-voucher price belong next to a standing retail price
-    // at all" — an editorial decision, not an engineering one.
-    catalogue: null,
-    affiliate: { ...awinRequested() },
-  },
-  {
     id: 'beauty-pie',
     name: 'Beauty Pie',
     domain: 'beautypie.com',
@@ -4658,51 +4603,6 @@ export const RETAILERS: readonly Retailer[] = [
     // eight days later) — `npm run awin:memberships` is the tool that would
     // confirm approval, and if it lands first this whole question moves to
     // Group A/B's feed-sync territory rather than staying here.
-    catalogue: null,
-    affiliate: { ...awinRequested() },
-  },
-  {
-    id: 'very',
-    name: 'very.co.uk',
-    domain: 'very.co.uk',
-    homepage: 'https://www.very.co.uk',
-    tiers: ['designer'],
-    enabled: false,
-    adapter: 'unknown',
-    currency: 'GBP',
-    shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
-      confidence: 'unverified',
-      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
-    },
-    // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
-    // First real evidence gathered this review. A catalogue-daily.yml
-    // workflow_dispatch (probe_shop=very) queued behind the day's scheduled
-    // harvest and never got a runner in time — GitHub Actions keeps only one
-    // pending run per concurrency group, so a second dispatch fired shortly
-    // after cancelled it rather than queuing both. price-verify.yml's own
-    // concurrency group is separate and was free, so
-    // `npm run shipping:discover -- --shop=very` ran there instead (run
-    // 32257812348, job 96083580395): `products.json` 404s (not Shopify),
-    // and both the bare homepage and /policies/shipping-policy came back
-    // HTTP 403. That is a genuine block, not silence — very.co.uk refuses a
-    // datacentre address outright, the same shape as this file's other
-    // confirmed Class-1 shops (Superdrug, Selfridges, Notino UK, The
-    // Fragrance Shop, The Perfume Shop). `catalogue: null` still means no
-    // confirmed category URL exists for the proxy or actor tier to target —
-    // that has to come from a human opening the real site in a browser
-    // first, the same step every other shop in this file went through —
-    // but bot-defence status is no longer unestablished: it is confirmed,
-    // by a real HTTP response, not assumed.
-    //
-    // very.co.uk is a general department store (electronics, furniture,
-    // clothing) that also sells fragrance, the same shape as John Lewis —
-    // worth comparing once real section URLs exist, since a large general
-    // retailer's defence posture can still differ sharply from a specialist
-    // beauty retailer's even when both 403 a bare homepage request.
     catalogue: null,
     affiliate: { ...awinRequested() },
   },

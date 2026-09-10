@@ -130,7 +130,13 @@ describe('retailer registry', () => {
     // Lidl, Co-op, Wilko and Poundland were named in the same request and
     // are simply not researched — no search was run against them, and this
     // note says so rather than implying they were ruled out.
-    expect(RETAILERS).toHaveLength(79);
+    //
+    // 2026-09-10: 79 becomes 77. very.co.uk and Wowcher removed at the
+    // owner's request. Both had sat disabled since their 2026-08-11 placeholder
+    // entries (see above) with no catalogue, no snapshot and no listing ever
+    // harvested, so nothing on the site referenced either and their removal
+    // changes no page. Their shipping-discovery timestamps went with them.
+    expect(RETAILERS).toHaveLength(77);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
