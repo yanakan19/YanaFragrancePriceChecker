@@ -225,6 +225,23 @@
        theme-dependent lightness tokens above vary. */
     --mono-sat: 42%;
 
+    /* The org-mark tile — a shop's or a house's real logo, drawn beside its
+       monogram-shaped box rather than inside a themed one (docs/LOGOS-PLAN.md
+       §4c). Same tile in both themes and both palettes, because the artwork
+       inside is not ours to recolour, and the ground it needs is a property
+       of that artwork (measured `ink`), not of which theme happens to be on.
+       Two fills, for dark-ink and light-ink marks respectively, and one
+       shared border used by all three ink variants — including the third,
+       `own`, which carries no fill of its own and relies on the border alone
+       to still read as a tile. The border is deliberately one flat grey
+       rather than three: #767676 sits inside the narrow luminance band
+       (~0.11-0.29) that clears WCAG's 3:1 non-text contrast against BOTH
+       #0A0A0B and #FCFCFD at once, so one value works for every ink and every
+       theme without per-case tuning. tests/contrast.test.ts holds this. */
+    --org-mark-light-bg: #FFFFFF;
+    --org-mark-dark-bg: #0A0A0B;
+    --org-mark-border: #767676;
+
     /* --font-sans is an alias for --sans rather than a second stack of its
        own: the design system names the role, the existing token holds the
        value, and one source of truth means the two can never drift apart. */
@@ -1073,10 +1090,17 @@
   .tile-price .was.anchor { text-decoration: none; border-bottom: 1px dotted var(--faint); padding-bottom: 1px; }
   .from { font-size: 10px; font-weight: 600; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
 
-  /* Which shop the price is actually from, since we cannot show their logo:
-     no comparison site has a licence to reproduce a retailer's trademark, so
-     this is a plain text tag using the name instead, the same call already
-     made for the Retailers directory's monogram tiles. */
+  /* Which shop the price is actually from: a plain text tag using the name,
+     not a logo. This is not the same absence the Retailers directory's
+     monogram tiles used to be — docs/LOGOS-PLAN.md §2c/§4c found a real basis
+     for showing a logo elsewhere on this site — it is a deliberate exclusion
+     of THIS surface specifically. 12px, ellipsised, dozens of these balloons
+     on screen in a browse grid at once: too small for a mark to resolve and
+     too dense for the reader to read every one as a distinct, identified
+     source rather than wallpaper, which is what referential use requires
+     (§2c's first condition). See .phead-brand below for the matching call on
+     the brand pill, and docs/LOGOS-PLAN.md §2a rows #5/#6 for the reasoning
+     in full. */
   .sold-by {
     position: relative; align-self: center; max-width: 100%; margin-top: 6px;
     background: var(--surface-2); color: var(--ink-2);
@@ -1181,9 +1205,13 @@
   .alpha-break i { flex: 1; height: 1px; background: var(--line-firm); }
 
   /* ── retailers ─────────────────────────────────────────────────────────── */
-  /* Initials, not a copy of the shop's own logo: reproducing those is a
-     trademark question this project has no answer to, and inventing one would
-     be worse.
+  /* Initials — the default and the fallback, drawn instead of a shop's or a
+     house's real logo whenever we have none on file, or whenever the one we
+     do have fails to load (see .org-mark-failed below). Where we DO have a
+     logo, docs/LOGOS-PLAN.md §2c/§4a-§4e set out why showing it is fine —
+     s.11(2)(c) Trade Marks Act 1994, referential use, never altered, never
+     copied except the small Commons public-domain set under /logos/ — and
+     it renders on its own tile (.org-mark below), not this one.
 
      The tint is per-name, not per-brand-identity: --mh (a hue, 0-360) is set
      inline by monogram() in app.ts from a deterministic hash of the name, so
@@ -1202,6 +1230,56 @@
     font-variant-numeric: tabular-nums;
     border: 1px solid hsl(var(--mh, 355) var(--mono-sat) var(--mono-border-l));
   }
+
+  /* A real logo, in place of the monogram above — docs/LOGOS-PLAN.md §4c/§4d.
+     The container is ours to style; the artwork inside it is untouched, same
+     as the white tile behind feed photography (demo/photo.ts). Two shapes:
+     `--square` fills the same 42px/56px box `.monogram` does; `--wordmark`
+     only ever appears in the hero (orgMark's `hero` argument), a flexible box
+     for a mark that does not fit a square. Three ink variants choose the
+     tile's ground from a measurement, not from the page's own theme, so the
+     same logo looks identical whichever palette is on screen — `--light` is
+     a light tile for dark ink, `--dark` is a dark tile for light ink, `--own`
+     is no fill at all for a mark that already carries its own background,
+     just the shared border so it still reads as a tile.
+
+     `.org-mark-failed` is the onerror target: the <img> removes itself and
+     this class takes over, painting the exact monogram this shop or brand
+     would have drawn — same tokens, same hash-derived hue, read from the
+     `data-fallback` initials and `--mh` this element was already carrying
+     before the image ever had a chance to fail (see orgMark's own comment in
+     demo/app.ts for why that is not the "hidden fallback behind every image"
+     shape productArt's own header rejects). */
+  .org-mark { position: relative; overflow: hidden; box-sizing: border-box; }
+  .org-mark img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .org-mark--square {
+    flex: none; width: 42px; height: 42px; border-radius: 11px;
+    border: 1px solid var(--org-mark-border);
+  }
+  .org-hero .org-mark--square { width: 56px; height: 56px; border-radius: 15px; }
+  .org-mark--wordmark {
+    flex: none; height: 56px; max-width: 200px; width: auto;
+    padding: 6px 10px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--org-mark-border);
+  }
+  .org-mark--wordmark img { width: auto; height: 100%; }
+  .org-mark--light { background: var(--org-mark-light-bg); }
+  .org-mark--dark  { background: var(--org-mark-dark-bg); }
+  .org-mark--own   { background: none; }
+  .org-mark.org-mark-failed {
+    background: hsl(var(--mh, 355) var(--mono-sat) var(--mono-bg-l));
+    border-color: hsl(var(--mh, 355) var(--mono-sat) var(--mono-border-l));
+    display: flex; align-items: center; justify-content: center;
+  }
+  .org-mark.org-mark-failed::after {
+    content: attr(data-fallback);
+    color: hsl(var(--mh, 355) var(--mono-sat) var(--mono-fg-l));
+    font-size: 14px; font-weight: 800; letter-spacing: -.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .org-hero .org-mark.org-mark-failed::after { font-size: 18px; }
+
   .shop-list { list-style: none; margin: 0; padding: 0; }
   .shop-row {
     width: 100%; display: flex; align-items: center; gap: 13px; cursor: pointer;

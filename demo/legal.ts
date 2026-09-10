@@ -56,6 +56,7 @@
 import { RETAILERS } from '../src/config/retailers.js';
 import { DEMO_FRAGRANCES } from './data.js';
 import { TEST_COUNT } from './testCount.generated.js';
+import { BRAND_LOGOS } from './brandLogos.js';
 
 const n = (v: number) => v.toLocaleString('en-GB');
 /** 1st, 2nd, 3rd, 4th … 11th, 12th, 13th, 21st: the English rule, not a lookup. */
@@ -90,6 +91,18 @@ const DELIVERY_UNCONFIRMED = ENABLED.filter((r) => r.shipping.confidence === 'un
 const IMAGE_SHOPS = RETAILERS.filter((r) => r.affiliate.imageBasis != null);
 const IMAGE_LICENSED = IMAGE_SHOPS.filter((r) => r.affiliate.imageBasis !== 'hotlink-unlicensed');
 const IMAGE_HOTLINKED = IMAGE_SHOPS.filter((r) => r.affiliate.imageBasis === 'hotlink-unlicensed');
+
+/** Computed the same way IMAGE_SHOPS above is, for the Logos paragraph —
+ *  see docs/LOGOS-PLAN.md §4f. A retailer's own `logo` field plus every
+ *  brand in demo/brandLogos.ts, split by whether we host the file ourselves
+ *  (commons-public-domain, under demo/logos/) or hot-link it from the
+ *  owner's own server (everything else). */
+const LOGO_RETAILERS = RETAILERS.filter((r) => r.logo != null);
+const LOGO_BRANDS = Object.values(BRAND_LOGOS);
+const LOGO_TOTAL = LOGO_RETAILERS.length + LOGO_BRANDS.length;
+const LOGO_HOSTED =
+  LOGO_RETAILERS.filter((r) => r.logo!.basis === 'commons-public-domain').length +
+  LOGO_BRANDS.filter((l) => l.basis === 'commons-public-domain').length;
 
 /**
  * The business behind the site. `null` means "not yet published", and every
@@ -571,7 +584,10 @@ export const LEGAL_PAGES: LegalPage[] = [
       <h2 class="t-section">Our content</h2>
       <p>The design, wording and data compilations belong to ${COMPANY.legalName}.
       Brand names, product names and trade marks belong to their owners and appear
-      here only to identify products.</p>
+      here only to identify products. Where we show a shop's or a house's logo, it
+      is for the same reason and on the same terms: to say whose price or whose
+      bottle you are looking at. We are not affiliated with, endorsed by or
+      sponsored by any of them.</p>
 
       <h2 class="t-section">Product images</h2>
       <p>Every product image here is the retailer's or the brand's own
@@ -589,6 +605,19 @@ export const LEGAL_PAGES: LegalPage[] = [
       else.</p>
       <p>If you are a retailer or brand and would rather we did not show your
       photography, tell us and we will stop for your shop.
+      <a href="mailto:${COMPANY.email}">${COMPANY.email}</a></p>
+
+      <h2 class="t-section">Logos</h2>
+      <p>A shop's or a house's logo appears beside a link to them, to identify
+      them. Most are loaded by your browser directly from that owner's own
+      servers; a small number are files whose published licence puts them in
+      the public domain, and those we host. We do not crop, recolour or
+      otherwise alter any of them, and where we have no logo we can use we
+      draw our own initials tile instead. Today ${LOGO_TOTAL} shops and houses
+      carry a logo we show, ${LOGO_HOSTED} of them a file in the public domain
+      that we host ourselves and the rest loaded directly from that owner's
+      own site.</p>
+      <p>If you would rather we did not show yours, tell us and we will stop.
       <a href="mailto:${COMPANY.email}">${COMPANY.email}</a></p>
 
       <h2 class="t-section">Changes and governing law</h2>
