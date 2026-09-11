@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-11T05:51:47.998Z",
+  "checkedAt": "2026-09-11T10:49:21.040Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -463,9 +463,9 @@
       "origin": "https://bdkparfums.com",
       "routeUsed": "shopify-products-json",
       "currency": "EUR",
-      "listings": 152,
+      "listings": 153,
       "pricedInGbp": 0,
-      "withPhoto": 152,
+      "withPhoto": 153,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
