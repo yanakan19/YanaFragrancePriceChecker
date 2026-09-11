@@ -77,6 +77,32 @@ const MIN_K = 0.5;
 const MAX_K = 2.5;
 
 /**
+ * The floor, in source pixels, on how much real detail a zoom may leave
+ * behind the tile — and the one guard the plan's own measurement did not
+ * cover.
+ *
+ * A `scale(k)` zoom shows only a `1/k` window of the contained image, so the
+ * detail behind the tile drops to `longEdge / k` source pixels. The plan sized
+ * the zoom from silhouette fractions alone (§2, §3) and never crossed that
+ * against source resolution, so `MAX_K` guards a bad *measurement* but not a
+ * good measurement on a *small* file. Measured on the real 2026-09-11 build:
+ * of 159 transforms at k≥1.5, 138 sit on files big enough to stay sharp and 21
+ * do not — a 500px photo zoomed 1.95x (DSquared2 Wood For Her) shows ~256
+ * source pixels across a ~340px CSS tile, i.e. visibly soft. Evening the grid
+ * by softening a bottle trades one ugliness for another; this is the same
+ * "leave it alone rather than make it worse" line MIN_SWAPPABLE_LONG_EDGE
+ * already holds for image selection.
+ *
+ * So the zoom is capped at `longEdge / RES_FLOOR_PX`: a small file is evened as
+ * far as its own resolution allows and no further, landing under `target` but
+ * sharp, rather than at `target` and mushy. 400 is chosen against the tile
+ * (`.art-md` 300 / `.art-lg` 340 CSS px): it keeps the shown window at or above
+ * the tile's own size on a 1× display and close to it on 2×, while a lower
+ * floor here would re-admit exactly the photos measured as soft.
+ */
+const RES_FLOOR_PX = 400;
+
+/**
  * Below this, the measured silhouette height is not trusted at all (an
  * empty or near-empty threshold pass) — see docs/IMAGE-SCALE-PLAN.md §4,
  * point 4. In practice this is subsumed by the k-range check above (a
@@ -172,8 +198,17 @@ export function bottleScaleStyle(
 
   if (fHTile < MIN_TRUSTED_TILE_FRACTION) return null;
 
-  const k = target / fHTile;
-  if (k < MIN_K || k > MAX_K) return null;
+  const kWanted = target / fHTile;
+  if (kWanted < MIN_K || kWanted > MAX_K) return null;
+
+  // Never zoom past what the source can stay sharp under — see RES_FLOOR_PX.
+  // Only ever caps a zoom-in (k > 1); a scale-down cannot cost resolution. The
+  // cap is floored at 1 so a source already below RES_FLOOR_PX (kResCap < 1) is
+  // simply left un-zoomed — never flipped into a shrink — and then suppressed
+  // by the identity band below.
+  const longEdge = Math.max(fileWidth, fileHeight);
+  const kResCap = Math.max(1, longEdge / RES_FLOOR_PX);
+  const k = kWanted > 1 ? Math.min(kWanted, kResCap) : kWanted;
 
   const tx = (0.5 - cx) * 100;
   const ty = (0.5 - cy) * 100;
