@@ -59,7 +59,8 @@ import {
   reattachArmafLine,
 } from '../src/catalogue/productName.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
-import { pickImage, type ImageBoxVerdict, type ImageDimensions } from '../src/catalogue/pickImage.js';
+import { pickImage, upgradeImageResolution, type ImageBoxVerdict, type ImageDimensions } from '../src/catalogue/pickImage.js';
+import { bottleScaleStyle, type SilhouetteBox } from '../src/catalogue/bottleScale.js';
 import { rejectPlaceholderImage } from '../src/catalogue/placeholderImage.js';
 
 /**
@@ -97,17 +98,78 @@ const imageBoxVerdicts = new Map<string, ImageBoxVerdict>();
  * exactly as stored on the offer, before upgradeImageResolution() touches it.
  */
 const imageDimensions = new Map<string, ImageDimensions>();
+/**
+ * The same file's sxf/syf/swf/shf, when it has them — added 2026-09-11 (see
+ * docs/IMAGE-SCALE-PLAN.md), so an entry recorded before the backfill has
+ * none and simply never enters this map. Read in the same pass as the two
+ * maps above because it comes from the same file, keyed the same way: by the
+ * URL exactly as stored on the offer, before upgradeImageResolution() touches
+ * it.
+ */
+const imageBoxes = new Map<string, SilhouetteBox>();
+/**
+ * Reverses imageDimensions/imageBoxVerdicts/imageBoxes' own key. Those three
+ * are keyed by the URL as STORED (pre-upgrade, the one scripts/image-box-
+ * check.ts actually downloaded), while pickImage() below returns the URL
+ * actually DISPLAYED (post-upgradeImageResolution). Built once, the same way
+ * docs/IMAGE-SCALE-PLAN.md §2 measured this: push every stored key through
+ * upgradeImageResolution() and look the displayed URL up in the result. The
+ * silhouette box is stored as fractions specifically so it survives that
+ * upgrade unchanged (same photo, more pixels) — see bottleScale.ts's own
+ * header.
+ */
+const storedUrlByUpgraded = new Map<string, string>();
 if (existsSync(imageBoxVerdictsPath)) {
   const raw = JSON.parse(readFileSync(imageBoxVerdictsPath, 'utf8')) as Record<
     string,
-    { verdict: ImageBoxVerdict; width?: number; height?: number }
+    {
+      verdict: ImageBoxVerdict;
+      width?: number;
+      height?: number;
+      sxf?: number;
+      syf?: number;
+      swf?: number;
+      shf?: number;
+    }
   >;
   for (const [url, entry] of Object.entries(raw)) {
     imageBoxVerdicts.set(url, entry.verdict);
     if (typeof entry.width === 'number' && typeof entry.height === 'number') {
       imageDimensions.set(url, { width: entry.width, height: entry.height });
     }
+    if (
+      typeof entry.sxf === 'number' &&
+      typeof entry.syf === 'number' &&
+      typeof entry.swf === 'number' &&
+      typeof entry.shf === 'number'
+    ) {
+      imageBoxes.set(url, { sxf: entry.sxf, syf: entry.syf, swf: entry.swf, shf: entry.shf });
+    }
+    storedUrlByUpgraded.set(upgradeImageResolution(url) ?? url, url);
   }
+}
+
+/**
+ * The per-photo CSS transform that evens this bottle's apparent size across
+ * the grid (docs/IMAGE-SCALE-PLAN.md), or `undefined` when this photo must
+ * render exactly as it does today — see bottleScaleStyle()'s own fallback
+ * list. `displayedUrl` is pickImage()'s return value, already upgraded;
+ * looked back up to the stored URL both the verdict and the box are keyed by.
+ * `undefined` (not `null`) so JSON.stringify drops the field entirely for
+ * every photo this does not apply to, exactly like `houseCeiling` below.
+ */
+function imageTransformFor(displayedUrl: string | null): string | undefined {
+  if (displayedUrl === null) return undefined;
+  const storedUrl = storedUrlByUpgraded.get(displayedUrl);
+  if (storedUrl === undefined) return undefined;
+  const dims = imageDimensions.get(storedUrl);
+  const style = bottleScaleStyle(
+    imageBoxes.get(storedUrl),
+    dims?.width ?? 0,
+    dims?.height ?? 0,
+    imageBoxVerdicts.get(storedUrl),
+  );
+  return style ?? undefined;
 }
 
 /* ── deciding what is actually a fragrance ─────────────────────────────────── */
@@ -1618,21 +1680,27 @@ const crawledAt =
   ordered.flatMap((p) => p.offers.map((o) => o.fetchedAt)).sort().at(-1) ??
   new Date(0).toISOString();
 
-const catalogue = ordered.map((p) => ({
-  id: p.id,
-  brand: p.brand,
-  name: p.name,
-  concentration: p.concentration,
-  sizeMl: p.sizeMl,
-  ean: p.ean,
-  shops: p.offers.length,
-  image: pickImage(p.offers, now, imageBoxVerdicts, imageDimensions),
-  notes: pickNotes(p.offers),
-  // Omitted entirely rather than written as null where the house is not
-  // stocked here — JSON.stringify drops an undefined value, so 13,933 of the
-  // 14,784 products cost nothing for a field that has nothing to say.
-  houseCeiling: houseCeilings.get(p.id),
-}));
+const catalogue = ordered.map((p) => {
+  const image = pickImage(p.offers, now, imageBoxVerdicts, imageDimensions);
+  return {
+    id: p.id,
+    brand: p.brand,
+    name: p.name,
+    concentration: p.concentration,
+    sizeMl: p.sizeMl,
+    ean: p.ean,
+    shops: p.offers.length,
+    image,
+    // Omitted entirely (not null) for every photo bottleScaleStyle() does not
+    // apply to — see imageTransformFor()'s own header.
+    imageTransform: imageTransformFor(image),
+    notes: pickNotes(p.offers),
+    // Omitted entirely rather than written as null where the house is not
+    // stocked here — JSON.stringify drops an undefined value, so 13,933 of the
+    // 14,784 products cost nothing for a field that has nothing to say.
+    houseCeiling: houseCeilings.get(p.id),
+  };
+});
 
 /**
  * TypeScript's checker can choke ("Expression produces a union type that is
@@ -1717,6 +1785,18 @@ export interface CatalogueEntry {
   shops: number;
   /** A real, licensed product photo — see demo/photo.ts. Null means none yet. */
   image: string | null;
+  /**
+   * A per-photo CSS \`transform\` that evens this bottle's apparent height
+   * across the grid to the measured median tile fraction — see
+   * docs/IMAGE-SCALE-PLAN.md and src/catalogue/bottleScale.ts. Present only
+   * for a \`bottle-only\`-verdicted photo with a persisted silhouette box
+   * whose transform is not already within a hair of doing nothing; absent
+   * for every other photo (boxed, unsure, unswept, no verdict, no box, or
+   * already even enough), which then renders with no transform at all —
+   * exactly as it always has. Applied by demo/photo.ts's productArt as an
+   * inline \`style\` attribute on the \`<img>\`, never on the container.
+   */
+  imageTransform?: string;
   /**
    * Notes as a source explicitly labelled them, never inferred. Null where the
    * retailer's copy did not spell them out, which the app states plainly
