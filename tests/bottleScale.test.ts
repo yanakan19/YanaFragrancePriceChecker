@@ -7,6 +7,24 @@ function centredBox(shf: number, swf = 0.4): SilhouetteBox {
 }
 
 describe('bottleScaleStyle', () => {
+  it('caps the zoom on a small source so it cannot soften — resolution floor', () => {
+    // A bottle at 0.41 of the tile wants k = 0.80/0.41 = 1.95. On a 1920px
+    // source that is fine (window ~985px), but on a 500px source it would
+    // show ~256px across a ~340px tile — visibly soft. The cap holds the
+    // zoom to longEdge/400 = 1.25 there, so the bottle grows but stays sharp.
+    const big = bottleScaleStyle(centredBox(0.41), 1920, 1920, 'bottle-only');
+    const small = bottleScaleStyle(centredBox(0.41), 500, 500, 'bottle-only');
+    expect(big).toContain('scale(1.951)');
+    const kSmall = Number(String(small).match(/scale\(([\d.]+)\)/)![1]);
+    expect(kSmall).toBeCloseTo(1.25, 2);
+  });
+
+  it('a source below the resolution floor is left un-zoomed, never shrunk', () => {
+    // longEdge 300 < 400: kResCap floors at 1, so a zoom-in request lands at
+    // k=1 and is suppressed — a shrink here would be an inversion bug.
+    expect(bottleScaleStyle(centredBox(0.5), 300, 300, 'bottle-only')).toBeNull();
+  });
+
   it('is null for every verdict that is not bottle-only — boxed', () => {
     // Al Nashama in docs/IMAGE-SCALE-PLAN.md §3's worked table: a real
     // silhouette (bottle + carton) that would otherwise scale, but must not —
