@@ -1157,7 +1157,7 @@ function fragranceTile(
         ${productHead(f)}
         <span class="tile-art">
           ${medal ? `<span class="medal ${medal}" aria-label="Number ${opts!.rank! + 1} most popular"><span class="medal-disc">${opts!.rank! + 1}</span></span>` : ''}
-          ${productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`)}
+          ${productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`, f.imageTransform)}
         </span>
         <span class="tile-price">${opts?.trailing ?? priceLine(f)}</span>
         ${badgeRetailer ? `<span class="sold-by" title="${esc(`${badgePrefix} ${badgeRetailer}`)}"><span>${badgePrefix} ${esc(badgeRetailer)}</span></span>` : `<span class="sold-by" aria-hidden="true" style="visibility:hidden"><span>&nbsp;</span></span>`}
@@ -2431,7 +2431,7 @@ function detailView(): string {
 
     <div class="detail-grid">
       <div class="hero">
-        <div class="hero-art">${productArt(frag.photoUrl, 'lg', `${frag.brand} ${frag.name}`)}</div>
+        <div class="hero-art">${productArt(frag.photoUrl, 'lg', `${frag.brand} ${frag.name}`, frag.imageTransform)}</div>
         ${brandButton(frag.brand)}
         ${productHead(frag, 'div', 't-page')}
         ${fragranceLinksBlock(frag)}

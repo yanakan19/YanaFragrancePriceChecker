@@ -78,15 +78,34 @@ function noImageMark(size: ArtSize): string {
  * Deliberately not done by rendering a hidden fallback behind every photo: that
  * would double the DOM for a case that almost never fires, on a page where
  * cutting DOM size is exactly what made long lists fast.
+ *
+ * ── `transform`: evening the bottle's own apparent size (docs/IMAGE-SCALE-PLAN.md) ──
+ * A build-time-only CSS transform, computed per photo in
+ * scripts/build-demo-catalogue.ts from the silhouette bounding box
+ * src/catalogue/bottleScale.ts turns into a `translate()/scale()`, and
+ * carried on `CatalogueEntry.imageTransform`. Applied as an inline `style` on
+ * the `<img>` itself, never on the `.art` container: `.art` still does
+ * nothing but clip (`overflow: hidden`) and hold the white ground, exactly as
+ * before, and the transform is invisible outside that clip. Optional and
+ * additive — most photos carry none (no verdict, a boxed or unsure one, or a
+ * bottle-only one with no persisted box yet), and for every one of those this
+ * renders byte-identical to before this existed: no `style` attribute at
+ * all, not an empty one.
  */
-export function productArt(photoUrl: string | null, size: ArtSize, label: string): string {
+export function productArt(
+  photoUrl: string | null,
+  size: ArtSize,
+  label: string,
+  transform?: string | null,
+): string {
   if (!photoUrl) {
     return `<span class="art art-${size} art-empty" role="img"
       aria-label="${escapeAttr(label)}, no image available">${noImageMark(size)}</span>`;
   }
+  const style = transform ? ` style="${escapeAttr(transform)}"` : '';
   return `<span class="art art-${size}">
     <img class="art-img" src="${escapeAttr(photoUrl)}" alt="${escapeAttr(label)}"
-      loading="lazy" decoding="async" referrerpolicy="no-referrer"
+      loading="lazy" decoding="async" referrerpolicy="no-referrer"${style}
       onerror="this.closest('.art').classList.add('art-failed');this.remove()" />
   </span>`;
 }

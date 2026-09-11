@@ -60,6 +60,28 @@ export interface CatalogueEntry {
   /** A real, licensed product photo — see demo/photo.ts. Null means none yet. */
   image: string | null;
   /**
+   * A per-photo CSS `transform` that evens this bottle's apparent height
+   * across the grid to the measured median tile fraction — see
+   * docs/IMAGE-SCALE-PLAN.md and src/catalogue/bottleScale.ts. Present only
+   * for a `bottle-only`-verdicted photo with a persisted silhouette box
+   * whose transform is not already within a hair of doing nothing; absent
+   * for every other photo (boxed, unsure, unswept, no verdict, no box, or
+   * already even enough), which then renders with no transform at all —
+   * exactly as it always has. Applied by demo/photo.ts's productArt as an
+   * inline `style` attribute on the `<img>`, never on the container.
+   *
+   * Declared here by hand alongside the type this file's own generator
+   * (scripts/build-demo-catalogue.ts) now emits, because that generator was
+   * deliberately NOT re-run to produce this file — see the commit that added
+   * this field for why. No entry below carries it yet; every photo in this
+   * build renders exactly as it did before this field existed, which is the
+   * fallback bottleScaleStyle() guarantees for an absent value. Regenerating
+   * this file for real (`npm run harvest && npm run catalogue:demo`) will
+   * populate it for the ~4,700 eligible photos without any further code
+   * change.
+   */
+  imageTransform?: string;
+  /**
    * Notes as a source explicitly labelled them, never inferred. Null where the
    * retailer's copy did not spell them out, which the app states plainly
    * rather than papering over.

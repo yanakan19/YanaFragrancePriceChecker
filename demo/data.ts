@@ -52,6 +52,14 @@ export interface DemoFragrance {
    */
   popularity: number;
   photoUrl: string | null;
+  /**
+   * The build-time CSS transform that evens this bottle's apparent size in
+   * the tile — see docs/IMAGE-SCALE-PLAN.md and demo/photo.ts's productArt,
+   * the only reader. Null for every photo it does not apply to (most of
+   * them), carried through from `CatalogueEntry.imageTransform` the same way
+   * `houseCeiling` below normalises its own optional field.
+   */
+  imageTransform: string | null;
   /** Only ever notes a source explicitly labelled. Null means genuinely unknown. */
   notes: Notes | null;
   /**
@@ -187,6 +195,7 @@ export const DEMO_FRAGRANCES: DemoFragrance[] = CATALOGUE.map((entry) => ({
   tier: priceTierFor(entry.id, entry.brand),
   popularity: rankableShopCount(entry.id),
   photoUrl: entry.image,
+  imageTransform: entry.imageTransform ?? null,
   notes: tidyNotes(entry.notes),
   // `?? null` rather than passing the optional straight through: the generated
   // field is `houseCeiling?: number`, and under exactOptionalPropertyTypes an

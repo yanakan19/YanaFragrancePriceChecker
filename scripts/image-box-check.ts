@@ -114,6 +114,16 @@ interface CatalogueFile {
  * size is not recorded, so an unswept entry behaves as it always did rather
  * than being guessed at. They cost nothing to produce — the classifier has
  * the image open and decoded already.
+ *
+ * `sxf`/`syf`/`swf`/`shf` are the silhouette bounding box scripts/image-box-
+ * classify.py already measures to decide the verdict, added 2026-09-11 —
+ * see docs/IMAGE-SCALE-PLAN.md. Optional the same way, for the same reason:
+ * every entry written before this carries none, and src/catalogue/
+ * bottleScale.ts's fallback treats an absent box as "render exactly as
+ * today" rather than guessing at one. Stored as fractions of the file's own
+ * width/height (3 dp) so the box applies unchanged to the upgraded,
+ * higher-resolution URL actually displayed — see upgradeImageResolution()'s
+ * own note on why fractions beat pixels here.
  */
 interface VerdictEntry {
   verdict: ImageBoxVerdict;
@@ -121,6 +131,10 @@ interface VerdictEntry {
   checkedAt: string;
   width?: number;
   height?: number;
+  sxf?: number;
+  syf?: number;
+  swf?: number;
+  shf?: number;
 }
 
 /** Presented as a real browser would — mirrors scripts/image-link-check.ts. */
@@ -198,10 +212,21 @@ async function download(url: string, dest: string): Promise<boolean> {
   }
 }
 
-function classify(path: string): { verdict: ImageBoxVerdict; score: number; width?: number; height?: number } {
+interface ClassifyResult {
+  verdict: ImageBoxVerdict;
+  score: number;
+  width?: number;
+  height?: number;
+  sxf?: number;
+  syf?: number;
+  swf?: number;
+  shf?: number;
+}
+
+function classify(path: string): ClassifyResult {
   try {
     const out = execFileSync('python3', [classifierPath, path], { encoding: 'utf8', timeout: 15_000 });
-    const parsed = JSON.parse(out) as { verdict: ImageBoxVerdict; score: number; width?: number; height?: number };
+    const parsed = JSON.parse(out) as ClassifyResult;
     // The classifier omits both only when it could not open the file at all,
     // in which case there is no size to record and the entry keeps the shape
     // every pre-2026-09-09 entry already has.
@@ -209,7 +234,18 @@ function classify(path: string): { verdict: ImageBoxVerdict; score: number; widt
       typeof parsed.width === 'number' && typeof parsed.height === 'number'
         ? { width: parsed.width, height: parsed.height }
         : {};
-    return { verdict: parsed.verdict, score: parsed.score, ...size };
+    // The four fractions arrive together or not at all — the classifier only
+    // ever omits them when it could not find a foreground to bound (see its
+    // own "no-foreground"/"no-occupied-columns" branches), which is rare
+    // enough that a partial box is not worth guarding against separately.
+    const box =
+      typeof parsed.sxf === 'number' &&
+      typeof parsed.syf === 'number' &&
+      typeof parsed.swf === 'number' &&
+      typeof parsed.shf === 'number'
+        ? { sxf: parsed.sxf, syf: parsed.syf, swf: parsed.swf, shf: parsed.shf }
+        : {};
+    return { verdict: parsed.verdict, score: parsed.score, ...size, ...box };
   } catch {
     return { verdict: 'unsure', score: 0 };
   }
@@ -255,13 +291,16 @@ async function main() {
       }
       downloaded++;
     }
-    const { verdict, score, width, height } = classify(dest);
+    const { verdict, score, width, height, sxf, syf, swf, shf } = classify(dest);
     counts[verdict]++;
     verdicts[url] = {
       verdict,
       score,
       checkedAt: new Date().toISOString(),
       ...(width !== undefined && height !== undefined ? { width, height } : {}),
+      ...(sxf !== undefined && syf !== undefined && swf !== undefined && shf !== undefined
+        ? { sxf, syf, swf, shf }
+        : {}),
     };
   });
 

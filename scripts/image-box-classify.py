@@ -157,7 +157,8 @@ def classify(path: str) -> dict:
     span_w = last - first + 1
 
     rows = [y for y in range(h) if row_has[y]]
-    bbox_h = (max(rows) - min(rows) + 1) if rows else h
+    top = min(rows) if rows else 0
+    bbox_h = (max(rows) - top + 1) if rows else h
 
     aspect = span_w / max(1, bbox_h)
 
@@ -166,9 +167,35 @@ def classify(path: str) -> dict:
     # module docstring for the 30-photo measurement behind this.
     margin_free = span_w >= w and bbox_h >= h
 
+    # The silhouette's own bounding box, as fractions of THIS (downscaled)
+    # frame's own width/height — scale-invariant, since MAX_SIDE shrinks both
+    # dimensions by the same factor, so these fractions describe the original
+    # full-size file's composition exactly and survive upgradeImageResolution()
+    # unchanged (same photo, more pixels; see pickImage.ts's own note on why
+    # fractions rather than pixels are stored). Computed here, once, for every
+    # branch below rather than only the one this classifier ends up calling
+    # bottle-only: docs/IMAGE-SCALE-PLAN.md §5 persists it on boxed and unsure
+    # entries too, even though only a `bottle-only` verdict is ever scaled —
+    # the box costs nothing extra to report once first/last/rows are already
+    # in hand, and a future reader is never left wondering why one verdict
+    # carries it and another does not.
+    box = {
+        "sxf": round(first / w, 3),
+        "syf": round(top / h, 3),
+        "swf": round(span_w / w, 3),
+        "shf": round(bbox_h / h, 3),
+    }
+
     if aspect >= BOXED_ASPECT:
         score = min(1.0, 0.75 + (aspect - BOXED_ASPECT) * 0.5)
-        return {"verdict": "boxed", "score": round(score, 3), "reason": f"aspect={aspect:.3f}", "width": w0, "height": h0}
+        return {
+            "verdict": "boxed",
+            "score": round(score, 3),
+            "reason": f"aspect={aspect:.3f}",
+            "width": w0,
+            "height": h0,
+            **box,
+        }
     if aspect < BOTTLE_ASPECT and not margin_free:
         score = min(1.0, 0.75 + (BOTTLE_ASPECT - aspect) * 0.5)
         return {
@@ -177,9 +204,10 @@ def classify(path: str) -> dict:
             "reason": f"aspect={aspect:.3f}",
             "width": w0,
             "height": h0,
+            **box,
         }
     reason = f"aspect={aspect:.3f}" + ("; margin-free crop" if margin_free else "")
-    return {"verdict": "unsure", "score": 0.5, "reason": reason, "width": w0, "height": h0}
+    return {"verdict": "unsure", "score": 0.5, "reason": reason, "width": w0, "height": h0, **box}
 
 
 if __name__ == "__main__":
