@@ -1,6 +1,6 @@
 {
   "retailerId": "scentstore",
-  "updatedAt": "2026-09-11T09:43:12.137Z",
+  "updatedAt": "2026-09-11T14:27:15.794Z",
   "source": "live",
   "listings": [
     {
@@ -19,7 +19,7 @@
       "rating": null,
       "retailerId": "scentstore",
       "firstSeenAt": "2026-08-12T12:55:07.912Z",
-      "lastSeenAt": "2026-09-11T09:43:12.137Z",
+      "lastSeenAt": "2026-09-11T14:27:15.794Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -42,7 +42,7 @@
       "rating": null,
       "retailerId": "scentstore",
       "firstSeenAt": "2026-08-12T12:55:07.912Z",
-      "lastSeenAt": "2026-09-11T09:43:12.137Z",
+      "lastSeenAt": "2026-09-11T14:27:15.794Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
