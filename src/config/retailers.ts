@@ -387,6 +387,34 @@ export const RETAILERS: readonly Retailer[] = [
     // past the challenge — see how this registry already treats Boots,
     // Superdrug and Zara.
     //
+    // ── 2026-09-12: measured, and it is dark — renderRefused, renderPages 4→1 ──
+    // The "Not measured" line below asked whether pages 2-4 would render or
+    // get challenged. Answered by five real, non-budget-exhausted reached
+    // renders since renderPages:4 first shipped (data/harvest-report.json
+    // commits 05d3dbd9, 08796a53, 3f1178a0, 9aac4eee, 79873082 — spanning
+    // 2026-09-11T00:13Z to 2026-09-12T05:58Z): every one of the four pages
+    // came back HTTP 403, 28.7-28.8KB (the same Cloudflare challenge shape as
+    // the three subsections above), 0 listings parsed, on all five attempts.
+    // Worse than what the plan risked: /fragrance/ page 1 itself, the one
+    // page this render tier had gotten through since 2026-08-27 (see
+    // 44b71ccb through 102c42ff above), is now also refused. Whatever this
+    // shop tightened, it caught the whole path, not just the deeper pages.
+    // `renderPages` drops back to 1, exactly as promised below, though it no
+    // longer changes the outcome by itself. This clears the bar
+    // knownRenderRefusal (src/catalogue/renderRefusal.ts) sets for
+    // `renderRefused`: multiple dated, non-budget-exhausted renders, all
+    // landing in a real refused shape — the same evidence bar Boots, Zara,
+    // The Fragrance Shop and The Perfume Shop already carry it on. Set to
+    // `'local'`, not `true`: every refusal above is the free local renderer;
+    // no Apify actor credential has ever existed in this environment to test
+    // against this shop, so there is no actor-tier evidence to claim either
+    // way (the exact distinction renderRefusal.ts's own comment draws for The
+    // Fragrance Shop and The Perfume Shop). The 95 stored offers are not
+    // delisted — same reasoning as Boots's entry above: STALE_OFFER_DAYS
+    // already ages them out of ranking honestly, and deleting a real observed
+    // price in favour of nothing loses information a reader can otherwise be
+    // told the age of.
+    //
     // `adapter` moves from 'proxied' to 'headless' on the strength of the
     // fragrance section alone — a plain headless browser, no residential
     // proxy, no Apify credential, is enough to get real priced listings from
@@ -394,6 +422,7 @@ export const RETAILERS: readonly Retailer[] = [
     // other three sections are solved: they still yield nothing through
     // every tier this run tried, and are left as-is rather than chased
     // further without a credentialed proxy/actor tier to actually test.
+    renderRefused: 'local',
     adapter: 'headless',
     currency: 'GBP',
     shipping: {
@@ -465,15 +494,17 @@ export const RETAILERS: readonly Retailer[] = [
     // ignored; it served page 1 regardless. `?f=page-{page}` on the three
     // subsections was never the shop's shape at all.)
     //
-    // `renderPages: 4` (new field — see CatalogueSection.renderPages in
-    // src/types/retailer.ts and src/catalogue/renderTargets.ts) makes the
+    // `renderPages: 4` was tried here (see CatalogueSection.renderPages in
+    // src/types/retailer.ts and src/catalogue/renderTargets.ts) to make the
     // render tier fetch pages 1-4 of /fragrance/ instead of page 1 plus three
-    // challenges: the same four pages of the shared render budget this shop
-    // already spends every run, for four pages of products rather than one.
-    // At the measured 27-28 products a page that is ~110 listings a run
-    // against 28 — and reconcile() never delists on a render-tier run
-    // (`actorPartial`), so the snapshot accumulates across runs as the
-    // section's ordering moves, exactly as it accumulated the 95.
+    // challenges — the same four pages of the shared render budget this shop
+    // already spent every run, for four pages of products rather than one.
+    // Reverted to 1 on 2026-09-12: see the dated section above. All four
+    // pages, including the one that used to work, now come back refused, and
+    // `renderRefused: 'local'` above means this shop is skipped before the
+    // render tier is even asked, so the page count spent per attempt no
+    // longer matters — 1 is kept as the honest record of what this section
+    // is actually worth today, not a knob still being tuned.
     //
     // The three subsection entries are removed rather than kept beside it.
     // Their URLs were guessed on 2026-08-06 in a pagination shape the shop
@@ -484,19 +515,17 @@ export const RETAILERS: readonly Retailer[] = [
     // Harvey Nichols do not get. Nothing about them is lost: every listing
     // they would have carried is in /fragrance/, the catch-all.
     //
-    // Measured and not measured, plainly. Measured: page 1's yield (27 in the
-    // capture, 28 in each report), the shop's own next-page link, and the
-    // plain-fetch refusals above. Not measured: pages 2-4 actually rendering.
-    // This sandbox's egress proxy closes Chromium's TLS tunnel before a
-    // ServerHello (proxy status: "1,828 B sent, 39 B received, tunnel closed
-    // after 6s" against www.notino.co.uk:443, on three tries including a
-    // TLS-1.2-capped handshake) while curl's classic handshake to the same
-    // host succeeds — a sandbox limitation, so no render of any URL could be
-    // made from here. The first scheduled run after this lands measures it:
-    // data/harvest-report.json will carry four /fragrance/ URLs with bytes
-    // and listings each, and a `refusals` entry for any page Cloudflare
-    // challenges. If pages 2-4 come back challenged, `renderPages` drops to 1
-    // and this shop is back exactly where it was, one page a run.
+    // Measured and not measured, plainly, at the time this was written.
+    // Measured then: page 1's yield (27 in the capture, 28 in each report),
+    // the shop's own next-page link, and the plain-fetch refusals above. Not
+    // measured then: pages 2-4 actually rendering — this sandbox's egress
+    // proxy closed Chromium's TLS tunnel before a ServerHello, so no render
+    // of any URL could be made from here. Now measured, and worse than this
+    // paragraph expected: see the dated section above ("2026-09-12: measured,
+    // and it is dark") for what five real scheduled runs actually returned —
+    // page 1 included. `renderPages` is back to 1 below, and `renderRefused:
+    // 'local'` above stops this shop from spending a render-tier turn on any
+    // of them until new evidence says otherwise.
     catalogue: {
       searchUrlTemplate: 'https://www.notino.co.uk/search.asp?exps={q}',
       sections: [
@@ -505,7 +534,7 @@ export const RETAILERS: readonly Retailer[] = [
           label: 'Fragrance',
           urlTemplate: 'https://www.notino.co.uk/fragrance/?f={page}-1-55544',
           tier: 'designer',
-          renderPages: 4,
+          renderPages: 1,
         },
       ],
       firstPage: 1, maxPages: 80, minRequestGapMs: 1500,
