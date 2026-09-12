@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-12T01:27:42.549Z",
+  "checkedAt": "2026-09-12T07:02:50.570Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -189,18 +189,18 @@
       "houseId": "paris-corner",
       "name": "Paris Corner",
       "origin": "https://pariscorner.ae",
-      "routeUsed": "sitemap-jsonld",
-      "currency": "AED",
-      "listings": 42,
-      "pricedInGbp": 42,
-      "withPhoto": 42,
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
       "errors": [
-        "stopped early: exceeded this house's time budget"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {
@@ -479,9 +479,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 668,
+      "listings": 678,
       "pricedInGbp": 0,
-      "withPhoto": 668,
+      "withPhoto": 678,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
