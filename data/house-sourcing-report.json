@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-13T12:59:20.147Z",
+  "checkedAt": "2026-09-13T17:21:10.261Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -143,10 +143,12 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 59,
-      "errors": [],
+      "listings": 54,
+      "pricedInGbp": 54,
+      "withPhoto": 54,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
@@ -190,16 +192,17 @@
       "houseId": "paris-corner",
       "name": "Paris Corner",
       "origin": "https://pariscorner.ae",
-      "routeUsed": "sitemap-jsonld",
-      "currency": "AED",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 60,
-      "errors": [],
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
+      "errors": [
+        "robots.txt unreachable at https://pariscorner.ae and https://www.pariscorner.ae — holding off rather than guessing we are welcome"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending"
       ]
     },
     {
@@ -256,13 +259,13 @@
       "houseId": "maison-alhambra",
       "name": "Maison Alhambra",
       "origin": "https://maisonalhambra.co",
-      "routeUsed": "sitemap-jsonld",
+      "routeUsed": null,
       "currency": null,
-      "listings": 72,
-      "pricedInGbp": 47,
-      "withPhoto": 47,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "robots.txt unreachable at https://maisonalhambra.co and https://www.maisonalhambra.co — holding off rather than guessing we are welcome"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
