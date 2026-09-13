@@ -3478,13 +3478,13 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: null,
       freeOverGbp: 50,
       estimatedDays: [2, 4],
-      verifiedAt: '2026-09-09',
+      verifiedAt: '2026-09-13',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
         url: 'https://manchesterouds.com/pages/shipping-policy',
         quote: 'Free shipping on orders over £50',
-        readAt: '2026-09-09',
+        readAt: '2026-09-13',
       },
       notes:
         'THE FLAT STANDARD RATE IS UNCONFIRMED, so this shop is shown with delivery not ' +
