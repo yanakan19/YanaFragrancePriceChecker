@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-12T23:25:39.172Z",
+  "checkedAt": "2026-09-13T07:28:31.507Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,12 +59,10 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 48,
+      "listings": 60,
       "pricedInGbp": 0,
       "withPhoto": 0,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
@@ -144,9 +142,9 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 59,
+      "listings": 56,
+      "pricedInGbp": 56,
+      "withPhoto": 55,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -479,9 +477,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 678,
+      "listings": 677,
       "pricedInGbp": 0,
-      "withPhoto": 678,
+      "withPhoto": 677,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
