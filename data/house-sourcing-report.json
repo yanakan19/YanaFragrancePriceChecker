@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-14T11:53:57.846Z",
+  "checkedAt": "2026-09-14T18:07:37.614Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -57,19 +57,21 @@
       "houseId": "pairfum-london",
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
-      "routeUsed": "sitemap-jsonld",
-      "currency": "USD",
-      "listings": 21,
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "stopped early: exceeded this house's time budget"
+        "storefront currency could not be established — no sterling price recorded",
+        "https://www.pairfum.com/products.json?limit=250&page=1: HTTP 0 AbortError: This operation was aborted",
+        "https://www.pairfum.com/sitemap_index.xml: HTTP 0 AbortError: This operation was aborted"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
         "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
-        "prices are in USD, not GBP — needs a UK price source before these are comparable"
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {
@@ -213,8 +215,7 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded",
-        "https://arabiyatprestige.shop/sitemap.xml: HTTP 0 TypeError: fetch failed (Error: C03CF2DC357F0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert )"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
