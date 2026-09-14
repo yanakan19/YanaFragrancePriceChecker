@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-14T06:02:18.353Z",
+  "checkedAt": "2026-09-14T11:53:57.846Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,10 +59,12 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 60,
+      "listings": 21,
       "pricedInGbp": 0,
       "withPhoto": 0,
-      "errors": [],
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
@@ -94,7 +96,7 @@
       "currency": "AED",
       "listings": 251,
       "pricedInGbp": 0,
-      "withPhoto": 248,
+      "withPhoto": 251,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -212,7 +214,7 @@
       "withPhoto": 0,
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
-        "https://arabiyatprestige.shop/sitemap.xml: HTTP 502"
+        "https://arabiyatprestige.shop/sitemap.xml: HTTP 0 TypeError: fetch failed (Error: C03CF2DC357F0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert )"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
