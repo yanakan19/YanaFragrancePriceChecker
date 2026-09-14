@@ -1,9 +1,23 @@
 {
-  "startedAt": "2026-09-13T21:39:29.683Z",
-  "finishedAt": "2026-09-13T22:35:39.993Z",
+  "startedAt": "2026-09-14T04:56:21.067Z",
+  "finishedAt": "2026-09-14T05:52:24.541Z",
   "complete": true,
   "endedReason": "deadline",
   "planned": [
+    "superdrug",
+    "selfridges",
+    "the-fragrance-counter",
+    "scentstore",
+    "glorious-beauty",
+    "french-avenue",
+    "armaf",
+    "al-haramain",
+    "riiffs",
+    "ibraq",
+    "bellavita-luxury",
+    "oud-arabian",
+    "manchester-ouds",
+    "emirates-oud",
     "perfumeo",
     "the-beauty-store-uk",
     "zimaya",
@@ -24,39 +38,197 @@
     "the-perfume-shop",
     "john-lewis",
     "beautybase",
-    "lookfantastic",
-    "superdrug",
-    "selfridges",
-    "the-fragrance-counter",
-    "scentstore",
-    "glorious-beauty",
-    "french-avenue",
-    "armaf",
-    "al-haramain",
-    "riiffs",
-    "ibraq",
-    "bellavita-luxury",
-    "oud-arabian",
-    "manchester-ouds",
-    "emirates-oud"
+    "lookfantastic"
   ],
   "notReached": [
-    "superdrug",
-    "selfridges",
-    "the-fragrance-counter",
-    "scentstore",
-    "glorious-beauty",
-    "french-avenue",
-    "armaf",
-    "al-haramain",
-    "riiffs",
-    "ibraq",
-    "bellavita-luxury",
-    "oud-arabian",
-    "manchester-ouds",
-    "emirates-oud"
+    "bm-stores",
+    "home-bargains",
+    "notino-uk",
+    "boots",
+    "the-fragrance-shop",
+    "harvey-nichols",
+    "allbeauty",
+    "justmylook",
+    "the-perfume-shop",
+    "john-lewis",
+    "beautybase",
+    "lookfantastic"
   ],
   "shops": [
+    {
+      "retailerId": "superdrug",
+      "name": "Superdrug",
+      "urlsDiscovered": 0,
+      "pagesFetched": 0,
+      "priced": 0,
+      "tier": "none",
+      "renderer": null,
+      "errorCount": 2,
+      "errors": [
+        "[actor] skipped: Superdrug has answered every real render attempt on file with a refusal (see its registry entry in src/config/retailers.ts for the dated evidence) — skipping the render tier rather than spending a page confirming that again",
+        "https://www.superdrug.com/sitemap.xml: HTTP 403"
+      ],
+      "finishedAt": "2026-09-14T04:56:21.306Z"
+    },
+    {
+      "retailerId": "selfridges",
+      "name": "Selfridges",
+      "urlsDiscovered": 1,
+      "pagesFetched": 1,
+      "priced": 60,
+      "tier": "render",
+      "renderer": "local browser",
+      "errorCount": 0,
+      "errors": [],
+      "finishedAt": "2026-09-14T04:56:32.376Z"
+    },
+    {
+      "retailerId": "the-fragrance-counter",
+      "name": "The Fragrance Counter",
+      "urlsDiscovered": 389,
+      "pagesFetched": 70,
+      "priced": 28,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "finishedAt": "2026-09-14T04:58:55.707Z"
+    },
+    {
+      "retailerId": "scentstore",
+      "name": "ScentStore",
+      "urlsDiscovered": 786,
+      "pagesFetched": 70,
+      "priced": 15,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "finishedAt": "2026-09-14T05:03:56.941Z"
+    },
+    {
+      "retailerId": "glorious-beauty",
+      "name": "Glorious Beauty",
+      "urlsDiscovered": 47,
+      "pagesFetched": 47,
+      "priced": 47,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "finishedAt": "2026-09-14T05:07:12.087Z"
+    },
+    {
+      "retailerId": "french-avenue",
+      "name": "French Avenue",
+      "urlsDiscovered": 146,
+      "pagesFetched": 4,
+      "priced": 146,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "finishedAt": "2026-09-14T05:07:24.577Z"
+    },
+    {
+      "retailerId": "armaf",
+      "name": "Armaf",
+      "urlsDiscovered": 324,
+      "pagesFetched": 6,
+      "priced": 324,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "finishedAt": "2026-09-14T05:07:43.315Z"
+    },
+    {
+      "retailerId": "al-haramain",
+      "name": "Al Haramain Perfumes",
+      "urlsDiscovered": 614,
+      "pagesFetched": 10,
+      "priced": 614,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "finishedAt": "2026-09-14T05:09:34.637Z"
+    },
+    {
+      "retailerId": "riiffs",
+      "name": "Riiffs Perfumes",
+      "urlsDiscovered": 143,
+      "pagesFetched": 67,
+      "priced": 66,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 2,
+      "errors": [
+        "https://uk.riiffsperfumes.com/shop/: HTTP 500",
+        "stopped early: exceeded this shop's time budget"
+      ],
+      "finishedAt": "2026-09-14T05:15:40.367Z"
+    },
+    {
+      "retailerId": "ibraq",
+      "name": "IBRAQ",
+      "urlsDiscovered": 95,
+      "pagesFetched": 3,
+      "priced": 95,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "finishedAt": "2026-09-14T05:15:47.117Z"
+    },
+    {
+      "retailerId": "bellavita-luxury",
+      "name": "BellaVita Luxury",
+      "urlsDiscovered": 87,
+      "pagesFetched": 70,
+      "priced": 70,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "finishedAt": "2026-09-14T05:20:50.896Z"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "name": "Oud Arabian",
+      "urlsDiscovered": 179,
+      "pagesFetched": 70,
+      "priced": 70,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "finishedAt": "2026-09-14T05:25:45.880Z"
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "name": "Manchester Ouds",
+      "urlsDiscovered": 104,
+      "pagesFetched": 70,
+      "priced": 69,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "finishedAt": "2026-09-14T05:30:39.981Z"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "name": "Emirates Oud",
+      "urlsDiscovered": 2275,
+      "pagesFetched": 33,
+      "priced": 2275,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "finishedAt": "2026-09-14T05:33:05.104Z"
+    },
     {
       "retailerId": "perfumeo",
       "name": "Perfumeo",
@@ -69,7 +241,7 @@
       "errors": [
         "https://www.perfumeo.co.uk/sitemap.xml: HTTP 404"
       ],
-      "finishedAt": "2026-09-13T21:45:22.021Z"
+      "finishedAt": "2026-09-14T05:38:59.483Z"
     },
     {
       "retailerId": "the-beauty-store-uk",
@@ -81,7 +253,7 @@
       "renderer": null,
       "errorCount": 0,
       "errors": [],
-      "finishedAt": "2026-09-13T21:51:15.063Z"
+      "finishedAt": "2026-09-14T05:44:53.113Z"
     },
     {
       "retailerId": "zimaya",
@@ -93,7 +265,7 @@
       "renderer": null,
       "errorCount": 0,
       "errors": [],
-      "finishedAt": "2026-09-13T21:51:23.290Z"
+      "finishedAt": "2026-09-14T05:45:01.315Z"
     },
     {
       "retailerId": "kayali",
@@ -105,7 +277,7 @@
       "renderer": null,
       "errorCount": 0,
       "errors": [],
-      "finishedAt": "2026-09-13T21:51:31.593Z"
+      "finishedAt": "2026-09-14T05:45:09.550Z"
     },
     {
       "retailerId": "zara",
@@ -120,7 +292,7 @@
         "[actor] skipped: Zara has answered every real render attempt on file with a refusal (see its registry entry in src/config/retailers.ts for the dated evidence) — skipping the render tier rather than spending a page confirming that again",
         "https://www.zara.com/sitemap.xml: HTTP 404"
       ],
-      "finishedAt": "2026-09-13T21:51:31.995Z"
+      "finishedAt": "2026-09-14T05:45:10.188Z"
     },
     {
       "retailerId": "escentric-molecules",
@@ -132,7 +304,7 @@
       "renderer": null,
       "errorCount": 0,
       "errors": [],
-      "finishedAt": "2026-09-13T21:52:45.633Z"
+      "finishedAt": "2026-09-14T05:46:31.623Z"
     },
     {
       "retailerId": "fragrancehub",
@@ -144,7 +316,7 @@
       "renderer": null,
       "errorCount": 0,
       "errors": [],
-      "finishedAt": "2026-09-13T21:53:20.538Z"
+      "finishedAt": "2026-09-14T05:47:07.141Z"
     },
     {
       "retailerId": "avon",
@@ -156,196 +328,22 @@
       "renderer": null,
       "errorCount": 0,
       "errors": [],
-      "finishedAt": "2026-09-13T21:54:21.103Z"
+      "finishedAt": "2026-09-14T05:48:06.870Z"
     },
     {
       "retailerId": "morrisons",
       "name": "Morrisons",
       "urlsDiscovered": 179,
-      "pagesFetched": 70,
-      "priced": 70,
+      "pagesFetched": 61,
+      "priced": 61,
       "tier": "free",
-      "renderer": null,
-      "errorCount": 1,
-      "errors": [
-        "https://groceries.morrisons.com/sitemap.xml: HTTP 403"
-      ],
-      "finishedAt": "2026-09-13T21:59:20.919Z"
-    },
-    {
-      "retailerId": "bm-stores",
-      "name": "B&M",
-      "urlsDiscovered": 214,
-      "pagesFetched": 70,
-      "priced": 53,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 1,
-      "errors": [
-        "https://www.bmstores.co.uk/sitemap.xml: HTTP 404"
-      ],
-      "finishedAt": "2026-09-13T22:04:42.595Z"
-    },
-    {
-      "retailerId": "home-bargains",
-      "name": "Home Bargains",
-      "urlsDiscovered": 801,
-      "pagesFetched": 70,
-      "priced": 47,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "finishedAt": "2026-09-13T22:09:46.616Z"
-    },
-    {
-      "retailerId": "notino-uk",
-      "name": "Notino UK",
-      "urlsDiscovered": 0,
-      "pagesFetched": 0,
-      "priced": 0,
-      "tier": "none",
       "renderer": null,
       "errorCount": 2,
       "errors": [
-        "[actor] skipped: Notino UK has answered every real render attempt on file with a refusal (see its registry entry in src/config/retailers.ts for the dated evidence) — skipping the render tier rather than spending a page confirming that again",
-        "https://www.notino.co.uk/sitemap.xml: HTTP 403"
-      ],
-      "finishedAt": "2026-09-13T22:09:46.793Z"
-    },
-    {
-      "retailerId": "boots",
-      "name": "Boots",
-      "urlsDiscovered": 0,
-      "pagesFetched": 0,
-      "priced": 0,
-      "tier": "none",
-      "renderer": null,
-      "errorCount": 1,
-      "errors": [
-        "[actor] skipped: Boots has answered every real render attempt on file with a refusal (see its registry entry in src/config/retailers.ts for the dated evidence) — skipping the render tier rather than spending a page confirming that again"
-      ],
-      "finishedAt": "2026-09-13T22:09:46.999Z"
-    },
-    {
-      "retailerId": "the-fragrance-shop",
-      "name": "The Fragrance Shop",
-      "urlsDiscovered": 0,
-      "pagesFetched": 0,
-      "priced": 0,
-      "tier": "none",
-      "renderer": null,
-      "errorCount": 2,
-      "errors": [
-        "[actor] skipped: The Fragrance Shop has answered every real render attempt on file with a refusal (see its registry entry in src/config/retailers.ts for the dated evidence) — skipping the render tier rather than spending a page confirming that again",
-        "https://www.thefragranceshop.co.uk/sitemap.xml: HTTP 403"
-      ],
-      "finishedAt": "2026-09-13T22:09:47.275Z"
-    },
-    {
-      "retailerId": "harvey-nichols",
-      "name": "Harvey Nichols",
-      "urlsDiscovered": 0,
-      "pagesFetched": 0,
-      "priced": 0,
-      "tier": "none",
-      "renderer": null,
-      "errorCount": 6,
-      "errors": [
-        "[actor] rendered 1 section page(s), 0 listings parsed, 0 priced",
-        "[actor] https://www.harveynichols.com/beauty/fragrance/?page=1: HTTP 0, 0 bytes, local render failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.harveynichols.com/beauty/fragrance/?page=1\nCall log:\n  - navigating to \"https://www.harveynichols.com/be",
-        "https://www.harveynichols.com/sitemap.xml: HTTP 0",
-        "https://www.harveynichols.com/sitemap/content.xml: HTTP 0",
-        "[patient] https://www.harveynichols.com/sitemap.xml: HTTP 0",
-        "[patient] https://www.harveynichols.com/sitemap/content.xml: HTTP 0"
-      ],
-      "finishedAt": "2026-09-13T22:14:03.483Z"
-    },
-    {
-      "retailerId": "allbeauty",
-      "name": "Allbeauty",
-      "urlsDiscovered": 2750,
-      "pagesFetched": 70,
-      "priced": 28,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "finishedAt": "2026-09-13T22:19:29.036Z"
-    },
-    {
-      "retailerId": "justmylook",
-      "name": "Justmylook",
-      "urlsDiscovered": 1951,
-      "pagesFetched": 70,
-      "priced": 70,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "finishedAt": "2026-09-13T22:24:53.489Z"
-    },
-    {
-      "retailerId": "the-perfume-shop",
-      "name": "The Perfume Shop",
-      "urlsDiscovered": 0,
-      "pagesFetched": 0,
-      "priced": 0,
-      "tier": "none",
-      "renderer": null,
-      "errorCount": 2,
-      "errors": [
-        "[actor] skipped: The Perfume Shop has answered every real render attempt on file with a refusal (see its registry entry in src/config/retailers.ts for the dated evidence) — skipping the render tier rather than spending a page confirming that again",
-        "https://www.theperfumeshop.com/sitemap.xml: HTTP 403"
-      ],
-      "finishedAt": "2026-09-13T22:24:53.768Z"
-    },
-    {
-      "retailerId": "john-lewis",
-      "name": "John Lewis",
-      "urlsDiscovered": 0,
-      "pagesFetched": 0,
-      "priced": 0,
-      "tier": "none",
-      "renderer": null,
-      "errorCount": 5,
-      "errors": [
-        "[actor] skipped: John Lewis has answered every real render attempt on file with a refusal (see its registry entry in src/config/retailers.ts for the dated evidence) — skipping the render tier rather than spending a page confirming that again",
-        "https://www.johnlewis.com/sitemap.xml: HTTP 0",
-        "https://www.johnlewis.com/siteindex.xml: HTTP 0",
-        "[patient] https://www.johnlewis.com/sitemap.xml: HTTP 0",
-        "[patient] https://www.johnlewis.com/siteindex.xml: HTTP 0"
-      ],
-      "finishedAt": "2026-09-13T22:27:43.989Z"
-    },
-    {
-      "retailerId": "beautybase",
-      "name": "Beauty Base",
-      "urlsDiscovered": 3078,
-      "pagesFetched": 70,
-      "priced": 70,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "finishedAt": "2026-09-13T22:33:44.367Z"
-    },
-    {
-      "retailerId": "lookfantastic",
-      "name": "LOOKFANTASTIC",
-      "urlsDiscovered": 2362,
-      "pagesFetched": 22,
-      "priced": 0,
-      "tier": "none",
-      "renderer": null,
-      "errorCount": 4,
-      "errors": [
-        "[actor] rendered 1 section page(s), 0 listings parsed, 0 priced",
-        "[actor] https://www.lookfantastic.com/c/health-beauty/fragrance/view-all-fragrance/: HTTP 200, 1519279 bytes",
-        "https://www.lookfantastic.com/sitemap.xml: HTTP 403",
+        "https://groceries.morrisons.com/sitemap.xml: HTTP 403",
         "stopped early: exceeded this shop's time budget"
       ],
-      "finishedAt": "2026-09-13T22:35:39.992Z"
+      "finishedAt": "2026-09-14T05:52:24.537Z"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-13T22:46:01.397Z",
+  "checkedAt": "2026-09-14T06:02:18.353Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -58,7 +58,7 @@
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "GBP",
+      "currency": "USD",
       "listings": 60,
       "pricedInGbp": 0,
       "withPhoto": 0,
@@ -66,7 +66,8 @@
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
-        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere"
+        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
+        "prices are in USD, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -93,7 +94,7 @@
       "currency": "AED",
       "listings": 251,
       "pricedInGbp": 0,
-      "withPhoto": 251,
+      "withPhoto": 248,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -210,7 +211,8 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "storefront currency could not be established — no sterling price recorded",
+        "https://arabiyatprestige.shop/sitemap.xml: HTTP 502"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
