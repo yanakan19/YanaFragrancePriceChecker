@@ -140,7 +140,12 @@ const CORPUS = [
     type: 'price check, named product',
     path: 'deterministic',
     variants: ['how much is One Million Elixir', 'one million elixir price', 'wots the price of one million elixir'],
-    expect: [/(One|1) Million Elixir/i],
+    // /Million.*Elixir/, not /Million Elixir/: the retailer's real title
+    // drifts (2026-09-14 harvest added "Night" — "1 Million Night Elixir"),
+    // and every occurrence of this pattern below is loosened the same way
+    // so a real title change doesn't fail a fixture that never claimed to
+    // pin the exact wording.
+    expect: [/(One|1) Million.*Elixir/i],
   },
   {
     type: 'price check, named product and size',
@@ -152,7 +157,7 @@ const CORPUS = [
     type: 'cheapest offer for a named product',
     path: 'deterministic',
     variants: ['cheapest One Million Elixir', 'one million elixir lowest price'],
-    expect: [/(One|1) Million Elixir/i],
+    expect: [/(One|1) Million.*Elixir/i],
   },
   {
     type: 'price check, brand only (genuinely ambiguous)',
@@ -193,7 +198,7 @@ const CORPUS = [
     type: 'stock check, named product',
     path: 'deterministic',
     variants: ['is One Million Elixir in stock', 'who stocks one million elixir', 'where can i buy one million elixir'],
-    expect: [/(One|1) Million Elixir/i, /stock|lists it/i],
+    expect: [/(One|1) Million.*Elixir/i, /stock|lists it/i],
   },
   {
     type: 'stock check, unknown product',
@@ -216,7 +221,7 @@ const CORPUS = [
     type: 'sizes tracked for a named product',
     path: 'deterministic',
     variants: ['what sizes of One Million Elixir do you have', 'does one million elixir come in 50ml'],
-    expect: [/(One|1) Million Elixir/i, /ml/],
+    expect: [/(One|1) Million.*Elixir/i, /ml/],
   },
   {
     type: 'size follow-up ("what about the 50ml")',
@@ -263,7 +268,7 @@ const CORPUS = [
     type: 'deal check for a named product',
     path: 'deterministic',
     variants: ['any discounts on One Million Elixir', 'is one million elixir on sale'],
-    expect: [/(One|1) Million Elixir/i],
+    expect: [/(One|1) Million.*Elixir/i],
   },
 
   // ── budget ─────────────────────────────────────────────────────────────

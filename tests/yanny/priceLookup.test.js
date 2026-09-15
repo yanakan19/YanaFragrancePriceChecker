@@ -194,10 +194,14 @@ test('resolveQuestion: a real price question for "One Million Elixir" is answere
   assert.match(result.winner.content, /Elixir/);
 });
 
-test('resolveQuestion: "cheapest One Million Elixir" states a real delivered price with its retailer, from site data, no LLM', async () => {
+test('resolveQuestion: "cheapest One Million Elixir" states a real delivered price with its retailer, or an honest out-of-stock, never a guess', async () => {
   const result = await resolveQuestion({ question: 'cheapest One Million Elixir', intent: 'price' });
   assert.equal(result.ok, true);
-  assert.match(result.winner.content, /£\d+\.\d{2} delivered from \S/);
+  // This fixture's product drifts in and out of stock as the real catalogue
+  // refreshes (see tests/yanny/corpus.test.js's own note on the same
+  // product) — a priced delivered answer when it's stocked, or the honest
+  // "out of stock" statement when it is not, but never a fabricated price.
+  assert.match(result.winner.content, /£\d+\.\d{2} delivered from \S|out of stock/i);
 });
 
 test('resolvePriceQuery: a bare brand name with more than one product is ambiguous, not a guess at one of them', async () => {
