@@ -25,15 +25,15 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-09-16T12:43:53.539Z";
+export const DEALS_GENERATED_AT = "2026-09-16T17:59:10.382Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
     "fragranceId": "ean-6290360375687",
-    "price": 29.25,
+    "price": 28.99,
     "wasPrice": 30,
-    "percentOff": 2,
-    "retailerId": "perfume-click",
+    "percentOff": 3,
+    "retailerId": "perfumeo",
     "kind": "house",
     "houseName": "French Avenue"
   },
@@ -2576,15 +2576,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6290360617244",
-    "price": 34.99,
-    "wasPrice": 50,
-    "percentOff": 30,
-    "retailerId": "emirates-oud",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-6290360613628",
     "price": 18.3,
     "wasPrice": 19.99,
@@ -2766,10 +2757,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6295199800942",
-    "price": 30.6,
+    "price": 30,
     "wasPrice": 39.99,
-    "percentOff": 23,
-    "retailerId": "perfume-click",
+    "percentOff": 24,
+    "retailerId": "beautybase",
     "kind": "house",
     "houseName": "Armaf"
   },
@@ -3729,10 +3720,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "emirates-oud-15235425993053-default-title",
-    "price": 34.99,
+    "price": 33.99,
     "wasPrice": 40,
-    "percentOff": 12,
-    "retailerId": "emirates-oud",
+    "percentOff": 15,
+    "retailerId": "perfumeo",
     "kind": "house",
     "houseName": "French Avenue"
   },
@@ -5753,6 +5744,15 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3360377022911",
+    "price": 33.9,
+    "wasPrice": 67,
+    "percentOff": 49,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3360377009356",
     "price": 32.95,
     "wasPrice": 52,
@@ -6627,10 +6627,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "emirates-oud-15675057144157-default-title",
-    "price": 29.99,
-    "wasPrice": 40,
-    "percentOff": 25,
-    "retailerId": "emirates-oud",
+    "price": 28.99,
+    "wasPrice": 53.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -14487,15 +14487,6 @@ export const DEALS_RAW: RawDeal[] = [
     "price": 40.25,
     "wasPrice": 85,
     "percentOff": 52,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3360377022911",
-    "price": 33.9,
-    "wasPrice": 67,
-    "percentOff": 49,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
