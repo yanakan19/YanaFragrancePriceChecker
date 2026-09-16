@@ -25,7 +25,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-09-16T07:05:01.588Z";
+export const DEALS_GENERATED_AT = "2026-09-16T12:43:53.539Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -975,10 +975,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6294015131024",
-    "price": 45.99,
+    "price": 46.85,
     "wasPrice": 79.99,
-    "percentOff": 42,
-    "retailerId": "the-beauty-store-uk",
+    "percentOff": 41,
+    "retailerId": "perfume-click",
     "kind": "house",
     "houseName": "Armaf"
   },
@@ -5762,6 +5762,15 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3605971512612",
+    "price": 39.25,
+    "wasPrice": 80,
+    "percentOff": 50,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3605971512575",
     "price": 45.95,
     "wasPrice": 95,
@@ -9255,10 +9264,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8057971188680",
-    "price": 55.99,
-    "wasPrice": 134,
-    "percentOff": 58,
-    "retailerId": "the-beauty-store-uk",
+    "price": 56.05,
+    "wasPrice": 140,
+    "percentOff": 59,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -10762,15 +10771,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 46,
     "percentOff": 61,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-737052041285",
-    "price": 29.99,
-    "wasPrice": 64.99,
-    "percentOff": 53,
-    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -13025,15 +13025,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "justmylook-masm0029",
-    "price": 107.49,
-    "wasPrice": 109.99,
-    "percentOff": 2,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "justmylook-masm0017",
     "price": 87.99,
     "wasPrice": 125,
@@ -14532,15 +14523,6 @@ export const DEALS_RAW: RawDeal[] = [
     "price": 26.3,
     "wasPrice": 40,
     "percentOff": 34,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3605971512612",
-    "price": 39.25,
-    "wasPrice": 80,
-    "percentOff": 50,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
