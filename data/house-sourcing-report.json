@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-17T14:43:58.179Z",
+  "checkedAt": "2026-09-17T19:17:13.283Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -196,9 +196,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 60,
+      "listings": 59,
+      "pricedInGbp": 59,
+      "withPhoto": 59,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -262,9 +262,9 @@
       "origin": "https://maisonalhambra.co",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 72,
-      "pricedInGbp": 47,
-      "withPhoto": 47,
+      "listings": 70,
+      "pricedInGbp": 46,
+      "withPhoto": 46,
       "errors": [
         "storefront currency could not be established — no sterling price recorded"
       ],
@@ -482,9 +482,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 678,
+      "listings": 680,
       "pricedInGbp": 0,
-      "withPhoto": 678,
+      "withPhoto": 680,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
