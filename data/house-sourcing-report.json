@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-17T08:44:35.473Z",
+  "checkedAt": "2026-09-17T14:43:58.179Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -63,8 +63,7 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "https://www.pairfum.com/product-sitemap.xml: HTTP 429",
-        "https://www.pairfum.com/product_cat-sitemap.xml: HTTP 429"
+        "stopped early: the house began refusing requests"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
