@@ -25,7 +25,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-09-18T10:54:28.849Z";
+export const DEALS_GENERATED_AT = "2026-09-18T15:30:42.661Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -1496,6 +1496,15 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3614229823790",
+    "price": 24.55,
+    "wasPrice": 60,
+    "percentOff": 59,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6287020283437",
     "price": 64.99,
     "wasPrice": 79.99,
@@ -1888,15 +1897,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 44.99,
     "percentOff": 11,
     "retailerId": "fragrancehub",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6290362340645",
-    "price": 12.99,
-    "wasPrice": 25,
-    "percentOff": 48,
-    "retailerId": "emirates-oud",
     "kind": "retailer",
     "houseName": null
   },
@@ -2596,9 +2596,9 @@ export const DEALS_RAW: RawDeal[] = [
   {
     "fragranceId": "emirates-oud-15573099446621-default-title",
     "price": 19.99,
-    "wasPrice": 40,
+    "wasPrice": 39.99,
     "percentOff": 50,
-    "retailerId": "emirates-oud",
+    "retailerId": "fragrancehub",
     "kind": "retailer",
     "houseName": null
   },
@@ -2689,15 +2689,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 22.99,
     "percentOff": 23,
     "retailerId": "perfume-click",
-    "kind": "house",
-    "houseName": "Armaf"
-  },
-  {
-    "fragranceId": "ean-6294015169928",
-    "price": 22,
-    "wasPrice": 22.99,
-    "percentOff": 4,
-    "retailerId": "beautybase",
     "kind": "house",
     "houseName": "Armaf"
   },
@@ -2865,9 +2856,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-719346228992",
-    "price": 16.99,
+    "price": 16.62,
     "wasPrice": 42,
-    "percentOff": 59,
+    "percentOff": 60,
     "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
@@ -3980,19 +3971,19 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3616306721722",
-    "price": 22.15,
-    "wasPrice": 79,
-    "percentOff": 71,
+    "fragranceId": "ean-0737052031415",
+    "price": 18.45,
+    "wasPrice": 50,
+    "percentOff": 63,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614229823790",
-    "price": 24.55,
-    "wasPrice": 60,
-    "percentOff": 59,
+    "fragranceId": "ean-3616306721722",
+    "price": 22.15,
+    "wasPrice": 79,
+    "percentOff": 71,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -4848,6 +4839,15 @@ export const DEALS_RAW: RawDeal[] = [
     "price": 12.99,
     "wasPrice": 20,
     "percentOff": 35,
+    "retailerId": "emirates-oud",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6290362340645",
+    "price": 12.99,
+    "wasPrice": 25,
+    "percentOff": 48,
     "retailerId": "emirates-oud",
     "kind": "retailer",
     "houseName": null
@@ -6987,10 +6987,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6294015169935",
-    "price": 22,
+    "price": 22.05,
     "wasPrice": 22.99,
     "percentOff": 4,
-    "retailerId": "beautybase",
+    "retailerId": "perfume-click",
     "kind": "house",
     "houseName": "Armaf"
   },
@@ -10775,15 +10775,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0737052031415",
-    "price": 18.45,
-    "wasPrice": 50,
-    "percentOff": 63,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-737052041247",
     "price": 18.3,
     "wasPrice": 46,
@@ -12472,6 +12463,15 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 39.99,
     "percentOff": 40,
     "retailerId": "fragrancehub",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "emirates-oud-15352679432541-default-title",
+    "price": 32.99,
+    "wasPrice": 40,
+    "percentOff": 17,
+    "retailerId": "emirates-oud",
     "kind": "retailer",
     "houseName": null
   },
