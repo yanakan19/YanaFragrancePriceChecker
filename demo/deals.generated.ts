@@ -25,7 +25,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-09-18T01:24:23.216Z";
+export const DEALS_GENERATED_AT = "2026-09-18T06:00:32.356Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -9990,6 +9990,15 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud",
     "kind": "retailer",
     "houseName": null
+  },
+  {
+    "fragranceId": "ean-6290360379647",
+    "price": 24,
+    "wasPrice": 35,
+    "percentOff": 31,
+    "retailerId": "beautybase",
+    "kind": "house",
+    "houseName": "French Avenue"
   },
   {
     "fragranceId": "emirates-oud-15438206042461-default-title",
