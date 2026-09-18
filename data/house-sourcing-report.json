@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-18T15:30:31.494Z",
+  "checkedAt": "2026-09-18T19:41:35.054Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -62,7 +62,9 @@
       "listings": 0,
       "pricedInGbp": 0,
       "withPhoto": 0,
-      "errors": [],
+      "errors": [
+        "stopped early: the house began refusing requests"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
@@ -192,17 +194,16 @@
       "houseId": "paris-corner",
       "name": "Paris Corner",
       "origin": "https://pariscorner.ae",
-      "routeUsed": null,
-      "currency": null,
-      "listings": 0,
-      "pricedInGbp": 0,
-      "withPhoto": 0,
-      "errors": [
-        "robots.txt unreachable at https://pariscorner.ae and https://www.pariscorner.ae — holding off rather than guessing we are welcome"
-      ],
+      "routeUsed": "sitemap-jsonld",
+      "currency": "AED",
+      "listings": 60,
+      "pricedInGbp": 60,
+      "withPhoto": 60,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending"
+        "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
+        "prices are in AED, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -259,13 +260,13 @@
       "houseId": "maison-alhambra",
       "name": "Maison Alhambra",
       "origin": "https://maisonalhambra.co",
-      "routeUsed": null,
+      "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 0,
-      "pricedInGbp": 0,
-      "withPhoto": 0,
+      "listings": 72,
+      "pricedInGbp": 47,
+      "withPhoto": 47,
       "errors": [
-        "robots.txt unreachable at https://maisonalhambra.co and https://www.maisonalhambra.co — holding off rather than guessing we are welcome"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -412,13 +413,13 @@
       "houseId": "reef",
       "name": "Reef Perfumes",
       "origin": "https://www.reef-parfum.com",
-      "routeUsed": null,
+      "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 0,
-      "pricedInGbp": 0,
-      "withPhoto": 0,
+      "listings": 32,
+      "pricedInGbp": 32,
+      "withPhoto": 32,
       "errors": [
-        "robots.txt unreachable at https://www.reef-parfum.com and https://reef-parfum.com — holding off rather than guessing we are welcome"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
