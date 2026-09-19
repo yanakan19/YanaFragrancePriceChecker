@@ -2606,8 +2606,13 @@ export const RETAILERS: readonly Retailer[] = [
       // Placeholder, and unreachable while this retailer is disabled. It is
       // not a claim about their delivery speed.
       estimatedDays: [2, 4],
-      verifiedAt: '2026-08-05',
+      verifiedAt: '2026-09-19',
       confidence: 'confirmed',
+      source: {
+        url: 'https://mybeauty.boutique/policies/shipping-policy',
+        quote: 'Standard Delivery (0–10kg): £3.99 / 2–5 working days',
+        readAt: '2026-09-19',
+      },
       notes:
         'Read off their own policy page by npm run shipping:discover on 2026-08-05, which quoted '  +
         '"Standard Delivery (0-10kg): £3.99 / 2-5 working days" from '  +
@@ -3163,13 +3168,13 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: null,
       freeOverGbp: 50,
       estimatedDays: [2, 5],
-      verifiedAt: '2026-09-16',
+      verifiedAt: '2026-09-19',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
         url: 'https://alharamainperfumes.co.uk/en-us/pages/delivery-information',
         quote: 'FREE UK Delivery on orders over £50 (Royal Mail Standard Service)',
-        readAt: '2026-09-16',
+        readAt: '2026-09-19',
       },
       notes:
         'freeOverGbp is their own stated figure (free UK delivery over £50, half-price over ' +
@@ -3442,8 +3447,13 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: 3.99,
       freeOverGbp: 30,
       estimatedDays: [2, 4],
-      verifiedAt: '2026-08-05',
+      verifiedAt: '2026-09-19',
       confidence: 'confirmed',
+      source: {
+        url: 'https://oudarabian.co.uk/pages/shipping-policy',
+        quote: 'Standard Delivery (3–5 Working Days): £3.99 Our standard delivery option ensures your order arrives within 3–5 working days .',
+        readAt: '2026-09-19',
+      },
       notes:
         'Read off their own policy page by npm run shipping:discover on 2026-08-05, which quoted '  +
         '"Standard Delivery (3-5 Working Days): £3.99" and "Free Delivery: Orders over £30 qualify '  +
@@ -3785,8 +3795,13 @@ export const RETAILERS: readonly Retailer[] = [
       // themselves to, so the upper bound is theirs and the lower is a guess
       // held deliberately wide rather than flattering.
       estimatedDays: [2, 10],
-      verifiedAt: '2026-08-05',
+      verifiedAt: '2026-09-19',
       confidence: 'confirmed',
+      source: {
+        url: 'https://www.thebeautystore.com/policies/shipping-policy',
+        quote: 'Standard Delivery (UK Mainland) : £2.95',
+        readAt: '2026-09-19',
+      },
       notes:
         'Read off their own policy page by npm run shipping:discover on 2026-08-05, which quoted '  +
         '"Standard Delivery (UK Mainland) : £2.95" and "FREE DELIVERY OVER £50" from '  +
