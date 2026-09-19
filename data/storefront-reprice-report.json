@@ -1,5 +1,5 @@
 {
-  "repricedAt": "2026-09-19T06:01:03.897Z",
+  "repricedAt": "2026-09-19T18:11:19.869Z",
   "dryRun": false,
   "outcomes": [
     {
@@ -8,14 +8,14 @@
       "reason": "repriced from the storefront",
       "products": 9346,
       "storefrontCurrency": "GBP",
-      "active": 8906,
+      "active": 8905,
       "keyed": 8894,
-      "agreed": 8894,
-      "corrected": 0,
-      "wasOverstated": 0,
-      "wasUnderstated": 0,
-      "overstatementRemovedGbp": 0,
-      "cleared": 0
+      "agreed": 2640,
+      "corrected": 6254,
+      "wasOverstated": 6213,
+      "wasUnderstated": 41,
+      "overstatementRemovedGbp": 205352.82,
+      "cleared": 11
     }
   ]
 }
