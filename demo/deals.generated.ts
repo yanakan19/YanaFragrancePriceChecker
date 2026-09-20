@@ -25,7 +25,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-09-19T19:16:41.164Z";
+export const DEALS_GENERATED_AT = "2026-09-20T00:09:29.423Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -237,10 +237,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6290171074205",
-    "price": 22.99,
+    "price": 19.99,
     "wasPrice": 40,
-    "percentOff": 42,
-    "retailerId": "emirates-oud",
+    "percentOff": 50,
+    "retailerId": "justmylook",
     "kind": "house",
     "houseName": "Zimaya"
   },
@@ -6653,20 +6653,20 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6290360614731",
-    "price": 34.99,
-    "wasPrice": 45,
-    "percentOff": 22,
-    "retailerId": "emirates-oud",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-6290360617442",
     "price": 34.5,
     "wasPrice": 39.99,
     "percentOff": 13,
     "retailerId": "fragrancehub",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6290360614731",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud",
     "kind": "retailer",
     "houseName": null
   },
