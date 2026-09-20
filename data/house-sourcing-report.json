@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-20T12:35:53.850Z",
+  "checkedAt": "2026-09-20T17:11:35.373Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,7 +59,7 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "GBP",
-      "listings": 60,
+      "listings": 59,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [],
@@ -174,9 +174,9 @@
       "origin": "https://rayhaanperfumes.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 41,
+      "listings": 42,
       "pricedInGbp": 0,
-      "withPhoto": 41,
+      "withPhoto": 42,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
