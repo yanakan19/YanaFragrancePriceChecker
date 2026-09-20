@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-13T10:05:37.934Z",
+  "checkedAt": "2026-09-20T09:50:17.571Z",
   "seed": 20260812,
   "sampleSize": 30,
   "outcomes": [
@@ -9,32 +9,22 @@
       "route": "products.json",
       "activeListings": 117,
       "attempted": 117,
-      "compared": 103,
-      "agree": 102,
-      "drifted": 1,
-      "overstated": 1,
+      "compared": 98,
+      "agree": 98,
+      "drifted": 0,
+      "overstated": 0,
       "understated": 0,
-      "unkeyed": 14,
-      "outOfStockLive": 51,
-      "overstatementGbpTotal": 11,
+      "unkeyed": 19,
+      "outOfStockLive": 58,
+      "overstatementGbpTotal": 0,
       "medianAbsDriftGbp": 0,
-      "worst": [
-        {
-          "retailerSku": "11141254",
-          "title": "Estée Lauder Knowing Eau de Parfum Spray 75ml",
-          "storedPrice": 75,
-          "livePrice": 64,
-          "overstatementGbp": 11,
-          "overstatementPct": 17.2,
-          "liveUrl": "https://allbeauty.com/products/p-estee-lauder-knowing-eau-de-parfum-spray-75ml-11141254"
-        }
-      ],
+      "worst": [],
       "notes": [
         "gap 1200ms (registry 1200, robots 0s)",
-        "products.json: 6180 products, 41258 lookup keys"
+        "products.json: 5957 products, 39680 lookup keys"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-13T06:21:45.848Z",
+      "snapshotUpdatedAt": "2026-09-20T06:27:26.288Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -43,45 +33,18 @@
       "retailerId": "justmylook",
       "name": "Justmylook",
       "route": "products.json",
-      "activeListings": 1974,
-      "attempted": 1974,
-      "compared": 1954,
-      "agree": 1825,
-      "drifted": 129,
-      "overstated": 72,
-      "understated": 57,
+      "activeListings": 1977,
+      "attempted": 1977,
+      "compared": 1957,
+      "agree": 1818,
+      "drifted": 139,
+      "overstated": 58,
+      "understated": 81,
       "unkeyed": 20,
-      "outOfStockLive": 456,
-      "overstatementGbpTotal": 393.95999999999987,
+      "outOfStockLive": 402,
+      "overstatementGbpTotal": 248.34999999999994,
       "medianAbsDriftGbp": 0,
       "worst": [
-        {
-          "retailerSku": "DANDG0128",
-          "title": "Dolce & Gabbana Light Blue Eau De Toilette 200ml",
-          "storedPrice": 143.99,
-          "livePrice": 67.99,
-          "overstatementGbp": 76,
-          "overstatementPct": 111.8,
-          "liveUrl": "https://justmylook.com/products/dolce-gabbana-light-blue-eau-de-toilette-200ml"
-        },
-        {
-          "retailerSku": "DANDG0129",
-          "title": "Dolce & Gabbana Light Blue Pour Homme Eau De Toilette 50ml",
-          "storedPrice": 60.99,
-          "livePrice": 31.99,
-          "overstatementGbp": 29,
-          "overstatementPct": 90.7,
-          "liveUrl": "https://justmylook.com/products/dolce-gabbana-light-blue-pour-homme-eau-de-toilette-50ml"
-        },
-        {
-          "retailerSku": "FRED0011",
-          "title": "Frederic Malle Promise Eau De Parfum 50ml",
-          "storedPrice": 194.99,
-          "livePrice": 173.99,
-          "overstatementGbp": 21,
-          "overstatementPct": 12.1,
-          "liveUrl": "https://justmylook.com/products/frederic-malle-promise-eau-de-parfum-50ml"
-        },
         {
           "retailerSku": "ARMA0178",
           "title": "Emporio Armani Stronger With You Intensely Men's Eau De Parfum 150ml",
@@ -92,48 +55,75 @@
           "liveUrl": "https://justmylook.com/products/emporio-armani-stronger-with-you-intensely-mens-eau-de-parfum-150ml"
         },
         {
-          "retailerSku": "RAL0008",
-          "title": "Ralph Lauren Polo Red Eau De Toilette 125ml",
-          "storedPrice": 70.5,
-          "livePrice": 51.95,
-          "overstatementGbp": 18.55,
-          "overstatementPct": 35.7,
-          "liveUrl": "https://justmylook.com/products/ralph-lauren-polo-red-eau-de-toilette-125ml"
+          "retailerSku": "PDM0006",
+          "title": "Parfums de Marly Percival Eau De Parfum 125ml",
+          "storedPrice": 222.95,
+          "livePrice": 205.99,
+          "overstatementGbp": 16.96,
+          "overstatementPct": 8.2,
+          "liveUrl": "https://justmylook.com/products/parfums-de-marly-percival-eau-de-parfum-125ml"
         },
         {
-          "retailerSku": "ARMA0065",
-          "title": "Giorgio Armani Armani Code Femme Eau De Parfum 75ml",
-          "storedPrice": 84.99,
+          "retailerSku": "VAL0082",
+          "title": "Valentino Donna Born In Roma Extradose Parfum 100ml",
+          "storedPrice": 107.99,
+          "livePrice": 91.99,
+          "overstatementGbp": 16,
+          "overstatementPct": 17.4,
+          "liveUrl": "https://justmylook.com/products/valentino-donna-born-in-roma-extradose-parfum-100ml"
+        },
+        {
+          "retailerSku": "LANC0047",
+          "title": "Lancome La Nuit Tresor Eau De Parfum 50ml",
+          "storedPrice": 83.5,
+          "livePrice": 67.99,
+          "overstatementGbp": 15.51,
+          "overstatementPct": 22.8,
+          "liveUrl": "https://justmylook.com/products/lancome-la-nuit-tresor-eau-de-parfum-50ml"
+        },
+        {
+          "retailerSku": "VIK0062",
+          "title": "Viktor & Rolf Flowerbomb Extreme Eau De Parfum Intense 100ml",
+          "storedPrice": 82.99,
           "livePrice": 68.99,
-          "overstatementGbp": 16,
-          "overstatementPct": 23.2,
-          "liveUrl": "https://justmylook.com/products/giorgio-armani-armani-code-femme-eau-de-parfum-75ml"
+          "overstatementGbp": 14,
+          "overstatementPct": 20.3,
+          "liveUrl": "https://justmylook.com/products/viktor-rolf-flowerbomb-extreme-eau-de-parfum-intense-100ml"
         },
         {
-          "retailerSku": "CREED0045",
-          "title": "Creed Delphinus Eau De Parfum 100ml",
-          "storedPrice": 287.99,
-          "livePrice": 271.99,
-          "overstatementGbp": 16,
-          "overstatementPct": 5.9,
-          "liveUrl": "https://justmylook.com/products/creed-delphinus-eau-de-parfum-100ml"
+          "retailerSku": "XERJ0002",
+          "title": "Xerjoff Alexandria II Eau De Parfum 100ml",
+          "storedPrice": 303.95,
+          "livePrice": 289.99,
+          "overstatementGbp": 13.96,
+          "overstatementPct": 4.8,
+          "liveUrl": "https://justmylook.com/products/xerjoff-alexandria-ii-eau-de-parfum-100ml"
         },
         {
-          "retailerSku": "ACQ0166",
-          "title": "Acqua Di Parma Colonia Essenza Eau De Cologne Gift Set 100ml",
-          "storedPrice": 85.99,
-          "livePrice": 70.99,
-          "overstatementGbp": 15,
-          "overstatementPct": 21.1,
-          "liveUrl": "https://justmylook.com/products/acqua-di-parma-colonia-essenza-eau-de-cologne-gift-set-100ml"
+          "retailerSku": "FRED0008",
+          "title": "Frederic Malle Portrait Of A Lady Eau De Parfum 50ml",
+          "storedPrice": 183.95,
+          "livePrice": 173.99,
+          "overstatementGbp": 9.96,
+          "overstatementPct": 5.7,
+          "liveUrl": "https://justmylook.com/products/frederic-malle-portrait-of-a-lady-eau-de-parfum-50ml"
+        },
+        {
+          "retailerSku": "PDM0003",
+          "title": "Parfums de Marly Delina La Rosee Eau De Parfum 75ml",
+          "storedPrice": 199.99,
+          "livePrice": 191.99,
+          "overstatementGbp": 8,
+          "overstatementPct": 4.2,
+          "liveUrl": "https://justmylook.com/products/parfums-de-marly-delina-la-rosee-eau-de-parfum-75ml"
         }
       ],
       "notes": [
         "gap 1200ms (registry 1200, robots 0s)",
-        "products.json: 17383 products, 118398 lookup keys"
+        "products.json: 17634 products, 120323 lookup keys"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-13T06:21:45.848Z",
+      "snapshotUpdatedAt": "2026-09-20T06:27:26.288Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -264,14 +254,14 @@
       "retailerId": "john-lewis",
       "name": "John Lewis",
       "route": "product-page",
-      "activeListings": 5,
-      "attempted": 5,
+      "activeListings": 98,
+      "attempted": 8,
       "compared": 0,
       "agree": 0,
       "drifted": 0,
       "overstated": 0,
       "understated": 0,
-      "unkeyed": 5,
+      "unkeyed": 8,
       "outOfStockLive": 0,
       "overstatementGbpTotal": 0,
       "medianAbsDriftGbp": 0,
@@ -280,14 +270,18 @@
         "gap 2500ms (registry 2500, robots 0s)",
         "storefront published no currency — its numbers are compared as pounds on the registry's word alone. To settle it: npm run currency:probe -- --shop=john-lewis --products=3",
         "products.json: HTTP 0 AbortError: This operation was aborted",
-        "HTTP 0 on /chanel-coco-mademoiselle-crush-absolu-eau-de-parfum-limited-edition-sleeve-100ml/p115419488",
-        "HTTP 0 on /byredo-mojave-ghost-lhuile-parfum-roll-on-perfumed-oil-7-5ml/p113633365",
-        "HTTP 0 on /dior-sauvage-extrait-50ml/p115525009",
-        "HTTP 0 on /creed-mens-sample-inspiration-fragrance-gift-set-5-x-1-7ml/p5697051",
-        "HTTP 0 on /essential-parfums-bois-imperial-by-quentin-bisch-eau-de-parfum-100ml/p114865143"
+        "HTTP 0 on /acqua-di-parma-signatures-of-the-sun-flowers-eau-de-parfum-discovery-fragrance-gift-set-3-x-12ml/p115855909",
+        "HTTP 0 on /skandinavisk-deep-forest-eau-de-parfum-50ml/p115423439",
+        "HTTP 0 on /floral-street-wonderland-peony-home-and-away-fragrance-gift-set/p6390557",
+        "HTTP 0 on /skandinavisk-distant-shores-eau-de-parfum-50ml/p115423440",
+        "HTTP 0 on /essential-parfums-discovery-eau-de-parfum-travel-fragrance-gift-set-4-x-10ml/p114865125",
+        "HTTP 0 on /skandinavisk-oh-midsummar-eau-de-parfum-50ml/p115423443",
+        "HTTP 0 on /charlotte-tilbury-charlottes-fragrance-collection-of-emotions-perfume-discovery-gift-set-4-x-2ml/p114357426",
+        "HTTP 0 on /skandinavisk-kopenhagen-eau-de-parfum-50ml/p115423441",
+        "stopped early: out of time budget"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-08-21T18:26:52.026Z",
+      "snapshotUpdatedAt": "2026-09-19T23:03:53.802Z",
       "storefrontCurrency": null,
       "notComparable": null,
       "scale": null
@@ -296,27 +290,18 @@
       "retailerId": "beautybase",
       "name": "Beauty Base",
       "route": "products.json",
-      "activeListings": 3175,
-      "attempted": 3175,
-      "compared": 3078,
-      "agree": 2946,
-      "drifted": 132,
-      "overstated": 70,
-      "understated": 62,
-      "unkeyed": 97,
-      "outOfStockLive": 1414,
-      "overstatementGbpTotal": 740.47,
+      "activeListings": 3184,
+      "attempted": 3184,
+      "compared": 3039,
+      "agree": 2951,
+      "drifted": 88,
+      "overstated": 49,
+      "understated": 39,
+      "unkeyed": 145,
+      "outOfStockLive": 1409,
+      "overstatementGbpTotal": 411.40000000000003,
       "medianAbsDriftGbp": 0,
       "worst": [
-        {
-          "retailerSku": "P0000774137",
-          "title": "DKNY Be Delicious Orchard Street Eau De Parfum 100ml Spray",
-          "storedPrice": 81,
-          "livePrice": 35,
-          "overstatementGbp": 46,
-          "overstatementPct": 131.4,
-          "liveUrl": "https://beautybase.com/products/dkny-be-delicious-orchard-street-eau-de-parfum-100ml-spray"
-        },
         {
           "retailerSku": "P0000778951",
           "title": "Dolce & Gabbana Light Blue Pour Homme Eau De Toilette 50ml Spray",
@@ -334,24 +319,6 @@
           "overstatementGbp": 39.01,
           "overstatementPct": 55.7,
           "liveUrl": "https://beautybase.com/products/boss-the-scent-eau-de-toilette-200ml"
-        },
-        {
-          "retailerSku": "BBS12544",
-          "title": "Encre Noire Eau de Toilette 100ml Spray",
-          "storedPrice": 65,
-          "livePrice": 29,
-          "overstatementGbp": 36,
-          "overstatementPct": 124.1,
-          "liveUrl": "https://beautybase.com/products/encre-noire-eau-de-toilette-100ml-spray"
-        },
-        {
-          "retailerSku": "P0000778937",
-          "title": "Issey Miyake Le Sel D'issey Eau De Toilette 50ml & Shower Gel 50ml Gif",
-          "storedPrice": 73,
-          "livePrice": 43,
-          "overstatementGbp": 30,
-          "overstatementPct": 69.8,
-          "liveUrl": "https://beautybase.com/products/issey-miyake-le-sel-dissey-eau-de-toilette-50ml-shower-gel-50ml-gift-set"
         },
         {
           "retailerSku": "P0000753545",
@@ -372,21 +339,48 @@
           "liveUrl": "https://beautybase.com/products/valentino-donna-born-in-roma-green-stravaganza-eau-de-parfum-100ml-spray"
         },
         {
-          "retailerSku": "P0000777600",
-          "title": "MiuMiu Fleur De Lait Eau De Parfum 100ml Spray",
-          "storedPrice": 119,
-          "livePrice": 99,
+          "retailerSku": "P0000773850",
+          "title": "Ralph Lauren Polo Red Parfum 150ml Refill",
+          "storedPrice": 98,
+          "livePrice": 78,
           "overstatementGbp": 20,
-          "overstatementPct": 20.2,
-          "liveUrl": "https://beautybase.com/products/miumiu-fleur-de-lait-eau-de-parfum-100ml-spray"
+          "overstatementPct": 25.6,
+          "liveUrl": "https://beautybase.com/products/ralph-lauren-polo-red-parfum-150ml-refill"
+        },
+        {
+          "retailerSku": "P0000754591",
+          "title": "GUCCI Bamboo Eau De Parfum 75ml Spray",
+          "storedPrice": 89,
+          "livePrice": 70,
+          "overstatementGbp": 19,
+          "overstatementPct": 27.1,
+          "liveUrl": "https://beautybase.com/products/gucci-bamboo-eau-de-parfum-75ml-spray"
+        },
+        {
+          "retailerSku": "P0000768945",
+          "title": "Versace Dylan Turquoise Eau De Toilette 100ml Spray",
+          "storedPrice": 69.99,
+          "livePrice": 55,
+          "overstatementGbp": 14.99,
+          "overstatementPct": 27.3,
+          "liveUrl": "https://beautybase.com/products/versace-dylan-turquoise-eau-de-toilette-100ml-spray"
+        },
+        {
+          "retailerSku": "P0000763291",
+          "title": "Givenchy L'INTERDIT Eau De Parfum 80ml Spray",
+          "storedPrice": 112,
+          "livePrice": 99,
+          "overstatementGbp": 13,
+          "overstatementPct": 13.1,
+          "liveUrl": "https://beautybase.com/products/givenchy-linterdit-eau-de-parfum-80ml-spray"
         }
       ],
       "notes": [
         "gap 1500ms (registry 1500, robots 0s)",
-        "products.json: 3735 products, 22377 lookup keys"
+        "products.json: 3702 products, 22178 lookup keys"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-13T06:21:45.848Z",
+      "snapshotUpdatedAt": "2026-09-20T06:27:26.288Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -403,7 +397,7 @@
       "overstated": 1,
       "understated": 3,
       "unkeyed": 0,
-      "outOfStockLive": 14,
+      "outOfStockLive": 15,
       "overstatementGbpTotal": 8.909999999999997,
       "medianAbsDriftGbp": 0,
       "worst": [
@@ -449,7 +443,7 @@
         "products.json: HTTP 404"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-13T06:21:45.848Z",
+      "snapshotUpdatedAt": "2026-09-19T23:03:53.802Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -494,7 +488,7 @@
       "retailerId": "selfridges",
       "name": "Selfridges",
       "route": "product-page",
-      "activeListings": 227,
+      "activeListings": 249,
       "attempted": 30,
       "compared": 0,
       "agree": 0,
@@ -510,18 +504,18 @@
         "gap 2500ms (registry 2500, robots 0s)",
         "storefront published no currency — its numbers are compared as pounds on the registry's word alone. To settle it: npm run currency:probe -- --shop=selfridges --products=3",
         "products.json: HTTP 403",
-        "HTTP 403 on /GB/en/product/chloe-atelier-des-fleurs-sous-les-pins-eau-de-parfum-50ml_R04601517/",
-        "HTTP 403 on /GB/en/product/tom-ford-ombre-leather-reserve-100ml_R04697234/",
-        "HTTP 403 on /GB/en/product/matiere-premiere-vanilla-powder-extrait-de-parfum-50ml_R04550474/",
-        "HTTP 403 on /GB/en/product/jo-malone-london-myrrh-tonka-cologne-intense-30ml_R04673081/",
-        "HTTP 403 on /GB/en/product/bottega-veneta-beauty-bare-morning-eau-de-parfum-travel-spray-15ml_R04670161/",
-        "HTTP 403 on /GB/en/product/acqua-di-parma-colonia-intensa-eau-de-cologne-180ml_R04495502/",
-        "HTTP 403 on /GB/en/product/clive-christian-feminine-traveller-set_R04577214/",
-        "HTTP 403 on /GB/en/product/essential-parfums-orange-x-santal-by-natalie-gracia-cetto-eau-de-parfum-100ml_R04645790/",
-        "HTTP 403 on /GB/en/product/bamford-b-silent-night-time-pillow-mist-50ml_R04596033/"
+        "HTTP 403 on /GB/en/product/yves-saint-laurent-black-opium-pink-glaze-eau-de-parfum-50ml_R04682699/",
+        "HTTP 403 on /GB/en/product/borntostandout-free-coco-eau-de-parfum-100ml_R04523145/",
+        "HTTP 403 on /GB/en/product/byredo-future-memories-eau-de-parfum-100ml_R04679015/",
+        "HTTP 403 on /GB/en/product/dries-van-noten-velvet-violet-eau-de-parfum-10ml_R04687380/",
+        "HTTP 403 on /GB/en/product/tom-ford-tobacco-chocolat-eau-de-parfum-30ml_R04697228/",
+        "HTTP 403 on /GB/en/product/chanel-beige-les-exclusifs-de-chanel-eau-de-parfum-75ml_R04292677/",
+        "HTTP 403 on /GB/en/product/creed-aventus-cologne-100ml_R04671887/",
+        "HTTP 403 on /GB/en/product/chloe-atelier-des-fleurs-cedrus-de-nuit-eau-de-parfum-50ml_R04693968/",
+        "HTTP 403 on /GB/en/product/chanel-coco-mademoiselle-crush-absolu-ambery-intense-50ml_R04681213/"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-13T06:21:45.848Z",
+      "snapshotUpdatedAt": "2026-09-19T23:03:53.802Z",
       "storefrontCurrency": null,
       "notComparable": null,
       "scale": null
@@ -555,7 +549,7 @@
       "retailerId": "fragrance-click",
       "name": "Fragrance Click",
       "route": "product-page",
-      "activeListings": 799,
+      "activeListings": 780,
       "attempted": 30,
       "compared": 30,
       "agree": 30,
@@ -571,10 +565,10 @@
         "gap 1200ms (registry 0, robots 0s)",
         "storefront published no currency — its numbers are compared as pounds on the registry's word alone. To settle it: npm run currency:probe -- --shop=fragrance-click --products=3",
         "products.json: HTTP 404",
-        "799 listings verified via merchant_deep_link rather than the tracking link"
+        "780 listings verified via merchant_deep_link rather than the tracking link"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-12T17:20:05.602Z",
+      "snapshotUpdatedAt": "2026-09-20T06:25:37.042Z",
       "storefrontCurrency": null,
       "notComparable": null,
       "scale": null
@@ -583,24 +577,24 @@
       "retailerId": "mybeauty-boutique",
       "name": "MyBeauty.Boutique",
       "route": "products.json",
-      "activeListings": 8902,
-      "attempted": 8902,
-      "compared": 8902,
-      "agree": 8902,
+      "activeListings": 8894,
+      "attempted": 8894,
+      "compared": 8894,
+      "agree": 8894,
       "drifted": 0,
       "overstated": 0,
       "understated": 0,
       "unkeyed": 0,
-      "outOfStockLive": 4276,
+      "outOfStockLive": 4235,
       "overstatementGbpTotal": 0,
       "medianAbsDriftGbp": 0,
       "worst": [],
       "notes": [
         "gap 1200ms (registry 0, robots 0s)",
-        "products.json: 9354 products, 56148 lookup keys"
+        "products.json: 9346 products, 56100 lookup keys"
       ],
       "fullPopulation": true,
-      "snapshotUpdatedAt": "2026-09-13T06:21:09.159Z",
+      "snapshotUpdatedAt": "2026-09-20T06:26:48.232Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -609,10 +603,10 @@
       "retailerId": "the-fragrance-counter",
       "name": "The Fragrance Counter",
       "route": "product-page",
-      "activeListings": 29,
-      "attempted": 29,
-      "compared": 29,
-      "agree": 29,
+      "activeListings": 30,
+      "attempted": 30,
+      "compared": 30,
+      "agree": 30,
       "drifted": 0,
       "overstated": 0,
       "understated": 0,
@@ -627,7 +621,7 @@
         "products.json: HTTP 404"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-13T06:21:45.848Z",
+      "snapshotUpdatedAt": "2026-09-19T23:03:53.802Z",
       "storefrontCurrency": null,
       "notComparable": null,
       "scale": null
@@ -654,7 +648,7 @@
         "products.json: HTTP 404"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-13T06:21:45.848Z",
+      "snapshotUpdatedAt": "2026-09-19T23:03:53.802Z",
       "storefrontCurrency": null,
       "notComparable": null,
       "scale": null
@@ -677,10 +671,10 @@
       "worst": [],
       "notes": [
         "gap 1500ms (registry 1500, robots 0s)",
-        "products.json: 509 products, 6102 lookup keys"
+        "products.json: 520 products, 6192 lookup keys"
       ],
       "fullPopulation": true,
-      "snapshotUpdatedAt": "2026-09-13T06:21:45.848Z",
+      "snapshotUpdatedAt": "2026-09-19T23:03:53.802Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -697,7 +691,7 @@
       "overstated": 0,
       "understated": 0,
       "unkeyed": 1,
-      "outOfStockLive": 19,
+      "outOfStockLive": 18,
       "overstatementGbpTotal": 0,
       "medianAbsDriftGbp": 0,
       "worst": [],
@@ -706,7 +700,7 @@
         "products.json: 146 products, 863 lookup keys"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-13T06:21:45.848Z",
+      "snapshotUpdatedAt": "2026-09-19T23:03:53.802Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -723,7 +717,7 @@
       "overstated": 0,
       "understated": 0,
       "unkeyed": 0,
-      "outOfStockLive": 66,
+      "outOfStockLive": 54,
       "overstatementGbpTotal": 0,
       "medianAbsDriftGbp": 0,
       "worst": [],
@@ -732,7 +726,7 @@
         "products.json: 324 products, 1944 lookup keys"
       ],
       "fullPopulation": true,
-      "snapshotUpdatedAt": "2026-09-13T06:21:45.848Z",
+      "snapshotUpdatedAt": "2026-09-19T23:03:53.802Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -749,7 +743,7 @@
       "overstated": 0,
       "understated": 0,
       "unkeyed": 4,
-      "outOfStockLive": 122,
+      "outOfStockLive": 125,
       "overstatementGbpTotal": 0,
       "medianAbsDriftGbp": 0,
       "worst": [],
@@ -758,7 +752,7 @@
         "products.json: 561 products, 3992 lookup keys"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-13T06:21:45.848Z",
+      "snapshotUpdatedAt": "2026-09-19T23:03:53.802Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -782,10 +776,19 @@
       "notes": [
         "gap 1200ms (registry 0, robots 0s)",
         "storefront published no currency — its numbers are compared as pounds on the registry's word alone. To settle it: npm run currency:probe -- --shop=riiffs --products=3",
-        "products.json did not return a Shopify products payload"
+        "products.json: HTTP 403",
+        "HTTP 403 on /product/areeq-al-oud/",
+        "HTTP 403 on /product/forever-absolu/",
+        "HTTP 403 on /product/meraal/",
+        "HTTP 403 on /product/vision-pour-femme/",
+        "HTTP 403 on /product/malikat-blue/",
+        "HTTP 403 on /product/amora-de-femme/",
+        "HTTP 403 on /product/mahab/",
+        "HTTP 403 on /product/tahira/",
+        "HTTP 403 on /product/gladius/"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-13T06:21:45.848Z",
+      "snapshotUpdatedAt": "2026-09-14T04:56:20.912Z",
       "storefrontCurrency": null,
       "notComparable": null,
       "scale": null
@@ -802,7 +805,7 @@
       "overstated": 0,
       "understated": 0,
       "unkeyed": 0,
-      "outOfStockLive": 40,
+      "outOfStockLive": 41,
       "overstatementGbpTotal": 0,
       "medianAbsDriftGbp": 0,
       "worst": [],
@@ -811,7 +814,7 @@
         "products.json: 95 products, 570 lookup keys"
       ],
       "fullPopulation": true,
-      "snapshotUpdatedAt": "2026-09-12T22:18:31.310Z",
+      "snapshotUpdatedAt": "2026-09-19T23:03:53.802Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -874,7 +877,7 @@
         "products.json: 187 products, 1027 lookup keys"
       ],
       "fullPopulation": true,
-      "snapshotUpdatedAt": "2026-09-12T22:18:31.310Z",
+      "snapshotUpdatedAt": "2026-09-19T23:03:53.802Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -891,7 +894,7 @@
       "overstated": 0,
       "understated": 0,
       "unkeyed": 1,
-      "outOfStockLive": 35,
+      "outOfStockLive": 36,
       "overstatementGbpTotal": 0,
       "medianAbsDriftGbp": 0,
       "worst": [],
@@ -900,7 +903,7 @@
         "products.json: 435 products, 2165 lookup keys"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-12T22:18:31.310Z",
+      "snapshotUpdatedAt": "2026-09-19T23:03:53.802Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -926,7 +929,7 @@
         "products.json: 103 products, 616 lookup keys"
       ],
       "fullPopulation": true,
-      "snapshotUpdatedAt": "2026-09-12T22:18:31.310Z",
+      "snapshotUpdatedAt": "2026-09-19T23:03:53.802Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -935,16 +938,16 @@
       "retailerId": "emirates-oud",
       "name": "Emirates Oud",
       "route": "products.json",
-      "activeListings": 2651,
-      "attempted": 2651,
-      "compared": 2367,
-      "agree": 2316,
+      "activeListings": 2667,
+      "attempted": 2667,
+      "compared": 2380,
+      "agree": 2329,
       "drifted": 51,
-      "overstated": 3,
-      "understated": 48,
-      "unkeyed": 284,
-      "outOfStockLive": 664,
-      "overstatementGbpTotal": 19,
+      "overstated": 4,
+      "understated": 47,
+      "unkeyed": 287,
+      "outOfStockLive": 679,
+      "overstatementGbpTotal": 20,
       "medianAbsDriftGbp": 0,
       "worst": [
         {
@@ -975,6 +978,15 @@
           "liveUrl": "https://emiratesoud.co.uk/products/marshmallow-blush-paris-corner"
         },
         {
+          "retailerSku": "8839505871197-100ml",
+          "title": "Fakhar Lattafa (For Women) Perfume 100ml EDP Lattafa 100ml",
+          "storedPrice": 19.99,
+          "livePrice": 18.99,
+          "overstatementGbp": 1,
+          "overstatementPct": 5.3,
+          "liveUrl": "https://emiratesoud.co.uk/products/fakhar-lattafa-for-women-eau-de-parfum-100ml-lattafa"
+        },
+        {
           "retailerSku": "16350642372957-PRE-ORDER: Estimated dispatch: 28th August",
           "title": "Noble Cedar Perfume 100ml EDP French Avenue PRE-ORDER: Estimated dispa",
           "storedPrice": 39.99,
@@ -1002,15 +1014,6 @@
           "liveUrl": "https://emiratesoud.co.uk/products/glacier-bella-perfume-100ml-edp-alhambra"
         },
         {
-          "retailerSku": "8839505871197-100ml",
-          "title": "Fakhar Lattafa (For Women) Perfume 100ml EDP Lattafa 100ml",
-          "storedPrice": 19.99,
-          "livePrice": 22.5,
-          "overstatementGbp": -2.51,
-          "overstatementPct": -11.2,
-          "liveUrl": "https://emiratesoud.co.uk/products/fakhar-lattafa-for-women-eau-de-parfum-100ml-lattafa"
-        },
-        {
           "retailerSku": "15440067952989-85ml",
           "title": "Rifaaqat Perfume 85ml EDP Paris Corner 85ml",
           "storedPrice": 19.99,
@@ -1022,10 +1025,10 @@
       ],
       "notes": [
         "gap 1200ms (registry 0, robots 0s)",
-        "products.json: 2238 products, 11435 lookup keys"
+        "products.json: 2250 products, 11500 lookup keys"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-12T22:18:31.310Z",
+      "snapshotUpdatedAt": "2026-09-19T23:03:53.802Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -1034,25 +1037,35 @@
       "retailerId": "perfumeo",
       "name": "Perfumeo",
       "route": "product-page",
-      "activeListings": 1682,
+      "activeListings": 1688,
       "attempted": 30,
       "compared": 30,
-      "agree": 30,
-      "drifted": 0,
-      "overstated": 0,
+      "agree": 29,
+      "drifted": 1,
+      "overstated": 1,
       "understated": 0,
       "unkeyed": 0,
-      "outOfStockLive": 23,
-      "overstatementGbpTotal": 0,
+      "outOfStockLive": 22,
+      "overstatementGbpTotal": 0.9999999999999982,
       "medianAbsDriftGbp": 0,
-      "worst": [],
+      "worst": [
+        {
+          "retailerSku": "amber-oud-brandy-designs-perfumes",
+          "title": "Amber Oud by Brandy 100ml Eau de Parfum | Perfumeo",
+          "storedPrice": 16.99,
+          "livePrice": 15.99,
+          "overstatementGbp": 1,
+          "overstatementPct": 6.3,
+          "liveUrl": "https://perfumeo.co.uk/products/amber-oud-brandy-designs-perfumes/"
+        }
+      ],
       "notes": [
         "gap 1200ms (registry 0, robots 0s)",
         "storefront published no currency — its numbers are compared as pounds on the registry's word alone. To settle it: npm run currency:probe -- --shop=perfumeo --products=3",
         "products.json did not return a Shopify products payload"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-12T22:18:31.310Z",
+      "snapshotUpdatedAt": "2026-09-20T06:27:26.288Z",
       "storefrontCurrency": null,
       "notComparable": null,
       "scale": null
@@ -1061,26 +1074,53 @@
       "retailerId": "the-beauty-store-uk",
       "name": "The Beauty Store UK",
       "route": "products.json",
-      "activeListings": 5922,
-      "attempted": 5922,
-      "compared": 5081,
-      "agree": 5078,
-      "drifted": 3,
-      "overstated": 3,
-      "understated": 0,
-      "unkeyed": 841,
-      "outOfStockLive": 35,
-      "overstatementGbpTotal": 3.4799999999999986,
+      "activeListings": 7650,
+      "attempted": 7650,
+      "compared": 5188,
+      "agree": 5149,
+      "drifted": 39,
+      "overstated": 14,
+      "understated": 25,
+      "unkeyed": 2462,
+      "outOfStockLive": 182,
+      "overstatementGbpTotal": 23.42,
       "medianAbsDriftGbp": 0,
       "worst": [
         {
-          "retailerSku": "AZZARO-667425-X",
-          "title": "Azzaro Sport Eau de Toilette Spray 100ml Tester",
-          "storedPrice": 16.99,
-          "livePrice": 15.75,
-          "overstatementGbp": 1.24,
-          "overstatementPct": 7.9,
-          "liveUrl": "https://thebeautystore.com/products/azzaro-sport-eau-de-toilette-spray-100ml-tester"
+          "retailerSku": "TBSUKDK2-35746",
+          "title": "Yves Saint Laurent Rive Gauche Eau de Toilette Spray 100ml",
+          "storedPrice": 72.99,
+          "livePrice": 67.99,
+          "overstatementGbp": 5,
+          "overstatementPct": 7.4,
+          "liveUrl": "https://thebeautystore.com/products/ysl-rive-gauche-edt-spray-100ml"
+        },
+        {
+          "retailerSku": "TBSUKDK2-10055",
+          "title": "Thierry Mugler MUGLER Angel Refillable Eau de Parfum Spray 50ml",
+          "storedPrice": 68.99,
+          "livePrice": 64.99,
+          "overstatementGbp": 4,
+          "overstatementPct": 6.2,
+          "liveUrl": "https://thebeautystore.com/products/thierry-mugler-mugler-angel-refillable-eau-de-parfum-spray-50ml"
+        },
+        {
+          "retailerSku": "TBSUKDK2-38157",
+          "title": "Swiss Army Victorinox Forget Me Not Eau de Toilette 100ml",
+          "storedPrice": 20.99,
+          "livePrice": 18.99,
+          "overstatementGbp": 2,
+          "overstatementPct": 10.5,
+          "liveUrl": "https://thebeautystore.com/products/swiss-army-victorinox-forget-me-not-eau-de-toilette-100ml"
+        },
+        {
+          "retailerSku": "TBSUKDK2-10879",
+          "title": "Carolina Herrera Bad Boy Extreme Eau de Parfum 100ml",
+          "storedPrice": 86.99,
+          "livePrice": 84.99,
+          "overstatementGbp": 2,
+          "overstatementPct": 2.4,
+          "liveUrl": "https://thebeautystore.com/products/carolina-herrera-bad-boy-extreme-eau-de-parfum-100ml"
         },
         {
           "retailerSku": "8411061101148",
@@ -1092,21 +1132,39 @@
           "liveUrl": "https://thebeautystore.com/products/antonio-banderas-the-icon-eau-de-parfum-spray-100ml-tester"
         },
         {
-          "retailerSku": "TBSUKDK2-31862",
-          "title": "Burberry London For Men Eau de Toilette Spray 100ml Tester",
-          "storedPrice": 22.99,
-          "livePrice": 21.99,
+          "retailerSku": "WAHL-022429-X",
+          "title": "Wahl GroomEase 10 Piece Kit 100 Series Clipper",
+          "storedPrice": 13.5,
+          "livePrice": 12.32,
+          "overstatementGbp": 1.18,
+          "overstatementPct": 9.6,
+          "liveUrl": "https://thebeautystore.com/products/wahl-groomease-10-piece-kit-100-series-clipper"
+        },
+        {
+          "retailerSku": "TBSUKDK2-37882",
+          "title": "Ard Al Zaafaran I Am The Queen Ana Al Malikah Eau De Parfum 100ml",
+          "storedPrice": 16.99,
+          "livePrice": 15.99,
           "overstatementGbp": 1,
-          "overstatementPct": 4.5,
-          "liveUrl": "https://thebeautystore.com/products/burberry-london-for-men-eau-de-toilette-spray-100ml-tester"
+          "overstatementPct": 6.3,
+          "liveUrl": "https://thebeautystore.com/products/ard-al-zaafaran-i-am-the-queen-ana-al-malikah-eau-de-parfum-100ml"
+        },
+        {
+          "retailerSku": "TBSUKDK2-30320",
+          "title": "Jennifer Lopez Live Luxe Eau de Parfum Spray 100ml",
+          "storedPrice": 19.99,
+          "livePrice": 18.99,
+          "overstatementGbp": 1,
+          "overstatementPct": 5.3,
+          "liveUrl": "https://thebeautystore.com/products/jennifer-lopez-live-luxe-eau-de-parfum-spray-100ml"
         }
       ],
       "notes": [
         "gap 1200ms (registry 0, robots 0s)",
-        "products.json: 7405 products, 44430 lookup keys"
+        "products.json: 7487 products, 44922 lookup keys"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-12T22:18:31.310Z",
+      "snapshotUpdatedAt": "2026-09-20T06:27:26.288Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -1132,7 +1190,7 @@
         "products.json: 87 products, 521 lookup keys"
       ],
       "fullPopulation": true,
-      "snapshotUpdatedAt": "2026-09-12T22:18:31.310Z",
+      "snapshotUpdatedAt": "2026-09-20T06:27:26.288Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -1149,7 +1207,7 @@
       "overstated": 0,
       "understated": 0,
       "unkeyed": 7,
-      "outOfStockLive": 23,
+      "outOfStockLive": 22,
       "overstatementGbpTotal": 0,
       "medianAbsDriftGbp": 0,
       "worst": [],
@@ -1158,7 +1216,7 @@
         "products.json: 84 products, 1110 lookup keys"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-12T22:18:31.310Z",
+      "snapshotUpdatedAt": "2026-09-20T06:27:26.288Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -1194,10 +1252,10 @@
       "retailerId": "escentric-molecules",
       "name": "Escentric Molecules",
       "route": "products.json",
-      "activeListings": 118,
-      "attempted": 118,
-      "compared": 118,
-      "agree": 118,
+      "activeListings": 119,
+      "attempted": 119,
+      "compared": 119,
+      "agree": 119,
       "drifted": 0,
       "overstated": 0,
       "understated": 0,
@@ -1208,10 +1266,10 @@
       "worst": [],
       "notes": [
         "gap 1200ms (registry 0, robots 0s)",
-        "products.json: 167 products, 685 lookup keys"
+        "products.json: 168 products, 691 lookup keys"
       ],
       "fullPopulation": true,
-      "snapshotUpdatedAt": "2026-09-12T22:18:31.310Z",
+      "snapshotUpdatedAt": "2026-09-20T06:27:26.288Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -1220,7 +1278,7 @@
       "retailerId": "perfume-click",
       "name": "Perfume Click",
       "route": "product-page",
-      "activeListings": 10533,
+      "activeListings": 10580,
       "attempted": 30,
       "compared": 0,
       "agree": 0,
@@ -1236,10 +1294,10 @@
         "gap 1200ms (registry 0, robots 0s)",
         "storefront published no currency — its numbers are compared as pounds on the registry's word alone. To settle it: npm run currency:probe -- --shop=perfume-click --products=3",
         "products.json: HTTP 404",
-        "10533 listings verified via merchant_deep_link rather than the tracking link"
+        "10580 listings verified via merchant_deep_link rather than the tracking link"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-13T06:19:52.835Z",
+      "snapshotUpdatedAt": "2026-09-20T06:25:37.042Z",
       "storefrontCurrency": null,
       "notComparable": null,
       "scale": null
@@ -1248,24 +1306,24 @@
       "retailerId": "fragrancehub",
       "name": "FragranceHub",
       "route": "products.json",
-      "activeListings": 550,
-      "attempted": 550,
-      "compared": 549,
-      "agree": 549,
+      "activeListings": 560,
+      "attempted": 560,
+      "compared": 558,
+      "agree": 558,
       "drifted": 0,
       "overstated": 0,
       "understated": 0,
-      "unkeyed": 1,
-      "outOfStockLive": 241,
+      "unkeyed": 2,
+      "outOfStockLive": 260,
       "overstatementGbpTotal": 0,
       "medianAbsDriftGbp": 0,
       "worst": [],
       "notes": [
         "gap 1200ms (registry 0, robots 0s)",
-        "products.json: 549 products, 3217 lookup keys"
+        "products.json: 560 products, 3281 lookup keys"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-12T22:18:31.310Z",
+      "snapshotUpdatedAt": "2026-09-20T06:27:26.288Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -1274,14 +1332,14 @@
       "retailerId": "avon",
       "name": "Avon",
       "route": "products.json",
-      "activeListings": 1826,
-      "attempted": 1826,
+      "activeListings": 1827,
+      "attempted": 1827,
       "compared": 1791,
       "agree": 1791,
       "drifted": 0,
       "overstated": 0,
       "understated": 0,
-      "unkeyed": 35,
+      "unkeyed": 36,
       "outOfStockLive": 657,
       "overstatementGbpTotal": 0,
       "medianAbsDriftGbp": 0,
@@ -1291,7 +1349,7 @@
         "products.json: 983 products, 10741 lookup keys"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-12T22:18:31.310Z",
+      "snapshotUpdatedAt": "2026-09-20T06:27:26.288Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -1317,7 +1375,7 @@
         "products.json: HTTP 404"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-12T22:18:31.310Z",
+      "snapshotUpdatedAt": "2026-09-20T06:27:26.288Z",
       "storefrontCurrency": "GBP",
       "notComparable": null,
       "scale": null
@@ -1326,14 +1384,14 @@
       "retailerId": "bm-stores",
       "name": "B&M",
       "route": "product-page",
-      "activeListings": 213,
+      "activeListings": 217,
       "attempted": 30,
-      "compared": 29,
-      "agree": 29,
+      "compared": 28,
+      "agree": 28,
       "drifted": 0,
       "overstated": 0,
       "understated": 0,
-      "unkeyed": 1,
+      "unkeyed": 2,
       "outOfStockLive": 0,
       "overstatementGbpTotal": 0,
       "medianAbsDriftGbp": 0,
@@ -1342,10 +1400,11 @@
         "gap 1200ms (registry 0, robots 0s)",
         "storefront published no currency — its numbers are compared as pounds on the registry's word alone. To settle it: npm run currency:probe -- --shop=bm-stores --products=3",
         "robots.txt disallows https://bmstores.co.uk/products.json — no full-catalogue route",
-        "HTTP 404 on /products/forever-fragrances-pink-clouds-candle-jar-large-423925"
+        "HTTP 404 on /products/forever-fragrances-pink-clouds-candle-jar-large-423925",
+        "HTTP 404 on /products/scented-glass-candle-with-3d-bow-lid-green-424018"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-13T06:21:45.848Z",
+      "snapshotUpdatedAt": "2026-09-20T06:27:26.288Z",
       "storefrontCurrency": null,
       "notComparable": null,
       "scale": null
@@ -1354,7 +1413,7 @@
       "retailerId": "home-bargains",
       "name": "Home Bargains",
       "route": "product-page",
-      "activeListings": 782,
+      "activeListings": 787,
       "attempted": 30,
       "compared": 30,
       "agree": 30,
@@ -1362,7 +1421,7 @@
       "overstated": 0,
       "understated": 0,
       "unkeyed": 0,
-      "outOfStockLive": 25,
+      "outOfStockLive": 22,
       "overstatementGbpTotal": 0,
       "medianAbsDriftGbp": 0,
       "worst": [],
@@ -1372,7 +1431,7 @@
         "products.json: HTTP 404"
       ],
       "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-09-13T06:21:45.848Z",
+      "snapshotUpdatedAt": "2026-09-20T06:27:26.288Z",
       "storefrontCurrency": null,
       "notComparable": null,
       "scale": null
