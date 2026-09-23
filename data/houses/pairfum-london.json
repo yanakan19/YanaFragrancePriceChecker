@@ -1,6 +1,6 @@
 {
   "retailerId": "pairfum-london",
-  "updatedAt": "2026-09-22T19:59:59.571Z",
+  "updatedAt": "2026-09-23T12:41:09.848Z",
   "source": "live",
   "listings": [
     {
@@ -19,7 +19,7 @@
       "rating": null,
       "retailerId": "pairfum-london",
       "firstSeenAt": "2026-08-05T08:57:05.601Z",
-      "lastSeenAt": "2026-09-22T19:59:59.571Z",
+      "lastSeenAt": "2026-09-23T12:41:09.848Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
