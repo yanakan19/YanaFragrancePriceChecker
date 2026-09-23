@@ -6275,13 +6275,13 @@ export const RETAILERS: readonly Retailer[] = [
       // figure is named here and not stored as freeOverGbp.
       freeOverGbp: null,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-09-19',
+      verifiedAt: '2026-09-23',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
         url: 'https://www.spacenk.com/uk/shipping',
         quote: 'FREE UK STANDARD DELIVERY on all orders over £25',
-        readAt: '2026-09-19',
+        readAt: '2026-09-23',
       },
       notes:
         'Delivery terms have not been read from spacenk.com itself, only its checkout currency ' +
