@@ -1,6 +1,6 @@
 {
   "retailerId": "maison-asrar",
-  "updatedAt": "2026-09-22T20:00:07.600Z",
+  "updatedAt": "2026-09-23T12:41:17.639Z",
   "source": "live",
   "listings": [
     {
@@ -18,11 +18,11 @@
       "description": "The water's warm. The sky is fading. And something is circling below. . Lemon and bergamot break the surface — clean, sharp, electric. Sage and ozonic accord pull you under, cool and alive. Moss and mineral amber settle at the bottom, deep and unhurried.. Last Swim — Go on. The water's fine. .",
       "nativePrice": {
         "amount": 38.88,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-31T14:17:28.410Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -44,11 +44,11 @@
       "description": "You don't hear it. You don't see it. You just feel the water shift. . Bergamot and mandarin cut through clean and bright. Coconut drifts through the heart — warm, effortless, sun-soaked. Amber closes underneath, smooth and inevitable.. You don't hear it. You don't see it. You just feel the water shift.. Bergamot and mandarin cut through clean and bright. Coconut drifts through the heart — warm, effortless, sun-soaked. Amber closes underneath, smooth and inevitable.. Silent Surge — Something's coming. You just don't know what yet..",
       "nativePrice": {
         "amount": 38.88,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-31T14:17:28.410Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -69,12 +69,12 @@
       "sectionId": "house-direct",
       "description": "Named after Dubai's most iconic coastline — sun-soaked, effortless, and quietly royal. The kind of place where the sea is turquoise, the architecture is gold, and everything moves at its own pace.. Passionfruit and pineapple hit first — bright, tropical, alive. Coconut carries through the heart, warm and unhurried. Sandalwood and ambergris close it out clean.. DXB Jumeirah — Where the sea meets the skyline. .",
       "nativePrice": {
-        "amount": 62.48,
-        "currency": "AED"
+        "amount": 62.49,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-31T14:17:28.410Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -95,12 +95,12 @@
       "sectionId": "house-direct",
       "description": "There are neighbourhoods in London that carry a different weight. Belgravia is one of them — white facades, quiet grandeur, the kind of elegance that has never needed to prove itself.. Bergamot opens with effortless brightness, blackcurrant adding a whisper of depth. Freesia and lily of the valley move through the heart — delicate but never fragile, refined without effort. Vetiver and musk close with quiet authority, the signature of someone who was never trying to impress you.. . Belgravia — Royalty doesn't announce itself. .",
       "nativePrice": {
-        "amount": 61.09,
-        "currency": "AED"
+        "amount": 61.1,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -121,12 +121,12 @@
       "sectionId": "house-direct",
       "description": "Inspired by the quiet power of royalty, REGENT reflects leadership without excess — presence built on balance and refinement.. A vibrant opening of bergamot, mandarin, and grapefruit is sharpened by a touch of ginger, bringing clarity and energy. The heart reveals jasmine and orange blossom softened by the smooth elegance of orris, while ambergris, sandalwood, cedarwood, and musk create a warm, structured trail that feels timeless and composed.. Not loud. Just regal. This is REGENT. .",
       "nativePrice": {
-        "amount": 61.09,
-        "currency": "AED"
+        "amount": 61.1,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -148,11 +148,11 @@
       "description": "Light as wings — vibrant freedom captured in color and motion. . VEYRA bursts open with sparkling mandarin, pomegranate, and blackcurrant wrapped in Italian bergamot, creating a radiant and uplifting start. The heart blooms with Bulgarian rose and magnolia, softened by a playful caramel touch, before melting into a warm base of vanilla, peach, and ambergris warmth that feels luminous and graceful.. Bold. Feminine. Unapologetically free. This is VEYRA. .",
       "nativePrice": {
         "amount": 51.38,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -173,12 +173,12 @@
       "sectionId": "house-direct",
       "description": "Where Dubai’s bold energy meets Milan’s timeless elegance. . DUBAI : MILANO opens with a luminous burst of bergamot and tropical fruits, softened by a silky touch that feels refined yet modern. The heart introduces smooth leather wrapped in cypress and violet leaf, adding depth and sophistication inspired by Italian style. As it settles, vanilla, musk, and warm labdanum create a sensual trail — polished, confident, and effortlessly luxurious.. A journey in contrast. This is DUBAI : MILANO. .",
       "nativePrice": {
-        "amount": 61.09,
-        "currency": "AED"
+        "amount": 61.1,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -199,12 +199,12 @@
       "sectionId": "house-direct",
       "description": "Modern heritage — where Dubai’s vibrance meets London’s quiet sophistication. . DUBAI : LONDON opens with aromatic lavender and pink pepper, lifted by a crisp citrus edge that feels fresh yet confident. A refined heart of orris, apricot, and hazelnut adds texture and elegance, before settling into a woody base of cedar, vetiver, and soft musk. Smooth, structured, and effortlessly stylish — a scent that moves between tradition and modernity.. Classic, with a contemporary pulse. This is DUBAI : LONDON. .",
       "nativePrice": {
-        "amount": 61.09,
-        "currency": "AED"
+        "amount": 61.1,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -225,12 +225,12 @@
       "sectionId": "house-direct",
       "description": "Sunlit freedom — a vibrant escape from desert glow to ocean breeze. . DUBAI : MIAMI bursts open with juicy pear, plum, and sparkling bergamot, touched by bright lemon freshness. At the heart, soft rose and lily of the valley meet a playful caramel note, adding warmth without losing its airy charm. The dry down blends white musk and creamy vanilla into a smooth, luminous finish — youthful, radiant, and endlessly uplifting.. From golden sands to neon sunsets. This is DUBAI : MIAMI. .",
       "nativePrice": {
-        "amount": 61.09,
-        "currency": "AED"
+        "amount": 61.1,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -252,11 +252,11 @@
       "description": "Unbound by limits — a breath of freedom carried by the sea. . INFINA opens with a vibrant rush of bergamot, pink pepper, and cardamom, lifted by a cool marine breeze that feels expansive and weightless. In the heart, smoky incense and warm cashmere woods create depth without heaviness, while mossy amber and soft musk settle into a smooth, lingering trail that feels endlessly free.. Movement without restraint. This is INFINA. .",
       "nativePrice": {
         "amount": 51.38,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -278,11 +278,11 @@
       "description": "Balance in motion — freedom found between strength and softness. . LIBRAE blends aromatic spices and bright citrus into a refined opening that feels both bold and composed. A powdery woody heart unfolds with subtle florals, adding elegance and quiet confidence. As it settles, sandalwood, moss, and soft musk create a grounded yet airy presence — structured, timeless, and effortlessly free.. Where harmony meets independence. This is LIBRAE. .",
       "nativePrice": {
         "amount": 51.38,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -304,11 +304,11 @@
       "description": "A soft escape, where warmth meets quiet beauty. . FAIRYLAND opens with mandarin and bergamot, gently wrapped in a touch of cinnamon that adds a subtle glow. At the heart, rose and geranium blend with the earthy depth of cypriol, creating a floral composition that feels both airy and grounded. As it settles, musk, patchouli, and cedarwood leave a smooth, comforting trail that lingers with effortless ease.. Soft, warm, and gently captivating. This is FAIRYLAND. .",
       "nativePrice": {
         "amount": 48.6,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -330,11 +330,11 @@
       "description": "Everything falls into place — soft, radiant, complete. . HARMONY opens with a vibrant blend of apricot, peach, citrus, and tropical fruits, bringing a bright and uplifting start. The heart reveals a fresh floral mix of lily of the valley, rose, neroli, and freesia, adding clarity and lightness. As it settles, vanilla, white musks, and smooth woods create a clean, comforting trail that feels balanced and effortlessly refined.. Bright yet calm. This is HARMONY. .",
       "nativePrice": {
         "amount": 48.6,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -356,11 +356,11 @@
       "description": "Close to the skin, like a moment meant just for you. . WHISPER opens with a soft blend of mango, pear, and mandarin, creating a smooth, luminous sweetness. The heart melts into muguet and orange flower, layered with a creamy milk accord that adds a comforting, velvety touch. As it settles, vanilla, musk, and cashmeran create a warm, delicate trail that stays intimate and quietly addictive.. Felt, not announced. This is WHISPER. .",
       "nativePrice": {
         "amount": 48.6,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -381,12 +381,12 @@
       "sectionId": "house-direct",
       "description": "Born from the belief that nothing is impossible, THRILLER delivers the ultimate adrenaline hit. A fresh and spicy combination of bergamot, saffron and pepper strikes fast, then melts into smoky leather and incense bringing darkness and intensity. As it settles, vanilla and sandalwood take over, smooth but relentless, like the moment you realize there’s no turning back. . A shared vision. . MAISON ASRAR × CAL COLOGNE drop the year’s most anticipated release. .",
       "nativePrice": {
-        "amount": 54.15,
-        "currency": "AED"
+        "amount": 54.16,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -407,12 +407,12 @@
       "sectionId": "house-direct",
       "description": "Strength, command, and presence. Vanguard opens with a crisp, confident freshness where apple, bergamot, and pineapple meet the sharp sparkle of grapefruit and pink pepper. A refined heart unfolds with carnation, ginger, and cardamom, adding warmth, spice, and controlled intensity. It settles into a commanding base of leather, ambergris, and woods, leaving a bold, authoritative signature that defines modern royalty. .",
       "nativePrice": {
-        "amount": 61.09,
-        "currency": "AED"
+        "amount": 61.1,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -434,11 +434,11 @@
       "description": "Milky Way takes the idea of “creamy” and turns it into something elegant. Milk, caramel, and vanilla blend into a smooth, warm sweetness that never feels heavy — just soft, comforting, and quietly luxurious. It settles into a warm tonka glow that feels calm and deeply inviting.. Simple, warm, and beautifully creamy from start to finish. .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -460,11 +460,11 @@
       "description": "Adorable is an elegant and sophisticated fragrance that combines Floral notes with Woody and Spicy accords. A brave opening of Rose is accompanied with Woody notes in the middle, which melts into a long lasting finale of Amber and Leather. .",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -486,11 +486,11 @@
       "description": "When sweetness meets control. Vanilla Seduction opens with the soft bloom of plum and jasmine, unfolding into brown sugar and caramel over a deep trail of tonka and amber. Smooth, addictive, and impossibly refined — a scent that draws attention without asking for it. Confidence wrapped in warmth. .",
       "nativePrice": {
         "amount": 38.88,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -512,11 +512,11 @@
       "description": "Where warmth turns into radiance. Vanilla Aura glows with citrus brightness before melting into ribbons of caramel and molten chocolate, resting on a veil of amber, sandalwood, and vanilla. Each note moves like light over silk — serene, golden, unforgettable. A fragrance of quiet strength and luminous grace. .",
       "nativePrice": {
         "amount": 38.88,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -538,11 +538,11 @@
       "description": "A darker chapter of the crown. Throne Eclipse unfolds with apple and clove, deepened by cinnamon and lavender, settling into a warm ambery trail of vanilla and cedarwood. Elegant, magnetic — the night side of power. .",
       "nativePrice": {
         "amount": 48.6,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -564,11 +564,11 @@
       "description": "Where luxury meets legacy. Throne stands as a symbol of grace and power — a floral oriental blend of mandarin and ambery roses wrapped in soft leather and sandalwood. A scent for those born to rule, not follow. .",
       "nativePrice": {
         "amount": 48.6,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -590,11 +590,11 @@
       "description": "A fragrance born of noble blood — pure, enduring, and proud. Cardamom and incense meet the calm of florals and musk, anchored by oud and ambergris. Strength in heritage, grace in legacy. . .",
       "nativePrice": {
         "amount": 38.88,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -616,11 +616,11 @@
       "description": "The horseman of grace — steady, instinctive, and free. Citrus and spice ride through lavender and musk, leaving a smoky trail of quiet strength. A scent that commands presence without a word. .",
       "nativePrice": {
         "amount": 38.88,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -642,11 +642,11 @@
       "description": "The desert’s prized mare — fierce, rare, unforgettable. Saffron and cocoa gallop through suede and praline before settling into oud and vanilla. Bold, sensuous, and born to reign. .",
       "nativePrice": {
         "amount": 38.88,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -668,11 +668,11 @@
       "description": "The noble knight of the sands — timeless and regal. Oriental woods and amber touched with sweet cane sugar and musk. A deep, elegant fragrance of legacy and honor. .",
       "nativePrice": {
         "amount": 51.38,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -694,11 +694,11 @@
       "description": "The spirit of the desert warrior — fierce yet noble. Warm honey and cinnamon melt into tobacco, tonka, and vanilla woods. A rich, enveloping scent of strength and quiet power. .",
       "nativePrice": {
         "amount": 51.38,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -720,11 +720,11 @@
       "description": "A dream so bold, it became a blueprint. . Hilm begins with a radiant burst of mango and mandarin — ripe, golden, full of promise. Chamomile softens the edges, while coconut and jasmine unfold with gentle confidence. The dry down is rich and grounded — patchouli, caramel, and cedarwood leaving behind a quiet trail of ambition. Not imagined. Not wished for. Lived. .",
       "nativePrice": {
         "amount": 97.2,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -746,11 +746,11 @@
       "description": "The scent of stories Dubai will never forget. . Bold, unapologetic, and rooted in depth — Hikaya is the past written in spice and gold. Praline melts into saffron like old streets holding new footsteps, while rose and caramel rise like warmth from familiar hands. It ends in a hush of vanilla and ambergris — a nod to the memories this city refuses to let fade. .",
       "nativePrice": {
         "amount": 97.2,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -767,16 +767,16 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Named after a city that never looks back — bold, fast, and always in focus. . This scent opens with sharp citrus: orange, mandarin, and bergamot. A crisp flash of grapefruit and ginger keeps things moving, before soft lily and musk smooth it out. Clean, modern, and unmistakably fresh. . DXB - Where bold architecture meets crisp clarity. .",
       "nativePrice": {
-        "amount": 52.76,
-        "currency": "AED"
+        "amount": 52.77,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -798,11 +798,11 @@
       "description": "Emerald evokes the deep greens of the forest, starting with a vibrant blend of woody accords and cashmere wood, moving into a heart of leathery sandalwood, and concluding with a base of fougere accord and amber for a truly majestic fragrance. .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -824,11 +824,11 @@
       "description": "Rubellite captures the essence of passion and vigor, beginning with rich notes of plum and blackberry, leading into a heart of patchouli and saffron, and ending with a warm base of ambergris and labdanum. .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -850,11 +850,11 @@
       "description": "Larimar mirrors the tranquil beauty of deep space and galaxies, combining nutmeg and pink pepper with a heart of patchouli and lavender, finishing with a base of tonka and ambergris for a serene and sophisticated scent. .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -876,11 +876,11 @@
       "description": "Soft chaos, sweet aftermath. It starts with a swirl of lychee, peach, and saffron — bright, flirtatious, untamed. Then comes the calm: incense, osmanthus, and cashmere pull the storm into something intimate. A creamy base of vanilla, cedar, and musk lingers like heat in the air. Seduction, redefined. .",
       "nativePrice": {
         "amount": 36.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -902,11 +902,11 @@
       "description": "Freshness, in full motion. A wave of lemon, melon, and ginger breaks over lavender and crisp apple, rippling through marine accords and dry woods. The dry down is cool and steady — sandalwood and musk anchoring the energy in effortless calm. Cascade captures the feeling of water in flight. .",
       "nativePrice": {
         "amount": 36.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -928,11 +928,11 @@
       "description": "Where stillness holds power. Inspired by the serene depth of a valley after the rain, WADI opens with creamy coconut and juicy pineapple. Lavender and clary sage add a soft herbal contrast before melting into a musky blend of vanilla, tonka, and patchouli. Smooth, grounded, and quietly magnetic. .",
       "nativePrice": {
         "amount": 36.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -954,11 +954,11 @@
       "description": "Built on clarity. Driven by ambition. . Vision is the clean sharpness of a skyline drawn before it’s built. Crisp lemon and blackcurrant slice through the noise, grounded by basil and white tea — fresh, focused, and exact. Musk and moss hum quietly beneath, like the silent steps that move a city forward. .",
       "nativePrice": {
         "amount": 97.2,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -979,12 +979,12 @@
       "sectionId": "house-direct",
       "description": "Omniya\" (wish in Arabic) manifests the essence of longing with a lively mix of citrus and ozonic freshness, a floral heart, and a profound base of musk and leather, embodying the pursuit of dreams. .",
       "nativePrice": {
-        "amount": 33.32,
-        "currency": "AED"
+        "amount": 33.33,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1005,12 +1005,12 @@
       "sectionId": "house-direct",
       "description": "Qamar\" (moon in Arabic), night meets light. This enchanting blend combines apple and pear with a floral heart, deepened by a base of vanilla and sugary notes, reflecting the glowing beauty of moonlight. .",
       "nativePrice": {
-        "amount": 33.32,
-        "currency": "AED"
+        "amount": 33.33,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1031,12 +1031,12 @@
       "sectionId": "house-direct",
       "description": "\"Nada\" (dew in Arabic) offers a fresh start to any day, with crisp bergamot and mandarin mingling with ambery cedarwood and vibrant orange blossom, finished with a comforting base of musk. It’s like the first light of dawn. .",
       "nativePrice": {
-        "amount": 33.32,
-        "currency": "AED"
+        "amount": 33.33,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1058,11 +1058,11 @@
       "description": "Finished in gold, crowned with a bee, and made to stand out—just like its name. Oh Honey! opens with a rush of blackcurrant and spicy apple, wrapped in citrus and attitude. At the heart, smooth white florals and warm honey bloom into a sweet haze—elevated by cedar and vanilla, and grounded in soft woods. It’s sweet, but not soft. Bold, but never too much. .",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1083,12 +1083,12 @@
       "sectionId": "house-direct",
       "description": "Majesty moves with quiet power and effortless light. A vibrant burst of grapefruit lifts the opening, bright and full of presence, while vetiver brings a grounded, noble strength beneath it. Fresh yet commanding, luminous yet enduring — a fragrance that wears its crown without needing to announce it. .",
       "nativePrice": {
-        "amount": 61.09,
-        "currency": "AED"
+        "amount": 61.1,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1109,12 +1109,12 @@
       "sectionId": "house-direct",
       "description": "Greatness isn’t claimed, it’s earned. Legacy is the scent of quiet power, a composition built on bold contrasts. Spicy ginger and crisp pear open with an electric energy, softened by the fresh zest of bergamot. In the heart, the delicate yet unwavering presence of orange blossom and jasmine speaks to timeless refinement. As it settles, musk, vanilla, and amber merge into a warm, distinguished aura, ensuring that every impression lasts far beyond the first. . Not just a scent. A statement. This is Legacy. .",
       "nativePrice": {
-        "amount": 61.09,
-        "currency": "AED"
+        "amount": 61.1,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1136,11 +1136,11 @@
       "description": "The night is young, and the possibilities are endless. Date Night starts with a playful spark—orange blossom and blackcurrant swirl together like the thrill of catching someone’s gaze, while mango adds a juicy, irresistible touch. As the conversation flows, raspberry and lily of the valley bloom, soft and romantic, blending with the smooth allure of sandalwood. When the night turns intimate, marshmallow and ambergris linger like the memory of laughter, warmth, and a soft touch goodbye. Date Night is your partner for nights filled with chemistry, charm, and unforgettable moments. .",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1161,12 +1161,12 @@
       "sectionId": "house-direct",
       "description": "A fragrance of distinction. Monarch blends the rich warmth of cardamom, peach, and cinnamon, unfolding into a creamy heart of jasmine and milk. The dry-down? A noble fusion of heliotrope, patchouli, and musk—smooth, sophisticated, and utterly majestic. Fit for those born to lead. .",
       "nativePrice": {
-        "amount": 61.09,
-        "currency": "AED"
+        "amount": 61.1,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1187,12 +1187,12 @@
       "sectionId": "house-direct",
       "description": "A fragrance that wears the crown. Imperial reigns with a bold citrus opening of lemon and mandarin, leading to a heart of spiced cumin and nutmeg—regal, untamed, unforgettable. Anchored by cedarwood and moss, it leaves a trail as commanding as its name. This is power, bottled. .",
       "nativePrice": {
-        "amount": 61.09,
-        "currency": "AED"
+        "amount": 61.1,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1214,11 +1214,11 @@
       "description": "Vanilla Voyage is a journey of indulgence, where creamy vanilla meets the richness of caramel and honey, evoking a feeling of nostalgic sweetness. This gourmand delight wraps you in an irresistible warmth, creating an aura of comfort and charm. . Crafted to embody the spirit of exploration and sweetness, Vanilla Voyage takes its name from the seamless blend of notes that transport you to a world of tender memories and intriguing desire. A unisex gourmand masterpiece that leaves a delectable trail, perfect for creating unforgettable moments. .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1240,11 +1240,11 @@
       "description": "Coffee Blend is a decadent symphony inspired by the irresistible charm of a velvety affogato: the creamy richness of vanilla ice cream immersed in a bold shot of espresso. The fragrance opens with the delicate sweetness of almond and milk, melting seamlessly into the dark allure of freshly brewed coffee. A heart of soft white flowers and warm amber adds a touch of elegance, while a base of caramel, nutty accords, and vanilla brings a luscious depth. True to its name, Coffee Blend is a sensory escape, perfectly balancing the bold and the sweet in a way that feels both indulgent and comforting. .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1266,11 +1266,11 @@
       "description": "Rosé is a luminous interpretation of timeless elegance, crafted to embody the purity of water flowers and the sophistication of rose. Opening with a delicate burst of bergamot and blackberry, the fragrance transitions into a heart of lotus flower and the velvety essence of rose. The watery floral notes are complemented by a soft cedarwood and musk base, wrapping the senses in an aura of gentle refinement. True to the Maison Asrar philosophy of uncovering beauty in every detail, Rosé captures the radiance of fresh blooms reflected on still water—an exquisite symphony of nature’s most graceful elements. .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1292,11 +1292,11 @@
       "description": "Gold Noir is a bold, unisex scent that opens with fresh top notes of grapefruit, leading to a heart of cashmere and smoky rose. The base of amber and vetiver ensures a lasting impression. Perfect for evening wear, Gold Noir is a distinctive scent that commands attention. .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1318,11 +1318,11 @@
       "description": "Silver Elixir channels confidence and freshness, starting with a harmonious aromatic blend of lemon and bergamot. The opening notes transition into a smoky heart of incense and patchouli, while a robust base of musk and leather delivers a powerful finish. Ideal for those looking to make a memorable impression, Silver Elixir stands out with its audacious freshness. .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1344,11 +1344,11 @@
       "description": "Illuminate your presence with Lumiere. The bright notes of bergamot and green lead to a heart of melon and pineapple, embodying youthful exuberance. The woody base, infused with vanilla and white musk, ensures a sophisticated finish. Step into the spotlight and let your presence shine brightly..",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1370,11 +1370,11 @@
       "description": "Experience the allure of an elegant evening with Soirée. This fragrance blends rich notes of vanilla blossoms, praline, and plum, creating an inviting aroma. The Heart Notes of white flowers and ylang-ylang add an exotic touch, while the base of vanilla wood and ambergris provides a warm, lasting impression. .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1396,11 +1396,11 @@
       "description": "Leo asserts its dominion with a bold blend of black pepper and leather, evoking the sheer power of the king of beasts. This fragrance captures the essence of leadership and authority, with a compelling heart of suede and styrax that commands attention. Grounded in a base of vanilla and ambergris, Leo offers a lasting impression of enduring strength and regal grace. Embrace the power within; Leo commands it. .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1422,11 +1422,11 @@
       "description": "Masterpiece embodies luxury and uniqueness. With Top Notes of apple and cardamom, it opens with a fresh and spicy aroma. The heart of cinnamon and lavender adds a warm, floral depth, while the base of vanilla and cedarwood ensures a sophisticated finish. .",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1448,11 +1448,11 @@
       "description": "Timeless is a fragrance for the modern, fast-paced individual. It opens with the zesty notes of Italian bergamot and green lemon, leading to a heart of blackcurrant and rosemary. The base of ambergris and patchouli provides a long-lasting, aromatic finish. Ideal for everyday wear, Timeless is a dynamic scent that keeps up with your busy lifestyle. .",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1474,11 +1474,11 @@
       "description": "Flair is a celebration of creativity and new art. With top notes of pink berries and grapefruit, it opens with a vibrant burst. The heart of lavender and coffee adds a unique depth, while the base of amber and vetiver ensures a warm finish. Perfect for those who appreciate artistic expression, Flair is a fragrance that stands out. .",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1500,11 +1500,11 @@
       "description": "Rey , the embodiment of regal authority, mirrors the sovereign grace of a lion ruling its realm. It opens with a royal blend of bergamot and grapefruit, crowned with commanding heart notes of black pepper and aromatic tonka. The noble base of musk, ambergris, and vanilla envelops the senses in a scent fit for a monarch. .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1526,11 +1526,11 @@
       "description": "Hunter embodies the lion’s relentless spirit, with vibrant top notes of bergamot and lemon that set the stage for a vigorous pursuit. At its core, cedarwood and patchouli merge, echoing the depth of the chase, while a rich base of caramel and musk captures the thrill of conquest. Embrace your moment; the hunt awaits. .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1552,11 +1552,11 @@
       "description": "Luna captures the essence of a serene, moonlit night. With top notes of bergamot and peach, it opens with a sweet yet refreshing burst. The heart of rose and jasmine provides a romantic depth, while the base of patchouli and sandalwood grounds the fragrance with a warm, earthy finish. Ideal for intimate evenings and date nights, Luna is perfect for those who seek a touch of mystery and elegance. . .",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1578,11 +1578,11 @@
       "description": "Joy is a celebration of life’s happiest moments. This fragrance bursts with the fruity top notes of plum and red fruits, which then give way to a heart of tuberose and solar accords. The creamy base of musk and cashmere adds a comforting depth. Light-hearted and refreshing, Joy is the perfect daytime fragrance for social gatherings and everyday wear. . .",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1604,11 +1604,11 @@
       "description": "Bloom Bloom encapsulates the quintessential Floral Fruity essence of rebirth and lively freshness. The fragrance opens with a bright and juicy burst of Pear and Peach, complemented by the light, airy sweetness of Freesia. As it unfolds, the heart reveals a delicate floral array of Rose, Magnolia, and Lily of the Valley, symbolizing pure elegance. The base notes of Sandalwood, Cedarwood, and Musks provide a smooth, soothing end that anchors the scent in a timeless tranquility. .",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1630,11 +1630,11 @@
       "description": "Lolita is a mesmerizing Floral Woody fragrance that blends the attraction of nature with sophistication. It starts with fresh Red Fruits, Citrusy notes, Ylang-ylang, and Blackcurrant, reminiscent of a forest at dawn. The heart weaves together Jasmine, Peach, Tuberose, and Orange Blossom. It ends with a rich balance between Amber, Vanilla, Musks, Patchouli, and Woody notes, providing a deep, lasting fragrance. .",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1656,11 +1656,11 @@
       "description": "Bonita offers a fascinating Chypre Sweet fragrance that blends traditional elegance with modern sophistication. The journey begins with a vibrant splash of Orange Blossom, Pear, and Lily of the Valley, capturing the spirit of a joyful morning. It evolves into an intriguing heart of Jasmine paired with edible notes and a hint of Coffee, adding an unexpected twist. The base of Musk and Vanilla provides a smooth, creamy finish that softly embraces the senses. .",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1682,11 +1682,11 @@
       "description": "Lily captures the essence of spring's first bloom with a delightful Floral Fruity fragrance. This charming scent begins with a luminous opening of Lychee and Bergamot, fused with the subtle sweetness of Almond, evoking the freshness of a dewy morning. The heart unfolds into a floral bouquet of Rose and Violet, symbolizing grace and delicacy. The experience culminates in a comforting finish with a blend of Musk, Vanilla, and Amber, creating a soft, lasting warmth that stays like the memory of the first sunny days. .",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1707,12 +1707,12 @@
       "sectionId": "house-direct",
       "description": "Jawhara Black is a masterpiece in the Woody Leather fragrance family, seamlessly blending aromatic freshness, woody sophistication, and a rich, leathery sensuality.. The fragrance opens with a burst of aromatic notes. The inclusion of bergamot adds a citrusy and slightly floral element, contributing to the freshness that characterizes the initial impression. The heart notes reveal you a rich and warm character dominated by earthy essence of cedarwood. The perfume reaches its grand finale with a rich and sensual combination of base notes. Amber, known for its sweet and resinous warmth, blends seamlessly with labdanum, which adds a hint of smokiness and a touch of balsamic richness.. Jawhara Black is a fragrance that combines the freshness of aromatic and bergamot top notes with the warmth of cedarwood in the heart, ultimately settling into a seductive and enduring base of amber, labdanum, and leather. This perfume is a celebration of contrasts, seamlessly combining freshness with depth and sophistication. .",
       "nativePrice": {
-        "amount": 34.71,
-        "currency": "AED"
+        "amount": 34.72,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1733,12 +1733,12 @@
       "sectionId": "house-direct",
       "description": "Jawhara perfume belongs to the Floral Fruity fragrance family, is a captivating and vibrant scent designed to evoke a sense of freshness and sophistication.. The fragrance opens with a burst of freshness and energy, as zesty citrus notes mingle with the tropical sweetness of passion fruit and the succulent aroma of litchee. This effervescent combination creates an invigorating and uplifting introduction. The heart notes reveal a delicate and floral bouquet. Magnolia, with its creamy and slightly citrusy aroma, adds a touch of elegance to the composition. Violet contributes a powdery and sweet nuance, while ambery accords bring warmth and depth to the heart. The fragrance concludes with musk, cashmere, cedarwood, caramel. Musk provides a subtle yet persistent warmth, while cashmere adds a luxurious and silky texture. The sweet and comforting notes of caramel & cedarwood brings you earthy and woody foundation, adding depth and sophistication to the overall composition.. Jawhara Perfume in the Floral Fruity family is a delightful symphony of fresh, fruity, and floral accords, seamlessly woven together with a hint of warmth and sweetness. This is a celebration of the beauty and complexity of nature's treasures. .",
       "nativePrice": {
-        "amount": 34.71,
-        "currency": "AED"
+        "amount": 34.72,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1760,11 +1760,11 @@
       "description": "Magic Night is an enchanting perfume that belongs to the Oriental Floral fragrance family. This captivating scent takes you on a mystical journey.. The journey begins with a burst of delicate florals, infusing the air with the freshness of blooming flowers. The top notes unfold with a delightful blend of florals, fruits, and spices. The floral accords contribute a sense of elegance and femininity, while the fruity elements add a touch of sweetness and playfulness and the spicy notes introduce an intriguing warmth and depth. The heart note reveals a rich and woody undertone that adds depth and sophistication. Its climax is in the base notes, leaving a lingering and memorable impression. The amber notes impart a sense of sensuality and depth, while the lingering florals continue to weave their spell. The edible accords add a unique and delightful twist, creates a memorable and irresistible foundation that lingers on the skin.. Magic Night in the Oriental Floral family, sensory journey that combines the beauty of flowers, the richness of woods, and the warmth of amber to creates a magical and unforgettable olfactory experience. This fragrance is perfect for those seeking an alluring and mysterious scent that leaves a lasting impression, making every night a magical one. .",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1785,12 +1785,12 @@
       "sectionId": "house-direct",
       "description": "Turath belongs to the Oriental Ambery fragrance family, offering a captivating olfactory experience that combines rich and luxurious notes.. The fragrance opens with a burst of sophistication, as the spicy warmth of black pepper intertwines with the luscious sweetness of red fruit. Saffron adds a touch of exoticism, creating an initial impression that is both inviting and intriguing. The heart notes reveal a rich and indulgent blend. Decadent chocolate weaves its way through the composition, intertwining with the resinous and spiritual aura of incense. The velvety softness of rose petals adds a floral elegance, balancing the intensity with a delicate touch. The fragrance conclude with Ambergris, with its deep and golden warmth, forms the foundation of the fragrance, leaving an indelible impression of luxury. Moss adds an earthy complexity, while musk contributes a sensual and lingering trail, enveloping you in an aura of timeless sophistication.. Turath , with its Oriental Ambery character, is a timeless and evocative fragrance that captures the essence of tradition and luxury. It is a symphony of notes that come together to create a sensorial experience that is both opulent and inviting. .",
       "nativePrice": {
-        "amount": 34.71,
-        "currency": "AED"
+        "amount": 34.72,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1811,12 +1811,12 @@
       "sectionId": "house-direct",
       "description": "Turath Malaki is a captivating fragrance belonging to the Fougère Fruity olfactory family, an olfactory journey that unfolds with a harmonious blend of distinctive notes.. The fragrance opens with a burst of freshness and zest. The combination of lively Bergamot and invigorating Lemon creates a vibrant and uplifting ambiance. The subtle spice of Nutmeg adds a touch of warmth, setting the stage for the layers to come. The heart notes reveal a refined and woody character. Cedarwood, known for its warm and grounding essence, mingles with Cypriol, adding a subtle smokiness to the composition. Geranium brings a floral element that balances the woodiness, contributing to the complexity of the fragrance. The perfume reaches its grand finale with a deep and sensual base. Ambergris lends an alluring and sweetly resinous quality, creates a sense of opulence. Moss provides an earthy and green undertone, while Musk adds a sensuous and lingering warmth.. Turath Malaki is a fragrance that transcends time and trends, embodying the essence of opulence and refinement. It is a celebration of tradition and a testament to the enduring allure of the Fougère Fruity olfactory family. .",
       "nativePrice": {
-        "amount": 34.71,
-        "currency": "AED"
+        "amount": 34.72,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1838,11 +1838,11 @@
       "description": "Immerse yourself in the vibrant essence of a garden where roses reign supreme with Rose Bouquet . It offers a harmonious blend of fruity and floral notes, where the rose is the star, enriched by the lusciousness of blackcurrant and peach.. .",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1864,11 +1864,11 @@
       "description": "Rose Vanilla is a romantic and seductive fragrance that projects confidence and sophistication. It is a beautiful marriage between the delicacy of Rose and the warmth of Vanilla. With an opening of Fresh Lemon intertwined with a fresh and floral heart of Rose and dry Woods finishing off with a soft and subtle base of Vanilla and Musk. .",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1890,11 +1890,11 @@
       "description": "Rose Oud is the finest tribute to life in the Gulf. The main stars in this fragrance are Rose and Oud which are blended to perfection. An alluring fragrance with a sweet opening of Caramel, Davana and Bergamot is followed by heart notes of refined Freesia and Jasmine and Lily of the Valley. The base notes of Leather and Ambergris add an oriental identity full of character. .",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1916,11 +1916,11 @@
       "description": "Rose Honey is an invitation to discover the joy of Honey engulfed by the beauty of Rose. The fruity opening of nectar-like Mandarin and boozy Plum is followed by a hint of smoky Tobacco to add an Oriental dimension. It is a total surprise how the smokiness is perfectly balanced with the sweetness which makes this fragrance bold, generous and full of rich aromas. .",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1942,11 +1942,11 @@
       "description": "Rose Musk is a youthful and modern fragrance with a gorgeous opening of Grapefruit and Blackcurrant, followed by an influx of Floral notes of Jasmine and Rose, balanced harmoniously with precious Musk and warm shades of Vanilla. It is a match made in heaven between Floral, Fresh and Citrusy notes. .",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1968,11 +1968,11 @@
       "description": "\"Trophy\" is a perfume with a Hesperidic Ambery fragrance family, which typically combines bright, citrusy notes with warm, ambery undertones. This fragrance begins with a burst of zesty citrus, invigorating your senses with the tangy freshness of citrus fruits. Caramel adds a touch of sweetness, creating a delightful contrast. The green notes bring a sense of nature, like a walk through a lush, sun-drenched garden.. In the heart of the fragrance blossoms with a harmonious bouquet of delicate white florals. Enchanting jasmine, graceful lily of the valley, and romantic rose interlace to form a captivating and elegant core. At the end scent's foundation is built upon a warm and inviting base. The Ambery notes provide depth and richness, while Musk adds a sensual and alluring quality. Vanilla, with its creamy sweetness, rounds out the composition, leaving a lasting and comforting impression.. Trophy is a fragrance for those who appreciate the balance of freshness and warmth, making it a perfect choice for any occasion. Whether you're wearing it to a special event or making it a part of your daily routine, Trophy will make you feel like a true champion..",
       "nativePrice": {
         "amount": 36.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1994,11 +1994,11 @@
       "description": "Petra is a captivating olfactory experience that belongs to the Hesperidic Ambery fragrance family.. The perfume opens with a burst of freshness and vibrancy, courtesy of the top notes. Zesty bergamot lends a citrusy brightness, while blackcurrant adds a touch of sweetness. The inclusion of pink pepper introduces a subtle spiciness. The heart notes delve sophisticated blend of aromatic, leathery, and earthy elements. The base notes of Perfume leave a lasting impression with their warm and sensual allure. Ambery notes create a smooth and comforting foundation, while incense adds a touch of mystery and intrigue.. Petra with its Hesperidic Ambery profile, offers a distinctive olfactory journey that combines freshness with warmth, complexity with simplicity, making it an ideal choice for those who seek a fragrance that is both modern and timeless..",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2020,11 +2020,11 @@
       "description": "Fairy Tale a captivating fragrance that belongs to the Floral Fruity family. This fragrance is a harmonious blend of nature's finest elements, crafted to transport you to a magical realm of enchantment and allure.. At the fragrance begins with a burst of fresh and juicy fruits. The crispness of green notes adds you a touch of vibrancy, while the succulent essence of watermelon enhances the overall sweetness, setting the stage delightful experience. The heart notes reveal a harmonious blend of crisp apple and aqueous elements that evoke the feeling of a gentle stream flowing through a blooming garden. The floral bouquet, dominated by the delicate Lily of the Valley, adds a touch of elegance and femininity, creating a sensorial experience that mirrors the grace of a fairy tale romance. At the base reveal a fusion of earthy moss, sensual musk, and the warm embrace of sandalwood. These elements add depth and longevity to the fragrance, leaving a trail of subtle elegance that lingers like the final chapters of a captivating fairy tale. .",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2046,11 +2046,11 @@
       "description": "Step into a realm of pure elegance and sophistication with Rose Absolute . Designed for those who exude confidence and grace, this perfume encapsulates the profound allure of roses blended seamlessly with fresh florals and sensual notes.. . .",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2072,11 +2072,11 @@
       "description": "“Oscar” is a captivating perfume that falls under the Woody Oriental fragrance family, known for its warm, rich, and sensual characteristics. This fragrance is designed to evoke a sense of sophistication and mystery. It opens with a vibrant burst of red berries, cardamom, and pepper, creating an energetic and inviting atmosphere.. The heart of the perfume reveals the depth and complexity of the fragrance. Here, you'll experience the sweet and alluring aroma of Jasmine, which adds a floral and slightly exotic dimension to the scent. The base notes of vanilla, oakmoss, and dry woods provide a warm and grounding foundation.. This scent is perfect for those who appreciate a blend of fruity, spicy, and floral elements, all wrapped in a warm, woody embrace. Oscar is a fragrance for the modern individual who embraces their sensuality and embraces life's mysteries with style and grace. .",
       "nativePrice": {
         "amount": 36.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2098,11 +2098,11 @@
       "description": "Set sail on an exhilarating journey with Icon , crafted for the modern adventurer. This fragrance opens with a bold burst of apple and cardamom, capturing the spirit of the untamed sea. Anchored by a base of warm amber, cedarwood, and robust leather, Icon stands as a testament to the rugged, sophisticated man.. .",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2124,11 +2124,11 @@
       "description": "\"Black\" is a perfume that belongs to the Fougère Oriental Woody fragrance family. Fougère fragrances typically include notes that are fresh, green, and often herbaceous, while oriental woody fragrances are known for their warm, spicy, and woody elements. This combination creates a unique and sophisticated scent profile.. It opens with an energetic burst of ginger and grapefruit, followed by a soothing blend of lavender and mint that evokes a sense of serenity. The heart of lavender and mint introduces a sense of calm and freshness, balancing the initial intensity. The base notes of cedarwood, tonka bean, and cashmeran provide a solid, grounding foundation, giving the scent depth and longevity.. Overall, \"Black\" is a complex and well-balanced fragrance that can be worn on various occasions, making it a versatile and captivating choice for those seeking a scent that is both distinctive and refined. .",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2150,11 +2150,11 @@
       "description": "Step into the timeless allure of 1963, a fragrance that embodies the essence of elegance and sophistication. This is a captivating olfactory journey that transcends time, offering a sophisticated blend of aromatic notes.. Invigorate your senses with a burst of citrus that awakens the spirit. Fresh, zesty notes dance playfully with the crispness of lavender, creates an opening that is both vibrant and invigorating. The Heart Notes take center stage. Delicate Carnation blossoms mingle with a bouquet of Florals, lending an air of romance and grace. These notes create a beautifully balanced, nuanced middle phase that exudes elegance and charm. A fusion of ambery warmth, velvety musk, and the woody depth of sandalwood create a captivating trail that lingers, leaving an unforgettable impression.. “1963” is a fragrance that pays tribute to the classic allure of Woody Spicy compositions, offering a refined and evocative scent that transcends time. It's a fragrance that invites you to step into a world of nostalgia and elegance, where every spritz is a journey back to the elegance and charm of 1963. .",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2176,11 +2176,11 @@
       "description": "Stride confidently into the spotlight with Desire , a vibrant embodiment of the Ambery Woody family. It begins with a spirited mix of grapefruit and mandarin accented by bold pink pepper, merging with the sophisticated warmth of cashmere and fougere, crafting a scent for the charismatic man.. .",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2202,11 +2202,11 @@
       "description": "\"Casablanca\" is a captivating fragrance that belongs to the floral fruity olfactive family. This exquisite scent is a harmonious blend of carefully selected notes that come together to create a captivating and memorable experience.. The fragrance opens with a burst of zesty bergamot, vibrant orange, and the juicy sweetness of ripe pears. These top notes create a lively and invigorating introduction that immediately grabs attention.. At the heart of Casablanca lies the delicate and graceful bouquet of Lily of the Valley and the romantic essence of Rose. These floral notes intertwine to create a harmonious symphony that is both soft and alluring, evoking a sense of tender beauty. The foundation of this fragrance is built upon a rich and textured base. Ambergris provides a warm, alluring depth, while Moss adds an earthy, green dimension. Musk, with its sensuous and enveloping presence, leaves a lasting impression, ensuring that Casablanca is a fragrance never to be forgotten..",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2227,12 +2227,12 @@
       "sectionId": "house-direct",
       "description": "Beautyworld Middle East Finalists \" Luxury Packaging of the Year 2023\" . \"Night in Paris\" is a fragrance like no other. It's not just a scent; it's a unique love story, a journey through the heart of the City of Love, reimagined in olfactory artistry. As a member of the Floral Ambery olfactive family, this perfume is a tribute to Parisian romance with a twist of unparalleled allure.. With your first spritz, \"Night in Paris\" reveals an unconventional and romantic blend of Lily of the Valley and Rose. These top notes create an intriguing opening, akin to a clandestine rendezvous in the hidden gardens of Paris, where love takes on a unique form.. At its heart, this fragrance unveils an exquisite fusion of Musk, Rose, and Lily of the Valley. These notes interlace with rare elegance, crafting an aroma that is both rich and sensuous, reminiscent of a love story that defies conventions.. The fragrance lingers with base notes of Ambery, Moss, and Musk, providing a distinctive and lasting foundation. These elements ensure that \"Night in Paris\" remains with you, much like an unforgettable memory of an unconventional and passionately unique encounter..",
       "nativePrice": {
-        "amount": 61.09,
-        "currency": "AED"
+        "amount": 61.1,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2253,12 +2253,12 @@
       "sectionId": "house-direct",
       "description": "Beautyworld Middle East Finalists \" Luxury Packaging of the Year 2023\" . Imagine the sun setting over the picturesque island of Capri, casting a warm golden glow over everything it touches. \"Sunset in Capri\" captures that breathtaking moment in a bottle, beautifully adorned in a captivating yellow hue. This fragrance, part of the Woody Hesperidic olfactive family, is an invitation to embark on a sensory journey through the magic of an Italian evening.. With your first spritz of \"Sunset in Capri,\" you'll be transported to the enchanting island. The top notes of Bergamot, Ginger, and Grapefruit create a citrusy and zesty opening, much like the initial burst of sunshine as the day turns into twilight.. At its heart, this fragrance reveals a captivating blend of Ambery, Aquous, and Magnolia notes. These scents intertwine harmoniously, evoking the feeling of a gentle sea breeze and the scent of blooming flowers in the evening air.. As the night deepens, \"Sunset in Capri\" leaves a lasting impression with base notes of Moss, Musk, and Peach. These ingredients add depth and warmth to the fragrance, just like the feeling of wrapping yourself in a cozy shawl as the stars emerge..",
       "nativePrice": {
-        "amount": 61.09,
-        "currency": "AED"
+        "amount": 61.1,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2279,12 +2279,12 @@
       "sectionId": "house-direct",
       "description": "Beautyworld Middle East Finalists \" Luxury Packaging of the Year 2023\" . Never Forget Me \" - it's not just a name; it's a promise, a whisper from the heart, and a fragrant journey through cherished moments. Nestled within the Floral olfactive family, this perfume is an enchanting blend of scents that evoke the beauty of lasting memories.. Picture the opening notes of \"Never Forget Me\" as a green garden kissed by the morning sun, adorned with Lily of the Valley and a hint of juicy Peach. These top notes are like the first chapter of a story that invites you to reminisce about joyful moments.. As the fragrance unfolds, it reveals a luxuriant bouquet of Gardenia, Jasmine, and Ylang-Ylang at its heart. These floral notes intertwine like the pages of a diary filled with stories of love, passion, and unforgettable encounters.. The perfume's base notes of Ambergris, Musk, and Vanilla provide a warm and comforting foundation, much like the embrace of a cherished memory. They ensure that \"Never Forget Me\" lingers, just as precious moments stay etched in your heart.. . . . . . . . . . . .",
       "nativePrice": {
-        "amount": 61.09,
-        "currency": "AED"
+        "amount": 61.1,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2305,12 +2305,12 @@
       "sectionId": "house-direct",
       "description": "Beautyworld Middle East Finalists \" Luxury Packaging of the Year 2023\" . \" Kiss My Lips \" isn't just a perfume; it's an embodiment of desire and seduction, an elixir of passionate encounters. With its Floral Rose olfactive family and carefully curated notes, it captures the essence of an intimate rendezvous. . With your very first spritz of \"Kiss My Lips,\" the top notes of Mandarin, Incense, and Orange burst forth, leaving a trail of citrusy temptation and a hint of smoldering mystery. These notes serve as an intoxicating prelude to an unforgettable sensory journey. . At its heart, this fragrance unveils a sultry bouquet of May Rose, Rose, and Jasmine. These floral notes intertwine sensuously, crafting a rich and opulent scent that evokes the ecstasy and allure of blossoming flowers in the dead of night.. As the night deepens, \"Kiss My Lips\" leaves a lasting impression with its base notes of Ambroxan, Amber, and Musk. These ingredients lend an irresistible depth and warmth to the fragrance, ensuring it lingers on your skin, enticing and unforgettable. .",
       "nativePrice": {
-        "amount": 61.09,
-        "currency": "AED"
+        "amount": 61.1,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2332,11 +2332,11 @@
       "description": "Discover the serene enchantment of Patchouli with Love , a signature Eau de Parfum from the Woody Fresh family. It starts with an uplifting blend of Cypriol, Bergamot, and Orange, deepening into a complex heart of Patchouli, Violet, Saffron, and Orris. The finale is a rich blend of Incense, Cedarwood, and Ambrette, offering a warm and comforting end.. .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2358,11 +2358,11 @@
       "description": "Step into a world where enchantment meets luxury with Vanilla Rouge . This deluxe fragrance begins with the warm, spicy notes of Saffron and Red Fruits, leading to a seductive blend of Vanilla, Silky Smooth Chocolate, Delicate Rose, and Tonka Bean. The scent finishes with a lingering embrace of Ambergris, Moss, and Musk, wrapping you in anticipation and charm. . .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2384,11 +2384,11 @@
       "description": "Enter the luxurious world of Fresh Iris , an exquisite Eau de Parfum within the Oriental Ambery family. It begins with a warm embrace of Saffron and vibrant Red Fruits, unveiling a heart rich with Iris, sumptuous Chocolate, delicate Rose, and soothing Tonka Bean. The experience culminates with Ambergris, Moss, and Musk, wrapping you in an elegant veil of scent.. .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2410,11 +2410,11 @@
       "description": "Dear Jasmine is a fresh, summery Eau de Parfum that opens with refreshing notes of Bergamot, Blackcurrant, Peach, and Apple. The heart reveals a vibrant blend of Jasmine, Rose, and Tuberose, while base notes of Sandalwood, Musks, and Vanilla provide a warm and enchanting finish.. .",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2436,11 +2436,11 @@
       "description": "حوَل مكتبك او مجلسك لتحفة عطرية استثنائية تعطي شعور الرفاهية و الانتعاش من خلال معطر الجو روز هيني من ميزون أسرار بمكوناته الرائعة من الفواكه و رائحة التوباكو المميزة و العنبر مع القليل من التوابل العطرية... Transform your office or your majles (living room) into an exceptional aromatic masterpiece that gives a feeling of luxury and refreshment through Rose Honey room spray by Maison Asrar, with its wonderful notes of fruits, the scent of tobacco and amber, mixed with fragrant spices.. Family « Floral oriental » . Top notes: Sweet, Fruity. Heart notes: Rose, Tobacco. Base notes: Amber, Warm spicy. .",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2462,11 +2462,11 @@
       "description": "استمتع بأجواء صيفية منعشة و شعور بالسلام الداخلي مع معطر الجو ريد فالفيت بمكوناته الفروتي المنعشة من البرتقال و الفراولة و الياسمين الناعم مع الفانيلا و المسك الفواح... It is time to enjoy a refreshing summer atmosphere and a peace of mind feeling with Red Velvet room spray with its fruity and refreshing notes of orange, strawberry and soft jasmine with vanilla and fragrant musk... Family « Chypre floral fruity » . Top notes: Red fruits, Strawberry, Orange. Heart notes: Violet, Jasmine, Orris. Base notes: Vanilla, Oakmoss, Musk. .",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2488,11 +2488,11 @@
       "description": "لدى الرائحة قدرة على تحسين المزاج و صنع الذكريات.. يمكنك الاستمتاع بهذا الشعور مع معطر الجو بينك كراش من ميزون اسرار الذي يحتوي على عبق الورد و التوت والباتشولي مع لمسة خفيفة من الخشب... Perfume has the ability to improve mood and make memories.. You can enjoy this feeling with Pink Crush room spray from Maison Asrar with an extraordinary blend of fragrant roses, raspberries and patchouli with a light touch of wood... Family « Floral fruity oriental » . Top notes : Raspberry, Lychee. Heart notes: Rose. Base notes: Benzoin, Patchouli, Woody notes. .",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2514,11 +2514,11 @@
       "description": "قليل من رذاذ معطر الجو هيرتيج من ميزون أسرار يكفي لعزف قصيدة عطرية منعشة من حولك تجعل للمكان ذكريات و شعور بالرفاهية باحتواءه على رائحة الزهور المتداخلة مع بعض الحمضيات و جوز الهند و المسك الفواح... A few sprays of Heritage room spray from Maison Asrar is enough to play a refreshing aromatic poem around you that creates memories and a sense of luxury with a unique mixture of flowers with some citruses, coconut and fragrant musk... Family « Aldehydic Musky » . Top notes: Citrus, Floral. Heart notes: coconut, Fruity. Base notes: Sweety, Musky. .",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2540,11 +2540,11 @@
       "description": "استمتع برائحة منعشة و شعور بالإيجابية و الرفاهية مع معطر الجو همسة غزل من ميزون أسرار بمكوناته الرائعة من خشب الورد و الزعفران مع لمسة جميلة من الفانيلا و العنبر و العود... Enjoy a refreshing smell and a feeling of positivity and luxury with Hamsat Ghazal room spray from Maison Asrar, with its wonderful notes of rosewood and saffron, with a beautiful touch of vanilla, amber and oud.. Family « Oriental woody ambery » . Top notes: Clary sage, Rose wood. Heart notes: saffron, Rose, Dry woods. Base notes: Vanilla, Oud, Amber. .",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2566,11 +2566,11 @@
       "description": "معطر الجو ايطاليان ليذر من ميزون أسرار.. عبق آسر يمتلك الحواس ويعطر المفروشات و الأقمشة و يعطي المكان شعور بالراحة والهدوء باحتواءه على اجود انواع الزعفران و التوت الطبيعي والياسمين مع لمسات العنبر ورائحة الجلد الفواحة... Italian leather room spray from Maison Asrar is a captivating fragrance that adds a elegance and allure to your house and furniture. It gives the place a sense of comfort and peace of mind, containing the best kinds of saffron, natural berries and jasmine with a touch of amber and dark leather.. Family « Woody Leathery » . Top notes: saffron, Thyme, Raspberry. Heart notes: Olibanum, Jasmine. Base notes: Leather, Woody notes, Amber. .",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2592,11 +2592,11 @@
       "description": "مكان واحد.. رائحة واحدة.. ذكريات عديدة.. هذا هو معطر الجو همسة حب من ميزون أسرار بمكوناته الرائعة من البرتقال و زهرة الأوركيد المذهلة الممزوجة مع خشب الصندل والمسك... One place, One smell, many memories. This is Hamsat Hob room spray from Maison Asrar with its wonderful notes of orange, rose and amazing orchid flower mixed with sandalwood and musk... Family « Floral, Fruity, Musky » . Top Notes: Rose, Mandarin blossom, Orange. Heart Notes: Orchid, Freesia, Peony. Base Notes: Musk, Ebony, Vanilla. .",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2618,11 +2618,11 @@
       "description": "تعهدت ميزون أسرار بأن تصنع لك ذكرى تشغف حواسك لكل مكان من خلال معطر الجو الجديد دهام بتركيبته الفريدة المكونة من مزيح استثنائي من اللافندر و الهيل والنعناع المنعش مع القرفة وعشبة المريمية و قطرات الفانيلا والخشب ليضفي على المكان شعور بالانتعاش و الرفاهية . Maison Asrar pledged to create a memory that craves your senses through the new Daham room spray, with its unique notes consisting of an exceptional mixture of lavender, cardamom, and refreshing mint with cinnamon, sage herb, vanilla drops, and wood to give a feeling of freshness and luxury to your place.. Family: Woody aromatic Spicy . Top notes: Cardamom, Pink pepper, Lavender, Mint. Heart notes: Pineapple, Melon, Cinnamon, sage. Base notes: Chest nut, Vanilla, Woody notes. . .",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2644,11 +2644,11 @@
       "description": "Maison Asrar Reed Diffuser 250 ML - RED VELVET. It is time to create a relaxing and comforting atmosphere in your home with a sophisticated blend of French and Oriental scents.. . RED VELVET is a long lasting home fragrance that brings peace, luxury and style to your home. . . It is perfect to use anywhere in your house from living room, bathroom to kitchen. . . Can last up to 3 months. . Flip the sticks to enhance diffusion.. Luxury and stylish design. . Finest aromatic notes.. Capacity: 250ml. . FAMILY « FLORAL FRUITY » . Top Notes: Fruity, Red Pepper, Red Fruits.. Middle Notes: Jasmine, Orange Blossom, Violet.. Base Notes: Moss, Musk, Powdery.. . . .",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2670,11 +2670,11 @@
       "description": "Maison Asrar Reed Diffuser 250 ML - Pink Crush. It is time to create a relaxing and comforting atmosphere in your home with a sophisticated blend of French and Oriental scents.. . Pink Crush is a long lasting home fragrance that brings peace, luxury and style to your home. . . It is perfect to use anywhere in your house from living room, bathroom to kitchen. . . Can last up to 3 months. . Flip the sticks to enhance diffusion.. Luxury and stylish design. . Finest aromatic notes.. Capacity: 250ml. . FAMILY « FLORAL SWEET » . Top Notes: Red Fruits, Rose, Spicy.. Middle Notes: Ambery, Rose.. Base Notes: Ambergris, Musk, Vanilla.. . . .",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2696,11 +2696,11 @@
       "description": "Maison Asrar Reed Diffuser 250 ML - GENTLE OUD. It is time to create a relaxing and comforting atmosphere in your home with a sophisticated blend of French and Oriental scents.. . GENTLE OUD is a long lasting home fragrance that brings peace, luxury and style to your home. . . It is perfect to use anywhere in your house from living room, bathroom to kitchen. . . Can last up to 3 months. . Flip the sticks to enhance diffusion.. Luxury and stylish design. . Finest aromatic notes.. Capacity: 250ml. . . . . FAMILY « FLORAL ORIENTAL » . TOP NOTES: LAVENDER, SAFFRON, SPICY.. MIDDLE NOTES: AMBERY, CEDARWOOD, ORIENTAL.. BASE NOTES: INCENSE, MUSK, OUD.. .",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2722,11 +2722,11 @@
       "description": "Maison Asrar Reed Diffuser 250 ML - KHAYAL. It is time to create a relaxing and comforting atmosphere in your home with a sophisticated blend of French and Oriental scents.. . KHAYAL is a long lasting home fragrance that brings peace, luxury and style to your home. . . It is perfect to use anywhere in your house from living room, bathroom to kitchen. . . Can last up to 3 months. . Flip the sticks to enhance diffusion.. Luxury and stylish design. . Finest aromatic notes.. Capacity: 250ml. . FAMILY « ORIENTAL SPICY » . Top Notes: Lavender, Saffron, Spicy.. Middle Notes: Ambery, Cedarwood, Oriental.. Base Notes: Incense, Musk, Oud.. . . . .",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2748,11 +2748,11 @@
       "description": "Maison Asrar Reed Diffuser 250 ML - ROSE VANILLA. It is time to create a relaxing and comforting atmosphere in your home with a sophisticated blend of French and Oriental scents.. . ROSE VANILLA is a long lasting home fragrance that brings peace, luxury and style to your home. . . It is perfect to use anywhere in your house from living room, bathroom to kitchen. . Can last up to 3 months. . Flip the sticks to enhance diffusion.. Luxury and stylish design. . Finest aromatic notes.. Capacity: 250ml. . FAMILY « FRUITY FLORIENTAL » . Top Notes: Blackcurrant, Grapefruit, Lychee.. Middle Notes: Raspberry, Rose, Violet.. Base Notes: Benzoin, Musk, Woody.. . . .",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2774,11 +2774,11 @@
       "description": "Maison Asrar Reed Diffuser 250 ML - ZENOBIA. It is time to create a relaxing and comforting atmosphere in your home with a sophisticated blend of French and Oriental scents.. . ZENOBIA is a long lasting home fragrance that brings peace, luxury and style to your home. . . It is perfect to use anywhere in your house from living room, bathroom to kitchen. . . Can last up to 3 months. . Flip the sticks to enhance diffusion.. Luxury and stylish design. . Finest aromatic notes.. Capacity: 250ml. . FAMILY « FLORAL SWEET » . Top Notes: Bergamot, Neroli, Black Pepper.. Middle Notes: Jasmine, Orange Blossom, Ylang-Ylang.. Base Notes: Ambery, Edible, Musk.. . . . .",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2800,11 +2800,11 @@
       "description": "Maison Asrar Reed Diffuser 250 ML - EMESSA. It is time to create a relaxing and comforting atmosphere in your home with a sophisticated blend of French and Oriental scents.. . EMESSA is a long lasting home fragrance that brings peace, luxury and style to your home. . . It is perfect to use anywhere in your house from living room, bathroom to kitchen. . . Can last up to 3 months. . Flip the sticks to enhance diffusion.. Luxury and stylish design. . Finest aromatic notes.. Capacity: 250ml. . FAMILY « ORIENTAL AMBERY » . TOP NOTES: BERGAMOT, CLOVE, BLACK PEPPER.. MIDDLE NOTES: CEDARWOOD, PATCHOULI, ROSE.. BASE NOTES: AMBERY, SANDALWOOD, VANILLA.. . .",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2826,11 +2826,11 @@
       "description": "Maison Asrar Reed Diffuser 250 ML - WOOD INTENSE. It is time to create a relaxing and comforting atmosphere in your home with a sophisticated blend of French and Oriental scents.. . WOOD INTENSE is a long lasting home fragrance that brings peace, luxury and style to your home. . . It is perfect to use anywhere in your house from living room, bathroom to kitchen. . . Can last up to 3 months. . Flip the sticks to enhance diffusion.. Luxury and stylish design. . Finest aromatic notes.. Capacity: 250ml. . Olfactive Family : Woody Floral . Top Note: Orris, Spicy.. Middle Note : Balsamic, Woody.. Base Note : Musk, Vanilla.. . . . TOP NOTES: ORRIS, SPICY.. MIDDLE NOTES: BALSAMIC, WOODY.. BASE NOTES: MUSK, VANILLA.. FAMILY « WOODY FLORAL » .",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2852,11 +2852,11 @@
       "description": "Zenobia is a classy and divine white floral fragrances that is perfect for special occasions. A unique blend of top notes of Clary Sage and Bergamot with a touch of Spices, followed by a creamy bouquet of white flowers of Jasmine, Orange Blossom and Tuberose and a base of warm Vanilla and woody notes. .",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2878,11 +2878,11 @@
       "description": "Wood Intense is a match made in heaven between woody and balsamic accords. It is an elegant and mysterious fragrance with a Powdery and clean opening of Orris and a hint of fresh spices, while an exquisite combination of Ambergris and Oud forms a rich base. .",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2903,12 +2903,12 @@
       "sectionId": "house-direct",
       "description": "Treasure is a mysterious and dark fragrance that conveys a strong character with an Oriental identity. It has a hypnotic opening of Metallic-Salty notes wrapped in Aquatic notes which then develop into heart notes of Rose and Sugary notes, all setting a Woody base accompanied by the warmth of Vanilla. .",
       "nativePrice": {
-        "amount": 61.09,
-        "currency": "AED"
+        "amount": 61.1,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2930,11 +2930,11 @@
       "description": "Soudfa or “a coincidence” in Arabic is a captivating Floral and Musky fragrance that conveys elegance and sophistication. The opening starts with sparkling Mandarin and Peach that are combined with a hint of subtle Bergamot, while a delicate bouquet of floral notes of Rose, Jasmine and Neroli reside in the middle, which smoothly evolves into a soft Powdery base of Patchouli and Vetiver. .",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2956,11 +2956,11 @@
       "description": "Red Velvet is a burst of Fruity and Floral accords blended smoothly with gourmand notes adding a velvety texture. This fragrance opens with a cocktail of vibrant top notes of Strawberry and Red Fruits, then elevated by gorgeous Jasmine and Violet with a gorgeous drydown of Musk and Vanilla. .",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2982,11 +2982,11 @@
       "description": "Khayal or “imagination” in Arabic is a bold, authentic and unapologetic fragrance that projects confidence and belief. Cardamom, Bergamot and Geranium form a spicy and dark opening, which merges exquisitely with Patchouli and Saffron to add an extra depth, while the animalic Leather accord creates a warm and inviting bond with the Musk and Oud. .",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -3008,11 +3008,11 @@
       "description": "Khateer or “extraordinary” in Arabic is a Woody, Aromatic and Tropical fragrance that is full of energy and fresh vibes. A warm and sweet combination of Citrusy notes of Lemon and Orange sits on top, quickly developing into a heart of calming and fresh Fruits, Lavender and Marine notes, which then forms a Woody and luxurious base of Amber, Patchouli and Oakmoss. .",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -3034,11 +3034,11 @@
       "description": "Italian Leather is a fascinating urban fragrance that projects confidence and belief. A perfect balance of Leather and Laffron notes make this fragrance daring yet sophisticated. The opening combines a distinctive trio of Thyme, Saffron and Raspberry, followed by a layer of Jasmine and Olibanum that softens the heart of the fragrance while oriental accords of Leather, Ambergris and Oud give warmth and richness. .",
       "nativePrice": {
         "amount": 36.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -3059,12 +3059,12 @@
       "sectionId": "house-direct",
       "description": "Heritage is an exquisite fragrance that takes you on a sensory journey with its unique notes. The opening of Fresh Citrusy notes and delicate Floral notes blends perfectly with heart notes of Coconut and exotic Fruits, leading to a base of Musky and Sweet notes. Elevate your senses and immerse yourself in opulence with this remarkable fragrance. .",
       "nativePrice": {
-        "amount": 61.09,
-        "currency": "AED"
+        "amount": 61.1,
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -3086,11 +3086,11 @@
       "description": "Hamsat ishq or “a Whisper of love” in Arabic is a dark and mysterious Woody fragrance that boosts your confidence. An intoxicating opening of warm spicy and woody notes, then develops into a delicate combination of White Floral accords and rich Benzoin notes. The sweetness of White Floral notes is elevated with a hint of Musk to deliver a long-lasting allure. .",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -3112,11 +3112,11 @@
       "description": "Hamsat hob or “a Whisper of attraction” in Arabic is an alluring fragrance that evokes a fresh and joyful summer feeling with the perfect blend of Floral and Fruity notes. It opens with Mandarin Blossoms, Rose and Orange to signal that romance is in the air, while Floral heart notes of Freesia, Peony and Orchid create a pure harmony that lingers with sugary Musk and delicious Vanilla. .",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -3138,11 +3138,11 @@
       "description": "Hamsat Ghazal or “a Whisper of flirtation” in Arabic is a dream fragrance inspired by the ancient Arabian art of perfumery, opening with a sublime combination of Rosewood and sweet Sage with Saffron and Rose creating classic oriental heart notes, While Vanilla and the gourmand warmth of Amber form a sensational and rich base. .",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -3164,11 +3164,11 @@
       "description": "Hamsat Gharam or “a Whisper of obsession” in Arabic is a delicate fragrance that embodies a love letter full of bright Fruity notes and Pink Pepper, combined with White Floral middle notes of exotic Ylan Ylang and creamy Tuberose. The warm woody base of Patchouli, Amber and Musk brings depth and opulence to the Floral notes. .",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -3190,11 +3190,11 @@
       "description": "Gentle Oud, the name says it all, this fragrance has soft and clean Oud blended perfectly with Spicy and Floral notes. A bold opening of Lavender and Spicy accords merge smoothly with Floral and Woody heart notes, while the drydown combines Leather and Amber adding depth and texture. .",
       "nativePrice": {
         "amount": 36.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -3216,11 +3216,11 @@
       "description": "Fakhama is a refined and sophisticated fragrance with top notes of Delicate Orange Flower and Gourmand notes intertwined to create a captivating and alluring scent. In the heart, the richness of Vanilla and softness of White flower merge in perfect harmony, supported by a musky base providing a warm and sensual impression. . . .",
       "nativePrice": {
         "amount": 48.6,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -3242,11 +3242,11 @@
       "description": "Emessa is a seductive, bold and refined fragrance that opens with a bright Bergamot complemented with Spicy notes. The middle notes combine an intoxicating Rose with Woody accords, smoothly blended with precious Amber and Balsamic notes adding Warmth and elegance. .",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -3268,11 +3268,11 @@
       "description": "Daham describes the Arabian eagle, hence the shape of the cap. It is a fresh and spicy fragrance that projects youth and togetherness with strong presence of Cardamom and Pink Pepper to communicate warmth and versatility, blending seamlessly with middle notes of Sage and juicy Melon, while the smoky Vanilla forms a magical bond with the Chestnut note to ensure a complement is on the way. .",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -3294,11 +3294,11 @@
       "description": "Basma or “stamp” in Arabic has a distinctive Oriental character that projects boldness and power. A unique Fruity and Spicy opening of Saffron and Raspberry settles into a gorgeous combination of Rose and Oud notes, which gradually becomes a long lasting base of Patchouli and Vanilla. .",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -3320,11 +3320,11 @@
       "description": "Pink Crush is an irresistible and dreamy fragrance that takes you on a journey to fantasy land. It is a remarkable infusion of an addictive opening of Fruity notes of Raspberry and Lychee, sensual Rose in the middle and Woody vibes at the base. .",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -3346,11 +3346,11 @@
       "description": "Alonoud is a popular female name in the Arabian Gulf which means the fragrant tree. This fragrance has a classy and elegant composition with sweet dried Fruits and sumptuous Leather accords. A beautiful hint of Jasmine blended to perfection with Amber which complements the warm Vanilla and earthy Patchouli to add a dark and mysterious impression. .",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
-      "lastSeenAt": "2026-09-22T20:00:07.600Z",
+      "lastSeenAt": "2026-09-23T12:41:17.639Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
