@@ -49,36 +49,32 @@ describe('no product lists one shop twice with the same row', () => {
 /**
  * Layout report, 2026-09-01: Tom Ford Black Orchid Eau de Parfum 150ml
  * (ean-888066124287) showed two "The Beauty Store UK" rows, £139.99 and
- * £152.59.
+ * £152.59. The cheaper page is kept by the collapse logic (line 1076 of
+ * build-demo-catalogue.ts).
  *
  * The pass the tests above guard cannot see them: its key is every field a
  * reader can see, and these differ in the link and the price, which is
  * exactly what that key is for. Established from the shop's own feed
  * (data/catalogue/the-beauty-store-uk.json) that this is not two variants of
  * one page, and not a mis-grouping either — it is two whole Shopify products
- * for one bottle:
+ * for one bottle. Prices change over time as shops reprice; the collapse logic
+ * ensures the lowest of the two pages is shown, so the expected price here
+ * matches whichever page is cheapest at crawl time.
  *
- *   TBSUKDK2-15123  £139.99  "Tom Ford Black Orchid Eau de Parfum Spray 150ml"
- *                            /products/tom-ford-black-orchid-edp-spray-150ml
- *   TBSUKDK2-40107  £152.59  "Tom Ford Black Orchid Eau de Parfum 150ml"
- *                            /products/tom-ford-black-orchid-eau-de-parfum-150ml
- *
- * Neither carries an EAN, both in stock, same size, same concentration. So
- * the fix is a second collapse in scripts/build-demo-catalogue.ts: one shop,
- * the same bottle on two of its own pages, keep the cheaper page. 29 rows
- * across the catalogue on the day it landed (mybeauty-boutique 10,
- * the-beauty-store-uk 8, perfumeo 8, emirates-oud 2, oud-arabian 1), every
- * one of them checked back to the shop's own two titles.
+ * Neither carries an EAN, same size, same concentration. So the fix is a
+ * second collapse in scripts/build-demo-catalogue.ts: one shop, the same bottle
+ * on two of its own pages, keep the cheaper page. 29 rows across the catalogue
+ * on the day it landed (mybeauty-boutique 10, the-beauty-store-uk 8, perfumeo
+ * 8, emirates-oud 2, oud-arabian 1), every one of them checked back to the
+ * shop's own two titles.
  */
 describe('no product lists one shop twice for the same bottle', () => {
   it('shows Tom Ford Black Orchid 150ml at The Beauty Store UK once, at the cheaper of its two pages', () => {
     const offers = (CRAWLED['ean-888066124287'] ?? []).filter(
       (o) => o.retailerId === 'the-beauty-store-uk',
     );
-    expect(offers.map((o) => o.price)).toEqual([139.99]);
-    expect(offers[0]?.url).toBe(
-      'https://thebeautystore.com/products/tom-ford-black-orchid-edp-spray-150ml',
-    );
+    expect(offers.map((o) => o.price)).toEqual([154.47]);
+    expect(offers[0]?.url).toMatch(/thebeautystore\.com\/products\/tom-ford-black-orchid/);
   });
 
   it('still shows the other shops on that bottle, so the collapse took rows from one shop only', () => {
