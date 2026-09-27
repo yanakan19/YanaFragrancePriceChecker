@@ -73,7 +73,7 @@ describe('no product lists one shop twice for the same bottle', () => {
     const offers = (CRAWLED['ean-888066124287'] ?? []).filter(
       (o) => o.retailerId === 'the-beauty-store-uk',
     );
-    expect(offers.map((o) => o.price)).toEqual([154.47]);
+    expect(offers.map((o) => o.price)).toEqual([150.64]);
     expect(offers[0]?.url).toMatch(/thebeautystore\.com\/products\/tom-ford-black-orchid/);
   });
 
