@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-23T12:49:13.173Z",
+  "checkedAt": "2026-09-28T02:01:56.639Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -57,9 +57,9 @@
       "houseId": "pairfum-london",
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
-      "routeUsed": "sitemap-jsonld",
+      "routeUsed": null,
       "currency": "GBP",
-      "listings": 1,
+      "listings": 0,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
@@ -68,7 +68,8 @@
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
-        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere"
+        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {
@@ -77,9 +78,9 @@
       "origin": "https://assaf.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 271,
+      "listings": 273,
       "pricedInGbp": 0,
-      "withPhoto": 270,
+      "withPhoto": 272,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -108,7 +109,7 @@
       "name": "Maison Asrar",
       "origin": "https://maisonasrar.com",
       "routeUsed": "shopify-products-json",
-      "currency": "USD",
+      "currency": "AED",
       "listings": 129,
       "pricedInGbp": 0,
       "withPhoto": 129,
@@ -116,7 +117,7 @@
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "manufactured by Gulf Orchid (above), branded and sold separately",
-        "prices are in USD, not GBP — needs a UK price source before these are comparable"
+        "prices are in AED, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -143,10 +144,12 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 59,
-      "errors": [],
+      "listings": 36,
+      "pricedInGbp": 36,
+      "withPhoto": 36,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
@@ -242,9 +245,9 @@
       "origin": "https://bujairami.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 82,
+      "listings": 83,
       "pricedInGbp": 0,
-      "withPhoto": 82,
+      "withPhoto": 83,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -409,17 +412,19 @@
       "houseId": "reef",
       "name": "Reef Perfumes",
       "origin": "https://www.reef-parfum.com",
-      "routeUsed": "sitemap-jsonld",
+      "routeUsed": null,
       "currency": null,
-      "listings": 32,
-      "pricedInGbp": 32,
-      "withPhoto": 32,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "storefront currency could not be established — no sterling price recorded",
+        "https://www.reef-parfum.com/sitemap_index.xml: HTTP 404"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "Saudi niche house, founded 2018. \"REEF\" is a generic enough word that search results carry a lot of noise — confirm this domain before trusting its listings"
+        "Saudi niche house, founded 2018. \"REEF\" is a generic enough word that search results carry a lot of noise — confirm this domain before trusting its listings",
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {
@@ -444,9 +449,9 @@
       "origin": "https://amouage.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 96,
+      "listings": 95,
       "pricedInGbp": 0,
-      "withPhoto": 96,
+      "withPhoto": 95,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -461,9 +466,9 @@
       "origin": "https://bdkparfums.com",
       "routeUsed": "shopify-products-json",
       "currency": "EUR",
-      "listings": 153,
+      "listings": 152,
       "pricedInGbp": 0,
-      "withPhoto": 153,
+      "withPhoto": 152,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -477,9 +482,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 683,
+      "listings": 686,
       "pricedInGbp": 0,
-      "withPhoto": 683,
+      "withPhoto": 686,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -514,9 +519,9 @@
       "origin": "https://www.thebodyshop.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 420,
-      "pricedInGbp": 420,
-      "withPhoto": 420,
+      "listings": 421,
+      "pricedInGbp": 421,
+      "withPhoto": 421,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
