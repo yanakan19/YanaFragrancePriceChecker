@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-29T09:45:37.786Z",
+  "checkedAt": "2026-09-29T16:58:16.351Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,7 +59,7 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 1,
+      "listings": 4,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
@@ -193,12 +193,10 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 50,
-      "pricedInGbp": 50,
-      "withPhoto": 50,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "listings": 60,
+      "pricedInGbp": 60,
+      "withPhoto": 60,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
@@ -482,9 +480,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 687,
+      "listings": 701,
       "pricedInGbp": 0,
-      "withPhoto": 687,
+      "withPhoto": 701,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
