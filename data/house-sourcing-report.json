@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-28T08:00:24.619Z",
+  "checkedAt": "2026-09-29T09:45:37.786Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -58,8 +58,8 @@
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "GBP",
-      "listings": 8,
+      "currency": "USD",
+      "listings": 1,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
@@ -68,7 +68,8 @@
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
-        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere"
+        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
+        "prices are in USD, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -192,10 +193,12 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 60,
-      "errors": [],
+      "listings": 50,
+      "pricedInGbp": 50,
+      "withPhoto": 50,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
@@ -479,9 +482,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 686,
+      "listings": 687,
       "pricedInGbp": 0,
-      "withPhoto": 686,
+      "withPhoto": 687,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
