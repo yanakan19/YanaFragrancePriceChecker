@@ -3488,13 +3488,13 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: null,
       freeOverGbp: 50,
       estimatedDays: [2, 4],
-      verifiedAt: '2026-09-20',
+      verifiedAt: '2026-09-29',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
         url: 'https://manchesterouds.com/pages/shipping-policy',
         quote: 'Free shipping on orders over £50',
-        readAt: '2026-09-20',
+        readAt: '2026-09-29',
       },
       notes:
         'THE FLAT STANDARD RATE IS UNCONFIRMED, so this shop is shown with delivery not ' +
@@ -5085,12 +5085,12 @@ export const RETAILERS: readonly Retailer[] = [
       // Unchanged and unsourced — the page read here states costs, not
       // timings.
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-15',
+      verifiedAt: '2026-09-29',
       confidence: 'confirmed',
       source: {
         url: 'https://www.perfume-click.co.uk/Delivery-Information/',
         quote: 'Standard Delivery (Collection also available) ~ £2.95',
-        readAt: '2026-08-15',
+        readAt: '2026-09-29',
       },
       notes:
         'Awin programme accepted — advertiser 6561 reads membershipStatus "active" in the ' +
