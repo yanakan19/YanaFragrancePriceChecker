@@ -169,6 +169,8 @@ export const COMPANY = {
   chatHost: 'Cloudflare',
   chatProvider: 'Cloudflare',
   accountsProvider: 'Supabase',
+  /** Sends price drop emails to readers who opted in (queue item 4.1). */
+  emailProvider: 'Resend',
   updated: '1 October 2026',
 } as const;
 
@@ -371,13 +373,15 @@ export const LEGAL_PAGES: LegalPage[] = [
           search or filter; that stays in your browser. Only what you choose to
           send: open questions to Virtual Yanny, your email and password if you
           sign up, the fragrances on your Wishlist with any target price you
-          type, and any email you write to us.</li>
+          type, whether you want price drop emails, and any email you write to
+          us.</li>
           <li><strong>Why.</strong> To answer your question, run your account
           and Wishlist, and reply to you. Under UK GDPR that rests on contract
           for accounts and legitimate interests for chat and email. There is no
           tracking, no profiling and no advertising.</li>
           <li><strong>Who processes it.</strong> ${COMPANY.accountsProvider}
-          holds your email, login and wishlist. ${COMPANY.chatHost} runs the chat
+          holds your email, login and wishlist. ${COMPANY.emailProvider} sends
+          price drop emails if you ask for them. ${COMPANY.chatHost} runs the chat
           and the AI model that answers open questions. ${COMPANY.hosting} serves
           the pages. We never see card details; you pay the shop.</li>
           <li><strong>How long.</strong> We keep no chat messages. The copy in
@@ -389,7 +393,8 @@ export const LEGAL_PAGES: LegalPage[] = [
           Account page, or email
           <a href="mailto:${COMPANY.privacyEmail}">${COMPANY.privacyEmail}</a>
           and we will do it within one month. Signing out removes the sign in
-          token from your browser.</li>
+          token from your browser. To stop price drop emails, untick the box on
+          the Account page or use the link in any of them.</li>
         </ul>
       </aside>
 
@@ -442,6 +447,15 @@ export const LEGAL_PAGES: LegalPage[] = [
         to a wishlist. It stores which fragrance you saved, when, and an
         optional target price you typed in yourself, never one we set. You can
         use the price comparison fully without ever creating an account.</li>
+        <li><strong>Price drop emails.</strong> Off unless you tick "Email me
+        when a saved fragrance gets cheaper" on the Account page. Once a
+        morning we compare your saved fragrances with that day's prices and, if
+        one has dropped or reached your target, email you about it, once a day
+        at most. For that we keep your choice, a random code that makes the
+        stop link in each email work, the day we last emailed you, and the last
+        price we told you about for each saved fragrance, so the same drop is
+        never sent twice. Untick the box or press the stop link in any email and
+        they end straight away.</li>
         <li><strong>Trustpilot reviews.</strong> On a shop's page you may see
         a button offering that shop's Trustpilot rating. Nothing loads from
         Trustpilot until you press it; when you do, your browser fetches their
@@ -463,8 +477,14 @@ export const LEGAL_PAGES: LegalPage[] = [
         your email, login and wishlist, if you create an account. We do not run
         a server of our own. Row level security on that database means only
         you, signed in as yourself, can read or change your own account data.
-        We cannot read your password, and no PriceSniffs code ever asks for
+        The one exception is our morning price alert job, which reads the
+        address and saved fragrances of readers who switched price drop emails
+        on, and nobody else's. We cannot read your password, and no PriceSniffs code ever asks for
         one.</li>
+        <li><strong>${COMPANY.emailProvider}</strong> sends price drop emails,
+        only to readers who switched them on. It receives your email address and
+        what each email says, nothing else, and handles them under its own data
+        processing terms.</li>
         <li><strong>Affiliate networks</strong> receive nothing from this site.
         Once you click a commissioned link, the network records that you came
         from here on its own or the shop's site. See the
@@ -478,7 +498,9 @@ export const LEGAL_PAGES: LegalPage[] = [
       being able to answer you. For the chat we rely on legitimate interests
       too: answering the question you chose to ask. You decide whether to send
       anything at all. For account data, your email, login and wishlist, we
-      rely on contract: creating and running the account you asked for. Where
+      rely on contract: creating and running the account you asked for. For
+      price drop emails we rely on your consent, given when you tick the box,
+      and withdrawn whenever you untick it or press the stop link. Where
       anything not strictly necessary would be stored in your browser, we rely
       on your consent, given by the action that asks for it. You can withdraw
       it whenever you like by clearing it.</p>
@@ -493,7 +515,8 @@ export const LEGAL_PAGES: LegalPage[] = [
       keep search history, browsing history or any other record of your visit,
       because we never receive one. Account data is kept for as long as your
       account exists, and deleted when you delete your account from the Account
-      page or ask us to close it.</p>
+      page or ask us to close it. The last price we emailed you about for a
+      fragrance goes when you remove it from your wishlist.</p>
 
       <h2 class="t-section">Your rights</h2>
       <p>You can ask for a copy of your data, ask us to correct or delete it,

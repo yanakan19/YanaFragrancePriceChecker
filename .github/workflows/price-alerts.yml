@@ -1,0 +1,67 @@
+name: Price alerts
+
+# Once a morning, email each reader who ticked "Email me when a saved
+# fragrance gets cheaper" on their account page, listing every saved fragrance
+# whose cheapest delivered price fell by at least 5% or £2 (whichever is
+# larger) since the last price we emailed or recorded, or fell to or below
+# their own target. One email per reader per day at most. Code: src/alerts/,
+# scripts/price-alerts.ts. Database: supabase/migrations/0004_price_alerts.sql.
+#
+# ── Off until the owner switches it on ───────────────────────────────────────
+# Needs two repository secrets, SUPABASE_SERVICE_ROLE_KEY and RESEND_API_KEY
+# (docs/OWNER-STEPS.md, "Price drop emails"). Without either one the script
+# prints "Price alerts not configured" and the run is green; nothing is read,
+# written or sent. Even with both, nobody is emailed until a reader opts in,
+# and the opt in is off by default.
+#
+# A pause switch with no code change: set the repository variable
+# PRICE_ALERTS to "off" and every run, scheduled or manual, becomes a dry run.
+#
+# ── Dry run ──────────────────────────────────────────────────────────────────
+# A manual run defaults to a dry run: it reads the opted in wishlists and
+# logs how many emails would go and why (counts and prices only, never an
+# address), and sends and writes nothing. Untick dry_run to send for real.
+# Scheduled runs are live.
+on:
+  schedule:
+    # 07:41 UTC: 08:41 in summer, 07:41 in winter, UK time. Off the hour on
+    # purpose (minute 0 is GitHub's busiest moment), and clear of the hourly
+    # catalogue crawl at :15, so the prices used are that morning's.
+    - cron: '41 7 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run: log what would be sent, send and write nothing. Untick to send for real.'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: price-alerts
+  cancel-in-progress: false
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Send price drop emails
+        env:
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          ALERTS_FROM: ${{ vars.ALERTS_FROM }}
+          # Live only for the schedule, or a manual run with dry_run unticked,
+          # and never while PRICE_ALERTS is "off". Anything else is a dry run.
+          DRY_RUN: ${{ (vars.PRICE_ALERTS != 'off' && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && !inputs.dry_run))) && 'false' || 'true' }}
+        run: npm run alerts:send
