@@ -28,36 +28,31 @@
  * ── Why a width rule and not just "drop 10" ─────────────────────────────────
  * Because 10 is fine on a 27 inch monitor and 8 is already broken on a laptop.
  * The tile width each count produces is plain arithmetic over numbers that are
- * already in demo/template.html, and it is worth writing out (search and browse
- * differ because every list view floats a 248px facet column beside the grid
- * above 1100px):
+ * already in demo/template.html, and it is worth writing out. Since
+ * 2026-10-01 the filters open above the grid on every list view rather than
+ * floating in a 248px column beside it, so the grid has the full width
+ * between the gutters:
  *
- *   viewport   tile width at 3 / 5 / 8 / 10 per row, on a list view with facets
- *   1280       305 / 177 / 105 /  80      offers 3, 5
- *   1366       334 / 194 / 115 /  89      offers 3, 5
- *   1440       359 / 209 / 125 /  96      offers 3, 5
- *   1600       412 / 241 / 145 / 112      offers 3, 5
- *   1920       519 / 305 / 185 / 144      offers 3, 5, 8
- *   2560       732 / 433 / 265 / 208      offers 3, 5, 8, 10
+ *   viewport   tile width at 3 / 5 / 8 / 10 per row
+ *   1280       397 / 232 / 139 / 108      offers 3, 5
+ *   1366       426 / 249 / 150 / 117      offers 3, 5, 8
+ *   1440       451 / 264 / 159 / 124      offers 3, 5, 8
+ *   1600       504 / 296 / 179 / 140      offers 3, 5, 8
+ *   1920       611 / 360 / 219 / 172      offers 3, 5, 8, 10
+ *   2560       824 / 488 / 299 / 236      offers 3, 5, 8, 10
  *
  * A 96px tile is 70px of content once the 13px padding either side is taken
  * off, and the name shares that with a size, a concentration and the gap
  * between them. There is no wrapping or clamping strategy that rescues it.
  *
- * That table was arithmetic when it was written. It has since been checked
- * against a real render — Chromium 141 through scripts/screenshot.ts, reading
- * the tile's own getBoundingClientRect on a brand list at each width — and
- * every figure matches to the pixel: 177 at 1280, 194 at 1366, 209 at 1440,
- * 241 at 1600, 185 at 1920/8, 208 at 2560/10. The offered counts came back as
- * the fourth column says, with one detail the table does not show: at 1100
- * only 3 fits, and perRowControl() drops a chooser with a single option, so
- * the control is absent rather than stuck.
+ * The table with the old facet column was checked against a real render in
+ * Chromium to the pixel; the figures above are the same arithmetic without
+ * that column. perRowControl() drops a chooser with a single option, so on a
+ * window too narrow for more than 3 the control is absent rather than stuck.
  *
  * MIN_TILE_PX is 148 because that is the number the stylesheet already names
- * as a tile's minimum, in two separate places: the `.tile-grid` comment
- * ("auto-fill/minmax(148px) landed on two at every width the narrow layout
- * actually reaches") and the 1100px facet-float breakpoint, which is derived
- * as "248 for the column, 28 for the gap, 5 x 148 for a default row of tiles".
+ * as a tile's minimum, in the `.tile-grid` comment ("auto-fill/minmax(148px)
+ * landed on two at every width the narrow layout actually reaches").
  * Adopting a different minimum here would have quietly given the stylesheet
  * two answers to the same question.
  *
@@ -97,18 +92,6 @@ const GUTTER_BREAKPOINT = 900;
 const GRID_GAP = 16;
 
 /**
- * The facet column that floats beside the grid from 1100px up: 248px of
- * column plus the 28px margin between it and the tiles. Every view that
- * renders a tile grid also renders a `.controls` block containing `.facets`
- * above it — browse, search, deals, a retailer's list, a brand's list and a
- * note's list, all six — so this is the general case on desktop, not the
- * exception. The one grid that escapes it is the home rail, which scrolls
- * horizontally and takes no per-row count at all.
- */
-const FACET_COLUMN = 248 + 28;
-const FACET_BREAKPOINT = 1100;
-
-/**
  * How much horizontal room the tile grid actually has, given the window.
  *
  * Mirrors the stylesheet rather than measuring the DOM: the chooser is built
@@ -117,8 +100,7 @@ const FACET_BREAKPOINT = 1100;
  */
 export function gridWidthFor(viewportWidth: number): number {
   const gutter = viewportWidth >= GUTTER_BREAKPOINT ? GUTTER_WIDE : GUTTER_NARROW;
-  const facets = viewportWidth >= FACET_BREAKPOINT ? FACET_COLUMN : 0;
-  return Math.max(0, viewportWidth - 2 * gutter - facets);
+  return Math.max(0, viewportWidth - 2 * gutter);
 }
 
 /** The width one tile ends up with, at a given count, in a grid this wide. */

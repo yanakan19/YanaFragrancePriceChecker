@@ -1,0 +1,48 @@
+name: Layout check (Safari engine)
+
+# Runs tests/layoutConsistency.test.ts in WebKit, the engine inside Safari,
+# with iPhone 13 settings. The same test runs in Chromium on every crawl; this
+# is the half that catches what only Safari does differently, which is where
+# the filters were reported looking wrong on an iPhone.
+#
+# Only on a change to the page's own source or to the test, never on a price
+# crawl: a harvest changes data, not layout, and the built page it commits is
+# checked by the Chromium run already.
+on:
+  push:
+    branches: [claude/scentday-retailer-registry-h92tth]
+    paths:
+      - 'demo/app.ts'
+      - 'demo/template.html'
+      - 'scripts/build-demo.ts'
+      - 'tests/layoutConsistency.test.ts'
+      - '.github/workflows/layout-webkit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: layout-webkit
+  cancel-in-progress: true
+
+jobs:
+  webkit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - run: npm ci
+
+      - name: Install WebKit
+        run: npx playwright install --with-deps webkit
+
+      - name: Layout rules in WebKit with iPhone settings
+        env:
+          LAYOUT_BROWSER: webkit
+        run: npx vitest run tests/layoutConsistency.test.ts

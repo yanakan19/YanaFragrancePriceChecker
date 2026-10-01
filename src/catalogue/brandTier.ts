@@ -35,7 +35,7 @@ const MIDEAST_HOUSES = new Set([
  *
  * Amouage is a Middle Eastern *company* but sits squarely in the world niche
  * market rather than the dupe/attar segment this tier otherwise groups —
- * showing it under "Middle Eastern / Dupe Houses" understates it and misleads
+ * showing it under "Middle East" understates it and misleads
  * a reader comparing it against Lattafa or Afnan. Kayali is priced high enough
  * that the majority-vote split below can tip it into "niche" on a given
  * catalogue snapshot, when it is a mainstream designer-adjacent brand every
