@@ -49,7 +49,7 @@ import {
   brandTierFor, fragranceById, fragrancesAt, listingCountAt, fragrancesWithNote, lowestPrice, compareVariants,
   type DemoFragrance, type NoteLayer,
 } from './data.js';
-import { productArt, type ArtSize } from './photo.js';
+import { productArt, photoSrcAttrs, HOUSE_IMG_SIZES, RETRY_ORIGINAL, type ArtSize } from './photo.js';
 import { AA_TEXT, contrastRatio, parseColour, type Rgba } from './contrast.js';
 import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './gender.js';
 import { VOLUME_BANDS, volumeBandFor, type VolumeBand } from './volumeBands.js';
@@ -1247,7 +1247,7 @@ function priceLine(f: DemoFragrance): string {
  */
 function fragranceTile(
   f: DemoFragrance,
-  opts?: { rank?: number; trailing?: string; rail?: boolean },
+  opts?: { rank?: number; trailing?: string; rail?: boolean; eager?: boolean },
 ): string {
   const rows = rowsFor(f);
   const best = bestOffer(rows);
@@ -1286,7 +1286,7 @@ function fragranceTile(
         ${productHead(f)}
         <span class="tile-art">
           ${medal ? `<span class="medal ${medal}" aria-label="Number ${opts!.rank! + 1} most popular"><span class="medal-disc">${opts!.rank! + 1}</span></span>` : ''}
-          ${productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`, f.imageTransform)}
+          ${productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`, f.imageTransform, { eager: opts?.eager === true })}
         </span>
         <span class="tile-price">${opts?.trailing ?? priceLine(f)}</span>
         ${badgeRetailer ? `<span class="sold-by" title="${esc(`${badgePrefix} ${badgeRetailer}`)}"><span>${badgePrefix} ${esc(badgeRetailer)}</span></span>` : `<span class="sold-by" aria-hidden="true" style="visibility:hidden"><span>&nbsp;</span></span>`}
@@ -1363,7 +1363,23 @@ function syncPerRowControl(): void {
  */
 function fragranceList(list: DemoFragrance[], empty: string): string {
   if (list.length === 0) return `<p class="empty-note t-body">${esc(empty)}</p>`;
-  return `<ul class="tile-grid">${chunked(list, fragranceTile)}</ul>`;
+  const eager = gridEagerCount();
+  return `<ul class="tile-grid">${chunked(list, (f, i) => fragranceTile(f, { eager: i !== undefined && i < eager }))}</ul>`;
+}
+
+/**
+ * How many tiles of a grid are in its first row, and so on screen when the
+ * list appears: their photos are fetched at once rather than lazily (see
+ * productArt). Two on the narrow layout, the reader's column count on the
+ * wide one.
+ */
+function gridEagerCount(): number {
+  return state.layout === 'desktop' ? effectivePerRow() : 2;
+}
+
+/** The same for the home page's horizontal rail: as many 172px cards as fit. */
+function railEagerCount(): number {
+  return Math.max(1, Math.ceil(window.innerWidth / 172));
 }
 
 /* ── home ────────────────────────────────────────────────────────────────── */
@@ -1417,7 +1433,7 @@ function homeView(): string {
         <button class="link-btn see-top" data-browse>See Top ${TOP_N} <span aria-hidden="true">→</span></button>
       </div>
       <ul class="pop-rail">
-        ${POPULAR.map((f, i) => fragranceTile(f, { rank: i, rail: true })).join('')}
+        ${POPULAR.map((f, i) => fragranceTile(f, { rank: i, rail: true, eager: i < railEagerCount() })).join('')}
       </ul>
     </section>
 
@@ -2717,8 +2733,10 @@ function dealsPanel(): string {
   // also still shows the reference figure itself beside the percentage
   // ("£37.99 at Armaf"), so changing only the percentage would have the same
   // tile name the same number two different ways.
-  const dealTile = (d: (typeof sorted)[number]) =>
+  const eager = gridEagerCount();
+  const dealTile = (d: (typeof sorted)[number], i?: number) =>
     fragranceTile(d.fragrance, {
+      eager: i !== undefined && i < eager,
       trailing:
         d.kind === 'house'
           ? `<span class="off anchor">${d.percentOff}% below ${esc(d.houseName!)}</span>
@@ -3306,11 +3324,15 @@ function houseCard(p: (typeof HOUSE_PRODUCTS)[number]): string {
 
            Written as DOM rather than markup because an inline handler cannot
            carry nested double quotes, and built to match the branch below
-           exactly rather than approximately. */
+           exactly rather than approximately.
+
+           Sized from the house's own Shopify image service the same way
+           productArt's photos are (photoSrcAttrs in demo/photo.ts), and
+           retries the stored URL once before giving up. */
         p.image
-          ? `<img class="house-img" src="${esc(p.image)}" alt="" loading="lazy"
-               decoding="async" referrerpolicy="no-referrer"
-               onerror="const s=document.createElement('span');s.className='house-img house-img-none';s.setAttribute('aria-hidden','true');this.replaceWith(s)" />`
+          ? `<img class="house-img"${photoSrcAttrs(p.image, HOUSE_IMG_SIZES)} alt="" width="240" height="240"
+               loading="lazy" decoding="async" referrerpolicy="no-referrer"
+               onerror="${RETRY_ORIGINAL}const s=document.createElement('span');s.className='house-img house-img-none';s.setAttribute('aria-hidden','true');this.replaceWith(s)" />`
           : `<span class="house-img house-img-none" aria-hidden="true"></span>`
       }
       <span class="house-name">${esc(p.name)}</span>
@@ -3747,11 +3769,18 @@ function resetChunkedLists(): void {
   chunkSeq = 0;
 }
 
-/** Emit the first chunk plus a sentinel, and hold the remainder for later. */
-function chunked<T>(items: readonly T[], renderItem: (item: T) => string): string {
+/**
+ * Emit the first chunk plus a sentinel, and hold the remainder for later.
+ *
+ * `renderItem` gets the item's position only for the first chunk, the one
+ * painted with the page: that is how a list knows which tiles are in its
+ * first row (see eagerCount). Items appended later get none, since they are
+ * by construction below whatever the reader has already seen.
+ */
+function chunked<T>(items: readonly T[], renderItem: (item: T, index?: number) => string): string {
   const first = items.slice(0, CHUNK);
   const rest = items.slice(CHUNK);
-  if (rest.length === 0) return first.map(renderItem).join('');
+  if (rest.length === 0) return first.map((item, i) => renderItem(item, i)).join('');
 
   const id = `chunk-${++chunkSeq}`;
   pendingLists.set(id, {
@@ -3759,7 +3788,7 @@ function chunked<T>(items: readonly T[], renderItem: (item: T) => string): strin
     render: renderItem as (i: unknown) => string,
   });
   return (
-    first.map(renderItem).join('') +
+    first.map((item, i) => renderItem(item, i)).join('') +
     `<li class="grid-more" data-more="${id}" aria-hidden="true"></li>`
   );
 }
@@ -3797,7 +3826,7 @@ function appendNextChunk(el: HTMLElement): boolean {
 
   const next = held.items.slice(0, CHUNK);
   const rest = held.items.slice(CHUNK);
-  el.insertAdjacentHTML('beforebegin', next.map(held.render).join(''));
+  el.insertAdjacentHTML('beforebegin', next.map((item) => held.render(item)).join(''));
 
   if (rest.length === 0) {
     pendingLists.delete(id);

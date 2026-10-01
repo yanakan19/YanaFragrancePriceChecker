@@ -733,3 +733,65 @@ flush crops at glorious-beauty (3 of 40), oud-arabian (1 of 40) and Zara (1 of
 8) as well, against 0 of 40 for each of `cdn.shopify.com`, beautybase,
 justmylook, manchester-ouds, thgimages and the-fragrance-counter.
 perfume-click is only the shop that does it as a matter of course.
+
+---
+
+## 7. Smaller photos, loaded as you scroll (built 2026-10-01)
+
+Supersedes the `srcset` specification in §3 item 3. `demo/photo.ts`
+(`resizedPhotoUrl`, `photoSrcAttrs`) now asks each host's own image server
+for the width a picture is actually drawn at, where that server resizes on
+request, and the stored URL stays the fallback: an `<img>` whose resized
+request fails retries the stored URL once (`RETRY_ORIGINAL`, via
+`data-orig`) before falling back to the placeholder.
+
+| Host | What is requested | Checked |
+|---|---|---|
+| `cdn.shopify.com/s/files/…` (houses, mybeauty-boutique, …) | `width=` added | 14 of 14 sampled at the asked width; WebP/AVIF already negotiated by `Accept` |
+| a shop's own `/cdn/shop/…` (beautybase, justmylook, allbeauty, oudarabian, manchester-ouds, bellavita) | the build's `width=3000` replaced (or `width=` added) | 36 of 36 |
+| `/cdn/shop/…_1024x.jpg` (gloriousbeauty, 13 photos) | the filename suffix rewritten, `_480x` | 6 of 6 (`width=` alone is ignored: the filename wins) |
+| `main.thgimages.com` | `width=`/`height=` scaled together | 6 of 6 |
+| fragranceclick.co.uk (Magento), bgstatic.net, the WordPress houses, thefragrancecounter | unchanged | no resize parameter (see `demo/photo.ts`) |
+
+`format=webp` is deliberately not forced on Shopify: it already picks WebP
+or AVIF for a browser that accepts them, and only when that is smaller;
+forcing it made some photos larger.
+
+Every tile photo is `loading="lazy"` except the first row of a list (two on
+a phone, the reader's column count on desktop, as many rail cards as fit),
+which is `loading="eager"`; the product hero is eager with
+`fetchpriority="high"`. Every photo carries `decoding="async"` and
+`width`/`height` attributes on top of the CSS square box that already kept
+the layout still.
+
+`npm run perf:images` measures what a phone downloads per page (it needs
+outbound HTTPS; see the script's header). On 2026-10-01, Pixel 7 profile
+(412x839 at 2.625x), the old and new builds measured back to back:
+
+| Page | On load, before → after | After 3 screens, before → after |
+|---|---|---|
+| Home `/` | 6 photos, 187 → 104 kB | 6 photos, 187 → 104 kB |
+| Today's Deals `/deals` | 10 photos, 553 → 312 kB | 22 photos, 1540 → 1058 kB |
+| Brand `/brands/dior` | 8 photos, 515 → 136 kB | 18 photos, 1164 → 319 kB |
+| Brand with houses `/brands/swiss-arabian` | 8 photos, 871 → 144 kB | 18 photos, 1485 → 300 kB |
+| Product `/fragrance/ean-3348900103870` | 1 photo, 149 → 65 kB | same |
+
+The photo counts do not change, and 6-8 of the photos fetched on load on a
+list page are still below the first screen: that is Chrome's own lazy-load
+distance (it starts fetching a lazy image well before it scrolls in), and
+those were already lazy before this change. What changed is their size. The
+deals page's remaining weight is Fragrance Click (5 photos, 763 kB of the
+1058), which cannot be resized (below).
+
+The site's own load is unchanged (`npm run perf:load`, first visit: first
+tiles 2.25 s → 2.22 s, 2.13 MB by first tiles either way), since photos are
+not part of it.
+
+**Left for later.** Fragrance Click's photos (800–1200px JPEGs, up to
+~150 kB each, the heaviest thing on the deals page) cannot be resized: its
+Magento host ignores `width=`, and its own resized copies live under a
+`/media/catalog/product/cache/<hash>/` path that is undocumented. The
+WordPress houses — pariscorner.ae especially, whose photos are 2048x2560
+and up to 1.1 MB — have only pre-cut `-300x300` copies, which are crops,
+not resizes, and are missing for some images. Either would need the shop's
+say or a per-image check at build time, not a guess at runtime.
