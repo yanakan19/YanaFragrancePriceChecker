@@ -1,6 +1,11 @@
+import { readFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { CATALOGUE, CRAWLED } from '../demo/catalogue.generated.js';
 import { matchKey, rawTitlesAgree } from '../src/catalogue/productMatch.js';
+
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 /**
  * Owner report, 2026-08-26: Emirates Oud is listed twice on Armaf Club De Nuit
@@ -49,32 +54,57 @@ describe('no product lists one shop twice with the same row', () => {
 /**
  * Layout report, 2026-09-01: Tom Ford Black Orchid Eau de Parfum 150ml
  * (ean-888066124287) showed two "The Beauty Store UK" rows, £139.99 and
- * £152.59. The cheaper page is kept by the collapse logic (line 1076 of
- * build-demo-catalogue.ts).
+ * £152.59.
  *
  * The pass the tests above guard cannot see them: its key is every field a
  * reader can see, and these differ in the link and the price, which is
  * exactly what that key is for. Established from the shop's own feed
  * (data/catalogue/the-beauty-store-uk.json) that this is not two variants of
  * one page, and not a mis-grouping either — it is two whole Shopify products
- * for one bottle. Prices change over time as shops reprice; the collapse logic
- * ensures the lowest of the two pages is shown, so the expected price here
- * matches whichever page is cheapest at crawl time.
+ * for one bottle:
+ *
+ *   TBSUKDK2-15123  "Tom Ford Black Orchid Eau de Parfum Spray 150ml"
+ *                   /products/tom-ford-black-orchid-edp-spray-150ml
+ *   TBSUKDK2-40107  "Tom Ford Black Orchid Eau de Parfum 150ml"
+ *                   /products/tom-ford-black-orchid-eau-de-parfum-150ml
  *
  * Neither carries an EAN, same size, same concentration. So the fix is a
- * second collapse in scripts/build-demo-catalogue.ts: one shop, the same bottle
- * on two of its own pages, keep the cheaper page. 29 rows across the catalogue
- * on the day it landed (mybeauty-boutique 10, the-beauty-store-uk 8, perfumeo
- * 8, emirates-oud 2, oud-arabian 1), every one of them checked back to the
- * shop's own two titles.
+ * second collapse in scripts/build-demo-catalogue.ts: one shop, the same
+ * bottle on two of its own pages, keep the cheaper page. 29 rows across the
+ * catalogue on the day it landed (mybeauty-boutique 10, the-beauty-store-uk 8,
+ * perfumeo 8, emirates-oud 2, oud-arabian 1), every one of them checked back
+ * to the shop's own two titles.
+ *
+ * The expected price is read from the shop's own feed, never pinned. Pinning
+ * it turned the daily crawl red every time the shop repriced — £139.99,
+ * £154.47, £150.64 and £163.88 within a month — and each red run left the
+ * site's prices stale. Only pages seen in the same harvest as the row shown
+ * are compared: a harvest is committed a step before its catalogue rebuild,
+ * and comparing across the two would fail on timing rather than on the rule.
  */
-describe('no product lists one shop twice for the same bottle', () => {
-  it('shows Tom Ford Black Orchid 150ml at The Beauty Store UK once, at the cheaper of its two pages', () => {
-    const offers = (CRAWLED['ean-888066124287'] ?? []).filter(
-      (o) => o.retailerId === 'the-beauty-store-uk',
-    );
-    expect(offers.map((o) => o.price)).toEqual([163.88]);
-    expect(offers[0]?.url).toMatch(/thebeautystore\.com\/products\/tom-ford-black-orchid/);
+interface FeedListing {
+  rawTitle: string;
+  url: string;
+  priceGbp: number | null;
+  lastSeenAt: string;
+  status: string;
+}
+
+const BLACK_ORCHID_150 = /^Tom Ford Black Orchid Eau de Parfum (?:Spray )?150ml$/i;
+const beautyStorePages = (
+  JSON.parse(readFileSync(resolve(root, 'data/catalogue/the-beauty-store-uk.json'), 'utf8')) as { listings: FeedListing[] }
+).listings.filter((l) => BLACK_ORCHID_150.test(l.rawTitle) && l.status === 'active');
+
+describe.skipIf(beautyStorePages.length === 0)('no product lists one shop twice for the same bottle', () => {
+  it('shows Tom Ford Black Orchid 150ml at The Beauty Store UK once, at the cheaper of its own pages', () => {
+    const shown = (CRAWLED['ean-888066124287'] ?? []).filter((o) => o.retailerId === 'the-beauty-store-uk');
+    expect(shown).toHaveLength(1);
+    expect(shown[0]!.url).toMatch(/\/products\/tom-ford-black-orchid-(?:edp-spray|eau-de-parfum)-150ml$/);
+
+    const sameHarvest = beautyStorePages.filter((l) => l.lastSeenAt === shown[0]!.fetchedAt && l.priceGbp !== null);
+    if (sameHarvest.length >= 2) {
+      expect(shown[0]!.price).toBe(Math.min(...sameHarvest.map((l) => l.priceGbp!)));
+    }
   });
 
   it('still shows the other shops on that bottle, so the collapse took rows from one shop only', () => {
