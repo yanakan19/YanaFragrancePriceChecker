@@ -174,21 +174,26 @@ export const RETAILERS: readonly Retailer[] = [
         scheme: 'myDelivery',
         description: '£9.90/year for unlimited free delivery on any service.',
       },
-      verifiedAt: '2026-08-01',
-      // Read, and deliberately still unverified. A GitHub runner fetched
-      // allbeauty.com/pages/delivery-information (npm run shipping:discover,
-      // committed in 47c5356, checkedAt 2026-08-14T09:11:00Z) and it names six
-      // different rows all worded "Standard Delivery £X" — £3.95, £6.95,
-      // £7.95, £9.95, £11.95 and £14.95 — each paired with its own free-over
-      // threshold of £25, £75 or £125. That reads like a destination table,
-      // and the extracted text does not say which row is the UK. £3.95 is the
-      // only row paired with £25, and £25 is confirmed as the UK threshold
-      // twice over ("FREE UK Delivery over £25", and "Free standard delivery
-      // on UK orders over £25." on the shipping policy) — which makes £3.95
-      // very likely right and still an inference, and an inferred delivery
-      // cost is what this field exists to keep out of the "Cheapest" label.
-      // What it needs is the page's own UK row, read as a row.
-      confidence: 'unverified',
+      verifiedAt: '2026-10-01',
+      // Confirmed 2026-10-01. The 2026-08-14 discovery run (commit 47c5356)
+      // could only see six "Standard Delivery £X" rows with no country
+      // attached, so £3.95 was an inference from it being the only row paired
+      // with £25. Read by hand on 2026-10-01, the page labels the block: under
+      // the heading "Delivery Options for the United Kingdom" the first row is
+      // "Tracked Delivery / £3.95 charge / Free over £25", and every other
+      // £-figure on the page sits under "Delivery Options for Europe & ROW
+      // Destinations". That is the UK row read as a row, which is what was
+      // missing. The empty basket on the same page reads "Spend £25.00 more
+      // for FREE UK delivery", i.e. free at £25.00 itself, matching the >=
+      // comparison resolveDelivery uses. The myDelivery perk below was not
+      // mentioned on this page; it is a footnote only and never priced in.
+      confidence: 'confirmed',
+      source: {
+        url: 'https://allbeauty.com/pages/delivery-information',
+        quote: 'Delivery Options for the United Kingdom Tracked Delivery £3.95 charge Free over £25',
+        readAt: '2026-10-01',
+      },
+      notes: 'Next Day Delivery £5.95 is an upgrade tier and is not modelled.',
     },
     catalogue: {
       searchUrlTemplate: 'https://www.allbeauty.com/uk/search?q={q}',
@@ -249,13 +254,13 @@ export const RETAILERS: readonly Retailer[] = [
       // GitHub runner, committed in cbf2294 as
       // data/shipping-discovery-report.json, checkedAt 2026-08-15T08:34:07Z.
       // Page still reachable on 2026-08-16, run 31950919159 job 95174128232.
-      verifiedAt: '2026-08-15',
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
       source: {
         url: 'https://www.justmylook.com/policies/shipping-policy',
         quote:
           'This service is free for orders over £25, orders under £25 will be subject to a £2.99 delivery charge.',
-        readAt: '2026-08-15',
+        readAt: '2026-10-01',
       },
       notes:
         'Free next-day (RM24 Tracked) over £80; standard free tier is RM48 Tracked. The same ' +
@@ -432,11 +437,15 @@ export const RETAILERS: readonly Retailer[] = [
       // threshold here would systematically understate its delivered price.
       freeOverGbp: null,
       estimatedDays: [3, 4],
-      verifiedAt: '2026-08-01',
+      verifiedAt: '2026-10-01',
       confidence: 'unverified',
       notes:
         'Evri home £2.99, DPD home £3.49, Evri pickup £2.49. Free delivery is per-product ' +
-        'or promotional, not spend-based — model it per offer, not per retailer.',
+        'or promotional, not spend-based — model it per offer, not per retailer. Re-checked ' +
+        '2026-10-01: notino.co.uk/delivery/ and /shipping-info/ both answer 403 to a plain fetch ' +
+        'and to WebFetch, so the page itself was not read; search-engine extracts of ' +
+        'https://www.notino.co.uk/shipping-info/ still list "EVRI Home Delivery £2.99" with no ' +
+        'basket-value threshold. Same figures, still indirect, so still unverified.',
     },
     // ── 2026-09-10: why the snapshot holds 95, and what changes it ──────────
     // data/catalogue/notino-uk.json: 95 active, 95 priced, every one of them
@@ -753,7 +762,15 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: 3.95,
       freeOverGbp: 25,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-01',
+      // Re-checked 2026-10-01, indirectly: boots.com answers a plain fetch and
+      // a headless browser with an Imperva "Pardon Our Interruption" page, and
+      // WebFetch gets an empty body, so the page was not read. Search-engine
+      // extracts of https://www.boots.com/shopping/delivery-information give
+      // "Standard delivery ... £3.95 or is free when you spend £25 or more",
+      // which is the figure held here and resolves the £1.00/£5.75 ambiguity
+      // below as Click & Collect / express rows. "£25 or more" is the >=
+      // comparison resolveDelivery applies. Still indirect, so unverified.
+      verifiedAt: '2026-10-01',
       // Read, and deliberately still unverified. boots.com/delivery was
       // fetched by a GitHub runner (npm run shipping:discover, committed in
       // 25fd0a0, checkedAt 2026-08-14T20:33:04Z) and the discovery run itself
@@ -836,8 +853,14 @@ export const RETAILERS: readonly Retailer[] = [
         scheme: 'MYTFS / Scentaddict',
         description: 'Free 48-hour express delivery for members.',
       },
-      verifiedAt: '2026-08-01',
+      verifiedAt: '2026-10-01',
       confidence: 'unverified',
+      notes:
+        'Re-checked 2026-10-01, indirectly: thefragranceshop.co.uk/delivery and ' +
+        '/delivery-information answer 403 to a plain fetch and to WebFetch. Search-engine ' +
+        'extracts of https://www.thefragranceshop.co.uk/delivery read "Standard Delivery costs ' +
+        '£3.49 or is FREE when you spend over £40", the figures held here. Not read off the ' +
+        'page itself, so still unverified.',
     },
     catalogue: {
       searchUrlTemplate: 'https://www.thefragranceshop.co.uk/search?q={q}',
@@ -984,9 +1007,14 @@ export const RETAILERS: readonly Retailer[] = [
         scheme: 'Rewards',
         description: 'Free standard delivery on all orders for Rewards members.',
       },
-      verifiedAt: '2026-08-01',
+      verifiedAt: '2026-10-01',
       confidence: 'unverified',
-      notes: 'Click & Collect is free at any basket value.',
+      notes:
+        'Click & Collect is free at any basket value. Re-checked 2026-10-01, indirectly: ' +
+        'theperfumeshop.com/delivery-information answers 403 to a plain fetch, a headless ' +
+        'browser and WebFetch. Search-engine extracts of that page give standard delivery ' +
+        '£3.50 for non-members, free when you spend over £25, matching the figures held here. ' +
+        'Not read off the page itself, so still unverified.',
     },
     catalogue: {
       searchUrlTemplate: 'https://www.theperfumeshop.com/search?q={q}',
@@ -1601,9 +1629,20 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: 4.5,
       freeOverGbp: 50,
       estimatedDays: [2, 5],
-      verifiedAt: '2026-08-01',
-      confidence: 'unverified',
-      notes: 'Cloudflare-fronted — pair with Boots as the hard-site benchmark in Phase 0.',
+      verifiedAt: '2026-10-01',
+      // Read off the shop's own UK delivery page on 2026-10-01 via WebFetch
+      // (a plain curl gets an empty reply from this host). Same two figures
+      // that were held unsourced since 2026-08-01. "£50 and over" is the >=
+      // comparison resolveDelivery applies.
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.johnlewis.com/customer-services/delivery-information/uk-delivery',
+        quote: 'Delivery is free when you spend £50 and over, and £4.50 for orders under £50.',
+        readAt: '2026-10-01',
+      },
+      notes:
+        'Cloudflare-fronted — pair with Boots as the hard-site benchmark in Phase 0. The same ' +
+        'page prices larger-item delivery at £19.95, which does not apply to fragrance.',
     },
     catalogue: {
       searchUrlTemplate: 'https://www.johnlewis.com/search?search-term={q}',
@@ -1726,12 +1765,12 @@ export const RETAILERS: readonly Retailer[] = [
       // 2026-08-14T09:11:00Z. The quoted line is an exclusions heading rather
       // than a rate table, and it is still the page naming its own standard
       // UK delivery charge in words: £4.95, or free above the threshold.
-      verifiedAt: '2026-08-14',
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
       source: {
         url: 'https://www.beautybase.com/policies/shipping-policy',
         quote: '*EXCLUSIONS TO £4.95 OR FREE STANDARD UK DELIVERY CHARGE',
-        readAt: '2026-08-14',
+        readAt: '2026-10-01',
       },
       notes:
         'Up to 48h order processing before dispatch — the day window excludes that, and the ' +
@@ -1786,12 +1825,12 @@ export const RETAILERS: readonly Retailer[] = [
       // shop's own delivery page by npm run shipping:discover from a GitHub
       // runner, committed in cbf2294 as data/shipping-discovery-report.json,
       // checkedAt 2026-08-15T08:34:07Z. One sentence carries both figures.
-      verifiedAt: '2026-08-15',
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
       source: {
         url: 'https://www.lookfantastic.com/c/info/delivery/',
         quote: 'Tracked Delivery - £3.95 or FREE on orders over £25',
-        readAt: '2026-08-15',
+        readAt: '2026-10-01',
       },
       notes:
         'Tracked Delivery is the cheapest UK option the page names, so it is the one modelled. ' +
@@ -2087,18 +2126,29 @@ export const RETAILERS: readonly Retailer[] = [
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
-      standardGbp: 4.5,
+      // Was £4.50 (unsourced, held since 2026-08-01). Superdrug's own delivery
+      // page now prices standard delivery at £3 below the free threshold —
+      // three separate search-engine extracts of https://www.superdrug.com/delInfo
+      // on 2026-10-01 agree: "Free for Health & Beautycard members when you
+      // spend £20 or more; Free for non-members when you spend £25 or more;
+      // All other orders £3." The page itself answers 403 to a plain fetch, a
+      // headless browser and WebFetch, so this is still indirect and stays
+      // unverified — but every route that reached the page's text says £3,
+      // and nothing anywhere says £4.50, so £4.50 was overstating delivered
+      // prices below £25 by £1.50.
+      standardGbp: 3,
       // Non-member threshold. The £20 Beautycard tier is a membership perk and
-      // is deliberately not used for the headline delivered price.
+      // is deliberately not used for the headline delivered price. "£25 or
+      // more" is the >= comparison resolveDelivery applies.
       freeOverGbp: 25,
       estimatedDays: [3, 4],
       membershipPerk: {
         scheme: 'Health & Beautycard',
-        description: 'Free standard and next-day delivery over £20 for cardholders.',
+        description: 'Free standard delivery when cardholders spend £20 or more.',
       },
-      verifiedAt: '2026-08-01',
+      verifiedAt: '2026-10-01',
       confidence: 'unverified',
-      notes: 'Order & Collect is free at any basket value.',
+      notes: 'Order & Collect is free at any basket value. Standard delivery normally arrives within 4 working days.',
     },
     catalogue: {
       searchUrlTemplate: 'https://www.superdrug.com/search?text={q}',
@@ -2269,19 +2319,34 @@ export const RETAILERS: readonly Retailer[] = [
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
-      standardGbp: 6.99,
-      freeOverGbp: 100,
-      estimatedDays: [2, 4],
+      // Was £6.99 with free delivery over £100 (both unsourced). Re-checked
+      // 2026-10-01: selfridges.com answers 403 to a plain fetch and to
+      // WebFetch, so this rests on search-engine extracts of
+      // https://www.selfridges.com/GB/en/info/dispatch-delivery/uk-delivery/,
+      // which give "Standard Delivery costs £6.95". Neither competing
+      // threshold is a spend-based rule open to every shopper:
+      //   - £100 is the Selfridges+ subscription ("unlimited UK timed,
+      //     nominated day and standard delivery on orders over £100");
+      //   - £150 is a Selfridges Unlocked membership benefit (Level 1:
+      //     "complimentary UK delivery on online orders over £150",
+      //     https://www.selfridges.com/GB/en/info/selfridges-unlocked/).
+      // Both are memberships, which this model never prices in, so there is
+      // no non-member threshold. The old £100 made every £100-£150 Selfridges
+      // offer show free delivery a non-member does not get.
+      standardGbp: 6.95,
+      freeOverGbp: null,
+      estimatedDays: [2, 5],
       membershipPerk: {
-        scheme: 'Selfridges+',
-        description: '£10/year for unlimited standard, nominated-day and next-day delivery.',
+        scheme: 'Selfridges+ / Selfridges Unlocked',
+        description:
+          'Selfridges+ (£10/year): free standard delivery on orders over £100. Selfridges Unlocked members: complimentary UK delivery on online orders over £150.',
       },
-      verifiedAt: '2026-08-01',
+      verifiedAt: '2026-10-01',
       confidence: 'unverified',
       notes:
-        'CONFLICTING SOURCES: the free-delivery threshold is cited as both £100 and £150. ' +
-        'Confirm against selfridges.com/GB/en/info/dispatch-delivery/uk-delivery/ before ' +
-        'trusting the delivered price for this retailer.',
+        'Standard Delivery within 5 working days; Click & Collect free. Read indirectly ' +
+        '(search extracts of the UK delivery page) because the page refuses this tooling — ' +
+        'confirm against selfridges.com/GB/en/info/dispatch-delivery/uk-delivery/ in a browser.',
     },
     catalogue: {
       searchUrlTemplate: 'https://www.selfridges.com/GB/en/search/?freeText={q}',
@@ -2443,17 +2508,26 @@ export const RETAILERS: readonly Retailer[] = [
     currency: 'GBP',
     shipping: {
       // Beauty-only baskets get the reduced rate, and a fragrance comparison is
-      // by definition a beauty-only basket, so £5.95 is the right figure here
-      // rather than the £7.50 general rate.
-      standardGbp: 5.95,
+      // by definition a beauty-only basket, so the beauty rate is the right
+      // figure here rather than the £7.50 general rate. Was £5.95 (unsourced,
+      // 2026-08-01). Re-checked 2026-10-01: harveynichols.com answers 503 /
+      // an empty reply to a plain fetch and to WebFetch, but search-engine
+      // extracts of https://www.harveynichols.com/info/help/delivery-help/uk-delivery/
+      // read "The Beauty standard delivery charge of £4.50 only applies to
+      // orders containing products from Beauty categories only. If non-Beauty
+      // products are added to the order, the cost of UK standard delivery will
+      // increase to £7.50." and "FREE UK STANDARD DELIVERY ... on orders over
+      // £300". Indirect, so unverified.
+      standardGbp: 4.5,
       freeOverGbp: 300,
-      estimatedDays: [3, 3],
-      verifiedAt: '2026-08-01',
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-10-01',
       confidence: 'unverified',
       notes:
-        'General standard delivery is £7.50; beauty-only orders are £5.95. Free over £300 ' +
+        'General standard delivery is £7.50; beauty-only orders are £4.50. Free over £300 ' +
         'is effectively unreachable on a single fragrance, so this retailer will almost ' +
-        'always carry delivery in the delivered-price sort.',
+        'always carry delivery in the delivered-price sort. Some membership tiers include ' +
+        'free standard delivery; not priced in.',
     },
     catalogue: {
       searchUrlTemplate: 'https://www.harveynichols.com/search/?q={q}',
@@ -2500,12 +2574,12 @@ export const RETAILERS: readonly Retailer[] = [
       // "on All Orders" is what makes 0 safe here rather than a guess at a fee
       // nobody printed: this is the free-with-no-threshold case, which is why
       // freeOverGbp is 0 and not null.
-      verifiedAt: '2026-08-14',
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
       source: {
         url: 'https://www.fragranceclick.co.uk/delivery',
         quote: 'Free Tracked 48 Delivery on All Orders',
-        readAt: '2026-08-14',
+        readAt: '2026-10-01',
       },
       notes:
         'Free UK delivery on every order via Royal Mail Tracked 48 (2-3 days), no minimum ' +
@@ -2606,12 +2680,12 @@ export const RETAILERS: readonly Retailer[] = [
       // Placeholder, and unreachable while this retailer is disabled. It is
       // not a claim about their delivery speed.
       estimatedDays: [2, 4],
-      verifiedAt: '2026-09-19',
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
       source: {
         url: 'https://mybeauty.boutique/policies/shipping-policy',
         quote: 'Standard Delivery (0–10kg): £3.99 / 2–5 working days',
-        readAt: '2026-09-19',
+        readAt: '2026-10-01',
       },
       notes:
         'Read off their own policy page by npm run shipping:discover on 2026-08-05, which quoted '  +
@@ -2733,12 +2807,15 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: 3.5,
       freeOverGbp: 30,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-15',
+      // Re-read 2026-10-01: the table row now reads "Standard Delivery / £3.50
+      // / free on orders over £30" and the footer states the same rule in one
+      // sentence, quoted below. Same two figures.
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
       source: {
         url: 'https://www.escentual.com/pages/delivery-information',
-        quote: 'Standard Delivery ~ £3.50 / free on orders over £30 ~ 3-5 working days*',
-        readAt: '2026-08-15',
+        quote: 'Free UK delivery on orders over £30 (from £3.50 under £30)',
+        readAt: '2026-10-01',
       },
       notes:
         'A paid annual "Delivery Pass" (£9.95) gives free next-day delivery on orders over ' +
@@ -2779,12 +2856,18 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: 3.95,
       freeOverGbp: 100,
       estimatedDays: [2, 4],
-      verifiedAt: '2026-08-12',
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
+      source: {
+        url: 'https://www.thefragrancecounter.co.uk/delivery.html',
+        quote: 'Royal Mail 48hr Tracked UK Delivery - - £3.95 (FREE over £100)',
+        readAt: '2026-10-01',
+      },
       notes:
         'Read directly off their own delivery page, ' +
-        'https://www.thefragrancecounter.co.uk/delivery.html, on 2026-08-12: "Royal Mail 48hr ' +
-        'Tracked - £3.95 (FREE over £100)". That page also lists Royal Mail 24hr Tracked UK ' +
+        'https://www.thefragrancecounter.co.uk/delivery.html, on 2026-08-12 and again on ' +
+        '2026-10-01: "Royal Mail 48hr Tracked - £3.95 (FREE over £100)". The 48hr row also ' +
+        'offers a £5.95 "100% Recycled Packaging" variant, an opt-in upgrade. That page also lists Royal Mail 24hr Tracked UK ' +
         'Delivery at £4.95 and Royal Mail Special Delivery at £9.95 as paid upgrade tiers, out ' +
         'of scope for the standard-only model. A .com storefront also exists ' +
         '(thefragrancecounter.com) — confirm its relationship to the .co.uk site before ' +
@@ -2841,12 +2924,12 @@ export const RETAILERS: readonly Retailer[] = [
       // GitHub runner, committed in 431649e as
       // data/shipping-discovery-report.json, checkedAt 2026-08-16T08:30:45Z.
       // Both figures were already right; neither had anything behind it.
-      verifiedAt: '2026-08-16',
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
       source: {
         url: 'https://www.scentstore.com/about/delivery-returns/',
         quote: '£2.95 Free on Orders Over £30',
-        readAt: '2026-08-16',
+        readAt: '2026-10-01',
       },
       notes:
         'Independent UK perfumery trading since 1996 (Companies House: Scentstore Limited, ' +
@@ -2961,11 +3044,18 @@ export const RETAILERS: readonly Retailer[] = [
       freeOverGbp: 28,
       // Indicative only, and not a delivery-speed claim.
       estimatedDays: [2, 4],
-      verifiedAt: '2026-08-12',
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
+      // "up to £27.99" means an order of exactly £28.00 ships free, which is
+      // the >= comparison resolveDelivery applies.
+      source: {
+        url: 'https://gloriousbeauty.co.uk/policies/shipping-policy',
+        quote: 'Free for all orders over £28 £3.99 for all orders up to £27.99',
+        readAt: '2026-10-01',
+      },
       notes:
         'Read directly off their own shipping policy page, ' +
-        'https://gloriousbeauty.co.uk/policies/shipping-policy, on 2026-08-12: "UK Standard ' +
+        'https://gloriousbeauty.co.uk/policies/shipping-policy, on 2026-08-12 and again on 2026-10-01: "UK Standard ' +
         'Tracked Delivery — Free for all orders over £28" and "£3.99 for all orders up to ' +
         '£27.99". The same page separately prices a faster "UK Tracked 24" upgrade tier at ' +
         '£5.95 (free over £60) and Ireland tracked delivery at £7.99 — both out of scope for ' +
@@ -3054,25 +3144,35 @@ export const RETAILERS: readonly Retailer[] = [
     // never written... no amount of regex confidence earns the right to make
     // it unattended"); that is a human's call, and per the owner's standing
     // sign-off on this area this is that human reading the same sentence and
-    // making it. The page states only the standard cost, nothing about what
-    // happens at or above £100, so freeOverGbp is left null rather than
-    // inferred from "below £100" — recording a threshold the page never
-    // states outright would be exactly the invention this file's own header
-    // rules out.
+    // making it. On 2026-08-27 the page was read as stating only the
+    // standard cost, so freeOverGbp was left null rather than inferred from
+    // "below £100".
+    //
+    // Re-read 2026-10-01: the same page now states the threshold outright, in
+    // the sentence directly above the rate — "Free Shipping : Enjoy free
+    // standard shipping on all orders above £100 (after discounts and before
+    // taxes)." — so freeOverGbp is £100. With it null, every French Avenue
+    // offer at £100 or more was being shown £4.99 dearer than the shop
+    // charges. The two sentences together ("below £100" pays, "above £100"
+    // is free) leave exactly £100.00 unstated; the rate sentence only charges
+    // "below £100", so £100.00 is treated as free, matching the >= comparison
+    // resolveDelivery applies.
     enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
       standardGbp: 4.99,
-      freeOverGbp: null,
+      freeOverGbp: 100,
       estimatedDays: [2, 5],
-      verifiedAt: '2026-08-27',
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
       source: {
         url: 'https://uk.shopfrenchavenue.com/policies/shipping-policy',
-        quote: 'Standard Shipping Fee : A flat rate of £4.99 applies on orders below £100 .',
-        readAt: '2026-08-27',
+        quote:
+          'Free Shipping : Enjoy free standard shipping on all orders above £100 (after discounts and before taxes). ' +
+          'Standard Shipping Fee : A flat rate of £4.99 applies on orders below £100 .',
+        readAt: '2026-10-01',
       },
       notes:
         'Was in houses.ts as frenchavenue.com (the global, AED-priced site) until this UK-' +
@@ -3112,17 +3212,33 @@ export const RETAILERS: readonly Retailer[] = [
     shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
+      // Read directly 2026-10-01, both of the shop's own delivery pages
+      // (armaf.uk/pages/shipping-details and armaf.uk/policies/shipping-policy)
+      // and its home page. The policy's "UK Mainland Delivery" section names
+      // the carrier and the window and no price at all; the only £ figures on
+      // it are a DPD surcharge table for Highlands & Islands (£14.99), BT
+      // (£10.99), Channel Islands (£21.49), Isle of Wight (£11.99) and Isle of
+      // Man (£14.99) postcodes. No free-delivery threshold appears anywhere.
+      // So this is a shop that publishes no mainland standard rate, not one
+      // nobody has looked at. (The mainland rate is shown only at checkout,
+      // and /cart/shipping_rates.json is disallowed by robots.txt.)
       standardGbp: null,
       freeOverGbp: null,
-      estimatedDays: [2, 5],
-      verifiedAt: '2026-08-05',
-      confidence: 'unverified',
+      estimatedDays: [2, 3],
+      verifiedAt: '2026-10-01',
+      confidence: 'confirmed',
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://armaf.uk/policies/shipping-policy',
+        quote:
+          'UK Mainland Delivery ... Deliveries are made by Royal Mail 2-3 days, and will be delivered Monday to Saturday (Excluding Public Holidays)',
+        readAt: '2026-10-01',
+      },
       notes:
         'Was in houses.ts as armaf.com (global) until this UK entity turned up: ARMAF (UK) ' +
-        'LTD, Companies House 12161258. Their own shipping page exists at ' +
-        'armaf.uk/pages/shipping-details (Royal Mail, Mon-Sat, no bank-holiday deliveries) but ' +
-        'search results did not surface the actual cost or free-delivery threshold — read that ' +
-        'page directly. Currency separately confirmed sterling; see this entry\'s comment above.',
+        'LTD, Companies House 12161258. Ireland/Channel Islands/Highlands: "Royal Mail Pricing ' +
+        'is the same", DPD surcharges by postcode as listed above. Currency separately ' +
+        'confirmed sterling; see this entry\'s comment above.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -3168,18 +3284,19 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: null,
       freeOverGbp: 50,
       estimatedDays: [2, 5],
-      verifiedAt: '2026-09-22',
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
         url: 'https://alharamainperfumes.co.uk/en-us/pages/delivery-information',
         quote: 'FREE UK Delivery on orders over £50 (Royal Mail Standard Service)',
-        readAt: '2026-09-22',
+        readAt: '2026-10-01',
       },
       notes:
         'freeOverGbp is their own stated figure (free UK delivery over £50, half-price over ' +
-        '£150). The standard cost below £50 was not found — read alharamainperfumes.co.uk/' +
-        'en-us/pages/shipping-policy directly, then enable. UK-founded (opened a London retail ' +
+        '£150). Below £50 the page (re-read 2026-10-01) lists only size-dependent "from" ' +
+        'prices — "Royal Mail 48 Large Letter From £1.99", "Royal Mail 48 Tracked From £4.95" — ' +
+        'not a flat standard rate, and /policies/shipping-policy states nothing more. UK-founded (opened a London retail ' +
         'store), part of the wider Al Haramain group trading since 1970. Currency separately ' +
         'confirmed sterling via the ?country=GB market; see this entry\'s comment above.',
     },
@@ -3298,7 +3415,11 @@ export const RETAILERS: readonly Retailer[] = [
         'standardRateNotPublished. Genuinely unconfirmed, not established as unstated; the ' +
         'entry is enabled on tests/registry.test.ts\'s unstated-delivery allowlist all the same, ' +
         'same as this file\'s header explains that field is for. Read the page directly to ' +
-        'close this out.',
+        'close this out. Attempted 2026-10-01 and still unreadable: every URL on ' +
+        'uk.riiffsperfumes.com (home page, /policies/shipping-policy, /pages/shipping-policy) ' +
+        'answers HTTP 202 with a SiteGround captcha redirect (/.well-known/sgcaptcha/), and ' +
+        'WebFetch gets an empty body. Search results surfaced only the delivery window ' +
+        '(3-5 business days) and no rate. Needs a human in a browser.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -3357,15 +3478,26 @@ export const RETAILERS: readonly Retailer[] = [
     shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
+      // Read directly 2026-10-01. Section 4 of the shop's own shipping
+      // policy, "Delivery Charges", says only that "Delivery costs are
+      // calculated and displayed at checkout before payment is completed" and
+      // may vary by method, order value and promotions — no rate. The site-wide
+      // banner on the same page states the threshold, quoted below.
       standardGbp: null,
       freeOverGbp: 50,
-      estimatedDays: [1, 2],
-      verifiedAt: '2026-08-05',
-      confidence: 'unverified',
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-10-01',
+      confidence: 'confirmed',
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://ibraquk.com/policies/shipping-policy',
+        quote: 'FREE SHIPPING ON ORDERS OVER £50',
+        readAt: '2026-10-01',
+      },
       notes:
         'The Saudi house formerly trading as Ibrahim Al Qurashi, rebranded IBRAQ — this is ' +
-        'its dedicated UK storefront. freeOverGbp and 1-2 working day processing are their ' +
-        'own stated figures; the standard cost below £50 was not found. Requested as ' +
+        'its dedicated UK storefront. Policy: "Standard UK Delivery: Estimated delivery within ' +
+        '2–4 working days". The standard cost below £50 is not published. Requested as ' +
         '"Ibraq (formerly Ibrahim Al Quarashi)" — spelling matches. Currency separately ' +
         'confirmed sterling; see this entry\'s comment above.',
     },
@@ -3403,12 +3535,12 @@ export const RETAILERS: readonly Retailer[] = [
       // Unchanged and still unsourced: the page read here says nothing about
       // how long delivery takes.
       estimatedDays: [1, 3],
-      verifiedAt: '2026-08-16',
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
       source: {
         url: 'https://bellavitaluxury.uk/policies/shipping-policy',
         quote: 'Free shipping on all orders above £30, below that a delivery fee of £3.99 will be charged',
-        readAt: '2026-08-14',
+        readAt: '2026-10-01',
       },
       notes:
         'The £30 threshold is corroborated on a second page of the same shop — ' +
@@ -3447,12 +3579,12 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: 3.99,
       freeOverGbp: 30,
       estimatedDays: [2, 4],
-      verifiedAt: '2026-09-19',
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
       source: {
         url: 'https://oudarabian.co.uk/pages/shipping-policy',
         quote: 'Standard Delivery (3–5 Working Days): £3.99 Our standard delivery option ensures your order arrives within 3–5 working days .',
-        readAt: '2026-09-19',
+        readAt: '2026-10-01',
       },
       notes:
         'Read off their own policy page by npm run shipping:discover on 2026-08-05, which quoted '  +
@@ -3488,13 +3620,13 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: null,
       freeOverGbp: 50,
       estimatedDays: [2, 4],
-      verifiedAt: '2026-09-29',
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
         url: 'https://manchesterouds.com/pages/shipping-policy',
         quote: 'Free shipping on orders over £50',
-        readAt: '2026-09-29',
+        readAt: '2026-10-01',
       },
       notes:
         'THE FLAT STANDARD RATE IS UNCONFIRMED, so this shop is shown with delivery not ' +
@@ -3589,7 +3721,14 @@ export const RETAILERS: readonly Retailer[] = [
       // standardGbp, which is why this field tolerates an estimate while
       // that one does not), only ever shown as indicative text once enabled.
       estimatedDays: [2, 5],
-      verifiedAt: '2026-08-11',
+      // Re-read 2026-10-01, both pages. The shipping policy still says "Free
+      // Shipping : Orders over £50 within the UK qualify for free shipping."
+      // (banner: "FREE UK DELIVERY ON ALL ORDERS OVER £50") and now gives
+      // "Delivery normally takes 1-5 working days after dispatch"; the refund
+      // policy still says "a postage charge of £3.99 may be deducted from your
+      // refund" when a return takes an order below the free-delivery
+      // threshold. Same two figures, same indirect basis for the £3.99.
+      verifiedAt: '2026-10-01',
       // 'unverified', not 'confirmed', and the distinction is real rather than
       // cautious boilerplate. £3.99 is genuinely their own figure, but it was
       // read off a returns clause explaining what a refund deducts, not off a
@@ -3700,19 +3839,30 @@ export const RETAILERS: readonly Retailer[] = [
     sitemapHarvestConfirmed: true,
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [2, 5],
-      verifiedAt: '2026-08-05',
-      confidence: 'unverified',
+      // Free on every UK order, read off the shop's own Delivery Information
+      // page on 2026-10-01. The 2026-08-19 probe below found no flat rate; the
+      // page now answers the question in a table ("Standard Tracked / 2–3
+      // working days / Fully tracked to your door / FREE") and in its own FAQ,
+      // quoted in `source`. "It's not a promotion, it's how we operate" is
+      // what makes a sourced 0 safe here rather than a sale banner — the same
+      // shape as Fragrance Click's, and recorded the same way (0 / 0).
+      standardGbp: 0,
+      freeOverGbp: 0,
+      estimatedDays: [2, 3],
+      verifiedAt: '2026-10-01',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://perfumeo.co.uk/policies/shipping-policy/',
+        quote:
+          'Do you really ship every order for free? Yes. Every UK order ships free and fully tracked, with no minimum spend. It’s not a promotion, it’s how we operate.',
+        readAt: '2026-10-01',
+      },
       notes:
-        'Read directly, not just searched for: shipping probe, run 32279620206 job ' +
-        '96155027469, 2026-08-19T17:05Z, fetched 4 pages of perfumeo.co.uk (+1 footer link ' +
-        'followed) and confirmed NO RATE STATED — the delivery page exists and was read, it ' +
-        'simply never names a flat standard charge, the same shape beauty-pie and ' +
-        'cult-beauty-global\'s delivery pages show. Not a retrieval failure to fix; there is no ' +
-        'figure on the page to find, which is why this stays enabled on ' +
-        'tests/registry.test.ts\'s unstated-delivery allowlist rather than blocked.',
+        'Previously: shipping probe, run 32279620206 job 96155027469, 2026-08-19T17:05Z, ' +
+        'fetched 4 pages of perfumeo.co.uk and found NO RATE STATED. The page has since been ' +
+        'rewritten as a Delivery Information page ("Fast, free & tracked, every order. No ' +
+        'minimum spend, no hidden charges, full tracking on everything. UK delivery only."). ' +
+        'Left tests/registry.test.ts\'s unstated-delivery allowlist on 2026-10-01.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -3795,12 +3945,12 @@ export const RETAILERS: readonly Retailer[] = [
       // themselves to, so the upper bound is theirs and the lower is a guess
       // held deliberately wide rather than flattering.
       estimatedDays: [2, 10],
-      verifiedAt: '2026-09-19',
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
       source: {
         url: 'https://www.thebeautystore.com/policies/shipping-policy',
         quote: 'Standard Delivery (UK Mainland) : £2.95',
-        readAt: '2026-09-19',
+        readAt: '2026-10-01',
       },
       notes:
         'Read off their own policy page by npm run shipping:discover on 2026-08-05, which quoted '  +
@@ -3902,20 +4052,28 @@ export const RETAILERS: readonly Retailer[] = [
     shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
+      // Read directly off the shop's own shipping policy on 2026-10-01, which
+      // states the UK rule as a price band: "UK Delivery via Royal Mail &
+      // Evri / Delivery Costs: / £0.01 - £49.99: £3.99 / Over £50: Free /
+      // Express: £7.99". The band ending at £49.99 means an order of exactly
+      // £50.00 ships free, the >= comparison resolveDelivery applies.
+      standardGbp: 3.99,
+      freeOverGbp: 50,
       estimatedDays: [2, 5],
-      verifiedAt: '2026-08-05',
-      confidence: 'unverified',
+      verifiedAt: '2026-10-01',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://uk.zimayaperfumes.com/policies/shipping-policy',
+        quote: 'Delivery Costs: £0.01 - £49.99: £3.99 Over £50: Free',
+        readAt: '2026-10-01',
+      },
       notes:
         'A UK subdomain exists (uk.zimayaperfumes.com), which is why this is a retailer rather ' +
-        'than a houses.ts entry, on the same reasoning as French Avenue and Armaf. The UK site ' +
-        'advertises "FREE DELIVERY OVER $50" in dollars, which is marketing copy rather than a ' +
-        "confirmed flat rate — currency itself is separately confirmed sterling, see this " +
-        'entry\'s comment above. Third-party UK stockists quote £50 and £80 free-delivery ' +
-        "thresholds, but those are their terms, not this shop's. Standard cost below any " +
-        'threshold not found anywhere — read uk.zimayaperfumes.com/policies/shipping-policy ' +
-        'directly.',
+        'than a houses.ts entry, on the same reasoning as French Avenue and Armaf. The site-wide ' +
+        'banner still reads "FREE DELIVERY OVER $50" in dollars; the policy page states the ' +
+        'same £50 threshold in sterling, which is what is recorded. Express (£7.99) is an ' +
+        'upgrade tier and is not modelled. Currency itself is separately confirmed sterling, ' +
+        'see this entry\'s comment above.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -3992,15 +4150,29 @@ export const RETAILERS: readonly Retailer[] = [
     shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
-      standardGbp: 5.5,
+      // Was £5.50 (help centre, read 2026-08-05). The same help-centre article,
+      // updated 2026-09-17 and read 2026-10-01, now says GBP 5.99. The
+      // storefront's own shipping policy (uk.kayali.com/policies/shipping-policy)
+      // confirms the threshold in the same words — "free shipping ... is
+      // applied to orders above USD 95 / GBP 79 ... calculated after any
+      // discounts" — and says only that the charge otherwise "will depend on
+      // your delivery address", so the help centre is the one place the
+      // brand states the mainland rate. "above GBP 79" leaves exactly £79.00
+      // unstated; resolveDelivery treats it as free (>=), a 1p edge.
+      standardGbp: 5.99,
       freeOverGbp: 79,
       estimatedDays: [2, 3],
-      verifiedAt: '2026-08-05',
-      confidence: 'unverified',
+      verifiedAt: '2026-10-01',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://kayalihelp.zendesk.com/hc/en-us/articles/45981494574865-How-much-will-I-be-charged-for-shipping',
+        quote: 'UK (Mainland): GBP 5.99 (Free shipping for orders above GBP 79, including Taxes)',
+        readAt: '2026-10-01',
+      },
       notes:
-        "Both figures from the brand's own Zendesk help centre (kayalihelp.zendesk.com): UK " +
-        'delivery £5.50, free over £79, 2-3 business days. Founded by Mona Kattan; also stocked ' +
-        'by Boots, Selfridges, Sephora and Cult Beauty, so expect overlap once this harvest runs.',
+        "The brand's own help centre (kayalihelp.zendesk.com), not a third party. UK carrier is " +
+        'Yodel per the storefront policy. Founded by Mona Kattan; also stocked by Boots, ' +
+        'Selfridges, Sephora and Cult Beauty, so expect overlap once this harvest runs.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -4106,12 +4278,15 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: 3.95,
       freeOverGbp: 50,
       estimatedDays: [2, 3],
-      verifiedAt: '2026-08-05',
+      verifiedAt: '2026-10-01',
       confidence: 'unverified',
       notes:
         'Standard £3.95, free over £50, 2-3 days — read from Zara UK\'s own delivery-methods ' +
         "page via search summary. Next-day (£4.95) and same-day London (£7.95) exist and are " +
-        'out of scope for the standard-only model. Fragrance since 1998 via Puig.',
+        'out of scope for the standard-only model. Fragrance since 1998 via Puig. Re-checked ' +
+        '2026-10-01: https://www.zara.com/uk/en/help-center/DeliveryMethods answers 403 to a ' +
+        'plain fetch and to WebFetch; search extracts of it still give home delivery 3.95 GBP, ' +
+        'free for orders over 50 GBP. Indirect, so still unverified.',
     },
     // searchUrlTemplate: the bare /uk/en/search page is confirmed to exist;
     // the ?searchTerm= param itself was only seen live on Zara's US mirror
@@ -4254,11 +4429,20 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: 7.5,
       freeOverGbp: 80,
       estimatedDays: [2, 4],
-      verifiedAt: '2026-08-12',
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
+      // "£80 or more" is the >= comparison resolveDelivery applies. (The
+      // separate shipping-policy page words it "£7.50 on UK orders under
+      // £50", which leaves £50-£79.99 unpriced there; this page, the one the
+      // footer links as delivery, closes that gap at £80.)
+      source: {
+        url: 'https://www.escentric.com/pages/delivery-and-returns',
+        quote: 'Enjoy complimentary delivery on orders of £80 or more, and £7.50 on orders under £80.',
+        readAt: '2026-10-01',
+      },
       notes:
         'Read directly off their own delivery-and-returns page, ' +
-        'https://www.escentric.com/pages/delivery-and-returns, on 2026-08-12: "£7.50 on ' +
+        'https://www.escentric.com/pages/delivery-and-returns, on 2026-08-12 and again on 2026-10-01: "£7.50 on ' +
         'orders under £80" and "Enjoy complimentary delivery on orders of £80 or more". A ' +
         'separate £125 promotional spend threshold (free 10ml Escentric 01) seen on the ' +
         'homepage is a gift-with-purchase offer, not a second delivery tier, and is out of ' +
@@ -4661,18 +4845,31 @@ export const RETAILERS: readonly Retailer[] = [
     shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
+      // Re-read 2026-10-01: the shipping policy's per-country table gives the
+      // UK threshold in sterling — "Free shipping thresholds (minimum subtotal
+      // after discounts and promo codes): ... United Kingdom: from £135" — and
+      // says of everything below it only "Shipping rates are calculated and
+      // displayed at checkout based on destination, package weight/volume".
+      // "from £135" is an at-or-above threshold, the >= resolveDelivery uses.
       standardGbp: null,
-      freeOverGbp: null,
+      freeOverGbp: 135,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-12',
-      confidence: 'unverified',
+      verifiedAt: '2026-10-01',
+      confidence: 'confirmed',
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://www.nicchialuxury.com/policies/shipping-policy',
+        quote: 'Free shipping thresholds (minimum subtotal after discounts and promo codes): ... United Kingdom: from £135',
+        readAt: '2026-10-01',
+      },
       notes:
         'Their shipping-policy and refund-policy pages were read by ' +
-        'shipping:discover on 2026-08-12 (16 pages tried). Both only state a ' +
-        'free EXPRESS delivery threshold ("Free express delivery over 140 ' +
-        'USD") and a list of free-shipping thresholds by destination — never ' +
-        'a standard flat rate for an order that does not clear a threshold. ' +
-        'That figure is not published anywhere found.',
+        'shipping:discover on 2026-08-12 (16 pages tried), and the shipping ' +
+        'policy again by hand on 2026-10-01. A standard flat rate for an ' +
+        'order below the threshold is not published: rates are weight- and ' +
+        'destination-based and shown only at checkout. The policy URL ' +
+        'redirects to /en-us/policies/shipping-policy for a US-located fetcher; ' +
+        'the per-country table is the same.',
     },
     catalogue: null,
     // Real approval, not another application-in-flight: Awin notified this
@@ -5085,12 +5282,12 @@ export const RETAILERS: readonly Retailer[] = [
       // Unchanged and unsourced — the page read here states costs, not
       // timings.
       estimatedDays: [3, 5],
-      verifiedAt: '2026-09-29',
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
       source: {
         url: 'https://www.perfume-click.co.uk/Delivery-Information/',
         quote: 'Standard Delivery (Collection also available) ~ £2.95',
-        readAt: '2026-09-29',
+        readAt: '2026-10-01',
       },
       notes:
         'Awin programme accepted — advertiser 6561 reads membershipStatus "active" in the ' +
@@ -5727,19 +5924,21 @@ export const RETAILERS: readonly Retailer[] = [
     currency: 'GBP',
     shipping: {
       standardGbp: null,
-      // A search snippet describes "free shipping when spending over £90",
-      // but that is marketing copy read secondhand, not a shipping:discover
-      // run against the shop's own delivery page — so the figure is named
-      // here, not stored as freeOverGbp.
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-09-28',
+      // Was held null on the reasoning that £90 was a secondhand search
+      // snippet. It is not: it is the shop's own words on its own shipping
+      // policy page, already quoted in `source` below, and re-read there on
+      // 2026-10-01. Recorded as the threshold so the shop panel states it.
+      // With no standard rate it changes no delivered price: resolveDelivery
+      // returns a null cost whenever standardGbp is null.
+      freeOverGbp: 90,
+      estimatedDays: [2, 5],
+      verifiedAt: '2026-10-01',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
         url: 'https://www.fragrancehub.co.uk/policies/shipping-policy',
         quote: 'FREE SHIPPING FOR ORDERS OVER £90',
-        readAt: '2026-09-28',
+        readAt: '2026-10-01',
       },
       notes:
         "Their own shipping-policy page was read by shipping:discover on 2026-08-18 and states " +
@@ -5747,6 +5946,8 @@ export const RETAILERS: readonly Retailer[] = [
         'WebSearch snippet this entry was first written from. No standard flat rate for an order ' +
         'below that threshold is published anywhere on the page, which is what ' +
         '`standardRateNotPublished` records — an absent figure, not one waiting to be looked up. ' +
+        'The page names the service ("We ship our items using Royal Mail Tracked 48") and a £8 ' +
+        're-send fee, nothing more; /pages/faq and /pages/faqs 404. ' +
         'Currency is separately confirmed as sterling; see the comment above this entry.',
     },
     catalogue: null,
@@ -6125,20 +6326,27 @@ export const RETAILERS: readonly Retailer[] = [
     shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      // A search snippet describes "Free delivery available on orders over
-      // £25", marketing copy read secondhand rather than a shipping:discover
-      // run against Avon's own delivery page, so the figure is named here
-      // and not stored as freeOverGbp.
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-08-20',
-      confidence: 'unverified',
+      // Read off Avon's own Delivery Information page on 2026-10-01, which
+      // states both figures outright: "FREE Delivery / Enjoy free direct
+      // delivery when you spend £25 or more." and "Standard Delivery / £3.50 -
+      // receive your order between 2 to 5 working days". The £25 search
+      // snippet this entry used to name without storing is now the shop's own
+      // sentence. "£25 or more" is the >= comparison resolveDelivery applies.
+      standardGbp: 3.5,
+      freeOverGbp: 25,
+      estimatedDays: [2, 5],
+      verifiedAt: '2026-10-01',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://avon.uk.com/pages/delivery',
+        quote:
+          'Enjoy free direct delivery when you spend £25 or more. Standard Delivery £3.50 - receive your order between 2 to 5 working days',
+        readAt: '2026-10-01',
+      },
       notes:
-        'Delivery terms have not been read from avon.uk.com itself, only its checkout currency ' +
-        'and Shopify route (see the comment above this entry). The £25 free-delivery figure ' +
-        'above comes from a WebSearch result snippet, quoted as far as it goes and no further. ' +
-        'No affiliate programme has been researched.',
+        'Next Working Day Delivery £4.95 is an upgrade tier and is not modelled. Delivered by ' +
+        'Evri. www.avon.uk.com/pages/delivery redirects to the apex host. No affiliate ' +
+        'programme has been researched.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -6269,11 +6477,11 @@ export const RETAILERS: readonly Retailer[] = [
     currency: 'GBP',
     shipping: {
       standardGbp: null,
-      // A search snippet describes "free delivery over £25 on their UK
-      // site", marketing copy read secondhand rather than a
-      // shipping:discover run against Space NK's own delivery page, so the
-      // figure is named here and not stored as freeOverGbp.
-      freeOverGbp: null,
+      // First named here from a secondhand search snippet and not stored.
+      // shipping:discover has since read the same £25 off Space NK's own
+      // shipping page (quoted in `source` below, 2026-09-23), so it is
+      // stored as of 2026-10-01. No pricing effect while standardGbp is null.
+      freeOverGbp: 25,
       estimatedDays: [3, 5],
       verifiedAt: '2026-09-23',
       confidence: 'confirmed',
@@ -6493,11 +6701,11 @@ export const RETAILERS: readonly Retailer[] = [
     currency: 'GBP',
     shipping: {
       standardGbp: null,
-      // A search snippet describes "free delivery over £25", marketing copy
-      // read secondhand rather than a shipping:discover run against the
-      // shop's own delivery page, so the figure is named here and not
-      // stored as freeOverGbp.
-      freeOverGbp: null,
+      // First named here from a secondhand search snippet and not stored.
+      // shipping:discover has since read the same £25 off the shop's own
+      // delivery page (quoted in `source` below, 2026-09-22), so it is
+      // stored as of 2026-10-01. No pricing effect while standardGbp is null.
+      freeOverGbp: 25,
       estimatedDays: [3, 5],
       verifiedAt: '2026-09-22',
       confidence: 'confirmed',
@@ -7189,17 +7397,29 @@ export const RETAILERS: readonly Retailer[] = [
     sitemapHarvestConfirmed: true,
     currency: 'GBP',
     shipping: {
+      // Read directly 2026-10-01: B&M's own FAQ says it does not sell this
+      // range online at all (quoted in `source`), and its footer's
+      // /help-and-advice/delivery link 404s. Fragrance is bought in store,
+      // so there is no delivery rate to publish — recorded as
+      // standardRateNotPublished, which is the true statement about the shop
+      // and keeps every B&M row at "delivery not stated" (the item price is
+      // the in-store shelf price). Home delivery exists only for "large
+      // furniture items or bulky gardening products", priced in store.
       standardGbp: null,
       freeOverGbp: null,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-20',
-      confidence: 'unverified',
+      verifiedAt: '2026-10-01',
+      confidence: 'confirmed',
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://www.bmstores.co.uk/faqs',
+        quote: 'B&M do not operate an online ordering facility for groceries, furniture and houseware products.',
+        readAt: '2026-10-01',
+      },
       notes:
-        'Nothing here has been read from bmstores.co.uk itself: not its delivery terms, not ' +
-        'its robots.txt, not its checkout currency. No delivery figure of any kind appeared in ' +
-        'the search summaries read for this entry. No affiliate programme has been researched; ' +
-        'a third-party affiliate directory suggested there is none on the major networks, which ' +
-        'is not the same as having checked Awin and Rakuten directly.',
+        'In-store only for fragrance; see the comment on this block. No affiliate programme has ' +
+        'been researched; a third-party affiliate directory suggested there is none on the major ' +
+        'networks, which is not the same as having checked Awin and Rakuten directly.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -7344,16 +7564,34 @@ export const RETAILERS: readonly Retailer[] = [
     sitemapHarvestConfirmed: true,
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
+      // Read 2026-10-01 off the shop's own help centre, which home.bargains'
+      // footer links to (help.homebargains.co.uk — the HTML page answers 403,
+      // so the article was read through that same Zendesk help centre's
+      // public JSON API, the identical article body). The article was updated
+      // 2026-08-27. Standard Delivery to UK mainland (excluding the Scottish
+      // Highlands) is £3.95. The only free delivery is "FREE Saver Delivery"
+      // when you "Spend £100 or more on Saver Eligible items" — eligibility
+      // is per product (a lorry icon), the Notino shape, so it is not a
+      // basket-value threshold this model can apply to an arbitrary bottle:
+      // freeOverGbp stays null, which can only ever overstate, never
+      // understate, a delivered price.
+      standardGbp: 3.95,
       freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-08-20',
-      confidence: 'unverified',
+      estimatedDays: [3, 4],
+      verifiedAt: '2026-10-01',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://help.homebargains.co.uk/hc/en-gb/articles/200130406-How-much-does-delivery-cost',
+        quote:
+          'Standard Delivery Large Delivery UK Mainland (excluding the Scottish Highlands) £3.95 £10.00',
+        readAt: '2026-10-01',
+      },
       notes:
-        'Nothing here has been read from either Home Bargains domain: not its delivery terms, ' +
-        'not its robots.txt, not its checkout currency. Search summaries mention home delivery ' +
-        'without naming a rate, so nothing is entered. No affiliate programme has been ' +
-        'researched.',
+        'Other delivery areas (AB, BF, BT, FK, GY, HS, IM, IV, KW, PA, PH, TR, ZE) £11.49; ' +
+        'Large Delivery £10.00 does not apply to fragrance. Saver Delivery free over £100 on ' +
+        'Saver Eligible items only — see the comment on this block. The delivery window is ' +
+        'from a search summary of the help centre, not read directly. No affiliate programme ' +
+        'has been researched.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
