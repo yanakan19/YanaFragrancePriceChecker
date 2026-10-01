@@ -127,15 +127,13 @@ test('buildSiteDataBlock: the fragrance count it states matches the snapshot it 
 test('buildSiteDataBlock: a price answer is computed from the same snapshot as the about line', async () => {
   const { data, catalogue, priceService } = await loadSite();
   const fragrance = data.DEMO_FRAGRANCES.find((f) => priceService.bestOffer(
-    priceService.buildComparison(catalogue.offersFor(f.id), { sortBy: 'delivered', tier: f.tier }),
+    priceService.buildComparison(catalogue.offersFor(f.id), { sortBy: 'delivered' }),
   ));
   if (!fragrance) return; // Nothing in stock anywhere right now; nothing to compare against.
 
   const block = await buildSiteDataBlock(`how much is ${fragrance.brand} ${fragrance.name}`, 'price');
-  const rows = priceService.buildComparison(catalogue.offersFor(fragrance.id), {
-    sortBy: 'delivered',
-    tier: fragrance.tier,
-  });
+  // No tier filter: the product page has none (see rowsFor in demo/app.ts).
+  const rows = priceService.buildComparison(catalogue.offersFor(fragrance.id), { sortBy: 'delivered' });
   const best = priceService.bestOffer(rows);
   assert.match(block, /PRICE MATCH/);
   // Whatever fragrance the matcher picked, the price quoted has to be one

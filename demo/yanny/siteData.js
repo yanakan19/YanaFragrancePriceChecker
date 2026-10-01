@@ -6,7 +6,8 @@ import {
   detectOccasionRequest,
   parseBudget,
 } from './requestPhrases.js';
-import { normalizeText, readConcentration, matchProduct, warmIndex } from './productMatch.js';
+import { normalizeText, readConcentration, matchProduct, warmIndex, expandShorthand } from './productMatch.js';
+import { fragranceLink, brandLink } from './links.js';
 import * as data from '../data';
 import * as catalogue from '../catalogue.generated';
 import * as priceService from '../../src/services/priceService';
@@ -110,7 +111,12 @@ const QUERY_STOPWORDS = new Set([
  */
 export function concentrationLabel(concentration) {
   const c = String(concentration ?? '').trim();
-  return c && !/^not stated$/i.test(c) ? c : null;
+  // "Disputed" is the harvest's word for "two shops said different
+  // strengths for this barcode" (15 products on 2026-10-01). Like "Not
+  // stated" it is a fact about the listings, not a strength, and printing
+  // "Also tracked as Eau de Parfum and Disputed" read as a fifth kind of
+  // perfume.
+  return c && !/^(not stated|disputed)$/i.test(c) ? c : null;
 }
 
 /**
@@ -245,10 +251,13 @@ const SIZE_TOKEN_RE = /^\d+(?:\.\d+)?ml$/;
  *  the comment above rather than trust them. */
 export function productWords(question, intent) {
   const stop = stopwordsFor(intent);
-  return normalize(question)
-    .split(' ')
-    .filter((w) => {
+  const all = normalize(question).split(' ');
+  return all
+    .filter((w, i) => {
       if (!w || stop.has(w)) return false;
+      // The one lone letter that is a whole product name people ask for:
+      // Yves Saint Laurent's "Y", typed as "ysl y" or "saint laurent y".
+      if (w === 'y' && (all[i - 1] === 'ysl' || all[i - 1] === 'laurent')) return true;
       // A lone letter is apostrophe debris, not a product word: `normalize`
       // turns "what's on sale" into "what s on sale", and that stray "s"
       // survived every stopword list and then matched 1.0 against any
@@ -282,7 +291,7 @@ export function productWords(question, intent) {
  * names.
  */
 export function findFragranceMatch(query, fragrances) {
-  const { wanted, rest } = readConcentration(query);
+  const { wanted, rest } = readConcentration(expandShorthand(query));
   const words = rest.split(' ').filter((w) => w && !QUERY_STOPWORDS.has(w) && !/^[a-z]$/.test(w));
   const r = matchProduct({ words, wantedConcentration: wanted }, fragrances);
   if (r.status !== 'matched' && r.status !== 'low_confidence') return null;
@@ -488,7 +497,18 @@ export async function requestedNotes(text) {
  *  that name a *reference fragrance* rather than a note. Deliberately
  *  specific: a bare "like" is far too common in ordinary phrasing to treat
  *  as a product reference. */
-const SIMILAR_TO_RE = /\b(?:similar to|smells? like|smelling like|dupes? (?:for|of)|alternatives? to|clones? of|something like|reminds me of|in the style of)\s+(.{2,60})$/i;
+const SIMILAR_TO_RE = /\b(?:similar to|smells? like|smelling like|dupes? (?:for|of|to)|alternatives? (?:to|for)|clones? of|something like|reminds me of|in the style of)\s+(.{2,60})$/i;
+
+/** The reference written before the word instead: "aventus dupe", "best
+ *  baccarat rouge 540 alternative". Only used when what it captures turns
+ *  out to be a real product, because "any good dupes" captures "good". */
+const SIMILAR_AFTER_RE = /^(?:.*?\b(?:a|an|any|the|good|best|nice|cheap|cheaper|cheapest|decent)\s+)?(.{2,60}?)\s+(?:dupes?|clones?|alternatives?)\b/i;
+
+/** What follows a reference fragrance's name but is not part of it: "what
+ *  smells like Tobacco Vanille but cheaper" names Tobacco Vanille, and
+ *  reading "but cheaper" as part of the name used to tip a clean match into
+ *  a weak one. A price condition is read separately (see `cheaperThanReference`). */
+const REFERENCE_TAIL_RE = /\s+(?:but|that'?s|thats|which is|for less|for cheap(?:er)?|on a budget|cheaper|less expensive|under|below|less than|around|within|please|pls)\b.*$/i;
 
 /**
  * The real, delivery-inclusive price for a fragrance — built from the exact
@@ -509,9 +529,11 @@ async function priceContextFor(question) {
 
   const gbp = (n) => `£${n.toFixed(2)}`;
   const sizeLine = (v) =>
-    v.best
-      ? `${v.sizeMl}ml ${gbp(v.best.deliveredPriceGbp)} delivered from ${v.best.retailerName} (stocked by ${v.purchasableCount} shop(s))`
-      : `${v.sizeMl}ml currently out of stock everywhere this site tracks`;
+    !v.best
+      ? `${v.sizeMl}ml currently out of stock everywhere this site tracks`
+      : v.best.deliveredPriceGbp != null
+        ? `${v.sizeMl}ml ${gbp(v.best.deliveredPriceGbp)} delivered from ${v.best.retailerName} (stocked by ${v.purchasableCount} shop(s))`
+        : `${v.sizeMl}ml ${gbp(v.best.itemPriceGbp)} item price at ${v.best.retailerName}, which states no delivery cost (stocked by ${v.purchasableCount} shop(s))`;
   const label = productLabel({ brand: r.brand, name: r.name, concentration: r.concentration });
   const weak = r.status === 'low_confidence' ? ', weak fit — hedge on identity' : '';
   const mismatch = r.concentrationMismatch
@@ -666,9 +688,52 @@ export function sizeSlices(group) {
   return [...by.values()].sort((a, b) => (a.sizeMl ?? Infinity) - (b.sizeMl ?? Infinity));
 }
 
-export async function resolvePriceQuery(question) {
+/**
+ * One entry per size of a matched product, priced exactly the way the
+ * product page prices it: every shop's offer for that size pooled, the
+ * comparison built with the page's own options (`sortBy: 'delivered'`, no
+ * tier filter — see `rowsFor` in demo/app.ts) and the headline chosen by the
+ * page's own `bestOffer`. `best.id` is the catalogue id of the row whose
+ * offer won, so a link to `/fragrance/<id>` opens the page whose headline
+ * is the figure quoted. `best.deliveredPriceGbp` is null when the only
+ * buyable shop states no delivery cost; `itemPriceGbp` is then the only
+ * figure there is, and callers must say so rather than print it as
+ * delivered.
+ */
+export function pricedSlices(group, { catalogue, priceService }) {
+  return sizeSlices(group).map(({ sizeMl, frags }) => {
+    const offers = frags.flatMap((f) => catalogue.offersFor(f.id));
+    const rows = priceService.buildComparison(offers, { sortBy: 'delivered' });
+    const best = priceService.bestOffer(rows);
+    return {
+      sizeMl,
+      ids: frags.map((f) => f.id),
+      purchasableCount: rows.filter((r) => r.isPurchasable).length,
+      best: best
+        ? {
+            deliveredPriceGbp: best.deliveredPriceGbp,
+            itemPriceGbp: best.itemPriceGbp,
+            retailerName: best.retailer.name,
+            id: best.variantId ?? frags[0].id,
+          }
+        : null,
+    };
+  });
+}
+
+/** The cheapest delivered figure across a product's sizes, or null. */
+function cheapestSlice(variants) {
+  let best = null;
+  for (const v of variants) {
+    if (v.best?.deliveredPriceGbp == null) continue;
+    if (!best || v.best.deliveredPriceGbp < best.best.deliveredPriceGbp) best = v;
+  }
+  return best;
+}
+
+export async function resolvePriceQuery(question, intent = 'price') {
   const { catalogue, priceService } = await loadSite();
-  const resolved = await resolveProductQuery(question, 'price');
+  const resolved = await resolveProductQuery(question, intent);
   if (resolved.status !== 'matched' && resolved.status !== 'low_confidence') return resolved;
 
   // One entry per size. Two shops' listings of the same bottle are separate
@@ -676,17 +741,16 @@ export async function resolvePriceQuery(question) {
   // one), and a price answer that read "50ml, 50ml, 50ml" was listing rows,
   // not sizes. Their offers are pooled before the comparison is built, so
   // the cheapest is the cheapest across both.
-  const variantsOf = (group) =>
-    sizeSlices(group).map(({ sizeMl, frags }) => {
-      const offers = frags.flatMap((f) => catalogue.offersFor(f.id));
-      const rows = priceService.buildComparison(offers, { sortBy: 'delivered', tier: frags[0].tier });
-      const best = priceService.bestOffer(rows);
-      return {
-        sizeMl,
-        purchasableCount: rows.filter((r) => r.isPurchasable).length,
-        best: best ? { deliveredPriceGbp: best.deliveredPriceGbp, retailerName: best.retailer.name } : null,
-      };
-    });
+  //
+  // No `tier` filter, deliberately, because the product page has none: see
+  // `rowsFor` in demo/app.ts for the measured reason it was removed there
+  // (27% of in-stock products rendered as sold out). Passing one here made
+  // this answer and the page disagree about the same bottle — measured on
+  // the 2026-09-29 catalogue, "aventus price" said the 100ml was "out of
+  // stock everywhere we track" while its page showed £313.00 in stock at
+  // Perfume Click, and quoted the 50ml at £220.00 against the page's
+  // £233.55. `pricedSlices` is the one place this is built.
+  const variantsOf = (group) => pricedSlices(group, { catalogue, priceService });
 
   const { group, matchConfidence, alternatives, alsoNamed, wantedConcentration, concentrationMismatch } = resolved;
   return {
@@ -695,6 +759,8 @@ export async function resolvePriceQuery(question) {
     brand: resolved.brand,
     name: resolved.name,
     concentration: resolved.concentration,
+    anchorId: resolved.anchor?.id ?? group[0]?.id ?? null,
+    fuzzy: Boolean(resolved.fuzzy),
     variants: variantsOf(group),
     alsoNamed,
     alternatives: alternatives.map((a) => ({
@@ -778,14 +844,18 @@ export function seemsFollowUp(question) {
  */
 export async function resolveProductQuery(question, intent = 'price') {
   const { data } = await loadSite();
-  const { wanted, rest } = readConcentration(question);
+  // Forum shorthand ("cdnim", "br540") is spelt out before anything else
+  // reads the question — see PRODUCT_SHORTHAND in productMatch.js.
+  const { wanted, rest } = readConcentration(expandShorthand(question));
   // A bare size is part of the question, never part of a product's name:
   // "is there a 30ml of Aventus" is about Aventus. Every caller that cares
   // reads the size back off the raw question with its own regex.
   const qWords = productWords(rest.replace(/\b\d+(?:\.\d+)?\s?ml\b/g, ' '), intent);
   if (qWords.length === 0) return { status: 'no_match', followUp: seemsFollowUp(question) };
   const result = matchProduct({ words: qWords, wantedConcentration: wanted }, data.DEMO_FRAGRANCES);
-  if (result.status === 'no_match') return { status: 'no_match', followUp: seemsFollowUp(question) };
+  if (result.status === 'no_match') {
+    return { status: 'no_match', followUp: seemsFollowUp(question), brandNamed: result.brandNamed ?? null };
+  }
   return result;
 }
 
@@ -814,13 +884,32 @@ const ANSWER_CHEAPEST_RE = /\b(cheapest|lowest|all sizes|every size|each size|fu
  */
 export function formatPriceAnswer(question, result) {
   const gbp = (n) => `£${n.toFixed(2)}`;
-  const priced = (v) =>
-    v.best
-      ? `${v.sizeMl}ml: ${gbp(v.best.deliveredPriceGbp)} delivered from ${v.best.retailerName}`
-      : `${v.sizeMl}ml: out of stock everywhere we track`;
+  // A size is a page of its own on this site, so each one links to the
+  // page whose headline is the figure beside it.
+  const sizeLink = (v) => fragranceLink(`${v.sizeMl}ml`, v.best?.id ?? v.ids?.[0]);
+  const priced = (v) => {
+    if (!v.best) return `${sizeLink(v)}: out of stock everywhere we track`;
+    // The one buyable shop states no delivery cost: there is no delivered
+    // price at all, only an item price, and it is labelled as one. This
+    // used to throw (`null.toFixed`) and reach the reader as "something went
+    // wrong" — measured on "sauvage elixir 60ml price".
+    if (v.best.deliveredPriceGbp == null) {
+      return `${sizeLink(v)}: ${gbp(v.best.itemPriceGbp)} at ${v.best.retailerName}, plus delivery (not stated)`;
+    }
+    return `${sizeLink(v)}: ${gbp(v.best.deliveredPriceGbp)} delivered from ${v.best.retailerName}`;
+  };
   const CORRECTION = "Not the one you meant? Type the exact brand and product name and I'll look again.";
 
   if (result.status === 'no_match') {
+    // A house was named and nothing of that house matched: say so in those
+    // terms, and point at the house's own page, rather than the generic
+    // "try the brand and product name" — the reader already did.
+    if (result.brandNamed) {
+      return (
+        `I can't find that ${result.brandNamed} fragrance in the current catalogue, and I won't quote a different ` +
+        `house's bottle in its place. Every ${result.brandNamed} bottle that is tracked: ${brandLink(result.brandNamed)}.`
+      );
+    }
     // Same follow-up honesty as formatIdentityRefusal in lookups.js: a
     // question that leans on a pronoun failed because no conversation is
     // kept, and the refusal should say that rather than imply the name was
@@ -838,7 +927,7 @@ export function formatPriceAnswer(question, result) {
     // At most five: enough to pick from, not a wall of names. The matcher
     // score is deliberately not printed — on this branch it is a score for
     // the set, not for an answer.
-    const names = result.candidates.slice(0, 5).map((f) => productLabel(f));
+    const names = result.candidates.slice(0, 5).map((f) => fragranceLink(productLabel(f), f.id));
     if (result.exact === false) {
       return `Nothing matches that exactly. Closest I have: ${names.join(', ')}. Type the full name of the one you meant and I'll look again.`;
     }
@@ -846,7 +935,15 @@ export function formatPriceAnswer(question, result) {
   }
 
   const { brand, name, concentration, variants = [], alternatives = [], alsoNamed = [], wantedConcentration, concentrationMismatch } = result;
-  const label = productLabel({ brand, name, concentration });
+  const sizeMatch = question.match(ANSWER_SIZE_RE);
+  const wantedSize = sizeMatch ? Number(sizeMatch[1]) : null;
+  const hit = wantedSize !== null ? variants.find((v) => v.sizeMl === wantedSize) : null;
+
+  // The product name links to the page a reader most plausibly wants next:
+  // the size they asked for, else the cheapest buyable size, else any.
+  const target = hit ?? cheapestSlice(variants) ?? variants[0] ?? null;
+  const label = fragranceLink(productLabel({ brand, name, concentration }), target?.best?.id ?? target?.ids?.[0] ?? result.anchorId);
+
   const exact = result.status === 'matched' && result.matchConfidence >= 97;
   const lead =
     result.status === 'low_confidence'
@@ -857,12 +954,17 @@ export function formatPriceAnswer(question, result) {
   const mismatch = concentrationMismatch
     ? ` I don't track it as ${wantedConcentration}; this is the ${concentrationLabel(concentration) ?? 'listing with no concentration stated'}.`
     : '';
-  const also = alternatives.length
-    ? ` Also tracked as ${listWords(alternatives.map((a) => concentrationLabel(a.concentration) ?? 'a listing with no concentration stated'))}.`
-    : '';
+  // Each other concentration with its own cheapest delivered price, so
+  // "Also tracked as Eau de Toilette" is something a reader can act on
+  // without asking again.
+  const altLabel = (a) => {
+    const c = concentrationLabel(a.concentration) ?? 'a listing with no concentration stated';
+    const cheapest = result.status === 'low_confidence' ? null : cheapestSlice(a.variants ?? []);
+    return cheapest ? `${c} (from ${gbp(cheapest.best.deliveredPriceGbp)})` : c;
+  };
+  const also = alternatives.length ? ` Also tracked as ${listWords(alternatives.map(altLabel))}.` : '';
 
   let sizes = '';
-  const sizeMatch = question.match(ANSWER_SIZE_RE);
   if (variants.length === 0) {
     sizes = '';
   } else if (result.status === 'low_confidence') {
@@ -870,14 +972,26 @@ export function formatPriceAnswer(question, result) {
     // and quotes nothing: a price beside a guess reads as a price for the
     // thing that was asked about.
     sizes = `Tracked in ${listWords(variants.map((v) => `${v.sizeMl}ml`))}.`;
-  } else if (sizeMatch) {
-    const wantedSize = Number(sizeMatch[1]);
-    const hit = variants.find((v) => v.sizeMl === wantedSize);
+  } else if (wantedSize !== null) {
     if (hit) {
       const others = variants.filter((v) => v !== hit).map((v) => `${v.sizeMl}ml`);
       sizes = `${priced(hit)}.${others.length ? ` Also in ${others.join(', ')}.` : ''}`;
     } else {
       sizes = `Not tracked in ${sizeMatch[1]}ml. Sizes I have — ${variants.map(priced).join(' · ')}.`;
+    }
+    // The size asked for is missing or sold out in this concentration but
+    // buyable in another one: say so, rather than leave "out of stock" as
+    // the last word on a bottle the reader can in fact buy. Only when the
+    // reader did not ask for this concentration by name.
+    if ((!hit || hit.best?.deliveredPriceGbp == null) && (!wantedConcentration || concentrationMismatch)) {
+      const elsewhere = alternatives
+        .map((a) => ({ a, v: (a.variants ?? []).find((v) => v.sizeMl === wantedSize && v.best?.deliveredPriceGbp != null) }))
+        .filter((x) => x.v);
+      if (elsewhere.length) {
+        sizes += ` The ${listWords(
+          elsewhere.map(({ a, v }) => `${concentrationLabel(a.concentration) ?? 'unstated-strength'} ${priced(v)}`),
+        )}.`;
+      }
     }
   } else {
     sizes = `${variants.length === 1 ? 'Size' : 'Sizes'} — ${variants.map(priced).join(' · ')}.`;
@@ -926,9 +1040,20 @@ export async function parseSuggestRequest(question) {
   // from a model's memory of what Aventus smells like.
   let reference = null;
   let referenceUnresolved = null;
-  const similar = wantedText.match(SIMILAR_TO_RE);
+  let similar = wantedText.match(SIMILAR_TO_RE);
+  let referenceText = similar ? similar[1].replace(REFERENCE_TAIL_RE, '').trim() : null;
+  if (!similar) {
+    const after = wantedText.match(SIMILAR_AFTER_RE);
+    if (after) {
+      const probe = await resolveProductQuery(after[1], 'suggest');
+      if (probe.status === 'matched' || (probe.status === 'ambiguous' && probe.exact === true)) {
+        similar = after;
+        referenceText = after[1].trim();
+      }
+    }
+  }
   if (similar) {
-    const resolved = await resolveProductQuery(similar[1], 'suggest');
+    const resolved = await resolveProductQuery(referenceText, 'suggest');
     let group = resolved.status === 'matched' ? resolved.group : null;
     let anchor = resolved.anchor ?? null;
 
@@ -958,19 +1083,25 @@ export async function parseSuggestRequest(question) {
       }
     }
 
-    if (!group) referenceUnresolved = similar[1].trim();
+    if (!group) referenceUnresolved = referenceText;
     else {
-      const notes = new Set();
+      // Case-insensitively: two shops' lists for one bottle say "Vanilla"
+      // and "vanilla", and the reference line printed both.
+      const notes = new Map();
       for (const frag of group) {
         for (const layer of ['top', 'middle', 'base']) {
-          for (const n of frag.notes?.[layer] ?? []) if (n.trim()) notes.add(n.trim());
+          for (const n of frag.notes?.[layer] ?? []) {
+            const t = n.trim();
+            if (t && !notes.has(t.toLowerCase())) notes.set(t.toLowerCase(), t);
+          }
         }
       }
       reference = {
         label: productLabel(anchor),
         key: groupKeyFor(anchor),
         brandName: `${anchor.brand}|${anchor.name}`.toLowerCase(),
-        notes: [...notes],
+        notes: [...notes.values()],
+        rows: group,
       };
     }
   }
@@ -1118,30 +1249,14 @@ export async function warmProductIndex() {
   await rowsByGroup();
 }
 
-export async function suggestContextFor(question) {
-  const { data } = await loadSite();
-  const request = await parseSuggestRequest(question);
-  const { unwanted, reference, referenceUnresolved, wanted, literal, families } = request;
-  const unsupported = unsupportedConstraintLines(request);
-  const audience = await audienceContextLine(request);
-  const unsupportedBlock =
-    (audience ? `\nWHO IT IS FOR:\n${audience}` : '') +
-    (unsupported.length ? `\nCONSTRAINTS THIS DATA CANNOT MEET:\n${unsupported.join('\n')}` : '');
-
-  if (wanted.length === 0) {
-    let why = ' The question did not name any notes to match against.';
-    if (reference) {
-      why = ` The reference fragrance ${reference.label} is in the catalogue but has no published notes, so there is nothing to match it against.`;
-    } else if (referenceUnresolved) {
-      why = ` The question asks for something like "${referenceUnresolved}", which does not resolve to a single product in the catalogue, so there are no notes to match it against.`;
-    }
-    const offer =
-      `\nWHAT CAN BE FILTERED ON INSTEAD: scent words — ${(await offerableDescriptors()).join(', ')} — ` +
-      'a delivered price ceiling, or the published notes of a fragrance named by name. Offer those. ' +
-      'Do not name a fragrance.';
-    return `NOTE MATCHED CANDIDATES: none requested.${why}${unsupportedBlock}${offer}`;
-  }
-
+/**
+ * Every product carrying at least one requested note, reference fragrance
+ * and exclusions applied, unsorted. The candidate set behind both the
+ * model's SITE DATA block (`suggestContextFor`) and the answer written
+ * without a model (`resolveSuggestFallback` in lookups.js), so the two
+ * cannot disagree about which bottles share which notes.
+ */
+export async function noteMatchedEntries(request) {
   // Grouped by product (brand+name+concentration), not by row id: the same
   // perfume's different bottle sizes are separate catalogue entries with
   // separate ids, sometimes carrying different note data because they were
@@ -1158,6 +1273,8 @@ export async function suggestContextFor(question) {
   // carried the requested note: a 50ml row can list "Bellini accord" that
   // the 100ml row (the one that matched on Rose) does not, and the line the
   // model reads should be the product's full published set.
+  const { data } = await loadSite();
+  const { unwanted, reference, wanted } = request;
   const groups = new Map();
   const rowsOf = await rowsByGroup();
   for (const note of wanted) {
@@ -1187,6 +1304,8 @@ export async function suggestContextFor(question) {
   }
 
   let candidates = [...groups.values()].map((entry) => ({
+    key: groupKeyFor(entry.frag),
+    rows: rowsOf.get(groupKeyFor(entry.frag)) ?? [entry.frag],
     frag: entry.frag,
     matchedCount: entry.matched.size,
     matched: [...entry.matched],
@@ -1197,11 +1316,53 @@ export async function suggestContextFor(question) {
     notes: [...new Set([...entry.notes.top, ...entry.notes.middle, ...entry.notes.base])],
   }));
   if (unwanted.length > 0) {
+    // An excluded scent word means its whole family, read the same way a
+    // wanted one is: "no florals" used to be matched as the literal text
+    // "florals" against note names, which no note contains, so Good Girl
+    // (Tuberose, Jasmine) came back as the first answer to "something
+    // vanilla, no florals" — the widget's own example question.
+    const families = await noteFamilies();
+    const excluded = new Set();
+    for (const u of unwanted) {
+      excluded.add(u);
+      if (u.length > 3 && u.endsWith('s')) excluded.add(u.slice(0, -1));
+      for (const { family } of descriptorsIn(u)) for (const n of families.get(family) ?? []) excluded.add(n.toLowerCase());
+      for (const { family } of descriptorsIn(u.replace(/s$/, ''))) for (const n of families.get(family) ?? []) excluded.add(n.toLowerCase());
+    }
+    const terms = [...excluded];
     candidates = candidates.filter(({ notes }) => {
       const noteWords = notes.map((n) => n.toLowerCase());
-      return !unwanted.some((u) => noteWords.some((n) => n.includes(u) || u.includes(n)));
+      return !terms.some((u) => noteWords.some((n) => n.includes(u) || u.includes(n)));
     });
   }
+  return candidates;
+}
+
+export async function suggestContextFor(question) {
+  const { data } = await loadSite();
+  const request = await parseSuggestRequest(question);
+  const { unwanted, reference, referenceUnresolved, wanted, literal, families } = request;
+  const unsupported = unsupportedConstraintLines(request);
+  const audience = await audienceContextLine(request);
+  const unsupportedBlock =
+    (audience ? `\nWHO IT IS FOR:\n${audience}` : '') +
+    (unsupported.length ? `\nCONSTRAINTS THIS DATA CANNOT MEET:\n${unsupported.join('\n')}` : '');
+
+  if (wanted.length === 0) {
+    let why = ' The question did not name any notes to match against.';
+    if (reference) {
+      why = ` The reference fragrance ${reference.label} is in the catalogue but has no published notes, so there is nothing to match it against.`;
+    } else if (referenceUnresolved) {
+      why = ` The question asks for something like "${referenceUnresolved}", which does not resolve to a single product in the catalogue, so there are no notes to match it against.`;
+    }
+    const offer =
+      `\nWHAT CAN BE FILTERED ON INSTEAD: scent words — ${(await offerableDescriptors()).join(', ')} — ` +
+      'a delivered price ceiling, or the published notes of a fragrance named by name. Offer those. ' +
+      'Do not name a fragrance.';
+    return `NOTE MATCHED CANDIDATES: none requested.${why}${unsupportedBlock}${offer}`;
+  }
+
+  let candidates = await noteMatchedEntries(request);
   // Most of the request satisfied first. The previous order was whatever
   // BY_POPULARITY happened to yield for the *first* requested note, so a
   // three-note request could be answered with five products sharing only the
@@ -1297,6 +1458,9 @@ const POLICY_FILLER = new Set([
   'these', 'those', 'does', 'have', 'much', 'many', 'want', 'know', 'tell',
   'just', 'guess', 'please', 'could', 'would', 'should', 'will', 'they',
   'them', 'then', 'than', 'some', 'about', 'really', 'actually',
+  // Added after "what's the weather like today" matched the About page on
+  // "like" and "today" alone, and was answered with an excerpt from it.
+  'like', 'today', 'there', 'here', 'thing', 'things', 'something', 'anything',
 ]);
 
 /** The words people use for a policy topic that the pages themselves do not
@@ -1305,9 +1469,20 @@ const POLICY_FILLER = new Set([
  *  disclosure, whose own vocabulary is "commission" and "affiliate". */
 const POLICY_QUERY_EXPANSIONS = [
   [/\b(make|earn|making|earning) money\b|\bwho pays\b|\bpaid for\b|\bget paid\b/i, ['commission', 'affiliate']],
+  // "How do these prices get checked", "how does the comparison work":
+  // the How PriceSniffs works page, whose own words are "compares" and
+  // "works", not "checked".
+  [/\b(get|got|are|is|being) (checked|compared|calculated|worked out|collected)\b|\bcomparison work\b|\bhow (do|does) (the|this|your) (site|comparison|price comparison) work\b/i, ['compares', 'works']],
+  // "Can I return a perfume", "is my data safe": the shopper's words for the
+  // Refunds and returns page and the Privacy notice.
+  [/\b(return|returns|returning|refund|refunds|send (it|them) back|exchange)\b/i, ['refunds', 'returns']],
+  [/\b(my data|personal data|personal details|data safe|privacy|gdpr|do you store|tracking me|track me)\b/i, ['privacy', 'personal']],
 ];
 
-export async function policyContextFor(question) {
+/** The policy page a question is about, with its text, or null. The same
+ *  test `policyContextFor` applies; exported so an answer written without a
+ *  model can quote and link the page rather than say nothing. */
+export async function policyPageFor(question) {
   const { legal } = await loadSite();
   let asked = normalize(question);
   const qWords = [];
@@ -1325,10 +1500,20 @@ export async function policyContextFor(question) {
 
   let best = null;
   let bestHits = 0;
+  let bestScore = 0;
   for (const page of legal.LEGAL_PAGES) {
     const haystack = normalize(`${page.title} ${stripHtml(page.body)}`);
     const hits = qWords.filter((w) => haystack.includes(w)).length;
-    if (hits > bestHits) {
+    // A page whose own title names the topic wins a tie. The About page
+    // mentions commission and affiliates in passing and sits first in the
+    // list, so "how does this site make money" used to be answered from it
+    // rather than from the Affiliate disclosure, which is the page about
+    // exactly that.
+    const titleWords = new Set(normalize(`${page.title} ${page.id.replace(/-/g, ' ')}`).split(' '));
+    const titled = qWords.some((w) => titleWords.has(w));
+    const score = hits + (titled && hits > 0 ? 0.5 : 0);
+    if (score > bestScore) {
+      bestScore = score;
       bestHits = hits;
       best = page;
     }
@@ -1344,8 +1529,14 @@ export async function policyContextFor(question) {
   // many unexplained words as explained ones.
   if (qWords.length - bestHits > bestHits / 2) return null;
 
-  const text = stripHtml(best.body);
-  return `SITE POLICY (${best.title}): ${text.slice(0, 1200)}${text.length > 1200 ? '…' : ''}`;
+  return { page: best, text: stripHtml(best.body) };
+}
+
+export async function policyContextFor(question) {
+  const hit = await policyPageFor(question);
+  if (!hit) return null;
+  const { page, text } = hit;
+  return `SITE POLICY (${page.title}): ${text.slice(0, 1200)}${text.length > 1200 ? '…' : ''}`;
 }
 
 /**

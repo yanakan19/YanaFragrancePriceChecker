@@ -36,7 +36,9 @@ workers_dev = true
 # once; the first answer that passes the groundedness gate is sent. Keep it
 # short — every entry spends one request per question against that
 # provider's daily allowance. Ids must be ones the provider currently
-# serves; /api/health reports one that has been retired.
+# serves. /api/health lists configuration problems (bad JSON, an unknown
+# provider, a missing secret) under "problems"; a retired model id shows up
+# as failed answers in the Worker's logs instead.
 #
 # `workers-ai` needs no key (see the [ai] binding below). To add a fallback
 # for the day the free allocation runs out, set that provider's key as a
