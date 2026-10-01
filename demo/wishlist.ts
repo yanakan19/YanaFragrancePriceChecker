@@ -80,3 +80,22 @@ export async function removeFromWishlist(fragranceId: string): Promise<WishlistR
   if (error) return { ok: false, message: 'Could not remove this fragrance. Please try again.' };
   return { ok: true };
 }
+
+/** Sets or clears (null) a saved fragrance's target price, used by price
+ *  alerts: an email goes out when the cheapest delivered price reaches it. */
+export async function setTargetPrice(fragranceId: string, targetPriceGbp: number | null): Promise<WishlistResult> {
+  const client = supabase();
+  if (!client) return { ok: false, message: 'Accounts are not set up on this deployment yet.' };
+  const {
+    data: { user },
+  } = await client.auth.getUser();
+  if (!user) return { ok: false, message: 'Sign in to manage your wishlist.' };
+
+  const { error } = await client
+    .from('wishlists')
+    .update({ target_price_gbp: targetPriceGbp })
+    .eq('user_id', user.id)
+    .eq('fragrance_id', fragranceId);
+  if (error) return { ok: false, message: 'Could not save your target price. Please try again.' };
+  return { ok: true };
+}

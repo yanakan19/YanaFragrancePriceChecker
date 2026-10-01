@@ -56,8 +56,11 @@ The anon key is public by design and is *meant* to ship inside
 `demo/index.html` — it grants exactly what Row Level Security allows a
 signed-out or signed-in-as-themselves visitor to do, and nothing more. The
 **`service_role` key must never appear in this repo, in a commit, in a build
-or in a log.** There is deliberately no code path anywhere in this project
-that accepts one; do not add one.
+or in a log.** Nothing in the site or its bundle accepts one, and nothing
+should. The single exception is the daily price alert sender
+(`scripts/price-alerts.ts`, step 8), which runs on GitHub Actions and reads the
+key from the `SUPABASE_SERVICE_ROLE_KEY` repository secret at run time; it
+never writes it anywhere and never prints it.
 
 If either value is ever blanked out (a fork, a fresh clone),
 `SUPABASE_CONFIGURED` goes false and the site keeps working in full with the
@@ -78,11 +81,14 @@ an error, then move to the next.
    function behind the account page's **Delete account** button. It can only
    ever delete the signed-in caller's own account. Until it is run, that
    button tells the reader to email us instead.
+4. `supabase/migrations/0004_price_alerts.sql` — price drop emails: the
+   `profiles.price_alerts` opt in, two server only tables, the one click
+   unsubscribe RPC and the sender's recipient list. See step 8.
 
 Order matters: nothing in 0002 references 0001 directly, but 0001 is what
 makes an account exist in the first place.
 
-All three files are safe to run more than once. Every statement in them is
+All four files are safe to run more than once. Every statement in them is
 idempotent, so a half-finished paste, a re-run after fixing a typo, or simply
 not remembering whether you already did it all end in the same place.
 
@@ -192,6 +198,43 @@ rate limited to a few per hour. Fine for the walkthrough above, not for real
 signup volume. Dashboard → Authentication → Emails → SMTP Settings to point it
 at a provider (Postmark, Resend, SES). Nothing in this repo changes for that;
 it is entirely a dashboard setting.
+
+### 8. Price drop emails (migration 0004)
+
+Run `supabase/migrations/0004_price_alerts.sql` the same way as the others.
+The rest (Resend account, domain DNS, the two GitHub secrets, a dry run) is
+in `docs/OWNER-STEPS.md`, section 5. What it adds:
+
+- **`profiles.price_alerts`**, `boolean not null default false`. The reader
+  ticks it on `/account` (`demo/priceAlerts.ts`), through the existing
+  "update own profile" policy. Before 0004 runs, reading it fails and the
+  account page simply leaves the checkbox out.
+- **`price_alert_accounts`** (user id, `unsubscribe_token` uuid, `last_sent_on`
+  date) and **`price_alert_history`** (wishlist row id, last price emailed or
+  recorded, when emailed). Server only: RLS on with no policy at all, and
+  every privilege revoked from `anon` and `authenticated`, so they are
+  reachable with the service role key and nothing else. A token row is
+  created by a trigger the moment a reader opts in. History is keyed on the
+  wishlist row, so removing a fragrance (or deleting the account) removes it.
+- **`unsubscribe_price_alerts(p_token uuid)`**, security definer, granted to
+  `anon` and `authenticated`. It takes the token and nothing else, switches
+  that reader's alerts off, and returns only true or false. The email links
+  to `https://pricesniffs.space/account?unsubscribe=<token>`, which calls it
+  signed in or not.
+- **`price_alert_recipients()`**, security definer, executable by
+  `service_role` only. Returns the confirmed address, token and last sent day
+  for each reader with alerts on. This is the only way the sender learns an
+  address.
+
+Once run, `supabase/verify.sql` query 1 lists four tables, all with
+`rls_enabled = true`; query 2 still lists the same six policies, because the
+two new tables deliberately have none.
+
+The sender (`.github/workflows/price-alerts.yml` → `scripts/price-alerts.ts`
+→ `src/alerts/`) runs every morning, compares each saved fragrance's
+cheapest delivered price (the product page's own headline figure, from the
+committed catalogue) with the stored one, and sends through Resend. Without
+both secrets it prints "not configured" and exits 0.
 
 ---
 
