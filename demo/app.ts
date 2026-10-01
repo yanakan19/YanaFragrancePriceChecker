@@ -103,7 +103,9 @@ type NoteLayerFilter = NoteLayer | 'any';
 // file's header for why they are not inline here.
 
 /** One of the price bands offered under the Price facet. */
-type PriceBand = '0-20' | '20-30' | '30-50' | '50-80' | '80-150' | '150-300' | '300+';
+type PriceBand = '0-25' | '25-50' | '50-100' | '100-200' | '200+';
+/** The Concentration facet's options: rare strengths share one "other" bucket. */
+type ConcentrationGroup = 'edp' | 'edt' | 'parfum' | 'edc' | 'oil' | 'other';
 /** Every facet a fragrance list can be narrowed by. Matches the state.facet* fields below 1:1. */
 type FacetGroup = 'volume' | 'concentration' | 'gender' | 'priceBand' | 'tier' | 'onSale' | 'inStock';
 
@@ -157,13 +159,11 @@ const state = {
   noteSort: 'common' as NoteSort,
   noteLayer: 'any' as NoteLayerFilter,
   noteDetailSort: 'az' as ListSort,
-  noteDetailFilter: 'all' as BrandFilter,
   // Browse and search. Defaults to the order this list already arrived in, so
   // the control's existence changes nothing until a reader uses it.
   browseSort: 'stocked' as BrowseSort,
   brandDetailSort: 'az' as ListSort,
   retailerDetailSort: 'az' as ListSort,
-  retailerDetailFilter: 'all' as BrandFilter,
   // Scoped to *this* retailer's own offer, not the sitewide inStock facet
   // above — a fragrance can be purchasable elsewhere while sold out here, and
   // a shop's own page should only ever claim what is true of that shop.
@@ -176,7 +176,7 @@ const state = {
   // a retailer's page, a brand's page and a note's page alike.
   facetsOpen: false,
   facetVolume: new Set<VolumeBand>(),
-  facetConcentration: new Set<string>(),
+  facetConcentration: new Set<ConcentrationGroup>(),
   facetGender: new Set<GenderReading>(),
   facetPriceBand: new Set<PriceBand>(),
   facetTier: new Set<RetailerTier>(),
@@ -249,6 +249,7 @@ function clearFacets(): void {
   state.facetTier.clear();
   state.facetOnSale = false;
   state.facetInStock = false;
+  state.retailerInStockOnly = false;
 }
 
 /**
@@ -260,7 +261,7 @@ function clearFacets(): void {
 interface ListSnapshot {
   facetsOpen: boolean;
   facetVolume: VolumeBand[];
-  facetConcentration: string[];
+  facetConcentration: ConcentrationGroup[];
   facetGender: GenderReading[];
   facetPriceBand: PriceBand[];
   facetTier: RetailerTier[];
@@ -273,11 +274,9 @@ interface ListSnapshot {
   noteSort: NoteSort;
   noteLayer: NoteLayerFilter;
   noteDetailSort: ListSort;
-  noteDetailFilter: BrandFilter;
   browseSort: BrowseSort;
   brandDetailSort: ListSort;
   retailerDetailSort: ListSort;
-  retailerDetailFilter: BrandFilter;
   retailerInStockOnly: boolean;
   scrollY: number;
   /** The product tile at the top of the screen, and how far down it sat. */
@@ -305,11 +304,9 @@ function snapshotListState(): ListSnapshot {
     noteSort: state.noteSort,
     noteLayer: state.noteLayer,
     noteDetailSort: state.noteDetailSort,
-    noteDetailFilter: state.noteDetailFilter,
     browseSort: state.browseSort,
     brandDetailSort: state.brandDetailSort,
     retailerDetailSort: state.retailerDetailSort,
-    retailerDetailFilter: state.retailerDetailFilter,
     retailerInStockOnly: state.retailerInStockOnly,
     scrollY: window.scrollY,
   };
@@ -321,9 +318,11 @@ function restoreListState(saved: ListSnapshot): void {
   const s: ListSnapshot = { ...snapshotListState(), ...saved };
   state.facetsOpen = s.facetsOpen;
   state.facetVolume = new Set(s.facetVolume);
-  state.facetConcentration = new Set(s.facetConcentration);
+  // Band and group ids can change between builds; an id this build does not
+  // offer would filter everything out behind a dropdown that cannot show it.
+  state.facetConcentration = new Set(s.facetConcentration.filter((v) => CONCENTRATION_GROUPS.some((g) => g.id === v)));
   state.facetGender = new Set(s.facetGender);
-  state.facetPriceBand = new Set(s.facetPriceBand);
+  state.facetPriceBand = new Set(s.facetPriceBand.filter((v) => PRICE_BANDS.some((b) => b.id === v)));
   state.facetTier = new Set(s.facetTier);
   state.facetOnSale = s.facetOnSale;
   state.facetInStock = s.facetInStock;
@@ -334,11 +333,9 @@ function restoreListState(saved: ListSnapshot): void {
   state.noteSort = s.noteSort;
   state.noteLayer = s.noteLayer;
   state.noteDetailSort = s.noteDetailSort;
-  state.noteDetailFilter = s.noteDetailFilter;
   state.browseSort = s.browseSort;
   state.brandDetailSort = s.brandDetailSort;
   state.retailerDetailSort = s.retailerDetailSort;
-  state.retailerDetailFilter = s.retailerDetailFilter;
   state.retailerInStockOnly = s.retailerInStockOnly;
 }
 
@@ -365,11 +362,6 @@ function activeFacetCount(): number {
   );
 }
 
-function toggleInSet<T>(set: Set<T>, value: T): void {
-  if (set.has(value)) set.delete(value);
-  else set.add(value);
-}
-
 const esc = (s: string) =>
   s.replace(/[&<>"']/g, (c) =>
     ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!,
@@ -394,7 +386,7 @@ const titleCase = (s: string) => s.replace(/\S+/g, (w) => w[0]!.toUpperCase() + 
 // only carry a price it charges directly.
 const BRANDS = [...new Set([...DEMO_FRAGRANCES.map((f) => f.brand), ...HOUSE_PRODUCTS.map((p) => p.house)])].sort();
 const TIER_LABEL: Record<RetailerTier, string> = {
-  designer: 'Designer', niche: 'Niche', mideast: 'Middle Eastern / Dupe Houses',
+  designer: 'Designer', niche: 'Niche', mideast: 'Middle East',
 };
 
 /**
@@ -480,15 +472,38 @@ function rowsFor(frag: DemoFragrance): PresentedOffer[] {
    Concentration. Ticking a filter that would leave nothing selected is not
    possible, because that option would never have been offered. */
 
+// Five round bands rather than seven: a native dropdown is easier to read
+// short, and on 2026-10-01 the cheapest offer per product split 6,662 / 4,689
+// / 3,145 / 1,227 / 464 across them — every band worth offering.
 const PRICE_BANDS: { id: PriceBand; label: string; min: number; max: number | null }[] = [
-  { id: '0-20', label: 'Under £20', min: 0, max: 20 },
-  { id: '20-30', label: '£20 - £30', min: 20, max: 30 },
-  { id: '30-50', label: '£30 - £50', min: 30, max: 50 },
-  { id: '50-80', label: '£50 - £80', min: 50, max: 80 },
-  { id: '80-150', label: '£80 - £150', min: 80, max: 150 },
-  { id: '150-300', label: '£150 - £300', min: 150, max: 300 },
-  { id: '300+', label: '£300 And Over', min: 300, max: null },
+  { id: '0-25', label: 'Under £25', min: 0, max: 25 },
+  { id: '25-50', label: '£25 – £50', min: 25, max: 50 },
+  { id: '50-100', label: '£50 – £100', min: 50, max: 100 },
+  { id: '100-200', label: '£100 – £200', min: 100, max: 200 },
+  { id: '200+', label: '£200 and over', min: 200, max: null },
 ];
+
+/**
+ * The Concentration facet's options. Ten raw strengths were too many for one
+ * dropdown, and four of them (Aftershave 46, Disputed 15, Eau Fraiche 11 and
+ * Not stated 311 on 2026-10-01) are rare or are not a strength at all, so they
+ * share "Other or not stated" — which still says plainly that some are not
+ * stated rather than folding them into a real strength. Parfum and Extrait de
+ * Parfum are the same tier under two names. A product's own card still shows
+ * its exact concentration.
+ */
+const CONCENTRATION_GROUPS: { id: ConcentrationGroup; label: string; members: readonly string[] }[] = [
+  { id: 'edp', label: 'Eau de Parfum (EDP)', members: ['Eau de Parfum'] },
+  { id: 'edt', label: 'Eau de Toilette (EDT)', members: ['Eau de Toilette'] },
+  { id: 'parfum', label: 'Parfum / Extrait', members: ['Parfum', 'Extrait de Parfum'] },
+  { id: 'edc', label: 'Eau de Cologne (EDC)', members: ['Eau de Cologne'] },
+  { id: 'oil', label: 'Perfume Oil', members: ['Perfume Oil'] },
+  { id: 'other', label: 'Other or not stated', members: [] },
+];
+
+function concentrationGroupOf(concentration: string): ConcentrationGroup {
+  return CONCENTRATION_GROUPS.find((g) => g.members.includes(concentration))?.id ?? 'other';
+}
 
 /**
  * Which band a delivered price falls in, or null when there is no delivered
@@ -541,7 +556,11 @@ function passesFacets(f: DemoFragrance, exclude: FacetGroup | null): boolean {
     const band = volumeBandFor(f.sizeMl);
     if (band === null || !state.facetVolume.has(band)) return false;
   }
-  if (exclude !== 'concentration' && state.facetConcentration.size && !state.facetConcentration.has(f.concentration)) return false;
+  if (
+    exclude !== 'concentration' &&
+    state.facetConcentration.size &&
+    !state.facetConcentration.has(concentrationGroupOf(f.concentration))
+  ) return false;
   if (exclude !== 'gender' && state.facetGender.size && !state.facetGender.has(genderOf(f))) return false;
   if (exclude !== 'tier' && state.facetTier.size && !state.facetTier.has(f.tier)) return false;
 
@@ -577,7 +596,7 @@ interface FacetOption {
  */
 function facetGroups(list: DemoFragrance[]) {
   const volume = new Map<VolumeBand, number>();
-  const concentration = new Map<string, number>();
+  const concentration = new Map<ConcentrationGroup, number>();
   const gender = new Map<GenderReading, number>();
   const priceBand = new Map<PriceBand, number>();
   const tier = new Map<RetailerTier, number>();
@@ -591,7 +610,8 @@ function facetGroups(list: DemoFragrance[]) {
       if (band !== null) volume.set(band, (volume.get(band) ?? 0) + 1);
     }
     if (passesFacets(f, 'concentration')) {
-      concentration.set(f.concentration, (concentration.get(f.concentration) ?? 0) + 1);
+      const group = concentrationGroupOf(f.concentration);
+      concentration.set(group, (concentration.get(group) ?? 0) + 1);
     }
     if (passesFacets(f, 'gender')) {
       const reading = genderOf(f);
@@ -615,28 +635,18 @@ function facetGroups(list: DemoFragrance[]) {
       .sort((a, b) => (typeof a[0] === 'number' ? (a[0] as number) - (b[0] as number) : String(a[0]).localeCompare(String(b[0]))))
       .map(([value, count]) => ({ value: String(value), label: label(value), count }));
 
-  // "Not stated" is an option like any other, and it goes last, where a
-  // reader expects the bucket that means "none of the above". Everything
-  // else stays alphabetical. It is not a concentration and does not get to
-  // sit among them as though it were one — see CONCENTRATION_NOT_STATED in
-  // src/catalogue/productName.ts for what it means and why it is separate
-  // from "Parfum".
-  const concentrationOptions = toOptions(concentration, (v) => shortConcentration(v));
-  const notStated = concentrationOptions.filter((o) => o.value === CONCENTRATION_NOT_STATED);
-
+  // Every group in a fixed order, not alphabetical or by count, so each
+  // dropdown reads the same way every time: sizes and prices low to high,
+  // strengths strongest-selling first with "Other or not stated" last, and
+  // gender's three stated readings before "Not stated". Same "only offer what
+  // would return something" rule as before: a value nobody here has is left out.
   return {
-    // Fixed order, not alphabetical or by count — same reason as priceBand
-    // below: VOLUME_BANDS is already narrowest-to-widest, and that is the
-    // order a reader expects a size filter to read in, not the order counts
-    // happen to sort in.
     volume: VOLUME_BANDS.filter((b) => (volume.get(b.id) ?? 0) > 0).map((b) => ({
       value: b.id, label: b.label, count: volume.get(b.id)!,
     })),
-    concentration: [...concentrationOptions.filter((o) => o.value !== CONCENTRATION_NOT_STATED), ...notStated],
-    // Fixed order rather than alphabetical or by count, so "Not stated" is
-    // always the last option and the three stated readings always sit in the
-    // same place. Same "only offer what would return something" rule as every
-    // other group: a reading nobody in this list has is left out.
+    concentration: CONCENTRATION_GROUPS.filter((g) => (concentration.get(g.id) ?? 0) > 0).map((g) => ({
+      value: g.id, label: g.label, count: concentration.get(g.id)!,
+    })),
     gender: GENDER_ORDER.filter((g) => (gender.get(g) ?? 0) > 0).map((g) => ({
       value: g, label: GENDER_LABEL[g], count: gender.get(g)!,
     })),
@@ -649,102 +659,118 @@ function facetGroups(list: DemoFragrance[]) {
   };
 }
 
-/** A single toggle pill within a facet group — a button, not a native
- *  checkbox, so it fits the rest of the app's delegated-click-handler
- *  pattern rather than needing a second kind of listener just for this.
+/** The `<select>` id for each dropdown facet, read back by the change handler. */
+const FACET_SELECT_ID = {
+  volume: 'facet-volume',
+  concentration: 'facet-concentration',
+  gender: 'facet-gender',
+  priceBand: 'facet-price',
+  tier: 'facet-tier',
+} as const;
+
+/**
+ * One facet as the browser's own dropdown — the iPhone or Android picker on a
+ * phone, a plain menu on a computer — with "Any …" first so choosing nothing
+ * is a choice like any other. One value per facet: a native multiple-select is
+ * a picker on phones but an always-open list box on desktop.
  *
- *  `ico` is optional and only the gender group passes one. Every mark from
- *  icon() is aria-hidden, so the button's accessible name stays the label and
- *  the count, word for word what is on screen: the mark is something extra
- *  for a sighted reader, never the thing carrying the meaning. */
-function facetPill(group: FacetGroup, value: string, label: string, count: number, active: boolean, ico = ''): string {
-  return `<button type="button" class="facet-pill${ico ? ' has-ico' : ''}${active ? ' is-active' : ''}" data-facet-group="${group}" data-facet-value="${esc(value)}" aria-pressed="${active}">
-    ${ico}<span class="facet-label">${esc(label)}</span> <span class="facet-count t-count">${count}</span>
-  </button>`;
+ * A selected value whose count has dropped to nothing (another facet has
+ * since ruled it out) stays in the list at 0. Leaving it out would make the
+ * dropdown read "Any …" while the filter was still applied.
+ */
+function facetSelect(group: keyof typeof FACET_SELECT_ID, label: string, anyLabel: string, options: FacetOption[], selected: Set<string>): string {
+  const current = [...selected][0];
+  const shown = current !== undefined && !options.some((o) => o.value === current)
+    ? [...options, { value: current, label: options.find((o) => o.value === current)?.label ?? current, count: 0 }]
+    : options;
+  if (shown.length < 2 && current === undefined) return '';
+  return `<label class="control facet-control">
+    <span class="sr">${esc(label)}</span>
+    <select id="${FACET_SELECT_ID[group]}" class="dropdown">
+      <option value="">${esc(anyLabel)}</option>
+      ${shown.map((o) => `<option value="${esc(o.value)}"${o.value === current ? ' selected' : ''}>${esc(o.label)} (${o.count.toLocaleString('en-GB')})</option>`).join('')}
+    </select>
+    <span class="control-chevron" aria-hidden="true">${ICON_CHEVRON}</span>
+  </label>`;
+}
+
+/** A yes/no facet as the browser's own checkbox, boxed to match the dropdowns. */
+function facetCheckbox(id: string, label: string, count: number | null, checked: boolean): string {
+  return `<label class="control facet-check">
+    <input type="checkbox" id="${id}"${checked ? ' checked' : ''} />
+    <span class="facet-check-label">${esc(label)}</span>
+    ${count === null ? '' : `<span class="facet-count t-count">${count.toLocaleString('en-GB')}</span>`}
+  </label>`;
+}
+
+/** A list page's filters: the toggle for its controls row and the panel shown under that row. */
+interface FacetUi {
+  toggle: string;
+  panel: string;
 }
 
 /**
- * The filter control for a fragrance list: a toggle button (badge shows how
- * many facets are active) that opens a panel of pill groups underneath.
- * Groups with nothing to narrow — every candidate shares the one available
- * value — are left out entirely rather than shown with a single dead option.
+ * The filters for a fragrance list. `list` is the page's candidates before
+ * any facet is applied, so every count reads "how many would this give".
+ *
+ * `inStockHere` is for a shop's own page: there "In stock" has to mean in
+ * stock at that shop, not anywhere, so the shop's own checkbox replaces the
+ * sitewide one rather than sitting beside it as a second, different switch.
+ * Like every other facet it is only offered when it would narrow the list
+ * (or is already ticked, so it can be unticked).
  */
-function facetsBlock(list: DemoFragrance[]): string {
+function facets(list: DemoFragrance[], opts: { inStockHere?: { checked: boolean; narrows: boolean } } = {}): FacetUi {
   const g = facetGroups(list);
-  const count = activeFacetCount();
+  const here = opts.inStockHere;
+  const count = activeFacetCount() + (here?.checked ? 1 : 0);
 
-  const group = (title: string, groupId: FacetGroup, options: FacetOption[], isSelected: (value: string) => boolean): string => {
-    if (options.length < 2) return '';
-    return `<fieldset class="facet-group">
-      <legend>${esc(title)}</legend>
-      <div class="facet-pills">${options.map((o) => facetPill(groupId, o.value, o.label, o.count, isSelected(o.value))).join('')}</div>
-    </fieldset>`;
-  };
+  const controls = [
+    facetSelect('volume', 'Size', 'Any size', g.volume, state.facetVolume),
+    facetSelect('concentration', 'Concentration', 'Any concentration', g.concentration, state.facetConcentration),
+    facetSelect('gender', 'Gender', 'Any gender', g.gender, state.facetGender),
+    facetSelect('priceBand', 'Price', 'Any price', g.priceBand, state.facetPriceBand),
+    facetSelect('tier', 'Brand type', 'Any brand type', g.tier, state.facetTier),
+    g.onSale > 0 || state.facetOnSale ? facetCheckbox('facet-on-sale', 'On sale', g.onSale, state.facetOnSale) : '',
+    here
+      ? here.narrows || here.checked ? facetCheckbox('retailer-in-stock', 'In stock here', null, here.checked) : ''
+      : (g.inStock > 0 && g.inStock < list.length) || state.facetInStock
+        ? facetCheckbox('facet-in-stock', 'In stock', g.inStock, state.facetInStock)
+        : '',
+  ].filter(Boolean);
 
-  /**
-   * The gender group, which is the same pill group as every other one plus a
-   * sentence, because without the sentence it would mislead.
-   *
-   * Nothing in this project's data says who a fragrance is for. The reading
-   * comes off wording in the title and most titles have none, so the honest
-   * shape of this filter is a large "Not stated" pile beside three small
-   * stated ones. A reader who ticks Women's and sees a few hundred results
-   * out of ten thousand should be told why on the spot, rather than left to
-   * conclude the catalogue is thin or the filter is broken. The counts are
-   * the live ones for this list, so the sentence is arithmetic a reader can
-   * check against the pills right above it.
-   */
-  const genderGroup = (): string => {
-    if (g.gender.length < 2) return '';
-    const total = g.gender.reduce((n, o) => n + o.count, 0);
-    const stated = g.gender.filter((o) => o.value !== 'notStated').reduce((n, o) => n + o.count, 0);
-    return `<fieldset class="facet-group">
-      <legend>Gender</legend>
-      <div class="facet-pills">${g.gender
-        .map((o) => facetPill('gender', o.value, o.label, o.count, state.facetGender.has(o.value as GenderReading), GENDER_ICON[o.value as GenderReading]))
-        .join('')}</div>
-      <p class="facet-note t-caption">Read from wording in the title, such as Pour Homme or For Her.
-        ${stated.toLocaleString('en-GB')} of ${total.toLocaleString('en-GB')} here say who they are for.
-        The rest do not say, and not stated is not the same as unisex.</p>
-    </fieldset>`;
-  };
+  if (controls.length === 0) return { toggle: '', panel: '' };
 
-  const onSalePill = g.onSale > 0
-    ? `<fieldset class="facet-group"><legend>Offers</legend><div class="facet-pills">
-         ${facetPill('onSale', '1', 'On Sale', g.onSale, state.facetOnSale)}
-       </div></fieldset>`
-    : '';
-  const inStockPill = g.inStock > 0 && g.inStock < list.length
-    ? `<fieldset class="facet-group"><legend>Availability</legend><div class="facet-pills">
-         ${facetPill('inStock', '1', 'In Stock Only', g.inStock, state.facetInStock)}
-       </div></fieldset>`
+  // Who a fragrance is for is read off wording in its title, and most titles
+  // have none, so "Not stated" is the biggest gender reading by far. Said
+  // once, in the panel, so a short Women's list is not mistaken for a thin
+  // catalogue or a broken filter.
+  const genderNote = g.gender.length >= 2
+    ? `<p class="facet-note t-caption">Gender is read from wording in the title, such as Pour Homme or For Her. Not stated is not the same as unisex.</p>`
     : '';
 
-  const panel = `${group('Volume', 'volume', g.volume, (v) => state.facetVolume.has(v as VolumeBand))}
-    ${group('Concentration', 'concentration', g.concentration, (v) => state.facetConcentration.has(v))}
-    ${genderGroup()}
-    ${group('Price', 'priceBand', g.priceBand, (v) => state.facetPriceBand.has(v as PriceBand))}
-    ${group('Type', 'tier', g.tier, (v) => state.facetTier.has(v as RetailerTier))}
-    ${onSalePill}
-    ${inStockPill}`;
-
-  if (!panel.trim()) return '';
-
-  return `<div class="facets">
-    <button type="button" class="control facets-toggle" data-facets-toggle aria-expanded="${state.facetsOpen}">
+  return {
+    toggle: `<button type="button" class="control facets-toggle" data-facets-toggle aria-expanded="${state.facetsOpen}">
       <span class="control-ico">${ICON_FILTER}</span>
       <span>Filters</span>
       ${count > 0 ? `<span class="facets-badge">${count}</span>` : ''}
-    </button>
-    ${
-      state.facetsOpen
-        ? `<div class="facets-panel">
-             ${panel}
-             ${count > 0 ? `<button type="button" class="link-btn facets-clear" data-facets-clear>Clear all filters</button>` : ''}
-           </div>`
-        : ''
-    }
-  </div>`;
+    </button>`,
+    panel: state.facetsOpen
+      ? `<div class="facets-panel">
+          <div class="facet-grid">${controls.join('')}</div>
+          ${genderNote}
+          ${count > 0 ? `<button type="button" class="link-btn facets-clear" data-facets-clear>Clear all filters</button>` : ''}
+        </div>`
+      : '',
+  };
+}
+
+/**
+ * The one controls row every fragrance list shares, in the same order on every
+ * page: sort, filters, then (desktop only) tiles per row. The filter panel
+ * opens underneath the row, full width, rather than inside it.
+ */
+function listControls(sort: string, f: FacetUi): string {
+  return `<div class="controls">${sort}${f.toggle}${perRowControl()}</div>${f.panel}`;
 }
 
 /* ── display mode ────────────────────────────────────────────────────────────
@@ -969,60 +995,6 @@ const ICON_CLOSE = icon('<path d="M6 6l12 12M18 6 6 18" stroke="currentColor" st
    default "match my device". */
 const ICON_STOP = icon('<rect x="7" y="7" width="10" height="10" rx="1.6" fill="currentColor"/>');
 
-/* ── the gender marks ────────────────────────────────────────────────────────
-   Venus and Mars, drawn to this set's own rules: one 24 unit box, one 1.7px
-   line weight, round joins, no fills. Every one of them is inline SVG in the
-   bundle, like everything else here, so the page still makes no external
-   request for a picture of anything.
-
-   Colour is the one place these differ from the rest of the set. The other
-   icons take currentColor and are done; these carry pink and blue, which is
-   what was asked for and is also the convention a reader already knows. So
-   the coloured strokes are classed rather than hardcoded, and the class picks
-   up --gender-women / --gender-men from template.html, where both are defined
-   in all five palette blocks and both flip to their --on variant on a
-   selected pill, whose ground inverts to --ink. Measured contrast for every
-   one of those eight combinations is written out beside the tokens.
-
-   Colour is never the only signal: every pill prints the word too, so the
-   marks are decoration on a label rather than the label itself.
-
-   Unisex is the two glyphs interlocked into one: a single ring carrying both
-   the Venus cross below it and the Mars arrow off its shoulder, each stroke
-   in its own colour. Not stated is deliberately not a gender mark at all —
-   the bare ring both symbols share, drawn broken, in the pill's own ink with
-   no colour of its own. It says "nobody filled this in", which is exactly
-   what it means, and it could not be mistaken for the unisex glyph beside
-   it. */
-const ICON_GENDER_WOMEN = icon(
-  '<circle cx="12" cy="9" r="5.2" stroke-width="1.7" class="g-women"/>' +
-  '<path d="M12 14.2V21.4M8.8 18.4h6.4" stroke-width="1.7" stroke-linecap="round" class="g-women"/>',
-  'gender-ico',
-);
-const ICON_GENDER_MEN = icon(
-  '<circle cx="10" cy="14" r="5.2" stroke-width="1.7" class="g-men"/>' +
-  '<path d="m13.9 10.2 5.7-5.7M14.6 4.5h5v5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="g-men"/>',
-  'gender-ico',
-);
-const ICON_GENDER_UNISEX = icon(
-  '<circle cx="11" cy="12.6" r="5" stroke="currentColor" stroke-width="1.7"/>' +
-  '<path d="M11 17.6v4.2M8.6 19.9h4.8" stroke-width="1.7" stroke-linecap="round" class="g-women"/>' +
-  '<path d="m14.6 9 4.9-4.9M14.8 4.1h4.7v4.7" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="g-men"/>',
-  'gender-ico',
-);
-const ICON_GENDER_UNSTATED = icon(
-  '<circle cx="12" cy="12" r="6.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="2.4 3"/>',
-  'gender-ico',
-);
-
-/** Which mark goes with which reading. Ordering lives in GENDER_ORDER. */
-const GENDER_ICON: Record<GenderReading, string> = {
-  womens: ICON_GENDER_WOMEN,
-  mens: ICON_GENDER_MEN,
-  unisex: ICON_GENDER_UNISEX,
-  notStated: ICON_GENDER_UNSTATED,
-};
-
 /** A labelled dropdown with its icon, used for every sort and filter control. */
 function control(id: string, label: string, ico: string, options: { value: string; label: string }[], current: string): string {
   return `<label class="control">
@@ -1053,16 +1025,6 @@ function browseSortControl(current: BrowseSort): string {
   return control('browse-sort', 'Sort fragrances', ICON_SORT, [
     { value: 'stocked', label: 'Most Stocked' },
     ...LIST_SORT_OPTIONS,
-  ], current);
-}
-
-/** Same tier filter Brands uses. Not offered on a brand's own page: every
- *  fragrance from one brand shares that brand's tier, so the filter would
- *  only ever show everything or nothing — never a real subset. */
-function tierFilterControl(id: string, current: BrandFilter): string {
-  return control(id, 'Filter by type', ICON_FILTER, [
-    { value: 'all', label: 'All Types' },
-    ...(['designer', 'niche', 'mideast'] as const).map((t) => ({ value: t, label: TIER_LABEL[t] })),
   ], current);
 }
 
@@ -1336,9 +1298,7 @@ function syncPerRowControl(): void {
  */
 function fragranceList(list: DemoFragrance[], empty: string): string {
   if (list.length === 0) return `<p class="empty-note t-body">${esc(empty)}</p>`;
-  const control = perRowControl();
-  return `${control ? `<div class="controls">${control}</div>` : ''}
-    <ul class="tile-grid">${chunked(list, fragranceTile)}</ul>`;
+  return `<ul class="tile-grid">${chunked(list, fragranceTile)}</ul>`;
 }
 
 /* ── home ────────────────────────────────────────────────────────────────── */
@@ -1495,10 +1455,7 @@ function browseView(): string {
                not listed here.</p>`
           : ''
     }
-    <div class="controls">
-      ${browseSortControl(state.browseSort)}
-      ${facetsBlock(filtered)}
-    </div>
+    ${listControls(browseSortControl(state.browseSort), facets(filtered))}
     ${fragranceList(list, 'Nothing here matches that search.')}`;
 }
 
@@ -2682,15 +2639,14 @@ function dealsPanel(): string {
   // else a fragrance list appears.
   const filtered = sorted.filter((d) => passesFacets(d.fragrance, null));
 
-  const controls = `<div class="controls">
-    ${control('deal-sort', 'Sort deals', ICON_RANK, [
-      { value: 'discount', label: 'Biggest Savings (%)' },
+  const controls = listControls(
+    control('deal-sort', 'Sort deals', ICON_RANK, [
+      { value: 'discount', label: 'Best Saving' },
       { value: 'lowest', label: 'Lowest Price' },
       { value: 'highest', label: 'Highest Price' },
-    ], state.dealSort)}
-    ${perRowControl()}
-    ${facetsBlock(sorted.map((d) => d.fragrance))}
-  </div>`;
+    ], state.dealSort),
+    facets(sorted.map((d) => d.fragrance)),
+  );
 
   if (DEALS.length === 0) {
     return `${controls}<p class="empty-note t-body">No shop is publishing a reference price right now.</p>`;
@@ -2951,17 +2907,16 @@ function inStockAt(f: DemoFragrance, retailerId: string): boolean {
 function retailerView(): string {
   const r = getRetailer(state.retailerId);
   if (!r) return exploreView();
-  const filtered = fragrancesAt(r.id).filter(
-    (f) => state.retailerDetailFilter === 'all' || f.tier === state.retailerDetailFilter,
-  );
+  const filtered = fragrancesAt(r.id);
   const list = sortFragrances(applyFacets(filtered), state.retailerDetailSort)
     .filter((f) => !state.retailerInStockOnly || inStockAt(f, r.id));
 
-  const controls = `<div class="controls">
-    ${listSortControl('retailer-detail-sort', state.retailerDetailSort)}
-    ${tierFilterControl('retailer-detail-filter', state.retailerDetailFilter)}
-    ${facetsBlock(filtered)}
-  </div>`;
+  const controls = listControls(
+    listSortControl('retailer-detail-sort', state.retailerDetailSort),
+    facets(filtered, {
+      inStockHere: { checked: state.retailerInStockOnly, narrows: filtered.some((f) => !inStockAt(f, r.id)) },
+    }),
+  );
 
   return `
     <button class="back" data-back-explore>Back</button>
@@ -2975,10 +2930,6 @@ function retailerView(): string {
           ${deliveryLines(r).map((l) => `<li>${esc(l)}</li>`).join('')}
         </ul>
         ${trustpilotWidget(r)}
-        <label class="stock-only">
-          <input type="checkbox" id="retailer-in-stock" ${state.retailerInStockOnly ? 'checked' : ''} />
-          <span>In stock only</span>
-        </label>
       </div>
     </div>
 
@@ -3024,10 +2975,7 @@ function brandView(): string {
   // so a tier filter here would only ever show everything or nothing — the
   // Type facet group already knows this and hides itself for exactly that
   // reason (an option only appears when at least two values exist).
-  const controls = `<div class="controls">
-    ${listSortControl('brand-detail-sort', state.brandDetailSort)}
-    ${facetsBlock(filtered)}
-  </div>`;
+  const controls = listControls(listSortControl('brand-detail-sort', state.brandDetailSort), facets(filtered));
 
   return `
     <button class="back" data-back-explore>Back</button>
@@ -3114,7 +3062,7 @@ function notesPanel(): string {
 
   const controls = `<div class="controls">
     ${control('note-sort', 'Sort notes', ICON_SORT, [
-      { value: 'common', label: 'Most Common' },
+      { value: 'common', label: 'Most Used' },
       { value: 'az', label: 'A To Z' },
     ], state.noteSort)}
     ${control('note-layer', 'Filter notes', ICON_FILTER, [
@@ -3202,16 +3150,10 @@ function notesPanel(): string {
  */
 function noteView(): string {
   const entry = NOTE_INDEX.find((n) => n.name === state.noteName);
-  const filtered = fragrancesWithNote(state.noteName, state.noteLayer).filter(
-    (f) => state.noteDetailFilter === 'all' || f.tier === state.noteDetailFilter,
-  );
+  const filtered = fragrancesWithNote(state.noteName, state.noteLayer);
   const list = sortFragrances(applyFacets(filtered), state.noteDetailSort);
 
-  const controls = `<div class="controls">
-    ${listSortControl('note-detail-sort', state.noteDetailSort)}
-    ${tierFilterControl('note-detail-filter', state.noteDetailFilter)}
-    ${facetsBlock(filtered)}
-  </div>`;
+  const controls = listControls(listSortControl('note-detail-sort', state.noteDetailSort), facets(filtered));
 
   const layerChips = entry
     ? (['top', 'middle', 'base'] as NoteLayer[])
@@ -3242,9 +3184,10 @@ function noteView(): string {
 function searchResultsHtml(q: string): string {
   if (!q) return `<p class="empty-note t-body">Type to search all ${DEMO_FRAGRANCES.length} fragrances.</p>`;
   const filtered = visibleFragrances();
-  const list = applyFacets(filtered);
+  const faceted = applyFacets(filtered);
+  const list = state.browseSort === 'stocked' ? faceted : sortFragrances(faceted, state.browseSort);
   return `<div class="page-head"><h1 class="t-page">Results</h1><span class="count t-count">${list.length}</span></div>
-    <div class="controls">${facetsBlock(filtered)}</div>
+    ${listControls(browseSortControl(state.browseSort), facets(filtered))}
     ${fragranceList(list, 'Nothing matches that search.')}`;
 }
 
@@ -4859,16 +4802,6 @@ const DS_COLOUR_GROUPS: { title: string; note: string; tokens: TokenRow[] }[] = 
     ],
   },
   {
-    title: 'Gender marks',
-    note: 'The Venus and Mars marks on the Gender filter. Two values each: the second is for a selected pill, whose ground inverts to --ink. Contrast for all eight is measured further down this page.',
-    tokens: [
-      { name: '--gender-women', role: 'On an unselected pill' },
-      { name: '--gender-women-on', role: 'On a selected pill' },
-      { name: '--gender-men', role: 'On an unselected pill' },
-      { name: '--gender-men-on', role: 'On a selected pill' },
-    ],
-  },
-  {
     title: 'Chart',
     note: 'The price history chart. The two drifting red glows that used to sit behind every page were removed on 17 Aug 2026, along with their tokens: the accent means "look here", and it should not also be the wallpaper.',
     tokens: [
@@ -4902,10 +4835,6 @@ const DS_CONTRAST_PAIRS: { fg: string; bg: string; use: string }[] = [
   { fg: '--ok', bg: '--ok-sf', use: 'The price in the lowest-price box' },
   { fg: '--ink-2', bg: '--ok-sf', use: 'The shop line in the lowest-price box' },
   { fg: '--warn', bg: '--surface', use: 'Low stock, on a card' },
-  { fg: '--gender-women', bg: '--surface-2', use: 'Venus mark, unselected pill' },
-  { fg: '--gender-men', bg: '--surface-2', use: 'Mars mark, unselected pill' },
-  { fg: '--gender-women-on', bg: '--ink', use: 'Venus mark, selected pill' },
-  { fg: '--gender-men-on', bg: '--ink', use: 'Mars mark, selected pill' },
 ];
 
 /** The eight type roles, in the order the stylesheet declares them. */
@@ -4936,10 +4865,6 @@ const DS_ICONS: { name: string; svg: string }[] = [
   { name: 'ICON_STOP', svg: ICON_STOP },
   { name: 'ICON_TIKTOK', svg: ICON_TIKTOK },
   { name: 'ICON_INSTAGRAM', svg: ICON_INSTAGRAM },
-  { name: 'ICON_GENDER_WOMEN', svg: ICON_GENDER_WOMEN },
-  { name: 'ICON_GENDER_MEN', svg: ICON_GENDER_MEN },
-  { name: 'ICON_GENDER_UNISEX', svg: ICON_GENDER_UNISEX },
-  { name: 'ICON_GENDER_UNSTATED', svg: ICON_GENDER_UNSTATED },
 ];
 
 /** Tokens that are one value for every theme, so they are listed once. */
@@ -5840,25 +5765,6 @@ function init(): void {
       rememberListState();
       return;
     }
-
-    const facetPillBtn = t.closest<HTMLElement>('[data-facet-group]');
-    if (facetPillBtn) {
-      const group = facetPillBtn.getAttribute('data-facet-group') as FacetGroup;
-      const value = facetPillBtn.getAttribute('data-facet-value')!;
-      // Two shapes: most groups are a Set toggled by value, onSale/inStock
-      // are single booleans — same data-facet-group/value markup either way,
-      // read differently by group id.
-      if (group === 'onSale') state.facetOnSale = !state.facetOnSale;
-      else if (group === 'inStock') state.facetInStock = !state.facetInStock;
-      else if (group === 'volume') toggleInSet(state.facetVolume, value as VolumeBand);
-      else if (group === 'concentration') toggleInSet(state.facetConcentration, value);
-      else if (group === 'gender') toggleInSet(state.facetGender, value as GenderReading);
-      else if (group === 'priceBand') toggleInSet(state.facetPriceBand, value as PriceBand);
-      else if (group === 'tier') toggleInSet(state.facetTier, value as RetailerTier);
-      render();
-      rememberListState();
-      return;
-    }
   });
 
   document.addEventListener('input', (e) => {
@@ -5884,11 +5790,16 @@ function init(): void {
     else if (id === 'note-layer') state.noteLayer = value as NoteLayerFilter;
     else if (id === 'browse-sort') state.browseSort = value as BrowseSort;
     else if (id === 'note-detail-sort') state.noteDetailSort = value as ListSort;
-    else if (id === 'note-detail-filter') state.noteDetailFilter = value as BrandFilter;
     else if (id === 'brand-detail-sort') state.brandDetailSort = value as ListSort;
     else if (id === 'retailer-detail-sort') state.retailerDetailSort = value as ListSort;
-    else if (id === 'retailer-detail-filter') state.retailerDetailFilter = value as BrandFilter;
     else if (id === 'retailer-in-stock') state.retailerInStockOnly = (t as HTMLInputElement).checked;
+    else if (id === 'facet-on-sale') state.facetOnSale = (t as HTMLInputElement).checked;
+    else if (id === 'facet-in-stock') state.facetInStock = (t as HTMLInputElement).checked;
+    else if (id === FACET_SELECT_ID.volume) state.facetVolume = new Set(value ? [value as VolumeBand] : []);
+    else if (id === FACET_SELECT_ID.concentration) state.facetConcentration = new Set(value ? [value as ConcentrationGroup] : []);
+    else if (id === FACET_SELECT_ID.gender) state.facetGender = new Set(value ? [value as GenderReading] : []);
+    else if (id === FACET_SELECT_ID.priceBand) state.facetPriceBand = new Set(value ? [value as PriceBand] : []);
+    else if (id === FACET_SELECT_ID.tier) state.facetTier = new Set(value ? [value as RetailerTier] : []);
     else if (id === 'per-row') {
       // The grid reads a CSS variable, so the columns reflow without a
       // re-render. Returning early also keeps the search box from losing
