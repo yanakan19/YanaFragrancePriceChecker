@@ -1,12 +1,21 @@
-# PriceSniffs — price comparison core
+# PriceSniffs
 
-Retailer registry and offer-presentation layer for the PriceSniffs UK fragrance
-price comparison site.
+UK fragrance price comparison, live at **[pricesniffs.space](https://pricesniffs.space)**:
+16,187 fragrances from 718 brands, with 25,099 live offers across 33 UK shops
+(77 shops assessed in the retailer registry), compared on the price you
+actually pay with delivery included. Figures from the build of 2026-10-01.
 
-This is Phase 1 groundwork: the twelve-retailer registry, shipping rules, and the
-logic that turns a captured offer into a comparison row you can trust. There is
-no fetching layer yet — that is the Phase 0 spike (JSON-LD vs managed scraper per
-domain), and `adapter` is `'unknown'` on every retailer until it lands.
+- **The crawl** (`.github/workflows/catalogue-daily.yml`, checked hourly; its
+  `guard` job decides which runs do work) harvests each shop's own listings,
+  rebuilds the catalogue and commits it.
+- **The site** (`demo/`) is one page built from that catalogue and deployed
+  to GitHub Pages whenever it changes (`deploy-pages.yml`).
+- **Virtual Yanny**, the chat bubble, answers catalogue questions in the
+  browser. Its AI half is a Cloudflare Worker (`workers/yanny/`), not yet
+  connected: see [docs/FREE-LLM-MANUAL.md](docs/FREE-LLM-MANUAL.md) §1.
+- **Accounts and wishlists** run on Supabase (`supabase/`).
+
+All guides, plans and reports are indexed in **[docs/README.md](docs/README.md)**.
 
 ## Owner action needed: force this repo's cloud environment cache to rebuild
 
@@ -151,23 +160,21 @@ token. **To switch it off, no code change needed:** GitHub → **Settings** →
 **Secrets and variables** → **Actions** → **Variables** → **New repository
 variable** → name `SIGNED_COMMITS`, value `off`.
 
-## Demo
+## Building the site
 
-`demo/index.html` is a single self-contained page — open it straight from disk.
-It compiles `src/` and inlines the bundle, so the demo runs the real modules
-rather than a reimplementation and cannot drift from what ships.
+```
+npm ci
+npm test          # the whole suite, including the built page's layout and accessibility
+npm run demo      # rebuild demo/index.html and demo/404.html after any change to the site
+```
 
-It is a build artefact, not source: edit `demo/app.ts`, `demo/template.html`,
-or anything else `tsconfig.demo.json` bundles, and `npm run demo` must run
-again before you commit. `tests/demoBuildFreshness.test.ts` enforces this —
-it fails `npm test` if `demo/index.html`'s stamped build hash (see
-`scripts/demoInputsHash.ts`) does not match the source tree.
-
-**Its prices are invented**, because there is no fetching layer yet. The page
-says so in a banner. Each of the six sample fragrances exercises a specific
-rule — the penny-under-threshold case, round-down discount percentages, a
-countdown that only appears because the retailer published an end time, tier
-filtering withholding retailers, and a fragrance where nothing is buyable.
+`demo/index.html` is a build artefact, not source: edit `demo/app.ts`,
+`demo/template.html`, or anything else `tsconfig.demo.json` bundles, and run
+`npm run demo` before you commit. `tests/demoBuildFreshness.test.ts` fails
+`npm test` if the page's stamped build hash (`scripts/demoInputsHash.ts`) does
+not match the source. The page carries the catalogue as a JSON block ahead of
+the code (`scripts/bundle-demo.ts` explains why), so it is still one
+self-contained file you can open from disk.
 
 ## The idea
 
@@ -223,52 +230,42 @@ free. Sorting on item price would have put it first.
 ## Layout
 
 ```
-src/
-  types/retailer.ts        Registry types + why there's no trust flag
-  types/offer.ts           Raw and presented offer shapes
-  config/retailers.ts      ← the registry
-  config/tiktokSellers.ts  TikTok beta, isolated and off by default
-  services/
-    priceService.ts        Comparison assembly, ordering, grouping
-    shipping.ts            Delivery resolution and thresholds
-    discount.ts            Was/now/% and countdown eligibility
-    affiliate.ts           Outbound links + the setup reminder
-    money.ts               Pence rounding, GBP formatting
-docs/
-  DECISIONS.md             What was decided, why, and what's still open
-  AFFILIATE_SETUP.md       How to set the programmes up when you're ready
+demo/               the website: app.ts, template.html, router, Virtual Yanny's
+                    browser half (yanny/); index.html and 404.html are built
+src/                the pricing rules and catalogue logic the site bundles
+                    (services/, catalogue/, config/retailers.ts = the registry)
+scripts/            harvest, crawl, build and report scripts (`npm run …`)
+data/               harvested shop snapshots and reports the crawl commits
+tests/              the vitest suite (`npm test`)
+workers/yanny/      Virtual Yanny's AI half (Cloudflare Worker)
+supabase/           accounts and wishlist database setup
+fixtures/           offline fixtures for tests
+docs/               guides, plans and reports; start at docs/README.md
+docs/brand/         the logo for social accounts
+.github/workflows/  the crawl, the deploys and the checks that run on GitHub
 ```
 
-## Data quality caveat
+## Data quality
 
-**All twelve shipping rules are marked `unverified`.** They were sourced from
-search results, not read off each retailer's delivery page, and delivery terms
-change without notice. A stale free-delivery threshold produces a wrong delivered
-price, which is the most damaging error this app can make — it is invisible to
-the user and looks authoritative.
-
-`DeliveryDisplay.confirmed` is `false` for all of them; surface that caveat in
-the UI until they have been checked. Selfridges is the worst case: sources
-disagree on whether free delivery starts at £100 or £150.
+Delivery terms carry the date they were read from the shop's own delivery
+page, shown beside them in the app. Entries still marked `unverified` in
+`src/config/retailers.ts` were sourced indirectly and need confirming;
+`npm run shipping:staleness` lists those and any due a re-check. A shop that
+publishes no standard rate shows "delivery not stated" and is never ranked as
+the cheapest. Every "was £X" a shop claims is checked against the other shops
+selling the same bottle before a discount is shown; see
+`src/catalogue/wasPriceCredibility.ts`.
 
 ## Affiliate
 
-Nothing is monetised. Every link resolves to the plain retailer URL, which is
-correct and clickable, just unpaid. Boots, LOOKFANTASTIC and Superdrug are
-confirmed Awin merchants; the other nine need researching.
+Six programmes are live and monetised (`status: 'active'` in
+`src/config/retailers.ts`): five through Awin and Emirates Oud through its
+own tool. Every other link goes to the plain retailer URL. Setting up more
+is in [docs/AFFILIATE_SETUP.md](docs/AFFILIATE_SETUP.md); the TikTok Shop
+route is in [docs/TIKTOK-SHOP-PLAN.md](docs/TIKTOK-SHOP-PLAN.md).
 
-When you are ready, [`docs/AFFILIATE_SETUP.md`](docs/AFFILIATE_SETUP.md) has the
-process. The one thing worth applying early: **apply after the site is live**, as
-Awin rejects applications pointing at holding pages, and re-applying after a
-rejection is harder than applying once at the right moment.
+## What's next
 
-## Next
-
-Phase 0 spike, before more app code: test a plain `fetch` + JSON-LD parse against
-all twelve domains. If `schema.org/Product` covers eight of them, that path is
-~50ms and free and a managed scraper becomes the fallback for the awkward four
-rather than the default — which roughly halves the running cost of the whole
-project.
-
-Then Phase 1: the matcher and its ~200 hand-labelled title test set. Nothing else
-should be built until that clears 95%.
+[docs/FEATURE-ROADMAP.md](docs/FEATURE-ROADMAP.md) and
+[docs/README.md](docs/README.md) list the plans; the iOS and Android apps are
+in [docs/MOBILE-APPS.md](docs/MOBILE-APPS.md).
