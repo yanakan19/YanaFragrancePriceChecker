@@ -59,8 +59,7 @@ import { roundPence } from '../src/services/money.js';
  *
  * Lives in its own module rather than in demo/app.ts so it can be unit tested
  * directly: app.ts calls init() at import time, so nothing in it is importable
- * from a plain Node test. Same reason as demo/priceDeliveryNote.ts and
- * demo/deliveryFacts.ts.
+ * from a plain Node test. Same reason as demo/deliveryFacts.ts.
  */
 export interface MsrpComparison {
   /** Which side of the house's own price this shop sits on. Never both. */
