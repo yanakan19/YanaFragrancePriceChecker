@@ -6,16 +6,26 @@
  * implementation of the pricing rules to fall out of sync.
  *
  *   tsc -p tsconfig.demo.json   →  dist-demo/**.js
- *   scripts/bundle-demo.ts      →  dist-demo/bundle.js + dist-demo/data.json
- *   this script                 →  demo/index.html + dist-demo/artifact.html
+ *   scripts/bundle-demo.ts      →  dist-demo/bundle.js + dist-demo/data/*.json
+ *   this script                 →  demo/index.html, demo/404.html,
+ *                                  demo/data/<module>.<hash>.json
+ *                                  + dist-demo/artifact.html
  *
- * The data block goes in ahead of the bundle's own <script>, as
- * <script type="application/json" id="ps-data">: see bundle-demo.ts for why
- * the catalogue ships as JSON rather than as JavaScript.
+ * The data is published as its own files, one per generated module, each
+ * named for a hash of its content (scripts/dataFiles.ts), and fetched by a
+ * small loader in <head> before the bundle runs: see bundle-demo.ts for why
+ * the catalogue ships as JSON rather than as JavaScript, and why not inline.
+ * demo/data/ belongs to this script: every file in it that this run did not
+ * write is deleted, so yesterday's prices do not pile up in the repository.
+ * Whoever commits demo/index.html must commit demo/data with it, deletions
+ * included (`git add -A demo/data`); scripts/commit-and-push.sh does so.
  *
  * Two outputs, same body:
- *   - `demo/index.html`      a standalone document you can open from disk
- *   - `dist-demo/artifact.html`  body only, for the hosted artifact wrapper
+ *   - `demo/index.html`      the hosted page; it must be served over HTTP
+ *                            (any static server, see scripts/a11y-audit.ts),
+ *                            since a file:// page cannot fetch its data
+ *   - `dist-demo/artifact.html`  body only, for the hosted artifact wrapper,
+ *                            with the data inline so it stays one file
  *
  * Every run also stamps a fingerprint of its own inputs (see
  * scripts/demoInputsHash.ts) into the two committed documents.
@@ -27,10 +37,11 @@
  * `demo/index.html` on 2026-08-26 with every test green, because nothing
  * compared the built page against the source it claims to represent.
  */
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { computeDemoInputsHash, demoBuildHashComment } from './demoInputsHash.js';
+import { BLOBS_GLOBAL, READY_GLOBAL, bootScript, hashedDataPath, loaderScript, type DataFile, type DataGroup } from './dataFiles.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -43,16 +54,34 @@ const inputsHash = computeDemoInputsHash(root);
 
 const template = readFileSync(resolve(root, 'demo/template.html'), 'utf8');
 const bundle = readFileSync(resolve(root, 'dist-demo/bundle.js'), 'utf8');
-const data = readFileSync(resolve(root, 'dist-demo/data.json'), 'utf8');
+const groups = JSON.parse(readFileSync(resolve(root, 'dist-demo/data-files.json'), 'utf8')) as DataGroup[];
 
 const BUNDLE_TAG = '<script>/*__BUNDLE__*/</script>';
 if (!template.includes(BUNDLE_TAG)) {
   throw new Error(`demo/template.html has no ${BUNDLE_TAG} placeholder to inject into`);
 }
 
-// Every "<" escaped, which JSON allows inside a string and which is the only
-// way a value could close the block early or open an HTML comment in it.
-const safeData = data.replace(/</g, '\\u003c');
+// Publish each module's data under a name derived from its bytes, then clear
+// out every file this run did not write: they are older builds' data, which
+// nothing references any more (the service worker drops them from its own
+// cache when it sees a page that no longer names them).
+const dataDir = resolve(root, 'demo/data');
+mkdirSync(dataDir, { recursive: true });
+const dataFiles: DataFile[] = [];
+const dataParts: string[] = [];
+let expectedStart = 0;
+for (const g of groups) {
+  if (g.start !== expectedStart) throw new Error(`data-files.json leaves a gap before blob ${g.start}`);
+  expectedStart = g.start + g.count;
+  const content = readFileSync(resolve(root, `dist-demo/data/${g.name}.json`), 'utf8');
+  const path = hashedDataPath(g.name, content);
+  writeFileSync(resolve(root, 'demo', path), content);
+  dataFiles.push({ path, start: g.start });
+  dataParts.push(content.slice(1, -1));
+}
+const keep = new Set(dataFiles.map((f) => f.path.slice('data/'.length)));
+const removed = readdirSync(dataDir).filter((f) => !keep.has(f));
+for (const f of removed) rmSync(resolve(dataDir, f), { recursive: true, force: true });
 
 // `</script>` inside the bundle would close the inline tag early.
 const safeBundle = bundle.replace(/<\/script>/gi, '<\\/script>');
@@ -65,13 +94,20 @@ const safeBundle = bundle.replace(/<\/script>/gi, '<\\/script>');
 // previously exercised a bundle large enough to hit one. A function
 // replacer's return value is spliced in literally, with no such patterns
 // recognised, which is what this always needed to be doing.
-const body = template.replace(
-  BUNDLE_TAG,
-  () => `<script type="application/json" id="ps-data">${safeData}</script>\n<script>${safeBundle}</script>`,
-);
+const body = template.replace(BUNDLE_TAG, () => `<script>${bootScript(safeBundle)}</script>`);
 
 mkdirSync(resolve(root, 'dist-demo'), { recursive: true });
-writeFileSync(resolve(root, 'dist-demo/artifact.html'), body);
+// The artifact wrapper hosts one file, so its copy carries the data inline,
+// the way the page itself did before it was split out. Every "<" escaped,
+// which JSON allows inside a string and which is the only way a value could
+// close the block early or open an HTML comment in it.
+const inlineData = `[${dataParts.filter((p) => p.length > 0).join(',')}]`.replace(/</g, '\\u003c');
+writeFileSync(
+  resolve(root, 'dist-demo/artifact.html'),
+  `<script type="application/json" id="ps-data">${inlineData}</script>\n` +
+    `<script>window.${BLOBS_GLOBAL}=JSON.parse(document.getElementById('ps-data').textContent);` +
+    `window.${READY_GLOBAL}=Promise.resolve();</script>\n${body}`,
+);
 
 // Installable on iOS (Safari Share → Add to Home Screen) and Android (Chrome
 // menu → Install app / Add to Home Screen) — both read a standard web
@@ -119,6 +155,7 @@ ${demoBuildHashComment(inputsHash.hash)}
 <meta name="twitter:title" content="PriceSniffs: compare fragrance prices across UK retailers" />
 <meta name="twitter:description" content="${OG_DESCRIPTION}" />
 <meta name="twitter:image" content="${SITE_URL}/og-preview.png" />
+<script>${loaderScript(dataFiles)}</script>
 ${body}
 </html>
 `;
@@ -135,5 +172,9 @@ writeFileSync(resolve(root, 'demo/404.html'), standalone);
 
 console.log(`demo/index.html          ${(standalone.length / 1024).toFixed(1)} kB`);
 console.log(`demo/404.html            ${(standalone.length / 1024).toFixed(1)} kB (deep-link fallback)`);
-console.log(`dist-demo/artifact.html  ${(body.length / 1024).toFixed(1)} kB`);
+for (const f of dataFiles) {
+  console.log(`demo/${f.path.padEnd(38)} ${(readFileSync(resolve(root, 'demo', f.path)).length / 1024 / 1024).toFixed(1)} MB`);
+}
+if (removed.length) console.log(`demo/data                removed ${removed.length} superseded file(s)`);
+console.log(`dist-demo/artifact.html  ${(body.length / 1024).toFixed(1)} kB + inline data`);
 console.log(`build-hash               sha256:${inputsHash.hash.slice(0, 12)}… (${inputsHash.files.length} input files)`);

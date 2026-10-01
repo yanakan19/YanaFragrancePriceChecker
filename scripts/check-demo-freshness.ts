@@ -2,7 +2,8 @@
  * Answers one question for scripts/commit-and-push.sh: does the demo/index.html
  * on disk match the source on disk right now?
  *
- *   npx tsx scripts/check-demo-freshness.ts     # exit 0 fresh, 2 stale, 3 unstamped
+ *   npx tsx scripts/check-demo-freshness.ts     # exit 0 fresh, 2 stale, 3 unstamped,
+ *                                               # 4 names data files that are missing
  *
  * This is tests/demoBuildFreshness.test.ts's check, made callable from bash
  * without the test runner, so the commit script can refuse to push a page it
@@ -20,6 +21,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { computeDemoInputsHash, readStampedHash } from './demoInputsHash.js';
+import { referencedDataFiles } from './dataFiles.js';
 
 const root = process.cwd();
 
@@ -28,7 +30,8 @@ if (!existsSync(join(root, 'tsconfig.demo.json')) || !existsSync(join(root, 'dem
   process.exit(0);
 }
 
-const stamped = readStampedHash(readFileSync(join(root, 'demo/index.html'), 'utf8'));
+const page = readFileSync(join(root, 'demo/index.html'), 'utf8');
+const stamped = readStampedHash(page);
 if (stamped === null) {
   console.error('check-demo-freshness: demo/index.html carries no demo-build-hash stamp; run `npm run demo`.');
   process.exit(3);
@@ -41,6 +44,18 @@ if (stamped !== current) {
       `source on disk is sha256:${current.slice(0, 12)}…. Run \`npm run demo\` before committing it.`,
   );
   process.exit(2);
+}
+
+// The page's prices live in demo/data (scripts/build-demo.ts). A page whose
+// stamp matches but whose data files are gone would deploy as a site with no
+// prices, so that is refused too.
+const missing = referencedDataFiles(page).filter((path) => !existsSync(join(root, 'demo', path)));
+if (missing.length > 0) {
+  console.error(
+    `check-demo-freshness: demo/index.html names data file(s) that do not exist: ${missing.join(', ')}. ` +
+      'Run `npm run demo` and commit demo/data with the page.',
+  );
+  process.exit(4);
 }
 
 console.log(`check-demo-freshness: demo/index.html is fresh (sha256:${current.slice(0, 12)}…).`);

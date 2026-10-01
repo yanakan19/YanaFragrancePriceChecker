@@ -1,10 +1,11 @@
 /**
  * Bundles the demo app, moving its large data literals out of the JavaScript
- * and into a JSON block scripts/build-demo.ts writes into the same page.
+ * and into JSON files scripts/build-demo.ts publishes beside the page.
  *
  *   tsc -p tsconfig.demo.json  →  dist-demo/**.js
- *   this script                →  dist-demo/bundle.js + dist-demo/data.json
- *   scripts/build-demo.ts      →  demo/index.html (data block, then bundle)
+ *   this script                →  dist-demo/bundle.js + dist-demo/data/<module>.json
+ *                                 + dist-demo/data-files.json (which blob is where)
+ *   scripts/build-demo.ts      →  demo/index.html + demo/data/<module>.<hash>.json
  *
  * ── Why ──────────────────────────────────────────────────────────────────────
  * The catalogue, its offers, the price history and the deals are written into
@@ -15,43 +16,66 @@
  * which does far less work per byte than the JavaScript parser — the reason V8's
  * own guidance is to ship large data that way.
  *
+ * The JSON then sat inline in the page, in a <script type="application/json">
+ * block, until the next measurement the same day: the HTML parser still had to
+ * tokenise all ~23MB of it (about 2.6s at 4x), and because the document is
+ * network-first, every visit downloaded it again. It now ships as one file per
+ * generated module, each named for a hash of its own content, so the service
+ * worker can keep them forever (demo/sw.js) and a visit only downloads the
+ * files whose content actually changed.
+ *
  * ── What it changes, and what it leaves alone ─────────────────────────────────
  * Only top-level `const`s in *.generated.js whose initializer is at least
  * MIN_BYTES long and is valid JSON. Each is replaced by `__psData(n)`, which
- * reads entry n of the page's JSON block, parsed once on first use. Everything
- * else in those modules — the chunk spreads that join a literal back together,
- * the helper functions they export — stays as it was. A literal that is not
- * valid JSON is left as code: slower, never wrong.
+ * reads entry n of the blobs the page's loader fetched before the bundle ran
+ * (see scripts/dataFiles.ts). Everything else in those modules — the chunk
+ * spreads that join a literal back together, the helper functions they
+ * export — stays as it was. A literal that is not valid JSON is left as code:
+ * slower, never wrong.
+ *
+ * Numbering is global across modules, and each module's literals are numbered
+ * contiguously (moveLiteralsToJson runs synchronously once a module's source
+ * has been read), so a file is fully described by its module and the index of
+ * its first blob.
  *
  * The generated .ts files are untouched, so every test that imports them reads
  * exactly the data it did before.
  */
-import { readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { build, type Plugin } from 'esbuild';
 import { moveLiteralsToJson } from './dataLiterals.js';
+import { BLOBS_GLOBAL, type DataGroup } from './dataFiles.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const blobs: unknown[] = [];
+const groups: DataGroup[] = [];
 const report: string[] = [];
 
 const dataAsJson: Plugin = {
   name: 'data-as-json',
   setup(b) {
     b.onLoad({ filter: /\.generated\.js$/ }, async (args) => {
-      const { code, moved } = moveLiteralsToJson(await readFile(args.path, 'utf8'), blobs);
-      if (moved.length) report.push(`${args.path.split('/').pop()}: ${moved.length} literal(s) moved`);
+      const source = await readFile(args.path, 'utf8');
+      // Nothing may await between reading `start` and the move: that is what
+      // keeps this module's blobs contiguous while esbuild loads others.
+      const start = blobs.length;
+      const { code, moved } = moveLiteralsToJson(source, blobs);
+      const name = args.path.split('/').pop()!;
+      if (moved.length) {
+        groups.push({ name: name.replace(/\.generated\.js$/, ''), start, count: moved.length });
+        report.push(`${name}: ${moved.length} literal(s) moved`);
+      }
       return { contents: code, loader: 'js' };
     });
   },
 };
 
-// Parsed once, on the first lookup, from the block build-demo.ts writes ahead
-// of the bundle's own <script>.
-const PRELUDE =
-  'var __psData=(function(){var d;return function(i){' +
-  'if(!d)d=JSON.parse(document.getElementById("ps-data").textContent);return d[i]}})();';
+// The loader build-demo.ts writes into the page's <head> fetches the data
+// files and sets this global before it runs the bundle at all, so every
+// lookup is a plain array read.
+const PRELUDE = `var __psData=function(i){return ${BLOBS_GLOBAL}[i]};`;
 
 await build({
   entryPoints: [resolve(root, 'dist-demo/demo/app.js')],
@@ -65,8 +89,19 @@ await build({
   logLevel: 'warning',
 });
 
-await writeFile(resolve(root, 'dist-demo/data.json'), JSON.stringify(blobs));
-const sizes = await Promise.all(['bundle.js', 'data.json'].map(async (f) => (await readFile(resolve(root, 'dist-demo', f))).length));
+groups.sort((a, b) => a.start - b.start);
+await rm(resolve(root, 'dist-demo/data'), { recursive: true, force: true });
+await rm(resolve(root, 'dist-demo/data.json'), { force: true });
+await mkdir(resolve(root, 'dist-demo/data'), { recursive: true });
+for (const g of groups) {
+  await writeFile(resolve(root, `dist-demo/data/${g.name}.json`), JSON.stringify(blobs.slice(g.start, g.start + g.count)));
+}
+await writeFile(resolve(root, 'dist-demo/data-files.json'), JSON.stringify(groups, null, 2));
+
 for (const line of report) console.log(line);
-console.log(`dist-demo/bundle.js  ${(sizes[0]! / 1024 / 1024).toFixed(1)} MB code`);
-console.log(`dist-demo/data.json  ${(sizes[1]! / 1024 / 1024).toFixed(1)} MB data`);
+const mb = (n: number): string => `${(n / 1024 / 1024).toFixed(1)} MB`;
+console.log(`dist-demo/bundle.js  ${mb((await readFile(resolve(root, 'dist-demo/bundle.js'))).length)} code`);
+for (const g of groups) {
+  const size = (await readFile(resolve(root, `dist-demo/data/${g.name}.json`))).length;
+  console.log(`dist-demo/data/${g.name}.json  ${mb(size)} data`);
+}

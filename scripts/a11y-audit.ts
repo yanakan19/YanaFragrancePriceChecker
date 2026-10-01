@@ -18,11 +18,12 @@
  * launches the same pinned Chromium, for the same reasons recorded there.
  */
 import AxeBuilder from '@axe-core/playwright';
-import { chromium, type Browser } from 'playwright';
+import { chromium, type Browser, type Page } from 'playwright';
 import { createServer } from 'node:http';
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { APP_READY_ATTR } from './dataFiles.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const demoDir = resolve(root, 'demo');
@@ -60,6 +61,15 @@ export async function startDemoServer(): Promise<{ port: number; close: () => vo
   await new Promise<void>((r) => server.listen(0, '127.0.0.1', r));
   const { port } = server.address() as { port: number };
   return { port, close: () => server.close() };
+}
+
+/**
+ * Resolves once the app has started on `page`. The window's `load` event used
+ * to be enough, while the bundle ran inline; now the bundle waits for the
+ * data files (scripts/dataFiles.ts), which `load` does not wait for.
+ */
+export async function waitForApp(page: Page, timeout = 60_000): Promise<void> {
+  await page.waitForSelector(`html[${APP_READY_ATTR}]`, { state: 'attached', timeout });
 }
 
 export async function launchChromium(): Promise<Browser> {
@@ -104,6 +114,7 @@ export async function auditRoute(
       );
     }
     await page.goto(`http://127.0.0.1:${port}${route}`, { waitUntil: 'load' });
+    await waitForApp(page);
     await page.waitForTimeout(500);
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'])

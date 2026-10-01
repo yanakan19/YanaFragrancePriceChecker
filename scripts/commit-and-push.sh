@@ -40,13 +40,28 @@ shift
 git config user.name 'pricesniffs-bot'
 git config user.email 'bot@users.noreply.github.com'
 
+# demo/index.html fetches its prices from demo/data/<module>.<hash>.json (see
+# scripts/build-demo.ts), and every build deletes the files the previous one
+# wrote. A page committed without that folder points at files the branch does
+# not have, and the site shows no prices at all. So naming the page names the
+# folder, whether or not the caller remembered to. Every add below is `-A`,
+# which is what stages the old files' deletions along with the new files.
+for path in "$@"; do
+  if [ "$path" = "demo/index.html" ]; then
+    named_data=0
+    for p in "$@"; do if [ "$p" = "demo/data" ]; then named_data=1; fi; done
+    if [ "$named_data" -eq 0 ]; then set -- "$@" demo/data; fi
+    break
+  fi
+done
+
 # Paths that do not exist yet are skipped rather than fatal: the house harvest
 # only writes its files once a storefront has actually returned something.
 staged_any=0
 wants_fresh_demo=0
 for path in "$@"; do
   if [ -e "$path" ]; then
-    git add "$path"
+    git add -A -- "$path"
     staged_any=1
   fi
   if [ "$path" = "demo/index.html" ]; then wants_fresh_demo=1; fi
@@ -207,7 +222,13 @@ delay=2
 # from that* — so a conflict costs a replay of the few commits since the
 # incoming checkpoint, never the ten-minute-and-growing replay from the first
 # commit that a checkpoint left with conflict markers would force.
-GENERATED_PATHS="demo/index.html demo/404.html demo/catalogue.generated.ts demo/priceHistory.generated.ts data/price-history-checkpoint.json"
+#
+# demo/data is the page's data, written by the same build as
+# demo/data/<module>.<hash>.json. Content-hashed names mean two runs can only
+# ever disagree about which files exist, never about what one contains, so it
+# is listed as the folder: the rebuild below writes the merged build's files
+# and deletes the rest, and staging the folder with -A records both.
+GENERATED_PATHS="demo/index.html demo/404.html demo/data demo/catalogue.generated.ts demo/priceHistory.generated.ts data/price-history-checkpoint.json"
 
 # How to rebuild them. Overridable so this script does not hard-code knowledge
 # of the app's build for callers that generate something else.
@@ -221,6 +242,7 @@ GENERATED_PATHS="demo/index.html demo/404.html demo/catalogue.generated.ts demo/
 REGENERATE="${REGENERATE:-npm run catalogue:demo && npm run catalogue:history && npm run demo}"
 
 is_generated() {
+  case "$1" in demo/data/*) return 0 ;; esac
   for known in $GENERATED_PATHS; do
     if [ "$1" = "$known" ]; then return 0; fi
   done
@@ -360,7 +382,7 @@ resolve_generated_conflicts() {
     fi
 
     for file in $GENERATED_PATHS; do
-      if [ -e "$file" ] && ! git add -- "$file"; then
+      if [ -e "$file" ] && ! git add -A -- "$file"; then
         echo "::error::git add failed for regenerated file ${file}." >&2
         return 1
       fi
@@ -474,6 +496,15 @@ while [ "$attempt" -lt "$max_attempts" ]; do
     echo "Discarding uncommitted build output before rebasing."
     git checkout -- .
   fi
+  # The one place a build leaves *untracked* output: a new
+  # demo/data/<module>.<hash>.json from a rebuild nobody committed. Left
+  # there, it would stop the rebase the moment the incoming commit adds the
+  # same file ("untracked working tree files would be overwritten"), which it
+  # does whenever the other run built the same prices. Same judgement as above.
+  if [ -n "$(git ls-files --others --exclude-standard -- demo/data)" ]; then
+    echo "Discarding uncommitted data files before rebasing."
+    git clean -fq -- demo/data
+  fi
 
   if ! git pull --rebase origin "$branch"; then
     if resolve_generated_conflicts; then
@@ -535,7 +566,7 @@ while [ "$attempt" -lt "$max_attempts" ]; do
       exit 1
     fi
     for path in "$@"; do
-      if [ -e "$path" ] && ! git add -- "$path"; then
+      if [ -e "$path" ] && ! git add -A -- "$path"; then
         echo "::error::git add failed for ${path} after the post-rebase rebuild." >&2
         exit 1
       fi

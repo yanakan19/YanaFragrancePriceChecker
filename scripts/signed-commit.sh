@@ -130,6 +130,12 @@ staged="$(git diff --cached --name-only)"
 [ -n "$staged" ] || not_attempted "nothing is staged"
 
 for path in $staged; do
+  # The page's data files (demo/data/<module>.<hash>.json, up to ~17 MB each)
+  # are the same bytes that used to sit inside demo/index.html, so they get
+  # the same answer. Matched by prefix, since their names change every build.
+  case "$path" in
+    demo/data/*) not_attempted "the staged set includes ${path}, which is never sent through the API" ;;
+  esac
   for big in $OVERSIZED_PATHS; do
     if [ "$path" = "$big" ]; then
       not_attempted "the staged set includes ${big}, which is never sent through the API"

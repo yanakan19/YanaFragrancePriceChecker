@@ -39,6 +39,14 @@
  * a CI step that would only fire after the stale page had already been
  * pushed (and, on the crawl schedule, already served).
  *
+ * The page's data, demo/data/<module>.<hash>.json, is output of the same
+ * build, from inputs this hash already covers (the *.generated.ts modules).
+ * The stamp in the page therefore vouches for the data too, provided the
+ * files the page names are the ones on disk: tests/demoDataFiles.test.ts
+ * checks exactly that (each named file present, its name the hash of its
+ * bytes, nothing else in the folder), and scripts/check-demo-freshness.ts
+ * refuses a commit whose page names a missing file.
+ *
  * ── Why hash the inputs and not the output ────────────────────────────────
  * Hashing the ~15 MB built document itself would work too, but only by
  * accident of whoever's machine produced it: esbuild's minifier is not
@@ -64,10 +72,12 @@ import { join } from 'node:path';
 
 /**
  * Files `scripts/build-demo.ts` reads directly and inlines, beyond whatever
- * `tsconfig.demo.json` compiles into the bundle. Just the one placeholder
- * document today — see that script's `/*__BUNDLE__*\/` substitution.
+ * `tsconfig.demo.json` compiles into the bundle: the placeholder document
+ * (see that script's `/*__BUNDLE__*\/` substitution), and the module that
+ * writes the data loader and boot script into it, which is as much the
+ * page's source as the template is.
  */
-const EXTRA_INPUTS = ['demo/template.html'];
+const EXTRA_INPUTS = ['demo/template.html', 'scripts/dataFiles.ts'];
 
 /**
  * Bundled inputs deliberately left OUT of the fingerprint.
