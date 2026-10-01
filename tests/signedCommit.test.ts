@@ -118,11 +118,14 @@ describe('signed-commit.sh: every refusal is silent, total and cheap', () => {
 
   it.each([
     ['demo/catalogue.generated.ts'],
+    ['demo/data.json'],
     ['demo/index.html'],
     ['demo/404.html'],
   ])('declines outright when the staged set includes %s', (big) => {
-    // D16's first reason. These three are 19.3 MB, 18.3 MB and 18.3 MB, and
-    // base64 inflates each about 1.37x in a JSON body — whether GitHub's API
+    // D16's first reason. The catalogue is 19.3 MB and demo/data.json 23 MB;
+    // the two pages were 18.3 MB each until their data moved into
+    // demo/data.json, and only ever change with it. Base64 inflates each
+    // about 1.37x in a JSON body — whether GitHub's API
     // reliably accepts a request of that shape is unknown, and the branch a
     // cron is pushing to is not where to find out. So the four call sites
     // carrying them never reach the API at all.

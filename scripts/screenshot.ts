@@ -30,12 +30,12 @@
  * Override with CHROMIUM_PATH=/some/other/chrome if the image moves.
  *
  * ── Serving rather than file:// ─────────────────────────────────────────────
- * demo/index.html is a single self-contained document with the bundle inlined,
- * so it opens from disk. But routes are real paths (`/search`, `/fragrance/x`)
- * read out of `location.pathname` by demo/router.ts, and under file:// those
- * paths point at the filesystem root. A four-line static server with an
- * index.html fallback gives the router the URLs it expects. Nothing outbound
- * is fetched, so the proxy is irrelevant here too.
+ * demo/index.html loads its catalogue from demo/data.json, which a page opened
+ * from disk is not allowed to fetch. Routes are also real paths (`/search`,
+ * `/fragrance/x`) read out of `location.pathname` by demo/router.ts, and under
+ * file:// those paths point at the filesystem root. A four-line static server
+ * with an index.html fallback serves both the data and the URLs the router
+ * expects. Nothing outbound is fetched, so the proxy is irrelevant here too.
  *
  * ── Options ─────────────────────────────────────────────────────────────────
  *   --widths 1280,1440,1920   viewport widths in CSS px (default those three)
@@ -59,6 +59,7 @@ import { createServer } from 'node:http';
 import { readFileSync, existsSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { waitForApp } from './a11y-audit.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const demoDir = resolve(root, 'demo');
@@ -193,6 +194,7 @@ async function main(): Promise<void> {
         const page = await browser.newPage({ viewport: { width, height: o.height } });
         await seed(page, o);
         await page.goto(`http://127.0.0.1:${port}${route}`, { waitUntil: 'load' });
+        await waitForApp(page);
         await page.waitForTimeout(o.wait);
         const suffix = o.perRow !== null ? `x${o.perRow}` : '';
         const file = resolve(o.out, `${slugForRoute(route)}@${width}${suffix}.png`);

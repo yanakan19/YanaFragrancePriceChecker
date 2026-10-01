@@ -4,7 +4,7 @@
  * ── Where an answer comes from ───────────────────────────────────────────
  * Two places, and the reader's browser decides which:
  *
- *   1. The page itself. demo/index.html inlines the whole catalogue, and
+ *   1. The page itself. demo/index.html loads the whole catalogue, and
  *      demo/yanny/ (the engine that used to run on a server) is bundled
  *      beside it. Prices, stock, sizes, notes, delivery, deals, budgets,
  *      comparisons, brand coverage and questions about the site are looked

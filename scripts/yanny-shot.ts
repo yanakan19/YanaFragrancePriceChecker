@@ -6,7 +6,10 @@
  *   npx tsx scripts/yanny-shot.ts "how much is bleu de channel edp" [out.png]
  *
  * Uses the pinned Chromium the way scripts/screenshot.ts does; the
- * catalogue path needs no network, so this works in the sandbox.
+ * catalogue path needs no network, so this works in the sandbox. Opens
+ * dist-demo/standalone.html, the copy `npm run demo` writes with its data
+ * inside it: demo/index.html loads demo/data.json, which a page opened from
+ * disk is not allowed to fetch (see scripts/build-demo.ts).
  */
 import { chromium } from 'playwright';
 import { existsSync } from 'node:fs';
@@ -19,7 +22,7 @@ const executablePath = process.env.CHROMIUM_PATH ?? '/opt/pw-browsers/chromium';
 
 const browser = await chromium.launch(existsSync(executablePath) ? { executablePath } : {});
 const page = await browser.newPage({ viewport: { width: 480, height: 900 } });
-const url = pathToFileURL(resolve('demo/index.html')).href;
+const url = pathToFileURL(resolve('dist-demo/standalone.html')).href;
 await page.goto(url, { waitUntil: 'load' });
 await page.click('#yanny-launcher');
 await page.waitForSelector('#yanny-input');

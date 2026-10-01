@@ -165,16 +165,23 @@ variable** → name `SIGNED_COMMITS`, value `off`.
 ```
 npm ci
 npm test          # the whole suite, including the built page's layout and accessibility
-npm run demo      # rebuild demo/index.html and demo/404.html after any change to the site
+npm run demo      # rebuild demo/index.html, demo/404.html and demo/data.json after any change to the site
 ```
 
 `demo/index.html` is a build artefact, not source: edit `demo/app.ts`,
 `demo/template.html`, or anything else `tsconfig.demo.json` bundles, and run
 `npm run demo` before you commit. `tests/demoBuildFreshness.test.ts` fails
 `npm test` if the page's stamped build hash (`scripts/demoInputsHash.ts`) does
-not match the source. The page carries the catalogue as a JSON block ahead of
-the code (`scripts/bundle-demo.ts` explains why), so it is still one
-self-contained file you can open from disk.
+not match the source, or if `demo/data.json` is not the data that page was
+built with.
+
+The page's catalogue is `demo/data.json`, beside it, which the page fetches as
+it opens (`scripts/bundle-demo.ts` and `scripts/demoDataFile.ts` explain
+why). `demo/404.html` is the same page, served for every deep link. The three
+are one build: commit them together, always. To open the site from disk, use
+`dist-demo/standalone.html`, which `npm run demo` also writes with the data
+inside it; browsers will not let a page opened from disk fetch a file beside
+it, so `demo/index.html` opened that way says so and points there.
 
 ## The idea
 

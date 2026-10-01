@@ -31,7 +31,7 @@
 # This script is written to answer those three, not to route around them:
 #
 #   D16 reason 1, FILE SIZE. Not attempted at all when the staged set touches
-#   any of the three oversized generated files. See OVERSIZED_PATHS, and
+#   any of the oversized generated files. See OVERSIZED_PATHS, and
 #   MAX_PAYLOAD_BYTES for the belt-and-braces total cap. The four call sites
 #   that carry those files never reach the API at all; they are byte-for-byte
 #   on the path they are on today.
@@ -109,17 +109,22 @@ command -v curl >/dev/null 2>&1 || not_attempted "curl is not available"
 command -v node >/dev/null 2>&1 || not_attempted "node is not available"
 
 # ── Gate 3: the oversized generated files ────────────────────────────────────
-# demo/catalogue.generated.ts is 19.3 MB; demo/index.html and demo/404.html are
-# 18.3 MB each. Base64 in a JSON request body inflates each about 1.37x, and
+# demo/catalogue.generated.ts is 19.3 MB, and demo/data.json, the catalogue the
+# page loads, is 23 MB. demo/index.html and demo/404.html were 18.3 MB each
+# until 2026-10-01, when their data moved out into demo/data.json; they are
+# under 1 MB now, but they stay on the list because they only ever change
+# alongside demo/data.json, one build in three files, and a commit that sent
+# them through the API without it would be half a build. Base64 in a JSON
+# request body inflates each about 1.37x, and
 # D16 established that whether GitHub's API reliably accepts a request of that
 # shape is unknown — real-world reports describe 422s well under the
 # documented ceiling. Unknown is not a thing to find out on the branch a cron
 # is pushing to, so these are simply never sent. A staged set containing any
 # of them falls back before a single byte is read.
-OVERSIZED_PATHS="demo/catalogue.generated.ts demo/index.html demo/404.html"
+OVERSIZED_PATHS="demo/catalogue.generated.ts demo/data.json demo/index.html demo/404.html"
 
 # A whole-payload ceiling as well, because the deny list above names today's
-# three known-large files and cannot know about tomorrow's. 4 MB of raw content
+# known-large files and cannot know about tomorrow's. 4 MB of raw content
 # is roughly 5.5 MB of base64, comfortably inside anything GitHub is reported
 # to accept, and comfortably above every payload the four small call sites
 # actually produce (the largest, "Harvest: real prices", is the data/catalogue

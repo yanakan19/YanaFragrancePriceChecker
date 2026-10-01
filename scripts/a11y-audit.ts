@@ -18,7 +18,7 @@
  * launches the same pinned Chromium, for the same reasons recorded there.
  */
 import AxeBuilder from '@axe-core/playwright';
-import { chromium, type Browser } from 'playwright';
+import { chromium, type Browser, type Page } from 'playwright';
 import { createServer } from 'node:http';
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname, extname } from 'node:path';
@@ -66,6 +66,21 @@ export async function launchChromium(): Promise<Browser> {
   return chromium.launch(existsSync(PINNED_CHROMIUM) ? { executablePath: PINNED_CHROMIUM } : {});
 }
 
+/**
+ * Waits until the app has started on `page`. The page fetches its data
+ * (demo/data.json) and only then runs the app, and a fetch does not hold up
+ * the "load" event, so load alone no longer means there is anything to look
+ * at. Fails with the page's own reason if the app could not start. See the
+ * loader in scripts/build-demo.ts.
+ */
+export async function waitForApp(page: Page, timeout = 60_000): Promise<void> {
+  // A string, not a function: the test runner's transform adds helpers to
+  // functions that do not exist inside the page.
+  await page.waitForFunction('window.__psReady === true || window.__psBootError !== undefined', undefined, { timeout });
+  const error = await page.evaluate('window.__psBootError');
+  if (error !== undefined) throw new Error(`The app did not start: ${String(error)}`);
+}
+
 export interface Violation {
   id: string;
   impact: string;
@@ -104,6 +119,7 @@ export async function auditRoute(
       );
     }
     await page.goto(`http://127.0.0.1:${port}${route}`, { waitUntil: 'load' });
+    await waitForApp(page);
     await page.waitForTimeout(500);
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'])

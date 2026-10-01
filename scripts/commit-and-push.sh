@@ -40,16 +40,52 @@ shift
 git config user.name 'pricesniffs-bot'
 git config user.email 'bot@users.noreply.github.com'
 
+# ── The page is three files, and they only ever travel together ────────────
+# demo/index.html and demo/404.html run the app; demo/data.json is the
+# catalogue they load, split out of the page on 2026-10-01 so phones stop
+# spending seconds scanning it as HTML (see scripts/demoDataFile.ts). They are
+# one build. The page reads the data by position and refuses data from any
+# other build, so a commit carrying one half without the other publishes a
+# site that shows nothing until the other half lands. A caller naming any one
+# of them therefore gets all three, rather than a commit that is quietly half
+# a build. scripts/check-demo-freshness.ts, below, then proves the three on
+# disk are the same build before anything is committed.
+PAGE_PATHS="demo/index.html demo/404.html demo/data.json"
+
+is_page_path() {
+  for page in $PAGE_PATHS; do
+    if [ "$1" = "$page" ]; then return 0; fi
+  done
+  return 1
+}
+
+paths=()
+wants_fresh_demo=0
+for path in "$@"; do
+  paths+=("$path")
+  if is_page_path "$path"; then wants_fresh_demo=1; fi
+done
+if [ "$wants_fresh_demo" -eq 1 ]; then
+  for page in $PAGE_PATHS; do
+    named=0
+    for path in "${paths[@]}"; do
+      if [ "$path" = "$page" ]; then named=1; fi
+    done
+    if [ "$named" -eq 0 ]; then
+      echo "Staging ${page} as well: it is part of the same build as the page files named."
+      paths+=("$page")
+    fi
+  done
+fi
+
 # Paths that do not exist yet are skipped rather than fatal: the house harvest
 # only writes its files once a storefront has actually returned something.
 staged_any=0
-wants_fresh_demo=0
-for path in "$@"; do
+for path in "${paths[@]}"; do
   if [ -e "$path" ]; then
     git add "$path"
     staged_any=1
   fi
-  if [ "$path" = "demo/index.html" ]; then wants_fresh_demo=1; fi
 done
 
 if [ "$staged_any" -eq 0 ]; then
@@ -65,11 +101,12 @@ fi
 # ── Never commit a page that is stale against the source beside it ──────────
 # demo/index.html is not source; it is the source, already built, and it
 # carries a stamp of exactly which source it was built from (see
-# scripts/demoInputsHash.ts). A caller that names it is promising that the
-# page on disk matches the *.ts and template on disk. Runs #388–#395
-# (2026-09-04/05) are what happens when that promise is broken by accident:
-# the rebuild step timed out before `npm run demo` ran, the caller committed
-# a new demo/catalogue.generated.ts beside the old page regardless, the
+# scripts/demoInputsHash.ts), and the version of the demo/data.json it was
+# built with. A caller that names it is promising that the page on disk
+# matches the *.ts and template on disk, and the data file beside it. Runs
+# #388–#395 (2026-09-04/05) are what happens when that promise is broken by
+# accident: the rebuild step timed out before `npm run demo` ran, the caller
+# committed a new demo/catalogue.generated.ts beside the old page regardless, the
 # freshness test then failed on every later run, and — because that test
 # gates every harvest — no prices moved for over a day. The workflow now
 # refuses to reach this script after a rebuild that did not finish; this is
@@ -90,8 +127,8 @@ demo_is_fresh() {
 if ! demo_is_fresh; then
   git reset -q
   echo "::error::Refusing to commit demo/index.html: it was built from different source than is on" >&2
-  echo "::error::disk now (see the check above). Run \`npm run demo\` and commit the result. Nothing was" >&2
-  echo "::error::committed or pushed; the branch is exactly as it was." >&2
+  echo "::error::disk now, or with a different demo/data.json (see the check above). Run \`npm run demo\`" >&2
+  echo "::error::and commit the result. Nothing was committed or pushed; the branch is exactly as it was." >&2
   exit 1
 fi
 
@@ -207,7 +244,11 @@ delay=2
 # from that* — so a conflict costs a replay of the few commits since the
 # incoming checkpoint, never the ten-minute-and-growing replay from the first
 # commit that a checkpoint left with conflict markers would force.
-GENERATED_PATHS="demo/index.html demo/404.html demo/catalogue.generated.ts demo/priceHistory.generated.ts data/price-history-checkpoint.json"
+#
+# demo/data.json is the page's own catalogue (see PAGE_PATHS above): built in
+# the same breath as demo/index.html, from the same inputs, so a conflict in
+# it is settled the same way, by rebuilding both.
+GENERATED_PATHS="demo/index.html demo/404.html demo/data.json demo/catalogue.generated.ts demo/priceHistory.generated.ts data/price-history-checkpoint.json"
 
 # How to rebuild them. Overridable so this script does not hard-code knowledge
 # of the app's build for callers that generate something else.
@@ -524,8 +565,9 @@ while [ "$attempt" -lt "$max_attempts" ]; do
   # stale on arrival. The conflict path already regenerates; the clean path
   # never did, and it is the more common one. Same check as before the first
   # commit, same remedy as the conflict path: rebuild from the merged inputs,
-  # re-stage exactly the caller's own set (no widening — anything else the
-  # build wrote is discarded, as resolve_generated_conflicts does), and fold
+  # re-stage exactly the caller's own set, page files paired as above (no
+  # widening — anything else the build wrote is discarded, as
+  # resolve_generated_conflicts does), and fold
   # it into our commit. That commit is local and unpushed — the push was just
   # rejected — so amending it rewrites nothing anyone has seen.
   if ! demo_is_fresh; then
@@ -534,7 +576,7 @@ while [ "$attempt" -lt "$max_attempts" ]; do
       echo "::error::Could not rebuild the page after rebasing. Nothing was pushed." >&2
       exit 1
     fi
-    for path in "$@"; do
+    for path in "${paths[@]}"; do
       if [ -e "$path" ] && ! git add -- "$path"; then
         echo "::error::git add failed for ${path} after the post-rebase rebuild." >&2
         exit 1

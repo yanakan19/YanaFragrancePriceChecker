@@ -1,10 +1,10 @@
 /**
  * Bundles the demo app, moving its large data literals out of the JavaScript
- * and into a JSON block scripts/build-demo.ts writes into the same page.
+ * and into JSON that scripts/build-demo.ts ships beside the page.
  *
  *   tsc -p tsconfig.demo.json  →  dist-demo/**.js
  *   this script                →  dist-demo/bundle.js + dist-demo/data.json
- *   scripts/build-demo.ts      →  demo/index.html (data block, then bundle)
+ *   scripts/build-demo.ts      →  demo/index.html + demo/data.json
  *
  * ── Why ──────────────────────────────────────────────────────────────────────
  * The catalogue, its offers, the price history and the deals are written into
@@ -18,7 +18,7 @@
  * ── What it changes, and what it leaves alone ─────────────────────────────────
  * Only top-level `const`s in *.generated.js whose initializer is at least
  * MIN_BYTES long and is valid JSON. Each is replaced by `__psData(n)`, which
- * reads entry n of the page's JSON block, parsed once on first use. Everything
+ * reads entry n of the page's data, parsed once. Everything
  * else in those modules — the chunk spreads that join a literal back together,
  * the helper functions they export — stays as it was. A literal that is not
  * valid JSON is left as code: slower, never wrong.
@@ -47,11 +47,14 @@ const dataAsJson: Plugin = {
   },
 };
 
-// Parsed once, on the first lookup, from the block build-demo.ts writes ahead
-// of the bundle's own <script>.
+// demo/index.html fetches the data from demo/data.json and hands it over as
+// window.__psLoadedData before it runs the bundle. The self-contained pages
+// (dist-demo/artifact.html and dist-demo/standalone.html) carry it inline
+// instead, in the block build-demo.ts writes ahead of the bundle's <script>,
+// parsed once on the first lookup. See build-demo.ts for both.
 const PRELUDE =
   'var __psData=(function(){var d;return function(i){' +
-  'if(!d)d=JSON.parse(document.getElementById("ps-data").textContent);return d[i]}})();';
+  'if(!d)d=window.__psLoadedData||JSON.parse(document.getElementById("ps-data").textContent);return d[i]}})();';
 
 await build({
   entryPoints: [resolve(root, 'dist-demo/demo/app.js')],
