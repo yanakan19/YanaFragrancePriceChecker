@@ -6,8 +6,12 @@
  * implementation of the pricing rules to fall out of sync.
  *
  *   tsc -p tsconfig.demo.json   →  dist-demo/**.js
- *   esbuild dist-demo/demo/app.js --bundle  →  dist-demo/bundle.js
+ *   scripts/bundle-demo.ts      →  dist-demo/bundle.js + dist-demo/data.json
  *   this script                 →  demo/index.html + dist-demo/artifact.html
+ *
+ * The data block goes in ahead of the bundle's own <script>, as
+ * <script type="application/json" id="ps-data">: see bundle-demo.ts for why
+ * the catalogue ships as JSON rather than as JavaScript.
  *
  * Two outputs, same body:
  *   - `demo/index.html`      a standalone document you can open from disk
@@ -39,10 +43,16 @@ const inputsHash = computeDemoInputsHash(root);
 
 const template = readFileSync(resolve(root, 'demo/template.html'), 'utf8');
 const bundle = readFileSync(resolve(root, 'dist-demo/bundle.js'), 'utf8');
+const data = readFileSync(resolve(root, 'dist-demo/data.json'), 'utf8');
 
-if (!template.includes('/*__BUNDLE__*/')) {
-  throw new Error('demo/template.html has no /*__BUNDLE__*/ placeholder to inject into');
+const BUNDLE_TAG = '<script>/*__BUNDLE__*/</script>';
+if (!template.includes(BUNDLE_TAG)) {
+  throw new Error(`demo/template.html has no ${BUNDLE_TAG} placeholder to inject into`);
 }
+
+// Every "<" escaped, which JSON allows inside a string and which is the only
+// way a value could close the block early or open an HTML comment in it.
+const safeData = data.replace(/</g, '\\u003c');
 
 // `</script>` inside the bundle would close the inline tag early.
 const safeBundle = bundle.replace(/<\/script>/gi, '<\\/script>');
@@ -55,7 +65,10 @@ const safeBundle = bundle.replace(/<\/script>/gi, '<\\/script>');
 // previously exercised a bundle large enough to hit one. A function
 // replacer's return value is spliced in literally, with no such patterns
 // recognised, which is what this always needed to be doing.
-const body = template.replace('/*__BUNDLE__*/', () => safeBundle);
+const body = template.replace(
+  BUNDLE_TAG,
+  () => `<script type="application/json" id="ps-data">${safeData}</script>\n<script>${safeBundle}</script>`,
+);
 
 mkdirSync(resolve(root, 'dist-demo'), { recursive: true });
 writeFileSync(resolve(root, 'dist-demo/artifact.html'), body);
