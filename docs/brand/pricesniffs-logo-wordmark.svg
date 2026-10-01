@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" role="img" aria-label="PriceSniffs">
+  <rect width="1080" height="1080" fill="#0A0A0B"/>
+  <g transform="translate(540 430) scale(0.74) translate(-525 -525)">
+    <circle cx="478" cy="478" r="196" fill="none" stroke="#FF3B41" stroke-width="58"/>
+    <line x1="636" y1="636" x2="796" y2="796" stroke="#FF3B41" stroke-width="72" stroke-linecap="round"/>
+    <g fill="#F7F7F8">
+      <rect x="452" y="366" width="52" height="42" rx="9"/>
+      <rect x="463" y="402" width="30" height="26"/>
+      <rect x="398" y="422" width="160" height="164" rx="34"/>
+    </g>
+  </g>
+  <text x="540" y="878" text-anchor="middle" font-family="'Liberation Sans', Arial, Helvetica, sans-serif"
+    font-weight="700" font-size="120" letter-spacing="-3"><tspan fill="#F7F7F8">Price</tspan><tspan fill="#FF3B41">Sniffs</tspan></text>
+</svg>
