@@ -1,6 +1,6 @@
 import { test } from 'vitest';
 import assert from 'node:assert/strict';
-import worker, { allowedOrigins, callModel, configuredModels, health, race, validateChatBody, DEFAULT_MODELS } from '../../workers/yanny/src/index.js';
+import worker, { allowedOrigins, callModel, configuredModels, configProblems, health, race, validateChatBody, DEFAULT_MODELS } from '../../workers/yanny/src/index.js';
 
 /**
  * The Worker's own logic, exercised without a network: which models are
@@ -278,4 +278,93 @@ test('fetch: /api/chat refuses an origin that is not the site, and a preflight f
   assert.equal(bad.status, 400);
   const missing = await worker.fetch(new Request('https://w.example/nothing'), env);
   assert.equal(missing.status, 404);
+});
+
+/* ── hardening ─────────────────────────────────────────────────────────── */
+
+test('callModel: a binding call that never returns is cut off at the timeout, not left hanging', async () => {
+  const m = { provider: 'workers-ai', model: 'stuck', ai: { run: () => new Promise(() => {}) } };
+  const startedAt = Date.now();
+  const result = await callModel(m, messages, undefined, { timeoutMs: 30 });
+  assert.equal(result.ok, false);
+  assert.match(result.error, /timed out/);
+  assert.ok(Date.now() - startedAt < 1000);
+});
+
+test('configProblems: a typo or a missing secret is named for the owner, never a secret value', () => {
+  assert.deepEqual(configProblems({ AI: {} }), [], 'the shipped default has nothing to report');
+  const problems = configProblems({
+    YANNY_MODELS: JSON.stringify([
+      { provider: 'workers-ai', model: '@cf/x' },
+      { provider: 'grok', model: 'y' },
+      { provider: 'groq', model: 'z' },
+    ]),
+    GEMINI_API_KEY: 'secret-value',
+  });
+  assert.ok(problems.some((p) => /binding "AI" is not bound/.test(p)), problems.join('\n'));
+  assert.ok(problems.some((p) => /unknown provider "grok"/.test(p)), problems.join('\n'));
+  assert.ok(problems.some((p) => /GROQ_API_KEY is not set/.test(p)), problems.join('\n'));
+  assert.ok(!problems.join(' ').includes('secret-value'));
+  assert.match(configProblems({ YANNY_MODELS: '{not json' })[0], /not valid JSON/);
+});
+
+test('configuredModels: a long list is capped, because every entry spends a request per question', () => {
+  const many = Array.from({ length: 9 }, (_, i) => ({ provider: 'groq', model: `m${i}` }));
+  assert.equal(configuredModels({ YANNY_MODELS: JSON.stringify(many), GROQ_API_KEY: 'k' }).length, 4);
+});
+
+test('fetch: CORS answers the site and its www origin only, and an oversized body is refused before parsing', async () => {
+  const env = { ALLOWED_ORIGINS: 'https://pricesniffs.space,https://www.pricesniffs.space', AI: { run: async () => ({ response: 'x' }) } };
+  for (const origin of ['https://pricesniffs.space', 'https://www.pricesniffs.space']) {
+    const res = await worker.fetch(new Request('https://w.example/api/chat', { method: 'OPTIONS', headers: { Origin: origin } }), env);
+    assert.equal(res.headers.get('Access-Control-Allow-Origin'), origin);
+  }
+  const other = await worker.fetch(new Request('https://w.example/api/chat', { method: 'OPTIONS', headers: { Origin: 'https://pricesniffs.space.evil.example' } }), env);
+  assert.equal(other.headers.get('Access-Control-Allow-Origin'), null);
+
+  const huge = JSON.stringify({ question: 'hi', siteData: 'x'.repeat(70_000) });
+  const res = await worker.fetch(
+    new Request('https://w.example/api/chat', { method: 'POST', headers: { Origin: 'https://pricesniffs.space', 'Content-Type': 'application/json' }, body: huge }),
+    env,
+  );
+  assert.equal(res.status, 413);
+});
+
+test('fetch: a rate-limited caller gets a 429 the widget can recognise', async () => {
+  const env = { ALLOWED_ORIGINS: 'https://pricesniffs.space', AI: { run: async () => ({ response: 'x' }) }, RATE: { limit: async () => ({ success: false }) } };
+  const res = await worker.fetch(
+    new Request('https://w.example/api/chat', {
+      method: 'POST',
+      headers: { Origin: 'https://pricesniffs.space', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: 'something sweet', siteData: SITE_DATA }),
+    }),
+    env,
+  );
+  assert.equal(res.status, 429);
+  assert.equal(res.headers.get('Access-Control-Allow-Origin'), 'https://pricesniffs.space');
+});
+
+test('fetch: a grounded answer streams back as one result event', async () => {
+  const env = {
+    ALLOWED_ORIGINS: 'https://pricesniffs.space',
+    AI: { run: async () => ({ response: 'House Bottle lists vanilla and musk; cheapest £42.00 delivered.' }) },
+  };
+  const res = await worker.fetch(
+    new Request('https://w.example/api/chat', {
+      method: 'POST',
+      headers: { Origin: 'https://pricesniffs.space', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: 'something vanilla', intent: 'suggest', siteData: SITE_DATA }),
+    }),
+    env,
+  );
+  assert.equal(res.status, 200);
+  assert.equal(res.headers.get('Content-Type'), 'text/event-stream');
+  const events = (await res.text())
+    .split('\n\n')
+    .filter((chunk) => chunk.startsWith('data:'))
+    .map((chunk) => JSON.parse(chunk.slice(5)));
+  const results = events.filter((e) => e.type === 'result');
+  assert.equal(results.length, 1);
+  assert.equal(results[0].result.ok, true);
+  assert.match(results[0].result.winner.content, /House Bottle/);
 });

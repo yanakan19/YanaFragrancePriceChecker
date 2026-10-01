@@ -77,8 +77,8 @@ npx wrangler deploy --config workers/yanny/wrangler.toml
 
 Either way the deploy prints the Worker's URL
 (`https://pricesniffs-yanny.<your-subdomain>.workers.dev`). Check
-`<url>/api/health`: it must report `ok: true`, `configured: true` and at
-least one reachable provider. `configured: false` means the `[ai]` binding
+`<url>/api/health`: it must report `ok: true`, `configured: true`, at
+least one reachable provider, and an empty `problems` list. `configured: false` means the `[ai]` binding
 is missing from `workers/yanny/wrangler.toml`.
 
 ### 3. Point the site at it
@@ -86,7 +86,12 @@ is missing from `workers/yanny/wrangler.toml`.
 Set `VIRTUAL_YANNY_API_BASE_URL` in `demo/virtualYanny.ts` to that URL, run
 `npm run demo`, commit `demo/virtualYanny.ts`, `demo/index.html` and
 `demo/404.html`, push. Until this is done the widget answers every catalogue
-question and says, for an open one, that the AI side is not connected yet.
+question as usual, and answers an open one with the closest thing the
+catalogue can give — bottles that share published notes with the one named
+("what smells like Aventus"), the matching policy page ("can I return a
+perfume"), or a plain list of what it can do. The same fallback is used
+whenever the Worker is unreachable, rate limits, or no model answers in time,
+so a reader never ends a turn on an error.
 
 ### Adding a third-party model as a fallback (optional)
 
@@ -109,7 +114,10 @@ OpenAI-compatible endpoint work the same way.
 is one: `@cf/meta/llama-3.3-70b-instruct-fp8-fast` on the `workers-ai`
 provider. Keep the list short — every entry spends one request per question
 against that provider's daily allowance. The ids must be ones the provider
-currently serves; `/api/health` reports one that has been retired.
+currently serves. `/api/health` lists configuration problems under
+`problems` (bad JSON, an unknown provider, a missing secret); a retired id
+shows up as failed answers in the Worker's logs, and the widget answers those
+questions from the catalogue meanwhile. At most four models are used.
 Cloudflare's catalogue is at developers.cloudflare.com/workers-ai/models.
 Change the list, redeploy.
 

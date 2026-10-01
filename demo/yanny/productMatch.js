@@ -100,7 +100,69 @@ const BRAND_ALIASES = {
   dg: ['dolce', 'gabbana'],
   tf: ['tom', 'ford'],
   mfk: ['maison', 'francis', 'kurkdjian'],
+  pdm: ['parfums', 'de', 'marly'],
+  mm: ['maison', 'margiela'],
 };
+
+/**
+ * The shorthand fragrance forums use for a handful of very common bottles,
+ * expanded to the words of the product's own title before matching. Each
+ * one stands for exactly one product line, which is the bar for being here:
+ * "cdnim" can only mean Club de Nuit Intense Man, whereas "tv" (Tobacco
+ * Vanille? television?) cannot, so it is not listed. Only ever expands a
+ * whole word, so it cannot change a name that merely contains the letters.
+ *
+ * Measured before this existed: "cdnim price" and "br540 price" both
+ * answered "I don't have a fragrance matching that", for bottles the
+ * catalogue lists at several shops.
+ */
+const PRODUCT_SHORTHAND = {
+  cdnim: 'armaf club de nuit intense man',
+  cdni: 'armaf club de nuit intense man',
+  cdniw: 'armaf club de nuit intense woman',
+  br540: 'baccarat rouge 540',
+  bdc: 'bleu de chanel',
+  adg: 'acqua di gio',
+  adgp: 'acqua di gio profumo',
+  jpgum: 'jean paul gaultier ultra male',
+  lmle: 'le male elixir',
+  '1m': '1 million',
+  sdj: 'sol de janeiro',
+};
+
+/** The question with any known shorthand spelt out. Exported for tests. */
+export function expandShorthand(text) {
+  let out = ` ${normalizeText(text)} `;
+  // "br 540" / "br540" are both how Baccarat Rouge 540 gets typed.
+  out = out.replace(/ br 540 /g, ' baccarat rouge 540 ');
+  // The lookahead leaves each trailing space for the next word, so two
+  // neighbouring shorthands ("adg cdnim") both expand.
+  out = out.replace(/ ([a-z0-9]+)(?= )/g, (m, w) => (Object.prototype.hasOwnProperty.call(PRODUCT_SHORTHAND, w) ?` ${PRODUCT_SHORTHAND[w]}` : m));
+  return out.replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * A product name with the house's own words taken out, for deciding which
+ * listings are the same product.
+ *
+ * Shops disagree about whether the house belongs in the product's name:
+ * Giorgio Armani "Armani Code" and Giorgio Armani "Code" are the same bottle,
+ * as are Hugo Boss "Boss Bottled" and "Bottled", and Yves Saint Laurent
+ * "YSL Libre" and "Libre". Treated as different names they split one
+ * product's sizes and shops into two groups that then tie with each other,
+ * so "armani code price" was answered with "a few products match" and a
+ * list of five near-identical lines. Stripping the brand's own words (and
+ * its common abbreviation) puts them back together. A name that is nothing
+ * but the house's words ("Dolce" by Dolce & Gabbana) is left as it is.
+ */
+function nameTokensWithoutBrand(brandTokens, nameTokens) {
+  const brandWords = new Set(brandTokens);
+  for (const [alias, parts] of Object.entries(BRAND_ALIASES)) {
+    if (parts.every((p) => brandWords.has(p))) brandWords.add(alias);
+  }
+  const kept = nameTokens.filter((t) => !brandWords.has(t));
+  return kept.length > 0 ? kept : nameTokens;
+}
 
 /* ── concentration, read as a preference ──────────────────────────────── */
 
@@ -229,7 +291,9 @@ export function groupKeyFor(f) {
  * answer for it should carry both shops' sizes and prices.
  */
 function canonicalKey(f) {
-  return `${tokensOf(f.brand).join(' ')}|${tokensOf(f.name).join(' ')}|${normalizeText(f.concentration)}`;
+  const brandTokens = tokensOf(f.brand);
+  const nameTokens = nameTokensWithoutBrand(brandTokens, tokensOf(f.name));
+  return `${brandTokens.join(' ')}|${nameTokens.join(' ')}|${normalizeText(f.concentration)}`;
 }
 
 /**
@@ -249,7 +313,7 @@ export function buildProductIndex(fragrances) {
     let g = byKey.get(key);
     if (!g) {
       const brandTokens = [...new Set(tokensOf(frag.brand))];
-      const nameTokens = tokensOf(frag.name);
+      const nameTokens = nameTokensWithoutBrand(brandTokens, tokensOf(frag.name));
       g = {
         key,
         productKey: key.slice(0, key.lastIndexOf('|')),
@@ -275,6 +339,11 @@ export function buildProductIndex(fragrances) {
   }
   const groups = [...byKey.values()];
   const vocab = new Map();
+  // How often each token is part of a house's name versus a product's name,
+  // and which house it most often names — see `brandWordIn` below.
+  const brandCount = new Map();
+  const nameCount = new Map();
+  const brandOfToken = new Map();
   groups.forEach((g, i) => {
     g.brand = g.lead.brand;
     g.name = g.lead.name;
@@ -286,8 +355,45 @@ export function buildProductIndex(fragrances) {
       if (!list) vocab.set(t, (list = []));
       list.push(i);
     }
+    for (const t of g.brandTokens) {
+      brandCount.set(t, (brandCount.get(t) ?? 0) + 1);
+      const seen = brandOfToken.get(t);
+      if (!seen || g.popularity > seen.popularity) brandOfToken.set(t, { brand: g.brand, popularity: g.popularity });
+    }
+    for (const t of g.nameTokens) nameCount.set(t, (nameCount.get(t) ?? 0) + 1);
   });
-  return { groups, vocab, tokens: [...vocab.keys()] };
+  return { groups, vocab, tokens: [...vocab.keys()], brandCount, nameCount, brandOfToken };
+}
+
+/**
+ * The house a query word names, if it is a word that mostly names houses.
+ *
+ * "chanel no 5" was answered "Closest match: Laurelle Parfums Royal Ring
+ * Blue - Inspired by No. 5" with a price, because "no" and "5" both landed
+ * in that title and only "chanel" missed — two words out of three is a
+ * confident match by coverage alone. But the word that missed was the
+ * house, and a bottle from a different house is not a near miss for it: it
+ * is a different product, here an imitation of the one asked for. So a
+ * word that is overwhelmingly a brand word in this catalogue (it appears in
+ * more houses' names than products' names, and is not connective tissue)
+ * and that the chosen product does not carry is reported, and the caller
+ * refuses rather than quoting the other house's bottle.
+ */
+function brandWordIn(word, index) {
+  const w = canonicalToken(word);
+  if (BRAND_ALIASES[w]) return { alias: BRAND_ALIASES[w], brand: null };
+  if (w.length < 4 || FUNCTION_WORDS.has(w)) return null;
+  const b = index.brandCount.get(w) ?? 0;
+  if (b === 0 || b <= (index.nameCount.get(w) ?? 0)) return null;
+  return { alias: null, brand: index.brandOfToken.get(w)?.brand ?? null, token: w };
+}
+
+/** Whether a group's title carries a query word in any form the matcher
+ *  would accept (exact, prefix, near miss or brand abbreviation). */
+function groupCarries(g, word) {
+  const w = canonicalToken(word);
+  if (BRAND_ALIASES[w]) return BRAND_ALIASES[w].every((p) => g.brandTokens.includes(p));
+  return wordMatch(w, g.titleTokens) > 0;
 }
 
 const indexCache = new WeakMap();
@@ -327,7 +433,13 @@ function hitsFor(word, index) {
     }
   };
   if (index.vocab.has(w)) add(w, EXACT);
-  const max = tolerance(w);
+  // A word the catalogue already uses in several titles is not a typo, so it
+  // is not also read as a near miss for some other word. Before this,
+  // "do you have Sauvage Elixir" scored "sauvage" as a near miss for
+  // "salvage" and answered "Yes — Brandy Designs Salvage Elixir", a
+  // different house's imitation, because that one title carried both words.
+  const established = (index.vocab.get(w)?.length ?? 0) >= 2;
+  const max = established ? 0 : tolerance(w);
   for (const t of index.tokens) {
     if (t === w) continue;
     if (w.length >= 3 && t.length > w.length && t.startsWith(w)) add(t, PREFIX);
@@ -374,11 +486,16 @@ export function matchProduct({ words, wantedConcentration }, fragrances) {
   const acc = new Map();
   for (const { word, weight } of weighted) {
     const hits = aliasHitsFor(word, index) ?? hitsFor(word, index);
+    // How rare the word is across the catalogue, for ordering a tie that
+    // has to be shown as a list (see `distinctCandidates`).
+    const rarity = weight / Math.log2(2 + hits.size);
     for (const [gi, strength] of hits) {
       const g = index.groups[gi];
       let a = acc.get(gi);
-      if (!a) acc.set(gi, (a = { got: 0, nameHit: false, nameChars: 0, seen: new Set() }));
+      if (!a) acc.set(gi, (a = { got: 0, nameHit: false, nameChars: 0, seen: new Set(), rarity: 0, fuzzy: 0 }));
       a.got += weight * strength;
+      a.rarity += rarity;
+      if (strength === FUZZY) a.fuzzy += 1;
       const w = canonicalToken(word);
       // Which name token this word accounts for, for tightness. Exact or
       // near-miss: the token itself; prefix: the token it is a prefix of.
@@ -392,15 +509,42 @@ export function matchProduct({ words, wantedConcentration }, fragrances) {
   }
   if (acc.size === 0) return { status: 'no_match' };
 
-  let best = 0;
-  const scored = [];
+  let scored = [];
   for (const [gi, a] of acc) {
     const g = index.groups[gi];
     const coverage = a.got / totalWeight;
     const tight = g.nameChars > 0 ? Math.min(1, a.nameChars / g.nameChars) : 0;
-    scored.push({ g, coverage, tight, nameHit: a.nameHit });
-    if (coverage > best) best = coverage;
+    scored.push({ g, coverage, tight, nameHit: a.nameHit, rarity: a.rarity, fuzzy: a.fuzzy });
   }
+
+  // A house named in the question is a hard constraint, not one word among
+  // several — see `brandWordIn` for the case that forced this.
+  const houseWords = weighted.filter((w) => w.weight === 1 && brandWordIn(w.word, index)).map((w) => w.word);
+  if (houseWords.length > 0) {
+    const carriesHouse = scored.filter((s) => houseWords.every((w) => groupCarries(s.g, w)));
+    const named = brandWordIn(houseWords[0], index);
+    const brandNamed =
+      named.brand ??
+      index.groups.find((g) => named.alias.every((p) => g.brandTokens.includes(p)))?.brand ??
+      null;
+    if (carriesHouse.length === 0 || Math.max(...carriesHouse.map((s) => s.coverage)) < MATCH_FLOOR) {
+      // Said as "I can't find that <house> fragrance" only when the rest of
+      // the words really did land on some other bottle — that is the case
+      // this exists for. "guess what zorblax nebula costs" names the house
+      // Guess by accident and matches nothing else at all: a plain "no
+      // match" is the true answer there.
+      // A house whose whole multi-word name was typed ("le labo santal 33")
+      // was named on purpose, whatever the other words matched.
+      const elsewhere = Math.max(...scored.map((s) => s.coverage));
+      const houseTokens = index.groups.find((g) => g.brand === brandNamed)?.brandTokens ?? [];
+      const typed = new Set(words.map(canonicalToken));
+      const wholeName = houseTokens.length >= 2 && houseTokens.every((t) => typed.has(t));
+      return elsewhere >= MATCH_FLOOR || wholeName ? { status: 'no_match', brandNamed } : { status: 'no_match' };
+    }
+    scored = carriesHouse;
+  }
+
+  const best = Math.max(...scored.map((s) => s.coverage));
   if (best < MATCH_FLOOR) return { status: 'no_match' };
 
   let top = scored.filter((s) => s.coverage >= best - TIE);
@@ -414,8 +558,20 @@ export function matchProduct({ words, wantedConcentration }, fragrances) {
   // mangled listing can carry the house's name inside a product name
   // ("Unbranded | Rabanne Olympea") and must not turn "Rabanne" into that
   // one bottle.
+  //
+  // Only for a complete match, though. When the words are only partly
+  // explained, a group that carries one of them in its *brand* has not been
+  // "named as a house" — it is one more partial hit. Measured: "sauvage
+  // elixir" (a bottle the catalogue does not hold) tied Dior Sauvage with
+  // every Elixir at half coverage, and because a house called "... Elixir"
+  // was in the tie the whole answer was the eight most popular Elixirs, with
+  // Dior Sauvage — the word the question most specifically named — absent.
   if (top.some((s) => !s.nameHit)) {
-    return { status: 'ambiguous', matchConfidence, exact, candidates: distinctCandidates(top, 'popularity') };
+    const named = top.filter((s) => s.nameHit);
+    if (exact || named.length === 0) {
+      return { status: 'ambiguous', matchConfidence, exact, candidates: distinctCandidates(top, 'popularity') };
+    }
+    top = named;
   }
 
   // Several distinct products cover the words equally: the one whose name
@@ -436,7 +592,7 @@ export function matchProduct({ words, wantedConcentration }, fragrances) {
         alsoNamed = products.slice(1).map((p) => p.sample);
         top = tightSet.filter((s) => s.g.productKey === lead.key);
       } else {
-        return { status: 'ambiguous', matchConfidence, exact, candidates: distinctCandidates(top) };
+        return { status: 'ambiguous', matchConfidence, exact, candidates: distinctCandidates(top, exact ? 'tight' : 'rarity') };
       }
     } else {
       top = tightSet;
@@ -458,6 +614,11 @@ export function matchProduct({ words, wantedConcentration }, fragrances) {
   const anchor = chosen.rows[0];
   const shape = {
     matchConfidence,
+    // Whether any word reached this product only as a near miss ("sauvge"
+    // for Sauvage). Callers that must not guess — a question that may not
+    // be about a product at all — can refuse a match that rests on one:
+    // "weather" is one letter from "leather".
+    fuzzy: (top.find((s) => s.g === chosen)?.fuzzy ?? 0) > 0,
     anchor,
     brand: chosen.brand,
     name: chosen.name,
@@ -490,8 +651,16 @@ function productsIn(set) {
 function distinctCandidates(top, order = 'tight') {
   const seen = new Set();
   const out = [];
+  // 'rarity' is for a partial tie: "sauvage elixir" covers half of Dior
+  // Sauvage and half of every Elixir equally, and listing five Elixirs
+  // because their names are shorter buried the one the words most
+  // specifically point at. The rarer word decides which half leads.
   const ordered = [...top].sort((a, b) =>
-    order === 'popularity' ? b.g.popularity - a.g.popularity || b.tight - a.tight : b.tight - a.tight || b.g.popularity - a.g.popularity,
+    order === 'popularity'
+      ? b.g.popularity - a.g.popularity || b.tight - a.tight
+      : order === 'rarity'
+        ? b.rarity - a.rarity || b.g.popularity - a.g.popularity || b.tight - a.tight
+        : b.tight - a.tight || b.g.popularity - a.g.popularity,
   );
   for (const s of ordered) {
     if (seen.has(s.g.key)) continue;
