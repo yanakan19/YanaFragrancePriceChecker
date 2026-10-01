@@ -1576,3 +1576,21 @@ describe('displayName, once the shop signature is off the end', () => {
     expect(displayName(signed, brand, brand)).toContain('Perfumeo');
   });
 });
+
+describe('a delivery offer in a shop title is not part of the name', () => {
+  it('strips "| Free UK Delivery" left behind once the shop credit is gone', () => {
+    // Perfumeo's own page titles, as harvested on 2026-09-29.
+    const cases: [string, string, string][] = [
+      ['Habik Men by Lattafa 100ml EDP | Free UK Delivery | Perfumeo', 'Lattafa', 'Habik Men'],
+      ['Fareed by Riiffs 100ml Eau De Parfum | Free UK Delivery | Perfumeo', 'Riiffs', 'Fareed'],
+      ['Virtus by Riiffs 100ml Extrait De Parfum | Free UK Delivery | Perfumeo', 'Riiffs', 'Virtus'],
+    ];
+    for (const [title, brand, expected] of cases) {
+      expect(displayName(stripTrailingShopCredit(title, 'Perfumeo', 'perfumeo.co.uk'), brand, brand)).toBe(expected);
+    }
+  });
+
+  it('leaves a name that merely contains one of those words', () => {
+    expect(displayName('Free Spirit | Delivery Edition', 'Brand', 'Brand')).toContain('Delivery');
+  });
+});

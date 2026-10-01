@@ -64,17 +64,8 @@ describe('product names carry no shop descriptor rubbish', () => {
    * to match that would not also match a real name. Pinned by its exact
    * string, so if that shop's habit spreads to a second product this test
    * fails and someone has to look, which is the point.
-   *
-   * 2026-09-29: Three new products with "| Free UK Delivery" appended by shop
-   * markup: Lattafa Habik Men, Riiffs Fareed, Riiffs Virtus. Same pattern —
-   * shop-added text with no generalizable rule. Pinned until cleaned.
    */
-  const KNOWN_UNFIXED_PIPE_NAMES = new Set([
-    'Weekend | DNL RECALLED',
-    'Habik Men by Lattafa | Free UK Delivery',
-    'Fareed by Riiffs | Free UK Delivery',
-    'Virtus by Riiffs | Free UK Delivery',
-  ]);
+  const KNOWN_UNFIXED_PIPE_NAMES = new Set(['Weekend | DNL RECALLED']);
 
   it('has no "|" in a name outside the verified allowlist', () => {
     const offenders = CATALOGUE.filter(
@@ -104,18 +95,8 @@ describe('product names carry no shop descriptor rubbish', () => {
    * in the next cannot slip past on spacing.
    */
   it('has no name carrying its own brand immediately before a separator', () => {
-    // Same allowlist as the first test — names where brand appears before | but are known unfixed
-    const ALLOWED_BRANDS_BEFORE_SEPARATOR = new Set([
-      'Weekend | DNL RECALLED',
-      'Habik Men by Lattafa | Free UK Delivery',
-      'Fareed by Riiffs | Free UK Delivery',
-      'Virtus by Riiffs | Free UK Delivery',
-    ]);
-
     const offenders: string[] = [];
     for (const p of CATALOGUE) {
-      if (ALLOWED_BRANDS_BEFORE_SEPARATOR.has(p.name)) continue;
-
       const want = brandKey(p.brand);
       if (!want) continue;
       const tokens = [...p.name.matchAll(/[A-Za-z0-9]+/g)];

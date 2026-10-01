@@ -1968,11 +1968,20 @@ const NOISE_SEGMENT_OZ_RE = /^\/?\s*\d+(?:\.\d+)?\s*fl\s*oz$/i;
 const NOISE_SEGMENT_RELEASE_RE = /^new(?:\s+\d{4})?(?:\s+release)?$/i;
 
 /**
- * Whether the text after the last "|" in `s` is noise, by one of four
+ * A trailing segment that is a delivery offer — Perfumeo's page titles read
+ * "Habik Men by Lattafa 100ml EDP | Free UK Delivery | Perfumeo" (3 live
+ * products, 2026-09-29). Delivery terms belong to the shop, never the bottle.
+ * Anchored at both ends so a name merely containing one of these words survives.
+ */
+const NOISE_SEGMENT_DELIVERY_RE =
+  /^free\s+(?:uk\s+)?(?:next[\s-]day\s+|standard\s+|express\s+|tracked\s+)?(?:delivery|shipping|postage)$/i;
+
+/**
+ * Whether the text after the last "|" in `s` is noise, by one of five
  * measured tests. Returns the name without that segment, or null to leave the
  * name exactly as it is.
  *
- * The fourth test is the one that is not a vocabulary: a segment every one of
+ * The restatement test is the one that is not a vocabulary: a segment every one of
  * whose words already appears earlier in the same name is a restatement and
  * carries no new fact. That is what "Amber Oud by Brandy | Brandy" is — 44
  * live Brandy Designs products, where the shop repeats the house it has
@@ -1996,7 +2005,8 @@ function stripTrailingNoiseSegment(s: string): string | null {
     !vocabulary &&
     !restatement &&
     !NOISE_SEGMENT_OZ_RE.test(segment) &&
-    !NOISE_SEGMENT_RELEASE_RE.test(segment)
+    !NOISE_SEGMENT_RELEASE_RE.test(segment) &&
+    !NOISE_SEGMENT_DELIVERY_RE.test(segment)
   ) {
     return null;
   }
