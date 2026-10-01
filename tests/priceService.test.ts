@@ -130,7 +130,7 @@ describe('buildComparison ordering', () => {
     // there is to go on, and it is a fair comparison — neither is being
     // credited with delivery it has not quoted.
     const rows = buildComparison(
-      [offer('ibraq', 60), offer('manchester-ouds', 40)],
+      [offer('ibraq', 45), offer('manchester-ouds', 30)],
       { now: NOW },
     );
     expect(rows.map((r) => r.retailer.id)).toEqual(['manchester-ouds', 'ibraq']);
@@ -207,8 +207,9 @@ describe('presentOffer', () => {
 
   it('never turns an unstated delivery cost into a delivered price', () => {
     const tfc = getRetailer('manchester-ouds')!;
-    const row = presentOffer(offer('manchester-ouds', 55), tfc, NOW);
-    expect(row.itemPriceGbp).toBe(55);
+    // Under its £50 free-delivery threshold, so no figure has been stated.
+    const row = presentOffer(offer('manchester-ouds', 45), tfc, NOW);
+    expect(row.itemPriceGbp).toBe(45);
     expect(row.deliveredPriceGbp).toBeNull();
     expect(row.delivery.costGbp).toBeNull();
     expect(row.delivery.isFree).toBe(false);
@@ -271,7 +272,7 @@ describe('result grouping', () => {
   it('falls back to an unknown-delivery offer only when it is the only one', () => {
     // Naming the one shop that has it beats showing nothing, and the UI
     // labels it as delivery not stated rather than as a winning price.
-    const only = buildComparison([offer('manchester-ouds', 55)], { now: NOW });
+    const only = buildComparison([offer('manchester-ouds', 45)], { now: NOW });
     const best = bestOffer(only)!;
     expect(best.retailer.id).toBe('manchester-ouds');
     expect(best.deliveredPriceGbp).toBeNull();
