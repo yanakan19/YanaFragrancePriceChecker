@@ -24,7 +24,7 @@ on:
     paths:
       - 'demo/**'
   workflow_run:
-    workflows: ['Catalogue crawl']
+    workflows: ['Catalogue crawl', 'Fragrance links daily']
     types: [completed]
   workflow_dispatch:
 
