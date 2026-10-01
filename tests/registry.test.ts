@@ -330,7 +330,8 @@ describe('retailer registry', () => {
     it('orders unknown-delivery offers among themselves by item price', () => {
       // They are comparable to each other on the only figure they have.
       const [a, b] = unstated;
-      const rows = buildComparison([rawOffer(b!.id, 80), rawOffer(a!.id, 20)]);
+      // Both under any free-delivery threshold a shop states (£50 is the lowest).
+      const rows = buildComparison([rawOffer(b!.id, 30), rawOffer(a!.id, 20)]);
       expect(rows.map((row) => row.retailer.id)).toEqual([a!.id, b!.id]);
       expect(rows.every((row) => row.deliveredPriceGbp === null)).toBe(true);
     });

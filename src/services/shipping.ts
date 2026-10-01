@@ -38,6 +38,19 @@ export function resolveDelivery(retailer: Retailer, basketGbp: number): Delivery
   // outrank one with a real number (see buildComparison and bestOffer). It is
   // shown, labelled "delivery not stated", and it cannot win on price.
   if (shipping.standardGbp === null) {
+    // The one thing that can still be said: a shop that publishes no flat rate
+    // but does publish a free-delivery threshold ("free UK delivery on orders
+    // over £90", FragranceHub) has made a real claim about baskets above it.
+    // Those ship free in the shop's own words; below it the cost stays unknown.
+    if (shipping.freeOverGbp !== null && basketGbp >= shipping.freeOverGbp) {
+      return {
+        ...base,
+        costGbp: 0,
+        isFree: true,
+        freeReason: 'threshold-met',
+        spendMoreForFreeGbp: null,
+      };
+    }
     return {
       ...base,
       costGbp: null,

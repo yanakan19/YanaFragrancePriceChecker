@@ -89,17 +89,27 @@ describe('resolveDelivery', () => {
       expect(resolveDelivery(unstated, 20).costGbp).toBeNull();
     });
 
-    it('claims nothing about free delivery', () => {
-      // Not free, no reason it might be, and no shortfall to quote — a
-      // threshold is meaningless without the cost it is a threshold on. Even
-      // at a basket that clears the £25 free-over figure, "free" is a claim
-      // this retailer has not made.
-      for (const basket of [20, 25, 500]) {
+    it('claims nothing about free delivery below a stated threshold', () => {
+      // Not free, no reason it might be, and no shortfall to quote: a
+      // shortfall would imply a known cost that the shortfall avoids.
+      const d = resolveDelivery(unstated, 20);
+      expect(d.isFree).toBe(false);
+      expect(d.freeReason).toBeNull();
+      expect(d.spendMoreForFreeGbp).toBeNull();
+    });
+
+    it('ships free at or over a threshold the shop states, even with no flat rate', () => {
+      // FragranceHub publishes "free delivery over £90" but no standard rate:
+      // a bottle above £90 ships free in the shop's own words.
+      for (const basket of [25, 500]) {
         const d = resolveDelivery(unstated, basket);
-        expect(d.isFree).toBe(false);
-        expect(d.freeReason).toBeNull();
-        expect(d.spendMoreForFreeGbp).toBeNull();
+        expect(d.costGbp).toBe(0);
+        expect(d.isFree).toBe(true);
+        expect(d.freeReason).toBe('threshold-met');
+        expect(deliveredPrice(unstated, basket)).toBe(basket);
       }
+      const noThreshold: Retailer = { ...unstated, shipping: { ...unstated.shipping, freeOverGbp: null } };
+      expect(resolveDelivery(noThreshold, 500).costGbp).toBeNull();
     });
 
     it('still reports everything it does know', () => {
