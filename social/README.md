@@ -9,6 +9,9 @@ Everything for PriceSniffs social media posts.
 | `posts/` | One folder per post, named `YYYY-MM-DD-short-name`, holding the SVG source, the rendered PNG and `caption.txt` |
 | `fonts/` | Liberation Sans, the logo's font, with its licence |
 
+Deal of the Day posts are made automatically every day at 12:00 UK
+(`npm run social:deal`, see DESIGN-SYSTEM.md section 7).
+
 Make the PNGs with `npm run social:render` (every post) or
 `npm run social:render -- social/posts/<folder>` (one post).
 
@@ -19,3 +22,4 @@ What to post, where and when: `docs/SOCIAL-MEDIA-PLAN.md`.
 | Date | Folder | Post |
 |---|---|---|
 | 2026-10-01 | `posts/2026-10-01-launch-welcome/` | Launch: "Welcome to the Page" (vertical 9:16) |
+| 2026-10-02 | `posts/2026-10-02-deal-of-the-day/` | Deal of the Day: Zimaya Yaa Umree (9:16 and 3:4) |

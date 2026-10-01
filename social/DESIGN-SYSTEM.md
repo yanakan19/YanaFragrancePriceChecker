@@ -86,3 +86,25 @@ These apply to all post copy: the image text and the caption.
 4. Run `npm run social:render` to make the PNG beside the SVG.
 5. Run `npx vitest run tests/socialPosts.test.ts`.
 6. Look at the PNG, then commit the folder.
+
+## 7. Deal of the Day (automatic, every day at 12:00 UK)
+
+`npm run social:deal` makes the post in `social/posts/YYYY-MM-DD-deal-of-the-day/`:
+`post-9x16.png` (story, 1080 x 1920) and `post-3x4.png` (feed, 1080 x 1440),
+their HTML sources, `caption.txt` and `check.json`.
+
+Top to bottom: wordmark, "Deal of the Day" with the UK flag, the perfume name
+and size, the brand underneath in smaller grey capitals, the product photo
+used on the site on a white card, the MSRP box (red) and the cheapest price
+box (green) exactly as the product page shows them, then the product link and
+when the price was checked.
+
+How the perfume is picked: the biggest saving against the brand's own current
+price (MSRP) among perfumes whose product page shows both boxes, with a fresh
+price, delivery stated and the cheapest shop confirmed. No perfume repeats
+within 60 days and no brand within 3 days (`social/deal-of-the-day-history.json`).
+The link is checked on the live site before the post is written.
+
+A routine runs this at 12:00 London time each day, checks the images and the
+caption (section 5 rules and the yanaaidetection check), and pushes the folder.
+
