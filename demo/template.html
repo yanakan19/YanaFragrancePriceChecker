@@ -2344,8 +2344,10 @@
   .house-card a:focus-visible {
     outline: 2px solid var(--accent); outline-offset: 2px; border-color: var(--accent);
   }
+  /* height: auto so the width/height attributes on the img only give it its
+     proportions before the photo arrives, never a fixed pixel height. */
   .house-img {
-    width: 100%; aspect-ratio: 1 / 1; object-fit: contain;
+    width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: contain;
     border-radius: 10px; background: #fff;
   }
   .house-img-none { display: block; background: var(--line); }
