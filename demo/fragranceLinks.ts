@@ -1,4 +1,7 @@
 import { officialSiteFor, type BrandSite } from './brandSites.js';
+import { FRAGRANCE_LINKS } from './fragranceLinks.generated.js';
+import { marketOf } from '../src/catalogue/brandSiteCheck.js';
+import { lookupLinks, type CompactTable } from '../src/catalogue/fragranceLinkStore.js';
 
 /**
  * What the fragrance detail page's "Official Site" + "Fragrantica" links
@@ -9,45 +12,67 @@ import { officialSiteFor, type BrandSite } from './brandSites.js';
  * demo/listSort.ts and demo/trustpilotWidget.ts already live in their own
  * modules.
  *
- * ── Official Site: the brand's homepage, not a per-fragrance page ──────────
- * The owner's original ask was for a link to the fragrance's own page on the
- * brand's site where possible. That isn't available: `BRAND_SITES` in
- * brandSites.ts only ever records one URL per house — its homepage, found
- * and verified by hand — and nothing in the harvested catalogue
- * (demo/catalogue.generated.ts) carries a brand-owned product-page URL for
- * any individual fragrance. Concatenating a guessed slug onto the brand's
- * domain to fabricate one would be exactly the "invented link" this project
- * forbids (see officialSiteFor's own doc comment: "never guessed from a
- * plausible domain pattern"). So this reuses `officialSiteFor` directly, the
- * same lookup and the same URL brandView() already renders on the brand's
- * own directory page — this feature is exactly as good as what already
- * exists there, no better and no worse. Null when officialSiteFor has no
- * entry, same absent-rather-than-guessed rule as everywhere else that lookup
- * is used.
+ * ── Each link goes to the perfume's own page where one has been checked ─────
+ * `FRAGRANCE_LINKS` (demo/fragranceLinks.generated.ts, written from
+ * data/fragrance-links.json by scripts/resolve-fragrance-links.ts) holds, for
+ * each perfume it covers, its page on Fragrantica and its page on the brand's
+ * own website. A stored URL has been matched to the perfume by name, and by
+ * concentration where the page is concentration-specific, and sits on the
+ * brand's own domain (official) or on fragrantica.com/perfume/ (Fragrantica) —
+ * the rules are in src/catalogue/fragranceLinkMatch.ts. Nothing in this module
+ * ever builds one of those URLs from a name: a guessed slug is exactly the
+ * "invented link" this project forbids, and Fragrantica's numeric id cannot be
+ * guessed at all.
  *
- * ── Fragrantica: a search link, not a guessed product page ─────────────────
- * A specific Fragrantica product page follows
- * `/perfume/{Brand-Slug}/{Name-Slug}-{id}.html`, but the numeric id is only
- * knowable by visiting Fragrantica — which docs/SCRAPING.md and this
- * project's standing rules forbid (Fragrantica's ToS prohibits automated
- * access; WebFetch to fragrantica.com is EGRESS_BLOCKED from this sandbox
- * regardless). Nothing else in this repo captures a Fragrantica URL for any
- * product either (checked: no affiliate feed field, no "as seen on"
- * reference anywhere in demo/ or src/). A constructed *search* URL needs no
- * id — it's Fragrantica's own general search entry point, working for any
- * query whether or not that exact concentration/size has its own page — so
- * it's the honest version of this link rather than a URL that might 404 or
- * land on the wrong perfume. Always present: unlike the official-site link,
- * a search never depends on a lookup table having an entry.
+ * ── Where nothing is stored, the link falls back to what it always was ──────
+ * Official Site: the brand's homepage via `officialSiteFor` (the same lookup
+ * and URL brandView() renders on the brand's own directory page); null where
+ * that has no entry, and the link is then not rendered.
+ *
+ * Fragrantica: a search link, which needs no id and works for any query. It
+ * is Fragrantica's own general search entry point, so unlike a constructed
+ * product page it cannot 404 or land on the wrong perfume. Always present.
+ *
+ * `officialDirect` and `fragranticaDirect` say which of the two cases a link
+ * is, for tests and for any future copy that wants to say "Fragrantica page"
+ * rather than "Fragrantica search".
  */
 export interface FragranceLinks {
   officialSite: BrandSite | null;
+  /** True when `officialSite` is the perfume's own page rather than the brand homepage. */
+  officialDirect: boolean;
+  /** The perfume's Fragrantica page, or, where none is stored, `fragranticaSearchUrl`. */
+  fragranticaUrl: string;
+  fragranticaDirect: boolean;
+  /** Always the search link, kept for callers that want it regardless. */
   fragranticaSearchUrl: string;
 }
 
-export function fragranceLinksFor(brand: string, name: string): FragranceLinks {
+export function fragranceLinksFor(
+  brand: string,
+  name: string,
+  concentration = '',
+  table: CompactTable = FRAGRANCE_LINKS,
+): FragranceLinks {
+  const fragranticaSearchUrl = `https://www.fragrantica.com/search/?query=${encodeURIComponent(`${brand} ${name}`)}`;
+  const direct = lookupLinks(table, brand, name, concentration);
+
+  const home = officialSiteFor(brand);
+  const officialSite: BrandSite | null = direct.official
+    ? { url: direct.official, uk: ukMarket(direct.official) }
+    : home;
+
   return {
-    officialSite: officialSiteFor(brand),
-    fragranticaSearchUrl: `https://www.fragrantica.com/search/?query=${encodeURIComponent(`${brand} ${name}`)}`,
+    officialSite,
+    officialDirect: direct.official !== null,
+    fragranticaUrl: direct.fragrantica ?? fragranticaSearchUrl,
+    fragranticaDirect: direct.fragrantica !== null,
+    fragranticaSearchUrl,
   };
+}
+
+// The same rule officialSiteFor applies to a homepage (see its own doc comment).
+function ukMarket(url: string): boolean {
+  const m = marketOf(url);
+  return m === 'uk' || m === 'gb';
 }

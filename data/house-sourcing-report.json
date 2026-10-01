@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-29T16:58:16.351Z",
+  "checkedAt": "2026-10-01T20:12:38.513Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -58,7 +58,7 @@
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "USD",
+      "currency": "SEK",
       "listings": 4,
       "pricedInGbp": 0,
       "withPhoto": 0,
@@ -69,7 +69,7 @@
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
         "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
-        "prices are in USD, not GBP — needs a UK price source before these are comparable"
+        "prices are in SEK, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -78,9 +78,9 @@
       "origin": "https://assaf.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 273,
+      "listings": 276,
       "pricedInGbp": 0,
-      "withPhoto": 272,
+      "withPhoto": 275,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -110,9 +110,9 @@
       "origin": "https://maisonasrar.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 129,
+      "listings": 130,
       "pricedInGbp": 0,
-      "withPhoto": 129,
+      "withPhoto": 130,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -144,9 +144,9 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 59,
+      "listings": 51,
+      "pricedInGbp": 51,
+      "withPhoto": 50,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -161,9 +161,9 @@
       "origin": "https://surrati.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 104,
+      "listings": 108,
       "pricedInGbp": 0,
-      "withPhoto": 103,
+      "withPhoto": 107,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -277,9 +277,9 @@
       "origin": "https://swissarabian.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 177,
+      "listings": 180,
       "pricedInGbp": 0,
-      "withPhoto": 177,
+      "withPhoto": 180,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -447,9 +447,9 @@
       "origin": "https://amouage.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 94,
+      "listings": 93,
       "pricedInGbp": 0,
-      "withPhoto": 94,
+      "withPhoto": 93,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -480,9 +480,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 701,
+      "listings": 702,
       "pricedInGbp": 0,
-      "withPhoto": 701,
+      "withPhoto": 702,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
