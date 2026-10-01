@@ -49,7 +49,8 @@
     "changelog:suggest": "tsx scripts/changelog-suggest.ts",
     "quarantine:prices": "tsx scripts/quarantine-prices.ts",
     "sitemap": "tsx scripts/build-sitemap.ts",
-    "social:render": "tsx scripts/render-social.ts"
+    "social:render": "tsx scripts/render-social.ts",
+    "links:resolve": "tsx scripts/resolve-fragrance-links.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
