@@ -93,7 +93,7 @@ ${demoBuildHashComment(inputsHash.hash)}
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#131013" media="(prefers-color-scheme: dark)" />
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
 <link rel="manifest" href="manifest.webmanifest" />
