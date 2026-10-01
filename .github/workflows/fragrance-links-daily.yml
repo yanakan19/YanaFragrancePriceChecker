@@ -66,4 +66,4 @@ jobs:
           ./scripts/commit-and-push.sh \
             "Fragrance links: $(date -u +%Y-%m-%d)" \
             data/fragrance-links.json data/fragrance-links-seen.json \
-            demo/fragranceLinks.generated.ts demo/index.html demo/404.html
+            demo/fragranceLinks.generated.ts demo/index.html demo/404.html demo/data.json

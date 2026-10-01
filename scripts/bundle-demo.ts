@@ -26,8 +26,9 @@
  * The generated .ts files are untouched, so every test that imports them reads
  * exactly the data it did before.
  */
+import { readdirSync, readFileSync } from 'node:fs';
 import { readFile, writeFile } from 'node:fs/promises';
-import { dirname, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { build, type Plugin } from 'esbuild';
 import { moveLiteralsToJson } from './dataLiterals.js';
@@ -36,12 +37,39 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const blobs: unknown[] = [];
 const report: string[] = [];
 
+/** Every compiled *.generated.js under `dir`, absolute, sorted. */
+function generatedModules(dir: string): string[] {
+  const found: string[] = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) found.push(...generatedModules(path));
+    else if (entry.name.endsWith('.generated.js')) found.push(path);
+  }
+  return found.sort();
+}
+
+// Transformed up front, in a fixed order, rather than as esbuild loads each
+// module. esbuild loads modules in parallel, so collecting the literals in
+// onLoad numbered them in whatever order the loads happened to finish: three
+// different data files from six builds of identical source (2026-10-01, once
+// there were four generated modules). The page does not mind, since each build
+// is consistent with itself, but demo/data.json and its version would change
+// on every rebuild, a 24MB diff in git for prices that had not moved.
+const transformed = new Map<string, string>();
+const loaded = new Set<string>();
+for (const file of generatedModules(resolve(root, 'dist-demo'))) {
+  const { code, moved } = moveLiteralsToJson(readFileSync(file, 'utf8'), blobs);
+  transformed.set(file, code);
+  if (moved.length) report.push(`${file.split('/').pop()}: ${moved.length} literal(s) moved`);
+}
+
 const dataAsJson: Plugin = {
   name: 'data-as-json',
   setup(b) {
-    b.onLoad({ filter: /\.generated\.js$/ }, async (args) => {
-      const { code, moved } = moveLiteralsToJson(await readFile(args.path, 'utf8'), blobs);
-      if (moved.length) report.push(`${args.path.split('/').pop()}: ${moved.length} literal(s) moved`);
+    b.onLoad({ filter: /\.generated\.js$/ }, (args) => {
+      const code = transformed.get(args.path);
+      if (code === undefined) throw new Error(`${args.path} was not among the generated modules found under dist-demo/`);
+      loaded.add(args.path);
       return { contents: code, loader: 'js' };
     });
   },
@@ -67,6 +95,12 @@ await build({
   plugins: [dataAsJson],
   logLevel: 'warning',
 });
+
+// A generated module the app does not import still has its literals in the
+// data, unused. Harmless, but worth knowing about.
+for (const [file, code] of transformed) {
+  if (!loaded.has(file) && code.includes('__psData(')) console.warn(`${file}: not imported by the app, but its data is in data.json`);
+}
 
 await writeFile(resolve(root, 'dist-demo/data.json'), JSON.stringify(blobs));
 const sizes = await Promise.all(['bundle.js', 'data.json'].map(async (f) => (await readFile(resolve(root, 'dist-demo', f))).length));
