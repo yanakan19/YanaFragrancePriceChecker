@@ -23,14 +23,17 @@ as Arial). Both weights live in `social/fonts/` under the SIL Open Font
 Licence, and the render script embeds them, so a post renders the same on any
 machine.
 
-| Role | Weight | Size on a 1920 wide canvas | Letter spacing |
-|---|---|---|---|
-| Headline | Bold 700 | 150px, two lines at most | -4 |
-| Wordmark | Bold 700 | 56px | -1.5 |
-| Body | Regular 400 | 46px, two lines at most, about 45 characters a line | 0 |
-| Button and address | Bold 700 | 40px | 0 |
+**Default format: vertical 9:16, 1080 x 1920.** Every post is made in this
+size unless a platform needs another one.
 
-For other canvas sizes, scale every number by the canvas width over 1920.
+| Role | Weight | Size on the 1080 x 1920 canvas | Letter spacing |
+|---|---|---|---|
+| Headline | Bold 700 | 132px, two lines at most, centred | -3.5 |
+| Wordmark | Bold 700 | 56px | -1.5 |
+| Body | Regular 400 | 46px, three lines at most, about 28 characters a line, centred | 0 |
+| Button and address | Bold 700 | 42px | 0 |
+
+For the 16:9 landscape layout, use the sizes in its template file.
 
 ## 3. Logo
 
@@ -40,14 +43,16 @@ them, never stretch them, never put them on anything but the black.
 
 ## 4. Layouts
 
-Every layout has the same skeleton: wordmark top left, headline, body, call to
-action, and the large mark on the right. Margins are 120px on a 1920 canvas.
+Every vertical layout has the same skeleton, top to bottom and centred:
+wordmark, the large mark, headline, body, call to action pill, address.
+Margins are at least 90px at the sides.
 
 | Template | Size | Use for |
 |---|---|---|
-| `templates/announcement-16x9.svg` | 1920 x 1080 | X, LinkedIn, Facebook, YouTube community, website banners |
+| `templates/announcement-9x16.svg` | 1080 x 1920 | **Default.** TikTok, Instagram and Facebook stories and reels, YouTube Shorts, Snapchat |
+| `templates/announcement-16x9.svg` | 1920 x 1080 | Only where a platform needs landscape: X, LinkedIn, YouTube banners |
 
-Add new templates (for example 1080 x 1080 square or 1080 x 1920 story) to
+Add new templates (for example 1080 x 1350 for an Instagram feed post) to
 `templates/` with the same skeleton, and list them here.
 
 ## 5. Words
@@ -68,8 +73,9 @@ These apply to all post copy: the image text and the caption.
 
 ## 6. Checklist for a new post
 
-1. Copy the closest template into `social/posts/YYYY-MM-DD-short-name/` as
-   `post-16x9.svg` (or the size you need).
+1. Copy `templates/announcement-9x16.svg` into
+   `social/posts/YYYY-MM-DD-short-name/` as `post-9x16.svg` (another template
+   only if the platform needs it).
 2. Replace the placeholder text. Keep to the line limits in section 2.
 3. Write `caption.txt` beside it and run the yanaaidetection check on it.
 4. Run `npm run social:render` to make the PNG beside the SVG.
