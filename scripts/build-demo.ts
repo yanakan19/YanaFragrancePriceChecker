@@ -41,7 +41,17 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync } from 'nod
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { computeDemoInputsHash, demoBuildHashComment } from './demoInputsHash.js';
-import { BLOBS_GLOBAL, READY_GLOBAL, bootScript, hashedDataPath, loaderScript, type DataFile, type DataGroup } from './dataFiles.js';
+import {
+  BLOBS_GLOBAL,
+  LAZY_GLOBAL,
+  READY_GLOBAL,
+  bootScript,
+  hashedDataPath,
+  loaderScript,
+  type DataFile,
+  type DataManifest,
+  type LazyDataFile,
+} from './dataFiles.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -54,7 +64,7 @@ const inputsHash = computeDemoInputsHash(root);
 
 const template = readFileSync(resolve(root, 'demo/template.html'), 'utf8');
 const bundle = readFileSync(resolve(root, 'dist-demo/bundle.js'), 'utf8');
-const groups = JSON.parse(readFileSync(resolve(root, 'dist-demo/data-files.json'), 'utf8')) as DataGroup[];
+const { groups, lazy } = JSON.parse(readFileSync(resolve(root, 'dist-demo/data-files.json'), 'utf8')) as DataManifest;
 
 const BUNDLE_TAG = '<script>/*__BUNDLE__*/</script>';
 if (!template.includes(BUNDLE_TAG)) {
@@ -79,7 +89,18 @@ for (const g of groups) {
   dataFiles.push({ path, start: g.start });
   dataParts.push(content.slice(1, -1));
 }
-const keep = new Set(dataFiles.map((f) => f.path.slice('data/'.length)));
+// On-demand files (LAZY_DATA_MODULES in scripts/dataFiles.ts): published the
+// same way, but the page only names them for the app to fetch later.
+const lazyFiles: LazyDataFile[] = [];
+const lazyInline: string[] = [];
+for (const name of lazy) {
+  const content = readFileSync(resolve(root, `dist-demo/data/${name}.json`), 'utf8');
+  const path = hashedDataPath(name, content);
+  writeFileSync(resolve(root, 'demo', path), content);
+  lazyFiles.push({ name, path });
+  lazyInline.push(`${JSON.stringify(name)}:${content}`);
+}
+const keep = new Set([...dataFiles, ...lazyFiles].map((f) => f.path.slice('data/'.length)));
 const removed = readdirSync(dataDir).filter((f) => !keep.has(f));
 for (const f of removed) rmSync(resolve(dataDir, f), { recursive: true, force: true });
 
@@ -98,15 +119,21 @@ const body = template.replace(BUNDLE_TAG, () => `<script>${bootScript(safeBundle
 
 mkdirSync(resolve(root, 'dist-demo'), { recursive: true });
 // The artifact wrapper hosts one file, so its copy carries the data inline,
-// the way the page itself did before it was split out. Every "<" escaped,
-// which JSON allows inside a string and which is the only way a value could
-// close the block early or open an HTML comment in it.
+// the way the page itself did before it was split out, on-demand data
+// included (it is parsed when first asked for, as on the site). Every "<"
+// escaped, which JSON allows inside a string and which is the only way a
+// value could close the block early or open an HTML comment in it.
 const inlineData = `[${dataParts.filter((p) => p.length > 0).join(',')}]`.replace(/</g, '\\u003c');
+const inlineLazy = `{${lazyInline.join(',')}}`.replace(/</g, '\\u003c');
 writeFileSync(
   resolve(root, 'dist-demo/artifact.html'),
   `<script type="application/json" id="ps-data">${inlineData}</script>\n` +
+    `<script type="application/json" id="ps-lazy">${inlineLazy}</script>\n` +
     `<script>window.${BLOBS_GLOBAL}=JSON.parse(document.getElementById('ps-data').textContent);` +
-    `window.${READY_GLOBAL}=Promise.resolve();</script>\n${body}`,
+    `window.${READY_GLOBAL}=Promise.resolve();` +
+    `window.${LAZY_GLOBAL}=function(n){return Promise.resolve().then(function(){` +
+    `var all=JSON.parse(document.getElementById('ps-lazy').textContent);` +
+    `if(!Object.prototype.hasOwnProperty.call(all,n))throw new Error('no lazy data file named '+n);return all[n];});};</script>\n${body}`,
 );
 
 // Installable on iOS (Safari Share → Add to Home Screen) and Android (Chrome
@@ -155,7 +182,7 @@ ${demoBuildHashComment(inputsHash.hash)}
 <meta name="twitter:title" content="PriceSniffs: compare fragrance prices across UK retailers" />
 <meta name="twitter:description" content="${OG_DESCRIPTION}" />
 <meta name="twitter:image" content="${SITE_URL}/og-preview.png" />
-<script>${loaderScript(dataFiles)}</script>
+<script>${loaderScript(dataFiles, lazyFiles)}</script>
 ${body}
 </html>
 `;
@@ -172,8 +199,9 @@ writeFileSync(resolve(root, 'demo/404.html'), standalone);
 
 console.log(`demo/index.html          ${(standalone.length / 1024).toFixed(1)} kB`);
 console.log(`demo/404.html            ${(standalone.length / 1024).toFixed(1)} kB (deep-link fallback)`);
-for (const f of dataFiles) {
-  console.log(`demo/${f.path.padEnd(38)} ${(readFileSync(resolve(root, 'demo', f.path)).length / 1024 / 1024).toFixed(1)} MB`);
+for (const f of [...dataFiles, ...lazyFiles]) {
+  const onDemand = lazyFiles.includes(f as LazyDataFile) ? ' (on demand)' : '';
+  console.log(`demo/${f.path.padEnd(38)} ${(readFileSync(resolve(root, 'demo', f.path)).length / 1024 / 1024).toFixed(1)} MB${onDemand}`);
 }
 if (removed.length) console.log(`demo/data                removed ${removed.length} superseded file(s)`);
 console.log(`dist-demo/artifact.html  ${(body.length / 1024).toFixed(1)} kB + inline data`);

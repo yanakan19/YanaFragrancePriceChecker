@@ -27,7 +27,12 @@
  *                    (9 Mbps down, 1.5 Mbps up, 60 ms RTT)
  *
  * "Bytes" is what the server actually wrote: compressed body plus headers,
- * every request the page or its service worker made.
+ * every request the page or its service worker made. "By first tiles" counts
+ * only the requests that reached the server before the first tile was in the
+ * page (same machine, same clock), which is what stood between the visitor
+ * and the page; "transferred" adds whatever the page and its worker fetch
+ * after that (the price history prefetch, the worker's pre-cache) until 1.5 s
+ * after the load event.
  */
 import { createServer, type ServerResponse } from 'node:http';
 import { createHash } from 'node:crypto';
@@ -49,15 +54,27 @@ const COMPRESSIBLE = new Set(['.html', '.js', '.css', '.json', '.svg', '.xml', '
 
 interface Served { body: Buffer; gz: Buffer | null; etag: string; mtime: number }
 
+/**
+ * Compressed bodies, shared by every server this process starts. Each
+ * scenario gets a fresh server, and gzipping the 17 MB catalogue takes the
+ * best part of a second, which a host serving from its own cache never
+ * charges a visitor; kept per server, it landed inside every measured visit.
+ * The uncounted warm-up visit in main() fills it.
+ */
+const compressed = new Map<string, Served>();
+
 export async function startPagesLikeServer(dir: string): Promise<{
   port: number;
   close: () => void;
   bytes: () => number;
+  /** Bytes written for the requests that arrived before `epochMs`. */
+  bytesRequestedBefore: (epochMs: number) => number;
   resetBytes: () => void;
   setMaxAge: (seconds: number) => void;
 }> {
-  const cache = new Map<string, Served>();
+  const cache = compressed;
   let written = 0;
+  let log: { at: number; bytes: number }[] = [];
   let maxAge = 600;
   const load = (file: string): Served => {
     const mtime = statSync(file).mtimeMs;
@@ -73,13 +90,15 @@ export async function startPagesLikeServer(dir: string): Promise<{
     cache.set(file, entry);
     return entry;
   };
-  const send = (res: ServerResponse, status: number, headers: Record<string, string>, body: Buffer | null): void => {
+  const send = (res: ServerResponse, at: number, status: number, headers: Record<string, string>, body: Buffer | null): void => {
     res.writeHead(status, headers);
-    written += Object.entries(headers).reduce((n, [k, v]) => n + k.length + v.length + 4, 17);
-    if (body) written += body.length;
+    const bytes = Object.entries(headers).reduce((n, [k, v]) => n + k.length + v.length + 4, 17) + (body?.length ?? 0);
+    written += bytes;
+    log.push({ at, bytes });
     res.end(body ?? undefined);
   };
   const server = createServer((req, res) => {
+    const at = Date.now();
     const path = decodeURIComponent((req.url ?? '/').split('?')[0]!);
     let file = resolve(dir, path === '/' || path.endsWith('/') ? `.${path}index.html` : `.${path}`);
     let status = 200;
@@ -95,14 +114,14 @@ export async function startPagesLikeServer(dir: string): Promise<{
       Vary: 'Accept-Encoding',
     };
     if (status === 200 && req.headers['if-none-match'] === entry.etag) {
-      send(res, 304, headers, null);
+      send(res, at, 304, headers, null);
       return;
     }
     const gzip = entry.gz && /\bgzip\b/.test(String(req.headers['accept-encoding'] ?? ''));
     const body = gzip ? entry.gz! : entry.body;
     if (gzip) headers['Content-Encoding'] = 'gzip';
     headers['Content-Length'] = String(body.length);
-    send(res, status, headers, req.method === 'HEAD' ? null : body);
+    send(res, at, status, headers, req.method === 'HEAD' ? null : body);
   });
   await new Promise<void>((r) => server.listen(0, '127.0.0.1', r));
   const { port } = server.address() as { port: number };
@@ -110,7 +129,8 @@ export async function startPagesLikeServer(dir: string): Promise<{
     port,
     close: () => server.close(),
     bytes: () => written,
-    resetBytes: () => { written = 0; },
+    bytesRequestedBefore: (epochMs) => log.filter((e) => e.at < epochMs).reduce((n, e) => n + e.bytes, 0),
+    resetBytes: () => { written = 0; log = []; },
     setMaxAge: (s) => { maxAge = s; },
   };
 }
@@ -122,7 +142,7 @@ const FIRST_TILE_PROBE = `
   }).observe(document, { childList: true, subtree: true });
 `;
 
-interface Sample { tilesMs: number; fcpMs: number; bytes: number }
+interface Sample { tilesMs: number; fcpMs: number; bytes: number; tileBytes: number }
 
 const FOUR_G = { offline: false, latency: 60, downloadThroughput: (9 * 1024 * 1024) / 8, uploadThroughput: (1.5 * 1024 * 1024) / 8 };
 
@@ -143,16 +163,18 @@ async function visit(
   await page.goto(url, { waitUntil: 'commit' });
   // Strings, not functions: this file is type-checked without the DOM lib.
   await page.waitForFunction('window.__firstTile !== undefined', null, { timeout: 120_000 });
-  const { tilesMs, fcpMs } = (await page.evaluate(`({
+  const { tilesMs, fcpMs, tileEpochMs } = (await page.evaluate(`({
     tilesMs: window.__firstTile,
+    tileEpochMs: performance.timeOrigin + window.__firstTile,
     fcpMs: performance.getEntriesByName('first-contentful-paint')[0]?.startTime ?? NaN,
-  })`)) as { tilesMs: number; fcpMs: number };
+  })`)) as { tilesMs: number; fcpMs: number; tileEpochMs: number };
+  const tileBytes = server.bytesRequestedBefore(tileEpochMs);
   // Let anything the page or its worker fetches after first paint land too.
   await page.waitForLoadState('load');
   await page.waitForTimeout(1500);
   const bytes = server.bytes();
   await page.close();
-  return { tilesMs, fcpMs, bytes };
+  return { tilesMs, fcpMs, bytes, tileBytes };
 }
 
 /** Waits until a service worker controls the origin and has finished its own fetching. */
@@ -203,10 +225,14 @@ async function main(): Promise<void> {
       for (let i = 0; i < runs; i++) samples.push(await scenario(browser, name, dir));
       const tiles = median(samples.map((s) => s.tilesMs));
       const fcp = median(samples.map((s) => s.fcpMs));
-      const kb = median(samples.map((s) => s.bytes)) / 1024;
+      const size = (bytes: number): string => {
+        const kb = bytes / 1024;
+        return kb >= 1024 ? `${(kb / 1024).toFixed(2)} MB` : `${kb.toFixed(1)} kB`;
+      };
       console.log(
         `${name.padEnd(15)} first tiles ${(tiles / 1000).toFixed(2)} s   FCP ${(fcp / 1000).toFixed(2)} s   ` +
-          `transferred ${kb >= 1024 ? `${(kb / 1024).toFixed(2)} MB` : `${kb.toFixed(1)} kB`}`,
+          `by first tiles ${size(median(samples.map((s) => s.tileBytes)))}   ` +
+          `transferred ${size(median(samples.map((s) => s.bytes)))}`,
       );
     }
   } finally {

@@ -17,18 +17,35 @@ function registrationScript(): string {
 
 /**
  * Runs that script against a stub window loaded at `pathname`, fires its load
- * handler, and returns what it passed to navigator.serviceWorker.register.
+ * handler, lets the app's data promise and an idle period pass, and returns
+ * what it passed to navigator.serviceWorker.register.
  */
-function registerCall(pathname: string): { script: string; options: unknown } {
+async function registerCall(
+  pathname: string,
+  opts: { ready?: Promise<void>; idle?: boolean } = {},
+): Promise<{ script: string; options: unknown } & { order: string[] }> {
   const calls: Array<{ script: string; options: unknown }> = [];
+  const order: string[] = [];
   const listeners: Array<() => void> = [];
-  const window = { addEventListener: (type: string, fn: () => void) => { if (type === 'load') listeners.push(fn); } };
+  const timers: Array<() => void> = [];
+  const window = {
+    addEventListener: (type: string, fn: () => void) => { if (type === 'load') listeners.push(fn); },
+    __psReady: opts.ready ?? Promise.resolve(),
+    setTimeout: (fn: () => void, ms: number) => { order.push(`timeout ${ms}`); timers.push(fn); },
+    ...(opts.idle === false ? {} : { requestIdleCallback: (fn: () => void) => { order.push('idle'); timers.push(fn); } }),
+  };
   const navigator = { serviceWorker: { register: (script: string, options?: unknown) => { calls.push({ script, options }); } } };
   const location = { pathname };
   new Function('window', 'navigator', 'location', registrationScript())(window, navigator, location);
+  expect(timers).toHaveLength(0);
   for (const fn of listeners) fn();
+  // Not on `load` itself: after the data promise settles, then at idle.
+  expect(calls).toHaveLength(0);
+  await new Promise((r) => setTimeout(r, 0));
+  expect(calls).toHaveLength(0);
+  for (const fn of timers.splice(0)) fn();
   expect(calls).toHaveLength(1);
-  return calls[0]!;
+  return { ...calls[0]!, order };
 }
 
 /**
@@ -59,17 +76,35 @@ describe('service worker registration', () => {
   ];
 
   for (const pathname of pathnames) {
-    it(`registers the worker at the app's base from ${pathname}`, () => {
-      const { script, options } = registerCall(pathname);
+    it(`registers the worker at the app's base from ${pathname}`, async () => {
+      const { script, options } = await registerCall(pathname);
       expect(script).toBe(`${basePath(pathname)}sw.js`);
       expect(options).toEqual({ scope: basePath(pathname) });
     });
   }
 
-  it('never registers relative to a deep route', () => {
+  it('never registers relative to a deep route', async () => {
     /* The original failure, named outright rather than only implied by the
        basePath() comparison above. */
-    expect(registerCall('/brands/lattafa').script).toBe('/sw.js');
-    expect(registerCall('/fragrance/ean-5012345678900').script).toBe('/sw.js');
+    expect((await registerCall('/brands/lattafa')).script).toBe('/sw.js');
+    expect((await registerCall('/fragrance/ean-5012345678900')).script).toBe('/sw.js');
+  });
+
+  /* Installing the worker pre-caches every data file the page names, the
+     on-demand price history included (demo/priceHistoryStore.ts), so it waits
+     for the app to have started and for idle time rather than `load`, which
+     fires before the data is in. */
+  it('waits for the app to start, then for idle time', async () => {
+    expect((await registerCall('/')).order).toEqual(['idle']);
+  });
+
+  it('falls back to a timeout without requestIdleCallback (Safari)', async () => {
+    expect((await registerCall('/', { idle: false })).order).toEqual(['timeout 1000']);
+  });
+
+  it('still registers when the data failed to load, for the offline shell', async () => {
+    const failed = Promise.reject(new Error('offline'));
+    failed.catch(() => {});
+    expect((await registerCall('/', { ready: failed })).script).toBe('/sw.js');
   });
 });

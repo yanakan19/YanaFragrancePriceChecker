@@ -175,7 +175,9 @@ npm run demo      # rebuild demo/index.html, demo/404.html and demo/data/ after 
 not match the source. The catalogue, price history, deals and fragrance links
 ship beside the page as `demo/data/<module>.<hash>.json`, named for a hash of
 their content so the service worker can keep them for good
-(`scripts/bundle-demo.ts` explains why). Commit `demo/data` with the page,
+(`scripts/bundle-demo.ts` explains why). The price history is fetched on
+demand, after the app has started (`demo/priceHistoryStore.ts`); the others
+are fetched before it starts. Commit `demo/data` with the page,
 deletions included: each build removes the previous build's files. Because
 the page fetches those files, serve `demo/` over HTTP to look at it (the
 Playwright scripts do, via `scripts/a11y-audit.ts`); it no longer opens from

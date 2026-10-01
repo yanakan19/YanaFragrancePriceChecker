@@ -38,15 +38,23 @@
  * has been read), so a file is fully described by its module and the index of
  * its first blob.
  *
+ * ── Lazy modules ─────────────────────────────────────────────────────────────
+ * A module in LAZY_DATA_MODULES (scripts/dataFiles.ts) is not bundled at all:
+ * the app imports only its types and fetches its data when it needs it (see
+ * demo/priceHistoryStore.ts). This script writes that file from the compiled
+ * module's own exports, as `{ EXPORT_NAME: value, … }`, and fails the build
+ * if the bundle imports the module anyway, which would quietly put its data
+ * back in front of the first paint.
+ *
  * The generated .ts files are untouched, so every test that imports them reads
  * exactly the data it did before.
  */
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { build, type Plugin } from 'esbuild';
 import { moveLiteralsToJson } from './dataLiterals.js';
-import { BLOBS_GLOBAL, type DataGroup } from './dataFiles.js';
+import { BLOBS_GLOBAL, LAZY_DATA_MODULES, type DataGroup, type DataManifest } from './dataFiles.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const blobs: unknown[] = [];
@@ -57,6 +65,13 @@ const dataAsJson: Plugin = {
   name: 'data-as-json',
   setup(b) {
     b.onLoad({ filter: /\.generated\.js$/ }, async (args) => {
+      const lazyName = args.path.split('/').pop()!.replace(/\.generated\.js$/, '');
+      if (Object.hasOwn(LAZY_DATA_MODULES, lazyName)) {
+        throw new Error(
+          `${lazyName}.generated is loaded on demand (LAZY_DATA_MODULES in scripts/dataFiles.ts) ` +
+            'but the bundle imports it. Import its types only (`import type`), and read its data through demo/priceHistoryStore.ts.',
+        );
+      }
       const source = await readFile(args.path, 'utf8');
       // Nothing may await between reading `start` and the move: that is what
       // keeps this module's blobs contiguous while esbuild loads others.
@@ -96,12 +111,25 @@ await mkdir(resolve(root, 'dist-demo/data'), { recursive: true });
 for (const g of groups) {
   await writeFile(resolve(root, `dist-demo/data/${g.name}.json`), JSON.stringify(blobs.slice(g.start, g.start + g.count)));
 }
-await writeFile(resolve(root, 'dist-demo/data-files.json'), JSON.stringify(groups, null, 2));
+// Lazy modules: the compiled module's own data exports, by name.
+const lazy = Object.keys(LAZY_DATA_MODULES);
+for (const name of lazy) {
+  const mod = (await import(pathToFileURL(resolve(root, `dist-demo/demo/${name}.generated.js`)).href)) as Record<string, unknown>;
+  const data: Record<string, unknown> = {};
+  for (const key of LAZY_DATA_MODULES[name]!) {
+    if (mod[key] === undefined || typeof mod[key] === 'function') throw new Error(`${name}.generated has no data export ${key}`);
+    data[key] = mod[key];
+  }
+  await writeFile(resolve(root, `dist-demo/data/${name}.json`), JSON.stringify(data));
+  report.push(`${name}.generated.js: loaded on demand, not bundled`);
+}
+const manifest: DataManifest = { groups, lazy };
+await writeFile(resolve(root, 'dist-demo/data-files.json'), JSON.stringify(manifest, null, 2));
 
 for (const line of report) console.log(line);
 const mb = (n: number): string => `${(n / 1024 / 1024).toFixed(1)} MB`;
 console.log(`dist-demo/bundle.js  ${mb((await readFile(resolve(root, 'dist-demo/bundle.js'))).length)} code`);
-for (const g of groups) {
-  const size = (await readFile(resolve(root, `dist-demo/data/${g.name}.json`))).length;
-  console.log(`dist-demo/data/${g.name}.json  ${mb(size)} data`);
+for (const name of [...groups.map((g) => g.name), ...lazy]) {
+  const size = (await readFile(resolve(root, `dist-demo/data/${name}.json`))).length;
+  console.log(`dist-demo/data/${name}.json  ${mb(size)} data${lazy.includes(name) ? ' (on demand)' : ''}`);
 }
