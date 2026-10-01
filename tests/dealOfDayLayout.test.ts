@@ -59,8 +59,21 @@ async function measure(html: string, w: number, h: number) {
     const h1 = document.querySelector('h1');
     const name = document.querySelector('.name');
     const lines = (el) => Math.round(el.getBoundingClientRect().height / parseFloat(getComputedStyle(el).lineHeight));
-    return { overflow: main.scrollHeight > main.clientHeight + 1, boxes, h1Lines: lines(h1), nameLines: lines(name) };
-  })()`)) as { overflow: boolean; boxes: { cls: string; l: number; r: number; t: number; b: number }[]; h1Lines: number; nameLines: number };
+    // The SAVE badge must not touch any text: name, brand, headline or prices.
+    const badge = document.querySelector('.badge');
+    const hits = [];
+    if (badge) {
+      const b = badge.getBoundingClientRect();
+      for (const t of document.querySelectorAll('h1, .name, .brand, .date, .box')) {
+        const r = t.getBoundingClientRect();
+        const range = document.createRange(); range.selectNodeContents(t);
+        for (const tr of t.matches('.box') ? [r] : range.getClientRects()) {
+          if (tr.width && b.left < tr.right && b.right > tr.left && b.top < tr.bottom && b.bottom > tr.top) hits.push(t.className || t.tagName);
+        }
+      }
+    }
+    return { overflow: main.scrollHeight > main.clientHeight + 1, boxes, h1Lines: lines(h1), nameLines: lines(name), badgeHits: hits };
+  })()`)) as { overflow: boolean; boxes: { cls: string; l: number; r: number; t: number; b: number }[]; h1Lines: number; nameLines: number; badgeHits: string[] };
   await page.close();
   return r;
 }
@@ -73,6 +86,7 @@ describe('Deal of the Day layout with extreme data', () => {
         expect(m.overflow).toBe(false);
         expect(m.h1Lines).toBe(1);
         expect(m.nameLines).toBeLessThanOrEqual(2);
+        expect(m.badgeHits).toEqual([]);
         const outside = m.boxes.filter((b) => b.l < 89 || b.r > f.w - 89 || b.t < f.pad - 1 || b.b > f.h - f.pad + 1);
         expect(outside).toEqual([]);
       }, 30_000);
