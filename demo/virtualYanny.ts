@@ -36,7 +36,7 @@
  * tsconfig.demo.json rejects. This line is meant to be edited.
  */
 import { classifyIntent } from './yanny/intent.js';
-import { resolveQuestion } from './yanny/engine.js';
+import { resolveQuestion, resolveOfflineAnswer } from './yanny/engine.js';
 import { warmProductIndex } from './yanny/siteData.js';
 
 const VIRTUAL_YANNY_API_BASE_URL: string = '';
@@ -169,9 +169,22 @@ interface EngineResult {
   siteData?: string;
 }
 
-const MODEL_PATH_MISSING =
-  "That one needs the AI side of me, which isn't connected in this build yet. " +
-  'I can still answer prices, stock, sizes, notes, delivery, deals, budgets and comparisons from the catalogue.';
+/**
+ * Said ahead of a catalogue answer that stands in for a model's, when the
+ * model was asked and did not come back with one. Short, because the
+ * answer under it is the useful part; and honest, because the reader asked
+ * an open question and is getting a catalogue match instead.
+ */
+const MODEL_FAILED_NOTE: Record<'unreachable' | 'busy' | 'failed', string> = {
+  unreachable: "I couldn't reach the AI side just now, so this is straight from the catalogue.",
+  busy: 'The AI side is busy (too many questions in the last minute), so this is straight from the catalogue.',
+  failed: "The AI side didn't come back with an answer, so this is straight from the catalogue.",
+};
+
+/** Longest question the Worker accepts (QUESTION_MAX in workers/yanny). The
+ *  composer enforces it too; this is the backstop for anything that skips
+ *  the composer. */
+export const YANNY_QUESTION_MAX = 500;
 
 /**
  * Answers one question, calling `onEvent` for each step as it happens —
@@ -208,11 +221,34 @@ export async function askVirtualYanny(
     return;
   }
 
-  if (!VIRTUAL_YANNY_CONFIGURED) {
+  // The catalogue's own best answer to a question that wanted a model:
+  // note-matched bottles for a taste question, the policy page for a policy
+  // one, a plain statement of what does work otherwise. Used when there is
+  // no model to ask and whenever asking one fails, so the reader never ends
+  // a turn on a raw error or a dead end. See resolveOfflineAnswer.
+  const answerLocally = async (note: string): Promise<void> => {
+    let content: string;
+    try {
+      content = await resolveOfflineAnswer({ question: message, intent: local.intent });
+    } catch {
+      content = 'Something went wrong looking that up. Try asking it another way.';
+    }
+    if (signal?.aborted) return;
     onEvent({
       type: 'result',
-      result: { ok: true, source: 'site-data-direct', winner: { agentNumber: 0, content: MODEL_PATH_MISSING, totalScore: 0, criteriaScores: {}, rank: 1 } },
+      result: {
+        ok: true,
+        source: 'site-data-direct',
+        winner: { agentNumber: 0, content: note ? `${note}\n${content}` : content, totalScore: 0, criteriaScores: {}, rank: 1 },
+      },
     });
+  };
+
+  // No Worker in this build: answer from the catalogue with no preamble.
+  // The panel's status strip already says the AI side is not connected, and
+  // repeating that on every answer would bury the answer.
+  if (!VIRTUAL_YANNY_CONFIGURED) {
+    await answerLocally('');
     return;
   }
 
@@ -223,7 +259,7 @@ export async function askVirtualYanny(
     res = await fetch(apiUrl('/api/chat'), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question: message, intent: local.intent, siteData: local.siteData }),
+      body: JSON.stringify({ question: message.slice(0, YANNY_QUESTION_MAX), intent: local.intent, siteData: local.siteData }),
       // `?? null` rather than passing the optional straight through:
       // tsconfig.demo.json runs exactOptionalPropertyTypes, under which
       // RequestInit.signal accepts an AbortSignal or null but not an
@@ -232,20 +268,38 @@ export async function askVirtualYanny(
     });
   } catch {
     if (signal?.aborted) return;
-    onEvent({ type: 'error', message: 'Could not reach the AI side of Virtual Yanny. Catalogue questions still work; try this one again in a moment.' });
+    await answerLocally(MODEL_FAILED_NOTE.unreachable);
     return;
   }
 
   if (!res.ok || !res.body) {
-    const body = await res.json().catch(() => ({}) as { message?: string });
     if (signal?.aborted) return;
-    onEvent({ type: 'error', message: body.message ?? 'Something went wrong.' });
+    // Whatever the Worker said (rate limited, not configured, a body it
+    // refused) is about the service, not the question: the reader gets the
+    // catalogue's answer, with one line saying why it is not the model's.
+    await answerLocally(res.status === 429 ? MODEL_FAILED_NOTE.busy : MODEL_FAILED_NOTE.failed);
     return;
   }
 
   const reader = res.body.getReader();
   const decoder = new TextDecoder();
   let buffer = '';
+  let finished = false;
+
+  const handle = async (event: YannyEvent): Promise<void> => {
+    // A model answer is passed through as it is. A failed one (no model
+    // answered, the stream errored) is replaced by the catalogue's own,
+    // rather than shown as "I couldn't answer that: no_agents_responded".
+    if (event.type === 'result' && event.result.ok && event.result.winner) {
+      finished = true;
+      onEvent(event);
+    } else if (event.type === 'result' || event.type === 'error') {
+      finished = true;
+      await answerLocally(MODEL_FAILED_NOTE.failed);
+    } else {
+      onEvent(event);
+    }
+  };
 
   try {
     for (;;) {
@@ -262,28 +316,41 @@ export async function askVirtualYanny(
         // several events, and a stop pressed part-way through that batch
         // must not still push the remaining ones into a thread the reader
         // has already been told is finished.
-        if (signal?.aborted) return;
+        if (signal?.aborted || finished) return;
         const line = raw.trim();
         if (!line.startsWith('data:')) continue;
+        let event: YannyEvent;
         try {
-          onEvent(JSON.parse(line.slice(5).trim()) as YannyEvent);
+          event = JSON.parse(line.slice(5).trim()) as YannyEvent;
         } catch {
           // A malformed chunk mid-stream is not worth surfacing as an error to
           // a reader already partway through a conversation.
+          continue;
         }
+        await handle(event);
       }
     }
   } catch {
     // An aborted fetch rejects here, and for the stop button that is the
     // expected path rather than a fault: say nothing. A genuine mid-stream
-    // drop is a different thing and the reader does need telling, because
+    // drop is a different thing and the reader does need an answer, because
     // the panel would otherwise sit on a spinner no event will ever clear.
-    if (signal?.aborted) return;
-    onEvent({ type: 'error', message: 'The connection to Virtual Yanny dropped part-way through. Try that again.' });
+    if (signal?.aborted || finished) return;
+    finished = true;
+    await answerLocally(MODEL_FAILED_NOTE.failed);
   } finally {
     // Releases the reader's lock and tears the body stream down on every
     // exit path, the ordinary one included. Cancelling an already-cancelled
     // stream rejects, which is not a fault worth reporting.
     void reader.cancel().catch(() => {});
   }
+
+  // The stream closed without a terminal event: a Worker crash or a proxy
+  // cutting the connection looks exactly like this from here.
+  if (!finished && !signal?.aborted) await answerLocally(MODEL_FAILED_NOTE.failed);
 }
+
+/* ── rendering an answer ─────────────────────────────────────────────── */
+
+// Lives in its own module so it can be tested without the engine; see there.
+export { yannyMessageHtml, yannyPlainText } from './yannyRender.js';

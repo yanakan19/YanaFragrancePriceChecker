@@ -2502,9 +2502,19 @@
        actually-visible area by however much chrome is showing at that
        moment, and the composer at its bottom edge ends up under it. dvh
        tracks the real visible viewport as that chrome grows and shrinks. */
-    .yanny-panel { right: 0; bottom: 0; width: 100vw; height: 100vh; height: 100dvh; border-radius: 0; }
-    /* Full screen, so its header must clear the status bar and notch. */
-    .yanny-panel .yanny-head { padding-top: calc(14px + var(--safe-top)); }
+    .yanny-panel { right: 0; bottom: 0; width: 100%; max-width: 100vw; height: 100vh; height: 100dvh; border-radius: 0; border: 0; }
+    /* Full screen, so its header must clear the status bar and notch, and
+       in landscape every edge must clear the notch and rounded corners. */
+    .yanny-panel .yanny-head {
+      padding-top: calc(14px + var(--safe-top));
+      padding-left: max(18px, env(safe-area-inset-left)); padding-right: max(14px, env(safe-area-inset-right));
+    }
+    .yanny-panel .yanny-body { padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+    .yanny-panel .yanny-composer, .yanny-panel .yanny-foot {
+      padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right));
+    }
+    /* A phone's whole screen is the chat: bubbles can use more of it. */
+    .yanny-panel .yanny-msg, .yanny-panel .yanny-source { max-width: 90%; }
   }
 
   .yanny-head {
@@ -2539,7 +2549,9 @@
   .yanny-clear.armed { color: var(--accent-ink); border-color: var(--accent); }
   .yanny-clear:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-  .yanny-body { flex: 1; min-height: 0; overflow-y: auto; padding: 14px 16px; }
+  /* overscroll-behavior: reaching the end of the conversation must not start
+     scrolling the page underneath the panel. */
+  .yanny-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 14px 16px; }
 
   /* The strip that stands in for the composer while the backend is being
      checked or is not answering. It sits exactly where the composer would,
@@ -2566,12 +2578,24 @@
   .yanny-unavailable p { margin: 0; font-size: 13.5px; color: var(--ink-2); max-width: 26ch; }
   .yanny-checking { height: 100%; display: flex; align-items: center; justify-content: center; }
 
+  /* overflow-wrap: a long product id or an unbroken pasted string must wrap
+     inside the bubble rather than push the panel sideways on a phone. */
   .yanny-msg {
     max-width: 84%; margin: 0 0 10px; padding: 9px 13px; border-radius: 14px;
-    font-size: 13.5px; line-height: 1.45; white-space: pre-wrap;
+    font-size: 13.5px; line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere;
   }
   .yanny-msg.user { margin-left: auto; background: var(--accent); color: var(--accent-on); border-bottom-right-radius: 4px; }
   .yanny-msg.bot { background: var(--surface); border: 1px solid var(--line); border-bottom-left-radius: 4px; }
+  /* Links to the site's own pages inside an answer: the accent ink every
+     other in-text link uses, underlined so they read as links without
+     relying on colour alone. */
+  .yanny-msg a.yanny-link { color: var(--accent-ink); text-decoration: underline; text-underline-offset: 2px; }
+  .yanny-msg a.yanny-link:hover { text-decoration-thickness: 2px; }
+  .yanny-msg a.yanny-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-radius: 3px; }
+  /* A turn that went wrong is marked as such — a coloured edge and a mark —
+     so it is never mistaken for a short answer. */
+  .yanny-msg.bot.is-error { border-color: var(--accent); border-left-width: 3px; }
+  .yanny-msg.bot.is-error::before { content: "⚠️ "; }
 
   .yanny-splash { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 12.5px; color: var(--faint); }
   .yanny-spinner {
@@ -2873,8 +2897,12 @@
 
 <div id="sheet-host"></div>
 
-<button id="yanny-launcher" class="yanny-launcher" aria-label="Chat with Virtual Yanny" aria-haspopup="dialog">🤖</button>
+<button id="yanny-launcher" class="yanny-launcher" aria-label="Chat with Virtual Yanny" aria-haspopup="dialog" aria-expanded="false" aria-controls="yanny-panel-host">🤖</button>
 <div id="yanny-panel-host"></div>
+<!-- Where Virtual Yanny's answers are read out to a screen reader. Outside
+     the panel on purpose: the panel is redrawn on every event, and a live
+     region has to persist to be announced reliably. See announceYanny. -->
+<div id="yanny-live" class="sr" role="status" aria-live="polite" aria-atomic="true"></div>
 
 <script>/*__BUNDLE__*/</script>
 <script>
