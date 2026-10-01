@@ -14,6 +14,19 @@ function files(dir: string): string[] {
   });
 }
 
+/** Web addresses keep their own hyphens (product ids); everything else may not. */
+const noUrls = (s: string) => s.replace(/https?:\/\/\S+/g, '').replace(/pricesniffs\.space\/\S+/g, '');
+
+/** The words a viewer reads in an HTML post: text between tags, outside <style>/<svg>. */
+function htmlWords(html: string): string[] {
+  return html
+    .replace(/<style[\s\S]*?<\/style>/g, '')
+    .replace(/<svg[\s\S]*?<\/svg>/g, '')
+    .split(/<[^>]+>/)
+    .map((t) => t.trim())
+    .filter(Boolean);
+}
+
 /** The words a viewer reads in an SVG: the contents of its <text> elements. */
 function svgWords(svg: string): string[] {
   return [...svg.matchAll(/<text\b[^>]*>([\s\S]*?)<\/text>/g)].map((m) => m[1]!.replace(/<[^>]+>/g, ''));
@@ -29,14 +42,20 @@ describe('social posts', () => {
       expect(f, `${f} is not named YYYY-MM-DD-name`).toMatch(/^\d{4}-\d{2}-\d{2}-[a-z0-9-]+$/);
       const inside = readdirSync(join(POSTS, f));
       expect(inside, `${f} has no caption.txt`).toContain('caption.txt');
-      expect(inside.some((n) => n.endsWith('.svg')), `${f} has no .svg`).toBe(true);
+      expect(inside.some((n) => n.endsWith('.svg') || n.endsWith('.html')), `${f} has no .svg or .html`).toBe(true);
     }
   });
 
   for (const file of all.filter((p) => p.endsWith('caption.txt'))) {
     it(`${file.slice(POSTS.length)} has no hyphens or dashes`, () => {
-      const lines = readFileSync(file, 'utf8').split('\n').filter((l) => DASHES.test(l));
+      const lines = readFileSync(file, 'utf8').split('\n').filter((l) => DASHES.test(noUrls(l)));
       expect(lines).toEqual([]);
+    });
+  }
+
+  for (const file of all.filter((p) => p.endsWith('.html'))) {
+    it(`${file.slice(POSTS.length)} visible text has no hyphens or dashes`, () => {
+      expect(htmlWords(readFileSync(file, 'utf8')).filter((t) => DASHES.test(noUrls(t)))).toEqual([]);
     });
   }
 
