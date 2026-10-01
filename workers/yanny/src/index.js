@@ -72,11 +72,20 @@ export const PROVIDERS = {
 /** Fallback when YANNY_MODELS is unset or unparseable: Cloudflare's own
  *  inference alone, so a Worker deployed with no secrets at all still
  *  answers. The model id is one Cloudflare serves in its catalogue as of
- *  2026-09-08; /api/health reports an id that has since been retired. */
+ *  2026-09-08. Health cannot tell that an id has been retired without
+ *  spending a generation, so a retired id shows up as failed answers in the
+ *  Worker's logs (observability is on in wrangler.toml). */
 export const DEFAULT_MODELS = [{ provider: 'workers-ai', model: '@cf/meta/llama-3.3-70b-instruct-fp8-fast' }];
 
 const QUESTION_MAX = 500;
 const SITE_DATA_MAX = 16_000;
+/** Bytes of request body read at all. A question and its SITE DATA block fit
+ *  in well under this; anything larger is refused before it is parsed. */
+const BODY_MAX_BYTES = 64_000;
+/** Every configured model is asked at once and each spends a request of
+ *  its provider's free allowance, so a long YANNY_MODELS list is a cost, not
+ *  a fallback. Entries past this are ignored and /api/health says so. */
+const MODELS_MAX = 4;
 const MAX_TOKENS = 220;
 const MODEL_TIMEOUT_MS = 12_000;
 const HEALTH_TIMEOUT_MS = 4_000;
@@ -89,6 +98,39 @@ const INTENTS = new Set(['price', 'suggest', 'general']);
 
 /* ── configuration ─────────────────────────────────────────────────────── */
 
+/**
+ * What is wrong with the configuration, in words an owner can act on, or an
+ * empty list. Reported by /api/health (never by /api/chat, whose caller is a
+ * shopper) so a typo in YANNY_MODELS or a missing secret shows up the first
+ * time anyone opens the health URL rather than as a silently smaller roster.
+ * Names the secret that is missing, never its value.
+ */
+export function configProblems(env) {
+  const problems = [];
+  let list = DEFAULT_MODELS;
+  if (env.YANNY_MODELS) {
+    try {
+      const parsed = JSON.parse(env.YANNY_MODELS);
+      if (Array.isArray(parsed) && parsed.length) list = parsed;
+      else problems.push('YANNY_MODELS is not a non-empty JSON list; using the default model.');
+    } catch {
+      problems.push('YANNY_MODELS is not valid JSON; using the default model.');
+    }
+  }
+  list.forEach((m, i) => {
+    const where = `YANNY_MODELS[${i}]`;
+    if (!m || typeof m !== 'object') return problems.push(`${where} is not an object.`);
+    if (!PROVIDERS[m.provider]) return problems.push(`${where}: unknown provider "${String(m.provider)}".`);
+    if (typeof m.model !== 'string' || !m.model.trim()) return problems.push(`${where}: "model" must be a model id.`);
+    const p = PROVIDERS[m.provider];
+    if (p.binding && !env[p.binding]) problems.push(`${where}: the [ai] binding "${p.binding}" is not bound (check wrangler.toml).`);
+    if (!p.binding && !env[p.keyVar]) problems.push(`${where}: secret ${p.keyVar} is not set, so ${m.provider} is skipped.`);
+    if (m.provider === 'custom' && !env.CUSTOM_BASE_URL) problems.push(`${where}: CUSTOM_BASE_URL is not set.`);
+    if (i >= MODELS_MAX) problems.push(`${where}: only the first ${MODELS_MAX} models are used.`);
+  });
+  return problems;
+}
+
 export function configuredModels(env) {
   let list = DEFAULT_MODELS;
   if (env.YANNY_MODELS) {
@@ -96,11 +138,11 @@ export function configuredModels(env) {
       const parsed = JSON.parse(env.YANNY_MODELS);
       if (Array.isArray(parsed) && parsed.length) list = parsed;
     } catch {
-      /* fall back to the defaults; health reports the parse failure */
+      /* fall back to the defaults; configProblems reports the parse failure */
     }
   }
   return list
-    .filter((m) => m && typeof m.model === 'string' && PROVIDERS[m.provider])
+    .filter((m) => m && typeof m.model === 'string' && m.model.trim() && PROVIDERS[m.provider])
     .map((m) => {
       const p = PROVIDERS[m.provider];
       // A binding provider is usable when the binding is bound; an HTTP one
@@ -111,7 +153,8 @@ export function configuredModels(env) {
       const baseUrl = m.provider === 'custom' ? env.CUSTOM_BASE_URL : p.baseUrl;
       return { provider: m.provider, model: m.model, baseUrl, apiKey: env[p.keyVar] ?? '' };
     })
-    .filter((m) => (PROVIDERS[m.provider].binding ? Boolean(m.ai) : Boolean(m.baseUrl && m.apiKey)));
+    .filter((m) => (PROVIDERS[m.provider].binding ? Boolean(m.ai) : Boolean(m.baseUrl && m.apiKey)))
+    .slice(0, MODELS_MAX);
 }
 
 export function allowedOrigins(env) {
@@ -182,6 +225,7 @@ export async function health(env, { now = Date.now(), fetchImpl } = {}) {
     providersReachable: reachable,
     agentCount: models.length,
     providers,
+    problems: configProblems(env),
   };
   healthCache = { at: now, body };
   return body;
@@ -189,10 +233,10 @@ export async function health(env, { now = Date.now(), fetchImpl } = {}) {
 
 /* ── one model call ────────────────────────────────────────────────────── */
 
-export async function callModel(m, messages, signal) {
-  if (PROVIDERS[m.provider].binding) return callBoundModel(m, messages, signal);
+export async function callModel(m, messages, signal, { timeoutMs = MODEL_TIMEOUT_MS } = {}) {
+  if (PROVIDERS[m.provider].binding) return callBoundModel(m, messages, signal, timeoutMs);
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), MODEL_TIMEOUT_MS);
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   const onOuter = () => controller.abort();
   if (signal?.aborted) controller.abort();
   else signal?.addEventListener('abort', onOuter, { once: true });
@@ -240,10 +284,17 @@ export async function callModel(m, messages, signal) {
  * after the await is for: the work finishes and is dropped rather than
  * reaching a socket nobody is reading.
  */
-async function callBoundModel(m, messages, signal) {
+async function callBoundModel(m, messages, signal, timeoutMs = MODEL_TIMEOUT_MS) {
   const startedAt = Date.now();
+  let timer;
   try {
-    const out = await m.ai.run(m.model, { messages, temperature: 0.4, max_tokens: MAX_TOKENS });
+    // The binding takes no AbortSignal, so it is raced against the same
+    // bound every HTTP provider gets. Without this a stalled inference call
+    // held the reader's spinner until the Worker's own wall-clock limit.
+    const timeout = new Promise((_, reject) => {
+      timer = setTimeout(() => reject(new Error('timed out')), timeoutMs);
+    });
+    const out = await Promise.race([m.ai.run(m.model, { messages, temperature: 0.4, max_tokens: MAX_TOKENS }), timeout]);
     if (signal?.aborted) throw new Error('cancelled');
     const content = String(out?.response ?? '').trim();
     if (!content) throw new Error('empty completion');
@@ -256,6 +307,8 @@ async function callBoundModel(m, messages, signal) {
       error: String(err?.message ?? err),
       latencyMs: Date.now() - startedAt,
     };
+  } finally {
+    clearTimeout(timer);
   }
 }
 
@@ -370,9 +423,19 @@ export default {
       if (await rateLimited(env, request)) {
         return json({ error: 'rate_limited', message: 'Too many questions from this connection. Try again in a minute.' }, 429, origin);
       }
+      // Read as text with a ceiling, so an oversized body is refused before
+      // it is parsed rather than after.
+      const declared = Number(request.headers.get('content-length') ?? 0);
+      if (declared > BODY_MAX_BYTES) {
+        return json({ error: 'too_large', message: 'That message is too long.' }, 413, origin);
+      }
       let body;
       try {
-        body = await request.json();
+        const raw = await request.text();
+        if (raw.length > BODY_MAX_BYTES) {
+          return json({ error: 'too_large', message: 'That message is too long.' }, 413, origin);
+        }
+        body = JSON.parse(raw);
       } catch {
         return json({ error: 'bad_request', message: 'body must be JSON' }, 400, origin);
       }
@@ -407,7 +470,10 @@ export default {
           const result = await race({ models, messages, siteData: body.siteData, onEvent: send, signal: aborter.signal });
           if (!aborter.signal.aborted) await send({ type: 'result', result });
         } catch (err) {
-          await send({ type: 'error', message: String(err?.message ?? err) });
+          // The reader sees this; the detail goes to the Worker's own logs
+          // (observability is on in wrangler.toml), not into the chat.
+          console.error('yanny race failed', err);
+          await send({ type: 'error', message: 'The AI side hit a problem answering that.' });
         } finally {
           await writer.close().catch(() => {});
         }

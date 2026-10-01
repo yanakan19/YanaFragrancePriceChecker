@@ -9,7 +9,11 @@ import {
   requestedNotes,
   parseSuggestRequest,
   offerableDescriptors,
+  pricedSlices,
+  noteMatchedEntries,
 } from './siteData.js';
+import { readConcentration } from './productMatch.js';
+import { fragranceLink, brandLink, retailerLink, siteLink } from './links.js';
 import {
   parseBudget,
   detectAudience,
@@ -88,7 +92,7 @@ function nameList(names, max = 4) {
  */
 export function formatIdentityRefusal(result, subject) {
   if (result.status === 'ambiguous') {
-    const names = result.candidates.slice(0, 5).map((f) => productLabel(f));
+    const names = result.candidates.slice(0, 5).map((f) => fragranceLink(productLabel(f), f.id));
     // See formatPriceAnswer's own note on `exact`: a tie on a complete match
     // and a tie on a partial one are different facts and get different
     // words. Saying "a few products match" about a partial tie overstates
@@ -100,7 +104,7 @@ export function formatIdentityRefusal(result, subject) {
   }
   if (result.status === 'low_confidence') {
     return (
-      `Closest I can find, though I'm not certain it's the one: ${productLabel(result)}. ` +
+      `Closest I can find, though I'm not certain it's the one: ${fragranceLink(productLabel(result), result.anchor?.id)}. ` +
       `I'd rather not state ${subject} for a guess. ` +
       `Not the one you meant? Type the exact brand and product name and I'll look again.`
     );
@@ -110,6 +114,14 @@ export function formatIdentityRefusal(result, subject) {
   // it: no conversation is kept, so there is no "it" to resolve. Saying
   // "try the brand and product name" alone reads as if the bot forgot
   // something it was just told.
+  // A house was named and none of its bottles matched: see `brandWordIn` in
+  // productMatch.js for why that is a refusal rather than a near miss.
+  if (result.brandNamed) {
+    return (
+      `I can't find that ${result.brandNamed} fragrance in the current catalogue, so I can't give ${subject} for it. ` +
+      `Every ${result.brandNamed} bottle that is tracked: ${brandLink(result.brandNamed)}.`
+    );
+  }
   const followUpNote = result.followUp
     ? 'Each message here stands alone — I don\'t carry the previous question over, so I can\'t tell what "it" refers to. '
     : '';
@@ -137,13 +149,13 @@ function weakIdentity(result) {
 }
 
 /** Every comparison row for one catalogue entry, built exactly the way the
- *  site's own detail page builds it (same buildComparison, same tier
- *  filter), so nothing said here can disagree with the page. */
+ *  site's own detail page builds it (`rowsFor` in demo/app.ts: same
+ *  buildComparison, `sortBy: 'delivered'`, and no tier filter — the page
+ *  dropped that filter because it hid real in-stock offers, and keeping it
+ *  here made a chat answer and the page quote different prices for the same
+ *  bottle), so nothing said here can disagree with the page. */
 function rowsFor(site, frag) {
-  return site.priceService.buildComparison(site.catalogue.offersFor(frag.id), {
-    sortBy: 'delivered',
-    tier: frag.tier,
-  });
+  return site.priceService.buildComparison(site.catalogue.offersFor(frag.id), { sortBy: 'delivered' });
 }
 
 /** The same, with two shops' rows for one size pooled — see `sizeSlices`
@@ -151,14 +163,40 @@ function rowsFor(site, frag) {
 function rowsForAll(site, frags) {
   return site.priceService.buildComparison(
     frags.flatMap((f) => site.catalogue.offersFor(f.id)),
-    { sortBy: 'delivered', tier: frags[0].tier },
+    { sortBy: 'delivered' },
   );
+}
+
+/** A `bestOffer` row reduced to what an answer quotes, plus the id of the
+ *  page whose headline it is (see links.js). */
+function bestSummary(best, fallbackId) {
+  if (!best) return null;
+  return {
+    deliveredPriceGbp: best.deliveredPriceGbp,
+    itemPriceGbp: best.itemPriceGbp,
+    retailerName: best.retailer.name,
+    id: best.variantId ?? fallbackId ?? null,
+  };
 }
 
 /** The date part of the catalogue's own crawl timestamp, for the freshness
  *  caveat every stock answer carries. Never formatted from `new Date()`. */
 function crawledOn(site) {
   return String(site.catalogue.CRAWLED_AT ?? '').slice(0, 10);
+}
+
+/**
+ * Which size's page an answer about a whole product should link to: the
+ * cheapest buyable size, so the figure a reader sees first on arrival is
+ * the lowest one the answer mentioned; else the given fallback.
+ */
+function pageIdFor(sizes, fallbackId) {
+  let best = null;
+  for (const s of sizes) {
+    if (s.best?.deliveredPriceGbp == null) continue;
+    if (!best || s.best.deliveredPriceGbp < best.deliveredPriceGbp) best = s.best;
+  }
+  return best?.id ?? fallbackId ?? null;
 }
 
 /* ── availability ──────────────────────────────────────────────────────── */
@@ -190,9 +228,8 @@ export async function resolveAvailabilityQuery(question) {
       preOrder: byState('preOrder'),
       unknown: byState('unknown'),
       outOfStock: byState('outOfStock'),
-      best: best
-        ? { deliveredPriceGbp: best.deliveredPriceGbp, retailerName: best.retailer.name }
-        : null,
+      id: frags[0].id,
+      best: bestSummary(best, frags[0].id),
     };
   });
 
@@ -201,6 +238,7 @@ export async function resolveAvailabilityQuery(question) {
     brand: resolved.anchor.brand,
     name: resolved.anchor.name,
     concentration: resolved.anchor.concentration,
+    linkId: pageIdFor(sizes, resolved.anchor.id),
     sizes,
     crawledOn: crawledOn(site),
   };
@@ -209,7 +247,7 @@ export async function resolveAvailabilityQuery(question) {
 export function formatAvailabilityAnswer(result) {
   if (result.status !== 'matched') return formatIdentityRefusal(result, 'stock');
 
-  const label = productLabel(result);
+  const label = fragranceLink(productLabel(result), result.linkId);
   const lines = result.sizes.map((s) => {
     const parts = [];
     if (s.inStock.length) parts.push(`in stock at ${nameList(s.inStock)}`);
@@ -220,11 +258,12 @@ export function formatAvailabilityAnswer(result) {
     // read is not evidence either way, and saying so is the only honest
     // option. See src/types/offer.ts on why `unknown` is its own state.
     if (s.unknown.length) parts.push(`${s.unknown.length} shop(s) did not state stock`);
-    if (parts.length === 0) return `${s.sizeMl}ml: no shop this site tracks lists it at all.`;
+    const size = fragranceLink(`${s.sizeMl}ml`, s.best?.id ?? s.id);
+    if (parts.length === 0) return `${size}: no shop this site tracks lists it at all.`;
     const price = s.best?.deliveredPriceGbp != null
       ? ` Cheapest ${gbp(s.best.deliveredPriceGbp)} delivered from ${s.best.retailerName}.`
       : '';
-    return `${s.sizeMl}ml: ${parts.join('; ')}.${price}`;
+    return `${size}: ${parts.join('; ')}.${price}`;
   });
 
   const head = result.sizes.length === 1 ? `${label}. ` : `${label}:\n`;
@@ -257,32 +296,49 @@ export async function resolveNotesQuery(question) {
   const resolved = await resolveProductQuery(question, 'notes');
   if (resolved.status !== 'matched') return resolved;
 
-  const layers = { top: new Set(), middle: new Set(), base: new Set() };
+  // Deduplicated case- and spacing-insensitively, and across layers (the
+  // first layer a note is listed in keeps it). Two shops' lists merged
+  // naively read "Iris, Jasmine, Orange Blossom, iris, jasmine, orange
+  // blossom" for La Vie Est Belle, and "Black Currant ... Blackcurrant" —
+  // one note spelt by two shops, printed as two.
+  const layers = { top: [], middle: [], base: [] };
+  const seen = new Set();
+  const keyOf = (n) => n.toLowerCase().replace(/[^a-z0-9]/g, '');
   let sourcesWithNotes = 0;
   for (const frag of resolved.group) {
     if (!frag.notes) continue;
     sourcesWithNotes++;
-    for (const layer of ['top', 'middle', 'base']) {
-      for (const n of frag.notes[layer] ?? []) if (n.trim()) layers[layer].add(n.trim());
+  }
+  for (const layer of ['top', 'middle', 'base']) {
+    for (const frag of resolved.group) {
+      for (const raw of frag.notes?.[layer] ?? []) {
+        const n = raw.trim();
+        if (!n || seen.has(keyOf(n))) continue;
+        seen.add(keyOf(n));
+        // A shop that lower-cased its list loses to one that did not.
+        layers[layer].push(n[0] === n[0].toLowerCase() ? n.replace(/\b[a-z]/g, (c) => c.toUpperCase()) : n);
+      }
     }
   }
 
+  const sizes = pricedSlices(resolved.group, site);
   return {
     status: 'matched',
     brand: resolved.anchor.brand,
     name: resolved.anchor.name,
     concentration: resolved.anchor.concentration,
+    linkId: pageIdFor(sizes, resolved.anchor.id),
     hasNotes: sourcesWithNotes > 0,
-    top: [...layers.top],
-    middle: [...layers.middle],
-    base: [...layers.base],
+    top: layers.top,
+    middle: layers.middle,
+    base: layers.base,
   };
 }
 
 export function formatNotesAnswer(result) {
   if (result.status !== 'matched') return formatIdentityRefusal(result, 'its notes');
 
-  const label = productLabel(result);
+  const label = fragranceLink(productLabel(result), result.linkId);
   if (!result.hasNotes) {
     return (
       `No notes are on file for ${label}. This site only stores notes a retailer actually ` +
@@ -321,7 +377,8 @@ export async function resolveSizeQuery(question) {
       // real listing as an absent one.
       listedCount: rows.length,
       purchasableCount: rows.filter((r) => r.isPurchasable).length,
-      best: best ? { deliveredPriceGbp: best.deliveredPriceGbp, retailerName: best.retailer.name } : null,
+      id: frags[0].id,
+      best: bestSummary(best, frags[0].id),
     };
   });
 
@@ -331,6 +388,7 @@ export async function resolveSizeQuery(question) {
     brand: resolved.anchor.brand,
     name: resolved.anchor.name,
     concentration: resolved.anchor.concentration,
+    linkId: pageIdFor(sizes, resolved.anchor.id),
     askedSizeMl: asked ? Number(asked[1]) : null,
     sizes,
   };
@@ -339,7 +397,8 @@ export async function resolveSizeQuery(question) {
 export function formatSizeAnswer(result) {
   if (result.status !== 'matched') return formatIdentityRefusal(result, 'its sizes');
 
-  const label = productLabel(result);
+  const label = fragranceLink(productLabel(result), result.linkId);
+  const sizeLink = (s) => fragranceLink(`${s.sizeMl}ml`, s.best?.id ?? s.id);
   const priceOf = (s) => {
     if (s.best?.deliveredPriceGbp != null) {
       return `${gbp(s.best.deliveredPriceGbp)} delivered from ${s.best.retailerName}`;
@@ -352,15 +411,15 @@ export function formatSizeAnswer(result) {
 
   if (result.askedSizeMl !== null) {
     const exact = result.sizes.find((s) => s.sizeMl === result.askedSizeMl);
-    if (exact) return `Yes — ${label} in ${exact.sizeMl}ml: ${priceOf(exact)}.`;
+    if (exact) return `Yes — ${label} in ${sizeLink(exact)}: ${priceOf(exact)}.`;
     return `${label} is on file, but not in ${result.askedSizeMl}ml. Sizes tracked: ${tracked}.`;
   }
 
   if (result.sizes.length === 1) {
-    return `${label} is tracked in one size only, ${result.sizes[0].sizeMl}ml: ${priceOf(result.sizes[0])}.`;
+    return `${label} is tracked in one size only, ${sizeLink(result.sizes[0])}: ${priceOf(result.sizes[0])}.`;
   }
   return `${label} is tracked in ${result.sizes.length} sizes:\n${result.sizes
-    .map((s) => `${s.sizeMl}ml: ${priceOf(s)}.`)
+    .map((s) => `${sizeLink(s)}: ${priceOf(s)}.`)
     .join('\n')}`;
 }
 
@@ -426,6 +485,7 @@ export async function resolveDeliveryQuery(question) {
   const site = await loadSite();
   const enabled = site.retailers.RETAILERS.filter((r) => r.enabled !== false);
   const terms = (r) => ({
+    id: r.id,
     name: r.name,
     standardGbp: r.shipping.standardGbp,
     freeOverGbp: r.shipping.freeOverGbp,
@@ -506,10 +566,11 @@ export function formatDeliveryAnswer(result) {
         (r.freeOverGbp !== null ? ` It does state free delivery over ${gbp(r.freeOverGbp)}.` : '')
       );
     }
+    const shop = retailerLink(r.name, r.id);
     const parts = [
       r.standardGbp === 0
-        ? `${r.name} delivers free on any order`
-        : `${r.name} charges ${gbp(r.standardGbp)} standard delivery`,
+        ? `${shop} delivers free on any order`
+        : `${shop} charges ${gbp(r.standardGbp)} standard delivery`,
     ];
     if (r.standardGbp > 0 && r.freeOverGbp !== null) parts.push(`free over ${gbp(r.freeOverGbp)}`);
     if (r.standardGbp > 0 && r.freeOverGbp === null) parts.push('with no spend-based free delivery');
@@ -526,12 +587,12 @@ export function formatDeliveryAnswer(result) {
     const lines = [];
     lines.push(
       result.alwaysFree.length
-        ? `Free on any order: ${nameList(result.alwaysFree.map((r) => r.name))}.`
+        ? `Free on any order: ${nameList(result.alwaysFree.map((r) => retailerLink(r.name, r.id)))}.`
         : 'No shop this site tracks delivers free on any order.',
     );
     if (result.freeOverSpend.length) {
       lines.push(
-        `Free above a spend: ${result.freeOverSpend.map((r) => `${r.name} over ${gbp(r.freeOverGbp)}`).join(', ')}.`,
+        `Free above a spend: ${result.freeOverSpend.map((r) => `${retailerLink(r.name, r.id)} over ${gbp(r.freeOverGbp)}`).join(', ')}.`,
       );
     }
     if (result.notStated.length) {
@@ -574,6 +635,7 @@ export async function resolveDealsQuery(question) {
   const named = await resolveProductQuery(question, 'deals');
 
   const present = (d) => ({
+    id: d.fragrance.id,
     brand: d.fragrance.brand,
     name: d.fragrance.name,
     concentration: d.fragrance.concentration,
@@ -590,11 +652,22 @@ export async function resolveDealsQuery(question) {
   if (named.status === 'matched') {
     const ids = new Set(named.group.map((f) => f.id));
     const forProduct = ranked.filter((d) => ids.has(d.fragrance.id));
+    // Its price today as well, from the same pipeline the page uses: a
+    // reader asking "is X on offer" wants to know what it costs either way,
+    // and "not in the deals list" alone sends them off to ask again.
+    const sizes = pricedSlices(named.group, site);
+    const cheapest = sizes
+      .filter((v) => v.best?.deliveredPriceGbp != null)
+      .sort((a, b) => a.best.deliveredPriceGbp - b.best.deliveredPriceGbp)[0] ?? null;
     return {
       kind: 'product',
       brand: named.anchor.brand,
       name: named.anchor.name,
       concentration: named.anchor.concentration,
+      linkId: cheapest?.best.id ?? named.anchor.id,
+      cheapest: cheapest
+        ? { sizeMl: cheapest.sizeMl, deliveredPriceGbp: cheapest.best.deliveredPriceGbp, retailerName: cheapest.best.retailerName }
+        : null,
       deals: forProduct.map(present),
       generatedOn,
     };
@@ -614,13 +687,16 @@ export function formatDealsAnswer(result) {
   if (result.kind === undefined) return formatIdentityRefusal(result, 'a discount');
 
   const line = (d) =>
-    `${d.brand} ${d.name} ${d.sizeMl}ml — ${gbp(d.nowGbp)}, was ${gbp(d.wasGbp)} (${d.percentOff}% off)` +
+    `${fragranceLink(`${d.brand} ${d.name} ${d.sizeMl}ml`, d.id)} — ${gbp(d.nowGbp)}, was ${gbp(d.wasGbp)} (${d.percentOff}% off)` +
     (d.retailerName ? ` at ${d.retailerName}` : '') + '.';
 
   if (result.kind === 'product') {
-    const label = productLabel(result);
+    const label = fragranceLink(productLabel(result), result.linkId);
     if (result.deals.length === 0) {
-      return `${label} is not in the current deals list (built ${result.generatedOn}). That does not mean it is full price everywhere — ask me for its price and I'll give the cheapest delivered.`;
+      const today = result.cheapest
+        ? ` Its cheapest right now is ${gbp(result.cheapest.deliveredPriceGbp)} delivered for the ${result.cheapest.sizeMl}ml, from ${result.cheapest.retailerName}.`
+        : ' No shop has it buyable with a stated delivery cost right now.';
+      return `${label} is not in the current deals list (built ${result.generatedOn}).${today}`;
     }
     return `${label}:\n${result.deals.map(line).join('\n')}\nThose are item prices before delivery. Deals list built ${result.generatedOn}.`;
   }
@@ -628,7 +704,7 @@ export function formatDealsAnswer(result) {
   return (
     `Biggest reductions in the current deals list (${result.total} deals, built ${result.generatedOn}):\n` +
     `${result.deals.map(line).join('\n')}\n` +
-    'Those are item prices before delivery, and the was-prices are each retailer\'s own.'
+    `Those are item prices before delivery, and the was-prices are each retailer's own. The full list: ${siteLink('Deals', '/deals')}.`
   );
 }
 
@@ -706,6 +782,8 @@ const TIER_WORDS = [
  * rather than applied silently — see the audience block inside this
  * function and `genderCoverage` in siteData.js.
  */
+const MIN_FULL_SIZE_ML = 30;
+
 export async function resolveBudgetQuery(question) {
   const index = await deliveredPriceIndex();
   const budget = parseBudget(question);
@@ -742,6 +820,15 @@ export async function resolveBudgetQuery(question) {
   const coverage = genderReading ? await genderCoverage() : null;
 
   let matches = index;
+  // "Cheapest" with no ceiling means the cheapest *bottle*, not the cheapest
+  // thing with a price on it: measured, "cheap aftershave" opened with a
+  // 3ml 4711 sample and a 3ml roll-on stick. Below 30ml is a travel size or
+  // a sample, and the answer says the filter was applied.
+  if (maxGbp === null) {
+    matches = matches.filter(
+      (r) => (r.frag.sizeMl ?? 0) >= MIN_FULL_SIZE_ML && !/\b(vials?|samples?|decants?|testers?|minis?|miniatures?)\b/i.test(r.frag.name),
+    );
+  }
   if (tier) matches = matches.filter((r) => r.frag.tier === tier);
   if (maxGbp !== null) matches = matches.filter((r) => r.deliveredPriceGbp <= maxGbp);
   if (coverage) matches = matches.filter((r) => coverage.byId.get(r.frag.id)?.reading === genderReading);
@@ -984,6 +1071,7 @@ export async function resolveGenderQuery(question) {
     .sort((a, b) => b.frag.popularity - a.frag.popularity || a.deliveredPriceGbp - b.deliveredPriceGbp)
     .slice(0, 5)
     .map((r) => ({
+      id: r.frag.id,
       brand: r.frag.brand,
       name: r.frag.name,
       concentration: r.frag.concentration,
@@ -1015,7 +1103,7 @@ export async function resolveGenderQuery(question) {
 export function formatGenderAnswer(result) {
   const n = (x) => x.toLocaleString('en-GB');
   const line = (i) =>
-    `${productLabel(i)} ${i.sizeMl}ml — ${gbp(i.deliveredPriceGbp)} delivered from ${i.retailerName}` +
+    `${fragranceLink(`${productLabel(i)} ${i.sizeMl}ml`, i.id)} — ${gbp(i.deliveredPriceGbp)} delivered from ${i.retailerName}` +
     (i.phrase ? ` — title says "${i.phrase}".` : '.');
 
   if (result.items.length === 0) {
@@ -1058,7 +1146,7 @@ export function formatSuggestAnswer(result) {
 
 export function formatBudgetAnswer(result) {
   const line = (i) =>
-    `${productLabel(i)} ${i.sizeMl}ml — ${gbp(i.deliveredPriceGbp)} delivered from ${i.retailerName}.`;
+    `${fragranceLink(`${productLabel(i)} ${i.sizeMl}ml`, i.id)} — ${gbp(i.deliveredPriceGbp)} delivered from ${i.retailerName}.`;
   const tierWord = result.tier ? `${result.tier === 'mideast' ? 'Middle Eastern' : result.tier} ` : '';
 
   // How the scent words were read, said out loud. Same rule as the council
@@ -1133,7 +1221,7 @@ export function formatBudgetAnswer(result) {
 
   if (result.kind === 'cheapest') {
     return (
-      `Cheapest ${tierWord}entries by delivered price${scent.any ? ' with those notes on file' : ''}:\n` +
+      `Cheapest ${tierWord}full-size bottles (${MIN_FULL_SIZE_ML}ml and up) by delivered price${scent.any ? ' with those notes on file' : ''}:\n` +
       `${result.items.map(line).join('\n')}\n` +
       `Delivered prices, cheapest buyable listing per bottle.${reading}${unmatchedLine}${caveat}${genderNote}${scentSource}`
     );
@@ -1151,8 +1239,56 @@ export function formatBudgetAnswer(result) {
 
 const COMPARE_SPLIT_RE = /\s+(?:cheaper than|dearer than|more expensive than|less expensive than|compared to|compared with|versus|vs\.?|or)\s+/i;
 
+/** The words that only frame a comparison, stripped from the front before
+ *  the two sides are looked for. */
+const COMPARE_LEAD_RE =
+  /^\s*(?:(?:can you |please )?compare(?: the)?(?: prices? of)?|comparison of|(?:what(?:'s| is)? (?:the )?)?(?:price )?difference between|which is (?:cheaper|better|better value|dearer)[,:]?|price of)\s+/i;
+
+/** "X and Y", "X & Y", "X with Y" — only tried once the question has been
+ *  framed as a comparison, because "and" is inside real product names
+ *  ("Diamonds And Rubies"). Every split point is tried; see below. */
+const AND_SPLIT_RE = /\s+(?:and|&|with)\s+/gi;
+
+/** A side that is nothing but a strength ("edp", "the eau de parfum") once
+ *  filler is gone — it borrows its product words from the other side. */
+function strengthOnly(text) {
+  const { wanted, rest } = readConcentration(text);
+  if (!wanted) return null;
+  const leftover = rest.replace(/\b(the|a|an|one|version|bottle|which|is|cheaper|better|vs|price|and)\b/g, ' ').trim();
+  return leftover === '' ? wanted : null;
+}
+
+/** "Eau de Parfum" back to the words a question would use for it. */
+const STRENGTH_WORDS = {
+  'Eau de Parfum': 'edp',
+  'Eau de Toilette': 'edt',
+  'Eau de Cologne': 'edc',
+  'Extrait de Parfum': 'extrait',
+  Parfum: 'parfum',
+  'Perfume Oil': 'perfume oil',
+  Aftershave: 'aftershave',
+  'Eau Fraiche': 'eau fraiche',
+};
+
+/** Sides a and b of a comparison, each as question text, or null. */
+function compareSides(question) {
+  const framed = COMPARE_LEAD_RE.test(question) || /\b(which (?:is|one is) (?:cheaper|better|dearer)|difference)\b/i.test(question);
+  const body = question.replace(COMPARE_LEAD_RE, '').replace(/[?!.]+\s*$/, '');
+  const byWord = body.split(COMPARE_SPLIT_RE);
+  if (byWord.length >= 2) return [[byWord[0], byWord.slice(1).join(' ')]];
+  if (!framed) return null;
+  // Every "and" is a candidate split, left to right; the caller keeps the
+  // first one where both halves name a product.
+  const out = [];
+  for (const m of body.matchAll(AND_SPLIT_RE)) {
+    out.push([body.slice(0, m.index), body.slice(m.index + m[0].length)]);
+  }
+  return out.length ? out : null;
+}
+
 /**
- * "Is X cheaper than Y", "X or Y, which is better value".
+ * "Is X cheaper than Y", "X or Y, which is better value", "compare X and
+ * Y", "Sauvage EDT vs EDP", "what's the difference between EDP and EDT".
  *
  * Both sides go through the same `resolveProductQuery` every other lookup
  * uses, and both must come back `matched` before a comparison is stated. If
@@ -1162,46 +1298,140 @@ const COMPARE_SPLIT_RE = /\s+(?:cheaper than|dearer than|more expensive than|les
  * than no comparison, because the reader cannot see which half was invented.
  *
  * "Better value" is deliberately not answered as an opinion. What is
- * compared is the cheapest delivered price of each, and when those are for
- * different bottle sizes the answer says so: £70 for 100ml and £55 for 50ml
- * is not the cheaper bottle winning on value, and presenting it as though it
- * were would be the most easily missed wrong answer in this whole file.
+ * compared is a delivered price, like for like where the two share a size
+ * (100ml first, then the largest shared size), and only when they share
+ * none the cheapest of each — said to be different bottles, with a per-ml
+ * figure beside each, because £70 for 100ml against £55 for 50ml is not the
+ * cheaper bottle winning on value.
+ *
+ * A side that is only a strength ("Sauvage EDT vs EDP") borrows the other
+ * side's product words, and a question whose both sides are only strengths
+ * ("edp vs edt") is about the strengths themselves — see
+ * `formatStrengthExplainer`.
  */
 export async function resolveCompareQuery(question) {
   const site = await loadSite();
-  const parts = question.split(COMPARE_SPLIT_RE);
-  if (parts.length < 2) return null;
+  const splits = compareSides(question);
+  if (!splits) {
+    // "What does EDP mean" — no second side, but a strength on its own.
+    const only = strengthOnly(question.replace(/\b(what|does|do|is|mean|means|stand|stands|for)\b/gi, ' '));
+    return only ? { kind: 'strengths', strengths: [only], counts: await strengthCounts(site) } : null;
+  }
 
-  const cheapestOf = async (text) => {
+  const sideOf = async (text) => {
     const resolved = await resolveProductQuery(text, 'compare');
     if (resolved.status !== 'matched') return { side: text.trim(), resolved };
-    let best = null;
-    for (const frag of resolved.group) {
-      const b = site.priceService.bestOffer(rowsFor(site, frag));
-      if (!b || b.deliveredPriceGbp === null) continue;
-      if (!best || b.deliveredPriceGbp < best.deliveredPriceGbp) {
-        best = { deliveredPriceGbp: b.deliveredPriceGbp, retailerName: b.retailer.name, sizeMl: frag.sizeMl };
-      }
-    }
     return {
       side: text.trim(),
       resolved,
-      brand: resolved.anchor.brand,
-      name: resolved.anchor.name,
-      concentration: resolved.anchor.concentration,
-      best,
+      brand: resolved.brand ?? resolved.anchor.brand,
+      name: resolved.name ?? resolved.anchor.name,
+      concentration: resolved.concentration ?? resolved.anchor.concentration,
+      slices: pricedSlices(resolved.group, site),
     };
   };
 
-  const [left, right] = await Promise.all([cheapestOf(parts[0]), cheapestOf(parts[1])]);
-  if (left.resolved.status !== 'matched' || right.resolved.status !== 'matched') {
-    return { kind: 'unresolved', left, right };
+  let firstTry = null;
+  for (const [rawA, rawB] of splits) {
+    let a = rawA;
+    let b = rawB;
+    const sa = strengthOnly(a);
+    const sb = strengthOnly(b);
+    if (sa && sb) {
+      return { kind: 'strengths', strengths: [sa, sb], counts: await strengthCounts(site) };
+    }
+    // "Sauvage EDT vs EDP": the right side is a strength alone, so it is the
+    // left side's product in that strength.
+    if (sb && !sa) b = `${readConcentration(a).rest} ${STRENGTH_WORDS[sb] ?? sb}`;
+    if (sa && !sb) a = `${readConcentration(b).rest} ${STRENGTH_WORDS[sa] ?? sa}`;
+    let [left, right] = await Promise.all([sideOf(a), sideOf(b)]);
+    // "Tom Ford Tobacco Vanille vs Oud Wood": the house is named once and
+    // meant twice. A side that does not settle on its own is tried again
+    // with the other side's house in front of it.
+    if (left.resolved.status === 'matched' && right.resolved.status !== 'matched') {
+      const retry = await sideOf(`${left.brand} ${b}`);
+      if (retry.resolved.status === 'matched') right = { ...retry, side: b.trim() };
+    } else if (right.resolved.status === 'matched' && left.resolved.status !== 'matched') {
+      const retry = await sideOf(`${right.brand} ${a}`);
+      if (retry.resolved.status === 'matched') left = { ...retry, side: a.trim() };
+    }
+    const attempt = { left, right };
+    if (left.resolved.status === 'matched' && right.resolved.status === 'matched') {
+      return { kind: 'compared', ...attempt };
+    }
+    if (!firstTry) firstTry = attempt;
   }
-  return { kind: 'compared', left, right };
+  return { kind: 'unresolved', ...firstTry };
+}
+
+/** How many bottles the catalogue files under each strength, for the
+ *  explainer's one line of real data. */
+async function strengthCounts(site) {
+  const counts = new Map();
+  for (const f of site.data.DEMO_FRAGRANCES) counts.set(f.concentration, (counts.get(f.concentration) ?? 0) + 1);
+  return counts;
+}
+
+/** The shared size a like-for-like comparison is made at: 100ml if both
+ *  have it priced, else the largest size both have priced, else null. */
+function sharedSize(left, right) {
+  const priced = (side) => new Set(side.slices.filter((v) => v.best?.deliveredPriceGbp != null).map((v) => v.sizeMl));
+  const a = priced(left);
+  const shared = [...priced(right)].filter((s) => s !== null && a.has(s));
+  if (shared.length === 0) return null;
+  return shared.includes(100) ? 100 : Math.max(...shared);
+}
+
+function nearestFullSize(side) {
+  let best = null;
+  const gap = (v) => Math.abs((v.sizeMl ?? 0) - 100);
+  for (const v of side.slices) {
+    if (v.best?.deliveredPriceGbp == null) continue;
+    if (!best || gap(v) < gap(best) || (gap(v) === gap(best) && v.best.deliveredPriceGbp < best.best.deliveredPriceGbp)) best = v;
+  }
+  return best;
+}
+
+/**
+ * EDP against EDT, as a convention and not as a measurement.
+ *
+ * This is the one answer in the file that is not read off the catalogue,
+ * and it is written to say so: the strength bands are the industry's usual
+ * rule of thumb, houses set their own, and nothing here measures how long a
+ * bottle lasts. What the catalogue can add — how many bottles it files
+ * under each — it adds, and it offers the comparison it can genuinely make,
+ * a price comparison of one named fragrance across its strengths.
+ */
+const STRENGTH_BANDS = {
+  'Extrait de Parfum': 'Extrait de Parfum is usually the strongest, roughly 20-40% perfume oil',
+  Parfum: 'Parfum (or Pure Parfum) is usually around 20-30% perfume oil',
+  'Eau de Parfum': 'Eau de Parfum (EDP) is usually around 15-20% perfume oil',
+  'Eau de Toilette': 'Eau de Toilette (EDT) is usually around 5-15%',
+  'Eau de Cologne': 'Eau de Cologne (EDC) is usually lighter still, around 2-5%',
+  'Eau Fraiche': 'Eau Fraiche is usually the lightest, around 1-3%',
+  'Perfume Oil': 'Perfume Oil is perfume in an oil base rather than alcohol, usually applied by roller or dab',
+  Aftershave: 'Aftershave is usually the lightest of all, often with skin-soothing ingredients',
+};
+
+function formatStrengthExplainer(result) {
+  const n = (x) => x.toLocaleString('en-GB');
+  const wanted = [...new Set(result.strengths)];
+  const ladder = (wanted.length >= 2 ? wanted : ['Eau de Parfum', 'Eau de Toilette', ...wanted])
+    .filter((s, i, all) => all.indexOf(s) === i && STRENGTH_BANDS[s])
+    .map((s) => STRENGTH_BANDS[s]);
+  const tracked = wanted
+    .map((s) => `${n(result.counts.get(s) ?? 0)} ${s} bottles`)
+    .join(' and ');
+  return (
+    `${ladder.join('; ')}. That's the usual rule of thumb, not a measurement — each house sets its own strength, ` +
+    'and the same name can smell a little different in each. This site records the strength each shop states, ' +
+    `not how long a bottle lasts. Tracked here: ${tracked}. ` +
+    'Name a fragrance ("Sauvage EDT vs EDP") and I\'ll compare the prices of its strengths.'
+  );
 }
 
 export function formatCompareAnswer(result) {
-  const label = (s) => productLabel(s);
+  if (result.kind === 'strengths') return formatStrengthExplainer(result);
 
   if (result.kind === 'unresolved') {
     const bad = result.left.resolved.status !== 'matched' ? result.left : result.right;
@@ -1209,30 +1439,51 @@ export function formatCompareAnswer(result) {
   }
 
   const { left, right } = result;
-  const priced = [left, right].filter((s) => s.best);
-  if (priced.length < 2) {
+  const label = (s, v) => fragranceLink(productLabel(s), v?.best?.id ?? s.slices[0]?.ids[0]);
+  const perMl = (v) => (v.sizeMl ? ` (£${(v.best.deliveredPriceGbp / v.sizeMl).toFixed(2)}/ml)` : '');
+
+  const size = sharedSize(left, right);
+  if (size !== null) {
+    const lv = left.slices.find((v) => v.sizeMl === size);
+    const rv = right.slices.find((v) => v.sizeMl === size);
+    const [cheaper, cv, dearer, dv] =
+      lv.best.deliveredPriceGbp <= rv.best.deliveredPriceGbp ? [left, lv, right, rv] : [right, rv, left, lv];
+    const gap = dv.best.deliveredPriceGbp - cv.best.deliveredPriceGbp;
+    const verdict = gap < 0.005
+      ? 'They cost the same.'
+      : `${productLabel(cheaper)} is ${gbp(gap)} cheaper.`;
+    return (
+      `Like for like at ${size}ml: ${label(cheaper, cv)} is ${gbp(cv.best.deliveredPriceGbp)} delivered from ` +
+      `${cv.best.retailerName}, and ${label(dearer, dv)} is ${gbp(dv.best.deliveredPriceGbp)} from ` +
+      `${dv.best.retailerName}. ${verdict}`
+    );
+  }
+
+  // No shared size: each side's buyable size nearest a full 100ml bottle,
+  // rather than each side's cheapest — which is nearly always a 10ml
+  // decant, and "£11.10 against £233.55" said nothing about the two
+  // perfumes. Per-ml figures go beside both.
+  const lc = nearestFullSize(left);
+  const rc = nearestFullSize(right);
+  if (!lc || !rc) {
     // Both sides get named even though only one has a figure. Reporting only
     // the missing half reads as though the other was never asked about, and
     // the price that *is* known is the useful part of the answer.
-    const missing = left.best ? right : left;
-    const known = left.best ? left : right;
-    const knownLine = known.best
-      ? ` ${label(known)} is ${gbp(known.best.deliveredPriceGbp)} delivered from ${known.best.retailerName} for the ${known.best.sizeMl}ml.`
-      : ` ${label(known)} has no such listing either.`;
+    const [missing, known, kv] = lc ? [right, left, lc] : [left, right, rc];
+    const knownLine = kv
+      ? ` ${label(known, kv)} is ${gbp(kv.best.deliveredPriceGbp)} delivered from ${kv.best.retailerName} for the ${kv.sizeMl}ml.`
+      : ` ${productLabel(known)} has no such listing either.`;
     return `${label(missing)} has no buyable listing with a stated delivery cost right now, so there is nothing to compare it against.${knownLine}`;
   }
 
-  const cheaper = left.best.deliveredPriceGbp <= right.best.deliveredPriceGbp ? left : right;
-  const dearer = cheaper === left ? right : left;
-  const sizeNote =
-    left.best.sizeMl === right.best.sizeMl
-      ? ` Both figures are for the ${left.best.sizeMl}ml.`
-      : ` Different bottles though — ${left.best.sizeMl}ml against ${right.best.sizeMl}ml — so that is not a like-for-like price.`;
-
+  const [cheaper, cv, dearer, dv] =
+    lc.best.deliveredPriceGbp / (lc.sizeMl || 1) <= rc.best.deliveredPriceGbp / (rc.sizeMl || 1)
+      ? [left, lc, right, rc]
+      : [right, rc, left, lc];
   return (
-    `${label(cheaper)} is cheaper: ${gbp(cheaper.best.deliveredPriceGbp)} delivered from ` +
-    `${cheaper.best.retailerName}, against ${gbp(dearer.best.deliveredPriceGbp)} from ` +
-    `${dearer.best.retailerName} for ${label(dearer)}.${sizeNote}`
+    `${label(cheaper, cv)} is cheaper per ml: ${gbp(cv.best.deliveredPriceGbp)} delivered from ${cv.best.retailerName} ` +
+    `for the ${cv.sizeMl}ml${perMl(cv)}, against ${gbp(dv.best.deliveredPriceGbp)} from ${dv.best.retailerName} for the ` +
+    `${dv.sizeMl}ml of ${label(dearer, dv)}${perMl(dv)}. They don't share a size that's buyable at both, so compare the per-ml figures.`
   );
 }
 
@@ -1376,6 +1627,7 @@ export async function resolveConcentrationQuery(question) {
       .slice(0, 5)
       .map(({ f, best }) => {
         return {
+          id: f.id,
           brand: f.brand,
           name: f.name,
           concentration: f.concentration,
@@ -1450,7 +1702,7 @@ export function formatConcentrationAnswer(result) {
   }
 
   const line = (p) =>
-    `${productLabel(p)} ${p.sizeMl}ml` +
+    `${fragranceLink(`${productLabel(p)} ${p.sizeMl}ml`, p.id)}` +
     (p.best ? ` — ${gbp(p.best.deliveredPriceGbp)} delivered from ${p.best.retailerName}.` : ' — nothing buyable with a stated delivery cost right now.');
 
   const valueWords = result.values.length > 1 ? `${nameList(result.values)} between them` : result.values[0];
@@ -1516,15 +1768,16 @@ export async function resolveBrandQuery(question) {
     const named = await resolveProductQuery(question, 'brand');
     if (named.status === 'no_match' || weakIdentity(named)) return null;
     if (named.status !== 'matched') return named;
-    const sizes = named.group.map((f) => {
-      const best = site.priceService.bestOffer(rowsFor(site, f));
-      return {
-        sizeMl: f.sizeMl,
-        best: best?.deliveredPriceGbp != null
-          ? { deliveredPriceGbp: best.deliveredPriceGbp, retailerName: best.retailer.name }
-          : null,
-      };
-    });
+    // One line per size, every shop's listing of that size pooled — the
+    // same slices the price answer uses, so "do you have X" and "how much
+    // is X" cannot quote the same bottle differently.
+    const sizes = pricedSlices(named.group, site).map((v) => ({
+      id: v.best?.id ?? v.ids[0],
+      sizeMl: v.sizeMl,
+      best: v.best?.deliveredPriceGbp != null
+        ? { deliveredPriceGbp: v.best.deliveredPriceGbp, retailerName: v.best.retailerName }
+        : null,
+    }));
     return {
       kind: 'product',
       brand: named.anchor.brand,
@@ -1538,6 +1791,7 @@ export async function resolveBrandQuery(question) {
     .map((f) => {
       const best = site.priceService.bestOffer(rowsFor(site, f));
       return {
+        id: f.id,
         brand: f.brand,
         name: f.name,
         concentration: f.concentration,
@@ -1564,16 +1818,16 @@ export function formatBrandAnswer(result) {
   if (result.kind.startsWith('concentration')) return formatConcentrationAnswer(result);
 
   if (result.kind === 'product') {
-    const label = productLabel(result);
+    const label = fragranceLink(productLabel(result), result.sizes.find((s) => s.best)?.id ?? result.sizes[0]?.id);
     const lines = result.sizes.map((s) =>
       s.best
-        ? `${s.sizeMl}ml: ${gbp(s.best.deliveredPriceGbp)} delivered from ${s.best.retailerName}.`
-        : `${s.sizeMl}ml: nothing buyable with a stated delivery cost right now.`);
+        ? `${fragranceLink(`${s.sizeMl}ml`, s.id)}: ${gbp(s.best.deliveredPriceGbp)} delivered from ${s.best.retailerName}.`
+        : `${fragranceLink(`${s.sizeMl}ml`, s.id)}: nothing buyable with a stated delivery cost right now.`);
     return `Yes — ${label}.\n${lines.join('\n')}`;
   }
 
   const line = (p) =>
-    `${productLabel(p)} ${p.sizeMl}ml` +
+    `${fragranceLink(`${productLabel(p)} ${p.sizeMl}ml`, p.id)}` +
     (p.best ? ` — ${gbp(p.best.deliveredPriceGbp)} delivered from ${p.best.retailerName}.` : ' — nothing buyable with a stated delivery cost right now.');
 
   const head =
@@ -1585,7 +1839,7 @@ export function formatBrandAnswer(result) {
       ? ''
       : ` ${result.buyableCount} of them have a buyable listing with a stated delivery cost right now.`;
 
-  return `${head} (that count is per bottle size, not per perfume).${buyable}\nMost widely stocked:\n${result.examples.map(line).join('\n')}`;
+  return `${head} (that count is per bottle size, not per perfume).${buyable}\nMost widely stocked:\n${result.examples.map(line).join('\n')}\nAll of them: ${brandLink(result.brand)}.`;
 }
 
 /* ── greetings ─────────────────────────────────────────────────────────── */
@@ -1754,3 +2008,204 @@ export function formatMetaAnswer(result) {
     `${n(result.withNotesCount)} of the bottles carry notes, which are only stored where a retailer published them.`
   );
 }
+
+/* ── answers written without a model ───────────────────────────────────── */
+
+/**
+ * The question shapes that normally go to the model — "what smells like
+ * X", "something sweet, no florals", "how do you make money" — answered
+ * from the same grounding the model would have been given, for when there
+ * is no model to give it to: the Worker is not deployed yet, is rate
+ * limiting, or did not answer in time.
+ *
+ * Before this the widget's only answer to every one of those, with the AI
+ * side unplugged, was "That one needs the AI side of me, which isn't
+ * connected in this build yet" — a dead end on exactly the questions a
+ * shopper is most likely to ask a chat box rather than a search box. The
+ * catalogue can do better than nothing: the model's own SITE DATA block is
+ * a list of real bottles that share real published notes, and that list,
+ * priced and linked, is an answer.
+ *
+ * What it does not do is the model's job: it says the match is on
+ * published notes, never that two bottles smell alike.
+ */
+function cheapestPriced(slices) {
+  let best = null;
+  for (const v of slices) {
+    if (v.best?.deliveredPriceGbp == null) continue;
+    if (!best || v.best.deliveredPriceGbp < best.best.deliveredPriceGbp) best = v;
+  }
+  return best;
+}
+
+const CHEAPER_RE = /\b(cheaper|cheap|less expensive|budget|affordable|for less)\b/i;
+
+export async function resolveSuggestFallback(question) {
+  const site = await loadSite();
+  const request = await parseSuggestRequest(question);
+  const unsupported = unsupportedConstraintNotes(question);
+
+  if (request.wanted.length === 0) {
+    if (!request.reference && !request.referenceUnresolved && unsupported.length === 0) {
+      const gender = await resolveGenderQuery(question);
+      if (gender) return gender;
+    }
+    return {
+      kind: 'ungroundable',
+      referenceUnresolved: request.referenceUnresolved,
+      referenceWithoutNotes: request.reference ? request.reference.label : null,
+      unmatchedDescriptors: request.unmatchedDescriptors,
+      unsupported,
+      descriptors: await offerableDescriptors(),
+    };
+  }
+
+  let entries = await noteMatchedEntries(request);
+
+  // Who it is for, read from the title the same way the budget answer
+  // reads it, and disclosed the same way.
+  const who = request.audience;
+  const reading = who ? AUDIENCE_READING[who] ?? null : null;
+  const coverage = reading ? await genderCoverage() : null;
+  if (coverage) entries = entries.filter((e) => e.rows.some((r) => coverage.byId.get(r.id)?.reading === reading));
+
+  const popularity = (e) => e.rows.reduce((n, r) => n + Number(r.popularity ?? 0), 0);
+  entries.sort((a, b) => b.matchedCount - a.matchedCount || popularity(b) - popularity(a));
+
+  let maxGbp = request.budget?.maxGbp ?? null;
+  let referenceCheapest = null;
+  let referenceLinkId = null;
+  if (request.reference?.rows) {
+    const c = cheapestPriced(pricedSlices(request.reference.rows, site));
+    referenceLinkId = c?.best.id ?? request.reference.rows[0]?.id ?? null;
+    if (c && CHEAPER_RE.test(question)) {
+      referenceCheapest = { sizeMl: c.sizeMl, deliveredPriceGbp: c.best.deliveredPriceGbp };
+      const under = c.best.deliveredPriceGbp - 0.01;
+      maxGbp = maxGbp === null ? under : Math.min(maxGbp, under);
+    }
+  }
+
+  // Priced in rank order, stopping once five buyable ones are found. A
+  // price ceiling can push the five far down the list, so the scan is
+  // bounded by a generous count rather than by the first few.
+  const items = [];
+  for (const e of entries.slice(0, maxGbp === null ? 120 : 2000)) {
+    // The cheapest full-size bottle where there is one: a 5ml decant is a
+    // price, but not the answer to "something vanilla".
+    const slices = pricedSlices(e.rows, site);
+    const full = slices.filter((v) => (v.sizeMl ?? 0) >= MIN_FULL_SIZE_ML);
+    const c = cheapestPriced(full) ?? cheapestPriced(slices);
+    if (!c) continue;
+    if (maxGbp !== null && c.best.deliveredPriceGbp > maxGbp) continue;
+    items.push({
+      id: c.best.id,
+      brand: e.frag.brand,
+      name: e.frag.name,
+      concentration: e.frag.concentration,
+      sizeMl: c.sizeMl,
+      deliveredPriceGbp: c.best.deliveredPriceGbp,
+      retailerName: c.best.retailerName,
+      matched: e.matched,
+    });
+    if (items.length >= 5) break;
+  }
+
+  return {
+    kind: 'candidates',
+    reference: request.reference ? { label: request.reference.label, id: referenceLinkId, notes: request.reference.notes } : null,
+    referenceCheapest,
+    families: request.families,
+    literal: request.literal,
+    unwanted: request.unwanted,
+    maxGbp: request.budget?.maxGbp ?? null,
+    matchingCount: entries.length,
+    gender: coverage ? { label: coverage.label[reading], disclosure: await genderDisclosure() } : null,
+    unsupported,
+    items,
+  };
+}
+
+export function formatSuggestFallback(result) {
+  if (result.kind === 'gender') return formatGenderAnswer(result);
+  if (result.kind === 'ungroundable') {
+    if (result.referenceWithoutNotes) {
+      return (
+        `${result.referenceWithoutNotes} is in the catalogue, but no shop published its notes, so I have nothing to match ` +
+        `it against. What I can go on: a scent word — ${result.descriptors.join(', ')} — or a delivered price ceiling like "under £30".`
+      );
+    }
+    return formatSuggestAnswer(result);
+  }
+
+  const n = (x) => x.toLocaleString('en-GB');
+  const shares = (matched) => {
+    const shown = matched.slice(0, 4).join(', ');
+    return matched.length > 4 ? `${shown} and ${matched.length - 4} more` : shown;
+  };
+  const ceiling = result.referenceCheapest
+    ? `, all cheaper than its ${gbp(result.referenceCheapest.deliveredPriceGbp)} (${result.referenceCheapest.sizeMl}ml)`
+    : result.maxGbp !== null
+      ? ` at ${gbp(result.maxGbp)} or under delivered`
+      : '';
+  const excluding = result.unwanted.length ? `, leaving out anything listing ${nameList(result.unwanted)}` : '';
+
+  let lead;
+  if (result.reference) {
+    const ref = fragranceLink(result.reference.label, result.reference.id);
+    lead = `Going by the notes shops published for ${ref} (${shares(result.reference.notes)}), these buyable bottles share the most of them${ceiling}${excluding}:`;
+  } else if (result.families.length) {
+    const read = result.families.map(({ word, notes }) => `"${word}" as ${nameList(notes, 4)}`).join('; ');
+    lead = `Reading ${read}, these buyable bottles list the most of those notes${ceiling}${excluding}:`;
+  } else {
+    lead = `These buyable bottles list ${nameList(result.literal)}${ceiling}${excluding}:`;
+  }
+
+  const unsupported = unsupportedSentence(result.unsupported ?? [], "I can't filter by");
+  const genderNote = result.gender ? ` Only bottles whose titles say ${result.gender.label}. ${result.gender.disclosure}` : '';
+
+  if (result.items.length === 0) {
+    return (
+      `${n(result.matchingCount)} bottles share those notes, but none is buyable with a stated delivery cost${ceiling} right now.` +
+      (unsupported ? ` ${unsupported}` : '') + genderNote
+    );
+  }
+
+  const lines = result.items.map(
+    (i) =>
+      `${fragranceLink(`${productLabel(i)} ${i.sizeMl}ml`, i.id)} — ${gbp(i.deliveredPriceGbp)} delivered from ${i.retailerName} — shares: ${shares(i.matched)}`,
+  );
+  const caveat = result.reference
+    ? 'Sharing notes is not the same as smelling alike: this is a match on what the shops published, not a nose.'
+    : 'Matched on the notes shops published, so a bottle with no notes on file cannot show up here.';
+  return [lead, ...lines, `${caveat}${unsupported ? ` ${unsupported}` : ''}${genderNote}`].join('\n');
+}
+
+/** A policy question answered from the page itself: its title, linked, and
+ *  the opening of its text, cut at a sentence. */
+export function formatPolicyFallback({ page, text }) {
+  // The page's own opening paragraph where it has one: cutting the
+  // tag-stripped text instead ran a heading into the sentence after it
+  // ("Delivery is counted Every price includes…").
+  const firstParagraph = /<p[^>]*>([\s\S]*?)<\/p>/i.exec(page.body ?? '')?.[1];
+  const source = firstParagraph ? firstParagraph.replace(/<[^>]+>/g, ' ') : text;
+  const clean = source.replace(/\s+/g, ' ').trim();
+  let excerpt = clean;
+  if (clean.length > 320) {
+    excerpt = clean.slice(0, 320);
+    const stop = excerpt.lastIndexOf('. ');
+    excerpt = stop > 120 ? excerpt.slice(0, stop + 1) : `${excerpt.replace(/\s+\S*$/, '')}…`;
+  }
+  return `That's covered on our ${siteLink(page.title, `/legal/${encodeURIComponent(page.id)}`)} page. In short: ${excerpt}`;
+}
+
+/** What the assistant is for, for a message that is not about fragrance. */
+export const SCOPE_ANSWER =
+  "I can only help with fragrance shopping on this site, so I can't answer that one. I can look up prices, stock, " +
+  'sizes, notes, deals, delivery and comparisons, or find bottles by scent — try "how much is Dior Sauvage EDT" or ' +
+  '"something vanilla under £40".';
+
+/** The last resort when a question needed the model and there is none. */
+export const NO_MODEL_ANSWER =
+  "I can't answer that one from the catalogue alone, and the AI side that handles open questions isn't available " +
+  'right now. I can look up prices, stock, sizes, notes, deals, delivery and comparisons, or find bottles by scent — ' +
+  'try "how much is Dior Sauvage EDT" or "something vanilla under £40".';

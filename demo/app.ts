@@ -60,12 +60,11 @@ import {
 import { trustpilotStateFor } from './trustpilotWidget.js';
 import { ENABLED_SHOP_COUNT } from './legal.js';
 import { deliveryLines } from './deliveryFacts.js';
-import { deliveryPriceNote } from './priceDeliveryNote.js';
 import { msrpComparison, msrpComparisonLabel, type MsrpComparison } from './msrpComparison.js';
 import { pickReferencePrice } from './referencePrice.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
-import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
+import { offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
 import { priceHistoryFor, priceHistoryGapFor, PRICE_HISTORY } from './priceHistory.generated.js';
 import { dayKey, dailyHistory, type DailyHistoryPoint } from '../src/services/priceHistoryDaily.js';
 import { priceHistoryGapMessage, type PriceHistoryGap } from '../src/services/priceHistoryGaps.js';
@@ -76,13 +75,14 @@ import { headFor, type HeadTags, type HeadInput } from './head.js';
 import { SUPABASE_CONFIGURED } from './supabase.js';
 import {
   signUp, signIn, signOut, resendVerification, requestPasswordReset, currentUser, isVerified, onAuthChange,
-  checkEmailLinkCallback,
+  checkEmailLinkCallback, updatePassword, deleteOwnAccount, onPasswordRecovery,
 } from './auth.js';
 import type { User } from '@supabase/supabase-js';
 import { accountState, wishlistControl, type AccountStateInput } from '../src/services/accountState.js';
 import { fetchWishlist, addToWishlist, removeFromWishlist, type WishlistEntry } from './wishlist.js';
 import {
   VIRTUAL_YANNY_CONFIGURED, checkYannyHealth, askVirtualYanny, warmVirtualYanny,
+  yannyMessageHtml, yannyPlainText, YANNY_QUESTION_MAX,
   type YannyIntent, type YannyResult, type YannyEvent, type YannyHealth,
 } from './virtualYanny.js';
 
@@ -191,7 +191,9 @@ const state = {
   authChecked: false,
   authTab: 'signIn' as AuthTab,
   authBusy: false,
-  authError: '' as string,
+  // True while the reader who followed a password reset link has not yet set
+  // a new password: the account page asks for one before anything else.
+  authRecovery: false,
   // Set after a successful signup or resend, so the "check your email" state
   // knows which address to offer resending to.
   authPendingEmail: '' as string,
@@ -973,14 +975,6 @@ const STOCK_LABEL: Record<StockState, string> = {
   outOfStock: 'Sold out',
 };
 
-const STOCK_CLASS: Record<StockState, string> = {
-  inStock: 'ok',
-  lowStock: 'warn',
-  preOrder: 'warn',
-  unknown: 'muted',
-  outOfStock: 'gone',
-};
-
 function age(seconds: number): string {
   if (seconds < 90) return 'just now';
   const m = Math.round(seconds / 60);
@@ -1592,28 +1586,25 @@ function msrpFor(row: PresentedOffer, frag: DemoFragrance): MsrpComparison | nul
  * measured 2026-09-01 — but the rule is written for the case rather than for
  * today's data.
  *
- * ── The second price line ───────────────────────────────────────────────────
+ * ── Kept to two lines (2026-10-01) ─────────────────────────────────────────
  *
- * `.now` is the *total* — delivered where the shop states a delivery cost. The
- * MSRP percentage is not computed from that number and never was: both
- * `msrpFor` and `buildDiscount` take the item price alone. Printed on their
- * own two lines apart, as they were until 2026-09-01, the two invited exactly
- * the wrong arithmetic — Perfume Click's Azzure Aoud row showed "£32.20" above
- * "2% below MSRP", and 2% of £32.20 is not what produced that 2%; £29.25
- * against the house's £30.00 is. So the percentage now sits on the same line
- * as the price it was actually derived from, which is the whole point of the
- * line: "£29.25 · 2% below MSRP" can be checked against the MSRP box at the
- * top of the page by anyone who cares to.
+ * Owner feedback: the rows were informative but busy, so each one now says
+ * only what a shopper needs to choose a shop. Line one is the shop and the
+ * price; line two says what the price contains and how it compares:
  *
- * The item price is printed there only when it is not already the number
- * above. Where the shop states no delivery cost, or states free delivery,
- * `.now` *is* the item price (see PresentedOffer.deliveredPriceGbp: it is
- * never filled in from the item price), so repeating it would put the same
- * figure twice in two type sizes and imply two different prices where there is
- * one. On those rows the line carries the percentage alone, and it is still
- * sitting directly under the figure it was computed from. 12,927 of the 22,402
- * offer rows in the catalogue have a delivered price that genuinely differs
- * from their item price and so do print both.
+ *   Perfume Click  CHEAPEST                                   £27.00
+ *   Incl. £2.95 delivery · Affiliate link             27% below MSRP
+ *
+ * What went: the "£X more for free postage" hint (it read as a second,
+ * contradictory delivery figure beside the one already included), the bottle
+ * price repeated under the total, the "In stock" dot on every buyable row (the
+ * section heading already says so; only Low stock / Preorder / unconfirmed
+ * stock is still said), star ratings and the New tag. A delivery figure we have
+ * not confirmed with the shop is still marked, as "est.", and a stale price
+ * still says how old it is, because both change what the number means.
+ *
+ * The MSRP percentage is still computed from the item price alone, never the
+ * delivered total (see msrpFor).
  */
 function offerRow(
   row: PresentedOffer,
@@ -1622,139 +1613,63 @@ function offerRow(
   msrp: MsrpComparison | null = null,
 ): string {
   const d = msrp ? null : row.discount;
-  // The total on the row's first line. Only ever a delivered price where the
-  // shop actually states a delivery cost — never the item price wearing a
-  // delivered price's clothes.
+  // Only ever a delivered price where the shop actually states a delivery
+  // cost — never the item price wearing a delivered price's clothes.
   const totalGbp = row.deliveredPriceGbp ?? row.itemPriceGbp;
-  // See the header: the second line names the bottle price only where that is
-  // a different number from the total above it.
-  const showsItemPrice = row.itemPriceGbp !== totalGbp;
-  // A shop that has never published a standard delivery rate gets said out
-  // loud, the same way "No longer stocked" is. Anything quieter — a blank, a
-  // "Free delivery", a £0 — would be us filling in a number the shop has not
-  // given, and this row is deliberately never the cheapest one as a result.
-  const deliveryUnknown = row.delivery.costGbp === null;
-  // Delivery figures we have not read off the shop's own delivery page are
-  // marked as such wherever they are shown. The registry has always recorded
-  // which is which (shipping.confidence); until now the screen did not, so an
-  // unverified £2.99 and a confirmed £3.99 arrived at the reader looking
-  // identically solid. Two thirds of live listings are in the first group, so
-  // this is the ordinary case rather than a rare caveat.
-  const unconfirmed = !deliveryUnknown && !row.delivery.confirmed;
-  const sub: string[] = [
-    deliveryUnknown
-      ? 'Delivery not stated'
-      : row.delivery.isFree
-        ? `Free delivery${unconfirmed ? ' (not confirmed with the shop)' : ''}`
-        : `plus ${formatGbp(row.delivery.costGbp!)} delivery${unconfirmed ? ' (not confirmed with the shop)' : ''}`,
-  ];
-  if (row.delivery.spendMoreForFreeGbp !== null) {
-    sub.push(`${formatGbp(row.delivery.spendMoreForFreeGbp)} more for free postage`);
+  const facts: string[] = [];
+  if (!row.isPurchasable) {
+    facts.push('Last known price');
+  } else {
+    if (row.delivery.costGbp === null) {
+      // Listed under "Delivery not included", so the heading says the rest.
+      facts.push('Plus delivery');
+    } else {
+      // Marked "est." where the figure is not read off the shop's own delivery
+      // page (shipping.confidence): about two thirds of live listings.
+      const est = row.delivery.confirmed ? '' : 'est. ';
+      facts.push(
+        row.delivery.costGbp === 0
+          ? `${row.delivery.confirmed ? 'Free' : 'Est. free'} delivery`
+          : `Incl. ${est}${formatGbp(row.delivery.costGbp)} delivery`,
+      );
+    }
+    if (row.stock !== 'inStock') facts.push(STOCK_LABEL[row.stock]);
+    // Said on the row it applies to: the page caption gives the freshest age.
+    if (row.stale) facts.push(`Checked ${age(row.ageSeconds)}`);
   }
-  // The page-level "checked N ago" caption above the offer list (see
-  // detailView) reports the *freshest* row's age, which is exactly the fact
-  // that let John Lewis's four stale prices render with nothing beside them
-  // saying so — a reader glancing at "checked 2h ago" had no way to know one
-  // specific row was 11 days old. Said on the row it actually applies to
-  // instead, and only there: every fresh row already reads as current from
-  // that shared caption, so repeating an age on every line would bury the
-  // one that matters.
-  if (row.stale) {
-    sub.push(`price last confirmed ${age(row.ageSeconds)}`);
-  }
-  // This retailer's own published rating for this listing — read from its
-  // schema.org aggregateRating (src/catalogue/jsonld.ts), never computed and
-  // never borrowed from a different shop's rating of the same fragrance.
-  // Fragrantica's own ratings are off limits (its ToS forbids scraping them,
-  // see docs/SCRAPING.md); this is the legitimate substitute, shown only
-  // where a retailer actually publishes one.
-  if (row.rating) {
-    sub.push(
-      `★ ${row.rating.value.toFixed(1)}${row.rating.count !== null ? ` (${row.rating.count})` : ''}`,
-    );
-  }
-
   // The CAP Code asks for an affiliate relationship to be obvious before the
-  // click, not only on a policy page. So a commissioned shop's link carries
-  // the marker on the row itself, and rel="sponsored" alongside nofollow so
-  // search engines are told the same thing a reader is. Decided from the
-  // registry's own affiliate status, the same fact the disclosure page
-  // computes its list from, so the two can never disagree.
+  // click, so a commissioned shop's row says so, and rel="sponsored" tells
+  // search engines the same. Decided from the registry, like the disclosure
+  // page's own list, so the two can never disagree.
   const commissioned = row.retailer.affiliate.status === 'active';
+  if (commissioned) facts.push('Affiliate link');
+
   return `<li class="offer ${isBest ? 'best' : ''} ${row.isPurchasable ? '' : 'unavail'}">
     <a class="offer-link" href="${esc(row.outboundUrl)}" rel="nofollow noopener${commissioned ? ' sponsored' : ''}" target="_blank">
       <span class="offer-top">
         <span class="shop t-title">${esc(row.retailer.name)}${
-          isNewAt(row.variantId, row.retailer.id) ? '<span class="tag new">New</span>' : ''
-        }${
-          commissioned
-            ? '<span class="tag affiliate" title="PriceSniffs may earn commission if you buy after following this link. It does not change the price you pay.">Affiliate link</span>'
-            : ''
-        }${
           isBest && bestTag
             ? `<span class="tag ${bestTag === 'Cheapest' ? '' : 'unsure'}">${esc(bestTag)}</span>`
             : ''
         }</span>
-        <span class="price">
-          ${
-            // A row carrying an MSRP comparison shows no reference figure here
-            // at all. Until 2026-08-26 it rendered "£37.99 at Armaf" beside the
-            // price; the owner asked for the house price off the row, and the
-            // percentage on the second line below carries the comparison on its
-            // own. Note the `msrp ? ... : d ? ...` shape is kept rather than
-            // collapsed to `d ? ...`: such a row must still suppress the shop's
-            // own RRP strikethrough (see this function's header — two reference
-            // prices on one row is the thing that must not happen), and
-            // dropping the branch would put it straight back.
-            msrp
-              ? ''
-              : d
-                ? `<span class="was">RRP ${formatGbp(d.wasPrice)}</span>`
-                : ''
-          }
-          <span class="now t-price ${
-            // The saving ink, and only for a saving. A retailer promotion and a
-            // price under the house's own are both good news for the reader and
-            // both earn it; a price *above* MSRP is the same news inverted and
-            // must not be painted as a bargain, so `direction` is checked here
-            // rather than the comparison merely existing.
-            d || msrp?.direction === 'below' ? 'sale' : ''
-          }">${formatGbp(totalGbp)}<span class="del-note${
-            deliveryUnknown ? ' excl' : ''
-          }">${esc(deliveryPriceNote(row.delivery))}</span></span>
-        </span>
+        <span class="price">${
+          // A row with an MSRP comparison never also shows the shop's own RRP:
+          // two reference prices on one row is the thing that must not happen.
+          d ? `<span class="was">RRP ${formatGbp(d.wasPrice)}</span>` : ''
+        }<span class="now t-price ${
+          // The saving ink only for a saving; a price above MSRP is not one.
+          d || msrp?.direction === 'below' ? 'sale' : ''
+        }">${formatGbp(totalGbp)}</span></span>
       </span>
       <span class="offer-bot">
-        <span class="facts t-caption">
-          <span class="dot ${STOCK_CLASS[row.stock]}"></span>${STOCK_LABEL[row.stock]}
-          <span class="sep">·</span>${esc(sub.join(' · '))}
-        </span>
-        <span class="alone">${
-          // The bottle price on its own, beside the comparison actually
-          // computed from it. See this function's header for why it is omitted
-          // where it would only repeat the total above.
-          showsItemPrice
-            ? `<span class="alone-price t-price">${formatGbp(row.itemPriceGbp)}</span>`
-            : ''
-        }${
-          // "below MSRP" rather than "below Armaf" (owner's wording,
-          // 2026-08-26). The figure is unchanged and still the house's own
-          // ceiling for this size; MSRP is the word the box at the top of the
-          // page already uses for that same number, so the row and the box name
-          // the reference the same way instead of two different ways. "above"
-          // is the same sentence about the same figure pointing the other way,
-          // and is given its own ink (.off.over) so the two can never be
-          // skimmed as the same claim.
+        <span class="facts t-caption">${facts.map((f) => `<span>${esc(f)}</span>`).join('<span class="sep">·</span>')}</span>${
           msrp
-            ? `<span class="off anchor${
-                msrp.direction === 'above' ? ' over' : ''
-              }">${msrpComparisonLabel(msrp)}</span>`
+            ? `<span class="off anchor${msrp.direction === 'above' ? ' over' : ''}">${msrpComparisonLabel(msrp)}</span>`
             : d
               ? `<span class="off">${d.percentOff}% off RRP</span>`
               : ''
-        }</span>
-      </span>
-      ${
+        }
+      </span>${
         d && canShowCountdown(d)
           ? `<span class="offer-bot"><span class="ends">Offer ${esc(countdown(d.endsAt!))}</span></span>`
           : ''
@@ -2188,6 +2103,14 @@ function notesBlock(f: DemoFragrance): string {
  *  live catalogue (delisted everywhere since it was saved) is skipped rather
  *  than rendered as a broken link; the row in the database is untouched, so
  *  it would reappear if the fragrance ever comes back into stock somewhere. */
+/** The saved bottle's cheapest price today, so the wishlist doubles as a
+ *  price check: the same figure the product page leads with. */
+function wishlistPriceNote(frag: DemoFragrance): string {
+  const best = bestOffer(rowsFor(frag));
+  if (!best) return ' · Sold out everywhere';
+  return ` · From ${formatGbp(best.deliveredPriceGbp ?? best.itemPriceGbp)} at ${esc(best.retailer.name)}`;
+}
+
 function wishlistSectionHtml(): string {
   if (!state.wishlistLoaded) return `<h2 class="t-section">Wishlist</h2><p class="settings-note t-caption">Loading.</p>`;
 
@@ -2209,7 +2132,7 @@ function wishlistSectionHtml(): string {
               ${monogram(frag.brand)}
               <span class="shop-row-text">
                 <span class="shop-row-name t-title">${esc(frag.brand)} ${esc(frag.name)}</span>
-                <span class="shop-row-meta t-caption">${esc(frag.concentration)}, ${esc(sizeLabel(frag.sizeMl))}</span>
+                <span class="shop-row-meta t-caption">${esc(frag.concentration)}, ${esc(sizeLabel(frag.sizeMl))}${wishlistPriceNote(frag)}</span>
               </span>
               <span class="shop-row-go" aria-hidden="true">→</span>
             </button>
@@ -2501,10 +2424,19 @@ function detailView(): string {
   const verdict = cheapestVerdict(rows);
   const bestTag = cheapestTag(verdict);
   const live = rows.filter((r) => r.isPurchasable);
-  // Alphabetical, not by price: this section is about "who usually stocks it",
-  // not "who was cheapest last time it was in stock" — a price ordering would
-  // read as if these were live, buyable offers, which they are not.
-  const gone = rows.filter((r) => !r.isPurchasable).sort((a, b) => a.retailer.name.localeCompare(b.retailer.name));
+  // Three groups, each strictly cheapest first (owner feedback, 2026-10-01):
+  // buyable with delivery included, then buyable where the shop states no
+  // delivery cost (its own "Delivery not included" section, because its price
+  // cannot be compared with an all-in one), then sold out. The shared sort in
+  // priceService ranks stock state before price, which put a cheaper Low stock
+  // row under a dearer In stock one; within a section the price alone decides.
+  const byPrice = (a: PresentedOffer, b: PresentedOffer) =>
+    (a.deliveredPriceGbp ?? a.itemPriceGbp) - (b.deliveredPriceGbp ?? b.itemPriceGbp) ||
+    a.itemPriceGbp - b.itemPriceGbp ||
+    a.retailer.name.localeCompare(b.retailer.name);
+  const delivered = live.filter((r) => r.deliveredPriceGbp !== null).sort(byPrice);
+  const plusDelivery = live.filter((r) => r.deliveredPriceGbp === null).sort(byPrice);
+  const gone = rows.filter((r) => !r.isPurchasable).sort(byPrice);
   const newest = rows.length ? Math.min(...rows.map((r) => r.ageSeconds)) : 0;
   /**
    * Whether this page may print the word MSRP at all.
@@ -2572,24 +2504,24 @@ function detailView(): string {
             live.length ? `Available at (${live.length} ${live.length === 1 ? 'shop' : 'shops'})` : ''
           }</p>
           <span class="dim t-caption">${
-            // Until 2026-09-01 this caption led with "delivery included where
-            // the shop states it" (or plain "delivery included", where every
-            // row had a stated cost) before the age. Nothing is lost by
-            // dropping it: it was a page-level summary of a fact each row
-            // already states about *itself*, on its own price, in .del-note —
-            // "INCL. £2.95 DELIVERY", "INCL. FREE DELIVERY" or "DELIVERY NOT
-            // INCLUDED", rendered on every row rather than only on the odd one
-            // out. The hedged form in particular told a reader that some row on
-            // this page excluded delivery without saying which, when the row
-            // that does says so on its own line, in warn ink. What is left is
-            // the one fact no row carries: how current the page is. age()
-            // handles its own units, so this reads "Updated 17h ago" and, past
-            // 48h, "Updated 3d ago".
+            // The one fact no row carries: how current the page is. Each row
+            // says what its own price contains; age() handles its own units.
             `Updated ${esc(age(newest))}`
           }</span>
         </div>
 
-        <ul class="offers">${live.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>
+        ${
+          delivered.length
+            ? `<ul class="offers">${delivered.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
+            : ''
+        }
+
+        ${
+          plusDelivery.length
+            ? `<p class="gone-head t-eyebrow">Delivery not included</p>
+               <ul class="offers">${plusDelivery.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
+            : ''
+        }
 
         ${
           gone.length
@@ -3447,6 +3379,84 @@ function accountEntryLabel(): string {
  * account itself. Never a form that fails on every submit — SUPABASE_CONFIGURED
  * being false renders as a plain, honest "not live yet" state instead.
  */
+interface DialogOptions {
+  title: string;
+  message: string;
+  /** Turns the pop-up into a question with Cancel beside this button. */
+  confirmLabel?: string;
+  /** Paints the confirm button in the warning colour (deleting things). */
+  danger?: boolean;
+  /** A success message rather than a problem: drops the warning accent. */
+  ok?: boolean;
+}
+
+/**
+ * Errors and confirmations as a pop-up (owner feedback, 2026-10-01: a line of
+ * red text under a form was easy to miss). A native <dialog> opened with
+ * showModal(), so focus moves into it, Esc closes it, the page behind is
+ * inert and screen readers announce it, all without extra code. It lives on
+ * <body>, outside #app, so a re-render underneath cannot wipe it. Resolves
+ * true when the confirm/OK button closed it.
+ */
+function showDialog(o: DialogOptions): Promise<boolean> {
+  let dlg = document.getElementById('ps-dialog') as HTMLDialogElement | null;
+  if (!dlg) {
+    dlg = document.createElement('dialog');
+    dlg.id = 'ps-dialog';
+    dlg.className = 'ps-dialog';
+    dlg.setAttribute('aria-labelledby', 'ps-dialog-title');
+    dlg.setAttribute('aria-describedby', 'ps-dialog-msg');
+    // A tap on the dimmed backdrop (the dialog element itself, outside its
+    // content box) dismisses it, as on every phone's own alerts.
+    const self = dlg;
+    self.addEventListener('click', (e) => {
+      if (e.target === self) self.close('cancel');
+    });
+    document.body.appendChild(dlg);
+  }
+  if (dlg.open) dlg.close('cancel');
+  dlg.setAttribute('role', 'alertdialog');
+  dlg.classList.toggle('is-ok', o.ok === true);
+  dlg.innerHTML = `<form method="dialog" class="ps-dialog-body">
+      <h2 id="ps-dialog-title" class="ps-dialog-title">${esc(o.title)}</h2>
+      <p id="ps-dialog-msg" class="ps-dialog-msg">${esc(o.message)}</p>
+      <div class="ps-dialog-actions">${
+        o.confirmLabel
+          ? `<button value="cancel" class="ps-dialog-btn">Cancel</button>
+             <button value="confirm" class="ps-dialog-btn ${o.danger ? 'danger' : 'primary'}">${esc(o.confirmLabel)}</button>`
+          : `<button value="confirm" class="ps-dialog-btn primary" autofocus>OK</button>`
+      }</div>
+    </form>`;
+  const d = dlg;
+  return new Promise((resolve) => {
+    d.returnValue = '';
+    d.addEventListener('close', () => resolve(d.returnValue === 'confirm'), { once: true });
+    if (typeof d.showModal === 'function') {
+      d.showModal();
+    } else if (o.confirmLabel) {
+      resolve(window.confirm(`${o.title}\n\n${o.message}`));
+    } else {
+      window.alert(`${o.title}\n\n${o.message}`);
+      resolve(true);
+    }
+  });
+}
+
+/** The new-password form used after a reset link and for changing it. */
+function newPasswordForm(id: string, submitLabel: string): string {
+  return `<form id="${id}" class="contact-form">
+      <label class="field">
+        <span>New password</span>
+        <input type="password" name="password" autocomplete="new-password" required minlength="8" />
+      </label>
+      <label class="field">
+        <span>Repeat new password</span>
+        <input type="password" name="confirm" autocomplete="new-password" required minlength="8" />
+      </label>
+      <button type="submit" class="contact-send">${esc(submitLabel)}</button>
+    </form>`;
+}
+
 function accountView(): string {
   const s = accountState(accountStateInput());
 
@@ -3469,14 +3479,32 @@ function accountView(): string {
     return `<button class="back" data-back>Back</button><article class="doc settings-doc"><h1 class="t-page">Account</h1><p>Loading.</p></article>`;
   }
 
+  if (s.kind === 'signedIn' && state.authRecovery) {
+    return `
+      <button class="back" data-back>Back</button>
+      <article class="doc settings-doc">
+        <h1 class="t-page">Set a new password</h1>
+        <p class="account-note">For ${esc(s.email)}.</p>
+        ${newPasswordForm('auth-recovery-form', 'Save new password')}
+      </article>`;
+  }
+
   if (s.kind === 'signedIn') {
     return `
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
         <h1 class="t-page">Account</h1>
         <p class="account-note">Signed in as ${esc(s.email)}.</p>
-        <button class="contact-send" id="auth-sign-out">Sign out</button>
         ${wishlistSectionHtml()}
+        <h2 class="t-section">Settings</h2>
+        <details class="account-more">
+          <summary>Change password</summary>
+          ${newPasswordForm('auth-change-password-form', 'Change password')}
+        </details>
+        <div class="account-actions">
+          <button class="contact-send" id="auth-sign-out">Sign out</button>
+          <button class="link-btn danger" id="auth-delete">Delete account</button>
+        </div>
       </article>`;
   }
 
@@ -3563,7 +3591,6 @@ function accountView(): string {
 
       ${!signUpTab ? `<button class="link-btn" id="auth-forgot">Forgot your password</button>` : ''}
 
-      ${state.authError ? `<p class="auth-error">${esc(state.authError)}</p>` : ''}
       ${state.authResetSent ? `<p class="contact-confirm">If that address has an account, a reset link is on its way.</p>` : ''}
     </article>`;
 }
@@ -4247,7 +4274,7 @@ function handleBack(): void {
 type YannySource = 'catalogue' | 'model' | 'model-unchecked';
 
 type YannyThreadItem =
-  | { kind: 'msg'; who: 'user' | 'bot'; text: string; source?: YannySource }
+  | { kind: 'msg'; who: 'user' | 'bot'; text: string; source?: YannySource; tone?: 'error' }
   // A turn the reader stopped before it finished. It is its own kind rather
   // than a bot message so a truncated turn can never be mistaken for an
   // answer Virtual Yanny actually gave — it renders as a note, not a bubble.
@@ -4348,7 +4375,10 @@ function loadYannyThread(): void {
       const item = entry as Record<string, unknown>;
       if (item.kind === 'msg' && typeof item.text === 'string' && (item.who === 'user' || item.who === 'bot')) {
         const source = item.source === 'catalogue' || item.source === 'model' || item.source === 'model-unchecked' ? item.source : undefined;
-        items.push(source ? { kind: 'msg', who: item.who, text: item.text, source } : { kind: 'msg', who: item.who, text: item.text });
+        const msg: YannyThreadItem = { kind: 'msg', who: item.who, text: item.text };
+        if (source) msg.source = source;
+        if (item.tone === 'error') msg.tone = 'error';
+        items.push(msg);
       } else if (item.kind === 'stopped') {
         items.push({ kind: 'stopped' });
       }
@@ -4380,10 +4410,14 @@ function loadYannyThread(): void {
  * Named examples rather than category labels, because the useful thing to
  * communicate is the shape of a question that works, not a taxonomy.
  */
+// Each of these is answered in full from the catalogue alone, so the
+// examples work whether or not the AI side is connected. (The first used to
+// be "how much is Bleu de Chanel EDP", a strength the catalogue does not
+// track Bleu de Chanel in.)
 const YANNY_EMPTY_PROMPTS = [
-  'how much is Bleu de Chanel EDP',
+  'how much is Dior Sauvage EDT',
   'something vanilla, no florals',
-  'how do these prices get checked',
+  'what smells like Aventus but cheaper',
 ];
 const YANNY_PLACEHOLDER = 'Ask anything about this site…';
 
@@ -4409,7 +4443,7 @@ function yannyHeadHtml(): string {
   return `<div class="yanny-head">
     <span class="yanny-head-mark" aria-hidden="true">🤖</span>
     <div class="yanny-head-text">
-      <p class="yanny-head-name">Virtual Yanny</p>
+      <p class="yanny-head-name" id="yanny-title">Virtual Yanny</p>
       <p class="yanny-head-sub">Answers from this site's own catalogue</p>
       <!-- The one place on the site where what a reader types can leave
            their browser, said where they type it. The privacy notice
@@ -4451,7 +4485,15 @@ function yannyThreadHtml(): string {
   const items = state.yannyThread
     .map((item) => {
       if (item.kind === 'msg') {
-        return `<div class="yanny-msg ${item.who}">${esc(item.text)}</div>${item.who === 'bot' ? yannySourceHtml(item.source) : ''}`;
+        // A bot message may carry links to the site's own pages, written by
+        // the engine as [label](/path); yannyMessageHtml escapes everything
+        // and turns only those into anchors. A reader's own words are never
+        // linkified. The visually hidden prefix tells a screen reader whose
+        // turn it is, which the bubble's position tells everyone else.
+        const who = item.who === 'user' ? 'You said' : 'Virtual Yanny';
+        const body = item.who === 'bot' ? yannyMessageHtml(item.text, basePath()) : esc(item.text);
+        const tone = item.tone === 'error' ? ' is-error' : '';
+        return `<div class="yanny-msg ${item.who}${tone}"><span class="sr">${who}: </span>${body}</div>${item.who === 'bot' ? yannySourceHtml(item.source) : ''}`;
       }
       // A stopped turn. Deliberately not a bot bubble: an answer arrives as
       // one final event rather than token by token, so a stop genuinely
@@ -4474,7 +4516,7 @@ const YANNY_UNAVAILABLE_COPY: Record<YannyHealth['reason'], { mark: string; text
   none: { mark: '🤖', text: 'Virtual Yanny is available.' },
   'not-built': {
     mark: '🔧',
-    text: "The AI side isn't connected in this build yet. Prices, stock, sizes, notes, delivery, deals and budgets still answer from the catalogue.",
+    text: "The AI side isn't connected yet, so every answer comes straight from the catalogue — open questions get the closest match it can give.",
   },
   'no-answer': {
     mark: '💤',
@@ -4501,7 +4543,11 @@ const YANNY_UNAVAILABLE_COPY: Record<YannyHealth['reason'], { mark: string; text
  * side goes in one strip where it can be read and ignored.
  */
 function yannyPanelHtml(): string {
-  const transcript = `<div class="yanny-body" id="yanny-body">${yannyThreadHtml()}</div>`;
+  // A log: new turns are appended at the end. It is not itself a live
+  // region — the panel is redrawn wholesale on every event, which would
+  // re-announce the whole conversation — see announceYanny for what is read
+  // out instead.
+  const transcript = `<div class="yanny-body" id="yanny-body" role="log" aria-label="Conversation" aria-busy="${state.yannyBusy}">${yannyThreadHtml()}</div>`;
 
   let foot = '';
   if (state.yannyStatus === 'unavailable') {
@@ -4520,13 +4566,13 @@ function yannyPanelHtml(): string {
     ? `<button type="button" id="yanny-stop" class="yanny-stop" aria-label="Stop generating this answer">${ICON_STOP}</button>`
     : `<button type="submit" id="yanny-send" aria-label="Send">&#10148;</button>`;
 
-  return `<div class="yanny-panel">
+  return `<div class="yanny-panel" role="dialog" aria-labelledby="yanny-title">
     ${yannyHeadHtml()}
     ${transcript}
     ${foot}
     <form id="yanny-composer" class="yanny-composer">
       <label class="sr" for="yanny-input">Message Virtual Yanny</label>
-      <input id="yanny-input" type="text" placeholder="${esc(YANNY_PLACEHOLDER)}" autocomplete="off" ${state.yannyBusy ? 'disabled' : ''} />
+      <input id="yanny-input" type="text" placeholder="${esc(YANNY_PLACEHOLDER)}" autocomplete="off" enterkeyhint="send" maxlength="${YANNY_QUESTION_MAX}" ${state.yannyBusy ? 'disabled' : ''} />
       ${control}
     </form>
   </div>`;
@@ -4550,6 +4596,7 @@ function renderYanny(): void {
   const focusedId = active && host.contains(active) ? active.id : '';
 
   launcher.toggleAttribute('data-open', state.yannyOpen);
+  launcher.setAttribute('aria-expanded', String(state.yannyOpen));
   host.innerHTML = state.yannyOpen ? yannyPanelHtml() : '';
   if (state.yannyOpen) {
     const body = $('#yanny-body') as HTMLElement | null;
@@ -4611,6 +4658,72 @@ function closeYanny(): void {
 }
 
 /**
+ * Reads an answer out to a screen reader, once.
+ *
+ * The transcript cannot be a live region itself: the panel is rebuilt with
+ * innerHTML on every event, and a live region that is replaced rather than
+ * changed is announced unreliably or, worse, in full. So the answer goes
+ * into one persistent, visually hidden status element outside the panel
+ * (#yanny-live in template.html), as plain words without link markup.
+ * Cleared first, so the same answer twice is still announced twice.
+ */
+function announceYanny(text: string): void {
+  const live = document.getElementById('yanny-live');
+  if (!live) return;
+  live.textContent = '';
+  window.setTimeout(() => {
+    live.textContent = yannyPlainText(text);
+  }, 50);
+}
+
+/**
+ * Keeps Tab inside the panel while it covers the whole screen (the phone
+ * layout, see .yanny-panel in template.html). On a wider screen it is a
+ * floating card beside the page and Tab is free to leave it.
+ */
+function trapYannyFocus(e: KeyboardEvent): void {
+  if (e.key !== 'Tab' || !state.yannyOpen) return;
+  if (!window.matchMedia('(max-width: 480px)').matches) return;
+  const panel = document.querySelector<HTMLElement>('.yanny-panel');
+  if (!panel) return;
+  const focusable = [...panel.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), input:not([disabled])')];
+  if (focusable.length === 0) return;
+  const first = focusable[0]!;
+  const last = focusable[focusable.length - 1]!;
+  const active = document.activeElement as HTMLElement | null;
+  if (!active || !panel.contains(active)) {
+    e.preventDefault();
+    first.focus();
+  } else if (e.shiftKey && active === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && active === last) {
+    e.preventDefault();
+    first.focus();
+  }
+}
+
+/**
+ * A link inside an answer navigates in place, like every other in-site
+ * link, rather than reloading a page that carries the whole catalogue. On
+ * the phone layout the panel would cover the page it just opened, so it
+ * closes. A modified click (new tab, new window) is left to the browser,
+ * which the real href supports.
+ */
+function followYannyLink(e: MouseEvent, link: HTMLElement): void {
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+  const route = matchRoute(link.getAttribute('data-yanny-path') ?? '', '');
+  rememberListState();
+  if (!applyRoute(route)) return;
+  e.preventDefault();
+  clearFacets();
+  render();
+  syncUrl('push');
+  window.scrollTo({ top: 0 });
+  if (window.matchMedia('(max-width: 480px)').matches) closeYanny();
+}
+
+/**
  * The lifecycle of one question, and every way it can end.
  *
  * idle → sending on the way in; sending → idle on a `result` or an `error`;
@@ -4660,16 +4773,19 @@ function sendYannyMessage(text: string): void {
           const source: YannySource =
             event.result.source === 'model' ? (event.result.grounded === false ? 'model-unchecked' : 'model') : 'catalogue';
           state.yannyThread.push({ kind: 'msg', who: 'bot', text: event.result.winner.content, source });
+          announceYanny(event.result.winner.content);
         } else {
-          const why = event.result.error === 'no_agents_responded'
-            ? 'none of the AI providers answered in time. Catalogue questions still work; try this one again in a minute.'
-            : `${event.result.error ?? 'unknown error'}.`;
-          state.yannyThread.push({ kind: 'msg', who: 'bot', text: `I couldn't answer that: ${why}` });
+          // askVirtualYanny answers a failed model turn from the catalogue
+          // itself, so this is a backstop; it never shows a raw error code.
+          const text = "I couldn't answer that one just now. Try asking it again, or ask about a price, a size or a note.";
+          state.yannyThread.push({ kind: 'msg', who: 'bot', text, tone: 'error' });
+          announceYanny(text);
         }
         saveYannyThread();
       } else if (event.type === 'error') {
         state.yannyBusy = false;
-        state.yannyThread.push({ kind: 'msg', who: 'bot', text: event.message });
+        state.yannyThread.push({ kind: 'msg', who: 'bot', text: event.message, tone: 'error' });
+        announceYanny(event.message);
         saveYannyThread();
       }
       renderYanny();
@@ -4680,11 +4796,9 @@ function sendYannyMessage(text: string): void {
     yannyAbort = null;
     if (!state.yannyBusy) return;
     state.yannyBusy = false;
-    state.yannyThread.push({
-      kind: 'msg',
-      who: 'bot',
-      text: 'Virtual Yanny stopped part-way through without answering. Ask that again and it should go through.',
-    });
+    const text = 'Virtual Yanny stopped part-way through without answering. Ask that again and it should go through.';
+    state.yannyThread.push({ kind: 'msg', who: 'bot', text, tone: 'error' });
+    announceYanny(text);
     saveYannyThread();
     renderYanny();
   })
@@ -5369,6 +5483,7 @@ function init(): void {
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && state.yannyOpen) closeYanny();
+    trapYannyFocus(e);
   });
 
   // Starts the backend waking as soon as somebody looks like they are headed
@@ -5397,8 +5512,9 @@ function init(): void {
       // hold a freshly verified reader on the "check your inbox" screen they
       // have just finished with.
       state.authPendingEmail = '';
-      state.authError = '';
       state.authResetSent = false;
+    } else {
+      state.authRecovery = false;
     }
     if (user && isVerified(user)) {
       loadWishlist();
@@ -5417,6 +5533,11 @@ function init(): void {
   // that just followed a verification link back in — see its own comment in
   // auth.ts for why nothing here needs to poll for that.
   onAuthChange(handleAuthUser);
+  onPasswordRecovery(() => {
+    state.authRecovery = true;
+    if (state.view !== 'account') go('account');
+    else renderInPlace();
+  });
   // The other half of "the tab that just followed a link back in": if that
   // link did NOT produce a session — expired, already used, or (see
   // supabase.ts's flowType comment) opened in a browser without a stored
@@ -5425,9 +5546,7 @@ function init(): void {
   // visit. See auth.ts's checkEmailLinkCallback for why that was silent
   // until now.
   checkEmailLinkCallback().then((message) => {
-    if (!message) return;
-    state.authError = message;
-    render();
+    if (message) void showDialog({ title: 'That link did not work', message });
   });
 
   // The bar search is the quick one: type a name, get results. The Search
@@ -5648,6 +5767,11 @@ function init(): void {
       return;
     }
 
+    const yannyLink = t.closest<HTMLElement>('.yanny-msg a[data-yanny-path]');
+    if (yannyLink) {
+      followYannyLink(e, yannyLink);
+      return;
+    }
     if (t.closest('#yanny-launcher')) {
       openYanny(t.closest('#yanny-launcher') as HTMLElement);
       return;
@@ -5668,7 +5792,6 @@ function init(): void {
     const authTabBtn = t.closest('[data-auth-tab]');
     if (authTabBtn) {
       state.authTab = authTabBtn.getAttribute('data-auth-tab') as AuthTab;
-      state.authError = '';
       state.authResetSent = false;
       render();
       return;
@@ -5691,7 +5814,6 @@ function init(): void {
     // address and hands the sign-in form back.
     if (t.closest('#auth-leave-pending')) {
       state.authPendingEmail = '';
-      state.authError = '';
       state.authTab = 'signIn';
       render();
       return;
@@ -5702,9 +5824,11 @@ function init(): void {
       const email = resendBtn.getAttribute('data-email') ?? '';
       const notice = $('#auth-notice') as HTMLElement;
       resendVerification(email).then((result) => {
-        notice.textContent = result.ok
-          ? 'Sent. Check your inbox again in a moment.'
-          : result.message;
+        if (!result.ok) {
+          void showDialog({ title: 'Could not resend the email', message: result.message });
+          return;
+        }
+        notice.textContent = 'Sent. Check your inbox again in a moment.';
         notice.hidden = false;
       });
       return;
@@ -5713,18 +5837,35 @@ function init(): void {
     if (t.closest('#auth-forgot')) {
       const email = ($('#auth-email') as HTMLInputElement | null)?.value.trim() ?? '';
       if (!email) {
-        state.authError = 'Enter your email above first, then tap Forgot your password again.';
-        render();
+        void showDialog({ title: 'Enter your email first', message: 'Type your email address above, then tap Forgot your password again.' });
         return;
       }
-      state.authBusy = true;
-      state.authError = '';
-      render();
       requestPasswordReset(email).then((result) => {
-        state.authBusy = false;
-        state.authResetSent = result.ok;
-        state.authError = result.ok ? '' : result.message;
-        render();
+        if (!result.ok) {
+          void showDialog({ title: 'Could not send the reset link', message: result.message });
+          return;
+        }
+        state.authResetSent = true;
+        renderInPlace();
+      });
+      return;
+    }
+
+    if (t.closest('#auth-delete')) {
+      void showDialog({
+        title: 'Delete your account?',
+        message: 'This permanently deletes your account and your wishlist. It cannot be undone.',
+        confirmLabel: 'Delete account',
+        danger: true,
+      }).then((yes) => {
+        if (!yes) return;
+        deleteOwnAccount(COMPANY.feedbackEmail).then((result) => {
+          if (!result.ok) {
+            void showDialog({ title: 'Account not deleted', message: result.message });
+            return;
+          }
+          void showDialog({ title: 'Account deleted', message: 'Your account and wishlist have been deleted.', ok: true });
+        });
       });
       return;
     }
@@ -5737,6 +5878,7 @@ function init(): void {
       render();
       removeFromWishlist(fragranceId).then((result) => {
         if (!result.ok) {
+          void showDialog({ title: 'Could not update your wishlist', message: result.message ?? 'Please try again.' });
           // Roll back by reloading from the server rather than guessing what
           // the entry's own target price was, since this optimistic removal
           // already discarded it.
@@ -5762,6 +5904,7 @@ function init(): void {
       action.then((result) => {
         state.wishlistBusy = false;
         if (!result.ok) {
+          void showDialog({ title: 'Could not update your wishlist', message: result.message ?? 'Please try again.' });
           // Roll back: the optimistic flip above did not actually happen.
           if (saved) state.wishlistIds.add(fragranceId);
           else state.wishlistIds.delete(fragranceId);
@@ -5901,17 +6044,44 @@ function init(): void {
       sendYannyMessage(text);
       return;
     }
+    if (form.id === 'auth-recovery-form' || form.id === 'auth-change-password-form') {
+      e.preventDefault();
+      const fields = form as HTMLFormElement;
+      const password = (fields.elements.namedItem('password') as HTMLInputElement).value;
+      const confirm = (fields.elements.namedItem('confirm') as HTMLInputElement).value;
+      if (password !== confirm) {
+        void showDialog({ title: 'Passwords do not match', message: 'Type the same new password in both boxes.' });
+        return;
+      }
+      const submit = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      submit.disabled = true;
+      updatePassword(password).then((result) => {
+        submit.disabled = false;
+        if (!result.ok) {
+          void showDialog({ title: 'Password not changed', message: result.message });
+          return;
+        }
+        fields.reset();
+        state.authRecovery = false;
+        renderInPlace();
+        void showDialog({ title: 'Password changed', message: 'Use your new password next time you sign in.', ok: true });
+      });
+      return;
+    }
     if (form.id === 'auth-signin-form' || form.id === 'auth-signup-form') {
       e.preventDefault();
       const email = ($('#auth-email') as HTMLInputElement).value.trim();
       const password = ($('#auth-password') as HTMLInputElement).value;
+      // The button is disabled in place rather than by re-rendering, so the
+      // typed email and password are still there if the attempt fails.
+      const submit = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      submit.disabled = true;
       state.authBusy = true;
-      state.authError = '';
       state.authResetSent = false;
-      render();
       const action = form.id === 'auth-signup-form' ? signUp(email, password) : signIn(email, password);
       action.then((result) => {
         state.authBusy = false;
+        submit.disabled = false;
         if (!result.ok) {
           if (result.reason === 'unverified') {
             // Not a dead end: this reader has an account and needs the link
@@ -5921,11 +6091,13 @@ function init(): void {
             // and which, before this, was not rendered anywhere they could
             // reach, since Supabase issues no session on a rejected sign in.
             state.authPendingEmail = email;
-            state.authError = '';
+            render();
           } else {
-            state.authError = result.message;
+            void showDialog({
+              title: form.id === 'auth-signup-form' ? 'Could not create your account' : 'Could not sign you in',
+              message: result.message,
+            });
           }
-          render();
           return;
         }
         // Signup with "Confirm email" on (see docs/SUPABASE-SETUP.md, which

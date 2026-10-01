@@ -1,4 +1,5 @@
-import { buildSiteDataBlock, resolvePriceQuery, formatPriceAnswer, policyContextFor } from './siteData.js';
+import { buildSiteDataBlock, resolvePriceQuery, formatPriceAnswer, policyContextFor, policyPageFor, extractNotes } from './siteData.js';
+import { mentionsDescriptor } from './requestPhrases.js';
 import {
   resolveAvailabilityQuery,
   formatAvailabilityAnswer,
@@ -22,6 +23,11 @@ import {
   formatSuggestAnswer,
   resolveGreetingQuery,
   formatGreetingAnswer,
+  resolveSuggestFallback,
+  formatSuggestFallback,
+  formatPolicyFallback,
+  SCOPE_ANSWER,
+  NO_MODEL_ANSWER,
 } from './lookups.js';
 import { buildSystemPrompt } from './prompt.js';
 
@@ -173,6 +179,123 @@ export async function resolveQuestion({ question, intent }) {
     }
   }
 
+  // ── Nothing classified it ─────────────────────────────────────────────
+  // 'general' means no rule recognised the question's shape. Three things
+  // can still be true of it, checked in this order:
+  if (intent === 'general') {
+    // 1. It is just a product's name. "sauvage", "creed aventus 100ml",
+    //    "flowerbomb" — the commonest thing typed into any search box, and
+    //    every one of them used to go to the model as an open question with
+    //    only the about page for grounding, which can only produce a
+    //    refusal. A near-complete match is answered as the price lookup it
+    //    plainly is, before the policy pages are consulted: the legal pages
+    //    are long enough that "club de nuit intense man" found two of its
+    //    words in the About page and was answered with an excerpt from it.
+    const asProduct = await resolvePriceQuery(question, 'general');
+    const settled = productSettled(question, asProduct);
+    if (settled && (asProduct.matchConfidence ?? 0) >= 90) {
+      return direct('price', formatPriceAnswer(question, asProduct), asProduct.status);
+    }
+    // 2. It names notes: "something vanilla, no florals" (the widget's own
+    //    example prompt) carries no rule's trigger word, but a catalogue note
+    //    is a request for a smell. Grounded as a suggestion, so the model —
+    //    or the catalogue, without one — gets the note-matched bottles.
+    if ((await extractNotes(question)).length > 0) {
+      const siteData = await buildSiteDataBlock(question, 'suggest');
+      return { ok: false, source: 'model', intent: 'suggest', siteData };
+    }
+    // 3. It is about one of the site's own pages ("can I return a perfume"):
+    //    the model summarises the page, with the page in front of it.
+    const policy = await policyPageFor(question);
+    if (!policy) {
+      // A looser product match still beats sending a bare name to a model.
+      if (settled) return direct('price', formatPriceAnswer(question, asProduct), asProduct.status);
+      // 4. It is not about fragrance at all ("who won the football"). The
+      //    model's own rule 7 would decline it; declining it here costs
+      //    nothing and says what the assistant is for. A house or a product
+      //    the matcher half-recognised keeps it on topic.
+      const onTopic =
+        FRAGRANCE_TOPIC_RE.test(question) ||
+        mentionsDescriptor(question.toLowerCase()) ||
+        Boolean(asProduct.brandNamed) ||
+        (asProduct.status !== 'no_match' && !asProduct.fuzzy && (asProduct.matchConfidence ?? 0) >= 65);
+      if (!onTopic) {
+        const content = HELP_RE.test(question) ? formatGreetingAnswer(await resolveGreetingQuery('hello')) : SCOPE_ANSWER;
+        return direct('general', content, 'scope');
+      }
+    }
+  }
+
   const siteData = await buildSiteDataBlock(question, effectiveIntent);
   return { ok: false, source: 'model', intent: effectiveIntent, siteData };
+}
+
+/**
+ * Whether an unclassified message names a product firmly enough to answer
+ * it as a price lookup. A bare name may lean on a near miss ("sauvge"); a
+ * sentence may not, because a sentence that no rule recognised is as
+ * likely to be about anything else — "what's the weather in london today"
+ * found Floris London Leather Oud by reading "weather" as "leather".
+ */
+const SENTENCE_RE = /\?|^\s*(what|whats|what's|who|whos|when|where|why|how|is|are|can|could|do|does|did|will|would|should|tell|i|i'm|im|my)\b/i;
+function productSettled(question, r) {
+  const settled = r.status === 'matched' || (r.status === 'ambiguous' && r.exact === true);
+  return settled && !(r.fuzzy && SENTENCE_RE.test(question));
+}
+
+/** A deterministic result, in the shape `resolveQuestion` returns. */
+function direct(intent, content, status) {
+  return {
+    ok: true,
+    source: 'site-data-direct',
+    intent,
+    winner: { agentNumber: 0, content, totalScore: 100, criteriaScores: {}, rank: 1 },
+    priceMatchStatus: status,
+  };
+}
+
+/** Words that put a message on topic even when nothing else matched it:
+ *  the vocabulary of shopping for a fragrance. Deliberately broad — the
+ *  cost of a false "on topic" is one model call, the cost of a false "off
+ *  topic" is a refusal of a real question. */
+const FRAGRANCE_TOPIC_RE =
+  /\b(perfumes?|parfums?|fragrances?|scents?|scented|smell\w*|aftershaves?|colognes?|eau|edp|edt|edc|extrait|notes?|accords?|bottles?|\d+\s?ml|prices?|cost\w*|cheap\w*|deals?|offers?|sale|discount\w*|delivery|deliver|shipping|postage|shops?|retailers?|stores?|brands?|stock\w*|gifts?|presents?|buy|order|wear\w*|spray\w*|oud|attar|dupes?|clones?|sizes?|tester|samples?|returns?|refunds?|account|wishlist|pricesniffs|yanny|site|website)\b/i;
+
+/** "help", "what can you do" — answered with the greeting's own list of
+ *  what this assistant can do, not with a refusal. */
+const HELP_RE = /^\s*(help|help me|what can you do|what do you do|how does this work|how do (i|you) use (this|you)|what can i ask( you)?)\s*[?!.]*\s*$/i;
+
+/** "Do you have X", "is there an X" — a question whose honest answer, when X
+ *  is not quite in the catalogue, is the closest titles rather than nothing. */
+const ASKS_FOR_PRODUCT_RE = /\b(do you (have|sell|stock|carry|list|do)|have you got|is there (a|an)|got any)\b/i;
+/**
+ * The answer to give when a question needed the model and there is none —
+ * the Worker is not deployed in this build, refused (rate limit), or did
+ * not answer. `intent` is the grounding intent `resolveQuestion` returned.
+ *
+ * Never throws and never returns an empty string: the widget shows whatever
+ * this returns as the answer.
+ */
+export async function resolveOfflineAnswer({ question, intent }) {
+  try {
+    if (intent === 'suggest') {
+      return formatSuggestFallback(await resolveSuggestFallback(question));
+    }
+    if (intent === 'price') {
+      const r = await resolvePriceQuery(question);
+      if (r.status !== 'no_match') return formatPriceAnswer(question, r);
+    }
+    // Same order as resolveQuestion's own: a near-complete product match,
+    // then a policy page, then a looser product match.
+    const asProduct = await resolvePriceQuery(question, 'general');
+    const settled = productSettled(question, asProduct);
+    if (settled && (asProduct.matchConfidence ?? 0) >= 90) return formatPriceAnswer(question, asProduct);
+    const policy = await policyPageFor(question);
+    if (policy) return formatPolicyFallback(policy);
+    if (settled || asProduct.brandNamed) return formatPriceAnswer(question, asProduct);
+    if (asProduct.status !== 'no_match' && ASKS_FOR_PRODUCT_RE.test(question)) return formatPriceAnswer(question, asProduct);
+  } catch {
+    /* fall through to the plain statement below */
+  }
+  return NO_MODEL_ANSWER;
 }

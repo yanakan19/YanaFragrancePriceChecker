@@ -270,19 +270,22 @@ describe('retailer registry', () => {
       // every attempt from 2026-08-22 through 2026-08-27 with no caveat, and
       // that first figure was promoted by hand (the tool never writes one
       // itself — see src/config/retailers.ts's own comment on this entry).
+      // avon, home-bargains, perfumeo and zimaya left this list 2026-10-01,
+      // each on a rate read off the shop's own delivery page (Avon £3.50
+      // free from £25, Home Bargains £3.95, Perfumeo free on every order,
+      // Zimaya £3.99 free from £50 — quoted in each entry's `source`). armaf,
+      // bm-stores and ibraq stay, now as read-and-found-silent
+      // (standardRateNotPublished) rather than unread; riiffs stays unread
+      // because its site serves a captcha to every fetch.
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'al-haramain',
         'armaf',
-        'avon',
         'bm-stores',
         'fragrancehub',
-        'home-bargains',
         'ibraq',
         'manchester-ouds',
         'morrisons',
-        'perfumeo',
         'riiffs',
-        'zimaya',
       ]);
       for (const r of unstated) {
         expect(
@@ -327,7 +330,8 @@ describe('retailer registry', () => {
     it('orders unknown-delivery offers among themselves by item price', () => {
       // They are comparable to each other on the only figure they have.
       const [a, b] = unstated;
-      const rows = buildComparison([rawOffer(b!.id, 80), rawOffer(a!.id, 20)]);
+      // Both under any free-delivery threshold a shop states (£50 is the lowest).
+      const rows = buildComparison([rawOffer(b!.id, 30), rawOffer(a!.id, 20)]);
       expect(rows.map((row) => row.retailer.id)).toEqual([a!.id, b!.id]);
       expect(rows.every((row) => row.deliveredPriceGbp === null)).toBe(true);
     });
@@ -468,6 +472,30 @@ describe('retailer registry', () => {
       // Notino gates free postage on specific products, not basket value. A
       // threshold here would systematically understate its delivered price.
       expect(getRetailer('notino-uk')?.shipping.freeOverGbp).toBeNull();
+    });
+
+    it('stores the free-delivery threshold its own quoted source states', () => {
+      // French Avenue carried a source quote reading "£4.99 applies on
+      // orders below £100" for five weeks with freeOverGbp: null, so every
+      // bottle at £100+ was quoted £4.99 too dear; FragranceHub, Space NK and
+      // Perfume Price quoted "over £N" with no threshold stored. The quote is
+      // the evidence the entry stands on, so a threshold it names must be
+      // the one the entry applies. Only unambiguous threshold phrasing counts
+      // ("over/above/below/under £N", "£N or more", "£N and over") — enough
+      // to catch the drift without parsing prose.
+      const threshold =
+        /\b(?:over|above|below|under)\s+(?:£|GBP\s?)(\d+(?:\.\d{1,2})?)|(?:£|GBP\s?)(\d+(?:\.\d{1,2})?)\s+(?:or more|and over)/gi;
+      for (const r of RETAILERS) {
+        const quote = r.shipping.source?.quote;
+        if (!quote) continue;
+        const named = [...quote.matchAll(threshold)].map((m) => Number(m[1] ?? m[2]));
+        for (const amount of named) {
+          expect(
+            r.shipping.freeOverGbp,
+            `${r.name}'s source quote names a £${amount} threshold: "${quote}"`,
+          ).toBe(amount);
+        }
+      }
     });
 
     it('uses the non-member threshold for Superdrug', () => {

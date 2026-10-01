@@ -136,7 +136,7 @@ test('budget: the count stated is the real count, recomputed independently', asy
   let recount = 0;
   for (const frag of site.data.DEMO_FRAGRANCES) {
     const best = site.priceService.bestOffer(
-      site.priceService.buildComparison(site.catalogue.offersFor(frag.id), { sortBy: 'delivered', tier: frag.tier }),
+      site.priceService.buildComparison(site.catalogue.offersFor(frag.id), { sortBy: 'delivered' }),
     );
     if (best && best.deliveredPriceGbp !== null && best.deliveredPriceGbp <= 50) recount++;
   }
@@ -402,7 +402,7 @@ test('meta: a question about concentrations is answered with concentrations, not
   const answer = formatMetaAnswer(result);
   assert.doesNotMatch(answer, /shops:/, `still answering with the retailer list:\n${answer}`);
   assert.match(answer, /Eau de Parfum \(/, answer);
-  const ungraded = site.data.DEMO_FRAGRANCES.filter((f) => /^not stated$/i.test(f.concentration.trim())).length;
+  const ungraded = site.data.DEMO_FRAGRANCES.filter((f) => /^(not stated|disputed)$/i.test(f.concentration.trim())).length;
   assert.match(
     answer,
     new RegExp(`${ungraded.toLocaleString('en-GB')} of the .* have no strength stated`),

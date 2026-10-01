@@ -137,7 +137,7 @@ const RULES = [
   // `discounts?` is where the old pattern's missing boundary lived.
   [
     'deals',
-    /\b(on sale|deals?|discounts?|discounted|reduced|clearance|bargains?|price drops?|special offers?|best offers?|savings?|% off|percent off)\b/,
+    /\b(on sale|deals?|discounts?|discounted|reduced|clearance|bargains?|price drops?|special offers?|best offers?|savings?|% off|percent off|on offer|any offers?|offers? on)\b/,
   ],
 
   // ── compare ────────────────────────────────────────────────────────────
@@ -147,7 +147,15 @@ const RULES = [
   // partial one.
   [
     'compare',
-    /\b(cheaper than|dearer than|more expensive than|less than .{0,30}\bor\b|better value|better deal|which (is|one is|of these is)|vs\.?|versus|compare[ds]? (to|with)?)\b/,
+    /\b(cheaper than|dearer than|more expensive than|less than .{0,30}\bor\b|better value|better deal|which (is|one is|of these is)|vs\.?|versus|compare[ds]? (to|with)?|difference between)\b/,
+  ],
+  // "What does EDP mean", "what is an EDT": a strength asked about on its
+  // own. resolveCompareQuery answers it with the strengths explainer, the
+  // same one "edp vs edt" gets. Anchored to the whole message so "what is
+  // the price of Sauvage EDP" can never land here.
+  [
+    'compare',
+    /^\s*(what('?s| is| does)|whats) (an? )?(edp|edt|edc|eau de (parfum|toilette|cologne)|extrait( de parfum)?|parfum)( mean| stand for)?\s*\??\s*$/,
   ],
 
   // ── delivery ───────────────────────────────────────────────────────────
@@ -163,7 +171,7 @@ const RULES = [
   // ── availability ───────────────────────────────────────────────────────
   [
     'availability',
-    /\b(in stock|out of stock|low stock|back in stock|stock level|sold out|stockists?|who (has|have|stocks?|sells?|carries|carry)|where can i (buy|get|find|order)|where do i (buy|get)|who (else )?(has|sells) it)\b/,
+    /\b(in stock|out of stock|low stock|back in stock|stock level|sold out|stockists?|who (has|have|stocks?|sells?|carries|carry)|where (can|could) (i|you|we) (buy|get|find|order)|where do i (buy|get)|where to (buy|get|find|order)|who (else )?(has|sells) it)\b/,
   ],
 
   // ── size ───────────────────────────────────────────────────────────────
@@ -200,7 +208,25 @@ const RULES = [
   // resolver can read it" the same statement rather than two that have to
   // be kept in agreement by hand. See requestPhrases.js for which phrases
   // count, and for why a bare unframed "£30" deliberately does not.
+  // ── suggest, by reference ──────────────────────────────────────────────
+  // "What smells like Baccarat Rouge 540", "dupe for Aventus", "something
+  // similar to Tobacco Vanille but cheaper". Above budget and price because
+  // the reference fragrance is the whole question: "what smells like X but
+  // cheaper" carries a price word and used to be answered as a price lookup
+  // of a product called "smells like X", which found nothing. Kept apart
+  // from "what does X smell like", a notes lookup, by refusing any message
+  // that asks what something does smell like.
+  [
+    'suggest',
+    (c) =>
+      /\b(smells? like|smelling like|similar to|dupes?|clones?|alternatives? (to|for)|reminds? me of|in the style of)\b/.test(c) &&
+      !/\b(what|how) (do|does|did)\b.{0,50}\bsmell\b/.test(c),
+  ],
+
   ['budget', (c) => parseBudget(c) !== null],
+  // "cheap aftershave", "cheapest perfume": the whole message is a request
+  // for the cheap end of the catalogue, with no product named.
+  ['budget', /^\s*(cheap|cheapest)\s+(perfumes?|fragrances?|aftershaves?|colognes?|scents?)\b/],
   [
     'budget',
     /\b(cheapest|cheap)\b(?=.{0,60}\b(niche|designer|mideast|middle eastern|overall|thing|anything|fragrance you|perfume you|you (list|have|stock|track|sell|do|carry))\b)/,
@@ -214,7 +240,7 @@ const RULES = [
   // the council; the lookahead below keeps the two apart.
   [
     'notes',
-    /\b(what (do(es)?|kind of|sort of).{0,40}\bsmell(s)? (like|of)|how does .{0,40}\bsmell\b|what (are|is) (the |its )?notes?|notes? (in|for|on|of)\b|note list|what'?s in\b|accords? (in|of|for)|smell profile|top notes?|base notes?|middle notes?|heart notes?)\b/,
+    /\b(what (do(es)?|kind of|sort of).{0,40}\bsmell(s)? (like|of)|how does .{0,40}\bsmell\b|what (are|is) (the |its )?notes?|(what|which) notes|notes? (in|for|on|of)\b|note list|what'?s in\b|accords? (in|of|for)|smell profile|top notes?|base notes?|middle notes?|heart notes?)\b/,
   ],
 
   // ── brand ──────────────────────────────────────────────────────────────

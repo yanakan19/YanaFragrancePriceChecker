@@ -139,3 +139,59 @@ export function onAuthChange(callback: (user: User | null) => void): () => void 
   });
   return () => data.subscription.unsubscribe();
 }
+
+/**
+ * Sets a new password for the signed-in account. Used twice: by the reader who
+ * followed a password reset link (Supabase signs them in for exactly this) and
+ * by a signed-in reader changing it from the account page.
+ */
+export async function updatePassword(password: string): Promise<AuthResult> {
+  const client = supabase();
+  if (!client) return NOT_CONFIGURED;
+  const { error } = await client.auth.updateUser({ password });
+  if (error) {
+    const raw = error.message.toLowerCase();
+    // Supabase refuses a new password identical to the current one.
+    if (raw.includes('different from the old')) {
+      return { ok: false, message: 'Choose a password you have not used for this account before.', reason: 'other' };
+    }
+    return { ok: false, message: authErrorMessage(error.message, 'signIn'), reason: authFailureReason(error.message) };
+  }
+  return { ok: true };
+}
+
+/**
+ * Deletes the signed-in account and everything attached to it (the profile
+ * and wishlist rows cascade from auth.users). Runs the `delete_own_account`
+ * function from supabase/migrations/0003_delete_account.sql, which can only
+ * ever delete the caller's own account. If the owner has not run that
+ * migration yet, says how to ask for deletion instead.
+ */
+export async function deleteOwnAccount(contactEmail: string): Promise<AuthResult> {
+  const client = supabase();
+  if (!client) return NOT_CONFIGURED;
+  const { error } = await client.rpc('delete_own_account');
+  if (error) {
+    const missing = error.code === 'PGRST202' || error.code === '42883' || /could not find the function/i.test(error.message);
+    return {
+      ok: false,
+      message: missing
+        ? `Deleting accounts from this page is not switched on yet. Email ${contactEmail} from this address and we will delete it for you.`
+        : 'Your account could not be deleted. Please try again.',
+      reason: 'other',
+    };
+  }
+  await client.auth.signOut();
+  return { ok: true };
+}
+
+/** Fires when this tab arrived from a password reset link: Supabase has
+ *  signed the reader in, and the account page should ask for a new password. */
+export function onPasswordRecovery(callback: () => void): () => void {
+  const client = supabase();
+  if (!client) return () => {};
+  const { data } = client.auth.onAuthStateChange((event) => {
+    if (event === 'PASSWORD_RECOVERY') callback();
+  });
+  return () => data.subscription.unsubscribe();
+}

@@ -10,6 +10,7 @@ import {
   resolveSizeQuery,
   formatSizeAnswer,
 } from '../../demo/yanny/lookups.js';
+import { stripLinks } from '../../demo/yanny/links.js';
 
 /**
  * These run against the live catalogue, which a scheduled workflow rewrites
@@ -155,7 +156,8 @@ test('availability: a matched product reports stock per size, per shop, with the
   const result = await resolveAvailabilityQuery('who stocks One Million Elixir');
   assert.equal(result.status, 'matched');
   assert.equal(result.brand, 'Rabanne');
-  const answer = formatAvailabilityAnswer(result);
+  // Each size links to its own page; the words are what is checked here.
+  const answer = stripLinks(formatAvailabilityAnswer(result));
   assert.match(answer, /Rabanne/);
   assert.match(answer, /\d+ml:/);
   assert.match(answer, /Stock is as of the last catalogue refresh \(\d{4}-\d{2}-\d{2}\)/);
@@ -168,7 +170,7 @@ test('availability: an "unknown" stock state is never reported as in stock or ou
   const { data, catalogue, priceService } = site;
   const withUnknown = data.DEMO_FRAGRANCES.find((f) =>
     priceService
-      .buildComparison(catalogue.offersFor(f.id), { sortBy: 'delivered', tier: f.tier })
+      .buildComparison(catalogue.offersFor(f.id), { sortBy: 'delivered' })
       .some((r) => r.stock === 'unknown'),
   );
   if (!withUnknown) return; // none in this snapshot; nothing to assert

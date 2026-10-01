@@ -51,10 +51,9 @@ const noop = () => {};
  * ceiling the reader themselves named, checked per question). */
 const legitPrices = new Set();
 for (const frag of site.data.DEMO_FRAGRANCES) {
-  const rows = site.priceService.buildComparison(site.catalogue.offersFor(frag.id), {
-    sortBy: 'delivered',
-    tier: frag.tier,
-  });
+  // No tier filter, exactly as the product page builds its rows (rowsFor
+  // in demo/app.ts) and as the answers now do.
+  const rows = site.priceService.buildComparison(site.catalogue.offersFor(frag.id), { sortBy: 'delivered' });
   for (const r of rows) {
     if (r.deliveredPriceGbp != null) legitPrices.add(r.deliveredPriceGbp.toFixed(2));
     if (r.itemPriceGbp != null) legitPrices.add(r.itemPriceGbp.toFixed(2));
@@ -447,10 +446,22 @@ const CORPUS = [
     block: [/SITE POLICY \((Affiliate disclosure|How PriceSniffs works|About PriceSniffs)\)/],
   },
   {
-    type: 'off-topic entirely',
+    // Nothing about fragrance in it, no product and no policy page: rule 7
+    // of the model's prompt would decline it, so it is declined here
+    // instead, in milliseconds and without spending a model call. "london"
+    // must not become Floris London Leather Oud by way of "weather" ~
+    // "leather" — a near-miss match is not trusted inside a sentence.
+    type: 'off-topic entirely, declined without a model',
+    path: 'deterministic',
+    variants: ["what's the weather in london today", 'can you do my homework', 'who won the football last night'],
+    expect: [/only help with fragrance/i],
+    reject: [/Floris|delivered from/],
+  },
+  {
+    type: 'off-topic but shaped like a catalogue question',
     path: 'council',
     blockIntent: 'general',
-    variants: ["what's the weather in london today", 'can you do my homework', 'do you sell skincare'],
+    variants: ['do you sell skincare', 'do you sell phone cases'],
     // The block gives a model nothing to invent from: the about line and at
     // most a policy page — no products, no prices. Rule 7 does the refusing.
     block: [/ABOUT THIS SITE/],

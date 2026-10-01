@@ -103,11 +103,13 @@ They stay switched off until the database is set up.
    starts with `kemjyocklbkgjsyfdqtf`. If you do not see it, the keys in the
    site belong to a different project; tell me and stop here.
 
-2. **Run the two database scripts.** Left menu → **SQL Editor** →
+2. **Run the three database scripts.** Left menu → **SQL Editor** →
    **New query**. Open the file `supabase/migrations/0001_profiles.sql` from
    the repo on GitHub, copy the whole thing, paste it in, click **Run**.
    It must say success. Then do the same with
-   `supabase/migrations/0002_wishlists.sql`. Order matters: 0001 first.
+   `supabase/migrations/0002_wishlists.sql`, then
+   `supabase/migrations/0003_delete_account.sql` (lets people delete their own
+   account from the Account page). Order matters: 0001 first.
 
 3. **Require email confirmation.** Left menu → **Authentication** →
    **Sign In / Providers** → **Email** → make sure **Confirm email** is ON.

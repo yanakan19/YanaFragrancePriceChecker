@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getRetailer } from '../src/config/retailers.js';
+import { getRetailer, RETAILERS } from '../src/config/retailers.js';
 import { resolveDelivery, deliveredPrice } from '../src/services/shipping.js';
 import type { Retailer } from '../src/types/retailer.js';
 
@@ -44,7 +44,8 @@ describe('resolveDelivery', () => {
     // Superdrug Beautycard is free over £20; a non-member at £22 still pays.
     const d = resolveDelivery(superdrug, 22);
     expect(d.isFree).toBe(false);
-    expect(d.costGbp).toBe(4.5);
+    // £3, Superdrug's own non-member rate as of 2026-10-01 (was £4.50).
+    expect(d.costGbp).toBe(3);
     expect(d.membershipNote).toContain('Beautycard');
   });
 
@@ -53,7 +54,8 @@ describe('resolveDelivery', () => {
     // why delivered price is the honest sort.
     const d = resolveDelivery(harveyNichols, 180);
     expect(d.isFree).toBe(false);
-    expect(d.costGbp).toBe(5.95);
+    // The beauty-only rate, £4.50 as of 2026-10-01 (was recorded as £5.95).
+    expect(d.costGbp).toBe(4.5);
   });
 
   it('flags unconfirmed shipping data', () => {
@@ -87,17 +89,27 @@ describe('resolveDelivery', () => {
       expect(resolveDelivery(unstated, 20).costGbp).toBeNull();
     });
 
-    it('claims nothing about free delivery', () => {
-      // Not free, no reason it might be, and no shortfall to quote — a
-      // threshold is meaningless without the cost it is a threshold on. Even
-      // at a basket that clears the £25 free-over figure, "free" is a claim
-      // this retailer has not made.
-      for (const basket of [20, 25, 500]) {
+    it('claims nothing about free delivery below a stated threshold', () => {
+      // Not free, no reason it might be, and no shortfall to quote: a
+      // shortfall would imply a known cost that the shortfall avoids.
+      const d = resolveDelivery(unstated, 20);
+      expect(d.isFree).toBe(false);
+      expect(d.freeReason).toBeNull();
+      expect(d.spendMoreForFreeGbp).toBeNull();
+    });
+
+    it('ships free at or over a threshold the shop states, even with no flat rate', () => {
+      // FragranceHub publishes "free delivery over £90" but no standard rate:
+      // a bottle above £90 ships free in the shop's own words.
+      for (const basket of [25, 500]) {
         const d = resolveDelivery(unstated, basket);
-        expect(d.isFree).toBe(false);
-        expect(d.freeReason).toBeNull();
-        expect(d.spendMoreForFreeGbp).toBeNull();
+        expect(d.costGbp).toBe(0);
+        expect(d.isFree).toBe(true);
+        expect(d.freeReason).toBe('threshold-met');
+        expect(deliveredPrice(unstated, basket)).toBe(basket);
       }
+      const noThreshold: Retailer = { ...unstated, shipping: { ...unstated.shipping, freeOverGbp: null } };
+      expect(resolveDelivery(noThreshold, 500).costGbp).toBeNull();
     });
 
     it('still reports everything it does know', () => {
@@ -113,6 +125,83 @@ describe('resolveDelivery', () => {
       expect(resolveDelivery(free, 5).isFree).toBe(true);
       expect(resolveDelivery(unstated, 5).isFree).toBe(false);
     });
+  });
+});
+
+describe('free-delivery thresholds on the real registry', () => {
+  // Every shop whose page was read for this states its threshold inclusively
+  // at the boundary — "when you spend £25 or more" (Boots, Superdrug, Avon),
+  // "£50 and over" (John Lewis), "£80 or more" (Escentric Molecules), a band
+  // that ends "up to £27.99" / "£0.01 - £49.99" (Glorious Beauty, Zimaya),
+  // or an empty basket reading "Spend £25.00 more for FREE UK delivery"
+  // (Allbeauty). So a single bottle priced at exactly the threshold ships
+  // free, and one a penny under pays standard delivery. This pins that for
+  // every shop at once, so a threshold comparison that drifts to `>` — or a
+  // threshold that stops being applied at all — fails here by name.
+  const thresholded = RETAILERS.filter(
+    (r) =>
+      r.shipping.standardGbp !== null &&
+      r.shipping.standardGbp > 0 &&
+      r.shipping.freeOverGbp !== null &&
+      r.shipping.freeOverGbp > 0,
+  );
+
+  it('covers the shops that have one', () => {
+    expect(thresholded.length).toBeGreaterThan(20);
+  });
+
+  it('is free at exactly the threshold, for every shop', () => {
+    for (const r of thresholded) {
+      const at = r.shipping.freeOverGbp!;
+      const d = resolveDelivery(r, at);
+      expect(d.costGbp, `${r.name} charged delivery at its own £${at} threshold`).toBe(0);
+      expect(d.freeReason, r.name).toBe('threshold-met');
+      expect(d.spendMoreForFreeGbp, r.name).toBeNull();
+      expect(deliveredPrice(r, at), r.name).toBe(at);
+    }
+  });
+
+  it('charges standard delivery a penny under it, and says it is a penny short', () => {
+    for (const r of thresholded) {
+      const under = Math.round((r.shipping.freeOverGbp! - 0.01) * 100) / 100;
+      const d = resolveDelivery(r, under);
+      expect(d.costGbp, `${r.name} waived delivery below its threshold`).toBe(r.shipping.standardGbp);
+      expect(d.isFree, r.name).toBe(false);
+      expect(d.spendMoreForFreeGbp, r.name).toBe(0.01);
+      expect(deliveredPrice(r, under), r.name).toBe(
+        Math.round((under + r.shipping.standardGbp!) * 100) / 100,
+      );
+    }
+  });
+
+  it('applies French Avenue’s £100 threshold, which was missing until 2026-10-01', () => {
+    // The page states "free standard shipping on all orders above £100" and
+    // "£4.99 applies on orders below £100". With freeOverGbp null every
+    // bottle at £100 or more was quoted £4.99 dearer than the shop charges.
+    const fa = getRetailer('french-avenue')!;
+    expect(deliveredPrice(fa, 100)).toBe(100);
+    expect(deliveredPrice(fa, 120)).toBe(120);
+    expect(deliveredPrice(fa, 99.99)).toBe(104.98);
+    expect(resolveDelivery(fa, 95).spendMoreForFreeGbp).toBe(5);
+  });
+
+  it('gives Selfridges no spend threshold a non-member can use', () => {
+    // Its £100 (Selfridges+) and £150 (Selfridges Unlocked) free-delivery
+    // figures are both membership benefits. The registry used to hold £100
+    // as if it were open to everyone, which showed £100-£150 bottles as
+    // delivered free.
+    const selfridges = getRetailer('selfridges')!;
+    const d = resolveDelivery(selfridges, 120);
+    expect(d.isFree).toBe(false);
+    expect(d.costGbp).toBe(6.95);
+    expect(d.spendMoreForFreeGbp).toBeNull();
+    expect(d.membershipNote).toContain('Unlocked');
+  });
+
+  it('prices a shop that ships every order free at the item price', () => {
+    const perfumeo = getRetailer('perfumeo')!;
+    expect(resolveDelivery(perfumeo, 9.99).freeReason).toBe('always-free');
+    expect(deliveredPrice(perfumeo, 9.99)).toBe(9.99);
   });
 });
 
