@@ -55,7 +55,8 @@ cut with "…" as a last resort:
 
 If the whole picture still does not fit (for example a long name plus many
 notes), the photo, note chips and gaps shrink together, step by step, down to
-60%. Notes show at most 5 per tier, then "+N more". `tests/dealOfDayLayout.test.ts`
+60%. Notes show at most 5 per tier, then "+N more". The SAVE badge always
+has clear space above the photo card, so it never touches the brand or name. `tests/dealOfDayLayout.test.ts`
 renders very long names, brands, shop names and note lists and fails if
 anything leaves the picture or crosses the margins.
 

@@ -180,7 +180,9 @@ export function postHtml(p: Pick, photo: string, dateLabel: string, checked: str
   .who { display: flex; flex-direction: column; gap: 10px; width: 100%; }
   .name { margin: 0; font-size: ${f.name}px; font-weight: 700; line-height: 1.12; letter-spacing: -0.5px; overflow-wrap: anywhere; }
   .brand { margin: 0; font-size: ${f.brand}px; color: #B9B9C0; letter-spacing: 3px; text-transform: uppercase; white-space: nowrap; }
-  .photo { position: relative; width: calc(${f.photo}px * var(--k, 1)); height: calc(${f.photo}px * var(--k, 1)); border-radius: 36px; background: #FFFFFF;
+  /* The SAVE badge pokes out above the card; this keeps that much clear space
+     above the card so it can never sit on the brand line, however long. */
+  .photo { margin-top: ${Math.round(f.badge * 0.2) + 12}px; position: relative; width: calc(${f.photo}px * var(--k, 1)); height: calc(${f.photo}px * var(--k, 1)); border-radius: 36px; background: #FFFFFF;
     display: flex; align-items: center; justify-content: center; }
   .photo img { width: 86%; height: 86%; object-fit: contain; border-radius: 12px; }
   .badge { position: absolute; top: -${Math.round(f.badge * 0.2)}px; right: -${Math.round(f.badge * 0.42)}px;
