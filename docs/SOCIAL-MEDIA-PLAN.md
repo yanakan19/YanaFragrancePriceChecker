@@ -69,20 +69,81 @@ within the month · **3** = reserve the name, use later.
 - **Affiliate accounts** (where the money comes from): Awin (in use),
   Amazon Associates UK, TikTok Shop affiliate (§2b of the TikTok plan).
 
-### Profile set-up checklist (do the same on every account)
+### 2b. The logo
 
-- Same profile picture everywhere: the PriceSniffs mark for @pricesniffs, a
-  clear face or hand-with-bottle photo for @yannysniffs. **Never a
-  fragrance brand's logo** (trademark).
-- Bio, adapted per platform:
-  - @yannysniffs: *"I check UK perfume prices so you don't overpay 🔍
-    Real deals only, no fake 'was' prices. Every UK shop compared →
-    pricesniffs.space"*
-  - @pricesniffs: *"Every UK fragrance price, compared. Delivered prices,
-    real deals, price history. 33 shops, 16,000+ bottles."*
-- Link: `https://pricesniffs.space/?utm_source=<platform>&utm_medium=social`,
-  so you can see which platform sends visitors.
-- Instagram highlights: "Deals", "Fake deals", "Dupes", "How it works".
+Files in [`docs/brand/`](brand/), all 1:1, on the site's own black
+(`#0A0A0B`) with its red accent (`#FF3B41`): a magnifying glass with a
+perfume bottle inside, the same mark as the site's favicon.
+
+| File | Use it for |
+|---|---|
+| `pricesniffs-logo-1080.png` | **Profile picture on every @pricesniffs account.** Sized so it survives the circle crop most apps apply. |
+| `pricesniffs-logo-400.png` | Anywhere that asks for a small upload (some forms cap the file size) |
+| `pricesniffs-logo-wordmark-1080.png` | First/pinned post, Pinterest board covers, WhatsApp/Telegram channel image, newsletter header. **Not** a profile picture: the name is unreadable at avatar size. |
+| `pricesniffs-logo.svg`, `pricesniffs-logo-wordmark.svg` | The originals, if a designer or printer ever needs them. |
+
+For **@yannysniffs**, use a photo of you, or your hand holding a bottle on a
+dark background. People follow people. Use the logo there only if you want
+to stay anonymous.
+
+**Never use a perfume brand's logo or bottle photo as a profile picture or
+cover.** Those are trademarks, and platforms remove accounts that look like
+a brand's own.
+
+### 2c. Profile set-up: what every account should show
+
+**On every account, in this order:**
+
+1. **Username:** `@pricesniffs` (brand) or `@yannysniffs` (you), exactly the
+   same everywhere. If one is taken on some platform, choose a single
+   fallback (e.g. `@pricesniffsuk`) and use that same fallback wherever you
+   need one.
+2. **Display name** (searchable on Instagram and TikTok, max 30 characters):
+   - brand: `PriceSniffs | UK perfume deals`
+   - you: `Yanny | UK perfume prices`
+3. **Profile picture:** §2b.
+4. **Bio**: what it is, why trust it, what to do next. Ready to paste, each
+   within its platform's limit:
+
+   | Account | Bio |
+   |---|---|
+   | TikTok @yannysniffs (80 max) | `UK perfume prices, checked. Real deals only, fake ones exposed 🔍` |
+   | TikTok @pricesniffs (80 max) | `Every UK perfume price, compared. Real deals only 🔍` |
+   | Instagram/Threads @yannysniffs (150 max) | `I check UK perfume prices so you don't overpay 🔍` ⏎ `Real deals only, fake 'was' prices exposed` ⏎ `Every UK shop compared ⬇️` |
+   | Instagram @pricesniffs (150 max) | `Every UK perfume price, compared 🔍` ⏎ `33 shops · 16,000+ bottles · delivery included` ⏎ `Real deals only, no fake 'was' prices ⬇️` |
+   | X @pricesniffs (160 max) | `Every UK perfume price, compared: 33 shops, 16,000+ bottles, delivery included. Real deals only, no fake 'was' prices. Daily alerts. Links may earn commission.` |
+   | YouTube, Pinterest, Facebook, LinkedIn (longer) | The Instagram brand bio, then: `We compare the delivered price of every bottle across 33 UK shops, check every "was" price against the other shops, and keep price history so you know when to wait. Some links earn us a commission; it never changes the order.` |
+
+5. **Link**, one per platform, so you can see who sends visitors:
+   `https://pricesniffs.space/?utm_source=tiktok&utm_medium=social`
+   (swap `tiktok` for `instagram`, `youtube`, `pinterest`, `x`, `facebook`,
+   `threads`, `whatsapp`, `telegram`, `newsletter`).
+6. **Category / account type:** Shopping & Retail, or Product/Service, or
+   "Website" where it is offered. Creator for @yannysniffs, Business for
+   @pricesniffs (§2 table).
+7. **Contact:** the dedicated email (`hello@pricesniffs.space`). Hide your
+   phone number.
+8. **Location:** United Kingdom (where asked). It tells the algorithm whose
+   feed to show you in.
+9. **Security:** two-factor on, backup codes saved.
+
+**Then, per platform:**
+
+| Platform | Extra profile features to switch on |
+|---|---|
+| **TikTok** | Pin 3 videos once you have them: (1) "What PriceSniffs is" (15s screen recording), (2) your best "real or fake deal", (3) "how to check any bottle's price". Turn on the TikTok Shop showcase at 1,000 followers. |
+| **Instagram** | Switch to Professional (Creator or Business). Pin 3 posts (same three as TikTok). Story Highlights: **Deals**, **Fake deals**, **Dupes**, **How it works**, with covers that are the red mark on black. Add the link as the bio link, not in captions (captions aren't clickable). |
+| **Threads** | Imports your Instagram name, bio and photo. Check the link carries `utm_source=threads`. |
+| **Facebook Page** | Profile photo: the logo. Cover photo: plain black with the wordmark (ask for a 1640×624 version). Add the website button ("Shop now" → site link), category "Shopping & Retail", and link your Instagram in Settings → Linked accounts. |
+| **YouTube** | Channel picture: the logo. Banner: plain black with the wordmark (ask for a 2560×1440 version). Customise → Branding → Video watermark: `pricesniffs-logo-400.png`. Add the site link under Links. |
+| **Pinterest** | Business account; claim pricesniffs.space under Settings → Claimed accounts (it proves you own the site, and pins from it show your logo). Boards: "Real perfume deals UK", "Perfume dupes, priced", "Best cheap fragrances UK", "Price drops this week", each with the wordmark as cover. |
+| **X** | Header image: plain black with the wordmark (ask for a 1500×500 version). Pin a post explaining the daily deal alerts. |
+| **WhatsApp Channel / Telegram** | Channel image: the wordmark version. Description = the Instagram brand bio plus the site link. |
+| **Newsletter** | Logo: wordmark version. Sender name "PriceSniffs", reply-to `hello@pricesniffs.space`. |
+| **LinkedIn Page** | Logo, the long bio, website, industry "Retail". That's all; it's for credibility. |
+| **Reddit** | No logo or brand; it's your personal account (§2). |
+
+---
 
 ---
 
@@ -184,7 +245,8 @@ posting there gets throttled and reads as spam.
    Priority 3 name.
 3. Switch @yannysniffs on Instagram to a Creator account, and connect it to
    the new Facebook Page (for Meta Business Suite scheduling).
-4. Set bios, profile pictures and UTM links (§2 checklist).
+4. Set up every profile exactly as §2c (logo from §2b, bio, link, category,
+   contact, pinned posts once you have them).
 5. Submit the site to Google Search Console and Bing Webmaster Tools.
 
 **Weeks 1–2:** one TikTok a day across pillars 1, 2 and 5. Repost to Reels
