@@ -10,7 +10,7 @@
   .brandline em { font-style: normal; color: #FF3B41; }
   .date { margin: 0; padding: 10px 22px; border: 2px solid #3A3A40; border-radius: 999px;
     font-size: 28px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #B9B9C0; }
-  h1 { margin: 0; font-size: 66px; letter-spacing: -2px; line-height: 1.12; }
+  h1 { margin: 0; font-size: 66px; letter-spacing: -2px; line-height: 1.12; white-space: nowrap; }
   .flag { display: inline-block; vertical-align: -0.06em; width: 73px; height: 36px; border-radius: 6px; }
   .who { display: flex; flex-direction: column; gap: 10px; }
   .name { margin: 0; font-size: 58px; font-weight: 700; line-height: 1.1; letter-spacing: -1px;
@@ -43,7 +43,7 @@
   <div class="top">
     <div class="brandline"><svg class="mark" viewBox="240 240 610 610" aria-hidden="true"><circle cx="478" cy="478" r="196" fill="none" stroke="#FF3B41" stroke-width="58"/><line x1="636" y1="636" x2="796" y2="796" stroke="#FF3B41" stroke-width="72" stroke-linecap="round"/><g fill="#F7F7F8"><rect x="452" y="366" width="52" height="42" rx="9"/><rect x="463" y="402" width="30" height="26"/><rect x="398" y="422" width="160" height="164" rx="34"/></g></svg><span>Price<em>Sniffs</em></span></div>
     <p class="date">Friday, 2 October 2026</p>
-    <h1>And our Deal of the Day<br>today is&hellip; <svg class="flag" viewBox="0 0 60 30" aria-label="UK flag"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg></h1>
+    <h1>Our Deal of the Day today is&hellip; <svg class="flag" viewBox="0 0 60 30" aria-label="UK flag"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg></h1>
   </div>
   <div class="mid">
     <div class="who">
@@ -60,4 +60,10 @@
     <div class="sticker" aria-hidden="true"><i></i></div>
     <p class="checked">Price incl. delivery, checked 20:08 UK, 1 Oct 2026</p>
   </div>
-</main></body></html>
+</main><script>
+  // One line, never wider than the margins: shrink the headline until it fits.
+  for (const h of document.querySelectorAll('h1')) {
+    let size = parseFloat(getComputedStyle(h).fontSize);
+    while (h.scrollWidth > h.parentElement.clientWidth && size > 30) h.style.fontSize = (size -= 1) + 'px';
+  }
+</script></body></html>

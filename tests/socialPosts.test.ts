@@ -17,10 +17,11 @@ function files(dir: string): string[] {
 /** Web addresses keep their own hyphens (product ids); everything else may not. */
 const noUrls = (s: string) => s.replace(/https?:\/\/\S+/g, '').replace(/pricesniffs\.space\/\S+/g, '');
 
-/** The words a viewer reads in an HTML post: text between tags, outside <style>/<svg>. */
+/** The words a viewer reads in an HTML post: text between tags, outside <style>/<script>/<svg>. */
 function htmlWords(html: string): string[] {
   return html
     .replace(/<style[\s\S]*?<\/style>/g, '')
+    .replace(/<script[\s\S]*?<\/script>/g, '')
     .replace(/<svg[\s\S]*?<\/svg>/g, '')
     .split(/<[^>]+>/)
     .map((t) => t.trim())
