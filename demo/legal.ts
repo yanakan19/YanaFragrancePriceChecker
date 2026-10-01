@@ -284,7 +284,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       us commission on a purchase made after clicking through from here:
       ${COMMISSIONED.map((r) => r.name).join(', ')}. Those programmes run through
       ${NETWORKS.join(' and ')}. Every link to one of those shops is marked
-      <span class="tag affiliate">Affiliate link</span> beside the shop's name,
+      "Affiliate link" on the shop's row, under its name,
       on the page, before you click, and is also flagged to search engines as
       sponsored. Links to every other shop carry no tracking and earn nothing.</p>
       <p>This list is generated from the same registry that decides which shops
@@ -420,7 +420,8 @@ export const LEGAL_PAGES: LegalPage[] = [
       asked, then deleted. Chat messages are not kept by us at all. We do not
       keep search history, browsing history or any other record of your visit,
       because we never receive one. Account data is kept for as long as your
-      account exists, and deleted when you ask us to close it.</p>
+      account exists, and deleted when you delete your account from the Account
+      page or ask us to close it.</p>
 
       <h2 class="t-section">Your rights</h2>
       <p>You can ask for a copy of your data, ask us to correct or delete it,
