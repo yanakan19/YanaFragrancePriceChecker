@@ -287,6 +287,27 @@ describe('demo/sw.js', () => {
     expect(await sw.cached('pricesniffs-data-v1')).toEqual([newData]);
   });
 
+  // The price history is fetched on demand (LAZY_DATA_MODULES in
+  // scripts/dataFiles.ts), but the page still names its file, so the worker
+  // treats it like the rest: pre-cached on install, cache-first afterwards,
+  // and kept for as long as the newest document names it.
+  it('covers an on-demand data file the same way as the ones fetched at start-up', async () => {
+    const eagerPath = hashedDataPath('catalogue', 'c');
+    const lazyPath = hashedDataPath('priceHistory', 'h');
+    const doc = `<!doctype html><script>${loaderScript([{ path: eagerPath, start: 0 }], [{ name: 'priceHistory', path: lazyPath }])}</script>`;
+    const host = new Map(Object.entries({ ...shell, '/index.html': doc, [`/${eagerPath}`]: '["c"]', [`/${lazyPath}`]: '{"PRICE_HISTORY":{}}' }));
+    const sw = fakeServiceWorker(host);
+    await sw.dispatch('install');
+    expect(await sw.cached('pricesniffs-data-v1')).toEqual([`/${eagerPath}`, `/${lazyPath}`].sort());
+
+    host.delete(`/${lazyPath}`);
+    expect(await (await sw.get(`/${lazyPath}`))!.text()).toBe('{"PRICE_HISTORY":{}}');
+
+    // A newer document that still names it keeps it.
+    await sw.get('/index.html', 'navigate');
+    expect(await sw.cached('pricesniffs-data-v1')).toContain(`/${lazyPath}`);
+  });
+
   it('opens offline, at any deep link, with the cached document and its data', async () => {
     const host = new Map(Object.entries({ ...shell, '/index.html': page(oldData), [oldData]: '["old"]' }));
     const sw = fakeServiceWorker(host);

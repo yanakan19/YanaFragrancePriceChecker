@@ -11,12 +11,20 @@
  *     different bytes, a different name. That is what lets the service worker
  *     treat any file it has seen as immutable (demo/sw.js), and what lets the
  *     build delete every file in demo/data it did not just write.
- *   - Each file is a JSON array holding one module's moved literals, in order;
- *     the page is told the global index of each file's first entry.
- *   - The loader, inline in <head>, starts every fetch before the browser has
- *     parsed the rest of the document, and resolves READY_GLOBAL once all of
- *     them are in BLOBS_GLOBAL. The bundle (scripts/bundle-demo.ts's PRELUDE)
- *     reads `__psData(n)` as `BLOBS_GLOBAL[n]`, and is only run after that.
+ *   - An eager file is a JSON array holding one module's moved literals, in
+ *     order; the page is told the global index of each file's first entry.
+ *   - The loader, inline in <head>, starts every eager fetch before the
+ *     browser has parsed the rest of the document, and resolves READY_GLOBAL
+ *     once all of them are in BLOBS_GLOBAL. The bundle (scripts/bundle-demo.ts's
+ *     PRELUDE) reads `__psData(n)` as `BLOBS_GLOBAL[n]`, and is only run after
+ *     that.
+ *   - A lazy file (LAZY_DATA_MODULES) is not part of that: the app starts
+ *     without it, and asks for it with `LAZY_GLOBAL(name)` when it needs it.
+ *     It is a JSON object of the module's named data exports rather than an
+ *     array, because the bundle does not import the module at all (it would
+ *     have nothing to read at start-up), so there is no `__psData(n)` call
+ *     site to number. Its path is still in the page, so the service worker
+ *     pre-caches it and keeps it like any other data file.
  */
 import { createHash } from 'node:crypto';
 
@@ -24,6 +32,41 @@ import { createHash } from 'node:crypto';
 export const BLOBS_GLOBAL = '__psBlobs';
 /** Global promise the loader resolves once BLOBS_GLOBAL is complete. */
 export const READY_GLOBAL = '__psReady';
+
+/**
+ * Function the loader defines: `__psLazy(name)` fetches the lazy data file of
+ * that name and resolves with its parsed JSON. demo/priceHistoryStore.ts
+ * carries a copy of the name; tests/priceHistoryLazy.test.ts pins the two.
+ */
+export const LAZY_GLOBAL = '__psLazy';
+
+/**
+ * Generated modules the app loads on demand rather than before it starts,
+ * each with the exports that make up its data file. The bundle must not
+ * import them (scripts/bundle-demo.ts refuses to build if it does), only
+ * their types.
+ *
+ * priceHistory: ~6.6 MB of JSON (~425 KB gzipped) that only the product
+ * page's price chart reads. Measured 2026-10-01 (npm run perf:load), it was a
+ * quarter of the parse work standing between a first visit and its first
+ * tiles. Nothing else reads it: deals rank by each shop's own reference
+ * price, computed at build time by scripts/build-deals.ts.
+ */
+export const LAZY_DATA_MODULES: Record<string, readonly string[]> = {
+  priceHistory: ['PRICE_HISTORY', 'PRICE_HISTORY_GAP'],
+};
+
+/** A lazy data file: its module name and its path relative to the site root. */
+export interface LazyDataFile {
+  name: string;
+  path: string;
+}
+
+/** What scripts/bundle-demo.ts tells scripts/build-demo.ts, in dist-demo/data-files.json. */
+export interface DataManifest {
+  groups: DataGroup[];
+  lazy: string[];
+}
 
 /** Where one generated module's moved literals sit in the global numbering. */
 export interface DataGroup {
@@ -70,9 +113,10 @@ export function hashedDataPath(name: string, content: string | Buffer): string {
  * registration in demo/template.html; tests/demoDataFiles.test.ts pins all
  * three together.
  */
-export function loaderScript(files: DataFile[]): string {
+export function loaderScript(files: DataFile[], lazy: LazyDataFile[] = []): string {
   return `(function () {
   var files = ${JSON.stringify(files.map((f) => [f.path, f.start]))};
+  var lazy = ${JSON.stringify(Object.fromEntries(lazy.map((f) => [f.name, f.path])))};
   var path = location.pathname;
   var idx = path.indexOf('/index.html');
   var base = idx >= 0 ? path.slice(0, idx + 1) : '/';
@@ -91,6 +135,20 @@ export function loaderScript(files: DataFile[]): string {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', frame);
     else frame();
   });
+  // Data the app asks for once it needs it (LAZY_DATA_MODULES). Fetched from
+  // the same base, and rejected with the status like the files above, so the
+  // caller can tell a missing file from a dropped connection.
+  window.${LAZY_GLOBAL} = function (name) {
+    if (!Object.prototype.hasOwnProperty.call(lazy, name)) return Promise.reject(new Error('no lazy data file named ' + name));
+    return fetch(base + lazy[name]).then(function (r) {
+      if (!r.ok) {
+        var err = new Error(lazy[name] + ': HTTP ' + r.status);
+        err.status = r.status;
+        throw err;
+      }
+      return r.json();
+    });
+  };
   window.${READY_GLOBAL} = Promise.all(files.map(function (f) {
     return fetch(base + f[0]).then(function (r) {
       if (!r.ok) {

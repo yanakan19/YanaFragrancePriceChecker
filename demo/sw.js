@@ -15,6 +15,9 @@
  * repeat visit cost one small HTML request instead of the whole catalogue.
  * Whenever a newer document arrives, data files it no longer names are
  * dropped, so the cache holds one build's data (two, briefly) and no more.
+ * The price history, which the page only fetches once the app is running
+ * (demo/priceHistoryStore.ts), is named in the document like the rest, so it
+ * is pre-cached, served and pruned exactly the same way.
  */
 // v2: v1 held two copies of the old ~25 MB all-in-one page (under './' and
 // './index.html'); renaming the cache is what gets activate to drop them.

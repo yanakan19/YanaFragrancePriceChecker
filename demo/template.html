@@ -1992,6 +1992,17 @@
   .history-empty { font-size: 13.5px; color: var(--faint); margin: 8px 0 0; line-height: 1.5; }
   .history-chart { position: relative; margin-top: 10px; }
   .history-svg { width: 100%; height: 160px; display: block; overflow: visible; }
+  /* While the price history is still on its way (it is fetched on demand,
+     see demo/priceHistoryStore.ts): the chart's own box at the chart's own
+     height, so nothing below moves when the line arrives. The range buttons
+     are rendered but invisible, which is what holds the heading row at its
+     real height. Quiet on purpose: a faint outline and one caption, no spinner. */
+  .history-ghost { visibility: hidden; }
+  .history-loading {
+    height: 160px; display: flex; align-items: center; justify-content: center;
+    box-sizing: border-box; border: 1px dashed var(--line); border-radius: 8px;
+  }
+  .history-loading-text { margin: 0; font-size: 13.5px; color: var(--faint); }
   /* --chart-band carries its own alpha, so no opacity multiplier: the fill
      under the live line is a named chart token rather than the accent
      surface dimmed by half, which drifted whenever accent-sf moved. */
@@ -2885,12 +2896,30 @@
   // demo/router.ts, which the bundle uses for routing; tests/serviceWorker
   // pins the two together. The scope is the base too, so the worker controls
   // every route rather than one subdirectory.
+  //
+  // Registered once the app is running and the browser is idle, not at
+  // `load`. `load` no longer waits for the data (scripts/dataFiles.ts), and
+  // installing the worker downloads the shell and pre-caches every data file
+  // the page names, the on-demand price history included: measured on
+  // 2026-10-01, registering at `load` had the worker fetching the history
+  // while the page was still waiting on the catalogue. After the app has
+  // started, the files it fetched are in the HTTP cache for the worker to
+  // copy, and the history is usually in too (demo/priceHistoryStore.ts
+  // prefetches it at idle time). A failed data load registers it all the
+  // same: the offline shell is worth having either way.
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
+    const register = () => {
       const path = location.pathname;
       const idx = path.indexOf('/index.html');
       const base = idx >= 0 ? path.slice(0, idx + 1) : '/';
       navigator.serviceWorker.register(base + 'sw.js', { scope: base });
+    };
+    const whenIdle = () => {
+      if (typeof window.requestIdleCallback === 'function') window.requestIdleCallback(register, { timeout: 5000 });
+      else window.setTimeout(register, 1000);
+    };
+    window.addEventListener('load', () => {
+      Promise.resolve(window.__psReady).then(whenIdle, whenIdle);
     });
   }
 </script>

@@ -65,7 +65,7 @@ import { pickReferencePrice } from './referencePrice.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
-import { priceHistoryFor, priceHistoryGapFor, PRICE_HISTORY } from './priceHistory.generated.js';
+import { priceHistory, prefetchWhenIdle, type PriceHistoryData } from './priceHistoryStore.js';
 import { dayKey, dailyHistory, type DailyHistoryPoint } from '../src/services/priceHistoryDaily.js';
 import { priceHistoryGapMessage, type PriceHistoryGap } from '../src/services/priceHistoryGaps.js';
 import { officialSiteFor } from './brandSites.js';
@@ -1778,32 +1778,12 @@ function shortDate(iso: string): string {
  * testable function rather than a private closure in this file.
  */
 
-/**
- * The first and last calendar day any price was recorded for anything — the
- * shared x-axis every chart is drawn on, so two fragrances' charts sit on the
- * same timeline and can be compared by eye. Computed once from the generated
- * history rather than hardcoded, so it extends itself as the site ages.
- *
- * Every point is scanned rather than just each list's ends: the rest of this
- * file assumes those lists are in commit order, and that assumption being
- * wrong anywhere would silently mis-scale the axis on every chart at once.
+/*
+ * The shared x-axis every chart is drawn on (the first and last day any price
+ * was recorded for anything) is PriceHistoryData.span, computed once when the
+ * history arrives: see demo/priceHistoryStore.ts, which also explains why the
+ * history is fetched on demand rather than before the app starts.
  */
-const HISTORY_SPAN: { first: string; last: string } | null = (() => {
-  let first: string | null = null;
-  let last: string | null = null;
-  for (const series of Object.values(PRICE_HISTORY)) {
-    for (const p of series) {
-      // Gap markers (priceGbp: null) carry a real timestamp too, but they
-      // never widen the axis on their own — they only ever fall between two
-      // real readings that already bound the same span.
-      if (p.priceGbp === null) continue;
-      const key = dayKey(p.at);
-      if (first === null || key < first) first = key;
-      if (last === null || key > last) last = key;
-    }
-  }
-  return first !== null && last !== null ? { first, last } : null;
-})();
 
 /**
  * ── Why the dots are not SVG circles ──────────────────────────────────────
@@ -1852,25 +1832,84 @@ function priceHistoryGapBlock(gap: PriceHistoryGap): string {
   </div>`;
 }
 
-function priceHistoryChart(f: DemoFragrance, isCurrentlyPurchasable: boolean): string {
-  const raw = priceHistoryFor(f.id);
+/**
+ * The product page's price history slot. The history is fetched on demand
+ * (demo/priceHistoryStore.ts), and usually already in, prefetched while the
+ * browser was idle after the first paint. When it is not, the slot holds a
+ * quiet placeholder the size of a chart and asks for it; fillPendingHistory
+ * swaps the chart in where the placeholder still stands once it arrives, or a
+ * one-line note if it could not be fetched. The rest of the page never waits.
+ */
+function priceHistorySection(fragranceId: string, isCurrentlyPurchasable: boolean): string {
+  const data = priceHistory.current();
+  if (data) return priceHistoryChart(data, fragranceId, isCurrentlyPurchasable);
+  priceHistory.load().then(fillPendingHistory, (err: unknown) => {
+    console.warn('PriceSniffs: price history could not be loaded', err);
+    fillPendingHistory();
+  });
+  return priceHistoryLoadingBlock(fragranceId, isCurrentlyPurchasable);
+}
+
+/**
+ * Same outer box, heading row and chart height as a drawn chart, so the swap
+ * moves nothing on a fragrance that has one. The range buttons are there but
+ * invisible, purely to hold the heading row at its real height. A fragrance
+ * with too few prices for a line gets a sentence instead (priceHistoryGapBlock),
+ * which is shorter; which of the two it gets is in the file being waited for.
+ */
+function priceHistoryLoadingBlock(fragranceId: string, isCurrentlyPurchasable: boolean): string {
+  const ghostScopes = HISTORY_SCOPES.map(
+    (scope) => `<span class="history-scope">${esc(scope.label)}</span>`,
+  ).join('');
+  return `<div class="history-block history-pending" data-history-block data-history-pending="${esc(fragranceId)}" data-history-live="${isCurrentlyPurchasable}" aria-busy="true">
+    <div class="history-head">
+      <p class="gone-head t-eyebrow">Price history</p>
+      <div class="history-scopes history-ghost" aria-hidden="true">${ghostScopes}</div>
+    </div>
+    <div class="history-chart history-loading">
+      <p class="history-loading-text t-caption">Loading price history…</p>
+    </div>
+    <div class="history-xaxis"></div>
+  </div>`;
+}
+
+/** What the slot says when the history could not be fetched. The next product page asks again. */
+function priceHistoryFailedBlock(): string {
+  return `<div class="history-block" data-history-block data-history-failed>
+    <p class="gone-head t-eyebrow">Price history</p>
+    <p class="history-empty t-caption">Price history could not be loaded just now. The prices above are unaffected.</p>
+  </div>`;
+}
+
+/** Replaces every loading placeholder still on the page with its chart, or the failure note. */
+function fillPendingHistory(): void {
+  const data = priceHistory.current();
+  for (const slot of document.querySelectorAll<HTMLElement>('[data-history-pending]')) {
+    const id = slot.getAttribute('data-history-pending') ?? '';
+    const live = slot.getAttribute('data-history-live') === 'true';
+    slot.outerHTML = data ? priceHistoryChart(data, id, live) : priceHistoryFailedBlock();
+  }
+}
+
+function priceHistoryChart(data: PriceHistoryData, fragranceId: string, isCurrentlyPurchasable: boolean): string {
+  const raw = data.history[fragranceId] ?? [];
   // Gap markers (priceGbp: null — see scripts/build-price-history.ts) never
   // count towards the two-point bar on their own; only real prices do.
   const realPoints = raw.filter((p) => p.priceGbp !== null);
-  if (realPoints.length < 2 || HISTORY_SPAN === null) return priceHistoryGapBlock(priceHistoryGapFor(f.id));
+  if (realPoints.length < 2 || data.span === null) return priceHistoryGapBlock(data.gaps[fragranceId] ?? { reason: 'never' });
 
   // Where this fragrance's own record starts, rather than where the site's
   // does. Previously every chart was drawn across the whole site history, so
   // a fragrance first seen last week opened with a fortnight of empty floor
   // before its line began — space that said nothing except that other
   // fragrances are older.
-  const ownFirstDay = realPoints.map((p) => dayKey(p.at)).sort()[0] ?? HISTORY_SPAN.first;
+  const ownFirstDay = realPoints.map((p) => dayKey(p.at)).sort()[0] ?? data.span.first;
 
   // Every scope ends on the site's most recent day, not this fragrance's, so
   // the right-hand edge is always today's price for anything still on sale —
   // the carry-forward in dailyHistory is what fills the gap, and it stops at
   // the last sighting for anything that has since sold out.
-  const to = HISTORY_SPAN.last;
+  const to = data.span.last;
 
   const panels = HISTORY_SCOPES.map((scope) => {
     const windowStart = shiftDayKey(to, -(scope.days - 1));
@@ -2548,7 +2587,7 @@ function detailView(): string {
             : ''
         }
 
-        ${priceHistoryChart(frag, best !== null)}
+        ${priceHistorySection(frag.id, best !== null)}
 
         ${
           unavailable.length
@@ -6234,6 +6273,16 @@ function init(): void {
   renderFromUrl();
   syncUrl('replace');
   if (saved) restoreScroll(saved);
+
+  // The price history is only drawn on a product page, so the app starts
+  // without it (demo/priceHistoryStore.ts). Fetched once the first paint is
+  // done and the browser is idle, so it is usually in before anyone opens a
+  // product page; a product page opened first has already asked for it.
+  prefetchWhenIdle(() => {
+    priceHistory.load().catch(() => {
+      // Nothing to show yet: a product page asks again, and says so if it fails.
+    });
+  });
 }
 
 if (document.readyState === 'loading') {
