@@ -339,6 +339,23 @@ function restoreListState(saved: ListSnapshot): void {
   state.retailerInStockOnly = s.retailerInStockOnly;
 }
 
+/**
+ * rememberListState after the next frame, for a change on the same page.
+ * Measuring which tile is on screen straight after a render forces the browser
+ * to lay the page out early, a second time; after the frame it is already done.
+ */
+let rememberQueued = false;
+function rememberListStateSoon(): void {
+  if (rememberQueued) return;
+  rememberQueued = true;
+  window.requestAnimationFrame(() =>
+    window.setTimeout(() => {
+      rememberQueued = false;
+      rememberListState();
+    }, 0),
+  );
+}
+
 /** Write the current list state onto the current history entry, keeping its depth. */
 function rememberListState(): void {
   try {
@@ -477,10 +494,10 @@ function rowsFor(frag: DemoFragrance): PresentedOffer[] {
 // / 3,145 / 1,227 / 464 across them — every band worth offering.
 const PRICE_BANDS: { id: PriceBand; label: string; min: number; max: number | null }[] = [
   { id: '0-25', label: 'Under £25', min: 0, max: 25 },
-  { id: '25-50', label: '£25 – £50', min: 25, max: 50 },
-  { id: '50-100', label: '£50 – £100', min: 50, max: 100 },
-  { id: '100-200', label: '£100 – £200', min: 100, max: 200 },
-  { id: '200+', label: '£200 and over', min: 200, max: null },
+  { id: '25-50', label: '£25 - £50', min: 25, max: 50 },
+  { id: '50-100', label: '£50 - £100', min: 50, max: 100 },
+  { id: '100-200', label: '£100 - £200', min: 100, max: 200 },
+  { id: '200+', label: '£200 And Over', min: 200, max: null },
 ];
 
 /**
@@ -541,6 +558,70 @@ function genderOf(f: DemoFragrance): GenderReading {
   return reading;
 }
 
+/** What every facet reads off one fragrance, worked out once. */
+interface FacetAttrs {
+  volume: VolumeBand | null;
+  concentration: ConcentrationGroup;
+  gender: GenderReading;
+  tier: RetailerTier;
+  priceBand: PriceBand | null;
+  onSale: boolean;
+  inStock: boolean;
+}
+
+const FACET_ORDER: FacetGroup[] = ['volume', 'concentration', 'gender', 'tier', 'priceBand', 'onSale', 'inStock'];
+
+/**
+ * FacetAttrs per fragrance, kept for the current minute. The price band, sale
+ * and stock come from the fragrance's comparison rows, which read the clock (a
+ * promotion can end), so they cannot be kept for the session; but rebuilding
+ * every product's rows on every filter change, several times over, was most
+ * of what made a change take 370ms on a phone-speed CPU.
+ */
+const facetAttrsCache = new Map<string, FacetAttrs>();
+let facetAttrsMinute = -1;
+
+function facetAttrs(f: DemoFragrance): FacetAttrs {
+  const minute = Math.floor(Date.now() / 60_000);
+  if (minute !== facetAttrsMinute) {
+    facetAttrsCache.clear();
+    facetAttrsMinute = minute;
+  }
+  let a = facetAttrsCache.get(f.id);
+  if (!a) {
+    const rows = rowsFor(f);
+    const best = bestOffer(rows);
+    a = {
+      // A title that cannot be read as one size (volumeBandFor returns null —
+      // see its own comment) belongs to no band, the same "cannot answer, so
+      // it does not match a specific band" rule the price band applies to a
+      // delivery cost nobody states.
+      volume: volumeBandFor(f.sizeMl),
+      concentration: concentrationGroupOf(f.concentration),
+      gender: genderOf(f),
+      tier: f.tier,
+      priceBand: best ? priceBandFor(best.deliveredPriceGbp) : null,
+      onSale: rows.some((r) => r.discount !== null),
+      inStock: rows.some((r) => r.isPurchasable),
+    };
+    facetAttrsCache.set(f.id, a);
+  }
+  return a;
+}
+
+/** Whether a fragrance fails one facet group as it is currently set. */
+function failsFacet(a: FacetAttrs, group: FacetGroup): boolean {
+  switch (group) {
+    case 'volume': return state.facetVolume.size > 0 && (a.volume === null || !state.facetVolume.has(a.volume));
+    case 'concentration': return state.facetConcentration.size > 0 && !state.facetConcentration.has(a.concentration);
+    case 'gender': return state.facetGender.size > 0 && !state.facetGender.has(a.gender);
+    case 'tier': return state.facetTier.size > 0 && !state.facetTier.has(a.tier);
+    case 'priceBand': return state.facetPriceBand.size > 0 && (a.priceBand === null || !state.facetPriceBand.has(a.priceBand));
+    case 'onSale': return state.facetOnSale && !a.onSale;
+    case 'inStock': return state.facetInStock && !a.inStock;
+  }
+}
+
 /**
  * Whether one fragrance survives every active facet except `exclude`. Passing
  * a group's own id when computing that same group's option counts is what
@@ -548,34 +629,8 @@ function genderOf(f: DemoFragrance): GenderReading {
  * self-defeating — see the header comment above.
  */
 function passesFacets(f: DemoFragrance, exclude: FacetGroup | null): boolean {
-  // A fragrance whose own title cannot be read as one size (volumeBandFor
-  // returns null — see its own comment) belongs to no band, the same
-  // "cannot answer, so it does not match a specific band" rule priceBand
-  // just below already applies to a delivery cost nobody states.
-  if (exclude !== 'volume' && state.facetVolume.size) {
-    const band = volumeBandFor(f.sizeMl);
-    if (band === null || !state.facetVolume.has(band)) return false;
-  }
-  if (
-    exclude !== 'concentration' &&
-    state.facetConcentration.size &&
-    !state.facetConcentration.has(concentrationGroupOf(f.concentration))
-  ) return false;
-  if (exclude !== 'gender' && state.facetGender.size && !state.facetGender.has(genderOf(f))) return false;
-  if (exclude !== 'tier' && state.facetTier.size && !state.facetTier.has(f.tier)) return false;
-
-  if (exclude !== 'priceBand' && state.facetPriceBand.size) {
-    const best = bestOffer(rowsFor(f));
-    const band = best ? priceBandFor(best.deliveredPriceGbp) : null;
-    if (band === null || !state.facetPriceBand.has(band)) return false;
-  }
-  if (exclude !== 'onSale' && state.facetOnSale) {
-    if (!rowsFor(f).some((r) => r.discount !== null)) return false;
-  }
-  if (exclude !== 'inStock' && state.facetInStock) {
-    if (!rowsFor(f).some((r) => r.isPurchasable)) return false;
-  }
-  return true;
+  const a = facetAttrs(f);
+  return FACET_ORDER.every((g) => g === exclude || !failsFacet(a, g));
 }
 
 function applyFacets(list: DemoFragrance[]): DemoFragrance[] {
@@ -603,30 +658,27 @@ function facetGroups(list: DemoFragrance[]) {
   let onSale = 0;
   let inStock = 0;
 
+  // One pass: a fragrance that fails no group counts in every group; one that
+  // fails exactly one group counts only in that group, which is what "every
+  // other facet but never its own" means; one that fails two counts nowhere.
   for (const f of list) {
-    const rows = rowsFor(f);
-    if (passesFacets(f, 'volume')) {
-      const band = volumeBandFor(f.sizeMl);
-      if (band !== null) volume.set(band, (volume.get(band) ?? 0) + 1);
+    const a = facetAttrs(f);
+    let failed: FacetGroup | null = null;
+    let failures = 0;
+    for (const g of FACET_ORDER) {
+      if (!failsFacet(a, g)) continue;
+      failed = g;
+      if (++failures > 1) break;
     }
-    if (passesFacets(f, 'concentration')) {
-      const group = concentrationGroupOf(f.concentration);
-      concentration.set(group, (concentration.get(group) ?? 0) + 1);
-    }
-    if (passesFacets(f, 'gender')) {
-      const reading = genderOf(f);
-      gender.set(reading, (gender.get(reading) ?? 0) + 1);
-    }
-    if (passesFacets(f, 'tier')) tier.set(f.tier, (tier.get(f.tier) ?? 0) + 1);
-    if (passesFacets(f, 'priceBand')) {
-      const best = bestOffer(rows);
-      const band = best ? priceBandFor(best.deliveredPriceGbp) : null;
-      if (band !== null) {
-        priceBand.set(band, (priceBand.get(band) ?? 0) + 1);
-      }
-    }
-    if (passesFacets(f, 'onSale') && rows.some((r) => r.discount !== null)) onSale++;
-    if (passesFacets(f, 'inStock') && rows.some((r) => r.isPurchasable)) inStock++;
+    if (failures > 1) continue;
+    const counts = (g: FacetGroup) => failures === 0 || failed === g;
+    if (counts('volume') && a.volume !== null) volume.set(a.volume, (volume.get(a.volume) ?? 0) + 1);
+    if (counts('concentration')) concentration.set(a.concentration, (concentration.get(a.concentration) ?? 0) + 1);
+    if (counts('gender')) gender.set(a.gender, (gender.get(a.gender) ?? 0) + 1);
+    if (counts('tier')) tier.set(a.tier, (tier.get(a.tier) ?? 0) + 1);
+    if (counts('priceBand') && a.priceBand !== null) priceBand.set(a.priceBand, (priceBand.get(a.priceBand) ?? 0) + 1);
+    if (counts('onSale') && a.onSale) onSale++;
+    if (counts('inStock') && a.inStock) inStock++;
   }
 
   const toOptions = <T extends string | number>(counts: Map<T, number>, label: (v: T) => string): FacetOption[] =>
@@ -3696,7 +3748,7 @@ function renderInPlace(): void {
     anchorFrag: anchor?.dataset.frag ?? null,
     anchorTop: anchor ? Math.round(anchor.getBoundingClientRect().top) : 0,
   };
-  render();
+  render('update');
   restoreScroll(place);
 }
 
@@ -5112,7 +5164,13 @@ function mountDesignSpecs(): void {
 
 /* ── chrome ──────────────────────────────────────────────────────────────── */
 
-function render(): void {
+/**
+ * Draw the current view. `update` is for the same page changing in place — a
+ * filter, a sort, a background load — and skips the rise: behaviour 1 is
+ * content entering a view, and replaying it on every filter tap made the whole
+ * page flicker and cost a full animation pass each time.
+ */
+function render(mode: 'enter' | 'update' = 'enter'): void {
   resetChunkedLists();
   const body =
     state.view === 'home'
@@ -5156,7 +5214,7 @@ function render(): void {
   // design system's own .ps-rise (behaviour 1: content entering a view), not
   // a class of its own — this is the one block on the page that rises, and
   // one rise per block is the whole rule.
-  $('#view').innerHTML = `<div class="ps-rise">${body}</div>`;
+  $('#view').innerHTML = `<div${mode === 'enter' ? ' class="ps-rise"' : ''}>${body}</div>`;
 
   // Any list that emitted a sentinel now gets its observer. Done here rather
   // than inside each view so no view has to remember to do it.
@@ -5746,23 +5804,23 @@ function init(): void {
 
     if (t.closest('[data-clear-brand]')) {
       state.brand = null;
-      render();
-      rememberListState();
+      render('update');
+      rememberListStateSoon();
       return;
     }
 
     if (t.closest('[data-facets-toggle]')) {
       state.facetsOpen = !state.facetsOpen;
-      render();
-      rememberListState();
+      render('update');
+      rememberListStateSoon();
       return;
     }
 
     if (t.closest('[data-facets-clear]')) {
       clearFacets();
       state.facetsOpen = true; // stay open — the reader is mid-filtering, not leaving the page
-      render();
-      rememberListState();
+      render('update');
+      rememberListStateSoon();
       return;
     }
   });
@@ -5807,8 +5865,8 @@ function init(): void {
       setPerRow(Number(value));
       return;
     } else return;
-    render();
-    rememberListState();
+    render('update');
+    rememberListStateSoon();
   });
 
   // There is no server behind this page, so "send" means handing the message to
