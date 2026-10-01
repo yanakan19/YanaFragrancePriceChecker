@@ -1174,14 +1174,17 @@ function brandButton(brand: string): string {
  * reads as one deliberate line even on the many products with no Official
  * Site link.
  *
- * Official Site is absent (renders nothing) when `officialSiteFor` has no
- * entry for this brand — same rule brandView() already follows, never a
- * placeholder. Fragrantica always renders: it's a constructed search link,
- * not a lookup that can miss. See demo/fragranceLinks.ts for why each link
- * is scoped the way it is.
+ * Each link goes straight to this perfume's own page — on the brand's
+ * website and on Fragrantica — wherever one has been found and checked
+ * (data/fragrance-links.json). Where none has, Official Site falls back to the
+ * brand's homepage and is absent (renders nothing) when `officialSiteFor` has
+ * no entry for the brand — same rule brandView() already follows, never a
+ * placeholder — and Fragrantica falls back to a search for the perfume, which
+ * always renders. See demo/fragranceLinks.ts for why each link is scoped the
+ * way it is.
  */
 function fragranceLinksBlock(f: DemoFragrance): string {
-  const links = fragranceLinksFor(f.brand, f.name);
+  const links = fragranceLinksFor(f.brand, f.name, f.concentration);
   return `<div class="frag-links-row">
     ${
       links.officialSite
@@ -1191,7 +1194,7 @@ function fragranceLinksBlock(f: DemoFragrance): string {
            </a>`
         : ''
     }
-    <a class="brand-site-link" href="${esc(links.fragranticaSearchUrl)}" target="_blank" rel="noopener nofollow">
+    <a class="brand-site-link" href="${esc(links.fragranticaUrl)}" target="_blank" rel="noopener nofollow">
       <span class="control-ico">${ICON_EXTERNAL}</span>
       <span>Fragrantica</span>
     </a>
