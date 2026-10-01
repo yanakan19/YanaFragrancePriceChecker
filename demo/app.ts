@@ -80,7 +80,10 @@ import {
 } from './auth.js';
 import type { User } from '@supabase/supabase-js';
 import { accountState, wishlistControl, type AccountStateInput } from '../src/services/accountState.js';
-import { fetchWishlist, addToWishlist, removeFromWishlist, type WishlistEntry } from './wishlist.js';
+import { fetchWishlist, addToWishlist, removeFromWishlist, setTargetPrice, type WishlistEntry } from './wishlist.js';
+import { fetchPriceAlerts, setPriceAlerts, unsubscribe } from './priceAlerts.js';
+import { parseTargetPrice } from '../src/alerts/target.js';
+import { UNSUBSCRIBE_PARAM, unsubscribeMessage } from '../src/alerts/unsubscribe.js';
 import {
   VIRTUAL_YANNY_CONFIGURED, checkYannyHealth, askVirtualYanny, warmVirtualYanny,
   yannyMessageHtml, yannyPlainText, YANNY_QUESTION_MAX,
@@ -211,6 +214,10 @@ const state = {
   // Full entries only fetched for the account page's own list, not needed
   // just to render a toggle button correctly on the detail page.
   wishlistEntries: [] as WishlistEntry[],
+  // Price drop emails (queue item 4.1). null until read, and stays null when
+  // the database has no such setting yet (migration 0004 not run), which
+  // keeps the checkbox off the page rather than showing one that cannot save.
+  priceAlerts: null as boolean | null,
 
   // ── Virtual Yanny ─────────────────────────────────────────────────────────
   yannyOpen: false,
@@ -2185,6 +2192,33 @@ function wishlistPriceNote(frag: DemoFragrance): string {
   return ` · From ${formatGbp(best.deliveredPriceGbp ?? best.itemPriceGbp)} at ${esc(best.retailer.name)}`;
 }
 
+/** The optional per item target price, shown once price alerts are on. Saved
+ *  when the field changes (see the change handler); blank clears it. */
+function wishlistTargetHtml(entry: WishlistEntry, frag: DemoFragrance): string {
+  const value = entry.targetPriceGbp === null ? '' : entry.targetPriceGbp.toFixed(2);
+  return `<label class="wishlist-target t-caption">
+      <span>Also email me at or below £</span>
+      <input type="text" inputmode="decimal" autocomplete="off" size="7" maxlength="9"
+        data-wishlist-target="${esc(frag.id)}" value="${esc(value)}" placeholder="optional"
+        aria-label="Target price in pounds for ${esc(frag.brand)} ${esc(frag.name)}" />
+    </label>`;
+}
+
+/** The opt in for price drop emails, as the browser's own checkbox. Hidden
+ *  until the setting has been read, and for good if it cannot be (see
+ *  state.priceAlerts). */
+function priceAlertsSectionHtml(): string {
+  if (state.priceAlerts === null) return '';
+  return `
+    <h2 class="t-section">Price alerts</h2>
+    <label class="control facet-check alerts-check">
+      <input type="checkbox" id="price-alerts"${state.priceAlerts ? ' checked' : ''} />
+      <span class="facet-check-label">Email me when a saved fragrance gets cheaper</span>
+    </label>
+    <p class="account-note">One email a morning at most, when a saved fragrance drops by 5% or £2,
+      whichever is more, or reaches a target you set. Every email has a link to stop them.</p>`;
+}
+
 function wishlistSectionHtml(): string {
   if (!state.wishlistLoaded) return `<h2 class="t-section">Wishlist</h2><p class="settings-note t-caption">Loading.</p>`;
 
@@ -2201,7 +2235,7 @@ function wishlistSectionHtml(): string {
     <ul class="shop-list">
       ${rows
         .map(
-          ({ frag }) => `<li class="wishlist-row">
+          ({ entry, frag }) => `<li class="wishlist-row">
             <button class="shop-row" data-frag="${esc(frag.id)}">
               ${monogram(frag.brand)}
               <span class="shop-row-text">
@@ -2212,6 +2246,7 @@ function wishlistSectionHtml(): string {
             </button>
             <button class="wishlist-remove" data-wishlist-remove="${esc(frag.id)}"
                 aria-label="Remove ${esc(frag.brand)} ${esc(frag.name)} from your wishlist">${ICON_CLOSE}</button>
+            ${state.priceAlerts === true ? wishlistTargetHtml(entry, frag) : ''}
           </li>`,
         )
         .join('')}
@@ -2220,6 +2255,13 @@ function wishlistSectionHtml(): string {
 
 /** Fetches the signed-in reader's wishlist once verification is confirmed,
  *  and re-renders when it lands — see handleAuthUser in init(). */
+function loadPriceAlerts(): void {
+  fetchPriceAlerts().then((on) => {
+    state.priceAlerts = on;
+    renderInPlace();
+  });
+}
+
 function loadWishlist(): void {
   fetchWishlist().then((entries) => {
     state.wishlistEntries = entries;
@@ -3702,6 +3744,7 @@ function accountView(): string {
         <h1 class="t-page">Account</h1>
         <p class="account-note">Signed in as ${esc(s.email)}.</p>
         ${wishlistSectionHtml()}
+        ${priceAlertsSectionHtml()}
         <h2 class="t-section">Settings</h2>
         <details class="account-more">
           <summary>Change password</summary>
@@ -4327,7 +4370,12 @@ function applyRoute(route: Route): boolean {
     case 'about': state.view = 'about'; return true;
     case 'design': state.view = 'design'; return true;
     case 'settings': state.view = 'settings'; return true;
-    case 'account': state.view = 'account'; return true;
+    case 'account': {
+      state.view = 'account';
+      const token = route.query[UNSUBSCRIBE_PARAM];
+      if (token !== undefined) handleUnsubscribeLink(token);
+      return true;
+    }
 
     case 'search':
       // The bar search and the Search subpage are the same destination.
@@ -4386,6 +4434,23 @@ function applyRoute(route: Route): boolean {
       return true;
     }
   }
+}
+
+/**
+ * The one click unsubscribe link from a price drop email lands on
+ * /account?unsubscribe=<token>. Works signed out: the token alone is the
+ * credential (supabase/migrations/0004_price_alerts.sql). The token is dropped
+ * from the address bar straight away, since currentRoute() never carries it,
+ * so it does not linger in history or get shared by accident.
+ */
+function handleUnsubscribeLink(token: string): void {
+  queueMicrotask(() => syncUrl('replace'));
+  unsubscribe(token).then((outcome) => {
+    if (outcome === 'done' && state.priceAlerts !== null) state.priceAlerts = false;
+    const m = unsubscribeMessage(outcome);
+    void showDialog({ title: m.title, message: m.message, ok: m.ok });
+    renderInPlace();
+  });
 }
 
 /**
@@ -5734,6 +5799,7 @@ function init(): void {
     }
     if (user && isVerified(user)) {
       loadWishlist();
+      loadPriceAlerts();
     } else {
       // A different reader may be signing in on the same device, or this one
       // just signed out — either way, the previous session's saved ids must
@@ -5741,6 +5807,7 @@ function init(): void {
       state.wishlistIds = new Set();
       state.wishlistEntries = [];
       state.wishlistLoaded = false;
+      state.priceAlerts = null;
     }
     renderInPlace();
   };
@@ -6204,6 +6271,46 @@ function init(): void {
   document.addEventListener('change', (e) => {
     const t = e.target as HTMLElement;
     const id = t.id;
+    if (id === 'price-alerts') {
+      const box = t as HTMLInputElement;
+      const on = box.checked;
+      box.disabled = true;
+      setPriceAlerts(on).then((result) => {
+        if (!result.ok) {
+          void showDialog({ title: 'Price alerts not changed', message: result.message ?? 'Please try again.' });
+        } else {
+          state.priceAlerts = on;
+          if (on) {
+            void showDialog({
+              title: 'Price alerts are on',
+              message: 'We will email you when a saved fragrance gets cheaper. You can also set a target price for each one below.',
+              ok: true,
+            });
+          }
+        }
+        renderInPlace();
+      });
+      return;
+    }
+    const targetFragId = t.getAttribute('data-wishlist-target');
+    if (targetFragId) {
+      const input = t as HTMLInputElement;
+      const parsed = parseTargetPrice(input.value);
+      if (!parsed.ok) {
+        void showDialog({ title: 'Check the target price', message: 'Type an amount in pounds, such as 45 or 45.50, or leave it blank.' });
+        return;
+      }
+      const entry = state.wishlistEntries.find((x) => x.fragranceId === targetFragId);
+      setTargetPrice(targetFragId, parsed.value).then((result) => {
+        if (!result.ok) {
+          void showDialog({ title: 'Target price not saved', message: result.message ?? 'Please try again.' });
+          return;
+        }
+        if (entry) entry.targetPriceGbp = parsed.value;
+        input.value = parsed.value === null ? '' : parsed.value.toFixed(2);
+      });
+      return;
+    }
     const value = (t as HTMLSelectElement).value;
     if (id === 'brand-sort') state.brandSort = value as BrandSort;
     else if (id === 'brand-filter') state.brandFilter = value as BrandFilter;
