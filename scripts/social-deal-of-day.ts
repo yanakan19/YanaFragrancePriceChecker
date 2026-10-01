@@ -33,12 +33,13 @@ import { cannotCarryBrand, getRetailer } from '../src/config/retailers.js';
 import { readGender, type GenderReading } from '../demo/gender.js';
 import type { PresentedOffer } from '../src/types/offer.js';
 import { launchChromium } from './a11y-audit.js';
+import { FIT_SCRIPT, renderSmooth } from './socialRender.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SITE = 'https://pricesniffs.space';
 const HISTORY = join(ROOT, 'social', 'deal-of-the-day-history.json');
 
-interface Pick {
+export interface Pick {
   frag: DemoFragrance;
   best: PresentedOffer;
   delivered: number;
@@ -145,7 +146,7 @@ interface Format {
   head: number; name: number; brand: number; date: number; photo: number; badge: number; amount: number;
   headline: (flag: string) => string;
 }
-const FORMATS: Format[] = [
+export const FORMATS: Format[] = [
   // Story: stories cover the top and bottom 250px with their own bars.
   {
     file: 'post-9x16', w: 1080, h: 1920, pad: 250, gap: 28,
@@ -160,7 +161,7 @@ const FORMATS: Format[] = [
   },
 ];
 
-function postHtml(p: Pick, photo: string, dateLabel: string, checked: string, f: Format): string {
+export function postHtml(p: Pick, photo: string, dateLabel: string, checked: string, f: Format): string {
   const name = undash(`${p.frag.name}${p.frag.sizeMl ? ` ${sizeLabel(p.frag.sizeMl)}` : ''}`);
   return `<!doctype html><html><head><meta charset="utf-8"><style>
   * { box-sizing: border-box; }
@@ -169,18 +170,17 @@ function postHtml(p: Pick, photo: string, dateLabel: string, checked: string, f:
   main { height: 100%; padding: ${f.pad}px 90px; display: flex; flex-direction: column;
     align-items: center; justify-content: space-evenly; text-align: center; }
   .top, .mid, .bottom { display: flex; flex-direction: column; align-items: center; gap: ${f.gap}px; width: 100%; }
-  .brandline { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 44px; letter-spacing: -1px; }
+  .brandline { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 44px; letter-spacing: -0.5px; }
   .brandline .mark { width: 58px; height: 58px; flex: none; }
   .brandline em { font-style: normal; color: #FF3B41; }
   .date { margin: 0; padding: 10px 22px; border: 2px solid #3A3A40; border-radius: 999px;
     font-size: ${f.date}px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #B9B9C0; }
-  h1 { margin: 0; font-size: ${f.head}px; letter-spacing: -2px; line-height: 1.12; white-space: nowrap; }
+  h1 { margin: 0; width: 100%; font-size: ${f.head}px; letter-spacing: -1px; line-height: 1.15; white-space: nowrap; }
   .flag { display: inline-block; vertical-align: -0.06em; width: ${Math.round(f.head * 1.1)}px; height: ${Math.round(f.head * 0.55)}px; border-radius: 6px; }
-  .who { display: flex; flex-direction: column; gap: 10px; }
-  .name { margin: 0; font-size: ${f.name}px; font-weight: 700; line-height: 1.1; letter-spacing: -1px;
-    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .brand { margin: 0; font-size: ${f.brand}px; color: #B9B9C0; letter-spacing: 3px; text-transform: uppercase; }
-  .photo { position: relative; width: ${f.photo}px; height: ${f.photo}px; border-radius: 36px; background: #FFFFFF;
+  .who { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+  .name { margin: 0; font-size: ${f.name}px; font-weight: 700; line-height: 1.12; letter-spacing: -0.5px; overflow-wrap: anywhere; }
+  .brand { margin: 0; font-size: ${f.brand}px; color: #B9B9C0; letter-spacing: 3px; text-transform: uppercase; white-space: nowrap; }
+  .photo { position: relative; width: calc(${f.photo}px * var(--k, 1)); height: calc(${f.photo}px * var(--k, 1)); border-radius: 36px; background: #FFFFFF;
     display: flex; align-items: center; justify-content: center; }
   .photo img { width: 86%; height: 86%; object-fit: contain; border-radius: 12px; }
   .badge { position: absolute; top: -${Math.round(f.badge * 0.2)}px; right: -${Math.round(f.badge * 0.42)}px;
@@ -190,11 +190,11 @@ function postHtml(p: Pick, photo: string, dateLabel: string, checked: string, f:
   .badge b { font-size: ${Math.round(f.badge * 0.34)}px; line-height: 1; letter-spacing: -1px; }
   .badge span { font-size: ${Math.round(f.badge * 0.15)}px; font-weight: 700; letter-spacing: 2px; margin-top: 4px; }
   .boxes { display: flex; gap: 24px; width: 100%; justify-content: center; }
-  .box { flex: 0 1 420px; padding: ${f.gap}px 16px; border-radius: 28px; border: 2px solid #FF3B41; background: #1E0709; }
+  .box { flex: 0 1 420px; min-width: 0; padding: ${f.gap}px 16px; border-radius: 28px; border: 2px solid #FF3B41; background: #1E0709; }
   .box.best { border-color: #4FB47B; background: #14221B; }
   .label { margin: 0; font-size: 26px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #FF6A6E; }
-  .amount { margin: 8px 0 0; font-size: ${f.amount}px; font-weight: 700; color: #FF6A6E; }
-  .from { margin: 6px 0 0; font-size: 26px; color: #B9B9C0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .amount { margin: 8px 0 0; white-space: nowrap; font-size: ${f.amount}px; font-weight: 700; color: #FF6A6E; }
+  .from { margin: 6px 0 0; font-size: 26px; color: #B9B9C0; white-space: nowrap; }
   .best .label, .best .amount { color: #4FB47B; }
   /* Where the live link sticker goes: a faint centre crosshair, nothing else. */
   .sticker { position: relative; width: 120px; height: 120px; }
@@ -202,35 +202,29 @@ function postHtml(p: Pick, photo: string, dateLabel: string, checked: string, f:
   .sticker::before { left: 59px; top: 0; width: 2px; height: 120px; }
   .sticker::after { top: 59px; left: 0; height: 2px; width: 120px; }
   .sticker i { position: absolute; left: 44px; top: 44px; width: 32px; height: 32px; border: 2px solid #3A3A40; border-radius: 50%; }
-  .checked { margin: 0; font-size: 24px; color: #8A8A93; }
+  .checked { margin: 0; width: 100%; font-size: 24px; color: #8A8A93; white-space: nowrap; }
 </style></head><body><main>
   <div class="top">
     <div class="brandline">${MARK}<span>Price<em>Sniffs</em></span></div>
     <p class="date">${esc(dateLabel)}</p>
-    <h1>${f.headline(UNION_JACK)}</h1>
+    <h1 data-fit="1,30">${f.headline(UNION_JACK)}</h1>
   </div>
   <div class="mid">
     <div class="who">
-      <p class="name">${esc(name)}</p>
-      <p class="brand">${esc(undash(p.frag.brand))}</p>
+      <p class="name" data-fit="2,34">${esc(name)}</p>
+      <p class="brand" data-fit="1,20">${esc(undash(p.frag.brand))}</p>
     </div>
     <div class="photo"><img src="${photo}" alt=""><div class="badge"><span>SAVE</span><b>${p.percent}%</b></div></div>
     <div class="boxes">
-      <div class="box"><p class="label">MSRP</p><p class="amount">${gbp(p.msrp)}</p><p class="from">Brand's Current Price</p></div>
-      <div class="box best"><p class="label">Cheapest price</p><p class="amount">${gbp(p.delivered)}</p><p class="from">from ${esc(undash(p.best.retailer.name))}</p></div>
+      <div class="box"><p class="label">MSRP</p><p class="amount" data-fit="1,30">${gbp(p.msrp)}</p><p class="from">Brand's Current Price</p></div>
+      <div class="box best"><p class="label">Cheapest price</p><p class="amount" data-fit="1,30">${gbp(p.delivered)}</p><p class="from" data-fit="1,18">from ${esc(undash(p.best.retailer.name))}</p></div>
     </div>
   </div>
   <div class="bottom">
     <div class="sticker" aria-hidden="true"><i></i></div>
-    <p class="checked">Price incl. delivery, checked ${esc(checked)}</p>
+    <p class="checked" data-fit="1,16">Price incl. delivery, checked ${esc(checked)}</p>
   </div>
-</main><script>
-  // One line, never wider than the margins: shrink the headline until it fits.
-  for (const h of document.querySelectorAll('h1')) {
-    let size = parseFloat(getComputedStyle(h).fontSize);
-    while (h.scrollWidth > h.parentElement.clientWidth && size > 30) h.style.fontSize = (size -= 1) + 'px';
-  }
-</script></body></html>`;
+</main>${FIT_SCRIPT}</body></html>`;
 }
 
 /* ── the notes card ──────────────────────────────────────────────────────── */
@@ -238,7 +232,7 @@ function postHtml(p: Pick, photo: string, dateLabel: string, checked: string, f:
 type Tier = 'top' | 'middle' | 'base';
 const TIERS: Tier[] = ['top', 'middle', 'base'];
 interface CleanNotes { top: string[]; middle: string[]; base: string[]; source: string | null; from: 'own' | 'sibling' }
-interface NotesResult { notes: CleanNotes | null; reasons: string[] }
+export interface NotesResult { notes: CleanNotes | null; reasons: string[] }
 
 const titleCase = (s: string) => s.replace(/\S+/g, (w) => w[0]!.toUpperCase() + w.slice(1).toLowerCase());
 
@@ -314,7 +308,7 @@ function genderFor(frag: Pick['frag']): { reading: GenderReading; basis: string 
 
 const GENDER_TEXT: Record<GenderReading, string> = { mens: 'Men', womens: 'Women', unisex: 'Everyone', notStated: 'Everyone' };
 
-function notesHtml(p: Pick, dateLabel: string, notes: NotesResult, gender: { reading: GenderReading }): string {
+export function notesHtml(p: Pick, dateLabel: string, notes: NotesResult, gender: { reading: GenderReading }): string {
   const name = undash(`${p.frag.name}${p.frag.sizeMl ? ` ${sizeLabel(p.frag.sizeMl)}` : ''}`);
   const MAX = 5;
   const tierRow = (label: string, hint: string, list: string[]) =>
@@ -335,45 +329,39 @@ function notesHtml(p: Pick, dateLabel: string, notes: NotesResult, gender: { rea
     font-family: 'Liberation Sans', Arial, Helvetica, sans-serif; }
   main { height: 100%; padding: 60px 90px; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; text-align: center; }
   .top { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-  .brandline { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 44px; letter-spacing: -1px; }
+  .brandline { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 44px; letter-spacing: -0.5px; }
   .brandline .mark { width: 58px; height: 58px; flex: none; }
   .brandline em { font-style: normal; color: #FF3B41; }
   .date { margin: 0; padding: 10px 22px; border: 2px solid #3A3A40; border-radius: 999px; font-size: 24px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #B9B9C0; }
-  h1 { margin: 0; font-size: 60px; letter-spacing: -2px; line-height: 1.1; white-space: nowrap; }
-  .who { display: flex; flex-direction: column; gap: 10px; }
-  .name { margin: 0; font-size: 52px; font-weight: 700; line-height: 1.1; letter-spacing: -1px; }
-  .brand { margin: 0; font-size: 28px; color: #B9B9C0; letter-spacing: 3px; text-transform: uppercase; }
+  h1 { margin: 0; width: 100%; font-size: 60px; letter-spacing: -1px; line-height: 1.15; white-space: nowrap; }
+  .who { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+  .name { margin: 0; font-size: 52px; font-weight: 700; line-height: 1.12; letter-spacing: -0.5px; overflow-wrap: anywhere; }
+  .brand { margin: 0; font-size: 28px; color: #B9B9C0; letter-spacing: 3px; text-transform: uppercase; white-space: nowrap; }
   .gender { display: flex; align-items: center; gap: 18px; padding: 16px 30px; border-radius: 999px; background: #1E0709; border: 2px solid #FF3B41; }
   .gender .k { font-size: 24px; font-weight: 700; letter-spacing: 3px; color: #FF6A6E; text-transform: uppercase; }
   .gender .v { font-size: 40px; font-weight: 700; }
-  .tree { position: relative; width: fit-content; min-width: 560px; max-width: 900px; display: flex; flex-direction: column; gap: 26px; text-align: left; }
+  .tree { position: relative; width: fit-content; min-width: 560px; max-width: 900px; display: flex; flex-direction: column; gap: calc(26px * var(--k, 1)); text-align: left; }
   .tree::before { content: ''; position: absolute; left: 15px; top: 20px; bottom: 20px; width: 3px; background: #3A3A40; }
   .tier { position: relative; display: flex; gap: 26px; align-items: flex-start; }
   .dot { flex: none; width: 33px; height: 33px; border-radius: 50%; background: #0A0A0B; border: 3px solid #FF3B41; margin-top: 4px; }
   .tier-name { margin: 0 0 12px; font-size: 30px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
   .tier-name span { font-size: 22px; font-weight: 400; letter-spacing: 1px; color: #8A8A93; text-transform: none; margin-left: 8px; }
-  .chips { margin: 0; display: flex; flex-wrap: wrap; gap: 12px; }
-  .chip { padding: 10px 20px; border-radius: 999px; background: #18181B; border: 2px solid #3A3A40; font-size: 28px; }
+  .chips { margin: 0; display: flex; flex-wrap: wrap; gap: calc(12px * var(--k, 1)); }
+  .chip { padding: calc(10px * var(--k, 1)) calc(20px * var(--k, 1)); border-radius: 999px; background: #18181B; border: 2px solid #3A3A40; font-size: calc(28px * var(--k, 1)); white-space: nowrap; max-width: 760px; overflow: hidden; text-overflow: ellipsis; }
   .chip.more { color: #8A8A93; }
   .none { max-width: 760px; } .none p { margin: 0; font-size: 36px; } .none .sub { margin-top: 14px; font-size: 26px; color: #8A8A93; }
-  .source { margin: 0; font-size: 24px; color: #8A8A93; }
+  .source { margin: 0; width: 100%; font-size: 24px; color: #8A8A93; white-space: nowrap; }
 </style></head><body><main>
   <div class="top">
     <div class="brandline">${MARK}<span>Price<em>Sniffs</em></span></div>
     <p class="date">${esc(dateLabel)}</p>
-    <h1>The Scent Profile</h1>
+    <h1 data-fit="1,30">The Scent Profile</h1>
   </div>
-  <div class="who"><p class="name">${esc(name)}</p><p class="brand">${esc(undash(p.frag.brand))}</p></div>
+  <div class="who"><p class="name" data-fit="2,34">${esc(name)}</p><p class="brand" data-fit="1,20">${esc(undash(p.frag.brand))}</p></div>
   <div class="gender"><span class="k">Recommended for</span><span class="v">${GENDER_TEXT[gender.reading]}</span></div>
   ${body}
-  <p class="source">${source}</p>
-</main><script>
-  // One line, never wider than the margins: shrink the headline until it fits.
-  for (const h of document.querySelectorAll('h1')) {
-    let size = parseFloat(getComputedStyle(h).fontSize);
-    while (h.scrollWidth > h.parentElement.clientWidth && size > 30) h.style.fontSize = (size -= 1) + 'px';
-  }
-</script></body></html>`;
+  <p class="source" data-fit="1,16">${source}</p>
+</main>${FIT_SCRIPT}</body></html>`;
 }
 
 function caption(p: Pick, url: string, checked: string, dateLabel: string): string {
@@ -405,11 +393,6 @@ function liveCheck(id: string, url: string): { status: number; servesApp: boolea
   return { status, servesApp, inLiveData, ok: servesApp && inLiveData };
 }
 
-const fontFace = (file: string, weight: number) =>
-  `@font-face{font-family:'Liberation Sans';font-weight:${weight};src:url(data:font/ttf;base64,${readFileSync(
-    join(ROOT, 'social', 'fonts', file),
-  ).toString('base64')}) format('truetype');}`;
-
 async function main() {
   const history: HistoryEntry[] = existsSync(HISTORY) ? JSON.parse(readFileSync(HISTORY, 'utf8')) : [];
   const p = choose(history);
@@ -426,29 +409,20 @@ async function main() {
   const dir = join(ROOT, 'social', 'posts', `${today}-deal-of-the-day`);
   mkdirSync(dir, { recursive: true });
   const photo = photoDataUri(p.frag.photoUrl!);
-  const css = `<style>${fontFace('LiberationSans-Regular.ttf', 400)}${fontFace('LiberationSans-Bold.ttf', 700)}</style>`;
 
   const browser = await launchChromium();
   for (const f of FORMATS) {
     const html = postHtml(p, photo, dateLabel, checked, f);
     // The committed HTML keeps the photo's address rather than a 1 MB inline copy.
     writeFileSync(join(dir, `${f.file}.html`), html.replace(photo, p.frag.photoUrl!));
-    const page = await browser.newPage({ viewport: { width: f.w, height: f.h }, deviceScaleFactor: 1 });
-    await page.setContent(html.replace('<style>', `${css}<style>`));
-    await page.evaluate('document.fonts.ready');
-    await page.screenshot({ path: join(dir, `${f.file}.png`), clip: { x: 0, y: 0, width: f.w, height: f.h } });
-    await page.close();
+    await renderSmooth(browser, html, f.w, f.h, join(dir, `${f.file}.png`));
   }
   const notes = notesFor(p.frag);
   const gender = genderFor(p.frag);
   {
     const html = notesHtml(p, dateLabel, notes, gender);
     writeFileSync(join(dir, 'notes-3x4.html'), html);
-    const page = await browser.newPage({ viewport: { width: 1080, height: 1440 }, deviceScaleFactor: 1 });
-    await page.setContent(html.replace('<style>', `${css}<style>`));
-    await page.evaluate('document.fonts.ready');
-    await page.screenshot({ path: join(dir, 'notes-3x4.png'), clip: { x: 0, y: 0, width: 1080, height: 1440 } });
-    await page.close();
+    await renderSmooth(browser, html, 1080, 1440, join(dir, 'notes-3x4.png'));
   }
   await browser.close();
 

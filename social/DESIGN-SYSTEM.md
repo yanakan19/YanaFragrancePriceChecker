@@ -35,6 +35,30 @@ size unless a platform needs another one.
 
 For the 16:9 landscape layout, use the sizes in its template file.
 
+**Smooth edges:** every picture is drawn at twice its size and scaled down
+with high quality smoothing (`scripts/socialRender.ts`), so letters have soft,
+natural edges rather than hard pixel ones. Headlines use a light negative
+letter spacing (-1px at most) so letters never look pinched.
+
+**Long text never breaks the layout.** Each text line has a limit, and text
+that would go past it shrinks first, down to a minimum size, and only then is
+cut with "…" as a last resort:
+
+| Text | Limit | Smallest size |
+|---|---|---|
+| Headline | 1 line | 30px |
+| Perfume name | 2 lines | 34px |
+| Brand | 1 line | 20px |
+| Prices in the boxes | 1 line | 30px |
+| Shop name in the box | 1 line | 18px |
+| Checked time, notes source | 1 line | 16px |
+
+If the whole picture still does not fit (for example a long name plus many
+notes), the photo, note chips and gaps shrink together, step by step, down to
+60%. Notes show at most 5 per tier, then "+N more". `tests/dealOfDayLayout.test.ts`
+renders very long names, brands, shop names and note lists and fails if
+anything leaves the picture or crosses the margins.
+
 ## 3. Logo
 
 The mark (magnifying glass, red, with a white bottle in the lens) and the
