@@ -445,7 +445,23 @@ const TOP_N = 50;
  */
 const isOil = (f: DemoFragrance): boolean => f.concentration === 'Perfume Oil';
 
-const POPULAR = BY_POPULARITY.filter((f) => !isOil(f)).slice(0, 12);
+/**
+ * The front-page rail: the most stocked bottle of each of the 12 most stocked
+ * brands. Owner feedback, 2026-10-01: ranked straight, 7 of the 12 were French
+ * Avenue and 3 were Afnan, which read as an advert for two brands. The full,
+ * unmixed ranking is still one tap away under See Top 50.
+ */
+const POPULAR = (() => {
+  const seen = new Set<string>();
+  const out: DemoFragrance[] = [];
+  for (const f of BY_POPULARITY) {
+    if (out.length === 12) break;
+    if (isOil(f) || seen.has(f.brand)) continue;
+    seen.add(f.brand);
+    out.push(f);
+  }
+  return out;
+})();
 
 /**
  * Prices come from the catalogue crawl and the affiliate feed, never from a
@@ -1621,11 +1637,11 @@ function offerRow(
   const totalGbp = row.deliveredPriceGbp ?? row.itemPriceGbp;
   const facts: string[] = [];
   if (!row.isPurchasable) {
-    facts.push('Last known price');
+    facts.push('Last price');
   } else {
     if (row.delivery.costGbp === null) {
       // Listed under "Delivery not included", so the heading says the rest.
-      facts.push('Plus delivery');
+      facts.push('+ delivery');
     } else {
       // Marked "est." where the figure is not read off the shop's own delivery
       // page (shipping.confidence): about two thirds of live listings.
@@ -1638,7 +1654,7 @@ function offerRow(
     }
     if (row.stock !== 'inStock') facts.push(STOCK_LABEL[row.stock]);
     // Said on the row it applies to: the page caption gives the freshest age.
-    if (row.stale) facts.push(`Checked ${age(row.ageSeconds)}`);
+    if (row.stale) facts.push(age(row.ageSeconds));
   }
   // The CAP Code asks for an affiliate relationship to be obvious before the
   // click, so a commissioned shop's row says so, and rel="sponsored" tells
@@ -5379,7 +5395,10 @@ function syncUpdatesHeight(): void {
   const list = document.querySelector('.updates-list') as HTMLElement | null;
   if (!suggest || !list) return;
   if (state.layout !== 'desktop') {
-    list.style.maxHeight = '';
+    // Stacked on a phone: the list gets the same height as the suggestion box
+    // above it, less its own heading, and scrolls inside that.
+    const head = list.getBoundingClientRect().top - (list.parentElement as HTMLElement).getBoundingClientRect().top;
+    list.style.maxHeight = `${Math.max(240, suggest.getBoundingClientRect().height - head)}px`;
     return;
   }
   // Measured from the list's own top, not the suggestion box's total height:
