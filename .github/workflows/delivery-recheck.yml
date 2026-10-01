@@ -1,0 +1,139 @@
+name: Delivery price re-check
+
+# Once a month, read every enabled shop's own delivery page and check that the
+# standard delivery charge and free-delivery threshold in src/config/retailers.ts
+# still match what the page says — so a shop raising its delivery price never
+# quietly leaves the site's delivered prices out of date.
+#
+# ── What it may and may not do ───────────────────────────────────────────────
+# Reads one delivery page per shop (the registry's shipping.source.url, else
+# UNQUOTED_DELIVERY_PAGES in scripts/deliveryRecheck.ts), obeying robots.txt,
+# with a 20s timeout. A 403, a
+# captcha page or a timeout is recorded as "blocked" and is never a failure.
+#
+# It NEVER edits src/config/retailers.ts. The page reading is a set of regexes
+# over prose, and a misread delivery charge would change every delivered price
+# for that shop. Instead it commits a report —
+#
+#   data/delivery-recheck-report.json   every shop, recorded vs found
+#   docs/DELIVERY-RECHECK.md            the same as a table for a human
+#
+# — and, when any shop's page no longer carries the recorded figures, opens a
+# GitHub issue "Delivery prices changed: <Month YYYY>" listing each difference
+# with its source link. A second run in the same month (a manual dispatch)
+# updates that month's issue instead of opening another.
+#
+# The same report flags (never fails on) any shop whose verifiedAt is older
+# than 60 days, so a hand re-verification falling behind is visible too.
+#
+# How it relates to "Catalogue crawl"'s "Discover shipping terms" step: that
+# step rotates through unconfirmed shops ten at a time and may promote a rule
+# to `confirmed` when the page agrees; this is a full monthly sweep that only
+# reports. Both use the same page reader (src/catalogue/shippingTerms.ts).
+on:
+  schedule:
+    # 04:47 UTC on the 1st — 05:47 in summer, 04:47 in winter, UK time. Off
+    # the hour on purpose: minute 0 is GitHub's busiest moment to ask for a
+    # runner, and the hourly catalogue crawl runs at :15.
+    - cron: '47 4 1 * *'
+  workflow_dispatch:
+    inputs:
+      shop:
+        description: 'Limit to one retailer id (e.g. boots). Empty checks every enabled shop with listings.'
+        type: string
+        default: ''
+      commit_report:
+        description: 'Commit the report and open/update the issue. Turn off for a throwaway look (results stay in the run log).'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: delivery-recheck
+  cancel-in-progress: false
+
+jobs:
+  recheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    # See image-check.yml / scripts/signed-commit.sh: lets commit-and-push.sh
+    # land the report as a signed commit, with SIGNED_COMMITS=off as the
+    # no-code-change off switch.
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SIGNED_COMMITS: ${{ vars.SIGNED_COMMITS }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # continue-on-error: a crash still leaves the log; the steps below then
+      # find nothing new to commit and no issue file, and do nothing.
+      - name: Re-check delivery pages
+        id: recheck
+        continue-on-error: true
+        timeout-minutes: 20
+        run: |
+          npm run delivery:recheck -- \
+            --issue="$RUNNER_TEMP/delivery-issue.json" \
+            ${{ inputs.shop && format('--shop={0}', inputs.shop) || '' }}
+          if [ -f "$RUNNER_TEMP/delivery-issue.json" ]; then echo "changed=yes" >> "$GITHUB_OUTPUT"; fi
+
+      # A single-shop dispatch is a spot check: committing it would replace the
+      # month's full report with one row, so it is never committed.
+      - name: Commit the report
+        if: ${{ github.event_name == 'schedule' || (inputs.commit_report && inputs.shop == '') }}
+        run: |
+          ./scripts/commit-and-push.sh \
+            "Delivery re-check: what each delivery page says $(date -u +%Y-%m)" \
+            data/delivery-recheck-report.json docs/DELIVERY-RECHECK.md
+
+      # Only runs when the re-check wrote an issue file, i.e. at least one shop
+      # changed. Finds this month's issue by its exact title (any state) and
+      # updates it; otherwise opens one.
+      - name: Open or update this month's issue
+        if: ${{ steps.recheck.outputs.changed == 'yes' && (github.event_name == 'schedule' || (inputs.commit_report && inputs.shop == '')) }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = `${process.env.RUNNER_TEMP}/delivery-issue.json`;
+            const { title, month, body } = JSON.parse(fs.readFileSync(path, 'utf8'));
+            // Anything created this month was updated this month too, so
+            // `since` bounds the search to the month's own issues.
+            const since = `${month}-01T00:00:00Z`;
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'all',
+              since,
+              per_page: 100,
+            });
+            const existing = issues.find((i) => !i.pull_request && i.title === title);
+            if (existing) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body,
+              });
+              core.notice(`Updated #${existing.number}: ${title}`);
+            } else {
+              const { data } = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+              core.notice(`Opened #${data.number}: ${title}`);
+            }
