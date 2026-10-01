@@ -75,7 +75,7 @@ import { headFor, type HeadTags, type HeadInput } from './head.js';
 import { SUPABASE_CONFIGURED } from './supabase.js';
 import {
   signUp, signIn, signOut, resendVerification, requestPasswordReset, currentUser, isVerified, onAuthChange,
-  checkEmailLinkCallback,
+  checkEmailLinkCallback, updatePassword, deleteOwnAccount, onPasswordRecovery,
 } from './auth.js';
 import type { User } from '@supabase/supabase-js';
 import { accountState, wishlistControl, type AccountStateInput } from '../src/services/accountState.js';
@@ -190,7 +190,9 @@ const state = {
   authChecked: false,
   authTab: 'signIn' as AuthTab,
   authBusy: false,
-  authError: '' as string,
+  // True while the reader who followed a password reset link has not yet set
+  // a new password: the account page asks for one before anything else.
+  authRecovery: false,
   // Set after a successful signup or resend, so the "check your email" state
   // knows which address to offer resending to.
   authPendingEmail: '' as string,
@@ -2100,6 +2102,14 @@ function notesBlock(f: DemoFragrance): string {
  *  live catalogue (delisted everywhere since it was saved) is skipped rather
  *  than rendered as a broken link; the row in the database is untouched, so
  *  it would reappear if the fragrance ever comes back into stock somewhere. */
+/** The saved bottle's cheapest price today, so the wishlist doubles as a
+ *  price check: the same figure the product page leads with. */
+function wishlistPriceNote(frag: DemoFragrance): string {
+  const best = bestOffer(rowsFor(frag));
+  if (!best) return ' · Sold out everywhere';
+  return ` · From ${formatGbp(best.deliveredPriceGbp ?? best.itemPriceGbp)} at ${esc(best.retailer.name)}`;
+}
+
 function wishlistSectionHtml(): string {
   if (!state.wishlistLoaded) return `<h2 class="t-section">Wishlist</h2><p class="settings-note t-caption">Loading.</p>`;
 
@@ -2121,7 +2131,7 @@ function wishlistSectionHtml(): string {
               ${monogram(frag.brand)}
               <span class="shop-row-text">
                 <span class="shop-row-name t-title">${esc(frag.brand)} ${esc(frag.name)}</span>
-                <span class="shop-row-meta t-caption">${esc(frag.concentration)}, ${esc(sizeLabel(frag.sizeMl))}</span>
+                <span class="shop-row-meta t-caption">${esc(frag.concentration)}, ${esc(sizeLabel(frag.sizeMl))}${wishlistPriceNote(frag)}</span>
               </span>
               <span class="shop-row-go" aria-hidden="true">→</span>
             </button>
@@ -3368,6 +3378,84 @@ function accountEntryLabel(): string {
  * account itself. Never a form that fails on every submit — SUPABASE_CONFIGURED
  * being false renders as a plain, honest "not live yet" state instead.
  */
+interface DialogOptions {
+  title: string;
+  message: string;
+  /** Turns the pop-up into a question with Cancel beside this button. */
+  confirmLabel?: string;
+  /** Paints the confirm button in the warning colour (deleting things). */
+  danger?: boolean;
+  /** A success message rather than a problem: drops the warning accent. */
+  ok?: boolean;
+}
+
+/**
+ * Errors and confirmations as a pop-up (owner feedback, 2026-10-01: a line of
+ * red text under a form was easy to miss). A native <dialog> opened with
+ * showModal(), so focus moves into it, Esc closes it, the page behind is
+ * inert and screen readers announce it, all without extra code. It lives on
+ * <body>, outside #app, so a re-render underneath cannot wipe it. Resolves
+ * true when the confirm/OK button closed it.
+ */
+function showDialog(o: DialogOptions): Promise<boolean> {
+  let dlg = document.getElementById('ps-dialog') as HTMLDialogElement | null;
+  if (!dlg) {
+    dlg = document.createElement('dialog');
+    dlg.id = 'ps-dialog';
+    dlg.className = 'ps-dialog';
+    dlg.setAttribute('aria-labelledby', 'ps-dialog-title');
+    dlg.setAttribute('aria-describedby', 'ps-dialog-msg');
+    // A tap on the dimmed backdrop (the dialog element itself, outside its
+    // content box) dismisses it, as on every phone's own alerts.
+    const self = dlg;
+    self.addEventListener('click', (e) => {
+      if (e.target === self) self.close('cancel');
+    });
+    document.body.appendChild(dlg);
+  }
+  if (dlg.open) dlg.close('cancel');
+  dlg.setAttribute('role', 'alertdialog');
+  dlg.classList.toggle('is-ok', o.ok === true);
+  dlg.innerHTML = `<form method="dialog" class="ps-dialog-body">
+      <h2 id="ps-dialog-title" class="ps-dialog-title">${esc(o.title)}</h2>
+      <p id="ps-dialog-msg" class="ps-dialog-msg">${esc(o.message)}</p>
+      <div class="ps-dialog-actions">${
+        o.confirmLabel
+          ? `<button value="cancel" class="ps-dialog-btn">Cancel</button>
+             <button value="confirm" class="ps-dialog-btn ${o.danger ? 'danger' : 'primary'}">${esc(o.confirmLabel)}</button>`
+          : `<button value="confirm" class="ps-dialog-btn primary" autofocus>OK</button>`
+      }</div>
+    </form>`;
+  const d = dlg;
+  return new Promise((resolve) => {
+    d.returnValue = '';
+    d.addEventListener('close', () => resolve(d.returnValue === 'confirm'), { once: true });
+    if (typeof d.showModal === 'function') {
+      d.showModal();
+    } else if (o.confirmLabel) {
+      resolve(window.confirm(`${o.title}\n\n${o.message}`));
+    } else {
+      window.alert(`${o.title}\n\n${o.message}`);
+      resolve(true);
+    }
+  });
+}
+
+/** The new-password form used after a reset link and for changing it. */
+function newPasswordForm(id: string, submitLabel: string): string {
+  return `<form id="${id}" class="contact-form">
+      <label class="field">
+        <span>New password</span>
+        <input type="password" name="password" autocomplete="new-password" required minlength="8" />
+      </label>
+      <label class="field">
+        <span>Repeat new password</span>
+        <input type="password" name="confirm" autocomplete="new-password" required minlength="8" />
+      </label>
+      <button type="submit" class="contact-send">${esc(submitLabel)}</button>
+    </form>`;
+}
+
 function accountView(): string {
   const s = accountState(accountStateInput());
 
@@ -3390,14 +3478,32 @@ function accountView(): string {
     return `<button class="back" data-back>Back</button><article class="doc settings-doc"><h1 class="t-page">Account</h1><p>Loading.</p></article>`;
   }
 
+  if (s.kind === 'signedIn' && state.authRecovery) {
+    return `
+      <button class="back" data-back>Back</button>
+      <article class="doc settings-doc">
+        <h1 class="t-page">Set a new password</h1>
+        <p class="account-note">For ${esc(s.email)}.</p>
+        ${newPasswordForm('auth-recovery-form', 'Save new password')}
+      </article>`;
+  }
+
   if (s.kind === 'signedIn') {
     return `
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
         <h1 class="t-page">Account</h1>
         <p class="account-note">Signed in as ${esc(s.email)}.</p>
-        <button class="contact-send" id="auth-sign-out">Sign out</button>
         ${wishlistSectionHtml()}
+        <h2 class="t-section">Settings</h2>
+        <details class="account-more">
+          <summary>Change password</summary>
+          ${newPasswordForm('auth-change-password-form', 'Change password')}
+        </details>
+        <div class="account-actions">
+          <button class="contact-send" id="auth-sign-out">Sign out</button>
+          <button class="link-btn danger" id="auth-delete">Delete account</button>
+        </div>
       </article>`;
   }
 
@@ -3484,7 +3590,6 @@ function accountView(): string {
 
       ${!signUpTab ? `<button class="link-btn" id="auth-forgot">Forgot your password</button>` : ''}
 
-      ${state.authError ? `<p class="auth-error">${esc(state.authError)}</p>` : ''}
       ${state.authResetSent ? `<p class="contact-confirm">If that address has an account, a reset link is on its way.</p>` : ''}
     </article>`;
 }
@@ -5318,8 +5423,9 @@ function init(): void {
       // hold a freshly verified reader on the "check your inbox" screen they
       // have just finished with.
       state.authPendingEmail = '';
-      state.authError = '';
       state.authResetSent = false;
+    } else {
+      state.authRecovery = false;
     }
     if (user && isVerified(user)) {
       loadWishlist();
@@ -5338,6 +5444,11 @@ function init(): void {
   // that just followed a verification link back in — see its own comment in
   // auth.ts for why nothing here needs to poll for that.
   onAuthChange(handleAuthUser);
+  onPasswordRecovery(() => {
+    state.authRecovery = true;
+    if (state.view !== 'account') go('account');
+    else renderInPlace();
+  });
   // The other half of "the tab that just followed a link back in": if that
   // link did NOT produce a session — expired, already used, or (see
   // supabase.ts's flowType comment) opened in a browser without a stored
@@ -5346,9 +5457,7 @@ function init(): void {
   // visit. See auth.ts's checkEmailLinkCallback for why that was silent
   // until now.
   checkEmailLinkCallback().then((message) => {
-    if (!message) return;
-    state.authError = message;
-    render();
+    if (message) void showDialog({ title: 'That link did not work', message });
   });
 
   // The bar search is the quick one: type a name, get results. The Search
@@ -5589,7 +5698,6 @@ function init(): void {
     const authTabBtn = t.closest('[data-auth-tab]');
     if (authTabBtn) {
       state.authTab = authTabBtn.getAttribute('data-auth-tab') as AuthTab;
-      state.authError = '';
       state.authResetSent = false;
       render();
       return;
@@ -5612,7 +5720,6 @@ function init(): void {
     // address and hands the sign-in form back.
     if (t.closest('#auth-leave-pending')) {
       state.authPendingEmail = '';
-      state.authError = '';
       state.authTab = 'signIn';
       render();
       return;
@@ -5623,9 +5730,11 @@ function init(): void {
       const email = resendBtn.getAttribute('data-email') ?? '';
       const notice = $('#auth-notice') as HTMLElement;
       resendVerification(email).then((result) => {
-        notice.textContent = result.ok
-          ? 'Sent. Check your inbox again in a moment.'
-          : result.message;
+        if (!result.ok) {
+          void showDialog({ title: 'Could not resend the email', message: result.message });
+          return;
+        }
+        notice.textContent = 'Sent. Check your inbox again in a moment.';
         notice.hidden = false;
       });
       return;
@@ -5634,18 +5743,35 @@ function init(): void {
     if (t.closest('#auth-forgot')) {
       const email = ($('#auth-email') as HTMLInputElement | null)?.value.trim() ?? '';
       if (!email) {
-        state.authError = 'Enter your email above first, then tap Forgot your password again.';
-        render();
+        void showDialog({ title: 'Enter your email first', message: 'Type your email address above, then tap Forgot your password again.' });
         return;
       }
-      state.authBusy = true;
-      state.authError = '';
-      render();
       requestPasswordReset(email).then((result) => {
-        state.authBusy = false;
-        state.authResetSent = result.ok;
-        state.authError = result.ok ? '' : result.message;
-        render();
+        if (!result.ok) {
+          void showDialog({ title: 'Could not send the reset link', message: result.message });
+          return;
+        }
+        state.authResetSent = true;
+        renderInPlace();
+      });
+      return;
+    }
+
+    if (t.closest('#auth-delete')) {
+      void showDialog({
+        title: 'Delete your account?',
+        message: 'This permanently deletes your account and your wishlist. It cannot be undone.',
+        confirmLabel: 'Delete account',
+        danger: true,
+      }).then((yes) => {
+        if (!yes) return;
+        deleteOwnAccount(COMPANY.feedbackEmail).then((result) => {
+          if (!result.ok) {
+            void showDialog({ title: 'Account not deleted', message: result.message });
+            return;
+          }
+          void showDialog({ title: 'Account deleted', message: 'Your account and wishlist have been deleted.', ok: true });
+        });
       });
       return;
     }
@@ -5658,6 +5784,7 @@ function init(): void {
       render();
       removeFromWishlist(fragranceId).then((result) => {
         if (!result.ok) {
+          void showDialog({ title: 'Could not update your wishlist', message: result.message ?? 'Please try again.' });
           // Roll back by reloading from the server rather than guessing what
           // the entry's own target price was, since this optimistic removal
           // already discarded it.
@@ -5683,6 +5810,7 @@ function init(): void {
       action.then((result) => {
         state.wishlistBusy = false;
         if (!result.ok) {
+          void showDialog({ title: 'Could not update your wishlist', message: result.message ?? 'Please try again.' });
           // Roll back: the optimistic flip above did not actually happen.
           if (saved) state.wishlistIds.add(fragranceId);
           else state.wishlistIds.delete(fragranceId);
@@ -5822,17 +5950,44 @@ function init(): void {
       sendYannyMessage(text);
       return;
     }
+    if (form.id === 'auth-recovery-form' || form.id === 'auth-change-password-form') {
+      e.preventDefault();
+      const fields = form as HTMLFormElement;
+      const password = (fields.elements.namedItem('password') as HTMLInputElement).value;
+      const confirm = (fields.elements.namedItem('confirm') as HTMLInputElement).value;
+      if (password !== confirm) {
+        void showDialog({ title: 'Passwords do not match', message: 'Type the same new password in both boxes.' });
+        return;
+      }
+      const submit = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      submit.disabled = true;
+      updatePassword(password).then((result) => {
+        submit.disabled = false;
+        if (!result.ok) {
+          void showDialog({ title: 'Password not changed', message: result.message });
+          return;
+        }
+        fields.reset();
+        state.authRecovery = false;
+        renderInPlace();
+        void showDialog({ title: 'Password changed', message: 'Use your new password next time you sign in.', ok: true });
+      });
+      return;
+    }
     if (form.id === 'auth-signin-form' || form.id === 'auth-signup-form') {
       e.preventDefault();
       const email = ($('#auth-email') as HTMLInputElement).value.trim();
       const password = ($('#auth-password') as HTMLInputElement).value;
+      // The button is disabled in place rather than by re-rendering, so the
+      // typed email and password are still there if the attempt fails.
+      const submit = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      submit.disabled = true;
       state.authBusy = true;
-      state.authError = '';
       state.authResetSent = false;
-      render();
       const action = form.id === 'auth-signup-form' ? signUp(email, password) : signIn(email, password);
       action.then((result) => {
         state.authBusy = false;
+        submit.disabled = false;
         if (!result.ok) {
           if (result.reason === 'unverified') {
             // Not a dead end: this reader has an account and needs the link
@@ -5842,11 +5997,13 @@ function init(): void {
             // and which, before this, was not rendered anywhere they could
             // reach, since Supabase issues no session on a rejected sign in.
             state.authPendingEmail = email;
-            state.authError = '';
+            render();
           } else {
-            state.authError = result.message;
+            void showDialog({
+              title: form.id === 'auth-signup-form' ? 'Could not create your account' : 'Could not sign you in',
+              message: result.message,
+            });
           }
-          render();
           return;
         }
         // Signup with "Confirm email" on (see docs/SUPABASE-SETUP.md, which

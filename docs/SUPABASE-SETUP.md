@@ -74,11 +74,15 @@ an error, then move to the next.
    signs up.
 2. `supabase/migrations/0002_wishlists.sql` — the `wishlists` table, its four
    RLS policies, its bounds and its index.
+3. `supabase/migrations/0003_delete_account.sql` — the `delete_own_account()`
+   function behind the account page's **Delete account** button. It can only
+   ever delete the signed-in caller's own account. Until it is run, that
+   button tells the reader to email us instead.
 
 Order matters: nothing in 0002 references 0001 directly, but 0001 is what
 makes an account exist in the first place.
 
-Both files are safe to run more than once. Every statement in them is
+All three files are safe to run more than once. Every statement in them is
 idempotent, so a half-finished paste, a re-run after fixing a typo, or simply
 not remembering whether you already did it all end in the same place.
 
