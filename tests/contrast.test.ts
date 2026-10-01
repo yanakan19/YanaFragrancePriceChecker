@@ -56,39 +56,6 @@ describe('contrastRatio', () => {
   });
 });
 
-/**
- * The gender mark tokens carry a table of eight measured ratios in their own
- * comment in demo/template.html. This is what stops that table being a claim
- * about colours the file no longer holds — every figure below is recomputed
- * from the tokens as the stylesheet declares them today.
- *
- * The marks are graphics, which WCAG asks 3:1 of. They are held to the 4.5:1
- * text bar instead, matching the standard the monogram lightness tokens above
- * them were tuned to.
- */
-describe('the gender marks clear AA on every ground they are painted on', () => {
-  // An unselected pill is --surface-2. A selected one inverts to --ink, which
-  // is why each mark has a second value: no single colour reads on both a
-  // near-black and a near-white.
-  const cases: [string, RegExp, string, string, number][] = [
-    ['dark, unselected pill', DARK, '--gender-women', '--surface-2', 8.13],
-    ['dark, unselected pill', DARK, '--gender-men', '--surface-2', 8.64],
-    ['dark, selected pill', DARK, '--gender-women-on', '--ink', 6.57],
-    ['dark, selected pill', DARK, '--gender-men-on', '--ink', 6.86],
-    ['light, unselected pill', LIGHT, '--gender-women', '--surface-2', 6.30],
-    ['light, unselected pill', LIGHT, '--gender-men', '--surface-2', 6.56],
-    ['light, selected pill', LIGHT, '--gender-women-on', '--ink', 9.09],
-    ['light, selected pill', LIGHT, '--gender-men-on', '--ink', 9.67],
-  ];
-
-  it.each(cases)('%s: %s on %s', (_label, block, fg, bg, documented) => {
-    const ratio = contrastBetween(tokenIn(block, fg), tokenIn(block, bg));
-    expect(ratio).not.toBeNull();
-    expect(ratio!).toBeGreaterThanOrEqual(AA_TEXT);
-    // Two decimal places, the precision the comment quotes them to.
-    expect(Number(ratio!.toFixed(2))).toBe(documented);
-  });
-});
 
 /**
  * The rank badges on the deals list.
@@ -246,8 +213,8 @@ describe('every palette block declares the same tokens', () => {
   const baseline = namesIn(DARK);
 
   it('the dark block is the one every other is checked against', () => {
-    expect(baseline).toContain('--gender-women');
-    expect(baseline).toContain('--gender-men-on');
+    expect(baseline).toContain('--mono-fg-l');
+    expect(baseline).toContain('--ok-sf');
   });
 
   it.each(blocks)('%s declares them all', (_label, block) => {

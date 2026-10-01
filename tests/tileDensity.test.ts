@@ -11,10 +11,10 @@ import {
 
 /**
  * These pin the arithmetic against the numbers actually in
- * demo/template.html: --gutter (16px, 28px from 900px up), .tile-grid's 16px
- * gap, and the 248px + 28px facet column that floats beside every tile grid
- * from 1100px up. If one of those moves in the stylesheet and not here, a
- * test below fails rather than the grid quietly going back to clipping names.
+ * demo/template.html: --gutter (16px, 28px from 900px up) and .tile-grid's
+ * 16px gap. The filters open above the grid, so nothing else takes width from
+ * it. If one of those moves in the stylesheet and not here, a test below fails
+ * rather than the grid quietly going back to clipping names.
  */
 
 describe('PER_ROW_CHOICES', () => {
@@ -40,9 +40,9 @@ describe('gridWidthFor', () => {
     expect(gridWidthFor(900)).toBe(900 - 2 * 28);
   });
 
-  it('takes the floated facet column off from 1100px up, and not below it', () => {
+  it('gives the grid the whole width between the gutters, filters or not', () => {
     expect(gridWidthFor(1099)).toBe(1099 - 2 * 28);
-    expect(gridWidthFor(1100)).toBe(1100 - 2 * 28 - (248 + 28));
+    expect(gridWidthFor(1366)).toBe(1366 - 2 * 28);
   });
 
   it('never reports a negative width', () => {
@@ -62,10 +62,12 @@ describe('tileWidthFor', () => {
     // Same figures as the table in demo/tileDensity.ts, so the header cannot
     // drift away from the code it is describing.
     const at = (vw: number) => [3, 5, 8, 10].map((n) => Math.round(tileWidthFor(gridWidthFor(vw), n)));
-    expect(at(1280)).toEqual([305, 177, 105, 80]);
-    expect(at(1440)).toEqual([359, 209, 125, 96]);
-    expect(at(1920)).toEqual([519, 305, 185, 144]);
-    expect(at(2560)).toEqual([732, 433, 265, 208]);
+    expect(at(1280)).toEqual([397, 232, 139, 108]);
+    expect(at(1366)).toEqual([426, 249, 150, 117]);
+    expect(at(1440)).toEqual([451, 264, 159, 124]);
+    expect(at(1600)).toEqual([504, 296, 179, 140]);
+    expect(at(1920)).toEqual([611, 360, 219, 172]);
+    expect(at(2560)).toEqual([824, 488, 299, 236]);
   });
 });
 
@@ -88,15 +90,16 @@ describe('perRowChoicesFor', () => {
     }
   });
 
-  // The bug this module exists for. A 1440px laptop on a list view has a
-  // 1108px grid, where ten columns is a 96px tile and eight is 125px.
-  it('drops 8 and 10 per row on a 1440px window', () => {
-    expect(perRowChoicesFor(gridWidthFor(1440))).toEqual([3, 5]);
+  // The bug this module exists for. A 1440px laptop has a 1384px grid, where
+  // ten columns is a 124px tile; a 1280px one makes eight a 139px tile.
+  it('drops 10 per row on a 1440px window, and 8 as well on a 1280px one', () => {
+    expect(perRowChoicesFor(gridWidthFor(1440))).toEqual([3, 5, 8]);
+    expect(perRowChoicesFor(gridWidthFor(1280))).toEqual([3, 5]);
   });
 
-  it('lets 8 back in at 1920 and 10 back in at 2560', () => {
-    expect(perRowChoicesFor(gridWidthFor(1920))).toEqual([3, 5, 8]);
-    expect(perRowChoicesFor(gridWidthFor(2560))).toEqual([3, 5, 8, 10]);
+  it('lets 8 in from 1366 and 10 in from 1920', () => {
+    expect(perRowChoicesFor(gridWidthFor(1366))).toEqual([3, 5, 8]);
+    expect(perRowChoicesFor(gridWidthFor(1920))).toEqual([3, 5, 8, 10]);
   });
 
   it('keeps the smallest count even in a window too narrow to honour it', () => {
@@ -112,9 +115,9 @@ describe('clampPerRow', () => {
   });
 
   it('falls back to the widest count that fits, not to the default', () => {
-    // A reader who chose 10 on a big monitor gets 5 on a laptop, not 3.
-    expect(clampPerRow(10, gridWidthFor(1440))).toBe(5);
-    expect(clampPerRow(10, gridWidthFor(1920))).toBe(8);
+    // A reader who chose 10 on a big monitor gets 8 or 5 on a laptop, not 3.
+    expect(clampPerRow(10, gridWidthFor(1440))).toBe(8);
+    expect(clampPerRow(10, gridWidthFor(1280))).toBe(5);
   });
 
   it('returns a count that is itself offered, for every choice and width', () => {
