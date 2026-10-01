@@ -282,6 +282,10 @@ is_raw_snapshot() {
     data/price-verification-report.json|data/storefront-reprice-report.json) return 0 ;;
     data/shipping-discover-marker.txt|data/shipping-discover-state.json) return 0 ;;
     data/feed-sync-marker.txt) return 0 ;;
+    # scripts/delivery-recheck.ts's monthly output (delivery-recheck.yml). The
+    # Markdown table lives under docs/ but is machine-written exactly like the
+    # JSON beside it — regenerated whole every run, never hand-edited.
+    data/delivery-recheck-report.json|docs/DELIVERY-RECHECK.md) return 0 ;;
     # The harvest's own three, and they were missing. Every one of them is
     # passed to this script by catalogue-daily.yml's "Commit harvested prices",
     # every one of them is rewritten by every scheduled harvest, and so every
