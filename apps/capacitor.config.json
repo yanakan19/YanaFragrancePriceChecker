@@ -1,0 +1,20 @@
+{
+  "appId": "space.pricesniffs.app",
+  "appName": "PriceSniffs",
+  "webDir": "www",
+  "backgroundColor": "#0A0A0B",
+  "appendUserAgent": "PriceSniffsApp",
+  "server": {
+    "url": "https://pricesniffs.space",
+    "errorPath": "offline.html"
+  },
+  "ios": {
+    "contentInset": "never"
+  },
+  "plugins": {
+    "SystemBars": {
+      "insetsHandling": "native",
+      "initialViewportFitValueHint": "cover"
+    }
+  }
+}

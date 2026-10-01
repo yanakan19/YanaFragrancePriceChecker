@@ -1,0 +1,83 @@
+name: App builds (iOS and Android)
+
+# Builds the native shells in apps/ whenever they change, so a broken project
+# is caught here rather than on the Mac that submits it, and leaves an Android
+# test APK to download from the run's Artifacts. See docs/MOBILE-APPS.md.
+#
+# Website changes never need this: the apps load https://pricesniffs.space,
+# so they show every change the moment the site deploys.
+on:
+  push:
+    branches: [claude/scentday-retailer-registry-h92tth]
+    paths:
+      - 'apps/**'
+      - '.github/workflows/apps-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: apps-build
+  cancel-in-progress: true
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: apps
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # Capacitor 8 compiles for Java 21.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - run: npm ci
+
+      - run: npx cap sync android
+
+      - name: Build a debug APK
+        working-directory: apps/android
+        run: ./gradlew assembleDebug --no-daemon
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pricesniffs-android-debug-apk
+          path: apps/android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 14
+
+  ios:
+    # macOS runners are free on public repositories.
+    runs-on: macos-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: apps
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - run: npm ci
+
+      - run: npx cap sync ios
+
+      # Compiles the app for the simulator without signing: proves the project
+      # builds. Signing and submitting happen on the Mac with the Apple
+      # developer account (docs/MOBILE-APPS.md §4).
+      - name: Build for the iOS simulator
+        run: >
+          xcodebuild -project ios/App/App.xcodeproj -scheme App -configuration Debug
+          -sdk iphonesimulator -destination 'generic/platform=iOS Simulator'
+          CODE_SIGNING_ALLOWED=NO build

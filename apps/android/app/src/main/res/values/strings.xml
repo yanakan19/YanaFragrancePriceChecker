@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">PriceSniffs</string>
+    <string name="title_activity_main">PriceSniffs</string>
+    <string name="package_name">space.pricesniffs.app</string>
+    <string name="custom_url_scheme">space.pricesniffs.app</string>
+</resources>

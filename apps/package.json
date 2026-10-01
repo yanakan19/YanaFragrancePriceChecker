@@ -1,0 +1,20 @@
+{
+  "name": "pricesniffs-apps",
+  "private": true,
+  "description": "The PriceSniffs iOS and Android apps: native shells that load pricesniffs.space. See docs/MOBILE-APPS.md.",
+  "scripts": {
+    "sync": "cap sync",
+    "ios": "cap open ios",
+    "android": "cap open android",
+    "icons": "capacitor-assets generate --ios --android --iconBackgroundColor '#0A0A0B' --iconBackgroundColorDark '#0A0A0B' --splashBackgroundColor '#0A0A0B' --splashBackgroundColorDark '#0A0A0B'"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/core": "^8.5.2",
+    "@capacitor/ios": "^8.5.2"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.5.2"
+  }
+}
