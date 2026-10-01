@@ -1,0 +1,69 @@
+name: Fragrance links daily
+
+# Finds direct links for each perfume's own page on its brand's official site
+# and on Fragrantica, 30 minutes a day, picking up where the previous day
+# stopped. Order: the perfumes shown first on the site (front page rail, Top
+# 50, deals), then the top of every brand, note and shop list, then the rest
+# by number of shops. See scripts/resolve-fragrance-links.ts.
+#
+# Perfumes without a found link keep the fallback (brand homepage, Fragrantica
+# search), so a short or failed run never breaks a page.
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+    inputs:
+      minutes:
+        description: 'Time budget in minutes'
+        default: '30'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fragrance-links
+  cancel-in-progress: false
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # Exits 0 when the budget runs out, and on rate limits it backs off and
+      # ends early rather than failing.
+      - name: Resolve links
+        run: npm run links:resolve -- --minutes ${{ inputs.minutes || '30' }}
+
+      # The crawl pushes to this branch most hours and rebuilds the page each
+      # time, so the page is rebuilt here on top of the newest commit rather
+      # than the one this run started from. That keeps the push a fast
+      # forward instead of a conflict over demo/index.html.
+      - name: Rebuild the page on the latest commit
+        run: |
+          mkdir -p "$RUNNER_TEMP/links"
+          cp data/fragrance-links.json data/fragrance-links-seen.json demo/fragranceLinks.generated.ts "$RUNNER_TEMP/links/"
+          git fetch origin "$GITHUB_REF_NAME"
+          git reset --hard "origin/$GITHUB_REF_NAME"
+          cp "$RUNNER_TEMP/links/fragrance-links.json" "$RUNNER_TEMP/links/fragrance-links-seen.json" data/
+          cp "$RUNNER_TEMP/links/fragranceLinks.generated.ts" demo/
+          npm ci
+          npm run demo
+          # This checkout's history is shallow, so the sitemap's dates would
+          # be wrong; the crawl owns that file.
+          git checkout -- demo/sitemap.xml
+
+      - name: Commit and push
+        run: |
+          ./scripts/commit-and-push.sh \
+            "Fragrance links: $(date -u +%Y-%m-%d)" \
+            data/fragrance-links.json data/fragrance-links-seen.json \
+            demo/fragranceLinks.generated.ts demo/index.html demo/404.html
