@@ -71,7 +71,8 @@ import { priceHistoryGapMessage, type PriceHistoryGap } from '../src/services/pr
 import { officialSiteFor } from './brandSites.js';
 import { fragranceLinksFor } from './fragranceLinks.js';
 import { matchRoute, routeToPath, slugify, basePath, type Route, type RouteName } from './router.js';
-import { headFor, type HeadTags, type HeadInput } from './head.js';
+import { headFor, SITE_URL, type HeadTags, type HeadInput } from './head.js';
+import { WRONG_PRICE_PROBLEMS, OTHER_SHOP, wrongPriceMailto, type WrongPriceProblem } from './wrongPrice.js';
 import { SUPABASE_CONFIGURED } from './supabase.js';
 import {
   signUp, signIn, signOut, resendVerification, requestPasswordReset, currentUser, isVerified, onAuthChange,
@@ -2485,6 +2486,34 @@ function priceBoxRow(
   return `<div class="price-boxes">${referenceBox(frag, rows)}${lowestPriceBox(best, verdict)}</div>`;
 }
 
+/**
+ * A product page's offers in the order they are shown. Three groups, each
+ * strictly cheapest first (owner feedback, 2026-10-01): buyable with delivery
+ * included, then buyable where the shop states no delivery cost (its own
+ * "Delivery not included" section, because its price cannot be compared with
+ * an all-in one), then sold out. The shared sort in priceService ranks stock
+ * state before price, which put a cheaper Low stock row under a dearer In
+ * stock one; within a section the price alone decides. Shared by detailView
+ * and the wrong price report, so the report's shop list reads in the same
+ * order as the page above it.
+ */
+function offerGroups(rows: PresentedOffer[]): {
+  delivered: PresentedOffer[];
+  plusDelivery: PresentedOffer[];
+  gone: PresentedOffer[];
+} {
+  const live = rows.filter((r) => r.isPurchasable);
+  const byPrice = (a: PresentedOffer, b: PresentedOffer) =>
+    (a.deliveredPriceGbp ?? a.itemPriceGbp) - (b.deliveredPriceGbp ?? b.itemPriceGbp) ||
+    a.itemPriceGbp - b.itemPriceGbp ||
+    a.retailer.name.localeCompare(b.retailer.name);
+  return {
+    delivered: live.filter((r) => r.deliveredPriceGbp !== null).sort(byPrice),
+    plusDelivery: live.filter((r) => r.deliveredPriceGbp === null).sort(byPrice),
+    gone: rows.filter((r) => !r.isPurchasable).sort(byPrice),
+  };
+}
+
 function detailView(): string {
   const frag = fragranceById(state.fragranceId);
   if (!frag) return homeView();
@@ -2497,19 +2526,7 @@ function detailView(): string {
   const verdict = cheapestVerdict(rows);
   const bestTag = cheapestTag(verdict);
   const live = rows.filter((r) => r.isPurchasable);
-  // Three groups, each strictly cheapest first (owner feedback, 2026-10-01):
-  // buyable with delivery included, then buyable where the shop states no
-  // delivery cost (its own "Delivery not included" section, because its price
-  // cannot be compared with an all-in one), then sold out. The shared sort in
-  // priceService ranks stock state before price, which put a cheaper Low stock
-  // row under a dearer In stock one; within a section the price alone decides.
-  const byPrice = (a: PresentedOffer, b: PresentedOffer) =>
-    (a.deliveredPriceGbp ?? a.itemPriceGbp) - (b.deliveredPriceGbp ?? b.itemPriceGbp) ||
-    a.itemPriceGbp - b.itemPriceGbp ||
-    a.retailer.name.localeCompare(b.retailer.name);
-  const delivered = live.filter((r) => r.deliveredPriceGbp !== null).sort(byPrice);
-  const plusDelivery = live.filter((r) => r.deliveredPriceGbp === null).sort(byPrice);
-  const gone = rows.filter((r) => !r.isPurchasable).sort(byPrice);
+  const { delivered, plusDelivery, gone } = offerGroups(rows);
   const newest = rows.length ? Math.min(...rows.map((r) => r.ageSeconds)) : 0;
   /**
    * Whether this page may print the word MSRP at all.
@@ -2600,6 +2617,15 @@ function detailView(): string {
           gone.length
             ? `<p class="gone-head t-eyebrow">Sold out</p>
                <ul class="offers">${gone.map((r) => offerRow(r, false, 'Cheapest', mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
+            : ''
+        }
+
+        ${
+          // One quiet link under the whole list rather than one per row: a
+          // report is rare, and a control on every row would be furniture on
+          // the busiest part of the page. Opens wrongPriceDialog.
+          rows.length
+            ? `<p class="report-wrong t-caption"><button type="button" class="link-btn" data-report-price aria-haspopup="dialog">Spotted a wrong price? Tell us</button></p>`
             : ''
         }
 
@@ -3519,6 +3545,107 @@ function showDialog(o: DialogOptions): Promise<boolean> {
       resolve(true);
     }
   });
+}
+
+/**
+ * "Spotted a wrong price? Tell us" (queue item 3.3): a small form in the same
+ * native <dialog> style as showDialog, so focus moves in, Esc closes it and
+ * the page behind is inert without extra code. Sending follows the site's
+ * no server pattern: it opens the reader's own email app with a prefilled
+ * message to COMPANY.feedbackEmail (wording and encoding in
+ * demo/wrongPrice.ts), then says so in a showDialog confirmation rather than
+ * claiming the report reached us.
+ *
+ * The form uses method="dialog": the Send button submits only once the
+ * native validation passes (a shop must be chosen), Cancel carries
+ * formnovalidate, and the close event reads which of the two closed it.
+ */
+function openWrongPriceDialog(): void {
+  const frag = fragranceById(state.fragranceId);
+  if (!frag) return;
+  const { delivered, plusDelivery, gone } = offerGroups(rowsFor(frag));
+  const offers = [...delivered, ...plusDelivery, ...gone];
+  const product = `${frag.brand} ${frag.name}${frag.sizeMl ? ` ${frag.sizeMl}ml` : ''}`;
+
+  let dlg = document.getElementById('ps-report') as HTMLDialogElement | null;
+  if (!dlg) {
+    dlg = document.createElement('dialog');
+    dlg.id = 'ps-report';
+    dlg.className = 'ps-dialog is-form';
+    dlg.setAttribute('aria-labelledby', 'ps-report-title');
+    dlg.setAttribute('aria-describedby', 'ps-report-msg');
+    const self = dlg;
+    self.addEventListener('click', (e) => {
+      if (e.target === self) self.close('cancel');
+    });
+    document.body.appendChild(dlg);
+  }
+  if (dlg.open) return;
+
+  // One shop listed: nothing to choose, so it starts chosen.
+  const only = offers.length === 1;
+  dlg.innerHTML = `<form method="dialog" class="ps-dialog-body report-form">
+      <h2 id="ps-report-title" class="ps-dialog-title">Report a wrong price</h2>
+      <p id="ps-report-msg" class="ps-dialog-msg">For ${esc(product)}. This opens your email app with the details filled in.</p>
+      <label class="field">
+        <span>Shop</span>
+        <select name="shop" required>
+          ${only ? '' : '<option value="">Choose a shop</option>'}
+          ${offers.map((r, i) => `<option value="${i}">${esc(r.retailer.name)}, ${esc(formatGbp(r.deliveredPriceGbp ?? r.itemPriceGbp))}</option>`).join('')}
+          <option value="${OTHER_SHOP}">Other</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>What is wrong</span>
+        <select name="problem">
+          ${WRONG_PRICE_PROBLEMS.map((p) => `<option value="${p.value}">${esc(p.label)}</option>`).join('')}
+        </select>
+      </label>
+      <label class="field">
+        <span>Note <span class="dimmer">(optional)</span></span>
+        <textarea name="note" rows="3" maxlength="1000" placeholder="For example, the price you saw"></textarea>
+      </label>
+      <label class="field">
+        <span>Your email <span class="dimmer">(optional, if you would like a reply)</span></span>
+        <input name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+      </label>
+      <div class="ps-dialog-actions">
+        <button value="cancel" formnovalidate class="ps-dialog-btn">Cancel</button>
+        <button value="send" class="ps-dialog-btn primary">Open email</button>
+      </div>
+    </form>`;
+
+  const d = dlg;
+  const form = d.querySelector('form') as HTMLFormElement;
+  d.returnValue = '';
+  d.addEventListener('close', () => {
+    if (d.returnValue !== 'send') return;
+    const field = (name: string) => (form.elements.namedItem(name) as HTMLInputElement).value;
+    const shop = field('shop');
+    const row = shop === OTHER_SHOP ? null : offers[Number(shop)] ?? null;
+    window.location.href = wrongPriceMailto(COMPANY.feedbackEmail, {
+      product,
+      productUrl: `${SITE_URL}${routeToPath({ name: 'fragrance', param: frag.id, query: {} })}`,
+      offer: row && {
+        shop: row.retailer.name,
+        itemPriceGbp: row.itemPriceGbp,
+        deliveredPriceGbp: row.deliveredPriceGbp,
+        deliveryCostGbp: row.delivery.costGbp,
+        isPurchasable: row.isPurchasable,
+        fetchedAt: row.fetchedAt,
+      },
+      problem: field('problem') as WrongPriceProblem,
+      note: field('note'),
+      replyTo: field('email'),
+    });
+    void showDialog({
+      title: 'Thank you',
+      message: 'Your email app should now be open with your report. Press send there to reach us.',
+      ok: true,
+    });
+  }, { once: true });
+  if (typeof d.showModal === 'function') d.showModal();
+  else window.location.href = `mailto:${COMPANY.feedbackEmail}`;
 }
 
 /** The new-password form used after a reset link and for changing it. */
@@ -5750,6 +5877,11 @@ function init(): void {
           panel.hidden = panel.getAttribute('data-history-panel') !== want;
         }
       }
+      return;
+    }
+
+    if (t.closest('[data-report-price]')) {
+      openWrongPriceDialog();
       return;
     }
 
