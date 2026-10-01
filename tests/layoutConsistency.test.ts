@@ -3,7 +3,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { devices, webkit, type Browser, type BrowserContextOptions, type Page } from 'playwright';
-import { launchChromium, startDemoServer } from '../scripts/a11y-audit.js';
+import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-audit.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -101,6 +101,7 @@ describe.skipIf(!built)(`page layout holds its rules (${engine})`, () => {
       const width = CONTEXTS[size].viewport!.width;
       const problems: string[] = [];
       await page.goto(`http://localhost:${port}/`, { waitUntil: 'load' });
+      await waitForApp(page);
       for (const route of [...LIST_PAGES, ...OTHER_PAGES]) {
         await visit(page, route);
         const m = await measure(page, width);
@@ -117,6 +118,7 @@ describe.skipIf(!built)(`page layout holds its rules (${engine})`, () => {
       const rows: Record<string, Measured['row']> = {};
       const panels: Record<string, { height: number; nonNative: number }> = {};
       await page.goto(`http://localhost:${port}/`, { waitUntil: 'load' });
+      await waitForApp(page);
       for (const route of LIST_PAGES) {
         await visit(page, route);
         rows[route] = (await measure(page, CONTEXTS[size].viewport!.width)).row;

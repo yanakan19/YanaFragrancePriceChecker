@@ -155,8 +155,9 @@ it on request):
 
 **If Apple still rejects it:** the fallback keeps the sync. Ship the site's
 code inside the app, load only the price data from the website, and push
-code updates over the air. The first step is already queued as a suggested
-task: "Serve the catalogue data as its own cached file".
+code updates over the air. The first step is done: the catalogue is served
+as its own file, `demo/data.json`, versioned and cached by the service worker
+(see `scripts/demoDataFile.ts`).
 
 **Google Play** is usually fine with this set-up, provided the listing
 describes real functionality.

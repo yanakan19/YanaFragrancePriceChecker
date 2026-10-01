@@ -2,7 +2,8 @@
  * Answers one question for scripts/commit-and-push.sh: does the demo/index.html
  * on disk match the source on disk right now?
  *
- *   npx tsx scripts/check-demo-freshness.ts     # exit 0 fresh, 2 stale, 3 unstamped
+ *   npx tsx scripts/check-demo-freshness.ts     # exit 0 fresh, 2 stale, 3 unstamped,
+ *                                               # 4 demo/data.json from another build
  *
  * This is tests/demoBuildFreshness.test.ts's check, made callable from bash
  * without the test runner, so the commit script can refuse to push a page it
@@ -12,6 +13,10 @@
  * old page anyway. The test then caught it, as designed, on every subsequent
  * run, and because that test gates every harvest, none could start.
  *
+ * Since 2026-10-01 the page's catalogue lives beside it in demo/data.json (see
+ * scripts/demoDataFile.ts), and a page with another build's data is as broken
+ * as a stale one, so that pairing is checked here too.
+ *
  * Runs against the current working directory, which is where commit-and-push.sh
  * stages from. A directory with no tsconfig.demo.json is not a copy of this
  * app, and a caller there has nothing to check: exit 0 with a note, so the
@@ -20,6 +25,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { computeDemoInputsHash, readStampedHash } from './demoInputsHash.js';
+import { checkDataPairing } from './demoDataFile.js';
 
 const root = process.cwd();
 
@@ -43,4 +49,10 @@ if (stamped !== current) {
   process.exit(2);
 }
 
-console.log(`check-demo-freshness: demo/index.html is fresh (sha256:${current.slice(0, 12)}…).`);
+const pairing = checkDataPairing(root);
+if (pairing !== null) {
+  console.error(`check-demo-freshness: ${pairing} Run \`npm run demo\` and commit all three of demo/index.html, demo/404.html and demo/data.json.`);
+  process.exit(4);
+}
+
+console.log(`check-demo-freshness: demo/index.html is fresh (sha256:${current.slice(0, 12)}…), and demo/data.json is its data.`);

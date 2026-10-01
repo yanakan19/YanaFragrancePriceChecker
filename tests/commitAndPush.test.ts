@@ -360,3 +360,131 @@ describe('scripts/commit-and-push.sh never pushes a demo/index.html that is stal
     expect(git(worker, ['show', 'origin/master:data/notes.json'])).toBe('{"v":1,"ours":true}');
   });
 });
+
+// demo/index.html, demo/404.html and demo/data.json are one build in three
+// files since 2026-10-01: the page reads its catalogue out of data.json by
+// position and refuses another build's data (see scripts/demoDataFile.ts). So
+// a commit that carries one without the others publishes a site that will not
+// start. The script stages all three whenever a caller names any one, and
+// refuses outright when the three on disk are not the same build.
+//
+// "The same build" is simulated in the smallest shape with the real property:
+// a page names the data it was built with, FRESHNESS_CHECK compares the two,
+// and REGENERATE rebuilds all three from src/app.ts.
+describe('scripts/commit-and-push.sh keeps demo/index.html, demo/404.html and demo/data.json together', () => {
+  const PAIRED =
+    '[ "$(cat demo/index.html)" = "PAGE-FOR:$(cat demo/data.json)" ] || { echo "sim: data is from another build" >&2; exit 4; }';
+  const REBUILD_ALL =
+    'echo "DATA:$(cat src/app.ts)" > demo/data.json' +
+    ' && echo "PAGE-FOR:DATA:$(cat src/app.ts)" > demo/index.html' +
+    ' && cp demo/index.html demo/404.html';
+  const BUILT = {
+    'src/app.ts': 'BASE\n',
+    'demo/404.html': 'PAGE-FOR:DATA:BASE\n',
+    'demo/data.json': 'DATA:BASE\n',
+  };
+
+  /** What `npm run demo` leaves on disk after a source change, in the shape above. */
+  function rebuild(worker: string, source: string) {
+    writeFileSync(join(worker, 'src/app.ts'), `${source}\n`);
+    writeFileSync(join(worker, 'demo/data.json'), `DATA:${source}\n`);
+    writeFileSync(join(worker, 'demo/index.html'), `PAGE-FOR:DATA:${source}\n`);
+    writeFileSync(join(worker, 'demo/404.html'), `PAGE-FOR:DATA:${source}\n`);
+  }
+
+  it('stages demo/data.json and demo/404.html with demo/index.html when only the page is named', () => {
+    const { root, worker } = setupTrio({ relPath: 'demo/index.html', content: 'PAGE-FOR:DATA:BASE\n', extra: BUILT });
+    cleanupDirs.push(root);
+
+    rebuild(worker, 'NEW-BUILD');
+    const { status, output } = runScript(worker, ['Rebuild demo: sim', 'src/app.ts', 'demo/index.html'], {
+      FRESHNESS_CHECK: PAIRED,
+    });
+
+    expect(status).toBe(0);
+    expect(output).toContain('Staging demo/data.json as well');
+    expect(output).toContain('Staging demo/404.html as well');
+    expect(output).toContain('Pushed on attempt 1');
+    // One commit, carrying the whole build.
+    expect(git(worker, ['show', '--name-only', '--format=', 'origin/master']).split('\n').sort()).toEqual([
+      'demo/404.html',
+      'demo/data.json',
+      'demo/index.html',
+      'src/app.ts',
+    ]);
+    expect(git(worker, ['show', 'origin/master:demo/data.json'])).toBe('DATA:NEW-BUILD');
+    expect(git(worker, ['show', 'origin/master:demo/index.html'])).toBe('PAGE-FOR:DATA:NEW-BUILD');
+  });
+
+  it('brings the page along when only demo/data.json is named', () => {
+    const { root, worker } = setupTrio({ relPath: 'demo/index.html', content: 'PAGE-FOR:DATA:BASE\n', extra: BUILT });
+    cleanupDirs.push(root);
+
+    rebuild(worker, 'NEW-BUILD');
+    const { status, output } = runScript(worker, ['Rebuild demo: sim', 'demo/data.json'], { FRESHNESS_CHECK: PAIRED });
+
+    expect(status).toBe(0);
+    expect(output).toContain('Staging demo/index.html as well');
+    expect(git(worker, ['show', 'origin/master:demo/index.html'])).toBe('PAGE-FOR:DATA:NEW-BUILD');
+    expect(git(worker, ['show', 'origin/master:demo/404.html'])).toBe('PAGE-FOR:DATA:NEW-BUILD');
+  });
+
+  it('refuses when demo/data.json on disk is from a different build than the page, and commits nothing', () => {
+    const { root, worker } = setupTrio({ relPath: 'demo/index.html', content: 'PAGE-FOR:DATA:BASE\n', extra: BUILT });
+    cleanupDirs.push(root);
+
+    // A build cut off after writing the data and before the page: the new
+    // data.json sits beside the old index.html. build-demo.ts writes in that
+    // order on purpose, so this is the half-build that can actually happen.
+    writeFileSync(join(worker, 'demo/data.json'), 'DATA:HALF-BUILT\n');
+    const before = git(worker, ['rev-parse', 'HEAD']);
+
+    const { status, output } = runScript(
+      worker,
+      ['Rebuild demo: sim', 'demo/index.html', 'demo/404.html', 'demo/data.json'],
+      { FRESHNESS_CHECK: PAIRED },
+    );
+
+    expect(status).toBe(1);
+    expect(output).toContain('sim: data is from another build');
+    expect(output).toContain('Refusing to commit demo/index.html');
+    expect(git(worker, ['rev-parse', 'origin/master'])).toBe(before);
+    expect(git(worker, ['diff', '--cached', '--name-only'])).toBe('');
+  });
+
+  it('resolves a conflict in demo/data.json by rebuilding the whole build from the merged inputs', () => {
+    const { root, worker, concurrent } = setupTrio({
+      relPath: 'demo/index.html',
+      content: 'PAGE-FOR:DATA:BASE\n',
+      extra: { ...BUILT, 'demo/catalogue.generated.ts': 'BASE\n' },
+    });
+    cleanupDirs.push(root);
+
+    // Another run rebuilt and pushed while we built: every page file conflicts.
+    rebuild(concurrent, 'BASE');
+    writeFileSync(join(concurrent, 'demo/data.json'), 'DATA:THEIR-HARVEST\n');
+    writeFileSync(join(concurrent, 'demo/index.html'), 'PAGE-FOR:DATA:THEIR-HARVEST\n');
+    writeFileSync(join(concurrent, 'demo/404.html'), 'PAGE-FOR:DATA:THEIR-HARVEST\n');
+    git(concurrent, ['add', '-A']);
+    git(concurrent, ['commit', '-q', '-m', 'concurrent rebuild']);
+    git(concurrent, ['push', '-q', 'origin', 'master']);
+
+    writeFileSync(join(worker, 'demo/catalogue.generated.ts'), 'OUR-HARVEST\n');
+    writeFileSync(join(worker, 'demo/data.json'), 'DATA:OUR-HARVEST\n');
+    writeFileSync(join(worker, 'demo/index.html'), 'PAGE-FOR:DATA:OUR-HARVEST\n');
+    writeFileSync(join(worker, 'demo/404.html'), 'PAGE-FOR:DATA:OUR-HARVEST\n');
+
+    const { status, output } = runScript(
+      worker,
+      ['Rebuild demo: sim', 'demo/catalogue.generated.ts', 'demo/index.html', 'demo/404.html', 'demo/data.json'],
+      { FRESHNESS_CHECK: PAIRED, REGENERATE: `echo MERGED > src/app.ts && ${REBUILD_ALL}` },
+    );
+
+    expect(output).not.toContain('Nothing was pushed');
+    expect(status).toBe(0);
+    expect(output).toContain('Pushed on attempt 2');
+    expect(git(worker, ['show', 'origin/master:demo/data.json'])).toBe('DATA:MERGED');
+    expect(git(worker, ['show', 'origin/master:demo/index.html'])).toBe('PAGE-FOR:DATA:MERGED');
+    expect(git(worker, ['show', 'origin/master:demo/404.html'])).toBe('PAGE-FOR:DATA:MERGED');
+  });
+});

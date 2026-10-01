@@ -15,6 +15,7 @@ import { createServer } from 'node:http';
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { waitForApp } from './a11y-audit.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const demoDir = resolve(root, 'demo');
@@ -49,9 +50,10 @@ const browser = await chromium.launch(existsSync(pinnedChromium) ? { executableP
 try {
   const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
   await page.goto(`http://127.0.0.1:${port}/index.html`);
-  // The homepage fetches nothing external and renders from the inlined
-  // bundle, but give one frame for the fade-in transition to settle so the
-  // captured image is not mid-animation.
+  // The homepage fetches nothing external beyond its own demo/data.json, served
+  // above, and starts once that is in. Then give one frame for the fade-in
+  // transition to settle so the captured image is not mid-animation.
+  await waitForApp(page);
   await page.waitForTimeout(300);
   await page.screenshot({ path: resolve(demoDir, 'og-preview.png') });
   await browser.close();
