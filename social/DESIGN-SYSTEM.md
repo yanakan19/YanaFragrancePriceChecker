@@ -89,22 +89,38 @@ These apply to all post copy: the image text and the caption.
 
 ## 7. Deal of the Day (automatic, every day at 12:00 UK)
 
+**Read this whole document before making or changing any post.** The daily
+routine does so first on every run.
+
 `npm run social:deal` makes the post in `social/posts/YYYY-MM-DD-deal-of-the-day/`:
 `post-9x16.png` (story, 1080 x 1920) and `post-3x4.png` (feed, 1080 x 1440),
 their HTML sources, `caption.txt` and `check.json`.
 
-Top to bottom: wordmark, "Deal of the Day" with the UK flag, the perfume name
-and size, the brand underneath in smaller grey capitals, the product photo
-used on the site on a white card, the MSRP box (red) and the cheapest price
-box (green) exactly as the product page shows them, then the product link and
-when the price was checked.
+Both formats have the same layout, top to bottom and centred. The 3:4 one is
+the same design set slightly denser (smaller type and gaps), never a
+different one.
 
-How the perfume is picked: the biggest saving against the brand's own current
-price (MSRP) among perfumes whose product page shows both boxes, with a fresh
-price, delivery stated and the cheapest shop confirmed. No perfume repeats
-within 60 days and no brand within 3 days (`social/deal-of-the-day-history.json`).
-The link is checked on the live site before the post is written.
+1. Wordmark (the full magnifying glass, never cropped)
+2. The date in a grey pill, e.g. "FRIDAY, 2 OCTOBER 2026"
+3. Headline with the UK flag
+   * 9:16 story: "And our Deal of the Day today is…"
+   * 3:4 feed: "Deal of the Day"
+4. Perfume name and size, then the brand underneath in smaller grey capitals
+5. The product photo used on the site, on a white card, with a red round
+   badge on its corner: "SAVE 59%"
+6. The red MSRP box and the green cheapest price box, exactly as the product
+   page shows them
+7. A faint centre crosshair marking where the link sticker goes. **No web
+   address on the image.** The link goes on the sticker and in the caption.
+8. When the price was checked, in small grey
 
-A routine runs this at 12:00 London time each day, checks the images and the
-caption (section 5 rules and the yanaaidetection check), and pushes the folder.
+**Which perfume:** the day's top deal, meaning the biggest saving against
+the brand's own current price (MSRP), among perfumes whose product page shows
+both boxes, with a fresh price, delivery stated and the cheapest shop
+confirmed. A perfume is never posted twice: if the top deal has been posted
+before, it moves on to the next deal down (`social/deal-of-the-day-history.json`).
+The link is checked on the live site before anything is written.
 
+**Every run reports** the perfume, prices and saving, and gives the product
+link as a plain https address in a copyable box, ready to paste into the
+link sticker.
