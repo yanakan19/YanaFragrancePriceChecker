@@ -73,38 +73,6 @@
     --mono-bg-l: 20%;
     --mono-fg-l: 78%;
     --mono-border-l: 42%;
-    /* The Venus and Mars marks on the Gender filter pills — see .gender-ico
-       below, and demo/gender.ts for what the filter is actually reading.
-       Pink and blue because that is the convention the marks come with, and
-       never as the only signal: every pill prints its word too.
-
-       Two values each, for the two grounds a pill has. An unselected pill is
-       --surface-2; a selected one inverts to --ink, which is near-white here
-       and near-black on the light theme, so one colour cannot serve both. The
-       -on pair is for the inverted state, following the --accent/--accent-on
-       naming already in this file.
-
-       Measured with the same standard as --mono-fg-l above, and every one of
-       the eight combinations clears AA's 4.5:1 for text, which is well past
-       the 3:1 WCAG asks of a graphic:
-
-         dark  #FF8FB3 on --surface-2 #1A1A1D  8.13:1
-         dark  #7FBBFF on --surface-2 #1A1A1D  8.64:1
-         dark  #A81B5E on --ink       #F7F7F8  6.57:1
-         dark  #17569E on --ink       #F7F7F8  6.86:1
-         light #A81B5E on --surface-2 #F2F2F4  6.30:1
-         light #17569E on --surface-2 #F2F2F4  6.56:1
-         light #FF8FB3 on --ink       #0D0D0F  9.09:1
-         light #7FBBFF on --ink       #0D0D0F  9.67:1
-
-       The two themes hold the same four colours with the pairs swapped,
-       which is not a coincidence worth hiding: a mark that reads on a
-       near-black ground is the one that reads on a near-black selected pill
-       in the other theme. */
-    --gender-women:    #FF8FB3;
-    --gender-women-on: #A81B5E;
-    --gender-men:      #7FBBFF;
-    --gender-men-on:   #17569E;
   }
 
   :root[data-mode="light"] {
@@ -146,14 +114,6 @@
        sits at 6.82:1. */
     --mono-fg-l: 30%;
     --mono-border-l: 55%;
-    /* The same four colours as the dark theme with the pairs swapped — see
-       the contrast table there. An unselected pill is --surface-2 #F2F2F4, so
-       the darker pair reads; a selected one inverts to --ink #0D0D0F, so the
-       lighter pair does. */
-    --gender-women:    #A81B5E;
-    --gender-women-on: #FF8FB3;
-    --gender-men:      #17569E;
-    --gender-men-on:   #7FBBFF;
   }
 
   /* "Match my device" follows the OS preference, and also any theme the host
@@ -172,8 +132,6 @@
       --ok: #17724B; --ok-sf: #DCE9E4; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
       --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
       --mono-bg-l: 93%; --mono-fg-l: 30%; --mono-border-l: 55%;
-      --gender-women: #A81B5E; --gender-women-on: #FF8FB3;
-      --gender-men: #17569E; --gender-men-on: #7FBBFF;
     }
   }
   :root[data-mode="system"][data-theme="light"] {
@@ -189,8 +147,6 @@
     --ok: #17724B; --ok-sf: #DCE9E4; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
     --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
     --mono-bg-l: 93%; --mono-fg-l: 30%; --mono-border-l: 55%;
-    --gender-women: #A81B5E; --gender-women-on: #FF8FB3;
-    --gender-men: #17569E; --gender-men-on: #7FBBFF;
   }
   :root[data-mode="system"][data-theme="dark"] {
     --bg: #0A0A0B; --surface: #121214; --surface-2: #1A1A1D;
@@ -205,8 +161,6 @@
     --ok: #4FB47B; --ok-sf: #14221B; --warn: #D8A24C; --shadow: 0 1px 3px rgba(0,0,0,.4);
     --shadow-lift: 0 1px 0 #26262A;
     --mono-bg-l: 20%; --mono-fg-l: 78%; --mono-border-l: 42%;
-    --gender-women: #FF8FB3; --gender-women-on: #A81B5E;
-    --gender-men: #7FBBFF; --gender-men-on: #17569E;
   }
 
   :root {
@@ -379,7 +333,7 @@
      release settles back on --ease-standard. --dur-1 both ways, since a press
      that outlasts the tap reads as lag rather than as feedback. */
   .navbtn, .subnavbtn, .link-btn, .contact-send, .back, .wishlist-toggle,
-  .seg-btn, .facet-pill, .note-chip, .account-entry, .brand-row, .shop-row,
+  .seg-btn, .note-chip, .account-entry, .brand-row, .shop-row,
   .offer-link, .control, .tile-body, .brandmark, .grid-more {
     transition: transform var(--dur-1) var(--ease-standard),
                 background-color var(--dur-2) var(--ease-standard),
@@ -387,7 +341,7 @@
                 color var(--dur-2) var(--ease-standard);
   }
   .navbtn:active, .subnavbtn:active, .link-btn:active, .contact-send:active,
-  .back:active, .wishlist-toggle:active, .seg-btn:active, .facet-pill:active,
+  .back:active, .wishlist-toggle:active, .seg-btn:active,
   .note-chip:active, .account-entry:active, .brand-row:active, .shop-row:active,
   .offer-link:active, .tile-body:active, .brandmark:active {
     transform: scale(.985);
@@ -534,12 +488,14 @@
   .subnavbtn.on { color: var(--ink); border-bottom-color: var(--accent); }
   .subnavbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-  /* 15px is the one field size on the site: the bar's search, the Search
-     page's own field and every form control below all read at it, so a form
-     never mixes two. */
+  /* 16px is the one field size on the site: the bar's search, the Search
+     page's own field, every dropdown and every form control below all read
+     at it, so a form never mixes two. 16 rather than 15 because iPhone Safari
+     zooms the whole page in when a field under 16px is tapped, and leaves the
+     reader zoomed in after they choose. */
   input[type="search"] {
     width: 100%; min-height: 48px; margin-top: 10px; padding: 11px 14px;
-    font: inherit; font-size: 15px; color: var(--ink);
+    font: inherit; font-size: 16px; color: var(--ink);
     background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
     -webkit-appearance: none;
   }
@@ -1138,12 +1094,20 @@
   .panel-note { margin: 0 0 14px; }
 
   /* Sort and filter controls: an icon, then the choice itself. */
-  .controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 16px; }
+  /* One grid on every list page and at every width, so the row reads the same
+     everywhere: two equal columns on a phone, as many as fit on a computer.
+     It used to be a wrapping flex row, which put Sort and Filters side by side
+     on some pages and stacked three controls at three different widths on
+     others, depending only on how long each page's labels happened to be. */
+  .controls {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 160px), 1fr));
+    gap: 8px; margin: 6px 0 16px;
+  }
   .control {
-    display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+    display: flex; align-items: center; gap: 6px; min-width: 0; cursor: pointer;
     background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
     padding: 0 12px 0 11px;
-    font: inherit; font-size: 15px; font-weight: 600; color: var(--ink);
+    font: inherit; font-size: 16px; font-weight: 600; color: var(--ink);
   }
   /* box-shadow rather than outline: it follows the pill's own border-radius,
      so the ring reads as one smooth rounded shape instead of the browser's
@@ -1158,13 +1122,22 @@
      the chevron beside it (.control-chevron, in the markup) stands in for the
      arrow appearance: none removes. */
   .dropdown {
-    font: inherit; font-size: 15px; font-weight: 600; color: var(--ink);
-    background: none; border: 0; padding: 8px 2px; cursor: pointer;
+    flex: 1 1 auto; min-width: 0; text-overflow: ellipsis;
+    font: inherit; font-size: 16px; font-weight: 600; color: var(--ink);
+    background: none; border: 0; padding: 10px 2px; cursor: pointer;
     appearance: none; -webkit-appearance: none; -moz-appearance: none; outline: none;
   }
   .dropdown::-ms-expand { display: none; }
   .dropdown:focus, .dropdown:focus-visible { outline: none; }
   .control-chevron { display: flex; color: var(--faint); pointer-events: none; margin-left: -2px; }
+  /* Half a phone's width leaves a dropdown about 110px of text at 16px, and
+     sort labels run to 135px ("Best Saving", "Most Common", "Highest Price").
+     The leading mark gives back 23px; the words already say what the control
+     is. The Filters button keeps its mark: it is a button, not a dropdown. */
+  @media (max-width: 480px) {
+    label.control > .control-ico { display: none; }
+    .control { padding: 0 10px; }
+  }
   .control-chevron .ico { width: 13px; height: 13px; }
   /* The open dropdown's popup is drawn by the OS, not this stylesheet — the
      closed control above only sets `color`, so the engine is free to pair
@@ -1397,17 +1370,6 @@
   .trustpilot-widget a { font-size: 12.5px; color: var(--accent); text-decoration: none; }
   .trustpilot-widget a:hover { text-decoration: underline; }
 
-  /* This retailer's own stock status only — not the sitewide "In Stock Only"
-     facet above the list, which reads purchasability at *any* shop. A plain
-     checkbox rather than a facet pill: there is exactly one of it, scoped to
-     this one page, so the toggle-button machinery built for a whole panel of
-     facet groups would be more apparatus than the job needs. */
-  .stock-only {
-    display: flex; align-items: center; gap: 7px; margin: 10px 0 0;
-    font-size: 13px; color: var(--ink-2); cursor: pointer; width: fit-content;
-  }
-  .stock-only input { accent-color: var(--accent); width: 15px; height: 15px; margin: 0; }
-
   /* ── notes ─────────────────────────────────────────────────────────────── */
   /* Same row as .brand-row (block, one column, alphabetical dividers) — this
      just adds the count on the right, so it needs flex instead of block. */
@@ -1534,90 +1496,34 @@
   .notes-none { font-size: 13.5px; color: var(--faint); margin: 0; }
 
   /* ── facets ────────────────────────────────────────────────────────────────
-     The toggle sits in the same .controls row as sort/filter dropdowns and
-     matches their shading exactly (it *is* a .control). flex-basis: 100% on
-     the open panel forces it onto its own line below the row rather than
-     squeezing in beside the dropdowns — the same wrap-onto-a-new-row trick
-     .controls' own flex-wrap already relies on. */
-  .facets { display: contents; }
-  .facets-toggle { position: relative; }
+     The Filters toggle is one more cell in the .controls grid. Its panel
+     opens underneath the row, full width: the browser's own dropdowns (the
+     iPhone or Android picker on a phone, a plain menu on a computer) and
+     checkboxes, one per facet. One per row on a phone, so a label such as
+     "Eau de Parfum (EDP) (10,158)" is never clipped; as many as fit across a
+     computer screen. It replaced a panel of one-tap pills, 17 to 30 of them
+     stacked one per line, that ran to 950-1,500px on a phone. */
+  .facets-toggle { position: relative; text-align: left; }
+  .facets-toggle[aria-expanded="true"] { border-color: var(--ink-2); }
   .facets-badge {
     display: inline-flex; align-items: center; justify-content: center;
-    min-width: 16px; height: 16px; padding: 0 4px; margin-left: 1px;
+    min-width: 18px; height: 18px; padding: 0 5px; margin-left: 2px;
     background: var(--accent); color: var(--accent-on);
-    font-size: 10px; font-weight: 700; border-radius: 999px;
+    font-size: 11px; font-weight: 700; border-radius: 999px;
   }
-  .facets-panel {
-    flex-basis: 100%; display: flex; flex-direction: column; gap: 12px;
-    margin: 2px 0 10px; padding: 14px; background: var(--surface);
-    border: 1px solid var(--line); border-radius: 12px;
+  .facets-panel { display: flex; flex-direction: column; gap: 10px; margin: -6px 0 18px; }
+  .facet-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 8px;
   }
-  /* Every group after the first gets a rule above it, so the panel reads as
-     a stack of clearly separated lists rather than one run-on block — the
-     same visual language (rule, legend, list) regardless of how many
-     options a group has or how long its labels are. */
-  .facet-group { border: 0; margin: 0; padding: 0; min-width: 0; }
-  .facet-group + .facet-group { border-top: 1px solid var(--line); padding-top: 12px; }
-  .facet-group legend {
-    font-size: 10.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
-    color: var(--faint); margin: 0 0 6px; padding: 0;
-  }
-  /* One option per row rather than a wrapped run of pill widths: a "Volume"
-     group whose labels range from "EDP" to "120ml And Over" cannot wrap into
-     even rows at the 248px sidebar width (or even at a phone's width) without
-     leaving a ragged half-empty line wherever a short label follows a long
-     one. A fixed-height row list has no such failure mode — every option is
-     exactly as wide as its container at every width, so nothing about the
-     panel's tidiness depends on how the label text happens to break. */
-  .facet-pills { display: flex; flex-direction: column; gap: 2px; }
-  .facet-pill {
-    display: flex; align-items: center; gap: 8px; width: 100%;
-    background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px;
-    padding: 6px 10px; font: inherit; font-size: 13px; font-weight: 600; color: var(--ink);
-    text-align: left; cursor: pointer; transition: border-color .12s ease, color .12s ease, background .12s ease;
-  }
-  .facet-label { flex: 1 1 auto; min-width: 0; }
+  .facet-check { gap: 10px; }
+  .facet-check input { accent-color: var(--accent); width: 18px; height: 18px; margin: 0; flex: none; }
+  .facet-check-label { flex: 1 1 auto; min-width: 0; }
   .facet-count { color: var(--faint); flex: none; font-variant-numeric: tabular-nums; }
-  .facet-pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  @media (hover: hover) and (pointer: fine) {
-    .facet-pill:hover { border-color: var(--accent); }
-  }
-  /* Selected rows invert to the ink ramp, deliberately not the accent: a
-     browse screen can carry six selections at once, and six red rows would
-     stop red meaning "best price" anywhere on the page. Accent is reserved
-     for the primary action, the best-price marker, the live chart line and
-     focus rings. */
-  .facet-pill.is-active {
-    background: var(--ink); border-color: var(--ink); color: var(--bg);
-  }
-  .facet-pill.is-active .facet-count { color: inherit; }
   .facets-clear { align-self: flex-start; }
-
-  /* ── the Gender group ──────────────────────────────────────────────────────
-     Same rows as every other group, with a mark. The mark is Venus, Mars, the
-     two interlocked, or a broken ring for "Not stated"; see the ICON_GENDER_*
-     set in demo/app.ts.
-
-     The colours come from --gender-women / --gender-men, defined in all five
-     palette blocks at the top of this file with their measured contrast. Only
-     the classed strokes take them: the unisex ring and the whole "Not stated"
-     mark are currentColor, so they follow the pill's own ink and stay right
-     when a selected row inverts. That is deliberate as well as convenient —
-     "Not stated" is not a gender and does not get a gender's colour.
-
-     A selected row's ground becomes --ink, so both colours swap to their
-     --on variant there. Nothing about the meaning depends on which one is
-     showing: the word beside the mark says it either way. */
-  .facet-pill .gender-ico { width: 15px; height: 15px; flex: none; }
-  .gender-ico .g-women { stroke: var(--gender-women); }
-  .gender-ico .g-men   { stroke: var(--gender-men); }
-  .facet-pill.is-active .gender-ico .g-women { stroke: var(--gender-women-on); }
-  .facet-pill.is-active .gender-ico .g-men   { stroke: var(--gender-men-on); }
-  /* Why the group carries a sentence at all: the reading is derived from
-     wording in a product's title, and most titles say nothing, so the honest
-     shape of this filter is a large "Not stated" pile. Said plainly, in the
-     panel, with this list's own live counts. */
-  .facet-note { margin: 8px 0 0; max-width: 46ch; }
+  /* Why the panel carries a sentence about gender at all: the reading is
+     derived from wording in a product's title, and most titles say nothing,
+     so "Not stated" is by far the biggest option. Said plainly, once. */
+  .facet-note { margin: 0; max-width: 60ch; }
   .notes-source { margin: 10px 0 0; }
   /* Same icon-then-label shape as .footer-link below, at the notes block's own
      caption size rather than the footer's fixed one, so "As published by X"
@@ -1647,7 +1553,7 @@
      keeps all four corners and there is nothing for it to join onto. */
   .search-big .ico { color: var(--faint); flex: none; width: 19px; height: 19px; }
   .search-big input {
-    flex: 1; min-width: 0; font: inherit; font-size: 15px; color: var(--ink);
+    flex: 1; min-width: 0; font: inherit; font-size: 16px; color: var(--ink);
     background: none; border: 0; padding: 12px 0; -webkit-appearance: none;
   }
   .search-big input:focus-visible { outline: none; }
@@ -2201,6 +2107,10 @@
     font: 400 11px/1.4 var(--font-num); font-variant-numeric: tabular-nums;
     color: var(--faint); white-space: nowrap;
   }
+  /* The first and last labels sit on the chart's own edges, so centring them
+     hung half of each outside it and made the page wider than a phone. */
+  .history-xlabel:first-child { transform: none; }
+  .history-xlabel:last-child:not(:first-child) { transform: translateX(-100%); }
 
   /* ── settings and documents ────────────────────────────────────────────── */
   /* The not-found view's escape routes. A row that wraps rather than a
@@ -2276,11 +2186,11 @@
     display: flex; flex-direction: column; gap: 12px; text-align: left;
   }
   /* The label above a field is a caption; the field's own text is the one
-     15px field size. */
+     16px field size. */
   .field { display: flex; flex-direction: column; gap: 6px; }
   .field > span { font: 400 13px/1.4 var(--font-sans); color: var(--ink-2); }
   .field select, .field textarea, .field input {
-    font: inherit; font-size: 15px; color: var(--ink); background: var(--surface);
+    font: inherit; font-size: 16px; color: var(--ink); background: var(--surface);
     border: 1px solid var(--line); border-radius: 12px; padding: 12px 13px; resize: vertical;
   }
   .field select:focus-visible, .field textarea:focus-visible, .field input:focus-visible { outline: 2px solid var(--accent); outline-offset: -1px; }
@@ -2410,41 +2320,6 @@
   }
 
   :root[data-layout="desktop"] .pop-item { width: 168px; }
-
-  /* Browse on a wide screen puts the filters in a column of their own beside
-     the results rather than in a panel that pushes the grid down every time
-     it opens. 248px is wide enough for two pill columns in the Volume and
-     Concentration groups, which is what the panel was already wrapping to.
-
-     Done as a float, not a grid: the filter block and the results grid are
-     siblings in a flat view with no wrapper between them, and a float is the
-     one way to sit a fixed column beside following content without adding
-     one. The results grid establishes its own formatting context, so it is
-     laid out beside the float rather than under it. :has() scopes this to
-     the one .controls block that holds the facets -- the sort and per-row
-     controls elsewhere keep their row. A browser without :has() gets the
-     stacked layout it has now, which is a fair fallback rather than a
-     broken one.
-
-     1100px is not a round number, it is the sum: 248 for the column, 28 for
-     the gap, 5 x 148 for a default row of tiles at the width .tile-grid has
-     always treated as a tile's minimum, 16px between each, and the page
-     gutter either side. Below it the column would be taking its width out of
-     the tiles, and a filter panel that clips the product names it is there to
-     filter is worse than one that sits above them. */
-  @media (min-width: 1100px) {
-    :root[data-layout="desktop"] .controls:has(.facets) {
-      float: left; width: 248px; margin: 6px 28px 16px 0;
-      flex-direction: column; align-items: stretch;
-    }
-    :root[data-layout="desktop"] .controls:has(.facets) .facets-toggle { width: 100%; }
-    :root[data-layout="desktop"] .controls:has(.facets) .facets-panel {
-      margin-top: 12px; width: 100%;
-    }
-    /* The float is taller than the results only when a filter has narrowed
-       them to almost nothing, and it must not then escape the view. */
-    :root[data-layout="desktop"] .ps-rise:has(.facets) { display: flow-root; }
-  }
 
   /* Desktop takes the reader's chosen column count literally: equal tracks
      filling the page width, rather than the narrow layout's "fit as many as
@@ -2723,8 +2598,8 @@
     padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
   }
   .yanny-composer input {
-    flex: 1; min-width: 0; font: inherit; font-size: 13.5px; color: var(--ink); background: var(--surface);
-    border: 1px solid var(--line); border-radius: 20px; padding: 10px 14px;
+    flex: 1; min-width: 0; font: inherit; font-size: 16px; color: var(--ink); background: var(--surface);
+    border: 1px solid var(--line); border-radius: 20px; padding: 9px 14px;
   }
   .yanny-composer input:focus-visible { outline: 2px solid var(--accent); outline-offset: -1px; }
   .yanny-composer button {
@@ -2897,7 +2772,7 @@
     }
     body { background: #fff; color: #000; }
     .bar, .subnav, .site-footer, .to-top, .skip-link,
-    #yanny-launcher, #yanny-panel-host, .facet-pills, .controls-row,
+    #yanny-launcher, #yanny-panel-host, .controls, .facets-panel, .controls-row,
     .wishlist-toggle, .grid-more { display: none !important; }
     .app { max-width: none; }
     main { padding: 0; }
