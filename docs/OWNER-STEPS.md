@@ -1,6 +1,6 @@
 # Owner steps, in plain English
 
-Four jobs only you can do. Each one is short. Do them in this order; the
+Five jobs only you can do. Each one is short. Do them in this order; the
 first two stop money going out and switch the chat's AI side on.
 
 ---
@@ -173,3 +173,104 @@ make Anthropic rebuild that snapshot:
 3. That is all. The next session starts from a fresh copy. If sessions still
    revert after that, use **Archive** on that environment and create a new
    one for the same repository.
+
+---
+
+## 5. Switch on price drop emails (20 minutes, plus waiting for DNS)
+
+Readers can tick **Email me when a saved fragrance gets cheaper** on their
+account page. Once a morning (07:41 UK winter time, 08:41 summer time) a
+GitHub job emails each of them, once at most, listing every saved fragrance
+whose cheapest delivered price fell by 5% or £2 (whichever is more) since the
+last price we told them about, or reached a target they set. Every email has
+a one click stop link.
+
+Until you finish these steps the job runs, prints `Price alerts not
+configured`, and stops. Nothing is read, written or sent. Do step 3 of this
+file (accounts) first.
+
+### 5a. Run the database script
+
+Supabase dashboard → **SQL Editor** → **New query** → paste the whole of
+`supabase/migrations/0004_price_alerts.sql` → **Run**. It must say success.
+It is safe to run twice. Until it is run, the checkbox simply does not
+appear on the account page.
+
+### 5b. A free Resend account and your domain
+
+1. Go to https://resend.com/signup and create an account (free: 100 emails a
+   day, 3,000 a month, no card).
+2. Left menu → **Domains** → **Add Domain** → type `pricesniffs.space` →
+   pick the region **Ireland (eu-west-1)** → **Add**.
+3. Resend now shows three or four DNS records. Add each one, exactly as
+   shown (copy with the copy buttons, do not retype), wherever the DNS for
+   `pricesniffs.space` is managed: the same place the GitHub Pages records
+   were added when the domain was set up (your registrar, or Cloudflare if
+   the domain is on Cloudflare). They look like this, but use Resend's values:
+
+   | Type | Name (host) | Value | Priority |
+   | --- | --- | --- | --- |
+   | MX | `send` | `feedback-smtp.eu-west-1.amazonses.com` | 10 |
+   | TXT | `send` | `v=spf1 include:amazonses.com ~all` | |
+   | TXT | `resend._domainkey` | a long `p=MIG...` key | |
+   | TXT | `_dmarc` (recommended) | `v=DMARC1; p=none;` | |
+
+   Most DNS screens want only the part before `.pricesniffs.space` in the
+   name box (`send`, not `send.pricesniffs.space`). The records sit on the
+   `send` subdomain, so they do not touch the site or any email you already
+   receive. If a `_dmarc` record already exists, leave it as it is.
+   If the domain is on Cloudflare, Resend offers **Auto configure**, which
+   adds them for you.
+4. Back in Resend press **Verify DNS records**. It usually turns green within
+   an hour; it can take up to a day. Wait for **Verified** before 5d.
+5. Left menu → **API Keys** → **Create API Key** → name `pricesniffs alerts`,
+   permission **Sending access**, domain `pricesniffs.space` → **Add**. Copy
+   the key (starts `re_`). It is shown once.
+
+### 5c. Add the two GitHub secrets
+
+1. Supabase dashboard → **Project Settings** → **API Keys**. Copy the
+   **service_role** key (on newer projects, a **Secret key** starting
+   `sb_secret_` works too). This key can read every account's data: paste it
+   only into GitHub as below, never into a file, a chat or an email.
+2. Open https://github.com/yanakan19/yanafragrancepricechecker/settings/secrets/actions
+   → **New repository secret**, twice, names exactly as written:
+   - `SUPABASE_SERVICE_ROLE_KEY` = the key from step 1
+   - `RESEND_API_KEY` = the key from 5b step 5
+
+### 5d. Do a dry run
+
+1. On https://pricesniffs.space/account sign in, tick the price alerts box,
+   and save one or two fragrances. Under one of them type a target price a
+   few pounds **above** its current price (so it counts as reached).
+2. Open https://github.com/yanakan19/yanafragrancepricechecker/actions →
+   **Price alerts** (left list) → **Run workflow**, branch
+   `claude/scentday-retailer-registry-h92tth`, leave **dry run** ticked →
+   **Run workflow**.
+3. Open the run → **send** → **Send price drop emails**. You should see a
+   line like `1 reader(s) opted in, 2 saved item(s) checked, ... 1 email(s)
+   due` and `Dry run: nothing sent and nothing written.` The log never shows
+   anyone's address. If it says `not configured`, a secret name is misspelt.
+
+### 5e. Send one for real, then it is on
+
+1. Run the workflow again with **dry run unticked**. Within a minute you get
+   an email from `alerts@pricesniffs.space` about the fragrance with the
+   target. Check the product link opens the right page.
+2. Press **Stop these emails** in it. The site should say **Price alerts are
+   off**, and the box on your account page is unticked. Tick it again if you
+   want to keep them.
+3. That is it. From tomorrow the morning run sends for real by itself.
+
+To pause it at any time without touching code: Settings → **Secrets and
+variables** → **Actions** → **Variables** → **New repository variable**
+`PRICE_ALERTS` = `off`. Every run becomes a dry run. Delete the variable to
+resume.
+
+Two things to know: GitHub only runs scheduled jobs from the repository's
+default branch, so if that is not `claude/scentday-retailer-registry-h92tth`,
+the morning run will not fire until this file is on the default branch too.
+And Supabase's own sign up emails can go through Resend as well (Supabase →
+Authentication → Emails → SMTP Settings, host `smtp.resend.com`, port 465,
+user `resend`, password a Resend API key), which lifts Supabase's few emails
+an hour limit. Optional.

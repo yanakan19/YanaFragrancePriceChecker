@@ -15,8 +15,12 @@
 -- Expect exactly two rows, `profiles` and `wishlists`, both with
 -- rls_enabled = true. A `false` anywhere in this result is a live data leak,
 -- not a warning: fix it before going further.
--- A third table appearing here is not necessarily wrong, but it is something
--- neither migration created, and it needs the same check.
+-- Once 0004_price_alerts.sql has run, expect four: `price_alert_accounts`
+-- and `price_alert_history` as well, also rls_enabled = true. Those two
+-- have no policies on purpose (query 2 is unchanged), so only the service
+-- role can reach them.
+-- Any other table appearing here is not necessarily wrong, but it is
+-- something no migration created, and it needs the same check.
 select
   c.relname                as table_name,
   c.relrowsecurity         as rls_enabled,

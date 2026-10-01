@@ -16,6 +16,7 @@
     "shipping:confidence": "tsx scripts/shipping-confidence-report.ts",
     "shipping:discover": "tsx scripts/shipping-discover.ts",
     "delivery:recheck": "tsx scripts/delivery-recheck.ts",
+    "alerts:send": "tsx scripts/price-alerts.ts",
     "match:report": "tsx scripts/match-report.ts",
     "demo": "tsc -p tsconfig.demo.json && tsx scripts/bundle-demo.ts && tsx scripts/build-demo.ts && tsx scripts/build-sitemap.ts",
     "catalogue": "tsx scripts/catalogue-run.ts",
