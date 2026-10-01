@@ -60,12 +60,11 @@ import {
 import { trustpilotStateFor } from './trustpilotWidget.js';
 import { ENABLED_SHOP_COUNT } from './legal.js';
 import { deliveryLines } from './deliveryFacts.js';
-import { deliveryPriceNote } from './priceDeliveryNote.js';
 import { msrpComparison, msrpComparisonLabel, type MsrpComparison } from './msrpComparison.js';
 import { pickReferencePrice } from './referencePrice.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
-import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
+import { offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
 import { priceHistoryFor, priceHistoryGapFor, PRICE_HISTORY } from './priceHistory.generated.js';
 import { dayKey, dailyHistory, type DailyHistoryPoint } from '../src/services/priceHistoryDaily.js';
 import { priceHistoryGapMessage, type PriceHistoryGap } from '../src/services/priceHistoryGaps.js';
@@ -973,14 +972,6 @@ const STOCK_LABEL: Record<StockState, string> = {
   outOfStock: 'Sold out',
 };
 
-const STOCK_CLASS: Record<StockState, string> = {
-  inStock: 'ok',
-  lowStock: 'warn',
-  preOrder: 'warn',
-  unknown: 'muted',
-  outOfStock: 'gone',
-};
-
 function age(seconds: number): string {
   if (seconds < 90) return 'just now';
   const m = Math.round(seconds / 60);
@@ -1592,28 +1583,25 @@ function msrpFor(row: PresentedOffer, frag: DemoFragrance): MsrpComparison | nul
  * measured 2026-09-01 — but the rule is written for the case rather than for
  * today's data.
  *
- * ── The second price line ───────────────────────────────────────────────────
+ * ── Kept to two lines (2026-10-01) ─────────────────────────────────────────
  *
- * `.now` is the *total* — delivered where the shop states a delivery cost. The
- * MSRP percentage is not computed from that number and never was: both
- * `msrpFor` and `buildDiscount` take the item price alone. Printed on their
- * own two lines apart, as they were until 2026-09-01, the two invited exactly
- * the wrong arithmetic — Perfume Click's Azzure Aoud row showed "£32.20" above
- * "2% below MSRP", and 2% of £32.20 is not what produced that 2%; £29.25
- * against the house's £30.00 is. So the percentage now sits on the same line
- * as the price it was actually derived from, which is the whole point of the
- * line: "£29.25 · 2% below MSRP" can be checked against the MSRP box at the
- * top of the page by anyone who cares to.
+ * Owner feedback: the rows were informative but busy, so each one now says
+ * only what a shopper needs to choose a shop. Line one is the shop and the
+ * price; line two says what the price contains and how it compares:
  *
- * The item price is printed there only when it is not already the number
- * above. Where the shop states no delivery cost, or states free delivery,
- * `.now` *is* the item price (see PresentedOffer.deliveredPriceGbp: it is
- * never filled in from the item price), so repeating it would put the same
- * figure twice in two type sizes and imply two different prices where there is
- * one. On those rows the line carries the percentage alone, and it is still
- * sitting directly under the figure it was computed from. 12,927 of the 22,402
- * offer rows in the catalogue have a delivered price that genuinely differs
- * from their item price and so do print both.
+ *   Perfume Click  CHEAPEST                                   £27.00
+ *   Incl. £2.95 delivery · Affiliate link             27% below MSRP
+ *
+ * What went: the "£X more for free postage" hint (it read as a second,
+ * contradictory delivery figure beside the one already included), the bottle
+ * price repeated under the total, the "In stock" dot on every buyable row (the
+ * section heading already says so; only Low stock / Preorder / unconfirmed
+ * stock is still said), star ratings and the New tag. A delivery figure we have
+ * not confirmed with the shop is still marked, as "est.", and a stale price
+ * still says how old it is, because both change what the number means.
+ *
+ * The MSRP percentage is still computed from the item price alone, never the
+ * delivered total (see msrpFor).
  */
 function offerRow(
   row: PresentedOffer,
@@ -1622,139 +1610,63 @@ function offerRow(
   msrp: MsrpComparison | null = null,
 ): string {
   const d = msrp ? null : row.discount;
-  // The total on the row's first line. Only ever a delivered price where the
-  // shop actually states a delivery cost — never the item price wearing a
-  // delivered price's clothes.
+  // Only ever a delivered price where the shop actually states a delivery
+  // cost — never the item price wearing a delivered price's clothes.
   const totalGbp = row.deliveredPriceGbp ?? row.itemPriceGbp;
-  // See the header: the second line names the bottle price only where that is
-  // a different number from the total above it.
-  const showsItemPrice = row.itemPriceGbp !== totalGbp;
-  // A shop that has never published a standard delivery rate gets said out
-  // loud, the same way "No longer stocked" is. Anything quieter — a blank, a
-  // "Free delivery", a £0 — would be us filling in a number the shop has not
-  // given, and this row is deliberately never the cheapest one as a result.
-  const deliveryUnknown = row.delivery.costGbp === null;
-  // Delivery figures we have not read off the shop's own delivery page are
-  // marked as such wherever they are shown. The registry has always recorded
-  // which is which (shipping.confidence); until now the screen did not, so an
-  // unverified £2.99 and a confirmed £3.99 arrived at the reader looking
-  // identically solid. Two thirds of live listings are in the first group, so
-  // this is the ordinary case rather than a rare caveat.
-  const unconfirmed = !deliveryUnknown && !row.delivery.confirmed;
-  const sub: string[] = [
-    deliveryUnknown
-      ? 'Delivery not stated'
-      : row.delivery.isFree
-        ? `Free delivery${unconfirmed ? ' (not confirmed with the shop)' : ''}`
-        : `plus ${formatGbp(row.delivery.costGbp!)} delivery${unconfirmed ? ' (not confirmed with the shop)' : ''}`,
-  ];
-  if (row.delivery.spendMoreForFreeGbp !== null) {
-    sub.push(`${formatGbp(row.delivery.spendMoreForFreeGbp)} more for free postage`);
+  const facts: string[] = [];
+  if (!row.isPurchasable) {
+    facts.push('Last known price');
+  } else {
+    if (row.delivery.costGbp === null) {
+      // Listed under "Delivery not included", so the heading says the rest.
+      facts.push('Plus delivery');
+    } else {
+      // Marked "est." where the figure is not read off the shop's own delivery
+      // page (shipping.confidence): about two thirds of live listings.
+      const est = row.delivery.confirmed ? '' : 'est. ';
+      facts.push(
+        row.delivery.costGbp === 0
+          ? `${row.delivery.confirmed ? 'Free' : 'Est. free'} delivery`
+          : `Incl. ${est}${formatGbp(row.delivery.costGbp)} delivery`,
+      );
+    }
+    if (row.stock !== 'inStock') facts.push(STOCK_LABEL[row.stock]);
+    // Said on the row it applies to: the page caption gives the freshest age.
+    if (row.stale) facts.push(`Checked ${age(row.ageSeconds)}`);
   }
-  // The page-level "checked N ago" caption above the offer list (see
-  // detailView) reports the *freshest* row's age, which is exactly the fact
-  // that let John Lewis's four stale prices render with nothing beside them
-  // saying so — a reader glancing at "checked 2h ago" had no way to know one
-  // specific row was 11 days old. Said on the row it actually applies to
-  // instead, and only there: every fresh row already reads as current from
-  // that shared caption, so repeating an age on every line would bury the
-  // one that matters.
-  if (row.stale) {
-    sub.push(`price last confirmed ${age(row.ageSeconds)}`);
-  }
-  // This retailer's own published rating for this listing — read from its
-  // schema.org aggregateRating (src/catalogue/jsonld.ts), never computed and
-  // never borrowed from a different shop's rating of the same fragrance.
-  // Fragrantica's own ratings are off limits (its ToS forbids scraping them,
-  // see docs/SCRAPING.md); this is the legitimate substitute, shown only
-  // where a retailer actually publishes one.
-  if (row.rating) {
-    sub.push(
-      `★ ${row.rating.value.toFixed(1)}${row.rating.count !== null ? ` (${row.rating.count})` : ''}`,
-    );
-  }
-
   // The CAP Code asks for an affiliate relationship to be obvious before the
-  // click, not only on a policy page. So a commissioned shop's link carries
-  // the marker on the row itself, and rel="sponsored" alongside nofollow so
-  // search engines are told the same thing a reader is. Decided from the
-  // registry's own affiliate status, the same fact the disclosure page
-  // computes its list from, so the two can never disagree.
+  // click, so a commissioned shop's row says so, and rel="sponsored" tells
+  // search engines the same. Decided from the registry, like the disclosure
+  // page's own list, so the two can never disagree.
   const commissioned = row.retailer.affiliate.status === 'active';
+  if (commissioned) facts.push('Affiliate link');
+
   return `<li class="offer ${isBest ? 'best' : ''} ${row.isPurchasable ? '' : 'unavail'}">
     <a class="offer-link" href="${esc(row.outboundUrl)}" rel="nofollow noopener${commissioned ? ' sponsored' : ''}" target="_blank">
       <span class="offer-top">
         <span class="shop t-title">${esc(row.retailer.name)}${
-          isNewAt(row.variantId, row.retailer.id) ? '<span class="tag new">New</span>' : ''
-        }${
-          commissioned
-            ? '<span class="tag affiliate" title="PriceSniffs may earn commission if you buy after following this link. It does not change the price you pay.">Affiliate link</span>'
-            : ''
-        }${
           isBest && bestTag
             ? `<span class="tag ${bestTag === 'Cheapest' ? '' : 'unsure'}">${esc(bestTag)}</span>`
             : ''
         }</span>
-        <span class="price">
-          ${
-            // A row carrying an MSRP comparison shows no reference figure here
-            // at all. Until 2026-08-26 it rendered "£37.99 at Armaf" beside the
-            // price; the owner asked for the house price off the row, and the
-            // percentage on the second line below carries the comparison on its
-            // own. Note the `msrp ? ... : d ? ...` shape is kept rather than
-            // collapsed to `d ? ...`: such a row must still suppress the shop's
-            // own RRP strikethrough (see this function's header — two reference
-            // prices on one row is the thing that must not happen), and
-            // dropping the branch would put it straight back.
-            msrp
-              ? ''
-              : d
-                ? `<span class="was">RRP ${formatGbp(d.wasPrice)}</span>`
-                : ''
-          }
-          <span class="now t-price ${
-            // The saving ink, and only for a saving. A retailer promotion and a
-            // price under the house's own are both good news for the reader and
-            // both earn it; a price *above* MSRP is the same news inverted and
-            // must not be painted as a bargain, so `direction` is checked here
-            // rather than the comparison merely existing.
-            d || msrp?.direction === 'below' ? 'sale' : ''
-          }">${formatGbp(totalGbp)}<span class="del-note${
-            deliveryUnknown ? ' excl' : ''
-          }">${esc(deliveryPriceNote(row.delivery))}</span></span>
-        </span>
+        <span class="price">${
+          // A row with an MSRP comparison never also shows the shop's own RRP:
+          // two reference prices on one row is the thing that must not happen.
+          d ? `<span class="was">RRP ${formatGbp(d.wasPrice)}</span>` : ''
+        }<span class="now t-price ${
+          // The saving ink only for a saving; a price above MSRP is not one.
+          d || msrp?.direction === 'below' ? 'sale' : ''
+        }">${formatGbp(totalGbp)}</span></span>
       </span>
       <span class="offer-bot">
-        <span class="facts t-caption">
-          <span class="dot ${STOCK_CLASS[row.stock]}"></span>${STOCK_LABEL[row.stock]}
-          <span class="sep">·</span>${esc(sub.join(' · '))}
-        </span>
-        <span class="alone">${
-          // The bottle price on its own, beside the comparison actually
-          // computed from it. See this function's header for why it is omitted
-          // where it would only repeat the total above.
-          showsItemPrice
-            ? `<span class="alone-price t-price">${formatGbp(row.itemPriceGbp)}</span>`
-            : ''
-        }${
-          // "below MSRP" rather than "below Armaf" (owner's wording,
-          // 2026-08-26). The figure is unchanged and still the house's own
-          // ceiling for this size; MSRP is the word the box at the top of the
-          // page already uses for that same number, so the row and the box name
-          // the reference the same way instead of two different ways. "above"
-          // is the same sentence about the same figure pointing the other way,
-          // and is given its own ink (.off.over) so the two can never be
-          // skimmed as the same claim.
+        <span class="facts t-caption">${facts.map((f) => `<span>${esc(f)}</span>`).join('<span class="sep">·</span>')}</span>${
           msrp
-            ? `<span class="off anchor${
-                msrp.direction === 'above' ? ' over' : ''
-              }">${msrpComparisonLabel(msrp)}</span>`
+            ? `<span class="off anchor${msrp.direction === 'above' ? ' over' : ''}">${msrpComparisonLabel(msrp)}</span>`
             : d
               ? `<span class="off">${d.percentOff}% off RRP</span>`
               : ''
-        }</span>
-      </span>
-      ${
+        }
+      </span>${
         d && canShowCountdown(d)
           ? `<span class="offer-bot"><span class="ends">Offer ${esc(countdown(d.endsAt!))}</span></span>`
           : ''
@@ -2501,10 +2413,19 @@ function detailView(): string {
   const verdict = cheapestVerdict(rows);
   const bestTag = cheapestTag(verdict);
   const live = rows.filter((r) => r.isPurchasable);
-  // Alphabetical, not by price: this section is about "who usually stocks it",
-  // not "who was cheapest last time it was in stock" — a price ordering would
-  // read as if these were live, buyable offers, which they are not.
-  const gone = rows.filter((r) => !r.isPurchasable).sort((a, b) => a.retailer.name.localeCompare(b.retailer.name));
+  // Three groups, each strictly cheapest first (owner feedback, 2026-10-01):
+  // buyable with delivery included, then buyable where the shop states no
+  // delivery cost (its own "Delivery not included" section, because its price
+  // cannot be compared with an all-in one), then sold out. The shared sort in
+  // priceService ranks stock state before price, which put a cheaper Low stock
+  // row under a dearer In stock one; within a section the price alone decides.
+  const byPrice = (a: PresentedOffer, b: PresentedOffer) =>
+    (a.deliveredPriceGbp ?? a.itemPriceGbp) - (b.deliveredPriceGbp ?? b.itemPriceGbp) ||
+    a.itemPriceGbp - b.itemPriceGbp ||
+    a.retailer.name.localeCompare(b.retailer.name);
+  const delivered = live.filter((r) => r.deliveredPriceGbp !== null).sort(byPrice);
+  const plusDelivery = live.filter((r) => r.deliveredPriceGbp === null).sort(byPrice);
+  const gone = rows.filter((r) => !r.isPurchasable).sort(byPrice);
   const newest = rows.length ? Math.min(...rows.map((r) => r.ageSeconds)) : 0;
   /**
    * Whether this page may print the word MSRP at all.
@@ -2572,24 +2493,24 @@ function detailView(): string {
             live.length ? `Available at (${live.length} ${live.length === 1 ? 'shop' : 'shops'})` : ''
           }</p>
           <span class="dim t-caption">${
-            // Until 2026-09-01 this caption led with "delivery included where
-            // the shop states it" (or plain "delivery included", where every
-            // row had a stated cost) before the age. Nothing is lost by
-            // dropping it: it was a page-level summary of a fact each row
-            // already states about *itself*, on its own price, in .del-note —
-            // "INCL. £2.95 DELIVERY", "INCL. FREE DELIVERY" or "DELIVERY NOT
-            // INCLUDED", rendered on every row rather than only on the odd one
-            // out. The hedged form in particular told a reader that some row on
-            // this page excluded delivery without saying which, when the row
-            // that does says so on its own line, in warn ink. What is left is
-            // the one fact no row carries: how current the page is. age()
-            // handles its own units, so this reads "Updated 17h ago" and, past
-            // 48h, "Updated 3d ago".
+            // The one fact no row carries: how current the page is. Each row
+            // says what its own price contains; age() handles its own units.
             `Updated ${esc(age(newest))}`
           }</span>
         </div>
 
-        <ul class="offers">${live.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>
+        ${
+          delivered.length
+            ? `<ul class="offers">${delivered.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
+            : ''
+        }
+
+        ${
+          plusDelivery.length
+            ? `<p class="gone-head t-eyebrow">Delivery not included</p>
+               <ul class="offers">${plusDelivery.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
+            : ''
+        }
 
         ${
           gone.length
