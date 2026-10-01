@@ -82,6 +82,7 @@ import { accountState, wishlistControl, type AccountStateInput } from '../src/se
 import { fetchWishlist, addToWishlist, removeFromWishlist, type WishlistEntry } from './wishlist.js';
 import {
   VIRTUAL_YANNY_CONFIGURED, checkYannyHealth, askVirtualYanny, warmVirtualYanny,
+  yannyMessageHtml, yannyPlainText, YANNY_QUESTION_MAX,
   type YannyIntent, type YannyResult, type YannyEvent, type YannyHealth,
 } from './virtualYanny.js';
 
@@ -4273,7 +4274,7 @@ function handleBack(): void {
 type YannySource = 'catalogue' | 'model' | 'model-unchecked';
 
 type YannyThreadItem =
-  | { kind: 'msg'; who: 'user' | 'bot'; text: string; source?: YannySource }
+  | { kind: 'msg'; who: 'user' | 'bot'; text: string; source?: YannySource; tone?: 'error' }
   // A turn the reader stopped before it finished. It is its own kind rather
   // than a bot message so a truncated turn can never be mistaken for an
   // answer Virtual Yanny actually gave — it renders as a note, not a bubble.
@@ -4374,7 +4375,10 @@ function loadYannyThread(): void {
       const item = entry as Record<string, unknown>;
       if (item.kind === 'msg' && typeof item.text === 'string' && (item.who === 'user' || item.who === 'bot')) {
         const source = item.source === 'catalogue' || item.source === 'model' || item.source === 'model-unchecked' ? item.source : undefined;
-        items.push(source ? { kind: 'msg', who: item.who, text: item.text, source } : { kind: 'msg', who: item.who, text: item.text });
+        const msg: YannyThreadItem = { kind: 'msg', who: item.who, text: item.text };
+        if (source) msg.source = source;
+        if (item.tone === 'error') msg.tone = 'error';
+        items.push(msg);
       } else if (item.kind === 'stopped') {
         items.push({ kind: 'stopped' });
       }
@@ -4406,10 +4410,14 @@ function loadYannyThread(): void {
  * Named examples rather than category labels, because the useful thing to
  * communicate is the shape of a question that works, not a taxonomy.
  */
+// Each of these is answered in full from the catalogue alone, so the
+// examples work whether or not the AI side is connected. (The first used to
+// be "how much is Bleu de Chanel EDP", a strength the catalogue does not
+// track Bleu de Chanel in.)
 const YANNY_EMPTY_PROMPTS = [
-  'how much is Bleu de Chanel EDP',
+  'how much is Dior Sauvage EDT',
   'something vanilla, no florals',
-  'how do these prices get checked',
+  'what smells like Aventus but cheaper',
 ];
 const YANNY_PLACEHOLDER = 'Ask anything about this site…';
 
@@ -4435,7 +4443,7 @@ function yannyHeadHtml(): string {
   return `<div class="yanny-head">
     <span class="yanny-head-mark" aria-hidden="true">🤖</span>
     <div class="yanny-head-text">
-      <p class="yanny-head-name">Virtual Yanny</p>
+      <p class="yanny-head-name" id="yanny-title">Virtual Yanny</p>
       <p class="yanny-head-sub">Answers from this site's own catalogue</p>
       <!-- The one place on the site where what a reader types can leave
            their browser, said where they type it. The privacy notice
@@ -4477,7 +4485,15 @@ function yannyThreadHtml(): string {
   const items = state.yannyThread
     .map((item) => {
       if (item.kind === 'msg') {
-        return `<div class="yanny-msg ${item.who}">${esc(item.text)}</div>${item.who === 'bot' ? yannySourceHtml(item.source) : ''}`;
+        // A bot message may carry links to the site's own pages, written by
+        // the engine as [label](/path); yannyMessageHtml escapes everything
+        // and turns only those into anchors. A reader's own words are never
+        // linkified. The visually hidden prefix tells a screen reader whose
+        // turn it is, which the bubble's position tells everyone else.
+        const who = item.who === 'user' ? 'You said' : 'Virtual Yanny';
+        const body = item.who === 'bot' ? yannyMessageHtml(item.text, basePath()) : esc(item.text);
+        const tone = item.tone === 'error' ? ' is-error' : '';
+        return `<div class="yanny-msg ${item.who}${tone}"><span class="sr">${who}: </span>${body}</div>${item.who === 'bot' ? yannySourceHtml(item.source) : ''}`;
       }
       // A stopped turn. Deliberately not a bot bubble: an answer arrives as
       // one final event rather than token by token, so a stop genuinely
@@ -4500,7 +4516,7 @@ const YANNY_UNAVAILABLE_COPY: Record<YannyHealth['reason'], { mark: string; text
   none: { mark: '🤖', text: 'Virtual Yanny is available.' },
   'not-built': {
     mark: '🔧',
-    text: "The AI side isn't connected in this build yet. Prices, stock, sizes, notes, delivery, deals and budgets still answer from the catalogue.",
+    text: "The AI side isn't connected yet, so every answer comes straight from the catalogue — open questions get the closest match it can give.",
   },
   'no-answer': {
     mark: '💤',
@@ -4527,7 +4543,11 @@ const YANNY_UNAVAILABLE_COPY: Record<YannyHealth['reason'], { mark: string; text
  * side goes in one strip where it can be read and ignored.
  */
 function yannyPanelHtml(): string {
-  const transcript = `<div class="yanny-body" id="yanny-body">${yannyThreadHtml()}</div>`;
+  // A log: new turns are appended at the end. It is not itself a live
+  // region — the panel is redrawn wholesale on every event, which would
+  // re-announce the whole conversation — see announceYanny for what is read
+  // out instead.
+  const transcript = `<div class="yanny-body" id="yanny-body" role="log" aria-label="Conversation" aria-busy="${state.yannyBusy}">${yannyThreadHtml()}</div>`;
 
   let foot = '';
   if (state.yannyStatus === 'unavailable') {
@@ -4546,13 +4566,13 @@ function yannyPanelHtml(): string {
     ? `<button type="button" id="yanny-stop" class="yanny-stop" aria-label="Stop generating this answer">${ICON_STOP}</button>`
     : `<button type="submit" id="yanny-send" aria-label="Send">&#10148;</button>`;
 
-  return `<div class="yanny-panel">
+  return `<div class="yanny-panel" role="dialog" aria-labelledby="yanny-title">
     ${yannyHeadHtml()}
     ${transcript}
     ${foot}
     <form id="yanny-composer" class="yanny-composer">
       <label class="sr" for="yanny-input">Message Virtual Yanny</label>
-      <input id="yanny-input" type="text" placeholder="${esc(YANNY_PLACEHOLDER)}" autocomplete="off" ${state.yannyBusy ? 'disabled' : ''} />
+      <input id="yanny-input" type="text" placeholder="${esc(YANNY_PLACEHOLDER)}" autocomplete="off" enterkeyhint="send" maxlength="${YANNY_QUESTION_MAX}" ${state.yannyBusy ? 'disabled' : ''} />
       ${control}
     </form>
   </div>`;
@@ -4576,6 +4596,7 @@ function renderYanny(): void {
   const focusedId = active && host.contains(active) ? active.id : '';
 
   launcher.toggleAttribute('data-open', state.yannyOpen);
+  launcher.setAttribute('aria-expanded', String(state.yannyOpen));
   host.innerHTML = state.yannyOpen ? yannyPanelHtml() : '';
   if (state.yannyOpen) {
     const body = $('#yanny-body') as HTMLElement | null;
@@ -4637,6 +4658,72 @@ function closeYanny(): void {
 }
 
 /**
+ * Reads an answer out to a screen reader, once.
+ *
+ * The transcript cannot be a live region itself: the panel is rebuilt with
+ * innerHTML on every event, and a live region that is replaced rather than
+ * changed is announced unreliably or, worse, in full. So the answer goes
+ * into one persistent, visually hidden status element outside the panel
+ * (#yanny-live in template.html), as plain words without link markup.
+ * Cleared first, so the same answer twice is still announced twice.
+ */
+function announceYanny(text: string): void {
+  const live = document.getElementById('yanny-live');
+  if (!live) return;
+  live.textContent = '';
+  window.setTimeout(() => {
+    live.textContent = yannyPlainText(text);
+  }, 50);
+}
+
+/**
+ * Keeps Tab inside the panel while it covers the whole screen (the phone
+ * layout, see .yanny-panel in template.html). On a wider screen it is a
+ * floating card beside the page and Tab is free to leave it.
+ */
+function trapYannyFocus(e: KeyboardEvent): void {
+  if (e.key !== 'Tab' || !state.yannyOpen) return;
+  if (!window.matchMedia('(max-width: 480px)').matches) return;
+  const panel = document.querySelector<HTMLElement>('.yanny-panel');
+  if (!panel) return;
+  const focusable = [...panel.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), input:not([disabled])')];
+  if (focusable.length === 0) return;
+  const first = focusable[0]!;
+  const last = focusable[focusable.length - 1]!;
+  const active = document.activeElement as HTMLElement | null;
+  if (!active || !panel.contains(active)) {
+    e.preventDefault();
+    first.focus();
+  } else if (e.shiftKey && active === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && active === last) {
+    e.preventDefault();
+    first.focus();
+  }
+}
+
+/**
+ * A link inside an answer navigates in place, like every other in-site
+ * link, rather than reloading a page that carries the whole catalogue. On
+ * the phone layout the panel would cover the page it just opened, so it
+ * closes. A modified click (new tab, new window) is left to the browser,
+ * which the real href supports.
+ */
+function followYannyLink(e: MouseEvent, link: HTMLElement): void {
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+  const route = matchRoute(link.getAttribute('data-yanny-path') ?? '', '');
+  rememberListState();
+  if (!applyRoute(route)) return;
+  e.preventDefault();
+  clearFacets();
+  render();
+  syncUrl('push');
+  window.scrollTo({ top: 0 });
+  if (window.matchMedia('(max-width: 480px)').matches) closeYanny();
+}
+
+/**
  * The lifecycle of one question, and every way it can end.
  *
  * idle → sending on the way in; sending → idle on a `result` or an `error`;
@@ -4686,16 +4773,19 @@ function sendYannyMessage(text: string): void {
           const source: YannySource =
             event.result.source === 'model' ? (event.result.grounded === false ? 'model-unchecked' : 'model') : 'catalogue';
           state.yannyThread.push({ kind: 'msg', who: 'bot', text: event.result.winner.content, source });
+          announceYanny(event.result.winner.content);
         } else {
-          const why = event.result.error === 'no_agents_responded'
-            ? 'none of the AI providers answered in time. Catalogue questions still work; try this one again in a minute.'
-            : `${event.result.error ?? 'unknown error'}.`;
-          state.yannyThread.push({ kind: 'msg', who: 'bot', text: `I couldn't answer that: ${why}` });
+          // askVirtualYanny answers a failed model turn from the catalogue
+          // itself, so this is a backstop; it never shows a raw error code.
+          const text = "I couldn't answer that one just now. Try asking it again, or ask about a price, a size or a note.";
+          state.yannyThread.push({ kind: 'msg', who: 'bot', text, tone: 'error' });
+          announceYanny(text);
         }
         saveYannyThread();
       } else if (event.type === 'error') {
         state.yannyBusy = false;
-        state.yannyThread.push({ kind: 'msg', who: 'bot', text: event.message });
+        state.yannyThread.push({ kind: 'msg', who: 'bot', text: event.message, tone: 'error' });
+        announceYanny(event.message);
         saveYannyThread();
       }
       renderYanny();
@@ -4706,11 +4796,9 @@ function sendYannyMessage(text: string): void {
     yannyAbort = null;
     if (!state.yannyBusy) return;
     state.yannyBusy = false;
-    state.yannyThread.push({
-      kind: 'msg',
-      who: 'bot',
-      text: 'Virtual Yanny stopped part-way through without answering. Ask that again and it should go through.',
-    });
+    const text = 'Virtual Yanny stopped part-way through without answering. Ask that again and it should go through.';
+    state.yannyThread.push({ kind: 'msg', who: 'bot', text, tone: 'error' });
+    announceYanny(text);
     saveYannyThread();
     renderYanny();
   })
@@ -5395,6 +5483,7 @@ function init(): void {
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && state.yannyOpen) closeYanny();
+    trapYannyFocus(e);
   });
 
   // Starts the backend waking as soon as somebody looks like they are headed
@@ -5678,6 +5767,11 @@ function init(): void {
       return;
     }
 
+    const yannyLink = t.closest<HTMLElement>('.yanny-msg a[data-yanny-path]');
+    if (yannyLink) {
+      followYannyLink(e, yannyLink);
+      return;
+    }
     if (t.closest('#yanny-launcher')) {
       openYanny(t.closest('#yanny-launcher') as HTMLElement);
       return;
