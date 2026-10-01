@@ -18,12 +18,14 @@ path.
 | [SUPABASE-SETUP.md](SUPABASE-SETUP.md) | Accounts and wishlist database |
 | [VIRTUAL-YANNY-DEPLOY.md](VIRTUAL-YANNY-DEPLOY.md) | The chat assistant's Cloudflare Worker, in full |
 | [brand/](brand/) | The logo for social accounts |
+| [../social/](../social/) | Social posts, templates and the social design system |
 
 ## Marketing and content
 
 | Doc | For |
 |---|---|
 | [SOCIAL-MEDIA-PLAN.md](SOCIAL-MEDIA-PLAN.md) | The plan above |
+| [../social/DESIGN-SYSTEM.md](../social/DESIGN-SYSTEM.md) | How every post looks and reads (no dashes, AI-detection check) |
 | [CONTENT-PLAN.md](CONTENT-PLAN.md) | Build-in-public video plan |
 | [ENGINEERING-STORY.md](ENGINEERING-STORY.md) | How PriceSniffs was built |
 | [DEV-TO-POSTS.md](DEV-TO-POSTS.md) | Blog post drafts |

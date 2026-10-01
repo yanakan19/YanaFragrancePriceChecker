@@ -69,6 +69,11 @@ within the month · **3** = reserve the name, use later.
 - **Affiliate accounts** (where the money comes from): Awin (in use),
   Amazon Associates UK, TikTok Shop affiliate (§2b of the TikTok plan).
 
+**Post design and wording:** every post follows `social/DESIGN-SYSTEM.md`
+(colours, font, layouts, no hyphens or dashes, the yanaaidetection check).
+Posts live in `social/posts/`, one folder each. The launch post is
+`social/posts/2026-10-01-launch-welcome/`.
+
 ### 2b. The logo
 
 Files in [`docs/brand/`](brand/), all 1:1, on the site's own black

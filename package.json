@@ -48,7 +48,8 @@
     "a11y": "tsx scripts/a11y-audit.ts",
     "changelog:suggest": "tsx scripts/changelog-suggest.ts",
     "quarantine:prices": "tsx scripts/quarantine-prices.ts",
-    "sitemap": "tsx scripts/build-sitemap.ts"
+    "sitemap": "tsx scripts/build-sitemap.ts",
+    "social:render": "tsx scripts/render-social.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
