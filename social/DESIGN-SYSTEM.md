@@ -87,7 +87,13 @@ Add new templates (for example 1080 x 1350 for an Instagram feed post) to
 
 ## 5. Words
 
-These apply to all post copy: the image text and the caption.
+**Stories and posts:** a 9:16 picture is a **story**. It has no caption; its
+link goes on a link sticker. A 3:4 picture is a feed **post**. It needs a
+caption (`caption.txt` in the post's folder), and since feed posts cannot hold
+a clickable link, the picture says "Link in bio" and the caption points there
+too.
+
+These rules apply to all post copy: the image text and the caption.
 
 1. **No hyphens and no dashes of any kind** (no `-`, no `–`, no `—`). Use a
    full stop, a comma or a new sentence instead. `tests/socialPosts.test.ts`
@@ -137,8 +143,9 @@ different one.
    badge on its corner: "SAVE 59%"
 6. The red MSRP box and the green cheapest price box, exactly as the product
    page shows them
-7. A faint centre crosshair marking where the link sticker goes. **No web
-   address on the image.** The link goes on the sticker and in the caption.
+7. Where the link goes. **No web address on the image.**
+   * 9:16 story: a faint centre crosshair marking where the link sticker goes
+   * 3:4 post: a small "Link in bio" pill (feed posts cannot hold stickers)
 8. When the price was checked, in small grey
 
 **The scent profile picture** (`notes-3x4.png`, same wordmark, date pill and
@@ -169,6 +176,11 @@ confirmed. A perfume is never posted twice: if the top deal has been posted
 before, it moves on to the next deal down (`social/deal-of-the-day-history.json`).
 The link is checked on the live site before anything is written.
 
-**Every run reports** the perfume, prices and saving, and gives the product
-link as a plain https address in a copyable box, ready to paste into the
-link sticker.
+**How it is posted:** the 9:16 goes up as a story with the link sticker on
+the crosshair (no caption). The two 3:4 pictures go up together as one feed
+post (a carousel: deal first, then the scent profile) with `caption.txt` as
+its caption.
+
+**Every run reports** the perfume, prices and saving, gives the product link
+as a plain https address in a copyable box for the story's link sticker, and
+gives the feed post caption in its own copyable box.
