@@ -13,7 +13,7 @@
         <rect x="398" y="422" width="160" height="164" rx="34"/>
       </g>
   </g>
-  <text x="442" y="320" font-family="'Liberation Sans', Arial, Helvetica, sans-serif" font-weight="700" font-size="56" letter-spacing="-1.5"><tspan fill="#F7F7F8">Price</tspan><tspan fill="#FF3B41">Sniffs</tspan></text>
+  <text x="442" y="320" font-family="'Liberation Sans', Arial, Helvetica, sans-serif" font-weight="700" font-size="56" letter-spacing="-1"><tspan fill="#F7F7F8">Price</tspan><tspan fill="#FF3B41">Sniffs</tspan></text>
 
   <!-- The mark, large, centre -->
   <g transform="translate(540 720) scale(0.6) translate(-525 -525)">

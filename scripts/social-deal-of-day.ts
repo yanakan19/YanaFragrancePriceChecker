@@ -9,6 +9,8 @@
  *
  * Output: social/posts/YYYY-MM-DD-deal-of-the-day/ (post-9x16, post-3x4 and
  * notes-3x4 as .html/.png, caption.txt, check.json). Rules: social/DESIGN-SYSTEM.md.
+ * The 9:16 is a story (no caption, a link sticker goes on the crosshair); the
+ * two 3:4s are one feed post (a two picture carousel) and caption.txt is its caption.
  *
  *   --no-notes   show the notes card without notes (when they look wrong)
  *
@@ -145,6 +147,8 @@ interface Format {
   file: string; w: number; h: number; pad: number; gap: number;
   head: number; name: number; brand: number; date: number; photo: number; badge: number; amount: number;
   headline: (flag: string) => string;
+  /** Stories take a link sticker (crosshair marks the spot); feed posts cannot, so they say where the link is. */
+  linkMark: 'sticker' | 'bio';
 }
 export const FORMATS: Format[] = [
   // Story: stories cover the top and bottom 250px with their own bars.
@@ -152,12 +156,14 @@ export const FORMATS: Format[] = [
     file: 'post-9x16', w: 1080, h: 1920, pad: 250, gap: 28,
     head: 66, name: 58, brand: 32, date: 28, photo: 420, badge: 150, amount: 58,
     headline: (flag) => `Our Deal of the Day today is&hellip; ${flag}`,
+    linkMark: 'sticker',
   },
   // Feed: no bars to avoid, so the same layout sits tighter.
   {
     file: 'post-3x4', w: 1080, h: 1440, pad: 60, gap: 20,
     head: 60, name: 52, brand: 28, date: 24, photo: 380, badge: 136, amount: 52,
     headline: (flag) => `Deal of the Day ${flag}`,
+    linkMark: 'bio',
   },
 ];
 
@@ -204,6 +210,7 @@ export function postHtml(p: Pick, photo: string, dateLabel: string, checked: str
   .sticker::before { left: 59px; top: 0; width: 2px; height: 120px; }
   .sticker::after { top: 59px; left: 0; height: 2px; width: 120px; }
   .sticker i { position: absolute; left: 44px; top: 44px; width: 32px; height: 32px; border: 2px solid #3A3A40; border-radius: 50%; }
+  .bio { margin: 0; padding: 12px 28px; border-radius: 999px; background: #18181B; border: 2px solid #3A3A40; font-size: 28px; font-weight: 700; letter-spacing: 1px; }
   .checked { margin: 0; width: 100%; font-size: 24px; color: #8A8A93; white-space: nowrap; }
 </style></head><body><main>
   <div class="top">
@@ -223,7 +230,7 @@ export function postHtml(p: Pick, photo: string, dateLabel: string, checked: str
     </div>
   </div>
   <div class="bottom">
-    <div class="sticker" aria-hidden="true"><i></i></div>
+    ${f.linkMark === 'sticker' ? '<div class="sticker" aria-hidden="true"><i></i></div>' : '<p class="bio">Link in bio</p>'}
     <p class="checked" data-fit="1,16">Price incl. delivery, checked ${esc(checked)}</p>
   </div>
 </main>${FIT_SCRIPT}</body></html>`;
@@ -373,7 +380,7 @@ function caption(p: Pick, url: string, checked: string, dateLabel: string): stri
 
 ${name} by ${undash(p.frag.brand)} is ${gbp(p.delivered)} delivered from ${undash(p.best.retailer.name)}. The brand's own price is ${gbp(p.msrp)}, so you save ${p.percent}%.
 
-Price checked ${checked}. Prices move during the day, so check the link before you buy.
+Price checked ${checked}. Prices move during the day, so check before you buy. The link is in our bio, or go to
 ${url}
 
 #perfume #fragrance #perfumedeals #ukdeals #${brandTag} #pricesniffs

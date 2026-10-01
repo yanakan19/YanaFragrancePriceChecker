@@ -13,7 +13,7 @@
         <rect x="398" y="422" width="160" height="164" rx="34"/>
       </g>
   </g>
-  <text x="442" y="320" font-family="'Liberation Sans', Arial, Helvetica, sans-serif" font-weight="700" font-size="56" letter-spacing="-1.5"><tspan fill="#F7F7F8">Price</tspan><tspan fill="#FF3B41">Sniffs</tspan></text>
+  <text x="442" y="320" font-family="'Liberation Sans', Arial, Helvetica, sans-serif" font-weight="700" font-size="56" letter-spacing="-1"><tspan fill="#F7F7F8">Price</tspan><tspan fill="#FF3B41">Sniffs</tspan></text>
 
   <!-- The mark, large, centre -->
   <g transform="translate(540 720) scale(0.6) translate(-525 -525)">
@@ -27,7 +27,7 @@
   </g>
 
   <!-- Headline: one line, last word in red like "Sniffs" -->
-  <text x="540" y="1190" font-family="'Liberation Sans', Arial, Helvetica, sans-serif" font-weight="700" font-size="92" letter-spacing="-2.5" text-anchor="middle"><tspan fill="#F7F7F8">Welcome to the </tspan><tspan fill="#FF3B41">Page</tspan></text>
+  <text x="540" y="1190" font-family="'Liberation Sans', Arial, Helvetica, sans-serif" font-weight="700" font-size="92" letter-spacing="-1" text-anchor="middle"><tspan fill="#F7F7F8">Welcome to the </tspan><tspan fill="#FF3B41">Page</tspan></text>
 
   <!-- Body: three lines at most, about 28 characters a line -->
   <g font-family="'Liberation Sans', Arial, Helvetica, sans-serif" font-size="46" fill="#B9B9C0" text-anchor="middle">
