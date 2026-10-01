@@ -2091,6 +2091,13 @@
     padding: 12px 14px; border-radius: 9px; font-size: 13px;
   }
   .doc .draft strong { color: var(--warn); }
+  /* The plain English summary at the top of the privacy notice. Same box as
+     .draft, in the neutral hairline colour, since it is not a warning. */
+  .doc .summary-box {
+    background: var(--surface); border: 1px solid var(--line);
+    padding: 12px 16px 2px; border-radius: 9px; margin: 0 0 18px;
+  }
+  .doc .summary-box h2 { margin: 0 0 8px; }
 
   /* Settings content sits centred in the available height on both layouts,
      rather than pinned to the top, but never fights scrolling: min-height

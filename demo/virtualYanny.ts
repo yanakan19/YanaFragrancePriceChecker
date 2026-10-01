@@ -176,9 +176,9 @@ interface EngineResult {
  * an open question and is getting a catalogue match instead.
  */
 const MODEL_FAILED_NOTE: Record<'unreachable' | 'busy' | 'failed', string> = {
-  unreachable: "I couldn't reach the AI side just now, so this is straight from the catalogue.",
-  busy: 'The AI side is busy (too many questions in the last minute), so this is straight from the catalogue.',
-  failed: "The AI side didn't come back with an answer, so this is straight from the catalogue.",
+  unreachable: "I couldn't reach the AI just now, so this answer comes from the catalogue.",
+  busy: 'The AI has had too many questions in the last minute, so this answer comes from the catalogue.',
+  failed: "The AI didn't answer, so this answer comes from the catalogue.",
 };
 
 /** Longest question the Worker accepts (QUESTION_MAX in workers/yanny). The
@@ -211,7 +211,7 @@ export async function askVirtualYanny(
     local = (await resolveQuestion({ question: message, intent: intent ?? classifyIntent(message) })) as EngineResult;
   } catch {
     if (signal?.aborted) return;
-    onEvent({ type: 'error', message: 'Something went wrong looking that up. Try asking it another way.' });
+    onEvent({ type: 'error', message: 'Something went wrong. Try asking another way.' });
     return;
   }
   if (signal?.aborted) return;
@@ -231,7 +231,7 @@ export async function askVirtualYanny(
     try {
       content = await resolveOfflineAnswer({ question: message, intent: local.intent });
     } catch {
-      content = 'Something went wrong looking that up. Try asking it another way.';
+      content = 'Something went wrong. Try asking another way.';
     }
     if (signal?.aborted) return;
     onEvent({
@@ -252,7 +252,7 @@ export async function askVirtualYanny(
     return;
   }
 
-  onEvent({ type: 'status', message: 'Asking the AI, with the catalogue in front of it…' });
+  onEvent({ type: 'status', message: 'Asking the AI…' });
 
   let res: Response;
   try {

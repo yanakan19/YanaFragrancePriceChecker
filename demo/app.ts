@@ -1383,7 +1383,7 @@ const MEDALS = ['gold', 'silver', 'bronze'] as const;
  * before they type into it.
  */
 const SUGGEST_NOTE =
-  'There is no server behind this page, so sending opens your own email app with this addressed and ready to go.';
+  'Send opens your own email app with your message ready to go. Nothing goes to a server of ours.';
 
 function homeView(): string {
   return `
@@ -1403,7 +1403,7 @@ function homeView(): string {
            three hours, which is the true sentence, not "live". -->
       <p class="hero-mission">See what a fragrance really costs across ${ENABLED_SHOP_COUNT} UK shops, delivery included.</p>
       <p class="intro-points">
-        <span>Delivery Costs Reflected</span>
+        <span>Delivery Included</span>
         <span>Prices Checked Every 3 Hours</span>
         <span>No Promoted Listings</span>
       </p>
@@ -1511,10 +1511,9 @@ function browseView(): string {
     <div class="page-head"><h1 class="t-page">${esc(title)}</h1><span class="count t-count">${list.length}</span></div>
     ${
       isTop && state.browseSort === 'stocked'
-        ? `<p class="panel-note t-body">Ranked by how many of our ${SHOP_COUNT} shops carry each one — not counting
-             a brand's own store, which says nothing about how far the market has picked it up — then by brand
-             and name where that ties. Oils are not listed here. This is stock breadth, not a measure of
-             what sells: nothing here counts views or purchases, so it is never presented as if it did.</p>`
+        ? `<p class="panel-note t-body">Ranked by how many of our ${SHOP_COUNT} shops stock each one, then by
+             brand and name. A brand's own store does not count. Oils are not listed here. This shows how
+             widely a fragrance is stocked, not how well it sells: we do not count views or purchases.</p>`
         : isTop
           ? `<p class="panel-note t-body">The ${TOP_N} most stocked fragrances, in the order you chose. Oils are
                not listed here.</p>`
@@ -2655,7 +2654,7 @@ function dealsPanel(): string {
     return `${controls}<p class="empty-note t-body">No shop is publishing a reference price right now.</p>`;
   }
   if (sorted.length === 0) {
-    return `${controls}<p class="empty-note t-body">No discounted fragrance has a shop-licensed photo right now.</p>`;
+    return `${controls}<p class="empty-note t-body">No discounted fragrance has a photo we may show right now.</p>`;
   }
   if (filtered.length === 0) {
     return `${controls}<p class="empty-note t-body">No deal matches that filter.</p>`;
@@ -2692,7 +2691,7 @@ function dealsPanel(): string {
     });
 
   return `${controls}
-    <p class="panel-note t-body">Savings are against the shop's own published recommended retail price, or, where the fragrance's own manufacturer is stocked here too, against the manufacturer's own price.</p>
+    <p class="panel-note t-body">Savings are against the shop's own published recommended retail price. Where the maker also sells the fragrance here, they are against the maker's own price.</p>
     <ul class="tile-grid">${chunked(filtered, dealTile)}</ul>`;
 }
 
@@ -2991,7 +2990,7 @@ function brandView(): string {
             ? `<a class="brand-site-link" href="${esc(site.url)}" target="_blank" rel="noopener nofollow">
                  <span class="control-ico">${ICON_EXTERNAL}</span>
                  <span>Open Brand Website</span>
-                 <span class="brand-site-flag ${site.uk ? 'is-uk' : 'is-nonuk'}">${site.uk ? 'UK Site' : 'Non-UK Site'}</span>
+                 <span class="brand-site-flag ${site.uk ? 'is-uk' : 'is-nonuk'}">${site.uk ? 'UK Site' : 'Overseas Site'}</span>
                </a>`
             : `<p class="org-hero-domain dimmer t-caption">Official site not yet confirmed</p>`
         }
@@ -3014,9 +3013,9 @@ function brandView(): string {
       list.length > 0
         ? `<p class="gone-head t-eyebrow">${list.length} ${list.length === 1 ? 'fragrance' : 'fragrances'}</p>
            ${controls}
-           ${fragranceList(list, 'Nothing from this brand has been harvested yet.')}`
+           ${fragranceList(list, 'We have no listings from this brand yet.')}`
         : houseItems.length === 0
-          ? fragranceList(list, 'Nothing from this brand has been harvested yet.')
+          ? fragranceList(list, 'We have no listings from this brand yet.')
           : ''
     }
     ${
@@ -3324,7 +3323,7 @@ function settingsView(): string {
         </div>
       </div>
 
-      <p class="settings-note t-caption">Your preference will be remembered on this device.</p>
+      <p class="settings-note t-caption">Your choice is saved on this device.</p>
 
       <h2 class="t-section">Contact us</h2>
       <form id="contact-form" class="contact-form">
@@ -3340,7 +3339,7 @@ function settingsView(): string {
         </label>
         <button type="submit" class="contact-send">Send</button>
       </form>
-      <p class="form-privacy t-caption">Sending opens your own email app; nothing goes to a server of ours.
+      <p class="form-privacy t-caption">Send opens your own email app. Nothing goes to a server of ours.
         We keep what you send only for as long as it takes to reply.
         <button type="button" class="link-btn" data-page="privacy">Privacy notice</button></p>
       <p id="contact-confirm" class="contact-confirm" hidden></p>
@@ -3490,7 +3489,7 @@ function accountView(): string {
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
         <h1 class="t-page">Account</h1>
-        <p>Accounts are not switched on for this deployment yet.</p>
+        <p>Accounts are not switched on yet.</p>
       </article>`;
   }
 
@@ -3599,11 +3598,11 @@ function accountView(): string {
           // every in-app page is reached by data-page; type="button" so they
           // can never submit the form they sit inside.
           signUpTab
-            ? `<p class="form-privacy t-caption">Creating an account stores your email address, login and wishlist
-                with our account provider, Supabase, and means you accept our
-                <button type="button" class="link-btn" data-page="terms">terms</button>. See the
-                <button type="button" class="link-btn" data-page="privacy">privacy notice</button> for
-                what is kept and how to have it deleted.</p>`
+            ? `<p class="form-privacy t-caption">An account stores your email address, login and wishlist
+                with our account provider, Supabase. Creating one means you accept our
+                <button type="button" class="link-btn" data-page="terms">terms</button>. The
+                <button type="button" class="link-btn" data-page="privacy">privacy notice</button> says
+                what is kept and how to delete it.</p>`
             : ''
         }
       </form>
@@ -4469,7 +4468,7 @@ function yannyHeadHtml(): string {
            carries the full account; this is the sentence that has to be
            seen first. -->
       <p class="yanny-head-note">Prices, stock, sizes and notes are looked up in your browser and never leave it.
-        Open questions go to our chat service, which answers them with its own AI, and are not stored by us. Please leave out personal details.</p>
+        Open questions go to our chat service and its AI. We do not store them. Please leave out personal details.</p>
     </div>
     ${yannyClearHtml()}
     <button class="yanny-close" id="yanny-close" aria-label="Close chat">${ICON_CLOSE}</button>
@@ -4479,7 +4478,7 @@ function yannyHeadHtml(): string {
 const YANNY_SOURCE_COPY: Record<YannySource, string> = {
   catalogue: 'From the catalogue, looked up in your browser.',
   model: 'Written by an AI model from the catalogue data.',
-  'model-unchecked': 'Written by an AI model; it could not be fully checked against the catalogue, so treat it with care.',
+  'model-unchecked': 'Written by an AI model and not fully checked against the catalogue. Treat it with care.',
 };
 
 function yannySourceHtml(source: YannySource | undefined): string {
@@ -4535,19 +4534,19 @@ const YANNY_UNAVAILABLE_COPY: Record<YannyHealth['reason'], { mark: string; text
   none: { mark: '🤖', text: 'Virtual Yanny is available.' },
   'not-built': {
     mark: '🔧',
-    text: "The AI side isn't connected yet, so every answer comes straight from the catalogue — open questions get the closest match it can give.",
+    text: "The AI isn't connected yet, so every answer comes from the catalogue. Open questions get the closest match it can find.",
   },
   'no-answer': {
     mark: '💤',
-    text: "The AI side didn't answer. Catalogue questions still work; open ones may not until it's back.",
+    text: "The AI didn't answer. Catalogue questions still work. Open ones may not until it's back.",
   },
   'not-configured': {
     mark: '🔧',
-    text: "The AI side is running but hasn't been given a provider key. Catalogue questions still work.",
+    text: "The AI is running but has no provider key yet. Catalogue questions still work.",
   },
   'router-down': {
     mark: '⏳',
-    text: 'The free AI providers behind the chat are busy or rate-limited right now. Catalogue questions still work; open ones should clear in a few minutes.',
+    text: 'The free AI behind the chat is busy right now. Catalogue questions still work. Open ones should work again in a few minutes.',
   },
 };
 
@@ -4815,7 +4814,7 @@ function sendYannyMessage(text: string): void {
     yannyAbort = null;
     if (!state.yannyBusy) return;
     state.yannyBusy = false;
-    const text = 'Virtual Yanny stopped part-way through without answering. Ask that again and it should go through.';
+    const text = 'Virtual Yanny stopped before it could answer. Please ask again.';
     state.yannyThread.push({ kind: 'msg', who: 'bot', text, tone: 'error' });
     announceYanny(text);
     saveYannyThread();
@@ -4982,7 +4981,7 @@ const DS_COLOUR_GROUPS: { title: string; note: string; tokens: TokenRow[] }[] = 
     note: 'Only positive and cautionary states carry colour, for the reason above.',
     tokens: [
       { name: '--ok', role: 'In stock, a saving, new' },
-      { name: '--ok-sf', role: 'Its ground, for the lowest-price box under a fragrance' },
+      { name: '--ok-sf', role: 'Its ground, for the lowest price box under a fragrance' },
       { name: '--warn', role: 'Low stock, a countdown' },
     ],
   },
@@ -5017,8 +5016,8 @@ const DS_CONTRAST_PAIRS: { fg: string; bg: string; use: string }[] = [
   { fg: '--accent-ink', bg: '--bg', use: 'A link, or a price' },
   { fg: '--accent-on', bg: '--accent', use: 'Text on the primary button' },
   { fg: '--ok', bg: '--surface', use: 'In stock, on a card' },
-  { fg: '--ok', bg: '--ok-sf', use: 'The price in the lowest-price box' },
-  { fg: '--ink-2', bg: '--ok-sf', use: 'The shop line in the lowest-price box' },
+  { fg: '--ok', bg: '--ok-sf', use: 'The price in the lowest price box' },
+  { fg: '--ink-2', bg: '--ok-sf', use: 'The shop line in the lowest price box' },
   { fg: '--warn', bg: '--surface', use: 'Low stock, on a card' },
 ];
 
@@ -6054,7 +6053,7 @@ function init(): void {
       window.location.href = mailto;
 
       const confirm = $('#home-suggest-confirm') as HTMLElement;
-      confirm.textContent = `Your email app should now be open with your suggestion ready to send. Hit send there to reach us, we really appreciate it.`;
+      confirm.textContent = `Your email app should now be open with your suggestion. Press send there to reach us. Thank you.`;
       confirm.hidden = false;
       return;
     }
@@ -6145,7 +6144,7 @@ function init(): void {
     window.location.href = mailto;
 
     const confirm = $('#contact-confirm') as HTMLElement;
-    confirm.textContent = `Your email app should now be open with your ${type.toLowerCase()} ready to send. Hit send there to reach us, we really appreciate it.`;
+    confirm.textContent = `Your email app should now be open with your ${type.toLowerCase()}. Press send there to reach us. Thank you.`;
     confirm.hidden = false;
   });
 
