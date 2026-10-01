@@ -251,6 +251,108 @@ function clearFacets(): void {
   state.facetInStock = false;
 }
 
+/**
+ * Everything a reader can set on a list page: facets, every sort and filter
+ * dropdown, and how far down they had scrolled. Stored on that page's own
+ * history entry (see rememberListState), so Back to a list brings it back
+ * exactly as it was left, while a fresh visit still starts clean.
+ */
+interface ListSnapshot {
+  facetsOpen: boolean;
+  facetVolume: VolumeBand[];
+  facetConcentration: string[];
+  facetGender: GenderReading[];
+  facetPriceBand: PriceBand[];
+  facetTier: RetailerTier[];
+  facetOnSale: boolean;
+  facetInStock: boolean;
+  brand: string | null;
+  brandSort: BrandSort;
+  brandFilter: BrandFilter;
+  dealSort: DealSort;
+  noteSort: NoteSort;
+  noteLayer: NoteLayerFilter;
+  noteDetailSort: ListSort;
+  noteDetailFilter: BrandFilter;
+  browseSort: BrowseSort;
+  brandDetailSort: ListSort;
+  retailerDetailSort: ListSort;
+  retailerDetailFilter: BrandFilter;
+  retailerInStockOnly: boolean;
+  scrollY: number;
+  /** The product tile at the top of the screen, and how far down it sat. */
+  anchorFrag: string | null;
+  anchorTop: number;
+}
+
+function snapshotListState(): ListSnapshot {
+  const anchor = firstVisibleTile();
+  return {
+    anchorFrag: anchor?.dataset.frag ?? null,
+    anchorTop: anchor ? Math.round(anchor.getBoundingClientRect().top) : 0,
+    facetsOpen: state.facetsOpen,
+    facetVolume: [...state.facetVolume],
+    facetConcentration: [...state.facetConcentration],
+    facetGender: [...state.facetGender],
+    facetPriceBand: [...state.facetPriceBand],
+    facetTier: [...state.facetTier],
+    facetOnSale: state.facetOnSale,
+    facetInStock: state.facetInStock,
+    brand: state.brand,
+    brandSort: state.brandSort,
+    brandFilter: state.brandFilter,
+    dealSort: state.dealSort,
+    noteSort: state.noteSort,
+    noteLayer: state.noteLayer,
+    noteDetailSort: state.noteDetailSort,
+    noteDetailFilter: state.noteDetailFilter,
+    browseSort: state.browseSort,
+    brandDetailSort: state.brandDetailSort,
+    retailerDetailSort: state.retailerDetailSort,
+    retailerDetailFilter: state.retailerDetailFilter,
+    retailerInStockOnly: state.retailerInStockOnly,
+    scrollY: window.scrollY,
+  };
+}
+
+function restoreListState(saved: ListSnapshot): void {
+  // history.state outlives a deploy, so an entry saved by an older build may
+  // lack a field added since; that field keeps its current value.
+  const s: ListSnapshot = { ...snapshotListState(), ...saved };
+  state.facetsOpen = s.facetsOpen;
+  state.facetVolume = new Set(s.facetVolume);
+  state.facetConcentration = new Set(s.facetConcentration);
+  state.facetGender = new Set(s.facetGender);
+  state.facetPriceBand = new Set(s.facetPriceBand);
+  state.facetTier = new Set(s.facetTier);
+  state.facetOnSale = s.facetOnSale;
+  state.facetInStock = s.facetInStock;
+  state.brand = s.brand;
+  state.brandSort = s.brandSort;
+  state.brandFilter = s.brandFilter;
+  state.dealSort = s.dealSort;
+  state.noteSort = s.noteSort;
+  state.noteLayer = s.noteLayer;
+  state.noteDetailSort = s.noteDetailSort;
+  state.noteDetailFilter = s.noteDetailFilter;
+  state.browseSort = s.browseSort;
+  state.brandDetailSort = s.brandDetailSort;
+  state.retailerDetailSort = s.retailerDetailSort;
+  state.retailerDetailFilter = s.retailerDetailFilter;
+  state.retailerInStockOnly = s.retailerInStockOnly;
+}
+
+/** Write the current list state onto the current history entry, keeping its depth. */
+function rememberListState(): void {
+  try {
+    const prev = (window.history.state as Record<string, unknown> | null) ?? {};
+    window.history.replaceState({ ...prev, list: snapshotListState() }, '');
+  } catch {
+    // Same as syncUrl: a sandboxed frame rejects history writes, and the app
+    // still works without remembering.
+  }
+}
+
 function activeFacetCount(): number {
   return (
     state.facetVolume.size +
@@ -2117,7 +2219,7 @@ function loadWishlist(): void {
     state.wishlistEntries = entries;
     state.wishlistIds = new Set(entries.map((e) => e.fragranceId));
     state.wishlistLoaded = true;
-    render();
+    renderInPlace();
   });
 }
 
@@ -3599,30 +3701,123 @@ function mountChunkedList(): void {
   listObserver = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-
-        const el = entry.target as HTMLElement;
-        const id = el.dataset.more;
-        const held = id ? pendingLists.get(id) : undefined;
-        if (!id || !held) continue;
-
-        const next = held.items.slice(0, CHUNK);
-        const rest = held.items.slice(CHUNK);
-        el.insertAdjacentHTML('beforebegin', next.map(held.render).join(''));
-
-        if (rest.length === 0) {
-          pendingLists.delete(id);
-          listObserver?.unobserve(el);
-          el.remove();
-        } else {
-          pendingLists.set(id, { items: rest, render: held.render });
-        }
+        if (entry.isIntersecting) appendNextChunk(entry.target as HTMLElement);
       }
     },
     { rootMargin: '600px 0px' },
   );
 
   for (const el of document.querySelectorAll('[data-more]')) listObserver.observe(el);
+}
+
+/** Paint the next chunk of the list whose sentinel this is. False if it had none left. */
+function appendNextChunk(el: HTMLElement): boolean {
+  const id = el.dataset.more;
+  const held = id ? pendingLists.get(id) : undefined;
+  if (!id || !held) return false;
+
+  const next = held.items.slice(0, CHUNK);
+  const rest = held.items.slice(CHUNK);
+  el.insertAdjacentHTML('beforebegin', next.map(held.render).join(''));
+
+  if (rest.length === 0) {
+    pendingLists.delete(id);
+    listObserver?.unobserve(el);
+    el.remove();
+  } else {
+    pendingLists.set(id, { items: rest, render: held.render });
+  }
+  return true;
+}
+
+/** Paint one more chunk of every list on the page. False once all are complete. */
+function appendChunksEverywhere(): boolean {
+  let any = false;
+  document.querySelectorAll<HTMLElement>('[data-more]').forEach((el) => {
+    if (appendNextChunk(el)) any = true;
+  });
+  return any;
+}
+
+/**
+ * Re-render for something that finished in the background (sign-in check,
+ * wishlist load) without moving the reader: a plain render() rebuilds a long
+ * list from its first chunk and they would lose their place mid-scroll.
+ */
+function renderInPlace(): void {
+  // Mid-restore, the tiles have not been drawn yet and the one on screen is
+  // only an estimate; the place being restored to is the true one.
+  const anchor = restoringTo ? null : firstVisibleTile();
+  const place = restoringTo ?? {
+    scrollY: window.scrollY,
+    anchorFrag: anchor?.dataset.frag ?? null,
+    anchorTop: anchor ? Math.round(anchor.getBoundingClientRect().top) : 0,
+  };
+  render();
+  restoreScroll(place);
+}
+
+/** The first product tile showing on screen, used to put the reader back on it. */
+function firstVisibleTile(): HTMLElement | null {
+  for (const el of document.querySelectorAll<HTMLElement>('#view [data-frag]')) {
+    const r = el.getBoundingClientRect();
+    if (r.bottom > 0 && r.top < window.innerHeight) return el;
+  }
+  return null;
+}
+
+/**
+ * Put a reader back where they left a list.
+ *
+ * Restored by the tile that was on screen, not by pixel offset: tiles are
+ * `content-visibility: auto` (see .tile-grid in template.html), so after a
+ * fresh render every tile not yet drawn is an estimated 260px and the same
+ * pixel offset lands on a different product. The tile is found (painting
+ * further chunks until it exists), then brought back to the same distance from
+ * the top of the screen, and re-checked over the next two frames because
+ * tiles drawn around it can still change size — Safari has no CSS scroll
+ * anchoring to absorb that on its own.
+ */
+type ScrollPlace = Pick<ListSnapshot, 'scrollY' | 'anchorFrag' | 'anchorTop'>;
+let restoringTo: ScrollPlace | null = null;
+let restoreSeq = 0;
+
+function restoreScroll(saved: ScrollPlace | null): void {
+  ++restoreSeq;
+  restoringTo = null;
+  if (!saved || saved.scrollY < 1) {
+    window.scrollTo({ top: 0 });
+    return;
+  }
+  const find = () =>
+    saved.anchorFrag
+      ? document.querySelector<HTMLElement>(`#view [data-frag="${CSS.escape(saved.anchorFrag)}"]`)
+      : null;
+  let el = find();
+  while (saved.anchorFrag && !el && appendChunksEverywhere()) el = find();
+
+  if (!el) {
+    const root = document.documentElement;
+    while (saved.scrollY + window.innerHeight > root.scrollHeight && appendChunksEverywhere());
+    window.scrollTo({ top: saved.scrollY });
+    return;
+  }
+  const tile = el;
+  const align = () => {
+    if (tile.isConnected) window.scrollBy(0, tile.getBoundingClientRect().top - (saved.anchorTop ?? 0));
+  };
+  const token = ++restoreSeq;
+  restoringTo = saved;
+  align();
+  window.requestAnimationFrame(() => {
+    if (token !== restoreSeq) return;
+    align();
+    window.requestAnimationFrame(() => {
+      if (token !== restoreSeq) return;
+      align();
+      restoringTo = null;
+    });
+  });
 }
 
 /* ── price history tooltip ──────────────────────────────────────────────────
@@ -5141,9 +5336,10 @@ function mountTrustpilotWidgets(): void {
 }
 
 function go(view: View): void {
-  // Every navigation lands on a different list (or none at all), so facet
-  // selections from wherever we just were would only ever be stale here —
-  // see clearFacets' own comment.
+  // The page being left keeps its filters, sorts and scroll on its own history
+  // entry, so Back restores it (see the popstate handler). The page being
+  // opened is a different list, so it starts clean.
+  rememberListState();
   clearFacets();
   state.view = view;
   render();
@@ -5231,7 +5427,7 @@ function init(): void {
       state.wishlistEntries = [];
       state.wishlistLoaded = false;
     }
-    render();
+    renderInPlace();
   };
   currentUser().then(handleAuthUser);
   // Fires on every sign in, sign out and token refresh, including the tab
@@ -5626,12 +5822,14 @@ function init(): void {
     if (t.closest('[data-clear-brand]')) {
       state.brand = null;
       render();
+      rememberListState();
       return;
     }
 
     if (t.closest('[data-facets-toggle]')) {
       state.facetsOpen = !state.facetsOpen;
       render();
+      rememberListState();
       return;
     }
 
@@ -5639,6 +5837,7 @@ function init(): void {
       clearFacets();
       state.facetsOpen = true; // stay open — the reader is mid-filtering, not leaving the page
       render();
+      rememberListState();
       return;
     }
 
@@ -5657,6 +5856,7 @@ function init(): void {
       else if (group === 'priceBand') toggleInSet(state.facetPriceBand, value as PriceBand);
       else if (group === 'tier') toggleInSet(state.facetTier, value as RetailerTier);
       render();
+      rememberListState();
       return;
     }
   });
@@ -5697,6 +5897,7 @@ function init(): void {
       return;
     } else return;
     render();
+    rememberListState();
   });
 
   // There is no server behind this page, so "send" means handing the message to
@@ -5790,9 +5991,17 @@ function init(): void {
   // by the time this fires, so state follows it rather than the other way
   // round, and nothing is pushed in response or the history would grow on
   // every Back press.
-  window.addEventListener('popstate', () => {
+  //
+  // The entry being returned to carries the filters, sorts and scroll it was
+  // left with (see rememberListState). One with none — never left via go(),
+  // or saved before this existed — starts clean rather than inheriting
+  // whatever the page just left had set.
+  window.addEventListener('popstate', (e) => {
+    const saved = (e.state as { list?: ListSnapshot } | null)?.list;
+    if (saved) restoreListState(saved);
+    else clearFacets();
     renderFromUrl();
-    window.scrollTo({ top: 0 });
+    restoreScroll(saved ?? null);
   });
 
   // A window resize can change how the suggestion box wraps (and so its
@@ -5851,8 +6060,18 @@ function init(): void {
   // that matched nothing keeps the path the reader actually typed, so they
   // can see and correct it, and the not-found view says so; it used to be
   // rewritten to "/" while the homepage rendered underneath.
+  //
+  // A reload (including iOS Safari quietly reloading a background tab) keeps
+  // history.state, so the filters, sorts and scroll saved on this entry come
+  // back too. pagehide saves the latest scroll on the way out; the browser's
+  // own scroll restoration is off so it cannot fight the restore below.
+  if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
+  window.addEventListener('pagehide', rememberListState);
+  const saved = (window.history.state as { list?: ListSnapshot } | null)?.list;
+  if (saved) restoreListState(saved);
   renderFromUrl();
   syncUrl('replace');
+  if (saved) restoreScroll(saved);
 }
 
 if (document.readyState === 'loading') {
