@@ -10,7 +10,7 @@
   .brandline em { font-style: normal; color: #FF3B41; }
   .date { margin: 0; padding: 10px 22px; border: 2px solid #3A3A40; border-radius: 999px;
     font-size: 24px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #B9B9C0; }
-  h1 { margin: 0; font-size: 60px; letter-spacing: -2px; line-height: 1.12; }
+  h1 { margin: 0; font-size: 60px; letter-spacing: -2px; line-height: 1.12; white-space: nowrap; }
   .flag { display: inline-block; vertical-align: -0.06em; width: 66px; height: 33px; border-radius: 6px; }
   .who { display: flex; flex-direction: column; gap: 10px; }
   .name { margin: 0; font-size: 52px; font-weight: 700; line-height: 1.1; letter-spacing: -1px;
@@ -60,4 +60,10 @@
     <div class="sticker" aria-hidden="true"><i></i></div>
     <p class="checked">Price incl. delivery, checked 20:08 UK, 1 Oct 2026</p>
   </div>
-</main></body></html>
+</main><script>
+  // One line, never wider than the margins: shrink the headline until it fits.
+  for (const h of document.querySelectorAll('h1')) {
+    let size = parseFloat(getComputedStyle(h).fontSize);
+    while (h.scrollWidth > h.parentElement.clientWidth && size > 30) h.style.fontSize = (size -= 1) + 'px';
+  }
+</script></body></html>

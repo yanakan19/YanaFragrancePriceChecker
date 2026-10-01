@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1080px; height: 1440px; background: #0A0A0B; color: #F7F7F8;
+    font-family: 'Liberation Sans', Arial, Helvetica, sans-serif; }
+  main { height: 100%; padding: 60px 90px; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; text-align: center; }
+  .top { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+  .brandline { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 44px; letter-spacing: -1px; }
+  .brandline .mark { width: 58px; height: 58px; flex: none; }
+  .brandline em { font-style: normal; color: #FF3B41; }
+  .date { margin: 0; padding: 10px 22px; border: 2px solid #3A3A40; border-radius: 999px; font-size: 24px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #B9B9C0; }
+  h1 { margin: 0; font-size: 60px; letter-spacing: -2px; line-height: 1.1; white-space: nowrap; }
+  .who { display: flex; flex-direction: column; gap: 10px; }
+  .name { margin: 0; font-size: 52px; font-weight: 700; line-height: 1.1; letter-spacing: -1px; }
+  .brand { margin: 0; font-size: 28px; color: #B9B9C0; letter-spacing: 3px; text-transform: uppercase; }
+  .gender { display: flex; align-items: center; gap: 18px; padding: 16px 30px; border-radius: 999px; background: #1E0709; border: 2px solid #FF3B41; }
+  .gender .k { font-size: 24px; font-weight: 700; letter-spacing: 3px; color: #FF6A6E; text-transform: uppercase; }
+  .gender .v { font-size: 40px; font-weight: 700; }
+  .tree { position: relative; width: fit-content; min-width: 560px; max-width: 900px; display: flex; flex-direction: column; gap: 26px; text-align: left; }
+  .tree::before { content: ''; position: absolute; left: 15px; top: 20px; bottom: 20px; width: 3px; background: #3A3A40; }
+  .tier { position: relative; display: flex; gap: 26px; align-items: flex-start; }
+  .dot { flex: none; width: 33px; height: 33px; border-radius: 50%; background: #0A0A0B; border: 3px solid #FF3B41; margin-top: 4px; }
+  .tier-name { margin: 0 0 12px; font-size: 30px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .tier-name span { font-size: 22px; font-weight: 400; letter-spacing: 1px; color: #8A8A93; text-transform: none; margin-left: 8px; }
+  .chips { margin: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+  .chip { padding: 10px 20px; border-radius: 999px; background: #18181B; border: 2px solid #3A3A40; font-size: 28px; }
+  .chip.more { color: #8A8A93; }
+  .none { max-width: 760px; } .none p { margin: 0; font-size: 36px; } .none .sub { margin-top: 14px; font-size: 26px; color: #8A8A93; }
+  .source { margin: 0; font-size: 24px; color: #8A8A93; }
+</style></head><body><main>
+  <div class="top">
+    <div class="brandline"><svg class="mark" viewBox="240 240 610 610" aria-hidden="true"><circle cx="478" cy="478" r="196" fill="none" stroke="#FF3B41" stroke-width="58"/><line x1="636" y1="636" x2="796" y2="796" stroke="#FF3B41" stroke-width="72" stroke-linecap="round"/><g fill="#F7F7F8"><rect x="452" y="366" width="52" height="42" rx="9"/><rect x="463" y="402" width="30" height="26"/><rect x="398" y="422" width="160" height="164" rx="34"/></g></svg><span>Price<em>Sniffs</em></span></div>
+    <p class="date">Friday, 2 October 2026</p>
+    <h1>The Scent Profile</h1>
+  </div>
+  <div class="who"><p class="name">Yaa Umree 100ml</p><p class="brand">Zimaya</p></div>
+  <div class="gender"><span class="k">Recommended for</span><span class="v">Everyone</span></div>
+  <div class="none"><p>The notes for this one are not published yet.</p><p class="sub">Open the product page to see when they are added.</p></div>
+  <p class="source">None of the shops we compare lists its notes</p>
+</main><script>
+  // One line, never wider than the margins: shrink the headline until it fits.
+  for (const h of document.querySelectorAll('h1')) {
+    let size = parseFloat(getComputedStyle(h).fontSize);
+    while (h.scrollWidth > h.parentElement.clientWidth && size > 30) h.style.fontSize = (size -= 1) + 'px';
+  }
+</script></body></html>

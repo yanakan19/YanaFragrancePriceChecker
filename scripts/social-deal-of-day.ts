@@ -7,8 +7,10 @@
  *   npm run social:deal -- --id <id>       a chosen perfume
  *   npm run social:deal -- --skip-live-check
  *
- * Output: social/posts/YYYY-MM-DD-deal-of-the-day/ (post-9x16.html/.png,
- * post-3x4.html/.png, caption.txt, check.json). Rules: social/DESIGN-SYSTEM.md.
+ * Output: social/posts/YYYY-MM-DD-deal-of-the-day/ (post-9x16, post-3x4 and
+ * notes-3x4 as .html/.png, caption.txt, check.json). Rules: social/DESIGN-SYSTEM.md.
+ *
+ *   --no-notes   show the notes card without notes (when they look wrong)
  *
  * The pick, the prices and the two boxes come from the same functions and data
  * the product page uses, so the post and the page always agree:
@@ -27,7 +29,8 @@ import { pickReferencePrice } from '../demo/referencePrice.js';
 import { resizedPhotoUrl } from '../demo/photo.js';
 import { buildComparison, bestOffer } from '../src/services/priceService.js';
 import { cheapestVerdict } from '../src/services/deliveryConfidence.js';
-import { cannotCarryBrand } from '../src/config/retailers.js';
+import { cannotCarryBrand, getRetailer } from '../src/config/retailers.js';
+import { readGender, type GenderReading } from '../demo/gender.js';
 import type { PresentedOffer } from '../src/types/offer.js';
 import { launchChromium } from './a11y-audit.js';
 
@@ -147,7 +150,7 @@ const FORMATS: Format[] = [
   {
     file: 'post-9x16', w: 1080, h: 1920, pad: 250, gap: 28,
     head: 66, name: 58, brand: 32, date: 28, photo: 420, badge: 150, amount: 58,
-    headline: (flag) => `And our Deal of the Day<br>today is&hellip; ${flag}`,
+    headline: (flag) => `Our Deal of the Day today is&hellip; ${flag}`,
   },
   // Feed: no bars to avoid, so the same layout sits tighter.
   {
@@ -171,7 +174,7 @@ function postHtml(p: Pick, photo: string, dateLabel: string, checked: string, f:
   .brandline em { font-style: normal; color: #FF3B41; }
   .date { margin: 0; padding: 10px 22px; border: 2px solid #3A3A40; border-radius: 999px;
     font-size: ${f.date}px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #B9B9C0; }
-  h1 { margin: 0; font-size: ${f.head}px; letter-spacing: -2px; line-height: 1.12; }
+  h1 { margin: 0; font-size: ${f.head}px; letter-spacing: -2px; line-height: 1.12; white-space: nowrap; }
   .flag { display: inline-block; vertical-align: -0.06em; width: ${Math.round(f.head * 1.1)}px; height: ${Math.round(f.head * 0.55)}px; border-radius: 6px; }
   .who { display: flex; flex-direction: column; gap: 10px; }
   .name { margin: 0; font-size: ${f.name}px; font-weight: 700; line-height: 1.1; letter-spacing: -1px;
@@ -221,7 +224,156 @@ function postHtml(p: Pick, photo: string, dateLabel: string, checked: string, f:
     <div class="sticker" aria-hidden="true"><i></i></div>
     <p class="checked">Price incl. delivery, checked ${esc(checked)}</p>
   </div>
-</main></body></html>`;
+</main><script>
+  // One line, never wider than the margins: shrink the headline until it fits.
+  for (const h of document.querySelectorAll('h1')) {
+    let size = parseFloat(getComputedStyle(h).fontSize);
+    while (h.scrollWidth > h.parentElement.clientWidth && size > 30) h.style.fontSize = (size -= 1) + 'px';
+  }
+</script></body></html>`;
+}
+
+/* ── the notes card ──────────────────────────────────────────────────────── */
+
+type Tier = 'top' | 'middle' | 'base';
+const TIERS: Tier[] = ['top', 'middle', 'base'];
+interface CleanNotes { top: string[]; middle: string[]; base: string[]; source: string | null; from: 'own' | 'sibling' }
+interface NotesResult { notes: CleanNotes | null; reasons: string[] }
+
+const titleCase = (s: string) => s.replace(/\S+/g, (w) => w[0]!.toUpperCase() + w.slice(1).toLowerCase());
+
+/**
+ * A note is one ingredient or accord, a word or a few. Anything else is a
+ * scraping slip (a sentence, a size, a price, the product's own name) and is
+ * dropped. If too much has to be dropped, or a tier is implausibly long, the
+ * whole set is treated as unreliable rather than shown half cleaned.
+ */
+export function cleanNotes(raw: { top: string[]; middle: string[]; base: string[] } | null, frag: Pick['frag']): { notes: Omit<CleanNotes, 'source' | 'from'> | null; reasons: string[] } {
+  if (!raw) return { notes: null, reasons: ['no notes published'] };
+  const reasons: string[] = [];
+  const nameWords = new Set(`${frag.brand} ${frag.name}`.toLowerCase().split(/\s+/).filter((w) => w.length > 3));
+  const seen = new Set<string>();
+  let total = 0;
+  let dropped = 0;
+  const out = { top: [] as string[], middle: [] as string[], base: [] as string[] };
+  for (const tier of TIERS) {
+    const list = raw[tier] ?? [];
+    if (list.length > 15) reasons.push(`${tier} has ${list.length} notes`);
+    for (const n of list) {
+      total++;
+      const v = undash(n.replace(/[.;:,!]+$/, '').replace(/\s+/g, ' ').trim()).toLowerCase();
+      const junk =
+        !v || v.length > 28 || v.split(' ').length > 4 || /\d|£|\bml\b|https?:|www\.|eau de|parfum|perfume|fragrance|\bnotes?\b|bottle|spray/.test(v) ||
+        v.split(' ').some((w) => nameWords.has(w));
+      if (junk || seen.has(v)) {
+        dropped++;
+        continue;
+      }
+      seen.add(v);
+      out[tier].push(titleCase(v));
+    }
+  }
+  const kept = out.top.length + out.middle.length + out.base.length;
+  if (total && dropped / total > 0.3) reasons.push(`${dropped} of ${total} entries did not look like notes`);
+  if (kept < 3) reasons.push(`only ${kept} usable notes`);
+  return { notes: reasons.length ? null : out, reasons };
+}
+
+/** Own notes if they pass; else the same perfume in another size; else none. */
+function notesFor(frag: Pick['frag']): NotesResult {
+  if (flag('--no-notes')) return { notes: null, reasons: ['hidden with --no-notes'] };
+  const own = cleanNotes(frag.notes, frag);
+  const sourceName = (n: typeof frag.notes) => (n?.source ? getRetailer(n.source.retailerId)?.name ?? null : null);
+  if (own.notes) return { notes: { ...own.notes, source: sourceName(frag.notes), from: 'own' }, reasons: [] };
+  const key = (f: Pick['frag']) => `${f.brand}|${f.name}`.toLowerCase();
+  for (const sib of DEMO_FRAGRANCES) {
+    if (sib.id === frag.id || key(sib) !== key(frag) || !sib.notes) continue;
+    const c = cleanNotes(sib.notes, sib);
+    if (c.notes) return { notes: { ...c.notes, source: sourceName(sib.notes), from: 'sibling' }, reasons: [`own notes: ${own.reasons.join(', ')}; used another size`] };
+  }
+  return { notes: null, reasons: own.reasons };
+}
+
+/**
+ * Who it is marketed to: the product's own name first, then a majority of the
+ * shops' own listing addresses, which usually carry "for men" / "for women".
+ * With nothing stated anywhere, it is presented as for everyone.
+ */
+function genderFor(frag: Pick['frag']): { reading: GenderReading; basis: string } {
+  const own = readGender(`${frag.brand} ${frag.name} ${frag.concentration}`);
+  if (own !== 'notStated') return { reading: own, basis: 'product name' };
+  const votes: Record<GenderReading, number> = { mens: 0, womens: 0, unisex: 0, notStated: 0 };
+  for (const o of offersFor(frag.id)) {
+    const slug = decodeURIComponent(o.url.split('/').pop() ?? '').replace(/[-_+]/g, ' ');
+    votes[readGender(slug)]++;
+  }
+  const ranked = (['mens', 'womens', 'unisex'] as const).map((g) => [g, votes[g]] as const).sort((a, b) => b[1] - a[1]);
+  if (ranked[0]![1] > 0 && ranked[0]![1] > ranked[1]![1]) return { reading: ranked[0]![0], basis: `${ranked[0]![1]} shop listing(s)` };
+  return { reading: 'notStated', basis: 'not stated anywhere' };
+}
+
+const GENDER_TEXT: Record<GenderReading, string> = { mens: 'Men', womens: 'Women', unisex: 'Everyone', notStated: 'Everyone' };
+
+function notesHtml(p: Pick, dateLabel: string, notes: NotesResult, gender: { reading: GenderReading }): string {
+  const name = undash(`${p.frag.name}${p.frag.sizeMl ? ` ${sizeLabel(p.frag.sizeMl)}` : ''}`);
+  const MAX = 5;
+  const tierRow = (label: string, hint: string, list: string[]) =>
+    list.length === 0
+      ? ''
+      : `<div class="tier"><div class="dot"></div><div class="tier-body"><p class="tier-name">${label} <span>${hint}</span></p>
+         <p class="chips">${list.slice(0, MAX).map((n) => `<span class="chip">${esc(n)}</span>`).join('')}${
+           list.length > MAX ? `<span class="chip more">+${list.length - MAX} more</span>` : ''
+         }</p></div></div>`;
+  const n = notes.notes;
+  const body = n
+    ? `<div class="tree">${tierRow('Top', 'first impression', n.top)}${tierRow('Heart', 'after an hour', n.middle)}${tierRow('Base', 'what lingers', n.base)}</div>`
+    : `<div class="none"><p>The notes for this one are not published yet.</p><p class="sub">Open the product page to see when they are added.</p></div>`;
+  const source = n ? (n.source ? `Notes as published by ${esc(undash(n.source))}` : 'Notes as published by the shops') : 'None of the shops we compare lists its notes';
+  return `<!doctype html><html><head><meta charset="utf-8"><style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1080px; height: 1440px; background: #0A0A0B; color: #F7F7F8;
+    font-family: 'Liberation Sans', Arial, Helvetica, sans-serif; }
+  main { height: 100%; padding: 60px 90px; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; text-align: center; }
+  .top { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+  .brandline { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 44px; letter-spacing: -1px; }
+  .brandline .mark { width: 58px; height: 58px; flex: none; }
+  .brandline em { font-style: normal; color: #FF3B41; }
+  .date { margin: 0; padding: 10px 22px; border: 2px solid #3A3A40; border-radius: 999px; font-size: 24px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #B9B9C0; }
+  h1 { margin: 0; font-size: 60px; letter-spacing: -2px; line-height: 1.1; white-space: nowrap; }
+  .who { display: flex; flex-direction: column; gap: 10px; }
+  .name { margin: 0; font-size: 52px; font-weight: 700; line-height: 1.1; letter-spacing: -1px; }
+  .brand { margin: 0; font-size: 28px; color: #B9B9C0; letter-spacing: 3px; text-transform: uppercase; }
+  .gender { display: flex; align-items: center; gap: 18px; padding: 16px 30px; border-radius: 999px; background: #1E0709; border: 2px solid #FF3B41; }
+  .gender .k { font-size: 24px; font-weight: 700; letter-spacing: 3px; color: #FF6A6E; text-transform: uppercase; }
+  .gender .v { font-size: 40px; font-weight: 700; }
+  .tree { position: relative; width: fit-content; min-width: 560px; max-width: 900px; display: flex; flex-direction: column; gap: 26px; text-align: left; }
+  .tree::before { content: ''; position: absolute; left: 15px; top: 20px; bottom: 20px; width: 3px; background: #3A3A40; }
+  .tier { position: relative; display: flex; gap: 26px; align-items: flex-start; }
+  .dot { flex: none; width: 33px; height: 33px; border-radius: 50%; background: #0A0A0B; border: 3px solid #FF3B41; margin-top: 4px; }
+  .tier-name { margin: 0 0 12px; font-size: 30px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .tier-name span { font-size: 22px; font-weight: 400; letter-spacing: 1px; color: #8A8A93; text-transform: none; margin-left: 8px; }
+  .chips { margin: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+  .chip { padding: 10px 20px; border-radius: 999px; background: #18181B; border: 2px solid #3A3A40; font-size: 28px; }
+  .chip.more { color: #8A8A93; }
+  .none { max-width: 760px; } .none p { margin: 0; font-size: 36px; } .none .sub { margin-top: 14px; font-size: 26px; color: #8A8A93; }
+  .source { margin: 0; font-size: 24px; color: #8A8A93; }
+</style></head><body><main>
+  <div class="top">
+    <div class="brandline">${MARK}<span>Price<em>Sniffs</em></span></div>
+    <p class="date">${esc(dateLabel)}</p>
+    <h1>The Scent Profile</h1>
+  </div>
+  <div class="who"><p class="name">${esc(name)}</p><p class="brand">${esc(undash(p.frag.brand))}</p></div>
+  <div class="gender"><span class="k">Recommended for</span><span class="v">${GENDER_TEXT[gender.reading]}</span></div>
+  ${body}
+  <p class="source">${source}</p>
+</main><script>
+  // One line, never wider than the margins: shrink the headline until it fits.
+  for (const h of document.querySelectorAll('h1')) {
+    let size = parseFloat(getComputedStyle(h).fontSize);
+    while (h.scrollWidth > h.parentElement.clientWidth && size > 30) h.style.fontSize = (size -= 1) + 'px';
+  }
+</script></body></html>`;
 }
 
 function caption(p: Pick, url: string, checked: string, dateLabel: string): string {
@@ -287,18 +439,30 @@ async function main() {
     await page.screenshot({ path: join(dir, `${f.file}.png`), clip: { x: 0, y: 0, width: f.w, height: f.h } });
     await page.close();
   }
+  const notes = notesFor(p.frag);
+  const gender = genderFor(p.frag);
+  {
+    const html = notesHtml(p, dateLabel, notes, gender);
+    writeFileSync(join(dir, 'notes-3x4.html'), html);
+    const page = await browser.newPage({ viewport: { width: 1080, height: 1440 }, deviceScaleFactor: 1 });
+    await page.setContent(html.replace('<style>', `${css}<style>`));
+    await page.evaluate('document.fonts.ready');
+    await page.screenshot({ path: join(dir, 'notes-3x4.png'), clip: { x: 0, y: 0, width: 1080, height: 1440 } });
+    await page.close();
+  }
   await browser.close();
 
   writeFileSync(join(dir, 'caption.txt'), caption(p, url, checked, dateLabel));
   writeFileSync(
     join(dir, 'check.json'),
-    JSON.stringify({ id: p.frag.id, url, delivered: p.delivered, msrp: p.msrp, shop: p.best.retailer.name, percent: p.percent, pricesCheckedAt: CRAWLED_AT, liveCheck: check }, null, 2) + '\n',
+    JSON.stringify({ id: p.frag.id, url, delivered: p.delivered, msrp: p.msrp, shop: p.best.retailer.name, percent: p.percent, pricesCheckedAt: CRAWLED_AT, liveCheck: check, gender, notes: { used: notes.notes ? notes.notes.from : 'none', source: notes.notes?.source ?? null, reasons: notes.reasons, top: notes.notes?.top ?? [], middle: notes.notes?.middle ?? [], base: notes.notes?.base ?? [] } }, null, 2) + '\n',
   );
   const next = history.filter((h) => h.date !== today);
   next.push({ date: today, id: p.frag.id, brand: p.frag.brand });
   writeFileSync(HISTORY, JSON.stringify(next, null, 2) + '\n');
 
   console.log(`${today}: ${p.frag.brand} ${p.frag.name} ${sizeLabel(p.frag.sizeMl)} ${gbp(p.delivered)} at ${p.best.retailer.name}, MSRP ${gbp(p.msrp)} (${p.percent}% less)`);
+  console.log(`Notes card: ${notes.notes ? `${notes.notes.from} notes${notes.notes.source ? ` from ${notes.notes.source}` : ''}` : `no notes shown (${notes.reasons.join(', ')})`}; recommended for ${GENDER_TEXT[gender.reading]} (${gender.basis})`);
   console.log(`Link for the sticker: ${url}`);
   console.log(`${dir.slice(ROOT.length + 1)}/ written; live check: ${check ? (check.ok ? 'link opens the product on the live site' : 'FAILED') : 'skipped'}`);
 }

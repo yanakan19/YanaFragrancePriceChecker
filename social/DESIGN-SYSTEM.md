@@ -93,17 +93,19 @@ These apply to all post copy: the image text and the caption.
 routine does so first on every run.
 
 `npm run social:deal` makes the post in `social/posts/YYYY-MM-DD-deal-of-the-day/`:
-`post-9x16.png` (story, 1080 x 1920) and `post-3x4.png` (feed, 1080 x 1440),
-their HTML sources, `caption.txt` and `check.json`.
+`post-9x16.png` (story, 1080 x 1920), `post-3x4.png` (feed, 1080 x 1440),
+`notes-3x4.png` (the scent profile, 1080 x 1440), their HTML sources,
+`caption.txt` and `check.json`.
 
-Both formats have the same layout, top to bottom and centred. The 3:4 one is
+The two deal pictures have the same layout, top to bottom and centred. The 3:4 one is
 the same design set slightly denser (smaller type and gaps), never a
 different one.
 
 1. Wordmark (the full magnifying glass, never cropped)
 2. The date in a grey pill, e.g. "FRIDAY, 2 OCTOBER 2026"
 3. Headline with the UK flag
-   * 9:16 story: "And our Deal of the Day today is…"
+   * 9:16 story: "Our Deal of the Day today is…" on ONE line (it shrinks to
+     fit the margins rather than wrap)
    * 3:4 feed: "Deal of the Day"
 4. Perfume name and size, then the brand underneath in smaller grey capitals
 5. The product photo used on the site, on a white card, with a red round
@@ -113,6 +115,27 @@ different one.
 7. A faint centre crosshair marking where the link sticker goes. **No web
    address on the image.** The link goes on the sticker and in the caption.
 8. When the price was checked, in small grey
+
+**The scent profile picture** (`notes-3x4.png`, same wordmark, date pill and
+type as the others): headline "The Scent Profile", the perfume name and brand,
+a red "RECOMMENDED FOR" pill (Men, Women or Everyone), then the notes tree:
+TOP (first impression), HEART (after an hour), BASE (what lingers), up to 5
+notes each as chips on a vertical line, and a small line naming the shop the
+notes came from.
+
+How the recommendation and notes are made safe:
+* **Gender:** from the perfume's own name; if it says nothing, from most of the
+  shops' own listings ("for men", "for women"); if nobody states one, Everyone.
+* **Notes are checked before use.** A note must be a short ingredient (at most
+  4 words, no numbers, sizes, prices, links or the perfume's own name).
+  Repeats are removed and hyphens become spaces ("Ylang Ylang"). The whole set
+  is rejected if more than 30% of entries fail, a tier has over 15 notes, or
+  fewer than 3 usable notes remain.
+* **Fallbacks, in order:** this bottle's notes, then the same perfume in
+  another size, then a card that says "The notes for this one are not
+  published yet" (gender still shown). Never invent notes.
+* If the notes pass the checks but are plainly wrong for the perfume, rerun
+  with `--no-notes` to show the fallback card instead.
 
 **Which perfume:** the day's top deal, meaning the biggest saving against
 the brand's own current price (MSRP), among perfumes whose product page shows

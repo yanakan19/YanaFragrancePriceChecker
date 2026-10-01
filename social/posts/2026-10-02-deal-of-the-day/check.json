@@ -11,5 +11,19 @@
     "servesApp": true,
     "inLiveData": true,
     "ok": true
+  },
+  "gender": {
+    "reading": "notStated",
+    "basis": "not stated anywhere"
+  },
+  "notes": {
+    "used": "none",
+    "source": null,
+    "reasons": [
+      "no notes published"
+    ],
+    "top": [],
+    "middle": [],
+    "base": []
   }
 }
