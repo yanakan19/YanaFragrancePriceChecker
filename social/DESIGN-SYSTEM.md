@@ -28,10 +28,10 @@ size unless a platform needs another one.
 
 | Role | Weight | Size on the 1080 x 1920 canvas | Letter spacing |
 |---|---|---|---|
-| Headline | Bold 700 | 132px, two lines at most, centred | -3.5 |
+| Headline | Bold 700 | 92px, **one line**, centred | -2.5 |
 | Wordmark | Bold 700 | 56px | -1.5 |
 | Body | Regular 400 | 46px, three lines at most, about 28 characters a line, centred | 0 |
-| Button and address | Bold 700 | 42px | 0 |
+| Call to action | Bold 700, white | 46px, two lines at most, centred. Default: "Click below or check the link in the bio." | 0 |
 
 For the 16:9 landscape layout, use the sizes in its template file.
 
@@ -44,8 +44,13 @@ them, never stretch them, never put them on anything but the black.
 ## 4. Layouts
 
 Every vertical layout has the same skeleton, top to bottom and centred:
-wordmark, the large mark, headline, body, call to action pill, address.
-Margins are at least 90px at the sides.
+wordmark, the large mark, the one line headline, body, call to action. No
+buttons and no web address on the image: the call to action points to the
+link below the post or in the bio. Margins are at least 90px at the sides.
+
+**Safe zone:** keep everything between y 250 and y 1670. Instagram and TikTok
+draw their own name bar over the top 250px of a story and their reply bar
+and buttons over the bottom 250px.
 
 | Template | Size | Use for |
 |---|---|---|
