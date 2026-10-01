@@ -440,7 +440,8 @@ jobs:
     # nothing here waits on the rebuild to make it safe to push. The rebuild
     # and the demo-asset commit move after it, into a new "Commit rebuilt
     # app" step, carrying only demo/catalogue.generated.ts,
-    # demo/priceHistory.generated.ts, demo/index.html, demo/404.html and
+    # demo/priceHistory.generated.ts, demo/index.html, demo/404.html,
+    # demo/data (the page's hashed data files, deletions included) and
     # demo/sitemap.xml. If the job's cap lands anywhere in that tail now, the
     # harvested prices are already pushed; what is lost is a same-day demo
     # rebuild, which the next scheduled run repeats for free from the
@@ -771,7 +772,7 @@ jobs:
             data/feed-sync-marker.txt \
             demo/catalogue.generated.ts \
             demo/priceHistory.generated.ts data/price-history-checkpoint.json \
-            demo/index.html demo/404.html demo/sitemap.xml
+            demo/index.html demo/404.html demo/data demo/sitemap.xml
 
       # Manual-only debug aid: prints the column headers and the values of
       # price-ish columns for one matched product row in one named Awin
@@ -1268,7 +1269,7 @@ jobs:
             data/price-history-checkpoint.json \
             demo/deals.generated.ts \
             demo/testCount.generated.ts \
-            demo/index.html demo/404.html demo/sitemap.xml
+            demo/index.html demo/404.html demo/data demo/sitemap.xml
 
       # Visible, not fatal: the harvest is already on the branch, the page is
       # one cycle old, and the next run rebuilds it. A warning annotation on
@@ -1420,7 +1421,7 @@ jobs:
         run: |
           ./scripts/commit-and-push.sh \
             "Catalogue: $(date -u +%Y-%m-%d)" \
-            data/catalogue demo/catalogue.generated.ts demo/index.html demo/404.html demo/sitemap.xml
+            data/catalogue demo/catalogue.generated.ts demo/index.html demo/404.html demo/data demo/sitemap.xml
 
       # Keep the failure loud. A crawl that quietly stops working leaves stale
       # prices on the site, which is worse than showing nothing.

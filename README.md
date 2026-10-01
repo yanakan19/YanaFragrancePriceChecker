@@ -165,16 +165,21 @@ variable** → name `SIGNED_COMMITS`, value `off`.
 ```
 npm ci
 npm test          # the whole suite, including the built page's layout and accessibility
-npm run demo      # rebuild demo/index.html and demo/404.html after any change to the site
+npm run demo      # rebuild demo/index.html, demo/404.html and demo/data/ after any change to the site
 ```
 
 `demo/index.html` is a build artefact, not source: edit `demo/app.ts`,
 `demo/template.html`, or anything else `tsconfig.demo.json` bundles, and run
 `npm run demo` before you commit. `tests/demoBuildFreshness.test.ts` fails
 `npm test` if the page's stamped build hash (`scripts/demoInputsHash.ts`) does
-not match the source. The page carries the catalogue as a JSON block ahead of
-the code (`scripts/bundle-demo.ts` explains why), so it is still one
-self-contained file you can open from disk.
+not match the source. The catalogue, price history, deals and fragrance links
+ship beside the page as `demo/data/<module>.<hash>.json`, named for a hash of
+their content so the service worker can keep them for good
+(`scripts/bundle-demo.ts` explains why). Commit `demo/data` with the page,
+deletions included: each build removes the previous build's files. Because
+the page fetches those files, serve `demo/` over HTTP to look at it (the
+Playwright scripts do, via `scripts/a11y-audit.ts`); it no longer opens from
+disk. `npm run perf:load` measures first and repeat visits on a slow phone.
 
 ## The idea
 

@@ -360,3 +360,63 @@ describe('scripts/commit-and-push.sh never pushes a demo/index.html that is stal
     expect(git(worker, ['show', 'origin/master:data/notes.json'])).toBe('{"v":1,"ours":true}');
   });
 });
+
+// demo/index.html fetches its prices from demo/data/<module>.<hash>.json, and
+// every build deletes the previous build's files (scripts/build-demo.ts). A
+// page pushed without its folder, or a folder pushed without its deletions,
+// is a site with no prices or a repository that grows by a catalogue a run.
+describe('scripts/commit-and-push.sh commits the page\'s data folder with it', () => {
+  const tree = (worker: string) => git(worker, ['ls-tree', '-r', '--name-only', 'origin/master', '--', 'demo/data']);
+
+  it('stages demo/data, deletions included, whenever demo/index.html is named, even if the caller forgot it', () => {
+    const { root, worker } = setupTrio({
+      relPath: 'demo/index.html',
+      content: 'PAGE:A\n',
+      extra: { 'demo/data/catalogue.aaaaaaaaaaaaaaaa.json': '["a"]' },
+    });
+    cleanupDirs.push(root);
+
+    writeFileSync(join(worker, 'demo/index.html'), 'PAGE:B\n');
+    rmSync(join(worker, 'demo/data/catalogue.aaaaaaaaaaaaaaaa.json'));
+    writeFileSync(join(worker, 'demo/data/catalogue.bbbbbbbbbbbbbbbb.json'), '["b"]');
+
+    const { status, output } = runScript(worker, ['Rebuild demo: sim', 'demo/index.html'], { FRESHNESS_CHECK: 'true' });
+
+    expect(status, output).toBe(0);
+    expect(git(worker, ['show', 'origin/master:demo/index.html'])).toBe('PAGE:B');
+    expect(tree(worker)).toBe('demo/data/catalogue.bbbbbbbbbbbbbbbb.json');
+  });
+
+  it('after a conflict with another run\'s build, pushes only the merged rebuild\'s data files', () => {
+    const { root, worker, concurrent } = setupTrio({
+      relPath: 'demo/index.html',
+      content: 'PAGE:A\n',
+      gitignore: 'dist-demo/\n',
+      extra: { 'demo/data/catalogue.aaaaaaaaaaaaaaaa.json': '["a"]' },
+    });
+    cleanupDirs.push(root);
+
+    // Another run's build lands first: new page, A deleted, B added.
+    rmSync(join(concurrent, 'demo/data/catalogue.aaaaaaaaaaaaaaaa.json'));
+    writeFileSync(join(concurrent, 'demo/data/catalogue.bbbbbbbbbbbbbbbb.json'), '["b"]');
+    pushConcurrentChange(concurrent, 'demo/index.html', 'PAGE:B\n');
+
+    // Ours, from older inputs: A deleted, C added.
+    writeFileSync(join(worker, 'demo/index.html'), 'PAGE:C\n');
+    rmSync(join(worker, 'demo/data/catalogue.aaaaaaaaaaaaaaaa.json'));
+    writeFileSync(join(worker, 'demo/data/catalogue.cccccccccccccccc.json'), '["c"]');
+
+    // The rebuild does what build-demo.ts does: writes the merged build's
+    // file and deletes every other one.
+    const { status, output } = runScript(worker, ['Rebuild demo: sim', 'demo/index.html', 'demo/404.html', 'demo/data'], {
+      FRESHNESS_CHECK: 'true',
+      REGENERATE:
+        'rm -f demo/data/*.json && echo \'["d"]\' > demo/data/catalogue.dddddddddddddddd.json && echo "PAGE:D" > demo/index.html',
+    });
+
+    expect(status, output).toBe(0);
+    expect(output).toContain('Pushed on attempt 2');
+    expect(git(worker, ['show', 'origin/master:demo/index.html'])).toBe('PAGE:D');
+    expect(tree(worker)).toBe('demo/data/catalogue.dddddddddddddddd.json');
+  });
+});
