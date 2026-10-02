@@ -1,8 +1,10 @@
 /**
  * "What is PriceSniffs?" introduction carousel: four 3:4 feed slides
- * (1080 x 1440) plus the caption. Follows social/DESIGN-SYSTEM.md: black
- * background, Liberation Sans, red accents, no web address on the image
- * ("Link in bio"), no hyphens or dashes, smooth 2x rendering and fit to space.
+ * (1080 x 1440) plus the caption. Follows social/DESIGN-SYSTEM.md: it is a
+ * one off post, so it uses the INVERTED theme (red background, black icons
+ * and type; Deal of the Day keeps the standard black theme). Liberation Sans,
+ * no web address on the image ("Link in bio"), no hyphens or dashes, smooth
+ * 2x rendering and fit to space.
  *
  *   npx tsx scripts/social-intro-slides.ts
  */
@@ -17,50 +19,69 @@ const W = 1080;
 const H = 1440;
 const TOTAL = 4;
 
+/** The logo mark in the theme's colours: --mark-ring for the glass, --mark-bottle for the bottle. */
 const MARK = (cls: string) =>
-  `<svg class="${cls}" viewBox="240 240 610 610" aria-hidden="true"><circle cx="478" cy="478" r="196" fill="none" stroke="#FF3B41" stroke-width="58"/><line x1="636" y1="636" x2="796" y2="796" stroke="#FF3B41" stroke-width="72" stroke-linecap="round"/><g fill="#F7F7F8"><rect x="452" y="366" width="52" height="42" rx="9"/><rect x="463" y="402" width="30" height="26"/><rect x="398" y="422" width="160" height="164" rx="34"/></g></svg>`;
+  `<svg class="${cls}" viewBox="240 240 610 610" aria-hidden="true"><circle cx="478" cy="478" r="196" fill="none" stroke="var(--mark-ring)" stroke-width="58"/><line x1="636" y1="636" x2="796" y2="796" stroke="var(--mark-ring)" stroke-width="72" stroke-linecap="round"/><g fill="var(--mark-bottle)"><rect x="452" y="366" width="52" height="42" rx="9"/><rect x="463" y="402" width="30" height="26"/><rect x="398" y="422" width="160" height="164" rx="34"/></g></svg>`;
 
 /** A red ring with a white tick: the bullet used on every slide. */
-const TICK = `<svg class="tick" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#FF3B41" stroke-width="7"/><path d="M20 33 l8 8 l16 -17" fill="none" stroke="#F7F7F8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const TICK = `<svg class="tick" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="var(--icon)" stroke-width="7"/><path d="M20 33 l8 8 l16 -17" fill="none" stroke="var(--icon-inner)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+/**
+ * The two social themes (social/DESIGN-SYSTEM.md section 1). STANDARD is the
+ * site's own look and is used by Deal of the Day; INVERTED is for one off
+ * posts so they stand out in the grid: red background, black icons and type.
+ * Black on this red is about 6:1 contrast, so body text stays black; white is
+ * kept for large type only ("Sniffs").
+ */
+const THEMES = {
+  standard: `--bg:#0A0A0B; --ink:#F7F7F8; --ink-2:#B9B9C0; --ink-3:#8A8A93; --accent:#FF3B41; --kicker:#FF6A6E;
+    --card:#121214; --card-line:#26262B; --icon:#FF3B41; --icon-inner:#F7F7F8; --mark-ring:#FF3B41; --mark-bottle:#F7F7F8;
+    --bar:#3A3A40; --bar-best:#4FB47B; --tag-bg:#1E0709; --tag-ink:#FF6A6E; --pill-bg:#FF3B41; --pill-ink:#0A0A0B; --dot:#3A3A40; --dot-on:#FF3B41;`,
+  inverted: `--bg:#FF3B41; --ink:#0A0A0B; --ink-2:rgba(10,10,11,0.78); --ink-3:rgba(10,10,11,0.6); --accent:#FFFFFF; --kicker:#0A0A0B;
+    --card:rgba(10,10,11,0.1); --card-line:rgba(10,10,11,0.28); --icon:#0A0A0B; --icon-inner:#0A0A0B; --mark-ring:#0A0A0B; --mark-bottle:#0A0A0B;
+    --bar:rgba(10,10,11,0.3); --bar-best:#0A0A0B; --tag-bg:#0A0A0B; --tag-ink:#FF3B41; --pill-bg:#0A0A0B; --pill-ink:#FF3B41; --dot:rgba(10,10,11,0.3); --dot-on:#0A0A0B;`,
+};
+const THEME: keyof typeof THEMES = 'inverted';
 
 const CSS = `
   * { box-sizing: border-box; }
-  html, body { margin: 0; width: ${W}px; height: ${H}px; background: #0A0A0B; color: #F7F7F8;
+  html { ${THEMES[THEME]} }
+  html, body { margin: 0; width: ${W}px; height: ${H}px; background: var(--bg); color: var(--ink);
     font-family: 'Liberation Sans', Arial, Helvetica, sans-serif; }
   main { height: 100%; padding: 80px 90px 70px; display: flex; flex-direction: column; align-items: center;
     justify-content: space-between; text-align: center; }
   .brandline { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 44px; letter-spacing: -0.5px; }
   .brandline .mark { width: 58px; height: 58px; flex: none; }
-  em { font-style: normal; color: #FF3B41; }
+  em { font-style: normal; color: var(--accent); }
   .body { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 34px; }
-  .kicker { margin: 0; font-size: 28px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #FF6A6E; }
+  .kicker { margin: 0; font-size: 28px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--kicker); }
   h1 { margin: 0; width: 100%; font-size: 84px; line-height: 1.1; letter-spacing: -1px; }
-  .sub { margin: 0; font-size: 40px; line-height: 1.35; color: #B9B9C0; }
+  .sub { margin: 0; font-size: 40px; line-height: 1.35; color: var(--ink-2); }
   .list { width: 100%; max-width: 860px; display: flex; flex-direction: column; gap: 30px; text-align: left; }
   .item { display: flex; align-items: center; gap: 28px; padding: 26px 30px; border-radius: 28px;
-    background: #121214; border: 2px solid #26262B; }
+    background: var(--card); border: 2px solid var(--card-line); }
   .tick { flex: none; width: 64px; height: 64px; }
   .item p { margin: 0; font-size: 38px; line-height: 1.3; }
   .item b { display: block; font-size: 42px; margin-bottom: 4px; }
-  .item span { color: #B9B9C0; font-size: 32px; }
+  .item span { color: var(--ink-2); font-size: 32px; }
   .big-mark { width: 380px; height: 380px; }
   .foot { display: flex; align-items: center; justify-content: space-between; width: 100%; }
   .dots { display: flex; gap: 12px; }
-  .dots i { width: 14px; height: 14px; border-radius: 50%; background: #3A3A40; }
-  .dots i.on { background: #FF3B41; }
-  .swipe { font-size: 30px; font-weight: 700; color: #B9B9C0; }
-  .pill { padding: 22px 52px; border-radius: 999px; background: #FF3B41; color: #0A0A0B; font-size: 46px; font-weight: 700; }
-  .rows { width: 100%; max-width: 820px; border-radius: 28px; background: #121214; border: 2px solid #26262B; padding: 10px 0; }
-  .row { display: flex; align-items: center; justify-content: space-between; padding: 22px 30px; border-bottom: 2px solid #1E1E22; }
+  .dots i { width: 14px; height: 14px; border-radius: 50%; background: var(--dot); }
+  .dots i.on { background: var(--dot-on); }
+  .swipe { font-size: 30px; font-weight: 700; color: var(--ink-2); }
+  .pill { padding: 22px 52px; border-radius: 999px; background: var(--pill-bg); color: var(--pill-ink); font-size: 46px; font-weight: 700; }
+  .rows { width: 100%; max-width: 820px; border-radius: 28px; background: var(--card); border: 2px solid var(--card-line); padding: 10px 0; }
+  .row { display: flex; align-items: center; justify-content: space-between; padding: 22px 30px; border-bottom: 2px solid var(--card-line); }
   .row:last-child { border-bottom: 0; }
-  .row.best { border-left: 6px solid #FF3B41; }
+  .row.best { border-left: 6px solid var(--ink); }
   .shop { display: flex; align-items: center; gap: 16px; }
-  .bar { height: 22px; border-radius: 11px; background: #3A3A40; }
-  .tag { font-size: 20px; font-weight: 700; letter-spacing: 2px; color: #FF6A6E; background: #1E0709; border-radius: 8px; padding: 6px 10px; }
+  .bar { height: 22px; border-radius: 11px; background: var(--bar); }
+  .tag { font-size: 20px; font-weight: 700; letter-spacing: 2px; color: var(--tag-ink); background: var(--tag-bg); border-radius: 8px; padding: 6px 10px; }
   .price { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
-  .price .bar { background: #4FB47B; }
-  .row:not(.best) .price .bar { background: #5A5A62; }
-  .note { font-size: 20px; color: #8A8A93; letter-spacing: 1px; text-transform: uppercase; }
+  .price .bar { background: var(--bar-best); }
+  .row:not(.best) .price .bar { background: var(--bar); }
+  .note { font-size: 20px; color: var(--ink-3); letter-spacing: 1px; text-transform: uppercase; }
 `;
 
 function slide(n: number, inner: string, footRight: string): string {
