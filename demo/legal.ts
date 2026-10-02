@@ -55,6 +55,8 @@
 import { RETAILERS } from '../src/config/retailers.js';
 import { DEMO_FRAGRANCES } from './data.js';
 import { BRAND_LOGOS } from './brandLogos.js';
+import { SHOP_COUNT } from './catalogue.generated.js';
+import { shopsPhrase } from './head.js';
 
 const n = (v: number) => v.toLocaleString('en-GB');
 /** 1st, 2nd, 3rd, 4th … 11th, 12th, 13th, 21st: the English rule, not a lookup. */
@@ -68,6 +70,8 @@ const ordinal = (v: number): string => {
 const ENABLED = RETAILERS.filter((r) => r.enabled);
 /** The same count, for the home page's one sentence about what the site covers. */
 export const ENABLED_SHOP_COUNT = ENABLED.length;
+/** Coverage as shoppers see it ("more than 30"): shops that show prices today, rounded down. */
+export const COVERAGE = shopsPhrase(Math.min(ENABLED.length, SHOP_COUNT));
 /** Researched but not switched on, usually pending a delivery cost or a route. */
 const SWITCHED_OFF = RETAILERS.filter((r) => !r.enabled);
 /** Programmes actually approved, so a link genuinely earns commission. */
@@ -211,7 +215,7 @@ export const LEGAL_PAGES: LegalPage[] = [
     title: 'About PriceSniffs',
     short: 'About',
     body: `
-      <p>PriceSniffs shows what a bottle of fragrance really costs at ${ENABLED.length} UK shops, delivery included. It covers ${n(DEMO_FRAGRANCES.length)} fragrances today.</p>
+      <p>PriceSniffs shows what a bottle of fragrance really costs at ${COVERAGE} UK shops, delivery included. It covers ${n(DEMO_FRAGRANCES.length)} fragrances today.</p>
       <p>Hi, I am Yanny. I built this after I bought a 100ml Club de Nuit and saw it twelve pounds cheaper four days later. Checking by hand meant nine tabs across Boots, Notino and Beauty Base, and half of them hid the postage until checkout.</p>
       <h2 class="t-section">How prices are checked</h2>
       <ul>
@@ -232,7 +236,7 @@ export const LEGAL_PAGES: LegalPage[] = [
     title: 'How PriceSniffs works',
     short: 'How It Works',
     body: `
-      <p>PriceSniffs compares fragrance prices across ${ENABLED.length} UK shops, so you can
+      <p>PriceSniffs compares fragrance prices across ${COVERAGE} UK shops, so you can
       see what a bottle really costs before you buy it.</p>
 
       <h2 class="t-section">Prices are checked every three hours</h2>

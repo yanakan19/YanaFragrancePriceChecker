@@ -11,8 +11,9 @@ Everything for PriceSniffs social media posts.
 | `fonts/` | Liberation Sans, the logo's font, with its licence |
 
 Deal of the Day posts are made automatically every day at 12:00 UK
-(`npm run social:deal`, see DESIGN-SYSTEM.md section 7), and a "How much could
-you save?" carousel every day at 18:00 UK (`npm run social:savings`, section 8).
+(`npm run social:deal`, see DESIGN-SYSTEM.md section 7), and two "How much
+could you save?" carousels every day at 18:00 UK (`npm run social:savings`,
+section 8).
 
 Make the PNGs with `npm run social:render` (every post) or
 `npm run social:render -- social/posts/<folder>` (one post).
