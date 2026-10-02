@@ -236,5 +236,8 @@ export function bottleScaleStyle(
   const txRounded = round1(tx);
   const tyRounded = round1(ty);
 
-  return `translate(${txRounded}%,${tyRounded}%) scale(${kRounded});transform-origin:${originX}% ${originY}%`;
+  // A complete inline style: property names included. It shipped from
+  // 2026-09-11 to 2026-10-02 as a bare "translate(...) scale(...)", which a
+  // browser drops as an invalid declaration, so no bottle was ever resized.
+  return `transform:translate(${txRounded}%,${tyRounded}%) scale(${kRounded});transform-origin:${originX}% ${originY}%`;
 }

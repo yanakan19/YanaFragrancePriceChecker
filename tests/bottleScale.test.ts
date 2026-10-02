@@ -7,6 +7,13 @@ function centredBox(shf: number, swf = 0.4): SilhouetteBox {
 }
 
 describe('bottleScaleStyle', () => {
+  it('returns a complete inline style a browser will apply, property names included', () => {
+    // It once returned "translate(...) scale(...);transform-origin:...", which
+    // a browser drops as an invalid declaration: no bottle was resized for weeks.
+    const style = bottleScaleStyle(centredBox(0.5), 1920, 1920, 'bottle-only')!;
+    expect(style).toMatch(/^transform:translate\([-\d.]+%,[-\d.]+%\) scale\([\d.]+\);transform-origin:[\d.]+% [\d.]+%$/);
+  });
+
   it('caps the zoom on a small source so it cannot soften — resolution floor', () => {
     // A bottle at 0.41 of the tile wants k = 0.80/0.41 = 1.95. On a 1920px
     // source that is fine (window ~985px), but on a 500px source it would
@@ -72,13 +79,13 @@ describe('bottleScaleStyle', () => {
     // fH = 0.5 on a square file: k = 0.8 / 0.5 = 1.6 exactly, no letterbox
     // correction, silhouette already centred so no shift.
     const style = bottleScaleStyle(centredBox(0.5), 1000, 1000, 'bottle-only');
-    expect(style).toBe('translate(0%,0%) scale(1.6);transform-origin:50% 50%');
+    expect(style).toBe('transform:translate(0%,0%) scale(1.6);transform-origin:50% 50%');
   });
 
   it('scales a square, centred, oversized silhouette down to the target', () => {
     // fH = 1.0 (fills the frame, like Sauvage in the plan): k = 0.8/1 = 0.8.
     const style = bottleScaleStyle(centredBox(1.0, 0.9), 1000, 1000, 'bottle-only');
-    expect(style).toBe('translate(0%,0%) scale(0.8);transform-origin:50% 50%');
+    expect(style).toBe('transform:translate(0%,0%) scale(0.8);transform-origin:50% 50%');
   });
 
   it('recentres an off-centre square silhouette', () => {
@@ -86,13 +93,13 @@ describe('bottleScaleStyle', () => {
     // shf=0.5 so k stays 1.6). tx = (0.5-0.3)*100 = 20, ty = (0.5-0.45)*100 = 5.
     const box: SilhouetteBox = { sxf: 0.1, syf: 0.2, swf: 0.4, shf: 0.5 };
     const style = bottleScaleStyle(box, 1000, 1000, 'bottle-only');
-    expect(style).toBe('translate(20%,5%) scale(1.6);transform-origin:30% 45%');
+    expect(style).toBe('transform:translate(20%,5%) scale(1.6);transform-origin:30% 45%');
   });
 
   it('honours a custom target', () => {
     // fH=0.5, target=0.6: k = 0.6/0.5 = 1.2.
     const style = bottleScaleStyle(centredBox(0.5), 1000, 1000, 'bottle-only', 0.6);
-    expect(style).toBe('translate(0%,0%) scale(1.2);transform-origin:50% 50%');
+    expect(style).toBe('transform:translate(0%,0%) scale(1.2);transform-origin:50% 50%');
   });
 
   it('applies the letterbox correction for a portrait file', () => {
@@ -104,7 +111,7 @@ describe('bottleScaleStyle', () => {
     // (1-0.5)/2 + 0.5*0.5 = 0.25+0.25 = 0.5), so still no shift on either
     // axis despite the file being letterboxed left/right in the tile.
     const style = bottleScaleStyle(centredBox(0.5), 500, 1000, 'bottle-only');
-    expect(style).toBe('translate(0%,0%) scale(1.6);transform-origin:50% 50%');
+    expect(style).toBe('transform:translate(0%,0%) scale(1.6);transform-origin:50% 50%');
   });
 
   it('shifts a portrait silhouette that sits off-centre horizontally, in element space', () => {
@@ -114,7 +121,7 @@ describe('bottleScaleStyle', () => {
     // centre, not the file's). tx = (0.5-0.35)*100 = 15.
     const box: SilhouetteBox = { sxf: 0, syf: 0.25, swf: 0.4, shf: 0.5 };
     const style = bottleScaleStyle(box, 500, 1000, 'bottle-only');
-    expect(style).toBe('translate(15%,0%) scale(1.6);transform-origin:35% 50%');
+    expect(style).toBe('transform:translate(15%,0%) scale(1.6);transform-origin:35% 50%');
   });
 
   it('applies the letterbox correction for a landscape file', () => {
@@ -122,7 +129,7 @@ describe('bottleScaleStyle', () => {
     // shf=1.0 (fills the file's own height) -> fHTile = 0.5 -> k = 1.6.
     const box = centredBox(1.0, 0.4);
     const style = bottleScaleStyle(box, 1000, 500, 'bottle-only');
-    expect(style).toBe('translate(0%,0%) scale(1.6);transform-origin:50% 50%');
+    expect(style).toBe('transform:translate(0%,0%) scale(1.6);transform-origin:50% 50%');
   });
 
   it('is null when the silhouette height in tile-space is below the trust floor', () => {

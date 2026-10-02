@@ -32,13 +32,13 @@ describe('productArt with an image transform', () => {
   });
 
   it('never emits a style attribute on the no-photo placeholder, transform or not', () => {
-    const html = productArt(null, 'md', 'Some Brand Some Name', 'translate(0%,0%) scale(1.6);transform-origin:50% 50%');
+    const html = productArt(null, 'md', 'Some Brand Some Name', 'transform:translate(0%,0%) scale(1.6);transform-origin:50% 50%');
     expect(html).not.toContain('style=');
     expect(html).toContain('art-empty');
   });
 
   it('applies a given transform as an inline style on the <img>, not the container', () => {
-    const transform = 'translate(-0.2%,0.3%) scale(1.115);transform-origin:50.2% 49.8%';
+    const transform = 'transform:translate(-0.2%,0.3%) scale(1.115);transform-origin:50.2% 49.8%';
     const html = productArt('https://example.test/bottle.jpg', 'md', 'Some Brand Some Name', transform);
     const img = (html.match(/<img[\s\S]*?\/>/) ?? [])[0];
     expect(img).toBeDefined();
