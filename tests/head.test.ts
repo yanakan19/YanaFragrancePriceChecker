@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { headFor, SITE_URL, type HeadInput } from '../demo/head.js';
+import { headFor, shopsPhrase, SITE_URL, type HeadInput } from '../demo/head.js';
 import { matchRoute, type RouteName } from '../demo/router.js';
 
 const route = (name: RouteName, param = '', query: Record<string, string> = {}) => ({ name, param, query });
@@ -90,10 +90,21 @@ describe('descriptions', () => {
     }
   });
 
-  it('uses the real figures it is given rather than a rounded claim', () => {
+  // The owner's choice (2026-10-02): the fragrance count is exact, the shop
+  // count is rounded down to the ten below, so it never claims more shops
+  // than actually show prices.
+  it('uses the real fragrance count and a shop count rounded down', () => {
     const t = tags({ route: route('home'), productCount: 12662, retailerCount: 28 });
     expect(t.description).toContain('12,662');
-    expect(t.description).toContain('28');
+    expect(t.description).toContain('more than 20 UK shops');
+  });
+
+  it('rounds the shop count down to the ten below, never up', () => {
+    expect(shopsPhrase(33)).toBe('more than 30');
+    expect(shopsPhrase(38)).toBe('more than 30');
+    expect(shopsPhrase(40)).toBe('more than 30');
+    expect(shopsPhrase(41)).toBe('more than 40');
+    expect(shopsPhrase(7)).toBe('7');
   });
 
   it('omits a price phrase entirely when no delivered price was passed', () => {

@@ -130,6 +130,15 @@ function describe(core: string, tail: string): string {
   return clamp(joined, DESC_MAX);
 }
 
+/**
+ * How the site states its coverage to shoppers: "more than 30", rounded down
+ * to the ten below the number of shops that actually show prices. The owner
+ * chose a rounded figure on 2026-10-02 so the claim stays true as shops come
+ * and go.
+ */
+export const shopsPhrase = (count: number): string =>
+  count > 10 ? `more than ${Math.floor((count - 1) / 10) * 10}` : String(count);
+
 const SITE_TAIL = 'Real prices read from the shops themselves, updated through the day.';
 
 export function headFor(input: HeadInput): HeadTags {
@@ -140,7 +149,7 @@ export function headFor(input: HeadInput): HeadTags {
   const canonical = `${SITE_URL}${pathOf(route)}`;
 
   const products = productCount ? productCount.toLocaleString('en-GB') : null;
-  const shops = retailerCount ? String(retailerCount) : null;
+  const shops = retailerCount ? shopsPhrase(retailerCount) : null;
 
   switch (route.name) {
     case 'home':

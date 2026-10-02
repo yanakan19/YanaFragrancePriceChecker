@@ -58,7 +58,7 @@ import {
   PER_ROW_CHOICES, PER_ROW_DEFAULT, clampPerRow, gridWidthFor, perRowChoicesFor,
 } from './tileDensity.js';
 import { trustpilotStateFor } from './trustpilotWidget.js';
-import { ENABLED_SHOP_COUNT } from './legal.js';
+import { COVERAGE } from './legal.js';
 import { deliveryLines } from './deliveryFacts.js';
 import { msrpComparison, msrpComparisonLabel, type MsrpComparison } from './msrpComparison.js';
 import { pickReferencePrice } from './referencePrice.js';
@@ -1425,7 +1425,7 @@ function homeView(): string {
            superlative as misleading. What follows is what the site can show.
            "Real and Live Prices" went the same way: prices are checked every
            three hours, which is the true sentence, not "live". -->
-      <p class="hero-mission">See what a fragrance really costs across ${ENABLED_SHOP_COUNT} UK shops, delivery included.</p>
+      <p class="hero-mission">See what a fragrance really costs across ${COVERAGE} UK shops, delivery included.</p>
       <p class="intro-points">
         <span>Delivery Included</span>
         <span>Prices Checked Every 3 Hours</span>

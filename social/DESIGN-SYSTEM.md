@@ -217,11 +217,16 @@ its caption.
 as a plain https address in a copyable box for the story's link sticker, and
 gives the feed post caption in its own copyable box.
 
-## 8. How much could you save? (automatic, every day at 18:00 UK)
+## 8. How much could you save? (automatic, two a day, made at 18:00 UK)
 
 **Read this whole document first**, as with Deal of the Day.
 
-`npm run social:savings` makes a six slide 3:4 feed post (a carousel) in the
+Two a day. `npm run social:savings` makes the first in
+`social/posts/YYYY-MM-DD-savings/`, and `npm run social:savings -- --slot 2`
+the second in `social/posts/YYYY-MM-DD-savings-2/`, always a different
+perfume. Post them a few hours apart.
+
+Each is a six slide 3:4 feed post (a carousel) in the
 **standard black theme**, reel safe (section 4), in `social/posts/YYYY-MM-DD-savings/`: six
 `slide-N-3x4.png` with their HTML sources, `caption.txt` and `check.json`.
 

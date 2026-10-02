@@ -5,6 +5,7 @@
  * in the STANDARD (black) theme.
  *
  *   npm run social:savings                     today's example
+ *   npm run social:savings -- --slot 2         the day's second post (folder <date>-savings-2)
  *   npm run social:savings -- --id <id>        a chosen perfume
  *   npm run social:savings -- --theme inverted --out <folder name>
  *
@@ -65,7 +66,7 @@ interface Example {
   saving: number;
   percent: number;
 }
-interface HistoryEntry { date: string; id: string; dear: string; cheap: string }
+interface HistoryEntry { date: string; id: string; dear: string; cheap: string; slot?: number }
 
 function candidates(): Example[] {
   const forced = opt('--id');
@@ -255,16 +256,22 @@ ${url}
 `;
 }
 
+const slot = Number(opt('--slot') ?? 1);
+const folder = slot === 1 ? `${today}-savings` : `${today}-savings-${slot}`;
+/** Today's entry for this same slot (a rerun may pick it again); other days and slots count as posted. */
+const sameSlot = (h: HistoryEntry) => h.date === today && (h.slot ?? 1) === slot;
+
 async function main() {
   // One post a day: a rerun on a day that already has one makes nothing.
-  if (!opt('--out') && !opt('--id') && existsSync(join(ROOT, 'social', 'posts', `${today}-savings`))) {
-    console.log(`Today's savings post already exists (social/posts/${today}-savings). Nothing to do.`);
+  // Two posts a day: --slot 1 (the default) and --slot 2, each in its own folder.
+  if (!opt('--out') && !opt('--id') && existsSync(join(ROOT, 'social', 'posts', folder))) {
+    console.log(`Today's savings post ${slot} already exists (social/posts/${folder}). Nothing to do.`);
     process.exitCode = 2;
     return;
   }
   const history: HistoryEntry[] = existsSync(HISTORY) ? JSON.parse(readFileSync(HISTORY, 'utf8')) : [];
   const recent = new Set(
-    history.filter((h) => h.date !== today && (Date.parse(today) - Date.parse(h.date)) / 86_400_000 < NO_REPEAT_DAYS).map((h) => h.id),
+    history.filter((h) => !sameSlot(h) && (Date.parse(today) - Date.parse(h.date)) / 86_400_000 < NO_REPEAT_DAYS).map((h) => h.id),
   );
   const skipped: string[] = [];
   let chosen: { e: Example; checks: Record<string, unknown> } | null = null;
@@ -290,7 +297,7 @@ async function main() {
   }
   const { e, checks } = chosen;
   const url = `${SITE}/fragrance/${e.frag.id}`;
-  const dir = join(ROOT, 'social', 'posts', opt('--out') ?? `${today}-savings`);
+  const dir = join(ROOT, 'social', 'posts', opt('--out') ?? folder);
   mkdirSync(dir, { recursive: true });
   const photo = photoDataUri(e.frag.photoUrl!);
   const browser = await launchChromium();
@@ -309,7 +316,7 @@ async function main() {
     skipped,
   }, null, 2) + '\n');
   if (!opt('--out')) {
-    writeFileSync(HISTORY, JSON.stringify([...history.filter((h) => h.date !== today), { date: today, id: e.frag.id, dear: e.dear.retailer.id, cheap: e.cheap.retailer.id }], null, 2) + '\n');
+    writeFileSync(HISTORY, JSON.stringify([...history.filter((h) => !sameSlot(h)), { date: today, slot, id: e.frag.id, dear: e.dear.retailer.id, cheap: e.cheap.retailer.id }], null, 2) + '\n');
   }
   console.log(`${today}: ${e.frag.brand} ${e.frag.name} ${e.frag.sizeMl ?? ''}ml: ${e.dear.retailer.name} ${gbp(e.dear.deliveredPriceGbp!)} vs ${e.cheap.retailer.name} ${gbp(e.cheap.deliveredPriceGbp!)}, save ${gbp(e.saving)} (${e.percent}%)`);
   console.log(`Live prices: ${e.cheap.retailer.name} ${checks.cheapLive}, ${e.dear.retailer.name} ${checks.dearLive} (unreadable = the shop blocks automated reads; check it by hand)`);
