@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-02T09:49:37.204Z",
+  "checkedAt": "2026-10-02T16:53:25.991Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,10 +59,12 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "SEK",
-      "listings": 60,
+      "listings": 1,
       "pricedInGbp": 0,
       "withPhoto": 0,
-      "errors": [],
+      "errors": [
+        "stopped early: the house began refusing requests"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
@@ -146,7 +148,7 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "https://lattafa.com/sitemap_index.xml: HTTP 504"
+        "https://lattafa.com/sitemap_index.xml: HTTP 0 AbortError: This operation was aborted"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
