@@ -52,6 +52,11 @@ describe('social posts', () => {
       const lines = readFileSync(file, 'utf8').split('\n').filter((l) => DASHES.test(noUrls(l)));
       expect(lines).toEqual([]);
     });
+    // The owner's rule (2026-10-02): at most 5 hashtags on any caption.
+    it(`${file.slice(POSTS.length)} has at most 5 hashtags`, () => {
+      const tags = noUrls(readFileSync(file, 'utf8')).match(/#[\p{L}\p{N}_]+/gu) ?? [];
+      expect(tags.length, tags.join(' ')).toBeLessThanOrEqual(5);
+    });
   }
 
   for (const file of all.filter((p) => p.endsWith('.html'))) {

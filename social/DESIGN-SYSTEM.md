@@ -138,6 +138,8 @@ These rules apply to all post copy: the image text and the caption.
 4. Every price claim must be true on the day it is posted, and follow the UK
    advertising rules in `docs/SOCIAL-MEDIA-PLAN.md`.
 5. The address is always `pricesniffs.space`, lower case.
+6. **At most 5 hashtags per caption**, on the last line. `tests/socialPosts.test.ts`
+   fails the build if a caption has more.
 
 ## 6. Checklist for a new post
 

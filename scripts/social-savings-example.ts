@@ -136,7 +136,7 @@ That is ${gbp(saving)} saved on one bottle, ${percent}% less. Buy one a month at
 
 We show the total with delivery before you click, for more than 30 UK shops. Prices checked ${DEAL.checked} and they change, so check the link in our bio before you buy.
 
-#perfume #fragrance #missdior #perfumedeals #ukdeals #pricesniffs
+#perfume #fragrance #missdior #perfumedeals #pricesniffs
 `;
 
   mkdirSync(DIR, { recursive: true });

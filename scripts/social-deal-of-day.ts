@@ -383,7 +383,7 @@ ${name} by ${undash(p.frag.brand)} is ${gbp(p.delivered)} delivered from ${undas
 Price checked ${checked}. Prices move during the day, so check before you buy. The link is in our bio, or go to
 ${url}
 
-#perfume #fragrance #perfumedeals #ukdeals #${brandTag} #pricesniffs
+#perfume #fragrance #perfumedeals #${brandTag} #pricesniffs
 `;
 }
 
