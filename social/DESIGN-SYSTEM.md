@@ -222,7 +222,8 @@ gives the feed post caption in its own copyable box.
    cheapest shop PriceSniffs found ("CHEAPEST WE FOUND")
 3. "Then comes delivery: We add it in for you": bottle, delivery and what you
    pay at each shop, with the reason delivery is charged (for example "Free
-   delivery only on orders over £25")
+   delivery only on orders over £25"). When both shops deliver free it says
+   "And delivery? Free at both shops" instead
 4. "Your saving on one bottle": the saving in pounds, a "N% less" pill, both
    totals
 5. "Buy one a month": the saving over 12 months, marked "at today's prices"
@@ -234,6 +235,8 @@ gives the feed post caption in its own copyable box.
 * The dear side is the dearest in stock listing from a well known shop
   (Selfridges, John Lewis, LOOKFANTASTIC, Superdrug, Allbeauty and the other
   big names when they have prices).
+* The perfume is worth over £60: the well known shop's bottle price, before
+  delivery, is above £60.
 * Both prices were checked in the last 4 days. The saving is at least £5 and
   10%. Examples where the well known shop adds delivery come first.
 * Where a shop's product data can be read live, its price must still match,
