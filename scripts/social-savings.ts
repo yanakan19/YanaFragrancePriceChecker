@@ -31,7 +31,7 @@ import { buildComparison, bestOffer } from '../src/services/priceService.js';
 import { cheapestVerdict } from '../src/services/deliveryConfidence.js';
 import type { PresentedOffer } from '../src/types/offer.js';
 import { launchChromium } from './a11y-audit.js';
-import { renderSmooth } from './socialRender.js';
+import { renderSmooth, tiktokCaption } from './socialRender.js';
 import { H, MARK, THEMES, W, slide } from './socialSlides.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -307,7 +307,9 @@ async function main() {
     await renderSmooth(browser, html, W, H, join(dir, `slide-${i + 1}-3x4.png`));
   }
   await browser.close();
-  writeFileSync(join(dir, 'caption.txt'), caption(e, url));
+  const feedCaption = caption(e, url);
+  writeFileSync(join(dir, 'caption.txt'), feedCaption);
+  writeFileSync(join(dir, 'tiktok-caption.txt'), tiktokCaption(feedCaption));
   const age = (o: PresentedOffer) => Math.round(o.ageSeconds / 3600);
   writeFileSync(join(dir, 'check.json'), JSON.stringify({
     id: e.frag.id, url, saving: e.saving, percent: e.percent,

@@ -84,3 +84,26 @@ export async function renderSmooth(browser: Browser, html: string, w: number, h:
   await scaler.close();
   writeFileSync(out, Buffer.from(dataUrl.split(',')[1]!, 'base64'));
 }
+
+const GENERIC_TAGS = new Set(['#perfume', '#fragrance', '#perfumedeals', '#pricesniffs', '#ukdeals']);
+
+/**
+ * The TikTok version of a feed caption (social/DESIGN-SYSTEM.md section 5):
+ * the web address instead of "link in bio" (a new TikTok account cannot put
+ * a link in its bio), and TikTok's own tags, still 5 at most. A brand tag in
+ * the original is kept.
+ */
+export function tiktokCaption(caption: string): string {
+  const text = caption
+    .replace(/The link is in our bio, or go to\n/g, 'See it at\n')
+    .replace(/so check the link in our bio before you buy, or go to\n/g, 'so check before you buy at\n')
+    .replace(/The link is in our bio, or go to /g, 'See it at ')
+    .replace(/check the link in our bio before you buy, or go to /g, 'check before you buy at ')
+    .replace(/check the link in our bio before you buy\./g, 'check before you buy at pricesniffs.space.')
+    // Any other wording: the bio has no link on TikTok yet, so name the site.
+    .replace(/the link in (?:our )?bio/gi, 'pricesniffs.space');
+  return text.replace(/^#.*$/m, (line) => {
+    const brand = (line.match(/#\w+/g) ?? []).find((t) => !GENERIC_TAGS.has(t));
+    return ['#perfumetok', '#fragrancetok', brand ?? '#perfume', '#perfumedeals', '#pricesniffs'].join(' ');
+  });
+}
