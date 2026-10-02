@@ -248,6 +248,12 @@ ${url}
 }
 
 async function main() {
+  // One post a day: a rerun on a day that already has one makes nothing.
+  if (!opt('--out') && !opt('--id') && existsSync(join(ROOT, 'social', 'posts', `${today}-savings`))) {
+    console.log(`Today's savings post already exists (social/posts/${today}-savings). Nothing to do.`);
+    process.exitCode = 2;
+    return;
+  }
   const history: HistoryEntry[] = existsSync(HISTORY) ? JSON.parse(readFileSync(HISTORY, 'utf8')) : [];
   const recent = new Set(
     history.filter((h) => h.date !== today && (Date.parse(today) - Date.parse(h.date)) / 86_400_000 < NO_REPEAT_DAYS).map((h) => h.id),
