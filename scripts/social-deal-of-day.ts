@@ -35,7 +35,7 @@ import { cannotCarryBrand, getRetailer } from '../src/config/retailers.js';
 import { readGender, type GenderReading } from '../demo/gender.js';
 import type { PresentedOffer } from '../src/types/offer.js';
 import { launchChromium } from './a11y-audit.js';
-import { FIT_SCRIPT, renderSmooth } from './socialRender.js';
+import { FIT_SCRIPT, renderSmooth, tiktokCaption } from './socialRender.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SITE = 'https://pricesniffs.space';
@@ -435,7 +435,9 @@ async function main() {
   }
   await browser.close();
 
-  writeFileSync(join(dir, 'caption.txt'), caption(p, url, checked, dateLabel));
+  const feedCaption = caption(p, url, checked, dateLabel);
+  writeFileSync(join(dir, 'caption.txt'), feedCaption);
+  writeFileSync(join(dir, 'tiktok-caption.txt'), tiktokCaption(feedCaption));
   writeFileSync(
     join(dir, 'check.json'),
     JSON.stringify({ id: p.frag.id, url, delivered: p.delivered, msrp: p.msrp, shop: p.best.retailer.name, percent: p.percent, pricesCheckedAt: CRAWLED_AT, liveCheck: check, gender, notes: { used: notes.notes ? notes.notes.from : 'none', source: notes.notes?.source ?? null, reasons: notes.reasons, top: notes.notes?.top ?? [], middle: notes.notes?.middle ?? [], base: notes.notes?.base ?? [] } }, null, 2) + '\n',

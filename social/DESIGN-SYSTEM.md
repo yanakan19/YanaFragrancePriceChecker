@@ -140,6 +140,10 @@ These rules apply to all post copy: the image text and the caption.
 5. The address is always `pricesniffs.space`, lower case.
 6. **At most 5 hashtags per caption**, on the last line. `tests/socialPosts.test.ts`
    fails the build if a caption has more.
+7. **TikTok captions** go in `tiktok-caption.txt` beside `caption.txt`. They
+   give the address (pricesniffs.space) instead of "link in bio", since a new
+   TikTok account cannot put a link in its bio yet, and use TikTok's own tags:
+   `#perfumetok #fragrancetok #perfume #perfumedeals #pricesniffs`.
 
 ## 6. Checklist for a new post
 
