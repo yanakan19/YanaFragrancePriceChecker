@@ -10,9 +10,6 @@ actually pay with delivery included. Figures from the build of 2026-10-01.
   rebuilds the catalogue and commits it.
 - **The site** (`demo/`) is one page built from that catalogue and deployed
   to GitHub Pages whenever it changes (`deploy-pages.yml`).
-- **Virtual Yanny**, the chat bubble, answers catalogue questions in the
-  browser. Its AI half is a Cloudflare Worker (`workers/yanny/`), not yet
-  connected: see [docs/FREE-LLM-MANUAL.md](docs/FREE-LLM-MANUAL.md) §1.
 - **Accounts and wishlists** run on Supabase (`supabase/`).
 
 All guides, plans and reports are indexed in **[docs/README.md](docs/README.md)**.
@@ -237,14 +234,13 @@ free. Sorting on item price would have put it first.
 ## Layout
 
 ```
-demo/               the website: app.ts, template.html, router, Virtual Yanny's
-                    browser half (yanny/); index.html and 404.html are built
+demo/               the website: app.ts, template.html, router;
+                    index.html and 404.html are built
 src/                the pricing rules and catalogue logic the site bundles
                     (services/, catalogue/, config/retailers.ts = the registry)
 scripts/            harvest, crawl, build and report scripts (`npm run …`)
 data/               harvested shop snapshots and reports the crawl commits
 tests/              the vitest suite (`npm test`)
-workers/yanny/      Virtual Yanny's AI half (Cloudflare Worker)
 supabase/           accounts and wishlist database setup
 fixtures/           offline fixtures for tests
 docs/               guides, plans and reports; start at docs/README.md

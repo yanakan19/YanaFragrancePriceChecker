@@ -23,10 +23,10 @@
  *     email is on every page; the geographic address is the one item not yet
  *     published (see COMPANY.postalAddress), and the pages say so.
  *   - UK GDPR and the Data Protection Act 2018: the privacy notice, written
- *     for what the site actually collects, which as of 2026-09-06 includes
- *     the Virtual Yanny chat (messages leave the browser) and optional
- *     accounts (Supabase). Earlier versions said nothing left the browser;
- *     that stopped being true on 2026-08-13 when the chat backend went live.
+ *     for what the site actually collects: optional accounts (Supabase),
+ *     price drop emails (Resend) and email you send us. The chat assistant,
+ *     which sent open questions to an AI service, was removed on
+ *     2026-10-02, and with it everything the notice said about it.
  *   - PECR regulation 6 (cookies and similar storage): the cookies page lists
  *     every key this site writes, and none is written without an action of
  *     the reader's that asks for it, so no consent banner is shown — there is
@@ -156,26 +156,12 @@ export const COMPANY = {
   email: 'yannysniffs@gmail.com',
   feedbackEmail: 'yannysniffs@gmail.com',
   privacyEmail: 'yannysniffs@gmail.com',
-  /** Where the site is served from, and who runs the chat backend and accounts. */
+  /** Where the site is served from, and who runs accounts and emails. */
   hosting: 'GitHub Pages',
-  /**
-   * The chat service and the AI that writes its answers are the same
-   * company as of 2026-09-08: the Worker runs on Cloudflare and calls
-   * Cloudflare's own inference through a binding, so an open chat question
-   * reaches one processor rather than two. Both fields are kept, and both
-   * are rendered, because that is a fact about today's configuration and
-   * not a permanent one — `workers/yanny/wrangler.toml` can be pointed at
-   * Groq or Google as a fallback, and the day it is, this value changes
-   * and the notice changes with it. Naming one processor twice is honest;
-   * collapsing the two fields into one would hide the join that has to be
-   * revisited.
-   */
-  chatHost: 'Cloudflare',
-  chatProvider: 'Cloudflare',
   accountsProvider: 'Supabase',
   /** Sends price drop emails to readers who opted in (queue item 4.1). */
   emailProvider: 'Resend',
-  updated: '1 October 2026',
+  updated: '2 October 2026',
 } as const;
 
 /** Storage this site writes in the reader's browser, listed on the cookies page. */
@@ -183,7 +169,6 @@ export const STORAGE_KEYS = [
   { key: 'pricesniffs.display', kind: 'local storage', when: 'when you choose dark, light or system in Settings', holds: 'that choice' },
   { key: 'pricesniffs.layout', kind: 'local storage', when: 'when you choose the mobile or desktop layout in Settings', holds: 'that choice' },
   { key: 'pricesniffs.perrow', kind: 'local storage', when: 'when you change how many tiles show per row', holds: 'that number' },
-  { key: 'pricesniffs.yanny.thread', kind: 'session storage', when: 'when you send a message to Virtual Yanny', holds: 'the conversation shown in the chat window, so it survives moving between pages, and is gone when the tab closes' },
   { key: 'a key beginning sb', kind: 'local storage', when: 'when you sign in to an account', holds: 'your sign in token, written by the Supabase library so you stay signed in' },
 ] as const;
 
@@ -375,21 +360,19 @@ export const LEGAL_PAGES: LegalPage[] = [
         <ul>
           <li><strong>What we collect.</strong> Nothing while you browse,
           search or filter; that stays in your browser. Only what you choose to
-          send: open questions to Virtual Yanny, your email and password if you
+          send: your email and password if you
           sign up, the fragrances on your Wishlist with any target price you
           type, whether you want price drop emails, and any email you write to
           us.</li>
           <li><strong>Why.</strong> To answer your question, run your account
           and Wishlist, and reply to you. Under UK GDPR that rests on contract
-          for accounts and legitimate interests for chat and email. There is no
+          for accounts and legitimate interests for email. There is no
           tracking, no profiling and no advertising.</li>
           <li><strong>Who processes it.</strong> ${COMPANY.accountsProvider}
           holds your email, login and wishlist. ${COMPANY.emailProvider} sends
-          price drop emails if you ask for them. ${COMPANY.chatHost} runs the chat
-          and the AI model that answers open questions. ${COMPANY.hosting} serves
+          price drop emails if you ask for them. ${COMPANY.hosting} serves
           the pages. We never see card details; you pay the shop.</li>
-          <li><strong>How long.</strong> We keep no chat messages. The copy in
-          your browser goes when you close the tab or press Clear. Settings such
+          <li><strong>How long.</strong> Settings such
           as Dark or Light stay in your browser until you clear them. Account data
           stays until you delete the account. Emails are deleted once we have
           dealt with them.</li>
@@ -416,30 +399,15 @@ export const LEGAL_PAGES: LegalPage[] = [
       <h2 class="t-section">What we collect, and why</h2>
       <p>Browsing, searching and filtering happen entirely in your browser
       against a fixed catalogue. None of it is sent to us or stored by us.
-      Three things do leave your browser, each only when you choose to use it:
-      messages you type to Virtual Yanny, the details you give when you create
-      an account, and anything you email us. Nothing on this site tracks you,
+      Two things do leave your browser, each only when you choose to use it:
+      the details you give when you create an account, and anything you email
+      us. Nothing on this site tracks you,
       profiles you or shows you advertising.</p>
       <ul>
         <li><strong>Your display preferences.</strong> Dark or light theme,
         mobile or desktop layout and tiles per row are saved on your own device
         only, using your browser's local storage. They never leave it and we
         never see them. Listed in full on the <a href="#" data-page="cookies">cookies page</a>.</li>
-        <li><strong>Virtual Yanny, the chat.</strong> Questions about prices,
-        stock, sizes, notes, delivery, deals and budgets are answered inside
-        your browser from the catalogue the page already holds. Nothing you
-        type for those leaves your device. An open question, such as a
-        request for something that smells a certain way, is different. It is
-        sent with the catalogue extract it needs to our chat service, which
-        runs on ${COMPANY.chatHost}. It is answered by an AI model run by
-        ${COMPANY.chatProvider} as well, so it goes to one company and no
-        further. Our chat service does not store your messages and keeps no
-        record of the conversation. The copy you see is held in your browser's
-        session storage, and is gone when the tab closes or the moment you
-        press Clear. The AI provider handles what it receives under its own
-        terms, which we cannot control. So please do not type personal
-        details, yours or anyone else's, into the chat. Nothing is sent until
-        you press send.</li>
         <li><strong>Anything you send us.</strong> If you email us, whether
         through the contact form or directly, we keep that message and your
         address so that we can reply, the same as any inbox. The forms on this
@@ -474,9 +442,6 @@ export const LEGAL_PAGES: LegalPage[] = [
         website involves the host handling standard connection information,
         such as IP addresses, to deliver the page. That is governed by GitHub's
         own privacy statement; we do not receive or store it.</li>
-        <li><strong>${COMPANY.chatHost}</strong> both hosts the chat service
-        and runs the AI model that writes the answers to open chat questions,
-        as described above. Catalogue questions never reach it at all.</li>
         <li><strong>${COMPANY.accountsProvider}</strong> holds account data,
         your email, login and wishlist, if you create an account. We do not run
         a server of our own. Row level security on that database means only
@@ -499,9 +464,8 @@ export const LEGAL_PAGES: LegalPage[] = [
 
       <h2 class="t-section">Our lawful basis</h2>
       <p>For replying to messages you send us, we rely on legitimate interests:
-      being able to answer you. For the chat we rely on legitimate interests
-      too: answering the question you chose to ask. You decide whether to send
-      anything at all. For account data, your email, login and wishlist, we
+      being able to answer you. You decide whether to send anything at all. For
+      account data, your email, login and wishlist, we
       rely on contract: creating and running the account you asked for. For
       price drop emails we rely on your consent, given when you tick the box,
       and withdrawn whenever you untick it or press the stop link. Where
@@ -515,7 +479,7 @@ export const LEGAL_PAGES: LegalPage[] = [
 
       <h2 class="t-section">How long we keep it</h2>
       <p>Emails are kept only as long as we need them to deal with what you have
-      asked, then deleted. Chat messages are not kept by us at all. We do not
+      asked, then deleted. We do not
       keep search history, browsing history or any other record of your visit,
       because we never receive one. Account data is kept for as long as your
       account exists, and deleted when you delete your account from the Account
@@ -550,8 +514,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       <p>UK rules, the Privacy and Electronic Communications Regulations, require
       consent before storing anything on your device that is not strictly
       necessary for a service you have asked for. Nothing below is written until
-      you take the action that needs it: choosing a theme, sending a chat
-      message, signing in. There is no analytics, no advertising and no tracking
+      you take the action that needs it: choosing a theme or signing in. There is no analytics, no advertising and no tracking
       of any kind. So there is nothing a banner would ask you to accept. If that
       ever changes, we will ask for consent before anything is set, not after.</p>
 
@@ -587,8 +550,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       </ul>
 
       <h2 class="t-section">Clearing it</h2>
-      <p>Signing out removes the sign in token. Pressing Clear in the chat
-      removes the conversation. Everything else is cleared from your browser's
+      <p>Signing out removes the sign in token. Everything else is cleared from your browser's
       own settings, under site data for pricesniffs.space, and the site keeps
       working without any of it.</p>
 
@@ -663,12 +625,6 @@ export const LEGAL_PAGES: LegalPage[] = [
       figure being wrong or out of date, except where the law does not let us
       exclude liability. Nothing in these terms limits your statutory rights
       as a consumer.</p>
-
-      <h2 class="t-section">Virtual Yanny</h2>
-      <p>The chat answers from this site's own data and can still be wrong. It
-      is not advice of any kind. A price it quotes is only ever the price a
-      listing on this site showed at the time. Check the listing, and then the
-      shop, before relying on anything it says.</p>
 
       <h2 class="t-section">The shops we list</h2>
       <p>Appearing here is not an endorsement, and being absent is not a

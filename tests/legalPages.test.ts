@@ -57,11 +57,10 @@ describe('the legal pages describe the site as it actually is', () => {
     expect(body).not.toMatch(/all twelve shops/i);
   });
 
-  it('the privacy notice says where chat messages go, since they do leave the browser', () => {
+  it('the privacy notice names who processes data, and no chat (removed 2026-10-02)', () => {
     const body = legalPage('privacy')!.body;
-    expect(body).toContain(COMPANY.chatHost);
-    expect(body).toContain(COMPANY.chatProvider);
     expect(body).toContain(COMPANY.accountsProvider);
+    expect(body).not.toMatch(/chat|Virtual Yanny/i);
     // The sentence that stopped being true on 2026-08-13 must not come back.
     expect(body).not.toMatch(/nothing you do inside the app[^.]*is sent anywhere/i);
   });
@@ -70,7 +69,7 @@ describe('the legal pages describe the site as it actually is', () => {
     const body = legalPage('cookies')!.body;
     for (const s of STORAGE_KEYS) expect(body).toContain(s.key);
     // The three preference keys are the ones demo/app.ts actually uses.
-    for (const key of ['pricesniffs.display', 'pricesniffs.layout', 'pricesniffs.perrow', 'pricesniffs.yanny.thread']) {
+    for (const key of ['pricesniffs.display', 'pricesniffs.layout', 'pricesniffs.perrow']) {
       expect(STORAGE_KEYS.map((s) => s.key)).toContain(key);
     }
   });

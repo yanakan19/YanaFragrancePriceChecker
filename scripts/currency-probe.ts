@@ -31,10 +31,6 @@
  * green tick the evidence: the step fails unless the storefront served
  * sterling to a request we know how to make.
  *
- * That is the same standard demo/virtualYanny.ts already records for the
- * chatbot's backend URL — a CI job's check, cited by job id, standing in for a
- * request this machine cannot make.
- *
  * ── The catch a runner introduces, and why the script says it out loud ───────
  * A GitHub runner is not in the UK. Under Shopify Markets the market — and so
  * the price list — is chosen by where the visitor is, so "quotes GBP" from
@@ -319,8 +315,8 @@ if (verdict.sterling) {
   );
   console.log(
     'This proves what the storefront quotes THIS machine when asked that way. Before removing ' +
-      'the id from CURRENCY_UNCONFIRMED, record the run and job id in the registry, the way ' +
-      'demo/virtualYanny.ts records its own CI-sourced fact — and make the harvest ask the same ' +
+      'the id from CURRENCY_UNCONFIRMED, record the run and job id in the registry ' +
+      'and make the harvest ask the same ' +
       'way, or it will go on reading whichever market a runner is geolocated into.',
   );
 } else if (requireGbp) {

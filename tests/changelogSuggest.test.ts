@@ -181,10 +181,10 @@ describe('extractChangelogDates / changelogHasDate — the duplicate-entry guard
     // The real file's actual "4 to 6 Aug 2026" range, both ends.
     expect(changelogHasDate(dates, '4 Aug 2026')).toBe(true);
     expect(changelogHasDate(dates, '6 Aug 2026')).toBe(true);
-    // 15 and 16 Aug 2026 were skipped by the newest-commit-only bug and have
-    // since been backfilled; both must stay recorded.
+    // 15 and 16 Aug 2026 were skipped by the newest-commit-only bug and
+    // backfilled. 16 Aug's entry was only about the chat helper and went
+    // with it on 2 Oct 2026; 15 Aug must stay recorded.
     expect(changelogHasDate(dates, '15 Aug 2026')).toBe(true);
-    expect(changelogHasDate(dates, '16 Aug 2026')).toBe(true);
   });
 });
 
@@ -273,7 +273,7 @@ describe('findUnrecordedWorkDays — the missed-day bug', () => {
    */
   const commits = [
     commit('h16', '2026-08-16T11:33:05+00:00', 'Image links: 2026-08-16'),
-    commit('r16', '2026-08-16T00:35:17+00:00', 'Virtual Yanny: read a whole messy sentence'),
+    commit('r16', '2026-08-16T00:35:17+00:00', 'Product pages: read a whole messy name'),
     commit('h15b', '2026-08-15T23:30:51+00:00', 'Image links: 2026-08-15'),
     commit('r15', '2026-08-15T11:09:45+00:00', 'Repair Awin feed mojibake at the point of entry'),
     commit('h15a', '2026-08-15T09:38:58+00:00', 'Harvest: real prices 2026-08-15'),

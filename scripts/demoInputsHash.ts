@@ -140,8 +140,8 @@ function listFilesUnder(root: string, dir: string, ext: string, recursive: boole
 }
 
 /** The two include shapes tsconfig.demo.json uses: `"<dir>/**\/*.ts"` (every
- *  TypeScript file under a tree) and `"<dir>/*.js"` (the plain-JavaScript
- *  Virtual Yanny engine in one directory, added 2026-09-06). Captures the
+ *  TypeScript file under a tree) and `"<dir>/*.js"` (plain JavaScript in one
+ *  directory; none is included today). Captures the
  *  directory, whether it recurses, and the extension. */
 const INCLUDE_DIR_PATTERN = /^([\w./-]+?)\/(\*\*\/)?\*\.(ts|js)$/;
 

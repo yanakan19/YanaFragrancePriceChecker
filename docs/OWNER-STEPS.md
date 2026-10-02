@@ -1,7 +1,7 @@
 # Owner steps, in plain English
 
-Five jobs only you can do. Each one is short. Do them in this order; the
-first two stop money going out and switch the chat's AI side on.
+Four jobs only you can do. Each one is short. Do them in this order; the
+first stops money going out (the old chat servers, now unused).
 
 ---
 
@@ -24,77 +24,7 @@ anything.
 
 ---
 
-## 2. Switch on the AI side of Virtual Yanny, for free (10 minutes)
-
-Prices, stock, sizes and notes already work without this. This step only
-matters for open questions like "something sweet, no florals".
-
-**You do not need any AI keys.** Cloudflare has its own AI built in, free,
-with no card and no third-party sign-ups. One account is the whole of it.
-
-### 2a. A free Cloudflare account
-
-1. Go to https://dash.cloudflare.com/sign-up and create an account. It is
-   free and it does not ask for a card.
-2. In the dashboard, click **Workers & Pages**. On that overview page, on
-   the right, copy your **Account ID**.
-3. Click your profile picture (top right) → **My Profile** → **API Tokens**
-   → **Create Token** → find the template **Edit Cloudflare Workers** →
-   **Use template** → **Continue to summary** → **Create Token** → copy it.
-   It is shown once.
-
-### 2b. Put the two values into GitHub
-
-1. Open https://github.com/yanakan19/yanafragrancepricechecker/settings/secrets/actions
-2. Click **New repository secret** and add these two, name exactly as
-   written:
-   - `CLOUDFLARE_API_TOKEN` = the token from 2a
-   - `CLOUDFLARE_ACCOUNT_ID` = the Account ID from 2a
-
-That is all the secrets there are. Nothing else is needed.
-
-### 2c. Press the button
-
-1. Open https://github.com/yanakan19/yanafragrancepricechecker/actions
-2. In the left list click **Deploy Virtual Yanny worker**.
-3. Click **Run workflow** (right side), make sure the branch is
-   `claude/scentday-retailer-registry-h92tth`, click the green
-   **Run workflow**.
-4. Wait about two minutes. Open the run. If it is green, click **Summary**
-   at the top: it shows a line like
-   `URL: https://pricesniffs-yanny.<something>.workers.dev`. Copy that URL.
-5. If it is red, open the failed step; its last lines say what to fix.
-
-### 2d. Tell the site where the Worker is
-
-Send me (Claude) the URL from 2c in this chat and say "set the Yanny URL".
-I will put it in `demo/virtualYanny.ts`, rebuild and push. Or do it
-yourself: edit that file, change `''` on the `VIRTUAL_YANNY_API_BASE_URL`
-line to the URL in quotes, run `npm run demo`, commit
-`demo/virtualYanny.ts`, `demo/index.html` and `demo/404.html`, push.
-
-### What the free allowance is
-
-Cloudflare gives 10,000 Neurons a day at no charge, which is thousands of
-chat answers. Only open questions use any of it; prices, stock, sizes and
-notes cost nothing because they are answered in the reader's own browser.
-If it ever did run out, the chat says so plainly for the rest of the day
-and everything else keeps working. If that ever became a real problem you
-could add a free Groq key as a backup, but there is no reason to now.
-
-### Doing it from a terminal instead
-
-If you would rather not use the GitHub button, this does the same thing
-and needs no tokens at all (it signs you in through the browser):
-
-```
-npx wrangler login
-npx wrangler deploy --config workers/yanny/wrangler.toml
-```
-
----
-
-## 3. Turn on accounts (Supabase) (15 minutes)
+## 2. Turn on accounts (Supabase) (15 minutes)
 
 The sign-in page and the Save-to-wishlist button already exist on the site.
 They stay switched off until the database is set up.
@@ -142,9 +72,9 @@ if the email does not arrive, wait an hour before trying again.
 
 ---
 
-## 4. Three standing decisions (2 minutes each)
+## 3. Three standing decisions (2 minutes each)
 
-### 4a. Postal address for the legal pages
+### 3a. Postal address for the legal pages
 
 UK rules ask a site like this to publish a geographic address. A service
 address is fine (a virtual office, an accountant's address, a PO box with a
@@ -152,7 +82,7 @@ street address). Send me the address you want shown and I will put it on the
 legal pages. Until then the pages say honestly that one is not yet
 published. Do not send a made-up one.
 
-### 4b. ICO registration
+### 3b. ICO registration
 
 Because accounts store email addresses, the site may need to pay the ICO's
 data-protection fee (about £40 a year for most small operators).
@@ -162,7 +92,7 @@ data-protection fee (about £40 a year for most small operators).
    number; I will add it to the privacy notice.
 3. If it says you are exempt, tell me that and I will record it.
 
-### 4c. Fix the Claude environment that keeps reverting
+### 3c. Fix the Claude environment that keeps reverting
 
 Sessions sometimes start from an old snapshot of the repo. The fix is to
 make Anthropic rebuild that snapshot:
@@ -176,7 +106,7 @@ make Anthropic rebuild that snapshot:
 
 ---
 
-## 5. Switch on price drop emails (20 minutes, plus waiting for DNS)
+## 4. Switch on price drop emails (20 minutes, plus waiting for DNS)
 
 Readers can tick **Email me when a saved fragrance gets cheaper** on their
 account page. Once a morning (07:41 UK winter time, 08:41 summer time) a
@@ -189,14 +119,14 @@ Until you finish these steps the job runs, prints `Price alerts not
 configured`, and stops. Nothing is read, written or sent. Do step 3 of this
 file (accounts) first.
 
-### 5a. Run the database script
+### 4a. Run the database script
 
 Supabase dashboard → **SQL Editor** → **New query** → paste the whole of
 `supabase/migrations/0004_price_alerts.sql` → **Run**. It must say success.
 It is safe to run twice. Until it is run, the checkbox simply does not
 appear on the account page.
 
-### 5b. A free Resend account and your domain
+### 4b. A free Resend account and your domain
 
 1. Go to https://resend.com/signup and create an account (free: 100 emails a
    day, 3,000 a month, no card).
@@ -227,7 +157,7 @@ appear on the account page.
    permission **Sending access**, domain `pricesniffs.space` → **Add**. Copy
    the key (starts `re_`). It is shown once.
 
-### 5c. Add the two GitHub secrets
+### 4c. Add the two GitHub secrets
 
 1. Supabase dashboard → **Project Settings** → **API Keys**. Copy the
    **service_role** key (on newer projects, a **Secret key** starting
@@ -238,7 +168,7 @@ appear on the account page.
    - `SUPABASE_SERVICE_ROLE_KEY` = the key from step 1
    - `RESEND_API_KEY` = the key from 5b step 5
 
-### 5d. Do a dry run
+### 4d. Do a dry run
 
 1. On https://pricesniffs.space/account sign in, tick the price alerts box,
    and save one or two fragrances. Under one of them type a target price a
@@ -252,7 +182,7 @@ appear on the account page.
    due` and `Dry run: nothing sent and nothing written.` The log never shows
    anyone's address. If it says `not configured`, a secret name is misspelt.
 
-### 5e. Send one for real, then it is on
+### 4e. Send one for real, then it is on
 
 1. Run the workflow again with **dry run unticked**. Within a minute you get
    an email from `alerts@pricesniffs.space` about the fragrance with the
