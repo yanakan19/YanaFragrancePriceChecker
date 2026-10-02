@@ -117,6 +117,13 @@ on carousel slides (`slide(..., reelSafe = true)` in
 the box x 150 to 930, y 230 to 1210 of the 1080 x 1440 slide, and the rest
 is plain background. The savings carousels always use it.
 
+**TikTok versions (9:16).** Every savings slide is also rendered as
+`slide-N-9x16.png` (1080 x 1920) for a TikTok photo post: the same slide on
+a taller canvas of the same background, shown a little larger (scale 0.86,
+box x 110 to 970, y 380 to 1460), clear of TikTok's tabs at the top, its
+caption and buttons at the bottom and its icons down the right. Post them
+with `tiktok-caption.txt`.
+
 ## 5. Words
 
 **Stories and posts:** a 9:16 picture is a **story**. It has no caption; its
@@ -230,7 +237,8 @@ gives the feed post caption in its own copyable box.
 Two a day. `npm run social:savings` makes the first in
 `social/posts/YYYY-MM-DD-savings/`, and `npm run social:savings -- --slot 2`
 the second in `social/posts/YYYY-MM-DD-savings-2/`, always a different
-perfume. Post them a few hours apart.
+perfume. Post them a few hours apart. Each folder also holds the six
+`slide-N-9x16.png` TikTok versions.
 
 Each is a six slide 3:4 feed post (a carousel) in the
 **standard black theme**, reel safe (section 4), in `social/posts/YYYY-MM-DD-savings/`: six
