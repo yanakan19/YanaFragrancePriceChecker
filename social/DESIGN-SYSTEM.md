@@ -15,10 +15,13 @@ There are two themes, built from the same four colours.
 | **Inverted** | Every one off post: launches, explainers, carousels, announcements | Red `#FF3B41` | Black `#0A0A0B` (icons, logo mark, headlines, body text at 78% black) | White, for large type only ("Sniffs") |
 
 The inverted theme makes one off posts stand out from the daily deals in
-the grid. In it, the logo mark is all black, cards are a light black tint
-with a thin black border, the "Link in bio" pill is black with red text, and
-the wordmark reads "Price" black, "Sniffs" white. Black on this red is about
-6:1 contrast, so all small text stays black; white is only for large type.
+the grid. In it, the logo mark is all black, the "Link in bio" pill is black
+with red text, and the wordmark reads "Price" black, "Sniffs" white. Cards
+(lists, the price table) are near black `#141416` with a soft shadow so they
+pop off the red, and inside a card the standard theme comes back: white
+titles, grey `#B9B9C0` details, red ticks, a red bar for the cheapest price.
+Black on this red is about 6:1 contrast, so small text on the red stays
+black; white is only for large type.
 
 | Name | Hex | Standard theme | Inverted theme |
 |---|---|---|---|
