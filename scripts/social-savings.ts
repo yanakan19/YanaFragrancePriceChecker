@@ -252,7 +252,7 @@ That is ${gbp(e.saving)} saved on one bottle, ${e.percent}% less. Buy one a mont
 We show the total with delivery before you click, for more than 30 UK shops. Prices checked ${dateLabel} and they change, so check the link in our bio before you buy, or go to
 ${url}
 
-#perfume #fragrance #perfumedeals #ukdeals #${tag} #pricesniffs
+#perfume #fragrance #perfumedeals #${tag} #pricesniffs
 `;
 }
 
