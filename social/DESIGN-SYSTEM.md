@@ -7,14 +7,29 @@ social version of it and borrows its colours and its logo.
 
 ## 1. Colours
 
-| Name | Hex | Use |
-|---|---|---|
-| Black | `#0A0A0B` | Every background. Never pure `#000`. |
-| White | `#F7F7F8` | Headlines and the "Price" half of the wordmark |
-| Red | `#FF3B41` | Accents only: "Sniffs", the last word of a headline, the logo mark, the call to action pill |
-| Grey | `#B9B9C0` | Body text |
+There are two themes, built from the same four colours.
 
-Red is an accent. One red word per headline at most, one red button at most.
+| Theme | Used for | Background | Type and icons | Accent |
+|---|---|---|---|---|
+| **Standard** | Deal of the Day (every daily post) and the logo itself | Black `#0A0A0B` | White `#F7F7F8`, grey `#B9B9C0` for body text | Red `#FF3B41` |
+| **Inverted** | Every one off post: launches, explainers, carousels, announcements | Red `#FF3B41` | Black `#0A0A0B` (icons, logo mark, headlines, body text at 78% black) | White, for large type only ("Sniffs") |
+
+The inverted theme makes one off posts stand out from the daily deals in
+the grid. In it, the logo mark is all black, cards are a light black tint
+with a thin black border, the "Link in bio" pill is black with red text, and
+the wordmark reads "Price" black, "Sniffs" white. Black on this red is about
+6:1 contrast, so all small text stays black; white is only for large type.
+
+| Name | Hex | Standard theme | Inverted theme |
+|---|---|---|---|
+| Black | `#0A0A0B` | Background. Never pure `#000`. | Icons, logo mark, all text |
+| White | `#F7F7F8` | Headlines, "Price" in the wordmark | "Sniffs" and large type only |
+| Red | `#FF3B41` | Accents: "Sniffs", the last word of a headline, logo mark, call to action pill | Background |
+| Grey | `#B9B9C0` | Body text | Not used (black at 78% instead) |
+
+In the standard theme red is an accent: one red word per headline at most,
+one red button at most. The theme tokens live in `THEMES` in
+`scripts/social-intro-slides.ts`; copy them for any new one off post.
 
 ## 2. Type
 
