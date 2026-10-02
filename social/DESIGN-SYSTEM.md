@@ -108,6 +108,15 @@ and buttons over the bottom 250px.
 Add new templates (for example 1080 x 1350 for an Instagram feed post) to
 `templates/` with the same skeleton, and list them here.
 
+**Reel safe 3:4 slides.** A carousel may later be turned into a reel (for
+example in Instagram's Edits app). Edits fills the 9:16 frame with the 3:4
+slide and cuts its sides, keeping only the middle 810px of the width; the
+feed then shows the reel cut to 4:5 and the profile grid cuts it to 3:4. So
+on carousel slides (`slide(..., reelSafe = true)` in
+`scripts/socialSlides.ts`) everything, wordmark and dots included, sits in
+the box x 150 to 930, y 230 to 1210 of the 1080 x 1440 slide, and the rest
+is plain background. The savings carousels always use it.
+
 ## 5. Words
 
 **Stories and posts:** a 9:16 picture is a **story**. It has no caption; its
@@ -213,7 +222,7 @@ gives the feed post caption in its own copyable box.
 **Read this whole document first**, as with Deal of the Day.
 
 `npm run social:savings` makes a six slide 3:4 feed post (a carousel) in the
-**standard black theme** in `social/posts/YYYY-MM-DD-savings/`: six
+**standard black theme**, reel safe (section 4), in `social/posts/YYYY-MM-DD-savings/`: six
 `slide-N-3x4.png` with their HTML sources, `caption.txt` and `check.json`.
 
 1. "A real example: How much could you save?" with the product photo, name

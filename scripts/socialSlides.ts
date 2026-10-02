@@ -77,9 +77,27 @@ export const slideCss = (theme: keyof typeof THEMES) => `
   .note { font-size: 20px; color: var(--card-ink-3); letter-spacing: 1px; text-transform: uppercase; }
 `;
 
-export function slide(n: number, total: number, inner: string, footRight: string, theme: keyof typeof THEMES = 'inverted', extraCss = ''): string {
+/**
+ * Reel safe box (social/DESIGN-SYSTEM.md section 4): the part of a 3:4 slide
+ * that survives every crop Instagram applies if the slides are turned into a
+ * reel. Edits fills a 9:16 frame with the slide, keeping the middle 810px of
+ * its width (x 135 to 945); the feed then shows the reel at 4:5 (y 214 to
+ * 1226) and the profile grid at 3:4 (y 180 to 1260). The box sits 15px
+ * inside all of those.
+ */
+export const SAFE = { x: 150, y: 230, w: 780, h: 980 };
+/** How much the slide's layout is scaled down to sit in the safe box. */
+const SAFE_SCALE = 0.78;
+// The padding keeps text clear of the crop edge; small print is set larger
+// so it stays readable after the scale down.
+const safeCss = `main { position: absolute; left: ${SAFE.x}px; top: ${SAFE.y}px; padding: 24px 56px;
+    width: ${Math.round(SAFE.w / SAFE_SCALE)}px; height: ${Math.round(SAFE.h / SAFE_SCALE)}px;
+    transform: scale(${SAFE_SCALE}); transform-origin: 0 0; }
+  main .fine, main .note2 { font-size: 26px; }`;
+
+export function slide(n: number, total: number, inner: string, footRight: string, theme: keyof typeof THEMES = 'inverted', extraCss = '', reelSafe = false): string {
   const dots = Array.from({ length: total }, (_, i) => `<i class="${i + 1 === n ? 'on' : ''}"></i>`).join('');
-  return `<!doctype html><html><head><meta charset="utf-8"><meta name="social-size" content="${W}x${H}"><style>${slideCss(theme)}${extraCss}</style></head><body><main>
+  return `<!doctype html><html><head><meta charset="utf-8"><meta name="social-size" content="${W}x${H}"><style>${slideCss(theme)}${reelSafe ? safeCss : ''}${extraCss}</style></head><body><main>
   <div class="brandline">${MARK('mark')}<span>Price<em>Sniffs</em></span></div>
   <div class="body">${inner}</div>
   <div class="foot"><div class="dots">${dots}</div><span class="swipe">${footRight}</span></div>
