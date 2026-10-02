@@ -12,6 +12,12 @@
 > * the sweep takes `--remeasure`, covers Fragrance Click, and does the
 >   photos the site shows first;
 > * `.github/workflows/image-measure-daily.yml` runs it every day.
+> * then, the same day, the owner's rule: the first and last non-white rows
+>   sit 5% from the top and bottom (target 0.90, was 0.80), near-misses snap
+>   too (identity band |k-1| <= 0.02, shift <= 1%), width may reach 0.98 of
+>   the tile, and the sharpness floor is 300px. 75% of photos now sit at
+>   exactly 0.90; the rest are wider than tall (a bottle beside its box, a
+>   round bottle) and are as tall as they can be without leaving the tile.
 > §4 below describes the original, bottle-only rule.
 
 ## 1. What and why

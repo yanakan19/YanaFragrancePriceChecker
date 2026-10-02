@@ -63,11 +63,16 @@ export interface SilhouetteBox {
 }
 
 /** The measured median tile fraction (docs/IMAGE-SCALE-PLAN.md §2, §3). */
-export const BOTTLE_SCALE_TARGET = 0.8;
+/**
+ * The bottle's height as a share of the tile: 0.90, so the first and last
+ * non-white rows sit 5% from the top and bottom (the owner's rule,
+ * 2026-10-02; it was 0.80, the measured median, and still read as uneven).
+ */
+export const BOTTLE_SCALE_TARGET = 0.9;
 /** Widest a bottle-only silhouette may end up, so a squat bottle is never clipped. */
-const BOTTLE_WIDTH_CAP = 0.92;
+const BOTTLE_WIDTH_CAP = 0.98;
 /** Widest a bottle-and-box (or unsure) group may end up: clear of both sides. */
-const GROUP_WIDTH_CAP = 0.86;
+const GROUP_WIDTH_CAP = 0.98;
 
 /**
  * `k` is never trusted outside this range — a photo whose own math would
@@ -104,7 +109,7 @@ const MAX_K = 2.5;
  * the tile's own size on a 1× display and close to it on 2×, while a lower
  * floor here would re-admit exactly the photos measured as soft.
  */
-const RES_FLOOR_PX = 400;
+const RES_FLOOR_PX = 300;
 
 /**
  * Below this, the measured silhouette height is not trusted at all (an
@@ -122,8 +127,8 @@ const MIN_TRUSTED_TILE_FRACTION = 0.2;
  * suppressing their transform there trims real page weight (§5) for a
  * change nobody would see.
  */
-const IDENTITY_K_TOLERANCE = 0.08;
-const IDENTITY_SHIFT_TOLERANCE_PCT = 3;
+const IDENTITY_K_TOLERANCE = 0.02;
+const IDENTITY_SHIFT_TOLERANCE_PCT = 1;
 
 /** Rounds to one decimal place — plenty for a percentage nobody reads raw. */
 function round1(n: number): number {

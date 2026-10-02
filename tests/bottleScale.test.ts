@@ -21,9 +21,9 @@ describe('bottleScaleStyle', () => {
     // zoom to longEdge/400 = 1.25 there, so the bottle grows but stays sharp.
     const big = bottleScaleStyle(centredBox(0.41), 1920, 1920, 'bottle-only');
     const small = bottleScaleStyle(centredBox(0.41), 500, 500, 'bottle-only');
-    expect(big).toContain('scale(1.951)');
+    expect(big).toContain('scale(2.195)');
     const kSmall = Number(String(small).match(/scale\(([\d.]+)\)/)![1]);
-    expect(kSmall).toBeCloseTo(1.25, 2);
+    expect(kSmall).toBeCloseTo(500 / 300, 2);
   });
 
   it('a source below the resolution floor is left un-zoomed, never shrunk', () => {
@@ -39,24 +39,24 @@ describe('bottleScaleStyle', () => {
     const box = { sxf: 0.2, syf: 0.3, swf: 0.6, shf: 0.49 };
     const style = bottleScaleStyle(box, 1200, 1200, 'boxed');
     const k = Number(String(style).match(/scale\(([\d.]+)\)/)![1]);
-    expect(k * box.swf).toBeCloseTo(0.86, 2);
-    expect(k * box.shf).toBeLessThan(0.8);
+    expect(k * box.swf).toBeCloseTo(0.98, 2);
+    expect(k * box.shf).toBeLessThan(0.9);
   });
 
   it('fits a tall boxed group by its height, like a bottle', () => {
     // A tall group filling 0.95 of the tile comes down to 0.80.
-    expect(bottleScaleStyle(centredBox(0.95, 0.4), 1200, 1200, 'boxed')).toContain('scale(0.842)');
+    expect(bottleScaleStyle(centredBox(0.95, 0.4), 1200, 1200, 'boxed')).toContain('scale(0.947)');
   });
 
   it('scales an unsure photo with the same fit', () => {
-    expect(bottleScaleStyle(centredBox(0.6), 1000, 1000, 'unsure')).toContain('scale(1.333)');
+    expect(bottleScaleStyle(centredBox(0.6), 1000, 1000, 'unsure')).toContain('scale(1.5)');
   });
 
   it('never lets a squat bottle-only silhouette run off the sides', () => {
     // A wide, short bottle: height alone would want k=2, making it 1.4 wide.
     const style = bottleScaleStyle(centredBox(0.4, 0.7), 2000, 2000, 'bottle-only');
     const k = Number(String(style).match(/scale\(([\d.]+)\)/)![1]);
-    expect(k * 0.7).toBeCloseTo(0.92, 2);
+    expect(k * 0.7).toBeCloseTo(0.98, 2);
   });
 
   it('is null with no verdict at all (an unswept or unresolved photo)', () => {
@@ -76,24 +76,24 @@ describe('bottleScaleStyle', () => {
   });
 
   it('scales a square, centred, undersized silhouette up to the target', () => {
-    // fH = 0.5 on a square file: k = 0.8 / 0.5 = 1.6 exactly, no letterbox
+    // fH = 0.5 on a square file: k = 0.9 / 0.5 = 1.8 exactly, no letterbox
     // correction, silhouette already centred so no shift.
     const style = bottleScaleStyle(centredBox(0.5), 1000, 1000, 'bottle-only');
-    expect(style).toBe('transform:translate(0%,0%) scale(1.6);transform-origin:50% 50%');
+    expect(style).toBe('transform:translate(0%,0%) scale(1.8);transform-origin:50% 50%');
   });
 
   it('scales a square, centred, oversized silhouette down to the target', () => {
-    // fH = 1.0 (fills the frame, like Sauvage in the plan): k = 0.8/1 = 0.8.
+    // fH = 1.0 (fills the frame, like Sauvage in the plan): k = 0.9/1 = 0.9.
     const style = bottleScaleStyle(centredBox(1.0, 0.9), 1000, 1000, 'bottle-only');
-    expect(style).toBe('transform:translate(0%,0%) scale(0.8);transform-origin:50% 50%');
+    expect(style).toBe('transform:translate(0%,0%) scale(0.9);transform-origin:50% 50%');
   });
 
   it('recentres an off-centre square silhouette', () => {
     // Silhouette's own box: x in [0.1, 0.5] (cx=0.3), y in [0.2, 0.7] (cy=0.45,
-    // shf=0.5 so k stays 1.6). tx = (0.5-0.3)*100 = 20, ty = (0.5-0.45)*100 = 5.
+    // shf=0.5 so k stays 1.8). tx = (0.5-0.3)*100 = 20, ty = (0.5-0.45)*100 = 5.
     const box: SilhouetteBox = { sxf: 0.1, syf: 0.2, swf: 0.4, shf: 0.5 };
     const style = bottleScaleStyle(box, 1000, 1000, 'bottle-only');
-    expect(style).toBe('transform:translate(20%,5%) scale(1.6);transform-origin:30% 45%');
+    expect(style).toBe('transform:translate(20%,5%) scale(1.8);transform-origin:30% 45%');
   });
 
   it('honours a custom target', () => {
@@ -105,13 +105,13 @@ describe('bottleScaleStyle', () => {
   it('applies the letterbox correction for a portrait file', () => {
     // 500x1000 portrait file (ratio w/h = 0.5). Silhouette in FILE fractions:
     // shf=0.5 (fills half the file's height) — contain fills the tile's
-    // height with this file, so fHTile = shf = 0.5 unchanged, k = 1.6.
+    // height with this file, so fHTile = shf = 0.5 unchanged, k = 1.8.
     // Silhouette centred in the file (cxFile=cyFile=0.5) maps to element-x
     // 0.5 too (the portrait correction is (1-ratio)/2 + cxFile*ratio =
     // (1-0.5)/2 + 0.5*0.5 = 0.25+0.25 = 0.5), so still no shift on either
     // axis despite the file being letterboxed left/right in the tile.
     const style = bottleScaleStyle(centredBox(0.5), 500, 1000, 'bottle-only');
-    expect(style).toBe('transform:translate(0%,0%) scale(1.6);transform-origin:50% 50%');
+    expect(style).toBe('transform:translate(0%,0%) scale(1.8);transform-origin:50% 50%');
   });
 
   it('shifts a portrait silhouette that sits off-centre horizontally, in element space', () => {
@@ -121,15 +121,15 @@ describe('bottleScaleStyle', () => {
     // centre, not the file's). tx = (0.5-0.35)*100 = 15.
     const box: SilhouetteBox = { sxf: 0, syf: 0.25, swf: 0.4, shf: 0.5 };
     const style = bottleScaleStyle(box, 500, 1000, 'bottle-only');
-    expect(style).toBe('transform:translate(15%,0%) scale(1.6);transform-origin:35% 50%');
+    expect(style).toBe('transform:translate(15%,0%) scale(1.8);transform-origin:35% 50%');
   });
 
   it('applies the letterbox correction for a landscape file', () => {
     // 1000x500 landscape file (ratio h/w = 0.5). fHTile = shf * 0.5.
-    // shf=1.0 (fills the file's own height) -> fHTile = 0.5 -> k = 1.6.
+    // shf=1.0 (fills the file's own height) -> fHTile = 0.5 -> k = 1.8.
     const box = centredBox(1.0, 0.4);
     const style = bottleScaleStyle(box, 1000, 500, 'bottle-only');
-    expect(style).toBe('transform:translate(0%,0%) scale(1.6);transform-origin:50% 50%');
+    expect(style).toBe('transform:translate(0%,0%) scale(1.8);transform-origin:50% 50%');
   });
 
   it('is null when the silhouette height in tile-space is below the trust floor', () => {
@@ -138,7 +138,7 @@ describe('bottleScaleStyle', () => {
   });
 
   it('is null when the implied k would exceed the upper clamp bound', () => {
-    // shf=0.2 (just at the trust floor): k = 0.8/0.2 = 4 > MAX_K (2.5).
+    // shf=0.2 (just at the trust floor): k = 0.9/0.2 = 4.5 > MAX_K (2.5).
     expect(bottleScaleStyle(centredBox(0.2), 1000, 1000, 'bottle-only')).toBeNull();
   });
 
@@ -150,31 +150,31 @@ describe('bottleScaleStyle', () => {
   });
 
   it('emits nothing when the transform is within the identity tolerance', () => {
-    // fH = 0.78: k = 0.8/0.78 = 1.0256 — within |k-1| <= 0.08 — and centred,
+    // fH = 0.89: k = 0.9/0.89 = 1.011 — within |k-1| <= 0.02 — and centred,
     // so both the scale and the shift are inside the "already even enough"
     // band and the whole transform is suppressed.
-    expect(bottleScaleStyle(centredBox(0.78), 1000, 1000, 'bottle-only')).toBeNull();
+    expect(bottleScaleStyle(centredBox(0.89), 1000, 1000, 'bottle-only')).toBeNull();
   });
 
   it('does emit once the scale drifts just past the identity tolerance', () => {
-    // fH chosen so k = 1 + 0.08 + a hair: 0.8 / fH = 1.081 -> fH ≈ 0.7401.
-    const style = bottleScaleStyle(centredBox(0.7401), 1000, 1000, 'bottle-only');
+    // fH chosen so k = 1 + 0.02 + a hair: 0.9 / fH = 1.021 -> fH ≈ 0.8815.
+    const style = bottleScaleStyle(centredBox(0.8815), 1000, 1000, 'bottle-only');
     expect(style).not.toBeNull();
   });
 
   it('emits nothing when k is near-identity but the shift alone exceeds tolerance', () => {
-    // fH=0.8 keeps k exactly 1, but push the silhouette 5% off-centre on x —
-    // past the 3% shift tolerance — so the transform must still be emitted.
-    const box: SilhouetteBox = { sxf: 0.45, syf: 0.3, swf: 0.4, shf: 0.8 };
+    // fH=0.9 keeps k exactly 1, but push the silhouette 15% off-centre on x —
+    // past the 1% shift tolerance — so the transform must still be emitted.
+    const box: SilhouetteBox = { sxf: 0.45, syf: 0.05, swf: 0.4, shf: 0.9 };
     const style = bottleScaleStyle(box, 1000, 1000, 'bottle-only');
     expect(style).not.toBeNull();
     expect(style).toContain('scale(1)');
   });
 
-  it('defaults its target to BOTTLE_SCALE_TARGET (0.80)', () => {
-    expect(BOTTLE_SCALE_TARGET).toBe(0.8);
+  it('defaults its target to BOTTLE_SCALE_TARGET (0.90: 5% clear top and bottom)', () => {
+    expect(BOTTLE_SCALE_TARGET).toBe(0.9);
     const withDefault = bottleScaleStyle(centredBox(0.5), 1000, 1000, 'bottle-only');
-    const withExplicit = bottleScaleStyle(centredBox(0.5), 1000, 1000, 'bottle-only', 0.8);
+    const withExplicit = bottleScaleStyle(centredBox(0.5), 1000, 1000, 'bottle-only', 0.9);
     expect(withDefault).toBe(withExplicit);
   });
 });
