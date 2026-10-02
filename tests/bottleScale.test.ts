@@ -32,15 +32,13 @@ describe('bottleScaleStyle', () => {
     expect(bottleScaleStyle(centredBox(0.5), 300, 300, 'bottle-only')).toBeNull();
   });
 
-  it('fits a boxed group by its width, so it lands clear of both sides', () => {
-    // Abraaj Brackish in docs/IMAGE-SCALE-PLAN.md §4: bottle and carton, aspect
-    // 1.22. Scaling its height to 0.80 would make it 0.977 of the tile wide;
-    // the fit binds on width instead, at the 0.86 group cap.
+  it('makes a wide boxed group 90% tall too, letting the tile cut its sides', () => {
+    // Abraaj Brackish: bottle and carton, aspect 1.22. The owner chose full
+    // height over showing the whole width (2026-10-02).
     const box = { sxf: 0.2, syf: 0.3, swf: 0.6, shf: 0.49 };
     const style = bottleScaleStyle(box, 1200, 1200, 'boxed');
     const k = Number(String(style).match(/scale\(([\d.]+)\)/)![1]);
-    expect(k * box.swf).toBeCloseTo(0.98, 2);
-    expect(k * box.shf).toBeLessThan(0.9);
+    expect(k * box.shf).toBeCloseTo(0.9, 2);
   });
 
   it('fits a tall boxed group by its height, like a bottle', () => {
@@ -52,11 +50,9 @@ describe('bottleScaleStyle', () => {
     expect(bottleScaleStyle(centredBox(0.6), 1000, 1000, 'unsure')).toContain('scale(1.5)');
   });
 
-  it('never lets a squat bottle-only silhouette run off the sides', () => {
-    // A wide, short bottle: height alone would want k=2, making it 1.4 wide.
+  it('sizes a squat bottle by height alone', () => {
     const style = bottleScaleStyle(centredBox(0.4, 0.7), 2000, 2000, 'bottle-only');
-    const k = Number(String(style).match(/scale\(([\d.]+)\)/)![1]);
-    expect(k * 0.7).toBeCloseTo(0.98, 2);
+    expect(style).toContain('scale(2.25)');
   });
 
   it('is null with no verdict at all (an unswept or unresolved photo)', () => {

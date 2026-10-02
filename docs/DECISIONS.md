@@ -1785,3 +1785,19 @@ chose between answers that only two intents ever produced. A reader
 waiting eight seconds for the best-phrased of twenty answers was the
 complaint. The widget no longer shows agent chips or a ranking table; it
 shows one line saying where the answer came from.
+
+## D22 — Virtual Yanny removed
+
+**2026-10-02, the owner's decision.** The chat assistant is gone from the
+site and the repository: the widget and its engine (`demo/virtualYanny.ts`,
+`demo/yanny/`, `demo/yannyRender.ts`), the Cloudflare Worker
+(`workers/yanny/`), its deploy workflow, its tests and its deploy guide.
+The privacy notice, cookies page and terms no longer describe a chat, the
+`pricesniffs.yanny.thread` storage key is no longer written, and the public
+update log no longer lists chat features. D21 above is kept as the record
+of what was built; nothing in it is live any more.
+
+What stays: the owner's own name and handles (YannySniffs, @yannysniffs),
+which are the person, not the chatbot. The Fly.io apps named
+`pricesniffs-yanny` and `yanny-freellmapi` should still be deleted from the
+owner's Fly account (docs/OWNER-STEPS.md §1) so nothing bills.

@@ -48,7 +48,6 @@ Read off `demo/app.ts` and `demo/template.html`. Sizes are the CSS as shipped.
 | 10 | Detail-page price box | `lowestPriceBox`, `app.ts:2342` | `t-caption` 13px prose | **Text.** It is a sentence, not a label. |
 | 11 | "Not available at …" | `unavailableShopsLine`, `app.ts:1700` | plain buttons | **Text.** A logo beside "not available" reads as a recommendation. |
 | 12 | Notes attribution | `notesBlock`, `app.ts:2029` | `t-caption` link | **Text.** Same reason as #10. |
-| 13 | Virtual Yanny answers | `yannyThreadHtml`, `app.ts:4199` | `esc(item.text)` | **Text, and structurally so.** Every bubble is HTML-escaped plain text. A logo there means changing the message model, and nothing about a chat answer is improved by one. |
 
 So: three surfaces now (#1–#3), one later (#4), nine stay as they are. Both of
 the first three already draw a square tile at a fixed size with a working

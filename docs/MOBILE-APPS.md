@@ -94,8 +94,7 @@ unknown apps") to try the app today. You can also run it by hand from
    - Category: **Shopping**. Age rating: answer the questionnaire (4+).
    - **App Privacy** ("nutrition label"): the site collects an **email
      address** for sign-in and the **wishlist** (product IDs), both linked to
-     the user, for app functionality, and is not used for tracking. Questions
-     typed into Virtual Yanny are sent to Cloudflare to answer and not stored.
+     the user, for app functionality, and is not used for tracking.
      Check this against the live privacy notice before submitting.
 9. **App Review notes** (important, see §6): *"PriceSniffs compares the
    delivered price of 16,000+ fragrances across 33 UK shops, with price
@@ -186,7 +185,6 @@ describes real functionality.
   > • Today's deals, with fake discounts filtered out
   > • Search by brand, name, size, strength or note
   > • Save bottles to your wishlist
-  > • Ask Virtual Yanny for suggestions
   >
   > Some links to shops earn us a commission. It never changes the order
   > prices are shown in.

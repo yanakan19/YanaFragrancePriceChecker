@@ -10,13 +10,12 @@ path.
 |---|---|
 | [OWNER-STEPS.md](OWNER-STEPS.md) | Every step only the owner can do, in plain English |
 | [SOCIAL-MEDIA-PLAN.md](SOCIAL-MEDIA-PLAN.md) | Accounts to create, profile set-up, what to post, UK ad rules |
-| [FREE-LLM-MANUAL.md](FREE-LLM-MANUAL.md) | Turning on Virtual Yanny's AI and adding free models (also YanaFreeLLM) |
+| [FREE-LLM-MANUAL.md](FREE-LLM-MANUAL.md) | YanaFreeLLM and the free model router (separate projects) |
 | [MOBILE-APPS.md](MOBILE-APPS.md) | Building and submitting the iOS and Android apps |
 | [DEPLOYMENT.md](DEPLOYMENT.md) | How the site is hosted |
 | [AFFILIATE_SETUP.md](AFFILIATE_SETUP.md) | Joining affiliate programmes |
 | [TIKTOK-SHOP-PLAN.md](TIKTOK-SHOP-PLAN.md) | The TikTok Shop route and its action list (§6) |
 | [SUPABASE-SETUP.md](SUPABASE-SETUP.md) | Accounts and wishlist database |
-| [VIRTUAL-YANNY-DEPLOY.md](VIRTUAL-YANNY-DEPLOY.md) | The chat assistant's Cloudflare Worker, in full |
 | [brand/](brand/) | The logo for social accounts |
 | [../social/](../social/) | Social posts, templates and the social design system |
 

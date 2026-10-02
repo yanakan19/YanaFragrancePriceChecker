@@ -132,7 +132,6 @@ prose, sub-labels.
 | `.org-hero-domain` (:848) | Domain link under a retailer/brand profile name | 12.5px | 400 | `--faint` |
 | `.update-date` (:468) | Date beside a version number in Update History | 11px | 500 | `--faint` |
 | `.house-caveat` (:1483) | "priced in USD" caveat under a house card's price | 11px | 400 | `--faint` |
-| `.yanny-head-sub` (:1582) | Subtitle under the Virtual Yanny chat panel's title | 11.5px | 400 | `--faint` |
 | `.notes-source` (:1033) | Attribution line under the notes browser | 11.5px | 400 | `--faint` |
 | `.foot-legal` (:1362) | Legal boilerplate at the bottom of the condensed About panel | 11.5px | 400 (line-height 1.65) | `--faint` |
 | `.settings-note` (:1268) | Note under a Settings control | 12px | 400 | `--faint` |
@@ -258,7 +257,6 @@ Section §6 lists eleven selectors that are all "quiet secondary text in
 `--faint`, sitting under or beside a title." Their sizes cluster into five
 barely-distinguishable steps with no apparent rule for which gets which:
 10.5px (`.history-xlabel`, off on its own), 11px (`.update-date`,
-`.house-caveat`), 11.5px (`.yanny-head-sub`, `.notes-source`,
 `.foot-legal`), 12px (`.settings-note`, `.note-group-label`), and 12.5px
 (`.shop-row-meta`, `.org-hero-domain`).
 

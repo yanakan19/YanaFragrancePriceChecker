@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.30.0',
+    date: '2 Oct 2026',
+    title: 'Bottle photos all the same size',
+    points: [
+      'Every bottle photo now fills its tile evenly',
+      'We now say more than 30 UK shops',
+      'The chat helper has been taken down',
+    ],
+  },
+  {
     version: 'v3.29.0',
     date: '1 Oct 2026',
     title: 'Clearer prices and a better account page',
@@ -29,10 +39,9 @@ export const CHANGELOG: ChangelogEntry[] = [
   {
     version: 'v3.28.0',
     date: '1 Oct 2026',
-    title: 'Delivery checked again, Virtual Yanny fixed',
+    title: 'Delivery checked again, direct brand links',
     points: [
       'Delivery prices checked again for every shop',
-      'Virtual Yanny quotes the same prices as the page',
       'Direct links to the brand and Fragrantica pages',
     ],
   },
@@ -59,9 +68,8 @@ export const CHANGELOG: ChangelogEntry[] = [
   {
     version: 'v3.25.0',
     date: '6 Sep 2026',
-    title: 'Faster chat and marked affiliate links',
+    title: 'Marked affiliate links',
     points: [
-      'Virtual Yanny answers most questions instantly',
       'Links that earn commission say Affiliate link',
       'New cookies and refunds pages',
     ],
@@ -153,17 +161,6 @@ export const CHANGELOG: ChangelogEntry[] = [
     points: [
       'Each fragrance page can now be found in search',
       'Broken links show a Page not found screen',
-      'Virtual Yanny tells you who a scent is for',
-    ],
-  },
-  {
-    version: 'v3.7.0',
-    date: '16 Aug 2026',
-    title: 'Virtual Yanny understands everyday questions',
-    points: [
-      'Ask for price, scent and who it is for at once',
-      'Your chat stays when you refresh the page',
-      'New Stop and Clear chat buttons',
     ],
   },
   {
@@ -179,10 +176,8 @@ export const CHANGELOG: ChangelogEntry[] = [
   {
     version: 'v3.5.0',
     date: '13 to 14 Aug 2026',
-    title: 'Virtual Yanny goes live',
+    title: 'Two shops paused over currency',
     points: [
-      'Virtual Yanny, a chat helper, goes live',
-      'It answers stock, notes, size and delivery',
       'Two shops paused over wrong currency prices',
     ],
   },

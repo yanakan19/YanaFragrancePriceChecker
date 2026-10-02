@@ -69,10 +69,6 @@ export interface SilhouetteBox {
  * 2026-10-02; it was 0.80, the measured median, and still read as uneven).
  */
 export const BOTTLE_SCALE_TARGET = 0.9;
-/** Widest a bottle-only silhouette may end up, so a squat bottle is never clipped. */
-const BOTTLE_WIDTH_CAP = 0.98;
-/** Widest a bottle-and-box (or unsure) group may end up: clear of both sides. */
-const GROUP_WIDTH_CAP = 0.98;
 
 /**
  * `k` is never trusted outside this range — a photo whose own math would
@@ -202,19 +198,19 @@ export function bottleScaleStyle(
     const ratio = fileWidth / fileHeight;
     cx = (1 - ratio) / 2 + cxFile * ratio;
   }
-  // The silhouette's width in tile space: contain binds a landscape file on
-  // width (unchanged) and shrinks a portrait one by its aspect.
-  const fWTile = fileHeight > fileWidth ? box.swf * (fileWidth / fileHeight) : box.swf;
   // Square files take neither branch: the element and the file coincide, so
   // no letterbox correction is needed on either axis.
 
   if (fHTile < MIN_TRUSTED_TILE_FRACTION) return null;
 
-  const widthCap = verdict === 'bottle-only' ? BOTTLE_WIDTH_CAP : GROUP_WIDTH_CAP;
   // A silhouette so small its height alone asks for more than MAX_K is a
   // measurement not to trust, whatever the width cap would make of it.
   if (target / fHTile > MAX_K) return null;
-  const kWanted = fWTile > 0 ? Math.min(target / fHTile, widthCap / fWTile) : target / fHTile;
+  // Height only, the owner's call (2026-10-02): every bottle is 90% of the
+  // tile tall, and a photo wider than that allows (a bottle beside its box,
+  // a very round bottle) has its sides cut by the tile rather than being
+  // shown shorter.
+  const kWanted = target / fHTile;
   if (kWanted < MIN_K || kWanted > MAX_K) return null;
 
   // Never zoom past what the source can stay sharp under — see RES_FLOOR_PX.

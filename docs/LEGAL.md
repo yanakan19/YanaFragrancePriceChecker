@@ -32,17 +32,12 @@ up and both should stay true:
   does not affect result order, and `buildComparison` sorts on stock and price
   only. If a paid placement is ever added it has to sit outside the results and
   be labelled advertising, or the disclosure becomes false.
-- **What leaves the browser is named.** Three things do, each only on the
-  reader's own action: open Virtual Yanny questions (to the Cloudflare
-  Worker in `workers/yanny/`, answered by Cloudflare's own AI binding, so
-  one processor and not two — catalogue questions are answered in the
-  browser and never leave it), account details (Supabase), and email. The
-  notice names all three and the processors behind them. Adding a fourth
-  means revisiting the notice *before* it ships, not after — the chat went
-  live on 2026-08-13 and the notice still said nothing left the browser
-  until 2026-09-06. `YANNY_MODELS` in `workers/yanny/wrangler.toml` is the
-  line to watch: pointing it at Groq or Google adds a processor, and
-  `COMPANY.chatProvider` has to change in the same commit.
+- **What leaves the browser is named.** Two things do, each only on the
+  reader's own action: account details (Supabase) and email. The notice
+  names both and the processors behind them. Adding a third means revisiting
+  the notice *before* it ships, not after: a chat assistant went live on
+  2026-08-13 while the notice still said nothing left the browser, and was
+  only described from 2026-09-06. It was removed on 2026-10-02.
 - **Prices are indicative.** The terms lean on this, and the UI backs it by
   showing when each price was checked. Keep the timestamp visible.
 - **Product images are other people's photographs.** The terms used to claim
@@ -71,8 +66,7 @@ and Provision of Services Regulations 2009, the CAP Code, and consumer law
 
 - **Cookie banner: deliberately none.** The site sets no cookies. Every
   browser-storage key it writes is listed on the cookies page and is written
-  only on an action that asks for it (choosing a theme, sending a chat
-  message, signing in). The one third-party script, Trustpilot's widget, no
+  only on an action that asks for it (choosing a theme or signing in). The one third-party script, Trustpilot's widget, no
   longer loads on page view: a button on the shop's page says what it will
   fetch and fetches it only when pressed. A banner would be consenting to
   nothing. If analytics or on-site affiliate tracking is ever added, consent
@@ -85,8 +79,7 @@ and Provision of Services Regulations 2009, the CAP Code, and consumer law
   is running yet" for weeks after six were; it is now computed.
 - **Consent at the point of collection.** The sign-up form now says what is
   stored, by whom, and which terms apply; both mailto forms say what happens
-  to a message; the chat header says where a message goes and not to include
-  personal details.
+  to a message.
 - **Claims.** The home page's "The only tool you need to find the best price
   on any fragrance" and "Real and Live Prices" were replaced with sentences
   the site can support. Ratings shown are each shop's own published rating,

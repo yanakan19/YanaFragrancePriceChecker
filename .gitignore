@@ -28,6 +28,3 @@ __pycache__/
 !.claude/settings.json
 !.claude/hooks/
 
-# Cloudflare Worker local secrets (workers/yanny): never committed
-.dev.vars
-**/.dev.vars

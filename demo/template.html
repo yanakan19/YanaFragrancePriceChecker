@@ -547,10 +547,6 @@
   .hero-wordmark {
     margin: 0; font-size: 38px; font-weight: 800; letter-spacing: -.035em; line-height: 1;
   }
-  .hero-by {
-    margin: 9px 0 0; font-size: 11.5px; font-weight: 700; letter-spacing: .16em;
-    text-transform: uppercase; color: var(--faint);
-  }
   .hero-mission {
     margin: 18px auto 0; width: 90%; font-size: 17px; font-weight: 600;
     color: var(--ink); text-align: center; letter-spacing: -.01em;
@@ -2211,24 +2207,6 @@
   }
   .account-entry:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-  /* One tap straight to the profile. These used to be <details> that expanded
-     to reveal a link which then opened a new tab — two interactions and a lost
-     tab to reach a page the reader had already asked for. */
-  .social {
-    display: flex; align-items: center; gap: 9px;
-    width: 100%; max-width: 360px; margin-top: 10px; padding: 11px 14px;
-    text-align: left; text-decoration: none;
-    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
-    font-size: 14px; font-weight: 600; color: var(--ink);
-    transition: border-color .15s ease;
-  }
-  .social svg { color: var(--accent); flex: none; }
-  .social-handle { margin-left: auto; font-weight: 500; color: var(--faint); }
-  @media (hover: hover) {
-    .social:hover { border-color: var(--accent); }
-  }
-  .social:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
   /* ── brand sheet ───────────────────────────────────────────────────────── */
   .sheet-back { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 30; }
   .sheet {
@@ -2419,7 +2397,6 @@
     margin-top: 28px; padding: 12px 16px; border-top: 1px solid var(--line);
     font-size: 11.5px; color: var(--faint);
   }
-  .footer-credit { white-space: nowrap; font-weight: 600; }
   .footer-social {
     display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end;
     gap: 8px 16px;
@@ -2430,200 +2407,6 @@
   }
   .footer-link .ico { width: 14px; height: 14px; }
   .footer-link:hover, .footer-link:focus-visible { color: var(--accent); }
-
-  /* ── Virtual Yanny ─────────────────────────────────────────────────────── */
-  /* bottom uses the same calc(18px + env(safe-area-inset-bottom)) the brand
-     sheet already relies on below. Without it, a plain `bottom: 18px` sits
-     inside the iOS home-indicator safe area, so Safari's own bottom chrome —
-     which grows and shrinks as the page scrolls — periodically overlaps and
-     hides the button instead of sitting above it. */
-  .yanny-launcher {
-    position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 60;
-    width: 56px; height: 56px; border-radius: 50%; border: 1px solid var(--line-firm);
-    background: var(--surface); box-shadow: var(--shadow), 0 4px 18px rgba(0,0,0,.25);
-    font-size: 26px; line-height: 1; display: flex; align-items: center; justify-content: center;
-    cursor: pointer; transition: transform .15s ease;
-  }
-  .yanny-launcher:hover, .yanny-launcher:focus-visible { transform: scale(1.06); }
-  .yanny-launcher:active { transform: scale(.94); }
-  .yanny-launcher:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  /* Hidden rather than removed while the panel is open — its position is
-     exactly where the panel visually "came from", which is worth keeping. */
-  .yanny-launcher[data-open] { display: none; }
-
-  .yanny-panel {
-    position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 61;
-    width: min(380px, calc(100vw - 24px)); height: min(600px, calc(100vh - 100px));
-    display: flex; flex-direction: column; overflow: hidden;
-    background: var(--bg); border: 1px solid var(--line-firm); border-radius: 20px;
-    box-shadow: var(--shadow), 0 12px 40px rgba(0,0,0,.35);
-  }
-  @media (max-width: 480px) {
-    /* A floating card with that much dead space around it on a phone reads
-       as a mistake, not a design choice — full sheet instead. 100dvh rather
-       than 100vh: the layout viewport (100vh) is sized as if Safari's
-       chrome were always hidden, so a panel that height overshoots the
-       actually-visible area by however much chrome is showing at that
-       moment, and the composer at its bottom edge ends up under it. dvh
-       tracks the real visible viewport as that chrome grows and shrinks. */
-    .yanny-panel { right: 0; bottom: 0; width: 100%; max-width: 100vw; height: 100vh; height: 100dvh; border-radius: 0; border: 0; }
-    /* Full screen, so its header must clear the status bar and notch, and
-       in landscape every edge must clear the notch and rounded corners. */
-    .yanny-panel .yanny-head {
-      padding-top: calc(14px + var(--safe-top));
-      padding-left: max(18px, env(safe-area-inset-left)); padding-right: max(14px, env(safe-area-inset-right));
-    }
-    .yanny-panel .yanny-body { padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
-    .yanny-panel .yanny-composer, .yanny-panel .yanny-foot {
-      padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right));
-    }
-    /* A phone's whole screen is the chat: bubbles can use more of it. */
-    .yanny-panel .yanny-msg, .yanny-panel .yanny-source { max-width: 90%; }
-  }
-
-  .yanny-head {
-    flex: none; display: flex; align-items: center; gap: 10px;
-    padding: 14px 14px 14px 18px; border-bottom: 1px solid var(--line);
-  }
-  .yanny-head-mark { font-size: 20px; flex: none; }
-  .yanny-head-text { flex: 1; min-width: 0; }
-  .yanny-head-name { margin: 0; font-size: 15px; font-weight: 800; letter-spacing: -.01em; }
-  .yanny-head-sub { margin: 1px 0 0; font-size: 11.5px; color: var(--faint); }
-  .yanny-head-note { margin: 4px 0 0; font-size: 11px; line-height: 1.4; color: var(--faint); }
-  .yanny-close {
-    flex: none; width: 32px; height: 32px; border-radius: 50%; border: 0; background: none;
-    color: var(--faint); cursor: pointer; display: flex; align-items: center; justify-content: center;
-  }
-  .yanny-close:hover, .yanny-close:focus-visible { color: var(--accent); }
-  .yanny-close:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-  .yanny-close .ico { width: 18px; height: 18px; }
-
-  /* Clear chat. The quiet pill this site already uses for a secondary
-     control — same tokens as the old agent chips, sized to sit level with the
-     close button beside it — because it is not the thing anyone came to the
-     panel to press. Armed, it borrows the accent the same way every other
-     "this one is live" state here does, so the change of colour and the
-     change of label say the same thing twice. */
-  .yanny-clear {
-    flex: none; font: inherit; font-size: 11.5px; font-weight: 700; cursor: pointer;
-    padding: 5px 10px; border-radius: 20px; white-space: nowrap;
-    background: var(--surface); border: 1px solid var(--line); color: var(--faint);
-  }
-  .yanny-clear:hover { color: var(--ink-2); border-color: var(--line-firm); }
-  .yanny-clear.armed { color: var(--accent-ink); border-color: var(--accent); }
-  .yanny-clear:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-  /* overscroll-behavior: reaching the end of the conversation must not start
-     scrolling the page underneath the panel. */
-  .yanny-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 14px 16px; }
-
-  /* The strip that stands in for the composer while the backend is being
-     checked or is not answering. It sits exactly where the composer would,
-     so the conversation above it never moves between states. */
-  .yanny-foot {
-    flex: none; display: flex; align-items: center; gap: 8px; margin: 0;
-    border-top: 1px solid var(--line); font-size: 12.5px; color: var(--faint);
-    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
-  }
-
-  /* A stopped turn, deliberately not a message bubble: it is a note about
-     the conversation rather than a turn in it, so a truncated answer can
-     never be read as a short one. */
-  .yanny-stopped {
-    margin: 0 0 10px; font-size: 12.5px; line-height: 1.45; color: var(--faint);
-    font-style: italic; padding-left: 2px;
-  }
-
-  .yanny-unavailable {
-    height: 100%; display: flex; flex-direction: column; align-items: center;
-    justify-content: center; text-align: center; gap: 10px; padding: 24px;
-  }
-  .yanny-unavailable-mark { font-size: 40px; opacity: .6; }
-  .yanny-unavailable p { margin: 0; font-size: 13.5px; color: var(--ink-2); max-width: 26ch; }
-  .yanny-checking { height: 100%; display: flex; align-items: center; justify-content: center; }
-
-  /* overflow-wrap: a long product id or an unbroken pasted string must wrap
-     inside the bubble rather than push the panel sideways on a phone. */
-  .yanny-msg {
-    max-width: 84%; margin: 0 0 10px; padding: 9px 13px; border-radius: 14px;
-    font-size: 13.5px; line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere;
-  }
-  .yanny-msg.user { margin-left: auto; background: var(--accent); color: var(--accent-on); border-bottom-right-radius: 4px; }
-  .yanny-msg.bot { background: var(--surface); border: 1px solid var(--line); border-bottom-left-radius: 4px; }
-  /* Links to the site's own pages inside an answer: the accent ink every
-     other in-text link uses, underlined so they read as links without
-     relying on colour alone. */
-  .yanny-msg a.yanny-link { color: var(--accent-ink); text-decoration: underline; text-underline-offset: 2px; }
-  .yanny-msg a.yanny-link:hover { text-decoration-thickness: 2px; }
-  .yanny-msg a.yanny-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-radius: 3px; }
-  /* A turn that went wrong is marked as such — a coloured edge and a mark —
-     so it is never mistaken for a short answer. */
-  .yanny-msg.bot.is-error { border-color: var(--accent); border-left-width: 3px; }
-  .yanny-msg.bot.is-error::before { content: "⚠️ "; }
-
-  .yanny-splash { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 12.5px; color: var(--faint); }
-  .yanny-spinner {
-    width: 13px; height: 13px; flex: none; border-radius: 50%;
-    border: 2px solid var(--line-firm); border-top-color: var(--accent);
-    animation: yanny-spin .7s linear infinite;
-  }
-  @keyframes yanny-spin { to { transform: rotate(360deg); } }
-
-  .yanny-source { margin: -6px 0 10px 4px; font-size: 11px; color: var(--faint); max-width: 84%; }
-
-  /* The opening state of an empty chat. Centred in the body's own space
-     rather than pinned above the composer, so it reads as an invitation
-     sitting in the room the conversation is about to fill — and it vanishes
-     the moment there is a real first message. Deliberately not interactive:
-     no buttons, no hover, no cursor change. The three examples are quoted
-     because they are things to say, not controls to press. */
-  .yanny-empty {
-    height: 100%; display: flex; flex-direction: column; align-items: center;
-    justify-content: center; gap: 14px; text-align: center; padding: 8px 4px;
-  }
-  .yanny-empty-lead {
-    margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink-2); max-width: 30ch;
-  }
-  .yanny-empty-eg {
-    margin: 0; padding: 0; list-style: none;
-    display: flex; flex-direction: column; gap: 7px;
-  }
-  .yanny-empty-eg li { font-size: 13px; line-height: 1.4; color: var(--faint); font-style: italic; }
-
-  /* Bottom padding includes the safe area too: on the mobile full-sheet
-     panel the composer sits at the true screen edge, right where the home
-     indicator lives. */
-  .yanny-composer {
-    flex: none; display: flex; gap: 8px; border-top: 1px solid var(--line);
-    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
-  }
-  .yanny-composer input {
-    flex: 1; min-width: 0; font: inherit; font-size: 16px; color: var(--ink); background: var(--surface);
-    border: 1px solid var(--line); border-radius: 20px; padding: 9px 14px;
-  }
-  .yanny-composer input:focus-visible { outline: 2px solid var(--accent); outline-offset: -1px; }
-  .yanny-composer button {
-    flex: none; width: 40px; height: 40px; border-radius: 50%; border: 0;
-    background: var(--accent); color: var(--accent-on); font-size: 16px; cursor: pointer;
-  }
-  .yanny-composer button:disabled { opacity: .5; cursor: default; }
-  .yanny-composer button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  /* The stop button is the same button in the same place, so it inherits
-     everything above — including `color: var(--accent-on)`, which is exactly
-     the colour asked for and is already defined once per theme state. On the
-     dark theme --accent-on is #0B0405, a near-black; on the light theme it
-     is #FFFFFF. Both are declared in all four blocks at the top of this file
-     (:root, [data-mode="light"], the prefers-color-scheme fallback for
-     [data-mode="system"], and the [data-theme] override the host can stamp),
-     so the square is right under every setting including the default "match
-     my device" with nothing stamped at all — and it will stay right if the
-     palette is ever re-tinted, which a hardcoded #000/#fff would not. The
-     square itself is fill: currentColor, so it just follows.
-
-     Centred with flex because the send glyph it replaces is text and was
-     centred by the button's own line box; an <svg> is not. */
-  .yanny-composer .yanny-stop { display: flex; align-items: center; justify-content: center; }
-  .yanny-composer .yanny-stop .ico { width: 15px; height: 15px; }
 
   /* ── the design system page ────────────────────────────────────────────────
      Deliberately built out of the type roles, surfaces and lines this file
@@ -2772,7 +2555,7 @@
     }
     body { background: #fff; color: #000; }
     .bar, .subnav, .site-footer, .to-top, .skip-link,
-    #yanny-launcher, #yanny-panel-host, .controls, .facets-panel, .controls-row,
+    .controls, .facets-panel, .controls-row,
     .wishlist-toggle, .grid-more { display: none !important; }
     .app { max-width: none; }
     main { padding: 0; }
@@ -2874,7 +2657,6 @@
   <main id="view" tabindex="-1"></main>
 
   <footer class="site-footer">
-    <span class="footer-credit">Built by YannySniffs</span>
     <div class="footer-social">
       <!-- The one route into the design system page. A real href so it can be
            copied, opened in a new tab and linked to; the click handler in
@@ -2884,33 +2666,11 @@
            step over a style guide to find it, and because a fifth primary nav
            item breaks the phone layout at 375px. -->
       <a class="footer-link" href="/design" data-goto="design">Design system</a>
-      <a class="footer-link" href="https://www.tiktok.com/@yannysniffs" target="_blank" rel="noopener">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-          <circle cx="8" cy="17" r="3" stroke="currentColor" stroke-width="1.7"/>
-          <path d="M11 17V4l6 3.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        TikTok
-      </a>
-      <a class="footer-link" href="https://www.instagram.com/yannysniffs" target="_blank" rel="noopener">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-          <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/>
-          <circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.7"/>
-          <circle cx="17.2" cy="6.8" r="1" fill="currentColor"/>
-        </svg>
-        Instagram
-      </a>
     </div>
   </footer>
 </div>
 
 <div id="sheet-host"></div>
-
-<button id="yanny-launcher" class="yanny-launcher" aria-label="Chat with Virtual Yanny" aria-haspopup="dialog" aria-expanded="false" aria-controls="yanny-panel-host">🤖</button>
-<div id="yanny-panel-host"></div>
-<!-- Where Virtual Yanny's answers are read out to a screen reader. Outside
-     the panel on purpose: the panel is redrawn on every event, and a live
-     region has to persist to be announced reliably. See announceYanny. -->
-<div id="yanny-live" class="sr" role="status" aria-live="polite" aria-atomic="true"></div>
 
 <script>/*__BUNDLE__*/</script>
 <script>
