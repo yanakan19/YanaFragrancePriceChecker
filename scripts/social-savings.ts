@@ -39,6 +39,8 @@ const HISTORY = join(ROOT, 'social', 'savings-history.json');
 const TOTAL = 6;
 const MAX_AGE_HOURS = 96;
 const NO_REPEAT_DAYS = 30;
+/** Only perfumes worth over this at the well known shop (bottle price, before delivery). */
+const MIN_BOTTLE_GBP = 60;
 const WELL_KNOWN = new Set([
   'selfridges', 'john-lewis', 'lookfantastic', 'superdrug', 'allbeauty',
   'harvey-nichols', 'boots', 'the-perfume-shop', 'the-fragrance-shop', 'notino',
@@ -77,7 +79,7 @@ function candidates(): Example[] {
     const dear = rows
       .filter((r) => WELL_KNOWN.has(r.retailer.id) && r.isPurchasable && r.deliveredPriceGbp !== null && r.ageSeconds <= MAX_AGE_HOURS * 3600)
       .sort((a, b) => b.deliveredPriceGbp! - a.deliveredPriceGbp!)[0];
-    if (!dear) continue;
+    if (!dear || (!forced && dear.itemPriceGbp <= MIN_BOTTLE_GBP)) continue;
     const saving = Math.round((dear.deliveredPriceGbp! - cheap.deliveredPriceGbp) * 100) / 100;
     const percent = Math.round((saving / dear.deliveredPriceGbp!) * 100);
     if (!forced && (saving < 5 || percent < 10)) continue;
@@ -173,6 +175,9 @@ function slides(e: Example, photo: string): string[] {
     : ship.membershipPerk ? '<p class="note2">Free delivery is for paid members only</p>'
     : '';
   const year = Math.round(e.saving * 12 * 100) / 100;
+  // When neither shop charges delivery, slides 2 and 3 say so instead of "then comes delivery".
+  const bothFree = dd <= 0 && cd <= 0;
+  const then = bothFree ? 'And both deliver free.' : 'Then comes delivery.';
   const fine = `<p class="fine">Prices checked ${dateLabel}. Prices change, so check before you buy.</p>`;
   const sumLines = (item: number, del: number) =>
     `<div class="line"><span>Bottle</span><span>${gbp(item)}</span></div>
@@ -189,15 +194,15 @@ function slides(e: Example, photo: string): string[] {
        <div class="shopcard"><p class="s" data-fit="1,22">${dear}</p><p class="p" data-fit="1,40">${gbp(e.dear.itemPriceGbp)}</p><p class="l">Bottle price</p></div>
        <div class="shopcard win"><span class="win-tag">CHEAPEST WE FOUND</span><p class="s" data-fit="1,22">${cheap}</p><p class="p" data-fit="1,40">${gbp(e.cheap.itemPriceGbp)}</p><p class="l">Bottle price</p></div>
      </div>
-     <p class="sub">${e.dear.itemPriceGbp > e.cheap.itemPriceGbp ? `Already ${gbp(e.dear.itemPriceGbp - e.cheap.itemPriceGbp)} apart. Then comes delivery.` : 'Close on the label. Then comes delivery.'}</p>
+     <p class="sub">${e.dear.itemPriceGbp > e.cheap.itemPriceGbp ? `Already ${gbp(e.dear.itemPriceGbp - e.cheap.itemPriceGbp)} apart. ${then}` : `Close on the label. ${then}`}</p>
      ${fine}`,
-    `<p class="kicker">Then comes delivery</p>
-     <h1 data-fit="1,40">We add it in for you</h1>
+    `<p class="kicker">${bothFree ? 'And delivery?' : 'Then comes delivery'}</p>
+     <h1 data-fit="1,40">${bothFree ? 'Free at both shops' : 'We add it in for you'}</h1>
      <div class="sum">
        <div class="sumcard"><p class="s" data-fit="1,22">${dear}</p>${sumLines(e.dear.itemPriceGbp, dd)}${dearMember}</div>
        <div class="sumcard win"><p class="s" data-fit="1,22">${cheap}</p>${sumLines(e.cheap.itemPriceGbp, cd)}</div>
      </div>
-     <p class="sub">PriceSniffs shows the total before you click.</p>`,
+     <p class="sub">${bothFree ? 'So the gap stays. ' : ''}PriceSniffs shows the total before you click.</p>`,
     `<p class="kicker">Your saving on one bottle</p>
      <div class="stack">
        <p class="big" data-fit="1,80">${gbp(e.saving)}</p>
@@ -227,6 +232,9 @@ function caption(e: Example, url: string): string {
   const dd = e.dear.delivery.costGbp ?? 0;
   const cd = e.cheap.delivery.costGbp ?? 0;
   const year = Math.round(e.saving * 12 * 100) / 100;
+  // When neither shop charges delivery, slides 2 and 3 say so instead of "then comes delivery".
+  const bothFree = dd <= 0 && cd <= 0;
+  const then = bothFree ? 'And both deliver free.' : 'Then comes delivery.';
   const tag = undash(e.frag.brand).toLowerCase().replace(/[^a-z0-9]/g, '');
   const dearSentence = dd > 0
     ? `${name} by ${undash(e.frag.brand)} is ${gbp(e.dear.itemPriceGbp)} at ${dear}, and their delivery adds ${gbp(dd)} at checkout, so you pay ${gbp(e.dear.deliveredPriceGbp!)}.`

@@ -1,24 +1,24 @@
 {
-  "id": "ean-688575001778",
-  "url": "https://pricesniffs.space/fragrance/ean-688575001778",
-  "saving": 7.25,
-  "percent": 28,
+  "id": "ean-3508441104631",
+  "url": "https://pricesniffs.space/fragrance/ean-3508441104631",
+  "saving": 56.91,
+  "percent": 29,
   "dear": {
     "shop": "Allbeauty",
-    "item": 22.25,
-    "delivery": 3.95,
-    "total": 26.2,
-    "hoursOld": 17,
-    "link": "https://allbeauty.com/products/p-vera-wang-for-women-eau-de-parfum-spray-100ml-11079236",
+    "item": 195.9,
+    "delivery": 0,
+    "total": 195.9,
+    "hoursOld": 8,
+    "link": "https://allbeauty.com/products/p-creed-acqua-fiorentina-eau-de-parfum-spray-75ml-12852826",
     "live": "match"
   },
   "cheap": {
-    "shop": "Fragrance Click",
-    "item": 18.95,
+    "shop": "MyBeauty.Boutique",
+    "item": 138.99,
     "delivery": 0,
-    "total": 18.95,
+    "total": 138.99,
     "hoursOld": 1,
-    "link": "https://www.awin1.com/pclick.php?p=44089042324&a=3026001&m=124166",
+    "link": "https://www.awin1.com/pclick.php?p=43661686789&a=3026001&m=106925",
     "live": "unreadable"
   },
   "skipped": [
