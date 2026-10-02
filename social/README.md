@@ -7,6 +7,7 @@ Everything for PriceSniffs social media posts.
 | `DESIGN-SYSTEM.md` | Colours, type, logo, layouts and wording rules. Read this first. |
 | `templates/` | Blank layouts to copy for a new post. Vertical 9:16 is the default |
 | `posts/` | One folder per day's set, named `YYYY-MM-DD-short-name`: 9:16 stories (no caption, link sticker), 3:4 feed posts and `caption.txt` (the feed post's caption) |
+| `highlights/` | Story highlight covers (1080 x 1080, shown as a circle): `deals-cover` for the Deals highlight |
 | `fonts/` | Liberation Sans, the logo's font, with its licence |
 
 Deal of the Day posts are made automatically every day at 12:00 UK

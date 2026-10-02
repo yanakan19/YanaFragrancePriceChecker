@@ -66,6 +66,11 @@ The mark (magnifying glass, red, with a white bottle in the lens) and the
 wordmark ("Price" white, "Sniffs" red) come from `docs/brand/`. Never recolour
 them, never stretch them, never put them on anything but the black.
 
+**Highlight covers** (`social/highlights/`, 1080 x 1080): the same build as
+the logo mark, one simple icon in a thick red outline with solid white shapes
+inside, on the black, about the logo's size and well inside the central circle
+Instagram crops to. Render with `npm run social:render -- social/highlights`.
+
 ## 4. Layouts
 
 Every vertical layout has the same skeleton, top to bottom and centred:
