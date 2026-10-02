@@ -1,0 +1,109 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="social-size" content="1080x1440"><style>
+  * { box-sizing: border-box; }
+  html { --bg:#0A0A0B; --ink:#F7F7F8; --ink-2:#B9B9C0; --ink-3:#8A8A93; --accent:#FF3B41; --kicker:#FF6A6E;
+    --card:#121214; --card-line:#26262B; --icon:#FF3B41; --icon-inner:#F7F7F8; --mark-ring:#FF3B41; --mark-bottle:#F7F7F8;
+    --bar:#3A3A40; --bar-best:#4FB47B; --tag-bg:#1E0709; --tag-ink:#FF6A6E; --pill-bg:#FF3B41; --pill-ink:#0A0A0B; --dot:#3A3A40; --dot-on:#FF3B41;
+    --card-ink:#F7F7F8; --card-ink-2:#B9B9C0; --card-ink-3:#8A8A93; --row-line:#1E1E22; --row-best:#FF3B41; --bar-rest:#5A5A62; }
+  html, body { margin: 0; width: 1080px; height: 1440px; background: var(--bg); color: var(--ink);
+    font-family: 'Liberation Sans', Arial, Helvetica, sans-serif; }
+  main { height: 100%; padding: 80px 90px 70px; display: flex; flex-direction: column; align-items: center;
+    justify-content: space-between; text-align: center; }
+  .brandline { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 44px; letter-spacing: -0.5px; }
+  .brandline .mark { width: 58px; height: 58px; flex: none; }
+  em { font-style: normal; color: var(--accent); }
+  .body { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 34px; }
+  .kicker { margin: 0; font-size: 28px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--kicker); }
+  h1 { margin: 0; width: 100%; font-size: 84px; line-height: 1.1; letter-spacing: -1px; }
+  .sub { margin: 0; font-size: 40px; line-height: 1.35; color: var(--ink-2); }
+  .list { width: 100%; max-width: 860px; display: flex; flex-direction: column; gap: 30px; text-align: left; }
+  .item { display: flex; align-items: center; gap: 28px; padding: 26px 30px; border-radius: 28px;
+    background: var(--card); border: 2px solid var(--card-line); box-shadow: 0 10px 30px rgba(10,10,11,0.25); }
+  .tick { flex: none; width: 64px; height: 64px; }
+  .item p { margin: 0; font-size: 38px; line-height: 1.3; color: var(--card-ink); }
+  .item b { display: block; font-size: 42px; margin-bottom: 4px; }
+  .item span { color: var(--card-ink-2); font-size: 32px; }
+  .big-mark { width: 380px; height: 380px; }
+  .foot { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+  .dots { display: flex; gap: 12px; }
+  .dots i { width: 14px; height: 14px; border-radius: 50%; background: var(--dot); }
+  .dots i.on { background: var(--dot-on); }
+  .swipe { font-size: 30px; font-weight: 700; color: var(--ink-2); }
+  .pill { padding: 22px 52px; border-radius: 999px; background: var(--pill-bg); color: var(--pill-ink); font-size: 46px; font-weight: 700; }
+  .rows { width: 100%; max-width: 820px; border-radius: 28px; background: var(--card); border: 2px solid var(--card-line); padding: 10px 0; box-shadow: 0 10px 30px rgba(10,10,11,0.25); }
+  .row { display: flex; align-items: center; justify-content: space-between; padding: 22px 30px; border-bottom: 2px solid var(--row-line); }
+  .row:last-child { border-bottom: 0; }
+  .row.best { border-left: 6px solid var(--row-best); }
+  .shop { display: flex; align-items: center; gap: 16px; }
+  .bar { height: 22px; border-radius: 11px; background: var(--bar); }
+  .tag { font-size: 20px; font-weight: 700; letter-spacing: 2px; color: var(--tag-ink); background: var(--tag-bg); border-radius: 8px; padding: 6px 10px; }
+  .price { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+  .price .bar { background: var(--bar-best); }
+  .row:not(.best) .price .bar { background: var(--bar-rest); }
+  .note { font-size: 20px; color: var(--card-ink-3); letter-spacing: 1px; text-transform: uppercase; }
+
+  .photo { width: 440px; height: 440px; border-radius: 36px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; }
+  .photo img { width: 86%; height: 86%; object-fit: contain; }
+  .who { width: 100%; display: flex; flex-direction: column; gap: 10px; }
+  .who .name { margin: 0; font-size: 52px; font-weight: 700; line-height: 1.12; }
+  .who .brand { margin: 0; font-size: 30px; letter-spacing: 4px; text-transform: uppercase; color: var(--ink-2); white-space: nowrap; }
+  .vs { width: 100%; display: flex; gap: 24px; }
+  .shopcard { flex: 1 1 0; min-width: 0; padding: 34px 26px; border-radius: 28px; background: var(--card); border: 3px solid var(--card-line);
+    box-shadow: 0 10px 30px rgba(10,10,11,0.25); color: var(--card-ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+  .shopcard.win { border-color: #FF3B41; }
+  .shopcard .s { margin: 0; width: 100%; font-size: 34px; font-weight: 700; white-space: nowrap; }
+  .shopcard .p { margin: 0; width: 100%; font-size: 78px; font-weight: 700; letter-spacing: -1px; white-space: nowrap; }
+  .shopcard .l { margin: 0; font-size: 24px; letter-spacing: 2px; text-transform: uppercase; color: var(--card-ink-3); }
+  .win-tag { font-size: 20px; font-weight: 700; letter-spacing: 2px; color: #0A0A0B; background: #FF3B41; border-radius: 8px; padding: 6px 12px; }
+  .sum { width: 100%; display: flex; flex-direction: column; gap: 24px; }
+  .sumcard { padding: 28px 34px; border-radius: 28px; background: var(--card); border: 3px solid var(--card-line); box-shadow: 0 10px 30px rgba(10,10,11,0.25); color: var(--card-ink); text-align: left; }
+  .sumcard.win { border-color: #FF3B41; }
+  .sumcard .s { margin: 0 0 14px; font-size: 34px; font-weight: 700; white-space: nowrap; }
+  .line { display: flex; justify-content: space-between; gap: 20px; font-size: 32px; color: var(--card-ink-2); margin: 6px 0; }
+  .line.total { color: var(--card-ink); font-weight: 700; font-size: 40px; border-top: 2px solid var(--row-line); padding-top: 12px; margin-top: 12px; }
+  .line .plus { color: #FF3B41; font-weight: 700; }
+  .line .free { color: #4FB47B; font-weight: 700; }
+  .note2 { margin: 6px 0 0; font-size: 24px; color: var(--card-ink-3); }
+  .big { margin: 0; width: 100%; white-space: nowrap; font-size: 200px; font-weight: 700; letter-spacing: -6px; line-height: 1.15; color: #FF3B41; }
+  .lead { margin: 0; font-size: 46px; font-weight: 700; }
+  .fine { margin: 0; font-size: 24px; color: var(--ink-3); }
+  .stack { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+  .pill { padding: 22px 52px; border-radius: 999px; background: var(--pill-bg); color: var(--pill-ink); font-size: 46px; font-weight: 700; }
+  .badge { display: inline-block; padding: 14px 30px; border-radius: 999px; background: var(--pill-bg); color: var(--pill-ink); font-size: 40px; font-weight: 700; }
+</style></head><body><main>
+  <div class="brandline"><svg class="mark" viewBox="240 240 610 610" aria-hidden="true"><circle cx="478" cy="478" r="196" fill="none" stroke="var(--mark-ring)" stroke-width="58"/><line x1="636" y1="636" x2="796" y2="796" stroke="var(--mark-ring)" stroke-width="72" stroke-linecap="round"/><g fill="var(--mark-bottle)"><rect x="452" y="366" width="52" height="42" rx="9"/><rect x="463" y="402" width="30" height="26"/><rect x="398" y="422" width="160" height="164" rx="34"/></g></svg><span>Price<em>Sniffs</em></span></div>
+  <div class="body"><p class="kicker">Your saving on one bottle</p>
+     <div class="stack">
+       <p class="big" data-fit="1,80">£7.25</p>
+       <span class="badge">28% less</span>
+       <p class="sub">£26.20 at Allbeauty<br>£18.95 at Fragrance Click</p>
+     </div>
+     <p class="fine">Prices checked 2 October 2026. Prices change, so check before you buy.</p></div>
+  <div class="foot"><div class="dots"><i class=""></i><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class=""></i></div><span class="swipe">Swipe &rarr;</span></div>
+</main><script>
+(() => {
+  const lineH = (el) => {
+    const cs = getComputedStyle(el);
+    const lh = parseFloat(cs.lineHeight);
+    return Number.isNaN(lh) ? parseFloat(cs.fontSize) * 1.2 : lh;
+  };
+  for (const el of document.querySelectorAll('[data-fit]')) {
+    const [lines, min] = el.dataset.fit.split(',').map(Number);
+    let size = parseFloat(getComputedStyle(el).fontSize);
+    const over = () => el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > lines * lineH(el) + 2;
+    while (over() && size > min) { size -= 1; el.style.fontSize = size + 'px'; }
+    if (over()) {
+      el.dataset.clamped = 'true';
+      el.style.overflow = 'hidden';
+      if (lines > 1) { el.style.display = '-webkit-box'; el.style.webkitBoxOrient = 'vertical'; el.style.webkitLineClamp = String(lines); }
+      else { el.style.textOverflow = 'ellipsis'; el.style.whiteSpace = 'nowrap'; }
+    }
+  }
+  const main = document.querySelector('main');
+  let k = 1;
+  while (main && main.scrollHeight > main.clientHeight + 1 && k > 0.6) {
+    k = Math.round((k - 0.04) * 100) / 100;
+    document.documentElement.style.setProperty('--k', String(k));
+  }
+  document.body.dataset.fitScale = String(k);
+})();
+</script></body></html>

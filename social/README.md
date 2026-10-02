@@ -11,7 +11,8 @@ Everything for PriceSniffs social media posts.
 | `fonts/` | Liberation Sans, the logo's font, with its licence |
 
 Deal of the Day posts are made automatically every day at 12:00 UK
-(`npm run social:deal`, see DESIGN-SYSTEM.md section 7).
+(`npm run social:deal`, see DESIGN-SYSTEM.md section 7), and a "How much could
+you save?" carousel every day at 18:00 UK (`npm run social:savings`, section 8).
 
 Make the PNGs with `npm run social:render` (every post) or
 `npm run social:render -- social/posts/<folder>` (one post).
@@ -25,4 +26,5 @@ What to post, where and when: `docs/SOCIAL-MEDIA-PLAN.md`.
 | 2026-10-01 | `posts/2026-10-01-launch-welcome/` | Launch: "Welcome to the Page" (9:16 story, 3:4 post) |
 | 2026-10-02 | `posts/2026-10-02-deal-of-the-day/` | Deal of the Day: Zimaya Yaa Umree (9:16 and 3:4) |
 | 2026-10-02 | `posts/2026-10-02-what-is-pricesniffs/` | Intro carousel: "What is PriceSniffs?" (4 slides, 3:4 post). Remake with `npx tsx scripts/social-intro-slides.ts` |
-| 2026-10-02 | `posts/2026-10-02-savings-example/` | Savings example carousel: Miss Dior, Selfridges vs Justmylook (6 slides, 3:4 post). Remake with `npx tsx scripts/social-savings-example.ts` |
+| 2026-10-02 | `posts/2026-10-02-savings-example/` | Savings example carousel: Miss Dior, Selfridges vs Justmylook (6 slides, 3:4 post). Made with `scripts/social-savings.ts` (inverted theme, hand picked) |
+| 2026-10-02 | `posts/2026-10-02-savings/` | How much could you save?: Vera Wang For Women, Allbeauty vs Fragrance Click (6 slides, 3:4 post) |

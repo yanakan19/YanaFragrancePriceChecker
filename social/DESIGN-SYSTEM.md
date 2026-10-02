@@ -11,7 +11,7 @@ There are two themes, built from the same four colours.
 
 | Theme | Used for | Background | Type and icons | Accent |
 |---|---|---|---|---|
-| **Standard** | Deal of the Day (every daily post) and the logo itself | Black `#0A0A0B` | White `#F7F7F8`, grey `#B9B9C0` for body text | Red `#FF3B41` |
+| **Standard** | Every daily post (Deal of the Day, How much could you save?) and the logo itself | Black `#0A0A0B` | White `#F7F7F8`, grey `#B9B9C0` for body text | Red `#FF3B41` |
 | **Inverted** | Every one off post: launches, explainers, carousels, announcements | Red `#FF3B41` | Black `#0A0A0B` (icons, logo mark, headlines, body text at 78% black) | White, for large type only ("Sniffs") |
 
 The inverted theme makes one off posts stand out from the daily deals in
@@ -32,7 +32,7 @@ black; white is only for large type.
 
 In the standard theme red is an accent: one red word per headline at most,
 one red button at most. The theme tokens live in `THEMES` in
-`scripts/social-intro-slides.ts`; copy them for any new one off post.
+`scripts/socialSlides.ts`, with the shared slide frame; use them for any new carousel.
 
 ## 2. Type
 
@@ -207,3 +207,39 @@ its caption.
 **Every run reports** the perfume, prices and saving, gives the product link
 as a plain https address in a copyable box for the story's link sticker, and
 gives the feed post caption in its own copyable box.
+
+## 8. How much could you save? (automatic, every day at 18:00 UK)
+
+**Read this whole document first**, as with Deal of the Day.
+
+`npm run social:savings` makes a six slide 3:4 feed post (a carousel) in the
+**standard black theme** in `social/posts/YYYY-MM-DD-savings/`: six
+`slide-N-3x4.png` with their HTML sources, `caption.txt` and `check.json`.
+
+1. "A real example: How much could you save?" with the product photo, name
+   and brand
+2. "Same bottle, two shops": the well known shop's bottle price beside the
+   cheapest shop PriceSniffs found ("CHEAPEST WE FOUND")
+3. "Then comes delivery: We add it in for you": bottle, delivery and what you
+   pay at each shop, with the reason delivery is charged (for example "Free
+   delivery only on orders over £25")
+4. "Your saving on one bottle": the saving in pounds, a "N% less" pill, both
+   totals
+5. "Buy one a month": the saving over 12 months, marked "at today's prices"
+6. "Find your own savings": Search any perfume, Link in bio
+
+**How the example is picked, so it is always fair and true:**
+* The cheap side is the product page's own cheapest offer, in stock, with
+  delivery stated, and the page is sure it is the cheapest.
+* The dear side is the dearest in stock listing from a well known shop
+  (Selfridges, John Lewis, LOOKFANTASTIC, Superdrug, Allbeauty and the other
+  big names when they have prices).
+* Both prices were checked in the last 4 days. The saving is at least £5 and
+  10%. Examples where the well known shop adds delivery come first.
+* Where a shop's product data can be read live, its price must still match,
+  or the example is skipped. Shops that block automated reads are flagged
+  "unreadable" in `check.json`: check those by hand before posting.
+* No perfume repeats within 30 days (`social/savings-history.json`). If
+  nothing qualifies, nothing is made that day.
+* The wording is always "cheapest we found", never "cheapest in the UK":
+  PriceSniffs does not compare every shop.

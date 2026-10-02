@@ -1,0 +1,27 @@
+{
+  "id": "ean-688575001778",
+  "url": "https://pricesniffs.space/fragrance/ean-688575001778",
+  "saving": 7.25,
+  "percent": 28,
+  "dear": {
+    "shop": "Allbeauty",
+    "item": 22.25,
+    "delivery": 3.95,
+    "total": 26.2,
+    "hoursOld": 17,
+    "link": "https://allbeauty.com/products/p-vera-wang-for-women-eau-de-parfum-spray-100ml-11079236",
+    "live": "match"
+  },
+  "cheap": {
+    "shop": "Fragrance Click",
+    "item": 18.95,
+    "delivery": 0,
+    "total": 18.95,
+    "hoursOld": 1,
+    "link": "https://www.awin1.com/pclick.php?p=44089042324&a=3026001&m=124166",
+    "live": "unreadable"
+  },
+  "skipped": [
+    "ean-3700578504364: product link not live on the site"
+  ]
+}
