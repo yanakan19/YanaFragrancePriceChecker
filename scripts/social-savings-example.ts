@@ -18,7 +18,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { launchChromium } from './a11y-audit.js';
 import { renderSmooth } from './socialRender.js';
-import { H, MARK, W, slide } from './socialSlides.js';
+import { H, H_TIKTOK, MARK, W, slide, tiktokSlide } from './socialSlides.js';
 import { resizedPhotoUrl } from '../demo/photo.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -146,6 +146,7 @@ We show the total with delivery before you click, for more than 30 UK shops. Pri
     const name = `slide-${i + 1}-3x4`;
     writeFileSync(join(DIR, `${name}.html`), html.replace(photo, DEAL.photo));
     await renderSmooth(browser, html, W, H, join(DIR, `${name}.png`));
+    await renderSmooth(browser, tiktokSlide(html), W, H_TIKTOK, join(DIR, `slide-${i + 1}-9x16.png`));
     console.log(`${name}.png`);
   }
   await browser.close();

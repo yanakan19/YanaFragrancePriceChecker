@@ -6,6 +6,7 @@
  *
  *   npm run social:savings                     today's example
  *   npm run social:savings -- --slot 2         the day's second post (folder <date>-savings-2)
+ *   npm run social:savings -- --id <id> --out <folder> --date <YYYY-MM-DD>   re-render a past post
  *   npm run social:savings -- --id <id>        a chosen perfume
  *   npm run social:savings -- --theme inverted --out <folder name>
  *
@@ -32,7 +33,7 @@ import { cheapestVerdict } from '../src/services/deliveryConfidence.js';
 import type { PresentedOffer } from '../src/types/offer.js';
 import { launchChromium } from './a11y-audit.js';
 import { renderSmooth, tiktokCaption } from './socialRender.js';
-import { H, MARK, THEMES, W, slide } from './socialSlides.js';
+import { H, H_TIKTOK, MARK, THEMES, W, slide, tiktokSlide } from './socialSlides.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SITE = 'https://pricesniffs.space';
@@ -53,7 +54,8 @@ const opt = (name: string) => {
   return i >= 0 ? args[i + 1] : undefined;
 };
 const theme = (opt('--theme') ?? 'standard') as keyof typeof THEMES;
-const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/London' });
+// --date YYYY-MM-DD re-renders a past day's post with that day's date on it.
+const today = opt('--date') ?? new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/London' });
 const dateLabel = new Date(`${today}T12:00:00Z`).toLocaleDateString('en-GB', { timeZone: 'Europe/London', day: 'numeric', month: 'long', year: 'numeric' });
 const gbp = (n: number) => `£${n.toFixed(2)}`;
 const undash = (s: string) => s.replace(/\s*[-‐-―−]\s*/g, ' ').replace(/\s+/g, ' ').trim();
@@ -305,6 +307,7 @@ async function main() {
     const html = slide(i + 1, TOTAL, inner, i + 1 === TOTAL ? '' : i === 0 ? 'Swipe to see &rarr;' : 'Swipe &rarr;', theme, EXTRA(theme), true);
     writeFileSync(join(dir, `slide-${i + 1}-3x4.html`), html.replace(photo, e.frag.photoUrl!));
     await renderSmooth(browser, html, W, H, join(dir, `slide-${i + 1}-3x4.png`));
+    await renderSmooth(browser, tiktokSlide(html), W, H_TIKTOK, join(dir, `slide-${i + 1}-9x16.png`));
   }
   await browser.close();
   const feedCaption = caption(e, url);

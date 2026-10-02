@@ -104,3 +104,25 @@ export function slide(n: number, total: number, inner: string, footRight: string
 </main>${FIT_SCRIPT}</body></html>`;
 }
 
+/** TikTok photo posts and reels are 9:16. */
+export const H_TIKTOK = 1920;
+
+/**
+ * The 9:16 (1080 x 1920) TikTok version of a reel safe 3:4 slide: the same
+ * slide content on a taller canvas of the same background, a little larger
+ * than on the 3:4 (TikTok crops nothing, so the box can use more width).
+ * The box lands at x 110 to 970 and y 380 to 1460: clear of TikTok's tabs at
+ * the top, its caption and buttons at the bottom and its icons down the
+ * right. social/DESIGN-SYSTEM.md section 4.
+ */
+export function tiktokSlide(html: string): string {
+  const scale = 0.86;
+  const w = Math.round((SAFE.w / SAFE_SCALE) * scale);
+  const h = Math.round((SAFE.h / SAFE_SCALE) * scale);
+  const left = Math.round((W - w) / 2);
+  const top = Math.round((H_TIKTOK - h) / 2) - 40;
+  return html.replace(
+    '</head>',
+    `<style>html, body { height: ${H_TIKTOK}px; } main { left: ${left}px; top: ${top}px; transform: scale(${scale}); }</style></head>`,
+  );
+}
