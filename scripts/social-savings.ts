@@ -295,7 +295,7 @@ async function main() {
   const photo = photoDataUri(e.frag.photoUrl!);
   const browser = await launchChromium();
   for (const [i, inner] of slides(e, photo).entries()) {
-    const html = slide(i + 1, TOTAL, inner, i + 1 === TOTAL ? '' : i === 0 ? 'Swipe to see &rarr;' : 'Swipe &rarr;', theme, EXTRA(theme));
+    const html = slide(i + 1, TOTAL, inner, i + 1 === TOTAL ? '' : i === 0 ? 'Swipe to see &rarr;' : 'Swipe &rarr;', theme, EXTRA(theme), true);
     writeFileSync(join(dir, `slide-${i + 1}-3x4.html`), html.replace(photo, e.frag.photoUrl!));
     await renderSmooth(browser, html, W, H, join(dir, `slide-${i + 1}-3x4.png`));
   }
