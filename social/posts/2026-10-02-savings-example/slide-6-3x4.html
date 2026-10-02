@@ -40,20 +40,43 @@
   .price .bar { background: var(--bar-best); }
   .row:not(.best) .price .bar { background: var(--bar-rest); }
   .note { font-size: 20px; color: var(--card-ink-3); letter-spacing: 1px; text-transform: uppercase; }
+
+  .photo { width: 440px; height: 440px; border-radius: 36px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; }
+  .photo img { width: 86%; height: 86%; object-fit: contain; }
+  .who { display: flex; flex-direction: column; gap: 10px; }
+  .who .name { margin: 0; font-size: 52px; font-weight: 700; }
+  .who .brand { margin: 0; font-size: 30px; letter-spacing: 4px; text-transform: uppercase; color: var(--ink-2); }
+  .vs { width: 100%; display: flex; gap: 24px; }
+  .shopcard { flex: 1 1 0; min-width: 0; padding: 34px 26px; border-radius: 28px; background: var(--card); border: 3px solid var(--card-line);
+    box-shadow: 0 10px 30px rgba(10,10,11,0.25); color: var(--card-ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+  .shopcard.win { border-color: #F7F7F8; }
+  .shopcard .s { margin: 0; font-size: 34px; font-weight: 700; }
+  .shopcard .p { margin: 0; font-size: 78px; font-weight: 700; letter-spacing: -1px; }
+  .shopcard .l { margin: 0; font-size: 24px; letter-spacing: 2px; text-transform: uppercase; color: var(--card-ink-3); }
+  .shopcard .win-tag { font-size: 20px; font-weight: 700; letter-spacing: 2px; color: #0A0A0B; background: #FF3B41; border-radius: 8px; padding: 6px 12px; }
+  .sum { width: 100%; display: flex; flex-direction: column; gap: 24px; }
+  .sumcard { padding: 28px 34px; border-radius: 28px; background: var(--card); box-shadow: 0 10px 30px rgba(10,10,11,0.25); color: var(--card-ink); text-align: left; }
+  .sumcard.win { outline: 3px solid #F7F7F8; outline-offset: -3px; }
+  .sumcard .s { margin: 0 0 14px; font-size: 34px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+  .line { display: flex; justify-content: space-between; font-size: 32px; color: var(--card-ink-2); margin: 6px 0; }
+  .line.total { color: var(--card-ink); font-weight: 700; font-size: 40px; border-top: 2px solid var(--row-line); padding-top: 12px; margin-top: 12px; }
+  .line .plus { color: #FF3B41; font-weight: 700; }
+  .line .free { color: #4FB47B; font-weight: 700; }
+  .note2 { margin: 6px 0 0; font-size: 24px; color: var(--card-ink-3); }
+  .big { margin: 0; font-size: 200px; font-weight: 700; letter-spacing: -6px; line-height: 1; }
+  .big small { font-size: 0.5em; letter-spacing: -2px; }
+  .lead { margin: 0; font-size: 46px; font-weight: 700; }
+  .fine { margin: 0; font-size: 24px; color: var(--ink-3); }
+  .stack { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+  .pill { padding: 22px 52px; border-radius: 999px; background: var(--pill-bg); color: var(--pill-ink); font-size: 46px; font-weight: 700; }
+  .badge { display: inline-block; padding: 14px 30px; border-radius: 999px; background: #0A0A0B; color: #F7F7F8; font-size: 40px; font-weight: 700; }
 </style></head><body><main>
   <div class="brandline"><svg class="mark" viewBox="240 240 610 610" aria-hidden="true"><circle cx="478" cy="478" r="196" fill="none" stroke="var(--mark-ring)" stroke-width="58"/><line x1="636" y1="636" x2="796" y2="796" stroke="var(--mark-ring)" stroke-width="72" stroke-linecap="round"/><g fill="var(--mark-bottle)"><rect x="452" y="366" width="52" height="42" rx="9"/><rect x="463" y="402" width="30" height="26"/><rect x="398" y="422" width="160" height="164" rx="34"/></g></svg><span>Price<em>Sniffs</em></span></div>
-  <div class="body"><p class="kicker">What it does</p>
-     <h1 data-fit="1,40">Every price, side by side</h1>
-     <div class="rows">
-       <div class="row best"><div class="shop"><div class="bar" style="width:220px"></div><span class="tag">CHEAPEST</span></div><div class="price"><div class="bar" style="width:150px"></div><span class="note">Incl. delivery</span></div></div>
-       <div class="row"><div class="shop"><div class="bar" style="width:260px"></div></div><div class="price"><div class="bar" style="width:150px"></div><span class="note">Incl. delivery</span></div></div>
-       <div class="row"><div class="shop"><div class="bar" style="width:190px"></div></div><div class="price"><div class="bar" style="width:150px"></div><span class="note">Incl. delivery</span></div></div>
-     </div>
-     <div class="list">
-       <div class="item"><svg class="tick" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="var(--icon)" stroke-width="7"/><path d="M20 33 l8 8 l16 -17" fill="none" stroke="var(--icon-inner)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>More than 30 UK shops</b><span>compared for every bottle</span></p></div>
-       <div class="item"><svg class="tick" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="var(--icon)" stroke-width="7"/><path d="M20 33 l8 8 l16 -17" fill="none" stroke="var(--icon-inner)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>Full transparency</b><span>delivery and fees included whenever the shop publishes them</span></p></div>
-     </div></div>
-  <div class="foot"><div class="dots"><i class=""></i><i class="on"></i><i class=""></i><i class=""></i></div><span class="swipe">Swipe &rarr;</span></div>
+  <div class="body"><p class="kicker">Find your own savings</p>
+     <h1 data-fit="1,40">Search any perfume</h1>
+     <svg class="big-mark" viewBox="240 240 610 610" aria-hidden="true"><circle cx="478" cy="478" r="196" fill="none" stroke="var(--mark-ring)" stroke-width="58"/><line x1="636" y1="636" x2="796" y2="796" stroke="var(--mark-ring)" stroke-width="72" stroke-linecap="round"/><g fill="var(--mark-bottle)"><rect x="452" y="366" width="52" height="42" rx="9"/><rect x="463" y="402" width="30" height="26"/><rect x="398" y="422" width="160" height="164" rx="34"/></g></svg>
+     <span class="pill">Link in bio</span></div>
+  <div class="foot"><div class="dots"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="on"></i></div><span class="swipe"></span></div>
 </main><script>
 (() => {
   const lineH = (el) => {
