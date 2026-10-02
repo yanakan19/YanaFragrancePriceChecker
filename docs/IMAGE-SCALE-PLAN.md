@@ -1,5 +1,19 @@
 # Plan: even the perfume bottles' size within the tile
 
+> **Status, 2026-10-02.** Shipped 2026-09-11 for bottle-only photos, but by
+> October only 35% of the photos on the site were evened: boxed and unsure
+> shots were left alone (§4), 3,083 shown photos had a verdict but no stored
+> box, and 1,551 had never been checked (Fragrance Click was exempt from the
+> sweep, and nothing ran the sweep on a schedule). Changed that day, at the
+> owner's request that every bottle look the same size:
+> * boxed and unsure photos now scale too, by FITTING the whole silhouette
+>   (height to 0.80, width capped at 0.86) so a wide bottle and box group
+>   never jams the sides; bottle-only is capped at 0.92 wide;
+> * the sweep takes `--remeasure`, covers Fragrance Click, and does the
+>   photos the site shows first;
+> * `.github/workflows/image-measure-daily.yml` runs it every day.
+> §4 below describes the original, bottle-only rule.
+
 ## 1. What and why
 
 Retailer photos frame the bottle at wildly different scales — some fill the

@@ -32,19 +32,19 @@ import type { ImageBoxVerdict } from './pickImage.js';
  * fields (scripts/image-box-classify.py, scripts/image-box-check.ts) are
  * for, and this module is the only place that turns them into CSS.
  *
- * WHY ONLY `bottle-only`. A boxed photo's silhouette is the bottle *and* its
- * retail carton, so its height is the group's height, not the bottle's —
- * scaling that to a uniform "bottle" height scales the wrong object. Proven
- * on Abraaj Brackish in the plan (aspect 1.22): forcing its group's height to
- * 0.80 gives k=1.31 and jams the box against both edges of the tile. An
- * `unsure` verdict is, by the classifier's own definition, a silhouette this
- * project already declined to trust as evidence of either shape — scaling it
- * would be trusting a measurement the rest of the codebase treats as "not
- * evidence" (see pickImage.ts's isUnsure). So both render with no transform
- * at all, byte-identical to today, exactly like a photo with no verdict, no
- * persisted box, or a box this function does not trust (see below) — this is
- * a correctness fallback, not a temporary gap, mirroring the image-size
- * floor and the logo monogram fallback that shipped before it.
+ * BOXED AND UNSURE PHOTOS (changed 2026-10-02, the owner's call). These
+ * were left untouched at first: a boxed photo's silhouette is the bottle *and*
+ * its carton, so forcing that group's HEIGHT to the bottle target scales the
+ * wrong object and jams a wide group against both edges (Abraaj Brackish,
+ * aspect 1.22: k=1.31, width 0.977 of the tile). But leaving them alone left
+ * about 45% of the grid at whatever size the shop framed it, which is the
+ * raggedness the owner kept seeing. So every verdict now scales, and the
+ * whole silhouette is FITTED into a frame: k = min(height target / height,
+ * width cap / width). A tall bottle-only shot is bound by height exactly as
+ * before; a wide bottle-and-box group is bound by width, so it lands at a
+ * consistent size and never touches the tile's sides. `unsure` uses the same
+ * fit, which is safe whichever shape it really is. Still untouched: a photo
+ * with no verdict, no persisted box, or a box this function does not trust.
  */
 
 /**
@@ -64,6 +64,10 @@ export interface SilhouetteBox {
 
 /** The measured median tile fraction (docs/IMAGE-SCALE-PLAN.md §2, §3). */
 export const BOTTLE_SCALE_TARGET = 0.8;
+/** Widest a bottle-only silhouette may end up, so a squat bottle is never clipped. */
+const BOTTLE_WIDTH_CAP = 0.92;
+/** Widest a bottle-and-box (or unsure) group may end up: clear of both sides. */
+const GROUP_WIDTH_CAP = 0.86;
 
 /**
  * `k` is never trusted outside this range — a photo whose own math would
@@ -168,7 +172,7 @@ export function bottleScaleStyle(
   verdict: ImageBoxVerdict | undefined,
   target: number = BOTTLE_SCALE_TARGET,
 ): string | null {
-  if (verdict !== 'bottle-only') return null;
+  if (verdict === undefined) return null;
   if (!box) return null;
   if (!Number.isFinite(fileWidth) || !Number.isFinite(fileHeight) || fileWidth <= 0 || fileHeight <= 0) return null;
 
@@ -193,12 +197,19 @@ export function bottleScaleStyle(
     const ratio = fileWidth / fileHeight;
     cx = (1 - ratio) / 2 + cxFile * ratio;
   }
+  // The silhouette's width in tile space: contain binds a landscape file on
+  // width (unchanged) and shrinks a portrait one by its aspect.
+  const fWTile = fileHeight > fileWidth ? box.swf * (fileWidth / fileHeight) : box.swf;
   // Square files take neither branch: the element and the file coincide, so
   // no letterbox correction is needed on either axis.
 
   if (fHTile < MIN_TRUSTED_TILE_FRACTION) return null;
 
-  const kWanted = target / fHTile;
+  const widthCap = verdict === 'bottle-only' ? BOTTLE_WIDTH_CAP : GROUP_WIDTH_CAP;
+  // A silhouette so small its height alone asks for more than MAX_K is a
+  // measurement not to trust, whatever the width cap would make of it.
+  if (target / fHTile > MAX_K) return null;
+  const kWanted = fWTile > 0 ? Math.min(target / fHTile, widthCap / fWTile) : target / fHTile;
   if (kWanted < MIN_K || kWanted > MAX_K) return null;
 
   // Never zoom past what the source can stay sharp under — see RES_FLOOR_PX.
