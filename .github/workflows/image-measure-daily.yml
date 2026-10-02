@@ -1,0 +1,52 @@
+name: Bottle photo measuring daily
+
+# Measures the bottle (or bottle and box) inside each product photo so the
+# site can show every bottle at the same size (src/catalogue/bottleScale.ts,
+# docs/IMAGE-SCALE-PLAN.md). New photos arrive with every crawl, and a photo
+# that was never measured shows at whatever size the shop framed it, so this
+# runs every day. Photos the site actually shows go first. The next page
+# rebuild (every crawl) picks the new measurements up.
+#
+# Downloads only photos not measured yet, at most 1,500 a run, and uses no
+# paid service: scripts/image-box-classify.py is plain Pillow.
+on:
+  schedule:
+    - cron: '41 4 * * *'
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Most photos to measure this run'
+        default: '1500'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: image-measure
+  cancel-in-progress: false
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install Pillow
+        run: python3 -m pip install --quiet pillow
+
+      - name: Measure photos
+        run: npx tsx scripts/image-box-check.ts --remeasure --limit=${{ inputs.limit || '1500' }} --concurrency=6
+
+      - name: Commit and push
+        run: |
+          ./scripts/commit-and-push.sh \
+            "Bottle photo measuring: $(date -u +%Y-%m-%d)" \
+            data/image-box-verdicts.json

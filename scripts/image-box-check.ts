@@ -49,7 +49,7 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
-import type { ImageBoxVerdict } from '../src/catalogue/pickImage.js';
+import { upgradeImageResolution, type ImageBoxVerdict } from '../src/catalogue/pickImage.js';
 import { imageBoxCacheFilename } from '../src/catalogue/imageBoxCache.js';
 import { isPlaceholderImageUrl } from '../src/catalogue/placeholderImage.js';
 
@@ -91,11 +91,19 @@ const IMAGE_ALLOWED = new Set(
 );
 
 /**
- * Already sampled and viewed at 10/10 bottle-only on a licensed, wholesale-
- * refreshed feed (see pickImage.ts) — see the file header for why this one
- * retailer is exempt from the per-photo sweep the others get.
+ * Was ['fragrance-click']: sampled at 10/10 bottle-only, so its photos were
+ * never downloaded. Since bottle scaling (src/catalogue/bottleScale.ts) evens
+ * each bottle's size from the silhouette this sweep measures, an unswept
+ * photo is also an unscaled one: 700 Fragrance Click tiles sat at whatever
+ * size the feed framed them. So no retailer is exempt any more (2026-10-02).
  */
-const SKIP_RETAILERS = new Set(['fragrance-click']);
+const SKIP_RETAILERS = new Set<string>();
+/**
+ * --remeasure also re-reads photos that already have a verdict but no
+ * persisted silhouette box (classified before boxes were stored), so bottle
+ * scaling can reach them. Cached files are reused; only missing ones download.
+ */
+const remeasure = process.argv.includes('--remeasure');
 
 interface Listing {
   imageUrl?: string | null;
@@ -266,8 +274,15 @@ async function main() {
   mkdirSync(cacheDir, { recursive: true });
   const verdicts = loadVerdicts();
   const candidates = collectCandidateUrls();
+  const { DEMO_FRAGRANCES } = await import('../demo/data.js');
+  const shown = new Set(DEMO_FRAGRANCES.map((f) => f.photoUrl).filter((u): u is string => !!u));
 
-  const toCheck = [...candidates.keys()].filter((url) => !(url in verdicts)).sort();
+  const toCheck = [...candidates.keys()]
+    .filter((url) => !(url in verdicts) || (remeasure && verdicts[url]?.sxf === undefined))
+    .sort()
+    // Photos the site actually shows first: a limited run then evens the
+    // grid people see before it spends downloads on listings nobody sees.
+    .sort((a, b) => Number(shown.has(upgradeImageResolution(b) ?? b)) - Number(shown.has(upgradeImageResolution(a) ?? a)));
   const thisRun = toCheck.slice(0, limit);
   const remaining = Math.max(0, toCheck.length - thisRun.length);
 

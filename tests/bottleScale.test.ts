@@ -25,16 +25,31 @@ describe('bottleScaleStyle', () => {
     expect(bottleScaleStyle(centredBox(0.5), 300, 300, 'bottle-only')).toBeNull();
   });
 
-  it('is null for every verdict that is not bottle-only — boxed', () => {
-    // Al Nashama in docs/IMAGE-SCALE-PLAN.md §3's worked table: a real
-    // silhouette (bottle + carton) that would otherwise scale, but must not —
-    // see §4 for why forcing a boxed photo's group-height to the bottle
-    // target is actively wrong.
-    expect(bottleScaleStyle(centredBox(0.835), 1200, 1200, 'boxed')).toBeNull();
+  it('fits a boxed group by its width, so it lands clear of both sides', () => {
+    // Abraaj Brackish in docs/IMAGE-SCALE-PLAN.md §4: bottle and carton, aspect
+    // 1.22. Scaling its height to 0.80 would make it 0.977 of the tile wide;
+    // the fit binds on width instead, at the 0.86 group cap.
+    const box = { sxf: 0.2, syf: 0.3, swf: 0.6, shf: 0.49 };
+    const style = bottleScaleStyle(box, 1200, 1200, 'boxed');
+    const k = Number(String(style).match(/scale\(([\d.]+)\)/)![1]);
+    expect(k * box.swf).toBeCloseTo(0.86, 2);
+    expect(k * box.shf).toBeLessThan(0.8);
   });
 
-  it('is null for every verdict that is not bottle-only — unsure', () => {
-    expect(bottleScaleStyle(centredBox(0.6), 1000, 1000, 'unsure')).toBeNull();
+  it('fits a tall boxed group by its height, like a bottle', () => {
+    // A tall group filling 0.95 of the tile comes down to 0.80.
+    expect(bottleScaleStyle(centredBox(0.95, 0.4), 1200, 1200, 'boxed')).toContain('scale(0.842)');
+  });
+
+  it('scales an unsure photo with the same fit', () => {
+    expect(bottleScaleStyle(centredBox(0.6), 1000, 1000, 'unsure')).toContain('scale(1.333)');
+  });
+
+  it('never lets a squat bottle-only silhouette run off the sides', () => {
+    // A wide, short bottle: height alone would want k=2, making it 1.4 wide.
+    const style = bottleScaleStyle(centredBox(0.4, 0.7), 2000, 2000, 'bottle-only');
+    const k = Number(String(style).match(/scale\(([\d.]+)\)/)![1]);
+    expect(k * 0.7).toBeCloseTo(0.92, 2);
   });
 
   it('is null with no verdict at all (an unswept or unresolved photo)', () => {
