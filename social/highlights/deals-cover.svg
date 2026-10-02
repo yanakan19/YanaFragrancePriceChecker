@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080" role="img" aria-label="Deals">
+  <!-- Story highlight cover: Deals. Same build as the logo mark (docs/brand/pricesniffs-logo.svg):
+       site black background, a thick red outline, solid white shapes inside, similar overall size.
+       Instagram shows highlight covers as a circle, so everything sits well inside the central circle.
+       Render with: npm run social:render -- social/highlights -->
+  <rect width="1080" height="1080" fill="#0A0A0B"/>
+  <!-- A price tag, point to the top left, tilted like a swing ticket. The group is shifted so the
+       whole tag (not just its rotation point) sits in the centre. -->
+  <g transform="translate(476 476) rotate(-45) scale(0.86)">
+    <path d="M -200 -130 L 0 -330 L 200 -130 L 200 290 Q 200 340 150 340 L -150 340 Q -200 340 -200 290 Z"
+          fill="none" stroke="#FF3B41" stroke-width="66" stroke-linejoin="round"/>
+    <!-- The string hole, a ring so it never reads as part of the percent sign -->
+    <circle cx="0" cy="-165" r="34" fill="none" stroke="#F7F7F8" stroke-width="20"/>
+  </g>
+  <!-- A white percent sign, kept upright, centred on the body of the tag -->
+  <g transform="translate(566 566) scale(0.82)">
+    <circle cx="-68" cy="-68" r="40" fill="#F7F7F8"/>
+    <circle cx="68" cy="68" r="40" fill="#F7F7F8"/>
+    <line x1="-82" y1="96" x2="82" y2="-96" stroke="#F7F7F8" stroke-width="36" stroke-linecap="round"/>
+  </g>
+</svg>
