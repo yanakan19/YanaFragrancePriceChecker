@@ -975,13 +975,13 @@
     "beauty-bay::sitemap-discovery": {
       "strategyId": "sitemap-discovery",
       "retailerId": "beauty-bay",
-      "attempts": 1,
-      "successes": 0,
-      "listingsFound": 0,
-      "lastStatus": null,
-      "lastError": "no fragrance URLs found in sitemap",
-      "lastTriedAt": "2026-08-19T14:03:15.209Z",
-      "lastSucceededAt": null,
+      "attempts": 2,
+      "successes": 1,
+      "listingsFound": 11,
+      "lastStatus": 200,
+      "lastError": null,
+      "lastTriedAt": "2026-10-03T11:59:35.264Z",
+      "lastSucceededAt": "2026-10-03T11:59:35.264Z",
       "ruledOut": null
     },
     "beauty-bay::search-page": {
@@ -1059,13 +1059,13 @@
     "niche-beauty-uk::sitemap-discovery": {
       "strategyId": "sitemap-discovery",
       "retailerId": "niche-beauty-uk",
-      "attempts": 1,
-      "successes": 0,
-      "listingsFound": 0,
+      "attempts": 2,
+      "successes": 1,
+      "listingsFound": 8,
       "lastStatus": 200,
-      "lastError": "HTTP 200",
-      "lastTriedAt": "2026-08-19T17:58:34.810Z",
-      "lastSucceededAt": null,
+      "lastError": null,
+      "lastTriedAt": "2026-10-03T11:43:08.409Z",
+      "lastSucceededAt": "2026-10-03T11:43:08.409Z",
       "ruledOut": null
     },
     "niche-beauty-uk::search-page": {
@@ -1151,7 +1151,55 @@
       "lastTriedAt": "2026-10-03T10:45:53.955Z",
       "lastSucceededAt": "2026-10-03T10:45:53.955Z",
       "ruledOut": null
+    },
+    "space-nk::sitemap-discovery": {
+      "strategyId": "sitemap-discovery",
+      "retailerId": "space-nk",
+      "attempts": 1,
+      "successes": 1,
+      "listingsFound": 18,
+      "lastStatus": 200,
+      "lastError": null,
+      "lastTriedAt": "2026-10-03T11:12:10.463Z",
+      "lastSucceededAt": "2026-10-03T11:12:10.463Z",
+      "ruledOut": null
+    },
+    "parfumdreams-uk::sitemap-discovery": {
+      "strategyId": "sitemap-discovery",
+      "retailerId": "parfumdreams-uk",
+      "attempts": 1,
+      "successes": 1,
+      "listingsFound": 20,
+      "lastStatus": 200,
+      "lastError": null,
+      "lastTriedAt": "2026-10-03T11:16:28.911Z",
+      "lastSucceededAt": "2026-10-03T11:16:28.911Z",
+      "ruledOut": null
+    },
+    "paco-perfumerias-uk::sitemap-discovery": {
+      "strategyId": "sitemap-discovery",
+      "retailerId": "paco-perfumerias-uk",
+      "attempts": 1,
+      "successes": 1,
+      "listingsFound": 8,
+      "lastStatus": 200,
+      "lastError": null,
+      "lastTriedAt": "2026-10-03T11:22:18.579Z",
+      "lastSucceededAt": "2026-10-03T11:22:18.579Z",
+      "ruledOut": null
+    },
+    "shy-mimosa::sitemap-discovery": {
+      "strategyId": "sitemap-discovery",
+      "retailerId": "shy-mimosa",
+      "attempts": 1,
+      "successes": 1,
+      "listingsFound": 4,
+      "lastStatus": 200,
+      "lastError": null,
+      "lastTriedAt": "2026-10-03T11:33:38.283Z",
+      "lastSucceededAt": "2026-10-03T11:33:38.283Z",
+      "ruledOut": null
     }
   },
-  "updatedAt": "2026-10-03T10:45:53.955Z"
+  "updatedAt": "2026-10-03T11:59:35.264Z"
 }
