@@ -77,6 +77,32 @@ export interface HarvestCursor {
    * only: parseCursor always fills it, so callers never see undefined.
    */
   actorRendered: Record<string, string>;
+  /**
+   * Where each shop's next sitemap discovery starts in its list of never seen
+   * URLs. See selectUrlsToFetch in src/catalogue/sitemapCrawl.ts: without it
+   * every run asked the same head of that list. Absent until a run writes one;
+   * an absent or unreadable entry reads as 0, the old behaviour.
+   */
+  discoveryOffset?: Record<string, number>;
+}
+
+/** Where a shop's discovery starts this run. */
+export function discoveryOffsetFor(cursor: HarvestCursor, id: string): number {
+  const at = cursor.discoveryOffset?.[id];
+  return typeof at === 'number' && Number.isFinite(at) && at >= 0 ? Math.floor(at) : 0;
+}
+
+export function withDiscoveryOffset(cursor: HarvestCursor, id: string, offset: number): HarvestCursor {
+  return { ...cursor, discoveryOffset: { ...(cursor.discoveryOffset ?? {}), [id]: Math.max(0, Math.floor(offset)) } };
+}
+
+function offsetMap(value: unknown): Record<string, number> | null {
+  if (!value || typeof value !== 'object') return null;
+  const out: Record<string, number> = {};
+  for (const [id, n] of Object.entries(value as Record<string, unknown>)) {
+    if (typeof n === 'number' && Number.isFinite(n) && n >= 0) out[id] = Math.floor(n);
+  }
+  return out;
 }
 
 export const EMPTY_CURSOR: HarvestCursor = { attempted: {}, actorRendered: {} };
@@ -110,9 +136,11 @@ export function parseCursor(raw: string | null | undefined): HarvestCursor {
     // failing the whole parse — the first run after this ships reads exactly
     // that file. It is also the safe direction: an absent stamp means the
     // bound allows one render, which is the same as a fresh install.
+    const offsets = offsetMap((parsed as { discoveryOffset?: unknown }).discoveryOffset);
     return {
       attempted: stampMap(attempted),
       actorRendered: stampMap((parsed as { actorRendered?: unknown }).actorRendered),
+      ...(offsets ? { discoveryOffset: offsets } : {}),
     };
   } catch {
     return EMPTY_CURSOR;

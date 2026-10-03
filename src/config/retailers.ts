@@ -2530,7 +2530,12 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: {
       searchUrlTemplate: 'https://www.selfridges.com/GB/en/search/?freeText={q}',
       sections: [
-        { id: 'fragrance', label: 'Beauty fragrance', urlTemplate: 'https://www.selfridges.com/GB/en/cat/beauty/fragrance/?pn={page}', tier: 'niche' },
+        // renderPages 5 (2026-10-03): the render tier read page one only, 60
+        // of the 293 listings held, so the other 233 were never re-priced
+        // (72 of 293 confirmed in the 48 hours to that morning). Five pages
+        // of 60 is the whole held range, ~10s a page through the local
+        // render, inside its 120s per shop slice.
+        { id: 'fragrance', label: 'Beauty fragrance', urlTemplate: 'https://www.selfridges.com/GB/en/cat/beauty/fragrance/?pn={page}', tier: 'niche', renderPages: 5 },
       ],
       firstPage: 1, maxPages: 50, minRequestGapMs: 2500,
     },

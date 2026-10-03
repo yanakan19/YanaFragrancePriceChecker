@@ -66,6 +66,23 @@ export interface SitemapCrawlOptions {
    * current is the one error this project must not make.
    */
   refreshShare?: number;
+  /**
+   * Stored product URLs to re-read this run, in order, ahead of anything the
+   * budget picks. Not capped by `maxPages`: only `maxDurationMs` bounds them.
+   *
+   * This is what makes a refresh complete rather than sampled. `refreshShare`
+   * alone re-read 28 listings a run on the scheduled --max=70, so a shop with
+   * 2,000 listings came back to each one roughly every fortnight (Justmylook,
+   * 2026-10-03: 1,579 of 2,020 listings 10 to 21 days old). The caller
+   * passes every listing that is due, oldest first, and the walk reads them
+   * all whether or not this run's sitemap discovery happened to list them.
+   */
+  refreshUrls?: readonly string[];
+  /**
+   * Where in the unseen URLs this run's discovery starts. See
+   * `selectUrlsToFetch`.
+   */
+  discoveryOffset?: number;
 }
 
 export interface SitemapCrawlResult {
@@ -86,6 +103,26 @@ export interface SitemapCrawlResult {
    * walk.
    */
   sampledUrls: string[];
+  /**
+   * Product URLs the shop answered with 404 or 410: the shop's own word that
+   * the page is gone. Optional so other routes that build this shape need
+   * not invent one.
+   */
+  goneUrls?: string[];
+  /**
+   * Stored product URLs that redirected to a different page. Kept apart from
+   * `goneUrls` because a wall can redirect too, so the caller trusts these
+   * only when the shop demonstrably served real content in the same run.
+   */
+  movedUrls?: string[];
+  /** How many never seen URLs this run fetched, to advance the discovery offset by. */
+  discoveryFetched?: number;
+  /**
+   * True only when every URL discovery found was fetched this run and the
+   * walk was not cut short. The only state in which a stored listing missing
+   * from this run means the shop no longer lists it.
+   */
+  fetchedEveryDiscovered?: boolean;
 }
 
 /** How many fetched URLs a result carries back for diagnosis. */
@@ -305,6 +342,25 @@ export function captchaRefusal(url: string, res: { status: number; body: string 
 }
 
 const CAPTCHA_STOP = 'stopped early: the shop answered with a captcha';
+
+/** See the product walk in crawlViaSitemap. */
+const MAX_FAILURES_IN_A_ROW = 5;
+
+/**
+ * True when a request ended on a different page from the one asked for:
+ * another path, not merely a trailing slash, case or query difference.
+ */
+export function redirectedAway(asked: string, finalUrl: string | undefined): boolean {
+  if (!finalUrl) return false;
+  try {
+    const a = new URL(asked);
+    const b = new URL(finalUrl);
+    const norm = (u: URL) => `${u.hostname.replace(/^www\./, '').toLowerCase()}${u.pathname.replace(/\/+$/, '').toLowerCase()}`;
+    return norm(a) !== norm(b);
+  } catch {
+    return false;
+  }
+}
 
 /**
  * The headers every request on a pinned route carries: the crawler's own name
@@ -567,8 +623,18 @@ export function selectUrlsToFetch(
   maxPages: number,
   knownUrls: ReadonlyMap<string, string> = new Map(),
   refreshShare = 0.3,
+  discoveryOffset = 0,
 ): string[] {
-  const unseen = urls.filter((u) => !knownUrls.has(u));
+  // ── Discovery rotates ─────────────────────────────────────────────────────
+  // A URL that yields no priced listing never becomes known, so without an
+  // offset the same head of the unseen list was asked every run and the rest
+  // never was. allbeauty listed 2,777 sitemap URLs and holds 117 priced; on
+  // both scheduled runs of 2026-10-02 its 42 discovery fetches priced nothing,
+  // and by construction they were the same first 42 unseen URLs each time.
+  // The caller advances the offset by what each run fetched.
+  const unseenInOrder = urls.filter((u) => !knownUrls.has(u));
+  const start = unseenInOrder.length > 0 ? Math.max(0, Math.floor(discoveryOffset)) % unseenInOrder.length : 0;
+  const unseen = [...unseenInOrder.slice(start), ...unseenInOrder.slice(0, start)];
   const seen = urls
     .filter((u) => knownUrls.has(u))
     // Oldest fetch first: those are the prices most at risk of being wrong.
@@ -611,12 +677,38 @@ export async function crawlViaSitemap(
 
   const listings: RawListing[] = [];
   const sampledUrls: string[] = [];
+  const goneUrls: string[] = [];
+  const movedUrls: string[] = [];
   let pagesFetched = 0;
+  let discoveryFetched = 0;
+  let cutShort = false;
+
+  // Due refreshes first, then whatever the budget picks from the rest. A URL
+  // is never asked twice in one walk.
+  const refreshUrls = [...new Set(options.refreshUrls ?? [])];
+  const refreshSet = new Set(refreshUrls);
+  const known = options.knownUrls ?? new Map<string, string>();
+  const budgeted = selectUrlsToFetch(
+    urls.filter((u) => !refreshSet.has(u)),
+    maxPages,
+    known,
+    options.refreshShare,
+    options.discoveryOffset ?? 0,
+  );
 
   // A shop that answered discovery with a captcha is not asked again this run.
-  let picked = errors.includes(CAPTCHA_STOP)
-    ? []
-    : selectUrlsToFetch(urls, maxPages, options.knownUrls, options.refreshShare);
+  const captchaAtDiscovery = errors.includes(CAPTCHA_STOP);
+  // Nor is one that refused every sitemap outright (403, 429 or 503) and so
+  // yielded nothing to discover: its stored pages are not re-asked either.
+  // Before due listings were re-read this never came up, because a shop with
+  // no discovered URLs had nothing to fetch; re-asking a shop that has just
+  // refused us, page after page, is exactly what this crawler must not do.
+  const refusedAtDiscovery =
+    urls.length === 0 && errors.some((e) => /: HTTP (403|429|503)$/.test(e));
+  if (refusedAtDiscovery && refreshUrls.length > 0) {
+    errors.push(`not re-reading ${refreshUrls.length} stored page(s): the shop refused its sitemap`);
+  }
+  let picked = captchaAtDiscovery || refusedAtDiscovery ? [] : [...refreshUrls, ...budgeted];
 
   // A product API is a host of its own, with a robots.txt of its own, read
   // before it is asked anything. A server error there means nothing is asked.
@@ -633,11 +725,22 @@ export async function crawlViaSitemap(
     }
   }
   const productsRead = new Set<string>();
+  const pickedSet = new Set(picked);
 
+  // Consecutive failed pages of any kind (an error status or no answer).
+  // Five in a row is a shop that is not answering, and asking on through a
+  // list of hundreds would only add load to it and time to the run.
+  let failedInARow = 0;
   for (let i = 0; i < picked.length; i++) {
     const url = picked[i]!;
     if (Date.now() >= deadlineAt) {
       errors.push(`stopped early: exceeded this shop's time budget`);
+      cutShort = true;
+      break;
+    }
+    if (failedInARow >= MAX_FAILURES_IN_A_ROW) {
+      errors.push(`stopped early: ${failedInARow} pages in a row failed`);
+      cutShort = true;
       break;
     }
     if (!isAllowed(robots, url)) continue;
@@ -657,13 +760,20 @@ export async function crawlViaSitemap(
     if (sampledUrls.length < SAMPLE_LIMIT) sampledUrls.push(url);
     const res = await http(fetchUrl, apiReader ? { ...headers, accept: 'application/json' } : headers);
     pagesFetched++;
+    if (!refreshSet.has(url) && !known.has(url)) discoveryFetched++;
     options.onProgress?.(pagesFetched, listings.length);
 
+    if (!res.ok && res.status !== 404 && res.status !== 410) failedInARow++;
+    else failedInARow = 0;
     if (!res.ok) {
       errors.push(`${url}: HTTP ${res.status}`);
+      // The shop's own answer that this product page no longer exists. Only
+      // these two statuses: a 5xx or a timeout says nothing about the product.
+      if (res.status === 404 || res.status === 410) goneUrls.push(url);
       // A shop that starts refusing mid walk is telling us to stop.
       if (res.status === 403 || res.status === 429) {
         errors.push('stopped early: the shop began refusing requests');
+        cutShort = true;
         break;
       }
       continue;
@@ -671,6 +781,7 @@ export async function crawlViaSitemap(
     const captcha = captchaRefusal(url, res);
     if (captcha) {
       errors.push(captcha, CAPTCHA_STOP);
+      cutShort = true;
       break;
     }
 
@@ -683,6 +794,15 @@ export async function crawlViaSitemap(
       found[0] = { ...found[0]!, rawTitle: withTitleParts(found[0]!.rawTitle, res.body, route.titleParts) };
     }
     listings.push(...found);
+    // A stored product page that now redirects to a different page is gone at
+    // that address in the same sense a 404 is: Perfumeo answers its renamed
+    // products this way (/products/hulmi-brandy-designs-perfumes/ to
+    // /products/hulmi-by-brandy-prestige-100ml-extrait-de-parfum/,
+    // 2026-10-03), and a withdrawn product often lands on a category. The
+    // caller delists only stored rows whose SKU this run did not find, so a
+    // product that merely moved keeps its row under the new address.
+    // Judged on the address actually asked: a product API answers from its own host.
+    if (known.has(url) && redirectedAway(fetchUrl, res.finalUrl)) movedUrls.push(url);
 
     // Spacing exists to keep every *pair* of requests to this shop apart —
     // there is no next request after the last URL in the list, so waiting
@@ -697,5 +817,11 @@ export async function crawlViaSitemap(
     if (gapMs > 0 && i < picked.length - 1) await sleep(gapMs);
   }
 
-  return { listings, pagesFetched, urlsDiscovered: urls.length, errors, sampledUrls };
+  const fetchedEveryDiscovered =
+    !captchaAtDiscovery && !cutShort && urls.every((u) => pickedSet.has(u));
+
+  return {
+    listings, pagesFetched, urlsDiscovered: urls.length, errors, sampledUrls,
+    goneUrls, movedUrls, discoveryFetched, fetchedEveryDiscovered,
+  };
 }
