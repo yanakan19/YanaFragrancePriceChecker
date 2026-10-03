@@ -275,8 +275,9 @@ describe('retailer registry', () => {
       // free from £25, Home Bargains £3.95, Perfumeo free on every order,
       // Zimaya £3.99 free from £50 — quoted in each entry's `source`). armaf,
       // bm-stores and ibraq stay, now as read-and-found-silent
-      // (standardRateNotPublished) rather than unread; riiffs stays unread
-      // because its site serves a captcha to every fetch.
+      // (standardRateNotPublished) rather than unread. riiffs left on
+      // 2026-10-03: its site serves a captcha to every fetch, so the owner
+      // read the flat £3.95 off its own basket by hand.
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'al-haramain',
         'armaf',
@@ -285,7 +286,6 @@ describe('retailer registry', () => {
         'ibraq',
         'manchester-ouds',
         'morrisons',
-        'riiffs',
       ]);
       for (const r of unstated) {
         expect(
