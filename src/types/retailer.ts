@@ -453,6 +453,72 @@ export interface CatalogueConfig {
   requiredUrlPrefix?: string;
 }
 
+/**
+ * A shop's sitemap walk, written down rather than guessed.
+ *
+ * The generic walk in `src/catalogue/sitemapCrawl.ts` guesses which sitemaps
+ * hold products from their names and which pages are perfume from their
+ * paths. That guess is wrong in specific, measured ways for some shops: a
+ * department store whose product sitemaps are fifty gzipped files (John
+ * Lewis), one whose beauty sitemap is the ninth of nine and is never reached
+ * before the budget runs out (Marks and Spencer), one whose single product
+ * sitemap lists every country's store (Space NK, Niche Beauty). For those the
+ * route is read off the shop's own robots.txt and sitemaps by hand and pinned
+ * here, and the walk follows it and nothing else.
+ *
+ * A pinned route also changes how the walk presents itself: every request it
+ * makes carries the crawler's own honest user agent (`BOT_HEADERS` in
+ * `src/catalogue/attempt.ts`), never a browser's, and requests inside the
+ * sitemap walk are spaced by the same gap as product pages, so a shop that
+ * asks for a crawl delay gets it on every request.
+ */
+export interface SitemapRoute {
+  /**
+   * Sitemap URLs the walk starts from. Each must be a sitemap the shop's
+   * robots.txt names, or one listed inside such a sitemap, and robots.txt must
+   * permit it: the walk checks every URL against robots.txt before asking.
+   */
+  roots: string[];
+  /**
+   * A regular expression (source text) a child sitemap's URL must match to be
+   * opened. Unset: every child sitemap listed by a root is opened.
+   */
+  follow?: string;
+  /**
+   * A regular expression (source text) a page URL must match to be fetched as
+   * a product page. This is where a country is pinned: Space NK's pattern
+   * starts `^https://www\.spacenk\.com/uk/`, so a /us/ page is never asked for.
+   */
+  product: string;
+  /** Page URLs matching this regular expression are dropped (home fragrance, for example). */
+  exclude?: string;
+  /** Sitemap fetches allowed for discovery. Default 12, capped at 60. */
+  maxSitemaps?: number;
+  /**
+   * Keep a price only when the page it came from names sterling for it
+   * (schema.org `priceCurrency` GBP, or the page's own `og:price:currency`
+   * where the markup carries no currency of its own). Set for every shop whose
+   * storefront serves more than one currency.
+   */
+  requireGbp?: boolean;
+  /**
+   * Regular expressions (source text, one capture group each) read off a
+   * product page and appended to its listing's title, for a shop whose
+   * structured data names a fragrance without its concentration or size
+   * (Shy Mimosa's microdata says only "Chypre Shot"; the page says "Extrait de
+   * Parfum" and "100ml" beside it). Only applied when the page yields exactly
+   * one listing, so text is never attached to the wrong product.
+   */
+  titleParts?: string[];
+  /**
+   * Read each product through the shop's own product API instead of its
+   * page. Only 'beauty-bay-api' exists (src/catalogue/beautyBayApi.ts): Beauty
+   * Bay's pages are an empty app shell and the price arrives from that API.
+   * The API host's own robots.txt is read before it is asked anything.
+   */
+  pageReader?: 'beauty-bay-api';
+}
+
 export interface Retailer {
   /** Stable internal key. Never derive this from the domain — domains change. */
   id: string;
@@ -649,6 +715,11 @@ export interface Retailer {
    * shop so a second cannot appear quietly.
    */
   renderTier?: 'actor';
+  /**
+   * A sitemap route pinned by hand for this one shop. See `SitemapRoute`.
+   * Unset for every shop whose generic sitemap walk already works.
+   */
+  sitemapRoute?: SitemapRoute;
   shipping: ShippingRule;
   affiliate: AffiliateConfig;
   /**

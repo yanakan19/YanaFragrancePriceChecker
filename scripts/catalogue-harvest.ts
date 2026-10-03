@@ -499,7 +499,11 @@ for (const retailer of shops) {
   // resolve, the failure reads as "robots.txt unreachable", and every URL is
   // then treated as disallowed with no error line to show for it — see
   // src/catalogue/robotsSource.ts for the measurement.
-  const robotsProbe = await probeRobots(retailer, http, BOT_HEADERS, ROBOTS_FALLBACK_HEADERS);
+  // A shop with a pinned route is only ever asked as ourselves, robots.txt
+  // included: no second, browser-shaped request for the file. See SitemapRoute
+  // in src/types/retailer.ts.
+  const robotsFallback = retailer.sitemapRoute ? [] : ROBOTS_FALLBACK_HEADERS;
+  const robotsProbe = await probeRobots(retailer, http, BOT_HEADERS, robotsFallback);
   const robots = robotsProbe.rules;
   // An unreachable robots.txt stops this shop dead — isAllowed treats it as
   // everything disallowed, which is the right call and is why the run has to
@@ -707,7 +711,7 @@ for (const retailer of shops) {
   if (withPrice.length === 0 && looksLikeTimeouts(result.errors)) {
     console.log(`      ${retailer.name}: every failure was a timeout, retrying once at ${SLOW_SHOP_TIMEOUT_MS / 1000}s`);
     const patientHttp = createHttp({ timeoutMs: SLOW_SHOP_TIMEOUT_MS });
-    const patientRobots = (await probeRobots(retailer, patientHttp, BOT_HEADERS, ROBOTS_FALLBACK_HEADERS)).rules;
+    const patientRobots = (await probeRobots(retailer, patientHttp, BOT_HEADERS, robotsFallback)).rules;
     // Only if it is better than what we already have — see the note on the
     // proxied assignment below for the bug this shape prevents.
     if (!patientRobots.unavailable) robotsForActor = patientRobots;
@@ -725,7 +729,9 @@ for (const retailer of shops) {
     }
   }
 
-  if (withPrice.length === 0 && useProxy) {
+  // Never for a shop with a pinned route: that route asks as ourselves, from
+  // our own address, and a proxy is neither.
+  if (withPrice.length === 0 && useProxy && !retailer.sitemapRoute) {
     const proxiedHttp = apifyProxyHttp(proxyConfig!);
     const proxiedProbe = await probeRobots(retailer, proxiedHttp, BOT_HEADERS, ROBOTS_FALLBACK_HEADERS);
     const proxiedRobots = proxiedProbe.rules;

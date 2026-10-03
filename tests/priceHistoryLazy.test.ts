@@ -219,5 +219,8 @@ describe('the built page', () => {
     expect(JSON.stringify(file.PRICE_HISTORY_GAP)).toBe(JSON.stringify(mod.PRICE_HISTORY_GAP));
     // And the page can use it as it stands.
     expect(preparePriceHistory(file).span).not.toBeNull();
-  });
+    // Transforming the ~8 MB generated module takes longer than the default
+    // 5 seconds now that the history has grown (it timed out on 2026-10-03),
+    // and the history is kept, never pruned, so it only grows from here.
+  }, 60_000);
 });
