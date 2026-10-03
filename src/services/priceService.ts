@@ -117,6 +117,68 @@ export function isStaleFetch(fetchedAt: string, now: Date = new Date()): boolean
   return now.getTime() - fetchedMs > STALE_OFFER_SECONDS * 1000;
 }
 
+/**
+ * How old a captured price can be before the site stops showing it at all.
+ *
+ * `STALE_OFFER_DAYS` above only takes an old price out of the running for
+ * "Cheapest" and Today's Deals; the row itself still lists. This is the
+ * second, harder line, set by the owner on 2026-10-03: no blank or misleading
+ * shops on the site. A price nobody has reconfirmed in three weeks is no
+ * longer evidence of what the shop charges, and listing it (with a link that
+ * may now land on a different price, a sold out page or a captcha) misleads
+ * exactly the reader this site exists to help. The shops this was measured
+ * against on that day are the ones whose harvest route is blocked, not slow:
+ * Superdrug's 101 listed offers all last confirmed 2026-08-21 and Zara's on
+ * 2026-08-22, each a single frozen date across the shop's whole catalogue.
+ *
+ * 21 rather than something nearer `STALE_OFFER_DAYS`, because the healthy
+ * long tail that constant's own comment describes (big shops whose crawl
+ * budget does not reach every SKU every pass) runs to 25 or 30 days on a
+ * fraction of their listings. Three weeks hides that tail's oldest end and
+ * every frozen shop, without emptying a working shop's catalogue.
+ *
+ * What "not shown" means, everywhere: the offer is dropped before it is
+ * presented (`buildComparison`), so it is in no price list, no "Cheapest", no
+ * deal, saving or Deal of the Day pick; it is dropped from the generated
+ * catalogue at build time (scripts/build-demo-catalogue.ts), so it is not
+ * counted towards its shop's listing count either; and a shop left with none
+ * disappears from the Shops page and from "Not available at" lists, which
+ * already key on that count being above zero. Nothing is deleted from
+ * data/catalogue/: a shop whose harvest recovers reappears on the next build.
+ */
+export const HIDE_OFFER_AFTER_DAYS = 21;
+
+const HIDE_OFFER_AFTER_MS = HIDE_OFFER_AFTER_DAYS * 24 * 60 * 60 * 1000;
+
+/**
+ * Whether a captured price is too old to show at all — see
+ * `HIDE_OFFER_AFTER_DAYS`. An unparseable timestamp is not treated as old,
+ * the same reading `isStaleFetch` gives it.
+ */
+export function isTooOldToShow(fetchedAt: string, now: Date = new Date()): boolean {
+  const fetchedMs = Date.parse(fetchedAt);
+  if (!Number.isFinite(fetchedMs)) return false;
+  return now.getTime() - fetchedMs > HIDE_OFFER_AFTER_MS;
+}
+
+/**
+ * How many products a shop has at least one showable offer on — the figure
+ * the Shops page prints and the test both "Not available at" and the Shops
+ * page apply (above zero, or the shop is not listed). Takes the catalogue as
+ * an argument so it can be tested without the generated build.
+ */
+export function showableListingCount(
+  offersByProduct: Readonly<Record<string, readonly { retailerId: string; fetchedAt: string }[]>>,
+  retailerId: string,
+  now: Date = new Date(),
+): number {
+  let n = 0;
+  for (const offers of Object.values(offersByProduct)) {
+    if (offers.some((o) => o.retailerId === retailerId && !isTooOldToShow(o.fetchedAt, now))) n++;
+  }
+  return n;
+}
+
 /** Attach retailer context, delivery, discount and outbound link to one offer. */
 export function presentOffer(
   offer: RawOffer,
@@ -194,6 +256,10 @@ export function buildComparison(
     if (!retailer || !retailer.enabled) continue;
     if (tier && !retailer.tiers.includes(tier)) continue;
     if (hideOutOfStock && offer.stock === 'outOfStock') continue;
+    // Too old to show at all (see HIDE_OFFER_AFTER_DAYS). The build already
+    // drops these from the catalogue; this repeats it against the reader's
+    // own clock, so a page left unrebuilt for days still never lists one.
+    if (isTooOldToShow(offer.fetchedAt, now)) continue;
     rows.push(presentOffer(offer, retailer, now));
   }
 

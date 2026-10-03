@@ -2,6 +2,7 @@ import type { RetailerTier } from '../src/types/retailer.js';
 import { brandTierForName } from '../src/catalogue/brandTier.js';
 import { RETAILERS } from '../src/config/retailers.js';
 import { brandKey } from '../src/catalogue/brandName.js';
+import { isTooOldToShow, showableListingCount } from '../src/services/priceService.js';
 import { CATALOGUE, CRAWLED, type Notes } from './catalogue.generated.js';
 import { DEALS_RAW, DEALS_GENERATED_AT as DEALS_GENERATED_AT_RAW } from './deals.generated.js';
 
@@ -310,20 +311,24 @@ export const DEALS: Deal[] = DEALS_RAW.flatMap((d) => {
 
 /* ── retailers ─────────────────────────────────────────────────────────────── */
 
-/** Which fragrances a given shop actually lists, most widely stocked first. */
+/**
+ * Which fragrances a given shop actually lists, most widely stocked first.
+ * An offer too old to show (HIDE_OFFER_AFTER_DAYS in priceService.ts) does
+ * not count, so this always agrees with listingCountAt below.
+ */
 export function fragrancesAt(retailerId: string): DemoFragrance[] {
   return BY_POPULARITY.filter((f) =>
-    (CRAWLED[f.id] ?? []).some((o) => o.retailerId === retailerId),
+    (CRAWLED[f.id] ?? []).some((o) => o.retailerId === retailerId && !isTooOldToShow(o.fetchedAt)),
   );
 }
 
-/** How many listings a shop contributes. Used for the retailer directory. */
+/**
+ * How many listings a shop contributes, counting only offers recent enough to
+ * show (see HIDE_OFFER_AFTER_DAYS). Used for the retailer directory, and zero
+ * is what takes a shop off the Shops page and out of "Not available at".
+ */
 export function listingCountAt(retailerId: string): number {
-  let n = 0;
-  for (const offers of Object.values(CRAWLED)) {
-    if (offers.some((o) => o.retailerId === retailerId)) n++;
-  }
-  return n;
+  return showableListingCount(CRAWLED, retailerId);
 }
 
 /* ── notes ─────────────────────────────────────────────────────────────────── */
