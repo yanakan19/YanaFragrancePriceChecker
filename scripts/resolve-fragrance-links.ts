@@ -166,7 +166,7 @@ const dispatcher: Dispatcher | undefined =
 const BROWSER_UA =
   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
 /** Brand sitemaps are fetched as ourselves, the same identity the harvesters use. */
-const BOT_UA = 'PriceSniffsBot/0.1 (UK fragrance price comparison; +https://pricesniffs.example/bot)';
+const BOT_UA = 'PriceSniffsBot/0.1 (UK fragrance price comparison; +https://pricesniffs.space/about)';
 
 interface Reply {
   status: number;
