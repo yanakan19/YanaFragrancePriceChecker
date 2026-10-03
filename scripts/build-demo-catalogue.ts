@@ -600,6 +600,8 @@ let unpriced = 0;
  * whose harvest has stopped is named in the build log, not merely absent.
  */
 const tooOldByShop = new Map<string, { hidden: number; of: number }>();
+/** Those listings themselves, repaired like every other, for OLDER_OFFERS. */
+const tooOldListings: StoredListing[] = [];
 
 /** One retailer's eligible listings, repaired, kept together for resolveRawBrand below. */
 interface EligibleSnapshot {
@@ -648,6 +650,18 @@ if (existsSync(dir)) {
     const active = allActive.filter((l) => !isTooOldToShow(l.lastSeenAt, now));
     if (active.length < allActive.length) {
       tooOldByShop.set(retailer.id, { hidden: allActive.length - active.length, of: allActive.length });
+      // Not listed anywhere, but not thrown away either: each is still a real
+      // observation of what this shop charged, and the owner's rule
+      // (2026-10-03) is that every observed price belongs on the product's
+      // price graph. See OLDER_OFFERS below.
+      for (const stored of allActive) {
+        if (!isTooOldToShow(stored.lastSeenAt, now)) continue;
+        tooOldListings.push({
+          ...stored,
+          rawTitle: repairMojibake(stored.rawTitle),
+          rawBrand: stored.rawBrand === null ? null : repairMojibake(stored.rawBrand),
+        });
+      }
     }
     if (active.length > 0) liveShops++;
 
@@ -906,8 +920,20 @@ for (const product of products.values()) {
    src/catalogue/productMatch.ts for when two listings count as the same
    bottle and where it refuses to decide. */
 const duplicateGroups = findDuplicateGroups([...products.values()]);
+/**
+ * Which ids each surviving product absorbed. The price history replay
+ * (scripts/build-price-history.ts) keys on fragranceId() alone and never sees
+ * this merge, so without the map a product's graph showed only the listings
+ * that already carried its own id: Justmylook's Montblanc Explorer Platinum
+ * 100ml, listed with no EAN, sat on the page and never on its chart. Shipped
+ * as HISTORY_ALIASES; see src/services/priceHistoryMerge.ts.
+ */
+const absorbedIds = new Map<string, string[]>();
+const absorbedInto = new Map<string, string>();
 for (const { canonical, absorbed } of duplicateGroups) {
   for (const dupe of absorbed) {
+    absorbedIds.set(canonical.id, [...(absorbedIds.get(canonical.id) ?? []), dupe.id]);
+    absorbedInto.set(dupe.id, canonical.id);
     canonical.offers.push(...dupe.offers);
     // Same reason the offers move: the disagreement being counted is between
     // the shops on the *final* product, so an absorbed record's claims have to
@@ -1730,6 +1756,53 @@ for (const p of ordered) {
   );
 }
 
+/* ── older observations, for the price graph only ──────────────────────────
+   Every active listing hidden by HIDE_OFFER_AFTER_DAYS above, attached to the
+   product it would have joined: its own fragranceId, or the product that id
+   was folded into. Run after every product is final, and never fed into any
+   of the passes above, so a hidden listing cannot create a product, move a
+   merge, cast a reference price vote or appear in CRAWLED: it is in no price
+   list, no listing count, no deal. The page plots each as an older price on
+   the graph, on the day it was last checked (demo/priceHistoryChart.ts).
+   Same gates as a shown offer: a usable price, a fragrance, a shop whose
+   price scale was not withheld. */
+const finalIds = new Set(ordered.map((p) => p.id));
+const scaleWithheld = new Set(scaleAudit.offScale.map((f) => f.retailerId));
+const olderOffers: Record<string, { retailerId: string; price: number; fetchedAt: string; stock: Offer['stock'] }[]> = {};
+let olderOffersKept = 0;
+const olderOffersSkipped = { unpriced: 0, notFragrance: 0, noProductPage: 0 };
+for (const l of tooOldListings) {
+  if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0) || scaleWithheld.has(l.retailerId)) {
+    olderOffersSkipped.unpriced++;
+    continue;
+  }
+  if (!isFragrance(l)) {
+    olderOffersSkipped.notFragrance++;
+    continue;
+  }
+  const own = fragranceId(l, untrustworthyEans);
+  const id = finalIds.has(own) ? own : absorbedInto.get(own);
+  if (id === undefined || !finalIds.has(id)) {
+    // Its product has no current offer anywhere, so no page to plot it on.
+    olderOffersSkipped.noProductPage++;
+    continue;
+  }
+  (olderOffers[id] ??= []).push({
+    retailerId: l.retailerId,
+    price: l.priceGbp,
+    fetchedAt: l.lastSeenAt,
+    stock: l.inStock === true ? 'inStock' : l.inStock === false ? 'outOfStock' : 'unknown',
+  });
+  olderOffersKept++;
+}
+for (const list of Object.values(olderOffers)) list.sort((a, b) => a.fetchedAt.localeCompare(b.fetchedAt) || a.retailerId.localeCompare(b.retailerId));
+
+const historyAliases: Record<string, string[]> = {};
+for (const p of ordered) {
+  const ids = absorbedIds.get(p.id);
+  if (ids?.length) historyAliases[p.id] = [...ids].sort();
+}
+
 const crawledAt =
   ordered.flatMap((p) => p.offers.map((o) => o.fetchedAt)).sort().at(-1) ??
   new Date(0).toISOString();
@@ -1880,6 +1953,31 @@ ${chunkedArrayLiteral('CATALOGUE', 'CatalogueEntry', catalogue)}
 export const CRAWLED: Record<string, CrawledOffer[]> = ${JSON.stringify(crawled, null, 2)};
 
 /**
+ * For the price graph only: each product's active offers whose price was last
+ * confirmed more than HIDE_OFFER_AFTER_DAYS ago. They are in no price list, no
+ * listing count and no deal (that is the hide rule), but each is a real
+ * observation, so the product page plots it as an older price on the day it
+ * was checked. Never read as a current offer.
+ */
+export interface OlderOffer {
+  retailerId: string;
+  price: number;
+  fetchedAt: string;
+  stock: StockState;
+}
+
+export const OLDER_OFFERS: Record<string, OlderOffer[]> = ${JSON.stringify(olderOffers)};
+
+/**
+ * The ids each product absorbed when same bottle listings were folded
+ * together. The price history is keyed on the unfolded ids, so the product
+ * page merges every alias's recorded line into its own (see
+ * src/services/priceHistoryMerge.ts). Only products that absorbed something
+ * are listed.
+ */
+export const HISTORY_ALIASES: Record<string, string[]> = ${JSON.stringify(historyAliases)};
+
+/**
  * Houses read direct from their own storefronts.
  *
  * Deliberately not part of CATALOGUE and never priced against it: these carry
@@ -1965,6 +2063,9 @@ console.log(
           .map(([id, v]) => `${id} ${v.hidden}${v.hidden === v.of ? ' (all of them)' : ''}`)
           .join(', ')})`
       : '') +
+    `\n  ${olderOffersKept} of those kept for the price graph only, as older prices on ${Object.keys(olderOffers).length} products ` +
+    `(left out: ${olderOffersSkipped.notFragrance} not fragrance, ${olderOffersSkipped.noProductPage} for a product with no current offer and so no page, ${olderOffersSkipped.unpriced} unpriced or price scale withheld)` +
+    `\n  ${Object.keys(historyAliases).length} products carry the price history of ids folded into them` +
     (skippedShops.length
       ? `\n  skipped: ${skippedShops.join(', ')}`
       : ''),
