@@ -17,6 +17,32 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.34.0',
+    date: '3 Oct 2026',
+    title: 'Gift sets get their own category',
+    points: [
+      'Gift sets now listed, under Size in filters',
+      'A set is only compared with the same set',
+      'Gift sets are left out of Most stocked',
+    ],
+  },
+  {
+    version: 'v3.33.0',
+    date: '3 Oct 2026',
+    title: 'Fairer price comparisons',
+    points: ['MSRP and RRP savings now use the price shown'],
+  },
+  {
+    version: 'v3.32.0',
+    date: '3 Oct 2026',
+    title: 'Older prices move to the price graph',
+    points: [
+      'Older prices sit below today\'s, not above',
+      'Every fragrance page now has a price graph',
+      'Older prices are plotted on the graph',
+    ],
+  },
+  {
     version: 'v3.31.0',
     date: '3 Oct 2026',
     title: 'Three new shops and tidier lists',

@@ -48,7 +48,7 @@ import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { reconcile } from '../src/catalogue/reconcile.js';
-import { crawlViaSitemap, DEFAULT_CRAWL_MS, type SitemapCrawlResult } from '../src/catalogue/sitemapCrawl.js';
+import { crawlViaSitemap, DEFAULT_CRAWL_MS, ROUTE_HEADERS, type SitemapCrawlResult } from '../src/catalogue/sitemapCrawl.js';
 import { crawlViaShopifyProducts } from '../src/catalogue/shopifyProductsCrawl.js';
 import { quarantinePrices } from '../src/catalogue/priceQuarantine.js';
 import { BROWSER_HEADERS, BOT_HEADERS, type Http, type HttpResponse } from '../src/catalogue/attempt.js';
@@ -557,13 +557,16 @@ async function refreshFromPlatform(
   deadlineAt: number,
   onProgress: (fetched: number, found: number) => void,
 ): Promise<{ platform: RefreshPlatform | null; refresh: CatalogueRefreshResult | null; requests: number; note: string | null }> {
+  // A shop on a pinned route is only ever asked as ourselves (see SitemapRoute
+  // in src/types/retailer.ts), and that holds for its catalogue feed too.
+  const headers = retailer.sitemapRoute ? ROUTE_HEADERS : BROWSER_HEADERS;
   let requests = 1;
-  const shopify = await looksLikeShopify(retailer, http, robots, BROWSER_HEADERS);
+  const shopify = await looksLikeShopify(retailer, http, robots, headers);
   if (shopify === 'refused') return { platform: null, refresh: null, requests, note: null };
   if (shopify === 'shopify') {
     await sleepMs(gapMs);
     const walk = await crawlViaShopifyProducts({
-      retailer, http, robots, headers: BROWSER_HEADERS, maxPages: SHOPIFY_MAX_PAGE, gapMs, onProgress, deadlineAt,
+      retailer, http, robots, headers, maxPages: SHOPIFY_MAX_PAGE, gapMs, onProgress, deadlineAt,
     });
     requests += walk.pagesFetched;
     if (!walk.currency.isSterling) {
@@ -573,7 +576,7 @@ async function refreshFromPlatform(
     return { platform: 'shopify', refresh, requests, note: refresh.rejected };
   }
   await sleepMs(gapMs);
-  const woo = await crawlWooStoreProducts({ retailer, http, robots, headers: BROWSER_HEADERS, gapMs, deadlineAt, onProgress });
+  const woo = await crawlWooStoreProducts({ retailer, http, robots, headers, gapMs, deadlineAt, onProgress });
   requests += woo.pagesFetched;
   if (!woo.isWoo) return { platform: null, refresh: null, requests, note: null };
   const refresh = refreshFromItems(known, woo.items, new Date());
@@ -614,7 +617,11 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
   // resolve, the failure reads as "robots.txt unreachable", and every URL is
   // then treated as disallowed with no error line to show for it — see
   // src/catalogue/robotsSource.ts for the measurement.
-  const robotsProbe = await probeRobots(retailer, http, BOT_HEADERS, ROBOTS_FALLBACK_HEADERS);
+  // A shop with a pinned route is only ever asked as ourselves, robots.txt
+  // included: no second, browser-shaped request for the file. See SitemapRoute
+  // in src/types/retailer.ts.
+  const robotsFallback = retailer.sitemapRoute ? [] : ROBOTS_FALLBACK_HEADERS;
+  const robotsProbe = await probeRobots(retailer, http, BOT_HEADERS, robotsFallback);
   const robots = robotsProbe.rules;
   // An unreachable robots.txt stops this shop dead — isAllowed treats it as
   // everything disallowed, which is the right call and is why the run has to
@@ -880,7 +887,7 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
   if (withPrice.length === 0 && feedListings.length === 0 && looksLikeTimeouts(result.errors)) {
     console.log(`      ${retailer.name}: every failure was a timeout, retrying once at ${SLOW_SHOP_TIMEOUT_MS / 1000}s`);
     const patientHttp = createHttp({ timeoutMs: SLOW_SHOP_TIMEOUT_MS });
-    const patientRobots = (await probeRobots(retailer, patientHttp, BOT_HEADERS, ROBOTS_FALLBACK_HEADERS)).rules;
+    const patientRobots = (await probeRobots(retailer, patientHttp, BOT_HEADERS, robotsFallback)).rules;
     // Only if it is better than what we already have — see the note on the
     // proxied assignment below for the bug this shape prevents.
     if (!patientRobots.unavailable) robotsForActor = patientRobots;
@@ -898,7 +905,9 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
     }
   }
 
-  if (withPrice.length === 0 && feedListings.length === 0 && useProxy) {
+  // Never for a shop with a pinned route: that route asks as ourselves, from
+  // our own address, and a proxy is neither.
+  if (withPrice.length === 0 && feedListings.length === 0 && useProxy && !retailer.sitemapRoute) {
     const proxiedHttp = apifyProxyHttp(proxyConfig!);
     const proxiedProbe = await probeRobots(retailer, proxiedHttp, BOT_HEADERS, ROBOTS_FALLBACK_HEADERS);
     const proxiedRobots = proxiedProbe.rules;

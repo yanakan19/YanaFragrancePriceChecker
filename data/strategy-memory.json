@@ -339,13 +339,13 @@
     "john-lewis::sitemap-discovery": {
       "strategyId": "sitemap-discovery",
       "retailerId": "john-lewis",
-      "attempts": 6,
-      "successes": 0,
-      "listingsFound": 0,
+      "attempts": 7,
+      "successes": 1,
+      "listingsFound": 12,
       "lastStatus": 200,
-      "lastError": "HTTP 200",
-      "lastTriedAt": "2026-10-03T02:19:06.253Z",
-      "lastSucceededAt": null,
+      "lastError": null,
+      "lastTriedAt": "2026-10-03T10:10:45.885Z",
+      "lastSucceededAt": "2026-10-03T10:10:45.885Z",
       "ruledOut": null
     },
     "john-lewis::search-page": {
@@ -1139,7 +1139,19 @@
       "lastTriedAt": "2026-10-03T02:20:02.740Z",
       "lastSucceededAt": null,
       "ruledOut": null
+    },
+    "marks-and-spencer::sitemap-discovery": {
+      "strategyId": "sitemap-discovery",
+      "retailerId": "marks-and-spencer",
+      "attempts": 1,
+      "successes": 1,
+      "listingsFound": 8,
+      "lastStatus": 200,
+      "lastError": null,
+      "lastTriedAt": "2026-10-03T10:45:53.955Z",
+      "lastSucceededAt": "2026-10-03T10:45:53.955Z",
+      "ruledOut": null
     }
   },
-  "updatedAt": "2026-10-03T02:20:02.740Z"
+  "updatedAt": "2026-10-03T10:45:53.955Z"
 }
