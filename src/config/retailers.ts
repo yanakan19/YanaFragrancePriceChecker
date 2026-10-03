@@ -4537,11 +4537,18 @@ export const RETAILERS: readonly Retailer[] = [
       // your delivery address", so the help centre is the one place the
       // brand states the mainland rate. "above GBP 79" leaves exactly £79.00
       // unstated; resolveDelivery treats it as free (>=), a 1p edge.
+      // The owner's checkout on 2026-10-03 matched: a £3.00 basket showed
+      // "You're £76.00 away from FREE shipping" (free from £79) and
+      // "Standard £5.99, 2 to 4 business days".
       standardGbp: 5.99,
       freeOverGbp: 79,
-      estimatedDays: [2, 3],
-      verifiedAt: '2026-10-01',
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote: 'Standard £5.99, 2 to 4 business days (a £3.00 basket); "You\'re £76.00 away from FREE shipping"',
+      },
       source: {
         url: 'https://kayalihelp.zendesk.com/hc/en-us/articles/45981494574865-How-much-will-I-be-charged-for-shipping',
         quote: 'UK (Mainland): GBP 5.99 (Free shipping for orders above GBP 79, including Taxes)',
@@ -6307,45 +6314,26 @@ export const RETAILERS: readonly Retailer[] = [
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      // £3.95 taken as the standard rate, on the owner's reading: of the two
-      // charges the page names, standard delivery is the cheaper and slower
-      // tier and £9.95 is an express one. That is a judgement about UK retail
-      // convention rather than a label the page supplies, so it is recorded as
-      // inference here rather than passed off as a quotation.
+      // Settled 2026-10-03 from the shop's own delivery information page,
+      // copied out by the owner: "STANDARD DELIVERY - £3.95 / FREE on orders
+      // over £30 / Allow 2-3 days for delivery". The other thresholds the
+      // August probe ran together belong to Next Day (free over £100),
+      // Click & Collect Next Day (free over £90) and Cult Status members.
       standardGbp: 3.95,
-      // Deliberately still null, and this is the load-bearing half. The page
-      // names four free-delivery thresholds — £30, £90, £100, £150 — with
-      // nothing tying any of them to the standard tier, so pairing one with
-      // £3.95 would be a guess in the one direction that actually hurts a
-      // reader. Claiming free delivery from £30 when the real standard
-      // threshold is £100 understates the delivered price, which sorts this
-      // shop above shops that are genuinely cheaper — the exact failure the
-      // delivered-price sort exists to prevent. A null threshold can only ever
-      // overstate what delivery costs, which is the safe direction to be wrong
-      // in, so it stays null until someone reads the page and can say which
-      // threshold belongs to standard.
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-08-19',
-      confidence: 'unverified',
+      freeOverGbp: 30,
+      estimatedDays: [2, 3],
+      verifiedAt: '2026-10-03',
+      confidence: 'confirmed',
       source: {
-        url: 'https://www.cultbeauty.co.uk/info/delivery-information',
-        quote:
-          'Delivery page names charges of £3.95 and £9.95, and free-delivery thresholds of £30, ' +
-          '£90, £100 and £150, without labelling which pairing is standard.',
-        readAt: '2026-08-19',
+        url: 'https://www.cultbeauty.co.uk/c/info/delivery-information/',
+        quote: 'STANDARD DELIVERY - £3.95 FREE on orders over £30 Allow 2-3 days for delivery',
+        readAt: '2026-10-03',
       },
       notes:
-        'Read directly, not merely unread: shipping probe, run 32281470836 job 96161024104, ' +
-        '2026-08-19T17:26Z, fetched the delivery page and found it genuinely ambiguous — two ' +
-        'delivery charges (£3.95, £9.95) with no label saying which is standard, and four ' +
-        'free-delivery thresholds (£30, £90, £100, £150), almost certainly standard and express ' +
-        'tiers plus loyalty-scheme thresholds run together by the extractor. The £3.95 charge is ' +
-        'now taken as standard by inference from UK retail convention (the cheaper, slower tier), ' +
-        'which is enough to price delivery. The threshold is NOT inferred, because guessing it ' +
-        'wrong understates the delivered price rather than overstating it. Read ' +
-        "cultbeauty.co.uk's delivery page by hand to settle which threshold pairs with £3.95, " +
-        'then set freeOverGbp and raise confidence.',
+        'Standard UK delivery £3.95, free over £30, 2 to 3 days, from the shop\'s own delivery ' +
+        'page as copied out by the owner on 2026-10-03. Next Day £5.95 (free over £100), Same ' +
+        'Day and Click & Collect are upgrades, not modelled. Cult Status member perks are not ' +
+        'applied.',
     },
     // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
     // NOT AN APIFY CANDIDATE on the evidence gathered this review — hand this
@@ -6858,7 +6846,10 @@ export const RETAILERS: readonly Retailer[] = [
     shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
+      // The owner's checkout on 2026-10-03: a £27.50 bottle offered one
+      // option, "Express Delivery, Royal Mail Tracked 24 £4.99", and the
+      // checkout's own panel repeats "Free Orders Over £90".
+      standardGbp: 4.99,
       // Was held null on the reasoning that £90 was a secondhand search
       // snippet. It is not: it is the shop's own words on its own shipping
       // policy page, already quoted in `source` below, and re-read there on
@@ -6872,7 +6863,10 @@ export const RETAILERS: readonly Retailer[] = [
       estimatedDays: [1, 2],
       verifiedAt: '2026-10-03',
       confidence: 'confirmed',
-      standardRateNotPublished: true,
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote: 'Express Delivery, Royal Mail Tracked 24 £4.99 (a £27.50 basket, total GBP £32.49); "Free Orders Over £90"',
+      },
       source: {
         url: 'https://www.fragrancehub.co.uk/policies/shipping-policy',
         quote: 'FREE SHIPPING FOR ORDERS OVER £90',
@@ -8982,6 +8976,12 @@ export const RETAILERS: readonly Retailer[] = [
         quote:
           'Standard Delivery Large Delivery UK Mainland (excluding the Scottish Highlands) £3.95 £10.00',
         readAt: '2026-10-01',
+      },
+      // The owner's basket on 2026-10-03 matched: a £26.98 basket showed
+      // "Delivery to UB1 £3.95".
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote: 'Delivery £3.95 on a £26.98 basket (two bottles, UK mainland postcode)',
       },
       notes:
         'Other delivery areas (AB, BF, BT, FK, GY, HS, IM, IV, KW, PA, PH, TR, ZE) £11.49; ' +
