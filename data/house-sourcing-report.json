@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-03T18:46:17.775Z",
+  "checkedAt": "2026-10-03T19:15:31.952Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,9 +59,9 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "SEK",
-      "listings": 386,
+      "listings": 431,
       "pricedInGbp": 0,
-      "withPhoto": 368,
+      "withPhoto": 409,
       "errors": [
         "stopped early: the house began refusing requests"
       ],
