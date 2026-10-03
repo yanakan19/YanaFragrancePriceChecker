@@ -67,6 +67,8 @@ import {
 import { trustpilotStateFor } from './trustpilotWidget.js';
 import { COVERAGE } from './legal.js';
 import { marqueeHtml, marqueePhrases } from './marquee.js';
+import { adSlotHtml, interleaveAds, isGridAd } from './ads.js';
+import { installAds, mountAds } from './adsRuntime.js';
 import { deliveryLines } from './deliveryFacts.js';
 import {
   msrpComparison, msrpComparisonLabel, rrpSavingFor, rrpSavingLabel, shownPrice, type MsrpComparison,
@@ -1360,7 +1362,21 @@ function syncPerRowControl(): void {
 function fragranceList(list: DemoFragrance[], empty: string): string {
   if (list.length === 0) return `<p class="empty-note t-body">${esc(empty)}</p>`;
   const eager = gridEagerCount();
-  return `<ul class="tile-grid">${chunked(list, (f, i) => fragranceTile(f, { eager: i !== undefined && i < eager }))}</ul>`;
+  return `<ul class="tile-grid">${chunked(
+    withGridAds(list, (f, i) => fragranceTile(f, { eager: i !== undefined && i < eager })),
+    (item, i) => item(i),
+  )}</ul>`;
+}
+
+/**
+ * A grid's tiles as render functions, with an ad tile after every few when
+ * ads are on (interleaveAds in demo/ads.ts: never in the first row, never a
+ * change to the order). With ads off this is the list's own tiles, nothing
+ * more. An ad never takes a first row index, so `eager` still counts only
+ * product tiles.
+ */
+function withGridAds<T>(list: readonly T[], tile: (item: T, index?: number) => string): ((index?: number) => string)[] {
+  return interleaveAds(list).map((item) => (isGridAd(item) ? () => adSlotHtml('grid') : (i?: number) => tile(item, i)));
 }
 
 /**
@@ -2542,6 +2558,13 @@ function detailView(): string {
                ${unavailableShopsLine(unavailable)}`
             : ''
         }
+
+        ${
+          // The page's one ad, when ads are on: under the whole price list
+          // and every section that follows it, never above the prices or the
+          // price boxes. '' with ads off. See demo/ads.ts.
+          adSlotHtml('product')
+        }
       </div>
     </div>`;
 }
@@ -2689,7 +2712,7 @@ function dealsPanel(): string {
 
   return `${controls}
     <p class="panel-note t-body">Savings are against the shop's own published recommended retail price. Where the maker also sells the fragrance here, they are against the maker's own price. Prices include delivery where the shop states it. Each perfume shows its best deal across its sizes.</p>
-    <ul class="tile-grid">${chunked(filtered, dealTile)}</ul>`;
+    <ul class="tile-grid">${chunked(withGridAds(filtered, dealTile), (item, i) => item(i))}</ul>`;
 }
 
 /* ── explore: retailers ──────────────────────────────────────────────────── */
@@ -3864,6 +3887,7 @@ function appendNextChunk(el: HTMLElement): boolean {
   const next = held.items.slice(0, CHUNK);
   const rest = held.items.slice(CHUNK);
   el.insertAdjacentHTML('beforebegin', next.map((item) => held.render(item)).join(''));
+  mountAds();
 
   if (rest.length === 0) {
     pendingLists.delete(id);
@@ -4861,6 +4885,9 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   // than inside each view so no view has to remember to do it.
   mountChunkedList();
 
+  // Ad slots this page drew, if ads are on (a no op otherwise).
+  mountAds();
+
   // The design page's read-back values, which can only be read once its
   // markup is in the DOM. A no-op anywhere else.
   mountDesignSpecs();
@@ -5003,6 +5030,7 @@ function renderFromUrl(): void {
 /* ── wiring ──────────────────────────────────────────────────────────────── */
 
 function init(): void {
+  installAds();
   loadMode();
   loadLayout();
   loadPerRow();
