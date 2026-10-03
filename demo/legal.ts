@@ -241,7 +241,8 @@ export const LEGAL_PAGES: LegalPage[] = [
 
       <h2 class="t-section">Which delivery charges we have checked</h2>
       <p>Of the ${ENABLED.length} shops switched on today, ${DELIVERY_CONFIRMED.length}
-      have had their delivery charge read off their own delivery page:
+      have had their delivery charge read off their own delivery page or checked
+      by hand in their own basket:
       ${DELIVERY_CONFIRMED.map((r) => r.name).join(', ')}.</p>
       <p>The other ${DELIVERY_UNCONFIRMED.length} carry a figure from our research
       that the shop has not confirmed yet. Every listing from those shops says
