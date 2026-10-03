@@ -777,3 +777,96 @@ describe('isFragrance: a Bundles product type is not one bottle', () => {
     expect(isFragrance(listing('kayali', 'Vanilla | 28 100ml', 110))).toBe(true);
   });
 });
+
+// Every offer shown for Home Bargains, B&M, Morrisons and Avon read by hand on
+// 2026-10-03. Titles and descriptions below are the shops' own, copied from
+// data/catalogue/<shop>.json.
+describe('budget shops: non-perfumes and sets that were showing as bottles', () => {
+  it('drops sets whose title joins "Bodywash" or "Showergel" into one word', () => {
+    expect(isFragrance(listing('home-bargains', 'Firetrap Oura Eau De Toilette 50ml & Bodywash 150ml', 4.99))).toBe(false);
+    expect(isFragrance(listing('mybeauty-boutique', 'Montblanc Explorer Ultra Blue EDP 60Ml & Showergel', 73.49))).toBe(false);
+  });
+
+  it('drops a perfume sold with socks', () => {
+    expect(isFragrance(listing('home-bargains', 'Nicce Ladies 100ml Eau De Toilette & Ankle Socks', 3.99))).toBe(false);
+  });
+
+  it('drops an empty refillable atomiser but keeps a refillable perfume', () => {
+    expect(isFragrance(listing('home-bargains', "Let's Travel Atomiser Refillable Perfume Spray 5ml", 0.89))).toBe(false);
+    expect(isFragrance(listing('beautybase', 'Travalo Classic Refillable Perfume Spray 5ml - Black', 13.99))).toBe(false);
+    expect(isFragrance(listing('beautybase', 'Burberry Goddess Eau De Parfum 50ml Refillable Spray', 89))).toBe(true);
+  });
+
+  it('drops colognes for dogs, by title or by the shop’s own description', () => {
+    expect(isFragrance(listing('bm-stores', 'Pet Care Cologne 100ml - Dylan', 2.5, 'A deodorising spray for your dog - B&M Stores.'))).toBe(false);
+    expect(
+      isFragrance(
+        listing('morrisons', 'Bugalugs Baby Fresh Cologne 200ml', 6,
+          "An all over fragranced dog body spray. Simply spray onto a dry coat after grooming or use in between washes to keep your dog's coat smelling great."),
+      ),
+    ).toBe(false);
+    expect(
+      isFragrance(
+        listing('bm-stores', 'Bugalugs Essentials Long Lasting Cologne 200ml', 3.99,
+          'Bugalugs Essentials Long Lasting Cologne 200ml. Eliminate odours quickly and leave your pet with that professional salon scent. Buy B&M.'),
+      ),
+    ).toBe(false);
+    // A bottle shaped like a cat is still a perfume.
+    expect(
+      isFragrance(
+        listing('justmylook', 'Katy Perry Purr Eau De Parfum 100ml', 15,
+          'This EDP is presented in a purple bottle shaped like a cat with eyes like jewels.'),
+      ),
+    ).toBe(true);
+  });
+
+  it('drops a set the description calls an EDT and body wash gift set, but not copy suggesting one', () => {
+    expect(
+      isFragrance(
+        listing('bm-stores', 'Scent Favourites La Beauté Shimmer EDT 100ml', 4.99,
+          'La Beauté Shimmer EDT and body wash gift set for her. A lovely fragrance duo. Buy Fragrance Gift Sets at B&M.'),
+      ),
+    ).toBe(false);
+    expect(
+      isFragrance(
+        listing('bm-stores', 'Scent Favourites Flair De Bon EDT Set 100ml', 4.99,
+          '2 piece fragrance gift set with 100ml EDT and 150ml body wash. Buy Fragrance Gift Sets at B&M.'),
+      ),
+    ).toBe(false);
+    expect(
+      isFragrance(
+        listing('avon', 'Soft Musk Eau de Toilette 50ml', 10,
+          'Discover more from the Soft Musk collection, or create your own perfume gift set, and treat yourself or a loved one?.'),
+      ),
+    ).toBe(true);
+  });
+});
+
+describe('a size stated as its own line of the description (Avon)', () => {
+  it('reads a size that stands alone between full stops or after a bullet', () => {
+    const wildCountry =
+      'Product specification: . • Top note: lavender. • Middle note: geranium. • Base note: sandalwood. • 75ml.. How to use me: . Spray the fougère aftershave onto your pulse points.';
+    expect(sizeMl('Wild Country Eau de Toilette', wildCountry)).toBe(75);
+    expect(isFragrance(listing('avon', 'Wild Country Eau de Toilette', 14, wildCountry))).toBe(true);
+    const viva = 'blended with creamy magnolia notes on sensual woody-vanilla base. . 50ml. Scent type: A fruity and floral scent to fill you with joy.';
+    expect(sizeMl('Viva La Vita Eau de Parfum', viva)).toBe(50);
+    expect(sizeMl('Donna Karan Nectar Love Women\'s Perfume Eau de Parfum', 'Ideal for : Autumn & Winter evenings   Product Size : 100ml')).toBe(100);
+  });
+
+  it('takes the line naming this bottle, not one naming another size in a sentence', () => {
+    const purse = '• Base note: passion potion accord. • 10ml.. • Also available as a 50ml . How to wear me: .';
+    expect(sizeMl('Attraction Awaken for Her Eau de Parfum Purse Spray', purse)).toBe(10);
+  });
+
+  it('reads nothing from a size inside a sentence, so a duo stays out', () => {
+    const duo = "2-piece set includes: • Far Away Eau de Parfum, 50ml. • Far Away Body Lotion, 125ml.";
+    expect(sizeMl('Far Away Original Perfume Duo', duo)).toBeNull();
+    expect(isFragrance(listing('avon', 'Far Away Original Perfume Duo', 18, duo))).toBe(false);
+    // Runs into the next sentence with no stop: not read.
+    expect(sizeMl('Imari Pulse Eau de Toilette', 'bask in a butterfly effect like no other. 50 ml Scent type: A chypre fruity scent')).toBeNull();
+  });
+
+  it('reads nothing when standalone size lines disagree', () => {
+    expect(sizeMl('Lattafa Masa Gift Set', 'Eau de Parfum. 100ml. Deodorant. 200ml. Body mist. 20ml.')).toBeNull();
+  });
+});

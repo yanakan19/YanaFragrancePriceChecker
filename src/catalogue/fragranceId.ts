@@ -92,9 +92,65 @@ const CONCENTRATION =
  * as a lone 100ml bottle at the pair's price, which understates what the bottle
  * costs — the same misrepresentation as MULTI_PACK, pointing the other way. So
  * they are dropped deliberately, not tolerated as collateral.
+ *
+ * Added 2026-10-03, from reading every offer the site showed for Home
+ * Bargains, B&M and Morrisons by hand (data/catalogue/<shop>.json titles and
+ * descriptions):
+ *
+ *   - "body ?wash" and "shower ?gel" were "body wash" and "shower gel", and
+ *     Home Bargains writes the word joined: five "Firetrap ... Eau De Toilette
+ *     50ml & Bodywash 150ml" sets were showing as lone 50ml bottles, and
+ *     MyBeauty.Boutique's "Montblanc Explorer Ultra Blue EDP 60Ml &
+ *     Showergel" the same way. No kept listing uses either joined word for
+ *     anything else.
+ *   - "socks": "Nicce Ladies 100ml Eau De Toilette & Ankle Socks", a gift set
+ *     ("Perfect gift set", its own description). The only kept title with it.
+ *   - "refillable perfume spray": an empty atomiser, not a perfume. Home
+ *     Bargains' "Let's Travel Atomiser Refillable Perfume Spray 5ml" at £0.89
+ *     and five of Beauty Base's "Travalo Classic Refillable Perfume Spray 5ml"
+ *     colours. A refillable *perfume* writes the scent between the words
+ *     ("Burberry Goddess Eau De Parfum 50ml Refillable Spray"); none of the
+ *     238 kept "refillable" titles of that kind contains this phrase.
+ *   - "pet care": B&M's "Pet Care Cologne 100ml - Dylan", "a deodorising
+ *     spray for your dog". Dog colognes that do not say so in the title are
+ *     caught from the description instead, see PET_PRODUCT below.
  */
 export const NOT_A_FRAGRANCE =
-  /\b(fragrance[- ]free|unperfumed|unscented|nappy|tissue|soap bar|body cream|shampoo|conditioner|deodorant|shower gel|body wash|candle|diffuser|reed|gift ?set|set of|bundle|tester|sample|refill|travel spray|decant|hand wash|moisturis|lotion|balm|scrub|talc|hair|serum|air ?freshener|room spray|lamp fragrance|home spray|body spray|body mist)\b/i;
+  /\b(fragrance[- ]free|unperfumed|unscented|nappy|tissue|soap bar|body cream|shampoo|conditioner|deodorant|shower ?gel|body ?wash|candle|diffuser|reed|gift ?set|set of|bundle|tester|sample|refill|travel spray|decant|hand wash|moisturis|lotion|balm|scrub|talc|hair|serum|air ?freshener|room spray|lamp fragrance|home spray|body spray|body mist|socks?|refillable perfume spray|pet care)\b/i;
+
+/**
+ * A description that says the product is for an animal.
+ *
+ * "Bugalugs Baby Fresh Cologne 200ml" (Morrisons) and "Bugalugs Essentials
+ * Long Lasting Cologne 200ml" (B&M) pass every title test, size and the word
+ * cologne included, and were showing as fragrances at £6 and £3.99. Their own
+ * descriptions say what they are: "An all over fragranced dog body spray ...
+ * keep your dog's coat smelling great" and "leave your pet with that
+ * professional salon scent". Measured 2026-10-03 across every kept listing:
+ * this matches exactly those two and B&M's "Pet Care Cologne" ("for your
+ * dog"), nothing else. "your" is required so a perfume described as "a
+ * bottle shaped like a cat" (Katy Perry Purr) is not touched.
+ */
+const PET_PRODUCT = /\byour (dog|pet)s?\b/i;
+
+/**
+ * A description that calls the listing a gift set with a body wash or shower
+ * gel in it, where the title names only the bottle.
+ *
+ * B&M titles two of its sets as a plain bottle: "Scent Favourites La Beauté
+ * Shimmer EDT 100ml" at £4.99 (product 438025) is, in its own description,
+ * "La Beauté Shimmer EDT and body wash gift set for her" (the bottle alone,
+ * same title at £3.99, product 411449, is kept), and "Scent Favourites Flair De Bon EDT Set
+ * 100ml" is a "2 piece fragrance gift set with 100ml EDT and 150ml body
+ * wash". Both showed as one 100ml bottle. Gift set and the companion product
+ * must sit in the same sentence: a perfume's copy suggesting you "create your
+ * own perfume gift set" (most of Avon's) is not a set. Measured 2026-10-03
+ * across every kept listing: those two B&M sets, plus two whose titles the
+ * word lists above already catch (a Firetrap "& Bodywash" and the Montblanc
+ * "& Showergel").
+ */
+const DESCRIBED_AS_WASH_GIFT_SET =
+  /gift set[^.]*\b(body ?wash|shower ?gel)\b|\b(body ?wash|shower ?gel)\b[^.]*gift set/i;
 
 /**
  * The size phrases sizeMl() reads, exported so a caller that needs to find
@@ -147,11 +203,44 @@ export const OZ_TO_ML = 29.5735;
  */
 export const DESCRIPTION_SIZE_RE = /\bsize:\s*(\d{1,4}(?:\.\d)?)\s*ml\b/i;
 
-/** The size `DESCRIPTION_SIZE_RE` finds in a listing's own description, or null. */
+/**
+ * A sentence or bullet in a description that is a size and nothing else:
+ * ". 50ml.", "• 75ml.", ": 100ml" at the end of the copy.
+ *
+ * Avon's titles never state a size ("Wild Country Eau de Toilette") and its
+ * product copy never labels one, so 44 of its perfumes were rejected as
+ * unsized. 38 of those state the size as its own line of the product
+ * specification, read off data/catalogue/avon.json 2026-10-03:
+ * "• Base note: sandalwood. • 75ml.. How to use me" (Wild Country), "...on
+ * sensual woody vanilla base. . 50ml. Scent type:" (Viva La Vita). That is as
+ * much a statement of size as "SIZE: 50 ml" is, and like that label it cannot
+ * be mistaken for prose: a size alone between two full stops is not part of a
+ * sentence about anything else.
+ *
+ * Strict on purpose, for the reason the labelled pattern is strict. A size
+ * inside a sentence ("Also available as a 50ml", "Eau de Parfum, 50ml + Body
+ * Lotion, 125ml") never matches, which is what keeps Avon's five perfume and
+ * body lotion duos out: they name two sizes, neither standing alone. Where a
+ * description has standalone sizes that disagree (Emirates Oud's gift sets
+ * list 100/200/300ml lines), nothing is read. Measured 2026-10-03 across all
+ * of data/catalogue: it admits 37 Avon perfumes and one MyBeauty.Boutique
+ * listing ("Product Size : 100ml"), each at the size its own page states,
+ * and nothing else. Imari Pulse ("50 ml Scent type:") stays out: its size
+ * runs into the next sentence with no stop between.
+ */
+const DESCRIPTION_BARE_SIZE_RE = /(?:^|[.•:]\s*)(\d{1,4}(?:\.\d)?)\s*ml\s*(?=\.|$)/gim;
+
+/**
+ * The size a listing's own description states, or null: the labelled
+ * `DESCRIPTION_SIZE_RE` first, then a standalone size line
+ * (`DESCRIPTION_BARE_SIZE_RE`) when every such line agrees.
+ */
 function descriptionStatedSizeMl(description: string | null | undefined): number | null {
   if (!description) return null;
   const m = description.match(DESCRIPTION_SIZE_RE);
-  return m ? statedMl(m[1]!) : null;
+  if (m) return statedMl(m[1]!);
+  const bare = new Set([...description.matchAll(DESCRIPTION_BARE_SIZE_RE)].map((b) => statedMl(b[1]!)));
+  return bare.size === 1 ? [...bare][0]! : null;
 }
 
 /**
@@ -870,6 +959,11 @@ export function repairMojibake(title: string): string {
 export function isFragrance(l: StoredListing): boolean {
   const t = fold(l.rawTitle);
   if (NOT_A_FRAGRANCE.test(t)) return false;
+  // What the shop's own copy says the product is, where the title does not:
+  // see PET_PRODUCT and DESCRIBED_AS_WASH_GIFT_SET.
+  if (l.description && (PET_PRODUCT.test(l.description) || DESCRIBED_AS_WASH_GIFT_SET.test(l.description))) {
+    return false;
+  }
   // A null size means one of two different facts — see sizeMl's own comment
   // — and only one of them is a reason to reject a listing here. Silence
   // (no size stated at all) is the load-bearing rule this gate exists for:
