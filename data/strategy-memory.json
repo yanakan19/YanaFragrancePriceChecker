@@ -1151,7 +1151,19 @@
       "lastTriedAt": "2026-10-03T10:45:53.955Z",
       "lastSucceededAt": "2026-10-03T10:45:53.955Z",
       "ruledOut": null
+    },
+    "space-nk::sitemap-discovery": {
+      "strategyId": "sitemap-discovery",
+      "retailerId": "space-nk",
+      "attempts": 1,
+      "successes": 1,
+      "listingsFound": 18,
+      "lastStatus": 200,
+      "lastError": null,
+      "lastTriedAt": "2026-10-03T11:12:10.463Z",
+      "lastSucceededAt": "2026-10-03T11:12:10.463Z",
+      "ruledOut": null
     }
   },
-  "updatedAt": "2026-10-03T10:45:53.955Z"
+  "updatedAt": "2026-10-03T11:12:10.463Z"
 }
