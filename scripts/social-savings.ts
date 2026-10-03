@@ -31,6 +31,7 @@ import { resizedPhotoUrl } from '../demo/photo.js';
 import { buildComparison, bestOffer } from '../src/services/priceService.js';
 import { cheapestVerdict } from '../src/services/deliveryConfidence.js';
 import type { PresentedOffer } from '../src/types/offer.js';
+import { wholePercentDown } from '../src/services/money.js';
 import { launchChromium } from './a11y-audit.js';
 import { renderSmooth, tiktokCaption } from './socialRender.js';
 import { H, H_TIKTOK, MARK, THEMES, W, slide, tiktokSlide } from './socialSlides.js';
@@ -84,7 +85,9 @@ function candidates(): Example[] {
       .sort((a, b) => b.deliveredPriceGbp! - a.deliveredPriceGbp!)[0];
     if (!dear || (!forced && dear.itemPriceGbp <= MIN_BOTTLE_GBP)) continue;
     const saving = Math.round((dear.deliveredPriceGbp! - cheap.deliveredPriceGbp) * 100) / 100;
-    const percent = Math.round((saving / dear.deliveredPriceGbp!) * 100);
+    // Floored like every other percentage on the site: "N% less" must never
+    // be rounded up past what the two delivered totals support.
+    const percent = wholePercentDown(saving, dear.deliveredPriceGbp!);
     if (!forced && (saving < 5 || percent < 10)) continue;
     out.push({ frag, dear, cheap, saving, percent });
   }

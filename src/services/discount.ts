@@ -1,5 +1,5 @@
 import type { DiscountDisplay, HouseAnchorDisplay, RawOffer } from '../types/offer.js';
-import { roundPence } from './money.js';
+import { roundPence, wholePercentDown } from './money.js';
 
 /**
  * Build the was/now/percent display for an offer.
@@ -15,7 +15,9 @@ import { roundPence } from './money.js';
  *     routinely when a retailer leaves a stale RRP in its markup;
  *   - round the percentage up. 19.6% displays as 19%.
  */
-export function buildDiscount(offer: RawOffer): DiscountDisplay | null {
+export function buildDiscount(
+  offer: Pick<RawOffer, 'price' | 'wasPrice' | 'promoEndsAt'>,
+): DiscountDisplay | null {
   const was = offer.wasPrice;
   if (was == null) return null;
   if (!Number.isFinite(was) || was <= offer.price) return null;
@@ -23,7 +25,7 @@ export function buildDiscount(offer: RawOffer): DiscountDisplay | null {
   const saving = roundPence(was - offer.price);
   if (saving < 0.01) return null;
 
-  const percentOff = Math.floor((saving / was) * 100);
+  const percentOff = wholePercentDown(saving, was);
   // A saving too small to register as a whole percent is not worth a badge.
   if (percentOff < 1) return null;
 
@@ -67,7 +69,7 @@ export function buildHouseAnchor(
   const saving = roundPence(houseCeilingGbp - price);
   if (saving < 0.01) return null;
 
-  const percentOff = Math.floor((saving / houseCeilingGbp) * 100);
+  const percentOff = wholePercentDown(saving, houseCeilingGbp);
   if (percentOff < 1) return null;
 
   return {
