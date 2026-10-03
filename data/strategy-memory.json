@@ -1187,7 +1187,19 @@
       "lastTriedAt": "2026-10-03T11:22:18.579Z",
       "lastSucceededAt": "2026-10-03T11:22:18.579Z",
       "ruledOut": null
+    },
+    "shy-mimosa::sitemap-discovery": {
+      "strategyId": "sitemap-discovery",
+      "retailerId": "shy-mimosa",
+      "attempts": 1,
+      "successes": 1,
+      "listingsFound": 4,
+      "lastStatus": 200,
+      "lastError": null,
+      "lastTriedAt": "2026-10-03T11:33:38.283Z",
+      "lastSucceededAt": "2026-10-03T11:33:38.283Z",
+      "ruledOut": null
     }
   },
-  "updatedAt": "2026-10-03T11:22:18.579Z"
+  "updatedAt": "2026-10-03T11:33:38.283Z"
 }
