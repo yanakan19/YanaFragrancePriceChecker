@@ -2916,6 +2916,27 @@ export const RETAILERS: readonly Retailer[] = [
     // still carry priceGbp: null from the dollar harvest, so nothing in
     // dollars can reach the site; shopifyProductsCrawl's GBP market reading
     // refills them in pounds on the next harvest.
+    //
+    // ── Refilled and checked, 2026-10-03 ────────────────────────────────
+    // Two single-shop harvests the same night. The first, at the dispatch
+    // default of --max=40, priced 2,173 of 8,471 listings: shopifyProductsCrawl
+    // asks for min(maxPages, 250) products a page, so 40 pages of 40 reached
+    // 1,600 of the shop's 4,823 product pages. The second, at --max=125,
+    // priced 7,982 of 8,483. The 501 left at priceGbp null are variants the
+    // shop no longer offers (Ferragamo Signorina's page now carries only the
+    // 100ml at £103; the 30ml and 50ml rows from August are gone), so nothing
+    // stale is shown. The scheduled --max=70 reads 4,900 products, enough
+    // for today's 4,823 with little room.
+    //
+    // Sterling, checked against the shop's own pages with ?country=GB (each
+    // answered Shopify.currency {"active":"GBP","rate":"1.0"}):
+    //   Calvin Klein Obsession Eau de Parfum 100ml   £44.95  (held as 63 USD before)
+    //   Ormonde Jayne Bijou Zafran EDP 88ml          £225    (the owner's basket)
+    //   BURBERRY Goddess Parfum 30/50/100ml          £81 / £109 / £160
+    //   Goldfield & Banks Pacific Rock Flower 50/100 £110 / £155
+    //   Coach Gold Parfum 30/50/90ml                 £45 / £64 / £90
+    //   Prada Paradigme EDP Refill 150ml £140, BVLGARI The Vert EDT 75ml £115
+    // Every stored figure matched the page.
     enabled: true,
     // No Awin approval yet, so this is a direct scrape rather than a feed —
     // the requested route for this retailer. No live spike was possible from
@@ -5031,6 +5052,16 @@ export const RETAILERS: readonly Retailer[] = [
     // /product/louis-cardin-ray-eau-de-parfum-100ml-spray_p-0c78…; and that
     // page's JSON-LD parses with the existing parser to "Ray Eau de Parfum
     // 100ml Spray", £35.99, in stock. The first real harvest is the measure.
+    //
+    // The measure, 2026-10-03. First harvest: 40 listings, 9 shown, because
+    // "fragrance" and "scent" also name urinal mats, candles, detergent and
+    // (inside "descent") three books. sitemapCrawl.ts then stopped reading
+    // "scent" mid-word and put product sitemap URLs that name a perfume
+    // (perfume, aftershave, cologne, eau-de, parfum, extrait) first. The next
+    // single-shop harvest (--max=70) added 42 listings, every one with such a
+    // word in its URL: 82 listings, 43 shown. Still to eyeball: three Barber
+    // Marmara barber aftershaves at 150 to 500ml and a "Women Eau de Toilette
+    // 100ml and Exclusive Socks" bundle are shown as perfume.
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
@@ -6078,6 +6109,21 @@ export const RETAILERS: readonly Retailer[] = [
     // parses to "Chloé Eau de Parfum For Her 50ml" £98 and the 30ml page to
     // £71, GBP, in stock. Delivery stays as recorded below: £3.95 standard,
     // no threshold claimed, which can only overstate a delivered price.
+    //
+    // First harvest, 2026-10-03 (single-shop dispatch, --max=40): 38 listings,
+    // all priced, 21 shown as perfume (Tom Ford, Jo Malone London colognes,
+    // Chloé, TRUDON, Aesop). Of the other 17, ten are candles, shower oil,
+    // shampoo, hair perfume and body care the fragrance test rightly keeps
+    // off the site, and seven are Escentric Molecules bottles ("Escentric
+    // Molecules Molecule 01 (100ml)") that it keeps off because their titles
+    // name no strength; those are perfume, and missing. Checked against
+    // the pages' own JSON-LD the same night (on a ProductGroup page, the
+    // variant whose sku is the productGroupID), all matching what is stored:
+    // Chloé For Her 30ml £71 and 50ml £98, Tom
+    // Ford Black Orchid 50ml £112, TRUDON Mortel 100ml £210, Jo Malone English
+    // Oak and Hazelnut 30ml £58, Escentric Molecules Molecule 01 100ml £125.
+    // One to eyeball: "Aesop Marrakech Intense Parfum 10ml" is £84 on the page
+    // and in its JSON-LD alike, which is what is shown.
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
