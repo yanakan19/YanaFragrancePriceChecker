@@ -109,6 +109,24 @@ export function isShopifyProductsPayload(body: string): boolean {
   }
 }
 
+/**
+ * How many products a `/products.json` page carried, priced or not.
+ *
+ * The walk's end has to be read off this, not off the listings parsed from
+ * the page: a page whose every variant is unpriced parses to no listings and
+ * is still not the end of the catalogue. Zero for anything that is not a
+ * products payload.
+ */
+export function shopifyProductCount(body: string): number {
+  try {
+    const parsed = JSON.parse(body) as JsonValue;
+    const products = parsed['products'];
+    return Array.isArray(products) ? products.length : 0;
+  } catch {
+    return 0;
+  }
+}
+
 function variantsOf(product: JsonValue): Variant[] {
   const raw = product['variants'];
   if (!Array.isArray(raw)) return [];
