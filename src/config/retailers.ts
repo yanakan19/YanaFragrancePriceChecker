@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 74 retailers, 42 of them `enabled: true`. Every one of them is a legitimate
+ * 74 retailers, 43 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -2530,7 +2530,12 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: {
       searchUrlTemplate: 'https://www.selfridges.com/GB/en/search/?freeText={q}',
       sections: [
-        { id: 'fragrance', label: 'Beauty fragrance', urlTemplate: 'https://www.selfridges.com/GB/en/cat/beauty/fragrance/?pn={page}', tier: 'niche' },
+        // renderPages 5 (2026-10-03): the render tier read page one only, 60
+        // of the 293 listings held, so the other 233 were never re-priced
+        // (72 of 293 confirmed in the 48 hours to that morning). Five pages
+        // of 60 is the whole held range, ~10s a page through the local
+        // render, inside its 120s per shop slice.
+        { id: 'fragrance', label: 'Beauty fragrance', urlTemplate: 'https://www.selfridges.com/GB/en/cat/beauty/fragrance/?pn={page}', tier: 'niche', renderPages: 5 },
       ],
       firstPage: 1, maxPages: 50, minRequestGapMs: 2500,
     },
@@ -5402,7 +5407,7 @@ export const RETAILERS: readonly Retailer[] = [
     // affiliate-feed shop), and it stops awin-feed-sync from writing the
     // feed's fixed 1.3490 figures back. Affiliate links still wrap through the
     // Awin deeplink template below.
-    enabled: false,
+    enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
     convertedSterlingAccepted: {
@@ -8865,38 +8870,17 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'probe harder. Not a currency finding, and a documented Apify candidate for whoever next ' +
       'takes on scraping this shop directly — a plain HTTP client cannot even read its robots.txt.',
   ],
-  [
-    'nicchia-luxury-uk',
-    'An Italian storefront (nicchialuxury.com) whose own shipping policy states its threshold ' +
-      'in dollars ("Free express delivery over 140 USD"), and whose storefront was measured ' +
-      'publishing EUR on 2026-08-13 (parseShopCurrency, Price verification run 4, job ' +
-      '94426059278). Its stored prices are NOT those euro figures — live/stored across all ' +
-      '6,843 keyable listings is a constant 1.3490 (99.9% of the 4,383 listings at or above ' +
-      '£50 sit within 1% of it), where relabelled euros would give 1.0 — so the feed is not ' +
-      'republishing the storefront in the wrong unit; it is that euro list divided by a fixed ' +
-      'factor. No sterling price list was found at any address tried (run 5, job 94428122841: ' +
-      '/en-gb answered USD; /gb, /uk, /en-uk none). Whether 1.3490 was ever a real exchange ' +
-      'rate was not established, and nothing measured suggests this shop takes sterling at ' +
-      'all. It ran enabled with 4,032 offer rows live on that unproven declaration until ' +
-      '2026-08-13. Its stored snapshot went on holding all 6,843 of those figures in priceGbp ' +
-      'for three days after that — disabling a shop stops it being published, it does not touch ' +
-      'the file — and they were cleared on 2026-08-16 by npm run quarantine:prices, each amount ' +
-      "kept as nativePrice under currency 'unknown', the only label the measurements above " +
-      'support: not the euros the storefront quotes, not pounds, and not a converted anything. ' +
-      'CatalogueStore.write now refuses to store a sterling figure against any id on this list, ' +
-      'so no routine run can put them back. Evidence refreshed 2026-08-19 (currency probe, run ' +
-      '32257210189, job 96081595191): /products.json now returns a real Shopify payload — this ' +
-      'is confirmed Shopify, the route that WOULD serve it — but every request shape still ' +
-      'settles EUR. Asked ?country=GB the theme labels the price GBP while settling EUR at a ' +
-      'computed rate of 0.8729568, a live Shopify-Markets conversion of the same euro figure, ' +
-      'not a second genuine sterling list; this is a different mechanism from the Awin feed\'s ' +
-      'fixed 1.3490 divisor above, but the same underlying fact: no GBP price list independent ' +
-      'of a euro one has been found here by any route tried. Rechecked 2026-10-03: /en-gb now ' +
-      'answers GBP (it answered USD on 2026-08-13) but at rate 0.86691738, and six perfumes ' +
-      'read at /it-it and /en-gb the same day all match euros times that rate rounded up to ' +
-      'the whole pound (e.g. 145 EUR to 126 GBP, 230 EUR to 200 GBP). Still a conversion, ' +
-      'still off.',
-  ],
+  // nicchia-luxury-uk was removed from this list on 2026-10-03, on the evidence
+  // the list asks for: the owner's own checkout. At the shop's /en-gb cart a
+  // Maison Crivelli Tobacco Carnaval Extrait de Parfum 1.5 ml was priced "£5.00
+  // GBP" and the Shopify checkout to a UK address offered "Express Shipping
+  // £15.00, 1 to 4 business days", so the shop charges a UK shopper in pounds.
+  // What it does not change is that those pounds are the shop's own live
+  // conversion from euros (rate 0.86691738 that day); the owner accepted that
+  // (`convertedSterlingAccepted`). The CI probe, run 37128409330 job
+  // 111218396119, read 241 listings, all priced in GBP, under ?country=GB at
+  // rate 0.86690412. See the comment on its registry entry above. It is now
+  // `enabled: true`.
   [
     'carethy',
     'Listed here on the day it was added, before anyone had opened the shop — which is the ' +
