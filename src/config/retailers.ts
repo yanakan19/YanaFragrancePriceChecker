@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 76 retailers, 47 of them `enabled: true`. Every one of them is a legitimate
+ * 76 retailers, 48 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -7990,7 +7990,16 @@ export const RETAILERS: readonly Retailer[] = [
       maxSitemaps: 1,
       requireGbp: true,
     },
-    enabled: false,
+    //
+    // ── Switched on, 2026-10-03, on the pinned route ────────────────────────
+    // Probe run #570 (job 111191918224), from a runner: 3,746 product URLs on
+    // the route, 8 pages, 8 listings, all 8 priced in GBP on their own pages
+    // (Anna Sui Flight of Fancy EDT 75ml £44.50, Aramis Havana EDT 100ml
+    // £57.50, Aramis EDT 240ml £79.50 ...). Delivery as recorded below was
+    // read again off https://www.pacoperfumerias.co.uk/delivery-and-returns/
+    // the same day and is unchanged: "Royal Mail Tracked 48 Free over £25 2 to
+    // 3 working days £2.95 on orders under £25."
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -9280,16 +9289,12 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'itemprop priceCurrency content GBP (read from this sandbox), and the £4.99 is now read ' +
       'off its own delivery page; no CI probe has read it yet.',
   ],
-  [
-    'paco-perfumerias-uk',
-    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
-      'about perfumeprice.co.uk comes from WebSearch snippets, including its Companies House ' +
-      'registration; its checkout currency has not been read. One positive sterling reading ' +
-      'from a currency probe is what would remove this id. 2026-10-03: the domain now ' +
-      'redirects to www.pacoperfumerias.co.uk, whose product page (Dior Fahrenheit EDT 100ml) ' +
-      'labels its offer priceCurrency GBP, read from this sandbox; which id that store belongs ' +
-      'to is an owner decision (see the entry).',
-  ],
+  // paco-perfumerias-uk was removed from this list on 2026-10-03: its product
+  // pages label each offer priceCurrency GBP (Dior Fahrenheit EDT 100ml
+  // £106.50, Aramis Havana EDT 100ml £57.50), its pinned route sets
+  // requireGbp so only such prices are stored, and probe run #570 (job
+  // 111191918224) read all 8 listings it fetched that way from a runner. It
+  // is now `enabled: true`.
   // perfume-direct was removed from this list on 2026-10-03: currency probe,
   // run 37085200742 job 111093936348, read GBP at rate 1 at the origin and
   // under every request shape, with identical /products.json prices at the
