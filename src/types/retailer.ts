@@ -293,6 +293,19 @@ export interface ShippingRule {
    */
   source?: ShippingSource;
   /**
+   * Set when the figures were confirmed by hand in the shop's own basket or
+   * checkout: an item put in the bag and the delivery options it offered read
+   * off the screen, rather than a delivery page fetched and quoted.
+   *
+   * That is stronger evidence of what a shopper pays than a delivery page, but
+   * it is a different fact, and the site said the wrong one: every confirmed
+   * rule without a `source` rendered as "Confirmed against this shop's own
+   * delivery page", including Riiffs, whose pages answer every automated read
+   * with a captcha and whose £3.95 nobody here has ever seen on a delivery
+   * page. `demo/deliveryFacts.ts` names this check instead when it is present.
+   */
+  basketCheck?: BasketCheck;
+  /**
    * Set only when this shop's own delivery page has been read and genuinely
    * publishes no flat standard rate.
    *
@@ -315,6 +328,14 @@ export interface ShippingRule {
    */
   standardRateNotPublished?: boolean;
   notes?: string;
+}
+
+/** A delivery charge read by hand off the shop's own basket or checkout. */
+export interface BasketCheck {
+  /** ISO-8601 date the basket was checked. */
+  readAt: string;
+  /** The delivery wording the basket or checkout showed, quoted as recorded. */
+  quote: string;
 }
 
 /** The page a shipping figure was read off, and the wording it was read from. */

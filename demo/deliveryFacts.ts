@@ -17,6 +17,23 @@ import { formatGbp } from '../src/services/money.js';
  * own UK storefront so "delivery not stated" reads identically wherever it
  * appears rather than inventing a second wording for the same fact.
  */
+const MONTHS = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
+];
+
+/**
+ * "2026-10-03" as "3 October 2026". The ISO form put hyphens into a line a
+ * reader sees, which this site's copy never uses. Parsed by hand rather than
+ * through Date so the day cannot shift with the viewer's time zone; anything
+ * that is not a plain ISO date is returned unchanged.
+ */
+export function longDate(iso: string): string {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  const month = m ? MONTHS[Number(m[2]) - 1] : undefined;
+  return m && month ? `${Number(m[3])} ${month} ${m[1]}` : iso;
+}
+
 export function deliveryLines(r: Retailer): string[] {
   const s = r.shipping;
   const lines: string[] = [];
@@ -37,11 +54,17 @@ export function deliveryLines(r: Retailer): string[] {
   );
   // Which of these figures has actually been read off the shop's own delivery
   // page, said once per shop rather than repeated against every number.
+  // A basket check names itself rather than borrowing the delivery page's
+  // wording: it is what the shop actually charged at its own checkout, and
+  // for a shop like Riiffs, which answers every automated read with a
+  // captcha, no delivery page was ever read at all.
   lines.push(
     s.confidence === 'confirmed'
-      ? s.source
-        ? `Read from this shop’s own delivery page on ${s.source.readAt}`
-        : 'Confirmed against this shop’s own delivery page'
+      ? s.basketCheck
+        ? `Checked by hand in this shop’s own basket on ${longDate(s.basketCheck.readAt)}`
+        : s.source
+          ? `Read from this shop’s own delivery page on ${longDate(s.source.readAt)}`
+          : 'Confirmed against this shop’s own delivery page'
       : 'Not yet confirmed with the shop. These delivery terms came from research, not from their own delivery page',
   );
   if (s.freeOverGbp !== null && s.freeOverGbp > 0) {

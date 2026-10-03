@@ -81,7 +81,32 @@ describe('deliveryLines', () => {
         source: { url: 'https://example.com/delivery', quote: '£3.95 standard', readAt: '2026-08-01' },
       }),
     );
-    expect(lines[1]).toBe('Read from this shop’s own delivery page on 2026-08-01');
+    // A long date, not the ISO form: "2026-08-01" put hyphens in front of a
+    // reader, which the site's copy never uses.
+    expect(lines[1]).toBe('Read from this shop’s own delivery page on 1 August 2026');
+  });
+
+  // Riiffs, Emirates Oud and Selfridges were confirmed by the owner in each
+  // shop's own basket on 2026-10-03. Riiffs answers every automated read with
+  // a captcha, so "Confirmed against this shop's own delivery page" was a
+  // claim about a page nobody here has read.
+  it('names a basket check as a basket check, not as a delivery page', () => {
+    const lines = deliveryLines(
+      withShipping({
+        standardGbp: 3.95,
+        freeOverGbp: null,
+        estimatedDays: DAYS,
+        verifiedAt: '2026-10-03',
+        confidence: 'confirmed',
+        basketCheck: { readAt: '2026-10-03', quote: 'Flat rate: 3.95£' },
+      }),
+    );
+    expect(lines[1]).toBe('Checked by hand in this shop’s own basket on 3 October 2026');
+    for (const id of ['riiffs', 'emirates-oud', 'selfridges']) {
+      const line = deliveryLines(getRetailer(id)!)[1]!;
+      expect(line).toBe('Checked by hand in this shop’s own basket on 3 October 2026');
+      expect(line).not.toMatch(/[-‐-―]/);
+    }
   });
 
   it('says plainly when delivery terms have not been confirmed with the shop', () => {
