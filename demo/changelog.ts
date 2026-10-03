@@ -17,10 +17,20 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
-    version: 'v3.35.0',
+    version: 'v3.36.0',
     date: '3 Oct 2026',
     title: 'Every shop gets a mark',
     points: ['Every shop in a price list now shows a mark'],
+  },
+  {
+    version: 'v3.35.0',
+    date: '3 Oct 2026',
+    title: 'Delivered price graph and gift sets section',
+    points: [
+      'Graph prices now include delivery',
+      'Every price back in one list, age on each row',
+      'Gift sets on the home page, one of each perfume',
+    ],
   },
   {
     version: 'v3.34.0',

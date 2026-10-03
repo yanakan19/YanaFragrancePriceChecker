@@ -572,7 +572,11 @@ async function refreshFromPlatform(
     if (!walk.currency.isSterling) {
       return { platform: 'shopify', refresh: null, requests, note: `products.json not established as sterling (${walk.currency.reason})` };
     }
-    const refresh = refreshFromItems(known, itemsFromShopifyListings(walk.listings), new Date());
+    // Read through a UK market request because the origin quoted this runner
+    // something else: the feed is the GB list, the pages are the suspect.
+    const refresh = refreshFromItems(known, itemsFromShopifyListings(walk.listings), new Date(), {
+      trustOverPages: walk.market.label !== 'origin',
+    });
     return { platform: 'shopify', refresh, requests, note: refresh.rejected };
   }
   await sleepMs(gapMs);
@@ -621,7 +625,18 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
   // included: no second, browser-shaped request for the file. See SitemapRoute
   // in src/types/retailer.ts.
   const robotsFallback = retailer.sitemapRoute ? [] : ROBOTS_FALLBACK_HEADERS;
-  const robotsProbe = await probeRobots(retailer, http, BOT_HEADERS, robotsFallback);
+  let robotsProbe = await probeRobots(retailer, http, BOT_HEADERS, robotsFallback);
+  // ── A robots.txt that never answered is asked once more, later ────────────
+  // Every attempt at HTTP 0 means no connection, not a refusal: Perfumeo's
+  // host timed out all four connects from the runner on 2026-10-03 14:58
+  // (run #577) and answered normally from elsewhere the same hour, and that
+  // one minute cost its whole catalogue a run. One more try after 30s, at the
+  // slow shop timeout. A refusal (any real HTTP status) is never re-asked.
+  if (robotsProbe.rules.unavailable && robotsProbe.attempts.length > 0 && robotsProbe.attempts.every((a) => a.status === 0)) {
+    console.log(`      ${retailer.name}: robots.txt did not connect; asking once more in 30s`);
+    await sleepMs(30_000);
+    robotsProbe = await probeRobots(retailer, createHttp({ timeoutMs: SLOW_SHOP_TIMEOUT_MS }), BOT_HEADERS, robotsFallback);
+  }
   const robots = robotsProbe.rules;
   // An unreachable robots.txt stops this shop dead — isAllowed treats it as
   // everything disallowed, which is the right call and is why the run has to
@@ -1449,8 +1464,17 @@ await Promise.all(Array.from({ length: Math.min(concurrency, Math.max(1, shops.l
 // Awin sync step).
 {
   const nowDate = new Date();
+  // A shop that refused any page this run is a shop refusing us, even where
+  // another page answered (Selfridges, run #577: page one rendered, pages 2
+  // to 5 refused). So is a shop only the render tier reaches, which reads
+  // the first page of each section and nothing else, by design (see
+  // actorPartial above): Selfridges again, run #588, 60 re-priced of 293
+  // held. Neither can have its whole held range re-priced, so both are
+  // warned about by the freshness check, never failed on.
   const answered = new Set(
-    report.current().shops.filter((s) => s.tier !== 'none').map((s) => s.retailerId),
+    report.current().shops
+      .filter((s) => s.tier !== 'none' && s.tier !== 'render' && !(s.refusals && s.refusals.length > 0))
+      .map((s) => s.retailerId),
   );
   const measured = RETAILERS.filter((r) => r.enabled && (!onlyShop || r.id === onlyShop));
   const freshness: Record<string, ReportedFreshness> = {};
