@@ -989,7 +989,45 @@ function collapseIndistinguishableRows(): void {
       if (offer.fetchedAt > kept.fetchedAt) bestOf.set(key, offer);
     }
     if (bestOf.size !== product.offers.length) product.offers = [...bestOf.values()];
+    product.offers = dropSupersededStockRows(product.offers);
   }
+}
+
+/* The same page at the same price, seen in stock on one day and out of stock
+   on another, is one row with two observations, not two rows. Audit,
+   2026-10-03: 10 such pairs across the built catalogue (Emirates Oud 7,
+   Perfumeo, Al Haramain and Kayali 1 each), the older row in each left
+   behind by an earlier harvest, weeks behind the newer one. Emirates Oud's
+   Odyssey Aqua showed
+   "out of stock" from 2026-10-02 beside a buyable £22.50 row last seen on
+   2026-08-16, and Kayali's Oudgasm Vanilla 50ml listed Kayali twice at £119.
+   The newest observation is what the shop says today, so it wins. Where the
+   two were read at the same moment nothing says which is current, and both
+   stay. */
+let supersededStockRows = 0;
+const supersededStockRowsByShop = new Map<string, number>();
+
+function dropSupersededStockRows(offers: Offer[]): Offer[] {
+  const groups = new Map<string, Offer[]>();
+  for (const offer of offers) {
+    const key = [offer.retailerId, offer.url, offer.price, offer.wasPrice].join('|');
+    const group = groups.get(key);
+    if (group) group.push(offer);
+    else groups.set(key, [offer]);
+  }
+  const dropped = new Set<Offer>();
+  for (const group of groups.values()) {
+    if (group.length < 2) continue;
+    const newest = group.reduce((a, b) => (b.fetchedAt > a.fetchedAt ? b : a));
+    if (group.some((o) => o !== newest && o.fetchedAt === newest.fetchedAt)) continue;
+    for (const o of group) {
+      if (o === newest) continue;
+      dropped.add(o);
+      supersededStockRows++;
+      supersededStockRowsByShop.set(o.retailerId, (supersededStockRowsByShop.get(o.retailerId) ?? 0) + 1);
+    }
+  }
+  return dropped.size === 0 ? offers : offers.filter((o) => !dropped.has(o));
 }
 
 // First pass, here, before the reference-price audit further down: two
@@ -1895,6 +1933,11 @@ console.log(
     `  ${sameBottleRows} same-bottle rows collapsed (one shop, the same bottle on two of its own pages)` +
     (sameBottleRowsByShop.size
       ? ` (${[...sameBottleRowsByShop].sort((a, b) => b[1] - a[1]).map(([id, n]) => `${id} ${n}`).join(', ')})`
+      : '') +
+    '\n' +
+    `  ${supersededStockRows} superseded stock rows dropped (same page and price, an older stock reading)` +
+    (supersededStockRowsByShop.size
+      ? ` (${[...supersededStockRowsByShop].sort((a, b) => b[1] - a[1]).map(([id, n]) => `${id} ${n}`).join(', ')})`
       : '') +
     '\n' +
     `  ${houseProducts.length} house products, catalogue-only (no sterling price yet)\n` +
