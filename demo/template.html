@@ -1983,10 +1983,6 @@
   .giftset-contents { margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
   .giftset-label { font-weight: 600; color: var(--ink); }
   .giftset-note { margin: 4px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--faint); }
-  /* Under the "Older prices" heading: one quiet line saying why these rows
-     sit below the current ones (demo/offerGroups.ts). Pulled up under its
-     heading so the two read as one label. */
-  .older-note { margin: -8px 0 12px; font-size: 12.5px; line-height: 1.5; color: var(--faint); }
 
   /* ── price history chart ───────────────────────────────────────────────── */
   .history-block { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line); }
@@ -2080,6 +2076,11 @@
      sold out in words as well. Only drawn when nothing buyable is on record. */
   .history-dot-soldout { width: 9px; height: 9px; border-color: var(--faint); background: var(--bg); }
   .history-dot-soldout:hover, .history-dot-soldout:focus-visible { width: 13px; height: 13px; background: var(--faint); }
+  /* An item price at a shop that does not state its delivery cost, on a graph
+     of delivered prices (demo/priceHistoryChart.ts): square rather than
+     round, and its tooltip, aria label and the caption all say "delivery not
+     stated", so the shape is never the only signal. */
+  .history-dot-itemonly { border-radius: 2px; }
   /* The one line under the graph that says what is on it. */
   /* At least two lines tall, and the loading placeholder carries an empty
      one, so the common captions (one or two lines) move nothing when the
@@ -2106,6 +2107,19 @@
      are — percent left, matched to the same xPct so a label always sits
      directly under the day it names. */
   .history-xaxis { position: relative; height: 16px; margin-top: 4px; }
+  /* The y axis does not start at zero (priceDomain in
+     demo/priceHistoryChart.ts pads the range so no line sits on the axis),
+     so the chart labels the highest and lowest prices it plots, in a gutter
+     to the left of the plot, each beside a faint guide line. The chart and
+     its x axis both start after that gutter. */
+  .history-chart, .history-xaxis { margin-left: 52px; }
+  .history-yaxis { position: absolute; top: 0; bottom: 0; right: 100%; width: 52px; pointer-events: none; }
+  .history-ylabel {
+    position: absolute; right: 6px; transform: translateY(-50%);
+    font: 400 11px/1.4 var(--font-num); font-variant-numeric: tabular-nums;
+    color: var(--faint); white-space: nowrap;
+  }
+  .history-guide { stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; }
   .history-xlabel {
     position: absolute; top: 0; transform: translateX(-50%);
     font: 400 11px/1.4 var(--font-num); font-variant-numeric: tabular-nums;

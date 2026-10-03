@@ -462,6 +462,30 @@ async function discoverViaRoute(
   return { urls: [...named, ...rest], errors };
 }
 
+/**
+ * A listing's address with any query string the page added dropped, when it
+ * is the page itself.
+ *
+ * Marks and Spencer's own JSON-LD sometimes carries the address a visitor
+ * arrived by rather than the product's: on 2026-10-03 hbp22184550's read
+ * "?extid=af_Sub+Networks_Skimlinks...&awc=1402_..." (another publisher's
+ * affiliate click) and hbp60453037's a Google Ads "gclid". Stored as is,
+ * our Buy link would carry someone else's tracking. Where the listing's path
+ * is the path of the sitemap URL we fetched and that URL has no query of its
+ * own, the clean sitemap URL is used instead, keeping any #fragment (a size
+ * on Parfumdreams). Anything else is left exactly as the page gave it.
+ */
+export function cleanListingUrl(listingUrl: string, pageUrl: string): string {
+  try {
+    const l = new URL(listingUrl);
+    const p = new URL(pageUrl);
+    if (!l.search || p.search || l.host !== p.host || l.pathname !== p.pathname) return listingUrl;
+    return `${p.origin}${p.pathname}${l.hash}`;
+  } catch {
+    return listingUrl;
+  }
+}
+
 /** Plain text of a fragment of HTML, entities decoded, whitespace collapsed. */
 function textOf(fragment: string): string {
   return fragment
@@ -685,7 +709,10 @@ export async function crawlViaSitemap(
 
   // Due refreshes first, then whatever the budget picks from the rest. A URL
   // is never asked twice in one walk.
-  const refreshUrls = [...new Set(options.refreshUrls ?? [])];
+  // Without the #fragment: several sizes read off one page (Parfumdreams'
+  // index_13043.aspx#variation=222365, #variation=222363 ...) are stored with
+  // their own fragment, and the page answers for all of them in one request.
+  const refreshUrls = [...new Set((options.refreshUrls ?? []).map((u) => u.split('#')[0]!))];
   const refreshSet = new Set(refreshUrls);
   const known = options.knownUrls ?? new Map<string, string>();
   const budgeted = selectUrlsToFetch(
@@ -790,6 +817,9 @@ export async function crawlViaSitemap(
       pageUrl: url,
       ...(route ? { microdata: true, requireGbp: route.requireGbp === true } : {}),
     });
+    if (route) {
+      for (let k = 0; k < found.length; k++) found[k] = { ...found[k]!, url: cleanListingUrl(found[k]!.url, url) };
+    }
     if (route?.titleParts?.length && found.length === 1) {
       found[0] = { ...found[0]!, rawTitle: withTitleParts(found[0]!.rawTitle, res.body, route.titleParts) };
     }
