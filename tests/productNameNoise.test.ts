@@ -84,6 +84,17 @@ describe('product names carry no shop descriptor rubbish', () => {
    */
   const KAYALI_PIPE_NAMES = /^[^|]+\s\|\s\d{2}(?: Miniature)?$/;
 
+  /**
+   * (1c) VERIFIED REAL, 2026-10-03. Kayali's own sets, kept whole as gift
+   * sets since that day (src/catalogue/giftSet.ts keeps a set's title rather
+   * than trimming it like a single bottle's): the same scent number, then the
+   * set's own name. Read against kayali.json: "Yum Boujee Marshmallow | 81
+   * Sweet Fix", "Yum Pistachio Gelato | 33 The Full Serving", "Discovery
+   * Layering Set | 04 8 x 1.5ml", "Vanilla Mini Duo (Vanilla | 28, Vanilla
+   * Candy) 2 x 5ml". Held to Kayali's own gift sets.
+   */
+  const KAYALI_SET_PIPE_NAMES = /\s\|\s\d{2}\b/;
+
 
   it('has no "|" in a name outside the verified allowlist', () => {
     const offenders = CATALOGUE.filter(
@@ -91,6 +102,7 @@ describe('product names carry no shop descriptor rubbish', () => {
         p.name.includes('|') &&
         !REAL_PIPE_NAMES.test(p.name) &&
         !(p.brand.toLowerCase() === 'kayali' && KAYALI_PIPE_NAMES.test(p.name)) &&
+        !(p.brand.toLowerCase() === 'kayali' && p.giftSet && KAYALI_SET_PIPE_NAMES.test(p.name)) &&
         !KNOWN_UNFIXED_PIPE_NAMES.has(p.name),
     ).map((p) => `${p.brand}: ${p.name}`);
     expect([...new Set(offenders)]).toEqual([]);

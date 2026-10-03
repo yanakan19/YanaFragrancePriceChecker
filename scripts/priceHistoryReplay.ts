@@ -59,7 +59,7 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
-import { isFragrance, fragranceId } from '../src/catalogue/fragranceId.js';
+import { isCatalogueListing, fragranceId } from '../src/catalogue/fragranceId.js';
 import { isAvailableListing } from '../src/catalogue/listingAvailability.js';
 import { untrustworthyEans } from '../src/catalogue/productMatch.js';
 import { CURRENCY_UNCONFIRMED, RETAILERS } from '../src/config/retailers.js';
@@ -187,7 +187,9 @@ export function replayCommit(root: string, state: ReplayState, { sha, at }: Cata
 
   for (const listings of activeAtCommit) {
     for (const l of listings) {
-      if (!isFragrance(l)) continue;
+      // A single fragrance or a gift set, the same gate the catalogue uses,
+      // each under its own id (a set never shares a single bottle's line).
+      if (!isCatalogueListing(l)) continue;
       // A shop whose currency was never established has no price history, and
       // clearing its current snapshot cannot reach the past: this replays old
       // commits, so the pre-quarantine files are still right there holding the
@@ -214,7 +216,9 @@ export function replayCommit(root: string, state: ReplayState, { sha, at }: Cata
   const untrustworthyEverPriced = untrustworthyEans(statusOnlyAtCommit.flat());
   for (const listings of statusOnlyAtCommit) {
     for (const l of listings) {
-      if (!isFragrance(l)) continue;
+      // A single fragrance or a gift set, the same gate the catalogue uses,
+      // each under its own id (a set never shares a single bottle's line).
+      if (!isCatalogueListing(l)) continue;
       if (CURRENCY_UNCONFIRMED.has(l.retailerId)) continue;
       if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) continue;
       const id = fragranceId(l, untrustworthyEverPriced);
@@ -430,12 +434,15 @@ export interface Rendered {
 export function render(state: ReplayState, commits: readonly CatalogueCommit[]): Rendered {
   const { history, everPriced } = state;
 
-  // A single *real* point draws no line — demo/app.ts's chart refuses to
-  // render below two — so a sub-two series is filtered here rather than
-  // shipped for the frontend to skip. Counted by real points, not length: a
-  // series can also hold gap markers.
+  // Every series with at least one real point is shipped (owner's decision,
+  // 2026-10-03: every product page shows its graph, a single observation as
+  // a single point). It used to stop at two, because the chart refused to
+  // draw fewer; demo/priceHistoryChart.ts now draws one, and shipping the
+  // whole series rather than the PRICE_HISTORY_GAP summary keeps its gap
+  // markers, so the page knows when a lone price stopped being buyable.
+  // Counted by real points, not length: a series can also hold gap markers.
   const sortedEntries = [...history.entries()]
-    .filter(([, series]) => realPointCount(series) >= 2)
+    .filter(([, series]) => realPointCount(series) >= 1)
     .sort(([a], [b]) => a.localeCompare(b));
 
   // One reason for every fragrance that does not reach the bar above — see

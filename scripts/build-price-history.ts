@@ -144,7 +144,7 @@ replay(root, commits.slice(from), state, (done, total, fragrances) => {
 
 const rendered = render(state, commits);
 console.log(`\n${rendered.fragrancesWithHistory} fragrances have at least one recorded price`);
-console.log(`${rendered.charted} of those have 2+ real points (an actual line) and are included below`);
+console.log(`${rendered.charted} of those have at least one real point and are included below (every series is shipped, so every product page can draw its graph)`);
 const gaps = rendered.gapCounts;
 console.log(
   `${gaps.never + gaps['sold-out'] + gaps['not-enough']} fragrances short of a chart get a reason instead of blank space: ` +
