@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 74 retailers, 50 of them `enabled: true`. Every one of them is a legitimate
+ * 74 retailers, 51 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -8106,6 +8106,23 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Bloom Perfumery',
     domain: 'bloomperfume.co.uk',
     homepage: 'https://bloomperfume.co.uk',
+    // Square icon declared on the shop's own homepage, read with robots.txt
+    // first and asked for as PriceSniffsBot (scripts/logo-probe.ts asks as a
+    // browser, which this entry does not allow, so the homepage was read by
+    // hand the same way), 2026-10-03. Measured with scripts/logo-ink.py: 32px,
+    // 55.6% transparent, dark ink, fails 100% on the dark ground, so it sits on
+    // the light tile. Checked by eye: a dark circle holding a white flower,
+    // clear at 32px. The declared Organization.logo is a 182 by 50 wordmark
+    // and the og:image a 1200 by 628 banner, neither square, so neither is used.
+    // Asset: <link rel="shortcut icon">, the unversioned path of the theme file.
+    logo: {
+      src: 'https://bloomperfume.co.uk/cdn/shop/t/4/assets/favicon.png',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://bloomperfume.co.uk',
+      readAt: '2026-10-03',
+    },
     tiers: ['niche'],
     // Added 2026-08-20 from WebSearch snippets alone — no page opened, this
     // sandbox has no egress. Domain chosen deliberately: search turned up
@@ -8198,7 +8215,18 @@ export const RETAILERS: readonly Retailer[] = [
       sizeOption: { name: 'Package', minMl: 5 },
     },
     botIdentityOnly: true,
-    enabled: false,
+    //
+    // ── Switched on, 2026-10-03, on the Shopify route with that rule ────────
+    // Probe run #590 (job 111315662687), from a runner, robots.txt first and as
+    // PriceSniffsBot throughout: market origin, currency STERLING (GBP at rate
+    // 1, country GB), 9 pages of /products.json at 1.5 s apart, 2,214 listings,
+    // all 2,214 priced in GBP, every one product type Perfume, a plain ml size
+    // of 5 ml or more, "ol". No error lines. The same walk from this sandbox
+    // gave 2,215 before the hand sanitizer was ruled out by `requiredOptions`.
+    // Of those, 1,297 are out of stock on the shop's own list and 471 carry
+    // "(Discontinued)" in the title; both are kept as the shop states them and
+    // the stock flag decides what is shown, not this entry.
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
