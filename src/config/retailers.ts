@@ -3512,6 +3512,38 @@ export const RETAILERS: readonly Retailer[] = [
     // 141 titles match NOT_A_FRAGRANCE), so this is the same fix as
     // escentric-molecules and zimaya below: a single fragrance house naming
     // its own products after itself, not a reason to doubt what it sells.
+    //
+    // (The "standardGbp stays null" above is history: the owner read a flat
+    // £3.95 off this shop's own basket on 2026-10-03, see shipping below, and
+    // it left the unstated-delivery allowlist that day.)
+    //
+    // ── Refused by a captcha since 2026-09-14, every run ────────────────────
+    // The prices on the site are stale and nothing automated can refresh them.
+    // From data/harvest-report.json as committed by each harvest run (git log
+    // of that file): the last run to price anything was the one started
+    // 2026-09-14T04:56Z (143 URLs discovered, 66 priced). Every run that
+    // reached this shop after it, from 2026-09-14T10:47Z through
+    // 2026-10-02T15:51Z, 26 runs, discovered 0 URLs. 10 of them reported
+    // "sitemap.xml: HTTP 403" (most also sitemap_index.xml 403); the other 16
+    // reported no error at all, which is not an empty sitemap: asked once
+    // each on 2026-10-03 from this environment, robots.txt answered 200 as
+    // plain text (it disallows only /wp-admin/, three WooCommerce upload
+    // folders and */?add-to-cart=*, and names /sitemap_index.xml), but
+    // /sitemap_index.xml and the product page /product/gladius/ both answered
+    // HTTP 202 with `sg-captcha: challenge`: SiteGround's bot challenge, a
+    // meta refresh to /.well-known/sgcaptcha/. The walk read that 202 as a
+    // sitemap with nothing in it. src/catalogue/sitemapCrawl.ts now records it
+    // as a captcha refusal and stops asking for the run.
+    //
+    // So the 8 offers still shown carry the 2026-09-13/14 prices. Nothing
+    // legitimate was found that serves this shop's own prices without the
+    // challenge: the sitemap and product pages, the only routes robots.txt
+    // points at, are both behind it, and getting past a challenge the shop has
+    // put up is not something this project does. No other route (an API, a
+    // feed, another address) was probed to look for a gap in it. Riiffs runs
+    // no affiliate programme we know of (affiliate below: not researched), so
+    // a feed is the honest way back; failing that, the owner can ask the shop
+    // to allow this crawler, or switch the shop off.
     fragranceOnlyCatalogue: true,
     enabled: true,
     adapter: 'unknown',

@@ -409,3 +409,73 @@ describe('crawlViaSitemap: perfume words before smell words', () => {
     ]);
   });
 });
+
+describe('crawlViaSitemap: a captcha answer is a refusal, not an empty shop', () => {
+  // The exact body uk.riiffsperfumes.com returned for /sitemap_index.xml on
+  // 2026-10-03, with HTTP 202 and `sg-captcha: challenge` (the IP and time
+  // parameters blanked). Every Riiffs harvest since 2026-09-14T10:47Z that
+  // got this reported "0 urls, 0 fetched" and no error at all.
+  const CHALLENGE =
+    '<html><head><link rel="icon" href="data:;"><meta http-equiv="refresh" ' +
+    'content="0;/.well-known/sgcaptcha/?r=%2Fsitemap_index.xml&y=ipr:0.0.0.0:0"></meta></head></html>';
+
+  it('records the captcha during discovery and asks the shop nothing more', async () => {
+    const calls: string[] = [];
+    const http: Http = async (url) => {
+      calls.push(url);
+      return { status: 202, ok: true, body: CHALLENGE };
+    };
+    const result = await crawlViaSitemap({
+      retailer: retailer({ domain: 'uk.riiffsperfumes.com', homepage: 'https://uk.riiffsperfumes.com' }),
+      http,
+      robots: { ...NO_RESTRICTIONS, sitemaps: ['https://uk.riiffsperfumes.com/sitemap_index.xml'] },
+      maxPages: 5,
+      gapMs: 0,
+      headers: {},
+    });
+    // One request, then stop: no second sitemap root, no product pages, and
+    // never the challenge address itself.
+    expect(calls).toEqual(['https://uk.riiffsperfumes.com/sitemap.xml']);
+    expect(calls.some((u) => u.includes('sgcaptcha'))).toBe(false);
+    expect(result.listings).toHaveLength(0);
+    expect(result.errors).toEqual([
+      'https://uk.riiffsperfumes.com/sitemap.xml: HTTP 202, a SiteGround captcha challenge instead of the page (refused, not empty)',
+      'stopped early: the shop answered with a captcha',
+    ]);
+  });
+
+  it('stops the product walk at the first captcha, keeping what was already read', async () => {
+    const calls: string[] = [];
+    const http: Http = async (url) => {
+      calls.push(url);
+      if (url === 'https://www.example.co.uk/sitemap.xml') {
+        return {
+          status: 200,
+          ok: true,
+          body:
+            '<urlset>' +
+            '<url><loc>https://www.example.co.uk/products/fragrance-1</loc></url>' +
+            '<url><loc>https://www.example.co.uk/products/fragrance-2</loc></url>' +
+            '<url><loc>https://www.example.co.uk/products/fragrance-3</loc></url>' +
+            '</urlset>',
+        };
+      }
+      if (url === 'https://www.example.co.uk/products/fragrance-1') {
+        return { status: 200, ok: true, body: page(42) };
+      }
+      return { status: 202, ok: true, body: CHALLENGE };
+    };
+    const result = await crawlViaSitemap({
+      retailer: retailer({ catalogue: null }),
+      http,
+      robots: NO_RESTRICTIONS,
+      maxPages: 5,
+      gapMs: 0,
+      headers: {},
+    });
+    const productCalls = calls.filter((u) => u.includes('/products/'));
+    expect(productCalls.length).toBeLessThan(3);
+    expect(result.errors.at(-1)).toBe('stopped early: the shop answered with a captcha');
+    if (productCalls[0]!.endsWith('fragrance-1')) expect(result.listings).toHaveLength(1);
+  });
+});

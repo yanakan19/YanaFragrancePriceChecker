@@ -264,6 +264,46 @@ function hasExistingSubdomain(domain: string): boolean {
   return labels.length > bareLabelCount;
 }
 
+/**
+ * A response that is a captcha challenge, not the page asked for.
+ *
+ * ── The case this exists for ────────────────────────────────────────────────
+ * Riiffs (uk.riiffsperfumes.com) priced 65 to 68 listings on every harvest
+ * that reached it until 2026-09-14T04:56Z, and none since. Its harvest-report
+ * line on most runs after that read
+ *
+ *     Riiffs Perfumes          0 urls    0 fetched    0 priced listings
+ *
+ * with no error at all, which is what a shop with an empty sitemap would
+ * produce. It is not what happened. Asked once each on 2026-10-03, its
+ * robots.txt answered 200 as plain text (and permits the sitemap and the
+ * product pages), while /sitemap_index.xml and /product/gladius/ both
+ * answered HTTP 202 with an `sg-captcha: challenge` header and a 186-byte
+ * page whose only content is
+ *
+ *     <meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?r=...">
+ *
+ * SiteGround's bot challenge. A 202 is a 2xx, so the walk took it as a
+ * successful sitemap, found no <loc> in it, and moved on with nothing to say.
+ * (On other runs the same host answered 403 instead, which was reported.)
+ *
+ * Recognised by the challenge path in the body rather than by size or status,
+ * because neither is specific: a small 2xx can be a real, short sitemap. When
+ * it is seen the walk records the refusal and stops asking that shop for the
+ * rest of the run. It never follows the challenge, never retries, and never
+ * tries another address to get past it.
+ */
+const CAPTCHA_CHALLENGE = /\/\.well-known\/sgcaptcha\//i;
+
+/** The refusal to record for a captcha answer, or null for an ordinary page. */
+export function captchaRefusal(url: string, res: { status: number; body: string }): string | null {
+  return CAPTCHA_CHALLENGE.test(res.body)
+    ? `${url}: HTTP ${res.status}, a SiteGround captcha challenge instead of the page (refused, not empty)`
+    : null;
+}
+
+const CAPTCHA_STOP = 'stopped early: the shop answered with a captcha';
+
 async function discover(
   options: SitemapCrawlOptions,
   budget: number,
@@ -336,6 +376,11 @@ async function discover(
     if (!res.ok) {
       errors.push(`${url}: HTTP ${res.status}`);
       continue;
+    }
+    const captcha = captchaRefusal(url, res);
+    if (captcha) {
+      errors.push(captcha, CAPTCHA_STOP);
+      break;
     }
 
     for (const found of locs(res.body)) {
@@ -432,7 +477,10 @@ export async function crawlViaSitemap(
   const sampledUrls: string[] = [];
   let pagesFetched = 0;
 
-  const picked = selectUrlsToFetch(urls, maxPages, options.knownUrls, options.refreshShare);
+  // A shop that answered discovery with a captcha is not asked again this run.
+  const picked = errors.includes(CAPTCHA_STOP)
+    ? []
+    : selectUrlsToFetch(urls, maxPages, options.knownUrls, options.refreshShare);
 
   for (let i = 0; i < picked.length; i++) {
     const url = picked[i]!;
@@ -455,6 +503,11 @@ export async function crawlViaSitemap(
         break;
       }
       continue;
+    }
+    const captcha = captchaRefusal(url, res);
+    if (captcha) {
+      errors.push(captcha, CAPTCHA_STOP);
+      break;
     }
 
     const found = parseListings(res.body, { sectionId: 'sitemap', pageUrl: url });
