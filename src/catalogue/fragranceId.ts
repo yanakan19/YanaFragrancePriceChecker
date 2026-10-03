@@ -108,6 +108,21 @@ export const NOT_A_FRAGRANCE =
  */
 export const ML_SIZE_RE = /(\d{1,4}(?:\.\d)?)\s*ml\b/i;
 export const OZ_SIZE_RE = /(\d{1,2}(?:\.\d)?)\s*(?:fl\.?\s*)?oz\b/i;
+/**
+ * The millilitre figure one ML_SIZE_RE capture states, exactly as the shop
+ * wrote it (the pattern allows one decimal place).
+ *
+ * This used to be rounded to a whole number, which put a size on screen the
+ * shop never stated: Kayali's 1.5ml sample vials read as "2ml" and Escentric
+ * Molecules' 8.5ml travel sprays as "9ml" (both checked against the shops'
+ * own product pages, 2026-10-03). It also let a 7.5ml and an 8ml bottle
+ * compare as the same size. Ounce sizes are a conversion, not a stated
+ * figure, and stay rounded to the whole millilitre.
+ */
+export function statedMl(capture: string): number {
+  return Math.round(Number.parseFloat(capture) * 10) / 10;
+}
+
 /** 1 fl oz in millilitres — the imperial fluid ounce, which is what every oz size in the catalogue means. */
 export const OZ_TO_ML = 29.5735;
 
@@ -136,7 +151,7 @@ export const DESCRIPTION_SIZE_RE = /\bsize:\s*(\d{1,4}(?:\.\d)?)\s*ml\b/i;
 function descriptionStatedSizeMl(description: string | null | undefined): number | null {
   if (!description) return null;
   const m = description.match(DESCRIPTION_SIZE_RE);
-  return m ? Math.round(Number.parseFloat(m[1]!)) : null;
+  return m ? statedMl(m[1]!) : null;
 }
 
 /**
@@ -589,7 +604,7 @@ export function sizeMl(title: string, description?: string | null): number | nul
   // see SIZE_MENU_THEN_VARIANT_RE's own comment for why only this specific,
   // narrow shape is allowed to override "the first size mentioned wins".
   const menu = title.match(SIZE_MENU_THEN_VARIANT_RE);
-  if (menu) return Math.round(Number.parseFloat(menu[1]!));
+  if (menu) return statedMl(menu[1]!);
   // A genuine bundle or gift-with-purchase always carries a ",", "+" or "&"
   // — see SIZE_RESTATED_THEN_VARIANT_RE's own comment — so checking for
   // their absence first, rather than folding it into the pattern, is what
@@ -597,7 +612,7 @@ export function sizeMl(title: string, description?: string | null): number | nul
   // itself.
   if (!/[,+&]/.test(title)) {
     const restated = title.match(SIZE_RESTATED_THEN_VARIANT_RE);
-    if (restated) return Math.round(Number.parseFloat(restated[1]!));
+    if (restated) return statedMl(restated[1]!);
     // See SIZE_CONFLICT_RE's own comment. Checked after the restated-variant
     // rule just above (which requires a word between the two sizes) so the
     // two patterns can never both match the same title — one requires a word
@@ -616,7 +631,7 @@ export function sizeMl(title: string, description?: string | null): number | nul
     }
   }
   const ml = title.match(ML_SIZE_RE);
-  if (ml) return Math.round(Number.parseFloat(ml[1]!));
+  if (ml) return statedMl(ml[1]!);
   const oz = title.match(OZ_SIZE_RE);
   if (oz) return Math.round(Number.parseFloat(oz[1]!) * OZ_TO_ML);
   // The title never states one. Before giving up, check the one other place
@@ -680,6 +695,9 @@ const MULTI_ITEM = /\bset\b|\bwardrobe\b|\b\d+\s*x\b|\bx\s*\d+\b/i;
  * 5 checked), a rule that says "several" should not quietly mean "one or more".
  */
 const MULTI_PACK = /\b([2-9]|[1-9]\d)\s*[x×]\s*\d{1,4}(?:\.\d)?\s*ml\b/i;
+
+/** A Shopify `product_type` that names several items sold as one. */
+const BUNDLE_PRODUCT_TYPE = /^\s*bundles?\s*$/i;
 
 function sellsOnlyFragrance(retailerId: string): boolean {
   return getRetailer(retailerId)?.fragranceOnlyCatalogue === true;
@@ -871,6 +889,11 @@ export function isFragrance(l: StoredListing): boolean {
   // "not a fragrance".
   if (sizeMl(t, l.description) === null && !sizeConflict(t)) return false;
   if (l.priceGbp === null || l.priceGbp <= 0) return false;
+  // The shop's own category, where it gives one — see RawListing.productType.
+  // Kayali files its duos under "Bundles" with a title naming one size
+  // ("Fruit Crush 100ml", two 100ml bottles at £187), so the title rules
+  // below cannot see it.
+  if (l.productType && BUNDLE_PRODUCT_TYPE.test(l.productType)) return false;
   // Asked of every shop, unlike the two rules inside the branch below — see
   // MULTI_PACK for why a quantity against a size is the one multi-pack signal
   // that survives contact with the whole catalogue.

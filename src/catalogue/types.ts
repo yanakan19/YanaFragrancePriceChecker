@@ -94,6 +94,17 @@ export interface RawListing {
    * as "no reviews".
    */
   rating?: { value: number; count: number | null } | null;
+  /**
+   * The shop's own product category, where its source publishes one: today
+   * only a Shopify storefront's `product_type`. Carried as written. Read by
+   * `isFragrance` for the one value that settles a question the title cannot:
+   * a "Bundles" product is several items, whatever its title says. Kayali's
+   * "Fruit Crush 100ml" is the measured case, a 2 x 100ml duo at £187 that
+   * was showing as one 100ml bottle (uk.kayali.com, read 2026-10-03).
+   * Optional because only the Shopify route reads it; absent means "not
+   * captured", never "no category".
+   */
+  productType?: string | null;
 }
 
 /** Where a listing is in its life at a retailer. */
