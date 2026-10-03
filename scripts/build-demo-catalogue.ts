@@ -44,11 +44,13 @@ import { auditPriceScale } from '../src/catalogue/priceScale.js';
 import { auditWasPrices } from '../src/catalogue/wasPriceCredibility.js';
 import {
   isFragrance,
+  isCatalogueListing,
   sizeMl,
   fragranceId,
   repairMojibake,
   NOT_A_FRAGRANCE,
 } from '../src/catalogue/fragranceId.js';
+import { giftSetContents, giftSetName, isGiftSet } from '../src/catalogue/giftSet.js';
 import {
   concentrationOfListing,
   CONCENTRATION_DISPUTED,
@@ -326,6 +328,13 @@ interface Product {
    * survived, which is not knowable when the pass runs.
    */
   concentrationFromHouse: string | null;
+  /**
+   * Set only for a gift set (src/catalogue/giftSet.ts): its own category,
+   * with no size (so nothing size keyed can ever match or compare it with a
+   * single bottle) and the contents its title spells out, or null where the
+   * title does not.
+   */
+  giftSet: { contents: string[] | null; title: string } | null;
 }
 
 /**
@@ -592,6 +601,8 @@ let liveShops = 0;
 let considered = 0;
 const skippedShops: string[] = [];
 let rejected = 0;
+/** Gift set listings kept, by shop (src/catalogue/giftSet.ts). */
+const giftSetListings = new Map<string, number>();
 /** Active listings carrying no usable price. Never published; see the guard below. */
 let unpriced = 0;
 /**
@@ -710,10 +721,14 @@ for (const { retailer, listings } of eligible) {
       continue;
     }
 
-    if (!isFragrance(l)) {
+    // A single fragrance, or a fragrance gift set (its own category, never
+    // compared with a single bottle: see src/catalogue/giftSet.ts).
+    if (!isCatalogueListing(l)) {
       rejected++;
       continue;
     }
+    const giftSet = isGiftSet(l);
+    if (giftSet) giftSetListings.set(l.retailerId, (giftSetListings.get(l.retailerId) ?? 0) + 1);
 
     // Null for the seven listings sizeConflict flags — see fragranceId.ts's
     // own comment. Not asserted non-null: isFragrance() above now lets
@@ -726,7 +741,10 @@ for (const { retailer, listings } of eligible) {
     // comment) — without it, a listing whose only stated size lives in its
     // description would pass the gate above and then still show "size not
     // confirmed" on screen, disagreeing with the very fact that let it in.
-    const size = sizeMl(l.rawTitle, l.description);
+    // A gift set has no size: it is not a bottle of any volume, and leaving
+    // it unsized is what keeps every size keyed match (findDuplicateGroups,
+    // houseCeilings, the reference price check) from ever pairing it with one.
+    const size = giftSet ? null : sizeMl(l.rawTitle, l.description);
     const id = fragranceId(l, untrustworthyEans);
     const effectiveRawBrand = resolveRawBrand(l, retailer);
 
@@ -761,7 +779,11 @@ for (const { retailer, listings } of eligible) {
     // stripTrailingShopCredit for why it is anchored to this listing's own
     // retailer and nothing else.
     const titleWithoutShopCredit = stripTrailingShopCredit(l.rawTitle, retailer.name, retailer.domain);
-    const displayedName = displayName(titleWithoutShopCredit, effectiveRawBrand, displayedBrand);
+    // A gift set keeps its title whole (less a leading brand): its sizes and
+    // strengths are its contents, not facts shown elsewhere. See giftSetName.
+    const displayedName = giftSet
+      ? giftSetName(titleWithoutShopCredit, displayedBrand)
+      : displayName(titleWithoutShopCredit, effectiveRawBrand, displayedBrand);
     const offer: Offer = {
       retailerId: l.retailerId,
       price: l.priceGbp!,
@@ -810,6 +832,12 @@ for (const { retailer, listings } of eligible) {
 
     if (existing) {
       existing.offers.push(offer);
+      // A set whose first shop's title spelled out nothing may be spelled out
+      // by the next one's.
+      if (existing.giftSet && existing.giftSet.contents === null) {
+        const contents = giftSetContents(l.rawTitle);
+        if (contents) existing.giftSet = { contents, title: l.rawTitle };
+      }
     } else {
       // The displayed brand is handed to displayName as well as the raw
       // vendor field: it is the string that will sit beside the name on
@@ -836,6 +864,7 @@ for (const { retailer, listings } of eligible) {
         // Filled in by the brand-direct concentration pass below, which needs
         // every product to exist before it can ask what the house said.
         concentrationFromHouse: null,
+        giftSet: giftSet ? { contents: giftSetContents(l.rawTitle), title: l.rawTitle } : null,
       });
     }
   }
@@ -1301,8 +1330,11 @@ if (scaleAudit.offScale.length > 0) {
    wasPrice credibility checks in wasPriceCredibility.ts stay exactly as
    they were. See CONCENTRATION_DISPUTED and CONCENTRATION_RESOLUTIONS in
    productName.ts for the rest of this reasoning. */
+// A gift set is left out: two shops naming different strengths for one set
+// are usually naming different items in it (an EDP with an EDT miniature),
+// not disagreeing about one bottle.
 const mixedConcentration = [...concentrationsSeen].filter(
-  ([id, seen]) => seen.size > 1 && products.has(id),
+  ([id, seen]) => seen.size > 1 && products.has(id) && products.get(id)!.giftSet === null,
 );
 // Split, because the two halves mean different things — see above. A shop
 // that named nothing has not contradicted a shop that named something.
@@ -1776,7 +1808,7 @@ for (const l of tooOldListings) {
     olderOffersSkipped.unpriced++;
     continue;
   }
-  if (!isFragrance(l)) {
+  if (!isCatalogueListing(l)) {
     olderOffersSkipped.notFragrance++;
     continue;
   }
@@ -1826,6 +1858,9 @@ const catalogue = ordered.map((p) => {
     // stocked here — JSON.stringify drops an undefined value, so 13,933 of the
     // 14,784 products cost nothing for a field that has nothing to say.
     houseCeiling: houseCeilings.get(p.id),
+    // Omitted for every single bottle, so the shipped file only grows by the
+    // gift sets themselves.
+    ...(p.giftSet ? { giftSet: p.giftSet } : {}),
   };
 });
 
@@ -1945,6 +1980,16 @@ export interface CatalogueEntry {
    * expressible without inventing anything.
    */
   houseCeiling?: number;
+  /**
+   * Present only on a gift set (src/catalogue/giftSet.ts): its own category,
+   * shown with "Gift set" where a size would be and listed under its own
+   * option in the Volume filter. Never matched or compared with a single
+   * bottle; sizeMl is always null on one. \`contents\` is what the shop's title
+   * spells out ("100ml Eau de Toilette", "150ml Body Wash"), or null where it
+   * does not; \`title\` is the shop title they were read from, shown in
+   * their place when there are none.
+   */
+  giftSet?: { contents: string[] | null; title: string };
 }
 
 /** Products, most widely stocked first. */
@@ -2033,7 +2078,8 @@ const multi = ordered.filter((p) => p.offers.length > 1).length;
 // title states two conflicting sizes, never because it stated none — that
 // case is still excluded by isFragrance() before a listing ever becomes a
 // product at all.
-const sizeUnknown = ordered.filter((p) => p.sizeMl === null).length;
+const sizeUnknown = ordered.filter((p) => p.sizeMl === null && p.giftSet === null).length;
+const giftSetProducts = ordered.filter((p) => p.giftSet !== null);
 console.log(
   `demo/catalogue.generated.ts written from LIVE data only:\n` +
     `  ${liveShops} shops, ${considered} listings considered, ${rejected} were not fragrance, ${unpriced} carried no price\n` +
@@ -2056,6 +2102,8 @@ console.log(
     '\n' +
     `  ${houseProducts.length} house products, catalogue-only (no sterling price yet)\n` +
     `  ${sizeUnknown} products carry a size their own title states two conflicting ways; shown as size not confirmed\n` +
+    `  ${giftSetProducts.length} gift set products (${giftSetProducts.reduce((n, p) => n + p.offers.length, 0)} offers; ${[...giftSetListings.values()].reduce((n, v) => n + v, 0)} listings: ` +
+    `${[...giftSetListings].sort((a, b) => b[1] - a[1]).map(([id, n]) => `${id} ${n}`).join(', ')}), never compared with a single bottle\n` +
     `  ${[...tooOldByShop.values()].reduce((n, v) => n + v.hidden, 0)} active listings hidden, price last confirmed over ${HIDE_OFFER_AFTER_DAYS} days ago` +
     (tooOldByShop.size
       ? ` (${[...tooOldByShop]
