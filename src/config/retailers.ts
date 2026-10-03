@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 77 retailers, 45 of them `enabled: true`. Every one of them is a legitimate
+ * 77 retailers, 44 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -5503,7 +5503,22 @@ export const RETAILERS: readonly Retailer[] = [
     // "UK Standard (EVRI 2 to 3 business days): £3.45". Free shipping over
     // £45 is a member perk ("Beauty Pie+ Starter ... Free shipping when you
     // spend over £45"), so no free threshold is recorded.
-    enabled: true,
+    //
+    // ── Switched back off the same day: harvested, but nothing can show ─────
+    // The harvest worked (a dry run from a runner, harvest probe run
+    // 37088041434 job 111102272593, read 121 priced listings through
+    // ?country=GB; the scheduled harvest that followed wrote 572 priced rows
+    // to data/catalogue/beauty-pie.json, 12 of them Eau De Parfum at £59).
+    // None reaches the site, because none states a size. The feed titles are
+    // "Orris Florentina Eau De Parfum" with a single "Default Title" variant
+    // and a description with no ml in it, and isFragrance() in
+    // src/catalogue/fragranceId.ts rejects a listing with no size anywhere,
+    // which is right: a bottle cannot be compared without one. The size is
+    // on the product page title ("Orris Florentina Eau De Parfum 50ml |
+    // Beauty Pie") and nowhere in /products.json. Off rather than enabled
+    // and empty, the same call as LUSH above. What would change it: reading
+    // the size from the product page, or the shop adding it to the variant.
+    enabled: false,
     adapter: 'unknown',
     shopifyStorefront: true,
     singleBrandOnly: 'Beauty Pie',
@@ -5780,6 +5795,10 @@ export const RETAILERS: readonly Retailer[] = [
     // "Delivery") and says "Royal Mail Tracked 48 is FREE on all orders." with
     // Royal Mail Tracked 24 at £2.50 as the paid upgrade. So standard delivery
     // is free on every order, recorded as standardGbp: 0 below.
+    //
+    // First real harvest, commit 3787960 ("Harvest: real prices 2026-10-03"):
+    // 68 priced rows in data/catalogue/perfume-market-uk.json, e.g. Montblanc
+    // Explorer Eau de Parfum 200ml £67.50, 100ml £42.75, 30ml £22.50.
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
@@ -7541,6 +7560,10 @@ export const RETAILERS: readonly Retailer[] = [
     // when a sterling origin names a country other than GB, moves to the
     // first way of asking that names GB (src/catalogue/shopifyProductsCrawl.ts,
     // tests/marketHarvest.test.ts). For this shop that is ?country=GB.
+    // Proven after enabling: harvest probe run 37088032179 job 111102246498
+    // logged "sterling market: ?country=GB" and 122 priced listings, and the
+    // scheduled harvest in commit 3787960 stored Mocha Absolu 100ml EDP at
+    // £195 (sku DUSMA100), the UK price, among 1,382 priced rows.
     //
     // Delivery: the shop's own pages disagree, and the higher figure is
     // stored. /pages/delivery-and-returns (linked from the home page) says
@@ -7816,6 +7839,10 @@ export const RETAILERS: readonly Retailer[] = [
     // (the real one ends -womens-perfume-spray-50ml-100ml); it proves nothing
     // either way. Variants are plain sizes ("30ml", "50ml", "100ml"), one
     // listing each, with no tax free or trade variants mixed in.
+    //
+    // Harvest probe from a runner after enabling, run 37088036819 job
+    // 111102259672: 103 priced listings; the scheduled harvest in commit
+    // 3787960 wrote 4,043 priced rows to data/catalogue/perfume-direct.json.
     //
     // Delivery read off the shop's own /pages/delivery-options ("Shipping &
     // Delivery") and its /policies/shipping-policy, which agree: Royal Mail
