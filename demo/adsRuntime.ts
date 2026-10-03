@@ -1,3 +1,4 @@
+/// <reference lib="dom" />
 /**
  * The browser half of display advertising: adding the ad styles, loading
  * Google's ad script, and asking it to fill each slot. Everything it decides
