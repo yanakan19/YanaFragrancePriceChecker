@@ -162,6 +162,19 @@ export const RETAILERS: readonly Retailer[] = [
       source: 'https://www.allbeauty.com',
       readAt: '2026-10-03',
     },
+    // The wordmark above stays in the profile hero. This is the square icon
+    // the same homepage declares, for the 20px offer row mark and the Shops
+    // tile; read by scripts/logo-probe.ts and checked by eye at 20px on both
+    // themes, 2026-10-03.
+    // Asset: <link rel="icon">, 32px (the largest the file holds).
+    squareLogo: {
+      src: 'https://allbeauty.com/cdn/shop/files/allbeauty_logo_32x32_eed458cb-5a9f-47d5-a6d9-6bf15728e9d4.png?crop=center&height=32&v=1782817025&width=32',
+      shape: 'square',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://www.allbeauty.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer', 'niche', 'mideast'],
     enabled: true,
     // Live spike 1 Aug 2026: the old /uk/fragrance URL returned HTTP 200 with
@@ -234,6 +247,19 @@ export const RETAILERS: readonly Retailer[] = [
     logo: {
       src: "https://www.justmylook.com/cdn/shop/files/JML-logo.svg?v=1726499052",
       shape: 'wordmark',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.justmylook.com',
+      readAt: '2026-10-03',
+    },
+    // The wordmark above stays in the profile hero. This is the square icon
+    // the same homepage declares, for the 20px offer row mark and the Shops
+    // tile; read by scripts/logo-probe.ts and checked by eye at 20px on both
+    // themes, 2026-10-03.
+    // Asset: <link rel="icon">, 32px (the largest the file holds).
+    squareLogo: {
+      src: 'https://www.justmylook.com/cdn/shop/files/favicon-32x32.png?crop=center&height=32&v=1726505486&width=32',
+      shape: 'square',
       ink: 'dark',
       basis: 'own-site-declared',
       source: 'https://www.justmylook.com',
@@ -1856,6 +1882,19 @@ export const RETAILERS: readonly Retailer[] = [
       source: 'https://www.beautybase.com',
       readAt: '2026-10-03',
     },
+    // The wordmark above stays in the profile hero. This is the square icon
+    // the same homepage declares, for the 20px offer row mark and the Shops
+    // tile; read by scripts/logo-probe.ts and checked by eye at 20px on both
+    // themes, 2026-10-03.
+    // Asset: <link rel="icon">, a 30x37 portrait B that sits whole inside the square tile.
+    squareLogo: {
+      src: 'https://www.beautybase.com/cdn/shop/files/Vector.png?v=1760441967&width=96',
+      shape: 'square',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://www.beautybase.com',
+      readAt: '2026-10-03',
+    },
     // Decision recorded 2026-08-01: included on equal footing with every other
     // entry. It is a legitimate UK stockist with real niche depth (Creed,
     // Xerjoff, Amouage), and under the current model there is no trust flag for
@@ -2826,6 +2865,19 @@ export const RETAILERS: readonly Retailer[] = [
       source: 'https://mybeauty.boutique',
       readAt: '2026-10-03',
     },
+    // The wordmark above stays in the profile hero. This is the square icon
+    // the same homepage declares, for the 20px offer row mark and the Shops
+    // tile; read by scripts/logo-probe.ts and checked by eye at 20px on both
+    // themes, 2026-10-03.
+    // Asset: <link rel="icon">, asked for at 96px.
+    squareLogo: {
+      src: 'https://mybeauty.boutique/cdn/shop/files/RGB_Logo_Design_-_MBB_V001_-18.png?crop=center&height=96&v=1717418341&width=96',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://mybeauty.boutique',
+      readAt: '2026-10-03',
+    },
     // Their own words, from the programme profile they publish on Awin.
     blurb:
       'MyBeauty.Boutique — your trusted partner for beauty and wellness, with products ' +
@@ -2928,6 +2980,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Escentual',
     domain: 'escentual.com',
     homepage: 'https://www.escentual.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="icon">, an SVG.
+    logo: {
+      src: 'https://escentual.com/cdn/shop/files/Favicon_-_Escentual_2024_d6c52b6e-88e3-40a5-887d-d9ae3edffac1.svg?v=1727735063',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.escentual.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // Off since 2026-08-13, and the reason is now known rather than suspected.
     //
@@ -3369,6 +3433,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'French Avenue',
     domain: 'uk.shopfrenchavenue.com',
     homepage: 'https://uk.shopfrenchavenue.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="icon">, asked for at 96px.
+    logo: {
+      src: 'https://uk.shopfrenchavenue.com/cdn/shop/files/favicon.png?crop=center&height=96&v=1771170072&width=96',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://uk.shopfrenchavenue.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['mideast'],
     singleBrandOnly: 'French Avenue',
     // Single-brand seller — Fragrance World's UK storefront for their French
@@ -3544,6 +3620,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Al Haramain Perfumes',
     domain: 'alharamainperfumes.co.uk',
     homepage: 'https://alharamainperfumes.co.uk',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="shortcut icon">, 192px on the Shopify CDN, asked for at 96px.
+    logo: {
+      src: 'https://cdn.shopify.com/s/files/1/0256/2683/7043/files/Al_Haramain_Favicon.png?v=1783002517&width=96',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://alharamainperfumes.co.uk',
+      readAt: '2026-10-03',
+    },
     tiers: ['mideast'],
     singleBrandOnly: 'Al Haramain',
     // MARKETS. This shop's /en-us/ delivery-page path was a hint worth
@@ -4043,6 +4131,19 @@ export const RETAILERS: readonly Retailer[] = [
       source: 'https://emiratesoud.co.uk',
       readAt: '2026-10-03',
     },
+    // The wordmark above stays in the profile hero. This is the square icon
+    // the same homepage declares, for the 20px offer row mark and the Shops
+    // tile; read by scripts/logo-probe.ts and checked by eye at 20px on both
+    // themes, 2026-10-03.
+    // Asset: <link rel="icon">, asked for at 96px.
+    squareLogo: {
+      src: 'https://emiratesoud.co.uk/cdn/shop/files/for_fav_copy.jpg?crop=center&height=96&v=1770533878&width=96',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://emiratesoud.co.uk',
+      readAt: '2026-10-03',
+    },
     tiers: ['mideast'],
     // Multi-brand oud specialist (product paths like /products/rayhaan-aquatica
     // name "Rayhaan" as the house, not Emirates Oud itself) — a retailer
@@ -4269,6 +4370,19 @@ export const RETAILERS: readonly Retailer[] = [
       src: "https://us.thebeautystore.com/cdn/shop/files/1_-THE_BEAUTY_STORE_LOGO.svg?v=1749488495&width=500",
       shape: 'wordmark',
       ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.thebeautystore.com',
+      readAt: '2026-10-03',
+    },
+    // The wordmark above stays in the profile hero. This is the square icon
+    // the same homepage declares, for the 20px offer row mark and the Shops
+    // tile; read by scripts/logo-probe.ts and checked by eye at 20px on both
+    // themes, 2026-10-03.
+    // Asset: <link rel="icon"> on the US storefront this homepage declares it from, asked for at 96px.
+    squareLogo: {
+      src: 'https://us.thebeautystore.com/cdn/shop/files/the_beauty_store_favicon_8bf2c36d-1ab6-425e-94fb-27043ba1a162.png?crop=center&height=96&v=1749489828&width=96',
+      shape: 'square',
+      ink: 'own',
       basis: 'own-site-declared',
       source: 'https://www.thebeautystore.com',
       readAt: '2026-10-03',
@@ -5293,6 +5407,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Nicchia Luxury UK',
     domain: 'nicchialuxury.com',
     homepage: 'https://www.nicchialuxury.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="apple-touch-icon">, 180px on the Shopify CDN.
+    logo: {
+      src: 'https://cdn.shopify.com/s/files/1/0940/3491/9808/files/apple-touch-icon.png',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.nicchialuxury.com',
+      readAt: '2026-10-03',
+    },
     // Their own words, from the programme profile they publish on Awin.
     blurb:
       'Nicchia Luxury is an Italian e-commerce site specializing in niche perfumery, ' +
@@ -5843,6 +5969,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Perfume Market UK',
     domain: 'perfumemarketuk.com',
     homepage: 'https://www.perfumemarketuk.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="icon">, 512px.
+    logo: {
+      src: 'https://www.perfumemarketuk.com/media/favicon/stores/1/512x512.png',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.perfumemarketuk.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // Currency probe (run 32256242622, job 96078492089, 2026-08-19): robots.txt
     // answers with no disallow, and the bare origin serves sterling — home
@@ -6842,6 +6980,19 @@ export const RETAILERS: readonly Retailer[] = [
       source: 'https://www.fragrancehub.co.uk/',
       readAt: '2026-10-03',
     },
+    // The wordmark above stays in the profile hero. This is the square icon
+    // the same homepage declares, for the 20px offer row mark and the Shops
+    // tile; read by scripts/logo-probe.ts and checked by eye at 20px on both
+    // themes, 2026-10-03.
+    // Asset: <link rel="icon">, asked for at 96px.
+    squareLogo: {
+      src: 'https://www.fragrancehub.co.uk/cdn/shop/files/IMG_8367.jpg?crop=center&height=96&v=1722879081&width=96',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.fragrancehub.co.uk/',
+      readAt: '2026-10-03',
+    },
     tiers: ['mideast'],
     // Added 2026-08-18 from WebSearch snippets alone, then actually measured
     // the next day. Self-described as "Home of Niche Arabian Perfumes",
@@ -7274,6 +7425,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Avon',
     domain: 'avon.uk.com',
     homepage: 'https://avon.uk.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="shortcut icon">, 32px.
+    logo: {
+      src: 'https://avon.uk.com/cdn/shop/files/FAVICON_Avon_RGB_Logo_ONLY_FOR_BROWSER_32x32.jpg?v=1690898778',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://avon.uk.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     singleBrandOnly: 'Avon',
     // Named by the owner directly. Added 2026-08-20 from WebSearch snippets
@@ -7689,6 +7852,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Les Senteurs',
     domain: 'lessenteurs.com',
     homepage: 'https://www.lessenteurs.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="icon">, asked for at 96px.
+    logo: {
+      src: 'https://www.lessenteurs.com/cdn/shop/files/favicon.png?crop=center&height=96&v=1613508780&width=96',
+      shape: 'square',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://www.lessenteurs.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['niche'],
     // Added 2026-08-20 from WebSearch snippets of
     // lessenteurs.com/collections/fragrance alone — no page opened, this
@@ -8028,6 +8203,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Perfume Direct',
     domain: 'perfumedirect.com',
     homepage: 'https://www.perfumedirect.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="icon">, 32px (the largest the file holds).
+    logo: {
+      src: 'https://www.perfumedirect.com/cdn/shop/files/favicon.png?crop=center&height=32&v=1738570661&width=32',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.perfumedirect.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // Added 2026-08-20 from WebSearch snippets of
     // perfumedirect.com/collections/all and perfumedirect.com/pages/about-us

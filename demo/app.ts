@@ -1664,7 +1664,7 @@ function offerRow(
   return `<li class="offer ${isBest ? 'best' : ''} ${row.isPurchasable ? '' : 'unavail'}">
     <a class="offer-link" href="${esc(row.outboundUrl)}" rel="nofollow noopener${commissioned ? ' sponsored' : ''}" target="_blank">
       <span class="offer-top">
-        <span class="shop t-title">${offerMark(row.retailer.logo)}${esc(row.retailer.name)}${
+        <span class="shop t-title">${offerMark(row.retailer)}${esc(row.retailer.name)}${
           isBest && bestTag
             ? `<span class="tag ${bestTag === 'Cheapest' ? '' : 'unsure'}">${esc(bestTag)}</span>`
             : ''
@@ -2634,23 +2634,47 @@ function monogram(name: string): string {
 }
 
 /**
+ * The square mark a shop can show in a square slot: its `logo` when that is
+ * square, else the `squareLogo` recorded beside a wordmark, else null (the
+ * initials tile). A wide wordmark is never squeezed into a square box.
+ */
+function squareLogoOf(r: Pick<Retailer, 'logo' | 'squareLogo'>): LogoRef | null {
+  if (r.logo?.shape === 'square') return r.logo;
+  if (r.squareLogo?.shape === 'square') return r.squareLogo;
+  return null;
+}
+
+/** Turns a failed offer row logo into the initials tile, in place: the
+ *  inline style keeps `--mh`, `data-fallback` carries the initials. */
+const OFFER_MARK_ONERROR =
+  "var m=this.parentElement;m.className='offer-mark offer-mark--initials';m.textContent=m.dataset.fallback";
+
+/**
+ * The 20px shop mark beside a shop's name in a product's price list. Every
+ * row gets one, the same size and shape (the owner, 2026-10-03: "I hate the
+ * fact that on a perfume listing some retailers have logos and some don't").
+ * A shop with a square logo shows it on its tile; any other shop gets an
+ * initials tile in the same slot, tinted by `monogramHue` with the monogram
+ * tokens, which are contrast tested at every hue in both themes. If a logo
+ * fails to load, onerror swaps the tile to those same initials rather than
+ * removing it, so the slot is never empty and the row never shifts.
+ */
+function offerMark(r: Pick<Retailer, 'name' | 'logo' | 'squareLogo'>): string {
+  const logo = squareLogoOf(r);
+  const hue = monogramHue(r.name);
+  const initials = esc(initialsOf(r.name) || '?');
+  if (!logo) {
+    return `<span class="offer-mark offer-mark--initials" style="--mh:${hue}" aria-hidden="true">${initials}</span>`;
+  }
+  return `<span class="org-mark offer-mark ${orgMarkInkClass(logo.ink)}" style="--mh:${hue}" data-fallback="${initials}" aria-hidden="true"><img src="${esc(logo.src)}" alt="" width="20" height="20" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="${OFFER_MARK_ONERROR}" /></span>`;
+}
+
+/**
  * The tile CSS class for a `LogoRef.ink` — see docs/LOGOS-PLAN.md §4c. Dark
  * ink needs a light tile to read against; light ink needs a dark one; an
  * opaque mark carrying its own background needs no fill at all, only a
  * boundary so the tile still reads as a tile.
  */
-/**
- * The small shop logo beside a shop's name in a product's price list
- * (docs/LOGOS-PLAN.md step 8). Square logos only, 20px. A shop with no
- * square logo gets nothing at all, not initials: at 20px beside a 15px name
- * a monogram is noise. If the image fails it removes itself and its tile, so
- * the row never shows a broken image or an empty box.
- */
-function offerMark(logo: LogoRef | null | undefined): string {
-  if (!logo || logo.shape !== 'square') return '';
-  return `<span class="org-mark offer-mark ${orgMarkInkClass(logo.ink)}" aria-hidden="true"><img src="${esc(logo.src)}" alt="" width="20" height="20" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentElement.remove()" /></span>`;
-}
-
 function orgMarkInkClass(ink: LogoRef['ink']): string {
   return ink === 'dark' ? 'org-mark--light' : ink === 'light' ? 'org-mark--dark' : 'org-mark--own';
 }
@@ -2727,7 +2751,7 @@ function retailersPanel(): string {
       .map((r) => {
         return `<li>
           <button class="shop-row" data-retailer="${esc(r.id)}">
-            ${orgMark(r.name, r.logo)}
+            ${orgMark(r.name, squareLogoOf(r))}
             <span class="shop-row-text">
               <span class="shop-row-name t-title">${esc(r.name)}</span>
               <span class="shop-row-meta t-caption">${retailerCountMark(r.id)}</span>

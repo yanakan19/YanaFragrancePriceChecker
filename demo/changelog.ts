@@ -17,6 +17,12 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.35.0',
+    date: '3 Oct 2026',
+    title: 'Every shop gets a mark',
+    points: ['Every shop in a price list now shows a mark'],
+  },
+  {
     version: 'v3.34.0',
     date: '3 Oct 2026',
     title: 'Gift sets get their own category',
