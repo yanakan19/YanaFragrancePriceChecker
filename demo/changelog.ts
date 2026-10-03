@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.31.0',
+    date: '3 Oct 2026',
+    title: 'Three new shops and tidier lists',
+    points: [
+      'Three new shops, including Les Senteurs',
+      'Prices not checked for three weeks are hidden',
+      'Empty bottles and barber colognes removed',
+    ],
+  },
+  {
     version: 'v3.30.0',
     date: '2 Oct 2026',
     title: 'Bottle photos all the same size',

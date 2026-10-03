@@ -77,5 +77,8 @@ export function deliveryLines(r: Retailer): string[] {
   if (s.membershipPerk) {
     lines.push(`${s.membershipPerk.scheme}: ${s.membershipPerk.description}`);
   }
+  if (s.minimumOrderGbp) {
+    lines.push(`Minimum order ${formatGbp(s.minimumOrderGbp)}, so a cheaper bottle cannot be ordered on its own`);
+  }
   return lines;
 }
