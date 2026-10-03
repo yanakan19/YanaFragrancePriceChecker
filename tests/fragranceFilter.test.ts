@@ -195,7 +195,13 @@ describe('fragranceOnlyCatalogue is opt-in and deliberately narrow', () => {
     // "RIIFFS PARFUMS"/"Riiffs Perfumes" is a fixed suffix, not a per-bottle
     // statement, and fails CONCENTRATION's word-boundary test on the plural
     // regardless. See its entry in src/config/retailers.ts.
-    expect(flagged).toEqual(['escentric-molecules', 'riiffs', 'zimaya']);
+    //
+    // Kayali joined 2026-10-03 after all 200 harvested listings were read:
+    // its titles never carry a concentration word ("Vanilla | 28 100ml"), and
+    // with the flag only single bottles pass (sets, duos, "2 x 5ml", hair
+    // mists, body sprays and the four-bottle "Wardrobe" are all still out).
+    // See its entry in src/config/retailers.ts.
+    expect(flagged).toEqual(['escentric-molecules', 'kayali', 'riiffs', 'zimaya']);
   });
 
   // The trap this guards. LUSH and Bath & Body Works are also single-brand,

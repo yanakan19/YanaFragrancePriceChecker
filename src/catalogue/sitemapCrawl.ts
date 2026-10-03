@@ -290,6 +290,9 @@ async function discover(
 
   const seen = new Set<string>();
   const scented = new Set<string>();
+  // The scented URLs a product sitemap listed: those are product pages, where
+  // a scented URL from anywhere else may be an aisle (see below).
+  const scentedProducts = new Set<string>();
   const generic = new Set<string>();
   const errors: string[] = [];
 
@@ -330,13 +333,24 @@ async function discover(
         }
       } else if (SCENT.test(path)) {
         scented.add(found);
+        if (isProductSitemap) scentedProducts.add(found);
       } else if (isProductSitemap && generic.size < MAX_DISCOVERED_URLS) {
         generic.add(found);
       }
     }
   }
 
-  return { urls: scented.size > 0 ? [...scented] : [...generic], errors };
+  // Ranked, not chosen between (2026-10-03): scented URLs a product sitemap
+  // listed come first, then the other scented ones, so a shop that names its
+  // aisles after fragrance (Debenhams: /categories/beauty-mens-fragrance)
+  // spends its budget on product pages, not category pages. Every URL kept
+  // before is still kept; only the order changes, and only where a product
+  // sitemap was found, so a shop with no product sitemap fetches exactly as
+  // it did.
+  if (scented.size > 0) {
+    return { urls: [...scentedProducts, ...[...scented].filter((u) => !scentedProducts.has(u))], errors };
+  }
+  return { urls: [...generic], errors };
 }
 
 /**

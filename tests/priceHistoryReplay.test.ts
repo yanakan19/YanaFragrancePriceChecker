@@ -155,8 +155,9 @@ describe('the rules fingerprint covers what decides a price point', () => {
     const facts = registryFacts();
     expect(facts.currencyUnconfirmed).toEqual([...facts.currencyUnconfirmed].sort());
     expect(facts.fragranceOnlyCatalogue).toEqual([...facts.fragranceOnlyCatalogue].sort());
-    // The three shops that carry the flag today; a fourth joining is exactly
-    // the kind of change that must invalidate every existing checkpoint.
-    expect(facts.fragranceOnlyCatalogue).toEqual(['escentric-molecules', 'riiffs', 'zimaya']);
+    // The four shops that carry the flag today (Kayali joined 2026-10-03); a
+    // fifth joining is exactly the kind of change that must invalidate every
+    // existing checkpoint.
+    expect(facts.fragranceOnlyCatalogue).toEqual(['escentric-molecules', 'kayali', 'riiffs', 'zimaya']);
   });
 });

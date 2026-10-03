@@ -64,6 +64,22 @@ function flatten(node: unknown, out: JsonValue[] = []): JsonValue[] {
     // node is a CollectionPage, which isProduct() rightly rejects, and
     // nothing ever looked inside it for the Products it was carrying.
     if (obj['mainEntity']) flatten(obj['mainEntity'], out);
+    // A ProductGroup (THG's sites: Cult Beauty, LOOKFANTASTIC; seen
+    // 2026-10-03 on cultbeauty.co.uk/p/chloe-eau-de-parfum-for-her-50ml)
+    // carries one Product per size under `hasVariant`, each with its own sku
+    // and GBP offer but every one named with the page's own size ("Chloé Eau
+    // de Parfum For Her 50ml" at £71, £98 and £135). Reading them all would
+    // publish three prices for one bottle size. Only the variant whose sku is
+    // the group's own productGroupID is the product the page and its name
+    // describe; the other sizes have pages of their own in the sitemap.
+    const variants = obj['hasVariant'];
+    const groupId = obj['productGroupID'];
+    if (Array.isArray(variants) && groupId != null) {
+      const own = variants.find(
+        (v) => v && typeof v === 'object' && String((v as JsonValue)['sku'] ?? '') === String(groupId),
+      );
+      if (own) flatten(own, out);
+    }
   }
   return out;
 }
@@ -271,6 +287,12 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
 
   for (const node of nodes) {
     if (!isProduct(node)) continue;
+    // A ProductGroup is the wrapper, not a product: it has no offer of its
+    // own, and on a real page its sku (read from the page URL) is its own
+    // variant's, so letting it through would claim that sku with no price
+    // and push the real variant out as a duplicate. flatten() hands on the
+    // one variant the page describes.
+    if (String(node['@type']).toLowerCase() === 'productgroup') continue;
 
     const title = str(node['name']);
     if (!title) continue;

@@ -640,7 +640,8 @@ export function sizeMl(title: string, description?: string | null): number | nul
  * drop genuine single bottles. Measured before scoping it: 118 currently-kept
  * listings across all shops would have gone, most of them real.
  */
-const MULTI_ITEM = /\bset\b|\b\d+\s*x\b|\bx\s*\d+\b/i;
+// "wardrobe": Kayali's name for a boxed set of full bottles (2026-10-03).
+const MULTI_ITEM = /\bset\b|\bwardrobe\b|\b\d+\s*x\b|\bx\s*\d+\b/i;
 
 /**
  * A quantity multiplied by a size — "3x10ml", "4 x 7.5ml", "5X20ml".
