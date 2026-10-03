@@ -1,24 +1,26 @@
 {
-  "startedAt": "2026-10-03T08:55:39.464Z",
-  "finishedAt": "2026-10-03T08:58:31.684Z",
+  "startedAt": "2026-10-03T10:14:47.903Z",
+  "finishedAt": "2026-10-03T10:20:50.949Z",
   "complete": true,
   "endedReason": "swept-every-shop",
   "planned": [
-    "perfume-market-uk"
+    "john-lewis"
   ],
   "notReached": [],
   "shops": [
     {
-      "retailerId": "perfume-market-uk",
-      "name": "Perfume Market UK",
-      "urlsDiscovered": 256,
-      "pagesFetched": 40,
-      "priced": 38,
+      "retailerId": "john-lewis",
+      "name": "John Lewis",
+      "urlsDiscovered": 2356,
+      "pagesFetched": 34,
+      "priced": 53,
       "tier": "free",
       "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "finishedAt": "2026-10-03T08:58:31.681Z"
+      "errorCount": 1,
+      "errors": [
+        "stopped early: exceeded this shop's time budget"
+      ],
+      "finishedAt": "2026-10-03T10:20:50.946Z"
     }
   ]
 }

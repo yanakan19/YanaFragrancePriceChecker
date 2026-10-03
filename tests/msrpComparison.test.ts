@@ -1,5 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { msrpComparison, msrpComparisonLabel } from '../demo/msrpComparison.js';
+import {
+  msrpComparison,
+  msrpComparisonLabel,
+  rrpSaving,
+  rrpSavingFor,
+  rrpSavingLabel,
+  shownPrice,
+} from '../demo/msrpComparison.js';
+import { buildDiscount } from '../src/services/discount.js';
 import { buildHouseAnchor } from '../src/services/discount.js';
 
 describe('msrpComparison', () => {
@@ -81,5 +89,87 @@ describe('msrpComparisonLabel', () => {
   it('names the direction the reader is being told about', () => {
     expect(msrpComparisonLabel({ direction: 'below', percent: 13 })).toBe('13% below MSRP');
     expect(msrpComparisonLabel({ direction: 'above', percent: 30 })).toBe('30% above MSRP');
+  });
+});
+
+/**
+ * The 3 Oct 2026 report, French Avenue Azzure Aoud 100ml: MSRP £30.00,
+ * Perfume Click £29.55 plus £2.95 delivery. The row printed £32.50 "Incl.
+ * £2.95 delivery" and, worked from the £29.55 it did not print, "1% below
+ * MSRP" in sale green. Every comparison now uses the figure the row prints.
+ */
+describe('comparisons use the figure the reader is shown', () => {
+  const row = (item: number, delivered: number | null, wasPrice: number | null = null) => ({
+    itemPriceGbp: item,
+    deliveredPriceGbp: delivered,
+    discount: wasPrice === null ? null : buildDiscount({ price: item, wasPrice }),
+  });
+
+  it('reads the reported row as 8% above MSRP, not 1% below', () => {
+    const r = row(29.55, 32.5);
+    expect(shownPrice(r)).toEqual({ amountGbp: 32.5, delivered: true });
+    const c = msrpComparison(shownPrice(r).amountGbp, 30)!;
+    expect(c).toEqual({ direction: 'above', percent: 8 });
+    expect(msrpComparisonLabel(c)).toBe('8% above MSRP');
+    // offerRow's sale ink is `d || msrp.direction === 'below'`: an above
+    // comparison is never green.
+    expect(c.direction).not.toBe('below');
+  });
+
+  it('keeps a free delivery row below, on the same figure either way', () => {
+    // Perfumeo £28.99, free delivery: the delivered total is the item price.
+    const r = row(28.99, 28.99);
+    expect(shownPrice(r)).toEqual({ amountGbp: 28.99, delivered: true });
+    expect(msrpComparisonLabel(msrpComparison(shownPrice(r).amountGbp, 30)!)).toBe('3% below MSRP');
+  });
+
+  it('compares the item price where delivery is not stated, and says so', () => {
+    const r = row(25, null);
+    // The flag is what lets a caller avoid any wording implying delivery.
+    expect(shownPrice(r)).toEqual({ amountGbp: 25, delivered: false });
+    expect(msrpComparison(shownPrice(r).amountGbp, 30)).toEqual({ direction: 'below', percent: 16 });
+    expect(rrpSavingFor(row(25, null, 30))).toMatchObject({ percentOff: 16, nowPrice: 25 });
+  });
+
+  it('never lets rounding flip the direction', () => {
+    // £30.10 against £30 is above: a third of a percent, so nothing is said,
+    // and certainly never "0% below".
+    expect(msrpComparison(30.1, 30)).toBeNull();
+    expect(msrpComparison(30.3, 30)).toEqual({ direction: 'above', percent: 1 });
+    expect(msrpComparison(29.7, 30)).toEqual({ direction: 'below', percent: 1 });
+    expect(msrpComparison(29.71, 30)).toBeNull();
+    expect(msrpComparison(30.29, 30)).toBeNull();
+    // A penny either side of the delivered total decides the side, not the
+    // item price: £29.55 + £0.46 is £30.01, above by a penny, so silent.
+    expect(msrpComparison(shownPrice(row(29.55, 30.01)).amountGbp, 30)).toBeNull();
+    // Every price from £20 to £40 in pennies: "below" only ever below, "above"
+    // only ever above, and never 0%.
+    for (let p = 2000; p <= 4000; p++) {
+      const c = msrpComparison(p / 100, 30);
+      if (!c) continue;
+      expect(c.percent).toBeGreaterThanOrEqual(1);
+      expect(c.direction === 'below' ? p < 3000 : p > 3000).toBe(true);
+    }
+  });
+
+  it('floors in whole pence, so float drift cannot cost a point', () => {
+    // 29 / 100 * 100 is 28.999999999999996 in floating point.
+    expect(msrpComparison(71, 100)).toEqual({ direction: 'below', percent: 29 });
+    expect(msrpComparison(129, 100)).toEqual({ direction: 'above', percent: 29 });
+    expect(rrpSaving(71, 100)).toEqual({ savingGbp: 29, percentOff: 29 });
+  });
+
+  it('restates a shop RRP against the shown figure', () => {
+    // £39.99 struck through beside £32.50 is 18% off, which a reader can
+    // check on the page; 26% (from the £29.55 item price) is not.
+    const d = rrpSavingFor(row(29.55, 32.5, 39.99))!;
+    expect(d).toMatchObject({ wasPrice: 39.99, nowPrice: 32.5, percentOff: 18 });
+    expect(rrpSavingLabel(d)).toBe('18% off RRP');
+    // A delivered total at or above the RRP states no saving at all.
+    expect(rrpSavingFor(row(15.35, 18.3, 17))).toBeNull();
+    expect(rrpSavingFor(row(14.25, 17.2, 14.5))).toBeNull();
+    // Under a whole percent is not printed as 0%.
+    expect(rrpSaving(29.8, 30)).toBeNull();
+    expect(rrpSavingFor(row(20, 20, null))).toBeNull();
   });
 });

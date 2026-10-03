@@ -43,6 +43,7 @@ import {
 import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
 import { STALE_OFFER_DAYS } from '../src/services/priceService.js';
 import { offerGroups, offersInPageOrder } from './offerGroups.js';
+import { mostStockedRail, rankedInMostStocked } from './mostStocked.js';
 import type { PresentedOffer, StockState } from '../src/types/offer.js';
 import type { Retailer, RetailerTier, LogoRef } from '../src/types/retailer.js';
 import { logoFor } from './brandLogos.js';
@@ -54,7 +55,7 @@ import {
 import { productArt, photoSrcAttrs, HOUSE_IMG_SIZES, RETRY_ORIGINAL, type ArtSize } from './photo.js';
 import { AA_TEXT, contrastRatio, parseColour, type Rgba } from './contrast.js';
 import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './gender.js';
-import { VOLUME_BANDS, volumeBandFor, type VolumeBand } from './volumeBands.js';
+import { volumeBandFor, volumeOptions, type VolumeBand } from './volumeBands.js';
 import { LIST_SORT_OPTIONS, sortFragrances, type BrowseSort, type ListSort } from './listSort.js';
 import {
   PER_ROW_CHOICES, PER_ROW_DEFAULT, clampPerRow, gridWidthFor, perRowChoicesFor,
@@ -62,7 +63,9 @@ import {
 import { trustpilotStateFor } from './trustpilotWidget.js';
 import { COVERAGE } from './legal.js';
 import { deliveryLines } from './deliveryFacts.js';
-import { msrpComparison, msrpComparisonLabel, type MsrpComparison } from './msrpComparison.js';
+import {
+  msrpComparison, msrpComparisonLabel, rrpSavingFor, rrpSavingLabel, shownPrice, type MsrpComparison,
+} from './msrpComparison.js';
 import { pickReferencePrice } from './referencePrice.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
@@ -396,41 +399,10 @@ const TIER_LABEL: Record<RetailerTier, string> = {
  */
 const TOP_N = 50;
 
-/**
- * Oils are kept out of the leading list, on the owner's instruction
- * (2026-08-20).
- *
- * A perfume oil is a different product from a bottle of eau de parfum — sold
- * by the roller or the tola, worn differently, priced on a scale that does not
- * compare — so a list whose whole job is "here is what the UK's shops stock,
- * ranked" reads better without them mixed in. 298 of the catalogue's products
- * carry the "Perfume Oil" concentration as of this change (counted over
- * demo/catalogue.generated.ts, 2026-08-20).
- *
- * Excluded from the front-page rail and from the capped Most Stocked list
- * only. An oil still has its own page, still appears under its brand, still
- * comes back in a search for it, and still carries every price we have for it
- * — this hides nothing, it only declines to rank oils against sprays.
- */
-const isOil = (f: DemoFragrance): boolean => f.concentration === 'Perfume Oil';
-
-/**
- * The front-page rail: the most stocked bottle of each of the 12 most stocked
- * brands. Owner feedback, 2026-10-01: ranked straight, 7 of the 12 were French
- * Avenue and 3 were Afnan, which read as an advert for two brands. The full,
- * unmixed ranking is still one tap away under See Top 50.
- */
-const POPULAR = (() => {
-  const seen = new Set<string>();
-  const out: DemoFragrance[] = [];
-  for (const f of BY_POPULARITY) {
-    if (out.length === 12) break;
-    if (isOil(f) || seen.has(f.brand)) continue;
-    seen.add(f.brand);
-    out.push(f);
-  }
-  return out;
-})();
+// Perfume oils and gift sets are kept out of the Most stocked list (the rail
+// and See Top 50); the rule and the rail itself live in demo/mostStocked.ts,
+// where tests/mostStocked.test.ts holds them to the real catalogue.
+const POPULAR = mostStockedRail(BY_POPULARITY);
 
 /**
  * Prices come from the catalogue crawl and the affiliate feed, never from a
@@ -583,12 +555,21 @@ function facetAttrs(f: DemoFragrance): FacetAttrs {
       // see its own comment) belongs to no band, the same "cannot answer, so
       // it does not match a specific band" rule the price band applies to a
       // delivery cost nobody states.
-      volume: volumeBandFor(f.sizeMl),
+      // A gift set is filed under its own Volume option and in no size band.
+      volume: volumeBandFor(f.sizeMl, f.giftSet !== null),
       concentration: concentrationGroupOf(f.concentration),
       gender: genderOf(f),
       tier: f.tier,
       priceBand: best ? priceBandFor(best.deliveredPriceGbp) : null,
-      onSale: rows.some((r) => r.discount !== null),
+      // On sale means the product page prints a sale price for at least one
+      // row: the same decision offerRow makes (below MSRP, or else a saving
+      // against the shop's RRP), on the same shown figure. Before 3 Oct 2026
+      // this counted any RRP at all, including rows whose page reads "above
+      // MSRP" or whose delivered total is not below the RRP.
+      onSale: rows.some((r) => {
+        const m = best ? msrpFor(r, f) : null;
+        return m ? m.direction === 'below' : rrpSavingFor(r) !== null;
+      }),
       inStock: rows.some((r) => r.isPurchasable),
     };
     facetAttrsCache.set(f.id, a);
@@ -680,9 +661,8 @@ function facetGroups(list: DemoFragrance[]) {
   // gender's three stated readings before "Not stated". Same "only offer what
   // would return something" rule as before: a value nobody here has is left out.
   return {
-    volume: VOLUME_BANDS.filter((b) => (volume.get(b.id) ?? 0) > 0).map((b) => ({
-      value: b.id, label: b.label, count: volume.get(b.id)!,
-    })),
+    // The five size bands, then Gift Sets: see volumeOptions.
+    volume: volumeOptions(volume),
     concentration: CONCENTRATION_GROUPS.filter((g) => (concentration.get(g.id) ?? 0) > 0).map((g) => ({
       value: g.id, label: g.label, count: concentration.get(g.id)!,
     })),
@@ -1075,8 +1055,12 @@ function browseSortControl(current: BrowseSort): string {
  * blank. No hyphen, matching demo/legal.ts's own house style for
  * reader-facing text on this site.
  */
-function sizeLabel(sizeMl: number | null): string {
-  return sizeMl === null ? 'Size not confirmed' : `${sizeMl}ml`;
+function sizeLabel(f: Pick<DemoFragrance, 'sizeMl' | 'giftSet'>): string {
+  // A gift set is its own category (src/catalogue/giftSet.ts): it says so
+  // where a single bottle states its size, and never "Size not confirmed",
+  // which would read as a bottle whose size is in doubt.
+  if (f.giftSet) return 'Gift set';
+  return f.sizeMl === null ? 'Size not confirmed' : `${f.sizeMl}ml`;
 }
 
 /**
@@ -1119,10 +1103,28 @@ function productHead(f: DemoFragrance, tag = 'span', nameRole = 't-title'): stri
       <${wrap} class="phead-name-wrap"><${name} class="phead-name ${nameRole}" title="${esc(f.name)}">${esc(f.name)}</${name}></${wrap}>
     </${wrap}>
     <span class="phead-meta t-caption">
-      <span>${sizeLabel(f.sizeMl)}</span>
+      <span>${sizeLabel(f)}</span>
       <span>${esc(shortConcentration(f.concentration))}</span>
     </span>
   </${tag}>`;
+}
+
+/**
+ * What is in a gift set, under its name on its own page, and the one fact
+ * that sets its prices apart: they are for this set, compared only with the
+ * same set at other shops, never with a single bottle (src/catalogue/giftSet.ts).
+ * The contents are read from the shop's title; where it does not spell them
+ * out, the shop's own title is shown instead of a guess.
+ */
+function giftSetBlock(f: DemoFragrance): string {
+  if (!f.giftSet) return '';
+  const contents = f.giftSet.contents
+    ? `<p class="giftset-contents t-body"><span class="giftset-label">In this set:</span> ${esc(f.giftSet.contents.join(', '))}</p>`
+    : `<p class="giftset-contents t-body"><span class="giftset-label">As the shop lists it:</span> ${esc(f.giftSet.title)}</p>`;
+  return `<div class="giftset-block">
+      ${contents}
+      <p class="giftset-note t-caption">Gift set prices are compared only with this same set, never with a single bottle.</p>
+    </div>`;
 }
 
 /**
@@ -1216,7 +1218,7 @@ function priceLine(f: DemoFragrance): string {
  */
 function fragranceTile(
   f: DemoFragrance,
-  opts?: { rank?: number; trailing?: string; rail?: boolean; eager?: boolean },
+  opts?: { rank?: number; trailing?: string; rail?: boolean; eager?: boolean; soldBy?: string | undefined },
 ): string {
   const rows = rowsFor(f);
   const best = bestOffer(rows);
@@ -1227,13 +1229,15 @@ function fragranceTile(
   // currently have it. The placeholder below still holds the row's height, so
   // a sold-out tile is never shorter than an in-stock neighbour; it just
   // never claims a specific shop.
-  const badgeRetailer = best?.retailer.name ?? null;
+  // A deal tile names the shop the deal is at, which need not be the
+  // product's cheapest shop: the price above it is that shop's.
+  const badgeRetailer = opts?.soldBy ?? best?.retailer.name ?? null;
   // "from" when the figure above is a delivered price the shop won on against
   // others, "at" when it is that one shop's own item price with delivery not
   // stated — the same distinction priceLine already draws in its wording, so
   // the balloon and the number above it never disagree about what is being
   // shown.
-  const badgePrefix = best && best.deliveredPriceGbp !== null ? 'from' : 'at';
+  const badgePrefix = opts?.soldBy ? 'at' : best && best.deliveredPriceGbp !== null ? 'from' : 'at';
   const medal = opts?.rank !== undefined && opts.rank < 3 ? MEDALS[opts.rank] : null;
   // The tile states no shop count. It used to print one — "Ranked at N shops",
   // the DemoFragrance.popularity figure the Most Stocked list is ordered on —
@@ -1462,13 +1466,13 @@ function homeView(): string {
 function visibleFragrances(): DemoFragrance[] {
   const q = state.query.trim().toLowerCase();
   // No brand and no query means this is the leading Most Stocked list rather
-  // than a brand page or a search, and oils are kept out of that one list (see
-  // isOil). Dropped here rather than at the slice in browseView so the facet
+  // than a brand page or a search, and oils and gift sets are kept out of that
+  // one list (see demo/mostStocked.ts). Dropped here rather than at the slice in browseView so the facet
   // counts and the row count agree with what is actually listed — a facet
   // offering "17 Perfume Oil" on a page that shows none is worse than either.
   const isTop = !state.brand && !q;
   return BY_POPULARITY.filter((f) => {
-    if (isTop && isOil(f)) return false;
+    if (isTop && !rankedInMostStocked(f)) return false;
     if (state.brand && f.brand !== state.brand) return false;
     if (!q) return true;
     return `${f.brand} ${f.name} ${f.concentration}`.toLowerCase().includes(q);
@@ -1549,14 +1553,16 @@ function cheapestTag(v: CheapestVerdict): string | null {
  * comparison was at its most useful. 55 of the 411 comparable rows in today's
  * catalogue are exactly that; see demo/msrpComparison.ts for the counts and
  * for why widening `buildHouseAnchor` itself was the wrong place to fix it.
- * `row.itemPriceGbp` is unchanged and remains the only price handed to the
- * comparison — never `deliveredPriceGbp`, which would put a bottle-plus-
- * postage figure up against a bottle-only one.
+ * The figure compared is the one the row prints (`shownPrice`): the delivered
+ * total where the shop states delivery, the item price where it does not.
+ * Until 3 Oct 2026 this compared the item price while the row printed the
+ * delivered total, so £29.55 + £2.95 delivery against a £30 MSRP read
+ * "1% below MSRP" beside £32.50. See demo/msrpComparison.ts.
  */
 function msrpFor(row: PresentedOffer, frag: DemoFragrance): MsrpComparison | null {
   if (frag.houseCeiling === null) return null;
   if (row.retailer.singleBrandOnly && !cannotCarryBrand(row.retailer, frag.brand)) return null;
-  return msrpComparison(row.itemPriceGbp, frag.houseCeiling);
+  return msrpComparison(shownPrice(row).amountGbp, frag.houseCeiling);
 }
 
 /**
@@ -1605,8 +1611,9 @@ function msrpFor(row: PresentedOffer, frag: DemoFragrance): MsrpComparison | nul
  * not confirmed with the shop is still marked, as "est.", and a stale price
  * still says how old it is, because both change what the number means.
  *
- * The MSRP percentage is still computed from the item price alone, never the
- * delivered total (see msrpFor).
+ * Both the MSRP percentage and the RRP saving are worked from the figure this
+ * row prints, `totalGbp`, never from a figure it does not (see msrpFor and
+ * demo/msrpComparison.ts).
  */
 function offerRow(
   row: PresentedOffer,
@@ -1614,10 +1621,13 @@ function offerRow(
   bestTag: string | null = 'Cheapest',
   msrp: MsrpComparison | null = null,
 ): string {
-  const d = msrp ? null : row.discount;
+  // The shop's RRP restated against the figure printed below, so the struck
+  // through RRP and the big number beside it can be checked against each
+  // other (rrpSavingFor). Null where that figure is not below the RRP.
+  const d = msrp ? null : rrpSavingFor(row);
   // Only ever a delivered price where the shop actually states a delivery
   // cost — never the item price wearing a delivered price's clothes.
-  const totalGbp = row.deliveredPriceGbp ?? row.itemPriceGbp;
+  const totalGbp = shownPrice(row).amountGbp;
   const facts: string[] = [];
   if (!row.isPurchasable) {
     facts.push('Last price');
@@ -1673,7 +1683,7 @@ function offerRow(
           msrp
             ? `<span class="off anchor${msrp.direction === 'above' ? ' over' : ''}">${msrpComparisonLabel(msrp)}</span>`
             : d
-              ? `<span class="off">${d.percentOff}% off RRP</span>`
+              ? `<span class="off">${rrpSavingLabel(d)}</span>`
               : ''
         }
       </span>${
@@ -1828,7 +1838,7 @@ function historyChartInput(data: PriceHistoryData, fragranceId: string, isCurren
   ];
   const soldOut = line.length === 0 && older.length === 0 ? rows.filter((r) => !r.isPurchasable).map(rowObservation) : [];
 
-  return { line, lineSource, carryForward, older, soldOut, siteLastDay: data.span?.last ?? null, isCurrentlyPurchasable };
+  return { line, lineSource, carryForward, older, soldOut, siteLastDay: data.span?.last ?? null, isCurrentlyPurchasable, isGiftSet: frag?.giftSet != null };
 }
 
 function priceHistoryFor(data: PriceHistoryData, fragranceId: string, isCurrentlyPurchasable: boolean): string {
@@ -1999,7 +2009,7 @@ function wishlistSectionHtml(): string {
               ${monogram(frag.brand)}
               <span class="shop-row-text">
                 <span class="shop-row-name t-title">${esc(frag.brand)} ${esc(frag.name)}</span>
-                <span class="shop-row-meta t-caption">${esc(frag.concentration)}, ${esc(sizeLabel(frag.sizeMl))}${wishlistPriceNote(frag)}</span>
+                <span class="shop-row-meta t-caption">${esc(frag.concentration)}, ${esc(sizeLabel(frag))}${wishlistPriceNote(frag)}</span>
               </span>
               <span class="shop-row-go" aria-hidden="true">→</span>
             </button>
@@ -2199,7 +2209,10 @@ function referenceBox(frag: DemoFragrance, rows: readonly PresentedOffer[]): str
   const ref = pickReferencePrice(
     frag.houseCeiling,
     rows.map((row) => ({
-      wasPriceGbp: row.discount?.wasPrice ?? null,
+      // Only an RRP some row actually prints as a saving: a box stating a
+      // shop's RRP that no row below it can show would be stricter on the row
+      // than on the box, the opposite of this function's own rule.
+      wasPriceGbp: rrpSavingFor(row)?.wasPrice ?? null,
       isHouseOffer: Boolean(row.retailer.singleBrandOnly) && !cannotCarryBrand(row.retailer, frag.brand),
     })),
   );
@@ -2348,6 +2361,7 @@ function detailView(): string {
         <div class="hero-art">${productArt(frag.photoUrl, 'lg', `${frag.brand} ${frag.name}`, frag.imageTransform)}</div>
         ${brandButton(frag.brand)}
         ${productHead(frag, 'div', 't-page')}
+        ${giftSetBlock(frag)}
         ${fragranceLinksBlock(frag)}
         ${wishlistButton(frag.id)}
         ${priceBoxRow(frag, rows, best, verdict)}
@@ -2555,18 +2569,24 @@ function dealsPanel(): string {
   const dealTile = (d: (typeof sorted)[number], i?: number) =>
     fragranceTile(d.fragrance, {
       eager: i !== undefined && i < eager,
+      soldBy: RETAILERS.find((r) => r.id === d.retailerId)?.name,
       trailing:
-        d.kind === 'house'
+        // `d.price` is the figure the product page's row prints for this
+        // offer (delivered total, or item price where delivery is not
+        // stated), and the percentage is worked from it — see
+        // demo/msrpComparison.ts. An item price says so, as priceLine does.
+        (d.kind === 'house'
           ? `<span class="off anchor">${d.percentOff}% below ${esc(d.houseName!)}</span>
         <span class="amt">${formatGbp(d.price)}</span>
         <span class="was anchor">${formatGbp(d.wasPrice)} at ${esc(d.houseName!)}</span>`
           : `<span class="off">${d.percentOff}% off</span>
         <span class="amt">${formatGbp(d.price)}</span>
-        <span class="was">RRP ${formatGbp(d.wasPrice)}</span>`,
+        <span class="was">RRP ${formatGbp(d.wasPrice)}</span>`) +
+        (d.delivered ? '' : `<span class="amt-note">delivery not stated</span>`),
     });
 
   return `${controls}
-    <p class="panel-note t-body">Savings are against the shop's own published recommended retail price. Where the maker also sells the fragrance here, they are against the maker's own price.</p>
+    <p class="panel-note t-body">Savings are against the shop's own published recommended retail price. Where the maker also sells the fragrance here, they are against the maker's own price. Prices include delivery where the shop states it.</p>
     <ul class="tile-grid">${chunked(filtered, dealTile)}</ul>`;
 }
 
