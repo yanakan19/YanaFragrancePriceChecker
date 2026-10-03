@@ -289,7 +289,11 @@ describe('retailer registry', () => {
       // publishes free UK standard delivery over £25 and no rate below it
       // (standardRateNotPublished, its help article refusing our request with
       // a 403), and its route is a pinned sitemap walk proved by a runner
-      // (`sitemapHarvestConfirmed: true`, probe run #568).
+      // (`sitemapHarvestConfirmed: true`, probe run #568). niche-beauty-uk
+      // joined the same day on the same footing: free UK delivery over £75 on
+      // its own product pages, and its delivery link lands on its checkout
+      // provider's page saying the cost is worked out at checkout (probe run
+      // #572).
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'al-haramain',
         'armaf',
@@ -298,6 +302,7 @@ describe('retailer registry', () => {
         'ibraq',
         'manchester-ouds',
         'morrisons',
+        'niche-beauty-uk',
         'space-nk',
       ]);
       for (const r of unstated) {

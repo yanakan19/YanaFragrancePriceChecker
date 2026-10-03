@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 76 retailers, 49 of them `enabled: true`. Every one of them is a legitimate
+ * 76 retailers, 50 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -5252,15 +5252,41 @@ export const RETAILERS: readonly Retailer[] = [
         '<span class="h">Size</span>\\s*<span class="val">([^<]{1,30})</span>',
       ],
     },
-    enabled: false,
+    //
+    // ── Switched on, 2026-10-03, on the pinned route ────────────────────────
+    // Walked from this sandbox first (6,844 /en-gb/ product URLs on the
+    // route; one page there, Eau de Lierre, carries no og:price:currency, so
+    // the printed "£ 155.00" beside its price is now what names sterling),
+    // then from a runner: probe run #572 (job 111194929097), 8 of 8
+    // listings priced in GBP (Zarkoperfume Oud'Ish, Molecule 234·38 and
+    // Ménage à Trois Eau de Parfum Unisex 100 ml at £144 among them).
+    // Delivery is now read, not unread: the shop states free UK
+    // delivery over £75 on every product page and publishes no rate below it
+    // (see shipping below), so its offers show as delivery not stated under
+    // £75 (tests/registry.test.ts's unstated list).
+    sitemapHarvestConfirmed: true,
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
       standardGbp: null,
-      freeOverGbp: null,
+      // Read 2026-10-03 off every /en-gb product page this route fetches:
+      // "Free shipping to United Kingdom on all orders above £ 75.00". The
+      // page says "above", so an order of exactly £75.00 may not qualify;
+      // resolveDelivery treats £75.00 itself as free.
+      freeOverGbp: 75,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-19',
-      confidence: 'unverified',
+      verifiedAt: '2026-10-03',
+      confidence: 'confirmed',
+      // The shop's own delivery link (/en-gb/info/versandkosten) redirects to
+      // its checkout provider Global-e's help page, which names no rate: the
+      // cost is worked out at checkout from destination, weight and method.
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://service.global-e.com/Categories/how-much-will-it-cost-to-ship-to-my-country?id=0790965a-5431-44d2-96ab-cf7e7a587563',
+        quote: 'Shipping costs are calculated automatically at checkout',
+        readAt: '2026-10-03',
+      },
       notes:
         'Read directly, not unread: shipping probe, run 32282115059 job 96163076612, ' +
         '2026-08-19T17:32Z, fetched niche-beauty.com\'s delivery page and confirmed it never ' +
