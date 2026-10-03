@@ -132,6 +132,10 @@ export const UNQUOTED_DELIVERY_PAGES: Readonly<Record<string, string>> = {
   riiffs: 'https://uk.riiffsperfumes.com/policies/shipping-policy',
   'emirates-oud': 'https://emiratesoud.co.uk/policies/shipping-policy',
   zara: 'https://www.zara.com/uk/en/help-center/DeliveryMethods',
+  // Its rule rests on the owner's own checkout (2026-10-03), so it has no
+  // quoted source; the address below is the policy page its earlier source
+  // named (read 2026-10-01).
+  'manchester-ouds': 'https://manchesterouds.com/pages/shipping-policy',
 };
 
 /** The page the re-check reads for a shop: its quoted source first. */
