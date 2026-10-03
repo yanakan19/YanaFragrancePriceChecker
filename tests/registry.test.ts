@@ -139,8 +139,10 @@ describe('retailer registry', () => {
     //
     // 2026-10-03: 77 becomes 76. Khadlaj removed at the owner's request: it
     // never priced in sterling, so it was never enabled and nothing on the
-    // site referenced it.
-    expect(RETAILERS).toHaveLength(76);
+    // site referenced it. 76 becomes 74 the same day: Morrisons and B&M
+    // removed at the owner's request, as supermarkets rather than shops a
+    // fragrance buyer compares.
+    expect(RETAILERS).toHaveLength(74);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
@@ -287,11 +289,10 @@ describe('retailer registry', () => {
       // read the flat £3.95 off its own basket by hand. manchester-ouds left
       // the same day: the owner read £2.99 off its own checkout, as did
       // armaf (free), al-haramain (£4.95) and ibraq (£2.99).
-      expect(unstated.map((r) => r.id).sort()).toEqual([
-        'bm-stores',
-        'fragrancehub',
-        'morrisons',
-      ]);
+      // fragrancehub left too: £4.99 off the owner's checkout. bm-stores and
+      // morrisons were removed from the registry the same day (supermarkets,
+      // the owner's call), which empties the list.
+      expect(unstated.map((r) => r.id).sort()).toEqual([]);
       for (const r of unstated) {
         expect(
           r.catalogue !== null ||
@@ -334,6 +335,9 @@ describe('retailer registry', () => {
 
     it('orders unknown-delivery offers among themselves by item price', () => {
       // They are comparable to each other on the only figure they have.
+      // Since 2026-10-03 no enabled shop is unstated; tests/priceService.test.ts
+      // covers the ordering on two shops switched on for that file.
+      if (unstated.length < 2) return;
       const [a, b] = unstated;
       // Both under any free-delivery threshold a shop states (£50 is the lowest).
       const rows = buildComparison([rawOffer(b!.id, 30), rawOffer(a!.id, 20)]);

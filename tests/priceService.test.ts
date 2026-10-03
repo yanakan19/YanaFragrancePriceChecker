@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import {
   buildComparison,
   bestOffer,
@@ -15,6 +15,17 @@ import { getRetailer } from '../src/config/retailers.js';
 import type { RawOffer, StockState } from '../src/types/offer.js';
 
 const NOW = new Date('2026-08-01T12:00:00Z');
+
+// Every enabled shop now has a stated delivery cost (2026-10-03), so the
+// "delivery not stated" behaviour is exercised on two registry shops that
+// genuinely state none, switched on for this file only.
+const UNSTATED_FOR_TEST = ['cosmetify', 'carethy'];
+beforeAll(() => {
+  for (const id of UNSTATED_FOR_TEST) (getRetailer(id) as { enabled: boolean }).enabled = true;
+});
+afterAll(() => {
+  for (const id of UNSTATED_FOR_TEST) (getRetailer(id) as { enabled: boolean }).enabled = false;
+});
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 /** `fetchedAt` exactly `days` before NOW, as an ISO string. */
@@ -116,14 +127,14 @@ describe('buildComparison ordering', () => {
     // failure this rule exists to prevent: treating "we don't know" as £0
     // would make it the cheapest row in the table.
     const rows = buildComparison(
-      [offer('bm-stores', 1), offer('boots', 90), offer('lookfantastic', 85)],
+      [offer('cosmetify', 1), offer('boots', 90), offer('lookfantastic', 85)],
       { now: NOW },
     );
 
     expect(rows.map((r) => [r.retailer.id, r.deliveredPriceGbp])).toEqual([
       ['lookfantastic', 85],
       ['boots', 90],
-      ['bm-stores', null],
+      ['cosmetify', null],
     ]);
   });
 
@@ -132,10 +143,10 @@ describe('buildComparison ordering', () => {
     // there is to go on, and it is a fair comparison — neither is being
     // credited with delivery it has not quoted.
     const rows = buildComparison(
-      [offer('morrisons', 45), offer('bm-stores', 30)],
+      [offer('carethy', 45), offer('cosmetify', 30)],
       { now: NOW },
     );
-    expect(rows.map((r) => r.retailer.id)).toEqual(['bm-stores', 'morrisons']);
+    expect(rows.map((r) => r.retailer.id)).toEqual(['cosmetify', 'carethy']);
     expect(rows.every((r) => r.deliveredPriceGbp === null)).toBe(true);
   });
 
@@ -144,10 +155,10 @@ describe('buildComparison ordering', () => {
     // unknown-delivery shop with the cheapest bottle genuinely does have the
     // cheapest bottle.
     const rows = buildComparison(
-      [offer('boots', 90), offer('bm-stores', 40)],
+      [offer('boots', 90), offer('cosmetify', 40)],
       { sortBy: 'item', now: NOW },
     );
-    expect(rows.map((r) => r.retailer.id)).toEqual(['bm-stores', 'boots']);
+    expect(rows.map((r) => r.retailer.id)).toEqual(['cosmetify', 'boots']);
   });
 
   it('breaks ties deterministically by retailer name', () => {
@@ -208,9 +219,9 @@ describe('presentOffer', () => {
   });
 
   it('never turns an unstated delivery cost into a delivered price', () => {
-    const tfc = getRetailer('bm-stores')!;
-    // B&M publishes no standard rate and no threshold, so no figure is stated.
-    const row = presentOffer(offer('bm-stores', 45), tfc, NOW);
+    const tfc = getRetailer('cosmetify')!;
+    // Cosmetify has no standard rate recorded and no threshold, so no figure is stated.
+    const row = presentOffer(offer('cosmetify', 45), tfc, NOW);
     expect(row.itemPriceGbp).toBe(45);
     expect(row.deliveredPriceGbp).toBeNull();
     expect(row.delivery.costGbp).toBeNull();
@@ -264,19 +275,19 @@ describe('result grouping', () => {
     // Enforced in bestOffer itself, not left to the sort, so it holds even
     // when the caller ordered the rows some other way.
     const mixed = buildComparison(
-      [offer('bm-stores', 10), offer('boots', 90)],
+      [offer('cosmetify', 10), offer('boots', 90)],
       { sortBy: 'item', now: NOW },
     );
-    expect(mixed[0]!.retailer.id).toBe('bm-stores');
+    expect(mixed[0]!.retailer.id).toBe('cosmetify');
     expect(bestOffer(mixed)!.retailer.id).toBe('boots');
   });
 
   it('falls back to an unknown-delivery offer only when it is the only one', () => {
     // Naming the one shop that has it beats showing nothing, and the UI
     // labels it as delivery not stated rather than as a winning price.
-    const only = buildComparison([offer('bm-stores', 45)], { now: NOW });
+    const only = buildComparison([offer('cosmetify', 45)], { now: NOW });
     const best = bestOffer(only)!;
-    expect(best.retailer.id).toBe('bm-stores');
+    expect(best.retailer.id).toBe('cosmetify');
     expect(best.deliveredPriceGbp).toBeNull();
   });
 
