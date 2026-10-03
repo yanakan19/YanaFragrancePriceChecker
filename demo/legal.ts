@@ -177,12 +177,12 @@ function businessDetails(): string {
   const row = (term: string, value: string) => `<div class="biz-row"><dt>${term}</dt><dd>${value}</dd></div>`;
   return `<dl class="biz-details">
     ${row('Site', COMPANY.name)}
-    ${row('Run by', COMPANY.operator ? `${COMPANY.operator}, trading as ${COMPANY.legalName}` : `one person, trading as ${COMPANY.legalName}. A personal name has not yet been published on this site; it will be supplied on request by email.`)}
+    ${row('Run By', COMPANY.operator ? `${COMPANY.operator}, trading as ${COMPANY.legalName}` : `one person, trading as ${COMPANY.legalName}. A personal name has not yet been published on this site; it will be supplied on request by email.`)}
     ${row('Email', `<a href="mailto:${COMPANY.email}">${COMPANY.email}</a>`)}
-    ${row('Postal address', COMPANY.postalAddress ?? 'not yet published on this site. UK service provider rules ask for one, and it will be supplied on request by email and published here once settled.')}
-    ${row('Company number', 'none. This is not a registered company.')}
-    ${row('VAT number', 'none. Not VAT registered.')}
-    ${row('ICO registration', COMPANY.icoRegistration ?? 'no registration number is published here. Whether one is required is being checked against the ICO self assessment; see the privacy notice for what is actually processed.')}
+    ${row('Postal Address', COMPANY.postalAddress ?? 'not yet published on this site. UK service provider rules ask for one, and it will be supplied on request by email and published here once settled.')}
+    ${row('Company Number', 'none. This is not a registered company.')}
+    ${row('VAT Number', 'none. Not VAT registered.')}
+    ${row('ICO Registration', COMPANY.icoRegistration ?? 'no registration number is published here. Whether one is required is being checked against the ICO self assessment; see the privacy notice for what is actually processed.')}
   </dl>`;
 }
 
@@ -202,7 +202,7 @@ export const LEGAL_PAGES: LegalPage[] = [
     body: `
       <p>PriceSniffs shows what a bottle of fragrance really costs at ${COVERAGE} UK shops, delivery included. It covers ${n(DEMO_FRAGRANCES.length)} fragrances today.</p>
       <p>Hi, I am Yanny. I built this after I bought a 100ml Club de Nuit and saw it twelve pounds cheaper four days later. Checking by hand meant nine tabs across Boots, Notino and Beauty Base, and half of them hid the postage until checkout.</p>
-      <h2 class="t-section">How prices are checked</h2>
+      <h2 class="t-section">How Prices Are Checked</h2>
       <ul>
         <li>Boots, Selfridges, Superdrug and the rest are checked every three hours, 8 times a day. No price is typed in by hand.</li>
         <li>Every price includes the delivery the shop will charge you. ${deliveryExample()}</li>
@@ -210,21 +210,21 @@ export const LEGAL_PAGES: LegalPage[] = [
         <li>No shop can pay to rank higher. Results are ordered by stock, then by price.</li>
       </ul>
       <p>The full method, including which delivery charges we have checked with each shop, is on <a href="#" data-page="how-it-works">How it works</a>.</p>
-      <h2 class="t-section">How the site makes money</h2>
+      <h2 class="t-section">How the Site Makes Money</h2>
       <p>${COMMISSIONED.length} shops pay us commission when you buy through our link. It costs you nothing and never changes the order of results. Those links are marked Affiliate link, and our <a href="#" data-page="affiliate">affiliate disclosure</a> names the shops.</p>
-      <h2 class="t-section">Who runs it</h2>
+      <h2 class="t-section">Who Runs It</h2>
       <p>${COMPANY.operator ? `${COMPANY.operator} runs PriceSniffs, trading as ${COMPANY.legalName}.` : `One person runs PriceSniffs, trading as ${COMPANY.legalName}.`} It is not a company. Email <a href="mailto:${COMPANY.email}">${COMPANY.email}</a> about a wrong price, or a shop that should be the ${ordinal(ENABLED.length + 1)}. Zimaya was added because someone asked.</p>
       <p>I also post about fragrance on <a href="https://www.tiktok.com/@yannysniffs" target="_blank" rel="noopener">TikTok</a> and <a href="https://www.instagram.com/yannysniffs" target="_blank" rel="noopener">Instagram</a> as yannysniffs. Full business details are on the <a href="#" data-page="contact">contact page</a>.</p>`,
   },
   {
     id: 'how-it-works',
-    title: 'How PriceSniffs works',
+    title: 'How PriceSniffs Works',
     short: 'How It Works',
     body: `
       <p>PriceSniffs compares fragrance prices across ${COVERAGE} UK shops, so you can
       see what a bottle really costs before you buy it.</p>
 
-      <h2 class="t-section">Prices are checked every three hours</h2>
+      <h2 class="t-section">Prices Are Checked Every Three Hours</h2>
       <p>We look at every shop 8 times a day, Boots, Selfridges, Superdrug,
       LOOKFANTASTIC, Escentual and the rest on the same clock. No price is typed
       in by hand. A fragrance shows up here because a shop was selling it when we
@@ -233,13 +233,13 @@ export const LEGAL_PAGES: LegalPage[] = [
       <p>Shops change their delivery terms far less often, maybe twice a year. So
       we check those less often than prices.</p>
 
-      <h2 class="t-section">Delivery is counted</h2>
+      <h2 class="t-section">Delivery Is Counted</h2>
       <p>Every price includes standard delivery to a UK mainland address. We also
       work out whether your order reaches the shop's spend for free delivery.
       ${deliveryExample()} That is why a bottle priced at £24.99 can cost you
       more than one priced at £26.</p>
 
-      <h2 class="t-section">Which delivery charges we have checked</h2>
+      <h2 class="t-section">Which Delivery Charges We Have Checked</h2>
       <p>Of the ${ENABLED.length} shops switched on today, ${DELIVERY_CONFIRMED.length}
       have had their delivery charge read off their own delivery page or checked
       by hand in their own basket:
@@ -263,20 +263,20 @@ export const LEGAL_PAGES: LegalPage[] = [
       of them are switched off, most waiting on a delivery charge or on a way to
       read their listings at all.</p>
 
-      <h2 class="t-section">Reductions come from the shop</h2>
+      <h2 class="t-section">Reductions Come From the Shop</h2>
       <p>A previous price and a percentage saving are the shop's own figures. We
       never work one out ourselves. Percentages round down, so a saving of 19.6
       per cent shows as 19 per cent, never 20. A countdown appears only when the
       shop has published a closing time for the offer. We never invent one.</p>
 
-      <h2 class="t-section">Membership rates are not the headline</h2>
+      <h2 class="t-section">Membership Rates Are Not the Headline</h2>
       <p>Superdrug posts free at £20 for Health and Beautycard holders and at £25
       for everyone else, so we quote £25. The Perfume Shop, The Fragrance Shop,
       Selfridges and LOOKFANTASTIC all run schemes of their own. We mention
       them. But we never build a members only rate into the headline price,
       because you cannot pay it unless you have already joined.</p>
 
-      <h2 class="t-section">Sold out stays at the bottom</h2>
+      <h2 class="t-section">Sold Out Stays at the Bottom</h2>
       <p>Listings a shop has marked unavailable sit at the end and can never be
       shown as cheapest, however low the price. Where we could not read the
       stock at all, we say so rather than guess. That listing drops below the
@@ -297,26 +297,26 @@ export const LEGAL_PAGES: LegalPage[] = [
       <a href="#" data-page="terms">terms</a> say which grounds apply to how
       many shops.</p>
 
-      <h2 class="t-section">Finding what you want</h2>
+      <h2 class="t-section">Finding What You Want</h2>
       <p>Filter by bottle size, strength, price from under £20 to over £300,
       offers and stock. Pick 50ml and the strength list shows only strengths
       that come in 50ml. So a filter never leads to an empty page. Sort by price
       either way, or A to Z.</p>
 
-      <h2 class="t-section">Position is not for sale</h2>
+      <h2 class="t-section">Position Is Not for Sale</h2>
       <p>Results are ordered by stock and then by price. Nothing else. No shop
       can pay to appear higher, and commission never moves a listing. Read our
       <a href="#" data-page="affiliate">affiliate disclosure</a>.</p>`,
   },
   {
     id: 'affiliate',
-    title: 'Affiliate disclosure',
+    title: 'Affiliate Disclosure',
     short: 'Affiliate Disclosure',
     body: `
       <p>PriceSniffs earns commission when you buy through some of the links on
       this site. It costs you nothing and does not change the price you pay.</p>
 
-      <h2 class="t-section">Which links earn commission</h2>
+      <h2 class="t-section">Which Links Earn Commission</h2>
       <p>${COMMISSIONED.length} of the ${ENABLED.length} shops listed today pay
       us commission on a purchase made after clicking through from here:
       ${COMMISSIONED.map((r) => r.name).join(', ')}. Those programmes run through
@@ -328,7 +328,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       at all. So it changes the moment a programme is approved or withdrawn,
       not when someone remembers to edit this page.</p>
 
-      <h2 class="t-section">What happens when you click</h2>
+      <h2 class="t-section">What Happens When You Click</h2>
       <p>A commissioned link takes you to the shop by way of the affiliate
       network. The network records that you came from PriceSniffs, so a
       purchase can be matched to us. To do that it may set a cookie on its own
@@ -336,14 +336,14 @@ export const LEGAL_PAGES: LegalPage[] = [
       under their policies, and PriceSniffs never sees them. Nothing is set on
       this site. See our <a href="#" data-page="cookies">cookies page</a>.</p>
 
-      <h2 class="t-section">What commission does not touch</h2>
+      <h2 class="t-section">What Commission Does Not Touch</h2>
       <p>Commission has no effect on the order of results, on which shops we
       include, or on the prices we show. Position is decided by stock and by
       delivered price. We will not take payment for a place in the results. If
       we ever run a paid placement, it will sit outside the results and be
       labelled as advertising.</p>
 
-      <h2 class="t-section">Why we tell you this</h2>
+      <h2 class="t-section">Why We Tell You This</h2>
       <p>UK advertising rules, the CAP Code run by the Advertising Standards
       Authority, say affiliate links must be obvious before you click, not
       buried in a policy page. That is why the marker sits on the link itself,
@@ -353,11 +353,11 @@ export const LEGAL_PAGES: LegalPage[] = [
   },
   {
     id: 'privacy',
-    title: 'Privacy notice',
+    title: 'Privacy Notice',
     short: 'Privacy',
     body: `
       <aside class="summary-box" aria-labelledby="privacy-summary">
-        <h2 class="t-section" id="privacy-summary">In short</h2>
+        <h2 class="t-section" id="privacy-summary">In Short</h2>
         <ul>
           <li><strong>What we collect.</strong> Nothing while you browse,
           search or filter; that stays in your browser. Only what you choose to
@@ -390,14 +390,14 @@ export const LEGAL_PAGES: LegalPage[] = [
       collect it, who processes it for us, and what you can ask us to do about
       it. It is written to meet UK GDPR and the Data Protection Act 2018.</p>
 
-      <h2 class="t-section">Who we are</h2>
+      <h2 class="t-section">Who We Are</h2>
       <p>PriceSniffs is run by ${COMPANY.operator ? `${COMPANY.operator}, one person` : 'one person'} trading as ${COMPANY.legalName}, not a
       registered company. You can reach us at
       <a href="mailto:${COMPANY.privacyEmail}">${COMPANY.privacyEmail}</a> for
       anything to do with your data. Our full business details are on the
       <a href="#" data-page="terms">terms page</a>.</p>
 
-      <h2 class="t-section">What we collect, and why</h2>
+      <h2 class="t-section">What We Collect, and Why</h2>
       <p>Browsing, searching and filtering happen entirely in your browser
       against a fixed catalogue. None of it is sent to us or stored by us.
       Two things do leave your browser, each only when you choose to use it:
@@ -437,7 +437,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       <p>We never see your payment details. Buying happens on the shop's own
       site, under their privacy policy rather than ours.</p>
 
-      <h2 class="t-section">Who processes it for us</h2>
+      <h2 class="t-section">Who Processes It for Us</h2>
       <ul>
         <li><strong>${COMPANY.hosting}</strong> serves the site. Serving any
         website involves the host handling standard connection information,
@@ -463,7 +463,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       <p>We do not sell personal data, and we do not share it with anyone else
       except where the law requires it.</p>
 
-      <h2 class="t-section">Our lawful basis</h2>
+      <h2 class="t-section">Our Lawful Basis</h2>
       <p>For replying to messages you send us, we rely on legitimate interests:
       being able to answer you. You decide whether to send anything at all. For
       account data, your email, login and wishlist, we
@@ -474,11 +474,11 @@ export const LEGAL_PAGES: LegalPage[] = [
       on your consent, given by the action that asks for it. You can withdraw
       it whenever you like by clearing it.</p>
 
-      <h2 class="t-section">Cookies and storage</h2>
+      <h2 class="t-section">Cookies and Storage</h2>
       <p>We set no cookies. What we do store in your browser, and when, is listed
       key by key on the <a href="#" data-page="cookies">cookies page</a>.</p>
 
-      <h2 class="t-section">How long we keep it</h2>
+      <h2 class="t-section">How Long We Keep It</h2>
       <p>Emails are kept only as long as we need them to deal with what you have
       asked, then deleted. We do not
       keep search history, browsing history or any other record of your visit,
@@ -487,7 +487,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       page or ask us to close it. The last price we emailed you about for a
       fragrance goes when you remove it from your wishlist.</p>
 
-      <h2 class="t-section">Your rights</h2>
+      <h2 class="t-section">Your Rights</h2>
       <p>You can ask for a copy of your data, ask us to correct or delete it,
       object to what we are doing with it, ask us to restrict it, or ask for it in
       a portable format. Write to
@@ -504,14 +504,14 @@ export const LEGAL_PAGES: LegalPage[] = [
   },
   {
     id: 'cookies',
-    title: 'Cookies and storage',
+    title: 'Cookies and Storage',
     short: 'Cookies',
     body: `
       <p>PriceSniffs sets no cookies. This page lists everything the site does
       store in your browser, and exactly when. It also says what third parties
       may set once you leave this site or ask for their content.</p>
 
-      <h2 class="t-section">Why there is no cookie banner</h2>
+      <h2 class="t-section">Why There Is No Cookie Banner</h2>
       <p>UK rules, the Privacy and Electronic Communications Regulations, require
       consent before storing anything on your device that is not strictly
       necessary for a service you have asked for. Nothing below is written until
@@ -519,7 +519,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       of any kind. So there is nothing a banner would ask you to accept. If that
       ever changes, we will ask for consent before anything is set, not after.</p>
 
-      <h2 class="t-section">What this site stores, key by key</h2>
+      <h2 class="t-section">What This Site Stores, Key by Key</h2>
       <dl class="biz-details">
         ${STORAGE_KEYS.map(
           (s) => `<div class="biz-row"><dt><code>${s.key}</code></dt><dd>${s.kind}, written ${s.when}. Holds ${s.holds}.</dd></div>`,
@@ -529,7 +529,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       when the tab closes. None of it is readable by us or by anyone else. It
       lives in your browser and is read back only by this site on your device.</p>
 
-      <h2 class="t-section">Third parties</h2>
+      <h2 class="t-section">Third Parties</h2>
       <ul>
         <li><strong>Trustpilot.</strong> A shop's page may offer a button to
         show that shop's Trustpilot rating. Nothing is fetched from Trustpilot
@@ -550,7 +550,7 @@ export const LEGAL_PAGES: LegalPage[] = [
         referrer with it.</li>
       </ul>
 
-      <h2 class="t-section">Clearing it</h2>
+      <h2 class="t-section">Clearing It</h2>
       <p>Signing out removes the sign in token. Everything else is cleared from your browser's
       own settings, under site data for pricesniffs.space, and the site keeps
       working without any of it.</p>
@@ -559,7 +559,7 @@ export const LEGAL_PAGES: LegalPage[] = [
   },
   {
     id: 'refunds',
-    title: 'Refunds and returns',
+    title: 'Refunds and Returns',
     short: 'Refunds',
     body: `
       <p>PriceSniffs does not sell anything, so there is nothing to refund or
@@ -567,7 +567,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       between you and that shop, on that shop's terms. The shop takes your
       money, sends the parcel and handles any refund.</p>
 
-      <h2 class="t-section">Where your rights actually lie</h2>
+      <h2 class="t-section">Where Your Rights Actually Lie</h2>
       <p>Your rights are against the seller and they come from UK consumer law,
       not from us. For most goods bought online from a UK business you can
       cancel within fourteen days of receiving them without giving a reason,
@@ -582,14 +582,14 @@ export const LEGAL_PAGES: LegalPage[] = [
       <a href="https://www.citizensadvice.org.uk" rel="noopener" target="_blank">Citizens Advice</a>.
       This page is a plain summary, not legal advice.</p>
 
-      <h2 class="t-section">What we can and cannot do</h2>
+      <h2 class="t-section">What We Can and Cannot Do</h2>
       <p>We cannot process, arrange or chase a refund, because we are not party
       to the sale and never hold your money. What we can do is fix our side. If
       a price, delivery charge or stock figure shown here was wrong, tell us the
       fragrance, the bottle size, the shop and the figure you saw. We will check
       it the same day. <a href="mailto:${COMPANY.email}">${COMPANY.email}</a></p>
 
-      <h2 class="t-section">Prices can move</h2>
+      <h2 class="t-section">Prices Can Move</h2>
       <p>Prices are collected every few hours and can change between our check
       and your visit to the shop. Every listing shows when we last looked. The
       price you pay is the one on the shop's site at checkout, which is why we
@@ -599,22 +599,22 @@ export const LEGAL_PAGES: LegalPage[] = [
   },
   {
     id: 'terms',
-    title: 'Terms of use',
+    title: 'Terms of Use',
     short: 'Terms',
     body: `
       <p>Using PriceSniffs means accepting these terms.</p>
 
-      <h2 class="t-section">Who runs this site</h2>
+      <h2 class="t-section">Who Runs This Site</h2>
       ${businessDetails()}
 
-      <h2 class="t-section">What PriceSniffs is</h2>
+      <h2 class="t-section">What PriceSniffs Is</h2>
       <p>PriceSniffs is an information service. We do not sell fragrance, hold stock,
       take payments or send parcels. Any purchase is a contract between you and
       the shop, on their terms. See our
       <a href="#" data-page="refunds">refunds and returns page</a> for where
       your rights as a buyer actually lie.</p>
 
-      <h2 class="t-section">How accurate the prices are</h2>
+      <h2 class="t-section">How Accurate the Prices Are</h2>
       <p>We work hard to show accurate prices. But we collect them every few
       hours, and they can change at any moment. Postage costs, and the spend
       needed for free delivery, are worked out from the published terms of the
@@ -627,17 +627,17 @@ export const LEGAL_PAGES: LegalPage[] = [
       exclude liability. Nothing in these terms limits your statutory rights
       as a consumer.</p>
 
-      <h2 class="t-section">The shops we list</h2>
+      <h2 class="t-section">The Shops We List</h2>
       <p>Appearing here is not an endorsement, and being absent is not a
       criticism. We list established UK shops. We do not inspect individual
       parcels and we cannot guarantee the authenticity of goods sold by anyone
       else.</p>
 
-      <h2 class="t-section">Fair use</h2>
+      <h2 class="t-section">Fair Use</h2>
       <p>Please do not scrape the site, overload it, try to disrupt it, or copy
       substantial parts of it without asking us first.</p>
 
-      <h2 class="t-section">Our content</h2>
+      <h2 class="t-section">Our Content</h2>
       <p>The design, wording and data compilations belong to ${COMPANY.legalName}.
       Brand names, product names and trade marks belong to their owners and appear
       here only to identify products. Where we show a shop's or a house's logo, it
@@ -645,7 +645,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       bottle you are looking at. We are not affiliated with, endorsed by or
       sponsored by any of them.</p>
 
-      <h2 class="t-section">Product images</h2>
+      <h2 class="t-section">Product Images</h2>
       <p>Every product image here is the retailer's or the brand's own
       photograph, loaded by your browser directly from their own servers. We do
       not copy, host, crop, recolour or otherwise alter any of them. Each one
@@ -676,7 +676,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       <p>If you would rather we did not show yours, tell us and we will stop.
       <a href="mailto:${COMPANY.email}">${COMPANY.email}</a></p>
 
-      <h2 class="t-section">Changes and governing law</h2>
+      <h2 class="t-section">Changes and Governing Law</h2>
       <p>We may revise these terms, and the current version always sits here.
       These terms are governed by the law of England and Wales, and the courts
       of England and Wales have jurisdiction, without taking away any right you
@@ -686,22 +686,22 @@ export const LEGAL_PAGES: LegalPage[] = [
   },
   {
     id: 'contact',
-    title: 'Contact and feedback',
+    title: 'Contact and Feedback',
     short: 'Contact',
     body: `
       <p>Seen a wrong price? Please tell us. Send the fragrance, the bottle size,
       the shop and the figure you saw on their site, and we will check it the
       same day.</p>
 
-      <h2 class="t-section">Get in touch</h2>
+      <h2 class="t-section">Get in Touch</h2>
       <p>One inbox for everything: wrong prices, feedback, privacy and data
       requests, and general questions. <a href="mailto:${COMPANY.email}">${COMPANY.email}</a></p>
 
-      <h2 class="t-section">If you run a shop</h2>
+      <h2 class="t-section">If You Run a Shop</h2>
       <p>Write to the address above if you want to be listed, corrected or
       removed, and we will come back to you.</p>
 
-      <h2 class="t-section">Business details</h2>
+      <h2 class="t-section">Business Details</h2>
       ${businessDetails()}`,
   },
 ];

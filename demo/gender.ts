@@ -151,5 +151,5 @@ export const GENDER_LABEL: Record<GenderReading, string> = {
   womens: "Women's",
   mens: "Men's",
   unisex: 'Unisex',
-  notStated: 'Not stated',
+  notStated: 'Not Stated',
 };
