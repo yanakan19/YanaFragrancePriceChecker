@@ -3963,29 +3963,28 @@ export const RETAILERS: readonly Retailer[] = [
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: 50,
+      standardGbp: 2.99,
+      freeOverGbp: 200,
       estimatedDays: [2, 4],
-      verifiedAt: '2026-10-01',
+      verifiedAt: '2026-10-03',
+      // Confirmed 2026-10-03 by the owner in the shop's own cart and Shopify
+      // checkout (screenshots): a £22.99 bottle showed "You are £177.01 away
+      // from free shipping" (so free from £200.00), and the checkout to a UK
+      // address offered "Standard £2.99, 2 to 4 business days", total GBP
+      // £25.98. Until then the rate was never stated anywhere, and the
+      // shipping policy page's "free on orders over £50" is not what the
+      // basket applies.
       confidence: 'confirmed',
-      standardRateNotPublished: true,
-      source: {
-        url: 'https://manchesterouds.com/pages/shipping-policy',
-        quote: 'Free shipping on orders over £50',
-        readAt: '2026-10-01',
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote:
+          'Cart: "You are £177.01 away from free shipping" at £22.99. Checkout: "Standard £2.99, ' +
+          '2 to 4 business days", total GBP £25.98',
       },
       notes:
-        'THE FLAT STANDARD RATE IS UNCONFIRMED, so this shop is shown with delivery not ' +
-        'stated: no delivered price is computed for it and it can never rank as cheapest. ' +
-        'freeOverGbp 50 is their own stated figure — shipping-policy page, 2026-08-12: ' +
-        '"Standard shipping is free on orders over £50, while a nominal fee applies to orders ' +
-        'below £50." That "nominal fee" is never given a number anywhere checked: ' +
-        '/policies/shipping-policy, /policies/refund-policy (only repeats the £50 free ' +
-        'threshold), /pages/shipping-returns, /pages/help, /pages/delivery-information and ' +
-        '/pages/faq (all 404). Confirmed Shopify (products.json resolves) so the checkout ' +
-        'shipping-rates route (src/catalogue/shippingQuote.ts) is the next thing to try — not ' +
-        'attempted this pass, no read-only tool available here that can add to cart and query ' +
-        'it.',
+        'Standard delivery £2.99, free from £200, 2 to 4 business days: read off the shop\'s own ' +
+        'cart and checkout by the owner on 2026-10-03. The shipping policy page still says free ' +
+        'over £50, which the basket does not apply; the basket figure is used.',
     },
     // Crawl target confirmed live in a browser 6 Aug 2026.
     catalogue: {
