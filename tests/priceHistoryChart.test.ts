@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   plottedIncludesDelivery,
   plottedPrice,
+  priceDomain,
   priceHistoryChart,
   shortDate,
   type PriceHistoryChartInput,
@@ -261,5 +262,66 @@ describe('price history graph', () => {
       siteLastDay: '2026-09-25',
     });
     expect(html).toContain('Each point is a set price plus');
+  });
+
+  describe('vertical room above and below the line', () => {
+    const tops = (panel: string) => [...panel.matchAll(/class="history-dot[^"]*"\s*style="left:[\d.]+%;top:([\d.]+)%"/g)].map((m) => Number(m[1]));
+
+    it('pads the price range by a tenth of it at the top and bottom', () => {
+      expect(priceDomain([40, 50])).toEqual({ lo: 39, hi: 51 });
+    });
+
+    it('keeps a sensible minimum when every price is the same or nearly so', () => {
+      // 2% of £60.10 is about £1.20, far more than a tenth of a 10p range.
+      const flat = priceDomain([60, 60.1]);
+      expect(flat.lo).toBeCloseTo(60 - 60.1 * 0.02, 5);
+      expect(flat.hi).toBeCloseTo(60.1 * 1.02, 5);
+      // Never less than 50p either side, and never below £0.
+      expect(priceDomain([5, 5])).toEqual({ lo: 4.5, hi: 5.5 });
+      expect(priceDomain([0.5, 0.5])).toEqual({ lo: 0, hi: 1 });
+    });
+
+    it('never draws the lowest point on the axis or the highest against the top', () => {
+      const html = priceHistoryChart({
+        ...base,
+        line: [
+          { at: '2026-09-26T09:00:00Z', priceGbp: 40, retailerId: 'perfumeo' },
+          { at: '2026-09-28T09:00:00Z', priceGbp: 50, retailerId: 'perfumeo' },
+          { at: '2026-10-01T09:00:00Z', priceGbp: 40, retailerId: 'perfumeo' },
+        ],
+        siteLastDay: '2026-10-01',
+      });
+      const ys = tops(activePanel(html));
+      const floor = 96; // the box's own floor, where a day with no price sits
+      // A tenth of the range is 1/12 of the padded span: over 7% of the plot.
+      expect(Math.max(...ys)).toBeLessThan(floor - 7);
+      expect(Math.min(...ys)).toBeGreaterThan(4 + 7);
+    });
+
+    it('labels its top and bottom prices, so a floor above £0 is never read as zero', () => {
+      const html = priceHistoryChart({
+        ...base,
+        line: [
+          { at: '2026-09-28T09:00:00Z', priceGbp: 40, retailerId: 'perfumeo' },
+          { at: '2026-10-01T09:00:00Z', priceGbp: 50, retailerId: 'perfumeo' },
+        ],
+        siteLastDay: '2026-10-01',
+      });
+      const panel = activePanel(html);
+      expect(panel.match(/class="history-ylabel"[^>]*>£50.00</g)?.length).toBe(1);
+      expect(panel.match(/class="history-ylabel"[^>]*>£40.00</g)?.length).toBe(1);
+      expect(panel).toContain('data-y-lo="39.00" data-y-hi="51.00"');
+    });
+
+    it('centres a flat line, with one label', () => {
+      const html = priceHistoryChart({
+        ...base,
+        line: [{ at: '2026-10-01T09:00:00Z', priceGbp: 30, retailerId: 'perfumeo' }],
+        siteLastDay: '2026-10-01',
+      });
+      const panel = activePanel(html);
+      expect(tops(panel)).toEqual([50]);
+      expect(panel.match(/class="history-ylabel"/g)?.length).toBe(1);
+    });
   });
 });

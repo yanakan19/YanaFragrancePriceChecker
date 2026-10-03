@@ -30,7 +30,7 @@
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
   | 'notes' | 'note' | 'fragrance' | 'about' | 'settings' | 'legal' | 'account'
-  | 'design' | 'notFound';
+  | 'design' | 'giftSets' | 'notFound';
 
 /** What a matched URL says about where we are. */
 export interface Route {
@@ -61,6 +61,10 @@ const LIST_ROUTES: Record<string, RouteName> = {
   search: 'search',
   brands: 'brands',
   deals: 'deals',
+  // Every gift set, reached from the home page's Gift sets section (owner's
+  // decision, 2026-10-03). The fragrance list with Gift Sets preselected
+  // under Size; see giftSetsView in demo/app.ts.
+  'gift-sets': 'giftSets',
   retailers: 'retailers',
   notes: 'notes',
   about: 'about',
@@ -133,6 +137,7 @@ export function routeToPath(route: Route): string {
       case 'brands': return '/brands';
       case 'brand': return `/brands/${encodeURIComponent(param)}`;
       case 'deals': return '/deals';
+      case 'giftSets': return '/gift-sets';
       case 'retailers': return '/retailers';
       case 'retailer': return `/retailers/${encodeURIComponent(param)}`;
       case 'notes': return '/notes';

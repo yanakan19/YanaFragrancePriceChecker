@@ -5,7 +5,6 @@ import {
   outOfStockOffers,
   purchasableOffers,
   presentOffer,
-  preferFreshOffers,
   isStaleFetch,
   isTooOldToShow,
   showableListingCount,
@@ -316,8 +315,13 @@ describe('isStaleFetch', () => {
   });
 });
 
-describe('preferFreshOffers and the stale-priced fallback', () => {
-  it('never lets a stale-priced row outrank a fresh, costlier one', () => {
+/**
+ * Owner's decision, 2026-10-03: the age of a listed offer no longer decides
+ * which row is the cheapest. Every listed buyable row competes on price and
+ * says its own age; too old to trust is not listed (HIDE_OFFER_AFTER_DAYS).
+ */
+describe('an older listed offer competes on price like any other', () => {
+  it('picks a cheaper older row over a fresh, costlier one', () => {
     const rows = buildComparison(
       [
         offer('boots', 50, 'inStock', { fetchedAt: daysAgo(1) }),
@@ -325,14 +329,14 @@ describe('preferFreshOffers and the stale-priced fallback', () => {
       ],
       { now: NOW },
     );
-    // john-lewis is cheaper on price alone, but its price was captured over
-    // STALE_OFFER_DAYS ago — see src/services/priceService.ts's own header
-    // on the John Lewis case this exists for. It is still listed; it just
-    // does not get to be the headline.
-    expect(bestOffer(rows)!.retailer.id).toBe('boots');
+    const best = bestOffer(rows)!;
+    expect(best.retailer.id).toBe('john-lewis');
+    expect(best.stale).toBe(true);
+    // And it is the first row, so nothing cheaper sits above it.
+    expect(rows[0]).toBe(best);
   });
 
-  it('falls back to a stale offer only when nothing fresher exists', () => {
+  it('names a lone older offer as the best', () => {
     const rows = buildComparison(
       [offer('john-lewis', 30, 'inStock', { fetchedAt: daysAgo(STALE_OFFER_DAYS + 1) })],
       { now: NOW },
@@ -348,7 +352,6 @@ describe('preferFreshOffers and the stale-priced fallback', () => {
     const rows = buildComparison([offer('boots', 40, 'inStock', { fetchedAt: daysAgo(5) })], {
       now: NOW,
     });
-    expect(preferFreshOffers(rows)).toHaveLength(1);
     expect(bestOffer(rows)!.stale).toBe(false);
   });
 
@@ -379,9 +382,9 @@ describe('HIDE_OFFER_AFTER_DAYS: offers too old to show at all', () => {
       { now: NOW },
     );
     expect(rows.map((r) => r.retailer.id)).toEqual(['john-lewis']);
-    // The 20 day row is still listed, only kept out of the headline race by
-    // STALE_OFFER_DAYS as before.
+    // The 20 day row is still listed, and is the best offer on it.
     expect(rows[0]!.stale).toBe(true);
+    expect(bestOffer(rows)).toBe(rows[0]);
   });
 
   it('never lets a hidden offer be the cheapest, even when it is the only one', () => {

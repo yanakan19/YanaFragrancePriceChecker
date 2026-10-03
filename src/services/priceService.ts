@@ -62,9 +62,17 @@ export function isPurchasable(stock: StockState): boolean {
 }
 
 /**
- * How old a captured price can be before it stops being eligible to headline
- * as "Cheapest" or as a Today's Deal — see `preferFreshOffers` below and
- * `dealCandidateForOffer`'s caller in scripts/build-deals.ts.
+ * How old a captured price can be before the price graph draws it as an
+ * older price (a hollow point, demo/priceHistoryChart.ts).
+ *
+ * Until 2026-10-03 this also kept an older price out of the running for
+ * "Cheapest" and Today's Deals (the old preferFreshOffers). The owner's
+ * decision that day: every listed offer is in the one list, sorted by
+ * delivered price, each row saying its own age, and the cheapest listed
+ * buyable row is the one tagged Cheapest whatever its age, so no cheaper row
+ * can ever sit above the tag. Too old to list at all is HIDE_OFFER_AFTER_DAYS
+ * below, unchanged. The measurement that chose 10 days is kept here because
+ * it is still what the graph's "older" means:
  *
  * Chosen from the real distribution measured across data/catalogue/ on
  * 2026-09-01 (the John Lewis case this exists for: its only working harvest
@@ -87,7 +95,7 @@ export function isPurchasable(stock: StockState): boolean {
  *     including 1,885 of beautybase's own — most of that shop's own normal,
  *     healthy long tail, not a broken one. 989 fragrances would lose every
  *     visible offer if stale offers were hidden outright at that point (they
- *     are not — see `preferFreshOffers` — but it is the honest measure of
+ *     are not, but it is the honest measure of
  *     how much of the catalogue is still mid-cycle at 7 days).
  *   - By 10 days that healthy-shop noise has mostly cleared: 652 offers
  *     across 12 shops remain, and only 152 fragrances would lose every
@@ -298,27 +306,6 @@ export function outOfStockOffers(rows: readonly PresentedOffer[]): PresentedOffe
 }
 
 /**
- * Buyable rows that are not stale-priced (see `STALE_OFFER_DAYS`), falling
- * back to every buyable row when none of them are fresh.
- *
- * Nothing is ever hidden by this — a fragrance whose every offer is stale
- * still lists every one of them, exactly as harvested. What changes is which
- * offer is *eligible to be called the cheapest*: `bestOffer` and
- * `cheapestVerdict` both draw from this instead of `purchasableOffers`
- * directly, so a shop whose price has not been reconfirmed in over
- * `STALE_OFFER_DAYS` cannot outrank a fresher, possibly costlier, offer for
- * the headline. The fallback (stale-only) case is the same shape as the
- * unknown-delivery fallback just below: naming the one price on record beats
- * showing nothing, and the row itself still carries `stale: true` for the UI
- * to say so.
- */
-export function preferFreshOffers(rows: readonly PresentedOffer[]): PresentedOffer[] {
-  const buyable = purchasableOffers(rows);
-  const fresh = buyable.filter((r) => !r.stale);
-  return fresh.length > 0 ? fresh : buyable;
-}
-
-/**
  * The cheapest buyable row. Out-of-stock offers are never eligible, however
  * cheap — headlining a price nobody can pay is the classic comparison-site lie.
  *
@@ -328,19 +315,21 @@ export function preferFreshOffers(rows: readonly PresentedOffer[]): PresentedOff
  * cheapest anything. The rule is enforced here and not left to the sort, so it
  * holds whichever order the caller built the rows in.
  *
- * Nor is a stale-priced row (see `preferFreshOffers`), for the same reason
- * again: "cheapest" is a claim about the price *today*, and a figure nobody
- * has reconfirmed in over `STALE_OFFER_DAYS` is not evidence of today's price,
- * only of what it was then.
+ * The age of an offer does not decide eligibility (owner's decision,
+ * 2026-10-03): every listed buyable row competes on price, each row on the
+ * page says its own age, and an offer too old to trust is not listed at all
+ * (HIDE_OFFER_AFTER_DAYS). Before that, an offer over STALE_OFFER_DAYS old
+ * was passed over for a fresher, dearer one, which left a cheaper row sitting
+ * above the row tagged Cheapest.
  *
  * The one case where an ineligible row is returned regardless is when it is
  * the only kind there is: with no comparable offer to displace it, naming the
  * shop that does have it is more use than showing nothing, and the UI labels
- * it accordingly (delivery not stated, or its own captured age) rather than
- * as an unqualified winning price.
+ * it accordingly (delivery not stated) rather than as an unqualified winning
+ * price.
  */
 export function bestOffer(rows: readonly PresentedOffer[]): PresentedOffer | null {
-  const buyable = preferFreshOffers(rows);
+  const buyable = purchasableOffers(rows);
   return buyable.find((r) => r.deliveredPriceGbp !== null) ?? buyable[0] ?? null;
 }
 

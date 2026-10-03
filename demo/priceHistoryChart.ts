@@ -182,6 +182,29 @@ function priceLabel(priceGbp: number, deliveryStated: boolean): string {
   return deliveryStated ? `${formatGbp(priceGbp)} with delivery` : `${formatGbp(priceGbp)}, delivery not stated`;
 }
 
+/**
+ * The price range the y axis spans, padded so no plotted point sits on the
+ * axis or against the top (owner's request, 2026-10-03: a cheapest line that
+ * looked like it lay on the x axis read as a price near zero).
+ *
+ * The padding is Y_PAD_FRACTION of the plotted range above the highest point
+ * and below the lowest. When every point is the same price, or nearly so,
+ * that would be no room at all, so it is never less than MIN_Y_PAD_FRACTION
+ * of the highest price, and never less than MIN_Y_PAD_GBP. The bottom is
+ * never below £0. The axis does not start at zero, so the chart labels its
+ * own top and bottom prices (see priceHistoryBody), never leaving the reader
+ * to assume the floor is £0.
+ */
+export const Y_PAD_FRACTION = 0.1;
+export const MIN_Y_PAD_FRACTION = 0.02;
+export const MIN_Y_PAD_GBP = 0.5;
+export function priceDomain(prices: readonly number[]): { lo: number; hi: number } {
+  const minP = Math.min(...prices);
+  const maxP = Math.max(...prices);
+  const pad = Math.max((maxP - minP) * Y_PAD_FRACTION, maxP * MIN_Y_PAD_FRACTION, MIN_Y_PAD_GBP);
+  return { lo: Math.max(0, minP - pad), hi: maxP + pad };
+}
+
 /** The block with a heading and one sentence, for the one case with nothing at all to draw. */
 export function priceHistoryMessageBlock(message: string): string {
   return `<div class="history-block" data-history-block>
@@ -330,26 +353,30 @@ function priceHistoryBody(
   const W = 600;
   const H = 160;
   const PAD_X_PCT = 1.3;
-  const PAD_Y_PCT = 8.75;
+  // Room for a dot's own radius at the very top and bottom of the box; the
+  // price padding itself is priceDomain's.
+  const INSET_Y_PCT = 4;
 
   // Scaled off real prices only (the line's and the points'), never the empty
   // days: letting those in would drag every floor to zero and squash the
-  // movement the chart exists to show.
+  // movement the chart exists to show. priceDomain pads the range, so the
+  // lowest point always sits clear above the floor and the highest clear
+  // below the top, and a flat line sits in the middle.
   const prices = [...points.filter((p) => p.priceGbp !== null).map((p) => p.priceGbp!), ...markers.map((m) => m.priceGbp)];
   const minP = Math.min(...prices);
   const maxP = Math.max(...prices);
-  // A flat line would divide by zero placing y; it is centred instead.
-  const spanP = maxP - minP;
+  const domain = priceDomain(prices);
   const lastIndex = points.length - 1;
   const lastPricedIndex = points.reduce((acc, p, i) => (p.priceGbp !== null ? i : acc), -1);
 
   // A one day range has nowhere to go left to right, so its only day sits in
   // the middle rather than pinned to the left edge.
   const xPct = (i: number): number => (lastIndex === 0 ? 50 : PAD_X_PCT + (i / lastIndex) * (100 - PAD_X_PCT * 2));
-  const yPct = (p: number): number => (spanP === 0 ? 50 : PAD_Y_PCT + (1 - (p - minP) / spanP) * (100 - PAD_Y_PCT * 2));
-  // Where a day with no price sits: the chart's own floor. A position, not a
-  // price of zero.
-  const yFloorPct = 100 - PAD_Y_PCT;
+  const yPct = (p: number): number =>
+    INSET_Y_PCT + (1 - (p - domain.lo) / (domain.hi - domain.lo)) * (100 - INSET_Y_PCT * 2);
+  // Where a day with no price sits: the chart's own floor, the bottom of the
+  // padded range, below every real price. A position, not a price of zero.
+  const yFloorPct = 100 - INSET_Y_PCT;
 
   // The line is drawn in runs of consecutive priced days and breaks across
   // the blank ones; joining across a gap would draw a crash that never was.
@@ -436,21 +463,39 @@ function priceHistoryBody(
     .join('');
 
   // An even sample of day labels, always the first and last.
-  const MAX_LABELS = 6;
+  // Five, not six, since the plot gave up a gutter to the y axis labels: six
+  // ran into each other at phone width. A sampled label closer than most of
+  // a step to the last one is dropped rather than printed over it.
+  const MAX_LABELS = 5;
   const labelStep = Math.max(1, Math.ceil(lastIndex / (MAX_LABELS - 1)));
   const labelIndices = new Set<number>();
-  for (let i = 0; i <= lastIndex; i += labelStep) labelIndices.add(i);
+  for (let i = 0; i <= lastIndex; i += labelStep) {
+    if (i === 0 || lastIndex - i >= labelStep * 0.6) labelIndices.add(i);
+  }
   labelIndices.add(lastIndex);
   const xAxis = [...labelIndices]
     .sort((a, b) => a - b)
     .map((i) => `<span class="history-xlabel${lastIndex === 0 ? ' history-xlabel-solo' : ''}" style="left:${xPct(i).toFixed(2)}%">${esc(shortDate(points[i]!.dateKey))}</span>`)
     .join('');
 
-  return `<div class="history-chart" data-history-chart>
+  // The y axis does not start at zero (see priceDomain), so it says what it
+  // spans: the highest and lowest prices plotted, each beside a faint guide
+  // line at its own height. One label when every point is the same price.
+  const yTicks = maxP === minP ? [maxP] : [maxP, minP];
+  const yGuides = yTicks
+    .map((p) => `<line x1="0" x2="${W}" y1="${((yPct(p) / 100) * H).toFixed(1)}" y2="${((yPct(p) / 100) * H).toFixed(1)}" class="history-guide" />`)
+    .join('');
+  const yLabels = yTicks
+    .map((p) => `<span class="history-ylabel" style="top:${yPct(p).toFixed(2)}%">${esc(formatGbp(p))}</span>`)
+    .join('');
+
+  return `<div class="history-chart" data-history-chart data-y-lo="${domain.lo.toFixed(2)}" data-y-hi="${domain.hi.toFixed(2)}">
       <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" class="history-svg" aria-hidden="true" focusable="false">
+        ${yGuides}
         <path d="${areaPath}" class="history-area" />
         <path d="${linePath}" class="history-line" />
       </svg>
+      <div class="history-yaxis" aria-hidden="true">${yLabels}</div>
       ${lineDots}${markerDots}
       <div class="history-tip" data-history-tip hidden></div>
     </div>
