@@ -23,10 +23,14 @@
  *   - "No Paid Placements": lists are ordered by stock and price
  *     (offerGroups.ts); affiliate links exist and are labelled on the row,
  *     and the affiliate page says no one can pay for a place in the results.
- *   - "Real Price History": the graph plots recorded harvest observations
- *     only (priceHistoryChart.ts), never an invented point.
+ *   - "Real Price History": every point on the graph is a bottle price the
+ *     harvest actually recorded (priceHistoryChart.ts), never an invented
+ *     one. Since 2026-10-03 the graph adds delivery at today's rates and its
+ *     caption says so; the prices underneath are still the recorded ones.
  *
- * Title Case, no hyphens or dashes, as the rest of the site's labels.
+ * Title Case, no hyphens or dashes, as the rest of the site's labels: every
+ * word capitalised except the small words (of, and, the, a, an, to, in, at,
+ * for, or, by, on) when they are not first. None of the six uses one today.
  */
 
 /**
@@ -42,8 +46,15 @@ export function fragrancesPhrase(count: number): string {
   return `${floor.toLocaleString('en-GB')}+`;
 }
 
-/** "more than 30" as "More Than 30". */
-const titleCase = (s: string): string => s.replace(/(^|\s)(\p{Ll})/gu, (_, sp: string, c: string) => sp + c.toUpperCase());
+/** The words the site's Title Case keeps lowercase unless they come first. */
+export const SMALL_WORDS = new Set(['of', 'and', 'the', 'a', 'an', 'to', 'in', 'at', 'for', 'or', 'by', 'on']);
+
+/** "more than 30" as "More Than 30", in the site's Title Case. */
+const titleCase = (s: string): string =>
+  s
+    .split(' ')
+    .map((w, i) => (i > 0 && SMALL_WORDS.has(w) ? w : w.charAt(0).toUpperCase() + w.slice(1)))
+    .join(' ');
 
 /**
  * The six phrases, in order. `coverage` is COVERAGE from demo/legal.ts, passed
