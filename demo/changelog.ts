@@ -19,8 +19,12 @@ export const CHANGELOG: ChangelogEntry[] = [
   {
     version: 'v3.35.0',
     date: '3 Oct 2026',
-    title: 'Price graph now includes delivery',
-    points: ['Graph prices now include delivery'],
+    title: 'Delivered price graph and gift sets section',
+    points: [
+      'Graph prices now include delivery',
+      'Every price back in one list, age on each row',
+      'Gift sets on the home page, one of each perfume',
+    ],
   },
   {
     version: 'v3.34.0',

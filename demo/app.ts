@@ -41,9 +41,10 @@ import {
   type CheapestVerdict,
 } from '../src/index.js';
 import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
-import { STALE_OFFER_DAYS } from '../src/services/priceService.js';
-import { offerGroups, offersInPageOrder } from './offerGroups.js';
+import { availabilityHeading, offerGroups, offersInPageOrder, rowShowsAge } from './offerGroups.js';
 import { mostStockedRail, rankedInMostStocked } from './mostStocked.js';
+import { giftSetRail, giftSetSaving, rankGiftSets } from './giftSets.js';
+import { bestDealPerScent, onePerScent } from './oneScent.js';
 import type { PresentedOffer, StockState } from '../src/types/offer.js';
 import type { Retailer, RetailerTier, LogoRef } from '../src/types/retailer.js';
 import { logoFor } from './brandLogos.js';
@@ -55,7 +56,7 @@ import {
 import { productArt, photoSrcAttrs, HOUSE_IMG_SIZES, RETRY_ORIGINAL, type ArtSize } from './photo.js';
 import { AA_TEXT, contrastRatio, parseColour, type Rgba } from './contrast.js';
 import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './gender.js';
-import { volumeBandFor, volumeOptions, type VolumeBand } from './volumeBands.js';
+import { GIFT_SET_BAND, volumeBandFor, volumeOptions, type VolumeBand } from './volumeBands.js';
 import { LIST_SORT_OPTIONS, sortFragrances, type BrowseSort, type ListSort } from './listSort.js';
 import {
   PER_ROW_CHOICES, PER_ROW_DEFAULT, clampPerRow, gridWidthFor, perRowChoicesFor,
@@ -93,7 +94,7 @@ import { fetchPriceAlerts, setPriceAlerts, unsubscribe } from './priceAlerts.js'
 import { parseTargetPrice } from '../src/alerts/target.js';
 import { UNSUBSCRIBE_PARAM, unsubscribeMessage } from '../src/alerts/unsubscribe.js';
 
-type View = 'home' | 'deals' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings' | 'account' | 'design' | 'notFound';
+type View = 'home' | 'deals' | 'explore' | 'browse' | 'giftSets' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings' | 'account' | 'design' | 'notFound';
 type AuthTab = 'signIn' | 'signUp';
 type ExploreTab = 'brands' | 'retailers' | 'notes' | 'search';
 type DisplayMode = 'dark' | 'light' | 'system';
@@ -438,6 +439,24 @@ const POPULAR = mostStockedRail(BY_POPULARITY);
  */
 function rowsFor(frag: DemoFragrance): PresentedOffer[] {
   return buildComparison(offersFor(frag.id), { sortBy: 'delivered' });
+}
+
+/**
+ * Every gift set that can be bought somewhere, one per set line, in the Gift
+ * sets order (demo/giftSets.ts: shops listing it, then the saving between
+ * them). Worked out on
+ * first use rather than at start up, since only the home page's Gift sets
+ * section and /gift-sets need it, and then kept: the catalogue does not
+ * change while the page is open.
+ */
+let rankedGiftSetsMemo: DemoFragrance[] | null = null;
+function rankedGiftSets(): DemoFragrance[] {
+  rankedGiftSetsMemo ??= onePerScent(rankGiftSets(DEMO_FRAGRANCES, (f) => {
+    const rows = rowsFor(f);
+    const { delivered, plusDelivery } = offerGroups(rows);
+    return { shops: delivered.length + plusDelivery.length, saving: giftSetSaving([...delivered, ...plusDelivery]) };
+  }));
+  return rankedGiftSetsMemo;
 }
 
 /* ── facets ──────────────────────────────────────────────────────────────────
@@ -1409,6 +1428,8 @@ function homeView(): string {
       </ul>
     </section>
 
+    ${giftSetsSection()}
+
     <div class="bottom-split">
       <section class="suggest-section">
         <h2 class="t-section">Got an idea?</h2>
@@ -1461,6 +1482,53 @@ function homeView(): string {
     </div>`;
 }
 
+/**
+ * The home page's Gift sets section (owner's decision, 2026-10-03): the same
+ * shape as Most stocked above it, a heading, a link to the full list and one
+ * horizontal rail of photo tiles. No medals: the order is a ranking of how
+ * widely each set is stocked today, not of anything sold. Absent, rather than
+ * an empty heading, if no set with a photo has a current price.
+ */
+function giftSetsSection(): string {
+  const rail = giftSetRail(rankedGiftSets());
+  if (rail.length === 0) return '';
+  return `<section class="pop-section gift-section">
+      <div class="section-head">
+        <h2 class="t-section">Gift sets</h2>
+        <button class="link-btn see-top" data-gift-sets>See all gift sets <span aria-hidden="true">→</span></button>
+      </div>
+      <ul class="pop-rail">
+        ${rail.map((f) => fragranceTile(f, { rail: true })).join('')}
+      </ul>
+    </section>`;
+}
+
+/* ── gift sets ───────────────────────────────────────────────────────────── */
+
+/**
+ * /gift-sets: every gift set that can be bought somewhere, one per set line,
+ * through the same list
+ * machinery as every other fragrance list (facets, sort, tile grid), with
+ * Gift Sets preselected under Size (see applyRoute and go). A set sold out
+ * everywhere is not listed here; it keeps its own page and its place in
+ * search, as does every other entry of a set line.
+ */
+function giftSetsView(): string {
+  const all = rankedGiftSets();
+  const faceted = applyFacets(all);
+  const list = state.browseSort === 'stocked' ? faceted : sortFragrances(faceted, state.browseSort);
+  return `
+    <button class="back" data-back-home>Back</button>
+    <div class="page-head"><h1 class="t-page">Gift sets</h1><span class="count t-count">${list.length}</span></div>
+    <p class="panel-note t-body">${
+      state.browseSort === 'stocked'
+        ? 'Ranked by how many of our shops stock each set, then by how much you save at the cheapest shop. A set is only ever compared with the same set.'
+        : 'Every gift set we have a price for, in the order you chose. A set is only ever compared with the same set.'
+    }</p>
+    ${listControls(browseSortControl(state.browseSort), facets(all))}
+    ${fragranceList(list, 'No gift set matches that filter.')}`;
+}
+
 /* ── browse ──────────────────────────────────────────────────────────────── */
 
 function visibleFragrances(): DemoFragrance[] {
@@ -1471,12 +1539,17 @@ function visibleFragrances(): DemoFragrance[] {
   // counts and the row count agree with what is actually listed — a facet
   // offering "17 Perfume Oil" on a page that shows none is worse than either.
   const isTop = !state.brand && !q;
-  return BY_POPULARITY.filter((f) => {
+  const list = BY_POPULARITY.filter((f) => {
     if (isTop && !rankedInMostStocked(f)) return false;
     if (state.brand && f.brand !== state.brand) return false;
     if (!q) return true;
     return `${f.brand} ${f.name} ${f.concentration}`.toLowerCase().includes(q);
   });
+  // The Most stocked list keeps one entry per scent, its best ranked size
+  // (owner's decision, 2026-10-03; see demo/oneScent.ts). Before the facets,
+  // like the oil and gift set rule above, so the counts beside each filter
+  // option agree with the rows. A search or a brand still lists every size.
+  return isTop ? onePerScent(list) : list;
 }
 
 function browseView(): string {
@@ -1500,11 +1573,12 @@ function browseView(): string {
     ${
       isTop && state.browseSort === 'stocked'
         ? `<p class="panel-note t-body">Ranked by how many of our ${SHOP_COUNT} shops stock each one, then by
-             brand and name. A brand's own store does not count. Oils are not listed here. This shows how
-             widely a fragrance is stocked, not how well it sells: we do not count views or purchases.</p>`
+             brand and name. A brand's own store does not count. Oils are not listed here, and each perfume is
+             listed once, in its most stocked size. This shows how widely a fragrance is stocked, not how well
+             it sells: we do not count views or purchases.</p>`
         : isTop
           ? `<p class="panel-note t-body">The ${TOP_N} most stocked fragrances, in the order you chose. Oils are
-               not listed here.</p>`
+               not listed here, and each perfume is listed once.</p>`
           : ''
     }
     ${listControls(browseSortControl(state.browseSort), facets(filtered))}
@@ -1650,9 +1724,10 @@ function offerRow(
     const minimum = row.retailer.shipping.minimumOrderGbp;
     if (minimum && row.itemPriceGbp < minimum) facts.push(`${formatGbp(minimum)} minimum order`);
     // Said on the row it applies to: the page caption gives the freshest age.
-    // On an older price (listed under "Older prices") this is the whole point
-    // of the row, so it says what the age is of: the last check.
-    if (row.stale) facts.push(`Checked ${age(row.ageSeconds)}`);
+    // Every row checked more than about a day ago states its own age (owner's
+    // decision, 2026-10-03): older offers are in the one list now, and the
+    // Cheapest tag can be on one of them, so its age is on the row itself.
+    if (rowShowsAge(row)) facts.push(age(row.ageSeconds));
   }
   // The CAP Code asks for an affiliate relationship to be obvious before the
   // click, so a commissioned shop's row says so, and rel="sponsored" tells
@@ -2313,9 +2388,9 @@ function priceBoxRow(
   return `<div class="price-boxes">${referenceBox(frag, rows)}${lowestPriceBox(best, verdict)}</div>`;
 }
 
-// offerGroups (current offers, "Delivery not included", "Older prices", sold
-// out) lives in demo/offerGroups.ts, where tests/offerGroups.test.ts holds it
-// to the owner's rule that nothing older ever sits above the Cheapest row.
+// offerGroups (offers with delivery, "Delivery not included", sold out) lives
+// in demo/offerGroups.ts, where tests/offerGroups.test.ts holds it to the
+// owner's rule that no cheaper row ever sits above the Cheapest row.
 
 function detailView(): string {
   const frag = fragranceById(state.fragranceId);
@@ -2328,8 +2403,8 @@ function detailView(): string {
   // what this decides is the wording placed on top of it.
   const verdict = cheapestVerdict(rows);
   const bestTag = cheapestTag(verdict);
-  const live = rows.filter((r) => r.isPurchasable);
-  const { delivered, plusDelivery, older, gone } = offerGroups(rows, best);
+  const groups = offerGroups(rows);
+  const { delivered, plusDelivery, gone } = groups;
   const newest = rows.length ? Math.min(...rows.map((r) => r.ageSeconds)) : 0;
   /**
    * Whether this page may print the word MSRP at all.
@@ -2392,14 +2467,16 @@ function detailView(): string {
             // verbatim, so "1 shop" still never reads "1 shops"), and the
             // label disappears with nothing in its place, exactly as
             // "Available at" itself did, when there is nothing to be
-            // available at (live.length === 0 — see priceBoxRow's own note
+            // available at (nothing buyable — see priceBoxRow's own note
             // on that state, and cheapestVerdict for the rest of the
             // reasoning). The <p> stays in the document either way, empty
             // rather than removed, so `.results-head`'s space-between still
             // has two children and the caption on the right does not drift
             // left into the gap the heading used to fill — see .results-head
             // in the stylesheet for the narrow-width version of this row.
-            live.length ? `Available at (${live.length} ${live.length === 1 ? 'shop' : 'shops'})` : ''
+            // Every listed buyable row counts, whatever its age (owner's
+            // decision, 2026-10-03; see availabilityHeading).
+            esc(availabilityHeading(groups))
           }</p>
           <span class="dim t-caption">${
             // The one fact no row carries: how current the page is. Each row
@@ -2418,17 +2495,6 @@ function detailView(): string {
           plusDelivery.length
             ? `<p class="gone-head t-eyebrow">Delivery not included</p>
                <ul class="offers">${plusDelivery.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
-            : ''
-        }
-
-        ${
-          // Below every current offer, never among them: see
-          // demo/offerGroups.ts. Each row says when it was last checked, and
-          // the same prices are plotted on the graph further down.
-          older.length
-            ? `<p class="gone-head t-eyebrow">Older prices</p>
-               <p class="older-note t-caption">Not checked in the last ${STALE_OFFER_DAYS} days, so these may have changed.</p>
-               <ul class="offers">${older.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
             : ''
         }
 
@@ -2530,7 +2596,10 @@ function dealsPanel(): string {
   // appears (search, brand pages, its own detail page all fall back to a
   // plain placeholder), only the deals rail's photo-led layout can't carry
   // it. Cuts the page from 6,299 deals to 2,855, measured 2026-08-18.
-  const withPhoto = DEALS.filter((d) => d.fragrance.photoUrl !== null);
+  // One deal per scent, the best of its sizes (owner's decision, 2026-10-03;
+  // see bestDealPerScent in demo/oneScent.ts), chosen before the sort below
+  // so the reader's sort order cannot change which size is shown.
+  const withPhoto = bestDealPerScent(DEALS.filter((d) => d.fragrance.photoUrl !== null));
   const sorted = [...withPhoto].sort((a, b) => {
     if (state.dealSort === 'lowest') return a.price - b.price;
     if (state.dealSort === 'highest') return b.price - a.price;
@@ -2599,7 +2668,7 @@ function dealsPanel(): string {
     });
 
   return `${controls}
-    <p class="panel-note t-body">Savings are against the shop's own published recommended retail price. Where the maker also sells the fragrance here, they are against the maker's own price. Prices include delivery where the shop states it.</p>
+    <p class="panel-note t-body">Savings are against the shop's own published recommended retail price. Where the maker also sells the fragrance here, they are against the maker's own price. Prices include delivery where the shop states it. Each perfume shows its best deal across its sizes.</p>
     <ul class="tile-grid">${chunked(filtered, dealTile)}</ul>`;
 }
 
@@ -3396,7 +3465,7 @@ function openWrongPriceDialog(): void {
   const frag = fragranceById(state.fragranceId);
   if (!frag) return;
   const reportRows = rowsFor(frag);
-  const offers = offersInPageOrder(offerGroups(reportRows, bestOffer(reportRows)));
+  const offers = offersInPageOrder(offerGroups(reportRows));
   const product = `${frag.brand} ${frag.name}${frag.sizeMl ? ` ${frag.sizeMl}ml` : ''}`;
 
   let dlg = document.getElementById('ps-report') as HTMLDialogElement | null;
@@ -4122,6 +4191,7 @@ function currentRoute(): Route {
     case 'home': return { name: 'home', param: '', query: {} };
     case 'deals': return { name: 'deals', param: '', query: {} };
     case 'browse': return { name: 'search', param: '', query };
+    case 'giftSets': return { name: 'giftSets', param: '', query: {} };
     case 'detail': return { name: 'fragrance', param: state.fragranceId, query: {} };
     case 'retailer': return { name: 'retailer', param: state.retailerId, query: {} };
     case 'brand': return { name: 'brand', param: slugify(state.brandProfile), query: {} };
@@ -4176,6 +4246,13 @@ function applyRoute(route: Route): boolean {
     // Explore, so it gets state.view set directly rather than falling into
     // the brands/retailers/notes case below that also sets state.tab.
     case 'deals': state.view = 'deals'; return true;
+
+    // The fragrance list with Gift Sets preselected under Size. Set here as
+    // well as in go(), because a reload or a shared link lands here directly.
+    case 'giftSets':
+      state.view = 'giftSets';
+      state.facetVolume.add(GIFT_SET_BAND.id);
+      return true;
 
     case 'brands': case 'retailers': case 'notes':
       state.view = 'explore';
@@ -4737,6 +4814,8 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
           ? exploreView()
           : state.view === 'browse'
             ? browseView()
+            : state.view === 'giftSets'
+              ? giftSetsView()
             : state.view === 'detail'
               ? detailView()
               : state.view === 'retailer'
@@ -4793,7 +4872,7 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
 
   ($('#nav-home') as HTMLElement).classList.toggle('on', state.view === 'home');
   ($('#nav-deals') as HTMLElement).classList.toggle('on', state.view === 'deals');
-  ($('#nav-explore') as HTMLElement).classList.toggle('on', inExplore || state.view === 'browse');
+  ($('#nav-explore') as HTMLElement).classList.toggle('on', inExplore || state.view === 'browse' || state.view === 'giftSets');
   ($('#nav-about') as HTMLElement).classList.toggle('on', state.view === 'about');
   // Account has no top bar entry of its own yet (see settingsView's own
   // Account section) — Module 2.3 is where "profile picture click routes to
@@ -4883,6 +4962,8 @@ function go(view: View): void {
   // opened is a different list, so it starts clean.
   rememberListState();
   clearFacets();
+  // The one list that opens with a filter already chosen: /gift-sets.
+  if (view === 'giftSets') state.facetVolume.add(GIFT_SET_BAND.id);
   state.view = view;
   render();
   syncUrl('push');
@@ -5336,6 +5417,11 @@ function init(): void {
     if (t.closest('[data-browse]')) {
       state.brand = null;
       go('browse');
+      return;
+    }
+
+    if (t.closest('[data-gift-sets]')) {
+      go('giftSets');
       return;
     }
 
