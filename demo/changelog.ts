@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.31.0',
+    date: '3 Oct 2026',
+    title: 'Older prices move to the price graph',
+    points: [
+      'Older prices sit below today\'s, not above',
+      'Every fragrance page now has a price graph',
+      'Older prices are plotted on the graph',
+    ],
+  },
+  {
     version: 'v3.30.0',
     date: '2 Oct 2026',
     title: 'Bottle photos all the same size',
