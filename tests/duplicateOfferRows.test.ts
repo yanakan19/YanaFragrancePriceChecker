@@ -1,9 +1,11 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { CATALOGUE, CRAWLED } from '../demo/catalogue.generated.js';
 import { matchKey, rawTitlesAgree } from '../src/catalogue/productMatch.js';
+import { concentration } from '../src/catalogue/productName.js';
+import { sizeMl } from '../src/catalogue/fragranceId.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -95,42 +97,73 @@ describe('no product lists one shop twice with the same row', () => {
  * perfumeo 8, emirates-oud 2, oud-arabian 1), every one of them checked back
  * to the shop's own two titles.
  *
- * The expected price is read from the shop's own feed, never pinned. Pinning
- * it turned the daily crawl red every time the shop repriced — £139.99,
- * £154.47, £150.64 and £163.88 within a month — and each red run left the
- * site's prices stale. Only pages seen in the same harvest as the row shown
- * are compared: a harvest is committed a step before its catalogue rebuild,
- * and comparing across the two would fail on timing rather than on the rule.
+ * Nothing below names that bottle any more, or any price: pinning a price
+ * turned the daily crawl red every time the shop repriced, and pinning the
+ * product turned it red the day the row stopped being shown.
  */
 interface FeedListing {
   rawTitle: string;
   url: string;
-  priceGbp: number | null;
-  lastSeenAt: string;
   status: string;
 }
 
-const BLACK_ORCHID_150 = /^Tom Ford Black Orchid Eau de Parfum (?:Spray )?150ml$/i;
-const beautyStorePages = (
-  JSON.parse(readFileSync(resolve(root, 'data/catalogue/the-beauty-store-uk.json'), 'utf8')) as { listings: FeedListing[] }
-).listings.filter((l) => BLACK_ORCHID_150.test(l.rawTitle) && l.status === 'active');
+/*
+ * Checked as a rule over whatever the catalogue holds today, not through one
+ * named bottle. This used to pin Tom Ford Black Orchid 150ml at The Beauty
+ * Store UK; when that row stopped being shown (2026-10-03) the test went red
+ * for a reason that had nothing to do with the rule. A live product cannot be
+ * a fixture: the catalogue moves every three hours.
+ *
+ * The rule, from the collapse in scripts/build-demo-catalogue.ts: where one
+ * shop shows a product on two or more of its own pages, the cheapest page is
+ * kept, and any other page whose own title agrees with the cheapest one's
+ * (rawTitlesAgree, at the same size and concentration, which is what the
+ * build's matchKey adds) is the same bottle and must have been dropped. So every
+ * extra page still shown must carry a title that disagrees with the cheapest
+ * page's. Titles come from the shop's own feed in data/catalogue/; a page the
+ * feed no longer lists cannot be judged and is left out. When no product shows
+ * one shop on two pages there is nothing to check, and the block skips.
+ */
+const shownTwice = Object.entries(CRAWLED).flatMap(([fragranceId, offers]) => {
+  const byShop = new Map<string, typeof offers>();
+  for (const o of offers) byShop.set(o.retailerId, [...(byShop.get(o.retailerId) ?? []), o]);
+  return [...byShop]
+    .filter(([, rows]) => new Set(rows.map((r) => r.url)).size > 1)
+    .map(([retailerId, rows]) => ({ fragranceId, retailerId, rows }));
+});
 
-describe.skipIf(beautyStorePages.length === 0)('no product lists one shop twice for the same bottle', () => {
-  it('shows Tom Ford Black Orchid 150ml at The Beauty Store UK once, at the cheaper of its own pages', () => {
-    const shown = (CRAWLED['ean-888066124287'] ?? []).filter((o) => o.retailerId === 'the-beauty-store-uk');
-    expect(shown).toHaveLength(1);
-    expect(shown[0]!.url).toMatch(/\/products\/tom-ford-black-orchid-(?:edp-spray|eau-de-parfum)-150ml$/);
+const titlesByUrl = new Map<string, string>();
+for (const retailerId of new Set(shownTwice.map((g) => g.retailerId))) {
+  const file = resolve(root, `data/catalogue/${retailerId}.json`);
+  if (!existsSync(file)) continue;
+  const { listings } = JSON.parse(readFileSync(file, 'utf8')) as { listings: FeedListing[] };
+  for (const l of listings) if (l.status === 'active') titlesByUrl.set(`${retailerId} ${l.url}`, l.rawTitle);
+}
 
-    const sameHarvest = beautyStorePages.filter((l) => l.lastSeenAt === shown[0]!.fetchedAt && l.priceGbp !== null);
-    if (sameHarvest.length >= 2) {
-      expect(shown[0]!.price).toBe(Math.min(...sameHarvest.map((l) => l.priceGbp!)));
+describe.skipIf(shownTwice.length === 0)('no product lists one shop twice for the same bottle', () => {
+  it('keeps a second page of one shop only when its own title names a different bottle', () => {
+    const offenders: string[] = [];
+    for (const { fragranceId, retailerId, rows } of shownTwice) {
+      const cheapest = rows.reduce((a, b) => (b.price < a.price ? b : a));
+      const cheapestTitle = titlesByUrl.get(`${retailerId} ${cheapest.url}`);
+      if (cheapestTitle === undefined) continue;
+      for (const url of new Set(rows.map((r) => r.url))) {
+        if (url === cheapest.url) continue;
+        const title = titlesByUrl.get(`${retailerId} ${url}`);
+        if (title === undefined) continue;
+        // The build's own test is matchKey (same size and concentration) and
+        // rawTitlesAgree together; a page naming a different strength, such
+        // as an Extrait beside a plain listing, is a different bottle.
+        const sameBottle =
+          rawTitlesAgree(cheapestTitle, title) &&
+          concentration(title) === concentration(cheapestTitle) &&
+          sizeMl(title) === sizeMl(cheapestTitle);
+        if (sameBottle) {
+          offenders.push(`${fragranceId} at ${retailerId}: "${title}" is the same bottle as "${cheapestTitle}"`);
+        }
+      }
     }
-  });
-
-  it('still shows the other shops on that bottle, so the collapse took rows from one shop only', () => {
-    const shops = new Set((CRAWLED['ean-888066124287'] ?? []).map((o) => o.retailerId));
-    expect(shops.size).toBeGreaterThan(1);
-    expect(shops.has('the-beauty-store-uk')).toBe(true);
+    expect(offenders).toEqual([]);
   });
 });
 
