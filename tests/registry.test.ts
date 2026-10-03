@@ -287,9 +287,9 @@ describe('retailer registry', () => {
       // read the flat £3.95 off its own basket by hand. manchester-ouds left
       // the same day: the owner read £2.99 off its own checkout, as did
       // armaf (free), al-haramain (£4.95) and ibraq (£2.99).
+      // fragrancehub left too: £4.99 off the owner's checkout.
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'bm-stores',
-        'fragrancehub',
         'morrisons',
       ]);
       for (const r of unstated) {
