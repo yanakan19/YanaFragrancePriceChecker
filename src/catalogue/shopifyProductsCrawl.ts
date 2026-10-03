@@ -153,10 +153,20 @@ export async function crawlViaShopifyProducts(
   let currency = options.currency ?? (await fetchStorefrontCurrency(origin, http, headers));
   let market = originMarket(origin);
 
+  // Pounds, but for another country's market. A shop on Shopify Markets can
+  // quote a non-UK market in sterling at rate 1 and still charge it a
+  // different price — Les Senteurs serves a US runner its VAT-free export
+  // list, £162.50 where a UK shopper pays £195.00 (see `country` in
+  // shopCurrency.ts for the run). The currency test cannot see that, so the
+  // theme's own market country is asked as well, and only when it names a
+  // country other than GB. A theme that names none is read as before.
+  const servedElsewhere =
+    currency.isSterling && currency.country != null && currency.country !== 'GB';
+
   // The origin answered in something other than pounds — which may be a fact
   // about this shop or a fact about where this machine is standing. Ask the
   // other way round before concluding the first.
-  if (!currency.isSterling && options.resolveUkMarket !== false) {
+  if ((!currency.isSterling || servedElsewhere) && options.resolveUkMarket !== false) {
     const readings = await probeMarkets(
       // The origin is dropped: it has just been read, and re-reading it would
       // spend two requests confirming the measurement that got us here.
@@ -165,10 +175,23 @@ export async function crawlViaShopifyProducts(
       headers,
       { allow: (url) => isAllowed(robots, url), gapMs: options.gapMs, sleep },
     );
-    const won = readings.find((r) => r.currency.isSterling);
+    // Leaving a sterling origin is only worth it for a candidate that says
+    // it is the UK market; a sterling candidate that also says "US" is the
+    // same export list asked for another way.
+    const won = readings.find(
+      (r) => r.currency.isSterling && (!servedElsewhere || r.currency.country === 'GB'),
+    );
     if (won) {
       market = won.candidate;
       currency = won.currency;
+    } else if (servedElsewhere) {
+      // Nothing reached the GB market. The origin's list is kept, which is
+      // what this crawl always did, but said out loud: its prices may be
+      // another country's.
+      errors.push(
+        `market: the origin quotes the ${currency.country} market in GBP and no way of asking ` +
+          'reached the GB one; prices read at the origin may not be what a UK shopper pays',
+      );
     } else {
       // Recorded even though nothing changed, because the two failures it
       // distinguishes want different responses from a human: a shop with no
