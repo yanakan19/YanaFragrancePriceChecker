@@ -139,8 +139,10 @@ describe('retailer registry', () => {
     //
     // 2026-10-03: 77 becomes 76. Khadlaj removed at the owner's request: it
     // never priced in sterling, so it was never enabled and nothing on the
-    // site referenced it.
-    expect(RETAILERS).toHaveLength(76);
+    // site referenced it. 76 becomes 74 the same day: Morrisons and B&M
+    // removed at the owner's request, as supermarkets rather than shops a
+    // fragrance buyer compares.
+    expect(RETAILERS).toHaveLength(74);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
@@ -287,6 +289,9 @@ describe('retailer registry', () => {
       // read the flat £3.95 off its own basket by hand. manchester-ouds left
       // the same day: the owner read £2.99 off its own checkout, as did
       // armaf (free), al-haramain (£4.95) and ibraq (£2.99).
+      // fragrancehub left too: £4.99 off the owner's checkout. bm-stores and
+      // morrisons were removed from the registry the same day (supermarkets,
+      // the owner's call).
       // space-nk joined 2026-10-03 on the fragrancehub side of the split: it
       // publishes free UK standard delivery over £25 and no rate below it
       // (standardRateNotPublished, its help article refusing our request with
@@ -297,9 +302,6 @@ describe('retailer registry', () => {
       // provider's page saying the cost is worked out at checkout (probe run
       // #572).
       expect(unstated.map((r) => r.id).sort()).toEqual([
-        'bm-stores',
-        'fragrancehub',
-        'morrisons',
         'niche-beauty-uk',
         'space-nk',
       ]);
@@ -349,9 +351,13 @@ describe('retailer registry', () => {
 
     it('orders unknown-delivery offers among themselves by item price', () => {
       // They are comparable to each other on the only figure they have.
+      // Since 2026-10-03 no enabled shop is unstated; tests/priceService.test.ts
+      // covers the ordering on two shops switched on for that file.
+      if (unstated.length < 2) return;
       const [a, b] = unstated;
-      // Both under any free-delivery threshold a shop states (£50 is the lowest).
-      const rows = buildComparison([rawOffer(b!.id, 30), rawOffer(a!.id, 20)]);
+      // Both under any free-delivery threshold a shop states (Space NK's £25
+      // is the lowest; at £30 its offer is genuinely delivered free).
+      const rows = buildComparison([rawOffer(b!.id, 20), rawOffer(a!.id, 15)]);
       expect(rows.map((row) => row.retailer.id)).toEqual([a!.id, b!.id]);
       expect(rows.every((row) => row.deliveredPriceGbp === null)).toBe(true);
     });
