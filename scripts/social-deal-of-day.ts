@@ -28,6 +28,7 @@ import { join, resolve } from 'node:path';
 import { DEMO_FRAGRANCES, type DemoFragrance } from '../demo/data.js';
 import { offersFor, CRAWLED_AT } from '../demo/catalogue.generated.js';
 import { pickReferencePrice } from '../demo/referencePrice.js';
+import { msrpComparison } from '../demo/msrpComparison.js';
 import { resizedPhotoUrl } from '../demo/photo.js';
 import { buildComparison, bestOffer } from '../src/services/priceService.js';
 import { cheapestVerdict } from '../src/services/deliveryConfidence.js';
@@ -75,13 +76,18 @@ export function dealFor(frag: DemoFragrance): Pick | null {
   );
   if (!ref || ref.tier !== 'house') return null;
   const delivered = best.deliveredPriceGbp;
-  if (delivered >= frag.houseCeiling) return null;
+  // The product page's own comparison on the same delivered figure, so the
+  // post's "SAVE N%" is the page's "N% below MSRP": floored, never rounded up,
+  // and nothing under a whole percent (Math.round used to print SAVE 0% on a
+  // £29.90 against £30, and SAVE 1% on £29.85).
+  const c = msrpComparison(delivered, frag.houseCeiling);
+  if (!c || c.direction !== 'below') return null;
   return {
     frag,
     best,
     delivered,
     msrp: frag.houseCeiling,
-    percent: Math.round((1 - delivered / frag.houseCeiling) * 100),
+    percent: c.percent,
   };
 }
 

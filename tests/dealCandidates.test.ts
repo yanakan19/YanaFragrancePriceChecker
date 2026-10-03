@@ -70,18 +70,52 @@ describe('dealCandidateForOffer', () => {
   });
 
   it('still allows a retailer wasPrice that sits at or below the house ceiling', () => {
-    // price (99.5) is just under the ceiling (100), but too close for
-    // buildHouseAnchor's own "too small to reach one percent" floor (the
-    // exact pair discount.test.ts's buildHouseAnchor suite already asserts
-    // is null) — so the retailer's own wasPrice, itself at the ceiling, is
-    // the only candidate, and this gate must not drop it just for equalling
-    // the ceiling.
+    // A wasPrice equal to the ceiling passes the gate. With no house ceiling
+    // in the way it is an ordinary retailer deal...
     const c = dealCandidateForOffer(
       fragrance({ houseCeiling: 100 }),
       offer({ price: 99.5, wasPrice: 100 }),
+    );
+    // ...but 99.5 against 100 is half a percent, and since 3 Oct 2026 a saving
+    // under one whole percent is no candidate at all rather than a 0% one the
+    // caller had to filter out afterwards (demo/msrpComparison.ts).
+    expect(c).toBeNull();
+    const ok = dealCandidateForOffer(fragrance({ houseCeiling: 100 }), offer({ price: 95, wasPrice: 100 }))!;
+    // 95 against the house's 100 is itself a 5% house saving, which wins.
+    expect(ok.kind).toBe('house');
+    expect(ok.wasPrice).toBe(100);
+  });
+
+  /**
+   * The 3 Oct 2026 report: French Avenue Azzure Aoud 100ml, house price £30,
+   * Perfume Click £29.55 plus £2.95 delivery. The product page prints £32.50,
+   * so a deal worked from £29.55 ("1% below French Avenue") would contradict
+   * the page it opens. Worked from the shown £32.50 there is no deal.
+   */
+  it('works every saving from the shown figure, not the item price', () => {
+    expect(
+      dealCandidateForOffer(
+        fragrance({ brand: 'French Avenue', houseCeiling: 30 }),
+        { price: 29.55, shownPrice: 32.5, shownDelivered: true, wasPrice: null, retailerId: 'perfume-click' },
+      ),
+    ).toBeNull();
+    // Perfumeo, £28.99 with free delivery: the shown figure is the item price.
+    const free = dealCandidateForOffer(
+      fragrance({ brand: 'French Avenue', houseCeiling: 30 }),
+      { price: 28.99, shownPrice: 28.99, shownDelivered: true, wasPrice: null, retailerId: 'perfumeo' },
     )!;
-    expect(c.kind).toBe('retailer');
-    expect(c.wasPrice).toBe(100);
+    expect(free).toMatchObject({ kind: 'house', price: 28.99, percentOff: 3, delivered: true });
+    // A retailer RRP is restated against the shown figure too: £39.99 struck
+    // through beside £32.50 is 18% off, not the 26% the item price gives.
+    const rrp = dealCandidateForOffer(
+      fragrance({ houseCeiling: null }),
+      { price: 29.55, shownPrice: 32.5, shownDelivered: true, wasPrice: 39.99, retailerId: 'perfume-click' },
+    )!;
+    expect(rrp).toMatchObject({ kind: 'retailer', price: 32.5, percentOff: 18, delivered: true });
+    // Delivery not stated: the item price is all there is, and the candidate
+    // says it is not a delivered figure.
+    const unstated = dealCandidateForOffer(fragrance({ houseCeiling: null }), offer({ price: 20, wasPrice: 30 }))!;
+    expect(unstated).toMatchObject({ price: 20, percentOff: 33, delivered: false });
   });
 
   it('is unaffected by the house ceiling when the fragrance has none', () => {

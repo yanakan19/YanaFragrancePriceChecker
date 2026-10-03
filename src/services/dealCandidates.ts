@@ -1,4 +1,4 @@
-import { buildHouseAnchor } from './discount.js';
+import { buildDiscount, buildHouseAnchor } from './discount.js';
 
 /** The minimal shape of a fragrance `dealCandidateForOffer` needs. */
 export interface DealCandidateFragrance {
@@ -9,14 +9,28 @@ export interface DealCandidateFragrance {
 
 /** The minimal shape of an offer `dealCandidateForOffer` needs. */
 export interface DealCandidateOffer {
+  /** The shop's item price, before delivery. */
   price: number;
+  /**
+   * The figure the product page prints for this offer: the delivered total
+   * where the shop states its delivery cost, the item price where it does
+   * not (demo/msrpComparison.ts's `shownPrice`). Every saving is worked from
+   * this, so a deal tile and the row it opens state the same percentage.
+   * Omitted, it is the item price with delivery not stated.
+   */
+  shownPrice?: number;
+  /** True when `shownPrice` includes a stated delivery cost. */
+  shownDelivered?: boolean;
   wasPrice: number | null;
   retailerId: string;
 }
 
 /** One offer's best possible Today's Deals candidate. */
 export interface DealCandidate {
+  /** The shown figure the saving is worked from — see DealCandidateOffer. */
   price: number;
+  /** True when `price` includes a stated delivery cost. */
+  delivered: boolean;
   wasPrice: number;
   percentOff: number;
   retailerId: string;
@@ -88,11 +102,14 @@ export function dealCandidateForOffer(
   fragrance: DealCandidateFragrance,
   offer: DealCandidateOffer,
 ): DealCandidate | null {
+  const shown = offer.shownPrice ?? offer.price;
+  const delivered = offer.shownPrice !== undefined && offer.shownDelivered === true;
   if (fragrance.houseCeiling !== null) {
-    const anchor = buildHouseAnchor(offer.price, fragrance.houseCeiling, fragrance.brand);
+    const anchor = buildHouseAnchor(shown, fragrance.houseCeiling, fragrance.brand);
     if (anchor) {
       return {
-        price: offer.price,
+        price: anchor.nowPriceGbp,
+        delivered,
         wasPrice: anchor.housePriceGbp,
         percentOff: anchor.percentOff,
         retailerId: offer.retailerId,
@@ -109,10 +126,17 @@ export function dealCandidateForOffer(
   // withholding scripts/build-demo-catalogue.ts already applied to CRAWLED.
   if (fragrance.houseCeiling !== null && offer.wasPrice > fragrance.houseCeiling) return null;
 
+  // Worked from the shown figure, exactly as the product page's row restates
+  // the same RRP (demo/msrpComparison.ts's rrpSaving): floored in whole
+  // pence, and nothing under one whole percent.
+  const discount = buildDiscount({ price: shown, wasPrice: offer.wasPrice });
+  if (!discount) return null;
+
   return {
-    price: offer.price,
-    wasPrice: offer.wasPrice,
-    percentOff: Math.floor((1 - offer.price / offer.wasPrice) * 100),
+    price: discount.nowPrice,
+    delivered,
+    wasPrice: discount.wasPrice,
+    percentOff: discount.percentOff,
     retailerId: offer.retailerId,
     kind: 'retailer',
     houseName: null,
