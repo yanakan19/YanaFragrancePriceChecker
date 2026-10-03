@@ -100,6 +100,14 @@ export interface StorefrontCurrency {
   reason: string;
 }
 
+export interface ReadCurrencyOptions {
+  /**
+   * Waive the refusal of a converted sterling price for a GB market response.
+   * Set only from a retailer's own `convertedSterlingAccepted`.
+   */
+  acceptConvertedSterling?: boolean;
+}
+
 /** A conversion this close to 1 is float noise in the theme's own rounding. */
 const RATE_EPSILON = 0.005;
 
@@ -132,6 +140,7 @@ function parseMarketCountry(homepageHtml: string | null): string | null {
 export function readStorefrontCurrency(
   metaJson: string | null,
   homepageHtml: string | null,
+  options: ReadCurrencyOptions = {},
 ): StorefrontCurrency {
   const { currency: active, rate } = parseActive(homepageHtml);
   // parseShopCurrency prefers /meta.json, which is the settlement currency —
@@ -156,6 +165,23 @@ export function readStorefrontCurrency(
       ...base,
       isSterling: false,
       reason: `the storefront is quoting this client in ${presented}, not GBP`,
+    };
+  }
+  // The owner's decision for one named shop (`Retailer.convertedSterlingAccepted`)
+  // waives the two refusals below, and nothing else. It applies only to a
+  // response that says it is the GB market: a converted figure for any other
+  // country is not what a UK shopper is shown, and a theme that names no
+  // country is not evidence of one.
+  if (options.acceptConvertedSterling && country === 'GB' && (
+    (settlement !== null && settlement !== 'GBP') ||
+    (rate !== null && Math.abs(rate - 1) > RATE_EPSILON)
+  )) {
+    return {
+      ...base,
+      isSterling: true,
+      reason:
+        `the storefront quotes the GB market in GBP, converted from ${settlement ?? 'its own currency'}` +
+        `${rate !== null ? ` at rate ${rate}` : ''}; accepted by the owner for this shop`,
     };
   }
   if (settlement !== null && settlement !== 'GBP') {
@@ -195,9 +221,10 @@ export async function fetchStorefrontCurrency(
   origin: string,
   http: Http,
   headers: Record<string, string>,
+  options: ReadCurrencyOptions = {},
 ): Promise<StorefrontCurrency> {
   const base = origin.replace(/\/+$/, '');
   const meta = await http(`${base}/meta.json`, headers);
   const home = await http(`${base}/`, headers);
-  return readStorefrontCurrency(meta.ok ? meta.body : null, home.ok ? home.body : null);
+  return readStorefrontCurrency(meta.ok ? meta.body : null, home.ok ? home.body : null, options);
 }
