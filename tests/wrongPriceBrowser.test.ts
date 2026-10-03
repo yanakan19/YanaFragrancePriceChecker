@@ -52,7 +52,7 @@ describe.skipIf(!built)('wrong price report (built page, Chromium)', () => {
     const page = await open(productPath);
     const links = page.locator('[data-report-price]');
     await expect.poll(() => links.count()).toBe(1);
-    expect((await links.textContent())?.trim()).toBe('Spotted a wrong price? Tell us');
+    expect((await links.textContent())?.trim()).toBe('Spotted a Wrong Price? Tell Us');
     // Under the list, not inside a row.
     expect(await page.locator('.offers [data-report-price]').count()).toBe(0);
     expect(await page.locator('.detail-offers > .report-wrong [data-report-price]').count()).toBe(1);
@@ -93,7 +93,7 @@ describe.skipIf(!built)('wrong price report (built page, Chromium)', () => {
       problems: [...d.querySelectorAll('select[name="problem"] option')].map((o) => o.textContent ?? ''),
     }));
     expect(a11y.modal).toBe(true);
-    expect(a11y.labelledBy).toBe('Report a wrong price');
+    expect(a11y.labelledBy).toBe('Report a Wrong Price');
     expect(a11y.focusInside).toBe(true);
     expect(a11y.focusName).toBe('shop');
     expect(a11y.unlabelled).toBe(0);

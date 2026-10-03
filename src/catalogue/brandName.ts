@@ -1072,6 +1072,109 @@ function isMixedCase(name: string): boolean {
 }
 
 /**
+ * Brand words that stay in capitals when a shouted brand name is title cased.
+ *
+ * ── Why this list exists (owner request, 2026-10-03) ─────────────────────────
+ * pickBrandName above can only choose between spellings shops published. When
+ * every shop shouts a house's name ("MIND GAMES", "KAYALI", "ORIENTICA") there
+ * is no mixed-case spelling to prefer, so the shouting won and the Brands list,
+ * tiles, product headings and filters all showed it in capitals. The owner
+ * asked for those to read as ordinary names ("Mind Games"), while real
+ * acronyms keep their capitals. displayBrandName below does that, and this is
+ * the one place an acronym is allowed to survive it.
+ *
+ * Built from the data, not guessed: every brand in demo/catalogue.generated.ts
+ * whose letters were all capitals (or all lowercase) was listed on 2026-10-03
+ * and decided one at a time. The ones kept in capitals, and why:
+ *
+ *   DKNY  Donna Karan New York, initials (144 products)
+ *   SJP   Sarah Jessica Parker, initials
+ *   MCM   Mode Creation Munich, initials
+ *   DC    DC Comics, initials (the Batman and Flash bottles)
+ *   CRM   a feed code at the-beauty-store-uk, not a house (see KNOWN_ALIASES),
+ *         shown as published rather than dressed up as a name
+ *   KDMD  stylised initials with no vowel, so there is no word to title case
+ *   UK    the storefront qualifier in "KAYALI UK" and "Bellavita UK"
+ *
+ * Kept here too, because the owner named them and a future feed may shout
+ * them even though no current one does: YSL, CK, BDK, MFK, ADP (Acqua di
+ * Parma's own initials), NY, USA, LA.
+ *
+ * Decided the other way, title cased (before -> after): ALTAIA -> Altaia,
+ * AZAL -> Azal, BALENCIAGA BEAUTY -> Balenciaga Beauty, BALMAIN BEAUTY ->
+ * Balmain Beauty, CASAMORATI DAL 1888 -> Casamorati dal 1888, CINDERELLA
+ * CASTLE -> Cinderella Castle, DRIES VAN NOTEN -> Dries Van Noten, EREDI ZUCCA
+ * -> Eredi Zucca, GANT -> Gant, GAS -> Gas, KAYALI -> Kayali, KAYALI UK ->
+ * Kayali UK, LA MARTINA -> La Martina, MIND GAMES -> Mind Games, ORIENTICA ->
+ * Orientica, OUAI -> Ouai, PHLUR -> Phlur, RAHASYA -> Rahasya, VICTOR ->
+ * Victor; and the all-lowercase ones: aigner -> Aigner, al rehab crown
+ * perfumes -> Al Rehab Crown Perfumes, frag -> Frag, pernoire -> Pernoire,
+ * roccobarocco -> Roccobarocco, smashbox -> Smashbox. GANT, OUAI and LOEWE are
+ * capitals as a logo style, not initials, so they read as names like any
+ * other. "4711", "N°1" and "Q" have no word to change and come out as they
+ * went in.
+ *
+ * A brand already in mixed case is never touched ("BDK Parfums", "S.T.
+ * Dupont", "B.U.M. Equipment", "Ex Nihilo", "L'Occitane", "s. Oliver"):
+ * someone chose those capitals on purpose.
+ *
+ * Display text only. Grouping (brandKey) and URLs (slugify in demo/router.ts)
+ * both lowercase before they compare, so no brand changes group and no brand
+ * page changes address.
+ */
+export const BRAND_ACRONYMS: ReadonlySet<string> = new Set([
+  'DKNY', 'SJP', 'MCM', 'DC', 'CRM', 'KDMD', 'UK',
+  'YSL', 'CK', 'BDK', 'MFK', 'ADP', 'NY', 'USA', 'LA',
+]);
+
+/**
+ * Words that stay lowercase inside a title cased brand unless they come
+ * first: the owner's small words, plus the Italian and French joining words
+ * a house name can carry ("Casamorati dal 1888").
+ */
+const BRAND_SMALL_WORDS: ReadonlySet<string> = new Set([
+  'of', 'and', 'the', 'a', 'to', 'in', 'at', 'for', 'by',
+  'dal', 'di', 'de', 'du', 'des', 'del', 'da',
+]);
+
+/** One word of a shouted name, title cased; see displayBrandName. */
+function titleCaseBrandWord(word: string, first: boolean): string {
+  const upper = word.toUpperCase();
+  // "LA" is an acronym only when it is not the opening article of a name
+  // ("LA MARTINA" is the Argentine polo house, not Los Angeles).
+  if (BRAND_ACRONYMS.has(upper) && !(upper === 'LA' && first)) return upper;
+  // Dotted initials ("B.U.M.", "S.T.") are initials whatever the case.
+  if (/^(?:\p{L}\.)+\p{L}?\.?$/u.test(word)) return upper;
+  const lower = word.toLowerCase();
+  if (!first && BRAND_SMALL_WORDS.has(lower)) return lower;
+  // Capitalise the first letter, and the letter after an elided article or a
+  // hyphen: "L'OCCITANE" -> "L'Occitane", "D'ORSAY" -> "D'Orsay".
+  return lower
+    .replace(/^(\P{L}*)(\p{L})/u, (_m, lead: string, ch: string) => lead + ch.toUpperCase())
+    .replace(/(\b\p{L}['’]|-)(\p{L})/gu, (_m, lead: string, ch: string) => lead + ch.toUpperCase());
+}
+
+/**
+ * The name a reader sees for a brand: shouted or whispered names title cased,
+ * everything else exactly as published. See BRAND_ACRONYMS above for the rule
+ * and the full before and after list.
+ */
+export function displayBrandName(name: string): string {
+  const letters = name.replace(/[^\p{L}]/gu, '');
+  if (!letters) return name;
+  const shouted = letters === letters.toUpperCase();
+  const whispered = letters === letters.toLowerCase();
+  // Mixed case means a person chose those capitals; leave them alone.
+  if (!shouted && !whispered) return name;
+  let first = true;
+  return name.replace(/\S+/g, (word) => {
+    const out = titleCaseBrandWord(word, first);
+    first = false;
+    return out;
+  });
+}
+
+/**
  * Pick the display spelling for one group of variants.
  *
  * `variants` maps each observed spelling to how many listings used it.
@@ -1112,7 +1215,9 @@ export function buildBrandCanon(allBrandStrings: readonly string[]): Map<string,
 
   const canon = new Map<string, string>();
   for (const [key, variants] of groups) {
-    const chosen = KNOWN_ALIASES[key] ?? pickBrandName(variants);
+    // Title cased only when every spelling shouts (or whispers): see
+    // displayBrandName. Grouping above is already settled by then.
+    const chosen = displayBrandName(KNOWN_ALIASES[key] ?? pickBrandName(variants));
     for (const spelling of variants.keys()) canon.set(spelling, chosen);
   }
   return canon;

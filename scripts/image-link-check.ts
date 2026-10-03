@@ -184,15 +184,18 @@ for (const file of readdirSync(catalogueDir)) {
 // way" section for why commons-public-domain is excluded.
 let skippedCommonsLogos = 0;
 for (const r of RETAILERS) {
-  if (!r.logo) continue;
-  if (r.logo.basis === 'commons-public-domain') {
-    skippedCommonsLogos++;
-    continue;
+  // A shop's wordmark `logo` and its `squareLogo` are swept alike.
+  for (const logo of [r.logo, r.squareLogo]) {
+    if (!logo) continue;
+    if (logo.basis === 'commons-public-domain') {
+      skippedCommonsLogos++;
+      continue;
+    }
+    if (onlyShop && r.id !== onlyShop) continue;
+    const set = urlToRetailers.get(logo.src) ?? new Set<string>();
+    set.add(`logo:${r.id}`);
+    urlToRetailers.set(logo.src, set);
   }
-  if (onlyShop && r.id !== onlyShop) continue;
-  const set = urlToRetailers.get(r.logo.src) ?? new Set<string>();
-  set.add(`logo:${r.id}`);
-  urlToRetailers.set(r.logo.src, set);
 }
 for (const [brandKey, logo] of Object.entries(BRAND_LOGOS)) {
   if (logo.basis === 'commons-public-domain') {

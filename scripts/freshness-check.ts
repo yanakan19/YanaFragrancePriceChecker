@@ -13,7 +13,7 @@
  *   - prints it;
  *   - raises a ::warning:: for every shop with any shown listing over 48h;
  *   - exits 1 when a shop that answered this run (priced something, from its
- *     pages or its own catalogue feed) has more over 48h than a small
+ *     pages or its own catalogue feed, and refused no page) has more over 48h than a small
  *     tolerance allows, because that shop let us in and we still left its
  *     prices to age, which is the regression this exists to catch.
  *

@@ -189,50 +189,39 @@ describe('cheapestVerdict', () => {
   });
 });
 
-describe('cheapestVerdict and staleness', () => {
+/**
+ * Owner's decision, 2026-10-03: the age of a listed offer plays no part in
+ * the verdict. The tag goes on the cheapest listed buyable row, whose age is
+ * on the row itself.
+ */
+describe('cheapestVerdict and older offers', () => {
   const confirmed = shop('confirmed-shop', { standardGbp: 3.99 });
   const other = shop('confirmed-two', { standardGbp: 3.99 });
 
-  it('picks the fresh, costlier row over a cheaper stale one, and still calls it Cheapest', () => {
-    const stale = row(other, 10, 'inStock', daysAgo(STALE_OFFER_DAYS + 1));
+  it('is about the cheaper older row, not a fresh, costlier one', () => {
+    const older = row(other, 10, 'inStock', daysAgo(STALE_OFFER_DAYS + 1));
     const fresh = row(confirmed, 15, 'inStock', daysAgo(1));
-    const v = cheapestVerdict([stale, fresh]);
-    expect(v.offer!.retailer.id).toBe('confirmed-shop');
+    const v = cheapestVerdict([older, fresh]);
+    expect(v.offer).toBe(older);
+    expect(v.runnerUp).toBe(fresh);
     expect(v.decided).toBe(true);
-    expect(v.reason).toBe('sole-offer');
+    expect(v.reason).toBe('clear');
   });
 
-  it('withholds "Cheapest" when every buyable row is stale, but still names one', () => {
-    const bothStale = [
+  it('calls the cheapest of two older rows Cheapest, the same as fresh ones', () => {
+    const bothOld = [
       row(confirmed, 20, 'inStock', daysAgo(STALE_OFFER_DAYS + 3)),
       row(other, 25, 'inStock', daysAgo(STALE_OFFER_DAYS + 1)),
     ];
-    const v = cheapestVerdict(bothStale);
+    const v = cheapestVerdict(bothOld);
     expect(v.offer!.retailer.id).toBe('confirmed-shop');
     expect(v.offer!.stale).toBe(true);
-    expect(v.decided).toBe(false);
-    expect(v.reason).toBe('stale-only');
-  });
-
-  it('does not call a stale row stale-only when a fresh one is available instead', () => {
-    const v = cheapestVerdict([
-      row(confirmed, 999, 'inStock', daysAgo(STALE_OFFER_DAYS + 5)),
-      row(other, 20, 'inStock', daysAgo(2)),
-    ]);
-    expect(v.reason).not.toBe('stale-only');
-    expect(v.offer!.stale).toBe(false);
-  });
-
-  it('does not flag a shop visited a handful of days ago as stale-only', () => {
-    // The rotation case that must never be caught — see STALE_OFFER_DAYS.
-    const v = cheapestVerdict([row(confirmed, 20, 'inStock', daysAgo(6))]);
-    expect(v.reason).toBe('sole-offer');
     expect(v.decided).toBe(true);
   });
 
-  it('exactly at the boundary is still fresh, not stale-only', () => {
-    const v = cheapestVerdict([row(confirmed, 20, 'inStock', daysAgo(STALE_OFFER_DAYS))]);
-    expect(v.offer!.stale).toBe(false);
+  it('treats a lone recent row as the sole offer', () => {
+    const v = cheapestVerdict([row(confirmed, 20, 'inStock', daysAgo(6))]);
     expect(v.reason).toBe('sole-offer');
+    expect(v.decided).toBe(true);
   });
 });

@@ -78,16 +78,18 @@ describe('VOLUME_BANDS: shape and house style', () => {
     expect(VOLUME_BANDS.at(-1)!.max).toBeNull();
   });
 
-  // Matches the label wording the owner specified, word for word, and the
-  // same "Under X" / "X And Over" phrasing PRICE_BANDS already uses for its
-  // own open ended bands.
+  // The wording the owner specified, in the site's Title Case (2026-10-03:
+  // small words such as "and" stay lowercase) and with "to" for the range,
+  // since no visible text on the site carries a hyphen or dash. The same
+  // "Under X" / "X and Over" phrasing PRICE_BANDS uses for its open ended
+  // bands.
   it('labels match the specified wording exactly', () => {
     expect(VOLUME_BANDS.map((b) => b.label)).toEqual([
       'Under 15ml',
-      '15 - 30ml',
-      '30 - 70ml',
-      '70 - 120ml',
-      '120ml And Over',
+      '15 to 30ml',
+      '30 to 70ml',
+      '70 to 120ml',
+      '120ml and Over',
     ]);
   });
 });
@@ -104,7 +106,7 @@ describe('gift sets: their own option under Volume (owner, 2026-10-03)', () => {
     const counts = new Map<VolumeBand, number>([['gift-set', 3], ['70-120', 9], ['0-15', 2]]);
     expect(volumeOptions(counts)).toEqual([
       { value: '0-15', label: 'Under 15ml', count: 2 },
-      { value: '70-120', label: '70 - 120ml', count: 9 },
+      { value: '70-120', label: '70 to 120ml', count: 9 },
       { value: 'gift-set', label: GIFT_SET_BAND.label, count: 3 },
     ]);
     expect(volumeOptions(new Map<VolumeBand, number>([['30-70', 1]])).map((o) => o.value)).toEqual(['30-70']);

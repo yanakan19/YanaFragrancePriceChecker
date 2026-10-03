@@ -55,6 +55,15 @@ import { isShopifyProductsPayload } from './shopifyJson.js';
  * market, prices before VAT, a stale cache) or the whole shop has repriced at
  * once, and either way the read is set aside for the run. The product-page
  * refresh then covers the shop exactly as it would have without this step.
+ *
+ * One case is the other way round: a Shopify feed read through a UK market
+ * request (`?country=GB` or its like), because the plain storefront quoted
+ * this runner another market. There the product pages, read plainly from the
+ * same runner, are the suspect reading and the feed is the one established
+ * as the GB price list, so the caller passes `trustOverPages`. Glorious
+ * Beauty, run #577: 47 of 47 page prices disagreed with its GB feed, and its
+ * pages read from this sandbox the same day carried the feed's figures (Dolly
+ * Scent From Above 30ml, £25.00 against £34 stored).
  */
 
 /** One priced item as a catalogue endpoint publishes it. */
@@ -111,6 +120,7 @@ export function refreshFromItems(
   known: readonly StoredListing[],
   items: readonly RefreshItem[],
   now: Date,
+  options: { trustOverPages?: boolean } = {},
 ): CatalogueRefreshResult {
   // Always matched within the same product page. A SKU alone is not an
   // identity: BellaVita lists one SKU under six product pages at three
@@ -155,7 +165,7 @@ export function refreshFromItems(
     checked++;
     if (Math.abs(prior.priceGbp - item.priceGbp) > 0.005) disagreed++;
   }
-  if (checked >= MIN_COMPARISONS && disagreed / checked > MAX_DISAGREEMENT) {
+  if (!options.trustOverPages && checked >= MIN_COMPARISONS && disagreed / checked > MAX_DISAGREEMENT) {
     return {
       listings: [],
       refreshedSkus: new Set(),
