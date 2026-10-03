@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://pricesniffs.space/</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/brands</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers</loc><lastmod>2026-10-01</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers</loc><lastmod>2026-10-03</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/notes</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
-  <url><loc>https://pricesniffs.space/deals</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/deals</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/about</loc><lastmod>2026-10-02</lastmod><changefreq>monthly</changefreq></url>
   <url><loc>https://pricesniffs.space/legal/how-it-works</loc><lastmod>2026-10-02</lastmod><changefreq>monthly</changefreq></url>
   <url><loc>https://pricesniffs.space/legal/affiliate</loc><lastmod>2026-10-02</lastmod><changefreq>monthly</changefreq></url>
@@ -1708,9 +1708,11 @@
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800204778</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800203818</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800203795</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/ean-9911100199918</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800202040</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800204167</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6309800205238</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/ean-6299800200350</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800200855</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800200220</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800203931</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
@@ -4498,7 +4500,6 @@
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800202071</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800202293</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800205348</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/fragrance/ean-9911100199918</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800200107</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800200985</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800203955</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
@@ -4517,7 +4518,6 @@
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800204174</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800202576</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800205393</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/fragrance/ean-6299800200350</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6309800205221</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800202675</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6299800204785</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
@@ -6587,6 +6587,7 @@
   <url><loc>https://pricesniffs.space/fragrance/selfridges-r04690914</loc><lastmod>2026-09-12</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/mybeauty-boutique-shopify-gb-8416631292041-45146961281161</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/selfridges-r04380675</loc><lastmod>2026-08-21</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/debenhams-m6294022301106</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/the-beauty-store-uk-tbsukdk2-46632</loc><lastmod>2026-09-14</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/the-beauty-store-uk-tbsukdk2-46633</loc><lastmod>2026-09-14</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/the-beauty-store-uk-tbsukdk2-46631</loc><lastmod>2026-09-14</lastmod><changefreq>daily</changefreq></url>
@@ -6801,6 +6802,7 @@
   <url><loc>https://pricesniffs.space/fragrance/emirates-oud-15467183997277-default-title</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/perfumeo-thara-al-oud-supreme-intense-by-by-ard-al-zaafaran-100ml-eau-de-parfum</loc><lastmod>2026-09-16</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/emirates-oud-9529411797341-default-title</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/debenhams-m6423080733141</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/emirates-oud-9377299202397-default-title</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/perfumeo-yara-by-ard-al-zaafaran-10ml-perfume-oil</loc><lastmod>2026-09-16</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/perfumeo-yara-by-ard-al-zaafaran-50ml-eau-de-parfum</loc><lastmod>2026-09-29</lastmod><changefreq>daily</changefreq></url>
@@ -7227,6 +7229,7 @@
   <url><loc>https://pricesniffs.space/fragrance/mybeauty-boutique-shopify-gb-8416637780105-45146968555657</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/the-beauty-store-uk-banana-116221-x</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/mybeauty-boutique-shopify-gb-8338347229321-44927261114505</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/debenhams-m8691541003999</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-5056528420634</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/mybeauty-boutique-shopify-gb-8416637943945-45146968719497</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/the-beauty-store-uk-tbsukdk2-39152</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
@@ -11386,9 +11389,64 @@
   <url><loc>https://pricesniffs.space/fragrance/mybeauty-boutique-shopify-gb-8338379571337-44927309054089</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-0815985010049</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/justmylook-kp0014</loc><lastmod>2026-09-29</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00548</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00546</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00547</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/kayali-dd00003</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/kayali-dd00001</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-c001628</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00012</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00018</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00043</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00093</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00088</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00089</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00087</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00459</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00456</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00457</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00455</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00236</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00220</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00221</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00219</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00454</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00451</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00452</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00450</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/selfridges-r04619979</loc><lastmod>2026-08-31</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00321</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00318</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00319</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00317</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00513</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00559</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00562</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00416</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00512</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00558</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00561</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00414</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00514</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00560</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00563</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00418</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00413</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00409</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00408</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00410</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-9919976964424-default-title</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-c002343</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00020</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00019</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00044</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00116</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00117</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00118</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00114</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00084</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00085</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00083</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/kayali-ky00242</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/kayali-ky00161</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/kayali-ky00179</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
@@ -11409,6 +11467,52 @@
   <url><loc>https://pricesniffs.space/fragrance/kayali-ky00180</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/kayali-ky00240</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/kayali-ky00177</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-c002527</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00034</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00033</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00051</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00185</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00197</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00424</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00196</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00187</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00200</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00199</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-c002528</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00049</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00052</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00048</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00405</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00393</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00290</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00407</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00395</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00292</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00404</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00392</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00289</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00406</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00394</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00291</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00103</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00081</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00082</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00080</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00234</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00268</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00269</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00267</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00133</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00134</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00132</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00235</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00294</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00295</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00293</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00157</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00155</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00156</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/kayali-ky00154</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/mybeauty-boutique-shopify-gb-8416704495753-45147074494601</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-0608940563687</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-0608940578834</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
@@ -13528,8 +13632,10 @@
   <url><loc>https://pricesniffs.space/fragrance/ean-6295151503720</loc><lastmod>2026-09-07</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6291107455303</loc><lastmod>2026-09-16</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6290360830407</loc><lastmod>2026-09-18</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/debenhams-m6290360830292</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6290360832418</loc><lastmod>2026-09-18</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-6290360830438</loc><lastmod>2026-09-18</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/debenhams-m6290360830438</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/mybeauty-boutique-shopify-gb-8416745980041-45147128332425</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-3665032000984</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-3665032005309</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
@@ -15006,6 +15112,8 @@
   <url><loc>https://pricesniffs.space/fragrance/the-beauty-store-uk-tbsukdk2-47408</loc><lastmod>2026-09-14</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/the-beauty-store-uk-tbsukdk2-46931</loc><lastmod>2026-09-14</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-8056209880136</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/debenhams-m6295124048098</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/fragrance/debenhams-m6295124030376</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/mybeauty-boutique-shopify-gb-8416765116553-45147150123145</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/the-beauty-store-uk-sjp-152146-x</loc><lastmod>2026-08-20</lastmod><changefreq>daily</changefreq></url>
   <url><loc>https://pricesniffs.space/fragrance/ean-3414200161008</loc><lastmod>2026-09-19</lastmod><changefreq>daily</changefreq></url>
@@ -16786,6 +16894,7 @@
   <url><loc>https://pricesniffs.space/brands/alqvimia</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/amarai-fragrances</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/amen</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://pricesniffs.space/brands/anfar</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/anfas</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/annayake</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/anne-klein</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
@@ -16804,6 +16913,7 @@
   <url><loc>https://pricesniffs.space/brands/balenciaga-beauty</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/balmain-beauty</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/banderas</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://pricesniffs.space/brands/barber-marmara</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/bcbg-max-azria</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/bdk-parfums</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/bellavita-uk</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
@@ -17033,6 +17143,7 @@
   <url><loc>https://pricesniffs.space/brands/rosendo-mateu</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/s-oliver</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/s-t-dupont</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://pricesniffs.space/brands/sapil</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/scalpers</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/scent-favourites</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/scent-global</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
@@ -17101,37 +17212,38 @@
   <url><loc>https://pricesniffs.space/brands/women</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/worth</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
   <url><loc>https://pricesniffs.space/brands/zirh</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/allbeauty</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/justmylook</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/john-lewis</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/beautybase</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/lookfantastic</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/superdrug</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/selfridges</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/fragrance-click</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/mybeauty-boutique</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/the-fragrance-counter</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/scentstore</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/glorious-beauty</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/french-avenue</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/armaf</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/al-haramain</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/riiffs</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/ibraq</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/bellavita-luxury</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/oud-arabian</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/manchester-ouds</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/emirates-oud</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/perfumeo</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/the-beauty-store-uk</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/zimaya</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/kayali</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/zara</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/escentric-molecules</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/perfume-click</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/fragrancehub</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/avon</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/morrisons</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/bm-stores</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
-  <url><loc>https://pricesniffs.space/retailers/home-bargains</loc><lastmod>2026-10-01</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/allbeauty</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/justmylook</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/john-lewis</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/beautybase</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/lookfantastic</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/superdrug</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/selfridges</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/fragrance-click</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/mybeauty-boutique</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/the-fragrance-counter</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/scentstore</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/glorious-beauty</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/french-avenue</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/armaf</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/al-haramain</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/riiffs</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/ibraq</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/bellavita-luxury</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/oud-arabian</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/manchester-ouds</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/emirates-oud</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/perfumeo</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/the-beauty-store-uk</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/zimaya</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/kayali</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/zara</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/escentric-molecules</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/debenhams</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/perfume-click</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/fragrancehub</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/avon</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/morrisons</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/bm-stores</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
+  <url><loc>https://pricesniffs.space/retailers/home-bargains</loc><lastmod>2026-10-03</lastmod><changefreq>daily</changefreq></url>
 </urlset>
