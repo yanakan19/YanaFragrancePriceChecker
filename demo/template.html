@@ -2076,6 +2076,11 @@
      sold out in words as well. Only drawn when nothing buyable is on record. */
   .history-dot-soldout { width: 9px; height: 9px; border-color: var(--faint); background: var(--bg); }
   .history-dot-soldout:hover, .history-dot-soldout:focus-visible { width: 13px; height: 13px; background: var(--faint); }
+  /* An item price at a shop that does not state its delivery cost, on a graph
+     of delivered prices (demo/priceHistoryChart.ts): square rather than
+     round, and its tooltip, aria label and the caption all say "delivery not
+     stated", so the shape is never the only signal. */
+  .history-dot-itemonly { border-radius: 2px; }
   /* The one line under the graph that says what is on it. */
   /* At least two lines tall, and the loading placeholder carries an empty
      one, so the common captions (one or two lines) move nothing when the

@@ -1772,7 +1772,11 @@ function unavailableShopsLine(shops: Retailer[]): string {
 
 type NotEnoughGap = Extract<PriceHistoryGap, { reason: 'not-enough' }>;
 
-/** One page row as a point on the graph: its bottle price, on the day it was checked. */
+/**
+ * One page row as a point on the graph: its bottle price, on the day it was
+ * checked. The graph adds that shop's delivery itself (plottedPrice in
+ * demo/priceHistoryChart.ts), the same way it does for the recorded line.
+ */
 function rowObservation(r: PresentedOffer): ChartObservation {
   return { at: r.fetchedAt, priceGbp: r.itemPriceGbp, retailerId: r.retailer.id };
 }
@@ -1821,9 +1825,18 @@ function historyChartInput(data: PriceHistoryData, fragranceId: string, isCurren
     }
   }
   if (line.length === 0) {
+    // The page's own cheapest current row, in the page's own order: lowest
+    // delivered price first, a shop that states no delivery cost after every
+    // one that does (as buildComparison ranks them), so the point is the row
+    // the page itself leads with, now that the graph plots delivered prices.
     const current = rows
       .filter((r) => r.isPurchasable && !r.stale)
-      .sort((a, b) => a.itemPriceGbp - b.itemPriceGbp || a.retailer.id.localeCompare(b.retailer.id))[0];
+      .sort(
+        (a, b) =>
+          Number(a.deliveredPriceGbp === null) - Number(b.deliveredPriceGbp === null) ||
+          (a.deliveredPriceGbp ?? a.itemPriceGbp) - (b.deliveredPriceGbp ?? b.itemPriceGbp) ||
+          a.retailer.id.localeCompare(b.retailer.id),
+      )[0];
     if (current) {
       line = [{ at: current.fetchedAt, priceGbp: current.itemPriceGbp, retailerId: current.retailer.id }];
       lineSource = 'page';
