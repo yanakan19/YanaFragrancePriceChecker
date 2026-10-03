@@ -157,6 +157,7 @@ ${demoBuildHashComment(inputsHash.hash)}
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="google-adsense-account" content="ca-pub-6298711915135064" />
 <meta name="theme-color" content="#131013" media="(prefers-color-scheme: dark)" />
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
 <link rel="manifest" href="manifest.webmanifest" />
