@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 77 retailers, 45 of them `enabled: true`. Every one of them is a legitimate
+ * 76 retailers, 45 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -4473,66 +4473,6 @@ export const RETAILERS: readonly Retailer[] = [
         'see this entry\'s comment above.',
     },
     catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
-  },
-  {
-    id: 'khadlaj',
-    name: 'Khadlaj',
-    domain: 'khadlaj-perfumes.co.uk',
-    homepage: 'https://www.khadlaj-perfumes.co.uk',
-    tiers: ['mideast'],
-    singleBrandOnly: 'Khadlaj',
-    // Confirmed Shopify, currency NOT confirmed sterling — a dead end worth
-    // recording rather than a to-do.
-    //
-    // Currency probe, run 32255506486 job 96076159301, 2026-08-19T12:59Z,
-    // commit 14eede4: /products.json answered with a real Shopify payload
-    // (khadlaj-titan-100-ml-eau-de-parfum-spray-for-men, 110.00; a
-    // grand-collection set at 210.00 with a 300.00 compare_at) — so this shop
-    // is Shopify. But every one of the nine ways of asking quoted this US
-    // runner USD at rate 1, including the UK-market addresses this repo now
-    // tries (?country=GB, both localisation cookies, Accept-Language en-GB):
-    // none of them settled GBP the way al-haramain's or Escentric Molecules'
-    // did. /en-gb, /gb, /uk and /en-uk all 404. Nothing measured here
-    // suggests this shop has a sterling price list reachable from any address
-    // tried. Added to CURRENCY_UNCONFIRMED at the foot of this file on that
-    // evidence — a stronger basis than a marketing-copy hunch, since this is
-    // a currency the storefront itself served.
-    //
-    // `shopifyStorefront` deliberately left unset: the mechanism this repo
-    // uses to opt a retailer into the /products.json route is meant to
-    // signal a *priceable* Shopify shop, and this one cannot be priced from
-    // any address this repo knows how to ask.
-    enabled: false,
-    adapter: 'unknown',
-    currency: 'GBP',
-    shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [4, 6],
-      verifiedAt: '2026-08-05',
-      confidence: 'unverified',
-      notes:
-        "The brand's own .co.uk site exists but its delivery cost was not found; only third-party " +
-        'UK stockists (Emirates Oud free over £50, Perfume Heaven free over £40) turned up, and ' +
-        "those are not this shop's terms. The shipping:discover run will try khadlaj-perfumes." +
-        'co.uk directly. Moot until the currency question above is resolved.',
-    },
-    catalogue: null,
-    // ── Phase 5 recheck, 2026-10-03 (one polite pass, robots.txt first) ────
-    // Still not sterling. robots.txt answered 200 at 01:37:43Z. The home
-    // page (200, 01:38:29Z) serves Shopify.currency {"active":"USD",
-    // "rate":"1.0"}, money_format "${{amount}}" and Shopify.country
-    // "IN" to this request. Its video tiles carry "£150.00" in the theme
-    // text beside data-price "Dhs. 150.00" for the same item, the same
-    // figure under two symbols, which is template copy and not a price
-    // list. One product page, /products/caffe-latte-100-ml-extrait-de-parfum-spray
-    // (200, 01:39:38Z), shows 100.00 as $100.00 with USD active. Dead end
-    // unchanged; stays disabled and in CURRENCY_UNCONFIRMED.
-    // Fetched with plain curl and the crawler's own honest user agent, no
-    // browser headers, no residential or rotating proxy (only this
-    // sandbox's own fixed egress), nothing retried against a refusal. See
-    // docs/outreach/ for the permission request drafted for the owner.
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -9135,15 +9075,6 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
   // (vitfix-magnesium-effervescent-citrus) as "3.5 GBP" via schema.org
   // JSON-LD through every candidate that reached it. See the comment on its
   // registry entry above. It is now `enabled: true`.
-  [
-    'khadlaj',
-    'khadlaj-perfumes.co.uk is confirmed Shopify (products.json returns a real payload, ' +
-      'priced products among them) but every one of nine ways of asking — origin, ?country=GB, ' +
-      'both localisation cookies, Accept-Language en-GB, and the /en-gb /gb /uk /en-uk market ' +
-      'paths — either 404s or quotes this runner USD at rate 1, none settling GBP. Currency ' +
-      'probe, run 32255506486 job 96076159301, 2026-08-19T12:59Z. Nothing measured suggests a ' +
-      'sterling price list is reachable from any address this repo knows how to ask.',
-  ],
   [
     'paco-perfumerias',
     'A Spanish retailer (pacoperfumerias.com) with a UK-targeted Awin programme. Whether that ' +

@@ -2136,6 +2136,10 @@ function wishlistButton(fragranceId: string): string {
  * name, so it is a static string with a literal apostrophe rather than an
  * `esc()`-ed one; the surrounding markup is unchanged.
  *
+ * "Excl. delivery" (owner, 2026-10-03): the brand's price is its item price,
+ * while the offer rows and the Cheapest box show delivered totals, so the
+ * box says what it leaves out.
+ *
  * `price-box-from--fit` (2026-08-26, alongside `lowestPriceBox`'s two-box
  * amount sizing below) forces this caption onto one line — see the class's
  * own comment in demo/template.html for the width it was measured against
@@ -2147,6 +2151,7 @@ function houseCeilingBox(frag: DemoFragrance): string {
       <p class="price-box-label t-eyebrow">MSRP</p>
       <p class="price-box-amount t-price">${formatGbp(frag.houseCeiling)}</p>
       <p class="price-box-from price-box-from--fit t-caption">Brand's Current Price</p>
+      <p class="price-box-from price-box-from--fit t-caption">Excl. delivery</p>
     </div>`;
 }
 
