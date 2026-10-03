@@ -1059,13 +1059,13 @@
     "niche-beauty-uk::sitemap-discovery": {
       "strategyId": "sitemap-discovery",
       "retailerId": "niche-beauty-uk",
-      "attempts": 1,
-      "successes": 0,
-      "listingsFound": 0,
+      "attempts": 2,
+      "successes": 1,
+      "listingsFound": 8,
       "lastStatus": 200,
-      "lastError": "HTTP 200",
-      "lastTriedAt": "2026-08-19T17:58:34.810Z",
-      "lastSucceededAt": null,
+      "lastError": null,
+      "lastTriedAt": "2026-10-03T11:43:08.409Z",
+      "lastSucceededAt": "2026-10-03T11:43:08.409Z",
       "ruledOut": null
     },
     "niche-beauty-uk::search-page": {
@@ -1201,5 +1201,5 @@
       "ruledOut": null
     }
   },
-  "updatedAt": "2026-10-03T11:33:38.283Z"
+  "updatedAt": "2026-10-03T11:43:08.409Z"
 }
