@@ -1777,9 +1777,23 @@ export const RETAILERS: readonly Retailer[] = [
     // sandbox is served real product pages today, unlike the 503s recorded
     // above on 2026-09-01. Whether GitHub's runners are served the same is
     // a separate question: routed to the CI probe (catalogue-daily.yml
-    // probe=true probe_shop=john-lewis, run #562). Stored prices are from
-    // 2026-09-19T23:03Z and leave the site 21 days later, under
-    // HIDE_OFFER_AFTER_DAYS unless a harvest refreshes them.
+    // probe=true probe_shop=john-lewis, run #562, job 111100829429). Its
+    // answer, committed to data/strategy-memory.json in 8d74bf6 between
+    // 02:16:53Z and 02:20:02Z: section-plain HTTP 200 with 0 listings,
+    // sitemap-discovery HTTP 200 with 0 listings, browser-render HTTP 200
+    // with 0 listings, homepage-probe and section-browser-headers aborted
+    // on timeout, proxied-fetch "fetch failed (Request was cancelled.)".
+    // So the runners are not refused outright any more (200s, not the 503s
+    // or HTTP/2 errors above), but no strategy read a price. The job log
+    // itself could not be read from here (this sandbox's GitHub client
+    // will not follow the log redirect), so why sitemap-discovery found
+    // nothing is not known: it may never have reached a product page.
+    // Worth a dispatch with the log read by someone who can: the one
+    // product page this sandbox asked for carried a full schema.org price,
+    // so a sitemap walk to product pages is the route to try first.
+    // Nothing here changes the harvest.
+    // Stored prices are from 2026-09-19T23:03Z and leave the site 21 days
+    // later, under HIDE_OFFER_AFTER_DAYS, unless a harvest refreshes them.
     // Fetched with plain curl and the crawler's own honest user agent, no
     // browser headers, no residential or rotating proxy (only this
     // sandbox's own fixed egress), nothing retried against a refusal. See
