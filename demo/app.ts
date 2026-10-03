@@ -9,15 +9,18 @@
  * subpages beneath it:
  *
  *   Home           the mark, what this is, and the popular rail
- *   Today's Deals  the discounted-fragrance snapshot, a flat list with no
- *                  leaves of its own
- *   Explore        Brands · Retailers · Notes · Search
+ *   Deals          the discounted-fragrance snapshot, a flat list with no
+ *                  leaves of its own (headed "Today's Deals" until the owner
+ *                  asked for the shorter label on 2026-10-03)
+ *   Explore        Brands · Retailers · Notes (a Search tab with its own
+ *                  search box sat here too until 2026-10-03: the owner asked
+ *                  for one search box, the Quick Search in the top bar)
  *   Settings       preferences, contact, legal
  *
  * Everything else (a fragrance, a retailer, a note, a legal document) is a leaf
  * reached from one of those and always carries a Back control. Nothing is ever
  * more than two taps from Home, which is the whole reason the subpages live
- * under Explore rather than crowding the top bar. Today's Deals sits in the
+ * under Explore rather than crowding the top bar. Deals sits in the
  * bar itself rather than under Explore precisely because it has no subpages to
  * hide: there is nothing a tab would be saving the reader from.
  *
@@ -95,7 +98,7 @@ import { UNSUBSCRIBE_PARAM, unsubscribeMessage } from '../src/alerts/unsubscribe
 
 type View = 'home' | 'deals' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings' | 'account' | 'design' | 'notFound';
 type AuthTab = 'signIn' | 'signUp';
-type ExploreTab = 'brands' | 'retailers' | 'notes' | 'search';
+type ExploreTab = 'brands' | 'retailers' | 'notes';
 type DisplayMode = 'dark' | 'light' | 'system';
 type Layout = 'mobile' | 'desktop';
 type BrandSort = 'az' | 'za';
@@ -1409,30 +1412,11 @@ function homeView(): string {
       </ul>
     </section>
 
+    <!-- Update History first and "Got an idea?" last in the markup, so on a
+         phone, where the two stack, the suggestion box is the last thing on
+         the home page (owner request, 2026-10-03). On desktop the stylesheet
+         puts it back in the left column, where it has always been. -->
     <div class="bottom-split">
-      <section class="suggest-section">
-        <h2 class="t-section">Got an idea?</h2>
-        <p class="panel-note t-body">${SUGGEST_NOTE}</p>
-        <form id="home-suggest-form" class="contact-form">
-          <label class="field">
-            <span>Your suggestion</span>
-            <textarea id="home-suggest-body" rows="3" placeholder="What should we add or change?"></textarea>
-          </label>
-          <label class="field">
-            <span>Your name <span class="dimmer">(optional)</span></span>
-            <input id="home-suggest-name" type="text" placeholder="So we know who to thank" />
-          </label>
-          <label class="field">
-            <span>Your email <span class="dimmer">(optional, if you would like a reply)</span></span>
-            <input id="home-suggest-email" type="email" placeholder="you@example.com" />
-          </label>
-          <button type="submit" class="contact-send">Send</button>
-        </form>
-        <p class="form-privacy t-caption">We keep what you send only for as long as it takes to reply.
-          <button type="button" class="link-btn" data-page="privacy">Privacy notice</button></p>
-        <p id="home-suggest-confirm" class="contact-confirm" hidden></p>
-      </section>
-
       <section class="updates-section">
         <h2 class="t-section">Update History</h2>
         <!-- The list scrolls on desktop (max-height in the stylesheet), and a
@@ -1457,6 +1441,29 @@ function homeView(): string {
             },
           ).join('')}
         </ul>
+      </section>
+
+      <section class="suggest-section">
+        <h2 class="t-section">Got an idea?</h2>
+        <p class="panel-note t-body">${SUGGEST_NOTE}</p>
+        <form id="home-suggest-form" class="contact-form">
+          <label class="field">
+            <span>Your suggestion</span>
+            <textarea id="home-suggest-body" rows="3" placeholder="What should we add or change?"></textarea>
+          </label>
+          <label class="field">
+            <span>Your name <span class="dimmer">(optional)</span></span>
+            <input id="home-suggest-name" type="text" placeholder="So we know who to thank" />
+          </label>
+          <label class="field">
+            <span>Your email <span class="dimmer">(optional, if you would like a reply)</span></span>
+            <input id="home-suggest-email" type="email" placeholder="you@example.com" />
+          </label>
+          <button type="submit" class="contact-send">Send</button>
+        </form>
+        <p class="form-privacy t-caption">We keep what you send only for as long as it takes to reply.
+          <button type="button" class="link-btn" data-page="privacy">Privacy notice</button></p>
+        <p id="home-suggest-confirm" class="contact-confirm" hidden></p>
       </section>
     </div>`;
 }
@@ -2509,7 +2516,7 @@ function brandsPanel(): string {
 /** The page shell: a heading (Explore's own tabs used to do that job) over
  *  the unchanged panel below. */
 function dealsView(): string {
-  return `<div class="page-head"><h1 class="t-page">Today’s Deals</h1></div>${dealsPanel()}`;
+  return `<div class="page-head"><h1 class="t-page">Deals</h1></div>${dealsPanel()}`;
 }
 
 function dealsPanel(): string {
@@ -3091,46 +3098,12 @@ function noteView(): string {
     ${fragranceList(list, 'Nothing matches that filter.')}`;
 }
 
-/* ── explore: search ─────────────────────────────────────────────────────── */
-
-/**
- * The results half of the Search tab — its own function because the live
- * keystroke handler further down replaces just this block's innerHTML rather
- * than re-rendering the whole page, and needs the exact same markup.
- */
-function searchResultsHtml(q: string): string {
-  if (!q) return `<p class="empty-note t-body">Type to search all ${DEMO_FRAGRANCES.length} fragrances.</p>`;
-  const filtered = visibleFragrances();
-  const faceted = applyFacets(filtered);
-  const list = state.browseSort === 'stocked' ? faceted : sortFragrances(faceted, state.browseSort);
-  return `<div class="page-head"><h1 class="t-page">Results</h1><span class="count t-count">${list.length}</span></div>
-    ${listControls(browseSortControl(state.browseSort), facets(filtered))}
-    ${fragranceList(list, 'Nothing matches that search.')}`;
-}
-
-function searchPanel(): string {
-  const q = state.query.trim();
-  return `
-    <label class="search-big">
-      ${ICON_SEARCH}
-      <input type="search" id="search-full" placeholder="Search by brand, name or concentration"
-        value="${esc(state.query)}" aria-label="Search fragrances" />
-    </label>
-    ${
-      state.brand
-        ? `<p class="panel-note t-body">Filtered to ${esc(state.brand)}. <button class="link-btn" data-clear-brand>Clear</button></p>`
-        : ''
-    }
-    <div class="search-results">${searchResultsHtml(q)}</div>`;
-}
-
 /* ── explore shell ───────────────────────────────────────────────────────── */
 
 const TABS: { id: ExploreTab; label: string }[] = [
   { id: 'brands', label: 'Brands' },
   { id: 'retailers', label: 'Retailers' },
   { id: 'notes', label: 'Notes' },
-  { id: 'search', label: 'Search' },
 ];
 
 function exploreView(): string {
@@ -3139,9 +3112,7 @@ function exploreView(): string {
       ? brandsPanel()
       : state.tab === 'retailers'
         ? retailersPanel()
-        : state.tab === 'notes'
-          ? notesPanel()
-          : searchPanel();
+        : notesPanel();
   return `<div class="explore">${panel}</div>`;
 }
 
@@ -4125,11 +4096,7 @@ function currentRoute(): Route {
     case 'settings': return { name: 'settings', param: '', query: {} };
     case 'account': return { name: 'account', param: '', query: {} };
     case 'explore':
-      return {
-        name: state.tab === 'search' ? 'search' : (state.tab as RouteName),
-        param: '',
-        query: state.tab === 'search' ? query : {},
-      };
+      return { name: state.tab as RouteName, param: '', query: {} };
   }
 }
 
@@ -4160,7 +4127,9 @@ function applyRoute(route: Route): boolean {
     }
 
     case 'search':
-      // The bar search and the Search subpage are the same destination.
+      // The bar search's results. There is no second search box under
+      // Explore any more (owner request, 2026-10-03), so this is the only
+      // search page there is.
       state.view = 'browse';
       return true;
 
@@ -4811,7 +4780,7 @@ function syncUpdatesHeight(): void {
   if (!suggest || !list) return;
   if (state.layout !== 'desktop') {
     // Stacked on a phone: the list gets the same height as the suggestion box
-    // above it, less its own heading, and scrolls inside that.
+    // below it, less its own heading, and scrolls inside that.
     const head = list.getBoundingClientRect().top - (list.parentElement as HTMLElement).getBoundingClientRect().top;
     list.style.maxHeight = `${Math.max(240, suggest.getBoundingClientRect().height - head)}px`;
     return;
@@ -4964,9 +4933,9 @@ function init(): void {
     if (message) void showDialog({ title: 'That link did not work', message });
   });
 
-  // The bar search is the quick one: type a name, get results. The Search
-  // subpage under Explore is where the same query gains a brand filter and
-  // room to show what it matched against.
+  // The bar search is the one search box on the site: type a name, get
+  // results. Explore carried a second, bigger one on a Search tab until the
+  // owner asked for it to go (2026-10-03).
   // Typing replaces rather than pushes: one history entry per keystroke would
   // make Back a character-by-character undo of the search box, and leaving the
   // search would take a dozen presses to escape.
@@ -5364,18 +5333,6 @@ function init(): void {
       rememberListStateSoon();
       return;
     }
-  });
-
-  document.addEventListener('input', (e) => {
-    const t = e.target as HTMLElement;
-    if (t.id !== 'search-full') return;
-    state.query = (t as HTMLInputElement).value;
-    ($('#search') as HTMLInputElement).value = state.query;
-    // Re-rendering would tear out the field mid keystroke and lose focus, so
-    // only the results below it are replaced.
-    const panel = $('.explore') as HTMLElement;
-    const results = panel.querySelector('.search-results');
-    if (results) results.innerHTML = searchResultsHtml(state.query.trim());
   });
 
   document.addEventListener('change', (e) => {

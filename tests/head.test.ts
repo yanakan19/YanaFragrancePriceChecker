@@ -226,7 +226,7 @@ describe('unmatched paths', () => {
  */
 describe('fixed-route titles name the page, and match what the page shows', () => {
   it.each([
-    ['deals', 'PriceSniffs: Today’s Deals'],
+    ['deals', 'PriceSniffs: Deals'],
     ['brands', 'PriceSniffs: Brands'],
     ['retailers', 'PriceSniffs: Retailers'],
     ['notes', 'PriceSniffs: Notes'],
