@@ -285,13 +285,11 @@ describe('retailer registry', () => {
       // (standardRateNotPublished) rather than unread. riiffs left on
       // 2026-10-03: its site serves a captcha to every fetch, so the owner
       // read the flat £3.95 off its own basket by hand. manchester-ouds left
-      // the same day: the owner read £2.99 off its own checkout.
+      // the same day: the owner read £2.99 off its own checkout, as did
+      // armaf (free), al-haramain (£4.95) and ibraq (£2.99).
       expect(unstated.map((r) => r.id).sort()).toEqual([
-        'al-haramain',
-        'armaf',
         'bm-stores',
         'fragrancehub',
-        'ibraq',
         'morrisons',
       ]);
       for (const r of unstated) {
