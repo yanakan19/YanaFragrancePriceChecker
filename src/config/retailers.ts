@@ -577,6 +577,17 @@ export const RETAILERS: readonly Retailer[] = [
     // open a route — see docs/AFFILIATE_SETUP.md's "Other networks" table
     // for the deeplink shape and the dated comment above for what else is
     // needed.
+    // ── Phase 5 recheck, 2026-10-03 (one polite pass, robots.txt first) ────
+    // robots.txt answered 200 at 01:37:35Z (product pages not disallowed;
+    // /cart/*, /checkout*, /api/ and account paths are). The home page then
+    // answered 403 at 01:38:23Z with a Cloudflare "Just a moment..."
+    // challenge, so no product page was asked for. The block has not
+    // lifted, and this shop's stored prices (newest 2026-09-09) are now
+    // past HIDE_OFFER_AFTER_DAYS, so none of them show.
+    // Fetched with plain curl and the crawler's own honest user agent, no
+    // browser headers, no residential or rotating proxy (only this
+    // sandbox's own fixed egress), nothing retried against a refusal. See
+    // docs/outreach/ for the permission request drafted for the owner.
     affiliate: {
       network: 'cj',
       verified: true,
@@ -812,6 +823,18 @@ export const RETAILERS: readonly Retailer[] = [
     },
     // Applied via Awin's own Activity Stream 2026-08-11 — merchant id 2041
     // was already known from the earlier awinPending() confirmation.
+    // ── Phase 5 recheck, 2026-10-03 (one polite pass, robots.txt first) ────
+    // robots.txt answered 200 at 01:37:30Z (unchanged in substance: only
+    // /sitesearch*, /search/*, checkout and account paths are disallowed).
+    // The home page then answered 403 at 01:38:20Z with an Imperva
+    // (Incapsula) block page, "Request unsuccessful. Incapsula incident".
+    // No product page was asked for: the only stored URL is a /sitesearch
+    // address, which robots.txt disallows, and the home page had already
+    // refused. The block has not lifted.
+    // Fetched with plain curl and the crawler's own honest user agent, no
+    // browser headers, no residential or rotating proxy (only this
+    // sandbox's own fixed egress), nothing retried against a refusal. See
+    // docs/outreach/ for the permission request drafted for the owner.
     affiliate: awinRequested('2041'),
   },
   {
@@ -891,6 +914,14 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
     },
+    // ── Phase 5 recheck, 2026-10-03 (one polite pass, robots.txt first) ────
+    // robots.txt itself answered 403 at 01:37:33Z with a Cloudflare
+    // "Just a moment..." challenge page. With robots.txt unreadable
+    // nothing else was requested. The block has not lifted.
+    // Fetched with plain curl and the crawler's own honest user agent, no
+    // browser headers, no residential or rotating proxy (only this
+    // sandbox's own fixed egress), nothing retried against a refusal. See
+    // docs/outreach/ for the permission request drafted for the owner.
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -1046,6 +1077,14 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
     },
+    // ── Phase 5 recheck, 2026-10-03 (one polite pass, robots.txt first) ────
+    // robots.txt itself answered 403 at 01:37:32Z, an Akamai "Access
+    // Denied" page (errors.edgesuite.net reference). With robots.txt
+    // unreadable nothing else was requested. The block has not lifted.
+    // Fetched with plain curl and the crawler's own honest user agent, no
+    // browser headers, no residential or rotating proxy (only this
+    // sandbox's own fixed egress), nothing retried against a refusal. See
+    // docs/outreach/ for the permission request drafted for the owner.
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -1724,6 +1763,22 @@ export const RETAILERS: readonly Retailer[] = [
     // paragraph above is unchanged and is the only route left: search inside
     // the logged-in Awin dashboard, and the Rakuten publisher search once
     // that pending signup clears.
+    // ── Phase 5 recheck, 2026-10-03 (one polite pass, robots.txt first) ────
+    // robots.txt answered 200 at 01:37:39Z. The home page answered 200 at
+    // 01:38:26Z (836,189 bytes) and one product page,
+    // /chanel-coco-mademoiselle-crush-absolu-eau-de-parfum-limited-edition-sleeve-100ml/p115419488,
+    // answered 200 at 01:39:35Z with schema.org data in the page: price
+    // 160.00, priceCurrency GBP, InStock. So an ordinary fetch from this
+    // sandbox is served real product pages today, unlike the 503s recorded
+    // above on 2026-09-01. Whether GitHub's runners are served the same is
+    // a separate question: routed to the CI probe (catalogue-daily.yml
+    // probe=true probe_shop=john-lewis, run #562). Stored prices are from
+    // 2026-09-19T23:03Z and leave the site 21 days later, under
+    // HIDE_OFFER_AFTER_DAYS unless a harvest refreshes them.
+    // Fetched with plain curl and the crawler's own honest user agent, no
+    // browser headers, no residential or rotating proxy (only this
+    // sandbox's own fixed egress), nothing retried against a refusal. See
+    // docs/outreach/ for the permission request drafted for the owner.
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -2198,6 +2253,16 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 50, minRequestGapMs: 2000,
     },
+    // ── Phase 5 recheck, 2026-10-03 (one polite pass, robots.txt first) ────
+    // robots.txt itself answered 403 at 01:37:37Z, an Akamai "Access
+    // Denied" page. Nothing else was requested. The block has not lifted.
+    // Its 112 stored listings all date from 2026-08-21, so
+    // HIDE_OFFER_AFTER_DAYS now keeps every one of them off the site and
+    // the shop off the Shops page.
+    // Fetched with plain curl and the crawler's own honest user agent, no
+    // browser headers, no residential or rotating proxy (only this
+    // sandbox's own fixed egress), nothing retried against a refusal. See
+    // docs/outreach/ for the permission request drafted for the owner.
     affiliate: {
       network: 'awin',
       verified: true,
@@ -2590,6 +2655,15 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 50, minRequestGapMs: 2500,
     },
+    // ── Phase 5 recheck, 2026-10-03 (one polite pass, robots.txt first) ────
+    // robots.txt never answered: over HTTP/2 the stream was reset
+    // (INTERNAL_ERROR) at 01:37:36Z, and one retry over HTTP/1.1 at
+    // 01:38:56Z received 0 bytes in 25 seconds. Nothing else was asked.
+    // Still unreachable; still fixtures only.
+    // Fetched with plain curl and the crawler's own honest user agent, no
+    // browser headers, no residential or rotating proxy (only this
+    // sandbox's own fixed egress), nothing retried against a refusal. See
+    // docs/outreach/ for the permission request drafted for the owner.
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -3555,8 +3629,9 @@ export const RETAILERS: readonly Retailer[] = [
     // 2026-10-02T15:51Z, 26 runs, discovered 0 URLs. 10 of them reported
     // "sitemap.xml: HTTP 403" (most also sitemap_index.xml 403); the other 16
     // reported no error at all, which is not an empty sitemap: asked once
-    // each on 2026-10-03 from this environment, robots.txt answered 200 as
-    // plain text (it disallows only /wp-admin/, three WooCommerce upload
+    // each on 2026-10-03 around 00:51Z from this environment, robots.txt
+    // answered 200 as plain text (by the phase 5 recheck below, 01:37Z, even
+    // robots.txt had gone behind the captcha) (it disallows only /wp-admin/, three WooCommerce upload
     // folders and */?add-to-cart=*, and names /sitemap_index.xml), but
     // /sitemap_index.xml and the product page /product/gladius/ both answered
     // HTTP 202 with `sg-captcha: challenge`: SiteGround's bot challenge, a
@@ -3602,6 +3677,18 @@ export const RETAILERS: readonly Retailer[] = [
         'site answers automated reads with a SiteGround captcha, so this was checked by hand.',
     },
     catalogue: null,
+    // ── Phase 5 recheck, 2026-10-03 (one polite pass, robots.txt first) ────
+    // robots.txt answered 202 at 01:37:42Z with a SiteGround captcha
+    // redirect (meta refresh to /.well-known/sgcaptcha/), not a robots
+    // file; riiffsperfumes.com/robots.txt answered the same way at
+    // 01:47:18Z. With robots.txt unreadable nothing else was requested.
+    // The captcha has not lifted. Stored prices are from 2026-09-13 and
+    // 2026-09-14, so HIDE_OFFER_AFTER_DAYS takes them off the site on the
+    // 2026-10-04 and 2026-10-05 builds.
+    // Fetched with plain curl and the crawler's own honest user agent, no
+    // browser headers, no residential or rotating proxy (only this
+    // sandbox's own fixed egress), nothing retried against a refusal. See
+    // docs/outreach/ for the permission request drafted for the owner.
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -4343,6 +4430,20 @@ export const RETAILERS: readonly Retailer[] = [
         'co.uk directly. Moot until the currency question above is resolved.',
     },
     catalogue: null,
+    // ── Phase 5 recheck, 2026-10-03 (one polite pass, robots.txt first) ────
+    // Still not sterling. robots.txt answered 200 at 01:37:43Z. The home
+    // page (200, 01:38:29Z) serves Shopify.currency {"active":"USD",
+    // "rate":"1.0"}, money_format "${{amount}}" and Shopify.country
+    // "IN" to this request. Its video tiles carry "£150.00" in the theme
+    // text beside data-price "Dhs. 150.00" for the same item, the same
+    // figure under two symbols, which is template copy and not a price
+    // list. One product page, /products/caffe-latte-100-ml-extrait-de-parfum-spray
+    // (200, 01:39:38Z), shows 100.00 as $100.00 with USD active. Dead end
+    // unchanged; stays disabled and in CURRENCY_UNCONFIRMED.
+    // Fetched with plain curl and the crawler's own honest user agent, no
+    // browser headers, no residential or rotating proxy (only this
+    // sandbox's own fixed egress), nothing retried against a refusal. See
+    // docs/outreach/ for the permission request drafted for the owner.
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -4600,6 +4701,15 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 20, minRequestGapMs: 2000,
     },
+    // ── Phase 5 recheck, 2026-10-03 (one polite pass, robots.txt first) ────
+    // robots.txt itself answered 403 at 01:37:40Z, an Akamai "Access
+    // Denied" page. Nothing else was requested. The block has not lifted.
+    // Its stored listings date from 2026-08-22, so HIDE_OFFER_AFTER_DAYS
+    // keeps them off the site.
+    // Fetched with plain curl and the crawler's own honest user agent, no
+    // browser headers, no residential or rotating proxy (only this
+    // sandbox's own fixed egress), nothing retried against a refusal. See
+    // docs/outreach/ for the permission request drafted for the owner.
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
