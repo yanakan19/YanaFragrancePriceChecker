@@ -4405,6 +4405,10 @@ export const RETAILERS: readonly Retailer[] = [
         quote: 'Delivery Costs: £0.01 - £49.99: £3.99 Over £50: Free',
         readAt: '2026-10-01',
       },
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote: 'Standard £3.99 (Thu, 8 Oct to Mon, 12 Oct); Express Delivery (1-2 Working Days) £7.99',
+      },
       notes:
         'A UK subdomain exists (uk.zimayaperfumes.com), which is why this is a retailer rather ' +
         'than a houses.ts entry, on the same reasoning as French Avenue and Armaf. The site-wide ' +
@@ -6006,15 +6010,24 @@ export const RETAILERS: readonly Retailer[] = [
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
+      standardGbp: 2.95,
+      freeOverGbp: 30,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
-      confidence: 'unverified',
+      verifiedAt: '2026-10-03',
+      // Confirmed 2026-10-03 by the owner in the shop's own checkout
+      // (screenshot): "Tracked £2.95 Free on purchases over £30" and "Next Day
+      // £4.95 Free on purchases over £60". The delivery page loads its prices
+      // from a checkout service this project does not call, so this rests on
+      // the owner's own check. The days are not stated there and are unchanged.
+      confidence: 'confirmed',
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote: 'Tracked £2.95, Free on purchases over £30; Next Day £4.95, Free on purchases over £60',
+      },
       notes:
-        'Applied via Awin 2026-08-11. Delivery prices not yet read: the delivery page loads them ' +
-        'from a checkout service this project does not call, and the help article lists the ' +
-        'options (Next Day, Tracked, Click & Collect) without prices. See the 2026-10-03 comment.',
+        'Tracked delivery £2.95, free over £30, read off the shop\'s own checkout by the owner ' +
+        'on 2026-10-03. Next Day (£4.95, free over £60) is an upgrade, not modelled. Applied ' +
+        'via Awin 2026-08-11. See the 2026-10-03 comment for what still keeps the shop off.',
     },
     // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
     // Ambiguous first evidence, not a confirmed block. The catalogue-daily.yml
@@ -7565,38 +7578,40 @@ export const RETAILERS: readonly Retailer[] = [
     // scheduled harvest in commit 3787960 stored Mocha Absolu 100ml EDP at
     // £195 (sku DUSMA100), the UK price, among 1,382 priced rows.
     //
-    // Delivery: the shop's own pages disagree, and the higher figure is
-    // stored. /pages/delivery-and-returns (linked from the home page) says
-    // "Standard UK Delivery - £4.50 Free on orders over £175"; the Shopify
-    // policy page /policies/shipping-policy says "Standard UK Delivery - £3.95
-    // Orders will be delivered within 3 to 5 working days". Storing £4.50 can
-    // only make a Les Senteurs delivered price look less attractive, never
-    // more, which is the safe direction while the two pages disagree. The
-    // owner should confirm in a browser which one the basket charges. The
-    // £150 threshold a search snippet gave in August is not what either page
-    // says now: both say £175.
+    // Delivery: the shop's own pages disagreed on 2026-10-03
+    // (/pages/delivery-and-returns said £4.50, /policies/shipping-policy
+    // £3.95). The owner settled it the same day on a product page's own
+    // Delivery information panel, with an item in the cart: "Standard UK
+    // Delivery - £3.95. Orders will be delivered within 3 to 5 working days",
+    // and "Free UK delivery on orders over £175" above the cart button.
     enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
-      standardGbp: 4.5,
+      standardGbp: 3.95,
       freeOverGbp: 175,
       estimatedDays: [3, 5],
       verifiedAt: '2026-10-03',
       confidence: 'confirmed',
       source: {
-        url: 'https://www.lessenteurs.com/pages/delivery-and-returns',
-        quote: 'Standard UK Delivery - £4.50 Free on orders over £175',
+        url: 'https://www.lessenteurs.com/policies/shipping-policy',
+        quote: 'Standard UK Delivery - £3.95 Orders will be delivered within 3 to 5 working days',
         readAt: '2026-10-03',
       },
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote:
+          'Standard UK Delivery - £3.95. Orders will be delivered within 3 to 5 working days. ' +
+          'Royal Mail Tracked 24 - £5.50. Royal Mail Special Delivery Guaranteed 4 pm - £8.00 ' +
+          '(product page Delivery information, 1 in cart; "Free UK delivery on orders over £175")',
+      },
       notes:
-        'Conflict on the shop\'s own site, read 2026-10-03: /policies/shipping-policy says ' +
-        '"Standard UK Delivery - £3.95" for 3 to 5 working days, /pages/delivery-and-returns ' +
-        'says £4.50. The higher figure is stored until the owner confirms the basket charge. ' +
-        'Both pages agree on free UK delivery over £175. Royal Mail Tracked 24 (£5.50) and ' +
-        'Special Delivery (£7.00 or £8.00, the pages differ again) are upgrades, not modelled. ' +
-        'The estimated days come from the policy page. No affiliate programme has been researched.',
+        'Standard UK delivery £3.95, free over £175, 3 to 5 working days: read by the owner off ' +
+        'a product page with an item in the cart on 2026-10-03, matching the shop\'s shipping ' +
+        'policy page. Its delivery-and-returns page still says £4.50, which is out of date. ' +
+        'Royal Mail Tracked 24 (£5.50) and Special Delivery (£8.00) are upgrades, not modelled. ' +
+        'No affiliate programme has been researched.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -7736,11 +7751,16 @@ export const RETAILERS: readonly Retailer[] = [
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
-    id: 'perfume-price',
-    name: 'Perfume Price',
-    domain: 'perfumeprice.co.uk',
-    homepage: 'https://www.perfumeprice.co.uk',
+    id: 'paco-perfumerias-uk',
+    name: 'Paco Perfumerías UK',
+    domain: 'pacoperfumerias.co.uk',
+    homepage: 'https://www.pacoperfumerias.co.uk',
     tiers: ['designer'],
+    // Was the perfume-price entry (perfumeprice.co.uk). That domain now
+    // redirects here, so on 2026-10-03 the owner chose to switch the entry
+    // over to the store a reader is actually sent to: id, name, domain and
+    // homepage changed, everything below kept. The paco-perfumerias entry is
+    // the separate Spanish .com store and stays as it is.
     // Added 2026-08-20 from WebSearch snippets alone — no page opened, this
     // sandbox has no egress. A registered UK company (PERFUMEPRICE.CO.UK
     // LTD, Companies House number 09965068, per a gov.uk search result),
@@ -8317,6 +8337,9 @@ export const RETAILERS: readonly Retailer[] = [
       verifiedAt: '2026-10-03',
       confidence: 'confirmed',
       standardRateNotPublished: true,
+      // The owner's call, 2026-10-03: keep Morrisons, with a note on any row
+      // below the minimum.
+      minimumOrderGbp: 25,
       // The quote used to be a sign-up promotion ("£5 off your first 3 fast
       // orders with code: 5firstnow *min spend £30"), which states no delivery
       // term. Re-read 2026-10-03 (robots.txt read first; it disallows only
@@ -9088,7 +9111,7 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'off its own delivery page; no CI probe has read it yet.',
   ],
   [
-    'perfume-price',
+    'paco-perfumerias-uk',
     'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
       'about perfumeprice.co.uk comes from WebSearch snippets, including its Companies House ' +
       'registration; its checkout currency has not been read. One positive sterling reading ' +

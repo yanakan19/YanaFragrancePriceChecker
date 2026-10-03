@@ -1631,6 +1631,9 @@ function offerRow(
       );
     }
     if (row.stock !== 'inStock') facts.push(STOCK_LABEL[row.stock]);
+    // A bottle below the shop's minimum basket cannot be bought on its own.
+    const minimum = row.retailer.shipping.minimumOrderGbp;
+    if (minimum && row.itemPriceGbp < minimum) facts.push(`${formatGbp(minimum)} minimum order`);
     // Said on the row it applies to: the page caption gives the freshest age.
     if (row.stale) facts.push(age(row.ageSeconds));
   }

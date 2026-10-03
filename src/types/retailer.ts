@@ -269,6 +269,12 @@ export interface ShippingRule {
     scheme: string;
     description: string;
   };
+  /**
+   * The smallest basket the shop will deliver, where it has one: Morrisons'
+   * online trolley reads "Minimum: £25.00". A bottle priced below it cannot be
+   * ordered on its own, so its row says so. Never applied to the price.
+   */
+  minimumOrderGbp?: number;
   /** ISO-8601 date these figures were last checked against the retailer. */
   verifiedAt: string;
   /**
