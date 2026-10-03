@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.33.0',
+    date: '3 Oct 2026',
+    title: 'Gift sets get their own category',
+    points: [
+      'Gift sets now listed, under Size in filters',
+      'A set is only compared with the same set',
+      'Gift sets are left out of Most stocked',
+    ],
+  },
+  {
     version: 'v3.32.0',
     date: '3 Oct 2026',
     title: 'Older prices move to the price graph',

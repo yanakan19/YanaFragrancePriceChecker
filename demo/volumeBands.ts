@@ -55,8 +55,16 @@
  *   total            15,912
  */
 
-/** One of the five size bands offered under the Volume facet. */
-export type VolumeBand = '0-15' | '15-30' | '30-70' | '70-120' | '120+';
+/**
+ * One of the options offered under the Volume facet: five size bands, and
+ * gift sets as their own category (owner's decision, 2026-10-03). A gift set
+ * is not a bottle of any one volume, so it never falls in a band; it is
+ * filed under 'gift-set' and nowhere else, and no band ever holds one.
+ */
+export type VolumeBand = '0-15' | '15-30' | '30-70' | '70-120' | '120+' | 'gift-set';
+
+/** The Volume facet's gift set option, listed after the five size bands. */
+export const GIFT_SET_BAND = { id: 'gift-set' as const, label: 'Gift Sets' };
 
 export const VOLUME_BANDS: { id: VolumeBand; label: string; min: number; max: number | null }[] = [
   { id: '0-15', label: 'Under 15ml', min: 0, max: 15 },
@@ -82,7 +90,19 @@ export const VOLUME_BANDS: { id: VolumeBand; label: string; min: number; max: nu
  * reports null instead, the same shape `priceBandFor` in demo/app.ts already
  * uses for a delivery cost nobody states.
  */
-export function volumeBandFor(sizeMl: number | null): VolumeBand | null {
+export function volumeBandFor(sizeMl: number | null, isGiftSet = false): VolumeBand | null {
+  if (isGiftSet) return GIFT_SET_BAND.id;
   if (sizeMl === null) return null;
   return (VOLUME_BANDS.find((b) => sizeMl >= b.min && (b.max === null || sizeMl < b.max)) ?? VOLUME_BANDS[VOLUME_BANDS.length - 1]!).id;
+}
+
+/**
+ * The Volume dropdown's options for a list, in a fixed order: the five size
+ * bands smallest first, then Gift Sets. Same rule as every facet: an option
+ * nobody in the list has is left out, and each carries its count.
+ */
+export function volumeOptions(counts: ReadonlyMap<VolumeBand, number>): { value: VolumeBand; label: string; count: number }[] {
+  return [...VOLUME_BANDS, GIFT_SET_BAND]
+    .filter((b) => (counts.get(b.id) ?? 0) > 0)
+    .map((b) => ({ value: b.id, label: b.label, count: counts.get(b.id)! }));
 }

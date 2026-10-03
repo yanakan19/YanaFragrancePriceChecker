@@ -43,6 +43,7 @@ import {
 import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
 import { STALE_OFFER_DAYS } from '../src/services/priceService.js';
 import { offerGroups, offersInPageOrder } from './offerGroups.js';
+import { mostStockedRail, rankedInMostStocked } from './mostStocked.js';
 import type { PresentedOffer, StockState } from '../src/types/offer.js';
 import type { Retailer, RetailerTier, LogoRef } from '../src/types/retailer.js';
 import { logoFor } from './brandLogos.js';
@@ -54,7 +55,7 @@ import {
 import { productArt, photoSrcAttrs, HOUSE_IMG_SIZES, RETRY_ORIGINAL, type ArtSize } from './photo.js';
 import { AA_TEXT, contrastRatio, parseColour, type Rgba } from './contrast.js';
 import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './gender.js';
-import { VOLUME_BANDS, volumeBandFor, type VolumeBand } from './volumeBands.js';
+import { volumeBandFor, volumeOptions, type VolumeBand } from './volumeBands.js';
 import { LIST_SORT_OPTIONS, sortFragrances, type BrowseSort, type ListSort } from './listSort.js';
 import {
   PER_ROW_CHOICES, PER_ROW_DEFAULT, clampPerRow, gridWidthFor, perRowChoicesFor,
@@ -396,41 +397,10 @@ const TIER_LABEL: Record<RetailerTier, string> = {
  */
 const TOP_N = 50;
 
-/**
- * Oils are kept out of the leading list, on the owner's instruction
- * (2026-08-20).
- *
- * A perfume oil is a different product from a bottle of eau de parfum — sold
- * by the roller or the tola, worn differently, priced on a scale that does not
- * compare — so a list whose whole job is "here is what the UK's shops stock,
- * ranked" reads better without them mixed in. 298 of the catalogue's products
- * carry the "Perfume Oil" concentration as of this change (counted over
- * demo/catalogue.generated.ts, 2026-08-20).
- *
- * Excluded from the front-page rail and from the capped Most Stocked list
- * only. An oil still has its own page, still appears under its brand, still
- * comes back in a search for it, and still carries every price we have for it
- * — this hides nothing, it only declines to rank oils against sprays.
- */
-const isOil = (f: DemoFragrance): boolean => f.concentration === 'Perfume Oil';
-
-/**
- * The front-page rail: the most stocked bottle of each of the 12 most stocked
- * brands. Owner feedback, 2026-10-01: ranked straight, 7 of the 12 were French
- * Avenue and 3 were Afnan, which read as an advert for two brands. The full,
- * unmixed ranking is still one tap away under See Top 50.
- */
-const POPULAR = (() => {
-  const seen = new Set<string>();
-  const out: DemoFragrance[] = [];
-  for (const f of BY_POPULARITY) {
-    if (out.length === 12) break;
-    if (isOil(f) || seen.has(f.brand)) continue;
-    seen.add(f.brand);
-    out.push(f);
-  }
-  return out;
-})();
+// Perfume oils and gift sets are kept out of the Most stocked list (the rail
+// and See Top 50); the rule and the rail itself live in demo/mostStocked.ts,
+// where tests/mostStocked.test.ts holds them to the real catalogue.
+const POPULAR = mostStockedRail(BY_POPULARITY);
 
 /**
  * Prices come from the catalogue crawl and the affiliate feed, never from a
@@ -583,7 +553,8 @@ function facetAttrs(f: DemoFragrance): FacetAttrs {
       // see its own comment) belongs to no band, the same "cannot answer, so
       // it does not match a specific band" rule the price band applies to a
       // delivery cost nobody states.
-      volume: volumeBandFor(f.sizeMl),
+      // A gift set is filed under its own Volume option and in no size band.
+      volume: volumeBandFor(f.sizeMl, f.giftSet !== null),
       concentration: concentrationGroupOf(f.concentration),
       gender: genderOf(f),
       tier: f.tier,
@@ -680,9 +651,8 @@ function facetGroups(list: DemoFragrance[]) {
   // gender's three stated readings before "Not stated". Same "only offer what
   // would return something" rule as before: a value nobody here has is left out.
   return {
-    volume: VOLUME_BANDS.filter((b) => (volume.get(b.id) ?? 0) > 0).map((b) => ({
-      value: b.id, label: b.label, count: volume.get(b.id)!,
-    })),
+    // The five size bands, then Gift Sets: see volumeOptions.
+    volume: volumeOptions(volume),
     concentration: CONCENTRATION_GROUPS.filter((g) => (concentration.get(g.id) ?? 0) > 0).map((g) => ({
       value: g.id, label: g.label, count: concentration.get(g.id)!,
     })),
@@ -1075,8 +1045,12 @@ function browseSortControl(current: BrowseSort): string {
  * blank. No hyphen, matching demo/legal.ts's own house style for
  * reader-facing text on this site.
  */
-function sizeLabel(sizeMl: number | null): string {
-  return sizeMl === null ? 'Size not confirmed' : `${sizeMl}ml`;
+function sizeLabel(f: Pick<DemoFragrance, 'sizeMl' | 'giftSet'>): string {
+  // A gift set is its own category (src/catalogue/giftSet.ts): it says so
+  // where a single bottle states its size, and never "Size not confirmed",
+  // which would read as a bottle whose size is in doubt.
+  if (f.giftSet) return 'Gift set';
+  return f.sizeMl === null ? 'Size not confirmed' : `${f.sizeMl}ml`;
 }
 
 /**
@@ -1119,10 +1093,28 @@ function productHead(f: DemoFragrance, tag = 'span', nameRole = 't-title'): stri
       <${wrap} class="phead-name-wrap"><${name} class="phead-name ${nameRole}" title="${esc(f.name)}">${esc(f.name)}</${name}></${wrap}>
     </${wrap}>
     <span class="phead-meta t-caption">
-      <span>${sizeLabel(f.sizeMl)}</span>
+      <span>${sizeLabel(f)}</span>
       <span>${esc(shortConcentration(f.concentration))}</span>
     </span>
   </${tag}>`;
+}
+
+/**
+ * What is in a gift set, under its name on its own page, and the one fact
+ * that sets its prices apart: they are for this set, compared only with the
+ * same set at other shops, never with a single bottle (src/catalogue/giftSet.ts).
+ * The contents are read from the shop's title; where it does not spell them
+ * out, the shop's own title is shown instead of a guess.
+ */
+function giftSetBlock(f: DemoFragrance): string {
+  if (!f.giftSet) return '';
+  const contents = f.giftSet.contents
+    ? `<p class="giftset-contents t-body"><span class="giftset-label">In this set:</span> ${esc(f.giftSet.contents.join(', '))}</p>`
+    : `<p class="giftset-contents t-body"><span class="giftset-label">As the shop lists it:</span> ${esc(f.giftSet.title)}</p>`;
+  return `<div class="giftset-block">
+      ${contents}
+      <p class="giftset-note t-caption">Gift set prices are compared only with this same set, never with a single bottle.</p>
+    </div>`;
 }
 
 /**
@@ -1462,13 +1454,13 @@ function homeView(): string {
 function visibleFragrances(): DemoFragrance[] {
   const q = state.query.trim().toLowerCase();
   // No brand and no query means this is the leading Most Stocked list rather
-  // than a brand page or a search, and oils are kept out of that one list (see
-  // isOil). Dropped here rather than at the slice in browseView so the facet
+  // than a brand page or a search, and oils and gift sets are kept out of that
+  // one list (see demo/mostStocked.ts). Dropped here rather than at the slice in browseView so the facet
   // counts and the row count agree with what is actually listed — a facet
   // offering "17 Perfume Oil" on a page that shows none is worse than either.
   const isTop = !state.brand && !q;
   return BY_POPULARITY.filter((f) => {
-    if (isTop && isOil(f)) return false;
+    if (isTop && !rankedInMostStocked(f)) return false;
     if (state.brand && f.brand !== state.brand) return false;
     if (!q) return true;
     return `${f.brand} ${f.name} ${f.concentration}`.toLowerCase().includes(q);
@@ -1828,7 +1820,7 @@ function historyChartInput(data: PriceHistoryData, fragranceId: string, isCurren
   ];
   const soldOut = line.length === 0 && older.length === 0 ? rows.filter((r) => !r.isPurchasable).map(rowObservation) : [];
 
-  return { line, lineSource, carryForward, older, soldOut, siteLastDay: data.span?.last ?? null, isCurrentlyPurchasable };
+  return { line, lineSource, carryForward, older, soldOut, siteLastDay: data.span?.last ?? null, isCurrentlyPurchasable, isGiftSet: frag?.giftSet != null };
 }
 
 function priceHistoryFor(data: PriceHistoryData, fragranceId: string, isCurrentlyPurchasable: boolean): string {
@@ -1999,7 +1991,7 @@ function wishlistSectionHtml(): string {
               ${monogram(frag.brand)}
               <span class="shop-row-text">
                 <span class="shop-row-name t-title">${esc(frag.brand)} ${esc(frag.name)}</span>
-                <span class="shop-row-meta t-caption">${esc(frag.concentration)}, ${esc(sizeLabel(frag.sizeMl))}${wishlistPriceNote(frag)}</span>
+                <span class="shop-row-meta t-caption">${esc(frag.concentration)}, ${esc(sizeLabel(frag))}${wishlistPriceNote(frag)}</span>
               </span>
               <span class="shop-row-go" aria-hidden="true">→</span>
             </button>
@@ -2348,6 +2340,7 @@ function detailView(): string {
         <div class="hero-art">${productArt(frag.photoUrl, 'lg', `${frag.brand} ${frag.name}`, frag.imageTransform)}</div>
         ${brandButton(frag.brand)}
         ${productHead(frag, 'div', 't-page')}
+        ${giftSetBlock(frag)}
         ${fragranceLinksBlock(frag)}
         ${wishlistButton(frag.id)}
         ${priceBoxRow(frag, rows, best, verdict)}

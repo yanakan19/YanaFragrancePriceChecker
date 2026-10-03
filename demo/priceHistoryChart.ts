@@ -62,6 +62,8 @@ export interface PriceHistoryChartInput {
   /** The last day the site recorded any price for anything (the shared right edge). */
   siteLastDay: string | null;
   isCurrentlyPurchasable: boolean;
+  /** A gift set's graph says "Set prices" where a bottle's says "Bottle prices". */
+  isGiftSet?: boolean;
 }
 
 /**
@@ -210,7 +212,7 @@ function chartCaption(input: PriceHistoryChartInput, realReadings: number, marke
   if (markers.some((m) => m.kind === 'older')) {
     parts.push(`Hollow points are older prices, not checked in the last ${STALE_OFFER_DAYS} days.`);
   }
-  parts.push('Bottle prices, before delivery.');
+  parts.push(input.isGiftSet ? 'Set prices, before delivery.' : 'Bottle prices, before delivery.');
   return parts.join(' ');
 }
 

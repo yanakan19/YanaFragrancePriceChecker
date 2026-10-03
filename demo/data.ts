@@ -79,6 +79,15 @@ export interface DemoFragrance {
    * 105ml at ~£69 while armaf.uk itself lists £37.99), and is not this.
    */
   houseCeiling: number | null;
+  /**
+   * Set only on a gift set (src/catalogue/giftSet.ts, owner's decision
+   * 2026-10-03): its own category, shown with "Gift set" where a size would
+   * be, filed under its own Volume option, never matched or compared with a
+   * single bottle and never in the home page's Most stocked list. sizeMl is
+   * always null on one. `contents` is what the shop's title spells out, or
+   * null, in which case `title` (the shop's own) is shown instead.
+   */
+  giftSet: { contents: string[] | null; title: string } | null;
 }
 
 /**
@@ -203,6 +212,7 @@ export const DEMO_FRAGRANCES: DemoFragrance[] = CATALOGUE.map((entry) => ({
   // absent key and an explicit undefined are different things. One shape here
   // means every reader tests one thing.
   houseCeiling: entry.houseCeiling ?? null,
+  giftSet: entry.giftSet ?? null,
 }));
 
 const BY_ID = new Map(DEMO_FRAGRANCES.map((f) => [f.id, f]));

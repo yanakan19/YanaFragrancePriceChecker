@@ -1,6 +1,7 @@
 import type { StoredListing } from './types.js';
 import { getRetailer } from '../config/retailers.js';
 import { trustworthyEan } from './productMatch.js';
+import { giftSetId, isGiftSet } from './giftSet.js';
 
 /**
  * What decides whether a listing is a fragrance, and the identity a
@@ -35,7 +36,7 @@ import { trustworthyEan } from './productMatch.js';
  * concentrated-oil style Middle Eastern perfumery uses, relevant because the
  * registry already models a 'mideast' tier for three retailers.
  */
-const CONCENTRATION =
+export const CONCENTRATION =
   /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche|eau parfumee|parfumee|parfum|perfume|edp|edt|edc|aftershave|cologne|extrait|attar|oud)\b/i;
 
 /**
@@ -140,10 +141,10 @@ export const NOT_A_FRAGRANCE =
  * dog"), nothing else. "your" is required so a perfume described as "a
  * bottle shaped like a cat" (Katy Perry Purr) is not touched.
  */
-const PET_PRODUCT = /\byour (dog|pet)s?\b/i;
+export const PET_PRODUCT = /\byour (dog|pet)s?\b/i;
 
 /** A barber shop range, by title or brand: see isFragrance. */
-const BARBER = /\bbarber\b/i;
+export const BARBER = /\bbarber\b/i;
 
 /**
  * A description that calls the listing a gift set with a body wash or shower
@@ -161,7 +162,7 @@ const BARBER = /\bbarber\b/i;
  * word lists above already catch (a Firetrap "& Bodywash" and the Montblanc
  * "& Showergel").
  */
-const DESCRIBED_AS_WASH_GIFT_SET =
+export const DESCRIBED_AS_WASH_GIFT_SET =
   /gift set[^.]*\b(body ?wash|shower ?gel)\b|\b(body ?wash|shower ?gel)\b[^.]*gift set/i;
 
 /**
@@ -786,10 +787,10 @@ const MULTI_ITEM = /\bset\b|\bwardrobe\b|\b\d+\s*x\b|\bx\s*\d+\b/i;
  *
  * A bare `\bset\b` is not safe globally either, for the same class of reason:
  * "Tommy Bahama Set Sail Cologne St. Barts Eau de Cologne 100ml Spray" is one
- * 100ml bottle whose own name contains the word, and Fragrance Click's "Burberry
- * Her 100ml Eau de Parfum + 10ml Set" really is a 100ml bottle with a
- * miniature beside it — the headline size `sizeMl` reads is the right one, so
- * there is nothing to fix and dropping it would lose a real offer.
+ * 100ml bottle whose own name contains the word. (Fragrance Click's "Burberry
+ * Her 100ml Eau de Parfum + 10ml Set" used to be kept here as its headline
+ * 100ml bottle; since 2026-10-03 it is a gift set, its own product, see
+ * src/catalogue/giftSet.ts.)
  *
  * The count must be 2 or more. "1 x 5ml" names a single bottle, and while every
  * such title in the catalogue today is already rejected for other reasons (all
@@ -800,7 +801,7 @@ const MULTI_PACK = /\b([2-9]|[1-9]\d)\s*[x×]\s*\d{1,4}(?:\.\d)?\s*ml\b/i;
 /** A Shopify `product_type` that names several items sold as one. */
 const BUNDLE_PRODUCT_TYPE = /^\s*bundles?\s*$/i;
 
-function sellsOnlyFragrance(retailerId: string): boolean {
+export function sellsOnlyFragrance(retailerId: string): boolean {
   return getRetailer(retailerId)?.fragranceOnlyCatalogue === true;
 }
 
@@ -823,6 +824,11 @@ function sellsOnlyFragrance(retailerId: string): boolean {
  */
 function fold(title: string): string {
   return repairMojibake(title).normalize('NFD').replace(/[̀-ͯ]/g, '');
+}
+
+/** The same folding, for src/catalogue/giftSet.ts, so both read one text. */
+export function foldTitle(title: string): string {
+  return fold(title);
 }
 
 /**
@@ -968,7 +974,16 @@ export function repairMojibake(title: string): string {
   return out;
 }
 
+/**
+ * Whether a listing is a single fragrance: one bottle, comparable with the
+ * same bottle at another shop. A gift set never is (src/catalogue/giftSet.ts,
+ * owner's decision 2026-10-03): it is its own product, never matched or
+ * compared with a single bottle, so it is asked about first. 78 listings this
+ * function used to keep as single bottles carry "Set" as a product word
+ * ("Guerlain Shalimar 50ml Eau de Parfum Set") and now go to gift sets.
+ */
 export function isFragrance(l: StoredListing): boolean {
+  if (isGiftSet(l)) return false;
   const t = fold(l.rawTitle);
   if (NOT_A_FRAGRANCE.test(t)) return false;
   // Barber shop colognes: Debenhams' "Barber Marmara" range (No.3 Turkish
@@ -1022,6 +1037,18 @@ export function isFragrance(l: StoredListing): boolean {
 }
 
 /**
+ * Whether a listing belongs in the catalogue at all: a single fragrance, or a
+ * fragrance gift set (its own category; see src/catalogue/giftSet.ts). The
+ * one gate scripts/build-demo-catalogue.ts and scripts/priceHistoryReplay.ts
+ * both ask, so the two can never disagree about what is in it. A gift set
+ * still needs a price.
+ */
+export function isCatalogueListing(l: StoredListing): boolean {
+  if (isFragrance(l)) return true;
+  return typeof l.priceGbp === 'number' && l.priceGbp > 0 && isGiftSet(l);
+}
+
+/**
  * EAN groups the same bottle across shops. Without one a listing can only
  * stand alone, which is honest: we cannot claim two titles are the same
  * product until the matcher exists.
@@ -1045,6 +1072,8 @@ export function isFragrance(l: StoredListing): boolean {
  * failure this file's own header warns about.
  */
 export function fragranceId(l: StoredListing, untrustworthy?: ReadonlySet<string>): string {
+  // A gift set's own identity, never a single bottle's: see giftSetId.
+  if (isGiftSet(l)) return giftSetId(l, untrustworthy);
   const ean = untrustworthy ? trustworthyEan(l, untrustworthy) : l.ean;
   return ean
     ? `ean-${ean}`
