@@ -386,6 +386,14 @@ if (useApifyActor && actorConfig) {
 // evading it.
 const ROBOTS_FALLBACK_HEADERS = robotsHeaderVariants(BROWSER_HEADERS);
 
+/**
+ * A shop asked only as ourselves: a pinned sitemap route, or a registry entry
+ * that says `botIdentityOnly`. Every request carries `ROUTE_HEADERS`, robots.txt
+ * is not asked a second time in a browser's clothes, and no proxy is used.
+ */
+const asBotOnly = (retailer: { sitemapRoute?: unknown; botIdentityOnly?: boolean }): boolean =>
+  Boolean(retailer.sitemapRoute) || retailer.botIdentityOnly === true;
+
 const http: Http = createHttp();
 
 const store = new CatalogueStore(resolve(root, 'data/catalogue'));
@@ -559,7 +567,7 @@ async function refreshFromPlatform(
 ): Promise<{ platform: RefreshPlatform | null; refresh: CatalogueRefreshResult | null; requests: number; note: string | null }> {
   // A shop on a pinned route is only ever asked as ourselves (see SitemapRoute
   // in src/types/retailer.ts), and that holds for its catalogue feed too.
-  const headers = retailer.sitemapRoute ? ROUTE_HEADERS : BROWSER_HEADERS;
+  const headers = asBotOnly(retailer) ? ROUTE_HEADERS : BROWSER_HEADERS;
   let requests = 1;
   const shopify = await looksLikeShopify(retailer, http, robots, headers);
   if (shopify === 'refused') return { platform: null, refresh: null, requests, note: null };
@@ -624,7 +632,7 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
   // A shop with a pinned route is only ever asked as ourselves, robots.txt
   // included: no second, browser-shaped request for the file. See SitemapRoute
   // in src/types/retailer.ts.
-  const robotsFallback = retailer.sitemapRoute ? [] : ROBOTS_FALLBACK_HEADERS;
+  const robotsFallback = asBotOnly(retailer) ? [] : ROBOTS_FALLBACK_HEADERS;
   let robotsProbe = await probeRobots(retailer, http, BOT_HEADERS, robotsFallback);
   // ── A robots.txt that never answered is asked once more, later ────────────
   // Every attempt at HTTP 0 means no connection, not a refusal: Perfumeo's
@@ -653,6 +661,9 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
     (robots.crawlDelaySeconds ?? 0) * 1000,
     gapMinMs,
   );
+
+  // Who every request below says it is.
+  const shopHeaders = asBotOnly(retailer) ? ROUTE_HEADERS : BROWSER_HEADERS;
 
   // What we already hold, so the walk can spend its budget on products it has
   // not seen instead of re-fetching the same head of the sitemap every hour.
@@ -763,7 +774,7 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
     // SHOPIFY_PAGE_SIZE in src/catalogue/shopifyProductsCrawl.ts for what
     // tying the two together cost.
     const shopifyResult = await crawlViaShopifyProducts({
-      retailer, http, robots, headers: BROWSER_HEADERS, maxPages: SHOPIFY_MAX_PAGE, gapMs, onProgress: heartbeat,
+      retailer, http, robots, headers: shopHeaders, maxPages: SHOPIFY_MAX_PAGE, gapMs, onProgress: heartbeat,
       deadlineAt: shopDeadlineAt,
     });
 
@@ -846,7 +857,7 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
       };
     } else {
       result = await crawlViaSitemap({
-        retailer, http, robots, maxPages: discoveryPages, gapMs, headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat, ...sweep,
+        retailer, http, robots, maxPages: discoveryPages, gapMs, headers: shopHeaders, knownUrls, onProgress: heartbeat, ...sweep,
       });
       // Whatever the /products.json attempt learned must survive the fallback.
       // It used not to: `result` was replaced wholesale by the sitemap walk's
@@ -864,7 +875,7 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
     }
   } else {
     result = await crawlViaSitemap({
-      retailer, http, robots, maxPages: discoveryPages, gapMs, headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat, ...sweep,
+      retailer, http, robots, maxPages: discoveryPages, gapMs, headers: shopHeaders, knownUrls, onProgress: heartbeat, ...sweep,
     });
   }
   let withPrice = result.listings.filter((l) => l.priceGbp !== null);
@@ -908,7 +919,7 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
     if (!patientRobots.unavailable) robotsForActor = patientRobots;
     const retry = await crawlViaSitemap({
       retailer, http: patientHttp, robots: patientRobots, maxPages: discoveryPages, gapMs,
-      headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat, ...sweep,
+      headers: shopHeaders, knownUrls, onProgress: heartbeat, ...sweep,
     });
     const retryWithPrice = retry.listings.filter((l) => l.priceGbp !== null);
     if (retryWithPrice.length > 0) {
@@ -922,7 +933,7 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
 
   // Never for a shop with a pinned route: that route asks as ourselves, from
   // our own address, and a proxy is neither.
-  if (withPrice.length === 0 && feedListings.length === 0 && useProxy && !retailer.sitemapRoute) {
+  if (withPrice.length === 0 && feedListings.length === 0 && useProxy && !asBotOnly(retailer)) {
     const proxiedHttp = apifyProxyHttp(proxyConfig!);
     const proxiedProbe = await probeRobots(retailer, proxiedHttp, BOT_HEADERS, ROBOTS_FALLBACK_HEADERS);
     const proxiedRobots = proxiedProbe.rules;

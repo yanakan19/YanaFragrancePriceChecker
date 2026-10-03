@@ -454,6 +454,44 @@ export interface CatalogueConfig {
 }
 
 /**
+ * Which Shopify variants are ordinary UK retail bottles.
+ *
+ * `parseShopifyProducts` turns every variant of every product into a listing,
+ * which is right for a shop whose variants are sizes. Bloom Perfumery's are
+ * not: each size is listed several times under an "Info" option (ol, tf, sd,
+ * tfsd, ato), alongside 1 ml samples, sample packs, atomizer refills, raw
+ * materials and vouchers, and publishing the cheapest of those as the UK
+ * price would show a shopper a figure they cannot pay. This is the shop's
+ * own distinction written down, measured shop by shop, never guessed.
+ *
+ * A product, and then a variant, is kept only if it passes every test set.
+ * A test naming an option the product does not have drops the product.
+ */
+export interface ShopifyVariantRule {
+  /** Keep only products whose `product_type` is one of these (case blind). */
+  productTypes?: readonly string[];
+  /**
+   * Options the product must carry, by name (case blind). A fragrance sold
+   * with a concentration has one; a hand sanitizer filed under the same
+   * product type does not.
+   */
+  requiredOptions?: readonly string[];
+  /**
+   * The option that separates the UK retail list from the others, by the name
+   * the product gives it, and the values that are the UK retail list. The
+   * option is left out of the listing's title.
+   */
+  marketOption?: { name: string; keep: readonly string[] };
+  /**
+   * The option that carries the bottle size. Only a single plain millilitre
+   * size passes ("50 ml", "7.5 ml"); multipacks ("2×7.5 ml"), formats ("10 ml
+   * roll-on") and sample packs ("9 x 1 ml") do not, and nothing under `minMl`
+   * does.
+   */
+  sizeOption?: { name: string; minMl: number };
+}
+
+/**
  * A shop's sitemap walk, written down rather than guessed.
  *
  * The generic walk in `src/catalogue/sitemapCrawl.ts` guesses which sitemaps
@@ -599,6 +637,22 @@ export interface Retailer {
    * every harvest for a retailer that turns out not to be Shopify at all.
    */
   shopifyStorefront?: boolean;
+  /**
+   * Which of a Shopify product's variants are the shop's ordinary UK retail
+   * bottles, for a storefront whose `/products.json` lists more than that.
+   * Read by `parseShopifyProducts`; see `ShopifyVariantRule`. Unset for every
+   * shop whose every variant is a UK bottle, which is all of them but one.
+   */
+  shopifyVariantRule?: ShopifyVariantRule;
+  /**
+   * Every request to this shop, `robots.txt` and the catalogue alike, carries
+   * the crawler's own honest user agent (`ROUTE_HEADERS`), never a browser's,
+   * and `robots.txt` is not asked a second time in a browser's clothes. A
+   * pinned `sitemapRoute` already behaves this way; this is the same
+   * commitment for a Shopify `/products.json` walk. Set only on an owner's or
+   * a brief's instruction to identify as the bot alone.
+   */
+  botIdentityOnly?: boolean;
   /**
    * The owner has decided that this shop's UK storefront price is acceptable
    * even though the shop converts it live from another currency, and has
