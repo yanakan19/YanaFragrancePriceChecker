@@ -315,36 +315,36 @@
     "john-lewis::section-plain": {
       "strategyId": "section-plain",
       "retailerId": "john-lewis",
-      "attempts": 5,
+      "attempts": 6,
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": 200,
       "lastError": null,
-      "lastTriedAt": "2026-08-10T18:36:51.132Z",
+      "lastTriedAt": "2026-10-03T02:16:59.807Z",
       "lastSucceededAt": null,
       "ruledOut": null
     },
     "john-lewis::section-browser-headers": {
       "strategyId": "section-browser-headers",
       "retailerId": "john-lewis",
-      "attempts": 5,
+      "attempts": 6,
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": 0,
       "lastError": "AbortError: This operation was aborted",
-      "lastTriedAt": "2026-08-10T18:37:13.636Z",
+      "lastTriedAt": "2026-10-03T02:17:22.308Z",
       "lastSucceededAt": null,
       "ruledOut": null
     },
     "john-lewis::sitemap-discovery": {
       "strategyId": "sitemap-discovery",
       "retailerId": "john-lewis",
-      "attempts": 5,
+      "attempts": 6,
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": 200,
       "lastError": "HTTP 200",
-      "lastTriedAt": "2026-08-10T18:38:57.169Z",
+      "lastTriedAt": "2026-10-03T02:19:06.253Z",
       "lastSucceededAt": null,
       "ruledOut": null
     },
@@ -363,12 +363,12 @@
     "john-lewis::homepage-probe": {
       "strategyId": "homepage-probe",
       "retailerId": "john-lewis",
-      "attempts": 5,
+      "attempts": 6,
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": 0,
       "lastError": "AbortError: This operation was aborted",
-      "lastTriedAt": "2026-08-10T18:39:19.671Z",
+      "lastTriedAt": "2026-10-03T02:16:53.803Z",
       "lastSucceededAt": null,
       "ruledOut": null
     },
@@ -1115,7 +1115,31 @@
       "lastTriedAt": "2026-08-19T17:58:42.680Z",
       "lastSucceededAt": null,
       "ruledOut": null
+    },
+    "john-lewis::proxied-fetch": {
+      "strategyId": "proxied-fetch",
+      "retailerId": "john-lewis",
+      "attempts": 1,
+      "successes": 0,
+      "listingsFound": 0,
+      "lastStatus": 0,
+      "lastError": "TypeError: fetch failed (Error: Request was cancelled.)",
+      "lastTriedAt": "2026-10-03T02:16:56.546Z",
+      "lastSucceededAt": null,
+      "ruledOut": null
+    },
+    "john-lewis::browser-render": {
+      "strategyId": "browser-render",
+      "retailerId": "john-lewis",
+      "attempts": 1,
+      "successes": 0,
+      "listingsFound": 0,
+      "lastStatus": 200,
+      "lastError": "HTTP 200",
+      "lastTriedAt": "2026-10-03T02:20:02.740Z",
+      "lastSucceededAt": null,
+      "ruledOut": null
     }
   },
-  "updatedAt": "2026-08-19T17:58:42.680Z"
+  "updatedAt": "2026-10-03T02:20:02.740Z"
 }
