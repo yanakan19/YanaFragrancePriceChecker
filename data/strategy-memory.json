@@ -1139,7 +1139,19 @@
       "lastTriedAt": "2026-10-03T02:20:02.740Z",
       "lastSucceededAt": null,
       "ruledOut": null
+    },
+    "marks-and-spencer::sitemap-discovery": {
+      "strategyId": "sitemap-discovery",
+      "retailerId": "marks-and-spencer",
+      "attempts": 1,
+      "successes": 1,
+      "listingsFound": 8,
+      "lastStatus": 200,
+      "lastError": null,
+      "lastTriedAt": "2026-10-03T10:45:53.955Z",
+      "lastSucceededAt": "2026-10-03T10:45:53.955Z",
+      "ruledOut": null
     }
   },
-  "updatedAt": "2026-10-03T10:10:45.885Z"
+  "updatedAt": "2026-10-03T10:45:53.955Z"
 }
