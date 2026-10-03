@@ -5048,6 +5048,27 @@ export const RETAILERS: readonly Retailer[] = [
     // per-request FX math), but the same fact about the shop: no GBP price
     // list independent of a euro one has ever been found here, by either
     // route. /gb, /uk, /en-uk still 404 — no market-prefix layout.
+    //
+    // ── Rechecked 2026-10-03: a sterling label, still not a sterling list ───
+    // robots.txt read first (it permits /products/ and /*/products/, and
+    // disallows /cart/, /cart.js and /checkout, none of which was asked). One
+    // thing has moved: /en-gb now answers GBP where on 2026-08-13 it answered
+    // USD, and the bare origin (which sent this fetcher to /it-it) answers
+    // EUR at rate 1.0. But /en-gb's own `Shopify.currency` is
+    // {"active":"GBP","rate":"0.86691738"}: a conversion, not a list kept in
+    // pounds. Six perfumes read at /it-it/products/<handle>.js and
+    // /en-gb/products/<handle>.js on the same day agree with "euros times
+    // 0.86691738, rounded up to the whole pound" every time:
+    //   salum-parfums-midnight-diving-extrait-de-parfum 50 ml  €145 -> £126
+    //   tauer-patch-absolue-de-parfum 50 ml                    €175 -> £152
+    //   juliette-has-a-gun-purple-trouble-eau-de-parfum 50 ml  €105 -> £92
+    //   akro-east-extrait-de-parfum 30 ml / 100 ml   €115 / €230 -> £100 / £200
+    //   superz-budapest-travel-kit-1-extrait-de-parfum 3x10 ml €95 -> £83
+    // So the bar this entry sets is still unmet, and it stays off. What would
+    // move it is the owner's call, not a measurement: whether a sterling
+    // figure the shop converts live, and would presumably charge in pounds,
+    // is good enough. A basket read by hand, as Escentual's was, would settle
+    // what the checkout charges.
     enabled: false,
     adapter: 'affiliate-feed',
     shopifyStorefront: true,
@@ -5540,7 +5561,10 @@ export const RETAILERS: readonly Retailer[] = [
       estimatedDays: [3, 5],
       verifiedAt: '2026-08-11',
       confidence: 'unverified',
-      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+      notes:
+        'Applied via Awin 2026-08-11. Delivery prices not yet read: the delivery page loads them ' +
+        'from a checkout service this project does not call, and the help article lists the ' +
+        'options (Next Day, Tracked, Click & Collect) without prices. See the 2026-10-03 comment.',
     },
     // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
     // Ambiguous first evidence, not a confirmed block. The catalogue-daily.yml
@@ -5563,6 +5587,53 @@ export const RETAILERS: readonly Retailer[] = [
     // concrete check, cheaper than Apify and worth doing before assuming
     // this belongs in the same tier as very.co.uk. `catalogue: null` still
     // means no confirmed category URL exists for any adapter regardless.
+    //
+    // ── 2026-10-03: sterling exists; a route and a delivery cost do not ─────
+    // That next check was done, by plain fetch, robots.txt first. Recorded so
+    // the next person starts from it rather than from the probe above.
+    //
+    // robots.txt disallows /c/, /a/, /b/, /l/?q=*, /bag, /checkout/,
+    // /account/, /login/ and the same under /fr/, /de/, /es/, /ar/. Product
+    // pages (/p/<brand>/<product>/<variant>/) and the /l/ aisles are allowed.
+    // It names 17 sitemaps; /.sitemaps/sitemap-p.xml lists 2,755 product URLs,
+    // of which 57 carry a perfume word: Sabrina Carpenter 21, Ariana Grande
+    // 20, Shay & Blue 16, then a handful of mists. A small perfume range.
+    //
+    // The server HTML carries no price. A product page answers HTTP 200 with
+    // a 12,609 byte app shell from S3 behind CloudFront: no JSON-LD, no
+    // figure, and an `X-Locale=en-US` cookie for this fetcher (served from
+    // CloudFront's IAD edge, so it was placed in the US). The
+    // price arrives afterwards from the page's own API,
+    // pdp-api.public.prd.beautybay.com/product/<brand>-<product>?variant=…
+    // &locale=… (robots.txt on that host: HTTP 404, so unrestricted). Asked
+    // for ariana-grande-cloud-eau-de-parfum-spray, variant 50ml:
+    //   locale=en-GB  "£45.00", itemCurrency GBP
+    //   locale=en-US  "$52.50", itemCurrency USD
+    // and its `prices` array holds separate bands: UK and GB at 45 GBP, EURO
+    // 54.5 EUR, AUD 89.5 AUD. So the UK storefront has a genuine sterling
+    // price list, not a conversion, and a fetcher in the US is shown dollars
+    // unless it asks for en-GB. That is the Escentual trap, and any route
+    // added here must pin the locale.
+    //
+    // What blocks enabling, three things:
+    //   1. No standard delivery cost has been read. /delivery is drawn in the
+    //      browser from checkout-page-api.public.prd.beautybay.com
+    //      /delivery-options/<country>/, a checkout service, deliberately not
+    //      asked. The help article "Delivery Options (England/Scotland/Wales)"
+    //      (customer-service-api.public.prd.beautybay.com/article/
+    //      78MFOYzj0ybpErRIERuZf8) names Next Day, Tracked (2 to 3 days after
+    //      dispatch) and Click & Collect, carrier Evri, and no prices. The pdp
+    //      API's /delivery/ message says only "Free delivery available" at
+    //      both £10 and £45, which is not a rate. The owner can read the
+    //      figure off https://www.beautybay.com/delivery in a browser.
+    //   2. No harvest route this project has. The sitemap walk finds the
+    //      product URLs but their HTML has nothing to parse. The render tier
+    //      renders section pages only, at most 12 a run, and a CI runner is
+    //      shown en-US, so a render would read dollars. The JSON API above
+    //      works but no adapter reads it.
+    //   3. A local render could not be tried from this sandbox (Chromium does
+    //      not trust its proxy's certificate), and no CI probe was spent on
+    //      it, because points 1 and 2 already decide the outcome.
     catalogue: null,
     affiliate: { ...awinRequested() },
   },
@@ -5608,6 +5679,13 @@ export const RETAILERS: readonly Retailer[] = [
     // -- --shop=fragrancedirect` from CI says whether it carries anything.
     // Re-check the domain itself first: a storefront that comes back is the
     // thing that would change this entry.
+    //
+    // ── Rechecked 2026-10-03: still the holding page ────────────────────────
+    // `/robots.txt` (HTTP 404), `/` (HTTP 200) and `/sitemap.xml` (HTTP 404)
+    // each returned the same 5,063 bytes, titled "Fragrance Direct | We're
+    // making some changes", still `noindex, nofollow`, and its only links are
+    // its own favicon and https://www.allbeauty.com. No storefront, so
+    // nothing changes here.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -5621,8 +5699,8 @@ export const RETAILERS: readonly Retailer[] = [
         // Merchant id 9, same account-wide network as Fragrance Click UK's — found while
         // confirming this domain, not guessed.
         'Applied via Awin 2026-08-11 (merchant id 9). Delivery terms and page structure not yet read. ' +
-        'As of 2026-09-10 the domain serves only a holding page pointing at allbeauty.com — see the ' +
-        'dated comment above.',
+        'As of 2026-09-10, and again when rechecked on 2026-10-03, the domain serves only a ' +
+        'holding page pointing at allbeauty.com. See the dated comments above.',
     },
     catalogue: null,
     affiliate: { ...awinRequested('9') },
@@ -8013,7 +8091,11 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'computed rate of 0.8729568, a live Shopify-Markets conversion of the same euro figure, ' +
       'not a second genuine sterling list; this is a different mechanism from the Awin feed\'s ' +
       'fixed 1.3490 divisor above, but the same underlying fact: no GBP price list independent ' +
-      'of a euro one has been found here by any route tried.',
+      'of a euro one has been found here by any route tried. Rechecked 2026-10-03: /en-gb now ' +
+      'answers GBP (it answered USD on 2026-08-13) but at rate 0.86691738, and six perfumes ' +
+      'read at /it-it and /en-gb the same day all match euros times that rate rounded up to ' +
+      'the whole pound (e.g. 145 EUR to 126 GBP, 230 EUR to 200 GBP). Still a conversion, ' +
+      'still off.',
   ],
   [
     'carethy',
