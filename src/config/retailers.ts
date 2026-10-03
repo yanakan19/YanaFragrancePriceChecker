@@ -2530,12 +2530,13 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: {
       searchUrlTemplate: 'https://www.selfridges.com/GB/en/search/?freeText={q}',
       sections: [
-        // renderPages 5 (2026-10-03): the render tier read page one only, 60
-        // of the 293 listings held, so the other 233 were never re-priced
-        // (72 of 293 confirmed in the 48 hours to that morning). Five pages
-        // of 60 is the whole held range, ~10s a page through the local
-        // render, inside its 120s per shop slice.
-        { id: 'fragrance', label: 'Beauty fragrance', urlTemplate: 'https://www.selfridges.com/GB/en/cat/beauty/fragrance/?pn={page}', tier: 'niche', renderPages: 5 },
+        // One rendered page, not five. renderPages 5 was tried on 2026-10-03
+        // (run #577) to re-price the 233 of 293 held listings page one never
+        // reaches: pages 2 to 5 were refused ("refused 4 page(s)"), page one
+        // still gave its 60. A refusal is not asked again, so the rest of the
+        // held range ages out under HIDE_OFFER_AFTER_DAYS; that is Selfridges
+        // refusing us, not the harvest falling behind.
+        { id: 'fragrance', label: 'Beauty fragrance', urlTemplate: 'https://www.selfridges.com/GB/en/cat/beauty/fragrance/?pn={page}', tier: 'niche' },
       ],
       firstPage: 1, maxPages: 50, minRequestGapMs: 2500,
     },
