@@ -5294,6 +5294,13 @@ export const RETAILERS: readonly Retailer[] = [
     // then from a runner: probe run #572 (job 111194929097), 8 of 8
     // listings priced in GBP (Zarkoperfume Oud'Ish, Molecule 234·38 and
     // Ménage à Trois Eau de Parfum Unisex 100 ml at £144 among them).
+    // First harvest, run #586: 5,789 /en-gb/ URLs on the route, 24 pages, 24
+    // listings, all priced in GBP. Checked against the shop's own pages the
+    // same day: Zarkoperfume Oud'Ish 100 ml £144 and Pink Molecule 090.09
+    // 50 ml £99, Fugazzi Parfum 1 50 ml £145, Heretic Dirty Coconut 50 ml
+    // £165, Diptyque Eau des Sens 50 ml £112: all match, sizes too. One room
+    // diffuser (Trudon Camées Parfumés) got past the address filter; its
+    // title names no concentration, so the fragrance test downstream drops it.
     // Delivery is now read, not unread: the shop states free UK
     // delivery over £75 on every product page and publishes no rate below it
     // (see shipping below), so its offers show as delivery not stated under
@@ -6016,6 +6023,14 @@ export const RETAILERS: readonly Retailer[] = [
     // 50/100 ml £18.95/£45.43/£64.68/£85.54. Prices are as the page states
     // them, including where a smaller size costs more than a larger one
     // (Light Blue EDT 30 ml £48.75, 50 ml £46.63 on index_13043.aspx).
+    // First harvest, run #582: 24 pages, 69 listings, all priced in GBP.
+    // Checked against the shop's own pages the same day: The One EDP 50 ml
+    // £55.50, Devotion EDP 50 ml £51.68, K by Dolce&Gabbana EDT 100 ml £52.93,
+    // Pleasures EDP 30 ml £45.43, Light Blue EDT 30 ml £48.75: all match.
+    // The page also shows a lower "premium" member price (The One 50 ml
+    // £49.95); the ordinary price is the one stored, as membership prices are
+    // never modelled. A few variants are sets ("Eau de Toilette 100 ml +
+    // Shower Gel 50 ml ..."), left to the gift set handling downstream.
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
@@ -6165,6 +6180,11 @@ export const RETAILERS: readonly Retailer[] = [
     // each size's own itemCurrency (Ariana Grande Cloud EDP 30/50/100ml
     // £35/£45/£55, God Is A Woman EDP 30/50/100ml £33/£43/£53). The range is
     // small: Ariana Grande, Sabrina Carpenter, Shay & Blue and a few mists.
+    // First harvest, run #587: 43 product URLs, 11 API requests, 29 listings
+    // (every size of each product), all priced in GBP. Checked against the
+    // same API the same day: Billie Eilish Your Turn EDP 30ml £55, 50ml £45.50
+    // (was £65, the shop's own reference price), 100ml £72; Ariana Grande
+    // R.E.M. EDP 50ml £40, 100ml £50: all match.
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
@@ -7594,6 +7614,12 @@ export const RETAILERS: readonly Retailer[] = [
     // Juliette Has A Gun Mmmm... 7.5/50/100ml £25/£100/£140. Confirmed from a
     // runner before this was set: probe run #568 (job
     // 111190333421), 607 URLs, 18 of 18 listings priced in GBP.
+    // First harvest, run #581: 24 pages, 52 listings priced (43 distinct
+    // skus, since a page lists its sibling sizes too), all GBP. Five checked
+    // against the shop's own pages the same day: PHLUR Not Your Baby EDP 50ml
+    // £74.25, Tom Ford Grey Vetiver Parfum 50ml £135, Hermès H24 EDP 100ml
+    // £123, Vyrao The Sixth EDP 50ml £170, Acqua di Parma Mandarino di
+    // Sicilia EDT 100ml £156: all match.
     //
     // Delivery, rechecked the same day: /uk/shipping now redirects to the
     // home page, whose banner still reads "FREE UK STANDARD DELIVERY on all
@@ -7992,7 +8018,9 @@ export const RETAILERS: readonly Retailer[] = [
       requireGbp: true,
       titleParts: [
         '<h4>\\s*([^<|]{3,60})\\|',
-        'Product Size</div>\\s*<div[^>]*>\\s*<p>\\s*([^<]{1,30})</p>',
+        // The size alone, so "50ml - 20% perfume oil concentration" (1907
+        // Parfums Mon Âme, read 2026-10-03) gives "50ml".
+        'Product Size</div>\\s*<div[^>]*>\\s*<p>\\s*(\\d+(?:\\.\\d+)?\\s*ml)\\b',
       ],
     },
     //
@@ -8003,6 +8031,13 @@ export const RETAILERS: readonly Retailer[] = [
     // Sideshow Eau de Parfum 100ml, £95 each); the other 4 pages were stale
     // sitemap entries that answer 404. Requests are 10 s apart throughout,
     // robots.txt's own crawl delay, the sitemap included.
+    // First harvest, run #584: 20 listings, all priced in GBP. Checked
+    // against the shop's own pages the same day (11 s apart): Gri Gri Tara
+    // Mantra EDP 100ml £95, Manos Gerakinis Rose Poetique EDP 100ml £175,
+    // Extrait D'Atelier Maître Jardinier 100ml £190 and 10ml £45, 1907 Parfums
+    // Mon Âme £190: all match. 1907 Parfums prints its size as "50ml - 20%
+    // perfume oil concentration", which the size pattern missed, so those two
+    // reached the snapshot unsized; the pattern now reads the size alone.
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
@@ -8108,6 +8143,13 @@ export const RETAILERS: readonly Retailer[] = [
     // read again off https://www.pacoperfumerias.co.uk/delivery-and-returns/
     // the same day and is unchanged: "Royal Mail Tracked 48 Free over £25 2 to
     // 3 working days £2.95 on orders under £25."
+    // First harvest, run #583: 24 pages, 24 listings, all priced in GBP.
+    // Checked against the shop's own pages the same day: Calvin Klein
+    // Eternity EDP 100ml £40.25, CK Be EDT 200ml £22.50, Obsession for Men
+    // EDT 125ml £18.95, Eternity Moment EDP 100ml £23.99, CK All EDT 200ml
+    // £28.99: each the page's own Product offer and its own "FinalPrice".
+    // (The Eternity page also shows "Special Price £48.75" in a box for
+    // product 3646, a different product with 2 reviews, not this one.)
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
