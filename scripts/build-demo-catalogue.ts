@@ -20,6 +20,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { isNewListing } from '../src/catalogue/newBadge.js';
+import { HIDE_OFFER_AFTER_DAYS, isTooOldToShow } from '../src/services/priceService.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 import { RETAILERS, cannotCarryBrand } from '../src/config/retailers.js';
 import type { Retailer } from '../src/types/retailer.js';
@@ -593,6 +594,12 @@ const skippedShops: string[] = [];
 let rejected = 0;
 /** Active listings carrying no usable price. Never published; see the guard below. */
 let unpriced = 0;
+/**
+ * Active listings left out because their price was last confirmed more than
+ * HIDE_OFFER_AFTER_DAYS ago, by shop. Printed with the summary so a shop
+ * whose harvest has stopped is named in the build log, not merely absent.
+ */
+const tooOldByShop = new Map<string, { hidden: number; of: number }>();
 
 /** One retailer's eligible listings, repaired, kept together for resolveRawBrand below. */
 interface EligibleSnapshot {
@@ -632,7 +639,16 @@ if (existsSync(dir)) {
       continue;
     }
 
-    const active = snapshot.listings.filter((l) => l.status === 'active');
+    // A price last confirmed more than HIDE_OFFER_AFTER_DAYS ago is not shown
+    // anywhere on the site (see that constant in src/services/priceService.ts),
+    // so it never enters the catalogue: no row, no listing count, no deal. A
+    // shop all of whose prices are that old contributes nothing and drops off
+    // the Shops page by itself.
+    const allActive = snapshot.listings.filter((l) => l.status === 'active');
+    const active = allActive.filter((l) => !isTooOldToShow(l.lastSeenAt, now));
+    if (active.length < allActive.length) {
+      tooOldByShop.set(retailer.id, { hidden: allActive.length - active.length, of: allActive.length });
+    }
     if (active.length > 0) liveShops++;
 
     // Repaired once, here, so the same text drives the fragrance decision,
@@ -1898,7 +1914,14 @@ console.log(
       : '') +
     '\n' +
     `  ${houseProducts.length} house products, catalogue-only (no sterling price yet)\n` +
-    `  ${sizeUnknown} products carry a size their own title states two conflicting ways; shown as size not confirmed` +
+    `  ${sizeUnknown} products carry a size their own title states two conflicting ways; shown as size not confirmed\n` +
+    `  ${[...tooOldByShop.values()].reduce((n, v) => n + v.hidden, 0)} active listings hidden, price last confirmed over ${HIDE_OFFER_AFTER_DAYS} days ago` +
+    (tooOldByShop.size
+      ? ` (${[...tooOldByShop]
+          .sort((a, b) => b[1].hidden - a[1].hidden)
+          .map(([id, v]) => `${id} ${v.hidden}${v.hidden === v.of ? ' (all of them)' : ''}`)
+          .join(', ')})`
+      : '') +
     (skippedShops.length
       ? `\n  skipped: ${skippedShops.join(', ')}`
       : ''),
