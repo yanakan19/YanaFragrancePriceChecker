@@ -5411,36 +5411,72 @@ export const RETAILERS: readonly Retailer[] = [
     // figure the shop converts live, and would presumably charge in pounds,
     // is good enough. A basket read by hand, as Escentual's was, would settle
     // what the checkout charges.
+    //
+    // ── Decided 2026-10-03: the owner accepts the live conversion ───────────
+    // The owner checked this shop's own cart and checkout on 2026-10-03, from
+    // the /en-gb storefront. The cart priced Maison Crivelli Tobacco Carnaval
+    // Extrait de Parfum 1.5 ml at "£5.00 GBP", with "Only £128.00 away from
+    // free shipping!" and "Tax included. Shipping calculated at checkout"; the
+    // Shopify checkout to a UK address offered one option, "Express Shipping
+    // £15.00, 1 to 4 business days". So the shop charges a UK shopper in
+    // pounds, at the figure /en-gb shows. That is what the 2026-08-13 and
+    // 2026-10-03 rechecks above could not establish from outside, and it does
+    // not change the mechanism they measured: the pound figure is the euro
+    // price times the shop's own live rate (0.86691738 on 2026-10-03), so it
+    // will move with the rate. The owner accepted that, and
+    // `convertedSterlingAccepted` records the decision as data. It waives one
+    // refusal in readStorefrontCurrency, and only for a response that says it
+    // is the GB market and quotes GBP; euros, another market, or a theme that
+    // names no market are refused exactly as before.
+    //
+    // The route is Shopify /en-gb/products.json (robots.txt read first: it
+    // allows it). The Awin feed that used to supply this shop is no longer its
+    // route, so `adapter` moves from 'affiliate-feed' to 'unknown'. That is
+    // what lets the harvest and the probe ask the shop at all (both skip an
+    // affiliate-feed shop), and it stops awin-feed-sync from writing the
+    // feed's fixed 1.3490 figures back. Affiliate links still wrap through the
+    // Awin deeplink template below.
     enabled: false,
-    adapter: 'affiliate-feed',
+    adapter: 'unknown',
     shopifyStorefront: true,
+    convertedSterlingAccepted: {
+      decidedAt: '2026-10-03',
+      basis:
+        'Owner checked the shop\'s own /en-gb cart and checkout on 2026-10-03: cart priced in ' +
+        'GBP, checkout to a UK address offered Express Shipping £15.00, 1 to 4 business days.',
+    },
     currency: 'GBP',
     shipping: {
-      // Re-read 2026-10-01: the shipping policy's per-country table gives the
-      // UK threshold in sterling — "Free shipping thresholds (minimum subtotal
-      // after discounts and promo codes): ... United Kingdom: from £135" — and
-      // says of everything below it only "Shipping rates are calculated and
-      // displayed at checkout based on destination, package weight/volume".
-      // "from £135" is an at-or-above threshold, the >= resolveDelivery uses.
-      standardGbp: null,
-      freeOverGbp: 135,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-10-01',
+      // Confirmed 2026-10-03 by the owner at the shop's own /en-gb cart and
+      // checkout (screenshots). The cart priced Maison Crivelli Tobacco
+      // Carnaval Extrait de Parfum 1.5 ml at £5.00 GBP and said "Only £128.00
+      // away from free shipping!", so free delivery starts at £133 (£5 plus
+      // £128). The Shopify checkout to a UK address offered one option,
+      // "Express Shipping £15.00, 1 to 4 business days", so standard UK
+      // delivery is £15.00 and takes 1 to 4 business days. The shipping policy
+      // page (read 2026-10-01) says "United Kingdom: from £135"; the owner's
+      // own cart is the later and more direct reading, so £133 is used. The
+      // policy gave no flat rate below the threshold; the checkout did.
+      standardGbp: 15,
+      freeOverGbp: 133,
+      estimatedDays: [1, 4],
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
-      standardRateNotPublished: true,
-      source: {
-        url: 'https://www.nicchialuxury.com/policies/shipping-policy',
-        quote: 'Free shipping thresholds (minimum subtotal after discounts and promo codes): ... United Kingdom: from £135',
-        readAt: '2026-10-01',
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote:
+          'Cart (/en-gb): Maison Crivelli Tobacco Carnaval Extrait de Parfum 1.5 ml £5.00 GBP, ' +
+          '"Only £128.00 away from free shipping!", "Tax included. Shipping calculated at ' +
+          'checkout". Checkout to a UK address: "Express Shipping £15.00, 1 to 4 business days"',
       },
       notes:
-        'Their shipping-policy and refund-policy pages were read by ' +
-        'shipping:discover on 2026-08-12 (16 pages tried), and the shipping ' +
-        'policy again by hand on 2026-10-01. A standard flat rate for an ' +
-        'order below the threshold is not published: rates are weight- and ' +
-        'destination-based and shown only at checkout. The policy URL ' +
-        'redirects to /en-us/policies/shipping-policy for a US-located fetcher; ' +
-        'the per-country table is the same.',
+        'Standard UK delivery £15.00 in 1 to 4 business days, and free from £133, read off the ' +
+        'shop\'s own /en-gb cart and checkout by the owner on 2026-10-03. The checkout offered ' +
+        'one shipping option, which it calls Express Shipping, so that is the only UK rate ' +
+        'there is to show. The £133 comes from the cart\'s "£128.00 away" against a £5.00 item; ' +
+        'the shipping-policy page read on 2026-10-01 says "from £135", which the cart ' +
+        'supersedes. Prices are the shop\'s own live conversion from euros (see ' +
+        '`convertedSterlingAccepted`), so the threshold in pounds may move with the rate.',
     },
     catalogue: null,
     // Real approval, not another application-in-flight: Awin notified this

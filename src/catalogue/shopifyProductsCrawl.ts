@@ -150,7 +150,11 @@ export async function crawlViaShopifyProducts(
   // Asked before the catalogue is read, not after, so there is never a moment
   // where a converted price list has been parsed as pounds and is waiting to
   // be thrown away by a later check.
-  let currency = options.currency ?? (await fetchStorefrontCurrency(origin, http, headers));
+  // The owner's own decision for a shop that converts its UK price live; it
+  // waives one refusal for a GB market response and nothing else. See
+  // `Retailer.convertedSterlingAccepted`.
+  const readOptions = { acceptConvertedSterling: retailer.convertedSterlingAccepted !== undefined };
+  let currency = options.currency ?? (await fetchStorefrontCurrency(origin, http, headers, readOptions));
   let market = originMarket(origin);
 
   // Pounds, but for another country's market. A shop on Shopify Markets can
@@ -173,7 +177,7 @@ export async function crawlViaShopifyProducts(
       ukMarketCandidates(origin).filter((c) => c.label !== 'origin'),
       http,
       headers,
-      { allow: (url) => isAllowed(robots, url), gapMs: options.gapMs, sleep },
+      { allow: (url) => isAllowed(robots, url), gapMs: options.gapMs, sleep, currency: readOptions },
     );
     // Leaving a sterling origin is only worth it for a candidate that says
     // it is the UK market; a sterling candidate that also says "US" is the
