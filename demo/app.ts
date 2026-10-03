@@ -357,7 +357,17 @@ const titleCase = (s: string) => s.replace(/\S+/g, (w) => w[0]!.toUpperCase() + 
 // matched to a UK listing still gets a page instead of needing a section of
 // its own — it is a brand like any other, just one whose products so far
 // only carry a price it charges directly.
-const BRANDS = [...new Set([...DEMO_FRAGRANCES.map((f) => f.brand), ...HOUSE_PRODUCTS.map((p) => p.house)])].sort();
+//
+// A house whose own products carry no price at all is left out (the owner's
+// call, 2026-10-03: no blank brands). That hid The Body Shop, Jo Loves,
+// Pairfum London and a duplicate "escentric-molecules" house, none of which
+// had a single price to show.
+const BRANDS = [
+  ...new Set([
+    ...DEMO_FRAGRANCES.map((f) => f.brand),
+    ...HOUSE_PRODUCTS.filter((p) => p.nativePrice !== null).map((p) => p.house),
+  ]),
+].sort();
 const TIER_LABEL: Record<RetailerTier, string> = {
   designer: 'Designer', niche: 'Niche', mideast: 'Middle East',
 };
@@ -2544,7 +2554,11 @@ function detailView(): string {
   // "not available". One house's own storefront is not: Armaf's shop was never
   // going to sell a Dior bottle, so it is excluded here rather than listed as
   // a gap in that shop's range.
-  const unavailable = missing.filter((r) => !cannotCarryBrand(r, frag.brand));
+  // Only shops the site actually has prices from: "not available at Boots"
+  // would imply Boots was checked, and a shop with no prices here was not.
+  const unavailable = missing.filter(
+    (r) => !cannotCarryBrand(r, frag.brand) && r.enabled && listingCountAt(r.id) > 0,
+  );
 
   return `
     <button class="back" data-back>Back</button>
@@ -2870,8 +2884,11 @@ function retailerCountMark(retailerId: string): string {
  * different jobs, and only the second belongs in this list.
  */
 function retailersPanel(): string {
+  // Only shops with prices on the site (the owner's call, 2026-10-03): a shop
+  // with nothing to show, such as one that blocks us or one waiting on its
+  // first harvest, is hidden until it has something.
   const shops = [...RETAILERS]
-    .filter((r) => !r.singleBrandOnly)
+    .filter((r) => !r.singleBrandOnly && r.enabled && listingCountAt(r.id) > 0)
     .sort((a, b) => a.name.localeCompare(b.name));
   // The one view that rendered a bare list with no heading of its own —
   // the tab bar named it, but a tab is not a heading, and the page had no
