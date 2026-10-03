@@ -38,7 +38,7 @@ export interface HttpResponse {
 export type Http = (url: string, headers: Record<string, string>) => Promise<HttpResponse>;
 
 /** Identifies us honestly and points at a page explaining what we are. */
-const BOT_UA = 'PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.example/bot)';
+const BOT_UA = 'PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about)';
 
 /**
  * A current desktop browser string.
