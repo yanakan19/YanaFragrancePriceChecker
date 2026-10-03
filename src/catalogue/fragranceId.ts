@@ -114,9 +114,18 @@ const CONCENTRATION =
  *   - "pet care": B&M's "Pet Care Cologne 100ml - Dylan", "a deodorising
  *     spray for your dog". Dog colognes that do not say so in the title are
  *     caught from the description instead, see PET_PRODUCT below.
+ *   - "empty perfume bottle", "travalo", "rechargeable perfume": containers,
+ *     not perfume. Al Haramain's "Plain Empty Perfume Bottle 12 Pieces of
+ *     50ml" (15 listings) and Beauty Base's Travalo Walzer and Perfume Pod
+ *     "Rechargeable Perfume Bottle 5ml" were showing as perfume.
+ *   - "N pcs" / "N pieces": a multi piece set, already excluded when called a
+ *     gift set. Fragrance Click's "Lancome Idole 100ml Eau de Parfum 3 Pcs
+ *     Set" showed as one 100ml bottle at £90.95. Measured 2026-10-03 across
+ *     every kept listing: the five rules above remove 39, all containers or
+ *     sets, no single bottle.
  */
 export const NOT_A_FRAGRANCE =
-  /\b(fragrance[- ]free|unperfumed|unscented|nappy|tissue|soap bar|body cream|shampoo|conditioner|deodorant|shower ?gel|body ?wash|candle|diffuser|reed|gift ?set|set of|bundle|tester|sample|refill|travel spray|decant|hand wash|moisturis|lotion|balm|scrub|talc|hair|serum|air ?freshener|room spray|lamp fragrance|home spray|body spray|body mist|socks?|refillable perfume spray|pet care)\b/i;
+  /\b(fragrance[- ]free|unperfumed|unscented|nappy|tissue|soap bar|body cream|shampoo|conditioner|deodorant|shower ?gel|body ?wash|candle|diffuser|reed|gift ?set|set of|bundle|tester|sample|refill|travel spray|decant|hand wash|moisturis|lotion|balm|scrub|talc|hair|serum|air ?freshener|room spray|lamp fragrance|home spray|body spray|body mist|socks?|refillable perfume spray|pet care|empty (?:perfume )?bottles?|travalo|rechargeable perfume|\d+\s*(?:pcs|pieces))\b/i;
 
 /**
  * A description that says the product is for an animal.
