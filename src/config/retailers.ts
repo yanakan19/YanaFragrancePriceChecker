@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 76 retailers, 45 of them `enabled: true`. Every one of them is a legitimate
+ * 76 retailers, 46 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -7486,7 +7486,25 @@ export const RETAILERS: readonly Retailer[] = [
       maxSitemaps: 1,
       requireGbp: true,
     },
-    enabled: false,
+    //
+    // ── Switched on, 2026-10-03, on the pinned route ────────────────────────
+    // Walked from this sandbox first: 607 /uk/ product URLs on the route, 8
+    // pages, 18 listings (one per size), all 18 priced in GBP on their own
+    // pages, e.g. BULGARI Rose Goldea Blossom Delight 30/50/75ml £69/£99/£119,
+    // Juliette Has A Gun Mmmm... 7.5/50/100ml £25/£100/£140. Confirmed from a
+    // runner before this was set: probe run #568 (job
+    // 111190333421), 607 URLs, 18 of 18 listings priced in GBP.
+    //
+    // Delivery, rechecked the same day: /uk/shipping now redirects to the
+    // home page, whose banner still reads "FREE UK STANDARD DELIVERY on all
+    // orders over £25" and names no rate below it. The help centre's
+    // Delivery Information article (help.spacenk.com, robots.txt permits it)
+    // answered HTTP 403 to one plain request and was not asked again. So the
+    // shop publishes no standard rate this project can read, and its offers
+    // show as delivery not stated (tests/registry.test.ts's unstated list).
+    // The owner can read the charge below £25 off the shop's own basket.
+    sitemapHarvestConfirmed: true,
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -7506,10 +7524,10 @@ export const RETAILERS: readonly Retailer[] = [
         readAt: '2026-09-23',
       },
       notes:
-        'Delivery terms have not been read from spacenk.com itself, only its checkout currency ' +
-        '(see the comment above this entry). The £25 free-delivery figure above comes from a ' +
-        'WebSearch result snippet, quoted as far as it goes and no further. No affiliate ' +
-        'programme has been researched.',
+        'The £25 threshold is the shop\'s own banner, quoted in source; no rate below it is ' +
+        'published on spacenk.com (rechecked 2026-10-03, when /uk/shipping redirected to the ' +
+        'home page carrying the same banner), and the help centre\'s delivery article answered ' +
+        'HTTP 403. No affiliate programme has been researched.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
