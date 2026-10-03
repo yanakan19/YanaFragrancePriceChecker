@@ -975,13 +975,13 @@
     "beauty-bay::sitemap-discovery": {
       "strategyId": "sitemap-discovery",
       "retailerId": "beauty-bay",
-      "attempts": 1,
-      "successes": 0,
-      "listingsFound": 0,
-      "lastStatus": null,
-      "lastError": "no fragrance URLs found in sitemap",
-      "lastTriedAt": "2026-08-19T14:03:15.209Z",
-      "lastSucceededAt": null,
+      "attempts": 2,
+      "successes": 1,
+      "listingsFound": 11,
+      "lastStatus": 200,
+      "lastError": null,
+      "lastTriedAt": "2026-10-03T11:59:35.264Z",
+      "lastSucceededAt": "2026-10-03T11:59:35.264Z",
       "ruledOut": null
     },
     "beauty-bay::search-page": {
@@ -1201,5 +1201,5 @@
       "ruledOut": null
     }
   },
-  "updatedAt": "2026-10-03T11:43:08.409Z"
+  "updatedAt": "2026-10-03T11:59:35.264Z"
 }
