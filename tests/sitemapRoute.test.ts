@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { crawlViaSitemap, withTitleParts, ROUTE_HEADERS } from '../src/catalogue/sitemapCrawl.js';
+import { crawlViaSitemap, withTitleParts, cleanListingUrl, ROUTE_HEADERS } from '../src/catalogue/sitemapCrawl.js';
 import { parseListings, extractMicrodataProducts } from '../src/catalogue/jsonld.js';
 import { beautyBayApiUrl, parseBeautyBayProduct } from '../src/catalogue/beautyBayApi.js';
 import { NO_RESTRICTIONS, parseRobots } from '../src/catalogue/robots.js';
@@ -126,6 +126,17 @@ describe('crawlViaSitemap along a pinned route', () => {
     const { calls, result } = await walk({}, 'User-agent: *\nDisallow: /index.xml\n');
     expect(calls).toHaveLength(0);
     expect(result.errors.join(' ')).toContain('robots.txt does not permit it');
+  });
+
+  it("drops another publisher's tracking a page put on its own address", () => {
+    const page = 'https://www.marksandspencer.com/white-musk-100ml/p/hbp22184550';
+    expect(cleanListingUrl(`${page}?extid=af_Sub+Networks_Skimlinks&awc=1402_1`, page)).toBe(page);
+    // A size fragment survives; a different path, or a page whose own address
+    // has a query (Shy Mimosa), is left exactly as given.
+    expect(cleanListingUrl(`${page}?gclid=x#variation=2`, page)).toBe(`${page}#variation=2`);
+    expect(cleanListingUrl('https://www.marksandspencer.com/other/p/1?a=1', page)).toBe('https://www.marksandspencer.com/other/p/1?a=1');
+    const q = 'https://www.shymimosa.co.uk/shop/products/view.asp?brand=A&name=B';
+    expect(cleanListingUrl(q, q)).toBe(q);
   });
 
   it('appends the page text titleParts names, once', () => {

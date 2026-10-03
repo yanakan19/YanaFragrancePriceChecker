@@ -412,7 +412,11 @@ async function main() {
   const history: HistoryEntry[] = existsSync(HISTORY) ? JSON.parse(readFileSync(HISTORY, 'utf8')) : [];
   const p = choose(history);
   const url = `${SITE}/fragrance/${p.frag.id}`;
-  const checkedAt = new Date(CRAWLED_AT);
+  // When the winning price was itself last confirmed, not when the catalogue
+  // was built: on 3 Oct 2026 the post said "checked 11:14" (the build) for a
+  // Perfumeo price last read on 29 Sep. --checked-at <ISO> records a later
+  // check of the shop's own page by hand.
+  const checkedAt = new Date(opt('--checked-at') ?? p.best.fetchedAt ?? CRAWLED_AT);
   const checked = `${checkedAt.toLocaleTimeString('en-GB', { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit' })} UK, ${checkedAt.toLocaleDateString('en-GB', { timeZone: 'Europe/London', day: 'numeric', month: 'short', year: 'numeric' })}`;
   const dateLabel = new Date(`${today}T12:00:00Z`).toLocaleDateString('en-GB', { timeZone: 'Europe/London', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 
@@ -446,7 +450,7 @@ async function main() {
   writeFileSync(join(dir, 'tiktok-caption.txt'), tiktokCaption(feedCaption));
   writeFileSync(
     join(dir, 'check.json'),
-    JSON.stringify({ id: p.frag.id, url, delivered: p.delivered, msrp: p.msrp, shop: p.best.retailer.name, percent: p.percent, pricesCheckedAt: CRAWLED_AT, liveCheck: check, gender, notes: { used: notes.notes ? notes.notes.from : 'none', source: notes.notes?.source ?? null, reasons: notes.reasons, top: notes.notes?.top ?? [], middle: notes.notes?.middle ?? [], base: notes.notes?.base ?? [] } }, null, 2) + '\n',
+    JSON.stringify({ id: p.frag.id, url, delivered: p.delivered, msrp: p.msrp, shop: p.best.retailer.name, percent: p.percent, pricesCheckedAt: checkedAt.toISOString(), liveCheck: check, gender, notes: { used: notes.notes ? notes.notes.from : 'none', source: notes.notes?.source ?? null, reasons: notes.reasons, top: notes.notes?.top ?? [], middle: notes.notes?.middle ?? [], base: notes.notes?.base ?? [] } }, null, 2) + '\n',
   );
   const next = history.filter((h) => h.date !== today);
   next.push({ date: today, id: p.frag.id, brand: p.frag.brand });
