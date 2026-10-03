@@ -1466,11 +1466,14 @@ await Promise.all(Array.from({ length: Math.min(concurrency, Math.max(1, shops.l
   const nowDate = new Date();
   // A shop that refused any page this run is a shop refusing us, even where
   // another page answered (Selfridges, run #577: page one rendered, pages 2
-  // to 5 refused). Its listings beyond what it lets us read cannot be
-  // re-priced, so it is warned about, never failed on.
+  // to 5 refused). So is a shop only the render tier reaches, which reads
+  // the first page of each section and nothing else, by design (see
+  // actorPartial above): Selfridges again, run #588, 60 re-priced of 293
+  // held. Neither can have its whole held range re-priced, so both are
+  // warned about by the freshness check, never failed on.
   const answered = new Set(
     report.current().shops
-      .filter((s) => s.tier !== 'none' && !(s.refusals && s.refusals.length > 0))
+      .filter((s) => s.tier !== 'none' && s.tier !== 'render' && !(s.refusals && s.refusals.length > 0))
       .map((s) => s.retailerId),
   );
   const measured = RETAILERS.filter((r) => r.enabled && (!onlyShop || r.id === onlyShop));
