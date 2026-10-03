@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- demo-build-hash sha256:615a62749b9fbe4fd367d2b9f1d661f7a001f4ad66586d913557b1b67f6488ce — a fingerprint of the source this document was built from, written by scripts/build-demo.ts and checked by tests/demoBuildFreshness.test.ts. Do not hand-edit; run `npm run demo` instead. -->
+<!-- demo-build-hash sha256:a15807dd51d12b8b423b8c341267b321f63fa77b13aa8910db8b4eaf15ddb1f6 — a fingerprint of the source this document was built from, written by scripts/build-demo.ts and checked by tests/demoBuildFreshness.test.ts. Do not hand-edit; run `npm run demo` instead. -->
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
@@ -901,44 +901,48 @@
      so it stays correct if the photo is pale near that corner. --medal-size
      drives every other dimension so the two breakpoints below are the only
      numbers that change. */
+  /* Refined 2026-10-03 (owner: "something more refined", and the number's
+     square showed past the circle). The square came from .medal itself
+     painting the metal colour on its whole box, so the corners showed
+     around the round disc. The colour is now a custom property that only
+     the disc and the ribbon paint, never the .medal box. The look is quieter
+     too: a thin inner ring in place of the heavy white halo, shorter and
+     narrower ribbon tails, and tabular figures so 1, 2 and 3 sit centred. */
   .medal {
     --medal-size: 24px;
     position: absolute; top: -3px; right: -3px; z-index: 2;
     width: var(--medal-size); height: var(--medal-size);
-    font-weight: 800; line-height: 1;
-    font-size: calc(var(--medal-size) * 0.46);
+    font-weight: 700; line-height: 1;
+    font-size: calc(var(--medal-size) * 0.48);
+    font-variant-numeric: tabular-nums;
+    color: var(--medal-on);
   }
   :root[data-layout="desktop"] .medal { --medal-size: 30px; }
-  /* The disc is its own element so it can paint OVER the ribbon tails: a
-     pseudo-element with z-index -1 still paints above its parent's own
-     background, which is why the first cut of this medal showed the tails
-     across the number. The tails are the .medal's pseudos with no z-index;
-     the disc sits on top of them with z-index 1. */
+  /* The disc is its own element so it paints over the ribbon tails. */
   .medal-disc {
     position: relative; z-index: 1;
     width: 100%; height: 100%; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    background: inherit; color: inherit;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .45), 0 0 0 2px #fff;
+    background: var(--medal-bg); color: inherit;
+    box-shadow:
+      inset 0 0 0 calc(var(--medal-size) * 0.07) rgba(255, 255, 255, .38),
+      0 0 0 1.5px #fff,
+      0 1px 2px rgba(0, 0, 0, .3);
   }
   .medal::before,
   .medal::after {
     content: ""; position: absolute;
-    top: calc(var(--medal-size) * 0.56);
-    width: calc(var(--medal-size) * 0.32); height: calc(var(--medal-size) * 0.92);
-    background: inherit; filter: brightness(0.74);
-    clip-path: polygon(0 0, 100% 0, 100% 58%, 50% 100%, 0 58%);
+    top: calc(var(--medal-size) * 0.62);
+    width: calc(var(--medal-size) * 0.26); height: calc(var(--medal-size) * 0.68);
+    background: var(--medal-bg); filter: brightness(0.78);
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
   }
-  .medal::before { left: calc(var(--medal-size) * 0.11); transform: rotate(-9deg); transform-origin: top center; }
-  .medal::after  { right: calc(var(--medal-size) * 0.11); transform: rotate(9deg); transform-origin: top center; }
-  /* Flat, and from tokens. These were three two-stop linear-gradients built
-     from six hardcoded hex values belonging to no palette and moving with no
-     theme: the one place in this stylesheet where a colour was invented at
-     the point of use. A rank badge is small, so the gradient inside it was
-     never legible as a gradient in the first place. */
-  .medal.gold   { background: var(--rank-1); color: var(--rank-1-on); }
-  .medal.silver { background: var(--rank-2); color: var(--rank-2-on); }
-  .medal.bronze { background: var(--rank-3); color: var(--rank-3-on); }
+  .medal::before { left: calc(var(--medal-size) * 0.18); transform: rotate(-12deg); transform-origin: top center; }
+  .medal::after  { right: calc(var(--medal-size) * 0.18); transform: rotate(12deg); transform-origin: top center; }
+  /* Flat, and from tokens. */
+  .medal.gold   { --medal-bg: var(--rank-1); --medal-on: var(--rank-1-on); }
+  .medal.silver { --medal-bg: var(--rank-2); --medal-on: var(--rank-2-on); }
+  .medal.bronze { --medal-bg: var(--rank-3); --medal-on: var(--rank-3-on); }
 
   /* ── fragrance tile grid ───────────────────────────────────────────────────
      One tile shape, used everywhere a list of fragrances appears (browse,
