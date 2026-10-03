@@ -17,13 +17,23 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
-    version: 'v3.31.0',
+    version: 'v3.32.0',
     date: '3 Oct 2026',
     title: 'Older prices move to the price graph',
     points: [
       'Older prices sit below today\'s, not above',
       'Every fragrance page now has a price graph',
       'Older prices are plotted on the graph',
+    ],
+  },
+  {
+    version: 'v3.31.0',
+    date: '3 Oct 2026',
+    title: 'Three new shops and tidier lists',
+    points: [
+      'Three new shops, including Les Senteurs',
+      'Prices not checked for three weeks are hidden',
+      'Empty bottles and barber colognes removed',
     ],
   },
   {

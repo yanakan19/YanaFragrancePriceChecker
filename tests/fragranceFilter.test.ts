@@ -805,6 +805,11 @@ describe('budget shops: non-perfumes and sets that were showing as bottles', () 
     expect(isFragrance(listing('perfume-click', 'Missguided Babe Night Eau de Parfum Atomiser 10ml Spray', 11.7))).toBe(true);
   });
 
+  it('drops barber shop colognes, by title or brand', () => {
+    expect(isFragrance(listing('debenhams', 'No 22 EDC Turkish Barber Aftershave 150ml', 7.49))).toBe(false);
+    expect(isFragrance({ ...listing('debenhams', 'No.24 Eau De Cologne Aftershave Spray 400ml', 8.99), rawBrand: 'Barber Marmara' })).toBe(false);
+  });
+
   it('drops colognes for dogs, by title or by the shop’s own description', () => {
     expect(isFragrance(listing('bm-stores', 'Pet Care Cologne 100ml - Dylan', 2.5, 'A deodorising spray for your dog - B&M Stores.'))).toBe(false);
     expect(

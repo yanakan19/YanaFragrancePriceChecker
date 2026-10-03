@@ -142,6 +142,9 @@ export const NOT_A_FRAGRANCE =
  */
 const PET_PRODUCT = /\byour (dog|pet)s?\b/i;
 
+/** A barber shop range, by title or brand: see isFragrance. */
+const BARBER = /\bbarber\b/i;
+
 /**
  * A description that calls the listing a gift set with a body wash or shower
  * gel in it, where the title names only the bottle.
@@ -968,6 +971,10 @@ export function repairMojibake(title: string): string {
 export function isFragrance(l: StoredListing): boolean {
   const t = fold(l.rawTitle);
   if (NOT_A_FRAGRANCE.test(t)) return false;
+  // Barber shop colognes: Debenhams' "Barber Marmara" range (No.3 Turkish
+  // Cologne 500ml, No.24 Eau De Cologne Aftershave Spray 400ml), splashes for
+  // after a shave, not perfume. The owner's call, 2026-10-03: drop them.
+  if (BARBER.test(t) || (l.rawBrand && BARBER.test(l.rawBrand))) return false;
   // What the shop's own copy says the product is, where the title does not:
   // see PET_PRODUCT and DESCRIBED_AS_WASH_GIFT_SET.
   if (l.description && (PET_PRODUCT.test(l.description) || DESCRIBED_AS_WASH_GIFT_SET.test(l.description))) {
