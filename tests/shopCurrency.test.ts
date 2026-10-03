@@ -78,6 +78,68 @@ describe('what currency a storefront is quoting us in', () => {
     expect(c.rate).toBe(0.85);
   });
 
+  // Nicchia Luxury: /en-gb answers GBP from a shop that settles in EUR at a live
+  // rate. The owner accepted that after checking the shop's own checkout, and
+  // the acceptance is narrow: a GB market response, and nothing else.
+  describe('a shop whose converted sterling price the owner has accepted', () => {
+    const accept = { acceptConvertedSterling: true };
+    const gbTheme =
+      'Shopify.currency = {"active":"GBP","rate":"0.86691738"}; Shopify.country = "GB";';
+
+    it('is refused by default, as a conversion', () => {
+      const c = readStorefrontCurrency('{"currency":"EUR"}', gbTheme);
+      expect(c.isSterling).toBe(false);
+    });
+
+    it('accepts the GB market quoted in GBP at a rate, once accepted', () => {
+      const c = readStorefrontCurrency('{"currency":"EUR"}', gbTheme, accept);
+      expect(c.isSterling).toBe(true);
+      expect(c.rate).toBe(0.86691738);
+      expect(c.reason).toContain('accepted by the owner');
+    });
+
+    it('still refuses a theme that names no market country', () => {
+      const c = readStorefrontCurrency(
+        '{"currency":"EUR"}', 'Shopify.currency = {"active":"GBP","rate":"0.86691738"};', accept,
+      );
+      expect(c.isSterling).toBe(false);
+    });
+
+    it('still refuses another market, even one quoted in GBP', () => {
+      const c = readStorefrontCurrency(
+        '{"currency":"EUR"}',
+        'Shopify.currency = {"active":"GBP","rate":"0.86691738"}; Shopify.country = "US";',
+        accept,
+      );
+      expect(c.isSterling).toBe(false);
+    });
+
+    it('still refuses euros and every other currency', () => {
+      const eur = readStorefrontCurrency(
+        '{"currency":"EUR"}', 'Shopify.currency = {"active":"EUR","rate":"1.0"}; Shopify.country = "IT";', accept,
+      );
+      expect(eur.isSterling).toBe(false);
+      const usd = readStorefrontCurrency(
+        '{"currency":"EUR"}', 'Shopify.currency = {"active":"USD","rate":"1.17"}; Shopify.country = "GB";', accept,
+      );
+      expect(usd.isSterling).toBe(false);
+    });
+
+    it('prices the crawl only for a retailer that carries the acceptance', async () => {
+      const http = httpServing(gbTheme, '{"currency":"EUR"}');
+      const plain = await crawlViaShopifyProducts({
+        retailer, http, robots: NO_RESTRICTIONS, headers: {}, maxPages: 2, gapMs: 0, resolveUkMarket: false,
+      });
+      expect(plain.listings[0]!.priceGbp).toBeNull();
+      const accepted = await crawlViaShopifyProducts({
+        retailer: { ...retailer, convertedSterlingAccepted: { decidedAt: '2026-10-03', basis: 'owner checked' } } as Retailer,
+        http, robots: NO_RESTRICTIONS, headers: {}, maxPages: 2, gapMs: 0, resolveUkMarket: false,
+      });
+      expect(accepted.currency.isSterling).toBe(true);
+      expect(accepted.listings[0]!.priceGbp).toBe(57);
+    });
+  });
+
   // Unknown is not sterling. This is the case that decides whether being wrong
   // costs listings or costs a wrong price, and it must cost listings.
   it('refuses a storefront that publishes no currency at all', () => {
