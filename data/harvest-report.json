@@ -1,24 +1,26 @@
 {
-  "startedAt": "2026-10-03T01:17:15.545Z",
-  "finishedAt": "2026-10-03T01:21:24.173Z",
+  "startedAt": "2026-10-03T01:45:24.834Z",
+  "finishedAt": "2026-10-03T01:51:24.593Z",
   "complete": true,
   "endedReason": "swept-every-shop",
   "planned": [
-    "escentual"
+    "debenhams"
   ],
   "notReached": [],
   "shops": [
     {
-      "retailerId": "escentual",
-      "name": "Escentual",
-      "urlsDiscovered": 7982,
-      "pagesFetched": 41,
-      "priced": 7982,
+      "retailerId": "debenhams",
+      "name": "Debenhams",
+      "urlsDiscovered": 618,
+      "pagesFetched": 70,
+      "priced": 70,
       "tier": "free",
       "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "finishedAt": "2026-10-03T01:21:24.036Z"
+      "errorCount": 1,
+      "errors": [
+        "https://www.debenhams.com/sitemap.xml: HTTP 404"
+      ],
+      "finishedAt": "2026-10-03T01:51:24.589Z"
     }
   ]
 }
