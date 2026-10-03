@@ -1,38 +1,43 @@
 {
-  "startedAt": "2026-10-03T19:45:36.663Z",
-  "finishedAt": "2026-10-03T19:47:27.420Z",
+  "startedAt": "2026-10-03T20:00:40.025Z",
+  "finishedAt": "2026-10-03T20:02:00.849Z",
   "complete": true,
   "endedReason": "swept-every-shop",
   "planned": [
-    "paco-perfumerias-uk"
+    "shy-mimosa"
   ],
   "notReached": [],
   "shops": [
     {
-      "retailerId": "paco-perfumerias-uk",
-      "name": "Paco Perfumerías UK",
-      "urlsDiscovered": 3746,
+      "retailerId": "shy-mimosa",
+      "name": "Shy Mimosa",
+      "urlsDiscovered": 353,
       "pagesFetched": 24,
-      "priced": 24,
+      "priced": 20,
       "tier": "free",
       "renderer": null,
-      "errorCount": 0,
-      "errors": [],
+      "errorCount": 4,
+      "errors": [
+        "https://www.shymimosa.co.uk/shop/products/view.asp?brand=Ann+Gerard+Parfum&name=Cuir+de+Nacre: HTTP 404",
+        "https://www.shymimosa.co.uk/shop/products/view.asp?brand=Ann+Gerard+Parfum&name=Ciel+d%27Opale: HTTP 404",
+        "https://www.shymimosa.co.uk/shop/products/view.asp?brand=Ann+Gerard+Parfum&name=Perle+de+Mousse: HTTP 404",
+        "https://www.shymimosa.co.uk/shop/products/view.asp?brand=Ann+Gerard+Parfum&name=Rose+Cut: HTTP 404"
+      ],
       "refreshed": {
         "platform": null,
         "fromFeed": 0,
         "due": 0,
-        "gone": 0
+        "gone": 4
       },
-      "finishedAt": "2026-10-03T19:47:27.417Z"
+      "finishedAt": "2026-10-03T20:02:00.847Z"
     }
   ],
   "freshness": {
-    "paco-perfumerias-uk": {
-      "shown": 24,
+    "shy-mimosa": {
+      "shown": 20,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-10-03T19:45:36.662Z",
+      "oldestShownAt": "2026-10-03T20:00:40.024Z",
       "answered": true
     }
   }
