@@ -1,5 +1,46 @@
 import { describe, expect, it } from 'vitest';
-import { priceHistoryChart, shortDate, type PriceHistoryChartInput } from '../demo/priceHistoryChart.js';
+import {
+  plottedIncludesDelivery,
+  plottedPrice,
+  priceHistoryChart,
+  shortDate,
+  type PriceHistoryChartInput,
+  type RetailerLookup,
+} from '../demo/priceHistoryChart.js';
+import type { Retailer } from '../src/types/retailer.js';
+
+/**
+ * Fixed delivery rules, so the delivered figures below do not move when a
+ * real shop's rule changes in the registry:
+ *   allbeauty      £2.99, free from £30
+ *   perfume-click  £3.95, no free threshold
+ *   perfumeo       always free
+ *   manchester-ouds  delivery not stated
+ *   fragrancehub   not stated, but free from £90
+ */
+const SHOPS: Record<string, { name: string; standardGbp: number | null; freeOverGbp: number | null }> = {
+  allbeauty: { name: 'allbeauty', standardGbp: 2.99, freeOverGbp: 30 },
+  'perfume-click': { name: 'Perfume Click', standardGbp: 3.95, freeOverGbp: null },
+  perfumeo: { name: 'Perfumeo', standardGbp: 0, freeOverGbp: null },
+  'manchester-ouds': { name: 'Manchester Ouds', standardGbp: null, freeOverGbp: null },
+  fragrancehub: { name: 'FragranceHub', standardGbp: null, freeOverGbp: 90 },
+};
+const retailers: RetailerLookup = (id) => {
+  const shop = SHOPS[id];
+  if (!shop) return undefined;
+  return {
+    id,
+    name: shop.name,
+    enabled: true,
+    shipping: {
+      standardGbp: shop.standardGbp,
+      freeOverGbp: shop.freeOverGbp,
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-10-01',
+      confidence: 'confirmed',
+    },
+  } as unknown as Retailer;
+};
 
 /**
  * The owner's rule (2026-10-03): every perfume product page shows the price
@@ -12,6 +53,7 @@ const base: PriceHistoryChartInput = {
   soldOut: [],
   siteLastDay: null,
   isCurrentlyPurchasable: true,
+  retailers,
 };
 
 /** The active panel's markup (the one not hidden). */
@@ -34,11 +76,13 @@ describe('price history graph', () => {
     // One dot, the reading itself, centred because the range is one day long.
     expect(dots(panel, '[ "]')).toBe(1);
     expect(panel).toContain('left:50.00%');
-    expect(panel).toContain('data-price="£42.50"');
+    // Over allbeauty's £30 threshold, so delivery is free and the figure stands.
+    expect(panel).toContain('data-price="£42.50 with delivery"');
     // No line to draw between one point and nothing.
     expect(linePath(panel)).toBe('');
     expect(html).toContain('One price recorded so far, so this is a single reading rather than a trend.');
-    expect(html).toContain('Bottle prices, before delivery.');
+    expect(html).toContain("Each point is a bottle price plus that shop's delivery, worked out at today's delivery rates.");
+    expect(html).not.toContain('before delivery');
   });
 
   it('carries a single observation on to today as "no change recorded", never as a new reading', () => {
@@ -64,7 +108,8 @@ describe('price history graph', () => {
     const panel = activePanel(html);
     expect(panel).not.toContain('no change recorded');
     expect(panel).not.toContain('history-dot-live');
-    expect(panel.match(/data-price="£30.00"/g)?.length).toBe(1);
+    // £30 is allbeauty's threshold, met at or above, so free delivery.
+    expect(panel.match(/data-price="£30.00 with delivery"/g)?.length).toBe(1);
     expect(html).toContain('data-history-scope="week"\n        aria-pressed="false"\n        disabled');
   });
 
@@ -98,7 +143,9 @@ describe('price history graph', () => {
       siteLastDay: '2026-10-02',
     });
     expect(html).toContain('history-dot-older');
-    expect(html).toContain('Older price: £28.99 at Perfumeo');
+    // Perfumeo always ships free; Perfume Click adds £3.95 to £32.50.
+    expect(html).toContain('Older price: £28.99 with delivery at Perfumeo');
+    expect(html).toContain('data-price="£36.45 with delivery"');
     expect(html).toContain('Hollow points are older prices, not checked in the last 10 days.');
   });
 
@@ -151,5 +198,68 @@ describe('price history graph', () => {
     const text = html.replace(/<[^>]*>/g, ' ');
     const attrs = [...html.matchAll(/(?:aria-label|data-date|title)="([^"]*)"/g)].map((m) => m[1]).join(' ');
     expect(`${text} ${attrs}`).not.toMatch(/[‐-―-]/);
+  });
+
+  it('adds each shop\'s delivery to every point, below its free threshold only', () => {
+    const html = priceHistoryChart({
+      ...base,
+      line: [
+        { at: '2026-09-20T09:00:00Z', priceGbp: 25, retailerId: 'allbeauty' },
+        { at: '2026-09-25T09:00:00Z', priceGbp: 31, retailerId: 'allbeauty' },
+      ],
+      siteLastDay: '2026-09-25',
+    });
+    const panel = activePanel(html);
+    expect(panel).toContain('data-price="£27.99 with delivery"');
+    expect(panel).toContain('data-price="£31.00 with delivery"');
+    expect(panel).not.toContain('history-dot-itemonly');
+    expect(html).not.toContain('Square points');
+  });
+
+  it('plots an item price where delivery is not stated, as a square point, never as delivered', () => {
+    const html = priceHistoryChart({
+      ...base,
+      line: [
+        { at: '2026-09-20T09:00:00Z', priceGbp: 25, retailerId: 'allbeauty' },
+        { at: '2026-09-25T09:00:00Z', priceGbp: 24, retailerId: 'manchester-ouds' },
+      ],
+      siteLastDay: '2026-09-26',
+    });
+    const panel = activePanel(html);
+    expect(panel).toContain('data-price="£24.00, delivery not stated"');
+    // The carried day after it is the same item price, so it is square too.
+    expect(panel.match(/history-dot-itemonly/g)?.length).toBe(2);
+    expect(panel).not.toContain('£24.00 with delivery');
+    expect(html).toContain('Square points are item prices only, as that shop does not state its delivery cost.');
+  });
+
+  it('says so when no point on the graph includes delivery', () => {
+    const html = priceHistoryChart({
+      ...base,
+      line: [{ at: '2026-09-25T09:00:00Z', priceGbp: 24, retailerId: 'manchester-ouds' }],
+      siteLastDay: '2026-09-25',
+    });
+    expect(html).toContain('No shop here states its delivery cost, so these are bottle prices before delivery.');
+    expect(html).not.toContain('worked out at today');
+  });
+
+  it('treats a shop with only a free threshold as free above it and unstated below it', () => {
+    expect(plottedPrice('fragrancehub', 95, retailers)).toEqual({ priceGbp: 95, deliveryStated: true });
+    expect(plottedPrice('fragrancehub', 80, retailers)).toEqual({ priceGbp: 80, deliveryStated: false });
+    expect(plottedIncludesDelivery('fragrancehub', 95, retailers)).toBe(true);
+    expect(plottedIncludesDelivery('fragrancehub', 80, retailers)).toBe(false);
+    // Asking again with a delivered figure gives the same answer as with the item price.
+    expect(plottedIncludesDelivery('allbeauty', 27.99, retailers)).toBe(true);
+    expect(plottedPrice('not-a-shop', 10, retailers)).toEqual({ priceGbp: 10, deliveryStated: false });
+  });
+
+  it('says a gift set graph is of set prices', () => {
+    const html = priceHistoryChart({
+      ...base,
+      isGiftSet: true,
+      line: [{ at: '2026-09-25T09:00:00Z', priceGbp: 40, retailerId: 'allbeauty' }],
+      siteLastDay: '2026-09-25',
+    });
+    expect(html).toContain('Each point is a set price plus');
   });
 });

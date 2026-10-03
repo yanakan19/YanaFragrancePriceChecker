@@ -24,14 +24,41 @@
  *      that were sold out shows those as grey points labelled sold out, never
  *      as a price that could be paid.
  *
- * Every figure plotted is a bottle price before delivery, the same figure the
- * history records, and the caption says so: the list above it shows delivered
- * totals, and the two must not be read as the same number.
+ * ── Delivered prices (owner's decision, 2026-10-03) ────────────────────────
+ * Every figure plotted is what the shopper would have paid with delivery, the
+ * same kind of figure the offer list above shows: each recorded bottle price
+ * plus that shop's delivery, from resolveDelivery (src/services/shipping.ts)
+ * against the registry's shipping rule, free over a threshold included.
+ *
+ *   - The registry holds today's delivery rules only, and shops change them,
+ *     so the caption says the delivery is worked out at today's rates. A past
+ *     point is "that bottle price, delivered under today's rule", never a
+ *     claim about what delivery cost on that day.
+ *   - A shop that does not state its delivery cost (resolveDelivery's null)
+ *     has its item price plotted, as a square point whose tooltip and
+ *     aria label say "delivery not stated", and the caption says what the
+ *     squares are. It is never drawn or labelled as a delivered price.
+ *   - The recorded line is the cheapest bottle price at each moment (that is
+ *     what the history replay keeps: one cheapest offer per reading, not one
+ *     series per shop), so each point is that offer delivered. It is not a
+ *     recomputed "cheapest delivered" across every shop, which the history
+ *     cannot give without a per shop record; the caption's wording ("a bottle
+ *     price plus that shop's delivery") says exactly this.
+ *
+ * Nothing else reads the history series: price drop alerts
+ * (src/alerts/rules.ts) already compare the cheapest delivered price against
+ * their own stored baseline, and the site prints no "lowest in N days" text,
+ * so the graph and the alerts now both speak in delivered prices.
  */
 import { formatGbp } from '../src/services/money.js';
 import { getRetailer } from '../src/config/retailers.js';
+import { resolveDelivery } from '../src/services/shipping.js';
+import { roundPence } from '../src/services/money.js';
+import type { Retailer } from '../src/types/retailer.js';
 import { dayKey, dailyHistory, type DailyHistoryPoint, type RawHistoryPoint } from '../src/services/priceHistoryDaily.js';
 import { STALE_OFFER_DAYS } from '../src/services/priceService.js';
+
+export type RetailerLookup = (id: string) => Retailer | undefined;
 
 /** One real observation of one shop's price. */
 export interface ChartObservation {
@@ -62,8 +89,14 @@ export interface PriceHistoryChartInput {
   /** The last day the site recorded any price for anything (the shared right edge). */
   siteLastDay: string | null;
   isCurrentlyPurchasable: boolean;
-  /** A gift set's graph says "Set prices" where a bottle's says "Bottle prices". */
+  /** A gift set's graph says "a set price" where a bottle's says "a bottle price". */
   isGiftSet?: boolean;
+  /**
+   * Where each shop's name and delivery rule come from. The registry
+   * (getRetailer) unless a test passes its own, so a test's expected
+   * delivered figures do not move when a shop's real delivery rule does.
+   */
+  retailers?: RetailerLookup;
 }
 
 /**
@@ -89,8 +122,8 @@ export function shortDate(iso: string): string {
   return new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
 }
 
-function retailerName(id: string): string {
-  return getRetailer(id)?.name ?? id;
+function retailerName(id: string, lookup: RetailerLookup): string {
+  return lookup(id)?.name ?? id;
 }
 
 /** Shift a YYYY-MM-DD key by a whole number of days. */
@@ -104,6 +137,49 @@ function daysBetween(fromKey: string, toKey: string): number {
 
 interface Marker extends ChartObservation {
   kind: 'older' | 'soldout';
+  /** False where the shop states no delivery cost, so priceGbp is the item price alone. */
+  deliveryStated: boolean;
+}
+
+/** What one recorded price is plotted as. */
+export interface PlottedPrice {
+  /** The price with delivery when `deliveryStated`, else the item price alone. */
+  priceGbp: number;
+  deliveryStated: boolean;
+}
+
+/**
+ * One recorded bottle price as the graph plots it: plus that shop's delivery
+ * under today's rule, or, where the shop states no delivery cost (or is not
+ * in the registry at all), the item price, flagged so it is never presented
+ * as delivered.
+ */
+export function plottedPrice(retailerId: string, itemPriceGbp: number, lookup: RetailerLookup = getRetailer): PlottedPrice {
+  const retailer = lookup(retailerId);
+  if (!retailer) return { priceGbp: itemPriceGbp, deliveryStated: false };
+  const { costGbp } = resolveDelivery(retailer, itemPriceGbp);
+  return costGbp === null
+    ? { priceGbp: itemPriceGbp, deliveryStated: false }
+    : { priceGbp: roundPence(itemPriceGbp + costGbp), deliveryStated: true };
+}
+
+/**
+ * Whether an already plotted price (as plottedPrice returned it) includes
+ * delivery. Needed for the line's days, which dailyHistory rebuilds from the
+ * converted series and carries forward, so the flag is not carried with them.
+ * Exact: resolveDelivery only returns a null cost for a shop with no standard
+ * rate, below its free threshold if it has one, and there the plotted figure
+ * is the item price itself, so asking again with it gives the same answer;
+ * every other case states a cost at any basket value.
+ */
+export function plottedIncludesDelivery(retailerId: string, plottedGbp: number, lookup: RetailerLookup = getRetailer): boolean {
+  const retailer = lookup(retailerId);
+  return retailer !== undefined && resolveDelivery(retailer, plottedGbp).costGbp !== null;
+}
+
+/** The tooltip's price line: says which kind of figure it is. */
+function priceLabel(priceGbp: number, deliveryStated: boolean): string {
+  return deliveryStated ? `${formatGbp(priceGbp)} with delivery` : `${formatGbp(priceGbp)}, delivery not stated`;
 }
 
 /** The block with a heading and one sentence, for the one case with nothing at all to draw. */
@@ -115,10 +191,21 @@ export function priceHistoryMessageBlock(message: string): string {
 }
 
 export function priceHistoryChart(input: PriceHistoryChartInput): string {
-  const realLine = input.line.filter((p) => p.priceGbp !== null);
+  const lookup = input.retailers ?? getRetailer;
+  // Every recorded price becomes the price with that shop's delivery (see the
+  // header), before anything is bucketed into days, so the day's cheapest and
+  // the carried price are both delivered figures.
+  const line: RawHistoryPoint[] = input.line.map((p) =>
+    p.priceGbp === null || p.retailerId === null ? p : { ...p, priceGbp: plottedPrice(p.retailerId, p.priceGbp, lookup).priceGbp },
+  );
+  const realLine = line.filter((p) => p.priceGbp !== null);
+  const asMarker = (o: ChartObservation, kind: Marker['kind']): Marker => {
+    const plotted = plottedPrice(o.retailerId, o.priceGbp, lookup);
+    return { ...o, priceGbp: plotted.priceGbp, deliveryStated: plotted.deliveryStated, kind };
+  };
   const markers: Marker[] = [
-    ...input.older.map((o) => ({ ...o, kind: 'older' as const })),
-    ...input.soldOut.map((o) => ({ ...o, kind: 'soldout' as const })),
+    ...input.older.map((o) => asMarker(o, 'older')),
+    ...input.soldOut.map((o) => asMarker(o, 'soldout')),
   ];
   const days = [...realLine.map((p) => dayKey(p.at)), ...markers.map((m) => dayKey(m.at))].sort();
   if (days.length === 0) return priceHistoryMessageBlock('No price has been recorded for this fragrance yet.');
@@ -139,7 +226,7 @@ export function priceHistoryChart(input: PriceHistoryChartInput): string {
   // so a range that opens after the last change still starts on the price
   // held at that moment rather than on empty floor.
   const carry = input.isCurrentlyPurchasable && input.carryForward !== false;
-  const allDays = dailyHistory(input.line, ownFirstDay, to, carry);
+  const allDays = dailyHistory(line, ownFirstDay, to, carry);
 
   const panels = scopes.map((scope) => {
     const windowStart = Number.isFinite(scope.days) ? shiftDayKey(to, -(scope.days - 1)) : ownFirstDay;
@@ -148,7 +235,7 @@ export function priceHistoryChart(input: PriceHistoryChartInput): string {
     const inWindow = markers.filter((m) => dayKey(m.at) >= from && dayKey(m.at) <= to);
     const real = points.filter((p) => p.priceGbp !== null && !p.isCarried).length;
     const priced = points.some((p) => p.priceGbp !== null) || inWindow.length > 0;
-    return { scope, from, points, inWindow, real, body: priced ? priceHistoryBody(points, inWindow, from, input.isCurrentlyPurchasable) : null };
+    return { scope, from, points, inWindow, real, body: priced ? priceHistoryBody(points, inWindow, from, input.isCurrentlyPurchasable, lookup) : null };
   });
 
   // Default to the shortest range with a real trend in it (two readings),
@@ -185,16 +272,17 @@ export function priceHistoryChart(input: PriceHistoryChartInput): string {
       <div class="history-scopes" role="group" aria-label="Price history range">${tabs}</div>
     </div>
     ${bodies}
-    <p class="history-note t-caption">${esc(chartCaption(input, realLine.length, markers))}</p>
+    <p class="history-note t-caption">${esc(chartCaption(input, realLine, markers, lookup))}</p>
   </div>`;
 }
 
 /**
- * The one line under the graph that says what is on it. Always states that
- * the figures are bottle prices before delivery; adds whichever of the
- * honest qualifiers applies.
+ * The one line under the graph that says what is on it. Always says what the
+ * figures are (with delivery at today's rates, or item prices where a shop
+ * states no delivery cost); adds whichever of the honest qualifiers applies.
  */
-function chartCaption(input: PriceHistoryChartInput, realReadings: number, markers: readonly Marker[]): string {
+function chartCaption(input: PriceHistoryChartInput, realLine: readonly RawHistoryPoint[], markers: readonly Marker[], lookup: RetailerLookup): string {
+  const realReadings = realLine.length;
   const parts: string[] = [];
   if (realReadings === 0 && input.soldOut.length > 0 && input.older.length === 0) {
     parts.push('No price that could be paid has been recorded for this yet. The grey points are the last prices at shops that were sold out when checked.');
@@ -209,10 +297,20 @@ function chartCaption(input: PriceHistoryChartInput, realReadings: number, marke
   } else if (realReadings === 0) {
     parts.push('No current price is on record for this, only older ones.');
   }
+  const stated = [
+    ...realLine.map((p) => plottedIncludesDelivery(p.retailerId!, p.priceGbp!, lookup)),
+    ...markers.map((m) => m.deliveryStated),
+  ];
+  const what = input.isGiftSet ? 'set' : 'bottle';
+  if (stated.length > 0 && stated.every((s) => !s)) {
+    parts.push(`No shop here states its delivery cost, so these are ${what} prices before delivery.`);
+  } else {
+    parts.push(`Each point is a ${what} price plus that shop's delivery, worked out at today's delivery rates.`);
+    if (stated.some((s) => !s)) parts.push('Square points are item prices only, as that shop does not state its delivery cost.');
+  }
   if (markers.some((m) => m.kind === 'older')) {
     parts.push(`Hollow points are older prices, not checked in the last ${STALE_OFFER_DAYS} days.`);
   }
-  parts.push(input.isGiftSet ? 'Set prices, before delivery.' : 'Bottle prices, before delivery.');
   return parts.join(' ');
 }
 
@@ -227,6 +325,7 @@ function priceHistoryBody(
   markers: readonly Marker[],
   fromDay: string,
   isCurrentlyPurchasable: boolean,
+  lookup: RetailerLookup,
 ): string {
   const W = 600;
   const H = 160;
@@ -300,16 +399,18 @@ function priceHistoryBody(
       // The pulse means "a live price right now", so only on the final point
       // and only while the product is buyable this moment.
       const isLive = isLast && isCurrentlyPurchasable && i === lastIndex;
-      const shop = retailerName(p.retailerId!);
+      const shop = retailerName(p.retailerId!, lookup);
+      const stated = plottedIncludesDelivery(p.retailerId!, p.priceGbp, lookup);
+      const price = priceLabel(p.priceGbp, stated);
       const dateLabel = p.isCarried ? `no change recorded since ${shortDate(p.recordedAt!)}` : shortDate(p.recordedAt!);
       return `<button
         type="button"
-        class="history-dot${isLast ? ' history-dot-last' : ''}${isLive ? ' history-dot-live' : ''}"
+        class="history-dot${isLast ? ' history-dot-last' : ''}${isLive ? ' history-dot-live' : ''}${stated ? '' : ' history-dot-itemonly'}"
         style="left:${xPct(i).toFixed(2)}%;top:${yPct(p.priceGbp).toFixed(2)}%"
-        data-price="${esc(formatGbp(p.priceGbp))}"
+        data-price="${esc(price)}"
         data-retailer="${esc(shop)}"
         data-date="${esc(dateLabel)}"
-        aria-label="${esc(`${formatGbp(p.priceGbp)} at ${shop}, ${dateLabel}`)}"
+        aria-label="${esc(`${price} at ${shop}, ${dateLabel}`)}"
       ></button>`;
     })
     .join('');
@@ -317,18 +418,19 @@ function priceHistoryBody(
   const markerDots = markers
     .map((m) => {
       const i = daysBetween(fromDay, dayKey(m.at));
-      const shop = retailerName(m.retailerId);
+      const shop = retailerName(m.retailerId, lookup);
       const dateLabel =
         m.kind === 'older' ? `older price, checked ${shortDate(m.at)}` : `sold out when checked ${shortDate(m.at)}`;
       const prefix = m.kind === 'older' ? 'Older price' : 'Last price, sold out';
+      const price = priceLabel(m.priceGbp, m.deliveryStated);
       return `<button
         type="button"
-        class="history-dot history-dot-${m.kind}"
+        class="history-dot history-dot-${m.kind}${m.deliveryStated ? '' : ' history-dot-itemonly'}"
         style="left:${xPct(i).toFixed(2)}%;top:${yPct(m.priceGbp).toFixed(2)}%"
-        data-price="${esc(formatGbp(m.priceGbp))}"
+        data-price="${esc(price)}"
         data-retailer="${esc(shop)}"
         data-date="${esc(dateLabel)}"
-        aria-label="${esc(`${prefix}: ${formatGbp(m.priceGbp)} at ${shop}, checked ${shortDate(m.at)}`)}"
+        aria-label="${esc(`${prefix}: ${price} at ${shop}, checked ${shortDate(m.at)}`)}"
       ></button>`;
     })
     .join('');
