@@ -1,26 +1,26 @@
 {
-  "startedAt": "2026-10-03T00:12:29.670Z",
-  "finishedAt": "2026-10-03T00:15:56.598Z",
+  "startedAt": "2026-10-03T00:56:55.638Z",
+  "finishedAt": "2026-10-03T00:59:57.129Z",
   "complete": true,
   "endedReason": "swept-every-shop",
   "planned": [
-    "debenhams"
+    "cult-beauty-global"
   ],
   "notReached": [],
   "shops": [
     {
-      "retailerId": "debenhams",
-      "name": "Debenhams",
-      "urlsDiscovered": 728,
+      "retailerId": "cult-beauty-global",
+      "name": "Cult Beauty Global",
+      "urlsDiscovered": 1200,
       "pagesFetched": 40,
-      "priced": 40,
+      "priced": 38,
       "tier": "free",
       "renderer": null,
       "errorCount": 1,
       "errors": [
-        "https://www.debenhams.com/sitemap.xml: HTTP 404"
+        "https://www.cultbeauty.co.uk/sitemap.xml: HTTP 403"
       ],
-      "finishedAt": "2026-10-03T00:15:56.595Z"
+      "finishedAt": "2026-10-03T00:59:57.127Z"
     }
   ]
 }
