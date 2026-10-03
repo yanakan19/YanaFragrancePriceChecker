@@ -728,3 +728,52 @@ describe('sizeMl: a headline size restated, then the row’s own variant size', 
     expect(sizeMl(title)).toBe(expected);
   });
 });
+
+/**
+ * sizeMl: a fractional size is the size the shop stated.
+ *
+ * Checked against each shop's own product page on 2026-10-03: Kayali's
+ * sample variant is titled "1.5ml" (uk.kayali.com/products/boujee-kitty-caramel-milk-22)
+ * and Escentric Molecules' travel spray "8.5ml"
+ * (escentric.com/products/molecule-01-escentric-01-8-5ml). Rounding to a
+ * whole number put "2ml" and "9ml" on screen, sizes neither shop sells.
+ * Titles below are real ones from data/catalogue/.
+ */
+describe('sizeMl: a fractional size is the size the shop stated', () => {
+  it.each([
+    ['Boujee Kitty Caramel Milk | 22 1.5ml', 1.5],
+    ['Molecule 01 + Escentric 01 8.5ml', 8.5],
+    ['Boujee Kitty Caramel Milk | 22 50ml', 50],
+  ])('reads %s as stated', (title, expected) => {
+    expect(sizeMl(title)).toBe(expected);
+  });
+
+  it('still rounds an ounce conversion to the whole millilitre', () => {
+    expect(sizeMl('Rose Woman Perfume - 3.4 fl oz')).toBe(101);
+  });
+});
+
+/**
+ * isFragrance: a shop's own "Bundles" category is several items.
+ *
+ * Kayali's "Fruit Crush 100ml" (uk.kayali.com/products/fruit-crush-100ml,
+ * read 2026-10-03) is product_type "Bundles" and its own page title reads
+ * "KAYALI Eden Fruit Crush (Sweet Peach | 35 & Plush Pear | 23) | 2 x 100ml",
+ * at £187. Its listing title names one size, so it was showing as a single
+ * 100ml bottle at nearly twice Kayali's own 100ml price.
+ */
+describe('isFragrance: a Bundles product type is not one bottle', () => {
+  it('drops a bundle whatever its title says', () => {
+    const l = { ...listing('kayali', 'Fruit Crush 100ml', 187), productType: 'Bundles' };
+    expect(isFragrance(l)).toBe(false);
+  });
+
+  it('keeps the same shop’s ordinary fragrance', () => {
+    const l = { ...listing('kayali', 'Vanilla | 28 100ml', 110), productType: 'Fragrances' };
+    expect(isFragrance(l)).toBe(true);
+  });
+
+  it('reads a listing harvested before the field existed exactly as before', () => {
+    expect(isFragrance(listing('kayali', 'Vanilla | 28 100ml', 110))).toBe(true);
+  });
+});
