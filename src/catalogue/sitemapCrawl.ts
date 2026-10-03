@@ -119,8 +119,27 @@ const locs = (xml: string): string[] =>
 
 const isXml = (u: string) => /\.xml(\.gz)?(\?|$)/i.test(u);
 
-/** Names that suggest a sitemap or URL is about fragrance rather than socks. */
-const SCENT = /fragrance|perfume|aftershave|cologne|eau-de|parfum|scent/i;
+/**
+ * Names that suggest a sitemap or URL is about fragrance rather than socks.
+ *
+ * "scent" must start a word. Unanchored it matched the middle of "descent",
+ * "crescent", "fluorescent", "iridescent" and "unscented": Debenhams' first
+ * harvest (2026-10-03) spent 7 of its 40 product fetches that way, on three
+ * books ("The Descent of Man" among them), highlighters, earrings, fake snow
+ * and an unscented bath soak, and its products-0.xml lists 30 such URLs among
+ * the 153 the old pattern called scented.
+ */
+const SCENT = /fragrance|perfume|aftershave|cologne|eau-de|parfum|(^|[^a-z])scent/i;
+
+/**
+ * Words that name a perfume itself, not merely a smell. A product sitemap URL
+ * carrying one is fetched before one that only says "fragrance" or "scent",
+ * which on a department store means candles, detergent and urinal mats as
+ * often as perfume: of Debenhams' 40 first harvested pages, 12 carried one of
+ * these words and 9 reached the site as perfume; its products-0.xml has 41
+ * such URLs among 123 scented ones.
+ */
+const PERFUME_WORD = /perfume|aftershave|cologne|eau-de|parfum|extrait/i;
 
 /**
  * The part of a URL where a fragrance word actually tells us something.
@@ -347,8 +366,15 @@ async function discover(
   // before is still kept; only the order changes, and only where a product
   // sitemap was found, so a shop with no product sitemap fetches exactly as
   // it did.
+  //
+  // Within the product sitemap URLs, the ones that name a perfume come first
+  // (PERFUME_WORD), then the ones that only name a smell. Again an order, not
+  // a filter: nothing kept before is dropped.
   if (scented.size > 0) {
-    return { urls: [...scentedProducts, ...[...scented].filter((u) => !scentedProducts.has(u))], errors };
+    const products = [...scentedProducts];
+    const named = products.filter((u) => PERFUME_WORD.test(pathOf(u)));
+    const smellOnly = products.filter((u) => !PERFUME_WORD.test(pathOf(u)));
+    return { urls: [...named, ...smellOnly, ...[...scented].filter((u) => !scentedProducts.has(u))], errors };
   }
   return { urls: [...generic], errors };
 }

@@ -248,6 +248,27 @@ describe('Shopify products.json', () => {
   it('survives malformed payloads', () => {
     expect(parseShopifyProducts('not json', { origin: 'https://x.example', sectionId: 's', currency: 'GBP' })).toEqual([]);
   });
+
+  // The shape of uk.kayali.com's own /products/fruit-crush-100ml.json, read
+  // 2026-10-03: a two-bottle duo whose title names one size, and whose only
+  // tell is the shop's own product_type. isFragrance reads it from here.
+  it('carries the shop’s own product_type, and null where it gives none', () => {
+    const body = JSON.stringify({
+      products: [
+        {
+          id: 9919976964424, title: 'Fruit Crush 100ml', handle: 'fruit-crush-100ml', vendor: 'KAYALI',
+          product_type: 'Bundles', images: [],
+          variants: [{ id: 1, sku: null, title: 'Default Title', price: '187.00', compare_at_price: '220.00', available: true }],
+        },
+        {
+          id: 2, title: 'Y', handle: 'y', vendor: 'V', images: [],
+          variants: [{ id: 2, sku: 'B', title: '50ml', price: '10.00', available: true }],
+        },
+      ],
+    });
+    const out = parseShopifyProducts(body, { origin: 'https://uk.kayali.com', sectionId: 's', currency: 'GBP' });
+    expect(out.map((l) => l.productType)).toEqual(['Bundles', null]);
+  });
 });
 
 describe('parseShopCurrency', () => {
