@@ -169,10 +169,9 @@ export interface PresentedOffer {
   /**
    * True once this offer's own `fetchedAt` is older than `STALE_OFFER_DAYS`
    * (src/services/priceService.ts) — the price shown was captured that long
-   * ago and nothing has reconfirmed it since. Never a reason to drop the row:
-   * see `preferFreshOffers` in priceService.ts for what it changes (only
-   * which offer gets to be called cheapest) and what it never changes
-   * (whether the offer is shown at all).
+   * ago and nothing has reconfirmed it since. Never a reason to drop the row
+   * or to pass it over for Cheapest (owner's decision, 2026-10-03): the price
+   * graph draws it as an older price, and the row states its own age.
    */
   stale: boolean;
   /** This retailer's own published rating for this listing — see RawOffer. */
