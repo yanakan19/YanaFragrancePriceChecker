@@ -1,0 +1,39 @@
+{
+  "id": "ean-6290171075189",
+  "url": "https://pricesniffs.space/fragrance/ean-6290171075189",
+  "delivered": 17.99,
+  "msrp": 40,
+  "shop": "Perfumeo",
+  "percent": 55,
+  "pricesCheckedAt": "2026-10-03T15:50:00.000Z",
+  "liveCheck": {
+    "status": 404,
+    "servesApp": true,
+    "inLiveData": true,
+    "ok": true
+  },
+  "gender": {
+    "reading": "notStated",
+    "basis": "not stated anywhere"
+  },
+  "notes": {
+    "used": "own",
+    "source": "Emirates Oud",
+    "reasons": [],
+    "top": [
+      "Mango",
+      "Orange Blossom"
+    ],
+    "middle": [
+      "Fig",
+      "Coconut",
+      "Jasmine",
+      "Amber"
+    ],
+    "base": [
+      "Sandalwood",
+      "Musk",
+      "Vanilla"
+    ]
+  }
+}
