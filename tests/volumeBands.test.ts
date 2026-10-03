@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { VOLUME_BANDS, volumeBandFor, type VolumeBand } from '../demo/volumeBands.js';
+import { GIFT_SET_BAND, VOLUME_BANDS, volumeBandFor, volumeOptions, type VolumeBand } from '../demo/volumeBands.js';
+import { CATALOGUE } from '../demo/catalogue.generated.js';
 
 /**
  * The Volume facet's whole job is deciding what happens at a shared boundary
@@ -88,5 +89,34 @@ describe('VOLUME_BANDS: shape and house style', () => {
       '70 - 120ml',
       '120ml And Over',
     ]);
+  });
+});
+
+describe('gift sets: their own option under Volume (owner, 2026-10-03)', () => {
+  it('files a gift set under Gift Sets and never in a size band', () => {
+    expect(volumeBandFor(null, true)).toBe('gift-set');
+    // Even a size, were one ever set on a gift set, does not put it in a band.
+    expect(volumeBandFor(100, true)).toBe('gift-set');
+    expect(volumeBandFor(100, false)).toBe('70-120');
+  });
+
+  it('lists Gift Sets after the five size bands, only when something has it', () => {
+    const counts = new Map<VolumeBand, number>([['gift-set', 3], ['70-120', 9], ['0-15', 2]]);
+    expect(volumeOptions(counts)).toEqual([
+      { value: '0-15', label: 'Under 15ml', count: 2 },
+      { value: '70-120', label: '70 - 120ml', count: 9 },
+      { value: 'gift-set', label: GIFT_SET_BAND.label, count: 3 },
+    ]);
+    expect(volumeOptions(new Map<VolumeBand, number>([['30-70', 1]])).map((o) => o.value)).toEqual(['30-70']);
+  });
+
+  it('puts every gift set in the shipped catalogue under Gift Sets, and no single bottle', () => {
+    const sets = CATALOGUE.filter((p) => p.giftSet);
+    expect(sets.length).toBeGreaterThan(0);
+    for (const p of sets) {
+      expect(p.sizeMl).toBeNull();
+      expect(volumeBandFor(p.sizeMl, true)).toBe('gift-set');
+    }
+    for (const p of CATALOGUE.filter((q) => !q.giftSet)) expect(volumeBandFor(p.sizeMl, false)).not.toBe('gift-set');
   });
 });

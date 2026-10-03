@@ -44,11 +44,13 @@ import { auditPriceScale } from '../src/catalogue/priceScale.js';
 import { auditWasPrices } from '../src/catalogue/wasPriceCredibility.js';
 import {
   isFragrance,
+  isCatalogueListing,
   sizeMl,
   fragranceId,
   repairMojibake,
   NOT_A_FRAGRANCE,
 } from '../src/catalogue/fragranceId.js';
+import { giftSetContents, giftSetName, isGiftSet } from '../src/catalogue/giftSet.js';
 import {
   concentrationOfListing,
   CONCENTRATION_DISPUTED,
@@ -326,6 +328,13 @@ interface Product {
    * survived, which is not knowable when the pass runs.
    */
   concentrationFromHouse: string | null;
+  /**
+   * Set only for a gift set (src/catalogue/giftSet.ts): its own category,
+   * with no size (so nothing size keyed can ever match or compare it with a
+   * single bottle) and the contents its title spells out, or null where the
+   * title does not.
+   */
+  giftSet: { contents: string[] | null; title: string } | null;
 }
 
 /**
@@ -592,6 +601,8 @@ let liveShops = 0;
 let considered = 0;
 const skippedShops: string[] = [];
 let rejected = 0;
+/** Gift set listings kept, by shop (src/catalogue/giftSet.ts). */
+const giftSetListings = new Map<string, number>();
 /** Active listings carrying no usable price. Never published; see the guard below. */
 let unpriced = 0;
 /**
@@ -600,6 +611,8 @@ let unpriced = 0;
  * whose harvest has stopped is named in the build log, not merely absent.
  */
 const tooOldByShop = new Map<string, { hidden: number; of: number }>();
+/** Those listings themselves, repaired like every other, for OLDER_OFFERS. */
+const tooOldListings: StoredListing[] = [];
 
 /** One retailer's eligible listings, repaired, kept together for resolveRawBrand below. */
 interface EligibleSnapshot {
@@ -648,6 +661,18 @@ if (existsSync(dir)) {
     const active = allActive.filter((l) => !isTooOldToShow(l.lastSeenAt, now));
     if (active.length < allActive.length) {
       tooOldByShop.set(retailer.id, { hidden: allActive.length - active.length, of: allActive.length });
+      // Not listed anywhere, but not thrown away either: each is still a real
+      // observation of what this shop charged, and the owner's rule
+      // (2026-10-03) is that every observed price belongs on the product's
+      // price graph. See OLDER_OFFERS below.
+      for (const stored of allActive) {
+        if (!isTooOldToShow(stored.lastSeenAt, now)) continue;
+        tooOldListings.push({
+          ...stored,
+          rawTitle: repairMojibake(stored.rawTitle),
+          rawBrand: stored.rawBrand === null ? null : repairMojibake(stored.rawBrand),
+        });
+      }
     }
     if (active.length > 0) liveShops++;
 
@@ -696,10 +721,14 @@ for (const { retailer, listings } of eligible) {
       continue;
     }
 
-    if (!isFragrance(l)) {
+    // A single fragrance, or a fragrance gift set (its own category, never
+    // compared with a single bottle: see src/catalogue/giftSet.ts).
+    if (!isCatalogueListing(l)) {
       rejected++;
       continue;
     }
+    const giftSet = isGiftSet(l);
+    if (giftSet) giftSetListings.set(l.retailerId, (giftSetListings.get(l.retailerId) ?? 0) + 1);
 
     // Null for the seven listings sizeConflict flags — see fragranceId.ts's
     // own comment. Not asserted non-null: isFragrance() above now lets
@@ -712,7 +741,10 @@ for (const { retailer, listings } of eligible) {
     // comment) — without it, a listing whose only stated size lives in its
     // description would pass the gate above and then still show "size not
     // confirmed" on screen, disagreeing with the very fact that let it in.
-    const size = sizeMl(l.rawTitle, l.description);
+    // A gift set has no size: it is not a bottle of any volume, and leaving
+    // it unsized is what keeps every size keyed match (findDuplicateGroups,
+    // houseCeilings, the reference price check) from ever pairing it with one.
+    const size = giftSet ? null : sizeMl(l.rawTitle, l.description);
     const id = fragranceId(l, untrustworthyEans);
     const effectiveRawBrand = resolveRawBrand(l, retailer);
 
@@ -747,7 +779,11 @@ for (const { retailer, listings } of eligible) {
     // stripTrailingShopCredit for why it is anchored to this listing's own
     // retailer and nothing else.
     const titleWithoutShopCredit = stripTrailingShopCredit(l.rawTitle, retailer.name, retailer.domain);
-    const displayedName = displayName(titleWithoutShopCredit, effectiveRawBrand, displayedBrand);
+    // A gift set keeps its title whole (less a leading brand): its sizes and
+    // strengths are its contents, not facts shown elsewhere. See giftSetName.
+    const displayedName = giftSet
+      ? giftSetName(titleWithoutShopCredit, displayedBrand)
+      : displayName(titleWithoutShopCredit, effectiveRawBrand, displayedBrand);
     const offer: Offer = {
       retailerId: l.retailerId,
       price: l.priceGbp!,
@@ -796,6 +832,12 @@ for (const { retailer, listings } of eligible) {
 
     if (existing) {
       existing.offers.push(offer);
+      // A set whose first shop's title spelled out nothing may be spelled out
+      // by the next one's.
+      if (existing.giftSet && existing.giftSet.contents === null) {
+        const contents = giftSetContents(l.rawTitle);
+        if (contents) existing.giftSet = { contents, title: l.rawTitle };
+      }
     } else {
       // The displayed brand is handed to displayName as well as the raw
       // vendor field: it is the string that will sit beside the name on
@@ -822,6 +864,7 @@ for (const { retailer, listings } of eligible) {
         // Filled in by the brand-direct concentration pass below, which needs
         // every product to exist before it can ask what the house said.
         concentrationFromHouse: null,
+        giftSet: giftSet ? { contents: giftSetContents(l.rawTitle), title: l.rawTitle } : null,
       });
     }
   }
@@ -906,8 +949,20 @@ for (const product of products.values()) {
    src/catalogue/productMatch.ts for when two listings count as the same
    bottle and where it refuses to decide. */
 const duplicateGroups = findDuplicateGroups([...products.values()]);
+/**
+ * Which ids each surviving product absorbed. The price history replay
+ * (scripts/build-price-history.ts) keys on fragranceId() alone and never sees
+ * this merge, so without the map a product's graph showed only the listings
+ * that already carried its own id: Justmylook's Montblanc Explorer Platinum
+ * 100ml, listed with no EAN, sat on the page and never on its chart. Shipped
+ * as HISTORY_ALIASES; see src/services/priceHistoryMerge.ts.
+ */
+const absorbedIds = new Map<string, string[]>();
+const absorbedInto = new Map<string, string>();
 for (const { canonical, absorbed } of duplicateGroups) {
   for (const dupe of absorbed) {
+    absorbedIds.set(canonical.id, [...(absorbedIds.get(canonical.id) ?? []), dupe.id]);
+    absorbedInto.set(dupe.id, canonical.id);
     canonical.offers.push(...dupe.offers);
     // Same reason the offers move: the disagreement being counted is between
     // the shops on the *final* product, so an absorbed record's claims have to
@@ -1275,8 +1330,11 @@ if (scaleAudit.offScale.length > 0) {
    wasPrice credibility checks in wasPriceCredibility.ts stay exactly as
    they were. See CONCENTRATION_DISPUTED and CONCENTRATION_RESOLUTIONS in
    productName.ts for the rest of this reasoning. */
+// A gift set is left out: two shops naming different strengths for one set
+// are usually naming different items in it (an EDP with an EDT miniature),
+// not disagreeing about one bottle.
 const mixedConcentration = [...concentrationsSeen].filter(
-  ([id, seen]) => seen.size > 1 && products.has(id),
+  ([id, seen]) => seen.size > 1 && products.has(id) && products.get(id)!.giftSet === null,
 );
 // Split, because the two halves mean different things — see above. A shop
 // that named nothing has not contradicted a shop that named something.
@@ -1730,6 +1788,53 @@ for (const p of ordered) {
   );
 }
 
+/* ── older observations, for the price graph only ──────────────────────────
+   Every active listing hidden by HIDE_OFFER_AFTER_DAYS above, attached to the
+   product it would have joined: its own fragranceId, or the product that id
+   was folded into. Run after every product is final, and never fed into any
+   of the passes above, so a hidden listing cannot create a product, move a
+   merge, cast a reference price vote or appear in CRAWLED: it is in no price
+   list, no listing count, no deal. The page plots each as an older price on
+   the graph, on the day it was last checked (demo/priceHistoryChart.ts).
+   Same gates as a shown offer: a usable price, a fragrance, a shop whose
+   price scale was not withheld. */
+const finalIds = new Set(ordered.map((p) => p.id));
+const scaleWithheld = new Set(scaleAudit.offScale.map((f) => f.retailerId));
+const olderOffers: Record<string, { retailerId: string; price: number; fetchedAt: string; stock: Offer['stock'] }[]> = {};
+let olderOffersKept = 0;
+const olderOffersSkipped = { unpriced: 0, notFragrance: 0, noProductPage: 0 };
+for (const l of tooOldListings) {
+  if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0) || scaleWithheld.has(l.retailerId)) {
+    olderOffersSkipped.unpriced++;
+    continue;
+  }
+  if (!isCatalogueListing(l)) {
+    olderOffersSkipped.notFragrance++;
+    continue;
+  }
+  const own = fragranceId(l, untrustworthyEans);
+  const id = finalIds.has(own) ? own : absorbedInto.get(own);
+  if (id === undefined || !finalIds.has(id)) {
+    // Its product has no current offer anywhere, so no page to plot it on.
+    olderOffersSkipped.noProductPage++;
+    continue;
+  }
+  (olderOffers[id] ??= []).push({
+    retailerId: l.retailerId,
+    price: l.priceGbp,
+    fetchedAt: l.lastSeenAt,
+    stock: l.inStock === true ? 'inStock' : l.inStock === false ? 'outOfStock' : 'unknown',
+  });
+  olderOffersKept++;
+}
+for (const list of Object.values(olderOffers)) list.sort((a, b) => a.fetchedAt.localeCompare(b.fetchedAt) || a.retailerId.localeCompare(b.retailerId));
+
+const historyAliases: Record<string, string[]> = {};
+for (const p of ordered) {
+  const ids = absorbedIds.get(p.id);
+  if (ids?.length) historyAliases[p.id] = [...ids].sort();
+}
+
 const crawledAt =
   ordered.flatMap((p) => p.offers.map((o) => o.fetchedAt)).sort().at(-1) ??
   new Date(0).toISOString();
@@ -1753,6 +1858,9 @@ const catalogue = ordered.map((p) => {
     // stocked here — JSON.stringify drops an undefined value, so 13,933 of the
     // 14,784 products cost nothing for a field that has nothing to say.
     houseCeiling: houseCeilings.get(p.id),
+    // Omitted for every single bottle, so the shipped file only grows by the
+    // gift sets themselves.
+    ...(p.giftSet ? { giftSet: p.giftSet } : {}),
   };
 });
 
@@ -1872,12 +1980,47 @@ export interface CatalogueEntry {
    * expressible without inventing anything.
    */
   houseCeiling?: number;
+  /**
+   * Present only on a gift set (src/catalogue/giftSet.ts): its own category,
+   * shown with "Gift set" where a size would be and listed under its own
+   * option in the Volume filter. Never matched or compared with a single
+   * bottle; sizeMl is always null on one. \`contents\` is what the shop's title
+   * spells out ("100ml Eau de Toilette", "150ml Body Wash"), or null where it
+   * does not; \`title\` is the shop title they were read from, shown in
+   * their place when there are none.
+   */
+  giftSet?: { contents: string[] | null; title: string };
 }
 
 /** Products, most widely stocked first. */
 ${chunkedArrayLiteral('CATALOGUE', 'CatalogueEntry', catalogue)}
 
 export const CRAWLED: Record<string, CrawledOffer[]> = ${JSON.stringify(crawled, null, 2)};
+
+/**
+ * For the price graph only: each product's active offers whose price was last
+ * confirmed more than HIDE_OFFER_AFTER_DAYS ago. They are in no price list, no
+ * listing count and no deal (that is the hide rule), but each is a real
+ * observation, so the product page plots it as an older price on the day it
+ * was checked. Never read as a current offer.
+ */
+export interface OlderOffer {
+  retailerId: string;
+  price: number;
+  fetchedAt: string;
+  stock: StockState;
+}
+
+export const OLDER_OFFERS: Record<string, OlderOffer[]> = ${JSON.stringify(olderOffers)};
+
+/**
+ * The ids each product absorbed when same bottle listings were folded
+ * together. The price history is keyed on the unfolded ids, so the product
+ * page merges every alias's recorded line into its own (see
+ * src/services/priceHistoryMerge.ts). Only products that absorbed something
+ * are listed.
+ */
+export const HISTORY_ALIASES: Record<string, string[]> = ${JSON.stringify(historyAliases)};
 
 /**
  * Houses read direct from their own storefronts.
@@ -1935,7 +2078,8 @@ const multi = ordered.filter((p) => p.offers.length > 1).length;
 // title states two conflicting sizes, never because it stated none — that
 // case is still excluded by isFragrance() before a listing ever becomes a
 // product at all.
-const sizeUnknown = ordered.filter((p) => p.sizeMl === null).length;
+const sizeUnknown = ordered.filter((p) => p.sizeMl === null && p.giftSet === null).length;
+const giftSetProducts = ordered.filter((p) => p.giftSet !== null);
 console.log(
   `demo/catalogue.generated.ts written from LIVE data only:\n` +
     `  ${liveShops} shops, ${considered} listings considered, ${rejected} were not fragrance, ${unpriced} carried no price\n` +
@@ -1958,6 +2102,8 @@ console.log(
     '\n' +
     `  ${houseProducts.length} house products, catalogue-only (no sterling price yet)\n` +
     `  ${sizeUnknown} products carry a size their own title states two conflicting ways; shown as size not confirmed\n` +
+    `  ${giftSetProducts.length} gift set products (${giftSetProducts.reduce((n, p) => n + p.offers.length, 0)} offers; ${[...giftSetListings.values()].reduce((n, v) => n + v, 0)} listings: ` +
+    `${[...giftSetListings].sort((a, b) => b[1] - a[1]).map(([id, n]) => `${id} ${n}`).join(', ')}), never compared with a single bottle\n` +
     `  ${[...tooOldByShop.values()].reduce((n, v) => n + v.hidden, 0)} active listings hidden, price last confirmed over ${HIDE_OFFER_AFTER_DAYS} days ago` +
     (tooOldByShop.size
       ? ` (${[...tooOldByShop]
@@ -1965,6 +2111,9 @@ console.log(
           .map(([id, v]) => `${id} ${v.hidden}${v.hidden === v.of ? ' (all of them)' : ''}`)
           .join(', ')})`
       : '') +
+    `\n  ${olderOffersKept} of those kept for the price graph only, as older prices on ${Object.keys(olderOffers).length} products ` +
+    `(left out: ${olderOffersSkipped.notFragrance} not fragrance, ${olderOffersSkipped.noProductPage} for a product with no current offer and so no page, ${olderOffersSkipped.unpriced} unpriced or price scale withheld)` +
+    `\n  ${Object.keys(historyAliases).length} products carry the price history of ids folded into them` +
     (skippedShops.length
       ? `\n  skipped: ${skippedShops.join(', ')}`
       : ''),

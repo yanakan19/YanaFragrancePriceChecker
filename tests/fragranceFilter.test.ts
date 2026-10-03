@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { isFragrance, repairMojibake, sizeMl, sizeConflict } from '../src/catalogue/fragranceId.js';
+import { isGiftSet } from '../src/catalogue/giftSet.js';
 import { RETAILERS, getRetailer } from '../src/config/retailers.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 
@@ -327,15 +328,21 @@ describe('isFragrance: a quantity against a size means several bottles', () => {
     expect(isFragrance(listing(retailerId, title))).toBe(true);
   });
 
-  // A bare "set" is not safe globally either. Tommy Bahama's line is called
-  // Set Sail, and Fragrance Click's "+ 10ml" listings really are the headline
-  // 100ml bottle with a miniature beside it — sizeMl reads the right size.
+  // Tommy Bahama's line is called Set Sail: one bottle, whatever the word.
+  it('does not take a bottle named Set Sail for a set', () => {
+    expect(isFragrance(listing('mybeauty-boutique', 'Tommy Bahama Tommy Bahama Set Sail Cologne St. Barts Eau de Cologne 100ml Spray'))).toBe(true);
+  });
+
+  // These two used to be kept as the headline bottle ("the 100ml with a
+  // miniature beside it"). The owner's decision, 2026-10-03: a set is its own
+  // product and is never compared with a single bottle, so they are gift sets
+  // now (tests/giftSet.test.ts), not single bottles.
   it.each([
-    ['mybeauty-boutique', 'Tommy Bahama Tommy Bahama Set Sail Cologne St. Barts Eau de Cologne 100ml Spray'],
     ['fragrance-click', 'Burberry Her 100ml Eau de Parfum + 10ml Set'],
     ['emirates-oud', 'Genesis Perfume Set 90ml EDP French Avenue by Fragrance World'],
-  ])('does not reject a single bottle for the word "set" alone at %s: %s', (retailerId, title) => {
-    expect(isFragrance(listing(retailerId, title))).toBe(true);
+  ])('files a set as a gift set, never as a single bottle, at %s: %s', (retailerId, title) => {
+    expect(isFragrance(listing(retailerId, title))).toBe(false);
+    expect(isGiftSet(listing(retailerId, title))).toBe(true);
   });
 
   it('reads "1 x" as one bottle, not several', () => {

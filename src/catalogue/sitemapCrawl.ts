@@ -3,6 +3,8 @@ import type { RawListing } from './types.js';
 import type { Http } from './attempt.js';
 import { parseListings } from './jsonld.js';
 import { isAllowed, type RobotsRules } from './robots.js';
+import { readRobotsResponse, resolveRobotsReadings } from './robotsSource.js';
+import { BEAUTY_BAY_API, beautyBayApiUrl, beautyBayParts, parseBeautyBayProduct } from './beautyBayApi.js';
 
 /**
  * Harvest a shop's catalogue through the sitemap it publishes.
@@ -360,6 +362,132 @@ export function redirectedAway(asked: string, finalUrl: string | undefined): boo
   }
 }
 
+/**
+ * The headers every request on a pinned route carries: the crawler's own name
+ * and contact page, never a browser's. Kept here rather than imported from
+ * attempt.ts so this module's identity on a pinned route cannot drift with a
+ * caller's choice of headers.
+ */
+export const ROUTE_HEADERS: Record<string, string> = {
+  'user-agent': 'PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about)',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language': 'en-GB,en;q=0.9',
+};
+
+/** Upper bound on a pinned route's sitemap fetches, whatever the entry asks. */
+const MAX_ROUTE_SITEMAPS = 60;
+
+/** A pinned route's product URLs are kept up to this many. */
+const MAX_ROUTE_URLS = 20000;
+
+/** XML-escaped `<loc>` text, unescaped: `&amp;` in a sitemap is `&` in the URL. */
+function unescapeXml(s: string): string {
+  return s
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&amp;/g, '&');
+}
+
+/**
+ * Discovery along a route pinned in the registry (`Retailer.sitemapRoute`).
+ *
+ * Starts from the named roots only, opens only the child sitemaps `follow`
+ * allows, keeps only the page URLs `product` matches and `exclude` does not,
+ * and checks robots.txt before every request. Requests are spaced by `gapMs`
+ * here too, so a shop's crawl delay holds for its sitemaps as well as its
+ * products. Product URLs naming a perfume come first, then the rest, in the
+ * order the shop listed them.
+ */
+async function discoverViaRoute(
+  options: SitemapCrawlOptions,
+  deadlineAt: number,
+  sleep: (ms: number) => Promise<void>,
+): Promise<{ urls: string[]; errors: string[] }> {
+  const route = options.retailer.sitemapRoute!;
+  const { http, robots, onProgress, gapMs } = options;
+  const follow = route.follow ? new RegExp(route.follow, 'i') : null;
+  const product = new RegExp(route.product, 'i');
+  const exclude = route.exclude ? new RegExp(route.exclude, 'i') : null;
+  const budget = Math.min(route.maxSitemaps ?? 12, MAX_ROUTE_SITEMAPS);
+
+  const queue = [...route.roots];
+  const seen = new Set<string>();
+  const found: string[] = [];
+  const kept = new Set<string>();
+  const errors: string[] = [];
+  let fetched = 0;
+
+  while (queue.length > 0 && fetched < budget && kept.size < MAX_ROUTE_URLS && Date.now() < deadlineAt) {
+    const url = queue.shift()!;
+    if (seen.has(url)) continue;
+    seen.add(url);
+    if (!isAllowed(robots, url)) {
+      errors.push(`${url}: not asked, robots.txt does not permit it`);
+      continue;
+    }
+
+    if (fetched > 0 && gapMs > 0) await sleep(gapMs);
+    const res = await http(url, ROUTE_HEADERS);
+    fetched++;
+    onProgress?.(fetched, kept.size);
+    if (!res.ok) {
+      errors.push(`${url}: HTTP ${res.status}`);
+      if (res.status === 403 || res.status === 429) {
+        errors.push('stopped early: the shop began refusing requests');
+        break;
+      }
+      continue;
+    }
+    const captcha = captchaRefusal(url, res);
+    if (captcha) {
+      errors.push(captcha, CAPTCHA_STOP);
+      break;
+    }
+
+    for (const raw of locs(res.body)) {
+      const loc = unescapeXml(raw);
+      if (isXml(loc)) {
+        if (!follow || follow.test(loc)) queue.push(loc);
+      } else if (product.test(loc) && !(exclude && exclude.test(loc)) && !kept.has(loc)) {
+        kept.add(loc);
+        found.push(loc);
+      }
+    }
+  }
+
+  const named = found.filter((u) => PERFUME_WORD.test(pathOf(u)));
+  const rest = found.filter((u) => !PERFUME_WORD.test(pathOf(u)));
+  return { urls: [...named, ...rest], errors };
+}
+
+/** Plain text of a fragment of HTML, entities decoded, whitespace collapsed. */
+function textOf(fragment: string): string {
+  return fragment
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&pound;/gi, '£')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * A listing's title with the route's `titleParts` read off its own page and
+ * appended, each only where the title does not already carry it.
+ */
+export function withTitleParts(title: string, html: string, parts: readonly string[]): string {
+  let out = title;
+  for (const source of parts) {
+    const m = new RegExp(source, 'i').exec(html);
+    const text = m?.[1] ? textOf(m[1]).replace(/[|,;:]+$/, '').trim() : '';
+    if (text && !out.toLowerCase().includes(text.toLowerCase())) out = `${out} ${text}`;
+  }
+  return out;
+}
+
 async function discover(
   options: SitemapCrawlOptions,
   budget: number,
@@ -531,13 +659,21 @@ export function selectUrlsToFetch(
 export async function crawlViaSitemap(
   options: SitemapCrawlOptions,
 ): Promise<SitemapCrawlResult> {
-  const { http, robots, headers, maxPages, gapMs } = options;
+  const { http, robots, maxPages, gapMs } = options;
+  const route = options.retailer.sitemapRoute ?? null;
+  // A pinned route always identifies itself honestly, whatever the caller
+  // passed: see SitemapRoute's own doc comment.
+  const headers = route ? ROUTE_HEADERS : options.headers;
   const sleep = options.sleep ?? ((ms: number) => new Promise<void>((r) => setTimeout(r, ms)));
 
   const deadlineAt = Date.now() + (options.maxDurationMs ?? DEFAULT_CRAWL_MS);
 
   // A dozen sitemap fetches is plenty to find the fragrance aisle.
-  const { urls, errors } = await discover(options, 12, deadlineAt);
+  const { urls, errors } = route
+    ? await discoverViaRoute(options, deadlineAt, sleep)
+    : await discover(options, 12, deadlineAt);
+  // The walk's last sitemap fetch and its first product fetch are a pair too.
+  if (route && gapMs > 0 && urls.length > 0) await sleep(gapMs);
 
   const listings: RawListing[] = [];
   const sampledUrls: string[] = [];
@@ -572,7 +708,23 @@ export async function crawlViaSitemap(
   if (refusedAtDiscovery && refreshUrls.length > 0) {
     errors.push(`not re-reading ${refreshUrls.length} stored page(s): the shop refused its sitemap`);
   }
-  const picked = captchaAtDiscovery || refusedAtDiscovery ? [] : [...refreshUrls, ...budgeted];
+  let picked = captchaAtDiscovery || refusedAtDiscovery ? [] : [...refreshUrls, ...budgeted];
+
+  // A product API is a host of its own, with a robots.txt of its own, read
+  // before it is asked anything. A server error there means nothing is asked.
+  const apiReader = route?.pageReader === 'beauty-bay-api';
+  let apiRobots: RobotsRules | null = null;
+  if (apiReader && picked.length > 0) {
+    const res = await http(`${BEAUTY_BAY_API}/robots.txt`, ROUTE_HEADERS);
+    apiRobots = resolveRobotsReadings([readRobotsResponse(res)]);
+    if (apiRobots.unavailable) {
+      errors.push(`${BEAUTY_BAY_API}/robots.txt: HTTP ${res.status}, so the product API is not asked`);
+      picked = [];
+    } else if (gapMs > 0) {
+      await sleep(gapMs);
+    }
+  }
+  const productsRead = new Set<string>();
   const pickedSet = new Set(picked);
 
   // Consecutive failed pages of any kind (an error status or no answer).
@@ -593,8 +745,20 @@ export async function crawlViaSitemap(
     }
     if (!isAllowed(robots, url)) continue;
 
+    // Through the product API: one request per product answers every size,
+    // so a second size of a product already read this run is skipped.
+    let fetchUrl = url;
+    if (apiReader) {
+      const parts = beautyBayParts(url);
+      const api = beautyBayApiUrl(url);
+      if (!parts || !api || productsRead.has(`${parts.brand}/${parts.product}`)) continue;
+      if (!isAllowed(apiRobots!, api)) continue;
+      productsRead.add(`${parts.brand}/${parts.product}`);
+      fetchUrl = api;
+    }
+
     if (sampledUrls.length < SAMPLE_LIMIT) sampledUrls.push(url);
-    const res = await http(url, headers);
+    const res = await http(fetchUrl, apiReader ? { ...headers, accept: 'application/json' } : headers);
     pagesFetched++;
     if (!refreshSet.has(url) && !known.has(url)) discoveryFetched++;
     options.onProgress?.(pagesFetched, listings.length);
@@ -621,7 +785,14 @@ export async function crawlViaSitemap(
       break;
     }
 
-    const found = parseListings(res.body, { sectionId: 'sitemap', pageUrl: url });
+    const found = apiReader ? parseBeautyBayProduct(res.body, url) : parseListings(res.body, {
+      sectionId: 'sitemap',
+      pageUrl: url,
+      ...(route ? { microdata: true, requireGbp: route.requireGbp === true } : {}),
+    });
+    if (route?.titleParts?.length && found.length === 1) {
+      found[0] = { ...found[0]!, rawTitle: withTitleParts(found[0]!.rawTitle, res.body, route.titleParts) };
+    }
     listings.push(...found);
     // A stored product page that now redirects to a different page is gone at
     // that address in the same sense a 404 is: Perfumeo answers its renamed
@@ -630,7 +801,8 @@ export async function crawlViaSitemap(
     // 2026-10-03), and a withdrawn product often lands on a category. The
     // caller delists only stored rows whose SKU this run did not find, so a
     // product that merely moved keeps its row under the new address.
-    if (known.has(url) && redirectedAway(url, res.finalUrl)) movedUrls.push(url);
+    // Judged on the address actually asked: a product API answers from its own host.
+    if (known.has(url) && redirectedAway(fetchUrl, res.finalUrl)) movedUrls.push(url);
 
     // Spacing exists to keep every *pair* of requests to this shop apart —
     // there is no next request after the last URL in the list, so waiting
