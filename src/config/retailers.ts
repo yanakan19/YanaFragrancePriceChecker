@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 77 retailers, 40 of them `enabled: true`. Every one of them is a legitimate
+ * 77 retailers, 41 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -2341,8 +2341,14 @@ export const RETAILERS: readonly Retailer[] = [
         description:
           'Selfridges+ (£10/year): free standard delivery on orders over £100. Selfridges Unlocked members: complimentary UK delivery on online orders over £150.',
       },
-      verifiedAt: '2026-10-01',
-      confidence: 'unverified',
+      verifiedAt: '2026-10-03',
+      // Confirmed 2026-10-03 by the owner on selfridges.com (screenshot of a
+      // product page's Delivery panel with an item in the bag): "UK Delivery:
+      // Standard delivery £6.95 ... Nominated day £9.95, Timed delivery £10.95,
+      // Unlimited with SELFRIDGES+ UK (yearly) £10". No spend threshold is
+      // offered to non-members, so freeOverGbp stays null and Selfridges+
+      // stays a membershipPerk.
+      confidence: 'confirmed',
       notes:
         'Standard Delivery within 5 working days; Click & Collect free. Read indirectly ' +
         '(search extracts of the UK delivery page) because the page refuses this tooling — ' +
@@ -2757,7 +2763,18 @@ export const RETAILERS: readonly Retailer[] = [
     // storefront answers GBP at rate 1 to a CI runner, the ingest guard passes
     // and only the price-scale audit would stand between those figures and the
     // site. Two independent things then have to fail rather than one.
-    enabled: false,
+    // ── Switched back on, 2026-10-03 ────────────────────────────────────
+    // The bar above was a sterling price read off this shop's own basket, and
+    // a human has now read one: the owner put Ormonde Jayne Bijou Zafran Eau
+    // de Parfum 88ml in a basket on escentual.com from the UK (screenshot):
+    // product page £225.00, shopping bag subtotal £225.00, "Taxes included.
+    // Discounts and shipping calculated at checkout", and the delivery block
+    // "Free Standard Delivery Orders over £30" (matching freeOverGbp below).
+    // So 'escentual' left CURRENCY_UNCONFIRMED. The 8,104 listings it holds
+    // still carry priceGbp: null from the dollar harvest, so nothing in
+    // dollars can reach the site; shopifyProductsCrawl's GBP market reading
+    // refills them in pounds on the next harvest.
+    enabled: true,
     // No Awin approval yet, so this is a direct scrape rather than a feed —
     // the requested route for this retailer. No live spike was possible from
     // this environment (network egress to arbitrary hosts is blocked here,
@@ -3403,23 +3420,23 @@ export const RETAILERS: readonly Retailer[] = [
     sitemapHarvestConfirmed: true,
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: 100,
+      standardGbp: 3.95,
+      freeOverGbp: null,
       estimatedDays: [2, 3],
-      verifiedAt: '2026-08-05',
-      confidence: 'unverified',
+      verifiedAt: '2026-10-03',
+      // Confirmed 2026-10-03 by the owner in their own basket at
+      // uk.riiffsperfumes.com/cart (screenshots): Gladius at £35.00 shipped to
+      // Southall UB1 1DU showed "Flat rate: 3.95£", and the same basket at 3 x
+      // £35 = £105.00 still showed "Flat rate: 3.95£". So standard delivery is
+      // a flat £3.95 and there is no free-delivery threshold at £100: the
+      // "free over £100" recorded above was wrong, and is now null. The site
+      // blocks automated reads (a SiteGround captcha), so this rests on the
+      // owner's own check.
+      confidence: 'confirmed',
       notes:
-        'freeOverGbp and the 2-3 working day window are their own stated figures. The ' +
-        'standard cost below £100 has never been read off this shop\'s own delivery page — no ' +
-        'shipping:discover run has reached it, unlike fragrancehub\'s confirmed ' +
-        'standardRateNotPublished. Genuinely unconfirmed, not established as unstated; the ' +
-        'entry is enabled on tests/registry.test.ts\'s unstated-delivery allowlist all the same, ' +
-        'same as this file\'s header explains that field is for. Read the page directly to ' +
-        'close this out. Attempted 2026-10-01 and still unreadable: every URL on ' +
-        'uk.riiffsperfumes.com (home page, /policies/shipping-policy, /pages/shipping-policy) ' +
-        'answers HTTP 202 with a SiteGround captcha redirect (/.well-known/sgcaptcha/), and ' +
-        'WebFetch gets an empty body. Search results surfaced only the delivery window ' +
-        '(3-5 business days) and no rate. Needs a human in a browser.',
+        'Flat £3.95 standard delivery, no free-delivery threshold: read off the shop\'s own ' +
+        'basket by the owner on 2026-10-03 at £35 and at £105 (both "Flat rate: 3.95£"). The ' +
+        'site answers automated reads with a SiteGround captcha, so this was checked by hand.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -3728,7 +3745,7 @@ export const RETAILERS: readonly Retailer[] = [
       // policy still says "a postage charge of £3.99 may be deducted from your
       // refund" when a return takes an order below the free-delivery
       // threshold. Same two figures, same indirect basis for the £3.99.
-      verifiedAt: '2026-10-01',
+      verifiedAt: '2026-10-03',
       // 'unverified', not 'confirmed', and the distinction is real rather than
       // cautious boilerplate. £3.99 is genuinely their own figure, but it was
       // read off a returns clause explaining what a refund deducts, not off a
@@ -3739,7 +3756,13 @@ export const RETAILERS: readonly Retailer[] = [
       // doc comment means by sourced indirectly: treat the delivered price as
       // indicative. This flag reaches the reader as a reliability signal, so
       // claiming 'confirmed' here would overstate what we actually have.
-      confidence: 'unverified',
+      // Confirmed 2026-10-03 by the owner at Emirates Oud's own checkout
+      // (screenshot): an £8.99 basket to a Coventry address offered
+      // "Standard Delivery £3.99, 3 to 5 business days" and "Express £5.99,
+      // 1 to 2 business days", total GBP £12.98. The £3.99 is now read off
+      // the checkout rather than inferred from the returns clause; the £50
+      // threshold remains their own published rule (shipping policy, banner).
+      confidence: 'confirmed',
       notes:
         'Approved affiliate as of 10 Aug 2026. Free delivery over £50 is ' +
         'confirmed from their own shipping policy page, read by CI on ' +
@@ -7818,32 +7841,6 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'any currency at all — no Shopify.currency, no /meta.json, and /en-gb /gb /uk /en-uk all ' +
       '404. /products.json also 404s at every address tried, so this is not a confirmed Shopify ' +
       'storefront either. A genuinely silent storefront, not a foreign-currency one.',
-  ],
-  [
-    'escentual',
-    'The shop is a UK shop and it charges in pounds; what was published here was dollars. ' +
-      'Measured 2026-08-15 from a GitHub Actions runner (currency probe, run 31880556596, job ' +
-      '95002418010, commit a735ef6): escentual.com/meta.json says it SETTLES in GBP, while its ' +
-      'theme quoted that runner USD at its own published rate of 1.38605. Asked ?country=GB — ' +
-      'or holding the localization=GB cookie a country selector sets — the same storefront ' +
-      'quotes GBP at rate 1. The difference is not cosmetic: /products.json served 39.00 for ' +
-      'nuxe-reve-de-miel-ultra-comforting-body-cream at the origin and 28.00 under ?country=GB, ' +
-      'and the Calvin Klein Obsession 125ml this repo held at "£57.00" came back 40.95 GBP. ' +
-      'That is what the offline measurement of 2026-08-13 (commit 86c4660) was seeing when it ' +
-      'found this shop 1.452x fragrance-click over 132 products and 1.443x mybeauty-boutique ' +
-      'over 213, where those two agree with each other at 1.000, and when a hand check from the ' +
-      'UK read £40.25 against our £57.00. Nothing in this repo ever applied a rate; the shop ' +
-      'applied one and we wrote the result down as pounds. Nor may anyone undo it that way: 57 ' +
-      '/ 1.38605 is 41.12 and the GBP list says 40.95, because a Shopify market rounds its own ' +
-      'prices. It ran enabled with 2,542 offer rows live until 2026-08-13. ' +
-      'WHAT WOULD TAKE IT OFF THIS LIST: the bar above is a checkout, and a checkout is exactly ' +
-      'what has not been reached — no basket has been made at this shop and none should be made ' +
-      'casually. What is held instead is a storefront price list the shop labels GBP, settling ' +
-      'GBP, at no conversion, in two independent documents (the theme and the product page\'s ' +
-      'schema.org priceCurrency), reproducible in a minute by dispatching price-verify.yml with ' +
-      'currency_probe and currency_probe_require_gbp. A human may decide that clears the bar. ' +
-      'This id stays here until one does, and the deciding is the point: it is not a thing to ' +
-      'infer from a green tick.',
   ],
   [
     'harrods',
