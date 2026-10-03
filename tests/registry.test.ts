@@ -285,6 +285,11 @@ describe('retailer registry', () => {
       // (standardRateNotPublished) rather than unread. riiffs left on
       // 2026-10-03: its site serves a captcha to every fetch, so the owner
       // read the flat £3.95 off its own basket by hand.
+      // space-nk joined 2026-10-03 on the fragrancehub side of the split: it
+      // publishes free UK standard delivery over £25 and no rate below it
+      // (standardRateNotPublished, its help article refusing our request with
+      // a 403), and its route is a pinned sitemap walk proved by a runner
+      // (`sitemapHarvestConfirmed: true`, probe run #568).
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'al-haramain',
         'armaf',
@@ -293,6 +298,7 @@ describe('retailer registry', () => {
         'ibraq',
         'manchester-ouds',
         'morrisons',
+        'space-nk',
       ]);
       for (const r of unstated) {
         expect(
@@ -307,12 +313,16 @@ describe('retailer registry', () => {
 
     it('yields a null delivered price, never a number', () => {
       for (const r of unstated) {
-        const row = presentOffer(rawOffer(r.id, 42), r);
+        // Below the shop's own free-delivery threshold, where it states one:
+        // Space NK's £25 is a real, quoted threshold, and an item over it is
+        // genuinely delivered free, which is not the case under test here.
+        const price = r.shipping.freeOverGbp !== null ? Math.min(42, r.shipping.freeOverGbp - 1) : 42;
+        const row = presentOffer(rawOffer(r.id, price), r);
         expect(row.deliveredPriceGbp, `${r.name} invented a delivered price`).toBeNull();
         expect(row.delivery.costGbp, `${r.name} invented a delivery cost`).toBeNull();
         // The item price is still shown; it is simply never passed off as a
         // delivered one.
-        expect(row.itemPriceGbp).toBe(42);
+        expect(row.itemPriceGbp).toBe(price);
         // Nothing about free delivery can be claimed for a cost nobody has.
         expect(row.delivery.isFree).toBe(false);
         expect(row.delivery.freeReason).toBeNull();
