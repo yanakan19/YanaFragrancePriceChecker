@@ -85,7 +85,7 @@ const TITLE_MAX = 60;
  *
  * A tab title is read at a glance, in a strip a few characters wide, next to
  * a dozen other tabs. It is a label, not a summary. So each of these now
- * matches the heading the page actually shows — "Today's Deals", "Brands",
+ * matches the heading the page actually shows — "Deals", "Brands",
  * "Retailers", "Notes" — taken from the same words demo/app.ts renders in its
  * own `t-page` heading and top-bar nav.
  *
@@ -272,7 +272,7 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'deals':
       return {
-        title: 'PriceSniffs: Today’s Deals',
+        title: 'PriceSniffs: Deals',
         description: describe(
           'Bottles that cost less today than the last price recorded for them, measured against this site’s own price history rather than a shop’s claim.',
           SITE_TAIL,

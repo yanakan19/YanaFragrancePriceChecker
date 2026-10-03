@@ -364,7 +364,7 @@
   /* Form controls sit one step above buttons: a field is aimed at, then typed
      into, and the extra height is what keeps a label, a value and a caret from
      crowding each other. */
-  .control, .search-big, .field select, .field textarea, .field input {
+  .control, .field select, .field textarea, .field input {
     min-height: 48px;
   }
 
@@ -599,8 +599,8 @@
   .pop-section { margin-top: 32px; }
 
   /* ── bottom split: suggestions beside update history ─────────────────────
-     Stacked on mobile, side by side once there is room for two honest
-     columns rather than one squeezed pair. */
+     Stacked on mobile, with the suggestion box last; side by side once there
+     is room for two honest columns rather than one squeezed pair. */
   .bottom-split {
     margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line);
     display: flex; flex-direction: column; gap: 36px;
@@ -658,6 +658,10 @@
 
   :root[data-layout="desktop"] .bottom-split { flex-direction: row; align-items: flex-start; gap: 56px; }
   :root[data-layout="desktop"] .bottom-split > section { flex: 1 1 0; min-width: 0; }
+  /* The markup puts "Got an idea?" after Update History so it is the last
+     thing on a phone's home page (owner request, 2026-10-03). Side by side
+     there is no "last", so it keeps the left column it always had. */
+  :root[data-layout="desktop"] .bottom-split > .suggest-section { order: -1; }
   /* "Got an idea?" now centres on desktop too, same as it already does on
      mobile — .suggest-section's own base rule (align-items: center;
      text-align: center) already does this once the desktop override that
@@ -1568,25 +1572,6 @@
   @media (hover: hover) and (pointer: fine) {
     .notes-source-link:hover { color: var(--accent); }
   }
-
-  /* ── full search ───────────────────────────────────────────────────────── */
-  .search-big {
-    display: flex; align-items: center; gap: 9px; margin: 4px 0 14px;
-    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
-    padding: 0 13px;
-  }
-  .search-big:focus-within { border-color: var(--accent); }
-  /* The handoff pairs this field with a floating suggestion panel, squaring
-     the field's bottom corners (12px 12px 0 0) against the panel's top ones
-     while it is open. This app has no such panel: typing filters the results
-     grid below in place rather than dropping a list over it, so the field
-     keeps all four corners and there is nothing for it to join onto. */
-  .search-big .ico { color: var(--faint); flex: none; width: 19px; height: 19px; }
-  .search-big input {
-    flex: 1; min-width: 0; font: inherit; font-size: 16px; color: var(--ink);
-    background: none; border: 0; padding: 12px 0; -webkit-appearance: none;
-  }
-  .search-big input:focus-visible { outline: none; }
 
   /* ── detail ────────────────────────────────────────────────────────────── */
   /* Link rank, at the top of every leaf page. */
@@ -2669,7 +2654,7 @@
       <button class="brandmark" id="brand-home" aria-label="PriceSniffs, go to home">Price<em>Sniffs</em></button>
       <div class="nav-items">
         <button class="navbtn" id="nav-home">Home</button>
-        <button class="navbtn" id="nav-deals">Today’s Deals</button>
+        <button class="navbtn" id="nav-deals">Deals</button>
         <button class="navbtn" id="nav-explore">Explore</button>
         <button class="navbtn" id="nav-about">About</button>
         <button class="navbtn" id="nav-settings">Settings</button>
@@ -2681,7 +2666,7 @@
          of the layout: the input is still a direct flex child of the bar as
          far as rendering is concerned. -->
     <div role="search" class="quick-search">
-      <input type="search" id="search" placeholder="Quick search" aria-label="Quick search by fragrance name" />
+      <input type="search" id="search" placeholder="Quick Search" aria-label="Quick search by fragrance name" />
     </div>
     <nav class="subnav" id="subnav" hidden></nav>
   </div>
