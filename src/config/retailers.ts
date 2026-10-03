@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 76 retailers, 46 of them `enabled: true`. Every one of them is a legitimate
+ * 76 retailers, 47 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -5912,7 +5912,15 @@ export const RETAILERS: readonly Retailer[] = [
       maxSitemaps: 3,
       requireGbp: true,
     },
-    enabled: false,
+    //
+    // ── Switched on, 2026-10-03, on the pinned route ────────────────────────
+    // Probe run #569 (job 111191127386), from a runner: 2,381 product URLs in
+    // the three fragrance aisles, 8 pages, 20 listings (one per size), all 20
+    // priced in GBP on their own pages, e.g. Estée Lauder Pleasures EDP 15/30/
+    // 50/100 ml £18.95/£45.43/£64.68/£85.54. Prices are as the page states
+    // them, including where a smaller size costs more than a larger one
+    // (Light Blue EDT 30 ml £48.75, 50 ml £46.63 on index_13043.aspx).
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -9167,18 +9175,11 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'everywhere too, so this is not a confirmed Shopify storefront either. Unlike escentual, ' +
       'no request this repo knows how to make has found a GBP reading anywhere on this shop.',
   ],
-  [
-    'parfumdreams-uk',
-    'Currency probe, run 32256361673 job 96078874562, 2026-08-19: robots.txt answers with no ' +
-      'disallow, and the bare origin answers 200, but none of the nine ways of asking published ' +
-      'any currency at all — no Shopify.currency, no /meta.json, and /en-gb /gb /uk /en-uk all ' +
-      '404. /products.json also 404s everywhere. A .co.uk domain is not evidence of sterling ' +
-      'pricing on its own (uk.zimayaperfumes.com quotes dollars) — this storefront is simply ' +
-      'silent about its currency rather than confirming anything. 2026-10-03: a product page ' +
-      '(Gucci Bloom Eau de Parfum Spray, index_122330.aspx) labels every offer priceCurrency ' +
-      'GBP, read from this sandbox; a probe with --product on that page from a runner is what ' +
-      'would remove this id. It is off for route reasons regardless (see its entry).',
-  ],
+  // parfumdreams-uk was removed from this list on 2026-10-03, on the angle
+  // its own note here named: product pages label every offer priceCurrency
+  // GBP. Its pinned route sets requireGbp, so a price is stored only when its
+  // own offer says GBP, and probe run #569 (job 111191127386) read all 20 of
+  // the listings it fetched that way from a runner. It is now `enabled: true`.
   [
     'fragrancedirect',
     'Currency probe, run 32256534104 job 96079423648, 2026-08-19: robots.txt answers with no ' +
