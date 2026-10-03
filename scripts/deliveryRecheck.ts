@@ -136,6 +136,10 @@ export const UNQUOTED_DELIVERY_PAGES: Readonly<Record<string, string>> = {
   // quoted source; the address below is the policy page its earlier source
   // named (read 2026-10-01).
   'manchester-ouds': 'https://manchesterouds.com/pages/shipping-policy',
+  // Rests on the owner's own checkout (2026-10-03) rather than a quoted page. The
+  // policy page below is the one read on 2026-10-01; it says "from £135" where the
+  // cart says £133, and the recheck only reports such a gap, it never edits.
+  'nicchia-luxury-uk': 'https://www.nicchialuxury.com/policies/shipping-policy',
 };
 
 /** The page the re-check reads for a shop: its quoted source first. */
