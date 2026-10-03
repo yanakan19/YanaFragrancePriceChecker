@@ -2389,10 +2389,18 @@ export const RETAILERS: readonly Retailer[] = [
       // offered to non-members, so freeOverGbp stays null and Selfridges+
       // stays a membershipPerk.
       confidence: 'confirmed',
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote:
+          'UK Delivery: Standard delivery £6.95 ... Nominated day £9.95, Timed delivery £10.95, ' +
+          'Unlimited with SELFRIDGES+ UK (yearly) £10',
+      },
       notes:
-        'Standard Delivery within 5 working days; Click & Collect free. Read indirectly ' +
-        '(search extracts of the UK delivery page) because the page refuses this tooling — ' +
-        'confirm against selfridges.com/GB/en/info/dispatch-delivery/uk-delivery/ in a browser.',
+        'Standard delivery £6.95 with no spend threshold for non-members, read by the owner off ' +
+        'a product page\'s Delivery panel with an item in the bag on 2026-10-03. It matches the ' +
+        'search extracts of selfridges.com/GB/en/info/dispatch-delivery/uk-delivery/ read ' +
+        '2026-10-01 (that page refuses this tooling). Free delivery over £100 needs Selfridges+ ' +
+        '(£10 a year) and over £150 needs Selfridges Unlocked, so neither is priced in.',
     },
     catalogue: {
       searchUrlTemplate: 'https://www.selfridges.com/GB/en/search/?freeText={q}',
@@ -3523,6 +3531,10 @@ export const RETAILERS: readonly Retailer[] = [
       // blocks automated reads (a SiteGround captcha), so this rests on the
       // owner's own check.
       confidence: 'confirmed',
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote: 'Flat rate: 3.95£ (at £35.00 and again at £105.00, shipped to UB1)',
+      },
       notes:
         'Flat £3.95 standard delivery, no free-delivery threshold: read off the shop\'s own ' +
         'basket by the owner on 2026-10-03 at £35 and at £105 (both "Flat rate: 3.95£"). The ' +
@@ -3843,11 +3855,10 @@ export const RETAILERS: readonly Retailer[] = [
       // qualify for free shipping." That is the whole of what their delivery
       // page states as a number.
       freeOverGbp: 50,
-      // Placeholder pending confirmation, same status as standardGbp above —
-      // not sourced, not used in any delivered-price math (unlike
-      // standardGbp, which is why this field tolerates an estimate while
-      // that one does not), only ever shown as indicative text once enabled.
-      estimatedDays: [2, 5],
+      // Was [2, 5], a placeholder. The owner's checkout of 2026-10-03 (below)
+      // offered "Standard Delivery £3.99, 3 to 5 business days", so it is now
+      // the shop's own window. Never used in any delivered-price math.
+      estimatedDays: [3, 5],
       // Re-read 2026-10-01, both pages. The shipping policy still says "Free
       // Shipping : Orders over £50 within the UK qualify for free shipping."
       // (banner: "FREE UK DELIVERY ON ALL ORDERS OVER £50") and now gives
@@ -3856,16 +3867,10 @@ export const RETAILERS: readonly Retailer[] = [
       // refund" when a return takes an order below the free-delivery
       // threshold. Same two figures, same indirect basis for the £3.99.
       verifiedAt: '2026-10-03',
-      // 'unverified', not 'confirmed', and the distinction is real rather than
-      // cautious boilerplate. £3.99 is genuinely their own figure, but it was
-      // read off a returns clause explaining what a refund deducts, not off a
-      // rate card — and their shipping-policy page says in terms that
-      // "Shipping fees depend on the delivery destination and order size. The
-      // final price is calculated at checkout." So a single flat number cannot
-      // be true for every basket, and this is exactly what ShippingRule's own
-      // doc comment means by sourced indirectly: treat the delivered price as
-      // indicative. This flag reaches the reader as a reliability signal, so
-      // claiming 'confirmed' here would overstate what we actually have.
+      // Until 2026-10-03 this was 'unverified': £3.99 had only been read off a
+      // returns clause explaining what a refund deducts, not off a rate card,
+      // and the shipping policy says "The final price is calculated at
+      // checkout." That gap is now closed by the checkout itself.
       // Confirmed 2026-10-03 by the owner at Emirates Oud's own checkout
       // (screenshot): an £8.99 basket to a Coventry address offered
       // "Standard Delivery £3.99, 3 to 5 business days" and "Express £5.99,
@@ -3873,15 +3878,17 @@ export const RETAILERS: readonly Retailer[] = [
       // the checkout rather than inferred from the returns clause; the £50
       // threshold remains their own published rule (shipping policy, banner).
       confidence: 'confirmed',
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote: 'Standard Delivery £3.99, 3 to 5 business days (an £8.99 basket to a Coventry address, total GBP £12.98)',
+      },
       notes:
-        'Approved affiliate as of 10 Aug 2026. Free delivery over £50 is ' +
-        'confirmed from their own shipping policy page, read by CI on ' +
-        '2026-08-11. Standard delivery below £50 is £3.99, confirmed from ' +
-        'their refund-policy page (same CI run, 2026-08-11, raw-text mode): ' +
-        '"...resulting in a postage charge of £3.99 deducted from the ' +
-        'refund. This deduction covers the shipping costs initially waived ' +
-        'due to the free delivery offer." — ' +
-        'https://emiratesoud.co.uk/policies/refund-policy',
+        'Approved affiliate as of 10 Aug 2026. Standard delivery £3.99 below £50, read off ' +
+        'their own checkout by the owner on 2026-10-03 (an £8.99 basket, "Standard Delivery ' +
+        '£3.99, 3 to 5 business days"); it matches the £3.99 their refund-policy page says a ' +
+        'return below the threshold is charged. Free delivery over £50 is their own shipping ' +
+        'policy page ("Orders over £50 within the UK qualify for free shipping"), re-read ' +
+        '2026-10-01.',
     },
     // No section URLs to guess: the sitemap harvester (crawlViaSitemap)
     // discovers products from /sitemap.xml and robots.txt on its own, the
