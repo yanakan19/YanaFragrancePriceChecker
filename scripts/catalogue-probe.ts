@@ -21,6 +21,10 @@ import { apifyActorConfigFromEnv, apifyActorRenderer } from '../src/catalogue/ap
 import {
   EMPTY_MEMORY, planFor, record, explain, type StrategyMemory,
 } from '../src/catalogue/strategy.js';
+import { crawlViaSitemap, ROUTE_HEADERS } from '../src/catalogue/sitemapCrawl.js';
+import { createHttp } from '../src/catalogue/httpFetch.js';
+import { probeRobots } from '../src/catalogue/robotsSource.js';
+import type { Retailer } from '../src/types/retailer.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const memoryPath = resolve(root, 'data/strategy-memory.json');
@@ -104,7 +108,65 @@ console.log(`memory   ${Object.keys(memory.records).length} prior observations\n
 const wins: string[] = [];
 const losses: string[] = [];
 
+/**
+ * A shop with a pinned sitemap route (`Retailer.sitemapRoute`) is probed by
+ * walking that route, and nothing else.
+ *
+ * The adaptive plan below tries strategies that present a browser's user
+ * agent (section-browser-headers, search-page, homepage-probe), a residential
+ * proxy and a paid render. A pinned route is the opposite promise: asked as
+ * ourselves, from our own address, robots.txt first, at the shop's own crawl
+ * delay. So the probe for such a shop is the harvest's own walk, run dry with
+ * a small budget, and it reports what a harvest would store: every listing
+ * with its price, or the currency it was withheld for.
+ */
+const ROUTE_PROBE_PAGES = 8;
+
+async function probeRoute(retailer: Retailer): Promise<void> {
+  const routeHttp = createHttp();
+  const probe = await probeRobots(retailer, routeHttp, ROUTE_HEADERS);
+  const robots = probe.rules;
+  const gapMs = Math.max(retailer.catalogue?.minRequestGapMs ?? 1500, (robots.crawlDelaySeconds ?? 0) * 1000);
+  console.log(`${retailer.name}: pinned sitemap route, honest user agent, ${gapMs}ms between requests`);
+  for (const a of probe.attempts) console.log(`  robots ${a.url}: HTTP ${a.status}${a.error ? ` ${a.error}` : ''}`);
+  if (robots.unavailable) {
+    console.log('  robots.txt could not be read, so nothing is asked');
+    memory = record(memory, retailer.id, 'sitemap-discovery', {
+      ok: false, status: null, listings: 0, error: 'robots.txt unreadable',
+    });
+    return;
+  }
+  const result = await crawlViaSitemap({
+    retailer, http: routeHttp, robots, maxPages: ROUTE_PROBE_PAGES, gapMs, headers: ROUTE_HEADERS,
+    onProgress: (n, found) => console.log(`  ${n} fetched, ${found} found`),
+  });
+  const priced = result.listings.filter((l) => l.priceGbp !== null);
+  console.log(`  ${result.urlsDiscovered} product urls on the route, ${result.pagesFetched} fetched, ` +
+    `${result.listings.length} listings, ${priced.length} priced in GBP`);
+  for (const l of result.listings) {
+    const money = l.priceGbp !== null
+      ? `£${l.priceGbp.toFixed(2)}`
+      : l.nativePrice ? `withheld (${l.nativePrice.amount} ${l.nativePrice.currency})` : 'no price';
+    console.log(`    ${money.padEnd(28)} ${l.rawBrand ?? '?'} | ${l.rawTitle} | ${l.url}`);
+  }
+  for (const u of result.sampledUrls) console.log(`  fetched: ${u}`);
+  for (const e of result.errors.slice(0, 12)) console.log(`  error: ${e}`);
+  memory = record(memory, retailer.id, 'sitemap-discovery', {
+    ok: priced.length > 0,
+    status: 200,
+    listings: priced.length,
+    ...(priced.length > 0 ? {} : { error: result.errors[0] ?? 'route walked, nothing priced' }),
+  });
+  (priced.length > 0 ? wins : losses).push(
+    `  ${retailer.name.padEnd(20)} pinned route: ${priced.length} of ${result.listings.length} listings priced`,
+  );
+}
+
 for (const retailer of shops) {
+  if (retailer.sitemapRoute) {
+    await probeRoute(retailer);
+    continue;
+  }
   const robots = await loadRobots(retailer, http);
   const politeGap = Math.max(
     retailer.catalogue?.minRequestGapMs ?? 1500,

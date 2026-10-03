@@ -63,7 +63,9 @@ import {
 import { trustpilotStateFor } from './trustpilotWidget.js';
 import { COVERAGE } from './legal.js';
 import { deliveryLines } from './deliveryFacts.js';
-import { msrpComparison, msrpComparisonLabel, type MsrpComparison } from './msrpComparison.js';
+import {
+  msrpComparison, msrpComparisonLabel, rrpSavingFor, rrpSavingLabel, shownPrice, type MsrpComparison,
+} from './msrpComparison.js';
 import { pickReferencePrice } from './referencePrice.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
@@ -559,7 +561,15 @@ function facetAttrs(f: DemoFragrance): FacetAttrs {
       gender: genderOf(f),
       tier: f.tier,
       priceBand: best ? priceBandFor(best.deliveredPriceGbp) : null,
-      onSale: rows.some((r) => r.discount !== null),
+      // On sale means the product page prints a sale price for at least one
+      // row: the same decision offerRow makes (below MSRP, or else a saving
+      // against the shop's RRP), on the same shown figure. Before 3 Oct 2026
+      // this counted any RRP at all, including rows whose page reads "above
+      // MSRP" or whose delivered total is not below the RRP.
+      onSale: rows.some((r) => {
+        const m = best ? msrpFor(r, f) : null;
+        return m ? m.direction === 'below' : rrpSavingFor(r) !== null;
+      }),
       inStock: rows.some((r) => r.isPurchasable),
     };
     facetAttrsCache.set(f.id, a);
@@ -1208,7 +1218,7 @@ function priceLine(f: DemoFragrance): string {
  */
 function fragranceTile(
   f: DemoFragrance,
-  opts?: { rank?: number; trailing?: string; rail?: boolean; eager?: boolean },
+  opts?: { rank?: number; trailing?: string; rail?: boolean; eager?: boolean; soldBy?: string | undefined },
 ): string {
   const rows = rowsFor(f);
   const best = bestOffer(rows);
@@ -1219,13 +1229,15 @@ function fragranceTile(
   // currently have it. The placeholder below still holds the row's height, so
   // a sold-out tile is never shorter than an in-stock neighbour; it just
   // never claims a specific shop.
-  const badgeRetailer = best?.retailer.name ?? null;
+  // A deal tile names the shop the deal is at, which need not be the
+  // product's cheapest shop: the price above it is that shop's.
+  const badgeRetailer = opts?.soldBy ?? best?.retailer.name ?? null;
   // "from" when the figure above is a delivered price the shop won on against
   // others, "at" when it is that one shop's own item price with delivery not
   // stated — the same distinction priceLine already draws in its wording, so
   // the balloon and the number above it never disagree about what is being
   // shown.
-  const badgePrefix = best && best.deliveredPriceGbp !== null ? 'from' : 'at';
+  const badgePrefix = opts?.soldBy ? 'at' : best && best.deliveredPriceGbp !== null ? 'from' : 'at';
   const medal = opts?.rank !== undefined && opts.rank < 3 ? MEDALS[opts.rank] : null;
   // The tile states no shop count. It used to print one — "Ranked at N shops",
   // the DemoFragrance.popularity figure the Most Stocked list is ordered on —
@@ -1541,14 +1553,16 @@ function cheapestTag(v: CheapestVerdict): string | null {
  * comparison was at its most useful. 55 of the 411 comparable rows in today's
  * catalogue are exactly that; see demo/msrpComparison.ts for the counts and
  * for why widening `buildHouseAnchor` itself was the wrong place to fix it.
- * `row.itemPriceGbp` is unchanged and remains the only price handed to the
- * comparison — never `deliveredPriceGbp`, which would put a bottle-plus-
- * postage figure up against a bottle-only one.
+ * The figure compared is the one the row prints (`shownPrice`): the delivered
+ * total where the shop states delivery, the item price where it does not.
+ * Until 3 Oct 2026 this compared the item price while the row printed the
+ * delivered total, so £29.55 + £2.95 delivery against a £30 MSRP read
+ * "1% below MSRP" beside £32.50. See demo/msrpComparison.ts.
  */
 function msrpFor(row: PresentedOffer, frag: DemoFragrance): MsrpComparison | null {
   if (frag.houseCeiling === null) return null;
   if (row.retailer.singleBrandOnly && !cannotCarryBrand(row.retailer, frag.brand)) return null;
-  return msrpComparison(row.itemPriceGbp, frag.houseCeiling);
+  return msrpComparison(shownPrice(row).amountGbp, frag.houseCeiling);
 }
 
 /**
@@ -1597,8 +1611,9 @@ function msrpFor(row: PresentedOffer, frag: DemoFragrance): MsrpComparison | nul
  * not confirmed with the shop is still marked, as "est.", and a stale price
  * still says how old it is, because both change what the number means.
  *
- * The MSRP percentage is still computed from the item price alone, never the
- * delivered total (see msrpFor).
+ * Both the MSRP percentage and the RRP saving are worked from the figure this
+ * row prints, `totalGbp`, never from a figure it does not (see msrpFor and
+ * demo/msrpComparison.ts).
  */
 function offerRow(
   row: PresentedOffer,
@@ -1606,10 +1621,13 @@ function offerRow(
   bestTag: string | null = 'Cheapest',
   msrp: MsrpComparison | null = null,
 ): string {
-  const d = msrp ? null : row.discount;
+  // The shop's RRP restated against the figure printed below, so the struck
+  // through RRP and the big number beside it can be checked against each
+  // other (rrpSavingFor). Null where that figure is not below the RRP.
+  const d = msrp ? null : rrpSavingFor(row);
   // Only ever a delivered price where the shop actually states a delivery
   // cost — never the item price wearing a delivered price's clothes.
-  const totalGbp = row.deliveredPriceGbp ?? row.itemPriceGbp;
+  const totalGbp = shownPrice(row).amountGbp;
   const facts: string[] = [];
   if (!row.isPurchasable) {
     facts.push('Last price');
@@ -1665,7 +1683,7 @@ function offerRow(
           msrp
             ? `<span class="off anchor${msrp.direction === 'above' ? ' over' : ''}">${msrpComparisonLabel(msrp)}</span>`
             : d
-              ? `<span class="off">${d.percentOff}% off RRP</span>`
+              ? `<span class="off">${rrpSavingLabel(d)}</span>`
               : ''
         }
       </span>${
@@ -2191,7 +2209,10 @@ function referenceBox(frag: DemoFragrance, rows: readonly PresentedOffer[]): str
   const ref = pickReferencePrice(
     frag.houseCeiling,
     rows.map((row) => ({
-      wasPriceGbp: row.discount?.wasPrice ?? null,
+      // Only an RRP some row actually prints as a saving: a box stating a
+      // shop's RRP that no row below it can show would be stricter on the row
+      // than on the box, the opposite of this function's own rule.
+      wasPriceGbp: rrpSavingFor(row)?.wasPrice ?? null,
       isHouseOffer: Boolean(row.retailer.singleBrandOnly) && !cannotCarryBrand(row.retailer, frag.brand),
     })),
   );
@@ -2548,18 +2569,24 @@ function dealsPanel(): string {
   const dealTile = (d: (typeof sorted)[number], i?: number) =>
     fragranceTile(d.fragrance, {
       eager: i !== undefined && i < eager,
+      soldBy: RETAILERS.find((r) => r.id === d.retailerId)?.name,
       trailing:
-        d.kind === 'house'
+        // `d.price` is the figure the product page's row prints for this
+        // offer (delivered total, or item price where delivery is not
+        // stated), and the percentage is worked from it — see
+        // demo/msrpComparison.ts. An item price says so, as priceLine does.
+        (d.kind === 'house'
           ? `<span class="off anchor">${d.percentOff}% below ${esc(d.houseName!)}</span>
         <span class="amt">${formatGbp(d.price)}</span>
         <span class="was anchor">${formatGbp(d.wasPrice)} at ${esc(d.houseName!)}</span>`
           : `<span class="off">${d.percentOff}% off</span>
         <span class="amt">${formatGbp(d.price)}</span>
-        <span class="was">RRP ${formatGbp(d.wasPrice)}</span>`,
+        <span class="was">RRP ${formatGbp(d.wasPrice)}</span>`) +
+        (d.delivered ? '' : `<span class="amt-note">delivery not stated</span>`),
     });
 
   return `${controls}
-    <p class="panel-note t-body">Savings are against the shop's own published recommended retail price. Where the maker also sells the fragrance here, they are against the maker's own price.</p>
+    <p class="panel-note t-body">Savings are against the shop's own published recommended retail price. Where the maker also sells the fragrance here, they are against the maker's own price. Prices include delivery where the shop states it.</p>
     <ul class="tile-grid">${chunked(filtered, dealTile)}</ul>`;
 }
 
