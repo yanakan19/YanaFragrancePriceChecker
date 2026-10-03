@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-10-03T12:21:34.473Z";
+export const DEALS_GENERATED_AT = "2026-10-03T13:54:38.072Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -73,10 +73,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6290360378602",
-    "price": 22.99,
-    "delivered": false,
+    "price": 25.98,
+    "delivered": true,
     "wasPrice": 30,
-    "percentOff": 23,
+    "percentOff": 13,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "French Avenue"
@@ -93,11 +93,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6290360378060",
-    "price": 24.99,
-    "delivered": false,
+    "price": 27.94,
+    "delivered": true,
     "wasPrice": 35,
-    "percentOff": 28,
-    "retailerId": "manchester-ouds",
+    "percentOff": 20,
+    "retailerId": "justmylook",
     "kind": "house",
     "houseName": "French Avenue"
   },
@@ -193,10 +193,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6290360375601",
-    "price": 23.99,
-    "delivered": false,
+    "price": 26.98,
+    "delivered": true,
     "wasPrice": 35,
-    "percentOff": 31,
+    "percentOff": 22,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "French Avenue"
@@ -5403,10 +5403,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6298042001985",
-    "price": 24.99,
-    "delivered": false,
+    "price": 27.98,
+    "delivered": true,
     "wasPrice": 35,
-    "percentOff": 28,
+    "percentOff": 20,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "French Avenue"
@@ -5483,11 +5483,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "emirates-oud-15831431840093-default-title",
-    "price": 24.99,
-    "delivered": false,
+    "price": 26.99,
+    "delivered": true,
     "wasPrice": 35,
-    "percentOff": 28,
-    "retailerId": "manchester-ouds",
+    "percentOff": 22,
+    "retailerId": "perfumeo",
     "kind": "house",
     "houseName": "French Avenue"
   },
@@ -5927,7 +5927,7 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 69.99,
     "percentOff": 14,
-    "retailerId": "manchester-ouds",
+    "retailerId": "perfumeo",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
   },
@@ -14223,20 +14223,20 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6287020283468",
-    "price": 69.99,
+    "price": 72.98,
     "delivered": true,
     "wasPrice": 79.99,
-    "percentOff": 12,
+    "percentOff": 8,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
   },
   {
     "fragranceId": "ean-6287020283970",
-    "price": 34.99,
-    "delivered": false,
+    "price": 37.98,
+    "delivered": true,
     "wasPrice": 49.99,
-    "percentOff": 30,
+    "percentOff": 24,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
@@ -14253,90 +14253,90 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6287020282492",
-    "price": 59.99,
+    "price": 62.98,
     "delivered": true,
     "wasPrice": 69.99,
-    "percentOff": 14,
+    "percentOff": 10,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
   },
   {
     "fragranceId": "ean-6287020281068",
-    "price": 54.99,
+    "price": 57.98,
     "delivered": true,
     "wasPrice": 69.99,
-    "percentOff": 21,
+    "percentOff": 17,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
   },
   {
     "fragranceId": "ean-6287020282843",
-    "price": 39.99,
-    "delivered": false,
+    "price": 42.98,
+    "delivered": true,
     "wasPrice": 49.99,
-    "percentOff": 20,
+    "percentOff": 14,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
   },
   {
     "fragranceId": "ibraq-ff-musk-al-qamar-75",
-    "price": 39.99,
-    "delivered": false,
+    "price": 42.98,
+    "delivered": true,
     "wasPrice": 49.99,
-    "percentOff": 20,
+    "percentOff": 14,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
   },
   {
     "fragranceId": "ibraq-ff-musk-al-shams-75",
-    "price": 39.99,
-    "delivered": false,
+    "price": 42.98,
+    "delivered": true,
     "wasPrice": 49.99,
-    "percentOff": 20,
+    "percentOff": 14,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
   },
   {
     "fragranceId": "ean-6287020284007",
-    "price": 34.99,
-    "delivered": false,
+    "price": 37.98,
+    "delivered": true,
     "wasPrice": 49.99,
-    "percentOff": 30,
+    "percentOff": 24,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
   },
   {
     "fragranceId": "ean-6287020283451",
-    "price": 64.99,
+    "price": 67.98,
     "delivered": true,
     "wasPrice": 79.99,
-    "percentOff": 18,
+    "percentOff": 15,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
   },
   {
     "fragranceId": "ean-6287020283376",
-    "price": 69.99,
+    "price": 72.98,
     "delivered": true,
     "wasPrice": 79.99,
-    "percentOff": 12,
+    "percentOff": 8,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
   },
   {
     "fragranceId": "ean-6287020283963",
-    "price": 34.99,
-    "delivered": false,
+    "price": 37.98,
+    "delivered": true,
     "wasPrice": 49.99,
-    "percentOff": 30,
+    "percentOff": 24,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
@@ -14347,16 +14347,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 69.99,
     "percentOff": 14,
-    "retailerId": "manchester-ouds",
+    "retailerId": "perfumeo",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
   },
   {
     "fragranceId": "ean-6287020283994",
-    "price": 34.99,
-    "delivered": false,
+    "price": 37.98,
+    "delivered": true,
     "wasPrice": 49.99,
-    "percentOff": 30,
+    "percentOff": 24,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
@@ -19953,50 +19953,50 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6281074736260",
-    "price": 39.99,
-    "delivered": false,
+    "price": 42.98,
+    "delivered": true,
     "wasPrice": 49.99,
-    "percentOff": 20,
+    "percentOff": 14,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
   },
   {
     "fragranceId": "ean-6287020281044",
-    "price": 59.99,
+    "price": 62.98,
     "delivered": true,
     "wasPrice": 69.99,
-    "percentOff": 14,
+    "percentOff": 10,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
   },
   {
     "fragranceId": "ean-6287020280900",
-    "price": 59.99,
+    "price": 62.98,
     "delivered": true,
     "wasPrice": 69.99,
-    "percentOff": 14,
+    "percentOff": 10,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
   },
   {
     "fragranceId": "ean-6281074736246",
-    "price": 39.99,
-    "delivered": false,
+    "price": 42.98,
+    "delivered": true,
     "wasPrice": 49.99,
-    "percentOff": 20,
+    "percentOff": 14,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
   },
   {
     "fragranceId": "ean-6287020284014",
-    "price": 34.99,
-    "delivered": false,
+    "price": 37.98,
+    "delivered": true,
     "wasPrice": 49.99,
-    "percentOff": 30,
+    "percentOff": 24,
     "retailerId": "manchester-ouds",
     "kind": "house",
     "houseName": "Ibrahim Al Qurashi"
