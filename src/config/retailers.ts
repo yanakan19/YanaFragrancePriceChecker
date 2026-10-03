@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 77 retailers, 44 of them `enabled: true`. Every one of them is a legitimate
+ * 77 retailers, 45 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -1719,6 +1719,19 @@ export const RETAILERS: readonly Retailer[] = [
     // keeps only product pages whose address names a perfume, and asks every
     // page as PriceSniffsBot (SitemapRoute's doc comment). One such page,
     // asked on 2026-10-03, carried price 160.00, priceCurrency GBP, InStock.
+    //
+    // Proved from a runner the same day. Probe run #565 (job 111180398011):
+    // 2,356 product URLs on the route, 8 pages fetched, 12 listings, all 12
+    // priced in GBP. Harvest run 37115579558 (harvest_shop=john-lewis, 10:14Z
+    // to 10:20Z): 34 pages fetched before the six minute shop ceiling, 53
+    // listings priced, every one GBP on its own page. The 52 sitemap fetches
+    // at this shop's 2.5 s gap take most of a run's six minutes, so a
+    // scheduled run reaches about 30 product pages and new ones accrue run by
+    // run. Checked against the shop's own pages: Aesop Marrakech Intense
+    // 50ml £150 / 100ml £196, Carolina Herrera Good Girl 30/50/80/150ml
+    // £67/£98/£126/£166, Ralph's Club New York 60ml £84 / 110ml £110, Byredo
+    // La Tulipe 50ml £155 / 100ml £225, Acqua di Parma Zafferano 100ml £257 /
+    // 180ml £327: each the price that page's own offer gives for that sku.
     sitemapRoute: {
       roots: ['https://www.johnlewis.com/siteindex.xml'],
       follow: '^https://www\\.johnlewis\\.com/sitemap/products/',
@@ -7664,7 +7677,15 @@ export const RETAILERS: readonly Retailer[] = [
       maxSitemaps: 1,
       requireGbp: true,
     },
-    enabled: false,
+    //
+    // ── Switched on, 2026-10-03, on the pinned route ────────────────────────
+    // Walked from this sandbox first: 159 product URLs on the route, 8 pages,
+    // 8 listings, all 8 priced in GBP on their own pages (Shay & Blue Blood
+    // Oranges 30ml £45 and Atropa Belladonna 100ml £80; Monotheme White
+    // Gardenia, White Musk, Agrumi di Sicilia and Patchouli Leaves 100ml £20).
+    // Confirmed from a runner before this was set: probe run #567 (job
+    // 111185043924), 159 URLs, 8 of 8 listings priced in GBP.
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -9280,18 +9301,12 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'uk.zimayaperfumes.com quotes dollars. One positive sterling reading from a currency ' +
       'probe is what would remove this id.',
   ],
-  [
-    'marks-and-spencer',
-    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
-      'about marksandspencer.com comes from WebSearch snippets; its checkout currency has not ' +
-      'been read. A famous UK high-street name is not the same claim as a measured sterling ' +
-      'price list — Nicchia Luxury ran enabled on a less careful version of that same ' +
-      'assumption for three days (see its own entry above). One positive sterling reading from ' +
-      'a currency probe is what would remove this id. 2026-10-03: a product page (Blood Oranges ' +
-      'Vegan Fragrance 100ml, /p/hbp22300959) labels its offer priceCurrency GBP, read from this ' +
-      'sandbox, not yet by a probe; and robots.txt also names an /ie/ sitemap whose pages are ' +
-      'the Irish store, so a sterling reading of one page does not cover the walk.',
-  ],
+  // marks-and-spencer was removed from this list on 2026-10-03: its pinned
+  // route (Retailer.sitemapRoute) sets requireGbp, so every price it stores
+  // is one its own product page names as GBP, and the pages it reads are only
+  // those listed in the UK beauty product sitemap. Probe run #567 (job
+  // 111185043924) read every listing it fetched as GBP. See the comment on
+  // its registry entry.
   // les-senteurs was removed from this list on 2026-10-03: currency probe,
   // run 37084825268 job 111092804927, read GBP at rate 1 through the origin
   // and every request-shape candidate, and the product page JSON-LD labelled
