@@ -1644,7 +1644,7 @@ function offerRow(
   return `<li class="offer ${isBest ? 'best' : ''} ${row.isPurchasable ? '' : 'unavail'}">
     <a class="offer-link" href="${esc(row.outboundUrl)}" rel="nofollow noopener${commissioned ? ' sponsored' : ''}" target="_blank">
       <span class="offer-top">
-        <span class="shop t-title">${esc(row.retailer.name)}${
+        <span class="shop t-title">${offerMark(row.retailer.logo)}${esc(row.retailer.name)}${
           isBest && bestTag
             ? `<span class="tag ${bestTag === 'Cheapest' ? '' : 'unsure'}">${esc(bestTag)}</span>`
             : ''
@@ -2823,6 +2823,18 @@ function monogram(name: string): string {
  * opaque mark carrying its own background needs no fill at all, only a
  * boundary so the tile still reads as a tile.
  */
+/**
+ * The small shop logo beside a shop's name in a product's price list
+ * (docs/LOGOS-PLAN.md step 8). Square logos only, 20px. A shop with no
+ * square logo gets nothing at all, not initials: at 20px beside a 15px name
+ * a monogram is noise. If the image fails it removes itself and its tile, so
+ * the row never shows a broken image or an empty box.
+ */
+function offerMark(logo: LogoRef | null | undefined): string {
+  if (!logo || logo.shape !== 'square') return '';
+  return `<span class="org-mark offer-mark ${orgMarkInkClass(logo.ink)}" aria-hidden="true"><img src="${esc(logo.src)}" alt="" width="20" height="20" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentElement.remove()" /></span>`;
+}
+
 function orgMarkInkClass(ink: LogoRef['ink']): string {
   return ink === 'dark' ? 'org-mark--light' : ink === 'light' ? 'org-mark--dark' : 'org-mark--own';
 }

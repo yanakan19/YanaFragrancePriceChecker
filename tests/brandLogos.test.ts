@@ -40,6 +40,8 @@ const DECLARED_ASSET_HOSTS = new Set([
   'scdn.speedsize.com', // SpeedSize image CDN (Escentric Molecules)
   'cdn.files.salla.network', // Salla storefronts (Le Bonheur)
   'www.lattafa-usa.com', // Lattafa's own US site; brand site is lattafa.com
+  'www.bgstatic.net', // Perfume Click's own asset host: perfume-click.co.uk declares its favicon there (2026-10-03)
+  'us.thebeautystore.com', // The Beauty Store's own US storefront, declared by thebeautystore.com
 ]);
 
 /**
@@ -98,6 +100,18 @@ describe('every LogoRef carries a recorded reason', () => {
       // must be the brand's own registrable domain, or a documented asset host
       // its own site serves from. A brand entry with no BRAND_SITES entry has
       // no "own domain" to check against, so it cannot carry this basis.
+      // The same rule for a shop's own logo (added 2026-10-03 with the retailer
+      // pass): it must sit on the shop's own registrable domain, or a host
+      // that shop's own homepage declares it from.
+      if (logo.basis === 'own-site-declared' && where.startsWith('retailer:')) {
+        const id = where.slice('retailer:'.length);
+        const shop = RETAILERS.find((r) => r.id === id)!;
+        const host = new URL(logo.src).host;
+        expect(
+          registrableDomain(host) === registrableDomain(shop.domain) || DECLARED_ASSET_HOSTS.has(host),
+          `${where}: own-site-declared logo host ${host} is neither the shop's own domain (${shop.domain}) nor a documented asset host`,
+        ).toBe(true);
+      }
       if (logo.basis === 'own-site-declared' && where.startsWith('brand:')) {
         const key = where.slice('brand:'.length);
         const site = BRAND_SITES[key];

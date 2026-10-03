@@ -152,6 +152,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Allbeauty',
     domain: 'allbeauty.com',
     homepage: 'https://www.allbeauty.com',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://allbeauty.com/cdn/shop/files/allbeauty-logo.svg?v=1752223881&width=500",
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.allbeauty.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer', 'niche', 'mideast'],
     enabled: true,
     // Live spike 1 Aug 2026: the old /uk/fragrance URL returned HTTP 200 with
@@ -219,6 +229,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Justmylook',
     domain: 'justmylook.com',
     homepage: 'https://www.justmylook.com',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://www.justmylook.com/cdn/shop/files/JML-logo.svg?v=1726499052",
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.justmylook.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer', 'niche'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 200 but no product markup found. Either
@@ -1711,6 +1731,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Beauty Base',
     domain: 'beautybase.com',
     homepage: 'https://www.beautybase.com',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://www.beautybase.com/cdn/shop/files/logo-green.svg?v=1760441972&width=500",
+      shape: 'wordmark',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://www.beautybase.com',
+      readAt: '2026-10-03',
+    },
     // Decision recorded 2026-08-01: included on equal footing with every other
     // entry. It is a legitimate UK stockist with real niche depth (Creed,
     // Xerjoff, Amouage), and under the current model there is no trust flag for
@@ -1802,6 +1832,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'LOOKFANTASTIC',
     domain: 'lookfantastic.com',
     homepage: 'https://www.lookfantastic.com',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://www.lookfantastic.com/ssr-assets/lookfantastic/updated-favicon.png",
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.lookfantastic.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer', 'niche'],
     enabled: true,
     // Live spike 1 Aug 2026 found the old section URL 404ing (fragrance.list
@@ -2549,6 +2589,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Fragrance Click',
     domain: 'fragranceclick.co.uk',
     homepage: 'https://www.fragranceclick.co.uk',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://www.fragranceclick.co.uk/media/favicon/stores/1/FAVICON_PNG.png",
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.fragranceclick.co.uk',
+      readAt: '2026-10-03',
+    },
     // Their own words, from the programme profile they publish on Awin. Every
     // other retailer here has no blurb because we have no text they wrote.
     blurb:
@@ -2619,6 +2669,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'MyBeauty.Boutique',
     domain: 'mybeauty.boutique',
     homepage: 'https://mybeauty.boutique',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://mybeauty.boutique/cdn/shop/files/RGB_Logo_Design_-_MBB_V001_-06.png?v=1717418340&width=500",
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://mybeauty.boutique',
+      readAt: '2026-10-03',
+    },
     // Their own words, from the programme profile they publish on Awin.
     blurb:
       'MyBeauty.Boutique — your trusted partner for beauty and wellness, with products ' +
@@ -2915,6 +2975,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'ScentStore',
     domain: 'scentstore.com',
     homepage: 'https://www.scentstore.com',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://www.scentstore.com/wp-content/uploads/2026/04/Scentstore-Favicon-1.svg",
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.scentstore.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer', 'niche'],
     enabled: true,
     // No Awin approval yet, so this is a direct scrape rather than a feed.
@@ -3031,6 +3101,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Glorious Beauty',
     domain: 'gloriousbeauty.co.uk',
     homepage: 'https://gloriousbeauty.co.uk',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://gloriousbeauty.co.uk/cdn/shop/files/favicon_96x.png?v=1627560282",
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://gloriousbeauty.co.uk',
+      readAt: '2026-10-03',
+    },
     // Their own words, from the programme profile they publish on Awin.
     blurb:
       'Glorious Beauty presents a curated, handpicked portfolio of glorious make-up, ' +
@@ -3207,6 +3287,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Armaf',
     domain: 'armaf.uk',
     homepage: 'https://armaf.uk',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://armaf.uk/cdn/shop/files/SMALL_BLACK_LOGO.jpg?crop=center&height=180&v=1769440055&width=180",
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://armaf.uk',
+      readAt: '2026-10-03',
+    },
     tiers: ['mideast'],
     singleBrandOnly: 'Armaf',
     // Currency probe, run 32256539223 job 96079521031, 2026-08-19T13:10Z,
@@ -3446,6 +3536,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'IBRAQ',
     domain: 'ibraquk.com',
     homepage: 'https://ibraquk.com',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://ibraquk.com/cdn/shop/files/Favicon-02.png?v=1771535932&width=96",
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://ibraquk.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['mideast'],
     // The house's own name, not the storefront's abbreviation, and the
     // difference was doing real damage. cannotCarryBrand compares this against
@@ -3680,6 +3780,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Emirates Oud',
     domain: 'emiratesoud.co.uk',
     homepage: 'https://emiratesoud.co.uk',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://emiratesoud.co.uk/cdn/shop/files/Emirates_Oud_Logo_ulcom.png?v=1770533272&width=500",
+      shape: 'wordmark',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://emiratesoud.co.uk',
+      readAt: '2026-10-03',
+    },
     tiers: ['mideast'],
     // Multi-brand oud specialist (product paths like /products/rayhaan-aquatica
     // name "Rayhaan" as the house, not Emirates Oud itself) — a retailer
@@ -3802,6 +3912,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Perfumeo',
     domain: 'perfumeo.co.uk',
     homepage: 'https://www.perfumeo.co.uk',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://perfumeo.co.uk/wp-content/uploads/2026/09/perfumeo-site-icon-512-300x300.png",
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.perfumeo.co.uk',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // General discount fragrance retailer, not Middle Eastern focused —
     // requested under "retailer listings" alongside the oud specialists.
@@ -3895,6 +4015,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'The Beauty Store UK',
     domain: 'thebeautystore.com',
     homepage: 'https://www.thebeautystore.com',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://us.thebeautystore.com/cdn/shop/files/1_-THE_BEAUTY_STORE_LOGO.svg?v=1749488495&width=500",
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.thebeautystore.com',
+      readAt: '2026-10-03',
+    },
     blurb:
       'We keep costs down with an honest to goodness no-frills approach. We do not pay for ' +
       'fancy marketing campaigns or luxurious offices, so we can pass on all our savings to you.',
@@ -4152,6 +4282,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'KAYALI',
     domain: 'uk.kayali.com',
     homepage: 'https://uk.kayali.com',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://uk.kayali.com/cdn/shop/files/Metallic-Logo.png?v=3865012787552243044",
+      shape: 'square',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://uk.kayali.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer', 'niche'],
     singleBrandOnly: 'Kayali',
     // Was enabled with zero listings — no route was ever wired. Currency
@@ -4399,6 +4539,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Escentric Molecules',
     domain: 'escentric.com',
     homepage: 'https://www.escentric.com',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://scdn.speedsize.com/54343ecb-8aeb-4686-af82-3f829e50d808/www.escentric.com/cdn/shop/files/Escentric_Molecules_Favicon.svg?crop=center&height=32&v=1739390404&width=32",
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.escentric.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['niche'],
     singleBrandOnly: 'Escentric Molecules',
     // Their whole range is fine fragrance — Molecule 01-05, Escentric 01-05,
@@ -4627,6 +4777,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Debenhams',
     domain: 'debenhams.com',
     homepage: 'https://www.debenhams.com',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://www.debenhams.com/build/_assets/ios-icon-GFZ4NYHL.png",
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.debenhams.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // Currency probe (run 32256810054, job 96080315943, 2026-08-19): robots.txt
     // answers with no disallow, and the bare origin serves a sterling price
@@ -5260,6 +5420,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Perfume Click',
     domain: 'perfume-click.co.uk',
     homepage: 'https://www.perfume-click.co.uk',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://www.bgstatic.net/pc/img/favicon.ico",
+      shape: 'square',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://www.perfume-click.co.uk',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // Accepted onto the Awin programme, and nobody noticed for three days.
     //
@@ -5462,6 +5632,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Cult Beauty Global',
     domain: 'cultbeauty.co.uk',
     homepage: 'https://www.cultbeauty.co.uk',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://www.cultbeauty.co.uk/ssr-assets/cultbeauty/favicon-v1.png",
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.cultbeauty.co.uk',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer', 'niche'],
     // Currency probe, run 32277974545 job 96149760375, 2026-08-19T16:48Z:
     // robots.txt answers with no disallow, and the bare origin serves
@@ -5939,6 +6119,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'FragranceHub',
     domain: 'fragrancehub.co.uk',
     homepage: 'https://www.fragrancehub.co.uk/',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://www.fragrancehub.co.uk/cdn/shop/files/fragrance_hub_logo_2.png?v=1766139728&width=500",
+      shape: 'wordmark',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://www.fragrancehub.co.uk/',
+      readAt: '2026-10-03',
+    },
     tiers: ['mideast'],
     // Added 2026-08-18 from WebSearch snippets alone, then actually measured
     // the next day. Self-described as "Home of Niche Arabian Perfumes",
@@ -7098,6 +7288,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Morrisons',
     domain: 'groceries.morrisons.com',
     homepage: 'https://groceries.morrisons.com',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://images.morrisons.com/logo/osp-logo.svg",
+      shape: 'wordmark',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://groceries.morrisons.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // Added 2026-08-20 from WebSearch result URLs and titles alone — no page
     // opened, this sandbox has no egress. The most encouraging of the grocers
@@ -7397,6 +7597,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'B&M',
     domain: 'bmstores.co.uk',
     homepage: 'https://www.bmstores.co.uk',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://www.bmstores.co.uk/wsimages/bm-navbar-logo.png",
+      shape: 'square',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://www.bmstores.co.uk',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // Added 2026-08-20 from WebSearch result URLs and titles alone — no page
     // opened, this sandbox has no egress. Variety discounter, 700-plus
@@ -7562,6 +7772,16 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Home Bargains',
     domain: 'home.bargains',
     homepage: 'https://home.bargains',
+    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
+    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
+    logo: {
+      src: "https://home.bargains/icon.svg",
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://home.bargains',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // Added 2026-08-20 from WebSearch result URLs and titles alone — no page
     // opened, this sandbox has no egress. Variety discounter, 600-plus
