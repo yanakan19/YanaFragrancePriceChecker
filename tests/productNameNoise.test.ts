@@ -57,6 +57,16 @@ describe('product names carry no shop descriptor rubbish', () => {
   const REAL_PIPE_NAMES = /^Oudgasm .+\s\|\s\d{2}(?: Miniature)?$/;
 
   /**
+   * (1b) VERIFIED REAL, 2026-10-03. Kayali numbers every scent the same way,
+   * not just Oudgasm: "Vanilla | 28", "Eden Sweet Peach | 35", "Musk | 12",
+   * "The Wedding Silk Santal | 36". All 54 such names were read against
+   * kayali.json (the brand's own storefront) when Kayali's full range was
+   * admitted. Held to Kayali's own brand so the shape cannot excuse a
+   * reseller's "Name | Note" layout anywhere else.
+   */
+  const KAYALI_PIPE_NAMES = /^[^|]+\s\|\s\d{2}(?: Miniature)?$/;
+
+  /**
    * (2) VERIFIED NOISE, no safe rule. mybeauty-boutique publishes "Weekend |
    * DNL RECALLED" for Burberry Weekend — a shop's internal status code that
    * reached its public title. It is rubbish, it is one product, and nothing
@@ -72,6 +82,7 @@ describe('product names carry no shop descriptor rubbish', () => {
       (p) =>
         p.name.includes('|') &&
         !REAL_PIPE_NAMES.test(p.name) &&
+        !(p.brand.toLowerCase() === 'kayali' && KAYALI_PIPE_NAMES.test(p.name)) &&
         !KNOWN_UNFIXED_PIPE_NAMES.has(p.name),
     ).map((p) => `${p.brand}: ${p.name}`);
     expect([...new Set(offenders)]).toEqual([]);

@@ -296,3 +296,52 @@ describe('crawlViaSitemap: the gap between requests', () => {
     expect(sleeps).toEqual([1500]);
   });
 });
+
+describe('crawlViaSitemap: product sitemap URLs before aisles', () => {
+  it('fetches perfume product pages from a product sitemap before fragrance-named category pages', async () => {
+    // The Debenhams shape: an index that lists fragrance categories, and a
+    // products sitemap that lists the actual perfume pages.
+    const fetched: string[] = [];
+    const http: Http = async (url) => {
+      fetched.push(url);
+      if (url === 'https://www.example.co.uk/sitemap.xml') {
+        return {
+          status: 200,
+          ok: true,
+          body:
+            '<urlset>' +
+            '<url><loc>https://www.example.co.uk/categories/beauty-mens-fragrance</loc></url>' +
+            '<url><loc>https://www.example.co.uk/categories/beauty-womens-fragrance</loc></url>' +
+            '<url><loc>https://www.example.co.uk/sitemap/products-0.xml</loc></url>' +
+            '</urlset>',
+        };
+      }
+      if (url === 'https://www.example.co.uk/sitemap/products-0.xml') {
+        return {
+          status: 200,
+          ok: true,
+          body: '<urlset><url><loc>https://www.example.co.uk/product/ray-eau-de-parfum-100ml_p-1</loc></url></urlset>',
+        };
+      }
+      if (url === 'https://www.example.co.uk/product/ray-eau-de-parfum-100ml_p-1') {
+        return { status: 200, ok: true, body: page(35.99) };
+      }
+      return { status: 200, ok: true, body: '<html></html>' };
+    };
+
+    const result = await crawlViaSitemap({
+      retailer: retailer({ catalogue: null }),
+      http,
+      robots: NO_RESTRICTIONS,
+      // One page of budget: it must go to the product, not an aisle.
+      maxPages: 1,
+      gapMs: 0,
+      headers: {},
+    });
+
+    const pages = fetched.filter((u) => !u.endsWith('.xml'));
+    expect(pages).toEqual(['https://www.example.co.uk/product/ray-eau-de-parfum-100ml_p-1']);
+    expect(result.listings).toHaveLength(1);
+    expect(result.listings[0]!.priceGbp).toBe(35.99);
+  });
+});

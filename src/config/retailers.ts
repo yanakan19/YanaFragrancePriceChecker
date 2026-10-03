@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 77 retailers, 38 of them `enabled: true`. Every one of them is a legitimate
+ * 77 retailers, 40 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -4143,8 +4143,19 @@ export const RETAILERS: readonly Retailer[] = [
     // included a "mini perfume holder charm" — this shop sells fragrance
     // accessories alongside scent, which is exactly the kind of listing
     // `fragranceOnlyCatalogue`'s doc comment warns against admitting without
-    // the concentration-word title test; that flag is deliberately left
-    // unset here.
+    // the concentration-word title test; that flag was left unset at first.
+    //
+    // Set 2026-10-03. Kayali never puts a concentration word in a title
+    // ("Vanilla | 28 100ml"), so the title test admitted only the Oudgasm
+    // line (24 of 200 listings) and dropped every full-size Vanilla, Musk,
+    // Yum, Eden, Freedom Musk and Wedding bottle. Checked against all 200
+    // listings before switching: with the flag, the size rule (no ml, no
+    // admission: the holder charm and the unsized duos), NOT_A_FRAGRANCE
+    // (hair mists, body sprays) and MULTI_ITEM (sets, "2 x 5ml", "4x10ml",
+    // and "wardrobe", added for the four-bottle Vacay in a Bottle Wardrobe)
+    // leave only single bottles: 100ml, 50ml, 10ml miniatures and 1.5ml
+    // samples, each at Kayali's own price.
+    fragranceOnlyCatalogue: true,
     enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
@@ -4679,7 +4690,21 @@ export const RETAILERS: readonly Retailer[] = [
     // once either that reordering ships and is measured, or this shop gets
     // its own verified product-sitemap address to seed discovery with
     // directly.
-    enabled: false,
+    //
+    // ── Switched back on, 2026-10-03 ────────────────────────────────────
+    // The reordering shipped: discover() now ranks scented URLs that a
+    // product sitemap listed ahead of every other scented URL, instead of
+    // letting /categories/beauty-*-fragrance fill the budget
+    // (src/catalogue/sitemapCrawl.ts, tests/sitemapCrawl.test.ts "product
+    // sitemap URLs before aisles"). Every URL any shop kept before is still
+    // kept; only the order changes, and only where a product sitemap exists.
+    // Checked by hand the same day: robots.txt names 32 product sitemaps
+    // (/sitemap/debenhams/products-N.xml, PRODUCT_SITEMAP matches them);
+    // products-0.xml alone lists 32 perfume pages among 50,000 URLs, e.g.
+    // /product/louis-cardin-ray-eau-de-parfum-100ml-spray_p-0c78…; and that
+    // page's JSON-LD parses with the existing parser to "Ray Eau de Parfum
+    // 100ml Spray", £35.99, in stock. The first real harvest is the measure.
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -5429,7 +5454,20 @@ export const RETAILERS: readonly Retailer[] = [
     // known ingestion route to join the "unstated" list on — see
     // tests/registry.test.ts. Currency is no longer the gap; a route or a
     // real delivery figure is.
-    enabled: false,
+    //
+    // ── Switched on, 2026-10-03 ─────────────────────────────────────────
+    // The route, checked by hand: robots.txt permits product pages for every
+    // ordinary crawler (its "Disallow: /" lines are for named bad bots only)
+    // and names /sitemapindex-product.xml.gz, whose sitemap-product-N files
+    // are served as plain XML (sitemap-product-0: 10,639 product URLs,
+    // perfume among them, /p/<slug>/<id>/). Product pages carry a
+    // ProductGroup whose variants all share the page's own name, so
+    // src/catalogue/jsonld.ts now reads only the variant whose sku is the
+    // group's productGroupID: /p/chloe-eau-de-parfum-for-her-50ml/11079307/
+    // parses to "Chloé Eau de Parfum For Her 50ml" £98 and the 30ml page to
+    // £71, GBP, in stock. Delivery stays as recorded below: £3.95 standard,
+    // no threshold claimed, which can only overstate a delivered price.
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
