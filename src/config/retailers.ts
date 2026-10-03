@@ -5890,7 +5890,26 @@ export const RETAILERS: readonly Retailer[] = [
     // three aisles are what the route keeps.
     // Blocker 1: the Gucci Bloom page's ProductGroup now parses to one listing
     // per size, each with its own sku and GBP price: 30 ml 54.95 (1087866),
-    // 50 ml 73.65 (1087867), 100 ml 115.50 (1087868).
+    // 50 ml 73.65 (1087867), 100 ml 115.50 (1087868). Each variant's url is
+    // the page plus "#variation=194519" and so on, so none is taken as the
+    // page itself, and src/catalogue/jsonld.ts reads every size because each
+    // names its own.
+    //
+    // ── Walked 2026-10-03, and what still stands ─────────────────────────────
+    // `npm run probe -- --shop=parfumdreams-uk` from this sandbox: robots.txt
+    // 200, 2,381 product URLs on the route; 8 fetched, 20 listings, 20 priced
+    // in GBP. The route's `follow` opens the Articles files directly, so
+    // sitemapCrawl's PRODUCT_SITEMAP pattern is never consulted on this walk.
+    // Two of the eight pages (Charlotte Meentzen) read nothing in that walk:
+    // a single-size product is a ProductGroup with one variant at
+    // "#variation=...". jsonld.ts reads a lone variant since, e.g. Silk &
+    // Pure (index_126791.aspx) to sku 1158814, 50 ml at 27.20 GBP. Still in
+    // the way of enabling:
+    // - the id is in CURRENCY_UNCONFIRMED, and tests/registry.test.ts fails
+    //   any enabled shop on that list. The GBP readings above come from this
+    //   sandbox; a currency probe with --product from a runner is what would
+    //   remove it.
+    // - the decision itself, once that is done.
     sitemapRoute: {
       roots: ['https://www.parfumdreams.co.uk/Sitemaps/sitemap.en-GB.xml'],
       follow: '/Sitemaps/Articles\\.en-GB\\d+\\.xml$',
@@ -7460,11 +7479,29 @@ export const RETAILERS: readonly Retailer[] = [
     // pattern starts with https://www.spacenk.com/uk/, so no other country's
     // page is ever asked for, and `requireGbp` keeps a price only where the
     // page's own offer says priceCurrency GBP.
-    // Blocker 2: src/catalogue/jsonld.ts now reads a ProductGroup's variants
-    // when each names its own size and none is the group itself. The Young
-    // Rose page above parses to two listings: "Byredo Young Rose Eau de
-    // Parfum 100ml" 225.00 GBP (UK200031967) and "... 50ml" 155.00 GBP
-    // (UK200033403).
+    // Blocker 2: when no variant's sku is the group id, src/catalogue/jsonld.ts
+    // first reads the one variant whose own url is the page, else every
+    // variant when each names its own size. The Young Rose page above gives
+    // its url only to the 50ml, so it parses to one listing, "Byredo Young
+    // Rose Eau de Parfum 50ml" 155.00 GBP (UK200033403), brand lent from the
+    // group. The 100ml's url (/uk/fragrance/personal-fragrance/fragrance/
+    // young-rose-eau-de-parfum-UK200031967.html) is not in the sitemap; the
+    // group's own page (...-MUK200031967.html) is, matches no variant, and
+    // parses to both sizes, 225.00 and 155.00 GBP. Read from this sandbox.
+    //
+    // ── Walked 2026-10-03 after that change, and what still stands ─────────
+    // `npm run probe -- --shop=space-nk` from this sandbox: robots.txt 200,
+    // 607 product URLs on the route, every one under /uk/; 8 fetched, 8
+    // listings, 8 priced in GBP. requiredUrlPrefix plays no part: a pinned
+    // route never runs that walk, so the prefix dropping the root-level
+    // sitemap files does not matter here. Still in the way of enabling:
+    // - the decision itself; nothing in the code blocks it any more.
+    // - standardGbp is null (no flat rate published), so enabling means
+    //   adding this id to the "unknown standard delivery cost" list in
+    //   tests/registry.test.ts.
+    // - the product pattern lets through body mists named "perfume": the
+    //   eighth listing was Sol de Janeiro Cheirosa 59 Perfume Mist 240ml at
+    //   £39.00. Tighten `exclude` before enabling, or accept them.
     sitemapRoute: {
       roots: ['https://www.spacenk.com/sitemap_0-product.xml'],
       product:
@@ -9138,7 +9175,8 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'silent about its currency rather than confirming anything. 2026-10-03: a product page ' +
       '(Gucci Bloom Eau de Parfum Spray, index_122330.aspx) labels every offer priceCurrency ' +
       'GBP, read from this sandbox; a probe with --product on that page from a runner is what ' +
-      'would remove this id. It is off for route reasons regardless (see its entry).',
+      'would remove this id. Its route reasons are answered as of the same day (pinned sitemap ' +
+      'route, ProductGroup variants read; see its entry), so this list is what keeps it off.',
   ],
   [
     'fragrancedirect',

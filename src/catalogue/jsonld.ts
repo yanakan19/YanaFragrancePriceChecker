@@ -44,26 +44,30 @@ function stripJsonComments(raw: string): string {
     .trim();
 }
 
-/** Walk arrays and `@graph` wrappers into a flat list of nodes. */
-function flatten(node: unknown, out: JsonValue[] = []): JsonValue[] {
+/**
+ * Walk arrays and `@graph` wrappers into a flat list of nodes. `pageUrl` is
+ * the address the markup was read from, used only to find a ProductGroup's
+ * own variant; without it no variant is matched by address.
+ */
+function flatten(node: unknown, pageUrl: string | null = null, out: JsonValue[] = []): JsonValue[] {
   if (Array.isArray(node)) {
-    for (const item of node) flatten(item, out);
+    for (const item of node) flatten(item, pageUrl, out);
     return out;
   }
   if (node && typeof node === 'object') {
     const obj = node as JsonValue;
     out.push(obj);
-    if (obj['@graph']) flatten(obj['@graph'], out);
+    if (obj['@graph']) flatten(obj['@graph'], pageUrl, out);
     // ItemList pages nest the products one level down.
-    if (obj['itemListElement']) flatten(obj['itemListElement'], out);
-    if (obj['item']) flatten(obj['item'], out);
+    if (obj['itemListElement']) flatten(obj['itemListElement'], pageUrl, out);
+    if (obj['item']) flatten(obj['item'], pageUrl, out);
     // A CollectionPage (Notino's category pages, confirmed 2026-08-27 against
     // data/render-capture/notino-uk/fragrance.html) lists its Products
     // straight under `mainEntity` as an array, with no ItemList wrapper at
     // all. Without this the whole page parsed as zero listings: the outer
     // node is a CollectionPage, which isProduct() rightly rejects, and
     // nothing ever looked inside it for the Products it was carrying.
-    if (obj['mainEntity']) flatten(obj['mainEntity'], out);
+    if (obj['mainEntity']) flatten(obj['mainEntity'], pageUrl, out);
     // A ProductGroup (THG's sites: Cult Beauty, LOOKFANTASTIC; seen
     // 2026-10-03 on cultbeauty.co.uk/p/chloe-eau-de-parfum-for-her-50ml)
     // carries one Product per size under `hasVariant`, each with its own sku
@@ -81,28 +85,72 @@ function flatten(node: unknown, out: JsonValue[] = []): JsonValue[] {
           )
         : undefined;
     if (own) {
-      flatten(own, out);
-    } else if (Array.isArray(variants) && sizesOfTheirOwn(variants)) {
-      // ── Every size, each with its own price (2026-10-03) ──────────────────
+      flatten(own, pageUrl, out);
+    } else if (Array.isArray(variants)) {
+      // ── No variant is the group itself (2026-10-03) ──────────────────────
       // Space NK and Parfumdreams also publish a ProductGroup, but no variant's
-      // sku is the group id: Space NK's Young Rose page is group MUK200031967
+      // sku is the group id. Two fallbacks, in this order:
+      //
+      // (a) The one variant whose own `url` is the page's address. Space NK's
+      // /uk/young-rose-eau-de-parfum-UK200033403.html is group MUK200031967
       // with variants UK200031967 "Byredo Young Rose Eau de Parfum 100ml" at
-      // 225.00 GBP and UK200033403 "... 50ml" at 155.00 GBP; Parfumdreams'
-      // Gucci Bloom page is group 122330 with skus 1087866 "... 30 ml" at
-      // 54.95, 1087867 "... 50 ml" at 73.65 and so on. Unlike THG's variants
-      // above, each of these names its own size, so each is a real listing of
-      // its own and all of them are read. The group's brand, image,
-      // description and rating are lent to a variant that carries none.
-      for (const v of variants as JsonValue[]) {
+      // 225.00 GBP and UK200033403 "... 50ml" at 155.00 GBP, and only the 50ml
+      // gives that page as its url, so that page is the 50ml. The 100ml's url
+      // is a page its sitemap does not list, but the group's own page
+      // (/uk/fragrance/personal-fragrance/fragrance/young-rose-eau-de-parfum-
+      // MUK200031967.html, which the sitemap does list) matches no variant
+      // and is read by (b).
+      //
+      // (b) Every variant, but only when each names its own size and carries
+      // its own identity (sizesOfTheirOwn). Parfumdreams' Gucci Bloom page is
+      // group 122330 with skus 1087866 "... 30 ml" at 54.95, 1087867 "... 50
+      // ml" at 73.65 and 1087868 "... 100 ml" at 115.50, each at the page's
+      // address plus "#variation=194519" and so on, so none is the page and
+      // all three are read; a single-size product's lone variant is read the
+      // same way. THG's variants above would fail this test: all three carry
+      // the page's one size name, which is the hazard.
+      //
+      // Either way the group's brand, image, description and rating are lent
+      // to a variant that carries none (Space NK's variants name no brand).
+      const here = pageUrl ? variantAt(variants, pageUrl) : null;
+      const chosen = here ? [here] : sizesOfTheirOwn(variants) ? (variants as JsonValue[]) : [];
+      for (const v of chosen) {
         const lent: JsonValue = {};
         for (const key of ['brand', 'image', 'description', 'aggregateRating', 'url']) {
           if (v[key] == null && obj[key] != null) lent[key] = obj[key];
         }
-        flatten({ ...lent, ...v }, out);
+        flatten({ ...lent, ...v }, pageUrl, out);
       }
     }
   }
   return out;
+}
+
+/**
+ * The one variant whose own `url` is the page it was read from, or null when
+ * none is or more than one is. Addresses are compared resolved, fragment and
+ * query included, a trailing slash aside: "#variation=" is how Parfumdreams
+ * tells its sizes apart, so stripping it would make all of them the page.
+ */
+function variantAt(variants: unknown[], pageUrl: string): JsonValue | null {
+  const page = addressKey(pageUrl, pageUrl);
+  if (!page) return null;
+  const matches = variants.filter(
+    (v): v is JsonValue =>
+      Boolean(v) && typeof v === 'object' && addressKey(str((v as JsonValue)['url']), pageUrl) === page,
+  );
+  return matches.length === 1 ? matches[0]! : null;
+}
+
+function addressKey(raw: string | null, base: string): string | null {
+  if (!raw) return null;
+  try {
+    const u = new URL(raw, base);
+    u.pathname = u.pathname.replace(/\/+$/, '') || '/';
+    return u.href;
+  } catch {
+    return null;
+  }
 }
 
 /** The identity a node carries itself, never one read off a URL. */
@@ -117,10 +165,17 @@ function ownIdentity(node: JsonValue): string | null {
  * THG's three variants all named "...50ml", where reading them all would
  * publish three prices for one bottle. Anything less and the caller keeps
  * its old behaviour.
+ *
+ * One item passes too, given a name and an identity: a single price cannot be
+ * one size priced three ways. Parfumdreams' single-size products are a
+ * ProductGroup with one variant at "#variation=...", which is not the page's
+ * address, so without this they read as nothing (2 of 8 pages walked on
+ * 2026-10-03, e.g. Charlotte Meentzen Silk & Pure, group 126791, sku 1158814,
+ * 50 ml at 27.20 GBP). offersOfTheirOwn asks for two offers before calling.
  */
 function sizesOfTheirOwn(items: unknown[]): boolean {
   const nodes = items.filter((v): v is JsonValue => Boolean(v) && typeof v === 'object' && !Array.isArray(v));
-  if (nodes.length < 2 || nodes.length !== items.length) return false;
+  if (nodes.length === 0 || nodes.length !== items.length) return false;
   const names = nodes.map((n) => str(n['name']));
   const ids = nodes.map(ownIdentity);
   if (names.some((n) => !n) || ids.some((i) => !i)) return false;
@@ -371,7 +426,7 @@ export function pageCurrency(html: string): string | null {
  * retailer needs a different adapter.
  */
 export function parseListings(html: string, options: ParseOptions): RawListing[] {
-  let nodes = extractJsonLdBlocks(html).flatMap((b) => flatten(b));
+  let nodes = extractJsonLdBlocks(html).flatMap((b) => flatten(b, options.pageUrl));
   if (options.microdata && !nodes.some(isProduct)) {
     // A microdata product with no identifier of its own falls back to its
     // address. Shy Mimosa's are all /shop/products/view.asp?brand=...&name=...,
@@ -380,7 +435,7 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
     const queryId = queryIdentity(options.pageUrl);
     nodes = extractMicrodataProducts(html).map((n) =>
       queryId && !ownIdentity(n) && !str(n['url']) ? { ...n, sku: queryId } : n,
-    ).flatMap((b) => flatten(b));
+    ).flatMap((b) => flatten(b, options.pageUrl));
   }
   const listings: RawListing[] = [];
   const seen = new Set<string>();
@@ -414,7 +469,7 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
     // own, and on a real page its sku (read from the page URL) is its own
     // variant's, so letting it through would claim that sku with no price
     // and push the real variant out as a duplicate. flatten() hands on the
-    // one variant the page describes.
+    // variant or variants the page describes.
     if (String(node['@type']).toLowerCase() === 'productgroup') continue;
 
     const title = str(node['name']);

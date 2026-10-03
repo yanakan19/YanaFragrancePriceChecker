@@ -153,7 +153,9 @@ describe('parseListings: every size with its own price', () => {
           offers: { '@type': 'Offer', priceCurrency: 'GBP', price: '155.00', availability: 'http://schema.org/InStock' } },
       ],
     });
-    const out = parseListings(html, { sectionId: 's', pageUrl: 'https://www.spacenk.com/uk/young-rose-UK200033403.html', requireGbp: true });
+    // The group's own page: on a variant's page only that variant is read
+    // (tests/jsonldProductGroup.test.ts).
+    const out = parseListings(html, { sectionId: 's', pageUrl: 'https://www.spacenk.com/uk/young-rose-MUK200031967.html', requireGbp: true });
     expect(out.map((l) => [l.retailerSku, l.rawTitle, l.priceGbp, l.rawBrand])).toEqual([
       ['UK200031967', 'Byredo Young Rose Eau de Parfum 100ml', 225, 'Byredo'],
       ['UK200033403', 'Byredo Young Rose Eau de Parfum 50ml', 155, 'Byredo'],
