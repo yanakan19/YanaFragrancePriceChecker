@@ -345,3 +345,67 @@ describe('crawlViaSitemap: product sitemap URLs before aisles', () => {
     expect(result.listings[0]!.priceGbp).toBe(35.99);
   });
 });
+
+describe('crawlViaSitemap: perfume words before smell words', () => {
+  function shop(productUrls: string[]) {
+    const fetched: string[] = [];
+    const http: Http = async (url) => {
+      fetched.push(url);
+      if (url === 'https://www.example.co.uk/sitemap.xml') {
+        return {
+          status: 200,
+          ok: true,
+          body: '<urlset><url><loc>https://www.example.co.uk/sitemap/products-0.xml</loc></url></urlset>',
+        };
+      }
+      if (url === 'https://www.example.co.uk/sitemap/products-0.xml') {
+        return {
+          status: 200,
+          ok: true,
+          body: '<urlset>' + productUrls.map((u) => `<url><loc>${u}</loc></url>`).join('') + '</urlset>',
+        };
+      }
+      return { status: 200, ok: true, body: page(20) };
+    };
+    return { fetched, http };
+  }
+
+  it('fetches a product sitemap URL naming a perfume before one that only names a smell', async () => {
+    const { fetched, http } = shop([
+      'https://www.example.co.uk/product/urinal-mats-ocean-fragrance_p-1',
+      'https://www.example.co.uk/product/vanilla-scented-candle_p-2',
+      'https://www.example.co.uk/product/louis-cardin-ray-eau-de-parfum-100ml-spray_p-3',
+    ]);
+    await crawlViaSitemap({
+      retailer: retailer({ catalogue: null }),
+      http,
+      robots: NO_RESTRICTIONS,
+      maxPages: 1,
+      gapMs: 0,
+      headers: {},
+    });
+    expect(fetched.filter((u) => !u.endsWith('.xml'))).toEqual([
+      'https://www.example.co.uk/product/louis-cardin-ray-eau-de-parfum-100ml-spray_p-3',
+    ]);
+  });
+
+  it('does not read "scent" inside descent, fluorescent or unscented, but keeps a word that starts with it', async () => {
+    const { fetched, http } = shop([
+      'https://www.example.co.uk/product/charles-darwin-the-descent-of-man-hardcover-book_p-1',
+      'https://www.example.co.uk/product/bic-flex-assorted-fluorescent-highlighters_p-2',
+      'https://www.example.co.uk/product/unscented-plain-epsom-salt_p-3',
+      'https://www.example.co.uk/product/scented-candle_p-4',
+    ]);
+    await crawlViaSitemap({
+      retailer: retailer({ catalogue: null }),
+      http,
+      robots: NO_RESTRICTIONS,
+      maxPages: 10,
+      gapMs: 0,
+      headers: {},
+    });
+    expect(fetched.filter((u) => !u.endsWith('.xml'))).toEqual([
+      'https://www.example.co.uk/product/scented-candle_p-4',
+    ]);
+  });
+});
