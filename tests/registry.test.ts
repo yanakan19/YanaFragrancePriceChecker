@@ -284,7 +284,9 @@ describe('retailer registry', () => {
       // bm-stores and ibraq stay, now as read-and-found-silent
       // (standardRateNotPublished) rather than unread. riiffs left on
       // 2026-10-03: its site serves a captcha to every fetch, so the owner
-      // read the flat £3.95 off its own basket by hand.
+      // read the flat £3.95 off its own basket by hand. manchester-ouds left
+      // the same day: the owner read £2.99 off its own checkout, as did
+      // armaf (free), al-haramain (£4.95) and ibraq (£2.99).
       // space-nk joined 2026-10-03 on the fragrancehub side of the split: it
       // publishes free UK standard delivery over £25 and no rate below it
       // (standardRateNotPublished, its help article refusing our request with
@@ -295,12 +297,8 @@ describe('retailer registry', () => {
       // provider's page saying the cost is worked out at checkout (probe run
       // #572).
       expect(unstated.map((r) => r.id).sort()).toEqual([
-        'al-haramain',
-        'armaf',
         'bm-stores',
         'fragrancehub',
-        'ibraq',
-        'manchester-ouds',
         'morrisons',
         'niche-beauty-uk',
         'space-nk',
