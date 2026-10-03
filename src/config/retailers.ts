@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 76 retailers, 44 of them `enabled: true`. Every one of them is a legitimate
+ * 74 retailers, 42 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -4537,11 +4537,18 @@ export const RETAILERS: readonly Retailer[] = [
       // your delivery address", so the help centre is the one place the
       // brand states the mainland rate. "above GBP 79" leaves exactly £79.00
       // unstated; resolveDelivery treats it as free (>=), a 1p edge.
+      // The owner's checkout on 2026-10-03 matched: a £3.00 basket showed
+      // "You're £76.00 away from FREE shipping" (free from £79) and
+      // "Standard £5.99, 2 to 4 business days".
       standardGbp: 5.99,
       freeOverGbp: 79,
-      estimatedDays: [2, 3],
-      verifiedAt: '2026-10-01',
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote: 'Standard £5.99, 2 to 4 business days (a £3.00 basket); "You\'re £76.00 away from FREE shipping"',
+      },
       source: {
         url: 'https://kayalihelp.zendesk.com/hc/en-us/articles/45981494574865-How-much-will-I-be-charged-for-shipping',
         quote: 'UK (Mainland): GBP 5.99 (Free shipping for orders above GBP 79, including Taxes)',
@@ -5370,36 +5377,72 @@ export const RETAILERS: readonly Retailer[] = [
     // figure the shop converts live, and would presumably charge in pounds,
     // is good enough. A basket read by hand, as Escentual's was, would settle
     // what the checkout charges.
+    //
+    // ── Decided 2026-10-03: the owner accepts the live conversion ───────────
+    // The owner checked this shop's own cart and checkout on 2026-10-03, from
+    // the /en-gb storefront. The cart priced Maison Crivelli Tobacco Carnaval
+    // Extrait de Parfum 1.5 ml at "£5.00 GBP", with "Only £128.00 away from
+    // free shipping!" and "Tax included. Shipping calculated at checkout"; the
+    // Shopify checkout to a UK address offered one option, "Express Shipping
+    // £15.00, 1 to 4 business days". So the shop charges a UK shopper in
+    // pounds, at the figure /en-gb shows. That is what the 2026-08-13 and
+    // 2026-10-03 rechecks above could not establish from outside, and it does
+    // not change the mechanism they measured: the pound figure is the euro
+    // price times the shop's own live rate (0.86691738 on 2026-10-03), so it
+    // will move with the rate. The owner accepted that, and
+    // `convertedSterlingAccepted` records the decision as data. It waives one
+    // refusal in readStorefrontCurrency, and only for a response that says it
+    // is the GB market and quotes GBP; euros, another market, or a theme that
+    // names no market are refused exactly as before.
+    //
+    // The route is Shopify /en-gb/products.json (robots.txt read first: it
+    // allows it). The Awin feed that used to supply this shop is no longer its
+    // route, so `adapter` moves from 'affiliate-feed' to 'unknown'. That is
+    // what lets the harvest and the probe ask the shop at all (both skip an
+    // affiliate-feed shop), and it stops awin-feed-sync from writing the
+    // feed's fixed 1.3490 figures back. Affiliate links still wrap through the
+    // Awin deeplink template below.
     enabled: false,
-    adapter: 'affiliate-feed',
+    adapter: 'unknown',
     shopifyStorefront: true,
+    convertedSterlingAccepted: {
+      decidedAt: '2026-10-03',
+      basis:
+        'Owner checked the shop\'s own /en-gb cart and checkout on 2026-10-03: cart priced in ' +
+        'GBP, checkout to a UK address offered Express Shipping £15.00, 1 to 4 business days.',
+    },
     currency: 'GBP',
     shipping: {
-      // Re-read 2026-10-01: the shipping policy's per-country table gives the
-      // UK threshold in sterling — "Free shipping thresholds (minimum subtotal
-      // after discounts and promo codes): ... United Kingdom: from £135" — and
-      // says of everything below it only "Shipping rates are calculated and
-      // displayed at checkout based on destination, package weight/volume".
-      // "from £135" is an at-or-above threshold, the >= resolveDelivery uses.
-      standardGbp: null,
-      freeOverGbp: 135,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-10-01',
+      // Confirmed 2026-10-03 by the owner at the shop's own /en-gb cart and
+      // checkout (screenshots). The cart priced Maison Crivelli Tobacco
+      // Carnaval Extrait de Parfum 1.5 ml at £5.00 GBP and said "Only £128.00
+      // away from free shipping!", so free delivery starts at £133 (£5 plus
+      // £128). The Shopify checkout to a UK address offered one option,
+      // "Express Shipping £15.00, 1 to 4 business days", so standard UK
+      // delivery is £15.00 and takes 1 to 4 business days. The shipping policy
+      // page (read 2026-10-01) says "United Kingdom: from £135"; the owner's
+      // own cart is the later and more direct reading, so £133 is used. The
+      // policy gave no flat rate below the threshold; the checkout did.
+      standardGbp: 15,
+      freeOverGbp: 133,
+      estimatedDays: [1, 4],
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
-      standardRateNotPublished: true,
-      source: {
-        url: 'https://www.nicchialuxury.com/policies/shipping-policy',
-        quote: 'Free shipping thresholds (minimum subtotal after discounts and promo codes): ... United Kingdom: from £135',
-        readAt: '2026-10-01',
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote:
+          'Cart (/en-gb): Maison Crivelli Tobacco Carnaval Extrait de Parfum 1.5 ml £5.00 GBP, ' +
+          '"Only £128.00 away from free shipping!", "Tax included. Shipping calculated at ' +
+          'checkout". Checkout to a UK address: "Express Shipping £15.00, 1 to 4 business days"',
       },
       notes:
-        'Their shipping-policy and refund-policy pages were read by ' +
-        'shipping:discover on 2026-08-12 (16 pages tried), and the shipping ' +
-        'policy again by hand on 2026-10-01. A standard flat rate for an ' +
-        'order below the threshold is not published: rates are weight- and ' +
-        'destination-based and shown only at checkout. The policy URL ' +
-        'redirects to /en-us/policies/shipping-policy for a US-located fetcher; ' +
-        'the per-country table is the same.',
+        'Standard UK delivery £15.00 in 1 to 4 business days, and free from £133, read off the ' +
+        'shop\'s own /en-gb cart and checkout by the owner on 2026-10-03. The checkout offered ' +
+        'one shipping option, which it calls Express Shipping, so that is the only UK rate ' +
+        'there is to show. The £133 comes from the cart\'s "£128.00 away" against a £5.00 item; ' +
+        'the shipping-policy page read on 2026-10-01 says "from £135", which the cart ' +
+        'supersedes. Prices are the shop\'s own live conversion from euros (see ' +
+        '`convertedSterlingAccepted`), so the threshold in pounds may move with the rate.',
     },
     catalogue: null,
     // Real approval, not another application-in-flight: Awin notified this
@@ -6307,45 +6350,26 @@ export const RETAILERS: readonly Retailer[] = [
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      // £3.95 taken as the standard rate, on the owner's reading: of the two
-      // charges the page names, standard delivery is the cheaper and slower
-      // tier and £9.95 is an express one. That is a judgement about UK retail
-      // convention rather than a label the page supplies, so it is recorded as
-      // inference here rather than passed off as a quotation.
+      // Settled 2026-10-03 from the shop's own delivery information page,
+      // copied out by the owner: "STANDARD DELIVERY - £3.95 / FREE on orders
+      // over £30 / Allow 2-3 days for delivery". The other thresholds the
+      // August probe ran together belong to Next Day (free over £100),
+      // Click & Collect Next Day (free over £90) and Cult Status members.
       standardGbp: 3.95,
-      // Deliberately still null, and this is the load-bearing half. The page
-      // names four free-delivery thresholds — £30, £90, £100, £150 — with
-      // nothing tying any of them to the standard tier, so pairing one with
-      // £3.95 would be a guess in the one direction that actually hurts a
-      // reader. Claiming free delivery from £30 when the real standard
-      // threshold is £100 understates the delivered price, which sorts this
-      // shop above shops that are genuinely cheaper — the exact failure the
-      // delivered-price sort exists to prevent. A null threshold can only ever
-      // overstate what delivery costs, which is the safe direction to be wrong
-      // in, so it stays null until someone reads the page and can say which
-      // threshold belongs to standard.
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-08-19',
-      confidence: 'unverified',
+      freeOverGbp: 30,
+      estimatedDays: [2, 3],
+      verifiedAt: '2026-10-03',
+      confidence: 'confirmed',
       source: {
-        url: 'https://www.cultbeauty.co.uk/info/delivery-information',
-        quote:
-          'Delivery page names charges of £3.95 and £9.95, and free-delivery thresholds of £30, ' +
-          '£90, £100 and £150, without labelling which pairing is standard.',
-        readAt: '2026-08-19',
+        url: 'https://www.cultbeauty.co.uk/c/info/delivery-information/',
+        quote: 'STANDARD DELIVERY - £3.95 FREE on orders over £30 Allow 2-3 days for delivery',
+        readAt: '2026-10-03',
       },
       notes:
-        'Read directly, not merely unread: shipping probe, run 32281470836 job 96161024104, ' +
-        '2026-08-19T17:26Z, fetched the delivery page and found it genuinely ambiguous — two ' +
-        'delivery charges (£3.95, £9.95) with no label saying which is standard, and four ' +
-        'free-delivery thresholds (£30, £90, £100, £150), almost certainly standard and express ' +
-        'tiers plus loyalty-scheme thresholds run together by the extractor. The £3.95 charge is ' +
-        'now taken as standard by inference from UK retail convention (the cheaper, slower tier), ' +
-        'which is enough to price delivery. The threshold is NOT inferred, because guessing it ' +
-        'wrong understates the delivered price rather than overstating it. Read ' +
-        "cultbeauty.co.uk's delivery page by hand to settle which threshold pairs with £3.95, " +
-        'then set freeOverGbp and raise confidence.',
+        'Standard UK delivery £3.95, free over £30, 2 to 3 days, from the shop\'s own delivery ' +
+        'page as copied out by the owner on 2026-10-03. Next Day £5.95 (free over £100), Same ' +
+        'Day and Click & Collect are upgrades, not modelled. Cult Status member perks are not ' +
+        'applied.',
     },
     // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
     // NOT AN APIFY CANDIDATE on the evidence gathered this review — hand this
@@ -6858,7 +6882,10 @@ export const RETAILERS: readonly Retailer[] = [
     shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
+      // The owner's checkout on 2026-10-03: a £27.50 bottle offered one
+      // option, "Express Delivery, Royal Mail Tracked 24 £4.99", and the
+      // checkout's own panel repeats "Free Orders Over £90".
+      standardGbp: 4.99,
       // Was held null on the reasoning that £90 was a secondhand search
       // snippet. It is not: it is the shop's own words on its own shipping
       // policy page, already quoted in `source` below, and re-read there on
@@ -6872,7 +6899,10 @@ export const RETAILERS: readonly Retailer[] = [
       estimatedDays: [1, 2],
       verifiedAt: '2026-10-03',
       confidence: 'confirmed',
-      standardRateNotPublished: true,
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote: 'Express Delivery, Royal Mail Tracked 24 £4.99 (a £27.50 basket, total GBP £32.49); "Free Orders Over £90"',
+      },
       source: {
         url: 'https://www.fragrancehub.co.uk/policies/shipping-policy',
         quote: 'FREE SHIPPING FOR ORDERS OVER £90',
@@ -8365,168 +8395,6 @@ export const RETAILERS: readonly Retailer[] = [
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
-    id: 'morrisons',
-    name: 'Morrisons',
-    domain: 'groceries.morrisons.com',
-    homepage: 'https://groceries.morrisons.com',
-    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
-    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
-    logo: {
-      src: "https://images.morrisons.com/logo/osp-logo.svg",
-      shape: 'wordmark',
-      ink: 'light',
-      basis: 'own-site-declared',
-      source: 'https://groceries.morrisons.com',
-      readAt: '2026-10-03',
-    },
-    tiers: ['designer'],
-    // Added 2026-08-20 from WebSearch result URLs and titles alone — no page
-    // opened, this sandbox has no egress. The most encouraging of the grocers
-    // on URL shape alone, for two reasons.
-    //
-    // First, it has individually addressable product pages of the form
-    // /products/{slug}/{numeric id} — search results returned
-    // /products/paco-rabanne-pour-homme-aftershave-lotion/113683477 and
-    // /products/joop-homme-aftershave/106199290 — which is the shape a
-    // sitemap walk can enumerate and a JSON-LD parser can read one at a time.
-    // Asda's and Sainsbury's fragrance results were category listings only.
-    //
-    // Second, those two products are Paco Rabanne and Joop!, i.e. real
-    // designer bottles rather than gift sets and body sprays, and a third
-    // named in the same results is Davidoff Cool Water. A supermarket that
-    // stocks only Lynx duos is not a price source for this site; this one is
-    // not that.
-    //
-    // Categories seen: /categories/toiletries-beauty/gifting-fragrances/
-    // aftershave-fragrances-for-him/180870 (numeric) and
-    // .../perfume-fragrances-for-her/8eb91d51-126d-4a61-9a95-cf77e083a6f1
-    // (uuid). Two id schemes in one category tree is worth noting before
-    // anyone writes a URL template against it.
-    //
-    // ── Measured 2026-08-20: the only grocer here with a working route ───────
-    // Harvest probe --dry-run --shop=morrisons --max=10, run 32390450886 job
-    // 96495029195, 2026-08-20T16:11:13Z, commit 59f60a9:
-    //
-    //   Morrisons   182 urls   10 fetched   10 priced listings  (1 errors)
-    //       https://www.groceries.morrisons.com/sitemap.xml: HTTP 403
-    //       sample priced URL: https://groceries.morrisons.com/products/
-    //         vitfix-magnesium-effervescent-citrus/115826347
-    //
-    // Read carefully, that error is ours and the result is theirs.
-    // crawlViaSitemap always tries `https://www.{domain}/sitemap.xml` as a
-    // conventional root (see its own code), which for a domain that is
-    // already a subdomain becomes www.groceries.morrisons.com — a host that
-    // 403s. It still found 182 product URLs, which can only have come from
-    // the Sitemap: lines in this shop's own robots.txt, so robots.txt was
-    // read, it named its sitemaps, and every URL the walk wanted was
-    // permitted. Ten of those pages were fetched and all ten yielded a
-    // parseable price, which means this storefront publishes product
-    // schema.org JSON-LD on a plain server-side fetch — the thing Boots,
-    // Selfridges, John Lewis, Superdrug and Zara above all fail to do.
-    //
-    // The sample is a magnesium supplement rather than a fragrance because
-    // the walk is unscoped: it enumerates the whole grocery catalogue. That
-    // is a `catalogue.requiredUrlPrefix` / sections question, not a
-    // retrieval one.
-    //
-    // ── Currency: one reading, and less than it sounds ───────────────────────
-    // Currency probe, run 32390810738 job 96496199287, 2026-08-20T16:14:18Z,
-    // commit 59f60a9. Six of the ten ways of asking — the bare origin,
-    // ?country=GB, both localisation cookies separately and together, and
-    // Accept-Language en-GB — each returned "quotes GBP, settles nothing,
-    // rate —", i.e. a sterling figure with no conversion named anywhere, and
-    // the script's own verdict line was "PASS: sterling price list served to
-    // origin". /en-gb, /gb, /uk and /en-uk all 404, as expected of a
-    // single-market grocer.
-    //
-    // What that reading actually is matters. /meta.json 404s and there is no
-    // Shopify.currency in the theme, so the GBP came from
-    // parseShopCurrency's last resort: a bare `"currency":"GBP"` match
-    // anywhere in the homepage HTML (src/catalogue/shopifyJson.ts). That is
-    // a real signal from the shop's own page and it is not a product's
-    // priceCurrency. The product page passed to the probe —
-    // /products/paco-rabanne-pour-homme-aftershave-lotion/113683477, taken
-    // from a WebSearch result — returned HTTP 404 through all six addresses,
-    // so the JSON-LD reading this needed was never taken. Whether that URL
-    // is stale or the host refuses that request shape is unknown.
-    //
-    // ── Currency: confirmed 2026-08-21, on a resolving product page ──────────
-    // Currency probe, run 32503927947 job 96839718465, 2026-08-21T16:38:34Z,
-    // --product=https://groceries.morrisons.com/products/
-    // vitfix-magnesium-effervescent-citrus/115826347 — the harvest's own
-    // sample priced URL above, and a genuinely different, resolving address
-    // from the paco-rabanne URL that 404'd on 2026-08-20. This time the
-    // JSON-LD reading was taken: "page 3.5 GBP" through every one of the six
-    // ways of asking that reached the page, alongside the same
-    // origin-quotes-GBP market-address signal as before. A resolving product
-    // page naming its own priceCurrency is exactly the smaller, narrower gap
-    // the note above asked for, so the reading stands on the strong evidence
-    // this time, not the weak homepage one. Removed from CURRENCY_UNCONFIRMED
-    // below on that evidence and enabled.
-    //
-    // ── Affiliate: a lead, and not a good enough one to write into config ────
-    // A WebSearch for a Morrisons programme returned listings on several
-    // third-party affiliate directories (FlexOffers, Skimlinks, VigLink,
-    // FMTC, Cuelinks among them) naming a "Morrisons Grocery" programme, and
-    // summaries describing it as running on FlexOffers and Tradedoubler with
-    // commission restricted to new customers above a basket threshold.
-    // Nothing there is Awin, Rakuten, Impact or CJ, and none of it was read
-    // on a network's own page — affiliate directories carry stale and
-    // second-hand programme data as a matter of course. `affiliate` below
-    // therefore stays NO_AFFILIATE_YET rather than claiming a network this
-    // registry has no shape for and nobody has confirmed.
-    //
-    // One thing "priced listings" does NOT mean, recorded here because it
-    // would be easy to read it as more than it is: src/catalogue/jsonld.ts
-    // does not look at schema.org `priceCurrency` at all — it takes the
-    // number out of the offer and stores it as `priceGbp`. That is why the
-    // 10-of-10 count above did not by itself clear this entry — the currency
-    // note above did that separately.
-    //
-    // sitemapHarvestConfirmed is set on the same basis as the note above:
-    // a real, measured crawlViaSitemap pass with 10-of-10 priced listings
-    // (run 32390450886 job 96495029195), the riiffs/perfumeo shape that
-    // tests/registry.test.ts's "unstated delivery" allowlist requires a real
-    // ingestion route on record for. The `www.` prefix bug the same comment
-    // above blamed for this entry's one harvest error was fixed separately
-    // (see sitemapCrawl.ts and its own commit) and is not re-measured here.
-    enabled: true,
-    adapter: 'unknown',
-    sitemapHarvestConfirmed: true,
-    currency: 'GBP',
-    shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-10-03',
-      confidence: 'confirmed',
-      standardRateNotPublished: true,
-      // The owner's call, 2026-10-03: keep Morrisons, with a note on any row
-      // below the minimum.
-      minimumOrderGbp: 25,
-      // The quote used to be a sign-up promotion ("£5 off your first 3 fast
-      // orders with code: 5firstnow *min spend £30"), which states no delivery
-      // term. Re-read 2026-10-03 (robots.txt read first; it disallows only
-      // /sso-login, /previewer/*, /api/ and /events/): the page prices a
-      // Delivery Pass, not a per-order charge, and its trolley reads
-      // "Minimum: £25.00".
-      source: {
-        url: 'https://groceries.morrisons.com/content/delivery-pass-content-page',
-        quote:
-          "Spend £25 and enjoy free Home Delivery with no small order charge on any slot covered by your pass, including next-day at no extra cost!*",
-        readAt: '2026-10-03',
-      },
-      notes:
-        'Grocery delivery is slot-booked rather than a flat per-order rate, and the delivery ' +
-        'page read on 2026-10-03 prices only the Delivery Pass (from £5), so no standard figure ' +
-        'is entered. The same page shows a £25.00 minimum order, so a single bottle under £25 ' +
-        'cannot be ordered online on its own. The delivery window is not sourced. No affiliate ' +
-        'programme has been researched.',
-    },
-    catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
-  },
-  {
     id: 'ocado',
     name: 'Ocado',
     domain: 'ocado.com',
@@ -8696,109 +8564,6 @@ export const RETAILERS: readonly Retailer[] = [
         'robots.txt, not its checkout currency. Search summaries mention free Click & Collect, ' +
         'which is not a delivery rate, so nothing is entered. No affiliate programme has been ' +
         'researched; a third-party affiliate directory suggested there is none on the major ' +
-        'networks, which is not the same as having checked Awin and Rakuten directly.',
-    },
-    catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
-  },
-  {
-    id: 'bm-stores',
-    name: 'B&M',
-    domain: 'bmstores.co.uk',
-    homepage: 'https://www.bmstores.co.uk',
-    // Logo read off the shop's own homepage by scripts/logo-probe.ts and
-    // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
-    logo: {
-      src: "https://www.bmstores.co.uk/wsimages/bm-navbar-logo.png",
-      shape: 'square',
-      ink: 'light',
-      basis: 'own-site-declared',
-      source: 'https://www.bmstores.co.uk',
-      readAt: '2026-10-03',
-    },
-    tiers: ['designer'],
-    // Added 2026-08-20 from WebSearch result URLs and titles alone — no page
-    // opened, this sandbox has no egress. Variety discounter, 700-plus
-    // stores. Fragrance tree at /products/health-and-beauty/fragrance with
-    // /men-s-fragrance, /women-s-fragrance and a ?page=N pagination
-    // parameter that appeared in the results themselves (?page=2, ?page=3),
-    // so the paging convention is at least visible from outside. Result
-    // summaries name Joop!, Davidoff, Hugo Boss and Victoria Beckham, so
-    // designer stock rather than own-label.
-    //
-    // Note the plain hierarchical paths with no id segment and no session
-    // parameter — the friendliest URL shape of anything in this batch.
-    // Whether the pages behind them carry product JSON-LD is unmeasured.
-    //
-    // ── Measured 2026-08-20: a working route ─────────────────────────────────
-    // Harvest probe --dry-run --shop=bm-stores --max=10, run 32390489171 job
-    // 96495154921, 2026-08-20T16:11:41Z, commit 59f60a9:
-    //
-    //   B&M   233 urls   10 fetched   10 priced listings  (1 errors)
-    //       https://www.bmstores.co.uk/sitemap.xml: HTTP 404
-    //       sample priced URL: https://www.bmstores.co.uk/products/
-    //         flash-bathroom-500ml-febreze-fresh-scent-409799
-    //
-    // The conventional sitemap path simply does not exist here; the 233 URLs
-    // came from the Sitemap: lines in this shop's own robots.txt, which the
-    // walk prefers when they are there. So robots.txt was read, it named its
-    // sitemaps, every URL was permitted, and ten of ten fetched product
-    // pages carried a parseable schema.org price. Second-best retrieval
-    // result of the eight shops in this batch.
-    //
-    // The sample is a bathroom cleaner because the walk is unscoped across
-    // the whole catalogue — a sections/requiredUrlPrefix question, not a
-    // retrieval one.
-    //
-    // One thing "priced listings" does NOT mean, recorded here because it
-    // would be easy to read it as more than it is: src/catalogue/jsonld.ts
-    // does not look at schema.org `priceCurrency` at all — it takes the
-    // number out of the offer and stores it as `priceGbp`. That is why the
-    // 10-of-10 count above did not by itself clear this entry.
-    //
-    // ── Currency: confirmed 2026-08-21, on a real product page ───────────────
-    // Currency probe, run 32503013366 job 96836834119, 2026-08-21T16:28:03Z,
-    // --product=https://www.bmstores.co.uk/products/flash-bathroom-500ml-
-    // febreze-fresh-scent-409799 (the sample priced URL the harvest probe
-    // above already fetched, not a guess). The market-address sweep found no
-    // Shopify.currency and no /meta.json, same silence as this domain's other
-    // readings — but the product page's own schema.org JSON-LD labelled its
-    // price "1.89 GBP" identically through every way of asking that reached
-    // it. That is the shop's own label on its own price, on its own page.
-    // Removed from CURRENCY_UNCONFIRMED below on that evidence and enabled.
-    // Harvest probe run 32390489171 job 96495154921 above is a real,
-    // measured crawlViaSitemap pass with 10-of-10 priced listings, so
-    // sitemapHarvestConfirmed is set rather than left unstated — this is the
-    // riiffs/perfumeo shape: enabled with standardGbp still null below, so
-    // tests/registry.test.ts's "unstated delivery" allowlist needs a real
-    // ingestion route on record, and this is it.
-    enabled: true,
-    adapter: 'unknown',
-    sitemapHarvestConfirmed: true,
-    currency: 'GBP',
-    shipping: {
-      // Read directly 2026-10-01: B&M's own FAQ says it does not sell this
-      // range online at all (quoted in `source`), and its footer's
-      // /help-and-advice/delivery link 404s. Fragrance is bought in store,
-      // so there is no delivery rate to publish — recorded as
-      // standardRateNotPublished, which is the true statement about the shop
-      // and keeps every B&M row at "delivery not stated" (the item price is
-      // the in-store shelf price). Home delivery exists only for "large
-      // furniture items or bulky gardening products", priced in store.
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-10-01',
-      confidence: 'confirmed',
-      standardRateNotPublished: true,
-      source: {
-        url: 'https://www.bmstores.co.uk/faqs',
-        quote: 'B&M do not operate an online ordering facility for groceries, furniture and houseware products.',
-        readAt: '2026-10-01',
-      },
-      notes:
-        'In-store only for fragrance; see the comment on this block. No affiliate programme has ' +
-        'been researched; a third-party affiliate directory suggested there is none on the major ' +
         'networks, which is not the same as having checked Awin and Rakuten directly.',
     },
     catalogue: null,
@@ -8982,6 +8747,12 @@ export const RETAILERS: readonly Retailer[] = [
         quote:
           'Standard Delivery Large Delivery UK Mainland (excluding the Scottish Highlands) £3.95 £10.00',
         readAt: '2026-10-01',
+      },
+      // The owner's basket on 2026-10-03 matched: a £26.98 basket showed
+      // "Delivery to UB1 £3.95".
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote: 'Delivery £3.95 on a £26.98 basket (two bottles, UK mainland postcode)',
       },
       notes:
         'Other delivery areas (AB, BF, BT, FK, GY, HS, IM, IV, KW, PA, PH, TR, ZE) £11.49; ' +
