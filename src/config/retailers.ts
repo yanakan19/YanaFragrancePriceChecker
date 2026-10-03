@@ -5157,7 +5157,10 @@ export const RETAILERS: readonly Retailer[] = [
   },
   {
     id: 'niche-beauty-uk',
-    name: 'Niche-Beauty UK',
+    // Was 'Niche-Beauty UK'. The shop's own page titles say "NICHE BEAUTY"
+    // (".../byredo-blanche/303-019": "BYREDO Blanche » buy online | NICHE
+    // BEAUTY", read 2026-10-03), and the site's own text carries no hyphens.
+    name: 'Niche Beauty UK',
     domain: 'niche-beauty.com',
     homepage: 'https://www.niche-beauty.com',
     tiers: ['niche'],
