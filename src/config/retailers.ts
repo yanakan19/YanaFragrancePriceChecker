@@ -6101,6 +6101,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Parfumdreams UK',
     domain: 'parfumdreams.co.uk',
     homepage: 'https://www.parfumdreams.co.uk',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="shortcut icon">, 512px.
+    logo: {
+      src: 'https://www.parfumdreams.co.uk/images/favicon.png',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.parfumdreams.co.uk',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // CURRENCY NOT CONFIRMED — see CURRENCY_UNCONFIRMED at the foot of this
     // file. Currency probe (run 32256361673, job 96078874562, 2026-08-19):
@@ -6310,6 +6322,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Beauty Bay',
     domain: 'beautybay.com',
     homepage: 'https://www.beautybay.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="apple-touch-icon">, 180px.
+    logo: {
+      src: 'https://www.beautybay.com/apple-touch-icon.png',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.beautybay.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     //
     // ── Switched on, 2026-10-03, on the product API route ───────────────────
@@ -7871,6 +7895,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Marks & Spencer',
     domain: 'marksandspencer.com',
     homepage: 'https://www.marksandspencer.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="shortcut icon"> on their own static host, a .ico holding 32px.
+    logo: {
+      src: 'https://static.marksandspencer.com/images/favicon.ico',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.marksandspencer.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // Added 2026-08-20 from WebSearch snippets of
     // marksandspencer.com/l/beauty/womens-perfume and
@@ -8245,6 +8281,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Paco Perfumerías UK',
     domain: 'pacoperfumerias.co.uk',
     homepage: 'https://www.pacoperfumerias.co.uk',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="icon">, 512px, the unversioned path rather than the build stamped apple-touch-icon.
+    logo: {
+      src: 'https://www.pacoperfumerias.co.uk/media/favicon/stores/1/pacoperfume-icon.png',
+      shape: 'square',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://www.pacoperfumerias.co.uk',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // Was the perfume-price entry (perfumeprice.co.uk). That domain now
     // redirects here, so on 2026-10-03 the owner chose to switch the entry
