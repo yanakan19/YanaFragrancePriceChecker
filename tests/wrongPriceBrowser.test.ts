@@ -70,7 +70,9 @@ describe.skipIf(!built)('wrong price report (built page, Chromium)', () => {
     const errors: string[] = [];
     page.on('pageerror', (e) => errors.push(String(e)));
     const shopsOnPage = (await page.locator('.detail-offers .offers .shop').evaluateAll(
-      (els) => els.map((el) => (el.firstChild?.textContent ?? '').trim()),
+      // The shop's name is the row's own text node: a logo (.offer-mark) may
+      // come before it and a Cheapest tag after it, both elements.
+      (els) => els.map((el) => ([...el.childNodes].find((n) => n.nodeType === 3 && (n.textContent ?? '').trim())?.textContent ?? '').trim()),
     ));
     expect(shopsOnPage.length).toBeGreaterThan(0);
 
