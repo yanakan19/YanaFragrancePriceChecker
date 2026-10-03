@@ -11,7 +11,7 @@
  * Nothing here decides whether a listing is a fragrance at all; that lives in
  * fragranceId.ts, which is a different question with a different failure mode.
  */
-import { ML_SIZE_RE, OZ_SIZE_RE, OZ_TO_ML } from './fragranceId.js';
+import { ML_SIZE_RE, OZ_SIZE_RE, OZ_TO_ML, statedMl } from './fragranceId.js';
 import { brandKey, shopNameCore } from './brandName.js';
 
 /**
@@ -2395,7 +2395,7 @@ const SIZE_TOKEN_RE = new RegExp(
 /** The millilitre value a single SIZE_TOKEN_RE match states, by the same reading sizeMl() would give it. */
 function sizeTokenValueMl(token: string): number {
   const ml = token.match(ML_SIZE_RE);
-  if (ml) return Math.round(Number.parseFloat(ml[1]!));
+  if (ml) return statedMl(ml[1]!);
   const oz = token.match(OZ_SIZE_RE)!;
   return Math.round(Number.parseFloat(oz[1]!) * OZ_TO_ML);
 }
