@@ -62,6 +62,7 @@ import {
 } from './tileDensity.js';
 import { trustpilotStateFor } from './trustpilotWidget.js';
 import { COVERAGE } from './legal.js';
+import { marqueeHtml, marqueePhrases } from './marquee.js';
 import { deliveryLines } from './deliveryFacts.js';
 import {
   msrpComparison, msrpComparisonLabel, rrpSavingFor, rrpSavingLabel, shownPrice, type MsrpComparison,
@@ -1374,6 +1375,9 @@ const MEDALS = ['gold', 'silver', 'bronze'] as const;
 const SUGGEST_NOTE =
   'Send opens your own email app with your message ready to go. Nothing goes to a server of ours.';
 
+/** Built once: both inputs are fixed for the life of the bundle. */
+const MARQUEE = marqueeHtml(marqueePhrases(DEMO_FRAGRANCES.length, COVERAGE));
+
 function homeView(): string {
   return `
     <section class="intro">
@@ -1398,6 +1402,10 @@ function homeView(): string {
       <p class="db-count">Current Database: ${DEMO_FRAGRANCES.length.toLocaleString('en-GB')} fragrances
         <span class="live-dot" aria-hidden="true"></span><span class="sr-only"> (live)</span></p>
     </section>
+
+    <!-- The scrolling word banner, full width, directly under the hero. Its
+         phrases and why each is true live in demo/marquee.ts. -->
+    ${MARQUEE}
 
     <section class="pop-section">
       <div class="section-head">

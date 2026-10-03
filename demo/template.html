@@ -595,6 +595,65 @@
     overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
   }
 
+  /* ── marquee ───────────────────────────────────────────────────────────────
+     The scrolling word banner under the hero (demo/marquee.ts), ported from
+     the owner's other site. Every colour is one of this site's own tokens,
+     so it follows every theme the tokens do (data-mode, a host's data-theme
+     and the OS setting) with no theme rules of its own: the band is
+     --surface-2, the hairlines --line, the words --ink-2 (9.79:1 dark, 7.85:1
+     light on the band) and the marker the brand --accent (4.92:1 and
+     5.26:1, well over the 3:1 a graphic needs). The --pm-* values
+     left are the ones this site has no token for.
+
+     The one piece of idle motion on the site, by the owner's request. It
+     moves by transform only, pauses under the pointer, and stops outright
+     with reduced motion. It bleeds past the page gutter to the full width
+     of the page, the way the Most stocked rail does, and clips its own
+     track, so it never makes the page scroll sideways. */
+  .marquee {
+    --pm-gap: 48px; --pm-pad: 14px; --pm-duration: 36s;
+    position: relative; overflow: hidden;
+    margin: 30px calc(-1 * max(var(--gutter), var(--safe-right))) 0 calc(-1 * max(var(--gutter), var(--safe-left)));
+    padding: var(--pm-pad) 0;
+    background: var(--surface-2);
+    border-block: 1px solid var(--line);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+  .marquee-track {
+    display: flex; align-items: center; gap: var(--pm-gap);
+    width: max-content;
+    /* The gap after the last phrase is padding, so the two halves are the
+       same width exactly and -50% lands the second set where the first
+       began: no jump at the loop. */
+    padding-right: var(--pm-gap);
+    animation: marquee-scroll var(--pm-duration) linear infinite;
+  }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee-item {
+    display: inline-flex; align-items: center; gap: .6em; flex: none;
+    font: 600 15px/1.25 var(--font-sans); letter-spacing: -.005em;
+    color: var(--ink-2); white-space: nowrap;
+  }
+  /* A drawn square rather than a glyph: it is the same in every font, and a
+     screen reader has nothing to read out. */
+  .marquee-item::before {
+    content: ""; width: 6px; height: 6px; border-radius: 1px;
+    background: var(--accent); flex: none;
+  }
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee { -webkit-mask-image: none; mask-image: none; }
+    .marquee-track {
+      animation: none; width: auto; padding: 0 var(--gutter);
+      flex-wrap: wrap; justify-content: center; gap: 10px 28px;
+    }
+    .marquee-item[aria-hidden="true"] { display: none; }
+  }
+
   /* ── popular rail ──────────────────────────────────────────────────────── */
   .pop-section { margin-top: 32px; }
 
