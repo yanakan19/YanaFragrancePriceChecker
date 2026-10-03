@@ -38,6 +38,7 @@
  * missing shop that might simply have been disabled.
  */
 import { writeFileSync } from 'node:fs';
+import type { ShopFreshness } from './freshness.js';
 
 /** Which retrieval tier produced this shop's listings. */
 export type HarvestTier =
@@ -86,6 +87,14 @@ export interface ShopHarvestOutcome {
    * and so that a shop with nothing to say carries no empty array.
    */
   refusals?: ShopRefusal[];
+  /**
+   * How this run re-priced listings already held: from the shop's own
+   * catalogue endpoint (`platform`, `fromFeed`), how many more were due for a
+   * product page re-read (`due`), and how many the shop said are gone. See
+   * src/catalogue/catalogueRefresh.ts. Optional: absent on older reports and
+   * on shops that never reach that stage.
+   */
+  refreshed?: { platform: string | null; fromFeed: number; due: number; gone: number; note?: string };
   finishedAt: string;
 }
 
@@ -124,6 +133,18 @@ export interface HarvestReport {
   /** Shops that never reported. Planned minus recorded; silence made visible. */
   notReached: string[];
   shops: ShopHarvestOutcome[];
+  /**
+   * Per shop, how old the prices are that its stored listings would show,
+   * measured after the run. `answered` is whether the shop yielded priced
+   * listings this run; scripts/freshness-check.ts fails on a shop that
+   * answered and still has shown listings older than 48 hours. Absent on a
+   * report written before this field existed, or by a run that was killed.
+   */
+  freshness?: Record<string, ReportedFreshness>;
+}
+
+export interface ReportedFreshness extends ShopFreshness {
+  answered: boolean;
 }
 
 export interface HarvestReportWriter {
@@ -133,6 +154,8 @@ export interface HarvestReportWriter {
   finish: (reason?: HarvestEndedReason) => void;
   /** The report as it stands. Exposed for tests and for the end-of-run log. */
   current: () => HarvestReport;
+  /** Attach the after-run freshness table and rewrite. */
+  setFreshness: (freshness: Record<string, ReportedFreshness>) => void;
 }
 
 /**
@@ -147,6 +170,7 @@ export function buildHarvestReport(
   shops: readonly ShopHarvestOutcome[],
   finishedAt: string | null,
   endedReason: HarvestEndedReason | null = null,
+  freshness: Record<string, ReportedFreshness> | null = null,
 ): HarvestReport {
   const reported = new Set(shops.map((s) => s.retailerId));
   return {
@@ -157,6 +181,7 @@ export function buildHarvestReport(
     planned: [...planned],
     notReached: planned.filter((id) => !reported.has(id)),
     shops: [...shops],
+    ...(freshness ? { freshness } : {}),
   };
 }
 
@@ -176,12 +201,13 @@ export function harvestReportWriter(
   const shops: ShopHarvestOutcome[] = [];
   let finishedAt: string | null = null;
   let endedReason: HarvestEndedReason | null = null;
+  let freshness: Record<string, ReportedFreshness> | null = null;
 
   const flush = (): void => {
     try {
       writeFileSync(
         path,
-        `${JSON.stringify(buildHarvestReport(startedAt, planned, shops, finishedAt, endedReason), null, 2)}\n`,
+        `${JSON.stringify(buildHarvestReport(startedAt, planned, shops, finishedAt, endedReason, freshness), null, 2)}\n`,
       );
     } catch {
       // See the doc comment: a report is never worth failing a harvest for.
@@ -198,6 +224,10 @@ export function harvestReportWriter(
       endedReason = reason;
       flush();
     },
-    current: () => buildHarvestReport(startedAt, planned, shops, finishedAt, endedReason),
+    setFreshness: (f) => {
+      freshness = f;
+      flush();
+    },
+    current: () => buildHarvestReport(startedAt, planned, shops, finishedAt, endedReason, freshness),
   };
 }
