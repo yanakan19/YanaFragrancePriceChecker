@@ -74,14 +74,57 @@ function flatten(node: unknown, out: JsonValue[] = []): JsonValue[] {
     // describe; the other sizes have pages of their own in the sitemap.
     const variants = obj['hasVariant'];
     const groupId = obj['productGroupID'];
-    if (Array.isArray(variants) && groupId != null) {
-      const own = variants.find(
-        (v) => v && typeof v === 'object' && String((v as JsonValue)['sku'] ?? '') === String(groupId),
-      );
-      if (own) flatten(own, out);
+    const own =
+      Array.isArray(variants) && groupId != null
+        ? variants.find(
+            (v) => v && typeof v === 'object' && String((v as JsonValue)['sku'] ?? '') === String(groupId),
+          )
+        : undefined;
+    if (own) {
+      flatten(own, out);
+    } else if (Array.isArray(variants) && sizesOfTheirOwn(variants)) {
+      // ── Every size, each with its own price (2026-10-03) ──────────────────
+      // Space NK and Parfumdreams also publish a ProductGroup, but no variant's
+      // sku is the group id: Space NK's Young Rose page is group MUK200031967
+      // with variants UK200031967 "Byredo Young Rose Eau de Parfum 100ml" at
+      // 225.00 GBP and UK200033403 "... 50ml" at 155.00 GBP; Parfumdreams'
+      // Gucci Bloom page is group 122330 with skus 1087866 "... 30 ml" at
+      // 54.95, 1087867 "... 50 ml" at 73.65 and so on. Unlike THG's variants
+      // above, each of these names its own size, so each is a real listing of
+      // its own and all of them are read. The group's brand, image,
+      // description and rating are lent to a variant that carries none.
+      for (const v of variants as JsonValue[]) {
+        const lent: JsonValue = {};
+        for (const key of ['brand', 'image', 'description', 'aggregateRating', 'url']) {
+          if (v[key] == null && obj[key] != null) lent[key] = obj[key];
+        }
+        flatten({ ...lent, ...v }, out);
+      }
     }
   }
   return out;
+}
+
+/** The identity a node carries itself, never one read off a URL. */
+function ownIdentity(node: JsonValue): string | null {
+  return str(node['sku']) ?? str(node['mpn']) ?? gtin(node);
+}
+
+/**
+ * True when a list of variants (or offers) can each stand as a listing of its
+ * own: every one has a name and an identity of its own, and no two share
+ * either. That is what separates Space NK's "...100ml" and "...50ml" from
+ * THG's three variants all named "...50ml", where reading them all would
+ * publish three prices for one bottle. Anything less and the caller keeps
+ * its old behaviour.
+ */
+function sizesOfTheirOwn(items: unknown[]): boolean {
+  const nodes = items.filter((v): v is JsonValue => Boolean(v) && typeof v === 'object' && !Array.isArray(v));
+  if (nodes.length < 2 || nodes.length !== items.length) return false;
+  const names = nodes.map((n) => str(n['name']));
+  const ids = nodes.map(ownIdentity);
+  if (names.some((n) => !n) || ids.some((i) => !i)) return false;
+  return new Set(names).size === nodes.length && new Set(ids).size === nodes.length;
 }
 
 function isProduct(node: JsonValue): boolean {
@@ -271,6 +314,53 @@ export interface ParseOptions {
   sectionId: string;
   /** Page URL, used when the markup carries no canonical URL of its own. */
   pageUrl: string;
+  /**
+   * Keep a price only where the page names sterling for it: the offer's own
+   * `priceCurrency`, or failing that the page's `og:price:currency` /
+   * `product:price:currency` meta. A price the page does not establish as
+   * pounds is carried as `nativePrice` instead, never as `priceGbp`. Set by
+   * the sitemap walk for shops whose route asks for it (`requireGbp` on
+   * `SitemapRoute`).
+   */
+  requireGbp?: boolean;
+  /**
+   * Also read schema.org microdata (`itemscope`/`itemprop`) when the page has
+   * no JSON-LD Product. Off unless asked for: it is set only for shops with a
+   * pinned sitemap route, so no other shop's output changes.
+   */
+  microdata?: boolean;
+}
+
+/**
+ * A currency code as published, normalised. "£" is sterling's symbol and is
+ * read as GBP; anything else is upper-cased and trimmed, and an empty value is
+ * null ("not stated"), never assumed.
+ */
+function currencyCode(value: unknown): string | null {
+  const s = str(value);
+  if (!s) return null;
+  if (s === '£') return 'GBP';
+  return s.toUpperCase();
+}
+
+/** The currency an offer names for its own price, if it names one. */
+function offerCurrency(offer: JsonValue | null): string | null {
+  if (!offer) return null;
+  const direct = currencyCode(offer['priceCurrency']);
+  if (direct) return direct;
+  for (const spec of flatten(offer['priceSpecification'])) {
+    const c = currencyCode(spec['priceCurrency']);
+    if (c) return c;
+  }
+  return null;
+}
+
+/** `og:price:currency` or `product:price:currency`, where a page carries one. */
+export function pageCurrency(html: string): string | null {
+  const m =
+    /<meta[^>]+property=["'](?:og|product):price:currency["'][^>]*content=["']([^"']+)["']/i.exec(html) ??
+    /<meta[^>]+content=["']([^"']+)["'][^>]*property=["'](?:og|product):price:currency["']/i.exec(html);
+  return m ? currencyCode(m[1]) : null;
 }
 
 /**
@@ -281,9 +371,42 @@ export interface ParseOptions {
  * retailer needs a different adapter.
  */
 export function parseListings(html: string, options: ParseOptions): RawListing[] {
-  const nodes = extractJsonLdBlocks(html).flatMap((b) => flatten(b));
+  let nodes = extractJsonLdBlocks(html).flatMap((b) => flatten(b));
+  if (options.microdata && !nodes.some(isProduct)) {
+    // A microdata product with no identifier of its own falls back to its
+    // address. Shy Mimosa's are all /shop/products/view.asp?brand=...&name=...,
+    // whose last path segment is "view.asp" for every product, so there the
+    // query string is the identity, not the script name.
+    const queryId = queryIdentity(options.pageUrl);
+    nodes = extractMicrodataProducts(html).map((n) =>
+      queryId && !ownIdentity(n) && !str(n['url']) ? { ...n, sku: queryId } : n,
+    ).flatMap((b) => flatten(b));
+  }
   const listings: RawListing[] = [];
   const seen = new Set<string>();
+  const metaCurrency = options.requireGbp ? pageCurrency(html) : null;
+
+  /**
+   * The sterling price of one offer, or the reason there is none.
+   *
+   * A price whose own offer names a currency other than GBP is never stored
+   * as pounds, for any shop: that is a page telling us in so many words that
+   * the figure is something else (a Shopify storefront showing a US runner
+   * dollars says `"priceCurrency": "USD"`). For a shop whose route sets
+   * `requireGbp`, silence is not enough either: the page must name GBP, on
+   * the offer or in its price meta.
+   */
+  const sterling = (
+    price: number | null,
+    offer: JsonValue | null,
+  ): { priceGbp: number | null; nativePrice?: { amount: number; currency: string } } => {
+    if (price === null) return { priceGbp: null };
+    const named = offerCurrency(offer) ?? metaCurrency;
+    if (named === 'GBP') return { priceGbp: price };
+    if (named !== null) return { priceGbp: null, nativePrice: { amount: price, currency: named } };
+    if (options.requireGbp) return { priceGbp: null, nativePrice: { amount: price, currency: 'unknown' } };
+    return { priceGbp: price };
+  };
 
   for (const node of nodes) {
     if (!isProduct(node)) continue;
@@ -327,17 +450,57 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
     if (seen.has(sku)) continue;
     seen.add(sku);
 
+    // ── Several sizes as several offers (2026-10-03) ─────────────────────────
+    // A Product whose offers are one per size, each with its own name and
+    // identity, and none of them this node's own sku: selectOffer cannot pick
+    // one, and used to leave the whole product unpriced. Where every offer
+    // names itself distinctly (the same test the ProductGroup variants pass),
+    // each is a listing of its own. The same goes for an AggregateOffer that
+    // carries its per-size offers inside it. Anything less keeps the old
+    // behaviour exactly.
+    const perSize = offersOfTheirOwn(node, sku);
+    if (perSize) {
+      for (const o of perSize) {
+        const oSku = ownIdentity(o)!;
+        if (seen.has(oSku)) continue;
+        seen.add(oSku);
+        const oPrice = parsePrice(o['price']) ?? parsePrice((o['priceSpecification'] as JsonValue)?.['price']);
+        const money = sterling(oPrice, o);
+        const oListed = listPrice(o);
+        listings.push({
+          retailerSku: oSku,
+          url: absolute(str(o['url']), url),
+          rawTitle: str(o['name'])!,
+          rawBrand: brandName(node),
+          ean: gtin(o),
+          imageUrl: imageUrl(o) ?? imageUrl(node),
+          description: description(node),
+          priceGbp: money.priceGbp,
+          wasPriceGbp:
+            oListed !== null && money.priceGbp !== null && oListed > money.priceGbp ? oListed : null,
+          promoEndsAt: isoDate(o['priceValidUntil']),
+          inStock: parseAvailability(o['availability']),
+          sectionId: options.sectionId,
+          rating: aggregateRating(node),
+          ...(money.nativePrice ? { nativePrice: money.nativePrice } : {}),
+        });
+      }
+      continue;
+    }
+
     const offer = selectOffer(node, sku);
 
     const price =
       parsePrice(offer?.['price']) ??
       parsePrice(offer?.['lowPrice']) ??
       parsePrice((offer?.['priceSpecification'] as JsonValue)?.['price']);
+    const money = sterling(price, offer);
 
     // A reference price only counts when the retailer published one and it sits
     // above what they are charging. Anything else is a stale RRP.
     const listed = listPrice(offer);
-    const wasPriceGbp = listed !== null && price !== null && listed > price ? listed : null;
+    const wasPriceGbp =
+      listed !== null && money.priceGbp !== null && listed > money.priceGbp ? listed : null;
 
     listings.push({
       retailerSku: sku,
@@ -347,16 +510,230 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
       ean: gtin(node),
       imageUrl: imageUrl(node),
       description: description(node),
-      priceGbp: price,
+      priceGbp: money.priceGbp,
       wasPriceGbp,
       promoEndsAt: isoDate(offer?.['priceValidUntil']),
       inStock: parseAvailability(offer?.['availability']),
       sectionId: options.sectionId,
       rating: aggregateRating(node),
+      ...(money.nativePrice ? { nativePrice: money.nativePrice } : {}),
     });
   }
 
   return listings;
+}
+
+/**
+ * A product's offers, when they are one per size and each names itself — see
+ * the "several sizes as several offers" note in parseListings. Null whenever
+ * the ordinary single-offer path should run instead, including the case where
+ * one offer is this product's own (selectOffer handles that one already).
+ */
+function offersOfTheirOwn(node: JsonValue, sku: string): JsonValue[] | null {
+  let offers = flatten(node['offers']);
+  if (offers.length === 1 && offers[0]!['offers'] != null) {
+    offers = flatten(offers[0]!['offers']);
+  }
+  if (offers.length < 2) return null;
+  if (offers.some((o) => offerIdentity(o) === sku)) return null;
+  if (sizesOfTheirOwn(offers)) return offers;
+  return namedBySizeList(node, offers);
+}
+
+/** A size such as "50ml" or "7.5 ml" in millilitres, or null. */
+function millilitres(size: string): number | null {
+  const m = /^\s*(\d+(?:\.\d+)?)\s*ml\s*$/i.exec(size);
+  return m ? Number.parseFloat(m[1]!) : null;
+}
+
+/**
+ * John Lewis's shape: one Product, its offers one per size with a sku and a
+ * gtin each but no name, and the sizes as a list on the Product itself, in
+ * the same order. "Aesop Marrakech Intense Eau de Parfum" lists `"size":
+ * ["50ml","100ml"]` and offers 239826498 at 150.00 GBP and 112363992 at
+ * 196.00 GBP; the same page names sku 239826498 "Aesop Marrakech Intense Eau
+ * de Parfum, 50ml". Checked the same way on four more of its pages on
+ * 2026-10-03 (Ralph Lauren, Byredo, Acqua di Parma, Carolina Herrera's four
+ * sizes from 30ml at 67.00 to 150ml at 166.00): the order always matched.
+ *
+ * Read only when the lists are the same length, the sizes are distinct, every
+ * offer has an identity of its own, and the prices never fall as the bottle
+ * grows: a list that is out of step with its offers would show up as a larger
+ * bottle priced below a smaller one, and then nothing is read rather than a
+ * size attached to the wrong price.
+ */
+function namedBySizeList(node: JsonValue, offers: JsonValue[]): JsonValue[] | null {
+  const sizes = node['size'];
+  const name = str(node['name']);
+  if (!name || !Array.isArray(sizes) || sizes.length !== offers.length) return null;
+  const labels = sizes.map(str);
+  if (labels.some((l) => !l) || new Set(labels).size !== labels.length) return null;
+  const ids = offers.map(ownIdentity);
+  if (ids.some((i) => !i) || new Set(ids).size !== ids.length) return null;
+
+  const ml = labels.map((l) => millilitres(l!));
+  if (ml.some((v) => v === null)) return null;
+  const prices = offers.map((o) => parsePrice(o['price']));
+  if (prices.some((p) => p === null)) return null;
+  const order = ml.map((_, i) => i).sort((a, b) => ml[a]! - ml[b]!);
+  for (let k = 1; k < order.length; k++) {
+    if (prices[order[k]!]! < prices[order[k - 1]!]!) return null;
+  }
+  return offers.map((o, i) => ({ ...o, name: `${name} ${labels[i]}` }));
+}
+
+/** HTML entities a microdata text value commonly carries. */
+function decodeEntities(s: string): string {
+  const named: Record<string, string> = {
+    amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', pound: '£', euro: '€',
+  };
+  return s.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (whole, body: string) => {
+    if (body[0] === '#') {
+      const code = body[1] === 'x' || body[1] === 'X' ? Number.parseInt(body.slice(2), 16) : Number.parseInt(body.slice(1), 10);
+      return Number.isFinite(code) ? String.fromCodePoint(code) : whole;
+    }
+    return named[body.toLowerCase()] ?? whole;
+  });
+}
+
+/** Elements that never have a closing tag. */
+const VOID_ELEMENTS = new Set([
+  'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr',
+]);
+
+interface MicroItem {
+  type: string;
+  props: Map<string, (string | MicroItem)[]>;
+}
+
+function attr(attrs: string, name: string): string | null {
+  const m = new RegExp(`(?:^|\\s)${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s"'>]+))`, 'i').exec(attrs);
+  if (!m) return new RegExp(`(?:^|\\s)${name}(?:\\s|$|/)`, 'i').test(attrs) ? '' : null;
+  return decodeEntities(m[1] ?? m[2] ?? m[3] ?? '');
+}
+
+/**
+ * schema.org microdata, read into the same node shape JSON-LD gives, so one
+ * parser decides what a listing is whichever way a page marks it up.
+ *
+ * Added 2026-10-03 for two shops whose product pages carry microdata and no
+ * JSON-LD at all: Shy Mimosa (`<div itemscope itemtype=".../Product">` with
+ * `itemprop="name"`, `"brand"`, an Offer holding `itemprop="priceCurrency"
+ * content="GBP"` and `itemprop="price"` 195.00) and Niche Beauty (the same
+ * shape, its price in a `content` attribute). A small tag scanner rather than
+ * an HTML parser, because this repo has none and needs only this: which
+ * itemprop belongs to which itemscope, and each one's value (its `content`,
+ * `href` or `src` attribute where the element carries one, else its text).
+ * `<a itemprop="brand">` is read by its text, not its href, since a brand is a
+ * name.
+ */
+export function extractMicrodataProducts(html: string): JsonValue[] {
+  const body = html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<!--[\s\S]*?-->/gi, ' ');
+  const tagRe = /<(\/?)([a-zA-Z][\w:-]*)([^>]*)>/g;
+  const elements: string[] = [];
+  const scopes: { item: MicroItem; depth: number }[] = [];
+  const captures: { item: MicroItem; prop: string; depth: number; text: string }[] = [];
+  const top: MicroItem[] = [];
+  let last = 0;
+
+  const add = (item: MicroItem, prop: string, value: string | MicroItem) => {
+    for (const p of prop.split(/\s+/).filter(Boolean)) {
+      const list = item.props.get(p) ?? [];
+      list.push(value);
+      item.props.set(p, list);
+    }
+  };
+  const closeTo = (depth: number) => {
+    for (let i = captures.length - 1; i >= 0; i--) {
+      const c = captures[i]!;
+      if (c.depth >= depth) {
+        add(c.item, c.prop, decodeEntities(c.text).replace(/\s+/g, ' ').trim());
+        captures.splice(i, 1);
+      }
+    }
+    while (scopes.length && scopes[scopes.length - 1]!.depth >= depth) scopes.pop();
+  };
+
+  for (const m of body.matchAll(tagRe)) {
+    const text = body.slice(last, m.index);
+    last = m.index! + m[0].length;
+    if (captures.length && text) for (const c of captures) c.text += text;
+
+    const closing = m[1] === '/';
+    const name = m[2]!.toLowerCase();
+    const attrs = m[3] ?? '';
+
+    if (closing) {
+      const at = elements.lastIndexOf(name);
+      if (at === -1) continue;
+      closeTo(at);
+      elements.length = at;
+      continue;
+    }
+
+    const selfClosing = VOID_ELEMENTS.has(name) || /\/\s*$/.test(attrs);
+    const depth = elements.length;
+    const prop = attr(attrs, 'itemprop');
+    const scoped = attr(attrs, 'itemscope') !== null;
+    const parent = scopes.length ? scopes[scopes.length - 1]!.item : null;
+
+    if (scoped) {
+      const item: MicroItem = { type: attr(attrs, 'itemtype') ?? '', props: new Map() };
+      if (prop && parent) add(parent, prop, item);
+      else top.push(item);
+      if (!selfClosing) scopes.push({ item, depth });
+    } else if (prop && parent) {
+      const content = attr(attrs, 'content');
+      const href = attr(attrs, 'href');
+      const src = attr(attrs, 'src');
+      const byText = name === 'a' && !/^(url|image)$/i.test(prop);
+      const value = content ?? (byText ? null : (href ?? src ?? attr(attrs, 'datetime')));
+      if (value !== null) add(parent, prop, value);
+      else if (!selfClosing) captures.push({ item: parent, prop, depth, text: '' });
+      // A price held in `content` is usually also printed inside the same
+      // element ("£ 155.00"). That printed symbol is the page's own statement
+      // of this price's currency, kept for toNode below.
+      if (value !== null && /^price$/i.test(prop) && !selfClosing) {
+        captures.push({ item: parent, prop: 'priceText', depth, text: '' });
+      }
+    }
+    if (!selfClosing) elements.push(name);
+  }
+  closeTo(0);
+
+  const all: MicroItem[] = [];
+  const walk = (item: MicroItem) => {
+    all.push(item);
+    for (const values of item.props.values()) for (const v of values) if (typeof v !== 'string') walk(v);
+  };
+  top.forEach(walk);
+
+  return all.filter((i) => /schema\.org\/Product$/i.test(i.type)).map(toNode);
+}
+
+/** A microdata item as the JSON-LD node it describes. */
+function toNode(item: MicroItem): JsonValue {
+  const node: JsonValue = { '@type': item.type.split('/').pop() ?? '' };
+  const printed = item.props.get('priceText')?.[0];
+  if (!item.props.has('priceCurrency') && typeof printed === 'string') {
+    // Only a symbol printed directly before the figure counts, and only these
+    // three, whose meaning is not in doubt.
+    const symbol = /^\s*([£$€])\s*\d/.exec(printed)?.[1];
+    const code = symbol === '£' ? 'GBP' : symbol === '€' ? 'EUR' : symbol === '$' ? 'USD' : null;
+    if (code) node['priceCurrency'] = code;
+  }
+  for (const [key, values] of item.props) {
+    if (key === 'priceText') continue;
+    const first = values[0]!;
+    if (typeof first === 'string') {
+      node[key] = first;
+    } else if (key === 'offers') {
+      node[key] = values.filter((v): v is MicroItem => typeof v !== 'string').map(toNode);
+    } else {
+      node[key] = toNode(first);
+    }
+  }
+  return node;
 }
 
 /** The retailer's reference price, from whichever field it used. */
@@ -398,6 +775,18 @@ function absolute(raw: string | null, pageUrl: string): string {
     return new URL(raw, pageUrl).toString();
   } catch {
     return pageUrl;
+  }
+}
+
+/** A URL's last path segment plus its query, when it has one; else null. */
+function queryIdentity(url: string): string | null {
+  try {
+    const u = new URL(url);
+    if (!u.search) return null;
+    const seg = u.pathname.replace(/\/+$/, '').split('/').pop() ?? '';
+    return decodeURIComponent(`${seg}${u.search}`);
+  } catch {
+    return null;
   }
 }
 

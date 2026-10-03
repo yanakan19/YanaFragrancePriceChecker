@@ -1687,6 +1687,47 @@ export const RETAILERS: readonly Retailer[] = [
     // the local tier it is already refused by. See tests/renderTier.test.ts
     // and tests/harvestCursor.test.ts.
     renderTier: 'actor',
+    // ── Why run #562 read nothing, and the route built from it (2026-10-03) ─
+    // Job 111100829429's log, read through the GitHub API: the probe ran
+    // homepage-probe (aborted), proxied-fetch (cancelled), section-plain (200,
+    // 0 listings), section-browser-headers (aborted), sitemap-discovery and
+    // browser-render (both ok, 0 listings, no error text). Read against this
+    // shop's sitemaps, asked once each from this sandbox as PriceSniffsBot:
+    //
+    //   robots.txt names one sitemap, /siteindex.xml, an index of six:
+    //   category.xml, /sitemap/products/products.xml, grids.xml and three
+    //   content files. products.xml is itself an index of 50 files,
+    //   products-00.xml.gz to products-49.xml.gz, served as
+    //   Content-Type application/gzip. products-00 unzips to 4,999 <loc>
+    //   entries (about 240 kB zipped, 3.4 MB unzipped), 36 of them naming a
+    //   perfume (molton-brown-tobacco-absolute-eau-de-parfum-100ml/p4333709,
+    //   penhaligons-artemisia-eau-de-parfum-100ml/p113484307 ...).
+    //
+    // So the probe's sitemap strategy (src/catalogue/attempt.ts viaSitemap)
+    // descends one level only: it opened products.xml, took its first 40
+    // <loc>s, which are the .xml.gz files themselves, and fetched five of them
+    // as if they were product pages, reading no listings and recording no
+    // error. It also reads bodies with res.text(), which does not unzip a
+    // gzip file. The harvest's walk does unzip (httpFetch.ts), but on its
+    // runs here it never got that far: both /sitemap.xml and /siteindex.xml
+    // answered HTTP 0 (harvest report 16a34c4, 2026-10-02T21:25Z) to the
+    // browser user agent the harvest sends, while the probe, which asks for
+    // sitemaps as PriceSniffsBot, got HTTP 200 for the same file on run #562.
+    //
+    // The route below therefore starts at /siteindex.xml, opens only the
+    // product sitemaps (52 fetches: the index, products.xml and its 50 files),
+    // keeps only product pages whose address names a perfume, and asks every
+    // page as PriceSniffsBot (SitemapRoute's doc comment). One such page,
+    // asked on 2026-10-03, carried price 160.00, priceCurrency GBP, InStock.
+    sitemapRoute: {
+      roots: ['https://www.johnlewis.com/siteindex.xml'],
+      follow: '^https://www\\.johnlewis\\.com/sitemap/products/',
+      product:
+        '^https://www\\.johnlewis\\.com/[^/?#]*(eau-de|parfum|perfume|aftershave|cologne|extrait)[^/?#]*/p\\d+$',
+      exclude: 'candle|diffuser|reed-|room-spray|home-fragrance|body-lotion|shower-gel|hand-cream|deodorant',
+      maxSitemaps: 52,
+      requireGbp: true,
+    },
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -5224,6 +5265,39 @@ export const RETAILERS: readonly Retailer[] = [
     // gives GB 245.0 and US 301.0. Needs a microdata reader and a locale
     // filter. A harvest probe from a runner, run 37085009932 job 111093346756,
     // priced nothing.
+    //
+    // ── The route, pinned 2026-10-03, and the parser blocker answered ───────
+    // robots.txt names /sitemap/sitemap.xml, an index of 76 that includes
+    // /sitemap/sitemapindex-en-product.xml, itself an index of the English
+    // product files product_sitemap_en_1..11.xml. product_sitemap_en_1 holds
+    // 50,000 <loc> entries, about 1,400 for each English locale, 1,395 of them
+    // /en-gb/. The route opens those files and keeps /en-gb/products/ pages
+    // only, so no other locale is asked for. Product addresses rarely name a
+    // perfume (/en-gb/products/byredo-blanche/303-019), so the obvious
+    // non-fragrance ones (candles, creams, serums, make-up) are skipped by
+    // `exclude` and the rest are left to the fragrance test downstream.
+    //
+    // Microdata, now read: the Blanche page gives name "Blanche", brand
+    // "Byredo", price 245.00, InStock, and no priceCurrency of its own; the
+    // page's og:price:currency is GBP and the visible price "£ 245.00", so
+    // `requireGbp` accepts it on the meta and would refuse a page naming any
+    // other currency. The size ("Size ... 100 ml") and the concentration
+    // ("Eau de Parfum Unisex", the page's first category link) are read into
+    // the title by `titleParts`: "Blanche Eau de Parfum Unisex 100 ml".
+    sitemapRoute: {
+      roots: ['https://www.niche-beauty.com/sitemap/sitemapindex-en-product.xml'],
+      follow: '/sitemap/product_sitemap_en_\\d+\\.xml$',
+      product: '^https://www\\.niche-beauty\\.com/en-gb/products/',
+      exclude:
+        'candle|diffuser|cream|serum|mask|cleans|lip|mascara|shampoo|conditioner|toner|balm|' +
+        'eyeshadow|eye-liner|foundation|powder|brush|soap|lotion|scrub|concealer|blush|nail|spf|sunscreen|hair',
+      maxSitemaps: 12,
+      requireGbp: true,
+      titleParts: [
+        '<ul class="cats"><li><a[^>]*>([^<]{3,60})</a>',
+        '<span class="h">Size</span>\\s*<span class="val">([^<]{1,30})</span>',
+      ],
+    },
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -5865,6 +5939,25 @@ export const RETAILERS: readonly Retailer[] = [
     // product, item, sku, catalog or a fragrance word, so it never opens them.
     // A harvest probe from a runner, run 37085020275 job 111093377664, priced
     // nothing. Delivery was read and is recorded below.
+    //
+    // ── The route, pinned 2026-10-03, and both blockers answered ────────────
+    // Blocker 2: robots.txt names /Sitemaps/sitemap.en-GB.xml, an index of
+    // ten; the route opens only Articles.en-GB1.xml and Articles.en-GB2.xml.
+    // Articles.en-GB1.xml is 41.9 MB unzipped (2.3 MB as sent, compressed in
+    // transit) with 13,173 <loc> entries; 1,217 sit under /Womens-fragrances/,
+    // 872 under /Mens-fragrances/ and 586 under /Unisex-fragrances/, and those
+    // three aisles are what the route keeps.
+    // Blocker 1: the Gucci Bloom page's ProductGroup now parses to one listing
+    // per size, each with its own sku and GBP price: 30 ml 54.95 (1087866),
+    // 50 ml 73.65 (1087867), 100 ml 115.50 (1087868).
+    sitemapRoute: {
+      roots: ['https://www.parfumdreams.co.uk/Sitemaps/sitemap.en-GB.xml'],
+      follow: '/Sitemaps/Articles\\.en-GB\\d+\\.xml$',
+      product: '^https://www\\.parfumdreams\\.co\\.uk/[^/]+/(Womens|Mens|Unisex)-fragrances/',
+      exclude: 'Deodorant|Body-Lotion|Shower|Soap|Body-Cream|Body-care|Bath',
+      maxSitemaps: 3,
+      requireGbp: true,
+    },
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -6097,6 +6190,30 @@ export const RETAILERS: readonly Retailer[] = [
     //   3. A local render could not be tried from this sandbox (Chromium does
     //      not trust its proxy's certificate), and no CI probe was spent on
     //      it, because points 1 and 2 already decide the outcome.
+    //
+    // ── The product API route, built 2026-10-03 ─────────────────────────────
+    // Point 2 above, answered within the owner's conditions. robots.txt on
+    // pdp-api.public.prd.beautybay.com answers HTTP 404 (RFC 9309: no
+    // restrictions), and one ordinary request as PriceSniffsBot, no cookies,
+    // for /product/ariana-grande-cloud-eau-de-parfum-spray?variant=cloud-eau-
+    // de-parfum-spray-50&locale=en-GB answered HTTP 200 JSON listing all three
+    // sizes in GBP (30ml £35.00, 50ml £45.00, 100ml £55.00, each
+    // itemCurrency GBP). Nothing about it needs a cookie, a session or a
+    // browser. src/catalogue/beautyBayApi.ts reads it: the route walks
+    // /.sitemaps/sitemap-p.xml for product pages naming a perfume, asks the
+    // API once per product with the locale pinned to en-GB, and keeps a price
+    // only where that size's own itemCurrency is GBP. The harvest reads the
+    // API host's robots.txt again on every run before asking it anything.
+    // Point 1 is answered by the owner's basket check recorded above.
+    sitemapRoute: {
+      roots: ['https://www.beautybay.com/.sitemaps/sitemap-p.xml'],
+      product:
+        '^https://www\\.beautybay\\.com/p/[a-z0-9-]+/[a-z0-9-]*(eau-de|parfum|perfume|cologne|extrait|edp|edt)[a-z0-9-]*/[a-z0-9-]+/$',
+      exclude: 'hair|body-lotion|shower|candle|deodorant',
+      maxSitemaps: 1,
+      requireGbp: true,
+      pageReader: 'beauty-bay-api',
+    },
     catalogue: null,
     affiliate: { ...awinRequested() },
   },
@@ -7393,6 +7510,28 @@ export const RETAILERS: readonly Retailer[] = [
     // returns 0 listings. Both need code before this can be switched on.
     // Delivery is as recorded below: free over £25 read from the shop, no flat
     // rate published.
+    //
+    // ── The route, pinned 2026-10-03, and both blockers answered ────────────
+    // Blocker 1: robots.txt names /sitemap_index.xml (and /us/sitemap_index.
+    // xml, never opened). Its product file /sitemap_0-product.xml lists
+    // 37,500 <loc> entries, 7,500 each under /us/, /uk/, /nl/, /ie/ and /au/;
+    // 1,217 of the /uk/ ones carry a fragrance word. The route's product
+    // pattern starts with https://www.spacenk.com/uk/, so no other country's
+    // page is ever asked for, and `requireGbp` keeps a price only where the
+    // page's own offer says priceCurrency GBP.
+    // Blocker 2: src/catalogue/jsonld.ts now reads a ProductGroup's variants
+    // when each names its own size and none is the group itself. The Young
+    // Rose page above parses to two listings: "Byredo Young Rose Eau de
+    // Parfum 100ml" 225.00 GBP (UK200031967) and "... 50ml" 155.00 GBP
+    // (UK200033403).
+    sitemapRoute: {
+      roots: ['https://www.spacenk.com/sitemap_0-product.xml'],
+      product:
+        '^https://www\\.spacenk\\.com/uk/[^?#]*(eau-de|parfum|perfume|aftershave|cologne|extrait)[^?#]*\\.html$',
+      exclude: 'candle|diffuser|room-spray|home-fragrance|body-lotion|shower|hand-cream|hair-mist',
+      maxSitemaps: 1,
+      requireGbp: true,
+    },
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -7506,6 +7645,25 @@ export const RETAILERS: readonly Retailer[] = [
     // lists Irish pages, and the parser does not check priceCurrency. Needs a
     // way to pin the walk to uk_sitemap_beauty_products.xml before it can be
     // enabled. Delivery was read and is recorded below.
+    //
+    // ── The route, pinned 2026-10-03 ────────────────────────────────────────
+    // Read off the shop's own files as PriceSniffsBot, robots.txt first: the
+    // UK index robots.txt names (/sitemap/sitemap_index.xml) lists 44 sitemaps,
+    // one of them /sitemap/uk_sitemap_beauty_products.xml, 2,439 <loc>
+    // entries, every one a /<name>/p/<id> product page; 223 of them carry a
+    // fragrance word (classic-white-gardenia-pour-femme-eau-de-toilette-100ml/
+    // p/hbp22184531, blood-oranges-eau-de-parfum-100ml/p/hbp22300959 ...). The
+    // route starts there and nowhere else, so the /ie/ and /en/ indexes and
+    // the bag sitemaps are never opened, and keeps only the pages naming a
+    // perfume, minus home fragrance (diffusers, candles).
+    sitemapRoute: {
+      roots: ['https://www.marksandspencer.com/sitemap/uk_sitemap_beauty_products.xml'],
+      product:
+        '^https://www\\.marksandspencer\\.com/[^/?#]*(eau-de|parfum|perfume|aftershave|cologne|extrait)[^/?#]*/p/[a-z0-9]+$',
+      exclude: 'diffuser|candle|room-|home-fragrance|reed-|body-lotion|shower|hand-cream',
+      maxSitemaps: 1,
+      requireGbp: true,
+    },
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -7724,6 +7882,30 @@ export const RETAILERS: readonly Retailer[] = [
     //
     // Delivery was read off the shop's own /delivery-info/ page and is recorded
     // below: £4.99, free over £100.
+    //
+    // ── The route, pinned 2026-10-03, and the parser blocker answered ───────
+    // src/catalogue/jsonld.ts now reads schema.org microdata for a shop with a
+    // pinned route. Asked again on 2026-10-03 (robots.txt first, 11 s between
+    // requests), the Chypre Shot page reads as name "Chypre Shot", brand
+    // "Olfactive Studio", price 195.00, priceCurrency GBP. The microdata names
+    // neither the concentration nor the size; the page prints both beside it
+    // ("<h4>Extrait de Parfum | ..." and "Product Size ... <p>100ml</p>"), and
+    // `titleParts` reads those two into the title, giving "Chypre Shot Extrait
+    // de Parfum 100ml". Its product URLs differ only in their query string, so
+    // that is each listing's identity. The route reads sitemap_products.asp
+    // (388 URLs) and skips the candles listed in it. At the 10 s crawl delay a
+    // six minute harvest slot reaches about 35 pages.
+    sitemapRoute: {
+      roots: ['https://www.shymimosa.co.uk/sitemap_products.asp'],
+      product: '^https://www\\.shymimosa\\.co\\.uk/shop/products/view\\.asp\\?brand=',
+      exclude: 'Candle|Diffuser|Magazine|Gift\\+Card|Soap|Hand\\+Wash|Body\\+Lotion',
+      maxSitemaps: 1,
+      requireGbp: true,
+      titleParts: [
+        '<h4>\\s*([^<|]{3,60})\\|',
+        'Product Size</div>\\s*<div[^>]*>\\s*<p>\\s*([^<]{1,30})</p>',
+      ],
+    },
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -7798,6 +7980,28 @@ export const RETAILERS: readonly Retailer[] = [
     // is Paco Perfumerías, not Perfume Price. Whether this id is renamed, or
     // the paco-perfumerias entry is repointed at pacoperfumerias.co.uk and this
     // one retired, is for the owner.
+    //
+    // ── The route, pinned 2026-10-03 ────────────────────────────────────────
+    // Blocker 1 answered: the one flat /sitemap.xml robots.txt names lists
+    // 6,343 <loc> entries; 3,974 are single segment pages at the root, and
+    // 3,753 of those name a perfume in their own address
+    // (aramis-havana-eau-de-toilette-100ml-spray.html ...). Category pages
+    // (/fragrance/womens.html, /fragrance/womens/fragrance/bvlgari/...) sit
+    // one or more folders down and are never matched. The match is on the
+    // path: the host itself says "perfume" (pacoPERFUMErias), which is how
+    // the generic walk came to treat every page as a fragrance page. Asked on
+    // 2026-10-03, the Aramis Havana page parsed to one listing, 'Aramis
+    // Havana Eau de Toilette 100ml Spray', £57.50, priceCurrency GBP, EAN
+    // 022548199206. robots.txt disallows every URL with a query string, and
+    // the route asks for none.
+    sitemapRoute: {
+      roots: ['https://www.pacoperfumerias.co.uk/sitemap.xml'],
+      product:
+        '^https://www\\.pacoperfumerias\\.co\\.uk/[^/?#]*(eau-de|parfum|perfume|aftershave|cologne|extrait|-edps?-|-edts?-)[^/?#]*\\.html$',
+      exclude: 'body-cream|body-lotion|shower|deodorant|body-wash|soap|candle|diffuser',
+      maxSitemaps: 1,
+      requireGbp: true,
+    },
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
