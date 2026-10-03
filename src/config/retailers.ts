@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 76 retailers, 48 of them `enabled: true`. Every one of them is a legitimate
+ * 76 retailers, 49 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -7894,7 +7894,15 @@ export const RETAILERS: readonly Retailer[] = [
         'Product Size</div>\\s*<div[^>]*>\\s*<p>\\s*([^<]{1,30})</p>',
       ],
     },
-    enabled: false,
+    //
+    // ── Switched on, 2026-10-03, on the pinned route ────────────────────────
+    // Probe run #571 (job 111193618894), from a runner: 352 product URLs on
+    // the route, 8 pages, 4 listings, all 4 priced in GBP from the page's
+    // own microdata (Gri Gri Parfums Tara Mantra, Moko Maori, Ukiyo-E and
+    // Sideshow Eau de Parfum 100ml, £95 each); the other 4 pages were stale
+    // sitemap entries that answer 404. Requests are 10 s apart throughout,
+    // robots.txt's own crawl delay, the sitemap included.
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -9279,16 +9287,11 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
   // every request shape, with identical /products.json prices at the origin
   // and under ?country=GB (Cacao Timur 100ml EdP 165.00 both ways). It stays
   // `enabled: false` for an unrelated reason recorded on its entry.
-  [
-    'shy-mimosa',
-    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
-      'about shymimosa.co.uk comes from WebSearch snippets, including the one specific delivery ' +
-      "figure (£4.99 under £100) recorded in this entry's shipping.notes; its checkout " +
-      'currency has not been read. One positive sterling reading from a currency probe is what ' +
-      'would remove this id. 2026-10-03: its product pages mark the price up as microdata with ' +
-      'itemprop priceCurrency content GBP (read from this sandbox), and the £4.99 is now read ' +
-      'off its own delivery page; no CI probe has read it yet.',
-  ],
+  // shy-mimosa was removed from this list on 2026-10-03: its product pages'
+  // microdata names priceCurrency GBP for every offer (Chypre Shot £195.00),
+  // its pinned route sets requireGbp so only such prices are stored, and
+  // probe run #571 (job 111193618894) read every priced listing it fetched
+  // that way from a runner. It is now `enabled: true`.
   // paco-perfumerias-uk was removed from this list on 2026-10-03: its product
   // pages label each offer priceCurrency GBP (Dior Fahrenheit EDT 100ml
   // £106.50, Aramis Havana EDT 100ml £57.50), its pinned route sets
