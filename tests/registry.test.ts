@@ -291,8 +291,20 @@ describe('retailer registry', () => {
       // armaf (free), al-haramain (£4.95) and ibraq (£2.99).
       // fragrancehub left too: £4.99 off the owner's checkout. bm-stores and
       // morrisons were removed from the registry the same day (supermarkets,
-      // the owner's call), which empties the list.
-      expect(unstated.map((r) => r.id).sort()).toEqual([]);
+      // the owner's call).
+      // space-nk joined 2026-10-03 on the fragrancehub side of the split: it
+      // publishes free UK standard delivery over £25 and no rate below it
+      // (standardRateNotPublished, its help article refusing our request with
+      // a 403), and its route is a pinned sitemap walk proved by a runner
+      // (`sitemapHarvestConfirmed: true`, probe run #568). niche-beauty-uk
+      // joined the same day on the same footing: free UK delivery over £75 on
+      // its own product pages, and its delivery link lands on its checkout
+      // provider's page saying the cost is worked out at checkout (probe run
+      // #572).
+      expect(unstated.map((r) => r.id).sort()).toEqual([
+        'niche-beauty-uk',
+        'space-nk',
+      ]);
       for (const r of unstated) {
         expect(
           r.catalogue !== null ||
@@ -306,12 +318,16 @@ describe('retailer registry', () => {
 
     it('yields a null delivered price, never a number', () => {
       for (const r of unstated) {
-        const row = presentOffer(rawOffer(r.id, 42), r);
+        // Below the shop's own free-delivery threshold, where it states one:
+        // Space NK's £25 is a real, quoted threshold, and an item over it is
+        // genuinely delivered free, which is not the case under test here.
+        const price = r.shipping.freeOverGbp !== null ? Math.min(42, r.shipping.freeOverGbp - 1) : 42;
+        const row = presentOffer(rawOffer(r.id, price), r);
         expect(row.deliveredPriceGbp, `${r.name} invented a delivered price`).toBeNull();
         expect(row.delivery.costGbp, `${r.name} invented a delivery cost`).toBeNull();
         // The item price is still shown; it is simply never passed off as a
         // delivered one.
-        expect(row.itemPriceGbp).toBe(42);
+        expect(row.itemPriceGbp).toBe(price);
         // Nothing about free delivery can be claimed for a cost nobody has.
         expect(row.delivery.isFree).toBe(false);
         expect(row.delivery.freeReason).toBeNull();
@@ -339,8 +355,9 @@ describe('retailer registry', () => {
       // covers the ordering on two shops switched on for that file.
       if (unstated.length < 2) return;
       const [a, b] = unstated;
-      // Both under any free-delivery threshold a shop states (£50 is the lowest).
-      const rows = buildComparison([rawOffer(b!.id, 30), rawOffer(a!.id, 20)]);
+      // Both under any free-delivery threshold a shop states (Space NK's £25
+      // is the lowest; at £30 its offer is genuinely delivered free).
+      const rows = buildComparison([rawOffer(b!.id, 20), rawOffer(a!.id, 15)]);
       expect(rows.map((row) => row.retailer.id)).toEqual([a!.id, b!.id]);
       expect(rows.every((row) => row.deliveredPriceGbp === null)).toBe(true);
     });
