@@ -284,14 +284,14 @@ describe('retailer registry', () => {
       // bm-stores and ibraq stay, now as read-and-found-silent
       // (standardRateNotPublished) rather than unread. riiffs left on
       // 2026-10-03: its site serves a captcha to every fetch, so the owner
-      // read the flat £3.95 off its own basket by hand.
+      // read the flat £3.95 off its own basket by hand. manchester-ouds left
+      // the same day: the owner read £2.99 off its own checkout.
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'al-haramain',
         'armaf',
         'bm-stores',
         'fragrancehub',
         'ibraq',
-        'manchester-ouds',
         'morrisons',
       ]);
       for (const r of unstated) {
