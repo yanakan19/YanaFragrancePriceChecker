@@ -43,6 +43,26 @@ describe('no product lists one shop twice with the same row', () => {
     expect(offenders).toEqual([]);
   });
 
+  /* Audit, 2026-10-03: ten products carried the same shop's same page at the
+     same price twice, one row in stock and one out, read weeks apart.
+     Emirates Oud's Odyssey Aqua showed a buyable £22.50 row last seen
+     2026-08-16 beside the shop's 2026-10-02 "out of stock". Only the newest
+     reading is what the shop says today. */
+  it('never shows an older stock reading of the same page and price beside a newer one', () => {
+    const offenders: string[] = [];
+    for (const [fragranceId, offers] of Object.entries(CRAWLED)) {
+      const groups = new Map<string, string[]>();
+      for (const o of offers) {
+        const key = [o.retailerId, o.url, o.price, o.wasPrice].join('|');
+        groups.set(key, [...(groups.get(key) ?? []), o.fetchedAt]);
+      }
+      for (const [key, readAt] of groups) {
+        if (new Set(readAt).size > 1) offenders.push(`${fragranceId}: ${key}`);
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
+
   it('counts shops on the product record as offers actually shipped', () => {
     /* `shops` is written as offers.length, so a collapsed row has to leave it
        consistent or the count on the page goes back to overstating. */
