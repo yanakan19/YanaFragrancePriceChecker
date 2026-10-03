@@ -3875,9 +3875,10 @@ export const RETAILERS: readonly Retailer[] = [
       // this shop the safe way but by a figure nobody had read.
       standardGbp: 3.99,
       freeOverGbp: 30,
-      // Unchanged and still unsourced: the page read here says nothing about
-      // how long delivery takes.
-      estimatedDays: [1, 3],
+      // The 2026-10-03 shop audit (phase 1) read the shop's own policy saying
+      // orders are "delivered within 7-10 days"; the 1 to 3 recorded before
+      // was its dispatch time, not delivery. Owner's default accepted.
+      estimatedDays: [7, 10],
       verifiedAt: '2026-10-01',
       confidence: 'confirmed',
       source: {
