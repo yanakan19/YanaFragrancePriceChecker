@@ -140,6 +140,10 @@ export const UNQUOTED_DELIVERY_PAGES: Readonly<Record<string, string>> = {
   // policy page below is the one read on 2026-10-01; it says "from £135" where the
   // cart says £133, and the recheck only reports such a gap, it never edits.
   'nicchia-luxury-uk': 'https://www.nicchialuxury.com/policies/shipping-policy',
+  // Rests on the owner's basket check (2026-10-03). The shop's own delivery
+  // page, named in its registry entry; its prices are drawn in the browser,
+  // so a plain read may find no figure, which the recheck reports as such.
+  'beauty-bay': 'https://www.beautybay.com/delivery',
 };
 
 /** The page the re-check reads for a shop: its quoted source first. */
