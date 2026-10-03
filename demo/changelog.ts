@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.35.0',
+    date: '3 Oct 2026',
+    title: 'Tidier labels and brand names',
+    points: [
+      'Menus, buttons and headings now in Title Case',
+      'Brand names in capitals now read normally',
+      'Deals in the menu, and one search box',
+    ],
+  },
+  {
     version: 'v3.34.0',
     date: '3 Oct 2026',
     title: 'Gift sets get their own category',
