@@ -600,6 +600,28 @@ export interface Retailer {
    */
   shopifyStorefront?: boolean;
   /**
+   * The owner has decided that this shop's UK storefront price is acceptable
+   * even though the shop converts it live from another currency, and has
+   * checked what that shop's own cart and checkout charge a UK address.
+   *
+   * Without this, `readStorefrontCurrency` refuses any storefront that settles
+   * in a currency other than GBP or applies a conversion rate other than 1,
+   * because a converted figure is not a price list the shop keeps in pounds.
+   * With it, that one refusal is waived, and only for a response that says it
+   * is the GB market (`Shopify.country` "GB") and quotes GBP. A shop that
+   * quotes euros, or any other market, is still refused, and so is a shop that
+   * names no market at all.
+   *
+   * It is a human decision recorded as data, never something a measurement can
+   * set: `basis` carries the owner's own check and the date it was made.
+   */
+  convertedSterlingAccepted?: {
+    /** ISO-8601 date of the owner's decision. */
+    decidedAt: string;
+    /** What the owner checked, in a sentence, with no personal detail. */
+    basis: string;
+  };
+  /**
    * A Harvest probe has actually run `crawlViaSitemap` against this
    * retailer's own sitemap and come back with real, priced listings — not a
    * guess that the generic route "should" work, a measured run and job id
