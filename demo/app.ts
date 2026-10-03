@@ -41,6 +41,8 @@ import {
   type CheapestVerdict,
 } from '../src/index.js';
 import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
+import { STALE_OFFER_DAYS } from '../src/services/priceService.js';
+import { offerGroups, offersInPageOrder } from './offerGroups.js';
 import type { PresentedOffer, StockState } from '../src/types/offer.js';
 import type { Retailer, RetailerTier, LogoRef } from '../src/types/retailer.js';
 import { logoFor } from './brandLogos.js';
@@ -66,10 +68,13 @@ import {
 import { pickReferencePrice } from './referencePrice.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
-import { offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
+import { offersFor, SHOP_COUNT, HOUSE_PRODUCTS, HISTORY_ALIASES, OLDER_OFFERS } from './catalogue.generated.js';
 import { priceHistory, prefetchWhenIdle, type PriceHistoryData } from './priceHistoryStore.js';
-import { dayKey, dailyHistory, type DailyHistoryPoint } from '../src/services/priceHistoryDaily.js';
-import { priceHistoryGapMessage, type PriceHistoryGap } from '../src/services/priceHistoryGaps.js';
+import type { PriceHistoryPoint } from './priceHistory.generated.js';
+import type { RawHistoryPoint } from '../src/services/priceHistoryDaily.js';
+import type { PriceHistoryGap } from '../src/services/priceHistoryGaps.js';
+import { mergeCheapestSeries } from '../src/services/priceHistoryMerge.js';
+import { HISTORY_SCOPES, priceHistoryChart, type ChartObservation, type PriceHistoryChartInput } from './priceHistoryChart.js';
 import { officialSiteFor } from './brandSites.js';
 import { fragranceLinksFor } from './fragranceLinks.js';
 import { matchRoute, routeToPath, slugify, basePath, type Route, type RouteName } from './router.js';
@@ -1651,7 +1656,9 @@ function offerRow(
     const minimum = row.retailer.shipping.minimumOrderGbp;
     if (minimum && row.itemPriceGbp < minimum) facts.push(`${formatGbp(minimum)} minimum order`);
     // Said on the row it applies to: the page caption gives the freshest age.
-    if (row.stale) facts.push(age(row.ageSeconds));
+    // On an older price (listed under "Older prices") this is the whole point
+    // of the row, so it says what the age is of: the last check.
+    if (row.stale) facts.push(`Checked ${age(row.ageSeconds)}`);
   }
   // The CAP Code asks for an affiliate relationship to be obvious before the
   // click, so a commissioned shop's row says so, and rel="sponsored" tells
@@ -1755,79 +1762,93 @@ function unavailableShopsLine(shops: Retailer[]): string {
   return `<p class="unavail-shops t-caption">${names}</p>`;
 }
 
-/** "6 Aug" — enough to place a point in time without crowding a small chart. */
-function shortDate(iso: string): string {
-  return new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
-}
-
-/**
- * The historical cheapest-price line for one fragrance, reconstructed from
- * real harvest commits — see scripts/build-price-history.ts for how. Omitted
- * entirely below two real points: a single dot has no trend to show, and
- * showing one anyway would read as a chart implying history that is not
- * there. priceHistoryChart below replaces the chart with an honest sentence
- * instead in that case — see priceHistoryGapMessage's own header for why
- * there are three different sentences rather than one generic one.
- *
- * dayKey, DailyHistoryPoint and dailyHistory itself live in
- * src/services/priceHistoryDaily.ts, not here: that is the one piece of this
- * chart with real decision logic in it (the carry forward rule, and the gap
- * that used to be able to break it), and living in src/ makes it a plain,
- * testable function rather than a private closure in this file.
- */
-
 /*
- * The shared x-axis every chart is drawn on (the first and last day any price
- * was recorded for anything) is PriceHistoryData.span, computed once when the
+ * The product page's price history slot. The graph itself, and the caption
+ * that says honestly what is on it, are drawn by demo/priceHistoryChart.ts
+ * (see its header for the owner's 2026-10-03 rules: every product page gets a
+ * graph, older prices are plotted rather than listed above today's Cheapest
+ * row). This file only gathers the graph's input, because that needs the
+ * page's own rows and the generated catalogue.
+ *
+ * The shared right edge every chart is drawn to (the last day any price was
+ * recorded for anything) is PriceHistoryData.span, computed once when the
  * history arrives: see demo/priceHistoryStore.ts, which also explains why the
  * history is fetched on demand rather than before the app starts.
  */
 
-/**
- * ── Why the dots are not SVG circles ──────────────────────────────────────
- * The chart's own svg stretches non-uniformly to fill whatever width its
- * column happens to be (`preserveAspectRatio="none"`, needed so the line
- * fills the full card width rather than staying locked to its viewBox's own
- * aspect ratio). That stretch also warps a `<circle>`'s fill into an
- * ellipse the moment the rendered box's aspect ratio differs from the
- * viewBox's, which it usually does. Percent-positioned HTML dots, laid over
- * the svg rather than inside it, size themselves in real CSS pixels and
- * stay perfectly round regardless of how the chart around them stretches.
- */
-/**
- * The scopes offered above the chart, longest name first for the reader and
- * shortest window first in the control.
- *
- * Days, not calendar months or years, because the axis is built by counting
- * days forward from a start key — a "this month" that meant "since the 1st"
- * would be one day long on the 2nd and thirty-one on the 31st, which makes
- * the same chart mean something different depending on when it is opened.
- */
-const HISTORY_SCOPES = [
-  { id: 'week', label: 'This week', days: 7 },
-  { id: 'month', label: 'This month', days: 30 },
-  { id: 'year', label: 'This year', days: 365 },
-] as const;
+type NotEnoughGap = Extract<PriceHistoryGap, { reason: 'not-enough' }>;
 
-/** Shift a YYYY-MM-DD key by a whole number of days. */
-function shiftDayKey(key: string, days: number): string {
-  return dayKey(new Date(new Date(`${key}T00:00:00Z`).getTime() + days * 86_400_000).toISOString());
+/** One page row as a point on the graph: its bottle price, on the day it was checked. */
+function rowObservation(r: PresentedOffer): ChartObservation {
+  return { at: r.fetchedAt, priceGbp: r.itemPriceGbp, retailerId: r.retailer.id };
 }
 
 /**
- * The replacement for the chart when there is no line to draw. Renders into
- * the exact same slot under the exact same "Price history" heading the
- * chart itself uses, so a page that used to carry a chart never goes from a
- * heading and a line to nothing at all — it goes from a line to one honest
- * sentence about why there is not one. See src/services/priceHistoryGaps.ts
- * for what each of the four reasons says and why a single generic sentence
- * would misstate most of them.
+ * Everything the graph for one product draws, from three real sources and
+ * nothing else:
+ *
+ *   - the recorded line, merged across this product's id and every id the
+ *     catalogue folded into it (HISTORY_ALIASES; see mergeCheapestSeries for
+ *     why the merge is exact). Where none of them has a line, the one buyable
+ *     reading the history records for any of them (its 'not-enough' entry);
+ *     and where the history has not reached this product at all, the
+ *     cheapest current price on this page, which the caption then names as
+ *     such;
+ *   - older prices: the page's own rows last checked over STALE_OFFER_DAYS
+ *     ago, plus the offers too old to list (OLDER_OFFERS, kept out of every
+ *     price list by HIDE_OFFER_AFTER_DAYS but still real observations);
+ *   - only when neither of those has anything, the page's sold out rows, drawn
+ *     grey and labelled sold out, so a product nobody can buy still shows what
+ *     it last cost without that being drawn as a price anyone could pay.
  */
-function priceHistoryGapBlock(gap: PriceHistoryGap): string {
-  return `<div class="history-block" data-history-block>
-    <p class="gone-head t-eyebrow">Price history</p>
-    <p class="history-empty t-caption">${esc(priceHistoryGapMessage(gap))}</p>
-  </div>`;
+function historyChartInput(data: PriceHistoryData, fragranceId: string, isCurrentlyPurchasable: boolean): PriceHistoryChartInput {
+  const frag = fragranceById(fragranceId);
+  const rows = frag ? rowsFor(frag) : [];
+  const ids = [fragranceId, ...(HISTORY_ALIASES[fragranceId] ?? [])];
+
+  const recorded = ids
+    .map((id) => data.history[id])
+    .filter((s): s is PriceHistoryPoint[] => Array.isArray(s) && s.some((p) => p.priceGbp !== null));
+  let line: RawHistoryPoint[] = mergeCheapestSeries(recorded);
+  let lineSource: PriceHistoryChartInput['lineSource'] = 'history';
+  let carryForward = true;
+
+  if (line.length === 0) {
+    const single = ids
+      .map((id) => data.gaps[id])
+      .filter((g): g is NotEnoughGap => g?.reason === 'not-enough')
+      .sort((a, b) => a.at.localeCompare(b.at))
+      .at(-1);
+    if (single) {
+      line = [{ at: single.at, priceGbp: single.priceGbp, retailerId: single.retailerId }];
+      // The summary keeps the price, not when it stopped being buyable, so
+      // it is drawn as the one point it is and never carried to today.
+      carryForward = false;
+    }
+  }
+  if (line.length === 0) {
+    const current = rows
+      .filter((r) => r.isPurchasable && !r.stale)
+      .sort((a, b) => a.itemPriceGbp - b.itemPriceGbp || a.retailer.id.localeCompare(b.retailer.id))[0];
+    if (current) {
+      line = [{ at: current.fetchedAt, priceGbp: current.itemPriceGbp, retailerId: current.retailer.id }];
+      lineSource = 'page';
+    }
+  }
+
+  const older: ChartObservation[] = [
+    ...rows.filter((r) => r.isPurchasable && r.stale).map(rowObservation),
+    ...(OLDER_OFFERS[fragranceId] ?? [])
+      .filter((o) => o.stock !== 'outOfStock' && getRetailer(o.retailerId)?.enabled === true)
+      .map((o) => ({ at: o.fetchedAt, priceGbp: o.price, retailerId: o.retailerId })),
+  ];
+  const soldOut = line.length === 0 && older.length === 0 ? rows.filter((r) => !r.isPurchasable).map(rowObservation) : [];
+
+  return { line, lineSource, carryForward, older, soldOut, siteLastDay: data.span?.last ?? null, isCurrentlyPurchasable };
+}
+
+function priceHistoryFor(data: PriceHistoryData, fragranceId: string, isCurrentlyPurchasable: boolean): string {
+  return priceHistoryChart(historyChartInput(data, fragranceId, isCurrentlyPurchasable));
 }
 
 /**
@@ -1840,7 +1861,7 @@ function priceHistoryGapBlock(gap: PriceHistoryGap): string {
  */
 function priceHistorySection(fragranceId: string, isCurrentlyPurchasable: boolean): string {
   const data = priceHistory.current();
-  if (data) return priceHistoryChart(data, fragranceId, isCurrentlyPurchasable);
+  if (data) return priceHistoryFor(data, fragranceId, isCurrentlyPurchasable);
   priceHistory.load().then(fillPendingHistory, (err: unknown) => {
     console.warn('PriceSniffs: price history could not be loaded', err);
     fillPendingHistory();
@@ -1850,10 +1871,8 @@ function priceHistorySection(fragranceId: string, isCurrentlyPurchasable: boolea
 
 /**
  * Same outer box, heading row and chart height as a drawn chart, so the swap
- * moves nothing on a fragrance that has one. The range buttons are there but
- * invisible, purely to hold the heading row at its real height. A fragrance
- * with too few prices for a line gets a sentence instead (priceHistoryGapBlock),
- * which is shorter; which of the two it gets is in the file being waited for.
+ * moves nothing. The range buttons are there but invisible, purely to hold
+ * the heading row at its real height.
  */
 function priceHistoryLoadingBlock(fragranceId: string, isCurrentlyPurchasable: boolean): string {
   const ghostScopes = HISTORY_SCOPES.map(
@@ -1868,6 +1887,7 @@ function priceHistoryLoadingBlock(fragranceId: string, isCurrentlyPurchasable: b
       <p class="history-loading-text t-caption">Loading price history…</p>
     </div>
     <div class="history-xaxis"></div>
+    <p class="history-note t-caption" aria-hidden="true"></p>
   </div>`;
 }
 
@@ -1885,227 +1905,8 @@ function fillPendingHistory(): void {
   for (const slot of document.querySelectorAll<HTMLElement>('[data-history-pending]')) {
     const id = slot.getAttribute('data-history-pending') ?? '';
     const live = slot.getAttribute('data-history-live') === 'true';
-    slot.outerHTML = data ? priceHistoryChart(data, id, live) : priceHistoryFailedBlock();
+    slot.outerHTML = data ? priceHistoryFor(data, id, live) : priceHistoryFailedBlock();
   }
-}
-
-function priceHistoryChart(data: PriceHistoryData, fragranceId: string, isCurrentlyPurchasable: boolean): string {
-  const raw = data.history[fragranceId] ?? [];
-  // Gap markers (priceGbp: null — see scripts/build-price-history.ts) never
-  // count towards the two-point bar on their own; only real prices do.
-  const realPoints = raw.filter((p) => p.priceGbp !== null);
-  if (realPoints.length < 2 || data.span === null) return priceHistoryGapBlock(data.gaps[fragranceId] ?? { reason: 'never' });
-
-  // Where this fragrance's own record starts, rather than where the site's
-  // does. Previously every chart was drawn across the whole site history, so
-  // a fragrance first seen last week opened with a fortnight of empty floor
-  // before its line began — space that said nothing except that other
-  // fragrances are older.
-  const ownFirstDay = realPoints.map((p) => dayKey(p.at)).sort()[0] ?? data.span.first;
-
-  // Every scope ends on the site's most recent day, not this fragrance's, so
-  // the right-hand edge is always today's price for anything still on sale —
-  // the carry-forward in dailyHistory is what fills the gap, and it stops at
-  // the last sighting for anything that has since sold out.
-  const to = data.span.last;
-
-  const panels = HISTORY_SCOPES.map((scope) => {
-    const windowStart = shiftDayKey(to, -(scope.days - 1));
-    const from = windowStart > ownFirstDay ? windowStart : ownFirstDay;
-    const points = dailyHistory(raw, from, to, isCurrentlyPurchasable);
-    return { scope, points, body: priceHistoryBody(points, isCurrentlyPurchasable) };
-  });
-
-  // A scope with fewer than two real readings inside it has nothing to draw,
-  // so it is offered as a disabled control rather than silently missing: the
-  // reader can see that "this week" exists and simply has too little in it.
-  const usable = panels.filter((p) => p.body !== null);
-  // realPoints.length >= 2 got this fragrance past the guard above, but that
-  // counts raw readings, not distinct calendar days — every scope's window
-  // spans this fragrance's whole own history (see ownFirstDay above, and
-  // HISTORY_SCOPES' longest window being a year against a site under a year
-  // old), so if every real reading still collapsed onto a single day inside
-  // it (a price that changed twice in one day and never again), no scope
-  // has two distinct days to draw a line between. Measured on 2026-08-26:
-  // 17 of 5,455 chartable fragrances hit this. Named rather than left blank,
-  // for the same reason the two point guard above is.
-  if (usable.length === 0) {
-    const latest = realPoints.at(-1)!;
-    return priceHistoryGapBlock({ reason: 'same-day', priceGbp: latest.priceGbp!, retailerId: latest.retailerId!, at: latest.at });
-  }
-  // Default to the shortest scope that actually has a line in it. Asking for
-  // "this week" and getting an empty frame would read as a broken chart.
-  const active = usable[0]!;
-
-  const tabs = panels
-    .map((p) => {
-      const on = p.scope.id === active.scope.id;
-      const dead = p.body === null;
-      return `<button
-        type="button"
-        class="history-scope${on ? ' is-on' : ''}"
-        data-history-scope="${p.scope.id}"
-        aria-pressed="${on}"
-        ${dead ? 'disabled aria-disabled="true" title="Not enough recorded prices in this range"' : ''}
-      >${esc(p.scope.label)}</button>`;
-    })
-    .join('');
-
-  const bodies = panels
-    .filter((p) => p.body !== null)
-    .map((p) => `<div class="history-panel" data-history-panel="${p.scope.id}"${p.scope.id === active.scope.id ? '' : ' hidden'}>${p.body}</div>`)
-    .join('');
-
-  return `<div class="history-block" data-history-block>
-    <div class="history-head">
-      <p class="gone-head t-eyebrow">Price history</p>
-      <div class="history-scopes" role="group" aria-label="Price history range">${tabs}</div>
-    </div>
-    ${bodies}
-  </div>`;
-}
-
-/**
- * One chart, for one already-windowed run of days. Returns null when the
- * window holds too little to draw honestly.
- *
- * Split out of priceHistoryChart so the same drawing code serves every scope
- * — three windows over the same data, not three near-copies of a chart.
- */
-function priceHistoryBody(
-  points: DailyHistoryPoint[],
-  isCurrentlyPurchasable: boolean,
-): string | null {
-  // Two days on which a price was actually *read* — not two days that have a
-  // price. The axis below now always spans the site's whole history, so
-  // points.length is identical for every fragrance and tests nothing; and
-  // counting priced days instead would wave through a fragrance seen exactly
-  // once, whose single reading then carries flat to today. That flat line
-  // would imply a price held steady for a fortnight when it was measured on
-  // one afternoon. Same bar as before this chart gained a full calendar
-  // axis: at least two real readings, or no chart.
-  const priced = points.filter((p) => p.priceGbp !== null);
-  if (points.filter((p) => p.priceGbp !== null && !p.isCarried).length < 2) return null;
-
-  const W = 600;
-  const H = 160;
-  const PAD_X_PCT = 1.3;
-  const PAD_Y_PCT = 8.75;
-
-  // Scaled off real prices only. Letting the no-price days into this would
-  // drag every chart's floor to zero and squash the actual price movement —
-  // the thing the chart exists to show — into a flat line at the top.
-  const prices = priced.map((p) => p.priceGbp!);
-  const minP = Math.min(...prices);
-  const maxP = Math.max(...prices);
-  // A flat line (every point the same price) would divide by zero placing y;
-  // treated as its own one-point-wide band, centred, rather than crashing.
-  const spanP = maxP - minP || 1;
-  const lastIndex = points.length - 1;
-  // The most recent day that has a real or carried price — where the "this is
-  // the current price" dot belongs. On a sold-out fragrance that is no longer
-  // the right-hand edge of the chart, because the days since are blank.
-  const lastPricedIndex = points.reduce((acc, p, i) => (p.priceGbp !== null ? i : acc), -1);
-
-  const xPct = (i: number): number => PAD_X_PCT + (i / (lastIndex || 1)) * (100 - PAD_X_PCT * 2);
-  const yPct = (p: number): number => PAD_Y_PCT + (1 - (p - minP) / spanP) * (100 - PAD_Y_PCT * 2);
-  // Where a day with no price sits: on the chart's own floor. Visually "at
-  // zero" without claiming a price of zero — see DailyHistoryPoint.priceGbp.
-  const yFloorPct = 100 - PAD_Y_PCT;
-
-  // The line is drawn in runs of consecutive priced days and breaks across
-  // the blank ones. Joining across a gap would draw the price plunging to the
-  // floor and back — a crash and recovery that never happened.
-  const runs: [number, number][][] = [];
-  let run: [number, number][] = [];
-  points.forEach((p, i) => {
-    if (p.priceGbp === null) {
-      if (run.length > 0) runs.push(run);
-      run = [];
-      return;
-    }
-    run.push([(xPct(i) / 100) * W, (yPct(p.priceGbp) / 100) * H]);
-  });
-  if (run.length > 0) runs.push(run);
-
-  const asPath = (seg: [number, number][]): string =>
-    seg.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
-  const linePath = runs.map(asPath).join(' ');
-  // Filled area under the line, purely decorative, closed back along the
-  // baseline rather than the data — never read as a second data series. One
-  // closed shape per run, for the same reason the line breaks.
-  const baseY = (yFloorPct / 100) * H;
-  const areaPath = runs
-    .filter((seg) => seg.length >= 2)
-    .map((seg) => `${asPath(seg)} L${seg.at(-1)![0].toFixed(1)},${baseY.toFixed(1)} L${seg[0]![0].toFixed(1)},${baseY.toFixed(1)} Z`)
-    .join(' ');
-
-  const dots = points
-    .map((p, i) => {
-      if (p.priceGbp === null) {
-        // A day with nothing to report: grey, on the floor, and it says so
-        // rather than showing a price. Not focusable as a data point would
-        // be — there is no datum here — but still hoverable/tappable so the
-        // reader can find out why the line stops.
-        const label = `No price recorded, ${shortDate(`${p.dateKey}T00:00:00Z`)}`;
-        return `<button
-        type="button"
-        class="history-dot history-dot-nodata"
-        style="left:${xPct(i).toFixed(2)}%;top:${yFloorPct.toFixed(2)}%"
-        data-price="No price recorded"
-        data-retailer=""
-        data-date="${esc(shortDate(`${p.dateKey}T00:00:00Z`))}"
-        aria-label="${esc(label)}"
-      ></button>`;
-      }
-      const isLast = i === lastPricedIndex;
-      // The pulse means "this is a live price right now", so it only belongs
-      // on the final point when the fragrance is actually purchasable this
-      // moment — a fragrance that has since sold out everywhere still gets
-      // its last known point marked as the most recent (bigger, filled), just
-      // without a live animation implying a currency this data no longer has.
-      const isLive = isLast && isCurrentlyPurchasable;
-      const retailerName = esc(getRetailer(p.retailerId!)?.name ?? p.retailerId!);
-      const dateLabel = p.isCarried ? `unchanged since ${shortDate(p.recordedAt!)}` : shortDate(p.recordedAt!);
-      const label = `${formatGbp(p.priceGbp)} at ${retailerName}, ${dateLabel}`;
-      return `<button
-        type="button"
-        class="history-dot${isLast ? ' history-dot-last' : ''}${isLive ? ' history-dot-live' : ''}"
-        style="left:${xPct(i).toFixed(2)}%;top:${yPct(p.priceGbp).toFixed(2)}%"
-        data-price="${esc(formatGbp(p.priceGbp))}"
-        data-retailer="${retailerName}"
-        data-date="${esc(dateLabel)}"
-        aria-label="${label}"
-      ></button>`;
-    })
-    .join('');
-
-  // A label under every single day would overlap on anything but a very
-  // short history, so a small, even sample is picked instead — always the
-  // first and last day (the range's own edges), spread no closer than
-  // MAX_LABELS apart in between.
-  const MAX_LABELS = 6;
-  const labelStep = Math.max(1, Math.ceil(lastIndex / (MAX_LABELS - 1)));
-  const labelIndices = new Set<number>();
-  for (let i = 0; i <= lastIndex; i += labelStep) labelIndices.add(i);
-  labelIndices.add(lastIndex);
-  const xAxis = [...labelIndices]
-    .sort((a, b) => a - b)
-    // dateKey, not recordedAt: a carried day's recordedAt is the earlier real
-    // reading it copied forward, which would mislabel the axis with the wrong
-    // date even though the tooltip is right to cite it as "unchanged since".
-    .map((i) => `<span class="history-xlabel" style="left:${xPct(i).toFixed(2)}%">${esc(shortDate(points[i]!.dateKey))}</span>`)
-    .join('');
-
-  return `<div class="history-chart" data-history-chart>
-      <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" class="history-svg" aria-hidden="true" focusable="false">
-        <path d="${areaPath}" class="history-area" />
-        <path d="${linePath}" class="history-line" />
-      </svg>
-      ${dots}
-      <div class="history-tip" data-history-tip hidden></div>
-    </div>
-    <div class="history-xaxis">${xAxis}</div>`;
 }
 
 function notesBlock(f: DemoFragrance): string {
@@ -2505,33 +2306,9 @@ function priceBoxRow(
   return `<div class="price-boxes">${referenceBox(frag, rows)}${lowestPriceBox(best, verdict)}</div>`;
 }
 
-/**
- * A product page's offers in the order they are shown. Three groups, each
- * strictly cheapest first (owner feedback, 2026-10-01): buyable with delivery
- * included, then buyable where the shop states no delivery cost (its own
- * "Delivery not included" section, because its price cannot be compared with
- * an all-in one), then sold out. The shared sort in priceService ranks stock
- * state before price, which put a cheaper Low stock row under a dearer In
- * stock one; within a section the price alone decides. Shared by detailView
- * and the wrong price report, so the report's shop list reads in the same
- * order as the page above it.
- */
-function offerGroups(rows: PresentedOffer[]): {
-  delivered: PresentedOffer[];
-  plusDelivery: PresentedOffer[];
-  gone: PresentedOffer[];
-} {
-  const live = rows.filter((r) => r.isPurchasable);
-  const byPrice = (a: PresentedOffer, b: PresentedOffer) =>
-    (a.deliveredPriceGbp ?? a.itemPriceGbp) - (b.deliveredPriceGbp ?? b.itemPriceGbp) ||
-    a.itemPriceGbp - b.itemPriceGbp ||
-    a.retailer.name.localeCompare(b.retailer.name);
-  return {
-    delivered: live.filter((r) => r.deliveredPriceGbp !== null).sort(byPrice),
-    plusDelivery: live.filter((r) => r.deliveredPriceGbp === null).sort(byPrice),
-    gone: rows.filter((r) => !r.isPurchasable).sort(byPrice),
-  };
-}
+// offerGroups (current offers, "Delivery not included", "Older prices", sold
+// out) lives in demo/offerGroups.ts, where tests/offerGroups.test.ts holds it
+// to the owner's rule that nothing older ever sits above the Cheapest row.
 
 function detailView(): string {
   const frag = fragranceById(state.fragranceId);
@@ -2545,7 +2322,7 @@ function detailView(): string {
   const verdict = cheapestVerdict(rows);
   const bestTag = cheapestTag(verdict);
   const live = rows.filter((r) => r.isPurchasable);
-  const { delivered, plusDelivery, gone } = offerGroups(rows);
+  const { delivered, plusDelivery, older, gone } = offerGroups(rows, best);
   const newest = rows.length ? Math.min(...rows.map((r) => r.ageSeconds)) : 0;
   /**
    * Whether this page may print the word MSRP at all.
@@ -2633,6 +2410,17 @@ function detailView(): string {
           plusDelivery.length
             ? `<p class="gone-head t-eyebrow">Delivery not included</p>
                <ul class="offers">${plusDelivery.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
+            : ''
+        }
+
+        ${
+          // Below every current offer, never among them: see
+          // demo/offerGroups.ts. Each row says when it was last checked, and
+          // the same prices are plotted on the graph further down.
+          older.length
+            ? `<p class="gone-head t-eyebrow">Older prices</p>
+               <p class="older-note t-caption">Not checked in the last ${STALE_OFFER_DAYS} days, so these may have changed.</p>
+               <ul class="offers">${older.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
             : ''
         }
 
@@ -3598,8 +3386,8 @@ function showDialog(o: DialogOptions): Promise<boolean> {
 function openWrongPriceDialog(): void {
   const frag = fragranceById(state.fragranceId);
   if (!frag) return;
-  const { delivered, plusDelivery, gone } = offerGroups(rowsFor(frag));
-  const offers = [...delivered, ...plusDelivery, ...gone];
+  const reportRows = rowsFor(frag);
+  const offers = offersInPageOrder(offerGroups(reportRows, bestOffer(reportRows)));
   const product = `${frag.brand} ${frag.name}${frag.sizeMl ? ` ${frag.sizeMl}ml` : ''}`;
 
   let dlg = document.getElementById('ps-report') as HTMLDialogElement | null;

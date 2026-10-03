@@ -17,10 +17,20 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
-    version: 'v3.32.0',
+    version: 'v3.33.0',
     date: '3 Oct 2026',
     title: 'Fairer price comparisons',
     points: ['MSRP and RRP savings now use the price shown'],
+  },
+  {
+    version: 'v3.32.0',
+    date: '3 Oct 2026',
+    title: 'Older prices move to the price graph',
+    points: [
+      'Older prices sit below today\'s, not above',
+      'Every fragrance page now has a price graph',
+      'Older prices are plotted on the graph',
+    ],
   },
   {
     version: 'v3.31.0',
