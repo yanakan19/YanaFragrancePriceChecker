@@ -1636,6 +1636,9 @@ function offerRow(
       );
     }
     if (row.stock !== 'inStock') facts.push(STOCK_LABEL[row.stock]);
+    // A bottle below the shop's minimum basket cannot be bought on its own.
+    const minimum = row.retailer.shipping.minimumOrderGbp;
+    if (minimum && row.itemPriceGbp < minimum) facts.push(`${formatGbp(minimum)} minimum order`);
     // Said on the row it applies to: the page caption gives the freshest age.
     // On an older price (listed under "Older prices") this is the whole point
     // of the row, so it says what the age is of: the last check.
