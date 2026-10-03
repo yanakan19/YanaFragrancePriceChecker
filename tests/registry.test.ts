@@ -136,7 +136,11 @@ describe('retailer registry', () => {
     // entries (see above) with no catalogue, no snapshot and no listing ever
     // harvested, so nothing on the site referenced either and their removal
     // changes no page. Their shipping-discovery timestamps went with them.
-    expect(RETAILERS).toHaveLength(77);
+    //
+    // 2026-10-03: 77 becomes 76. Khadlaj removed at the owner's request: it
+    // never priced in sterling, so it was never enabled and nothing on the
+    // site referenced it.
+    expect(RETAILERS).toHaveLength(76);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
@@ -280,14 +284,14 @@ describe('retailer registry', () => {
       // bm-stores and ibraq stay, now as read-and-found-silent
       // (standardRateNotPublished) rather than unread. riiffs left on
       // 2026-10-03: its site serves a captcha to every fetch, so the owner
-      // read the flat £3.95 off its own basket by hand.
+      // read the flat £3.95 off its own basket by hand. manchester-ouds left
+      // the same day: the owner read £2.99 off its own checkout.
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'al-haramain',
         'armaf',
         'bm-stores',
         'fragrancehub',
         'ibraq',
-        'manchester-ouds',
         'morrisons',
       ]);
       for (const r of unstated) {
@@ -415,12 +419,9 @@ describe('retailer registry', () => {
 
     // zimaya was removed 2026-08-19 on a currency probe that read a sterling
     // price list off the shop's own storefront (see src/config/retailers.ts).
-    // khadlaj joined the same day for the opposite finding: confirmed
-    // Shopify, but every way of asking quoted USD or 404d, never sterling.
-    // Named rather than derived, so deleting either entry fails here too and
-    // has to be a deliberate act with a checkout behind it.
-    it('covers khadlaj, confirmed Shopify but never confirmed sterling', () => {
-      expect(CURRENCY_UNCONFIRMED.has('khadlaj')).toBe(true);
+    // (khadlaj, which never priced in sterling, was deleted from the registry
+    // on the owner's instruction, 2026-10-03.)
+    it('does not list zimaya, confirmed sterling', () => {
       expect(CURRENCY_UNCONFIRMED.has('zimaya')).toBe(false);
     });
   });
