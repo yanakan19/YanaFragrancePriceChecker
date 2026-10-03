@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 76 retailers, 50 of them `enabled: true`. Every one of them is a legitimate
+ * 76 retailers, 51 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -6087,7 +6087,15 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'beautybay.com',
     homepage: 'https://www.beautybay.com',
     tiers: ['designer'],
-    enabled: false,
+    //
+    // ── Switched on, 2026-10-03, on the product API route ───────────────────
+    // Probe run #573 (job 111197538460), from a GitHub runner, which this
+    // shop's own site places in the US: 43 product URLs naming a perfume, 4
+    // API requests (one per product), 11 listings, all 11 priced in GBP by
+    // each size's own itemCurrency (Ariana Grande Cloud EDP 30/50/100ml
+    // £35/£45/£55, God Is A Woman EDP 30/50/100ml £33/£43/£53). The range is
+    // small: Ariana Grande, Sabrina Carpenter, Shay & Blue and a few mists.
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -6108,7 +6116,8 @@ export const RETAILERS: readonly Retailer[] = [
       notes:
         'Tracked delivery £2.95, free over £30, read off the shop\'s own checkout by the owner ' +
         'on 2026-10-03. Next Day (£4.95, free over £60) is an upgrade, not modelled. Applied ' +
-        'via Awin 2026-08-11. See the 2026-10-03 comment for what still keeps the shop off.',
+        'via Awin 2026-08-11. Prices come from the shop\'s own product API; see the 2026-10-03 ' +
+        'comments.',
     },
     // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
     // Ambiguous first evidence, not a confirmed block. The catalogue-daily.yml
