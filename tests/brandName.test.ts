@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  brandKey, pickBrandName, buildBrandCanon,
+  brandKey, pickBrandName, buildBrandCanon, displayBrandName,
   recoverBrandFromTitle, CONFIRMED_FRAGRANCE_HOUSES,
 } from '../src/catalogue/brandName.js';
 
@@ -71,6 +71,58 @@ describe('pickBrandName', () => {
     const a = pickBrandName(new Map([['Bbb', 2], ['Aaa', 2]]));
     const b = pickBrandName(new Map([['Aaa', 2], ['Bbb', 2]]));
     expect(a).toBe(b);
+  });
+});
+
+describe('displayBrandName', () => {
+  // Owner request 2026-10-03: a brand every shop shouts should read as a
+  // name, while real acronyms keep their capitals.
+  it('title cases a shouted brand name', () => {
+    expect(displayBrandName('MIND GAMES')).toBe('Mind Games');
+    expect(displayBrandName('KAYALI')).toBe('Kayali');
+    expect(displayBrandName('ORIENTICA')).toBe('Orientica');
+    expect(displayBrandName('LA MARTINA')).toBe('La Martina');
+    expect(displayBrandName('LOEWE')).toBe('Loewe');
+    expect(displayBrandName("L'OCCITANE")).toBe("L'Occitane");
+  });
+
+  it('keeps small joining words lowercase unless they come first', () => {
+    expect(displayBrandName('CASAMORATI DAL 1888')).toBe('Casamorati dal 1888');
+    expect(displayBrandName('HOUSE OF SILLAGE')).toBe('House of Sillage');
+  });
+
+  it('keeps real acronyms in capitals', () => {
+    for (const name of ['YSL', 'DKNY', 'CK', 'BDK', 'MFK', 'ADP', 'SJP', 'MCM', 'DC']) {
+      expect(displayBrandName(name)).toBe(name);
+    }
+    expect(displayBrandName('KAYALI UK')).toBe('Kayali UK');
+    expect(displayBrandName('B.U.M. EQUIPMENT')).toBe('B.U.M. Equipment');
+  });
+
+  it('leaves names with no word to change exactly as they are', () => {
+    expect(displayBrandName('4711')).toBe('4711');
+    expect(displayBrandName('N°1')).toBe('N°1');
+    expect(displayBrandName('Q')).toBe('Q');
+  });
+
+  it('never touches a name someone already wrote in mixed case', () => {
+    for (const name of ['BDK Parfums', 'S.T. Dupont', 'Ex Nihilo', "L'Occitane", 's. Oliver', 'Acqua Di Parma']) {
+      expect(displayBrandName(name)).toBe(name);
+    }
+  });
+
+  it('title cases an all lowercase name too', () => {
+    expect(displayBrandName('aigner')).toBe('Aigner');
+    expect(displayBrandName('al rehab crown perfumes')).toBe('Al Rehab Crown Perfumes');
+  });
+
+  it('is applied by buildBrandCanon without changing any group or slug', () => {
+    const canon = buildBrandCanon(['MIND GAMES', 'MIND GAMES', 'MCM', 'DKNY']);
+    expect(canon.get('MIND GAMES')).toBe('Mind Games');
+    expect(canon.get('MCM')).toBe('MCM');
+    expect(canon.get('DKNY')).toBe('DKNY');
+    // Same group key, so the brand page address cannot move.
+    expect(brandKey('Mind Games')).toBe(brandKey('MIND GAMES'));
   });
 });
 
