@@ -187,7 +187,10 @@ describe('retailer registry', () => {
       currency: 'GBP',
       stock: 'inStock',
       url: 'https://example.com/p/1',
-      fetchedAt: '2026-08-01T11:55:00Z',
+      // Captured just now. A fixed date here aged past HIDE_OFFER_AFTER_DAYS
+      // (src/services/priceService.ts) and buildComparison, run against the
+      // real clock below, rightly stopped showing it at all.
+      fetchedAt: new Date().toISOString(),
     });
 
     it('is a short, deliberate list rather than everything unresearched', () => {
