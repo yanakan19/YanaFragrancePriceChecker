@@ -1226,7 +1226,7 @@ function priceLine(f: DemoFragrance): string {
  */
 function fragranceTile(
   f: DemoFragrance,
-  opts?: { rank?: number; trailing?: string; rail?: boolean; eager?: boolean },
+  opts?: { rank?: number; trailing?: string; rail?: boolean; eager?: boolean; soldBy?: string | undefined },
 ): string {
   const rows = rowsFor(f);
   const best = bestOffer(rows);
@@ -1237,13 +1237,15 @@ function fragranceTile(
   // currently have it. The placeholder below still holds the row's height, so
   // a sold-out tile is never shorter than an in-stock neighbour; it just
   // never claims a specific shop.
-  const badgeRetailer = best?.retailer.name ?? null;
+  // A deal tile names the shop the deal is at, which need not be the
+  // product's cheapest shop: the price above it is that shop's.
+  const badgeRetailer = opts?.soldBy ?? best?.retailer.name ?? null;
   // "from" when the figure above is a delivered price the shop won on against
   // others, "at" when it is that one shop's own item price with delivery not
   // stated — the same distinction priceLine already draws in its wording, so
   // the balloon and the number above it never disagree about what is being
   // shown.
-  const badgePrefix = best && best.deliveredPriceGbp !== null ? 'from' : 'at';
+  const badgePrefix = opts?.soldBy ? 'at' : best && best.deliveredPriceGbp !== null ? 'from' : 'at';
   const medal = opts?.rank !== undefined && opts.rank < 3 ? MEDALS[opts.rank] : null;
   // The tile states no shop count. It used to print one — "Ranked at N shops",
   // the DemoFragrance.popularity figure the Most Stocked list is ordered on —
@@ -2574,6 +2576,7 @@ function dealsPanel(): string {
   const dealTile = (d: (typeof sorted)[number], i?: number) =>
     fragranceTile(d.fragrance, {
       eager: i !== undefined && i < eager,
+      soldBy: RETAILERS.find((r) => r.id === d.retailerId)?.name,
       trailing:
         // `d.price` is the figure the product page's row prints for this
         // offer (delivered total, or item price where delivery is not
