@@ -7744,6 +7744,15 @@ export const RETAILERS: readonly Retailer[] = [
     // Gardenia, White Musk, Agrumi di Sicilia and Patchouli Leaves 100ml £20).
     // Confirmed from a runner before this was set: probe run #567 (job
     // 111185043924), 159 URLs, 8 of 8 listings priced in GBP.
+    // First harvest, run #580 (2026-10-03T18:37Z): 24 pages, 24 listings, all
+    // priced in GBP. Five checked against the shop's own pages the same day:
+    // Discover Pink Pepper EDT 100ml £12, Shay & Blue Oud Alif EDP 100ml
+    // £105, NUXE Prodigieux Le Parfum 30ml £32, Fragonard Santal Cardamome
+    // EDP 50ml £45, Monotheme White Musk EDT 100ml £20: all match. Five of
+    // them had been stored with tracking the page's own JSON-LD carried
+    // (a Google Ads gclid, another publisher's Skimlinks/Awin click); those
+    // addresses were cleaned in the snapshot and the route now drops such a
+    // query (cleanListingUrl in src/catalogue/sitemapCrawl.ts).
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
