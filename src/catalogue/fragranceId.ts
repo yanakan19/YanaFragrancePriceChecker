@@ -801,6 +801,18 @@ const MULTI_PACK = /\b([2-9]|[1-9]\d)\s*[x×]\s*\d{1,4}(?:\.\d)?\s*ml\b/i;
 /** A Shopify `product_type` that names several items sold as one. */
 const BUNDLE_PRODUCT_TYPE = /^\s*bundles?\s*$/i;
 
+/**
+ * A Shopify `product_type` that names a scented body product rather than a
+ * perfume. Nicchia Luxury files its catalogue in Italian: "Profumo in crema"
+ * (a scented body cream, six Profumo di Firenze 200ml jars at 34 pounds) and
+ * "Olio corpo profumato" (scented body oil, with a roll on variant, fifteen
+ * Ortigia listings) both passed every title rule on 2026-10-03, because the
+ * titles ("Buontalenti Cream", "Fico d'India roll-on") carry a size and no
+ * word the lists above know. Read from data/catalogue/nicchia-luxury-uk.json:
+ * no other shop's product type contains either phrase.
+ */
+const BODY_PRODUCT_TYPE = /\b(?:profumo in crema|olio corpo)\b/i;
+
 export function sellsOnlyFragrance(retailerId: string): boolean {
   return getRetailer(retailerId)?.fragranceOnlyCatalogue === true;
 }
@@ -1019,6 +1031,7 @@ export function isFragrance(l: StoredListing): boolean {
   // ("Fruit Crush 100ml", two 100ml bottles at £187), so the title rules
   // below cannot see it.
   if (l.productType && BUNDLE_PRODUCT_TYPE.test(l.productType)) return false;
+  if (l.productType && BODY_PRODUCT_TYPE.test(l.productType)) return false;
   // Asked of every shop, unlike the two rules inside the branch below — see
   // MULTI_PACK for why a quantity against a size is the one multi-pack signal
   // that survives contact with the whole catalogue.

@@ -785,6 +785,22 @@ describe('isFragrance: a Bundles product type is not one bottle', () => {
   });
 });
 
+// Nicchia Luxury's Italian product types, read off its 2026-10-03 harvest:
+// scented body creams and body oils that carry a size and no English cue.
+describe('isFragrance: an Italian scented body product type is not a perfume', () => {
+  it('drops a perfumed cream and a scented body oil', () => {
+    const cream = { ...listing('nicchia-luxury-uk', 'Buontalenti Cream 200 ml Eau de Parfum', 34), productType: 'Profumo in crema' };
+    const oil = { ...listing('nicchia-luxury-uk', 'Fico d’India roll-on 10 ml Eau de Parfum', 18), productType: 'Olio corpo profumato roll-on' };
+    expect(isFragrance(cream)).toBe(false);
+    expect(isFragrance(oil)).toBe(false);
+  });
+
+  it('keeps the same shop’s eau de parfum', () => {
+    const l = { ...listing('nicchia-luxury-uk', 'Midnight Diving Extrait de Parfum 50 ml', 126), productType: 'Extrait de Parfum' };
+    expect(isFragrance(l)).toBe(true);
+  });
+});
+
 // Every offer shown for Home Bargains, B&M, Morrisons and Avon read by hand on
 // 2026-10-03. Titles and descriptions below are the shops' own, copied from
 // data/catalogue/<shop>.json.
