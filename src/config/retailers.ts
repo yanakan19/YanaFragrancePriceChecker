@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 77 retailers, 41 of them `enabled: true`. Every one of them is a legitimate
+ * 77 retailers, 45 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -2389,10 +2389,18 @@ export const RETAILERS: readonly Retailer[] = [
       // offered to non-members, so freeOverGbp stays null and Selfridges+
       // stays a membershipPerk.
       confidence: 'confirmed',
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote:
+          'UK Delivery: Standard delivery £6.95 ... Nominated day £9.95, Timed delivery £10.95, ' +
+          'Unlimited with SELFRIDGES+ UK (yearly) £10',
+      },
       notes:
-        'Standard Delivery within 5 working days; Click & Collect free. Read indirectly ' +
-        '(search extracts of the UK delivery page) because the page refuses this tooling — ' +
-        'confirm against selfridges.com/GB/en/info/dispatch-delivery/uk-delivery/ in a browser.',
+        'Standard delivery £6.95 with no spend threshold for non-members, read by the owner off ' +
+        'a product page\'s Delivery panel with an item in the bag on 2026-10-03. It matches the ' +
+        'search extracts of selfridges.com/GB/en/info/dispatch-delivery/uk-delivery/ read ' +
+        '2026-10-01 (that page refuses this tooling). Free delivery over £100 needs Selfridges+ ' +
+        '(£10 a year) and over £150 needs Selfridges Unlocked, so neither is priced in.',
     },
     catalogue: {
       searchUrlTemplate: 'https://www.selfridges.com/GB/en/search/?freeText={q}',
@@ -3063,6 +3071,14 @@ export const RETAILERS: readonly Retailer[] = [
     // record of that fact; they are not something an automated route can
     // reach from here. Re-enable only after a probe run actually gets past
     // robots.txt.
+    //
+    // ── Tested 2026-10-03 (phase 4): refused, unchanged ─────────────────────────
+    //
+    // Local fetch of https://www.perfumeshopping.com/robots.txt: HTTP 403 from
+    // Cloudflare with the body 'We are sorry, this service is not available in
+    // your region.' Nothing else was requested. From a GitHub runner, harvest
+    // probe run 37084776932 job 111092664586 (metered tiers off): /sitemap.xml
+    // HTTP 403, 0 priced. Blocker: refused at the edge from both networks.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -3523,6 +3539,10 @@ export const RETAILERS: readonly Retailer[] = [
       // blocks automated reads (a SiteGround captcha), so this rests on the
       // owner's own check.
       confidence: 'confirmed',
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote: 'Flat rate: 3.95£ (at £35.00 and again at £105.00, shipped to UB1)',
+      },
       notes:
         'Flat £3.95 standard delivery, no free-delivery threshold: read off the shop\'s own ' +
         'basket by the owner on 2026-10-03 at £35 and at £105 (both "Flat rate: 3.95£"). The ' +
@@ -3843,11 +3863,10 @@ export const RETAILERS: readonly Retailer[] = [
       // qualify for free shipping." That is the whole of what their delivery
       // page states as a number.
       freeOverGbp: 50,
-      // Placeholder pending confirmation, same status as standardGbp above —
-      // not sourced, not used in any delivered-price math (unlike
-      // standardGbp, which is why this field tolerates an estimate while
-      // that one does not), only ever shown as indicative text once enabled.
-      estimatedDays: [2, 5],
+      // Was [2, 5], a placeholder. The owner's checkout of 2026-10-03 (below)
+      // offered "Standard Delivery £3.99, 3 to 5 business days", so it is now
+      // the shop's own window. Never used in any delivered-price math.
+      estimatedDays: [3, 5],
       // Re-read 2026-10-01, both pages. The shipping policy still says "Free
       // Shipping : Orders over £50 within the UK qualify for free shipping."
       // (banner: "FREE UK DELIVERY ON ALL ORDERS OVER £50") and now gives
@@ -3856,16 +3875,10 @@ export const RETAILERS: readonly Retailer[] = [
       // refund" when a return takes an order below the free-delivery
       // threshold. Same two figures, same indirect basis for the £3.99.
       verifiedAt: '2026-10-03',
-      // 'unverified', not 'confirmed', and the distinction is real rather than
-      // cautious boilerplate. £3.99 is genuinely their own figure, but it was
-      // read off a returns clause explaining what a refund deducts, not off a
-      // rate card — and their shipping-policy page says in terms that
-      // "Shipping fees depend on the delivery destination and order size. The
-      // final price is calculated at checkout." So a single flat number cannot
-      // be true for every basket, and this is exactly what ShippingRule's own
-      // doc comment means by sourced indirectly: treat the delivered price as
-      // indicative. This flag reaches the reader as a reliability signal, so
-      // claiming 'confirmed' here would overstate what we actually have.
+      // Until 2026-10-03 this was 'unverified': £3.99 had only been read off a
+      // returns clause explaining what a refund deducts, not off a rate card,
+      // and the shipping policy says "The final price is calculated at
+      // checkout." That gap is now closed by the checkout itself.
       // Confirmed 2026-10-03 by the owner at Emirates Oud's own checkout
       // (screenshot): an £8.99 basket to a Coventry address offered
       // "Standard Delivery £3.99, 3 to 5 business days" and "Express £5.99,
@@ -3873,15 +3886,17 @@ export const RETAILERS: readonly Retailer[] = [
       // the checkout rather than inferred from the returns clause; the £50
       // threshold remains their own published rule (shipping policy, banner).
       confidence: 'confirmed',
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote: 'Standard Delivery £3.99, 3 to 5 business days (an £8.99 basket to a Coventry address, total GBP £12.98)',
+      },
       notes:
-        'Approved affiliate as of 10 Aug 2026. Free delivery over £50 is ' +
-        'confirmed from their own shipping policy page, read by CI on ' +
-        '2026-08-11. Standard delivery below £50 is £3.99, confirmed from ' +
-        'their refund-policy page (same CI run, 2026-08-11, raw-text mode): ' +
-        '"...resulting in a postage charge of £3.99 deducted from the ' +
-        'refund. This deduction covers the shipping costs initially waived ' +
-        'due to the free delivery offer." — ' +
-        'https://emiratesoud.co.uk/policies/refund-policy',
+        'Approved affiliate as of 10 Aug 2026. Standard delivery £3.99 below £50, read off ' +
+        'their own checkout by the owner on 2026-10-03 (an £8.99 basket, "Standard Delivery ' +
+        '£3.99, 3 to 5 business days"); it matches the £3.99 their refund-policy page says a ' +
+        'return below the threshold is charged. Free delivery over £50 is their own shipping ' +
+        'policy page ("Orders over £50 within the UK qualify for free shipping"), re-read ' +
+        '2026-10-01.',
     },
     // No section URLs to guess: the sitemap harvester (crawlViaSitemap)
     // discovers products from /sitemap.xml and robots.txt on its own, the
@@ -4685,6 +4700,14 @@ export const RETAILERS: readonly Retailer[] = [
     // test against it (the Apify proxy fails everywhere, and the actor tier
     // needs `catalogue.sections`, which this entry has none of). Still
     // `enabled: false`, now for a measured refusal rather than for silence.
+    //
+    // ── Tested 2026-10-03 (phase 4): refused, unchanged ─────────────────────────
+    //
+    // Local fetch of https://www.lush.com/robots.txt: HTTP 403 from Cloudflare
+    // (cf-mitigated: challenge, 'Just a moment...'). From a GitHub runner,
+    // harvest probe run 37084809440 job 111092758395:
+    // https://www.lush.com/sitemap.xml HTTP 403. Blocker: refused at the edge.
+    // The £3.95 below is still the August search-summary figure, not re-read.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -4736,6 +4759,18 @@ export const RETAILERS: readonly Retailer[] = [
     // permits crawling in robots.txt, and then 403s the product pages from
     // this network. That is a measured refusal at the page level, not an
     // untried route, and it is the reason this stays off.
+    //
+    // ── Tested 2026-10-03 (phase 4): product pages refused, unchanged ───────────
+    //
+    // robots.txt (https://www.bathandbodyworks.co.uk/robots.txt, HTTP 200):
+    // User-agent * with 554 Disallow lines (the legacy Next structure); /style/
+    // product pages are not disallowed; sitemap /sitemap-index.xml. Home page,
+    // sitemap index and BABW-GB-EN-Products.xml.gz answered HTTP 200; the first
+    // product it lists,
+    // https://www.bathandbodyworks.co.uk/style/su468821/ah7556, came back HTTP
+    // 403 from AkamaiGHost, Access Denied, the same refusal as August. A
+    // harvest probe from a runner, run 37085000019 job 111093316922, priced
+    // nothing. Blocker: product pages refused.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -4957,6 +4992,26 @@ export const RETAILERS: readonly Retailer[] = [
     // end of this session. Whoever picks this up next: read that run's log
     // first; if it shows real /en-gb-scoped listings, set
     // `catalogue: { ..., requiredUrlPrefix: '/en-gb' }` and enable.
+    //
+    // ── Tested 2026-10-03 (phase 4): reachable, parser blocker ──────────────────
+    //
+    // robots.txt (https://www.niche-beauty.com/robots.txt, HTTP 200): User-
+    // agent * with 215 Disallow lines, most of them whole locales such as /en-
+    // al/* /en-as/*; /en-gb/ is not disallowed. Home page /en-gb and a product
+    // page HTTP 200. The run 32279140837 this entry asked about is superseded
+    // by what follows.
+    //
+    // /en-gb/sitemap.xml does not exist: it redirects to the /en-gb home page,
+    // so requiredUrlPrefix '/en-gb' would seed from nothing. The real product
+    // sitemaps are /sitemap/product_sitemap_en_1..11.xml, which list every
+    // locale (/en-at/, /en-au/, /en-be/ ... /en-gb/).
+    //
+    // Blocker: https://www.niche-beauty.com/en-gb/products/byredo-
+    // blanche/303-019 has no JSON-LD at all (0 blocks, 0 listings); it uses
+    // microdata, itemprop price content 245.00 with a per-country table that
+    // gives GB 245.0 and US 301.0. Needs a microdata reader and a locale
+    // filter. A harvest probe from a runner, run 37085009932 job 111093346756,
+    // priced nothing.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -5135,6 +5190,23 @@ export const RETAILERS: readonly Retailer[] = [
     // storefront, not a foreign-currency one — the honest reading is "unknown"
     // rather than "not sterling", and there is no route (Shopify or otherwise)
     // yet proven for this shop.
+    //
+    // ── Tested 2026-10-03 (phase 4): the Spanish store, and a UK one found ──────
+    //
+    // robots.txt (https://www.pacoperfumerias.com/robots.txt, HTTP 200): User-
+    // agent * with 97 Disallow lines (checkout, customer, cart-add and filter
+    // paths); it names /sitemap_index.xml. The home page answered HTTP 200,
+    // title 'Tienda de perfumes y cosmética · Mejor Precio - Paco Perfumerías'.
+    // No product page was read here, so currency is still unread for this .com.
+    //
+    // What changes the picture: perfumeprice.co.uk now redirects to
+    // www.pacoperfumerias.co.uk, a UK storefront of the same retailer that
+    // prices in GBP (see the perfume-price entry, which records its robots, a
+    // parsed product page and its delivery terms). The UK Awin programme this
+    // entry was added for is most likely that store, not this one. Blocker for
+    // this id as it stands: a Spanish storefront with no sterling reading.
+    // Owner decision: repoint this entry at pacoperfumerias.co.uk, or keep it
+    // as the .com and retire it.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -5191,20 +5263,62 @@ export const RETAILERS: readonly Retailer[] = [
     // a non-member price alongside it or requires membership to check out at
     // all. That is the one remaining blocker: read one live product page,
     // then decide.
-    enabled: false,
+    //
+    // ── Product page read 2026-10-03, membership question answered, ENABLED ─
+    // robots.txt (https://www.beautypie.com/robots.txt, HTTP 200) is the
+    // Shopify stock file: /cart, /checkout, /account, /orders disallowed,
+    // product pages, /products.json and /meta.json not. Home page,
+    // /meta.json (currency GBP, country GB, 356 published products) and
+    // /products.json?country=GB all HTTP 200.
+    //
+    // The product page settles the August question in the shop's favour.
+    // https://www.beautypie.com/products/orris-florentina-parfum?country=GB
+    // shows "Shop now £59.00" for any visitor, with a separate, lower "Beauty
+    // Pie Member Price" beside it and a membership upsell ("Membership
+    // automatically renews at £59 per year"). Its JSON-LD offer is 59 GBP and
+    // parseListings reads "Orris Florentina Eau De Parfum", brand Beauty Pie,
+    // £59, in stock. /products.json carries the same 59.00, so the feed price
+    // is the price anyone can pay without joining, not the member price. The
+    // catalogue is Beauty Pie's own label only (all 356 products are vendor
+    // "Beauty Pie" or "Beauty Pie®"), 12 of them typed Fragrance, hence
+    // singleBrandOnly.
+    //
+    // Currency probe again from a runner, run 37085335060 job 111094337499:
+    // this time the origin itself quotes GBP at rate 1, and /products.json
+    // gives the same prices at the origin and under ?country=GB (18.00, 9.00,
+    // 10.00 for its first three products). Either way the crawl reaches the
+    // UK list. That run's product page check used a guessed handle that
+    // does not exist (orris-florentina-eau-de-parfum, HTTP 404); the page
+    // above is the real one, read from this sandbox.
+    //
+    // Delivery is on the shop's help centre, linked from its own footer:
+    // "UK Standard (EVRI 2 to 3 business days): £3.45". Free shipping over
+    // £45 is a member perk ("Beauty Pie+ Starter ... Free shipping when you
+    // spend over £45"), so no free threshold is recorded.
+    enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
+    singleBrandOnly: 'Beauty Pie',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
+      standardGbp: 3.45,
       freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
-      confidence: 'unverified',
+      estimatedDays: [2, 3],
+      membershipPerk: {
+        scheme: 'Beauty Pie+',
+        description: 'Members get free shipping over £45 and member prices; not priced in.',
+      },
+      verifiedAt: '2026-10-03',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://help.beautypie.com/en-US/delivery-options-and-charges-6429815',
+        quote: 'UK Standard (EVRI 2 to 3 business days): £3.45',
+        readAt: '2026-10-03',
+      },
       notes:
-        'Applied via Awin 2026-08-11. Membership-model retailer (products priced at cost to ' +
-        'members) — worth checking whether its listed prices are even meaningful without a ' +
-        'membership before this goes live. Delivery terms and page structure not yet read.',
+        'UK Express (EVRI next business day) £5.95 and Jersey £7.95 are not modelled. The help ' +
+        'centre robots.txt (https://help.beautypie.com/robots.txt) allows / and disallows only ' +
+        '/_next/, /api/, /public/ and conversational paths. Applied via Awin 2026-08-11.',
     },
     // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
     // NOT AN APIFY CANDIDATE on the evidence gathered this review. `npm run
@@ -5253,6 +5367,16 @@ export const RETAILERS: readonly Retailer[] = [
     // route this project can fix by asking differently. APIFY CANDIDATE for
     // Group C — a plain HTTP client from a datacentre address is refused here
     // categorically; see AdapterStrategy 'proxied' / apifyActor.ts.
+    //
+    // ── Tested 2026-10-03 (phase 4): refused ────────────────────────────────────
+    //
+    // robots.txt (https://www.gorgeousshop.com/robots.txt, HTTP 200): Magento
+    // style, User-agent * with 14 Disallow lines (customer account, catalog,
+    // searchanise, index.php); the home page is not disallowed. The home page
+    // itself came back HTTP 403 from Cloudflare ('403 Forbidden'), so nothing
+    // further was requested. A harvest probe from a runner, run 37085041182 job
+    // 111093438164, priced nothing. Blocker: refused at the home page, as the
+    // August probe also found.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -5285,6 +5409,14 @@ export const RETAILERS: readonly Retailer[] = [
     // currency finding either way. APIFY CANDIDATE for Group C: robots.txt
     // itself is unreachable to a plain datacentre client on two separate
     // attempts.
+    //
+    // ── Tested 2026-10-03 (phase 4): refused ────────────────────────────────────
+    //
+    // Local fetch of https://www.beautyflash.co.uk/robots.txt: HTTP 403 from
+    // Cloudflare with a server error page, so nothing else was requested. From
+    // a GitHub runner, harvest probe run 37084782624 job 111092682073:
+    // /sitemap.xml HTTP 403, 0 priced. Blocker: refused at the edge from both
+    // networks.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -5316,6 +5448,24 @@ export const RETAILERS: readonly Retailer[] = [
     // this repo has learned to distrust (see escentual's history above) — the
     // difference here is nothing has yet found a GBP reading at all, at any
     // address, so unlike escentual there is no known way to ask for sterling.
+    //
+    // ── Tested 2026-10-03 (phase 4): dollars, and a parser gap ──────────────────
+    //
+    // robots.txt (https://www.scentsational.com/robots.txt, HTTP 200, a
+    // Visualsoft site): User-agent * with Crawl-delay 2 and 20 Disallow lines
+    // including /products/, /checkout/, /basket and /search/; product pages
+    // live under category paths such as /women-c2/perfumes-c20/...-p39826 and
+    // are not disallowed. It names /sitemap-index.xml. Home page, sitemaps and
+    // a product page HTTP 200.
+    //
+    // Currency: the home page sets a USD display ('Display our prices in US
+    // Dollars (USD)' is the active currency link) and the product page JSON-LD
+    // for Abercrombie & Fitch First Instinct Pour Femme 50ml EDP says
+    // priceCurrency USD, price 38.50. A GBP display exists only behind
+    // /currency/GBP/, a nofollow link that sets a session for the visitor,
+    // which the harvest cannot hold. The same JSON-LD also capitalises its keys
+    // ('Offers', 'Brand', 'SKU'), so parseListings found the product but no
+    // price. Blockers: not sterling to this tooling, and a parser gap.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -5351,6 +5501,16 @@ export const RETAILERS: readonly Retailer[] = [
     // response is to leave it alone rather than probe harder, not to treat it
     // as a currency finding. APIFY CANDIDATE for Group C: robots.txt itself is
     // unreachable to a plain datacentre client on two separate attempts.
+    //
+    // ── Tested 2026-10-03 (phase 4): refused ────────────────────────────────────
+    //
+    // robots.txt (https://www.beautytheshop.com/robots.txt, HTTP 200) answered
+    // this time: User-agent * with a single Disallow, /*?search=*, and sitemap
+    // /sitemap_indice.xml. The home page then came back HTTP 403 from
+    // Cloudflare, 'Attention Required! | Cloudflare', so nothing further was
+    // requested. A harvest probe from a runner, run 37085047598 job
+    // 111093456847, priced nothing. Blocker: refused at the home page; currency
+    // still unread.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -5387,21 +5547,50 @@ export const RETAILERS: readonly Retailer[] = [
     // — sitemap-discovery is the generic fallback and has not been run
     // against this shop. `enabled` stays false for that reason plus unread
     // shipping and a still-`pending` Awin application, not a currency doubt.
-    enabled: false,
+    //
+    // ── Tested end to end 2026-10-03, and ENABLED ───────────────────────────
+    // robots.txt (https://www.perfumemarketuk.com/robots.txt, HTTP 200): a
+    // stock Magento file, `User-agent: *` with 61 Disallow lines, all of them
+    // Magento internals (/catalogsearch/, /checkout/ style paths, backups,
+    // /pub/feeds/). Product pages (/<name>.html) and /sitemap.xml are not
+    // disallowed, and it names https://www.perfumemarketuk.com/sitemap.xml.
+    // Plain fetches of the home page, the sitemap and a product page all came
+    // back HTTP 200 with real content, no challenge.
+    //
+    // Route: the sitemap (265 <loc> entries) lists product URLs such as
+    // /montblanc-legend-night-eau-de-parfum-100ml.html, whose page carries a
+    // schema.org Product block. src/catalogue/jsonld.ts parseListings read
+    // that page into one listing: "Montblanc Legend Night Eau de Parfum
+    // 100ml", brand Montblanc, £36.75, in stock, offer priceCurrency "GBP".
+    // The same route from a GitHub runner, harvest probe run 37084749180 job
+    // 111092588221 (dry run, metered tiers off): 256 urls, 10 fetched, 8
+    // priced listings, sample https://www.perfumemarketuk.com/montblanc-
+    // explorer-eau-de-parfum-200ml.html.
+    //
+    // Delivery: the August probe looked for the usual paths and found none.
+    // The page exists at /delivery/ (linked from the home page footer as
+    // "Delivery") and says "Royal Mail Tracked 48 is FREE on all orders." with
+    // Royal Mail Tracked 24 at £2.50 as the paid upgrade. So standard delivery
+    // is free on every order, recorded as standardGbp: 0 below.
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
+      standardGbp: 0,
       freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
-      confidence: 'unverified',
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-10-03',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.perfumemarketuk.com/delivery/',
+        quote: 'Royal Mail Tracked 48 is FREE on all orders.',
+        readAt: '2026-10-03',
+      },
       notes:
-        'Read directly now, not just unread: shipping probe, run 32281096849 job 96159821825, ' +
-        '2026-08-19T17:22Z, checked every candidate delivery-page path against ' +
-        'perfumemarketuk.com and found none of them exist, with no footer link to one either — ' +
-        '"NO PAGE FOUND", a genuine dead end on this shop\'s own site rather than an unread ' +
-        'page. Still blocks enabling on the same standardGbp: null basis as before.',
+        'The same page gives a total estimated delivery time of 2 to 4 working days from the ' +
+        'time of order for Tracked 48. Royal Mail Tracked 24 at ' +
+        '£2.50 is an upgrade and is not modelled. The August shipping probe (run 32281096849) ' +
+        'reported "NO PAGE FOUND" because the page lives at /delivery/, a path it did not try.',
     },
     catalogue: null,
     affiliate: { ...awinRequested() },
@@ -5422,16 +5611,48 @@ export const RETAILERS: readonly Retailer[] = [
     // zimaya's entry below), and here the storefront is simply silent rather
     // than confirming anything — "unknown", not "not sterling", and no
     // harvest route (Shopify or otherwise) has been established.
+    //
+    // ── Tested 2026-10-03 (phase 4): reachable and sterling, two route blockers ───
+    //
+    // robots.txt (https://www.parfumdreams.co.uk/robots.txt, HTTP 200): User-
+    // agent * with 31 Disallow lines (query parameters such as ?search= ?ord=
+    // ?m=, /Order/, /User/); product pages (/<Brand>/.../index_<id>.aspx) are
+    // not disallowed; it names /Sitemaps/sitemap.en-GB.xml. Home page, sitemap
+    // and a product page answered HTTP 200 with real content.
+    //
+    // Currency: https://www.parfumdreams.co.uk/Gucci/Womens-fragrances/Gucci-
+    // Bloom/Eau-de-Parfum-Spray/index_122330.aspx labels every offer
+    // priceCurrency GBP (30 ml 54.95, 50 ml 73.65 and so on). That is a
+    // sterling reading off the shop's own product page, taken from this sandbox
+    // rather than a CI currency probe.
+    //
+    // Blocker 1: that page's JSON-LD is a ProductGroup with productGroupID
+    // 122330 and variants whose skus are 1087866 and so on; none equals the
+    // group id, so parseListings returns 0 listings. Blocker 2: the product
+    // URLs sit in /Sitemaps/Articles.en-GB1.xml and Articles.en-GB2.xml (41 MB
+    // each), and the sitemap walk only descends into sitemaps whose names say
+    // product, item, sku, catalog or a fragrance word, so it never opens them.
+    // A harvest probe from a runner, run 37085020275 job 111093377664, priced
+    // nothing. Delivery was read and is recorded below.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
-      confidence: 'unverified',
-      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+      standardGbp: 3.95,
+      freeOverGbp: 35,
+      estimatedDays: [4, 6],
+      verifiedAt: '2026-10-03',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.parfumdreams.co.uk/Shipping-Costs',
+        quote: 'United Kingdom , from £ 35.00 value of goods FREE SHIPPING £ 3.95 * Shipping costs',
+        readAt: '2026-10-03',
+      },
+      notes:
+        'Read as page text: the UK row of the shipping table gives £3.95 and free from £35.00, ' +
+        'and the same page says "In general the delivery time takes 4-6 working days within the ' +
+        'United Kingdom" (Evri), and that it does not deliver to the Isle of Man, Northern ' +
+        'Ireland, Jersey or Guernsey. Applied via Awin 2026-08-11.',
     },
     catalogue: null,
     affiliate: { ...awinRequested() },
@@ -5828,6 +6049,25 @@ export const RETAILERS: readonly Retailer[] = [
     // not a confirmed Shopify storefront either, and there is no proven
     // harvest route yet. A genuinely silent storefront, not a foreign-currency
     // one.
+    //
+    // ── Tested 2026-10-03 (phase 4): a marketplace, not one shop ────────────────
+    //
+    // robots.txt (https://www.cosmetify.com/robots.txt, HTTP 200): User-agent *
+    // with 11 Disallow lines (search, basket, my-account, filter parameters);
+    // product pages are not disallowed; sitemap /sitemap.xml with a sitemap-
+    // fragrance-products.xml. Home page and a product page HTTP 200; the home
+    // page title is 'Cosmetify | The Ultimate Beauty Comparison Site'.
+    //
+    // https://www.cosmetify.com/dior-homme-intense-eau-de-parfum/ parses to one
+    // listing (86.78 GBP) and its JSON-LD offer even carries shippingDetails
+    // (3.99 GBP). But the page says 'Sold by Sense42', 'Compare prices from 7
+    // more retailers', and 'Sense42 charges £3.99 for standard deliveries',
+    // with other offers 'From Perfume Platform' and 'From Perfume Center'. A
+    // harvest probe from a runner, run 37085035414 job 111093421650, priced 10
+    // of 10. Blocker: the price and the delivery belong to whichever third
+    // party seller wins each page, not to Cosmetify, so no single delivery
+    // policy can be attached to its prices. Not enabled, by the same rule as
+    // the supermarket marketplaces.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -5880,6 +6120,28 @@ export const RETAILERS: readonly Retailer[] = [
     // /en-uk all 404 too). /products.json also 404s everywhere. A genuinely
     // silent storefront: still no basis to leave CURRENCY_UNCONFIRMED, and now
     // also no confirmed harvest route (not Shopify).
+    //
+    // ── Tested 2026-10-03 (phase 4): a Spanish marketplace with no UK rate ──────
+    //
+    // robots.txt (https://www.carethy.co.uk/robots.txt, HTTP 200, comments in
+    // Spanish): User-agent * with 19 Disallow lines (search, feeds, price sort
+    // and campaign parameters); product pages are not disallowed; sitemap
+    // /xmls/sitemap.xml. Home page, product sitemap and a product page HTTP
+    // 200.
+    //
+    // https://www.carethy.co.uk/health-amp-beauty/calvin-klein/euphoria-eau-de-
+    // parfum-pack-2-pcs carries JSON-LD that parseListings reads (25.74,
+    // priceCurrency GBP), but the page is titled 'Calvin Klein Truth Eau de
+    // Parfum' under a Euphoria two-pack URL, and its embedded data gives the
+    // price as 25.74213534, eight decimals, which reads as a converted figure
+    // rather than a sterling list price. Each offer names a seller (here seller
+    // id 2005, Carethy).
+    //
+    // Delivery: /shipping-and-returns lists delivery times for Spain, Main EU,
+    // ROE and ROW and refers to 'the Carethy Marketplace'; it names no UK
+    // price. A harvest probe from a runner, run 37085030426 job 111093407507,
+    // did price listings. Blockers: no UK standard rate published, a
+    // marketplace whose seller can vary, and prices that look converted.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -6157,6 +6419,16 @@ export const RETAILERS: readonly Retailer[] = [
     //   7. Resolve blocker 3 only once the API can actually be called: what
     //      GetItems/GetOffers returns for a multi-seller listing is testable,
     //      not researchable, from outside an approved account.
+    //
+    // ── Tested 2026-10-03 (phase 4): challenged at the home page ────────────────
+    //
+    // robots.txt (https://www.amazon.co.uk/robots.txt, HTTP 200): 93 Disallow
+    // and 8 Allow lines, no sitemaps; neither / nor /dp/ nor /s?k= is
+    // disallowed. One plain fetch of the home page came back HTTP 202 from
+    // CloudFront with a 2,007 byte body and no page, the shape of a bot
+    // challenge; no product page was requested after that. The four blockers
+    // above stand unchanged: no lawful price source without the Creators API,
+    // retention terms, multi-seller pricing, and this refusal.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -6540,6 +6812,16 @@ export const RETAILERS: readonly Retailer[] = [
     // either: still no Awin programme, still only aggregator claims for
     // Rakuten Advertising and Partnerize, and still no ingestion code here
     // for either network. The owner actions above stand unchanged.
+    //
+    // ── Tested 2026-10-03 (phase 4): refused, unchanged ─────────────────────────
+    //
+    // Local fetch of https://www.harrods.com/robots.txt: HTTP 403 from
+    // AkamaiGHost, an Access Denied page, so nothing else was requested from
+    // here. Harvest probe from a GitHub runner, run 37084760180 job
+    // 111092624218 (dry run, metered tiers off):
+    // https://www.harrods.com/sitemap.xml HTTP 403, 0 urls, 0 priced. Currency,
+    // route and delivery could not be read because nothing past the edge was
+    // served. Blocker: the shop refuses this tooling at the edge.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -6582,6 +6864,20 @@ export const RETAILERS: readonly Retailer[] = [
     // Tom Ford, Prada, Dolce & Gabbana, Gucci and Rabanne, alongside Next's
     // own house fragrance line — multi-brand, so no singleBrandOnly (unlike
     // Zara and Avon below, which sell only their own name).
+    //
+    // ── Tested 2026-10-03 (phase 4): product pages refused ──────────────────────
+    //
+    // robots.txt (https://www.next.co.uk/robots.txt, HTTP 200): User-agent *
+    // with about 5,200 Disallow lines, almost all filtered listing paths;
+    // /style/ product pages are not disallowed, and it names /sitemap-
+    // index.xml. The home page and the sitemap index (270 sitemaps, including
+    // Next-GB-EN-Products-1..9.xml.gz) answered HTTP 200. The fragrance
+    // category page (/shop/department-beauty-productaffiliation-fragrance) and
+    // a product page from Next-GB-EN-Products-1.xml.gz
+    // (https://www.next.co.uk/style/sv304981/e34024) both came back HTTP 403
+    // from AkamaiGHost, Access Denied. A harvest probe from a runner, run
+    // 37084988826 job 111093283101, also priced nothing. Blocker: product pages
+    // refused, so currency, parser and delivery were not read.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -6738,6 +7034,16 @@ export const RETAILERS: readonly Retailer[] = [
     // <publisherId>)`, remove the id from CURRENCY_UNCONFIRMED on the feed's
     // own sterling reading, and `enabled: true`. The sync does the rest on
     // its existing five-hourly cadence.
+    //
+    // ── Tested 2026-10-03 (phase 4): refused at the product page ────────────────
+    //
+    // Local fetch of https://www.sephora.co.uk/robots.txt: HTTP 403, Akamai
+    // Access Denied. From a GitHub runner the sitemap did answer: harvest probe
+    // run 37084765408 job 111092634463 found 1,550 urls, then the first product
+    // page (https://www.sephora.co.uk/p/sephora-collection-scented-body-mist-
+    // trio) came back HTTP 403 and the walk stopped with 'the shop began
+    // refusing requests'. 0 priced. Blocker: product pages are refused, so no
+    // route; the Awin route recorded below is still the way in.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -6801,6 +7107,32 @@ export const RETAILERS: readonly Retailer[] = [
     // `shopifyStorefront` stays unset and `adapter` stays 'unknown' — the
     // currency question is answered, the ingestion route is not, and
     // nothing here proposes enabling this shop on a currency reading alone.
+    //
+    // ── Tested 2026-10-03 (phase 4): reachable, but two route blockers ──────────
+    //
+    // robots.txt (https://www.spacenk.com/robots.txt, HTTP 200): User-agent *
+    // with 116 Disallow lines (search, checkout, account and content-slot
+    // paths); /uk/ product pages and the sitemaps are not disallowed. Home page
+    // and a product page HTTP 200 with real content.
+    //
+    // Blocker 1, the sitemap is every locale at once. sitemap_0-product.xml
+    // (37,410 <loc> entries) lists each product under /uk/, /us/, /nl/, /ie/,
+    // /au/ and more, and src/catalogue/jsonld.ts does not read priceCurrency,
+    // so a walk that fetched a /us/ page would store dollars as pounds.
+    // requiredUrlPrefix cannot pin it to /uk: /uk/sitemap.xml is 404 and
+    // /uk/sitemap_index.xml points back at the same root level files, which the
+    // prefix filter drops. A harvest probe from a runner (run 37085015258 job
+    // 111093362507) priced 10 of 10, all /uk/ by luck of ordering, e.g. a White
+    // Rose and Lemon Leaves candle; that is not a guarantee.
+    //
+    // Blocker 2, most fragrance pages parse to nothing.
+    // https://www.spacenk.com/uk/young-rose-eau-de-parfum-UK200033403.html
+    // carries a ProductGroup whose productGroupID is MUK200031967 and whose
+    // hasVariant entries are UK200031967 (100ml, 225 GBP) and UK200033403
+    // (50ml, 155 GBP). No variant sku equals the group id, so parseListings
+    // returns 0 listings. Both need code before this can be switched on.
+    // Delivery is as recorded below: free over £25 read from the shop, no flat
+    // rate published.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -6844,6 +7176,17 @@ export const RETAILERS: readonly Retailer[] = [
     // still houseoffraser.co.uk / House of Fraser. Designer houses named
     // in results: Paco Rabanne, Marc Jacobs, Dolce & Gabbana, Gucci, Calvin
     // Klein, BOSS.
+    //
+    // ── Tested 2026-10-03 (phase 4): does not answer ────────────────────────────
+    //
+    // Local fetch of https://www.houseoffraser.co.uk/robots.txt: the connection
+    // was reset (HTTP/2 stream INTERNAL_ERROR), and one retry over HTTP/1.1
+    // timed out after 30 s with no bytes; nothing else was requested. From a
+    // GitHub runner, harvest probe run 37084771140 job 111092652708:
+    // /sitemap.xml and /sitemap/content.xml both HTTP 0 (timed out), again at
+    // the 60 s patient timeout. 0 urls, 0 priced. Blocker: the host does not
+    // serve this tooling at all, so robots, currency, route and delivery are
+    // all unread.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -6877,19 +7220,52 @@ export const RETAILERS: readonly Retailer[] = [
     // third-party designer brands named in results (Estée Lauder, Clinique,
     // L'Occitane), so this is multi-brand and no singleBrandOnly is set,
     // unlike Avon above.
+    //
+    // ── Tested 2026-10-03 (phase 4): reachable and sterling, route not usable ───
+    //
+    // robots.txt (https://www.marksandspencer.com/robots.txt, HTTP 200): User-
+    // agent * with 139 Disallow lines (checkout, account, filter and new-in
+    // listing paths); /<name>/p/<id> product pages are not disallowed. It names
+    // three sitemap indexes: /sitemap/sitemap_index.xml,
+    // /ie/sitemap/sitemap_index.xml and /en/sitemap/sitemap_index.xml. Home
+    // page and a product page HTTP 200 with real content.
+    //
+    // Currency and parser: https://www.marksandspencer.com/blood-oranges-eau-
+    // de-parfum-100ml/p/hbp22300959 carries a schema.org Product whose offer
+    // priceSpecification says price 80, priceCurrency GBP; parseListings read
+    // it as one listing, 'Blood Oranges Vegan Fragrance 100ml', brand SHAY &
+    // BLUE, £80, in stock.
+    //
+    // Blocker, the route: the generic sitemap walk does not reach the
+    // fragrance. The UK index lists nine product sitemaps and
+    // uk_sitemap_beauty_products.xml is the ninth; a harvest probe from a
+    // runner, run 37084754284 job 111092602952, hit the 5,000 url discovery cap
+    // in the earlier ones and priced 10 pages of which the sample was a leather
+    // bag (/leather-oversized-crescent-bag/p/clp23044160). Worse, robots.txt
+    // also hands the walk the /ie/ index, whose ie_sitemap_beauty_products.xml
+    // lists Irish pages, and the parser does not check priceCurrency. Needs a
+    // way to pin the walk to uk_sitemap_beauty_products.xml before it can be
+    // enabled. Delivery was read and is recorded below.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
+      standardGbp: 3.99,
+      freeOverGbp: 75,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-20',
-      confidence: 'unverified',
+      verifiedAt: '2026-10-03',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.marksandspencer.com/help-and-support/collection-and-delivery',
+        quote:
+          'UK Standard Delivery is available for £3.99 or free on orders over £75 (excluding ' +
+          'furniture)',
+        readAt: '2026-10-03',
+      },
       notes:
-        'Nothing here has been read from marksandspencer.com itself: not its delivery terms, ' +
-        'not its robots.txt, not its checkout currency. No delivery figure of any kind turned ' +
-        'up in the WebSearch snippets read for this entry. No affiliate programme has been ' +
+        'Listed under "Fashion, Home and Beauty" on that page; the product page repeats the ' +
+        '£3.99 and £75. Next Day and Nominated Day (£5.99) are upgrades, not modelled. The ' +
+        'estimated days are the neutral placeholder, not read. No affiliate programme has been ' +
         'researched.',
     },
     catalogue: null,
@@ -6910,24 +7286,66 @@ export const RETAILERS: readonly Retailer[] = [
     // Tauer, Papillon, Cloon Keen — an independent specialist rather than a
     // department store, which is the category the owner's brief asked for
     // beyond the named retailers.
-    enabled: false,
+    //
+    // ── Tested end to end 2026-10-03, and ENABLED on the Shopify route ──────
+    // robots.txt (https://www.lessenteurs.com/robots.txt, HTTP 200) is
+    // Shopify's stock file: product, collection and page HTML crawlable,
+    // /cart, /checkout, /account and /orders disallowed, /products.json and
+    // /meta.json not disallowed, sitemap https://www.lessenteurs.com/
+    // sitemap.xml. Home page, /meta.json, /products.json and a product page
+    // all HTTP 200 with real content. Confirmed Shopify: /meta.json names
+    // myshopify_domain les-senteurs.myshopify.com, currency GBP, country GB,
+    // 1,036 published products.
+    //
+    // The trap, and why this needed a code change before it could go on:
+    // the storefront quotes pounds at rate 1 to everyone, but to a visitor it
+    // places outside the UK it quotes a VAT-free export price list. Currency
+    // probe from a GitHub runner, run 37084825268 job 111092804927: the origin
+    // theme said Shopify.country "US" and /products.json gave Dusita Mocha
+    // Absolu (100ml EDP) 162.50 and The Story of a Decade set 175.00, while
+    // `?country=GB` (and the localization=GB cookie) gave 195.00 and 210.00 —
+    // a factor of exactly 1.2. The product page JSON-LD says the same:
+    // "price 162.5, priceCurrency GBP" at the origin, "195, GBP" under
+    // ?country=GB. Read locally the same day the ?country=GB page's theme
+    // says Shopify.country "GB". Both lists are pounds, so the old sterling
+    // test passed the origin and would have published £162.50.
+    // crawlViaShopifyProducts now also reads the theme's market country and,
+    // when a sterling origin names a country other than GB, moves to the
+    // first way of asking that names GB (src/catalogue/shopifyProductsCrawl.ts,
+    // tests/marketHarvest.test.ts). For this shop that is ?country=GB.
+    //
+    // Delivery: the shop's own pages disagree, and the higher figure is
+    // stored. /pages/delivery-and-returns (linked from the home page) says
+    // "Standard UK Delivery - £4.50 Free on orders over £175"; the Shopify
+    // policy page /policies/shipping-policy says "Standard UK Delivery - £3.95
+    // Orders will be delivered within 3 to 5 working days". Storing £4.50 can
+    // only make a Les Senteurs delivered price look less attractive, never
+    // more, which is the safe direction while the two pages disagree. The
+    // owner should confirm in a browser which one the basket charges. The
+    // £150 threshold a search snippet gave in August is not what either page
+    // says now: both say £175.
+    enabled: true,
     adapter: 'unknown',
+    shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      // A search snippet describes "free UK delivery on orders over £150",
-      // marketing copy read secondhand rather than a shipping:discover run
-      // against the shop's own delivery page, so the figure is named here
-      // and not stored as freeOverGbp.
-      freeOverGbp: null,
+      standardGbp: 4.5,
+      freeOverGbp: 175,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-20',
-      confidence: 'unverified',
+      verifiedAt: '2026-10-03',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.lessenteurs.com/pages/delivery-and-returns',
+        quote: 'Standard UK Delivery - £4.50 Free on orders over £175',
+        readAt: '2026-10-03',
+      },
       notes:
-        'Nothing here has been read from lessenteurs.com itself: not its delivery terms, not ' +
-        'its robots.txt, not its checkout currency. The £150 free-delivery figure above comes ' +
-        'from a WebSearch result snippet, quoted as far as it goes and no further. No affiliate ' +
-        'programme has been researched.',
+        'Conflict on the shop\'s own site, read 2026-10-03: /policies/shipping-policy says ' +
+        '"Standard UK Delivery - £3.95" for 3 to 5 working days, /pages/delivery-and-returns ' +
+        'says £4.50. The higher figure is stored until the owner confirms the basket charge. ' +
+        'Both pages agree on free UK delivery over £175. Royal Mail Tracked 24 (£5.50) and ' +
+        'Special Delivery (£7.00 or £8.00, the pages differ again) are upgrades, not modelled. ' +
+        'The estimated days come from the policy page. No affiliate programme has been researched.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -6954,6 +7372,34 @@ export const RETAILERS: readonly Retailer[] = [
     // has actually been opened. Independent niche perfumery, 4 Slingsby
     // Place, London WC2E 9AB; houses named in results: Etat Libre d'Orange,
     // Ormonde Jayne, Imaginary Authors.
+    //
+    // ── Tested 2026-10-03: reachable, sterling, Shopify, and still off ──────
+    // robots.txt (https://bloomperfume.co.uk/robots.txt, HTTP 200) opens "we
+    // use Shopify as our ecommerce platform" and disallows /cart, /checkout,
+    // /account, /orders, /search and /policies/ among the stock Shopify
+    // lines; product pages, /products.json and /meta.json are not disallowed.
+    // Home page, /meta.json and /products.json all HTTP 200. /meta.json:
+    // myshopify_domain bloomperfumery.myshopify.com, currency GBP, country
+    // GB, 1,882 published products. Currency probe from a runner, run
+    // 37084982359 job 111093263699: GBP at rate 1 at the origin and under
+    // every request shape, identical prices both ways (Cacao Timur 100ml EdP
+    // 165.00), product page JSON-LD "165 GBP".
+    //
+    // What keeps it off is in the price list itself. Every product carries an
+    // "Info" option alongside size, and /products.json lists all of its values
+    // as ordinary, available variants. For Cacao Timur 100ml: "ol" 165.00,
+    // "tf" 137.50, "sd" 159.00, "tfsd" 132.50. 137.50 is 165.00 / 1.2 and
+    // 132.50 is 159.00 / 1.2, so "tf" reads as the tax free export price that
+    // the shop's own /pages/delivery describes ("We offer UK VAT tax free
+    // shopping for orders delivered to outside of the UK"); "sd" is not
+    // explained anywhere read. The Shopify route parses every variant into a
+    // listing, so it would publish £132.50 as the cheapest UK 100ml when a UK
+    // shopper cannot pay it. Enabling needs a way to keep only the "ol"
+    // variants (or the owner to confirm what "sd" is), not a fetch fix.
+    //
+    // Delivery: /pages/delivery (found through sitemap_pages_1.xml, the footer
+    // is drawn by script) names carriers and claim windows and no UK price.
+    // /pages/faq names none either. Recorded as not published.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -6961,13 +7407,20 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: null,
       freeOverGbp: null,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-20',
-      confidence: 'unverified',
+      verifiedAt: '2026-10-03',
+      confidence: 'confirmed',
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://bloomperfume.co.uk/pages/delivery',
+        quote:
+          'Bloom Perfumery ships to UK, EU and the rest of the world. Within the UK we use ' +
+          'Royal Mail (for samples only), DHL, UK Mail and other express couriers.',
+        readAt: '2026-10-03',
+      },
       notes:
-        'Nothing here has been read from bloomperfume.co.uk itself: not its delivery terms, ' +
-        'not its robots.txt, not its checkout currency. No delivery figure of any kind turned ' +
-        'up in the WebSearch snippets read for this entry. No affiliate programme has been ' +
-        'researched.',
+        'Read 2026-10-03: the delivery page and the FAQ name no UK delivery price or ' +
+        'free-delivery threshold. The estimated days are the neutral placeholder, not read. ' +
+        'No affiliate programme has been researched.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -6985,26 +7438,48 @@ export const RETAILERS: readonly Retailer[] = [
     // Galion, Mendittorosa Odori d'Anima, Marc-Antoine Barrois, and its own
     // Shy Mimosa house line alongside them — multi-brand, so no
     // singleBrandOnly.
+    //
+    // ── Tested 2026-10-03 (phase 4): reachable and sterling, parser blocker ─────
+    //
+    // robots.txt (https://www.shymimosa.co.uk/robots.txt, HTTP 200): 'User-
+    // agent: * Crawl-delay: 10' and no Disallow lines; it names /sitemap.xml,
+    // /sitemap_products.asp, /sitemap_brands.asp and /sitemap_blog_posts.asp.
+    // Every request here kept the 10 s delay. Home page, sitemap_products.asp
+    // (388 product URLs) and a product page answered HTTP 200 (one stale
+    // sitemap entry, Ann Gerard Cuir de Nacre, redirected to a 404 page).
+    //
+    // https://www.shymimosa.co.uk/shop/products/view.asp?brand=Olfactive+Studio
+    // &name=Chypre+Shot shows £195.00 for 100ml and marks it up as schema.org
+    // microdata (itemtype Product and Offer, itemprop priceCurrency content
+    // GBP), not JSON-LD. parseListings found 0 JSON-LD blocks and 0 listings.
+    // Blocker: no JSON-LD on product pages; this shop needs a microdata reader
+    // before it can be harvested. A harvest probe from a runner, run
+    // 37085004755 job 111093331516, likewise priced nothing.
+    //
+    // Delivery was read off the shop's own /delivery-info/ page and is recorded
+    // below: £4.99, free over £100.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      // A search snippet gave a specific figure — "Delivery price for
-      // orders under £100.00 is £4.99" — more precise than the "free over
-      // £X" lines this entry's siblings carry, but it is still a WebSearch
-      // snippet rather than a shipping:discover read of the shop's own
-      // delivery page, so it is named here rather than stored.
-      freeOverGbp: null,
+      // Read off the shop's own delivery page 2026-10-03; it confirms the
+      // £4.99 under £100 the August search snippet gave.
+      standardGbp: 4.99,
+      freeOverGbp: 100,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-20',
-      confidence: 'unverified',
+      verifiedAt: '2026-10-03',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.shymimosa.co.uk/delivery-info/',
+        quote:
+          'Our current cost for delivery (excluding magazines) is £4.99. All orders over £100.00 ' +
+          'are free of delivery costs.',
+        readAt: '2026-10-03',
+      },
       notes:
-        'Nothing here has been read from shymimosa.co.uk itself: not its delivery terms, not ' +
-        'its robots.txt, not its checkout currency. A WebSearch snippet stated "Delivery price ' +
-        'for orders under £100.00 is £4.99" — quoted as far as it goes and no further, and not ' +
-        'promoted to standardGbp/freeOverGbp on the same basis as every other entry added ' +
-        'today. No affiliate programme has been researched.',
+        'The product page says the same ("Our current delivery price for all orders under ' +
+        '£100.00 is £4"...). The estimated days are the neutral placeholder, not read. No ' +
+        'affiliate programme has been researched.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -7025,30 +7500,55 @@ export const RETAILERS: readonly Retailer[] = [
     // Reviews.io snippet for the same shop reads less favourably, with
     // historical complaints about product quality and delivery — both
     // recorded here rather than only the flattering one.
+    //
+    // ── Tested 2026-10-03 (phase 4): the domain is now Paco Perfumerías UK ──────
+    //
+    // https://www.perfumeprice.co.uk/robots.txt and the home page both answer
+    // HTTP 301 to the same path on www.pacoperfumerias.co.uk. The robots.txt
+    // served there (HTTP 200) is a Magento file: User-agent * with 79 Disallow
+    // lines (checkout, sales/order, catalogsearch, Magento internals); product
+    // pages are not disallowed; it names
+    // https://www.pacoperfumerias.co.uk/sitemap.xml (6,343 <loc> entries). The
+    // home page title is 'Paco Perfumerías | Perfume, Aftershave & Beauty at
+    // Great Prices'. So Perfume Price now trades as the UK store of Paco
+    // Perfumerías (the paco-perfumerias entry is its Spanish .com).
+    //
+    // The UK store works with the existing parser:
+    // https://www.pacoperfumerias.co.uk/dior-fahrenheit-eau-de-toilette-100ml-
+    // spray.html carries a schema.org Product, 'Dior Fahrenheit Eau de Toilette
+    // 100ml Spray', £106.50, priceCurrency GBP, EAN 3348900012219. Delivery is
+    // recorded below from its own delivery page.
+    //
+    // Blocker 1, the route: a harvest probe from a runner, run 37084984247 job
+    // 111093268318, found 5,825 urls and spent its 10 pages on category pages
+    // listed first in the one flat sitemap (/fragrance/womens.html,
+    // /fragrance/mens.html, /fragrance/womens/fragrance/bvlgari.html), 0
+    // priced. Blocker 2, an owner decision: the shop a reader would be sent to
+    // is Paco Perfumerías, not Perfume Price. Whether this id is renamed, or
+    // the paco-perfumerias entry is repointed at pacoperfumerias.co.uk and this
+    // one retired, is for the owner.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      // First named here from a secondhand search snippet and not stored.
-      // shipping:discover has since read the same £25 off the shop's own
-      // delivery page (quoted in `source` below, 2026-09-22), so it is
-      // stored as of 2026-10-01. No pricing effect while standardGbp is null.
+      // Read 2026-10-03 off the page perfumeprice.co.uk/delivery-and-returns
+      // now redirects to. The September read saw only the £25 threshold and
+      // recorded the flat rate as not published; the page as served today
+      // states it in the row above the threshold.
+      standardGbp: 2.95,
       freeOverGbp: 25,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-09-22',
+      estimatedDays: [2, 3],
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
-      standardRateNotPublished: true,
       source: {
-        url: 'https://www.perfumeprice.co.uk/delivery-and-returns',
-        quote: 'FREE TRACKED DELIVERY OVER £25',
-        readAt: '2026-09-22',
+        url: 'https://www.pacoperfumerias.co.uk/delivery-and-returns/',
+        quote: 'Royal Mail Tracked 48 Free over £25 2 to 3 working days £2.95 on orders under £25',
+        readAt: '2026-10-03',
       },
       notes:
-        'Nothing here has been read from perfumeprice.co.uk itself: not its delivery terms, ' +
-        'not its robots.txt, not its checkout currency. The £25 free-delivery figure above ' +
-        'comes from a WebSearch result snippet, quoted as far as it goes and no further. No ' +
-        'affiliate programme has been researched.',
+        'These are the terms of Paco Perfumerías UK, the store perfumeprice.co.uk now ' +
+        'redirects to (see the comment above). Royal Mail Tracked 24 (£3.95) is an upgrade, ' +
+        'not modelled. No affiliate programme has been researched.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -7067,20 +7567,51 @@ export const RETAILERS: readonly Retailer[] = [
     // relationship from the direct site this entry describes. Designer
     // houses named in results: Jimmy Choo, Calvin Klein, Montblanc, Dolce &
     // Gabbana, Mugler, Hugo Boss, Paco Rabanne, Issey Miyake, Prada.
-    enabled: false,
+    //
+    // ── Tested end to end 2026-10-03, and ENABLED on the Shopify route ──────
+    // robots.txt (https://www.perfumedirect.com/robots.txt, HTTP 200) is
+    // Shopify's stock file: /cart, /checkout, /account, /orders disallowed,
+    // product pages, /products.json and /meta.json not disallowed, sitemap
+    // https://www.perfumedirect.com/sitemap.xml. Home page, /meta.json and
+    // /products.json all HTTP 200 with real content. /meta.json:
+    // myshopify_domain scentdirect.myshopify.com, currency GBP, country GB,
+    // 2,662 published products; the theme says Shopify.currency GBP at rate
+    // 1.0 and Shopify.country "GB".
+    //
+    // Currency probe from a GitHub runner, run 37085200742 job 111093936348:
+    // GBP at rate 1 at the origin and under every request shape, and
+    // /products.json gave the same prices at the origin and under
+    // ?country=GB (Bvlgari Splendida Patchouli Tentation 46.99, Jennifer
+    // Lopez Live Luxe 19.99, Lancome La Vie Est Belle Soleil Cristal 69.99),
+    // so there is one price list and the runner is served it. The product
+    // page part of that run 404'd because the handle passed to it was wrong
+    // (the real one ends -womens-perfume-spray-50ml-100ml); it proves nothing
+    // either way. Variants are plain sizes ("30ml", "50ml", "100ml"), one
+    // listing each, with no tax free or trade variants mixed in.
+    //
+    // Delivery read off the shop's own /pages/delivery-options ("Shipping &
+    // Delivery") and its /policies/shipping-policy, which agree: Royal Mail
+    // Tracked 48 at £2.99 for 2 to 4 days, free over £50.
+    enabled: true,
     adapter: 'unknown',
+    shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-08-20',
-      confidence: 'unverified',
+      standardGbp: 2.99,
+      freeOverGbp: 50,
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-10-03',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.perfumedirect.com/pages/delivery-options',
+        quote: 'Standard Delivery - £2.99 (2-4 business days)',
+        readAt: '2026-10-03',
+      },
       notes:
-        'Nothing here has been read from perfumedirect.com itself: not its delivery terms, not ' +
-        'its robots.txt, not its checkout currency. Search snippets mention "fast UK delivery" ' +
-        'without a rate or a free-delivery threshold, so neither field is filled from a ' +
-        'marketing claim. No affiliate programme has been researched.',
+        'Same page: "Orders over £50 will qualify for Free Shipping". The shipping policy page ' +
+        'says the same (Royal Mail Tracked 48 £2.99, free over £50). Tracked 24 (£3.99), ' +
+        'Special Delivery and DPD are upgrades, not modelled. No affiliate programme has been ' +
+        'researched.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -7174,6 +7705,25 @@ export const RETAILERS: readonly Retailer[] = [
     // listing proves a price was found and parsed, and says nothing whatever
     // about which currency it is in. That is why this entry stays in
     // CURRENCY_UNCONFIRMED regardless of the count above.
+    //
+    // ── Tested 2026-10-03 (phase 4): refused, and the URL shapes have merged ────
+    //
+    // robots.txt (https://www.tesco.com/robots.txt, HTTP 200): 26 Disallow
+    // lines (account, login, promotions and buylist query shapes); product
+    // pages are not disallowed. It names sitemaps for groceries, clothing and
+    // marketplace separately. The home page came back HTTP 403 ('Access
+    // Denied', server 'Tesco Web Server'); the groceries product sitemap
+    // answered, and the first product it lists, https://www.tesco.com/shop/en-
+    // GB/products/321777730, came back HTTP 403. A harvest probe from a runner,
+    // run 37084995342 job 111093302798: /sitemap.xml HTTP 504.
+    //
+    // Worth recording for the Marketplace boundary above: the groceries sitemap
+    // (sitemaps/en-GB/groceries/products-1.xml) now lists its own products at
+    // /shop/en-GB/products/<id>, the same shape this entry treats as
+    // Marketplace. A URL alone can no longer tell Tesco's own stock from a
+    // third party seller's; only the separate marketplace/products-index.xml
+    // sitemap can. Blocker: refused; and the marketplace split would have to
+    // come from which sitemap a URL was found in.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -7274,6 +7824,14 @@ export const RETAILERS: readonly Retailer[] = [
     // listing proves a price was found and parsed, and says nothing whatever
     // about which currency it is in. That is why this entry stays in
     // CURRENCY_UNCONFIRMED regardless of the count above.
+    //
+    // ── Tested 2026-10-03 (phase 4): refused, unchanged ─────────────────────────
+    //
+    // Local fetch of https://groceries.asda.com/robots.txt: HTTP 403 from
+    // Cloudflare, an HTML block page, so nothing else was requested. From a
+    // GitHub runner, harvest probe run 37084787903 job 111092696297:
+    // https://groceries.asda.com/sitemap.xml HTTP 403. Blocker: refused at the
+    // edge.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -7343,6 +7901,12 @@ export const RETAILERS: readonly Retailer[] = [
     // listing proves a price was found and parsed, and says nothing whatever
     // about which currency it is in. That is why this entry stays in
     // CURRENCY_UNCONFIRMED regardless of the count above.
+    //
+    // ── Tested 2026-10-03 (phase 4): refused, unchanged ─────────────────────────
+    //
+    // Local fetch of https://www.sainsburys.co.uk/robots.txt: HTTP 403, Akamai
+    // Access Denied. From a GitHub runner, harvest probe run 37084793491 job
+    // 111092712618: /sitemap.xml HTTP 403. Blocker: refused at the edge.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -7579,6 +8143,16 @@ export const RETAILERS: readonly Retailer[] = [
     // listing proves a price was found and parsed, and says nothing whatever
     // about which currency it is in. That is why this entry stays in
     // CURRENCY_UNCONFIRMED regardless of the count above.
+    //
+    // ── Tested 2026-10-03 (phase 4): robots.txt is a challenge page ─────────────
+    //
+    // Local fetch of https://www.ocado.com/robots.txt: HTTP 202 from CloudFront
+    // with an HTML document instead of a robots file, the same 202 interstitial
+    // the August currency probe got on the home page. A robots.txt that cannot
+    // be read is not permission, so nothing else was requested. A harvest probe
+    // from a runner, run 37084814875 job 111092774728, again ended at 0 urls
+    // with no error line in well under a second. Blocker: robots.txt and the
+    // storefront are behind a challenge.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -7651,6 +8225,13 @@ export const RETAILERS: readonly Retailer[] = [
     // listing proves a price was found and parsed, and says nothing whatever
     // about which currency it is in. That is why this entry stays in
     // CURRENCY_UNCONFIRMED regardless of the count above.
+    //
+    // ── Tested 2026-10-03 (phase 4): refused, unchanged ─────────────────────────
+    //
+    // Local fetch of https://www.savers.co.uk/robots.txt: HTTP 403 from
+    // AkamaiGHost, Access Denied. From a GitHub runner, harvest probe run
+    // 37084799122 job 111092727966: /sitemap.xml HTTP 403. Blocker: refused at
+    // the edge.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -7824,6 +8405,13 @@ export const RETAILERS: readonly Retailer[] = [
     // listing proves a price was found and parsed, and says nothing whatever
     // about which currency it is in. That is why this entry stays in
     // CURRENCY_UNCONFIRMED regardless of the count above.
+    //
+    // ── Tested 2026-10-03 (phase 4): refused, unchanged ─────────────────────────
+    //
+    // Local fetch of https://www.therange.co.uk/robots.txt: HTTP 403 from
+    // Cloudflare, a 'Just a moment...' challenge. From a GitHub runner, harvest
+    // probe run 37084804511 job 111092743852: /sitemap.xml HTTP 403. Blocker:
+    // refused at the edge; the Awin route below is untouched by that.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -8125,7 +8713,10 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'any currency at all — no Shopify.currency, no /meta.json, and /en-gb /gb /uk /en-uk all ' +
       '404. /products.json also 404s everywhere. A .co.uk domain is not evidence of sterling ' +
       'pricing on its own (uk.zimayaperfumes.com quotes dollars) — this storefront is simply ' +
-      'silent about its currency rather than confirming anything.',
+      'silent about its currency rather than confirming anything. 2026-10-03: a product page ' +
+      '(Gucci Bloom Eau de Parfum Spray, index_122330.aspx) labels every offer priceCurrency ' +
+      'GBP, read from this sandbox; a probe with --product on that page from a runner is what ' +
+      'would remove this id. It is off for route reasons regardless (see its entry).',
   ],
   [
     'fragrancedirect',
@@ -8206,44 +8797,47 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'been read. A famous UK high-street name is not the same claim as a measured sterling ' +
       'price list — Nicchia Luxury ran enabled on a less careful version of that same ' +
       'assumption for three days (see its own entry above). One positive sterling reading from ' +
-      'a currency probe is what would remove this id.',
+      'a currency probe is what would remove this id. 2026-10-03: a product page (Blood Oranges ' +
+      'Vegan Fragrance 100ml, /p/hbp22300959) labels its offer priceCurrency GBP, read from this ' +
+      'sandbox, not yet by a probe; and robots.txt also names an /ie/ sitemap whose pages are ' +
+      'the Irish store, so a sterling reading of one page does not cover the walk.',
   ],
-  [
-    'les-senteurs',
-    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
-      'about lessenteurs.com comes from WebSearch snippets; its checkout currency has not been ' +
-      'read. One positive sterling reading from a currency probe is what would remove this id.',
-  ],
-  [
-    'bloom-perfumery',
-    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
-      'about bloomperfume.co.uk comes from WebSearch snippets — see this entry\'s own registry ' +
-      'comment for the domain-sprawl caution that went into even choosing which of six ' +
-      'candidate domains to enter here. Its checkout currency has not been read. One positive ' +
-      'sterling reading from a currency probe is what would remove this id.',
-  ],
+  // les-senteurs was removed from this list on 2026-10-03: currency probe,
+  // run 37084825268 job 111092804927, read GBP at rate 1 through the origin
+  // and every request-shape candidate, and the product page JSON-LD labelled
+  // its price GBP. Its origin quotes a non-UK market's VAT-free list in those
+  // pounds, which is a market question rather than a currency one and is
+  // handled in crawlViaShopifyProducts (see its registry entry). It is now
+  // `enabled: true`.
+  // bloom-perfumery was removed the same day: currency probe, run
+  // 37084982359 job 111093263699, read GBP at rate 1 at the origin and under
+  // every request shape, with identical /products.json prices at the origin
+  // and under ?country=GB (Cacao Timur 100ml EdP 165.00 both ways). It stays
+  // `enabled: false` for an unrelated reason recorded on its entry.
   [
     'shy-mimosa',
     'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
       'about shymimosa.co.uk comes from WebSearch snippets, including the one specific delivery ' +
       "figure (£4.99 under £100) recorded in this entry's shipping.notes; its checkout " +
       'currency has not been read. One positive sterling reading from a currency probe is what ' +
-      'would remove this id.',
+      'would remove this id. 2026-10-03: its product pages mark the price up as microdata with ' +
+      'itemprop priceCurrency content GBP (read from this sandbox), and the £4.99 is now read ' +
+      'off its own delivery page; no CI probe has read it yet.',
   ],
   [
     'perfume-price',
     'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
       'about perfumeprice.co.uk comes from WebSearch snippets, including its Companies House ' +
       'registration; its checkout currency has not been read. One positive sterling reading ' +
-      'from a currency probe is what would remove this id.',
+      'from a currency probe is what would remove this id. 2026-10-03: the domain now ' +
+      'redirects to www.pacoperfumerias.co.uk, whose product page (Dior Fahrenheit EDT 100ml) ' +
+      'labels its offer priceCurrency GBP, read from this sandbox; which id that store belongs ' +
+      'to is an owner decision (see the entry).',
   ],
-  [
-    'perfume-direct',
-    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
-      'about perfumedirect.com comes from WebSearch snippets; its checkout currency has not ' +
-      'been read. One positive sterling reading from a currency probe is what would remove ' +
-      'this id.',
-  ],
+  // perfume-direct was removed from this list on 2026-10-03: currency probe,
+  // run 37085200742 job 111093936348, read GBP at rate 1 at the origin and
+  // under every request shape, with identical /products.json prices at the
+  // origin and under ?country=GB. It is now `enabled: true`.
   [
     'asda',
     'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +

@@ -420,3 +420,44 @@ describe('HIDE_OFFER_AFTER_DAYS: offers too old to show at all', () => {
     expect(showableListingCount(catalogue, 'john-lewis', NOW)).toBe(1);
   });
 });
+
+// The three delivery charges the owner read off each shop's own basket on
+// 2026-10-03: Selfridges £6.95 with no non-member threshold, Emirates Oud
+// £3.99 free from £50, Riiffs a flat £3.95 with no threshold at all (it still
+// charged £3.95 on a £105 basket). Pinned through buildComparison and
+// bestOffer, the path every product page takes, so a later registry edit that
+// drifts from what the baskets showed fails here rather than on the site.
+describe('basket-confirmed delivery (2026-10-03)', () => {
+  const at = (rows: ReturnType<typeof buildComparison>, id: string) =>
+    rows.find((r) => r.retailer.id === id)!;
+
+  it('adds each shop’s confirmed charge and ranks on the delivered total', () => {
+    const rows = buildComparison(
+      [offer('selfridges', 40), offer('emirates-oud', 41), offer('riiffs', 42)],
+      { now: NOW },
+    );
+    expect(at(rows, 'selfridges').deliveredPriceGbp).toBe(46.95);
+    expect(at(rows, 'emirates-oud').deliveredPriceGbp).toBe(44.99);
+    expect(at(rows, 'riiffs').deliveredPriceGbp).toBe(45.95);
+    // Cheapest bottle, dearest delivered: the item price order is reversed.
+    expect(rows.map((r) => r.retailer.id)).toEqual(['emirates-oud', 'riiffs', 'selfridges']);
+    expect(bestOffer(rows)!.retailer.id).toBe('emirates-oud');
+    expect(rows.every((r) => r.delivery.confirmed)).toBe(true);
+  });
+
+  it('applies only the thresholds a non-member gets', () => {
+    const rows = buildComparison(
+      [offer('selfridges', 120), offer('emirates-oud', 50), offer('riiffs', 105)],
+      { now: NOW },
+    );
+    // Selfridges' £100 and £150 thresholds are Selfridges+ and Unlocked perks.
+    expect(at(rows, 'selfridges').deliveredPriceGbp).toBe(126.95);
+    expect(at(rows, 'selfridges').delivery.membershipNote).toContain('Selfridges+');
+    // Emirates Oud ships free from £50.
+    expect(at(rows, 'emirates-oud').deliveredPriceGbp).toBe(50);
+    expect(at(rows, 'emirates-oud').delivery.isFree).toBe(true);
+    // Riiffs charged £3.95 on a £105 basket: no threshold.
+    expect(at(rows, 'riiffs').deliveredPriceGbp).toBe(108.95);
+    expect(at(rows, 'riiffs').delivery.spendMoreForFreeGbp).toBeNull();
+  });
+});
