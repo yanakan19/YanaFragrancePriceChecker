@@ -179,7 +179,10 @@ const SHOPIFY_PROBE_PAGES = 12;
 
 async function probeShopify(retailer: Retailer): Promise<void> {
   const routeHttp = createHttp();
-  const probe = await probeRobots(retailer, routeHttp, BOT_HEADERS, robotsHeaderVariants(BROWSER_HEADERS));
+  // A shop marked `botIdentityOnly` is asked as ourselves alone, robots.txt
+  // included: no browser-shaped second request for the file.
+  const botOnly = retailer.botIdentityOnly === true;
+  const probe = await probeRobots(retailer, routeHttp, BOT_HEADERS, botOnly ? [] : robotsHeaderVariants(BROWSER_HEADERS));
   const robots = probe.rules;
   const gapMs = Math.max(retailer.catalogue?.minRequestGapMs ?? 1500, (robots.crawlDelaySeconds ?? 0) * 1000);
   console.log(`${retailer.name}: Shopify /products.json route, robots.txt first, ${gapMs}ms between requests`);
@@ -190,7 +193,7 @@ async function probeShopify(retailer: Retailer): Promise<void> {
     return;
   }
   const result = await crawlViaShopifyProducts({
-    retailer, http: routeHttp, robots, headers: BROWSER_HEADERS,
+    retailer, http: routeHttp, robots, headers: botOnly ? ROUTE_HEADERS : BROWSER_HEADERS,
     maxPages: SHOPIFY_PROBE_PAGES, gapMs,
     onProgress: (n, found) => console.log(`  ${n} fetched, ${found} found`),
   });

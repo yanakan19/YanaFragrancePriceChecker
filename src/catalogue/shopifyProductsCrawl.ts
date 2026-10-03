@@ -309,6 +309,8 @@ export async function crawlViaShopifyProducts(
       origin,
       sectionId: 'shopify-products-json',
       currency: parseCurrency,
+      // Only a shop whose variants are not all UK bottles carries one.
+      ...(retailer.shopifyVariantRule ? { variantRule: retailer.shopifyVariantRule } : {}),
     });
     listings.push(...batch);
 

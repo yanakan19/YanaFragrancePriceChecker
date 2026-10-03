@@ -8151,27 +8151,82 @@ export const RETAILERS: readonly Retailer[] = [
     // Delivery: /pages/delivery (found through sitemap_pages_1.xml, the footer
     // is drawn by script) names carriers and claim windows and no UK price.
     // /pages/faq names none either. Recorded as not published.
+    //
+    // ── The route, pinned 2026-10-03: /products.json, UK retail variants only ──
+    // What "ol" is, read three ways. (1) The shop's own product page marks up
+    // only the "ol" variants: Ylem NGC 6302 Butterfly Nebula's JSON-LD offers
+    // are 50 ml at 190.00 and 1 ml at 8.00 GBP, both "ol", while /products.json
+    // lists "tf", "sd", "tfsd" and "ato" variants of the same sizes besides.
+    // (2) The page's visible variant list, rendered in a browser asking as
+    // PriceSniffsBot, reads "£190.00, 50 ml Extrait de Parfum" and "£8.00, 1 ml
+    // Extrait de Parfum", nothing else. (3) The shop's theme (bloom_data_rates.js,
+    // bloom_common.js) treats only the "uk" zone as VAT paying and every other
+    // zone as tax free, and its /pages/delivery offers tax free shopping to
+    // addresses outside the UK, which is what "tf" and "tfsd" price. "sd" is
+    // never explained on any page read (for Butterfly Nebula 50 ml it is 182.00
+    // against 190.00) and "ato" is the free atomizer line of the Nose Club token
+    // scheme (price 0.00; /pages/faq: "What is an atomizer?"). None of the four
+    // is a price a UK shopper pays for the bottle, so `shopifyVariantRule` keeps
+    // "ol" and nothing else.
+    //
+    // /products.json read in full on 2026-10-03 (8 pages of 250, 1,882
+    // products): 1,724 are product_type Perfume. Their "ol" variants are 1 ml
+    // samples (1,721 of them: the shop's own "1 ml sampling service", its FAQ
+    // says it does not otherwise decant) and bottles. The rule keeps product
+    // type Perfume with a Concentration option (which leaves out Bravanariz's
+    // Silvestre Gentle Hand Sanitizer, filed as Perfume), "ol", and a single
+    // plain millilitre size of 5 ml or more.
+    // It drops 1 ml samples, 0.7 ml and 4.5 ml vials, "10 ml roll-on" and
+    // "2×7.5 ml" twin packs, every SamplePack, Body, Raw material, Certificate,
+    // Subscription, Deodorant, Gift Card and BespokeTicket product, and the
+    // "ato" atomizer lines. Nothing is read from the "tf", "sd" or "tfsd" lines.
+    //
+    // Identity: every request, robots.txt included, goes as PriceSniffsBot and
+    // never as a browser (`botIdentityOnly`). robots.txt (HTTP 200) has one
+    // group for every agent: it disallows /cart, /checkout, /account, /orders,
+    // /search, /policies/, /collections sort and plus filters, /bloomsearch and
+    // /recommendations/products, sets no crawl delay for it, and does not
+    // disallow /products.json, /meta.json or product pages. Only AhrefsBot and
+    // MJ12bot carry crawl delays (10 s), and Nutch is barred; none is us.
+    // Currency: /meta.json GBP, country GB; the "ol" prices are the same for
+    // every market asked (Cacao Timur 100 ml 165.00).
+    shopifyStorefront: true,
+    shopifyVariantRule: {
+      productTypes: ['Perfume'],
+      requiredOptions: ['Concentration'],
+      marketOption: { name: 'Info', keep: ['ol'] },
+      sizeOption: { name: 'Package', minMl: 5 },
+    },
+    botIdentityOnly: true,
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
+      // Read off the shop's own product page 2026-10-03, rendered in a
+      // browser asking as PriceSniffsBot (the "Delivery info" panel and the
+      // line above the add to cart button). The panel is drawn by the shop's
+      // own theme script from its own rate table, for a visitor in the United
+      // Kingdom; its one UK option for a bottle is the express courier.
+      standardGbp: 9.86,
+      freeOverGbp: 150,
+      estimatedDays: [1, 2],
       verifiedAt: '2026-10-03',
       confidence: 'confirmed',
-      standardRateNotPublished: true,
       source: {
-        url: 'https://bloomperfume.co.uk/pages/delivery',
+        url: 'https://bloomperfume.co.uk/products/ngc-6302-butterfly-nebula',
         quote:
-          'Bloom Perfumery ships to UK, EU and the rest of the world. Within the UK we use ' +
-          'Royal Mail (for samples only), DHL, UK Mail and other express couriers.',
+          'Shipping options for United Kingdom: Express Courier (1-2 Working Days): £9.86. ' +
+          'Free shipping by Express Courier on orders above £150. ' +
+          '(product page, Delivery info; above the cart button: "Free shipping for orders over £150")',
         readAt: '2026-10-03',
       },
       notes:
-        'Read 2026-10-03: the delivery page and the FAQ name no UK delivery price or ' +
-        'free-delivery threshold. The estimated days are the neutral placeholder, not read. ' +
-        'No affiliate programme has been researched.',
+        'The same panel appears on every product page. It also lists Royal Mail 2nd class ' +
+        'recorded at £3.0, free from £30, for orders of samples or atomizers only, which is ' +
+        'not modelled because this entry prices bottles. /pages/delivery names carriers and no ' +
+        'UK price, so the price is the product page panel, not that page. Not a basket check: ' +
+        '/cart is disallowed by robots.txt and nothing was added to a cart. No affiliate ' +
+        'programme has been researched.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },

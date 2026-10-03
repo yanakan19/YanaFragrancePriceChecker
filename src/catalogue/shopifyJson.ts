@@ -1,4 +1,5 @@
 import type { RawListing } from './types.js';
+import type { ShopifyVariantRule } from '../types/retailer.js';
 
 /**
  * Read a Shopify storefront's catalogue without an API, a key or a browser.
@@ -50,6 +51,8 @@ interface Variant {
   compareAtPrice: number | null;
   available: boolean | null;
   title: string | null;
+  /** option1 to option3, in the product's own option order. */
+  optionValues: (string | null)[];
 }
 
 function str(value: unknown): string | null {
@@ -138,7 +141,59 @@ function variantsOf(product: JsonValue): Variant[] {
       compareAtPrice: money(v['compare_at_price']),
       available: typeof v['available'] === 'boolean' ? v['available'] : null,
       title: str(v['title']),
+      optionValues: [str(v['option1']), str(v['option2']), str(v['option3'])],
     }));
+}
+
+/** The product's option names, in order ("Package", "Concentration", "Info"). */
+function optionNamesOf(product: JsonValue): string[] {
+  const raw = product['options'];
+  if (!Array.isArray(raw)) return [];
+  return raw.map((o) =>
+    o && typeof o === 'object' ? (str((o as JsonValue)['name']) ?? '') : '',
+  );
+}
+
+/** One size, in plain millilitres: "50 ml", "7.5ml", "50  ml". Nothing else. */
+const PLAIN_ML = /^(\d+(?:\.\d+)?)\s*ml$/i;
+
+/**
+ * Whether a product passes a retailer's variant rule at product level: its
+ * type, and that it has the options the rule's other tests will read.
+ */
+export function productPassesVariantRule(product: JsonValue, rule: ShopifyVariantRule): boolean {
+  if (rule.productTypes) {
+    const type = (str(product['product_type']) ?? '').toLowerCase();
+    if (!rule.productTypes.some((t) => t.toLowerCase() === type)) return false;
+  }
+  const names = optionNamesOf(product).map((n) => n.toLowerCase());
+  if (rule.requiredOptions && !rule.requiredOptions.every((r) => names.includes(r.toLowerCase()))) return false;
+  if (rule.marketOption && !names.includes(rule.marketOption.name.toLowerCase())) return false;
+  if (rule.sizeOption && !names.includes(rule.sizeOption.name.toLowerCase())) return false;
+  return true;
+}
+
+/**
+ * Whether one variant is an ordinary UK retail bottle under a rule, given
+ * a product that already passed `productPassesVariantRule`.
+ */
+export function variantPassesVariantRule(
+  names: readonly string[],
+  optionValues: readonly (string | null)[],
+  rule: ShopifyVariantRule,
+): boolean {
+  const lower = names.map((n) => n.toLowerCase());
+  if (rule.marketOption) {
+    const at = lower.indexOf(rule.marketOption.name.toLowerCase());
+    const value = (optionValues[at] ?? '').trim().toLowerCase();
+    if (!rule.marketOption.keep.some((k) => k.toLowerCase() === value)) return false;
+  }
+  if (rule.sizeOption) {
+    const at = lower.indexOf(rule.sizeOption.name.toLowerCase());
+    const m = PLAIN_ML.exec((optionValues[at] ?? '').trim());
+    if (!m || Number.parseFloat(m[1]!) < rule.sizeOption.minMl) return false;
+  }
+  return true;
 }
 
 /**
@@ -197,6 +252,11 @@ export interface ShopifyParseOptions {
    * number at all.
    */
   currency: string | null;
+  /**
+   * Which variants are the shop's ordinary UK retail bottles, for a shop whose
+   * variants are not all that. Unset reads every variant, as before.
+   */
+  variantRule?: ShopifyVariantRule;
 }
 
 /**
@@ -228,6 +288,9 @@ export function parseShopifyProducts(body: string, options: ShopifyParseOptions)
     const title = str(product['title']);
     const handle = str(product['handle']);
     if (!title || !handle) continue;
+    const rule = options.variantRule;
+    if (rule && !productPassesVariantRule(product, rule)) continue;
+    const optionNames = rule ? optionNamesOf(product) : [];
 
     const productId = str(product['id']);
     const vendor = str(product['vendor']);
@@ -238,6 +301,7 @@ export function parseShopifyProducts(body: string, options: ShopifyParseOptions)
 
     for (const variant of variantsOf(product)) {
       if (variant.price === null) continue;
+      if (rule && !variantPassesVariantRule(optionNames, variant.optionValues, rule)) continue;
 
       // A house that leaves SKU blank still needs a stable key, and the
       // variant title is what distinguishes 50ml from 100ml on the same handle.
@@ -247,8 +311,23 @@ export function parseShopifyProducts(body: string, options: ShopifyParseOptions)
 
       // The size lives on the variant ("100ml"), the name on the product, and
       // the catalogue's fragrance test needs to see both in one string.
-      const variantTitle =
-        variant.title && !/^default/i.test(variant.title)
+      // Under a rule the market option is not part of the name: "50 ml /
+      // Extrait de Parfum / ol" reads "50 ml Extrait de Parfum", so the
+      // shop's own code for the price list never reaches a shopper.
+      const ruleTitle = rule
+        ? optionNames
+            .map((name, i) =>
+              rule.marketOption && name.toLowerCase() === rule.marketOption.name.toLowerCase()
+                ? null
+                : (variant.optionValues[i] ?? null),
+            )
+            .filter((v): v is string => v !== null)
+            .map((v) => v.replace(/\s+/g, ' ').trim())
+            .join(' ')
+        : null;
+      const variantTitle = ruleTitle
+        ? `${title} ${ruleTitle}`
+        : variant.title && !/^default/i.test(variant.title)
           ? `${title} ${variant.title}`
           : title;
 
