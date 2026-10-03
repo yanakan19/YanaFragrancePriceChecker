@@ -1175,7 +1175,19 @@
       "lastTriedAt": "2026-10-03T11:16:28.911Z",
       "lastSucceededAt": "2026-10-03T11:16:28.911Z",
       "ruledOut": null
+    },
+    "paco-perfumerias-uk::sitemap-discovery": {
+      "strategyId": "sitemap-discovery",
+      "retailerId": "paco-perfumerias-uk",
+      "attempts": 1,
+      "successes": 1,
+      "listingsFound": 8,
+      "lastStatus": 200,
+      "lastError": null,
+      "lastTriedAt": "2026-10-03T11:22:18.579Z",
+      "lastSucceededAt": "2026-10-03T11:22:18.579Z",
+      "ruledOut": null
     }
   },
-  "updatedAt": "2026-10-03T11:16:28.911Z"
+  "updatedAt": "2026-10-03T11:22:18.579Z"
 }
