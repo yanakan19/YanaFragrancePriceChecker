@@ -266,7 +266,11 @@ export const RETAILERS: readonly Retailer[] = [
     shipping: {
       standardGbp: 2.99,
       freeOverGbp: 25,
-      estimatedDays: [2, 4],
+      // Was [2, 4], unsourced. The same page's Royal Mail 48 Tracked
+      // paragraph (the standard and free tier) says "Delivery takes 2 days,
+      // including Saturdays." (justmylook.com/policies/shipping-policy, read
+      // 2026-10-03).
+      estimatedDays: [2, 2],
       // Both figures were held from 2026-08-01 with no recorded source. The
       // shop's own shipping policy has since been read by a machine that can
       // reach it and states them in one sentence, so they are the same two
@@ -274,7 +278,8 @@ export const RETAILERS: readonly Retailer[] = [
       // GitHub runner, committed in cbf2294 as
       // data/shipping-discovery-report.json, checkedAt 2026-08-15T08:34:07Z.
       // Page still reachable on 2026-08-16, run 31950919159 job 95174128232.
-      verifiedAt: '2026-10-01',
+      // Re-read 2026-10-03: the quoted sentence is unchanged.
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
       source: {
         url: 'https://www.justmylook.com/policies/shipping-policy',
@@ -287,8 +292,8 @@ export const RETAILERS: readonly Retailer[] = [
         'page says both separately — "Justmylook offers free delivery on all UK orders over ' +
         '£25 via Royal Mail 48 Tracked." and "We offer free next-day delivery on all orders ' +
         'over £80 via Royal Mail 24 Tracked." The £80 tier is an upgrade, not the standard ' +
-        'rule, and is not modelled. The 2-4 day window is unchanged and still unsourced: only ' +
-        'the cost and the threshold were read off the page.',
+        'rule, and is not modelled. The delivery window was read off the same page on ' +
+        '2026-10-03: "Delivery takes 2 days, including Saturdays."',
     },
     catalogue: {
       searchUrlTemplate: 'https://www.justmylook.com/search?q={q}',
@@ -2833,16 +2838,15 @@ export const RETAILERS: readonly Retailer[] = [
     storefrontIsPriceAuthority: true,
     currency: 'GBP',
     shipping: {
-      // Not established. Their Awin programme terms describe commission and
-      // cookie length and say nothing about delivery, and their delivery page
-      // has not been read. Null rather than a guess — see the field's doc
-      // comment for why zero would have been actively wrong.
+      // Both read off the shop's own shipping policy (source below). Re-read
+      // 2026-10-03: "Standard Delivery (0–10kg): £3.99 / 2–5 working days"
+      // and "Free Delivery : Available on all UK orders over £60".
       standardGbp: 3.99,
       freeOverGbp: 60,
-      // Placeholder, and unreachable while this retailer is disabled. It is
-      // not a claim about their delivery speed.
-      estimatedDays: [2, 4],
-      verifiedAt: '2026-10-01',
+      // Was [2, 4], a placeholder from before the page was read. The quoted
+      // sentence itself says 2–5 working days.
+      estimatedDays: [2, 5],
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
       source: {
         url: 'https://mybeauty.boutique/policies/shipping-policy',
@@ -3264,9 +3268,12 @@ export const RETAILERS: readonly Retailer[] = [
       // Confirmed: "Free for all orders over £28" on the same page, matching
       // the figure already held from their Awin programme terms.
       freeOverGbp: 28,
-      // Indicative only, and not a delivery-speed claim.
-      estimatedDays: [2, 4],
-      verifiedAt: '2026-10-01',
+      // Was [2, 4], indicative only. The same page names the standard service
+      // with its own window: "UK Standard Tracked Delivery (3-5 business
+      // days)" (gloriousbeauty.co.uk/policies/shipping-policy, read
+      // 2026-10-03).
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
       // "up to £27.99" means an order of exactly £28.00 ships free, which is
       // the >= comparison resolveDelivery applies.
@@ -3386,8 +3393,12 @@ export const RETAILERS: readonly Retailer[] = [
     shipping: {
       standardGbp: 4.99,
       freeOverGbp: 100,
-      estimatedDays: [2, 5],
-      verifiedAt: '2026-10-01',
+      // Was [2, 5], unsourced. The same page: "All orders are processed
+      // within 1–2 business days ." and "Delivery timelines may vary depending
+      // on your location, but most orders arrive within 3–7 business days ."
+      // (uk.shopfrenchavenue.com/policies/shipping-policy, read 2026-10-03).
+      estimatedDays: [3, 7],
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
       source: {
         url: 'https://uk.shopfrenchavenue.com/policies/shipping-policy',
@@ -3869,8 +3880,10 @@ export const RETAILERS: readonly Retailer[] = [
     shipping: {
       standardGbp: 3.99,
       freeOverGbp: 30,
-      estimatedDays: [2, 4],
-      verifiedAt: '2026-10-01',
+      // Was [2, 4], against the quoted sentence's own "3–5 working days".
+      // Re-read 2026-10-03, unchanged.
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
       source: {
         url: 'https://oudarabian.co.uk/pages/shipping-policy',
@@ -4262,12 +4275,15 @@ export const RETAILERS: readonly Retailer[] = [
     shipping: {
       standardGbp: 2.95,
       freeOverGbp: 50,
-      // Not a typical window. Their terms state only that goods arrive "within
-      // 10 days of your order", which is the contractual maximum they bind
-      // themselves to, so the upper bound is theirs and the lower is a guess
-      // held deliberately wide rather than flattering.
-      estimatedDays: [2, 10],
-      verifiedAt: '2026-10-01',
+      // Was [2, 10]: the 10 from their terms of sale, the 2 a guess. The
+      // shipping policy now gives the standard service its own window, under
+      // "Great Britain & Northern Ireland": "Standard Delivery (UK Mainland) :
+      // £2.95 Courier : Royal Mail Tracked 48 Estimated Delivery Time : 5-7
+      // business days" (read 2026-10-03; the request was redirected to
+      // us.thebeautystore.com/policies/shipping-policy, whose UK section
+      // carries the same £2.95 line quoted below).
+      estimatedDays: [5, 7],
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
       source: {
         url: 'https://www.thebeautystore.com/policies/shipping-policy',
@@ -5120,17 +5136,22 @@ export const RETAILERS: readonly Retailer[] = [
         scheme: 'Debenhams UNLIMITED',
         description: 'Paid subscription scheme advertised alongside the standard rate as giving free delivery.',
       },
-      verifiedAt: '2026-08-19',
+      // Re-read 2026-10-03: the same table row, unchanged, and still no
+      // non-member threshold for UK Standard Delivery.
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
       source: {
         url: 'https://www.debenhams.com/pages/informational/delivery',
         quote: 'UK Standard Delivery ~ £3.99 per order ~ ⭐ FREE with Debenhams UNLIMITED',
-        readAt: '2026-08-19',
+        readAt: '2026-10-03',
       },
       notes:
         'Read directly off the shop\'s own delivery page by shipping:discover, not searched for. ' +
         'No non-member spend threshold for free delivery is stated on the page, so freeOverGbp ' +
-        'stays null rather than assumed.',
+        'stays null rather than assumed. The same table also lists a cheaper, slower option, ' +
+        '"UK Supersaver Delivery ~ £2.99 per order. 99p Over £30" (read 2026-10-03); it is not ' +
+        'the standard service and is not modelled. The page states no delivery window, so ' +
+        'estimatedDays is not sourced.',
     },
     catalogue: null,
     affiliate: { ...awinRequested() },
@@ -5926,10 +5947,12 @@ export const RETAILERS: readonly Retailer[] = [
       // that human act, on the sentence it quoted.
       standardGbp: 2.95,
       freeOverGbp: 50,
-      // Unchanged and unsourced — the page read here states costs, not
-      // timings.
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-10-01',
+      // Was [3, 5], "unchanged and unsourced". The same page does state the
+      // timing, in the Standard Delivery row of its UK table beneath "£2.95"
+      // and "Orders over £50 : FREE": "Tracked Delivery (1 - 3 days)"
+      // (perfume-click.co.uk/Delivery-Information/, read 2026-10-03).
+      estimatedDays: [1, 3],
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
       source: {
         url: 'https://www.perfume-click.co.uk/Delivery-Information/',
@@ -6734,8 +6757,11 @@ export const RETAILERS: readonly Retailer[] = [
       // With no standard rate it changes no delivered price: resolveDelivery
       // returns a null cost whenever standardGbp is null.
       freeOverGbp: 90,
-      estimatedDays: [2, 5],
-      verifiedAt: '2026-10-01',
+      // Was [2, 5], unsourced. The same page: "We ship our items using Royal
+      // Mail Tracked 48, and will require a signature upon arrival. All
+      // orders are tracked and delivered within two days." (read 2026-10-03).
+      estimatedDays: [1, 2],
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
@@ -8261,19 +8287,27 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: null,
       freeOverGbp: null,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-09-22',
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
       standardRateNotPublished: true,
+      // The quote used to be a sign-up promotion ("£5 off your first 3 fast
+      // orders with code: 5firstnow *min spend £30"), which states no delivery
+      // term. Re-read 2026-10-03 (robots.txt read first; it disallows only
+      // /sso-login, /previewer/*, /api/ and /events/): the page prices a
+      // Delivery Pass, not a per-order charge, and its trolley reads
+      // "Minimum: £25.00".
       source: {
         url: 'https://groceries.morrisons.com/content/delivery-pass-content-page',
-        quote: '£5 off your first 3 fast orders with code: 5firstnow *min spend £30',
-        readAt: '2026-09-22',
+        quote:
+          "Spend £25 and enjoy free Home Delivery with no small order charge on any slot covered by your pass, including next-day at no extra cost!*",
+        readAt: '2026-10-03',
       },
       notes:
-        'Nothing here has been read from groceries.morrisons.com itself: not its delivery ' +
-        'terms, not its robots.txt, not its checkout currency. Grocery delivery is slot-booked ' +
-        'rather than a flat per-order rate, so no figure is entered. No affiliate programme has ' +
-        'been researched.',
+        'Grocery delivery is slot-booked rather than a flat per-order rate, and the delivery ' +
+        'page read on 2026-10-03 prices only the Delivery Pass (from £5), so no standard figure ' +
+        'is entered. The same page shows a £25.00 minimum order, so a single bottle under £25 ' +
+        'cannot be ordered online on its own. The delivery window is not sourced. No affiliate ' +
+        'programme has been researched.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
