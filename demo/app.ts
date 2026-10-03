@@ -2450,7 +2450,7 @@ function lowestPriceBox(best: PresentedOffer, verdict: CheapestVerdict): string 
     return `<div class="price-box price-box--best">
         <p class="price-box-label t-eyebrow">Lowest item price</p>
         <p class="price-box-amount t-price t-price--hero">${formatGbp(best.itemPriceGbp)}</p>
-        <p class="price-box-from t-caption">from ${esc(best.retailer.name)} &mdash; delivery not stated, so this is not a delivered price</p>
+        <p class="price-box-from t-caption">from ${esc(best.retailer.name)}. Delivery not stated, so this is not a delivered price</p>
       </div>`;
   }
   return `<div class="price-box price-box--best">

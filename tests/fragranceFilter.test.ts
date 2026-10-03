@@ -797,6 +797,14 @@ describe('budget shops: non-perfumes and sets that were showing as bottles', () 
     expect(isFragrance(listing('beautybase', 'Burberry Goddess Eau De Parfum 50ml Refillable Spray', 89))).toBe(true);
   });
 
+  it('drops empty bottles, refill gadgets and multi piece sets', () => {
+    expect(isFragrance(listing('al-haramain', 'Al Haramain Plain Empty Perfume Bottle 12 Pieces of 50ml', 15))).toBe(false);
+    expect(isFragrance(listing('beautybase', 'Travalo Walzer Rechargeable Perfume Red Bottle 5ml Spray', 15.9))).toBe(false);
+    expect(isFragrance(listing('fragrance-click', 'Lancome Idole 100ml Eau de Parfum 3 Pcs Set', 90.95))).toBe(false);
+    expect(isFragrance(listing('fragrance-click', 'Dolce & Gabbana Q 100ml Eau de Parfum 3Pcs Set', 80))).toBe(false);
+    expect(isFragrance(listing('perfume-click', 'Missguided Babe Night Eau de Parfum Atomiser 10ml Spray', 11.7))).toBe(true);
+  });
+
   it('drops colognes for dogs, by title or by the shop’s own description', () => {
     expect(isFragrance(listing('bm-stores', 'Pet Care Cologne 100ml - Dylan', 2.5, 'A deodorising spray for your dog - B&M Stores.'))).toBe(false);
     expect(
