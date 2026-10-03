@@ -3506,12 +3506,19 @@ export const RETAILERS: readonly Retailer[] = [
       // So this is a shop that publishes no mainland standard rate, not one
       // nobody has looked at. (The mainland rate is shown only at checkout,
       // and /cart/shipping_rates.json is disallowed by robots.txt.)
-      standardGbp: null,
-      freeOverGbp: null,
+      // The owner's checkout on 2026-10-03 settled it: the cheapest item
+      // they could find (Club De Nuit Intense Man Body Spray 200ml, £12.99)
+      // showed "Royal Mail - 2-3 Working Days FREE", total GBP £12.99. So UK
+      // standard delivery is free on every order.
+      standardGbp: 0,
+      freeOverGbp: 0,
       estimatedDays: [2, 3],
-      verifiedAt: '2026-10-01',
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
-      standardRateNotPublished: true,
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote: 'Royal Mail - 2-3 Working Days FREE (a £12.99 basket, total GBP £12.99)',
+      },
       source: {
         url: 'https://armaf.uk/policies/shipping-policy',
         quote:
@@ -3565,16 +3572,24 @@ export const RETAILERS: readonly Retailer[] = [
     shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
+      // The owner's checkout on 2026-10-03: a £16.00 basket offered "Royal
+      // Mail 48 Tracked £4.95" (cheapest), Royal Mail 24 Tracked £5.99 and
+      // Parcelforce £6.75; a £160.00 basket offered "Free UK Delivery FREE".
+      standardGbp: 4.95,
       freeOverGbp: 50,
       estimatedDays: [2, 5],
-      verifiedAt: '2026-10-01',
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
-      standardRateNotPublished: true,
       source: {
         url: 'https://alharamainperfumes.co.uk/en-us/pages/delivery-information',
         quote: 'FREE UK Delivery on orders over £50 (Royal Mail Standard Service)',
         readAt: '2026-10-01',
+      },
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote:
+          'At £16.00: Royal Mail 48 Tracked £4.95, Royal Mail 24 Tracked £5.99, Expresspack ' +
+          'Parcelforce £6.75. At £160.00: Free UK Delivery FREE',
       },
       notes:
         'freeOverGbp is their own stated figure (free UK delivery over £50, half-price over ' +
@@ -3826,12 +3841,17 @@ export const RETAILERS: readonly Retailer[] = [
       // calculated and displayed at checkout before payment is completed" and
       // may vary by method, order value and promotions — no rate. The site-wide
       // banner on the same page states the threshold, quoted below.
-      standardGbp: null,
+      // The owner's checkout on 2026-10-03: "Standard £2.99" at £39.99 and
+      // "Standard FREE" at £79.98, matching the banner's £50 threshold.
+      standardGbp: 2.99,
       freeOverGbp: 50,
       estimatedDays: [2, 4],
-      verifiedAt: '2026-10-01',
+      verifiedAt: '2026-10-03',
       confidence: 'confirmed',
-      standardRateNotPublished: true,
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote: 'Standard £2.99 at £39.99; Standard FREE at £79.98',
+      },
       source: {
         url: 'https://ibraquk.com/policies/shipping-policy',
         quote: 'FREE SHIPPING ON ORDERS OVER £50',
