@@ -678,6 +678,13 @@ Add a 20px square mark left of `.shop` in `offerRow`, square assets only, same
 nothing at all — not a monogram, not a gap — for those without, since at 20px
 beside a 15px name an initials tile is noise.
 
+**Superseded 2026-10-03 by the owner:** "I hate the fact that on a perfume
+listing some retailers have logos and some don't." Every offer row now shows
+a 20px mark: the shop's square logo (its `logo` when square, else a
+`squareLogo` recorded beside a wordmark), or an initials tile on the
+monogram tint in the same slot. A logo that fails to load swaps to that
+initials tile instead of removing itself. Pinned by tests/offerMark.test.ts.
+
 ### What must not be done
 
 - **No API key, token or client ID in this repo or in the shipped page.**

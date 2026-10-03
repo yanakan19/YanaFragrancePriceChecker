@@ -49,7 +49,7 @@ import { DEMO_FRAGRANCES } from '../demo/data.js';
 import { CRAWLED } from '../demo/catalogue.generated.js';
 import { RETAILERS, getRetailer } from '../src/config/retailers.js';
 import { dealCandidateForOffer } from '../src/services/dealCandidates.js';
-import { isStaleFetch, presentOffer } from '../src/services/priceService.js';
+import { presentOffer } from '../src/services/priceService.js';
 import { shownPrice } from '../demo/msrpComparison.js';
 import type { StockState } from '../src/types/offer.js';
 
@@ -208,21 +208,18 @@ const SINGLE_BRAND_ONLY_IDS = new Set(
  * bolted on beside it.
  */
 // One "now" for the whole run, captured here, rather than one Date.now() per
-// offer drifting across the loop below — the staleness test on every offer
-// should be asking the same question of all of them.
+// offer drifting across the loop below: every offer's presentation (its age
+// and delivery) should be worked out against the same moment.
 const now = new Date();
 
 const deals: RawDeal[] = DEMO_FRAGRANCES.flatMap((fragrance) => {
   const candidates: RawDeal[] = [];
   for (const o of CRAWLED[fragrance.id] ?? []) {
     if (!BUYABLE.has(o.stock) || SINGLE_BRAND_ONLY_IDS.has(o.retailerId)) continue;
-    // A saving nobody has reconfirmed in over STALE_OFFER_DAYS is not today's
-    // deal — see that constant in src/services/priceService.ts. Skipped
-    // outright rather than falling back the way bestOffer does: Deals is
-    // already a curated subset, not the one place a reader can see this
-    // fragrance at all, so there is no "showing nothing" harm in leaving a
-    // stale-only fragrance off the page entirely.
-    if (isStaleFetch(o.fetchedAt, now)) continue;
+    // The age of a listed offer no longer keeps it out (owner's decision,
+    // 2026-10-03): the product page lists every offer by price and tags the
+    // cheapest whatever its age, and a deal agrees with that row. An offer too
+    // old to trust is not in the catalogue at all (HIDE_OFFER_AFTER_DAYS).
 
     // The same presentation the product page gives this offer, so the deal
     // states the figure its row prints. An offer the page would not list (an

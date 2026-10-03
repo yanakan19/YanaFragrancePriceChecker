@@ -1,13 +1,14 @@
 import { describe, expect, it } from 'vitest';
-import { offerGroups, offersInPageOrder } from '../demo/offerGroups.js';
+import { availabilityHeading, offerGroups, offersInPageOrder, rowShowsAge } from '../demo/offerGroups.js';
 import { bestOffer, buildComparison } from '../src/services/priceService.js';
 import type { RawOffer } from '../src/types/offer.js';
 
 /**
- * Owner's decision, 2026-10-03: on 4 of the 5 most stocked products a cheaper
+ * Owner's decisions, 2026-10-03: on 4 of the 5 most stocked products a cheaper
  * 10 to 21 day old Perfumeo or Justmylook row sat ABOVE the row tagged
- * Cheapest. Current offers come first; older ones go below them under "Older
- * prices"; nothing older ever sits above the Cheapest row.
+ * Cheapest. The fix the owner settled on: every listed offer in the one list,
+ * sorted by delivered price, each row stating its age, and the Cheapest tag
+ * on the cheapest listed buyable row whatever its age.
  */
 const now = new Date('2026-10-03T09:00:00Z');
 const daysAgo = (d: number) => new Date(now.getTime() - d * 86_400_000).toISOString();
@@ -37,20 +38,24 @@ const offers = [
 describe('offerGroups', () => {
   const rows = buildComparison(offers, { now });
   const best = bestOffer(rows);
-  const groups = offerGroups(rows, best);
+  const groups = offerGroups(rows);
   const order = offersInPageOrder(groups);
 
-  it('puts offers last checked over STALE_OFFER_DAYS ago in their own group', () => {
-    expect(groups.older.map((r) => r.retailer.id).sort()).toEqual(['justmylook', 'perfumeo']);
-    expect([...groups.delivered, ...groups.plusDelivery].every((r) => !r.stale)).toBe(true);
+  it('lists older offers in the one list, by delivered price, with no group of their own', () => {
+    expect(Object.keys(groups).sort()).toEqual(['delivered', 'gone', 'plusDelivery']);
+    const buyable = [...groups.delivered, ...groups.plusDelivery];
+    expect(buyable.map((r) => r.retailer.id)).toContain('perfumeo');
+    expect(buyable.map((r) => r.retailer.id)).toContain('justmylook');
+    const prices = groups.delivered.map((r) => r.deliveredPriceGbp!);
+    expect(prices).toEqual([...prices].sort((a, b) => a - b));
     expect(groups.gone.map((r) => r.retailer.id)).toEqual(['manchester-ouds']);
   });
 
-  it('never lists an older or sold out row above the Cheapest row', () => {
-    expect(best?.retailer.id).toBe('perfume-click');
-    const bestAt = order.indexOf(best!);
-    expect(order.slice(0, bestAt).every((r) => !r.stale && r.isPurchasable)).toBe(true);
-    expect(order[0]).toBe(best);
+  it('tags the cheapest listed buyable row, whatever its age, so nothing cheaper sits above it', () => {
+    expect(best).toBe(order[0]);
+    expect(best!.stale).toBe(true);
+    const bestTotal = best!.deliveredPriceGbp!;
+    expect(order.filter((r) => r.isPurchasable && r.deliveredPriceGbp !== null).every((r) => r.deliveredPriceGbp! >= bestTotal)).toBe(true);
   });
 
   it('keeps every offer, each exactly once', () => {
@@ -58,11 +63,19 @@ describe('offerGroups', () => {
     expect(new Set(order).size).toBe(rows.length);
   });
 
-  it('leads the older group with the Cheapest row when every buyable offer is old', () => {
-    const oldOnly = buildComparison([offer('perfumeo', 24.99, 16), offer('justmylook', 23.99, 12, 'unknown'), offer('allbeauty', 26, 14)], { now });
-    const oldBest = bestOffer(oldOnly);
-    const g = offerGroups(oldOnly, oldBest);
-    expect(g.delivered).toHaveLength(0);
-    expect(g.older[0]).toBe(oldBest);
+  it('counts every listed buyable row in the Available at heading', () => {
+    expect(availabilityHeading(groups)).toBe('Available at (5 Shops)');
+    const one = buildComparison([offer('perfumeo', 24.99, 16)], { now });
+    expect(availabilityHeading(offerGroups(one))).toBe('Available at (1 Shop)');
+    const soldOut = buildComparison([offer('perfumeo', 24.99, 1, 'outOfStock')], { now });
+    expect(availabilityHeading(offerGroups(soldOut))).toBe('');
+  });
+
+  it('has every row older than about a day state its age', () => {
+    const byId = new Map(rows.map((r) => [r.retailer.id, r]));
+    expect(rowShowsAge(byId.get('perfumeo')!)).toBe(true);
+    expect(rowShowsAge(byId.get('perfume-click')!)).toBe(false);
+    expect(rowShowsAge({ ageSeconds: 2 * 86_400 })).toBe(true);
+    expect(rowShowsAge({ ageSeconds: 3_600 })).toBe(false);
   });
 });

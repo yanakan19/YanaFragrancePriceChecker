@@ -48,10 +48,10 @@ import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { reconcile } from '../src/catalogue/reconcile.js';
-import { crawlViaSitemap, DEFAULT_CRAWL_MS, type SitemapCrawlResult } from '../src/catalogue/sitemapCrawl.js';
+import { crawlViaSitemap, DEFAULT_CRAWL_MS, ROUTE_HEADERS, type SitemapCrawlResult } from '../src/catalogue/sitemapCrawl.js';
 import { crawlViaShopifyProducts } from '../src/catalogue/shopifyProductsCrawl.js';
 import { quarantinePrices } from '../src/catalogue/priceQuarantine.js';
-import { BROWSER_HEADERS, BOT_HEADERS, type Http } from '../src/catalogue/attempt.js';
+import { BROWSER_HEADERS, BOT_HEADERS, type Http, type HttpResponse } from '../src/catalogue/attempt.js';
 import { isAllowed, parseRobots } from '../src/catalogue/robots.js';
 import {
   probeRobots, robotsHeaderVariants, robotsCandidateUrls, robotsTextFromRenderedHtml,
@@ -82,7 +82,17 @@ import { renderTargets } from '../src/catalogue/renderTargets.js';
 import { capturePages, type CapturePage } from '../src/catalogue/renderCapture.js';
 import {
   parseCursor, sweepOrder, withAttempt, withActorRender, lastActorRender, staleCursorIds,
+  discoveryOffsetFor, withDiscoveryOffset,
 } from '../src/catalogue/harvestCursor.js';
+import { SHOPIFY_MAX_PAGE } from '../src/catalogue/shopifyProductsCrawl.js';
+import {
+  refreshFromItems, itemsFromShopifyListings, looksLikeShopify, crawlWooStoreProducts,
+  normaliseProductUrl, type CatalogueRefreshResult, type RefreshPlatform,
+} from '../src/catalogue/catalogueRefresh.js';
+import { shopFreshness } from '../src/catalogue/freshness.js';
+import type { ReportedFreshness } from '../src/catalogue/harvestReport.js';
+import type { RawListing, StoredListing } from '../src/catalogue/types.js';
+import type { Retailer } from '../src/types/retailer.js';
 
 /** A file that may not exist yet, as text. Absence is not an error here. */
 function readFileIfPresent(path: string): string | null {
@@ -155,6 +165,43 @@ const shopMinutes = arg('shop-minutes') ? Number.parseFloat(arg('shop-minutes')!
 const refreshShare = arg('refresh-share') ? Number.parseFloat(arg('refresh-share')!) : null;
 
 /**
+ * How old a stored price may get before this run re-reads it, in hours.
+ *
+ * ── Why a due list, and not a share of a budget ─────────────────────────────
+ * `refreshShare` re-read a fixed slice of each shop every run: 28 listings on
+ * the scheduled --max=70. Measured from data/catalogue on 2026-10-03, that
+ * left 1,579 of Justmylook's 2,020 listings, 1,123 of Perfumeo's 1,729 and
+ * 1,703 of Beautybase's 3,223 between 10 and 21 days old, and it is how a
+ * product page came to show "Perfumeo £28.99, 17d ago" on a shop the
+ * schedule asks several times a day. A slice of a budget can never keep up
+ * with a catalogue bigger than the budget times the runs per day.
+ *
+ * So every stored, shown listing older than this is re-read, oldest first,
+ * bounded only by the shop's time. Listings the shop's own catalogue endpoint
+ * re-priced first (see src/catalogue/catalogueRefresh.ts) are not asked for
+ * again. 12 hours against harvests that land roughly every five to seven
+ * hours means a listing is re-read about every other run, well inside a day.
+ * `refreshShare` still sizes discovery: the share of --max that is not
+ * refresh is what each run spends on products it has never seen.
+ */
+const refreshAfterHours = Number.parseFloat(arg('refresh-after-hours') ?? '12');
+
+/**
+ * How many shops are harvested at the same time. Each shop is still asked one
+ * request at a time with its own gap; this only stops one shop's gaps from
+ * holding up every other shop. Two shops on the same host never run together.
+ *
+ * ── Why ─────────────────────────────────────────────────────────────────────
+ * One shop after another, the 56 minute sweep reached 23 of 42 shops on
+ * 2026-10-03 06:48 and 20 of 35 on 2026-10-02 20:53, each stopping on its
+ * deadline with the rest unasked. Almost all of that time is spent waiting
+ * out each shop's own politeness gap, not using the network or the CPU
+ * (parsing a 2MB product page takes about a millisecond), so it overlaps for
+ * free across different shops. Default 1 keeps a hand run sequential.
+ */
+const concurrency = Math.max(1, Number.parseInt(arg('concurrency') ?? '1', 10) || 1);
+
+/**
  * Wall clock for the whole sweep, after which the harvest stops itself.
  *
  * ── Why the process has to end itself ───────────────────────────────────────
@@ -209,6 +256,10 @@ if (shopMinutes !== null && !(shopMinutes > 0)) {
 }
 if (refreshShare !== null && !(refreshShare >= 0 && refreshShare <= 1)) {
   console.error(`--refresh-share must be between 0 and 1, got "${arg('refresh-share')}"`);
+  process.exit(1);
+}
+if (!(refreshAfterHours > 0)) {
+  console.error(`--refresh-after-hours must be a positive number, got "${arg('refresh-after-hours')}"`);
   process.exit(1);
 }
 
@@ -267,7 +318,24 @@ const useApifyActor = allowMetered && actorConfig !== null && budgetAllowsMetere
 // for the case local turns out not to cover. Whether a shop refuses this
 // runner's datacenter IP is per shop and not yet measured: it cannot be, from
 // a sandbox whose egress proxy refuses those domains outright. CI settles it.
-const localRenderer = noLocalRender ? null : localBrowserRenderer({ gapMs: 1_000 });
+// ── One render at a time, whatever the harvest concurrency ─────────────────
+// Shops are harvested side by side (see --concurrency), but each renderer
+// holds one browser and one run-wide page budget that were written for one
+// caller at a time. Every render call queues behind the previous one, so the
+// budget arithmetic and the single Chromium behave exactly as they did when
+// shops were asked strictly in turn.
+let renderChain: Promise<unknown> = Promise.resolve();
+function underRenderLock<T>(fn: () => Promise<T>): Promise<T> {
+  const run = renderChain.then(fn, fn);
+  renderChain = run.catch(() => undefined);
+  return run;
+}
+function serialisedRenderer<T extends { render: (urls: string[]) => Promise<Map<string, HttpResponse>> }>(r: T): T {
+  return { ...r, render: (urls: string[]) => underRenderLock(() => r.render(urls)) };
+}
+
+const localRendererRaw = noLocalRender ? null : localBrowserRenderer({ gapMs: 1_000 });
+const localRenderer = localRendererRaw ? serialisedRenderer(localRendererRaw) : null;
 // A standing actor-renderer instance, built whenever the actor tier is
 // available this run (APIFY_TOKEN set, --allow-metered passed, budget not
 // exhausted) — independent of whether the local renderer is also available.
@@ -278,7 +346,7 @@ const localRenderer = noLocalRender ? null : localBrowserRenderer({ gapMs: 1_000
 // local renderer was entirely OFF (`localRenderer ?? ...`), which is exactly
 // why reaching it for one shop meant --no-local-render — a run-wide switch —
 // moving every render-dependent shop onto the metered tier at once.
-const sharedActorRenderer = useApifyActor ? apifyActorRenderer(actorConfig!) : null;
+const sharedActorRenderer = useApifyActor ? serialisedRenderer(apifyActorRenderer(actorConfig!)) : null;
 const useActor = localRenderer !== null || sharedActorRenderer !== null;
 
 if (localRenderer) {
@@ -404,6 +472,17 @@ function recordAttempt(retailerId: string): void {
   }
 }
 
+/** Move a shop's discovery start on by what this run fetched. Same failure policy as recordAttempt. */
+function recordDiscovery(retailerId: string, fetched: number): void {
+  if (!(fetched > 0)) return;
+  cursor = withDiscoveryOffset(cursor, retailerId, discoveryOffsetFor(cursor, retailerId) + fetched);
+  try {
+    writeFileSync(cursorPath, `${JSON.stringify(cursor, null, 2)}\n`);
+  } catch {
+    // An ordering hint, like the rest of the cursor.
+  }
+}
+
 /**
  * Record that a shop actually spent a paid Apify actor render, and put it on
  * disk immediately.
@@ -456,8 +535,60 @@ if (shopMinutes !== null) console.log(`ceiling  ${shopMinutes} minutes each`);
 if (refreshShare !== null) {
   console.log(`refresh  ${Math.round(refreshShare * 100)}% of each budget re-prices listings already held`);
 }
+console.log(`due      every shown listing older than ${refreshAfterHours}h is re-read, oldest first`);
+console.log(`lanes    ${concurrency} shop(s) at a time, never two on the same host`);
 if (dryRun) console.log(`mode     dry run, nothing written`);
 console.log('');
+
+const sleepMs = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
+
+/**
+ * Re-price what a sitemap-route shop already holds from its own catalogue
+ * endpoint, when it has one. See src/catalogue/catalogueRefresh.ts for why
+ * and for the guard that sets a disagreeing feed aside. Detection is per run
+ * and costs one request for a shop that is neither platform; nothing here is
+ * configured per shop.
+ */
+async function refreshFromPlatform(
+  retailer: Retailer,
+  robots: ReturnType<typeof parseRobots>,
+  gapMs: number,
+  known: readonly StoredListing[],
+  deadlineAt: number,
+  onProgress: (fetched: number, found: number) => void,
+): Promise<{ platform: RefreshPlatform | null; refresh: CatalogueRefreshResult | null; requests: number; note: string | null }> {
+  // A shop on a pinned route is only ever asked as ourselves (see SitemapRoute
+  // in src/types/retailer.ts), and that holds for its catalogue feed too.
+  const headers = retailer.sitemapRoute ? ROUTE_HEADERS : BROWSER_HEADERS;
+  let requests = 1;
+  const shopify = await looksLikeShopify(retailer, http, robots, headers);
+  if (shopify === 'refused') return { platform: null, refresh: null, requests, note: null };
+  if (shopify === 'shopify') {
+    await sleepMs(gapMs);
+    const walk = await crawlViaShopifyProducts({
+      retailer, http, robots, headers, maxPages: SHOPIFY_MAX_PAGE, gapMs, onProgress, deadlineAt,
+    });
+    requests += walk.pagesFetched;
+    if (!walk.currency.isSterling) {
+      return { platform: 'shopify', refresh: null, requests, note: `products.json not established as sterling (${walk.currency.reason})` };
+    }
+    // Read through a UK market request because the origin quoted this runner
+    // something else: the feed is the GB list, the pages are the suspect.
+    const refresh = refreshFromItems(known, itemsFromShopifyListings(walk.listings), new Date(), {
+      trustOverPages: walk.market.label !== 'origin',
+    });
+    return { platform: 'shopify', refresh, requests, note: refresh.rejected };
+  }
+  await sleepMs(gapMs);
+  const woo = await crawlWooStoreProducts({ retailer, http, robots, headers, gapMs, deadlineAt, onProgress });
+  requests += woo.pagesFetched;
+  if (!woo.isWoo) return { platform: null, refresh: null, requests, note: null };
+  const refresh = refreshFromItems(known, woo.items, new Date());
+  return {
+    platform: 'woocommerce', refresh, requests,
+    note: refresh.rejected ?? (woo.errors.length ? woo.errors[0]! : null),
+  };
+}
 
 let totalListings = 0;
 let reached = 0;
@@ -477,21 +608,12 @@ const zeroThisRun: string[] = [];
  */
 const refusedThisRun: string[] = [];
 
-for (const retailer of shops) {
-  // ── The deadline, checked on a shop boundary ──────────────────────────────
-  // Before the shop rather than during it, because a shop is the unit that
-  // stores something: store.write() fires once, at the end of this iteration.
-  // Stopping here leaves the catalogue in a state the rebuild can read, which
-  // is exactly what the step cap could not do — see runMinutes' own comment
-  // for what run #330's orphaned process did instead.
-  if (runDeadlineAt !== null && runDeadlineAt - Date.now() < MIN_SHOP_BUDGET_MS) {
-    stoppedForTime = true;
-    break;
-  }
+async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
   // Recorded before the shop is asked, not after. A shop that hangs and takes
   // the run down with it has still been attempted, and must not sort to the
   // front of the next run and hang that one too.
   if (!dryRun) recordAttempt(retailer.id);
+  const shopStartedAt = Date.now();
 
   // Not attempt.ts's `loadRobots`, which only ever asks `www.{domain}`. Two
   // enabled shops in this registry carry a subdomain in `domain`
@@ -503,7 +625,18 @@ for (const retailer of shops) {
   // included: no second, browser-shaped request for the file. See SitemapRoute
   // in src/types/retailer.ts.
   const robotsFallback = retailer.sitemapRoute ? [] : ROBOTS_FALLBACK_HEADERS;
-  const robotsProbe = await probeRobots(retailer, http, BOT_HEADERS, robotsFallback);
+  let robotsProbe = await probeRobots(retailer, http, BOT_HEADERS, robotsFallback);
+  // ── A robots.txt that never answered is asked once more, later ────────────
+  // Every attempt at HTTP 0 means no connection, not a refusal: Perfumeo's
+  // host timed out all four connects from the runner on 2026-10-03 14:58
+  // (run #577) and answered normally from elsewhere the same hour, and that
+  // one minute cost its whole catalogue a run. One more try after 30s, at the
+  // slow shop timeout. A refusal (any real HTTP status) is never re-asked.
+  if (robotsProbe.rules.unavailable && robotsProbe.attempts.length > 0 && robotsProbe.attempts.every((a) => a.status === 0)) {
+    console.log(`      ${retailer.name}: robots.txt did not connect; asking once more in 30s`);
+    await sleepMs(30_000);
+    robotsProbe = await probeRobots(retailer, createHttp({ timeoutMs: SLOW_SHOP_TIMEOUT_MS }), BOT_HEADERS, robotsFallback);
+  }
   const robots = robotsProbe.rules;
   // An unreachable robots.txt stops this shop dead — isAllowed treats it as
   // everything disallowed, which is the right call and is why the run has to
@@ -566,20 +699,72 @@ for (const retailer of shops) {
     runDeadlineAt === null
       ? configuredShopMs
       : Math.min(configuredShopMs, runDeadlineAt - Date.now());
+  const shopDeadlineAt = shopStartedAt + shopMs;
+
+  // ── Re-pricing what we hold: the shop's own feed first, then due pages ────
+  // See refreshAfterHours above and src/catalogue/catalogueRefresh.ts. Only
+  // for a shop on the sitemap route with live listings: a flagged Shopify
+  // storefront is read whole below, and a fixture snapshot has nothing real
+  // to re-price.
+  const priorLive: StoredListing[] = prior.source === 'live' ? prior.listings : [];
+  let feedListings: RawListing[] = [];
+  let feedPlatform: RefreshPlatform | null = null;
+  let feedNote: string | null = null;
+  let refreshUrls: string[] = [];
+  if (!retailer.shopifyStorefront && priorLive.length > 0 && !robots.unavailable) {
+    const feed = await refreshFromPlatform(retailer, robots, gapMs, priorLive, shopDeadlineAt, heartbeat);
+    feedPlatform = feed.platform;
+    feedNote = feed.note;
+    feedListings = feed.refresh?.listings ?? [];
+    const refreshedSkus = feed.refresh?.refreshedSkus ?? new Set<string>();
+    if (feedPlatform) {
+      console.log(
+        `      ${retailer.name}: ${feedPlatform} catalogue re-priced ${feedListings.length} of ` +
+          `${priorLive.filter((l) => l.status === 'active').length} stored listings in ${feed.requests} request(s)` +
+          (feedNote ? ` (${feedNote})` : ''),
+      );
+    }
+    // The next request to this shop is the sitemap walk's first; keep the gap.
+    if (feed.requests > 0) await sleepMs(gapMs);
+    const dueBefore = new Date(Date.now() - refreshAfterHours * 3_600_000).toISOString();
+    refreshUrls = [
+      ...new Set(
+        priorLive
+          .filter(
+            (l) =>
+              l.status === 'active' && l.priceGbp !== null && !refreshedSkus.has(l.retailerSku) &&
+              l.lastSeenAt < dueBefore,
+          )
+          .sort((a, b) => a.lastSeenAt.localeCompare(b.lastSeenAt))
+          .map((l) => l.url),
+      ),
+    ];
+  }
+
   const sweep = {
     // Passed unconditionally now. It used to be omitted when --shop-minutes
     // was absent, leaving crawlViaSitemap's own default in place; that default
     // is now imported and taken as one half of a min(), so the value passed is
     // the same number on an ordinary local run and the remaining run budget on
-    // the last shop of a scheduled one.
-    maxDurationMs: shopMs,
-    ...(refreshShare !== null ? { refreshShare } : {}),
+    // the last shop of a scheduled one. Whatever the feed refresh above used
+    // comes off it.
+    maxDurationMs: Math.max(0, shopDeadlineAt - Date.now()),
+    // Due listings are re-read on top of the budget, so the budget itself is
+    // only discovery: the share of --max that refreshShare does not reserve.
+    refreshUrls,
+    refreshShare: 0,
+    discoveryOffset: discoveryOffsetFor(cursor, retailer.id),
   };
+  const discoveryPages = Math.max(0, Math.round(maxPages * (1 - (refreshShare ?? 0.3))));
 
   let result: SitemapCrawlResult;
   if (retailer.shopifyStorefront) {
+    // The whole catalogue, every run: Shopify's own page cap, not --max. See
+    // SHOPIFY_PAGE_SIZE in src/catalogue/shopifyProductsCrawl.ts for what
+    // tying the two together cost.
     const shopifyResult = await crawlViaShopifyProducts({
-      retailer, http, robots, headers: BROWSER_HEADERS, maxPages, gapMs, onProgress: heartbeat,
+      retailer, http, robots, headers: BROWSER_HEADERS, maxPages: SHOPIFY_MAX_PAGE, gapMs, onProgress: heartbeat,
+      deadlineAt: shopDeadlineAt,
     });
 
     // A storefront that is not established as quoting sterling is a different
@@ -628,7 +813,7 @@ for (const retailer of shops) {
         });
       }
       zeroThisRun.push(retailer.id);
-      continue;
+      return;
     }
 
     // Which market produced these numbers, when it was not the obvious one.
@@ -652,10 +837,16 @@ for (const retailer of shops) {
         urlsDiscovered: shopifyResult.listings.length,
         errors: shopifyResult.errors,
         sampledUrls: [],
+        // A walk that reached the catalogue's own end is the whole shop, so a
+        // stored listing missing from it is no longer sold. It used to be
+        // `pagesFetched >= urlsDiscovered` (pages against listings), which a
+        // Shopify walk never meets, so nothing was ever delisted and a withdrawn
+        // product kept its last price on the site until it aged out.
+        fetchedEveryDiscovered: shopifyResult.complete,
       };
     } else {
       result = await crawlViaSitemap({
-        retailer, http, robots, maxPages, gapMs, headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat, ...sweep,
+        retailer, http, robots, maxPages: discoveryPages, gapMs, headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat, ...sweep,
       });
       // Whatever the /products.json attempt learned must survive the fallback.
       // It used not to: `result` was replaced wholesale by the sitemap walk's
@@ -673,7 +864,7 @@ for (const retailer of shops) {
     }
   } else {
     result = await crawlViaSitemap({
-      retailer, http, robots, maxPages, gapMs, headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat, ...sweep,
+      retailer, http, robots, maxPages: discoveryPages, gapMs, headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat, ...sweep,
     });
   }
   let withPrice = result.listings.filter((l) => l.priceGbp !== null);
@@ -708,7 +899,7 @@ for (const retailer of shops) {
   // for the John Lewis measurement that motivated it. One retry, one shop's
   // budget, no credential.
   let viaPatience = false;
-  if (withPrice.length === 0 && looksLikeTimeouts(result.errors)) {
+  if (withPrice.length === 0 && feedListings.length === 0 && looksLikeTimeouts(result.errors)) {
     console.log(`      ${retailer.name}: every failure was a timeout, retrying once at ${SLOW_SHOP_TIMEOUT_MS / 1000}s`);
     const patientHttp = createHttp({ timeoutMs: SLOW_SHOP_TIMEOUT_MS });
     const patientRobots = (await probeRobots(retailer, patientHttp, BOT_HEADERS, robotsFallback)).rules;
@@ -716,7 +907,7 @@ for (const retailer of shops) {
     // proxied assignment below for the bug this shape prevents.
     if (!patientRobots.unavailable) robotsForActor = patientRobots;
     const retry = await crawlViaSitemap({
-      retailer, http: patientHttp, robots: patientRobots, maxPages, gapMs,
+      retailer, http: patientHttp, robots: patientRobots, maxPages: discoveryPages, gapMs,
       headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat, ...sweep,
     });
     const retryWithPrice = retry.listings.filter((l) => l.priceGbp !== null);
@@ -731,7 +922,7 @@ for (const retailer of shops) {
 
   // Never for a shop with a pinned route: that route asks as ourselves, from
   // our own address, and a proxy is neither.
-  if (withPrice.length === 0 && useProxy && !retailer.sitemapRoute) {
+  if (withPrice.length === 0 && feedListings.length === 0 && useProxy && !retailer.sitemapRoute) {
     const proxiedHttp = apifyProxyHttp(proxyConfig!);
     const proxiedProbe = await probeRobots(retailer, proxiedHttp, BOT_HEADERS, ROBOTS_FALLBACK_HEADERS);
     const proxiedRobots = proxiedProbe.rules;
@@ -806,7 +997,7 @@ for (const retailer of shops) {
   // to — a shop refused only on the local tier is not skipped once its own
   // render actually reaches the actor. See knownRenderRefusal's own comment
   // in src/catalogue/renderRefusal.ts.
-  const skipRender = withPrice.length === 0 && useActorForShop && retailer.catalogue
+  const skipRender = withPrice.length === 0 && feedListings.length === 0 && useActorForShop && retailer.catalogue
     ? knownRenderRefusal(retailer, shopRenderTier)
     : null;
   if (skipRender) {
@@ -820,7 +1011,7 @@ for (const retailer of shops) {
   // — never a walk, never one request per product — for the same cost
   // reasoning docs/INGESTION.md sets out for every tier here, applied to a
   // route that costs roughly ten times as much per page.
-  if (withPrice.length === 0 && useActorForShop && retailer.catalogue && !skipRender) {
+  if (withPrice.length === 0 && feedListings.length === 0 && useActorForShop && retailer.catalogue && !skipRender) {
     // ── When the only way to read the rules is to render them ───────────────
     // A shop whose robots.txt neither the runner nor the proxy can fetch is a
     // shop this pipeline must treat as entirely forbidden, and rightly — but
@@ -994,8 +1185,11 @@ for (const retailer of shops) {
     return { ...l, rawTitle: titled };
   });
 
-  totalListings += withPrice.length;
-  if (withPrice.length > 0) reached++;
+  totalListings += withPrice.length + feedListings.length;
+  if (withPrice.length > 0 || feedListings.length > 0) reached++;
+  const goneUrls = result.goneUrls ?? [];
+  const movedUrls = result.movedUrls ?? [];
+  if (!dryRun) recordDiscovery(retailer.id, result.discoveryFetched ?? 0);
 
   console.log(
     `  ${retailer.name.padEnd(20)} ${String(result.urlsDiscovered).padStart(5)} urls  ` +
@@ -1006,6 +1200,10 @@ for (const retailer of shops) {
       (viaActor ? `  [via ${shopRenderTierName}]` : '') +
       (sizesRecovered ? `  [${sizesRecovered} sizes read from product URLs]` : '') +
       (refusals.length ? `  [refused ${refusals.length} page(s)]` : '') +
+      (feedListings.length ? `  [+${feedListings.length} re-priced from ${feedPlatform} catalogue]` : '') +
+      (refreshUrls.length ? `  [${refreshUrls.length} due for a page re-read]` : '') +
+      (goneUrls.length ? `  [${goneUrls.length} gone]` : '') +
+      (movedUrls.length ? `  [${movedUrls.length} redirected away]` : '') +
       (result.errors.length ? `  (${result.errors.length} errors)` : ''),
   );
   // Raised as a warning rather than left in the body of the log, because it is
@@ -1039,7 +1237,7 @@ for (const retailer of shops) {
     viaActor ? 'render'
       : viaProxy ? 'apify-proxy'
       : viaPatience ? 'patient'
-      : withPrice.length > 0 ? 'free'
+      : withPrice.length > 0 || feedListings.length > 0 ? 'free'
       : 'none';
   report.record({
     retailerId: retailer.id,
@@ -1053,6 +1251,13 @@ for (const retailer of shops) {
     // Metered first, same ordering and same reasoning as the log above.
     errors: [...metered, ...rest].slice(0, 8),
     ...(refusals.length > 0 ? { refusals } : {}),
+    refreshed: {
+      platform: feedPlatform,
+      fromFeed: feedListings.length,
+      due: refreshUrls.length,
+      gone: goneUrls.length + movedUrls.length,
+      ...(feedNote ? { note: feedNote } : {}),
+    },
     finishedAt: new Date().toISOString(),
   });
 
@@ -1086,12 +1291,16 @@ for (const retailer of shops) {
     console.log(`      sample priced URL: ${withPrice[0]!.url}`);
   }
 
-  if (withPrice.length === 0) {
+  if (withPrice.length === 0 && feedListings.length === 0) {
     zeroThisRun.push(retailer.id);
     if (prior.source !== 'live') neverLive.push(retailer.id);
   }
 
-  if (dryRun || withPrice.length === 0) continue;
+  // Page results first: reconcile keeps the first row per SKU, and a product
+  // page is the fuller reading of the two.
+  const crawled: RawListing[] = [...withPrice, ...feedListings];
+  if (dryRun) return;
+  if (crawled.length === 0 && (goneUrls.length + movedUrls.length === 0 || prior.source !== 'live')) return;
 
   // Live data and fixture data must never be reconciled against each other.
   const existing = prior.source === 'live' ? prior.listings : [];
@@ -1118,30 +1327,170 @@ for (const retailer of shops) {
   // own comment above — that is a fixed-size sample of an unknown-size
   // catalogue, exactly the shape this whole guard exists to catch, and it
   // would trivially pass the >= test above without actorPartial's override.
-  const complete = result.pagesFetched >= result.urlsDiscovered && !actorPartial;
+  //
+  // `fetchedEveryDiscovered` is the walk's own answer to that question now.
+  // The old arithmetic (pages fetched against URLs discovered) stopped meaning
+  // it once due listings are re-read on top of the budget: those pages count
+  // as fetched without being any part of discovery. A route that does not
+  // report it (an older result shape) falls back to the old test.
+  const complete = !actorPartial &&
+    (result.fetchedEveryDiscovered ?? result.pagesFetched >= result.urlsDiscovered);
 
   const outcome = reconcile({
-    existing, crawled: withPrice, retailerId: retailer.id, now, complete,
+    existing, crawled, retailerId: retailer.id, now, complete,
   });
+
+  // ── Gone, on the shop's own word ─────────────────────────────────────────
+  // A stored product page that now answers 404 or 410, or redirects to a
+  // different page, is no longer for sale at that address, whatever the
+  // walk's completeness; if the product only moved, its SKU was read at the
+  // new address this run and the row is kept. Before, such a listing kept its last price on the
+  // site until HIDE_OFFER_AFTER_DAYS hid it, re-asked and ignored every run.
+  //
+  // ── Superseded, on the page's own word ───────────────────────────────────
+  // A product page read this run is the authority on what it sells. A stored
+  // listing at that page whose SKU the page no longer carries can never be
+  // re-priced again, so it would only age on the site. Perfumeo held 20 such
+  // pairs on 2026-10-03, an old SKU made from the URL slug beside the real
+  // one the page now publishes (Jouri by Lattafa 100ml: £23.49 current, and
+  // a £18.99 row last confirmed 2026-08-26). Product page route only: a
+  // rendered category page or a whole Shopify catalogue is judged by its own
+  // completeness instead.
+  //
+  // A 404 or 410 is the shop's own statement and is always taken. A redirect
+  // is too, with one exception: a wall can redirect every request to a
+  // challenge page, which would read as every due page moved at once. So
+  // redirects are acted on only while the shop served real priced content
+  // in this same run (pages or its catalogue feed) at least as often; a shop
+  // that redirected everything and priced nothing is left alone, and the run
+  // says so. Measured 2026-10-03: the stored listings Justmylook, Beautybase
+  // and allbeauty no longer carry in /products.json are exactly the ones
+  // whose pages now 404 or redirect to a page with no product.
+  const servedReal = withPrice.length + feedListings.length;
+  const movedTrusted = movedUrls.length <= 10 || servedReal >= movedUrls.length;
+  if (!movedTrusted) {
+    console.log(
+      `::warning::${retailer.id}: ${movedUrls.length} stored pages redirected away against ${servedReal} priced ` +
+        'this run; that looks like a wall, not withdrawals, so none of those is delisted this run',
+    );
+  }
+  const gone = new Set([...goneUrls, ...(movedTrusted ? movedUrls : [])].map(normaliseProductUrl));
+  const crawledSkus = new Set(crawled.map((l) => l.retailerSku));
+  const pagesRead = viaActor || retailer.shopifyStorefront
+    ? new Set<string>()
+    : new Set(withPrice.map((l) => normaliseProductUrl(l.url)));
+  let goneDelisted = 0;
+  let superseded = 0;
+  const listings = gone.size === 0 && pagesRead.size === 0
+    ? outcome.listings
+    : outcome.listings.map((l) => {
+        if (l.status !== 'active' || crawledSkus.has(l.retailerSku)) return l;
+        const key = normaliseProductUrl(l.url);
+        if (gone.has(key)) goneDelisted++;
+        else if (pagesRead.has(key)) superseded++;
+        else return l;
+        return { ...l, status: 'delisted' as const, delistedAt: now };
+      });
 
   store.write({
     retailerId: retailer.id,
     updatedAt: now,
     source: 'live',
-    listings: outcome.listings,
+    listings,
     runs: prior.source === 'live' ? prior.runs : [],
   });
 
   // The stored total is the number that actually matters now: a run's own
   // count only ever reports one budget's worth, so growth is invisible without
   // it.
-  const active = outcome.listings.filter((l) => l.status === 'active').length;
+  const active = listings.filter((l) => l.status === 'active').length;
   console.log(
-    `      stored: ${active} active of ${outcome.listings.length} known` +
+    `      ${retailer.name} stored: ${active} active of ${listings.length} known` +
       `  (+${outcome.newIds.length} new` +
       (outcome.delistedIds.length ? `, -${outcome.delistedIds.length} delisted` : '') +
-      `${complete ? '' : ', partial walk so nothing delisted'})`,
+      (goneDelisted ? `, -${goneDelisted} gone` : '') +
+      (superseded ? `, -${superseded} superseded on their own page` : '') +
+      `${complete ? '' : ', partial walk so only gone pages delisted'})`,
   );
+}
+
+// ── Lanes ─────────────────────────────────────────────────────────────────
+// `concurrency` shops at a time, taken in sweep order. A lane takes the next
+// shop whose host no other lane is on, so one host is never asked by two
+// shops at once and every per-host gap above still holds exactly.
+//
+// The deadline is still checked on a shop boundary, before a lane starts a
+// shop, because a shop is the unit that stores something: store.write() fires
+// once, at the end of harvestShop. Stopping there leaves the catalogue in a
+// state the rebuild can read — see runMinutes' own comment for what run
+// #330's orphaned process did instead.
+const hostOf = (r: Retailer) => r.domain.toLowerCase().replace(/^www\./, '');
+const queue = [...shops];
+const busyHosts = new Set<string>();
+async function lane(): Promise<void> {
+  for (;;) {
+    if (queue.length === 0) return;
+    if (runDeadlineAt !== null && runDeadlineAt - Date.now() < MIN_SHOP_BUDGET_MS) {
+      stoppedForTime = true;
+      return;
+    }
+    const index = queue.findIndex((r) => !busyHosts.has(hostOf(r)));
+    if (index < 0) {
+      await sleepMs(500);
+      continue;
+    }
+    const retailer = queue.splice(index, 1)[0]!;
+    const host = hostOf(retailer);
+    busyHosts.add(host);
+    try {
+      await harvestShop(retailer);
+    } catch (err) {
+      // One shop's failure must not take the other lanes down with it. It is
+      // reported as a shop that answered nothing, which is what it was.
+      const message = err instanceof Error ? err.message : String(err);
+      console.log(`::warning::${retailer.id}: harvest threw, nothing stored for it this run: ${message.slice(0, 300)}`);
+      zeroThisRun.push(retailer.id);
+    } finally {
+      busyHosts.delete(host);
+    }
+  }
+}
+await Promise.all(Array.from({ length: Math.min(concurrency, Math.max(1, shops.length)) }, () => lane()));
+
+// ── Freshness, after the run, for every shop on the site ───────────────────
+// See src/catalogue/freshness.ts. Measured from what is now on disk, so it
+// covers shops this run did not reach as well as the ones it did, and the
+// affiliate feed shops this harvest never asks (their prices come from the
+// Awin sync step).
+{
+  const nowDate = new Date();
+  // A shop that refused any page this run is a shop refusing us, even where
+  // another page answered (Selfridges, run #577: page one rendered, pages 2
+  // to 5 refused). So is a shop only the render tier reaches, which reads
+  // the first page of each section and nothing else, by design (see
+  // actorPartial above): Selfridges again, run #588, 60 re-priced of 293
+  // held. Neither can have its whole held range re-priced, so both are
+  // warned about by the freshness check, never failed on.
+  const answered = new Set(
+    report.current().shops
+      .filter((s) => s.tier !== 'none' && s.tier !== 'render' && !(s.refusals && s.refusals.length > 0))
+      .map((s) => s.retailerId),
+  );
+  const measured = RETAILERS.filter((r) => r.enabled && (!onlyShop || r.id === onlyShop));
+  const freshness: Record<string, ReportedFreshness> = {};
+  for (const r of measured) {
+    const snap = store.read(r.id);
+    if (snap.source !== 'live') continue;
+    freshness[r.id] = { ...shopFreshness(snap.listings, nowDate), answered: answered.has(r.id) };
+  }
+  report.setFreshness(freshness);
+  console.log(`\nFreshness after this run (shown listings by age of last confirmed price)`);
+  console.log(`  ${'shop'.padEnd(24)} ${'shown'.padStart(6)} ${'>24h'.padStart(6)} ${'>48h'.padStart(6)}  answered`);
+  for (const [id, f] of Object.entries(freshness)) {
+    console.log(
+      `  ${id.padEnd(24)} ${String(f.shown).padStart(6)} ${String(f.over24h).padStart(6)} ${String(f.over48h).padStart(6)}  ${f.answered ? 'yes' : 'no'}`,
+    );
+  }
 }
 
 console.log(`\n${reached} of ${shops.length} shops yielded real priced listings`);

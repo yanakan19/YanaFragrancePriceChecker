@@ -190,7 +190,7 @@ on:
         type: boolean
         default: false
       harvest_max:
-        description: 'Product pages to fetch per shop during a harvest.'
+        description: 'Page budget per shop. Times (1 minus the refresh share) is how many never seen product pages each shop gets. Listings due a price re-check are read on top of it, and Shopify catalogues are always read whole.'
         type: string
         default: '40'
       harvest_shop:
@@ -202,7 +202,7 @@ on:
         type: string
         default: ''
       harvest_refresh_share:
-        description: 'Share of each shop budget (0-1) spent re-pricing listings already held, oldest first, rather than discovering new ones. Empty uses the scheduled default.'
+        description: 'Share of the page budget (0 to 1) not spent on discovery. Listings due a re-check are re-read whatever this says. Empty uses the scheduled default.'
         type: string
         default: ''
       allow_metered:
@@ -287,14 +287,24 @@ jobs:
           # above `on:`.
           RESP=$(curl -sS --max-time 20 -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${{ github.repository }}/commits?path=data/harvest-cursor.json&sha=${{ github.ref_name }}&per_page=1") || RESP=""
+            "https://api.github.com/repos/${{ github.repository }}/commits?path=data/harvest-cursor.json&sha=${{ github.ref_name }}&per_page=50") || RESP=""
           # `|| LAST_ISO=""` matters under GitHub's default `bash -eo
           # pipefail {0}`: a malformed-but-non-empty $RESP makes jq itself
           # exit non-zero, and pipefail propagates that through the pipe, so
           # without this the step would abort right here — failing CLOSED —
           # instead of falling through to the empty-string branch below,
           # which is the one place this gate is meant to fail open.
-          LAST_ISO=$(printf '%s' "$RESP" | jq -r '.[0].commit.committer.date // empty' 2>/dev/null) || LAST_ISO=""
+          # ── 2026-10-03: only a full sweep counts ──────────────────────────
+          # A one shop dispatch (harvest_shop) commits the cursor too, and the
+          # guard used to read any such commit as "a harvest just ran". On
+          # 2026-10-03 one shop dispatches ran from 15:09 to 20:40 (#578,
+          # #580 to #584, #586, #587), each committing the cursor, so the
+          # scheduled ticks at 17:14 (#579) and 19:56 (#585) both skipped and
+          # no shop but the dispatched ones was asked for six hours. A one shop run now commits as "Harvest: one shop (<shop>),
+          # real prices ..." (see "Commit harvested prices"), and only a commit
+          # starting "Harvest: real prices" is a full sweep. None in the last
+          # 50 cursor commits reads as empty, which runs in full below.
+          LAST_ISO=$(printf '%s' "$RESP" | jq -r '[.[] | select(.commit.message | startswith("Harvest: real prices"))][0].commit.committer.date // empty' 2>/dev/null) || LAST_ISO=""
           if [ -z "$LAST_ISO" ]; then
             echo "should-run=true" >> "$GITHUB_OUTPUT"
             echo "::warning::Could not read the last harvest commit's timestamp from the GitHub API — running in full rather than guessing a skip."
@@ -535,8 +545,47 @@ jobs:
       # The crawl must not ship if the reconciliation logic is broken. A bad
       # diff here corrupts firstSeenAt for every listing, and that cannot be
       # recovered from a later run: the NEW badge would be wrong for a week.
-      - name: Test before crawling
+      #
+      # ── 2026-10-03: the gate is the harvest's own tests, not the whole suite ──
+      # This step used to run `npm test`, and any failure anywhere stopped the
+      # harvest. Read off the Actions API for this workflow: 36 scheduled runs
+      # between #507 (2026-09-23 00:29Z) and #548 (2026-10-01 13:08Z) failed in
+      # this step after about three minutes. In those eight and a half days
+      # five harvests ran (#509, #534, #535, #539, #540), against four or five
+      # a day before it, with gaps of 109, 26 and 51 hours. Run #548's
+      # failure was tests/duplicateOfferRows.test.ts expecting The Beauty Store
+      # UK at £150.64 when the catalogue said £163.88: a test pinned to a real
+      # price, failed by the price changing. The same shape froze prices in
+      # runs #388 to #395 and after #368 (see "Rebuild the app" below). A test
+      # that reads the live catalogue cannot be the gate on refreshing it.
+      #
+      # So the gate is the tests of the code the harvest runs (reconcile, the
+      # store, every crawl route, robots, currency, the cursor and report) and
+      # nothing that reads data/catalogue or the built site. The whole suite
+      # still runs, straight after, and a failure there is a warning on the
+      # run; it does not cost every shop a day of prices.
+      - name: Test the harvest before crawling
+        run: |
+          npx vitest run \
+            tests/catalogue.test.ts tests/catalogueStore.test.ts tests/sitemapCrawl.test.ts \
+            tests/coverage.test.ts tests/shopifyProductsCrawl.test.ts tests/marketHarvest.test.ts \
+            tests/marketProbe.test.ts tests/shopCurrency.test.ts tests/harvestCursor.test.ts \
+            tests/harvestReport.test.ts tests/httpFetch.test.ts tests/attempt.test.ts \
+            tests/robotsSource.test.ts tests/jsonldProductGroup.test.ts tests/sizeFromUrl.test.ts \
+            tests/slowShopRetry.test.ts tests/renderRefusal.test.ts tests/renderTier.test.ts \
+            tests/renderTargets.test.ts tests/localBrowser.test.ts tests/apifyActor.test.ts \
+            tests/apifyProxy.test.ts tests/apifyUsage.test.ts tests/apifyAccount.test.ts \
+            tests/strategy.test.ts tests/registry.test.ts tests/freshness.test.ts \
+            tests/selfridgesRsc.test.ts tests/johnLewisNextData.test.ts
+
+      - name: Test everything else
+        id: fulltests
+        continue-on-error: true
         run: npm test
+
+      - name: Note a failing test outside the harvest
+        if: ${{ steps.fulltests.outcome == 'failure' }}
+        run: echo "::warning::npm test failed (see the step above). The harvest still runs, because its own tests passed; whatever failed needs fixing, but not at the cost of every shop's prices going stale."
 
       # Tries several retrieval strategies per shop, ordered by what has worked
       # before, and commits what it learned so tomorrow starts smarter.
@@ -1032,11 +1081,39 @@ jobs:
           # two by seconds and bounds the next shop that grows past them. It is
           # a ceiling, not a target: the run's own deadline lowers it further
           # for the last shop of a sweep.
+          # ── 2026-10-03: every shown price re-read within the day ───────────
+          # The owner's rule: every listing of every shop that answers us is
+          # re-checked at least daily. Measured that morning from
+          # data/catalogue, it was not close: Justmylook 210 of 2,020
+          # listings re-read in 48 hours, Perfumeo 164 of 1,721, Beautybase
+          # 206 of 3,223, The Beauty Store UK 4,988 of 8,088. Four causes, each
+          # fixed in scripts/catalogue-harvest.ts and src/catalogue/:
+          #
+          #   - Shopify was read 70 products a page for at most 70 pages
+          #     (page size tied to --max). Now 250 a page to the end of the
+          #     catalogue, whatever --max says.
+          #   - Sitemap shops re-read a fixed 28 listings a run. Now every
+          #     shown listing older than --refresh-after-hours is re-read,
+          #     oldest first, on top of the discovery budget; and a shop that
+          #     publishes its catalogue as JSON (Shopify, WooCommerce) is
+          #     re-priced from that, a few dozen requests instead of
+          #     thousands of product pages. See catalogueRefresh.ts.
+          #   - One shop at a time, the sweep hit its 56 minute deadline with
+          #     15 to 19 shops unasked. --concurrency runs 8 shops side by
+          #     side, never two on one host, each still one request at a time
+          #     at its own registry and robots.txt gap; 6 minute shop
+          #     ceilings become 40 since a long shop no longer blocks others.
+          #   - The test gate above stopped every harvest for most of a week.
+          #
+          # --max and --refresh-share keep their meaning for discovery: 70 *
+          # (1 - 0.4) = 42 never seen product pages a shop per run.
           npm run harvest -- \
             --max=${{ inputs.harvest_max || '70' }} \
             --refresh-share=${{ inputs.harvest_refresh_share || '0.4' }} \
+            --refresh-after-hours=12 \
+            --concurrency=8 \
             --run-minutes=56 \
-            --shop-minutes=6 \
+            --shop-minutes=40 \
             ${{ inputs.harvest_shop && format('--shop={0}', inputs.harvest_shop) || '' }} \
             ${{ inputs.harvest_gap_min && format('--gap-min={0}', inputs.harvest_gap_min) || '' }} \
             $METERED
@@ -1101,7 +1178,7 @@ jobs:
         if: ${{ inputs.harvest || github.event_name == 'schedule' }}
         run: |
           ./scripts/commit-and-push.sh \
-            "Harvest: real prices $(date -u +%Y-%m-%d)" \
+            "${{ inputs.harvest_shop && format('Harvest: one shop ({0}), real prices', inputs.harvest_shop) || 'Harvest: real prices' }} $(date -u +%Y-%m-%d)" \
             data/catalogue data/houses data/house-sourcing-report.json \
             data/metered-harvest-marker.txt \
             data/harvest-cursor.json \
@@ -1279,6 +1356,20 @@ jobs:
         if: ${{ (inputs.harvest || inputs.deals_refresh || github.event_name == 'schedule') && steps.rebuild.outcome != 'success' }}
         run: |
           echo "::warning::The rebuild step ended with outcome '${{ steps.rebuild.outcome }}', so nothing derived from this harvest was committed. The harvested prices are on the branch; the page will be rebuilt by the next run. If this repeats, the replay's checkpoint was probably invalidated by a rules change — see scripts/priceHistoryReplay.ts."
+
+      # ── Freshness: the check that keeps "every price within a day" true ──
+      # Reads the per shop table the harvest wrote into data/harvest-report.json
+      # (src/catalogue/freshness.ts) and fails the run when a shop that
+      # answered this harvest still shows listings last confirmed more than
+      # 48 hours ago, beyond a small tolerance. A shop that refused us or was
+      # not reached is a warning, not a failure. Last in the job on purpose:
+      # everything harvested and rebuilt is already committed, so a red run
+      # here costs nothing but attention, which is what it is for. Only on a
+      # full sweep; a one shop dispatch measures one shop and proves nothing
+      # about the rest.
+      - name: Check every answering shop's prices are under 48 hours old
+        if: ${{ (inputs.harvest || github.event_name == 'schedule') && !inputs.harvest_shop }}
+        run: npx tsx scripts/freshness-check.ts
 
       # ── Debug: capture one shop's rendered HTML, manual-only ────────────────
       # Built for notino-uk specifically: it renders a real 694,649-byte

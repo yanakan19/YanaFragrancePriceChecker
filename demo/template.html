@@ -827,44 +827,48 @@
      so it stays correct if the photo is pale near that corner. --medal-size
      drives every other dimension so the two breakpoints below are the only
      numbers that change. */
+  /* Refined 2026-10-03 (owner: "something more refined", and the number's
+     square showed past the circle). The square came from .medal itself
+     painting the metal colour on its whole box, so the corners showed
+     around the round disc. The colour is now a custom property that only
+     the disc and the ribbon paint, never the .medal box. The look is quieter
+     too: a thin inner ring in place of the heavy white halo, shorter and
+     narrower ribbon tails, and tabular figures so 1, 2 and 3 sit centred. */
   .medal {
     --medal-size: 24px;
     position: absolute; top: -3px; right: -3px; z-index: 2;
     width: var(--medal-size); height: var(--medal-size);
-    font-weight: 800; line-height: 1;
-    font-size: calc(var(--medal-size) * 0.46);
+    font-weight: 700; line-height: 1;
+    font-size: calc(var(--medal-size) * 0.48);
+    font-variant-numeric: tabular-nums;
+    color: var(--medal-on);
   }
   :root[data-layout="desktop"] .medal { --medal-size: 30px; }
-  /* The disc is its own element so it can paint OVER the ribbon tails: a
-     pseudo-element with z-index -1 still paints above its parent's own
-     background, which is why the first cut of this medal showed the tails
-     across the number. The tails are the .medal's pseudos with no z-index;
-     the disc sits on top of them with z-index 1. */
+  /* The disc is its own element so it paints over the ribbon tails. */
   .medal-disc {
     position: relative; z-index: 1;
     width: 100%; height: 100%; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    background: inherit; color: inherit;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .45), 0 0 0 2px #fff;
+    background: var(--medal-bg); color: inherit;
+    box-shadow:
+      inset 0 0 0 calc(var(--medal-size) * 0.07) rgba(255, 255, 255, .38),
+      0 0 0 1.5px #fff,
+      0 1px 2px rgba(0, 0, 0, .3);
   }
   .medal::before,
   .medal::after {
     content: ""; position: absolute;
-    top: calc(var(--medal-size) * 0.56);
-    width: calc(var(--medal-size) * 0.32); height: calc(var(--medal-size) * 0.92);
-    background: inherit; filter: brightness(0.74);
-    clip-path: polygon(0 0, 100% 0, 100% 58%, 50% 100%, 0 58%);
+    top: calc(var(--medal-size) * 0.62);
+    width: calc(var(--medal-size) * 0.26); height: calc(var(--medal-size) * 0.68);
+    background: var(--medal-bg); filter: brightness(0.78);
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
   }
-  .medal::before { left: calc(var(--medal-size) * 0.11); transform: rotate(-9deg); transform-origin: top center; }
-  .medal::after  { right: calc(var(--medal-size) * 0.11); transform: rotate(9deg); transform-origin: top center; }
-  /* Flat, and from tokens. These were three two-stop linear-gradients built
-     from six hardcoded hex values belonging to no palette and moving with no
-     theme: the one place in this stylesheet where a colour was invented at
-     the point of use. A rank badge is small, so the gradient inside it was
-     never legible as a gradient in the first place. */
-  .medal.gold   { background: var(--rank-1); color: var(--rank-1-on); }
-  .medal.silver { background: var(--rank-2); color: var(--rank-2-on); }
-  .medal.bronze { background: var(--rank-3); color: var(--rank-3-on); }
+  .medal::before { left: calc(var(--medal-size) * 0.18); transform: rotate(-12deg); transform-origin: top center; }
+  .medal::after  { right: calc(var(--medal-size) * 0.18); transform: rotate(12deg); transform-origin: top center; }
+  /* Flat, and from tokens. */
+  .medal.gold   { --medal-bg: var(--rank-1); --medal-on: var(--rank-1-on); }
+  .medal.silver { --medal-bg: var(--rank-2); --medal-on: var(--rank-2-on); }
+  .medal.bronze { --medal-bg: var(--rank-3); --medal-on: var(--rank-3-on); }
 
   /* ── fragrance tile grid ───────────────────────────────────────────────────
      One tile shape, used everywhere a list of fragrances appears (browse,
@@ -1272,10 +1276,28 @@
     font-variant-numeric: tabular-nums;
   }
   .org-hero .org-mark.org-mark-failed::after { font-size: 18px; }
-  /* The 20px shop logo beside a name in a product's price list (step 8). */
-  .org-mark.offer-mark {
+  /* The 20px shop mark beside a name in a product's price list. Every row
+     carries one, the same box either way: the shop's square logo on its
+     tile, or (no square logo, or the logo failed to load) the shop's
+     initials on the monogram tint, the same tokens .monogram uses, which are
+     contrast tested at every hue in both themes. */
+  .offer-mark {
     display: inline-block; width: 20px; height: 20px; border-radius: 5px;
-    margin-right: 7px; vertical-align: -4px; border: 1px solid var(--org-mark-border);
+    margin-right: 7px; vertical-align: -4px; box-sizing: border-box;
+  }
+  .org-mark.offer-mark { border: 1px solid var(--org-mark-border); }
+  /* inline-block with overflow hidden, like the logo tile, so both take
+     their baseline from the bottom edge and sit at exactly the same height
+     beside the name. 18px line height centres the initials inside the
+     1px border. */
+  .offer-mark--initials {
+    overflow: hidden; white-space: nowrap; text-align: center;
+    line-height: 18px;
+    background: hsl(var(--mh, 355) var(--mono-sat) var(--mono-bg-l));
+    color: hsl(var(--mh, 355) var(--mono-sat) var(--mono-fg-l));
+    border: 1px solid hsl(var(--mh, 355) var(--mono-sat) var(--mono-border-l));
+    font-size: 9px; font-weight: 800; letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums;
   }
 
   .shop-list { list-style: none; margin: 0; padding: 0; }
@@ -1969,10 +1991,6 @@
   .giftset-contents { margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
   .giftset-label { font-weight: 600; color: var(--ink); }
   .giftset-note { margin: 4px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--faint); }
-  /* Under the "Older prices" heading: one quiet line saying why these rows
-     sit below the current ones (demo/offerGroups.ts). Pulled up under its
-     heading so the two read as one label. */
-  .older-note { margin: -8px 0 12px; font-size: 12.5px; line-height: 1.5; color: var(--faint); }
 
   /* ── price history chart ───────────────────────────────────────────────── */
   .history-block { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line); }
@@ -2066,6 +2084,11 @@
      sold out in words as well. Only drawn when nothing buyable is on record. */
   .history-dot-soldout { width: 9px; height: 9px; border-color: var(--faint); background: var(--bg); }
   .history-dot-soldout:hover, .history-dot-soldout:focus-visible { width: 13px; height: 13px; background: var(--faint); }
+  /* An item price at a shop that does not state its delivery cost, on a graph
+     of delivered prices (demo/priceHistoryChart.ts): square rather than
+     round, and its tooltip, aria label and the caption all say "delivery not
+     stated", so the shape is never the only signal. */
+  .history-dot-itemonly { border-radius: 2px; }
   /* The one line under the graph that says what is on it. */
   /* At least two lines tall, and the loading placeholder carries an empty
      one, so the common captions (one or two lines) move nothing when the
@@ -2092,6 +2115,19 @@
      are — percent left, matched to the same xPct so a label always sits
      directly under the day it names. */
   .history-xaxis { position: relative; height: 16px; margin-top: 4px; }
+  /* The y axis does not start at zero (priceDomain in
+     demo/priceHistoryChart.ts pads the range so no line sits on the axis),
+     so the chart labels the highest and lowest prices it plots, in a gutter
+     to the left of the plot, each beside a faint guide line. The chart and
+     its x axis both start after that gutter. */
+  .history-chart, .history-xaxis { margin-left: 52px; }
+  .history-yaxis { position: absolute; top: 0; bottom: 0; right: 100%; width: 52px; pointer-events: none; }
+  .history-ylabel {
+    position: absolute; right: 6px; transform: translateY(-50%);
+    font: 400 11px/1.4 var(--font-num); font-variant-numeric: tabular-nums;
+    color: var(--faint); white-space: nowrap;
+  }
+  .history-guide { stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; }
   .history-xlabel {
     position: absolute; top: 0; transform: translateX(-50%);
     font: 400 11px/1.4 var(--font-num); font-variant-numeric: tabular-nums;
