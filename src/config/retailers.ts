@@ -4943,6 +4943,16 @@ export const RETAILERS: readonly Retailer[] = [
     // /product/louis-cardin-ray-eau-de-parfum-100ml-spray_p-0c78…; and that
     // page's JSON-LD parses with the existing parser to "Ray Eau de Parfum
     // 100ml Spray", £35.99, in stock. The first real harvest is the measure.
+    //
+    // The measure, 2026-10-03. First harvest: 40 listings, 9 shown, because
+    // "fragrance" and "scent" also name urinal mats, candles, detergent and
+    // (inside "descent") three books. sitemapCrawl.ts then stopped reading
+    // "scent" mid-word and put product sitemap URLs that name a perfume
+    // (perfume, aftershave, cologne, eau-de, parfum, extrait) first. The next
+    // single-shop harvest (--max=70) added 42 listings, every one with such a
+    // word in its URL: 82 listings, 43 shown. Still to eyeball: three Barber
+    // Marmara barber aftershaves at 150 to 500ml and a "Women Eau de Toilette
+    // 100ml and Exclusive Socks" bundle are shown as perfume.
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
