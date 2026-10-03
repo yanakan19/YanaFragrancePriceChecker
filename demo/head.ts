@@ -41,6 +41,7 @@
  * be checked against the noindex rules in the same test run.
  */
 import type { Route } from './router.js';
+import { ADS_ON } from './ads.js';
 
 /** One source of truth for the origin. scripts/build-demo.ts imports this. */
 export const SITE_URL = 'https://pricesniffs.space';
@@ -320,7 +321,9 @@ export function headFor(input: HeadInput): HeadTags {
         title: clamp(legalPart ? `PriceSniffs: ${legalPart}` : 'PriceSniffs: terms and privacy', TITLE_MAX),
         description: describe(
           leafName === 'Privacy'
-            ? 'What this site collects, which is almost nothing: no analytics, no tracking cookies, and a display preference kept on your own device.'
+            ? ADS_ON
+              ? 'What this site collects, which is almost nothing, and how the ads Google shows on some pages ask for your consent first.'
+              : 'What this site collects, which is almost nothing: no analytics, no tracking cookies, and a display preference kept on your own device.'
             : 'The terms this site is offered under, including what its prices are and are not a promise of.',
           SITE_TAIL,
         ),

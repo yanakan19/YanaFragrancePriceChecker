@@ -37,7 +37,7 @@
  * `demo/index.html` on 2026-08-26 with every test green, because nothing
  * compared the built page against the source it claims to represent.
  */
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { computeDemoInputsHash, demoBuildHashComment } from './demoInputsHash.js';
@@ -52,6 +52,7 @@ import {
   type DataManifest,
   type LazyDataFile,
 } from './dataFiles.js';
+import { adsTxt, verificationMeta } from '../demo/ads.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -157,7 +158,7 @@ ${demoBuildHashComment(inputsHash.hash)}
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="google-adsense-account" content="ca-pub-6298711915135064" />
+${verificationMeta()}
 <meta name="theme-color" content="#131013" media="(prefers-color-scheme: dark)" />
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
 <link rel="manifest" href="manifest.webmanifest" />
@@ -198,6 +199,16 @@ writeFileSync(resolve(root, 'demo/index.html'), standalone);
 // content that could differ between the two entry points.
 writeFileSync(resolve(root, 'demo/404.html'), standalone);
 
+// /ads.txt, naming the AdSense account as the site's one authorised seller.
+// Published from demo/ like robots.txt and CNAME (the Pages workflow uploads
+// the whole folder, so demo/ads.txt is served at the site root). Written from
+// ADSENSE_CLIENT in demo/ads.ts, and removed while that is blank, so the file
+// never names an account the site does not have.
+const adsTxtPath = resolve(root, 'demo/ads.txt');
+const adsTxtBody = adsTxt();
+if (adsTxtBody) writeFileSync(adsTxtPath, adsTxtBody);
+else if (existsSync(adsTxtPath)) rmSync(adsTxtPath);
+
 console.log(`demo/index.html          ${(standalone.length / 1024).toFixed(1)} kB`);
 console.log(`demo/404.html            ${(standalone.length / 1024).toFixed(1)} kB (deep-link fallback)`);
 for (const f of [...dataFiles, ...lazyFiles]) {
@@ -205,5 +216,6 @@ for (const f of [...dataFiles, ...lazyFiles]) {
   console.log(`demo/${f.path.padEnd(38)} ${(readFileSync(resolve(root, 'demo', f.path)).length / 1024 / 1024).toFixed(1)} MB${onDemand}`);
 }
 if (removed.length) console.log(`demo/data                removed ${removed.length} superseded file(s)`);
+console.log(`demo/ads.txt             ${adsTxtBody ? 'written' : 'none (no AdSense publisher id)'}`);
 console.log(`dist-demo/artifact.html  ${(body.length / 1024).toFixed(1)} kB + inline data`);
 console.log(`build-hash               sha256:${inputsHash.hash.slice(0, 12)}… (${inputsHash.files.length} input files)`);

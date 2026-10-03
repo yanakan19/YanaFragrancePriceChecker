@@ -29,8 +29,10 @@
  *     2026-10-02, and with it everything the notice said about it.
  *   - PECR regulation 6 (cookies and similar storage): the cookies page lists
  *     every key this site writes, and none is written without an action of
- *     the reader's that asks for it, so no consent banner is shown — there is
- *     nothing it would be consenting to.
+ *     the reader's that asks for it, so no consent banner of ours is shown —
+ *     there is nothing it would be consenting to. Display ads, once switched
+ *     on (demo/ads.ts), bring Google's own certified consent message with
+ *     them, and adsPolicy below adds the advertising wording to these pages.
  *   - The CAP Code (ASA) on affiliate marketing: the disclosure page, the
  *     footer line, and a marker on every commissioned link at the point of
  *     click, not only in a policy page.
@@ -57,6 +59,7 @@ import { DEMO_FRAGRANCES } from './data.js';
 import { BRAND_LOGOS } from './brandLogos.js';
 import { SHOP_COUNT } from './catalogue.generated.js';
 import { shopsPhrase } from './head.js';
+import { ADS_ON, ADS_SWITCHED_ON } from './ads.js';
 
 const n = (v: number) => v.toLocaleString('en-GB');
 /** 1st, 2nd, 3rd, 4th … 11th, 12th, 13th, 21st: the English rule, not a lookup. */
@@ -122,6 +125,104 @@ const LOGO_HOSTED =
   LOGO_BRANDS.filter((l) => l.basis === 'commons-public-domain').length;
 
 /**
+ * What the privacy, cookie and affiliate pages say about display advertising,
+ * generated from the same switch that shows the ads (ADS_ON in demo/ads.ts),
+ * so these pages can never claim ads that do not run, nor leave out ads that
+ * do. With ads off every string is the wording these pages carried before
+ * advertising existed, word for word. tests/ads.test.ts renders both.
+ */
+export function adsPolicy(on: boolean) {
+  return {
+    /** Privacy summary, the end of the "Why" point. */
+    summary: on
+      ? 'We do not track or profile you ourselves. Google shows ads on some pages, personalised only if you agree to it.'
+      : 'There is no\n          tracking, no profiling and no advertising.',
+    /** Privacy notice, the end of the first paragraph under "What We Collect". */
+    collect: on
+      ? `Nothing of ours tracks you or profiles you. Google shows ads on some
+      pages, as set out below.`
+      : `Nothing on this site tracks you,
+      profiles you or shows you advertising.`,
+    /** Privacy notice, an extra item in the "What We Collect" list. */
+    collectItem: on
+      ? `<li><strong>Advertising.</strong> Some pages show ads from Google
+        AdSense, each labelled Advertisement. Google's ad code reads your
+        device and connection details, such as your IP address, to choose and
+        count ads. In the UK and the EEA, Google first asks whether you agree to
+        cookies and personalised ads. If you do not agree, or do not answer,
+        the ads you see are not personalised. Ads never change which shops we
+        list or the order of any results.</li>`
+      : '',
+    /** Privacy notice, an extra item in "Who Processes It for Us". */
+    processorItem: on
+      ? `<li><strong>Google</strong> serves the ads on pages that show them,
+        through Google AdSense, as an independent controller under Google's own
+        privacy policy. Google explains
+        <a href="https://policies.google.com/technologies/partner-sites" rel="noopener" target="_blank">how it uses
+        information from sites that show its ads</a>. We receive only totals of
+        ads shown and earnings, never data about you.</li>`
+      : '',
+    /** Privacy notice, an extra sentence under "Our Lawful Basis". */
+    basis: on
+      ? ` For advertising cookies and personalised ads we rely on your consent,
+      asked for by Google's consent message before any is set, and changed
+      whenever you like from its privacy settings link.`
+      : '',
+    /** Privacy notice, the "Cookies and Storage" paragraph. */
+    privacyCookies: on
+      ? `<p>We set no cookies of our own. Google may set advertising cookies on
+      pages that show ads, once you agree to them. What we store in your
+      browser, and when, is listed key by key on the
+      <a href="#" data-page="cookies">cookies page</a>.</p>`
+      : `<p>We set no cookies. What we do store in your browser, and when, is listed
+      key by key on the <a href="#" data-page="cookies">cookies page</a>.</p>`,
+    /** Cookies page, the opening sentence. */
+    cookiesIntro: on
+      ? 'PriceSniffs sets no cookies of its own. Google, which shows the ads on some pages, may set advertising cookies once you agree to them.'
+      : 'PriceSniffs sets no cookies.',
+    /** Cookies page, the section on consent. */
+    cookiesConsent: on
+      ? `<h2 class="t-section">Advertising and Your Consent</h2>
+      <p>UK rules, the Privacy and Electronic Communications Regulations, require
+      consent before storing anything on your device that is not strictly
+      necessary for a service you have asked for. Nothing of ours below is
+      written until you take the action that needs it: choosing a theme or
+      signing in. The ads on some pages come from Google AdSense, and in the UK
+      and the EEA Google's own consent message asks you first whether Google
+      may use cookies and show personalised ads. If you say no, or do not
+      answer, the ads are not personalised. You can change your answer at any
+      time from the privacy settings link that message leaves on the page. We
+      run no analytics and no tracking of our own.</p>`
+      : `<h2 class="t-section">Why There Is No Cookie Banner</h2>
+      <p>UK rules, the Privacy and Electronic Communications Regulations, require
+      consent before storing anything on your device that is not strictly
+      necessary for a service you have asked for. Nothing below is written until
+      you take the action that needs it: choosing a theme or signing in. There is no analytics, no advertising and no tracking
+      of any kind. So there is nothing a banner would ask you to accept. If that
+      ever changes, we will ask for consent before anything is set, not after.</p>`,
+    /** Cookies page, an extra item under "Third Parties". */
+    cookiesThirdParty: on
+      ? `<li><strong>Google AdSense.</strong> Pages that show an ad load Google's
+        ad code from Google's servers. With your agreement Google may set
+        cookies to personalise and measure ads; without it the ads are not
+        personalised. See
+        <a href="https://policies.google.com/technologies/ads" rel="noopener" target="_blank">how Google uses
+        cookies in advertising</a>.</li>`
+      : '',
+    /** Affiliate page, the end of "What Commission Does Not Touch". */
+    affiliate: on
+      ? `Display ads from Google appear on some pages, outside the results, each
+      labelled Advertisement. They have no effect on which shops we list or the
+      order of anything.`
+      : `If
+      we ever run a paid placement, it will sit outside the results and be
+      labelled as advertising.`,
+  };
+}
+
+const ADS_TEXT = adsPolicy(ADS_ON);
+
+/**
  * The business behind the site. `null` means "not yet published", and every
  * page that would show the value shows an honest sentence instead. Filling
  * one in is the whole edit.
@@ -161,7 +262,11 @@ export const COMPANY = {
   accountsProvider: 'Supabase',
   /** Sends price drop emails to readers who opted in (queue item 4.1). */
   emailProvider: 'Resend',
-  updated: '2 October 2026',
+  /**
+   * The day these pages last changed. When ads switch on, their advertising
+   * sections appear, so the date moves to ADS_SWITCHED_ON (demo/ads.ts).
+   */
+  updated: ADS_ON && ADS_SWITCHED_ON ? ADS_SWITCHED_ON : '2 October 2026',
 } as const;
 
 /** Storage this site writes in the reader's browser, listed on the cookies page. */
@@ -339,9 +444,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       <h2 class="t-section">What Commission Does Not Touch</h2>
       <p>Commission has no effect on the order of results, on which shops we
       include, or on the prices we show. Position is decided by stock and by
-      delivered price. We will not take payment for a place in the results. If
-      we ever run a paid placement, it will sit outside the results and be
-      labelled as advertising.</p>
+      delivered price. We will not take payment for a place in the results. ${ADS_TEXT.affiliate}</p>
 
       <h2 class="t-section">Why We Tell You This</h2>
       <p>UK advertising rules, the CAP Code run by the Advertising Standards
@@ -367,8 +470,7 @@ export const LEGAL_PAGES: LegalPage[] = [
           us.</li>
           <li><strong>Why.</strong> To answer your question, run your account
           and Wishlist, and reply to you. Under UK GDPR that rests on contract
-          for accounts and legitimate interests for email. There is no
-          tracking, no profiling and no advertising.</li>
+          for accounts and legitimate interests for email. ${ADS_TEXT.summary}</li>
           <li><strong>Who processes it.</strong> ${COMPANY.accountsProvider}
           holds your email, login and wishlist. ${COMPANY.emailProvider} sends
           price drop emails if you ask for them. ${COMPANY.hosting} serves
@@ -402,8 +504,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       against a fixed catalogue. None of it is sent to us or stored by us.
       Two things do leave your browser, each only when you choose to use it:
       the details you give when you create an account, and anything you email
-      us. Nothing on this site tracks you,
-      profiles you or shows you advertising.</p>
+      us. ${ADS_TEXT.collect}</p>
       <ul>
         <li><strong>Your display preferences.</strong> Dark or light theme,
         mobile or desktop layout and tiles per row are saved on your own device
@@ -432,7 +533,7 @@ export const LEGAL_PAGES: LegalPage[] = [
         <li><strong>Trustpilot reviews.</strong> On a shop's page you may see
         a button offering that shop's Trustpilot rating. Nothing loads from
         Trustpilot until you press it; when you do, your browser fetches their
-        widget from their servers under Trustpilot's own privacy policy.</li>
+        widget from their servers under Trustpilot's own privacy policy.</li>${ADS_TEXT.collectItem}
       </ul>
       <p>We never see your payment details. Buying happens on the shop's own
       site, under their privacy policy rather than ours.</p>
@@ -458,7 +559,7 @@ export const LEGAL_PAGES: LegalPage[] = [
         <li><strong>Affiliate networks</strong> receive nothing from this site.
         Once you click a commissioned link, the network records that you came
         from here on its own or the shop's site. See the
-        <a href="#" data-page="affiliate">affiliate disclosure</a>.</li>
+        <a href="#" data-page="affiliate">affiliate disclosure</a>.</li>${ADS_TEXT.processorItem}
       </ul>
       <p>We do not sell personal data, and we do not share it with anyone else
       except where the law requires it.</p>
@@ -472,11 +573,10 @@ export const LEGAL_PAGES: LegalPage[] = [
       and withdrawn whenever you untick it or press the stop link. Where
       anything not strictly necessary would be stored in your browser, we rely
       on your consent, given by the action that asks for it. You can withdraw
-      it whenever you like by clearing it.</p>
+      it whenever you like by clearing it.${ADS_TEXT.basis}</p>
 
       <h2 class="t-section">Cookies and Storage</h2>
-      <p>We set no cookies. What we do store in your browser, and when, is listed
-      key by key on the <a href="#" data-page="cookies">cookies page</a>.</p>
+      ${ADS_TEXT.privacyCookies}
 
       <h2 class="t-section">How Long We Keep It</h2>
       <p>Emails are kept only as long as we need them to deal with what you have
@@ -507,17 +607,11 @@ export const LEGAL_PAGES: LegalPage[] = [
     title: 'Cookies and Storage',
     short: 'Cookies',
     body: `
-      <p>PriceSniffs sets no cookies. This page lists everything the site does
+      <p>${ADS_TEXT.cookiesIntro} This page lists everything the site does
       store in your browser, and exactly when. It also says what third parties
       may set once you leave this site or ask for their content.</p>
 
-      <h2 class="t-section">Why There Is No Cookie Banner</h2>
-      <p>UK rules, the Privacy and Electronic Communications Regulations, require
-      consent before storing anything on your device that is not strictly
-      necessary for a service you have asked for. Nothing below is written until
-      you take the action that needs it: choosing a theme or signing in. There is no analytics, no advertising and no tracking
-      of any kind. So there is nothing a banner would ask you to accept. If that
-      ever changes, we will ask for consent before anything is set, not after.</p>
+      ${ADS_TEXT.cookiesConsent}
 
       <h2 class="t-section">What This Site Stores, Key by Key</h2>
       <dl class="biz-details">
@@ -547,7 +641,7 @@ export const LEGAL_PAGES: LegalPage[] = [
         <li><strong>The shops themselves.</strong> Product photographs load
         directly from each shop's own servers, so those servers see the ordinary
         request your browser makes for an image. We send no identifying
-        referrer with it.</li>
+        referrer with it.</li>${ADS_TEXT.cookiesThirdParty}
       </ul>
 
       <h2 class="t-section">Clearing It</h2>

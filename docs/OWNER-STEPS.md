@@ -1,6 +1,6 @@
 # Owner steps, in plain English
 
-Four jobs only you can do. Each one is short. Do them in this order; the
+Five jobs only you can do. Each one is short. Do them in this order; the
 first stops money going out (the old chat servers, now unused).
 
 ---
@@ -204,3 +204,131 @@ And Supabase's own sign up emails can go through Resend as well (Supabase →
 Authentication → Emails → SMTP Settings, host `smtp.resend.com`, port 465,
 user `resend`, password a Resend API key), which lifts Supabase's few emails
 an hour limit. Optional.
+
+---
+
+## 5. Switching on ads (30 minutes, then Google's review)
+
+The ad spaces are already built and switched off. Two of the three things
+Google checks are already live: every page carries the verification tag for
+your publisher id `ca-pub-6298711915135064`, and
+https://pricesniffs.space/ads.txt names it. No ad script loads and no ad
+shows until the ad unit ids below are filled in.
+
+Where ads go once on: one tile in the browse grids (search results, brand,
+shop and note pages, Explore lists, Deals, the Most stocked list and Gift
+sets) after every 8 product tiles, never in the first row; and one block on a
+perfume's page under the whole price list. Each says **Advertisement** above
+it. Never in the top bar, the home page hero, the price boxes, an offer row,
+an email or a social post, and ads never change the order of anything.
+
+### 5a. Sign up and get the site approved
+
+1. Go to https://adsense.google.com/start/ and sign in with the Google
+   account you want paid into. If you already started sign up (the id above
+   came from it), just sign in.
+2. Website: `pricesniffs.space`. Country: **United Kingdom**. Accept the
+   terms, then fill in **Payments info**: your name and postal address
+   exactly as on your bank account, because the PIN letter (5e) goes there.
+3. Left menu → **Sites** → `pricesniffs.space`. It asks you to connect the
+   site. The verification meta tag is already in every page, so choose
+   **Meta tag**, tick that you placed it, press **Verify**, then **Request
+   review**. Nothing needs pasting into the site.
+4. **Turn Auto ads off** for the site: left menu → **Ads** → **By site** →
+   the pencil next to `pricesniffs.space` → **Auto ads** off → **Apply**.
+   Auto ads let Google put ads anywhere on a page, including the places
+   listed above where they must never go. The site places its own.
+5. Wait. Google says review usually takes a few days and can take up to
+   about four weeks. You get an email either way. If refused, send me the
+   reason word for word.
+
+### 5b. Turn on Google's consent message (before any ad shows)
+
+UK and EEA law needs consent before personalised ads, and Google requires a
+Google certified consent tool for UK and EEA visitors. Google's own one is
+free and is served with the ad code, so the site has no banner of its own.
+
+1. Left menu → **Privacy & messaging** → **European regulations** (GDPR) →
+   **Create message** (or **Manage** if one exists).
+2. Site: `pricesniffs.space`. Language: **English**.
+3. User choices: tick **Consent**, **Manage options** and **Do not
+   consent**. Offering a plain no next to yes is what the UK regulator, the
+   ICO, expects.
+4. Leave the privacy policy link field as
+   `https://pricesniffs.space/legal/privacy`.
+5. **Publish**. It now appears on the site the first time a UK or EEA
+   visitor reaches a page with an ad.
+6. Leave the **US state regulations** message off unless you want US
+   visitors to get one too; it is not needed for the UK.
+
+Until someone answers the message, or if it fails to load, the site asks
+Google for non personalised ads only. That is built in; nothing to set.
+
+### 5c. Check ads.txt
+
+1. Open https://pricesniffs.space/ads.txt. It must show exactly:
+   `google.com, pub-6298711915135064, DIRECT, f08c47fec0942fa0`
+2. In AdSense → **Sites**, the ads.txt status should read **Authorised**.
+   Google can take a few days to recheck after approval; "Not found" in the
+   first days is normal.
+
+### 5d. Create the two ad units and send me their ids
+
+Only once AdSense says the site is **Ready**:
+
+1. Left menu → **Ads** → **By ad unit** → **Display ads**.
+2. Name it `Grid tile`, shape **Square**, size **Responsive** → **Create**.
+3. In the code it shows, find `data-ad-slot="1234567890"`. Copy only the
+   digits. You do not need the rest of the code.
+4. Do the same again, named `Product page`, shape **Horizontal**,
+   **Responsive**.
+5. Send me both numbers (and today's date). Or paste them yourself into
+   `demo/ads.ts`:
+   ```ts
+   export const AD_SLOTS: Readonly<Record<AdPlacement, string>> = {
+     grid: '1111111111',    // the Grid tile digits
+     product: '2222222222', // the Product page digits
+   };
+   export const ADS_SWITCHED_ON: string = '20 October 2026'; // the day you switch on, written like this
+   ```
+   then run `npm run demo` and commit. The ads, the advertising sections of
+   the privacy and cookies pages, and their "Last updated" date all switch
+   on together from that one edit. Leave a slot as `''` to keep that place
+   empty. To switch every ad off again, blank both slots.
+
+### 5e. What to expect after that
+
+- **First ads**: new ad units can take up to an hour to fill. Blank frames
+  marked Advertisement in that time are normal.
+- **Payment**: Google pays once your balance reaches **£60**, around the
+  21st of the following month, by bank transfer (add the bank under
+  **Payments** → **Payment methods**).
+- **PIN letter**: when earnings reach £10, Google posts a PIN to the
+  address in your payments profile. Enter it under **Payments** →
+  **Payments info**. It can take a few weeks to arrive; you can ask for
+  another if it does not. Payments cannot be made until it is entered.
+- **Tax info**: AdSense asks every publisher for US tax information, even
+  outside the US: **Payments** → **Payments info** → **Settings** →
+  **Manage settings** → **United States tax info**. As an individual in the
+  UK this is normally the W-8BEN form. Ad income is also UK income: declare
+  it to HMRC alongside the affiliate commission. Ask an accountant if unsure.
+- **Do not click your own ads**, or ask anyone to. Google closes accounts
+  for it. To see how a page looks, use an ad blocker or private window and
+  do not click.
+
+### 5f. Later: bigger ad networks as traffic grows
+
+AdSense is the starting point. Networks that pay more per visitor exist, but
+each wants a minimum amount of traffic, and those minimums change. Check the
+current one on each network's own site before applying; do not rely on a
+figure from me or a blog.
+
+1. **Ezoic**: the usual next step, with a lower bar than the two below.
+   https://www.ezoic.com
+2. **Mediavine** (https://www.mediavine.com) or **Raptive**
+   (https://raptive.com), once traffic is well above Ezoic's level. Both
+   publish their entry requirements on their sites.
+
+Each of them replaces the AdSense code with its own and gives its own
+ads.txt lines. Tell me which one accepted you and I will move the ad spaces
+over to it, keeping the same places, labels and consent rules.
