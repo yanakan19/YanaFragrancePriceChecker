@@ -126,8 +126,9 @@ describe.skipIf(!built)('wrong price report (built page, Chromium)', () => {
     cdp.on('Page.frameRequestedNavigation', (e: { url: string }) => {
       if (e.url.startsWith('mailto:')) mailtos.push(e.url);
     });
+    // The row's own text node, as above: a logo (.offer-mark) may come first.
     const firstShop = (await page.locator('.detail-offers .offers .shop').first().evaluate(
-      (el) => (el.firstChild?.textContent ?? '').trim(),
+      (el) => ([...el.childNodes].find((n) => n.nodeType === 3 && (n.textContent ?? '').trim())?.textContent ?? '').trim(),
     ));
     await page.click('[data-report-price]');
     const dlg = page.locator('dialog#ps-report');

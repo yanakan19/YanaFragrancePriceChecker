@@ -207,4 +207,72 @@ describe('harvesting a shop that serves a different price list to every country'
     });
     expect(asked.every((u) => !u.includes('country=GB'))).toBe(true);
   });
+
+  // Les Senteurs, measured from a runner (currency probe, run 37084825268,
+  // job 111092804927, 2026-10-03): GBP at rate 1 everywhere, but the origin
+  // theme says Shopify.country "US" and serves the VAT-free export list
+  // (£162.50 for Dusita Mocha Absolu 100ml), while ?country=GB says "GB" and
+  // serves £195.00. Both are pounds; only one is what a UK shopper pays.
+  function exportListShop(gbAnswers = true): { http: Http; asked: string[] } {
+    const asked: string[] = [];
+    const http: Http = async (url) => {
+      asked.push(url);
+      const gb = gbAnswers && url.includes('country=GB');
+      if (url.includes('/meta.json')) return { status: 200, body: '{"currency":"GBP"}', ok: true };
+      if (url.includes('/products.json')) {
+        if (!url.includes('page=1')) return { status: 200, body: EMPTY, ok: true };
+        return { status: 200, body: page(gb ? '195.00' : '162.50'), ok: true };
+      }
+      return {
+        status: 200,
+        ok: true,
+        body:
+          'Shopify.currency = {"active":"GBP","rate":"1.0"}; ' +
+          `Shopify.country = "${gb ? 'GB' : 'US'}";`,
+      };
+    };
+    return { http, asked };
+  }
+
+  it('leaves a sterling origin that names another market for the GB one', async () => {
+    const { http } = exportListShop();
+    const res = await crawlViaShopifyProducts({
+      retailer, http, robots: NO_RESTRICTIONS, headers: {}, maxPages: 2, gapMs: 0,
+    });
+    expect(res.market.label).toBe('?country=GB');
+    expect(res.currency.country).toBe('GB');
+    expect(res.listings[0]!.priceGbp).toBe(195);
+  });
+
+  it('keeps the origin, and says so, when no way of asking reaches GB', async () => {
+    const { http } = exportListShop(false);
+    const res = await crawlViaShopifyProducts({
+      retailer, http, robots: NO_RESTRICTIONS, headers: {}, maxPages: 2, gapMs: 0,
+    });
+    expect(res.market.label).toBe('origin');
+    expect(res.listings[0]!.priceGbp).toBe(162.5);
+    expect(res.errors.some((e) => e.startsWith('market: the origin quotes the US market'))).toBe(true);
+  });
+
+  it('does not go looking when the origin names the GB market itself', async () => {
+    const asked: string[] = [];
+    const http: Http = async (url) => {
+      asked.push(url);
+      if (url.includes('/meta.json')) return { status: 200, body: '{"currency":"GBP"}', ok: true };
+      if (url.includes('/products.json')) {
+        if (!url.includes('page=1')) return { status: 200, body: EMPTY, ok: true };
+        return { status: 200, body: page('40.95'), ok: true };
+      }
+      return {
+        status: 200,
+        ok: true,
+        body: 'Shopify.currency = {"active":"GBP","rate":"1.0"}; Shopify.country = "GB";',
+      };
+    };
+    const res = await crawlViaShopifyProducts({
+      retailer, http, robots: NO_RESTRICTIONS, headers: {}, maxPages: 2, gapMs: 0,
+    });
+    expect(res.market.label).toBe('origin');
+    expect(asked.every((u) => !u.includes('country=GB'))).toBe(true);
+  });
 });

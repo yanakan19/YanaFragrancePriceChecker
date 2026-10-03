@@ -79,6 +79,18 @@ export interface StorefrontCurrency {
    */
   rate: number | null;
   /**
+   * The market country the theme says this session is in (`Shopify.country`),
+   * where it says so. Not part of the sterling decision: a shop can quote a
+   * non-UK market in pounds, at rate 1, and still charge that market a
+   * different price. Les Senteurs does exactly that (currency probe, run
+   * 37084825268, job 111092804927, 2026-10-03): its origin served a US runner
+   * Shopify.country "US", GBP at rate 1, and £162.50 for Dusita Mocha Absolu
+   * 100ml, while `?country=GB` served £195.00 for the same variant. The first
+   * is a VAT-free export price; a UK shopper pays the second. Optional so the
+   * many hand-built values in tests need not carry it; absent means unknown.
+   */
+  country?: string | null;
+  /**
    * True only when every signal present says these numbers are pounds as
    * charged. False covers "something else", "converted" and "did not say"
    * alike, because all three are reasons not to publish.
@@ -104,6 +116,13 @@ function parseActive(homepageHtml: string | null): { currency: string | null; ra
   };
 }
 
+/** `Shopify.country = "GB"` as a Shopify theme inlines it, or null. */
+function parseMarketCountry(homepageHtml: string | null): string | null {
+  if (!homepageHtml) return null;
+  const m = homepageHtml.match(/Shopify\.country\s*=\s*["']([A-Za-z]{2})["']/);
+  return m?.[1] ? m[1].toUpperCase() : null;
+}
+
 /**
  * Decide, from what the storefront published, whether its prices are sterling.
  *
@@ -119,8 +138,9 @@ export function readStorefrontCurrency(
   // exactly the field that must not decide this on its own.
   const settlement = parseShopCurrency(metaJson, null);
   const presented = active ?? parseShopCurrency(metaJson, homepageHtml);
+  const country = parseMarketCountry(homepageHtml);
 
-  const base: Omit<StorefrontCurrency, 'isSterling' | 'reason'> = { presented, settlement, rate };
+  const base: Omit<StorefrontCurrency, 'isSterling' | 'reason'> = { presented, settlement, rate, country };
 
   if (presented === null) {
     return {
