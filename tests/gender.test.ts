@@ -138,7 +138,7 @@ describe('the four options', () => {
   // Colour is never the only carrier: the label for each option is a word,
   // and "Not stated" is worded as what it is rather than as a gender.
   it('never labels the unstated group as unisex', () => {
-    expect(GENDER_LABEL.notStated).toBe('Not stated');
+    expect(GENDER_LABEL.notStated).toBe('Not Stated');
     expect(GENDER_LABEL.notStated).not.toMatch(/unisex/i);
   });
 });

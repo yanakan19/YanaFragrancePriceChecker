@@ -74,9 +74,9 @@ export interface PriceHistoryChartInput {
  * the graph with age.
  */
 export const HISTORY_SCOPES = [
-  { id: 'week', label: 'This week', days: 7 },
-  { id: 'month', label: 'This month', days: 30 },
-  { id: 'year', label: 'This year', days: 365 },
+  { id: 'week', label: 'This Week', days: 7 },
+  { id: 'month', label: 'This Month', days: 30 },
+  { id: 'year', label: 'This Year', days: 365 },
 ] as const;
 const ALL_SCOPE = { id: 'all', label: 'All', days: Number.POSITIVE_INFINITY } as const;
 type Scope = (typeof HISTORY_SCOPES)[number] | typeof ALL_SCOPE;
@@ -109,7 +109,7 @@ interface Marker extends ChartObservation {
 /** The block with a heading and one sentence, for the one case with nothing at all to draw. */
 export function priceHistoryMessageBlock(message: string): string {
   return `<div class="history-block" data-history-block>
-    <p class="gone-head t-eyebrow">Price history</p>
+    <p class="gone-head t-eyebrow">Price History</p>
     <p class="history-empty t-caption">${esc(message)}</p>
   </div>`;
 }
@@ -181,7 +181,7 @@ export function priceHistoryChart(input: PriceHistoryChartInput): string {
 
   return `<div class="history-block" data-history-block data-history-points="${realLine.length + markers.length}">
     <div class="history-head">
-      <p class="gone-head t-eyebrow">Price history</p>
+      <p class="gone-head t-eyebrow">Price History</p>
       <div class="history-scopes" role="group" aria-label="Price history range">${tabs}</div>
     </div>
     ${bodies}

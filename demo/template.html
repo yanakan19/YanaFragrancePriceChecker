@@ -257,8 +257,13 @@
   .t-section { font: 600 15px/1.25 var(--font-sans); letter-spacing: -.005em; color: var(--ink); }
   .t-title   { font: 600 15px/1.3  var(--font-sans); letter-spacing: -.01em;  color: var(--ink); }
   .t-body    { font: 400 14px/1.55 var(--font-sans); color: var(--ink-2); }
-  .t-eyebrow { font: 600 11px/1    var(--font-sans); letter-spacing: .08em;
-               text-transform: uppercase; color: var(--faint); }
+  /* Title Case as written, not shouted: the owner asked for every label on
+     the site in Title Case (2026-10-03), and capitals set by the stylesheet
+     also turned every brand pill (which wears this role) into "MIND GAMES"
+     whatever the brand's own spelling. The tracking came down with the
+     capitals: .08em was for capitals and spaces out lowercase letters. */
+  .t-eyebrow { font: 600 11px/1    var(--font-sans); letter-spacing: .02em;
+               color: var(--faint); }
   .t-caption { font: 400 13px/1.4  var(--font-sans); color: var(--faint); }
   .t-count   { font: 600 12px/1    var(--font-num);  letter-spacing: .01em;
                font-variant-numeric: tabular-nums; color: var(--ink-2); }
@@ -1038,7 +1043,7 @@
   }
   .tile-price .off {
     font-size: 10.5px; font-weight: 700; color: var(--ok);
-    text-transform: uppercase; letter-spacing: .06em;
+    letter-spacing: .01em;
   }
   .tile-price .amt { font-size: 15.5px; }
   .tile-price .amt.none { color: var(--faint); font-weight: 600; font-size: 13.5px; }
@@ -1047,7 +1052,7 @@
      and leaving that unsaid is what would be dishonest. */
   .tile-price .amt-note {
     font-size: 10.5px; font-weight: 600; color: var(--faint);
-    text-transform: uppercase; letter-spacing: .05em;
+    letter-spacing: .01em;
   }
   .tile-price .was {
     font-size: 11px; font-weight: 600; color: var(--faint);
@@ -1059,7 +1064,7 @@
      place a .was.anchor exists at all; the offer row stopped rendering its
      own on 2026-08-26 (see offerRow in demo/app.ts). */
   .tile-price .was.anchor { text-decoration: none; border-bottom: 1px dotted var(--faint); padding-bottom: 1px; }
-  .from { font-size: 10px; font-weight: 600; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
+  .from { font-size: 10px; font-weight: 600; color: var(--faint); letter-spacing: .02em; }
 
   /* Which shop the price is actually from: a plain text tag using the name,
      not a logo. This is not the same absence the Retailers directory's
@@ -1373,7 +1378,7 @@
   .brand-site-flag {
     margin-left: 2px; padding: 2px 7px; border-radius: 999px;
     font-size: 10.5px; font-weight: 700; letter-spacing: .01em;
-    text-transform: uppercase; white-space: nowrap;
+    white-space: nowrap;
   }
   .brand-site-flag.is-uk {
     color: var(--ok); background: color-mix(in srgb, var(--ok) 14%, transparent);
@@ -1812,7 +1817,7 @@
      price it was pointing at. */
   .tag {
     margin-left: 8px; vertical-align: 1px;
-    font-size: 9.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+    font-size: 10px; font-weight: 700; letter-spacing: .02em;
     color: var(--accent-ink); background: var(--accent-sf); border-radius: 4px; padding: 2px 6px;
   }
   /* "Lowest total" / "Lowest item price": the leading row, on figures that do
@@ -2237,7 +2242,7 @@
     max-height: 70vh; overflow-y: auto;
   }
   .sheet-title {
-    font-size: 11px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase;
+    font-size: 11px; font-weight: 700; letter-spacing: .02em;
     color: var(--faint); margin: 10px 10px 8px;
   }
   .brand-opt {
@@ -2642,10 +2647,10 @@
      brandmark, five nav buttons and the search box on every single page. It
      is off-screen until focused, which is the only correct way to do this:
      display:none would take it out of the tab order and defeat the purpose. -->
-<a class="skip-link" href="#view">Skip to the main content</a>
+<a class="skip-link" href="#view">Skip to the Main Content</a>
 
 <button class="to-top" id="to-top" type="button" hidden>
-  <span aria-hidden="true">&uarr;</span> Back to top
+  <span aria-hidden="true">&uarr;</span> Back to Top
 </button>
 
 <div class="app">
@@ -2685,7 +2690,7 @@
            because a shopper looking for cheap perfume should never have to
            step over a style guide to find it, and because a fifth primary nav
            item breaks the phone layout at 375px. -->
-      <a class="footer-link" href="/design" data-goto="design">Design system</a>
+      <a class="footer-link" href="/design" data-goto="design">Design System</a>
     </div>
   </footer>
 </div>

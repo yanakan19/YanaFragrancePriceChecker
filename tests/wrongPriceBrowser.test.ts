@@ -93,7 +93,7 @@ describe.skipIf(!built)('wrong price report (built page, Chromium)', () => {
       problems: [...d.querySelectorAll('select[name="problem"] option')].map((o) => o.textContent ?? ''),
     }));
     expect(a11y.modal).toBe(true);
-    expect(a11y.labelledBy).toBe('Report a wrong price');
+    expect(a11y.labelledBy).toBe('Report a Wrong Price');
     expect(a11y.focusInside).toBe(true);
     expect(a11y.focusName).toBe('shop');
     expect(a11y.unlabelled).toBe(0);

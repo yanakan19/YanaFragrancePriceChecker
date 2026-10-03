@@ -27,8 +27,8 @@ export type BrowseSort = ListSort | 'stocked';
 
 /** The six orderings offered wherever a fragrance list can be sorted. */
 export const LIST_SORT_OPTIONS: { value: ListSort; label: string }[] = [
-  { value: 'az', label: 'A To Z' },
-  { value: 'za', label: 'Z To A' },
+  { value: 'az', label: 'A to Z' },
+  { value: 'za', label: 'Z to A' },
   { value: 'price-low', label: 'Lowest Price' },
   { value: 'price-high', label: 'Highest Price' },
   { value: 'size-low', label: 'Smallest Size' },

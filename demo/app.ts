@@ -456,10 +456,10 @@ function rowsFor(frag: DemoFragrance): PresentedOffer[] {
 // / 3,145 / 1,227 / 464 across them — every band worth offering.
 const PRICE_BANDS: { id: PriceBand; label: string; min: number; max: number | null }[] = [
   { id: '0-25', label: 'Under £25', min: 0, max: 25 },
-  { id: '25-50', label: '£25 - £50', min: 25, max: 50 },
-  { id: '50-100', label: '£50 - £100', min: 50, max: 100 },
-  { id: '100-200', label: '£100 - £200', min: 100, max: 200 },
-  { id: '200+', label: '£200 And Over', min: 200, max: null },
+  { id: '25-50', label: '£25 to £50', min: 25, max: 50 },
+  { id: '50-100', label: '£50 to £100', min: 50, max: 100 },
+  { id: '100-200', label: '£100 to £200', min: 100, max: 200 },
+  { id: '200+', label: '£200 and Over', min: 200, max: null },
 ];
 
 /**
@@ -477,7 +477,7 @@ const CONCENTRATION_GROUPS: { id: ConcentrationGroup; label: string; members: re
   { id: 'parfum', label: 'Parfum / Extrait', members: ['Parfum', 'Extrait de Parfum'] },
   { id: 'edc', label: 'Eau de Cologne (EDC)', members: ['Eau de Cologne'] },
   { id: 'oil', label: 'Perfume Oil', members: ['Perfume Oil'] },
-  { id: 'other', label: 'Other or not stated', members: [] },
+  { id: 'other', label: 'Other or Not Stated', members: [] },
 ];
 
 function concentrationGroupOf(concentration: string): ConcentrationGroup {
@@ -747,16 +747,16 @@ function facets(list: DemoFragrance[], opts: { inStockHere?: { checked: boolean;
   const count = activeFacetCount() + (here?.checked ? 1 : 0);
 
   const controls = [
-    facetSelect('volume', 'Size', 'Any size', g.volume, state.facetVolume),
-    facetSelect('concentration', 'Concentration', 'Any concentration', g.concentration, state.facetConcentration),
-    facetSelect('gender', 'Gender', 'Any gender', g.gender, state.facetGender),
-    facetSelect('priceBand', 'Price', 'Any price', g.priceBand, state.facetPriceBand),
-    facetSelect('tier', 'Brand type', 'Any brand type', g.tier, state.facetTier),
-    g.onSale > 0 || state.facetOnSale ? facetCheckbox('facet-on-sale', 'On sale', g.onSale, state.facetOnSale) : '',
+    facetSelect('volume', 'Size', 'Any Size', g.volume, state.facetVolume),
+    facetSelect('concentration', 'Concentration', 'Any Concentration', g.concentration, state.facetConcentration),
+    facetSelect('gender', 'Gender', 'Any Gender', g.gender, state.facetGender),
+    facetSelect('priceBand', 'Price', 'Any Price', g.priceBand, state.facetPriceBand),
+    facetSelect('tier', 'Brand Type', 'Any Brand Type', g.tier, state.facetTier),
+    g.onSale > 0 || state.facetOnSale ? facetCheckbox('facet-on-sale', 'On Sale', g.onSale, state.facetOnSale) : '',
     here
-      ? here.narrows || here.checked ? facetCheckbox('retailer-in-stock', 'In stock here', null, here.checked) : ''
+      ? here.narrows || here.checked ? facetCheckbox('retailer-in-stock', 'In Stock Here', null, here.checked) : ''
       : (g.inStock > 0 && g.inStock < list.length) || state.facetInStock
-        ? facetCheckbox('facet-in-stock', 'In stock', g.inStock, state.facetInStock)
+        ? facetCheckbox('facet-in-stock', 'In Stock', g.inStock, state.facetInStock)
         : '',
   ].filter(Boolean);
 
@@ -767,7 +767,7 @@ function facets(list: DemoFragrance[], opts: { inStockHere?: { checked: boolean;
   // once, in the panel, so a short Women's list is not mistaken for a thin
   // catalogue or a broken filter.
   const genderNote = g.gender.length >= 2
-    ? `<p class="facet-note t-caption">Gender is read from wording in the title, such as Pour Homme or For Her. Not stated is not the same as unisex.</p>`
+    ? `<p class="facet-note t-caption">Gender is read from wording in the title, such as Pour Homme or For Her. Not Stated is not the same as Unisex.</p>`
     : '';
 
   return {
@@ -780,7 +780,7 @@ function facets(list: DemoFragrance[], opts: { inStockHere?: { checked: boolean;
       ? `<div class="facets-panel">
           <div class="facet-grid">${controls.join('')}</div>
           ${genderNote}
-          ${count > 0 ? `<button type="button" class="link-btn facets-clear" data-facets-clear>Clear all filters</button>` : ''}
+          ${count > 0 ? `<button type="button" class="link-btn facets-clear" data-facets-clear>Clear All Filters</button>` : ''}
         </div>`
       : '',
   };
@@ -1062,7 +1062,7 @@ function sizeLabel(f: Pick<DemoFragrance, 'sizeMl' | 'giftSet'>): string {
   // A gift set is its own category (src/catalogue/giftSet.ts): it says so
   // where a single bottle states its size, and never "Size not confirmed",
   // which would read as a bottle whose size is in doubt.
-  if (f.giftSet) return 'Gift set';
+  if (f.giftSet) return 'Gift Set';
   return f.sizeMl === null ? 'Size not confirmed' : `${f.sizeMl}ml`;
 }
 
@@ -1193,7 +1193,7 @@ function fragranceLinksBlock(f: DemoFragrance): string {
 
 function priceLine(f: DemoFragrance): string {
   const best = bestOffer(rowsFor(f));
-  if (!best) return `<span class="amt none">Sold out</span>`;
+  if (!best) return `<span class="amt none">Sold Out</span>`;
   // One element, not a bare text node beside a span: .tile-price stacks its
   // children, so anything left loose would drop the arrow onto its own line.
   if (best.deliveredPriceGbp !== null) {
@@ -1204,7 +1204,7 @@ function priceLine(f: DemoFragrance): string {
   // "from £45" beside every other tile's delivered price would read as the
   // same kind of figure when it is not.
   return `<span class="amt">${formatGbp(best.itemPriceGbp)} <span aria-hidden="true">→</span></span>
-    <span class="amt-note">delivery not stated</span>`;
+    <span class="amt-note">Delivery Not Stated</span>`;
 }
 
 /**
@@ -1398,13 +1398,13 @@ function homeView(): string {
         <span>Prices Checked Every 3 Hours</span>
         <span>No Promoted Listings</span>
       </p>
-      <p class="db-count">Current Database: ${DEMO_FRAGRANCES.length.toLocaleString('en-GB')} fragrances
+      <p class="db-count">Current Database: ${DEMO_FRAGRANCES.length.toLocaleString('en-GB')} Fragrances
         <span class="live-dot" aria-hidden="true"></span><span class="sr-only"> (live)</span></p>
     </section>
 
     <section class="pop-section">
       <div class="section-head">
-        <h2 class="t-section">Most stocked</h2>
+        <h2 class="t-section">Most Stocked</h2>
         <button class="link-btn see-top" data-browse>See Top ${TOP_N} <span aria-hidden="true">→</span></button>
       </div>
       <ul class="pop-rail">
@@ -1444,25 +1444,25 @@ function homeView(): string {
       </section>
 
       <section class="suggest-section">
-        <h2 class="t-section">Got an idea?</h2>
+        <h2 class="t-section">Got an Idea?</h2>
         <p class="panel-note t-body">${SUGGEST_NOTE}</p>
         <form id="home-suggest-form" class="contact-form">
           <label class="field">
-            <span>Your suggestion</span>
+            <span>Your Suggestion</span>
             <textarea id="home-suggest-body" rows="3" placeholder="What should we add or change?"></textarea>
           </label>
           <label class="field">
-            <span>Your name <span class="dimmer">(optional)</span></span>
+            <span>Your Name <span class="dimmer">(optional)</span></span>
             <input id="home-suggest-name" type="text" placeholder="So we know who to thank" />
           </label>
           <label class="field">
-            <span>Your email <span class="dimmer">(optional, if you would like a reply)</span></span>
+            <span>Your Email <span class="dimmer">(optional, if you would like a reply)</span></span>
             <input id="home-suggest-email" type="email" placeholder="you@example.com" />
           </label>
           <button type="submit" class="contact-send">Send</button>
         </form>
         <p class="form-privacy t-caption">We keep what you send only for as long as it takes to reply.
-          <button type="button" class="link-btn" data-page="privacy">Privacy notice</button></p>
+          <button type="button" class="link-btn" data-page="privacy">Privacy Notice</button></p>
         <p id="home-suggest-confirm" class="contact-confirm" hidden></p>
       </section>
     </div>`;
@@ -1532,7 +1532,7 @@ function browseView(): string {
 function cheapestTag(v: CheapestVerdict): string | null {
   if (!v.offer) return null;
   if (v.decided) return 'Cheapest';
-  return v.reason === 'delivery-unstated' ? 'Lowest item price' : 'Lowest total';
+  return v.reason === 'delivery-unstated' ? 'Lowest Item Price' : 'Lowest Total';
 }
 
 /**
@@ -1881,7 +1881,7 @@ function priceHistoryLoadingBlock(fragranceId: string, isCurrentlyPurchasable: b
   ).join('');
   return `<div class="history-block history-pending" data-history-block data-history-pending="${esc(fragranceId)}" data-history-live="${isCurrentlyPurchasable}" aria-busy="true">
     <div class="history-head">
-      <p class="gone-head t-eyebrow">Price history</p>
+      <p class="gone-head t-eyebrow">Price History</p>
       <div class="history-scopes history-ghost" aria-hidden="true">${ghostScopes}</div>
     </div>
     <div class="history-chart history-loading">
@@ -1895,7 +1895,7 @@ function priceHistoryLoadingBlock(fragranceId: string, isCurrentlyPurchasable: b
 /** What the slot says when the history could not be fetched. The next product page asks again. */
 function priceHistoryFailedBlock(): string {
   return `<div class="history-block" data-history-block data-history-failed>
-    <p class="gone-head t-eyebrow">Price history</p>
+    <p class="gone-head t-eyebrow">Price History</p>
     <p class="history-empty t-caption">Price history could not be loaded just now. The prices above are unaffected.</p>
   </div>`;
 }
@@ -1986,7 +1986,7 @@ function wishlistTargetHtml(entry: WishlistEntry, frag: DemoFragrance): string {
 function priceAlertsSectionHtml(): string {
   if (state.priceAlerts === null) return '';
   return `
-    <h2 class="t-section">Price alerts</h2>
+    <h2 class="t-section">Price Alerts</h2>
     <label class="control facet-check alerts-check">
       <input type="checkbox" id="price-alerts"${state.priceAlerts ? ' checked' : ''} />
       <span class="facet-check-label">Email me when a saved fragrance gets cheaper</span>
@@ -2085,7 +2085,7 @@ function wishlistButton(fragranceId: string): string {
   const control = wishlistControl(accountStateInput());
   if (control === 'hidden') return '';
   if (control === 'prompt') {
-    return `<button class="wishlist-toggle" data-go-account>${ICON_HEART}<span>Sign in to save</span></button>`;
+    return `<button class="wishlist-toggle" data-go-account>${ICON_HEART}<span>Sign In to Save</span></button>`;
   }
   const saved = state.wishlistIds.has(fragranceId);
   return `<button class="wishlist-toggle ${saved ? 'on' : ''}" data-wishlist-toggle="${esc(fragranceId)}"
@@ -2277,13 +2277,13 @@ function referenceBox(frag: DemoFragrance, rows: readonly PresentedOffer[]): str
 function lowestPriceBox(best: PresentedOffer, verdict: CheapestVerdict): string {
   if (best.deliveredPriceGbp === null) {
     return `<div class="price-box price-box--best">
-        <p class="price-box-label t-eyebrow">Lowest item price</p>
+        <p class="price-box-label t-eyebrow">Lowest Item Price</p>
         <p class="price-box-amount t-price t-price--hero">${formatGbp(best.itemPriceGbp)}</p>
         <p class="price-box-from t-caption">from ${esc(best.retailer.name)}. Delivery not stated, so this is not a delivered price</p>
       </div>`;
   }
   return `<div class="price-box price-box--best">
-      <p class="price-box-label t-eyebrow">${verdict.decided ? 'Cheapest price' : 'Lowest total price'}</p>
+      <p class="price-box-label t-eyebrow">${verdict.decided ? 'Cheapest Price' : 'Lowest Total Price'}</p>
       <p class="price-box-amount t-price t-price--hero">${formatGbp(best.deliveredPriceGbp)}</p>
       <p class="price-box-from price-box-from--fit t-caption">from ${esc(best.retailer.name)}</p>
     </div>`;
@@ -2398,7 +2398,7 @@ function detailView(): string {
             // has two children and the caption on the right does not drift
             // left into the gap the heading used to fill — see .results-head
             // in the stylesheet for the narrow-width version of this row.
-            live.length ? `Available at (${live.length} ${live.length === 1 ? 'shop' : 'shops'})` : ''
+            live.length ? `Available at (${live.length} ${live.length === 1 ? 'Shop' : 'Shops'})` : ''
           }</p>
           <span class="dim t-caption">${
             // The one fact no row carries: how current the page is. Each row
@@ -2415,7 +2415,7 @@ function detailView(): string {
 
         ${
           plusDelivery.length
-            ? `<p class="gone-head t-eyebrow">Delivery not included</p>
+            ? `<p class="gone-head t-eyebrow">Delivery Not Included</p>
                <ul class="offers">${plusDelivery.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
             : ''
         }
@@ -2425,7 +2425,7 @@ function detailView(): string {
           // demo/offerGroups.ts. Each row says when it was last checked, and
           // the same prices are plotted on the graph further down.
           older.length
-            ? `<p class="gone-head t-eyebrow">Older prices</p>
+            ? `<p class="gone-head t-eyebrow">Older Prices</p>
                <p class="older-note t-caption">Not checked in the last ${STALE_OFFER_DAYS} days, so these may have changed.</p>
                <ul class="offers">${older.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
             : ''
@@ -2433,7 +2433,7 @@ function detailView(): string {
 
         ${
           gone.length
-            ? `<p class="gone-head t-eyebrow">Sold out</p>
+            ? `<p class="gone-head t-eyebrow">Sold Out</p>
                <ul class="offers">${gone.map((r) => offerRow(r, false, 'Cheapest', mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
             : ''
         }
@@ -2443,7 +2443,7 @@ function detailView(): string {
           // report is rare, and a control on every row would be furniture on
           // the busiest part of the page. Opens wrongPriceDialog.
           rows.length
-            ? `<p class="report-wrong t-caption"><button type="button" class="link-btn" data-report-price aria-haspopup="dialog">Spotted a wrong price? Tell us</button></p>`
+            ? `<p class="report-wrong t-caption"><button type="button" class="link-btn" data-report-price aria-haspopup="dialog">Spotted a Wrong Price? Tell Us</button></p>`
             : ''
         }
 
@@ -2451,7 +2451,7 @@ function detailView(): string {
 
         ${
           unavailable.length
-            ? `<p class="gone-head t-eyebrow">Not available</p>
+            ? `<p class="gone-head t-eyebrow">Not Available</p>
                ${unavailableShopsLine(unavailable)}`
             : ''
         }
@@ -2471,8 +2471,8 @@ function brandsPanel(): string {
 
   const controls = `<div class="controls">
     ${control('brand-sort', 'Sort brands', ICON_SORT, [
-      { value: 'az', label: 'A To Z' },
-      { value: 'za', label: 'Z To A' },
+      { value: 'az', label: 'A to Z' },
+      { value: 'za', label: 'Z to A' },
     ], state.brandSort)}
     ${control('brand-filter', 'Filter brands', ICON_FILTER, [
       { value: 'all', label: 'All Types' },
@@ -2588,13 +2588,13 @@ function dealsPanel(): string {
         // stated), and the percentage is worked from it — see
         // demo/msrpComparison.ts. An item price says so, as priceLine does.
         (d.kind === 'house'
-          ? `<span class="off anchor">${d.percentOff}% below ${esc(d.houseName!)}</span>
+          ? `<span class="off anchor">${d.percentOff}% Below ${esc(d.houseName!)}</span>
         <span class="amt">${formatGbp(d.price)}</span>
         <span class="was anchor">${formatGbp(d.wasPrice)} at ${esc(d.houseName!)}</span>`
-          : `<span class="off">${d.percentOff}% off</span>
+          : `<span class="off">${d.percentOff}% Off</span>
         <span class="amt">${formatGbp(d.price)}</span>
         <span class="was">RRP ${formatGbp(d.wasPrice)}</span>`) +
-        (d.delivered ? '' : `<span class="amt-note">delivery not stated</span>`),
+        (d.delivered ? '' : `<span class="amt-note">Delivery Not Stated</span>`),
     });
 
   return `${controls}
@@ -2777,8 +2777,8 @@ function trustpilotWidget(r: Retailer): string {
   return `<div class="trustpilot-block trustpilot-consent">
     <button type="button" class="link-btn tp-show"
             data-tp-show="${esc(state.businessId)}" data-tp-review="${esc(state.reviewUrl)}"
-            aria-describedby="tp-consent-note">Show ${esc(r.name)}'s Trustpilot rating</button>
-    <a href="${esc(state.reviewUrl)}" target="_blank" rel="noopener nofollow">See reviews on Trustpilot</a>
+            aria-describedby="tp-consent-note">Show ${esc(r.name)}'s Trustpilot Rating</button>
+    <a href="${esc(state.reviewUrl)}" target="_blank" rel="noopener nofollow">See Reviews on Trustpilot</a>
     <span id="tp-consent-note" class="t-caption dimmer">Loads Trustpilot's widget from their servers, under their privacy policy.</span>
   </div>`;
 }
@@ -2795,7 +2795,7 @@ function trustpilotWidgetMarkup(businessId: string, reviewUrl: string, theme: 'l
       data-style-width="100%"
       data-theme="${theme}"
     >
-      <a href="${esc(reviewUrl)}" target="_blank" rel="noopener nofollow">See reviews on Trustpilot</a>
+      <a href="${esc(reviewUrl)}" target="_blank" rel="noopener nofollow">See Reviews on Trustpilot</a>
     </div>`;
 }
 
@@ -2857,7 +2857,7 @@ function retailerView(): string {
       </div>
     </div>
 
-    <p class="gone-head t-eyebrow">${list.length} ${list.length === 1 ? 'fragrance' : 'fragrances'} here</p>
+    <p class="gone-head t-eyebrow">${list.length} ${list.length === 1 ? 'Fragrance' : 'Fragrances'} Here</p>
     ${controls}
     ${fragranceList(list, 'Nothing from this shop matches that filter.')}`;
 }
@@ -2933,7 +2933,7 @@ function brandView(): string {
 
     ${
       list.length > 0
-        ? `<p class="gone-head t-eyebrow">${list.length} ${list.length === 1 ? 'fragrance' : 'fragrances'}</p>
+        ? `<p class="gone-head t-eyebrow">${list.length} ${list.length === 1 ? 'Fragrance' : 'Fragrances'}</p>
            ${controls}
            ${fragranceList(list, 'We have no listings from this brand yet.')}`
         : houseItems.length === 0
@@ -2987,7 +2987,7 @@ function notesPanel(): string {
   const controls = `<div class="controls">
     ${control('note-sort', 'Sort notes', ICON_SORT, [
       { value: 'common', label: 'Most Used' },
-      { value: 'az', label: 'A To Z' },
+      { value: 'az', label: 'A to Z' },
     ], state.noteSort)}
     ${control('note-layer', 'Filter notes', ICON_FILTER, [
       { value: 'any', label: 'Any Layer' },
@@ -3183,7 +3183,7 @@ const MODE_OPTIONS: { id: DisplayMode; label: string }[] = [
   { id: 'system', label: 'Use System Setting' },
 ];
 
-const CONTACT_TYPES = ['An issue', 'A suggestion', 'A promotional enquiry', 'Something else'] as const;
+const CONTACT_TYPES = ['An Issue', 'A Suggestion', 'A Promotional Enquiry', 'Something Else'] as const;
 
 function settingsView(): string {
   return `
@@ -3215,23 +3215,23 @@ function settingsView(): string {
 
       <p class="settings-note t-caption">Your choice is saved on this device.</p>
 
-      <h2 class="t-section">Contact us</h2>
+      <h2 class="t-section">Contact Us</h2>
       <form id="contact-form" class="contact-form">
         <label class="field">
-          <span>What is this about</span>
+          <span>What Is This About</span>
           <select id="contact-type">
             ${CONTACT_TYPES.map((t) => `<option>${t}</option>`).join('')}
           </select>
         </label>
         <label class="field">
-          <span>Describe it</span>
+          <span>Describe It</span>
           <textarea id="contact-body" rows="4" placeholder="Tell us what is going on"></textarea>
         </label>
         <button type="submit" class="contact-send">Send</button>
       </form>
       <p class="form-privacy t-caption">Send opens your own email app. Nothing goes to a server of ours.
         We keep what you send only for as long as it takes to reply.
-        <button type="button" class="link-btn" data-page="privacy">Privacy notice</button></p>
+        <button type="button" class="link-btn" data-page="privacy">Privacy Notice</button></p>
       <p id="contact-confirm" class="contact-confirm" hidden></p>
 
       <h2 class="t-section">Legal</h2>
@@ -3245,7 +3245,7 @@ function settingsView(): string {
       </nav>
       <p class="foot-legal">Some shop links are affiliate links, marked on the page. We may earn
         commission if you buy, at no cost to you, and it never changes the order of results.
-        <button class="link-btn" data-page="affiliate">How that works</button></p>
+        <button class="link-btn" data-page="affiliate">How That Works</button></p>
       <p class="foot-legal dimmer">© ${new Date().getFullYear()} ${esc(COMPANY.name)}, run by ${esc(COMPANY.legalName)}.</p>
     </article>`;
 }
@@ -3263,9 +3263,9 @@ function accountEntryLabel(): string {
     case 'loading':
       return 'Account';
     case 'signedOut':
-      return 'Sign in or create an account';
+      return 'Sign In or Create an Account';
     case 'verify':
-      return 'Verify your email';
+      return 'Verify Your Email';
     case 'signedIn':
       return s.email === '' ? 'Account' : s.email;
   }
@@ -3380,18 +3380,18 @@ function openWrongPriceDialog(): void {
   // One shop listed: nothing to choose, so it starts chosen.
   const only = offers.length === 1;
   dlg.innerHTML = `<form method="dialog" class="ps-dialog-body report-form">
-      <h2 id="ps-report-title" class="ps-dialog-title">Report a wrong price</h2>
+      <h2 id="ps-report-title" class="ps-dialog-title">Report a Wrong Price</h2>
       <p id="ps-report-msg" class="ps-dialog-msg">For ${esc(product)}. This opens your email app with the details filled in.</p>
       <label class="field">
         <span>Shop</span>
         <select name="shop" required>
-          ${only ? '' : '<option value="">Choose a shop</option>'}
+          ${only ? '' : '<option value="">Choose a Shop</option>'}
           ${offers.map((r, i) => `<option value="${i}">${esc(r.retailer.name)}, ${esc(formatGbp(r.deliveredPriceGbp ?? r.itemPriceGbp))}</option>`).join('')}
           <option value="${OTHER_SHOP}">Other</option>
         </select>
       </label>
       <label class="field">
-        <span>What is wrong</span>
+        <span>What Is Wrong</span>
         <select name="problem">
           ${WRONG_PRICE_PROBLEMS.map((p) => `<option value="${p.value}">${esc(p.label)}</option>`).join('')}
         </select>
@@ -3401,12 +3401,12 @@ function openWrongPriceDialog(): void {
         <textarea name="note" rows="3" maxlength="1000" placeholder="For example, the price you saw"></textarea>
       </label>
       <label class="field">
-        <span>Your email <span class="dimmer">(optional, if you would like a reply)</span></span>
+        <span>Your Email <span class="dimmer">(optional, if you would like a reply)</span></span>
         <input name="email" type="email" autocomplete="email" placeholder="you@example.com" />
       </label>
       <div class="ps-dialog-actions">
         <button value="cancel" formnovalidate class="ps-dialog-btn">Cancel</button>
-        <button value="send" class="ps-dialog-btn primary">Open email</button>
+        <button value="send" class="ps-dialog-btn primary">Open Email</button>
       </div>
     </form>`;
 
@@ -3434,7 +3434,7 @@ function openWrongPriceDialog(): void {
       replyTo: field('email'),
     });
     void showDialog({
-      title: 'Thank you',
+      title: 'Thank You',
       message: 'Your email app should now be open with your report. Press send there to reach us.',
       ok: true,
     });
@@ -3447,11 +3447,11 @@ function openWrongPriceDialog(): void {
 function newPasswordForm(id: string, submitLabel: string): string {
   return `<form id="${id}" class="contact-form">
       <label class="field">
-        <span>New password</span>
+        <span>New Password</span>
         <input type="password" name="password" autocomplete="new-password" required minlength="8" />
       </label>
       <label class="field">
-        <span>Repeat new password</span>
+        <span>Repeat New Password</span>
         <input type="password" name="confirm" autocomplete="new-password" required minlength="8" />
       </label>
       <button type="submit" class="contact-send">${esc(submitLabel)}</button>
@@ -3484,9 +3484,9 @@ function accountView(): string {
     return `
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
-        <h1 class="t-page">Set a new password</h1>
+        <h1 class="t-page">Set a New Password</h1>
         <p class="account-note">For ${esc(s.email)}.</p>
-        ${newPasswordForm('auth-recovery-form', 'Save new password')}
+        ${newPasswordForm('auth-recovery-form', 'Save New Password')}
       </article>`;
   }
 
@@ -3500,12 +3500,12 @@ function accountView(): string {
         ${priceAlertsSectionHtml()}
         <h2 class="t-section">Settings</h2>
         <details class="account-more">
-          <summary>Change password</summary>
-          ${newPasswordForm('auth-change-password-form', 'Change password')}
+          <summary>Change Password</summary>
+          ${newPasswordForm('auth-change-password-form', 'Change Password')}
         </details>
         <div class="account-actions">
-          <button class="contact-send" id="auth-sign-out">Sign out</button>
-          <button class="link-btn danger" id="auth-delete">Delete account</button>
+          <button class="contact-send" id="auth-sign-out">Sign Out</button>
+          <button class="link-btn danger" id="auth-delete">Delete Account</button>
         </div>
       </article>`;
   }
@@ -3525,17 +3525,17 @@ function accountView(): string {
     // The way back for the second one is to forget the pending address, not
     // to sign out — see the #auth-leave-pending handler.
     const leave = s.hasSession
-      ? `<button class="link-btn" id="auth-sign-out-pending">Sign out</button>`
-      : `<button class="link-btn" id="auth-leave-pending">Back to sign in</button>`;
+      ? `<button class="link-btn" id="auth-sign-out-pending">Sign Out</button>`
+      : `<button class="link-btn" id="auth-leave-pending">Back to Sign In</button>`;
     return `
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
-        <h1 class="t-page">Verify your email</h1>
+        <h1 class="t-page">Verify Your Email</h1>
         <p class="account-note">
           We sent a link to ${esc(s.email === '' ? 'your email address' : s.email)}. Follow it to finish setting up your
           account, then come back here.
         </p>
-        <button class="contact-send" id="auth-resend" data-email="${esc(s.email)}">Resend the email</button>
+        <button class="contact-send" id="auth-resend" data-email="${esc(s.email)}">Resend the Email</button>
         <p id="auth-notice" class="contact-confirm" hidden></p>
         ${leave}
       </article>`;
@@ -3548,8 +3548,8 @@ function accountView(): string {
       <h1 class="t-page">Account</h1>
 
       <div class="seg" role="group" aria-label="Sign in or sign up">
-        <button class="seg-btn ${!signUpTab ? 'on' : ''}" data-auth-tab="signIn">Sign in</button>
-        <button class="seg-btn ${signUpTab ? 'on' : ''}" data-auth-tab="signUp">Sign up</button>
+        <button class="seg-btn ${!signUpTab ? 'on' : ''}" data-auth-tab="signIn">Sign In</button>
+        <button class="seg-btn ${signUpTab ? 'on' : ''}" data-auth-tab="signUp">Sign Up</button>
       </div>
 
       <form id="${signUpTab ? 'auth-signup-form' : 'auth-signin-form'}" class="contact-form">
@@ -3573,7 +3573,7 @@ function accountView(): string {
           </span>
         </label>
         <button type="submit" class="contact-send" ${state.authBusy ? 'disabled' : ''}>
-          ${signUpTab ? 'Create account' : 'Sign in'}
+          ${signUpTab ? 'Create Account' : 'Sign In'}
         </button>
         ${
           // Said at the point of signing up, where it is decided, not only on
@@ -3591,7 +3591,7 @@ function accountView(): string {
         }
       </form>
 
-      ${!signUpTab ? `<button class="link-btn" id="auth-forgot">Forgot your password</button>` : ''}
+      ${!signUpTab ? `<button class="link-btn" id="auth-forgot">Forgot Your Password</button>` : ''}
 
       ${state.authResetSent ? `<p class="contact-confirm">If that address has an account, a reset link is on its way.</p>` : ''}
     </article>`;
@@ -3622,14 +3622,14 @@ function notFoundView(): string {
   const path = state.notFoundPath.replace(/^\/+/, '/');
   return `
     <article class="doc">
-      <h1 class="t-page">Page not found</h1>
+      <h1 class="t-page">Page Not Found</h1>
       <p class="t-body">Nothing on this site answers to
         ${path && path !== '/' ? `<code>${esc(path)}</code>` : 'that address'}.
         It may have been a fragrance or a shop that has since been delisted.</p>
       <p class="t-body">Search the catalogue, or start from one of these:</p>
       <p class="notfound-links">
         <button class="link-btn" data-goto="home">Home</button>
-        <button class="link-btn" data-goto="browse">Search ${DEMO_FRAGRANCES.length.toLocaleString('en-GB')} fragrances</button>
+        <button class="link-btn" data-goto="browse">Search ${DEMO_FRAGRANCES.length.toLocaleString('en-GB')} Fragrances</button>
         <button class="link-btn" data-tab="brands">Brands</button>
         <button class="link-btn" data-tab="retailers">Shops</button>
       </p>
@@ -4379,7 +4379,7 @@ const DS_COLOUR_GROUPS: { title: string; note: string; tokens: TokenRow[] }[] = 
     ],
   },
   {
-    title: 'Rank badges',
+    title: 'Rank Badges',
     note: 'First, second and third on the deals list. Flat values, the same in every theme, each with the text colour measured against its own ground rather than assumed.',
     tokens: [
       { name: '--rank-1', role: 'First place' },
@@ -4408,9 +4408,9 @@ const DS_CONTRAST_PAIRS: { fg: string; bg: string; use: string }[] = [
 
 /** The eight type roles, in the order the stylesheet declares them. */
 const DS_TYPE_ROLES: { cls: string; sample: string; role: string }[] = [
-  { cls: 't-page', sample: 'Page title', role: 'One per view, at the top' },
-  { cls: 't-section', sample: 'Section heading', role: 'Separates blocks with space, not decoration' },
-  { cls: 't-title', sample: 'Card and row title', role: 'A fragrance, a brand and a shop are the same kind of object' },
+  { cls: 't-page', sample: 'Page Title', role: 'One per view, at the top. Title Case, like every label' },
+  { cls: 't-section', sample: 'Section Heading', role: 'Separates blocks with space, not decoration' },
+  { cls: 't-title', sample: 'Card and Row Title', role: 'A fragrance, a brand and a shop are the same kind of object' },
   { cls: 't-body', sample: 'Body copy, the paragraphs a reader actually reads.', role: 'Running text' },
   { cls: 't-eyebrow', sample: 'Eyebrow', role: 'One size, one tracking. 11px is the floor at 360px wide' },
   { cls: 't-caption', sample: 'Caption and meta text', role: 'Under a title, beside a figure' },
@@ -4515,7 +4515,7 @@ function designView(): string {
   return `
     <button class="back" data-back>Back</button>
     <article class="doc design-doc">
-      <h1 class="t-page">Design system</h1>
+      <h1 class="t-page">Design System</h1>
       <p class="t-body">Every value on this page was read out of the live stylesheet at the
         moment the page rendered. The swatches are painted with the tokens themselves and the
         text samples are real elements carrying the real classes, so nothing here is a copy of
@@ -4542,7 +4542,7 @@ function designView(): string {
       </section>
 
       <section class="ds-section">
-        <h2 class="t-section">Contrast, measured now</h2>
+        <h2 class="t-section">Contrast, Measured Now</h2>
         <p class="t-body">Computed in the browser from the two tokens named on each row, in
           whichever theme is showing. AA asks 4.5:1 of text and 3:1 of a graphic; every pair here
           is held to the text bar. A row that fails says so rather than being left off the list.</p>
@@ -4558,7 +4558,7 @@ function designView(): string {
       </section>
 
       <section class="ds-section">
-        <h2 class="t-section">Space and layout</h2>
+        <h2 class="t-section">Space and Layout</h2>
         ${dsTokenTable(DS_CONSTANTS, false)}
         <p class="t-caption ds-gap">There is no radius or spacing scale to read: corner radii and
           gaps are written as literals where they are used. Naming that here rather than inventing
@@ -4930,7 +4930,7 @@ function init(): void {
   // visit. See auth.ts's checkEmailLinkCallback for why that was silent
   // until now.
   checkEmailLinkCallback().then((message) => {
-    if (message) void showDialog({ title: 'That link did not work', message });
+    if (message) void showDialog({ title: 'That Link Did Not Work', message });
   });
 
   // The bar search is the one search box on the site: type a name, get
@@ -5192,7 +5192,7 @@ function init(): void {
       const notice = $('#auth-notice') as HTMLElement;
       resendVerification(email).then((result) => {
         if (!result.ok) {
-          void showDialog({ title: 'Could not resend the email', message: result.message });
+          void showDialog({ title: 'Could Not Resend the Email', message: result.message });
           return;
         }
         notice.textContent = 'Sent. Check your inbox again in a moment.';
@@ -5204,12 +5204,12 @@ function init(): void {
     if (t.closest('#auth-forgot')) {
       const email = ($('#auth-email') as HTMLInputElement | null)?.value.trim() ?? '';
       if (!email) {
-        void showDialog({ title: 'Enter your email first', message: 'Type your email address above, then tap Forgot your password again.' });
+        void showDialog({ title: 'Enter Your Email First', message: 'Type your email address above, then tap Forgot your password again.' });
         return;
       }
       requestPasswordReset(email).then((result) => {
         if (!result.ok) {
-          void showDialog({ title: 'Could not send the reset link', message: result.message });
+          void showDialog({ title: 'Could Not Send the Reset Link', message: result.message });
           return;
         }
         state.authResetSent = true;
@@ -5220,7 +5220,7 @@ function init(): void {
 
     if (t.closest('#auth-delete')) {
       void showDialog({
-        title: 'Delete your account?',
+        title: 'Delete Your Account?',
         message: 'This permanently deletes your account and your wishlist. It cannot be undone.',
         confirmLabel: 'Delete account',
         danger: true,
@@ -5228,10 +5228,10 @@ function init(): void {
         if (!yes) return;
         deleteOwnAccount(COMPANY.feedbackEmail).then((result) => {
           if (!result.ok) {
-            void showDialog({ title: 'Account not deleted', message: result.message });
+            void showDialog({ title: 'Account Not Deleted', message: result.message });
             return;
           }
-          void showDialog({ title: 'Account deleted', message: 'Your account and wishlist have been deleted.', ok: true });
+          void showDialog({ title: 'Account Deleted', message: 'Your account and wishlist have been deleted.', ok: true });
         });
       });
       return;
@@ -5245,7 +5245,7 @@ function init(): void {
       render();
       removeFromWishlist(fragranceId).then((result) => {
         if (!result.ok) {
-          void showDialog({ title: 'Could not update your wishlist', message: result.message ?? 'Please try again.' });
+          void showDialog({ title: 'Could Not Update Your Wishlist', message: result.message ?? 'Please try again.' });
           // Roll back by reloading from the server rather than guessing what
           // the entry's own target price was, since this optimistic removal
           // already discarded it.
@@ -5271,7 +5271,7 @@ function init(): void {
       action.then((result) => {
         state.wishlistBusy = false;
         if (!result.ok) {
-          void showDialog({ title: 'Could not update your wishlist', message: result.message ?? 'Please try again.' });
+          void showDialog({ title: 'Could Not Update Your Wishlist', message: result.message ?? 'Please try again.' });
           // Roll back: the optimistic flip above did not actually happen.
           if (saved) state.wishlistIds.add(fragranceId);
           else state.wishlistIds.delete(fragranceId);
@@ -5344,12 +5344,12 @@ function init(): void {
       box.disabled = true;
       setPriceAlerts(on).then((result) => {
         if (!result.ok) {
-          void showDialog({ title: 'Price alerts not changed', message: result.message ?? 'Please try again.' });
+          void showDialog({ title: 'Price Alerts Not Changed', message: result.message ?? 'Please try again.' });
         } else {
           state.priceAlerts = on;
           if (on) {
             void showDialog({
-              title: 'Price alerts are on',
+              title: 'Price Alerts Are On',
               message: 'We will email you when a saved fragrance gets cheaper. You can also set a target price for each one below.',
               ok: true,
             });
@@ -5364,13 +5364,13 @@ function init(): void {
       const input = t as HTMLInputElement;
       const parsed = parseTargetPrice(input.value);
       if (!parsed.ok) {
-        void showDialog({ title: 'Check the target price', message: 'Type an amount in pounds, such as 45 or 45.50, or leave it blank.' });
+        void showDialog({ title: 'Check the Target Price', message: 'Type an amount in pounds, such as 45 or 45.50, or leave it blank.' });
         return;
       }
       const entry = state.wishlistEntries.find((x) => x.fragranceId === targetFragId);
       setTargetPrice(targetFragId, parsed.value).then((result) => {
         if (!result.ok) {
-          void showDialog({ title: 'Target price not saved', message: result.message ?? 'Please try again.' });
+          void showDialog({ title: 'Target Price Not Saved', message: result.message ?? 'Please try again.' });
           return;
         }
         if (entry) entry.targetPriceGbp = parsed.value;
@@ -5437,7 +5437,7 @@ function init(): void {
       const password = (fields.elements.namedItem('password') as HTMLInputElement).value;
       const confirm = (fields.elements.namedItem('confirm') as HTMLInputElement).value;
       if (password !== confirm) {
-        void showDialog({ title: 'Passwords do not match', message: 'Type the same new password in both boxes.' });
+        void showDialog({ title: 'Passwords Do Not Match', message: 'Type the same new password in both boxes.' });
         return;
       }
       const submit = form.querySelector('button[type="submit"]') as HTMLButtonElement;
@@ -5445,13 +5445,13 @@ function init(): void {
       updatePassword(password).then((result) => {
         submit.disabled = false;
         if (!result.ok) {
-          void showDialog({ title: 'Password not changed', message: result.message });
+          void showDialog({ title: 'Password Not Changed', message: result.message });
           return;
         }
         fields.reset();
         state.authRecovery = false;
         renderInPlace();
-        void showDialog({ title: 'Password changed', message: 'Use your new password next time you sign in.', ok: true });
+        void showDialog({ title: 'Password Changed', message: 'Use your new password next time you sign in.', ok: true });
       });
       return;
     }
