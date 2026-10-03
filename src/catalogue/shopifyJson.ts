@@ -215,6 +215,7 @@ export function parseShopifyProducts(body: string, options: ShopifyParseOptions)
     const vendor = str(product['vendor']);
     const image = imageOf(product);
     const description = plainText(product['body_html']);
+    const productType = str(product['product_type']);
     const url = `${options.origin.replace(/\/+$/, '')}/products/${handle}`;
 
     for (const variant of variantsOf(product)) {
@@ -252,6 +253,7 @@ export function parseShopifyProducts(body: string, options: ShopifyParseOptions)
         inStock: variant.available,
         sectionId: options.sectionId,
         description,
+        productType,
         nativePrice: isGbp
           ? null
           : { amount: variant.price, currency: options.currency ?? 'unknown' },
