@@ -22,7 +22,10 @@
  * Fetches the homepage, reads `<link rel="icon">`, `<link rel="apple-touch-
  * icon">`, `<link rel="mask-icon">` and any `Organization.logo` inside a
  * `<script type="application/ld+json">` block (including one nested in a
- * `@graph` array, which several storefronts use), resolves each against the
+ * `@graph` array, which several storefronts use), every icon listed in a
+ * `<link rel="manifest">` web app manifest, and any `og:image` /
+ * `twitter:image` (a candidate to look at, usually a banner rather than a
+ * mark; added 2026-10-03 for the offer row pass), resolves each against the
  * page's own URL, dedupes, and fetches every surviving candidate — because a
  * house that lists both a small favicon and a real apple-touch-icon needs
  * both measured, not just the first one found.
@@ -71,6 +74,12 @@ const onlyBrand = arg('brand');
 const topN = Number.parseInt(arg('top') ?? '0', 10);
 const limitArg = Number.parseInt(arg('limit') ?? '0', 10);
 const requireAllOk = process.argv.includes('--require-all-ok');
+/** --save=<dir>: also write every fetched candidate there, plus an index.json
+ *  naming each file's URL, so a contact sheet can be rendered from exactly the
+ *  bytes measured without asking the shop a second time. Scratch output only:
+ *  never point this inside the repo, and never commit what it writes. */
+const saveDir = arg('save');
+const saved: { target: string; url: string; relation: string; file: string; width: number | null; height: number | null; ink: string | null }[] = [];
 
 /** Duplicated from demo/brandSites.ts's own private normalizeBrand — see
  *  demo/brandLogos.ts's header for why this is a duplicate, not an import. */
@@ -86,7 +95,9 @@ interface Target {
 
 function retailerTargets(): Target[] {
   const enabled = RETAILERS.filter((r) => r.enabled);
-  const chosen = onlyRetailer ? enabled.filter((r) => r.id === onlyRetailer) : enabled;
+  // --retailer= takes one id or a comma separated list of them.
+  const wanted = onlyRetailer ? new Set(onlyRetailer.split(',')) : null;
+  const chosen = wanted ? enabled.filter((r) => wanted.has(r.id)) : enabled;
   return chosen.map((r) => ({ id: r.id, kind: 'retailer', homepage: r.homepage }));
 }
 
@@ -189,6 +200,56 @@ async function politeFetch(url: string): Promise<{ status: number; body: ArrayBu
   }
 }
 
+/**
+ * robots.txt, read once per origin before anything else is asked of it
+ * (added 2026-10-03). Only the `User-agent: *` group is honoured, with `*`
+ * and `$` wildcards. A robots.txt that answers 401/403 is read as "the shop
+ * is refusing us", not as an empty file, so nothing further is fetched from
+ * that origin: a block is respected, never worked around.
+ */
+const robotsByOrigin = new Map<string, { blocked: boolean; disallow: RegExp[] }>();
+
+async function robotsFor(url: string): Promise<{ blocked: boolean; disallow: RegExp[] }> {
+  const origin = new URL(url).origin;
+  const cached = robotsByOrigin.get(origin);
+  if (cached) return cached;
+  const res = await politeFetch(`${origin}/robots.txt`);
+  const rules: { blocked: boolean; disallow: RegExp[] } = { blocked: res.status === 401 || res.status === 403, disallow: [] };
+  if (res.ok) {
+    let inStar = false;
+    let lastWasAgent = false;
+    for (const raw of Buffer.from(res.body).toString('utf8').split(/\r?\n/)) {
+      const m = /^([A-Za-z-]+)\s*:\s*(.*)$/.exec(raw.replace(/#.*/, '').trim());
+      if (!m) continue;
+      const key = m[1]!.toLowerCase();
+      const value = m[2]!.trim();
+      if (key === 'user-agent') {
+        if (!lastWasAgent) inStar = false;
+        if (value === '*') inStar = true;
+        lastWasAgent = true;
+        continue;
+      }
+      lastWasAgent = false;
+      if (inStar && key === 'disallow' && value) {
+        // Escape everything but `*` (any run) and a trailing `$` (end of path).
+        const anchored = value.endsWith('$');
+        const body = (anchored ? value.slice(0, -1) : value).replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*');
+        rules.disallow.push(new RegExp(`^${body}${anchored ? '$' : ''}`));
+      }
+    }
+  }
+  robotsByOrigin.set(origin, rules);
+  return rules;
+}
+
+async function robotsAllows(url: string): Promise<boolean> {
+  const rules = await robotsFor(url);
+  if (rules.blocked) return false;
+  const u = new URL(url);
+  const path = u.pathname + u.search;
+  return !rules.disallow.some((re) => re.test(path));
+}
+
 /** `<link rel="...">` icon-shaped tags, href resolved against `base`. */
 function iconLinks(html: string, base: string): Candidate[] {
   const out: Candidate[] = [];
@@ -243,6 +304,56 @@ function jsonLdLogo(html: string, base: string): Candidate[] {
           /* unresolvable, skip */
         }
       }
+    }
+  }
+  return out;
+}
+
+/** `<link rel="manifest">` hrefs, resolved against `base`. */
+function manifestLinks(html: string, base: string): string[] {
+  const out: string[] = [];
+  for (const tag of html.match(/<link\b[^>]*>/gi) ?? []) {
+    if (!/\brel=["']?manifest\b/i.test(tag)) continue;
+    const href = /\bhref=["']([^"']+)["']/i.exec(tag)?.[1];
+    if (!href) continue;
+    try {
+      out.push(new URL(href, base).toString());
+    } catch {
+      /* unresolvable, skip */
+    }
+  }
+  return out;
+}
+
+/** Icons a web app manifest declares, resolved against the manifest's own URL. */
+async function manifestIcons(manifestUrl: string): Promise<Candidate[]> {
+  if (!(await robotsAllows(manifestUrl))) return [];
+  const res = await politeFetch(manifestUrl);
+  if (!res.ok) return [];
+  try {
+    const data = JSON.parse(Buffer.from(res.body).toString('utf8')) as { icons?: { src?: string }[] };
+    return (data.icons ?? [])
+      .filter((i): i is { src: string } => typeof i.src === 'string')
+      .map((i) => ({ url: new URL(i.src, manifestUrl).toString(), relation: 'manifest icon' }));
+  } catch {
+    return [];
+  }
+}
+
+/** `og:image` / `twitter:image` the page declares. Usually a banner or a
+ *  product shot rather than a mark, which is why it is only ever a candidate
+ *  to be looked at, never picked by this script. */
+function socialImages(html: string, base: string): Candidate[] {
+  const out: Candidate[] = [];
+  for (const tag of html.match(/<meta\b[^>]*>/gi) ?? []) {
+    const prop = /\b(?:property|name)=["'](og:image|twitter:image)["']/i.exec(tag)?.[1];
+    if (!prop) continue;
+    const content = /\bcontent=["']([^"']+)["']/i.exec(tag)?.[1];
+    if (!content) continue;
+    try {
+      out.push({ url: new URL(content, base).toString(), relation: prop.toLowerCase() });
+    } catch {
+      /* unresolvable, skip */
     }
   }
   return out;
@@ -349,8 +460,11 @@ function shapeOf(width: number | null, height: number | null): 'square' | 'wordm
   return ratio >= 0.85 && ratio <= 1.18 ? 'square' : 'wordmark';
 }
 
-async function measureCandidate(c: Candidate): Promise<Measured> {
-  const res = await politeFetch(c.url);
+async function measureCandidate(c: Candidate, targetId: string): Promise<Measured> {
+  const allowed = await robotsAllows(c.url);
+  const res = allowed
+    ? await politeFetch(c.url)
+    : { status: 0, body: new ArrayBuffer(0), ok: false, contentType: '', error: 'robots.txt disallows this path; not fetched' };
   const base: Measured = {
     ...c,
     contentType: res.contentType,
@@ -378,6 +492,12 @@ async function measureCandidate(c: Candidate): Promise<Measured> {
       writeFileSync(filePath, bytes);
     }
     const measured = measureRasterFile(filePath);
+    if (saveDir) {
+      const ext = isSvg ? 'svg' : (res.contentType.split('/')[1] ?? 'bin').split(/[;+]/)[0]!.replace('x-icon', 'ico').replace('vnd.microsoft.icon', 'ico');
+      const file = `${targetId}-${saved.length}.${ext}`;
+      writeFileSync(join(saveDir, file), bytes);
+      saved.push({ target: targetId, url: c.url, relation: c.relation, file, width: measured.width, height: measured.height, ink: measured.ink });
+    }
     return { ...base, ...measured, shape: shapeOf(measured.width, measured.height) };
   } catch (err) {
     return { ...base, error: String(err).slice(0, 160) };
@@ -385,19 +505,23 @@ async function measureCandidate(c: Candidate): Promise<Measured> {
 }
 
 async function probeTarget(target: Target): Promise<TargetReport> {
+  if (!(await robotsAllows(target.homepage))) {
+    return { target, homepageStatus: 0, homepageError: 'robots.txt refuses this page, or refuses us outright', candidates: [] };
+  }
   const res = await politeFetch(target.homepage);
   if (!res.ok || res.body.byteLength === 0) {
     return { target, homepageStatus: res.status, homepageError: res.error, candidates: [] };
   }
   const html = Buffer.from(res.body).toString('utf8');
   const base = target.homepage;
-  const candidates = [...iconLinks(html, base), ...jsonLdLogo(html, base)];
+  const candidates = [...iconLinks(html, base), ...jsonLdLogo(html, base), ...socialImages(html, base)];
+  for (const m of manifestLinks(html, base)) candidates.push(...(await manifestIcons(m)));
   // Dedupe by resolved URL, keeping the first relation seen.
   const seen = new Map<string, Candidate>();
   for (const c of candidates) if (!seen.has(c.url)) seen.set(c.url, c);
 
   const measured: Measured[] = [];
-  for (const c of seen.values()) measured.push(await measureCandidate(c));
+  for (const c of seen.values()) measured.push(await measureCandidate(c, target.id));
   return { target, homepageStatus: res.status, homepageError: null, candidates: measured };
 }
 
@@ -455,6 +579,7 @@ async function main(): Promise<void> {
     await browser.close();
   }
   rmSync(tmp, { recursive: true, force: true });
+  if (saveDir) writeFileSync(join(saveDir, 'index.json'), JSON.stringify(saved, null, 2));
 
   if (requireAllOk) {
     const broken = reports.filter((r) => r.candidates.length === 0 || r.candidates.every((c) => c.error));

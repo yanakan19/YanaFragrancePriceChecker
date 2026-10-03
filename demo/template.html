@@ -257,8 +257,13 @@
   .t-section { font: 600 15px/1.25 var(--font-sans); letter-spacing: -.005em; color: var(--ink); }
   .t-title   { font: 600 15px/1.3  var(--font-sans); letter-spacing: -.01em;  color: var(--ink); }
   .t-body    { font: 400 14px/1.55 var(--font-sans); color: var(--ink-2); }
-  .t-eyebrow { font: 600 11px/1    var(--font-sans); letter-spacing: .08em;
-               text-transform: uppercase; color: var(--faint); }
+  /* Title Case as written, not shouted: the owner asked for every label on
+     the site in Title Case (2026-10-03), and capitals set by the stylesheet
+     also turned every brand pill (which wears this role) into "MIND GAMES"
+     whatever the brand's own spelling. The tracking came down with the
+     capitals: .08em was for capitals and spaces out lowercase letters. */
+  .t-eyebrow { font: 600 11px/1    var(--font-sans); letter-spacing: .02em;
+               color: var(--faint); }
   .t-caption { font: 400 13px/1.4  var(--font-sans); color: var(--faint); }
   .t-count   { font: 600 12px/1    var(--font-num);  letter-spacing: .01em;
                font-variant-numeric: tabular-nums; color: var(--ink-2); }
@@ -364,7 +369,7 @@
   /* Form controls sit one step above buttons: a field is aimed at, then typed
      into, and the extra height is what keeps a label, a value and a caret from
      crowding each other. */
-  .control, .search-big, .field select, .field textarea, .field input {
+  .control, .field select, .field textarea, .field input {
     min-height: 48px;
   }
 
@@ -658,8 +663,8 @@
   .pop-section { margin-top: 32px; }
 
   /* ── bottom split: suggestions beside update history ─────────────────────
-     Stacked on mobile, side by side once there is room for two honest
-     columns rather than one squeezed pair. */
+     Stacked on mobile, with the suggestion box last; side by side once there
+     is room for two honest columns rather than one squeezed pair. */
   .bottom-split {
     margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line);
     display: flex; flex-direction: column; gap: 36px;
@@ -717,6 +722,10 @@
 
   :root[data-layout="desktop"] .bottom-split { flex-direction: row; align-items: flex-start; gap: 56px; }
   :root[data-layout="desktop"] .bottom-split > section { flex: 1 1 0; min-width: 0; }
+  /* The markup puts "Got an idea?" after Update History so it is the last
+     thing on a phone's home page (owner request, 2026-10-03). Side by side
+     there is no "last", so it keeps the left column it always had. */
+  :root[data-layout="desktop"] .bottom-split > .suggest-section { order: -1; }
   /* "Got an idea?" now centres on desktop too, same as it already does on
      mobile — .suggest-section's own base rule (align-items: center;
      text-align: center) already does this once the desktop override that
@@ -877,44 +886,48 @@
      so it stays correct if the photo is pale near that corner. --medal-size
      drives every other dimension so the two breakpoints below are the only
      numbers that change. */
+  /* Refined 2026-10-03 (owner: "something more refined", and the number's
+     square showed past the circle). The square came from .medal itself
+     painting the metal colour on its whole box, so the corners showed
+     around the round disc. The colour is now a custom property that only
+     the disc and the ribbon paint, never the .medal box. The look is quieter
+     too: a thin inner ring in place of the heavy white halo, shorter and
+     narrower ribbon tails, and tabular figures so 1, 2 and 3 sit centred. */
   .medal {
     --medal-size: 24px;
     position: absolute; top: -3px; right: -3px; z-index: 2;
     width: var(--medal-size); height: var(--medal-size);
-    font-weight: 800; line-height: 1;
-    font-size: calc(var(--medal-size) * 0.46);
+    font-weight: 700; line-height: 1;
+    font-size: calc(var(--medal-size) * 0.48);
+    font-variant-numeric: tabular-nums;
+    color: var(--medal-on);
   }
   :root[data-layout="desktop"] .medal { --medal-size: 30px; }
-  /* The disc is its own element so it can paint OVER the ribbon tails: a
-     pseudo-element with z-index -1 still paints above its parent's own
-     background, which is why the first cut of this medal showed the tails
-     across the number. The tails are the .medal's pseudos with no z-index;
-     the disc sits on top of them with z-index 1. */
+  /* The disc is its own element so it paints over the ribbon tails. */
   .medal-disc {
     position: relative; z-index: 1;
     width: 100%; height: 100%; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    background: inherit; color: inherit;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .45), 0 0 0 2px #fff;
+    background: var(--medal-bg); color: inherit;
+    box-shadow:
+      inset 0 0 0 calc(var(--medal-size) * 0.07) rgba(255, 255, 255, .38),
+      0 0 0 1.5px #fff,
+      0 1px 2px rgba(0, 0, 0, .3);
   }
   .medal::before,
   .medal::after {
     content: ""; position: absolute;
-    top: calc(var(--medal-size) * 0.56);
-    width: calc(var(--medal-size) * 0.32); height: calc(var(--medal-size) * 0.92);
-    background: inherit; filter: brightness(0.74);
-    clip-path: polygon(0 0, 100% 0, 100% 58%, 50% 100%, 0 58%);
+    top: calc(var(--medal-size) * 0.62);
+    width: calc(var(--medal-size) * 0.26); height: calc(var(--medal-size) * 0.68);
+    background: var(--medal-bg); filter: brightness(0.78);
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
   }
-  .medal::before { left: calc(var(--medal-size) * 0.11); transform: rotate(-9deg); transform-origin: top center; }
-  .medal::after  { right: calc(var(--medal-size) * 0.11); transform: rotate(9deg); transform-origin: top center; }
-  /* Flat, and from tokens. These were three two-stop linear-gradients built
-     from six hardcoded hex values belonging to no palette and moving with no
-     theme: the one place in this stylesheet where a colour was invented at
-     the point of use. A rank badge is small, so the gradient inside it was
-     never legible as a gradient in the first place. */
-  .medal.gold   { background: var(--rank-1); color: var(--rank-1-on); }
-  .medal.silver { background: var(--rank-2); color: var(--rank-2-on); }
-  .medal.bronze { background: var(--rank-3); color: var(--rank-3-on); }
+  .medal::before { left: calc(var(--medal-size) * 0.18); transform: rotate(-12deg); transform-origin: top center; }
+  .medal::after  { right: calc(var(--medal-size) * 0.18); transform: rotate(12deg); transform-origin: top center; }
+  /* Flat, and from tokens. */
+  .medal.gold   { --medal-bg: var(--rank-1); --medal-on: var(--rank-1-on); }
+  .medal.silver { --medal-bg: var(--rank-2); --medal-on: var(--rank-2-on); }
+  .medal.bronze { --medal-bg: var(--rank-3); --medal-on: var(--rank-3-on); }
 
   /* ── fragrance tile grid ───────────────────────────────────────────────────
      One tile shape, used everywhere a list of fragrances appears (browse,
@@ -1093,7 +1106,7 @@
   }
   .tile-price .off {
     font-size: 10.5px; font-weight: 700; color: var(--ok);
-    text-transform: uppercase; letter-spacing: .06em;
+    letter-spacing: .01em;
   }
   .tile-price .amt { font-size: 15.5px; }
   .tile-price .amt.none { color: var(--faint); font-weight: 600; font-size: 13.5px; }
@@ -1102,7 +1115,7 @@
      and leaving that unsaid is what would be dishonest. */
   .tile-price .amt-note {
     font-size: 10.5px; font-weight: 600; color: var(--faint);
-    text-transform: uppercase; letter-spacing: .05em;
+    letter-spacing: .01em;
   }
   .tile-price .was {
     font-size: 11px; font-weight: 600; color: var(--faint);
@@ -1114,7 +1127,7 @@
      place a .was.anchor exists at all; the offer row stopped rendering its
      own on 2026-08-26 (see offerRow in demo/app.ts). */
   .tile-price .was.anchor { text-decoration: none; border-bottom: 1px dotted var(--faint); padding-bottom: 1px; }
-  .from { font-size: 10px; font-weight: 600; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
+  .from { font-size: 10px; font-weight: 600; color: var(--faint); letter-spacing: .02em; }
 
   /* Which shop the price is actually from: a plain text tag using the name,
      not a logo. This is not the same absence the Retailers directory's
@@ -1322,10 +1335,28 @@
     font-variant-numeric: tabular-nums;
   }
   .org-hero .org-mark.org-mark-failed::after { font-size: 18px; }
-  /* The 20px shop logo beside a name in a product's price list (step 8). */
-  .org-mark.offer-mark {
+  /* The 20px shop mark beside a name in a product's price list. Every row
+     carries one, the same box either way: the shop's square logo on its
+     tile, or (no square logo, or the logo failed to load) the shop's
+     initials on the monogram tint, the same tokens .monogram uses, which are
+     contrast tested at every hue in both themes. */
+  .offer-mark {
     display: inline-block; width: 20px; height: 20px; border-radius: 5px;
-    margin-right: 7px; vertical-align: -4px; border: 1px solid var(--org-mark-border);
+    margin-right: 7px; vertical-align: -4px; box-sizing: border-box;
+  }
+  .org-mark.offer-mark { border: 1px solid var(--org-mark-border); }
+  /* inline-block with overflow hidden, like the logo tile, so both take
+     their baseline from the bottom edge and sit at exactly the same height
+     beside the name. 18px line height centres the initials inside the
+     1px border. */
+  .offer-mark--initials {
+    overflow: hidden; white-space: nowrap; text-align: center;
+    line-height: 18px;
+    background: hsl(var(--mh, 355) var(--mono-sat) var(--mono-bg-l));
+    color: hsl(var(--mh, 355) var(--mono-sat) var(--mono-fg-l));
+    border: 1px solid hsl(var(--mh, 355) var(--mono-sat) var(--mono-border-l));
+    font-size: 9px; font-weight: 800; letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums;
   }
 
   .shop-list { list-style: none; margin: 0; padding: 0; }
@@ -1428,7 +1459,7 @@
   .brand-site-flag {
     margin-left: 2px; padding: 2px 7px; border-radius: 999px;
     font-size: 10.5px; font-weight: 700; letter-spacing: .01em;
-    text-transform: uppercase; white-space: nowrap;
+    white-space: nowrap;
   }
   .brand-site-flag.is-uk {
     color: var(--ok); background: color-mix(in srgb, var(--ok) 14%, transparent);
@@ -1627,25 +1658,6 @@
   @media (hover: hover) and (pointer: fine) {
     .notes-source-link:hover { color: var(--accent); }
   }
-
-  /* ── full search ───────────────────────────────────────────────────────── */
-  .search-big {
-    display: flex; align-items: center; gap: 9px; margin: 4px 0 14px;
-    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
-    padding: 0 13px;
-  }
-  .search-big:focus-within { border-color: var(--accent); }
-  /* The handoff pairs this field with a floating suggestion panel, squaring
-     the field's bottom corners (12px 12px 0 0) against the panel's top ones
-     while it is open. This app has no such panel: typing filters the results
-     grid below in place rather than dropping a list over it, so the field
-     keeps all four corners and there is nothing for it to join onto. */
-  .search-big .ico { color: var(--faint); flex: none; width: 19px; height: 19px; }
-  .search-big input {
-    flex: 1; min-width: 0; font: inherit; font-size: 16px; color: var(--ink);
-    background: none; border: 0; padding: 12px 0; -webkit-appearance: none;
-  }
-  .search-big input:focus-visible { outline: none; }
 
   /* ── detail ────────────────────────────────────────────────────────────── */
   /* Link rank, at the top of every leaf page. */
@@ -1886,7 +1898,7 @@
      price it was pointing at. */
   .tag {
     margin-left: 8px; vertical-align: 1px;
-    font-size: 9.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+    font-size: 10px; font-weight: 700; letter-spacing: .02em;
     color: var(--accent-ink); background: var(--accent-sf); border-radius: 4px; padding: 2px 6px;
   }
   /* "Lowest total" / "Lowest item price": the leading row, on figures that do
@@ -2038,10 +2050,6 @@
   .giftset-contents { margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
   .giftset-label { font-weight: 600; color: var(--ink); }
   .giftset-note { margin: 4px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--faint); }
-  /* Under the "Older prices" heading: one quiet line saying why these rows
-     sit below the current ones (demo/offerGroups.ts). Pulled up under its
-     heading so the two read as one label. */
-  .older-note { margin: -8px 0 12px; font-size: 12.5px; line-height: 1.5; color: var(--faint); }
 
   /* ── price history chart ───────────────────────────────────────────────── */
   .history-block { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line); }
@@ -2135,6 +2143,11 @@
      sold out in words as well. Only drawn when nothing buyable is on record. */
   .history-dot-soldout { width: 9px; height: 9px; border-color: var(--faint); background: var(--bg); }
   .history-dot-soldout:hover, .history-dot-soldout:focus-visible { width: 13px; height: 13px; background: var(--faint); }
+  /* An item price at a shop that does not state its delivery cost, on a graph
+     of delivered prices (demo/priceHistoryChart.ts): square rather than
+     round, and its tooltip, aria label and the caption all say "delivery not
+     stated", so the shape is never the only signal. */
+  .history-dot-itemonly { border-radius: 2px; }
   /* The one line under the graph that says what is on it. */
   /* At least two lines tall, and the loading placeholder carries an empty
      one, so the common captions (one or two lines) move nothing when the
@@ -2161,6 +2174,19 @@
      are — percent left, matched to the same xPct so a label always sits
      directly under the day it names. */
   .history-xaxis { position: relative; height: 16px; margin-top: 4px; }
+  /* The y axis does not start at zero (priceDomain in
+     demo/priceHistoryChart.ts pads the range so no line sits on the axis),
+     so the chart labels the highest and lowest prices it plots, in a gutter
+     to the left of the plot, each beside a faint guide line. The chart and
+     its x axis both start after that gutter. */
+  .history-chart, .history-xaxis { margin-left: 52px; }
+  .history-yaxis { position: absolute; top: 0; bottom: 0; right: 100%; width: 52px; pointer-events: none; }
+  .history-ylabel {
+    position: absolute; right: 6px; transform: translateY(-50%);
+    font: 400 11px/1.4 var(--font-num); font-variant-numeric: tabular-nums;
+    color: var(--faint); white-space: nowrap;
+  }
+  .history-guide { stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; }
   .history-xlabel {
     position: absolute; top: 0; transform: translateX(-50%);
     font: 400 11px/1.4 var(--font-num); font-variant-numeric: tabular-nums;
@@ -2311,7 +2337,7 @@
     max-height: 70vh; overflow-y: auto;
   }
   .sheet-title {
-    font-size: 11px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase;
+    font-size: 11px; font-weight: 700; letter-spacing: .02em;
     color: var(--faint); margin: 10px 10px 8px;
   }
   .brand-opt {
@@ -2716,10 +2742,10 @@
      brandmark, five nav buttons and the search box on every single page. It
      is off-screen until focused, which is the only correct way to do this:
      display:none would take it out of the tab order and defeat the purpose. -->
-<a class="skip-link" href="#view">Skip to the main content</a>
+<a class="skip-link" href="#view">Skip to the Main Content</a>
 
 <button class="to-top" id="to-top" type="button" hidden>
-  <span aria-hidden="true">&uarr;</span> Back to top
+  <span aria-hidden="true">&uarr;</span> Back to Top
 </button>
 
 <div class="app">
@@ -2728,7 +2754,7 @@
       <button class="brandmark" id="brand-home" aria-label="PriceSniffs, go to home">Price<em>Sniffs</em></button>
       <div class="nav-items">
         <button class="navbtn" id="nav-home">Home</button>
-        <button class="navbtn" id="nav-deals">Today’s Deals</button>
+        <button class="navbtn" id="nav-deals">Deals</button>
         <button class="navbtn" id="nav-explore">Explore</button>
         <button class="navbtn" id="nav-about">About</button>
         <button class="navbtn" id="nav-settings">Settings</button>
@@ -2740,7 +2766,7 @@
          of the layout: the input is still a direct flex child of the bar as
          far as rendering is concerned. -->
     <div role="search" class="quick-search">
-      <input type="search" id="search" placeholder="Quick search" aria-label="Quick search by fragrance name" />
+      <input type="search" id="search" placeholder="Quick Search" aria-label="Quick search by fragrance name" />
     </div>
     <nav class="subnav" id="subnav" hidden></nav>
   </div>
@@ -2759,7 +2785,7 @@
            because a shopper looking for cheap perfume should never have to
            step over a style guide to find it, and because a fifth primary nav
            item breaks the phone layout at 375px. -->
-      <a class="footer-link" href="/design" data-goto="design">Design system</a>
+      <a class="footer-link" href="/design" data-goto="design">Design System</a>
     </div>
   </footer>
 </div>

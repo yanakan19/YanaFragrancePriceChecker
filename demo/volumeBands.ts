@@ -68,10 +68,10 @@ export const GIFT_SET_BAND = { id: 'gift-set' as const, label: 'Gift Sets' };
 
 export const VOLUME_BANDS: { id: VolumeBand; label: string; min: number; max: number | null }[] = [
   { id: '0-15', label: 'Under 15ml', min: 0, max: 15 },
-  { id: '15-30', label: '15 - 30ml', min: 15, max: 30 },
-  { id: '30-70', label: '30 - 70ml', min: 30, max: 70 },
-  { id: '70-120', label: '70 - 120ml', min: 70, max: 120 },
-  { id: '120+', label: '120ml And Over', min: 120, max: null },
+  { id: '15-30', label: '15 to 30ml', min: 15, max: 30 },
+  { id: '30-70', label: '30 to 70ml', min: 30, max: 70 },
+  { id: '70-120', label: '70 to 120ml', min: 70, max: 120 },
+  { id: '120+', label: '120ml and Over', min: 120, max: null },
 ];
 
 /**

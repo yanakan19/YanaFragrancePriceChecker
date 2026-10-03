@@ -175,6 +175,16 @@ describe('re-pricing from the shop\'s own catalogue feed', () => {
     expect(refreshFromItems(old, items, NOW).listings).toHaveLength(MIN_COMPARISONS);
   });
 
+  it('trusts a UK market feed over pages read plainly from a foreign vantage', () => {
+    const known = Array.from({ length: MIN_COMPARISONS }, (_, i) =>
+      stored({ retailerSku: `s${i}`, url: `https://shop.example/products/p${i}`, lastSeenAt: hoursAgo(5), priceGbp: 34 }),
+    );
+    const items = known.map((l) => item({ sku: l.retailerSku, url: l.url, priceGbp: 25 }));
+    const res = refreshFromItems(known, items, NOW, { trustOverPages: true });
+    expect(res.rejected).toBeNull();
+    expect(res.listings.map((l) => l.priceGbp)).toEqual(Array(MIN_COMPARISONS).fill(25));
+  });
+
   it('ignores delisted listings', () => {
     expect(refreshFromItems([stored({ status: 'delisted' })], [item()], NOW).listings).toHaveLength(0);
   });

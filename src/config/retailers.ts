@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 74 retailers, 42 of them `enabled: true`. Every one of them is a legitimate
+ * 74 retailers, 50 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -162,6 +162,19 @@ export const RETAILERS: readonly Retailer[] = [
       source: 'https://www.allbeauty.com',
       readAt: '2026-10-03',
     },
+    // The wordmark above stays in the profile hero. This is the square icon
+    // the same homepage declares, for the 20px offer row mark and the Shops
+    // tile; read by scripts/logo-probe.ts and checked by eye at 20px on both
+    // themes, 2026-10-03.
+    // Asset: <link rel="icon">, 32px (the largest the file holds).
+    squareLogo: {
+      src: 'https://allbeauty.com/cdn/shop/files/allbeauty_logo_32x32_eed458cb-5a9f-47d5-a6d9-6bf15728e9d4.png?crop=center&height=32&v=1782817025&width=32',
+      shape: 'square',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://www.allbeauty.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer', 'niche', 'mideast'],
     enabled: true,
     // Live spike 1 Aug 2026: the old /uk/fragrance URL returned HTTP 200 with
@@ -234,6 +247,19 @@ export const RETAILERS: readonly Retailer[] = [
     logo: {
       src: "https://www.justmylook.com/cdn/shop/files/JML-logo.svg?v=1726499052",
       shape: 'wordmark',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.justmylook.com',
+      readAt: '2026-10-03',
+    },
+    // The wordmark above stays in the profile hero. This is the square icon
+    // the same homepage declares, for the 20px offer row mark and the Shops
+    // tile; read by scripts/logo-probe.ts and checked by eye at 20px on both
+    // themes, 2026-10-03.
+    // Asset: <link rel="icon">, 32px (the largest the file holds).
+    squareLogo: {
+      src: 'https://www.justmylook.com/cdn/shop/files/favicon-32x32.png?crop=center&height=32&v=1726505486&width=32',
+      shape: 'square',
       ink: 'dark',
       basis: 'own-site-declared',
       source: 'https://www.justmylook.com',
@@ -1719,6 +1745,19 @@ export const RETAILERS: readonly Retailer[] = [
     // keeps only product pages whose address names a perfume, and asks every
     // page as PriceSniffsBot (SitemapRoute's doc comment). One such page,
     // asked on 2026-10-03, carried price 160.00, priceCurrency GBP, InStock.
+    //
+    // Proved from a runner the same day. Probe run #565 (job 111180398011):
+    // 2,356 product URLs on the route, 8 pages fetched, 12 listings, all 12
+    // priced in GBP. Harvest run 37115579558 (harvest_shop=john-lewis, 10:14Z
+    // to 10:20Z): 34 pages fetched before the six minute shop ceiling, 53
+    // listings priced, every one GBP on its own page. The 52 sitemap fetches
+    // at this shop's 2.5 s gap take most of a run's six minutes, so a
+    // scheduled run reaches about 30 product pages and new ones accrue run by
+    // run. Checked against the shop's own pages: Aesop Marrakech Intense
+    // 50ml £150 / 100ml £196, Carolina Herrera Good Girl 30/50/80/150ml
+    // £67/£98/£126/£166, Ralph's Club New York 60ml £84 / 110ml £110, Byredo
+    // La Tulipe 50ml £155 / 100ml £225, Acqua di Parma Zafferano 100ml £257 /
+    // 180ml £327: each the price that page's own offer gives for that sku.
     sitemapRoute: {
       roots: ['https://www.johnlewis.com/siteindex.xml'],
       follow: '^https://www\\.johnlewis\\.com/sitemap/products/',
@@ -1851,6 +1890,19 @@ export const RETAILERS: readonly Retailer[] = [
     logo: {
       src: "https://www.beautybase.com/cdn/shop/files/logo-green.svg?v=1760441972&width=500",
       shape: 'wordmark',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://www.beautybase.com',
+      readAt: '2026-10-03',
+    },
+    // The wordmark above stays in the profile hero. This is the square icon
+    // the same homepage declares, for the 20px offer row mark and the Shops
+    // tile; read by scripts/logo-probe.ts and checked by eye at 20px on both
+    // themes, 2026-10-03.
+    // Asset: <link rel="icon">, a 30x37 portrait B that sits whole inside the square tile.
+    squareLogo: {
+      src: 'https://www.beautybase.com/cdn/shop/files/Vector.png?v=1760441967&width=96',
+      shape: 'square',
       ink: 'light',
       basis: 'own-site-declared',
       source: 'https://www.beautybase.com',
@@ -2530,12 +2582,13 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: {
       searchUrlTemplate: 'https://www.selfridges.com/GB/en/search/?freeText={q}',
       sections: [
-        // renderPages 5 (2026-10-03): the render tier read page one only, 60
-        // of the 293 listings held, so the other 233 were never re-priced
-        // (72 of 293 confirmed in the 48 hours to that morning). Five pages
-        // of 60 is the whole held range, ~10s a page through the local
-        // render, inside its 120s per shop slice.
-        { id: 'fragrance', label: 'Beauty fragrance', urlTemplate: 'https://www.selfridges.com/GB/en/cat/beauty/fragrance/?pn={page}', tier: 'niche', renderPages: 5 },
+        // One rendered page, not five. renderPages 5 was tried on 2026-10-03
+        // (run #577) to re-price the 233 of 293 held listings page one never
+        // reaches: pages 2 to 5 were refused ("refused 4 page(s)"), page one
+        // still gave its 60. A refusal is not asked again, so the rest of the
+        // held range ages out under HIDE_OFFER_AFTER_DAYS; that is Selfridges
+        // refusing us, not the harvest falling behind.
+        { id: 'fragrance', label: 'Beauty fragrance', urlTemplate: 'https://www.selfridges.com/GB/en/cat/beauty/fragrance/?pn={page}', tier: 'niche' },
       ],
       firstPage: 1, maxPages: 50, minRequestGapMs: 2500,
     },
@@ -2826,6 +2879,19 @@ export const RETAILERS: readonly Retailer[] = [
       source: 'https://mybeauty.boutique',
       readAt: '2026-10-03',
     },
+    // The wordmark above stays in the profile hero. This is the square icon
+    // the same homepage declares, for the 20px offer row mark and the Shops
+    // tile; read by scripts/logo-probe.ts and checked by eye at 20px on both
+    // themes, 2026-10-03.
+    // Asset: <link rel="icon">, asked for at 96px.
+    squareLogo: {
+      src: 'https://mybeauty.boutique/cdn/shop/files/RGB_Logo_Design_-_MBB_V001_-18.png?crop=center&height=96&v=1717418341&width=96',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://mybeauty.boutique',
+      readAt: '2026-10-03',
+    },
     // Their own words, from the programme profile they publish on Awin.
     blurb:
       'MyBeauty.Boutique — your trusted partner for beauty and wellness, with products ' +
@@ -2928,6 +2994,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Escentual',
     domain: 'escentual.com',
     homepage: 'https://www.escentual.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="icon">, an SVG.
+    logo: {
+      src: 'https://escentual.com/cdn/shop/files/Favicon_-_Escentual_2024_d6c52b6e-88e3-40a5-887d-d9ae3edffac1.svg?v=1727735063',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.escentual.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // Off since 2026-08-13, and the reason is now known rather than suspected.
     //
@@ -3369,6 +3447,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'French Avenue',
     domain: 'uk.shopfrenchavenue.com',
     homepage: 'https://uk.shopfrenchavenue.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="icon">, asked for at 96px.
+    logo: {
+      src: 'https://uk.shopfrenchavenue.com/cdn/shop/files/favicon.png?crop=center&height=96&v=1771170072&width=96',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://uk.shopfrenchavenue.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['mideast'],
     singleBrandOnly: 'French Avenue',
     // Single-brand seller — Fragrance World's UK storefront for their French
@@ -3544,6 +3634,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Al Haramain Perfumes',
     domain: 'alharamainperfumes.co.uk',
     homepage: 'https://alharamainperfumes.co.uk',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="shortcut icon">, 192px on the Shopify CDN, asked for at 96px.
+    logo: {
+      src: 'https://cdn.shopify.com/s/files/1/0256/2683/7043/files/Al_Haramain_Favicon.png?v=1783002517&width=96',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://alharamainperfumes.co.uk',
+      readAt: '2026-10-03',
+    },
     tiers: ['mideast'],
     singleBrandOnly: 'Al Haramain',
     // MARKETS. This shop's /en-us/ delivery-page path was a hint worth
@@ -4043,6 +4145,19 @@ export const RETAILERS: readonly Retailer[] = [
       source: 'https://emiratesoud.co.uk',
       readAt: '2026-10-03',
     },
+    // The wordmark above stays in the profile hero. This is the square icon
+    // the same homepage declares, for the 20px offer row mark and the Shops
+    // tile; read by scripts/logo-probe.ts and checked by eye at 20px on both
+    // themes, 2026-10-03.
+    // Asset: <link rel="icon">, asked for at 96px.
+    squareLogo: {
+      src: 'https://emiratesoud.co.uk/cdn/shop/files/for_fav_copy.jpg?crop=center&height=96&v=1770533878&width=96',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://emiratesoud.co.uk',
+      readAt: '2026-10-03',
+    },
     tiers: ['mideast'],
     // Multi-brand oud specialist (product paths like /products/rayhaan-aquatica
     // name "Rayhaan" as the house, not Emirates Oud itself) — a retailer
@@ -4269,6 +4384,19 @@ export const RETAILERS: readonly Retailer[] = [
       src: "https://us.thebeautystore.com/cdn/shop/files/1_-THE_BEAUTY_STORE_LOGO.svg?v=1749488495&width=500",
       shape: 'wordmark',
       ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.thebeautystore.com',
+      readAt: '2026-10-03',
+    },
+    // The wordmark above stays in the profile hero. This is the square icon
+    // the same homepage declares, for the 20px offer row mark and the Shops
+    // tile; read by scripts/logo-probe.ts and checked by eye at 20px on both
+    // themes, 2026-10-03.
+    // Asset: <link rel="icon"> on the US storefront this homepage declares it from, asked for at 96px.
+    squareLogo: {
+      src: 'https://us.thebeautystore.com/cdn/shop/files/the_beauty_store_favicon_8bf2c36d-1ab6-425e-94fb-27043ba1a162.png?crop=center&height=96&v=1749489828&width=96',
+      shape: 'square',
+      ink: 'own',
       basis: 'own-site-declared',
       source: 'https://www.thebeautystore.com',
       readAt: '2026-10-03',
@@ -5175,7 +5303,10 @@ export const RETAILERS: readonly Retailer[] = [
   },
   {
     id: 'niche-beauty-uk',
-    name: 'Niche-Beauty UK',
+    // Was 'Niche-Beauty UK'. The shop's own page titles say "NICHE BEAUTY"
+    // (".../byredo-blanche/303-019": "BYREDO Blanche » buy online | NICHE
+    // BEAUTY", read 2026-10-03), and the site's own text carries no hyphens.
+    name: 'Niche Beauty UK',
     domain: 'niche-beauty.com',
     homepage: 'https://www.niche-beauty.com',
     tiers: ['niche'],
@@ -5270,15 +5401,48 @@ export const RETAILERS: readonly Retailer[] = [
         '<span class="h">Size</span>\\s*<span class="val">([^<]{1,30})</span>',
       ],
     },
-    enabled: false,
+    //
+    // ── Switched on, 2026-10-03, on the pinned route ────────────────────────
+    // Walked from this sandbox first (6,844 /en-gb/ product URLs on the
+    // route; one page there, Eau de Lierre, carries no og:price:currency, so
+    // the printed "£ 155.00" beside its price is now what names sterling),
+    // then from a runner: probe run #572 (job 111194929097), 8 of 8
+    // listings priced in GBP (Zarkoperfume Oud'Ish, Molecule 234·38 and
+    // Ménage à Trois Eau de Parfum Unisex 100 ml at £144 among them).
+    // First harvest, run #586: 5,789 /en-gb/ URLs on the route, 24 pages, 24
+    // listings, all priced in GBP. Checked against the shop's own pages the
+    // same day: Zarkoperfume Oud'Ish 100 ml £144 and Pink Molecule 090.09
+    // 50 ml £99, Fugazzi Parfum 1 50 ml £145, Heretic Dirty Coconut 50 ml
+    // £165, Diptyque Eau des Sens 50 ml £112: all match, sizes too. One room
+    // diffuser (Trudon Camées Parfumés) got past the address filter; its
+    // title names no concentration, so the fragrance test downstream drops it.
+    // Delivery is now read, not unread: the shop states free UK
+    // delivery over £75 on every product page and publishes no rate below it
+    // (see shipping below), so its offers show as delivery not stated under
+    // £75 (tests/registry.test.ts's unstated list).
+    sitemapHarvestConfirmed: true,
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
       standardGbp: null,
-      freeOverGbp: null,
+      // Read 2026-10-03 off every /en-gb product page this route fetches:
+      // "Free shipping to United Kingdom on all orders above £ 75.00". The
+      // page says "above", so an order of exactly £75.00 may not qualify;
+      // resolveDelivery treats £75.00 itself as free.
+      freeOverGbp: 75,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-19',
-      confidence: 'unverified',
+      verifiedAt: '2026-10-03',
+      confidence: 'confirmed',
+      // The shop's own delivery link (/en-gb/info/versandkosten) redirects to
+      // its checkout provider Global-e's help page, which names no rate: the
+      // cost is worked out at checkout from destination, weight and method.
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://service.global-e.com/Categories/how-much-will-it-cost-to-ship-to-my-country?id=0790965a-5431-44d2-96ab-cf7e7a587563',
+        quote: 'Shipping costs are calculated automatically at checkout',
+        readAt: '2026-10-03',
+      },
       notes:
         'Read directly, not unread: shipping probe, run 32282115059 job 96163076612, ' +
         '2026-08-19T17:32Z, fetched niche-beauty.com\'s delivery page and confirmed it never ' +
@@ -5293,6 +5457,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Nicchia Luxury UK',
     domain: 'nicchialuxury.com',
     homepage: 'https://www.nicchialuxury.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="apple-touch-icon">, 180px on the Shopify CDN.
+    logo: {
+      src: 'https://cdn.shopify.com/s/files/1/0940/3491/9808/files/apple-touch-icon.png',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.nicchialuxury.com',
+      readAt: '2026-10-03',
+    },
     // Their own words, from the programme profile they publish on Awin.
     blurb:
       'Nicchia Luxury is an Italian e-commerce site specializing in niche perfumery, ' +
@@ -5407,7 +5583,7 @@ export const RETAILERS: readonly Retailer[] = [
     // affiliate-feed shop), and it stops awin-feed-sync from writing the
     // feed's fixed 1.3490 figures back. Affiliate links still wrap through the
     // Awin deeplink template below.
-    enabled: false,
+    enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
     convertedSterlingAccepted: {
@@ -5843,6 +6019,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Perfume Market UK',
     domain: 'perfumemarketuk.com',
     homepage: 'https://www.perfumemarketuk.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="icon">, 512px.
+    logo: {
+      src: 'https://www.perfumemarketuk.com/media/favicon/stores/1/512x512.png',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.perfumemarketuk.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // Currency probe (run 32256242622, job 96078492089, 2026-08-19): robots.txt
     // answers with no disallow, and the bare origin serves sterling — home
@@ -5913,6 +6101,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Parfumdreams UK',
     domain: 'parfumdreams.co.uk',
     homepage: 'https://www.parfumdreams.co.uk',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="shortcut icon">, 512px.
+    logo: {
+      src: 'https://www.parfumdreams.co.uk/images/favicon.png',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.parfumdreams.co.uk',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // CURRENCY NOT CONFIRMED — see CURRENCY_UNCONFIRMED at the foot of this
     // file. Currency probe (run 32256361673, job 96078874562, 2026-08-19):
@@ -5966,7 +6166,23 @@ export const RETAILERS: readonly Retailer[] = [
       maxSitemaps: 3,
       requireGbp: true,
     },
-    enabled: false,
+    //
+    // ── Switched on, 2026-10-03, on the pinned route ────────────────────────
+    // Probe run #569 (job 111191127386), from a runner: 2,381 product URLs in
+    // the three fragrance aisles, 8 pages, 20 listings (one per size), all 20
+    // priced in GBP on their own pages, e.g. Estée Lauder Pleasures EDP 15/30/
+    // 50/100 ml £18.95/£45.43/£64.68/£85.54. Prices are as the page states
+    // them, including where a smaller size costs more than a larger one
+    // (Light Blue EDT 30 ml £48.75, 50 ml £46.63 on index_13043.aspx).
+    // First harvest, run #582: 24 pages, 69 listings, all priced in GBP.
+    // Checked against the shop's own pages the same day: The One EDP 50 ml
+    // £55.50, Devotion EDP 50 ml £51.68, K by Dolce&Gabbana EDT 100 ml £52.93,
+    // Pleasures EDP 30 ml £45.43, Light Blue EDT 30 ml £48.75: all match.
+    // The page also shows a lower "premium" member price (The One 50 ml
+    // £49.95); the ordinary price is the one stored, as membership prices are
+    // never modelled. A few variants are sets ("Eau de Toilette 100 ml +
+    // Shower Gel 50 ml ..."), left to the gift set handling downstream.
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -6106,8 +6322,33 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Beauty Bay',
     domain: 'beautybay.com',
     homepage: 'https://www.beautybay.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="apple-touch-icon">, 180px.
+    logo: {
+      src: 'https://www.beautybay.com/apple-touch-icon.png',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.beautybay.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
-    enabled: false,
+    //
+    // ── Switched on, 2026-10-03, on the product API route ───────────────────
+    // Probe run #573 (job 111197538460), from a GitHub runner, which this
+    // shop's own site places in the US: 43 product URLs naming a perfume, 4
+    // API requests (one per product), 11 listings, all 11 priced in GBP by
+    // each size's own itemCurrency (Ariana Grande Cloud EDP 30/50/100ml
+    // £35/£45/£55, God Is A Woman EDP 30/50/100ml £33/£43/£53). The range is
+    // small: Ariana Grande, Sabrina Carpenter, Shay & Blue and a few mists.
+    // First harvest, run #587: 43 product URLs, 11 API requests, 29 listings
+    // (every size of each product), all priced in GBP. Checked against the
+    // same API the same day: Billie Eilish Your Turn EDP 30ml £55, 50ml £45.50
+    // (was £65, the shop's own reference price), 100ml £72; Ariana Grande
+    // R.E.M. EDP 50ml £40, 100ml £50: all match.
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -6128,7 +6369,8 @@ export const RETAILERS: readonly Retailer[] = [
       notes:
         'Tracked delivery £2.95, free over £30, read off the shop\'s own checkout by the owner ' +
         'on 2026-10-03. Next Day (£4.95, free over £60) is an upgrade, not modelled. Applied ' +
-        'via Awin 2026-08-11. See the 2026-10-03 comment for what still keeps the shop off.',
+        'via Awin 2026-08-11. Prices come from the shop\'s own product API; see the 2026-10-03 ' +
+        'comments.',
     },
     // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
     // Ambiguous first evidence, not a confirmed block. The catalogue-daily.yml
@@ -6842,6 +7084,19 @@ export const RETAILERS: readonly Retailer[] = [
       source: 'https://www.fragrancehub.co.uk/',
       readAt: '2026-10-03',
     },
+    // The wordmark above stays in the profile hero. This is the square icon
+    // the same homepage declares, for the 20px offer row mark and the Shops
+    // tile; read by scripts/logo-probe.ts and checked by eye at 20px on both
+    // themes, 2026-10-03.
+    // Asset: <link rel="icon">, asked for at 96px.
+    squareLogo: {
+      src: 'https://www.fragrancehub.co.uk/cdn/shop/files/IMG_8367.jpg?crop=center&height=96&v=1722879081&width=96',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.fragrancehub.co.uk/',
+      readAt: '2026-10-03',
+    },
     tiers: ['mideast'],
     // Added 2026-08-18 from WebSearch snippets alone, then actually measured
     // the next day. Self-described as "Home of Niche Arabian Perfumes",
@@ -7274,6 +7529,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Avon',
     domain: 'avon.uk.com',
     homepage: 'https://avon.uk.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="shortcut icon">, 32px.
+    logo: {
+      src: 'https://avon.uk.com/cdn/shop/files/FAVICON_Avon_RGB_Logo_ONLY_FOR_BROWSER_32x32.jpg?v=1690898778',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://avon.uk.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     singleBrandOnly: 'Avon',
     // Named by the owner directly. Added 2026-08-20 from WebSearch snippets
@@ -7527,7 +7794,31 @@ export const RETAILERS: readonly Retailer[] = [
       maxSitemaps: 1,
       requireGbp: true,
     },
-    enabled: false,
+    //
+    // ── Switched on, 2026-10-03, on the pinned route ────────────────────────
+    // Walked from this sandbox first: 607 /uk/ product URLs on the route, 8
+    // pages, 18 listings (one per size), all 18 priced in GBP on their own
+    // pages, e.g. BULGARI Rose Goldea Blossom Delight 30/50/75ml £69/£99/£119,
+    // Juliette Has A Gun Mmmm... 7.5/50/100ml £25/£100/£140. Confirmed from a
+    // runner before this was set: probe run #568 (job
+    // 111190333421), 607 URLs, 18 of 18 listings priced in GBP.
+    // First harvest, run #581: 24 pages, 52 listings priced (43 distinct
+    // skus, since a page lists its sibling sizes too), all GBP. Five checked
+    // against the shop's own pages the same day: PHLUR Not Your Baby EDP 50ml
+    // £74.25, Tom Ford Grey Vetiver Parfum 50ml £135, Hermès H24 EDP 100ml
+    // £123, Vyrao The Sixth EDP 50ml £170, Acqua di Parma Mandarino di
+    // Sicilia EDT 100ml £156: all match.
+    //
+    // Delivery, rechecked the same day: /uk/shipping now redirects to the
+    // home page, whose banner still reads "FREE UK STANDARD DELIVERY on all
+    // orders over £25" and names no rate below it. The help centre's
+    // Delivery Information article (help.spacenk.com, robots.txt permits it)
+    // answered HTTP 403 to one plain request and was not asked again. So the
+    // shop publishes no standard rate this project can read, and its offers
+    // show as delivery not stated (tests/registry.test.ts's unstated list).
+    // The owner can read the charge below £25 off the shop's own basket.
+    sitemapHarvestConfirmed: true,
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -7547,10 +7838,10 @@ export const RETAILERS: readonly Retailer[] = [
         readAt: '2026-09-23',
       },
       notes:
-        'Delivery terms have not been read from spacenk.com itself, only its checkout currency ' +
-        '(see the comment above this entry). The £25 free-delivery figure above comes from a ' +
-        'WebSearch result snippet, quoted as far as it goes and no further. No affiliate ' +
-        'programme has been researched.',
+        'The £25 threshold is the shop\'s own banner, quoted in source; no rate below it is ' +
+        'published on spacenk.com (rechecked 2026-10-03, when /uk/shipping redirected to the ' +
+        'home page carrying the same banner), and the help centre\'s delivery article answered ' +
+        'HTTP 403. No affiliate programme has been researched.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -7604,6 +7895,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Marks & Spencer',
     domain: 'marksandspencer.com',
     homepage: 'https://www.marksandspencer.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="shortcut icon"> on their own static host, a .ico holding 32px.
+    logo: {
+      src: 'https://static.marksandspencer.com/images/favicon.ico',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.marksandspencer.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // Added 2026-08-20 from WebSearch snippets of
     // marksandspencer.com/l/beauty/womens-perfume and
@@ -7659,7 +7962,24 @@ export const RETAILERS: readonly Retailer[] = [
       maxSitemaps: 1,
       requireGbp: true,
     },
-    enabled: false,
+    //
+    // ── Switched on, 2026-10-03, on the pinned route ────────────────────────
+    // Walked from this sandbox first: 159 product URLs on the route, 8 pages,
+    // 8 listings, all 8 priced in GBP on their own pages (Shay & Blue Blood
+    // Oranges 30ml £45 and Atropa Belladonna 100ml £80; Monotheme White
+    // Gardenia, White Musk, Agrumi di Sicilia and Patchouli Leaves 100ml £20).
+    // Confirmed from a runner before this was set: probe run #567 (job
+    // 111185043924), 159 URLs, 8 of 8 listings priced in GBP.
+    // First harvest, run #580 (2026-10-03T18:37Z): 24 pages, 24 listings, all
+    // priced in GBP. Five checked against the shop's own pages the same day:
+    // Discover Pink Pepper EDT 100ml £12, Shay & Blue Oud Alif EDP 100ml
+    // £105, NUXE Prodigieux Le Parfum 30ml £32, Fragonard Santal Cardamome
+    // EDP 50ml £45, Monotheme White Musk EDT 100ml £20: all match. Five of
+    // them had been stored with tracking the page's own JSON-LD carried
+    // (a Google Ads gclid, another publisher's Skimlinks/Awin click); those
+    // addresses were cleaned in the snapshot and the route now drops such a
+    // query (cleanListingUrl in src/catalogue/sitemapCrawl.ts).
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -7689,6 +8009,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Les Senteurs',
     domain: 'lessenteurs.com',
     homepage: 'https://www.lessenteurs.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="icon">, asked for at 96px.
+    logo: {
+      src: 'https://www.lessenteurs.com/cdn/shop/files/favicon.png?crop=center&height=96&v=1613508780&width=96',
+      shape: 'square',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://www.lessenteurs.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['niche'],
     // Added 2026-08-20 from WebSearch snippets of
     // lessenteurs.com/collections/fragrance alone — no page opened, this
@@ -7898,10 +8230,27 @@ export const RETAILERS: readonly Retailer[] = [
       requireGbp: true,
       titleParts: [
         '<h4>\\s*([^<|]{3,60})\\|',
-        'Product Size</div>\\s*<div[^>]*>\\s*<p>\\s*([^<]{1,30})</p>',
+        // The size alone, so "50ml - 20% perfume oil concentration" (1907
+        // Parfums Mon Âme, read 2026-10-03) gives "50ml".
+        'Product Size</div>\\s*<div[^>]*>\\s*<p>\\s*(\\d+(?:\\.\\d+)?\\s*ml)\\b',
       ],
     },
-    enabled: false,
+    //
+    // ── Switched on, 2026-10-03, on the pinned route ────────────────────────
+    // Probe run #571 (job 111193618894), from a runner: 352 product URLs on
+    // the route, 8 pages, 4 listings, all 4 priced in GBP from the page's
+    // own microdata (Gri Gri Parfums Tara Mantra, Moko Maori, Ukiyo-E and
+    // Sideshow Eau de Parfum 100ml, £95 each); the other 4 pages were stale
+    // sitemap entries that answer 404. Requests are 10 s apart throughout,
+    // robots.txt's own crawl delay, the sitemap included.
+    // First harvest, run #584: 20 listings, all priced in GBP. Checked
+    // against the shop's own pages the same day (11 s apart): Gri Gri Tara
+    // Mantra EDP 100ml £95, Manos Gerakinis Rose Poetique EDP 100ml £175,
+    // Extrait D'Atelier Maître Jardinier 100ml £190 and 10ml £45, 1907 Parfums
+    // Mon Âme £190: all match. 1907 Parfums prints its size as "50ml - 20%
+    // perfume oil concentration", which the size pattern missed, so those two
+    // reached the snapshot unsized; the pattern now reads the size alone.
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -7932,6 +8281,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Paco Perfumerías UK',
     domain: 'pacoperfumerias.co.uk',
     homepage: 'https://www.pacoperfumerias.co.uk',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="icon">, 512px, the unversioned path rather than the build stamped apple-touch-icon.
+    logo: {
+      src: 'https://www.pacoperfumerias.co.uk/media/favicon/stores/1/pacoperfume-icon.png',
+      shape: 'square',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://www.pacoperfumerias.co.uk',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // Was the perfume-price entry (perfumeprice.co.uk). That domain now
     // redirects here, so on 2026-10-03 the owner chose to switch the entry
@@ -7997,7 +8358,23 @@ export const RETAILERS: readonly Retailer[] = [
       maxSitemaps: 1,
       requireGbp: true,
     },
-    enabled: false,
+    //
+    // ── Switched on, 2026-10-03, on the pinned route ────────────────────────
+    // Probe run #570 (job 111191918224), from a runner: 3,746 product URLs on
+    // the route, 8 pages, 8 listings, all 8 priced in GBP on their own pages
+    // (Anna Sui Flight of Fancy EDT 75ml £44.50, Aramis Havana EDT 100ml
+    // £57.50, Aramis EDT 240ml £79.50 ...). Delivery as recorded below was
+    // read again off https://www.pacoperfumerias.co.uk/delivery-and-returns/
+    // the same day and is unchanged: "Royal Mail Tracked 48 Free over £25 2 to
+    // 3 working days £2.95 on orders under £25."
+    // First harvest, run #583: 24 pages, 24 listings, all priced in GBP.
+    // Checked against the shop's own pages the same day: Calvin Klein
+    // Eternity EDP 100ml £40.25, CK Be EDT 200ml £22.50, Obsession for Men
+    // EDT 125ml £18.95, Eternity Moment EDP 100ml £23.99, CK All EDT 200ml
+    // £28.99: each the page's own Product offer and its own "FinalPrice".
+    // (The Eternity page also shows "Special Price £48.75" in a box for
+    // product 3646, a different product with 2 reviews, not this one.)
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -8028,6 +8405,18 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Perfume Direct',
     domain: 'perfumedirect.com',
     homepage: 'https://www.perfumedirect.com',
+    // Square icon declared on the shop's own homepage, read by
+    // scripts/logo-probe.ts and checked by eye at 20px on both themes,
+    // 2026-10-03 (the offer row pass).
+    // Asset: <link rel="icon">, 32px (the largest the file holds).
+    logo: {
+      src: 'https://www.perfumedirect.com/cdn/shop/files/favicon.png?crop=center&height=32&v=1738570661&width=32',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.perfumedirect.com',
+      readAt: '2026-10-03',
+    },
     tiers: ['designer'],
     // Added 2026-08-20 from WebSearch snippets of
     // perfumedirect.com/collections/all and perfumedirect.com/pages/about-us
@@ -8870,38 +9259,17 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'probe harder. Not a currency finding, and a documented Apify candidate for whoever next ' +
       'takes on scraping this shop directly — a plain HTTP client cannot even read its robots.txt.',
   ],
-  [
-    'nicchia-luxury-uk',
-    'An Italian storefront (nicchialuxury.com) whose own shipping policy states its threshold ' +
-      'in dollars ("Free express delivery over 140 USD"), and whose storefront was measured ' +
-      'publishing EUR on 2026-08-13 (parseShopCurrency, Price verification run 4, job ' +
-      '94426059278). Its stored prices are NOT those euro figures — live/stored across all ' +
-      '6,843 keyable listings is a constant 1.3490 (99.9% of the 4,383 listings at or above ' +
-      '£50 sit within 1% of it), where relabelled euros would give 1.0 — so the feed is not ' +
-      'republishing the storefront in the wrong unit; it is that euro list divided by a fixed ' +
-      'factor. No sterling price list was found at any address tried (run 5, job 94428122841: ' +
-      '/en-gb answered USD; /gb, /uk, /en-uk none). Whether 1.3490 was ever a real exchange ' +
-      'rate was not established, and nothing measured suggests this shop takes sterling at ' +
-      'all. It ran enabled with 4,032 offer rows live on that unproven declaration until ' +
-      '2026-08-13. Its stored snapshot went on holding all 6,843 of those figures in priceGbp ' +
-      'for three days after that — disabling a shop stops it being published, it does not touch ' +
-      'the file — and they were cleared on 2026-08-16 by npm run quarantine:prices, each amount ' +
-      "kept as nativePrice under currency 'unknown', the only label the measurements above " +
-      'support: not the euros the storefront quotes, not pounds, and not a converted anything. ' +
-      'CatalogueStore.write now refuses to store a sterling figure against any id on this list, ' +
-      'so no routine run can put them back. Evidence refreshed 2026-08-19 (currency probe, run ' +
-      '32257210189, job 96081595191): /products.json now returns a real Shopify payload — this ' +
-      'is confirmed Shopify, the route that WOULD serve it — but every request shape still ' +
-      'settles EUR. Asked ?country=GB the theme labels the price GBP while settling EUR at a ' +
-      'computed rate of 0.8729568, a live Shopify-Markets conversion of the same euro figure, ' +
-      'not a second genuine sterling list; this is a different mechanism from the Awin feed\'s ' +
-      'fixed 1.3490 divisor above, but the same underlying fact: no GBP price list independent ' +
-      'of a euro one has been found here by any route tried. Rechecked 2026-10-03: /en-gb now ' +
-      'answers GBP (it answered USD on 2026-08-13) but at rate 0.86691738, and six perfumes ' +
-      'read at /it-it and /en-gb the same day all match euros times that rate rounded up to ' +
-      'the whole pound (e.g. 145 EUR to 126 GBP, 230 EUR to 200 GBP). Still a conversion, ' +
-      'still off.',
-  ],
+  // nicchia-luxury-uk was removed from this list on 2026-10-03, on the evidence
+  // the list asks for: the owner's own checkout. At the shop's /en-gb cart a
+  // Maison Crivelli Tobacco Carnaval Extrait de Parfum 1.5 ml was priced "£5.00
+  // GBP" and the Shopify checkout to a UK address offered "Express Shipping
+  // £15.00, 1 to 4 business days", so the shop charges a UK shopper in pounds.
+  // What it does not change is that those pounds are the shop's own live
+  // conversion from euros (rate 0.86691738 that day); the owner accepted that
+  // (`convertedSterlingAccepted`). The CI probe, run 37128409330 job
+  // 111218396119, read 241 listings, all priced in GBP, under ?country=GB at
+  // rate 0.86690412. See the comment on its registry entry above. It is now
+  // `enabled: true`.
   [
     'carethy',
     'Listed here on the day it was added, before anyone had opened the shop — which is the ' +
@@ -8923,18 +9291,11 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'everywhere too, so this is not a confirmed Shopify storefront either. Unlike escentual, ' +
       'no request this repo knows how to make has found a GBP reading anywhere on this shop.',
   ],
-  [
-    'parfumdreams-uk',
-    'Currency probe, run 32256361673 job 96078874562, 2026-08-19: robots.txt answers with no ' +
-      'disallow, and the bare origin answers 200, but none of the nine ways of asking published ' +
-      'any currency at all — no Shopify.currency, no /meta.json, and /en-gb /gb /uk /en-uk all ' +
-      '404. /products.json also 404s everywhere. A .co.uk domain is not evidence of sterling ' +
-      'pricing on its own (uk.zimayaperfumes.com quotes dollars) — this storefront is simply ' +
-      'silent about its currency rather than confirming anything. 2026-10-03: a product page ' +
-      '(Gucci Bloom Eau de Parfum Spray, index_122330.aspx) labels every offer priceCurrency ' +
-      'GBP, read from this sandbox; a probe with --product on that page from a runner is what ' +
-      'would remove this id. It is off for route reasons regardless (see its entry).',
-  ],
+  // parfumdreams-uk was removed from this list on 2026-10-03, on the angle
+  // its own note here named: product pages label every offer priceCurrency
+  // GBP. Its pinned route sets requireGbp, so a price is stored only when its
+  // own offer says GBP, and probe run #569 (job 111191127386) read all 20 of
+  // the listings it fetched that way from a runner. It is now `enabled: true`.
   [
     'fragrancedirect',
     'Currency probe, run 32256534104 job 96079423648, 2026-08-19: robots.txt answers with no ' +
@@ -9007,18 +9368,12 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'uk.zimayaperfumes.com quotes dollars. One positive sterling reading from a currency ' +
       'probe is what would remove this id.',
   ],
-  [
-    'marks-and-spencer',
-    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
-      'about marksandspencer.com comes from WebSearch snippets; its checkout currency has not ' +
-      'been read. A famous UK high-street name is not the same claim as a measured sterling ' +
-      'price list — Nicchia Luxury ran enabled on a less careful version of that same ' +
-      'assumption for three days (see its own entry above). One positive sterling reading from ' +
-      'a currency probe is what would remove this id. 2026-10-03: a product page (Blood Oranges ' +
-      'Vegan Fragrance 100ml, /p/hbp22300959) labels its offer priceCurrency GBP, read from this ' +
-      'sandbox, not yet by a probe; and robots.txt also names an /ie/ sitemap whose pages are ' +
-      'the Irish store, so a sterling reading of one page does not cover the walk.',
-  ],
+  // marks-and-spencer was removed from this list on 2026-10-03: its pinned
+  // route (Retailer.sitemapRoute) sets requireGbp, so every price it stores
+  // is one its own product page names as GBP, and the pages it reads are only
+  // those listed in the UK beauty product sitemap. Probe run #567 (job
+  // 111185043924) read every listing it fetched as GBP. See the comment on
+  // its registry entry.
   // les-senteurs was removed from this list on 2026-10-03: currency probe,
   // run 37084825268 job 111092804927, read GBP at rate 1 through the origin
   // and every request-shape candidate, and the product page JSON-LD labelled
@@ -9031,26 +9386,17 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
   // every request shape, with identical /products.json prices at the origin
   // and under ?country=GB (Cacao Timur 100ml EdP 165.00 both ways). It stays
   // `enabled: false` for an unrelated reason recorded on its entry.
-  [
-    'shy-mimosa',
-    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
-      'about shymimosa.co.uk comes from WebSearch snippets, including the one specific delivery ' +
-      "figure (£4.99 under £100) recorded in this entry's shipping.notes; its checkout " +
-      'currency has not been read. One positive sterling reading from a currency probe is what ' +
-      'would remove this id. 2026-10-03: its product pages mark the price up as microdata with ' +
-      'itemprop priceCurrency content GBP (read from this sandbox), and the £4.99 is now read ' +
-      'off its own delivery page; no CI probe has read it yet.',
-  ],
-  [
-    'paco-perfumerias-uk',
-    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
-      'about perfumeprice.co.uk comes from WebSearch snippets, including its Companies House ' +
-      'registration; its checkout currency has not been read. One positive sterling reading ' +
-      'from a currency probe is what would remove this id. 2026-10-03: the domain now ' +
-      'redirects to www.pacoperfumerias.co.uk, whose product page (Dior Fahrenheit EDT 100ml) ' +
-      'labels its offer priceCurrency GBP, read from this sandbox; which id that store belongs ' +
-      'to is an owner decision (see the entry).',
-  ],
+  // shy-mimosa was removed from this list on 2026-10-03: its product pages'
+  // microdata names priceCurrency GBP for every offer (Chypre Shot £195.00),
+  // its pinned route sets requireGbp so only such prices are stored, and
+  // probe run #571 (job 111193618894) read every priced listing it fetched
+  // that way from a runner. It is now `enabled: true`.
+  // paco-perfumerias-uk was removed from this list on 2026-10-03: its product
+  // pages label each offer priceCurrency GBP (Dior Fahrenheit EDT 100ml
+  // £106.50, Aramis Havana EDT 100ml £57.50), its pinned route sets
+  // requireGbp so only such prices are stored, and probe run #570 (job
+  // 111191918224) read all 8 listings it fetched that way from a runner. It
+  // is now `enabled: true`.
   // perfume-direct was removed from this list on 2026-10-03: currency probe,
   // run 37085200742 job 111093936348, read GBP at rate 1 at the origin and
   // under every request shape, with identical /products.json prices at the

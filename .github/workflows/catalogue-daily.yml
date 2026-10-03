@@ -287,14 +287,24 @@ jobs:
           # above `on:`.
           RESP=$(curl -sS --max-time 20 -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${{ github.repository }}/commits?path=data/harvest-cursor.json&sha=${{ github.ref_name }}&per_page=1") || RESP=""
+            "https://api.github.com/repos/${{ github.repository }}/commits?path=data/harvest-cursor.json&sha=${{ github.ref_name }}&per_page=50") || RESP=""
           # `|| LAST_ISO=""` matters under GitHub's default `bash -eo
           # pipefail {0}`: a malformed-but-non-empty $RESP makes jq itself
           # exit non-zero, and pipefail propagates that through the pipe, so
           # without this the step would abort right here — failing CLOSED —
           # instead of falling through to the empty-string branch below,
           # which is the one place this gate is meant to fail open.
-          LAST_ISO=$(printf '%s' "$RESP" | jq -r '.[0].commit.committer.date // empty' 2>/dev/null) || LAST_ISO=""
+          # ── 2026-10-03: only a full sweep counts ──────────────────────────
+          # A one shop dispatch (harvest_shop) commits the cursor too, and the
+          # guard used to read any such commit as "a harvest just ran". On
+          # 2026-10-03 one shop dispatches ran from 15:09 to 20:40 (#578,
+          # #580 to #584, #586, #587), each committing the cursor, so the
+          # scheduled ticks at 17:14 (#579) and 19:56 (#585) both skipped and
+          # no shop but the dispatched ones was asked for six hours. A one shop run now commits as "Harvest: one shop (<shop>),
+          # real prices ..." (see "Commit harvested prices"), and only a commit
+          # starting "Harvest: real prices" is a full sweep. None in the last
+          # 50 cursor commits reads as empty, which runs in full below.
+          LAST_ISO=$(printf '%s' "$RESP" | jq -r '[.[] | select(.commit.message | startswith("Harvest: real prices"))][0].commit.committer.date // empty' 2>/dev/null) || LAST_ISO=""
           if [ -z "$LAST_ISO" ]; then
             echo "should-run=true" >> "$GITHUB_OUTPUT"
             echo "::warning::Could not read the last harvest commit's timestamp from the GitHub API — running in full rather than guessing a skip."
@@ -1168,7 +1178,7 @@ jobs:
         if: ${{ inputs.harvest || github.event_name == 'schedule' }}
         run: |
           ./scripts/commit-and-push.sh \
-            "Harvest: real prices $(date -u +%Y-%m-%d)" \
+            "${{ inputs.harvest_shop && format('Harvest: one shop ({0}), real prices', inputs.harvest_shop) || 'Harvest: real prices' }} $(date -u +%Y-%m-%d)" \
             data/catalogue data/houses data/house-sourcing-report.json \
             data/metered-harvest-marker.txt \
             data/harvest-cursor.json \

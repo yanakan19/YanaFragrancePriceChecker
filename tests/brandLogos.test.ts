@@ -54,6 +54,7 @@ const DECLARED_ASSET_HOSTS = new Set([
 function allLogoRefs(): { where: string; logo: LogoRef }[] {
   const out: { where: string; logo: LogoRef }[] = [];
   for (const r of RETAILERS) if (r.logo) out.push({ where: `retailer:${r.id}`, logo: r.logo });
+  for (const r of RETAILERS) if (r.squareLogo) out.push({ where: `retailer:${r.id}:square`, logo: r.squareLogo });
   for (const [key, logo] of Object.entries(BRAND_LOGOS)) out.push({ where: `brand:${key}`, logo });
   return out;
 }
@@ -104,7 +105,7 @@ describe('every LogoRef carries a recorded reason', () => {
       // pass): it must sit on the shop's own registrable domain, or a host
       // that shop's own homepage declares it from.
       if (logo.basis === 'own-site-declared' && where.startsWith('retailer:')) {
-        const id = where.slice('retailer:'.length);
+        const id = where.slice('retailer:'.length).replace(/:square$/, '');
         const shop = RETAILERS.find((r) => r.id === id)!;
         const host = new URL(logo.src).host;
         expect(
@@ -125,6 +126,14 @@ describe('every LogoRef carries a recorded reason', () => {
       }
     },
   );
+});
+
+describe('a squareLogo is square, and only sits beside a wordmark', () => {
+  it.each(RETAILERS.filter((r) => r.squareLogo).map((r) => [r.id, r] as const))('%s', (_id, r) => {
+    expect(r.squareLogo!.shape).toBe('square');
+    // A shop whose main logo is already square needs no second one.
+    expect(r.logo?.shape).not.toBe('square');
+  });
 });
 
 describe('logoFor keys exactly as BRAND_SITES does', () => {
