@@ -2,7 +2,7 @@ import type { Retailer } from '../types/retailer.js';
 import type { RawListing } from './types.js';
 import type { Http } from './attempt.js';
 import { isAllowed, type RobotsRules } from './robots.js';
-import { parseShopifyProducts, isShopifyProductsPayload } from './shopifyJson.js';
+import { parseShopifyProducts, isShopifyProductsPayload, shopifyProductCount } from './shopifyJson.js';
 import { fetchStorefrontCurrency, type StorefrontCurrency } from './shopCurrency.js';
 import {
   probeMarkets,
@@ -95,7 +95,37 @@ export interface ShopifyProductsCrawlResult {
    * a particular request is a shop whose prices can silently stop appearing.
    */
   market: MarketCandidate;
+  /**
+   * True only when the walk reached the catalogue's own end: Shopify answered
+   * a page with no products at all. False when it stopped for any other
+   * reason (the page cap, an error, the deadline, a non-sterling payload), so
+   * a caller may treat a product's absence as withdrawal only when this is
+   * true.
+   */
+  complete: boolean;
 }
+
+/**
+ * Products per `/products.json` page: Shopify's own maximum.
+ *
+ * This used to be `min(maxPages, 250)`, which tied the page *size* to the
+ * harvest's page *budget*. The scheduled harvest passes --max=70, so every
+ * Shopify shop was read 70 products at a time for at most 70 pages: 4,900
+ * products, and never more. The Beauty Store UK has 8,000+, and its harvest
+ * report read "4900 urls, 70 fetched" on every run of 2026-10-02 and 03; the
+ * products past the 4,900th were never re-read, which is exactly the 3,000
+ * listings that sat between 2 and 21 days old. At 250 a page the same shop
+ * is 33 requests, and a request for 250 costs the shop no more than one for
+ * 70.
+ */
+export const SHOPIFY_PAGE_SIZE = 250;
+
+/**
+ * The deepest page Shopify will serve. Asked for page 101, a storefront
+ * answers HTTP 400 (allbeauty.com, 2026-10-03), so 100 pages of 250, 25,000
+ * products, is the most this endpoint can ever hand over.
+ */
+export const SHOPIFY_MAX_PAGE = 100;
 
 export interface ShopifyProductsCrawlOptions {
   retailer: Retailer;
@@ -121,6 +151,11 @@ export interface ShopifyProductsCrawlOptions {
    * price list going unpriced forever.
    */
   resolveUkMarket?: boolean;
+  /**
+   * Wall clock this walk must stop by (epoch ms). Checked between pages; a
+   * walk stopped by it is not `complete`.
+   */
+  deadlineAt?: number;
 }
 
 /** The shop as any visitor first meets it. */
@@ -140,12 +175,14 @@ export async function crawlViaShopifyProducts(
   const { retailer, http, robots, headers, maxPages } = options;
   const sleep = options.sleep ?? ((ms: number) => new Promise<void>((r) => setTimeout(r, ms)));
   const origin = `https://${retailer.domain}`;
-  const perPage = Math.min(maxPages, 250);
+  // Always the maximum, never derived from maxPages. See SHOPIFY_PAGE_SIZE.
+  const perPage = SHOPIFY_PAGE_SIZE;
 
   const listings: RawListing[] = [];
   const errors: string[] = [];
   let pagesFetched = 0;
   let isShopify = true;
+  let complete = false;
 
   // Asked before the catalogue is read, not after, so there is never a moment
   // where a converted price list has been parsed as pounds and is waiting to
@@ -225,7 +262,11 @@ export async function crawlViaShopifyProducts(
   // than asked for, but the page count is still capped independently — a
   // storefront that never shrinks its last page (some themes pad) must not
   // be able to turn maxPages into an unbounded walk.
-  for (let page = 1; pagesFetched < maxPages && page <= 100; page++) {
+  for (let page = 1; pagesFetched < maxPages && page <= SHOPIFY_MAX_PAGE; page++) {
+    if (options.deadlineAt !== undefined && Date.now() >= options.deadlineAt) {
+      errors.push(`stopped early: exceeded this shop's time budget after ${pagesFetched} page(s)`);
+      break;
+    }
     const url = `${market.base}/products.json?${marketParams}limit=${perPage}&page=${page}`;
     if (!isAllowed(robots, url)) {
       errors.push(`robots.txt disallows ${url}`);
@@ -253,6 +294,14 @@ export async function crawlViaShopifyProducts(
       break;
     }
 
+    // The end of the catalogue is a page with no products on it, counted raw.
+    // It used to be "a page that parsed to no listings", which a page of
+    // entirely unpriced variants also is, and that ended the walk early with
+    // every later page unread.
+    if (shopifyProductCount(res.body) === 0) {
+      complete = true;
+      break;
+    }
     const batch = parseShopifyProducts(res.body, {
       // The plain origin, not the market's base: a stored URL is the address a
       // shopper is sent to, and they should get their own market by being
@@ -261,7 +310,6 @@ export async function crawlViaShopifyProducts(
       sectionId: 'shopify-products-json',
       currency: parseCurrency,
     });
-    if (batch.length === 0) break;
     listings.push(...batch);
 
     // Same reasoning as crawlViaSitemap's own trailing-wait skip (see its
@@ -276,5 +324,7 @@ export async function crawlViaShopifyProducts(
     if (options.gapMs > 0 && pagesFetched < maxPages) await sleep(options.gapMs);
   }
 
-  return { listings, pagesFetched, errors, isShopify, currency, market };
+  // A catalogue read in a currency that is not established as sterling is
+  // not a complete read of anything a caller may act on.
+  return { listings, pagesFetched, errors, isShopify, currency, market, complete: complete && isShopify && currency.isSterling };
 }

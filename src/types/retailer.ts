@@ -771,4 +771,12 @@ export interface Retailer {
    * of adding this type: see the plan's step 5, deferred.
    */
   logo?: LogoRef;
+  /**
+   * The shop's own square icon, for a shop whose `logo` is a wide wordmark.
+   * The wordmark stays in the profile hero; this fills the square slots (the
+   * 20px mark on every offer row and the 42px Shops directory tile), which a
+   * wordmark cannot fill without being squeezed. Same recording rules as
+   * `logo`, and `shape` is always 'square'. Unset means the initials tile.
+   */
+  squareLogo?: LogoRef;
 }
