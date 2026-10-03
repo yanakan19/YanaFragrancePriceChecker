@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import type { Browser } from 'playwright';
 import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-audit.js';
-import { fragrancesPhrase, marqueeHtml, marqueePhrases } from '../demo/marquee.js';
+import { SMALL_WORDS, fragrancesPhrase, marqueeHtml, marqueePhrases } from '../demo/marquee.js';
 import { shopsPhrase } from '../demo/head.js';
 import { RETAILERS } from '../src/config/retailers.js';
 
@@ -43,7 +43,12 @@ describe('the marquee phrases', () => {
     for (const p of phrases) {
       expect(p, p).not.toMatch(DASH);
       expect(p.length, p).toBeLessThanOrEqual(32);
-      for (const word of p.split(' ')) expect(word[0], p).toBe(word[0]!.toUpperCase());
+      // The site's Title Case: every word capitalised but the small words,
+      // which stay lowercase unless first.
+      p.split(' ').forEach((word, i) => {
+        const want = i > 0 && SMALL_WORDS.has(word.toLowerCase()) ? word[0]!.toLowerCase() : word[0]!.toUpperCase();
+        expect(word[0], p).toBe(want);
+      });
     }
   });
 
