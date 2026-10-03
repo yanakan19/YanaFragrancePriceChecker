@@ -15,7 +15,8 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
-import { loadRobots, runStrategy, type Http } from '../src/catalogue/attempt.js';
+import { loadRobots, runStrategy, BOT_HEADERS, BROWSER_HEADERS, type Http } from '../src/catalogue/attempt.js';
+import { crawlViaShopifyProducts } from '../src/catalogue/shopifyProductsCrawl.js';
 import { apifyProxyConfigFromEnv, apifyProxyHttp } from '../src/catalogue/apifyProxy.js';
 import { apifyActorConfigFromEnv, apifyActorRenderer } from '../src/catalogue/apifyActor.js';
 import {
@@ -23,7 +24,7 @@ import {
 } from '../src/catalogue/strategy.js';
 import { crawlViaSitemap, ROUTE_HEADERS } from '../src/catalogue/sitemapCrawl.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
-import { probeRobots } from '../src/catalogue/robotsSource.js';
+import { probeRobots, robotsHeaderVariants } from '../src/catalogue/robotsSource.js';
 import type { Retailer } from '../src/types/retailer.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -162,7 +163,61 @@ async function probeRoute(retailer: Retailer): Promise<void> {
   );
 }
 
+/**
+ * A shop named with `--shop` that is a confirmed Shopify storefront is probed
+ * by the harvest's own route: robots.txt first, then the same
+ * `crawlViaShopifyProducts` walk the harvest runs, a few pages deep and
+ * writing nothing. It reports what a harvest would store, which is the only
+ * thing worth knowing: which market was asked, what currency settled the
+ * figures, and every sampled listing with its price, or the reason none was
+ * given.
+ *
+ * Only reached for a named shop. The bulk sweep keeps to its adaptive
+ * strategies, which do not know this route.
+ */
+const SHOPIFY_PROBE_PAGES = 12;
+
+async function probeShopify(retailer: Retailer): Promise<void> {
+  const routeHttp = createHttp();
+  const probe = await probeRobots(retailer, routeHttp, BOT_HEADERS, robotsHeaderVariants(BROWSER_HEADERS));
+  const robots = probe.rules;
+  const gapMs = Math.max(retailer.catalogue?.minRequestGapMs ?? 1500, (robots.crawlDelaySeconds ?? 0) * 1000);
+  console.log(`${retailer.name}: Shopify /products.json route, robots.txt first, ${gapMs}ms between requests`);
+  for (const a of probe.attempts) console.log(`  robots ${a.url}: HTTP ${a.status}${a.error ? ` ${a.error}` : ''}`);
+  if (robots.unavailable) {
+    console.log('  robots.txt could not be read, so nothing is asked');
+    losses.push(`  ${retailer.name.padEnd(20)} robots.txt unreadable`);
+    return;
+  }
+  const result = await crawlViaShopifyProducts({
+    retailer, http: routeHttp, robots, headers: BROWSER_HEADERS,
+    maxPages: SHOPIFY_PROBE_PAGES, gapMs,
+    onProgress: (n, found) => console.log(`  ${n} fetched, ${found} found`),
+  });
+  const priced = result.listings.filter((l) => l.priceGbp !== null);
+  console.log(`  market asked   ${result.market.label} (${result.market.why})`);
+  console.log(`  currency       ${result.currency.isSterling ? 'STERLING' : 'not proven'}: ${result.currency.reason}`);
+  console.log(`  rate ${result.currency.rate ?? 'none'}, presented ${result.currency.presented ?? 'nothing'}, ` +
+    `settles ${result.currency.settlement ?? 'nothing'}, country ${result.currency.country ?? 'nothing'}`);
+  console.log(`  ${result.pagesFetched} pages, ${result.listings.length} listings, ${priced.length} priced in GBP`);
+  for (const l of result.listings) {
+    const money = l.priceGbp !== null
+      ? `£${l.priceGbp.toFixed(2)}`
+      : l.nativePrice ? `withheld (${l.nativePrice.amount} ${l.nativePrice.currency})` : 'no price';
+    console.log(`    ${money.padEnd(28)} ${l.rawBrand ?? '?'} | ${l.rawTitle} | ${l.productType ?? '-'} | ${l.url}`);
+  }
+  for (const e of result.errors.slice(0, 12)) console.log(`  error: ${e}`);
+  (priced.length > 0 ? wins : losses).push(
+    `  ${retailer.name.padEnd(20)} shopify route: ${priced.length} of ${result.listings.length} listings priced ` +
+      `(${result.market.label})`,
+  );
+}
+
 for (const retailer of shops) {
+  if (onlyShop && retailer.shopifyStorefront && !retailer.sitemapRoute) {
+    await probeShopify(retailer);
+    continue;
+  }
   if (retailer.sitemapRoute) {
     await probeRoute(retailer);
     continue;

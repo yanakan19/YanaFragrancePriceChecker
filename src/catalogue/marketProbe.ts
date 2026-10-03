@@ -1,5 +1,9 @@
 import type { Http } from './attempt.js';
-import { readStorefrontCurrency, type StorefrontCurrency } from './shopCurrency.js';
+import {
+  readStorefrontCurrency,
+  type ReadCurrencyOptions,
+  type StorefrontCurrency,
+} from './shopCurrency.js';
 
 /**
  * Ask a storefront, in every way it might be asked, what currency it is
@@ -305,6 +309,8 @@ export interface MarketProbeOptions {
   /** Milliseconds to wait between requests, honouring the shop's own limits. */
   gapMs?: number;
   sleep?: (ms: number) => Promise<void>;
+  /** Passed to `readStorefrontCurrency` for every candidate. See `ReadCurrencyOptions`. */
+  currency?: ReadCurrencyOptions;
 }
 
 /** The URL a candidate reads a given path from. */
@@ -346,7 +352,11 @@ export async function probeMarkets(
       candidate,
       metaStatus: meta.status || null,
       homeStatus: home.status || null,
-      currency: readStorefrontCurrency(meta.ok ? meta.body : null, home.ok ? home.body : null),
+      currency: readStorefrontCurrency(
+        meta.ok ? meta.body : null,
+        home.ok ? home.body : null,
+        options.currency,
+      ),
     });
   }
   return readings;
