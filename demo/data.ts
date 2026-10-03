@@ -291,7 +291,10 @@ export function lowestPrice(id: string): number {
 
 export interface Deal {
   fragrance: DemoFragrance;
+  /** The figure the product page prints for this offer — see RawDeal. */
   price: number;
+  /** True when `price` includes a stated delivery cost. */
+  delivered: boolean;
   wasPrice: number;
   percentOff: number;
   retailerId: string;
