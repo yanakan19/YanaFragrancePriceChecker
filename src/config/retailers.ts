@@ -2394,10 +2394,18 @@ export const RETAILERS: readonly Retailer[] = [
       // offered to non-members, so freeOverGbp stays null and Selfridges+
       // stays a membershipPerk.
       confidence: 'confirmed',
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote:
+          'UK Delivery: Standard delivery £6.95 ... Nominated day £9.95, Timed delivery £10.95, ' +
+          'Unlimited with SELFRIDGES+ UK (yearly) £10',
+      },
       notes:
-        'Standard Delivery within 5 working days; Click & Collect free. Read indirectly ' +
-        '(search extracts of the UK delivery page) because the page refuses this tooling — ' +
-        'confirm against selfridges.com/GB/en/info/dispatch-delivery/uk-delivery/ in a browser.',
+        'Standard delivery £6.95 with no spend threshold for non-members, read by the owner off ' +
+        'a product page\'s Delivery panel with an item in the bag on 2026-10-03. It matches the ' +
+        'search extracts of selfridges.com/GB/en/info/dispatch-delivery/uk-delivery/ read ' +
+        '2026-10-01 (that page refuses this tooling). Free delivery over £100 needs Selfridges+ ' +
+        '(£10 a year) and over £150 needs Selfridges Unlocked, so neither is priced in.',
     },
     catalogue: {
       searchUrlTemplate: 'https://www.selfridges.com/GB/en/search/?freeText={q}',
@@ -3534,6 +3542,10 @@ export const RETAILERS: readonly Retailer[] = [
       // blocks automated reads (a SiteGround captcha), so this rests on the
       // owner's own check.
       confidence: 'confirmed',
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote: 'Flat rate: 3.95£ (at £35.00 and again at £105.00, shipped to UB1)',
+      },
       notes:
         'Flat £3.95 standard delivery, no free-delivery threshold: read off the shop\'s own ' +
         'basket by the owner on 2026-10-03 at £35 and at £105 (both "Flat rate: 3.95£"). The ' +
@@ -3856,12 +3868,9 @@ export const RETAILERS: readonly Retailer[] = [
       // qualify for free shipping." That is the whole of what their delivery
       // page states as a number.
       freeOverGbp: 50,
-      // Was [2, 5], a placeholder. The owner's checkout of 2026-10-03 (see
-      // the confidence comment below) offered "Standard Delivery £3.99, 3 to
-      // 5 business days", the service standardGbp prices. The shipping
-      // policy's own "Delivery normally takes 1-5 working days after
-      // dispatch, depending on the service selected" spans every service,
-      // Express included.
+      // Was [2, 5], a placeholder. The owner's checkout of 2026-10-03 (below)
+      // offered "Standard Delivery £3.99, 3 to 5 business days", so it is now
+      // the shop's own window. Never used in any delivered-price math.
       estimatedDays: [3, 5],
       // Re-read 2026-10-01, both pages. The shipping policy still says "Free
       // Shipping : Orders over £50 within the UK qualify for free shipping."
@@ -3871,16 +3880,10 @@ export const RETAILERS: readonly Retailer[] = [
       // refund" when a return takes an order below the free-delivery
       // threshold. Same two figures, same indirect basis for the £3.99.
       verifiedAt: '2026-10-03',
-      // 'unverified', not 'confirmed', and the distinction is real rather than
-      // cautious boilerplate. £3.99 is genuinely their own figure, but it was
-      // read off a returns clause explaining what a refund deducts, not off a
-      // rate card — and their shipping-policy page says in terms that
-      // "Shipping fees depend on the delivery destination and order size. The
-      // final price is calculated at checkout." So a single flat number cannot
-      // be true for every basket, and this is exactly what ShippingRule's own
-      // doc comment means by sourced indirectly: treat the delivered price as
-      // indicative. This flag reaches the reader as a reliability signal, so
-      // claiming 'confirmed' here would overstate what we actually have.
+      // Until 2026-10-03 this was 'unverified': £3.99 had only been read off a
+      // returns clause explaining what a refund deducts, not off a rate card,
+      // and the shipping policy says "The final price is calculated at
+      // checkout." That gap is now closed by the checkout itself.
       // Confirmed 2026-10-03 by the owner at Emirates Oud's own checkout
       // (screenshot): an £8.99 basket to a Coventry address offered
       // "Standard Delivery £3.99, 3 to 5 business days" and "Express £5.99,
@@ -3888,15 +3891,17 @@ export const RETAILERS: readonly Retailer[] = [
       // the checkout rather than inferred from the returns clause; the £50
       // threshold remains their own published rule (shipping policy, banner).
       confidence: 'confirmed',
+      basketCheck: {
+        readAt: '2026-10-03',
+        quote: 'Standard Delivery £3.99, 3 to 5 business days (an £8.99 basket to a Coventry address, total GBP £12.98)',
+      },
       notes:
-        'Approved affiliate as of 10 Aug 2026. Free delivery over £50 is ' +
-        'confirmed from their own shipping policy page, read by CI on ' +
-        '2026-08-11. Standard delivery below £50 is £3.99, confirmed from ' +
-        'their refund-policy page (same CI run, 2026-08-11, raw-text mode): ' +
-        '"...resulting in a postage charge of £3.99 deducted from the ' +
-        'refund. This deduction covers the shipping costs initially waived ' +
-        'due to the free delivery offer." — ' +
-        'https://emiratesoud.co.uk/policies/refund-policy',
+        'Approved affiliate as of 10 Aug 2026. Standard delivery £3.99 below £50, read off ' +
+        'their own checkout by the owner on 2026-10-03 (an £8.99 basket, "Standard Delivery ' +
+        '£3.99, 3 to 5 business days"); it matches the £3.99 their refund-policy page says a ' +
+        'return below the threshold is charged. Free delivery over £50 is their own shipping ' +
+        'policy page ("Orders over £50 within the UK qualify for free shipping"), re-read ' +
+        '2026-10-01.',
     },
     // No section URLs to guess: the sitemap harvester (crawlViaSitemap)
     // discovers products from /sitemap.xml and robots.txt on its own, the
@@ -5071,6 +5076,27 @@ export const RETAILERS: readonly Retailer[] = [
     // per-request FX math), but the same fact about the shop: no GBP price
     // list independent of a euro one has ever been found here, by either
     // route. /gb, /uk, /en-uk still 404 — no market-prefix layout.
+    //
+    // ── Rechecked 2026-10-03: a sterling label, still not a sterling list ───
+    // robots.txt read first (it permits /products/ and /*/products/, and
+    // disallows /cart/, /cart.js and /checkout, none of which was asked). One
+    // thing has moved: /en-gb now answers GBP where on 2026-08-13 it answered
+    // USD, and the bare origin (which sent this fetcher to /it-it) answers
+    // EUR at rate 1.0. But /en-gb's own `Shopify.currency` is
+    // {"active":"GBP","rate":"0.86691738"}: a conversion, not a list kept in
+    // pounds. Six perfumes read at /it-it/products/<handle>.js and
+    // /en-gb/products/<handle>.js on the same day agree with "euros times
+    // 0.86691738, rounded up to the whole pound" every time:
+    //   salum-parfums-midnight-diving-extrait-de-parfum 50 ml  €145 -> £126
+    //   tauer-patch-absolue-de-parfum 50 ml                    €175 -> £152
+    //   juliette-has-a-gun-purple-trouble-eau-de-parfum 50 ml  €105 -> £92
+    //   akro-east-extrait-de-parfum 30 ml / 100 ml   €115 / €230 -> £100 / £200
+    //   superz-budapest-travel-kit-1-extrait-de-parfum 3x10 ml €95 -> £83
+    // So the bar this entry sets is still unmet, and it stays off. What would
+    // move it is the owner's call, not a measurement: whether a sterling
+    // figure the shop converts live, and would presumably charge in pounds,
+    // is good enough. A basket read by hand, as Escentual's was, would settle
+    // what the checkout charges.
     enabled: false,
     adapter: 'affiliate-feed',
     shopifyStorefront: true,
@@ -5565,7 +5591,10 @@ export const RETAILERS: readonly Retailer[] = [
       estimatedDays: [3, 5],
       verifiedAt: '2026-08-11',
       confidence: 'unverified',
-      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+      notes:
+        'Applied via Awin 2026-08-11. Delivery prices not yet read: the delivery page loads them ' +
+        'from a checkout service this project does not call, and the help article lists the ' +
+        'options (Next Day, Tracked, Click & Collect) without prices. See the 2026-10-03 comment.',
     },
     // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
     // Ambiguous first evidence, not a confirmed block. The catalogue-daily.yml
@@ -5588,6 +5617,53 @@ export const RETAILERS: readonly Retailer[] = [
     // concrete check, cheaper than Apify and worth doing before assuming
     // this belongs in the same tier as very.co.uk. `catalogue: null` still
     // means no confirmed category URL exists for any adapter regardless.
+    //
+    // ── 2026-10-03: sterling exists; a route and a delivery cost do not ─────
+    // That next check was done, by plain fetch, robots.txt first. Recorded so
+    // the next person starts from it rather than from the probe above.
+    //
+    // robots.txt disallows /c/, /a/, /b/, /l/?q=*, /bag, /checkout/,
+    // /account/, /login/ and the same under /fr/, /de/, /es/, /ar/. Product
+    // pages (/p/<brand>/<product>/<variant>/) and the /l/ aisles are allowed.
+    // It names 17 sitemaps; /.sitemaps/sitemap-p.xml lists 2,755 product URLs,
+    // of which 57 carry a perfume word: Sabrina Carpenter 21, Ariana Grande
+    // 20, Shay & Blue 16, then a handful of mists. A small perfume range.
+    //
+    // The server HTML carries no price. A product page answers HTTP 200 with
+    // a 12,609 byte app shell from S3 behind CloudFront: no JSON-LD, no
+    // figure, and an `X-Locale=en-US` cookie for this fetcher (served from
+    // CloudFront's IAD edge, so it was placed in the US). The
+    // price arrives afterwards from the page's own API,
+    // pdp-api.public.prd.beautybay.com/product/<brand>-<product>?variant=…
+    // &locale=… (robots.txt on that host: HTTP 404, so unrestricted). Asked
+    // for ariana-grande-cloud-eau-de-parfum-spray, variant 50ml:
+    //   locale=en-GB  "£45.00", itemCurrency GBP
+    //   locale=en-US  "$52.50", itemCurrency USD
+    // and its `prices` array holds separate bands: UK and GB at 45 GBP, EURO
+    // 54.5 EUR, AUD 89.5 AUD. So the UK storefront has a genuine sterling
+    // price list, not a conversion, and a fetcher in the US is shown dollars
+    // unless it asks for en-GB. That is the Escentual trap, and any route
+    // added here must pin the locale.
+    //
+    // What blocks enabling, three things:
+    //   1. No standard delivery cost has been read. /delivery is drawn in the
+    //      browser from checkout-page-api.public.prd.beautybay.com
+    //      /delivery-options/<country>/, a checkout service, deliberately not
+    //      asked. The help article "Delivery Options (England/Scotland/Wales)"
+    //      (customer-service-api.public.prd.beautybay.com/article/
+    //      78MFOYzj0ybpErRIERuZf8) names Next Day, Tracked (2 to 3 days after
+    //      dispatch) and Click & Collect, carrier Evri, and no prices. The pdp
+    //      API's /delivery/ message says only "Free delivery available" at
+    //      both £10 and £45, which is not a rate. The owner can read the
+    //      figure off https://www.beautybay.com/delivery in a browser.
+    //   2. No harvest route this project has. The sitemap walk finds the
+    //      product URLs but their HTML has nothing to parse. The render tier
+    //      renders section pages only, at most 12 a run, and a CI runner is
+    //      shown en-US, so a render would read dollars. The JSON API above
+    //      works but no adapter reads it.
+    //   3. A local render could not be tried from this sandbox (Chromium does
+    //      not trust its proxy's certificate), and no CI probe was spent on
+    //      it, because points 1 and 2 already decide the outcome.
     catalogue: null,
     affiliate: { ...awinRequested() },
   },
@@ -5633,6 +5709,13 @@ export const RETAILERS: readonly Retailer[] = [
     // -- --shop=fragrancedirect` from CI says whether it carries anything.
     // Re-check the domain itself first: a storefront that comes back is the
     // thing that would change this entry.
+    //
+    // ── Rechecked 2026-10-03: still the holding page ────────────────────────
+    // `/robots.txt` (HTTP 404), `/` (HTTP 200) and `/sitemap.xml` (HTTP 404)
+    // each returned the same 5,063 bytes, titled "Fragrance Direct | We're
+    // making some changes", still `noindex, nofollow`, and its only links are
+    // its own favicon and https://www.allbeauty.com. No storefront, so
+    // nothing changes here.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -5646,8 +5729,8 @@ export const RETAILERS: readonly Retailer[] = [
         // Merchant id 9, same account-wide network as Fragrance Click UK's — found while
         // confirming this domain, not guessed.
         'Applied via Awin 2026-08-11 (merchant id 9). Delivery terms and page structure not yet read. ' +
-        'As of 2026-09-10 the domain serves only a holding page pointing at allbeauty.com — see the ' +
-        'dated comment above.',
+        'As of 2026-09-10, and again when rechecked on 2026-10-03, the domain serves only a ' +
+        'holding page pointing at allbeauty.com. See the dated comments above.',
     },
     catalogue: null,
     affiliate: { ...awinRequested('9') },
@@ -8049,7 +8132,11 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'computed rate of 0.8729568, a live Shopify-Markets conversion of the same euro figure, ' +
       'not a second genuine sterling list; this is a different mechanism from the Awin feed\'s ' +
       'fixed 1.3490 divisor above, but the same underlying fact: no GBP price list independent ' +
-      'of a euro one has been found here by any route tried.',
+      'of a euro one has been found here by any route tried. Rechecked 2026-10-03: /en-gb now ' +
+      'answers GBP (it answered USD on 2026-08-13) but at rate 0.86691738, and six perfumes ' +
+      'read at /it-it and /en-gb the same day all match euros times that rate rounded up to ' +
+      'the whole pound (e.g. 145 EUR to 126 GBP, 230 EUR to 200 GBP). Still a conversion, ' +
+      'still off.',
   ],
   [
     'carethy',
