@@ -169,7 +169,11 @@ describe('catalogue-daily.yml', () => {
   });
 
   it('commits the rebuilt page only after a rebuild that finished and wrote nothing outside the manifest', () => {
-    expect(step('Rebuild the app from harvested prices')).toContain('npx tsx scripts/check-generated-writes.ts --since-ms');
+    const rebuild = step('Rebuild the app from harvested prices');
+    expect(rebuild).toContain('npx tsx scripts/check-generated-writes.ts --since-ms');
+    // The mark comes more than the check's one second clock allowance after
+    // the previous step's last write (dispatch #595 tripped on that).
+    expect(rebuild).toMatch(/sleep 2\n\s+MARK=\$\(node -e 'console\.log\(Date\.now\(\)\)'\)\n\s+npm run rebuild/);
     expect(step('Commit rebuilt app')).toContain("steps.rebuild.outcome == 'success'");
   });
 

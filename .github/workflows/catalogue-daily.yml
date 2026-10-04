@@ -1406,6 +1406,12 @@ jobs:
           # `npm run rebuild` is catalogue:demo, deals:build,
           # catalogue:history and demo, in that order (package.json), the same
           # command scripts/commit-and-push.sh runs to settle a conflict.
+          # Two seconds first: the check allows one second for the file
+          # system's coarse clock, and the step before this one can write a
+          # file as it ends ("Test everything else" rewrites
+          # demo/testCount.generated.ts). Dispatch #595 (deals_refresh, no
+          # harvest in between) failed here on exactly that.
+          sleep 2
           MARK=$(node -e 'console.log(Date.now())')
           npm run rebuild
           # Fails the step, so nothing below commits, when the build wrote a
