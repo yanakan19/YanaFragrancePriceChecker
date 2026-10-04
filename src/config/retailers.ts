@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 74 retailers, 52 of them `enabled: true`. Every one of them is a legitimate
+ * 75 retailers, 52 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -5716,6 +5716,68 @@ export const RETAILERS: readonly Retailer[] = [
     affiliate: { ...awinRequested() },
   },
   {
+    id: 'sabina',
+    name: 'Sabina Store',
+    domain: 'sabina.com',
+    homepage: 'https://www.sabina.com',
+    // The registry needs at least one tier and nobody has measured this shop's
+    // range, so 'designer' is a placeholder to be corrected from a real
+    // catalogue, not a finding.
+    tiers: ['designer'],
+    // DISABLED, AND IT CANNOT BE SWITCHED ON AS THINGS STAND. A Spanish
+    // PrestaShop shop (Sabina Store, www.sabina.com), looked at on 2026-10-04.
+    // What was found, and why each point blocks it:
+    //
+    //   - robots.txt allows the product pages but disallows */modules/.
+    //   - The shop picks the delivery country from the visitor's location. A
+    //     US address gets USD, so no price read from this sandbox or from a CI
+    //     runner is the price a UK shopper pays.
+    //   - The pound price available to such a visitor is the shop's own
+    //     conversion of a euro base price at a rate of about 0.8757, for a US
+    //     delivery, with no UK VAT treatment. It is reachable by
+    //     ?SubmitCurrency=1&id_currency=2. That is a converted figure for the
+    //     wrong market, not the price of a bottle delivered to the UK, which
+    //     is what every price on this site claims to be.
+    //   - The only way to set the delivery country to the United Kingdom is
+    //     /modules/mclocationselector/ajax.php, which robots.txt disallows.
+    //     This project does not ask for what a shop's robots.txt refuses, so
+    //     there is no route to the UK price, and the entry stays off until
+    //     the shop changes that or gives permission.
+    //   - Delivery to the UK is £7.50, free from £79, 4 to 8 business days,
+    //     per the shop's own shipping page (recorded below).
+    //   - JSON-LD on product pages carries one offer per size, with a GTIN.
+    //     Useful the day a UK price can be read; nothing is wired to it.
+    //
+    // In CURRENCY_UNCONFIRMED at the foot of this file for the reason above:
+    // the pounds it can show are a conversion for a US delivery, so the guard
+    // throws on import if this entry is ever enabled before that is settled.
+    // Nothing from this shop reaches the site, the Shops list or any count.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 7.5,
+      freeOverGbp: 79,
+      estimatedDays: [4, 8],
+      verifiedAt: '2026-10-04',
+      confidence: 'unverified',
+      notes:
+        'Recorded 2026-10-04 from the shop\'s own shipping page as reported by the owner: ' +
+        'delivery to the United Kingdom £7.50, free from £79, 4 to 8 business days. The page ' +
+        'address and the sentence it was read from were not recorded, so this is not marked ' +
+        'confirmed: it needs a re-read before anything relies on it. Not used anywhere while the ' +
+        'entry is disabled. Why it is disabled: robots.txt disallows */modules/, the shop sets the ' +
+        'delivery country from the visitor\'s location (a US address gets USD), its pound price is ' +
+        'its own conversion of a euro base price at about 0.8757 for a US delivery with no UK VAT ' +
+        'treatment (?SubmitCurrency=1&id_currency=2), and the only way to set the country to the ' +
+        'United Kingdom is /modules/mclocationselector/ajax.php, which robots.txt disallows. ' +
+        'Product pages carry JSON-LD with one offer per size and a GTIN. No affiliate programme ' +
+        'has been researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
     id: 'beauty-pie',
     name: 'Beauty Pie',
     domain: 'beautypie.com',
@@ -9413,6 +9475,16 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'any currency at all — no Shopify.currency in the theme, no /meta.json, and /en-gb /gb /uk ' +
       '/en-uk all 404. /products.json also 404s everywhere, so this is not a confirmed Shopify ' +
       'storefront either. A genuinely silent storefront, not evidence either way.',
+  ],
+  [
+    'sabina',
+    'A Spanish PrestaShop shop (sabina.com) that picks the delivery country from the visitor\'s ' +
+      'location: a US address gets USD. The pound price a visitor can reach, with ' +
+      '?SubmitCurrency=1&id_currency=2, is the shop\'s own conversion of a euro base price at ' +
+      'about 0.8757 for a US delivery with no UK VAT treatment, so it is not what a UK shopper ' +
+      'pays. The only way to set the country to the United Kingdom is ' +
+      '/modules/mclocationselector/ajax.php, which robots.txt disallows (as it does */modules/), ' +
+      'so no UK price can be read. Looked at 2026-10-04.',
   ],
   [
     'beauty-the-shop-uk',
