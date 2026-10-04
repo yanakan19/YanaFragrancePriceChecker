@@ -45,6 +45,7 @@ import {
 } from '../src/catalogue/productMatch.js';
 import { auditPriceScale } from '../src/catalogue/priceScale.js';
 import { formatLabels } from '../src/catalogue/offerFormat.js';
+import type { DormantEntry } from '../src/catalogue/dormantProducts.js';
 import { auditWasPrices } from '../src/catalogue/wasPriceCredibility.js';
 import {
   isFragrance,
@@ -981,6 +982,19 @@ for (const { canonical, absorbed } of duplicateGroups) {
     }
     // The barcode is worth keeping if the canonical record lacked one.
     canonical.ean ??= dupe.ean;
+    // The house's own wording of its own perfume's name wins. Which record
+    // survives a merge (and so keeps its id) is an accident of file order, and
+    // a reseller's way of writing the name must not be the one a house's own
+    // shop is overruled by: Kayali writes "Vanilla | 28" and Cult Beauty
+    // "Vanilla 28", the same words to the matcher, and once Cult Beauty's
+    // listings arrived the survivor was Cult Beauty's record. Only the name
+    // moves, never the id, and only to a record whose words are the same.
+    if (
+      dupe.offers.some((o) => isBrandDirectOffer(o.retailerId, canonical.brand)) &&
+      !canonical.offers.slice(0, canonical.offers.length - dupe.offers.length).some((o) => isBrandDirectOffer(o.retailerId, canonical.brand))
+    ) {
+      canonical.name = dupe.name;
+    }
     // Same reasoning as ean just above: if the absorbed record was the one
     // sourced from an "Armaf - <line>" raw brand, that fact must not vanish
     // just because a different shop's record won the merge — see
@@ -1837,6 +1851,41 @@ const scaleWithheld = new Set(scaleAudit.offScale.map((f) => f.retailerId));
 const olderOffers: Record<string, { retailerId: string; price: number; fetchedAt: string; stock: Offer['stock'] }[]> = {};
 let olderOffersKept = 0;
 const olderOffersSkipped = { unpriced: 0, notFragrance: 0, noProductPage: 0 };
+
+/* ── products with no current prices ───────────────────────────────────────
+   A hidden listing whose product has no current offer anywhere used to be
+   dropped here, and its address answered Page Not Found. It now becomes a
+   dormant product (src/catalogue/dormantProducts.ts): written to a data file of
+   its own, fetched only when someone opens its address, and in no list, count,
+   search, deal or sitemap. First, though, the same bottle may well be on sale
+   under another id: a hidden listing with no barcode has an id of its own, and
+   the live catalogue would have merged it by brand, size, strength and name had
+   it been in the build. Such a listing stays out, as it did before this pass
+   existed, and is never a "no current prices" page for a bottle that has current
+   prices. */
+const liveIdsByKey = new Map<string, string[]>();
+for (const p of ordered) {
+  if (p.sizeMl === null) continue; // an unknown size keys on the product's own id: it can never match
+  const key = matchKey({ id: p.id, brand: p.brand, name: p.name, concentration: p.concentration, sizeMl: p.sizeMl, ean: null });
+  const ids = liveIdsByKey.get(key);
+  if (ids) ids.push(p.id);
+  else liveIdsByKey.set(key, [p.id]);
+}
+const dormantListings = new Map<string, StoredListing[]>();
+const dormantSkipped = { matchedALiveProduct: 0, ambiguousLiveMatch: 0 };
+/** The facts a hidden listing would give a product, worked out as the main loop above works them out. */
+function describeHiddenListing(l: StoredListing) {
+  const retailer = RETAILERS.find((r) => r.id === l.retailerId)!;
+  const giftSet = isGiftSet(l);
+  const size = giftSet ? null : sizeMl(l.rawTitle, l.description);
+  const rawBrand = resolveRawBrand(l, retailer);
+  const displayedBrand = canonBrand(rawBrand);
+  const title = stripTrailingShopCredit(l.rawTitle, retailer.name, retailer.domain);
+  const name = giftSet
+    ? giftSetName(title, displayedBrand)
+    : displayName(title, rawBrand, displayedBrand, travelSizeIsASize(l.retailerId));
+  return { giftSet, size, brand: displayedBrand ?? 'Unbranded', name, concentration: concentrationOfStoredListing(l) };
+}
 for (const l of tooOldListings) {
   if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0) || scaleWithheld.has(l.retailerId)) {
     olderOffersSkipped.unpriced++;
@@ -1849,8 +1898,21 @@ for (const l of tooOldListings) {
   const own = fragranceId(l, untrustworthyEans);
   const id = finalIds.has(own) ? own : absorbedInto.get(own);
   if (id === undefined || !finalIds.has(id)) {
-    // Its product has no current offer anywhere, so no page to plot it on.
-    olderOffersSkipped.noProductPage++;
+    // Not a live id. Either the live catalogue holds the same bottle under
+    // another id (left out, below), or nothing live is this bottle: a
+    // dormant product, a page with no current prices.
+    const facts = describeHiddenListing(l);
+    const sameBottle = facts.size === null ? undefined : liveIdsByKey.get(matchKey({ id: own, brand: facts.brand, name: facts.name, concentration: facts.concentration, sizeMl: facts.size, ean: null }));
+    if (sameBottle) {
+      // Left out exactly as before this pass existed: not a page, and not an
+      // older price either, because the live catalogue file is the first load
+      // and a graph point on a product that is for sale is not worth growing it.
+      if (sameBottle.length === 1) dormantSkipped.matchedALiveProduct++;
+      else dormantSkipped.ambiguousLiveMatch++;
+      olderOffersSkipped.noProductPage++;
+      continue;
+    }
+    (dormantListings.get(own) ?? dormantListings.set(own, []).get(own)!).push(l);
     continue;
   }
   (olderOffers[id] ??= []).push({
@@ -1862,6 +1924,40 @@ for (const l of tooOldListings) {
   olderOffersKept++;
 }
 for (const list of Object.values(olderOffers)) list.sort((a, b) => a.fetchedAt.localeCompare(b.fetchedAt) || a.retailerId.localeCompare(b.retailerId));
+
+const dormantProducts: Record<string, DormantEntry> = {};
+for (const [id, listings] of [...dormantListings].sort((a, b) => a[0].localeCompare(b[0]))) {
+  // Named from the freshest listing, as a catalogue product is named from its
+  // first: one shop's wording, never a mix of two.
+  const lead = [...listings].sort((a, b) => b.lastSeenAt.localeCompare(a.lastSeenAt) || a.retailerId.localeCompare(b.retailerId))[0]!;
+  const facts = describeHiddenListing(lead);
+  // The same photo licensing as every other page: a shop with an image basis, or
+  // the brand's own storefront for its own bottle.
+  const candidates = listings.map((l) => ({
+    retailerId: l.retailerId,
+    imageUrl:
+      IMAGE_ALLOWED.has(l.retailerId) || isBrandDirectOffer(l.retailerId, facts.brand)
+        ? rejectPlaceholderImage(l.imageUrl)
+        : null,
+    fetchedAt: l.lastSeenAt,
+  }));
+  const image = pickImage(candidates, now, imageBoxVerdicts, imageDimensions);
+  const entry: DormantEntry = {
+    brand: facts.brand,
+    name: facts.name,
+    concentration: facts.concentration,
+    sizeMl: facts.size,
+    ean: trustworthyEan(lead, untrustworthyEans),
+    image,
+    older: listings
+      .map((l) => ({ retailerId: l.retailerId, price: l.priceGbp!, fetchedAt: l.lastSeenAt, stock: listingStockState(l) }))
+      .sort((a, b) => a.fetchedAt.localeCompare(b.fetchedAt) || a.retailerId.localeCompare(b.retailerId)),
+  };
+  const transform = imageTransformFor(image);
+  if (transform !== undefined) entry.imageTransform = transform;
+  if (facts.giftSet) entry.giftSet = { contents: giftSetContents(lead.rawTitle), title: lead.rawTitle };
+  dormantProducts[id] = entry;
+}
 
 const historyAliases: Record<string, string[]> = {};
 for (const p of ordered) {
@@ -2114,6 +2210,26 @@ export function isNewAt(productId: string, retailerId: string): boolean {
 
 writeFileSync(resolve(root, 'demo/catalogue.generated.ts'), body);
 
+// Products with no current prices: a data file of their own, fetched on demand
+// (LAZY_DATA_MODULES in scripts/dataFiles.ts), never part of the catalogue.
+writeFileSync(
+  resolve(root, 'demo/dormant.generated.ts'),
+  `// Generated by scripts/build-demo-catalogue.ts. Do not edit by hand.
+//
+// Products whose last price any shop confirmed is older than ${HIDE_OFFER_AFTER_DAYS} days and that no
+// live product matches. Each keeps a page with its photo, name and price
+// history, marked "No Current Prices". Not in the catalogue: in no list, count,
+// search, deal or sitemap, and fetched only when one of these addresses is
+// opened. See src/catalogue/dormantProducts.ts.
+//
+// Regenerate: npm run catalogue:demo
+
+import type { DormantEntry } from '../src/catalogue/dormantProducts.js';
+
+export const DORMANT_PRODUCTS: Record<string, DormantEntry> = ${JSON.stringify(dormantProducts)};
+`,
+);
+
 const multi = ordered.filter((p) => p.offers.length > 1).length;
 // See sizeConflict in src/catalogue/fragranceId.ts and Product.sizeMl's own
 // comment just above: a product only lands here with a null size because its
@@ -2160,6 +2276,7 @@ console.log(
       : '') +
     `\n  ${olderOffersKept} of those kept for the price graph only, as older prices on ${Object.keys(olderOffers).length} products ` +
     `(left out: ${olderOffersSkipped.notFragrance} not fragrance, ${olderOffersSkipped.noProductPage} for a product with no current offer and so no page, ${olderOffersSkipped.unpriced} unpriced or price scale withheld)` +
+    `\n  ${Object.keys(dormantProducts).length} products with no current prices kept as pages of their own (${dormantSkipped.matchedALiveProduct} more hidden listings are the same bottle as a live product and ${dormantSkipped.ambiguousLiveMatch} could be two, so neither is a page); ${Object.values(dormantProducts).filter((d) => d.image !== null).length} have a photo` +
     `\n  ${Object.keys(historyAliases).length} products carry the price history of ids folded into them` +
     (skippedShops.length
       ? `\n  skipped: ${skippedShops.join(', ')}`

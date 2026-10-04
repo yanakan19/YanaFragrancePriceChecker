@@ -82,6 +82,8 @@ import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { offersFor, SHOP_COUNT, HOUSE_PRODUCTS, HISTORY_ALIASES, OLDER_OFFERS } from './catalogue.generated.js';
 import { priceHistory, prefetchWhenIdle, type PriceHistoryData } from './priceHistoryStore.js';
+import { dormant, dormantEntry } from './dormantStore.js';
+import type { DormantEntry } from '../src/catalogue/dormantProducts.js';
 import type { PriceHistoryPoint } from './priceHistory.generated.js';
 import type { RawHistoryPoint } from '../src/services/priceHistoryDaily.js';
 import type { PriceHistoryGap } from '../src/services/priceHistoryGaps.js';
@@ -1935,7 +1937,10 @@ function historyChartInput(data: PriceHistoryData, fragranceId: string, isCurren
     if (last && !rows.some((r) => r.isPurchasable && r.retailer.id === last.retailerId)) carryForward = false;
   }
 
-  const older: ChartObservation[] = (OLDER_OFFERS[fragranceId] ?? [])
+  // A product with no current prices carries its own older prices (they are in
+  // the lazy file with it, not in the catalogue); every other product's are in
+  // OLDER_OFFERS.
+  const older: ChartObservation[] = [...(OLDER_OFFERS[fragranceId] ?? []), ...(dormantEntry(fragranceId)?.older ?? [])]
     .filter((o) => o.stock !== 'outOfStock' && o.stock !== 'preOrder' && getRetailer(o.retailerId)?.enabled === true)
     .map((o) => ({ at: o.fetchedAt, priceGbp: o.price, retailerId: o.retailerId }));
   // A pre-order is not a price anyone paid or could pay today: it is no point on
@@ -2478,9 +2483,102 @@ function priceBoxRow(
 // in demo/offerGroups.ts, where tests/offerGroups.test.ts holds it to the
 // owner's rule that no cheaper row ever sits above the Cheapest row.
 
+/**
+ * A product with no current prices, as the page helpers expect a fragrance to
+ * look. Only what its header needs: it has no notes, no house price and no
+ * offers, and it is in no list, so nothing reads the rest.
+ */
+function dormantFragrance(id: string, d: DormantEntry): DemoFragrance {
+  return {
+    id,
+    brand: d.brand,
+    name: d.name,
+    concentration: d.concentration,
+    sizeMl: d.sizeMl,
+    ean: d.ean,
+    tier: brandTierFor(d.brand),
+    popularity: 0,
+    photoUrl: d.image,
+    imageTransform: d.imageTransform ?? null,
+    notes: null,
+    houseCeiling: null,
+    giftSet: d.giftSet ?? null,
+  };
+}
+
+/**
+ * The page for a product whose last price any shop confirmed is older than the
+ * hide window and that no live product matches (src/catalogue/dormantProducts.ts).
+ *
+ * It says so in two places and no more: the Title Case state where the price
+ * boxes would be, and one sentence beside the graph. The graph is the page's
+ * content: what the shops last confirmed, drawn as older prices and never as a
+ * price anyone can pay now. There is no price box, no offer rows, no Cheapest,
+ * no save button (the wishlist lists only what is in the catalogue), and the
+ * brand is a link only where the brand has a page of its own.
+ *
+ * The data is a lazy file fetched when this address is opened, so for a moment
+ * after a direct link it is a plain "Loading", and then either this page or
+ * Page Not Found, whichever the file settles (settleDormantRoute).
+ */
+function dormantDetailView(): string {
+  const id = state.fragranceId;
+  const entry = dormantEntry(id);
+  if (!entry) {
+    // Not here, or not fetched yet. A failed fetch is a miss like any other.
+    if (dormant.status() === 'failed') return notFoundView();
+    settleDormantRoute();
+    return `<p class="panel-note t-body" aria-busy="true">Loading.</p>`;
+  }
+  const frag = dormantFragrance(id, entry);
+  const brand = BRANDS.includes(frag.brand)
+    ? brandButton(frag.brand)
+    : `<span class="phead-brand t-eyebrow" title="${esc(frag.brand)}">${esc(frag.brand)}</span>`;
+  return `
+    <button class="back" data-back>Back</button>
+
+    <div class="detail-grid">
+      <div class="hero">
+        <div class="hero-art">${productArt(frag.photoUrl, 'lg', `${frag.brand} ${frag.name}`, frag.imageTransform)}</div>
+        ${brand}
+        ${productHead(frag, 'div', 't-page')}
+        ${giftSetBlock(frag)}
+        ${fragranceLinksBlock(frag)}
+        <p class="hero-price none">No Current Prices</p>
+      </div>
+
+      <div class="detail-offers">
+        <p class="panel-note t-body">No shop we check has confirmed a price for this in the last ${HIDE_OFFER_AFTER_DAYS} days, so none is shown, and the graph below keeps the prices we recorded.</p>
+        ${priceHistorySection(id, false)}
+      </div>
+    </div>`;
+}
+
+/**
+ * Settles a direct link to a fragrance that is not in the catalogue, once the
+ * file of products with no current prices has arrived: the page for it where it
+ * is one of them, Page Not Found where it is not. Does nothing if the reader
+ * has moved on in the meantime.
+ */
+function settleDormantRoute(): void {
+  const id = state.fragranceId;
+  const settle = () => {
+    if (state.view !== 'detail' || state.fragranceId !== id || fragranceById(id)) return;
+    if (!dormantEntry(id)) {
+      state.notFoundPath = window.location.pathname;
+      state.view = 'notFound';
+    }
+    render();
+  };
+  dormant.load().then(settle, (err: unknown) => {
+    console.warn('PriceSniffs: products with no current prices could not be loaded', err);
+    settle();
+  });
+}
+
 function detailView(): string {
   const frag = fragranceById(state.fragranceId);
-  if (!frag) return homeView();
+  if (!frag) return dormantDetailView();
 
   const rows = rowsFor(frag);
   const best = bestOffer(rows);
@@ -4546,7 +4644,19 @@ function headInputForState(): HeadInput {
   switch (state.view) {
     case 'detail': {
       const frag = fragranceById(state.fragranceId);
-      if (!frag) return { route };
+      if (!frag) {
+        // A product with no current prices keeps its page and is kept off
+        // search engines, the way a shop with nothing to show is (leafEmpty).
+        const d = dormantEntry(state.fragranceId);
+        return d
+          ? {
+              route,
+              leafName: `${d.brand} ${d.name}${d.sizeMl ? ` ${d.sizeMl}ml` : ''}`,
+              leafDetail: 'no shop has a current price for it, only its price history',
+              leafEmpty: true,
+            }
+          : { route };
+      }
       const rows = rowsFor(frag);
       const best = bestOffer(rows);
       // A pre-order is not stocked, so it is no part of "across N shops".
@@ -4698,7 +4808,14 @@ function applyRoute(route: Route): boolean {
       return true;
 
     case 'fragrance': {
-      if (!fragranceById(route.param)) return false;
+      if (!fragranceById(route.param)) {
+        // Not in the catalogue. It may still be a product with no current
+        // prices, which keeps its page (src/catalogue/dormantProducts.ts); that
+        // list is a file fetched on demand, so until it has arrived the page
+        // holds open and settles afterwards (dormantDetailView).
+        const known = dormant.current();
+        if (known !== null ? !dormantEntry(route.param) : dormant.status() === 'failed') return false;
+      }
       state.fragranceId = route.param;
       state.view = 'detail';
       return true;

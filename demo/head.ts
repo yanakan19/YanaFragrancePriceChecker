@@ -71,9 +71,10 @@ export interface HeadInput {
   retailerCount?: number | undefined;
   /**
    * True when the leaf has nothing to show: a shop none of whose prices is
-   * recent enough to display (HIDE_OFFER_AFTER_DAYS). Such a page is kept off
-   * search engines rather than indexed as a thin page; it is also left out of
-   * the sitemap and the Shops list.
+   * recent enough to display (HIDE_OFFER_AFTER_DAYS), or a fragrance with no
+   * current price anywhere. Such a page is kept off search engines rather than
+   * indexed as a thin page; it is also left out of the sitemap and the Shops
+   * list.
    */
   leafEmpty?: boolean | undefined;
 }
@@ -189,7 +190,10 @@ export function headFor(input: HeadInput): HeadTags {
           SITE_TAIL,
         ),
         canonical,
-        noindex: false,
+        // A product with no current prices keeps its page but is a thin one:
+        // no shop has a price for it, so it is kept off search engines and
+        // out of the sitemap, like a shop with nothing to show.
+        noindex: leafEmpty === true,
       };
 
     case 'brand':
