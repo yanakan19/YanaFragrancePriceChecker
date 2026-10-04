@@ -863,9 +863,17 @@
      gutter, so the row reads as scrollable. */
   .pop-rail {
     list-style: none; margin: 16px calc(-1 * var(--gutter)) 0;
-    padding: 2px var(--gutter) 16px;
+    /* No right padding: it is the ::after spacer below that leaves the room
+       after the last tile. Padding at the end of a scrolling flex row is
+       dropped by older Safari, which clipped the last tile against the edge
+       of the screen; a real flex item is counted by every engine. */
+    padding: 2px 0 16px var(--gutter);
     display: flex; gap: 12px;
-    overflow-x: auto; scroll-snap-type: x proximity; scroll-behavior: smooth;
+    /* Only the rail scrolls sideways, never the page: a swipe that reaches
+       the end stops there instead of chaining to the page or to the
+       browser's back gesture. */
+    overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity; scroll-behavior: smooth;
     /* Snapping aligns items to the scrollport, not the padding box, so without
        this an edge card snaps flush against the scrollport and clips its
        medal — the first card when the medal sat top-left, the last now that
@@ -878,6 +886,10 @@
        and grey so it reads as part of the row, not a browser chrome bolt on. */
     scrollbar-width: thin; scrollbar-color: var(--line-firm) transparent;
   }
+  /* The room after the last tile: the page gutter, less the flex gap that
+     already sits between the last tile and this spacer. */
+  .pop-rail::after { content: ''; flex: none; width: calc(var(--gutter) - 12px); }
+  @media (prefers-reduced-motion: reduce) { .pop-rail { scroll-behavior: auto; } }
   .pop-rail::-webkit-scrollbar { height: 6px; }
   .pop-rail::-webkit-scrollbar-track { background: transparent; }
   .pop-rail::-webkit-scrollbar-thumb {
@@ -889,6 +901,9 @@
      wrapping, so its items need a fixed width the grid's own auto-fill columns
      don't have to specify. Everything else about the tile is shared. */
   .pop-item { flex: none; width: 172px; scroll-snap-align: start; }
+  /* The last tile snaps to the far edge, so the rail comes to rest with it
+     whole on screen rather than in the middle of a snap. */
+  .pop-item:last-child { scroll-snap-align: end; }
   .pop-item .tile { height: 100%; }
 
   /* ── product heading, used in every place a product appears ──────────────
@@ -2491,6 +2506,31 @@
      line keeps its own measure regardless of how wide .app gets. */
   :root[data-layout="desktop"] .hero-mission { max-width: 640px; }
   :root[data-layout="desktop"] .pop-item { width: 168px; }
+
+  /* Most Stocked on a wide screen: the twelve tiles sit in a centred grid
+     rather than a row that scrolls off to the right (owner request,
+     2026-10-04). Two rows of six where six 168px tiles and their gaps fit
+     (1068px), three rows of four on a narrower desktop window. The section
+     takes the grid's own width and centres, so the heading and See All line
+     up with the grid's edges instead of the page's. Under 900px, whatever
+     the layout setting, it stays the rail it is on a phone. */
+  @media (min-width: 900px) {
+    :root[data-layout="desktop"] .pop-section {
+      --pop-cols: 4;
+      max-width: calc(var(--pop-cols) * 168px + (var(--pop-cols) - 1) * 12px);
+      margin-inline: auto;
+    }
+    :root[data-layout="desktop"] .pop-rail {
+      display: grid; grid-template-columns: repeat(var(--pop-cols), 168px);
+      gap: 16px 12px; justify-content: center;
+      margin-inline: 0; padding: 2px 0 8px;
+      overflow: visible; scroll-snap-type: none;
+    }
+    :root[data-layout="desktop"] .pop-rail::after { content: none; }
+  }
+  @media (min-width: 1160px) {
+    :root[data-layout="desktop"] .pop-section { --pop-cols: 6; }
+  }
 
   /* Desktop takes the reader's chosen column count literally: equal tracks
      filling the page width, rather than the narrow layout's "fit as many as
