@@ -127,6 +127,8 @@ const losses: string[] = [];
  * with its price, or the currency it was withheld for.
  */
 const ROUTE_PROBE_PAGES = 8;
+/** What a probe of a category walking route may take, as a scheduled run's per shop ceiling (--shop-minutes=40). */
+const ROUTE_PROBE_CATEGORY_MS = 40 * 60_000;
 
 async function probeRoute(retailer: Retailer): Promise<void> {
   const routeHttp = createHttp();
@@ -144,9 +146,15 @@ async function probeRoute(retailer: Retailer): Promise<void> {
   }
   const result = await crawlViaSitemap({
     retailer, http: routeHttp, robots, maxPages: ROUTE_PROBE_PAGES, gapMs, headers: ROUTE_HEADERS,
+    // A route that reads category pages walks them all before its first
+    // product: 148 pages for Cult Beauty, about 5 to 11 minutes. The walk's
+    // default 8 minutes left the first local probe with 109 pages and no
+    // product, so the probe is given what a scheduled run's shop ceiling is.
+    ...(retailer.sitemapRoute?.categories ? { maxDurationMs: ROUTE_PROBE_CATEGORY_MS } : {}),
     onProgress: (n, found) => console.log(`  ${n} fetched, ${found} found`),
   });
   const priced = result.listings.filter((l) => l.priceGbp !== null);
+  if (result.categoryPagesFetched) console.log(`  ${result.categoryPagesFetched} category pages read to find them`);
   console.log(`  ${result.urlsDiscovered} product urls on the route, ${result.pagesFetched} fetched, ` +
     `${result.listings.length} listings, ${priced.length} priced in GBP`);
   for (const l of result.listings) {
