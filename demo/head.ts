@@ -282,7 +282,10 @@ export function headFor(input: HeadInput): HeadTags {
       return {
         title: 'PriceSniffs: Deals',
         description: describe(
-          'Bottles that cost less today than the last price recorded for them, measured against this site’s own price history rather than a shop’s claim.',
+          // What scripts/build-deals.ts really compares: the cheapest buyable
+          // offer against the shop's own reference price (its previous price)
+          // or the brand's own price, never this site's price history.
+          'Bottles you can buy now for less than the shop’s own previous price, or less than the brand’s own price for it. Delivery counts where the shop states it.',
           SITE_TAIL,
         ),
         canonical,

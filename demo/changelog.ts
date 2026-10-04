@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.46.0',
+    date: '4 Oct 2026',
+    title: 'Clearer Deals and Reviews wording',
+    points: [
+      'Deals now say what they are measured against',
+      'Shop pages link to Trustpilot once confirmed',
+      'Unconfirmed shops no longer show a review note',
+    ],
+  },
+  {
     version: 'v3.45.0',
     date: '4 Oct 2026',
     title: 'Debenhams delivery uses its cheapest rate',

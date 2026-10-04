@@ -271,4 +271,14 @@ describe('fixed-route titles name the page, and match what the page shows', () =
     expect(tags({ route: route('deals') }).description.length).toBeGreaterThan(60);
     expect(tags({ route: route('retailers') }).description.length).toBeGreaterThan(60);
   });
+
+  it('describes Deals as scripts/build-deals.ts really measures them, not against price history', () => {
+    // A deal is the cheapest buyable offer against the shop's own previous
+    // price, or the brand's own price. This site's price history is not used.
+    const description = tags({ route: route('deals') }).description;
+    expect(description).toContain("shop’s own previous price");
+    expect(description).toContain("brand’s own price");
+    expect(description).not.toMatch(/history/i);
+    expect(description.length).toBeLessThanOrEqual(160);
+  });
 });
