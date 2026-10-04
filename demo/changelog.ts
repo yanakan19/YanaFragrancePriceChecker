@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.51.0',
+    date: '4 Oct 2026',
+    title: 'Beauty Pie Le Smash Santal now shows',
+    points: [
+      'It is a £59 Eau de Parfum, 50ml',
+      'Beauty Pie types it as a fragrance',
+      'Its other perfumes all say Eau de Parfum',
+    ],
+  },
+  {
     version: 'v3.50.0',
     date: '4 Oct 2026',
     title: 'Travel sprays at more shops',

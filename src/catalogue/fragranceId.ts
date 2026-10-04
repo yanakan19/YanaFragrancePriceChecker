@@ -328,6 +328,15 @@ export function withoutTravelSprayWords(title: string): string {
   return title.replace(new RegExp(TRAVEL_SPRAY_PHRASE.source, 'gi'), ' ').replace(/\s{2,}/g, ' ').trim();
 }
 
+/**
+ * Whether the shop's own product type settles the strength: a listing typed
+ * "Fragrance" at a shop with `fragranceTypeIsEauDeParfum` (Beauty Pie), whose
+ * title names no strength of its own. See that field for the evidence.
+ */
+export function productTypeStatesEauDeParfum(l: Pick<StoredListing, 'retailerId' | 'productType'>): boolean {
+  return getRetailer(l.retailerId)?.fragranceTypeIsEauDeParfum === true && /^\s*fragrance\s*$/i.test(l.productType ?? '');
+}
+
 /** Whether this shop's "Travel Spray" is a small size of the perfume beside it: see stripSizeLabel. */
 export function travelSizeIsASize(retailerId: string): boolean {
   return getRetailer(retailerId)?.travelSizeIsASize === true;
@@ -1257,7 +1266,10 @@ export function isFragrance(l: StoredListing): boolean {
     return !MULTI_ITEM.test(t) && (t.match(/\d{1,4}(?:\.\d)?\s*ml\b/gi) ?? []).length < 2;
   }
 
-  return CONCENTRATION.test(t);
+  // A perfume the shop itself types "Fragrance" at a shop that has said that
+  // means Eau de Parfum names its strength by its type: see
+  // productTypeStatesEauDeParfum.
+  return CONCENTRATION.test(t) || productTypeStatesEauDeParfum(l);
 }
 
 /**

@@ -659,6 +659,21 @@ export interface Retailer {
    * the wrong shop admits that shop's whole non-fragrance catalogue.
    */
   fragranceOnlyCatalogue?: boolean;
+  /**
+   * This shop files a perfume under its own product type "Fragrance", and every
+   * perfume of its own that names a strength names Eau de Parfum, so a perfume
+   * the shop types "Fragrance" but whose title names no strength is read as Eau
+   * de Parfum. Beauty Pie only: its "Le Smash Santal 50ml" (£59) is typed
+   * Fragrance and carries no strength word in its title, so it was read, sized
+   * and still hidden, and all 11 other perfumes it types Fragrance say "Eau De
+   * Parfum" in their titles (checked 2026-10-04).
+   *
+   * Never inferred from the shop or its product types: it is a statement a
+   * human makes after reading what that shop's other perfumes say, and it
+   * stands only while that stays true. A title that does name a strength keeps
+   * it. See `productTypeStatesEauDeParfum` in `src/catalogue/fragranceId.ts`.
+   */
+  fragranceTypeIsEauDeParfum?: boolean;
   /** Whether the pipeline currently fetches from this retailer at all. */
   enabled: boolean;
   adapter: AdapterStrategy;
