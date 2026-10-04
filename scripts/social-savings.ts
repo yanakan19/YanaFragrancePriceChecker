@@ -58,7 +58,7 @@ const theme = (opt('--theme') ?? 'standard') as keyof typeof THEMES;
 // --date YYYY-MM-DD re-renders a past day's post with that day's date on it.
 const today = opt('--date') ?? new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/London' });
 const dateLabel = new Date(`${today}T12:00:00Z`).toLocaleDateString('en-GB', { timeZone: 'Europe/London', day: 'numeric', month: 'long', year: 'numeric' });
-const gbp = (n: number) => `£${n.toFixed(2)}`;
+const gbp = (n: number) => `£${n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 const undash = (s: string) => s.replace(/\s*[-‐-―−]\s*/g, ' ').replace(/\s+/g, ' ').trim();
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 

@@ -1,0 +1,25 @@
+{
+  "id": "ean-8028713830143",
+  "url": "https://pricesniffs.space/fragrance/ean-8028713830143",
+  "saving": 195.05,
+  "percent": 59,
+  "dear": {
+    "shop": "John Lewis",
+    "item": 327,
+    "delivery": 0,
+    "total": 327,
+    "hoursOld": 17,
+    "link": "https://www.johnlewis.com/acqua-di-parma-zafferano-eau-de-parfum/p110801504",
+    "live": "unreadable"
+  },
+  "cheap": {
+    "shop": "Fragrance Click",
+    "item": 131.95,
+    "delivery": 0,
+    "total": 131.95,
+    "hoursOld": 21,
+    "link": "https://www.awin1.com/pclick.php?p=44794234838&a=3026001&m=124166",
+    "live": "unreadable"
+  },
+  "skipped": []
+}
