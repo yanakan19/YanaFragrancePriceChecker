@@ -247,15 +247,24 @@ describe('scripts/commit-and-push.sh', () => {
     pushConcurrentChange(concurrent, 'src/config/retailers.ts', 'export const RETAILERS = "HUMAN-EDIT";\n');
     writeFileSync(join(worker, 'src/config/retailers.ts'), 'export const RETAILERS = "BOT-WOULD-OVERWRITE";\n');
 
+    const base = git(worker, ['rev-parse', 'HEAD']);
     const { status, output } = runScript(worker, ['Shipping terms: sim', 'src/config/retailers.ts']);
 
     expect(status).not.toBe(0);
     expect(output).toContain('Nothing was pushed');
+    expect(output).toContain('machine-written source');
 
     const remoteContent = execSync(`git --git-dir="${remote}" show master:src/config/retailers.ts`, {
       encoding: 'utf8',
     });
     expect(remoteContent).toBe('export const RETAILERS = "HUMAN-EDIT";\n');
+
+    // The workflow's next commit step must not inherit the commit that could
+    // not land, nor bundle a registry edit nobody could push: the commit is
+    // undone and a "manual" file goes back to the branch's version.
+    expect(git(worker, ['rev-parse', 'HEAD'])).toBe(base);
+    expect(readFileSync(join(worker, 'src/config/retailers.ts'), 'utf8')).toBe('export const RETAILERS = "BASE";\n');
+    expect(git(worker, ['status', '--porcelain'])).toBe('');
   });
 });
 
@@ -494,5 +503,95 @@ describe('scripts/commit-and-push.sh after another build of the same page lands 
 
     expect(status, output).toBe(0);
     expect(git(worker, ['show', 'origin/master:demo/testCount.generated.ts'])).toBe('export const TEST_COUNT = 140;');
+  });
+});
+
+// 2026-10-04: the script reads which files are rebuildable and which take the
+// incoming side from scripts/generated-files.txt, the one list the build
+// scripts and the workflows also use, instead of a copy typed into the script.
+describe('scripts/commit-and-push.sh reads scripts/generated-files.txt', () => {
+  it('rebuilds a file the manifest lists as rebuild, here demo/dormant.generated.ts, which the old hand list never had', () => {
+    const { root, worker, concurrent } = setupTrio({
+      relPath: 'demo/dormant.generated.ts',
+      content: 'BASE\n',
+    });
+    cleanupDirs.push(root);
+
+    pushConcurrentChange(concurrent, 'demo/dormant.generated.ts', 'INCOMING\n');
+    writeFileSync(join(worker, 'demo/dormant.generated.ts'), 'OURS\n');
+
+    const { status, output } = runScript(worker, ['Rebuild demo: sim', 'demo/dormant.generated.ts'], {
+      REGENERATE: 'echo "REGENERATED" > demo/dormant.generated.ts',
+    });
+
+    expect(status, output).toBe(0);
+    expect(git(worker, ['show', 'origin/master:demo/dormant.generated.ts'])).toBe('REGENERATED');
+  });
+
+  it('keeps the incoming side of a file the manifest lists as incoming, here data/image-box-verdicts.json', () => {
+    const { root, worker, concurrent } = setupTrio({
+      relPath: 'data/image-box-verdicts.json',
+      content: '{"v":"BASE"}\n',
+    });
+    cleanupDirs.push(root);
+
+    pushConcurrentChange(concurrent, 'data/image-box-verdicts.json', '{"v":"INCOMING"}\n');
+    writeFileSync(join(worker, 'data/image-box-verdicts.json'), '{"v":"OURS"}\n');
+
+    const { status, output } = runScript(worker, ['Bottle photo measuring: sim', 'data/image-box-verdicts.json']);
+
+    expect(status, output).toBe(0);
+    expect(git(worker, ['show', 'origin/master:data/image-box-verdicts.json'])).toBe('{"v":"INCOMING"}');
+  });
+
+  it('after a refusal, leaves a non-manual change uncommitted in the working tree for a later step, with HEAD back on the branch', () => {
+    const { root, worker, concurrent } = setupTrio({
+      relPath: 'notes/unlisted.txt',
+      content: 'BASE\n',
+      extra: { 'data/catalogue/boots.json': '{"v":"BASE"}\n' },
+    });
+    cleanupDirs.push(root);
+
+    pushConcurrentChange(concurrent, 'notes/unlisted.txt', 'INCOMING\n');
+    writeFileSync(join(worker, 'notes/unlisted.txt'), 'OURS\n');
+    writeFileSync(join(worker, 'data/catalogue/boots.json'), '{"v":"OUR-HARVEST"}\n');
+    const base = git(worker, ['rev-parse', 'HEAD']);
+
+    const { status, output } = runScript(worker, ['Harvest: sim', 'data/catalogue', 'notes/unlisted.txt']);
+
+    expect(status).toBe(1);
+    expect(output).toContain('not in scripts/generated-files.txt');
+    expect(output).toContain('The unpushed commit was undone');
+    expect(git(worker, ['rev-parse', 'HEAD'])).toBe(base);
+    expect(git(worker, ['diff', '--cached', '--name-only'])).toBe('');
+    expect(readFileSync(join(worker, 'data/catalogue/boots.json'), 'utf8')).toBe('{"v":"OUR-HARVEST"}\n');
+  });
+
+  it('refuses a file over the size limit before committing anything, rather than losing eight push attempts to GitHub', () => {
+    const { root, worker } = setupTrio({ relPath: 'data/catalogue/boots.json', content: '{}\n' });
+    cleanupDirs.push(root);
+
+    writeFileSync(join(worker, 'data/catalogue/boots.json'), JSON.stringify({ listings: 'x'.repeat(200) }));
+    const base = git(worker, ['rev-parse', 'HEAD']);
+
+    const { status, output } = runScript(worker, ['Harvest: sim', 'data/catalogue'], { MAX_FILE_BYTES: '100' });
+
+    expect(status).toBe(1);
+    expect(output).toContain('Refusing to commit: data/catalogue/boots.json');
+    expect(git(worker, ['rev-parse', 'HEAD'])).toBe(base);
+    expect(git(worker, ['rev-parse', 'origin/master'])).toBe(base);
+    expect(git(worker, ['diff', '--cached', '--name-only'])).toBe('');
+  });
+
+  it('warns, and still pushes, for a file over the warning size', () => {
+    const { root, worker } = setupTrio({ relPath: 'data/catalogue/boots.json', content: '{}\n' });
+    cleanupDirs.push(root);
+
+    writeFileSync(join(worker, 'data/catalogue/boots.json'), JSON.stringify({ listings: 'x'.repeat(200) }));
+    const { status, output } = runScript(worker, ['Harvest: sim', 'data/catalogue'], { WARN_FILE_BYTES: '100' });
+
+    expect(status, output).toBe(0);
+    expect(output).toContain('::warning::data/catalogue/boots.json is 0 MiB');
+    expect(output).toContain('Pushed on attempt 1');
   });
 });

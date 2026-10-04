@@ -24,6 +24,7 @@
     "catalogue:demo": "tsx scripts/build-demo-catalogue.ts",
     "catalogue:history": "tsx scripts/build-price-history.ts",
     "deals:build": "tsx scripts/build-deals.ts",
+    "rebuild": "npm run catalogue:demo && npm run deals:build && npm run catalogue:history && npm run demo",
     "probe": "tsx scripts/catalogue-probe.ts",
     "harvest": "tsx scripts/catalogue-harvest.ts",
     "houses": "tsx scripts/houses-harvest.ts",
