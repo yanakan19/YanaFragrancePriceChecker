@@ -161,6 +161,37 @@ export async function updatePassword(password: string): Promise<AuthResult> {
 }
 
 /**
+ * Asks Supabase to move the signed-in account to a new address.
+ *
+ * Nothing changes on this call. Supabase emails a confirmation link to the
+ * new address (and, with its "Secure email change" setting on, which is the
+ * default, a second link to the current one), and the sign in address only
+ * changes once the link is followed. The link lands back on /account, where
+ * onAuthChange picks up the updated user like any other session change. The
+ * page says exactly that and never shows the new address as current before
+ * Supabase does.
+ */
+export async function updateEmail(email: string): Promise<AuthResult> {
+  const client = supabase();
+  if (!client) return NOT_CONFIGURED;
+  const { error } = await client.auth.updateUser(
+    { email },
+    { emailRedirectTo: window.location.origin + '/account' },
+  );
+  if (error) {
+    const raw = error.message.toLowerCase();
+    if (raw.includes('already') && raw.includes('registered')) {
+      return { ok: false, message: 'That address already has an account. Use a different one.', reason: 'other' };
+    }
+    if (raw.includes('same')) {
+      return { ok: false, message: 'That is already the address on this account.', reason: 'other' };
+    }
+    return { ok: false, message: authErrorMessage(error.message, 'signUp'), reason: authFailureReason(error.message) };
+  }
+  return { ok: true };
+}
+
+/**
  * Deletes the signed-in account and everything attached to it (the profile
  * and wishlist rows cascade from auth.users). Runs the `delete_own_account`
  * function from supabase/migrations/0003_delete_account.sql, which can only

@@ -486,6 +486,92 @@
     .brandmark { font-size: 18px; }
   }
 
+  /* ── account menu (owner's revamp, 2026-10-04) ─────────────────────────
+     The round button at the far left of the bar, before the brandmark. An
+     initial once signed in, a person icon otherwise. Its panel drops down
+     under it on a wide screen and becomes a sheet from the bottom of the
+     screen on a phone (the max-width block below), the same shape as the
+     .sheet the brand chooser used. */
+  .acct { position: relative; flex: none; display: flex; }
+  .acct-btn {
+    width: 38px; height: 38px; flex: none; border-radius: 50%; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--surface-2); border: 1px solid var(--line-firm); color: var(--ink-2);
+    padding: 0; font: inherit;
+    transition: border-color var(--dur-2) var(--ease-standard), transform var(--dur-1) var(--ease-standard);
+  }
+  .acct-btn .ico { width: 20px; height: 20px; }
+  .acct-btn.is-signed-in { background: var(--accent); border-color: var(--accent); color: var(--accent-on); }
+  .acct-letter { font-size: 16px; font-weight: 750; line-height: 1; letter-spacing: 0; }
+  .acct-btn.on:not(.is-signed-in) { border-color: var(--accent); color: var(--ink); }
+  .acct-btn.on.is-signed-in { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); }
+  .acct-btn[aria-expanded="true"] { border-color: var(--accent); }
+  .acct-btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+  .acct-btn:active { transform: scale(.94); }
+  @media (hover: hover) and (pointer: fine) {
+    .acct-btn:hover { border-color: var(--accent); }
+  }
+  .acct-pop {
+    position: absolute; top: calc(100% + 10px); left: 0; z-index: 40;
+    min-width: 248px; max-width: min(320px, calc(100vw - 32px));
+    background: var(--surface); border: 1px solid var(--line-firm); border-radius: 14px;
+    box-shadow: var(--shadow-lift); padding: 6px;
+  }
+  .acct-pop[hidden], .acct-back[hidden] { display: none; }
+  .acct-back { display: none; }
+  .acct-menu-head {
+    margin: 6px 10px 8px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+    font-size: 13px; color: var(--ink-2); overflow-wrap: anywhere;
+  }
+  .acct-menu-head .t-caption { display: block; color: var(--faint); }
+  .acct-menu-email { color: var(--ink); font-weight: 600; }
+  .acct-items { display: flex; flex-direction: column; gap: 2px; }
+  .acct-item {
+    display: flex; align-items: center; width: 100%; min-height: 44px; padding: 0 12px;
+    background: none; border: 0; border-radius: 9px; cursor: pointer; text-align: left;
+    font: inherit; font-size: 15px; font-weight: 550; color: var(--ink);
+  }
+  .acct-item[aria-current="page"] { box-shadow: inset 3px 0 0 var(--accent); background: var(--surface-2); }
+  .acct-item.is-quiet { color: var(--ink-2); border-top: 1px solid var(--line); border-radius: 0 0 9px 9px; margin-top: 4px; }
+  .acct-item:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+  @media (hover: hover) and (pointer: fine) {
+    .acct-item:hover { background: var(--surface-2); }
+  }
+  /* A phone: the same panel as a sheet from the bottom, over a backdrop. */
+  @media (max-width: 600px) {
+    .acct-back { display: block; position: fixed; inset: 0; z-index: 39; background: rgba(0,0,0,.55); }
+    .acct-pop {
+      position: fixed; top: auto; left: 0; right: 0; bottom: 0;
+      min-width: 0; max-width: none; max-height: 75vh; overflow-y: auto;
+      border-radius: 16px 16px 0 0; border-width: 1px 0 0;
+      padding: 10px 10px calc(14px + env(safe-area-inset-bottom));
+    }
+    .acct-item { min-height: 48px; font-size: 16px; }
+  }
+  /* The account button costs the row about 40px, so the phone steps below
+     tighten the row to keep all four nav words in view without scrolling
+     (measured in Chromium: at 390, 375 and 320 the whole row fits, and the
+     quick search keeps its full width under it). */
+  @media (max-width: 430px) {
+    .bar-row, .nav-items { gap: 8px; }
+    .navbtn { font-size: 13px; }
+    .brandmark { font-size: 17px; }
+    .acct-btn { width: 32px; height: 32px; }
+    .acct-btn .ico { width: 18px; height: 18px; }
+    .acct-letter { font-size: 15px; }
+  }
+  /* The smallest phones (320 to 360 wide). The bar's own side padding
+     steps in a little here, as the rest of the row already has. */
+  @media (max-width: 360px) {
+    .bar { padding-left: max(12px, var(--safe-left)); padding-right: max(12px, var(--safe-right)); }
+    .bar-row, .nav-items { gap: 5px; }
+    .navbtn { font-size: 12.5px; }
+    .brandmark { font-size: 14.5px; }
+    .acct-btn { width: 30px; height: 30px; }
+    .acct-btn .ico { width: 17px; height: 17px; }
+    .acct-letter { font-size: 14px; }
+  }
+
   /* Second level nav, shown only inside Explore and its leaves. Scrolls
      sideways rather than wrapping, so five tabs never push the bar taller on
      a narrow phone. */
@@ -2314,8 +2400,9 @@
     width: 100%; max-width: 360px; margin: 8px 0 14px; font-size: 13.5px;
     color: var(--ink-2); text-align: left;
   }
-  /* The Settings entry point into /account — no top bar slot for it yet, see
-     the entry row's own comment in app.ts. */
+  /* A row that opens another page: the profile's shortcuts to My Wishlist
+     and My Notifications. (It was the Settings entry into /account until the
+     account menu took that job, 2026-10-04.) */
   .account-entry {
     display: flex; align-items: center; gap: 9px;
     width: 100%; max-width: 360px; margin-bottom: 18px; padding: 11px 14px;
@@ -2721,6 +2808,69 @@
   }
   .report-wrong .link-btn:hover { color: var(--ink); }
 
+  /* ── account pages (2026-10-04): profile, wishlist, notifications ─────── */
+  .account-doc { max-width: 560px; }
+  .account-doc .account-note, .account-doc .contact-form { max-width: none; }
+  .acct-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 14px; margin: 0 0 10px;
+  }
+  .doc .acct-card p { margin: 0; }
+  .acct-card-label { color: var(--faint); }
+  .doc .acct-card .acct-card-value { margin-top: 4px; font-size: 16px; font-weight: 650; color: var(--ink); overflow-wrap: anywhere; }
+  .doc .acct-card .acct-card-note { margin-top: 4px; color: var(--ink-2); }
+  .acct-shortcuts { display: flex; flex-direction: column; gap: 8px; margin: 14px 0 4px; }
+  .acct-shortcuts .account-entry { max-width: none; margin: 0; min-height: 48px; }
+  .acct-shortcuts .account-entry svg { transform: rotate(-90deg); }
+  .account-doc .controls { grid-template-columns: minmax(0, 240px); }
+  .acct-download { flex: none; display: inline-flex; padding: 8px 16px; border: 1px solid var(--line-firm); }
+  .account-doc .account-actions { margin-top: 24px; }
+  .wishlist-art { flex: none; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; }
+  .wishlist-art .art { max-width: 56px; max-height: 56px; }
+  .doc .wishlist-price { font-size: 14px; color: var(--ink); margin-top: 2px; }
+  .wishlist-price strong { color: var(--ok); font-weight: 700; }
+  .premium-plan {
+    margin-top: 26px; padding: 4px 16px 14px; border: 1px dashed var(--line-firm); border-radius: 12px;
+  }
+  .premium-plan h2 { margin-top: 14px; }
+  .premium-tag { color: var(--faint); margin: 0 0 10px; }
+  .doc ul.premium-list { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 10px; }
+  .premium-list li { display: flex; flex-direction: column; gap: 2px; margin: 0; }
+  .premium-list strong { font-size: 14.5px; }
+
+  /* ── About (2026-10-04) ───────────────────────────────────────────────── */
+  .doc .about-mission { font-size: 17px; line-height: 1.45; color: var(--ink); margin: 0 0 16px; }
+  .about-stats {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0 0 18px;
+  }
+  .about-stat {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 10px 10px 12px; display: flex; flex-direction: column-reverse; gap: 2px; min-width: 0;
+  }
+  .about-stat dd { margin: 0; font-size: 22px; font-weight: 750; letter-spacing: -.02em; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .about-stat dt { color: var(--ink-2); line-height: 1.3; }
+  @media (max-width: 400px) { .about-stat dd { font-size: 18px; } }
+  .doc ul.about-cards {
+    list-style: none; padding: 0; margin: 0 0 12px;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 10px;
+  }
+  .doc .about-card {
+    margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;
+  }
+  .about-card-title { margin: 0 0 4px; font-size: 15px; font-weight: 700; color: var(--ink); }
+  .doc .about-card p { margin: 0; font-size: 13.5px; }
+  .about-faq { border-top: 1px solid var(--line); }
+  .about-faq-item { border-bottom: 1px solid var(--line); }
+  .about-faq-item > summary {
+    cursor: pointer; padding: 12px 2px; min-height: 44px; box-sizing: border-box;
+    font-size: 15px; font-weight: 600; color: var(--ink);
+  }
+  .about-faq-item > summary:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+  .doc .about-faq-item p { margin: 0 2px 12px; }
+  .about-foot { margin-top: 28px; padding-top: 6px; border-top: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .about-foot h2 { align-self: stretch; text-align: left; }
+  .about-foot .foot-links, .about-foot .foot-legal { align-self: stretch; }
+
   /* Account page: the change-password fold and the sign out / delete row. */
   .account-more { margin: 4px 0 18px; }
   .account-more > summary { cursor: pointer; font-weight: 600; padding: 12px 0; }
@@ -2731,7 +2881,7 @@
 
 <!-- The first thing a keyboard reaches, and the first thing a screen reader
      meets. Without it, getting to a fragrance list means tabbing through the
-     brandmark, five nav buttons and the search box on every single page. It
+     account button, brandmark, four nav buttons and the search box on every page. It
      is off-screen until focused, which is the only correct way to do this:
      display:none would take it out of the tab order and defeat the purpose. -->
 <a class="skip-link" href="#view">Skip to the Main Content</a>
@@ -2743,13 +2893,22 @@
 <div class="app">
   <div class="bar">
     <div class="bar-row">
+      <!-- The account menu: the round button, then the panel it opens,
+           adjacent in the document so Tab from the button reaches the first
+           item. Filled and driven by demo/app.ts (openAccountMenu). The
+           backdrop only shows on a phone, where the panel is a bottom sheet. -->
+      <nav class="acct" aria-label="Account">
+        <button class="acct-btn" id="account-btn" type="button" aria-haspopup="menu" aria-expanded="false"
+                aria-controls="account-menu" aria-label="Account menu"><span class="acct-icon" aria-hidden="true"></span></button>
+        <div class="acct-back" id="account-menu-back" hidden></div>
+        <div class="acct-pop" id="account-pop" hidden></div>
+      </nav>
       <button class="brandmark" id="brand-home" aria-label="PriceSniffs, go to home">Price<em>Sniffs</em></button>
       <div class="nav-items">
         <button class="navbtn" id="nav-home">Home</button>
         <button class="navbtn" id="nav-deals">Deals</button>
         <button class="navbtn" id="nav-explore">Explore</button>
         <button class="navbtn" id="nav-about">About</button>
-        <button class="navbtn" id="nav-settings">Settings</button>
       </div>
     </div>
     <!-- A search landmark, so assistive technology can jump to it and every
