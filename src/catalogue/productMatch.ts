@@ -487,6 +487,53 @@ function looseMatchKey(p: MatchableProduct): string {
 }
 
 /**
+ * KAYALI numbers every scent, and its shops do not agree on how much of that
+ * to write: the house's own storefront titles "Eden Sparkling Lychee | 39",
+ * "Oudgasm Vanilla Oud | 36 Intense" and "Vacay in a Bottle Maui in a Bottle
+ * Sweet Banana | 37"; Cult Beauty titles the same bottles "Eden Sparkling
+ * Lychee" (no number at all), "Oudgasm Vanilla Oud 36" (no "Intense") and "Maui
+ * In A Bottle Sweet Banana 37" (no "Vacay in a Bottle"). Compared as the
+ * ordinary word sets matchKey uses, none of those pairs is equal, so one
+ * perfume at one size was two products and the reader was shown two prices
+ * with no comparison (found 2026-10-04 in tests/kayaliCatalogue.test.ts, when
+ * Cult Beauty's range arrived: 11 of its Kayali products were a second row for
+ * a bottle the house's own storefront already listed, same size, same
+ * strength).
+ *
+ * What identifies a Kayali scent, then, is its words with three things set
+ * aside: the two digit number, the word "Intense" and the word "Vacay", each
+ * of which a shop may or may not print. Checked over every Kayali name in the
+ * catalogue when this was written: no two different scents shared those words
+ * (the numbers stay a guard, below), and every group that did share them was
+ * one scent written two ways.
+ *
+ * Narrow on purpose, and in three ways. It is Kayali's alone, because the
+ * number is Kayali's own naming and the claim above was measured on Kayali:
+ * another house's "Intense", or a trailing two digit number, can be the whole
+ * difference between two perfumes ("Club De Nuit" and "Club De Nuit Intense").
+ * It needs the number to be present on at least one side and to be the only
+ * number anywhere in the group, so a scent can only be completed from a name
+ * that carries its number, never guessed. And it keeps size and strength
+ * exactly as matchKey does.
+ */
+const NUMBERED_SCENT_HOUSE = 'kayali';
+const SCENT_NUMBER = /^\d{2}$/;
+const SCENT_SHOP_WORDS: ReadonlySet<string> = new Set(['intense', 'vacay']);
+
+function numberedScent(p: MatchableProduct): { key: string; number: string | null } | null {
+  if (brandKey(p.brand) !== NUMBERED_SCENT_HOUSE || p.sizeMl === null) return null;
+  const words = titleWords(p.name);
+  const numbers = new Set(words.filter((w) => SCENT_NUMBER.test(w)));
+  if (numbers.size > 1) return null;
+  const rest = [...new Set(words.filter((w) => !SCENT_NUMBER.test(w) && !SCENT_SHOP_WORDS.has(w)))].sort();
+  if (rest.length === 0) return null;
+  return {
+    key: [sizeKeyPart(p), p.concentration.toLowerCase().trim(), rest.join(' ')].join('|'),
+    number: numbers.size === 1 ? [...numbers][0]! : null,
+  };
+}
+
+/**
  * A listing carrying enough to ask untrustworthyEans' question: which shop,
  * what code, what it called the product. A subset of StoredListing (see
  * fragranceId.ts) so this file does not need to import that type just to
@@ -910,6 +957,40 @@ export function findDuplicateGroups<T extends MatchableProduct>(
     const notStatedCanonical = pickCanonical(notStatedBucket);
     if (canonical === notStatedCanonical) continue;
     groups.push({ canonical, absorbed: [notStatedCanonical] });
+  }
+
+  // Third pass: one Kayali scent written with more or less of its number,
+  // "Intense" and "Vacay" by different shops. See numberedScent for what is
+  // compared and why it is Kayali's alone. Bridges the way the second pass
+  // does, canonical into canonical, so every earlier merge is already in the
+  // record that is folded in.
+  const scents = new Map<string, { bucket: T[]; number: string | null }[]>();
+  for (const bucket of byKey.values()) {
+    const info = numberedScent(bucket[0]!);
+    if (!info) continue;
+    const list = scents.get(info.key) ?? [];
+    list.push({ bucket, number: info.number });
+    scents.set(info.key, list);
+  }
+  for (const list of scents.values()) {
+    if (list.length < 2) continue;
+    const numbers = new Set(list.map((e) => e.number).filter((n): n is string => n !== null));
+    // One number, stated by at least one side and contradicted by none.
+    if (numbers.size !== 1) continue;
+    const barcodes = new Set(
+      list.flatMap((e) => e.bucket).filter((p) => isBarcode(p.ean)).map((p) => normalizedEan(p.ean!)),
+    );
+    if (distinctBarcodeCount(barcodes) > 1) continue;
+    const canonicals = list.map((e) => pickCanonical(e.bucket));
+    // The page that stays is the one carrying the fullest name, which is the
+    // house's own ("Vacay in a Bottle Maui in a Bottle Sweet Banana | 37"), so
+    // the product keeps the address and the name the house's storefront gave it.
+    const numbered = list.filter((e) => e.number !== null).map((e) => pickCanonical(e.bucket));
+    // "Intense" is left out of the length: a reseller can add it to a title the
+    // house does not carry it on, and that does not make its page the house's.
+    const fullness = (p: T) => p.name.replace(/\bintense\b/gi, '').length;
+    const keeper = numbered.reduce((best, p) => (fullness(p) > fullness(best) ? p : best), numbered[0]!);
+    groups.push({ canonical: keeper, absorbed: canonicals.filter((c) => c !== keeper) });
   }
 
   return groups;

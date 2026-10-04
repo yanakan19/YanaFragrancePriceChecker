@@ -68,6 +68,22 @@ const NOT_A_SET = /\bset sail\b|\bwith coffret\b/gi;
 const WITH_COMPANION =
   /(?:&|\+|\bwith\b|\band\b)\s*(?:an?\s+)?(?:\d{1,4}(?:\.\d)?\s*ml\s+)?(?:body ?wash|shower ?gel|shower cream|body lotion|lotion|deodorant|deo(?:dorant)? (?:spray|stick)|deo|body spray|body mist|aftershave balm|after shave balm|balm|body cream|socks?|sg)\b/i;
 
+/**
+ * Two or more KAYALI scents joined by "+": Cult Beauty's duos and trios,
+ * "Warm Apple Pie a la Mode 50ml (Eden Juicy Apple | 01 + Vanilla | 28)" and
+ * "Fresh Fruit Tart 10ml ((Yum Boujee Marshmallow | 81 + Eden Juicy Apple | 01 +
+ * Capri in a Bottle Lemon Sugar | 14)". Each scent is named with its own two
+ * digit number after a pipe, so "| 39 + Vanilla Candy Rock Sugar | 42" is two
+ * bottles in one box whatever the title says about size: the "50ml" is each
+ * bottle's, and the price (£146 for the 50ml duo) is for both. Read as a single
+ * 50ml bottle it was priced against, and could be
+ * the "cheapest" for, a lone bottle of that size (found 2026-10-04 in
+ * tests/kayaliCatalogue.test.ts: 5 live products). The numbers are the lock:
+ * a title with one scent in brackets, or a "+" between words, is not this.
+ * No concentration word is needed: the scents are the fragrance.
+ */
+const SCENT_PAIR = /\|\s*\d{2}\b[^|()]*\+[^|()]*\|\s*\d{2}\b/;
+
 /** The shop's own category for a set. */
 const SET_PRODUCT_TYPE = /^\s*(?:bundles?|gift ?sets?|sets?)\s*$/i;
 
@@ -89,14 +105,15 @@ export function isGiftSet(l: Pick<StoredListing, 'rawTitle' | 'retailerId' | 'pr
   if (BARBER.test(t) || (l.rawBrand && BARBER.test(l.rawBrand))) return false;
   if (l.description && PET_PRODUCT.test(l.description)) return false;
 
-  const titleSaysSet = SET_TITLE.test(t.replace(NOT_A_SET, ' ')) || WITH_COMPANION.test(t);
+  const scentPair = SCENT_PAIR.test(t);
+  const titleSaysSet = SET_TITLE.test(t.replace(NOT_A_SET, ' ')) || WITH_COMPANION.test(t) || scentPair;
   const shopSaysSet = Boolean(l.productType && SET_PRODUCT_TYPE.test(l.productType));
   const copySaysSet = Boolean(l.description && DESCRIBED_AS_WASH_GIFT_SET.test(l.description));
   if (!titleSaysSet && !shopSaysSet && !copySaysSet) return false;
 
   // "Perfume mist" is a body or hair mist (Sol de Janeiro's Cheirosa sets),
   // so it is no evidence of a fragrance on its own.
-  const named = CONCENTRATION.test(t.replace(/\bperfume mists?\b/gi, ' '));
+  const named = scentPair || CONCENTRATION.test(t.replace(/\bperfume mists?\b/gi, ' '));
   if (named) return true;
   // A shop that sells only fragrance does not have to name one, unless the
   // title says the set is bath and body products (Escentric Molecules'
@@ -143,6 +160,11 @@ export function giftSetName(title: string, brand: string | null): string {
   // storefront ("Yum Boujee Marshmallow | 81 Sweet Fix"), see
   // tests/productNameNoise.test.ts.
   name = name.replace(/\s+\|\s+(?!\d{2}\b)[^|]*$/, '').trim();
+  // A pipe with nothing after it is a label that was never filled in: Scent
+  // Store's "Guerlain Aqua Allegoria Florabloom Forte Eau de Parfum 75ml Gift
+  // Set |" (1 live set, 2026-10-04). Nothing follows it, so nothing can be
+  // KAYALI's number, and nothing is lost.
+  name = name.replace(/\s*\|\s*$/, '').trim();
   if (brand) {
     const lead = new RegExp(`^${brand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s+`, 'i');
     const stripped = name.replace(lead, '');

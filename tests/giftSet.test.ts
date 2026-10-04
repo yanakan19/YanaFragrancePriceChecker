@@ -129,4 +129,39 @@ describe('giftSetContents and giftSetName', () => {
   it('keeps the title whole, sizes included, less a leading brand', () => {
     expect(giftSetName('Burberry Her 100ml Eau de Parfum + 10ml Set', 'Burberry')).toBe('Her 100ml Eau de Parfum + 10ml Set');
   });
+
+  it('drops a trailing pipe with nothing after it, and still keeps a Kayali number', () => {
+    // Scent Store, read 2026-10-04.
+    expect(giftSetName('Guerlain Aqua Allegoria Florabloom Forte Eau de Parfum 75ml Gift Set |', 'Guerlain')).toBe(
+      'Aqua Allegoria Florabloom Forte Eau de Parfum 75ml Gift Set',
+    );
+    expect(giftSetName('Yum Boujee Marshmallow | 81 Sweet Fix', 'Kayali')).toBe('Yum Boujee Marshmallow | 81 Sweet Fix');
+  });
+});
+
+describe('two numbered Kayali scents in one title are a set, whatever size it names', () => {
+  // Cult Beauty's duos and trios, read from data/catalogue/cult-beauty-global.json on 2026-10-04.
+  const DUOS = [
+    'KAYALI Warm Apple Pie a la Mode 50ml (Eden Juicy Apple | 01 + Vanilla | 28)',
+    'KAYALI Lychee Lemonade 10ml (Eden Sparkling Lychee | 39 + Capri in a Bottle Lemon Sugar | 14)',
+    'KAYALI Fresh Fruit Tart 10ml ((Yum Boujee Marshmallow | 81 + Eden Juicy Apple | 01 + Capri in a Bottle Lemon Sugar | 14)',
+  ];
+
+  it.each(DUOS)('%s is a gift set and not a bottle', (title) => {
+    const l = listing('cult-beauty-global', title, { rawBrand: null, priceGbp: 56 });
+    expect(isGiftSet(l)).toBe(true);
+    expect(isFragrance(l)).toBe(false);
+    expect(isCatalogueListing(l)).toBe(true);
+    expect(fragranceId(l).startsWith('set-')).toBe(true);
+  });
+
+  it('leaves one numbered scent as the bottle it is', () => {
+    for (const title of [
+      'KAYALI Eden Plush Pear 23 Eau de Parfum 10ml',
+      'KAYALI Yum Pistachio Gelato 33 Eau de Parfum Intense 50ml',
+      'KAYALI Maui In A Bottle Sweet Banana 37 Eau de Parfum 10ml',
+    ]) {
+      expect(isGiftSet(listing('cult-beauty-global', title)), title).toBe(false);
+    }
+  });
 });
