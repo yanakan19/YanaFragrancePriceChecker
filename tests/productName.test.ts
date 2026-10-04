@@ -1594,3 +1594,50 @@ describe('a delivery offer in a shop title is not part of the name', () => {
     expect(displayName('Free Spirit | Delivery Edition', 'Brand', 'Brand')).toContain('Delivery');
   });
 });
+
+describe('a shop\'s translation of a name, after a pipe, is not part of the name', () => {
+  // Bloom Perfumery's own titles, read from data/catalogue/bloom-perfumery.json on 2026-10-04.
+  it.each([
+    ['Black Swan Princess | Черный Лебедь 50 ml EdP', 'Brocard', 'Black Swan Princess'],
+    ['Mooncake | 月餅 50 ml EdP', "d'Annam", 'Mooncake'],
+    ['Tokyo Nights | ナイト 50 ml EdP', "d'Annam", 'Tokyo Nights'],
+    ['Damascus Cologne | كولونيا دمشق 30 ml EdP', 'Mabra', 'Damascus Cologne'],
+    ['Mumbai Cologne | मुंबई से कोलोन 30 ml EdP', 'Mabra', 'Mumbai Cologne'],
+    // Mixed: the Latin words after the pipe are the name's own and stay.
+    ["Tea Rituals | 5 O'Clock Английская Традиция (Discontinued) 100 ml EdP", 'Brocard', "Tea Rituals | 5 O'Clock (Discontinued)"],
+    ['Gardens of Temptation | Love  Сады Соблазна  | Любовь (Discontinued) 55 ml EdP', 'Brocard', 'Gardens of Temptation | Love (Discontinued)'],
+  ])('%s', (title, brand, expected) => {
+    expect(displayName(title, brand, brand)).toBe(expected);
+  });
+
+  it('leaves a pipe that is all Latin letters or numbers exactly as it is', () => {
+    expect(displayName('Terra Incognita  | Secret Island 100 ml EdT', 'Brocard', 'Brocard')).toBe('Terra Incognita | Secret Island');
+    expect(displayName('Bain de Minuit | Skinny Dipping 100 ml EdP', 'Maison Matine', 'Maison Matine')).toBe('Bain de Minuit | Skinny Dipping');
+    expect(displayName('Series 3: Incense | Kyoto 50 ml EdT', 'Comme Des Garcons', 'Comme Des Garcons')).toBe('Series 3: Incense | Kyoto');
+    // An accent is still Latin: nothing here is a translation.
+    expect(displayName('Café Noir | Crème 50 ml EdP', 'Brand', 'Brand')).toBe('Café Noir | Crème');
+    // KAYALI's number is a digit, and the lock every rule here keeps.
+    expect(displayName('KAYALI Oudgasm Vanilla Oud | 36 Eau de Parfum 50ml', 'KAYALI', 'Kayali')).toBe('Oudgasm Vanilla Oud | 36');
+  });
+
+  it('never empties a name that is written wholly in another script', () => {
+    expect(displayName('月餅 | 月餅 50 ml EdP', "d'Annam", "d'Annam")).toContain('月餅');
+    expect(displayName('كولونيا دمشق 30 ml EdP', 'Mabra', 'Mabra')).toContain('كولونيا');
+  });
+});
+
+describe('a "Notes & Review" tag in a shop title is not part of the name', () => {
+  it('strips "| Notes & Review" left behind once the shop credit is gone, entity or not', () => {
+    // Perfumeo's page title for Kaaf, as harvested on 2026-10-04: the review
+    // tag is stored as the shop's HTML wrote it, "&amp;" and all.
+    const brand = 'Ahmed Al Maghribi';
+    const signed = 'Kaaf by Ahmed Al Maghribi 100ml EDP | Notes &amp; Review | Perfumeo UK';
+    expect(displayName(stripTrailingShopCredit(signed, 'Perfumeo', 'perfumeo.co.uk'), brand, brand)).toBe('Kaaf');
+    expect(displayName('Kaaf by Ahmed Al Maghribi 100ml EDP | Notes & Review', brand, brand)).toBe('Kaaf');
+  });
+
+  it('leaves a name that merely contains those words', () => {
+    expect(displayName('Review Notes | Reserve', 'Brand', 'Brand')).toContain('Reserve');
+    expect(displayName('Quiet Notes | Review Edition', 'Brand', 'Brand')).toContain('Review');
+  });
+});
