@@ -98,9 +98,9 @@
  * when a full replay is still forced (any change to the rules above, which
  * the checkpoint fingerprints). `--full` forces one by hand.
  */
-import { writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { assertGenerated, writeGenerated } from './generatedFiles.js';
 import {
   CHECKPOINT_PATH,
   OUTPUT_PATH,
@@ -162,7 +162,11 @@ console.log(
     `${gaps.never} never priced, ${gaps['sold-out']} priced only while out of stock, ${gaps['not-enough']} exactly one buyable reading`,
 );
 
-writeFileSync(resolve(root, OUTPUT_PATH), rendered.body);
+writeGenerated(root, OUTPUT_PATH, rendered.body);
 console.log(`\n${OUTPUT_PATH} written (${(rendered.body.length / 1024).toFixed(0)} kB)`);
+// writeCheckpoint lives in priceHistoryReplay.ts, whose source is part of the
+// replay's rules fingerprint, so the manifest check is made here instead of
+// there: an edit to scripts/generatedFiles.ts must not force a full replay.
+assertGenerated(CHECKPOINT_PATH);
 const checkpointBytes = writeCheckpoint(root, toCheckpoint(state, rules, commits));
 console.log(`${CHECKPOINT_PATH} written (${(checkpointBytes / 1024).toFixed(0)} kB) at commit ${commits.at(-1)?.sha.slice(0, 8)}`);

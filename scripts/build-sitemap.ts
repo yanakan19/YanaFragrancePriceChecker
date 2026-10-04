@@ -30,9 +30,9 @@
  * to look fresh, which is the usual way a sitemap starts lying.
  */
 import { execFileSync } from 'node:child_process';
-import { writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeGenerated } from './generatedFiles.js';
 import { CRAWLED } from '../demo/catalogue.generated.js';
 import { DEMO_FRAGRANCES } from '../demo/data.js';
 import { RETAILERS, enabledRetailers } from '../src/config/retailers.js';
@@ -179,7 +179,7 @@ const xml = [
   '',
 ].join('\n');
 
-writeFileSync(resolve(root, 'demo/sitemap.xml'), xml);
+writeGenerated(root, 'demo/sitemap.xml', xml);
 // The shop figure counts what was actually written, not what is enabled. Those
 // were the same number until enabled-but-empty shops stopped being listed, and
 // reporting the old one would misstate the file this line is describing.
