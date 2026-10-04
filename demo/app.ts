@@ -870,6 +870,22 @@ function detectDefaultLayout(): Layout {
   }
 }
 
+/**
+ * Publishes the width of the page's vertical scrollbar as --sbw, in pixels:
+ * 0 where scrollbars float over the page (phones, macOS), about 15 where a
+ * classic one takes room. 100vw includes it, the page's own width does not,
+ * and the full width home banner needs the difference to stop short of
+ * making the page scroll sideways. Written only when it changes.
+ */
+let lastScrollbarWidth = -1;
+function syncScrollbarWidth(): void {
+  const root = document.documentElement;
+  const width = Math.max(0, window.innerWidth - root.clientWidth);
+  if (width === lastScrollbarWidth) return;
+  lastScrollbarWidth = width;
+  root.style.setProperty('--sbw', `${width}px`);
+}
+
 function applyLayout(): void {
   document.documentElement.setAttribute('data-layout', state.layout);
 }
@@ -5749,6 +5765,14 @@ function init(): void {
     // of the page visually while their tab position stays at the bottom.
     ($('#view') as HTMLElement).focus();
   });
+
+  // The home banner is as wide as the window (see .marquee in the stylesheet)
+  // and needs the vertical scrollbar's width to end where the page does.
+  // Watching the root's own size catches the scrollbar appearing when a page
+  // grows long enough to need one, which no resize event reports.
+  syncScrollbarWidth();
+  window.addEventListener('resize', syncScrollbarWidth, { passive: true });
+  if (typeof ResizeObserver !== 'undefined') new ResizeObserver(syncScrollbarWidth).observe(document.documentElement);
 
   window.addEventListener('resize', () => {
     window.clearTimeout(resizeTimer);

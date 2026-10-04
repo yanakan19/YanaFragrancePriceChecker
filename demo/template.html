@@ -375,6 +375,13 @@
 
   * { box-sizing: border-box; }
 
+  /* The marquee is stretched to the window's full width (see .marquee), and
+     the page must never scroll sideways whatever a browser rounds to, so
+     sideways overflow is clipped at the root. clip, not hidden: it makes no
+     scroll container, so the sticky bar and every other scroller are
+     untouched. */
+  html { overflow-x: clip; }
+
   body {
     margin: 0;
     background: var(--bg);
@@ -566,34 +573,71 @@
      5.26:1, well over the 3:1 a graphic needs). The --pm-* values
      left are the ones this site has no token for.
 
-     The one piece of idle motion on the site, by the owner's request. It
-     moves by transform only, pauses under the pointer, and stops outright
-     with reduced motion. It bleeds past the page gutter to the full width
-     of the page, the way the Most stocked rail does, and clips its own
-     track, so it never makes the page scroll sideways. */
+     Owner, 2026-10-04: it scrolls all the time, with no pause of any kind
+     (the old pause under the pointer is gone), always on one line, and spans
+     the full width of the window on every screen, not just inside the page
+     column. The one exception is a reader whose system asks for reduced
+     motion: for them it stops and wraps, below.
+
+     FULL BLEED. The band sits inside <main>, inside .app, which is a centred
+     column (--col) on the narrow layout and the whole window on the desktop
+     one. It is stretched to the window's width from wherever it sits:
+       - width: the window's width less the vertical scrollbar. 100vw counts
+         the scrollbar, so on a desktop browser with a classic one it would
+         be wider than the page and make it scroll sideways. --sbw is that
+         scrollbar's width, measured by demo/app.ts (0 where scrollbars float
+         over the page, as on a phone), so the band ends exactly at the
+         scrollbar's edge.
+       - left edge: main's content box is centred in the window except for
+         its own side padding, which can differ left and right where a notch
+         eats one side (--safe-left, --safe-right). 50% is half that content
+         box, so 50% less half the window puts the edge at the window's left
+         when the padding is even, and the last term corrects it when it is
+         not.
+     The text keeps clear of a notch (its fade runs from the safe inset in),
+     the band's background does not. html clips sideways overflow as a second
+     line of defence, so no rounding can ever make the page scroll sideways. */
   .marquee {
-    --pm-gap: 48px; --pm-pad: 14px; --pm-duration: 36s;
-    position: relative; overflow: hidden;
-    margin: 30px calc(-1 * max(var(--gutter), var(--safe-right))) 0 calc(-1 * max(var(--gutter), var(--safe-left)));
+    --pm-gap: 36px; --pm-pad: 12px; --pm-duration: 30s; --pm-size: 14px;
+    --pm-fade: clamp(24px, 8vw, 96px);
+    position: relative; overflow: hidden; box-sizing: border-box;
+    width: calc(100vw - var(--sbw, 0px));
+    margin: 28px 0 0
+      calc(50% - (100vw - var(--sbw, 0px)) / 2
+        + (max(var(--gutter), var(--safe-right)) - max(var(--gutter), var(--safe-left))) / 2);
     padding: var(--pm-pad) 0;
     background: var(--surface-2);
     border-block: 1px solid var(--line);
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    --pm-mask: linear-gradient(90deg,
+      transparent var(--safe-left),
+      #000 calc(var(--safe-left) + var(--pm-fade)),
+      #000 calc(100% - var(--safe-right) - var(--pm-fade)),
+      transparent calc(100% - var(--safe-right)));
+    -webkit-mask-image: var(--pm-mask);
+            mask-image: var(--pm-mask);
   }
+  @media (min-width: 900px) {
+    .marquee { --pm-gap: 56px; --pm-pad: 15px; --pm-duration: 38s; --pm-size: 16px; }
+  }
+  /* The track holds four copies of the six phrases (the last three hidden
+     from screen readers) and slides left by exactly one copy, then starts
+     again, which is not a visible jump because the copies are identical.
+     Four, not two, so that a window wider than one copy never shows an empty
+     stretch at its right edge: one copy is about 1,400 to 1,700px, and four
+     fill a window of up to about 4,500px. The gap after the last phrase is
+     padding, so the copies are the same width exactly and -25% lands the
+     second one where the first began. Always one line: nothing here can
+     wrap, and the items do not shrink. */
   .marquee-track {
-    display: flex; align-items: center; gap: var(--pm-gap);
+    display: flex; flex-wrap: nowrap; align-items: center; gap: var(--pm-gap);
     width: max-content;
-    /* The gap after the last phrase is padding, so the two halves are the
-       same width exactly and -50% lands the second set where the first
-       began: no jump at the loop. */
     padding-right: var(--pm-gap);
     animation: marquee-scroll var(--pm-duration) linear infinite;
+    will-change: transform;
   }
-  .marquee:hover .marquee-track { animation-play-state: paused; }
   .marquee-item {
     display: inline-flex; align-items: center; gap: .6em; flex: none;
-    font: 600 15px/1.25 var(--font-sans); letter-spacing: -.005em;
+    font: 600 var(--pm-size)/1.25 var(--font-sans); letter-spacing: -.005em;
     color: var(--ink-2); white-space: nowrap;
   }
   /* A drawn square rather than a glyph: it is the same in every font, and a
@@ -604,12 +648,15 @@
   }
   @keyframes marquee-scroll {
     from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+    to   { transform: translateX(-25%); }
   }
+  /* Only for a reader whose system asks for less motion: nothing moves, the
+     one copy of the phrases wraps onto as many lines as it needs, and the
+     band goes back to the width of the page column. */
   @media (prefers-reduced-motion: reduce) {
     .marquee { -webkit-mask-image: none; mask-image: none; }
     .marquee-track {
-      animation: none; width: auto; padding: 0 var(--gutter);
+      animation: none; width: auto; padding: 0 var(--gutter); will-change: auto;
       flex-wrap: wrap; justify-content: center; gap: 10px 28px;
     }
     .marquee-item[aria-hidden="true"] { display: none; }

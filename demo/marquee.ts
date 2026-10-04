@@ -76,18 +76,30 @@ const escHtml = (s: string): string =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 /**
- * The banner's markup. Every phrase is written twice: the second set is
- * aria-hidden and exists only so the scroll can loop without a seam, which is
- * why the two sets must stay identical and in the same order. A reader with a
- * screen reader hears the six once; with reduced motion the second set is
- * hidden and nothing moves (see .marquee in demo/template.html).
+ * How many copies of the six phrases the track holds: one for readers, the
+ * rest hidden duplicates. One copy is about 1,400 to 1,700px wide, and the
+ * track slides left by exactly one copy before it starts again, so the
+ * copies after the first must together cover the window: four copies cover
+ * a window of about 4,500px, wider than any screen this is likely to meet.
+ * The stylesheet's keyframes slide by 100% divided by this number.
+ */
+export const MARQUEE_COPIES = 4;
+
+/**
+ * The banner's markup. Every phrase is written MARQUEE_COPIES times: the
+ * copies after the first are aria-hidden and exist only so the scroll can
+ * loop without a seam and without a gap at the right of a wide window, which
+ * is why the copies must stay identical and in the same order. A reader with
+ * a screen reader hears the six once; with reduced motion the extra copies
+ * are hidden and nothing moves (see .marquee in demo/template.html).
  */
 export function marqueeHtml(phrases: readonly string[]): string {
   const items = (hidden: boolean) =>
     phrases
       .map((p) => `<span class="marquee-item"${hidden ? ' aria-hidden="true"' : ''}>${escHtml(p)}</span>`)
       .join('');
+  const copies = [items(false), ...Array.from({ length: MARQUEE_COPIES - 1 }, () => items(true))].join('');
   return `<section class="marquee" aria-label="Why PriceSniffs">
-      <div class="marquee-track">${items(false)}${items(true)}</div>
+      <div class="marquee-track">${copies}</div>
     </section>`;
 }

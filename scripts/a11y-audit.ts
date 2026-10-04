@@ -94,11 +94,12 @@ export async function auditRoute(
   port: number,
   route: string,
   mode: 'light' | 'dark' | null = null,
+  width = 1280,
 ): Promise<Violation[]> {
   // @axe-core/playwright insists on a page from an explicit context (it
   // injects its script per context), so this is not the bare newPage() the
   // screenshot script uses.
-  const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+  const context = await browser.newContext({ viewport: { width, height: 900 } });
   const page = await context.newPage();
   try {
     if (mode) {
