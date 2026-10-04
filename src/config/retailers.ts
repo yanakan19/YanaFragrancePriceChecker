@@ -883,6 +883,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'The Fragrance Shop',
     domain: 'thefragranceshop.co.uk',
     homepage: 'https://www.thefragranceshop.co.uk',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.thefragranceshop.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer', 'mideast'],
     // Switched off by the owner on 2026-10-04: off the site for now.
     enabled: false,
@@ -2150,8 +2153,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Superdrug',
     domain: 'superdrug.com',
     homepage: 'https://www.superdrug.com',
-    // Trustpilot page confirmed by the owner on 2026-10-04 (web search candidate).
-    trustpilotUrl: 'https://uk.trustpilot.com/review/superdrugs.co.uk',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.superdrug.com',
     trustpilotCheckedOn: '2026-10-04',
     // Niche added 6 Aug 2026 alongside the premium-fragrances section below
     // — without it here too, priceService's tier gate would skip Superdrug
@@ -3251,6 +3254,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'The Fragrance Counter',
     domain: 'thefragrancecounter.co.uk',
     homepage: 'https://www.thefragrancecounter.co.uk',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/thefragrancecounter.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer'],
     // Enabled with delivery not stated. Their own delivery page describes
     // delivery as free, but no explicit standard price or spend threshold
@@ -3540,6 +3546,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'French Avenue',
     domain: 'uk.shopfrenchavenue.com',
     homepage: 'https://uk.shopfrenchavenue.com',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.frenchavenue.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read by
     // scripts/logo-probe.ts and checked by eye at 20px on both themes,
     // 2026-10-03 (the offer row pass).
@@ -3982,6 +3991,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'IBRAQ',
     domain: 'ibraquk.com',
     homepage: 'https://ibraquk.com',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/ibraqperfumes.eu',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -4139,6 +4151,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Oud Arabian',
     domain: 'oudarabian.co.uk',
     homepage: 'https://oudarabian.co.uk',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/oudarabian.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     tiers: ['mideast'],
     // Multi-brand: stocks Lattafa, Al Haramain, Afnan, Bujairami and others,
     // not a single house's own storefront — requested under "retailer
@@ -4495,6 +4510,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'The Beauty Store UK',
     domain: 'thebeautystore.com',
     homepage: 'https://www.thebeautystore.com',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/thebeautystore.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -4636,6 +4654,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Zimaya',
     domain: 'uk.zimayaperfumes.com',
     homepage: 'https://uk.zimayaperfumes.com',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/uk.zimayaperfumes.com',
+    trustpilotCheckedOn: '2026-10-04',
     tiers: ['mideast'],
     singleBrandOnly: 'Zimaya',
     // Was disabled for a currency question — the UK subdomain advertised
@@ -5296,8 +5317,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Debenhams',
     domain: 'debenhams.com',
     homepage: 'https://www.debenhams.com',
-    // Trustpilot page confirmed by the owner on 2026-10-04 (web search candidate).
-    trustpilotUrl: 'https://uk.trustpilot.com/review/faith.co.uk',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.debenhams.com',
     trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
@@ -6325,6 +6346,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Perfume Market UK',
     domain: 'perfumemarketuk.com',
     homepage: 'https://www.perfumemarketuk.com',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.perfumemarketuk.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read by
     // scripts/logo-probe.ts and checked by eye at 20px on both themes,
     // 2026-10-03 (the offer row pass).
@@ -7513,6 +7537,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'FragranceHub',
     domain: 'fragrancehub.co.uk',
     homepage: 'https://www.fragrancehub.co.uk/',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.fragrancehub.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -8763,7 +8790,7 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Paco Perfumerías UK',
     domain: 'pacoperfumerias.co.uk',
     homepage: 'https://www.pacoperfumerias.co.uk',
-    // Trustpilot page confirmed by the owner on 2026-10-04 (web search candidate).
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
     trustpilotUrl: 'https://uk.trustpilot.com/review/pacoperfumerias.co.uk',
     trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read by
@@ -9534,8 +9561,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Home Bargains',
     domain: 'home.bargains',
     homepage: 'https://home.bargains',
-    // Trustpilot page confirmed by the owner on 2026-10-04 (web search candidate).
-    trustpilotUrl: 'https://uk.trustpilot.com/review/homebargains.co.uk',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.homebargains.co.uk',
     trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).

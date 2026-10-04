@@ -17,6 +17,15 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.69.0',
+    date: '4 Oct 2026',
+    title: 'Trustpilot links on more shop pages',
+    points: [
+      '11 more shops link to their Trustpilot page',
+      'Each address was checked by hand',
+    ],
+  },
+  {
     version: 'v3.68.0',
     date: '4 Oct 2026',
     title: 'Ten shops taken off the site for now',
