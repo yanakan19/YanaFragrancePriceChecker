@@ -27,6 +27,8 @@
  * is the record of why that scan exists, not evidence it is still needed.
  */
 
+import { BRAND_MERGES } from '../src/catalogue/brandName.js';
+
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
   | 'notes' | 'note' | 'fragrance' | 'about' | 'settings' | 'legal' | 'account'
@@ -92,6 +94,19 @@ const ALIAS_ROUTES: Record<string, { name: RouteName; query: Record<string, stri
 };
 
 /**
+ * Brand pages that were folded into another brand, as the old slug and the
+ * slug of the brand that now holds it. /brands/kayali-uk opens Kayali, and the
+ * app then rewrites the address to /brands/kayali, the same way the gift sets
+ * address above is rewritten. Read from BRAND_MERGES in brandName.ts, the one
+ * list that also merges the brands, so a merge can never leave its old address
+ * answering with a not found. That module has no catalogue data in it, which
+ * keeps this file as light as it was.
+ */
+export const BRAND_ALIAS_SLUGS: Readonly<Record<string, string>> = Object.fromEntries(
+  BRAND_MERGES.map(([from, to]) => [slugify(from), slugify(to)] as const).filter(([from, to]) => from !== to),
+);
+
+/**
  * The account's own pages under /account. Fixed words rather than a param,
  * so a mistyped /account/anything is a miss like any other address, never the
  * profile page pretending to be what was asked for.
@@ -143,7 +158,10 @@ export function matchRoute(pathname: string, search = ''): Route {
 
   const leaf = LEAF_ROUTES[head!];
   if (leaf && tail) {
-    return { name: leaf, param: decodeURIComponent(tail), query };
+    const param = decodeURIComponent(tail);
+    // An old brand address lands on the brand it was merged into.
+    if (leaf === 'brand') return { name: leaf, param: BRAND_ALIAS_SLUGS[param] ?? param, query };
+    return { name: leaf, param, query };
   }
 
   // An address that matches nothing is not the homepage.

@@ -479,6 +479,8 @@ export const BRAND_SITES: Record<string, string> = {
   'giardini di toscana': 'https://www.giardiniditoscana.com/en',
   givenchy: 'https://www.givenchybeauty.com/gb/',
   'goldfield banks australia': 'https://www.goldfieldandbanks.com/',
+  // The same house under the plain name it is now filed as (merged 2026-10-04).
+  'goldfield banks': 'https://www.goldfieldandbanks.com/',
   // Brazilian house; .eu is the closest confirmed site to a UK reader — no
   // .com.br turned up in search results.
   granado: 'https://www.granado.eu/',
@@ -1140,6 +1142,9 @@ export const BRAND_SITES: Record<string, string> = {
   // the retailer split "Le Couvent des Minimes" across the brand and name
   // fields. Same URL as the existing 'le couvent des minimes' entry.
   'le couvent': 'https://fr.lecouventparfums.com/en',
+  // The three names this house was filed under are now one, "Le Couvent Maison
+  // de Parfum" (merged 2026-10-04); the same site as the two above.
+  'le couvent maison de parfum': 'https://fr.lecouventparfums.com/en',
   // "New Brand Perfumes" — anglicised form of "New Brand Parfums", already
   // resolved above. Products: Prestige Gold, Gold Women Prestige.
   'new brand perfumes': 'https://pcdesignperfumes.com/new-brand/',
@@ -1231,6 +1236,8 @@ export const BRAND_SITES: Record<string, string> = {
   // British.
   'arran sense of scotland': 'https://arran.com/',
   'carner barcelona': 'https://carnerbarcelona.com/',
+  // The same house under the plain name it is now filed as (merged 2026-10-04).
+  carner: 'https://carnerbarcelona.com/',
   accessorize: 'https://www.accessorize.com/uk',
   // int.biotherm.com/en_GB/homepage is the brand's own UK storefront, and
   // the en_GB segment is a shape marketOf reads correctly, so this one
