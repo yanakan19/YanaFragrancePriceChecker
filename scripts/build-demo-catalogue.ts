@@ -22,6 +22,8 @@ import { CatalogueStore } from '../src/catalogue/store.js';
 import { isNewListing } from '../src/catalogue/newBadge.js';
 import { HIDE_OFFER_AFTER_DAYS, isTooOldToShow } from '../src/services/priceService.js';
 import type { StoredListing } from '../src/catalogue/types.js';
+import { listingStockState } from '../src/catalogue/listingAvailability.js';
+import type { StockState } from '../src/types/offer.js';
 import { RETAILERS, cannotCarryBrand } from '../src/config/retailers.js';
 import type { Retailer } from '../src/types/retailer.js';
 import { HOUSES } from '../src/config/houses.js';
@@ -224,7 +226,7 @@ interface Offer {
   price: number;
   wasPrice: number | null;
   promoEndsAt: string | null;
-  stock: 'inStock' | 'outOfStock' | 'unknown';
+  stock: StockState;
   url: string;
   fetchedAt: string;
   firstSeenAt: string;
@@ -675,7 +677,7 @@ if (existsSync(dir)) {
         });
       }
     }
-    if (active.length > 0) liveShops++;
+    if (active.some((l) => listingStockState(l) !== 'preOrder')) liveShops++;
 
     // Repaired once, here, so the same text drives the fragrance decision,
     // the brand match and the label a reader sees. MyBeauty.Boutique's feed
@@ -790,7 +792,7 @@ for (const { retailer, listings } of eligible) {
       price: l.priceGbp!,
       wasPrice: l.wasPriceGbp,
       promoEndsAt: l.promoEndsAt,
-      stock: l.inStock === true ? 'inStock' : l.inStock === false ? 'outOfStock' : 'unknown',
+      stock: listingStockState(l),
       url: l.url,
       fetchedAt: l.lastSeenAt,
       firstSeenAt: l.firstSeenAt,
@@ -1824,7 +1826,7 @@ for (const l of tooOldListings) {
     retailerId: l.retailerId,
     price: l.priceGbp,
     fetchedAt: l.lastSeenAt,
-    stock: l.inStock === true ? 'inStock' : l.inStock === false ? 'outOfStock' : 'unknown',
+    stock: listingStockState(l),
   });
   olderOffersKept++;
 }

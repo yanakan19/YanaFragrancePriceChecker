@@ -1,7 +1,7 @@
 import type { PresentedOffer } from '../src/types/offer.js';
 
 /**
- * A product page's offers in the order they are shown. Three groups, each
+ * A product page's offers in the order they are shown. Four groups, each
  * strictly cheapest first (owner feedback, 2026-10-01):
  *
  *   delivered     buyable, delivery included
@@ -9,6 +9,11 @@ import type { PresentedOffer } from '../src/types/offer.js';
  *                 "Delivery not included" section, because its price cannot
  *                 be compared with an all in one)
  *   gone          sold out
+ *   preOrder      the shop sells it but is not shipping it yet (its own
+ *                 Pre-Order statement), under the sold out rows: neither can be
+ *                 bought today, so neither is ever in the Cheapest tag, the
+ *                 count in the heading or any in stock figure (owner's
+ *                 request, 2026-10-04)
  *
  * ── Why there is no "Older prices" group (owner's decision, 2026-10-03) ─────
  * For one morning, offers last checked over ten days ago sat in a
@@ -30,6 +35,7 @@ export interface OfferGroups {
   delivered: PresentedOffer[];
   plusDelivery: PresentedOffer[];
   gone: PresentedOffer[];
+  preOrder: PresentedOffer[];
 }
 
 const byPrice = (a: PresentedOffer, b: PresentedOffer): number =>
@@ -42,13 +48,14 @@ export function offerGroups(rows: readonly PresentedOffer[]): OfferGroups {
   return {
     delivered: live.filter((r) => r.deliveredPriceGbp !== null).sort(byPrice),
     plusDelivery: live.filter((r) => r.deliveredPriceGbp === null).sort(byPrice),
-    gone: rows.filter((r) => !r.isPurchasable).sort(byPrice),
+    gone: rows.filter((r) => !r.isPurchasable && r.stock !== 'preOrder').sort(byPrice),
+    preOrder: rows.filter((r) => r.stock === 'preOrder').sort(byPrice),
   };
 }
 
 /** Every group in page order, for anything listing the shops as the page does. */
 export function offersInPageOrder(groups: OfferGroups): PresentedOffer[] {
-  return [...groups.delivered, ...groups.plusDelivery, ...groups.gone];
+  return [...groups.delivered, ...groups.plusDelivery, ...groups.gone, ...groups.preOrder];
 }
 
 /**

@@ -31,7 +31,7 @@ export interface ComparisonOptions {
   sortBy?: SortKey;
   /** Restrict to retailers that stock this catalogue segment. */
   tier?: RetailerTier;
-  /** Drop out-of-stock rows entirely instead of grouping them at the bottom. */
+  /** Drop out-of-stock and pre-order rows entirely instead of grouping them at the bottom. */
   hideOutOfStock?: boolean;
   /** Injected for deterministic tests. */
   now?: Date;
@@ -51,19 +51,25 @@ export interface ComparisonOptions {
  * bottom would misrepresent the retailer, while promoting it to compete on
  * price would overstate what we know.
  *
- * Only an explicit out-of-stock signal reaches the bottom.
+ * Only an explicit out-of-stock signal, or a shop's own statement that a
+ * bottle is a pre-order, reaches the bottom. A pre-order sits under the sold
+ * out rows: it cannot be bought today either, but it can still be ordered.
  */
 const STOCK_RANK: Record<StockState, number> = {
   inStock: 0,
   lowStock: 0,
-  preOrder: 0,
   unknown: 1,
   outOfStock: 2,
+  preOrder: 3,
 };
 
-/** Only an explicit out-of-stock signal makes a row unbuyable. */
+/**
+ * Only an explicit out-of-stock signal or an explicit pre-order makes a row
+ * unbuyable. A pre-order is not shipping yet, so it is never counted as stock:
+ * not the cheapest, not an in stock count, not a deal.
+ */
 export function isPurchasable(stock: StockState): boolean {
-  return stock !== 'outOfStock';
+  return stock !== 'outOfStock' && stock !== 'preOrder';
 }
 
 /**
@@ -73,13 +79,14 @@ export function isPurchasable(stock: StockState): boolean {
  * an argument so it can be tested without the generated build.
  */
 export function showableListingCount(
-  offersByProduct: Readonly<Record<string, readonly { retailerId: string; fetchedAt: string }[]>>,
+  offersByProduct: Readonly<Record<string, readonly { retailerId: string; fetchedAt: string; stock?: StockState }[]>>,
   retailerId: string,
   now: Date = new Date(),
 ): number {
   let n = 0;
   for (const offers of Object.values(offersByProduct)) {
-    if (offers.some((o) => o.retailerId === retailerId && !isTooOldToShow(o.fetchedAt, now))) n++;
+    // A pre-order is not stocked yet, so it is not a listing the shop has.
+    if (offers.some((o) => o.retailerId === retailerId && o.stock !== 'preOrder' && !isTooOldToShow(o.fetchedAt, now))) n++;
   }
   return n;
 }
@@ -159,7 +166,7 @@ export function buildComparison(
     // comparable row rather than being hidden.
     if (!retailer || !retailer.enabled) continue;
     if (tier && !retailer.tiers.includes(tier)) continue;
-    if (hideOutOfStock && offer.stock === 'outOfStock') continue;
+    if (hideOutOfStock && !isPurchasable(offer.stock)) continue;
     // Too old to show (see HIDE_OFFER_AFTER_DAYS in offerAge.ts). The build already
     // drops these from the catalogue; this repeats it against the reader's
     // own clock, so a page left unrebuilt for days still never lists one.
@@ -196,9 +203,14 @@ export function purchasableOffers(rows: readonly PresentedOffer[]): PresentedOff
   return rows.filter((r) => r.isPurchasable);
 }
 
-/** The out-of-stock rows, which render as a separate group at the bottom. */
+/** The sold out and pre-order rows, which render as separate groups at the bottom. */
 export function outOfStockOffers(rows: readonly PresentedOffer[]): PresentedOffer[] {
   return rows.filter((r) => !r.isPurchasable);
+}
+
+/** The pre-order rows alone: the shop sells the bottle but is not shipping it yet. */
+export function preOrderOffers(rows: readonly PresentedOffer[]): PresentedOffer[] {
+  return rows.filter((r) => r.stock === 'preOrder');
 }
 
 /**

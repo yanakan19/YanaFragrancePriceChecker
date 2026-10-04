@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.43.0',
+    date: '4 Oct 2026',
+    title: 'Preorders are shown on their own',
+    points: [
+      'A shop preorder now sits under Sold Out',
+      'A preorder is never cheapest or counted in stock',
+      'Read from Bloom Perfumery and Emirates Oud',
+    ],
+  },
+  {
     version: 'v3.41.0',
     date: '4 Oct 2026',
     title: 'Gift sets are now a Size filter option',

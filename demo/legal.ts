@@ -380,11 +380,17 @@ export const LEGAL_PAGES: LegalPage[] = [
       them. But we never build a members only rate into the headline price,
       because you cannot pay it unless you have already joined.</p>
 
-      <h2 class="t-section">Sold Out Stays at the Bottom</h2>
+      <h2 class="t-section">Sold Out and Preorder Stay at the Bottom</h2>
       <p>Listings a shop has marked unavailable sit at the end and can never be
       shown as cheapest, however low the price. Where we could not read the
       stock at all, we say so rather than guess. That listing drops below the
       ones we could confirm.</p>
+      <p>Some shops sell a bottle before it is shipping and label it preorder.
+      You cannot get one today, so it sits under the sold out listings with a
+      Preorder label. It is never shown as cheapest and never counted as in
+      stock, in a deal, in a price drop email or on the price graph. We only
+      say preorder when the shop itself does, on its own page or in its own
+      feed. We do not guess it from a date or a missing figure.</p>
 
       <h2 class="t-section">Reviews</h2>
       <p>We do not write reviews, collect them, or mix one shop's rating with

@@ -166,7 +166,9 @@ const SINGLE_BRAND_ONLY_IDS = new Set(
  * for this fragrance, and differ only where one did.
  */
 function rankableShopCount(id: string): number {
-  return (CRAWLED[id] ?? []).filter((o) => !SINGLE_BRAND_ONLY_IDS.has(o.retailerId)).length;
+  // A pre-order is not stocked yet, so it is no evidence the market has
+  // picked the product up: it never counts towards Most Stocked.
+  return (CRAWLED[id] ?? []).filter((o) => !SINGLE_BRAND_ONLY_IDS.has(o.retailerId) && o.stock !== 'preOrder').length;
 }
 
 /**
@@ -327,11 +329,14 @@ export const DEALS: Deal[] = DEALS_RAW.flatMap((d) => {
 /**
  * Which fragrances a given shop actually lists, most widely stocked first.
  * An offer too old to show (HIDE_OFFER_AFTER_DAYS in priceService.ts) does
- * not count, so this always agrees with listingCountAt below.
+ * not count, and neither does a pre-order (not stocked yet), so this always
+ * agrees with listingCountAt below.
  */
 export function fragrancesAt(retailerId: string): DemoFragrance[] {
   return BY_POPULARITY.filter((f) =>
-    (CRAWLED[f.id] ?? []).some((o) => o.retailerId === retailerId && !isTooOldToShow(o.fetchedAt)),
+    (CRAWLED[f.id] ?? []).some(
+      (o) => o.retailerId === retailerId && o.stock !== 'preOrder' && !isTooOldToShow(o.fetchedAt),
+    ),
   );
 }
 

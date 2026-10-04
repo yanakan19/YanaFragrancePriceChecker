@@ -3,6 +3,13 @@ import type { Retailer } from './retailer.js';
 /**
  * Stock state as reported by a retailer.
  *
+ * `preOrder` is a bottle the shop sells but is not shipping yet: its page says
+ * Pre-Order, or its feed or JSON-LD says PreOrder, BackOrder or PreSale. It is
+ * not in stock and nobody can get one now, so it is never buyable
+ * (`isPurchasable` is false), never the cheapest, and never counted as stock.
+ * It is kept apart from `outOfStock` because a shopper can still order one.
+ * It is only ever read from a shop's own statement, never inferred.
+ *
  * `unknown` is kept distinct from `outOfStock` on purpose. A page we failed to
  * parse is not evidence that a product is unavailable, and demoting it to the
  * bottom of the results would misrepresent the retailer. Only an explicit
@@ -156,7 +163,10 @@ export interface PresentedOffer {
   discount: DiscountDisplay | null;
   delivery: DeliveryDisplay;
   stock: StockState;
-  /** True only for an explicit out-of-stock signal; drives the bottom grouping. */
+  /**
+   * False for an explicit out-of-stock signal and for a pre-order: neither can
+   * be bought today. Drives the bottom grouping.
+   */
   isPurchasable: boolean;
   /** Affiliate link when the programme is live, otherwise the plain retailer URL. */
   outboundUrl: string;

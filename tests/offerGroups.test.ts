@@ -43,7 +43,7 @@ describe('offerGroups', () => {
   const order = offersInPageOrder(groups);
 
   it('lists older offers in the one list, by delivered price, with no group of their own', () => {
-    expect(Object.keys(groups).sort()).toEqual(['delivered', 'gone', 'plusDelivery']);
+    expect(Object.keys(groups).sort()).toEqual(['delivered', 'gone', 'plusDelivery', 'preOrder']);
     const buyable = [...groups.delivered, ...groups.plusDelivery];
     expect(buyable.map((r) => r.retailer.id)).toContain('perfumeo');
     expect(buyable.map((r) => r.retailer.id)).toContain('justmylook');

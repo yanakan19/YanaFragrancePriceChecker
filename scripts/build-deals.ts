@@ -100,9 +100,10 @@ interface RawDeal {
  * the same reason a retailer with no stated delivery cost never ranks as
  * cheapest. Only inStock and lowStock survive; lowStock is still in stock.
  *
- * Today the harvest only ever emits inStock and outOfStock, so preOrder and
- * unknown cost nothing to exclude — but they are the states that would
- * silently leak through a negated test if an adapter started emitting them.
+ * The harvest now emits preOrder (a shop's own Pre-Order statement, see
+ * listingStockState in src/catalogue/listingAvailability.ts: Bloom Perfumery
+ * and Emirates Oud today) and unknown, and both stay out here. They are the
+ * states that would silently leak through a negated test.
  */
 const BUYABLE: ReadonlySet<StockState> = new Set<StockState>(['inStock', 'lowStock']);
 

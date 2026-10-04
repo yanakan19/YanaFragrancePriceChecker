@@ -62,6 +62,8 @@ import { createHttp } from '../src/catalogue/httpFetch.js';
 import { titleWithSizeFromUrl } from '../src/catalogue/sizeFromUrl.js';
 import { readSizesFromProductPages } from '../src/catalogue/productPageSize.js';
 import { readStrengthsFromProductPages } from '../src/catalogue/productPageStrength.js';
+import { readAvailabilityFromProductPages } from '../src/catalogue/productPageAvailability.js';
+import { markTitlePreOrders } from '../src/catalogue/listingAvailability.js';
 import { checkApifyAccount } from '../src/catalogue/apifyAccount.js';
 import { checkApifyUsage } from '../src/catalogue/apifyUsage.js';
 import { looksLikeTimeouts, SLOW_SHOP_TIMEOUT_MS } from '../src/catalogue/strategy.js';
@@ -1239,6 +1241,47 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
     for (const u of pageStrengths.unread) console.log(`      page not read  ${u}`);
   }
 
+  // A pre-order the shop's own product page states and its feed hides: Bloom
+  // Perfumery's /products.json calls a Pre-Order bottle available. One request
+  // per product page, robots.txt checked for each, asked as ourselves at the
+  // shop's own gap and inside this shop's time, pages not read for longest
+  // first. A page that cannot be read leaves the feed's word, except that a
+  // recent pre-order from an earlier read of it is kept. See
+  // src/catalogue/productPageAvailability.ts.
+  let pageAvailability: Awaited<ReturnType<typeof readAvailabilityFromProductPages>> | null = null;
+  if (retailer.availabilityFromProductPage && retailer.shopifyStorefront && !viaProxy && !viaActor && withPrice.length > 0) {
+    pageAvailability = await readAvailabilityFromProductPages(withPrice, {
+      http,
+      robots,
+      headers: { ...shopHeaders, ...pageMarketHeaders },
+      gapMs,
+      marketParam: pageMarketQuery || null,
+      deadlineAt: shopDeadlineAt,
+      prior: new Map(
+        priorLive.map((l) => [
+          l.retailerSku,
+          { availability: l.availability ?? null, availabilityReadAt: l.availabilityReadAt ?? null },
+        ]),
+      ),
+    });
+    withPrice = pageAvailability.listings as typeof withPrice;
+    for (const c of pageAvailability.preOrder) console.log(`      page states pre-order  ${c}`);
+    for (const c of pageAvailability.cleared) console.log(`      page no longer states pre-order  ${c}`);
+    for (const c of pageAvailability.carried) console.log(`      page not read, earlier pre-order kept  ${c}`);
+    for (const c of pageAvailability.conflicts) console.log(`::warning::${retailer.id}: ${c}`);
+    for (const u of pageAvailability.unread) console.log(`      page not read  ${u}`);
+  }
+
+  // A shop's own "Pre-Order" wording in a title (Emirates Oud writes "PRE-ORDER:
+  // Estimated dispatch: 7th October" after the name), on any route and for
+  // feed listings too. Explicit wording only; a sold out listing stays sold
+  // out. See titleStatesPreOrder.
+  const titleMarked = markTitlePreOrders(withPrice);
+  withPrice = titleMarked.listings as typeof withPrice;
+  const feedMarked = markTitlePreOrders(feedListings);
+  feedListings = feedMarked.listings as typeof feedListings;
+  const titlePreOrders = titleMarked.marked.length + feedMarked.marked.length;
+
   // A size the shop states in its own product URL but omits from the title,
   // put back where every consumer of a listing already looks for it. Recovery
   // of a stated fact, never a guess — see src/catalogue/sizeFromUrl.ts for
@@ -1268,6 +1311,8 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
       (sizesRecovered ? `  [${sizesRecovered} sizes read from product URLs]` : '') +
       (pageSizes ? `  [${pageSizes.sized} sizes read from ${pageSizes.fetched} product pages]` : '') +
       (pageStrengths ? `  [${pageStrengths.stated} strengths read from ${pageStrengths.fetched} product pages]` : '') +
+      (pageAvailability ? `  [${pageAvailability.preOrder.length} pre-orders read from ${pageAvailability.fetched} product pages]` : '') +
+      (titlePreOrders ? `  [${titlePreOrders} pre-orders by title]` : '') +
       (refusals.length ? `  [refused ${refusals.length} page(s)]` : '') +
       (feedListings.length ? `  [+${feedListings.length} re-priced from ${feedPlatform} catalogue]` : '') +
       (refreshUrls.length ? `  [${refreshUrls.length} due for a page re-read]` : '') +

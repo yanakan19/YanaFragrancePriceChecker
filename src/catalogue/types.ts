@@ -59,6 +59,28 @@ export interface RawListing {
   /** Retailer published promotion end, ISO 8601. Never inferred. */
   promoEndsAt: string | null;
   inStock: boolean | null;
+  /**
+   * An explicit availability the in stock flag cannot say: `'preOrder'` when
+   * the shop itself states the bottle is a pre-order (schema.org availability
+   * PreOrder, BackOrder or PreSale on its page or feed, or the shop's own
+   * "Pre-Order" wording in the title). Never inferred.
+   *
+   * Extends `inStock` rather than overloading it. A pre-order is not in stock
+   * today, so wherever this is `'preOrder'` the flag is `false`, and every
+   * reader that only knows the flag still treats the listing as not
+   * purchasable; the reader that knows this field says Preorder instead of
+   * Sold Out (`listingStockState`). Absent or null means the shop states
+   * nothing beyond the flag, which is every listing stored before this field
+   * existed, so old data stays valid.
+   */
+  availability?: 'preOrder' | null;
+  /**
+   * When a read of the shop's own product page last settled `availability` for
+   * this listing, ISO 8601. Only set for a shop whose feed cannot tell a
+   * pre-order from stock (`availabilityFromProductPage`), where it orders the
+   * next run's reads oldest first. Absent for every other shop.
+   */
+  availabilityReadAt?: string | null;
   /** Which catalogue section this listing was found in. */
   sectionId: string;
   /**

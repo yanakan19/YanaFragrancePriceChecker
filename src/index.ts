@@ -32,6 +32,7 @@ export {
   presentOffer,
   purchasableOffers,
   outOfStockOffers,
+  preOrderOffers,
   bestOffer,
   isPurchasable,
 } from './services/priceService.js';
