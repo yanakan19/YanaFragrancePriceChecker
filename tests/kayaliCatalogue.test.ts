@@ -39,8 +39,31 @@ describe('Kayali in the built catalogue', () => {
       const key = `${p.name}|${p.concentration}`;
       families.set(key, [...(families.get(key) ?? []), p]);
     }
-    // 35 perfumes, one name each (it was 69 names while the mini carried its label).
-    expect(families.size).toBeLessThanOrEqual(36);
+    // One name per perfume, however many perfumes Kayali (and a reseller of
+    // Kayali) list today: a count here was a pin on the live range ("35
+    // perfumes", then 47 when Cult Beauty's arrived), and it said nothing about
+    // whether a perfume was split. The rule is that no two families are one
+    // scent written two ways. Kayali's scents are told apart by their words
+    // with three things a shop may or may not print set aside: the two digit
+    // number, "Intense" and "Vacay" (the house's Vacay in a Bottle line, which
+    // Cult Beauty titles without it). Accents and punctuation do not count.
+    const scentOf = (name: string) =>
+      [
+        ...new Set(
+          (name.normalize('NFKD').replace(/\p{Mn}/gu, '').toLowerCase().match(/[a-z0-9]+/g) ?? []).filter(
+            (w) => !/^\d{2}$/.test(w) && w !== 'intense' && w !== 'vacay',
+          ),
+        ),
+      ]
+        .sort()
+        .join(' ');
+    const namesOfScent = new Map<string, Set<string>>();
+    for (const key of families.keys()) {
+      // The name itself carries pipes ("Vanilla | 28"); the strength is after the last.
+      const scent = scentOf(key.slice(0, key.lastIndexOf('|')));
+      namesOfScent.set(scent, (namesOfScent.get(scent) ?? new Set()).add(key));
+    }
+    for (const [scent, keys] of namesOfScent) expect([...keys], `one scent, several names: ${scent}`).toHaveLength(1);
     for (const [key, products] of families) {
       const sizes = products.map((p) => p.sizeMl);
       expect(new Set(sizes).size, `${key}: ${sizes.join(', ')}`).toBe(sizes.length);

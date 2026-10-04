@@ -103,6 +103,43 @@ describe('product names carry no shop descriptor rubbish', () => {
    */
   const KAYALI_SET_PIPE_NAMES = /\s\|\s\d{2}\b/;
 
+  /**
+   * (1d) VERIFIED DISTINGUISHING, 2026-10-04. Bloom Perfumery titles its niche
+   * houses "<line or name> | <scent, variant or translated name>": Brocard's
+   * "Terra Incognita | Siberia" and "Scents of Nature | Tulip and Mimosa",
+   * Commodity's "Book | Bold" and "Book | Personal", Comme Des Garcons'
+   * "Series 3: Incense | Kyoto", Maison Matine's "Bain de Minuit | Skinny
+   * Dipping", Etat Libre d'Orange's "I am Trash | Les Fleurs du Dechet", Ylem's
+   * "NGC 6302 | Butterfly Nebula". All 46 were read against
+   * data/catalogue/bloom-perfumery.json: each is that shop's own product title,
+   * and its vendor is the house.
+   *
+   * What is verified is not that the pipe is the house's own punctuation (it is
+   * a reseller's layout, and nothing here claims otherwise) but that the words
+   * after it are what tells the bottles apart. "Terra Incognita | Siberia" and
+   * "Terra Incognita | Secret Island" are two perfumes, and so are "Book | Bold"
+   * and "Book | Personal"; the noise strips in displayName would, if they took
+   * the segment, fold each group into one product and show one price for all of
+   * them, which is the same harm this file exists to prevent from the other
+   * side. So the pipe stays until a rule can re-punctuate it without losing a
+   * word, and the test says so rather than pretending it is clean.
+   *
+   * Held to these houses and to one pipe with Latin text on both sides, so it
+   * cannot excuse a reseller's "Name | Scent family" on any other house, and a
+   * translation left in another script (the shop's other habit, which
+   * stripTranslatedWords now takes off) still fails.
+   */
+  const TWO_PART_PIPE_HOUSES = new Set([
+    'brocard',
+    'commodity',
+    'comme des garcons',
+    "etat libre d'orange",
+    'maison matine',
+    'ylem',
+  ]);
+  const isTwoPartLatinPipe = (name: string): boolean =>
+    /^[^|]*[^|\s]\s*\|\s*[^|\s][^|]*$/.test(name) && !/[^\p{Script=Latin}\p{N}\p{P}\p{S}\s]/u.test(name);
+
 
   it('has no "|" in a name outside the verified allowlist', () => {
     const offenders = CATALOGUE.filter(
@@ -111,6 +148,7 @@ describe('product names carry no shop descriptor rubbish', () => {
         !REAL_PIPE_NAMES.test(p.name) &&
         !(p.brand.toLowerCase() === 'kayali' && KAYALI_PIPE_NAMES.test(p.name)) &&
         !(p.brand.toLowerCase() === 'kayali' && p.giftSet && KAYALI_SET_PIPE_NAMES.test(p.name)) &&
+        !(TWO_PART_PIPE_HOUSES.has(p.brand.toLowerCase()) && isTwoPartLatinPipe(p.name)) &&
         !KNOWN_UNFIXED_PIPE_NAMES.has(p.name),
     ).map((p) => `${p.brand}: ${p.name}`);
     expect([...new Set(offenders)]).toEqual([]);

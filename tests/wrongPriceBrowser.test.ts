@@ -72,7 +72,7 @@ describe.skipIf(!built)('wrong price report (built page, Chromium)', () => {
     const shopsOnPage = (await page.locator('.detail-offers .offers .shop').evaluateAll(
       // The shop's name is the row's own text node: a logo (.offer-mark) may
       // come before it and a Cheapest tag after it, both elements.
-      (els) => els.map((el) => ([...el.childNodes].find((n) => n.nodeType === 3 && (n.textContent ?? '').trim())?.textContent ?? '').trim()),
+      (els) => els.map((el) => (Array.from(el.childNodes).find((n) => n.nodeType === 3 && (n.textContent ?? '').trim())?.textContent ?? '').trim()),
     ));
     expect(shopsOnPage.length).toBeGreaterThan(0);
 
@@ -87,10 +87,10 @@ describe.skipIf(!built)('wrong price report (built page, Chromium)', () => {
       labelledBy: document.getElementById(d.getAttribute('aria-labelledby') ?? '')?.textContent ?? null,
       focusInside: d.contains(document.activeElement),
       focusName: (document.activeElement as HTMLSelectElement | null)?.name ?? null,
-      unlabelled: [...d.querySelectorAll('select, textarea, input')].filter((f) => !f.closest('label')).length,
-      fontSizes: [...d.querySelectorAll('select, textarea, input')].map((f) => getComputedStyle(f).fontSize),
-      options: [...d.querySelectorAll('select[name="shop"] option')].map((o) => o.textContent ?? ''),
-      problems: [...d.querySelectorAll('select[name="problem"] option')].map((o) => o.textContent ?? ''),
+      unlabelled: Array.from(d.querySelectorAll('select, textarea, input')).filter((f) => !f.closest('label')).length,
+      fontSizes: Array.from(d.querySelectorAll('select, textarea, input')).map((f) => getComputedStyle(f).fontSize),
+      options: Array.from(d.querySelectorAll('select[name="shop"] option')).map((o) => o.textContent ?? ''),
+      problems: Array.from(d.querySelectorAll('select[name="problem"] option')).map((o) => o.textContent ?? ''),
     }));
     expect(a11y.modal).toBe(true);
     expect(a11y.labelledBy).toBe('Report a Wrong Price');
@@ -128,7 +128,7 @@ describe.skipIf(!built)('wrong price report (built page, Chromium)', () => {
     });
     // The row's own text node, as above: a logo (.offer-mark) may come first.
     const firstShop = (await page.locator('.detail-offers .offers .shop').first().evaluate(
-      (el) => ([...el.childNodes].find((n) => n.nodeType === 3 && (n.textContent ?? '').trim())?.textContent ?? '').trim(),
+      (el) => (Array.from(el.childNodes).find((n) => n.nodeType === 3 && (n.textContent ?? '').trim())?.textContent ?? '').trim(),
     ));
     await page.click('[data-report-price]');
     const dlg = page.locator('dialog#ps-report');
