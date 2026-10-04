@@ -709,6 +709,62 @@ describe('settleHouseConcentrations: a house selling two strengths under one nam
   });
 });
 
+describe('findDuplicateGroups: one Kayali scent, written with more or less of its number', () => {
+  // The names are what displayName gives the real titles: the house's own
+  // storefront (kayali-*) and Cult Beauty's, read 2026-10-04.
+  const k = (o: Partial<MatchableProduct> & { id: string }) =>
+    p({ brand: 'Kayali', concentration: 'Eau de Parfum', sizeMl: 50, ...o });
+  const together = (groups: ReturnType<typeof findDuplicateGroups>, a: string, b: string) =>
+    groups.some((g) => {
+      const ids = [g.canonical, ...g.absorbed].map((q) => q.id);
+      return ids.includes(a) && ids.includes(b);
+    });
+
+  it('joins a title with no number to the one that carries it, and keeps the house page', () => {
+    const house = k({ id: 'kayali-ky00220', name: 'Eden Sparkling Lychee | 39' });
+    const shop = k({ id: 'cult-beauty-global-14922725', name: 'Eden Sparkling Lychee' });
+    for (const order of [[house, shop], [shop, house]]) {
+      const groups = findDuplicateGroups(order);
+      expect(groups).toHaveLength(1);
+      expect(groups[0]!.canonical.id).toBe('kayali-ky00220');
+      expect(groups[0]!.absorbed.map((q) => q.id)).toEqual(['cult-beauty-global-14922725']);
+    }
+  });
+
+  it('joins "Intense" and "Vacay in a Bottle" written by one shop and not the other', () => {
+    const groups = findDuplicateGroups([
+      k({ id: 'kayali-ky00159', name: 'Oudgasm Vanilla Oud | 36 Intense' }),
+      k({ id: 'cult-beauty-global-14920265', name: 'Oudgasm Vanilla Oud 36' }),
+      k({ id: 'kayali-ky00395', name: 'Vacay in a Bottle Maldives in a Bottle Ylang Coco | 20' }),
+      k({ id: 'cult-beauty-global-15999216', name: 'Maldives in a Bottle Ylang Coco | 20' }),
+    ]);
+    expect(together(groups, 'kayali-ky00159', 'cult-beauty-global-14920265')).toBe(true);
+    expect(together(groups, 'kayali-ky00395', 'cult-beauty-global-15999216')).toBe(true);
+    expect(groups.find((g) => together([g], 'kayali-ky00395', 'cult-beauty-global-15999216'))!.canonical.id).toBe('kayali-ky00395');
+  });
+
+  it('never joins different sizes, different strengths, or two different numbers', () => {
+    const base = k({ id: 'a', name: 'Eden Sparkling Lychee | 39' });
+    expect(findDuplicateGroups([base, k({ id: 'b', name: 'Eden Sparkling Lychee', sizeMl: 100 })])).toEqual([]);
+    expect(findDuplicateGroups([base, k({ id: 'c', name: 'Eden Sparkling Lychee', concentration: 'Extrait de Parfum' })])).toEqual([]);
+    // Two numbers for one set of words is two perfumes, whichever shop says so.
+    expect(
+      findDuplicateGroups([base, k({ id: 'd', name: 'Eden Sparkling Lychee | 40' }), k({ id: 'e', name: 'Eden Sparkling Lychee' })]),
+    ).toEqual([]);
+    // A name with no number on either side has nothing to be completed from.
+    expect(findDuplicateGroups([k({ id: 'f', name: 'Dapper Daddy Saffron Oud' }), k({ id: 'g', name: 'Dapper Daddy Saffron Oud Intense' })])).toEqual([]);
+  });
+
+  it('is Kayali\'s alone: another house\'s "Intense" or trailing number stays a different perfume', () => {
+    const a = p({ id: 'a', brand: 'Armaf', name: 'Club De Nuit', concentration: 'Eau de Parfum', sizeMl: 105 });
+    const b = p({ id: 'b', brand: 'Armaf', name: 'Club De Nuit Intense', concentration: 'Eau de Parfum', sizeMl: 105 });
+    const c = p({ id: 'c', brand: 'Afnan', name: 'Vibrant 24', concentration: 'Eau de Parfum', sizeMl: 100 });
+    const d = p({ id: 'd', brand: 'Afnan', name: 'Vibrant', concentration: 'Eau de Parfum', sizeMl: 100 });
+    expect(findDuplicateGroups([a, b])).toEqual([]);
+    expect(findDuplicateGroups([c, d])).toEqual([]);
+  });
+});
+
 describe('displayName: a size the shop wrote in brackets', () => {
   it('leaves no empty brackets behind (Cult Beauty writes every size as "(30ml)")', () => {
     expect(displayName('ESCENTRIC MOLECULES - Molecule 01 - Portable (30ml)', null, 'Escentric Molecules')).toBe(
