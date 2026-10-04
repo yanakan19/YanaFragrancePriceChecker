@@ -84,7 +84,12 @@ an error, then move to the next.
 4. `supabase/migrations/0004_price_alerts.sql` — price drop emails: the
    `profiles.price_alerts` opt in, two server only tables, the one click
    unsubscribe RPC and the sender's recipient list. See step 8.
-5. `supabase/migrations/0006_profile_photo.sql` — profile photos: the private
+5. `supabase/migrations/0005_wishlist_saved_price.sql` — the nullable
+   `wishlists.saved_price_gbp` column: the cheapest delivered price on the day
+   a fragrance was saved, behind the wishlist's change since saved and Biggest
+   Drop sort. Until it is run, both simply do not appear. See
+   docs/OWNER-STEPS.md, 4f.
+6. `supabase/migrations/0006_profile_photo.sql` — profile photos: the private
    `avatars` Storage bucket, its four own file policies, a check on
    `profiles.avatar_path`, and the `profile_photos_enabled()` switch. See
    step 9.
@@ -92,7 +97,7 @@ an error, then move to the next.
 Order matters: nothing in 0002 references 0001 directly, but 0001 is what
 makes an account exist in the first place.
 
-All five files are safe to run more than once. Every statement in them is
+All six files are safe to run more than once. Every statement in them is
 idempotent, so a half-finished paste, a re-run after fixing a typo, or simply
 not remembering whether you already did it all end in the same place.
 

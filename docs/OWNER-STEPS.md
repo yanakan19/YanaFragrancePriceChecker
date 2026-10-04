@@ -205,6 +205,23 @@ Authentication → Emails → SMTP Settings, host `smtp.resend.com`, port 465,
 user `resend`, password a Resend API key), which lifts Supabase's few emails
 an hour limit. Optional.
 
+### 4f. Switch on "change since saved" on the wishlist (2 minutes)
+
+The wishlist can show how far a fragrance's price has moved since the day a
+reader saved it, and offer a **Biggest Drop** sort. It needs one new column in
+the database, `saved_price_gbp` on `wishlists`.
+
+1. Supabase dashboard → **SQL Editor** → **New query** → paste the whole of
+   `supabase/migrations/0005_wishlist_saved_price.sql` → **Run**. It must say
+   success. It is safe to run twice.
+2. That is all. Until it is run the site carries on as it does today: saving
+   works, the price on the day is simply not kept, and the change and the
+   Biggest Drop sort do not appear. After it is run, only fragrances saved
+   from then on carry a saved price (the cheapest delivered price at that
+   moment). Fragrances saved earlier show no change, on purpose: the site
+   never works one out from today's price. Biggest Drop appears on a reader's
+   wishlist once at least one of their saved fragrances has a change to rank.
+
 ---
 
 ## 5. Switching on ads (30 minutes, then Google's review)

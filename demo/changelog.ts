@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.54.0',
+    date: '4 Oct 2026',
+    title: 'Pages stay for products with no prices',
+    points: [
+      'A product page now shows No Current Prices',
+      'It keeps the photo, name and price history',
+      'These stay out of lists, Deals and search',
+    ],
+  },
+  {
     version: 'v3.53.0',
     date: '4 Oct 2026',
     title: 'Preorder dates removed from names',
