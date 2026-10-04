@@ -2024,6 +2024,58 @@ export const RETAILERS: readonly Retailer[] = [
       readAt: '2026-10-03',
     },
     tiers: ['designer', 'niche'],
+    // ── The shop's own fragrance category pages, 2026-10-04 ──────────────
+    // The same THG platform as Cult Beauty (cultbeauty.co.uk), and the same
+    // fault: the generic walk guessed perfume from a product's name and read
+    // 42 never seen pages a run. LOOKFANTASTIC held 227 listings against
+    // about 2,400 products on its own "view all fragrance" category page
+    // (75 pages of 32), and the last scheduled run named 2,344 product
+    // addresses and fetched 162 pages. The route below is Cult Beauty's,
+    // asked as PriceSniffsBot and nothing else (every request, robots.txt
+    // included): the category walk finds the products, `variantSizesFromPage`
+    // reads each size of a multi size page from its size buttons, and
+    // `strengthFromPage` reads a strength from the page where the title
+    // names none.
+    //
+    // robots.txt, read 2026-10-04T17:50Z as PriceSniffsBot: HTTP 200, a "*"
+    // group that disallows search (/*search=*, /search/*), sort and
+    // pagination sort parameters, facetFilters, fromBrands, buy, checkout,
+    // basket, review and component paths, and a few named bad bots and the
+    // "mozilla/4" and "mozilla/5" groups with "Disallow: /" (so a browser
+    // identity is exactly what the file refuses; there is no group for
+    // PriceSniffsBot, so "*" applies, and it has no Crawl-delay). Allowed,
+    // checked with this repo's own parser: the category pages and
+    // ?pageNumber=N, /p/ product pages with and without ?variation=, and
+    // /sitemapindex-product.xml.gz with its sitemap-product-N files.
+    sitemapRoute: {
+      roots: ['https://www.lookfantastic.com/sitemapindex-product.xml.gz'],
+      follow: '/sitemap-product-\\d+\\.xml\\.gz$',
+      product: '^https://www\\.lookfantastic\\.com/p/[^/?#]+/\\d+/$',
+      // Candles, diffusers, room and linen sprays, hair and body mists and
+      // body and hair care sit in the same aisle and are named out; the rest
+      // go through every ordinary rule (strength words, sizes, gift sets,
+      // refills, travel sprays, house wording and pre-orders).
+      exclude:
+        '(^|[/-])(candles?|diffusers?|room-spray|linen-spray|pillow-mist|reed|wax-melts?|hair-perfume|hair-mist|hair-body|' +
+        'hair-and-body|body-and-hair|body-mist|shower-gel|body-wash|body-lotion|body-cream|hand-cream|hand-wash|' +
+        'shampoo|conditioner|deodorant|soap|serum)(-|/|$)',
+      maxSitemaps: 2,
+      requireGbp: true,
+      variantSizesFromPage: true,
+      strengthFromPage: true,
+      categories: {
+        pages: ['https://www.lookfantastic.com/c/health-beauty/fragrance/view-all-fragrance/'],
+        pageParam: 'pageNumber',
+        productLink: 'data-quicklook-url="(/p/[^"]+)"',
+        pageCount: 'Page 1 of (\\d+)',
+        maxPages: 90,
+        // Page one and every third page of the rest, a different third each
+        // run: about 26 of the 75 pages a run instead of all 75.
+        rotation: 3,
+      },
+      // About 2,400 products to read once.
+      discoveryPages: 300,
+    },
     enabled: true,
     // Live spike 1 Aug 2026 found the old section URL 404ing (fragrance.list
     // no longer exists). Corrected 6 Aug 2026 to the real category path,

@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.62.0',
+    date: '4 Oct 2026',
+    title: 'More LOOKFANTASTIC fragrances',
+    points: [
+      'Its own fragrance pages are now read',
+      'Each size is read as its own bottle',
+      'New perfumes appear as pages are read',
+    ],
+  },
+  {
     version: 'v3.61.0',
     date: '4 Oct 2026',
     title: 'Cult Beauty prices are rechecked daily',
