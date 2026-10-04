@@ -4,5 +4,19 @@
     "id": "ean-3508441104631",
     "dear": "allbeauty",
     "cheap": "mybeauty-boutique"
+  },
+  {
+    "date": "2026-10-04",
+    "slot": 1,
+    "id": "justmylook-mfk0004",
+    "dear": "selfridges",
+    "cheap": "les-senteurs"
+  },
+  {
+    "date": "2026-10-04",
+    "slot": 2,
+    "id": "ean-8028713830143",
+    "dear": "john-lewis",
+    "cheap": "fragrance-click"
   }
 ]
