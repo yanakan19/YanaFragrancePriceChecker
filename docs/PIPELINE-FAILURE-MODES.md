@@ -91,6 +91,7 @@ Likelihood is over a month of normal running. Impact is on the live site.
 | 30 | Memory and disk on runners | Low | Run lost | 16 GB runners; replay reads only changed snapshot files since 0b64483 | No failure seen in the runs read |
 | 31 | Misleading error text sends the next reader the wrong way (#566 said "neither generated nor a raw harvest snapshot" about a file that was both) | Was every such failure | Slower fixes | n/a | Message names the files and the real reason (e043e7ba) |
 | 32 | A one shop dispatch burst | Medium (15 on 2026-10-03) | Waiting dispatches replace each other; a scheduled tick can be replaced | Guard ignores one shop commits since 2026-10-03 | CLAUDE.md: one at a time |
+| 33 | Actions built for Node 20 (`checkout@v4`, `setup-node@v4`, `configure-pages@v5`) | Low | None yet: GitHub runs them on Node 24 and warns on every run | n/a | **Recommended:** move to the next major versions when they are out, one workflow at a time |
 
 ## Run times
 
@@ -127,3 +128,23 @@ move to UK time before 25 October, and a decision on repository growth.
   written as it ended, inside the check's one second clock allowance. The
   page commit was skipped and the warning note ran, the safe direction, but
   a false positive. Fixed in 1d498bd6.
+- **#598** (workflow_dispatch, `scheduled_tick`, 2026-10-04 13:34:57 to
+  13:35:11 UTC, success, 14 s). The outside scheduler's path: the guard
+  (10 s: 6 s runner set up, 1 s one file checkout, 1 s decision) read this
+  workflow's runs with the new `actions: read` permission, found another
+  agent's dispatch #597 in progress and answered `should-run=false`: "An older
+  crawl run is still going: #597 (workflow_dispatch, in_progress since
+  2026-10-04T13:30:56Z). Skipping this tick". The crawl job was skipped, so
+  the dispatch was gated exactly as a GitHub tick is.
+- **#597** (not one of the two proof dispatches: another agent's one shop
+  dispatch for cult-beauty-global, 13:30:56 to 14:25:26 UTC, success) ran the
+  rest of the new crawl on 1d498bd6's workflow: harvest 40:05 with its
+  deadline from `scripts/harvest-minutes.sh`, houses 5:24, harvest commit
+  0:03, rebuild 4:04 with the write check passing, page commit 0:10. That
+  page commit, 0a8bd114, took its paths from the manifest and carried
+  `demo/dormant.generated.ts` with the rest of the page: the file the old
+  hand typed list would have left behind (failure mode 2).
+- GitHub delivered no scheduled tick of the crawl between #593 (09:43) and at
+  least 14:26 UTC on 2026-10-04, through seven slots (every :15 from 10:15,
+  and :45 once that tick existed from 12:45), which is
+  failure mode 7 as it happens.
