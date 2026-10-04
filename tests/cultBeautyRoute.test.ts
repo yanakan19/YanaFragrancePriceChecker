@@ -1,8 +1,8 @@
 import { describe, expect, it, vi } from 'vitest';
 import {
-  canonicalPage, crawlViaSitemap, selectUrlsToFetch, CATEGORY_WALK_SHARE, ROUTE_HEADERS,
+  canonicalPage, cleanListingUrl, crawlViaSitemap, selectUrlsToFetch, CATEGORY_WALK_SHARE, ROTATION_BUCKET_MS, ROUTE_HEADERS,
 } from '../src/catalogue/sitemapCrawl.js';
-import { parseListings } from '../src/catalogue/jsonld.js';
+import { parseListings, sizeButtons } from '../src/catalogue/jsonld.js';
 import { isAllowed, parseRobots } from '../src/catalogue/robots.js';
 import { isCatalogueListing, isFragrance } from '../src/catalogue/fragranceId.js';
 import { getRetailer } from '../src/config/retailers.js';
@@ -243,6 +243,46 @@ describe('a route that reads the shop\'s category pages', () => {
     expect(result.fetchedEveryDiscovered).toBe(false);
   });
 
+  it('rotates: page one of every category each run, every other page once in three runs', async () => {
+    const pages = (cat: string, total: number): Record<string, { status: number; body: string }> => {
+      const out: Record<string, { status: number; body: string }> = {};
+      for (let n = 1; n <= total; n++) {
+        const url = n === 1 ? `${HOST}/c/fragrance/${cat}/` : `${HOST}/c/fragrance/${cat}/?pageNumber=${n}`;
+        out[url] = { status: 200, body: listingPage(n, total, [`/p/${cat}-${n}-eau-de-parfum-50ml/${n}00${cat.length}/`]) };
+      }
+      return out;
+    };
+    const replies = { ...pages('perfumes', 7), ...pages('niche', 4) };
+    const asked: string[][] = [];
+    for (const bucket of [0, 1, 2]) {
+      const spy = vi.spyOn(Date, 'now').mockImplementation(() => (1_000 + bucket) * ROTATION_BUCKET_MS);
+      try {
+        const { calls } = await walk({
+          replies,
+          route: { categories: { ...route.categories!, pages: [`${HOST}/c/fragrance/perfumes/`, `${HOST}/c/fragrance/niche/`], rotation: 3, maxPages: 10 } },
+          maxPages: 0,
+        });
+        asked.push(calls.map((c) => c.url.replace(HOST, '')).filter((u) => u.startsWith('/c/')));
+      } finally {
+        spy.mockRestore();
+      }
+    }
+    // Page one of both categories is read every run.
+    for (const run of asked) {
+      expect(run).toContain('/c/fragrance/perfumes/');
+      expect(run).toContain('/c/fragrance/niche/');
+    }
+    // Every other page is read in exactly one of the three runs.
+    const every = asked.flat().filter((u) => u.includes('pageNumber'));
+    expect(new Set(every).size).toBe(every.length);
+    expect([...every].sort()).toEqual([
+      ...[2, 3, 4, 5, 6, 7].map((n) => `/c/fragrance/perfumes/?pageNumber=${n}`),
+      ...[2, 3, 4].map((n) => `/c/fragrance/niche/?pageNumber=${n}`),
+    ].sort());
+    // A run reads about a third of the pages, not all ten.
+    for (const run of asked) expect(run.length).toBeLessThan(7);
+  });
+
   it('keeps the product pages their time when the category pages are slow', async () => {
     // A clock that moves one second a request. With eight seconds in all, the
     // category pages may take their share and no more; the sitemap and then
@@ -310,7 +350,14 @@ describe('reading a shop in many runs', () => {
     expect(result.discoveryFetched).toBe(2);
   });
 
-  it('gives a listing the address of its page, with no variation parameter', () => {
+  it('keeps the shop\'s own size selector on a listing\'s address, and drops anyone else\'s tracking', () => {
+    const page = `${HOST}/p/rose-eau-de-parfum-50ml/101/`;
+    expect(cleanListingUrl(`${page}?variation=101`, page)).toBe(`${page}?variation=101`);
+    expect(cleanListingUrl(`${page}?variation=101&awc=1_2`, page)).toBe(page);
+    expect(cleanListingUrl(`${page}?gclid=abc`, page)).toBe(page);
+  });
+
+  it('reads one listing from a page whose own variant is the page, whatever the other sizes cost', () => {
     const html = ld({
       '@type': 'ProductGroup', productGroupID: '101', name: 'Rose Eau de Parfum 50ml',
       hasVariant: [
@@ -323,6 +370,85 @@ describe('reading a shop in many runs', () => {
     const [only, ...rest] = parseListings(html, { sectionId: 'sitemap', pageUrl: `${HOST}/p/rose-eau-de-parfum-50ml/101/`, requireGbp: true });
     expect(rest).toHaveLength(0);
     expect(only!.priceGbp).toBe(98);
+  });
+});
+
+describe('a page that sells several sizes under one name', () => {
+  // Frederic Malle's Portrait of a Lady Eau de Parfum on cultbeauty.co.uk,
+  // read 2026-10-04: group 13319981, three variants all named alike, none of
+  // them the group's own sku, each with a size button.
+  const NAME = 'Frédéric Malle Portrait of a Lady Eau de Parfum';
+  const PAGE = `${HOST}/p/frederic-malle-portrait-of-a-lady-eau-de-parfum/13319981/`;
+  const variant = (sku: string, price: number, availability: string, name = NAME) => ({
+    '@type': 'Product', sku, name,
+    offers: { '@type': 'Offer', sku, url: `${PAGE}?variation=${sku}`, price, priceCurrency: 'GBP', availability: `https://schema.org/${availability}` },
+  });
+  const buttons = (pairs: [string, string][]) =>
+    pairs.map(([sku, size]) => `<button data-e2e="product_select_size_variant" data-sku="${sku}" data-stock="true" data-choice="${size}" data-size="${size}" type="button">${size}</button>`).join('');
+  const page = (variants: unknown[], pairs: [string, string][], groupId = '13319981') =>
+    `<html><head><script type="application/ld+json">${JSON.stringify({ '@type': 'ProductGroup', productGroupID: groupId, name: NAME, hasVariant: variants })}</script></head>` +
+    `<body><ul class="product-variations-size">${buttons(pairs)}</ul></body></html>`;
+  const three = [variant('13319982', 295, 'InStock'), variant('13319984', 160, 'OutOfStock'), variant('13319985', 205, 'InStock')];
+  const sizes: [string, string][] = [['13319984', '30ml'], ['13319985', '50ml'], ['13319982', '100ml']];
+  const read = (html: string, on = true) =>
+    parseListings(html, { sectionId: 'sitemap', pageUrl: PAGE, requireGbp: true, microdata: true, ...(on ? { variantSizesFromPage: true } : {}) });
+
+  it('reads the size of each variant off its button', () => {
+    expect([...sizeButtons(page(three, sizes))]).toEqual([['13319984', '30ml'], ['13319985', '50ml'], ['13319982', '100ml']]);
+  });
+
+  it('is no listing at all without the sizes, as the parser always read it', () => {
+    expect(read(page(three, sizes), false)).toHaveLength(0);
+  });
+
+  it('is one listing a size, each with its own sku, price, stock and size selecting address', () => {
+    const got = read(page(three, sizes)).map((l) => [l.retailerSku, l.rawTitle, l.priceGbp, l.inStock, l.url]);
+    expect(got).toEqual([
+      ['13319982', `${NAME} 100ml`, 295, true, `${PAGE}?variation=13319982`],
+      ['13319984', `${NAME} 30ml`, 160, false, `${PAGE}?variation=13319984`],
+      ['13319985', `${NAME} 50ml`, 205, true, `${PAGE}?variation=13319985`],
+    ]);
+  });
+
+  it('drops the shop\'s own "(Various Sizes)" from the name once each size says its own', () => {
+    // Byredo Mojave Ghost Eau de Parfum, same page shape, read 2026-10-04.
+    const alike = three.map((v) => ({ ...v, name: `${NAME} (Various Sizes)` }));
+    const got = read(page(alike, sizes)).map((l) => l.rawTitle);
+    expect(got).toEqual([`${NAME} 100ml`, `${NAME} 30ml`, `${NAME} 50ml`]);
+  });
+
+  it('a listing that is the shop\'s own sized fragrance goes through the ordinary rules', () => {
+    const [l] = read(page(three, sizes)).filter((x) => x.retailerSku === '13319985');
+    const stored = { ...l!, retailerId: 'cult-beauty-global', status: 'active' } as unknown as StoredListing;
+    expect(isFragrance(stored)).toBe(true);
+  });
+
+  it('leaves a page alone when any variant has no size button', () => {
+    expect(read(page(three, sizes.slice(0, 2)))).toHaveLength(0);
+  });
+
+  it('leaves a page alone when two variants would share a size', () => {
+    expect(read(page(three, [['13319984', '30ml'], ['13319985', '30ml'], ['13319982', '100ml']]))).toHaveLength(0);
+  });
+
+  it('leaves a page alone when one variant is the page\'s own product', () => {
+    const own = [variant('13319981', 98, 'InStock'), variant('13319984', 71, 'InStock'), variant('13319985', 135, 'InStock')];
+    const got = read(page(own, [['13319981', '50ml'], ['13319984', '30ml'], ['13319985', '100ml']]));
+    // Only the group's own variant, as before: the other sizes have pages of their own.
+    expect(got.map((l) => [l.retailerSku, l.rawTitle, l.priceGbp])).toEqual([['13319981', NAME, 98]]);
+  });
+
+  it('does not add a size the name already states', () => {
+    const named = [
+      variant('13319982', 295, 'InStock', `${NAME} 100ml`),
+      variant('13319984', 160, 'InStock', `${NAME} 30ml`),
+    ];
+    const got = read(page(named, [['13319982', '100ml'], ['13319984', '30ml']]));
+    expect(got.map((l) => l.rawTitle)).toEqual([`${NAME} 100ml`, `${NAME} 30ml`]);
+  });
+
+  it('is only done for a route that asks for it, and Cult Beauty does', () => {
+    expect(getRetailer('cult-beauty-global')!.sitemapRoute!.variantSizesFromPage).toBe(true);
   });
 });
 
@@ -484,6 +610,9 @@ describe('Cult Beauty in the registry', () => {
 
   it('reads a floor of 300 never read pages a run, five runs for what the aisles hold', () => {
     expect(r.discoveryPages).toBe(300);
+    // A third of the category pages a run, and the page count the rotation needs.
+    expect(r.categories!.rotation).toBe(3);
+    expect(r.categories!.pageCount).toBeDefined();
     expect(r.maxSitemaps).toBe(2);
     expect(r.requireGbp).toBe(true);
   });

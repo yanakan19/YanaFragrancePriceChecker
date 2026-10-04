@@ -6848,8 +6848,10 @@ export const RETAILERS: readonly Retailer[] = [
     // The generic walk this shop was on guessed perfume from a product's name
     // and read 42 never seen pages a run: 1,138 of the sitemap's 10,639
     // product addresses name a fragrance word, 156 are stored, and the last
-    // scheduled sweep (10:08Z to 10:12Z, 92 pages, 86 priced) added a handful.
-    // Three faults, each measured:
+    // scheduled sweep (10:08Z to 10:12Z) read 92 pages, 50 of them due
+    // re-reads and 42 new, 86 priced. LOOKFANTASTIC, the same platform and the
+    // same walk, holds 185 listings against 76 pages of fragrance (2,400
+    // products) on its own category page. Three faults, each measured:
     //   1. The sitemap is old and names the wrong things. sitemapindex-product
     //      lists one file, lastmod 2026-09-03, and of the 1,697 products the
     //      shop's own fragrance category pages listed on 2026-10-04, 148 are
@@ -6864,9 +6866,14 @@ export const RETAILERS: readonly Retailer[] = [
     //      the file refuses, so the route below is asked as PriceSniffsBot
     //      and nothing else, as every pinned route is. The conventional
     //      /sitemap.xml also answered this walk HTTP 403 on every run.
-    //   3. Too few pages. 42 a run at the 1.5 s gap is 250 a day against a
-    //      range of about 1,700 products, each of which also has to be read
-    //      again every day.
+    //   3. Too few pages. 42 a run is about 250 a day against a range of about
+    //      1,700 products, each of which also has to be read again every day.
+    //      The shop answers PriceSniffsBot in about 3 s a page, and the 1.5 s
+    //      gap comes on top (probe run 37203579061 from a GitHub runner: 148
+    //      category pages in 11 minutes, 8 product pages in 40 seconds), so a
+    //      40 minute shop ceiling reads about 530 pages in all. That is why
+    //      the category walk is rotated (below) and the floor on new pages a
+    //      run is a floor and no more.
     // robots.txt, read 2026-10-04T12:06Z, disallows only search, sort,
     // facetFilters, buy, checkout, basket and a few component paths for "*".
     // Category pages (/c/fragrance/...) and ?pageNumber=N are not among them,
@@ -6897,6 +6904,16 @@ export const RETAILERS: readonly Retailer[] = [
       // The index and its one child.
       maxSitemaps: 2,
       requireGbp: true,
+      // The category pages list Byredo's Mojave Ghost, Gypsy Water, Rose of No
+      // Man's Land and Mumbai Noise Eau de Parfum, Sisley's two, Creed Carmina,
+      // Jo Malone's Oud and Bergamot and Sol de Janeiro's Cheirosa 62 only as
+      // one "various sizes" page each (9 such fragrance pages in the walk of
+      // 2026-10-04), and Frédéric Malle's Portrait of a Lady Eau de Parfum is
+      // the same shape: three variants all named alike, none the page's own
+      // product, which the parser could only read as none. Each states its
+      // size on a size button (data-sku, data-size): 30ml £160 (sold out),
+      // 50ml £205, 100ml £295 on that page, read 2026-10-04.
+      variantSizesFromPage: true,
       categories: {
         pages: [
           'https://www.cultbeauty.co.uk/c/fragrance/perfumes/',
@@ -6910,9 +6927,13 @@ export const RETAILERS: readonly Retailer[] = [
         productLink: 'data-quicklook-url="(/p/[^"]+)"',
         pageCount: 'Page 1 of (\\d+)',
         maxPages: 60,
+        // Page one of every category and every third page of the rest, a
+        // different third each run: about 50 pages, 4 minutes, not 148 and 11.
+        rotation: 3,
       },
-      // About 1,550 products to read once, 42 a run would be 37 runs. 300 a
-      // run is five, about a day of the scheduled sweep.
+      // About 1,550 products to read once: 42 a run would be 37 runs. Up to
+      // 300 never read pages a run is five runs, about a day of the scheduled
+      // sweep, with the run's time ceiling as the limit.
       discoveryPages: 300,
     },
     enabled: true,

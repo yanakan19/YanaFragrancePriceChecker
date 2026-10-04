@@ -445,6 +445,15 @@ function categoryPageUrl(base: string, param: string, n: number): string {
 export const CATEGORY_WALK_SHARE = 0.35;
 
 /**
+ * How long one slice of a rotating category walk lasts: 150 minutes, the least
+ * time the scheduled sweep leaves between two harvests (its guard runs a
+ * harvest only when the last one committed that long ago). Two runs are
+ * therefore never in the same slice by the clock's doing, and a day of runs
+ * (about six, 237 minutes apart on average) takes the slices in turn.
+ */
+export const ROTATION_BUCKET_MS = 150 * 60_000;
+
+/**
  * Discovery along the shop's own fragrance category pages
  * (`SitemapRoute.categories`): every page of every category in turn, each
  * product address found on it kept once, in the order the shop listed them.
@@ -471,13 +480,23 @@ async function walkCategories(
   const errors: string[] = [];
   let fetched = 0;
 
+  // A rotation reads page one of every category (it says how many pages there
+  // are) and one slice of the rest, a different slice each time; see
+  // CategoryWalk.rotation. Without a page count there is no telling where a
+  // slice ends, so a category with none is read whole.
+  const rotation = count ? Math.max(1, Math.floor(walk.rotation ?? 1)) : 1;
+  const slice = Math.floor(Date.now() / ROTATION_BUCKET_MS) % rotation;
+  let categoryNumber = -1;
+
   for (const base of walk.pages) {
+    categoryNumber++;
     if (!isAllowed(robots, base)) {
       errors.push(`${base}: not asked, robots.txt does not permit it`);
       continue;
     }
     let last = walk.maxPages;
     for (let n = 1; n <= last; n++) {
+      if (n > 1 && rotation > 1 && (n + categoryNumber) % rotation !== slice) continue;
       if (Date.now() >= deadlineAt) {
         errors.push(`${base}: stopped early, the category pages used their share of this shop's time budget`);
         return { urls: [...kept], errors, pagesFetched: fetched, refused: false };
@@ -651,12 +670,18 @@ async function discoverViaRoute(
  * is the path of the sitemap URL we fetched and that URL has no query of its
  * own, the clean sitemap URL is used instead, keeping any #fragment (a size
  * on Parfumdreams). Anything else is left exactly as the page gave it.
+ *
+ * One query is never dropped: THG's lone `?variation=<sku>`, which is how the
+ * shop's own page chooses a size, not a visitor's tracking. On a page that
+ * sells several sizes it is the difference between a Buy link that opens the
+ * 30ml and one that opens whichever size the shop shows first.
  */
 export function cleanListingUrl(listingUrl: string, pageUrl: string): string {
   try {
     const l = new URL(listingUrl);
     const p = new URL(pageUrl);
     if (!l.search || p.search || l.host !== p.host || l.pathname !== p.pathname) return listingUrl;
+    if (/^\?variation=\d+$/i.test(l.search)) return listingUrl;
     return `${p.origin}${p.pathname}${l.hash}`;
   } catch {
     return listingUrl;
@@ -1040,7 +1065,9 @@ export async function crawlViaSitemap(
     const found = apiReader ? parseBeautyBayProduct(res.body, url) : parseListings(res.body, {
       sectionId: 'sitemap',
       pageUrl: url,
-      ...(route ? { microdata: true, requireGbp: route.requireGbp === true } : {}),
+      ...(route
+        ? { microdata: true, requireGbp: route.requireGbp === true, variantSizesFromPage: route.variantSizesFromPage === true }
+        : {}),
     });
     if (route) {
       for (let k = 0; k < found.length; k++) found[k] = { ...found[k]!, url: cleanListingUrl(found[k]!.url, url) };
