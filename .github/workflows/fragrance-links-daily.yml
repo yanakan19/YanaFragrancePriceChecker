@@ -20,8 +20,16 @@ on:
 permissions:
   contents: write
 
+# The catalogue crawl's group, shared on purpose (2026-10-04): both commit
+# demo/index.html, demo/404.html and demo/data, and in the same group the two
+# never race each other's push. This run waits while a crawl is going, and
+# the crawl's guard skips a tick while an older run of its own is going (see
+# scripts/crawl-guard.sh), so a waiting run here is not cancelled by the
+# crawl's next tick. A manual crawl dispatch that arrives while this run
+# waits does replace it (GitHub keeps one waiting run per group); the next
+# day's run picks up where this one would have started.
 concurrency:
-  group: fragrance-links
+  group: catalogue
   cancel-in-progress: false
 
 jobs:
@@ -30,17 +38,24 @@ jobs:
     timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
+        timeout-minutes: 5
 
       - uses: actions/setup-node@v4
+        timeout-minutes: 5
         with:
           node-version: '22'
           cache: npm
 
-      - run: npm ci
+      # Retried with backoff (scripts/retry.sh): a registry blip should not
+      # cost the run. npm ci starts from an empty node_modules each time.
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
 
       # Exits 0 when the budget runs out, and on rate limits it backs off and
       # ends early rather than failing.
       - name: Resolve links
+        timeout-minutes: 40
         run: npm run links:resolve -- --minutes ${{ inputs.minutes || '30' }}
 
       # The crawl pushes to this branch most hours and rebuilds the page each
@@ -48,6 +63,7 @@ jobs:
       # than the one this run started from. That keeps the push a fast
       # forward instead of a conflict over demo/index.html.
       - name: Rebuild the page on the latest commit
+        timeout-minutes: 10
         run: |
           mkdir -p "$RUNNER_TEMP/links"
           cp data/fragrance-links.json data/fragrance-links-seen.json demo/fragranceLinks.generated.ts "$RUNNER_TEMP/links/"
@@ -55,7 +71,7 @@ jobs:
           git reset --hard "origin/$GITHUB_REF_NAME"
           cp "$RUNNER_TEMP/links/fragrance-links.json" "$RUNNER_TEMP/links/fragrance-links-seen.json" data/
           cp "$RUNNER_TEMP/links/fragranceLinks.generated.ts" demo/
-          npm ci
+          scripts/retry.sh 3 npm ci
           npm run demo
           # This checkout's history is shallow, so the sitemap's dates would
           # be wrong; the crawl owns that file.
@@ -69,6 +85,7 @@ jobs:
       # names only the page, which `npm run demo` rebuilds from the generated
       # modules already on the branch.
       - name: Commit and push
+        timeout-minutes: 15
         env:
           REGENERATE: npm run demo
         run: |

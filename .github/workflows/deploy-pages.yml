@@ -33,15 +33,22 @@ permissions:
   pages: write
   id-token: write
 
-# Only one deployment at a time; a newer push should win over a stale one
-# still in flight rather than queue behind it.
+# Only one deployment at a time. A deployment already running is left to
+# finish, and only the newest waiting one runs after it (GitHub keeps one
+# waiting run per group), which is GitHub's own advice for Pages: cancelling
+# deploy-pages mid deployment can leave the next one refused while the
+# cancelled one is still "in progress" on GitHub's side. Every run deploys the
+# branch's tip, so the one that runs last always publishes the newest prices.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # A normal deploy takes under a minute. A failed or stuck one is healed by
+    # the next (every crawl run and every push to demo/ starts one).
+    timeout-minutes: 15
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
