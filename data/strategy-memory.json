@@ -1199,7 +1199,19 @@
       "lastTriedAt": "2026-10-03T11:33:38.283Z",
       "lastSucceededAt": "2026-10-03T11:33:38.283Z",
       "ruledOut": null
+    },
+    "cult-beauty-global::sitemap-discovery": {
+      "strategyId": "sitemap-discovery",
+      "retailerId": "cult-beauty-global",
+      "attempts": 1,
+      "successes": 1,
+      "listingsFound": 5,
+      "lastStatus": 200,
+      "lastError": null,
+      "lastTriedAt": "2026-10-04T13:09:48.944Z",
+      "lastSucceededAt": "2026-10-04T13:09:48.944Z",
+      "ruledOut": null
     }
   },
-  "updatedAt": "2026-10-03T11:59:35.264Z"
+  "updatedAt": "2026-10-04T13:09:48.944Z"
 }
