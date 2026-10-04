@@ -216,8 +216,8 @@ https://pricesniffs.space/ads.txt names it. No ad script loads and no ad
 shows until the ad unit ids below are filled in.
 
 Where ads go once on: one tile in the browse grids (search results, brand,
-shop and note pages, Explore lists, Deals, the Most stocked list and Gift
-sets) after every 8 product tiles, never in the first row; and one block on a
+shop and note pages, Explore lists, Deals and the Most stocked list)
+after every 8 product tiles, never in the first row; and one block on a
 perfume's page under the whole price list. Each says **Advertisement** above
 it. Never in the top bar, the home page hero, the price boxes, an offer row,
 an email or a social post, and ads never change the order of anything.

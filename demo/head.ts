@@ -289,17 +289,6 @@ export function headFor(input: HeadInput): HeadTags {
         noindex: false,
       };
 
-    case 'giftSets':
-      return {
-        title: 'PriceSniffs: Gift Sets',
-        description: describe(
-          'Fragrance gift sets from the UK shops we track, each compared only with the same set, most widely stocked first.',
-          SITE_TAIL,
-        ),
-        canonical,
-        noindex: false,
-      };
-
     case 'about':
       return {
         // Not "PriceSniffs: About PriceSniffs" — the brand name would land
@@ -404,7 +393,6 @@ function pathOf(route: Route): string {
     case 'brands': return '/brands';
     case 'brand': return `/brands/${p}`;
     case 'deals': return '/deals';
-    case 'giftSets': return '/gift-sets';
     case 'retailers': return '/retailers';
     case 'retailer': return `/retailers/${p}`;
     case 'notes': return '/notes';

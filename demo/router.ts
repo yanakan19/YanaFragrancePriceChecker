@@ -30,7 +30,7 @@
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
   | 'notes' | 'note' | 'fragrance' | 'about' | 'settings' | 'legal' | 'account'
-  | 'design' | 'giftSets' | 'notFound';
+  | 'design' | 'notFound';
 
 /** What a matched URL says about where we are. */
 export interface Route {
@@ -61,10 +61,6 @@ const LIST_ROUTES: Record<string, RouteName> = {
   search: 'search',
   brands: 'brands',
   deals: 'deals',
-  // Every gift set, reached from the home page's Gift sets section (owner's
-  // decision, 2026-10-03). The fragrance list with Gift Sets preselected
-  // under Size; see giftSetsView in demo/app.ts.
-  'gift-sets': 'giftSets',
   retailers: 'retailers',
   notes: 'notes',
   about: 'about',
@@ -75,6 +71,23 @@ const LIST_ROUTES: Record<string, RouteName> = {
   // of Sauvage should never have to step over a swatch table to find it. See
   // designView in demo/app.ts.
   design: 'design',
+};
+
+/**
+ * Addresses that used to be pages of their own and now land on a list with a
+ * filter chosen. They are matched, never answered with a not found: someone
+ * has these in a bookmark or a post. The app draws the list they land on and
+ * then rewrites the address to that list's own, so an alias is only ever the
+ * way in.
+ *
+ * /gift-sets was the Gift Sets page (owner's decision, 2026-10-03). Gift sets
+ * are now only an option under Size (owner's decision, 2026-10-04), so the old
+ * address opens the search list with that option chosen. The query value is
+ * the Gift Sets option's own id (GIFT_SET_BAND in demo/volumeBands.ts), which
+ * this file does not import to stay free of the catalogue modules.
+ */
+const ALIAS_ROUTES: Record<string, { name: RouteName; query: Record<string, string> }> = {
+  'gift-sets': { name: 'search', query: { size: 'gift-set' } },
 };
 
 const LEAF_ROUTES: Record<string, RouteName> = {
@@ -105,7 +118,10 @@ export function matchRoute(pathname: string, search = ''): Route {
 
   if (segments.length === 1) {
     const name = LIST_ROUTES[head!];
-    return name ? { name, param: '', query } : { name: 'notFound', param: pathname, query };
+    if (name) return { name, param: '', query };
+    const alias = ALIAS_ROUTES[head!];
+    if (alias) return { name: alias.name, param: '', query: { ...query, ...alias.query } };
+    return { name: 'notFound', param: pathname, query };
   }
 
   const leaf = LEAF_ROUTES[head!];
@@ -137,7 +153,6 @@ export function routeToPath(route: Route): string {
       case 'brands': return '/brands';
       case 'brand': return `/brands/${encodeURIComponent(param)}`;
       case 'deals': return '/deals';
-      case 'giftSets': return '/gift-sets';
       case 'retailers': return '/retailers';
       case 'retailer': return `/retailers/${encodeURIComponent(param)}`;
       case 'notes': return '/notes';
