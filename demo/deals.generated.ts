@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-10-04T22:35:40.559Z";
+export const DEALS_GENERATED_AT = "2026-10-04T23:11:40.765Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -3622,16 +3622,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3700578504364",
-    "price": 229.5,
-    "delivered": true,
-    "wasPrice": 270,
-    "percentOff": 15,
-    "retailerId": "escentual",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8435137759811",
     "price": 57.9,
     "delivered": true,
@@ -6678,6 +6668,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 49.5,
     "percentOff": 69,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3700578504364",
+    "price": 229.5,
+    "delivered": true,
+    "wasPrice": 270,
+    "percentOff": 15,
+    "retailerId": "escentual",
     "kind": "retailer",
     "houseName": null
   },
@@ -17562,26 +17562,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "escentual-parfumsdemarly077",
-    "price": 229.5,
-    "delivered": true,
-    "wasPrice": 270,
-    "percentOff": 15,
-    "retailerId": "escentual",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "justmylook-penh0005",
-    "price": 95.99,
-    "delivered": true,
-    "wasPrice": 110,
-    "percentOff": 12,
-    "retailerId": "perfume-direct",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-5056245051715",
     "price": 74.99,
     "delivered": true,
@@ -27692,16 +27672,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "escentual-parfumsdemarly112",
-    "price": 229.5,
-    "delivered": true,
-    "wasPrice": 270,
-    "percentOff": 15,
-    "retailerId": "escentual",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "escentual-parfumsdemarly004",
     "price": 280.5,
     "delivered": true,
@@ -27882,6 +27852,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "escentual-parfumsdemarly077",
+    "price": 229.5,
+    "delivered": true,
+    "wasPrice": 270,
+    "percentOff": 15,
+    "retailerId": "escentual",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6298875001251",
     "price": 20.98,
     "delivered": true,
@@ -27978,6 +27958,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 175,
     "percentOff": 4,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "justmylook-penh0005",
+    "price": 95.99,
+    "delivered": true,
+    "wasPrice": 110,
+    "percentOff": 12,
+    "retailerId": "perfume-direct",
     "kind": "retailer",
     "houseName": null
   },
@@ -28830,16 +28820,6 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud",
     "kind": "retailer",
     "houseName": null
-  },
-  {
-    "fragranceId": "ean-6295151504031",
-    "price": 27,
-    "delivered": true,
-    "wasPrice": 39.99,
-    "percentOff": 32,
-    "retailerId": "perfume-click",
-    "kind": "house",
-    "houseName": "Riiffs"
   },
   {
     "fragranceId": "ean-8052464896998",

@@ -179,14 +179,21 @@ export type ImageBasis =
  * then show it" discipline `imageBasis` already runs on.
  */
 export interface LogoRef {
-  /** Hot-linked URL on the owner's own server, or a repo path under /logos/. */
+  /**
+   * Hot-linked URL on the owner's own server, or a repo path under /logos/
+   * (the public domain Commons files at /logos/<brand>.svg, and the owner
+   * supplied shop files at /logos/shops/<shop id>.png).
+   */
   src: string;
   /** Which slot it may fill — see docs/LOGOS-PLAN.md §4c. */
   shape: 'square' | 'wordmark';
   /** Measured, not eyeballed: which ground it needs. */
   ink: 'dark' | 'light' | 'own';
   basis: LogoBasis;
-  /** The page the declaration was read off, so anyone can re-read it. */
+  /**
+   * The page the declaration was read off, so anyone can re-read it. For
+   * `owner-supplied` there is no page: it says who sent the file and when.
+   */
   source: string;
   /** ISO-8601 date it was read and measured. */
   readAt: string;
@@ -211,7 +218,18 @@ export type LogoBasis =
    * That merchant's own affiliate creative terms have been read and permit
    * its logo. Strongest available; today nothing holds it.
    */
-  | 'affiliate-creative';
+  | 'affiliate-creative'
+  /**
+   * The site owner sent us this file (2026-10-04) and asked for it to be
+   * shown, so we host a copy at /logos/shops/<shop id>.png: flattened on solid
+   * white, trimmed, padded and resized, never recoloured. That is a recorded
+   * decision of the owner's, not a licence from the shop, and the shop's
+   * objection is honoured the same way as for every other basis, by unsetting
+   * the field and deleting the file. `source` says who supplied it and when;
+   * where the shop has no logo at all, it says the mark was made at the
+   * owner's request from the shop's name, so nobody reads it as the shop's own.
+   */
+  | 'owner-supplied';
 
 /**
  * A retailer's standard UK delivery rules.

@@ -161,9 +161,15 @@ const IMAGE_HOTLINKED = IMAGE_SHOPS.filter((r) => r.affiliate.imageBasis === 'ho
 const LOGO_RETAILERS = ENABLED.filter((r) => r.logo != null);
 const LOGO_BRANDS = Object.values(BRAND_LOGOS);
 const LOGO_TOTAL = LOGO_RETAILERS.length + LOGO_BRANDS.length;
-const LOGO_HOSTED =
+const LOGO_PUBLIC_DOMAIN =
   LOGO_RETAILERS.filter((r) => r.logo!.basis === 'commons-public-domain').length +
   LOGO_BRANDS.filter((l) => l.basis === 'commons-public-domain').length;
+/** Files the owner of this site sent us, which we host (docs/LOGOS-PLAN.md section 7). */
+const LOGO_SUPPLIED =
+  LOGO_RETAILERS.filter((r) => r.logo!.basis === 'owner-supplied').length +
+  LOGO_BRANDS.filter((l) => l.basis === 'owner-supplied').length;
+/** A shop with no logo of its own, whose name is shown in plain type instead, if it is on the site. */
+const PLAIN_TYPE_SHOP = ENABLED.find((r) => r.id === 'manchester-ouds' && r.logo?.basis === 'owner-supplied');
 
 /**
  * What the privacy, cookie and affiliate pages say about display advertising,
@@ -894,13 +900,16 @@ export const LEGAL_PAGES: LegalPage[] = [
       <h2 class="t-section">Logos</h2>
       <p>A shop's or a house's logo appears beside a link to them, to identify
       them. Most are loaded by your browser directly from that owner's own
-      servers; a small number are files whose published licence puts them in
-      the public domain, and those we host. We do not crop, recolour or
-      otherwise alter any of them, and where we have no logo we can use we
-      draw our own initials tile instead. Today ${LOGO_TOTAL} shops and houses
-      carry a logo we show, ${LOGO_HOSTED} of them a file in the public domain
-      that we host ourselves and the rest loaded directly from that owner's
-      own site.</p>
+      servers. Some are files we host ourselves: a small number whose published
+      licence puts them in the public domain, and some that the person who runs
+      PriceSniffs supplied to us. We do not recolour any of them. The supplied
+      files are set on a plain white background, trimmed of empty space and
+      resized; the others are shown as they are.${PLAIN_TYPE_SHOP ? ` ${PLAIN_TYPE_SHOP.name} has no logo of its own, so we show its name in plain type.` : ''}
+      Where we have no logo we can use we draw our own initials tile instead.
+      Today ${LOGO_TOTAL} shops and houses carry a logo we show, ${LOGO_PUBLIC_DOMAIN}
+      of them a file in the public domain that we host, ${LOGO_SUPPLIED} a file
+      supplied to us that we host, and the rest loaded directly from that
+      owner's own site.</p>
       <p>If you would rather we did not show yours, tell us and we will stop.
       <a href="mailto:${COMPANY.email}">${COMPANY.email}</a></p>
 
