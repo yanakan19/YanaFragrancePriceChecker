@@ -1,0 +1,38 @@
+{
+  "id": "ean-6290171072874",
+  "url": "https://pricesniffs.space/fragrance/ean-6290171072874",
+  "delivered": 19.98,
+  "msrp": 45,
+  "shop": "Justmylook",
+  "percent": 55,
+  "pricesCheckedAt": "2026-10-04T02:41:00.000Z",
+  "liveCheck": {
+    "status": 404,
+    "servesApp": true,
+    "inLiveData": true,
+    "ok": true
+  },
+  "gender": {
+    "reading": "notStated",
+    "basis": "not stated anywhere"
+  },
+  "notes": {
+    "used": "own",
+    "source": "Beauty Base",
+    "reasons": [],
+    "top": [
+      "Incense",
+      "Rose",
+      "Raspberry"
+    ],
+    "middle": [
+      "Birch",
+      "Saffron"
+    ],
+    "base": [
+      "Benzoin",
+      "Geranium",
+      "Oud"
+    ]
+  }
+}

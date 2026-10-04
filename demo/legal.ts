@@ -291,6 +291,79 @@ function businessDetails(): string {
   </dl>`;
 }
 
+/**
+ * The About page's copy, in pieces, so /about can lay it out as a page (a
+ * mission line, four cards, a short FAQ) while /legal/about keeps the same
+ * words as one document. Every figure is computed from the registry or the
+ * catalogue, like the rest of this file; the live numbers at the top of
+ * /about come from liveCounts() in demo/data.ts.
+ *
+ * "Checked daily" is the wording the quick fixes of 2026-10-04 made true, and
+ * it is always "every shop that lets us read its pages": a shop that refuses
+ * us is never described as checked.
+ */
+export const ABOUT = {
+  mission: 'PriceSniffs shows what a bottle of fragrance really costs at UK shops, delivery included.',
+  story: `<p>Hi, I am Yanny. I built this after I bought a 100ml Club de Nuit and saw it twelve pounds cheaper four days later. Checking by hand meant nine tabs across Boots, Notino and Beauty Base, and half of them hid the postage until checkout.</p>`,
+  checks: [
+    {
+      title: 'Delivery Included',
+      body: `Every price includes the delivery the shop will charge you. ${deliveryExample()} If we do not know a delivery charge, the listing says so and can never be called cheapest.`,
+    },
+    {
+      title: 'Checked Daily',
+      body: 'Every shop that lets us read its pages is checked daily. No price is typed in by hand.',
+    },
+    {
+      title: 'No Paid Placements',
+      body: 'No shop can pay to rank higher. Results are ordered by stock, then by price.',
+    },
+    {
+      title: 'Real Price History',
+      body: 'Product pages chart the prices we actually recorded, so you can see whether today’s price is really low. An old price is never carried forward to fill a gap.',
+    },
+  ],
+  method: `<p>The full method, including which delivery charges we have checked with each shop, is on <a href="#" data-page="how-it-works">How it works</a>.</p>`,
+  money: `<p>${COMMISSIONED.length} shops pay us commission when you buy through our link. It costs you nothing and never changes the order of results. Those links are marked Affiliate link, and our <a href="#" data-page="affiliate">affiliate disclosure</a> names the shops.</p>`,
+  whoRuns: `<p>${COMPANY.operator ? `${COMPANY.operator} runs PriceSniffs, trading as ${COMPANY.legalName}.` : `One person runs PriceSniffs, trading as ${COMPANY.legalName}.`} It is not a company. Email <a href="mailto:${COMPANY.email}">${COMPANY.email}</a> about a wrong price, or a shop that should be the ${ordinal(ENABLED.length + 1)}. Zimaya was added because someone asked.</p>
+      <p>I also post about fragrance on <a href="https://www.tiktok.com/@yannysniffs" target="_blank" rel="noopener">TikTok</a> and <a href="https://www.instagram.com/yannysniffs" target="_blank" rel="noopener">Instagram</a> as yannysniffs. Full business details are on the <a href="#" data-page="contact">contact page</a>.</p>`,
+  /**
+   * Only questions the site's own pages already answer, in their words: How
+   * it works, the affiliate disclosure and the sign up form. Nothing here is
+   * a new promise.
+   */
+  faq: [
+    {
+      q: 'Do the prices include delivery?',
+      a: 'Yes. Every price includes standard delivery to a UK mainland address, and we work out whether your order reaches the shop’s spend for free delivery. Where a shop does not say what it charges, the listing says delivery not stated and can never come out cheapest.',
+    },
+    {
+      q: 'How often are prices checked?',
+      a: 'Once a day, at every shop that lets us read its pages. Every listing says when we last looked.',
+    },
+    {
+      q: 'Can a shop pay to appear higher?',
+      a: 'No. Results are ordered by stock and then by price, and commission never moves a listing.',
+    },
+    {
+      q: 'Why is a shop I use missing?',
+      a: `We have looked at ${RETAILERS.length} shops so far. ${SWITCHED_OFF.length} of them are switched off, most waiting on a delivery charge or on a way to read their listings at all. Email us to suggest one.`,
+    },
+    {
+      q: 'Do you show members only prices?',
+      a: 'Not as the headline. Where a shop runs a membership scheme we mention it, but the price we quote is one anyone can pay.',
+    },
+    {
+      q: 'Are the savings worked out by you?',
+      a: 'No. A previous price and a percentage saving are the shop’s own figures, and percentages round down.',
+    },
+    {
+      q: 'Do I need an account?',
+      a: 'No. Searching and comparing prices works without one. An account saves fragrances to a wishlist and lets you choose price alert emails.',
+    },
+  ],
+};
+
 export interface LegalPage {
   id: string;
   title: string;
@@ -304,22 +377,21 @@ export const LEGAL_PAGES: LegalPage[] = [
     id: 'about',
     title: 'About PriceSniffs',
     short: 'About',
+    // /about lays these same pieces out as a page (aboutView in demo/app.ts);
+    // this is the plain document form, kept so /legal/about still answers
+    // and so the words have one source.
     body: `
       <p>PriceSniffs shows what a bottle of fragrance really costs at ${COVERAGE} UK shops, delivery included. It covers ${n(DEMO_FRAGRANCES.length)} fragrances today.</p>
-      <p>Hi, I am Yanny. I built this after I bought a 100ml Club de Nuit and saw it twelve pounds cheaper four days later. Checking by hand meant nine tabs across Boots, Notino and Beauty Base, and half of them hid the postage until checkout.</p>
+      ${ABOUT.story}
       <h2 class="t-section">How Prices Are Checked</h2>
       <ul>
-        <li>Every shop that lets us read its pages is checked daily. No price is typed in by hand.</li>
-        <li>Every price includes the delivery the shop will charge you. ${deliveryExample()}</li>
-        <li>If we do not know a delivery charge, the listing says so and can never be called cheapest.</li>
-        <li>No shop can pay to rank higher. Results are ordered by stock, then by price.</li>
+        ${ABOUT.checks.map((c) => `<li>${c.body}</li>`).join('\n        ')}
       </ul>
-      <p>The full method, including which delivery charges we have checked with each shop, is on <a href="#" data-page="how-it-works">How it works</a>.</p>
+      ${ABOUT.method}
       <h2 class="t-section">How the Site Makes Money</h2>
-      <p>${COMMISSIONED.length} shops pay us commission when you buy through our link. It costs you nothing and never changes the order of results. Those links are marked Affiliate link, and our <a href="#" data-page="affiliate">affiliate disclosure</a> names the shops.</p>
+      ${ABOUT.money}
       <h2 class="t-section">Who Runs It</h2>
-      <p>${COMPANY.operator ? `${COMPANY.operator} runs PriceSniffs, trading as ${COMPANY.legalName}.` : `One person runs PriceSniffs, trading as ${COMPANY.legalName}.`} It is not a company. Email <a href="mailto:${COMPANY.email}">${COMPANY.email}</a> about a wrong price, or a shop that should be the ${ordinal(ENABLED.length + 1)}. Zimaya was added because someone asked.</p>
-      <p>I also post about fragrance on <a href="https://www.tiktok.com/@yannysniffs" target="_blank" rel="noopener">TikTok</a> and <a href="https://www.instagram.com/yannysniffs" target="_blank" rel="noopener">Instagram</a> as yannysniffs. Full business details are on the <a href="#" data-page="contact">contact page</a>.</p>`,
+      ${ABOUT.whoRuns}`,
   },
   {
     id: 'how-it-works',

@@ -27,6 +27,16 @@ export const CHANGELOG: ChangelogEntry[] = [
     ],
   },
   {
+    version: 'v3.42.0',
+    date: '4 Oct 2026',
+    title: 'An account menu and a fuller About page',
+    points: [
+      'Account menu at the top left of every page',
+      'Profile, wishlist and alerts on their own pages',
+      'Contact Us and legal links moved to About',
+    ],
+  },
+  {
     version: 'v3.41.0',
     date: '4 Oct 2026',
     title: 'Gift sets are now a Size filter option',

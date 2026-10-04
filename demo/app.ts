@@ -15,7 +15,11 @@
  *   Explore        Brands · Retailers · Notes (a Search tab with its own
  *                  search box sat here too until 2026-10-03: the owner asked
  *                  for one search box, the Quick Search in the top bar)
- *   Settings       preferences, contact, legal
+ *   About          the mission, live numbers, method, FAQ, contact and legal
+ *
+ * Settings and the three account pages (profile, wishlist, notifications)
+ * hang off the account menu at the far left of the bar instead of the nav
+ * row (owner's account revamp, 2026-10-04).
  *
  * Everything else (a fragrance, a retailer, a note, a legal document) is a leaf
  * reached from one of those and always carries a Back control. Nothing is ever
@@ -92,16 +96,26 @@ import { WRONG_PRICE_PROBLEMS, OTHER_SHOP, wrongPriceMailto, type WrongPriceProb
 import { SUPABASE_CONFIGURED } from './supabase.js';
 import {
   signUp, signIn, signOut, resendVerification, requestPasswordReset, currentUser, isVerified, onAuthChange,
-  checkEmailLinkCallback, updatePassword, deleteOwnAccount, onPasswordRecovery,
+  checkEmailLinkCallback, updatePassword, updateEmail, deleteOwnAccount, onPasswordRecovery,
 } from './auth.js';
 import type { User } from '@supabase/supabase-js';
 import { accountState, wishlistControl, type AccountStateInput } from '../src/services/accountState.js';
+import {
+  accountAvatar, accountButtonLabel, accountMenuItems, buildDataExport, dataExportFileName, sortWishlist,
+  WISHLIST_SORTS, type AccountMenuAction, type WishlistSort,
+} from '../src/services/accountMenu.js';
+import { ABOUT } from './legal.js';
+import { liveCounts } from './data.js';
 import { fetchWishlist, addToWishlist, removeFromWishlist, setTargetPrice, type WishlistEntry } from './wishlist.js';
 import { fetchPriceAlerts, setPriceAlerts, unsubscribe } from './priceAlerts.js';
 import { parseTargetPrice } from '../src/alerts/target.js';
 import { UNSUBSCRIBE_PARAM, unsubscribeMessage } from '../src/alerts/unsubscribe.js';
 
-type View = 'home' | 'deals' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings' | 'account' | 'design' | 'notFound';
+type View =
+  | 'home' | 'deals' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about'
+  | 'settings' | 'account' | 'accountWishlist' | 'accountNotifications' | 'design' | 'notFound';
+/** The three pages behind the account menu, each with its own address. */
+const ACCOUNT_VIEWS: readonly View[] = ['account', 'accountWishlist', 'accountNotifications'];
 type AuthTab = 'signIn' | 'signUp';
 type ExploreTab = 'brands' | 'retailers' | 'notes';
 type DisplayMode = 'dark' | 'light' | 'system';
@@ -208,6 +222,14 @@ const state = {
   // the database has no such setting yet (migration 0004 not run), which
   // keeps the checkbox off the page rather than showing one that cannot save.
   priceAlerts: null as boolean | null,
+  // True once that read has come back, so My Notifications can tell "still
+  // loading" from "not available on this deployment" (both leave it null).
+  priceAlertsLoaded: false,
+  // The wishlist page's sort. Not kept across visits: a fresh visit starts
+  // from the newest save, which is what the list was before it had a sort.
+  wishlistSort: 'recent' as WishlistSort,
+  // The account menu at the top left of the bar (see openAccountMenu).
+  accountMenuOpen: false,
 
 };
 
@@ -2027,17 +2049,36 @@ function notesBlock(f: DemoFragrance): string {
   </div>`;
 }
 
-/** The account page's own wishlist list — a saved fragrance no longer in the
- *  live catalogue (delisted everywhere since it was saved) is skipped rather
- *  than rendered as a broken link; the row in the database is untouched, so
- *  it would reappear if the fragrance ever comes back into stock somewhere. */
 /** The saved bottle's cheapest price today, so the wishlist doubles as a
- *  price check: the same figure the product page leads with. */
-function wishlistPriceNote(frag: DemoFragrance): string {
+ *  price check: the same figure the product page leads with. `sortGbp` is
+ *  the delivered price only; an item price with delivery not stated is shown
+ *  but sorts last under Cheapest, since it is not the same kind of figure. */
+function wishlistPriceFacts(frag: DemoFragrance): { html: string; sortGbp: number | null } {
   const rows = rowsFor(frag);
   const best = bestOffer(rows);
-  if (!best) return noStockLabel(rows) === 'Preorder Only' ? ' · Preorder only, none in stock' : ' · Sold out everywhere';
-  return ` · From ${formatGbp(best.deliveredPriceGbp ?? best.itemPriceGbp)} at ${esc(best.retailer.name)}`;
+  if (!best) {
+    return {
+      html: noStockLabel(rows) === 'Preorder Only' ? 'Preorder only, none in stock today' : 'Sold out everywhere today',
+      sortGbp: null,
+    };
+  }
+  if (best.deliveredPriceGbp === null) {
+    return {
+      html: `<strong>${formatGbp(best.itemPriceGbp)}</strong> at ${esc(best.retailer.name)}, delivery not stated`,
+      sortGbp: null,
+    };
+  }
+  return {
+    html: `<strong>${formatGbp(best.deliveredPriceGbp)}</strong> delivered at ${esc(best.retailer.name)}`,
+    sortGbp: best.deliveredPriceGbp,
+  };
+}
+
+/** "Saved 3 Oct 2026", from the row's own added_at. */
+function savedOnLabel(iso: string): string {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return '';
+  return `Saved ${d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}`;
 }
 
 /** The optional per item target price, shown once price alerts are on. Saved
@@ -2056,7 +2097,13 @@ function wishlistTargetHtml(entry: WishlistEntry, frag: DemoFragrance): string {
  *  until the setting has been read, and for good if it cannot be (see
  *  state.priceAlerts). */
 function priceAlertsSectionHtml(): string {
-  if (state.priceAlerts === null) return '';
+  if (state.priceAlerts === null) {
+    // Still loading, or the setting does not exist on this deployment yet
+    // (migration 0004 not run): never a checkbox that cannot save.
+    return `
+      <h2 class="t-section">Price Alerts</h2>
+      <p class="account-note">${state.priceAlertsLoaded ? 'Price alert emails are not switched on for this site yet.' : 'Loading.'}</p>`;
+  }
   return `
     <h2 class="t-section">Price Alerts</h2>
     <label class="control facet-check alerts-check">
@@ -2064,31 +2111,58 @@ function priceAlertsSectionHtml(): string {
       <span class="facet-check-label">Email me when a saved fragrance gets cheaper</span>
     </label>
     <p class="account-note">One email a morning at most, when a saved fragrance drops by 5% or £2,
-      whichever is more, or reaches a target you set. Every email has a link to stop them.</p>`;
+      whichever is more, or reaches a target you set. Every email has a link to stop them.</p>
+    <p class="account-note">${state.priceAlerts
+      ? 'Set a target price for each fragrance on <button type="button" class="link-btn" data-acct-go="wishlist">My Wishlist</button>.'
+      : 'Once alerts are on, you can also set a target price for each fragrance on your wishlist.'}</p>`;
 }
 
-function wishlistSectionHtml(): string {
-  if (!state.wishlistLoaded) return `<h2 class="t-section">Wishlist</h2><p class="settings-note t-caption">Loading.</p>`;
+/**
+ * The wishlist page's list. A saved fragrance no longer in the live catalogue
+ * (delisted everywhere since it was saved) is skipped rather than rendered as
+ * a broken link; the row in the database is untouched, so it reappears if
+ * the fragrance ever comes back into stock somewhere.
+ *
+ * There is no "change since saved" column: a wishlist row stores when it was
+ * saved and an optional target, never the price that day, so there is no
+ * honest figure to measure a change from (see WishlistSort).
+ */
+function wishlistListHtml(): string {
+  if (!state.wishlistLoaded) return `<p class="account-note">Loading.</p>`;
 
   const rows = state.wishlistEntries
     .map((e) => ({ entry: e, frag: fragranceById(e.fragranceId) }))
-    .filter((x): x is { entry: WishlistEntry; frag: DemoFragrance } => x.frag != null);
+    .filter((x): x is { entry: WishlistEntry; frag: DemoFragrance } => x.frag != null)
+    .map((x) => {
+      const price = wishlistPriceFacts(x.frag);
+      return { ...x, price, addedAt: x.entry.addedAt, priceGbp: price.sortGbp, name: `${x.frag.brand} ${x.frag.name}` };
+    });
 
   if (rows.length === 0) {
-    return `<h2 class="t-section">Wishlist</h2><p class="settings-note t-caption">Nothing saved yet. Tap Save on a fragrance to add it here.</p>`;
+    return `<p class="account-note">Nothing saved yet. Tap Save on a fragrance to add it here.</p>`;
   }
 
+  const sorted = sortWishlist(rows, state.wishlistSort);
+  const sortControl = control(
+    'wishlist-sort', 'Sort', ICON_SORT,
+    WISHLIST_SORTS.map((s) => ({ value: s.id, label: s.label })),
+    state.wishlistSort,
+  );
+  const hiddenCount = state.wishlistEntries.length - rows.length;
+
   return `
-    <h2 class="t-section">Wishlist</h2>
-    <ul class="shop-list">
-      ${rows
+    <div class="controls">${sortControl}</div>
+    <ul class="shop-list wishlist-list">
+      ${sorted
         .map(
-          ({ entry, frag }) => `<li class="wishlist-row">
+          ({ entry, frag, price }) => `<li class="wishlist-row">
             <button class="shop-row" data-frag="${esc(frag.id)}">
-              ${monogram(frag.brand)}
+              <span class="wishlist-art">${productArt(frag.photoUrl, 'sm', `${frag.brand} ${frag.name}`, frag.imageTransform)}</span>
               <span class="shop-row-text">
                 <span class="shop-row-name t-title">${esc(frag.brand)} ${esc(frag.name)}</span>
-                <span class="shop-row-meta t-caption">${esc(frag.concentration)}, ${esc(sizeLabel(frag))}${wishlistPriceNote(frag)}</span>
+                <span class="shop-row-meta t-caption">${esc(frag.concentration)}, ${esc(sizeLabel(frag))}</span>
+                <span class="shop-row-meta wishlist-price">${price.html}</span>
+                <span class="shop-row-meta t-caption">${esc(savedOnLabel(entry.addedAt))}</span>
               </span>
               <span class="shop-row-go" aria-hidden="true">→</span>
             </button>
@@ -2098,7 +2172,14 @@ function wishlistSectionHtml(): string {
           </li>`,
         )
         .join('')}
-    </ul>`;
+    </ul>
+    ${hiddenCount > 0
+      ? `<p class="account-note">${hiddenCount === 1 ? 'One saved fragrance is' : `${hiddenCount} saved fragrances are`} not listed by any shop right now, so ${hiddenCount === 1 ? 'it is' : 'they are'} hidden until a shop lists ${hiddenCount === 1 ? 'it' : 'them'} again.</p>`
+      : ''}
+    ${state.priceAlerts === true
+      ? ''
+      : `<p class="account-note">Want an email when one of these gets cheaper? Turn on Price Alerts in
+          <button type="button" class="link-btn" data-acct-go="notifications">My Notifications</button>.</p>`}`;
 }
 
 /** Fetches the signed-in reader's wishlist once verification is confirmed,
@@ -2106,6 +2187,7 @@ function wishlistSectionHtml(): string {
 function loadPriceAlerts(): void {
   fetchPriceAlerts().then((on) => {
     state.priceAlerts = on;
+    state.priceAlertsLoaded = true;
     renderInPlace();
   });
 }
@@ -3307,15 +3389,17 @@ const MODE_OPTIONS: { id: DisplayMode; label: string }[] = [
 
 const CONTACT_TYPES = ['An Issue', 'A Suggestion', 'A Promotional Enquiry', 'Something Else'] as const;
 
+/**
+ * Preferences only (owner's account revamp, 2026-10-04): Theme and Layout.
+ * The account entry row went to the account menu at the top left of the
+ * bar, and Contact Us and the Legal links went to the About page, which is
+ * where a reader looking for who runs the site and on what terms looks.
+ */
 function settingsView(): string {
   return `
     <button class="back" data-back>Back</button>
     <article class="doc settings-doc">
       <h1 class="t-page">Settings</h1>
-
-      ${SUPABASE_CONFIGURED ? `<button class="account-entry" data-go-account>
-        <span>${accountEntryLabel()}</span>${ICON_CHEVRON}
-      </button>` : ''}
 
       <div class="seg-group">
         <p class="seg-label t-eyebrow">Theme</p>
@@ -3336,8 +3420,15 @@ function settingsView(): string {
       </div>
 
       <p class="settings-note t-caption">Your choice is saved on this device.</p>
+    </article>`;
+}
 
-      <h2 class="t-section">Contact Us</h2>
+/** The Contact Us form, on the About page since the 2026-10-04 revamp. It
+ *  still sends nothing to a server: Send opens the reader's own email app
+ *  (the contact-form branch of the submit handler). */
+function contactSectionHtml(): string {
+  return `
+      <h2 class="t-section" id="contact">Contact Us</h2>
       <form id="contact-form" class="contact-form">
         <label class="field">
           <span>What Is This About</span>
@@ -3354,13 +3445,17 @@ function settingsView(): string {
       <p class="form-privacy t-caption">Send opens your own email app. Nothing goes to a server of ours.
         We keep what you send only for as long as it takes to reply.
         <button type="button" class="link-btn" data-page="privacy">Privacy Notice</button></p>
-      <p id="contact-confirm" class="contact-confirm" hidden></p>
+      <p id="contact-confirm" class="contact-confirm" hidden></p>`;
+}
 
+/** The legal and policy documents, at the foot of the About page. */
+function legalLinksHtml(): string {
+  return `
       <h2 class="t-section">Legal</h2>
-      <nav class="foot-links">
+      <nav class="foot-links" aria-label="Legal">
         ${LEGAL_PAGES
-          // About has its own place in the top bar now, so it is not repeated
-          // here — this list is the legal and policy documents.
+          // About is the page this list sits on, so it is not repeated here:
+          // this list is the legal and policy documents.
           .filter((p) => p.id !== 'about')
           .map((p) => `<button class="link-btn" data-page="${p.id}">${esc(p.short)}</button>`)
           .join('')}
@@ -3368,30 +3463,10 @@ function settingsView(): string {
       <p class="foot-legal">Some shop links are affiliate links, marked on the page. We may earn
         commission if you buy, at no cost to you, and it never changes the order of results.
         <button class="link-btn" data-page="affiliate">How That Works</button></p>
-      <p class="foot-legal dimmer">© ${new Date().getFullYear()} ${esc(COMPANY.name)}, run by ${esc(COMPANY.legalName)}.</p>
-    </article>`;
+      <p class="foot-legal dimmer">© ${new Date().getFullYear()} ${esc(COMPANY.name)}, run by ${esc(COMPANY.legalName)}.</p>`;
 }
 
 /* ── account ─────────────────────────────────────────────────────────────── */
-
-/** What the Settings entry row says: enough to act on without opening the page. */
-function accountEntryLabel(): string {
-  const s = accountState(accountStateInput());
-  switch (s.kind) {
-    // Unconfigured never reaches here — the row itself is not rendered (see
-    // the SUPABASE_CONFIGURED guard on the Settings entry) — but the label
-    // has to answer for every state the type admits rather than assume that.
-    case 'unconfigured':
-    case 'loading':
-      return 'Account';
-    case 'signedOut':
-      return 'Sign In or Create an Account';
-    case 'verify':
-      return 'Verify Your Email';
-    case 'signedIn':
-      return s.email === '' ? 'Account' : s.email;
-  }
-}
 
 /**
  * Signed out: a tabbed sign in / sign up form. Signed in but unverified: a
@@ -3581,7 +3656,18 @@ function newPasswordForm(id: string, submitLabel: string): string {
     </form>`;
 }
 
-function accountView(): string {
+/**
+ * Everything an account page shows before there is a verified, signed in
+ * reader to show it to: not switched on, loading, set a new password, verify
+ * your email, or the sign in form. Null once signed in, and the page draws
+ * itself.
+ *
+ * All three account pages pass through here, so a signed out reader who opens
+ * /account/wishlist gets the sign in form at that same address, and once the
+ * session arrives (onAuthChange re-renders) the page they asked for draws in
+ * its place: the "land back where you were" needs no redirect at all.
+ */
+function accountGate(signedOut: { heading: string; note: string }): string | null {
   const s = accountState(accountStateInput());
 
   if (s.kind === 'unconfigured') {
@@ -3613,25 +3699,7 @@ function accountView(): string {
       </article>`;
   }
 
-  if (s.kind === 'signedIn') {
-    return `
-      <button class="back" data-back>Back</button>
-      <article class="doc settings-doc">
-        <h1 class="t-page">Account</h1>
-        <p class="account-note">Signed in as ${esc(s.email)}.</p>
-        ${wishlistSectionHtml()}
-        ${priceAlertsSectionHtml()}
-        <h2 class="t-section">Settings</h2>
-        <details class="account-more">
-          <summary>Change Password</summary>
-          ${newPasswordForm('auth-change-password-form', 'Change Password')}
-        </details>
-        <div class="account-actions">
-          <button class="contact-send" id="auth-sign-out">Sign Out</button>
-          <button class="link-btn danger" id="auth-delete">Delete Account</button>
-        </div>
-      </article>`;
-  }
+  if (s.kind === 'signedIn') return null;
 
   if (s.kind === 'verify') {
     // Two different readers land here and are owed the same instruction.
@@ -3668,7 +3736,8 @@ function accountView(): string {
   return `
     <button class="back" data-back>Back</button>
     <article class="doc settings-doc">
-      <h1 class="t-page">Account</h1>
+      <h1 class="t-page">${esc(signedOut.heading)}</h1>
+      ${signedOut.note ? `<p class="account-note">${esc(signedOut.note)}</p>` : ''}
 
       <div class="seg" role="group" aria-label="Sign in or sign up">
         <button class="seg-btn ${!signUpTab ? 'on' : ''}" data-auth-tab="signIn">Sign In</button>
@@ -3720,6 +3789,300 @@ function accountView(): string {
     </article>`;
 }
 
+/** "4 October 2026", for dates Supabase reports about the account. */
+function longDate(iso: string | null | undefined): string {
+  if (!iso) return '';
+  const d = new Date(iso);
+  return Number.isNaN(d.getTime()) ? '' : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+/** The heading each account page shows once signed in; head.ts titles match. */
+const ACCOUNT_HEADINGS: Record<'account' | 'accountWishlist' | 'accountNotifications', string> = {
+  account: 'My Profile',
+  accountWishlist: 'My Wishlist',
+  accountNotifications: 'My Notifications',
+};
+
+/**
+ * /account once signed in: who is signed in, the plan, sign in details, the
+ * data download, and the two account actions. The wishlist and the alert
+ * choice that used to share this page have pages of their own now.
+ *
+ * Change Email is offered because Supabase's own flow is an honest one: the
+ * address changes only after a confirmation link is followed (see
+ * updateEmail in demo/auth.ts), and the page says so rather than showing the
+ * new address as current.
+ */
+function accountView(): string {
+  const gate = accountGate({ heading: 'Account', note: '' });
+  if (gate !== null) return gate;
+  const user = state.authUser;
+  const email = user?.email ?? '';
+  const created = longDate(user?.created_at);
+  const pendingNew = user?.new_email ?? '';
+  return `
+    <button class="back" data-back>Back</button>
+    <article class="doc account-doc">
+      <h1 class="t-page">${ACCOUNT_HEADINGS.account}</h1>
+
+      <section class="acct-card" aria-label="Signed In As">
+        <p class="acct-card-label t-eyebrow">Signed In As</p>
+        <p class="acct-card-value">${esc(email)}</p>
+        ${created ? `<p class="acct-card-note t-caption">Account created ${esc(created)}</p>` : ''}
+        ${pendingNew ? `<p class="acct-card-note t-caption">Waiting for you to confirm ${esc(pendingNew)} from the link we sent.</p>` : ''}
+      </section>
+
+      <section class="acct-card" aria-label="Your Plan">
+        <p class="acct-card-label t-eyebrow">Your Plan</p>
+        <p class="acct-card-value">Free</p>
+        <p class="acct-card-note t-caption">Premium will add browsing with no ads, email and push alerts, and an alert history. It is not on sale yet.</p>
+      </section>
+
+      <div class="acct-shortcuts">
+        <button class="account-entry" data-acct-go="wishlist"><span>View My Wishlist${state.wishlistLoaded ? ` (${state.wishlistIds.size})` : ''}</span>${ICON_CHEVRON}</button>
+        <button class="account-entry" data-acct-go="notifications"><span>My Notifications</span>${ICON_CHEVRON}</button>
+      </div>
+
+      <h2 class="t-section">Sign In Details</h2>
+      <details class="account-more">
+        <summary>Change Password</summary>
+        ${newPasswordForm('auth-change-password-form', 'Change Password')}
+      </details>
+      <details class="account-more">
+        <summary>Change Email</summary>
+        <form id="auth-change-email-form" class="contact-form">
+          <label class="field">
+            <span>New Email</span>
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <button type="submit" class="contact-send">Send Confirmation Link</button>
+          <p class="form-privacy t-caption">We email a link to the new address. Your sign in email changes only
+            once you follow it, and you may be asked to confirm from your current address too.</p>
+        </form>
+      </details>
+
+      <h2 class="t-section">Your Data</h2>
+      <p class="account-note">Download a file of everything we hold for your account: your email, when the
+        account was created, your wishlist and your alert settings. It is made in your browser.</p>
+      <button class="seg-btn acct-download" id="acct-download" type="button">Download My Data</button>
+
+      <div class="account-actions">
+        <button class="contact-send" id="auth-sign-out">Sign Out</button>
+        <button class="link-btn danger" id="auth-delete">Delete Account</button>
+      </div>
+    </article>`;
+}
+
+/** /account/wishlist: every saved fragrance with today's cheapest price. */
+function accountWishlistView(): string {
+  const gate = accountGate({ heading: ACCOUNT_HEADINGS.accountWishlist, note: 'Sign in to see your wishlist.' });
+  if (gate !== null) return gate;
+  return `
+    <button class="back" data-back>Back</button>
+    <article class="doc account-doc">
+      <h1 class="t-page">${ACCOUNT_HEADINGS.accountWishlist}</h1>
+      ${wishlistListHtml()}
+    </article>`;
+}
+
+/**
+ * /account/notifications: the free Price Alerts opt in, moved here from the
+ * old single account page, and what Premium is planned to add (owner's
+ * decision, 2026-10-04: Premium is ad free browsing first, plus email and
+ * push alerts). Written as planned, because it is: no price and no buy
+ * button while nothing can be bought, and no alert history until the sender
+ * actually logs what it sends (Phase 2 of docs/ACCOUNT-PREMIUM-PLAN.md).
+ */
+function accountNotificationsView(): string {
+  const gate = accountGate({ heading: ACCOUNT_HEADINGS.accountNotifications, note: 'Sign in to choose your notifications.' });
+  if (gate !== null) return gate;
+  return `
+    <button class="back" data-back>Back</button>
+    <article class="doc account-doc">
+      <h1 class="t-page">${ACCOUNT_HEADINGS.accountNotifications}</h1>
+      ${priceAlertsSectionHtml()}
+      <p class="account-note">Email alerts will move to Premium when it launches. Until then they stay free
+        as they are today, and you will be told before anything changes.</p>
+
+      <section class="premium-plan" aria-labelledby="premium-plan-title">
+        <h2 class="t-section" id="premium-plan-title">Coming With Premium</h2>
+        <p class="premium-tag t-eyebrow">Planned, Not on Sale Yet</p>
+        <ul class="premium-list">
+          <li><strong>No Ads</strong><span>Browse the whole site without adverts.</span></li>
+          <li><strong>Email Alerts</strong><span>Price drops, a target price you set, back in stock and preorder shipping.</span></li>
+          <li><strong>Push Notifications</strong><span>The same alerts on your phone or computer.</span></li>
+          <li><strong>Alert History</strong><span>A list of every alert we have sent you.</span></li>
+        </ul>
+        <p class="t-caption">Premium cannot be bought yet. Search, prices, your wishlist and the price graphs stay free.</p>
+      </section>
+    </article>`;
+}
+
+/**
+ * Download My Data: everything the signed in browser can read about this
+ * account, read fresh at the moment of the click rather than from whatever
+ * the pages last loaded, and handed over as a JSON file. Nothing is sent
+ * anywhere; the file is built here and saved by the browser.
+ */
+async function downloadMyData(): Promise<void> {
+  const user = state.authUser;
+  if (!user) return;
+  const [wishlist, alerts] = await Promise.all([fetchWishlist(), fetchPriceAlerts()]);
+  const now = new Date();
+  const data = buildDataExport({
+    email: user.email ?? null,
+    accountCreatedAt: user.created_at ?? null,
+    emailConfirmedAt: user.email_confirmed_at ?? null,
+    wishlist,
+    fragranceName: (id) => {
+      const f = fragranceById(id);
+      return f ? `${f.brand} ${f.name}${f.sizeMl ? ` ${f.sizeMl}ml` : ''}` : null;
+    },
+    priceAlerts: alerts,
+    exportedAt: now,
+  });
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = dataExportFileName(now);
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+/* ── the account menu ────────────────────────────────────────────────────────
+   The round button at the far left of the bar. A real <button> with
+   aria-haspopup and aria-expanded, opening a list of items marked up as a
+   menu. Every item is an ordinary button in the tab order, so Tab walks
+   through it and on out the other side (nothing is trapped), and the arrow
+   keys, Home and End move between items as a menu's do. Esc closes it and
+   puts focus back on the button; a click anywhere outside closes it too.
+
+   One piece of markup serves both shapes: on a wide screen it drops down
+   under the button, and on a phone the stylesheet turns the same element
+   into a sheet from the bottom of the screen over a dimmed backdrop
+   (.acct-menu in demo/template.html). The menu sits right after the button
+   in the document, which is what makes Tab from the button land on its
+   first item. */
+
+const ICON_PERSON = icon('<circle cx="12" cy="8.5" r="3.8" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 20c.9-3.9 3.9-6 7.5-6s6.6 2.1 7.5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>');
+
+/** Repaints the round button for the current account state. Cheap, and
+ *  called on every render so a sign in or out shows without a reload. */
+function syncAccountButton(): void {
+  const btn = document.getElementById('account-btn');
+  if (!btn) return;
+  const s = accountState(accountStateInput());
+  const avatar = accountAvatar(s);
+  const face = avatar.kind === 'letter'
+    ? `<span class="acct-letter" aria-hidden="true">${esc(avatar.letter)}</span>`
+    : `<span class="acct-icon" aria-hidden="true">${ICON_PERSON}</span>`;
+  if (btn.getAttribute('data-face') !== face) {
+    btn.innerHTML = face;
+    btn.setAttribute('data-face', face);
+  }
+  btn.classList.toggle('is-signed-in', avatar.signedIn);
+  btn.setAttribute('aria-label', accountButtonLabel(s));
+  btn.classList.toggle('on', ACCOUNT_VIEWS.includes(state.view) || state.view === 'settings');
+  if (state.accountMenuOpen) fillAccountMenu();
+}
+
+/** The panel holding the menu: the "signed in as" line, then the menu itself
+ *  (#account-menu, role="menu"), kept apart so the menu holds only items. */
+function accountMenuEl(): HTMLElement | null {
+  return document.getElementById('account-pop');
+}
+
+function fillAccountMenu(): void {
+  const menu = accountMenuEl();
+  if (!menu) return;
+  const s = accountState(accountStateInput());
+  const items = accountMenuItems(s, state.wishlistLoaded ? state.wishlistIds.size : null);
+  const current: Partial<Record<AccountMenuAction, boolean>> = {
+    profile: state.view === 'account',
+    wishlist: state.view === 'accountWishlist',
+    notifications: state.view === 'accountNotifications',
+    settings: state.view === 'settings',
+  };
+  const head = s.kind === 'signedIn' && s.email
+    ? `<p class="acct-menu-head"><span class="t-caption">Signed in as</span> <span class="acct-menu-email">${esc(s.email)}</span></p>`
+    : '';
+  const list = items
+    .map((it) => `<button type="button" role="menuitem" class="acct-item${it.action === 'signOut' ? ' is-quiet' : ''}"
+        data-acct-action="${it.action}"${current[it.action] ? ' aria-current="page"' : ''}>${esc(it.label)}</button>`)
+    .join('');
+  const html = `${head}<div class="acct-items" role="menu" id="account-menu" aria-labelledby="account-btn">${list}</div>`;
+  if (menu.getAttribute('data-html') !== html) {
+    const focusedAction = (document.activeElement as HTMLElement | null)?.getAttribute('data-acct-action');
+    menu.innerHTML = html;
+    menu.setAttribute('data-html', html);
+    if (focusedAction) menu.querySelector<HTMLElement>(`[data-acct-action="${focusedAction}"]`)?.focus();
+  }
+}
+
+function accountMenuItemsEls(): HTMLElement[] {
+  return [...(accountMenuEl()?.querySelectorAll<HTMLElement>('[role="menuitem"]') ?? [])];
+}
+
+function openAccountMenu(focus: 'first' | 'last' = 'first'): void {
+  const menu = accountMenuEl();
+  const btn = document.getElementById('account-btn');
+  const back = document.getElementById('account-menu-back');
+  if (!menu || !btn) return;
+  state.accountMenuOpen = true;
+  fillAccountMenu();
+  menu.hidden = false;
+  if (back) back.hidden = false;
+  btn.setAttribute('aria-expanded', 'true');
+  document.documentElement.classList.add('acct-menu-open');
+  const items = accountMenuItemsEls();
+  (focus === 'first' ? items[0] : items[items.length - 1])?.focus();
+}
+
+function closeAccountMenu(returnFocus: boolean): void {
+  const menu = accountMenuEl();
+  const btn = document.getElementById('account-btn');
+  const back = document.getElementById('account-menu-back');
+  if (!state.accountMenuOpen) return;
+  state.accountMenuOpen = false;
+  if (menu) menu.hidden = true;
+  if (back) back.hidden = true;
+  btn?.setAttribute('aria-expanded', 'false');
+  document.documentElement.classList.remove('acct-menu-open');
+  if (returnFocus) btn?.focus();
+}
+
+/** Opens an account page, or does the one thing an item does. */
+function runAccountAction(action: AccountMenuAction): void {
+  switch (action) {
+    case 'profile':
+    case 'verify':
+      go('account');
+      return;
+    case 'wishlist':
+      go('accountWishlist');
+      return;
+    case 'notifications':
+      go('accountNotifications');
+      return;
+    case 'settings':
+      go('settings');
+      return;
+    case 'signIn':
+    case 'signUp':
+      state.authTab = action;
+      state.authResetSent = false;
+      go('account');
+      return;
+    case 'signOut':
+      state.authPendingEmail = '';
+      void signOut();
+      return;
+  }
+}
+
 /* ── legal ───────────────────────────────────────────────────────────────── */
 
 /**
@@ -3759,13 +4122,52 @@ function notFoundView(): string {
     </article>`;
 }
 
+/**
+ * /about as a page of its own (owner's revamp, 2026-10-04): the mission, live
+ * numbers, how prices are checked, how the site makes money, who runs it, a
+ * short FAQ, then Contact Us and the legal links that used to sit in
+ * Settings. The words come from ABOUT in demo/legal.ts, the one source they
+ * share with /legal/about; the three numbers are counted from the listings
+ * by liveCounts() in demo/data.ts, never typed.
+ */
 function aboutView(): string {
   const page = legalPage('about');
   if (!page) return homeView();
+  const live = liveCounts();
+  const stat = (value: number, label: string, key: string) =>
+    `<div class="about-stat" data-stat="${key}"><dt class="t-caption">${label}</dt><dd>${value.toLocaleString('en-GB')}</dd></div>`;
   return `
-    <article class="doc">
+    <article class="doc about-doc">
       <h1 class="t-page">${esc(page.title)}</h1>
-      ${page.body}
+      <p class="about-mission">${esc(ABOUT.mission)}</p>
+      <dl class="about-stats" aria-label="The site today">
+        ${stat(live.shops, 'Shops With Current Prices', 'shops')}
+        ${stat(live.fragrances, 'Fragrances', 'fragrances')}
+        ${stat(live.offers, 'Current Offers', 'offers')}
+      </dl>
+      ${ABOUT.story}
+
+      <h2 class="t-section">How Prices Are Checked</h2>
+      <ul class="about-cards">
+        ${ABOUT.checks.map((c) => `<li class="about-card"><h3 class="about-card-title">${esc(c.title)}</h3><p>${c.body}</p></li>`).join('')}
+      </ul>
+      ${ABOUT.method}
+
+      <h2 class="t-section">How the Site Makes Money</h2>
+      ${ABOUT.money}
+
+      <h2 class="t-section">Who Runs It</h2>
+      ${ABOUT.whoRuns}
+
+      <h2 class="t-section">Questions</h2>
+      <div class="about-faq">
+        ${ABOUT.faq.map((f) => `<details class="about-faq-item"><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')}
+      </div>
+
+      <div class="about-foot">
+        ${contactSectionHtml()}
+        ${legalLinksHtml()}
+      </div>
     </article>`;
 }
 
@@ -4194,6 +4596,14 @@ function headInputForState(): HeadInput {
     case 'legal':
       return { route, leafName: legalPage(state.legalId)?.title };
 
+    // The profile's tab says "My Profile" only while the page does; signed
+    // out, /account is the sign in form and its tab says Account.
+    case 'account':
+      return {
+        route,
+        leafName: accountState(accountStateInput()).kind === 'signedIn' && !state.authRecovery ? ACCOUNT_HEADINGS.account : undefined,
+      };
+
     default:
       return {
         route,
@@ -4221,6 +4631,8 @@ function currentRoute(): Route {
     case 'design': return { name: 'design', param: '', query: {} };
     case 'settings': return { name: 'settings', param: '', query: {} };
     case 'account': return { name: 'account', param: '', query: {} };
+    case 'accountWishlist': return { name: 'accountWishlist', param: '', query: {} };
+    case 'accountNotifications': return { name: 'accountNotifications', param: '', query: {} };
     case 'explore':
       return { name: state.tab as RouteName, param: '', query: {} };
   }
@@ -4251,6 +4663,8 @@ function applyRoute(route: Route): boolean {
       if (token !== undefined) handleUnsubscribeLink(token);
       return true;
     }
+    case 'accountWishlist': state.view = 'accountWishlist'; return true;
+    case 'accountNotifications': state.view = 'accountNotifications'; return true;
 
     case 'search':
       // The bar search's results. There is no second search box under
@@ -4393,9 +4807,16 @@ function fallbackBackRoute(): Route {
     case 'retailer': return { name: 'retailers', param: '', query: {} };
     case 'brand': return { name: 'brands', param: '', query: {} };
     case 'note': return { name: 'notes', param: '', query: {} };
+    // Legal documents are linked from the About page now (they left
+    // Settings in the 2026-10-04 revamp), so that is the level above them.
     case 'legal':
-    case 'account':
-      return { name: 'settings', param: '', query: {} };
+      return { name: 'about', param: '', query: {} };
+    // The wishlist and notifications pages sit under the profile, which
+    // links to both; the profile itself sits under home, since the menu
+    // that opens it is on every page.
+    case 'accountWishlist':
+    case 'accountNotifications':
+      return { name: 'account', param: '', query: {} };
     default:
       return { name: 'home', param: '', query: {} };
   }
@@ -4850,6 +5271,10 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
                           ? settingsView()
                           : state.view === 'account'
                             ? accountView()
+                            : state.view === 'accountWishlist'
+                              ? accountWishlistView()
+                              : state.view === 'accountNotifications'
+                                ? accountNotificationsView()
                             : state.view === 'notFound'
                               ? notFoundView()
                               : legalView();
@@ -4895,10 +5320,9 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   ($('#nav-deals') as HTMLElement).classList.toggle('on', state.view === 'deals');
   ($('#nav-explore') as HTMLElement).classList.toggle('on', inExplore || state.view === 'browse');
   ($('#nav-about') as HTMLElement).classList.toggle('on', state.view === 'about');
-  // Account has no top bar entry of its own yet (see settingsView's own
-  // Account section) — Module 2.3 is where "profile picture click routes to
-  // /account everywhere" actually redesigns navigation for accounts.
-  ($('#nav-settings') as HTMLElement).classList.toggle('on', state.view === 'settings' || state.view === 'account');
+  // Settings and the account pages are reached from the account menu at the
+  // top left now, not from this row; its button carries the "you are here".
+  syncAccountButton();
 
   syncUpdatesHeight();
   mountTrustpilotWidgets();
@@ -5049,6 +5473,7 @@ function init(): void {
       state.wishlistEntries = [];
       state.wishlistLoaded = false;
       state.priceAlerts = null;
+      state.priceAlertsLoaded = false;
     }
     renderInPlace();
   };
@@ -5098,7 +5523,73 @@ function init(): void {
   $('#nav-deals').addEventListener('click', () => go('deals'));
   $('#nav-explore').addEventListener('click', () => openExplore(state.tab));
   $('#nav-about').addEventListener('click', () => go('about'));
-  $('#nav-settings').addEventListener('click', () => go('settings'));
+
+  // ── the account menu (see openAccountMenu) ──────────────────────────────
+  const accountBtn = $('#account-btn') as HTMLElement;
+  fillAccountMenu();
+  accountBtn.addEventListener('click', () => {
+    if (state.accountMenuOpen) closeAccountMenu(true);
+    else openAccountMenu('first');
+  });
+  accountBtn.addEventListener('keydown', (e) => {
+    // The menu button pattern: Down or Up opens the menu with focus on the
+    // first or last item. Enter and Space are the button's own click.
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      openAccountMenu(e.key === 'ArrowDown' ? 'first' : 'last');
+    }
+  });
+  const accountPop = $('#account-pop') as HTMLElement;
+  accountPop.addEventListener('keydown', (e) => {
+    const items = accountMenuItemsEls();
+    const at = items.indexOf(document.activeElement as HTMLElement);
+    let next = -1;
+    if (e.key === 'ArrowDown') next = (at + 1) % items.length;
+    else if (e.key === 'ArrowUp') next = (at - 1 + items.length) % items.length;
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = items.length - 1;
+    else if (e.key === 'Escape') {
+      e.preventDefault();
+      closeAccountMenu(true);
+      return;
+    }
+    if (next >= 0 && items[next]) {
+      e.preventDefault();
+      items[next]!.focus();
+    }
+  });
+  accountPop.addEventListener('click', (e) => {
+    const item = (e.target as HTMLElement).closest<HTMLElement>('[data-acct-action]');
+    if (!item) return;
+    // Focus goes to the page that opens, not back to the button: the reader
+    // chose somewhere to go. Sign Out stays put, so focus returns to the
+    // button there.
+    const action = item.getAttribute('data-acct-action') as AccountMenuAction;
+    closeAccountMenu(action === 'signOut');
+    runAccountAction(action);
+    if (action !== 'signOut') ($('#view') as HTMLElement).focus({ preventScroll: true });
+  });
+  ($('#account-menu-back') as HTMLElement).addEventListener('click', () => closeAccountMenu(true));
+  // Esc from anywhere while it is open (focus may have been moved out by a
+  // pointer), and a click anywhere outside the button and the menu.
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && state.accountMenuOpen) closeAccountMenu(true);
+  });
+  document.addEventListener('pointerdown', (e) => {
+    if (!state.accountMenuOpen) return;
+    const t = e.target as HTMLElement;
+    if (t.closest('#account-pop') || t.closest('#account-btn')) return;
+    closeAccountMenu(false);
+  });
+  // Tabbing on past the last item (or back before the button) leaves the
+  // menu, and the menu closes behind it rather than hanging open over the
+  // page. Nothing is trapped.
+  ($('.acct') as HTMLElement).addEventListener('focusout', (e) => {
+    const to = (e as FocusEvent).relatedTarget as HTMLElement | null;
+    if (!state.accountMenuOpen || !to) return;
+    if (to.closest('.acct')) return;
+    closeAccountMenu(false);
+  });
 
   // Hover shows a price history point; leaving it hides that point again
   // unless it is the one currently pinned by a tap (see the click handler
@@ -5296,6 +5787,21 @@ function init(): void {
       return;
     }
 
+    // Links between the account pages (the profile's shortcuts, the notes on
+    // the wishlist and notifications pages). Same actions as the menu's.
+    const acctGo = t.closest<HTMLElement>('[data-acct-go]');
+    if (acctGo) {
+      runAccountAction(acctGo.getAttribute('data-acct-go') as AccountMenuAction);
+      return;
+    }
+
+    if (t.closest('#acct-download')) {
+      downloadMyData().catch(() => {
+        void showDialog({ title: 'Could Not Make the File', message: 'Your data could not be read just now. Please try again.' });
+      });
+      return;
+    }
+
     const authTabBtn = t.closest('[data-auth-tab]');
     if (authTabBtn) {
       state.authTab = authTabBtn.getAttribute('data-auth-tab') as AuthTab;
@@ -5490,7 +5996,7 @@ function init(): void {
           if (on) {
             void showDialog({
               title: 'Price Alerts Are On',
-              message: 'We will email you when a saved fragrance gets cheaper. You can also set a target price for each one below.',
+              message: 'We will email you when a saved fragrance gets cheaper. You can also set a target price for each one on My Wishlist.',
               ok: true,
             });
           }
@@ -5528,6 +6034,7 @@ function init(): void {
     else if (id === 'note-detail-sort') state.noteDetailSort = value as ListSort;
     else if (id === 'brand-detail-sort') state.brandDetailSort = value as ListSort;
     else if (id === 'retailer-detail-sort') state.retailerDetailSort = value as ListSort;
+    else if (id === 'wishlist-sort') state.wishlistSort = value as WishlistSort;
     else if (id === 'retailer-in-stock') state.retailerInStockOnly = (t as HTMLInputElement).checked;
     else if (id === 'facet-on-sale') state.facetOnSale = (t as HTMLInputElement).checked;
     else if (id === 'facet-in-stock') state.facetInStock = (t as HTMLInputElement).checked;
@@ -5592,6 +6099,27 @@ function init(): void {
         state.authRecovery = false;
         renderInPlace();
         void showDialog({ title: 'Password Changed', message: 'Use your new password next time you sign in.', ok: true });
+      });
+      return;
+    }
+    if (form.id === 'auth-change-email-form') {
+      e.preventDefault();
+      const fields = form as HTMLFormElement;
+      const email = (fields.elements.namedItem('email') as HTMLInputElement).value.trim();
+      const submit = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      submit.disabled = true;
+      updateEmail(email).then((result) => {
+        submit.disabled = false;
+        if (!result.ok) {
+          void showDialog({ title: 'Email Not Changed', message: result.message });
+          return;
+        }
+        fields.reset();
+        void showDialog({
+          title: 'Check Your Inbox',
+          message: `We sent a confirmation link to ${email}. Your sign in email changes only once you follow it. You may also be asked to confirm from your current address.`,
+          ok: true,
+        });
       });
       return;
     }
