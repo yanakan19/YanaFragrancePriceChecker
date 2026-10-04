@@ -1429,16 +1429,11 @@ function homeView(): string {
            fragrance" on 2026-09-06: "only", "best" and "any" are three claims
            this site cannot support, and the CAP Code treats an unsupportable
            superlative as misleading. What follows is what the site can show.
-           "Real and Live Prices" went the same way: prices are checked every
-           three hours, which is the true sentence, not "live". -->
+           The trust lines that used to sit under it (delivery, how often
+           prices are checked, no promoted listings, the database count) are
+           gone on the owner's request, 2026-10-04: the banner under the hero
+           already says all of it, and says it once. -->
       <p class="hero-mission">See what a fragrance really costs across ${COVERAGE} UK shops, delivery included.</p>
-      <p class="intro-points">
-        <span>Delivery Included</span>
-        <span>Prices Checked Every 3 Hours</span>
-        <span>No Promoted Listings</span>
-      </p>
-      <p class="db-count">Current Database: ${DEMO_FRAGRANCES.length.toLocaleString('en-GB')} Fragrances
-        <span class="live-dot" aria-hidden="true"></span><span class="sr-only"> (live)</span></p>
     </section>
 
     <!-- The scrolling word banner, full width, directly under the hero. Its

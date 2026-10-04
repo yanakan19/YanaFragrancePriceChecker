@@ -309,7 +309,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       <p>Hi, I am Yanny. I built this after I bought a 100ml Club de Nuit and saw it twelve pounds cheaper four days later. Checking by hand meant nine tabs across Boots, Notino and Beauty Base, and half of them hid the postage until checkout.</p>
       <h2 class="t-section">How Prices Are Checked</h2>
       <ul>
-        <li>Boots, Selfridges, Superdrug and the rest are checked every three hours, 8 times a day. No price is typed in by hand.</li>
+        <li>Every shop that lets us read its pages is checked daily. No price is typed in by hand.</li>
         <li>Every price includes the delivery the shop will charge you. ${deliveryExample()}</li>
         <li>If we do not know a delivery charge, the listing says so and can never be called cheapest.</li>
         <li>No shop can pay to rank higher. Results are ordered by stock, then by price.</li>
@@ -329,10 +329,9 @@ export const LEGAL_PAGES: LegalPage[] = [
       <p>PriceSniffs compares fragrance prices across ${COVERAGE} UK shops, so you can
       see what a bottle really costs before you buy it.</p>
 
-      <h2 class="t-section">Prices Are Checked Every Three Hours</h2>
-      <p>We look at every shop 8 times a day, Boots, Selfridges, Superdrug,
-      LOOKFANTASTIC, Escentual and the rest on the same clock. No price is typed
-      in by hand. A fragrance shows up here because a shop was selling it when we
+      <h2 class="t-section">Prices Are Checked Daily</h2>
+      <p>We look at every shop that lets us read its pages once a day. No price
+      is typed in by hand. A fragrance shows up here because a shop was selling it when we
       looked, and the price came off that page. Every listing says when we last
       looked.</p>
       <p>Shops change their delivery terms far less often, maybe twice a year. So
@@ -684,7 +683,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       it the same day. <a href="mailto:${COMPANY.email}">${COMPANY.email}</a></p>
 
       <h2 class="t-section">Prices Can Move</h2>
-      <p>Prices are collected every few hours and can change between our check
+      <p>Prices are collected daily and can change between our check
       and your visit to the shop. Every listing shows when we last looked. The
       price you pay is the one on the shop's site at checkout, which is why we
       say on every page to check it there before you buy.</p>
@@ -709,8 +708,8 @@ export const LEGAL_PAGES: LegalPage[] = [
       your rights as a buyer actually lie.</p>
 
       <h2 class="t-section">How Accurate the Prices Are</h2>
-      <p>We work hard to show accurate prices. But we collect them every few
-      hours, and they can change at any moment. Postage costs, and the spend
+      <p>We work hard to show accurate prices. But we collect them daily,
+      and they can change at any moment. Postage costs, and the spend
       needed for free delivery, are worked out from the published terms of the
       ${ENABLED.length} shops we fetch from. They may miss a promotion, a
       Highlands surcharge or a basket rule.
