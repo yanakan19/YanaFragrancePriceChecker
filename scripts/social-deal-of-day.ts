@@ -6,6 +6,8 @@
  *   npm run social:deal                    today's post
  *   npm run social:deal -- --id <id>       a chosen perfume
  *   npm run social:deal -- --skip-live-check
+ *   npm run social:deal -- --dry-run       what it would post, writing nothing
+ *   npm run social:deal -- --allow-brand-repeat   post a chosen brand inside its rest
  *
  * Output: social/posts/YYYY-MM-DD-deal-of-the-day/ (post-9x16, post-3x4 and
  * notes-3x4 as .html/.png, caption.txt, check.json). Rules: social/DESIGN-SYSTEM.md.
@@ -21,6 +23,12 @@
  *   Cheapest box = bestOffer's delivered price and shop
  * A perfume qualifies only when the cheapest delivered price is below MSRP,
  * the price is fresh, delivery is stated and the page may call it cheapest.
+ *
+ * Which of the qualifying deals: the biggest saving among perfumes never posted
+ * before, from a brand not posted in the last BRAND_REST_DAYS days (the owner's
+ * rule, 2026-10-04: a new brand every week). If no deal from such a brand
+ * qualifies, nothing is posted and nothing is written: the run says so and
+ * exits with code 3 rather than break the rule.
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -49,7 +57,7 @@ export interface Pick {
   msrp: number;
   percent: number;
 }
-interface HistoryEntry { date: string; id: string; brand: string }
+export interface HistoryEntry { date: string; id: string; brand: string }
 
 const args = process.argv.slice(2);
 const flag = (name: string) => args.includes(name);
@@ -91,22 +99,105 @@ export function dealFor(frag: DemoFragrance): Pick | null {
   };
 }
 
-function choose(history: HistoryEntry[]): Pick {
+/**
+ * How many days a brand rests after one of its perfumes is posted. A brand
+ * posted on a day may be posted again that many days later or after, so every
+ * seven days in a row (today and the six before) name seven different brands:
+ * the owner's "a new brand every week" (2026-10-04, after Zimaya came up three
+ * days running).
+ */
+export const BRAND_REST_DAYS = 7;
+
+/** A brand's identity for the rule: case, spacing and punctuation never make it a different one. */
+const brandKey = (brand: string) => brand.toLowerCase().replace(/[^a-z0-9]+/g, '');
+
+/** Whole days from one YYYY-MM-DD date to another (to minus from), in UTC so a clock change cannot move it. */
+export function daysBetween(from: string, to: string): number {
+  return Math.round((Date.parse(`${to}T00:00:00Z`) - Date.parse(`${from}T00:00:00Z`)) / 86_400_000);
+}
+
+export interface RestingBrand {
+  brand: string;
+  lastPosted: string;
+  daysAgo: number;
+}
+
+/**
+ * The brands that may not be posted on `today`: posted on any other day fewer
+ * than BRAND_REST_DAYS days ago. Today's own entry is not one of them, so a
+ * rerun on the same day can still stand by (or change) that day's pick, as the
+ * never-posted-before rule already allows. A date after today (a clock that
+ * moved back) counts as recent: the rule errs towards not repeating.
+ */
+export function restingBrands(history: readonly HistoryEntry[], today: string): Map<string, RestingBrand> {
+  const resting = new Map<string, RestingBrand>();
+  for (const h of history) {
+    if (h.date === today || !h.brand) continue;
+    const daysAgo = daysBetween(h.date, today);
+    if (daysAgo >= BRAND_REST_DAYS) continue;
+    const key = brandKey(h.brand);
+    const seen = resting.get(key);
+    if (!seen || h.date > seen.lastPosted) resting.set(key, { brand: h.brand, lastPosted: h.date, daysAgo });
+  }
+  return resting;
+}
+
+export type Choice =
+  | { pick: Pick }
+  /** Nothing qualifies without breaking a rule; says which, and writes nothing. */
+  | { pick: null; reason: string; rule: 'no-deal' | 'brand-rest' };
+
+/**
+ * The day's deal from the qualifying ones: the biggest saving among perfumes
+ * never posted before and from a brand that is not resting. If the top one is
+ * excluded, the next one down, and so on. When only resting brands remain it
+ * says so instead of breaking the rule. A rerun on the same day keeps that
+ * day's own pick available.
+ */
+export function chooseFrom(qualifying: readonly Pick[], history: readonly HistoryEntry[], today: string): Choice {
+  const used = new Set(history.filter((h) => h.date !== today).map((h) => h.id));
+  const unposted = qualifying.filter((p) => !used.has(p.frag.id));
+  if (!unposted.length) return { pick: null, reason: 'No perfume qualifies as a deal today', rule: 'no-deal' };
+  const resting = restingBrands(history, today);
+  const pool = unposted.filter((p) => !resting.has(brandKey(p.frag.brand)));
+  if (!pool.length) {
+    const named = [...new Set(unposted.map((p) => p.frag.brand))].sort();
+    const when = named
+      .map((b) => resting.get(brandKey(b)))
+      .filter((r): r is RestingBrand => r !== undefined)
+      .map((r) => `${r.brand} on ${r.lastPosted}`);
+    return {
+      pick: null,
+      rule: 'brand-rest',
+      reason:
+        `No deal from a brand not posted in the last ${BRAND_REST_DAYS} days qualifies today. ` +
+        `${unposted.length} deal${unposted.length === 1 ? '' : 's'} qualif${unposted.length === 1 ? 'ies' : 'y'}, ` +
+        `all from ${when.join(', ')}. Nothing was written.`,
+    };
+  }
+  const sorted = [...pool].sort(
+    (a, b) => b.percent - a.percent || b.msrp - b.delivered - (a.msrp - a.delivered) || a.frag.id.localeCompare(b.frag.id),
+  );
+  return { pick: sorted[0]! };
+}
+
+function choose(history: HistoryEntry[]): Choice {
   const forced = opt('--id');
   if (forced) {
     const frag = DEMO_FRAGRANCES.find((f) => f.id === forced);
     const p = frag && dealFor(frag);
     if (!p) throw new Error(`${forced} does not qualify as a deal today`);
-    return p;
+    // A chosen perfume answers to the same rule, unless the person says otherwise.
+    const rest = restingBrands(history, today).get(brandKey(p.frag.brand));
+    if (rest && !flag('--allow-brand-repeat')) {
+      throw new Error(
+        `${p.frag.brand} was posted on ${rest.lastPosted}, ${rest.daysAgo} day${rest.daysAgo === 1 ? '' : 's'} ago, and a brand rests ${BRAND_REST_DAYS} days. ` +
+          'Add --allow-brand-repeat to post it anyway.',
+      );
+    }
+    return { pick: p };
   }
-  // The top deal of the day that has never been posted before; if the top one
-  // has been, the next one down, and so on. A rerun on the same day keeps that
-  // day's own pick available.
-  const used = new Set(history.filter((h) => h.date !== today).map((h) => h.id));
-  const pool = DEMO_FRAGRANCES.map(dealFor).filter((p): p is Pick => p !== null && !used.has(p.frag.id));
-  if (!pool.length) throw new Error('No perfume qualifies as a deal today');
-  pool.sort((a, b) => b.percent - a.percent || b.msrp - b.delivered - (a.msrp - a.delivered) || a.frag.id.localeCompare(b.frag.id));
-  return pool[0]!;
+  return chooseFrom(DEMO_FRAGRANCES.map(dealFor).filter((p): p is Pick => p !== null), history, today);
 }
 
 const gbp = (n: number) => `£${n.toFixed(2)}`;
@@ -410,7 +501,15 @@ function liveCheck(id: string, url: string): { status: number; servesApp: boolea
 
 async function main() {
   const history: HistoryEntry[] = existsSync(HISTORY) ? JSON.parse(readFileSync(HISTORY, 'utf8')) : [];
-  const p = choose(history);
+  const choice = choose(history);
+  if (choice.pick === null) {
+    // The honest outcome when the only deals left would break a rule: no post,
+    // no folder, no history entry. Code 3 so a schedule sees that nothing was made.
+    console.log(`${today}: no post. ${choice.reason}`);
+    process.exitCode = choice.rule === 'no-deal' ? 1 : 3;
+    return;
+  }
+  const p = choice.pick;
   const url = `${SITE}/fragrance/${p.frag.id}`;
   // When the winning price was itself last confirmed, not when the catalogue
   // was built: on 3 Oct 2026 the post said "checked 11:14" (the build) for a
@@ -420,6 +519,10 @@ async function main() {
   const checked = `${checkedAt.toLocaleTimeString('en-GB', { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit' })} UK, ${checkedAt.toLocaleDateString('en-GB', { timeZone: 'Europe/London', day: 'numeric', month: 'short', year: 'numeric' })}`;
   const dateLabel = new Date(`${today}T12:00:00Z`).toLocaleDateString('en-GB', { timeZone: 'Europe/London', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 
+  if (flag('--dry-run')) {
+    console.log(`${today}: would post ${p.frag.brand} ${p.frag.name} ${sizeLabel(p.frag.sizeMl)} ${gbp(p.delivered)} at ${p.best.retailer.name}, MSRP ${gbp(p.msrp)} (${p.percent}% less). Nothing written.`);
+    return;
+  }
   const check = flag('--skip-live-check') ? null : liveCheck(p.frag.id, url);
   if (check && !check.ok) {
     throw new Error(`Live link check failed for ${url}: ${JSON.stringify(check)}`);
@@ -450,7 +553,7 @@ async function main() {
   writeFileSync(join(dir, 'tiktok-caption.txt'), tiktokCaption(feedCaption));
   writeFileSync(
     join(dir, 'check.json'),
-    JSON.stringify({ id: p.frag.id, url, delivered: p.delivered, msrp: p.msrp, shop: p.best.retailer.name, percent: p.percent, pricesCheckedAt: checkedAt.toISOString(), liveCheck: check, gender, notes: { used: notes.notes ? notes.notes.from : 'none', source: notes.notes?.source ?? null, reasons: notes.reasons, top: notes.notes?.top ?? [], middle: notes.notes?.middle ?? [], base: notes.notes?.base ?? [] } }, null, 2) + '\n',
+    JSON.stringify({ id: p.frag.id, url, delivered: p.delivered, msrp: p.msrp, shop: p.best.retailer.name, percent: p.percent, pricesCheckedAt: checkedAt.toISOString(), brandRule: { restDays: BRAND_REST_DAYS, overridden: flag('--allow-brand-repeat') }, liveCheck: check, gender, notes: { used: notes.notes ? notes.notes.from : 'none', source: notes.notes?.source ?? null, reasons: notes.reasons, top: notes.notes?.top ?? [], middle: notes.notes?.middle ?? [], base: notes.notes?.base ?? [] } }, null, 2) + '\n',
   );
   const next = history.filter((h) => h.date !== today);
   next.push({ date: today, id: p.frag.id, brand: p.frag.brand });
