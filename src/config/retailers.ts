@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 75 retailers, 52 of them `enabled: true`. Every one of them is a legitimate
+ * 75 retailers, 42 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -349,7 +349,8 @@ export const RETAILERS: readonly Retailer[] = [
     trustpilotUrl: 'https://uk.trustpilot.com/review/notino.co.uk',
     trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer', 'niche', 'mideast'],
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
@@ -643,7 +644,8 @@ export const RETAILERS: readonly Retailer[] = [
     trustpilotUrl: 'https://uk.trustpilot.com/review/www.boots.com',
     trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer'],
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
@@ -882,7 +884,8 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'thefragranceshop.co.uk',
     homepage: 'https://www.thefragranceshop.co.uk',
     tiers: ['designer', 'mideast'],
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
@@ -971,7 +974,8 @@ export const RETAILERS: readonly Retailer[] = [
     trustpilotUrl: 'https://uk.trustpilot.com/review/theperfumeshop.com',
     trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer'],
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
@@ -2153,7 +2157,8 @@ export const RETAILERS: readonly Retailer[] = [
     // — without it here too, priceService's tier gate would skip Superdrug
     // for every niche fragrance regardless of what the crawl finds there.
     tiers: ['designer', 'niche'],
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
@@ -2469,7 +2474,8 @@ export const RETAILERS: readonly Retailer[] = [
     trustpilotUrl: 'https://uk.trustpilot.com/review/selfridges.com',
     trustpilotCheckedOn: '2026-10-04',
     tiers: ['niche'],
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
@@ -2751,7 +2757,8 @@ export const RETAILERS: readonly Retailer[] = [
     trustpilotUrl: 'https://uk.trustpilot.com/review/www.harveynichols.com',
     trustpilotCheckedOn: '2026-10-04',
     tiers: ['niche'],
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     // Live spike 1 Aug 2026: HTTP 200 but no product markup found. Either
     // the section URL is wrong or the grid is drawn by script. Re-checked
     // 6 Aug 2026 against a live browser: the URL below is the real page, so
@@ -3927,7 +3934,8 @@ export const RETAILERS: readonly Retailer[] = [
     // a feed is the honest way back; failing that, the owner can ask the shop
     // to allow this crawler, or switch the shop off.
     fragranceOnlyCatalogue: true,
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     adapter: 'unknown',
     sitemapHarvestConfirmed: true,
     currency: 'GBP',
@@ -4924,7 +4932,8 @@ export const RETAILERS: readonly Retailer[] = [
     // retrieved, the opposite of a refusal — only the free local renderer
     // has ever refused this shop, so only that tier should be skipped.
     renderRefused: 'local',
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     adapter: 'headless',
     currency: 'GBP',
     shipping: {
@@ -8823,7 +8832,8 @@ export const RETAILERS: readonly Retailer[] = [
     // Mon Âme £190: all match. 1907 Parfums prints its size as "50ml - 20%
     // perfume oil concentration", which the size pattern missed, so those two
     // reached the snapshot unsized; the pattern now reads the size alone.
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {

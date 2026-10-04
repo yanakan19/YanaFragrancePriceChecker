@@ -62,6 +62,12 @@
  * stand behind these figures" (src/catalogue/priceQuarantine.ts), so nulls
  * arrive by design.
  *
+ * A shop that is not on the site (`enabled: false`, or deleted from the
+ * registry) has no price history either, for the same reason in the other
+ * direction: no point may name it. The owner took ten shops off on 2026-10-04;
+ * their points left the series, and a switched off one comes back if it is
+ * switched back on (the enabled set is part of the checkpoint's fingerprint).
+ *
  * ── Two things this file ships beyond the price line itself ────────────────
  * 1. **Explicit gap markers.** A commit where every listing for a fragrance
  *    is excluded (out of stock everywhere, or delisted everywhere) produces

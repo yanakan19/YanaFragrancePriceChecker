@@ -78,7 +78,7 @@ export const COVERAGE = shopsPhrase(Math.min(ENABLED.length, SHOP_COUNT));
 /** Researched but not switched on, usually pending a delivery cost or a route. */
 const SWITCHED_OFF = RETAILERS.filter((r) => !r.enabled);
 /** Programmes actually approved, so a link genuinely earns commission. */
-const COMMISSIONED = RETAILERS.filter((r) => r.affiliate.status === 'active');
+const COMMISSIONED = ENABLED.filter((r) => r.affiliate.status === 'active');
 /** The networks those programmes run through, named once each. */
 const NETWORKS = [...new Set(COMMISSIONED.map((r) => r.affiliate.network ?? 'direct'))].map((net) =>
   net === 'awin' ? 'Awin' : net === 'direct' ? 'the shop directly' : net,
@@ -96,15 +96,22 @@ const gbp = (v: number) => (Number.isInteger(v) ? `£${v}` : `£${v.toFixed(2)}`
  * The two delivery examples the About and How it works pages use, read from
  * the registry so a re-checked charge changes the sentence with it. The
  * About page typed "£5.95" for Harvey Nichols by hand and it had drifted.
+ * Both are enabled shops (a shop switched off, as ten were on 2026-10-04,
+ * cannot be the example on a page that says what the site shows): if either
+ * stops being one, or loses its figures, the generic sentence is used.
  */
-const BOOTS = RETAILERS.find((r) => r.id === 'boots')!.shipping;
-const HARVEY = RETAILERS.find((r) => r.id === 'harvey-nichols')!.shipping;
-const deliveryExample = (): string =>
-  BOOTS.freeOverGbp != null && BOOTS.standardGbp != null && HARVEY.freeOverGbp != null && HARVEY.standardGbp != null
-    ? `Boots posts free once you spend ${gbp(BOOTS.freeOverGbp)} and charges ${gbp(BOOTS.standardGbp)} below that.
-      Harvey Nichols wants ${gbp(HARVEY.freeOverGbp)}, which one bottle will rarely reach, so its listings
-      usually carry ${gbp(HARVEY.standardGbp)} on top.`
+const enabledShop = (id: string) => ENABLED.find((r) => r.id === id);
+const LOOKFANTASTIC = enabledShop('lookfantastic');
+const FRAGRANCE_COUNTER = enabledShop('the-fragrance-counter');
+const deliveryExample = (): string => {
+  const a = LOOKFANTASTIC?.shipping;
+  const b = FRAGRANCE_COUNTER?.shipping;
+  return a && b && a.freeOverGbp != null && a.standardGbp != null && b.freeOverGbp != null && b.standardGbp != null
+    ? `${LOOKFANTASTIC!.name} posts free once you spend ${gbp(a.freeOverGbp)} and charges ${gbp(a.standardGbp)} below that.
+      ${FRAGRANCE_COUNTER!.name} wants ${gbp(b.freeOverGbp)}, so a single bottle under that carries
+      ${gbp(b.standardGbp)} on top.`
     : 'Each shop sets its own delivery charge and its own spend for free delivery.';
+};
 const deliveryExampleFull = (): string => `${deliveryExample()}${cheaperRateExample()}`;
 /**
  * Shops that charge a cheaper, still paid, rate above a spend (Debenhams), said
@@ -119,10 +126,30 @@ const cheaperRateExample = (): string => {
   });
   return parts.length ? ` ${parts.join('. ')}, which is still a charge, so we add it to the price.` : '';
 };
+/**
+ * The membership paragraph on How it works, from the registry. The example is
+ * an enabled shop that records a scheme and a non member free delivery spend
+ * (LOOKFANTASTIC today); the schemes named afterwards are every enabled shop
+ * that records one. A shop switched off is never named: ten were on
+ * 2026-10-04, Superdrug among them, and its Beautycard example went with it.
+ */
+const MEMBERSHIP_SHOPS = ENABLED.filter((r) => r.shipping.membershipPerk != null);
+const membershipExample = (): string => {
+  const example = MEMBERSHIP_SHOPS.find((r) => r.id === 'lookfantastic' && r.shipping.freeOverGbp != null);
+  const perk = example?.shipping.membershipPerk;
+  const lead =
+    example && perk
+      ? `${example.name} posts free delivery at ${gbp(example.shipping.freeOverGbp!)} for everyone, and also sells ${perk.scheme}
+      (${perk.description.replace(/\.$/, '')}), so we quote ${gbp(example.shipping.freeOverGbp!)}.`
+      : 'Where a shop runs a membership scheme, we quote the rate anyone can pay.';
+  const names = MEMBERSHIP_SHOPS.map((r) => r.name);
+  const list = names.length > 1 ? `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}` : (names[0] ?? '');
+  return names.length > 0 ? `${lead} ${list} ${names.length > 1 ? 'all run' : 'runs'} schemes of their own. We mention them.` : lead;
+};
 const DELIVERY_CONFIRMED = ENABLED.filter((r) => r.shipping.confidence === 'confirmed');
 const DELIVERY_UNCONFIRMED = ENABLED.filter((r) => r.shipping.confidence === 'unverified');
 /** Shops whose photographs are shown on a stated licence or their own storefront, versus a bare hotlink. */
-const IMAGE_SHOPS = RETAILERS.filter((r) => r.affiliate.imageBasis != null);
+const IMAGE_SHOPS = ENABLED.filter((r) => r.affiliate.imageBasis != null);
 const IMAGE_LICENSED = IMAGE_SHOPS.filter((r) => r.affiliate.imageBasis !== 'hotlink-unlicensed');
 const IMAGE_HOTLINKED = IMAGE_SHOPS.filter((r) => r.affiliate.imageBasis === 'hotlink-unlicensed');
 
@@ -131,7 +158,7 @@ const IMAGE_HOTLINKED = IMAGE_SHOPS.filter((r) => r.affiliate.imageBasis === 'ho
  *  brand in demo/brandLogos.ts, split by whether we host the file ourselves
  *  (commons-public-domain, under demo/logos/) or hot-link it from the
  *  owner's own server (everything else). */
-const LOGO_RETAILERS = RETAILERS.filter((r) => r.logo != null);
+const LOGO_RETAILERS = ENABLED.filter((r) => r.logo != null);
 const LOGO_BRANDS = Object.values(BRAND_LOGOS);
 const LOGO_TOTAL = LOGO_RETAILERS.length + LOGO_BRANDS.length;
 const LOGO_HOSTED =
@@ -318,7 +345,7 @@ function businessDetails(): string {
  */
 export const ABOUT = {
   mission: 'PriceSniffs shows what a bottle of fragrance really costs at UK shops, delivery included.',
-  story: `<p>Hi, I am Yanny. I built this after I bought a 100ml Club de Nuit and saw it twelve pounds cheaper four days later. Checking by hand meant nine tabs across Boots, Notino and Beauty Base, and half of them hid the postage until checkout.</p>`,
+  story: `<p>Hi, I am Yanny. I built this after I bought a 100ml Club de Nuit and saw it twelve pounds cheaper four days later. Checking by hand meant nine tabs across different shops, and half of them hid the postage until checkout.</p>`,
   checks: [
     {
       title: 'Delivery Included',
@@ -361,7 +388,7 @@ export const ABOUT = {
     },
     {
       q: 'Why is a shop I use missing?',
-      a: `We have looked at ${RETAILERS.length} shops so far. ${SWITCHED_OFF.length} of them are switched off, most waiting on a delivery charge or on a way to read their listings at all. Email us to suggest one.`,
+      a: `We have looked at ${RETAILERS.length} shops so far. ${SWITCHED_OFF.length} of them are switched off for now, some of them waiting on a delivery charge or on a way to read their listings at all. Email us to suggest one.`,
     },
     {
       q: 'Do you show members only prices?',
@@ -450,8 +477,8 @@ export const LEGAL_PAGES: LegalPage[] = [
       as zero would push a shop to the top of every result, and it would be
       wrong.</p>
       <p>We have looked at ${RETAILERS.length} shops so far. ${SWITCHED_OFF.length}
-      of them are switched off, most waiting on a delivery charge or on a way to
-      read their listings at all.</p>
+      of them are switched off for now, some of them waiting on a delivery
+      charge or on a way to read their listings at all.</p>
 
       <h2 class="t-section">Reductions Come From the Shop</h2>
       <p>A previous price and a percentage saving are the shop's own figures. We
@@ -460,11 +487,9 @@ export const LEGAL_PAGES: LegalPage[] = [
       shop has published a closing time for the offer. We never invent one.</p>
 
       <h2 class="t-section">Membership Rates Are Not the Headline</h2>
-      <p>Superdrug posts free at £20 for Health and Beautycard holders and at £25
-      for everyone else, so we quote £25. The Perfume Shop, The Fragrance Shop,
-      Selfridges and LOOKFANTASTIC all run schemes of their own. We mention
-      them. But we never build a members only rate into the headline price,
-      because you cannot pay it unless you have already joined.</p>
+      <p>${membershipExample()} We never build a members only rate into the
+      headline price, because you cannot pay it unless you have already
+      joined.</p>
 
       <h2 class="t-section">Sold Out and Preorder Stay at the Bottom</h2>
       <p>Listings a shop has marked unavailable sit at the end and can never be

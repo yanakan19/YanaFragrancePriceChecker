@@ -342,16 +342,18 @@ describe('retailer registry', () => {
     });
 
     it('never sorts above a known-delivery offer, however cheap the item', () => {
-      // Boots at £90 delivers at £90 (its £25 threshold is long cleared). The
-      // unknown-delivery shop is listed at £1 — the most extreme form of the
-      // error this guards against — and still has to come second.
+      // LOOKFANTASTIC at £90 delivers at £90 (its £25 threshold is long
+      // cleared). The unknown-delivery shop is listed at £1 — the most extreme
+      // form of the error this guards against — and still has to come second.
+      // (Boots was the priced shop here until the owner switched it off on
+      // 2026-10-04; the comparison itself never read `enabled`.)
       for (const r of unstated) {
-        const rows = buildComparison([rawOffer(r.id, 1), rawOffer('boots', 90)]);
+        const rows = buildComparison([rawOffer(r.id, 1), rawOffer('lookfantastic', 90)]);
         expect(rows.map((row) => row.retailer.id), `${r.name} outranked a priced offer`).toEqual([
-          'boots',
+          'lookfantastic',
           r.id,
         ]);
-        expect(bestOffer(rows)!.retailer.id, `${r.name} was named cheapest`).toBe('boots');
+        expect(bestOffer(rows)!.retailer.id, `${r.name} was named cheapest`).toBe('lookfantastic');
       }
     });
 
@@ -382,7 +384,7 @@ describe('retailer registry', () => {
       expect(row.deliveredPriceGbp).toBe(42);
       // And it competes normally: free delivery is a real advantage, unlike
       // an unstated cost, so it is allowed to win.
-      const rows = buildComparison([rawOffer('fragrance-click', 42), rawOffer('boots', 90)]);
+      const rows = buildComparison([rawOffer('fragrance-click', 42), rawOffer('lookfantastic', 90)]);
       expect(bestOffer(rows)!.retailer.id).toBe('fragrance-click');
     });
   });
@@ -646,6 +648,39 @@ describe('retailer registry', () => {
     });
   });
 
+  describe('shops the owner switched off on 2026-10-04', () => {
+    // Off the site for now, entries and notes kept so they can come back. A
+    // shop here stays out of every count, list, page, deal and price point
+    // until its `enabled` is true again; switching one back on is a one line
+    // change that also needs this list edited, on purpose.
+    const switchedOff = [
+      'shy-mimosa',
+      'selfridges',
+      'boots',
+      'superdrug',
+      'the-perfume-shop',
+      'the-fragrance-shop',
+      'notino-uk',
+      'zara',
+      'harvey-nichols',
+      'riiffs',
+    ];
+    const source = readFileSync(new URL('../src/config/retailers.ts', import.meta.url), 'utf8');
+
+    it.each(switchedOff)('%s is in the registry and disabled', (id) => {
+      const r = getRetailer(id);
+      expect(r, `${id} must keep its entry`).toBeDefined();
+      expect(r!.enabled).toBe(false);
+      expect(enabledRetailers().map((e) => e.id)).not.toContain(id);
+      expect(r!.shipping.notes, `${id} keeps its notes`).toBeTruthy();
+    });
+
+    it('each carries the one line note beside `enabled: false`', () => {
+      const note = '// Switched off by the owner on 2026-10-04: off the site for now.';
+      expect(source.split(note).length - 1).toBe(switchedOff.length);
+    });
+  });
+
   describe('lookups', () => {
     it('returns undefined for an unknown id', () => {
       expect(getRetailer('not-a-retailer')).toBeUndefined();
@@ -653,7 +688,10 @@ describe('retailer registry', () => {
 
     it('filters by tier', () => {
       const niche = retailersForTier('niche');
-      expect(niche.map((r) => r.id)).toContain('selfridges');
+      expect(niche.map((r) => r.id)).toContain('allbeauty');
+      // Selfridges is a niche shop and Boots is not, but both were switched
+      // off by the owner on 2026-10-04, so neither is in any tier lookup.
+      expect(niche.map((r) => r.id)).not.toContain('selfridges');
       expect(niche.map((r) => r.id)).not.toContain('boots');
     });
 
@@ -746,12 +784,15 @@ describe('retailer registry', () => {
 
     it('never turns off the shop entirely — only the render escalation', () => {
       // This flag says "do not spend a render-tier page here", not "give up
-      // on this shop". Every one of them stays enabled with its cheaper tiers
-      // (plain fetch, the Apify proxy) intact, and keeps the catalogue
-      // section URLs those tiers and the render tier both still read from.
+      // on this shop". Every one of them keeps its cheaper tiers (plain
+      // fetch, the Apify proxy) intact, and keeps the catalogue section URLs
+      // those tiers and the render tier both still read from. Each stays
+      // enabled too, except the six the owner switched off for now on
+      // 2026-10-04 (their entries and notes are kept so they can come back).
+      const switchedOffByOwner = ['boots', 'zara', 'superdrug', 'the-fragrance-shop', 'the-perfume-shop', 'notino-uk'];
       for (const id of flagged) {
         const r = getRetailer(id)!;
-        expect(r.enabled, id).toBe(true);
+        expect(r.enabled, id).toBe(!switchedOffByOwner.includes(id));
         expect(r.catalogue, id).not.toBeNull();
       }
     });

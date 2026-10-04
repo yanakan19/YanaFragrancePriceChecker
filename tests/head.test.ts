@@ -181,13 +181,25 @@ describe('sitemap agrees with head.ts', () => {
     expect(new Set(locs).size).toBe(locs.length);
   });
 
-  it('carries a real lastmod on every entry, not one stamped date', () => {
+  it('carries a real lastmod on every entry, not one stamped date', async () => {
     const dates = [...xml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((m) => m[1]!);
     expect(dates.length).toBe(locs.length);
     for (const d of dates.slice(0, 200)) expect(d).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-    // If every date were identical the field would be decoration.
-    expect(new Set(dates).size).toBeGreaterThan(1);
-  });
+    // If every date were identical the field would be decoration, with one
+    // honest exception: a crawl that read every shop on the same day, and a
+    // build the same day. Until 2026-10-04 a few shops kept older prices (the
+    // ones the owner has since taken off the site), which hid that case; now
+    // the one date has to be the newest day a price was actually read.
+    const distinct = new Set(dates);
+    if (distinct.size === 1) {
+      const { CRAWLED } = await import('../demo/catalogue.generated.js');
+      let newest = '';
+      for (const offers of Object.values(CRAWLED)) for (const o of offers) if (o.fetchedAt > newest) newest = o.fetchedAt;
+      expect([...distinct][0]).toBe(newest.slice(0, 10));
+    } else {
+      expect(distinct.size).toBeGreaterThan(1);
+    }
+  }, 60_000);
 
   it('is referenced by robots.txt', () => {
     const robots = readFileSync(new URL('../demo/robots.txt', import.meta.url), 'utf8');
