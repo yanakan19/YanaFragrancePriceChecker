@@ -34,6 +34,11 @@ export function longDate(iso: string): string {
   return m && month ? `${Number(m[3])} ${month} ${m[1]}` : iso;
 }
 
+/** A charge under a pound as a shop writes it, 99p, and any other as sterling. */
+function formatPence(gbp: number): string {
+  return gbp < 1 ? `${Math.round(gbp * 100)}p` : formatGbp(gbp);
+}
+
 export function deliveryLines(r: Retailer): string[] {
   const s = r.shipping;
   const lines: string[] = [];
@@ -71,6 +76,14 @@ export function deliveryLines(r: Retailer): string[] {
     lines.push(`Free once you spend ${formatGbp(s.freeOverGbp)}`);
   } else if (s.freeOverGbp === null) {
     lines.push('No spend based free delivery');
+  }
+  // A cheaper paid rate above a spend (Debenhams: 99p on orders over £30). Said
+  // as the shop says it, "over" when the spend itself does not qualify.
+  if (s.cheaperRateOver) {
+    const c = s.cheaperRateOver;
+    lines.push(
+      `Delivery drops to ${formatPence(c.costGbp)} on orders ${c.inclusive ? 'of' : 'over'} ${Number.isInteger(c.overGbp) ? `£${c.overGbp}` : formatGbp(c.overGbp)}${c.inclusive ? ' or more' : ''}, and is not free`,
+    );
   }
   const [lo, hi] = s.estimatedDays;
   lines.push(lo === hi ? `Arrives in about ${lo} working days` : `Arrives in about ${lo} to ${hi} working days`);

@@ -105,6 +105,20 @@ const deliveryExample = (): string =>
       Harvey Nichols wants ${gbp(HARVEY.freeOverGbp)}, which one bottle will rarely reach, so its listings
       usually carry ${gbp(HARVEY.standardGbp)} on top.`
     : 'Each shop sets its own delivery charge and its own spend for free delivery.';
+const deliveryExampleFull = (): string => `${deliveryExample()}${cheaperRateExample()}`;
+/**
+ * Shops that charge a cheaper, still paid, rate above a spend (Debenhams), said
+ * from the registry so a re-read rate changes the sentence with it. Never
+ * called free: the cheaper rate is a charge like any other.
+ */
+const cheaperRateExample = (): string => {
+  const parts = ENABLED.filter((r) => r.shipping.cheaperRateOver && r.shipping.standardGbp !== null).map((r) => {
+    const c = r.shipping.cheaperRateOver!;
+    const rate = c.costGbp < 1 ? `${Math.round(c.costGbp * 100)}p` : gbp(c.costGbp);
+    return `${r.name} charges ${gbp(r.shipping.standardGbp!)}, or ${rate} on orders ${c.inclusive ? 'of' : 'over'} ${gbp(c.overGbp)}${c.inclusive ? ' or more' : ''}`;
+  });
+  return parts.length ? ` ${parts.join('. ')}, which is still a charge, so we add it to the price.` : '';
+};
 const DELIVERY_CONFIRMED = ENABLED.filter((r) => r.shipping.confidence === 'confirmed');
 const DELIVERY_UNCONFIRMED = ENABLED.filter((r) => r.shipping.confidence === 'unverified');
 /** Shops whose photographs are shown on a stated licence or their own storefront, versus a bare hotlink. */
@@ -308,7 +322,7 @@ export const ABOUT = {
   checks: [
     {
       title: 'Delivery Included',
-      body: `Every price includes the delivery the shop will charge you. ${deliveryExample()} If we do not know a delivery charge, the listing says so and can never be called cheapest.`,
+      body: `Every price includes the delivery the shop will charge you. ${deliveryExampleFull()} If we do not know a delivery charge, the listing says so and can never be called cheapest.`,
     },
     {
       title: 'Checked Daily',
@@ -412,7 +426,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       <h2 class="t-section">Delivery Is Counted</h2>
       <p>Every price includes standard delivery to a UK mainland address. We also
       work out whether your order reaches the shop's spend for free delivery.
-      ${deliveryExample()} That is why a bottle priced at £24.99 can cost you
+      ${deliveryExampleFull()} That is why a bottle priced at £24.99 can cost you
       more than one priced at £26.</p>
 
       <h2 class="t-section">Which Delivery Charges We Have Checked</h2>

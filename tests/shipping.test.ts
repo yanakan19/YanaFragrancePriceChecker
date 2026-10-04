@@ -8,6 +8,52 @@ const notino = getRetailer('notino-uk')!;
 const harveyNichols = getRetailer('harvey-nichols')!;
 const superdrug = getRetailer('superdrug')!;
 
+describe('a cheaper paid rate above a spend (cheaperRateOver)', () => {
+  const src = { quote: 'Delivery From £2.99 Or 99p On Orders Over £30', readAt: '2026-10-04', readBy: 'owner' as const, where: 'test' };
+  const shop = (inclusive: boolean, freeOverGbp: number | null = null): Retailer => ({
+    ...boots,
+    shipping: {
+      ...boots.shipping,
+      standardGbp: 2.99,
+      freeOverGbp,
+      cheaperRateOver: { overGbp: 30, costGbp: 0.99, inclusive, source: src },
+    },
+  });
+
+  it('charges the standard rate up to and including the spend when the wording says "over"', () => {
+    expect(resolveDelivery(shop(false), 29.99).costGbp).toBe(2.99);
+    expect(resolveDelivery(shop(false), 30).costGbp).toBe(2.99);
+  });
+
+  it('charges the cheaper rate strictly above the spend, and never calls it free', () => {
+    const d = resolveDelivery(shop(false), 30.01);
+    expect(d.costGbp).toBe(0.99);
+    expect(d.isFree).toBe(false);
+    expect(d.freeReason).toBeNull();
+    expect(d.spendMoreForFreeGbp).toBeNull();
+  });
+
+  it('applies it at exactly the spend when the wording is "or more"', () => {
+    expect(resolveDelivery(shop(true), 30).costGbp).toBe(0.99);
+    expect(resolveDelivery(shop(true), 29.99).costGbp).toBe(2.99);
+  });
+
+  it('lets a lower free threshold win over the cheaper rate', () => {
+    expect(resolveDelivery(shop(false, 25), 40)).toMatchObject({ costGbp: 0, isFree: true });
+    expect(resolveDelivery(shop(false, 25), 20).costGbp).toBe(2.99);
+  });
+
+  it('adds the cheaper rate to the delivered price', () => {
+    expect(deliveredPrice(shop(false), 45)).toBe(45.99);
+    expect(deliveredPrice(shop(false), 20)).toBe(22.99);
+  });
+
+  it('never makes a rate dearer than the standard one', () => {
+    const dear: Retailer = { ...shop(false), shipping: { ...shop(false).shipping, standardGbp: 0.5 } };
+    expect(resolveDelivery(dear, 100).costGbp).toBe(0.5);
+  });
+});
+
 describe('resolveDelivery', () => {
   it('charges standard delivery below the threshold', () => {
     const d = resolveDelivery(boots, 20);

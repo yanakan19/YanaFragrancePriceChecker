@@ -257,6 +257,28 @@ export interface ShippingRule {
    * — Notino, for example, gates free delivery on specific products instead.
    */
   freeOverGbp: number | null;
+  /**
+   * A cheaper, still paid, delivery rate once the basket passes a spend. It is
+   * not free delivery: `freeOverGbp` stays null for such a shop, and a basket
+   * is never shown as free because of it. Debenhams is the case: "Delivery
+   * From £2.99 Or 99p On Orders Over £30".
+   *
+   * `overGbp` is the spend, `costGbp` the rate that applies above it, and
+   * `inclusive` says whether a basket of exactly `overGbp` already gets it.
+   * Leave `inclusive` false ("over £30" means strictly more than £30) unless
+   * the shop's own wording says "at least" or "£30 or more". A free threshold
+   * (`freeOverGbp`) still wins wherever it is lower.
+   *
+   * `source` is the evidence, and `readBy` says who read it: 'owner' for a
+   * sentence the owner copied off the shop's own product page, 'bot' for one a
+   * fetch read off a delivery page.
+   */
+  cheaperRateOver?: {
+    overGbp: number;
+    costGbp: number;
+    inclusive: boolean;
+    source: CheaperRateSource;
+  };
   /** Indicative standard delivery window, [min, max] working days. */
   estimatedDays: [number, number];
   /**
@@ -342,6 +364,22 @@ export interface BasketCheck {
   readAt: string;
   /** The delivery wording the basket or checkout showed, quoted as recorded. */
   quote: string;
+}
+
+/**
+ * Evidence for a cheaper delivery rate. Kept apart from `ShippingSource`
+ * because the owner read it off a product page without a URL to hand, and a URL
+ * is never invented to fill the field.
+ */
+export interface CheaperRateSource {
+  /** The shop's own sentence, quoted exactly as read. */
+  quote: string;
+  /** ISO-8601 date it was read. */
+  readAt: string;
+  /** Who read it: the owner by eye, or a fetch of a delivery page. */
+  readBy: 'owner' | 'bot';
+  /** Which page of the shop it was read on, in words. */
+  where: string;
 }
 
 /** The page a shipping figure was read off, and the wording it was read from. */

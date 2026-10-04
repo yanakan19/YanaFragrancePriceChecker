@@ -152,6 +152,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Allbeauty',
     domain: 'allbeauty.com',
     homepage: 'https://www.allbeauty.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.allbeauty.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -242,6 +244,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Justmylook',
     domain: 'justmylook.com',
     homepage: 'https://www.justmylook.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/justmylook.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -342,6 +346,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Notino UK',
     domain: 'notino.co.uk',
     homepage: 'https://www.notino.co.uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/notino.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer', 'niche', 'mideast'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
@@ -634,6 +640,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Boots',
     domain: 'boots.com',
     homepage: 'https://www.boots.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.boots.com',
+    trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
@@ -960,6 +968,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'The Perfume Shop',
     domain: 'theperfumeshop.com',
     homepage: 'https://www.theperfumeshop.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/theperfumeshop.com',
+    trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
@@ -1121,6 +1131,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'John Lewis',
     domain: 'johnlewis.com',
     homepage: 'https://www.johnlewis.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/johnlewis.com',
+    trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 404. The single section URL below was
@@ -1883,6 +1895,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Beauty Base',
     domain: 'beautybase.com',
     homepage: 'https://www.beautybase.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/beautybase.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -1997,6 +2011,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'LOOKFANTASTIC',
     domain: 'lookfantastic.com',
     homepage: 'https://www.lookfantastic.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/lookfantastic.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -2390,6 +2406,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Selfridges',
     domain: 'selfridges.com',
     homepage: 'https://www.selfridges.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/selfridges.com',
+    trustpilotCheckedOn: '2026-10-04',
     tiers: ['niche'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
@@ -2670,6 +2688,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Harvey Nichols',
     domain: 'harveynichols.com',
     homepage: 'https://www.harveynichols.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.harveynichols.com',
+    trustpilotCheckedOn: '2026-10-04',
     tiers: ['niche'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 200 but no product markup found. Either
@@ -2785,6 +2805,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Fragrance Click',
     domain: 'fragranceclick.co.uk',
     homepage: 'https://www.fragranceclick.co.uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/fragranceclick.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -2865,6 +2887,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'MyBeauty.Boutique',
     domain: 'mybeauty.boutique',
     homepage: 'https://mybeauty.boutique',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/mybeauty.boutique',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -2990,6 +3014,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Escentual',
     domain: 'escentual.com',
     homepage: 'https://www.escentual.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.escentual.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read by
     // scripts/logo-probe.ts and checked by eye at 20px on both themes,
     // 2026-10-03 (the offer row pass).
@@ -3216,6 +3242,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'ScentStore',
     domain: 'scentstore.com',
     homepage: 'https://www.scentstore.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/scentstore.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -3350,6 +3378,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Glorious Beauty',
     domain: 'gloriousbeauty.co.uk',
     homepage: 'https://gloriousbeauty.co.uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/gloriousbeauty.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -3555,6 +3585,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Armaf',
     domain: 'armaf.uk',
     homepage: 'https://armaf.uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/armaf.uk',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -3630,6 +3662,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Al Haramain Perfumes',
     domain: 'alharamainperfumes.co.uk',
     homepage: 'https://alharamainperfumes.co.uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/alharamainperfumes.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read by
     // scripts/logo-probe.ts and checked by eye at 20px on both themes,
     // 2026-10-03 (the offer row pass).
@@ -3975,6 +4009,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'BellaVita Luxury',
     domain: 'bellavitaluxury.uk',
     homepage: 'https://bellavitaluxury.uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/bellavitaluxury.uk',
+    trustpilotCheckedOn: '2026-10-04',
     tiers: ['mideast'],
     singleBrandOnly: 'BellaVita',
     // "Luxury-inspired" fragrance dupes rather than a heritage Arabic house —
@@ -4138,6 +4174,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Emirates Oud',
     domain: 'emiratesoud.co.uk',
     homepage: 'https://emiratesoud.co.uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/emiratesoud.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -4630,6 +4668,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Kayali',
     domain: 'uk.kayali.com',
     homepage: 'https://uk.kayali.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/kayali.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -4734,6 +4774,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Zara',
     domain: 'zara.com',
     homepage: 'https://www.zara.com/uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.zara.com',
+    trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer'],
     singleBrandOnly: 'Zara',
     // A fashion retailer, not a fragrance specialist, but its own perfume line
@@ -4926,6 +4968,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Escentric Molecules',
     domain: 'escentric.com',
     homepage: 'https://www.escentric.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.escentric.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -5319,6 +5363,26 @@ export const RETAILERS: readonly Retailer[] = [
       // Re-read 2026-10-04 with PriceSniffsBot; robots.txt permits the page.
       standardGbp: 2.99,
       freeOverGbp: null,
+      // Not a free threshold: delivery is still paid above £30, at 99p. The
+      // owner read the sentence below off a Debenhams product page on
+      // 2026-10-04, and the shop's delivery page says the same ("99p Over
+      // £30"). Both say "over", not "at least", so a basket of exactly £30.00
+      // is still charged £2.99 and only more than £30 pays 99p, the cautious
+      // reading. Deliver+ and UNLIMITED are paid schemes and never applied.
+      cheaperRateOver: {
+        overGbp: 30,
+        costGbp: 0.99,
+        inclusive: false,
+        source: {
+          quote:
+            'Sold & Delivered by Debenhams. Delivery From £2.99 Or 99p On Orders Over £30. ' +
+            'Eligible for return within 21 days. Plus 14-day extension when you purchase ' +
+            'Debenhams Deliver+. Exclusions apply.',
+          readAt: '2026-10-04',
+          readBy: 'owner',
+          where: 'a Debenhams product page, read by the owner',
+        },
+      },
       estimatedDays: [3, 5],
       membershipPerk: {
         scheme: 'Debenhams UNLIMITED',
@@ -5337,13 +5401,14 @@ export const RETAILERS: readonly Retailer[] = [
         '"UK Next Day Delivery ~ £5.99 per order" and "UK Express Delivery ~ £4.99 per order", each ' +
         'free with Debenhams UNLIMITED (a paid subscription, never applied). Supersaver is the ' +
         'cheapest option and the page attaches no minimum spend, item restriction or mainland ' +
-        'condition to it, so it is the rate used. "99p Over £30" is a further reduction for ' +
-        'baskets over £30 that the registry has no field for, so it is not applied: a bottle ' +
-        'over £30 is shown £2.00 dearer to deliver than the shop may charge, never cheaper. The ' +
+        'condition to it, so it is the rate used. "99p Over £30" is the further reduction for ' +
+        'baskets over £30, held in cheaperRateOver (strictly over £30, 99p, never free) and ' +
+        'backed by the owner\'s own reading of a product page. The ' +
         'Northern Ireland Supersaver row (£2.99) is a separate option and is not used. No basket ' +
         'threshold for free delivery is stated for non members, so freeOverGbp stays null. The ' +
         'page states no delivery window for any option, so estimatedDays is still not sourced, ' +
-        'and the shop has not been checked in a real basket.',
+        'and the shop has not been checked in a real basket. Debenhams Deliver+ (the paid scheme ' +
+        'that adds 14 days to returns) and UNLIMITED are never used for the headline.',
     },
     catalogue: null,
     affiliate: { ...awinRequested() },
@@ -5356,6 +5421,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Niche Beauty UK',
     domain: 'niche-beauty.com',
     homepage: 'https://www.niche-beauty.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/niche-beauty.com',
+    trustpilotCheckedOn: '2026-10-04',
     tiers: ['niche'],
     // Currency probe (run 32254695358, job 96073578532, 2026-08-19): robots.txt
     // answers with no disallow. The bare origin quotes this US runner USD, but
@@ -5504,6 +5571,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Nicchia Luxury UK',
     domain: 'nicchialuxury.com',
     homepage: 'https://www.nicchialuxury.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/nicchialuxury.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read by
     // scripts/logo-probe.ts and checked by eye at 20px on both themes,
     // 2026-10-03 (the offer row pass).
@@ -5810,6 +5879,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Beauty Pie',
     domain: 'beautypie.com',
     homepage: 'https://www.beautypie.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.beautypie.com',
+    trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer'],
     // ── Currency + route, 2026-08-19 ───────────────────────────────────────
     // Currency probe, run 32277342412 job 96147763012, 2026-08-19T16:41Z:
@@ -6257,6 +6328,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Parfumdreams UK',
     domain: 'parfumdreams.co.uk',
     homepage: 'https://www.parfumdreams.co.uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/parfumdreams.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read by
     // scripts/logo-probe.ts and checked by eye at 20px on both themes,
     // 2026-10-03 (the offer row pass).
@@ -6366,6 +6439,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Perfume Click',
     domain: 'perfume-click.co.uk',
     homepage: 'https://www.perfume-click.co.uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/perfume-click.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -6478,6 +6553,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Beauty Bay',
     domain: 'beautybay.com',
     homepage: 'https://www.beautybay.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.beautybay.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read by
     // scripts/logo-probe.ts and checked by eye at 20px on both themes,
     // 2026-10-03 (the offer row pass).
@@ -6696,6 +6773,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Cult Beauty Global',
     domain: 'cultbeauty.co.uk',
     homepage: 'https://www.cultbeauty.co.uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.cultbeauty.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -7685,6 +7764,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Avon',
     domain: 'avon.uk.com',
     homepage: 'https://avon.uk.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.avon.uk.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read by
     // scripts/logo-probe.ts and checked by eye at 20px on both themes,
     // 2026-10-03 (the offer row pass).
@@ -7875,6 +7956,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Space NK',
     domain: 'spacenk.com',
     homepage: 'https://www.spacenk.com/uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/uk.spacenk.com',
+    trustpilotCheckedOn: '2026-10-04',
     tiers: ['niche'],
     // Added 2026-08-20 from WebSearch snippets of spacenk.com/uk/fragrance
     // alone — no page opened, this sandbox has no egress. Space NK's own
@@ -8051,6 +8134,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Marks & Spencer',
     domain: 'marksandspencer.com',
     homepage: 'https://www.marksandspencer.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/marksandspencer.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read by
     // scripts/logo-probe.ts and checked by eye at 20px on both themes,
     // 2026-10-03 (the offer row pass).
@@ -8165,6 +8250,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Les Senteurs',
     domain: 'lessenteurs.com',
     homepage: 'https://www.lessenteurs.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/lessenteurs.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read by
     // scripts/logo-probe.ts and checked by eye at 20px on both themes,
     // 2026-10-03 (the offer row pass).
@@ -8262,6 +8349,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Bloom Perfumery',
     domain: 'bloomperfume.co.uk',
     homepage: 'https://bloomperfume.co.uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/bloomperfume.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read with robots.txt
     // first and asked for as PriceSniffsBot (scripts/logo-probe.ts asks as a
     // browser, which this entry does not allow, so the homepage was read by
@@ -8695,6 +8784,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Perfume Direct',
     domain: 'perfumedirect.com',
     homepage: 'https://www.perfumedirect.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/perfumedirect.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read by
     // scripts/logo-probe.ts and checked by eye at 20px on both themes,
     // 2026-10-03 (the offer row pass).

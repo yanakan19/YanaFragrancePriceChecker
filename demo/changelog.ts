@@ -17,6 +17,26 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.48.0',
+    date: '4 Oct 2026',
+    title: 'Same size rows now say which is which',
+    points: [
+      'Kayali 10ml rows say Miniature or Travel Spray',
+      'Works for any shop with two rows of one size',
+      'The label is the shop\'s own wording',
+    ],
+  },
+  {
+    version: 'v3.47.0',
+    date: '4 Oct 2026',
+    title: 'Debenhams delivery is 99p over £30',
+    points: [
+      'Debenhams charges 99p on orders over £30',
+      'Below that it is still £2.99, and never free',
+      '43 Debenhams prices are now £2 lower',
+    ],
+  },
+  {
     version: 'v3.46.0',
     date: '4 Oct 2026',
     title: 'Clearer Deals and Reviews wording',
