@@ -2036,12 +2036,53 @@ function stripTrailingNoiseSegment(s: string): string | null {
   return head;
 }
 
+/**
+ * The words a shop adds to a title to say the bottle is a pre-order, and when
+ * it will be sent, taken off it: Emirates Oud's "Momento Liquid Gold Extrait de
+ * Parfum 100ml Riiffs PRE-ORDER: Estimated dispatch: 7th October".
+ *
+ * That is a notice about the listing, not part of the perfume's name, and it
+ * kept the bottle from meeting the same bottle at another shop: the name read
+ * "... Riiffs PRE-ORDER: Estimated dispatch: 7th October", with a date that
+ * changes every few days, so no two shops could ever agree on it. The stock
+ * state is not read from the name. It comes from the listing's own title and
+ * stored availability (`listingStockState` in listingAvailability.ts), which
+ * this does not touch, so the bottle is still a Preorder row.
+ *
+ * What goes: "PRE-ORDER", "Pre Order" and "Preorder" with whatever dispatch
+ * wording follows them ("Estimated dispatch: 7th October", "Dispatch: 5 Oct",
+ * "Estimated delivery w/c 12th October", "Ships mid October"), the same notice
+ * in brackets, and an "Estimated dispatch: <date>" with no pre-order word. The
+ * date is only taken when it is written as a date, so a word that follows the
+ * notice is never swallowed with it. A title with none of this is returned as it
+ * came.
+ */
+const MONTH = String.raw`(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)`;
+const DISPATCH_DATE = String.raw`(?:(?:w\/c|week commencing|mid|early|late|end of|beginning of)\s*[-–]?\s*)?(?:\d{1,2}(?:st|nd|rd|th)?\s+(?:of\s+)?${MONTH}\.?(?:\s+\d{2,4})?|${MONTH}\.?\s+\d{1,2}(?:st|nd|rd|th)?(?:\s*,?\s*\d{4})?|${MONTH}\.?(?:\s+\d{4})?|\d{1,2}[\/.]\d{1,2}(?:[\/.]\d{2,4})?)`;
+const DISPATCH_CORE = String.raw`(?:dispatch(?:ed|ing)?|delivery|shipping|ships?|ready|available|release[ds]?|arriv(?:es|ing|al))(?:\s+(?:date|from|on|by|in|w\/c))?\s*[:\-–—]?\s*${DISPATCH_DATE}`;
+const DISPATCH_WORDS = String.raw`(?:(?:estimated|expected|est\.?)\s+)?${DISPATCH_CORE}`;
+const PRE_ORDER_NOTICE = new RegExp(
+  String.raw`[\s,;:|\-–—]*(?:[(\[]\s*pre[\s-]?order\b[^)\]]*[)\]]|\bpre[\s-]?order\b(?:\s*[:\-–—|]?\s*${DISPATCH_WORDS})?|\b(?:estimated|expected|est\.?)\s+${DISPATCH_CORE})`,
+  'gi',
+);
+export function stripPreOrderNotice(title: string): string {
+  const stripped = title.replace(PRE_ORDER_NOTICE, ' ');
+  // Untouched when there was no notice: not even its spacing is tidied here, so
+  // no name outside a pre-order moves.
+  if (stripped === title) return title;
+  const out = stripped.replace(/\s{2,}/g, ' ').replace(/^[\s,;:|\-–—]+|[\s,;:|\-–—]+$/g, '');
+  return out === '' ? title : out;
+}
+
 export function displayName(
   title: string,
   brand: string | null,
   displayedBrand: string | null,
   travelSizeIsASize = false,
 ): string {
+  // A pre-order notice and its dispatch date are about the listing, not the
+  // perfume: see stripPreOrderNotice.
+  title = stripPreOrderNotice(title);
   // A size label ("10ml Miniature", and "10ml Travel Spray" for a shop whose
   // travel spray is a size: Retailer.travelSizeIsASize) names the size, not the
   // perfume: left in, the 10ml bottle was called "Vanilla | 28 Miniature" and
