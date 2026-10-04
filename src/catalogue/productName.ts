@@ -16,11 +16,13 @@ import {
   OZ_SIZE_RE,
   OZ_TO_ML,
   isSingleTravelSpray,
+  productTypeStatesEauDeParfum,
   statedMl,
   stripSizeLabel,
   withoutTravelSprayWords,
 } from './fragranceId.js';
 import { brandKey, shopNameCore } from './brandName.js';
+import type { StoredListing } from './types.js';
 
 /**
  * Concentrations, split into two tiers so a match can be tried by
@@ -1403,6 +1405,19 @@ export function concentrationOfListing(title: string, description: string | null
 
   const fromDescription = concentration(restated);
   return fromDescription === fromTitle ? fromTitle : fromDescription;
+}
+
+/**
+ * The strength of a stored listing: its title's (or, in the one narrow case,
+ * its description's), and where that names none, the shop's own product type
+ * where the registry says that settles it (`fragranceTypeIsEauDeParfum`,
+ * Beauty Pie). A title that names a strength always wins.
+ */
+export function concentrationOfStoredListing(
+  l: Pick<StoredListing, 'rawTitle' | 'description' | 'retailerId' | 'productType'>,
+): string {
+  const stated = concentrationOfListing(l.rawTitle, l.description ?? null);
+  return stated === CONCENTRATION_NOT_STATED && productTypeStatesEauDeParfum(l) ? 'Eau de Parfum' : stated;
 }
 
 const escapeRe = (s: string): string => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

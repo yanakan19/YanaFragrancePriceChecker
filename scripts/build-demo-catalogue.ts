@@ -58,6 +58,7 @@ import {
 import { giftSetContents, giftSetName, isGiftSet } from '../src/catalogue/giftSet.js';
 import {
   concentrationOfListing,
+  concentrationOfStoredListing,
   CONCENTRATION_DISPUTED,
   CONCENTRATION_NOT_STATED,
   CONCENTRATION_RESOLUTIONS,
@@ -758,7 +759,7 @@ for (const { retailer, listings } of eligible) {
     // for the one narrow, measured case where its own description is trusted
     // instead (a bare "EDP"/"EDT"/"EDC" title against a description that
     // restates the bottle's full name at a different, specific strength).
-    const listingConcentration = concentrationOfListing(l.rawTitle, l.description ?? null);
+    const listingConcentration = concentrationOfStoredListing(l);
 
     // Kept per product so a disagreement between shops is visible in the
     // build log — see the warning at the end of this file. Recorded here

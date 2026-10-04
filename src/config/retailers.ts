@@ -6010,6 +6010,15 @@ export const RETAILERS: readonly Retailer[] = [
     shopifyStorefront: true,
     botIdentityOnly: true,
     sizeFromProductPage: true,
+    // Set 2026-10-04. "Le Smash Santal 50ml" (£59) is typed Fragrance and its
+    // title names no strength, so the catalogue's fragrance rule hid it. The
+    // other 11 perfumes this shop types Fragrance all say "Eau De Parfum" in
+    // their titles (Une Balade En Forêt, Orange Absolute Intense, She Brought
+    // Peonies, Orris Florentina, Love The Remix, La Flâneuse, Figuier De
+    // Dalmatie, Flower Drench, Hyper Beach, La Botanista 001, Brazilian Lime
+    // Fig Leaves & Tea), and so does Stole The Morning, which the shop leaves
+    // untyped. So its "Fragrance" is read as Eau de Parfum. Owner's decision.
+    fragranceTypeIsEauDeParfum: true,
     singleBrandOnly: 'Beauty Pie',
     currency: 'GBP',
     shipping: {
