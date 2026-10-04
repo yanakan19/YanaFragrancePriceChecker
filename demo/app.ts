@@ -4013,7 +4013,7 @@ function profilePhotoHtml(email: string): string {
   const photo = shownPhotoUrl();
   const letter = [...email.trim()][0]?.toLocaleUpperCase('en-GB') ?? '';
   const face = photo
-    ? `<img class="profile-photo-img" data-acct-photo src="${esc(photo)}" alt="Your profile photo" width="96" height="96" decoding="async" />`
+    ? `<img class="profile-photo-img" data-acct-photo src="${esc(photo)}" alt="Your profile photo" width="96" height="96" loading="eager" decoding="async" />`
     : `<span class="profile-photo-letter" aria-hidden="true">${esc(letter)}</span>`;
   let controls = '';
   if (state.photoAvailable === false) {
@@ -4276,7 +4276,7 @@ function syncAccountButton(): void {
   // The photo, when there is one that has not failed to show; the initial
   // otherwise. The image is decoration: the button's own label names it.
   const face = photo
-    ? `<img class="acct-photo" data-acct-photo src="${esc(photo)}" alt="" width="38" height="38" decoding="async" />`
+    ? `<img class="acct-photo" data-acct-photo src="${esc(photo)}" alt="" width="38" height="38" loading="eager" decoding="async" />`
     : avatar.kind === 'letter'
       ? `<span class="acct-letter" aria-hidden="true">${esc(avatar.letter)}</span>`
       : `<span class="acct-icon" aria-hidden="true">${ICON_PERSON}</span>`;

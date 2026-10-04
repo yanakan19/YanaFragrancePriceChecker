@@ -28,6 +28,18 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
  * invariant is pinned here rather than the one call site, so the next image
  * surface added has to carry it too.
  */
+/**
+ * The account photo is the owner's own upload, not a hot-linked shop photo, but
+ * it can still fail to show (a damaged file, a blob address that has gone). It
+ * falls back through one delegated listener rather than an inline onerror,
+ * because the fallback is a change of state (state.photoBroken, then a
+ * re-render that draws the initial instead), not an edit of the one tag. An
+ * image's error event does not bubble, so the listener has to be a capturing
+ * one on the document.
+ */
+const ACCOUNT_PHOTO_FALLBACK =
+  /document\.addEventListener\('error',\s*\(e\) => \{[^}]*hasAttribute\('data-acct-photo'\)[^}]*state\.photoBroken = true;\s*renderInPlace\(\);\s*\}\s*\}, true\);/;
+
 describe('a hot-linked image that fails degrades to the placeholder', () => {
   it('is a real reliance: Beauty Base photos are shown on an explicit non-licence', () => {
     const beautybase = RETAILERS.find((r) => r.id === 'beautybase');
@@ -65,6 +77,7 @@ describe('a hot-linked image that fails degrades to the placeholder', () => {
        rather than the built bundle so the failure names the file to fix. */
     const offenders: string[] = [];
     let examined = 0;
+    const accountSrc = readFileSync(resolve(root, 'demo/app.ts'), 'utf8');
     for (const file of readdirSync(resolve(root, 'demo'))) {
       if (!file.endsWith('.ts') || file.endsWith('.generated.ts')) continue;
       const src = readFileSync(resolve(root, 'demo', file), 'utf8');
@@ -73,6 +86,11 @@ describe('a hot-linked image that fails degrades to the placeholder', () => {
       // newlines and lazy up to the first close.
       for (const tag of src.match(/<img[\s\S]*?\/>/g) ?? []) {
         examined++;
+        // The account photo (data-acct-photo) is the one image whose fallback
+        // is not inline: a delegated, capturing error listener in app.ts
+        // swaps it for the initial. That exemption is only honoured while the
+        // listener is really there, which the next test pins.
+        if (tag.includes('data-acct-photo') && ACCOUNT_PHOTO_FALLBACK.test(accountSrc)) continue;
         if (!tag.includes('onerror=')) offenders.push(`${file}: ${(tag.split('\n')[0] ?? tag).trim()}`);
       }
     }
@@ -80,6 +98,24 @@ describe('a hot-linked image that fails degrades to the placeholder', () => {
     // demo/photo.ts's productArt and demo/app.ts's houseCard.
     expect(examined).toBeGreaterThanOrEqual(2);
     expect(offenders).toEqual([]);
+  });
+
+  it('replaces a failed account photo with the initial, and stops offering the failed photo', () => {
+    const app = readFileSync(resolve(root, 'demo/app.ts'), 'utf8');
+    // The capturing listener that the sweep above relies on.
+    expect(app).toMatch(ACCOUNT_PHOTO_FALLBACK);
+    // A broken photo is no longer the one shown: the account button and the
+    // profile both ask shownPhotoUrl, which returns null once photoBroken is
+    // set, and each then draws the initial (or the person icon) instead.
+    const shown = (app.match(/function shownPhotoUrl\([\s\S]*?\n}/) ?? [])[0];
+    expect(shown).toBeDefined();
+    expect(shown).toContain('!state.photoBroken');
+    const profile = (app.match(/function profilePhotoHtml\([\s\S]*?\n}/) ?? [])[0];
+    expect(profile).toContain('shownPhotoUrl()');
+    expect(profile).toContain('profile-photo-letter');
+    const button = (app.match(/function syncAccountButton\([\s\S]*?\n}/) ?? [])[0];
+    expect(button).toContain('shownPhotoUrl()');
+    expect(button).toContain('acct-letter');
   });
 
   it('gives orgMark\'s logo <img> the same onerror fallback, reverting to the monogram', () => {

@@ -1,7 +1,9 @@
 import { describe, expect, it, afterAll } from 'vitest';
 import { createServer, type Server } from 'node:http';
+import type { Browser } from 'playwright';
 import {
   localBrowserRenderer,
+  type LocalBrowserDeps,
   MAX_LOCAL_RENDER_PAGES_PER_RUN,
   MAX_LOCAL_RENDER_MS_PER_RUN,
   MAX_LOCAL_RENDER_MS_PER_SHOP,
@@ -35,6 +37,70 @@ import {
  * relying on.
  */
 const BROWSER_TEST_TIMEOUT_MS = 30_000;
+
+/**
+ * A scripted browser and a clock that only moves when the script moves it, for
+ * the tests of the renderer's own accounting (the page budget, the run's time
+ * budget, a shop's slice).
+ *
+ * Those tests used to start a real Chromium to make time pass, and so they
+ * measured the machine as much as the code: under load a launch plus the
+ * module's real settle waits ran past the 30s cap above (observed with the
+ * full suite sharing the machine). What they assert is arithmetic over a clock,
+ * so the clock is made explicit. Opening a page costs `pageMs` on it, and the
+ * renderer's own waits (the politeness gap, the settle wait) advance it by the
+ * amount they ask for, without waiting. Nothing here is a shortcut past a
+ * behaviour: the renderer's code path is the production one, only the browser
+ * and the clock under it are replaced. A real Chromium, a real server and real
+ * waiting remain in 'localBrowserRenderer — rendering'.
+ */
+function scripted(pageMs = 700) {
+  let clock = 1_000_000;
+  const opened: string[] = [];
+  let launches = 0;
+  const page = () => {
+    let at = '';
+    return {
+      goto: async (url: string) => {
+        at = url;
+        opened.push(url);
+        clock += pageMs;
+        return { status: () => 200 };
+      },
+      waitForLoadState: async () => undefined,
+      content: async () => '<html><body>PAINTED</body></html>',
+      url: () => at,
+      close: async () => undefined,
+    };
+  };
+  const browser = {
+    newContext: async () => ({
+      newPage: async () => page(),
+      newCDPSession: async () => ({ send: async () => undefined }),
+      close: async () => undefined,
+    }),
+    close: async () => undefined,
+  } as unknown as Browser;
+  const deps: LocalBrowserDeps = {
+    launch: async () => {
+      launches++;
+      return browser;
+    },
+    now: () => clock,
+    sleep: async (ms) => {
+      clock += ms;
+    },
+  };
+  return {
+    deps,
+    opened,
+    launches: () => launches,
+    /** Time passing outside the renderer: the harvest off walking another shop's sitemap. */
+    elapse: (ms: number) => {
+      clock += ms;
+    },
+  };
+}
 
 const servers: Server[] = [];
 
@@ -79,16 +145,19 @@ describe('localBrowserRenderer — the per-run budget', () => {
   });
 
   it('renders up to the budget and refuses the overflow in the same call', async () => {
-    const base = await jsPaintedServer();
-    const r = localBrowserRenderer({ maxTotalPages: 1, gapMs: 10, ...browserPath() });
+    const browser = scripted();
+    const r = localBrowserRenderer({ maxTotalPages: 1, gapMs: 10 }, browser.deps);
 
-    const out = await r.render([`${base}/one`, `${base}/two`]);
+    const out = await r.render(['https://shop.test/one', 'https://shop.test/two']);
     expect(out.size).toBe(2);
-    // The overflow entry is refused for budget regardless of whether a browser
-    // was available for the first one.
-    expect(out.get(`${base}/two`)?.error).toContain('budget');
+    expect(out.get('https://shop.test/one')?.ok).toBe(true);
+    expect(out.get('https://shop.test/two')?.ok).toBe(false);
+    expect(out.get('https://shop.test/two')?.error).toContain('budget');
+    // Only the page inside the budget was ever opened.
+    expect(browser.opened).toEqual(['https://shop.test/one']);
+    expect(r.used()).toBe(1);
     await r.dispose();
-  }, BROWSER_TEST_TIMEOUT_MS);
+  });
 
   it('caps at a sane default rather than being unbounded', () => {
     // A bug that queued a whole sitemap must not hit a shop thousands of times
@@ -103,34 +172,37 @@ describe('localBrowserRenderer — the time budget', () => {
   // 60-minute cap, so every second this tier spends is taken from shops that
   // were producing listings.
   it('refuses every url once the clock is spent, and says so', async () => {
-    const base = await jsPaintedServer();
+    const browser = scripted();
     // 1ms: the first render call starts the clock and the budget is gone by
     // the time the second is asked for.
-    const r = localBrowserRenderer({ maxTotalMs: 1, gapMs: 10, ...browserPath() });
+    const r = localBrowserRenderer({ maxTotalMs: 1, gapMs: 10 }, browser.deps);
 
-    await r.render([`${base}/one`]);
-    const out = await r.render([`${base}/two`]);
-    const res = out.get(`${base}/two`)!;
+    await r.render(['https://shop.test/one']);
+    const out = await r.render(['https://shop.test/two']);
+    const res = out.get('https://shop.test/two')!;
 
     expect(res.ok).toBe(false);
     expect(res.error).toContain('time budget');
+    // Refused before any page was opened, not after.
+    expect(browser.opened).toEqual(['https://shop.test/one']);
     await r.dispose();
-  }, BROWSER_TEST_TIMEOUT_MS);
+  });
 
   it('reports every url it did not reach, rather than dropping them', async () => {
-    const base = await jsPaintedServer();
-    const r = localBrowserRenderer({ maxTotalMs: 1, gapMs: 10, ...browserPath() });
+    const browser = scripted();
+    const r = localBrowserRenderer({ maxTotalMs: 1, gapMs: 10 }, browser.deps);
 
-    await r.render([`${base}/warm`]);
-    const urls = [`${base}/a`, `${base}/b`, `${base}/c`];
+    await r.render(['https://shop.test/warm']);
+    const urls = ['https://shop.test/a', 'https://shop.test/b', 'https://shop.test/c'];
     const out = await r.render(urls);
 
     // A shop skipped for time and a shop that genuinely returned nothing must
     // not look the same from the outside.
     expect(out.size).toBe(3);
     for (const u of urls) expect(out.get(u)?.error).toContain('time budget');
+    expect(browser.opened).toEqual(['https://shop.test/warm']);
     await r.dispose();
-  }, BROWSER_TEST_TIMEOUT_MS);
+  });
 
   it('starts no clock on a renderer that is never asked to render', async () => {
     const r = localBrowserRenderer({ maxTotalMs: 1 });
@@ -176,45 +248,46 @@ describe('localBrowserRenderer — the time budget', () => {
   });
 
   it('charges only time spent rendering, not time between calls', async () => {
-    const base = await jsPaintedServer();
-    const r = localBrowserRenderer({ gapMs: 10, ...browserPath() });
+    const browser = scripted();
+    const r = localBrowserRenderer({ gapMs: 10 }, browser.deps);
 
-    const out = await r.render([`${base}/one`]);
-    if (out.get(`${base}/one`)?.error?.includes('local browser unavailable')) {
-      await r.dispose();
-      return;
-    }
+    await r.render(['https://shop.test/one']);
     const afterFirst = r.spentMs();
     expect(afterFirst).toBeGreaterThan(0);
 
     // Between two render() calls the harvest is off walking another shop's
     // sitemap. Charging that to this tier is exactly what spent 240s on four
     // shops' timeouts in run #330 while this module rendered nine pages.
-    await new Promise<void>((resolve) => setTimeout(resolve, 400));
+    browser.elapse(5 * 60_000);
     expect(r.spentMs()).toBe(afterFirst);
+
+    // And the next page is charged what it cost, not what the wait added.
+    await r.render(['https://shop.test/two']);
+    expect(r.spentMs()).toBe(afterFirst * 2);
     await r.dispose();
-  }, BROWSER_TEST_TIMEOUT_MS);
+  });
 
   it("spends a shop's slice on that shop and leaves the next one its own", async () => {
-    const base = await jsPaintedServer();
+    const browser = scripted();
     // 1ms: the first page of a call always renders, and the slice is gone by
     // the second — the same shape as the run budget test above, one level in.
-    const r = localBrowserRenderer({ maxShopMs: 1, gapMs: 10, ...browserPath() });
+    const r = localBrowserRenderer({ maxShopMs: 1, gapMs: 10 }, browser.deps);
 
-    const first = await r.render([`${base}/a`, `${base}/b`]);
-    if (first.get(`${base}/a`)?.error?.includes('local browser unavailable')) {
-      await r.dispose();
-      return;
-    }
-    expect(first.get(`${base}/a`)?.ok).toBe(true);
-    expect(first.get(`${base}/b`)?.error).toContain('render slice');
+    const first = await r.render(['https://shop.test/a', 'https://shop.test/b']);
+    expect(first.get('https://shop.test/a')?.ok).toBe(true);
+    expect(first.get('https://shop.test/b')?.ok).toBe(false);
+    expect(first.get('https://shop.test/b')?.error).toContain('render slice');
+    expect(browser.opened).toEqual(['https://shop.test/a']);
 
     // The next shop is a new call and gets its own slice, rather than
     // inheriting the exhaustion of the shop before it.
-    const second = await r.render([`${base}/c`]);
-    expect(second.get(`${base}/c`)?.ok).toBe(true);
+    const second = await r.render(['https://shop.test/c']);
+    expect(second.get('https://shop.test/c')?.ok).toBe(true);
+    expect(browser.opened).toEqual(['https://shop.test/a', 'https://shop.test/c']);
+    // One browser for the whole run, not one per shop.
+    expect(browser.launches()).toBe(1);
     await r.dispose();
-  }, BROWSER_TEST_TIMEOUT_MS);
+  });
 });
 
 describe('localBrowserRenderer — a browser that will not start', () => {
@@ -288,6 +361,8 @@ describe('localBrowserRenderer — rendering', () => {
     // The whole point of the tier: this string exists in no server response.
     expect(res.body).toContain('PAINTED-BY-JS');
     expect(r.used()).toBe(1);
+    // A real render is charged real time, which the time budget is made of.
+    expect(r.spentMs()).toBeGreaterThan(0);
     await r.dispose();
   }, BROWSER_TEST_TIMEOUT_MS);
 
