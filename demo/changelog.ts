@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.57.0',
+    date: '4 Oct 2026',
+    title: 'Old product links open the right page',
+    points: [
+      'A product that was merged keeps its old link',
+      'The old link opens the page it merged into',
+      'Your address bar changes to the new link',
+    ],
+  },
+  {
     version: 'v3.56.0',
     date: '4 Oct 2026',
     title: 'Far more Cult Beauty fragrances',

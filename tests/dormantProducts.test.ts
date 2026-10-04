@@ -25,12 +25,12 @@ const sample: DormantEntry = {
 
 describe('the data file', () => {
   it('is a lazy file, so it is not in the first load', () => {
-    expect(LAZY_DATA_MODULES[DORMANT_FILE]).toEqual(['DORMANT_PRODUCTS']);
+    expect(LAZY_DATA_MODULES[DORMANT_FILE]).toEqual(['DORMANT_PRODUCTS', 'ID_ALIASES']);
   });
 
   it('accepts a file of the right shape and refuses any other', () => {
-    expect(prepareDormant({ DORMANT_PRODUCTS: { a: sample } })).toEqual({ a: sample });
-    for (const bad of [null, [], {}, { DORMANT_PRODUCTS: null }, { DORMANT_PRODUCTS: [] }, 'x']) {
+    expect(prepareDormant({ DORMANT_PRODUCTS: { a: sample }, ID_ALIASES: {} })).toEqual({ products: { a: sample }, aliases: {} });
+    for (const bad of [null, [], {}, { DORMANT_PRODUCTS: null }, { DORMANT_PRODUCTS: [] }, 'x', { DORMANT_PRODUCTS: {} }]) {
       expect(() => prepareDormant(bad), JSON.stringify(bad)).toThrow();
     }
   });
@@ -40,13 +40,13 @@ describe('the data file', () => {
     let fail = true;
     const store = createDormant((name) => {
       calls.push(name);
-      return fail ? Promise.reject(new Error('offline')) : Promise.resolve({ DORMANT_PRODUCTS: { a: sample } });
+      return fail ? Promise.reject(new Error('offline')) : Promise.resolve({ DORMANT_PRODUCTS: { a: sample }, ID_ALIASES: {} });
     });
     expect(store.current()).toBeNull();
     await expect(store.load()).rejects.toThrow('offline');
     expect(store.status()).toBe('failed');
     fail = false;
-    await expect(store.load()).resolves.toEqual({ a: sample });
+    await expect(store.load()).resolves.toEqual({ products: { a: sample }, aliases: {} });
     await store.load();
     expect(calls).toEqual(['dormant', 'dormant']);
   });

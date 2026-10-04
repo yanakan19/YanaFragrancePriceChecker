@@ -82,7 +82,7 @@ import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { offersFor, SHOP_COUNT, HOUSE_PRODUCTS, HISTORY_ALIASES, OLDER_OFFERS } from './catalogue.generated.js';
 import { priceHistory, prefetchWhenIdle, type PriceHistoryData } from './priceHistoryStore.js';
-import { dormant, dormantEntry } from './dormantStore.js';
+import { dormant, dormantEntry, movedTo } from './dormantStore.js';
 import type { DormantEntry } from '../src/catalogue/dormantProducts.js';
 import type { PriceHistoryPoint } from './priceHistory.generated.js';
 import type { RawHistoryPoint } from '../src/services/priceHistoryDaily.js';
@@ -2640,6 +2640,16 @@ function dormantDetailView(): string {
 }
 
 /**
+ * Where an address that is neither in the catalogue nor a page with no current
+ * prices lands: the product that absorbed it in a merge, when that product is
+ * a page, otherwise null (src/catalogue/idAliases.ts). Reads the same lazy file
+ * as the pages with no current prices, so it answers only once that is loaded.
+ */
+function absorbedLanding(id: string): string | null {
+  return movedTo(dormant.current(), id, (other) => fragranceById(other) !== undefined);
+}
+
+/**
  * Settles a direct link to a fragrance that is not in the catalogue, once the
  * file of products with no current prices has arrived: the page for it where it
  * is one of them, Page Not Found where it is not. Does nothing if the reader
@@ -2650,6 +2660,16 @@ function settleDormantRoute(): void {
   const settle = () => {
     if (state.view !== 'detail' || state.fragranceId !== id || fragranceById(id)) return;
     if (!dormantEntry(id)) {
+      // A product a merge folded into another opens the one that holds it,
+      // and the address bar follows (replace, not push: the old address is
+      // not a place Back should return to).
+      const to = absorbedLanding(id);
+      if (to !== null) {
+        state.fragranceId = to;
+        render();
+        syncUrl('replace');
+        return;
+      }
       state.notFoundPath = window.location.pathname;
       state.view = 'notFound';
     }
@@ -4835,7 +4855,11 @@ function headInputForState(): HeadInput {
               leafDetail: 'no shop has a current price for it, only its price history',
               leafEmpty: true,
             }
-          : { route };
+          : // Not here yet: a link to an absorbed product waits for the file that
+            // says where it went, or is Page Not Found. Either way this address is
+            // never a page of its own, so it is kept off search engines, and the
+            // address that replaces it carries the product's real tags.
+            { route, leafEmpty: true };
       }
       const rows = rowsFor(frag);
       const best = bestOffer(rows);
@@ -4994,9 +5018,16 @@ function applyRoute(route: Route): boolean {
         // list is a file fetched on demand, so until it has arrived the page
         // holds open and settles afterwards (dormantDetailView).
         const known = dormant.current();
-        if (known !== null ? !dormantEntry(route.param) : dormant.status() === 'failed') return false;
+        if (known !== null ? !dormantEntry(route.param) && absorbedLanding(route.param) === null : dormant.status() === 'failed') return false;
       }
       state.fragranceId = route.param;
+      // An address a merge absorbed: once the file is in, it opens the product
+      // that holds it, and the address bar is rewritten to that product's.
+      const landing = fragranceById(route.param) || dormantEntry(route.param) ? null : absorbedLanding(route.param);
+      if (landing !== null) {
+        state.fragranceId = landing;
+        queueMicrotask(() => syncUrl('replace'));
+      }
       state.view = 'detail';
       return true;
     }
