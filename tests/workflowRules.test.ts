@@ -206,7 +206,55 @@ describe('catalogue-daily.yml', () => {
 });
 
 describe('deploy-pages.yml', () => {
+  const deploy = text('deploy-pages.yml');
+  const job = jobs('deploy-pages.yml').find((j) => j.name === 'deploy')!;
+  const stepList = steps(job.body);
+  const at = (needle: string) => stepList.findIndex((s) => s.includes(needle));
+
   it('lets a running deployment finish rather than cancelling it mid deploy', () => {
-    expect(text('deploy-pages.yml')).toMatch(/concurrency:\n {2}group: pages\n {2}cancel-in-progress: false/);
+    expect(deploy).toMatch(/concurrency:\n {2}group: pages\n {2}cancel-in-progress: false/);
+  });
+
+  // The page and its data files are built here, not committed (2026-10-04),
+  // so an upload without a build would publish a site with no page at all.
+  it('builds the site and checks the build before it uploads anything', () => {
+    const build = at('run: npm run demo');
+    const check = at('scripts/check-demo-freshness.ts');
+    const upload = at('actions/upload-pages-artifact');
+    expect(build, 'a step that runs npm run demo').toBeGreaterThan(0);
+    expect(check, 'the freshness check').toBeGreaterThan(build);
+    expect(upload, 'the upload').toBeGreaterThan(check);
+    expect(at('actions/deploy-pages')).toBeGreaterThan(upload);
+    expect(stepList[check]).toContain('test -s demo/index.html');
+    expect(stepList[check]).toContain('cmp demo/index.html demo/404.html');
+    expect(stepList[upload]).toContain('path: demo');
+  });
+
+  it('checks out the branch tip with the history the sitemap dates read', () => {
+    const checkout = stepList[at('actions/checkout')]!;
+    expect(checkout).toContain('ref: ${{ github.event.workflow_run.head_branch || github.ref }}');
+    expect(checkout).toContain('fetch-depth: 0');
+  });
+
+  it('deploys after every crawl and links run, and on any push that can change the page, src/ included', () => {
+    expect(deploy).toContain("workflows: ['Catalogue crawl', 'Fragrance links daily']");
+    for (const f of ['catalogue-daily.yml', 'fragrance-links-daily.yml']) {
+      const name = /^name: (.+)$/m.exec(text(f))![1]!;
+      expect(deploy, f).toContain(`'${name}'`);
+    }
+    const paths = /\n {2}push:\n(?: {4}.*\n)*? {4}paths:\n((?: {6}- .*\n)+)/.exec(deploy)![1]!
+      .split('\n').map((l) => l.trim().replace(/^- '?|'$/g, '')).filter(Boolean);
+    expect(paths[0]).toBe('**');
+    // GitHub's filter globs, roughly: ** crosses folders, * does not.
+    const glob = (p: string) => new RegExp(`^${p.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*\*/g, '\0').replace(/\*/g, '[^/]*').replace(/\0/g, '.*')}$`);
+    const inputs = ['src/config/retailers.ts', 'demo/app.ts', 'demo/template.html', 'demo/catalogue.generated.ts',
+      'scripts/build-demo.ts', 'package.json', 'package-lock.json', 'tsconfig.demo.json'];
+    for (const excluded of paths.filter((p) => p.startsWith('!'))) {
+      for (const input of inputs) expect(glob(excluded.slice(1)).test(input), `${excluded} would skip ${input}`).toBe(false);
+    }
+  });
+
+  it('caps every step', () => {
+    for (const step of stepList) expect(step, step.split('\n')[0]).toMatch(/\n {8}timeout-minutes: \d+/);
   });
 });
