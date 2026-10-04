@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-10-04T10:53:20.274Z";
+export const DEALS_GENERATED_AT = "2026-10-04T10:57:53.340Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -14247,16 +14247,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 135,
     "percentOff": 13,
-    "retailerId": "perfume-click",
-    "kind": "house",
-    "houseName": "Escentric Molecules"
-  },
-  {
-    "fragranceId": "ean-5060103310623",
-    "price": 45.3,
-    "delivered": true,
-    "wasPrice": 60,
-    "percentOff": 24,
     "retailerId": "perfume-click",
     "kind": "house",
     "houseName": "Escentric Molecules"
