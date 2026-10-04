@@ -1469,7 +1469,7 @@ function homeView(): string {
     <section class="pop-section">
       <div class="section-head">
         <h2 class="t-section">Most Stocked</h2>
-        <button class="link-btn see-top" data-browse>See Top ${TOP_N} <span aria-hidden="true">→</span></button>
+        <button class="link-btn see-top" data-browse>See All <span aria-hidden="true">→</span></button>
       </div>
       <ul class="pop-rail">
         ${POPULAR.map((f, i) => fragranceTile(f, { rank: i, rail: true, eager: i < railEagerCount() })).join('')}
