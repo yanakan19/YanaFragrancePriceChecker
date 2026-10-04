@@ -98,9 +98,10 @@ describe('dueUrls', () => {
 });
 
 describe('the registry', () => {
-  it('sets a refresh age for Cult Beauty at 24 hours and for no other shop', () => {
+  it('sets a refresh age only for the two THG shops, Cult Beauty and LOOKFANTASTIC, at 24 hours', () => {
     expect(getRetailer('cult-beauty-global')?.refreshAfterHours).toBe(24);
-    expect(RETAILERS.filter((r) => r.refreshAfterHours !== undefined).map((r) => r.id)).toEqual(['cult-beauty-global']);
+    expect(getRetailer('lookfantastic')?.refreshAfterHours).toBe(24);
+    expect(RETAILERS.filter((r) => r.refreshAfterHours !== undefined).map((r) => r.id).sort()).toEqual(['cult-beauty-global', 'lookfantastic']);
   });
 
   it('holds every shop that sets one to a figure the 48 hour freshness check can bear', () => {
