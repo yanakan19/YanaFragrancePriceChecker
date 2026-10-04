@@ -37,7 +37,7 @@ import { giftSetId, isGiftSet } from './giftSet.js';
  * registry already models a 'mideast' tier for three retailers.
  */
 export const CONCENTRATION =
-  /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche|eau parfumee|parfumee|parfum|perfume|edp|edt|edc|aftershave|cologne|extrait|attar|oud)\b/i;
+  /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche|eau parfumee|parfumee|parfum|perfume|exdp|edp|edt|edc|aftershave|cologne|extrait|attar|oud)\b/i;
 
 /**
  * Things that live near perfume in a sitemap but are not perfume.

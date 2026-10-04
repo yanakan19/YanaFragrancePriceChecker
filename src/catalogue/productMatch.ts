@@ -342,6 +342,17 @@ function identityWords(p: MatchableProduct): string[] {
   }
   const parfumIntense = p.concentration.toLowerCase().trim() === 'parfum';
   words = words.filter((w) => !IDENTITY_NOISE.has(w) && !(parfumIntense && w === 'intense'));
+  // "Cacao Azteque Extrait" on an Extrait de Parfum. The shop wrote the strength
+  // twice, once into its own field and once into the name, and a word that
+  // restates the strength is not part of the fragrance's name: Nicchia's "Cacao
+  // Aztèque" at the same size and strength is the same bottle. Only where the
+  // strength really is Extrait de Parfum, and never when it would leave nothing.
+  // An Eau de Parfum called "X Extrait" keeps its word (Maison Francis
+  // Kurkdjian's Baccarat Rouge 540 Extrait is a different bottle from the Eau de
+  // Parfum, and it is the strength field that says which is which).
+  if (p.concentration.toLowerCase().trim() === 'extrait de parfum' && words.length > 1) {
+    words = words.filter((w) => w !== 'extrait');
+  }
   while (words.length > 1 && ORPHAN_TAIL.has(words[words.length - 1]!)) words = words.slice(0, -1);
   if (words.length > 1 && words[words.length - 1] === 'new') words = words.slice(0, -1);
   // Never reduce a name to nothing: the plain words are a worse key than none
