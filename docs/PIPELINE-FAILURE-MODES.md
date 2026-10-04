@@ -40,14 +40,14 @@ deals file and the slow replay. This review added:
 
 | Workflow (concurrency group) | Commits | Trigger, and when it really runs |
 |---|---|---|
-| catalogue-daily.yml `crawl` (catalogue) | `data/catalogue`, `data/houses`, harvest report, cursor and markers, shipping and Awin state, `src/config/retailers.ts` (shipping discovery), every "rebuild" path, `demo/testCount.generated.ts` | hourly at :15 and :45, gated by `guard`; dispatches |
-| fragrance-links-daily.yml (catalogue) | `data/fragrance-links*.json`, `demo/fragranceLinks.generated.ts`, `demo/index.html`, `demo/404.html`, `demo/data` | 03:17 UTC; has started 09:13 to 09:52 |
+| catalogue-daily.yml `crawl` (catalogue) | `data/catalogue`, `data/houses`, harvest report, cursor and markers, shipping and Awin state, `src/config/retailers.ts` (shipping discovery), every "rebuild" path (the generated modules, `data/id-aliases.json`, the checkpoint), `demo/testCount.generated.ts` | hourly at :15 and :45, gated by `guard`; dispatches |
+| fragrance-links-daily.yml (catalogue) | `data/fragrance-links*.json`, `demo/fragranceLinks.generated.ts` (until 2026-10-04 also the page) | 03:17 UTC; has started 09:13 to 09:52 |
 | image-check.yml (image-check) | `data/image-link-report.json`, `data/image-referer-report.json` | 03:20 UTC; started 08:09 to 10:16 over 40 days |
 | image-measure-daily.yml (image-measure) | `data/image-box-verdicts.json` | 04:41 UTC; started 10:01, 10:44 |
 | price-verify.yml (price-verify) | `data/price-verification-report.json` | Sundays 04:40 UTC; started 08:51 to 10:43 |
 | delivery-recheck.yml (delivery-recheck) | `data/delivery-recheck-report.json`, `docs/DELIVERY-RECHECK.md` | 1st of the month 04:47 UTC |
 | price-alerts.yml | nothing (reads the catalogue, writes Supabase, sends email) | 07:41 UTC; started 12:41, 14:06 |
-| deploy-pages.yml (pages) | nothing (publishes `demo/`) | every push to `demo/**`, and every completed crawl or links run |
+| deploy-pages.yml (pages) | nothing: builds the page, its data files and the sitemap ("deploy" in the manifest, never committed since 2026-10-04), checks them, publishes `demo/` | every push except data, docs, tests, social, apps, supabase, Markdown and other workflows; every completed crawl or links run |
 | build-manifest.yml, layout-webkit.yml, apps-build.yml, one shop probes | nothing | pushes, dispatch |
 
 Owner routines (Claude Code routines, not workflows) also push: the end of
@@ -73,8 +73,9 @@ Likelihood is over a month of normal running. Impact is on the live site.
 | 12 | A shop returns an empty or blocked page | Medium | Could wipe that shop's listings | Zero priced: no write; captcha and refusal stop the walk; Awin ingest refuses zero usable rows; legacy crawl collapse floor | No change needed beyond #11 |
 | 13 | One shop hangs or fails | Medium | That shop only | 8 shops in parallel, 40 min per shop ceiling, 5 failed pages in a row stop a shop, per shop writes | No change |
 | 14 | A partial harvest is committed as complete | High (by design) | None: shops not reached keep their prices, first in line next run | Cursor orders shops longest unasked first; freshness check | No change |
-| 15 | A generated file passes GitHub's 100 MiB limit | Low now, rising: `demo/catalogue.generated.ts` 22.0 MB on 2026-10-02, 35.5 MB on 2026-10-04 | Every rebuild push refused; read as "branch moved" for 8 attempts | None | Push script refuses before committing over 95 MiB and warns over 50 MiB (e043e7ba). **Recommended:** watch the 50 MiB warning; split the catalogue data before it |
-| 16 | Repository growth | Medium term | Slower checkouts (43 s to 69 s now with full history), eventually GitHub's soft limits | None | 651 MB on GitHub today; one busy day (119 commits) adds a 31.8 MB pack, a quiet one (15 commits) 5.7 MB. At 10 to 30 MB a day it passes 1 GB in about 2 to 5 weeks (estimate). **Owner decision:** keep the bundles out of git (publish `demo/data` from the build artifact) or accept the growth |
+| 15 | A generated file passes GitHub's 100 MiB limit | Low now, rising: `demo/catalogue.generated.ts` 22.0 MB on 2026-10-02, 35.9 MB on 2026-10-04 | Every rebuild push refused; read as "branch moved" for 8 attempts | None | Push script refuses before committing over 95 MiB and warns over 50 MiB (e043e7ba). The page's data files no longer reach git (10ef3cbe). **Recommended:** watch the 50 MiB warning; before it, write `CATALOGUE_CHUNK_*` and `CRAWLED` without indentation (`JSON.stringify(x, null, 2)` in `scripts/build-demo-catalogue.ts`; the same data is 27.8 MB as compact JSON) or split the module |
+| 16 | Repository growth | Medium term | Slower checkouts (43 s to 69 s now with full history), eventually GitHub's soft limits | None | Built page out of git, built by the deploy; checkpoint compact and committed less often; see "Repository growth" below (1a7351c3, 10ef3cbe, b9aeade5). **Owner decisions:** rewrite history to drop the old page files (OWNER-STEPS 7d), the social images |
+| 34 | The deploy's build fails (a broken source push, an npm outage) | Low | Site stays on its last good deployment until a later deploy builds | n/a (the page used to be committed prebuilt) | Build and check before `upload-pages-artifact`; the job fails red and publishes nothing; the next push or crawl run retries (1a7351c3) |
 | 17 | Pages deploy fails (#937: `configure-pages` got GitHub's 503) or is cancelled mid deployment | Low | Site a deploy behind until the next one | `cancel-in-progress: true`, no cap | Running deployments finish (GitHub's advice), 15 min cap (74408247). The next push or crawl run redeploys |
 | 18 | `ubuntu-latest` moves to Ubuntu 26 from 2026-10-19 (GitHub's notice on every run) | Certain | Chromium install (`--with-deps`) or Pillow install could break | None | Crawl and photo measuring pinned to `ubuntu-24.04` (0548eddd). Move after one green dispatch on the new image |
 | 19 | npm, Playwright or pip download fails | Low | Run lost (npm) or render tier lost (Chromium) | Chromium continue on error | Retried with backoff, `scripts/retry.sh` (74408247, 7129180b) |
@@ -92,6 +93,75 @@ Likelihood is over a month of normal running. Impact is on the live site.
 | 31 | Misleading error text sends the next reader the wrong way (#566 said "neither generated nor a raw harvest snapshot" about a file that was both) | Was every such failure | Slower fixes | n/a | Message names the files and the real reason (e043e7ba) |
 | 32 | A one shop dispatch burst | Medium (15 on 2026-10-03) | Waiting dispatches replace each other; a scheduled tick can be replaced | Guard ignores one shop commits since 2026-10-03 | CLAUDE.md: one at a time |
 | 33 | Actions built for Node 20 (`checkout@v4`, `setup-node@v4`, `configure-pages@v5`) | Low | None yet: GitHub runs them on Node 24 and warns on every run | n/a | **Recommended:** move to the next major versions when they are out, one workflow at a time |
+
+## Repository growth (measured 2026-10-04)
+
+**How it was measured.** For each UTC day, the objects new on the branch that
+day (`git rev-list --objects <end> --not <start>`) packed as a push sends them
+(`git pack-objects --revs --thin --window=10`), then attributed to paths with
+`git verify-pack -v` on the indexed pack. Sizes are compressed, after git's
+delta compression, so they are what the repository actually grows by;
+GitHub's own repacking may differ by a few per cent. GitHub reported the
+repository at 690,445 kB that evening.
+
+| Day | Added | Commits |
+|---|---|---|
+| 2026-09-28 | 2.0 MB | 8 |
+| 2026-09-29 | 2.3 MB | 9 |
+| 2026-10-01 | 14.0 MB | 58 |
+| 2026-10-02 | 16.2 MB | 34 |
+| 2026-10-03 | 40.4 MB | 197 |
+| 2026-10-04 (to 22:00) | 57.3 MB | 142 |
+
+Where 2026-10-04's 57.3 MB went: the page's content-hashed data files 32.4 MB
+(`demo/data/catalogue.*` 25.4, `priceHistory.*` 6.1, `dormant.*` 0.6, `deals.*`
+0.3), social post images 9.6, `demo/catalogue.generated.ts` 4.6, the price
+history checkpoint 3.3, the harvest snapshots `data/catalogue` 3.1,
+`demo/priceHistory.generated.ts` 1.3, `demo/404.html` (with the identical
+`index.html`) 0.7, `demo/sitemap.xml` 0.6, everything else under 1.5. On
+2026-10-03: data files 24.1 of 40.4, checkpoint 3.7, snapshots 4.4,
+`catalogue.generated.ts` 3.9.
+
+The data files cost most because each build gives them a new name: git pairs
+a new version with the old one by path when it looks for a delta, so a new
+name is stored nearly whole (91 versions took 61.8 MB in a week), while
+`demo/catalogue.generated.ts`, the same data under one name, took 11.1 MB for
+102 versions.
+
+Across the whole history (all objects repacked locally, 626 MB): snapshots
+180 MB, the old `demo/404.html` (which carried the data inline until
+2026-10-01) 172 MB, `demo/catalogue.generated.ts` 113 MB, `demo/data` 75 MB,
+social images 20 MB, checkpoint 17 MB, `data/houses` 15 MB, sitemap 8 MB.
+
+Largest files now: `demo/catalogue.generated.ts` 35.9 MB, the published
+catalogue data file 27.8 MB, the largest snapshot (`mybeauty-boutique.json`)
+28.8 MB, the checkpoint 16.2 MB, `demo/priceHistory.generated.ts` 15.0 MB.
+
+**The price history depends on the snapshots' history.** `scripts/priceHistoryReplay.ts`
+walks `git log -- data/catalogue` and reads every snapshot at every commit
+(with each commit's author date as the point's time); the checkpoint is only a
+resume point, and any change to the replay rules discards it and replays from
+the first commit. So the snapshots must stay committed on this branch with
+their history intact; nothing below touches them.
+
+**Options compared.**
+
+| Option | Saves a day (2026-10-04 terms) | Risk | Done? |
+|---|---|---|---|
+| (a) Build the page, data files, sitemap and ads.txt in the deploy; stop committing them | 33.7 MB (59%) | Low: the deploy checks the build before uploading; the generated modules stay committed, so tests, scripts and the crawl's own checks are unchanged | Yes (1a7351c3, 10ef3cbe) |
+| (a+) Also stop committing `demo/*.generated.ts`, the checkpoint, `data/id-aliases.json` | about 6.5 MB more | High: about 50 files import the generated modules (tests, price alerts, social, fragrance links, sitemap); the deploy would need the full replay and history; `id-aliases` reads its own last copy | No; possible later |
+| (b1) Checkpoint compact on disk (the ever-priced end time written once) | 0.5 MB | Low; tested round trip, outside the rules fingerprint | Yes (b9aeade5) |
+| (b2) Checkpoint rewritten only when 10 commits or 6 hours behind | about 1.5 MB more | Low: an older resume point gives the same output | Yes (b9aeade5) |
+| (b3) Drop unread fields, compact JSON for `catalogue.generated.ts` | small for growth (deltas already work on it), up to 8 MB off the file's size | Medium: tests and the app read most fields | No; recommended for the 100 MiB limit (row 15) |
+| (b4) Gzip the checkpoint | Negative: a compressed file has no deltas, each version would cost its full 1 to 2 MB | | No |
+| (c) Snapshots or checkpoint on a separate data branch or storage | 3 to 4 MB, moved not saved | High: the replay and the guard read this branch's history | No |
+| (d) Rewrite history to drop the old page files | about 255 MB once | High: new commit ids for everyone | Owner decision (OWNER-STEPS 7d) |
+| (d) Social images out of git | up to 9.6 MB on a posting day | Owner routines | Owner decision |
+
+**Expected after.** 2026-10-04 again: 57.3 − 33.7 − about 2 for the
+checkpoint ≈ 21.5 MB, of which 9.6 MB social images. 2026-10-03: 40.4 − 25.3
+− about 2.4 ≈ 12.7 MB. So about 12 to 13 MB on a busy crawl day plus whatever
+the social routines add, against 40 to 57 MB before.
 
 ## Run times
 
@@ -112,6 +182,9 @@ limit is 120 minutes, GitHub's is 6 hours.
 | 572f6f7f | `CLAUDE.md`: rules for pushing to the live branch |
 | 0548eddd | Crawl and photo measuring pinned to `ubuntu-24.04` |
 | 1d498bd6 | Fix found by proof run #595: the write check's mark is taken two seconds after the previous step |
+| 1a7351c3 | The deploy builds the site (`npm run demo`) and checks it before uploading; deploys on any push that can change the page |
+| 10ef3cbe | The page, its data files, the sitemap and ads.txt leave git ("deploy" in the manifest, gitignored); the push script refuses them; `npm test` builds the page when needed; links job and WebKit check adjusted |
+| b9aeade5 | Price history checkpoint compact on disk and rewritten only when 10 commits or 6 hours behind |
 
 Owner steps (`docs/OWNER-STEPS.md`, section 7): an outside scheduler sending
 `scheduled_tick` dispatches, a hard monthly limit on Apify, two routines to

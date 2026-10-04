@@ -449,11 +449,52 @@ summer it misses commits made between midnight and 1am UK; and the "How much
 could you save?" routine's last run (3 October, 17:53 UK) failed after seven
 seconds with no reason given, worth one look.
 
-### 7d. Later: the repository is growing (a decision, no rush)
+### 7d. The repository's size (done on 4 October; two optional decisions left)
 
-The site's data is committed to git on every crawl: the repository is 651 MB
-on GitHub and grows by roughly 10 to 30 MB a day, so it will pass GitHub's
-recommended 1 GB within weeks. Nothing breaks then, but checkouts get slower.
-The fix is to stop committing the built page data and publish it straight
-from the crawl to the site. Say if you want that done; it changes how the
-site is deployed, so it is your call.
+**Done, nothing for you to do.** The built page and its data files are no
+longer committed: the deploy builds them from the branch before each
+deployment (`deploy-pages.yml`), and the price history checkpoint is smaller
+and committed less often. Those were about two thirds of the daily growth;
+the numbers are in `docs/PIPELINE-FAILURE-MODES.md` ("Repository growth").
+Growth on a busy crawl day goes from 40 to 57 MB to about 13 MB, plus
+whatever the social routines commit.
+
+**One small thing.** If the end of day changelog routine's prompt says to
+commit `demo/index.html` and `demo/404.html`, change it to commit
+`demo/changelog.ts` only (the suggested prompt at the bottom of
+`scripts/changelog-suggest.ts` now says that). Committing those files is now
+refused, so the routine would stop with an error instead.
+
+**Decision 1, optional: shrink what is already there.** GitHub reported
+690,445 kB on the evening of 4 October (651 MB that morning). The page files that are no longer committed still sit in the
+history: repacked locally they are about 255 of 626 MB (the old
+`demo/404.html` with the data inside it 172 MB, `demo/data` 75 MB, the
+sitemap 8 MB). Only rewriting history removes them, which nobody but you
+should do, and only if slow checkouts start to matter:
+
+1. Pause the crawl and every other workflow (Actions → each workflow →
+   **Disable workflow**), and tell anyone working on the branch to stop.
+2. Make a full backup: `git clone --mirror https://github.com/yanakan19/YanaFragrancePriceChecker backup.git`.
+3. In a fresh mirror clone, with `git-filter-repo` installed:
+   `git filter-repo --invert-paths --path demo/index.html --path demo/404.html --path demo/data --path demo/sitemap.xml --path demo/ads.txt`.
+   This keeps every snapshot under `data/catalogue` and every commit date,
+   which is what the price history is rebuilt from.
+4. Check before pushing: in a normal clone of the rewritten repository run
+   `npm ci && npm run catalogue:history -- --full` and compare
+   `demo/priceHistory.generated.ts` with the branch's: it must be identical.
+5. Force push the branch (only you), then ask GitHub Support to run garbage
+   collection on the repository, or the size GitHub shows does not drop.
+6. Re-enable the workflows. Every existing clone, worktree and agent sandbox
+   must clone again; an old clone that pushes would bring the old history back.
+
+Risks: every commit gets a new id, so commit ids quoted in docs and commit
+messages stop resolving, and the price history checkpoint's commit id goes
+too (the first rebuild then replays from the start, about ten minutes, by
+itself). Anyone who pushes from an old clone undoes it. Low value unless
+checkouts become a problem: the crawl's checkout took 43 to 69 seconds.
+
+**Decision 2, optional: the social images.** The social routines commit
+their rendered PNGs under `social/`: 19.8 MB in the last week, 9.6 MB on
+4 October alone, now the biggest single item. Options: keep as is; keep only
+the posts' text and settings in git and render the images when needed; or
+delete a post's images once it is published. Say which you prefer.
