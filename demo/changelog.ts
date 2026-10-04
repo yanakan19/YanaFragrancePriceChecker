@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.41.0',
+    date: '4 Oct 2026',
+    title: 'Gift sets are now a Size filter option',
+    points: [
+      'Gift Sets is now an option under Size',
+      'The Gift Sets section is gone from home',
+      'The old Gift Sets link opens that filter',
+    ],
+  },
+  {
     version: 'v3.40.0',
     date: '4 Oct 2026',
     title: 'Only prices from the last week are shown',

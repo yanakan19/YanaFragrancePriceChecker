@@ -46,7 +46,6 @@ import {
 import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
 import { availabilityHeading, offerGroups, offersInPageOrder, rowShowsAge } from './offerGroups.js';
 import { mostStockedRail, rankedInMostStocked } from './mostStocked.js';
-import { giftSetRail, giftSetSaving, rankGiftSets } from './giftSets.js';
 import { bestDealPerScent, onePerScent } from './oneScent.js';
 import type { PresentedOffer, StockState } from '../src/types/offer.js';
 import type { Retailer, RetailerTier, LogoRef } from '../src/types/retailer.js';
@@ -101,7 +100,7 @@ import { fetchPriceAlerts, setPriceAlerts, unsubscribe } from './priceAlerts.js'
 import { parseTargetPrice } from '../src/alerts/target.js';
 import { UNSUBSCRIBE_PARAM, unsubscribeMessage } from '../src/alerts/unsubscribe.js';
 
-type View = 'home' | 'deals' | 'explore' | 'browse' | 'giftSets' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings' | 'account' | 'design' | 'notFound';
+type View = 'home' | 'deals' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings' | 'account' | 'design' | 'notFound';
 type AuthTab = 'signIn' | 'signUp';
 type ExploreTab = 'brands' | 'retailers' | 'notes';
 type DisplayMode = 'dark' | 'light' | 'system';
@@ -446,24 +445,6 @@ const POPULAR = mostStockedRail(BY_POPULARITY);
  */
 function rowsFor(frag: DemoFragrance): PresentedOffer[] {
   return buildComparison(offersFor(frag.id), { sortBy: 'delivered' });
-}
-
-/**
- * Every gift set that can be bought somewhere, one per set line, in the Gift
- * sets order (demo/giftSets.ts: shops listing it, then the saving between
- * them). Worked out on
- * first use rather than at start up, since only the home page's Gift sets
- * section and /gift-sets need it, and then kept: the catalogue does not
- * change while the page is open.
- */
-let rankedGiftSetsMemo: DemoFragrance[] | null = null;
-function rankedGiftSets(): DemoFragrance[] {
-  rankedGiftSetsMemo ??= onePerScent(rankGiftSets(DEMO_FRAGRANCES, (f) => {
-    const rows = rowsFor(f);
-    const { delivered, plusDelivery } = offerGroups(rows);
-    return { shops: delivered.length + plusDelivery.length, saving: giftSetSaving([...delivered, ...plusDelivery]) };
-  }));
-  return rankedGiftSetsMemo;
 }
 
 /* ── facets ──────────────────────────────────────────────────────────────────
@@ -1468,8 +1449,6 @@ function homeView(): string {
       </ul>
     </section>
 
-    ${giftSetsSection()}
-
     <!-- Update History first and "Got an idea?" last in the markup, so on a
          phone, where the two stack, the suggestion box is the last thing on
          the home page (owner request, 2026-10-03). On desktop the stylesheet
@@ -1526,63 +1505,30 @@ function homeView(): string {
     </div>`;
 }
 
-/**
- * The home page's Gift sets section (owner's decision, 2026-10-03): the same
- * shape as Most stocked above it, a heading, a link to the full list and one
- * horizontal rail of photo tiles. No medals: the order is a ranking of how
- * widely each set is stocked today, not of anything sold. Absent, rather than
- * an empty heading, if no set with a photo has a current price.
- */
-function giftSetsSection(): string {
-  const rail = giftSetRail(rankedGiftSets());
-  if (rail.length === 0) return '';
-  return `<section class="pop-section gift-section">
-      <div class="section-head">
-        <h2 class="t-section">Gift Sets</h2>
-        <button class="link-btn see-top" data-gift-sets>See All Gift Sets <span aria-hidden="true">→</span></button>
-      </div>
-      <ul class="pop-rail">
-        ${rail.map((f) => fragranceTile(f, { rail: true })).join('')}
-      </ul>
-    </section>`;
-}
-
-/* ── gift sets ───────────────────────────────────────────────────────────── */
-
-/**
- * /gift-sets: every gift set that can be bought somewhere, one per set line,
- * through the same list
- * machinery as every other fragrance list (facets, sort, tile grid), with
- * Gift Sets preselected under Size (see applyRoute and go). A set sold out
- * everywhere is not listed here; it keeps its own page and its place in
- * search, as does every other entry of a set line.
- */
-function giftSetsView(): string {
-  const all = rankedGiftSets();
-  const faceted = applyFacets(all);
-  const list = state.browseSort === 'stocked' ? faceted : sortFragrances(faceted, state.browseSort);
-  return `
-    <button class="back" data-back-home>Back</button>
-    <div class="page-head"><h1 class="t-page">Gift Sets</h1><span class="count t-count">${list.length}</span></div>
-    <p class="panel-note t-body">${
-      state.browseSort === 'stocked'
-        ? 'Ranked by how many of our shops stock each set, then by how much you save at the cheapest shop. A set is only ever compared with the same set.'
-        : 'Every gift set we have a price for, in the order you chose. A set is only ever compared with the same set.'
-    }</p>
-    ${listControls(browseSortControl(state.browseSort), facets(all))}
-    ${fragranceList(list, 'No gift set matches that filter.')}`;
-}
-
 /* ── browse ──────────────────────────────────────────────────────────────── */
+
+/**
+ * Whether the search page is showing the leading Most Stocked list rather than
+ * a brand page, a search or a Gift Sets list. No brand and no query means it
+ * is, and oils and gift sets are kept out of that one list (see
+ * demo/mostStocked.ts), so Gift Sets is not an option there at all. The one
+ * way to have it chosen with no query is the old /gift-sets address, which
+ * lands here with Size set to Gift Sets (applyRoute); that list is then every
+ * gift set, not the top 50 with the sets taken out of it, so the list stops
+ * being the Most Stocked one while the choice stands and comes back when it
+ * is cleared.
+ */
+function isMostStockedList(): boolean {
+  return !state.brand && !state.query.trim() && !state.facetVolume.has(GIFT_SET_BAND.id);
+}
 
 function visibleFragrances(): DemoFragrance[] {
   const q = state.query.trim().toLowerCase();
-  // No brand and no query means this is the leading Most Stocked list rather
-  // than a brand page or a search, and oils and gift sets are kept out of that
-  // one list (see demo/mostStocked.ts). Dropped here rather than at the slice in browseView so the facet
+  // The leading Most Stocked list leaves oils and gift sets out (see
+  // demo/mostStocked.ts). Dropped here rather than at the slice in browseView so the facet
   // counts and the row count agree with what is actually listed — a facet
   // offering "17 Perfume Oil" on a page that shows none is worse than either.
-  const isTop = !state.brand && !q;
+  const isTop = isMostStockedList();
   const list = BY_POPULARITY.filter((f) => {
     if (isTop && !rankedInMostStocked(f)) return false;
     if (state.brand && f.brand !== state.brand) return false;
@@ -1601,7 +1547,7 @@ function browseView(): string {
   const faceted = applyFacets(filtered);
   // With no brand or query in play this is the leading list, which is capped:
   // an 879 row wall is not a starting point anyone can use.
-  const isTop = !state.brand && !state.query.trim();
+  const isTop = isMostStockedList();
   // The cap is applied *before* the chosen sort, deliberately. Sorting the
   // whole catalogue by price and then taking 50 would show the fifty cheapest
   // bottles on the site, which is a different page from the one this is; the
@@ -1609,7 +1555,9 @@ function browseView(): string {
   // On a search or a brand there is no cap and the distinction does not arise.
   const capped = isTop ? faceted.slice(0, TOP_N) : faceted;
   const list = state.browseSort === 'stocked' ? capped : sortFragrances(capped, state.browseSort);
-  const title = state.brand ?? (state.query.trim() ? `Results for "${state.query.trim()}"` : `Most stocked`);
+  const title =
+    state.brand ??
+    (state.query.trim() ? `Results for "${state.query.trim()}"` : isTop ? `Most stocked` : `All Fragrances`);
 
   return `
     <button class="back" data-back-home>Back</button>
@@ -4256,7 +4204,6 @@ function currentRoute(): Route {
     case 'home': return { name: 'home', param: '', query: {} };
     case 'deals': return { name: 'deals', param: '', query: {} };
     case 'browse': return { name: 'search', param: '', query };
-    case 'giftSets': return { name: 'giftSets', param: '', query: {} };
     case 'detail': return { name: 'fragrance', param: state.fragranceId, query: {} };
     case 'retailer': return { name: 'retailer', param: state.retailerId, query: {} };
     case 'brand': return { name: 'brand', param: slugify(state.brandProfile), query: {} };
@@ -4303,19 +4250,22 @@ function applyRoute(route: Route): boolean {
       // Explore any more (owner request, 2026-10-03), so this is the only
       // search page there is.
       state.view = 'browse';
+      // /gift-sets, an address that used to be a page of its own, arrives
+      // here as this list with Gift Sets already chosen under Size (an alias
+      // in demo/router.ts). Once drawn, the address is rewritten to /search
+      // like any other, and the choice lives in the filter from then on.
+      if (route.query.size === GIFT_SET_BAND.id) {
+        state.facetVolume.add(GIFT_SET_BAND.id);
+        // The panel is opened so the choice is in plain sight, not only a
+        // badge on a closed Filters button.
+        state.facetsOpen = true;
+      }
       return true;
 
     // Deals is a top level view in its own right now, not a tab under
     // Explore, so it gets state.view set directly rather than falling into
     // the brands/retailers/notes case below that also sets state.tab.
     case 'deals': state.view = 'deals'; return true;
-
-    // The fragrance list with Gift Sets preselected under Size. Set here as
-    // well as in go(), because a reload or a shared link lands here directly.
-    case 'giftSets':
-      state.view = 'giftSets';
-      state.facetVolume.add(GIFT_SET_BAND.id);
-      return true;
 
     case 'brands': case 'retailers': case 'notes':
       state.view = 'explore';
@@ -4877,8 +4827,6 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
           ? exploreView()
           : state.view === 'browse'
             ? browseView()
-            : state.view === 'giftSets'
-              ? giftSetsView()
             : state.view === 'detail'
               ? detailView()
               : state.view === 'retailer'
@@ -4938,7 +4886,7 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
 
   ($('#nav-home') as HTMLElement).classList.toggle('on', state.view === 'home');
   ($('#nav-deals') as HTMLElement).classList.toggle('on', state.view === 'deals');
-  ($('#nav-explore') as HTMLElement).classList.toggle('on', inExplore || state.view === 'browse' || state.view === 'giftSets');
+  ($('#nav-explore') as HTMLElement).classList.toggle('on', inExplore || state.view === 'browse');
   ($('#nav-about') as HTMLElement).classList.toggle('on', state.view === 'about');
   // Account has no top bar entry of its own yet (see settingsView's own
   // Account section) — Module 2.3 is where "profile picture click routes to
@@ -5028,8 +4976,6 @@ function go(view: View): void {
   // opened is a different list, so it starts clean.
   rememberListState();
   clearFacets();
-  // The one list that opens with a filter already chosen: /gift-sets.
-  if (view === 'giftSets') state.facetVolume.add(GIFT_SET_BAND.id);
   state.view = view;
   render();
   syncUrl('push');
@@ -5484,11 +5430,6 @@ function init(): void {
     if (t.closest('[data-browse]')) {
       state.brand = null;
       go('browse');
-      return;
-    }
-
-    if (t.closest('[data-gift-sets]')) {
-      go('giftSets');
       return;
     }
 

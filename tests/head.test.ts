@@ -23,7 +23,7 @@ describe('canonical URLs', () => {
     const names: RouteName[] = [
       'home', 'search', 'brands', 'brand', 'deals', 'retailers', 'retailer',
       'notes', 'note', 'fragrance', 'about', 'settings', 'account', 'legal',
-      'design', 'giftSets', 'notFound',
+      'design', 'notFound',
     ];
     const seen = new Map<string, RouteName>();
     for (const name of names) {
@@ -81,7 +81,7 @@ describe('descriptions', () => {
     const names: RouteName[] = [
       'home', 'search', 'brands', 'brand', 'deals', 'retailers', 'retailer',
       'notes', 'note', 'fragrance', 'about', 'settings', 'account', 'legal',
-      'design', 'giftSets', 'notFound',
+      'design', 'notFound',
     ];
     for (const name of names) {
       const t = tags({ route: route(name, 'x'), leafName: 'Dior', productCount: 12662, retailerCount: 28 });

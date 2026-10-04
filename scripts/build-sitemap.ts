@@ -91,7 +91,6 @@ entries.push({ loc: '/brands', lastmod: appMod, changefreq: 'weekly' });
 entries.push({ loc: '/retailers', lastmod: gitLastModified('src/config/retailers.ts'), changefreq: 'weekly' });
 entries.push({ loc: '/notes', lastmod: appMod, changefreq: 'weekly' });
 entries.push({ loc: '/deals', lastmod: today(), changefreq: 'daily' });
-entries.push({ loc: '/gift-sets', lastmod: today(), changefreq: 'daily' });
 entries.push({ loc: '/about', lastmod: gitLastModified('demo/legal.ts'), changefreq: 'monthly' });
 
 // ── Legal pages, read from the list the site itself renders ──────────────
