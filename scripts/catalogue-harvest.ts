@@ -769,6 +769,10 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
     refreshUrls,
     refreshShare: 0,
     discoveryOffset: discoveryOffsetFor(cursor, retailer.id),
+    // A shop whose range is many times a run's budget says so in its route
+    // (Cult Beauty's fragrance aisles: about 1,700 products against 42 a run).
+    // Only ever a floor on never read pages, never extra re-reads.
+    minDiscovery: retailer.sitemapRoute?.discoveryPages ?? 0,
   };
   const discoveryPages = Math.max(0, Math.round(maxPages * (1 - (refreshShare ?? 0.3))));
 
@@ -1305,6 +1309,7 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
     `  ${retailer.name.padEnd(20)} ${String(result.urlsDiscovered).padStart(5)} urls  ` +
       `${String(result.pagesFetched).padStart(3)} fetched  ` +
       `${String(withPrice.length).padStart(3)} priced listings` +
+      (result.categoryPagesFetched ? `  [${result.categoryPagesFetched} category pages read to find them]` : '') +
       (viaPatience ? '  [via longer timeout]' : '') +
       (viaProxy ? '  [via Apify proxy]' : '') +
       (viaActor ? `  [via ${shopRenderTierName}]` : '') +

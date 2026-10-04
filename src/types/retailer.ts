@@ -530,6 +530,49 @@ export interface ShopifyVariantRule {
 }
 
 /**
+ * The shop's own fragrance aisles, read as category pages.
+ *
+ * A sitemap lists every product the shop sells and says nothing of which are
+ * perfume. Cult Beauty's lists 10,639 products, almost none named for the
+ * aisle they sit in, and was last written on 2026-09-03: of the 1,697 products
+ * its fragrance category pages showed on 2026-10-04, 148 were not in it. A walk
+ * guessing perfume from the product's name found 1,138 of them and left out
+ * every perfume whose name carries no strength word. Where the shop's category
+ * pages list their products in the page's own markup, the aisles are the
+ * shop's statement of what its fragrance range is, and they are read instead.
+ *
+ * Walked one request at a time, as the crawler, with the route's gap between
+ * every pair of requests and robots.txt checked for every address. A category
+ * page that the shop sorts by a changing ranking can list a product twice and
+ * miss another within one walk, so no walk is ever taken as the whole range:
+ * a product absent from it is never treated as withdrawn (only the shop's own
+ * 404, 410 or redirect says that), and the next run's walk finds what this one
+ * missed.
+ */
+export interface CategoryWalk {
+  /** Category page addresses (page one), each walked to its last page. Every address must be permitted by robots.txt. */
+  pages: string[];
+  /** The query parameter that carries the page number, from page 2 on (page 1 is the address as given). */
+  pageParam: string;
+  /**
+   * A regular expression (source text, one capture group) matched against a
+   * category page's markup, global and case blind. The capture is a product
+   * page's address, absolute or site relative; any query or fragment is
+   * dropped. Only addresses that also match the route's `product` and not its
+   * `exclude` are kept.
+   */
+  productLink: string;
+  /**
+   * A regular expression (source text, one capture group) matched against the
+   * first page: how many pages the category has. Unset, a category is walked
+   * until a page lists no product or `maxPages` is reached.
+   */
+  pageCount?: string;
+  /** Most pages walked in one category, whatever the page says. */
+  maxPages: number;
+}
+
+/**
  * A shop's sitemap walk, written down rather than guessed.
  *
  * The generic walk in `src/catalogue/sitemapCrawl.ts` guesses which sitemaps
@@ -549,6 +592,23 @@ export interface ShopifyVariantRule {
  * asks for a crawl delay gets it on every request.
  */
 export interface SitemapRoute {
+  /**
+   * Category pages the shop itself files its fragrance range under, walked page
+   * by page to find product pages. Unset for every shop whose sitemap is the
+   * whole story. See `CategoryWalk`.
+   */
+  categories?: CategoryWalk;
+  /**
+   * Never read product pages a run reads, when that many are unread. The run
+   * wide page budget (`--max`, 42 never read pages a shop a run on the
+   * scheduled sweep) is the floor for every shop; this raises it for one shop
+   * whose range is many times a run's budget, so a first full read takes days
+   * rather than weeks. It never pads a run with re-reads: with nothing unread
+   * left, a run reads only what the due list and the ordinary budget ask for.
+   * The shop's own time ceiling still ends a run that asks for more than it
+   * can read.
+   */
+  discoveryPages?: number;
   /**
    * Sitemap URLs the walk starts from. Each must be a sitemap the shop's
    * robots.txt names, or one listed inside such a sitemap, and robots.txt must

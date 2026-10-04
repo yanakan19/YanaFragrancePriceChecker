@@ -6843,6 +6843,78 @@ export const RETAILERS: readonly Retailer[] = [
     // Oak and Hazelnut 30ml £58, Escentric Molecules Molecule 01 100ml £125.
     // One to eyeball: "Aesop Marrakech Intense Parfum 10ml" is £84 on the page
     // and in its JSON-LD alike, which is what is shown.
+    //
+    // ── Why only 156 listings, and the route that reads the whole range, 2026-10-04 ──
+    // The generic walk this shop was on guessed perfume from a product's name
+    // and read 42 never seen pages a run: 1,138 of the sitemap's 10,639
+    // product addresses name a fragrance word, 156 are stored, and the last
+    // scheduled sweep (10:08Z to 10:12Z, 92 pages, 86 priced) added a handful.
+    // Three faults, each measured:
+    //   1. The sitemap is old and names the wrong things. sitemapindex-product
+    //      lists one file, lastmod 2026-09-03, and of the 1,697 products the
+    //      shop's own fragrance category pages listed on 2026-10-04, 148 are
+    //      not in it (the Aesop Eau de Parfum launch among them). A name test
+    //      also finds skincare ("fragrance free" body lotion) and misses every
+    //      perfume called by a bare name.
+    //   2. It was asked as a browser. Without a pinned route the walk sends a
+    //      Mozilla user agent, and this robots.txt carries "User-agent:
+    //      mozilla/5" and "mozilla/4" groups with "Disallow: /" (there is no
+    //      group for PriceSniffsBot, so the "*" group applies, and it has no
+    //      Crawl-delay). Read literally, a browser identity is the one thing
+    //      the file refuses, so the route below is asked as PriceSniffsBot
+    //      and nothing else, as every pinned route is. The conventional
+    //      /sitemap.xml also answered this walk HTTP 403 on every run.
+    //   3. Too few pages. 42 a run at the 1.5 s gap is 250 a day against a
+    //      range of about 1,700 products, each of which also has to be read
+    //      again every day.
+    // robots.txt, read 2026-10-04T12:06Z, disallows only search, sort,
+    // facetFilters, buy, checkout, basket and a few component paths for "*".
+    // Category pages (/c/fragrance/...) and ?pageNumber=N are not among them,
+    // and none of the addresses below carries a disallowed parameter.
+    // Category pages list 32 products each in the page's own markup
+    // (data-quicklook-url on every product card) and say "Page 1 of N":
+    //   perfumes 41, unisex 45, aftershave 6, eau de toilette 8, niche 1, and
+    //   the shop's all fragrance page 47, 148 pages in all, 1,697 distinct
+    //   products between them (1,773 with the three price bands, which add
+    //   76 for 51 more pages and are not walked). The pages repeat some
+    //   products and leave others out within one walk, and a second walk of
+    //   perfumes returned exactly the first (1,100 of 1,100), so no walk is
+    //   the whole range: the sitemap's perfume named addresses are added after
+    //   it, and nothing absent from a walk is ever treated as withdrawn.
+    // Body mists, hair mists, candles, diffusers, room sprays and hand and
+    // body care are named out by `exclude` (301 of the 1,773 products; every
+    // one checked by eye, none a perfume), and the rest go through every
+    // ordinary rule: strength words, sizes, gift sets, refills, travel
+    // sprays, house wording and pre-orders.
+    sitemapRoute: {
+      roots: ['https://www.cultbeauty.co.uk/sitemapindex-product.xml.gz'],
+      follow: '/sitemap-product-\\d+\\.xml\\.gz$',
+      product: '^https://www\\.cultbeauty\\.co\\.uk/p/[^/?#]+/\\d+/$',
+      exclude:
+        '(^|[/-])(candles?|diffusers?|room-spray|hair-perfume|hair-mist|hair-body|hair-and-body|body-and-hair|' +
+        'body-mist|shower-gel|body-wash|body-lotion|body-cream|hand-cream|hand-wash|shampoo|conditioner|' +
+        'deodorant|soap|serum)(-|/|$)',
+      // The index and its one child.
+      maxSitemaps: 2,
+      requireGbp: true,
+      categories: {
+        pages: [
+          'https://www.cultbeauty.co.uk/c/fragrance/perfumes/',
+          'https://www.cultbeauty.co.uk/c/fragrance/aftershave/',
+          'https://www.cultbeauty.co.uk/c/fragrance/unisex/',
+          'https://www.cultbeauty.co.uk/c/fragrance/niche-fragrance/',
+          'https://www.cultbeauty.co.uk/c/fragrance/eau-de-toilette/',
+          'https://www.cultbeauty.co.uk/c/fragrance/shop-all/',
+        ],
+        pageParam: 'pageNumber',
+        productLink: 'data-quicklook-url="(/p/[^"]+)"',
+        pageCount: 'Page 1 of (\\d+)',
+        maxPages: 60,
+      },
+      // About 1,550 products to read once, 42 a run would be 37 runs. 300 a
+      // run is five, about a day of the scheduled sweep.
+      discoveryPages: 300,
+    },
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',

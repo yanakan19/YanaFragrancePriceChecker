@@ -83,6 +83,12 @@ export interface SitemapCrawlOptions {
    * `selectUrlsToFetch`.
    */
   discoveryOffset?: number;
+  /**
+   * At least this many never read URLs are fetched, when that many are
+   * unread, whatever `maxPages` says. The caller passes the route's
+   * `discoveryPages`. Never pads a run with re-reads: see `selectUrlsToFetch`.
+   */
+  minDiscovery?: number;
 }
 
 export interface SitemapCrawlResult {
@@ -117,6 +123,12 @@ export interface SitemapCrawlResult {
   movedUrls?: string[];
   /** How many never seen URLs this run fetched, to advance the discovery offset by. */
   discoveryFetched?: number;
+  /**
+   * Category pages read to find the product addresses (`SitemapRoute.categories`),
+   * on top of `pagesFetched`, which counts product pages only. Absent for a
+   * shop with no category walk.
+   */
+  categoryPagesFetched?: number;
   /**
    * True only when every URL discovery found was fetched this run and the
    * walk was not cut short. The only state in which a stored listing missing
@@ -391,6 +403,131 @@ function unescapeXml(s: string): string {
 }
 
 /**
+ * A product page's address as the page itself is known: no fragment, and no
+ * `variation` parameter.
+ *
+ * THG's sites (Cult Beauty, LOOKFANTASTIC) put `?variation=<sku>` on a link to
+ * a size and serve the same page for it as for the bare address: 89 of Cult
+ * Beauty's 156 stored listings carry it (2026-10-04), while the sitemap and the
+ * category pages give the address without. Compared as written, a stored page
+ * read an hour ago looked unread beside its own sitemap entry and was read
+ * again as new. Only that one parameter is dropped: a shop whose query string
+ * is the page's identity (Shy Mimosa's `view.asp?brand=A&name=B`) keeps it, and
+ * Parfumdreams' `#variation=` sizes were already read as one page.
+ */
+export function canonicalPage(url: string): string {
+  const hash = url.indexOf('#');
+  const bare = hash === -1 ? url : url.slice(0, hash);
+  const q = bare.indexOf('?');
+  if (q === -1) return bare;
+  const kept = bare
+    .slice(q + 1)
+    .split('&')
+    .filter((p) => p !== '' && !/^variation(=|$)/i.test(p));
+  return kept.length > 0 ? `${bare.slice(0, q)}?${kept.join('&')}` : bare.slice(0, q);
+}
+
+/**
+ * A listing page's address for page `n` of a category: the address as given
+ * for page 1, the same with the shop's page parameter added from page 2 on.
+ */
+function categoryPageUrl(base: string, param: string, n: number): string {
+  if (n <= 1) return base;
+  return `${base}${base.includes('?') ? '&' : '?'}${encodeURIComponent(param)}=${n}`;
+}
+
+/**
+ * Discovery along the shop's own fragrance category pages
+ * (`SitemapRoute.categories`): every page of every category in turn, each
+ * product address found on it kept once, in the order the shop listed them.
+ *
+ * One request at a time with `gapMs` between every pair, as the crawler,
+ * robots.txt checked before every address. A refusal (403 or 429) or a captcha
+ * ends the whole discovery at once and says so: the walk neither retries nor
+ * tries another address.
+ */
+async function walkCategories(
+  options: SitemapCrawlOptions,
+  deadlineAt: number,
+  sleep: (ms: number) => Promise<void>,
+): Promise<{ urls: string[]; errors: string[]; pagesFetched: number; refused: boolean }> {
+  const route = options.retailer.sitemapRoute!;
+  const walk = route.categories!;
+  const { http, robots, onProgress, gapMs } = options;
+  const link = new RegExp(walk.productLink, 'gi');
+  const count = walk.pageCount ? new RegExp(walk.pageCount, 'i') : null;
+  const product = new RegExp(route.product, 'i');
+  const exclude = route.exclude ? new RegExp(route.exclude, 'i') : null;
+
+  const kept = new Set<string>();
+  const errors: string[] = [];
+  let fetched = 0;
+
+  for (const base of walk.pages) {
+    if (!isAllowed(robots, base)) {
+      errors.push(`${base}: not asked, robots.txt does not permit it`);
+      continue;
+    }
+    let last = walk.maxPages;
+    for (let n = 1; n <= last; n++) {
+      if (Date.now() >= deadlineAt) {
+        errors.push(`${base}: stopped early, exceeded this shop's time budget`);
+        return { urls: [...kept], errors, pagesFetched: fetched, refused: false };
+      }
+      const url = categoryPageUrl(base, walk.pageParam, n);
+      if (!isAllowed(robots, url)) {
+        errors.push(`${url}: not asked, robots.txt does not permit it`);
+        break;
+      }
+      if (fetched > 0 && gapMs > 0) await sleep(gapMs);
+      const res = await http(url, ROUTE_HEADERS);
+      fetched++;
+      onProgress?.(fetched, kept.size);
+      if (!res.ok) {
+        errors.push(`${url}: HTTP ${res.status}`);
+        if (res.status === 403 || res.status === 429) {
+          errors.push('stopped early: the shop began refusing requests');
+          return { urls: [...kept], errors, pagesFetched: fetched, refused: true };
+        }
+        break;
+      }
+      const captcha = captchaRefusal(url, res);
+      if (captcha) {
+        errors.push(captcha, CAPTCHA_STOP);
+        return { urls: [...kept], errors, pagesFetched: fetched, refused: true };
+      }
+
+      let onPage = 0;
+      for (const m of res.body.matchAll(link)) {
+        let address: string;
+        try {
+          const resolved = new URL(unescapeXml(m[1] ?? ''), base);
+          address = `${resolved.origin}${resolved.pathname}`;
+        } catch {
+          continue;
+        }
+        if (!product.test(address) || (exclude && exclude.test(address))) continue;
+        onPage++;
+        kept.add(address);
+      }
+      if (n === 1) {
+        // The shop says how many pages there are, or says nothing and the walk
+        // goes on until a page lists no product. Either way `maxPages` bounds it.
+        if (count) {
+          const total = Number.parseInt(count.exec(res.body)?.[1] ?? '', 10);
+          last = Number.isFinite(total) && total > 0 ? Math.min(total, walk.maxPages) : 1;
+        }
+      }
+      if (onPage === 0) {
+        if (n === 1) errors.push(`${url}: no product link found on the first page`);
+        break;
+      }
+    }
+  }
+  return { urls: [...kept], errors, pagesFetched: fetched, refused: false };
+}
+
+/**
  * Discovery along a route pinned in the registry (`Retailer.sitemapRoute`).
  *
  * Starts from the named roots only, opens only the child sitemaps `follow`
@@ -399,12 +536,18 @@ function unescapeXml(s: string): string {
  * here too, so a shop's crawl delay holds for its sitemaps as well as its
  * products. Product URLs naming a perfume come first, then the rest, in the
  * order the shop listed them.
+ *
+ * A route with `categories` reads the shop's fragrance category pages first
+ * (see `CategoryWalk`). The sitemap then adds only the products whose address
+ * names a perfume that the category walk did not list (the shop's sitemap is
+ * old, and a walk can miss a product), never the rest of the shop: the
+ * categories are the shop's own statement of where its fragrance range is.
  */
 async function discoverViaRoute(
   options: SitemapCrawlOptions,
   deadlineAt: number,
   sleep: (ms: number) => Promise<void>,
-): Promise<{ urls: string[]; errors: string[] }> {
+): Promise<{ urls: string[]; errors: string[]; categoryPages: number }> {
   const route = options.retailer.sitemapRoute!;
   const { http, robots, onProgress, gapMs } = options;
   const follow = route.follow ? new RegExp(route.follow, 'i') : null;
@@ -412,11 +555,22 @@ async function discoverViaRoute(
   const exclude = route.exclude ? new RegExp(route.exclude, 'i') : null;
   const budget = Math.min(route.maxSitemaps ?? 12, MAX_ROUTE_SITEMAPS);
 
+  const errors: string[] = [];
+  let categoryUrls: string[] = [];
+  let categoryPages = 0;
+  if (route.categories) {
+    const walked = await walkCategories(options, deadlineAt, sleep);
+    categoryUrls = walked.urls;
+    categoryPages = walked.pagesFetched;
+    errors.push(...walked.errors);
+    // A shop that refused the walk is not asked for its sitemap either.
+    if (walked.refused) return { urls: categoryUrls, errors, categoryPages };
+  }
+
   const queue = [...route.roots];
   const seen = new Set<string>();
   const found: string[] = [];
   const kept = new Set<string>();
-  const errors: string[] = [];
   let fetched = 0;
 
   while (queue.length > 0 && fetched < budget && kept.size < MAX_ROUTE_URLS && Date.now() < deadlineAt) {
@@ -428,7 +582,7 @@ async function discoverViaRoute(
       continue;
     }
 
-    if (fetched > 0 && gapMs > 0) await sleep(gapMs);
+    if ((fetched > 0 || categoryPages > 0) && gapMs > 0) await sleep(gapMs);
     const res = await http(url, ROUTE_HEADERS);
     fetched++;
     onProgress?.(fetched, kept.size);
@@ -458,8 +612,12 @@ async function discoverViaRoute(
   }
 
   const named = found.filter((u) => PERFUME_WORD.test(pathOf(u)));
+  if (route.categories) {
+    const listed = new Set(categoryUrls);
+    return { urls: [...categoryUrls, ...named.filter((u) => !listed.has(u))], errors, categoryPages };
+  }
   const rest = found.filter((u) => !PERFUME_WORD.test(pathOf(u)));
-  return { urls: [...named, ...rest], errors };
+  return { urls: [...named, ...rest], errors, categoryPages };
 }
 
 /**
@@ -648,6 +806,7 @@ export function selectUrlsToFetch(
   knownUrls: ReadonlyMap<string, string> = new Map(),
   refreshShare = 0.3,
   discoveryOffset = 0,
+  minUnseen = 0,
 ): string[] {
   // ── Discovery rotates ─────────────────────────────────────────────────────
   // A URL that yields no priced listing never becomes known, so without an
@@ -665,7 +824,11 @@ export function selectUrlsToFetch(
     .sort((a, b) => (knownUrls.get(a) ?? '').localeCompare(knownUrls.get(b) ?? ''));
 
   const refreshBudget = Math.min(seen.length, Math.floor(maxPages * refreshShare));
-  const discoverBudget = maxPages - refreshBudget;
+  // `minUnseen` raises the share of never read pages for a shop whose range is
+  // many times a run's budget (`SitemapRoute.discoveryPages`). It lifts what
+  // discovery may take; it never adds a refresh, and the padding below stops
+  // at `maxPages`, so a shop with nothing left unread reads what it did.
+  const discoverBudget = Math.max(maxPages - refreshBudget, Math.floor(minUnseen));
 
   const picked = [...unseen.slice(0, discoverBudget), ...seen.slice(0, refreshBudget)];
 
@@ -693,9 +856,9 @@ export async function crawlViaSitemap(
   const deadlineAt = Date.now() + (options.maxDurationMs ?? DEFAULT_CRAWL_MS);
 
   // A dozen sitemap fetches is plenty to find the fragrance aisle.
-  const { urls, errors } = route
+  const { urls, errors, categoryPages } = route
     ? await discoverViaRoute(options, deadlineAt, sleep)
-    : await discover(options, 12, deadlineAt);
+    : { ...(await discover(options, 12, deadlineAt)), categoryPages: 0 };
   // The walk's last sitemap fetch and its first product fetch are a pair too.
   if (route && gapMs > 0 && urls.length > 0) await sleep(gapMs);
 
@@ -712,15 +875,31 @@ export async function crawlViaSitemap(
   // Without the #fragment: several sizes read off one page (Parfumdreams'
   // index_13043.aspx#variation=222365, #variation=222363 ...) are stored with
   // their own fragment, and the page answers for all of them in one request.
-  const refreshUrls = [...new Set((options.refreshUrls ?? []).map((u) => u.split('#')[0]!))];
+  // And without THG's `?variation=<sku>`, which names the same page (see
+  // canonicalPage): a stored size and its sitemap or category entry are one page.
+  const refreshUrls = [...new Set((options.refreshUrls ?? []).map(canonicalPage))];
   const refreshSet = new Set(refreshUrls);
   const known = options.knownUrls ?? new Map<string, string>();
+  const knownPages = new Map<string, string>();
+  for (const [u, at] of known) {
+    const page = canonicalPage(u);
+    const earlier = knownPages.get(page);
+    if (earlier === undefined || at < earlier) knownPages.set(page, at);
+  }
+  const isKnown = (u: string) => known.has(u) || knownPages.has(canonicalPage(u));
+  const toDiscover = urls.filter((u) => !refreshSet.has(canonicalPage(u)));
+  const knownToDiscover = new Map<string, string>();
+  for (const u of toDiscover) {
+    const at = known.get(u) ?? knownPages.get(canonicalPage(u));
+    if (at !== undefined) knownToDiscover.set(u, at);
+  }
   const budgeted = selectUrlsToFetch(
-    urls.filter((u) => !refreshSet.has(u)),
+    toDiscover,
     maxPages,
-    known,
+    knownToDiscover,
     options.refreshShare,
     options.discoveryOffset ?? 0,
+    options.minDiscovery ?? 0,
   );
 
   // A shop that answered discovery with a captcha is not asked again this run.
@@ -787,7 +966,7 @@ export async function crawlViaSitemap(
     if (sampledUrls.length < SAMPLE_LIMIT) sampledUrls.push(url);
     const res = await http(fetchUrl, apiReader ? { ...headers, accept: 'application/json' } : headers);
     pagesFetched++;
-    if (!refreshSet.has(url) && !known.has(url)) discoveryFetched++;
+    if (!refreshSet.has(canonicalPage(url)) && !isKnown(url)) discoveryFetched++;
     options.onProgress?.(pagesFetched, listings.length);
 
     if (!res.ok && res.status !== 404 && res.status !== 410) failedInARow++;
@@ -832,7 +1011,7 @@ export async function crawlViaSitemap(
     // caller delists only stored rows whose SKU this run did not find, so a
     // product that merely moved keeps its row under the new address.
     // Judged on the address actually asked: a product API answers from its own host.
-    if (known.has(url) && redirectedAway(fetchUrl, res.finalUrl)) movedUrls.push(url);
+    if (isKnown(url) && redirectedAway(fetchUrl, res.finalUrl)) movedUrls.push(url);
 
     // Spacing exists to keep every *pair* of requests to this shop apart —
     // there is no next request after the last URL in the list, so waiting
@@ -847,11 +1026,16 @@ export async function crawlViaSitemap(
     if (gapMs > 0 && i < picked.length - 1) await sleep(gapMs);
   }
 
+  // A walk of category pages is never the whole range, so a stored product it
+  // did not list is not withdrawn (see CategoryWalk); only the shop's own 404,
+  // 410 or redirect says so, and those are reported as gone, not as absent.
   const fetchedEveryDiscovered =
-    !captchaAtDiscovery && !cutShort && urls.every((u) => pickedSet.has(u));
+    !captchaAtDiscovery && !cutShort && !route?.categories &&
+    urls.every((u) => pickedSet.has(u) || refreshSet.has(canonicalPage(u)));
 
   return {
     listings, pagesFetched, urlsDiscovered: urls.length, errors, sampledUrls,
     goneUrls, movedUrls, discoveryFetched, fetchedEveryDiscovered,
+    ...(categoryPages > 0 ? { categoryPagesFetched: categoryPages } : {}),
   };
 }
