@@ -96,36 +96,74 @@ export function accountButtonLabel(state: AccountState): string {
 /* ── wishlist ─────────────────────────────────────────────────────────────── */
 
 /**
- * The sorts the wishlist page offers. "Biggest Drop" is deliberately absent:
- * a wishlist row stores when it was saved and an optional target, never the
- * price on the day it was saved (supabase/migrations/0002_wishlists.sql), so
- * there is no honest figure to measure a drop from. See
- * docs/ACCOUNT-PREMIUM-PLAN.md for the column that would make it possible.
+ * The sorts the wishlist page offers. "Biggest Drop" is offered only where it
+ * can be measured: a wishlist row stores the cheapest delivered price on the day
+ * it was saved (supabase/migrations/0005_wishlist_saved_price.sql), and only
+ * rows saved after that was run, with a delivered price that day, have one. See
+ * `wishlistSortsFor`.
  */
-export type WishlistSort = 'recent' | 'cheapest';
+export type WishlistSort = 'recent' | 'cheapest' | 'drop';
 
 export const WISHLIST_SORTS: { id: WishlistSort; label: string }[] = [
   { id: 'recent', label: 'Recently Saved' },
   { id: 'cheapest', label: 'Cheapest' },
 ];
 
+/** Biggest Drop, which exists only where at least one row has a change to rank. */
+const BIGGEST_DROP = { id: 'drop' as const, label: 'Biggest Drop' };
+
+/** The sorts to offer: the two always, and Biggest Drop only when some row has a change since saved. */
+export function wishlistSortsFor(hasAnyChange: boolean): { id: WishlistSort; label: string }[] {
+  return hasAnyChange ? [...WISHLIST_SORTS, BIGGEST_DROP] : WISHLIST_SORTS;
+}
+
+/** The sort to draw: the reader's choice, or Recently Saved where Biggest Drop is no longer on offer. */
+export function effectiveWishlistSort(chosen: WishlistSort, hasAnyChange: boolean): WishlistSort {
+  return chosen === 'drop' && !hasAnyChange ? 'recent' : chosen;
+}
+
+/**
+ * How far today's cheapest delivered price has moved from the one recorded on
+ * the day of saving: negative is cheaper now. Null unless both prices exist.
+ * A row saved with no price recorded (before the column, or with no delivered
+ * price that day) has no change, and one is never made up from today's price.
+ */
+export function changeSinceSaved(savedGbp: number | null, nowGbp: number | null): number | null {
+  if (savedGbp === null || nowGbp === null) return null;
+  return Math.round((nowGbp - savedGbp) * 100) / 100;
+}
+
 export interface SortableWishlistRow {
   addedAt: string;
   /** Today's cheapest delivered price, or null when nothing is buyable. */
   priceGbp: number | null;
   name: string;
+  /** `changeSinceSaved`, where there is one. Negative is a drop. */
+  changeGbp?: number | null;
 }
 
 /**
  * A sorted copy. Rows with no price today (sold out everywhere, or no stated
  * delivery) go last under Cheapest rather than being read as £0, and ties
- * fall back to the name so the order is stable between renders.
+ * fall back to the name so the order is stable between renders. Under Biggest
+ * Drop the largest fall comes first, a row that is dearer comes after one that
+ * is flat, and a row with no change to measure goes last.
  */
 export function sortWishlist<T extends SortableWishlistRow>(rows: readonly T[], sort: WishlistSort): T[] {
   const byName = (a: T, b: T) => a.name.localeCompare(b.name, 'en-GB');
   const copy = [...rows];
   if (sort === 'recent') {
     return copy.sort((a, b) => Date.parse(b.addedAt) - Date.parse(a.addedAt) || byName(a, b));
+  }
+  if (sort === 'drop') {
+    return copy.sort((a, b) => {
+      const x = a.changeGbp ?? null;
+      const y = b.changeGbp ?? null;
+      if (x === null && y === null) return byName(a, b);
+      if (x === null) return 1;
+      if (y === null) return -1;
+      return x - y || byName(a, b);
+    });
   }
   return copy.sort((a, b) => {
     if (a.priceGbp === null && b.priceGbp === null) return byName(a, b);
@@ -142,7 +180,7 @@ export interface DataExportInput {
   /** auth.users.created_at as Supabase reports it. */
   accountCreatedAt: string | null;
   emailConfirmedAt: string | null;
-  wishlist: readonly { fragranceId: string; targetPriceGbp: number | null; addedAt: string }[];
+  wishlist: readonly { fragranceId: string; targetPriceGbp: number | null; addedAt: string; savedPriceGbp?: number | null }[];
   /** Resolved for readability only; the id is what is stored. */
   fragranceName: (id: string) => string | null;
   /** profiles.price_alerts, or null when the setting could not be read. */
@@ -180,6 +218,8 @@ export function buildDataExport(input: DataExportInput): Record<string, unknown>
       fragrance: input.fragranceName(w.fragranceId),
       targetPriceGbp: w.targetPriceGbp,
       savedAt: w.addedAt,
+      // Null where none was recorded, never a guess.
+      savedPriceGbp: w.savedPriceGbp ?? null,
     })),
     alerts: {
       priceAlertEmails: input.priceAlerts,

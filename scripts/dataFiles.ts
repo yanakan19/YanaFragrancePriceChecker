@@ -54,6 +54,10 @@ export const LAZY_GLOBAL = '__psLazy';
  */
 export const LAZY_DATA_MODULES: Record<string, readonly string[]> = {
   priceHistory: ['PRICE_HISTORY', 'PRICE_HISTORY_GAP'],
+  // Products with no current prices (src/catalogue/dormantProducts.ts): a page
+  // each, in no list or count, fetched only when one of their addresses is
+  // opened. Kept out of the catalogue file so the first load does not grow.
+  dormant: ['DORMANT_PRODUCTS'],
 };
 
 /** A lazy data file: its module name and its path relative to the site root. */
