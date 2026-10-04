@@ -8180,9 +8180,12 @@ export const RETAILERS: readonly Retailer[] = [
     // bloom_common.js) treats only the "uk" zone as VAT paying and every other
     // zone as tax free, and its /pages/delivery offers tax free shopping to
     // addresses outside the UK, which is what "tf" and "tfsd" price. "sd" is
-    // never explained on any page read (for Butterfly Nebula 50 ml it is 182.00
-    // against 190.00) and "ato" is the free atomizer line of the Nose Club token
-    // scheme (price 0.00; /pages/faq: "What is an atomizer?"). None of the four
+    // named on the shop's product page as its "Sample discount program" (the
+    // variant list reads "Sample discount program Out of stock 4 tokens, 10 ml
+    // EdP"; for Butterfly Nebula 50 ml it is 182.00 against 190.00, the 8.00
+    // sample price taken off), and "ato" is the atomizer line of the Nose Club
+    // token scheme (price 0.00, paid in tokens; /pages/faq: "What is an
+    // atomizer?"). None of the four
     // is a price a UK shopper pays for the bottle, so `shopifyVariantRule` keeps
     // "ol" and nothing else.
     //
@@ -8226,6 +8229,20 @@ export const RETAILERS: readonly Retailer[] = [
     // Of those, 1,297 are out of stock on the shop's own list and 471 carry
     // "(Discontinued)" in the title; both are kept as the shop states them and
     // the stock flag decides what is shown, not this entry.
+    // First harvest, run #591 (job 111316846290), one shop: robots.txt then 9
+    // pages, 2,214 listings stored, all active and all priced in GBP, 918 in
+    // stock and 1,296 not on the shop's own list. Spot checked against the
+    // shop's own product pages the same night, as PriceSniffsBot, 2 s apart:
+    // 48 listings on 40 randomly chosen in stock products, every price and
+    // currency (GBP) matching the page's JSON-LD offer for the same SKU, plus
+    // the hand picked Ylem NGC 6302 Butterfly Nebula 50 ml 190.00, Nasomatto
+    // Black Afgano 30 ml 130.00, Caron Parfum Sacré 30 ml 135.00, Caron Fleur de
+    // Rocaille 100 ml 250.00 and La Closerie Cacao Timur 100 ml 165.00. One
+    // caveat the owner should know: the shop labels some bottles PRE-ORDER (the
+    // page badge and JSON-LD availability PreOrder; 5 of those 48, La Closerie
+    // and Caron among them) while /products.json calls them available, so those
+    // read as in stock here. products.json carries nothing that tells the two
+    // apart.
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
