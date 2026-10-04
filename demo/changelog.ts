@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.45.0',
+    date: '4 Oct 2026',
+    title: 'Debenhams delivery uses its cheapest rate',
+    points: [
+      'Debenhams Supersaver delivery is £2.99 per order',
+      'It replaces the £3.99 Standard rate we used',
+      'Every Debenhams total price is £1 lower',
+    ],
+  },
+  {
     version: 'v3.44.0',
     date: '4 Oct 2026',
     title: 'Escentric Molecules at Cult Beauty',

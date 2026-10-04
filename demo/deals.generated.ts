@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-10-04T04:09:06.418Z";
+export const DEALS_GENERATED_AT = "2026-10-04T04:26:54.315Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -7843,10 +7843,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6294015182682",
-    "price": 23.98,
+    "price": 22.98,
     "delivered": true,
     "wasPrice": 39.99,
-    "percentOff": 40,
+    "percentOff": 42,
     "retailerId": "debenhams",
     "kind": "retailer",
     "houseName": null
@@ -14803,11 +14803,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-7640164031057",
-    "price": 67.95,
+    "price": 67.79,
     "delivered": true,
-    "wasPrice": 89,
-    "percentOff": 23,
-    "retailerId": "perfume-click",
+    "wasPrice": 81,
+    "percentOff": 16,
+    "retailerId": "debenhams",
     "kind": "retailer",
     "houseName": null
   },
@@ -16453,10 +16453,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6294015181531",
-    "price": 23.98,
+    "price": 22.98,
     "delivered": true,
     "wasPrice": 49.99,
-    "percentOff": 52,
+    "percentOff": 54,
     "retailerId": "debenhams",
     "kind": "retailer",
     "houseName": null

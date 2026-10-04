@@ -5214,6 +5214,8 @@ export const RETAILERS: readonly Retailer[] = [
     // scheme, modelled as membershipPerk and never applied to the delivered
     // price, same treatment as every other membership scheme in this file. No
     // basket threshold is stated for non-members, so freeOverGbp stays null.
+    // (Superseded 2026-10-04: the rate used is now the cheaper UK Supersaver
+    // £2.99 from the same table; see the comment on `shipping` below.)
     //
     // Enabled on that: currency confirmed sterling, robots permits, not
     // Shopify, and now a real, sourced standard delivery cost — the same
@@ -5308,29 +5310,40 @@ export const RETAILERS: readonly Retailer[] = [
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      standardGbp: 3.99,
+      // The cheapest UK option any shopper can choose, not the one named
+      // "Standard": the shop's own table lists "UK Supersaver Delivery" at
+      // £2.99 per order beside "UK Standard Delivery" at £3.99, and states no
+      // condition on Supersaver (no minimum spend, no item or area limit, no
+      // membership). Only a bigger basket changes it, and in the shopper's
+      // favour ("99p Over £30"), so £2.99 is what every basket pays at most.
+      // Re-read 2026-10-04 with PriceSniffsBot; robots.txt permits the page.
+      standardGbp: 2.99,
       freeOverGbp: null,
       estimatedDays: [3, 5],
       membershipPerk: {
         scheme: 'Debenhams UNLIMITED',
-        description: 'Paid subscription scheme advertised alongside the standard rate as giving free delivery.',
+        description: 'Paid subscription scheme advertised alongside every delivery option as giving free delivery.',
       },
-      // Re-read 2026-10-03: the same table row, unchanged, and still no
-      // non-member threshold for UK Standard Delivery.
-      verifiedAt: '2026-10-03',
+      verifiedAt: '2026-10-04',
       confidence: 'confirmed',
       source: {
         url: 'https://www.debenhams.com/pages/informational/delivery',
-        quote: 'UK Standard Delivery ~ £3.99 per order ~ ⭐ FREE with Debenhams UNLIMITED',
-        readAt: '2026-10-03',
+        quote: 'UK Supersaver Delivery ~ £2.99 per order',
+        readAt: '2026-10-04',
       },
       notes:
-        'Read directly off the shop\'s own delivery page by shipping:discover, not searched for. ' +
-        'No non-member spend threshold for free delivery is stated on the page, so freeOverGbp ' +
-        'stays null rather than assumed. The same table also lists a cheaper, slower option, ' +
-        '"UK Supersaver Delivery ~ £2.99 per order. 99p Over £30" (read 2026-10-03); it is not ' +
-        'the standard service and is not modelled. The page states no delivery window, so ' +
-        'estimatedDays is not sourced.',
+        'Read directly off the shop\'s own delivery page. The same table lists "UK Standard ' +
+        'Delivery ~ £3.99 per order", "UK Supersaver Delivery ~ £2.99 per order. 99p Over £30" (the whole row; the quote above stops before the 99p because that is a reduction, not a free threshold, and a quoted "over £N" must match freeOverGbp), ' +
+        '"UK Next Day Delivery ~ £5.99 per order" and "UK Express Delivery ~ £4.99 per order", each ' +
+        'free with Debenhams UNLIMITED (a paid subscription, never applied). Supersaver is the ' +
+        'cheapest option and the page attaches no minimum spend, item restriction or mainland ' +
+        'condition to it, so it is the rate used. "99p Over £30" is a further reduction for ' +
+        'baskets over £30 that the registry has no field for, so it is not applied: a bottle ' +
+        'over £30 is shown £2.00 dearer to deliver than the shop may charge, never cheaper. The ' +
+        'Northern Ireland Supersaver row (£2.99) is a separate option and is not used. No basket ' +
+        'threshold for free delivery is stated for non members, so freeOverGbp stays null. The ' +
+        'page states no delivery window for any option, so estimatedDays is still not sourced, ' +
+        'and the shop has not been checked in a real basket.',
     },
     catalogue: null,
     affiliate: { ...awinRequested() },
