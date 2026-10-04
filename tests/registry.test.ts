@@ -142,7 +142,13 @@ describe('retailer registry', () => {
     // site referenced it. 76 becomes 74 the same day: Morrisons and B&M
     // removed at the owner's request, as supermarkets rather than shops a
     // fragrance buyer compares.
-    expect(RETAILERS).toHaveLength(74);
+    //
+    // 2026-10-04: 74 becomes 75. Sabina Store (sabina.com) added disabled, to
+    // record why it cannot be switched on: its pounds are a conversion for a
+    // US delivery and the only route to the UK price is a path its robots.txt
+    // disallows. It is not enabled, so the enabled count in the header is
+    // unchanged and nothing on the site refers to it.
+    expect(RETAILERS).toHaveLength(75);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
@@ -434,6 +440,28 @@ describe('retailer registry', () => {
     it('still covers the Spanish and Madrid-shipping entries', () => {
       expect(CURRENCY_UNCONFIRMED.has('paco-perfumerias')).toBe(true);
       expect(CURRENCY_UNCONFIRMED.has('beauty-the-shop-uk')).toBe(true);
+    });
+
+    // Sabina Store (sabina.com), recorded 2026-10-04 so the findings are not
+    // lost, and disabled because nothing it can show is a UK price: its pounds
+    // are the shop's conversion for a US delivery, and the one way to set the
+    // country to the United Kingdom is a path its robots.txt disallows.
+    it('records Sabina Store as disabled and currency unconfirmed, with what was found', () => {
+      const sabina = getRetailer('sabina')!;
+      expect(sabina.enabled).toBe(false);
+      expect(sabina.domain).toBe('sabina.com');
+      expect(CURRENCY_UNCONFIRMED.has('sabina')).toBe(true);
+      // Never part of the enabled set that every count, list and page reads.
+      expect(enabledRetailers().map((r) => r.id)).not.toContain('sabina');
+      expect(sabina.shipping.standardGbp).toBe(7.5);
+      expect(sabina.shipping.freeOverGbp).toBe(79);
+      expect(sabina.shipping.estimatedDays).toEqual([4, 8]);
+      // Not marked confirmed: the page address and the sentence were not kept.
+      expect(sabina.shipping.confidence).toBe('unverified');
+      const note = sabina.shipping.notes ?? '';
+      for (const finding of ['*/modules/', '0.8757', 'id_currency=2', '/modules/mclocationselector/ajax.php', 'GTIN']) {
+        expect(note, finding).toContain(finding);
+      }
     });
 
     // zimaya was removed 2026-08-19 on a currency probe that read a sterling
