@@ -1188,18 +1188,6 @@
       "lastSucceededAt": "2026-10-03T11:22:18.579Z",
       "ruledOut": null
     },
-    "shy-mimosa::sitemap-discovery": {
-      "strategyId": "sitemap-discovery",
-      "retailerId": "shy-mimosa",
-      "attempts": 1,
-      "successes": 1,
-      "listingsFound": 4,
-      "lastStatus": 200,
-      "lastError": null,
-      "lastTriedAt": "2026-10-03T11:33:38.283Z",
-      "lastSucceededAt": "2026-10-03T11:33:38.283Z",
-      "ruledOut": null
-    },
     "cult-beauty-global::sitemap-discovery": {
       "strategyId": "sitemap-discovery",
       "retailerId": "cult-beauty-global",

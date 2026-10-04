@@ -475,7 +475,7 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
   let nodes = (options.variantSizesFromPage ? withVariantSizes(blocks, html) : blocks).flatMap((b) => flatten(b));
   if (options.microdata && !nodes.some(isProduct)) {
     // A microdata product with no identifier of its own falls back to its
-    // address. Shy Mimosa's are all /shop/products/view.asp?brand=...&name=...,
+    // address. One shop's are all /shop/products/view.asp?brand=...&name=...,
     // whose last path segment is "view.asp" for every product, so there the
     // query string is the identity, not the script name.
     const queryId = queryIdentity(options.pageUrl);
@@ -718,7 +718,7 @@ function attr(attrs: string, name: string): string | null {
  * parser decides what a listing is whichever way a page marks it up.
  *
  * Added 2026-10-03 for two shops whose product pages carry microdata and no
- * JSON-LD at all: Shy Mimosa (`<div itemscope itemtype=".../Product">` with
+ * JSON-LD at all: the first (`<div itemscope itemtype=".../Product">` with
  * `itemprop="name"`, `"brand"`, an Offer holding `itemprop="priceCurrency"
  * content="GBP"` and `itemprop="price"` 195.00) and Niche Beauty (the same
  * shape, its price in a `content` attribute). A small tag scanner rather than
