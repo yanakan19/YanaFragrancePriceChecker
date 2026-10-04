@@ -55,7 +55,7 @@ import type { StoredListing } from './types.js';
  * own catalogue: 38+ titles hit this exact collision.
  */
 export const CONCENTRATION_SPECIFIC =
-  /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche|extrait de parfum|extrait de toilette)\b/i;
+  /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche|extrait de parfum|extrait de toilette|(?<!eau de )parfum extrait|extrait parfum|extract de parfum|extract parfum)\b/i;
 /**
  * Perfume oil, checked ahead of everything else because it is the one form
  * whose own name contains a weaker phrase that would otherwise claim it.
@@ -84,7 +84,7 @@ export const CONCENTRATION_SPECIFIC =
 const CONCENTRATION_OIL =
   /\b(concentrated perfume oil|perfume oil|perfumed oil|fragrance oil)\b/i;
 const CONCENTRATION_GENERIC_PRIORITY = [
-  'edp', 'edt', 'edc', 'parfum', 'perfume', 'aftershave', 'cologne', 'extrait', 'attar', 'oud',
+  'exdp', 'edp', 'edt', 'edc', 'parfum', 'perfume', 'aftershave', 'cologne', 'extrait', 'attar', 'oud',
 ] as const;
 const CONCENTRATION_GENERIC_PATTERNS: Record<string, RegExp> = Object.fromEntries(
   CONCENTRATION_GENERIC_PRIORITY.map((w) => [w, new RegExp(`\\b${w}\\b`, 'i')]),
@@ -188,12 +188,31 @@ export const CONCENTRATION_NOT_STATED = 'Not stated';
  * the same strength is the open question recorded there and is not answered
  * here; "Extrait" is merely the short way to write "Extrait de Parfum", the
  * way "EDP" is the short way to write "Eau de Parfum".
+ *
+ * ── A sixth, added 2026-10-04 (npm run duplicates -- --spellings) ──────────
+ * Ways to write Extrait de Parfum that used to land on Parfum, because "parfum"
+ * is a generic word and it won before "extrait" was looked at: "Extrait Parfum"
+ * (Debenhams, 2 titles), "Extract de Parfum", a misspelling (Mybeauty Boutique,
+ * The Beauty Store and Perfume Click, 5 titles, all Tiziana Terenzi or Bujairami),
+ * "ExDP", French Avenue's own abbreviation on its own UK shop (16 titles), and
+ * "Parfum Extrait" and "Extract Parfum", the same words the other way round,
+ * none in a title today. They are now CONCENTRATION_SPECIFIC phrases (ExDP a
+ * generic word beside EDP), so the strength field and the name strip agree.
+ * "Parfum Extrait" is not read out of "Eau de Parfum Extrait", where the strength
+ * is the Eau de Parfum, nor out of "Extrait de Parfum", where the longer phrase
+ * wins. Parfum stays its own value: "Pure Parfum" (Armaf, Hermes) is a Parfum.
  */
 const CONCENTRATION_DISPLAY: Record<string, string> = {
   edp: 'Eau de Parfum', edt: 'Eau de Toilette', edc: 'Eau de Cologne',
+  // French Avenue's own abbreviation for Extrait de Parfum, on its own UK shop.
+  exdp: 'Extrait de Parfum',
   'eau de parfum': 'Eau de Parfum', 'eau de toilette': 'Eau de Toilette',
   'eau de cologne': 'Eau de Cologne', 'eau fraiche': 'Eau Fraiche',
   'extrait de parfum': 'Extrait de Parfum', 'extrait de toilette': 'Extrait de Toilette',
+  // Four other ways shops write the same strength (see the 2026-10-04 note on
+  // CONCENTRATION_DISPLAY above): word order and one misspelling.
+  'parfum extrait': 'Extrait de Parfum', 'extrait parfum': 'Extrait de Parfum',
+  'extract de parfum': 'Extrait de Parfum', 'extract parfum': 'Extrait de Parfum',
   'concentrated perfume oil': 'Perfume Oil', 'perfume oil': 'Perfume Oil',
   'perfumed oil': 'Perfume Oil', 'fragrance oil': 'Perfume Oil',
   parfum: 'Parfum', aftershave: 'Aftershave',

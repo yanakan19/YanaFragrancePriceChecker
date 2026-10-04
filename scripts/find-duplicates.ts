@@ -13,6 +13,15 @@
  *   npm run duplicates -- --json out.json   also write the groups as JSON
  *   npm run duplicates -- --strength   also list groups that differ only in
  *                                      strength (a review list, not duplicates)
+ *   npm run duplicates -- --synonyms   the strength label splits: groups with the
+ *                                      same brand, name and size that differ only in
+ *                                      what the shops call the strength (Extrait de
+ *                                      Parfum / Parfum, Eau de Parfum / Parfum ...),
+ *                                      ranked by shops, each with the evidence a
+ *                                      merge needs and the reason it is kept apart
+ *   npm run duplicates -- --spellings  every way the shops' titles write a strength
+ *                                      and the one value each folds to (reads
+ *                                      data/catalogue, not the built page)
  *   npm run duplicates -- --catalogue path/to/catalogue.generated.ts
  *                                      measure another build, such as a saved copy
  *
@@ -21,11 +30,14 @@
  * names differently stays out of it because those words are part of the name
  * core. Read each group before merging anything.
  */
-import { writeFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import type { CatalogueEntry, CrawledOffer } from '../demo/catalogue.generated.js';
-import { duplicateKey, strengthBlindKey, UNKNOWN_STRENGTHS, strengthKey } from '../src/catalogue/duplicateKey.js';
+import { duplicateKey, nameCarriedKey, strengthBlindKey, strengthDifference, UNKNOWN_STRENGTHS, strengthKey } from '../src/catalogue/duplicateKey.js';
+import { concentration, concentrationMatch } from '../src/catalogue/productName.js';
+import { HOUSE_STRENGTH_EVIDENCE } from '../src/catalogue/houseStrengthEvidence.js';
+import { brandAliasKey, nameCore } from '../src/catalogue/duplicateKey.js';
 
 interface Member {
   id: string;
@@ -68,7 +80,7 @@ function whyApart(ms: Member[]): string {
   return 'barcodes differ';
 }
 
-function args(): { top: number; all: boolean; json: string | null; strength: boolean; catalogue: string | null } {
+function args(): { top: number; all: boolean; json: string | null; strength: boolean; synonyms: boolean; spellings: boolean; catalogue: string | null } {
   const a = process.argv.slice(2);
   const at = (flag: string) => a.indexOf(flag);
   const top = at('--top') >= 0 ? Number(a[at('--top') + 1]) : 40;
@@ -77,6 +89,8 @@ function args(): { top: number; all: boolean; json: string | null; strength: boo
     all: a.includes('--all'),
     json: at('--json') >= 0 ? (a[at('--json') + 1] ?? null) : null,
     strength: a.includes('--strength'),
+    synonyms: a.includes('--synonyms'),
+    spellings: a.includes('--spellings'),
     catalogue: at('--catalogue') >= 0 ? (a[at('--catalogue') + 1] ?? null) : null,
   };
 }
@@ -112,7 +126,9 @@ function line(m: Member): string {
 function show(label: string, groups: Group[], limit: number): void {
   console.log(`\n${label}: ${groups.length} groups`);
   for (const [i, g] of groups.slice(0, limit).entries()) {
+    const split = g as Partial<StrengthSplit>;
     console.log(`\n#${i + 1}  ${g.members.length} ids, ${g.shops} shops (${g.splitShops} sell it under two ids)\n  key ${g.key}\n  why apart: ${g.why}`);
+    if (split.verdict) console.log(`  strengths: ${split.pair}${split.kind === 'name' ? ' (the name carries a strength word)' : ''}\n  verdict: ${split.verdict}`);
     for (const m of g.members) console.log(line(m));
   }
 }
@@ -156,7 +172,134 @@ for (const [why, count] of [...byWhy].sort((a, b) => b[1] - a[1])) console.log(`
 
 if (opts.strength) show('Strength only groups (one side says Not stated or Disputed)', weak, opts.all ? weak.length : opts.top);
 
+/**
+ * A group that matches on brand, name and size and differs in the strength
+ * label, with what decides whether it is one bottle.
+ *
+ * "label" groups share the name core outright. "name" groups differ only by a
+ * strength word the name carries ("Atlantis Extrait" beside "Atlantis"), which
+ * the strength blind key above already folds for the word Extrait; the wider key
+ * here also takes Parfum, Pure and Cologne out, so it is a review list only.
+ */
+interface StrengthSplit extends Group {
+  kind: 'label' | 'name';
+  /** The stated strengths, weakest first. */
+  pair: string;
+  /** Extrait de Parfum against Parfum: the pair shops and houses write both ways. */
+  synonymCandidate: boolean;
+  /** Shops that sell two of the strengths in this group. */
+  shopsSellingBoth: string[];
+  verdict: string;
+}
+
+function strengthSplit(g: Group, kind: 'label' | 'name'): StrengthSplit | null {
+  const stated = g.members.filter((m) => !UNKNOWN_STRENGTHS.has(strengthKey(m.concentration)));
+  const diff = strengthDifference(stated.map((m) => m.concentration));
+  if (new Set(stated.map((m) => strengthKey(m.concentration))).size < 2) return null;
+  // A shop that lists two of the strengths of one bottle is a shop saying they differ.
+  const byShop = new Map<string, Set<string>>();
+  for (const m of stated) for (const s of m.shops) byShop.set(s, new Set([...(byShop.get(s) ?? []), strengthKey(m.concentration)]));
+  const shopsSellingBoth = [...byShop].filter(([, set]) => set.size > 1).map(([s]) => s).sort();
+  // Every strength carrying a real barcode of its own, and the codes all different.
+  const codes = new Map<string, Set<string>>();
+  for (const m of stated) if (m.ean) codes.set(strengthKey(m.concentration), new Set([...(codes.get(strengthKey(m.concentration)) ?? []), stripZeros(m.ean)]));
+  const everyStrengthHasItsOwnCode =
+    codes.size === new Set(stated.map((m) => strengthKey(m.concentration))).size && new Set([...codes.values()].flatMap((c) => [...c])).size >= codes.size;
+  const house = HOUSE_STRENGTH_EVIDENCE.some((e) => brandAliasKey(e.brand) === brandAliasKey(g.members[0]!.brand) && e.sizesMl.includes(g.members[0]!.sizeMl ?? -1));
+  let verdict: string;
+  if (shopsSellingBoth.length > 0) verdict = `keep apart: ${shopsSellingBoth.join(', ')} sell${shopsSellingBoth.length === 1 ? 's' : ''} both strengths`;
+  else if (everyStrengthHasItsOwnCode) verdict = 'keep apart: each strength has its own barcode';
+  else if (house) verdict = 'a house page is recorded for this brand and size (houseStrengthEvidence.ts); check the name';
+  else if (diff.synonymCandidate) verdict = 'synonym candidate: needs the house page';
+  else verdict = 'two tiers: needs a source before any merge';
+  return { ...g, kind, pair: diff.pair, synonymCandidate: diff.synonymCandidate, shopsSellingBoth, verdict };
+}
+
+const strengthSplits: StrengthSplit[] = [];
+if (opts.synonyms) {
+  const seen = new Set<string>();
+  for (const g of groupBy(members, strengthBlindKey)) {
+    const s = strengthSplit(g, 'label');
+    if (!s) continue;
+    strengthSplits.push(s);
+    for (const m of g.members) seen.add(m.id);
+  }
+  // Name carried: a different name core, folded only by the wider key.
+  for (const g of groupBy(members, nameCarriedKey)) {
+    if (new Set(g.members.map((m) => nameCore(m.name, m.brand, null))).size < 2) continue;
+    if (g.members.every((m) => seen.has(m.id))) continue;
+    const s = strengthSplit(g, 'name');
+    if (s) strengthSplits.push(s);
+  }
+  strengthSplits.sort((x, y) => y.shops - x.shops || y.members.length - x.members.length || x.key.localeCompare(y.key));
+
+  const label = strengthSplits.filter((s) => s.kind === 'label');
+  console.log(`\nStrength label splits: ${label.length} groups with one name, one size and different strengths; ${strengthSplits.length - label.length} more where the name carries a strength word`);
+  const byPair = new Map<string, { groups: number; shops: number; open: number }>();
+  for (const s of strengthSplits) {
+    const row = byPair.get(s.pair) ?? { groups: 0, shops: 0, open: 0 };
+    row.groups++;
+    row.shops += s.shops;
+    if (!s.verdict.startsWith('keep apart')) row.open++;
+    byPair.set(s.pair, row);
+  }
+  console.log('\n  strengths                                   groups  not yet kept apart by a shop or a barcode');
+  for (const [pair, row] of [...byPair].sort((a, b) => b[1].groups - a[1].groups)) console.log(`  ${pair.padEnd(42)} ${String(row.groups).padStart(7)}  ${String(row.open).padStart(5)}`);
+  const synonyms = strengthSplits.filter((s) => s.synonymCandidate);
+  console.log(`\n  Extrait de Parfum / Parfum, the synonym candidates: ${synonyms.length} groups, ${new Set(synonyms.flatMap((s) => s.members.map((m) => m.brand))).size} brands`);
+  const open = strengthSplits.filter((s) => !s.verdict.startsWith('keep apart'));
+  show('Strength splits no shop and no barcode explains, most shops first (a review list)', open, opts.all ? open.length : opts.top);
+  if (opts.all || opts.top >= 1) {
+    console.log('\nVerdict per group shown above is the catalogue alone: it never merges anything.');
+    const apart = strengthSplits.filter((s) => s.verdict.startsWith('keep apart'));
+    console.log(`  kept apart by the catalogue itself: ${apart.length} groups (${apart.filter((s) => s.shopsSellingBoth.length > 0).length} where a shop sells both strengths)`);
+  }
+}
+
+if (opts.spellings) {
+  // Every phrase a strength is written with in the shops' own titles, and what it folds to.
+  const dir = resolve(import.meta.dirname, '../data/catalogue');
+  const table = new Map<string, Map<string, number>>();
+  const watch: [string, RegExp][] = [
+    ['pure perfume', /\bpure perfume\b/i],
+    ['perfume extract', /\bperfume extract\b/i],
+    ['parfum concentre', /\bparfum concentr[eé]e?\b/i],
+    ['parfum de toilette', /\bparfum de toilette\b/i],
+    ['eau de parfum intense', /\beau de parfum intense\b/i],
+    ['absolute / absolue', /\babsolu[et]?\b/i],
+  ];
+  const watched = new Map<string, Map<string, number>>();
+  if (existsSync(dir)) {
+    for (const f of readdirSync(dir).filter((x) => x.endsWith('.json'))) {
+      const snap = JSON.parse(readFileSync(resolve(dir, f), 'utf8')) as { listings?: { rawTitle: string; status?: string }[] };
+      for (const l of snap.listings ?? []) {
+        if (l.status && l.status !== 'active') continue;
+        const phrase = concentrationMatch(l.rawTitle);
+        if (phrase) {
+          const to = concentration(l.rawTitle);
+          const row = table.get(to) ?? new Map<string, number>();
+          row.set(phrase.toLowerCase(), (row.get(phrase.toLowerCase()) ?? 0) + 1);
+          table.set(to, row);
+        }
+        for (const [name, re] of watch) {
+          if (!re.test(l.rawTitle)) continue;
+          const row = watched.get(name) ?? new Map<string, number>();
+          const to = concentration(l.rawTitle);
+          row.set(to, (row.get(to) ?? 0) + 1);
+          watched.set(name, row);
+        }
+      }
+    }
+  }
+  console.log('\nSpellings of a strength in the shops\' own titles, and the value each folds to');
+  for (const [to, row] of [...table].sort((a, b) => [...b[1].values()].reduce((x, y) => x + y, 0) - [...a[1].values()].reduce((x, y) => x + y, 0))) {
+    console.log(`  ${to.padEnd(18)} ${[...row].sort((a, b) => b[1] - a[1]).map(([p, n]) => `${p} (${n})`).join(', ')}`);
+  }
+  console.log('\nPhrases watched that are not strengths of their own (what they fold to in this build)');
+  for (const [name, row] of watched) console.log(`  ${name.padEnd(24)} ${[...row].map(([to, n]) => `${to} (${n})`).join(', ')}`);
+}
+
 if (opts.json) {
-  writeFileSync(opts.json, JSON.stringify({ products: CATALOGUE.length, groups, strengthOnly: weak }, null, 1));
+  writeFileSync(opts.json, JSON.stringify({ products: CATALOGUE.length, groups, strengthOnly: weak, ...(opts.synonyms ? { strengthSplits } : {}) }, null, 1));
   console.log(`\nWrote ${opts.json}`);
 }

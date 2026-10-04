@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.63.0',
+    date: '4 Oct 2026',
+    title: 'One bottle, one page, any strength name',
+    points: [
+      'Shops naming a strength differently now merge',
+      'Only where the brand or a barcode agrees',
+      'Orto Parisi Cuoium 50ml is now one page',
+    ],
+  },
+  {
     version: 'v3.62.0',
     date: '4 Oct 2026',
     title: 'More LOOKFANTASTIC fragrances',
