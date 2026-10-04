@@ -437,6 +437,14 @@ function categoryPageUrl(base: string, param: string, n: number): string {
 }
 
 /**
+ * The most of a shop's time budget its category pages may take. Cult Beauty's
+ * 148 category pages are about 5 minutes at 2 s a page and 11 at 4.5 s (read
+ * from a sandbox on 2026-10-04, 109 pages in the probe's 8 minutes), against
+ * the sweep's 40 minute shop ceiling.
+ */
+export const CATEGORY_WALK_SHARE = 0.35;
+
+/**
  * Discovery along the shop's own fragrance category pages
  * (`SitemapRoute.categories`): every page of every category in turn, each
  * product address found on it kept once, in the order the shop listed them.
@@ -471,7 +479,7 @@ async function walkCategories(
     let last = walk.maxPages;
     for (let n = 1; n <= last; n++) {
       if (Date.now() >= deadlineAt) {
-        errors.push(`${base}: stopped early, exceeded this shop's time budget`);
+        errors.push(`${base}: stopped early, the category pages used their share of this shop's time budget`);
         return { urls: [...kept], errors, pagesFetched: fetched, refused: false };
       }
       const url = categoryPageUrl(base, walk.pageParam, n);
@@ -559,12 +567,23 @@ async function discoverViaRoute(
   let categoryUrls: string[] = [];
   let categoryPages = 0;
   if (route.categories) {
-    const walked = await walkCategories(options, deadlineAt, sleep);
+    // The walk gets a share of the shop's time, not all of it. A shop whose
+    // pages answer slowly could otherwise spend the whole run on category pages
+    // and leave nothing for the product pages: no stored price would be
+    // re-read that run, and a price shown as current is the one error this
+    // crawler must not make. The share is what discovery may take; the due
+    // listings and the new products are read in the rest.
+    const walkDeadline = Math.min(
+      deadlineAt,
+      Date.now() + Math.floor(Math.max(0, deadlineAt - Date.now()) * CATEGORY_WALK_SHARE),
+    );
+    const walked = await walkCategories(options, walkDeadline, sleep);
     categoryUrls = walked.urls;
     categoryPages = walked.pagesFetched;
     errors.push(...walked.errors);
-    // A shop that refused the walk is not asked for its sitemap either.
-    if (walked.refused) return { urls: categoryUrls, errors, categoryPages };
+    // A shop that refused the walk is not asked for its sitemap either, and
+    // nothing it listed before refusing is read: it has told us to stop.
+    if (walked.refused) return { urls: [], errors, categoryPages };
   }
 
   const queue = [...route.roots];
