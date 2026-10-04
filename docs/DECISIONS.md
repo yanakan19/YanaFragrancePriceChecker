@@ -1819,3 +1819,15 @@ What stays: the owner's own name and handles (YannySniffs, @yannysniffs),
 which are the person, not the chatbot. The Fly.io apps named
 `pricesniffs-yanny` and `yanny-freellmapi` should still be deleted from the
 owner's Fly account (docs/OWNER-STEPS.md §1) so nothing bills.
+
+## D23 — Apify stays off: every shop is read as PriceSniffsBot
+
+Owner decision, 2026-10-04. Since commit 3f565184 every request the crawler makes
+identifies as PriceSniffsBot, and a refusal is never worked around. Apify's
+residential proxy and its paid browser actor cannot carry that identity (the
+first exists to get past an IP refusal, the second renders as a visitor), so
+both stay switched off in `src/catalogue/botIdentity.ts`. A shop that only
+answered through them, such as Selfridges past its first page, is allowed to go
+stale and drop off after the 7 day rule rather than be reached another way. The
+owner also set a $5 monthly hard limit in the Apify console as a safety net.
+Turning either tier back on needs a new owner decision recorded here.
