@@ -30,6 +30,7 @@
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
   | 'notes' | 'note' | 'fragrance' | 'about' | 'settings' | 'legal' | 'account'
+  | 'accountWishlist' | 'accountNotifications'
   | 'design' | 'notFound';
 
 /** What a matched URL says about where we are. */
@@ -90,6 +91,16 @@ const ALIAS_ROUTES: Record<string, { name: RouteName; query: Record<string, stri
   'gift-sets': { name: 'search', query: { size: 'gift-set' } },
 };
 
+/**
+ * The account's own pages under /account. Fixed words rather than a param,
+ * so a mistyped /account/anything is a miss like any other address, never the
+ * profile page pretending to be what was asked for.
+ */
+const ACCOUNT_ROUTES: Record<string, RouteName> = {
+  wishlist: 'accountWishlist',
+  notifications: 'accountNotifications',
+};
+
 const LEAF_ROUTES: Record<string, RouteName> = {
   brands: 'brand',
   retailers: 'retailer',
@@ -121,6 +132,12 @@ export function matchRoute(pathname: string, search = ''): Route {
     if (name) return { name, param: '', query };
     const alias = ALIAS_ROUTES[head!];
     if (alias) return { name: alias.name, param: '', query: { ...query, ...alias.query } };
+    return { name: 'notFound', param: pathname, query };
+  }
+
+  if (head === 'account' && segments.length === 2) {
+    const name = ACCOUNT_ROUTES[tail!];
+    if (name) return { name, param: '', query };
     return { name: 'notFound', param: pathname, query };
   }
 
@@ -161,6 +178,8 @@ export function routeToPath(route: Route): string {
       case 'about': return '/about';
       case 'settings': return '/settings';
       case 'account': return '/account';
+      case 'accountWishlist': return '/account/wishlist';
+      case 'accountNotifications': return '/account/notifications';
       case 'design': return '/design';
       case 'legal': return `/legal/${encodeURIComponent(param)}`;
       // Not a destination anything navigates *to*: syncUrl never rewrites the

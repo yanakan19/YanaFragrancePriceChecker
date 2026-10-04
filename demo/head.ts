@@ -354,16 +354,40 @@ export function headFor(input: HeadInput): HeadTags {
         noindex: true,
       };
 
+    // The account's pages are one reader's own and never a search result:
+    // all noindex, and none of them is in the sitemap (scripts/build-sitemap.ts
+    // lists only what it names, and tests/accountPages.test.ts checks it).
+    // /account is the profile once signed in and the sign in form before
+    // that, so app.ts passes the heading actually on screen as `leafName`
+    // and the tab says the same thing as the page.
     case 'account':
+      return {
+        title: leafName === 'My Profile' ? 'PriceSniffs: My Profile' : 'PriceSniffs: Account',
+        description: describe('Sign in to save fragrances to your wishlist and choose your price alerts.', SITE_TAIL),
+        canonical,
+        noindex: true,
+      };
+
+    case 'accountWishlist':
+      return {
+        title: 'PriceSniffs: My Wishlist',
+        description: describe('The fragrances you saved, with the cheapest delivered price for each one today.', SITE_TAIL),
+        canonical,
+        noindex: true,
+      };
+
+    case 'accountNotifications':
+      return {
+        title: 'PriceSniffs: My Notifications',
+        description: describe('Choose whether we email you when a fragrance you saved gets cheaper.', SITE_TAIL),
+        canonical,
+        noindex: true,
+      };
+
     case 'settings':
       return {
-        title: route.name === 'account' ? 'PriceSniffs: Account' : 'PriceSniffs: Settings',
-        description: describe(
-          route.name === 'account'
-            ? 'Sign in to save fragrances to your list.'
-            : 'Choose how this site looks and how prices are sorted.',
-          SITE_TAIL,
-        ),
+        title: 'PriceSniffs: Settings',
+        description: describe('Choose how this site looks on this device: the theme and the layout.', SITE_TAIL),
         canonical,
         noindex: true,
       };
@@ -401,6 +425,8 @@ function pathOf(route: Route): string {
     case 'about': return '/about';
     case 'settings': return '/settings';
     case 'account': return '/account';
+    case 'accountWishlist': return '/account/wishlist';
+    case 'accountNotifications': return '/account/notifications';
     case 'design': return '/design';
     case 'legal': return `/legal/${p}`;
     case 'notFound': return '/404';
