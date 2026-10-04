@@ -1919,6 +1919,133 @@ export function stripTrailingShopCredit(
 }
 
 /**
+ * Who a shop's category label says a bottle is for. The same three values
+ * demo/gender.ts reads a name into; kept as plain strings here because src/
+ * never imports from demo/.
+ */
+export type ShopTitleAudience = 'mens' | 'womens' | 'unisex';
+
+/**
+ * The shop's own category label, which Perfume Direct writes into the middle of
+ * its fragrance titles, taken off: "Bvlgari Splendida Patchouli Tentation Eau de
+ * Parfum Women's Perfume Spray" is the bottle every other shop calls "Bvlgari
+ * Splendida Patchouli Tentation Eau de Parfum".
+ *
+ * Perfume Direct files each product under a category ("Women's Perfume", "Men's
+ * Aftershave", "Unisex Perfume": its own productType) and its titles repeat that
+ * category after the strength. The words are a shelf label, not a name, and no
+ * shop that sells the same bottle prints them, so with them in place the name
+ * never matched: only 36 of its 3,094 rows (1%) shared a product with another
+ * shop (measured 2026-10-04, data/catalogue/perfume-direct.json against the
+ * built catalogue). With them off, about two thirds do.
+ *
+ * What goes (the full list of gender words in the shop's titles was read):
+ *   - a gender word and the generic noun after it: "Women's Perfume", "Men's
+ *     Aftershave", "Mens Aftershave", "Unisex Fragrance", "Women's Scent", "Men's
+ *     Refillable Aftershave";
+ *   - a gender word on its own where it only labels the format after it:
+ *     "Women's Spray", "Unisex Eau de Parfum", "Men's Parfum Spray";
+ *   - the label written after the strength: "Eau de Parfum for Women", "Perfume
+ *     for Women", "Aftershave Spray for Men";
+ *   - a generic noun between the strength and "Spray", once the strength is in
+ *     the title: "Eau de Toilette Aftershave Spray", "Eau de Parfum Perfume Spray".
+ *
+ * What stays, each one a real name or a different bottle:
+ *   - "Pour Homme", "Pour Femme", "for Her", "for Him", "Man", "Woman", "Homme",
+ *     "Femme", "Men" and "Women", and "for Men" / "for Women" ahead of the
+ *     strength. They are part of names such as "Gucci Guilty Pour Homme",
+ *     "Burberry for Women", "Hugo Boss The Scent for Him", "Paul Smith Women",
+ *     "Abercrombie and Fitch First Instinct for Her", and other shops print them;
+ *   - "Intense", "Elixir", "Eau Fraiche", "Old Bottle" and every other flanker or
+ *     edition word;
+ *   - "Aftershave" where it is the product: "Aftershave Lotion", "Aftershave
+ *     Balm", "Aftershave Splash", and an "Aftershave Spray" with no strength in
+ *     the title. An aftershave is not the eau de toilette of the same name;
+ *   - "Women's Alcohol Free Perfume": alcohol free is a different formulation;
+ *   - "Gift Set", "Miniatures" and "Body Mist": different products. A gift set
+ *     is not given to this function at all.
+ *
+ * Only a listing of the shop it is written for is read, the way
+ * stripTrailingShopCredit only reads a shop's own signature: another shop's
+ * "Men's Aftershave" may be doing real work and is never touched.
+ *
+ * The audience is not lost. It is returned beside the title (null when the
+ * title named none, or named two) so the build can keep it on the product for
+ * the Gender filter: demo/gender.ts reads a name, and the name no longer says it.
+ */
+const SHOP_TITLE_GENDER_WORD = String.raw`(?:women['’]?s|womens|men['’]?s|mens|unisex)`;
+const SHOP_TITLE_GENERIC_NOUN = String.raw`(?:perfume|aftershave|fragrance|scent|cologne)`;
+/** A product that is not the scent itself, so the label before it is part of its name. */
+const SHOP_TITLE_NOT_THE_SCENT = String.raw`(?!\s+(?:lotion|balm|gel|cream|wash|body|hair|deodorant|mist|oil|serum|soap|powder|shave|stick)\b)`;
+const SHOP_TITLE_STRENGTH = String.raw`(?:eau\s+de\s+(?:parfum|toilette|cologne)|parfum|extrait(?:\s+de\s+parfum)?)`;
+/** "Women's Perfume", "Men's Refillable Aftershave". */
+const SHOP_TITLE_LABEL_PHRASE = new RegExp(
+  String.raw`\b(${SHOP_TITLE_GENDER_WORD})\s+(?:(?:non[- ]?)?refillable\s+)?${SHOP_TITLE_GENERIC_NOUN}\b${SHOP_TITLE_NOT_THE_SCENT}`,
+  'gi',
+);
+/** "Perfume for Women", "Aftershave Spray for Men" (never "Eau de Cologne for Men": that is a strength). */
+const SHOP_TITLE_LABEL_AFTER_NOUN = new RegExp(
+  String.raw`\s+(?:perfume|aftershave|fragrance|scent)(?:\s+spray)?\s+for\s+(men|women)\b${SHOP_TITLE_NOT_THE_SCENT}`,
+  'gi',
+);
+/** "Eau de Parfum for Women": the group is the strength, kept. */
+const SHOP_TITLE_LABEL_AFTER_STRENGTH = new RegExp(
+  String.raw`(\b${SHOP_TITLE_STRENGTH})\s+for\s+(men|women)\b`,
+  'gi',
+);
+/** "Women's Spray", "Unisex Eau de Parfum", "Men's Parfum Spray". */
+const SHOP_TITLE_LABEL_ONLY = new RegExp(
+  String.raw`\b(${SHOP_TITLE_GENDER_WORD})\b(?=\s+(?:spray\b|eau\b|parfum\b|extrait\b|refillable\b|\()|\s*$)`,
+  'gi',
+);
+/** "Eau de Toilette Aftershave Spray": the noun between a strength and "Spray". */
+const SHOP_TITLE_NOUN_BEFORE_SPRAY = /\b(?:perfume|aftershave|fragrance|scent)\s+(?=spray\b)/gi;
+/** "Eau de Toilette Cologne Spray" (Clinique Happy for Men): a second "cologne" after a toilette or parfum. */
+const SHOP_TITLE_COLOGNE_BEFORE_SPRAY = /\b(eau\s+de\s+(?:toilette|parfum))\s+cologne\s+(?=spray\b)/gi;
+const SHOP_TITLES_WITH_A_LABEL: ReadonlySet<string> = new Set(['perfume-direct']);
+
+function audienceOfLabel(word: string): ShopTitleAudience {
+  const w = word.toLowerCase();
+  if (w.startsWith('unisex')) return 'unisex';
+  return w.startsWith('women') || w === 'womens' ? 'womens' : 'mens';
+}
+
+export function stripShopTitleLabel(
+  title: string,
+  retailerId: string,
+): { title: string; audience: ShopTitleAudience | null } {
+  if (!SHOP_TITLES_WITH_A_LABEL.has(retailerId)) return { title, audience: null };
+  const heard = new Set<ShopTitleAudience>();
+  const take = (_whole: string, word: string): string => {
+    heard.add(audienceOfLabel(word));
+    return ' ';
+  };
+  let s = title.replace(SHOP_TITLE_LABEL_PHRASE, take);
+  s = s.replace(SHOP_TITLE_LABEL_AFTER_NOUN, take);
+  s = s.replace(SHOP_TITLE_LABEL_AFTER_STRENGTH, (_whole, strength: string, word: string) => {
+    heard.add(audienceOfLabel(word));
+    return strength;
+  });
+  s = s.replace(SHOP_TITLE_LABEL_ONLY, take);
+  // The nouns that are left between a strength and "Spray" are only noise once
+  // a strength stands in the title; with none, "Aftershave Spray" is the product.
+  const strengthAt = new RegExp(String.raw`\b${SHOP_TITLE_STRENGTH}\b`, 'i').exec(s);
+  let changed = heard.size > 0;
+  if (strengthAt) {
+    const head = s.slice(0, strengthAt.index);
+    const rest = s.slice(strengthAt.index);
+    const cleaned = rest.replace(SHOP_TITLE_COLOGNE_BEFORE_SPRAY, '$1 ').replace(SHOP_TITLE_NOUN_BEFORE_SPRAY, '');
+    if (cleaned !== rest) changed = true;
+    s = head + cleaned;
+  }
+  if (!changed) return { title, audience: null };
+  s = s.replace(/\s{2,}/g, ' ').replace(/\s+\)/g, ')').trim();
+  // Never leave nothing behind: a title that is only the label keeps itself.
+  if (!/[a-z]/i.test(s)) return { title, audience: null };
+  return { title: s, audience: heard.size === 1 ? [...heard][0]! : null };
+}
+
+/**
  * ─────────────────────────────────────────────────────────────────────────────
  * The words a shop may put in a trailing pipe-delimited segment that say
  * nothing about what the bottle is called.

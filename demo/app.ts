@@ -561,7 +561,11 @@ function genderOf(f: DemoFragrance): GenderReading {
   if (cached) return cached;
   // The same string the card prints, so a reader can check the reading
   // against what is on screen.
-  const reading = readGender(`${f.brand} ${f.name} ${f.concentration}`);
+  // A name that states an audience is read first. Where it is silent, the
+  // audience a shop's own category label gave stays (f.gender): Perfume Direct's
+  // "Women's Perfume" is off the name so the bottle meets the other shops'.
+  const named = readGender(`${f.brand} ${f.name} ${f.concentration}`);
+  const reading = named === 'notStated' && f.gender ? f.gender : named;
   genderCache.set(f.id, reading);
   return reading;
 }
@@ -2588,6 +2592,8 @@ function dormantFragrance(id: string, d: DormantEntry): DemoFragrance {
     notes: null,
     houseCeiling: null,
     giftSet: d.giftSet ?? null,
+    // In no list, so the Gender filter never asks.
+    gender: null,
   };
 }
 
