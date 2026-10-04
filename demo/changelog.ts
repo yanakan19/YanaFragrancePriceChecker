@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.71.0',
+    date: '4 Oct 2026',
+    title: 'Lists now keep going as you scroll',
+    points: [
+      'See All opens every fragrance, most stocked first',
+      'Sorting and filters now cover the whole list',
+      'Long lists stay quick on a phone',
+    ],
+  },
+  {
     version: 'v3.67.0',
     date: '4 Oct 2026',
     title: 'Most Stocked is easier to browse',

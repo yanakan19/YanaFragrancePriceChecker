@@ -964,7 +964,7 @@ heights (font-size × ~1.5 line-height + vertical padding, both sides):
 | `.subnavbtn` | ~33–35px (7px padding, 14px text) | **Below** guidance |
 | `.seg-btn` | ~34–36px (8px padding, 13px text) | **Below** guidance |
 | `.note-chip` | ~29px (5px padding, 12.5px text) | **Below** guidance (chip pattern, arguably acceptable given density, but still worth naming) |
-| `.link-btn` | Line-height only, **no padding at all** (`padding: 0`) | **Below** guidance — the smallest tap target in the app; "See top 50", "Clear" filter, and every legal-page footer link all use this |
+| `.link-btn` | Line-height only, **no padding at all** (`padding: 0`) | **Below** guidance — the smallest tap target in the app; "See All", "Clear" filter, and every legal-page footer link all use this |
 | `.dropdown`/`.control` | ~34px pill (8px padding, 13px text) | **Below** guidance |
 
 This is a real, systemic pattern rather than a one-off: the app's whole

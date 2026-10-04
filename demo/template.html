@@ -2628,6 +2628,11 @@
     content-visibility: auto;
   }
   .tile-grid > li { contain-intrinsic-size: auto 260px; }
+  /* The empty stand in for a tile scrolled far out of range (keepNearTiles in
+     demo/app.ts). It holds its place in the grid and nothing else: it must not
+     reserve the 260px estimate above, which would make it a say in the shared
+     row height that a real tile alone should have. */
+  .tile-grid > li.tile-gone { content-visibility: visible; contain-intrinsic-size: none; min-height: 0; padding: 0; border: 0; }
   .house-grid > li { contain-intrinsic-size: auto 210px; }
 
   /* The sentinel that pulls in the next chunk. Occupies a row so the observer
