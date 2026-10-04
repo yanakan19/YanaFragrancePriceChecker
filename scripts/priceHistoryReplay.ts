@@ -198,13 +198,8 @@ export function replayCommit(root: string, state: ReplayState, { sha, at }: Cata
       // A listing with no price is not a price point — see build-price-history.ts
       // for why nulls arrive here by design and what an unguarded compare did.
       if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) continue;
-      const id = fragranceId(l, untrustworthy);
-      const price = l.priceGbp;
-      const current = cheapestThisCommit.get(id);
       // Retailer id as the tiebreaker keeps this deterministic run to run.
-      if (!current || price < current.priceGbp || (price === current.priceGbp && l.retailerId < current.retailerId)) {
-        cheapestThisCommit.set(id, { priceGbp: price, retailerId: l.retailerId });
-      }
+      offerCheapest(cheapestThisCommit, fragranceId(l, untrustworthy), l.priceGbp, l.retailerId);
     }
   }
 
@@ -221,14 +216,39 @@ export function replayCommit(root: string, state: ReplayState, { sha, at }: Cata
       if (!isCatalogueListing(l)) continue;
       if (CURRENCY_UNCONFIRMED.has(l.retailerId)) continue;
       if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) continue;
-      const id = fragranceId(l, untrustworthyEverPriced);
-      const rec = everPriced.get(id);
-      // Commits are replayed oldest first, so `at` only ever grows.
-      if (!rec) everPriced.set(id, { first: at, last: at });
-      else rec.last = at;
+      markEverPriced(everPriced, fragranceId(l, untrustworthyEverPriced), at);
     }
   }
 
+  foldCheapest(history, cheapestThisCommit, at);
+}
+
+/** Records that `id` carried a price at `at`. Commits are replayed oldest first, so `at` only ever grows. */
+function markEverPriced(everPriced: Map<string, EverPriced>, id: string, at: string): void {
+  const rec = everPriced.get(id);
+  if (!rec) everPriced.set(id, { first: at, last: at });
+  else rec.last = at;
+}
+
+/** The cheapest-price comparison, with the retailer id as the tiebreaker that keeps it deterministic. */
+function offerCheapest(
+  cheapestThisCommit: Map<string, { priceGbp: number; retailerId: string }>,
+  id: string,
+  price: number,
+  retailerId: string,
+): void {
+  const current = cheapestThisCommit.get(id);
+  if (!current || price < current.priceGbp || (price === current.priceGbp && retailerId < current.retailerId)) {
+    cheapestThisCommit.set(id, { priceGbp: price, retailerId });
+  }
+}
+
+/** Folds one commit's cheapest prices into the series: collapse repeats, mark the transition to unbuyable. */
+function foldCheapest(
+  history: Map<string, PricePoint[]>,
+  cheapestThisCommit: Map<string, { priceGbp: number; retailerId: string }>,
+  at: string,
+): void {
   for (const [id, point] of cheapestThisCommit) {
     const series = history.get(id) ?? [];
     const last = series.at(-1);
@@ -251,15 +271,171 @@ export function replayCommit(root: string, state: ReplayState, { sha, at }: Cata
   }
 }
 
+// ── The same fold, without re-reading what did not change (run #592) ─────────
+//
+// Run #592 (2026-10-04) ran a full replay twice — once in "Sync Awin product
+// feeds", once in "Rebuild the app" — because two rules changes landed on the
+// branch while it was running, and each took 20m45s: 532 commits at ~2.4s
+// each. That is the "about ten minutes on 2026-09-05" the workflow's rebuild
+// timeout was sized against, doubled in a month, and the rebuild step's 25
+// minute cap was within four minutes of killing it. Measured locally on the
+// same history: a commit's ~52 snapshot files are ~128 MB of JSON, and
+// replayCommit above `git show`s and parses every byte of every one of them
+// at every commit, then recomputes every listing's id. But 71% of those
+// files (12,345 of 17,333 file-commits) are byte-identical to the same file
+// one commit earlier — a harvest rewrites the shops it reached, an Awin sync
+// three feeds — and a file's contribution to the fold depends only on its
+// bytes, with one exception handled below.
+//
+// So each file is read by its blob id, and what the fold needs from it (its
+// price candidates and its ever-priced ids, in order) is kept until the
+// next commit. An unchanged blob costs nothing; a changed one is read once.
+//
+// The exception is untrustworthyEans: it is computed over every file at
+// once, so in principle one file's listings can change another file's ids.
+// It keys on (retailer id, EAN), though, so when no retailer's listings
+// appear in two different files of the same commit — which is how
+// data/catalogue/<retailer>.json is laid out — the commit-wide set is
+// exactly the union of each file's own set, and each file's ids can be
+// computed from its own set alone. That condition is checked at every
+// commit, not assumed: a commit where any retailer id appears in two files
+// falls back to replayCommit above, verbatim. tests/priceHistoryReplay.test.ts
+// replays real history both ways and requires the same bytes out.
+
+interface PriceCandidate {
+  id: string;
+  priceGbp: number;
+  retailerId: string;
+}
+
+/** What one blob contributes to the fold, independent of every other file — see above for when that holds. */
+interface BlobContribution {
+  /** Not a live snapshot (fixtures, or unparseable): contributes nothing. */
+  live: boolean;
+  /** Every retailer id among its active listings, for the disjointness check. */
+  retailers: ReadonlySet<string>;
+  /** Price candidates from its buyable listings, in file order. */
+  candidates: PriceCandidate[];
+  /** Ever-priced ids from its active listings, in file order. */
+  everPricedIds: string[];
+}
+
+/** Blob id → contribution, holding only the blobs of the last commit replayed. */
+export type ReplayCache = Map<string, BlobContribution>;
+
+export function emptyCache(): ReplayCache {
+  return new Map();
+}
+
+/** Every data/catalogue/*.json path at a commit, with its blob id, in the order catalogueFilesAt lists them. */
+function catalogueBlobsAt(root: string, sha: string): Array<{ path: string; blob: string }> {
+  return git(root, ['ls-tree', '-r', sha, '--', CATALOGUE_PATH])
+    .trim()
+    .split('\n')
+    .filter(Boolean)
+    .map((line) => {
+      const tab = line.indexOf('\t');
+      const meta = line.slice(0, tab).split(/\s+/);
+      return { path: line.slice(tab + 1), blob: meta[2]! };
+    })
+    .filter((e) => e.path.endsWith('.json'));
+}
+
+function readBlob(root: string, blob: string): Snapshot | null {
+  try {
+    return JSON.parse(git(root, ['cat-file', 'blob', blob])) as Snapshot;
+  } catch {
+    // Same reasoning as readFileAt: an unparseable snapshot is no data.
+    return null;
+  }
+}
+
+const NOT_LIVE: BlobContribution = { live: false, retailers: new Set(), candidates: [], everPricedIds: [] };
+
+/** The same filters and ids replayCommit applies, computed over one file with that file's own untrustworthy set. */
+function contributionOf(snapshot: Snapshot | null): BlobContribution {
+  if (!snapshot || snapshot.source !== 'live') return NOT_LIVE;
+  const statusOnly = snapshot.listings.filter((l) => l.status === 'active');
+  const active = statusOnly.filter(isAvailableListing);
+  const untrustworthy = untrustworthyEans(active);
+  const untrustworthyEverPriced = untrustworthyEans(statusOnly);
+  const candidates: PriceCandidate[] = [];
+  for (const l of active) {
+    if (!isCatalogueListing(l)) continue;
+    if (CURRENCY_UNCONFIRMED.has(l.retailerId)) continue;
+    if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) continue;
+    candidates.push({ id: fragranceId(l, untrustworthy), priceGbp: l.priceGbp, retailerId: l.retailerId });
+  }
+  const everPricedIds: string[] = [];
+  for (const l of statusOnly) {
+    if (!isCatalogueListing(l)) continue;
+    if (CURRENCY_UNCONFIRMED.has(l.retailerId)) continue;
+    if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) continue;
+    everPricedIds.push(fragranceId(l, untrustworthyEverPriced));
+  }
+  return { live: true, retailers: new Set(statusOnly.map((l) => l.retailerId)), candidates, everPricedIds };
+}
+
+/** What replayCommitCached did, for the test and the log. */
+export type CachedOutcome = 'cached' | 'fallback';
+
+/**
+ * replayCommit's answer, reading only the blobs that changed since the last
+ * commit this cache saw. Falls back to replayCommit itself for any commit in
+ * which one retailer's listings sit in two files.
+ */
+export function replayCommitCached(
+  root: string,
+  state: ReplayState,
+  commit: CatalogueCommit,
+  cache: ReplayCache,
+): CachedOutcome {
+  const blobs = catalogueBlobsAt(root, commit.sha);
+  const contributions: BlobContribution[] = [];
+  for (const { blob } of blobs) {
+    let contribution = cache.get(blob);
+    if (!contribution) contribution = contributionOf(readBlob(root, blob));
+    contributions.push(contribution);
+  }
+  // Keep exactly this commit's blobs: the next commit reuses whichever it shares.
+  cache.clear();
+  for (const [i, { blob }] of blobs.entries()) cache.set(blob, contributions[i]!);
+
+  const seen = new Set<string>();
+  for (const c of contributions) {
+    if (!c.live) continue;
+    for (const r of c.retailers) {
+      if (seen.has(r)) {
+        replayCommit(root, state, commit);
+        return 'fallback';
+      }
+    }
+    for (const r of c.retailers) seen.add(r);
+  }
+
+  const cheapestThisCommit = new Map<string, { priceGbp: number; retailerId: string }>();
+  for (const c of contributions) {
+    for (const p of c.candidates) offerCheapest(cheapestThisCommit, p.id, p.priceGbp, p.retailerId);
+  }
+  for (const c of contributions) {
+    for (const id of c.everPricedIds) markEverPriced(state.everPriced, id, commit.at);
+  }
+  foldCheapest(state.history, cheapestThisCommit, commit.at);
+  return 'cached';
+}
+
 /** Replays `commits` in order into `state`, reporting progress every ten. */
 export function replay(
   root: string,
   commits: readonly CatalogueCommit[],
   state: ReplayState,
   onProgress?: (done: number, total: number, fragrances: number) => void,
+  outcomes?: Record<CachedOutcome, number>,
 ): ReplayState {
+  const cache = emptyCache();
   for (const [i, commit] of commits.entries()) {
-    replayCommit(root, state, commit);
+    const outcome = replayCommitCached(root, state, commit, cache);
+    if (outcomes) outcomes[outcome]++;
     if (onProgress && ((i + 1) % 10 === 0 || i === commits.length - 1)) {
       onProgress(i + 1, commits.length, state.history.size);
     }

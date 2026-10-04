@@ -228,7 +228,34 @@ delay=2
 # ever disagree about which files exist, never about what one contains, so it
 # is listed as the folder: the rebuild below writes the merged build's files
 # and deletes the rest, and staging the folder with -A records both.
-GENERATED_PATHS="demo/index.html demo/404.html demo/data demo/catalogue.generated.ts demo/priceHistory.generated.ts data/price-history-checkpoint.json"
+#
+# demo/sitemap.xml was missing, and run #592 (2026-10-04, job 111345364820)
+# is what that cost. `npm run demo` ends in `tsx scripts/build-sitemap.ts`, so
+# the sitemap is written by the very REGENERATE below, from the same
+# catalogue, in the same breath as demo/index.html. It was left out when no
+# caller named it (see the runs #266/#268 note further down); since then three
+# call sites in catalogue-daily.yml have started naming it ("Commit synced
+# Awin feeds", "Commit rebuilt app", "Commit what changed"), so whenever two
+# builds of the page raced, the sitemap conflicted beside index.html and this
+# script refused it as "neither a generated file nor a raw harvest snapshot".
+# #592 had pushed its harvest by then (1028a0b) but lost its rebuilt page,
+# its price history and its replay checkpoint over a file it rebuilds anyway.
+# Listing it here does not widen anyone's commit: after a regenerate only the
+# paths the caller named are re-staged (see named_by_caller below), so a
+# caller that does not pass the sitemap still never commits it.
+GENERATED_PATHS="demo/index.html demo/404.html demo/data demo/catalogue.generated.ts demo/priceHistory.generated.ts data/price-history-checkpoint.json demo/sitemap.xml demo/deals.generated.ts"
+
+# The paths this invocation was asked to commit, after the demo/data expansion
+# above. A path may be a folder (data/catalogue, demo/data).
+CALLER_PATHS=("$@")
+
+named_by_caller() {
+  for p in "${CALLER_PATHS[@]}"; do
+    if [ "$1" = "$p" ]; then return 0; fi
+    case "$1" in "$p"/*) return 0 ;; esac
+  done
+  return 1
+}
 
 # How to rebuild them. Overridable so this script does not hard-code knowledge
 # of the app's build for callers that generate something else.
@@ -239,7 +266,7 @@ GENERATED_PATHS="demo/index.html demo/404.html demo/data demo/catalogue.generate
 # sides are trying to say the same thing from the same source of truth, and
 # rebuilding it fresh is not picking a winner, it is the only correct answer
 # either side could have given.
-REGENERATE="${REGENERATE:-npm run catalogue:demo && npm run catalogue:history && npm run demo}"
+REGENERATE="${REGENERATE:-npm run catalogue:demo && npm run deals:build && npm run catalogue:history && npm run demo}"
 
 is_generated() {
   case "$1" in demo/data/*) return 0 ;; esac
@@ -259,15 +286,18 @@ is_generated() {
 # scripts/awin-feed-sync.ts, scripts/shipping-discover.ts and
 # scripts/image-link-check.ts's own write targets.
 #
-# demo/deals.generated.ts belongs here too, deliberately not in
-# GENERATED_PATHS. The original reason was its own 6-hourly cadence, which it
-# lost on 2026-09-01 (see scripts/build-deals.ts's header): it is now written
-# in the same breath as demo/catalogue.generated.ts, from that same file, and
-# the two are committed together as one consistent pair. That is precisely
-# why regenerating it mid-conflict is still the wrong move — a rebuild here
-# would rebuild it alone, against whichever catalogue happened to be on disk
-# mid-rebase, which is the exact split this pairing exists to prevent. Taking
-# the incoming side keeps it with the catalogue it was built from.
+# demo/deals.generated.ts used to be listed here, deliberately not in
+# GENERATED_PATHS: a rebuild mid-conflict would have rebuilt it alone,
+# against whichever catalogue was on disk, splitting the pair it forms with
+# demo/catalogue.generated.ts (see scripts/build-deals.ts's header). But
+# taking the incoming side split the pair too, the other way round: the
+# regenerate rebuilds the catalogue from the merged inputs, our harvest
+# included, and the incoming deals were built from the catalogue before it.
+# That path was never reached while the sitemap conflict beside it stopped
+# every such rebase (run #592 had both); with that fixed it would have been.
+# It is now in GENERATED_PATHS, and REGENERATE runs `deals:build` straight
+# after `catalogue:demo`, exactly as "Rebuild the app from harvested prices"
+# does, so the pair is rebuilt together from the same merged catalogue.
 #
 # The *-marker.txt / *-state.json entries are the cadence-gate bookkeeping
 # the workflow's periodic steps (shipping discovery, Awin sync) read to
@@ -305,7 +335,15 @@ is_raw_snapshot() {
     # about the same page. Taking the incoming side is exactly as safe as it
     # is for the harvest snapshots above.
     data/render-capture/*) return 0 ;;
-    demo/deals.generated.ts) return 0 ;;
+    # Written by scripts/testCountReporter.ts as a side effect of a full
+    # `npm test`, never by REGENERATE, so it cannot be rebuilt here — and it
+    # does not need to be: our commit changes only generated data, never a
+    # test, so the count the incoming side's suite produced is the count of
+    # the suite the merged branch holds. "Commit rebuilt app" names it; before
+    # this it would have refused a conflict here exactly as #592 refused the
+    # sitemap. It is left out of the page's freshness stamp on purpose (see
+    # HASH_EXCLUDED_INPUTS in scripts/demoInputsHash.ts).
+    demo/testCount.generated.ts) return 0 ;;
     *) return 1 ;;
   esac
 }
@@ -369,6 +407,23 @@ resolve_generated_conflicts() {
   # `git rebase --continue` having skipped a step — which is exactly how
   # run #236 (2026-08-18) went unnoticed for as long as it did.
   for file in $conflicted; do
+    # A content-hashed demo/data file both sides deleted, each replacing it
+    # with a different, similar one, is a rename/rename conflict: the old path
+    # is listed as unmerged but neither side has it, so neither checkout
+    # below can succeed. Run #592 would have died on exactly this the moment
+    # it got past the sitemap. Removing it is the merged answer both sides
+    # agree on (neither kept it), and the regenerate below writes whatever
+    # the merged build needs. Only for generated paths: a raw snapshot both
+    # sides deleted is not something to settle without a person.
+    if is_generated "$file" &&
+       ! git cat-file -e ":2:${file}" 2>/dev/null && ! git cat-file -e ":3:${file}" 2>/dev/null; then
+      if ! git rm -q --cached --ignore-unmatch -- "$file"; then
+        echo "::error::Could not drop ${file}, deleted on both sides of the conflict." >&2
+        return 1
+      fi
+      rm -f -- "$file"
+      continue
+    fi
     if ! git checkout --ours -- "$file" 2>/dev/null && ! git checkout --theirs -- "$file"; then
       echo "::error::Could not check out either side of the conflict in ${file}." >&2
       return 1
@@ -385,7 +440,11 @@ resolve_generated_conflicts() {
       return 1
     fi
 
+    # Only what the caller named: a conflicted file was in our commit, so it is
+    # always under one of the caller's paths, and anything else the build
+    # rewrote is collateral, discarded below.
     for file in $GENERATED_PATHS; do
+      if ! named_by_caller "$file"; then continue; fi
       if [ -e "$file" ] && ! git add -A -- "$file"; then
         echo "::error::git add failed for regenerated file ${file}." >&2
         return 1
@@ -410,6 +469,11 @@ resolve_generated_conflicts() {
     # "demo/sitemap.xml  15257 URLs" at 15:16:44.87 in #268, 0.45s and 0.35s
     # respectively before the failure.
     #
+    # (That was true in August. Three call sites now do name the sitemap, and
+    # for those it is staged above like the rest of the page — see
+    # GENERATED_PATHS and run #592. For every caller that does not, it is
+    # still exactly the collateral this paragraph describes.)
+    #
     # What git then says is a lie, and it cost two investigations:
     #
     #     You must edit all merge conflicts and then
@@ -425,8 +489,8 @@ resolve_generated_conflicts() {
     # Discarding rather than staging is deliberate, and it is the same
     # judgement — for the same reason — as the pre-rebase discard further down:
     # everything unstaged at this point is build output reproducible from the
-    # inputs already committed, and demo/sitemap.xml in particular has never
-    # been part of a harvest commit. Staging it would also clear the rebase,
+    # inputs already committed, and demo/sitemap.xml in particular is never
+    # part of a commit whose caller did not name it. Staging it would also clear the rebase,
     # but it would quietly widen every caller's committed set to whatever the
     # build happens to touch, which is how a file nobody chose ends up in the
     # history. Restoring from the index instead keeps the resolved content for

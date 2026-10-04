@@ -1,22 +1,31 @@
 import { execFileSync } from 'node:child_process';
-import { dirname, resolve } from 'node:path';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   CHECKPOINT_VERSION,
   commitsTouchingCatalogue,
+  emptyCache,
   emptyState,
   fromCheckpoint,
   registryFacts,
   render,
   replay,
+  replayCommit,
+  replayCommitCached,
   resumeFrom,
   ruleModules,
   rulesFingerprint,
   toCheckpoint,
+  type CatalogueCommit,
   type Checkpoint,
   type ReplayState,
 } from '../scripts/priceHistoryReplay.js';
+import { isCatalogueListing } from '../src/catalogue/fragranceId.js';
+import { isAvailableListing } from '../src/catalogue/listingAvailability.js';
+import type { StoredListing } from '../src/catalogue/types.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -159,5 +168,101 @@ describe('the rules fingerprint covers what decides a price point', () => {
     // fifth joining is exactly the kind of change that must invalidate every
     // existing checkpoint.
     expect(facts.fragranceOnlyCatalogue).toEqual(['escentric-molecules', 'kayali', 'riiffs', 'zimaya']);
+  });
+});
+
+// Run #592 (2026-10-04) spent 41 minutes in two full replays. The replay now
+// reads a file only when its blob changed since the previous commit, and
+// computes each file's ids from its own untrustworthy-EAN set — which is only
+// the same answer when no retailer's listings sit in two files of one commit.
+// These hold the cached fold to the original, byte for byte.
+describe('the cached replay gives the original replay\'s answer', () => {
+  /** The original, uncached fold, commit by commit. */
+  function referenceReplay(at: string, commits: readonly CatalogueCommit[]): ReplayState {
+    const state = emptyState();
+    for (const commit of commits) replayCommit(at, state, commit);
+    return state;
+  }
+
+  it.skipIf(isShallow())('on the first commits of real history', () => {
+    const commits = commitsTouchingCatalogue(root).slice(0, 6);
+    const cached = replay(root, commits, emptyState());
+    const reference = referenceReplay(root, commits);
+    expect(snapshot(cached)).toEqual(snapshot(reference));
+    expect(render(cached, commits).body).toBe(render(reference, commits).body);
+  });
+
+  // A scratch repository in the shape of data/catalogue, built from real
+  // listings out of today's snapshots (never made up), so both paths of
+  // replayCommitCached are exercised: reuse of an unchanged blob, and the
+  // fall back to replayCommit when one retailer's listings sit in two files.
+  it('reuses unchanged files, falls back when a retailer spans two files, and agrees with the original either way', () => {
+    const pick = (file: string, n: number): StoredListing[] => {
+      const snap = JSON.parse(readFileSync(join(root, 'data/catalogue', file), 'utf8')) as { listings: StoredListing[] };
+      return snap.listings
+        .filter(
+          (l) =>
+            l.status === 'active' &&
+            isAvailableListing(l) &&
+            isCatalogueListing(l) &&
+            typeof l.priceGbp === 'number' &&
+            l.priceGbp > 0,
+        )
+        .slice(0, n);
+    };
+    const a = pick('allbeauty.json', 6);
+    const b = pick('escentual.json', 6);
+    expect(a.length).toBe(6);
+    expect(b.length).toBe(6);
+
+    const dir = mkdtempSync(join(tmpdir(), 'price-history-replay-'));
+    try {
+      const run = (args: string[], env?: NodeJS.ProcessEnv) =>
+        execFileSync('git', args, { cwd: dir, encoding: 'utf8', env: { ...process.env, ...env } });
+      run(['init', '-q', '-b', 'main']);
+      run(['config', 'user.email', 'test@test']);
+      run(['config', 'user.name', 'test']);
+      mkdirSync(join(dir, 'data/catalogue'), { recursive: true });
+      const write = (file: string, listings: StoredListing[]) =>
+        writeFileSync(
+          join(dir, 'data/catalogue', file),
+          JSON.stringify({ retailerId: listings[0]?.retailerId ?? 'x', source: 'live', listings }),
+        );
+      const commit = (message: string, date: string) => {
+        run(['add', '-A']);
+        run(['commit', '-q', '-m', message], { GIT_AUTHOR_DATE: date, GIT_COMMITTER_DATE: date });
+      };
+
+      write('a.json', a.slice(0, 4));
+      write('b.json', b.slice(0, 4));
+      commit('one', '2026-09-01T00:00:00Z');
+      // b.json unchanged, so its blob is reused. a.json drops a listing and
+      // reprices another, so both a gap marker and a new point happen.
+      write('a.json', [...a.slice(1, 3), { ...a[3]!, priceGbp: a[3]!.priceGbp! + 1 }]);
+      commit('two', '2026-09-02T00:00:00Z');
+      // One retailer's listings in two files: the per-file EAN sets are no
+      // longer the commit-wide one, so this commit must take the old path.
+      write('c.json', a.slice(4, 6));
+      commit('three', '2026-09-03T00:00:00Z');
+      rmSync(join(dir, 'data/catalogue/c.json'));
+      write('b.json', b.slice(2, 6));
+      commit('four', '2026-09-04T00:00:00Z');
+
+      const commits = commitsTouchingCatalogue(dir);
+      expect(commits.length).toBe(4);
+      const state = emptyState();
+      const cache = emptyCache();
+      const outcomes = commits.map((c) => replayCommitCached(dir, state, c, cache));
+      expect(outcomes).toEqual(['cached', 'cached', 'fallback', 'cached']);
+      const reference = referenceReplay(dir, commits);
+      expect(snapshot(state)).toEqual(snapshot(reference));
+      expect(render(state, commits).body).toBe(render(reference, commits).body);
+      // The fixture really moved prices, so the comparison above is not two
+      // empty states agreeing.
+      expect(reference.history.size).toBeGreaterThan(0);
+      expect([...reference.history.values()].some((series) => series.some((p) => p.priceGbp === null))).toBe(true);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   });
 });

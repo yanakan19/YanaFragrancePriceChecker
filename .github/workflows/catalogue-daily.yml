@@ -1250,6 +1250,14 @@ jobs:
       # 2026-09-05, growing slowly) — and the gate above means that even
       # outrunning 25 costs a cycle, not the branch.
       #
+      # "Growing slowly" was 20m45s by run #592 (2026-10-04, 532 commits),
+      # within four minutes of this cap, and #592 paid it twice: here and in
+      # "Sync Awin product feeds", because rules changes landed on the branch
+      # mid-run. A full replay now reads only the snapshot files whose blob
+      # changed since the commit before (71% of them never do), which brought
+      # the same 532 commits to about seven minutes measured locally — see
+      # "without re-reading what did not change" in priceHistoryReplay.ts.
+      #
       # ── Why `deals:build` is in here now, and not before the harvest ──
       # It used to run near the top of the job, ahead of the harvest, on a
       # 5-hour age gate, so that a snapshot could publish within minutes of
