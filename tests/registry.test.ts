@@ -554,6 +554,38 @@ describe('retailer registry', () => {
       expect(getRetailer('superdrug')?.shipping.freeOverGbp).toBe(25);
       expect(getRetailer('superdrug')?.shipping.membershipPerk).toBeDefined();
     });
+
+    it('uses the cheapest UK option Debenhams offers every shopper, Supersaver, not Standard', () => {
+      // Debenhams' delivery page lists UK Standard Delivery at £3.99 and UK
+      // Supersaver Delivery at £2.99 ("99p Over £30"), both free only with the
+      // paid UNLIMITED scheme. The site prices the cheapest option any shopper
+      // can choose, with no membership. Supersaver states no minimum spend, so
+      // it is that rate. "99p Over £30" is a reduction, not a free threshold,
+      // so freeOverGbp stays null and no basket is ever shown free.
+      const shipping = getRetailer('debenhams')?.shipping;
+      expect(shipping?.standardGbp).toBe(2.99);
+      expect(shipping?.freeOverGbp).toBeNull();
+      expect(shipping?.confidence).toBe('confirmed');
+      expect(shipping?.source?.url).toBe('https://www.debenhams.com/pages/informational/delivery');
+      expect(shipping?.source?.quote).toContain('Supersaver');
+      expect(shipping?.source?.quote).toContain('£2.99');
+      expect(shipping?.membershipPerk?.scheme).toBe('Debenhams UNLIMITED');
+    });
+
+    it('adds the Debenhams Supersaver charge to the delivered price at every basket size', () => {
+      const debenhams = getRetailer('debenhams')!;
+      const offerAt = (price: number): RawOffer => ({
+        retailerId: 'debenhams',
+        variantId: 'test-variant',
+        price,
+        currency: 'GBP',
+        stock: 'inStock',
+        url: 'https://example.com/p/1',
+        fetchedAt: new Date().toISOString(),
+      });
+      expect(presentOffer(offerAt(25), debenhams).deliveredPriceGbp).toBe(27.99);
+      expect(presentOffer(offerAt(120), debenhams).deliveredPriceGbp).toBe(122.99);
+    });
   });
 
   describe('affiliate config', () => {
