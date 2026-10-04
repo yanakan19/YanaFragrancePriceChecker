@@ -273,6 +273,61 @@ export function stripSizeLabel(title: string, travel = false): string {
   return before === title ? title : before.replace(/\s{2,}/g, ' ').trim();
 }
 
+/**
+ * A single travel spray: one bottle of one perfume, sold on its own with a size
+ * of its own, at any shop. "Ormonde Jayne Verano Eau de Parfum Travel Spray
+ * 10ml" at Escentual, "Nina Ricci L'air Du Temps Eau de Toilette 30ml Travel
+ * Spray" at Perfume Click.
+ *
+ * ── Why these were out, and why some are in now (2026-10-04) ─────────────────
+ * "travel spray" is one of NOT_A_FRAGRANCE's words, and for good reason: most
+ * titles that carry it are sets ("Eau De Parfum 100ml & Travel Spray 10ml &
+ * Shower Gel") and the rest are empty atomisers. That also kept out 33 real
+ * single bottles at eight shops, among them 17 of Escentual's (Ormonde Jayne,
+ * Versace, Valentino), which are plain perfume in a small atomiser, a size of
+ * that perfume the shops sell and shoppers look for.
+ *
+ * ── What is admitted ─────────────────────────────────────────────────────────
+ * Only a title that states exactly one millilitre size and that does not join
+ * the travel spray to anything else after that point: no "&", "+", ",", "and",
+ * "with", "plus", "set", "kit", "duo", "trio", "pack", "collection" and no "x 3".
+ * A set therefore stays a set, and a travel spray named as a component of one
+ * ("... 100ml & Travel Spray 15ml") stays out. A travel spray that states no
+ * size at all (John Lewis' "TOCCA Lucia Eau de Parfum Travel Spray") has no size
+ * of its own to compare and stays out as before. A refill stays out too: the
+ * word is still in NOT_A_FRAGRANCE once the phrase is taken away.
+ *
+ * ── Why it is kept apart from the plain bottle ───────────────────────────────
+ * A travel spray is its own size of the perfume, and it is not the same article
+ * as the bottle of that size: Nina Ricci's L'Air du Temps Eau de Toilette is
+ * sold as a 30ml bottle (EAN 3137370207030) and as a 30ml travel spray (EAN
+ * 3137370072744), and productMatch.ts, correctly, refuses to merge a group that
+ * holds two barcodes. Reading "Travel Spray" as a size label for every shop
+ * (what the Kayali change first tried) put both into one group, the matcher
+ * refused the lot, and the perfume's four shops split into four products. So
+ * here the words are taken out of the title and written back onto the end of the
+ * product's name by displayName ("L'air Du Temps Travel Spray"): the travel
+ * spray gets a name of its own, meets only other travel sprays of the same
+ * perfume and size, and the plain bottle keeps its group untouched. Kayali is
+ * the exception because its travel spray is one more size on the perfume's own
+ * page (`travelSizeIsASize`).
+ */
+const TRAVEL_SPRAY_PHRASE = /\btravel[ -]spray\b/i;
+export function isSingleTravelSpray(title: string): boolean {
+  const t = fold(title);
+  const phrase = TRAVEL_SPRAY_PHRASE.exec(t);
+  if (!phrase) return false;
+  if ((t.match(new RegExp(SIZE_FIGURE, 'gi')) ?? []).length !== 1) return false;
+  const size = new RegExp(SIZE_FIGURE, 'i').exec(t)!;
+  const tail = t.slice(Math.min(phrase.index, size.index));
+  return !/[&+,]|\b(?:and|with|plus|set|kit|duo|trio|pack|collection)\b|\bx\s*\d/i.test(tail);
+}
+
+/** The title with the words "Travel Spray" taken out: see isSingleTravelSpray. */
+export function withoutTravelSprayWords(title: string): string {
+  return title.replace(new RegExp(TRAVEL_SPRAY_PHRASE.source, 'gi'), ' ').replace(/\s{2,}/g, ' ').trim();
+}
+
 /** Whether this shop's "Travel Spray" is a small size of the perfume beside it: see stripSizeLabel. */
 export function travelSizeIsASize(retailerId: string): boolean {
   return getRetailer(retailerId)?.travelSizeIsASize === true;
@@ -1147,7 +1202,12 @@ export function isFragrance(l: StoredListing): boolean {
   // of this perfume, so it is read as the size and is not judged as a word of
   // the product: see stripSizeLabel. Only "travel spray" is in NOT_A_FRAGRANCE;
   // a travel spray named inside a set never gets here.
-  const t = stripSizeLabel(fold(l.rawTitle), travelSizeIsASize(l.retailerId));
+  const kayaliStyle = travelSizeIsASize(l.retailerId);
+  let t = stripSizeLabel(fold(l.rawTitle), kayaliStyle);
+  // A single travel spray at any other shop is judged without the two words
+  // that would keep it out, and is named apart from the plain bottle further on
+  // (displayName): see isSingleTravelSpray.
+  if (!kayaliStyle && isSingleTravelSpray(l.rawTitle)) t = withoutTravelSprayWords(t);
   if (NOT_A_FRAGRANCE.test(t)) return false;
   // Barber shop colognes: Debenhams' "Barber Marmara" range (No.3 Turkish
   // Cologne 500ml, No.24 Eau De Cologne Aftershave Spray 400ml), splashes for

@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.50.0',
+    date: '4 Oct 2026',
+    title: 'Travel sprays at more shops',
+    points: [
+      '29 single travel sprays now have their own page',
+      'They sit apart from the full size bottle',
+      'Sets and refills stay out',
+    ],
+  },
+  {
     version: 'v3.49.0',
     date: '4 Oct 2026',
     title: 'One brand page per fragrance house',

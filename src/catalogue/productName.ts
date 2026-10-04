@@ -11,7 +11,15 @@
  * Nothing here decides whether a listing is a fragrance at all; that lives in
  * fragranceId.ts, which is a different question with a different failure mode.
  */
-import { ML_SIZE_RE, OZ_SIZE_RE, OZ_TO_ML, statedMl, stripSizeLabel } from './fragranceId.js';
+import {
+  ML_SIZE_RE,
+  OZ_SIZE_RE,
+  OZ_TO_ML,
+  isSingleTravelSpray,
+  statedMl,
+  stripSizeLabel,
+  withoutTravelSprayWords,
+} from './fragranceId.js';
 import { brandKey, shopNameCore } from './brandName.js';
 
 /**
@@ -2023,7 +2031,13 @@ export function displayName(
   // travel spray is a size: Retailer.travelSizeIsASize) names the size, not the
   // perfume: left in, the 10ml bottle was called "Vanilla | 28 Miniature" and
   // was not one of the sizes of "Vanilla | 28". See stripSizeLabel.
-  let s = stripSizeLabel(title, travelSizeIsASize);
+  //
+  // A single travel spray at any other shop is its own size of the perfume and
+  // not the plain bottle: the two words come out of the title here and are put
+  // back on the end of the name below, so it meets only other travel sprays of
+  // the same perfume and size. See isSingleTravelSpray for why.
+  const ownTravelSpray = !travelSizeIsASize && isSingleTravelSpray(title);
+  let s = stripSizeLabel(ownTravelSpray ? withoutTravelSprayWords(title) : title, travelSizeIsASize);
   const opener = brandTitleOpens(title, [displayedBrand, brand]);
   if (opener) s = s.replace(new RegExp(`^${escapeRe(opener)}\\s*`, 'i'), '');
   const matchedConcentration = concentrationMatch(title);
@@ -2245,7 +2259,8 @@ export function displayName(
   // mid-string "+ +" / "- +" is not a boundary problem at all.
   s = stripOrphanedSeparators(s);
 
-  return canonicalSeriesSpelling(s) || emptiedNameFallback(opener, brand, displayedBrand) || title;
+  const name = canonicalSeriesSpelling(s) || emptiedNameFallback(opener, brand, displayedBrand) || title;
+  return ownTravelSpray && !/\btravel spray$/i.test(name) ? `${name} Travel Spray` : name;
 }
 
 /**
