@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 75 retailers, 42 of them `enabled: true`. Every one of them is a legitimate
+ * 74 retailers, 42 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -8759,107 +8759,6 @@ export const RETAILERS: readonly Retailer[] = [
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
-    id: 'shy-mimosa',
-    name: 'Shy Mimosa',
-    domain: 'shymimosa.co.uk',
-    homepage: 'https://www.shymimosa.co.uk',
-    tiers: ['niche'],
-    // Added 2026-08-20 from WebSearch snippets of
-    // shymimosa.co.uk/perfume-shop/ alone — no page opened, this sandbox
-    // has no egress. Independent niche perfumery boutique in Bristol, both
-    // a physical shop and an online store; houses named in results: Le
-    // Galion, Mendittorosa Odori d'Anima, Marc-Antoine Barrois, and its own
-    // Shy Mimosa house line alongside them — multi-brand, so no
-    // singleBrandOnly.
-    //
-    // ── Tested 2026-10-03 (phase 4): reachable and sterling, parser blocker ─────
-    //
-    // robots.txt (https://www.shymimosa.co.uk/robots.txt, HTTP 200): 'User-
-    // agent: * Crawl-delay: 10' and no Disallow lines; it names /sitemap.xml,
-    // /sitemap_products.asp, /sitemap_brands.asp and /sitemap_blog_posts.asp.
-    // Every request here kept the 10 s delay. Home page, sitemap_products.asp
-    // (388 product URLs) and a product page answered HTTP 200 (one stale
-    // sitemap entry, Ann Gerard Cuir de Nacre, redirected to a 404 page).
-    //
-    // https://www.shymimosa.co.uk/shop/products/view.asp?brand=Olfactive+Studio
-    // &name=Chypre+Shot shows £195.00 for 100ml and marks it up as schema.org
-    // microdata (itemtype Product and Offer, itemprop priceCurrency content
-    // GBP), not JSON-LD. parseListings found 0 JSON-LD blocks and 0 listings.
-    // Blocker: no JSON-LD on product pages; this shop needs a microdata reader
-    // before it can be harvested. A harvest probe from a runner, run
-    // 37085004755 job 111093331516, likewise priced nothing.
-    //
-    // Delivery was read off the shop's own /delivery-info/ page and is recorded
-    // below: £4.99, free over £100.
-    //
-    // ── The route, pinned 2026-10-03, and the parser blocker answered ───────
-    // src/catalogue/jsonld.ts now reads schema.org microdata for a shop with a
-    // pinned route. Asked again on 2026-10-03 (robots.txt first, 11 s between
-    // requests), the Chypre Shot page reads as name "Chypre Shot", brand
-    // "Olfactive Studio", price 195.00, priceCurrency GBP. The microdata names
-    // neither the concentration nor the size; the page prints both beside it
-    // ("<h4>Extrait de Parfum | ..." and "Product Size ... <p>100ml</p>"), and
-    // `titleParts` reads those two into the title, giving "Chypre Shot Extrait
-    // de Parfum 100ml". Its product URLs differ only in their query string, so
-    // that is each listing's identity. The route reads sitemap_products.asp
-    // (388 URLs) and skips the candles listed in it. At the 10 s crawl delay a
-    // six minute harvest slot reaches about 35 pages.
-    sitemapRoute: {
-      roots: ['https://www.shymimosa.co.uk/sitemap_products.asp'],
-      product: '^https://www\\.shymimosa\\.co\\.uk/shop/products/view\\.asp\\?brand=',
-      exclude: 'Candle|Diffuser|Magazine|Gift\\+Card|Soap|Hand\\+Wash|Body\\+Lotion',
-      maxSitemaps: 1,
-      requireGbp: true,
-      titleParts: [
-        '<h4>\\s*([^<|]{3,60})\\|',
-        // The size alone, so "50ml - 20% perfume oil concentration" (1907
-        // Parfums Mon Âme, read 2026-10-03) gives "50ml".
-        'Product Size</div>\\s*<div[^>]*>\\s*<p>\\s*(\\d+(?:\\.\\d+)?\\s*ml)\\b',
-      ],
-    },
-    //
-    // ── Switched on, 2026-10-03, on the pinned route ────────────────────────
-    // Probe run #571 (job 111193618894), from a runner: 352 product URLs on
-    // the route, 8 pages, 4 listings, all 4 priced in GBP from the page's
-    // own microdata (Gri Gri Parfums Tara Mantra, Moko Maori, Ukiyo-E and
-    // Sideshow Eau de Parfum 100ml, £95 each); the other 4 pages were stale
-    // sitemap entries that answer 404. Requests are 10 s apart throughout,
-    // robots.txt's own crawl delay, the sitemap included.
-    // First harvest, run #584: 20 listings, all priced in GBP. Checked
-    // against the shop's own pages the same day (11 s apart): Gri Gri Tara
-    // Mantra EDP 100ml £95, Manos Gerakinis Rose Poetique EDP 100ml £175,
-    // Extrait D'Atelier Maître Jardinier 100ml £190 and 10ml £45, 1907 Parfums
-    // Mon Âme £190: all match. 1907 Parfums prints its size as "50ml - 20%
-    // perfume oil concentration", which the size pattern missed, so those two
-    // reached the snapshot unsized; the pattern now reads the size alone.
-    // Switched off by the owner on 2026-10-04: off the site for now.
-    enabled: false,
-    adapter: 'unknown',
-    currency: 'GBP',
-    shipping: {
-      // Read off the shop's own delivery page 2026-10-03; it confirms the
-      // £4.99 under £100 the August search snippet gave.
-      standardGbp: 4.99,
-      freeOverGbp: 100,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-10-03',
-      confidence: 'confirmed',
-      source: {
-        url: 'https://www.shymimosa.co.uk/delivery-info/',
-        quote:
-          'Our current cost for delivery (excluding magazines) is £4.99. All orders over £100.00 ' +
-          'are free of delivery costs.',
-        readAt: '2026-10-03',
-      },
-      notes:
-        'The product page says the same ("Our current delivery price for all orders under ' +
-        '£100.00 is £4"...). The estimated days are the neutral placeholder, not read. No ' +
-        'affiliate programme has been researched.',
-    },
-    catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
-  },
-  {
     id: 'paco-perfumerias-uk',
     name: 'Paco Perfumerías UK',
     domain: 'pacoperfumerias.co.uk',
@@ -9987,11 +9886,6 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
   // every request shape, with identical /products.json prices at the origin
   // and under ?country=GB (Cacao Timur 100ml EdP 165.00 both ways). It stays
   // `enabled: false` for an unrelated reason recorded on its entry.
-  // shy-mimosa was removed from this list on 2026-10-03: its product pages'
-  // microdata names priceCurrency GBP for every offer (Chypre Shot £195.00),
-  // its pinned route sets requireGbp so only such prices are stored, and
-  // probe run #571 (job 111193618894) read every priced listing it fetched
-  // that way from a runner. It is now `enabled: true`.
   // paco-perfumerias-uk was removed from this list on 2026-10-03: its product
   // pages label each offer priceCurrency GBP (Dior Fahrenheit EDT 100ml
   // £106.50, Aramis Havana EDT 100ml £57.50), its pinned route sets

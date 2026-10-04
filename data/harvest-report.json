@@ -45,7 +45,6 @@
     "space-nk",
     "parfumdreams-uk",
     "paco-perfumerias-uk",
-    "shy-mimosa",
     "niche-beauty-uk",
     "beauty-bay",
     "bloom-perfumery",
@@ -899,24 +898,6 @@
       "finishedAt": "2026-10-04T21:53:24.651Z"
     },
     {
-      "retailerId": "shy-mimosa",
-      "name": "Shy Mimosa",
-      "urlsDiscovered": 353,
-      "pagesFetched": 42,
-      "priced": 42,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "refreshed": {
-        "platform": null,
-        "fromFeed": 0,
-        "due": 0,
-        "gone": 0
-      },
-      "finishedAt": "2026-10-04T21:57:09.708Z"
-    },
-    {
       "retailerId": "cult-beauty-global",
       "name": "Cult Beauty Global",
       "urlsDiscovered": 1257,
@@ -1289,13 +1270,6 @@
     },
     "bloom-perfumery": {
       "shown": 2214,
-      "over24h": 0,
-      "over48h": 0,
-      "oldestShownAt": "2026-10-04T21:43:49.877Z",
-      "answered": true
-    },
-    "shy-mimosa": {
-      "shown": 42,
       "over24h": 0,
       "over48h": 0,
       "oldestShownAt": "2026-10-04T21:43:49.877Z",

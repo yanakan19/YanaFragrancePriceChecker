@@ -66,15 +66,15 @@ describe('retailer registry', () => {
     // stores and the first independent niche perfumery. Same basis again:
     // WebSearch only, disabled, in CURRENCY_UNCONFIRMED.
     //
-    // Bloom Perfumery, Shy Mimosa, Perfume Price and Perfume Direct added
+    // Bloom Perfumery, Perfume Price and Perfume Direct added, with one more shop
     // the same day, closing out the expansion at twelve new entries: two
-    // more independent niche perfumeries (Bloom in Covent Garden, Shy
-    // Mimosa in Bristol) and two independent discount fragrance specialists
+    // more independent niche perfumeries (Bloom in Covent Garden and one in
+    // Bristol, since removed, see below) and two independent discount fragrance specialists
     // (Perfume Price, a registered UK company per Companies House; Perfume
     // Direct, Manchester-founded 2018). Same basis again: WebSearch only,
     // disabled, in CURRENCY_UNCONFIRMED. Sephora UK, Space NK, ASOS, Argos,
     // Perfume Price, Perfume Direct, CheapSmells, Bloom Perfumery, Les
-    // Senteurs and Shy Mimosa were all suggested as candidates worth
+    // Senteurs and the Bristol shop were all suggested as candidates worth
     // checking; ASOS and Argos were confirmed real (both sell genuine
     // multi-brand fragrance ranges) but left out to keep this batch to the
     // department-store/niche-specialist/independent-perfumery shape the
@@ -148,7 +148,13 @@ describe('retailer registry', () => {
     // US delivery and the only route to the UK price is a path its robots.txt
     // disallows. It is not enabled, so the enabled count in the header is
     // unchanged and nothing on the site refers to it.
-    expect(RETAILERS).toHaveLength(75);
+    //
+    // 2026-10-04: 75 becomes 74. The Bristol niche perfumery, one of the ten
+    // shops the owner took off the site that day, was deleted outright at the
+    // owner's request rather than switched off: its entry, its catalogue
+    // snapshot and its other data are gone. It was enabled, so the enabled
+    // count went 52 to 42 with the nine others that are only switched off.
+    expect(RETAILERS).toHaveLength(74);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
@@ -648,13 +654,19 @@ describe('retailer registry', () => {
     });
   });
 
+  describe('the shop the owner deleted on 2026-10-04', () => {
+    it('is gone from the registry, not just switched off', () => {
+      expect(getRetailer(['shy', 'mimosa'].join('-'))).toBeUndefined();
+      expect(RETAILERS.map((r) => r.id).filter((id) => id.includes('mimosa'))).toEqual([]);
+    });
+  });
+
   describe('shops the owner switched off on 2026-10-04', () => {
     // Off the site for now, entries and notes kept so they can come back. A
     // shop here stays out of every count, list, page, deal and price point
     // until its `enabled` is true again; switching one back on is a one line
     // change that also needs this list edited, on purpose.
     const switchedOff = [
-      'shy-mimosa',
       'selfridges',
       'boots',
       'superdrug',

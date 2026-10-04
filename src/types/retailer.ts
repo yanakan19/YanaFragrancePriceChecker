@@ -669,7 +669,7 @@ export interface SitemapRoute {
    * Regular expressions (source text, one capture group each) read off a
    * product page and appended to its listing's title, for a shop whose
    * structured data names a fragrance without its concentration or size
-   * (Shy Mimosa's microdata says only "Chypre Shot"; the page says "Extrait de
+   * (one shop's microdata says only "Chypre Shot"; the page says "Extrait de
    * Parfum" and "100ml" beside it). Only applied when the page yields exactly
    * one listing, so text is never attached to the wrong product.
    */
