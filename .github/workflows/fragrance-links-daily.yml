@@ -61,7 +61,16 @@ jobs:
           # be wrong; the crawl owns that file.
           git checkout -- demo/sitemap.xml
 
+      # REGENERATE is what scripts/commit-and-push.sh runs when the push meets
+      # a conflict or a source change. Its default, `npm run rebuild`, replays
+      # the price history from git, and this checkout is shallow: the replay
+      # would see one commit, build a one point history into demo/data, and
+      # the page's freshness check would then refuse the push. This commit
+      # names only the page, which `npm run demo` rebuilds from the generated
+      # modules already on the branch.
       - name: Commit and push
+        env:
+          REGENERATE: npm run demo
         run: |
           ./scripts/commit-and-push.sh \
             "Fragrance links: $(date -u +%Y-%m-%d)" \

@@ -1,0 +1,240 @@
+// scripts/generated-files.txt is the one list of files the pipeline writes and
+// commits. Run #592 (2026-10-04) died because demo/sitemap.xml was written by
+// the build and named by three workflow commit steps, but missing from the
+// conflict handler's own hand-typed copy of the list. These tests hold every
+// reader of the manifest to it:
+//
+//   - the bash reader (scripts/generated-files.sh, used by
+//     scripts/commit-and-push.sh) and the TypeScript reader
+//     (scripts/generatedFiles.ts, used by the build scripts) agree;
+//   - every path any workflow passes to scripts/commit-and-push.sh is covered;
+//   - the build scripts write committed outputs only through writeGenerated,
+//     which refuses an unlisted path;
+//   - scripts/check-generated-writes.ts, which catalogue-daily.yml runs after
+//     the real rebuild, flags a write outside the manifest.
+//
+// tests/generatedFilesBuild.test.ts runs the real `npm run rebuild` in a
+// scratch copy and compares what it wrote with the manifest.
+import { execFileSync } from 'node:child_process';
+import { mkdtempSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync, existsSync, utimesSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { afterEach, describe, expect, it } from 'vitest';
+import { buildWritesSince, unlistedWrites } from '../scripts/check-generated-writes.js';
+import { matchesPattern, parseManifest, policyOf, readManifest, writeGenerated, REPO_ROOT } from '../scripts/generatedFiles.js';
+
+const HELPER = fileURLToPath(new URL('../scripts/generated-files.sh', import.meta.url));
+const WORKFLOWS = join(REPO_ROOT, '.github/workflows');
+
+function bash(args: string[]): string {
+  return execFileSync('bash', [HELPER, ...args], { encoding: 'utf8' }).trim();
+}
+
+const cleanup: string[] = [];
+afterEach(() => {
+  while (cleanup.length) rmSync(cleanup.pop()!, { recursive: true, force: true });
+});
+
+describe('scripts/generated-files.txt', () => {
+  const entries = readManifest();
+
+  it('parses, and names each pattern once', () => {
+    expect(entries.length).toBeGreaterThan(20);
+    const patterns = entries.map((e) => e.pattern);
+    expect(new Set(patterns).size).toBe(patterns.length);
+    for (const e of entries) expect(e.writtenBy, e.pattern).not.toBe('');
+  });
+
+  it('rejects a malformed line with its line number', () => {
+    expect(() => parseManifest('# c\nrebuild demo/x.ts writer\nrebuilt demo/y.ts writer\n')).toThrow(/line 3/);
+  });
+
+  it('lists every file the page build writes, including the ones run #592 and 2026-10-04 added', () => {
+    for (const path of [
+      'demo/index.html', 'demo/404.html', 'demo/sitemap.xml', 'demo/ads.txt',
+      'demo/catalogue.generated.ts', 'demo/dormant.generated.ts', 'demo/deals.generated.ts',
+      'demo/priceHistory.generated.ts', 'data/price-history-checkpoint.json',
+      'demo/data/catalogue.0123456789abcdef.json',
+    ]) {
+      expect(policyOf(path), path).toBe('rebuild');
+    }
+    expect(policyOf('demo/testCount.generated.ts')).toBe('incoming');
+    expect(policyOf('data/catalogue/boots.json')).toBe('incoming');
+    expect(policyOf('src/config/retailers.ts')).toBe('manual');
+    expect(policyOf('demo/app.ts')).toBeNull();
+    expect(policyOf('demo/database.ts')).toBeNull();
+  });
+
+  it('every rebuild path exists on the branch, so a typo cannot hide a file from the page commit', () => {
+    for (const e of entries.filter((x) => x.policy === 'rebuild')) {
+      expect(existsSync(join(REPO_ROOT, e.pattern)), e.pattern).toBe(true);
+    }
+  });
+
+  it('the bash reader and the TypeScript reader give the same answer for every path', () => {
+    const samples = [
+      ...entries.map((e) => e.pattern.replace(/\*/g, 'sample').replace(/\/$/, '/inner/file.json')),
+      'demo/data', 'demo/database.ts', 'demo/app.ts', 'data/catalogue', 'data/catalogue/x/y.json',
+      'src/config/retailers.ts', 'docs/DELIVERY-RECHECK.md', 'docs/README.md', 'README.md',
+    ];
+    const fromBash = bash(['classify', ...samples]).split('\n');
+    expect(fromBash).toEqual(samples.map((p) => policyOf(p) ?? 'none'));
+  });
+
+  it('prints the rebuild paths for the workflows, a folder without its trailing slash', () => {
+    const paths = bash(['paths', 'rebuild']).split(' ');
+    expect(paths).toEqual(entries.filter((e) => e.policy === 'rebuild').map((e) => e.pattern.replace(/\/$/, '')));
+    expect(paths).toContain('demo/data');
+  });
+
+  it('matches * across folders and a trailing / as a folder, as a bash case pattern does', () => {
+    expect(matchesPattern('data/catalogue/a/b.json', 'data/catalogue/*.json')).toBe(true);
+    expect(matchesPattern('data/catalogue/a.jsonx', 'data/catalogue/*.json')).toBe(false);
+    expect(matchesPattern('demo/data', 'demo/data/')).toBe(true);
+    expect(matchesPattern('demo/dataX/a', 'demo/data/')).toBe(false);
+    expect(matchesPattern('demo/indexxhtml', 'demo/index.html')).toBe(false);
+  });
+});
+
+/** Every scripts/commit-and-push.sh call in the workflows: [file, args after the message, run block]. */
+function commitCalls(): { file: string; paths: string[]; block: string }[] {
+  const calls: { file: string; paths: string[]; block: string }[] = [];
+  for (const file of readdirSync(WORKFLOWS).filter((f) => f.endsWith('.yml'))) {
+    const text = readFileSync(join(WORKFLOWS, file), 'utf8');
+    const blocks = text.split(/\n\s*- (?:name|uses|run):/);
+    for (const block of blocks) {
+      for (const m of block.matchAll(/\.\/scripts\/commit-and-push\.sh((?:[^\n]*\\\n)*[^\n]*)/g)) {
+        const args = m[1]!.replace(/\\\n/g, ' ').trim();
+        expect(args.startsWith('"'), `${file}: the commit message is the first, double-quoted argument`).toBe(true);
+        const end = args.indexOf('"', 1);
+        const paths = args.slice(end + 1).trim().split(/\s+/).filter(Boolean);
+        calls.push({ file, paths, block });
+      }
+    }
+  }
+  return calls;
+}
+
+describe('the workflows commit only what the manifest covers', () => {
+  const rebuild = readManifest().filter((e) => e.policy === 'rebuild').map((e) => e.pattern.replace(/\/$/, ''));
+  const calls = commitCalls();
+
+  it('finds the commit steps', () => {
+    expect(calls.length).toBeGreaterThanOrEqual(12);
+  });
+
+  it('every path passed to scripts/commit-and-push.sh is a manifest path or a folder of them', () => {
+    for (const { file, paths, block } of calls) {
+      for (const token of paths) {
+        if (token === '$REBUILT') {
+          expect(block, `${file}: $REBUILT must come from the manifest`).toMatch(/REBUILT=\$\(\.?\/?scripts\/generated-files\.sh paths rebuild\)/);
+          continue;
+        }
+        expect(token.startsWith('$'), `${file}: ${token} is not a path the test can check`).toBe(false);
+        const covered = policyOf(token) !== null ||
+          readManifest().some((e) => e.pattern.startsWith(`${token}/`));
+        expect(covered, `${file} commits ${token}, which scripts/generated-files.txt does not cover`).toBe(true);
+      }
+    }
+  });
+
+  it('the steps that commit a rebuilt page take the whole rebuild set from the manifest, not a hand list', () => {
+    const daily = readFileSync(join(WORKFLOWS, 'catalogue-daily.yml'), 'utf8');
+    for (const step of ['Commit rebuilt app', 'Commit synced Awin feeds', 'Commit what changed']) {
+      const start = daily.indexOf(`- name: ${step}`);
+      expect(start, step).toBeGreaterThan(0);
+      const body = daily.slice(start, daily.indexOf('\n      - ', start + 10));
+      expect(body, step).toContain('REBUILT=$(scripts/generated-files.sh paths rebuild)');
+      expect(body, step).toContain('$REBUILT');
+    }
+    void rebuild;
+  });
+});
+
+describe('the build scripts write committed files only through writeGenerated', () => {
+  const BUILD_SCRIPTS = ['build-demo-catalogue.ts', 'build-deals.ts', 'build-price-history.ts', 'build-demo.ts', 'build-sitemap.ts'];
+
+  it('no rebuild script writes under demo/ or data/ with a bare writeFileSync', () => {
+    for (const name of BUILD_SCRIPTS) {
+      const source = readFileSync(join(REPO_ROOT, 'scripts', name), 'utf8');
+      for (const m of source.matchAll(/writeFileSync\(\s*([^,]+),/g)) {
+        expect(m[1], `${name}: ${m[0]}`).not.toMatch(/['"`](demo|data)\//);
+      }
+      expect(source, name).toContain("from './generatedFiles.js'");
+    }
+  });
+
+  it('writeGenerated refuses a path the manifest does not list, and writes one it does', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'write-generated-'));
+    cleanup.push(dir);
+    mkdirSync(join(dir, 'demo'), { recursive: true });
+    expect(() => writeGenerated(dir, 'demo/newThing.generated.ts', 'x')).toThrow(/not in scripts\/generated-files\.txt/);
+    expect(existsSync(join(dir, 'demo/newThing.generated.ts'))).toBe(false);
+    writeGenerated(dir, 'demo/sitemap.xml', '<urlset/>');
+    expect(readFileSync(join(dir, 'demo/sitemap.xml'), 'utf8')).toBe('<urlset/>');
+  });
+});
+
+describe('scripts/check-generated-writes.ts', () => {
+  function scratchRepo(): string {
+    const dir = mkdtempSync(join(tmpdir(), 'generated-writes-'));
+    cleanup.push(dir);
+    const git = (args: string[]) => execFileSync('git', args, { cwd: dir, encoding: 'utf8' });
+    git(['init', '-q', '-b', 'master']);
+    git(['config', 'user.email', 't@test']);
+    git(['config', 'user.name', 't']);
+    mkdirSync(join(dir, 'demo/data'), { recursive: true });
+    for (const [p, body] of Object.entries({
+      'demo/index.html': 'old', 'demo/app.ts': 'src', 'demo/data/catalogue.aaaa.json': '[]', '.gitignore': 'dist-demo/\n',
+    })) writeFileSync(join(dir, p), body);
+    git(['add', '-A']);
+    git(['commit', '-q', '-m', 'base']);
+    // Checked-out files are older than the mark, as on a runner.
+    const past = new Date(Date.now() - 60_000);
+    for (const p of ['demo/index.html', 'demo/app.ts', 'demo/data/catalogue.aaaa.json', '.gitignore']) utimesSync(join(dir, p), past, past);
+    return dir;
+  }
+
+  it('passes a build that wrote only rebuild paths, deletions and ignored output included', () => {
+    const dir = scratchRepo();
+    const mark = Date.now();
+    writeFileSync(join(dir, 'demo/index.html'), 'old'); // same bytes still counts as written
+    rmSync(join(dir, 'demo/data/catalogue.aaaa.json'));
+    writeFileSync(join(dir, 'demo/data/catalogue.bbbb.json'), '[1]');
+    mkdirSync(join(dir, 'dist-demo'));
+    writeFileSync(join(dir, 'dist-demo/artifact.html'), 'x');
+    const writes = buildWritesSince(dir, mark);
+    expect(writes.written).toEqual(['demo/index.html']);
+    expect(writes.deleted).toEqual(['demo/data/catalogue.aaaa.json']);
+    expect(writes.created).toEqual(['demo/data/catalogue.bbbb.json']);
+    expect(unlistedWrites(writes)).toEqual([]);
+  });
+
+  it('flags a new generated file the manifest does not list, and a source file a build rewrote', () => {
+    const dir = scratchRepo();
+    const mark = Date.now();
+    writeFileSync(join(dir, 'demo/newThing.generated.ts'), 'export const X = 1;');
+    writeFileSync(join(dir, 'demo/app.ts'), 'rewritten');
+    expect(unlistedWrites(buildWritesSince(dir, mark))).toEqual(['demo/app.ts', 'demo/newThing.generated.ts']);
+  });
+
+  it('exits 1 from the command line on an unlisted write, naming the file', () => {
+    const dir = scratchRepo();
+    const mark = Date.now();
+    writeFileSync(join(dir, 'demo/newThing.generated.ts'), 'x');
+    let out = '';
+    let status = 0;
+    try {
+      execFileSync('npx', ['tsx', join(REPO_ROOT, 'scripts/check-generated-writes.ts'), '--since-ms', String(mark)], {
+        cwd: dir, encoding: 'utf8', stdio: 'pipe',
+      });
+    } catch (err) {
+      const e = err as { status: number; stdout: string };
+      status = e.status;
+      out = e.stdout;
+    }
+    expect(status).toBe(1);
+    expect(out).toContain('::error::The build wrote demo/newThing.generated.ts');
+  });
+});

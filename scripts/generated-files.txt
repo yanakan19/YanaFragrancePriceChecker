@@ -1,0 +1,73 @@
+# Every file a workflow step or a build script writes and commits to the branch.
+#
+# This is the one list. scripts/commit-and-push.sh reads it (through
+# scripts/generated-files.sh) to decide how to settle a push conflict, the
+# build scripts refuse to write a file it does not name (writeGenerated in
+# scripts/generatedFiles.ts), the workflows' "commit the rebuilt app" steps
+# take their path list from it, and tests/generatedFiles.test.ts fails when a
+# build writes a committed file that is missing here or a workflow commits a
+# path it does not cover. Run #592 (2026-10-04) died because the sitemap was
+# written by the build but missing from the script's own copy of this list.
+#
+# Adding a generated file: add a line here in the same commit. Nothing else.
+#
+# Columns: policy, path, who writes it (free text, for people).
+#
+#   rebuild   Built from other committed files by `npm run rebuild`. On a push
+#             conflict it is rebuilt from the merged inputs, never merged, and
+#             "Commit rebuilt app" commits every rebuild path.
+#   incoming  Machine-written data that no build can recreate. On a push
+#             conflict the incoming (already pushed) side is kept; the next run
+#             writes it again.
+#   manual    Machine-written source. A push conflict stops for a person.
+#
+# A path ending in / is a folder (everything under it). * matches any run of
+# characters, / included. Lines starting with # are comments.
+
+# ── npm run rebuild (catalogue:demo, deals:build, catalogue:history, demo) ──
+rebuild   demo/catalogue.generated.ts         npm run catalogue:demo (scripts/build-demo-catalogue.ts)
+rebuild   demo/dormant.generated.ts           npm run catalogue:demo (scripts/build-demo-catalogue.ts)
+rebuild   demo/deals.generated.ts             npm run deals:build (scripts/build-deals.ts)
+rebuild   demo/priceHistory.generated.ts      npm run catalogue:history (scripts/build-price-history.ts)
+rebuild   data/price-history-checkpoint.json  npm run catalogue:history (scripts/priceHistoryReplay.ts)
+rebuild   demo/index.html                     npm run demo (scripts/build-demo.ts)
+rebuild   demo/404.html                       npm run demo (scripts/build-demo.ts)
+rebuild   demo/data/                          npm run demo (scripts/build-demo.ts), content-hashed, old files deleted
+rebuild   demo/ads.txt                        npm run demo (scripts/build-demo.ts), from demo/ads.ts
+rebuild   demo/sitemap.xml                    npm run demo (scripts/build-sitemap.ts)
+
+# ── catalogue-daily.yml: harvest, houses, Awin sync, shipping, probes ──
+incoming  data/catalogue/*.json               harvest, Awin feed sync, storefront reprice
+incoming  data/houses/*.json                  houses harvest
+incoming  data/house-sourcing-report.json     houses harvest
+incoming  data/harvest-report.json            harvest
+incoming  data/harvest-cursor.json            harvest (the guard job reads its commit history)
+incoming  data/metered-harvest-marker.txt     harvest (once a day gate on the paid Apify tiers)
+incoming  data/awin-feed-sync-state.json      Awin feed sync
+incoming  data/feed-sync-marker.txt           Awin feed sync
+incoming  data/storefront-reprice-report.json storefront reprice
+incoming  data/shipping-discovery-report.json shipping discovery
+incoming  data/shipping-discover-marker.txt   shipping discovery
+incoming  data/shipping-discover-state.json   shipping discovery
+incoming  data/strategy-memory.json           adaptive probe (dispatch only)
+incoming  data/render-capture/                capture_render_shop (dispatch only)
+incoming  data/tiktok/                        TikTok probe (dispatch only)
+manual    src/config/retailers.ts             shipping discovery --write (registry patch, verified before commit)
+
+# ── npm test ──
+incoming  demo/testCount.generated.ts         npm test (scripts/testCountReporter.ts), npm run tests:count; outside the page stamp
+
+# ── fragrance-links-daily.yml ──
+incoming  data/fragrance-links.json           npm run links:resolve
+incoming  data/fragrance-links-seen.json      npm run links:resolve
+incoming  demo/fragranceLinks.generated.ts    npm run links:resolve
+
+# ── image-check.yml, image-measure-daily.yml ──
+incoming  data/image-link-report.json         npm run images:check
+incoming  data/image-referer-report.json      npm run images:check -- --referer-check
+incoming  data/image-box-verdicts.json        scripts/image-box-check.ts
+
+# ── price-verify.yml, delivery-recheck.yml ──
+incoming  data/price-verification-report.json npm run price:verify
+incoming  data/delivery-recheck-report.json   npm run delivery:recheck
+incoming  docs/DELIVERY-RECHECK.md            npm run delivery:recheck
