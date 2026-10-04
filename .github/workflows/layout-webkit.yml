@@ -6,8 +6,8 @@ name: Layout check (Safari engine)
 # the filters were reported looking wrong on an iPhone.
 #
 # Only on a change to the page's own source or to the test, never on a price
-# crawl: a harvest changes data, not layout, and the built page it commits is
-# checked by the Chromium run already.
+# crawl: a harvest changes data, not layout, and the page it builds is checked
+# by the Chromium run already.
 on:
   push:
     branches: [claude/scentday-retailer-registry-h92tth]
@@ -41,6 +41,13 @@ jobs:
 
       - name: Install WebKit
         run: npx playwright install --with-deps webkit
+
+      # The page is built at deploy time and not committed (2026-10-04), and
+      # the test skips itself when there is no demo/index.html, so it is
+      # built here first.
+      - name: Build the page
+        timeout-minutes: 10
+        run: npm run demo
 
       - name: Layout rules in WebKit with iPhone settings
         env:

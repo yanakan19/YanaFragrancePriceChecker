@@ -24,6 +24,21 @@ import { fileURLToPath } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
 
 const SCRIPT = fileURLToPath(new URL('../scripts/commit-and-push.sh', import.meta.url));
+const MANIFEST = fileURLToPath(new URL('../scripts/generated-files.txt', import.meta.url));
+
+// Since 2026-10-04 this repository builds its page at deploy time and never
+// commits it ("deploy" in scripts/generated-files.txt), and the script refuses
+// a caller that names it (last test below). The page handling these tests
+// cover (the data folder staged with the page, the freshness refusal, the
+// rebuild after a rebase, a conflicted sitemap) is still the script's, for a
+// repository that commits its page, so they run against the real manifest
+// with its "deploy" lines read as "rebuild", as they were until that day.
+const PAGE_COMMITTING_MANIFEST = (() => {
+  const dir = mkdtempSync(join(tmpdir(), 'commit-and-push-manifest-'));
+  const path = join(dir, 'generated-files.txt');
+  writeFileSync(path, readFileSync(MANIFEST, 'utf8').replace(/^deploy(\s)/gm, 'rebuild$1'));
+  return path;
+})();
 
 function git(cwd: string, args: string[]): string {
   return execFileSync('git', args, { cwd, encoding: 'utf8' }).trim();
@@ -101,7 +116,7 @@ function runScript(
   const result = spawnSync('bash', [SCRIPT, ...args], {
     cwd: worker,
     encoding: 'utf8',
-    env: { ...process.env, ...env },
+    env: { ...process.env, GENERATED_FILES_MANIFEST: PAGE_COMMITTING_MANIFEST, ...env },
   });
   return { status: result.status ?? -1, output: (result.stdout ?? '') + (result.stderr ?? '') };
 }
@@ -593,5 +608,29 @@ describe('scripts/commit-and-push.sh reads scripts/generated-files.txt', () => {
     expect(status, output).toBe(0);
     expect(output).toContain('::warning::data/catalogue/boots.json is 0 MiB');
     expect(output).toContain('Pushed on attempt 1');
+  });
+
+  // The real manifest, not the page-committing copy the tests above use.
+  it('refuses to commit the built page, which is built at deploy time, before staging anything', () => {
+    const { root, worker } = setupTrio({
+      relPath: 'demo/catalogue.generated.ts',
+      content: 'BASE\n',
+      extra: { 'demo/index.html': 'PAGE:A\n' },
+    });
+    cleanupDirs.push(root);
+
+    writeFileSync(join(worker, 'demo/catalogue.generated.ts'), 'OURS\n');
+    writeFileSync(join(worker, 'demo/index.html'), 'PAGE:B\n');
+    const base = git(worker, ['rev-parse', 'HEAD']);
+
+    const { status, output } = runScript(worker, ['Rebuild demo: sim', 'demo/catalogue.generated.ts', 'demo/index.html'], {
+      GENERATED_FILES_MANIFEST: MANIFEST,
+    });
+
+    expect(status).toBe(1);
+    expect(output).toContain('Refusing to commit demo/index.html: it is built at deploy time');
+    expect(git(worker, ['rev-parse', 'HEAD'])).toBe(base);
+    expect(git(worker, ['rev-parse', 'origin/master'])).toBe(base);
+    expect(git(worker, ['diff', '--cached', '--name-only'])).toBe('');
   });
 });

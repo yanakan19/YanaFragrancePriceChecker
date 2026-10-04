@@ -18,7 +18,7 @@
 // build, and catalogue-daily.yml makes the same check, in place, straight
 // after every real rebuild (scripts/check-generated-writes.ts).
 import { execFileSync } from 'node:child_process';
-import { copyFileSync, mkdirSync, mkdtempSync, rmSync, symlinkSync } from 'node:fs';
+import { copyFileSync, mkdirSync, mkdtempSync, rmSync, statSync, symlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -51,8 +51,11 @@ describe.runIf(run)('npm run rebuild, in a scratch copy', () => {
       execFileSync('npm', ['run', 'rebuild'], { cwd: scratch, stdio: 'pipe', maxBuffer: 256 * 1024 * 1024 });
 
       const writes = buildWritesSince(scratch, mark);
-      // The build really ran: it always rewrites the page.
-      expect(writes.written).toContain('demo/index.html');
+      // The build really ran: it always rewrites the page and the catalogue.
+      // The page is gitignored since 2026-10-04 ("deploy" in the manifest),
+      // so it is checked on disk rather than among the tracked writes.
+      expect(writes.written).toContain('demo/catalogue.generated.ts');
+      expect(statSync(join(scratch, 'demo/index.html')).mtimeMs).toBeGreaterThanOrEqual(mark - 1000);
       expect(unlistedWrites(writes), 'committed files the build wrote that the manifest does not list as rebuild').toEqual([]);
     } finally {
       git(REPO_ROOT, ['worktree', 'remove', '--force', scratch]);

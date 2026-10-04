@@ -14,7 +14,8 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-export type GeneratedPolicy = 'rebuild' | 'incoming' | 'manual';
+/** See the header of scripts/generated-files.txt; "deploy" files are built but never committed. */
+export type GeneratedPolicy = 'rebuild' | 'incoming' | 'manual' | 'deploy';
 
 export interface ManifestEntry {
   policy: GeneratedPolicy;
@@ -23,7 +24,7 @@ export interface ManifestEntry {
   writtenBy: string;
 }
 
-const POLICIES: readonly GeneratedPolicy[] = ['rebuild', 'incoming', 'manual'];
+const POLICIES: readonly GeneratedPolicy[] = ['rebuild', 'incoming', 'manual', 'deploy'];
 
 export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const MANIFEST_PATH = resolve(REPO_ROOT, 'scripts/generated-files.txt');

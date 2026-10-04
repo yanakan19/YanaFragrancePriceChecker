@@ -52,12 +52,17 @@ describe('scripts/generated-files.txt', () => {
 
   it('lists every file the page build writes, including the ones run #592 and 2026-10-04 added', () => {
     for (const path of [
-      'demo/index.html', 'demo/404.html', 'demo/sitemap.xml', 'demo/ads.txt',
       'demo/catalogue.generated.ts', 'demo/dormant.generated.ts', 'demo/deals.generated.ts',
       'demo/priceHistory.generated.ts', 'data/price-history-checkpoint.json',
-      'demo/data/catalogue.0123456789abcdef.json',
     ]) {
       expect(policyOf(path), path).toBe('rebuild');
+    }
+    // The published site: built by deploy-pages.yml, never committed.
+    for (const path of [
+      'demo/index.html', 'demo/404.html', 'demo/sitemap.xml', 'demo/ads.txt',
+      'demo/data', 'demo/data/catalogue.0123456789abcdef.json',
+    ]) {
+      expect(policyOf(path), path).toBe('deploy');
     }
     expect(policyOf('demo/testCount.generated.ts')).toBe('incoming');
     expect(policyOf('data/catalogue/boots.json')).toBe('incoming');
@@ -66,9 +71,34 @@ describe('scripts/generated-files.txt', () => {
     expect(policyOf('demo/database.ts')).toBeNull();
   });
 
-  it('every rebuild path exists on the branch, so a typo cannot hide a file from the page commit', () => {
+  it('every rebuild path is tracked on the branch, so a typo cannot hide a file from the page commit', () => {
+    const tracked = new Set(execFileSync('git', ['ls-files'], { cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }).split('\n'));
     for (const e of entries.filter((x) => x.policy === 'rebuild')) {
-      expect(existsSync(join(REPO_ROOT, e.pattern)), e.pattern).toBe(true);
+      expect(tracked.has(e.pattern), e.pattern).toBe(true);
+    }
+  });
+
+  // 2026-10-04: the page, its data files, the sitemap and ads.txt are built by
+  // .github/workflows/deploy-pages.yml before each deployment. Committing one
+  // again would bring back the growth that move removed, and a page committed
+  // beside a newer build is the stale-page failure all over again.
+  it('every deploy path is gitignored and untracked, so a local build can never be committed by accident', () => {
+    const deploy = entries.filter((x) => x.policy === 'deploy');
+    expect(deploy.map((e) => e.pattern)).toEqual(['demo/index.html', 'demo/404.html', 'demo/data/', 'demo/ads.txt', 'demo/sitemap.xml']);
+    for (const e of deploy) {
+      const probe = e.pattern.endsWith('/') ? `${e.pattern}catalogue.0123456789abcdef.json` : e.pattern;
+      // `git check-ignore` exits 0 when the path is ignored, 1 when it is not.
+      expect(() => execFileSync('git', ['check-ignore', '-q', '--no-index', probe], { cwd: REPO_ROOT }), `${probe} is not gitignored`).not.toThrow();
+      const tracked = execFileSync('git', ['ls-files', '--', e.pattern.replace(/\/$/, '')], { cwd: REPO_ROOT, encoding: 'utf8' }).trim();
+      expect(tracked, `${e.pattern} is tracked; \`git rm -r --cached\` it`).toBe('');
+    }
+  });
+
+  it('every deploy path is what the deploy workflow builds before it uploads', () => {
+    const deployWorkflow = readFileSync(join(WORKFLOWS, 'deploy-pages.yml'), 'utf8');
+    expect(deployWorkflow).toContain('run: npm run demo');
+    for (const e of entries.filter((x) => x.policy === 'deploy')) {
+      expect(e.writtenBy, e.pattern).toMatch(/^npm run demo \(scripts\/build-(demo|sitemap)\.ts\)/);
     }
   });
 
@@ -85,7 +115,10 @@ describe('scripts/generated-files.txt', () => {
   it('prints the rebuild paths for the workflows, a folder without its trailing slash', () => {
     const paths = bash(['paths', 'rebuild']).split(' ');
     expect(paths).toEqual(entries.filter((e) => e.policy === 'rebuild').map((e) => e.pattern.replace(/\/$/, '')));
-    expect(paths).toContain('demo/data');
+    expect(paths).toContain('demo/catalogue.generated.ts');
+    // The crawl's page commit takes exactly this list: the built site is not on it.
+    for (const p of ['demo/data', 'demo/index.html', 'demo/404.html', 'demo/sitemap.xml']) expect(paths).not.toContain(p);
+    expect(bash(['paths', 'deploy']).split(' ')).toEqual(['demo/index.html', 'demo/404.html', 'demo/data', 'demo/ads.txt', 'demo/sitemap.xml']);
   });
 
   it('matches * across folders and a trailing / as a folder, as a bash case pattern does', () => {
@@ -135,6 +168,9 @@ describe('the workflows commit only what the manifest covers', () => {
         const covered = policyOf(token) !== null ||
           readManifest().some((e) => e.pattern.startsWith(`${token}/`));
         expect(covered, `${file} commits ${token}, which scripts/generated-files.txt does not cover`).toBe(true);
+        const deploy = policyOf(token) === 'deploy' ||
+          readManifest().some((e) => e.policy === 'deploy' && e.pattern.startsWith(`${token}/`));
+        expect(deploy, `${file} commits ${token}, which is built at deploy time and never committed`).toBe(false);
       }
     }
   });
@@ -184,30 +220,36 @@ describe('scripts/check-generated-writes.ts', () => {
     git(['init', '-q', '-b', 'master']);
     git(['config', 'user.email', 't@test']);
     git(['config', 'user.name', 't']);
-    mkdirSync(join(dir, 'demo/data'), { recursive: true });
-    for (const [p, body] of Object.entries({
-      'demo/index.html': 'old', 'demo/app.ts': 'src', 'demo/data/catalogue.aaaa.json': '[]', '.gitignore': 'dist-demo/\n',
-    })) writeFileSync(join(dir, p), body);
+    mkdirSync(join(dir, 'demo'), { recursive: true });
+    const base = {
+      'demo/catalogue.generated.ts': 'old', 'demo/dormant.generated.ts': 'old', 'demo/app.ts': 'src',
+      // As in this repository: the built site is ignored ("deploy" in the manifest).
+      '.gitignore': readFileSync(join(REPO_ROOT, '.gitignore'), 'utf8'),
+    };
+    for (const [p, body] of Object.entries(base)) writeFileSync(join(dir, p), body);
     git(['add', '-A']);
     git(['commit', '-q', '-m', 'base']);
     // Checked-out files are older than the mark, as on a runner.
     const past = new Date(Date.now() - 60_000);
-    for (const p of ['demo/index.html', 'demo/app.ts', 'demo/data/catalogue.aaaa.json', '.gitignore']) utimesSync(join(dir, p), past, past);
+    for (const p of Object.keys(base)) utimesSync(join(dir, p), past, past);
     return dir;
   }
 
-  it('passes a build that wrote only rebuild paths, deletions and ignored output included', () => {
+  it('passes a build that wrote only rebuild paths, deletions and ignored output (the built site) included', () => {
     const dir = scratchRepo();
     const mark = Date.now();
-    writeFileSync(join(dir, 'demo/index.html'), 'old'); // same bytes still counts as written
-    rmSync(join(dir, 'demo/data/catalogue.aaaa.json'));
+    writeFileSync(join(dir, 'demo/catalogue.generated.ts'), 'old'); // same bytes still counts as written
+    rmSync(join(dir, 'demo/dormant.generated.ts'));
+    writeFileSync(join(dir, 'demo/deals.generated.ts'), 'new');
+    writeFileSync(join(dir, 'demo/index.html'), 'page');
+    mkdirSync(join(dir, 'demo/data'));
     writeFileSync(join(dir, 'demo/data/catalogue.bbbb.json'), '[1]');
     mkdirSync(join(dir, 'dist-demo'));
     writeFileSync(join(dir, 'dist-demo/artifact.html'), 'x');
     const writes = buildWritesSince(dir, mark);
-    expect(writes.written).toEqual(['demo/index.html']);
-    expect(writes.deleted).toEqual(['demo/data/catalogue.aaaa.json']);
-    expect(writes.created).toEqual(['demo/data/catalogue.bbbb.json']);
+    expect(writes.written).toEqual(['demo/catalogue.generated.ts']);
+    expect(writes.deleted).toEqual(['demo/dormant.generated.ts']);
+    expect(writes.created).toEqual(['demo/deals.generated.ts']);
     expect(unlistedWrites(writes)).toEqual([]);
   });
 
