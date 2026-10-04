@@ -100,19 +100,24 @@
  */
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { assertGenerated, writeGenerated } from './generatedFiles.js';
+import { writeGenerated } from './generatedFiles.js';
+import {
+  CHECKPOINT_MAX_COMMITS_BEHIND,
+  CHECKPOINT_MAX_HOURS_BEHIND,
+  checkpointRewriteReason,
+  readCheckpointFile,
+  writeCheckpointFile,
+} from './priceHistoryCheckpointFile.js';
 import {
   CHECKPOINT_PATH,
   OUTPUT_PATH,
   commitsTouchingCatalogue,
   emptyState,
-  readCheckpoint,
   render,
   replay,
   resumeFrom,
   rulesFingerprint,
   toCheckpoint,
-  writeCheckpoint,
 } from './priceHistoryReplay.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -123,7 +128,7 @@ const rules = rulesFingerprint(root);
 
 const decision = fullReplay
   ? ({ resume: false, reason: '--full was passed' } as const)
-  : resumeFrom(readCheckpoint(root), rules, commits);
+  : resumeFrom(readCheckpointFile(root), rules, commits);
 
 let state = emptyState();
 let from = 0;
@@ -164,9 +169,19 @@ console.log(
 
 writeGenerated(root, OUTPUT_PATH, rendered.body);
 console.log(`\n${OUTPUT_PATH} written (${(rendered.body.length / 1024).toFixed(0)} kB)`);
-// writeCheckpoint lives in priceHistoryReplay.ts, whose source is part of the
-// replay's rules fingerprint, so the manifest check is made here instead of
-// there: an edit to scripts/generatedFiles.ts must not force a full replay.
-assertGenerated(CHECKPOINT_PATH);
-const checkpointBytes = writeCheckpoint(root, toCheckpoint(state, rules, commits));
-console.log(`${CHECKPOINT_PATH} written (${(checkpointBytes / 1024).toFixed(0)} kB) at commit ${commits.at(-1)?.sha.slice(0, 8)}`);
+// Written in the compact form (scripts/priceHistoryCheckpointFile.ts, outside
+// the replay's rules fingerprint, so neither it nor scripts/generatedFiles.ts
+// can force a full replay by being edited): `last` once for every fragrance
+// priced in the newest commit, which is what kept the committed file's daily
+// delta large.
+// Rewritten only once it is well behind (checkpointRewriteReason): every
+// rewrite is a commit of a 14 MB file, and an older resume point gives the
+// same output.
+const rewriteBecause = checkpointRewriteReason(decision.resume ? decision.commitsReplayed : null, commits);
+if (rewriteBecause === null) {
+  const behind = decision.resume ? commits.length - decision.commitsReplayed : 0;
+  console.log(`${CHECKPOINT_PATH} left as it is (${behind} commit(s) behind; rewritten at ${CHECKPOINT_MAX_COMMITS_BEHIND} commits or ${CHECKPOINT_MAX_HOURS_BEHIND} hours)`);
+} else {
+  const checkpointBytes = writeCheckpointFile(root, toCheckpoint(state, rules, commits), commits.at(-1)?.at);
+  console.log(`${CHECKPOINT_PATH} written (${(checkpointBytes / 1024).toFixed(0)} kB) at commit ${commits.at(-1)?.sha.slice(0, 8)}: ${rewriteBecause}`);
+}
