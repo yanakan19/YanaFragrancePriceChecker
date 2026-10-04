@@ -693,7 +693,7 @@ async function discover(
   options: SitemapCrawlOptions,
   budget: number,
   deadlineAt: number,
-): Promise<{ urls: string[]; errors: string[] }> {
+): Promise<{ urls: string[]; errors: string[]; complete: boolean }> {
   const { retailer, http, robots, headers, onProgress } = options;
 
   // See `requiredUrlPrefix`'s own doc comment in src/types/retailer.ts for why
@@ -747,6 +747,7 @@ async function discover(
     isProductSitemap: PRODUCT_SITEMAP.test(pathOf(url)),
   }));
   let fetched = 0;
+  let failedSitemaps = 0;
 
   while (queue.length > 0 && fetched < budget && scented.size < MAX_DISCOVERED_URLS && Date.now() < deadlineAt) {
     const { url, isProductSitemap } = queue.shift()!;
@@ -760,6 +761,11 @@ async function discover(
     onProgress?.(fetched, scented.size + generic.size);
     if (!res.ok) {
       errors.push(`${url}: HTTP ${res.status}`);
+      // A root answering 404 or 410 does not exist (the conventional
+      // /sitemap.xml is always tried, even when robots.txt names another);
+      // anything else, or a child an index listed, is a part of the shop's
+      // list this walk did not read.
+      if (!(roots.includes(url) && (res.status === 404 || res.status === 410))) failedSitemaps++;
       continue;
     }
     const captcha = captchaRefusal(url, res);
@@ -800,13 +806,29 @@ async function discover(
   // Within the product sitemap URLs, the ones that name a perfume come first
   // (PERFUME_WORD), then the ones that only name a smell. Again an order, not
   // a filter: nothing kept before is dropped.
+  // ── Whether this is the shop's whole list, 2026-10-04 ─────────────────────
+  // fetchedEveryDiscovered (below) tells reconcile() that a stored listing
+  // missing from this walk is off sale, and it only asked whether every URL
+  // *discovered* was fetched. A sitemap that failed this run (a 403 or 503
+  // on one child of an index, a timeout), or a walk that ran out of budget,
+  // time or room with sitemaps still queued, discovers part of the shop,
+  // and fetching every URL of a part read as the whole: every listing in the
+  // missing sitemaps would have been delisted at once, the shape of the mass
+  // delisting scripts/repair-mass-delist.ts was written to undo. Such a walk
+  // is no longer complete. Listings still leave the site on the shop's own
+  // word (a 404, 410 or redirect when their page is re-read) and by age.
+  const complete =
+    failedSitemaps === 0 &&
+    queue.length === 0 &&
+    !(scented.size === 0 && generic.size >= MAX_DISCOVERED_URLS) &&
+    scented.size < MAX_DISCOVERED_URLS;
   if (scented.size > 0) {
     const products = [...scentedProducts];
     const named = products.filter((u) => PERFUME_WORD.test(pathOf(u)));
     const smellOnly = products.filter((u) => !PERFUME_WORD.test(pathOf(u)));
-    return { urls: [...named, ...smellOnly, ...[...scented].filter((u) => !scentedProducts.has(u))], errors };
+    return { urls: [...named, ...smellOnly, ...[...scented].filter((u) => !scentedProducts.has(u))], errors, complete };
   }
-  return { urls: [...generic], errors };
+  return { urls: [...generic], errors, complete };
 }
 
 /**
@@ -875,9 +897,14 @@ export async function crawlViaSitemap(
   const deadlineAt = Date.now() + (options.maxDurationMs ?? DEFAULT_CRAWL_MS);
 
   // A dozen sitemap fetches is plenty to find the fragrance aisle.
-  const { urls, errors, categoryPages } = route
+  const discovered: { urls: string[]; errors: string[]; complete?: boolean; categoryPages?: number } = route
     ? await discoverViaRoute(options, deadlineAt, sleep)
-    : { ...(await discover(options, 12, deadlineAt)), categoryPages: 0 };
+    : await discover(options, 12, deadlineAt);
+  const { urls, errors } = discovered;
+  const categoryPages = discovered.categoryPages ?? 0;
+  // A route (a shop's own product API) reports no completeness of its own and
+  // keeps the old meaning; see `complete` in discover() for the sitemap walk.
+  const discoveryComplete = discovered.complete ?? true;
   // The walk's last sitemap fetch and its first product fetch are a pair too.
   if (route && gapMs > 0 && urls.length > 0) await sleep(gapMs);
 
@@ -1049,7 +1076,7 @@ export async function crawlViaSitemap(
   // did not list is not withdrawn (see CategoryWalk); only the shop's own 404,
   // 410 or redirect says so, and those are reported as gone, not as absent.
   const fetchedEveryDiscovered =
-    !captchaAtDiscovery && !cutShort && !route?.categories &&
+    !captchaAtDiscovery && discoveryComplete && !cutShort && !route?.categories &&
     urls.every((u) => pickedSet.has(u) || refreshSet.has(canonicalPage(u)));
 
   return {

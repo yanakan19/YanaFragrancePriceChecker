@@ -27,25 +27,36 @@ concurrency:
 
 jobs:
   measure:
-    runs-on: ubuntu-latest
+    # Pinned until a run on Ubuntu 26 has gone green: ubuntu-latest moves to it
+    # from 2026-10-19, and this job installs Pillow into the system Python.
+    runs-on: ubuntu-24.04
     timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
+        timeout-minutes: 5
 
       - uses: actions/setup-node@v4
+        timeout-minutes: 5
         with:
           node-version: '22'
           cache: npm
 
-      - run: npm ci
+      # Retried with backoff (scripts/retry.sh): a registry blip should not
+      # cost the run. npm ci starts from an empty node_modules each time.
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
 
       - name: Install Pillow
-        run: python3 -m pip install --quiet pillow
+        timeout-minutes: 5
+        run: scripts/retry.sh 3 python3 -m pip install --quiet pillow
 
       - name: Measure photos
+        timeout-minutes: 35
         run: npx tsx scripts/image-box-check.ts --remeasure --limit=${{ inputs.limit || '1500' }} --concurrency=6
 
       - name: Commit and push
+        timeout-minutes: 10
         run: |
           ./scripts/commit-and-push.sh \
             "Bottle photo measuring: $(date -u +%Y-%m-%d)" \
