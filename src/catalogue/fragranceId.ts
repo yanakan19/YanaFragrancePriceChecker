@@ -963,6 +963,22 @@ const BUNDLE_PRODUCT_TYPE = /^\s*bundles?\s*$/i;
  */
 const BODY_PRODUCT_TYPE = /\b(?:profumo in crema|olio corpo)\b/i;
 
+/**
+ * A Shopify `product_type` that says the listing is a refill. A listing the
+ * shop itself labels a refill is out of the catalogue, the same as one whose
+ * title says so: "refill" is in NOT_A_FRAGRANCE, and a refill is not a bottle a
+ * shopper can compare with a plain one.
+ *
+ * Measured 2026-10-04: Escentric Molecules types 29 listings "Refill", and 18
+ * of them say so in the title ("Molecule 01 ATOM.ISER Refill 3 x 8.5ml"). The
+ * other 11 do not: "Molecule 01 30ml" at 60 pounds, "Escentric 03 30ml" at 65,
+ * "Molecule 01 + Iris 30ml" at 70. Those passed every title rule, shared a name,
+ * a size and a strength with Nicchia's 30ml bottle of the same fragrance at 92
+ * pounds, and were merged into its page as a second price for the same bottle.
+ * No other shop's product type contains the word.
+ */
+const REFILL_PRODUCT_TYPE = /\brefills?\b/i;
+
 export function sellsOnlyFragrance(retailerId: string): boolean {
   return getRetailer(retailerId)?.fragranceOnlyCatalogue === true;
 }
@@ -1252,6 +1268,7 @@ export function isFragrance(l: StoredListing): boolean {
   // below cannot see it.
   if (l.productType && BUNDLE_PRODUCT_TYPE.test(l.productType)) return false;
   if (l.productType && BODY_PRODUCT_TYPE.test(l.productType)) return false;
+  if (l.productType && REFILL_PRODUCT_TYPE.test(l.productType)) return false;
   // Asked of every shop, unlike the two rules inside the branch below — see
   // MULTI_PACK for why a quantity against a size is the one multi-pack signal
   // that survives contact with the whole catalogue.

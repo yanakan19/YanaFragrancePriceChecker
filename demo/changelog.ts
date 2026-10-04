@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.52.0',
+    date: '4 Oct 2026',
+    title: 'Refills no longer priced as bottles',
+    points: [
+      'Escentric Molecules 30ml refills are left out',
+      'They no longer sit beside Nicchia\'s £92 bottle',
+      'Anything a shop labels a refill stays out',
+    ],
+  },
+  {
     version: 'v3.51.0',
     date: '4 Oct 2026',
     title: 'Beauty Pie Le Smash Santal now shows',
