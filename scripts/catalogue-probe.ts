@@ -26,6 +26,9 @@ import { crawlViaSitemap, ROUTE_HEADERS } from '../src/catalogue/sitemapCrawl.js
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import { probeRobots, robotsHeaderVariants } from '../src/catalogue/robotsSource.js';
 import type { Retailer } from '../src/types/retailer.js';
+import type { StoredListing } from '../src/catalogue/types.js';
+import { isFragrance, sizeMl } from '../src/catalogue/fragranceId.js';
+import { readSizesFromProductPages } from '../src/catalogue/productPageSize.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const memoryPath = resolve(root, 'data/strategy-memory.json');
@@ -197,13 +200,33 @@ async function probeShopify(retailer: Retailer): Promise<void> {
     maxPages: SHOPIFY_PROBE_PAGES, gapMs,
     onProgress: (n, found) => console.log(`  ${n} fetched, ${found} found`),
   });
-  const priced = result.listings.filter((l) => l.priceGbp !== null);
+  let shown = result.listings;
+  if (retailer.sizeFromProductPage) {
+    // The same read the harvest makes, so the probe shows what a harvest would
+    // store: the feed has no size, the product page does.
+    const read = await readSizesFromProductPages(result.listings.filter((l) => l.priceGbp !== null), {
+      http: routeHttp, robots, headers: { ...(botOnly ? ROUTE_HEADERS : BROWSER_HEADERS), ...result.market.headers },
+      gapMs, marketParam: result.market.query.replace(/^\?/, '') || null,
+    });
+    const bySku = new Map(read.listings.map((l) => [l.retailerSku, l]));
+    shown = result.listings.map((l) => bySku.get(l.retailerSku) ?? l);
+    console.log(`  product pages  ${read.fetched} read, ${read.sized} sizes read, ${read.unsized.length} state no size, ${read.unread.length} not read`);
+    for (const u of read.unsized) console.log(`    states no size, left unsized: ${u}`);
+    for (const u of read.unread) console.log(`    not read: ${u}`);
+    for (const d of read.priceDisagreements) console.log(`    Shop now price differs from feed: ${d}`);
+  }
+  const priced = shown.filter((l) => l.priceGbp !== null);
+  const keptAsFragrance = priced.filter((l) => isFragrance({ ...l, retailerId: retailer.id } as unknown as StoredListing));
+  if (retailer.sizeFromProductPage) {
+    console.log(`  fragrances the site would keep: ${keptAsFragrance.length} of ${priced.length} priced`);
+    for (const l of keptAsFragrance) console.log(`    kept: ${l.rawTitle} | sizeMl ${sizeMl(l.rawTitle, l.description)} | £${l.priceGbp} | ${l.url}`);
+  }
   console.log(`  market asked   ${result.market.label} (${result.market.why})`);
   console.log(`  currency       ${result.currency.isSterling ? 'STERLING' : 'not proven'}: ${result.currency.reason}`);
   console.log(`  rate ${result.currency.rate ?? 'none'}, presented ${result.currency.presented ?? 'nothing'}, ` +
     `settles ${result.currency.settlement ?? 'nothing'}, country ${result.currency.country ?? 'nothing'}`);
   console.log(`  ${result.pagesFetched} pages, ${result.listings.length} listings, ${priced.length} priced in GBP`);
-  for (const l of result.listings) {
+  for (const l of shown) {
     const money = l.priceGbp !== null
       ? `£${l.priceGbp.toFixed(2)}`
       : l.nativePrice ? `withheld (${l.nativePrice.amount} ${l.nativePrice.currency})` : 'no price';

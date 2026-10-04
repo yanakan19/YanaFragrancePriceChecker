@@ -654,6 +654,17 @@ export interface Retailer {
    */
   botIdentityOnly?: boolean;
   /**
+   * The shop's feed states no bottle size for its perfumes, but each product
+   * page does, so the harvest reads the size from the page: per variant, from
+   * the page's own variants data, with robots.txt checked for every page and
+   * the crawler's honest user agent. See `src/catalogue/productPageSize.ts`.
+   * A page that states no size leaves the listing unsized, which the
+   * catalogue's size rule then keeps out of every comparison. Needs
+   * `shopifyStorefront: true`; set only where a shop has been measured to
+   * state sizes on its pages and not in its feed.
+   */
+  sizeFromProductPage?: boolean;
+  /**
    * The owner has decided that this shop's UK storefront price is acceptable
    * even though the shop converts it live from another currency, and has
    * checked what that shop's own cart and checkout charge a UK address.

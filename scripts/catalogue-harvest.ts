@@ -60,6 +60,7 @@ import { parseListings } from '../src/catalogue/jsonld.js';
 import { parseRenderedState } from '../src/catalogue/renderedState.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import { titleWithSizeFromUrl } from '../src/catalogue/sizeFromUrl.js';
+import { readSizesFromProductPages } from '../src/catalogue/productPageSize.js';
 import { checkApifyAccount } from '../src/catalogue/apifyAccount.js';
 import { checkApifyUsage } from '../src/catalogue/apifyUsage.js';
 import { looksLikeTimeouts, SLOW_SHOP_TIMEOUT_MS } from '../src/catalogue/strategy.js';
@@ -769,6 +770,10 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
   const discoveryPages = Math.max(0, Math.round(maxPages * (1 - (refreshShare ?? 0.3))));
 
   let result: SitemapCrawlResult;
+  // The market the Shopify walk settled on, so a product page read for a size
+  // is asked for the same one. Empty at the origin.
+  let pageMarketQuery = '';
+  let pageMarketHeaders: Record<string, string> = {};
   if (retailer.shopifyStorefront) {
     // The whole catalogue, every run: Shopify's own page cap, not --max. See
     // SHOPIFY_PAGE_SIZE in src/catalogue/shopifyProductsCrawl.ts for what
@@ -840,6 +845,9 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
           `(${shopifyResult.market.why}) — the origin quotes this runner something else`,
       );
     }
+
+    pageMarketQuery = shopifyResult.market.query.replace(/^\?/, '');
+    pageMarketHeaders = shopifyResult.market.headers;
 
     if (shopifyResult.isShopify && shopifyResult.listings.length > 0) {
       result = {
@@ -1183,6 +1191,30 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
     }
   }
 
+  // A size the shop's own product page states and its feed omits. One request
+  // per perfume page, robots.txt checked for each, asked as ourselves; a page
+  // that states none leaves the listing unsized. See
+  // src/catalogue/productPageSize.ts for the Beauty Pie measurement.
+  let pageSizes: Awaited<ReturnType<typeof readSizesFromProductPages>> | null = null;
+  if (retailer.sizeFromProductPage && retailer.shopifyStorefront && !viaProxy && !viaActor && withPrice.length > 0) {
+    pageSizes = await readSizesFromProductPages(withPrice, {
+      http,
+      robots,
+      headers: { ...shopHeaders, ...pageMarketHeaders },
+      gapMs,
+      marketParam: pageMarketQuery || null,
+      deadlineAt: shopDeadlineAt,
+      prior: new Map(priorLive.map((l) => [l.retailerSku, l.rawTitle])),
+    });
+    withPrice = pageSizes.listings as typeof withPrice;
+    for (const c of pageSizes.changes) console.log(`      page size  ${c}`);
+    for (const u of pageSizes.unsized) console.log(`      page states no size, left unsized  ${u}`);
+    for (const u of pageSizes.unread) console.log(`      page not read  ${u}`);
+    for (const d of pageSizes.priceDisagreements) {
+      console.log(`::warning::${retailer.id}: Shop now price on the page differs from the held price  ${d}`);
+    }
+  }
+
   // A size the shop states in its own product URL but omits from the title,
   // put back where every consumer of a listing already looks for it. Recovery
   // of a stated fact, never a guess — see src/catalogue/sizeFromUrl.ts for
@@ -1210,6 +1242,7 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
       (viaProxy ? '  [via Apify proxy]' : '') +
       (viaActor ? `  [via ${shopRenderTierName}]` : '') +
       (sizesRecovered ? `  [${sizesRecovered} sizes read from product URLs]` : '') +
+      (pageSizes ? `  [${pageSizes.sized} sizes read from ${pageSizes.fetched} product pages]` : '') +
       (refusals.length ? `  [refused ${refusals.length} page(s)]` : '') +
       (feedListings.length ? `  [+${feedListings.length} re-priced from ${feedPlatform} catalogue]` : '') +
       (refreshUrls.length ? `  [${refreshUrls.length} due for a page re-read]` : '') +

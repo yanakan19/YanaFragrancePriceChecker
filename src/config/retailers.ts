@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 74 retailers, 51 of them `enabled: true`. Every one of them is a legitimate
+ * 74 retailers, 52 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -5780,9 +5780,56 @@ export const RETAILERS: readonly Retailer[] = [
     // Beauty Pie") and nowhere in /products.json. Off rather than enabled
     // and empty, the same call as LUSH above. What would change it: reading
     // the size from the product page, or the shop adding it to the variant.
-    enabled: false,
+    //
+    // ── Sizes read from product pages, 2026-10-04, ENABLED again ────────────
+    // robots.txt read first (https://www.beautypie.com/robots.txt, HTTP 200,
+    // as PriceSniffsBot): one group for every agent, which disallows /admin,
+    // /cart/, /checkout, /checkouts/, /orders, /account, /cart.js,
+    // /recommendations/products, collection sort and filter crawl traps and a
+    // few preview parameters, and allows everything else. Product pages,
+    // /products.json and /meta.json are not disallowed. It sets no crawl delay.
+    // Every request is made as PriceSniffsBot (`botIdentityOnly`), 1.5 s apart.
+    //
+    // Each perfume's own page states its size, per variant, in the theme's
+    // variants data (`"size": "50ml"` beside the variant's `"sku"`), in the
+    // basket field `properties[Size]` and in the feature line under the title.
+    // 13 pages read that day, all 13 state 50ml, all with one variant, and the
+    // three places agree on every page. Only 3 of the 13 page titles carry the
+    // size ("Orris Florentina Eau De Parfum 50ml | Beauty Pie"), so the title
+    // is not used. `sizeFromProductPage: true` makes the harvest read that
+    // variants data (src/catalogue/productPageSize.ts) and append the stated
+    // size to the listing title, which every size rule already reads. A page
+    // that states no size, or not one plain millilitre figure, leaves the
+    // listing unsized; `isFragrance` then keeps it out and the matcher treats
+    // it as "cannot compare", so it is never offered against another size of
+    // the same scent at another shop. A page that cannot be read leaves the
+    // feed title as it is, except that a size read on an earlier run is kept
+    // for that one run.
+    //
+    // WHICH PRICE: the one a non member UK shopper sees. A product page offers
+    // two purchase options: "Shop now", the shop price that any visitor pays
+    // without joining (Orris Florentina Eau De Parfum 50ml, £59.00), and a
+    // separate, lower "Beauty Pie Member Price" for people who pay for Beauty
+    // Pie+ (£35.00 for that same bottle that day, with "82% of customers shop
+    // at member prices"). The page also shows an "October Member Credit: £5
+    // OFF" label, a member offer. Only "Shop now" is recorded. It is GBP, it is the figure in the
+    // page's JSON-LD offer, and it is the figure `/products.json` carries as
+    // the variant price, so the feed price is the non member price and the
+    // member price is never read. The harvest compares the page's "Shop now"
+    // figure with the held price for every page it opens and raises a warning
+    // when they differ. Member price, member free shipping and the £59 a year
+    // membership are not priced in.
+    //
+    // Left out on purpose: "Le Smash Santal" (type Fragrance, 50ml on its
+    // page) is titled with no concentration word in the feed, and the
+    // catalogue's fragrance rule requires one outside single fragrance
+    // shops, so it is read, sized and still not shown. Candles, hand creams,
+    // skincare and make up are not perfume and are not fetched.
+    enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
+    botIdentityOnly: true,
+    sizeFromProductPage: true,
     singleBrandOnly: 'Beauty Pie',
     currency: 'GBP',
     shipping: {
