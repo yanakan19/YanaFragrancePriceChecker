@@ -588,7 +588,8 @@ jobs:
             tests/renderTargets.test.ts tests/localBrowser.test.ts tests/apifyActor.test.ts \
             tests/apifyProxy.test.ts tests/apifyUsage.test.ts tests/apifyAccount.test.ts \
             tests/strategy.test.ts tests/registry.test.ts tests/freshness.test.ts \
-            tests/selfridgesRsc.test.ts tests/johnLewisNextData.test.ts
+            tests/selfridgesRsc.test.ts tests/johnLewisNextData.test.ts \
+            tests/sitemapDiscoveryComplete.test.ts
 
       - name: Test everything else
         id: fulltests
