@@ -1,7 +1,7 @@
 import type { AccountState } from './accountState.js';
 
 /**
- * The account menu at the top left of the bar, and the two pure helpers the
+ * The account menu at the top right of the bar, and the two pure helpers the
  * account pages lean on: the wishlist sort and the "Download My Data" file.
  *
  * Kept free of the DOM and of Supabase, like accountState.ts beside it, so
@@ -185,15 +185,22 @@ export interface DataExportInput {
   fragranceName: (id: string) => string | null;
   /** profiles.price_alerts, or null when the setting could not be read. */
   priceAlerts: boolean | null;
+  /**
+   * The profile photo. `stored` is null when photos are not switched on for
+   * the site (nothing can be stored), `dataUrl` is the file itself as a data:
+   * address, or null when there is none or it could not be read. Optional so
+   * an export built without it still says null rather than nothing.
+   */
+  photo?: { stored: boolean | null; contentType: string | null; dataUrl: string | null };
   exportedAt: Date;
 }
 
 /**
  * Everything the site holds about one account, as far as the signed in
- * browser can read it: the sign in record, the wishlist rows and the alert
- * choice. Built in the browser from the same reads the pages already make, so
- * there is no server of ours in between and nothing is added that is not
- * stored. Fields that could not be read say null rather than a guess.
+ * browser can read it: the sign in record, the wishlist rows, the alert
+ * choice and the profile photo. Built in the browser from the same reads the
+ * pages already make, so there is no server of ours in between and nothing
+ * is added that is not stored. Fields that could not be read say null rather than a guess.
  */
 export function buildDataExport(input: DataExportInput): Record<string, unknown> {
   return {
@@ -216,6 +223,11 @@ export function buildDataExport(input: DataExportInput): Record<string, unknown>
     })),
     alerts: {
       priceAlertEmails: input.priceAlerts,
+    },
+    profilePhoto: {
+      stored: input.photo?.stored ?? null,
+      contentType: input.photo?.contentType ?? null,
+      file: input.photo?.dataUrl ?? null,
     },
   };
 }

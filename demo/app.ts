@@ -18,8 +18,8 @@
  *   About          the mission, live numbers, method, FAQ, contact and legal
  *
  * Settings and the three account pages (profile, wishlist, notifications)
- * hang off the account menu at the far left of the bar instead of the nav
- * row (owner's account revamp, 2026-10-04).
+ * hang off the account menu at the far right of the bar, after the nav row
+ * (owner's account revamp, 2026-10-04; moved from the far left the same day).
  *
  * Everything else (a fragrance, a retailer, a note, a legal document) is a leaf
  * reached from one of those and always carries a Back control. Nothing is ever
@@ -104,12 +104,17 @@ import type { User } from '@supabase/supabase-js';
 import { accountState, wishlistControl, type AccountStateInput } from '../src/services/accountState.js';
 import {
   accountAvatar, accountButtonLabel, accountMenuItems, buildDataExport, dataExportFileName, sortWishlist,
-  changeSinceSaved, effectiveWishlistSort, wishlistSortsFor, type AccountMenuAction, type WishlistSort,
+  changeSinceSaved, effectiveWishlistSort, wishlistSortsFor, type AccountMenuAction, type DataExportInput,
+  type WishlistSort,
 } from '../src/services/accountMenu.js';
 import { ABOUT } from './legal.js';
 import { liveCounts } from './data.js';
 import { fetchWishlist, addToWishlist, removeFromWishlist, setTargetPrice, type WishlistEntry } from './wishlist.js';
 import { fetchPriceAlerts, setPriceAlerts, unsubscribe } from './priceAlerts.js';
+import {
+  fetchPhotoState, downloadPhoto, shrinkPhoto, savePhoto, removePhoto, removePhotoForDeletion, blobToDataUrl,
+} from './profilePhoto.js';
+import { checkPhotoFile, PHOTO_ACCEPT_ATTR } from '../src/services/profilePhoto.js';
 import { parseTargetPrice } from '../src/alerts/target.js';
 import { UNSUBSCRIBE_PARAM, unsubscribeMessage } from '../src/alerts/unsubscribe.js';
 
@@ -230,8 +235,20 @@ const state = {
   // The wishlist page's sort. Not kept across visits: a fresh visit starts
   // from the newest save, which is what the list was before it had a sort.
   wishlistSort: 'recent' as WishlistSort,
-  // The account menu at the top left of the bar (see openAccountMenu).
+  // The account menu at the top right of the bar (see openAccountMenu).
   accountMenuOpen: false,
+  // The profile photo (demo/profilePhoto.ts). photoAvailable is null until
+  // read, false when the owner has not run migration 0006 yet (no control is
+  // offered then), true once photos work. photoUrl is a blob: address for the
+  // stored photo, made in this browser from the reader's own download, and
+  // photoBroken is set when that image fails to show, so the button and the
+  // profile fall back to the initial.
+  photoAvailable: null as boolean | null,
+  photoPath: null as string | null,
+  photoBlob: null as Blob | null,
+  photoUrl: null as string | null,
+  photoBroken: false,
+  photoBusy: false,
 
 };
 
@@ -2234,6 +2251,41 @@ function loadPriceAlerts(): void {
   });
 }
 
+/** Shows a photo blob (or none) in the button and on the profile. */
+function setPhotoBlob(blob: Blob | null): void {
+  if (state.photoUrl) URL.revokeObjectURL(state.photoUrl);
+  state.photoBlob = blob;
+  state.photoUrl = blob ? URL.createObjectURL(blob) : null;
+  state.photoBroken = false;
+}
+
+/** Bumped whenever the photo is forgotten, so a read still in flight for the
+ *  previous reader cannot land on the next one's page. */
+let photoGeneration = 0;
+
+/** Forgets the photo, on sign out or when another reader signs in. */
+function clearPhoto(): void {
+  photoGeneration++;
+  setPhotoBlob(null);
+  state.photoAvailable = null;
+  state.photoPath = null;
+  state.photoBusy = false;
+}
+
+/** Reads whether photos work here and, if one is stored, fetches it. */
+function loadPhoto(): void {
+  const gen = photoGeneration;
+  void (async () => {
+    const p = await fetchPhotoState();
+    const blob = p.path ? await downloadPhoto(p.path) : null;
+    if (gen !== photoGeneration) return;
+    state.photoAvailable = p.available;
+    state.photoPath = p.path;
+    setPhotoBlob(blob);
+    renderInPlace();
+  })();
+}
+
 function loadWishlist(): void {
   fetchWishlist().then((entries) => {
     state.wishlistEntries = entries;
@@ -3526,7 +3578,7 @@ const CONTACT_TYPES = ['An Issue', 'A Suggestion', 'A Promotional Enquiry', 'Som
 
 /**
  * Preferences only (owner's account revamp, 2026-10-04): Theme and Layout.
- * The account entry row went to the account menu at the top left of the
+ * The account entry row went to the account menu at the top right of the
  * bar, and Contact Us and the Legal links went to the About page, which is
  * where a reader looking for who runs the site and on what terms looks.
  */
@@ -3909,8 +3961,8 @@ function accountGate(signedOut: { heading: string; note: string }): string | nul
           // every in-app page is reached by data-page; type="button" so they
           // can never submit the form they sit inside.
           signUpTab
-            ? `<p class="form-privacy t-caption">An account stores your email address, login and wishlist
-                with our account provider, Supabase. Creating one means you accept our
+            ? `<p class="form-privacy t-caption">An account stores your email address, login, wishlist
+                and a profile photo if you add one, with our account provider, Supabase. Creating one means you accept our
                 <button type="button" class="link-btn" data-page="terms">terms</button>. The
                 <button type="button" class="link-btn" data-page="privacy">privacy notice</button> says
                 what is kept and how to delete it.</p>`
@@ -3929,6 +3981,40 @@ function longDate(iso: string | null | undefined): string {
   if (!iso) return '';
   const d = new Date(iso);
   return Number.isNaN(d.getTime()) ? '' : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+/**
+ * The top of the profile: the photo (or the same initial the account button
+ * shows), and the Add, Change and Remove controls. Until photos are switched
+ * on for this site (migration 0006), no control is offered, only a plain
+ * line saying so; while that is still being read, nothing is said at all.
+ */
+function profilePhotoHtml(email: string): string {
+  const photo = shownPhotoUrl();
+  const letter = [...email.trim()][0]?.toLocaleUpperCase('en-GB') ?? '';
+  const face = photo
+    ? `<img class="profile-photo-img" data-acct-photo src="${esc(photo)}" alt="Your profile photo" width="96" height="96" decoding="async" />`
+    : `<span class="profile-photo-letter" aria-hidden="true">${esc(letter)}</span>`;
+  let controls = '';
+  if (state.photoAvailable === false) {
+    controls = `<p class="profile-photo-note t-caption">Adding a profile photo is not available yet.</p>`;
+  } else if (state.photoAvailable === true) {
+    const busy = state.photoBusy ? ' disabled' : '';
+    const has = state.photoPath !== null;
+    controls = `
+      <div class="profile-photo-actions">
+        <button type="button" class="seg-btn acct-download" id="acct-photo-pick"${busy}>${has ? 'Change Photo' : 'Add a Photo'}</button>
+        ${has ? `<button type="button" class="link-btn danger" id="acct-photo-remove"${busy}>Remove Photo</button>` : ''}
+      </div>
+      <input type="file" id="acct-photo-input" accept="${PHOTO_ACCEPT_ATTR}" hidden />
+      <p class="profile-photo-note t-caption" aria-live="polite">${state.photoBusy
+        ? 'Saving your photo.'
+        : 'JPEG, PNG or WebP. It is made into a small square in your browser and only you can see it.'}</p>`;
+  }
+  return `<section class="profile-photo" aria-label="Profile Photo">
+      <span class="profile-photo-face${photo ? ' has-photo' : ''}">${face}</span>
+      <div class="profile-photo-side">${controls}</div>
+    </section>`;
 }
 
 /** The heading each account page shows once signed in; head.ts titles match. */
@@ -3959,6 +4045,8 @@ function accountView(): string {
     <button class="back" data-back>Back</button>
     <article class="doc account-doc">
       <h1 class="t-page">${ACCOUNT_HEADINGS.account}</h1>
+
+      ${profilePhotoHtml(email)}
 
       <section class="acct-card" aria-label="Signed In As">
         <p class="acct-card-label t-eyebrow">Signed In As</p>
@@ -3998,7 +4086,8 @@ function accountView(): string {
 
       <h2 class="t-section">Your Data</h2>
       <p class="account-note">Download a file of everything we hold for your account: your email, when the
-        account was created, your wishlist and your alert settings. It is made in your browser.</p>
+        account was created, your wishlist, your alert settings and your profile photo if you added one. It is
+        made in your browser.</p>
       <button class="seg-btn acct-download" id="acct-download" type="button">Download My Data</button>
 
       <div class="account-actions">
@@ -4062,7 +4151,19 @@ function accountNotificationsView(): string {
 async function downloadMyData(): Promise<void> {
   const user = state.authUser;
   if (!user) return;
-  const [wishlist, alerts] = await Promise.all([fetchWishlist(), fetchPriceAlerts()]);
+  const [wishlist, alerts, photoState] = await Promise.all([fetchWishlist(), fetchPriceAlerts(), fetchPhotoState()]);
+  // The photo itself goes inside the file as a data: address, read fresh
+  // like everything else here. Null for "stored" when photos are not
+  // switched on for this site, so the file never claims a no it cannot know.
+  let photo: DataExportInput['photo'] = { stored: null, contentType: null, dataUrl: null };
+  if (photoState.available) {
+    const blob = photoState.path ? await downloadPhoto(photoState.path) : null;
+    photo = {
+      stored: photoState.path !== null,
+      contentType: blob?.type || null,
+      dataUrl: blob ? await blobToDataUrl(blob) : null,
+    };
+  }
   const now = new Date();
   const data = buildDataExport({
     email: user.email ?? null,
@@ -4074,6 +4175,7 @@ async function downloadMyData(): Promise<void> {
       return f ? `${f.brand} ${f.name}${f.sizeMl ? ` ${f.sizeMl}ml` : ''}` : null;
     },
     priceAlerts: alerts,
+    photo,
     exportedAt: now,
   });
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
@@ -4087,8 +4189,42 @@ async function downloadMyData(): Promise<void> {
   window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
+/**
+ * Add a Photo and Change Photo: checks the file, shrinks it to a small square
+ * in this browser (demo/profilePhoto.ts), then saves it. Every refusal is a
+ * pop up, as everywhere else on the account pages.
+ */
+async function addProfilePhoto(file: File): Promise<void> {
+  const check = checkPhotoFile(file);
+  if (!check.ok) {
+    void showDialog({ title: check.title, message: check.message });
+    return;
+  }
+  state.photoBusy = true;
+  renderInPlace();
+  const small = await shrinkPhoto(file);
+  if (!small) {
+    state.photoBusy = false;
+    renderInPlace();
+    void showDialog({ title: 'That Photo Could Not Be Read', message: 'Your browser could not open that image. Please choose another photo.' });
+    return;
+  }
+  const result = await savePhoto(small);
+  state.photoBusy = false;
+  if (!result.ok) {
+    renderInPlace();
+    void showDialog({ title: 'Photo Not Saved', message: result.message });
+    return;
+  }
+  state.photoPath = result.path;
+  setPhotoBlob(small);
+  renderInPlace();
+}
+
 /* ── the account menu ────────────────────────────────────────────────────────
-   The round button at the far left of the bar. A real <button> with
+   The round button at the far right of the bar, after the nav items (it
+   sat at the far left, before the brandmark, until the owner asked for it
+   on the right, 2026-10-04). A real <button> with
    aria-haspopup and aria-expanded, opening a list of items marked up as a
    menu. Every item is an ordinary button in the tab order, so Tab walks
    through it and on out the other side (nothing is trapped), and the arrow
@@ -4104,6 +4240,11 @@ async function downloadMyData(): Promise<void> {
 
 const ICON_PERSON = icon('<circle cx="12" cy="8.5" r="3.8" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 20c.9-3.9 3.9-6 7.5-6s6.6 2.1 7.5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>');
 
+/** The photo's blob: address while it is there and has not failed to show. */
+function shownPhotoUrl(): string | null {
+  return state.photoAvailable && state.photoPath && state.photoUrl && !state.photoBroken ? state.photoUrl : null;
+}
+
 /** Repaints the round button for the current account state. Cheap, and
  *  called on every render so a sign in or out shows without a reload. */
 function syncAccountButton(): void {
@@ -4111,14 +4252,20 @@ function syncAccountButton(): void {
   if (!btn) return;
   const s = accountState(accountStateInput());
   const avatar = accountAvatar(s);
-  const face = avatar.kind === 'letter'
-    ? `<span class="acct-letter" aria-hidden="true">${esc(avatar.letter)}</span>`
-    : `<span class="acct-icon" aria-hidden="true">${ICON_PERSON}</span>`;
+  const photo = avatar.signedIn ? shownPhotoUrl() : null;
+  // The photo, when there is one that has not failed to show; the initial
+  // otherwise. The image is decoration: the button's own label names it.
+  const face = photo
+    ? `<img class="acct-photo" data-acct-photo src="${esc(photo)}" alt="" width="38" height="38" decoding="async" />`
+    : avatar.kind === 'letter'
+      ? `<span class="acct-letter" aria-hidden="true">${esc(avatar.letter)}</span>`
+      : `<span class="acct-icon" aria-hidden="true">${ICON_PERSON}</span>`;
   if (btn.getAttribute('data-face') !== face) {
     btn.innerHTML = face;
     btn.setAttribute('data-face', face);
   }
   btn.classList.toggle('is-signed-in', avatar.signedIn);
+  btn.classList.toggle('has-photo', photo !== null);
   btn.setAttribute('aria-label', accountButtonLabel(s));
   btn.classList.toggle('on', ACCOUNT_VIEWS.includes(state.view) || state.view === 'settings');
   if (state.accountMenuOpen) fillAccountMenu();
@@ -5475,7 +5622,7 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   ($('#nav-explore') as HTMLElement).classList.toggle('on', inExplore || state.view === 'browse');
   ($('#nav-about') as HTMLElement).classList.toggle('on', state.view === 'about');
   // Settings and the account pages are reached from the account menu at the
-  // top left now, not from this row; its button carries the "you are here".
+  // top right now, not from this row; its button carries the "you are here".
   syncAccountButton();
 
   syncUpdatesHeight();
@@ -5602,6 +5749,8 @@ function init(): void {
   // these callbacks can possibly fire — accountView's own `!state.authChecked`
   // branch, and wishlistButton's own `!state.authChecked` branch, are what
   // cover that gap rather than this holding up startup for every page.
+  // Whose photo state holds, so a token refresh does not fetch it again.
+  let photoOwner: string | null = null;
   const handleAuthUser = (user: User | null) => {
     state.authUser = user;
     state.authChecked = true;
@@ -5619,7 +5768,16 @@ function init(): void {
     if (user && isVerified(user)) {
       loadWishlist();
       loadPriceAlerts();
+      // Once per reader: a token refresh fires this again for the same
+      // account, and the photo it already holds is still the right one.
+      if (photoOwner !== user.id) {
+        clearPhoto();
+        photoOwner = user.id;
+        loadPhoto();
+      }
     } else {
+      clearPhoto();
+      photoOwner = null;
       // A different reader may be signing in on the same device, or this one
       // just signed out — either way, the previous session's saved ids must
       // not linger and render as if they belonged to whoever is here now.
@@ -5765,6 +5923,16 @@ function init(): void {
     const dot = (e.target as HTMLElement).closest('.history-dot');
     if (dot && dot !== pinnedHistoryDot) hideHistoryTip();
   });
+  // A profile photo that will not show (a damaged file, a blob address that
+  // has gone) falls back to the initial, in the button and on the profile.
+  // Captured, because an image's error event does not bubble.
+  document.addEventListener('error', (e) => {
+    const t = e.target;
+    if (t instanceof HTMLImageElement && t.hasAttribute('data-acct-photo') && !state.photoBroken) {
+      state.photoBroken = true;
+      renderInPlace();
+    }
+  }, true);
 
   // The A-to-Z scrubber. `{ passive: false }` is what lets preventDefault
   // actually stop the page behind it scrolling during the drag — scoped to
@@ -6019,20 +6187,69 @@ function init(): void {
     }
 
     if (t.closest('#auth-delete')) {
+      const withPhoto = state.photoPath !== null;
       void showDialog({
         title: 'Delete Your Account?',
-        message: 'This permanently deletes your account and your wishlist. It cannot be undone.',
-        confirmLabel: 'Delete account',
+        message: `This permanently deletes your account, your wishlist${withPhoto ? ' and your profile photo' : ''}. It cannot be undone.`,
+        confirmLabel: 'Delete Account',
         danger: true,
-      }).then((yes) => {
+      }).then(async (yes) => {
         if (!yes) return;
-        deleteOwnAccount(COMPANY.feedbackEmail).then((result) => {
-          if (!result.ok) {
-            void showDialog({ title: 'Account Not Deleted', message: result.message });
-            return;
+        // The photo first, with the reader's own session: stored files do not
+        // go with the account on their own (see migration 0006). If it cannot
+        // be removed, the account stays, so no photo is ever left behind
+        // without an account to remove it from.
+        if (!(await removePhotoForDeletion())) {
+          void showDialog({
+            title: 'Account Not Deleted',
+            message: 'Your profile photo could not be deleted, so your account has been kept as it is. Please try again.',
+          });
+          return;
+        }
+        const result = await deleteOwnAccount(COMPANY.feedbackEmail);
+        if (!result.ok) {
+          // The photo is already gone; say so on the page rather than show it.
+          if (withPhoto) {
+            state.photoPath = null;
+            setPhotoBlob(null);
+            renderInPlace();
           }
-          void showDialog({ title: 'Account Deleted', message: 'Your account and wishlist have been deleted.', ok: true });
+          void showDialog({ title: 'Account Not Deleted', message: result.message });
+          return;
+        }
+        void showDialog({
+          title: 'Account Deleted',
+          message: `Your account, wishlist${withPhoto ? ' and profile photo have' : ' have'} been deleted.`,
+          ok: true,
         });
+      });
+      return;
+    }
+
+    if (t.closest('#acct-photo-pick')) {
+      document.querySelector<HTMLInputElement>('#acct-photo-input')?.click();
+      return;
+    }
+
+    if (t.closest('#acct-photo-remove')) {
+      void showDialog({
+        title: 'Remove Your Photo?',
+        message: 'Your profile photo will be deleted and your initial shown instead.',
+        confirmLabel: 'Remove Photo',
+        danger: true,
+      }).then(async (yes) => {
+        if (!yes) return;
+        state.photoBusy = true;
+        renderInPlace();
+        const result = await removePhoto();
+        state.photoBusy = false;
+        if (!result.ok) {
+          void showDialog({ title: 'Photo Not Removed', message: result.message });
+        } else {
+          state.photoPath = null;
+          setPhotoBlob(null);
+        }
+        renderInPlace();
       });
       return;
     }
@@ -6143,6 +6360,14 @@ function init(): void {
   document.addEventListener('change', (e) => {
     const t = e.target as HTMLElement;
     const id = t.id;
+    if (id === 'acct-photo-input') {
+      const input = t as HTMLInputElement;
+      const file = input.files?.[0];
+      // Cleared straight away so choosing the same file again still fires.
+      input.value = '';
+      if (file) void addProfilePhoto(file);
+      return;
+    }
     if (id === 'price-alerts') {
       const box = t as HTMLInputElement;
       const on = box.checked;

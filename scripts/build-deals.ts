@@ -42,9 +42,9 @@
  * don't-duplicate-the-matching-logic rule scripts/build-price-history.ts
  * already follows for isFragrance/fragranceId.
  */
-import { writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeGenerated } from './generatedFiles.js';
 import { DEMO_FRAGRANCES } from '../demo/data.js';
 import { CRAWLED } from '../demo/catalogue.generated.js';
 import { RETAILERS, getRetailer } from '../src/config/retailers.js';
@@ -283,7 +283,7 @@ export const DEALS_GENERATED_AT = ${JSON.stringify(generatedAt)};
 export const DEALS_RAW: RawDeal[] = ${JSON.stringify(deals, null, 2)};
 `;
 
-writeFileSync(resolve(root, 'demo/deals.generated.ts'), body);
+writeGenerated(root, 'demo/deals.generated.ts', body);
 
 {
   const houseDeals = deals.filter((d) => d.kind === 'house').length;

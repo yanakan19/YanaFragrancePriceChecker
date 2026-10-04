@@ -89,11 +89,15 @@ an error, then move to the next.
    a fragrance was saved, behind the wishlist's change since saved and Biggest
    Drop sort. Until it is run, both simply do not appear. See
    docs/OWNER-STEPS.md, 4f.
+6. `supabase/migrations/0006_profile_photo.sql` — profile photos: the private
+   `avatars` Storage bucket, its four own file policies, a check on
+   `profiles.avatar_path`, and the `profile_photos_enabled()` switch. See
+   step 9.
 
 Order matters: nothing in 0002 references 0001 directly, but 0001 is what
 makes an account exist in the first place.
 
-All five files are safe to run more than once. Every statement in them is
+All six files are safe to run more than once. Every statement in them is
 idempotent, so a half-finished paste, a re-run after fixing a typo, or simply
 not remembering whether you already did it all end in the same place.
 
@@ -241,6 +245,32 @@ cheapest delivered price (the product page's own headline figure, from the
 committed catalogue) with the stored one, and sends through Resend. Without
 both secrets it prints "not configured" and exits 0.
 
+### 9. Profile photos (migration 0006)
+
+Run `supabase/migrations/0006_profile_photo.sql` the same way. There is
+nothing to set by hand in the Storage pages; the script makes the bucket.
+Owner checks are in `docs/OWNER-STEPS.md`, section 6. What it adds:
+
+- **Storage bucket `avatars`**, private, 200 KB per file, `image/webp` and
+  `image/jpeg` only. One object per reader at `<user id>/avatar`.
+- **Four policies on `storage.objects`** (`read own avatar`, `upload own
+  avatar`, `replace own avatar`, `delete own avatar`), each `to
+  authenticated` and each matching only `bucket_id = 'avatars' and name =
+  auth.uid() || '/avatar'`.
+- **`profiles.avatar_path`** (already in 0001 for a fresh project) with a
+  check that it is null or the reader's own object path.
+- **`profile_photos_enabled()`**, created last, returns true. The site
+  calls it before offering the photo control; until it exists the profile
+  page says photos are not available yet.
+
+Why private: only the reader ever sees their own photo, so the site
+downloads it with the reader's session (`demo/profilePhoto.ts`) and shows it
+from a local blob address. No public or signed link to it is ever handed
+out. The browser crops it to a square of at most 256px and re-encodes it as
+WebP or JPEG through a canvas before upload, which drops all metadata.
+Delete Account removes the photo through the Storage API first, because
+stored files do not cascade from `auth.users`.
+
 ---
 
 ## What the migrations actually guarantee
@@ -256,8 +286,9 @@ delete one. Rows are created only by the `on_auth_user_created` trigger and
 removed only by the cascade off `auth.users`. Every policy is scoped `to
 authenticated`, so a signed-out visitor matches no policy at all.
 `display_name` and `avatar_path` are bounded (80 and 512 characters) the same
-way `wishlists`' columns are below — nothing in this repo writes to either
-column yet, but the update policy already lets a signed-in reader write to
+way `wishlists`' columns are below, and since 0006 `avatar_path` may only
+hold the reader's own photo path. Nothing in this repo wrote to either column
+before the profile photo; even so, the update policy already lets a signed-in reader write to
 them today, straight through PostgREST, and RLS alone says nothing about how
 big that write may be.
 

@@ -799,9 +799,13 @@ jobs:
             # failure in a step this late would do.
             if npm run storefront:reprice; then
               if ! git diff --quiet -- data/catalogue data/awin-feed-sync-state.json; then
-                npm run catalogue:demo
-                npm run catalogue:history
-                npm run demo
+                # `npm run rebuild` (catalogue:demo, deals:build,
+                # catalogue:history, demo), the same rebuild as after the
+                # harvest. This used to leave deals:build out, so a sync that
+                # moved prices committed a new demo/catalogue.generated.ts
+                # beside the old demo/deals.generated.ts for an hour: the split
+                # pair behind the 2026-09-01 wedge.
+                npm run rebuild
               fi
               echo "$NOW" > "$MARKER"
             else
@@ -815,13 +819,14 @@ jobs:
       - name: Commit synced Awin feeds
         if: ${{ inputs.awin_feed_sync || github.event_name == 'schedule' }}
         run: |
+          # Every "rebuild" path in scripts/generated-files.txt, read from the
+          # manifest rather than typed here (run #592; see that file).
+          REBUILT=$(scripts/generated-files.sh paths rebuild)
           ./scripts/commit-and-push.sh \
             "Awin feed sync: $(date -u +%Y-%m-%d)" \
             data/catalogue data/awin-feed-sync-state.json data/storefront-reprice-report.json \
             data/feed-sync-marker.txt \
-            demo/catalogue.generated.ts \
-            demo/priceHistory.generated.ts data/price-history-checkpoint.json \
-            demo/index.html demo/404.html demo/data demo/sitemap.xml
+            $REBUILT
 
       # Manual-only debug aid: prints the column headers and the values of
       # price-ish columns for one matched product row in one named Awin
@@ -1306,10 +1311,16 @@ jobs:
         continue-on-error: true
         timeout-minutes: 25
         run: |
-          npm run catalogue:demo
-          npm run deals:build
-          npm run catalogue:history
-          npm run demo
+          # `npm run rebuild` is catalogue:demo, deals:build,
+          # catalogue:history and demo, in that order (package.json), the same
+          # command scripts/commit-and-push.sh runs to settle a conflict.
+          MARK=$(node -e 'console.log(Date.now())')
+          npm run rebuild
+          # Fails the step, so nothing below commits, when the build wrote a
+          # committed file that scripts/generated-files.txt does not list as
+          # "rebuild": the commit below names exactly that list, and a page
+          # committed without one of its inputs is how run #592 started.
+          npx tsx scripts/check-generated-writes.ts --since-ms "$MARK"
 
       # Committed separately from the raw snapshots above on purpose — see
       # that step's comment.
@@ -1348,13 +1359,16 @@ jobs:
           # it is only meaningful next to the demo/catalogue.generated.ts it
           # was built from, so committing the two apart is the thing that
           # went wrong on 2026-09-01. One commit, one consistent pair.
+          #
+          # The rebuilt files are every "rebuild" path in
+          # scripts/generated-files.txt, read from the manifest. This list was
+          # typed out here until 2026-10-04, and demo/dormant.generated.ts,
+          # added to the build that morning, was missing from it.
+          REBUILT=$(scripts/generated-files.sh paths rebuild)
           ./scripts/commit-and-push.sh \
             "Rebuild demo: $(date -u +%Y-%m-%d) harvest" \
-            demo/catalogue.generated.ts demo/priceHistory.generated.ts \
-            data/price-history-checkpoint.json \
-            demo/deals.generated.ts \
-            demo/testCount.generated.ts \
-            demo/index.html demo/404.html demo/data demo/sitemap.xml
+            $REBUILT \
+            demo/testCount.generated.ts
 
       # Visible, not fatal: the harvest is already on the branch, the page is
       # one cycle old, and the next run rebuilds it. A warning annotation on
@@ -1511,16 +1525,15 @@ jobs:
 
       - name: Rebuild the app from the new snapshots
         if: ${{ inputs.crawl && !inputs.dry_run }}
-        run: |
-          npm run catalogue:demo
-          npm run demo
+        run: npm run rebuild
 
       - name: Commit what changed
         if: ${{ inputs.crawl && !inputs.dry_run }}
         run: |
+          REBUILT=$(scripts/generated-files.sh paths rebuild)
           ./scripts/commit-and-push.sh \
             "Catalogue: $(date -u +%Y-%m-%d)" \
-            data/catalogue demo/catalogue.generated.ts demo/index.html demo/404.html demo/data demo/sitemap.xml
+            data/catalogue $REBUILT
 
       # Keep the failure loud. A crawl that quietly stops working leaves stale
       # prices on the site, which is worse than showing nothing.

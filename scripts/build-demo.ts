@@ -41,6 +41,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, existsSync
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { computeDemoInputsHash, demoBuildHashComment } from './demoInputsHash.js';
+import { writeGenerated } from './generatedFiles.js';
 import {
   BLOBS_GLOBAL,
   LAZY_GLOBAL,
@@ -86,7 +87,7 @@ for (const g of groups) {
   expectedStart = g.start + g.count;
   const content = readFileSync(resolve(root, `dist-demo/data/${g.name}.json`), 'utf8');
   const path = hashedDataPath(g.name, content);
-  writeFileSync(resolve(root, 'demo', path), content);
+  writeGenerated(root, `demo/${path}`, content);
   dataFiles.push({ path, start: g.start });
   dataParts.push(content.slice(1, -1));
 }
@@ -97,7 +98,7 @@ const lazyInline: string[] = [];
 for (const name of lazy) {
   const content = readFileSync(resolve(root, `dist-demo/data/${name}.json`), 'utf8');
   const path = hashedDataPath(name, content);
-  writeFileSync(resolve(root, 'demo', path), content);
+  writeGenerated(root, `demo/${path}`, content);
   lazyFiles.push({ name, path });
   lazyInline.push(`${JSON.stringify(name)}:${content}`);
 }
@@ -188,7 +189,7 @@ ${verificationMeta()}
 ${body}
 </html>
 `;
-writeFileSync(resolve(root, 'demo/index.html'), standalone);
+writeGenerated(root, 'demo/index.html', standalone);
 
 // GitHub Pages serves 404.html for any path that is not a real file, which is
 // every in-app route: /brands, /fragrance/ean-123 and so on exist only inside
@@ -197,7 +198,7 @@ writeFileSync(resolve(root, 'demo/index.html'), standalone);
 // the right view. Byte-identical on purpose — no redirect hop, no query-string
 // relay, and no flash of a different page, because there is no server-rendered
 // content that could differ between the two entry points.
-writeFileSync(resolve(root, 'demo/404.html'), standalone);
+writeGenerated(root, 'demo/404.html', standalone);
 
 // /ads.txt, naming the AdSense account as the site's one authorised seller.
 // Published from demo/ like robots.txt and CNAME (the Pages workflow uploads
@@ -206,7 +207,7 @@ writeFileSync(resolve(root, 'demo/404.html'), standalone);
 // never names an account the site does not have.
 const adsTxtPath = resolve(root, 'demo/ads.txt');
 const adsTxtBody = adsTxt();
-if (adsTxtBody) writeFileSync(adsTxtPath, adsTxtBody);
+if (adsTxtBody) writeGenerated(root, 'demo/ads.txt', adsTxtBody);
 else if (existsSync(adsTxtPath)) rmSync(adsTxtPath);
 
 console.log(`demo/index.html          ${(standalone.length / 1024).toFixed(1)} kB`);

@@ -478,6 +478,17 @@
     .navbtn { font-size: 14.5px; }
     .brandmark { font-size: 19.5px; }
   }
+  /* The narrow layout keeps its 460px column (--col) on any screen, so a
+     tablet, or any window under 900px wide, draws the bar in the same 460px
+     a large phone does even though the viewport itself is wider. Measured at
+     768 with the account button at the right: About was cut off behind the
+     nav row's sideways scroll. So the narrow layout always takes the large
+     phone sizes above. :where() keeps this at the specificity of the plain
+     selectors, so the smaller phone steps below still win by order. */
+  :where(:root:not([data-layout="desktop"])) .bar-row,
+  :where(:root:not([data-layout="desktop"])) .nav-items { gap: 13px; }
+  :where(:root:not([data-layout="desktop"])) .navbtn { font-size: 14.5px; }
+  :where(:root:not([data-layout="desktop"])) .brandmark { font-size: 19.5px; }
   /* Smallest phones still in circulation (iPhone 13 mini is 375px). */
   @media (max-width: 430px) {
     .bar-row { gap: 10px; }
@@ -487,11 +498,14 @@
   }
 
   /* ── account menu (owner's revamp, 2026-10-04) ─────────────────────────
-     The round button at the far left of the bar, before the brandmark. An
+     The round button at the far right of the bar, after the nav items (it
+     moved there from before the brandmark the same day, at the owner's
+     request). The nav row grows to fill the middle, so the button always
+     sits against the right edge. A photo once the reader has added one, an
      initial once signed in, a person icon otherwise. Its panel drops down
-     under it on a wide screen and becomes a sheet from the bottom of the
-     screen on a phone (the max-width block below), the same shape as the
-     .sheet the brand chooser used. */
+     under it, lined up with the right edge, on a wide screen and becomes a
+     sheet from the bottom of the screen on a phone (the max-width block
+     below), the same shape as the .sheet the brand chooser used. */
   .acct { position: relative; flex: none; display: flex; }
   .acct-btn {
     width: 38px; height: 38px; flex: none; border-radius: 50%; cursor: pointer;
@@ -503,6 +517,10 @@
   .acct-btn .ico { width: 20px; height: 20px; }
   .acct-btn.is-signed-in { background: var(--accent); border-color: var(--accent); color: var(--accent-on); }
   .acct-letter { font-size: 16px; font-weight: 750; line-height: 1; letter-spacing: 0; }
+  /* The photo fills the disc. Its own ring stays, so a photo with a pale or
+     dark edge still reads as a button on either theme. */
+  .acct-btn.has-photo { overflow: hidden; background: var(--surface-2); border-color: var(--line-firm); }
+  .acct-photo { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
   .acct-btn.on:not(.is-signed-in) { border-color: var(--accent); color: var(--ink); }
   .acct-btn.on.is-signed-in { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); }
   .acct-btn[aria-expanded="true"] { border-color: var(--accent); }
@@ -512,7 +530,7 @@
     .acct-btn:hover { border-color: var(--accent); }
   }
   .acct-pop {
-    position: absolute; top: calc(100% + 10px); left: 0; z-index: 40;
+    position: absolute; top: calc(100% + 10px); right: 0; left: auto; z-index: 40;
     min-width: 248px; max-width: min(320px, calc(100vw - 32px));
     background: var(--surface); border: 1px solid var(--line-firm); border-radius: 14px;
     box-shadow: var(--shadow-lift); padding: 6px;
@@ -548,7 +566,8 @@
     }
     .acct-item { min-height: 48px; font-size: 16px; }
   }
-  /* The account button costs the row about 40px, so the phone steps below
+  /* The account button costs the row about 40px (it sits at the right end
+     now, but the sum is the same), so the phone steps below
      tighten the row to keep all four nav words in view without scrolling
      (measured in Chromium: at 390, 375 and 320 the whole row fits, and the
      quick search keeps its full width under it). */
@@ -2822,6 +2841,24 @@
   .acct-card-label { color: var(--faint); }
   .doc .acct-card .acct-card-value { margin-top: 4px; font-size: 16px; font-weight: 650; color: var(--ink); overflow-wrap: anywhere; }
   .doc .acct-card .acct-card-note { margin-top: 4px; color: var(--ink-2); }
+  /* The top of the profile: the photo (or the initial), with its controls. */
+  .profile-photo { display: flex; align-items: center; gap: 16px; margin: 0 0 14px; }
+  .profile-photo-face {
+    flex: none; width: 96px; height: 96px; border-radius: 50%; overflow: hidden;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--accent); color: var(--accent-on); border: 1px solid var(--accent);
+  }
+  .profile-photo-face.has-photo { background: var(--surface-2); border-color: var(--line-firm); }
+  .profile-photo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .profile-photo-letter { font-size: 40px; font-weight: 750; line-height: 1; }
+  .profile-photo-side { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+  .profile-photo-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+  .doc .profile-photo-note { margin: 0; color: var(--ink-2); }
+  @media (max-width: 360px) {
+    .profile-photo { gap: 12px; }
+    .profile-photo-face { width: 72px; height: 72px; }
+    .profile-photo-letter { font-size: 30px; }
+  }
   .acct-shortcuts { display: flex; flex-direction: column; gap: 8px; margin: 14px 0 4px; }
   .acct-shortcuts .account-entry { max-width: none; margin: 0; min-height: 48px; }
   .acct-shortcuts .account-entry svg { transform: rotate(-90deg); }
@@ -2884,7 +2921,7 @@
 
 <!-- The first thing a keyboard reaches, and the first thing a screen reader
      meets. Without it, getting to a fragrance list means tabbing through the
-     account button, brandmark, four nav buttons and the search box on every page. It
+     brandmark, four nav buttons, account button and the search box on every page. It
      is off-screen until focused, which is the only correct way to do this:
      display:none would take it out of the tab order and defeat the purpose. -->
 <a class="skip-link" href="#view">Skip to the Main Content</a>
@@ -2896,16 +2933,6 @@
 <div class="app">
   <div class="bar">
     <div class="bar-row">
-      <!-- The account menu: the round button, then the panel it opens,
-           adjacent in the document so Tab from the button reaches the first
-           item. Filled and driven by demo/app.ts (openAccountMenu). The
-           backdrop only shows on a phone, where the panel is a bottom sheet. -->
-      <nav class="acct" aria-label="Account">
-        <button class="acct-btn" id="account-btn" type="button" aria-haspopup="menu" aria-expanded="false"
-                aria-controls="account-menu" aria-label="Account menu"><span class="acct-icon" aria-hidden="true"></span></button>
-        <div class="acct-back" id="account-menu-back" hidden></div>
-        <div class="acct-pop" id="account-pop" hidden></div>
-      </nav>
       <button class="brandmark" id="brand-home" aria-label="PriceSniffs, go to home">Price<em>Sniffs</em></button>
       <div class="nav-items">
         <button class="navbtn" id="nav-home">Home</button>
@@ -2913,6 +2940,20 @@
         <button class="navbtn" id="nav-explore">Explore</button>
         <button class="navbtn" id="nav-about">About</button>
       </div>
+      <!-- The account menu, last in the row at the far right (owner's request,
+           2026-10-04; it sat before the brandmark until then): the round
+           button, then the panel it opens,
+           adjacent in the document so Tab from the button reaches the first
+           item. Filled and driven by demo/app.ts (openAccountMenu). The
+           backdrop only shows on a phone, where the panel is a bottom sheet.
+           Keyboard order across the bar: brandmark, the four nav items, this
+           button, then the quick search below the row. -->
+      <nav class="acct" aria-label="Account">
+        <button class="acct-btn" id="account-btn" type="button" aria-haspopup="menu" aria-expanded="false"
+                aria-controls="account-menu" aria-label="Account menu"><span class="acct-icon" aria-hidden="true"></span></button>
+        <div class="acct-back" id="account-menu-back" hidden></div>
+        <div class="acct-pop" id="account-pop" hidden></div>
+      </nav>
     </div>
     <!-- A search landmark, so assistive technology can jump to it and every
          piece of page content sits inside some landmark (axe "region",
