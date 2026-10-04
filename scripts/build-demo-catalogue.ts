@@ -29,6 +29,7 @@ import type { StockState } from '../src/types/offer.js';
 import { RETAILERS, cannotCarryBrand } from '../src/config/retailers.js';
 import type { Retailer } from '../src/types/retailer.js';
 import { HOUSES } from '../src/config/houses.js';
+import { HOUSE_STRENGTH_EVIDENCE } from '../src/catalogue/houseStrengthEvidence.js';
 import {
   buildBrandCanon,
   armafLineName,
@@ -960,6 +961,16 @@ for (const product of products.values()) {
     });
   }
 }
+// Houses with no UK shop of their own: what their own page says, recorded per
+// bottle with the page and the day (src/catalogue/houseStrengthEvidence.ts).
+for (const e of HOUSE_STRENGTH_EVIDENCE) {
+  for (const size of e.sizesMl) {
+    houseStatements.push({
+      key: concentrationBlindKey({ id: `evidence-${e.brand}-${e.name}-${size}`, brand: e.brand, name: e.name, concentration: '', sizeMl: size, ean: null }),
+      stated: e.concentration,
+    });
+  }
+}
 // settleHouseConcentrations holds the refusals, including the one a silent
 // house listing beside a stated one earns: see its own comment.
 const houseConcentrations = settleHouseConcentrations(houseStatements);
@@ -976,6 +987,33 @@ for (const product of products.values()) {
   if (product.concentration === truth) continue;
   product.concentration = truth;
   concentrationCorrectedByHouse++;
+}
+
+/* ── the house's word, where the shop wrote the strength into the name ────────
+   Emirates Oud's "Atlantis Extrait Perfume 100ml EDP French Avenue" is a French
+   Avenue bottle named "Atlantis Extrait" whose strength field says Eau de Parfum:
+   the shop writes EDP on nearly every title it has, and "Extrait" is the one word
+   it chose for this bottle. French Avenue's own UK shop sells "Atlantis Extrait
+   De Parfum 100ml". The house settled the bottle without the word, so the house
+   key above never met this product, and the two stayed apart at eight shops.
+
+   Where a name carries the bare word Extrait and the house states Extrait de
+   Parfum for the same bottle with that word taken out, the shop's own name agrees
+   with the house, and the strength field (the shop's template) is the part that
+   is wrong. Only that case: the house must state exactly Extrait de Parfum, and
+   a name that is nothing but "Extrait" is left alone. A bottle whose house says
+   Eau de Parfum is never touched, so "X Extrait" stays the flanker it may be. */
+let concentrationFromNameAndHouse = 0;
+for (const product of products.values()) {
+  if (product.giftSet !== null || product.concentration === 'Extrait de Parfum') continue;
+  if (houseConcentrations.has(concentrationBlindKey(product))) continue;
+  const bare = product.name.replace(/\bextrait\b/gi, ' ').replace(/\s{2,}/g, ' ').trim();
+  if (bare === product.name || bare === '') continue;
+  const truth = houseConcentrations.get(concentrationBlindKey({ ...product, name: bare }));
+  if (truth !== 'Extrait de Parfum') continue;
+  product.concentrationFromHouse = truth;
+  product.concentration = truth;
+  concentrationFromNameAndHouse++;
 }
 
 /* ── the manufacturer's word reaches the listings that have no barcode ────────
@@ -2618,6 +2656,13 @@ console.log(
       `fragrance house states on its own UK storefront; ${concentrationCorrectedByHouse} of them ` +
       'had been carrying a reseller-titled strength the house contradicts, so those merge with the ' +
       'listings that already had it right (see "the house\'s own word on the strength" above).',
+  );
+}
+
+if (concentrationFromNameAndHouse > 0) {
+  console.log(
+    `${concentrationFromNameAndHouse} products carry the word Extrait in their name and the house states Extrait de Parfum ` +
+      'for the same bottle without it, so they took the house\'s strength ("the house\'s word, where the shop wrote the strength into the name").',
   );
 }
 
