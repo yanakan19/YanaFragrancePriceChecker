@@ -144,6 +144,21 @@ export const BRAND_MERGES: readonly (readonly [from: string, to: string])[] = [
   ['French Avenue (FA PARIS)', 'French Avenue'],
   ['Le Couvent', 'Le Couvent Maison de Parfum'],
   ['Le Couvent des Minimes', 'Le Couvent Maison de Parfum'],
+  // Decided by the owner on 2026-10-04, each against the catalogue first: the
+  // second name is a line, a sub label or a fuller spelling of the first house.
+  ['Al Rehab Crown Perfumes', 'Al Rehab'],
+  ['Risala Elite', 'Risala'],
+  ['al wataniah Perfume', 'Alwataniah'],
+  ['Signature Sillage D\'Orient', 'Sillage D\'Orient'],
+  // One house, three brand strings. The same perfumes sit under all of them
+  // ("Prestige Y" under New Brand, "Y" under New Brand Prestige; "Prestige
+  // Dani", "Prestige Secret" and "Prestige My Brand" against "Dani For
+  // Women", "Secret For Women" and "My Brand For Women"), and the barcodes
+  // share the 5425017 and 5425039 prefixes whichever string the shop used.
+  ['New Brand Perfumes', 'New Brand'],
+  ['New Brand Prestige', 'New Brand'],
+  // The umbrella house; Bridgerton is a collaboration line within it.
+  ['Floral Street x Bridgerton', 'Floral Street'],
   // The house's full name on one side and a shortened form on the other.
   ['Francis Kurkdjian', 'Maison Francis Kurkdjian'],
   ['Alfred Dunhill', 'Dunhill'],
