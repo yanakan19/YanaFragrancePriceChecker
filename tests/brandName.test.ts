@@ -283,10 +283,10 @@ describe('buildBrandCanon', () => {
     expect(canon.get('New Brand Parfums')).toBe('New Brand');
   });
 
-  it('does not fold "New Brand Perfumes" or "New Brand Prestige" into New Brand — no shared product names found', () => {
+  it('folds "New Brand Perfumes" and "New Brand Prestige" into New Brand, one house under three strings', () => {
     const canon = buildBrandCanon(['New Brand', 'New Brand Parfums', 'New Brand Perfumes', 'New Brand Prestige']);
-    expect(canon.get('New Brand Perfumes')).toBe('New Brand Perfumes');
-    expect(canon.get('New Brand Prestige')).toBe('New Brand Prestige');
+    expect(canon.get('New Brand Perfumes')).toBe('New Brand');
+    expect(canon.get('New Brand Prestige')).toBe('New Brand');
   });
 
   it('folds accent-stripped spellings the same way as the existing Estee Lauder/Lancome/Hermes entries', () => {

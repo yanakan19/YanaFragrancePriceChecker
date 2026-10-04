@@ -50,20 +50,41 @@ describe('BRAND_MERGES', () => {
 
   it('leaves genuinely different houses apart', () => {
     const canon = buildBrandCanon([
-      'Maison Margiela', 'Margiela', 'Al Haramain', 'Al Rehab', 'Al Rehab Crown Perfumes', 'Essential Parfums',
-      'Essential Perfumes', 'New Brand', 'New Brand Prestige', 'Lamborghini', 'Tonino Lamborghini',
+      'Maison Margiela', 'Margiela', 'Al Haramain', 'Al Rehab', 'Essential Parfums',
+      'Essential Perfumes', 'New Brand', 'Lamborghini', 'Tonino Lamborghini',
       'Collection Prestige', 'Designer Collection', 'Designer Fragrances', 'Orchid', 'Gulf Orchid',
     ]);
     expect(canon.get('Maison Margiela')).toBe('Maison Margiela');
     expect(canon.get('Margiela')).toBe('Margiela');
     expect(canon.get('Al Haramain')).toBe('Al Haramain');
     expect(canon.get('Al Rehab')).toBe('Al Rehab');
-    expect(canon.get('Al Rehab Crown Perfumes')).toBe('Al Rehab Crown Perfumes');
     expect(canon.get('Essential Parfums')).toBe('Essential Parfums');
     expect(canon.get('Essential Perfumes')).toBe('Essential Perfumes');
-    expect(canon.get('New Brand Prestige')).toBe('New Brand Prestige');
     expect(canon.get('Lamborghini')).toBe('Lamborghini');
+    expect(canon.get('Tonino Lamborghini')).toBe('Tonino Lamborghini');
     expect(canon.get('Orchid')).toBe('Orchid');
+  });
+
+  it('applies the owner decisions of 4 Oct 2026 and leaves the refused pairs apart', () => {
+    const canon = buildBrandCanon([
+      'Al Rehab', 'Al Rehab Crown Perfumes', 'Risala', 'Risala Elite', 'Alwataniah', 'al wataniah Perfume',
+      'Sillage D\'Orient', 'Signature Sillage D\'Orient', 'New Brand', 'New Brand Perfumes', 'New Brand Prestige',
+      'Floral Street', 'Floral Street x Bridgerton', 'Essential Parfums', 'Essential Perfumes', 'Lamborghini',
+      'Tonino Lamborghini', 'Orchid', 'Gulf Orchid',
+    ]);
+    expect(canon.get('Al Rehab Crown Perfumes')).toBe('Al Rehab');
+    expect(canon.get('Risala Elite')).toBe('Risala');
+    expect(canon.get('al wataniah Perfume')).toBe('Alwataniah');
+    expect(canon.get('Signature Sillage D\'Orient')).toBe('Sillage D\'Orient');
+    expect(canon.get('New Brand Perfumes')).toBe('New Brand');
+    expect(canon.get('New Brand Prestige')).toBe('New Brand');
+    expect(canon.get('Floral Street x Bridgerton')).toBe('Floral Street');
+    // Refused: different houses, or not shown to be one.
+    expect(canon.get('Essential Perfumes')).toBe('Essential Perfumes');
+    expect(canon.get('Essential Parfums')).toBe('Essential Parfums');
+    expect(canon.get('Tonino Lamborghini')).toBe('Tonino Lamborghini');
+    expect(canon.get('Orchid')).toBe('Orchid');
+    expect(canon.get('Gulf Orchid')).toBe('Gulf Orchid');
   });
 
   it('adds no Intense strength anywhere: a brand merge touches brand names only', () => {
