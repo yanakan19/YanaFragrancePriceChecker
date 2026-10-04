@@ -8402,21 +8402,23 @@ export const RETAILERS: readonly Retailer[] = [
     // product pages, one request per page), robots.txt checked for each
     // address (product pages are not disallowed), 1.5 s apart, the shop's gap
     // (it sets no crawl delay for us), inside the harvest's own time. A page
-    // costs about 4 s all in, so a 40 minute shop budget reads some 550 of the
-    // 758; the pages not reached keep what the feed says until a later run
+    // costs about 4 s all in, so a 40 minute shop budget reads some 550 to 630 of
+    // the 758; the pages not reached keep what the feed says until a later run
     // gets to them. Order of reading: pages that held a pre-order last run
     // first (so a bottle that ships stops saying Preorder promptly), then pages
     // never read, then the oldest read. A page that cannot be read leaves the
     // feed's word, except a pre-order read within 7 days is kept. A bottle the
     // feed calls sold out is never a pre-order and its page is not asked for.
-    // First read (dry run, 557 of 758 pages reached, 3 answered HTTP 503 and
-    // were left as the feed says): 109 listings are PreOrder, among them the
-    // La Closerie Cacao and Patchouli lines, Caron Parfum Sacre, Rose Ivoire,
+    // First read (stored run, 45 minute shop budget, 631 of 758 pages reached,
+    // the 127 left for later runs keep the feed's word until read): 129 of the
+    // 918 listings the feed called available are PreOrder, among them the La
+    // Closerie Cacao and Patchouli lines, Caron Parfum Sacre, Rose Ivoire,
     // Fleur de Rocaille, Lady Caron, Tabac Exquis, Pois de Senteur and Pour Un
     // Homme, Atmah, Outopia, Le Regent, the Kajal series, This Is Not A Blue
-    // Bottle, Reunion Vanilla, Dead Air and Naked Dance. About one bottle in
-    // five on the shop's shelf is a pre-order, which is why the page read is
-    // not optional. The site shows each as Preorder, under Sold Out, and never
+    // Bottle, Reunion Vanilla, Dead Air and Naked Dance. An earlier dry run
+    // (557 pages) found 109 and three pages answered HTTP 503 and were left as
+    // the feed says. About one bottle in six that the feed calls available is a
+    // pre-order, which is why the page read is not optional. The site shows each as Preorder, under Sold Out, and never
     // counts one as stock.
     enabled: true,
     adapter: 'unknown',
