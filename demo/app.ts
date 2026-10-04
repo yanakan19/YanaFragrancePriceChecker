@@ -68,7 +68,7 @@ import { LIST_SORT_OPTIONS, sortFragrances, type BrowseSort, type ListSort } fro
 import {
   PER_ROW_CHOICES, PER_ROW_DEFAULT, clampPerRow, gridWidthFor, perRowChoicesFor,
 } from './tileDensity.js';
-import { trustpilotStateFor } from './trustpilotWidget.js';
+import { trustpilotStateFor, trustpilotLinkMarkup, TRUSTPILOT_LINK_TEXT } from './trustpilotWidget.js';
 import { COVERAGE } from './legal.js';
 import { marqueeHtml, marqueePhrases } from './marquee.js';
 import { adSlotHtml, interleaveAds, isGridAd } from './ads.js';
@@ -2941,43 +2941,43 @@ function retailersPanel(): string {
 }
 
 /**
- * Trustpilot's own "TrustBox" embed, in its Micro Star template — a compact
- * star rating and review count, right-sized for sitting under delivery facts
- * rather than a full review carousel. `trustpilotStateFor` (demo/
- * trustpilotWidget.ts) decides which of two things this is: the widget, once
- * a `trustpilotBusinessId` is configured, or an honest "No Trustpilot
- * reviews available" note in its place — the owner's explicit call, so a
- * reader sees a stated absence rather than silence indistinguishable from
- * "this shop has no delivery facts either". The fallback link inside the
- * widget itself is Trustpilot's own convention — if their script never loads
- * (blocked, offline, slow), a plain link to the real review page is what a
- * reader sees instead of a blank box.
+ * A shop's Trustpilot block: a plain link to the shop's own review page, and
+ * nothing else unless a Trustpilot business id is also on file.
+ * `trustpilotStateFor` (demo/trustpilotWidget.ts) decides what shows. A shop
+ * without a verified review page shows nothing at all, not a placeholder.
+ * No score, star rating or review count is copied; the reader goes to
+ * Trustpilot for those.
+ *
+ * Where a business id is also on file, a button offers Trustpilot's own
+ * "TrustBox" rating widget (Micro Star template), and that is the one thing
+ * here that loads from Trustpilot's servers.
  */
 function trustpilotWidget(r: Retailer): string {
   const state = trustpilotStateFor(r);
-  if (state.kind === 'unavailable') {
-    return `<p class="trustpilot-unavailable t-caption dimmer">${esc(state.message)}</p>`;
-  }
+  if (state.kind === 'none') return '';
+  const link = trustpilotLinkMarkup(state, ICON_EXTERNAL);
+  if (state.kind === 'link') return `<div class="trustpilot-block">${link}</div>`;
   // Nothing is fetched from Trustpilot until the reader asks for it. Their
   // bootstrap script is the one third-party script this site can load, and
   // loading it on page view would store and send things on Trustpilot's
-  // behalf before anyone had agreed to anything — the exact case PECR
+  // behalf before anyone had agreed to anything: the exact case PECR
   // regulation 6 requires consent for. A button that says what it will do,
   // and does it only when pressed, is that consent, given where it is
   // needed and withheld by simply not pressing it. The plain link to the
   // review page is there regardless, so the fact is never hidden behind the
   // widget. See the cookies page.
   return `<div class="trustpilot-block trustpilot-consent">
+    ${link}
     <button type="button" class="link-btn tp-show"
             data-tp-show="${esc(state.businessId)}" data-tp-review="${esc(state.reviewUrl)}"
+            data-tp-shop="${esc(r.name)}"
             aria-describedby="tp-consent-note">Show ${esc(r.name)}'s Trustpilot Rating</button>
-    <a href="${esc(state.reviewUrl)}" target="_blank" rel="noopener nofollow">See Reviews on Trustpilot</a>
     <span id="tp-consent-note" class="t-caption dimmer">Loads Trustpilot's widget from their servers, under their privacy policy.</span>
   </div>`;
 }
 
 /** The TrustBox itself, rendered only after showTrustpilot() has been asked to. */
-function trustpilotWidgetMarkup(businessId: string, reviewUrl: string, theme: 'light' | 'dark'): string {
+function trustpilotWidgetMarkup(businessId: string, reviewUrl: string, theme: 'light' | 'dark', shopName: string): string {
   return `<div
       class="trustpilot-widget"
       data-trustpilot-widget
@@ -2988,7 +2988,7 @@ function trustpilotWidgetMarkup(businessId: string, reviewUrl: string, theme: 'l
       data-style-width="100%"
       data-theme="${theme}"
     >
-      <a href="${esc(reviewUrl)}" target="_blank" rel="noopener nofollow">See Reviews on Trustpilot</a>
+      <a href="${esc(reviewUrl)}" target="_blank" rel="noopener" aria-label="${esc(`${TRUSTPILOT_LINK_TEXT} for ${shopName}, opens in a new tab`)}">${TRUSTPILOT_LINK_TEXT}</a>
     </div>`;
 }
 
@@ -3009,7 +3009,7 @@ function showTrustpilot(button: HTMLElement): void {
   const block = button.closest<HTMLElement>('.trustpilot-block');
   if (!block || !businessId) return;
   block.classList.remove('trustpilot-consent');
-  block.innerHTML = trustpilotWidgetMarkup(businessId, reviewUrl, currentTheme());
+  block.innerHTML = trustpilotWidgetMarkup(businessId, reviewUrl, currentTheme(), button.getAttribute('data-tp-shop') ?? '');
   mountTrustpilotWidgets();
 }
 

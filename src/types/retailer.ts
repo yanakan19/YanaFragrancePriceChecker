@@ -866,12 +866,30 @@ export interface Retailer {
    * enough, and neither is guessing. `null` (the default for every retailer
    * below) means exactly what it always means in this registry: not
    * confirmed yet, so nothing is shown rather than something invented.
-   * `demo/app.ts`'s trustpilotWidget only renders once this is set. Two
-   * fetch mechanisms available while building this were both blocked from
-   * reaching trustpilot.com, so these have to be filled in by hand, one
-   * retailer at a time, from https://www.trustpilot.com/review/<domain>.
+   * `demo/app.ts`'s trustpilotWidget only offers the rating widget once this
+   * is set, and only for a shop that also has a `trustpilotUrl`. It has to be
+   * filled in by hand, one retailer at a time, from the embed snippet
+   * Trustpilot generates.
    */
   trustpilotBusinessId?: string | null;
+  /**
+   * The address of this shop's own page on Trustpilot, which the shop's page
+   * links to as "Reviews on Trustpilot". It always has the shape
+   * https://uk.trustpilot.com/review/<name>, but the <name> is the one
+   * Trustpilot filed the shop under, which is not always the shop's own
+   * domain (a www. prefix or another TLD), so it is never derived from
+   * `domain`. Set only once the page was fetched and answered 200 and named
+   * this shop, with `trustpilotCheckedOn` saying when. Unset means not
+   * verified, or no page exists, and then nothing is shown and nothing is
+   * guessed. Trustpilot's robots.txt (read 2026-10-04) disallows every path
+   * for agents it does not name, PriceSniffsBot among them, so a page that
+   * cannot be fetched under it cannot be verified under it either. This is a
+   * plain link out, not an affiliate link, and carries no tracking. No score,
+   * star rating or review count is ever copied from Trustpilot.
+   */
+  trustpilotUrl?: string | null;
+  /** The date (YYYY-MM-DD) `trustpilotUrl` was last confirmed. Set together with it. */
+  trustpilotCheckedOn?: string | null;
   /**
    * This shop's own mark, shown beside its name on the Shops directory row
    * and its profile hero — see docs/LOGOS-PLAN.md. Unset means the monogram,
