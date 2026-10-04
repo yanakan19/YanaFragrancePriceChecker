@@ -124,6 +124,7 @@ export function presentOffer(
       ? Math.max(0, Math.round((now.getTime() - fetchedMs) / 1000))
       : 0,
     rating: offer.rating ?? null,
+    formatLabel: offer.formatLabel ?? null,
   };
 }
 
