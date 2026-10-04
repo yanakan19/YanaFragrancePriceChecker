@@ -70,7 +70,8 @@ import {
   UNREACHABLE_ROBOTS,
   type RobotsRules,
 } from '../src/catalogue/robots.js';
-import { BROWSER_HEADERS, type Http } from '../src/catalogue/attempt.js';
+import type { Http } from '../src/catalogue/attempt.js';
+import { BOT_HEADERS } from '../src/catalogue/botIdentity.js';
 import { parseShopCurrency } from '../src/catalogue/shopifyJson.js';
 import { probeMarkets, subfolderCandidates } from '../src/catalogue/marketProbe.js';
 import {
@@ -224,7 +225,7 @@ interface ScaleDiagnosis {
 }
 
 async function robotsFor(origin: string): Promise<RobotsRules> {
-  const res = await http(`${origin}/robots.txt`, BROWSER_HEADERS);
+  const res = await http(`${origin}/robots.txt`, BOT_HEADERS);
   if (res.ok && res.body) return parseRobots(res.body, 'pricesniffsbot');
   if (res.status >= 400 && res.status < 500) return NO_RESTRICTIONS;
   return UNREACHABLE_ROBOTS;
@@ -311,7 +312,7 @@ async function resolveSterlingMarket(
   notes: string[],
 ): Promise<{ base: string; currency: string } | null> {
   const candidates = marketPrefixCandidates(origin);
-  const readings = await probeMarkets(candidates, http, BROWSER_HEADERS, {
+  const readings = await probeMarkets(candidates, http, BOT_HEADERS, {
     allow: (url) => isAllowed(robots, url),
     gapMs: gap,
     sleep,
@@ -372,7 +373,7 @@ async function shopifyIndex(
       return null;
     }
 
-    const res = await http(url, BROWSER_HEADERS);
+    const res = await http(url, BOT_HEADERS);
     if (!res.ok) {
       if (page === 1) {
         notes.push(`products.json: HTTP ${res.status}${res.error ? ` ${res.error}` : ''}`);
@@ -665,8 +666,8 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
   //
   // The same check src/catalogue/shopifyJson.ts already uses for houses, for
   // the same reason.
-  const meta = await http(`${origin}/meta.json`, BROWSER_HEADERS);
-  const home = await http(`${origin}/`, BROWSER_HEADERS);
+  const meta = await http(`${origin}/meta.json`, BOT_HEADERS);
+  const home = await http(`${origin}/`, BOT_HEADERS);
   outcome.storefrontCurrency = parseShopCurrency(meta.ok ? meta.body : null, home.ok ? home.body : null);
 
   // A storefront in another currency still gets read, and this used to return
@@ -862,7 +863,7 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
     }
 
     outcome.attempted++;
-    const res = await http(url, BROWSER_HEADERS);
+    const res = await http(url, BOT_HEADERS);
     if (!res.ok) {
       outcome.unkeyed++;
       if (outcome.notes.length < 12) outcome.notes.push(`HTTP ${res.status} on ${new URL(url).pathname}`);

@@ -6,6 +6,7 @@ import {
   isAllowed, type RobotsRules,
 } from './robots.js';
 import { loadRobotsResilient } from './robotsSource.js';
+import { BOT_HEADERS } from './botIdentity.js';
 
 /**
  * Runs one retrieval strategy against one shop and reports what happened.
@@ -37,29 +38,14 @@ export interface HttpResponse {
 
 export type Http = (url: string, headers: Record<string, string>) => Promise<HttpResponse>;
 
-/** Identifies us honestly and points at a page explaining what we are. */
-const BOT_UA = 'PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about)';
-
-/**
- * A current desktop browser string.
- *
- * This is presenting as an ordinary visitor rather than impersonating a
- * specific person, which is how a shop's own site expects to be read. It is not
- * an attempt to defeat a challenge: where a shop actively refuses us we take
- * that as an answer and go to the feed instead.
+/*
+ * Every request here is PriceSniffsBot (src/catalogue/botIdentity.ts). There used
+ * to be a second header set beside it, a desktop Chrome user agent, tried by the
+ * 'section-browser-headers' strategy and used for the search page, the homepage,
+ * the sitemap's sample pages and the proxied fetch. The owner decided on
+ * 2026-10-04 that every shop is read as the bot; that header set is gone, and
+ * with it the strategy that existed only to try it.
  */
-const BROWSER_HEADERS: Record<string, string> = {
-  'user-agent':
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-  'accept-language': 'en-GB,en;q=0.9',
-};
-
-const BOT_HEADERS: Record<string, string> = {
-  'user-agent': BOT_UA,
-  accept: 'text/html,application/xhtml+xml',
-  'accept-language': 'en-GB,en;q=0.9',
-};
 
 export interface AttemptContext {
   retailer: Retailer;
@@ -229,7 +215,7 @@ async function viaSitemap(ctx: AttemptContext): Promise<Attempt> {
   const listings: RawListing[] = [];
   const worked: string[] = [];
   for (const url of candidates.slice(0, 5)) {
-    const a = await fetchAndParse(ctx, url, BROWSER_HEADERS, 'sitemap');
+    const a = await fetchAndParse(ctx, url, BOT_HEADERS, 'sitemap');
     if (a.listings.length > 0) {
       listings.push(...a.listings);
       worked.push(url);
@@ -258,28 +244,19 @@ export async function runStrategy(id: StrategyId, ctx: AttemptContext): Promise<
         section.id,
       );
 
-    case 'section-browser-headers':
-      if (!section) return notConfigured();
-      return fetchAndParse(
-        ctx,
-        section.urlTemplate.replace('{page}', String(cat!.firstPage)),
-        BROWSER_HEADERS,
-        section.id,
-      );
-
     case 'sitemap-discovery':
       return viaSitemap(ctx);
 
     case 'search-page': {
       if (!cat) return notConfigured();
       const url = cat.searchUrlTemplate.replace('{q}', encodeURIComponent(ctx.sampleQuery));
-      return fetchAndParse(ctx, url, BROWSER_HEADERS, 'search');
+      return fetchAndParse(ctx, url, BOT_HEADERS, 'search');
     }
 
     case 'homepage-probe':
       // Not for listings. This answers "does this shop use JSON-LD at all",
       // which decides whether the parser is even the right tool here.
-      return fetchAndParse(ctx, `https://www.${ctx.retailer.domain}/`, BROWSER_HEADERS, 'homepage');
+      return fetchAndParse(ctx, `https://www.${ctx.retailer.domain}/`, BOT_HEADERS, 'homepage');
 
     case 'proxied-fetch': {
       if (!ctx.proxiedHttp) {
@@ -302,7 +279,7 @@ export async function runStrategy(id: StrategyId, ctx: AttemptContext): Promise<
       return fetchAndParse(
         proxiedCtx,
         section.urlTemplate.replace('{page}', String(cat!.firstPage)),
-        BROWSER_HEADERS,
+        BOT_HEADERS,
         section.id,
       );
     }
@@ -384,4 +361,4 @@ function notConfigured(): Attempt {
   };
 }
 
-export { BROWSER_HEADERS, BOT_HEADERS };
+export { BOT_HEADERS };

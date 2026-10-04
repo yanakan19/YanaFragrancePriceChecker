@@ -5,8 +5,6 @@ import {
   resolveRobotsReadings,
   loadRobotsResilient,
   probeRobots,
-  robotsHeaderVariants,
-  robotsTextFromRenderedHtml,
 } from '../src/catalogue/robotsSource.js';
 import { isAllowed } from '../src/catalogue/robots.js';
 import type { HttpResponse } from '../src/catalogue/attempt.js';
@@ -163,127 +161,62 @@ describe('loadRobotsResilient', () => {
 
 /**
  * The Harvey Nichols case: both addresses answer 503 to `pricesniffsbot`,
- * instantly, from a CDN edge — a bot wall's fixed answer, not an origin under
- * load. Asking the same public file the way a browser would is what makes it
- * possible to obey the policy the file states.
+ * instantly, from a CDN edge, a bot wall's fixed answer. Until 2026-10-04 the
+ * file was then asked for a second time the way a browser would. The owner
+ * decided every shop is read as PriceSniffsBot and a refusal is never worked
+ * around, so the file is asked for once per address, as the bot, and a shop that
+ * does not hand it over is held off, not asked again in other clothes.
  */
-describe('probeRobots with a fallback header set', () => {
-  const BOT = { 'user-agent': 'pricesniffsbot' };
-  const BROWSER = { 'user-agent': 'Mozilla/5.0' };
+describe('probeRobots asks as the bot, once per address', () => {
+  const BOT = { 'user-agent': 'PriceSniffsBot/0.2 (test)' };
 
-  it('asks a second way only when the first way got nothing usable', async () => {
+  it('does not ask a second way when the first got nothing usable', async () => {
     const asked: Array<[string, string]> = [];
     const http = async (url: string, headers: Record<string, string>) => {
       asked.push([url, headers['user-agent']!]);
-      if (headers['user-agent'] === 'pricesniffsbot') return res({ status: 503 });
-      return res({ ok: true, status: 200, body: 'User-agent: *\nDisallow: /checkout' });
+      return res({ status: 503 });
     };
 
-    const probe = await probeRobots(
-      { domain: 'harveynichols.com', homepage: 'https://www.harveynichols.com' },
-      http,
-      BOT,
-      [BROWSER],
-    );
+    const probe = await probeRobots({ domain: 'harveynichols.com', homepage: 'https://www.harveynichols.com' }, http, BOT);
 
     expect(asked).toEqual([
-      ['https://www.harveynichols.com/robots.txt', 'pricesniffsbot'],
-      ['https://www.harveynichols.com/robots.txt', 'Mozilla/5.0'],
+      ['https://www.harveynichols.com/robots.txt', 'PriceSniffsBot/0.2 (test)'],
+      ['https://harveynichols.com/robots.txt', 'PriceSniffsBot/0.2 (test)'],
     ]);
-    expect(probe.rules.unavailable).toBe(false);
-    // Obeyed, not bypassed.
-    expect(isAllowed(probe.rules, 'https://www.harveynichols.com/checkout')).toBe(false);
-    expect(isAllowed(probe.rules, 'https://www.harveynichols.com/beauty/fragrance/')).toBe(true);
+    expect(probe.rules.unavailable).toBe(true);
   });
 
-  it('still stops dead when the file it finally reads forbids everything', async () => {
-    const http = async (_url: string, headers: Record<string, string>) =>
-      headers['user-agent'] === 'pricesniffsbot'
-        ? res({ status: 503 })
-        : res({ ok: true, status: 200, body: 'User-agent: *\nDisallow: /' });
-
-    const probe = await probeRobots({ domain: 'shut.test', homepage: 'https://shut.test' }, http, BOT, [BROWSER]);
+  it('stops dead when the file it reads forbids everything', async () => {
+    const http = async () => res({ ok: true, status: 200, body: 'User-agent: *\nDisallow: /' });
+    const probe = await probeRobots({ domain: 'shut.test', homepage: 'https://shut.test' }, http, BOT);
     expect(isAllowed(probe.rules, 'https://shut.test/anything')).toBe(false);
   });
 
-  it('does not ask a second way when the bot request already got the file', async () => {
+  it('asks one address when the bot got the file', async () => {
     const asked: string[] = [];
-    const http = async (_url: string, headers: Record<string, string>) => {
-      asked.push(headers['user-agent']!);
+    const http = async (url: string) => {
+      asked.push(url);
       return res({ ok: true, status: 200, body: 'User-agent: *\nAllow: /' });
     };
-    await probeRobots({ domain: 'fine.test', homepage: 'https://fine.test' }, http, BOT, [BROWSER]);
-    expect(asked).toEqual(['pricesniffsbot']);
+    await probeRobots({ domain: 'fine.test', homepage: 'https://fine.test' }, http, BOT);
+    expect(asked).toEqual(['https://fine.test/robots.txt']);
   });
 
-  it('does not ask a second way for a plain 404, which is already an answer', async () => {
+  it('treats a plain 404 as an answer: no file, nothing forbidden', async () => {
     const asked: string[] = [];
-    const http = async (_url: string, headers: Record<string, string>) => {
-      asked.push(headers['user-agent']!);
+    const http = async (url: string) => {
+      asked.push(url);
       return res({ status: 404 });
     };
-    const probe = await probeRobots({ domain: 'none.test', homepage: 'https://none.test' }, http, BOT, [BROWSER]);
-    expect(asked).toEqual(['pricesniffsbot', 'pricesniffsbot']);
+    const probe = await probeRobots({ domain: 'none.test', homepage: 'https://none.test' }, http, BOT);
+    expect(asked).toEqual(['https://none.test/robots.txt', 'https://www.none.test/robots.txt']);
     expect(isAllowed(probe.rules, 'https://none.test/x')).toBe(true);
   });
 
   it('records every attempt, so a run can say what actually happened', async () => {
     const http = async () => res({ status: 503 });
-    const probe = await probeRobots({ domain: 'x.test', homepage: 'https://x.test' }, http, BOT, [BROWSER]);
-    expect(probe.attempts.map((a) => a.status)).toEqual([503, 503, 503, 503]);
+    const probe = await probeRobots({ domain: 'x.test', homepage: 'https://x.test' }, http, BOT);
+    expect(probe.attempts.map((a) => a.status)).toEqual([503, 503]);
     expect(probe.rules.unavailable).toBe(true);
-  });
-});
-
-describe('robotsHeaderVariants', () => {
-  it('is exactly one extra way of asking, not a rotation', () => {
-    expect(robotsHeaderVariants({ 'user-agent': 'Mozilla/5.0' })).toEqual([{ 'user-agent': 'Mozilla/5.0' }]);
-  });
-});
-
-/**
- * The last route to a shop whose robots.txt neither the runner nor the proxy
- * can fetch. Reading the rules is the point; obeying them is still the only
- * thing done with them.
- */
-describe('robotsTextFromRenderedHtml', () => {
-  it('recovers the file Chrome painted inside its <pre>', () => {
-    const html =
-      '<html><head></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">' +
-      'User-agent: *\nDisallow: /checkout\nSitemap: https://x.test/sitemap.xml' +
-      '</pre></body></html>';
-    expect(robotsTextFromRenderedHtml(html)).toBe(
-      'User-agent: *\nDisallow: /checkout\nSitemap: https://x.test/sitemap.xml',
-    );
-  });
-
-  it('unescapes what the renderer escaped', () => {
-    const html = '<pre>User-agent: *\nDisallow: /a?b=1&amp;c=2</pre>';
-    expect(robotsTextFromRenderedHtml(html)).toContain('/a?b=1&c=2');
-  });
-
-  it('reads a robots.txt a server mislabelled as HTML, with no <pre> at all', () => {
-    const html = '<html><body>User-agent: *\nDisallow: /admin</body></html>';
-    expect(robotsTextFromRenderedHtml(html)).toBe('User-agent: *\nDisallow: /admin');
-  });
-
-  it('refuses a rendered error page, which must never read as "nothing forbidden"', () => {
-    expect(
-      robotsTextFromRenderedHtml('<html><body><h1>Access Denied</h1><p>You do not have permission.</p></body></html>'),
-    ).toBeNull();
-    expect(robotsTextFromRenderedHtml('<pre>Service Unavailable</pre>')).toBeNull();
-  });
-
-  it('refuses an empty render', () => {
-    expect(robotsTextFromRenderedHtml('')).toBeNull();
-  });
-
-  it('hands back something parseRobots turns into a real refusal', () => {
-    const text = robotsTextFromRenderedHtml('<pre>User-agent: *\nDisallow: /</pre>')!;
-    const rules = readRobotsResponse({ ok: true, status: 200, body: text });
-    expect(rules.kind).toBe('rules');
-    if (rules.kind === 'rules') {
-      expect(isAllowed(rules.rules, 'https://x.test/beauty/fragrance/')).toBe(false);
-    }
   });
 });

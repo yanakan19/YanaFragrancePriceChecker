@@ -33,7 +33,7 @@ import { RETAILERS } from '../src/config/retailers.js';
 import type { Retailer } from '../src/types/retailer.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
-import { BROWSER_HEADERS } from '../src/catalogue/attempt.js';
+import { BOT_HEADERS } from '../src/catalogue/botIdentity.js';
 import { parseRobots, isAllowed, NO_RESTRICTIONS, UNREACHABLE_ROBOTS } from '../src/catalogue/robots.js';
 import { emptyPriceIndex, indexShopifyPage, type ShopifyPriceIndex } from '../src/catalogue/shopifyPriceIndex.js';
 import { fetchStorefrontCurrency } from '../src/catalogue/shopCurrency.js';
@@ -87,7 +87,7 @@ interface Outcome {
 async function buildIndex(
   origin: string,
 ): Promise<{ index: ShopifyPriceIndex; products: number; currency: string | null; error: string | null }> {
-  const robotsRes = await http(`${origin}/robots.txt`, BROWSER_HEADERS);
+  const robotsRes = await http(`${origin}/robots.txt`, BOT_HEADERS);
   const robots = robotsRes.ok && robotsRes.body
     ? parseRobots(robotsRes.body, 'pricesniffsbot')
     : robotsRes.status >= 400 && robotsRes.status < 500
@@ -117,7 +117,7 @@ async function buildIndex(
   // client* are different facts and only the second one describes the numbers
   // about to be written. That distinction is what Escentual's £57-against-a-
   // real-£40.25 turned out to be — see src/catalogue/shopCurrency.ts.
-  const resolved = await fetchStorefrontCurrency(origin, http, BROWSER_HEADERS);
+  const resolved = await fetchStorefrontCurrency(origin, http, BOT_HEADERS);
   const currency = resolved.presented;
   if (currency !== null && !resolved.isSterling) {
     return {
@@ -141,7 +141,7 @@ async function buildIndex(
       return { index, products, currency, error: `robots.txt disallows ${url}` };
     }
 
-    const res = await http(url, BROWSER_HEADERS);
+    const res = await http(url, BOT_HEADERS);
     if (!res.ok) {
       return { index, products, currency, error: `page ${page}: HTTP ${res.status}${res.error ? ` ${res.error}` : ''}` };
     }

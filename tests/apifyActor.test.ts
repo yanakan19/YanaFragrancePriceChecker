@@ -193,7 +193,7 @@ describe('apifyActorRenderer running total', () => {
   });
 
   it('spends down a shared budget across multiple shops in one run', async () => {
-    const renderer = apifyActorRenderer(config, 3);
+    const renderer = apifyActorRenderer(config, 3, true);
 
     const first = await renderer.render(['https://a.example/1', 'https://a.example/2']);
     expect([...first.values()].every((r) => r.ok)).toBe(true);
@@ -206,7 +206,7 @@ describe('apifyActorRenderer running total', () => {
   });
 
   it('refuses without calling fetch once the budget is fully spent', async () => {
-    const renderer = apifyActorRenderer(config, 1);
+    const renderer = apifyActorRenderer(config, 1, true);
     await renderer.render(['https://a.example/1']);
     mockFetch.mockClear();
 
@@ -310,7 +310,7 @@ describe('the budget charges only for work Apify actually took on', () => {
     mockFetch.mockImplementation(
       async () => new Response(JSON.stringify({ error: { type: ACTOR_APPROVAL_REFUSAL } }), { status: 403 }),
     );
-    const renderer = apifyActorRenderer(cfg);
+    const renderer = apifyActorRenderer(cfg, undefined, true);
     await renderer.render(['https://a.test/1', 'https://a.test/2', 'https://a.test/3', 'https://a.test/4']);
     // Probe run 12 reported "4 of 10 budgeted" having rendered nothing at all.
     expect(renderer.used()).toBe(0);
@@ -320,7 +320,7 @@ describe('the budget charges only for work Apify actually took on', () => {
     mockFetch.mockImplementation(async () =>
       new Response(JSON.stringify([{ url: 'https://a.test/1', html: '<html>x</html>' }]), { status: 200 }),
     );
-    const renderer = apifyActorRenderer(cfg);
+    const renderer = apifyActorRenderer(cfg, undefined, true);
     await renderer.render(['https://a.test/1', 'https://a.test/2']);
     // Both were handed to a run that started; the second simply came back empty,
     // which is a rendering outcome and is billed like one.

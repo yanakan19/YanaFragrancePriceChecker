@@ -60,7 +60,8 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { RETAILERS } from '../src/config/retailers.js';
-import { BROWSER_HEADERS } from '../src/catalogue/attempt.js';
+import { BOT_HEADERS, BOT_ROBOTS_TOKEN } from '../src/catalogue/botIdentity.js';
+import { isAllowed, parseRobots, NO_RESTRICTIONS, type RobotsRules } from '../src/catalogue/robots.js';
 import { CATALOGUE } from '../demo/catalogue.generated.js';
 import { BRAND_SITES } from '../demo/brandSites.js';
 
@@ -184,7 +185,7 @@ async function politeFetch(url: string): Promise<{ status: number; body: ArrayBu
   try {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 20_000);
-    const res = await fetch(url, { headers: BROWSER_HEADERS, redirect: 'follow', signal: controller.signal });
+    const res = await fetch(url, { headers: BOT_HEADERS, redirect: 'follow', signal: controller.signal });
     clearTimeout(timer);
     const body = await res.arrayBuffer();
     return { status: res.status, body, ok: res.ok, contentType: res.headers.get('content-type') ?? '', error: null };
@@ -202,52 +203,31 @@ async function politeFetch(url: string): Promise<{ status: number; body: ArrayBu
 
 /**
  * robots.txt, read once per origin before anything else is asked of it
- * (added 2026-10-03). Only the `User-agent: *` group is honoured, with `*`
- * and `$` wildcards. A robots.txt that answers 401/403 is read as "the shop
- * is refusing us", not as an empty file, so nothing further is fetched from
- * that origin: a block is respected, never worked around.
+ * (added 2026-10-03), as PriceSniffsBot like every other request here, and
+ * parsed by the shared reader (src/catalogue/robots.ts): a group that names
+ * PriceSniffsBot wins over `*`, Allow rules and the `*` and `$` wildcards are
+ * honoured. A robots.txt that answers 401/403 is read as "the shop is refusing
+ * us", not as an empty file, so nothing further is fetched from that origin: a
+ * block is respected, never worked around.
  */
-const robotsByOrigin = new Map<string, { blocked: boolean; disallow: RegExp[] }>();
+const robotsByOrigin = new Map<string, { blocked: boolean; rules: RobotsRules }>();
 
-async function robotsFor(url: string): Promise<{ blocked: boolean; disallow: RegExp[] }> {
+async function robotsFor(url: string): Promise<{ blocked: boolean; rules: RobotsRules }> {
   const origin = new URL(url).origin;
   const cached = robotsByOrigin.get(origin);
   if (cached) return cached;
   const res = await politeFetch(`${origin}/robots.txt`);
-  const rules: { blocked: boolean; disallow: RegExp[] } = { blocked: res.status === 401 || res.status === 403, disallow: [] };
-  if (res.ok) {
-    let inStar = false;
-    let lastWasAgent = false;
-    for (const raw of Buffer.from(res.body).toString('utf8').split(/\r?\n/)) {
-      const m = /^([A-Za-z-]+)\s*:\s*(.*)$/.exec(raw.replace(/#.*/, '').trim());
-      if (!m) continue;
-      const key = m[1]!.toLowerCase();
-      const value = m[2]!.trim();
-      if (key === 'user-agent') {
-        if (!lastWasAgent) inStar = false;
-        if (value === '*') inStar = true;
-        lastWasAgent = true;
-        continue;
-      }
-      lastWasAgent = false;
-      if (inStar && key === 'disallow' && value) {
-        // Escape everything but `*` (any run) and a trailing `$` (end of path).
-        const anchored = value.endsWith('$');
-        const body = (anchored ? value.slice(0, -1) : value).replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*');
-        rules.disallow.push(new RegExp(`^${body}${anchored ? '$' : ''}`));
-      }
-    }
-  }
+  const rules = {
+    blocked: res.status === 401 || res.status === 403,
+    rules: res.ok ? parseRobots(Buffer.from(res.body).toString('utf8'), BOT_ROBOTS_TOKEN) : NO_RESTRICTIONS,
+  };
   robotsByOrigin.set(origin, rules);
   return rules;
 }
 
 async function robotsAllows(url: string): Promise<boolean> {
-  const rules = await robotsFor(url);
-  if (rules.blocked) return false;
-  const u = new URL(url);
-  const path = u.pathname + u.search;
-  return !rules.disallow.some((re) => re.test(path));
+  const { blocked, rules } = await robotsFor(url);
+  return !blocked && isAllowed(rules, url);
 }
 
 /** `<link rel="...">` icon-shaped tags, href resolved against `base`. */

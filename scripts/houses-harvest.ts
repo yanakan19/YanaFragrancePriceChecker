@@ -64,7 +64,8 @@ import { reconcile } from '../src/catalogue/reconcile.js';
 import { parseShopifyProducts, parseShopCurrency, isShopifyProductsPayload } from '../src/catalogue/shopifyJson.js';
 import { parseListings } from '../src/catalogue/jsonld.js';
 import { parseRobots, isAllowed, NO_RESTRICTIONS, UNREACHABLE_ROBOTS, type RobotsRules } from '../src/catalogue/robots.js';
-import { BROWSER_HEADERS, type Http } from '../src/catalogue/attempt.js';
+import type { Http } from '../src/catalogue/attempt.js';
+import { BOT_HEADERS } from '../src/catalogue/botIdentity.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import type { RawListing } from '../src/catalogue/types.js';
 
@@ -97,7 +98,7 @@ const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 const PER_HOUSE_DEADLINE_MS = 3 * 60_000;
 
 async function robotsFor(origin: string): Promise<RobotsRules> {
-  const res = await http(`${origin}/robots.txt`, BROWSER_HEADERS);
+  const res = await http(`${origin}/robots.txt`, BOT_HEADERS);
   if (res.ok && res.body) return parseRobots(res.body, 'pricesniffsbot');
   if (res.status >= 400 && res.status < 500) return NO_RESTRICTIONS;
   return UNREACHABLE_ROBOTS;
@@ -146,7 +147,7 @@ async function viaShopify(
       break;
     }
 
-    const res = await http(url, BROWSER_HEADERS);
+    const res = await http(url, BOT_HEADERS);
     console.log(`      ${house.name}: shopify page ${page}${res.ok ? '' : ` (HTTP ${res.status})`}`);
     if (!res.ok) {
       // A 404 here just means "not a Shopify storefront", which is a fact about
@@ -197,7 +198,7 @@ async function viaSitemap(
     seen.add(url);
     if (!isAllowed(robots, url)) continue;
 
-    const res = await http(url, BROWSER_HEADERS);
+    const res = await http(url, BOT_HEADERS);
     sitemapFetches++;
     console.log(`      ${house.name}: sitemap fetch ${sitemapFetches}${res.ok ? '' : ` (HTTP ${res.status})`}`);
     if (!res.ok) {
@@ -222,7 +223,7 @@ async function viaSitemap(
       break;
     }
     if (!isAllowed(robots, url)) continue;
-    const res = await http(url, BROWSER_HEADERS);
+    const res = await http(url, BOT_HEADERS);
     if ((i + 1) % 5 === 0 || i === productList.length - 1) {
       console.log(`      ${house.name}: product page ${i + 1}/${productList.length}`);
     }
@@ -294,8 +295,8 @@ async function harvestHouse(house: House): Promise<HouseOutcome> {
 
   // Currency first: it changes how every price below is recorded, and getting
   // it wrong is worse than getting nothing.
-  const meta = await http(`${house.origin}/meta.json`, BROWSER_HEADERS);
-  const home = await http(`${house.origin}/`, BROWSER_HEADERS);
+  const meta = await http(`${house.origin}/meta.json`, BOT_HEADERS);
+  const home = await http(`${house.origin}/`, BOT_HEADERS);
   const currency = parseShopCurrency(meta.ok ? meta.body : null, home.ok ? home.body : null);
   outcome.currency = currency;
 

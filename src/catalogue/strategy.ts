@@ -28,8 +28,6 @@
 export type StrategyId =
   /** Configured section URL, plain request. Cheapest, try first. */
   | 'section-plain'
-  /** Same URL, but presenting as a real browser. Some sites vary on headers. */
-  | 'section-browser-headers'
   /** Discover section URLs from the sitemap the shop publishes for crawlers. */
   | 'sitemap-discovery'
   /** The shop's own search page, which is often rendered differently. */
@@ -79,7 +77,6 @@ const key = (retailerId: string, strategyId: StrategyId) => `${retailerId}::${st
 /** Every strategy, cheapest and least intrusive first. */
 export const ALL_STRATEGIES: StrategyId[] = [
   'section-plain',
-  'section-browser-headers',
   'sitemap-discovery',
   'search-page',
   'homepage-probe',

@@ -33,6 +33,7 @@
  */
 import { ProxyAgent, fetch as undiciFetch } from 'undici';
 import type { Http, HttpResponse } from './attempt.js';
+import { withBotIdentity } from './botIdentity.js';
 
 /** Hard ceiling per run, independent of any caller's own budget. */
 export const MAX_PROXIED_REQUESTS_PER_RUN = 40;
@@ -82,13 +83,22 @@ export function apifyProxyHttp(config: ApifyProxyConfig, maxRequests = MAX_PROXI
         error: `proxy budget of ${maxRequests} requests exhausted for this run`,
       };
     }
+    // A proxy changes the address a request comes from and nothing about who
+    // says it is asking: the user agent is PriceSniffsBot, and a request that
+    // would pass for a browser is not sent (src/catalogue/botIdentity.ts).
+    let sent: Record<string, string>;
+    try {
+      sent = withBotIdentity(headers);
+    } catch (err) {
+      return { status: 0, body: '', ok: false, error: err instanceof Error ? err.message : String(err) };
+    }
     used++;
 
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 30_000);
     try {
       const res = await undiciFetch(url, {
-        headers,
+        headers: sent,
         dispatcher: agent,
         signal: controller.signal,
       });

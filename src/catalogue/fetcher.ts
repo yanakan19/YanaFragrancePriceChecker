@@ -2,10 +2,10 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import type { Retailer } from '../types/retailer.js';
 import type { FetchResult, PageFetcher } from './crawl.js';
+import { BOT_HEADERS, BOT_USER_AGENT } from './botIdentity.js';
 
-/** Identifies the crawler honestly, with a contact route. */
-export const USER_AGENT =
-  'PriceSniffsBot/0.1 (UK fragrance price comparison; +https://pricesniffs.space/about)';
+/** Identifies the crawler honestly, with a contact route. One string for every request (botIdentity.ts). */
+export const USER_AGENT = BOT_USER_AGENT;
 
 /**
  * Live HTTP fetcher.
@@ -21,7 +21,7 @@ export function liveFetcher(timeoutMs = 20_000): PageFetcher {
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
       const res = await fetch(url, {
-        headers: { 'user-agent': USER_AGENT, accept: 'text/html,application/xhtml+xml' },
+        headers: { ...BOT_HEADERS },
         redirect: 'follow',
         signal: controller.signal,
       });

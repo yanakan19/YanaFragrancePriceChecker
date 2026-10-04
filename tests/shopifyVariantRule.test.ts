@@ -156,7 +156,6 @@ describe('the Bloom Perfumery registry entry', () => {
 
   it('asks for UK retail variants only and identifies as the bot alone', () => {
     expect(bloom.shopifyStorefront).toBe(true);
-    expect(bloom.botIdentityOnly).toBe(true);
     expect(bloom.shopifyVariantRule?.marketOption).toEqual({ name: 'Info', keep: ['ol'] });
     expect(bloom.shopifyVariantRule?.productTypes).toEqual(['Perfume']);
   });

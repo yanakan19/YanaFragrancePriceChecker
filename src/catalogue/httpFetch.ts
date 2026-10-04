@@ -1,5 +1,6 @@
 import { gunzipSync } from 'node:zlib';
 import type { Http } from './attempt.js';
+import { withBotIdentity } from './botIdentity.js';
 
 /**
  * The HTTP implementation the harvesters share.
@@ -65,15 +66,24 @@ export interface HttpOptions {
   timeoutMs?: number;
 }
 
-/** Build an `Http` that decompresses gzip payloads and never throws. */
+/** Build an `Http` that decompresses gzip payloads, never throws, and only ever sends as PriceSniffsBot. */
 export function createHttp(options: HttpOptions = {}): Http {
   const timeoutMs = options.timeoutMs ?? 25_000;
 
   return async (url, headers) => {
+    // Every request from here says it is PriceSniffsBot (src/catalogue/botIdentity.ts):
+    // ours is added where the caller gave no user agent, and a request that
+    // would pass for a browser is not sent at all.
+    let sent: Record<string, string>;
+    try {
+      sent = withBotIdentity(headers);
+    } catch (err) {
+      return { status: 0, body: '', ok: false, error: err instanceof Error ? err.message : String(err) };
+    }
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      const res = await fetch(url, { headers, redirect: 'follow', signal: controller.signal });
+      const res = await fetch(url, { headers: sent, redirect: 'follow', signal: controller.signal });
       const bytes = new Uint8Array(await res.arrayBuffer());
       // res.url is the address after redirects were followed, which is a
       // different fact from the one requested and the only one that can

@@ -26,6 +26,7 @@
  */
 import { RETAILERS } from '../src/config/retailers.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
+import { BOT_USER_AGENT } from '../src/catalogue/botIdentity.js';
 import { parseAwinFeedList, awinMerchantIdFromSignupUrl } from '../src/catalogue/awinFeedList.js';
 import { parseDelimitedText, sniffDelimiter } from '../src/catalogue/awinFeed.js';
 
@@ -70,7 +71,7 @@ if (!merchantId) {
 }
 
 const http = createHttp();
-const headers = { 'user-agent': 'PriceSniffsBot/0.2' };
+const headers = { 'user-agent': BOT_USER_AGENT };
 
 const listRes = await http(feedListUrl, headers);
 if (!listRes.ok) {

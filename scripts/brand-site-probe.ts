@@ -48,7 +48,8 @@
  * to remember it.
  */
 import { BRAND_SITES } from '../demo/brandSites.js';
-import { BROWSER_HEADERS, type Http } from '../src/catalogue/attempt.js';
+import type { Http } from '../src/catalogue/attempt.js';
+import { BOT_HEADERS } from '../src/catalogue/botIdentity.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import {
   parseRobots,
@@ -117,7 +118,7 @@ const robotsByOrigin = new Map<string, RobotsRules>();
 async function robotsFor(origin: string): Promise<RobotsRules> {
   const cached = robotsByOrigin.get(origin);
   if (cached) return cached;
-  const res = await http(`${origin}/robots.txt`, BROWSER_HEADERS);
+  const res = await http(`${origin}/robots.txt`, BOT_HEADERS);
   // A 404 means the site published no restrictions, which is permission. Any
   // other failure means we could not ask, and "could not ask" is not "yes" —
   // see UNREACHABLE_ROBOTS, whose whole purpose is to keep those apart.
@@ -169,7 +170,7 @@ for (const url of urls) {
     continue;
   }
 
-  const res = await http(url, BROWSER_HEADERS);
+  const res = await http(url, BOT_HEADERS);
   // A courtesy gap between requests. Each URL here is a different host, so
   // this is not rate limiting any one server — it keeps a 141-request sweep
   // from reading as a burst to anything sitting in front of several of them.

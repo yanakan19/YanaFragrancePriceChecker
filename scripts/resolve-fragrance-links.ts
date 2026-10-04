@@ -78,6 +78,7 @@ import type { DemoFragrance } from '../demo/data.js';
 import { RETAILERS } from '../src/config/retailers.js';
 import { brandKey } from '../src/catalogue/brandName.js';
 import { decodeBody } from '../src/catalogue/httpFetch.js';
+import { BOT_USER_AGENT, BOT_HEADERS } from '../src/catalogue/botIdentity.js';
 import { isAllowed, parseRobots, NO_RESTRICTIONS, type RobotsRules } from '../src/catalogue/robots.js';
 import {
   bestMatch,
@@ -163,10 +164,14 @@ const sleep = (ms: number): Promise<void> => new Promise((r) => setTimeout(r, ms
 const dispatcher: Dispatcher | undefined =
   process.env.HTTPS_PROXY || process.env.https_proxy ? new EnvHttpProxyAgent() : undefined;
 
-const BROWSER_UA =
-  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
-/** Brand sitemaps are fetched as ourselves, the same identity the harvesters use. */
-const BOT_UA = 'PriceSniffsBot/0.1 (UK fragrance price comparison; +https://pricesniffs.space/about)';
+/**
+ * Every request here, Bing's included, is PriceSniffsBot (src/catalogue/botIdentity.ts).
+ * Bing's results page used to be asked for with a desktop Chrome user agent;
+ * since 2026-10-04 it is asked for as ourselves, after Bing's robots.txt, and if
+ * Bing will not serve the bot (a challenge page) the existing back off applies
+ * and the run ends: a refusal is not worked around.
+ */
+const BOT_UA = BOT_USER_AGENT;
 
 interface Reply {
   status: number;
@@ -539,18 +544,29 @@ let consecutiveFailures = 0;
 let queries = 0;
 let lastQueryAt = 0;
 
+/** Bing's robots.txt, asked for once, as the bot. Null until asked; false when /search is not ours to fetch. */
+let bingAllowed: boolean | null = null;
+async function bingMayBeAsked(): Promise<boolean> {
+  if (bingAllowed !== null) return bingAllowed;
+  const robots = await get('https://www.bing.com/robots.txt', BOT_HEADERS);
+  // Unreachable is a hold off (the same rule as every other shop); a 4xx is no file, nothing forbidden.
+  bingAllowed =
+    robots.status >= 200 && robots.status < 300
+      ? isAllowed(parseRobots(robots.body, 'pricesniffsbot'), 'https://www.bing.com/search?q=x')
+      : robots.status >= 400 && robots.status < 500;
+  if (!bingAllowed) console.log(`  bing: robots.txt does not allow /search for PriceSniffsBot (HTTP ${robots.status}); not asked`);
+  return bingAllowed;
+}
+
 async function bing(q: string): Promise<{ url: string; title: string }[] | null> {
+  if (!(await bingMayBeAsked())) return null;
   const wait = lastQueryAt + OPTS.sleepMs + Math.random() * 600 - Date.now();
   if (wait > 0) await sleep(Math.min(wait, Math.max(0, remainingMs())));
   for (let attempt = 0; attempt < 3; attempt++) {
     if (timeUp()) return null;
     lastQueryAt = Date.now();
     queries++;
-    const r = await get(`https://www.bing.com/search?q=${encodeURIComponent(q)}`, {
-      'user-agent': BROWSER_UA,
-      'accept-language': 'en-GB,en;q=0.9',
-      accept: 'text/html',
-    });
+    const r = await get(`https://www.bing.com/search?q=${encodeURIComponent(q)}`, { ...BOT_HEADERS, accept: 'text/html' });
     if (r.status === 200 && !looksBlocked(r.body)) {
       consecutiveFailures = 0;
       return parseBingResults(r.body);

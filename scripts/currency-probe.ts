@@ -47,7 +47,8 @@
  * by hand.
  */
 import { RETAILERS } from '../src/config/retailers.js';
-import { BROWSER_HEADERS, type Http } from '../src/catalogue/attempt.js';
+import type { Http } from '../src/catalogue/attempt.js';
+import { BOT_HEADERS } from '../src/catalogue/botIdentity.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import {
   parseRobots,
@@ -99,7 +100,7 @@ const domain = retailer.domain.replace(/^www\./, '');
 const origin = `https://${domain}`;
 
 async function robotsFor(base: string): Promise<RobotsRules> {
-  const res = await http(`${base}/robots.txt`, BROWSER_HEADERS);
+  const res = await http(`${base}/robots.txt`, BOT_HEADERS);
   if (!res.ok) return res.status === 404 ? NO_RESTRICTIONS : UNREACHABLE_ROBOTS;
   return parseRobots(res.body);
 }
@@ -139,7 +140,7 @@ console.log(
 );
 console.log('');
 
-const readings = await probeMarkets(ukMarketCandidates(origin), http, BROWSER_HEADERS, {
+const readings = await probeMarkets(ukMarketCandidates(origin), http, BOT_HEADERS, {
   allow: (url) => isAllowed(robots, url),
   gapMs: gap,
   sleep,
@@ -204,7 +205,7 @@ if (productSample > 0) {
       console.log(`  ${candidate.label.padEnd(24)} robots.txt disallows ${url}`);
       continue;
     }
-    const res = await http(url, { ...BROWSER_HEADERS, ...candidate.headers });
+    const res = await http(url, { ...BOT_HEADERS, ...candidate.headers });
     await sleep(gap);
     if (!res.ok) {
       console.log(
@@ -258,7 +259,7 @@ if (productUrl) {
         console.log(`  ${candidate.label.padEnd(24)} robots.txt disallows it`);
         continue;
       }
-      const res = await http(url, { ...BROWSER_HEADERS, ...candidate.headers });
+      const res = await http(url, { ...BOT_HEADERS, ...candidate.headers });
       await sleep(gap);
       if (!res.ok) {
         console.log(
@@ -283,7 +284,7 @@ if (productUrl) {
       const jsonUrl = candidateUrl(candidate, `${path}.json`);
       let variantPrices = 'not read';
       if (isAllowed(robots, jsonUrl)) {
-        const jsonRes = await http(jsonUrl, { ...BROWSER_HEADERS, ...candidate.headers });
+        const jsonRes = await http(jsonUrl, { ...BOT_HEADERS, ...candidate.headers });
         await sleep(gap);
         if (!jsonRes.ok) {
           variantPrices = `HTTP ${jsonRes.status}`;

@@ -25,7 +25,7 @@ import { fileURLToPath } from 'node:url';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { RETAILERS } from '../src/config/retailers.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
-import { BOT_HEADERS, BROWSER_HEADERS } from '../src/catalogue/attempt.js';
+import { BOT_HEADERS } from '../src/catalogue/botIdentity.js';
 import { loadRobotsResilient } from '../src/catalogue/robotsSource.js';
 import { isAllowed } from '../src/catalogue/robots.js';
 import { readShippingTerms } from '../src/catalogue/shippingTerms.js';
@@ -90,7 +90,7 @@ async function fetchPage(target: RecheckTarget): Promise<PageFetch> {
   );
   if (robots.unavailable) return { kind: 'robots-unreachable' };
   if (!isAllowed(robots, target.url)) return { kind: 'robots-disallowed' };
-  const res = await http(target.url, BROWSER_HEADERS);
+  const res = await http(target.url, BOT_HEADERS);
   return { kind: 'response', status: res.status, ok: res.ok, body: res.body, ...(res.error ? { error: res.error } : {}) };
 }
 

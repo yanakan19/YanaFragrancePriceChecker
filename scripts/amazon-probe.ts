@@ -25,7 +25,7 @@
  * Writes nothing. Commits nothing. Stores no price. This is measurement only.
  */
 import { RETAILERS } from '../src/config/retailers.js';
-import { BROWSER_HEADERS } from '../src/catalogue/attempt.js';
+import { BOT_HEADERS } from '../src/catalogue/botIdentity.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import { probeRobots } from '../src/catalogue/robotsSource.js';
 import { isAllowed } from '../src/catalogue/robots.js';
@@ -41,7 +41,7 @@ const http = createHttp();
 
 console.log('Amazon UK probe — robots.txt first, and obeyed literally.\n');
 
-const robotsProbe = await probeRobots(retailer, http, BROWSER_HEADERS);
+const robotsProbe = await probeRobots(retailer, http, BOT_HEADERS);
 console.log('robots.txt candidates asked:');
 for (const a of robotsProbe.attempts) {
   console.log(`  ${a.url}: HTTP ${a.status}${a.error ? ` — ${a.error}` : ''}`);
@@ -80,7 +80,7 @@ for (const path of searchPaths) {
     console.log('  not fetched — robots.txt disallows this path.\n');
     continue;
   }
-  const res = await http(url, BROWSER_HEADERS);
+  const res = await http(url, BOT_HEADERS);
   console.log(`  HTTP ${res.status}${res.error ? ` — ${res.error}` : ''}, ${res.body.length.toLocaleString()} bytes`);
   if (res.ok && res.body) {
     const listings = parseListings(res.body, { sectionId: 'amazon-probe', pageUrl: url });
@@ -121,7 +121,7 @@ if (!productPermitted) {
   process.exit(0);
 }
 
-const productRes = await http(productUrl, BROWSER_HEADERS);
+const productRes = await http(productUrl, BOT_HEADERS);
 console.log(`  HTTP ${productRes.status}${productRes.error ? ` — ${productRes.error}` : ''}, ${productRes.body.length.toLocaleString()} bytes`);
 if (productRes.ok && productRes.body) {
   const listings = parseListings(productRes.body, { sectionId: 'amazon-probe', pageUrl: productUrl });

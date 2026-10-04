@@ -84,6 +84,7 @@ import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
+import { botHeaders } from '../src/catalogue/botIdentity.js';
 import { BRAND_LOGOS } from '../demo/brandLogos.js';
 import {
   classifyImageAttempt,
@@ -127,18 +128,15 @@ interface CatalogueFile {
 }
 
 /**
- * Presented as a real browser would.
+ * Asked for as PriceSniffsBot, like every other request (src/catalogue/botIdentity.ts).
  *
- * A request with no User-Agent and no Accept is exactly the shape a bot
- * filter drops, so these are sent on every attempt regardless of mode.
+ * Until 2026-10-04 these were a desktop Chrome's headers, so the check saw what
+ * a visitor's browser sees. They are the bot's now: an image host that will not
+ * serve the bot shows up here as refusing it, which says nothing about what it
+ * serves a visitor. The report is only a report (nothing reads it back), so
+ * "broken" in it means "not served to PriceSniffsBot".
  */
-const IMAGE_HEADERS = {
-  'user-agent':
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
-    '(KHTML, like Gecko) Chrome/125.0 Safari/537.36',
-  accept: 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
-  'accept-language': 'en-GB,en;q=0.9',
-} as const;
+const IMAGE_HEADERS = botHeaders({ accept: 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8' });
 
 /** What this site's own <img> tags actually send — see demo/photo.ts. */
 const PRICESNIFFS_REFERER = 'https://pricesniffs.space/';

@@ -4721,8 +4721,8 @@ export const RETAILERS: readonly Retailer[] = [
     // this reads one shop's own theme data: it is not a rule about product
     // types, and it is not what Beauty Pie needs (see that entry).
     //
-    // `botIdentityOnly` on the brief's instruction: every request, robots.txt
-    // included, carries the crawler's own user agent. Measured the same day:
+    // Every request, robots.txt included, carries the crawler's own user agent
+    // (every shop's, since 2026-10-04; it was this shop's alone before). Measured the same day:
     // robots.txt, /products.json and /products/<handle> all answer
     // PriceSniffsBot with HTTP 200, and robots.txt allows /products/.
     strengthFromProductPage: true,
@@ -4732,7 +4732,6 @@ export const RETAILERS: readonly Retailer[] = [
     // 14 perfumes have one, at £22 against £28 for the miniature. The words
     // "Travel Spray" had kept all 14 out of the catalogue.
     travelSizeIsASize: true,
-    botIdentityOnly: true,
     enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
@@ -5974,7 +5973,7 @@ export const RETAILERS: readonly Retailer[] = [
     // /recommendations/products, collection sort and filter crawl traps and a
     // few preview parameters, and allows everything else. Product pages,
     // /products.json and /meta.json are not disallowed. It sets no crawl delay.
-    // Every request is made as PriceSniffsBot (`botIdentityOnly`), 1.5 s apart.
+    // Every request is made as PriceSniffsBot, 1.5 s apart.
     //
     // Each perfume's own page states its size, per variant, in the theme's
     // variants data (`"size": "50ml"` beside the variant's `"sku"`), in the
@@ -6014,7 +6013,6 @@ export const RETAILERS: readonly Retailer[] = [
     enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
-    botIdentityOnly: true,
     sizeFromProductPage: true,
     // Set 2026-10-04. "Le Smash Santal 50ml" (£59) is typed Fragrance and its
     // title names no strength, so the catalogue's fragrance rule hid it. The
@@ -8555,7 +8553,7 @@ export const RETAILERS: readonly Retailer[] = [
     // "ato" atomizer lines. Nothing is read from the "tf", "sd" or "tfsd" lines.
     //
     // Identity: every request, robots.txt included, goes as PriceSniffsBot and
-    // never as a browser (`botIdentityOnly`). robots.txt (HTTP 200) has one
+    // never as a browser (every shop's rule since 2026-10-04). robots.txt (HTTP 200) has one
     // group for every agent: it disallows /cart, /checkout, /account, /orders,
     // /search, /policies/, /collections sort and plus filters, /bloomsearch and
     // /recommendations/products, sets no crawl delay for it, and does not
@@ -8570,7 +8568,6 @@ export const RETAILERS: readonly Retailer[] = [
       marketOption: { name: 'Info', keep: ['ol'] },
       sizeOption: { name: 'Package', minMl: 5 },
     },
-    botIdentityOnly: true,
     availabilityFromProductPage: true,
     //
     // ── Switched on, 2026-10-03, on the Shopify route with that rule ────────

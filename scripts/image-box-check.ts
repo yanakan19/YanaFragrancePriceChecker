@@ -49,6 +49,7 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
+import { botHeaders } from '../src/catalogue/botIdentity.js';
 import { upgradeImageResolution, type ImageBoxVerdict } from '../src/catalogue/pickImage.js';
 import { imageBoxCacheFilename } from '../src/catalogue/imageBoxCache.js';
 import { isPlaceholderImageUrl } from '../src/catalogue/placeholderImage.js';
@@ -145,14 +146,8 @@ interface VerdictEntry {
   shf?: number;
 }
 
-/** Presented as a real browser would — mirrors scripts/image-link-check.ts. */
-const IMAGE_HEADERS = {
-  'user-agent':
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
-    '(KHTML, like Gecko) Chrome/125.0 Safari/537.36',
-  accept: 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
-  'accept-language': 'en-GB,en;q=0.9',
-} as const;
+/** Asked for as PriceSniffsBot, mirroring scripts/image-link-check.ts (src/catalogue/botIdentity.ts). */
+const IMAGE_HEADERS = botHeaders({ accept: 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8' });
 
 function loadVerdicts(): Record<string, VerdictEntry> {
   if (!existsSync(verdictsPath)) return {};
