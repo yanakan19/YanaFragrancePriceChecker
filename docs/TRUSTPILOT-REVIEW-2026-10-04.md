@@ -67,3 +67,15 @@ How entries were accepted:
 | paco-perfumerias-uk | Paco Perfumerías UK | pacoperfumerias.co.uk | not found | Saw: pacoperfumerias.co.uk review pages did return (au/it/jp/nl-be/se/fi/fr-be locales) but titled only "Genuine products, delivered on time! from Spain", which does not name the shop. Queries: "Paco Perfumerias UK Trustpilot pacoperfumerias.co.uk"; "Paco Perfumerías UK Reviews pacoperfumerias.co.uk Trustpilot". UNSURE: the domain matches, but neither title nor snippet named the shop, so rejected under the naming rule. Candidate if the owner wants it: https://uk.trustpilot.com/review/pacoperfumerias.co.uk. The old perfumeprice.co.uk Trustpilot profile (many reviews) belongs to the pre-merger business and was not used. |
 | perfume-direct | Perfume Direct | perfumedirect.com | https://uk.trustpilot.com/review/perfumedirect.com | Title: "Banner for Perfume Direct". Result: at.trustpilot.com/review/perfumedirect.com (also jp/dk/fr/fr-be). Query: "Perfume Direct Trustpilot perfumedirect.com". |
 | home-bargains | Home Bargains | home.bargains | not found | Saw: Only home-bargain.com (different, no s) and www.homebargains.co.uk pages; the .co.uk ones had bare-hostname titles. Nothing for home.bargains. Queries: "Home Bargains Trustpilot home.bargains". UNSURE: homebargains.co.uk looks like the retailer's long-standing site, but it is not the registry domain home.bargains and the registry notes nothing is established about it, so rejected. |
+
+
+## Owner confirmed, 2026-10-04
+
+The owner confirmed these four candidates and they were added:
+
+| shop id | Trustpilot URL |
+|---|---|
+| superdrug | https://uk.trustpilot.com/review/superdrugs.co.uk |
+| debenhams | https://uk.trustpilot.com/review/faith.co.uk |
+| paco-perfumerias-uk | https://uk.trustpilot.com/review/pacoperfumerias.co.uk |
+| home-bargains | https://uk.trustpilot.com/review/homebargains.co.uk |
