@@ -330,7 +330,13 @@ jobs:
     # not depend on `guard` having succeeded at all, only on what its
     # output says when it did.
     if: always() && ((github.event_name != 'schedule' && inputs.scheduled_tick != true) || needs.guard.outputs.should-run == 'true')
-    runs-on: ubuntu-latest
+    # Pinned, 2026-10-04. GitHub's own notice on every run: "The ubuntu-latest
+    # label will migrate to Ubuntu 26 beginning October 19, 2026". This job
+    # installs Chromium with `playwright install --with-deps`, which names
+    # Ubuntu packages per release; a new release under a moving label is a
+    # change to find out about on purpose, not mid harvest. Move to the next
+    # image by changing this line after one dispatch on it has gone green.
+    runs-on: ubuntu-24.04
     concurrency:
       # Two crawls writing snapshots at once would race and lose listings.
       # Scoped to this job, not the whole workflow, so `guard` above never

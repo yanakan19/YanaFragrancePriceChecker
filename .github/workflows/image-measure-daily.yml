@@ -27,7 +27,9 @@ concurrency:
 
 jobs:
   measure:
-    runs-on: ubuntu-latest
+    # Pinned until a run on Ubuntu 26 has gone green: ubuntu-latest moves to it
+    # from 2026-10-19, and this job installs Pillow into the system Python.
+    runs-on: ubuntu-24.04
     timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4

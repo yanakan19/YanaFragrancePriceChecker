@@ -173,6 +173,11 @@ describe('catalogue-daily.yml', () => {
     expect(step('Commit rebuilt app')).toContain("steps.rebuild.outcome == 'success'");
   });
 
+  it('runs the crawl on a pinned runner image, not ubuntu-latest, which moves to Ubuntu 26 on 2026-10-19', () => {
+    const crawl = jobs('catalogue-daily.yml').find((j) => j.name === 'crawl')!;
+    expect(crawl.body).toMatch(/\n {4}runs-on: ubuntu-\d\d\.\d\d\n/);
+  });
+
   it('sizes the harvest deadline to the time the job has left', () => {
     const harvest = step('Harvest via sitemap');
     expect(harvest).toContain('RUN_MINUTES=$(scripts/harvest-minutes.sh)');
