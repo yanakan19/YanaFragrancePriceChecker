@@ -145,7 +145,7 @@ describe('Download My Data', () => {
     accountCreatedAt: '2026-09-20T10:00:00Z',
     emailConfirmedAt: '2026-09-20T10:05:00Z',
     wishlist: [
-      { fragranceId: 'ean-1', targetPriceGbp: 30, addedAt: '2026-10-01T09:00:00Z' },
+      { fragranceId: 'ean-1', targetPriceGbp: 30, addedAt: '2026-10-01T09:00:00Z', savedPriceGbp: 41.5 },
       { fragranceId: 'gone', targetPriceGbp: null, addedAt: '2026-10-02T09:00:00Z' },
     ],
     fragranceName: (id) => (id === 'ean-1' ? 'Armaf Club de Nuit 105ml' : null),
@@ -157,9 +157,10 @@ describe('Download My Data', () => {
     expect(file.exportedAt).toBe('2026-10-04T12:00:00.000Z');
     expect(file.account).toEqual({ email: 'reader@example.com', createdAt: '2026-09-20T10:00:00Z', emailConfirmedAt: '2026-09-20T10:05:00Z' });
     expect(file.wishlist).toEqual([
-      { fragranceId: 'ean-1', fragrance: 'Armaf Club de Nuit 105ml', targetPriceGbp: 30, savedAt: '2026-10-01T09:00:00Z' },
-      // A fragrance no longer listed keeps its id and says null, never a guess.
-      { fragranceId: 'gone', fragrance: null, targetPriceGbp: null, savedAt: '2026-10-02T09:00:00Z' },
+      { fragranceId: 'ean-1', fragrance: 'Armaf Club de Nuit 105ml', targetPriceGbp: 30, savedAt: '2026-10-01T09:00:00Z', savedPriceGbp: 41.5 },
+      // A fragrance no longer listed keeps its id and says null, never a guess;
+      // a row with no saved price says null too.
+      { fragranceId: 'gone', fragrance: null, targetPriceGbp: null, savedAt: '2026-10-02T09:00:00Z', savedPriceGbp: null },
     ]);
     expect(file.alerts).toEqual({ priceAlertEmails: true });
   });

@@ -104,7 +104,7 @@ import type { User } from '@supabase/supabase-js';
 import { accountState, wishlistControl, type AccountStateInput } from '../src/services/accountState.js';
 import {
   accountAvatar, accountButtonLabel, accountMenuItems, buildDataExport, dataExportFileName, sortWishlist,
-  WISHLIST_SORTS, type AccountMenuAction, type WishlistSort,
+  changeSinceSaved, effectiveWishlistSort, wishlistSortsFor, type AccountMenuAction, type WishlistSort,
 } from '../src/services/accountMenu.js';
 import { ABOUT } from './legal.js';
 import { liveCounts } from './data.js';
@@ -2083,6 +2083,26 @@ function wishlistPriceFacts(frag: DemoFragrance): { html: string; sortGbp: numbe
   };
 }
 
+/**
+ * What the price has done since the day the fragrance was saved, in words:
+ * "Down £4.00 since saved at £60.00". Nothing at all for a row with no saved
+ * price. A row with one but no delivered price today still says what it was
+ * saved at, which is a fact, and no change, which cannot be worked out.
+ */
+function wishlistChangeHtml(savedGbp: number | null, changeGbp: number | null): string {
+  if (savedGbp === null) return '';
+  if (changeGbp === null) {
+    return `<span class="shop-row-meta t-caption wishlist-change">Saved at ${formatGbp(savedGbp)}</span>`;
+  }
+  const text =
+    changeGbp < 0
+      ? `Down ${formatGbp(-changeGbp)} since saved at ${formatGbp(savedGbp)}`
+      : changeGbp > 0
+        ? `Up ${formatGbp(changeGbp)} since saved at ${formatGbp(savedGbp)}`
+        : `Same price as when saved at ${formatGbp(savedGbp)}`;
+  return `<span class="shop-row-meta t-caption wishlist-change${changeGbp < 0 ? ' down' : ''}">${esc(text)}</span>`;
+}
+
 /** "Saved 3 Oct 2026", from the row's own added_at. */
 function savedOnLabel(iso: string): string {
   const d = new Date(iso);
@@ -2132,9 +2152,12 @@ function priceAlertsSectionHtml(): string {
  * a broken link; the row in the database is untouched, so it reappears if
  * the fragrance ever comes back into stock somewhere.
  *
- * There is no "change since saved" column: a wishlist row stores when it was
- * saved and an optional target, never the price that day, so there is no
- * honest figure to measure a change from (see WishlistSort).
+ * "Change since saved" is shown only where the row recorded the cheapest
+ * delivered price on the day it was saved (supabase/migrations/
+ * 0005_wishlist_saved_price.sql) and there is a delivered price today. A row
+ * without one, saved before that was run or on a day with no delivered price,
+ * shows no change, never one worked out from today's price. Biggest Drop is
+ * offered only when some row has a change to rank (see wishlistSortsFor).
  */
 function wishlistListHtml(): string {
   if (!state.wishlistLoaded) return `<p class="account-note">Loading.</p>`;
@@ -2144,18 +2167,27 @@ function wishlistListHtml(): string {
     .filter((x): x is { entry: WishlistEntry; frag: DemoFragrance } => x.frag != null)
     .map((x) => {
       const price = wishlistPriceFacts(x.frag);
-      return { ...x, price, addedAt: x.entry.addedAt, priceGbp: price.sortGbp, name: `${x.frag.brand} ${x.frag.name}` };
+      return {
+        ...x,
+        price,
+        addedAt: x.entry.addedAt,
+        priceGbp: price.sortGbp,
+        changeGbp: changeSinceSaved(x.entry.savedPriceGbp, price.sortGbp),
+        name: `${x.frag.brand} ${x.frag.name}`,
+      };
     });
 
   if (rows.length === 0) {
     return `<p class="account-note">Nothing saved yet. Tap Save on a fragrance to add it here.</p>`;
   }
 
-  const sorted = sortWishlist(rows, state.wishlistSort);
+  const hasAnyChange = rows.some((r) => r.changeGbp !== null);
+  const activeSort = effectiveWishlistSort(state.wishlistSort, hasAnyChange);
+  const sorted = sortWishlist(rows, activeSort);
   const sortControl = control(
     'wishlist-sort', 'Sort', ICON_SORT,
-    WISHLIST_SORTS.map((s) => ({ value: s.id, label: s.label })),
-    state.wishlistSort,
+    wishlistSortsFor(hasAnyChange).map((s) => ({ value: s.id, label: s.label })),
+    activeSort,
   );
   const hiddenCount = state.wishlistEntries.length - rows.length;
 
@@ -2164,13 +2196,14 @@ function wishlistListHtml(): string {
     <ul class="shop-list wishlist-list">
       ${sorted
         .map(
-          ({ entry, frag, price }) => `<li class="wishlist-row">
+          ({ entry, frag, price, changeGbp }) => `<li class="wishlist-row">
             <button class="shop-row" data-frag="${esc(frag.id)}">
               <span class="wishlist-art">${productArt(frag.photoUrl, 'sm', `${frag.brand} ${frag.name}`, frag.imageTransform)}</span>
               <span class="shop-row-text">
                 <span class="shop-row-name t-title">${esc(frag.brand)} ${esc(frag.name)}</span>
                 <span class="shop-row-meta t-caption">${esc(frag.concentration)}, ${esc(sizeLabel(frag))}</span>
                 <span class="shop-row-meta wishlist-price">${price.html}</span>
+                ${wishlistChangeHtml(entry.savedPriceGbp, changeGbp)}
                 <span class="shop-row-meta t-caption">${esc(savedOnLabel(entry.addedAt))}</span>
               </span>
               <span class="shop-row-go" aria-hidden="true">→</span>
@@ -6034,7 +6067,12 @@ function init(): void {
       if (saved) state.wishlistIds.delete(fragranceId);
       else state.wishlistIds.add(fragranceId);
       render();
-      const action = saved ? removeFromWishlist(fragranceId) : addToWishlist(fragranceId);
+      // The cheapest delivered price today goes in with the save, so the
+      // wishlist can say how far it has moved since. Null where there is none
+      // (sold out everywhere, or no delivery stated), and then none is kept.
+      const savingFrag = fragranceById(fragranceId);
+      const savedAt = savingFrag ? wishlistPriceFacts(savingFrag).sortGbp : null;
+      const action = saved ? removeFromWishlist(fragranceId) : addToWishlist(fragranceId, null, savedAt);
       action.then((result) => {
         state.wishlistBusy = false;
         if (!result.ok) {
