@@ -403,6 +403,7 @@ function notesFor(frag: Pick['frag']): NotesResult {
 function genderFor(frag: Pick['frag']): { reading: GenderReading; basis: string } {
   const own = readGender(`${frag.brand} ${frag.name} ${frag.concentration}`);
   if (own !== 'notStated') return { reading: own, basis: 'product name' };
+  if (frag.gender) return { reading: frag.gender, basis: 'shop category label' };
   const votes: Record<GenderReading, number> = { mens: 0, womens: 0, unisex: 0, notStated: 0 };
   for (const o of offersFor(frag.id)) {
     const slug = decodeURIComponent(o.url.split('/').pop() ?? '').replace(/[-_+]/g, ' ');

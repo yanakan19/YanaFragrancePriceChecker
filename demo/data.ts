@@ -88,6 +88,15 @@ export interface DemoFragrance {
    * null, in which case `title` (the shop's own) is shown instead.
    */
   giftSet: { contents: string[] | null; title: string } | null;
+  /**
+   * Who a shop's own category label said this bottle is for, set only where the
+   * name no longer says it (Perfume Direct's "Women's Perfume" and "Men's
+   * Aftershave" are taken off the name so the bottle meets the same one at other
+   * shops; see stripShopTitleLabel in src/catalogue/productName.ts). The Gender
+   * filter reads the name first and this where the name is silent: demo/app.ts
+   * genderOf. Null for every other product.
+   */
+  gender: 'mens' | 'womens' | 'unisex' | null;
 }
 
 /**
@@ -215,6 +224,7 @@ export const DEMO_FRAGRANCES: DemoFragrance[] = CATALOGUE.map((entry) => ({
   // means every reader tests one thing.
   houseCeiling: entry.houseCeiling ?? null,
   giftSet: entry.giftSet ?? null,
+  gender: entry.gender ?? null,
 }));
 
 const BY_ID = new Map(DEMO_FRAGRANCES.map((f) => [f.id, f]));
