@@ -209,7 +209,11 @@ export async function removePhotoForDeletion(): Promise<boolean> {
   // Removing a file that is not there is not an error, so this is safe for
   // a reader who never added one.
   const { error } = await client.storage.from(BUCKET).remove([avatarObjectPath(uid)]);
-  return !error;
+  if (error) return false;
+  // Should the account then fail to delete, the profile must not still
+  // point at a file that is gone. Best effort: the row goes with the account.
+  await client.from('profiles').update({ avatar_path: null }).eq('id', uid);
+  return true;
 }
 
 /** The photo for Download My Data: a data: address, so the file is inside the JSON. */

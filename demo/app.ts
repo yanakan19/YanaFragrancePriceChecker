@@ -6208,6 +6208,12 @@ function init(): void {
         }
         const result = await deleteOwnAccount(COMPANY.feedbackEmail);
         if (!result.ok) {
+          // The photo is already gone; say so on the page rather than show it.
+          if (withPhoto) {
+            state.photoPath = null;
+            setPhotoBlob(null);
+            renderInPlace();
+          }
           void showDialog({ title: 'Account Not Deleted', message: result.message });
           return;
         }
