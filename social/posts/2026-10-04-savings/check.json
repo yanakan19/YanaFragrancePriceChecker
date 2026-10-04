@@ -1,0 +1,25 @@
+{
+  "id": "justmylook-mfk0004",
+  "url": "https://pricesniffs.space/fragrance/justmylook-mfk0004",
+  "saving": 18,
+  "percent": 10,
+  "dear": {
+    "shop": "Selfridges",
+    "item": 170,
+    "delivery": 6.95,
+    "total": 176.95,
+    "hoursOld": 6,
+    "link": "https://www.selfridges.com/GB/en/product/maison-francis-kurkdjian-baccarat-rouge-540-eau-de-parfum-35ml_R03829571/",
+    "live": "unreadable"
+  },
+  "cheap": {
+    "shop": "Les Senteurs",
+    "item": 155,
+    "delivery": 3.95,
+    "total": 158.95,
+    "hoursOld": 6,
+    "link": "https://lessenteurs.com/products/baccarat-rouge-540-35ml",
+    "live": "match"
+  },
+  "skipped": []
+}
