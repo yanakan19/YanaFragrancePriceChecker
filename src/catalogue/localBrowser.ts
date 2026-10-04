@@ -226,7 +226,30 @@ export interface LocalRenderer {
   dispose: () => Promise<void>;
 }
 
-const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
+const realSleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
+
+/**
+ * What the renderer takes from the machine it runs on, replaceable so its own
+ * accounting can be tested without a browser. Production passes nothing and
+ * gets the real launch, the real clock and real waiting.
+ *
+ * The time budget (what a page costs, when a shop's slice or the run's budget
+ * is gone, what is refused after that) is arithmetic over the clock, and a
+ * test of it that has to start Chromium and sit through its real settle waits
+ * is a test of how busy the machine is: under load a launch alone can take
+ * longer than any fixed test timeout. With these three replaced by a scripted
+ * browser and a clock that only moves when the script says so, the same
+ * assertions are exact and cannot time out. A real Chromium is still driven by
+ * the rendering tests in tests/localBrowser.test.ts.
+ */
+export interface LocalBrowserDeps {
+  /** Starts the browser. Defaults to Playwright's chromium.launch. */
+  launch?: (options: { executablePath?: string }) => Promise<Browser>;
+  /** Milliseconds, as Date.now(). Every cost the budgets charge is a difference of two of these. */
+  now?: () => number;
+  /** Waits for the given milliseconds: the politeness gap and the settle wait. */
+  sleep?: (ms: number) => Promise<void>;
+}
 
 /**
  * A renderer backed by a local headless Chromium.
@@ -234,7 +257,9 @@ const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
  * Lazily launched: constructing this costs nothing, so the harvest can build
  * one unconditionally and never pay for it on a run that renders no page.
  */
-export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRenderer {
+export function localBrowserRenderer(options: LocalBrowserOptions = {}, deps: LocalBrowserDeps = {}): LocalRenderer {
+  const now = deps.now ?? Date.now;
+  const sleep = deps.sleep ?? realSleep;
   const maxTotalPages = options.maxTotalPages ?? MAX_LOCAL_RENDER_PAGES_PER_RUN;
   const maxTotalMs = options.maxTotalMs ?? MAX_LOCAL_RENDER_MS_PER_RUN;
   const maxShopMs = options.maxShopMs ?? MAX_LOCAL_RENDER_MS_PER_SHOP;
@@ -289,9 +314,13 @@ export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRe
       // Imported here rather than at module load so that merely importing this
       // file — which tests and the harvest both do — never pulls in Playwright
       // or touches a browser.
-      const { chromium } = await import('playwright');
-      browser = await chromium.launch({
-        headless: true,
+      const launch =
+        deps.launch ??
+        (async (launchOptions: { executablePath?: string }) => {
+          const { chromium } = await import('playwright');
+          return chromium.launch({ headless: true, ...launchOptions });
+        });
+      browser = await launch({
         ...(options.executablePath ? { executablePath: options.executablePath } : {}),
       });
       hookProcessExit();
@@ -395,7 +424,7 @@ export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRe
 
           // Charged from here, so the politeness gap and the page teardown are
           // counted as well: they are time the harvest pays for this tier.
-          const pageStartedAt = Date.now();
+          const pageStartedAt = now();
           const page = await context.newPage();
           // The user agent is set again through the DevTools protocol, without
           // user agent metadata, because that is the one way found to make
@@ -449,7 +478,7 @@ export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRe
             used++;
           } finally {
             await page.close().catch(() => undefined);
-            const cost = Date.now() - pageStartedAt;
+            const cost = now() - pageStartedAt;
             spentMs += cost;
             shopMs += cost;
           }
