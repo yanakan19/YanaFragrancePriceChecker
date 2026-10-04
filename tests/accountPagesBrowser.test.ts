@@ -3,9 +3,9 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import AxeBuilder from '@axe-core/playwright';
-import type { Browser, BrowserContext, Page } from 'playwright';
+import type { Browser, BrowserContext, Download, Page } from 'playwright';
 import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-audit.js';
-import { stubSupabase, type FakeAccount } from './support/fakeAccount.js';
+import { stubSupabase, type FakeAccount, type FakePhotoFile } from './support/fakeAccount.js';
 import { liveCounts } from '../demo/data.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -13,9 +13,10 @@ const built = existsSync(resolve(root, 'demo/index.html'));
 
 /**
  * The account revamp of 2026-10-04 on the built page: the account menu at
- * the top left (mouse and keyboard, dropdown and phone sheet), the three
- * account pages for a signed in reader, Settings reduced to preferences, and
- * About carrying Contact Us, the legal links and numbers counted from data.
+ * the top right (mouse and keyboard, dropdown and phone sheet), the three
+ * account pages for a signed in reader, the profile photo, Settings reduced
+ * to preferences, and About carrying Contact Us, the legal links and numbers
+ * counted from data.
  *
  * Signed in states use tests/support/fakeAccount.ts: the app's own Supabase
  * client runs against a stored session and stubbed answers, so nothing here
@@ -75,33 +76,72 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
   const menuLabels = (page: Page) =>
     page.evaluate(`Array.from(document.querySelectorAll('#account-menu [role=menuitem]')).map((b) => b.textContent.trim())`) as Promise<string[]>;
 
-  for (const width of [320, 390, 1280]) {
+  for (const width of [320, 360, 375, 390, 768, 1280]) {
     for (const mode of ['dark', 'light'] as const) {
-      it(`at ${width}px (${mode}): the bar fits, the menu opens and closes by mouse and keyboard, axe passes`, async () => {
+      it(`at ${width}px (${mode}): the bar fits with the button at the right, the menu opens and closes by mouse and keyboard, axe passes`, async () => {
         const { context, page } = await open('/', { width, mode });
         try {
           const bar = (await page.evaluate(`(() => {
             const nav = document.querySelector('.nav-items');
             const r = (s) => document.querySelector(s).getBoundingClientRect();
+            const words = Array.from(nav.querySelectorAll('button')).map((b) => b.getBoundingClientRect());
             return {
               doc: document.documentElement.scrollWidth, vw: innerWidth,
               navScroll: nav.scrollWidth, navClient: nav.clientWidth,
               nav: Array.from(nav.querySelectorAll('button')).map((b) => b.textContent.trim()),
-              btnRight: r('#account-btn').right, brandLeft: r('#brand-home').left,
-              brandRight: r('#brand-home').right, navLeft: r('.nav-items').left,
-              searchRight: r('#search').right, rowTop: r('#account-btn').top, brandTop: r('#brand-home').top,
+              lastWordRight: words[words.length - 1].right,
+              // Lines of text in each nav word and the brandmark: one each when nothing wrapped.
+              lines: [...nav.querySelectorAll('button'), document.querySelector('#brand-home')].map((b) => {
+                const range = document.createRange();
+                range.selectNodeContents(b);
+                return new Set(Array.from(range.getClientRects()).map((r) => Math.round(r.top))).size;
+              }),
+              wordTops: words.map((w) => Math.round(w.top)),
+              btnLeft: r('#account-btn').left, btnRight: r('#account-btn').right,
+              btnTop: r('#account-btn').top, btnBottom: r('#account-btn').bottom,
+              brandLeft: r('#brand-home').left, brandRight: r('#brand-home').right,
+              brandTop: r('#brand-home').top, brandBottom: r('#brand-home').bottom,
+              brandScroll: document.querySelector('#brand-home').scrollWidth,
+              brandClient: document.querySelector('#brand-home').clientWidth,
+              navLeft: r('.nav-items').left, navRight: r('.nav-items').right,
+              searchLeft: r('#search').left, searchRight: r('#search').right, searchTop: r('#search').top,
+              rowRight: r('.bar-row').right,
             };
-          })()`)) as {
-            doc: number; vw: number; navScroll: number; navClient: number; nav: string[];
-            btnRight: number; brandLeft: number; brandRight: number; navLeft: number; searchRight: number;
-          };
+          })()`)) as { nav: string[]; lines: number[]; wordTops: number[] } & Record<
+            | 'doc' | 'vw' | 'navScroll' | 'navClient' | 'lastWordRight' | 'btnLeft' | 'btnRight' | 'btnTop' | 'btnBottom'
+            | 'brandLeft' | 'brandRight' | 'brandTop' | 'brandBottom' | 'brandScroll' | 'brandClient'
+            | 'navLeft' | 'navRight' | 'searchLeft' | 'searchRight' | 'searchTop' | 'rowRight',
+            number
+          >;
           expect(bar.doc, 'no sideways scroll').toBeLessThanOrEqual(bar.vw);
           expect(bar.nav).toEqual(['Home', 'Deals', 'Explore', 'About']);
           expect(bar.navScroll, 'all four nav words in view').toBeLessThanOrEqual(bar.navClient + 1);
-          expect(bar.btnRight, 'button before the brandmark').toBeLessThanOrEqual(bar.brandLeft);
           expect(bar.brandRight, 'brandmark before the nav').toBeLessThanOrEqual(bar.navLeft);
+          expect(bar.lastWordRight, 'nav words clear of the button').toBeLessThanOrEqual(bar.btnLeft);
+          expect(bar.navRight, 'nav before the button').toBeLessThanOrEqual(bar.btnLeft);
+          expect(Math.abs(bar.btnRight - bar.rowRight), 'button at the far right of the row').toBeLessThanOrEqual(1);
+          expect(bar.btnRight).toBeLessThanOrEqual(bar.vw);
+          expect(bar.brandScroll, 'brandmark not cut off').toBeLessThanOrEqual(bar.brandClient + 1);
+          // One line: nothing wrapped, and the button shares the brandmark's row.
+          expect(bar.lines, 'no nav word or brandmark wraps').toEqual([1, 1, 1, 1, 1]);
+          expect(new Set(bar.wordTops).size, 'nav words on one row').toBe(1);
+          expect(bar.btnTop).toBeLessThan(bar.brandBottom);
+          expect(bar.btnBottom).toBeGreaterThan(bar.brandTop);
+          expect(bar.searchTop, 'search below the row').toBeGreaterThanOrEqual(Math.max(bar.btnBottom, bar.brandBottom));
+          expect(bar.searchLeft).toBeGreaterThanOrEqual(0);
           expect(bar.searchRight).toBeLessThanOrEqual(bar.vw);
           expect(await page.$('#nav-settings')).toBeNull();
+
+          // Keyboard order across the bar: brandmark, the four nav items,
+          // the account button, then the quick search.
+          await page.focus('#brand-home');
+          const order: string[] = ['brand-home'];
+          for (let i = 0; i < 6; i++) {
+            await page.keyboard.press('Tab');
+            order.push((await page.evaluate(`document.activeElement.id`)) as string);
+          }
+          expect(order).toEqual(['brand-home', 'nav-home', 'nav-deals', 'nav-explore', 'nav-about', 'account-btn', 'search']);
+          await page.evaluate(`document.activeElement.blur()`);
 
           // Mouse: open, then a click outside closes it.
           await page.click('#account-btn');
@@ -110,10 +150,27 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
           expect(await menuLabels(page)).toEqual(['Sign In', 'Create an Account', 'Settings']);
           const sheet = (await page.evaluate(`getComputedStyle(document.querySelector('#account-pop')).position`)) as string;
           expect(sheet).toBe(width <= 600 ? 'fixed' : 'absolute');
+          const pop = (await page.evaluate(`(() => {
+            const p = document.querySelector('#account-pop').getBoundingClientRect();
+            const b = document.querySelector('#account-btn').getBoundingClientRect();
+            return { left: p.left, right: p.right, bottom: p.bottom, btnRight: b.right, vw: innerWidth, vh: innerHeight };
+          })()`)) as { left: number; right: number; bottom: number; btnRight: number; vw: number; vh: number };
+          if (width <= 600) {
+            // A sheet across the bottom of the screen.
+            expect(Math.round(pop.left)).toBe(0);
+            expect(Math.round(pop.right)).toBe(pop.vw);
+            expect(Math.round(pop.bottom)).toBe(pop.vh);
+          } else {
+            // A dropdown lined up with the button's right edge, on screen.
+            expect(Math.abs(pop.right - pop.btnRight)).toBeLessThanOrEqual(1);
+            expect(pop.left).toBeGreaterThanOrEqual(0);
+          }
           expect(await axe(page), 'axe with the menu open').toEqual([]);
-          // Somewhere plain (the hero's empty band), not a tile: a pointer
-          // left resting on a tile would audit its hover state mid transition.
-          const outside = width <= 600 ? { x: Math.round(width / 2), y: 150 } : { x: width - 40, y: 180 };
+          // Somewhere plain (the hero's empty band, or the margin outside the
+          // column), not a tile and not the menu, which now hangs from the
+          // right: a pointer left resting on a tile would audit its hover
+          // state mid transition.
+          const outside = width <= 600 ? { x: Math.round(width / 2), y: 150 } : { x: 8, y: 180 };
           await page.mouse.click(outside.x, outside.y);
           expect(await page.getAttribute('#account-btn', 'aria-expanded')).toBe('false');
           expect(await page.isVisible('#account-pop')).toBe(false);
@@ -296,6 +353,234 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
       await page.click('#view [data-back]');
       await page.waitForTimeout(150);
       expect(new URL(page.url()).pathname).toBe('/account');
+    } finally {
+      await context.close();
+    }
+  }, 60_000);
+
+  /* ── the profile photo ─────────────────────────────────────────────────
+     Every image here is drawn by the test in the browser; nothing real is
+     uploaded, and the "upload" lands in the stub, never in the project. */
+
+  /** A fresh reader with photos switched on (each test mutates its own copy). */
+  const photoReader = (file: FakePhotoFile | null, enabled = true): FakeAccount => ({
+    ...READER,
+    wishlist: [...READER.wishlist],
+    photo: { enabled, file },
+    writes: [],
+  });
+
+  /** Draws a test picture in a blank page and returns its bytes. */
+  async function drawImage(type: 'image/png' | 'image/webp' | 'image/jpeg', w: number, h: number): Promise<Buffer> {
+    const page = await browser.newPage();
+    try {
+      const b64 = (await page.evaluate(`(() => {
+        const c = document.createElement('canvas');
+        c.width = ${w}; c.height = ${h};
+        const x = c.getContext('2d');
+        // Noise, so the encoder has real work to do and the size is honest.
+        const img = x.createImageData(${w}, ${h});
+        for (let i = 0; i < img.data.length; i += 4) {
+          img.data[i] = (i * 7) % 255; img.data[i + 1] = (i * 13) % 255; img.data[i + 2] = Math.random() * 255; img.data[i + 3] = 255;
+        }
+        x.putImageData(img, 0, 0);
+        x.fillStyle = '#c0392b'; x.fillRect(${Math.floor(w / 2) - 20}, ${Math.floor(h / 2) - 20}, 40, 40);
+        return c.toDataURL('${type}', 0.92).split(',')[1];
+      })()`)) as string;
+      return Buffer.from(b64, 'base64');
+    } finally {
+      await page.close();
+    }
+  }
+
+  /** A JPEG with an EXIF block inserted after its start marker, carrying a marker string. */
+  function withExif(jpeg: Buffer, marker: string): Buffer {
+    const tiffHeader = Buffer.from([0x4d, 0x4d, 0x00, 0x2a, 0x00, 0x00, 0x00, 0x08, 0, 0, 0, 0, 0, 0]);
+    const payload = Buffer.concat([Buffer.from([0x45, 0x78, 0x69, 0x66, 0, 0]), tiffHeader, Buffer.from(marker, 'latin1')]);
+    const len = Buffer.alloc(2);
+    len.writeUInt16BE(payload.length + 2);
+    return Buffer.concat([jpeg.subarray(0, 2), Buffer.from([0xff, 0xe1]), len, payload, jpeg.subarray(2)]);
+  }
+
+  const buttonFace = (page: Page) => page.evaluate(`(() => {
+    const b = document.querySelector('#account-btn');
+    const img = b.querySelector('img');
+    return { img: !!img, loaded: img ? img.complete && img.naturalWidth > 0 : false, text: b.textContent.trim(), photoClass: b.classList.contains('has-photo') };
+  })()`) as Promise<{ img: boolean; loaded: boolean; text: string; photoClass: boolean }>;
+
+  const readDownload = async (download: Download) =>
+    JSON.parse(await (await download.createReadStream()).toArray().then((c) => Buffer.concat(c).toString('utf8')));
+
+  it('photos not switched on yet: no control, a plain line, and the initial', async () => {
+    const { context, page } = await open('/account', { account: photoReader(null, false) });
+    try {
+      await page.waitForSelector('.profile-photo-note', { timeout: 15_000 });
+      expect((await page.textContent('.profile-photo'))!.trim()).toContain('Adding a profile photo is not available yet.');
+      expect(await page.$('#acct-photo-pick')).toBeNull();
+      expect(await page.$('#acct-photo-input')).toBeNull();
+      expect((await page.textContent('.profile-photo-letter'))?.trim()).toBe('R');
+      expect((await buttonFace(page)).text).toBe('R');
+    } finally {
+      await context.close();
+    }
+  }, 60_000);
+
+  for (const mode of ['dark', 'light'] as const) {
+    it(`a stored photo (${mode}): shown in the button and at the top of the profile, Change and Remove offered, axe passes`, async () => {
+      const file = { contentType: 'image/webp', body: await drawImage('image/webp', 256, 256) };
+      for (const width of [320, 390, 1280]) {
+        const { context, page } = await open('/account', { account: photoReader(file), mode, width });
+        try {
+          await page.waitForSelector('#account-btn img', { timeout: 15_000 });
+          await page.waitForFunction(`document.querySelector('#account-btn img').complete`);
+          const face = await buttonFace(page);
+          expect(face.img && face.loaded && face.photoClass, `${width} button photo`).toBe(true);
+          expect(await page.getAttribute('#account-btn', 'aria-label')).toBe('Account menu, signed in as reader@example.com');
+          expect(await page.getAttribute('#account-btn img', 'alt')).toBe('');
+          expect(await page.getAttribute('.profile-photo-img', 'alt')).toBe('Your profile photo');
+          expect((await page.textContent('#acct-photo-pick'))?.trim()).toBe('Change Photo');
+          expect((await page.textContent('#acct-photo-remove'))?.trim()).toBe('Remove Photo');
+          expect(await page.getAttribute('#acct-photo-input', 'accept')).toBe('image/jpeg,image/png,image/webp');
+          expect(await page.evaluate(`document.documentElement.scrollWidth`)).toBeLessThanOrEqual(width);
+          expect(await axe(page), `${width} axe`).toEqual([]);
+          // The menu still opens from a photo button.
+          await page.click('#account-btn');
+          expect(await menuLabels(page)).toEqual(['View My Profile', 'View My Wishlist (2)', 'My Notifications', 'Settings', 'Sign Out']);
+        } finally {
+          await context.close();
+        }
+      }
+    }, 120_000);
+  }
+
+  it('a photo that will not load falls back to the initial, in the button and on the profile', async () => {
+    const broken = { contentType: 'image/webp', body: Buffer.from('this is not an image at all') };
+    const { context, page } = await open('/account', { account: photoReader(broken) });
+    try {
+      await page.waitForSelector('#acct-photo-pick', { timeout: 15_000 });
+      await page.waitForFunction(`!document.querySelector('#account-btn img') && document.querySelector('#account-btn .acct-letter')`, null, { timeout: 15_000 });
+      const face = await buttonFace(page);
+      expect(face.img).toBe(false);
+      expect(face.text).toBe('R');
+      expect(await page.$('.profile-photo-img')).toBeNull();
+      expect((await page.textContent('.profile-photo-letter'))?.trim()).toBe('R');
+      // The stored photo can still be replaced or removed.
+      expect((await page.textContent('#acct-photo-pick'))?.trim()).toBe('Change Photo');
+      expect(await axe(page)).toEqual([]);
+    } finally {
+      await context.close();
+    }
+  }, 60_000);
+
+  it('Add a Photo: shrinks to a small square WebP with no metadata, shows it, then Remove takes it away', async () => {
+    const account = photoReader(null);
+    const { context, page } = await open('/account', { account });
+    try {
+      await page.waitForSelector('#acct-photo-pick', { timeout: 15_000 });
+      expect((await page.textContent('#acct-photo-pick'))?.trim()).toBe('Add a Photo');
+      expect(await page.$('#acct-photo-remove')).toBeNull();
+
+      const marker = 'PRICESNIFFS_TEST_GPS_51.5N';
+      const original = withExif(await drawImage('image/jpeg', 1600, 1000), marker);
+      expect(original.includes(Buffer.from(marker))).toBe(true);
+      await page.setInputFiles('#acct-photo-input', { name: 'holiday.jpg', mimeType: 'image/jpeg', buffer: original });
+      await page.waitForSelector('#acct-photo-remove', { timeout: 15_000 });
+
+      const stored = account.photo!.file!;
+      expect(stored.contentType).toBe('image/webp');
+      expect(stored.body.length).toBeGreaterThan(0);
+      expect(stored.body.length).toBeLessThanOrEqual(100 * 1024);
+      expect(stored.body.subarray(0, 4).toString('latin1')).toBe('RIFF');
+      expect(stored.body.subarray(8, 12).toString('latin1')).toBe('WEBP');
+      // The canvas kept pixels only: no EXIF block and no trace of the marker.
+      expect(stored.body.includes(Buffer.from(marker))).toBe(false);
+      expect(stored.body.includes(Buffer.from('Exif'))).toBe(false);
+      expect(account.writes).toContain(`profiles {"avatar_path":"00000000-0000-4000-8000-000000000001/avatar"}`);
+      // A square of at most 256px, decoded back in the page.
+      const dims = (await page.evaluate(`(async () => {
+        const res = await fetch('data:image/webp;base64,${stored.body.toString('base64')}');
+        const bmp = await createImageBitmap(await res.blob());
+        return [bmp.width, bmp.height];
+      })()`)) as [number, number];
+      expect(dims).toEqual([256, 256]);
+
+      await page.waitForSelector('#account-btn img');
+      await page.waitForFunction(`document.querySelector('#account-btn img').complete`);
+      expect((await buttonFace(page)).loaded).toBe(true);
+      expect(await page.$('.profile-photo-img')).not.toBeNull();
+      expect((await page.textContent('#acct-photo-pick'))?.trim()).toBe('Change Photo');
+
+      await page.click('#acct-photo-remove');
+      await page.waitForSelector('#ps-dialog[open]');
+      expect((await page.textContent('#ps-dialog-title'))?.trim()).toBe('Remove Your Photo?');
+      await page.click('#ps-dialog button[value=confirm]');
+      await page.waitForSelector('#acct-photo-pick:text-is("Add a Photo")', { timeout: 15_000 });
+      expect(account.photo!.file).toBeNull();
+      expect(account.writes).toContain('profiles {"avatar_path":null}');
+      expect((await buttonFace(page)).text).toBe('R');
+      expect(await page.$('.profile-photo-img')).toBeNull();
+    } finally {
+      await context.close();
+    }
+  }, 90_000);
+
+  it('refuses a file of the wrong kind, too large or unreadable with a pop up, and uploads nothing', async () => {
+    const account = photoReader(null);
+    const { context, page } = await open('/account', { account });
+    try {
+      await page.waitForSelector('#acct-photo-pick', { timeout: 15_000 });
+      const tryFile = async (name: string, mimeType: string, buffer: Buffer) => {
+        await page.setInputFiles('#acct-photo-input', { name, mimeType, buffer });
+        await page.waitForSelector('#ps-dialog[open]', { timeout: 15_000 });
+        const title = (await page.textContent('#ps-dialog-title'))?.trim();
+        await page.click('#ps-dialog button[value=confirm]');
+        await page.waitForSelector('#ps-dialog[open]', { state: 'detached', timeout: 2000 }).catch(() => {});
+        return title;
+      };
+      expect(await tryFile('cat.gif', 'image/gif', Buffer.from('GIF89a'))).toBe('Choose a JPEG, PNG or WebP');
+      expect(await tryFile('huge.jpg', 'image/jpeg', Buffer.alloc(16 * 1024 * 1024, 1))).toBe('That Photo Is Too Large');
+      expect(await tryFile('fake.png', 'image/png', Buffer.from('not really a png'))).toBe('That Photo Could Not Be Read');
+      expect(account.photo!.file).toBeNull();
+      expect(account.writes!.filter((w) => w.startsWith('storage'))).toEqual([]);
+    } finally {
+      await context.close();
+    }
+  }, 90_000);
+
+  it('Download My Data says a photo is stored and carries the file; Delete Account removes the photo first', async () => {
+    const file = { contentType: 'image/webp', body: await drawImage('image/webp', 64, 64) };
+    const account = photoReader(file);
+    const { context, page } = await open('/account', { account });
+    try {
+      await page.waitForSelector('#account-btn img', { timeout: 15_000 });
+      const [download] = await Promise.all([page.waitForEvent('download'), page.click('#acct-download')]);
+      const data = await readDownload(download);
+      expect(data.profilePhoto.stored).toBe(true);
+      expect(data.profilePhoto.contentType).toBe('image/webp');
+      expect(data.profilePhoto.file).toBe(`data:image/webp;base64,${file.body.toString('base64')}`);
+
+      await page.click('#auth-delete');
+      await page.waitForSelector('#ps-dialog[open]');
+      expect((await page.textContent('#ps-dialog-msg'))!).toContain('your profile photo');
+      await page.click('#ps-dialog button[value=confirm]');
+      await page.waitForFunction(`document.querySelector('#ps-dialog-title')?.textContent.trim() === 'Account Deleted'`, null, { timeout: 15_000 });
+      expect(account.writes).toEqual([
+        'storage remove 00000000-0000-4000-8000-000000000001/avatar',
+        'rpc delete_own_account',
+      ]);
+      expect(account.photo!.file).toBeNull();
+    } finally {
+      await context.close();
+    }
+  }, 90_000);
+
+  it('Download My Data says null for the photo while photos are not switched on', async () => {
+    const { context, page } = await open('/account', { account: photoReader(null, false) });
+    try {
+      await page.waitForSelector('.profile-photo-note', { timeout: 15_000 });
+      const [download] = await Promise.all([page.waitForEvent('download'), page.click('#acct-download')]);
+      const data = await readDownload(download);
+      expect(data.profilePhoto).toEqual({ stored: null, contentType: null, file: null });
     } finally {
       await context.close();
     }
