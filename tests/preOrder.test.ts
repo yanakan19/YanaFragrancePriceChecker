@@ -454,6 +454,5 @@ describe('the registry', () => {
     expect(flagged).toEqual(['bloom-perfumery']);
     const bloom = RETAILERS.find((r) => r.id === 'bloom-perfumery')!;
     expect(bloom.shopifyStorefront).toBe(true);
-    expect(bloom.botIdentityOnly).toBe(true);
   });
 });

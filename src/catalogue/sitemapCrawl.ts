@@ -5,6 +5,7 @@ import { parseListings } from './jsonld.js';
 import { isAllowed, type RobotsRules } from './robots.js';
 import { readRobotsResponse, resolveRobotsReadings } from './robotsSource.js';
 import { BEAUTY_BAY_API, beautyBayApiUrl, beautyBayParts, parseBeautyBayProduct } from './beautyBayApi.js';
+import { BOT_HEADERS } from './botIdentity.js';
 
 /**
  * Harvest a shop's catalogue through the sitemap it publishes.
@@ -376,15 +377,11 @@ export function redirectedAway(asked: string, finalUrl: string | undefined): boo
 
 /**
  * The headers every request on a pinned route carries: the crawler's own name
- * and contact page, never a browser's. Kept here rather than imported from
- * attempt.ts so this module's identity on a pinned route cannot drift with a
- * caller's choice of headers.
+ * and contact page, never a browser's. Since 2026-10-04 that is every shop's
+ * identity, not only a pinned route's (src/catalogue/botIdentity.ts); the name
+ * stays for the callers that use it.
  */
-export const ROUTE_HEADERS: Record<string, string> = {
-  'user-agent': 'PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about)',
-  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-  'accept-language': 'en-GB,en;q=0.9',
-};
+export const ROUTE_HEADERS: Record<string, string> = BOT_HEADERS;
 
 /** Upper bound on a pinned route's sitemap fetches, whatever the entry asks. */
 const MAX_ROUTE_SITEMAPS = 60;

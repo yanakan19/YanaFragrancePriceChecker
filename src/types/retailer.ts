@@ -776,15 +776,6 @@ export interface Retailer {
    */
   shopifyVariantRule?: ShopifyVariantRule;
   /**
-   * Every request to this shop, `robots.txt` and the catalogue alike, carries
-   * the crawler's own honest user agent (`ROUTE_HEADERS`), never a browser's,
-   * and `robots.txt` is not asked a second time in a browser's clothes. A
-   * pinned `sitemapRoute` already behaves this way; this is the same
-   * commitment for a Shopify `/products.json` walk. Set only on an owner's or
-   * a brief's instruction to identify as the bot alone.
-   */
-  botIdentityOnly?: boolean;
-  /**
    * The shop's feed states no bottle size for its perfumes, but each product
    * page does, so the harvest reads the size from the page: per variant, from
    * the page's own variants data, with robots.txt checked for every page and

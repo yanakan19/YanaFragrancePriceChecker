@@ -15,16 +15,17 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
-import { loadRobots, runStrategy, BOT_HEADERS, BROWSER_HEADERS, type Http } from '../src/catalogue/attempt.js';
+import { loadRobots, runStrategy, type Http } from '../src/catalogue/attempt.js';
+import { BOT_HEADERS, METERED_TIERS_ENABLED } from '../src/catalogue/botIdentity.js';
 import { crawlViaShopifyProducts } from '../src/catalogue/shopifyProductsCrawl.js';
 import { apifyProxyConfigFromEnv, apifyProxyHttp } from '../src/catalogue/apifyProxy.js';
 import { apifyActorConfigFromEnv, apifyActorRenderer } from '../src/catalogue/apifyActor.js';
 import {
   EMPTY_MEMORY, planFor, record, explain, type StrategyMemory,
 } from '../src/catalogue/strategy.js';
-import { crawlViaSitemap, ROUTE_HEADERS } from '../src/catalogue/sitemapCrawl.js';
+import { crawlViaSitemap } from '../src/catalogue/sitemapCrawl.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
-import { probeRobots, robotsHeaderVariants } from '../src/catalogue/robotsSource.js';
+import { probeRobots } from '../src/catalogue/robotsSource.js';
 import type { Retailer } from '../src/types/retailer.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 import { isFragrance, sizeMl } from '../src/catalogue/fragranceId.js';
@@ -42,9 +43,15 @@ function arg(name: string): string | null {
 
 const onlyShop = arg('shop');
 
-const proxyConfig = apifyProxyConfigFromEnv();
+// The Apify proxy and actor are off (METERED_TIERS_ENABLED in
+// src/catalogue/botIdentity.ts): every shop is read as PriceSniffsBot and a
+// refusal is never worked around, which a residential address and a rendered
+// browser exist to do. proxied-fetch and browser-render stay out of every plan.
+const proxyConfig = METERED_TIERS_ENABLED ? apifyProxyConfigFromEnv() : null;
 const proxiedHttp = proxyConfig ? apifyProxyHttp(proxyConfig) : undefined;
-if (proxyConfig) {
+if (!METERED_TIERS_ENABLED) {
+  console.log('The Apify proxy and actor tiers are off (owner decision 2026-10-04). proxied-fetch and browser-render are unavailable.\n');
+} else if (proxyConfig) {
   console.log('Apify residential proxy configured. proxied-fetch is available this run.\n');
 } else {
   console.log('No APIFY_PROXY_PASSWORD set. proxied-fetch will stay unavailable.\n');
@@ -54,9 +61,11 @@ if (proxyConfig) {
 // header on why the two are not interchangeable. Either, both or neither may
 // be set; each strategy fails soft with its own clear reason when its
 // credential is absent, same as proxied-fetch always has.
-const actorConfig = apifyActorConfigFromEnv();
+const actorConfig = METERED_TIERS_ENABLED ? apifyActorConfigFromEnv() : null;
 const actorRenderer = actorConfig ? apifyActorRenderer(actorConfig) : undefined;
-if (actorConfig) {
+if (!METERED_TIERS_ENABLED) {
+  // Said above.
+} else if (actorConfig) {
   console.log('Apify actor configured. browser-render is available this run.\n');
 } else {
   console.log('No APIFY_TOKEN set. browser-render will stay unavailable.\n');
@@ -71,19 +80,8 @@ if (existsSync(memoryPath)) {
   }
 }
 
-const http: Http = async (url, headers) => {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 20_000);
-  try {
-    const res = await fetch(url, { headers, redirect: 'follow', signal: controller.signal });
-    const body = await res.text();
-    return { status: res.status, body, ok: res.ok };
-  } catch (err) {
-    return { status: 0, body: '', ok: false, error: String(err).slice(0, 120) };
-  } finally {
-    clearTimeout(timer);
-  }
-};
+// The shared client: it sends as PriceSniffsBot and refuses anything else.
+const http: Http = createHttp({ timeoutMs: 20_000 });
 
 const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
@@ -118,13 +116,13 @@ const losses: string[] = [];
  * A shop with a pinned sitemap route (`Retailer.sitemapRoute`) is probed by
  * walking that route, and nothing else.
  *
- * The adaptive plan below tries strategies that present a browser's user
- * agent (section-browser-headers, search-page, homepage-probe), a residential
- * proxy and a paid render. A pinned route is the opposite promise: asked as
- * ourselves, from our own address, robots.txt first, at the shop's own crawl
- * delay. So the probe for such a shop is the harvest's own walk, run dry with
- * a small budget, and it reports what a harvest would store: every listing
- * with its price, or the currency it was withheld for.
+ * The adaptive plan below tries a handful of ways to ask (the section page, the
+ * sitemap, the search page, the homepage), every one as PriceSniffsBot. A
+ * pinned route is a different promise: a route the owner has read and pinned,
+ * robots.txt first, at the shop's own crawl delay. So the probe for such a shop
+ * is the harvest's own walk, run dry with a small budget, and it reports what a
+ * harvest would store: every listing with its price, or the currency it was
+ * withheld for.
  */
 const ROUTE_PROBE_PAGES = 8;
 /** What a probe of a category walking route may take, as a scheduled run's per shop ceiling (--shop-minutes=40). */
@@ -132,7 +130,7 @@ const ROUTE_PROBE_CATEGORY_MS = 40 * 60_000;
 
 async function probeRoute(retailer: Retailer): Promise<void> {
   const routeHttp = createHttp();
-  const probe = await probeRobots(retailer, routeHttp, ROUTE_HEADERS);
+  const probe = await probeRobots(retailer, routeHttp, BOT_HEADERS);
   const robots = probe.rules;
   const gapMs = Math.max(retailer.catalogue?.minRequestGapMs ?? 1500, (robots.crawlDelaySeconds ?? 0) * 1000);
   console.log(`${retailer.name}: pinned sitemap route, honest user agent, ${gapMs}ms between requests`);
@@ -145,7 +143,7 @@ async function probeRoute(retailer: Retailer): Promise<void> {
     return;
   }
   const result = await crawlViaSitemap({
-    retailer, http: routeHttp, robots, maxPages: ROUTE_PROBE_PAGES, gapMs, headers: ROUTE_HEADERS,
+    retailer, http: routeHttp, robots, maxPages: ROUTE_PROBE_PAGES, gapMs, headers: BOT_HEADERS,
     // A route that reads category pages walks them all before its first
     // product: 148 pages for Cult Beauty, about 5 to 11 minutes. The walk's
     // default 8 minutes left the first local probe with 109 pages and no
@@ -192,10 +190,8 @@ const SHOPIFY_PROBE_PAGES = 12;
 
 async function probeShopify(retailer: Retailer): Promise<void> {
   const routeHttp = createHttp();
-  // A shop marked `botIdentityOnly` is asked as ourselves alone, robots.txt
-  // included: no browser-shaped second request for the file.
-  const botOnly = retailer.botIdentityOnly === true;
-  const probe = await probeRobots(retailer, routeHttp, BOT_HEADERS, botOnly ? [] : robotsHeaderVariants(BROWSER_HEADERS));
+  // Every shop is asked as PriceSniffsBot, robots.txt included, once.
+  const probe = await probeRobots(retailer, routeHttp, BOT_HEADERS);
   const robots = probe.rules;
   const gapMs = Math.max(retailer.catalogue?.minRequestGapMs ?? 1500, (robots.crawlDelaySeconds ?? 0) * 1000);
   console.log(`${retailer.name}: Shopify /products.json route, robots.txt first, ${gapMs}ms between requests`);
@@ -206,7 +202,7 @@ async function probeShopify(retailer: Retailer): Promise<void> {
     return;
   }
   const result = await crawlViaShopifyProducts({
-    retailer, http: routeHttp, robots, headers: botOnly ? ROUTE_HEADERS : BROWSER_HEADERS,
+    retailer, http: routeHttp, robots, headers: BOT_HEADERS,
     maxPages: SHOPIFY_PROBE_PAGES, gapMs,
     onProgress: (n, found) => console.log(`  ${n} fetched, ${found} found`),
   });
@@ -215,7 +211,7 @@ async function probeShopify(retailer: Retailer): Promise<void> {
     // The same read the harvest makes, so the probe shows what a harvest would
     // store: the feed has no size, the product page does.
     const read = await readSizesFromProductPages(result.listings.filter((l) => l.priceGbp !== null), {
-      http: routeHttp, robots, headers: { ...(botOnly ? ROUTE_HEADERS : BROWSER_HEADERS), ...result.market.headers },
+      http: routeHttp, robots, headers: { ...BOT_HEADERS, ...result.market.headers },
       gapMs, marketParam: result.market.query.replace(/^\?/, '') || null,
     });
     const bySku = new Map(read.listings.map((l) => [l.retailerSku, l]));
@@ -229,7 +225,7 @@ async function probeShopify(retailer: Retailer): Promise<void> {
     // The same read the harvest makes: the titles name no strength, the page does.
     const read = await readStrengthsFromProductPages(shown.filter((l) => l.priceGbp !== null), {
       retailerId: retailer.id, http: routeHttp, robots,
-      headers: { ...(botOnly ? ROUTE_HEADERS : BROWSER_HEADERS), ...result.market.headers },
+      headers: { ...BOT_HEADERS, ...result.market.headers },
       gapMs, marketParam: result.market.query.replace(/^\?/, '') || null,
     });
     const bySku = new Map(read.listings.map((l) => [l.retailerSku, l]));

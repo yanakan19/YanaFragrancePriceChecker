@@ -28,6 +28,7 @@
 import { chromium, devices, type Page } from 'playwright';
 import { existsSync } from 'node:fs';
 import { startDemoServer, waitForApp } from './a11y-audit.js';
+import { BOT_USER_AGENT } from '../src/catalogue/botIdentity.js';
 
 const PINNED_CHROMIUM = process.env.CHROMIUM_PATH ?? '/opt/pw-browsers/chromium';
 
@@ -67,7 +68,7 @@ async function measure(route: string, port: number, browser: import('playwright'
       const image = r.resourceType() === 'image';
       if (image) inFlight++;
       try {
-        const res = await fetch(r.url(), { headers: { accept: r.headers()['accept'] ?? '*/*', 'user-agent': r.headers()['user-agent'] ?? '' } });
+        const res = await fetch(r.url(), { headers: { accept: r.headers()['accept'] ?? '*/*', 'user-agent': BOT_USER_AGENT } });
         const body = Buffer.from(await res.arrayBuffer());
         const type = res.headers.get('content-type') ?? '';
         if (image) fetched.push({ url: r.url(), bytes: body.length, type: res.ok ? type : `HTTP ${res.status}` });

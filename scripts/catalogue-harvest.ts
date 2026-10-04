@@ -10,34 +10,33 @@
  *
  * This is the route the probe proved works for the sites that allow it.
  * Guessed section URLs returned nothing; asking the sitemap returned real
- * products. For shops that refuse every free route (see docs/SPIKE-RESULTS.md
- * and docs/INGESTION.md) there are escalation tiers, each only tried when the
- * tier before it still returned zero priced listings.
+ * products.
  *
- * Two distinct failures are being escalated against, and they need different
- * answers: a shop that refuses this IP, and a shop whose product grid does
- * not exist until JavaScript builds it. No change of address fixes the
- * second, and no browser fixes the first.
+ * ── Who asks, and what a refusal is (owner's decision, 2026-10-04) ──────────
+ * Every shop is read as PriceSniffsBot, with its user agent and honest headers
+ * (src/catalogue/botIdentity.ts): the sitemap walk, the Shopify feed, the
+ * product pages, robots.txt, the logo and price checks, everything. There is no
+ * browser header set any more, and robots.txt is asked for once per address, as
+ * the bot.
  *
- *   1. A real browser render, free — a headless Chromium in this runner. Sits
- *      outside --allow-metered on purpose: it costs no money, so a flag whose
- *      whole meaning is "you may spend" is the wrong gate. On by default,
- *      --no-local-render turns it off. See src/catalogue/localBrowser.ts.
- *   2. Apify's residential proxy, when APIFY_PROXY_PASSWORD is set and
- *      --allow-metered is passed — the exact same sitemap walk and the exact
- *      same parser as the free route, only the transport changes. Fixes an
- *      IP-based refusal, which tier 1 cannot.
- *   3. An Apify actor (real headless browser on a residential IP), when
- *      APIFY_TOKEN is set. Does tier 1's job from tier 2's address, and is
- *      the only tier that costs real money per page — roughly ten times the
- *      proxy's rate, which is how the $5 monthly credit was gone by
- *      2026-08-21 with three weeks of the month left. Now used only where
- *      tier 1 is unavailable or turned off, and capped far lower
- *      (MAX_ACTOR_PAGES_PER_RUN) than the free renderer it fell behind.
+ * A shop that answers the bot is read. A shop that refuses it (an HTTP 401, 403,
+ * 407 or 429, a bot wall, a robots.txt that will not be served or that
+ * disallows the path) is a refusal, and a refusal is not worked around. Nothing
+ * is retried through a proxy or a rendered browser to get past it: the shop is
+ * recorded as refused, nothing new is stored for it, and its prices go stale and
+ * come off the site after HIDE_OFFER_AFTER_DAYS days.
  *
- * Tiers 1 and 3 are interchangeable to everything downstream: same
- * { render, used } interface, same HttpResponse, same parser afterwards. The
- * run log names which one it held.
+ * What is left of the old escalation tiers:
+ *
+ *   1. A longer timeout, once, for a shop that was slow rather than refusing.
+ *   2. A free local browser render (a headless Chromium in this runner), only
+ *      for a shop that answered but draws its grid with JavaScript, and asking
+ *      as PriceSniffsBot. Never after a refusal. See src/catalogue/localBrowser.ts.
+ *
+ * Apify's residential proxy and its paid browser actor are switched off
+ * (METERED_TIERS_ENABLED in src/catalogue/botIdentity.ts). A residential address and a fingerprinted
+ * browser are how a refusal gets worked around, and the actor cannot be shown to
+ * carry the bot's name. --allow-metered is accepted and does nothing.
  *
  * Nothing here fabricates a listing. A shop that yields nothing is reported as
  * yielding nothing, whichever tier was tried.
@@ -48,14 +47,14 @@ import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { reconcile } from '../src/catalogue/reconcile.js';
-import { crawlViaSitemap, DEFAULT_CRAWL_MS, ROUTE_HEADERS, type SitemapCrawlResult } from '../src/catalogue/sitemapCrawl.js';
+import { crawlViaSitemap, DEFAULT_CRAWL_MS, type SitemapCrawlResult } from '../src/catalogue/sitemapCrawl.js';
 import { crawlViaShopifyProducts } from '../src/catalogue/shopifyProductsCrawl.js';
 import { quarantinePrices } from '../src/catalogue/priceQuarantine.js';
-import { BROWSER_HEADERS, BOT_HEADERS, type Http, type HttpResponse } from '../src/catalogue/attempt.js';
+import type { Http, HttpResponse } from '../src/catalogue/attempt.js';
+import { BOT_HEADERS, METERED_TIERS_ENABLED } from '../src/catalogue/botIdentity.js';
+import { refusalIn } from '../src/catalogue/refusal.js';
 import { isAllowed, parseRobots } from '../src/catalogue/robots.js';
-import {
-  probeRobots, robotsHeaderVariants, robotsCandidateUrls, robotsTextFromRenderedHtml,
-} from '../src/catalogue/robotsSource.js';
+import { probeRobots } from '../src/catalogue/robotsSource.js';
 import { parseListings } from '../src/catalogue/jsonld.js';
 import { parseRenderedState } from '../src/catalogue/renderedState.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
@@ -278,7 +277,7 @@ const actorConfig = apifyActorConfigFromEnv();
 // failures. This asks first, costs nothing, and turns the metered tiers off
 // for the run when the credit is actually gone. A check that cannot read its
 // own answer reports `unknown` and changes nothing — see apifyUsage.ts.
-const usage = actorConfig
+const usage = METERED_TIERS_ENABLED && actorConfig
   ? await checkApifyUsage(actorConfig.token)
   : null;
 
@@ -289,9 +288,11 @@ if (allowMetered && usage) {
 
 const budgetAllowsMetered = usage === null || usage.meteredAllowed;
 
-const useProxy = allowMetered && proxyConfig !== null && budgetAllowsMetered;
+const useProxy = METERED_TIERS_ENABLED && allowMetered && proxyConfig !== null && budgetAllowsMetered;
 
-if (allowMetered && !proxyConfig) {
+if (allowMetered && !METERED_TIERS_ENABLED) {
+  console.log('--allow-metered was passed, and the Apify proxy and actor tiers are off (owner decision 2026-10-04: every shop is read as PriceSniffsBot and no refusal is worked around).\n');
+} else if (allowMetered && !proxyConfig) {
   console.log('--allow-metered was passed but APIFY_PROXY_PASSWORD is not set. Skipping proxied retrieval.\n');
 } else if (useProxy) {
   console.log(`Apify proxy available. Genuinely blocked shops get a metered retry, capped at ${MAX_PROXIED_REQUESTS_PER_RUN} requests each.\n`);
@@ -302,7 +303,7 @@ if (allowMetered && !proxyConfig) {
 // residential IP and a real browser fix different failures. Fails soft with
 // its own clear log line, same shape as the proxy above, whether or not
 // --allow-metered or APIFY_PROXY_PASSWORD were ever set.
-const useApifyActor = allowMetered && actorConfig !== null && budgetAllowsMetered;
+const useApifyActor = METERED_TIERS_ENABLED && allowMetered && actorConfig !== null && budgetAllowsMetered;
 
 // ── Which browser renders, and why local comes first ───────────────────────
 //
@@ -359,7 +360,7 @@ if (localRenderer) {
       `capped at ${MAX_LOCAL_RENDER_PAGES_PER_RUN} pages and ${Math.round(MAX_LOCAL_RENDER_MS_PER_RUN / 1000)}s of ` +
       `rendering for the whole run, ${Math.round(MAX_LOCAL_RENDER_MS_PER_SHOP / 1000)}s of it per shop.\n`,
   );
-} else if (allowMetered && !actorConfig) {
+} else if (allowMetered && METERED_TIERS_ENABLED && !actorConfig) {
   console.log('--allow-metered was passed but APIFY_TOKEN is not set. Skipping real-browser retrieval.\n');
 } else if (useApifyActor) {
   console.log(`Apify actor available. Shops still yielding nothing after the proxy retry get a real-browser render, capped at ${MAX_ACTOR_PAGES_PER_RUN} pages for the whole run.\n`);
@@ -382,21 +383,6 @@ if (useApifyActor && actorConfig) {
   }
   console.log('');
 }
-
-// A shop that will not hand its robots.txt to `pricesniffsbot` gets asked
-// once more the way a browser would — for the file, and only for the file.
-// See robotsHeaderVariants' own comment for the Harvey Nichols measurement
-// behind this and for why reading a published crawl policy is the opposite of
-// evading it.
-const ROBOTS_FALLBACK_HEADERS = robotsHeaderVariants(BROWSER_HEADERS);
-
-/**
- * A shop asked only as ourselves: a pinned sitemap route, or a registry entry
- * that says `botIdentityOnly`. Every request carries `ROUTE_HEADERS`, robots.txt
- * is not asked a second time in a browser's clothes, and no proxy is used.
- */
-const asBotOnly = (retailer: { sitemapRoute?: unknown; botIdentityOnly?: boolean }): boolean =>
-  Boolean(retailer.sitemapRoute) || retailer.botIdentityOnly === true;
 
 const http: Http = createHttp();
 
@@ -569,9 +555,8 @@ async function refreshFromPlatform(
   deadlineAt: number,
   onProgress: (fetched: number, found: number) => void,
 ): Promise<{ platform: RefreshPlatform | null; refresh: CatalogueRefreshResult | null; requests: number; note: string | null }> {
-  // A shop on a pinned route is only ever asked as ourselves (see SitemapRoute
-  // in src/types/retailer.ts), and that holds for its catalogue feed too.
-  const headers = asBotOnly(retailer) ? ROUTE_HEADERS : BROWSER_HEADERS;
+  // Every shop is asked as PriceSniffsBot, its catalogue feed included.
+  const headers = BOT_HEADERS;
   let requests = 1;
   const shopify = await looksLikeShopify(retailer, http, robots, headers);
   if (shopify === 'refused') return { platform: null, refresh: null, requests, note: null };
@@ -633,11 +618,9 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
   // resolve, the failure reads as "robots.txt unreachable", and every URL is
   // then treated as disallowed with no error line to show for it — see
   // src/catalogue/robotsSource.ts for the measurement.
-  // A shop with a pinned route is only ever asked as ourselves, robots.txt
-  // included: no second, browser-shaped request for the file. See SitemapRoute
-  // in src/types/retailer.ts.
-  const robotsFallback = asBotOnly(retailer) ? [] : ROBOTS_FALLBACK_HEADERS;
-  let robotsProbe = await probeRobots(retailer, http, BOT_HEADERS, robotsFallback);
+  // Asked as PriceSniffsBot, once per address: a shop that will not hand the
+  // bot its robots.txt has refused it, and is not asked again in other clothes.
+  let robotsProbe = await probeRobots(retailer, http, BOT_HEADERS);
   // ── A robots.txt that never answered is asked once more, later ────────────
   // Every attempt at HTTP 0 means no connection, not a refusal: Perfumeo's
   // host timed out all four connects from the runner on 2026-10-03 14:58
@@ -647,7 +630,7 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
   if (robotsProbe.rules.unavailable && robotsProbe.attempts.length > 0 && robotsProbe.attempts.every((a) => a.status === 0)) {
     console.log(`      ${retailer.name}: robots.txt did not connect; asking once more in 30s`);
     await sleepMs(30_000);
-    robotsProbe = await probeRobots(retailer, createHttp({ timeoutMs: SLOW_SHOP_TIMEOUT_MS }), BOT_HEADERS, robotsFallback);
+    robotsProbe = await probeRobots(retailer, createHttp({ timeoutMs: SLOW_SHOP_TIMEOUT_MS }), BOT_HEADERS);
   }
   const robots = robotsProbe.rules;
   // An unreachable robots.txt stops this shop dead — isAllowed treats it as
@@ -666,8 +649,8 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
     gapMinMs,
   );
 
-  // Who every request below says it is.
-  const shopHeaders = asBotOnly(retailer) ? ROUTE_HEADERS : BROWSER_HEADERS;
+  // Who every request below says it is: the same for every shop.
+  const shopHeaders = BOT_HEADERS;
 
   // What we already hold, so the walk can spend its budget on products it has
   // not seen instead of re-fetching the same head of the sitemap every hour.
@@ -928,7 +911,7 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
   if (withPrice.length === 0 && feedListings.length === 0 && looksLikeTimeouts(result.errors)) {
     console.log(`      ${retailer.name}: every failure was a timeout, retrying once at ${SLOW_SHOP_TIMEOUT_MS / 1000}s`);
     const patientHttp = createHttp({ timeoutMs: SLOW_SHOP_TIMEOUT_MS });
-    const patientRobots = (await probeRobots(retailer, patientHttp, BOT_HEADERS, robotsFallback)).rules;
+    const patientRobots = (await probeRobots(retailer, patientHttp, BOT_HEADERS)).rules;
     // Only if it is better than what we already have — see the note on the
     // proxied assignment below for the bug this shape prevents.
     if (!patientRobots.unavailable) robotsForActor = patientRobots;
@@ -946,38 +929,35 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
     }
   }
 
-  // Never for a shop with a pinned route: that route asks as ourselves, from
-  // our own address, and a proxy is neither.
-  if (withPrice.length === 0 && feedListings.length === 0 && useProxy && !asBotOnly(retailer)) {
+  // ── A refusal is an answer ────────────────────────────────────────────────
+  // A shop that answered the bot with HTTP 401, 403, 407 or 429 has refused it.
+  // It is recorded as refused and left alone: no proxy, no rendered browser, no
+  // second ask in other clothes. Its stored prices go stale and drop off after
+  // HIDE_OFFER_AFTER_DAYS days. Owner's decision, 2026-10-04.
+  const refusedBot = withPrice.length === 0 && feedListings.length === 0 ? refusalIn(result.errors) : null;
+  if (refusedBot) {
+    refusedThisRun.push(`${retailer.id} (bot refused)`);
+    console.log(`::warning::${retailer.id} refused PriceSniffsBot: ${refusedBot}. Not retried any other way.`);
+  }
+
+  // The Apify proxy tier (METERED_TIERS_ENABLED) is off, and was never for a
+  // shop that refused: a residential address is a way round a refusal.
+  if (withPrice.length === 0 && feedListings.length === 0 && useProxy && !refusedBot) {
     const proxiedHttp = apifyProxyHttp(proxyConfig!);
-    const proxiedProbe = await probeRobots(retailer, proxiedHttp, BOT_HEADERS, ROBOTS_FALLBACK_HEADERS);
+    const proxiedProbe = await probeRobots(retailer, proxiedHttp, BOT_HEADERS);
     const proxiedRobots = proxiedProbe.rules;
-    // Same reasoning as the direct probe above, and more urgent: a failure
-    // here can be *ours* — a mistyped or wrong-kind credential answers 407,
-    // which is nothing to do with the shop and would otherwise be reported as
-    // the shop being unreachable. See apifyProxy.ts's own warning that the
-    // proxy password and the API token are different secrets.
     if (proxiedRobots.unavailable) {
       console.log(`      ${retailer.name}: robots.txt unreadable through the Apify proxy too:`);
       for (const a of proxiedProbe.attempts) {
         console.log(`        [proxied] ${a.url}: HTTP ${a.status}${a.error ? ` — ${a.error}` : ''}`);
       }
     }
-    // Adopted only when it actually says something. This used to be an
-    // unconditional assignment, and it cost John Lewis the actor tier
-    // entirely: that shop's robots.txt reads perfectly well from the runner,
-    // the proxy tier then failed (as it fails everywhere — see
-    // apifyAccount.ts), and its `unavailable` result overwrote the good rules
-    // with "we know nothing". The actor block below then found every section
-    // URL disallowed and rendered nothing, reporting "robots.txt unreachable"
-    // about a shop whose robots.txt this very run had already read. Probe run
-    // 10, job 96344415693: "Apify actor pages rendered this run: 0 of 10".
-    // Knowledge must never be lost by a later, failed attempt to re-acquire
-    // it.
+    // Adopted only when it actually says something: knowledge must never be
+    // lost by a later, failed attempt to re-acquire it.
     if (!proxiedRobots.unavailable) robotsForActor = proxiedRobots;
     const retry = await crawlViaSitemap({
       retailer, http: proxiedHttp, robots: proxiedRobots, maxPages, gapMs: 0,
-      headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat,
+      headers: BOT_HEADERS, knownUrls, onProgress: heartbeat,
     });
     const retryWithPrice = retry.listings.filter((l) => l.priceGbp !== null);
     if (retryWithPrice.length > 0) {
@@ -1037,39 +1017,11 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
   // — never a walk, never one request per product — for the same cost
   // reasoning docs/INGESTION.md sets out for every tier here, applied to a
   // route that costs roughly ten times as much per page.
-  if (withPrice.length === 0 && feedListings.length === 0 && useActorForShop && retailer.catalogue && !skipRender) {
-    // ── When the only way to read the rules is to render them ───────────────
-    // A shop whose robots.txt neither the runner nor the proxy can fetch is a
-    // shop this pipeline must treat as entirely forbidden, and rightly — but
-    // that is a verdict reached on no evidence, and it is permanent. The
-    // actor is a real browser on a residential IP and is the one route left
-    // that can see the file. So it renders robots.txt first, at the cost of
-    // one page, and then the file decides: parsed by the same parseRobots,
-    // for the same pricesniffsbot, and a Disallow that covers a section URL
-    // stops that URL exactly as it always would. See
-    // robotsTextFromRenderedHtml's own comment for why reading a shop's
-    // published crawl policy in order to obey it is the opposite of evading
-    // it.
-    if (robotsForActor.unavailable) {
-      const robotsUrl = robotsCandidateUrls(retailer)[0]!;
-      console.log(`      ${retailer.name}: robots.txt unreadable every other way, rendering it through the actor`);
-      // Counted against the bound before the call, not after: this page costs
-      // the same whether or not it comes back readable. See recordActorRender.
-      if (shopRenderTier === 'actor') recordActorRender(retailer.id);
-      const renderedRobots = await shopRenderer!.render([robotsUrl]);
-      const painted = renderedRobots.get(robotsUrl);
-      const text = painted?.ok ? robotsTextFromRenderedHtml(painted.body) : null;
-      if (text) {
-        robotsForActor = parseRobots(text, 'pricesniffsbot');
-        console.log(`      ${retailer.name}: robots.txt read through the actor, ${text.split('\n').length} lines`);
-      } else {
-        result.errors.push(
-          `[actor] ${robotsUrl}: rendered but no robots.txt directives found` +
-            (painted?.error ? ` — ${painted.error}` : ` (HTTP ${painted?.status ?? 0})`),
-        );
-      }
-    }
-
+  if (withPrice.length === 0 && feedListings.length === 0 && useActorForShop && retailer.catalogue && !skipRender && !refusedBot) {
+    // A shop whose robots.txt cannot be read at all is not rendered either: an
+    // unreadable policy is a refusal (isAllowed treats it as everything
+    // disallowed), and reading the file through a browser to get past that
+    // would be working round it.
     // Every configured section's first page — plus the further pages a
     // section asks for through `renderPages`, capped. See
     // src/catalogue/renderTargets.ts for the cap and for the one shop

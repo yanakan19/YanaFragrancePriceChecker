@@ -32,6 +32,7 @@ import { buildComparison, bestOffer } from '../src/services/priceService.js';
 import { cheapestVerdict } from '../src/services/deliveryConfidence.js';
 import type { PresentedOffer } from '../src/types/offer.js';
 import { wholePercentDown } from '../src/services/money.js';
+import { BOT_USER_AGENT } from '../src/catalogue/botIdentity.js';
 import { launchChromium } from './a11y-audit.js';
 import { renderSmooth, tiktokCaption } from './socialRender.js';
 import { H, H_TIKTOK, MARK, THEMES, W, slide, tiktokSlide } from './socialSlides.js';
@@ -96,7 +97,7 @@ function candidates(): Example[] {
 }
 
 function curl(url: string, extra: string[] = []): Buffer {
-  return execFileSync('curl', ['-sSL', '--max-time', '30', ...extra, url], { maxBuffer: 64 * 1024 * 1024 });
+  return execFileSync('curl', ['-sSL', '-A', BOT_USER_AGENT, '--max-time', '30', ...extra, url], { maxBuffer: 64 * 1024 * 1024 });
 }
 
 /** Shopify shops publish product data at <product url>.js. 'match', 'differs' or 'unreadable'. */

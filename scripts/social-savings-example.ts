@@ -16,6 +16,7 @@
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
+import { BOT_USER_AGENT } from '../src/catalogue/botIdentity.js';
 import { launchChromium } from './a11y-audit.js';
 import { renderSmooth } from './socialRender.js';
 import { H, H_TIKTOK, MARK, W, slide, tiktokSlide } from './socialSlides.js';
@@ -41,7 +42,7 @@ const percent = Math.round((saving / dearTotal) * 100);
 const year = Math.round(saving * 12 * 100) / 100;
 
 function photoDataUri(url: string): string {
-  const out = execFileSync('curl', ['-sSL', '--max-time', '30', '-w', '\n%{content_type}', resizedPhotoUrl(url, 800) ?? url], { maxBuffer: 64 * 1024 * 1024 });
+  const out = execFileSync('curl', ['-sSL', '-A', BOT_USER_AGENT, '--max-time', '30', '-w', '\n%{content_type}', resizedPhotoUrl(url, 800) ?? url], { maxBuffer: 64 * 1024 * 1024 });
   const cut = out.lastIndexOf(0x0a);
   return `data:${out.subarray(cut + 1).toString().trim()};base64,${out.subarray(0, cut).toString('base64')}`;
 }

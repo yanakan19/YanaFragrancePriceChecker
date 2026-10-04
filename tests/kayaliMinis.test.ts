@@ -159,7 +159,6 @@ describe('Kayali\'s travel spray is a size at Kayali, and stays what it was ever
   it('every shop that reads a strength from its pages is a confirmed Shopify storefront, asked as the bot', () => {
     for (const r of RETAILERS.filter((s) => s.strengthFromProductPage)) {
       expect(r.shopifyStorefront, r.id).toBe(true);
-      expect(r.botIdentityOnly, r.id).toBe(true);
     }
   });
 

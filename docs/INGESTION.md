@@ -4,6 +4,31 @@ The 1 August spike returned zero listings from all twelve shops. Six answered
 HTTP 403 before serving markup. This is what the incumbents do instead, and what
 it would cost us to route around it.
 
+## Who asks, and what a refusal is (4 October 2026)
+
+The owner decided that every shop is read as PriceSniffsBot: the user agent in
+`src/catalogue/botIdentity.ts` (one string, written in one place) and honest
+headers, in the harvest, the probe, the feed reads, the logo probe, the price,
+delivery and image checks, and anything else that asks a shop for something. The
+browser header set, the second ask for robots.txt in a browser's clothes and the
+`botIdentityOnly` registry flag are gone. Every shared HTTP client refuses to
+send a request that would pass for a browser (`assertBotIdentity`), and
+`tests/botIdentity.test.ts` fails if a source file carries a browser user agent.
+
+A shop that answers the bot is read. A shop that refuses it (HTTP 401, 403, 407
+or 429, a bot wall, a robots.txt that will not be served or disallows the path)
+is recorded as refused and left alone: nothing is retried through a proxy or a
+rendered browser, nothing is read from it, and its prices go stale and come off
+the site after seven days. A refusal is never worked around.
+
+What that closed: the Apify residential proxy and the Apify browser actor are
+off (`METERED_TIERS_ENABLED`), because a residential address exists to get past a
+refusal and the actor builds its own browser fingerprint and cannot be shown to
+carry the bot's name. The free local browser render stays, as PriceSniffsBot with
+no client hints, and only for a shop that answered but draws its grid with
+JavaScript; it is never tried after a refusal. Turning the paid tiers back on is
+the owner's decision, not a rewrite.
+
 ## How PriceRunner actually does it
 
 Not by scraping. **Retailers hand them the data.**

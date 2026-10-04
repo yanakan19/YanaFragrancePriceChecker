@@ -49,6 +49,7 @@
  * harvest must call.
  */
 import type { HttpResponse } from './attempt.js';
+import { BOT_USER_AGENT } from './botIdentity.js';
 import type { Browser } from 'playwright';
 
 /**
@@ -177,17 +178,22 @@ const NETWORK_IDLE_TIMEOUT_MS = 5_000;
 const SETTLE_MS = 1_500;
 
 /**
- * A desktop Chrome user agent.
+ * The render's user agent is the crawler's own, PriceSniffsBot (see
+ * src/catalogue/botIdentity.ts), not a desktop Chrome's.
  *
- * Playwright's default advertises HeadlessChrome, which some storefronts
- * refuse outright. This is not evasion of a stated policy: robots.txt is read
- * and obeyed by the caller exactly as it is for every other route in this
- * repo, and nothing here touches a path a shop asked us to leave alone. It
- * asks in the shape a shop's own site is built to answer.
+ * Playwright's default advertises HeadlessChrome, and until 2026-10-04 this file
+ * replaced it with a desktop Chrome string so a storefront would answer the way
+ * it answers a visitor. The owner decided that every shop is read as
+ * PriceSniffsBot and that no refusal is worked around: a shop that does not
+ * serve the bot is a shop that refuses it, here as on every other route. The
+ * render is a real Chromium, so a page that needs JavaScript still draws, but it
+ * says who is asking. No client hints (`sec-ch-ua`) are sent with an overridden
+ * user agent, and nothing here hides that the browser is automated.
+ *
+ * Used only for a shop that answered the bot and draws its grid with
+ * JavaScript, never after a refusal (scripts/catalogue-harvest.ts).
  */
-const RENDER_USER_AGENT =
-  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
-  '(KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36';
+const RENDER_USER_AGENT = BOT_USER_AGENT;
 
 export interface LocalBrowserOptions {
   /** Pages this run may render. Defaults to MAX_LOCAL_RENDER_PAGES_PER_RUN. */
@@ -391,6 +397,17 @@ export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRe
           // counted as well: they are time the harvest pays for this tier.
           const pageStartedAt = Date.now();
           const page = await context.newPage();
+          // The user agent is set again through the DevTools protocol, without
+          // user agent metadata, because that is the one way found to make
+          // Chromium send no client hints. With the context's override alone it
+          // still sends sec-ch-ua ("HeadlessChrome"), sec-ch-ua-mobile and
+          // sec-ch-ua-platform, and Playwright reports the platform as Windows
+          // on a Linux runner: a false statement about who is asking. Measured
+          // 2026-10-04 against a local server, four ways (tests/botIdentity.test.ts
+          // holds the result). The render says PriceSniffsBot and nothing else
+          // about itself (src/catalogue/botIdentity.ts).
+          const cdp = await context.newCDPSession(page);
+          await cdp.send('Emulation.setUserAgentOverride', { userAgent: RENDER_USER_AGENT });
           try {
             const response = await page.goto(url, {
               waitUntil: 'domcontentloaded',

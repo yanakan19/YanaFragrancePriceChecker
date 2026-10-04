@@ -85,6 +85,7 @@
  * one and does not have to redo this pass to learn it.
  */
 import { fetch as undiciFetch } from 'undici';
+import { botHeaders } from './botIdentity.js';
 
 /** A real, central London residential postcode. Rates can vary by region, and
  *  a Highlands or islands postcode would quote a surcharged rate that is not
@@ -113,12 +114,9 @@ export interface QuoteResult {
   steps: string[];
 }
 
-const HEADERS: Record<string, string> = {
-  'user-agent':
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-  accept: 'application/json, text/javascript, */*; q=0.01',
-  'accept-language': 'en-GB,en;q=0.9',
-};
+// As PriceSniffsBot like every other request (src/catalogue/botIdentity.ts); only
+// the type of answer asked for differs.
+const HEADERS: Record<string, string> = botHeaders({ accept: 'application/json, text/javascript, */*; q=0.01' });
 
 /** Collect Set-Cookie into a single Cookie header. Shopify's cart identity
  *  lives in `cart` / `_shopify_s`, and the estimator will not quote without it. */

@@ -34,6 +34,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { RETAILERS, CURRENCY_UNCONFIRMED } from '../src/config/retailers.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
+import { BOT_USER_AGENT } from '../src/catalogue/botIdentity.js';
 import { parseAwinFeedList, awinMerchantIdFromSignupUrl } from '../src/catalogue/awinFeedList.js';
 import { ingestAwinFeedCsv } from '../src/catalogue/awinFeedIngest.js';
 
@@ -62,7 +63,7 @@ const state: SyncState = existsSync(statePath) ? JSON.parse(readFileSync(statePa
 
 const http = createHttp();
 const now = new Date().toISOString();
-const headers = { 'user-agent': 'PriceSniffsBot/0.2' };
+const headers = { 'user-agent': BOT_USER_AGENT };
 
 const listRes = await http(feedListUrl, headers);
 if (!listRes.ok) {

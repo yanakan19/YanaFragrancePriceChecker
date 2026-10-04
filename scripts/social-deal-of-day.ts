@@ -43,6 +43,7 @@ import { cheapestVerdict } from '../src/services/deliveryConfidence.js';
 import { cannotCarryBrand, getRetailer } from '../src/config/retailers.js';
 import { readGender, type GenderReading } from '../demo/gender.js';
 import type { PresentedOffer } from '../src/types/offer.js';
+import { BOT_USER_AGENT } from '../src/catalogue/botIdentity.js';
 import { launchChromium } from './a11y-audit.js';
 import { FIT_SCRIPT, renderSmooth, tiktokCaption } from './socialRender.js';
 
@@ -209,14 +210,14 @@ const undash = (s: string) => s.replace(/\s*[-\u2010-\u2015\u2212]\s*/g, ' ').re
 
 /** Downloads through curl so the machine's proxy and certificates apply. */
 function curl(url: string, extra: string[] = []): Buffer {
-  return execFileSync('curl', ['-sSL', '--max-time', '30', ...extra, url], { maxBuffer: 64 * 1024 * 1024 });
+  return execFileSync('curl', ['-sSL', '-A', BOT_USER_AGENT, '--max-time', '30', ...extra, url], { maxBuffer: 64 * 1024 * 1024 });
 }
 
 function photoDataUri(url: string): string {
   const src = resizedPhotoUrl(url, 800) ?? url;
   for (const u of [src, url]) {
     try {
-      const out = execFileSync('curl', ['-sSL', '--max-time', '30', '-w', '\n%{content_type}', u], {
+      const out = execFileSync('curl', ['-sSL', '-A', BOT_USER_AGENT, '--max-time', '30', '-w', '\n%{content_type}', u], {
         maxBuffer: 64 * 1024 * 1024,
       });
       const cut = out.lastIndexOf(0x0a);

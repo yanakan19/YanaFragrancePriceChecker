@@ -87,6 +87,7 @@ import { RETAILERS } from '../src/config/retailers.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import { loadRobots } from '../src/catalogue/attempt.js';
 import { isAllowed } from '../src/catalogue/robots.js';
+import { BOT_HEADERS } from '../src/catalogue/botIdentity.js';
 import { SHIPPING_PAGE_PATHS, readShippingTerms } from '../src/catalogue/shippingTerms.js';
 import { deliveryLinksFrom, urlLooksLikeDeliveryPage } from '../src/catalogue/shippingPageFinder.js';
 import {
@@ -125,13 +126,6 @@ const rawShop = arg('raw');
 // job — see src/catalogue/shippingDiscoveryQueue.ts for the measurement.
 const budgetArg = arg('budget');
 const budget = budgetArg !== null && /^\d+$/.test(budgetArg) ? Number(budgetArg) : null;
-
-const BROWSER_HEADERS: Record<string, string> = {
-  'user-agent':
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-  'accept-language': 'en-GB,en;q=0.9',
-};
 
 /** Politeness between two requests to the same shop. */
 const REQUEST_GAP_MS = 1200;
@@ -391,7 +385,7 @@ for (const retailer of shops) {
   const candidates: { url: string; foundBy: 'link' | 'path' }[] = [];
   if (isAllowed(robots, `${origin}/`)) {
     outcome.pagesTried++;
-    const home = await http(`${origin}/`, BROWSER_HEADERS);
+    const home = await http(`${origin}/`, BOT_HEADERS);
     if (home.ok) {
       const links = deliveryLinksFrom(home.body, origin);
       outcome.linksFound = links.map((l) => ({ url: l.url, linkText: l.linkText }));
@@ -438,7 +432,7 @@ for (const retailer of shops) {
     }
 
     outcome.pagesTried++;
-    const res = await http(candidate.url, BROWSER_HEADERS);
+    const res = await http(candidate.url, BOT_HEADERS);
     if (!res.ok) {
       // A 404 on a guessed path is ordinary; a 404 on a link the shop itself
       // published is not, so it is recorded either way but only the second is

@@ -30,6 +30,7 @@
  */
 import { RETAILERS } from '../src/config/retailers.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
+import { BOT_USER_AGENT } from '../src/catalogue/botIdentity.js';
 import { parseAwinFeedList, awinMerchantIdFromSignupUrl } from '../src/catalogue/awinFeedList.js';
 
 /**
@@ -59,7 +60,7 @@ async function main(): Promise<void> {
   }
 
   const http = createHttp();
-  const res = await http(listUrl, { 'user-agent': 'PriceSniffsBot/0.2' });
+  const res = await http(listUrl, { 'user-agent': BOT_USER_AGENT });
   if (!res.ok || !res.body) {
     // Deliberately does not echo the URL or the body: both can carry credentials.
     console.error(`Could not read the Awin feed list (HTTP ${res.status}).`);

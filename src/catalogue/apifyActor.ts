@@ -109,6 +109,7 @@
  * not a larger number here.
  */
 import type { HttpResponse } from './attempt.js';
+import { METERED_TIERS_ENABLED } from './botIdentity.js';
 
 /** Hard ceiling on rendered pages per harvest run, independent of any caller's own budget. */
 export const MAX_ACTOR_PAGES_PER_RUN = 10;
@@ -477,11 +478,24 @@ async function runOneActor(
 export function apifyActorRenderer(
   config: ApifyActorConfig,
   maxTotalPages = MAX_ACTOR_PAGES_PER_RUN,
+  /** Whether the paid actor may run at all. Off by decision: see METERED_TIERS_ENABLED. */
+  enabled = METERED_TIERS_ENABLED,
 ): { render: (urls: string[]) => Promise<Map<string, HttpResponse>>; used: () => number } {
   let used = 0;
 
   return {
     render: async (urls: string[]): Promise<Map<string, HttpResponse>> => {
+      // Off (METERED_TIERS_ENABLED, src/catalogue/botIdentity.ts): the actor
+      // renders with a browser fingerprint of its own and cannot be shown to
+      // carry the PriceSniffsBot user agent, and every shop is read as the bot.
+      // Checked here as well as at the callers, so no caller can reach it.
+      if (!enabled) {
+        const off = new Map<string, HttpResponse>();
+        for (const url of urls) {
+          off.set(url, { status: 0, body: '', ok: false, error: 'the Apify actor tier is off: it cannot be shown to ask as PriceSniffsBot' });
+        }
+        return off;
+      }
       const remaining = maxTotalPages - used;
       if (remaining <= 0) {
         const results = new Map<string, HttpResponse>();
