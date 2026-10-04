@@ -444,6 +444,46 @@ export const BRAND_LOGOS: Record<string, LogoRef> = {
     source: 'https://commons.wikimedia.org/wiki/File:Logo_of_Yves_Saint_Laurent_SAS.svg',
     readAt: '2026-09-10',
   },
+
+  // ── Owner supplied, 2026-10-04 (docs/LOGOS-PLAN.md section 7) ──────────────
+  // The same files as the shops of the same name in src/config/retailers.ts:
+  // Zimaya and BellaVita are houses with a shop of their own, so the brand
+  // page shows the owner's file too. Zimaya's is a type only wordmark, so it
+  // fills the wide slot; BellaVita's is a square tile. The brand string the
+  // catalogue carries is "Bellavita UK"; the other two keys are the spellings
+  // demo/brandSites.ts already resolves to the same business.
+  'zimaya': {
+    src: '/logos/shops/zimaya.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 4 October 2026',
+    readAt: '2026-10-04',
+  },
+  'bellavita uk': {
+    src: '/logos/shops/bellavita-luxury.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 4 October 2026',
+    readAt: '2026-10-04',
+  },
+  'bellavita': {
+    src: '/logos/shops/bellavita-luxury.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 4 October 2026',
+    readAt: '2026-10-04',
+  },
+  'bellavita luxury uk': {
+    src: '/logos/shops/bellavita-luxury.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 4 October 2026',
+    readAt: '2026-10-04',
+  },
 };
 
 /** Lowercase, strip everything but letters — matches demo/brandSites.ts's own normalizeBrand exactly. */

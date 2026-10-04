@@ -3233,7 +3233,9 @@ function inStockAt(f: DemoFragrance, retailerId: string): boolean {
 
 function retailerView(): string {
   const r = getRetailer(state.retailerId);
-  if (!r) return exploreView();
+  // A switched off shop has no page (see the 'retailer' route): the Shops
+  // list is where a stale shop id lands.
+  if (!r || !r.enabled) return exploreView();
   const filtered = fragrancesAt(r.id);
   const list = sortFragrances(applyFacets(filtered), state.retailerDetailSort)
     .filter((f) => !state.retailerInStockOnly || inStockAt(f, r.id));
@@ -3306,7 +3308,10 @@ function brandView(): string {
   // This house's own UK shop, when we carry one. It is kept out of the
   // Retailers directory (see retailersPanel) precisely so it can surface
   // here instead, where "buy direct from the brand" is what it means.
-  const ownShop = RETAILERS.find((r) => r.singleBrandOnly && !cannotCarryBrand(r, b));
+  // Switched off shops are left out: a house's own shop that is off the site
+  // gets no sentence here, so nothing on the page says it is checked or
+  // compared.
+  const ownShop = RETAILERS.find((r) => r.enabled && r.singleBrandOnly && !cannotCarryBrand(r, b));
 
   // Sort and facets, no tier filter: every fragrance from one brand shares
   // that brand's tier (brandTierFor is a function of the brand name alone),
@@ -5067,7 +5072,7 @@ function headInputForState(): HeadInput {
 
     case 'retailer': {
       const r = getRetailer(state.retailerId);
-      if (!r) return { route };
+      if (!r?.enabled) return { route };
       const count = listingCountAt(r.id);
       return {
         route,
@@ -5216,7 +5221,11 @@ function applyRoute(route: Route): boolean {
       return true;
     }
     case 'retailer': {
-      if (!getRetailer(route.param)) return false;
+      // A shop that is switched off has no page: its old address is Page Not
+      // Found, the same as an id that was never in the registry. (Ten shops
+      // were switched off by the owner on 2026-10-04; their pages come back
+      // with `enabled: true`.)
+      if (!getRetailer(route.param)?.enabled) return false;
       state.retailerId = route.param;
       state.view = 'retailer';
       return true;
