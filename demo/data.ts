@@ -349,6 +349,51 @@ export function listingCountAt(retailerId: string): number {
   return showableListingCount(CRAWLED, retailerId);
 }
 
+export interface LiveCounts {
+  /** Switched on shops with at least one price recent enough to show. */
+  shops: number;
+  /** Fragrances in the catalogue, the same figure the home page states. */
+  fragrances: number;
+  /** Shop listings recent enough to show, from switched on shops. */
+  offers: number;
+}
+
+/**
+ * The About page's three numbers, counted from the listings themselves so
+ * none is ever typed in. The same freshness rule as everywhere else
+ * (isTooOldToShow): a price older than the window is not a current price and
+ * its shop is not counted as one with current prices.
+ */
+export function countLive(
+  offersByProduct: Readonly<Record<string, readonly { retailerId: string; fetchedAt: string }[]>>,
+  productIds: readonly string[],
+  enabledShopIds: ReadonlySet<string>,
+  now: Date = new Date(),
+): LiveCounts {
+  const shops = new Set<string>();
+  let offers = 0;
+  for (const id of productIds) {
+    for (const o of offersByProduct[id] ?? []) {
+      if (!enabledShopIds.has(o.retailerId) || isTooOldToShow(o.fetchedAt, now)) continue;
+      offers++;
+      shops.add(o.retailerId);
+    }
+  }
+  return { shops: shops.size, fragrances: productIds.length, offers };
+}
+
+let liveCountsCache: LiveCounts | null = null;
+
+/** countLive over the shipped catalogue, worked out once on first use. */
+export function liveCounts(): LiveCounts {
+  liveCountsCache ??= countLive(
+    CRAWLED,
+    DEMO_FRAGRANCES.map((f) => f.id),
+    new Set(RETAILERS.filter((r) => r.enabled).map((r) => r.id)),
+  );
+  return liveCountsCache;
+}
+
 /* ── notes ─────────────────────────────────────────────────────────────────── */
 
 export type NoteLayer = 'top' | 'middle' | 'base';
