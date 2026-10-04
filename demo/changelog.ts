@@ -27,6 +27,35 @@ export const CHANGELOG: ChangelogEntry[] = [
     ],
   },
   {
+    version: 'v3.70.0',
+    date: '4 Oct 2026',
+    title: 'Logos for eight more shops',
+    points: [
+      'Four now show their logo beside their prices',
+      'Four wordmarks show on the shop page',
+      'Manchester Ouds shows its name in plain type',
+    ],
+  },
+  {
+    version: 'v3.69.0',
+    date: '4 Oct 2026',
+    title: 'Trustpilot links on more shop pages',
+    points: [
+      '11 more shops link to their Trustpilot page',
+      'Each address was checked by hand',
+    ],
+  },
+  {
+    version: 'v3.68.0',
+    date: '4 Oct 2026',
+    title: 'Ten shops taken off the site for now',
+    points: [
+      'Their prices, pages and deals are gone',
+      '115 offers and 62 bottles no longer listed',
+      'The site now covers 42 UK shops',
+    ],
+  },
+  {
     version: 'v3.67.0',
     date: '4 Oct 2026',
     title: 'Most Stocked is easier to browse',
@@ -447,7 +476,7 @@ export const CHANGELOG: ChangelogEntry[] = [
     title: 'Better photos and a missing shop found',
     points: [
       'Brand photos fill 656 empty picture spaces',
-      'Riiffs Perfumes listings now show up',
+      'One more shop\'s listings now show up',
       'Three Avon perfumes no longer shown as one',
     ],
   },
@@ -488,7 +517,7 @@ export const CHANGELOG: ChangelogEntry[] = [
     points: [
       'Each fragrance links to its brand and Fragrantica',
       'Brands spelt two ways now merged into one',
-      'Zara now shows real prices',
+      'One more shop now shows real prices',
     ],
   },
   {
@@ -498,7 +527,7 @@ export const CHANGELOG: ChangelogEntry[] = [
     points: [
       "Today's Deals has its own tab",
       'Sort results, including by bottle size',
-      'New shops: Avon, Riiffs, Perfumeo, FragranceHub',
+      'Four new shops, including Avon and Perfumeo',
     ],
   },
   {

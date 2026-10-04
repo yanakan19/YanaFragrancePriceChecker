@@ -410,7 +410,7 @@ function unescapeXml(s: string): string {
  * category pages give the address without. Compared as written, a stored page
  * read an hour ago looked unread beside its own sitemap entry and was read
  * again as new. Only that one parameter is dropped: a shop whose query string
- * is the page's identity (Shy Mimosa's `view.asp?brand=A&name=B`) keeps it, and
+ * is the page's identity (`view.asp?brand=A&name=B`) keeps it, and
  * Parfumdreams' `#variation=` sizes were already read as one page.
  */
 export function canonicalPage(url: string): string {

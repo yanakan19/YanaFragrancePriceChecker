@@ -72,8 +72,8 @@
  * entry in demo/brandLogos.ts) is added to the same URL set below, labelled
  * `logo:<retailer id>` or `logo:brand:<key>` so a reader of the report can
  * tell a dead logo from a dead product photo at a glance. A
- * `commons-public-domain` entry is deliberately excluded: it names a file
- * this repo commits and serves itself (demo/logos/), not a live shop
+ * `commons-public-domain` or `owner-supplied` entry is deliberately excluded: it names a file
+ * this repo commits and serves itself (demo/logos/, demo/logos/shops/), not a live shop
  * endpoint, so there is no remote path here for a CDN reshuffle to break —
  * tests/brandLogos.test.ts is what checks that file still exists on disk.
  * This is still only ever a report: nothing here edits the registry, and a
@@ -181,11 +181,13 @@ for (const file of readdirSync(catalogueDir)) {
 // the same report cover both. See the file header's "Logos, swept the same
 // way" section for why commons-public-domain is excluded.
 let skippedCommonsLogos = 0;
+/** A logo this repo serves itself (/logos/...), not a live shop endpoint: nothing remote to check. */
+const isHostedLogo = (basis: string) => basis === 'commons-public-domain' || basis === 'owner-supplied';
 for (const r of RETAILERS) {
   // A shop's wordmark `logo` and its `squareLogo` are swept alike.
   for (const logo of [r.logo, r.squareLogo]) {
     if (!logo) continue;
-    if (logo.basis === 'commons-public-domain') {
+    if (isHostedLogo(logo.basis)) {
       skippedCommonsLogos++;
       continue;
     }
@@ -196,7 +198,7 @@ for (const r of RETAILERS) {
   }
 }
 for (const [brandKey, logo] of Object.entries(BRAND_LOGOS)) {
-  if (logo.basis === 'commons-public-domain') {
+  if (isHostedLogo(logo.basis)) {
     skippedCommonsLogos++;
     continue;
   }

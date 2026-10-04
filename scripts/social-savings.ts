@@ -45,10 +45,11 @@ const MAX_AGE_HOURS = 96;
 const NO_REPEAT_DAYS = 30;
 /** Only perfumes worth over this at the well known shop (bottle price, before delivery). */
 const MIN_BOTTLE_GBP = 60;
-const WELL_KNOWN = new Set([
-  'selfridges', 'john-lewis', 'lookfantastic', 'superdrug', 'allbeauty',
-  'harvey-nichols', 'boots', 'the-perfume-shop', 'the-fragrance-shop', 'notino',
-]);
+// Shops that are on the site only. Selfridges, Superdrug, Harvey Nichols, Boots,
+// The Perfume Shop, The Fragrance Shop and Notino were switched off by the
+// owner on 2026-10-04 (enabled: false in src/config/retailers.ts) and so cannot
+// be the dear side of a post that tells people to look us up.
+const WELL_KNOWN = new Set(['john-lewis', 'lookfantastic', 'allbeauty']);
 
 const args = process.argv.slice(2);
 const opt = (name: string) => {

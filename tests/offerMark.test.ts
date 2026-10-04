@@ -143,3 +143,28 @@ describe('a logo that fails to load becomes the initials tile', () => {
     }, 30_000);
   });
 });
+
+// The eight logos the owner supplied on 2026-10-04 (docs/LOGOS-PLAN.md section
+// 7). Four are bold icons or near square lockups and fill the 20px slot; four
+// are type only wordmarks that cannot be read at 20px, so they stay in the wide
+// slot on the shop page and the row keeps the initials.
+describe('owner supplied logos in the offer row', () => {
+  const byId = (id: string) => RETAILERS.find((r) => r.id === id)!;
+
+  it.each(['niche-beauty-uk', 'the-fragrance-counter', 'oud-arabian', 'bellavita-luxury'])('%s shows its logo in the 20px slot', (id) => {
+    const html = offerMark(byId(id));
+    expect(html).toContain(`src="/logos/shops/${id}.png"`);
+    expect(html).toContain('width="20" height="20"');
+    expect(html).toContain('org-mark--light');
+    expect(html).toContain('onerror=');
+  });
+
+  it.each(['john-lewis', 'space-nk', 'manchester-ouds', 'zimaya'])('%s keeps the initials in the 20px slot and its wordmark for the shop page', (id) => {
+    const r = byId(id);
+    expect(r.logo?.shape).toBe('wordmark');
+    expect(r.logo?.src).toBe(`/logos/shops/${id}.png`);
+    const html = offerMark(r);
+    expect(html).not.toContain('<img');
+    expect(html).toContain('offer-mark--initials');
+  });
+});

@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 75 retailers, 52 of them `enabled: true`. Every one of them is a legitimate
+ * 74 retailers, 42 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -349,7 +349,8 @@ export const RETAILERS: readonly Retailer[] = [
     trustpilotUrl: 'https://uk.trustpilot.com/review/notino.co.uk',
     trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer', 'niche', 'mideast'],
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
@@ -643,7 +644,8 @@ export const RETAILERS: readonly Retailer[] = [
     trustpilotUrl: 'https://uk.trustpilot.com/review/www.boots.com',
     trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer'],
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
@@ -881,8 +883,12 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'The Fragrance Shop',
     domain: 'thefragranceshop.co.uk',
     homepage: 'https://www.thefragranceshop.co.uk',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.thefragranceshop.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer', 'mideast'],
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
@@ -971,7 +977,8 @@ export const RETAILERS: readonly Retailer[] = [
     trustpilotUrl: 'https://uk.trustpilot.com/review/theperfumeshop.com',
     trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer'],
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
@@ -1133,6 +1140,17 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.johnlewis.com',
     trustpilotUrl: 'https://uk.trustpilot.com/review/johnlewis.com',
     trustpilotCheckedOn: '2026-10-04',
+    // Owner supplied logo, 2026-10-04: demo/logos/shops/john-lewis.png, flattened on white and trimmed.
+    // A type only wordmark that cannot be read at 20px, so it fills the wide slot on the shop page and
+    // the 20px offer row mark and the Shops tile keep the initials.
+    logo: {
+      src: '/logos/shops/john-lewis.png',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'owner-supplied',
+      source: 'Supplied by the site owner on 4 October 2026',
+      readAt: '2026-10-04',
+    },
     tiers: ['designer'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 404. The single section URL below was
@@ -2146,14 +2164,15 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Superdrug',
     domain: 'superdrug.com',
     homepage: 'https://www.superdrug.com',
-    // Trustpilot page confirmed by the owner on 2026-10-04 (web search candidate).
-    trustpilotUrl: 'https://uk.trustpilot.com/review/superdrugs.co.uk',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.superdrug.com',
     trustpilotCheckedOn: '2026-10-04',
     // Niche added 6 Aug 2026 alongside the premium-fragrances section below
     // — without it here too, priceService's tier gate would skip Superdrug
     // for every niche fragrance regardless of what the crawl finds there.
     tiers: ['designer', 'niche'],
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
@@ -2469,7 +2488,8 @@ export const RETAILERS: readonly Retailer[] = [
     trustpilotUrl: 'https://uk.trustpilot.com/review/selfridges.com',
     trustpilotCheckedOn: '2026-10-04',
     tiers: ['niche'],
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
@@ -2751,7 +2771,8 @@ export const RETAILERS: readonly Retailer[] = [
     trustpilotUrl: 'https://uk.trustpilot.com/review/www.harveynichols.com',
     trustpilotCheckedOn: '2026-10-04',
     tiers: ['niche'],
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     // Live spike 1 Aug 2026: HTTP 200 but no product markup found. Either
     // the section URL is wrong or the grid is drawn by script. Re-checked
     // 6 Aug 2026 against a live browser: the URL below is the real page, so
@@ -3244,6 +3265,20 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'The Fragrance Counter',
     domain: 'thefragrancecounter.co.uk',
     homepage: 'https://www.thefragrancecounter.co.uk',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/thefragrancecounter.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
+    // Owner supplied logo, 2026-10-04: demo/logos/shops/the-fragrance-counter.png, a framed lockup that is
+    // close to square, trimmed, padded to a square on white and resized to 128px. Its fine type is only
+    // legible from about 40px; at 20px it reads as the frame and the pink script.
+    logo: {
+      src: '/logos/shops/the-fragrance-counter.png',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'owner-supplied',
+      source: 'Supplied by the site owner on 4 October 2026',
+      readAt: '2026-10-04',
+    },
     tiers: ['designer'],
     // Enabled with delivery not stated. Their own delivery page describes
     // delivery as free, but no explicit standard price or spend threshold
@@ -3533,6 +3568,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'French Avenue',
     domain: 'uk.shopfrenchavenue.com',
     homepage: 'https://uk.shopfrenchavenue.com',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.frenchavenue.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read by
     // scripts/logo-probe.ts and checked by eye at 20px on both themes,
     // 2026-10-03 (the offer row pass).
@@ -3927,7 +3965,8 @@ export const RETAILERS: readonly Retailer[] = [
     // a feed is the honest way back; failing that, the owner can ask the shop
     // to allow this crawler, or switch the shop off.
     fragranceOnlyCatalogue: true,
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     adapter: 'unknown',
     sitemapHarvestConfirmed: true,
     currency: 'GBP',
@@ -3974,6 +4013,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'IBRAQ',
     domain: 'ibraquk.com',
     homepage: 'https://ibraquk.com',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/ibraqperfumes.eu',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -4071,6 +4113,16 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://bellavitaluxury.uk',
     trustpilotUrl: 'https://uk.trustpilot.com/review/bellavitaluxury.uk',
     trustpilotCheckedOn: '2026-10-04',
+    // Owner supplied logo, 2026-10-04: demo/logos/shops/bellavita-luxury.png, a gold flower over the name,
+    // trimmed, padded to a square on white and resized to 128px from a 1500px source.
+    logo: {
+      src: '/logos/shops/bellavita-luxury.png',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'owner-supplied',
+      source: 'Supplied by the site owner on 4 October 2026',
+      readAt: '2026-10-04',
+    },
     tiers: ['mideast'],
     singleBrandOnly: 'BellaVita',
     // "Luxury-inspired" fragrance dupes rather than a heritage Arabic house —
@@ -4131,6 +4183,20 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Oud Arabian',
     domain: 'oudarabian.co.uk',
     homepage: 'https://oudarabian.co.uk',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/oudarabian.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
+    // Owner supplied logo, 2026-10-04: demo/logos/shops/oud-arabian.png, trimmed, padded to a square on
+    // white and resized to 128px. The source file is only 276px, so this is the largest size it keeps its
+    // edges at; at 20px the arch mark shows and the fine type does not.
+    logo: {
+      src: '/logos/shops/oud-arabian.png',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'owner-supplied',
+      source: 'Supplied by the site owner on 4 October 2026',
+      readAt: '2026-10-04',
+    },
     tiers: ['mideast'],
     // Multi-brand: stocks Lattafa, Al Haramain, Afnan, Bujairami and others,
     // not a single house's own storefront — requested under "retailer
@@ -4180,6 +4246,19 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Manchester Ouds',
     domain: 'manchesterouds.com',
     homepage: 'https://manchesterouds.com',
+    // Owner supplied mark, 2026-10-04: demo/logos/shops/manchester-ouds.png. The shop has no logo of its
+    // own, so the owner asked for its name set in plain type, MANCHESTER over OUDS, black on white
+    // (rendered from the owner's SVG with the canvas widened, as the 512px canvas cut off the M and the R).
+    // It is type only and cannot be read at 20px, so it fills the wide slot on the shop page and the
+    // 20px offer row mark and the Shops tile keep the initials.
+    logo: {
+      src: '/logos/shops/manchester-ouds.png',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'owner-supplied',
+      source: 'Made at the site owner\'s request on 4 October 2026: the shop has no logo, so this is its name set in plain type',
+      readAt: '2026-10-04',
+    },
     tiers: ['mideast'],
     // Enabled with delivery not stated. The gap is the flat standard rate, not
     // the shop's legitimacy or its crawl target, and an unstated rate now
@@ -4487,6 +4566,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'The Beauty Store UK',
     domain: 'thebeautystore.com',
     homepage: 'https://www.thebeautystore.com',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/thebeautystore.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -4628,6 +4710,20 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Zimaya',
     domain: 'uk.zimayaperfumes.com',
     homepage: 'https://uk.zimayaperfumes.com',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/uk.zimayaperfumes.com',
+    trustpilotCheckedOn: '2026-10-04',
+    // Owner supplied logo, 2026-10-04: demo/logos/shops/zimaya.png, flattened on white and trimmed.
+    // A type only wordmark that cannot be read at 20px, so it fills the wide slot on the shop page and
+    // the brand page and the 20px offer row mark keeps the initials.
+    logo: {
+      src: '/logos/shops/zimaya.png',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'owner-supplied',
+      source: 'Supplied by the site owner on 4 October 2026',
+      readAt: '2026-10-04',
+    },
     tiers: ['mideast'],
     singleBrandOnly: 'Zimaya',
     // Was disabled for a currency question — the UK subdomain advertised
@@ -4924,7 +5020,8 @@ export const RETAILERS: readonly Retailer[] = [
     // retrieved, the opposite of a refusal — only the free local renderer
     // has ever refused this shop, so only that tier should be skipped.
     renderRefused: 'local',
-    enabled: true,
+    // Switched off by the owner on 2026-10-04: off the site for now.
+    enabled: false,
     adapter: 'headless',
     currency: 'GBP',
     shipping: {
@@ -5287,8 +5384,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Debenhams',
     domain: 'debenhams.com',
     homepage: 'https://www.debenhams.com',
-    // Trustpilot page confirmed by the owner on 2026-10-04 (web search candidate).
-    trustpilotUrl: 'https://uk.trustpilot.com/review/faith.co.uk',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.debenhams.com',
     trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
@@ -5485,6 +5582,16 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.niche-beauty.com',
     trustpilotUrl: 'https://uk.trustpilot.com/review/niche-beauty.com',
     trustpilotCheckedOn: '2026-10-04',
+    // Owner supplied logo, 2026-10-04: demo/logos/shops/niche-beauty-uk.png, a bold lips icon that holds
+    // up at 20px, trimmed, padded to a square on white and resized to 128px.
+    logo: {
+      src: '/logos/shops/niche-beauty-uk.png',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'owner-supplied',
+      source: 'Supplied by the site owner on 4 October 2026',
+      readAt: '2026-10-04',
+    },
     tiers: ['niche'],
     // Currency probe (run 32254695358, job 96073578532, 2026-08-19): robots.txt
     // answers with no disallow. The bare origin quotes this US runner USD, but
@@ -6316,6 +6423,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Perfume Market UK',
     domain: 'perfumemarketuk.com',
     homepage: 'https://www.perfumemarketuk.com',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.perfumemarketuk.com',
+    trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read by
     // scripts/logo-probe.ts and checked by eye at 20px on both themes,
     // 2026-10-03 (the offer row pass).
@@ -7504,6 +7614,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'FragranceHub',
     domain: 'fragrancehub.co.uk',
     homepage: 'https://www.fragrancehub.co.uk/',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.fragrancehub.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -8153,6 +8266,17 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.spacenk.com/uk',
     trustpilotUrl: 'https://uk.trustpilot.com/review/uk.spacenk.com',
     trustpilotCheckedOn: '2026-10-04',
+    // Owner supplied logo, 2026-10-04: demo/logos/shops/space-nk.png, flattened on white and trimmed.
+    // A type only wordmark that cannot be read at 20px, so it fills the wide slot on the shop page and
+    // the 20px offer row mark and the Shops tile keep the initials.
+    logo: {
+      src: '/logos/shops/space-nk.png',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'owner-supplied',
+      source: 'Supplied by the site owner on 4 October 2026',
+      readAt: '2026-10-04',
+    },
     tiers: ['niche'],
     // Added 2026-08-20 from WebSearch snippets of spacenk.com/uk/fragrance
     // alone — no page opened, this sandbox has no egress. Space NK's own
@@ -8750,111 +8874,11 @@ export const RETAILERS: readonly Retailer[] = [
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
-    id: 'shy-mimosa',
-    name: 'Shy Mimosa',
-    domain: 'shymimosa.co.uk',
-    homepage: 'https://www.shymimosa.co.uk',
-    tiers: ['niche'],
-    // Added 2026-08-20 from WebSearch snippets of
-    // shymimosa.co.uk/perfume-shop/ alone — no page opened, this sandbox
-    // has no egress. Independent niche perfumery boutique in Bristol, both
-    // a physical shop and an online store; houses named in results: Le
-    // Galion, Mendittorosa Odori d'Anima, Marc-Antoine Barrois, and its own
-    // Shy Mimosa house line alongside them — multi-brand, so no
-    // singleBrandOnly.
-    //
-    // ── Tested 2026-10-03 (phase 4): reachable and sterling, parser blocker ─────
-    //
-    // robots.txt (https://www.shymimosa.co.uk/robots.txt, HTTP 200): 'User-
-    // agent: * Crawl-delay: 10' and no Disallow lines; it names /sitemap.xml,
-    // /sitemap_products.asp, /sitemap_brands.asp and /sitemap_blog_posts.asp.
-    // Every request here kept the 10 s delay. Home page, sitemap_products.asp
-    // (388 product URLs) and a product page answered HTTP 200 (one stale
-    // sitemap entry, Ann Gerard Cuir de Nacre, redirected to a 404 page).
-    //
-    // https://www.shymimosa.co.uk/shop/products/view.asp?brand=Olfactive+Studio
-    // &name=Chypre+Shot shows £195.00 for 100ml and marks it up as schema.org
-    // microdata (itemtype Product and Offer, itemprop priceCurrency content
-    // GBP), not JSON-LD. parseListings found 0 JSON-LD blocks and 0 listings.
-    // Blocker: no JSON-LD on product pages; this shop needs a microdata reader
-    // before it can be harvested. A harvest probe from a runner, run
-    // 37085004755 job 111093331516, likewise priced nothing.
-    //
-    // Delivery was read off the shop's own /delivery-info/ page and is recorded
-    // below: £4.99, free over £100.
-    //
-    // ── The route, pinned 2026-10-03, and the parser blocker answered ───────
-    // src/catalogue/jsonld.ts now reads schema.org microdata for a shop with a
-    // pinned route. Asked again on 2026-10-03 (robots.txt first, 11 s between
-    // requests), the Chypre Shot page reads as name "Chypre Shot", brand
-    // "Olfactive Studio", price 195.00, priceCurrency GBP. The microdata names
-    // neither the concentration nor the size; the page prints both beside it
-    // ("<h4>Extrait de Parfum | ..." and "Product Size ... <p>100ml</p>"), and
-    // `titleParts` reads those two into the title, giving "Chypre Shot Extrait
-    // de Parfum 100ml". Its product URLs differ only in their query string, so
-    // that is each listing's identity. The route reads sitemap_products.asp
-    // (388 URLs) and skips the candles listed in it. At the 10 s crawl delay a
-    // six minute harvest slot reaches about 35 pages.
-    sitemapRoute: {
-      roots: ['https://www.shymimosa.co.uk/sitemap_products.asp'],
-      product: '^https://www\\.shymimosa\\.co\\.uk/shop/products/view\\.asp\\?brand=',
-      exclude: 'Candle|Diffuser|Magazine|Gift\\+Card|Soap|Hand\\+Wash|Body\\+Lotion',
-      maxSitemaps: 1,
-      requireGbp: true,
-      titleParts: [
-        '<h4>\\s*([^<|]{3,60})\\|',
-        // The size alone, so "50ml - 20% perfume oil concentration" (1907
-        // Parfums Mon Âme, read 2026-10-03) gives "50ml".
-        'Product Size</div>\\s*<div[^>]*>\\s*<p>\\s*(\\d+(?:\\.\\d+)?\\s*ml)\\b',
-      ],
-    },
-    //
-    // ── Switched on, 2026-10-03, on the pinned route ────────────────────────
-    // Probe run #571 (job 111193618894), from a runner: 352 product URLs on
-    // the route, 8 pages, 4 listings, all 4 priced in GBP from the page's
-    // own microdata (Gri Gri Parfums Tara Mantra, Moko Maori, Ukiyo-E and
-    // Sideshow Eau de Parfum 100ml, £95 each); the other 4 pages were stale
-    // sitemap entries that answer 404. Requests are 10 s apart throughout,
-    // robots.txt's own crawl delay, the sitemap included.
-    // First harvest, run #584: 20 listings, all priced in GBP. Checked
-    // against the shop's own pages the same day (11 s apart): Gri Gri Tara
-    // Mantra EDP 100ml £95, Manos Gerakinis Rose Poetique EDP 100ml £175,
-    // Extrait D'Atelier Maître Jardinier 100ml £190 and 10ml £45, 1907 Parfums
-    // Mon Âme £190: all match. 1907 Parfums prints its size as "50ml - 20%
-    // perfume oil concentration", which the size pattern missed, so those two
-    // reached the snapshot unsized; the pattern now reads the size alone.
-    enabled: true,
-    adapter: 'unknown',
-    currency: 'GBP',
-    shipping: {
-      // Read off the shop's own delivery page 2026-10-03; it confirms the
-      // £4.99 under £100 the August search snippet gave.
-      standardGbp: 4.99,
-      freeOverGbp: 100,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-10-03',
-      confidence: 'confirmed',
-      source: {
-        url: 'https://www.shymimosa.co.uk/delivery-info/',
-        quote:
-          'Our current cost for delivery (excluding magazines) is £4.99. All orders over £100.00 ' +
-          'are free of delivery costs.',
-        readAt: '2026-10-03',
-      },
-      notes:
-        'The product page says the same ("Our current delivery price for all orders under ' +
-        '£100.00 is £4"...). The estimated days are the neutral placeholder, not read. No ' +
-        'affiliate programme has been researched.',
-    },
-    catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
-  },
-  {
     id: 'paco-perfumerias-uk',
     name: 'Paco Perfumerías UK',
     domain: 'pacoperfumerias.co.uk',
     homepage: 'https://www.pacoperfumerias.co.uk',
-    // Trustpilot page confirmed by the owner on 2026-10-04 (web search candidate).
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
     trustpilotUrl: 'https://uk.trustpilot.com/review/pacoperfumerias.co.uk',
     trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read by
@@ -9625,8 +9649,8 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Home Bargains',
     domain: 'home.bargains',
     homepage: 'https://home.bargains',
-    // Trustpilot page confirmed by the owner on 2026-10-04 (web search candidate).
-    trustpilotUrl: 'https://uk.trustpilot.com/review/homebargains.co.uk',
+    // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.homebargains.co.uk',
     trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
@@ -9977,11 +10001,6 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
   // every request shape, with identical /products.json prices at the origin
   // and under ?country=GB (Cacao Timur 100ml EdP 165.00 both ways). It stays
   // `enabled: false` for an unrelated reason recorded on its entry.
-  // shy-mimosa was removed from this list on 2026-10-03: its product pages'
-  // microdata names priceCurrency GBP for every offer (Chypre Shot £195.00),
-  // its pinned route sets requireGbp so only such prices are stored, and
-  // probe run #571 (job 111193618894) read every priced listing it fetched
-  // that way from a runner. It is now `enabled: true`.
   // paco-perfumerias-uk was removed from this list on 2026-10-03: its product
   // pages label each offer priceCurrency GBP (Dior Fahrenheit EDT 100ml
   // £106.50, Aramis Havana EDT 100ml £57.50), its pinned route sets
