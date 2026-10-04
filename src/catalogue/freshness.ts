@@ -74,3 +74,58 @@ export function reportAge(startedAt: string | undefined, now: Date): { hours: nu
       (stale ? ', so at least one scheduled harvest since then did not happen or did not commit.' : '.'),
   };
 }
+
+/**
+ * How old a stored price may get before a harvest re-reads it, in hours,
+ * unless the shop says otherwise (`Retailer.refreshAfterHours`): every other
+ * shop is re-read about every other run of a sweep that lands every five to
+ * seven hours.
+ */
+export const DEFAULT_REFRESH_AFTER_HOURS = 12;
+
+/** The age scripts/freshness-check.ts fails a shop that answered on. */
+export const FRESHNESS_LIMIT_HOURS = 48;
+
+/**
+ * What a price can age past its refresh age before the next harvest has
+ * re-read it: the gap between two sweeps (4 hours at most when every one
+ * lands, see `reportAge`, so 8 with one missed) plus the shop's own slot in
+ * the run, rounded up. A shop's refresh age plus this must stay under
+ * FRESHNESS_LIMIT_HOURS or the freshness check would fail it on a day
+ * nothing went wrong, so the largest refresh age a shop may ask for is 36.
+ */
+export const SWEEP_SLACK_HOURS = 12;
+
+export const MAX_REFRESH_AFTER_HOURS = FRESHNESS_LIMIT_HOURS - SWEEP_SLACK_HOURS;
+
+/**
+ * The refresh age one shop is harvested with. A shop's own `refreshAfterHours`
+ * wins over the sweep's `--refresh-after-hours` (the scheduled workflow passes
+ * 12 to every shop, and that must not undo a shop that asks for 24); the
+ * flag's value is the default for every shop that sets none.
+ */
+export function refreshAfterHoursFor(shop: { refreshAfterHours?: number }, sweepDefault: number): number {
+  return shop.refreshAfterHours ?? sweepDefault;
+}
+
+/**
+ * The product pages a harvest re-reads for one shop: every stored listing that
+ * is active, priced and not already re-priced from the shop's own feed this
+ * run, last confirmed more than `hours` ago, oldest first, one address once.
+ */
+export function dueUrls(
+  prior: readonly StoredListing[],
+  refreshedSkus: ReadonlySet<string>,
+  hours: number,
+  now: Date,
+): string[] {
+  const dueBefore = new Date(now.getTime() - hours * HOUR_MS).toISOString();
+  return [
+    ...new Set(
+      prior
+        .filter((l) => l.status === 'active' && l.priceGbp !== null && !refreshedSkus.has(l.retailerSku) && l.lastSeenAt < dueBefore)
+        .sort((a, b) => a.lastSeenAt.localeCompare(b.lastSeenAt))
+        .map((l) => l.url),
+    ),
+  ];
+}

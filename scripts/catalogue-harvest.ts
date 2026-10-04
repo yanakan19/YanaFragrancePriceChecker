@@ -92,7 +92,7 @@ import {
   refreshFromItems, itemsFromShopifyListings, looksLikeShopify, crawlWooStoreProducts,
   normaliseProductUrl, type CatalogueRefreshResult, type RefreshPlatform,
 } from '../src/catalogue/catalogueRefresh.js';
-import { shopFreshness } from '../src/catalogue/freshness.js';
+import { DEFAULT_REFRESH_AFTER_HOURS, dueUrls, refreshAfterHoursFor, shopFreshness } from '../src/catalogue/freshness.js';
 import type { ReportedFreshness } from '../src/catalogue/harvestReport.js';
 import type { RawListing, StoredListing } from '../src/catalogue/types.js';
 import type { Retailer } from '../src/types/retailer.js';
@@ -186,8 +186,15 @@ const refreshShare = arg('refresh-share') ? Number.parseFloat(arg('refresh-share
  * hours means a listing is re-read about every other run, well inside a day.
  * `refreshShare` still sizes discovery: the share of --max that is not
  * refresh is what each run spends on products it has never seen.
+ *
+ * This is the sweep's age, the default for every shop. A shop whose range is
+ * so large that re-reading it twice a day fills its whole slot of the sweep
+ * sets its own in the registry (`Retailer.refreshAfterHours`, Cult Beauty:
+ * 24), and that wins over this flag, because the scheduled workflow passes 12
+ * for every shop. See `refreshAfterHoursFor` and the limit it is held to in
+ * src/catalogue/freshness.ts.
  */
-const refreshAfterHours = Number.parseFloat(arg('refresh-after-hours') ?? '12');
+const refreshAfterHours = Number.parseFloat(arg('refresh-after-hours') ?? String(DEFAULT_REFRESH_AFTER_HOURS));
 
 /**
  * How many shops are harvested at the same time. Each shop is still asked one
@@ -533,7 +540,7 @@ if (shopMinutes !== null) console.log(`ceiling  ${shopMinutes} minutes each`);
 if (refreshShare !== null) {
   console.log(`refresh  ${Math.round(refreshShare * 100)}% of each budget re-prices listings already held`);
 }
-console.log(`due      every shown listing older than ${refreshAfterHours}h is re-read, oldest first`);
+console.log(`due      every shown listing older than ${refreshAfterHours}h is re-read, oldest first (a shop may set its own age)`);
 console.log(`lanes    ${concurrency} shop(s) at a time, never two on the same host`);
 if (dryRun) console.log(`mode     dry run, nothing written`);
 console.log('');
@@ -724,19 +731,13 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
     }
     // The next request to this shop is the sitemap walk's first; keep the gap.
     if (feed.requests > 0) await sleepMs(gapMs);
-    const dueBefore = new Date(Date.now() - refreshAfterHours * 3_600_000).toISOString();
-    refreshUrls = [
-      ...new Set(
-        priorLive
-          .filter(
-            (l) =>
-              l.status === 'active' && l.priceGbp !== null && !refreshedSkus.has(l.retailerSku) &&
-              l.lastSeenAt < dueBefore,
-          )
-          .sort((a, b) => a.lastSeenAt.localeCompare(b.lastSeenAt))
-          .map((l) => l.url),
-      ),
-    ];
+    // This shop's own refresh age where its registry entry sets one, else the
+    // sweep's (see refreshAfterHours above).
+    const shopRefreshAfterHours = refreshAfterHoursFor(retailer, refreshAfterHours);
+    if (shopRefreshAfterHours !== refreshAfterHours) {
+      console.log(`      ${retailer.name}: re-reads a price once it is ${shopRefreshAfterHours}h old (its own setting, the sweep's is ${refreshAfterHours}h)`);
+    }
+    refreshUrls = dueUrls(priorLive, refreshedSkus, shopRefreshAfterHours, new Date());
   }
 
   const sweep = {
