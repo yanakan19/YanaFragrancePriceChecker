@@ -466,8 +466,14 @@ export const LEGAL_PAGES: LegalPage[] = [
 
       <h2 class="t-section">Reviews</h2>
       <p>We do not write reviews, collect them, or mix one shop's rating with
-      another's. A shop's page may offer that shop's Trustpilot rating. It loads
-      only when you press the button.</p>
+      another's. Where we have checked that a shop has its own page on
+      Trustpilot, that shop's page here links to it, so you can read what
+      customers say before you buy. It is a plain link to Trustpilot's own
+      site, not an affiliate link, and we do not copy any score, star rating or
+      review count from it. Where we could not confirm a shop's Trustpilot
+      page, we show no link rather than guess one. A shop's page may also offer
+      that shop's Trustpilot rating, which loads only when you press the
+      button.</p>
 
       <h2 class="t-section">Photos</h2>
       <p>Every product photo loads straight from the shop's own website. We do
