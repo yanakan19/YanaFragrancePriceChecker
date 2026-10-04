@@ -446,10 +446,9 @@ const TIER_LABEL: Record<RetailerTier, string> = {
  * daily snapshots per product, which only began accumulating this month.
  * Inventing any of that would be exactly the thing this project refuses to do.
  */
-const TOP_N = 50;
 
 // Perfume oils and gift sets are kept out of the Most stocked list (the rail
-// and See Top 50); the rule and the rail itself live in demo/mostStocked.ts,
+// and the full list behind See All); the rule and the rail itself live in demo/mostStocked.ts,
 // where tests/mostStocked.test.ts holds them to the real catalogue.
 const POPULAR = mostStockedRail(BY_POPULARITY);
 
@@ -1541,7 +1540,7 @@ function homeView(): string {
  * demo/mostStocked.ts), so Gift Sets is not an option there at all. The one
  * way to have it chosen with no query is the old /gift-sets address, which
  * lands here with Size set to Gift Sets (applyRoute); that list is then every
- * gift set, not the top 50 with the sets taken out of it, so the list stops
+ * gift set, not the Most Stocked ranking with the sets taken out of it, so the list stops
  * being the Most Stocked one while the choice stands and comes back when it
  * is cleared.
  */
@@ -1572,16 +1571,14 @@ function visibleFragrances(): DemoFragrance[] {
 function browseView(): string {
   const filtered = visibleFragrances();
   const faceted = applyFacets(filtered);
-  // With no brand or query in play this is the leading list, which is capped:
-  // an 879 row wall is not a starting point anyone can use.
+  // No list on the site is capped (owner's decision, 2026-10-04). The leading
+  // list is every fragrance in the Most Stocked ranking, one per scent, and
+  // it loads a chunk at a time as the reader scrolls (chunked, below), so the
+  // first paint is one chunk however long the list is. Sort and filters work
+  // on the whole ranking: sorting by price lists the cheapest of all of them,
+  // not the cheapest of a first fifty.
   const isTop = isMostStockedList();
-  // The cap is applied *before* the chosen sort, deliberately. Sorting the
-  // whole catalogue by price and then taking 50 would show the fifty cheapest
-  // bottles on the site, which is a different page from the one this is; the
-  // cap picks the fifty most stocked, and the sort then arranges those fifty.
-  // On a search or a brand there is no cap and the distinction does not arise.
-  const capped = isTop ? faceted.slice(0, TOP_N) : faceted;
-  const list = state.browseSort === 'stocked' ? capped : sortFragrances(capped, state.browseSort);
+  const list = state.browseSort === 'stocked' ? faceted : sortFragrances(faceted, state.browseSort);
   const title =
     state.brand ??
     (state.query.trim() ? `Results for "${state.query.trim()}"` : isTop ? `Most stocked` : `All Fragrances`);
@@ -1596,8 +1593,8 @@ function browseView(): string {
              listed once, in its most stocked size. This shows how widely a fragrance is stocked, not how well
              it sells: we do not count views or purchases.</p>`
         : isTop
-          ? `<p class="panel-note t-body">The ${TOP_N} most stocked fragrances, in the order you chose. Oils are
-               not listed here, and each perfume is listed once.</p>`
+          ? `<p class="panel-note t-body">Every fragrance in the Most Stocked ranking, in the order you chose. Oils
+               are not listed here, and each perfume is listed once.</p>`
           : ''
     }
     ${listControls(browseSortControl(state.browseSort), facets(filtered))}
@@ -4506,14 +4503,32 @@ function legalView(): string {
 const CHUNK = 48;
 
 /**
- * Lists on the current page that still have items waiting, keyed by sentinel id.
+ * Lists on the current page, keyed by sentinel id, with what each still holds.
  *
  * A map rather than a single slot because a page can hold more than one chunked
  * list: the Houses tab renders one grid per house, so a single shared slot let
  * the second group overwrite the first and the first could never finish loading
  * — it sat at 48 of its items forever with a dead sentinel below it.
+ *
+ * `items` is the whole list and `at` how many of it are on the page. `els`
+ * and `real` are only kept for a tile grid (`windowed`): see keepNearTiles.
  */
-const pendingLists = new Map<string, { items: unknown[]; render: (item: unknown) => string }>();
+interface HeldList {
+  items: readonly unknown[];
+  at: number;
+  render: (item: unknown) => string;
+  windowed: boolean;
+  /** The element standing for each item loaded so far, a tile or its stand in. */
+  els: HTMLElement[];
+  /** 1 where `els[i]` is the item's own markup, 0 where it is the empty stand in. */
+  real: Uint8Array;
+  ul: HTMLElement | null;
+  /** The shared row height the grid has been held to, so rows never shrink. */
+  rowFloor: number;
+  /** The grid's width and column count when rowFloor was measured: other ones are another row height. */
+  floorKey: string;
+}
+const pendingLists = new Map<string, HeldList>();
 let listObserver: IntersectionObserver | null = null;
 let chunkSeq = 0;
 
@@ -4535,13 +4550,23 @@ function resetChunkedLists(): void {
  */
 function chunked<T>(items: readonly T[], renderItem: (item: T, index?: number) => string): string {
   const first = items.slice(0, CHUNK);
-  const rest = items.slice(CHUNK);
-  if (rest.length === 0) return first.map((item, i) => renderItem(item, i)).join('');
+  if (items.length <= CHUNK) return first.map((item, i) => renderItem(item, i)).join('');
 
+  // There is no cap on how long a list may be (owner's decision, 2026-10-04),
+  // so this is the only thing standing between a list of thousands and a
+  // frozen first paint: one chunk is built now, and the list is held whole
+  // with a cursor, so taking the next chunk copies nothing already taken.
   const id = `chunk-${++chunkSeq}`;
   pendingLists.set(id, {
-    items: rest as unknown[],
+    items,
+    at: CHUNK,
     render: renderItem as (i: unknown) => string,
+    windowed: false,
+    els: [],
+    real: new Uint8Array(0),
+    ul: null,
+    rowFloor: 0,
+    floorKey: '',
   });
   return (
     first.map((item, i) => renderItem(item, i)).join('') +
@@ -4571,27 +4596,61 @@ function mountChunkedList(): void {
     { rootMargin: '600px 0px' },
   );
 
-  for (const el of document.querySelectorAll('[data-more]')) listObserver.observe(el);
+  for (const el of document.querySelectorAll<HTMLElement>('[data-more]')) {
+    listObserver.observe(el);
+    // Tile grids are the lists that can run to thousands, and the only ones
+    // whose off screen tiles are swapped out (keepNearTiles).
+    const held = pendingLists.get(el.dataset.more ?? '');
+    const ul = el.parentElement;
+    if (!held || !ul?.classList.contains('tile-grid')) continue;
+    const first = Array.from(ul.children).filter((c) => c !== el) as HTMLElement[];
+    if (first.length !== Math.min(CHUNK, held.items.length)) continue;
+    held.windowed = true;
+    held.ul = ul;
+    held.els = first;
+    held.real = new Uint8Array(held.items.length);
+    held.real.fill(1, 0, first.length);
+  }
 }
 
 /** Paint the next chunk of the list whose sentinel this is. False if it had none left. */
 function appendNextChunk(el: HTMLElement): boolean {
   const id = el.dataset.more;
   const held = id ? pendingLists.get(id) : undefined;
-  if (!id || !held) return false;
+  if (!id || !held || held.at >= held.items.length) return false;
 
-  const next = held.items.slice(0, CHUNK);
-  const rest = held.items.slice(CHUNK);
+  const next = held.items.slice(held.at, held.at + CHUNK);
+  const before = el.previousElementSibling;
   el.insertAdjacentHTML('beforebegin', next.map((item) => held.render(item)).join(''));
+  if (held.windowed) {
+    const added: HTMLElement[] = [];
+    for (let n = before ? before.nextElementSibling : el.parentElement?.firstElementChild ?? null; n && n !== el; n = n.nextElementSibling) {
+      added.push(n as HTMLElement);
+    }
+    if (added.length === next.length) {
+      held.els.push(...added);
+      held.real.fill(1, held.at, held.at + added.length);
+    } else {
+      // Not one element per item: positions can no longer be trusted, so this
+      // list is left whole rather than risk swapping the wrong tile.
+      held.windowed = false;
+    }
+  }
+  held.at += next.length;
   mountAds();
 
-  if (rest.length === 0) {
-    pendingLists.delete(id);
+  if (held.at >= held.items.length) {
     listObserver?.unobserve(el);
     el.remove();
-  } else {
-    pendingLists.set(id, { items: rest, render: held.render });
+  } else if (listObserver) {
+    // An observer reports a change, not a state: if this chunk was too short to
+    // push the sentinel out of range (a very wide window, a short row) it
+    // would stay "intersecting" and never report again, and the list would
+    // stop mid scroll. Watching it afresh asks again.
+    listObserver.unobserve(el);
+    listObserver.observe(el);
   }
+  scheduleKeepNear();
   return true;
 }
 
@@ -4602,6 +4661,125 @@ function appendChunksEverywhere(): boolean {
     if (appendNextChunk(el)) any = true;
   });
   return any;
+}
+
+/* ── keeping a very long list light ──────────────────────────────────────────
+   Without a cap a list can run to every fragrance in the catalogue: the Most
+   Stocked ranking alone is 16,000 tiles. Appending a chunk at a time keeps
+   each step cheap, but nothing ever left the page, and measured on a phone
+   sized window the page held about 207,000 elements and half a million DOM
+   nodes by 10,000 tiles, took about 2 GB of memory, got slower with every
+   chunk, and was killed by the browser before the end.
+
+   So a tile grid only keeps the tiles near the screen. The ones further than
+   KEEP_SCREENS screens above or below the reader are swapped for an empty
+   <li> that holds their place in the grid, and swapped back as the reader
+   scrolls toward them. The grid's rows are all one height (grid-auto-rows:
+   1fr in the stylesheet), so a stand in changes nothing about the layout,
+   provided that height never shrinks while the tallest tile is out of the
+   page: rowFloor holds it. An advertisement is never swapped, so one is not
+   asked for twice, and neither is the tile the reader has focus in. */
+
+/** How many screens of real tiles are kept above and below what is on screen. */
+const KEEP_SCREENS = 3;
+
+let keepFrame = 0;
+function scheduleKeepNear(): void {
+  if (keepFrame || pendingLists.size === 0) return;
+  keepFrame = window.requestAnimationFrame(() => {
+    keepFrame = 0;
+    keepNearTiles();
+  });
+}
+
+function keepNearTiles(): void {
+  for (const held of pendingLists.values()) {
+    if (!held.windowed || !held.ul || !held.ul.isConnected || held.els.length === 0) continue;
+    keepNearTilesOf(held, held.ul);
+  }
+}
+
+function keepNearTilesOf(held: HeldList, ul: HTMLElement): void {
+  const style = window.getComputedStyle(ul);
+  const cols = Math.max(1, style.gridTemplateColumns.split(' ').filter(Boolean).length);
+  const gap = Number.parseFloat(style.rowGap) || 0;
+  const rect = ul.getBoundingClientRect();
+
+  // A different width or column count means a different row height: let the
+  // grid measure afresh.
+  const key = `${Math.round(rect.width)}x${cols}`;
+  if (key !== held.floorKey) {
+    ul.style.gridAutoRows = '';
+    held.rowFloor = 0;
+    held.floorKey = key;
+  }
+  // Every stand in is a row track tall, so any element tells the row height.
+  const rowHeight = held.els[0]!.getBoundingClientRect().height;
+  if (rowHeight <= 0) return;
+  if (rowHeight > held.rowFloor + 0.5) {
+    held.rowFloor = rowHeight;
+    ul.style.gridAutoRows = `minmax(${rowHeight}px, 1fr)`;
+  }
+
+  const stride = rowHeight + gap;
+  const margin = window.innerHeight * KEEP_SCREENS;
+  const top = -rect.top - margin;
+  const bottom = -rect.top + window.innerHeight + margin;
+  const from = Math.max(0, Math.floor(top / stride)) * cols;
+  const to = Math.min(held.els.length - 1, (Math.floor(bottom / stride) + 1) * cols - 1);
+
+  const active = document.activeElement;
+  let runStart = -1;
+  let runReal = false;
+  const flush = (end: number): void => {
+    if (runStart >= 0) swapTiles(held, runStart, end, runReal);
+    runStart = -1;
+  };
+  for (let i = 0; i < held.els.length; i++) {
+    const want = i >= from && i <= to;
+    if (want === (held.real[i] === 1)) {
+      flush(i - 1);
+      continue;
+    }
+    if (!want) {
+      const el = held.els[i]!;
+      // Kept: an ad (never asked for twice) and the tile the reader is in.
+      if (el.classList.contains('ps-ad') || (active && el.contains(active))) {
+        flush(i - 1);
+        continue;
+      }
+    }
+    if (runStart >= 0 && runReal !== want) flush(i - 1);
+    if (runStart < 0) {
+      runStart = i;
+      runReal = want;
+    }
+  }
+  flush(held.els.length - 1);
+}
+
+/** Swaps items from..to (inclusive) for their own markup (`real`) or for empty stand ins. */
+function swapTiles(held: HeldList, from: number, to: number, real: boolean): void {
+  if (!held.windowed) return;
+  const count = to - from + 1;
+  const html = real
+    ? held.items.slice(from, to + 1).map((item) => held.render(item)).join('')
+    : '<li class="tile-gone" aria-hidden="true"></li>'.repeat(count);
+  const first = held.els[from]!;
+  first.insertAdjacentHTML('beforebegin', html);
+  const fresh: HTMLElement[] = [];
+  for (let n = first.previousElementSibling; n && fresh.length < count; n = n.previousElementSibling) fresh.unshift(n as HTMLElement);
+  for (let i = from; i <= to; i++) held.els[i]!.remove();
+  if (fresh.length !== count) {
+    // The markup did not give one element per item. Put nothing else in play.
+    held.windowed = false;
+    return;
+  }
+  for (let k = 0; k < count; k++) {
+    held.els[from + k] = fresh[k]!;
+    held.real[from + k] = real ? 1 : 0;
+  }
+  if (real) mountAds();
 }
 
 /**
@@ -6652,6 +6830,11 @@ function init(): void {
     window.requestAnimationFrame(syncToTop);
   }, { passive: true });
   syncToTop();
+
+  // A long list keeps only the tiles near the screen (keepNearTiles), so a
+  // scroll or a resize asks which those are now. Passive, and one frame at a time.
+  window.addEventListener('scroll', scheduleKeepNear, { passive: true });
+  window.addEventListener('resize', scheduleKeepNear, { passive: true });
 
   toTop.addEventListener('click', () => {
     // Smooth unless the reader has asked for less motion, in which case a
