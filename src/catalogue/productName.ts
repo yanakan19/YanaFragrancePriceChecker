@@ -23,6 +23,7 @@ import {
 } from './fragranceId.js';
 import { brandKey, shopNameCore } from './brandName.js';
 import type { StoredListing } from './types.js';
+import { evidencedStrength } from './unstatedStrengthEvidence.js';
 
 /**
  * Concentrations, split into two tiers so a match can be tried by
@@ -1433,10 +1434,14 @@ export function concentrationOfListing(title: string, description: string | null
  * Beauty Pie). A title that names a strength always wins.
  */
 export function concentrationOfStoredListing(
-  l: Pick<StoredListing, 'rawTitle' | 'description' | 'retailerId' | 'productType'>,
+  l: Pick<StoredListing, 'rawTitle' | 'description' | 'retailerId' | 'productType'> & { rawBrand?: string | null },
 ): string {
   const stated = concentrationOfListing(l.rawTitle, l.description ?? null);
-  return stated === CONCENTRATION_NOT_STATED && productTypeStatesEauDeParfum(l) ? 'Eau de Parfum' : stated;
+  if (stated !== CONCENTRATION_NOT_STATED) return stated;
+  // The title names none: the shop's own product type where the registry says
+  // that settles it, else the brand's own page (unstatedStrengthEvidence.ts).
+  if (productTypeStatesEauDeParfum(l)) return 'Eau de Parfum';
+  return evidencedStrength(l)?.concentration ?? stated;
 }
 
 const escapeRe = (s: string): string => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

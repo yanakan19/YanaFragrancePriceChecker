@@ -2,6 +2,7 @@ import type { StoredListing } from './types.js';
 import { RETAILERS, getRetailer } from '../config/retailers.js';
 import { trustworthyEan } from './productMatch.js';
 import { giftSetId, isGiftSet } from './giftSet.js';
+import { evidencedStrength } from './unstatedStrengthEvidence.js';
 
 /**
  * What decides whether a listing is a fragrance, and the identity a
@@ -1286,7 +1287,11 @@ export function isFragrance(l: StoredListing): boolean {
   // A perfume the shop itself types "Fragrance" at a shop that has said that
   // means Eau de Parfum names its strength by its type: see
   // productTypeStatesEauDeParfum.
-  return CONCENTRATION.test(t) || productTypeStatesEauDeParfum(l);
+  //
+  // Or the brand's own page names the strength the title leaves out: see
+  // unstatedStrengthEvidence.ts. Only an exact whole title match, so it unlocks
+  // those perfumes and nothing a skincare title could be mistaken for.
+  return CONCENTRATION.test(t) || productTypeStatesEauDeParfum(l) || evidencedStrength(l) !== null;
 }
 
 /**
