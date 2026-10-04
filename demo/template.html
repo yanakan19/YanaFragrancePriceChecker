@@ -478,6 +478,17 @@
     .navbtn { font-size: 14.5px; }
     .brandmark { font-size: 19.5px; }
   }
+  /* The narrow layout keeps its 460px column (--col) on any screen, so a
+     tablet, or any window under 900px wide, draws the bar in the same 460px
+     a large phone does even though the viewport itself is wider. Measured at
+     768 with the account button at the right: About was cut off behind the
+     nav row's sideways scroll. So the narrow layout always takes the large
+     phone sizes above. :where() keeps this at the specificity of the plain
+     selectors, so the smaller phone steps below still win by order. */
+  :where(:root:not([data-layout="desktop"])) .bar-row,
+  :where(:root:not([data-layout="desktop"])) .nav-items { gap: 13px; }
+  :where(:root:not([data-layout="desktop"])) .navbtn { font-size: 14.5px; }
+  :where(:root:not([data-layout="desktop"])) .brandmark { font-size: 19.5px; }
   /* Smallest phones still in circulation (iPhone 13 mini is 375px). */
   @media (max-width: 430px) {
     .bar-row { gap: 10px; }

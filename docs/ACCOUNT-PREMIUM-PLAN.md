@@ -11,7 +11,7 @@ them and the record of what the owner has decided.
 | What is paid and what is free | **Premium is ad free browsing first and foremost, plus email and push notifications.** Free is everything else: search, prices, the wishlist and the price graphs, with ads. |
 | Price | **£0.99 a month or £10.00 a year.** |
 | Payment provider | **Stripe** (Stripe Checkout for paying, the Stripe customer portal for managing and cancelling). |
-| Menu layout | A round account button at the far left of the top bar opening Profile, Wishlist, Notifications, Settings and Sign Out (Sign In, Create an Account and Settings when signed out). Built in Phase 1; the owner should still look at it on a phone and confirm. |
+| Menu layout | A round account button at the far right of the top bar (moved from the far left at the owner's request, 4 October 2026), showing the reader's photo or initial and opening Profile, Wishlist, Notifications, Settings and Sign Out (Sign In, Create an Account and Settings when signed out). Built in Phase 1; the owner should still look at it on a phone and confirm. |
 
 The site shows **no price and no buy button** until Phase 3 ships. The
 Notifications page lists what Premium will add as planned, and the profile's
@@ -19,8 +19,10 @@ Your Plan box says Free.
 
 ## Phase 1 (built, 4 October 2026)
 
-- Account menu at the top left of the bar; Settings left the nav row, which is
-  now Home, Deals, Explore, About.
+- Account menu at the top right of the bar (first built at the top left);
+  Settings left the nav row, which is now Home, Deals, Explore, About.
+- Profile photo on /account, kept in a private Storage bucket (migration
+  0006), shown in the account button on any device.
 - Three account pages with their own addresses, all noindex and out of the
   sitemap: `/account` (profile), `/account/wishlist`, `/account/notifications`.
 - Settings holds only Theme and Layout. Contact Us and the legal links moved

@@ -566,6 +566,7 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
       await page.waitForFunction(`document.querySelector('#ps-dialog-title')?.textContent.trim() === 'Account Deleted'`, null, { timeout: 15_000 });
       expect(account.writes).toEqual([
         'storage remove 00000000-0000-4000-8000-000000000001/avatar',
+        'profiles {"avatar_path":null}',
         'rpc delete_own_account',
       ]);
       expect(account.photo!.file).toBeNull();
