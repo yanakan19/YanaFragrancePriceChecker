@@ -170,7 +170,11 @@ describe('every image surface', () => {
       const src = readFileSync(resolve(root, 'demo', file), 'utf8');
       for (const tag of src.match(/<img[\s\S]*?\/>/g) ?? []) {
         examined++;
-        const ok = tag.includes('decoding="async"') && /loading="lazy"|\$\{loading\}/.test(tag);
+        // "States how it loads": lazy, the caller's own ${loading}, or an
+        // explicit eager for an image that is on screen from the first paint
+        // (the account photo in the page's top corner and at the head of the
+        // profile), where lazy would only add a delay.
+        const ok = tag.includes('decoding="async"') && /loading="(?:lazy|eager)"|\$\{loading\}/.test(tag);
         if (!ok) offenders.push(`${file}: ${(tag.split('\n')[0] ?? tag).trim()}`);
       }
     }
