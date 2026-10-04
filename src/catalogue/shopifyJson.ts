@@ -240,9 +240,19 @@ function plainText(html: unknown): string | null {
 
 /**
  * A bracket holding nothing but sizes: "(30ml, 50ml, 100ml)", "(100ml)", and the
- * shop's own slips, "(30m, 50ml)" and "(15ml 30ml, 50ml)".
+ * shop's own slips, "(30m, 50ml)" and "(15ml 30ml, 50ml)". It may end with the
+ * name of a pack the shop lists beside the sizes, "(30ml, 60ml, 90ml Refillable
+ * Talisman)" and "(30ml, 50ml, 100ml, Refill)": the words say nothing about the
+ * row's own size, which is the one after the bracket.
  */
-const SIZE_LIST = /\(\s*\d+(?:\.\d+)?\s*ml?(?:(?:\s*,\s*|\s+)\d+(?:\.\d+)?\s*ml?)*\s*\)/i;
+const SIZE_LIST = /\(\s*\d+(?:\.\d+)?\s*ml?(?:(?:\s*,\s*|\s+)\d+(?:\.\d+)?\s*ml?)*(?:(?:\s*,\s*|\s+)(?:refillable\s+talisman|refill))?\s*\)/i;
+
+/**
+ * The same list with its closing bracket missing, which the shop does on a few
+ * titles: "(30ml, 50ml, 80ml 30ml". Only at the very end of the title, so the
+ * last number is the row's own size.
+ */
+const UNCLOSED_SIZE_LIST = /\(\s*\d+(?:\.\d+)?\s*ml(?:\s*,\s*\d+(?:\.\d+)?\s*ml)+\s+(\d+(?:\.\d+)?)\s*ml\s*$/i;
 
 /**
  * A product title that lists every size its page sells, with the variant's own
@@ -274,6 +284,8 @@ const SIZE_LIST = /\(\s*\d+(?:\.\d+)?\s*ml?(?:(?:\s*,\s*|\s+)\d+(?:\.\d+)?\s*ml?
  * Idempotent, so it is safe to run again over a title it has already made.
  */
 export function ownSizeTitle(title: string): string {
+  const unclosed = UNCLOSED_SIZE_LIST.exec(title);
+  if (unclosed) return `${title.slice(0, unclosed.index)}(${unclosed[1]}ml) ${unclosed[1]}ml`;
   const list = SIZE_LIST.exec(title);
   if (!list) return title;
   const tail = title.slice(list.index + list[0].length);

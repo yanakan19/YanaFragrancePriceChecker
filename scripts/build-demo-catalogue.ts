@@ -77,7 +77,9 @@ import {
   CONCENTRATION_RESOLUTIONS,
   displayName,
   stripRedundantSize,
+  stripShopTitleLabel,
   stripTrailingShopCredit,
+  type ShopTitleAudience,
   reattachArmafLine,
 } from '../src/catalogue/productName.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
@@ -348,6 +350,15 @@ interface Product {
    */
   concentrationFromHouse: string | null;
   /**
+   * Who a shop's own category label said this bottle is for ("Women's Perfume",
+   * "Men's Aftershave": Perfume Direct), or null where no listing carried one.
+   * The label comes off the name (see stripShopTitleLabel in productName.ts), and
+   * demo/gender.ts reads a name, so the reading is kept here and shipped as
+   * `gender` for the Gender filter. Carried on the record the way `armafLine`
+   * is, so a merge never drops it. Two listings that disagree leave it unset.
+   */
+  audience: ShopTitleAudience | null;
+  /**
    * Set only for a gift set (src/catalogue/giftSet.ts): its own category,
    * with no size (so nothing size keyed can ever match or compare it with a
    * single bottle) and the contents its title spells out, or null where the
@@ -610,6 +621,8 @@ function canonBrand(raw: string | null | undefined): string | null {
 }
 
 const products = new Map<string, Product>();
+/** Products whose listings' category labels named two different audiences: none is kept. */
+const audienceDisputed = new Set<string>();
 /**
  * Every concentration any shop's own title claimed for a product, by product
  * id. Reporting only — see the warning at the foot of this file for what the
@@ -741,6 +754,44 @@ const untrustworthyEans = computeUntrustworthyEans(eligible.flatMap(({ listings 
 /** Every listing that joined a product, with its own id and the other ids it has answered to. */
 const memberIdForms: { own: string; forms: string[]; lineage: string | null }[] = [];
 
+/* ── a shop's category label that is the only thing telling two bottles apart ──
+   Perfume Direct sells Davidoff Cool Water Eau de Toilette as "Men's Aftershave"
+   and, under the same words, as "Women's Perfume" (the page is Cool Water Woman).
+   Taking the label off both would put the women's bottle on the men's page and
+   on every other shop's "Cool Water". So where one shop's labels name men and
+   women for the same brand, name and strength, the label stays in the name of
+   every one of them: stripShopTitleLabel is not applied, and they stay apart
+   from the unlabelled bottle of the same name. Worked out once, over every
+   listing of a shop that writes a label, before any is turned into a product. */
+function shopLabelKey(l: StoredListing, retailer: Retailer, labelledTitle: string): string {
+  const rawBrand = resolveRawBrand(l, retailer);
+  const brand = canonBrand(rawBrand);
+  const name = displayName(labelledTitle, rawBrand, brand, travelSizeIsASize(l.retailerId));
+  return matchKey({ id: l.retailerId, brand: brand ?? 'Unbranded', name, concentration: concentrationOfStoredListing(l), sizeMl: 0, ean: null });
+}
+const labelConflicts = new Set<string>();
+{
+  const audiences = new Map<string, Set<ShopTitleAudience>>();
+  for (const { retailer, listings } of eligible) {
+    for (const l of listings) {
+      if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0) || !isCatalogueListing(l) || isGiftSet(l)) continue;
+      const read = stripShopTitleLabel(stripTrailingShopCredit(l.rawTitle, retailer.name, retailer.domain), l.retailerId);
+      if (read.audience !== 'mens' && read.audience !== 'womens') continue;
+      const key = shopLabelKey(l, retailer, read.title);
+      const seen = audiences.get(key);
+      if (seen) seen.add(read.audience);
+      else audiences.set(key, new Set([read.audience]));
+    }
+  }
+  for (const [key, seen] of audiences) if (seen.has('mens') && seen.has('womens')) labelConflicts.add(key);
+}
+/** The title and audience a listing is read with: the shop's label off, unless it is what tells two bottles apart. */
+function readShopLabel(l: StoredListing, retailer: Retailer, title: string): { title: string; audience: ShopTitleAudience | null } {
+  const read = stripShopTitleLabel(title, l.retailerId);
+  if (read.title === title) return read;
+  return labelConflicts.has(shopLabelKey(l, retailer, read.title)) ? { title, audience: null } : read;
+}
+
 for (const { retailer, listings } of eligible) {
   for (const l of listings) {
     considered++;
@@ -820,9 +871,16 @@ for (const { retailer, listings } of eligible) {
     const titleWithoutShopCredit = stripTrailingShopCredit(l.rawTitle, retailer.name, retailer.domain);
     // A gift set keeps its title whole (less a leading brand): its sizes and
     // strengths are its contents, not facts shown elsewhere. See giftSetName.
+    // A shop's own category label ("Women's Perfume" in the middle of Perfume
+    // Direct's titles) is a shelf, not a name: off before the name is read, its
+    // gender kept on the product. A gift set keeps its title whole. See
+    // stripShopTitleLabel.
+    const labelled: { title: string; audience: ShopTitleAudience | null } = giftSet
+      ? { title: titleWithoutShopCredit, audience: null }
+      : readShopLabel(l, retailer, titleWithoutShopCredit);
     const displayedName = giftSet
       ? giftSetName(titleWithoutShopCredit, displayedBrand)
-      : displayName(titleWithoutShopCredit, effectiveRawBrand, displayedBrand, travelSizeIsASize(l.retailerId));
+      : displayName(labelled.title, effectiveRawBrand, displayedBrand, travelSizeIsASize(l.retailerId));
     const offer: Offer = {
       retailerId: l.retailerId,
       price: l.priceGbp!,
@@ -871,6 +929,13 @@ for (const { retailer, listings } of eligible) {
 
     if (existing) {
       existing.offers.push(offer);
+      if (labelled.audience) {
+        if (existing.audience === null && !audienceDisputed.has(id)) existing.audience = labelled.audience;
+        else if (existing.audience !== labelled.audience) {
+          existing.audience = null;
+          audienceDisputed.add(id);
+        }
+      }
       // A set whose first shop's title spelled out nothing may be spelled out
       // by the next one's.
       if (existing.giftSet && existing.giftSet.contents === null) {
@@ -903,6 +968,7 @@ for (const { retailer, listings } of eligible) {
         // Filled in by the brand-direct concentration pass below, which needs
         // every product to exist before it can ask what the house said.
         concentrationFromHouse: null,
+        audience: labelled.audience,
         giftSet: giftSet ? { contents: giftSetContents(l.rawTitle), title: l.rawTitle } : null,
       });
     }
@@ -1138,6 +1204,19 @@ function applyMerges(groups: ReturnType<typeof findDuplicateGroups<Product>>): v
       // reattachArmafLine's own comment for why this has to run after every
       // merge is already settled, on the surviving record's final name.
       canonical.armafLine ??= dupe.armafLine;
+      // The audience a shop's label gave: kept from whichever record had one,
+      // and dropped where the two disagree (a label never decides against another).
+      if (dupe.audience !== null) {
+        if (canonical.audience === null && !audienceDisputed.has(canonical.id)) canonical.audience = dupe.audience;
+        else if (canonical.audience !== dupe.audience) {
+          canonical.audience = null;
+          audienceDisputed.add(canonical.id);
+        }
+      }
+      if (audienceDisputed.has(dupe.id)) {
+        canonical.audience = null;
+        audienceDisputed.add(canonical.id);
+      }
       products.delete(dupe.id);
     }
   }
@@ -2092,7 +2171,7 @@ function describeHiddenListing(l: StoredListing) {
   const title = stripTrailingShopCredit(l.rawTitle, retailer.name, retailer.domain);
   const name = giftSet
     ? giftSetName(title, displayedBrand)
-    : displayName(title, rawBrand, displayedBrand, travelSizeIsASize(l.retailerId));
+    : displayName(readShopLabel(l, retailer, title).title, rawBrand, displayedBrand, travelSizeIsASize(l.retailerId));
   return { giftSet, size, brand: displayedBrand ?? 'Unbranded', name, concentration: concentrationOfStoredListing(l) };
 }
 for (const l of tooOldListings) {
@@ -2287,6 +2366,9 @@ const catalogue = ordered.map((p) => {
     // Omitted for every single bottle, so the shipped file only grows by the
     // gift sets themselves.
     ...(p.giftSet ? { giftSet: p.giftSet } : {}),
+    // Omitted for every product no shop's category label has named an audience
+    // for, so the shipped file grows by those alone.
+    ...(p.audience ? { gender: p.audience } : {}),
   };
 });
 
@@ -2423,6 +2505,15 @@ export interface CatalogueEntry {
    * their place when there are none.
    */
   giftSet?: { contents: string[] | null; title: string };
+  /**
+   * Who a shop's own category label says this bottle is for, present only where
+   * one did and the name no longer says it: Perfume Direct's "Women's Perfume"
+   * and "Men's Aftershave" come off the name (see stripShopTitleLabel in
+   * src/catalogue/productName.ts) so the bottle meets the same one at other shops,
+   * and the Gender filter (demo/gender.ts) reads this where the name is silent.
+   * A name that states an audience itself ("Pour Homme") is read first.
+   */
+  gender?: 'mens' | 'womens' | 'unisex';
 }
 
 /** Products, most widely stocked first. */
