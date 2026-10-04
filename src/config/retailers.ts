@@ -6950,6 +6950,22 @@ export const RETAILERS: readonly Retailer[] = [
       // sweep, with the run's time ceiling as the limit.
       discoveryPages: 300,
     },
+    // ── Refreshed once a day, 2026-10-04 ──────────────────────────────────
+    // The sweep re-reads any stored price older than 12 hours. For this shop
+    // that is 961 listings on 937 pages stored on 2026-10-04 and heading for
+    // the range's roughly 1,470 products, each page about 3 s plus the 1.5 s
+    // gap: one full re-read is about 70 minutes now and about 110 at the full
+    // range, against a 40 minute slot, so every sweep spent its whole slot on
+    // re-reads and none on new products. At 24 hours roughly a quarter of the
+    // listings are due each sweep (the sweeps land every three to seven
+    // hours), 250 to 400 pages, and the rest of the slot goes to discovery. A price is then re-read when it is 24
+    // hours old plus up to the gap to the next sweep, so at most about 31
+    // hours old when its turn comes, inside the 48 hour freshness check
+    // (scripts/freshness-check.ts), which tests/refreshAge.test.ts holds
+    // every shop's setting to. A shown price can therefore be a little over a
+    // day old, at most about 31 hours, where the 12 hour setting kept it
+    // under about 19.
+    refreshAfterHours: 24,
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',

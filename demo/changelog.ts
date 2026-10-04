@@ -17,6 +17,15 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.61.0',
+    date: '4 Oct 2026',
+    title: 'Cult Beauty prices are rechecked daily',
+    points: [
+      'Each Cult Beauty price is rechecked once a day',
+      'More time now goes to finding new perfumes',
+    ],
+  },
+  {
     version: 'v3.60.0',
     date: '4 Oct 2026',
     title: 'More Cult Beauty perfumes now show',

@@ -797,6 +797,21 @@ export interface Retailer {
    */
   sizeFromProductPage?: boolean;
   /**
+   * How old a stored price may get, in hours, before a harvest re-reads its
+   * product page. Unset: the sweep's own age (12 on the scheduled run). Set
+   * it only for a shop whose range is so large that re-reading all of it that
+   * often fills the shop's whole slot of the sweep and leaves nothing for new
+   * products (Cult Beauty, about 1,300 listings against a 40 minute slot).
+   *
+   * It wins over the sweep's `--refresh-after-hours`, because the scheduled
+   * workflow passes that for every shop. A price can age past this by the gap
+   * to the next sweep before it is re-read, so it is held to
+   * `MAX_REFRESH_AFTER_HOURS` (36) in src/catalogue/freshness.ts, which keeps
+   * every answering shop inside the 48 hour freshness check
+   * (scripts/freshness-check.ts); tests/refreshAge.test.ts enforces it.
+   */
+  refreshAfterHours?: number;
+  /**
    * The shop's titles name no strength (Eau de Parfum, Parfum, Eau de
    * Toilette), but each perfume's product page states it in the theme's own
    * product data, so the harvest reads it from the page and puts it into the
