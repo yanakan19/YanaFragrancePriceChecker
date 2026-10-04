@@ -1,6 +1,6 @@
 # Owner steps, in plain English
 
-Six jobs only you can do. Each one is short. Do them in this order; the
+Seven jobs only you can do. Each one is short. Do them in this order; the
 first stops money going out (the old chat servers, now unused).
 
 ---
@@ -393,3 +393,67 @@ lines, tell me: on some older projects the Storage rules have to be added
 from Storage → Policies instead, and I will give you the exact four to add.
 Nothing else on the site is affected in the meantime; the photo control
 simply stays hidden.
+
+---
+
+## 7. Keep the price crawl on time (20 minutes)
+
+GitHub only delivers about one in four of the crawl's hourly start signals
+(161 of about 687 between 5 September and 4 October), and on 4 October none
+at all for seven hours, so prices can go 8 to 10 hours between refreshes. The
+crawl now accepts a start signal from an outside scheduler and treats it
+exactly like GitHub's own: it still waits 150 minutes after the last full
+harvest and skips while one is running, so extra signals never mean extra
+harvests. Details: `docs/PIPELINE-FAILURE-MODES.md`.
+
+### 7a. An outside scheduler (recommended)
+
+1. GitHub → your picture → **Settings** → **Developer settings** →
+   **Personal access tokens** → **Fine-grained tokens** → **Generate new
+   token**. Name it `crawl ticks`. Expiry: one year (put the date in your
+   calendar). Repository access: **Only select repositories** →
+   `YanaFragrancePriceChecker`. Permissions → Repository → **Actions: Read
+   and write**. Nothing else. Copy the token; never paste it into the repo.
+2. In any free cron service you trust (cron-job.org works), create a job
+   every 30 minutes, at minutes 5 and 35:
+   - Method `POST`, URL
+     `https://api.github.com/repos/yanakan19/YanaFragrancePriceChecker/actions/workflows/catalogue-daily.yml/dispatches`
+   - Headers: `Authorization: Bearer <the token>` and
+     `Accept: application/vnd.github+json`
+   - Body: `{"ref":"claude/scentday-retailer-registry-h92tth","inputs":{"scheduled_tick":"true"}}`
+3. Check: GitHub → **Actions** → **Catalogue crawl** shows a
+   `workflow_dispatch` run every half hour. Most end in seconds with
+   "skipping this tick"; one every few hours harvests.
+
+If the token expires, these runs stop and GitHub's own signals carry on as
+today. Renew it and paste the new one into the cron job.
+
+### 7b. A hard spending limit on Apify (2 minutes)
+
+Apify console → **Settings** → **Usage & billing** (or **Limits**) → set the
+monthly usage limit to the $5 free credit. The crawl already rations the paid
+tier and checks the month's spend, but that check lets the run go ahead when
+Apify's answer cannot be read; a limit on the account side cannot be argued
+with.
+
+### 7c. Two of your routines move an hour on 25 October (2 minutes)
+
+UK clocks go back on 25 October. "ScentDay daily work run (9am UK)"
+(`0 8 * * 1,3,5`) and "Daily status check-in (6am UK)" (`0 5 * * *`) are set
+in UTC, so from then on they run at 8am and 5am UK. In the routine settings,
+set them to `CRON_TZ=Europe/London 0 9 * * 1,3,5` and
+`CRON_TZ=Europe/London 0 6 * * *`, or ask me to. The Deal of the Day, the
+savings posts and the end of day job already use UK time. While there: the
+end of day job's `git log --since=midnight` counts from midnight UTC, so in
+summer it misses commits made between midnight and 1am UK; and the "How much
+could you save?" routine's last run (3 October, 17:53 UK) failed after seven
+seconds with no reason given, worth one look.
+
+### 7d. Later: the repository is growing (a decision, no rush)
+
+The site's data is committed to git on every crawl: the repository is 651 MB
+on GitHub and grows by roughly 10 to 30 MB a day, so it will pass GitHub's
+recommended 1 GB within weeks. Nothing breaks then, but checkouts get slower.
+The fix is to stop committing the built page data and publish it straight
+from the crawl to the site. Say if you want that done; it changes how the
+site is deployed, so it is your call.
