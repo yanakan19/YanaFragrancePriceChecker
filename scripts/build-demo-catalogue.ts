@@ -36,6 +36,7 @@ import {
 } from '../src/catalogue/brandName.js';
 import {
   concentrationBlindKey,
+  settleHouseConcentrations,
   findDuplicateGroups,
   matchKey,
   rawTitlesAgree,
@@ -915,25 +916,24 @@ for (const { retailer, listings } of eligible) {
    Runs here — after every product exists, before findDuplicateGroups — because
    both halves need it: the evidence has to be gathered across products, and
    changing a concentration after the merge would be too late to merge on. */
-const houseConcentrations = new Map<string, Set<string>>();
+const houseStatements: { key: string; stated: string }[] = [];
 for (const product of products.values()) {
   for (const offer of product.offers) {
     if (!isBrandDirectOffer(offer.retailerId, product.brand)) continue;
-    const stated = concentrationOfListing(offer.rawTitle, offer.description);
-    if (stated === 'Not stated') continue;
-    const key = concentrationBlindKey(product);
-    const seen = houseConcentrations.get(key);
-    if (seen) seen.add(stated);
-    else houseConcentrations.set(key, new Set([stated]));
+    houseStatements.push({
+      key: concentrationBlindKey(product),
+      stated: concentrationOfListing(offer.rawTitle, offer.description),
+    });
   }
 }
+// settleHouseConcentrations holds the refusals, including the one a silent
+// house listing beside a stated one earns: see its own comment.
+const houseConcentrations = settleHouseConcentrations(houseStatements);
 let concentrationResolvedByHouse = 0;
 let concentrationCorrectedByHouse = 0;
 for (const product of products.values()) {
-  const stated = houseConcentrations.get(concentrationBlindKey(product));
-  // size > 1 is the house disagreeing with itself — see the refusals above.
-  if (!stated || stated.size !== 1) continue;
-  const truth = [...stated][0]!;
+  const truth = houseConcentrations.get(concentrationBlindKey(product));
+  if (!truth) continue;
   concentrationResolvedByHouse++;
   // Recorded even where it changes nothing, because the point of the record is
   // to tell the dispute audit below that this bottle is settled, and the

@@ -458,6 +458,56 @@ export function trustworthyEan(l: EanListing, untrustworthy: ReadonlySet<string>
   return l.ean;
 }
 
+/**
+ * One statement a fragrance house's own storefront made about a bottle: the
+ * bottle's concentration-blind key (concentrationBlindKey) and the strength
+ * that listing's own title or description names, "Not stated" included.
+ */
+export interface HouseStatement {
+  key: string;
+  stated: string;
+}
+
+/**
+ * The strength a house has settled for each bottle, keyed by
+ * concentrationBlindKey, from what its own storefront said.
+ *
+ * Three refusals, each measured rather than defensive (see the long comment
+ * above "the house's own word on the strength" in
+ * scripts/build-demo-catalogue.ts):
+ *
+ * - A house naming two different strengths for one bottle settles nothing.
+ * - "Not stated" is not evidence for any strength.
+ * - A house that lists a bottle with no strength AND the same name and size
+ *   with a strength sells two different articles under one name, and the
+ *   strength it states belongs to only one of them. Escentric Molecules lists
+ *   "Escentric 02 100ml" and "Escentric 02 Extrait de Parfum 100ml". Applied
+ *   to the whole key, the house's "Extrait de Parfum" relabelled every other
+ *   shop's Eau de Toilette of the same name and size, and the two strengths
+ *   were sold to the reader as one bottle. A silent listing beside a stated
+ *   one is the house disagreeing with itself, so the key is left alone.
+ *   A house with only one listing of a bottle, silent or not, is not affected.
+ */
+export function settleHouseConcentrations(statements: Iterable<HouseStatement>): Map<string, string> {
+  const seen = new Map<string, Set<string>>();
+  const silent = new Set<string>();
+  for (const { key, stated } of statements) {
+    if (stated.toLowerCase().trim() === NOT_STATED_MATCH_KEY) {
+      silent.add(key);
+      continue;
+    }
+    const set = seen.get(key);
+    if (set) set.add(stated);
+    else seen.set(key, new Set([stated]));
+  }
+  const settled = new Map<string, string>();
+  for (const [key, set] of seen) {
+    if (set.size !== 1 || silent.has(key)) continue;
+    settled.set(key, [...set][0]!);
+  }
+  return settled;
+}
+
 export interface MergeGroup<T extends MatchableProduct> {
   /** The record the merged product keeps — the barcode-bearing one where there is one. */
   canonical: T;

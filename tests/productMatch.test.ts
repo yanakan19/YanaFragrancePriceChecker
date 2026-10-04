@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   matchKey,
   concentrationBlindKey,
+  settleHouseConcentrations,
   findDuplicateGroups,
   untrustworthyEans,
   trustworthyEan,
@@ -613,5 +614,106 @@ describe('product matching', () => {
         concentrationBlindKey(p({ id: 'b', sizeMl: null })),
       );
     });
+  });
+});
+
+// Escentric Molecules lists "Escentric 02 100ml" (no strength) and "Escentric 02
+// Extrait de Parfum 100ml" on its own storefront. Stored titles, 2026-10-04:
+//   escentric-molecules  "Escentric 02 100ml"                   130 pounds (no strength)
+//   escentric-molecules  "Escentric 02 Extrait de Parfum 100ml" 200 pounds
+//   nicchia-luxury-uk    "Escentric 02 Eau de Toilette 100 ml"  135 pounds
+//   nicchia-luxury-uk    "Escentric 02 Extrait de Parfum 100 ml" 217 pounds
+//   perfume-click        "Escentric Molecules Escentric 02 Eau de Toilette 100ml Spray"
+//   cult-beauty-global   "Escentric Molecules Escentric 02 (100ml)" (no strength)
+describe('settleHouseConcentrations: a house selling two strengths under one name', () => {
+  const e02 = (o: Partial<MatchableProduct> & { id: string }) =>
+    p({ brand: 'Escentric Molecules', name: 'Escentric 02', sizeMl: 100, concentration: CONCENTRATION_NOT_STATED, ...o });
+  const key = concentrationBlindKey(e02({ id: 'k' }));
+
+  it('settles nothing when the house also lists the bottle with no strength', () => {
+    const settled = settleHouseConcentrations([
+      { key, stated: CONCENTRATION_NOT_STATED },
+      { key, stated: 'Extrait de Parfum' },
+    ]);
+    expect(settled.has(key)).toBe(false);
+  });
+
+  it('is order independent', () => {
+    const settled = settleHouseConcentrations([
+      { key, stated: 'Extrait de Parfum' },
+      { key, stated: CONCENTRATION_NOT_STATED },
+    ]);
+    expect(settled.has(key)).toBe(false);
+  });
+
+  it('still settles the ordinary case: one listing, one stated strength', () => {
+    expect(settleHouseConcentrations([{ key, stated: 'Eau de Toilette' }]).get(key)).toBe('Eau de Toilette');
+  });
+
+  it('a house with only a silent listing settles nothing, and never settles "Not stated"', () => {
+    expect(settleHouseConcentrations([{ key, stated: CONCENTRATION_NOT_STATED }]).size).toBe(0);
+  });
+
+  it('still refuses a house that names two different strengths', () => {
+    expect(
+      settleHouseConcentrations([
+        { key, stated: 'Eau de Toilette' },
+        { key, stated: 'Extrait de Parfum' },
+      ]).size,
+    ).toBe(0);
+  });
+
+  it('keeps the Extrait and the Eau de Toilette apart and does not relabel the Eau de Toilette', () => {
+    const products = [
+      e02({ id: 'cult-beauty-global-10366659' }),
+      e02({ id: 'escentric-molecules-e02-100ml-unit' }),
+      e02({ id: 'escentric-molecules-e02-edp-100ml-unit', concentration: 'Extrait de Parfum' }),
+      e02({ id: 'nicchia-luxury-uk-n00849-02', concentration: 'Eau de Toilette' }),
+      e02({ id: 'nicchia-luxury-uk-n06713-01', concentration: 'Extrait de Parfum' }),
+      e02({ id: 'ean-5060103310036', ean: '5060103310036', concentration: 'Eau de Toilette' }),
+    ];
+    // What the build feeds in: only the house's own two listings.
+    const settled = settleHouseConcentrations([
+      { key, stated: CONCENTRATION_NOT_STATED },
+      { key, stated: 'Extrait de Parfum' },
+    ]);
+    for (const product of products) {
+      const truth = settled.get(concentrationBlindKey(product));
+      if (truth) product.concentration = truth;
+    }
+    const byId = new Map(products.map((q) => [q.id, q]));
+    expect(byId.get('ean-5060103310036')!.concentration).toBe('Eau de Toilette');
+    expect(byId.get('nicchia-luxury-uk-n00849-02')!.concentration).toBe('Eau de Toilette');
+
+    const groups = findDuplicateGroups(products);
+    const together = (a: string, b: string) =>
+      groups.some((g) => {
+        const ids = [g.canonical, ...g.absorbed].map((q) => q.id);
+        return ids.includes(a) && ids.includes(b);
+      });
+    // The Extrait of one shop joins the Extrait of the other, and never the Eau de Toilette.
+    expect(together('escentric-molecules-e02-edp-100ml-unit', 'nicchia-luxury-uk-n06713-01')).toBe(true);
+    expect(together('ean-5060103310036', 'nicchia-luxury-uk-n00849-02')).toBe(true);
+    expect(together('ean-5060103310036', 'nicchia-luxury-uk-n06713-01')).toBe(false);
+    expect(together('ean-5060103310036', 'escentric-molecules-e02-edp-100ml-unit')).toBe(false);
+    // Two strengthless listings never decide for themselves which strength they are.
+    expect(together('cult-beauty-global-10366659', 'ean-5060103310036')).toBe(false);
+    expect(together('cult-beauty-global-10366659', 'escentric-molecules-e02-edp-100ml-unit')).toBe(false);
+  });
+
+  it('never merges Molecule 01 with Escentric 01, same size and strength', () => {
+    const m01 = p({ id: 'm01', brand: 'Escentric Molecules', name: 'Molecule 01', sizeMl: 100, concentration: 'Eau de Toilette' });
+    const e01 = p({ id: 'e01', brand: 'Escentric Molecules', name: 'Escentric 01', sizeMl: 100, concentration: 'Eau de Toilette' });
+    expect(matchKey(m01)).not.toBe(matchKey(e01));
+    expect(findDuplicateGroups([m01, e01])).toEqual([]);
+  });
+});
+
+describe('displayName: a size the shop wrote in brackets', () => {
+  it('leaves no empty brackets behind (Cult Beauty writes every size as "(30ml)")', () => {
+    expect(displayName('ESCENTRIC MOLECULES - Molecule 01 - Portable (30ml)', null, 'Escentric Molecules')).toBe(
+      'Molecule 01 - Portable',
+    );
+    expect(displayName('Escentric Molecules Molecule 02 (100ml)', null, 'Escentric Molecules')).toBe('Molecule 02');
   });
 });

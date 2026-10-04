@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isFragrance, repairMojibake, sizeMl, sizeConflict } from '../src/catalogue/fragranceId.js';
+import { isFragrance, isBottleOfFragranceOnlyHouse, repairMojibake, sizeMl, sizeConflict } from '../src/catalogue/fragranceId.js';
 import { isGiftSet } from '../src/catalogue/giftSet.js';
 import { RETAILERS, getRetailer } from '../src/config/retailers.js';
 import type { StoredListing } from '../src/catalogue/types.js';
@@ -142,6 +142,80 @@ describe('isFragrance: fragranceOnlyCatalogue shops', () => {
     expect(isFragrance(listing('escentric-molecules', 'Molecule 01 100ml', null))).toBe(false);
     expect(isFragrance(listing('escentric-molecules', 'Molecule 01 100ml', 0))).toBe(false);
     expect(isFragrance(listing('escentric-molecules', 'Molecule 01'))).toBe(false);
+  });
+});
+
+describe('isFragrance: a fragrance only house sold by a shop that sells much more', () => {
+  // Cult Beauty (cult-beauty-global) is a beauty shop: skincare, hair, candles.
+  // It is not `fragranceOnlyCatalogue`, so the concentration test applies, and
+  // Escentric Molecules names its products after themselves ("Molecule 02"),
+  // never after a strength. These are the stored Cult Beauty titles, read
+  // from data/catalogue/cult-beauty-global.json on 2026-10-04; all five were
+  // hidden, on the concentration test alone.
+  it.each([
+    'Escentric Molecules Molecule 02 (100ml)',
+    'Escentric Molecules Escentric 02 (100ml)',
+    'Escentric Molecules Molecule 01 (100ml)',
+    'ESCENTRIC MOLECULES - ESCENTRIC 01 IN PRESENTATION CASE (30ML)',
+    'ESCENTRIC MOLECULES - Molecule 01 - Portable (30ml)',
+  ])('keeps %s at Cult Beauty', (title) => {
+    expect(isFragrance(listing('cult-beauty-global', title, 125))).toBe(true);
+  });
+
+  it('the shop itself is still not fragrance only: the same words without the house are rejected', () => {
+    expect(getRetailer('cult-beauty-global')?.fragranceOnlyCatalogue).toBeFalsy();
+    expect(isFragrance(listing('cult-beauty-global', 'Molecule 02 (100ml)'))).toBe(false);
+    expect(isFragrance(listing('cult-beauty-global', 'Some Serum (100ml)'))).toBe(false);
+  });
+
+  it('applies the brand field as well as the title, at another shop', () => {
+    const l = { ...listing('escentual', 'Molecule 02 100ml'), rawBrand: 'Escentric Molecules' };
+    expect(isFragrance(l)).toBe(true);
+  });
+
+  // Every other rule still runs: a refill, a gift set, a body product, a
+  // multi item set and a missing size or price stay out, exactly as at the
+  // house's own shop. The two Cult Beauty refills stay hidden by the refill
+  // word, which is a site wide rule (Nicchia's and Perfume Click's refills too).
+  it.each([
+    'ESCENTRIC MOLECULES - ESCENTRIC 01 REFILL (30ML)',
+    'ESCENTRIC MOLECULES - MOLECULE 01 REFILL (30ML)',
+    'Escentric Molecules Molecule 01 Body Wash (100ml)',
+    'Escentric Molecules Molecule 01 ATOM.iser Set 3 x 8.5ml',
+    'Escentric Molecules Molecule 01',
+  ])('still rejects %s', (title) => {
+    expect(isFragrance(listing('cult-beauty-global', title, 60))).toBe(false);
+  });
+
+  it('still rejects a house bottle with no price', () => {
+    expect(isFragrance(listing('cult-beauty-global', 'Escentric Molecules Molecule 01 (100ml)', null))).toBe(false);
+  });
+
+  describe('isBottleOfFragranceOnlyHouse is narrow', () => {
+    const t = (rawTitle: string, rawBrand: string | null = null) => isBottleOfFragranceOnlyHouse({ rawTitle, rawBrand });
+
+    it('needs the whole house name at the start of the title, never a trailing or partial mention', () => {
+      expect(t('Escentric Molecules Molecule 02 (100ml)')).toBe(true);
+      expect(t('Kayali Vanilla | 28 100ml')).toBe(true);
+      expect(t('Molecule 02 (100ml) by Escentric Molecules')).toBe(false);
+      expect(t('Escentric 01 (100ml)')).toBe(false);
+      expect(t('Escentric Moleculesx 100ml')).toBe(false);
+      expect(t('Kayalis Perfume 100ml')).toBe(false);
+    });
+
+    it('only ever names a house a human vouched for as fragrance only', () => {
+      // LUSH and Bath & Body Works are single brand shops that sell soap, so
+      // neither is a fragrance only house, whatever the title says.
+      expect(t('Lush Dream Cream 100ml')).toBe(false);
+      expect(t('Bath & Body Works Body Cream 100ml')).toBe(false);
+      expect(t('Tom Ford Black Orchid 50ml', 'Tom Ford')).toBe(false);
+    });
+
+    it('reads the brand field only when it is exactly the house', () => {
+      expect(t('Molecule 02 100ml', 'Escentric Molecules')).toBe(true);
+      expect(t('Molecule 02 100ml', 'Escentric')).toBe(false);
+      expect(t('Molecule 02 100ml', null)).toBe(false);
+    });
   });
 });
 
