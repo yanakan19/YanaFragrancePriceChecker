@@ -2,7 +2,7 @@
 // (2026-10-04) and the failure mode review in docs/PIPELINE-FAILURE-MODES.md.
 // The files are read as text: they are indented consistently, and the repo
 // carries no YAML parser.
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { policyOf, readManifest, REPO_ROOT } from '../scripts/generatedFiles.js';
@@ -84,6 +84,26 @@ describe('every workflow', () => {
         expect(m[1], f).toContain('scripts/retry.sh');
       }
     }
+  });
+
+  it('runs only repository scripts that exist from the step\'s working directory', () => {
+    // apps-build.yml runs its steps in apps/, and a bare scripts/retry.sh
+    // there failed both its jobs on 2026-10-04 (run #2).
+    let checked = 0;
+    for (const f of files) {
+      for (const job of jobs(f)) {
+        const jobDir = /\n {4}defaults:\n {6}run:\n {8}working-directory: (\S+)/.exec(`\n${job.body}`)?.[1] ?? '.';
+        for (const step of steps(job.body)) {
+          const dir = /\n {8}working-directory: (\S+)/.exec(step)?.[1] ?? jobDir;
+          for (const m of step.matchAll(/(?:^|[\s"'(])((?:\.\.?\/)*scripts\/[\w.-]+\.(?:sh|ts|mjs|py))\b/g)) {
+            checked++;
+            const target = join(REPO_ROOT, dir, m[1]!);
+            expect(existsSync(target), `${f} ${job.name}: ${m[1]} from ${dir}`).toBe(true);
+          }
+        }
+      }
+    }
+    expect(checked).toBeGreaterThan(20);
   });
 
   it('pushes only through scripts/commit-and-push.sh, never a bare git push', () => {
