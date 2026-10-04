@@ -45,6 +45,19 @@ describe.skipIf(!built)('the built page has no axe violations', () => {
     close();
   });
 
+  // The home page again at the widths of a phone and a tablet, where the
+  // full width scrolling banner is at its most cramped and its contrast
+  // against the band is read against both palettes (owner, 2026-10-04).
+  for (const mode of ['dark', 'light'] as const) {
+    for (const width of [320, 390, 768]) {
+      it(`/ at ${width}px wide (${mode})`, async () => {
+        const violations = await auditRoute(browser, port, '/', mode, width);
+        const summary = violations.map((v) => `[${v.impact}] ${v.id}: ${v.nodes.slice(0, 3).join(' | ')}`).join('\n');
+        expect(violations, summary).toEqual([]);
+      }, 30_000);
+    }
+  }
+
   for (const mode of ['dark', 'light'] as const) {
     for (const route of ROUTES) {
       it(`${route} (${mode})`, async () => {

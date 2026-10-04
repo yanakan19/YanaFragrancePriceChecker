@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import type { Browser } from 'playwright';
 import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-audit.js';
-import { SMALL_WORDS, fragrancesPhrase, marqueeHtml, marqueePhrases } from '../demo/marquee.js';
+import { MARQUEE_COPIES, SMALL_WORDS, fragrancesPhrase, marqueeHtml, marqueePhrases } from '../demo/marquee.js';
 import { shopsPhrase } from '../demo/head.js';
 import { RETAILERS } from '../src/config/retailers.js';
 
@@ -52,10 +52,53 @@ describe('the marquee phrases', () => {
     }
   });
 
-  it('writes the six twice, the second set hidden from screen readers', () => {
+  it('writes the six four times, every copy after the first hidden from screen readers', () => {
+    expect(MARQUEE_COPIES).toBe(4);
     const html = marqueeHtml(phrases);
-    expect(html.match(/class="marquee-item"/g)).toHaveLength(12);
-    expect(html.match(/aria-hidden="true"/g)).toHaveLength(6);
+    expect(html.match(/class="marquee-item"/g)).toHaveLength(6 * MARQUEE_COPIES);
+    expect(html.match(/aria-hidden="true"/g)).toHaveLength(6 * (MARQUEE_COPIES - 1));
+  });
+});
+
+/**
+ * The stylesheet's side of the owner's rules of 2026-10-04: no pause of any
+ * kind, one line, the full width of the window, the reduced motion fallback
+ * kept. Read from the template, so it holds without a browser.
+ */
+describe('the marquee stylesheet', () => {
+  const css = readFileSync(resolve(root, 'demo/template.html'), 'utf8');
+  const block = css.slice(css.indexOf('/* ── marquee'), css.indexOf('/* ── popular rail'));
+
+  it('has no pause of any kind', () => {
+    expect(block).not.toMatch(/animation-play-state/);
+    expect(block).not.toMatch(/\.marquee[^{]*:(hover|focus|focus-within|active)/);
+  });
+
+  it('scrolls by exactly one copy of the phrases out of MARQUEE_COPIES', () => {
+    expect(block).toContain(`translateX(-${100 / MARQUEE_COPIES}%)`);
+    expect(block).toMatch(/animation: marquee-scroll var\(--pm-duration\) linear infinite/);
+  });
+
+  it('never wraps and never shrinks an item', () => {
+    expect(block).toMatch(/\.marquee-track \{[^}]*flex-wrap: nowrap/);
+    expect(block).toMatch(/\.marquee-item \{[^}]*flex: none/);
+    expect(block).toMatch(/\.marquee-item \{[^}]*white-space: nowrap/);
+  });
+
+  it('is as wide as the window, less the scrollbar, whatever column it sits in', () => {
+    expect(block).toMatch(/width: calc\(100vw - var\(--sbw, 0px\)\)/);
+  });
+
+  it('keeps the reduced motion fallback: no movement, wrapping, one copy', () => {
+    const reduced = block.slice(block.indexOf('@media (prefers-reduced-motion: reduce)'));
+    expect(reduced).toMatch(/animation: none/);
+    expect(reduced).toMatch(/flex-wrap: wrap/);
+    expect(reduced).toMatch(/\.marquee-item\[aria-hidden="true"\] \{ display: none; \}/);
+  });
+
+  it('is told the scrollbar width by the app, never left to guess', () => {
+    const app = readFileSync(resolve(root, 'demo/app.ts'), 'utf8');
+    expect(app).toMatch(/setProperty\('--sbw'/);
   });
 });
 
@@ -100,7 +143,7 @@ describe.skipIf(!built)('the marquee on the built home page', () => {
   });
 
   for (const reducedMotion of ['no-preference', 'reduce'] as const) {
-    it(`renders under the hero with six phrases and six hidden duplicates (${reducedMotion} motion)`, async () => {
+    it(`renders under the hero with six phrases and three hidden copies of them (${reducedMotion} motion)`, async () => {
       const context = await browser.newContext({ viewport: { width: 375, height: 800 }, reducedMotion });
       try {
         const page = await context.newPage();
@@ -144,19 +187,141 @@ describe.skipIf(!built)('the marquee on the built home page', () => {
         expect(shops, got.shown[1]).not.toBeNull();
         expect(Number(shops![1])).toBeLessThan(RETAILERS.filter((r) => r.enabled).length);
         expect(got.shown.slice(2)).toEqual(marqueePhrases(count, '').slice(2));
-        // The duplicates: the same six, in the same order.
-        expect(got.hidden).toEqual(got.shown);
+        // The hidden copies: the same six, in the same order, three times.
+        expect(got.hidden).toEqual([...got.shown, ...got.shown, ...got.shown]);
         expect(got.pageWidth).toBe(375);
         if (reducedMotion === 'reduce') {
           expect(got.animation).toBe('none');
           expect(got.displayed).toBe(6);
         } else {
           expect(got.animation).toBe('marquee-scroll');
-          expect(got.displayed).toBe(12);
+          expect(got.displayed).toBe(6 * MARQUEE_COPIES);
         }
       } finally {
         await context.close();
       }
     }, 60_000);
   }
+});
+
+interface BandReading {
+  left: number;
+  right: number;
+  clientWidth: number;
+  scrollWidth: number;
+  scrollX: number;
+  lines: number;
+  visible: number;
+  filled: boolean;
+  transform: string;
+}
+
+/** Read in the page, as a string: the tests compile without the DOM library. */
+const READ_BAND = `(() => {
+  const m = document.querySelector('.marquee');
+  const box = m.getBoundingClientRect();
+  const items = [...m.querySelectorAll('.marquee-item')];
+  const root = document.documentElement;
+  return {
+    left: box.left, right: box.right, clientWidth: root.clientWidth,
+    scrollWidth: root.scrollWidth, scrollX: window.scrollX,
+    lines: new Set(items.map((i) => Math.round(i.getBoundingClientRect().top))).size,
+    visible: items.filter((i) => { const r = i.getBoundingClientRect(); return r.right > 0 && r.left < root.clientWidth; }).length,
+    filled: items[items.length - 1].getBoundingClientRect().right >= root.clientWidth,
+    transform: getComputedStyle(m.querySelector('.marquee-track')).transform,
+  };
+})()`;
+
+/**
+ * In a real browser, at the widths the owner named, in both palettes and in
+ * the narrow and the desktop layout: the band is the full width of the page
+ * (to the scrollbar's edge, never past it), the page never scrolls sideways,
+ * the words stay on one line, they are moving, and resting the pointer on the
+ * band does not stop them.
+ */
+describe.skipIf(!built)('the marquee across screen widths', () => {
+  let browser: Browser;
+  let port = 0;
+  let close: () => void = () => {};
+
+  beforeAll(async () => {
+    ({ port, close } = await startDemoServer());
+    browser = await launchChromium();
+  }, 60_000);
+
+  afterAll(async () => {
+    await browser?.close();
+    close();
+  });
+
+  const WIDTHS = [320, 375, 390, 768, 1024, 1440];
+  for (const mode of ['dark', 'light'] as const) {
+    for (const layout of ['narrow', 'wide'] as const) {
+      it(`spans the page, on one line and moving, at every width (${mode}, ${layout} layout)`, async () => {
+        for (const width of WIDTHS) {
+          const context = await browser.newContext({ viewport: { width, height: 800 } });
+          try {
+            await context.addInitScript(`try { localStorage.setItem('pricesniffs.display', '${mode}'); } catch (e) {}`);
+            const page = await context.newPage();
+            await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'load' });
+            await waitForApp(page);
+            // The layout is chosen from the device; forcing it sets the same
+            // attribute the app sets, so the stylesheet cannot tell.
+            await page.evaluate(`document.documentElement.setAttribute('data-layout', '${layout === 'narrow' ? 'mobile' : 'desktop'}')`);
+            await page.evaluate('window.scrollTo(3000, 0)');
+            const first = (await page.evaluate(READ_BAND)) as BandReading;
+            const where = `${mode} ${layout} ${width}`;
+            expect(first.left, where).toBeCloseTo(0, 0);
+            expect(first.right, where).toBeCloseTo(first.clientWidth, 0);
+            expect(first.scrollWidth, where).toBe(first.clientWidth);
+            expect(first.scrollX, where).toBe(0);
+            expect(first.lines, where).toBe(1);
+            expect(first.filled, where).toBe(true);
+            // Several phrases at once, where there is room for them.
+            if (width >= 1024) expect(first.visible, where).toBeGreaterThanOrEqual(4);
+            // Moving, and not stopped by the pointer resting on it.
+            await page.hover('.marquee');
+            await page.waitForTimeout(700);
+            const second = (await page.evaluate(READ_BAND)) as BandReading;
+            expect(second.transform, where).not.toBe(first.transform);
+            const state = await page.evaluate(`getComputedStyle(document.querySelector('.marquee-track')).animationPlayState`);
+            expect(state, where).toBe('running');
+          } finally {
+            await context.close();
+          }
+        }
+      }, 120_000);
+    }
+  }
+
+  it('under reduced motion stops, wraps, and is still the full width', async () => {
+    for (const width of [375, 1440]) {
+      const context = await browser.newContext({ viewport: { width, height: 800 }, reducedMotion: 'reduce' });
+      try {
+        const page = await context.newPage();
+        await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'load' });
+        await waitForApp(page);
+        const got = (await page.evaluate(`(() => {
+          const m = document.querySelector('.marquee');
+          const box = m.getBoundingClientRect();
+          const items = [...m.querySelectorAll('.marquee-item')].filter((i) => getComputedStyle(i).display !== 'none');
+          const track = m.querySelector('.marquee-track');
+          return {
+            left: box.left, right: box.right, clientWidth: document.documentElement.clientWidth,
+            scrollWidth: document.documentElement.scrollWidth,
+            animation: getComputedStyle(track).animationName, wrap: getComputedStyle(track).flexWrap,
+            shown: items.length,
+          };
+        })()`)) as { left: number; right: number; clientWidth: number; scrollWidth: number; animation: string; wrap: string; shown: number };
+        expect(got.animation, String(width)).toBe('none');
+        expect(got.wrap, String(width)).toBe('wrap');
+        expect(got.shown, String(width)).toBe(6);
+        expect(got.left, String(width)).toBeCloseTo(0, 0);
+        expect(got.right, String(width)).toBeCloseTo(got.clientWidth, 0);
+        expect(got.scrollWidth, String(width)).toBe(got.clientWidth);
+      } finally {
+        await context.close();
+      }
+    }
+  }, 60_000);
 });
