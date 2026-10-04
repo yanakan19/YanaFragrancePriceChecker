@@ -147,7 +147,8 @@ describe('titleWithThgPageStrength', () => {
   });
 
   it('is what lets the strength rule show the product', () => {
-    const before = { rawTitle: 'BYREDO Alto Astral 100ml', retailerId: 'cult-beauty-global', priceGbp: 140, status: 'active' } as unknown as StoredListing;
+    // A house with no entry in unstatedStrengthEvidence.ts: Byredo's own page now names Alto Astral's strength, so it shows without the page.
+    const before = { rawTitle: 'Maison Exemple Alto Astral 100ml', retailerId: 'cult-beauty-global', priceGbp: 140, status: 'active' } as unknown as StoredListing;
     expect(isFragrance(before)).toBe(false);
     const after = { ...before, rawTitle: titleWithThgPageStrength(before, stating, 'cult-beauty-global') } as StoredListing;
     expect(isFragrance(after)).toBe(true);
