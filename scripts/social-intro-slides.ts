@@ -51,7 +51,7 @@ const SLIDES = [
      <div class="list">
        <div class="item">${TICK}<p><b>The real total, first</b><span>cheapest price at the top, delivery and all</span></p></div>
        <div class="item">${TICK}<p><b>Shops we trust</b><span>only resellers we have bought from ourselves</span></p></div>
-       <div class="item">${TICK}<p><b>Fresh prices</b><span>checked every 3 hours, no paid placements</span></p></div>
+       <div class="item">${TICK}<p><b>Fresh prices</b><span>checked daily, no paid placements</span></p></div>
      </div>`,
     'Swipe &rarr;',
   ),
@@ -70,7 +70,7 @@ const CAPTION = `What is PriceSniffs? 🇬🇧
 
 We built PriceSniffs so you can see what a perfume really costs before you buy it. Search for a bottle and we line up the prices from more than 30 UK shops, cheapest first, with delivery and fees added in whenever the shop publishes them.
 
-Every shop we list is a reseller we have bought from ourselves, and prices are checked every 3 hours. Nobody pays to be shown higher up.
+Every shop we list is a reseller we have bought from ourselves, and prices are checked daily. Nobody pays to be shown higher up.
 
 Want to dig around more? The link is in our bio, or go to pricesniffs.space
 

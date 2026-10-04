@@ -88,7 +88,6 @@ Multi-word descriptive prose, not a label.
 | `.org-hero-blurb` (:850) | The one-paragraph description on a retailer or brand profile page | 13.5px | 400 | 1.5 | `--ink-2` |
 | `.hero-blurb` (:1064) | Short blurb under a fragrance's name on its detail page | 13.5px | 400 | inherited (1.5) | `--faint` |
 | `.house-note` (:1440) | The caveat paragraph above a house grid ("prices shown in the house's own currency…") | 14px | 400 | 1.45 | `--ink-2` |
-| `.intro-points span` (:392) | The three italic phrases under the Home mission line | 14px | 500 | inherited | `--ink-2` |
 | `.account-note` (:1293) | Explanatory line on the Account entry point in Settings | 13.5px | 400 | inherited | `--ink-2` |
 | `.foot-line` (:1359) | Body line inside the condensed "About" settings panel | 13.5px | 400 | inherited | `--ink-2` |
 | `.group-note` (:1165) | Explains why a group of shops is listed on a detail page (e.g. "also sold by, unconfirmed") | 12.5px | 400 | 1.5 | `--faint` |
@@ -155,7 +154,6 @@ number might update live.
 | `.note-group-count` (:930) | Big number on a note-group card, e.g. "42" | 20px | 800 | `--ink` (inherited) |
 | `.facets-badge` (:1005) | Count badge on the "Filters" toggle when facets are active | 10px | 700 | `--accent-on` on `--accent` |
 | `.medal` (:601) | Rank number (1/2/3) on a popularity medal | 11px | 800 | per-medal (gold/silver/bronze) |
-| `.db-count` (:400) | "Tracking N fragrances" line on Home | 12.5px | 600 | `--faint` |
 | `.alpha-scrubber-letter` (:963) | Index-strip letters beside the Notes A–Z list | 9.5px | 700 | `--faint` |
 
 ## 8. Prices

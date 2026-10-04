@@ -112,7 +112,7 @@ interface FeedListing {
  * named bottle. This used to pin Tom Ford Black Orchid 150ml at The Beauty
  * Store UK; when that row stopped being shown (2026-10-03) the test went red
  * for a reason that had nothing to do with the rule. A live product cannot be
- * a fixture: the catalogue moves every three hours.
+ * a fixture: the catalogue moves every day.
  *
  * The rule, from the collapse in scripts/build-demo-catalogue.ts: where one
  * shop shows a product on two or more of its own pages, the cheapest page is
@@ -169,7 +169,7 @@ describe.skipIf(shownTwice.length === 0)('no product lists one shop twice for th
 
 /**
  * The two tests that collapse applies, pinned as rules rather than through
- * the snapshot — a snapshot moves every three hours, and what must not drift
+ * the snapshot — a snapshot moves every day, and what must not drift
  * is when two of one shop's listings count as one bottle.
  *
  * Both have to pass. Neither is sufficient alone, and every pair of titles
