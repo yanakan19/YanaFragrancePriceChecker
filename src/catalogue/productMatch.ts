@@ -90,7 +90,7 @@
  * fragranceId() in a live build today. This is hardening for the day both of
  * those clear, not a fix for a live symptom.
  */
-import { brandKey } from './brandName.js';
+import { brandKey, brandPrefixKeys } from './brandName.js';
 
 /**
  * The literal value of CONCENTRATION_NOT_STATED in productName.ts, already
@@ -245,14 +245,112 @@ function wordSet(text: string): string {
  */
 function titleWords(text: string): string[] {
   return text
+    // An accent changes how a word looks, never which word it is: "Olympéa"
+    // and "Olympea", "Hermès" and "Hermes". Left alone, the combining mark
+    // split one word into two ("olymp", "a") and the two spellings of one
+    // bottle never shared a key. Same fold as brandKey in brandName.ts.
+    .normalize('NFKD')
+    .replace(/\p{Mn}/gu, '')
     .toLowerCase()
     // Apostrophes vanish rather than splitting the word around them: one feed
     // writes "Bade'e Al Oud" and another "Badee Al Oud", and treating the
     // apostrophe as a separator turns one word into two and the match fails.
-    .replace(/['’]/g, '')
+    .replace(/['’`´ʼʻ]/g, '')
     .replace(/[^a-z0-9]+/g, ' ')
     .split(' ')
     .filter(Boolean);
+}
+
+/**
+ * Words that say nothing about which perfume a name is, dropped from the
+ * identity two listings are compared on (never from the name a reader sees).
+ *
+ * Measured against the built catalogue (npm run duplicates): each of these was
+ * the only difference between two listings of one bottle, in dozens of
+ * products, and none of them separated two real products.
+ *
+ *   perfume   "Alien Perfume" and "Alien", "Meringue Perfume" and "Meringue":
+ *             English for "this is perfume", filed under the concentration
+ *             field already. It is not "parfum", which names a strength, and
+ *             that stays a word.
+ *   and, the  "Diamonds & Rubies" and "Diamonds and Rubies", "To Be The King"
+ *             and "To Be King". An ampersand is dropped by titleWords, so the
+ *             word it stands for goes too, or the two spellings differ.
+ *   edp edt edc  A strength abbreviation left in a name after a shop's own
+ *             claim lost the strength dispute ("Caffe Latte EDP" on an Extrait
+ *             de Parfum). The strength is a key part of its own.
+ */
+const IDENTITY_NOISE: ReadonlySet<string> = new Set(['perfume', 'perfumes', 'and', 'the', 'edp', 'edt', 'edc']);
+
+/** Words a dangling brand strip leaves at the end of a name: "Cabotine de Gres" loses "Gres". */
+const ORPHAN_TAIL: ReadonlySet<string> = new Set(['de', 'by', 'of']);
+
+/**
+ * The words a name is compared on: titleWords, minus noise, minus the house's
+ * own name where the title repeats it, minus the "Intense" of a Parfum Intense.
+ *
+ * The house's own name. "Boss Bottled" and "Bottled", "Mugler Alien" and
+ * "Alien", "Guess Seductive" and "Seductive" are one bottle named with and
+ * without its house, and the name a product ends up with depends on which
+ * shop's title shape reached the brand strip first. Only a *leading* run of
+ * words that spells the brand (or one of its known aliases, or a house mark
+ * listed in brandName.ts) is dropped, once, and never when it would leave
+ * nothing: "Juicy Couture" stays "Juicy Couture". A "by House" tail goes too,
+ * "K By Dolce&Gabbana Intense" against "Dolce Gabbana K Intense".
+ *
+ * "Intense" after a Parfum. Rabanne writes the tier "Parfum Intense" and shops
+ * file the second word in the name, or not, or before the strength
+ * ("Invictus Victory Elixir Intense 200ml Parfum"). Measured over the
+ * catalogue, no house sells both "X Parfum" and "X Intense Parfum" as two
+ * things at one size; every "X" and "X Intense" pair at one size is an Eau de
+ * Parfum, an Eau de Toilette or an Extrait (Alien Goddess, Libre, Acqua di Gio,
+ * Si, K by Dolce and Gabbana), and those keep their word. So the word goes
+ * only where the strength is exactly Parfum.
+ */
+function identityWords(p: MatchableProduct): string[] {
+  const all = titleWords(p.name).filter((w) => w !== 'and');
+  let words = all;
+  const prefixes = brandPrefixKeys(p.brand);
+  for (let k = 1; k <= 4 && k < words.length; k++) {
+    if (prefixes.has(words.slice(0, k).join(''))) {
+      words = words.slice(k);
+      break;
+    }
+  }
+  const byAt = words.indexOf('by');
+  if (byAt >= 0) {
+    for (let k = 1; byAt + k <= words.length && k <= 4; k++) {
+      if (prefixes.has(words.slice(byAt + 1, byAt + 1 + k).join('')) && words.length > k + 1) {
+        words = [...words.slice(0, byAt), ...words.slice(byAt + 1 + k)];
+        break;
+      }
+    }
+  }
+  // The strength written into the name as well as into its own field:
+  // "Gucci Guilty Eau de Toilette" on an Eau de Toilette, "Imperiale Eau de
+  // Cologne" on an Eau de Cologne. Only the run that equals this product's own
+  // strength goes, so "Charlie Blue Eau Fraiche" on an Eau de Toilette keeps
+  // its "eau fraiche", which names a different bottle.
+  const strengthWords = titleWords(p.concentration);
+  if (strengthWords.length > 0 && words.length > strengthWords.length) {
+    for (let i = 0; i + strengthWords.length <= words.length; i++) {
+      if (strengthWords.every((w, j) => words[i + j] === w)) {
+        words = [...words.slice(0, i), ...words.slice(i + strengthWords.length)];
+        break;
+      }
+    }
+  }
+  const parfumIntense = p.concentration.toLowerCase().trim() === 'parfum';
+  words = words.filter((w) => !IDENTITY_NOISE.has(w) && !(parfumIntense && w === 'intense'));
+  while (words.length > 1 && ORPHAN_TAIL.has(words[words.length - 1]!)) words = words.slice(0, -1);
+  if (words.length > 1 && words[words.length - 1] === 'new') words = words.slice(0, -1);
+  // Never reduce a name to nothing: the plain words are a worse key than none
+  // at all, but an empty one would merge every such product with every other.
+  return words.length > 0 ? words : titleWords(p.name);
+}
+
+function identityWordSet(p: MatchableProduct): string {
+  return identityWords(p).sort().join(' ');
 }
 
 /**
@@ -287,7 +385,7 @@ function sizeKeyPart(p: MatchableProduct): string {
 
 /** The identity two listings must share to be the same bottle. */
 export function matchKey(p: MatchableProduct): string {
-  return [brandKey(p.brand), sizeKeyPart(p), p.concentration.toLowerCase().trim(), wordSet(p.name)].join('|');
+  return [brandKey(p.brand), sizeKeyPart(p), p.concentration.toLowerCase().trim(), identityWordSet(p)].join('|');
 }
 
 /**
@@ -374,7 +472,7 @@ export function rawTitlesAgree(a: string, b: string): boolean {
  * future edit to one silently stops agreeing with the other.
  */
 function looseMatchKey(p: MatchableProduct): string {
-  return [brandKey(p.brand), sizeKeyPart(p), wordSet(p.name)].join('|');
+  return [brandKey(p.brand), sizeKeyPart(p), identityWordSet({ ...p, concentration: '' })].join('|');
 }
 
 /**
@@ -508,6 +606,46 @@ export function settleHouseConcentrations(statements: Iterable<HouseStatement>):
   return settled;
 }
 
+/**
+ * Whether two barcodes, already stripped of leading zeros, are one code and the
+ * same code with a check digit stuck on the end.
+ *
+ * A US shop's UPC-A is twelve digits (Tom Ford Black Orchid 50ml,
+ * 888066000062) and another feed publishes it as 8880660000624: the twelve
+ * digits, then the check digit of a thirteen digit EAN computed over them, as
+ * if the UPC were an EAN with its last digit missing. Space NK does this to
+ * every Tom Ford bottle and one Sol de Janeiro mist family does too. Read
+ * strictly, 888066000062 and 8880660000624 are two barcodes, so each of 27
+ * products had its listings from the other shops (cult beauty, justmylook,
+ * lookfantastic, mybeauty boutique, nicchia, the beauty store) refused as a
+ * barcode disagreement and left on a page of their own.
+ *
+ * Only this one shape counts, and only because the two listings already agree
+ * on house, size, strength and name when it is asked: the longer code must be
+ * a valid EAN-13, the shorter a valid UPC-A, and the longer must be exactly the
+ * shorter with one digit added at the end. Two real articles do not have codes
+ * that are one another's prefix.
+ */
+function isUpcWithCheckDigitAppended(shorter: string, longer: string): boolean {
+  return (
+    shorter.length === 12 &&
+    longer.length === 13 &&
+    longer.startsWith(shorter) &&
+    hasGtinCheckDigit(shorter) &&
+    hasGtinCheckDigit(longer)
+  );
+}
+
+/** How many different articles a set of real barcodes names, once that shape is read as one. */
+function distinctBarcodeCount(barcodes: Iterable<string>): number {
+  const kept: string[] = [];
+  for (const code of barcodes) {
+    const same = kept.some((k) => k === code || isUpcWithCheckDigitAppended(k, code) || isUpcWithCheckDigitAppended(code, k));
+    if (!same) kept.push(code);
+  }
+  return kept.length;
+}
+
 /** An id built from a SKU that carries a pre-order notice: see findDuplicateGroups. */
 const PRE_ORDER_ID = /pre-?order/i;
 
@@ -528,6 +666,80 @@ export interface MergeGroup<T extends MatchableProduct> {
   absorbed: T[];
 }
 
+export interface FindDuplicateOptions<T> {
+  /**
+   * The shops (retailer ids) selling a product. Optional: without it every
+   * barcode disagreement is a refusal, exactly as before. With it, two or more
+   * barcodes on one bottle are read as editions of it when no shop sells two
+   * of them; see barcodeEditionsNeverMeet.
+   */
+  shopsOf?: (product: T) => Iterable<string>;
+}
+
+/**
+ * Whether the barcodes in a bucket never share a shop: no retailer sells two
+ * of them. True means they read as editions of one article (a re-coded pack, a
+ * market's own code), false means a shop has told us they are two articles.
+ *
+ * The refusal on disagreeing barcodes exists because two different articles can
+ * carry one title: Calvin Klein IN2U for Him (0088300196890) and for Her
+ * (0088300196814) at Perfume Click, FCUK Him and Her, Invictus Eau de Toilette
+ * 100ml in two packs at one shop. In every one of those a single shop lists
+ * both, which is the shop saying they differ. Where no shop lists two of the
+ * codes (Mugler Alien 30ml: beautybase and perfume click carry one,
+ * fragrance click the other; Rabanne Invictus Victory Elixir 50ml: beautybase
+ * and perfume click, parfumdreams) nothing says they differ and everything
+ * else (house, size, strength, name) says they do not. Measured over the built
+ * catalogue: 276 groups where no shop sells two codes, 24 where one does, and
+ * the 24 hold both gendered pairs found.
+ *
+ * Barcodes are compared as classes (see distinctBarcodeCount), so a UPC and
+ * the same UPC padded to thirteen digits are one code, not two. Two codes that
+ * are neighbours in the maker's numbering are refused too: see neighbouringItems.
+ */
+function barcodeEditionsNeverMeet<T extends MatchableProduct>(
+  bucket: readonly T[],
+  shopsOf: (product: T) => Iterable<string>,
+): boolean {
+  const classes: { code: string; shops: Set<string> }[] = [];
+  for (const p of bucket) {
+    if (!isBarcode(p.ean)) continue;
+    const code = normalizedEan(p.ean);
+    let cls = classes.find((c) => c.code === code || isUpcWithCheckDigitAppended(c.code, code) || isUpcWithCheckDigitAppended(code, c.code));
+    if (!cls) {
+      cls = { code, shops: new Set() };
+      classes.push(cls);
+    }
+    for (const shop of shopsOf(p)) cls.shops.add(shop);
+  }
+  for (let i = 0; i < classes.length; i++) {
+    for (let j = i + 1; j < classes.length; j++) {
+      for (const shop of classes[i]!.shops) if (classes[j]!.shops.has(shop)) return false;
+      if (neighbouringItems(classes[i]!.code, classes[j]!.code)) return false;
+    }
+  }
+  return true;
+}
+
+/** Item numbers this close on one company prefix are a maker's neighbouring articles. */
+const NEIGHBOURING_ITEM_DISTANCE = 30;
+
+/**
+ * Whether two barcodes are next to each other in a maker's own numbering: the
+ * thirteen digit form without its check digit, as a number, differing by 30 or
+ * less. A maker numbers a pair of siblings one after the other (Calvin Klein
+ * Truth 088300049479 and 088300049493, Euphoria 088300162505 and
+ * 088300162512, Eternity Moment 088300139491 and 088300139507; One Man Show
+ * 3355991000223 and 3355991000230), while a re-coded pack takes a new number
+ * well away from the old (Rabanne Invictus 3349668515653, 3349668540532,
+ * 3349668680993). Two shops carrying neighbouring codes under one title are
+ * more likely the pair of siblings than one article twice, so they stay apart.
+ */
+function neighbouringItems(a: string, b: string): boolean {
+  const item = (code: string) => Number(code.padStart(13, '0').slice(0, 12));
+  return Math.abs(item(a) - item(b)) <= NEIGHBOURING_ITEM_DISTANCE;
+}
+
 /**
  * Group products that are the same bottle.
  *
@@ -541,7 +753,10 @@ export interface MergeGroup<T extends MatchableProduct> {
  * carefully bounded exception to that exactness rather than being left
  * exactly as strict as a genuine EDT/EDP disagreement.
  */
-export function findDuplicateGroups<T extends MatchableProduct>(products: readonly T[]): MergeGroup<T>[] {
+export function findDuplicateGroups<T extends MatchableProduct>(
+  products: readonly T[],
+  options: FindDuplicateOptions<T> = {},
+): MergeGroup<T>[] {
   const byKey = new Map<string, T[]>();
   for (const p of products) {
     const key = matchKey(p);
@@ -563,7 +778,36 @@ export function findDuplicateGroups<T extends MatchableProduct>(products: readon
     // only (see isBarcode) so a shop's internal item id cannot cast a vote
     // the manufacturer never cast.
     const barcodes = new Set(bucket.filter((p) => isBarcode(p.ean)).map((p) => normalizedEan(p.ean!)));
-    if (barcodes.size > 1) continue;
+    if (distinctBarcodeCount(barcodes) > 1 && options.shopsOf && barcodeEditionsNeverMeet(bucket, options.shopsOf)) {
+      // Editions of one article: keep the barcoded page that already has the
+      // most shops (its address is the one most links point at), and fold the
+      // rest into it, barcode-less listings included.
+      const shopsOf = options.shopsOf;
+      const count = (p: T) => new Set(shopsOf(p)).size;
+      const barcoded = bucket.filter((p) => isBarcode(p.ean));
+      const keeper = barcoded.reduce((best, p) => (count(p) > count(best) ? p : best), barcoded[0]!);
+      groups.push({ canonical: keeper, absorbed: bucket.filter((p) => p !== keeper) });
+      continue;
+    }
+    if (distinctBarcodeCount(barcodes) > 1) {
+      // The refusal stands for the barcoded products: they stay apart. But the
+      // listings with no barcode at all are not part of that disagreement,
+      // and one barcode edition per page was dragging all of them down with it.
+      // Mugler Alien 30ml Eau de Parfum has two barcodes (beautybase and
+      // perfume click carry one, fragrance click the other) and seven shops
+      // that publish none: escentual, justmylook, lookfantastic, mybeauty
+      // boutique, perfume market, scentstore, the beauty store. The seven
+      // agree on house, size, strength and name, and nothing contradicts that,
+      // so they are one page between them, as they would be in a bucket with
+      // one barcode or none. They are not attached to either barcoded page:
+      // which edition they are is exactly what nothing here says.
+      const bare = bucket.filter((p) => !isBarcode(p.ean));
+      if (bare.length >= 2) {
+        const keeper = pickCanonical(bare);
+        groups.push({ canonical: keeper, absorbed: bare.filter((p) => p !== keeper) });
+      }
+      continue;
+    }
 
     // Prefer the record that carries a real barcode; it is the better-
     // identified one and keeping its id means existing links stay valid.
@@ -644,7 +888,7 @@ export function findDuplicateGroups<T extends MatchableProduct>(products: readon
     const barcodes = new Set(
       [...notStatedBucket, ...statedBucket].filter((p) => isBarcode(p.ean)).map((p) => normalizedEan(p.ean!)),
     );
-    if (barcodes.size > 1) continue;
+    if (distinctBarcodeCount(barcodes) > 1) continue;
 
     // The same selection the exact-match pass above already made for each
     // bucket independently — reusing it rather than a fresh rule means the

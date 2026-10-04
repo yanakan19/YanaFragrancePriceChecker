@@ -918,6 +918,53 @@ export const HAND_ALIASES: Record<string, string> = {
 export const KNOWN_ALIASES: Record<string, string> = { ...HAND_ALIASES, ...mergeAliases() };
 
 /**
+ * Marks a house puts in front of its own perfumes' names that are not the
+ * house's full name and not a registered alias of it: "HUGO Man" and "BOSS
+ * Bottled" under Hugo Boss, "Armani Code" under Giorgio Armani, "Pride Eternal
+ * Oud" under Lattafa. Keyed by the canonical brandKey. Read by
+ * productMatch.ts's identityWords, which drops one such leading mark when
+ * comparing two names; the name a reader sees is never touched.
+ *
+ * Only marks seen in the live catalogue as the sole difference between two
+ * listings of one bottle (npm run duplicates), and only where the mark is not
+ * itself a perfume's name: "Hugo" alone stays "Hugo", and a leading mark is
+ * never dropped when it is all there is.
+ */
+export const HOUSE_NAME_PREFIXES: Record<string, readonly string[]> = {
+  [brandKey('Hugo Boss')]: ['hugo', 'boss'],
+  [brandKey('Giorgio Armani')]: ['armani'],
+  [brandKey('Jean Paul Gaultier')]: ['gaultier'],
+  [brandKey('Narciso Rodriguez')]: ['narciso'],
+  [brandKey('Lattafa')]: ['pride'],
+  // Armaf's own storefront calls its Pure line "Oros Pure ..."; every reseller drops the Oros.
+  [brandKey('Armaf')]: ['oros'],
+};
+
+let aliasKeysByHouse: Map<string, Set<string>> | null = null;
+
+/**
+ * Every spelling a title may open with for this house, as brandKey strings:
+ * its own, every alias that resolves to it, and its listed house marks.
+ */
+export function brandPrefixKeys(brand: string): ReadonlySet<string> {
+  if (!aliasKeysByHouse) {
+    aliasKeysByHouse = new Map();
+    for (const [aliasKey, canonical] of Object.entries(KNOWN_ALIASES)) {
+      const house = brandKey(canonical);
+      const set = aliasKeysByHouse.get(house) ?? new Set<string>([house]);
+      set.add(aliasKey);
+      aliasKeysByHouse.set(house, set);
+    }
+  }
+  const own = brandKey(brand);
+  const house = brandKey(KNOWN_ALIASES[own] ?? brand);
+  const out = new Set<string>(aliasKeysByHouse.get(house) ?? [own]);
+  out.add(own);
+  for (const mark of HOUSE_NAME_PREFIXES[house] ?? []) out.add(mark);
+  return out;
+}
+
+/**
  * One hand-checked fragrance house, and the URL that proves it is one.
  *
  * See CONFIRMED_FRAGRANCE_HOUSES below for when an entry is allowed here.

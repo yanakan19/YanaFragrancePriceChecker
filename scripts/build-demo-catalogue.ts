@@ -40,6 +40,7 @@ import {
   settleHouseConcentrations,
   findDuplicateGroups,
   matchKey,
+  isBarcode,
   rawTitlesAgree,
   untrustworthyEans as computeUntrustworthyEans,
   trustworthyEan,
@@ -948,6 +949,68 @@ for (const product of products.values()) {
   concentrationCorrectedByHouse++;
 }
 
+/* ── the manufacturer's word reaches the listings that have no barcode ────────
+   Rabanne Invictus Victory Elixir, 50ml, was five rows. Beautybase and
+   perfume click carry its barcode and say Parfum Intense and "Eau de Parfum"
+   between them; CONCENTRATION_RESOLUTIONS settles that barcode on the
+   manufacturer's own word, Parfum. Mybeauty boutique and the beauty store
+   publish no barcode and repeat the very claim that lost, "Eau de Parfum", so
+   they stayed a row of their own beside a row they are the same bottle as.
+
+   The table is keyed on a barcode, and a listing without one never reaches it
+   (the same gap the house pass above closes for the house's own storefront).
+   This extends it to the one case the evidence covers and no further: a
+   listing with no barcode, the same house, size and name as a resolved
+   barcode, whose strength is a claim that the resolved barcode's own shops
+   made and lost. A strength a shop gave a bottle nobody else gave it is left
+   alone, and so is a listing that has a barcoded sibling at its own strength:
+   that sibling is the real product with that strength, and the listing is
+   its, not this one's. */
+const resolvedStatements: { key: string; truth: string; lost: Set<string> }[] = [];
+for (const product of products.values()) {
+  if (product.giftSet !== null || !product.ean) continue;
+  const resolution = CONCENTRATION_RESOLUTIONS[product.ean];
+  if (!resolution) continue;
+  const lost = new Set(concentrationsSeen.get(product.id) ?? []);
+  lost.delete(resolution.concentration);
+  lost.delete(CONCENTRATION_NOT_STATED);
+  if (lost.size === 0) continue;
+  resolvedStatements.push({ key: matchKey({ ...product, concentration: resolution.concentration }), truth: resolution.concentration, lost });
+}
+let concentrationResolvedForBarcodeless = 0;
+if (resolvedStatements.length > 0) {
+  const barcodedKeys = new Set<string>();
+  // A barcode with a resolution is counted at its resolved strength, not at the
+  // one its first shop happened to claim: the claim that lost is the very one
+  // being tested below, and must not count as a sibling that really has it.
+  for (const product of products.values()) {
+    if (!isBarcode(product.ean)) continue;
+    const resolved = CONCENTRATION_RESOLUTIONS[product.ean];
+    barcodedKeys.add(matchKey(resolved ? { ...product, concentration: resolved.concentration } : product));
+  }
+  for (const product of products.values()) {
+    if (product.giftSet !== null || isBarcode(product.ean)) continue;
+    if (barcodedKeys.has(matchKey(product))) continue;
+    // "Intense" in the name of an Eau de Parfum is a flanker (Phantom Intense,
+    // Eau de Parfum, is not Phantom Parfum), and only becomes the tail of "Parfum
+    // Intense" once the strength is already Parfum. A listing saying Intense and
+    // Eau de Parfum is claiming the flanker, so it is never re-read as Parfum.
+    if (/\bintense\b/i.test(product.name)) continue;
+    for (const st of resolvedStatements) {
+      if (!st.lost.has(product.concentration)) continue;
+      if (matchKey({ ...product, concentration: st.truth }) !== st.key) continue;
+      const seen = concentrationsSeen.get(product.id);
+      if (seen) {
+        for (const c of st.lost) seen.delete(c);
+        seen.add(st.truth);
+      }
+      product.concentration = st.truth;
+      concentrationResolvedForBarcodeless++;
+      break;
+    }
+  }
+}
+
 /* ── one bottle, one product ───────────────────────────────────────────────
    Keying on EAN alone left the same bottle listed twice whenever only one
    shop published a barcode — Afnan Supremacy In Extrait De Parfum, 100ml,
@@ -955,7 +1018,6 @@ for (const product of products.values()) {
    what turns two listings into an actual comparison. See
    src/catalogue/productMatch.ts for when two listings count as the same
    bottle and where it refuses to decide. */
-const duplicateGroups = findDuplicateGroups([...products.values()]);
 /**
  * Which ids each surviving product absorbed. The price history replay
  * (scripts/build-price-history.ts) keys on fragranceId() alone and never sees
@@ -966,46 +1028,58 @@ const duplicateGroups = findDuplicateGroups([...products.values()]);
  */
 const absorbedIds = new Map<string, string[]>();
 const absorbedInto = new Map<string, string>();
-for (const { canonical, absorbed } of duplicateGroups) {
-  for (const dupe of absorbed) {
-    absorbedIds.set(canonical.id, [...(absorbedIds.get(canonical.id) ?? []), dupe.id]);
-    absorbedInto.set(dupe.id, canonical.id);
-    canonical.offers.push(...dupe.offers);
-    // Same reason the offers move: the disagreement being counted is between
-    // the shops on the *final* product, so an absorbed record's claims have to
-    // follow its offers across or the count under-reports every merge.
-    const absorbedConcentrations = concentrationsSeen.get(dupe.id);
-    if (absorbedConcentrations) {
-      const kept = concentrationsSeen.get(canonical.id);
-      if (kept) for (const c of absorbedConcentrations) kept.add(c);
-      else concentrationsSeen.set(canonical.id, new Set(absorbedConcentrations));
-      concentrationsSeen.delete(dupe.id);
+function applyMerges(groups: ReturnType<typeof findDuplicateGroups<Product>>): void {
+  for (const { canonical, absorbed } of groups) {
+    for (const dupe of absorbed) {
+      // Ids this record had already absorbed move with it: a merged record can
+      // itself be absorbed by a later group or a later pass, and the ids it
+      // carried must end on the survivor or the price history loses them.
+      const carried = absorbedIds.get(dupe.id) ?? [];
+      absorbedIds.delete(dupe.id);
+      absorbedIds.set(canonical.id, [...(absorbedIds.get(canonical.id) ?? []), dupe.id, ...carried]);
+      absorbedInto.set(dupe.id, canonical.id);
+      for (const id of carried) absorbedInto.set(id, canonical.id);
+      canonical.offers.push(...dupe.offers);
+      // Same reason the offers move: the disagreement being counted is between
+      // the shops on the *final* product, so an absorbed record's claims have to
+      // follow its offers across or the count under-reports every merge.
+      const absorbedConcentrations = concentrationsSeen.get(dupe.id);
+      if (absorbedConcentrations) {
+        const kept = concentrationsSeen.get(canonical.id);
+        if (kept) for (const c of absorbedConcentrations) kept.add(c);
+        else concentrationsSeen.set(canonical.id, new Set(absorbedConcentrations));
+        concentrationsSeen.delete(dupe.id);
+      }
+      // The barcode is worth keeping if the canonical record lacked one.
+      canonical.ean ??= dupe.ean;
+      // The house's own wording of its own perfume's name wins. Which record
+      // survives a merge (and so keeps its id) is an accident of file order, and
+      // a reseller's way of writing the name must not be the one a house's own
+      // shop is overruled by: Kayali writes "Vanilla | 28" and Cult Beauty
+      // "Vanilla 28", the same words to the matcher, and once Cult Beauty's
+      // listings arrived the survivor was Cult Beauty's record. Only the name
+      // moves, never the id, and only to a record whose words are the same.
+      if (
+        dupe.offers.some((o) => isBrandDirectOffer(o.retailerId, canonical.brand)) &&
+        !canonical.offers.slice(0, canonical.offers.length - dupe.offers.length).some((o) => isBrandDirectOffer(o.retailerId, canonical.brand))
+      ) {
+        canonical.name = dupe.name;
+      }
+      // Same reasoning as ean just above: if the absorbed record was the one
+      // sourced from an "Armaf - <line>" raw brand, that fact must not vanish
+      // just because a different shop's record won the merge — see
+      // reattachArmafLine's own comment for why this has to run after every
+      // merge is already settled, on the surviving record's final name.
+      canonical.armafLine ??= dupe.armafLine;
+      products.delete(dupe.id);
     }
-    // The barcode is worth keeping if the canonical record lacked one.
-    canonical.ean ??= dupe.ean;
-    // The house's own wording of its own perfume's name wins. Which record
-    // survives a merge (and so keeps its id) is an accident of file order, and
-    // a reseller's way of writing the name must not be the one a house's own
-    // shop is overruled by: Kayali writes "Vanilla | 28" and Cult Beauty
-    // "Vanilla 28", the same words to the matcher, and once Cult Beauty's
-    // listings arrived the survivor was Cult Beauty's record. Only the name
-    // moves, never the id, and only to a record whose words are the same.
-    if (
-      dupe.offers.some((o) => isBrandDirectOffer(o.retailerId, canonical.brand)) &&
-      !canonical.offers.slice(0, canonical.offers.length - dupe.offers.length).some((o) => isBrandDirectOffer(o.retailerId, canonical.brand))
-    ) {
-      canonical.name = dupe.name;
-    }
-    // Same reasoning as ean just above: if the absorbed record was the one
-    // sourced from an "Armaf - <line>" raw brand, that fact must not vanish
-    // just because a different shop's record won the merge — see
-    // reattachArmafLine's own comment for why this has to run after every
-    // merge is already settled, on the surviving record's final name.
-    canonical.armafLine ??= dupe.armafLine;
-    products.delete(dupe.id);
   }
 }
-const mergedProducts = duplicateGroups.reduce((n, g) => n + g.absorbed.length, 0);
+
+const shopsOf = (p: Product) => p.offers.map((o) => o.retailerId);
+const duplicateGroups = findDuplicateGroups([...products.values()], { shopsOf });
+applyMerges(duplicateGroups);
+let mergedProducts = duplicateGroups.reduce((n, g) => n + g.absorbed.length, 0);
 
 /* ── put back the Armaf sub-line name the fold above throws away ────────────
    src/catalogue/brandName.ts's Armaf alias block folds 51 "Armaf - <line>"
@@ -1176,63 +1250,66 @@ collapseIndistinguishableRows();
    `same-bottle rows collapsed`. */
 let sameBottleRows = 0;
 const sameBottleRowsByShop = new Map<string, number>();
-for (const product of products.values()) {
-  const sameBottle = new Map<string, Offer[]>();
-  for (const offer of product.offers) {
-    const key = `${offer.retailerId}|${offer.matchKey}`;
-    const group = sameBottle.get(key);
-    if (group) group.push(offer);
-    else sameBottle.set(key, [offer]);
-  }
-
-  const dropped = new Set<Offer>();
-  for (const group of sameBottle.values()) {
-    const byUrl = new Map<string, Offer[]>();
-    for (const offer of group) {
-      const rows = byUrl.get(offer.url);
-      if (rows) rows.push(offer);
-      else byUrl.set(offer.url, [offer]);
+function collapseSameBottleRows(): void {
+  for (const product of products.values()) {
+    const sameBottle = new Map<string, Offer[]>();
+    for (const offer of product.offers) {
+      const key = `${offer.retailerId}|${offer.matchKey}`;
+      const group = sameBottle.get(key);
+      if (group) group.push(offer);
+      else sameBottle.set(key, [offer]);
     }
-    // One page, however many variant rows it has: nothing to choose between.
-    if (byUrl.size < 2) continue;
 
-    let winningUrl = '';
-    let best: Offer | null = null;
-    for (const [url, rows] of byUrl) {
-      for (const offer of rows) {
-        if (
-          best === null ||
-          offer.price < best.price ||
-          (offer.price === best.price && offer.fetchedAt > best.fetchedAt)
-        ) {
-          best = offer;
-          winningUrl = url;
+    const dropped = new Set<Offer>();
+    for (const group of sameBottle.values()) {
+      const byUrl = new Map<string, Offer[]>();
+      for (const offer of group) {
+        const rows = byUrl.get(offer.url);
+        if (rows) rows.push(offer);
+        else byUrl.set(offer.url, [offer]);
+      }
+      // One page, however many variant rows it has: nothing to choose between.
+      if (byUrl.size < 2) continue;
+
+      let winningUrl = '';
+      let best: Offer | null = null;
+      for (const [url, rows] of byUrl) {
+        for (const offer of rows) {
+          if (
+            best === null ||
+            offer.price < best.price ||
+            (offer.price === best.price && offer.fetchedAt > best.fetchedAt)
+          ) {
+            best = offer;
+            winningUrl = url;
+          }
+        }
+      }
+
+      // The whole of the winning page survives, variants included — the choice
+      // being made here is between the shop's *pages*, never between the
+      // options on one of them. A page whose own title disagrees with the
+      // winner's survives too: see rawTitlesAgree in productMatch.ts for the
+      // Avon case that test exists for, and why matchKey equality alone is not
+      // enough to drop a row.
+      for (const [url, rows] of byUrl) {
+        if (url === winningUrl) continue;
+        if (!rows.every((o) => rawTitlesAgree(best!.rawTitle, o.rawTitle))) continue;
+        for (const offer of rows) {
+          dropped.add(offer);
+          sameBottleRows++;
+          sameBottleRowsByShop.set(
+            offer.retailerId,
+            (sameBottleRowsByShop.get(offer.retailerId) ?? 0) + 1,
+          );
         }
       }
     }
 
-    // The whole of the winning page survives, variants included — the choice
-    // being made here is between the shop's *pages*, never between the
-    // options on one of them. A page whose own title disagrees with the
-    // winner's survives too: see rawTitlesAgree in productMatch.ts for the
-    // Avon case that test exists for, and why matchKey equality alone is not
-    // enough to drop a row.
-    for (const [url, rows] of byUrl) {
-      if (url === winningUrl) continue;
-      if (!rows.every((o) => rawTitlesAgree(best!.rawTitle, o.rawTitle))) continue;
-      for (const offer of rows) {
-        dropped.add(offer);
-        sameBottleRows++;
-        sameBottleRowsByShop.set(
-          offer.retailerId,
-          (sameBottleRowsByShop.get(offer.retailerId) ?? 0) + 1,
-        );
-      }
-    }
+    if (dropped.size > 0) product.offers = product.offers.filter((o) => !dropped.has(o));
   }
-
-  if (dropped.size > 0) product.offers = product.offers.filter((o) => !dropped.has(o));
 }
+collapseSameBottleRows();
 
 /* ── a shop whose whole price list is on the wrong scale ────────────────────
    Escentual published 2,542 offers here at about 1.44× what it charges, and
@@ -1414,6 +1491,68 @@ if (concentrationResolvedFromNotStated > 0) {
       `straight to a manufacturer-confirmed concentration (CONCENTRATION_RESOLUTIONS in productName.ts), ` +
       `never having been in dispute at all.`,
   );
+}
+
+/* ── a second look at what is one bottle, now the strengths are settled ────────
+   The merge above ran on the strength each product had when it was built: its
+   first shop's claim. The two loops just above then settled the disputed ones
+   on the manufacturer's or the house's word, and a product whose strength moved
+   (Ravine Ice, Acqua di Gio Profondo, Miss Armaf Attitude, Musk Is Great) now
+   reads the same as the barcode-less listings it could not merge with a moment
+   ago, because a first claim of Eau de Parfum is not a match for an Extrait.
+   Same rule, same function, asked again of the settled strengths; whatever it
+   folds is folded exactly as above, and the two collapse passes run again
+   because the folded records can now hold two rows from one shop. */
+const secondGroups = findDuplicateGroups([...products.values()], { shopsOf });
+applyMerges(secondGroups);
+const mergedInSecondLook = secondGroups.reduce((n, g) => n + g.absorbed.length, 0);
+mergedProducts += mergedInSecondLook;
+if (mergedInSecondLook > 0) {
+  collapseSameBottleRows();
+  collapseIndistinguishableRows();
+}
+
+/* A barcode whose shops disagree about the strength is left reading
+   "Disputed", and a shop with no barcode that names one of the strengths in
+   dispute is, as far as anyone can tell, one more of the shops disagreeing:
+   Ahmed Al Maghribi Kaaf 100ml has three shops on its barcode, one saying Eau
+   de Parfum and the others not, and emirates oud and mybeauty boutique saying
+   Eau de Parfum with no barcode, as a row of their own. Joined only where the
+   disputed barcode is the only one with this house, size and name, where the
+   listing's strength is one the disputed barcode's own shops claimed, and where
+   no barcoded product really has that strength (that product would be the
+   listing's, and this one is not). The strength stays "Disputed". */
+let mergedIntoDisputed = 0;
+{
+  const disputedByKey = new Map<string, Product[]>();
+  const barcodedKeys = new Set<string>();
+  for (const p of products.values()) {
+    if (p.giftSet !== null || !isBarcode(p.ean)) continue;
+    if (p.concentration === CONCENTRATION_DISPUTED) {
+      const k = matchKey(p);
+      disputedByKey.set(k, [...(disputedByKey.get(k) ?? []), p]);
+    } else {
+      barcodedKeys.add(matchKey(p));
+    }
+  }
+  const joins: { canonical: Product; absorbed: Product[] }[] = [];
+  for (const q of products.values()) {
+    if (q.giftSet !== null || isBarcode(q.ean)) continue;
+    if (q.concentration === CONCENTRATION_DISPUTED || q.concentration === CONCENTRATION_NOT_STATED) continue;
+    if (barcodedKeys.has(matchKey(q))) continue;
+    const candidates = disputedByKey.get(matchKey({ ...q, concentration: CONCENTRATION_DISPUTED }));
+    if (!candidates || candidates.length !== 1) continue;
+    const disputed = candidates[0]!;
+    if (!concentrationsSeen.get(disputed.id)?.has(q.concentration)) continue;
+    joins.push({ canonical: disputed, absorbed: [q] });
+  }
+  applyMerges(joins);
+  mergedIntoDisputed = joins.length;
+  mergedProducts += mergedIntoDisputed;
+  if (mergedIntoDisputed > 0) {
+    collapseSameBottleRows();
+    collapseIndistinguishableRows();
+  }
 }
 
 /* ── which offers are the fragrance house's own ─────────────────────────────
@@ -2353,6 +2492,17 @@ console.log(
       `fragrance house states on its own UK storefront; ${concentrationCorrectedByHouse} of them ` +
       'had been carrying a reseller-titled strength the house contradicts, so those merge with the ' +
       'listings that already had it right (see "the house\'s own word on the strength" above).',
+  );
+}
+
+if (mergedIntoDisputed > 0) {
+  console.log(`${mergedIntoDisputed} listings with no barcode joined a barcode whose shops dispute the strength, naming one of the strengths in dispute.`);
+}
+
+if (concentrationResolvedForBarcodeless > 0) {
+  console.log(
+    `${concentrationResolvedForBarcodeless} listings with no barcode took the strength the manufacturer's word gave ` +
+      `the barcoded bottle they repeat the lost claim of (CONCENTRATION_RESOLUTIONS in productName.ts).`,
   );
 }
 
