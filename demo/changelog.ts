@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.65.0',
+    date: '4 Oct 2026',
+    title: 'Perfume Direct prices now compared',
+    points: [
+      '2,000 more Perfume Direct rows meet other shops',
+      "Women's and Men's labels no longer split a bottle",
+      'Men and women versions of one name stay apart',
+    ],
+  },
+  {
     version: 'v3.64.0',
     date: '4 Oct 2026',
     title: 'Kayali sets and tidier perfume names',
