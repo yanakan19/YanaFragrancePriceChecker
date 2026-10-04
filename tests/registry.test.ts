@@ -536,15 +536,23 @@ describe('retailer registry', () => {
       // to catch the drift without parsing prose.
       const threshold =
         /\b(?:over|above|below|under)\s+(?:£|GBP\s?)(\d+(?:\.\d{1,2})?)|(?:£|GBP\s?)(\d+(?:\.\d{1,2})?)\s+(?:or more|and over)/gi;
+      // A spend named in a quote is either the free-delivery threshold or the
+      // spend above which a cheaper paid rate applies (cheaperRateOver, the
+      // Debenhams "99p On Orders Over £30"): the entry has to hold whichever
+      // one the quote is about, and the quote's own sentence says which.
       for (const r of RETAILERS) {
-        const quote = r.shipping.source?.quote;
-        if (!quote) continue;
-        const named = [...quote.matchAll(threshold)].map((m) => Number(m[1] ?? m[2]));
-        for (const amount of named) {
-          expect(
-            r.shipping.freeOverGbp,
-            `${r.name}'s source quote names a £${amount} threshold: "${quote}"`,
-          ).toBe(amount);
+        const quotes = [r.shipping.source?.quote, r.shipping.cheaperRateOver?.source.quote].filter(
+          (q): q is string => Boolean(q),
+        );
+        const stored = [r.shipping.freeOverGbp, r.shipping.cheaperRateOver?.overGbp ?? null];
+        for (const quote of quotes) {
+          const named = [...quote.matchAll(threshold)].map((m) => Number(m[1] ?? m[2]));
+          for (const amount of named) {
+            expect(
+              stored,
+              `${r.name}'s source quote names a £${amount} threshold: "${quote}"`,
+            ).toContain(amount);
+          }
         }
       }
     });
@@ -572,7 +580,22 @@ describe('retailer registry', () => {
       expect(shipping?.membershipPerk?.scheme).toBe('Debenhams UNLIMITED');
     });
 
-    it('adds the Debenhams Supersaver charge to the delivered price at every basket size', () => {
+    it('models Debenhams 99p delivery over £30 as a cheaper paid rate, never free', () => {
+      // The owner read this off a Debenhams product page on 2026-10-04: "Sold &
+      // Delivered by Debenhams. Delivery From £2.99 Or 99p On Orders Over £30."
+      // The delivery page agrees ("99p Over £30"). Both say "over", so the
+      // spend itself does not qualify.
+      const cheaper = getRetailer('debenhams')?.shipping.cheaperRateOver;
+      expect(cheaper?.overGbp).toBe(30);
+      expect(cheaper?.costGbp).toBe(0.99);
+      expect(cheaper?.inclusive).toBe(false);
+      expect(cheaper?.source.readBy).toBe('owner');
+      expect(cheaper?.source.readAt).toBe('2026-10-04');
+      expect(cheaper?.source.quote).toContain('Delivery From £2.99 Or 99p On Orders Over £30');
+      expect(getRetailer('debenhams')?.shipping.freeOverGbp).toBeNull();
+    });
+
+    it('adds the Debenhams Supersaver charge, or 99p over £30, to the delivered price', () => {
       const debenhams = getRetailer('debenhams')!;
       const offerAt = (price: number): RawOffer => ({
         retailerId: 'debenhams',
@@ -584,7 +607,14 @@ describe('retailer registry', () => {
         fetchedAt: new Date().toISOString(),
       });
       expect(presentOffer(offerAt(25), debenhams).deliveredPriceGbp).toBe(27.99);
-      expect(presentOffer(offerAt(120), debenhams).deliveredPriceGbp).toBe(122.99);
+      // At exactly £30 the shop's "over £30" is not met, so £2.99 still applies.
+      expect(presentOffer(offerAt(30), debenhams).deliveredPriceGbp).toBe(32.99);
+      // Above £30 the 99p rate applies; it is a charge, not free delivery.
+      expect(presentOffer(offerAt(30.01), debenhams).deliveredPriceGbp).toBe(31);
+      const over = presentOffer(offerAt(120), debenhams);
+      expect(over.deliveredPriceGbp).toBe(120.99);
+      expect(over.delivery.costGbp).toBe(0.99);
+      expect(over.delivery.isFree).toBe(false);
     });
   });
 

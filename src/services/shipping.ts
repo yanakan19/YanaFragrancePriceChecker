@@ -14,6 +14,19 @@ import { roundPence } from './money.js';
  * Selfridges+ price as the headline would mean showing a number the average
  * visitor cannot actually pay.
  */
+/**
+ * What delivery costs when the free threshold is not met: the standard rate,
+ * or the shop's cheaper paid rate once the basket passes its stated spend
+ * (`cheaperRateOver`). Never lower than the cheaper rate the shop states and
+ * never free: a reduced rate is still a charge.
+ */
+function paidRate(shipping: Retailer['shipping'], standardGbp: number, basketGbp: number): number {
+  const cheaper = shipping.cheaperRateOver;
+  if (!cheaper) return standardGbp;
+  const reached = cheaper.inclusive ? basketGbp >= cheaper.overGbp : basketGbp > cheaper.overGbp;
+  return reached && cheaper.costGbp < standardGbp ? cheaper.costGbp : standardGbp;
+}
+
 export function resolveDelivery(retailer: Retailer, basketGbp: number): DeliveryDisplay {
   const { shipping } = retailer;
 
@@ -80,7 +93,7 @@ export function resolveDelivery(retailer: Retailer, basketGbp: number): Delivery
   if (shipping.freeOverGbp === null) {
     return {
       ...base,
-      costGbp: standardGbp,
+      costGbp: paidRate(shipping, standardGbp, basketGbp),
       isFree: false,
       freeReason: null,
       spendMoreForFreeGbp: null,
@@ -99,7 +112,7 @@ export function resolveDelivery(retailer: Retailer, basketGbp: number): Delivery
 
   return {
     ...base,
-    costGbp: standardGbp,
+    costGbp: paidRate(shipping, standardGbp, basketGbp),
     isFree: false,
     freeReason: null,
     spendMoreForFreeGbp: roundPence(shipping.freeOverGbp - basketGbp),

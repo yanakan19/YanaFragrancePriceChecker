@@ -29,6 +29,26 @@ describe('deliveryLines', () => {
     expect(lines[0]).toBe('Standard delivery £3.95');
   });
 
+  it('states a cheaper paid rate above a spend as a charge, not as free delivery', () => {
+    const lines = deliveryLines(
+      withShipping({
+        standardGbp: 2.99,
+        freeOverGbp: null,
+        cheaperRateOver: {
+          overGbp: 30,
+          costGbp: 0.99,
+          inclusive: false,
+          source: { quote: 'Delivery From £2.99 Or 99p On Orders Over £30', readAt: '2026-10-04', readBy: 'owner', where: 'test' },
+        },
+        estimatedDays: DAYS,
+        verifiedAt: '2026-10-04',
+        confidence: 'confirmed',
+      }),
+    );
+    expect(lines).toContain('Delivery drops to 99p on orders over £30, and is not free');
+    expect(lines).toContain('No spend based free delivery');
+  });
+
   it('states free delivery on every order as its own fact, not "£0.00"', () => {
     const lines = deliveryLines(
       withShipping({

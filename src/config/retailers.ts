@@ -5319,6 +5319,26 @@ export const RETAILERS: readonly Retailer[] = [
       // Re-read 2026-10-04 with PriceSniffsBot; robots.txt permits the page.
       standardGbp: 2.99,
       freeOverGbp: null,
+      // Not a free threshold: delivery is still paid above £30, at 99p. The
+      // owner read the sentence below off a Debenhams product page on
+      // 2026-10-04, and the shop's delivery page says the same ("99p Over
+      // £30"). Both say "over", not "at least", so a basket of exactly £30.00
+      // is still charged £2.99 and only more than £30 pays 99p, the cautious
+      // reading. Deliver+ and UNLIMITED are paid schemes and never applied.
+      cheaperRateOver: {
+        overGbp: 30,
+        costGbp: 0.99,
+        inclusive: false,
+        source: {
+          quote:
+            'Sold & Delivered by Debenhams. Delivery From £2.99 Or 99p On Orders Over £30. ' +
+            'Eligible for return within 21 days. Plus 14-day extension when you purchase ' +
+            'Debenhams Deliver+. Exclusions apply.',
+          readAt: '2026-10-04',
+          readBy: 'owner',
+          where: 'a Debenhams product page, read by the owner',
+        },
+      },
       estimatedDays: [3, 5],
       membershipPerk: {
         scheme: 'Debenhams UNLIMITED',
@@ -5337,13 +5357,14 @@ export const RETAILERS: readonly Retailer[] = [
         '"UK Next Day Delivery ~ £5.99 per order" and "UK Express Delivery ~ £4.99 per order", each ' +
         'free with Debenhams UNLIMITED (a paid subscription, never applied). Supersaver is the ' +
         'cheapest option and the page attaches no minimum spend, item restriction or mainland ' +
-        'condition to it, so it is the rate used. "99p Over £30" is a further reduction for ' +
-        'baskets over £30 that the registry has no field for, so it is not applied: a bottle ' +
-        'over £30 is shown £2.00 dearer to deliver than the shop may charge, never cheaper. The ' +
+        'condition to it, so it is the rate used. "99p Over £30" is the further reduction for ' +
+        'baskets over £30, held in cheaperRateOver (strictly over £30, 99p, never free) and ' +
+        'backed by the owner\'s own reading of a product page. The ' +
         'Northern Ireland Supersaver row (£2.99) is a separate option and is not used. No basket ' +
         'threshold for free delivery is stated for non members, so freeOverGbp stays null. The ' +
         'page states no delivery window for any option, so estimatedDays is still not sourced, ' +
-        'and the shop has not been checked in a real basket.',
+        'and the shop has not been checked in a real basket. Debenhams Deliver+ (the paid scheme ' +
+        'that adds 14 days to returns) and UNLIMITED are never used for the headline.',
     },
     catalogue: null,
     affiliate: { ...awinRequested() },
