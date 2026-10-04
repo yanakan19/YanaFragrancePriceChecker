@@ -69,13 +69,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        timeout-minutes: 5
 
       - uses: actions/setup-node@v4
+        timeout-minutes: 5
         with:
           node-version: '22'
           cache: npm
 
-      - run: npm ci
+      # Retried with backoff (scripts/retry.sh): a registry blip should not
+      # cost the run. npm ci starts from an empty node_modules each time.
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
 
       # continue-on-error: a crash still leaves the log; the steps below then
       # find nothing new to commit and no issue file, and do nothing.
@@ -92,6 +98,7 @@ jobs:
       # A single-shop dispatch is a spot check: committing it would replace the
       # month's full report with one row, so it is never committed.
       - name: Commit the report
+        timeout-minutes: 10
         if: ${{ github.event_name == 'schedule' || (inputs.commit_report && inputs.shop == '') }}
         run: |
           ./scripts/commit-and-push.sh \

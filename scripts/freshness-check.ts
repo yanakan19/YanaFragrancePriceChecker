@@ -26,7 +26,7 @@ import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { HarvestReport } from '../src/catalogue/harvestReport.js';
-import { freshnessTolerance } from '../src/catalogue/freshness.js';
+import { freshnessTolerance, reportAge } from '../src/catalogue/freshness.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const warnOnly = process.argv.includes('--warn-only');
@@ -38,6 +38,12 @@ try {
   console.log(`::warning::freshness check: could not read data/harvest-report.json (${String(err).slice(0, 120)})`);
   process.exit(0);
 }
+
+// Printed first, and whatever else happens: this step now runs after an earlier
+// failure too (catalogue-daily.yml, `!cancelled()`), when the report on disk
+// may be from an older run than this one.
+const age = reportAge(report.startedAt, new Date());
+console.log(age.stale ? `::warning::${age.line}` : age.line);
 
 if (!report.freshness) {
   console.log('::warning::freshness check: the harvest report carries no freshness table (killed run, or written before it existed).');

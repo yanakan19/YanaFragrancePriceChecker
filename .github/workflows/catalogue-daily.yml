@@ -109,6 +109,11 @@ name: Catalogue crawl
 # ahead of, a real harvest still in flight. `permissions: contents: read` on
 # `guard` reflects that it only ever reads.
 #
+# (2026-10-04: the guard now checks out one file, scripts/crawl-guard.sh, with
+# no history and no other blobs, and makes two API calls, the second to skip
+# while an older run of this workflow is still going. Still seconds, and the
+# decision is now covered by tests/crawlGuard.test.ts.)
+#
 # The guard reads the timestamp of the most recent commit that touched
 # data/harvest-cursor.json — the file "Commit harvested prices" writes on
 # every harvest attempt, truncated or not — via the GitHub commits API, not
@@ -162,8 +167,22 @@ on:
     # instant to ask for a runner. `guard` below decides which of these 24
     # daily attempts actually does anything.
     - cron: '15 * * * *'
+    # ── 2026-10-04: a second chance each hour ────────────────────────────
+    # Measured over 2026-09-05 to 2026-10-04 (161 schedule runs in 687
+    # hours): GitHub delivered 23% of the :15 ticks, gaps up to 8.6 hours,
+    # and on 2026-10-04 none at all for seven hours. Every tick that does
+    # arrive costs one guard job (seconds, and free on a public repository),
+    # and the guard skips while a crawl is still going, so a second minute
+    # doubles the chances of catching a tick without ever doubling a harvest.
+    # The real fix is an outside scheduler dispatching with scheduled_tick
+    # (below; docs/OWNER-STEPS.md).
+    - cron: '45 * * * *'
   workflow_dispatch:
     inputs:
+      scheduled_tick:
+        description: 'For an outside scheduler standing in for GitHub''s cron (docs/OWNER-STEPS.md): run exactly as a scheduled tick does, guard included. Leave unticked when running by hand.'
+        type: boolean
+        default: false
       crawl:
         description: 'Run the legacy section-URL crawl. Off by default — see the Crawl step for why, and read it before ticking this.'
         type: boolean
@@ -261,68 +280,44 @@ jobs:
   # why both are load-bearing, not incidental.
   guard:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     permissions:
       contents: read
+      # Reads this workflow's own runs, to skip while an older one is going.
+      actions: read
     outputs:
       should-run: ${{ steps.decide.outputs.should-run }}
     steps:
+      # The decision lives in scripts/crawl-guard.sh since 2026-10-04 so that
+      # tests/crawlGuard.test.ts can hold it to its rules. Checking out that
+      # one file, with no history and no other blobs, takes seconds: the
+      # point of a separate guard job (cheap skipped ticks) still holds.
+      - uses: actions/checkout@v4
+        timeout-minutes: 3
+        with:
+          sparse-checkout: scripts/crawl-guard.sh
+          sparse-checkout-cone-mode: false
+          fetch-depth: 1
+          filter: blob:none
+
+      # Rules, in order (see the script's header): a person's dispatch always
+      # runs; a tick (or a scheduled_tick dispatch) skips while an older run
+      # of this workflow is still going; otherwise it runs once the last full
+      # sweep ("Harvest: real prices" commit of data/harvest-cursor.json) is
+      # 150 minutes old. An API read that fails runs in full rather than
+      # guess a skip. The 150 minutes, and why a commit and not a marker
+      # file, are explained in the section above `on:`.
       - name: Decide whether a real harvest is due
         id: decide
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          # A manual dispatch is a human asking for this run specifically —
-          # including the capture_render_shop debug path, which is
-          # dispatch-only already — so it is never gated here, whatever the
-          # commit history says.
-          if [ "${{ github.event_name }}" != "schedule" ]; then
-            echo "should-run=true" >> "$GITHUB_OUTPUT"
-            echo "Not a scheduled tick (event: ${{ github.event_name }}) — runs in full."
-            exit 0
-          fi
-          # data/harvest-cursor.json is written by "Commit harvested prices"
-          # on every harvest attempt, complete or truncated by its own
-          # deadline — see that step's comment. Reading its commit history
-          # rather than a marker file is deliberate; see the dated section
-          # above `on:`.
-          RESP=$(curl -sS --max-time 20 -H "Authorization: Bearer $GH_TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${{ github.repository }}/commits?path=data/harvest-cursor.json&sha=${{ github.ref_name }}&per_page=50") || RESP=""
-          # `|| LAST_ISO=""` matters under GitHub's default `bash -eo
-          # pipefail {0}`: a malformed-but-non-empty $RESP makes jq itself
-          # exit non-zero, and pipefail propagates that through the pipe, so
-          # without this the step would abort right here — failing CLOSED —
-          # instead of falling through to the empty-string branch below,
-          # which is the one place this gate is meant to fail open.
-          # ── 2026-10-03: only a full sweep counts ──────────────────────────
-          # A one shop dispatch (harvest_shop) commits the cursor too, and the
-          # guard used to read any such commit as "a harvest just ran". On
-          # 2026-10-03 one shop dispatches ran from 15:09 to 20:40 (#578,
-          # #580 to #584, #586, #587), each committing the cursor, so the
-          # scheduled ticks at 17:14 (#579) and 19:56 (#585) both skipped and
-          # no shop but the dispatched ones was asked for six hours. A one shop run now commits as "Harvest: one shop (<shop>),
-          # real prices ..." (see "Commit harvested prices"), and only a commit
-          # starting "Harvest: real prices" is a full sweep. None in the last
-          # 50 cursor commits reads as empty, which runs in full below.
-          LAST_ISO=$(printf '%s' "$RESP" | jq -r '[.[] | select(.commit.message | startswith("Harvest: real prices"))][0].commit.committer.date // empty' 2>/dev/null) || LAST_ISO=""
-          if [ -z "$LAST_ISO" ]; then
-            echo "should-run=true" >> "$GITHUB_OUTPUT"
-            echo "::warning::Could not read the last harvest commit's timestamp from the GitHub API — running in full rather than guessing a skip."
-            exit 0
-          fi
-          LAST_EPOCH=$(date -u -d "$LAST_ISO" +%s)
-          NOW_EPOCH=$(date -u +%s)
-          AGE=$(( NOW_EPOCH - LAST_EPOCH ))
-          # 150 minutes — see the dated section above `on:` for why this
-          # number and not 180.
-          THRESHOLD=9000
-          if [ "$AGE" -ge "$THRESHOLD" ]; then
-            echo "should-run=true" >> "$GITHUB_OUTPUT"
-            echo "Last harvest commit (data/harvest-cursor.json) was $(( AGE / 60 )) minutes ago — due, running in full."
-          else
-            echo "should-run=false" >> "$GITHUB_OUTPUT"
-            echo "Last harvest commit was $(( AGE / 60 )) minutes ago, under the 150 minute threshold — skipping this tick."
-          fi
+          EVENT: ${{ github.event_name }}
+          SCHEDULED_TICK: ${{ inputs.scheduled_tick }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_NUMBER: ${{ github.run_number }}
+          REPO: ${{ github.repository }}
+          REF: ${{ github.ref_name }}
+        run: bash scripts/crawl-guard.sh
 
   crawl:
     needs: guard
@@ -334,7 +329,7 @@ jobs:
     # be skipped by any state of the guard job. The event-type check does
     # not depend on `guard` having succeeded at all, only on what its
     # output says when it did.
-    if: always() && (github.event_name != 'schedule' || needs.guard.outputs.should-run == 'true')
+    if: always() && ((github.event_name != 'schedule' && inputs.scheduled_tick != true) || needs.guard.outputs.should-run == 'true')
     runs-on: ubuntu-latest
     concurrency:
       # Two crawls writing snapshots at once would race and lose listings.
@@ -499,8 +494,17 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       SIGNED_COMMITS: ${{ vars.SIGNED_COMMITS }}
+      # A scheduled tick, or an outside scheduler's dispatch standing in for
+      # one (scheduled_tick). Every step that used to ask
+      # `github.event_name == 'schedule'` asks this instead.
+      SCHEDULED: ${{ github.event_name == 'schedule' || inputs.scheduled_tick == true }}
 
     steps:
+      # scripts/harvest-minutes.sh sizes the harvest's deadline to what is
+      # left of this job's 120 minutes, which needs the moment it began.
+      - name: Note when the job started
+        run: echo "JOB_STARTED_AT=$(date -u +%s)" >> "$GITHUB_ENV"
+
       # fetch-depth: 0 is load-bearing, not a nicety. actions/checkout@v4
       # defaults to a shallow clone (depth 1) — fine for every other step
       # here, which only ever look at the working tree — but
@@ -511,15 +515,21 @@ jobs:
       # one point, and never accumulate history from here on — with no error,
       # nothing failing, just a chart that quietly never grows past one dot.
       - uses: actions/checkout@v4
+        timeout-minutes: 10
         with:
           fetch-depth: 0
 
       - uses: actions/setup-node@v4
+        timeout-minutes: 5
         with:
           node-version: '22'
           cache: npm
 
-      - run: npm ci
+      # Retried with backoff (scripts/retry.sh): a registry blip here used to
+      # cost the whole run. npm ci starts from an empty node_modules each time.
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
 
       # Chromium for the local render tier — the free replacement for the Apify
       # actor, see src/catalogue/localBrowser.ts. Playwright was already a
@@ -540,7 +550,8 @@ jobs:
       # to the free routes exactly as it did before this tier existed.
       - name: Install Chromium for the local render tier
         continue-on-error: true
-        run: npx playwright install --with-deps --only-shell chromium
+        timeout-minutes: 10
+        run: scripts/retry.sh 2 npx playwright install --with-deps --only-shell chromium
 
       # The crawl must not ship if the reconciliation logic is broken. A bad
       # diff here corrupts firstSeenAt for every listing, and that cannot be
@@ -565,6 +576,7 @@ jobs:
       # still runs, straight after, and a failure there is a warning on the
       # run; it does not cost every shop a day of prices.
       - name: Test the harvest before crawling
+        timeout-minutes: 10
         run: |
           npx vitest run \
             tests/catalogue.test.ts tests/catalogueStore.test.ts tests/sitemapCrawl.test.ts \
@@ -581,6 +593,7 @@ jobs:
       - name: Test everything else
         id: fulltests
         continue-on-error: true
+        timeout-minutes: 15
         run: npm test
 
       - name: Note a failing test outside the harvest
@@ -597,6 +610,7 @@ jobs:
       # the free strategies to run normally.
       - name: Adaptive probe
         if: ${{ inputs.probe }}
+        timeout-minutes: 30
         env:
           APIFY_PROXY_PASSWORD: ${{ secrets.APIFY_PROXY_PASSWORD }}
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
@@ -606,6 +620,7 @@ jobs:
 
       - name: Commit what the probe learned
         if: ${{ inputs.probe }}
+        timeout-minutes: 15
         run: |
           ./scripts/commit-and-push.sh \
             "Probe: what the crawler learned $(date -u +%Y-%m-%d)" \
@@ -636,8 +651,14 @@ jobs:
       # learn the same thing. 06:00 and 18:00 UTC are picked off the hourly
       # schedule below rather than by adding a second cron, because two crons
       # both firing at those hours would run the whole harvest twice.
+      # continue-on-error since 2026-10-04: a periodic stage must never cost
+      # the harvest after it. A failure still turns the run red, at the end
+      # ("Fail the run if a periodic stage failed"), and its commit is skipped.
       - name: Discover shipping terms
-        if: ${{ inputs.shipping_discover || github.event_name == 'schedule' }}
+        id: shipping
+        if: ${{ inputs.shipping_discover || env.SCHEDULED == 'true' }}
+        continue-on-error: true
+        timeout-minutes: 25
         run: |
           # Age based, same reasoning as the two steps below: scheduling drift
           # means the clock is never read at the hour the cron named. Twelve
@@ -701,9 +722,17 @@ jobs:
             # Runs unconditionally, including after the backstop fired: the
             # point is that nothing reaches the commit step below unverified,
             # and a half-finished run is exactly when that matters most.
-            if ! npm run typecheck || ! npx vitest run tests/registry.test.ts; then
-              echo "Registry edits failed verification — reverting them."
-              git checkout -- src/config/retailers.ts
+            #
+            # "Still compiles" means "adds no type error the branch did not
+            # already have" (scripts/no-new-type-errors.sh). It was
+            # `npm run typecheck`, and the whole-repo typecheck has failed
+            # since 2026-10-01 on six errors in tests/wrongPriceBrowser.test.ts,
+            # so every registry edit since was reverted here in silence.
+            if ! git diff --quiet -- src/config/retailers.ts; then
+              if ! scripts/no-new-type-errors.sh src/config/retailers.ts || ! npx vitest run tests/registry.test.ts; then
+                echo "::warning::Registry edits failed verification — reverting them."
+                git checkout -- src/config/retailers.ts
+              fi
             fi
             # Only a run that finished under its own steam — a full batch, or
             # an orderly self-stop on its own 840s ceiling — advances the
@@ -720,13 +749,26 @@ jobs:
       # No-ops when the step above skipped: commit-and-push.sh exits cleanly
       # when nothing changed.
       - name: Commit the shipping report
-        if: ${{ inputs.shipping_discover || github.event_name == 'schedule' }}
+        id: commit_shipping
+        if: ${{ (inputs.shipping_discover || env.SCHEDULED == 'true') && steps.shipping.outcome == 'success' }}
+        continue-on-error: true
+        timeout-minutes: 15
         run: |
           ./scripts/commit-and-push.sh \
             "Shipping terms: what each delivery page says $(date -u +%Y-%m-%d)" \
             data/shipping-discovery-report.json data/shipping-discover-marker.txt \
             data/shipping-discover-state.json \
             src/config/retailers.ts
+
+      # A discovery that failed part way leaves nothing behind for a later
+      # step to commit by accident, least of all an unverified retailers.ts.
+      - name: Undo a shipping discovery that did not finish
+        if: ${{ !cancelled() && steps.shipping.outcome == 'failure' }}
+        run: |
+          for p in src/config/retailers.ts data/shipping-discovery-report.json \
+                   data/shipping-discover-state.json data/shipping-discover-marker.txt; do
+            git checkout -- "$p" 2>/dev/null || true
+          done
 
       # Every affiliate-feed retailer (adapter: 'affiliate-feed' in
       # src/config/retailers.ts — Fragrance Click UK, MyBeauty.Boutique and The
@@ -749,8 +791,16 @@ jobs:
       #
       # A no-op, not a failure, when AWIN_FEED_LIST_URL is unset — see
       # scripts/awin-feed-sync.ts's own header comment.
+      # continue-on-error and a cap since 2026-10-04. `npm run awin:feed-sync`
+      # exits 1 when the feed list cannot be fetched (an Awin outage, or the
+      # AWIN_FEED_LIST_URL secret expired or rotated), and with no
+      # continue-on-error that failed the job before the harvest even
+      # started. It took 23m03s in run #592 with no cap at all.
       - name: Sync Awin product feeds
-        if: ${{ inputs.awin_feed_sync || github.event_name == 'schedule' }}
+        id: awin
+        if: ${{ inputs.awin_feed_sync || env.SCHEDULED == 'true' }}
+        continue-on-error: true
+        timeout-minutes: 30
         env:
           AWIN_FEED_LIST_URL: ${{ secrets.AWIN_FEED_LIST_URL }}
         run: |
@@ -816,8 +866,27 @@ jobs:
             echo "Last feed sync was $(( AGE / 60 )) minutes ago, under the five hour threshold — skipping."
           fi
 
+      # A sync stopped part way (a failure, or the 30 minute cap landing
+      # between the feed write and the storefront correction) could leave raw
+      # feed prices for a storefrontIsPriceAuthority shop, or a catalogue
+      # rebuilt without its page. Put it all back; the harvest below starts
+      # from the branch as it was, and the next run syncs again.
+      - name: Undo an Awin sync that did not finish
+        if: ${{ !cancelled() && steps.awin.outcome == 'failure' }}
+        run: |
+          REBUILT=$(scripts/generated-files.sh paths rebuild)
+          for p in data/catalogue data/awin-feed-sync-state.json data/storefront-reprice-report.json \
+                   data/feed-sync-marker.txt $REBUILT; do
+            git checkout -- "$p" 2>/dev/null || true
+          done
+          git clean -fq -- demo/data
+          echo "::warning::The Awin sync did not finish (outcome '${{ steps.awin.outcome }}'); its changes were discarded. The harvest still runs."
+
       - name: Commit synced Awin feeds
-        if: ${{ inputs.awin_feed_sync || github.event_name == 'schedule' }}
+        id: commit_awin
+        if: ${{ (inputs.awin_feed_sync || env.SCHEDULED == 'true') && steps.awin.outcome == 'success' }}
+        continue-on-error: true
+        timeout-minutes: 30
         run: |
           # Every "rebuild" path in scripts/generated-files.txt, read from the
           # manifest rather than typed here (run #592; see that file).
@@ -841,12 +910,14 @@ jobs:
       # Reads only — writes nothing, commits nothing, prints no feed URL.
       - name: Awin memberships
         if: ${{ inputs.awin_memberships }}
+        timeout-minutes: 10
         env:
           AWIN_FEED_LIST_URL: ${{ secrets.AWIN_FEED_LIST_URL }}
         run: npm run awin:memberships
 
       - name: Awin feed diagnostic
         if: ${{ inputs.awin_feed_diag_shop != '' }}
+        timeout-minutes: 10
         env:
           AWIN_FEED_LIST_URL: ${{ secrets.AWIN_FEED_LIST_URL }}
         run: |
@@ -869,6 +940,7 @@ jobs:
       # dispatching early is a readable answer rather than a red run.
       - name: TikTok Shop probe
         if: ${{ inputs.tiktok_probe }}
+        timeout-minutes: 10
         env:
           TIKTOK_APP_KEY: ${{ secrets.TIKTOK_APP_KEY }}
           TIKTOK_APP_SECRET: ${{ secrets.TIKTOK_APP_SECRET }}
@@ -877,6 +949,7 @@ jobs:
 
       - name: Commit the TikTok probe report
         if: ${{ inputs.tiktok_probe }}
+        timeout-minutes: 10
         run: |
           ./scripts/commit-and-push.sh \
             "TikTok probe: what the Affiliate API answered $(date -u +%Y-%m-%d)" \
@@ -1017,13 +1090,22 @@ jobs:
       # backstop for a hang the deadline cannot reach.
       - name: Harvest via sitemap
         id: harvest
-        if: ${{ inputs.harvest || github.event_name == 'schedule' }}
+        if: ${{ inputs.harvest || env.SCHEDULED == 'true' }}
         continue-on-error: true
         timeout-minutes: 60
         env:
           APIFY_PROXY_PASSWORD: ${{ secrets.APIFY_PROXY_PASSWORD }}
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
         run: |
+          # ── The deadline is what the job can still afford ─────────────────
+          # 56 minutes when the run is on time, less when the stages before
+          # the harvest ran long, so "Commit harvested prices" always lands
+          # inside the job's 120 minutes (scripts/harvest-minutes.sh). Too
+          # little left and the harvest is skipped, with an error, rather
+          # than cut off mid commit by the job limit (run #180).
+          if ! RUN_MINUTES=$(scripts/harvest-minutes.sh); then
+            exit 1
+          fi
           # ── Why the metered tiers are not offered on every run ─────────────
           # They used to be: --allow-metered was passed on every scheduled
           # tick, twelve a day, each one able to spend up to
@@ -1057,7 +1139,7 @@ jobs:
           if [ "${{ inputs.allow_metered }}" = "true" ]; then
             METERED="--allow-metered"
             echo "Metered tiers offered: asked for explicitly by dispatch."
-          elif [ "${{ github.event_name }}" = "schedule" ] && [ "$AGE" -ge 72000 ]; then
+          elif [ "$SCHEDULED" = "true" ] && [ "$AGE" -ge 72000 ]; then
             METERED="--allow-metered"
             echo "Metered tiers offered: last metered run was $(( AGE / 3600 )) hours ago."
             echo "$NOW" > "$MARKER"
@@ -1111,13 +1193,15 @@ jobs:
           #   - The test gate above stopped every harvest for most of a week.
           #
           # --max and --refresh-share keep their meaning for discovery: 70 *
-          # (1 - 0.4) = 42 never seen product pages a shop per run.
+          # (1 - 0.4) = 42 never seen product pages a shop per run. A
+          # scheduled_tick dispatch carries the dispatch form's default
+          # harvest_max (40), so a tick of either kind takes the schedule's 70.
           npm run harvest -- \
-            --max=${{ inputs.harvest_max || '70' }} \
+            --max=${{ (env.SCHEDULED != 'true' && inputs.harvest_max) || '70' }} \
             --refresh-share=${{ inputs.harvest_refresh_share || '0.4' }} \
             --refresh-after-hours=12 \
             --concurrency=8 \
-            --run-minutes=56 \
+            --run-minutes="$RUN_MINUTES" \
             --shop-minutes=40 \
             ${{ inputs.harvest_shop && format('--shop={0}', inputs.harvest_shop) || '' }} \
             ${{ inputs.harvest_gap_min && format('--gap-min={0}', inputs.harvest_gap_min) || '' }} \
@@ -1142,7 +1226,7 @@ jobs:
       # (#153), so 15 minutes is roughly double the observed cost, and a house
       # that hangs past it now costs this run its house data and nothing else.
       - name: Harvest houses direct
-        if: ${{ inputs.harvest || github.event_name == 'schedule' }}
+        if: ${{ inputs.harvest || env.SCHEDULED == 'true' }}
         continue-on-error: true
         timeout-minutes: 15
         run: npm run houses
@@ -1180,7 +1264,8 @@ jobs:
       # to the same never-live-then-registry order, and starve the same
       # eleven shops it starved before — the rotation would be decorative.
       - name: Commit harvested prices
-        if: ${{ inputs.harvest || github.event_name == 'schedule' }}
+        if: ${{ inputs.harvest || env.SCHEDULED == 'true' }}
+        timeout-minutes: 15
         run: |
           ./scripts/commit-and-push.sh \
             "${{ inputs.harvest_shop && format('Harvest: one shop ({0}), real prices', inputs.harvest_shop) || 'Harvest: real prices' }} $(date -u +%Y-%m-%d)" \
@@ -1207,7 +1292,7 @@ jobs:
       # `outcome` rather than `conclusion`: continue-on-error rewrites
       # conclusion to success, and outcome is what still holds the real result.
       - name: Note an incomplete harvest
-        if: ${{ (inputs.harvest || github.event_name == 'schedule') && steps.harvest.outcome == 'failure' }}
+        if: ${{ !cancelled() && (inputs.harvest || env.SCHEDULED == 'true') && steps.harvest.outcome == 'failure' }}
         run: |
           echo "::warning::The sitemap harvest did not run to completion — it hit its 60 minute cap or exited non-zero. Whatever it had already stored per shop has been committed by the step above; the shops it did not reach keep their previous prices and are picked up by the next run. Check the harvest step's log for where it stopped."
 
@@ -1307,7 +1392,7 @@ jobs:
       # nothing derived from them can cost us an hour of crawling.
       - name: Rebuild the app from harvested prices
         id: rebuild
-        if: ${{ inputs.harvest || inputs.deals_refresh || github.event_name == 'schedule' }}
+        if: ${{ inputs.harvest || inputs.deals_refresh || env.SCHEDULED == 'true' }}
         continue-on-error: true
         timeout-minutes: 25
         run: |
@@ -1341,7 +1426,8 @@ jobs:
       # because it is the same replay's resume point, written in the same
       # breath — see scripts/priceHistoryReplay.ts.
       - name: Commit rebuilt app
-        if: ${{ (inputs.harvest || inputs.deals_refresh || github.event_name == 'schedule') && steps.rebuild.outcome == 'success' }}
+        if: ${{ (inputs.harvest || inputs.deals_refresh || env.SCHEDULED == 'true') && steps.rebuild.outcome == 'success' }}
+        timeout-minutes: 30
         run: |
           # demo/testCount.generated.ts rides along here rather than with the
           # raw snapshots above: "Test before crawling", near the top of this
@@ -1375,7 +1461,7 @@ jobs:
       # the run is the right size for that; failing the job would say prices
       # are stale when they are not.
       - name: Note a rebuild that did not finish
-        if: ${{ (inputs.harvest || inputs.deals_refresh || github.event_name == 'schedule') && steps.rebuild.outcome != 'success' }}
+        if: ${{ !cancelled() && (inputs.harvest || inputs.deals_refresh || env.SCHEDULED == 'true') && steps.rebuild.outcome != 'success' }}
         run: |
           echo "::warning::The rebuild step ended with outcome '${{ steps.rebuild.outcome }}', so nothing derived from this harvest was committed. The harvested prices are on the branch; the page will be rebuilt by the next run. If this repeats, the replay's checkpoint was probably invalidated by a rules change — see scripts/priceHistoryReplay.ts."
 
@@ -1389,8 +1475,16 @@ jobs:
       # here costs nothing but attention, which is what it is for. Only on a
       # full sweep; a one shop dispatch measures one shop and proves nothing
       # about the rest.
+      #
+      # `!cancelled()` since 2026-10-04: run #592 failed at "Commit rebuilt
+      # app" and so never said how stale the prices were, which is exactly
+      # when it matters. It runs after any failure now and prints the age of
+      # the harvest report it reads (one or more runs old when this run's
+      # harvest did not happen). It cannot hide the first failure: a job that
+      # already failed stays failed whatever this step does.
       - name: Check every answering shop's prices are under 48 hours old
-        if: ${{ (inputs.harvest || github.event_name == 'schedule') && !inputs.harvest_shop }}
+        if: ${{ !cancelled() && (inputs.harvest || env.SCHEDULED == 'true') && !inputs.harvest_shop }}
+        timeout-minutes: 5
         run: npx tsx scripts/freshness-check.ts
 
       # ── Debug: capture one shop's rendered HTML, manual-only ────────────────
@@ -1433,6 +1527,7 @@ jobs:
       # exactly one thing: the capture.
       - name: Capture rendered HTML for one shop
         if: ${{ inputs.capture_render_shop != '' }}
+        timeout-minutes: 15
         run: |
           npm run harvest -- \
             --shop=${{ inputs.capture_render_shop }} \
@@ -1443,6 +1538,7 @@ jobs:
 
       - name: Commit captured render
         if: ${{ inputs.capture_render_shop != '' }}
+        timeout-minutes: 10
         run: |
           ./scripts/commit-and-push.sh \
             "Capture rendered HTML: ${{ inputs.capture_render_shop }} $(date -u +%Y-%m-%d)" \
@@ -1518,6 +1614,7 @@ jobs:
       # would take that with it. Untick-by-default, keep the code.
       - name: Crawl
         if: ${{ inputs.crawl }}
+        timeout-minutes: 30
         run: |
           npm run catalogue -- \
             --source=${{ inputs.source || 'live' }} \
@@ -1525,18 +1622,30 @@ jobs:
 
       - name: Rebuild the app from the new snapshots
         if: ${{ inputs.crawl && !inputs.dry_run }}
+        timeout-minutes: 25
         run: npm run rebuild
 
       - name: Commit what changed
         if: ${{ inputs.crawl && !inputs.dry_run }}
+        timeout-minutes: 30
         run: |
           REBUILT=$(scripts/generated-files.sh paths rebuild)
           ./scripts/commit-and-push.sh \
             "Catalogue: $(date -u +%Y-%m-%d)" \
             data/catalogue $REBUILT
 
+      # The periodic stages (shipping discovery, the Awin sync and their
+      # commits) run with continue-on-error so that one of them failing can
+      # never cost the harvest after it. Their failures still turn the run
+      # red, here, once the harvest is safe.
+      - name: Fail the run if a periodic stage failed
+        if: ${{ !cancelled() && (steps.shipping.outcome == 'failure' || steps.commit_shipping.outcome == 'failure' || steps.awin.outcome == 'failure' || steps.commit_awin.outcome == 'failure') }}
+        run: |
+          echo "::error::A periodic stage failed: shipping discovery ${{ steps.shipping.outcome }}, its commit ${{ steps.commit_shipping.outcome }}; Awin sync ${{ steps.awin.outcome }}, its commit ${{ steps.commit_awin.outcome }}. The harvest after them still ran; see those steps' logs."
+          exit 1
+
       # Keep the failure loud. A crawl that quietly stops working leaves stale
       # prices on the site, which is worse than showing nothing.
       - name: Report failure
         if: failure()
-        run: echo "::error::Catalogue crawl failed. Prices on the site are now stale."
+        run: echo "::error::Catalogue crawl failed; the first failed step above says where. If it was before \"Commit harvested prices\", prices did not move this run."

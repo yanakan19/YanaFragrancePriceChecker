@@ -60,7 +60,7 @@ jobs:
           node-version: '22'
           cache: npm
 
-      - run: npm ci
+      - run: scripts/retry.sh 3 npm ci
 
       # APIFY_PROXY_PASSWORD is passed only so the account preflight can say
       # whether it matches the account's real proxy password. This script never

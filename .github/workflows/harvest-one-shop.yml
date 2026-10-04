@@ -69,7 +69,7 @@ jobs:
           node-version: '22'
           cache: npm
 
-      - run: npm ci
+      - run: scripts/retry.sh 3 npm ci
 
       # Both credentials are passed unconditionally. catalogue-harvest.ts
       # checks for each itself and prints a clear line leaving that tier

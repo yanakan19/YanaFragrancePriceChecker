@@ -158,13 +158,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        timeout-minutes: 5
 
       - uses: actions/setup-node@v4
+        timeout-minutes: 5
         with:
           node-version: '22'
           cache: npm
 
-      - run: npm ci
+      # Retried with backoff (scripts/retry.sh): a registry blip should not
+      # cost the run. npm ci starts from an empty node_modules each time.
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
 
       # continue-on-error so a shop that hangs or a route that throws still
       # leaves the report and the log behind. A partial measurement is useful;
@@ -269,6 +275,7 @@ jobs:
         run: npm run amazon:probe
 
       - name: Verify prices against live storefronts
+        timeout-minutes: 35
         if: ${{ !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe && !inputs.apify_blob_probe && !inputs.amazon_probe }}
         continue-on-error: true
         run: |
@@ -279,6 +286,7 @@ jobs:
             --budget-ms=${{ inputs.budget_ms || '240000' }}
 
       - name: Commit the drift report
+        timeout-minutes: 10
         if: ${{ (inputs.commit_report || github.event_name == 'schedule') && !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe && !inputs.apify_blob_probe && !inputs.amazon_probe }}
         run: |
           ./scripts/commit-and-push.sh \

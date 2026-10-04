@@ -1,0 +1,59 @@
+name: Build manifest check
+
+# Runs the real `npm run rebuild` in a scratch copy and fails when it writes a
+# committed file that scripts/generated-files.txt does not list as "rebuild"
+# (tests/generatedFilesBuild.test.ts). On every push that touches the build,
+# so an agent that adds a generated file without its manifest line hears about
+# it within minutes, not at the next crawl's "Rebuild the app" step, which
+# makes the same check in place and then commits nothing.
+#
+# The pipeline's own pushes use GITHUB_TOKEN and never start this (GitHub does
+# not start workflows from them); people's and agents' pushes do, which are the
+# ones that can add a generated file. Read only: it commits nothing.
+#
+# A shallow checkout on purpose: the check is about which files the build
+# writes, not what the price history says, and a replay over one visible
+# commit writes the same files in seconds instead of minutes.
+on:
+  push:
+    branches: [claude/scentday-retailer-registry-h92tth]
+    paths:
+      - 'scripts/**'
+      - 'src/**'
+      - 'demo/**.ts'
+      - 'demo/template.html'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig*.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-manifest
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        timeout-minutes: 5
+
+      - uses: actions/setup-node@v4
+        timeout-minutes: 5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
+
+      - name: Rebuild in a scratch copy and compare with the manifest
+        timeout-minutes: 20
+        env:
+          CHECK_BUILD_WRITES: '1'
+        run: npx vitest run tests/generatedFiles.test.ts tests/generatedFilesBuild.test.ts
