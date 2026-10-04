@@ -2089,6 +2089,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Superdrug',
     domain: 'superdrug.com',
     homepage: 'https://www.superdrug.com',
+    // Trustpilot page confirmed by the owner on 2026-10-04 (web search candidate).
+    trustpilotUrl: 'https://uk.trustpilot.com/review/superdrugs.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     // Niche added 6 Aug 2026 alongside the premium-fragrances section below
     // — without it here too, priceService's tier gate would skip Superdrug
     // for every niche fragrance regardless of what the crawl finds there.
@@ -5228,6 +5231,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Debenhams',
     domain: 'debenhams.com',
     homepage: 'https://www.debenhams.com',
+    // Trustpilot page confirmed by the owner on 2026-10-04 (web search candidate).
+    trustpilotUrl: 'https://uk.trustpilot.com/review/faith.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
@@ -8669,6 +8675,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Paco Perfumerías UK',
     domain: 'pacoperfumerias.co.uk',
     homepage: 'https://www.pacoperfumerias.co.uk',
+    // Trustpilot page confirmed by the owner on 2026-10-04 (web search candidate).
+    trustpilotUrl: 'https://uk.trustpilot.com/review/pacoperfumerias.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     // Square icon declared on the shop's own homepage, read by
     // scripts/logo-probe.ts and checked by eye at 20px on both themes,
     // 2026-10-03 (the offer row pass).
@@ -9437,6 +9446,9 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Home Bargains',
     domain: 'home.bargains',
     homepage: 'https://home.bargains',
+    // Trustpilot page confirmed by the owner on 2026-10-04 (web search candidate).
+    trustpilotUrl: 'https://uk.trustpilot.com/review/homebargains.co.uk',
+    trustpilotCheckedOn: '2026-10-04',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
     // checked by eye on both themes, 2026-10-03 (docs/LOGOS-PLAN.md step 5).
     logo: {
