@@ -89,7 +89,7 @@ function dropStrengthPhrases(words: string[]): string[] {
  * (Elixir, Intense, Absolu, Extreme, Cologne, Parfum ...), edition words
  * (Tester, Limited, Refill, Travel, Set) and gender words all stay.
  */
-export function nameCore(name: string, brand: string): string {
+export function nameCore(name: string, brand: string, concentration?: string | null): string {
   let words = dropStrengthPhrases(plainWords(name));
   const prefixes = brandPrefixKeys(brand);
   for (let k = 1; k <= 4 && k < words.length; k++) {
@@ -107,7 +107,16 @@ export function nameCore(name: string, brand: string): string {
       }
     }
   }
-  const out = words.filter((w) => !FILLER_WORDS.has(w) && !STRENGTH_ABBREVIATIONS.has(w));
+  let out = words.filter((w) => !FILLER_WORDS.has(w) && !STRENGTH_ABBREVIATIONS.has(w));
+  // "Cacao Azteque Extrait" on an Extrait de Parfum: the name restates the
+  // strength the product already has, so it is not part of the fragrance's name.
+  // Same rule as identityWords in productMatch.ts, and only when the caller says
+  // which strength this is (null: the strength is being left out of the key, so
+  // the word is too). On an Eau de Parfum the word stays: it is a flanker.
+  const strengthWord = concentration === null || (concentration !== undefined && strengthKey(concentration) === 'extrait de parfum');
+  if (strengthWord && out.length > 1) {
+    out = out.filter((w) => w !== 'extrait');
+  }
   while (out.length > 1 && ['de', 'by', 'of', 'new'].includes(out[out.length - 1]!)) out.pop();
   return (out.length > 0 ? out : words).sort().join(' ');
 }
@@ -127,7 +136,7 @@ export const UNKNOWN_STRENGTHS: ReadonlySet<string> = new Set(['not stated', 'di
 /** The whole key. A null size never equals anything, so it is not a key at all. */
 export function duplicateKey(p: KeyableProduct): string | null {
   if (p.sizeMl === null) return null;
-  const core = nameCore(p.name, p.brand);
+  const core = nameCore(p.name, p.brand, p.concentration);
   if (!core) return null;
   return [brandAliasKey(p.brand), core, p.sizeMl, strengthKey(p.concentration)].join('|');
 }
@@ -135,7 +144,48 @@ export function duplicateKey(p: KeyableProduct): string | null {
 /** The same key with the strength left out, for finding strength only splits. */
 export function strengthBlindKey(p: KeyableProduct): string | null {
   if (p.sizeMl === null) return null;
-  const core = nameCore(p.name, p.brand);
+  const core = nameCore(p.name, p.brand, null);
   if (!core) return null;
   return [brandAliasKey(p.brand), core, p.sizeMl].join('|');
+}
+
+/** Words a name can carry that are really a strength: "Atlantis Extrait", "My Way Parfum", "Pure XS". */
+const STRENGTH_WORDS_IN_NAMES: ReadonlySet<string> = new Set(['extrait', 'parfum', 'pure', 'cologne', 'extract', 'concentre', 'concentree']);
+
+/**
+ * The key with the strength AND any strength word in the name left out, for
+ * finding the products whose name carries the strength ("Atlantis Extrait" on a
+ * product whose strength field says Eau de Parfum). Looser than strengthBlindKey
+ * on purpose: it is a review list, never a merge, because "Aventus Cologne" and
+ * "Black Orchid Parfum" are different bottles that this key would fold.
+ */
+export function nameCarriedKey(p: KeyableProduct): string | null {
+  if (p.sizeMl === null) return null;
+  const core = nameCore(p.name, p.brand, null)
+    .split(' ')
+    .filter((w) => !STRENGTH_WORDS_IN_NAMES.has(w))
+    .join(' ');
+  if (!core) return null;
+  return [brandAliasKey(p.brand), core, p.sizeMl].join('|');
+}
+
+/** The strengths a catalogue can state, weakest first, as the display forms concentration() returns. */
+const TIER_ORDER = ['Eau Fraiche', 'Eau de Cologne', 'Eau de Toilette', 'Eau de Parfum', 'Parfum', 'Extrait de Parfum'];
+
+/**
+ * What kind of difference a set of stated strengths is. "Extrait de Parfum /
+ * Parfum" is the pair houses and shops write both ways for one bottle, so it is
+ * the synonym candidate. Every other pair names two different tiers (Eau de
+ * Toilette and Eau de Parfum are two bottles, and so are most Eau de Parfum and
+ * Parfum pairs), and is only ever merged on a source.
+ */
+export function strengthDifference(labels: Iterable<string>): { pair: string; synonymCandidate: boolean } {
+  const set = [...new Set([...labels].map((l) => l.trim()).filter((l) => !UNKNOWN_STRENGTHS.has(strengthKey(l))))];
+  const rank = (l: string) => {
+    const i = TIER_ORDER.indexOf(l);
+    return i < 0 ? TIER_ORDER.length : i;
+  };
+  set.sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
+  const synonymCandidate = set.length === 2 && set.includes('Extrait de Parfum') && set.includes('Parfum');
+  return { pair: set.join(' / '), synonymCandidate };
 }
