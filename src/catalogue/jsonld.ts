@@ -105,6 +105,71 @@ function flatten(node: unknown, out: JsonValue[] = []): JsonValue[] {
   return out;
 }
 
+/**
+ * The size each variant of a multi size page is for, by variant sku, read off
+ * the page's size buttons: `<button data-sku="13319984" ... data-size="30ml">`.
+ * THG's sites (Cult Beauty) put one of these on every size they sell.
+ */
+export function sizeButtons(html: string): Map<string, string> {
+  const sizes = new Map<string, string>();
+  for (const m of html.matchAll(/<button\b[^>]*?\bdata-sku="(\d+)"[^>]*?\bdata-size="([^"]{1,30})"/gi)) {
+    if (!sizes.has(m[1]!)) sizes.set(m[1]!, m[2]!.trim());
+  }
+  return sizes;
+}
+
+/**
+ * A ProductGroup whose variants are sizes of one fragrance that the markup
+ * does not tell apart: every variant carries the group's own name, and none has
+ * the group's productGroupID for its sku (Byredo Mojave Ghost Eau de Parfum
+ * "various sizes", Frederic Malle Portrait of a Lady Eau de Parfum: three
+ * variants, three prices, all named "Frederic Malle Portrait of a Lady Eau de
+ * Parfum"). Read as they stand they are no listing at all, because the walk
+ * cannot say which price is which size; and for a product the shop sells only
+ * on a page of this shape that is the whole product missing.
+ *
+ * Where the page's size buttons give a size for every variant, each variant
+ * takes it after the name ("... Eau de Parfum 30ml"), and each is then a
+ * listing of its own with its own sku, price and stock. Nothing is guessed: a
+ * group with any variant that has no size button, two variants with the same
+ * size, a size the name already states, or a variant that is the group's own
+ * product is left exactly as it was.
+ */
+function withVariantSizes(blocks: unknown[], html: string): unknown[] {
+  const sizes = sizeButtons(html);
+  if (sizes.size === 0) return blocks;
+  const relabel = (node: unknown): unknown => {
+    if (Array.isArray(node)) return node.map(relabel);
+    if (!node || typeof node !== 'object') return node;
+    const obj = node as JsonValue;
+    const out: JsonValue = { ...obj };
+    if (out['@graph']) out['@graph'] = relabel(out['@graph']);
+    const variants = obj['hasVariant'];
+    const groupId = obj['productGroupID'];
+    if (!Array.isArray(variants) || variants.length < 2 || groupId == null) return out;
+    const nodes = variants.filter((v): v is JsonValue => Boolean(v) && typeof v === 'object' && !Array.isArray(v));
+    if (nodes.length !== variants.length) return out;
+    if (nodes.some((v) => String(v['sku'] ?? '') === String(groupId))) return out;
+    const names = new Set(nodes.map((v) => str(v['name'])));
+    if (names.size !== 1 || names.has(null)) return out;
+    const labels = nodes.map((v) => sizes.get(String(v['sku'] ?? '')));
+    if (labels.some((l) => !l) || new Set(labels).size !== nodes.length) return out;
+    // The shop's own "(Various Sizes)" on such a page says what the page is,
+    // not what the bottle is called; each variant now states its own size.
+    const name = [...names][0]!.replace(/\s*[(\[]?\s*various sizes\s*[)\]]?/i, '').replace(/\s+/g, ' ').trim();
+    const renamed = nodes.map((v, i) => {
+      const label = labels[i]!;
+      return name.toLowerCase().includes(label.toLowerCase()) ? { ...v, name } : { ...v, name: `${name} ${label}` };
+    });
+    // Variants still sharing a name (the name already states one size and the
+    // others added theirs) are no better read than before.
+    if (new Set(renamed.map((v) => str(v['name']))).size !== renamed.length) return out;
+    out['hasVariant'] = renamed;
+    return out;
+  };
+  return relabel(blocks) as unknown[];
+}
+
 /** The identity a node carries itself, never one read off a URL. */
 function ownIdentity(node: JsonValue): string | null {
   return str(node['sku']) ?? str(node['mpn']) ?? gtin(node);
@@ -357,6 +422,13 @@ export interface ParseOptions {
    * pinned sitemap route, so no other shop's output changes.
    */
   microdata?: boolean;
+  /**
+   * Read the size of each variant of a ProductGroup off the page's size
+   * buttons, where the group's variants all carry one name and none of them is
+   * the page's own product: see `withVariantSizes`. Set by the sitemap walk for
+   * a route that asks for it (`variantSizesFromPage` on `SitemapRoute`).
+   */
+  variantSizesFromPage?: boolean;
 }
 
 /**
@@ -399,7 +471,8 @@ export function pageCurrency(html: string): string | null {
  * retailer needs a different adapter.
  */
 export function parseListings(html: string, options: ParseOptions): RawListing[] {
-  let nodes = extractJsonLdBlocks(html).flatMap((b) => flatten(b));
+  const blocks = extractJsonLdBlocks(html);
+  let nodes = (options.variantSizesFromPage ? withVariantSizes(blocks, html) : blocks).flatMap((b) => flatten(b));
   if (options.microdata && !nodes.some(isProduct)) {
     // A microdata product with no identifier of its own falls back to its
     // address. Shy Mimosa's are all /shop/products/view.asp?brand=...&name=...,

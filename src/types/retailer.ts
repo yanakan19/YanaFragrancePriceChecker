@@ -570,6 +570,16 @@ export interface CategoryWalk {
   pageCount?: string;
   /** Most pages walked in one category, whatever the page says. */
   maxPages: number;
+  /**
+   * Read page one of every category and one page in `rotation` of the rest, a
+   * different slice each run, so every page is read about every `rotation`
+   * runs instead of every run. Needs `pageCount`. Measured on Cult Beauty from
+   * a GitHub runner (run 37203579061): 148 pages took 11 minutes at 1.5 s
+   * between requests and about 3 s for the shop to answer, out of a 40 minute
+   * shop ceiling that also has to re-read every stored price. A new product is
+   * found within a day either way; the minutes go to the prices.
+   */
+  rotation?: number;
 }
 
 /**
@@ -598,6 +608,14 @@ export interface SitemapRoute {
    * whole story. See `CategoryWalk`.
    */
   categories?: CategoryWalk;
+  /**
+   * A product page whose variants are sizes of one fragrance, all named alike
+   * and none the page's own product, states each size on its size buttons
+   * (THG: `data-sku` with `data-size`). Read them, so each size is a listing
+   * of its own instead of the page being none; see `withVariantSizes` in
+   * `src/catalogue/jsonld.ts` for exactly when a page is left alone.
+   */
+  variantSizesFromPage?: boolean;
   /**
    * Never read product pages a run reads, when that many are unread. The run
    * wide page budget (`--max`, 42 never read pages a shop a run on the
