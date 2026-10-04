@@ -163,15 +163,16 @@ describe('Kayali\'s travel spray is a size at Kayali, and stays what it was ever
     }
   });
 
-  it('still keeps out another shop\'s travel spray, where it can be a different article from the plain bottle', () => {
+  it('does not read another shop\'s "Travel Spray" as a size label: it keeps its own name, apart from the plain bottle', () => {
     // Escentual and Perfume Click titles as harvested. Nina Ricci's L'Air du Temps Eau de Toilette is
     // sold as a 30ml bottle (EAN 3137370207030) and a 30ml travel spray (EAN 3137370072744): folding
-    // the second into the first split a four shop comparison into four products when measured.
+    // the second into the first split a four shop comparison into four products when measured. These
+    // are admitted since 2026-10-04 (tests/travelSprays.test.ts), but never as a size of the bottle.
     const escentual = stored('escentual', { retailerSku: 'versaceeros024', rawTitle: 'Versace Eros Eau de Toilette Travel Spray 10ml', rawBrand: 'Versace', productType: 'Fragrance', priceGbp: 24 });
     const pclick = stored('perfume-click', { retailerSku: 'p1', rawTitle: "Nina Ricci L'air Du Temps Eau de Toilette 30ml Travel Spray", rawBrand: 'Nina Ricci', productType: null, priceGbp: 21.85 });
-    expect(isFragrance(escentual)).toBe(false);
-    expect(isFragrance(pclick)).toBe(false);
     expect(getRetailer('escentual')?.travelSizeIsASize).toBeUndefined();
+    expect(displayName(escentual.rawTitle, 'Versace', 'Versace', false)).toBe('Eros Travel Spray');
+    expect(displayName(pclick.rawTitle, 'Nina Ricci', 'Nina Ricci', false)).toBe("L'air Du Temps Travel Spray");
   });
 });
 
