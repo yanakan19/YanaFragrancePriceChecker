@@ -219,7 +219,16 @@ the brand's own current price (MSRP), among perfumes whose product page shows
 both boxes, with a fresh price, delivery stated and the cheapest shop
 confirmed. A perfume is never posted twice: if the top deal has been posted
 before, it moves on to the next deal down (`social/deal-of-the-day-history.json`).
-The link is checked on the live site before anything is written.
+**A brand rests for 7 days** (the owner's rule, 4 Oct 2026: a new brand every
+week): a brand posted on a day is not posted again until 7 days later, so any
+seven days in a row name seven different brands. If the top deal's brand is
+resting, the run moves on to the next deal down from another brand. If no deal
+from a brand that is not resting qualifies, the run says so, writes nothing
+(no folder, no history entry) and exits with code 3; it never breaks the rule to
+fill the day. `--dry-run` shows the pick without writing. A chosen perfume
+(`--id`) answers to the same rule; `--allow-brand-repeat` is the one deliberate
+way round it, and is recorded in `check.json`. The link is checked on the live
+site before anything is written.
 
 **How it is posted:** the 9:16 goes up as a story with the link sticker on
 the crosshair (no caption). The two 3:4 pictures go up together as one feed
