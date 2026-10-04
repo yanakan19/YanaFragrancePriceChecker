@@ -51,3 +51,26 @@ export function shopFreshness(listings: readonly StoredListing[], now: Date): Sh
 export function freshnessTolerance(shown: number): number {
   return Math.max(5, Math.floor(shown * 0.02));
 }
+
+/**
+ * How old the newest harvest report is, for scripts/freshness-check.ts. The
+ * check runs even when an earlier step of the crawl failed (run #592 skipped
+ * it), and then the report on disk can be one or more runs old: the line says
+ * so, so a red run still shows how stale the prices are. `stale` once the
+ * report is older than the guard's 150 minute gap plus a full run (about four
+ * hours), which means at least one harvest that should have happened did not.
+ */
+export function reportAge(startedAt: string | undefined, now: Date): { hours: number | null; stale: boolean; line: string } {
+  const started = startedAt ? Date.parse(startedAt) : NaN;
+  if (Number.isNaN(started)) {
+    return { hours: null, stale: true, line: 'The harvest report carries no start time, so its age is unknown.' };
+  }
+  const hours = Math.round(((now.getTime() - started) / HOUR_MS) * 10) / 10;
+  const stale = hours > 4;
+  return {
+    hours,
+    stale,
+    line: `The newest harvest report is from a harvest that started ${hours} hours ago (${startedAt})` +
+      (stale ? ', so at least one scheduled harvest since then did not happen or did not commit.' : '.'),
+  };
+}

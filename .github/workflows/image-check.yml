@@ -98,13 +98,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        timeout-minutes: 5
 
       - uses: actions/setup-node@v4
+        timeout-minutes: 5
         with:
           node-version: '22'
           cache: npm
 
-      - run: npm ci
+      # Retried with backoff (scripts/retry.sh): a registry blip should not
+      # cost the run. npm ci starts from an empty node_modules each time.
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
 
       # continue-on-error on both sweeps, for the same reason the price
       # verification workflow does it: a shop that hangs or a route that throws
@@ -138,6 +144,7 @@ jobs:
       # steps made. commit-and-push.sh is a no-op when nothing changed, so an
       # unchanged report costs nothing and leaves no empty commit behind.
       - name: Commit the image reports
+        timeout-minutes: 10
         if: ${{ inputs.commit_reports || github.event_name == 'schedule' }}
         run: |
           ./scripts/commit-and-push.sh \

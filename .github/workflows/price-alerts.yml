@@ -48,15 +48,26 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        timeout-minutes: 5
 
       - uses: actions/setup-node@v4
+        timeout-minutes: 5
         with:
           node-version: '22'
           cache: npm
 
-      - run: npm ci
+      # Retried with backoff (scripts/retry.sh): a registry blip should not
+      # cost the run. npm ci starts from an empty node_modules each time.
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
 
+      # One email per reader per UK day: a reader already emailed today is
+      # skipped (price_alert_accounts.last_sent_on) and every send carries
+      # the idempotency key price-alert/<user>/<UK day>, so a re-run or a
+      # repeated tick does not send twice. See src/alerts/run.ts.
       - name: Send price drop emails
+        timeout-minutes: 10
         env:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}

@@ -37,7 +37,7 @@ jobs:
         with:
           node-version: '22'
 
-      - run: npm ci
+      - run: scripts/retry.sh 3 npm ci
 
       - name: Install WebKit
         run: npx playwright install --with-deps webkit
