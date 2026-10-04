@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.67.0',
+    date: '4 Oct 2026',
+    title: 'Most Stocked is easier to browse',
+    points: [
+      'On a phone it swipes all the way to the end',
+      'On a computer all twelve sit in a centred grid',
+      'The link now reads See All',
+    ],
+  },
+  {
     version: 'v3.66.0',
     date: '4 Oct 2026',
     title: 'More niche perfumes now show their strength',
