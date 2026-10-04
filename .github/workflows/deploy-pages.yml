@@ -1,28 +1,54 @@
 name: Deploy site
 
-# Publishes demo/ to GitHub Pages behind the custom domain in demo/CNAME.
+# Builds the site from the branch's tip and publishes it to GitHub Pages behind
+# the custom domain in demo/CNAME.
+#
+# ── Built here, not committed (2026-10-04) ───────────────────────────────────
+# The page (demo/index.html, demo/404.html), its hashed data files (demo/data/),
+# demo/sitemap.xml and demo/ads.txt are the output of `npm run demo`, and this
+# job builds them from what the branch does commit: the source, and the
+# generated modules (demo/*.generated.ts) the crawl rebuilds from its harvest.
+# They used to be committed by every crawl, and the content-hashed data files
+# were most of the repository's growth: about 32 of the 57 MB added on
+# 2026-10-04, because a new name every build defeats git's delta compression.
+# scripts/generated-files.txt lists them as "deploy" (built here, gitignored,
+# never committed).
+#
+# The build is checked before anything is uploaded (the page's stamp matches
+# the source it was built from, every data file it names exists, the deep-link
+# copy is identical, the sitemap is not empty). A build or check that fails
+# stops this job before `upload-pages-artifact`, so the site stays on the last
+# good deployment: Pages never publishes an empty or half-built folder.
 #
 # ── Why `workflow_run` and not just `push` ───────────────────────────────────
-# The push trigger alone silently stopped publishing the crawl's output. GitHub
-# does not start a workflow from a push made with the built-in GITHUB_TOKEN —
-# that is deliberate, to stop workflows triggering each other forever — and the
-# crawl commits its rebuilt demo/index.html with exactly that token. So every
-# hourly harvest updated the branch and none of them ever reached the site: the
-# live page sat on whatever a human last pushed, hours of fresh prices behind,
-# with nothing failing anywhere to show for it.
+# GitHub does not start a workflow from a push made with the built-in
+# GITHUB_TOKEN (to stop workflows triggering each other forever), and the crawl
+# and the fragrance links job push with exactly that token. Chaining off their
+# *completion* sidesteps that, because the trigger is the finished run rather
+# than its push. It runs whether or not the run succeeded: the harvest commits
+# prices well before the later steps that can fail. A run that changed nothing
+# rebuilds and republishes the same page, which is harmless.
 #
-# Chaining off the crawl's *completion* sidesteps the token rule, because the
-# trigger is the finished run rather than its push.
-#
-# It runs whether or not the crawl succeeded, which is deliberate: the harvest
-# commits prices well before the later steps that can fail, so a run that ends
-# red has often still published good data. A run that changed nothing just
-# republishes the same bytes, which is harmless.
+# ── Which pushes deploy ──────────────────────────────────────────────────────
+# Any push to the branch except the folders that cannot change the page (data,
+# docs, tests, social posts, the apps, the database migrations, Markdown and
+# other workflows). This used to be `demo/**` only, which was enough while a
+# change to src/ came with a rebuilt, committed demo/index.html; now a change
+# to src/ or to the build scripts must start a deploy by itself.
 on:
   push:
     branches: [claude/scentday-retailer-registry-h92tth]
     paths:
-      - 'demo/**'
+      - '**'
+      - '!data/**'
+      - '!docs/**'
+      - '!tests/**'
+      - '!social/**'
+      - '!apps/**'
+      - '!supabase/**'
+      - '!**/*.md'
+      - '!.github/**'
+      - '.github/workflows/deploy-pages.yml'
   workflow_run:
     workflows: ['Catalogue crawl', 'Fragrance links daily']
     types: [completed]
@@ -37,7 +63,7 @@ permissions:
 # finish, and only the newest waiting one runs after it (GitHub keeps one
 # waiting run per group), which is GitHub's own advice for Pages: cancelling
 # deploy-pages mid deployment can leave the next one refused while the
-# cancelled one is still "in progress" on GitHub's side. Every run deploys the
+# cancelled one is still "in progress" on GitHub's side. Every run builds the
 # branch's tip, so the one that runs last always publishes the newest prices.
 concurrency:
   group: pages
@@ -46,26 +72,69 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # A normal deploy takes under a minute. A failed or stuck one is healed by
-    # the next (every crawl run and every push to demo/ starts one).
-    timeout-minutes: 15
+    # Checkout, install and build take about three minutes; the deployment
+    # itself under one. A failed or stuck run is healed by the next (every
+    # crawl run and every push that can change the page starts one).
+    timeout-minutes: 25
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # On a workflow_run the default checkout is the commit the *triggering*
+      # run started from, which is older than the prices that run just pushed.
+      # Naming the branch takes its current tip instead.
+      #
+      # Full history without file contents (a blobless partial clone): the
+      # sitemap dates the about, legal and list pages by the last commit that
+      # touched their source (`git log -1 -- <path>`, scripts/build-sitemap.ts),
+      # which needs commits and trees but no old blobs. A shallow clone would
+      # date every one of them today.
       - uses: actions/checkout@v4
+        timeout-minutes: 10
         with:
-          # On a workflow_run the default checkout is the commit the *triggering*
-          # run started from, which is older than the prices that run just
-          # pushed — publishing it would deploy the very data this is meant to
-          # ship. Naming the branch takes its current tip instead.
           ref: ${{ github.event.workflow_run.head_branch || github.ref }}
+          fetch-depth: 0
+          filter: blob:none
+
+      - uses: actions/setup-node@v4
+        timeout-minutes: 5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
+
+      # tsc, the bundle, the page and its data files, then the sitemap
+      # (package.json). Reads the committed demo/*.generated.ts; never replays
+      # the price history, which the crawl does before it commits them.
+      - name: Build the site
+        timeout-minutes: 10
+        run: npm run demo
+
+      - name: Check the build before publishing it
+        timeout-minutes: 5
+        run: |
+          # The freshness check passes a folder with no page at all ("nothing
+          # to check"), so the page's existence is asserted first. It then
+          # exits 0 only when demo/index.html carries the stamp of the source
+          # on disk and every data file it names is in demo/data.
+          test -s demo/index.html
+          npx tsx scripts/check-demo-freshness.ts
+          cmp demo/index.html demo/404.html
+          test -s demo/sitemap.xml
+          grep -q '<urlset' demo/sitemap.xml
+          ls -la demo/index.html demo/404.html demo/sitemap.xml demo/data
 
       - uses: actions/configure-pages@v5
+        timeout-minutes: 5
 
       - uses: actions/upload-pages-artifact@v3
+        timeout-minutes: 10
         with:
           path: demo
 
       - id: deployment
+        timeout-minutes: 10
         uses: actions/deploy-pages@v4
