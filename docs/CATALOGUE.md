@@ -81,6 +81,33 @@ Four rules in `reconcile()` carry most of the weight:
 4. **A failed crawl writes nothing.** Saving an empty catalogue would delist
    everything, then flag it all new on recovery.
 
+## Old addresses of merged products
+
+When two products turn out to be one bottle, one record absorbs the other and
+the absorbed id leaves the catalogue. Its address now opens the product that
+holds it, and the address bar is rewritten to that product's.
+
+- The build (`scripts/build-demo-catalogue.ts`) works the map out from its own
+  merge decisions, nothing by hand: what `findDuplicateGroups` absorbed, the
+  other ids of every listing that joined a product (its SKU form where the
+  product is keyed on a barcode), an earlier SKU of a Shopify variant a live
+  product holds now (`lineageKey`), and a hidden listing that is plainly the
+  same bottle as one live product. `src/catalogue/idAliases.ts` settles them.
+- Only an id that was a page before the build (in the last catalogue) is
+  published, so the file is the size of the real problem. An id that is a page
+  again, or one whose product is gone, is dropped.
+- `data/id-aliases.json` is the memory between builds (a `rebuild` file in
+  `scripts/generated-files.txt`): an alias made once is kept, and when its
+  target is folded again it is moved on to the new holder.
+- The page reads it from `demo/dormant.generated.ts` (`ID_ALIASES`), the lazy
+  file fetched only for an address that is not in the catalogue, so the first
+  load does not grow. The unknown address is kept off search engines until the
+  file says where it went, then the address and canonical become the
+  survivor's, and no old address is in the sitemap.
+- To start the file afresh from what earlier builds published, run
+  `scripts/id-alias-seed.sh <dir>` (reads the branch's history) and then
+  `npm run catalogue:demo -- --seed-ids <dir>/ids.txt --seed-aliases <dir>/aliases.tsv`.
+
 ## The NEW badge
 
 A listing shows NEW next to a shop's name when all three hold:
