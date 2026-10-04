@@ -238,6 +238,53 @@ function plainText(html: unknown): string | null {
   return text || null;
 }
 
+/**
+ * A bracket holding nothing but sizes: "(30ml, 50ml, 100ml)", "(100ml)", and the
+ * shop's own slips, "(30m, 50ml)" and "(15ml 30ml, 50ml)".
+ */
+const SIZE_LIST = /\(\s*\d+(?:\.\d+)?\s*ml?(?:(?:\s*,\s*|\s+)\d+(?:\.\d+)?\s*ml?)*\s*\)/i;
+
+/**
+ * A product title that lists every size its page sells, with the variant's own
+ * size after it: "Bvlgari Splendida Eau de Parfum Spray (30ml, 50ml, 100ml)
+ * 50ml". Perfume Direct titles a product that way, one Shopify product with a
+ * variant per size, and this parser appends the variant's name to the title.
+ *
+ * The catalogue reads a title's size as its first number, so all three rows
+ * read 30ml: the 50ml bottle at 59.99 and the 100ml at 89.99 were published as
+ * 30ml prices, in a product of their own named "(, )" because the list is
+ * stripped from a name, apart from the 50ml and 100ml pages they belong on.
+ * Measured 2026-10-04 on data/catalogue/perfume-direct.json: 2,166 rows have
+ * this shape and 1,355 of them (on 841 product pages) read a size that is not
+ * their own. No other shop's title has it.
+ *
+ * The size is the variant's: Shopify's own name for the row, "50ml", beside the
+ * price that same variant carries (read against the live pages of ten products
+ * on 2026-10-04: every variant's size and price matched the stored row). So the
+ * list is replaced by that one size, in the same brackets a single size product
+ * of this shop already wears ("Jennifer Lopez Live Luxe ... (100ml) 100ml"), and
+ * the rest of the title is untouched ("10ml Splash" keeps its Splash).
+ *
+ * The variant's size need not be in the list. A title's list is the shop's
+ * summary and is not kept in step: Azzaro Chrome Legend's reads "(75ml, 125ml)"
+ * and has a 100ml variant at 29.99 of its own. Only a variant that names no size
+ * (a title with the list and nothing after it) is left as it was, which is
+ * nothing this function can read.
+ *
+ * Idempotent, so it is safe to run again over a title it has already made.
+ */
+export function ownSizeTitle(title: string): string {
+  const list = SIZE_LIST.exec(title);
+  if (!list) return title;
+  const tail = title.slice(list.index + list[0].length);
+  const own = /^\s+(\d+(?:\.\d+)?)\s*ml\b/i.exec(tail);
+  if (!own) return title;
+  // One size listed and it is the row's own: already what this function makes.
+  const listed = list[0].match(/\d+(?:\.\d+)?/g) ?? [];
+  if (listed.length === 1 && Number.parseFloat(listed[0]!) === Number.parseFloat(own[1]!)) return title;
+  return `${title.slice(0, list.index)}(${own[1]}ml)${tail}`;
+}
+
 export interface ShopifyParseOptions {
   /** Storefront origin, e.g. `https://www.rasasi.com`, for building product URLs. */
   origin: string;
@@ -331,6 +378,10 @@ export function parseShopifyProducts(body: string, options: ShopifyParseOptions)
           ? `${title} ${variant.title}`
           : title;
 
+      // A product whose title lists its sizes names each variant by its own
+      // (see ownSizeTitle): without it every row reads the first size listed.
+      const sizedTitle = ownSizeTitle(variantTitle);
+
       const wasPrice =
         variant.compareAtPrice !== null && variant.compareAtPrice > variant.price
           ? variant.compareAtPrice
@@ -339,7 +390,7 @@ export function parseShopifyProducts(body: string, options: ShopifyParseOptions)
       listings.push({
         retailerSku: sku,
         url,
-        rawTitle: variantTitle,
+        rawTitle: sizedTitle,
         rawBrand: vendor,
         // Admin-API only. See the header comment.
         ean: null,

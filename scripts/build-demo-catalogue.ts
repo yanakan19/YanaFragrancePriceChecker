@@ -21,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { writeGenerated } from './generatedFiles.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { isNewListing } from '../src/catalogue/newBadge.js';
+import { ownSizeTitle } from '../src/catalogue/shopifyJson.js';
 import { HIDE_OFFER_AFTER_DAYS, isTooOldToShow } from '../src/services/priceService.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 import { listingStockState } from '../src/catalogue/listingAvailability.js';
@@ -48,6 +49,14 @@ import {
 import { auditPriceScale } from '../src/catalogue/priceScale.js';
 import { formatLabels } from '../src/catalogue/offerFormat.js';
 import type { DormantEntry } from '../src/catalogue/dormantProducts.js';
+import {
+  dormantIdsIn,
+  lineageKey,
+  listingIdForms,
+  productIdsIn,
+  settleIdAliases,
+  type IdAliasFile,
+} from '../src/catalogue/idAliases.js';
 import { auditWasPrices } from '../src/catalogue/wasPriceCredibility.js';
 import {
   isFragrance,
@@ -623,6 +632,9 @@ const tooOldByShop = new Map<string, { hidden: number; of: number }>();
 /** Those listings themselves, repaired like every other, for OLDER_OFFERS. */
 const tooOldListings: StoredListing[] = [];
 
+/** Delisted listings of the shops read, for the old ids they answer to (src/catalogue/idAliases.ts). */
+const formerListings: StoredListing[] = [];
+
 /** One retailer's eligible listings, repaired, kept together for resolveRawBrand below. */
 interface EligibleSnapshot {
   retailer: Retailer;
@@ -666,6 +678,12 @@ if (existsSync(dir)) {
     // so it never enters the catalogue: no row, no listing count, no deal. A
     // shop all of whose prices are that old contributes nothing and drops off
     // the Shops page by itself.
+    // Listings the shop no longer shows (delisted) are kept in the store as
+    // history. They never become products, but their ids were once addresses,
+    // so they are read for src/catalogue/idAliases.ts: where a delisted
+    // listing is an earlier state of a variant that is live now, its id opens
+    // the live product.
+    for (const stored of snapshot.listings) if (stored.status !== 'active') formerListings.push(stored);
     const allActive = snapshot.listings.filter((l) => l.status === 'active');
     const active = allActive.filter((l) => !isTooOldToShow(l.lastSeenAt, now));
     if (active.length < allActive.length) {
@@ -678,7 +696,7 @@ if (existsSync(dir)) {
         if (!isTooOldToShow(stored.lastSeenAt, now)) continue;
         tooOldListings.push({
           ...stored,
-          rawTitle: repairMojibake(stored.rawTitle),
+          rawTitle: ownSizeTitle(repairMojibake(stored.rawTitle)),
           rawBrand: stored.rawBrand === null ? null : repairMojibake(stored.rawBrand),
         });
       }
@@ -692,11 +710,16 @@ if (existsSync(dir)) {
     // only at display time would leave the classifier reading different
     // text from the one shown, which is how "ParfumÃ©e" came to pass the
     // concentration test for the wrong reason. See repairMojibake.
+    //
+    // The same place repairs a title that lists every size its page sells
+    // ("(30ml, 50ml, 100ml) 50ml": Perfume Direct) down to the row's own, so a
+    // listing harvested before the parser did it reads its own size too. See
+    // ownSizeTitle in src/catalogue/shopifyJson.ts; a no-op for any other title.
     eligible.push({
       retailer,
       listings: active.map((stored) => ({
         ...stored,
-        rawTitle: repairMojibake(stored.rawTitle),
+        rawTitle: ownSizeTitle(repairMojibake(stored.rawTitle)),
         rawBrand: stored.rawBrand === null ? null : repairMojibake(stored.rawBrand),
       })),
     });
@@ -714,6 +737,8 @@ if (existsSync(dir)) {
    become an offer on the first one's product — too late for any check placed
    after that point to undo. */
 const untrustworthyEans = computeUntrustworthyEans(eligible.flatMap(({ listings }) => listings));
+/** Every listing that joined a product, with its own id and the other ids it has answered to. */
+const memberIdForms: { own: string; forms: string[]; lineage: string | null }[] = [];
 
 for (const { retailer, listings } of eligible) {
   for (const l of listings) {
@@ -755,6 +780,10 @@ for (const { retailer, listings } of eligible) {
     // houseCeilings, the reference price check) from ever pairing it with one.
     const size = giftSet ? null : sizeMl(l.rawTitle, l.description);
     const id = fragranceId(l, untrustworthyEans);
+    // The other ids this listing has answered to, kept for the id aliases
+    // (src/catalogue/idAliases.ts): only a listing that really joins a product
+    // gets here, so none of them is ever pointed at a product it is not part of.
+    memberIdForms.push({ own: id, forms: listingIdForms(l, untrustworthyEans), lineage: lineageKey(l) });
     const effectiveRawBrand = resolveRawBrand(l, retailer);
 
     // What this shop's own listing says the bottle's concentration is —
@@ -2013,6 +2042,8 @@ for (const p of ordered) {
 }
 const dormantListings = new Map<string, StoredListing[]>();
 const dormantSkipped = { matchedALiveProduct: 0, ambiguousLiveMatch: 0 };
+/** A hidden listing's own id, and the one live product that is the same bottle. */
+const hiddenSameBottle = new Map<string, string>();
 /** The facts a hidden listing would give a product, worked out as the main loop above works them out. */
 function describeHiddenListing(l: StoredListing) {
   const retailer = RETAILERS.find((r) => r.id === l.retailerId)!;
@@ -2047,8 +2078,12 @@ for (const l of tooOldListings) {
       // Left out exactly as before this pass existed: not a page, and not an
       // older price either, because the live catalogue file is the first load
       // and a graph point on a product that is for sale is not worth growing it.
-      if (sameBottle.length === 1) dormantSkipped.matchedALiveProduct++;
-      else dormantSkipped.ambiguousLiveMatch++;
+      if (sameBottle.length === 1) {
+        dormantSkipped.matchedALiveProduct++;
+        // The live catalogue would have merged this id into that product, so
+        // that is where its address opens (src/catalogue/idAliases.ts).
+        hiddenSameBottle.set(own, sameBottle[0]!);
+      } else dormantSkipped.ambiguousLiveMatch++;
       olderOffersSkipped.noProductPage++;
       continue;
     }
@@ -2098,6 +2133,89 @@ for (const [id, listings] of [...dormantListings].sort((a, b) => a[0].localeComp
   if (facts.giftSet) entry.giftSet = { contents: giftSetContents(lead.rawTitle), title: lead.rawTitle };
   dormantProducts[id] = entry;
 }
+
+/* ── old addresses that open the product they were folded into ─────────────
+   A product absorbed by a merge used to leave its address answering Page Not
+   Found. Every way this build knows an id belongs to a live product is
+   gathered here, in the order of how much it is a decision and not an
+   inference, and settled with what earlier builds recorded
+   (src/catalogue/idAliases.ts, data/id-aliases.json). Nothing is typed by hand:
+   a future merge redirects the day it is made.
+
+     1. absorbedInto: findDuplicateGroups' own decisions (brand merges, the
+        house's wording, a pre-order notice out of a name, a refill, a barcode
+        one shop gained: all of them end as one record absorbing another).
+     2. the other ids of every listing that joined a product (its SKU form where
+        the product is keyed on a barcode, its barcode form where it is keyed on
+        a SKU).
+     3. a delisted listing that is an earlier state of a Shopify variant a live
+        product holds now (Emirates Oud's Hawas Boa: one variant, three SKUs).
+     4. a hidden listing the live catalogue would have merged into exactly one
+        live product by brand, size, strength and name. */
+const idSuccessors = new Map<string, string>();
+for (const [absorbed, canonical] of absorbedInto) idSuccessors.set(absorbed, canonical);
+const lineageSurvivors = new Map<string, string | null>();
+for (const m of memberIdForms) {
+  const survivor = finalIds.has(m.own) ? m.own : absorbedInto.get(m.own);
+  if (survivor === undefined || !finalIds.has(survivor)) continue;
+  for (const form of m.forms) if (form !== survivor && !idSuccessors.has(form)) idSuccessors.set(form, survivor);
+  if (m.lineage !== null) {
+    const seen = lineageSurvivors.get(m.lineage);
+    // Two members of one variant that ended in two products would be a
+    // contradiction: such a lineage names nothing.
+    lineageSurvivors.set(m.lineage, seen === undefined || seen === survivor ? survivor : null);
+  }
+}
+for (const l of formerListings) {
+  const lineage = lineageKey(l);
+  const survivor = lineage === null ? null : lineageSurvivors.get(lineage);
+  if (!survivor) continue;
+  for (const form of listingIdForms(l, untrustworthyEans)) if (form !== survivor && !idSuccessors.has(form)) idSuccessors.set(form, survivor);
+}
+for (const [own, live] of hiddenSameBottle) if (!idSuccessors.has(own) && finalIds.has(live)) idSuccessors.set(own, live);
+
+const idAliasesPath = resolve(root, 'data/id-aliases.json');
+const previousIdAliases: Record<string, string> = existsSync(idAliasesPath)
+  ? (JSON.parse(readFileSync(idAliasesPath, 'utf8')) as IdAliasFile).aliases
+  : {};
+// Which ids were pages before this build: the last catalogue and its pages with
+// no current prices (still in the working tree, since they are written only at
+// the foot of this file), plus any ids a re-seed names with
+// --seed-ids <file> (one id a line) and the folds --seed-aliases <file> names,
+// both taken from the branch's history by scripts/id-alias-seed.sh.
+const previousCatalogueFile = resolve(root, 'demo/catalogue.generated.ts');
+const previousDormantFile = resolve(root, 'demo/dormant.generated.ts');
+const wasPage = new Set<string>([
+  ...(existsSync(previousCatalogueFile) ? productIdsIn(readFileSync(previousCatalogueFile, 'utf8')) : []),
+  ...(existsSync(previousDormantFile) ? dormantIdsIn(readFileSync(previousDormantFile, 'utf8')) : []),
+]);
+const seedFlag = process.argv.indexOf('--seed-ids');
+if (seedFlag >= 0) {
+  const seedFile = process.argv[seedFlag + 1];
+  if (!seedFile) throw new Error('--seed-ids needs a file of ids, one a line');
+  for (const line of readFileSync(seedFile, 'utf8').split('\n')) if (line.trim()) wasPage.add(line.trim());
+}
+const seedAliasFlag = process.argv.indexOf('--seed-aliases');
+if (seedAliasFlag >= 0) {
+  const seedFile = process.argv[seedAliasFlag + 1];
+  if (!seedFile) throw new Error('--seed-aliases needs a file of "absorbed<TAB>survivor" lines');
+  // Oldest build first, so a later fold of the same id wins; the file's own
+  // earlier aliases are kept unless a fold says otherwise.
+  for (const line of readFileSync(seedFile, 'utf8').split('\n')) {
+    const [from, to] = line.split('\t');
+    // Only an id that was a page: a fold of two records in one build, neither
+    // ever shown, is no address anyone held.
+    if (from && to && wasPage.has(from)) previousIdAliases[from] = to;
+  }
+}
+const idAliasResult = settleIdAliases({
+  previous: previousIdAliases,
+  wasPage,
+  successors: idSuccessors,
+  live: finalIds,
+  dormant: new Set(Object.keys(dormantProducts)),
+});
+const idAliases = idAliasResult.aliases;
 
 const historyAliases: Record<string, string[]> = {};
 for (const p of ordered) {
@@ -2368,8 +2486,15 @@ writeGenerated(
 import type { DormantEntry } from '../src/catalogue/dormantProducts.js';
 
 export const DORMANT_PRODUCTS: Record<string, DormantEntry> = ${JSON.stringify(dormantProducts)};
+
+// Product ids that were folded into another product, each with the id that
+// holds it now: an old address opens that product, and the address bar is
+// rewritten to it. Built from the build's own merge decisions and kept from
+// build to build in data/id-aliases.json (src/catalogue/idAliases.ts).
+export const ID_ALIASES: Record<string, string> = ${JSON.stringify(idAliases)};
 `,
 );
+writeGenerated(root, 'data/id-aliases.json', `${JSON.stringify({ aliases: idAliases }, null, 1)}\n`);
 
 const multi = ordered.filter((p) => p.offers.length > 1).length;
 // See sizeConflict in src/catalogue/fragranceId.ts and Product.sizeMl's own
@@ -2419,6 +2544,7 @@ console.log(
     `(left out: ${olderOffersSkipped.notFragrance} not fragrance, ${olderOffersSkipped.noProductPage} for a product with no current offer and so no page, ${olderOffersSkipped.unpriced} unpriced or price scale withheld)` +
     `\n  ${Object.keys(dormantProducts).length} products with no current prices kept as pages of their own (${dormantSkipped.matchedALiveProduct} more hidden listings are the same bottle as a live product and ${dormantSkipped.ambiguousLiveMatch} could be two, so neither is a page); ${Object.values(dormantProducts).filter((d) => d.image !== null).length} have a photo` +
     `\n  ${Object.keys(historyAliases).length} products carry the price history of ids folded into them` +
+    `\n  ${Object.keys(idAliases).length} old product addresses open the product they were folded into (${idAliasResult.fresh} from this build's merges, ${idAliasResult.carried} kept from earlier builds, ${idAliasResult.dropped} dropped because their product is gone; ${idAliasResult.neverAPage} merged ids were never a page, so are not published)` +
     (skippedShops.length
       ? `\n  skipped: ${skippedShops.join(', ')}`
       : ''),

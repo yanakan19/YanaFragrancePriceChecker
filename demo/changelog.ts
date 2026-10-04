@@ -17,6 +17,46 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.59.0',
+    date: '4 Oct 2026',
+    title: 'Double listings now share one page',
+    points: [
+      'About 1,600 duplicate pages became one each',
+      'Different strengths and sizes stay separate',
+      'Seven duplicate brand names were merged',
+    ],
+  },
+  {
+    version: 'v3.58.0',
+    date: '4 Oct 2026',
+    title: 'Perfume Direct sizes now match their prices',
+    points: [
+      'Each size now sits on the page for that size',
+      'A 100ml price no longer shows as a 30ml price',
+      'About 1,300 Perfume Direct prices moved',
+    ],
+  },
+  {
+    version: 'v3.57.0',
+    date: '4 Oct 2026',
+    title: 'Old product links open the right page',
+    points: [
+      'A product that was merged keeps its old link',
+      'The old link opens the page it merged into',
+      'Your address bar changes to the new link',
+    ],
+  },
+  {
+    version: 'v3.56.0',
+    date: '4 Oct 2026',
+    title: 'Far more Cult Beauty fragrances',
+    points: [
+      'Cult Beauty went from 130 to about 485 products',
+      'Its whole fragrance range is now being read',
+      'Prices are rechecked through the day',
+    ],
+  },
+  {
     version: 'v3.55.0',
     date: '4 Oct 2026',
     title: 'Account button on the right, and photos',

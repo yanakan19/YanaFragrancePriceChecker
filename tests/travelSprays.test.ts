@@ -182,6 +182,15 @@ describe("Nina Ricci L'Air du Temps 30ml stays merged", () => {
   it('would have split them if the words had been read as a size label for every shop', () => {
     // What the first attempt did, as a control: same name as the bottle, other barcode.
     const asSizeLabel = { ...travel, name: bottles[0]!.name };
-    expect(findDuplicateGroups([...bottles, asSizeLabel])).toEqual([]);
+    const groups = findDuplicateGroups([...bottles, asSizeLabel]);
+    // The two barcodes still refuse each other, so the travel spray never joins
+    // a bottle that carries the bottle's barcode. (The two shops with no barcode
+    // are folded together now, whatever else is in the bucket; see
+    // productMatch.ts, "listings with no barcode at all".)
+    for (const g of groups) {
+      const members = [g.canonical, ...g.absorbed];
+      const joinsTheTravelSpray = members.some((m) => m === asSizeLabel);
+      expect(joinsTheTravelSpray && members.some((m) => m.ean === '3137370207030')).toBe(false);
+    }
   });
 });

@@ -53,4 +53,10 @@ export interface DormantEntry {
 /** What the lazy data file holds: the generated module's one data export. */
 export interface DormantFile {
   DORMANT_PRODUCTS: Record<string, DormantEntry>;
+  /**
+   * Ids of products folded into another, each with the id that holds it now
+   * (src/catalogue/idAliases.ts). Fetched with the products above because the
+   * question is the same one: an address that is not in the catalogue.
+   */
+  ID_ALIASES: Record<string, string>;
 }
