@@ -101,8 +101,93 @@ export function brandKey(name: string): string {
     .replace(/[^a-z0-9]+/g, '');
 }
 
+/**
+ * One house standing under two or more brand names, merged on 2026-10-04.
+ *
+ * Each pair is `[the spelling that goes, the spelling kept]`. They are folded
+ * into KNOWN_ALIASES below, and demo/router.ts reads this same list to send an
+ * old brand page address to the merged brand instead of a not found, so the
+ * two cannot drift apart.
+ *
+ * Every pair was checked against the live catalogue before it was written, the
+ * same discipline as the table below: the two names share a product (the same
+ * bottle sold under both, or a title that names the other spelling in full), or
+ * one is plainly a fragment of the other that a feed cut short. Nothing here is
+ * a rule about a suffix. "Maison Margiela" and "Margiela", "Al Haramain" and
+ * "Al Rehab", "Essential Parfums" and "Essential Perfumes" are not on this
+ * list and are not to be added without the same check. The kept spelling is the
+ * one the house itself uses, or where both are in use the one more shops use.
+ */
+export const BRAND_MERGES: readonly (readonly [from: string, to: string])[] = [
+  // A trailing storefront or division word on the same house.
+  ['Kayali UK', 'Kayali'],
+  ['Parfums Aubusson', 'Aubusson'],
+  ['Balenciaga Beauty', 'Balenciaga'],
+  ['Balmain Beauty', 'Balmain'],
+  ['Bharara Beauty', 'Bharara'],
+  ['Fenty', 'Fenty Beauty'],
+  ['Gritti Fragrances', 'Gritti'],
+  ['J.U.S Parfums', 'J.U.S'],
+  ['Tauer Perfumes', 'Tauer'],
+  ['Kilian Paris', 'Kilian'],
+  ['Cherigan Paris', 'Cherigan'],
+  ['Carner Barcelona', 'Carner'],
+  ['Sisley-Paris', 'Sisley'],
+  ['Goldfield & Banks Australia', 'Goldfield & Banks'],
+  ['Maison d\'Orsay Paris', 'D\'Orsay'],
+  ['Nicolaï Parfumeur Createur', 'Nicolai'],
+  ['Farmacia SS. Annunziata dal 1561', 'Farmacia SS. Annunziata'],
+  ['Casamorati dal 1888', 'Casamorati'],
+  ['Mendittorosa Odori d\'Anima', 'Mendittorosa'],
+  ['Editions de Parfums Frédéric Malle', 'Frédéric Malle'],
+  ['Stéphane Humbert Lucas 777', 'Stephane Humbert Lucas'],
+  ['French Avenue (FA PARIS)', 'French Avenue'],
+  ['Le Couvent', 'Le Couvent Maison de Parfum'],
+  ['Le Couvent des Minimes', 'Le Couvent Maison de Parfum'],
+  // The house's full name on one side and a shortened form on the other.
+  ['Francis Kurkdjian', 'Maison Francis Kurkdjian'],
+  ['Alfred Dunhill', 'Dunhill'],
+  ['Christian Dior', 'Dior'],
+  ['Thierry Mugler', 'Mugler'],
+  ['Carthusia', 'Carthusia i Profumi di Capri'],
+  ['Initio', 'Initio Parfums Privés'],
+  ['Ferragamo', 'Salvatore Ferragamo'],
+  ['Etienne Aigner', 'Aigner'],
+  ['Memo', 'Memo Paris'],
+  ['Louboutin', 'Christian Louboutin'],
+  ['Max Azria', 'Bcbg Max Azria'],
+  ['Proenza', 'Proenza Schouler'],
+  ['L\'Artisan', 'L\'Artisan Parfumeur'],
+  // A feed cut the house name short, and the title names it in full.
+  ['Banderas', 'Antonio Banderas'],
+  ['Lagerfeld', 'Karl Lagerfeld'],
+  ['Boss', 'Hugo Boss'],
+  ['Tracy', 'Ellen Tracy'],
+  ['Fierce', 'Abercrombie & Fitch'],
+  ['Fierce Cologne', 'Abercrombie & Fitch'],
+  ['Flower', 'Kenzo'],
+  ['Flower Ikebana', 'Kenzo'],
+  // Plural, singular and "&" against "and": the same name written two ways.
+  ['Escentric Molecule', 'Escentric Molecules'],
+  ['Giorgio Beverly Hill', 'Giorgio Beverly Hills'],
+  ['Just Jacks', 'Just Jack'],
+  ['Scotch and Soda', 'Scotch & Soda'],
+  ['Tiffany', 'Tiffany & Co'],
+  ['Zadig and Voltaire', 'Zadig & Voltaire'],
+];
+
+/** BRAND_MERGES as alias entries: both spellings resolve to the kept one. */
+function mergeAliases(): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const [from, to] of BRAND_MERGES) {
+    out[brandKey(from)] = to;
+    out[brandKey(to)] = to;
+  }
+  return out;
+}
+
 /** See the "Known aliases" section of the module doc above. */
-const KNOWN_ALIASES: Record<string, string> = {
+export const HAND_ALIASES: Record<string, string> = {
   [brandKey('Ysl')]: 'Yves Saint Laurent',
   [brandKey('Yves Saint Laurent')]: 'Yves Saint Laurent',
   [brandKey('Donna Karan')]: 'DKNY',
@@ -809,6 +894,13 @@ const KNOWN_ALIASES: Record<string, string> = {
   [brandKey('Annick Goutal')]: 'Goutal',
   [brandKey('Goutal')]: 'Goutal',
 };
+
+/**
+ * Every alias in force: the hand written table above, then BRAND_MERGES. The
+ * merges come last, and tests/brandMerges.test.ts holds the two apart: no merge
+ * may quietly overturn an older entry that says something different.
+ */
+export const KNOWN_ALIASES: Record<string, string> = { ...HAND_ALIASES, ...mergeAliases() };
 
 /**
  * One hand-checked fragrance house, and the URL that proves it is one.

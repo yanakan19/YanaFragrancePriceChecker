@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.49.0',
+    date: '4 Oct 2026',
+    title: 'One brand page per fragrance house',
+    points: [
+      'Kayali UK and 48 more split brands now merged',
+      '160 bottles sold under both names now share a page',
+      'Old brand addresses open the merged brand',
+    ],
+  },
+  {
     version: 'v3.48.0',
     date: '4 Oct 2026',
     title: 'Same size rows now say which is which',
