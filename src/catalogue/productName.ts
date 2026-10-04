@@ -2032,6 +2032,11 @@ export function displayName(
   }
   s = s
     .replace(/\b\d{1,4}(?:\.\d)?\s*ml\b/gi, '')
+    // A size the shop put in brackets ("Molecule 01 - Portable (30ml)", Cult
+    // Beauty's way of writing every size) leaves the brackets behind once the
+    // size is gone. Cleared the way stripRedundantSize already clears them, so
+    // a name never ends "Portable ()".
+    .replace(/\(\s*\)|\[\s*\]/g, ' ')
     .replace(/\b(spray|splash|refillable|vapo|natural)\b/gi, '')
     .replace(/\s{2,}/g, ' ')
     // Leading "&" only, not trailing: Tiffany & Co's own titles read "Tiffany

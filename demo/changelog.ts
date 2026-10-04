@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.44.0',
+    date: '4 Oct 2026',
+    title: 'Escentric Molecules at Cult Beauty',
+    points: [
+      'Cult Beauty Escentric Molecules bottles now show',
+      "They sit beside the brand's own shop",
+      'Extrait no longer mixed with Eau de Toilette',
+    ],
+  },
+  {
     version: 'v3.43.0',
     date: '4 Oct 2026',
     title: 'Preorders are shown on their own',

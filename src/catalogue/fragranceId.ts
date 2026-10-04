@@ -1,5 +1,5 @@
 import type { StoredListing } from './types.js';
-import { getRetailer } from '../config/retailers.js';
+import { RETAILERS, getRetailer } from '../config/retailers.js';
 import { trustworthyEan } from './productMatch.js';
 import { giftSetId, isGiftSet } from './giftSet.js';
 
@@ -904,6 +904,66 @@ export function sellsOnlyFragrance(retailerId: string): boolean {
 }
 
 /**
+ * The words of each fragrance only house, as the registry already records
+ * them: the `singleBrandOnly` name of every shop a human has also vouched for
+ * with `fragranceOnlyCatalogue` (Escentric Molecules, Kayali, Zimaya, Riiffs).
+ * Both statements have to be on the same entry. A single brand shop alone
+ * proves nothing (LUSH and Bath & Body Works are single brand and sell soap),
+ * and the flag alone says nothing about a house. Together they say what the
+ * house makes: nothing but fragrance, none of it named by a strength.
+ *
+ * Derived from the registry rather than listed a second time here, so the
+ * house's own shop and every other shop that resells it can never disagree
+ * about what the house sells.
+ */
+const FRAGRANCE_ONLY_HOUSE_WORDS: readonly (readonly string[])[] = RETAILERS.filter(
+  (r) => r.fragranceOnlyCatalogue === true && r.singleBrandOnly,
+).map((r) => brandWords(r.singleBrandOnly!));
+
+/** Lowercase letters and digits only, one entry per word: "ESCENTRIC MOLECULES - 01" is escentric, molecules, 01. */
+function brandWords(text: string): string[] {
+  return text
+    .normalize('NFKD')
+    .replace(/\p{Mn}/gu, '')
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter(Boolean);
+}
+
+/**
+ * Whether a listing at a shop that sells much more than fragrance is a
+ * bottle of a fragrance only house: the shop's own brand field names the
+ * house, or the title opens with the house's whole name.
+ *
+ * This is what the concentration test cannot see. Cult Beauty lists
+ * "Escentric Molecules Molecule 02 (100ml)" and "ESCENTRIC MOLECULES -
+ * Molecule 01 - Portable (30ml)": the house names its products after
+ * themselves ("Molecule 01", "Escentric 05"), never after a strength, so the
+ * test rejected all seven of them, and the shop's own storefront (flagged
+ * `fragranceOnlyCatalogue`) was the only place the products could appear.
+ * The flag is a statement about what a shop sells, and for a single house
+ * shop the same statement is true of the house wherever it is resold.
+ *
+ * Deliberately narrow, so it cannot become the skincare leak the test exists
+ * to stop: the house name must be the WHOLE of the leading words or of the
+ * brand field (never a substring, never a trailing mention), the house must
+ * be one a human vouched for as fragrance only, and every other rule in
+ * isFragrance still applies (the not a fragrance words, a stated single
+ * size, no multi item set).
+ */
+export function isBottleOfFragranceOnlyHouse(l: Pick<StoredListing, 'rawTitle' | 'rawBrand'>): boolean {
+  const title = brandWords(l.rawTitle);
+  const brand = l.rawBrand ? brandWords(l.rawBrand) : [];
+  const startsWith = (words: readonly string[], house: readonly string[]) =>
+    words.length >= house.length && house.every((w, i) => words[i] === w);
+  return FRAGRANCE_ONLY_HOUSE_WORDS.some(
+    (house) =>
+      house.length > 0 &&
+      (startsWith(title, house) || (brand.length === house.length && startsWith(brand, house))),
+  );
+}
+
+/**
  * Drop diacritics so an accented spelling matches the plain one.
  *
  * "eau fraiche" has been in CONCENTRATION from the start, but a shop writing
@@ -1133,7 +1193,7 @@ export function isFragrance(l: StoredListing): boolean {
   // per-shop statement rather than anything inferred. Everywhere else the
   // concentration word stays required, because it is what keeps a broad
   // beauty retailer's skincare out of a fragrance comparison.
-  if (sellsOnlyFragrance(l.retailerId)) {
+  if (sellsOnlyFragrance(l.retailerId) || isBottleOfFragranceOnlyHouse(l)) {
     return !MULTI_ITEM.test(t) && (t.match(/\d{1,4}(?:\.\d)?\s*ml\b/gi) ?? []).length < 2;
   }
 
