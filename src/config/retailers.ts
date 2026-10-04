@@ -2076,6 +2076,11 @@ export const RETAILERS: readonly Retailer[] = [
       // About 2,400 products to read once.
       discoveryPages: 300,
     },
+    // Owner decision 2026-10-04: re-read once a day, as Cult Beauty does.
+    // LOOKFANTASTIC's category route (commit 459ac7b4) grows towards about
+    // 2,400 listings, which a 12 hour refresh would not fit in its slot. At
+    // most about 31 hours old when re-read, inside the 48 hour check.
+    refreshAfterHours: 24,
     enabled: true,
     // Live spike 1 Aug 2026 found the old section URL 404ing (fragrance.list
     // no longer exists). Corrected 6 Aug 2026 to the real category path,
