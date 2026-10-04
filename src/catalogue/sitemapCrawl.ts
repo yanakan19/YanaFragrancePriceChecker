@@ -5,6 +5,7 @@ import { parseListings } from './jsonld.js';
 import { isAllowed, type RobotsRules } from './robots.js';
 import { readRobotsResponse, resolveRobotsReadings } from './robotsSource.js';
 import { BEAUTY_BAY_API, beautyBayApiUrl, beautyBayParts, parseBeautyBayProduct } from './beautyBayApi.js';
+import { titleWithThgPageStrength } from './thgPageStrength.js';
 import { BOT_HEADERS } from './botIdentity.js';
 
 /**
@@ -1071,6 +1072,14 @@ export async function crawlViaSitemap(
     }
     if (route?.titleParts?.length && found.length === 1) {
       found[0] = { ...found[0]!, rawTitle: withTitleParts(found[0]!.rawTitle, res.body, route.titleParts) };
+    }
+    // The strength the brand's copy states on this same page, put into a title
+    // that names none. No request of its own.
+    if (route?.strengthFromPage) {
+      for (let k = 0; k < found.length; k++) {
+        const titled = titleWithThgPageStrength(found[k]!, res.body, options.retailer.id);
+        if (titled !== found[k]!.rawTitle) found[k] = { ...found[k]!, rawTitle: titled };
+      }
     }
     listings.push(...found);
     // A stored product page that now redirects to a different page is gone at

@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.60.0',
+    date: '4 Oct 2026',
+    title: 'More Cult Beauty perfumes now show',
+    points: [
+      'Strength is now read from the Cult Beauty page',
+      'Creed Eladaria and Byredo Alto Astral now show',
+      'They appear as each page is next rechecked',
+    ],
+  },
+  {
     version: 'v3.59.0',
     date: '4 Oct 2026',
     title: 'Double listings now share one page',
