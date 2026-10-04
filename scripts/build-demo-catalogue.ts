@@ -44,6 +44,7 @@ import {
   trustworthyEan,
 } from '../src/catalogue/productMatch.js';
 import { auditPriceScale } from '../src/catalogue/priceScale.js';
+import { formatLabels } from '../src/catalogue/offerFormat.js';
 import { auditWasPrices } from '../src/catalogue/wasPriceCredibility.js';
 import {
   isFragrance,
@@ -1776,18 +1777,47 @@ const ordered = [...products.values()].sort(
 // twice over, for something no reader of the shipped file consults.
 const crawled: Record<
   string,
-  Omit<Offer, 'description' | 'sizeMl' | 'brandDirect' | 'matchKey' | 'rawTitle'>[]
+  (Omit<Offer, 'description' | 'sizeMl' | 'brandDirect' | 'matchKey' | 'rawTitle'> & { format?: string })[]
 > = {};
+// Two offers of one shop on one product, the same size, told apart by the
+// shop's own format words ("Miniature", "Travel Spray"): src/catalogue/
+// offerFormat.ts. Counted for the build log, and written only where a label
+// exists, so the shipped file grows by those rows alone.
+const formatLabelled = new Map<string, number>();
 for (const p of ordered) {
+  const byShop = new Map<string, number[]>();
+  p.offers.forEach((o, i) => byShop.set(o.retailerId, [...(byShop.get(o.retailerId) ?? []), i]));
+  const formats: (string | null)[] = p.offers.map(() => null);
+  for (const idx of byShop.values()) {
+    if (idx.length < 2) continue;
+    const shop = RETAILERS.find((r) => r.id === p.offers[idx[0]!]!.retailerId);
+    const labels = formatLabels(
+      idx.map((i) => ({
+        // The shop's own signature ("| Perfumeo") is not part of any format.
+        rawTitle: shop ? stripTrailingShopCredit(p.offers[i]!.rawTitle, shop.name, shop.domain) : p.offers[i]!.rawTitle,
+        sizeMl: p.offers[i]!.sizeMl,
+      })),
+    );
+    idx.forEach((i, k) => {
+      formats[i] = labels[k]!;
+    });
+  }
   crawled[p.id] = p.offers.map(
-    ({
-      description: _drop,
-      sizeMl: _size,
-      brandDirect: _house,
-      matchKey: _key,
-      rawTitle: _title,
-      ...rest
-    }) => rest,
+    (
+      {
+        description: _drop,
+        sizeMl: _size,
+        brandDirect: _house,
+        matchKey: _key,
+        rawTitle: _title,
+        ...rest
+      },
+      i,
+    ) => {
+      const format = formats[i];
+      if (format) formatLabelled.set(rest.retailerId, (formatLabelled.get(rest.retailerId) ?? 0) + 1);
+      return format ? { ...rest, format } : rest;
+    },
   );
 }
 
@@ -1916,6 +1946,13 @@ export interface CrawledOffer {
    * the source publishes none; never defaulted or guessed.
    */
   rating: { value: number; count: number | null } | null;
+  /**
+   * The shop's own words for what format this row is, where one shop sells two
+   * of the same size of one perfume that differ only by it: "Miniature" beside
+   * "Travel Spray", both 10ml. Absent for every other row. See
+   * src/catalogue/offerFormat.ts.
+   */
+  format?: string;
 }
 
 export interface Notes {
@@ -2064,6 +2101,7 @@ export function offersFor(productId: string): RawOffer[] {
     promoEndsAt: o.promoEndsAt,
     fetchedAt: o.fetchedAt,
     rating: o.rating,
+    ...(o.format ? { formatLabel: o.format } : {}),
   }));
 }
 
@@ -2096,6 +2134,11 @@ console.log(
     `  ${sameBottleRows} same-bottle rows collapsed (one shop, the same bottle on two of its own pages)` +
     (sameBottleRowsByShop.size
       ? ` (${[...sameBottleRowsByShop].sort((a, b) => b[1] - a[1]).map(([id, n]) => `${id} ${n}`).join(', ')})`
+      : '') +
+    '\n' +
+    `  ${[...formatLabelled.values()].reduce((n, v) => n + v, 0)} offer rows labelled with the shop's own format, two same size rows of one shop told apart` +
+    (formatLabelled.size
+      ? ` (${[...formatLabelled].sort((a, b) => b[1] - a[1]).map(([id, n]) => `${id} ${n}`).join(', ')})`
       : '') +
     '\n' +
     `  ${supersededStockRows} superseded stock rows dropped (same page and price, an older stock reading)` +

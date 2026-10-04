@@ -1703,6 +1703,10 @@ function offerRow(
   // its price is the shop's live pre-order price rather than a last one, so
   // it keeps the delivery and age facts and wears a Preorder tag instead.
   const marks = rowStockMarks(row);
+  // Two same size rows of one shop, told apart by the shop's own format words
+  // ("Miniature", "Travel Spray"). Said first, because it is what the reader
+  // is choosing between. Title Case already, from src/catalogue/offerFormat.ts.
+  if (row.formatLabel) facts.push(row.formatLabel);
   if (marks.lastPrice) {
     facts.push('Last price');
   } else {
