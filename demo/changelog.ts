@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.63.0',
+    date: '4 Oct 2026',
+    title: 'Kayali sets and tidier perfume names',
+    points: [
+      'Kayali duos and trios now show as sets',
+      'Kayali bottles at two shops share one page',
+      'Foreign script subtitles removed from names',
+    ],
+  },
+  {
     version: 'v3.62.0',
     date: '4 Oct 2026',
     title: 'More LOOKFANTASTIC fragrances',
