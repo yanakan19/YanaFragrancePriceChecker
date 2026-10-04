@@ -5,11 +5,9 @@ import {
   outOfStockOffers,
   purchasableOffers,
   presentOffer,
-  isStaleFetch,
   isTooOldToShow,
   showableListingCount,
   HIDE_OFFER_AFTER_DAYS,
-  STALE_OFFER_DAYS,
 } from '../src/services/priceService.js';
 import { getRetailer } from '../src/config/retailers.js';
 import type { RawOffer, StockState } from '../src/types/offer.js';
@@ -297,37 +295,8 @@ describe('result grouping', () => {
   });
 });
 
-describe('isStaleFetch', () => {
-  it('is not stale exactly at the boundary — only strictly past it counts', () => {
-    expect(isStaleFetch(daysAgo(STALE_OFFER_DAYS), NOW)).toBe(false);
-  });
-
-  it('is stale one second past the boundary', () => {
-    const justOver = new Date(NOW.getTime() - STALE_OFFER_DAYS * DAY_MS - 1000).toISOString();
-    expect(isStaleFetch(justOver, NOW)).toBe(true);
-  });
-
-  it('is not stale one second inside the boundary', () => {
-    const justUnder = new Date(NOW.getTime() - STALE_OFFER_DAYS * DAY_MS + 1000).toISOString();
-    expect(isStaleFetch(justUnder, NOW)).toBe(false);
-  });
-
-  it('is never stale for the ordinary case: a healthy shop simply visited a few days ago', () => {
-    // The rotating least-recently-checked queue means a healthy shop can
-    // legitimately go several days between visits — that must never read as
-    // "broken". See STALE_OFFER_DAYS's own comment for the measured spread
-    // this threshold is chosen against.
-    expect(isStaleFetch(daysAgo(3), NOW)).toBe(false);
-    expect(isStaleFetch(daysAgo(7), NOW)).toBe(false);
-  });
-
-  it('does not treat an unparseable timestamp as stale', () => {
-    expect(isStaleFetch('not-a-date', NOW)).toBe(false);
-  });
-});
-
 /**
- * Owner's decision, 2026-10-03: the age of a listed offer no longer decides
+ * Owner's decision, 2026-10-03: the age of a listed offer does not decide
  * which row is the cheapest. Every listed buyable row competes on price and
  * says its own age; too old to trust is not listed (HIDE_OFFER_AFTER_DAYS).
  */
@@ -336,75 +305,63 @@ describe('an older listed offer competes on price like any other', () => {
     const rows = buildComparison(
       [
         offer('boots', 50, 'inStock', { fetchedAt: daysAgo(1) }),
-        offer('john-lewis', 30, 'inStock', { fetchedAt: daysAgo(STALE_OFFER_DAYS + 1) }),
+        offer('john-lewis', 30, 'inStock', { fetchedAt: daysAgo(6) }),
       ],
       { now: NOW },
     );
     const best = bestOffer(rows)!;
     expect(best.retailer.id).toBe('john-lewis');
-    expect(best.stale).toBe(true);
+    expect(best.ageSeconds).toBe(6 * 24 * 60 * 60);
     // And it is the first row, so nothing cheaper sits above it.
     expect(rows[0]).toBe(best);
   });
 
   it('names a lone older offer as the best', () => {
     const rows = buildComparison(
-      [offer('john-lewis', 30, 'inStock', { fetchedAt: daysAgo(STALE_OFFER_DAYS + 1) })],
+      [offer('john-lewis', 30, 'inStock', { fetchedAt: daysAgo(6) })],
       { now: NOW },
     );
-    const best = bestOffer(rows)!;
-    expect(best.retailer.id).toBe('john-lewis');
-    expect(best.stale).toBe(true);
+    expect(bestOffer(rows)!.retailer.id).toBe('john-lewis');
   });
 
-  it('leaves a fresh, healthy-shop-visited-a-few-days-ago row alone', () => {
-    // The exact case the threshold must not fire on: one shop, visited a
-    // handful of days ago, still healthy.
-    const rows = buildComparison([offer('boots', 40, 'inStock', { fetchedAt: daysAgo(5) })], {
-      now: NOW,
-    });
-    expect(bestOffer(rows)!.stale).toBe(false);
-  });
-
-  it('never removes a stale offer from the row set itself while it is under HIDE_OFFER_AFTER_DAYS', () => {
+  it('keeps every offer under the limit in the row set, whatever its age', () => {
     const rows = buildComparison(
       [
         offer('boots', 50, 'inStock', { fetchedAt: daysAgo(1) }),
-        offer('john-lewis', 30, 'inStock', { fetchedAt: daysAgo(STALE_OFFER_DAYS + 1) }),
+        offer('john-lewis', 30, 'inStock', { fetchedAt: daysAgo(HIDE_OFFER_AFTER_DAYS - 1) }),
       ],
       { now: NOW },
     );
     expect(rows).toHaveLength(2);
-    expect(rows.some((r) => r.retailer.id === 'john-lewis' && r.stale)).toBe(true);
   });
 });
 
 describe('HIDE_OFFER_AFTER_DAYS: offers too old to show at all', () => {
-  it('is 21 days, the owner\'s rule of 2026-10-03', () => {
-    expect(HIDE_OFFER_AFTER_DAYS).toBe(21);
+  it('is 7 days, the owner\'s rule of 2026-10-04, and the only age rule there is', () => {
+    expect(HIDE_OFFER_AFTER_DAYS).toBe(7);
   });
 
-  it('hides an offer last confirmed 22 days ago and shows one from 20 days ago', () => {
+  it('hides an offer last confirmed 8 days ago and shows one from 6 days ago', () => {
     const rows = buildComparison(
       [
-        offer('boots', 30, 'inStock', { fetchedAt: daysAgo(22) }),
-        offer('john-lewis', 50, 'inStock', { fetchedAt: daysAgo(20) }),
+        offer('boots', 30, 'inStock', { fetchedAt: daysAgo(8) }),
+        offer('john-lewis', 50, 'inStock', { fetchedAt: daysAgo(6) }),
       ],
       { now: NOW },
     );
     expect(rows.map((r) => r.retailer.id)).toEqual(['john-lewis']);
-    // The 20 day row is still listed, and is the best offer on it.
-    expect(rows[0]!.stale).toBe(true);
+    // The 6 day row is still listed, says its age, and is the best offer.
+    expect(rows[0]!.ageSeconds).toBe(6 * 24 * 60 * 60);
     expect(bestOffer(rows)).toBe(rows[0]);
   });
 
   it('never lets a hidden offer be the cheapest, even when it is the only one', () => {
-    const rows = buildComparison([offer('boots', 10, 'inStock', { fetchedAt: daysAgo(22) })], { now: NOW });
+    const rows = buildComparison([offer('boots', 10, 'inStock', { fetchedAt: daysAgo(8) })], { now: NOW });
     expect(rows).toEqual([]);
     expect(bestOffer(rows)).toBeNull();
   });
 
-  it('draws the line at exactly 21 days', () => {
+  it('draws the line at exactly 7 days', () => {
     expect(isTooOldToShow(daysAgo(HIDE_OFFER_AFTER_DAYS), NOW)).toBe(false);
     expect(isTooOldToShow(new Date(NOW.getTime() - HIDE_OFFER_AFTER_DAYS * DAY_MS - 1000).toISOString(), NOW)).toBe(true);
     expect(isTooOldToShow('not-a-date', NOW)).toBe(false);
@@ -416,7 +373,7 @@ describe('HIDE_OFFER_AFTER_DAYS: offers too old to show at all', () => {
         { retailerId: 'superdrug', fetchedAt: daysAgo(43) },
         { retailerId: 'boots', fetchedAt: daysAgo(1) },
       ],
-      b: [{ retailerId: 'superdrug', fetchedAt: daysAgo(22) }],
+      b: [{ retailerId: 'superdrug', fetchedAt: daysAgo(8) }],
       c: [{ retailerId: 'boots', fetchedAt: daysAgo(30) }],
     };
     expect(showableListingCount(catalogue, 'superdrug', NOW)).toBe(0);
@@ -427,7 +384,7 @@ describe('HIDE_OFFER_AFTER_DAYS: offers too old to show at all', () => {
   it('counts a product once however many showable offers the shop has on it', () => {
     const catalogue = {
       a: [
-        { retailerId: 'john-lewis', fetchedAt: daysAgo(14) },
+        { retailerId: 'john-lewis', fetchedAt: daysAgo(6) },
         { retailerId: 'john-lewis', fetchedAt: daysAgo(2) },
       ],
     };

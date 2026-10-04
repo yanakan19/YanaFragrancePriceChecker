@@ -11,7 +11,7 @@ import type { PresentedOffer } from '../src/types/offer.js';
  *   gone          sold out
  *
  * ── Why there is no "Older prices" group (owner's decision, 2026-10-03) ─────
- * For one morning, offers last checked over STALE_OFFER_DAYS ago sat in a
+ * For one morning, offers last checked over ten days ago sat in a
  * group of their own below the current ones. The owner's call the same day:
  * every listed offer belongs in the one list, sorted by delivered price, each
  * row saying its own age in its facts line, and the Cheapest tag goes on the

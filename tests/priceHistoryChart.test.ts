@@ -147,7 +147,7 @@ describe('price history graph', () => {
     // Perfumeo always ships free; Perfume Click adds £3.95 to £32.50.
     expect(html).toContain('Older price: £28.99 with delivery at Perfumeo');
     expect(html).toContain('data-price="£36.45 with delivery"');
-    expect(html).toContain('Hollow points are older prices, not checked in the last 10 days.');
+    expect(html).toContain('Hollow points are older prices, not checked in the last 7 days.');
   });
 
   it('shows a product nobody can buy as grey sold out points, never as a payable price', () => {

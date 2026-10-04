@@ -65,7 +65,7 @@ export function dealFor(frag: DemoFragrance): Pick | null {
   if (frag.houseCeiling === null || !frag.photoUrl || frag.concentration === 'Perfume Oil') return null;
   const rows = buildComparison(offersFor(frag.id), { sortBy: 'delivered' });
   const best = bestOffer(rows);
-  if (!best || best.deliveredPriceGbp === null || best.stale || !best.isPurchasable) return null;
+  if (!best || best.deliveredPriceGbp === null || !best.isPurchasable) return null;
   if (!cheapestVerdict(rows).decided) return null;
   const ref = pickReferencePrice(
     frag.houseCeiling,

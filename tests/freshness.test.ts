@@ -349,7 +349,7 @@ describe('freshness of shown listings', () => {
         stored({ lastSeenAt: hoursAgo(2) }),
         stored({ retailerSku: 'b', lastSeenAt: hoursAgo(30) }),
         stored({ retailerSku: 'c', lastSeenAt: hoursAgo(60) }),
-        stored({ retailerSku: 'd', lastSeenAt: hoursAgo(24 * 22) }), // hidden, past 21 days
+        stored({ retailerSku: 'd', lastSeenAt: hoursAgo(24 * 8) }), // hidden, past 7 days
         stored({ retailerSku: 'e', lastSeenAt: hoursAgo(60), status: 'delisted' }),
         stored({ retailerSku: 'f', lastSeenAt: hoursAgo(60), priceGbp: null }),
       ],
