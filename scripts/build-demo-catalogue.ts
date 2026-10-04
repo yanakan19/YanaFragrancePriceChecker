@@ -21,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { writeGenerated } from './generatedFiles.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { isNewListing } from '../src/catalogue/newBadge.js';
+import { ownSizeTitle } from '../src/catalogue/shopifyJson.js';
 import { HIDE_OFFER_AFTER_DAYS, isTooOldToShow } from '../src/services/priceService.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 import { listingStockState } from '../src/catalogue/listingAvailability.js';
@@ -694,7 +695,7 @@ if (existsSync(dir)) {
         if (!isTooOldToShow(stored.lastSeenAt, now)) continue;
         tooOldListings.push({
           ...stored,
-          rawTitle: repairMojibake(stored.rawTitle),
+          rawTitle: ownSizeTitle(repairMojibake(stored.rawTitle)),
           rawBrand: stored.rawBrand === null ? null : repairMojibake(stored.rawBrand),
         });
       }
@@ -708,11 +709,16 @@ if (existsSync(dir)) {
     // only at display time would leave the classifier reading different
     // text from the one shown, which is how "ParfumÃ©e" came to pass the
     // concentration test for the wrong reason. See repairMojibake.
+    //
+    // The same place repairs a title that lists every size its page sells
+    // ("(30ml, 50ml, 100ml) 50ml": Perfume Direct) down to the row's own, so a
+    // listing harvested before the parser did it reads its own size too. See
+    // ownSizeTitle in src/catalogue/shopifyJson.ts; a no-op for any other title.
     eligible.push({
       retailer,
       listings: active.map((stored) => ({
         ...stored,
-        rawTitle: repairMojibake(stored.rawTitle),
+        rawTitle: ownSizeTitle(repairMojibake(stored.rawTitle)),
         rawBrand: stored.rawBrand === null ? null : repairMojibake(stored.rawBrand),
       })),
     });

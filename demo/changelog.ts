@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.58.0',
+    date: '4 Oct 2026',
+    title: 'Perfume Direct sizes now match their prices',
+    points: [
+      'Each size now sits on the page for that size',
+      'A 100ml price no longer shows as a 30ml price',
+      'About 1,300 Perfume Direct prices moved',
+    ],
+  },
+  {
     version: 'v3.57.0',
     date: '4 Oct 2026',
     title: 'Old product links open the right page',
