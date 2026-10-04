@@ -20,9 +20,9 @@ on:
 permissions:
   contents: write
 
-# The catalogue crawl's group, shared on purpose (2026-10-04): both commit
-# demo/index.html, demo/404.html and demo/data, and in the same group the two
-# never race each other's push. This run waits while a crawl is going, and
+# The catalogue crawl's group, shared on purpose (2026-10-04): both used to
+# commit demo/index.html, demo/404.html and demo/data (now built at deploy
+# time instead), and in the same group the two never race each other's push. This run waits while a crawl is going, and
 # the crawl's guard skips a tick while an older run of its own is going (see
 # scripts/crawl-guard.sh), so a waiting run here is not cancelled by the
 # crawl's next tick. A manual crawl dispatch that arrives while this run
@@ -58,12 +58,18 @@ jobs:
         timeout-minutes: 40
         run: npm run links:resolve -- --minutes ${{ inputs.minutes || '30' }}
 
-      # The crawl pushes to this branch most hours and rebuilds the page each
-      # time, so the page is rebuilt here on top of the newest commit rather
-      # than the one this run started from. That keeps the push a fast
-      # forward instead of a conflict over demo/index.html.
-      - name: Rebuild the page on the latest commit
-        timeout-minutes: 10
+      # The crawl pushes to this branch most hours, so this run's three files
+      # are laid on top of the newest commit rather than the one it started
+      # from, which keeps the push a fast forward.
+      #
+      # The page is not rebuilt here any more (2026-10-04): it is built by
+      # deploy-pages.yml, which runs when this workflow completes and builds
+      # from the branch tip, these links included. All three files are
+      # "incoming" in scripts/generated-files.txt, so a push conflict keeps
+      # the other side and never needs a rebuild (and this shallow checkout
+      # could not replay the price history for one).
+      - name: Lay the links on the latest commit
+        timeout-minutes: 5
         run: |
           mkdir -p "$RUNNER_TEMP/links"
           cp data/fragrance-links.json data/fragrance-links-seen.json demo/fragranceLinks.generated.ts "$RUNNER_TEMP/links/"
@@ -71,25 +77,11 @@ jobs:
           git reset --hard "origin/$GITHUB_REF_NAME"
           cp "$RUNNER_TEMP/links/fragrance-links.json" "$RUNNER_TEMP/links/fragrance-links-seen.json" data/
           cp "$RUNNER_TEMP/links/fragranceLinks.generated.ts" demo/
-          scripts/retry.sh 3 npm ci
-          npm run demo
-          # This checkout's history is shallow, so the sitemap's dates would
-          # be wrong; the crawl owns that file.
-          git checkout -- demo/sitemap.xml
 
-      # REGENERATE is what scripts/commit-and-push.sh runs when the push meets
-      # a conflict or a source change. Its default, `npm run rebuild`, replays
-      # the price history from git, and this checkout is shallow: the replay
-      # would see one commit, build a one point history into demo/data, and
-      # the page's freshness check would then refuse the push. This commit
-      # names only the page, which `npm run demo` rebuilds from the generated
-      # modules already on the branch.
       - name: Commit and push
         timeout-minutes: 15
-        env:
-          REGENERATE: npm run demo
         run: |
           ./scripts/commit-and-push.sh \
             "Fragrance links: $(date -u +%Y-%m-%d)" \
             data/fragrance-links.json data/fragrance-links-seen.json \
-            demo/fragranceLinks.generated.ts demo/index.html demo/404.html demo/data
+            demo/fragranceLinks.generated.ts

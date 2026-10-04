@@ -1,8 +1,9 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { computeDemoInputsHash, readStampedHash } from '../scripts/demoInputsHash.js';
+import { staleReason } from '../scripts/ensure-demo-built.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -31,25 +32,45 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
  * small input files (milliseconds), never re-running the ~1-2 minute
  * `tsc` + `esbuild` build itself.
  */
+//
+// Since 2026-10-04 the page is not committed: deploy-pages.yml builds it from
+// the branch before every deployment, so the published page always matches
+// its source by construction. What this still guards is the local page every
+// other test of the built site reads: `npm test` rebuilds it first when it is
+// missing or stale (scripts/ensure-demo-built.ts), and a direct
+// `npx vitest run` on a stale page fails here instead of passing against
+// yesterday's markup.
+const NOT_BUILT =
+  'demo/index.html is not built. It is built at deploy time and not committed (2026-10-04); ' +
+  'run `npm run demo` once, or run `npm test`, which builds it first when it is missing or stale.';
+
 describe('demo build freshness', () => {
   it('demo/index.html was rebuilt after its most recent source change', () => {
+    expect(existsSync(resolve(root, 'demo/index.html')), NOT_BUILT).toBe(true);
     const built = readFileSync(resolve(root, 'demo/index.html'), 'utf8');
     const stamped = readStampedHash(built);
     expect(
       stamped,
       'demo/index.html has no demo-build-hash stamp at all. That means it predates this check, ' +
-        'or was hand-edited. Run `npm run demo` and commit the result.',
+        'or was hand-edited. Run `npm run demo`.',
     ).not.toBeNull();
 
     const current = computeDemoInputsHash(root);
     expect(
       stamped,
       `demo/index.html is stale: it was built from a different set of source files than what is ` +
-        `on disk right now (expected sha256:${current.hash}, found sha256:${stamped}). This is the ` +
-        `2026-08-26 failure mode — demo/app.ts, demo/template.html, or another file ` +
-        `tsconfig.demo.json bundles changed since the last real build. Run \`npm run demo\` and ` +
-        `commit demo/index.html and demo/404.html alongside your source change.`,
+        `on disk right now (expected sha256:${current.hash}, found sha256:${stamped}). ` +
+        `demo/app.ts, demo/template.html, or another file tsconfig.demo.json bundles changed since ` +
+        `the last build. Run \`npm run demo\` (the deploy builds its own; nothing to commit).`,
     ).toBe(current.hash);
+  });
+
+  it('the built page is never committed, and npm test builds it when it is missing or stale', () => {
+    const ignore = readFileSync(resolve(root, '.gitignore'), 'utf8');
+    for (const p of ['/demo/index.html', '/demo/404.html', '/demo/data/', '/demo/sitemap.xml']) expect(ignore).toContain(p);
+    const pkg = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8')) as { scripts: Record<string, string> };
+    expect(pkg.scripts.pretest).toBe('tsx scripts/ensure-demo-built.ts');
+    expect(staleReason(root)).toBeNull();
   });
 
   it('does not fingerprint the file this very test run rewrites', () => {

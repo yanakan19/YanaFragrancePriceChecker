@@ -161,21 +161,24 @@ variable** → name `SIGNED_COMMITS`, value `off`.
 
 ```
 npm ci
-npm test          # the whole suite, including the built page's layout and accessibility
-npm run demo      # rebuild demo/index.html, demo/404.html and demo/data/ after any change to the site
+npm test          # the whole suite, including the built page's layout and accessibility (builds the page first if needed)
+npm run demo      # build demo/index.html, demo/404.html, demo/data/ and demo/sitemap.xml
 ```
 
-`demo/index.html` is a build artefact, not source: edit `demo/app.ts`,
-`demo/template.html`, or anything else `tsconfig.demo.json` bundles, and run
-`npm run demo` before you commit. `tests/demoBuildFreshness.test.ts` fails
-`npm test` if the page's stamped build hash (`scripts/demoInputsHash.ts`) does
-not match the source. The catalogue, price history, deals and fragrance links
+`demo/index.html` is a build artefact, not source, and since 2026-10-04 it is
+not committed: `.github/workflows/deploy-pages.yml` builds it, with its data
+files and the sitemap, from the branch before every deployment, and they are
+gitignored. Edit `demo/app.ts`, `demo/template.html`, or anything else
+`tsconfig.demo.json` bundles, and run `npm run demo` to look at the result.
+`npm test` rebuilds the page first when its stamped build hash
+(`scripts/demoInputsHash.ts`) does not match the source
+(`scripts/ensure-demo-built.ts`). The catalogue, price history, deals and fragrance links
 ship beside the page as `demo/data/<module>.<hash>.json`, named for a hash of
 their content so the service worker can keep them for good
 (`scripts/bundle-demo.ts` explains why). The price history is fetched on
 demand, after the app has started (`demo/priceHistoryStore.ts`); the others
-are fetched before it starts. Commit `demo/data` with the page,
-deletions included: each build removes the previous build's files. Because
+are fetched before it starts. Each build removes the previous build's files
+from `demo/data`. Because
 the page fetches those files, serve `demo/` over HTTP to look at it (the
 Playwright scripts do, via `scripts/a11y-audit.ts`); it no longer opens from
 disk. `npm run perf:load` measures first and repeat visits on a slow phone.
@@ -235,7 +238,8 @@ free. Sorting on item price would have put it first.
 
 ```
 demo/               the website: app.ts, template.html, router;
-                    index.html and 404.html are built
+                    index.html, 404.html, data/ and sitemap.xml are
+                    built (at deploy time; not committed)
 src/                the pricing rules and catalogue logic the site bundles
                     (services/, catalogue/, config/retailers.ts = the registry)
 scripts/            harvest, crawl, build and report scripts (`npm run …`)

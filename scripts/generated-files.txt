@@ -1,4 +1,5 @@
-# Every file a workflow step or a build script writes and commits to the branch.
+# Every file a workflow step or a build script writes and commits to the branch,
+# and the files the page build writes that are built at deploy time instead.
 #
 # This is the one list. scripts/commit-and-push.sh reads it (through
 # scripts/generated-files.sh) to decide how to settle a push conflict, the
@@ -9,7 +10,8 @@
 # path it does not cover. Run #592 (2026-10-04) died because the sitemap was
 # written by the build but missing from the script's own copy of this list.
 #
-# Adding a generated file: add a line here in the same commit. Nothing else.
+# Adding a generated file: add a line here in the same commit. A "deploy" file
+# also needs a line in .gitignore (tests/generatedFiles.test.ts checks).
 #
 # Columns: policy, path, who writes it (free text, for people).
 #
@@ -20,22 +22,31 @@
 #             conflict the incoming (already pushed) side is kept; the next run
 #             writes it again.
 #   manual    Machine-written source. A push conflict stops for a person.
+#   deploy    Written by `npm run demo` and never committed: gitignored, and
+#             built from the committed files by .github/workflows/deploy-pages.yml
+#             before every deployment. No workflow may commit one, and
+#             scripts/commit-and-push.sh refuses a caller that names one.
 #
 # A path ending in / is a folder (everything under it). * matches any run of
 # characters, / included. Lines starting with # are comments.
 
-# ── npm run rebuild (catalogue:demo, deals:build, catalogue:history, demo) ──
+# ── npm run rebuild (catalogue:demo, deals:build, catalogue:history, then demo below) ──
 rebuild   demo/catalogue.generated.ts         npm run catalogue:demo (scripts/build-demo-catalogue.ts)
 rebuild   demo/dormant.generated.ts           npm run catalogue:demo (scripts/build-demo-catalogue.ts)
 rebuild   data/id-aliases.json                npm run catalogue:demo (scripts/build-demo-catalogue.ts), reads its own last copy
 rebuild   demo/deals.generated.ts             npm run deals:build (scripts/build-deals.ts)
 rebuild   demo/priceHistory.generated.ts      npm run catalogue:history (scripts/build-price-history.ts)
 rebuild   data/price-history-checkpoint.json  npm run catalogue:history (scripts/priceHistoryReplay.ts)
-rebuild   demo/index.html                     npm run demo (scripts/build-demo.ts)
-rebuild   demo/404.html                       npm run demo (scripts/build-demo.ts)
-rebuild   demo/data/                          npm run demo (scripts/build-demo.ts), content-hashed, old files deleted
-rebuild   demo/ads.txt                        npm run demo (scripts/build-demo.ts), from demo/ads.ts
-rebuild   demo/sitemap.xml                    npm run demo (scripts/build-sitemap.ts)
+
+# ── npm run demo: the published site, built at deploy time since 2026-10-04 ──
+# Committed by every crawl until then. The content-hashed data files took a new
+# name every build, which defeats git's delta compression: about 32 of the 57 MB
+# the repository grew by on 2026-10-04. See deploy-pages.yml's header.
+deploy    demo/index.html                     npm run demo (scripts/build-demo.ts)
+deploy    demo/404.html                       npm run demo (scripts/build-demo.ts)
+deploy    demo/data/                          npm run demo (scripts/build-demo.ts), content-hashed, old files deleted
+deploy    demo/ads.txt                        npm run demo (scripts/build-demo.ts), from demo/ads.ts
+deploy    demo/sitemap.xml                    npm run demo (scripts/build-sitemap.ts)
 
 # ── catalogue-daily.yml: harvest, houses, Awin sync, shipping, probes ──
 incoming  data/catalogue/*.json               harvest, Awin feed sync, storefront reprice

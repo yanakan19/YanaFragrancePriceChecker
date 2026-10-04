@@ -886,7 +886,6 @@ jobs:
                    data/feed-sync-marker.txt $REBUILT; do
             git checkout -- "$p" 2>/dev/null || true
           done
-          git clean -fq -- demo/data
           echo "::warning::The Awin sync did not finish (outcome '${{ steps.awin.outcome }}'); its changes were discarded. The harvest still runs."
 
       - name: Commit synced Awin feeds
@@ -1463,6 +1462,12 @@ jobs:
           # scripts/generated-files.txt, read from the manifest. This list was
           # typed out here until 2026-10-04, and demo/dormant.generated.ts,
           # added to the build that morning, was missing from it.
+          #
+          # The page itself (demo/index.html, demo/404.html, demo/data,
+          # demo/sitemap.xml) is not committed since 2026-10-04: the rebuild
+          # above still writes it (the check and the tests read it), and
+          # deploy-pages.yml builds it again from what this step commits, when
+          # this run completes. Those paths are "deploy" in the manifest.
           REBUILT=$(scripts/generated-files.sh paths rebuild)
           ./scripts/commit-and-push.sh \
             "Rebuild demo: $(date -u +%Y-%m-%d) harvest" \

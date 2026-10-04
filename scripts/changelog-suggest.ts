@@ -304,9 +304,10 @@ main();
  *   - Exit 0: it printed real commits for one specific date — the oldest day
  *     still missing from the changelog, which may NOT be today. Write ONE new
  *     entry to demo/changelog.ts for exactly that date, following the file's
- *     own header rules exactly, using only what the script printed — then run
- *     `npm run demo` and commit demo/changelog.ts, demo/index.html and
- *     demo/404.html together. Then run the script again: if it prints another
+ *     own header rules exactly, using only what the script printed — then
+ *     commit demo/changelog.ts alone (the page is built at deploy time and
+ *     never committed since 2026-10-04; the push deploys it). Then run the
+ *     script again: if it prints another
  *     date, repeat, one entry per day, until it exits 3 or 4. Never merge two
  *     days into one entry and never date an entry anything other than the day
  *     the script named.

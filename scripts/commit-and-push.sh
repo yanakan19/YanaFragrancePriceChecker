@@ -46,6 +46,20 @@ if ! GENERATED_PATHS="$(manifest_paths rebuild)" || [ -z "$GENERATED_PATHS" ]; t
   exit 1
 fi
 
+# ── Never commit the built site (2026-10-04) ─────────────────────────────────
+# demo/index.html, demo/404.html, demo/data, demo/sitemap.xml and demo/ads.txt
+# are "deploy" in the manifest: gitignored, and built from the committed files
+# by .github/workflows/deploy-pages.yml before every deployment. A caller that
+# still names one (a workflow file older than that change, a routine's old
+# instructions) is refused here with the reason, before anything is staged,
+# rather than by git's "paths are ignored" error halfway through.
+for path in "$@"; do
+  if [ "$(manifest_policy "$path")" = deploy ]; then
+    echo "::error::Refusing to commit ${path}: it is built at deploy time and never committed (\"deploy\" in scripts/generated-files.txt; see .github/workflows/deploy-pages.yml). Drop it from the commit. Nothing was committed." >&2
+    exit 1
+  fi
+done
+
 git config user.name 'pricesniffs-bot'
 git config user.email 'bot@users.noreply.github.com'
 
@@ -55,6 +69,10 @@ git config user.email 'bot@users.noreply.github.com'
 # not have, and the site shows no prices at all. So naming the page names the
 # folder, whether or not the caller remembered to. Every add below is `-A`,
 # which is what stages the old files' deletions along with the new files.
+# (With this repository's manifest the page is "deploy" and refused above;
+# this, the freshness check and the page rebuild after a rebase below stay for
+# a manifest that commits its page, and tests/commitAndPush.test.ts runs them
+# against one.)
 for path in "$@"; do
   if [ "$path" = "demo/index.html" ]; then
     named_data=0

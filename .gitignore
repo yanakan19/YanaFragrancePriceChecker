@@ -1,6 +1,15 @@
 node_modules/
 dist/
 dist-demo/
+# The published site, written by `npm run demo` and built at deploy time by
+# .github/workflows/deploy-pages.yml; "deploy" in scripts/generated-files.txt.
+# Committed until 2026-10-04, when its content-hashed data files were most of
+# the repository's daily growth.
+/demo/index.html
+/demo/404.html
+/demo/data/
+/demo/sitemap.xml
+/demo/ads.txt
 coverage/
 # `npm run screenshot` writes here by default. See scripts/screenshot.ts: these
 # are megabytes each and go stale the moment the catalogue is harvested again.
