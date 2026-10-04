@@ -49,6 +49,12 @@ export interface RawOffer {
    * defaulted or guessed.
    */
   rating?: { value: number; count: number | null } | null;
+  /**
+   * The shop's own words for the format of this row ("Miniature", "Travel
+   * Spray"), set only where one shop has two offers of the same size that
+   * differ by it. Absent everywhere else. See src/catalogue/offerFormat.ts.
+   */
+  formatLabel?: string | null;
 }
 
 /** The was/now/percentage triple, present only on a genuine retailer promotion. */
@@ -178,4 +184,6 @@ export interface PresentedOffer {
   ageSeconds: number;
   /** This retailer's own published rating for this listing — see RawOffer. */
   rating: { value: number; count: number | null } | null;
+  /** The shop's own format words for this row, or null — see RawOffer. */
+  formatLabel: string | null;
 }
