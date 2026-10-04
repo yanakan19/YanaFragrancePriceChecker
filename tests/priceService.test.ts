@@ -11,6 +11,10 @@ import {
 } from '../src/services/priceService.js';
 import { getRetailer } from '../src/config/retailers.js';
 import type { RawOffer, StockState } from '../src/types/offer.js';
+import { switchOnTheSwitchedOffShopsForThisFile } from './switchedOffShops.js';
+
+// Boots, Selfridges, Superdrug and Riiffs are fixtures here: see that file.
+switchOnTheSwitchedOffShopsForThisFile();
 
 const NOW = new Date('2026-08-01T12:00:00Z');
 
