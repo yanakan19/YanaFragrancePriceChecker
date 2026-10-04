@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-10-04T10:57:53.340Z";
+export const DEALS_GENERATED_AT = "2026-10-04T11:04:24.038Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {

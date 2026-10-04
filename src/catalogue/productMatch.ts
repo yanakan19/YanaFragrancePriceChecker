@@ -508,6 +508,19 @@ export function settleHouseConcentrations(statements: Iterable<HouseStatement>):
   return settled;
 }
 
+/** An id built from a SKU that carries a pre-order notice: see findDuplicateGroups. */
+const PRE_ORDER_ID = /pre-?order/i;
+
+/**
+ * The record a bucket of one bottle keeps: the one with a real barcode, else
+ * one whose id carries no pre-order notice, else the first. One rule for every
+ * pass below, because the second pass bridges into "the" record the first pass
+ * chose.
+ */
+function pickCanonical<T extends MatchableProduct>(bucket: readonly T[]): T {
+  return bucket.find((p) => isBarcode(p.ean)) ?? bucket.find((p) => !PRE_ORDER_ID.test(p.id)) ?? bucket[0]!;
+}
+
 export interface MergeGroup<T extends MatchableProduct> {
   /** The record the merged product keeps — the barcode-bearing one where there is one. */
   canonical: T;
@@ -554,7 +567,11 @@ export function findDuplicateGroups<T extends MatchableProduct>(products: readon
 
     // Prefer the record that carries a real barcode; it is the better-
     // identified one and keeping its id means existing links stay valid.
-    const canonical = bucket.find((p) => isBarcode(p.ean)) ?? bucket[0]!;
+    // Failing that, one whose id does not carry a pre-order notice: Emirates
+    // Oud's variant name ("PRE-ORDER: Estimated dispatch: 7th October") is in
+    // its SKU and so in its id, with a date the shop changes every few days,
+    // and an id that is going to change is a poor one to keep a page on.
+    const canonical = pickCanonical(bucket);
     groups.push({ canonical, absorbed: bucket.filter((p) => p !== canonical) });
   }
 
@@ -634,8 +651,8 @@ export function findDuplicateGroups<T extends MatchableProduct>(products: readon
     // record this bridges into is always the literal object that pass
     // already chose (and already finished merging any of its own exact
     // duplicates into) by the time a caller applies groups in order.
-    const canonical = statedBucket.find((p) => isBarcode(p.ean)) ?? statedBucket[0]!;
-    const notStatedCanonical = notStatedBucket.find((p) => isBarcode(p.ean)) ?? notStatedBucket[0]!;
+    const canonical = pickCanonical(statedBucket);
+    const notStatedCanonical = pickCanonical(notStatedBucket);
     if (canonical === notStatedCanonical) continue;
     groups.push({ canonical, absorbed: [notStatedCanonical] });
   }

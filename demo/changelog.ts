@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.53.0',
+    date: '4 Oct 2026',
+    title: 'Preorder dates removed from names',
+    points: [
+      'Emirates Oud names no longer carry dispatch dates',
+      'Hawas Boa now joins its other shops on one page',
+      'Preorder bottles still sit under Preorder',
+    ],
+  },
+  {
     version: 'v3.52.0',
     date: '4 Oct 2026',
     title: 'Refills no longer priced as bottles',
