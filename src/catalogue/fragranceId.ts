@@ -192,6 +192,92 @@ export function statedMl(capture: string): number {
   return Math.round(Number.parseFloat(capture) * 10) / 10;
 }
 
+/**
+ * A word a shop writes directly against a bottle's size to say what kind of
+ * small bottle it is: "10ml Miniature", "Mini 7ml", and, for a shop that says
+ * so (see below), "10ml Travel Spray". It is the shop's label for the size,
+ * not part of the perfume's name.
+ *
+ * ── The fault this exists for, measured 2026-10-04 ───────────────────────────
+ * Kayali sells each perfume as 100ml, 50ml, "10ml Miniature", "10ml Travel
+ * Spray" and 1.5ml, and writes the variant's own name after the size. The name
+ * the catalogue builds from the title took the label with it, so the 10ml
+ * bottle of "Vanilla | 28" was called "Vanilla | 28 Miniature" (and "Vanilla |
+ * 28 Travel" for the travel spray, once `spray` was dropped as filler): a
+ * different name from the 50ml and 100ml of the same perfume, so the mini was
+ * not one of that perfume's sizes and could never meet another shop's 10ml of
+ * it (Selfridges lists "Eden Sweet Peach 35 Eau de Parfum 10ml"). 34 of
+ * Kayali's 35 perfumes carried the label, which made 69 names for 35
+ * perfumes; the 14 travel sprays were not in the catalogue at all, because
+ * `travel spray` is one of NOT_A_FRAGRANCE's words.
+ *
+ * ── What is a label, and what is not ─────────────────────────────────────────
+ * Only a label directly against the size (nothing between them but spaces and
+ * one of "- , :"), in a title that states exactly one size. That is what keeps
+ * the words out of every title that means something else:
+ *   - "Montblanc Explorer Eau De Parfum 100ml & Travel Spray 15ml & Shower Gel"
+ *     names two sizes and the "&" sits between size and label: a set.
+ *   - "Mini Collection Eau De Parfum 5.0ml Gift Set" and "Mini Perfume 50ml":
+ *     "Mini" is not against the size.
+ *   - "25ml Mini Size Travel Size Miniature" (one Maison Asrar bottle): a label
+ *     followed by "size", "set", "collection", "kit", "duo", "trio" or "pack"
+ *     is part of a longer phrase, so it is left alone.
+ * A set never reaches this: isGiftSet is asked first, on the title as written.
+ *
+ * A mini is a size of its perfume, nothing else: it keeps its own size, so it
+ * is never merged with the full bottle (productMatch.ts keys on size), and it
+ * is compared with another shop's bottle of the same perfume at the same size.
+ * Measured on the whole catalogue the same day, "Mini" and "Miniature" against
+ * a size changed names outside Kayali only for minis at perfume-click, the
+ * Beauty Store UK and Swiss Arabian ("I Want Choo Mini" and "I Want Choo" 4.5ml
+ * were two products and are now one, at three shops).
+ *
+ * ── Why "Travel Spray" is only read where the shop says so ──────────────────
+ * A travel spray is the same perfume in a small atomiser at Kayali, listed
+ * beside its other sizes on the one page. Elsewhere it can be a different
+ * article at the same size as a plain bottle: Nina Ricci's L'Air du Temps Eau
+ * de Toilette is sold as a 30ml bottle (EAN 3137370207030) and as a 30ml
+ * travel spray (EAN 3137370072744), and productMatch.ts, correctly, refuses
+ * to merge any bucket holding two barcodes. Reading "Travel Spray" as a size
+ * label everywhere split that perfume's four-shop comparison into four
+ * products on the first measurement, so it is read only for a shop named in
+ * the registry with `travelSizeIsASize` (Kayali), and every other shop's
+ * travel sprays stay out exactly as they did.
+ */
+const SIZE_FIGURE = String.raw`\d{1,4}(?:\.\d)?\s*ml`;
+const LABEL_NOT_FOLLOWED_BY = String.raw`(?!\s*(?:size|sized|set|sets|collection|kit|duo|trio|pack)\b)`;
+function labelPatterns(travel: boolean): { sizeThenLabel: RegExp; labelThenSize: RegExp } {
+  const words = travel ? '(?:miniature|mini|travel spray|travel size|travel sized)' : '(?:miniature|mini)';
+  return {
+    sizeThenLabel: new RegExp(String.raw`(${SIZE_FIGURE})\s*[-,:]?\s*${words}\b${LABEL_NOT_FOLLOWED_BY}`, 'i'),
+    labelThenSize: new RegExp(String.raw`\b${words}\b${LABEL_NOT_FOLLOWED_BY}\s*[-,:]?\s*(\(?${SIZE_FIGURE}\)?)`, 'i'),
+  };
+}
+const MINI_LABELS = labelPatterns(false);
+const TRAVEL_LABELS = labelPatterns(true);
+
+/**
+ * The title with a size label directly against its one size removed, leaving
+ * the size: "Vanilla | 28 10ml Miniature" -> "Vanilla | 28 10ml". Unchanged
+ * for any title that does not state exactly one millilitre size, or whose
+ * label is not against it. `travel` also reads "Travel Spray" and "Travel
+ * Size" as labels: pass it only for a shop with `travelSizeIsASize`. See the
+ * comment above for the rule and its measure.
+ */
+export function stripSizeLabel(title: string, travel = false): string {
+  if ((title.match(new RegExp(SIZE_FIGURE, 'gi')) ?? []).length !== 1) return title;
+  const { sizeThenLabel, labelThenSize } = travel ? TRAVEL_LABELS : MINI_LABELS;
+  const after = title.replace(sizeThenLabel, '$1');
+  if (after !== title) return after.replace(/\s{2,}/g, ' ').trim();
+  const before = title.replace(labelThenSize, '$1');
+  return before === title ? title : before.replace(/\s{2,}/g, ' ').trim();
+}
+
+/** Whether this shop's "Travel Spray" is a small size of the perfume beside it: see stripSizeLabel. */
+export function travelSizeIsASize(retailerId: string): boolean {
+  return getRetailer(retailerId)?.travelSizeIsASize === true;
+}
+
 /** 1 fl oz in millilitres — the imperial fluid ounce, which is what every oz size in the catalogue means. */
 export const OZ_TO_ML = 29.5735;
 
@@ -996,7 +1082,12 @@ export function repairMojibake(title: string): string {
  */
 export function isFragrance(l: StoredListing): boolean {
   if (isGiftSet(l)) return false;
-  const t = fold(l.rawTitle);
+  // A size label ("10ml Miniature", and "10ml Travel Spray" at a shop that
+  // says its travel spray is a size) is the shop naming the size of a bottle
+  // of this perfume, so it is read as the size and is not judged as a word of
+  // the product: see stripSizeLabel. Only "travel spray" is in NOT_A_FRAGRANCE;
+  // a travel spray named inside a set never gets here.
+  const t = stripSizeLabel(fold(l.rawTitle), travelSizeIsASize(l.retailerId));
   if (NOT_A_FRAGRANCE.test(t)) return false;
   // Barber shop colognes: Debenhams' "Barber Marmara" range (No.3 Turkish
   // Cologne 500ml, No.24 Eau De Cologne Aftershave Spray 400ml), splashes for

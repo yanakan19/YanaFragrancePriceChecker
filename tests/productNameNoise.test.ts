@@ -71,8 +71,16 @@ describe('product names carry no shop descriptor rubbish', () => {
    * reseller's layout. 21 live products. Written as a pattern rather than 8
    * pinned strings so a new Oudgasm flanker does not fail this test for being
    * new, while anything that is not this exact shape still does.
+   *
+   * Changed 2026-10-04: the trailing word is "Intense", not "Miniature". A
+   * Kayali 10ml bottle used to be named "... | 19 Miniature", the shop's size
+   * label leaking into the name (see stripSizeLabel in fragranceId.ts); the
+   * label is now read as the size. "Intense" is the shop's own strength,
+   * "Eau de Parfum Intense", printed on its page: the catalogue keeps the
+   * strength "Eau de Parfum" and leaves "Intense" in the name, as it does for
+   * every other house's "Eau de Parfum Intense" (Armani Code Intense).
    */
-  const REAL_PIPE_NAMES = /^Oudgasm .+\s\|\s\d{2}(?: Miniature)?$/;
+  const REAL_PIPE_NAMES = /^Oudgasm .+\s\|\s\d{2}(?: Intense)?$/;
 
   /**
    * (1b) VERIFIED REAL, 2026-10-03. Kayali numbers every scent the same way,
@@ -82,7 +90,7 @@ describe('product names carry no shop descriptor rubbish', () => {
    * admitted. Held to Kayali's own brand so the shape cannot excuse a
    * reseller's "Name | Note" layout anywhere else.
    */
-  const KAYALI_PIPE_NAMES = /^[^|]+\s\|\s\d{2}(?: Miniature)?$/;
+  const KAYALI_PIPE_NAMES = /^[^|]+\s\|\s\d{2}(?: Intense)?$/;
 
   /**
    * (1c) VERIFIED REAL, 2026-10-03. Kayali's own sets, kept whole as gift

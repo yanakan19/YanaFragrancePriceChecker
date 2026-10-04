@@ -11,7 +11,7 @@
  * Nothing here decides whether a listing is a fragrance at all; that lives in
  * fragranceId.ts, which is a different question with a different failure mode.
  */
-import { ML_SIZE_RE, OZ_SIZE_RE, OZ_TO_ML, statedMl } from './fragranceId.js';
+import { ML_SIZE_RE, OZ_SIZE_RE, OZ_TO_ML, statedMl, stripSizeLabel } from './fragranceId.js';
 import { brandKey, shopNameCore } from './brandName.js';
 
 /**
@@ -2013,8 +2013,17 @@ function stripTrailingNoiseSegment(s: string): string | null {
   return head;
 }
 
-export function displayName(title: string, brand: string | null, displayedBrand: string | null): string {
-  let s = title;
+export function displayName(
+  title: string,
+  brand: string | null,
+  displayedBrand: string | null,
+  travelSizeIsASize = false,
+): string {
+  // A size label ("10ml Miniature", and "10ml Travel Spray" for a shop whose
+  // travel spray is a size: Retailer.travelSizeIsASize) names the size, not the
+  // perfume: left in, the 10ml bottle was called "Vanilla | 28 Miniature" and
+  // was not one of the sizes of "Vanilla | 28". See stripSizeLabel.
+  let s = stripSizeLabel(title, travelSizeIsASize);
   const opener = brandTitleOpens(title, [displayedBrand, brand]);
   if (opener) s = s.replace(new RegExp(`^${escapeRe(opener)}\\s*`, 'i'), '');
   const matchedConcentration = concentrationMatch(title);
