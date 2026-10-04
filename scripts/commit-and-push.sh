@@ -37,6 +37,15 @@ fi
 message="$1"
 shift
 
+# The manifest of generated files (scripts/generated-files.txt): which paths a
+# conflict may rebuild, which take the incoming side. See GENERATED_PATHS below.
+# shellcheck source=scripts/generated-files.sh
+. "$(dirname "$0")/generated-files.sh"
+if ! GENERATED_PATHS="$(manifest_paths rebuild)" || [ -z "$GENERATED_PATHS" ]; then
+  echo "::error::Could not read the rebuild paths from scripts/generated-files.txt. Nothing was committed." >&2
+  exit 1
+fi
+
 git config user.name 'pricesniffs-bot'
 git config user.email 'bot@users.noreply.github.com'
 
@@ -75,6 +84,32 @@ fi
 if git diff --cached --quiet; then
   echo "Nothing changed."
   exit 0
+fi
+
+# ── GitHub's file size limit, checked before anything is committed ──────────
+# GitHub refuses a push that carries any file over 100 MiB ("GH001: Large
+# files detected") and warns above 50 MiB. Without this check the refusal
+# would read to the retry loop below as "the branch moved": eight rebases and
+# four minutes later it would fail with a message about attempts, not size.
+# demo/catalogue.generated.ts grew from 22 MB to 35.5 MB between 2026-10-02
+# and 2026-10-04, so this is a when, not an if, for the page's biggest files.
+MAX_FILE_BYTES="${MAX_FILE_BYTES:-99614720}"    # 95 MiB: refuse
+WARN_FILE_BYTES="${WARN_FILE_BYTES:-52428800}"  # 50 MiB: warn
+oversize=""
+while IFS= read -r staged_file; do
+  [ -n "$staged_file" ] || continue
+  staged_bytes="$(git cat-file -s ":${staged_file}" 2>/dev/null || echo 0)"
+  if [ "$staged_bytes" -gt "$MAX_FILE_BYTES" ]; then
+    oversize="${oversize} ${staged_file} ($(( staged_bytes / 1048576 )) MiB)"
+  elif [ "$staged_bytes" -gt "$WARN_FILE_BYTES" ]; then
+    echo "::warning::${staged_file} is $(( staged_bytes / 1048576 )) MiB. GitHub warns above 50 MiB and refuses any file over 100 MiB; split or shrink it before it gets there (see docs/PIPELINE-FAILURE-MODES.md)."
+  fi
+done < <(git diff --cached --name-only --diff-filter=AM)
+if [ -n "$oversize" ]; then
+  git reset -q
+  echo "::error::Refusing to commit:${oversize} over $(( MAX_FILE_BYTES / 1048576 )) MiB. GitHub refuses any file over 100 MiB, so this push could never land." >&2
+  echo "::error::Nothing was committed or pushed. Split or shrink the file (see docs/PIPELINE-FAILURE-MODES.md)." >&2
+  exit 1
 fi
 
 # ── Never commit a page that is stale against the source beside it ──────────
@@ -161,6 +196,38 @@ fi
 
 git commit -m "$message"
 
+# ── A commit that could not be pushed does not outlive this script ──────────
+# Every failure below used to leave our commit on the runner's local branch.
+# The workflow's next commit step then carried it along, met the same
+# conflict, and failed too: a shipping report that could not land cost the
+# harvest commit after it. On any failing exit from here on, the commit is
+# undone and its changes are left in the working tree, unstaged, for a later
+# step to commit or discard. A "manual" file (machine-written source, see
+# scripts/generated-files.txt) is put back to the branch's version instead,
+# so an edit that could not be pushed is neither bundled into a page build nor
+# committed by a later step that never asked for it.
+committed_unpushed=1
+undo_unpushed_commit() {
+  status=$?
+  if [ "$status" -ne 0 ] && [ "${committed_unpushed:-0}" -eq 1 ]; then
+    if [ -d "$(git rev-parse --git-path rebase-merge)" ] || [ -d "$(git rev-parse --git-path rebase-apply)" ]; then
+      git rebase --abort 2>/dev/null || true
+    fi
+    if git reset -q --mixed HEAD~1; then
+      for undo_path in "${CALLER_PATHS[@]}"; do
+        if [ "$(manifest_policy "$undo_path")" = manual ]; then
+          git checkout -q HEAD -- "$undo_path" 2>/dev/null || true
+        fi
+      done
+      echo "::warning::The unpushed commit was undone; its changes are uncommitted in the working tree, for a later step to commit or discard." >&2
+    else
+      echo "::warning::Could not undo the unpushed commit; it is still on the runner's local branch." >&2
+    fi
+  fi
+  return "$status"
+}
+trap undo_unpushed_commit EXIT
+
 # ── The retry budget ─────────────────────────────────────────────────────────
 # Five attempts with a plain doubling backoff (2s, 4s, 8s, 16s — 30 seconds of
 # waiting in total) from this script's first version until 2026-09-01. That
@@ -243,7 +310,18 @@ delay=2
 # Listing it here does not widen anyone's commit: after a regenerate only the
 # paths the caller named are re-staged (see named_by_caller below), so a
 # caller that does not pass the sitemap still never commits it.
-GENERATED_PATHS="demo/index.html demo/404.html demo/data demo/catalogue.generated.ts demo/priceHistory.generated.ts data/price-history-checkpoint.json demo/sitemap.xml demo/deals.generated.ts"
+#
+# ── One list, 2026-10-04 ─────────────────────────────────────────────────────
+# This used to be a list typed out here, a second one in is_raw_snapshot, and
+# a third and fourth in the workflows' commit steps, and #592 was those lists
+# disagreeing. They are now all read from scripts/generated-files.txt: the
+# "rebuild" lines are GENERATED_PATHS, the "incoming" lines are what
+# is_raw_snapshot accepts, and the build scripts refuse to write a committed
+# file that is not listed there (scripts/generatedFiles.ts). The incident
+# notes below stay, because they explain why each entry is in the category it
+# is; the entries themselves live only in the manifest. GENERATED_PATHS is
+# read near the top of this script, before anything is staged, so an
+# unreadable manifest stops the script with the branch untouched.
 
 # The paths this invocation was asked to commit, after the demo/data expansion
 # above. A path may be a folder (data/catalogue, demo/data).
@@ -266,14 +344,13 @@ named_by_caller() {
 # sides are trying to say the same thing from the same source of truth, and
 # rebuilding it fresh is not picking a winner, it is the only correct answer
 # either side could have given.
-REGENERATE="${REGENERATE:-npm run catalogue:demo && npm run deals:build && npm run catalogue:history && npm run demo}"
+# `npm run rebuild` is catalogue:demo, deals:build, catalogue:history and demo,
+# in that order (package.json), the same command "Rebuild the app from
+# harvested prices" runs, so the two can never disagree about what a rebuild is.
+REGENERATE="${REGENERATE:-npm run rebuild}"
 
 is_generated() {
-  case "$1" in demo/data/*) return 0 ;; esac
-  for known in $GENERATED_PATHS; do
-    if [ "$1" = "$known" ]; then return 0; fi
-  done
-  return 1
+  [ "$(manifest_policy "$1")" = rebuild ]
 }
 
 # Raw per-retailer/per-house harvest snapshots — data/catalogue/<id>.json,
@@ -304,48 +381,30 @@ is_generated() {
 # decide "have I run recently enough" — see catalogue-daily.yml's MARKER=
 # lines. Machine-written timestamps, never hand-edited, same category as the
 # report files above. Deals used to have one; it went with the cadence.
+#
+# Why some of the "incoming" lines in scripts/generated-files.txt are there:
+#
+#   - docs/DELIVERY-RECHECK.md: scripts/delivery-recheck.ts's monthly output.
+#     It lives under docs/ but is regenerated whole every run, like the JSON
+#     beside it.
+#   - data/harvest-report.json, data/harvest-cursor.json,
+#     data/metered-harvest-marker.txt: the harvest's own three, and they were
+#     missing once. Every scheduled harvest rewrites them, so they conflict
+#     the moment two runs overlap, and refusing a harvest that already
+#     happened over a bookkeeping file is the wrong answer.
+#   - data/render-capture/: one capture_render_shop dispatch writes one
+#     shop's own folder (src/catalogue/renderCapture.ts), so a conflict is at
+#     most two dispatches for two shops racing.
+#   - demo/testCount.generated.ts: written by scripts/testCountReporter.ts as
+#     a side effect of a full `npm test`, never by REGENERATE, so it cannot be
+#     rebuilt here, and need not be: our commit changes only generated data,
+#     never a test, so the incoming side counted the suite the merged branch
+#     holds. Left out of the page's freshness stamp (HASH_EXCLUDED_INPUTS in
+#     scripts/demoInputsHash.ts).
+#   - The fragrance links, image and verification reports: each written by
+#     one daily or weekly workflow; the next run writes them again.
 is_raw_snapshot() {
-  case "$1" in
-    data/catalogue/*.json|data/houses/*.json) return 0 ;;
-    data/house-sourcing-report.json|data/shipping-discovery-report.json) return 0 ;;
-    data/image-link-report.json|data/awin-feed-sync-state.json|data/strategy-memory.json) return 0 ;;
-    data/price-verification-report.json|data/storefront-reprice-report.json) return 0 ;;
-    data/shipping-discover-marker.txt|data/shipping-discover-state.json) return 0 ;;
-    data/feed-sync-marker.txt) return 0 ;;
-    # scripts/delivery-recheck.ts's monthly output (delivery-recheck.yml). The
-    # Markdown table lives under docs/ but is machine-written exactly like the
-    # JSON beside it — regenerated whole every run, never hand-edited.
-    data/delivery-recheck-report.json|docs/DELIVERY-RECHECK.md) return 0 ;;
-    # The harvest's own three, and they were missing. Every one of them is
-    # passed to this script by catalogue-daily.yml's "Commit harvested prices",
-    # every one of them is rewritten by every scheduled harvest, and so every
-    # one of them conflicts the moment two runs overlap — which is what the
-    # retry loop below exists for. Landing in the "neither generated nor a raw
-    # snapshot" branch means refusing to push a harvest that has already
-    # happened, over a bookkeeping file. Same category as the markers above:
-    # machine-written, never hand-edited, and the incoming side is as valid as
-    # ours.
-    data/harvest-report.json|data/harvest-cursor.json) return 0 ;;
-    data/metered-harvest-marker.txt) return 0 ;;
-    # scripts/catalogue-harvest.ts's debug-only --capture-render-shop=, wired
-    # through catalogue-daily.yml's capture_render_shop input (see
-    # src/catalogue/renderCapture.ts). One dispatch names one shop and writes
-    # only that shop's own subdirectory, so a conflict here is, at most, two
-    # dispatches for two different shops racing — never two runs disagreeing
-    # about the same page. Taking the incoming side is exactly as safe as it
-    # is for the harvest snapshots above.
-    data/render-capture/*) return 0 ;;
-    # Written by scripts/testCountReporter.ts as a side effect of a full
-    # `npm test`, never by REGENERATE, so it cannot be rebuilt here — and it
-    # does not need to be: our commit changes only generated data, never a
-    # test, so the count the incoming side's suite produced is the count of
-    # the suite the merged branch holds. "Commit rebuilt app" names it; before
-    # this it would have refused a conflict here exactly as #592 refused the
-    # sitemap. It is left out of the page's freshness stamp on purpose (see
-    # HASH_EXCLUDED_INPUTS in scripts/demoInputsHash.ts).
-    demo/testCount.generated.ts) return 0 ;;
-    *) return 1 ;;
-  esac
+  [ "$(manifest_policy "$1")" = incoming ]
 }
 
 # Resolve a rebase that stalled, but only when every conflicted file is a
@@ -376,7 +435,11 @@ resolve_generated_conflicts() {
     if is_generated "$file"; then
       needs_regenerate=1
     elif ! is_raw_snapshot "$file"; then
-      echo "Conflict in ${file}, which is neither a generated file nor a raw harvest snapshot." >&2
+      if [ "$(manifest_policy "$file")" = manual ]; then
+        echo "Conflict in ${file}, machine-written source (\"manual\" in scripts/generated-files.txt) that a person must merge." >&2
+      else
+        echo "Conflict in ${file}, which is neither a generated file nor a raw harvest snapshot (not in scripts/generated-files.txt)." >&2
+      fi
       return 1
     fi
   done
@@ -607,10 +670,15 @@ while [ "$attempt" -lt "$max_attempts" ]; do
       echo "::error::Nothing was pushed." >&2
       exit 1
     else
+      # Unmerged paths remain, but not always because a file is outside the
+      # manifest: run #566 (2026-10-03) reached here after failing to check
+      # out either side of a demo/data rename, and this used to say "neither
+      # generated nor a raw harvest snapshot" about a file that was both. The
+      # line above this one names the real reason; this one names the files.
+      unmerged="$(git diff --name-only --diff-filter=U | tr '\n' ' ')"
       git rebase --abort || true
-      echo "::error::Could not rebase onto origin/${branch}: the incoming change conflicts" >&2
-      echo "::error::in a file that is neither generated nor a raw harvest snapshot. Refusing to" >&2
-      echo "::error::guess which version wins." >&2
+      echo "::error::Could not rebase onto origin/${branch}: the conflict in [${unmerged% }] could not be" >&2
+      echo "::error::settled automatically (the reason is in the line above). Refusing to guess which version wins." >&2
       echo "::error::Nothing was pushed; resolve by hand." >&2
       exit 1
     fi
@@ -652,5 +720,5 @@ while [ "$attempt" -lt "$max_attempts" ]; do
   fi
 done
 
-echo "::error::Still could not push after ${max_attempts} attempts. The commit exists locally on the runner but is not on the branch." >&2
+echo "::error::Still could not push after ${max_attempts} attempts. Nothing is on the branch; the changes are left uncommitted on the runner." >&2
 exit 1
