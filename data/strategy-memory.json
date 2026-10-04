@@ -435,13 +435,13 @@
     "lookfantastic::sitemap-discovery": {
       "strategyId": "sitemap-discovery",
       "retailerId": "lookfantastic",
-      "attempts": 5,
-      "successes": 5,
-      "listingsFound": 25,
+      "attempts": 6,
+      "successes": 6,
+      "listingsFound": 33,
       "lastStatus": 200,
       "lastError": null,
-      "lastTriedAt": "2026-08-10T18:39:37.965Z",
-      "lastSucceededAt": "2026-08-10T18:39:37.965Z",
+      "lastTriedAt": "2026-10-04T18:50:25.253Z",
+      "lastSucceededAt": "2026-10-04T18:50:25.253Z",
       "ruledOut": null
     },
     "superdrug::section-plain": {
@@ -1213,5 +1213,5 @@
       "ruledOut": null
     }
   },
-  "updatedAt": "2026-10-04T13:09:48.944Z"
+  "updatedAt": "2026-10-04T18:50:25.253Z"
 }
