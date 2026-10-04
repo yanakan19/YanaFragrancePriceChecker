@@ -138,9 +138,20 @@ if (decision.resume) {
   console.log(`Full replay of ${commits.length} commits touching data/catalogue (${decision.reason}).`);
 }
 
-replay(root, commits.slice(from), state, (done, total, fragrances) => {
-  console.log(`  ${from + done}/${commits.length} commits replayed, ${fragrances} fragrances with history so far`);
-});
+const outcomes = { cached: 0, fallback: 0 };
+replay(
+  root,
+  commits.slice(from),
+  state,
+  (done, total, fragrances) => {
+    console.log(`  ${from + done}/${commits.length} commits replayed, ${fragrances} fragrances with history so far`);
+  },
+  outcomes,
+);
+// See priceHistoryReplay.ts's "without re-reading what did not change": a
+// fallback is a commit where one retailer's listings sat in two files, read
+// in full the original way. Printed so a slow replay says which path it took.
+console.log(`  ${outcomes.cached} commits read only their changed files, ${outcomes.fallback} read in full`);
 
 const rendered = render(state, commits);
 console.log(`\n${rendered.fragrancesWithHistory} fragrances have at least one recorded price`);
