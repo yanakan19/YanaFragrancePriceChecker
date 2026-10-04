@@ -140,6 +140,14 @@ describe('the Shopify parser', () => {
 });
 
 describe('the stored Perfume Direct rows', () => {
+  // The size a stored title states for its own row: the last size in it, which
+  // is the variant's, after the bracket of sizes the shop lists (a bracket that
+  // may carry a pack name, "(30ml, 60ml, 90ml Refillable Talisman) 60ml", or
+  // lack its closing bracket).
+  const ownSizeOf = (title: string): number => {
+    const all = [...title.matchAll(/(\d+(?:\.\d+)?)\s*ml\b/gi)];
+    return Number.parseFloat(all[all.length - 1]![1]!);
+  };
   const stored = JSON.parse(readFileSync(resolve(root, 'data/catalogue/perfume-direct.json'), 'utf8')) as {
     listings: { status: string; retailerSku: string; rawTitle: string; url: string; priceGbp: number | null }[];
   };
@@ -153,7 +161,7 @@ describe('the stored Perfume Direct rows', () => {
 
   it('reads, once repaired, the size each row states for itself', () => {
     for (const l of sized) {
-      const own = Number.parseFloat(/\)\s+(\d+(?:\.\d+)?)\s*ml\b/i.exec(l.rawTitle)![1]!);
+      const own = ownSizeOf(l.rawTitle);
       expect(sizeMl(ownSizeTitle(l.rawTitle)), l.rawTitle).toBe(own);
     }
   });
@@ -173,7 +181,7 @@ describe('the stored Perfume Direct rows', () => {
       const pids = holders.get(`${l.url}|${l.priceGbp}`) ?? [];
       // Two sizes of one page at one price cannot be told apart by this check.
       if (pids.length !== 1) continue;
-      const own = Number.parseFloat(/\)\s+(\d+(?:\.\d+)?)\s*ml\b/i.exec(l.rawTitle)![1]!);
+      const own = ownSizeOf(l.rawTitle);
       expect(byId.get(pids[0]!)!.sizeMl, `${l.rawTitle} (${l.priceGbp})`).toBe(own);
       checked++;
     }
