@@ -127,7 +127,7 @@ export interface CheapestVerdict {
  * tags. The age of an offer plays no part (owner's decision, 2026-10-03):
  * every listed row states its own age, and one too old to trust is not
  * listed at all (HIDE_OFFER_AFTER_DAYS). There used to be a 'stale-only'
- * reason here, for when every buyable row was over STALE_OFFER_DAYS old.
+ * reason here, for when every buyable row was over ten days old.
  */
 export function cheapestVerdict(rows: readonly PresentedOffer[]): CheapestVerdict {
   const buyable = purchasableOffers(rows);

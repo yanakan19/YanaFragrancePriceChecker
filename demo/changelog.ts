@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.40.0',
+    date: '4 Oct 2026',
+    title: 'Only prices from the last week are shown',
+    points: [
+      'Prices not checked for a week are now hidden',
+      'Shops with no recent prices leave the Shops list',
+      'Graphs no longer carry an old price forward',
+    ],
+  },
+  {
     version: 'v3.39.0',
     date: '4 Oct 2026',
     title: 'Minis sit with their perfume',

@@ -466,10 +466,10 @@ export const RETAILERS: readonly Retailer[] = [
     // against this shop, so there is no actor-tier evidence to claim either
     // way (the exact distinction renderRefusal.ts's own comment draws for The
     // Fragrance Shop and The Perfume Shop). The 95 stored offers are not
-    // delisted — same reasoning as Boots's entry above: STALE_OFFER_DAYS
-    // already ages them out of ranking honestly, and deleting a real observed
-    // price in favour of nothing loses information a reader can otherwise be
-    // told the age of.
+    // delisted — same reasoning as Boots's entry above: HIDE_OFFER_AFTER_DAYS
+    // (7 days) already takes them off the site honestly, and deleting a real
+    // observed price in favour of nothing loses information the stored
+    // snapshot still holds.
     //
     // `adapter` moves from 'proxied' to 'headless' on the strength of the
     // fragrance section alone — a plain headless browser, no residential
@@ -1071,13 +1071,11 @@ export const RETAILERS: readonly Retailer[] = [
     //
     // ── Should the 74 stored offers be delisted? No ─────────────────────────
     // Same reasoning as Superdrug's entry, and it applies here too:
-    // STALE_OFFER_DAYS (src/services/priceService.ts) is 10, these are past
-    // it, so each row already renders "price last confirmed 11 days ago"
-    // (demo/app.ts's offer renderer) and is already outranked by any fresher
-    // offer in preferFreshOffers. The shop has not stopped selling these
+    // HIDE_OFFER_AFTER_DAYS (src/services/offerAge.ts) is 7, these are past
+    // it, so none of them is shown. The shop has not stopped selling these
     // bottles; it has stopped answering this address. Deleting a real observed
-    // price in favour of nothing, while the reader can be told exactly how old
-    // it is, would lose information rather than add honesty.
+    // price in favour of nothing would lose information rather than add
+    // honesty, so the snapshot keeps them and the site does not show them.
     renderRefused: 'local',
     adapter: 'proxied',
     currency: 'GBP',
@@ -1872,7 +1870,7 @@ export const RETAILERS: readonly Retailer[] = [
     // product page this sandbox asked for carried a full schema.org price,
     // so a sitemap walk to product pages is the route to try first.
     // Nothing here changes the harvest.
-    // Stored prices are from 2026-09-19T23:03Z and leave the site 21 days
+    // Stored prices are from 2026-09-19T23:03Z and left the site 7 days
     // later, under HIDE_OFFER_AFTER_DAYS, unless a harvest refreshes them.
     // Fetched with plain curl and the crawler's own honest user agent, no
     // browser headers, no residential or rotating proxy (only this
@@ -2319,10 +2317,8 @@ export const RETAILERS: readonly Retailer[] = [
     //
     // ── Should the 112 stored offers be delisted? No ────────────────────────
     // They are already handled honestly by the code that exists.
-    // STALE_OFFER_DAYS (src/services/priceService.ts) is 10, these are past
-    // it, so every one of them already renders with "price last confirmed 12
-    // days ago" on its own row (demo/app.ts's offer renderer) and is already
-    // outranked by any fresher offer in preferFreshOffers. Deleting them would
+    // HIDE_OFFER_AFTER_DAYS (src/services/offerAge.ts) is 7, these are past
+    // it, so none of them is shown. Deleting them would
     // remove a real price this project genuinely observed, in favour of no
     // information at all, on no evidence that the shop has stopped selling
     // the bottle — the shop has not refused to tell us its price, it has
@@ -3871,8 +3867,8 @@ export const RETAILERS: readonly Retailer[] = [
     // file; riiffsperfumes.com/robots.txt answered the same way at
     // 01:47:18Z. With robots.txt unreadable nothing else was requested.
     // The captcha has not lifted. Stored prices are from 2026-09-13 and
-    // 2026-09-14, so HIDE_OFFER_AFTER_DAYS takes them off the site on the
-    // 2026-10-04 and 2026-10-05 builds.
+    // 2026-09-14, so HIDE_OFFER_AFTER_DAYS (7 days) took them off the site
+    // in the middle of September.
     // Fetched with plain curl and the crawler's own honest user agent, no
     // browser headers, no residential or rotating proxy (only this
     // sandbox's own fixed egress), nothing retried against a refusal. See

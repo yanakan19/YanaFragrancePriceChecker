@@ -135,6 +135,19 @@ describe('what may be indexed', () => {
       expect(tags({ route: route(name, 'x') }).noindex, `${name} should be indexable`).toBe(false);
     }
   });
+
+  it('keeps a shop with no recent prices off search engines, and no other page', () => {
+    expect(tags({ route: route('retailer', 'riiffs'), leafName: 'Riiffs Perfumes', leafEmpty: true }).noindex).toBe(true);
+    expect(tags({ route: route('retailer', 'riiffs'), leafName: 'Riiffs Perfumes', leafEmpty: false }).noindex).toBe(false);
+    expect(tags({ route: route('brand', 'x'), leafName: 'Dior', leafEmpty: true }).noindex).toBe(false);
+  });
+
+  it('says prices are checked daily in every description, never a number of hours', () => {
+    for (const name of ['home', 'brands', 'brand', 'deals', 'retailers', 'retailer', 'notes', 'note', 'fragrance', 'about'] as RouteName[]) {
+      const d = tags({ route: route(name, 'x'), leafName: 'Dior', productCount: 100, retailerCount: 28 }).description;
+      expect(d, name).not.toMatch(/\b(hours?|hourly)\b/i);
+    }
+  });
 });
 
 /**

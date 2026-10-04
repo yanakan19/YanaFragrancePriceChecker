@@ -1,5 +1,5 @@
 import type { StoredListing } from './types.js';
-import { isTooOldToShow } from '../services/priceService.js';
+import { isTooOldToShow } from '../services/offerAge.js';
 
 /**
  * How old the prices are that a shop's stored listings would put on the site.

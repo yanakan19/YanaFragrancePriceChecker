@@ -25,10 +25,11 @@ const offer = (retailerId: string, price: number, ageDays: number, stock: RawOff
 });
 
 // The shape of French Avenue Azzure Aoud 100ml on 2026-10-03: two cheaper
-// rows 17 and 19 days old, three current ones, and some sold out.
+// rows (17 and 19 days old then, 5 and 7 days here, since 21 days is no
+// longer shown), three current ones, and some sold out.
 const offers = [
-  offer('perfumeo', 24.99, 16.7),
-  offer('justmylook', 25.99, 18.9),
+  offer('perfumeo', 24.99, 4.7),
+  offer('justmylook', 25.99, 6.9),
   offer('perfume-click', 29.55, 0.1),
   offer('emirates-oud', 29.99, 0.1),
   offer('french-avenue', 34.99, 0.1),
@@ -53,7 +54,6 @@ describe('offerGroups', () => {
 
   it('tags the cheapest listed buyable row, whatever its age, so nothing cheaper sits above it', () => {
     expect(best).toBe(order[0]);
-    expect(best!.stale).toBe(true);
     const bestTotal = best!.deliveredPriceGbp!;
     expect(order.filter((r) => r.isPurchasable && r.deliveredPriceGbp !== null).every((r) => r.deliveredPriceGbp! >= bestTotal)).toBe(true);
   });
@@ -65,7 +65,7 @@ describe('offerGroups', () => {
 
   it('counts every listed buyable row in the Available at heading', () => {
     expect(availabilityHeading(groups)).toBe('Available at (5 Shops)');
-    const one = buildComparison([offer('perfumeo', 24.99, 16)], { now });
+    const one = buildComparison([offer('perfumeo', 24.99, 5)], { now });
     expect(availabilityHeading(offerGroups(one))).toBe('Available at (1 Shop)');
     const soldOut = buildComparison([offer('perfumeo', 24.99, 1, 'outOfStock')], { now });
     expect(availabilityHeading(offerGroups(soldOut))).toBe('');

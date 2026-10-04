@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { presentOffer, STALE_OFFER_DAYS } from '../src/services/priceService.js';
+import { presentOffer } from '../src/services/priceService.js';
 import {
   cheapestVerdict,
   deliveredPriceRange,
@@ -199,7 +199,7 @@ describe('cheapestVerdict and older offers', () => {
   const other = shop('confirmed-two', { standardGbp: 3.99 });
 
   it('is about the cheaper older row, not a fresh, costlier one', () => {
-    const older = row(other, 10, 'inStock', daysAgo(STALE_OFFER_DAYS + 1));
+    const older = row(other, 10, 'inStock', daysAgo(6));
     const fresh = row(confirmed, 15, 'inStock', daysAgo(1));
     const v = cheapestVerdict([older, fresh]);
     expect(v.offer).toBe(older);
@@ -210,12 +210,11 @@ describe('cheapestVerdict and older offers', () => {
 
   it('calls the cheapest of two older rows Cheapest, the same as fresh ones', () => {
     const bothOld = [
-      row(confirmed, 20, 'inStock', daysAgo(STALE_OFFER_DAYS + 3)),
-      row(other, 25, 'inStock', daysAgo(STALE_OFFER_DAYS + 1)),
+      row(confirmed, 20, 'inStock', daysAgo(6)),
+      row(other, 25, 'inStock', daysAgo(6)),
     ];
     const v = cheapestVerdict(bothOld);
     expect(v.offer!.retailer.id).toBe('confirmed-shop');
-    expect(v.offer!.stale).toBe(true);
     expect(v.decided).toBe(true);
   });
 

@@ -69,6 +69,13 @@ export interface HeadInput {
   leafDetail?: string | undefined;
   productCount?: number | undefined;
   retailerCount?: number | undefined;
+  /**
+   * True when the leaf has nothing to show: a shop none of whose prices is
+   * recent enough to display (HIDE_OFFER_AFTER_DAYS). Such a page is kept off
+   * search engines rather than indexed as a thin page; it is also left out of
+   * the sitemap and the Shops list.
+   */
+  leafEmpty?: boolean | undefined;
 }
 
 /** Search engines cut the title around here; longer is wasted, not harmful. */
@@ -140,10 +147,10 @@ function describe(core: string, tail: string): string {
 export const shopsPhrase = (count: number): string =>
   count > 10 ? `more than ${Math.floor((count - 1) / 10) * 10}` : String(count);
 
-const SITE_TAIL = 'Real prices read from the shops themselves, updated through the day.';
+const SITE_TAIL = 'Real prices read from the shops themselves, checked daily.';
 
 export function headFor(input: HeadInput): HeadTags {
-  const { route, leafName, leafDetail, productCount, retailerCount } = input;
+  const { route, leafName, leafDetail, productCount, retailerCount, leafEmpty } = input;
   // Query strings are filter state, not separate documents: /brands?tier=niche
   // and /brands are the same page in a different mood, and giving them
   // different canonicals would split one page's standing across many URLs.
@@ -217,7 +224,7 @@ export function headFor(input: HeadInput): HeadTags {
           SITE_TAIL,
         ),
         canonical,
-        noindex: false,
+        noindex: leafEmpty === true,
       };
 
     case 'note':

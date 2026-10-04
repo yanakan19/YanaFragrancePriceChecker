@@ -10,10 +10,9 @@
  *      harvest history (scripts/build-price-history.ts), merged across every
  *      id the catalogue folded into this product (mergeCheapestSeries).
  *   2. Older prices: every offer for this product last checked more than
- *      STALE_OFFER_DAYS ago, cheaper or dearer, as a hollow point on the day
- *      it was checked. That is both the rows under "Older prices" on the page
- *      and the ones too old to list at all (HIDE_OFFER_AFTER_DAYS), which no
- *      longer appear in any price list but are still real observations. The
+ *      HIDE_OFFER_AFTER_DAYS (7) ago, cheaper or dearer, as a hollow point on
+ *      the day it was checked. They are too old to list at all, so they no
+ *      longer appear in any price list, but are still real observations. The
  *      owner's view: an older price belongs in the product's history, not
  *      above today's Cheapest row.
  *   3. Every product page gets a graph. One observation draws one clear point
@@ -56,7 +55,7 @@ import { resolveDelivery } from '../src/services/shipping.js';
 import { roundPence } from '../src/services/money.js';
 import type { Retailer } from '../src/types/retailer.js';
 import { dayKey, dailyHistory, type DailyHistoryPoint, type RawHistoryPoint } from '../src/services/priceHistoryDaily.js';
-import { STALE_OFFER_DAYS } from '../src/services/priceService.js';
+import { HIDE_OFFER_AFTER_DAYS } from '../src/services/offerAge.js';
 
 export type RetailerLookup = (id: string) => Retailer | undefined;
 
@@ -82,7 +81,7 @@ export interface PriceHistoryChartInput {
    * on to today as though it still held.
    */
   carryForward?: boolean;
-  /** Offers last checked more than STALE_OFFER_DAYS ago, drawn hollow. */
+  /** Offers last checked more than HIDE_OFFER_AFTER_DAYS ago, drawn hollow. */
   older: readonly ChartObservation[];
   /** Only for a product with nothing buyable on record: its sold out prices, drawn grey. */
   soldOut: readonly ChartObservation[];
@@ -332,7 +331,7 @@ function chartCaption(input: PriceHistoryChartInput, realLine: readonly RawHisto
     if (stated.some((s) => !s)) parts.push('Square points are item prices only, as that shop does not state its delivery cost.');
   }
   if (markers.some((m) => m.kind === 'older')) {
-    parts.push(`Hollow points are older prices, not checked in the last ${STALE_OFFER_DAYS} days.`);
+    parts.push(`Hollow points are older prices, not checked in the last ${HIDE_OFFER_AFTER_DAYS} days.`);
   }
   return parts.join(' ');
 }

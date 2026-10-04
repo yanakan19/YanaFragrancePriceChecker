@@ -82,6 +82,7 @@ import type { PriceHistoryPoint } from './priceHistory.generated.js';
 import type { RawHistoryPoint } from '../src/services/priceHistoryDaily.js';
 import type { PriceHistoryGap } from '../src/services/priceHistoryGaps.js';
 import { mergeCheapestSeries } from '../src/services/priceHistoryMerge.js';
+import { HIDE_OFFER_AFTER_DAYS } from '../src/services/offerAge.js';
 import { HISTORY_SCOPES, priceHistoryChart, type ChartObservation, type PriceHistoryChartInput } from './priceHistoryChart.js';
 import { officialSiteFor } from './brandSites.js';
 import { fragranceLinksFor } from './fragranceLinks.js';
@@ -970,9 +971,10 @@ function age(seconds: number): string {
   const m = Math.round(seconds / 60);
   if (m < 60) return `${m} min ago`;
   const h = Math.round(m / 60);
-  // Past two days, "Nh ago" stops being readable at a glance (a stale offer
-  // sitting at STALE_OFFER_DAYS would otherwise read "240h ago") — days is
-  // the unit a reader actually judges freshness in beyond that point.
+  // Past two days, "Nh ago" stops being readable at a glance (an offer six
+  // days old would otherwise read "144h ago") — days is the unit a reader
+  // actually judges freshness in beyond that point. Nothing shown here is
+  // older than HIDE_OFFER_AFTER_DAYS (7), so this reads "2d ago" to "7d ago".
   return h < 48 ? `${h}h ago` : `${Math.round(h / 24)}d ago`;
 }
 
@@ -1708,8 +1710,8 @@ function msrpFor(row: PresentedOffer, frag: DemoFragrance): MsrpComparison | nul
  * price repeated under the total, the "In stock" dot on every buyable row (the
  * section heading already says so; only Low stock / Preorder / unconfirmed
  * stock is still said), star ratings and the New tag. A delivery figure we have
- * not confirmed with the shop is still marked, as "est.", and a stale price
- * still says how old it is, because both change what the number means.
+ * not confirmed with the shop is still marked, as "est.", and a price more
+ * than a day old still says how old it is, because both change what the number means.
  *
  * Both the MSRP percentage and the RRP saving are worked from the figure this
  * row prints, `totalGbp`, never from a figure it does not (see msrpFor and
@@ -1893,9 +1895,9 @@ function rowObservation(r: PresentedOffer): ChartObservation {
  *     and where the history has not reached this product at all, the
  *     cheapest current price on this page, which the caption then names as
  *     such;
- *   - older prices: the page's own rows last checked over STALE_OFFER_DAYS
- *     ago, plus the offers too old to list (OLDER_OFFERS, kept out of every
- *     price list by HIDE_OFFER_AFTER_DAYS but still real observations);
+ *   - older prices: the offers too old to list (OLDER_OFFERS, kept out of
+ *     every price list by HIDE_OFFER_AFTER_DAYS but still real observations,
+ *     drawn hollow on the day they were checked and labelled as older);
  *   - only when neither of those has anything, the page's sold out rows, drawn
  *     grey and labelled sold out, so a product nobody can buy still shows what
  *     it last cost without that being drawn as a price anyone could pay.
@@ -1931,7 +1933,7 @@ function historyChartInput(data: PriceHistoryData, fragranceId: string, isCurren
     // one that does (as buildComparison ranks them), so the point is the row
     // the page itself leads with, now that the graph plots delivered prices.
     const current = rows
-      .filter((r) => r.isPurchasable && !r.stale)
+      .filter((r) => r.isPurchasable)
       .sort(
         (a, b) =>
           Number(a.deliveredPriceGbp === null) - Number(b.deliveredPriceGbp === null) ||
@@ -1944,12 +1946,20 @@ function historyChartInput(data: PriceHistoryData, fragranceId: string, isCurren
     }
   }
 
-  const older: ChartObservation[] = [
-    ...rows.filter((r) => r.isPurchasable && r.stale).map(rowObservation),
-    ...(OLDER_OFFERS[fragranceId] ?? [])
-      .filter((o) => o.stock !== 'outOfStock' && getRetailer(o.retailerId)?.enabled === true)
-      .map((o) => ({ at: o.fetchedAt, priceGbp: o.price, retailerId: o.retailerId })),
-  ];
+  // The recorded line is carried flat on to today only while the shop that set
+  // its last price still shows that price on this page. A shop whose offer is
+  // now too old to list (HIDE_OFFER_AFTER_DAYS) has stopped confirming it, so
+  // the line stops at the last reading instead of claiming the price holds
+  // today. Nothing on the graph then presents a price over seven days old as
+  // the current one.
+  if (lineSource === 'history' && carryForward) {
+    const last = [...line].reverse().find((p) => p.priceGbp !== null);
+    if (last && !rows.some((r) => r.isPurchasable && r.retailer.id === last.retailerId)) carryForward = false;
+  }
+
+  const older: ChartObservation[] = (OLDER_OFFERS[fragranceId] ?? [])
+    .filter((o) => o.stock !== 'outOfStock' && getRetailer(o.retailerId)?.enabled === true)
+    .map((o) => ({ at: o.fetchedAt, priceGbp: o.price, retailerId: o.retailerId }));
   const soldOut = line.length === 0 && older.length === 0 ? rows.filter((r) => !r.isPurchasable).map(rowObservation) : [];
 
   return { line, lineSource, carryForward, older, soldOut, siteLastDay: data.span?.last ?? null, isCurrentlyPurchasable, isGiftSet: frag?.giftSet != null };
@@ -2974,6 +2984,13 @@ function retailerView(): string {
     }),
   );
 
+  // A shop none of whose prices is recent enough to show (one that blocks us,
+  // for instance) is not in the Shops list or the sitemap, but its address can
+  // still be opened from an old link. It says so in a sentence instead of
+  // printing "0 Fragrances Here" over a sort control and a filter that
+  // cannot match anything.
+  const noCurrentPrices = filtered.length === 0;
+
   return `
     <button class="back" data-back-explore>Back</button>
     <div class="org-hero">
@@ -2989,9 +3006,13 @@ function retailerView(): string {
       </div>
     </div>
 
-    <p class="gone-head t-eyebrow">${list.length} ${list.length === 1 ? 'Fragrance' : 'Fragrances'} Here</p>
+    ${
+      noCurrentPrices
+        ? `<p class="empty-note t-body">We have no prices from ${esc(r.name)} checked in the last ${HIDE_OFFER_AFTER_DAYS} days, so none are shown.</p>`
+        : `<p class="gone-head t-eyebrow">${list.length} ${list.length === 1 ? 'Fragrance' : 'Fragrances'} Here</p>
     ${controls}
-    ${fragranceList(list, 'Nothing from this shop matches that filter.')}`;
+    ${fragranceList(list, 'Nothing from this shop matches that filter.')}`
+    }`;
 }
 
 /**
@@ -4177,6 +4198,7 @@ function headInputForState(): HeadInput {
         route,
         leafName: r.name,
         leafDetail: count > 0 ? `${count.toLocaleString('en-GB')} bottles` : undefined,
+        leafEmpty: count === 0,
       };
     }
 
