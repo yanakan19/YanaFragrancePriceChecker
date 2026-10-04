@@ -185,6 +185,12 @@ function truthy(value: string | undefined): boolean | null {
   return null;
 }
 
+/** A feed's stock column saying pre-order, back order or pre sale, in any spacing or case. */
+function isPreOrderWord(value: string | undefined): boolean {
+  if (value === undefined) return false;
+  return /^(pre[\s_-]?order|back[\s_-]?order|pre[\s_-]?sale|on[\s_-]?back[\s_-]?order)$/i.test(value.trim());
+}
+
 function digitsOnly(value: string | undefined): string | null {
   if (!value) return null;
   const digits = value.replace(/\D/g, '');
@@ -274,10 +280,18 @@ export function parseAwinFeed(csvText: string): RawListing[] {
       rejectPlaceholderImage(trimmedOrNull(col(row, 'merchant_image_url'))) ??
       rejectPlaceholderImage(trimmedOrNull(col(row, 'aw_image_url')));
 
+    // A pre-order in the merchant's own words, on any of the columns a feed
+    // states stock in. Only the words count: a merchant that writes "preorder"
+    // (or back order, or pre sale) is saying it is not shipping yet, so the
+    // listing is not in stock and says Preorder. No stored Awin feed carries
+    // one today (the measured columns are listed above); this is here so one
+    // that starts to is read honestly rather than as null.
+    const preOrder = [col(row, 'in_stock'), col(row, 'stock_status'), col(row, 'availability')].some(isPreOrderWord);
     const inStockFromFlag = truthy(col(row, 'in_stock'));
     const stockQuantity = trimmedOrNull(col(row, 'stock_quantity'));
-    const inStock =
-      inStockFromFlag !== null
+    const inStock = preOrder
+      ? false
+      : inStockFromFlag !== null
         ? inStockFromFlag
         : stockQuantity !== null
           ? Number.parseInt(stockQuantity, 10) > 0
@@ -321,6 +335,7 @@ export function parseAwinFeed(csvText: string): RawListing[] {
       // be invented: canShowCountdown() simply stays false for these.
       promoEndsAt: null,
       inStock,
+      ...(preOrder ? { availability: 'preOrder' as const } : {}),
       sectionId: 'awin-feed',
       description: trimmedOrNull(repairMojibakeIfPresent(col(row, 'description'))),
     });

@@ -77,8 +77,9 @@ Superdrug is the concrete case: £20 free-delivery threshold for cardholders,
 
 ## D5 — `unknown` stock is not `outOfStock`
 
-**Decided.** Three sort tiers only: `inStock`/`lowStock`/`preOrder` share the
-top tier, then `unknown`, then `outOfStock`.
+**Decided.** Three sort tiers for what can be bought: `inStock`/`lowStock`
+share the top tier, then `unknown`, then `outOfStock`. `preOrder` is its own
+state below all of them (see the 2026-10-04 revision at the end of this entry).
 
 A page we failed to parse is not evidence a product is unavailable. Demoting it
 to the bottom would misrepresent the retailer; letting it compete on price would
@@ -94,6 +95,23 @@ out-of-stock signal reaches the bottom, which is also what the brief asked for.
 
 Only `outOfStock` sets `isPurchasable: false`, and `bestOffer()` never returns an
 unbuyable row however cheap it is.
+
+**Revised 2026-10-04: pre-orders.** Owner's request. A shop that sells a bottle
+it is not shipping yet (its page says Pre-Order, its JSON-LD or feed says
+PreOrder, BackOrder or PreSale) is `preOrder`, and `preOrder` used to share the
+top tier, so a bottle nobody could get today counted as stock. It no longer
+does: `isPurchasable` is false for it, so it is never the Cheapest tag, the
+headline box, a deal, a price drop alert or a point on the graph, and it ranks
+below `outOfStock`. On the product page it is a group of its own, headed
+Preorder, under Sold Out, each row carrying a Preorder tag. It is read only from
+a shop's own statement, never inferred: `RawListing.availability: 'preOrder'`
+(with `inStock: false`, so a reader that only knows the flag still treats it as
+not in stock), set from JSON-LD, an Awin feed's stock words, a title that says
+Pre-Order, or, for Bloom Perfumery whose `/products.json` calls them available,
+a read of each product page (`availabilityFromProductPage`). Written Preorder,
+not Pre-Order: the house style has no hyphens in anything a reader sees. Sold
+out wins over a pre-order wording: a listing the shop calls unavailable is sold
+out. There is no email option for it, because Sold Out rows have none either.
 
 ---
 

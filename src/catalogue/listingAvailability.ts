@@ -1,4 +1,5 @@
-import type { StoredListing } from './types.js';
+import type { StockState } from '../types/offer.js';
+import type { RawListing, StoredListing } from './types.js';
 
 /**
  * Whether a listing is one a reader could actually have bought: the shop
@@ -83,6 +84,89 @@ import type { StoredListing } from './types.js';
  * costing the four shops above their history everywhere they were ever the
  * cheapest, which is the trade this function's header argues against.
  */
-export function isAvailableListing(listing: Pick<StoredListing, 'status' | 'inStock'>): boolean {
+export function isAvailableListing(
+  listing: Pick<StoredListing, 'status' | 'inStock'> & Partial<Pick<StoredListing, 'availability' | 'rawTitle'>>,
+): boolean {
+  // A pre-order is not something a reader could have bought on that day, so it
+  // is left out of the history exactly as a sold out listing is. Its stored
+  // flag is already false from the harvest, but this also covers a listing
+  // stored before the field existed whose title carries the shop's own
+  // Pre-Order wording.
+  if (listing.availability === 'preOrder') return false;
+  if (listing.inStock !== false && listing.rawTitle && titleStatesPreOrder(listing.rawTitle)) return false;
   return listing.status === 'active' && listing.inStock !== false;
+}
+
+/**
+ * Whether a shop's own title says the bottle is a pre-order, in the shop's
+ * words: "PRE-ORDER: Estimated dispatch: 7th October" (Emirates Oud), "Pre
+ * Order", "Preorder". A whole word match only, so a word that merely contains
+ * the letters does not count. Never a guess from a price, a date or a missing
+ * stock figure.
+ */
+export function titleStatesPreOrder(rawTitle: string): boolean {
+  return /(?:^|[^a-z])pre[\s-]?order(?![a-z])/i.test(rawTitle);
+}
+
+/**
+ * The stock state a stored listing is shown with: the one place that decides
+ * between in stock, out of stock, pre-order and unknown.
+ *
+ * Order matters. A shop's explicit "unavailable" (`inStock: false`) is the
+ * strongest statement and wins over a pre-order wording in the title, because
+ * a sold out pre-order is sold out. After that, an explicit pre-order (the
+ * stored field, or the shop's own wording in the title) beats the in stock
+ * flag, which is the whole point: Bloom Perfumery's feed calls a Pre-Order
+ * bottle available. A stored `availability: 'preOrder'` carries `inStock:
+ * false` by construction (see `RawListing.availability`), so it is read first.
+ */
+export function listingStockState(
+  listing: Pick<RawListing, 'inStock' | 'rawTitle'> & { availability?: RawListing['availability'] },
+): StockState {
+  if (listing.availability === 'preOrder') return 'preOrder';
+  if (listing.inStock === false) return 'outOfStock';
+  if (titleStatesPreOrder(listing.rawTitle)) return 'preOrder';
+  if (listing.inStock === true) return 'inStock';
+  return 'unknown';
+}
+
+/**
+ * Marks the listings whose own title says Pre-Order, as the harvest stores
+ * them: `availability: 'preOrder'` and `inStock: false`. A listing the shop
+ * already states unavailable (`inStock: false`) is left alone, since sold out
+ * wins, and one already marked is left as it is.
+ */
+export function markTitlePreOrders<
+  T extends Pick<RawListing, 'inStock' | 'rawTitle'> & { availability?: RawListing['availability'] },
+>(listings: readonly T[]): { listings: T[]; marked: string[] } {
+  const marked: string[] = [];
+  const out = listings.map((l) => {
+    if (l.availability === 'preOrder' || l.inStock === false || !titleStatesPreOrder(l.rawTitle)) return l;
+    marked.push(l.rawTitle);
+    return { ...l, inStock: false, availability: 'preOrder' as const };
+  });
+  return { listings: out, marked };
+}
+
+/**
+ * A listing with its stock re-read from a shop's feed or storefront, keeping
+ * an earlier explicit pre-order where the new reading is silent about it.
+ *
+ * Two paths re-price stored listings from a feed that only knows a true/false
+ * available flag (catalogueRefresh.ts, feedPriceRepair.ts). That flag says
+ * "available" for a pre-order too, so it must not undo a pre-order the shop's
+ * own page stated; but `false` is the shop saying it cannot be had at all,
+ * which clears it. A null reading leaves everything as it was.
+ */
+export function withFeedStock<T extends Pick<RawListing, 'inStock'> & { availability?: RawListing['availability'] }>(
+  listing: T,
+  available: boolean | null,
+): T {
+  if (available === false) {
+    const { availability: _gone, ...rest } = listing;
+    return { ...rest, inStock: false } as T;
+  }
+  if (available === null) return listing;
+  if (listing.availability === 'preOrder') return { ...listing, inStock: false };
+  return { ...listing, inStock: available };
 }

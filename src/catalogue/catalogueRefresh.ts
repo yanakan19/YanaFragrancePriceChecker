@@ -3,6 +3,7 @@ import type { RawListing, StoredListing } from './types.js';
 import type { Http } from './attempt.js';
 import { isAllowed, type RobotsRules } from './robots.js';
 import { isShopifyProductsPayload } from './shopifyJson.js';
+import { withFeedStock } from './listingAvailability.js';
 
 /**
  * Re-price listings we already hold from the shop's own catalogue endpoint,
@@ -185,13 +186,21 @@ export function refreshFromItems(
       relistedAt: _rl, eligibleForNewBadge: _e, variantId: _v, ...raw
     } = prior;
     const samePrice = prior.priceGbp !== null && Math.abs(prior.priceGbp - item.priceGbp) <= 0.005;
-    listings.push({
+    // `withFeedStock`: the feed's flag says "available" for a pre-order too, so
+    // it must not undo a pre-order the shop's own page stated; "unavailable"
+    // still clears it. A feed that states nothing (null) still replaces the
+    // stored flag with null, as it always did, unless a pre-order is held.
+    const base = {
       ...raw,
       priceGbp: item.priceGbp,
-      inStock: item.inStock,
       wasPriceGbp: samePrice ? raw.wasPriceGbp : null,
       promoEndsAt: samePrice ? raw.promoEndsAt : null,
-    });
+    };
+    listings.push(
+      item.inStock === null && base.availability !== 'preOrder'
+        ? { ...base, inStock: null }
+        : withFeedStock(base, item.inStock),
+    );
     refreshedSkus.add(prior.retailerSku);
   }
   return { listings, refreshedSkus, rejected: null, checked, disagreed };

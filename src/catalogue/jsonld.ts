@@ -159,18 +159,46 @@ export function parsePrice(value: unknown): number | null {
   return Number.isFinite(n) ? n : null;
 }
 
-/** Availability comes with and without the schema.org prefix, in any case. */
+/**
+ * Whether a schema.org availability value is the shop saying the bottle is a
+ * pre-order: PreOrder, PreSale or BackOrder. These are the shop's explicit
+ * words for "sold, but not shipping yet", and nothing else counts.
+ */
+export function isPreOrderAvailability(value: unknown): boolean {
+  const s = str(value);
+  if (!s) return false;
+  const tail = s.split('/').pop()!.toLowerCase();
+  return tail.includes('preorder') || tail.includes('presale') || tail.includes('backorder');
+}
+
+/**
+ * Availability comes with and without the schema.org prefix, in any case.
+ *
+ * A pre-order is `false` here: it is not in stock today. This used to return
+ * `true` for PreOrder, which is how a Pre-Order bottle came to be counted as
+ * stock on every JSON-LD shop. `isPreOrderAvailability` is the separate
+ * question that lets a caller say Preorder instead of Sold Out.
+ */
 export function parseAvailability(value: unknown): boolean | null {
   const s = str(value);
   if (!s) return null;
   const tail = s.split('/').pop()!.toLowerCase();
+  if (isPreOrderAvailability(s)) return false;
   if (tail.includes('outofstock') || tail.includes('soldout') || tail.includes('discontinued')) {
     return false;
   }
-  if (tail.includes('instock') || tail.includes('instoreonly') || tail.includes('preorder')) {
+  if (tail.includes('instock') || tail.includes('instoreonly')) {
     return true;
   }
   return null;
+}
+
+/** The listing fields a schema.org availability value sets: the flag, and Preorder where stated. */
+function stockFields(value: unknown): Pick<RawListing, 'inStock'> & { availability?: 'preOrder' } {
+  return {
+    inStock: parseAvailability(value),
+    ...(isPreOrderAvailability(value) ? { availability: 'preOrder' as const } : {}),
+  };
 }
 
 /**
@@ -479,7 +507,7 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
           wasPriceGbp:
             oListed !== null && money.priceGbp !== null && oListed > money.priceGbp ? oListed : null,
           promoEndsAt: isoDate(o['priceValidUntil']),
-          inStock: parseAvailability(o['availability']),
+          ...stockFields(o['availability']),
           sectionId: options.sectionId,
           rating: aggregateRating(node),
           ...(money.nativePrice ? { nativePrice: money.nativePrice } : {}),
@@ -513,7 +541,7 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
       priceGbp: money.priceGbp,
       wasPriceGbp,
       promoEndsAt: isoDate(offer?.['priceValidUntil']),
-      inStock: parseAvailability(offer?.['availability']),
+      ...stockFields(offer?.['availability']),
       sectionId: options.sectionId,
       rating: aggregateRating(node),
       ...(money.nativePrice ? { nativePrice: money.nativePrice } : {}),

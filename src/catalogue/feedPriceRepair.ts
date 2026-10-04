@@ -1,4 +1,5 @@
 import type { StoredListing } from './types.js';
+import { withFeedStock } from './listingAvailability.js';
 import { lookupLivePrice, type ShopifyPriceIndex } from './shopifyPriceIndex.js';
 
 /**
@@ -125,11 +126,7 @@ export function repairFeedPrices(
       result.agreed++;
       // Still take the storefront's reference price and stock: the feed has no
       // rrp column at all and its in_stock flag is a day old at best.
-      out.push({
-        ...listing,
-        wasPriceGbp: live.compareAt,
-        inStock: live.available ?? listing.inStock,
-      });
+      out.push(withFeedStock({ ...listing, wasPriceGbp: live.compareAt }, live.available));
       continue;
     }
 
@@ -144,12 +141,7 @@ export function repairFeedPrices(
       }
     }
 
-    out.push({
-      ...listing,
-      priceGbp: live.price,
-      wasPriceGbp: live.compareAt,
-      inStock: live.available ?? listing.inStock,
-    });
+    out.push(withFeedStock({ ...listing, priceGbp: live.price, wasPriceGbp: live.compareAt }, live.available));
   }
 
   result.overstatementRemovedGbp = Number(result.overstatementRemovedGbp.toFixed(2));

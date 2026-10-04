@@ -679,6 +679,22 @@ export interface Retailer {
    */
   strengthFromProductPage?: boolean;
   /**
+   * The shop's `/products.json` calls a Pre-Order bottle available and carries
+   * nothing that tells it from one on the shelf, but each product page states
+   * it per variant in its JSON-LD (schema.org availability PreOrder beside the
+   * variant's own `sku`). The harvest reads that page for every listing the
+   * feed calls available and marks the pre-orders, which the site shows as
+   * Preorder and never counts as stock. One request per product page,
+   * robots.txt checked for every page, the crawler's honest user agent, spaced
+   * by the shop's own gap and bounded by the harvest's time budget. See
+   * `src/catalogue/productPageAvailability.ts`. A page that cannot be read
+   * leaves the feed's word, except that a recent pre-order from an earlier
+   * read of that page is kept. Needs `shopifyStorefront: true`; set only for a
+   * shop measured to state pre-orders on its pages and not in its feed
+   * (Bloom Perfumery), and only by naming that shop here.
+   */
+  availabilityFromProductPage?: boolean;
+  /**
    * This shop's "Travel Spray" variant is the same perfume in a small
    * atomiser, one more size on the perfume's own page (Kayali's "10ml Travel
    * Spray" beside its 100ml, 50ml, "10ml Miniature" and 1.5ml), so the word is

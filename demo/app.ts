@@ -47,7 +47,8 @@ import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
 import { availabilityHeading, offerGroups, offersInPageOrder, rowShowsAge } from './offerGroups.js';
 import { mostStockedRail, rankedInMostStocked } from './mostStocked.js';
 import { bestDealPerScent, onePerScent } from './oneScent.js';
-import type { PresentedOffer, StockState } from '../src/types/offer.js';
+import type { PresentedOffer } from '../src/types/offer.js';
+import { noStockLabel, rowStockMarks } from './stockLabels.js';
 import type { Retailer, RetailerTier, LogoRef } from '../src/types/retailer.js';
 import { logoFor } from './brandLogos.js';
 import {
@@ -943,26 +944,6 @@ function setPerRow(perRow: number): void {
 
 /* ── labels ──────────────────────────────────────────────────────────────── */
 
-/**
- * The stock line says the state and nothing else. There is no unit count
- * anywhere on the site and there never has been: a retailer feed carries a
- * true/false in-stock flag, never a number, so there is nothing to show.
- *
- * A `stockQtyMark()` helper used to append "(-)" after "In stock" to say that
- * absence out loud. It was removed on 2026-08-26 (owner's instruction: no
- * stock count anywhere) and should not come back in another shape — the "(-)"
- * read as a broken template or a missing figure rather than as the deliberate
- * statement it was, which is the failure mode of stating an absence with a
- * punctuation mark. The gap itself is still real and is documented here.
- */
-const STOCK_LABEL: Record<StockState, string> = {
-  inStock: 'In stock',
-  lowStock: 'Low stock',
-  preOrder: 'Preorder',
-  unknown: 'Stock not confirmed',
-  outOfStock: 'Sold out',
-};
-
 function age(seconds: number): string {
   if (seconds < 90) return 'just now';
   const m = Math.round(seconds / 60);
@@ -1213,8 +1194,9 @@ function fragranceLinksBlock(f: DemoFragrance): string {
 }
 
 function priceLine(f: DemoFragrance): string {
-  const best = bestOffer(rowsFor(f));
-  if (!best) return `<span class="amt none">Sold Out</span>`;
+  const rows = rowsFor(f);
+  const best = bestOffer(rows);
+  if (!best) return `<span class="amt none">${noStockLabel(rows)}</span>`;
   // One element, not a bare text node beside a span: .tile-price stacks its
   // children, so anything left loose would drop the arrow onto its own line.
   if (best.deliveredPriceGbp !== null) {
@@ -1695,7 +1677,11 @@ function offerRow(
   // cost — never the item price wearing a delivered price's clothes.
   const totalGbp = shownPrice(row).amountGbp;
   const facts: string[] = [];
-  if (!row.isPurchasable) {
+  // A pre-order is not buyable today, so it sits with the sold out rows, but
+  // its price is the shop's live pre-order price rather than a last one, so
+  // it keeps the delivery and age facts and wears a Preorder tag instead.
+  const marks = rowStockMarks(row);
+  if (marks.lastPrice) {
     facts.push('Last price');
   } else {
     if (row.delivery.costGbp === null) {
@@ -1711,7 +1697,7 @@ function offerRow(
           : `Incl. ${est}${formatGbp(row.delivery.costGbp)} delivery`,
       );
     }
-    if (row.stock !== 'inStock') facts.push(STOCK_LABEL[row.stock]);
+    if (marks.fact) facts.push(marks.fact);
     // A bottle below the shop's minimum basket cannot be bought on its own.
     const minimum = row.retailer.shipping.minimumOrderGbp;
     if (minimum && row.itemPriceGbp < minimum) facts.push(`${formatGbp(minimum)} minimum order`);
@@ -1734,7 +1720,9 @@ function offerRow(
         <span class="shop t-title">${offerMark(row.retailer)}${esc(row.retailer.name)}${
           isBest && bestTag
             ? `<span class="tag ${bestTag === 'Cheapest' ? '' : 'unsure'}">${esc(bestTag)}</span>`
-            : ''
+            : marks.tag
+              ? `<span class="tag unsure">${esc(marks.tag)}</span>`
+              : ''
         }</span>
         <span class="price">${
           // A row with an MSRP comparison never also shows the shop's own RRP:
@@ -1922,9 +1910,11 @@ function historyChartInput(data: PriceHistoryData, fragranceId: string, isCurren
   }
 
   const older: ChartObservation[] = (OLDER_OFFERS[fragranceId] ?? [])
-    .filter((o) => o.stock !== 'outOfStock' && getRetailer(o.retailerId)?.enabled === true)
+    .filter((o) => o.stock !== 'outOfStock' && o.stock !== 'preOrder' && getRetailer(o.retailerId)?.enabled === true)
     .map((o) => ({ at: o.fetchedAt, priceGbp: o.price, retailerId: o.retailerId }));
-  const soldOut = line.length === 0 && older.length === 0 ? rows.filter((r) => !r.isPurchasable).map(rowObservation) : [];
+  // A pre-order is not a price anyone paid or could pay today: it is no point on
+  // the graph, the sold out marker included.
+  const soldOut = line.length === 0 && older.length === 0 ? rows.filter((r) => r.stock === 'outOfStock').map(rowObservation) : [];
 
   return { line, lineSource, carryForward, older, soldOut, siteLastDay: data.span?.last ?? null, isCurrentlyPurchasable, isGiftSet: frag?.giftSet != null };
 }
@@ -2044,8 +2034,9 @@ function notesBlock(f: DemoFragrance): string {
 /** The saved bottle's cheapest price today, so the wishlist doubles as a
  *  price check: the same figure the product page leads with. */
 function wishlistPriceNote(frag: DemoFragrance): string {
-  const best = bestOffer(rowsFor(frag));
-  if (!best) return ' · Sold out everywhere';
+  const rows = rowsFor(frag);
+  const best = bestOffer(rows);
+  if (!best) return noStockLabel(rows) === 'Preorder Only' ? ' · Preorder only, none in stock' : ' · Sold out everywhere';
   return ` · From ${formatGbp(best.deliveredPriceGbp ?? best.itemPriceGbp)} at ${esc(best.retailer.name)}`;
 }
 
@@ -2389,7 +2380,11 @@ function priceBoxRow(
   best: PresentedOffer | null,
   verdict: CheapestVerdict,
 ): string {
-  if (!best) return `<p class="hero-price none">Sold out everywhere</p>`;
+  if (!best) {
+    return `<p class="hero-price none">${
+      noStockLabel(rows) === 'Preorder Only' ? 'Preorder only, none in stock' : 'Sold out everywhere'
+    }</p>`;
+  }
   return `<div class="price-boxes">${referenceBox(frag, rows)}${lowestPriceBox(best, verdict)}</div>`;
 }
 
@@ -2409,7 +2404,7 @@ function detailView(): string {
   const verdict = cheapestVerdict(rows);
   const bestTag = cheapestTag(verdict);
   const groups = offerGroups(rows);
-  const { delivered, plusDelivery, gone } = groups;
+  const { delivered, plusDelivery, gone, preOrder } = groups;
   const newest = rows.length ? Math.min(...rows.map((r) => r.ageSeconds)) : 0;
   /**
    * Whether this page may print the word MSRP at all.
@@ -2507,6 +2502,16 @@ function detailView(): string {
           gone.length
             ? `<p class="gone-head t-eyebrow">Sold Out</p>
                <ul class="offers">${gone.map((r) => offerRow(r, false, 'Cheapest', mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
+            : ''
+        }
+
+        ${
+          // Under the sold out rows, in the same style: the shop sells the
+          // bottle but is not shipping it yet. Never tagged Cheapest, never
+          // in the heading's count (see offerGroups).
+          preOrder.length
+            ? `<p class="gone-head t-eyebrow">Preorder</p>
+               <ul class="offers">${preOrder.map((r) => offerRow(r, false, 'Cheapest', mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
             : ''
         }
 
@@ -3544,6 +3549,7 @@ function openWrongPriceDialog(): void {
         deliveredPriceGbp: row.deliveredPriceGbp,
         deliveryCostGbp: row.delivery.costGbp,
         isPurchasable: row.isPurchasable,
+        isPreOrder: row.stock === 'preOrder',
         fetchedAt: row.fetchedAt,
       },
       problem: field('problem') as WrongPriceProblem,
@@ -4137,7 +4143,8 @@ function headInputForState(): HeadInput {
       if (!frag) return { route };
       const rows = rowsFor(frag);
       const best = bestOffer(rows);
-      const shops = rows.length;
+      // A pre-order is not stocked, so it is no part of "across N shops".
+      const shops = rows.filter((r) => r.stock !== 'preOrder').length;
       // Only a delivered price is quoted here. An item price without delivery
       // would read as the same kind of figure in a search result while being
       // a different one, which is the distinction the whole site turns on.

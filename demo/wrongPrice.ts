@@ -36,6 +36,8 @@ export interface ReportedOffer {
   deliveredPriceGbp: number | null;
   deliveryCostGbp: number | null;
   isPurchasable: boolean;
+  /** True for a row the page shows as Preorder rather than Sold Out. Absent reads as false. */
+  isPreOrder?: boolean;
   /** ISO time the price was captured. */
   fetchedAt: string;
 }
@@ -62,7 +64,8 @@ export function priceShown(o: ReportedOffer): string {
   } else {
     text = `${formatGbp(o.deliveredPriceGbp)} including ${formatGbp(o.deliveryCostGbp)} delivery`;
   }
-  return o.isPurchasable ? text : `${text}, shown as sold out`;
+  if (o.isPurchasable) return text;
+  return o.isPreOrder ? `${text}, shown as preorder` : `${text}, shown as sold out`;
 }
 
 /** "1 Oct 2026, 09:12", UK time, whatever zone the reader's device is in. */

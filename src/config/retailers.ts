@@ -4039,6 +4039,13 @@ export const RETAILERS: readonly Retailer[] = [
     // Multi-brand: stocks Lattafa, Al Haramain, Afnan, Bujairami and others,
     // not a single house's own storefront — requested under "retailer
     // listings" rather than the named-brand list.
+    //
+    // Pre-orders, checked 2026-10-04 against what is stored: no title says
+    // Pre-Order. Two product URLs end in "-pre-order" (Rasasi Hawas London
+    // 100ml, in stock; Liquid Brun 150ml, out of stock) but a URL handle keeps
+    // the words it was created with after a bottle ships, so it is not read as
+    // a statement. This shop's pages are read for JSON-LD, so a PreOrder
+    // availability on one is read as a pre-order the next time it is fetched.
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
@@ -4166,6 +4173,14 @@ export const RETAILERS: readonly Retailer[] = [
     // the full extracted text of both their shipping-policy and refund-policy
     // pages — see the shipping block below for the sentence that supplied the
     // figure, from the refund-policy page rather than the shipping-policy one.
+    //
+    // Pre-orders, 2026-10-04: the shop writes it into the product's own title,
+    // "Momento Liquid Gold Extrait de Parfum 100ml Riiffs PRE-ORDER: Estimated
+    // dispatch: 7th October", on /products.json (and in the variant SKU), which
+    // its feed calls available. Its own wording, so the harvest marks any title
+    // that says Pre-Order as a pre-order (markTitlePreOrders): 3 active
+    // listings at the first read (Momento Liquid Gold, Hawas Ice Freeze, Hawas
+    // Boa), 4 older ones already delisted. No page read is needed here.
     enabled: true,
     adapter: 'unknown',
     // Product paths (/products/<handle>) are the standard Shopify convention,
@@ -8346,6 +8361,7 @@ export const RETAILERS: readonly Retailer[] = [
       sizeOption: { name: 'Package', minMl: 5 },
     },
     botIdentityOnly: true,
+    availabilityFromProductPage: true,
     //
     // ── Switched on, 2026-10-03, on the Shopify route with that rule ────────
     // Probe run #590 (job 111315662687), from a runner, robots.txt first and as
@@ -8371,6 +8387,37 @@ export const RETAILERS: readonly Retailer[] = [
     // and Caron among them) while /products.json calls them available, so those
     // read as in stock here. products.json carries nothing that tells the two
     // apart.
+    //
+    // ── Pre-orders, read from each product page, 2026-10-04 ─────────────────
+    // That caveat is closed by `availabilityFromProductPage`
+    // (src/catalogue/productPageAvailability.ts). The page states it per
+    // variant in two places that agree: the JSON-LD Product block lists one
+    // Offer per variant with the variant's own `sku` (the same string the feed
+    // gives the listing, e.g. ROSE-IVOIRE-DE-CARON-100-ML-EDP) and a schema.org
+    // availability of PreOrder, InStock or OutOfStock; and the visible variant
+    // list prints a PRE-ORDER flag on the same variants. Only the JSON-LD is
+    // read. Rose Ivoire De Caron's page, read as PriceSniffsBot: 100 ml and
+    // 30 ml PreOrder, the 1 ml sample OutOfStock.
+    // Every listing the feed calls available is read (918 listings on 758
+    // product pages, one request per page), robots.txt checked for each
+    // address (product pages are not disallowed), 1.5 s apart, the shop's gap
+    // (it sets no crawl delay for us), inside the harvest's own time. A page
+    // costs about 4 s all in, so a 40 minute shop budget reads some 550 of the
+    // 758; the pages not reached keep what the feed says until a later run
+    // gets to them. Order of reading: pages that held a pre-order last run
+    // first (so a bottle that ships stops saying Preorder promptly), then pages
+    // never read, then the oldest read. A page that cannot be read leaves the
+    // feed's word, except a pre-order read within 7 days is kept. A bottle the
+    // feed calls sold out is never a pre-order and its page is not asked for.
+    // First read (dry run, 557 of 758 pages reached, 3 answered HTTP 503 and
+    // were left as the feed says): 109 listings are PreOrder, among them the
+    // La Closerie Cacao and Patchouli lines, Caron Parfum Sacre, Rose Ivoire,
+    // Fleur de Rocaille, Lady Caron, Tabac Exquis, Pois de Senteur and Pour Un
+    // Homme, Atmah, Outopia, Le Regent, the Kajal series, This Is Not A Blue
+    // Bottle, Reunion Vanilla, Dead Air and Naked Dance. About one bottle in
+    // five on the shop's shelf is a pre-order, which is why the page read is
+    // not optional. The site shows each as Preorder, under Sold Out, and never
+    // counts one as stock.
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
