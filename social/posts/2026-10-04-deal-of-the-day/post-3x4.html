@@ -1,0 +1,92 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1080px; height: 1440px; background: #0A0A0B; color: #F7F7F8;
+    font-family: 'Liberation Sans', Arial, Helvetica, sans-serif; }
+  main { height: 100%; padding: 60px 90px; display: flex; flex-direction: column;
+    align-items: center; justify-content: space-evenly; text-align: center; }
+  .top, .mid, .bottom { display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; }
+  .brandline { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 44px; letter-spacing: -0.5px; }
+  .brandline .mark { width: 58px; height: 58px; flex: none; }
+  .brandline em { font-style: normal; color: #FF3B41; }
+  .date { margin: 0; padding: 10px 22px; border: 2px solid #3A3A40; border-radius: 999px;
+    font-size: 24px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #B9B9C0; }
+  h1 { margin: 0; width: 100%; font-size: 60px; letter-spacing: -1px; line-height: 1.15; white-space: nowrap; }
+  .flag { display: inline-block; vertical-align: -0.06em; width: 66px; height: 33px; border-radius: 6px; }
+  .who { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+  .name { margin: 0; font-size: 52px; font-weight: 700; line-height: 1.12; letter-spacing: -0.5px; overflow-wrap: anywhere; }
+  .brand { margin: 0; font-size: 28px; color: #B9B9C0; letter-spacing: 3px; text-transform: uppercase; white-space: nowrap; }
+  /* The SAVE badge pokes out above the card; this keeps that much clear space
+     above the card so it can never sit on the brand line, however long. */
+  .photo { margin-top: 39px; position: relative; width: calc(380px * var(--k, 1)); height: calc(380px * var(--k, 1)); border-radius: 36px; background: #FFFFFF;
+    display: flex; align-items: center; justify-content: center; }
+  .photo img { width: 86%; height: 86%; object-fit: contain; border-radius: 12px; }
+  .badge { position: absolute; top: -27px; right: -57px;
+    width: 136px; height: 136px; border-radius: 50%; background: #FF3B41; color: #FFFFFF;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: 0 0 0 8px #0A0A0B; transform: rotate(8deg); }
+  .badge b { font-size: 46px; line-height: 1; letter-spacing: -1px; }
+  .badge span { font-size: 20px; font-weight: 700; letter-spacing: 2px; margin-top: 4px; }
+  .boxes { display: flex; gap: 24px; width: 100%; justify-content: center; }
+  .box { flex: 0 1 420px; min-width: 0; padding: 20px 16px; border-radius: 28px; border: 2px solid #FF3B41; background: #1E0709; }
+  .box.best { border-color: #4FB47B; background: #14221B; }
+  .label { margin: 0; font-size: 26px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #FF6A6E; }
+  .amount { margin: 8px 0 0; white-space: nowrap; font-size: 52px; font-weight: 700; color: #FF6A6E; }
+  .from { margin: 6px 0 0; font-size: 26px; color: #B9B9C0; white-space: nowrap; }
+  .best .label, .best .amount { color: #4FB47B; }
+  /* Where the live link sticker goes: a faint centre crosshair, nothing else. */
+  .sticker { position: relative; width: 120px; height: 120px; }
+  .sticker::before, .sticker::after { content: ''; position: absolute; background: #3A3A40; }
+  .sticker::before { left: 59px; top: 0; width: 2px; height: 120px; }
+  .sticker::after { top: 59px; left: 0; height: 2px; width: 120px; }
+  .sticker i { position: absolute; left: 44px; top: 44px; width: 32px; height: 32px; border: 2px solid #3A3A40; border-radius: 50%; }
+  .bio { margin: 0; padding: 12px 28px; border-radius: 999px; background: #18181B; border: 2px solid #3A3A40; font-size: 28px; font-weight: 700; letter-spacing: 1px; }
+  .checked { margin: 0; width: 100%; font-size: 24px; color: #8A8A93; white-space: nowrap; }
+</style></head><body><main>
+  <div class="top">
+    <div class="brandline"><svg class="mark" viewBox="240 240 610 610" aria-hidden="true"><circle cx="478" cy="478" r="196" fill="none" stroke="#FF3B41" stroke-width="58"/><line x1="636" y1="636" x2="796" y2="796" stroke="#FF3B41" stroke-width="72" stroke-linecap="round"/><g fill="#F7F7F8"><rect x="452" y="366" width="52" height="42" rx="9"/><rect x="463" y="402" width="30" height="26"/><rect x="398" y="422" width="160" height="164" rx="34"/></g></svg><span>Price<em>Sniffs</em></span></div>
+    <p class="date">Sunday, 4 October 2026</p>
+    <h1 data-fit="1,30">Deal of the Day <svg class="flag" viewBox="0 0 60 30" aria-label="UK flag"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg></h1>
+  </div>
+  <div class="mid">
+    <div class="who">
+      <p class="name" data-fit="2,34">Night Shadow 100ml</p>
+      <p class="brand" data-fit="1,20">Zimaya</p>
+    </div>
+    <div class="photo"><img src="https://www.beautybase.com/cdn/shop/files/1727346282-60665500.jpg?v=1763393666&width=3000" alt=""><div class="badge"><span>SAVE</span><b>55%</b></div></div>
+    <div class="boxes">
+      <div class="box"><p class="label">MSRP</p><p class="amount" data-fit="1,30">£45.00</p><p class="from">Brand's Current Price</p></div>
+      <div class="box best"><p class="label">Cheapest price</p><p class="amount" data-fit="1,30">£19.98</p><p class="from" data-fit="1,18">from Justmylook</p></div>
+    </div>
+  </div>
+  <div class="bottom">
+    <p class="bio">Link in bio</p>
+    <p class="checked" data-fit="1,16">Price incl. delivery, checked 03:41 UK, 4 Oct 2026</p>
+  </div>
+</main><script>
+(() => {
+  const lineH = (el) => {
+    const cs = getComputedStyle(el);
+    const lh = parseFloat(cs.lineHeight);
+    return Number.isNaN(lh) ? parseFloat(cs.fontSize) * 1.2 : lh;
+  };
+  for (const el of document.querySelectorAll('[data-fit]')) {
+    const [lines, min] = el.dataset.fit.split(',').map(Number);
+    let size = parseFloat(getComputedStyle(el).fontSize);
+    const over = () => el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > lines * lineH(el) + 2;
+    while (over() && size > min) { size -= 1; el.style.fontSize = size + 'px'; }
+    if (over()) {
+      el.dataset.clamped = 'true';
+      el.style.overflow = 'hidden';
+      if (lines > 1) { el.style.display = '-webkit-box'; el.style.webkitBoxOrient = 'vertical'; el.style.webkitLineClamp = String(lines); }
+      else { el.style.textOverflow = 'ellipsis'; el.style.whiteSpace = 'nowrap'; }
+    }
+  }
+  const main = document.querySelector('main');
+  let k = 1;
+  while (main && main.scrollHeight > main.clientHeight + 1 && k > 0.6) {
+    k = Math.round((k - 0.04) * 100) / 100;
+    document.documentElement.style.setProperty('--k', String(k));
+  }
+  document.body.dataset.fitScale = String(k);
+})();
+</script></body></html>
