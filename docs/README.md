@@ -40,6 +40,7 @@ path.
 | [ROUTING-PLAN.md](ROUTING-PLAN.md) | Pages and URLs |
 | [LEGAL.md](LEGAL.md) | The legal pages and what they must say |
 | [DECISIONS.md](DECISIONS.md) | What was decided, and why |
+| [PIPELINE-FAILURE-MODES.md](PIPELINE-FAILURE-MODES.md) | What can break the price pipeline, what guards it, who writes which file |
 
 ## Plans and roadmaps
 
