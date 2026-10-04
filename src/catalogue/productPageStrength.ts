@@ -114,7 +114,10 @@ export function titleWithPageStrength(rawTitle: string, strength: string | null)
   if (!title) return rawTitle;
   const size = ML_SIZE_RE.exec(title) ?? OZ_SIZE_RE.exec(title);
   if (!size) return `${title} ${strength}`;
-  const at = size.index;
+  // A size in brackets ("Eucalyptus 20 (15ml)") keeps its bracket with it.
+  let at = size.index;
+  const open = /\(\s*$/.exec(title.slice(0, at));
+  if (open) at = open.index;
   return `${title.slice(0, at).trimEnd()} ${strength} ${title.slice(at)}`;
 }
 

@@ -617,6 +617,16 @@ export interface SitemapRoute {
    */
   variantSizesFromPage?: boolean;
   /**
+   * The shop's titles often name no strength, but the brand's copy on a THG
+   * product page states it in the shop's own template (the product's name,
+   * its strength and the size in brackets: "Alto Astral Eau de Parfum
+   * (50ml)"). Read it from the page the walk already fetched, so it costs no
+   * request, and put it into the title before the size. A page that states
+   * none, or two, leaves the title as it was. See
+   * `src/catalogue/thgPageStrength.ts` for the rule and what was measured.
+   */
+  strengthFromPage?: boolean;
+  /**
    * Never read product pages a run reads, when that many are unread. The run
    * wide page budget (`--max`, 42 never read pages a shop a run on the
    * scheduled sweep) is the floor for every shop; this raises it for one shop

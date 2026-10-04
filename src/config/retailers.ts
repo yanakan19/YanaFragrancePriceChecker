@@ -6912,6 +6912,22 @@ export const RETAILERS: readonly Retailer[] = [
       // size on a size button (data-sku, data-size): 30ml £160 (sold out),
       // 50ml £205, 100ml £295 on that page, read 2026-10-04.
       variantSizesFromPage: true,
+      // ── Strength from the product page, 2026-10-04 ──────────────────────
+      // Of the 961 listings stored that day, 228 perfume looking ones named
+      // no strength in the title (most Creed, Commodity, BORNTOSTANDOUT,
+      // Discotheque, Fascent, Sisley and Escentric Molecules) and the strength
+      // rule kept them off the site. All 222 of their pages were read for
+      // where the page states one. It has no field for it: the theme lists
+      // `subtitle` and `strengthDetail` content keys and not one of the 222
+      // pages carried either, the JSON-LD and the h1 are the title, and the
+      // ingredients say only "Parfum (Fragrance)". What the brand's own copy
+      // does state, on 37 of the 222 pages (38 listings), is "<name> Eau de
+      // Parfum (50ml)", read by src/catalogue/thgPageStrength.ts from the
+      // page the walk already fetches (no extra request) under four rules (an
+      // exact strength, the shop's template, this product's own name, no
+      // disagreement). The other 185 state none and stay hidden, most Creed
+      // included: its pages say only "Meet the Wild Vetiver (50ml)".
+      strengthFromPage: true,
       categories: {
         pages: [
           'https://www.cultbeauty.co.uk/c/fragrance/perfumes/',
