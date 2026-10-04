@@ -420,3 +420,79 @@ describe('scripts/commit-and-push.sh commits the page\'s data folder with it', (
     expect(tree(worker)).toBe('demo/data/catalogue.dddddddddddddddd.json');
   });
 });
+
+// Run #592 (2026-10-04, job 111345364820). A full harvest had already pushed
+// its prices (1028a0b); "Commit rebuilt app" then lost the race to an agent's
+// push that had rebuilt the same page, and the rebase stopped on conflicts in
+// demo/404.html, demo/catalogue.generated.ts, demo/deals.generated.ts,
+// demo/index.html, demo/data (a rename/rename: both sides replaced the same
+// content-hashed catalogue file with a different, ~70% similar one) and
+// demo/sitemap.xml. Every one of them is build output, but the script did not
+// know demo/sitemap.xml was, and refused: "Conflict in demo/sitemap.xml, which
+// is neither a generated file nor a raw harvest snapshot". Three call sites in
+// catalogue-daily.yml name the sitemap, so any two builds racing end this way.
+describe('scripts/commit-and-push.sh after another build of the same page lands first (run #592)', () => {
+  // Big enough, and alike enough, that git's rename detection pairs the old
+  // hashed file with both new ones — the rename/rename conflict #592 hit.
+  const catalogueJson = (variant: string) =>
+    JSON.stringify(Array.from({ length: 60 }, (_, i) => ({ id: `product-${i}`, price: i < 42 ? i : `${variant}-${i}` })), null, 1);
+
+  it('rebuilds a conflicted sitemap with the rest of the page, including a rename/rename in demo/data, and pushes', () => {
+    const { root, worker, concurrent } = setupTrio({
+      relPath: 'demo/catalogue.generated.ts',
+      content: 'BASE\n',
+      gitignore: 'dist-demo/\n',
+      extra: {
+        'demo/sitemap.xml': '<urlset>BASE</urlset>\n',
+        'demo/data/catalogue.aaaaaaaaaaaaaaaa.json': catalogueJson('a'),
+      },
+    });
+    cleanupDirs.push(root);
+
+    rmSync(join(concurrent, 'demo/data/catalogue.aaaaaaaaaaaaaaaa.json'));
+    writeFileSync(join(concurrent, 'demo/data/catalogue.bbbbbbbbbbbbbbbb.json'), catalogueJson('b'));
+    writeFileSync(join(concurrent, 'demo/sitemap.xml'), '<urlset>INCOMING</urlset>\n');
+    pushConcurrentChange(concurrent, 'demo/catalogue.generated.ts', 'INCOMING-FROM-CONCURRENT\n');
+
+    writeFileSync(join(worker, 'demo/catalogue.generated.ts'), 'OUR-HARVEST-DATA\n');
+    writeFileSync(join(worker, 'demo/sitemap.xml'), '<urlset>OURS</urlset>\n');
+    rmSync(join(worker, 'demo/data/catalogue.aaaaaaaaaaaaaaaa.json'));
+    writeFileSync(join(worker, 'demo/data/catalogue.cccccccccccccccc.json'), catalogueJson('c'));
+
+    const { status, output } = runScript(
+      worker,
+      ['Rebuild demo: sim', 'demo/catalogue.generated.ts', 'demo/data', 'demo/sitemap.xml'],
+      {
+        REGENERATE:
+          'echo "REGENERATED-FROM-MERGED-INPUTS" > demo/catalogue.generated.ts' +
+          ' && rm -f demo/data/*.json && echo \'["d"]\' > demo/data/catalogue.dddddddddddddddd.json' +
+          ' && echo "<urlset>REBUILT</urlset>" > demo/sitemap.xml',
+      },
+    );
+
+    expect(output).not.toContain('neither a generated file nor a raw harvest snapshot');
+    expect(status, output).toBe(0);
+    expect(output).toContain('Pushed on attempt 2');
+    expect(git(worker, ['show', 'origin/master:demo/catalogue.generated.ts'])).toBe('REGENERATED-FROM-MERGED-INPUTS');
+    expect(git(worker, ['show', 'origin/master:demo/sitemap.xml'])).toBe('<urlset>REBUILT</urlset>');
+    expect(git(worker, ['ls-tree', '-r', '--name-only', 'origin/master', '--', 'demo/data'])).toBe(
+      'demo/data/catalogue.dddddddddddddddd.json',
+    );
+  });
+
+  it('keeps the incoming test count when demo/testCount.generated.ts conflicts, as the suite on the branch counted it', () => {
+    const { root, worker, concurrent } = setupTrio({
+      relPath: 'demo/testCount.generated.ts',
+      content: 'export const TEST_COUNT = 100;\n',
+    });
+    cleanupDirs.push(root);
+
+    pushConcurrentChange(concurrent, 'demo/testCount.generated.ts', 'export const TEST_COUNT = 140;\n');
+    writeFileSync(join(worker, 'demo/testCount.generated.ts'), 'export const TEST_COUNT = 120;\n');
+
+    const { status, output } = runScript(worker, ['Rebuild demo: sim', 'demo/testCount.generated.ts']);
+
+    expect(status, output).toBe(0);
+    expect(git(worker, ['show', 'origin/master:demo/testCount.generated.ts'])).toBe('export const TEST_COUNT = 140;');
+  });
+});
