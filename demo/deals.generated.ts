@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-10-04T20:31:27.287Z";
+export const DEALS_GENERATED_AT = "2026-10-04T20:47:30.552Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -2328,6 +2328,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 41.99,
     "percentOff": 9,
     "retailerId": "fragrancehub",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6290360616346",
+    "price": 33.98,
+    "delivered": true,
+    "wasPrice": 40,
+    "percentOff": 15,
+    "retailerId": "emirates-oud",
     "kind": "retailer",
     "houseName": null
   },
@@ -4808,16 +4818,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 100,
     "percentOff": 69,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6290360616346",
-    "price": 33.98,
-    "delivered": true,
-    "wasPrice": 40,
-    "percentOff": 15,
-    "retailerId": "emirates-oud",
     "kind": "retailer",
     "houseName": null
   },

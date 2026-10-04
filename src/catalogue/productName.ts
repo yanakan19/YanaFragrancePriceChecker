@@ -2146,7 +2146,57 @@ const NOISE_SEGMENT_DELIVERY_RE =
   /^free\s+(?:uk\s+)?(?:next[\s-]day\s+|standard\s+|express\s+|tracked\s+)?(?:delivery|shipping|postage)$/i;
 
 /**
- * Whether the text after the last "|" in `s` is noise, by one of five
+ * The shop's own translation of a name, taken off it: words after a pipe that
+ * are written in another script. Bloom Perfumery titles its Brocard, d'Annam
+ * and Mabra bottles "Black Swan Princess | Черный Лебедь", "Mooncake | 月餅",
+ * "Damascus Cologne | كولونيا دمشق", and "Tea Rituals | 5 O'Clock Английская
+ * Традиция (Discontinued)" (31 live names, 2026-10-04): the English name, then
+ * the house's name for it in Cyrillic, Chinese, Japanese, Arabic or Devanagari.
+ * A reader of this site is shown the English name; the translation says
+ * nothing a second time and sits in the name as a pipe and a line of
+ * characters most of them cannot read.
+ *
+ * Only words written wholly outside the Latin script are taken, only from the
+ * segments after the first pipe, and the first segment is never touched, so a
+ * name that is nothing but another script (nothing in front of a pipe to keep)
+ * is left exactly as it came. Words that mix scripts count as another script.
+ * A segment that was nothing but translation goes with it, and a segment that
+ * is left with real words keeps them: "5 O'Clock" survives its Russian.
+ * Digits are not letters, so KAYALI's "Oudgasm Vanilla Oud | 36" is out of
+ * reach by construction, as it is for every other rule here.
+ */
+const NON_LATIN_LETTER_RE = /(?=\p{L})(?!\p{Script=Latin})./u;
+function stripTranslatedWords(s: string): string {
+  if (!s.includes('|')) return s;
+  const [first, ...rest] = s.split('|');
+  const kept: string[] = [];
+  let removed = false;
+  for (const segment of rest) {
+    const all = segment.split(/\s+/).filter(Boolean);
+    const words = all.filter((w) => ![...w].some((ch) => NON_LATIN_LETTER_RE.test(ch)));
+    if (words.length < all.length) removed = true;
+    if (words.length > 0) kept.push(words.join(' '));
+  }
+  // Nothing in another script: the name is returned exactly as it came.
+  if (!removed) return s;
+  let out = first!.trimEnd();
+  for (const k of kept) out += k.startsWith('(') ? ` ${k}` : ` | ${k}`;
+  return out;
+}
+
+/**
+ * A trailing segment that is the page's own "Notes & Review" tag — Perfumeo's
+ * page titles read "Kaaf by Ahmed Al Maghribi 100ml EDP | Notes &amp; Review |
+ * Perfumeo UK" (1 live product, 2026-10-04; the shop credit comes off first,
+ * see stripTrailingShopCredit). It names the shop's review page for the
+ * bottle, not the bottle. The entity form is matched because the title is
+ * stored as the shop's HTML wrote it. Anchored at both ends and spelled out
+ * in full, so a real name that merely contains "notes" or "review" survives.
+ */
+const NOISE_SEGMENT_REVIEW_RE = /^notes\s*(?:&(?:amp;)?|and)\s*reviews?$/i;
+
+/**
+ * Whether the text after the last "|" in `s` is noise, by one of six
  * measured tests. Returns the name without that segment, or null to leave the
  * name exactly as it is.
  *
@@ -2175,7 +2225,8 @@ function stripTrailingNoiseSegment(s: string): string | null {
     !restatement &&
     !NOISE_SEGMENT_OZ_RE.test(segment) &&
     !NOISE_SEGMENT_RELEASE_RE.test(segment) &&
-    !NOISE_SEGMENT_DELIVERY_RE.test(segment)
+    !NOISE_SEGMENT_DELIVERY_RE.test(segment) &&
+    !NOISE_SEGMENT_REVIEW_RE.test(segment)
   ) {
     return null;
   }
@@ -2305,6 +2356,7 @@ export function displayName(
   // first leaves "Abraaj Brackish French Avenue", which is the plain trailing
   // brand that block has always handled, so the mid-name case needs no second
   // brand rule of its own — it becomes the case already solved.
+  s = stripTranslatedWords(s);
   for (let pass = 0; pass < 4; pass++) {
     const trimmed = stripTrailingNoiseSegment(s);
     if (trimmed === null) break;
