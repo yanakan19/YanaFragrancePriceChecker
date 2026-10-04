@@ -938,6 +938,11 @@ export const HOUSE_NAME_PREFIXES: Record<string, readonly string[]> = {
   [brandKey('Lattafa')]: ['pride'],
   // Armaf's own storefront calls its Pure line "Oros Pure ..."; every reseller drops the Oros.
   [brandKey('Armaf')]: ['oros'],
+  // Charlotte Tilbury's perfumes are the "Collection of Emotions"; Cult Beauty
+  // titles "Collection of Emotions Love Frequency 100ml", John Lewis "Love
+  // Frequency Eau de Parfum 100ml", and the brand's own pages "Love Frequency
+  // 100ml: Woody Floral Perfume Edp". One bottle, read 2026-10-04.
+  [brandKey('Charlotte Tilbury')]: ['collectionofemotions'],
 };
 
 let aliasKeysByHouse: Map<string, Set<string>> | null = null;
@@ -1040,6 +1045,17 @@ export interface ConfirmedHouse {
  * That leaves one, below.
  */
 export const CONFIRMED_FRAGRANCE_HOUSES: readonly ConfirmedHouse[] = [
+  {
+    name: 'Summer Fridays',
+    // Confirmed 2026-10-04. Only Cult Beauty lists its perfume, so the two
+    // listings rule cannot reach it. summerfridays.com is the brand's own shop
+    // and sells "Sunlit Vanilla Eau de Parfum" (summerfridays.com/products/
+    // sunlit-vanilla-eau-de-parfum, and a travel size beside it), the bottle
+    // Cult Beauty titles "Summer Fridays Sunlit Vanilla 50ml". The brand is
+    // better known for skincare; the perfume is real and is its own.
+    citation:
+      'summerfridays.com/products/sunlit-vanilla-eau-de-parfum is the brand\'s own page for the Sunlit Vanilla Eau de Parfum (50 ml) and /sunlit-vanilla-eau-de-parfum-travel-size its travel size. Read 2026-10-04.',
+  },
   {
     name: 'La Beaute Paris',
     // Confirmed 2026-09-09. Nothing in this catalogue but Perfumeo has ever

@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.65.0',
+    date: '4 Oct 2026',
+    title: 'More niche perfumes now show their strength',
+    points: [
+      'Strength is read from the brand\'s own page',
+      'Creed, Discothèque, Charlotte Tilbury and more',
+      '75 more shop listings now appear',
+    ],
+  },
+  {
     version: 'v3.63.0',
     date: '4 Oct 2026',
     title: 'One bottle, one page, any strength name',
