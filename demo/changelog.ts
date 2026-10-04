@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.55.0',
+    date: '4 Oct 2026',
+    title: 'Account button on the right, and photos',
+    points: [
+      'The account button now sits at the top right',
+      'Add a profile photo on your profile page',
+      'It shows on any device you sign in on',
+    ],
+  },
+  {
     version: 'v3.54.0',
     date: '4 Oct 2026',
     title: 'Pages stay for products with no prices',

@@ -280,7 +280,7 @@ export const COMPANY = {
    * The day these pages last changed. When ads switch on, their advertising
    * sections appear, so the date moves to ADS_SWITCHED_ON (demo/ads.ts).
    */
-  updated: ADS_ON && ADS_SWITCHED_ON ? ADS_SWITCHED_ON : '2 October 2026',
+  updated: ADS_ON && ADS_SWITCHED_ON ? ADS_SWITCHED_ON : '4 October 2026',
 } as const;
 
 /** Storage this site writes in the reader's browser, listed on the cookies page. */
@@ -563,13 +563,13 @@ export const LEGAL_PAGES: LegalPage[] = [
           search or filter; that stays in your browser. Only what you choose to
           send: your email and password if you
           sign up, the fragrances on your Wishlist with any target price you
-          type, whether you want price drop emails, and any email you write to
-          us.</li>
+          type, whether you want price drop emails, a profile photo if you add
+          one, and any email you write to us.</li>
           <li><strong>Why.</strong> To answer your question, run your account
           and Wishlist, and reply to you. Under UK GDPR that rests on contract
           for accounts and legitimate interests for email. ${ADS_TEXT.summary}</li>
           <li><strong>Who processes it.</strong> ${COMPANY.accountsProvider}
-          holds your email, login and wishlist. ${COMPANY.emailProvider} sends
+          holds your email, login, wishlist and any profile photo. ${COMPANY.emailProvider} sends
           price drop emails if you ask for them. ${COMPANY.hosting} serves
           the pages. We never see card details; you pay the shop.</li>
           <li><strong>How long.</strong> Settings such
@@ -581,7 +581,8 @@ export const LEGAL_PAGES: LegalPage[] = [
           <a href="mailto:${COMPANY.privacyEmail}">${COMPANY.privacyEmail}</a>
           and we will do it within one month. Signing out removes the sign in
           token from your browser. To stop price drop emails, untick the box on
-          the Account page or use the link in any of them.</li>
+          the Account page or use the link in any of them. To remove your
+          photo, press Remove Photo on your profile.</li>
         </ul>
       </aside>
 
@@ -618,6 +619,15 @@ export const LEGAL_PAGES: LegalPage[] = [
         to a wishlist. It stores which fragrance you saved, when, and an
         optional target price you typed in yourself, never one we set. You can
         use the price comparison fully without ever creating an account.</li>
+        <li><strong>A profile photo, if you add one.</strong> Optional. Before
+        it leaves your browser, the photo is cut to a small square (256 pixels
+        at most) and saved afresh, which drops everything else the original
+        file carried, such as the camera, the time it was taken and where. That
+        one small image is stored with ${COMPANY.accountsProvider}, in private
+        storage only your own signed in account can read, so we can show it on
+        your account button and profile on any device you sign in on. Nobody
+        else is shown it. Press Remove Photo on your profile to delete it at
+        any time; deleting your account deletes it too.</li>
         <li><strong>Price drop emails.</strong> Off unless you tick "Email me
         when a saved fragrance gets cheaper" on the Account page. Once a
         morning we compare your saved fragrances with that day's prices and, if
@@ -642,7 +652,8 @@ export const LEGAL_PAGES: LegalPage[] = [
         such as IP addresses, to deliver the page. That is governed by GitHub's
         own privacy statement; we do not receive or store it.</li>
         <li><strong>${COMPANY.accountsProvider}</strong> holds account data,
-        your email, login and wishlist, if you create an account. We do not run
+        your email, login, wishlist and any profile photo, if you create an
+        account. We do not run
         a server of our own. Row level security on that database means only
         you, signed in as yourself, can read or change your own account data.
         The one exception is our morning price alert job, which reads the
@@ -664,7 +675,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       <h2 class="t-section">Our Lawful Basis</h2>
       <p>For replying to messages you send us, we rely on legitimate interests:
       being able to answer you. You decide whether to send anything at all. For
-      account data, your email, login and wishlist, we
+      account data, your email, login, wishlist and any profile photo, we
       rely on contract: creating and running the account you asked for. For
       price drop emails we rely on your consent, given when you tick the box,
       and withdrawn whenever you untick it or press the stop link. Where
@@ -682,7 +693,8 @@ export const LEGAL_PAGES: LegalPage[] = [
       because we never receive one. Account data is kept for as long as your
       account exists, and deleted when you delete your account from the Account
       page or ask us to close it. The last price we emailed you about for a
-      fragrance goes when you remove it from your wishlist.</p>
+      fragrance goes when you remove it from your wishlist. A profile photo
+      is kept until you press Remove Photo or delete your account.</p>
 
       <h2 class="t-section">Your Rights</h2>
       <p>You can ask for a copy of your data, ask us to correct or delete it,

@@ -1,6 +1,6 @@
 # Owner steps, in plain English
 
-Five jobs only you can do. Each one is short. Do them in this order; the
+Six jobs only you can do. Each one is short. Do them in this order; the
 first stops money going out (the old chat servers, now unused).
 
 ---
@@ -349,3 +349,47 @@ figure from me or a blog.
 Each of them replaces the AdSense code with its own and gives its own
 ads.txt lines. Tell me which one accepted you and I will move the ad spaces
 over to it, keeping the same places, labels and consent rules.
+
+---
+
+## 6. Switch on profile photos (5 minutes)
+
+Readers can add a small photo on their profile page (/account). It shows in
+the round account button at the top right of every page and at the top of
+their profile, on any device they sign in on. Until you do this, the profile
+page says "Adding a profile photo is not available yet" and offers no
+control. Do step 2 of this file (accounts) first.
+
+### 6a. Run the database script
+
+Supabase dashboard → **SQL Editor** → **New query** → paste the whole of
+`supabase/migrations/0006_profile_photo.sql` → **Run**. It must say success.
+It is safe to run twice.
+
+That one script does everything: it adds the photo's place on the profile,
+creates a **private** Storage bucket called `avatars` (200 KB per file, WebP
+and JPEG only) and the four rules that let each signed in reader read,
+upload, replace and delete only their own photo. There is nothing to switch
+on in the Storage pages by hand, and the bucket must stay **private**: do
+not tick "Public bucket" on it.
+
+### 6b. Check it worked
+
+1. Left menu → **Storage**. You should see a bucket called `avatars`
+   marked **Private**.
+2. Click it → **Policies** (or Storage → **Policies**). Under `avatars`, or
+   under "Other policies under storage.objects", you should see four:
+   `read own avatar`, `upload own avatar`, `replace own avatar` and
+   `delete own avatar`.
+3. Sign in on the live site, open **View My Profile**, press **Add a
+   Photo**, pick any photo of yourself. The round button at the top right
+   should show it. Open the site on your phone and sign in: the same photo
+   should be there.
+4. Press **Remove Photo**. The button goes back to your initial, and the
+   `avatars` bucket in Storage is empty again.
+
+If the script stops with "must be owner of table objects" on the policy
+lines, tell me: on some older projects the Storage rules have to be added
+from Storage → Policies instead, and I will give you the exact four to add.
+Nothing else on the site is affected in the meantime; the photo control
+simply stays hidden.
