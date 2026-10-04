@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.70.0',
+    date: '4 Oct 2026',
+    title: 'Logos for eight more shops',
+    points: [
+      'Four now show their logo beside their prices',
+      'Four wordmarks show on the shop page',
+      'Manchester Ouds shows its name in plain type',
+    ],
+  },
+  {
     version: 'v3.69.0',
     date: '4 Oct 2026',
     title: 'Trustpilot links on more shop pages',

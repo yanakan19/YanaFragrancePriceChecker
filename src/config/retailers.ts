@@ -1140,6 +1140,17 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.johnlewis.com',
     trustpilotUrl: 'https://uk.trustpilot.com/review/johnlewis.com',
     trustpilotCheckedOn: '2026-10-04',
+    // Owner supplied logo, 2026-10-04: demo/logos/shops/john-lewis.png, flattened on white and trimmed.
+    // A type only wordmark that cannot be read at 20px, so it fills the wide slot on the shop page and
+    // the 20px offer row mark and the Shops tile keep the initials.
+    logo: {
+      src: '/logos/shops/john-lewis.png',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'owner-supplied',
+      source: 'Supplied by the site owner on 4 October 2026',
+      readAt: '2026-10-04',
+    },
     tiers: ['designer'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 404. The single section URL below was
@@ -3257,6 +3268,17 @@ export const RETAILERS: readonly Retailer[] = [
     // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
     trustpilotUrl: 'https://uk.trustpilot.com/review/thefragrancecounter.co.uk',
     trustpilotCheckedOn: '2026-10-04',
+    // Owner supplied logo, 2026-10-04: demo/logos/shops/the-fragrance-counter.png, a framed lockup that is
+    // close to square, trimmed, padded to a square on white and resized to 128px. Its fine type is only
+    // legible from about 40px; at 20px it reads as the frame and the pink script.
+    logo: {
+      src: '/logos/shops/the-fragrance-counter.png',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'owner-supplied',
+      source: 'Supplied by the site owner on 4 October 2026',
+      readAt: '2026-10-04',
+    },
     tiers: ['designer'],
     // Enabled with delivery not stated. Their own delivery page describes
     // delivery as free, but no explicit standard price or spend threshold
@@ -4091,6 +4113,16 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://bellavitaluxury.uk',
     trustpilotUrl: 'https://uk.trustpilot.com/review/bellavitaluxury.uk',
     trustpilotCheckedOn: '2026-10-04',
+    // Owner supplied logo, 2026-10-04: demo/logos/shops/bellavita-luxury.png, a gold flower over the name,
+    // trimmed, padded to a square on white and resized to 128px from a 1500px source.
+    logo: {
+      src: '/logos/shops/bellavita-luxury.png',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'owner-supplied',
+      source: 'Supplied by the site owner on 4 October 2026',
+      readAt: '2026-10-04',
+    },
     tiers: ['mideast'],
     singleBrandOnly: 'BellaVita',
     // "Luxury-inspired" fragrance dupes rather than a heritage Arabic house —
@@ -4154,6 +4186,17 @@ export const RETAILERS: readonly Retailer[] = [
     // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
     trustpilotUrl: 'https://uk.trustpilot.com/review/oudarabian.co.uk',
     trustpilotCheckedOn: '2026-10-04',
+    // Owner supplied logo, 2026-10-04: demo/logos/shops/oud-arabian.png, trimmed, padded to a square on
+    // white and resized to 128px. The source file is only 276px, so this is the largest size it keeps its
+    // edges at; at 20px the arch mark shows and the fine type does not.
+    logo: {
+      src: '/logos/shops/oud-arabian.png',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'owner-supplied',
+      source: 'Supplied by the site owner on 4 October 2026',
+      readAt: '2026-10-04',
+    },
     tiers: ['mideast'],
     // Multi-brand: stocks Lattafa, Al Haramain, Afnan, Bujairami and others,
     // not a single house's own storefront — requested under "retailer
@@ -4203,6 +4246,19 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Manchester Ouds',
     domain: 'manchesterouds.com',
     homepage: 'https://manchesterouds.com',
+    // Owner supplied mark, 2026-10-04: demo/logos/shops/manchester-ouds.png. The shop has no logo of its
+    // own, so the owner asked for its name set in plain type, MANCHESTER over OUDS, black on white
+    // (rendered from the owner's SVG with the canvas widened, as the 512px canvas cut off the M and the R).
+    // It is type only and cannot be read at 20px, so it fills the wide slot on the shop page and the
+    // 20px offer row mark and the Shops tile keep the initials.
+    logo: {
+      src: '/logos/shops/manchester-ouds.png',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'owner-supplied',
+      source: 'Made at the site owner\'s request on 4 October 2026: the shop has no logo, so this is its name set in plain type',
+      readAt: '2026-10-04',
+    },
     tiers: ['mideast'],
     // Enabled with delivery not stated. The gap is the flat standard rate, not
     // the shop's legitimacy or its crawl target, and an unstated rate now
@@ -4657,6 +4713,17 @@ export const RETAILERS: readonly Retailer[] = [
     // Trustpilot page: owner confirmed, checked by hand on 2026-10-04.
     trustpilotUrl: 'https://uk.trustpilot.com/review/uk.zimayaperfumes.com',
     trustpilotCheckedOn: '2026-10-04',
+    // Owner supplied logo, 2026-10-04: demo/logos/shops/zimaya.png, flattened on white and trimmed.
+    // A type only wordmark that cannot be read at 20px, so it fills the wide slot on the shop page and
+    // the brand page and the 20px offer row mark keeps the initials.
+    logo: {
+      src: '/logos/shops/zimaya.png',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'owner-supplied',
+      source: 'Supplied by the site owner on 4 October 2026',
+      readAt: '2026-10-04',
+    },
     tiers: ['mideast'],
     singleBrandOnly: 'Zimaya',
     // Was disabled for a currency question — the UK subdomain advertised
@@ -5515,6 +5582,16 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.niche-beauty.com',
     trustpilotUrl: 'https://uk.trustpilot.com/review/niche-beauty.com',
     trustpilotCheckedOn: '2026-10-04',
+    // Owner supplied logo, 2026-10-04: demo/logos/shops/niche-beauty-uk.png, a bold lips icon that holds
+    // up at 20px, trimmed, padded to a square on white and resized to 128px.
+    logo: {
+      src: '/logos/shops/niche-beauty-uk.png',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'owner-supplied',
+      source: 'Supplied by the site owner on 4 October 2026',
+      readAt: '2026-10-04',
+    },
     tiers: ['niche'],
     // Currency probe (run 32254695358, job 96073578532, 2026-08-19): robots.txt
     // answers with no disallow. The bare origin quotes this US runner USD, but
@@ -8189,6 +8266,17 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.spacenk.com/uk',
     trustpilotUrl: 'https://uk.trustpilot.com/review/uk.spacenk.com',
     trustpilotCheckedOn: '2026-10-04',
+    // Owner supplied logo, 2026-10-04: demo/logos/shops/space-nk.png, flattened on white and trimmed.
+    // A type only wordmark that cannot be read at 20px, so it fills the wide slot on the shop page and
+    // the 20px offer row mark and the Shops tile keep the initials.
+    logo: {
+      src: '/logos/shops/space-nk.png',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'owner-supplied',
+      source: 'Supplied by the site owner on 4 October 2026',
+      readAt: '2026-10-04',
+    },
     tiers: ['niche'],
     // Added 2026-08-20 from WebSearch snippets of spacenk.com/uk/fragrance
     // alone — no page opened, this sandbox has no egress. Space NK's own
