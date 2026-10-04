@@ -48,6 +48,7 @@ import {
   sizeMl,
   fragranceId,
   repairMojibake,
+  travelSizeIsASize,
   NOT_A_FRAGRANCE,
 } from '../src/catalogue/fragranceId.js';
 import { giftSetContents, giftSetName, isGiftSet } from '../src/catalogue/giftSet.js';
@@ -783,7 +784,7 @@ for (const { retailer, listings } of eligible) {
     // strengths are its contents, not facts shown elsewhere. See giftSetName.
     const displayedName = giftSet
       ? giftSetName(titleWithoutShopCredit, displayedBrand)
-      : displayName(titleWithoutShopCredit, effectiveRawBrand, displayedBrand);
+      : displayName(titleWithoutShopCredit, effectiveRawBrand, displayedBrand, travelSizeIsASize(l.retailerId));
     const offer: Offer = {
       retailerId: l.retailerId,
       price: l.priceGbp!,

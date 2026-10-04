@@ -61,6 +61,7 @@ import { parseRenderedState } from '../src/catalogue/renderedState.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import { titleWithSizeFromUrl } from '../src/catalogue/sizeFromUrl.js';
 import { readSizesFromProductPages } from '../src/catalogue/productPageSize.js';
+import { readStrengthsFromProductPages } from '../src/catalogue/productPageStrength.js';
 import { checkApifyAccount } from '../src/catalogue/apifyAccount.js';
 import { checkApifyUsage } from '../src/catalogue/apifyUsage.js';
 import { looksLikeTimeouts, SLOW_SHOP_TIMEOUT_MS } from '../src/catalogue/strategy.js';
@@ -1215,6 +1216,29 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
     }
   }
 
+  // A strength the shop's own product page states and its titles omit: Kayali
+  // names none in a title and prints "Eau de Parfum" (or "Eau de Parfum
+  // Intense") on every perfume page. One request per perfume page, robots.txt
+  // checked for each, asked as ourselves; a page that states none leaves the
+  // listing as it was. See src/catalogue/productPageStrength.ts.
+  let pageStrengths: Awaited<ReturnType<typeof readStrengthsFromProductPages>> | null = null;
+  if (retailer.strengthFromProductPage && retailer.shopifyStorefront && !viaProxy && !viaActor && withPrice.length > 0) {
+    pageStrengths = await readStrengthsFromProductPages(withPrice, {
+      retailerId: retailer.id,
+      http,
+      robots,
+      headers: { ...shopHeaders, ...pageMarketHeaders },
+      gapMs,
+      marketParam: pageMarketQuery || null,
+      deadlineAt: shopDeadlineAt,
+      prior: new Map(priorLive.map((l) => [l.retailerSku, l.rawTitle])),
+    });
+    withPrice = pageStrengths.listings as typeof withPrice;
+    for (const c of pageStrengths.changes) console.log(`      page strength  ${c}`);
+    for (const u of pageStrengths.unstated) console.log(`      page states no strength, left as it was  ${u}`);
+    for (const u of pageStrengths.unread) console.log(`      page not read  ${u}`);
+  }
+
   // A size the shop states in its own product URL but omits from the title,
   // put back where every consumer of a listing already looks for it. Recovery
   // of a stated fact, never a guess — see src/catalogue/sizeFromUrl.ts for
@@ -1243,6 +1267,7 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
       (viaActor ? `  [via ${shopRenderTierName}]` : '') +
       (sizesRecovered ? `  [${sizesRecovered} sizes read from product URLs]` : '') +
       (pageSizes ? `  [${pageSizes.sized} sizes read from ${pageSizes.fetched} product pages]` : '') +
+      (pageStrengths ? `  [${pageStrengths.stated} strengths read from ${pageStrengths.fetched} product pages]` : '') +
       (refusals.length ? `  [refused ${refusals.length} page(s)]` : '') +
       (feedListings.length ? `  [+${feedListings.length} re-priced from ${feedPlatform} catalogue]` : '') +
       (refreshUrls.length ? `  [${refreshUrls.length} due for a page re-read]` : '') +

@@ -4616,7 +4616,7 @@ export const RETAILERS: readonly Retailer[] = [
   },
   {
     id: 'kayali',
-    name: 'KAYALI',
+    name: 'Kayali',
     domain: 'uk.kayali.com',
     homepage: 'https://uk.kayali.com',
     // Logo read off the shop's own homepage by scripts/logo-probe.ts and
@@ -4656,6 +4656,29 @@ export const RETAILERS: readonly Retailer[] = [
     // leave only single bottles: 100ml, 50ml, 10ml miniatures and 1.5ml
     // samples, each at Kayali's own price.
     fragranceOnlyCatalogue: true,
+    // Set 2026-10-04. The titles name no strength, so every perfume was "Not
+    // stated" and the "Oud" in eight names was cut out of them as though it were
+    // one. Every perfume page states its strength in the theme's own product
+    // data (a data-product-metafields-json block, `subtitle`): "Eau de Parfum"
+    // (27 pages) or "Eau de Parfum Intense" (8), read from all 35 single perfume
+    // pages on 2026-10-04. `strengthFromProductPage` has the harvest read it
+    // and put it into the title (src/catalogue/productPageStrength.ts); a page
+    // that states none is left as it was. Kayali is named here, and nowhere else, because
+    // this reads one shop's own theme data: it is not a rule about product
+    // types, and it is not what Beauty Pie needs (see that entry).
+    //
+    // `botIdentityOnly` on the brief's instruction: every request, robots.txt
+    // included, carries the crawler's own user agent. Measured the same day:
+    // robots.txt, /products.json and /products/<handle> all answer
+    // PriceSniffsBot with HTTP 200, and robots.txt allows /products/.
+    strengthFromProductPage: true,
+    // Set 2026-10-04. Kayali's "10ml Travel Spray" is one of the five variants
+    // on each perfume's own page (100ml, 50ml, 10ml Miniature, 10ml Travel
+    // Spray, 1.5ml), the same liquid, so it is a small size of that perfume:
+    // 14 perfumes have one, at £22 against £28 for the miniature. The words
+    // "Travel Spray" had kept all 14 out of the catalogue.
+    travelSizeIsASize: true,
+    botIdentityOnly: true,
     enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,

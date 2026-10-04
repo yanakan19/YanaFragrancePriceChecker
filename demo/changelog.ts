@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.39.0',
+    date: '4 Oct 2026',
+    title: 'Minis sit with their perfume',
+    points: [
+      'A mini is now one size of its perfume',
+      'Kayali strengths read from its own pages',
+      'Kayali travel sprays now listed',
+    ],
+  },
+  {
     version: 'v3.38.0',
     date: '3 Oct 2026',
     title: 'A scrolling banner on the home page',

@@ -665,6 +665,33 @@ export interface Retailer {
    */
   sizeFromProductPage?: boolean;
   /**
+   * The shop's titles name no strength (Eau de Parfum, Parfum, Eau de
+   * Toilette), but each perfume's product page states it in the theme's own
+   * product data, so the harvest reads it from the page and puts it into the
+   * title, before the size: one request per perfume page, robots.txt checked
+   * for every page, the crawler's honest user agent. See
+   * `src/catalogue/productPageStrength.ts` for what is read and what is not.
+   * A page that states none leaves the listing as the feed gave it, which the
+   * catalogue treats as "Not stated". Needs `shopifyStorefront: true`; set
+   * only for a shop measured to state strengths on its pages (Kayali), and
+   * only by naming that shop here. It is not inferred from a shop's product
+   * type.
+   */
+  strengthFromProductPage?: boolean;
+  /**
+   * This shop's "Travel Spray" variant is the same perfume in a small
+   * atomiser, one more size on the perfume's own page (Kayali's "10ml Travel
+   * Spray" beside its 100ml, 50ml, "10ml Miniature" and 1.5ml), so the word is
+   * a label on the size and not part of the name, and the bottle is a
+   * fragrance. Without it the word keeps a listing out of the catalogue
+   * (NOT_A_FRAGRANCE) and, if it got in, would stay in the name. Never read
+   * for any other shop: where a travel spray is a different article from the
+   * plain bottle of the same size (Nina Ricci's L'Air du Temps, two barcodes
+   * at 30ml) it must not be folded into it. See `stripSizeLabel` in
+   * `src/catalogue/fragranceId.ts`.
+   */
+  travelSizeIsASize?: boolean;
+  /**
    * The owner has decided that this shop's UK storefront price is acceptable
    * even though the shop converts it live from another currency, and has
    * checked what that shop's own cart and checkout charge a UK address.

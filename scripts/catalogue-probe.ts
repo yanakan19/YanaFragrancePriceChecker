@@ -28,7 +28,9 @@ import { probeRobots, robotsHeaderVariants } from '../src/catalogue/robotsSource
 import type { Retailer } from '../src/types/retailer.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 import { isFragrance, sizeMl } from '../src/catalogue/fragranceId.js';
+import { concentration } from '../src/catalogue/productName.js';
 import { readSizesFromProductPages } from '../src/catalogue/productPageSize.js';
+import { readStrengthsFromProductPages } from '../src/catalogue/productPageStrength.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const memoryPath = resolve(root, 'data/strategy-memory.json');
@@ -215,11 +217,24 @@ async function probeShopify(retailer: Retailer): Promise<void> {
     for (const u of read.unread) console.log(`    not read: ${u}`);
     for (const d of read.priceDisagreements) console.log(`    Shop now price differs from feed: ${d}`);
   }
+  if (retailer.strengthFromProductPage) {
+    // The same read the harvest makes: the titles name no strength, the page does.
+    const read = await readStrengthsFromProductPages(shown.filter((l) => l.priceGbp !== null), {
+      retailerId: retailer.id, http: routeHttp, robots,
+      headers: { ...(botOnly ? ROUTE_HEADERS : BROWSER_HEADERS), ...result.market.headers },
+      gapMs, marketParam: result.market.query.replace(/^\?/, '') || null,
+    });
+    const bySku = new Map(read.listings.map((l) => [l.retailerSku, l]));
+    shown = shown.map((l) => bySku.get(l.retailerSku) ?? l);
+    console.log(`  product pages  ${read.fetched} read, ${read.stated} strengths read, ${read.unstated.length} state no strength, ${read.unread.length} not read`);
+    for (const u of read.unstated) console.log(`    states no strength, left as it was: ${u}`);
+    for (const u of read.unread) console.log(`    not read: ${u}`);
+  }
   const priced = shown.filter((l) => l.priceGbp !== null);
   const keptAsFragrance = priced.filter((l) => isFragrance({ ...l, retailerId: retailer.id } as unknown as StoredListing));
-  if (retailer.sizeFromProductPage) {
+  if (retailer.sizeFromProductPage || retailer.strengthFromProductPage) {
     console.log(`  fragrances the site would keep: ${keptAsFragrance.length} of ${priced.length} priced`);
-    for (const l of keptAsFragrance) console.log(`    kept: ${l.rawTitle} | sizeMl ${sizeMl(l.rawTitle, l.description)} | £${l.priceGbp} | ${l.url}`);
+    for (const l of keptAsFragrance) console.log(`    kept: ${l.rawTitle} | sizeMl ${sizeMl(l.rawTitle, l.description)} | ${concentration(l.rawTitle)} | £${l.priceGbp} | ${l.url}`);
   }
   console.log(`  market asked   ${result.market.label} (${result.market.why})`);
   console.log(`  currency       ${result.currency.isSterling ? 'STERLING' : 'not proven'}: ${result.currency.reason}`);
