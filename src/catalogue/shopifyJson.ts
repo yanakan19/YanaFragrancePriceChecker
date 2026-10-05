@@ -31,6 +31,10 @@ import type { ShopifyVariantRule } from '../types/retailer.js';
  *     retailer's copy of the same bottle, so each stands alone. That is the
  *     honest outcome: claiming two titles are the same product without an
  *     identifier is exactly the guess the catalogue builder refuses to make.
+ *     A shop whose products' own `/products/<handle>.js` files carry the
+ *     barcode has it read from there instead (`Retailer.barcodeFromProductJs`,
+ *     src/catalogue/barcodeFromProductJs.ts: Perfume Direct, 2026-10-05, where
+ *     this feed has none and the file has one for every variant).
  *   - **Currency.** `/products.json` gives a bare `price` string with no
  *     currency anywhere in the payload. A house pricing in AED or USD would
  *     otherwise land in the app as though those were pounds, which is the one
@@ -46,6 +50,8 @@ interface JsonValue {
 
 /** A Shopify variant, once we have checked it looks like one. */
 interface Variant {
+  /** Shopify's own id for the variant (a number in the payload, kept as text). */
+  id: string | null;
   sku: string | null;
   price: number | null;
   compareAtPrice: number | null;
@@ -136,6 +142,7 @@ function variantsOf(product: JsonValue): Variant[] {
   return raw
     .filter((v): v is JsonValue => Boolean(v) && typeof v === 'object')
     .map((v) => ({
+      id: str(v['id']),
       sku: str(v['sku']),
       price: money(v['price']),
       compareAtPrice: money(v['compare_at_price']),
@@ -316,6 +323,13 @@ export interface ShopifyParseOptions {
    * variants are not all that. Unset reads every variant, as before.
    */
   variantRule?: ShopifyVariantRule;
+  /**
+   * Put Shopify's own variant id on each listing (`shopVariantId`), for a shop
+   * whose barcodes are read from each product's own file and tied to the
+   * variant they were read for (`Retailer.barcodeFromProductJs`). Off, the
+   * listing carries no such field, so no other shop's stored rows change.
+   */
+  keepVariantId?: boolean;
 }
 
 /**
@@ -404,8 +418,12 @@ export function parseShopifyProducts(body: string, options: ShopifyParseOptions)
         url,
         rawTitle: sizedTitle,
         rawBrand: vendor,
-        // Admin-API only. See the header comment.
+        // Not in /products.json, which has no barcode for any variant (Perfume
+        // Direct, read 2026-10-05; the header comment says why Shopify keeps it
+        // out). A shop whose product files carry one has it read from there:
+        // see src/catalogue/barcodeFromProductJs.ts.
         ean: null,
+        ...(options.keepVariantId ? { shopVariantId: variant.id } : {}),
         imageUrl: image,
         priceGbp: isGbp ? variant.price : null,
         wasPriceGbp: isGbp ? wasPrice : null,

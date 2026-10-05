@@ -63,6 +63,9 @@ import { readSizesFromProductPages } from '../src/catalogue/productPageSize.js';
 import { readStrengthsFromProductPages } from '../src/catalogue/productPageStrength.js';
 import { readAvailabilityFromProductPages } from '../src/catalogue/productPageAvailability.js';
 import { markTitlePreOrders } from '../src/catalogue/listingAvailability.js';
+import { readBarcodesFromProductJs, type HeldBarcode } from '../src/catalogue/barcodeFromProductJs.js';
+import { siblingKey } from '../src/catalogue/siblingKey.js';
+import { isCatalogueListing } from '../src/catalogue/fragranceId.js';
 import { checkApifyAccount } from '../src/catalogue/apifyAccount.js';
 import { checkApifyUsage } from '../src/catalogue/apifyUsage.js';
 import { looksLikeTimeouts, SLOW_SHOP_TIMEOUT_MS } from '../src/catalogue/strategy.js';
@@ -85,7 +88,7 @@ import { renderTargets } from '../src/catalogue/renderTargets.js';
 import { capturePages, type CapturePage } from '../src/catalogue/renderCapture.js';
 import {
   parseCursor, sweepOrder, withAttempt, withActorRender, lastActorRender, staleCursorIds,
-  discoveryOffsetFor, withDiscoveryOffset,
+  discoveryOffsetFor, withDiscoveryOffset, barcodeBackoffUntil, withBarcodeBackoff, BARCODE_BACKOFF_HOURS,
 } from '../src/catalogue/harvestCursor.js';
 import { SHOPIFY_MAX_PAGE } from '../src/catalogue/shopifyProductsCrawl.js';
 import {
@@ -115,6 +118,9 @@ function arg(name: string): string | null {
 
 const maxPages = Number.parseInt(arg('max') ?? '40', 10);
 const onlyShop = arg('shop');
+// Debug and local runs only: how many product files one run may read for barcodes,
+// in place of the shop's own `barcodeFromProductJs.maxPerRun`.
+const barcodesMaxArg = arg('barcodes-max') ? Number.parseInt(arg('barcodes-max')!, 10) : null;
 const dryRun = process.argv.includes('--dry-run');
 const allowMetered = process.argv.includes('--allow-metered');
 // Debug-only: save one named shop's rendered section page(s) to
@@ -486,6 +492,39 @@ function recordDiscovery(retailerId: string, fetched: number): void {
   } catch {
     // An ordering hint, like the rest of the cursor.
   }
+}
+
+/** Hold a shop's barcode reads back after it refused one, and put it on disk at once. Same failure policy as recordAttempt. */
+function recordBarcodeBackoff(retailerId: string): void {
+  cursor = withBarcodeBackoff(cursor, retailerId, new Date());
+  try {
+    writeFileSync(cursorPath, `${JSON.stringify(cursor, null, 2)}\n`);
+  } catch {
+    // An ordering hint, like the rest of the cursor.
+  }
+}
+
+/**
+ * The keys of every other shop's stored listings that look like a bottle this shop
+ * may share (src/catalogue/siblingKey.ts), read once and only when a shop's barcode
+ * reading asks. Used to read those listings first. Never decides a match.
+ */
+let siblingKeysCache: Set<string> | null = null;
+function siblingKeysOfOtherShops(exceptId: string): Set<string> {
+  if (siblingKeysCache) return siblingKeysCache;
+  const keys = new Set<string>();
+  for (const r of RETAILERS) {
+    if (r.id === exceptId) continue;
+    const snap = store.read(r.id);
+    if (snap.source !== 'live') continue;
+    for (const l of snap.listings) {
+      if (l.status !== 'active') continue;
+      const k = siblingKey(l, r.id);
+      if (k) keys.add(k);
+    }
+  }
+  siblingKeysCache = keys;
+  return keys;
 }
 
 /**
@@ -1229,6 +1268,57 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
     for (const u of pageAvailability.unread) console.log(`      page not read  ${u}`);
   }
 
+  // A barcode the shop's own product file states for each variant and its feed
+  // omits (Perfume Direct: /products.json has none, /products/<handle>.js has
+  // one per variant). One request per product, never per variant, robots.txt
+  // checked for each, asked as ourselves, a gap of the shop's own and never
+  // less than its setting, a few hundred a run so the whole range is read over
+  // several runs, and stopped on the spot by any refusal, which also holds the
+  // shop's barcode reads back for six hours. A barcode is read once and kept
+  // while the variant is the same. See src/catalogue/barcodeFromProductJs.ts.
+  let barcodeRead: Awaited<ReturnType<typeof readBarcodesFromProductJs>> | null = null;
+  const barcodeRoute = retailer.barcodeFromProductJs;
+  if (barcodeRoute && retailer.shopifyStorefront && !viaProxy && !viaActor && withPrice.length > 0 && !robots.unavailable) {
+    const heldUntil = barcodeBackoffUntil(cursor, retailer.id, new Date());
+    if (heldUntil !== null) {
+      console.log(`      ${retailer.name}: barcode reads are held back until ${heldUntil} after a refusal`);
+    } else {
+      // The walk of /products.json ended a moment ago, at the same host's other path.
+      await sleepMs(Math.max(gapMs, barcodeRoute.gapMs));
+      barcodeRead = await readBarcodesFromProductJs(withPrice, {
+        http,
+        robots,
+        headers: shopHeaders,
+        origin: barcodeRoute.origin,
+        gapMs: Math.max(gapMs, barcodeRoute.gapMs),
+        maxReads: barcodesMaxArg ?? barcodeRoute.maxPerRun,
+        onProgress: (fetched, planned) => {
+          if (fetched % 25 === 0) console.log(`      ${retailer.name}: ${fetched} of ${planned} planned product files read for barcodes`);
+        },
+        deadlineAt: shopDeadlineAt,
+        held: new Map(
+          priorLive.map((l): [string, HeldBarcode] => [
+            l.retailerSku,
+            { ean: l.ean, eanReadAt: l.eanReadAt ?? null, shopVariantId: l.shopVariantId ?? null },
+          ]),
+        ),
+        wanted: (l) => isCatalogueListing({ ...l, retailerId: retailer.id } as StoredListing),
+        looksShared: (l) => {
+          const k = siblingKey(l, retailer.id);
+          return k !== null && siblingKeysOfOtherShops(retailer.id).has(k);
+        },
+      });
+      withPrice = barcodeRead.listings as typeof withPrice;
+      for (const u of barcodeRead.unread.slice(0, 20)) console.log(`      barcode file not read  ${u}`);
+      if (barcodeRead.stopped) {
+        recordBarcodeBackoff(retailer.id);
+        result.errors.push(`[barcodes] ${barcodeRead.stopped}`);
+        console.log(`::warning::${retailer.id}: barcode reading stopped: ${barcodeRead.stopped}. Held back for ${BARCODE_BACKOFF_HOURS} hours; not retried and not asked another way.`);
+        refusedThisRun.push(`${retailer.id} (barcode files)`);
+      }
+    }
+  }
+
   // A shop's own "Pre-Order" wording in a title (Emirates Oud writes "PRE-ORDER:
   // Estimated dispatch: 7th October" after the name), on any route and for
   // feed listings too. Explicit wording only; a sold out listing stays sold
@@ -1270,6 +1360,11 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
       (pageSizes ? `  [${pageSizes.sized} sizes read from ${pageSizes.fetched} product pages]` : '') +
       (pageStrengths ? `  [${pageStrengths.stated} strengths read from ${pageStrengths.fetched} product pages]` : '') +
       (pageAvailability ? `  [${pageAvailability.preOrder.length} pre-orders read from ${pageAvailability.fetched} product pages]` : '') +
+      (barcodeRead
+        ? `  [barcodes: ${barcodeRead.fetched} product files read, ${barcodeRead.newBarcodes} new, ${barcodeRead.carried} kept, ` +
+          `${barcodeRead.withBarcode} of ${barcodeRead.wantedListings} fragrance listings carry one, ${barcodeRead.unreadLeft} still unread` +
+          `${Object.keys(barcodeRead.refused).length ? `, refused ${JSON.stringify(barcodeRead.refused)}` : ''}]`
+        : '') +
       (titlePreOrders ? `  [${titlePreOrders} pre-orders by title]` : '') +
       (refusals.length ? `  [refused ${refusals.length} page(s)]` : '') +
       (feedListings.length ? `  [+${feedListings.length} re-priced from ${feedPlatform} catalogue]` : '') +
