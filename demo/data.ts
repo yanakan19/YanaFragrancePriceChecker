@@ -3,6 +3,7 @@ import { brandTierForName } from '../src/catalogue/brandTier.js';
 import { RETAILERS } from '../src/config/retailers.js';
 import { brandKey } from '../src/catalogue/brandName.js';
 import type { OilFacts } from '../src/catalogue/perfumeOil.js';
+import type { GiftSetRecord } from '../src/catalogue/giftSet.js';
 import { isTooOldToShow, showableListingCount } from '../src/services/priceService.js';
 import { CATALOGUE, CRAWLED, type Notes } from './catalogue.generated.js';
 import { DEALS_RAW, DEALS_GENERATED_AT as DEALS_GENERATED_AT_RAW } from './deals.generated.js';
@@ -94,7 +95,7 @@ export interface DemoFragrance {
    * always null on one. `contents` is what the shop's title spells out, or
    * null, in which case `title` (the shop's own) is shown instead.
    */
-  giftSet: { contents: string[] | null; title: string } | null;
+  giftSet: GiftSetRecord | null;
   /**
    * Set only on a perfume oil or an attar (src/catalogue/perfumeOil.ts): what its
    * shops state about it, never more. Null for everything else.
