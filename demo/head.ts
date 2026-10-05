@@ -399,6 +399,14 @@ export function headFor(input: HeadInput): HeadTags {
         noindex: true,
       };
 
+    case 'suggestions':
+      return {
+        title: 'PriceSniffs: Suggestions',
+        description: describe('Tell us what to add or change on this site.', SITE_TAIL),
+        canonical,
+        noindex: true,
+      };
+
     case 'notFound':
       return {
         title: 'PriceSniffs: Page not found',
@@ -431,6 +439,7 @@ function pathOf(route: Route): string {
     case 'fragrance': return `/fragrance/${p}`;
     case 'about': return '/about';
     case 'settings': return '/settings';
+    case 'suggestions': return '/suggestions';
     case 'account': return '/account';
     case 'accountWishlist': return '/account/wishlist';
     case 'accountNotifications': return '/account/notifications';

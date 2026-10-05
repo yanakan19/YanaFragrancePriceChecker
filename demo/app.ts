@@ -120,7 +120,7 @@ import { UNSUBSCRIBE_PARAM, unsubscribeMessage } from '../src/alerts/unsubscribe
 
 type View =
   | 'home' | 'deals' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about'
-  | 'settings' | 'account' | 'accountWishlist' | 'accountNotifications' | 'design' | 'notFound';
+  | 'settings' | 'suggestions' | 'account' | 'accountWishlist' | 'accountNotifications' | 'design' | 'notFound';
 /** The three pages behind the account menu, each with its own address. */
 const ACCOUNT_VIEWS: readonly View[] = ['account', 'accountWishlist', 'accountNotifications'];
 type AuthTab = 'signIn' | 'signUp';
@@ -1423,21 +1423,6 @@ function railEagerCount(): number {
 
 const MEDALS = ['gold', 'silver', 'bronze'] as const;
 
-/**
- * Microcopy cull, 2026-08-25 (docs/MICROCOPY-INVENTORY-2026-08-21.md row 5).
- *
- * This note used to open "Tell us what you would like to see." That sentence
- * asked for nothing the reader had not been asked for twice already: the
- * heading directly above it says "Got an idea?" and the first field is
- * labelled "Your suggestion". What is left is the half carrying a fact — that
- * Send hands the message to the reader's own email client rather than posting
- * it anywhere — which is not inferable from looking at the form, and which a
- * reader who expects a web form to submit somewhere is entitled to know
- * before they type into it.
- */
-const SUGGEST_NOTE =
-  'Send opens your own email app with your message ready to go. Nothing goes to a server of ours.';
-
 /** Built once: both inputs are fixed for the life of the bundle. */
 const MARQUEE = marqueeHtml(marqueePhrases(DEMO_FRAGRANCES.length, COVERAGE));
 
@@ -1475,10 +1460,8 @@ function homeView(): string {
       </ul>
     </section>
 
-    <!-- Update History first and "Got an idea?" last in the markup, so on a
-         phone, where the two stack, the suggestion box is the last thing on
-         the home page (owner request, 2026-10-03). On desktop the stylesheet
-         puts it back in the left column, where it has always been. -->
+    <!-- The suggestion form that used to sit beside this moved to its own
+         page, Suggestions in the account menu (owner request, 2026-10-04). -->
     <div class="bottom-split">
       <section class="updates-section">
         <h2 class="t-section">Update History</h2>
@@ -1504,29 +1487,6 @@ function homeView(): string {
             },
           ).join('')}
         </ul>
-      </section>
-
-      <section class="suggest-section">
-        <h2 class="t-section">Got an Idea?</h2>
-        <p class="panel-note t-body">${SUGGEST_NOTE}</p>
-        <form id="home-suggest-form" class="contact-form">
-          <label class="field">
-            <span>Your Suggestion</span>
-            <textarea id="home-suggest-body" rows="3" placeholder="What should we add or change?"></textarea>
-          </label>
-          <label class="field">
-            <span>Your Name <span class="dimmer">(optional)</span></span>
-            <input id="home-suggest-name" type="text" placeholder="So we know who to thank" />
-          </label>
-          <label class="field">
-            <span>Your Email <span class="dimmer">(optional, if you would like a reply)</span></span>
-            <input id="home-suggest-email" type="email" placeholder="you@example.com" />
-          </label>
-          <button type="submit" class="contact-send">Send</button>
-        </form>
-        <p class="form-privacy t-caption">We keep what you send only for as long as it takes to reply.
-          <button type="button" class="link-btn" data-page="privacy">Privacy Notice</button></p>
-        <p id="home-suggest-confirm" class="contact-confirm" hidden></p>
       </section>
     </div>`;
 }
@@ -3638,6 +3598,50 @@ function settingsView(): string {
     </article>`;
 }
 
+/**
+ * What Send does, said once. Microcopy cull, 2026-08-25
+ * (docs/MICROCOPY-INVENTORY-2026-08-21.md row 5): the note opens with the
+ * fact a reader cannot see from the form, that Send hands the message to
+ * their own email app rather than posting it anywhere.
+ */
+const SUGGEST_NOTE =
+  'Send opens your own email app with your message ready to go. Nothing goes to a server of ours.';
+
+/**
+ * Suggestions, the page behind the account menu's item of that name (owner
+ * request, 2026-10-04; it was "Got an Idea?" on the home page). A page of its
+ * own like Settings, reached by its address and from the menu in every account
+ * state, because anyone can suggest. The form is the one the home page had:
+ * Send opens the reader's own email app (the suggest-form branch of the submit
+ * handler) and nothing is sent to a server.
+ */
+function suggestionsView(): string {
+  return `
+    <button class="back" data-back>Back</button>
+    <article class="doc suggest-doc">
+      <h1 class="t-page">Suggestions</h1>
+      <p class="panel-note t-body">${SUGGEST_NOTE}</p>
+      <form id="suggest-form" class="contact-form">
+        <label class="field">
+          <span>Your Suggestion</span>
+          <textarea id="suggest-body" rows="4" placeholder="What should we add or change?"></textarea>
+        </label>
+        <label class="field">
+          <span>Your Name <span class="dimmer">(optional)</span></span>
+          <input id="suggest-name" type="text" placeholder="So we know who to thank" />
+        </label>
+        <label class="field">
+          <span>Your Email <span class="dimmer">(optional, if you would like a reply)</span></span>
+          <input id="suggest-email" type="email" placeholder="you@example.com" />
+        </label>
+        <button type="submit" class="contact-send">Send</button>
+      </form>
+      <p class="form-privacy t-caption">We keep what you send only for as long as it takes to reply.
+        <button type="button" class="link-btn" data-page="privacy">Privacy Notice</button></p>
+      <p id="suggest-confirm" class="contact-confirm" hidden></p>
+    </article>`;
+}
+
 /** The Contact Us form, on the About page since the 2026-10-04 revamp. It
  *  still sends nothing to a server: Send opens the reader's own email app
  *  (the contact-form branch of the submit handler). */
@@ -4295,7 +4299,7 @@ function syncAccountButton(): void {
   btn.classList.toggle('is-signed-in', avatar.signedIn);
   btn.classList.toggle('has-photo', photo !== null);
   btn.setAttribute('aria-label', accountButtonLabel(s));
-  btn.classList.toggle('on', ACCOUNT_VIEWS.includes(state.view) || state.view === 'settings');
+  btn.classList.toggle('on', ACCOUNT_VIEWS.includes(state.view) || state.view === 'settings' || state.view === 'suggestions');
   if (state.accountMenuOpen) fillAccountMenu();
 }
 
@@ -4315,6 +4319,7 @@ function fillAccountMenu(): void {
     wishlist: state.view === 'accountWishlist',
     notifications: state.view === 'accountNotifications',
     settings: state.view === 'settings',
+    suggestions: state.view === 'suggestions',
   };
   const head = s.kind === 'signedIn' && s.email
     ? `<p class="acct-menu-head"><span class="t-caption">Signed in as</span> <span class="acct-menu-email">${esc(s.email)}</span></p>`
@@ -4379,6 +4384,9 @@ function runAccountAction(action: AccountMenuAction): void {
       return;
     case 'settings':
       go('settings');
+      return;
+    case 'suggestions':
+      go('suggestions');
       return;
     case 'signIn':
     case 'signUp':
@@ -5137,6 +5145,7 @@ function currentRoute(): Route {
     case 'about': return { name: 'about', param: '', query: {} };
     case 'design': return { name: 'design', param: '', query: {} };
     case 'settings': return { name: 'settings', param: '', query: {} };
+    case 'suggestions': return { name: 'suggestions', param: '', query: {} };
     case 'account': return { name: 'account', param: '', query: {} };
     case 'accountWishlist': return { name: 'accountWishlist', param: '', query: {} };
     case 'accountNotifications': return { name: 'accountNotifications', param: '', query: {} };
@@ -5164,6 +5173,7 @@ function applyRoute(route: Route): boolean {
     case 'about': state.view = 'about'; return true;
     case 'design': state.view = 'design'; return true;
     case 'settings': state.view = 'settings'; return true;
+    case 'suggestions': state.view = 'suggestions'; return true;
     case 'account': {
       state.view = 'account';
       const token = route.query[UNSUBSCRIBE_PARAM];
@@ -5794,6 +5804,8 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
                         ? designView()
                         : state.view === 'settings'
                           ? settingsView()
+                          : state.view === 'suggestions'
+                            ? suggestionsView()
                           : state.view === 'account'
                             ? accountView()
                             : state.view === 'accountWishlist'
@@ -5849,38 +5861,7 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   // top right now, not from this row; its button carries the "you are here".
   syncAccountButton();
 
-  syncUpdatesHeight();
   mountTrustpilotWidgets();
-}
-
-/**
- * On desktop, the update history sits beside the suggestion box rather than
- * below it. The list of releases only grows over time, so left unchecked it
- * would run taller than the form next to it and the two columns would end at
- * different points. Capping the list's height to whatever the suggestion box
- * actually rendered at, and letting it scroll internally past that, keeps the
- * two bottoms aligned instead. Stacked on mobile, neither constraint applies,
- * so the cap is cleared there and the list just flows.
- */
-function syncUpdatesHeight(): void {
-  const suggest = document.querySelector('.suggest-section') as HTMLElement | null;
-  const list = document.querySelector('.updates-list') as HTMLElement | null;
-  if (!suggest || !list) return;
-  if (state.layout !== 'desktop') {
-    // Stacked on a phone: the list gets the same height as the suggestion box
-    // below it, less its own heading, and scrolls inside that.
-    const head = list.getBoundingClientRect().top - (list.parentElement as HTMLElement).getBoundingClientRect().top;
-    list.style.maxHeight = `${Math.max(240, suggest.getBoundingClientRect().height - head)}px`;
-    return;
-  }
-  // Measured from the list's own top, not the suggestion box's total height:
-  // the updates column carries its own heading above the list, so matching
-  // the suggestion box's full height would push the list past it. What has
-  // to match is the bottom edge, so the cap is exactly the gap between where
-  // the list starts and where the suggestion box ends.
-  const suggestBottom = suggest.getBoundingClientRect().bottom;
-  const listTop = list.getBoundingClientRect().top;
-  list.style.maxHeight = `${Math.max(120, suggestBottom - listTop)}px`;
 }
 
 /** The one method this app calls on Trustpilot's own global once it loads. */
@@ -6667,11 +6648,11 @@ function init(): void {
   // confirmation says exactly that rather than pretending we received it.
   document.addEventListener('submit', (e) => {
     const form = e.target as HTMLElement;
-    if (form.id === 'home-suggest-form') {
+    if (form.id === 'suggest-form') {
       e.preventDefault();
-      const suggestion = ($('#home-suggest-body') as HTMLTextAreaElement).value.trim();
-      const name = ($('#home-suggest-name') as HTMLInputElement).value.trim();
-      const email = ($('#home-suggest-email') as HTMLInputElement).value.trim();
+      const suggestion = ($('#suggest-body') as HTMLTextAreaElement).value.trim();
+      const name = ($('#suggest-name') as HTMLInputElement).value.trim();
+      const email = ($('#suggest-email') as HTMLInputElement).value.trim();
       const subject = `PriceSniffs: A suggestion`;
       const body = [
         suggestion,
@@ -6681,7 +6662,7 @@ function init(): void {
       const mailto = `mailto:${COMPANY.feedbackEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.location.href = mailto;
 
-      const confirm = $('#home-suggest-confirm') as HTMLElement;
+      const confirm = $('#suggest-confirm') as HTMLElement;
       confirm.textContent = `Your email app should now be open with your suggestion. Press send there to reach us. Thank you.`;
       confirm.hidden = false;
       return;
@@ -6866,7 +6847,6 @@ function init(): void {
   window.addEventListener('resize', () => {
     window.clearTimeout(resizeTimer);
     resizeTimer = window.setTimeout(() => {
-      syncUpdatesHeight();
       syncPerRowControl();
     }, 120);
   });

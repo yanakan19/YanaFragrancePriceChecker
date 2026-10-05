@@ -770,24 +770,14 @@
   /* ── popular rail ──────────────────────────────────────────────────────── */
   .pop-section { margin-top: 32px; }
 
-  /* ── bottom split: suggestions beside update history ─────────────────────
-     Stacked on mobile, with the suggestion box last; side by side once there
-     is room for two honest columns rather than one squeezed pair. */
+  /* ── update history ──────────────────────────────────────────────────────
+     The last block of the home page. The suggestion form that used to sit
+     beside it is now the Suggestions page (account menu, owner request
+     2026-10-04), so this stands alone: full width on a phone, a readable
+     column on desktop. */
   .bottom-split {
     margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line);
-    display: flex; flex-direction: column; gap: 36px;
   }
-  .suggest-section {
-    display: flex; flex-direction: column; align-items: center; text-align: center;
-  }
-  /* Both headings take .t-section in the markup — the same role the rest of
-     the site's section headings take — rather than an 18px size that existed
-     only here. Margins stay separate: each still needs its own gap to what
-     follows it. */
-  /* Section headings are h2 (under each view's h1) carrying .t-section; the
-     element selectors below said h3 from before the pages had an h1. */
-  .suggest-section h2 { margin: 0 0 6px; }
-  .suggest-section .panel-note { margin-top: 0; }
 
   .updates-section h2 { margin: 0 0 16px; }
   .updates-list {
@@ -799,9 +789,7 @@
   .updates-list::-webkit-scrollbar-track { background: transparent; }
   .updates-list::-webkit-scrollbar-thumb { background: var(--line-firm); border-radius: 3px; }
   .updates-list::-webkit-scrollbar-thumb:hover { background: var(--faint); }
-  /* JS (syncUpdatesHeight) sets the real cap once the suggestion box next to
-     it has actually rendered; this is only the pre-JS/no-JS fallback so the
-     list never runs unbounded before that. */
+  /* The list scrolls inside a fixed height so it never runs unbounded. */
   .updates-list { max-height: 420px; }
   :root[data-layout="desktop"] .updates-list { max-height: 480px; }
   /* A neutral rail, not an accent-tinted one. Each entry already names its
@@ -828,16 +816,7 @@
      rather than wrapping. */
   .update-title, .update-points li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-  :root[data-layout="desktop"] .bottom-split { flex-direction: row; align-items: flex-start; gap: 56px; }
-  :root[data-layout="desktop"] .bottom-split > section { flex: 1 1 0; min-width: 0; }
-  /* The markup puts "Got an idea?" after Update History so it is the last
-     thing on a phone's home page (owner request, 2026-10-03). Side by side
-     there is no "last", so it keeps the left column it always had. */
-  :root[data-layout="desktop"] .bottom-split > .suggest-section { order: -1; }
-  /* "Got an idea?" now centres on desktop too, same as it already does on
-     mobile — .suggest-section's own base rule (align-items: center;
-     text-align: center) already does this once the desktop override that
-     was left-aligning it is removed, so there is nothing to add here. */
+  :root[data-layout="desktop"] .bottom-split .updates-section { max-width: 640px; margin-inline: auto; }
   /* One section-heading treatment, replacing three that had drifted apart
      (uppercase-tracked, 17px bold, accent-underlined). Sentence case at
      15px/600, no rule and no accent: separation between blocks is space --
