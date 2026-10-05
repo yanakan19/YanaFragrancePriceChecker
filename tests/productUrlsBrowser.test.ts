@@ -228,7 +228,7 @@ describe.skipIf(!built)('product addresses in the page', () => {
     await context.close();
   }, 60_000);
 
-  it('shares the product\'s own address from the product page and from a tile', async () => {
+  it('shares the product\'s own address from the product page, and tiles have no share button', async () => {
     const { context, page } = await open(`/${product.slug}`);
     await page.waitForSelector('#view .share-page');
     await page.locator('#view .share-page').first().click();
@@ -241,13 +241,8 @@ describe.skipIf(!built)('product addresses in the page', () => {
 
     await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'load' });
     await waitForApp(page);
-    await page.waitForSelector('#view .pop-item .share-tile');
-    const tileId = (await page.locator('#view .pop-item .tile-body').first().getAttribute('data-frag'))!;
-    await page.locator('#view .pop-item .share-tile').first().click();
-    await page.waitForSelector('#ps-share[open]');
-    expect(await ev<string>(page, `document.querySelector('#ps-share-link').value`)).toBe(
-      `${SITE_URL}/${fragranceById(tileId)!.slug}`,
-    );
+    await page.waitForSelector('#view .pop-item .tile-body');
+    expect(await page.locator('#view .share-tile').count()).toBe(0);
     await context.close();
   }, 60_000);
 });
