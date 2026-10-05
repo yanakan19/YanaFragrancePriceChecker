@@ -27,6 +27,15 @@ export const CHANGELOG: ChangelogEntry[] = [
     ],
   },
   {
+    version: 'v3.84.0',
+    date: '5 Oct 2026',
+    title: 'Fragrantica links check who it is for',
+    points: [
+      'A men\'s product no longer opens the women\'s page',
+      'A name shared by both uses the search link',
+    ],
+  },
+  {
     version: 'v3.83.0',
     date: '5 Oct 2026',
     title: 'New: Oils and Sets under Explore',

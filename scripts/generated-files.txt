@@ -74,6 +74,7 @@ incoming  demo/testCount.generated.ts         npm test (scripts/testCountReporte
 incoming  data/fragrance-links.json           npm run links:resolve
 incoming  data/fragrance-links-seen.json      npm run links:resolve
 incoming  demo/fragranceLinks.generated.ts    npm run links:resolve
+incoming  data/fragrantica-link-review.json   npm run links:resolve adds a page's gender when first seen (people edit the rest); the workflow merges it with scripts/merge-page-genders.ts
 
 # ── audit of the Fragrantica links (run by hand, in no workflow) ──
 manual    data/fragrantica-link-audit.json    scripts/audit-fragrantica-links.ts --write
