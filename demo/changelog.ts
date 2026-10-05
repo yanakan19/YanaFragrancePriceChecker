@@ -17,6 +17,26 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.81.0',
+    date: '5 Oct 2026',
+    title: 'Share moves off the tiles',
+    points: [
+      'Tiles are back to how they were, no Share button',
+      'Share stays on each product page beside Save',
+      'New: Share on each row of your wishlist',
+    ],
+  },
+  {
+    version: 'v3.80.0',
+    date: '5 Oct 2026',
+    title: 'Every product has a readable address',
+    points: [
+      'Like pricesniffs.space/creed_aventus_100ml',
+      'Old product links still work and move over',
+      'Share and email links use the new address',
+    ],
+  },
+  {
     version: 'v3.79.0',
     date: '5 Oct 2026',
     title: 'Fragrantica links go to the right page',

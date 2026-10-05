@@ -1,18 +1,30 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 import { shareLinks, shareProductName, shareText, shareUrl, type ShareProduct } from '../demo/share.js';
-import { routeToPath } from '../demo/router.js';
+import { routeToPath, setProductSlugLookup } from '../demo/router.js';
 
 const SAUVAGE: ShareProduct = { id: 'ean-3348901486251', brand: 'Dior', name: 'Sauvage', sizeMl: 100, giftSet: false };
 
+afterEach(() => setProductSlugLookup(() => null));
+
 describe('the share link', () => {
+  it('is the product\'s own address, /BRAND_NAME_VOLUME, once the page has registered its slugs', () => {
+    setProductSlugLookup((id) => (id === SAUVAGE.id ? 'dior_sauvage_100ml' : null));
+    expect(shareUrl(SAUVAGE.id)).toBe('https://pricesniffs.space/dior_sauvage_100ml');
+  });
+
+  it('falls back to the old address, which redirects, for a product with no slug', () => {
+    expect(shareUrl(SAUVAGE.id)).toBe(`https://pricesniffs.space/fragrance/${SAUVAGE.id}`);
+  });
+
   it('is the canonical product address, built through routeToPath', () => {
     expect(shareUrl(SAUVAGE.id)).toBe(`https://pricesniffs.space${routeToPath({ name: 'fragrance', param: SAUVAGE.id, query: {} })}`);
   });
 
   it('is on the product path with no query string, fragment or tracking', () => {
+    setProductSlugLookup(() => 'dior_sauvage_100ml');
     const url = new URL(shareUrl(SAUVAGE.id));
     expect(url.origin).toBe('https://pricesniffs.space');
-    expect(url.pathname.startsWith('/fragrance/')).toBe(true);
+    expect(url.pathname).toBe('/dior_sauvage_100ml');
     expect(url.search).toBe('');
     expect(url.hash).toBe('');
   });

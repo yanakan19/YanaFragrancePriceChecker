@@ -512,7 +512,8 @@ async function main() {
     return;
   }
   const p = choice.pick;
-  const url = `${SITE}/fragrance/${p.frag.id}`;
+  // The product's own address, /BRAND_NAME_VOLUME (docs/PRODUCT-URLS.md).
+  const url = `${SITE}/${p.frag.slug}`;
   // When the winning price was itself last confirmed, not when the catalogue
   // was built: on 3 Oct 2026 the post said "checked 11:14" (the build) for a
   // Perfumeo price last read on 29 Sep. --checked-at <ISO> records a later

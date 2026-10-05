@@ -1182,7 +1182,6 @@
      like every other card in the app, instead of pinning its own colours and
      drifting from them. */
   .tile {
-    position: relative;
     width: 100%; display: flex; flex-direction: column; gap: 6px;
     background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
     padding: 12px 13px 14px; color: var(--ink);
@@ -1213,10 +1212,6 @@
      counterpart, not a differently styled control. */
   .tile .phead-brand {
     background: var(--surface-2); border-color: var(--line); color: var(--ink-2);
-    /* Stops short of the Share button in the corner (.share-tile): its drawn
-       circle starts 34px in from the tile's edge, 13px of which is padding,
-       and the label keeps 4px clear of it. */
-    max-width: calc(100% - 25px); padding-left: 8px; padding-right: 8px;
   }
   @media (hover: hover) and (pointer: fine) {
     .tile .phead-brand:hover { border-color: var(--accent); color: var(--accent); }
@@ -1626,6 +1621,17 @@
   /* A fall since the day it was saved, in the app's saving colour. */
   .wishlist-change.down { color: var(--ok); }
   .wishlist-row .shop-row { width: auto; flex: 1; min-width: 0; }
+  /* The row's end column: Share above Remove, each the same 34px circle, so
+     adding Share did not make the row's text any narrower. */
+  .wishlist-side { flex: none; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .wishlist-side .wishlist-share {
+    display: flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; padding: 0; border-radius: 50%; border: 0; background: none;
+    color: var(--faint);
+  }
+  .wishlist-side .wishlist-share .ico { width: 16px; height: 16px; }
+  .wishlist-side .wishlist-share:hover, .wishlist-side .wishlist-share:focus-visible { color: var(--accent); }
+  .wishlist-side .wishlist-share:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
   .wishlist-remove {
     flex: none; display: flex; align-items: center; justify-content: center;
     width: 34px; height: 34px; border-radius: 50%; border: 0; background: none;
@@ -1931,7 +1937,8 @@
   .wishlist-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .wishlist-toggle[disabled] { opacity: .6; cursor: default; }
 
-  /* Share (openShareDialog in app.ts). On a product page it sits in a row with
+  /* Share (openShareDialog in app.ts). On a wishlist row it is a small icon
+     (.wishlist-share, with the row's rules). On a product page it sits in a row with
      the Save button above, the same pill beside it, so the two read as a
      pair and the price boxes below do not move. The wishlist button's own
      top margin moves to the row. */
@@ -1955,25 +1962,7 @@
     border-radius: 12px; border: 1px solid var(--line-firm);
     background: var(--surface-2); font-size: 14px; font-weight: 600;
   }
-  /* On a tile: an icon alone in the top right corner. The button is the 44px
-     touch target (the 44px square sits flush in the corner, over the padding);
-     the circle the eye sees is 28px, 6px from the tile's right edge and 8px from its top, lined up with the brand
-     label on the same row. It is not inside .tile-body, so a tap on it never
-     opens the product. */
-  .share-tile {
-    position: absolute; top: 0; right: 0; z-index: 1;
-    width: 44px; height: 44px; margin: 0; padding: 0;
-    display: flex; align-items: center; justify-content: center;
-    background: none; border: 0; border-radius: 12px; color: var(--ink-2);
-  }
-  .share-tile::before {
-    content: ""; position: absolute; inset: 8px 6px 8px 10px; border-radius: 50%;
-    background: var(--surface-2); border: 1px solid var(--line);
-    transition: border-color var(--dur-2) var(--ease-standard);
-  }
   @media (hover: hover) and (pointer: fine) {
-    .share-tile:hover { color: var(--accent); }
-    .share-tile:hover::before { border-color: var(--accent); }
     .share-page:hover { border-color: var(--accent); color: var(--accent); }
   }
 

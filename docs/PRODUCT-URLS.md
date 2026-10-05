@@ -258,4 +258,62 @@ address of a product does not depend on how the rules might change later.
 
 ## Measured
 
-To be filled in when the build exists.
+From the catalogue as built on 2026-10-05 (`npm run catalogue:demo` with no
+earlier `data/product-slugs.json`, so every product was given its slug in the
+same batch). 26,571 products, none with a page with no current prices at that
+moment.
+
+**Collisions.** 889 groups of products wanted the same brand, name and volume,
+1,904 products in all (7.2%); the largest group had 5.
+
+| Outcome | Products |
+|---|---|
+| Plain `brand_name_volume` | 24,667 |
+| Strength added (`_edp_`, `_edt_` and so on) | 1,660 |
+| Strength and a version added (`_edp_v2_` and so on) | 244 (217 `v2`, 24 `v3`, 6 `v4`) |
+
+The strength suffixes handed out: `edp` 735, `edt` 560, `parfum` 195,
+`extrait` 94, `aftershave` 25, `cologne` 18, `unstated` 18, `fraiche` 8,
+`disputed` 6, `oil` 1. (A product that took a version had its strength added
+too; they are counted in the third row, not in this list.)
+
+**Shapes.** 2,692 gift sets end `_set`, 1 product ends `_nosize`, 532 have a
+fractional size (`7p5ml`). Mean slug length 36.9 characters. The longest is 95:
+
+```
+maurer_and_wirtz_4711_acqua_colonia_lychee_and_white_mint_gift_set_50ml_edc_75ml_cologne_v2_set
+```
+
+The four after it are 91 and 92 characters, all gift sets. No slug is
+invalid, reserved or duplicated (tests/productSlugMap.test.ts).
+
+**Size added.**
+
+| File | Before | After | Added |
+|---|---|---|---|
+| `data/product-slugs.json` (committed, not shipped) | none | 2.0 MB, 380 KB gzipped | 2.0 MB |
+| `demo/catalogue.generated.ts` (committed) | 37.2 MB | 38.6 MB | 1.4 MB |
+| Catalogue array inside the first load data file | 10.5 MB | 11.8 MB | 1.25 MB raw, 225 KB gzipped (1.46 MB to 1.69 MB) |
+| Lazy dormant file | 0.61 MB | 0.61 MB | the `slug` of each dormant page and `SLUG_ALIASES` (empty at first, one line per merged product with a slug later) |
+
+The first load grows by about 225 KB gzipped, the cost of carrying a slug on
+every catalogue entry so a link can be built for a tile with no lookup. The map
+file grows by about 75 bytes per new product, and never shrinks.
+
+## Checked on the live site
+
+2026-10-05, after the deploy of the commit that listed the new addresses in the
+sitemap (the push started the deploy; no workflow was dispatched by hand). The
+live pages were loaded in Chromium with every request to pricesniffs.space
+fetched over the verified proxy channel and handed to the page unchanged.
+
+| Address | HTTP status | In the browser |
+|---|---|---|
+| `/dior_dune_100ml` | 404 with the app (853,206 bytes) | opens Dior Dune 100ml, address kept, canonical `https://pricesniffs.space/dior_dune_100ml`, no noindex |
+| `/fragrance/ean-3348900103870` (old) | 404 with the app | opens the same product, bar rewritten to `/dior_dune_100ml`, same canonical, no noindex once rewritten |
+| `/fragrance/al-haramain-ahp1756` (absorbed id) | 404 with the app | opens Al Haramain Mystique for Women 100ml, bar rewritten to `/al_haramain_mystique_for_women_100ml` |
+
+The sitemap lists 27,646 URLs: 26,571 product addresses of the form
+`/brand_name_volume`, none of them `/fragrance/<id>`, and `/dior_dune_100ml` is
+among them. The 404 status is the host's (section 7), as it was for the old
+address.

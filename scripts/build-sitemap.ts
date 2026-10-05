@@ -8,7 +8,7 @@
  * demo/index.html. There is no server-rendered HTML and no crawlable <a href>
  * trail into the deep catalogue: the links are built by script as a reader
  * clicks. So a crawler that does not run the app has no way at all to
- * discover /fragrance/ean-5045252668306, and one that does still has to click
+ * discover /creed_aventus_100ml, and one that does still has to click
  * its way through twelve thousand tiles to find it.
  *
  * The sitemap is the only complete list of what is here. It is generated from
@@ -37,6 +37,7 @@ import { CRAWLED } from '../demo/catalogue.generated.js';
 import { DEMO_FRAGRANCES } from '../demo/data.js';
 import { RETAILERS, enabledRetailers } from '../src/config/retailers.js';
 import { slugify } from '../demo/router.js';
+import { isProductSlug } from '../src/catalogue/productSlug.js';
 import { LEGAL_PAGES } from '../demo/legal.js';
 import { SITE_URL } from '../demo/head.js';
 
@@ -106,9 +107,24 @@ for (const page of LEGAL_PAGES) {
 }
 
 // ── Every fragrance the site can actually render ─────────────────────────
+// A catalogue built before products had addresses (a crawl that rebuilt it with
+// an older copy of the build script) has no slug on its products. Listing them
+// would put /undefined in the sitemap, so the build stops here instead: a failed
+// build leaves the site on the last good deployment, and the next crawl rebuilds
+// the catalogue with the slugs (npm run catalogue:demo).
+const unaddressed = DEMO_FRAGRANCES.filter((f) => !isProductSlug(f.slug ?? ''));
+if (unaddressed.length > 0) {
+  console.error(
+    `::error::${unaddressed.length} products have no product address (slug), for example ${unaddressed[0]!.id}. ` +
+      'Run npm run catalogue:demo, which gives them one (data/product-slugs.json).',
+  );
+  process.exit(1);
+}
 for (const f of DEMO_FRAGRANCES) {
   entries.push({
-    loc: `/fragrance/${encodeURIComponent(f.id)}`,
+    // The product's own address, /BRAND_NAME_VOLUME (docs/PRODUCT-URLS.md). The
+    // slug is lower case a to z, 0 to 9 and underscores, so it needs no encoding.
+    loc: `/${f.slug}`,
     lastmod: lastPriceRead(f.id) ?? appMod,
     changefreq: 'daily',
   });

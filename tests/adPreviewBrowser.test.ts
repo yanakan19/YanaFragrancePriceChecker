@@ -247,7 +247,7 @@ describe.skipIf(!built)('ad spacers on the built site', () => {
       expect(r.wellH).toBe(280);
       // The page passes axe with its frame in place, on a phone and wide, in both themes.
       const id = (await page.evaluate(`location.pathname`)) as string;
-      expect(id).toMatch(/^\/fragrance\//);
+      expect(id).not.toBe("/");
       await ctx.close();
       for (const [width, mode] of [[390, 'light'], [1280, 'dark']] as const) {
         const violations = await auditRoute(browser, port, `${id}?adpreview=1`, mode, width);
