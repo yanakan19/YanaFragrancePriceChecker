@@ -177,7 +177,11 @@ export const DESCRIBED_AS_WASH_GIFT_SET =
  * differently or not at all.
  */
 export const ML_SIZE_RE = /(\d{1,4}(?:\.\d)?)\s*ml\b/i;
-export const OZ_SIZE_RE = /(\d{1,2}(?:\.\d)?)\s*(?:fl\.?\s*)?oz\b/i;
+// Not preceded by a digit or a point, and up to three decimals: "0.17oz" is 5ml.
+// Read as "17oz" (no decimals allowed, nothing guarding the start) it was 503ml,
+// as was "3.25oz" (739ml), "0.135oz" (1035ml) and "2.75oz" (2218ml): 36 listings
+// at The Beauty Store UK, 1 at Mybeauty Boutique and 1 at Zara.
+export const OZ_SIZE_RE = /(?<![\d.])(\d{1,2}(?:\.\d{1,3})?)\s*(?:fl\.?\s*)?oz\b/i;
 /**
  * The millilitre figure one ML_SIZE_RE capture states, exactly as the shop
  * wrote it (the pattern allows one decimal place).
