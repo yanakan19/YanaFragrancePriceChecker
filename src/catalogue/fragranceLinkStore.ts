@@ -1,4 +1,5 @@
 import {
+  baseMayStandFor,
   fragranceBaseKey,
   fragranceLinkKey,
   fragranticaPath,
@@ -23,6 +24,12 @@ export interface LinkEntry {
   /** https://www.fragrantica.com/perfume/<Brand>/<Name>-<id>.html, only when checked. */
   fragrantica?: string;
   fragranticaMatch?: MatchQuality;
+  /**
+   * True where this product has no Fragrantica page and must not borrow its sibling strength's main
+   * page either (the page is for the other gender, or for another strength). Written by the resolver
+   * (scripts/resolve-fragrance-links.ts, refuseUnfitFallbacks); the page then shows a search.
+   */
+  fragranticaRefused?: true;
   /** A page on the brand's own domain naming this perfume, only when checked. */
   official?: string;
   officialMatch?: MatchQuality;
@@ -43,7 +50,11 @@ export interface LinksFile {
   entries: Record<string, LinkEntry>;
 }
 
-/** [Fragrantica "Folder/Slug-id", official URL]; an empty string is "none". */
+/**
+ * [Fragrantica "Folder/Slug-id", official URL]; an empty string is "none". A Fragrantica value of
+ * NO_FRAGRANTICA means "none, and do not fall back to the brand|name page either".
+ */
+export const NO_FRAGRANTICA = '-';
 export type CompactLinks = readonly [string, string];
 export type CompactTable = Readonly<Record<string, CompactLinks>>;
 
@@ -59,14 +70,14 @@ export function compactTable(entries: Readonly<Record<string, LinkEntry>>): Reco
   const base: Record<string, [string, string]> = {};
   for (const key of Object.keys(entries).sort()) {
     const e = entries[key]!;
-    const f = e.fragrantica ? (fragranticaPath(e.fragrantica) ?? '') : '';
+    const f = e.fragrantica ? (fragranticaPath(e.fragrantica) ?? '') : e.fragranticaRefused ? NO_FRAGRANTICA : '';
     const o = e.official ?? '';
     if (!f && !o) continue;
     table[key] = [f, o];
     const parts = key.split('|');
     const baseKey = `${parts[0]}|${parts[1]}`;
     const slot = (base[baseKey] ??= ['', '']);
-    if (f && e.fragranticaMatch === 'base' && !slot[0]) slot[0] = f;
+    if (f && f !== NO_FRAGRANTICA && e.fragranticaMatch === 'base' && !slot[0]) slot[0] = f;
     if (o && e.officialMatch === 'base' && !slot[1]) slot[1] = o;
   }
   for (const [k, v] of Object.entries(base)) if (v[0] || v[1]) table[k] = v;
@@ -87,7 +98,12 @@ export function lookupLinks(
 ): ResolvedLinks {
   const own = table[fragranceLinkKey(brand, name, concentration)];
   const base = table[fragranceBaseKey(brand, name)];
-  const f = own?.[0] || base?.[0] || '';
+  // A perfume's main page stands for its other strengths only where baseMayStandFor allows it:
+  // never for a Parfum, an Extrait, a Cologne or an Eau Fraiche (audit of 2026-10-05).
+  const f =
+    own?.[0] === NO_FRAGRANTICA
+      ? ''
+      : own?.[0] || (baseMayStandFor({ brand, name, concentration }) ? base?.[0] : '') || '';
   const o = own?.[1] || base?.[1] || '';
   return { fragrantica: f ? fragranticaUrlFromPath(f) : null, official: o || null };
 }

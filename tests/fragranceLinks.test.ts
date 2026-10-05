@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 import { fragranceLinksFor } from '../demo/fragranceLinks.js';
 import { FRAGRANCE_LINKS } from '../demo/fragranceLinks.generated.js';
 import { BRAND_SITES } from '../demo/brandSites.js';
-import { fragranticaUrlFromPath, matchFragranticaUrl, parseFragranticaUrl } from '../src/catalogue/fragranceLinkMatch.js';
+import { fragranticaUrlFromPath, parseFragranticaUrl } from '../src/catalogue/fragranceLinkMatch.js';
+import { indexReview, matchFragranticaChecked, parseReview } from '../src/catalogue/fragranticaReview.js';
+import { readFileSync } from 'node:fs';
 import { CATALOGUE } from '../demo/catalogue.generated.js';
 import { fragranceLinkKey } from '../src/catalogue/fragranceLinkMatch.js';
 
@@ -96,12 +98,15 @@ describe('fragranceLinksFor: stored direct links', () => {
   });
 });
 
+const REVIEW = indexReview(parseReview(readFileSync(new URL('../data/fragrantica-link-review.json', import.meta.url), 'utf8')));
+
 describe('the committed link table', () => {
   const entries = Object.entries(FRAGRANCE_LINKS);
 
   it('only holds Fragrantica perfume pages and absolute official URLs', () => {
     for (const [key, [f, o]] of entries) {
-      if (f) expect(parseFragranticaUrl(fragranticaUrlFromPath(f)), key).not.toBeNull();
+      // '-' is the "no page, and no borrowed page" marker (NO_FRAGRANTICA)
+      if (f && f !== '-') expect(parseFragranticaUrl(fragranticaUrlFromPath(f)), key).not.toBeNull();
       if (o) expect(o, key).toMatch(/^https?:\/\//);
       expect(f || o, `${key} has neither link, so should not be stored`).toBeTruthy();
     }
@@ -112,10 +117,10 @@ describe('the committed link table', () => {
     let checked = 0;
     for (const [key, [f]] of entries) {
       const e = byKey.get(key);
-      if (!f || !e) continue;
+      if (!f || f === '-' || !e) continue;
       checked++;
       expect(
-        matchFragranticaUrl(fragranticaUrlFromPath(f), { brand: e.brand, name: e.name, concentration: e.concentration }),
+        matchFragranticaChecked(fragranticaUrlFromPath(f), { brand: e.brand, name: e.name, concentration: e.concentration, gender: e.gender ?? null }, REVIEW),
         `${key} -> ${f}`,
       ).not.toBeNull();
     }

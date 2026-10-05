@@ -66,7 +66,7 @@
  * Search is a polite, slow, single stream (default one query every 3 seconds)
  * and backs off, then stops, if Bing starts refusing.
  */
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -92,7 +92,6 @@ import {
   fragranceLinkKey,
   isOfficialHost,
   looksBlocked,
-  matchFragranticaUrl,
   matchOfficialUrl,
   parseBingResults,
   parseFragranticaUrl,
@@ -100,6 +99,14 @@ import {
   type UrlMatch,
   type WantedFragrance,
 } from '../src/catalogue/fragranceLinkMatch.js';
+import {
+  indexReview,
+  matchFragranticaChecked,
+  NO_REVIEW_INDEX,
+  parseReview,
+  type CheckedWanted,
+  type ReviewIndex,
+} from '../src/catalogue/fragranticaReview.js';
 import { checkOrder, checkState, interleave, priorityOrder, type CheckState } from '../src/catalogue/linkPriority.js';
 import {
   compactTable,
@@ -112,6 +119,7 @@ import {
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const LINKS_FILE = resolve(ROOT, 'data/fragrance-links.json');
 const SEEN_FILE = resolve(ROOT, 'data/fragrance-links-seen.json');
+const REVIEW_FILE = resolve(ROOT, 'data/fragrantica-link-review.json');
 const GENERATED = resolve(ROOT, 'demo/fragranceLinks.generated.ts');
 
 // ── command line ───────────────────────────────────────────────────────────
@@ -202,6 +210,8 @@ interface Variant {
   key: string;
   concentration: string;
   ids: string[];
+  /** The catalogue's gender where its listings agree on one, else null. */
+  gender: 'mens' | 'womens' | 'unisex' | null;
 }
 
 interface Perfume {
@@ -215,6 +225,7 @@ interface Perfume {
 
 function loadPerfumes(): Perfume[] {
   const byBase = new Map<string, Perfume>();
+  const genders = new Map<string, Set<'mens' | 'womens' | 'unisex'>>();
   for (const e of CATALOGUE) {
     const baseKey = fragranceBaseKey(e.brand, e.name);
     let p = byBase.get(baseKey);
@@ -224,14 +235,26 @@ function loadPerfumes(): Perfume[] {
     }
     p.offers += CRAWLED[e.id]?.length ?? 0;
     const key = fragranceLinkKey(e.brand, e.name, e.concentration);
-    const v = p.variants.get(key) ?? { key, concentration: e.concentration, ids: [] };
+    const v = p.variants.get(key) ?? { key, concentration: e.concentration, ids: [], gender: null };
     v.ids.push(e.id);
+    genders.set(key, new Set([...(genders.get(key) ?? []), ...(e.gender ? [e.gender] : [])]));
     p.variants.set(key, v);
+  }
+  for (const p of byBase.values()) {
+    for (const v of p.variants.values()) {
+      const g = genders.get(v.key);
+      v.gender = g && g.size === 1 ? [...g][0]! : null;
+    }
   }
   return [...byBase.values()].sort((a, b) => b.offers - a.offers || a.baseKey.localeCompare(b.baseKey));
 }
 
-const wantedOf = (p: Perfume, v: Variant): WantedFragrance => ({ brand: p.brand, name: p.name, concentration: v.concentration });
+const wantedOf = (p: Perfume, v: Variant): CheckedWanted => ({
+  brand: p.brand,
+  name: p.name,
+  concentration: v.concentration,
+  gender: v.gender,
+});
 
 // ── the stores ─────────────────────────────────────────────────────────────
 
@@ -247,6 +270,7 @@ async function loadSeen(): Promise<Set<string>> {
 
 let links: LinksFile;
 let seen: Set<string>;
+let reviewIndex: ReviewIndex = NO_REVIEW_INDEX;
 let dirty = false;
 
 async function save(): Promise<void> {
@@ -620,7 +644,7 @@ function resolveFromSeen(p: Perfume, method: 'bing-seen' | 'bing-search' = 'bing
   if (!cands.size) return 0;
   let n = 0;
   for (const v of p.variants.values()) {
-    const best = bestMatch([...cands].map((u) => matchFragranticaUrl(u, wantedOf(p, v))).filter((m): m is UrlMatch => !!m));
+    const best = bestMatch([...cands].map((u) => matchFragranticaChecked(u, wantedOf(p, v), reviewIndex)).filter((m): m is UrlMatch => !!m));
     if (best && setFragrantica(v.key, best, method)) n++;
   }
   return n;
@@ -758,9 +782,79 @@ function report(perfumes: Perfume[]): void {
 
 // ── main ───────────────────────────────────────────────────────────────────
 
+/**
+ * Hold every stored Fragrantica link to the rule a new one has to pass
+ * (matchFragranticaChecked), and drop the ones that fail. The rule has
+ * tightened since the earlier runs wrote them (audit of 2026-10-05: a Parfum
+ * shown on the page of the Eau de Toilette, a men's perfume on the women's
+ * page), and a link the rule refuses must not stay on the page. The dropped
+ * perfume is searched again like any perfume without a link, and its
+ * \`tried\` stamp is kept so it is not first in the queue.
+ */
+function revalidateFragrantica(perfumes: Perfume[]): number {
+  let dropped = 0;
+  for (const p of perfumes) {
+    for (const v of p.variants.values()) {
+      const e = links.entries[v.key];
+      if (!e?.fragrantica) continue;
+      if (matchFragranticaChecked(e.fragrantica, wantedOf(p, v), reviewIndex)) continue;
+      console.log(`  dropped ${v.key}: ${e.fragrantica}`);
+      delete e.fragrantica;
+      delete e.fragranticaMatch;
+      delete e.method.fragrantica;
+      e.checkedAt = nowIso();
+      dirty = true;
+      dropped++;
+    }
+  }
+  return dropped;
+}
+
+/**
+ * A product with no Fragrantica page of its own shows its sibling strength's
+ * main page (the "base" page of its brand and name) where the table has one.
+ * Where that page is not fit for this product (it is for the other gender, it
+ * was reviewed as wrong for it, or this product's strength has a page of its
+ * own that this is not) the entry is marked, and the page shows a search.
+ */
+function refuseUnfitFallbacks(perfumes: Perfume[]): number {
+  let marked = 0;
+  for (const p of perfumes) {
+    let baseUrl: string | null = null;
+    for (const key of [...p.variants.keys()].sort()) {
+      const e = links.entries[key];
+      if (e?.fragrantica && e.fragranticaMatch === 'base') {
+        baseUrl = e.fragrantica;
+        break;
+      }
+    }
+    for (const v of p.variants.values()) {
+      const e = links.entries[v.key];
+      if (e?.fragrantica) {
+        if (e.fragranticaRefused) {
+          delete e.fragranticaRefused;
+          dirty = true;
+        }
+        continue;
+      }
+      const refuse = baseUrl !== null && !matchFragranticaChecked(baseUrl, wantedOf(p, v), reviewIndex);
+      if (refuse && !e?.fragranticaRefused) {
+        entryFor(v.key).fragranticaRefused = true;
+        dirty = true;
+        marked++;
+      } else if (!refuse && e?.fragranticaRefused) {
+        delete e.fragranticaRefused;
+        dirty = true;
+      }
+    }
+  }
+  return marked;
+}
+
 async function main(): Promise<void> {
   links = await loadLinks();
   seen = await loadSeen();
+  if (existsSync(REVIEW_FILE)) reviewIndex = indexReview(parseReview(readFileSync(REVIEW_FILE, 'utf8')));
   for (const u of seen) indexSeen(u);
 
   let perfumes = loadPerfumes();
@@ -773,6 +867,7 @@ async function main(): Promise<void> {
   console.log(`${perfumes.length} perfumes, ${perfumes.reduce((s, p) => s + p.variants.size, 0)} product variants`);
 
   if (!OPTS.emitOnly) {
+    console.log(`revalidated stored Fragrantica links: ${revalidateFragrantica(perfumes)} dropped`);
     // Free sources first: no request is made for these.
     let house = 0;
     let offer = 0;
@@ -791,6 +886,10 @@ async function main(): Promise<void> {
     }
     await save();
   }
+
+  const refused = refuseUnfitFallbacks(perfumes);
+  if (refused) console.log(`marked ${refused} variants whose sibling's Fragrantica page is not fit for them`);
+  await save();
 
   const table = compactTable(links.entries);
   await writeFile(GENERATED, renderGeneratedModule(table, latestCheck()));
