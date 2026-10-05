@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-05T06:18:59.702Z",
+  "checkedAt": "2026-10-05T10:04:09.613Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -141,9 +141,9 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 59,
+      "listings": 28,
       "pricedInGbp": 0,
-      "withPhoto": 58,
+      "withPhoto": 28,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
