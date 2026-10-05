@@ -83,6 +83,7 @@ manual    data/fragrantica-link-audit.json    scripts/audit-fragrantica-links.ts
 incoming  data/image-link-report.json         npm run images:check
 incoming  data/image-referer-report.json      npm run images:check -- --referer-check
 incoming  data/image-box-verdicts.json        scripts/image-box-check.ts
+incoming  data/better-photos.json             npm run photos:better (scripts/better-photos.ts), run by hand
 
 # ── price-verify.yml, delivery-recheck.yml ──
 incoming  data/price-verification-report.json npm run price:verify
