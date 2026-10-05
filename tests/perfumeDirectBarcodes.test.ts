@@ -9,6 +9,7 @@ import {
   type HeldBarcode,
 } from '../src/catalogue/barcodeFromProductJs.js';
 import { isCatalogueListing, fragranceId } from '../src/catalogue/fragranceId.js';
+import { giftSetId } from '../src/catalogue/giftSet.js';
 import { findDuplicateGroups, isBarcode, normalizedEan, type MatchableProduct } from '../src/catalogue/productMatch.js';
 import { parseShopifyProducts } from '../src/catalogue/shopifyJson.js';
 import { parseRobots, isAllowed } from '../src/catalogue/robots.js';
@@ -564,6 +565,34 @@ describe('a Perfume Direct product that a barcode moves onto another id keeps bo
     // The held address answers for the survivor: nothing that was published goes to Page Not Found.
     const redirects = slugAliases(after, aliases.aliases, (id) => id === survivorId);
     expect(redirects).toEqual({ [before[oldId]!]: survivorId });
+  });
+});
+
+describe('a Perfume Direct gift set that gains a barcode keeps its old address', () => {
+  // A real Perfume Direct set title (stored listing 51596PD, 2026-10-05). The barcode on it is made up.
+  const title = 'Davidoff Cool Water for Men Gift Set (125ml EDT + 75ml Shower Gel + 15ml EDT)';
+  const set = (ean: string | null): StoredListing => ({
+    ...listing('51596PD', 'davidoff-cool-water-for-men-gift-set-125ml-edt-75ml-shower-gel-15ml-edt', title, null, { ean, rawBrand: 'Davidoff', productType: 'Fragrance' }),
+    retailerId: 'perfume-direct', firstSeenAt: '2026-10-01T00:00:00Z', lastSeenAt: '2026-10-05T00:00:00Z', status: 'active',
+    delistedAt: null, relistedAt: null, eligibleForNewBadge: false, variantId: null,
+  });
+
+  it('is keyed on its title before and on its barcode after, so the title id is one of its forms', () => {
+    const before = fragranceId(set(null));
+    expect(before).toMatch(/^set-davidoff-cool-water/);
+    expect(before).toBe(giftSetId(set(null)));
+    const after = fragranceId(set('3348900103870'));
+    expect(after).toBe('set-ean-3348900103870');
+    expect(listingIdForms(set('3348900103870'), new Set())).toContain(before);
+  });
+
+  it('redirects the old set id to the barcode set', () => {
+    const before = fragranceId(set(null));
+    const after = fragranceId(set('3348900103870'));
+    const settled = settleIdAliases({
+      previous: {}, wasPage: new Set([before, after]), successors: new Map([[before, after]]), live: new Set([after]), dormant: new Set(),
+    });
+    expect(settled.aliases).toEqual({ [before]: after });
   });
 });
 
