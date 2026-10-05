@@ -9060,6 +9060,17 @@ export const RETAILERS: readonly Retailer[] = [
     enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
+    // ── Barcodes, 2026-10-05 ───────────────────────────────────────────────
+    // /products.json has no barcode for any variant (read 2026-10-05, page 1
+    // of 250: keys id, title, sku, price, available, no barcode); each
+    // product's /products/<handle>.js does ("barcode":"769915234053" on the
+    // first one read). robots.txt on www.perfumedirect.com (HTTP 200,
+    // 2026-10-05) allows /products/ and disallows only /cart.js, not
+    // /products/<handle>.js; no Crawl-delay. One read per product, at the www
+    // host that robots.txt came from (the apex host has answered 429 and a
+    // challenge to an earlier probe and is not asked), three seconds apart, at
+    // most 450 products a run so the whole range is read over several runs.
+    barcodeFromProductJs: { origin: 'https://www.perfumedirect.com', gapMs: 3000, maxPerRun: 450 },
     currency: 'GBP',
     shipping: {
       standardGbp: 2.99,
