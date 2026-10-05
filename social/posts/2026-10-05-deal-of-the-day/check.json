@@ -1,0 +1,36 @@
+{
+  "id": "ean-6294015165012",
+  "url": "https://pricesniffs.space/fragrance/ean-6294015165012",
+  "delivered": 52.9,
+  "msrp": 110,
+  "shop": "Perfume Click",
+  "percent": 51,
+  "pricesCheckedAt": "2026-10-05T12:43:52.597Z",
+  "brandRule": {
+    "restDays": 7,
+    "overridden": false
+  },
+  "liveCheck": {
+    "status": 404,
+    "servesApp": true,
+    "inLiveData": true,
+    "ok": true
+  },
+  "gender": {
+    "reading": "notStated",
+    "basis": "not stated anywhere"
+  },
+  "notes": {
+    "used": "own",
+    "source": "MyBeauty.Boutique",
+    "reasons": [],
+    "top": [
+      "Grapefruit",
+      "Pineapple",
+      "Bergamot",
+      "Jasmine"
+    ],
+    "middle": [],
+    "base": []
+  }
+}

@@ -339,12 +339,12 @@ describe('displayName: an orphaned separator left once both sides of it are stri
     ).toBe('Raed Absolu Perfume Lattafa Unboxed');
   });
 
-  // A duplicated unit conversion where only the ml half is ever read by the
-  // blanket ml strip: the oz half and the slash that used to join it to the
-  // ml half survive with nothing left to join.
-  it('drops a trailing "/" left by a stripped duplicate-unit size', () => {
+  // A duplicated unit conversion: the oz half used to survive the blanket ml
+  // strip ("Happy Heart 1.7oz"); an ounce size is the size field's fact too, so
+  // it goes with the slash that joined it (2026-10-05).
+  it('drops a trailing "/" and the oz size left by a stripped duplicate-unit size', () => {
     expect(displayName('Clinique Happy Heart Perfume Spray 1.7oz/50ml', 'Clinique', 'Clinique')).toBe(
-      'Happy Heart 1.7oz',
+      'Happy Heart',
     );
   });
 

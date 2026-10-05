@@ -58,17 +58,21 @@ import {
   settleIdAliases,
   type IdAliasFile,
 } from '../src/catalogue/idAliases.js';
+import { assignSlugs, slugAliases, type SlugFile, type SlugProduct } from '../src/catalogue/productSlug.js';
 import { auditWasPrices } from '../src/catalogue/wasPriceCredibility.js';
 import {
   isFragrance,
   isCatalogueListing,
   sizeMl,
+  ML_SIZE_RE,
   fragranceId,
   repairMojibake,
   travelSizeIsASize,
   NOT_A_FRAGRANCE,
 } from '../src/catalogue/fragranceId.js';
-import { giftSetContents, giftSetName, isGiftSet } from '../src/catalogue/giftSet.js';
+import { brandAliasKey, nameCore } from '../src/catalogue/duplicateKey.js';
+import { resolveOunceListing } from '../src/catalogue/ounceSizes.js';
+import { buildKnownHouseProducts, giftSetContents, giftSetName, isGiftSet, registerKnownHouseProducts } from '../src/catalogue/giftSet.js';
 import {
   concentrationOfListing,
   concentrationOfStoredListing,
@@ -792,6 +796,65 @@ function readShopLabel(l: StoredListing, retailer: Retailer, title: string): { t
   return labelConflicts.has(shopLabelKey(l, retailer, read.title)) ? { title, audience: null } : read;
 }
 
+/* ── a house's bundles named only by their two products ──────────────────────
+   French Avenue's own storefront sells "Liquid Brun & Cocoa Morado" and nine
+   more like it: two full bottles, no size and no "set" in the title. A title
+   that joins two of the house's own single bottles is a set (giftSet.ts,
+   namesTwoKnownProducts). The single bottles are known here, before any listing
+   becomes a product, from every shop's single bottle listings. */
+{
+  const singles: { brands: (string | null)[]; name: string }[] = [];
+  for (const { retailer, listings } of eligible) {
+    for (const l of listings) {
+      if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0) || !isCatalogueListing(l) || isGiftSet(l)) continue;
+      const rawBrand = resolveRawBrand(l, retailer);
+      const brand = canonBrand(rawBrand);
+      const title = stripTrailingShopCredit(l.rawTitle, retailer.name, retailer.domain);
+      singles.push({ brands: [brand, rawBrand, l.rawBrand ?? null], name: displayName(readShopLabel(l, retailer, title).title, rawBrand, brand, travelSizeIsASize(l.retailerId)) });
+    }
+  }
+  registerKnownHouseProducts(buildKnownHouseProducts(singles));
+}
+
+/* ── a US ounce title and the bottle's nominal size ───────────────────────────
+   The Beauty Store UK writes "Ysl Black Opium 3 Oz" (89ml converted) for the 90ml
+   bottle every other shop sells, and "Y By Ysl 2 Oz For Men" (59ml) for the 60ml.
+   Where the same product, or the same barcode, is sold at the nominal size by a
+   shop that states it in ml, the listing takes that size, and its "For Men" /
+   "For Women" label comes off if that is what the evidence found
+   (src/catalogue/ounceSizes.ts). Worked out here, before any listing becomes a
+   product, from the shops' own millilitre sizes. */
+const ounceNameKey = (brand: string, name: string): string => `${brandAliasKey(brand)}|${nameCore(name, brand, null)}`;
+const knownSizes: { byName: Map<string, Set<number>>; byEan: Map<string, Set<number>> } = { byName: new Map(), byEan: new Map() };
+{
+  const add = (m: Map<string, Set<number>>, key: string, ml: number) => (m.get(key) ?? m.set(key, new Set()).get(key)!).add(ml);
+  for (const { retailer, listings } of eligible) {
+    for (const l of listings) {
+      if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0) || !isCatalogueListing(l) || isGiftSet(l)) continue;
+      if (!ML_SIZE_RE.test(l.rawTitle)) continue;
+      const ml = sizeMl(l.rawTitle, l.description);
+      if (ml === null) continue;
+      const rawBrand = resolveRawBrand(l, retailer);
+      const brand = canonBrand(rawBrand);
+      if (!brand) continue;
+      const title = stripTrailingShopCredit(l.rawTitle, retailer.name, retailer.domain);
+      add(knownSizes.byName, ounceNameKey(brand, displayName(readShopLabel(l, retailer, title).title, rawBrand, brand, travelSizeIsASize(l.retailerId))), ml);
+      const ean = trustworthyEan(l, untrustworthyEans);
+      if (ean) add(knownSizes.byEan, ean, ml);
+    }
+  }
+}
+let ounceResolved = 0;
+const ounceResolvedByShop = new Map<string, number>();
+const ounceExamples: string[] = [];
+/** The size and name an ounce listing takes, where the evidence is there; otherwise the ones it was given. */
+function withNominalOunceSize(l: StoredListing, brand: string | null, name: string, size: number | null): { size: number | null; name: string } {
+  if (size === null || !brand) return { size, name };
+  const hit = resolveOunceListing({ title: l.rawTitle, name, ean: trustworthyEan(l, untrustworthyEans), nameKey: (n) => ounceNameKey(brand, n), known: knownSizes });
+  if (!hit || (hit.sizeMl === size && hit.name === name)) return { size, name };
+  return { size: hit.sizeMl, name: hit.name };
+}
+
 for (const { retailer, listings } of eligible) {
   for (const l of listings) {
     considered++;
@@ -830,7 +893,7 @@ for (const { retailer, listings } of eligible) {
     // A gift set has no size: it is not a bottle of any volume, and leaving
     // it unsized is what keeps every size keyed match (findDuplicateGroups,
     // houseCeilings, the reference price check) from ever pairing it with one.
-    const size = giftSet ? null : sizeMl(l.rawTitle, l.description);
+    let size = giftSet ? null : sizeMl(l.rawTitle, l.description);
     const id = fragranceId(l, untrustworthyEans);
     // The other ids this listing has answered to, kept for the id aliases
     // (src/catalogue/idAliases.ts): only a listing that really joins a product
@@ -878,9 +941,19 @@ for (const { retailer, listings } of eligible) {
     const labelled: { title: string; audience: ShopTitleAudience | null } = giftSet
       ? { title: titleWithoutShopCredit, audience: null }
       : readShopLabel(l, retailer, titleWithoutShopCredit);
-    const displayedName = giftSet
+    let displayedName = giftSet
       ? giftSetName(titleWithoutShopCredit, displayedBrand)
       : displayName(labelled.title, effectiveRawBrand, displayedBrand, travelSizeIsASize(l.retailerId));
+    if (!giftSet) {
+      const nominal = withNominalOunceSize(l, displayedBrand, displayedName, size);
+      if (nominal.size !== size) {
+        ounceResolved++;
+        ounceResolvedByShop.set(l.retailerId, (ounceResolvedByShop.get(l.retailerId) ?? 0) + 1);
+        if (ounceExamples.length < 12) ounceExamples.push(`${l.rawTitle} -> ${nominal.name} ${nominal.size}ml (was ${size}ml)`);
+      }
+      size = nominal.size;
+      displayedName = nominal.name;
+    }
     const offer: Offer = {
       retailerId: l.retailerId,
       price: l.priceGbp!,
@@ -2165,13 +2238,13 @@ const hiddenSameBottle = new Map<string, string>();
 function describeHiddenListing(l: StoredListing) {
   const retailer = RETAILERS.find((r) => r.id === l.retailerId)!;
   const giftSet = isGiftSet(l);
-  const size = giftSet ? null : sizeMl(l.rawTitle, l.description);
   const rawBrand = resolveRawBrand(l, retailer);
   const displayedBrand = canonBrand(rawBrand);
   const title = stripTrailingShopCredit(l.rawTitle, retailer.name, retailer.domain);
-  const name = giftSet
+  const readName = giftSet
     ? giftSetName(title, displayedBrand)
     : displayName(readShopLabel(l, retailer, title).title, rawBrand, displayedBrand, travelSizeIsASize(l.retailerId));
+  const { size, name } = giftSet ? { size: null, name: readName } : withNominalOunceSize(l, displayedBrand, readName, sizeMl(l.rawTitle, l.description));
   return { giftSet, size, brand: displayedBrand ?? 'Unbranded', name, concentration: concentrationOfStoredListing(l) };
 }
 for (const l of tooOldListings) {
@@ -2235,6 +2308,8 @@ for (const [id, listings] of [...dormantListings].sort((a, b) => a[0].localeComp
   }));
   const image = pickImage(candidates, now, imageBoxVerdicts, imageDimensions);
   const entry: DormantEntry = {
+    // Given below, once every product's slug is settled together.
+    slug: '',
     brand: facts.brand,
     name: facts.name,
     concentration: facts.concentration,
@@ -2334,6 +2409,43 @@ const idAliasResult = settleIdAliases({
 });
 const idAliases = idAliasResult.aliases;
 
+/* ── product addresses: /BRAND_NAME_VOLUME ──────────────────────────────────
+   Every product with a page (the catalogue and the pages with no current
+   prices) has a slug, given once and kept in data/product-slugs.json: the build
+   reads its own last copy and never changes a slug already in it, so an address
+   that has been published, shared or indexed does not move when a product is
+   renamed or resized. A product with no slug yet is given one by the rules in
+   src/catalogue/productSlug.ts (docs/PRODUCT-URLS.md). The slug of a product
+   that has since been folded into another stays in the file and becomes an
+   alias of the survivor (slugAliases below). */
+const productSlugsPath = resolve(root, 'data/product-slugs.json');
+const previousSlugs: Record<string, string> = existsSync(productSlugsPath)
+  ? (JSON.parse(readFileSync(productSlugsPath, 'utf8')) as SlugFile).slugs
+  : {};
+const slugProducts: SlugProduct[] = [
+  ...ordered.map((p) => ({
+    id: p.id,
+    brand: p.brand,
+    name: p.name,
+    concentration: p.concentration,
+    sizeMl: p.sizeMl,
+    giftSet: Boolean(p.giftSet),
+  })),
+  ...Object.entries(dormantProducts).map(([id, d]) => ({
+    id,
+    brand: d.brand,
+    name: d.name,
+    concentration: d.concentration,
+    sizeMl: d.sizeMl,
+    giftSet: d.giftSet !== undefined,
+  })),
+];
+const slugResult = assignSlugs(previousSlugs, slugProducts);
+const productSlugs = slugResult.slugs;
+for (const [id, d] of Object.entries(dormantProducts)) d.slug = productSlugs[id]!;
+const pageIds = new Set(slugProducts.map((p) => p.id));
+const slugAliasMap = slugAliases(productSlugs, idAliases, (id) => pageIds.has(id));
+
 const historyAliases: Record<string, string[]> = {};
 for (const p of ordered) {
   const ids = absorbedIds.get(p.id);
@@ -2348,6 +2460,7 @@ const catalogue = ordered.map((p) => {
   const image = pickImage(p.offers, now, imageBoxVerdicts, imageDimensions);
   return {
     id: p.id,
+    slug: productSlugs[p.id]!,
     brand: p.brand,
     name: p.name,
     concentration: p.concentration,
@@ -2445,6 +2558,12 @@ export interface Notes {
 
 export interface CatalogueEntry {
   id: string;
+  /**
+   * The product's address, pricesniffs.space/<slug>: brand, name and volume
+   * joined by underscores. Given once and never changed (data/product-slugs.json,
+   * src/catalogue/productSlug.ts, docs/PRODUCT-URLS.md).
+   */
+  slug: string;
   brand: string;
   name: string;
   concentration: string;
@@ -2621,9 +2740,21 @@ export const DORMANT_PRODUCTS: Record<string, DormantEntry> = ${JSON.stringify(d
 // rewritten to it. Built from the build's own merge decisions and kept from
 // build to build in data/id-aliases.json (src/catalogue/idAliases.ts).
 export const ID_ALIASES: Record<string, string> = ${JSON.stringify(idAliases)};
+
+// The slugs that were given to products now folded into another product, each
+// with the id of the product that holds it now: an old product address opens
+// that product, and the address bar is rewritten to its own. Built from
+// data/product-slugs.json and the aliases above (src/catalogue/productSlug.ts).
+export const SLUG_ALIASES: Record<string, string> = ${JSON.stringify(slugAliasMap)};
 `,
 );
 writeGenerated(root, 'data/id-aliases.json', `${JSON.stringify({ aliases: idAliases }, null, 1)}\n`);
+writeGenerated(root, 'data/product-slugs.json', `${JSON.stringify({ slugs: productSlugs }, null, 1)}\n`);
+console.log(
+  `product addresses: ${slugResult.stats.kept} kept, ${slugResult.stats.fresh} given ` +
+    `(${slugResult.stats.plain} plain, ${slugResult.stats.withStrength} with the strength, ${slugResult.stats.withVersion} with a version), ` +
+    `${Object.keys(slugAliasMap).length} slugs of merged products answer for the product that holds them (data/product-slugs.json)`,
+);
 
 const multi = ordered.filter((p) => p.offers.length > 1).length;
 // See sizeConflict in src/catalogue/fragranceId.ts and Product.sizeMl's own
@@ -2660,6 +2791,7 @@ console.log(
     '\n' +
     `  ${houseProducts.length} house products, catalogue-only (no sterling price yet)\n` +
     `  ${sizeUnknown} products carry a size their own title states two conflicting ways; shown as size not confirmed\n` +
+    `  ${ounceResolved} US ounce listings took the nominal bottle size the same product or barcode is sold at (${[...ounceResolvedByShop].map(([id, n]) => `${id} ${n}`).join(', ')}); e.g. ${ounceExamples.slice(0, 4).join('; ')}\n` +
     `  ${giftSetProducts.length} gift set products (${giftSetProducts.reduce((n, p) => n + p.offers.length, 0)} offers; ${[...giftSetListings.values()].reduce((n, v) => n + v, 0)} listings: ` +
     `${[...giftSetListings].sort((a, b) => b[1] - a[1]).map(([id, n]) => `${id} ${n}`).join(', ')}), never compared with a single bottle\n` +
     `  ${[...tooOldByShop.values()].reduce((n, v) => n + v.hidden, 0)} active listings hidden, price last confirmed over ${HIDE_OFFER_AFTER_DAYS} days ago` +
