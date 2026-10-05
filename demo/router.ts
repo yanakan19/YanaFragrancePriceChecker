@@ -32,7 +32,7 @@ import { isProductSlug } from '../src/catalogue/productSlug.js';
 
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
-  | 'notes' | 'note' | 'fragrance' | 'product' | 'about' | 'settings' | 'suggestions' | 'legal' | 'account'
+  | 'notes' | 'note' | 'oils' | 'sets' | 'fragrance' | 'product' | 'about' | 'settings' | 'suggestions' | 'legal' | 'account'
   | 'accountWishlist' | 'accountNotifications'
   | 'design' | 'notFound';
 
@@ -72,6 +72,9 @@ const LIST_ROUTES: Record<string, RouteName> = {
   deals: 'deals',
   retailers: 'retailers',
   notes: 'notes',
+  // The Explore tabs after Notes (docs/GIFT-SETS-AND-OILS-PLAN.md).
+  oils: 'oils',
+  sets: 'sets',
   about: 'about',
   settings: 'settings',
   suggestions: 'suggestions',
@@ -84,20 +87,17 @@ const LIST_ROUTES: Record<string, RouteName> = {
 };
 
 /**
- * Addresses that used to be pages of their own and now land on a list with a
- * filter chosen. They are matched, never answered with a not found: someone
- * has these in a bookmark or a post. The app draws the list they land on and
- * then rewrites the address to that list's own, so an alias is only ever the
- * way in.
+ * Addresses that used to be pages of their own and now land somewhere else. They
+ * are matched, never answered with a not found: someone has these in a bookmark
+ * or a post. The app draws the page they land on and then rewrites the address
+ * to that page's own, so an alias is only ever the way in.
  *
- * /gift-sets was the Gift Sets page (owner's decision, 2026-10-03). Gift sets
- * are now only an option under Size (owner's decision, 2026-10-04), so the old
- * address opens the search list with that option chosen. The query value is
- * the Gift Sets option's own id (GIFT_SET_BAND in demo/volumeBands.ts), which
- * this file does not import to stay free of the catalogue modules.
+ * /gift-sets was the Gift Sets page (owner's decision, 2026-10-03), then only an
+ * option under Size (2026-10-04), and is now the Sets tab under Explore
+ * (owner's decision, 2026-10-05), which is what the old address opens.
  */
 const ALIAS_ROUTES: Record<string, { name: RouteName; query: Record<string, string> }> = {
-  'gift-sets': { name: 'search', query: { size: 'gift-set' } },
+  'gift-sets': { name: 'sets', query: {} },
 };
 
 /**
@@ -251,6 +251,8 @@ export function routeToPath(route: Route): string {
       case 'retailer': return `/retailers/${encodeURIComponent(param)}`;
       case 'notes': return '/notes';
       case 'note': return `/notes/${encodeURIComponent(param)}`;
+      case 'oils': return '/oils';
+      case 'sets': return '/sets';
       case 'fragrance': return productPath(param);
       case 'product': return `/${param}`;
       case 'about': return '/about';

@@ -17,13 +17,42 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
-    version: 'v3.82.0',
+    version: 'v3.85.0',
     date: '5 Oct 2026',
     title: 'Many more products now show a photo',
     points: [
       'Nearly 12,000 more products show a shop photo',
       'Each photo loads from the shop selling it',
       'Small ScentStore photos now show at full size',
+    ],
+  },
+  {
+    version: 'v3.84.0',
+    date: '5 Oct 2026',
+    title: 'Fragrantica links check who it is for',
+    points: [
+      'A men\'s product no longer opens the women\'s page',
+      'A name shared by both uses the search link',
+    ],
+  },
+  {
+    version: 'v3.83.0',
+    date: '5 Oct 2026',
+    title: 'New: Oils and Sets under Explore',
+    points: [
+      'Two new tabs after Notes, each with its own search',
+      'Sets are compared only with the same set',
+      'Old Gift Sets links now open the Sets tab',
+    ],
+  },
+  {
+    version: 'v3.82.0',
+    date: '5 Oct 2026',
+    title: 'Saved fragrances follow product merges',
+    points: [
+      'Merged products keep their price on your wishlist',
+      'Price alert emails now cover them too',
+      'Gone products say No longer listed, with Remove',
     ],
   },
   {

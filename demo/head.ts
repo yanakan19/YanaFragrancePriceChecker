@@ -290,6 +290,28 @@ export function headFor(input: HeadInput): HeadTags {
         noindex: false,
       };
 
+    case 'oils':
+      return {
+        title: 'PriceSniffs: Oils',
+        description: describe(
+          'Perfume oils from the UK shops we track, compared with the same oil at other shops and never with a spray. Delivery counts where the shop states it.',
+          SITE_TAIL,
+        ),
+        canonical,
+        noindex: false,
+      };
+
+    case 'sets':
+      return {
+        title: 'PriceSniffs: Sets',
+        description: describe(
+          'Gift sets, miniature and discovery sets and bundles of full size bottles, compared only with the same set at other shops and never with a single bottle.',
+          SITE_TAIL,
+        ),
+        canonical,
+        noindex: false,
+      };
+
     case 'deals':
       return {
         title: 'PriceSniffs: Deals',
@@ -454,6 +476,8 @@ function pathOf(route: Route): string {
     case 'retailer': return `/retailers/${p}`;
     case 'notes': return '/notes';
     case 'note': return `/notes/${p}`;
+    case 'oils': return '/oils';
+    case 'sets': return '/sets';
     case 'fragrance': return productPath(route.param);
     case 'product': return `/${p}`;
     case 'about': return '/about';
