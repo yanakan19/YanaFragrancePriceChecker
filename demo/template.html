@@ -1672,41 +1672,15 @@
      four rows. */
   .notes-block .note-chips { justify-content: center; }
 
-  /* The eyebrow role now lives in .t-eyebrow, which this carries in the
-     markup; all that is left here is the gap to what follows. */
-  .section-label { margin: 0 0 10px; }
+  /* The layer chips above the Notes list: the note page's own chips, in a row
+     with room under it before the list. */
+  .note-chips.note-chips-layers { margin: 0 0 14px; }
 
-  /* Compact horizontally scrolling row rather than a fixed grid: three
-     groups today reads fine as a row, and a fourth would only ever need to
-     scroll into view rather than force every card narrower to fit. */
-  .notes-groups { margin: 4px 0 20px; }
-  .notes-groups-row {
-    display: flex; gap: 12px; overflow-x: auto; padding-bottom: 2px;
-    scrollbar-width: none;
-  }
-  .notes-groups-row::-webkit-scrollbar { display: none; }
-  .note-group-card {
-    flex: none; display: flex; flex-direction: column; gap: 4px;
-    min-width: 92px; padding: 12px 14px; border-radius: 12px;
-    background: var(--surface); border: 1px solid var(--line);
-    text-align: left; cursor: pointer; font: inherit; color: var(--ink);
-    transition: border-color .12s ease, background .12s ease;
-  }
-  .note-group-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  @media (hover: hover) and (pointer: fine) {
-    .note-group-card:hover { border-color: var(--line-firm); }
-  }
-  .note-group-card.on { background: var(--accent-sf); border-color: var(--accent); }
-  .note-group-count { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
-  .note-group-label { font-size: 12px; color: var(--faint); }
-  .note-group-card.on .note-group-label { color: var(--ink-2); }
-
-  /* The bottom half: a bounded, independently scrolling region rather than
-     the page's ordinary flow. Two things need that — it is what "Browse
-     Alphabetically" sitting under a fixed-height group row actually means,
-     and the scrubber's whole mechanic (map a finger's Y position to a
-     scroll position) only makes sense against a viewport with a stable,
-     known height, not a list that keeps growing the page underneath it. */
+  /* The list: a bounded, independently scrolling region rather than the
+     page's ordinary flow, because the scrubber's whole mechanic (map a
+     finger's Y position to a scroll position) only makes sense against a
+     viewport with a stable, known height, not a list that keeps growing the
+     page underneath it. */
   .notes-browse { position: relative; }
   .notes-browse-scroll {
     max-height: 50vh; overflow-y: auto; overscroll-behavior: contain;
