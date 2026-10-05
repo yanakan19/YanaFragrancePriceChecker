@@ -810,6 +810,47 @@ function revalidateFragrantica(perfumes: Perfume[]): number {
   return dropped;
 }
 
+/**
+ * A product with no Fragrantica page of its own shows its sibling strength's
+ * main page (the "base" page of its brand and name) where the table has one.
+ * Where that page is not fit for this product (it is for the other gender, it
+ * was reviewed as wrong for it, or this product's strength has a page of its
+ * own that this is not) the entry is marked, and the page shows a search.
+ */
+function refuseUnfitFallbacks(perfumes: Perfume[]): number {
+  let marked = 0;
+  for (const p of perfumes) {
+    let baseUrl: string | null = null;
+    for (const key of [...p.variants.keys()].sort()) {
+      const e = links.entries[key];
+      if (e?.fragrantica && e.fragranticaMatch === 'base') {
+        baseUrl = e.fragrantica;
+        break;
+      }
+    }
+    for (const v of p.variants.values()) {
+      const e = links.entries[v.key];
+      if (e?.fragrantica) {
+        if (e.fragranticaRefused) {
+          delete e.fragranticaRefused;
+          dirty = true;
+        }
+        continue;
+      }
+      const refuse = baseUrl !== null && !matchFragranticaChecked(baseUrl, wantedOf(p, v), reviewIndex);
+      if (refuse && !e?.fragranticaRefused) {
+        entryFor(v.key).fragranticaRefused = true;
+        dirty = true;
+        marked++;
+      } else if (!refuse && e?.fragranticaRefused) {
+        delete e.fragranticaRefused;
+        dirty = true;
+      }
+    }
+  }
+  return marked;
+}
+
 async function main(): Promise<void> {
   links = await loadLinks();
   seen = await loadSeen();
@@ -845,6 +886,10 @@ async function main(): Promise<void> {
     }
     await save();
   }
+
+  const refused = refuseUnfitFallbacks(perfumes);
+  if (refused) console.log(`marked ${refused} variants whose sibling's Fragrantica page is not fit for them`);
+  await save();
 
   const table = compactTable(links.entries);
   await writeFile(GENERATED, renderGeneratedModule(table, latestCheck()));

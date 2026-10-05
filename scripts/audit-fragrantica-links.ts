@@ -3,6 +3,7 @@
  *
  *   npx tsx scripts/audit-fragrantica-links.ts              # print the summary
  *   npx tsx scripts/audit-fragrantica-links.ts --write      # also write data/fragrantica-link-audit.json
+ *   npx tsx scripts/audit-fragrantica-links.ts --write --out=/tmp/x.json   # write somewhere else (to compare runs)
  *
  * For every product on the page it asks `fragranceLinksFor` (the exact call the
  * page makes) what the "Fragrantica" pill points at, then classifies the URL by
@@ -10,7 +11,7 @@
  * URL are the product's. No network: nothing here asks Fragrantica anything.
  * See docs/FRAGRANTICA-LINK-AUDIT-2026-10-05.md for what it found.
  */
-import { writeFileSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEMO_FRAGRANCES } from '../demo/data.js';
@@ -18,8 +19,12 @@ import { fragranceLinksFor } from '../demo/fragranceLinks.js';
 import { fragranceBaseKey, fragranceLinkKey } from '../src/catalogue/fragranceLinkMatch.js';
 import type { LinksFile } from '../src/catalogue/fragranceLinkStore.js';
 import { auditFragranticaLink, classifyFragranticaUrl, type LinkClass } from '../src/catalogue/fragranticaAudit.js';
+import { indexReview, NO_REVIEW_INDEX, parseReview } from '../src/catalogue/fragranticaReview.js';
+import { writeGenerated } from './generatedFiles.js';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const REVIEW_PATH = resolve(ROOT, 'data/fragrantica-link-review.json');
+const REVIEW = existsSync(REVIEW_PATH) ? indexReview(parseReview(readFileSync(REVIEW_PATH, 'utf8'))) : NO_REVIEW_INDEX;
 const LINKS = JSON.parse(readFileSync(resolve(ROOT, 'data/fragrance-links.json'), 'utf8')) as LinksFile;
 
 /** The links-file entry a product's Fragrantica link came from: its own key, else the brand|name "base" entry. */
@@ -59,7 +64,7 @@ for (const f of DEMO_FRAGRANCES) {
   if (links.fragranticaDirect) {
     const src = sourceEntry(f.brand, f.name, f.concentration, links.fragranticaUrl);
     found = src ? `${src.entry.method.fragrantica ?? 'unknown'} (${src.entry.fragranticaMatch ?? '?'})` : 'unknown (no entry)';
-    const a = auditFragranticaLink(links.fragranticaUrl, { brand: f.brand, name: f.name, concentration: f.concentration, gender: f.gender });
+    const a = auditFragranticaLink(links.fragranticaUrl, { brand: f.brand, name: f.name, concentration: f.concentration, gender: f.gender }, REVIEW);
     verdict = a.verdict + (a.reasons.length ? `: ${a.reasons.join('; ')}` : '');
   } else if (cls !== 'search') {
     verdict = `WRONG: fallback is ${cls}`;
@@ -92,6 +97,12 @@ if (process.argv.includes('--write')) {
   // One product per line so a rerun's diff shows the products that changed.
   const body = rows.map((r) => JSON.stringify(r)).join(',\n');
   const out = `{"generatedAt":${JSON.stringify(LINKS.generatedAt)},"products":${rows.length},"rows":[\n${body}\n]}\n`;
-  writeFileSync(resolve(ROOT, 'data/fragrantica-link-audit.json'), out);
-  console.log('wrote data/fragrantica-link-audit.json');
+  const outArg = process.argv.find((a) => a.startsWith('--out='));
+  if (outArg) {
+    writeFileSync(resolve(outArg.slice('--out='.length)), out);
+    console.log(`wrote ${outArg.slice('--out='.length)}`);
+  } else {
+    writeGenerated(ROOT, 'data/fragrantica-link-audit.json', out);
+    console.log('wrote data/fragrantica-link-audit.json');
+  }
 }

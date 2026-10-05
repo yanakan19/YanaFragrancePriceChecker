@@ -76,3 +76,12 @@ function ukMarket(url: string): boolean {
   const m = marketOf(url);
   return m === 'uk' || m === 'gb';
 }
+
+/**
+ * What the Fragrantica pill says. "Fragrantica" only where the link opens the
+ * perfume's own page; a search link says "Search Fragrantica", because a pill
+ * must not claim a page it does not open (owner request, 2026-10-05).
+ */
+export function fragranticaLabel(links: Pick<FragranceLinks, 'fragranticaDirect'>): string {
+  return links.fragranticaDirect ? 'Fragrantica' : 'Search Fragrantica';
+}
