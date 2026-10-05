@@ -299,3 +299,21 @@ invalid, reserved or duplicated (tests/productSlugMap.test.ts).
 The first load grows by about 225 KB gzipped, the cost of carrying a slug on
 every catalogue entry so a link can be built for a tile with no lookup. The map
 file grows by about 75 bytes per new product, and never shrinks.
+
+## Checked on the live site
+
+2026-10-05, after the deploy of the commit that listed the new addresses in the
+sitemap (the push started the deploy; no workflow was dispatched by hand). The
+live pages were loaded in Chromium with every request to pricesniffs.space
+fetched over the verified proxy channel and handed to the page unchanged.
+
+| Address | HTTP status | In the browser |
+|---|---|---|
+| `/dior_dune_100ml` | 404 with the app (853,206 bytes) | opens Dior Dune 100ml, address kept, canonical `https://pricesniffs.space/dior_dune_100ml`, no noindex |
+| `/fragrance/ean-3348900103870` (old) | 404 with the app | opens the same product, bar rewritten to `/dior_dune_100ml`, same canonical, no noindex once rewritten |
+| `/fragrance/al-haramain-ahp1756` (absorbed id) | 404 with the app | opens Al Haramain Mystique for Women 100ml, bar rewritten to `/al_haramain_mystique_for_women_100ml` |
+
+The sitemap lists 27,646 URLs: 26,571 product addresses of the form
+`/brand_name_volume`, none of them `/fragrance/<id>`, and `/dior_dune_100ml` is
+among them. The 404 status is the host's (section 7), as it was for the old
+address.
