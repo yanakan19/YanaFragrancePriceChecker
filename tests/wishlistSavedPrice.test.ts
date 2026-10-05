@@ -159,16 +159,16 @@ describe('the Biggest Drop sort', () => {
   ];
 
   it('is offered only where some row has a change to rank', () => {
-    expect(wishlistSortsFor(false).map((s) => s.label)).toEqual(['Recently Saved', 'Cheapest']);
-    expect(wishlistSortsFor(true).map((s) => s.label)).toEqual(['Recently Saved', 'Cheapest', 'Biggest Drop']);
-    expect(WISHLIST_SORTS.map((s) => s.label)).toEqual(['Recently Saved', 'Cheapest']);
+    expect(wishlistSortsFor(false).map((s) => s.label)).toEqual(['Newest to Oldest Saved', 'Lowest to Highest Price']);
+    expect(wishlistSortsFor(true).map((s) => s.label)).toEqual(['Newest to Oldest Saved', 'Lowest to Highest Price', 'Biggest to Smallest Drop']);
+    expect(WISHLIST_SORTS.map((s) => s.label)).toEqual(['Newest to Oldest Saved', 'Lowest to Highest Price']);
   });
 
   it('puts the largest fall first, then flat, then dearer, and a row with no change last', () => {
     expect(sortWishlist(rows, 'drop').map((r) => r.name)).toEqual(['Big', 'Small', 'Flat', 'Dearer', 'Old row']);
   });
 
-  it('falls back to Recently Saved when it is chosen but no longer on offer', () => {
+  it('falls back to Newest to Oldest Saved when it is chosen but no longer on offer', () => {
     expect(effectiveWishlistSort('drop', false)).toBe('recent');
     expect(effectiveWishlistSort('drop', true)).toBe('drop');
     expect(effectiveWishlistSort('cheapest', false)).toBe('cheapest');

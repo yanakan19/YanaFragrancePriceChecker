@@ -27,8 +27,8 @@ describe('LIST_SORT_OPTIONS', () => {
 
   it('labels the size options in the same house style as the price ones', () => {
     const byValue = Object.fromEntries(LIST_SORT_OPTIONS.map((o) => [o.value, o.label]));
-    expect(byValue['size-low']).toBe('Smallest Size');
-    expect(byValue['size-high']).toBe('Largest Size');
+    expect(byValue['size-low']).toBe('Smallest to Largest Size');
+    expect(byValue['size-high']).toBe('Largest to Smallest Size');
   });
 });
 
