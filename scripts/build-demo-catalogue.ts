@@ -74,7 +74,10 @@ import {
 } from '../src/catalogue/fragranceId.js';
 import { brandAliasKey, nameCore } from '../src/catalogue/duplicateKey.js';
 import { resolveOunceListing } from '../src/catalogue/ounceSizes.js';
-import { buildKnownHouseProducts, giftSetContents, giftSetName, isGiftSet, registerKnownHouseProducts } from '../src/catalogue/giftSet.js';
+import {
+  buildKnownHouseProducts, giftSetName, giftSetRecord, isGiftSet, mergeGiftSetRecords, registerKnownHouseProducts,
+  type GiftSetRecord,
+} from '../src/catalogue/giftSet.js';
 import {
   concentrationOfListing,
   concentrationOfStoredListing,
@@ -377,7 +380,7 @@ interface Product {
    * single bottle) and the contents its title spells out, or null where the
    * title does not.
    */
-  giftSet: { contents: string[] | null; title: string } | null;
+  giftSet: GiftSetRecord | null;
 }
 
 /**
@@ -1025,10 +1028,7 @@ for (const { retailer, listings } of eligible) {
       }
       // A set whose first shop's title spelled out nothing may be spelled out
       // by the next one's.
-      if (existing.giftSet && existing.giftSet.contents === null) {
-        const contents = giftSetContents(l.rawTitle);
-        if (contents) existing.giftSet = { contents, title: l.rawTitle };
-      }
+      if (existing.giftSet) existing.giftSet = mergeGiftSetRecords(existing.giftSet, giftSetRecord(l));
     } else {
       // The displayed brand is handed to displayName as well as the raw
       // vendor field: it is the string that will sit beside the name on
@@ -1056,7 +1056,7 @@ for (const { retailer, listings } of eligible) {
         // every product to exist before it can ask what the house said.
         concentrationFromHouse: null,
         audience: labelled.audience,
-        giftSet: giftSet ? { contents: giftSetContents(l.rawTitle), title: l.rawTitle } : null,
+        giftSet: giftSet ? giftSetRecord(l) : null,
       });
     }
   }
@@ -2347,7 +2347,7 @@ for (const [id, listings] of [...dormantListings].sort((a, b) => a[0].localeComp
   };
   const transform = imageTransformFor(image);
   if (transform !== undefined) entry.imageTransform = transform;
-  if (facts.giftSet) entry.giftSet = { contents: giftSetContents(lead.rawTitle), title: lead.rawTitle };
+  if (facts.giftSet) entry.giftSet = giftSetRecord(lead);
   dormantProducts[id] = entry;
 }
 
@@ -2658,7 +2658,7 @@ export interface CatalogueEntry {
    * does not; \`title\` is the shop title they were read from, shown in
    * their place when there are none.
    */
-  giftSet?: { contents: string[] | null; title: string };
+  giftSet?: { contents: string[] | null; title: string; mainMl?: number; bundle?: true; from?: 'description' };
   /**
    * Present only on a perfume oil or an attar (src/catalogue/perfumeOil.ts): what
    * its shops state about it and nothing they did not. \`format\` is how it comes
