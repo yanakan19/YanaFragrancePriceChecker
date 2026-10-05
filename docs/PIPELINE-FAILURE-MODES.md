@@ -41,7 +41,7 @@ deals file and the slow replay. This review added:
 | Workflow (concurrency group) | Commits | Trigger, and when it really runs |
 |---|---|---|
 | catalogue-daily.yml `crawl` (catalogue) | `data/catalogue`, `data/houses`, harvest report, cursor and markers, shipping and Awin state, `src/config/retailers.ts` (shipping discovery), every "rebuild" path (the generated modules, `data/id-aliases.json`, the checkpoint), `demo/testCount.generated.ts` | hourly at :15 and :45, gated by `guard`; dispatches |
-| fragrance-links-daily.yml (catalogue) | `data/fragrance-links*.json`, `demo/fragranceLinks.generated.ts` (until 2026-10-04 also the page) | 03:17 UTC; has started 09:13 to 09:52 |
+| fragrance-links-daily.yml (catalogue) | `data/fragrance-links*.json`, `data/fragrantica-link-review.json` (only the page genders the run learned, merged onto the latest file by `scripts/merge-page-genders.ts`), `demo/fragranceLinks.generated.ts` (until 2026-10-04 also the page) | 03:17 UTC; has started 09:13 to 09:52 |
 | image-check.yml (image-check) | `data/image-link-report.json`, `data/image-referer-report.json` | 03:20 UTC; started 08:09 to 10:16 over 40 days |
 | image-measure-daily.yml (image-measure) | `data/image-box-verdicts.json` | 04:41 UTC; started 10:01, 10:44 |
 | price-verify.yml (price-verify) | `data/price-verification-report.json` | Sundays 04:40 UTC; started 08:51 to 10:43 |

@@ -210,12 +210,11 @@ search result returned.
 
 ## 5. What is not covered
 
-- **Gender of a page not in the review.** The page's gender is known for 203 pages
-  (read from search result titles). A new link the daily job finds for a product whose
-  name omits "for Men" or "for Women" could land on the other gender's page; the
-  strength and name rules cannot see that. The remedy is to read the gender off the
-  search result title when a page is first seen and store it with the address. It is
-  a follow up, not done here.
+- **Gender of a page not in the review.** The page's gender was known for 203 pages
+  (read from search result titles) when this audit was written. A new link the daily
+  job finds for a product whose name omits "for Men" or "for Women" could land on the
+  other gender's page; the strength and name rules cannot see that. The follow up of
+  the same day is in section 6.
 - **Two pages of one name and strength.** Fragrantica has, for example, two Eau de
   Parfum pages for Armani Code (2021 and 2024), and a 2025 "Light Blue Eau de Toilette"
   beside the 2001 original that is also an Eau de Toilette. The matcher takes the first
@@ -225,3 +224,38 @@ search result returned.
 - Fragrantica itself was not fetched, so a page that has since been removed or
   redirected is not detected. The page titles come from search results as they stood
   on 5 October 2026.
+
+## 6. Follow up: who a page is for, read when the page is first seen (5 October 2026)
+
+- `src/catalogue/fragranticaReview.ts` reads a search result's **title and address
+  only** (never the page, never its text or ratings) for who the perfume is for:
+  "a fragrance for women", "for men", "for women and men" in the title, or the same
+  words at the end of the page's name in the address (`Eternity-For-Men-258`). Only
+  one word is stored, in `pageGender` of `data/fragrantica-link-review.json`. A title
+  and an address that disagree record nothing, and a gender already in the file (a
+  person's reading, or an earlier result's) is never overwritten.
+- `scripts/resolve-fragrance-links.ts` does this the first time a result shows a page
+  (`absorb`), before the next candidate is judged, so the page is refused for a product
+  of the other gender at once. It also reads the addresses of every stored and seen page
+  at the start of a run, and holds the stored links to anything learned at the end.
+  `--gender-only` searches for the linked and seen pages whose gender is still unknown
+  and does nothing else.
+- A name that a men's and a women's product share has one link (the table is keyed by
+  brand, name and strength). It now takes only a page for both genders or one whose
+  gender is unknown (`sharedGender`, 'both'). A name with one single sex product and
+  unisex ones is held to that single sex.
+- The workflow commits the review with the links. It does not copy the run's file over
+  the latest one (people edit the review): `scripts/merge-page-genders.ts` adds only the
+  page genders the latest file lacks.
+- Numbers on 5 October 2026: pages with a known gender 203 to 209 (6 read from their
+  addresses, no network). 368 distinct pages are linked, 198 of them with a known
+  gender; 465 linked products have a stated gender, and 179 of those (72 pages) are on
+  a page whose gender is still unknown. One stored link was changed: the women's
+  `Dolce-Gabbana/Light-Blue-Eau-de-Toilette-104985`, shown for a name shared by the
+  men's and the women's Light Blue Eau de Toilette, is now a search link.
+- **Bing does not let the bot search.** `https://www.bing.com/robots.txt` has
+  `Disallow: /search` for every agent, and the job honours it ("bing: robots.txt does not
+  allow /search for PriceSniffsBot; not asked"). Since the bot identity change of 4
+  October the daily job therefore makes no search at all: it re-matches the addresses
+  already seen and reads the brand sitemaps. No new Fragrantica page, and so no new page
+  gender, can come from it until a search source it may use is chosen (owner decision).

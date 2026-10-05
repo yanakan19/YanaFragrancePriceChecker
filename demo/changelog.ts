@@ -17,6 +17,15 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.84.0',
+    date: '5 Oct 2026',
+    title: 'Fragrantica links check who it is for',
+    points: [
+      'A men\'s product no longer opens the women\'s page',
+      'A name shared by both uses the search link',
+    ],
+  },
+  {
     version: 'v3.82.0',
     date: '5 Oct 2026',
     title: 'Saved fragrances follow product merges',

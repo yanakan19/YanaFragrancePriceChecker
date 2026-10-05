@@ -10,6 +10,7 @@
  *   npm run links:resolve -- --brand=Lattafa    # one house
  *   npm run links:resolve -- --limit=2000       # or stop after 2000 search queries
  *   npm run links:resolve -- --official-search=500   # also ask a search engine for the brand's own page
+ *   npm run links:resolve -- --gender-only --minutes 20   # only read who Fragrantica pages are for (see below)
  *
  * ── Resumable, and built to run unattended ───────────────────────────────────
  * Every run reads data/fragrance-links.json and data/fragrance-links-seen.json,
@@ -52,6 +53,15 @@
  *                           earlier query happened to return, kept in
  *                           data/fragrance-links-seen.json and matched again
  *                           for free.
+ *
+ * ── Who a Fragrantica page is for ────────────────────────────────────────────
+ * The first time a search result shows a Fragrantica page, its gender is read
+ * from the result's title ("... - a fragrance for men 2015") and address and
+ * stored in data/fragrantica-link-review.json (pageGender). Candidates are held
+ * to it at once: a product the catalogue knows to be for men is not given the
+ * page "for women" (src/catalogue/fragranticaReview.ts). A gender already in the
+ * file is never overwritten. --gender-only spends the budget searching for the
+ * linked and seen pages whose gender is still unknown, and does nothing else.
  *
  * ── What it deliberately does not do ────────────────────────────────────────
  * It never requests a Fragrantica page. Fragrantica sits behind a Cloudflare
@@ -101,10 +111,14 @@ import {
 } from '../src/catalogue/fragranceLinkMatch.js';
 import {
   indexReview,
+  learnPageGenders,
   matchFragranticaChecked,
-  NO_REVIEW_INDEX,
+  NO_REVIEW,
   parseReview,
+  renderReview,
+  sharedGender,
   type CheckedWanted,
+  type FragranticaReview,
   type ReviewIndex,
 } from '../src/catalogue/fragranticaReview.js';
 import { checkOrder, checkState, interleave, priorityOrder, type CheckState } from '../src/catalogue/linkPriority.js';
@@ -157,6 +171,8 @@ const OPTS = {
   emitOnly: flag('emit-only'),
   noSitemaps: flag('no-sitemaps'),
   retryMisses: flag('retry-misses'),
+  // Search only for the pages whose gender is not known yet, and do nothing else.
+  genderOnly: flag('gender-only'),
 };
 
 const STARTED = Date.now();
@@ -210,8 +226,12 @@ interface Variant {
   key: string;
   concentration: string;
   ids: string[];
-  /** The catalogue's gender where its listings agree on one, else null. */
-  gender: 'mens' | 'womens' | 'unisex' | null;
+  /**
+   * The gender to hold a link to (sharedGender): the catalogue's gender for the
+   * products under this brand, name and strength, 'both' where one is for men
+   * and another for women, null where it states none.
+   */
+  gender: CheckedWanted['gender'];
 }
 
 interface Perfume {
@@ -243,7 +263,7 @@ function loadPerfumes(): Perfume[] {
   for (const p of byBase.values()) {
     for (const v of p.variants.values()) {
       const g = genders.get(v.key);
-      v.gender = g && g.size === 1 ? [...g][0]! : null;
+      v.gender = sharedGender(g ?? []);
     }
   }
   return [...byBase.values()].sort((a, b) => b.offers - a.offers || a.baseKey.localeCompare(b.baseKey));
@@ -270,16 +290,43 @@ async function loadSeen(): Promise<Set<string>> {
 
 let links: LinksFile;
 let seen: Set<string>;
-let reviewIndex: ReviewIndex = NO_REVIEW_INDEX;
+/** data/fragrantica-link-review.json as read; the job adds page genders to it (learnGenders) and writes it back. */
+let review: FragranticaReview = { ...NO_REVIEW, pageGender: {} };
+let reviewIndex: ReviewIndex = indexReview(review);
+let reviewDirty = false;
 let dirty = false;
 
 async function save(): Promise<void> {
+  if (reviewDirty) {
+    await writeFile(REVIEW_FILE, renderReview(review));
+    reviewDirty = false;
+  }
   if (!dirty) return;
   links.generatedAt = nowIso();
   await mkdir(dirname(LINKS_FILE), { recursive: true });
   await writeFile(LINKS_FILE, renderLinksFile(links));
   await writeFile(SEEN_FILE, JSON.stringify([...seen].sort()) + '\n');
   dirty = false;
+}
+
+let gendersLearned = 0;
+let gendersDisagreed = 0;
+
+/**
+ * Record who each Fragrantica page in these search results is for, from its
+ * title and address, the first time it is seen (src/catalogue/fragranticaReview.ts).
+ * Never overwrites a gender the file already has.
+ */
+function learnGenders(results: { url: string; title: string }[]): void {
+  const got = learnPageGenders(results, review, reviewIndex);
+  if (got.added.length > 0) {
+    gendersLearned += got.added.length;
+    reviewDirty = true;
+  }
+  for (const d of got.disagreed) {
+    gendersDisagreed++;
+    console.log(`  gender: ${d.path} is stored as ${d.stored}, a result says ${d.read}; left as stored`);
+  }
 }
 
 function entryFor(key: string): LinkEntry {
@@ -651,6 +698,7 @@ function resolveFromSeen(p: Perfume, method: 'bing-seen' | 'bing-search' = 'bing
 }
 
 function absorb(results: { url: string; title: string }[], p: Perfume): void {
+  learnGenders(results);
   for (const r of results) {
     const parts = parseFragranticaUrl(r.url);
     if (parts && !seen.has(parts.url)) {
@@ -709,6 +757,72 @@ async function searchFragrantica(perfumes: Perfume[]): Promise<void> {
       console.log(`  ${n} perfumes searched, ${queries} queries, ${coverageLine(perfumes)}`);
     }
   }
+}
+
+/**
+ * The pages of Fragrantica the job has already met whose gender is not known:
+ * first the ones a product's link points at, then the rest it has seen. Their
+ * titles are not stored, so the gender is read the only way it can be, from a
+ * search result for the page again.
+ */
+function pagesWithoutGender(): { path: string; folder: string; slug: string }[] {
+  const out: { path: string; folder: string; slug: string }[] = [];
+  const have = new Set<string>();
+  const add = (url: string): void => {
+    const parts = parseFragranticaUrl(url);
+    if (!parts) return;
+    const path = `${parts.folder}/${parts.slug}-${parts.id}`;
+    if (have.has(path) || reviewIndex.gender.has(path)) return;
+    have.add(path);
+    out.push({ path, folder: parts.folder, slug: parts.slug });
+  };
+  for (const e of Object.values(links.entries)) if (e.fragrantica) add(e.fragrantica);
+  for (const u of [...seen].sort()) add(u);
+  return out;
+}
+
+/** Search for pages whose gender is unknown, one query each, for as long as the budget allows. */
+async function backfillGenders(): Promise<void> {
+  const todo = pagesWithoutGender();
+  console.log(`page genders: ${todo.length} pages seen without a gender; budget ${OPTS.minutes} min`);
+  let n = 0;
+  for (const page of todo) {
+    if (queries >= OPTS.limit || timeUp()) break;
+    if (reviewIndex.gender.has(page.path)) continue; // an earlier result in this run already showed it
+    const words = decodeURIComponentSafe(page.slug).replace(/-/g, ' ');
+    const results = await bing(`site:fragrantica.com/perfume/${page.folder} ${words}`);
+    if (results === null) {
+      console.log('stopping: search engine is refusing requests or time is up; rerun to continue');
+      break;
+    }
+    absorbSeen(results);
+    learnGenders(results);
+    if (++n % 25 === 0) {
+      await save();
+      console.log(`  ${n} searched, ${queries} queries, ${Object.keys(review.pageGender).length} pages with a gender`);
+    }
+  }
+}
+
+/** Remember every Fragrantica address a result lists, as absorb does. */
+function absorbSeen(results: { url: string; title: string }[]): void {
+  for (const r of results) {
+    const parts = parseFragranticaUrl(r.url);
+    if (parts && !seen.has(parts.url)) {
+      seen.add(parts.url);
+      indexSeen(parts.url);
+      dirty = true;
+    }
+  }
+}
+
+/** Read the gender off the end of each stored or seen page's address, with no request at all. */
+function learnGendersFromAddresses(): number {
+  const before = gendersLearned;
+  const urls = new Set<string>(seen);
+  for (const e of Object.values(links.entries)) if (e.fragrantica) urls.add(e.fragrantica);
+  learnGenders([...urls].map((url) => ({ url, title: '' })));
+  return gendersLearned - before;
 }
 
 async function searchOfficial(perfumes: Perfume[]): Promise<void> {
@@ -854,7 +968,10 @@ function refuseUnfitFallbacks(perfumes: Perfume[]): number {
 async function main(): Promise<void> {
   links = await loadLinks();
   seen = await loadSeen();
-  if (existsSync(REVIEW_FILE)) reviewIndex = indexReview(parseReview(readFileSync(REVIEW_FILE, 'utf8')));
+  if (existsSync(REVIEW_FILE)) {
+    review = parseReview(readFileSync(REVIEW_FILE, 'utf8'));
+    reviewIndex = indexReview(review);
+  }
   for (const u of seen) indexSeen(u);
 
   let perfumes = loadPerfumes();
@@ -866,7 +983,14 @@ async function main(): Promise<void> {
   perfumes = priorityOrder(perfumes, siteTiers());
   console.log(`${perfumes.length} perfumes, ${perfumes.reduce((s, p) => s + p.variants.size, 0)} product variants`);
 
-  if (!OPTS.emitOnly) {
+  if (OPTS.genderOnly) {
+    console.log(`page genders read from addresses: ${learnGendersFromAddresses()}`);
+    if (!OPTS.offline) await backfillGenders();
+    console.log(`revalidated stored Fragrantica links: ${revalidateFragrantica(perfumes)} dropped`);
+    await save();
+  } else if (!OPTS.emitOnly) {
+    // Before any link is judged: the gender a page's own address states.
+    console.log(`page genders read from addresses: ${learnGendersFromAddresses()}`);
     console.log(`revalidated stored Fragrantica links: ${revalidateFragrantica(perfumes)} dropped`);
     // Free sources first: no request is made for these.
     let house = 0;
@@ -887,6 +1011,10 @@ async function main(): Promise<void> {
     await save();
   }
 
+  // Genders learned from this run's search results may disagree with a link
+  // stored earlier: hold the stored links to them too.
+  if (gendersLearned > 0) console.log(`revalidated again after ${gendersLearned} page genders learned: ${revalidateFragrantica(perfumes)} dropped`);
+  if (gendersDisagreed > 0) console.log(`${gendersDisagreed} results disagreed with a stored page gender and were ignored`);
   const refused = refuseUnfitFallbacks(perfumes);
   if (refused) console.log(`marked ${refused} variants whose sibling's Fragrantica page is not fit for them`);
   await save();
