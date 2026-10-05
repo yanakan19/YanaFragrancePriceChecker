@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-05T17:22:25.276Z",
+  "checkedAt": "2026-10-05T19:37:14.255Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -58,17 +58,16 @@
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "GBP",
-      "listings": 449,
+      "currency": "SEK",
+      "listings": 511,
       "pricedInGbp": 0,
-      "withPhoto": 427,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "withPhoto": 489,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
-        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere"
+        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
+        "prices are in SEK, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {

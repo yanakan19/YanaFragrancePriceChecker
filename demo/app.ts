@@ -68,6 +68,9 @@ import {
   BRAND_SORT_OPTIONS, BROWSE_SORT_OPTIONS, DEAL_SORT_OPTIONS, LIST_SORT_OPTIONS, NOTE_SORT_OPTIONS, SORT_LEAD,
   sortFragrances, sortNotes, type BrowseSort, type ListSort, type NoteSort,
 } from './listSort.js';
+import { TAB_SEARCH_ID, TAB_SORT_ID, createTabs, facetSelectId, isTabKind, type TabKind } from './tabPanels.js';
+import type { TabListState } from './tabLists.js';
+import { isOil, isSet } from './productKind.js';
 import {
   PER_ROW_CHOICES, PER_ROW_DEFAULT, clampPerRow, gridWidthFor, perRowChoicesFor,
 } from './tileDensity.js';
@@ -116,6 +119,7 @@ import { flagSvg } from './flags.js';
 import { ABOUT } from './legal.js';
 import { liveCounts } from './data.js';
 import { fetchWishlist, addToWishlist, removeFromWishlist, setTargetPrice, type WishlistEntry } from './wishlist.js';
+import { groupWishlist, type WishlistGroup } from '../src/services/wishlistResolve.js';
 import { fetchPriceAlerts, setPriceAlerts, unsubscribe } from './priceAlerts.js';
 import {
   fetchPhotoState, downloadPhoto, shrinkPhoto, savePhoto, removePhoto, removePhotoForDeletion, blobToDataUrl,
@@ -130,7 +134,7 @@ type View =
 /** The three pages behind the account menu, each with its own address. */
 const ACCOUNT_VIEWS: readonly View[] = ['account', 'accountWishlist', 'accountNotifications'];
 type AuthTab = 'signIn' | 'signUp';
-type ExploreTab = 'brands' | 'retailers' | 'notes';
+type ExploreTab = 'brands' | 'retailers' | 'notes' | 'oils' | 'sets';
 type DisplayMode = 'dark' | 'light' | 'system';
 type Layout = 'mobile' | 'desktop';
 type BrandSort = 'az' | 'za';
@@ -230,6 +234,10 @@ const state = {
   // Full entries only fetched for the account page's own list, not needed
   // just to render a toggle button correctly on the detail page.
   wishlistEntries: [] as WishlistEntry[],
+  // The same rows as the lines the page shows: each saved id resolved through
+  // the merge map (src/services/wishlistResolve.ts). The rows above keep the
+  // ids as saved; only this read side follows a merge. See refreshWishlistLines.
+  wishlistLines: [] as WishlistGroup<WishlistEntry>[],
   // Price drop emails (queue item 4.1). null until read, and stays null when
   // the database has no such setting yet (migration 0004 not run), which
   // keeps the checkbox off the page rather than showing one that cannot save.
@@ -298,6 +306,8 @@ interface ListSnapshot {
   brandDetailSort: ListSort;
   retailerDetailSort: ListSort;
   retailerInStockOnly: boolean;
+  /** The Oils and Sets tabs' own search, sort and filters (demo/tabPanels.ts). */
+  tabs: Record<TabKind, TabListState>;
   scrollY: number;
   /** The product tile at the top of the screen, and how far down it sat. */
   anchorFrag: string | null;
@@ -328,6 +338,7 @@ function snapshotListState(): ListSnapshot {
     brandDetailSort: state.brandDetailSort,
     retailerDetailSort: state.retailerDetailSort,
     retailerInStockOnly: state.retailerInStockOnly,
+    tabs: tabs.snapshot(),
     scrollY: window.scrollY,
   };
 }
@@ -357,6 +368,7 @@ function restoreListState(saved: ListSnapshot): void {
   state.brandDetailSort = s.brandDetailSort;
   state.retailerDetailSort = s.retailerDetailSort;
   state.retailerInStockOnly = s.retailerInStockOnly;
+  tabs.restore(s.tabs);
 }
 
 /**
@@ -1119,6 +1131,28 @@ function listSortControl(id: string, current: ListSort): string {
 function browseSortControl(current: BrowseSort): string {
   return sortControl('browse-sort', 'Fragrances', ICON_SORT, BROWSE_SORT_OPTIONS, current);
 }
+
+/**
+ * The Oils and Sets tabs under Explore: their lists, filters and search, all in
+ * demo/tabPanels.ts. The page hands in what it owns (the tile grid, the sort
+ * control, the shared filter attributes and options).
+ */
+const tabs = createTabs({
+  attrs: (f) => {
+    const a = facetAttrs(f);
+    return { concentration: a.concentration, gender: a.gender, tier: a.tier, priceBand: a.priceBand, inStock: a.inStock };
+  },
+  concentrationOptions: CONCENTRATION_GROUPS.map((g) => ({ value: g.id, label: g.label })),
+  genderOptions: GENDER_ORDER.map((g) => ({ value: g, label: GENDER_LABEL[g] })),
+  priceOptions: PRICE_BANDS.map((b) => ({ value: b.id, label: b.label })),
+  tierOptions: (['designer', 'niche', 'mideast'] as const).map((t) => ({ value: t, label: TIER_LABEL[t] })),
+  fragranceList: (list, empty) => fragranceList(list, empty),
+  sortControl: (id, subject, options, current) => sortControl(id, subject, ICON_SORT, [...options], current),
+  listControls: (sort, ui) => listControls(sort, ui),
+  esc,
+  iconFilter: ICON_FILTER,
+  iconChevron: ICON_CHEVRON,
+});
 
 /* ── shared pieces ───────────────────────────────────────────────────────── */
 
@@ -2155,12 +2189,12 @@ function savedOnLabel(iso: string): string {
 
 /** The optional per item target price, shown once price alerts are on. Saved
  *  when the field changes (see the change handler); blank clears it. */
-function wishlistTargetHtml(entry: WishlistEntry, frag: DemoFragrance): string {
-  const value = entry.targetPriceGbp === null ? '' : entry.targetPriceGbp.toFixed(2);
+function wishlistTargetHtml(line: WishlistGroup<WishlistEntry>, frag: DemoFragrance): string {
+  const value = line.targetPriceGbp === null ? '' : line.targetPriceGbp.toFixed(2);
   return `<label class="wishlist-target t-caption">
       <span>Also email me at or below £</span>
       <input type="text" inputmode="decimal" autocomplete="off" size="7" maxlength="9"
-        data-wishlist-target="${esc(frag.id)}" value="${esc(value)}" placeholder="optional"
+        data-wishlist-target="${esc(line.primary.fragranceId)}" value="${esc(value)}" placeholder="optional"
         aria-label="Target price in pounds for ${esc(frag.brand)} ${esc(frag.name)}" />
     </label>`;
 }
@@ -2205,22 +2239,30 @@ function priceAlertsSectionHtml(): string {
 function wishlistListHtml(): string {
   if (!state.wishlistLoaded) return `<p class="account-note">Loading.</p>`;
 
-  const rows = state.wishlistEntries
-    .map((e) => ({ entry: e, frag: fragranceById(e.fragranceId) }))
-    .filter((x): x is { entry: WishlistEntry; frag: DemoFragrance } => x.frag != null)
+  // A line whose id resolves to nothing is a product that no longer exists,
+  // and says so with a Remove button. Only once the merge map is in: without
+  // it a merged id would look gone, so those lines stay out of sight, as every
+  // unlisted one did before, and the note below says how many.
+  const mapKnown = dormant.current() !== null;
+  const lines = state.wishlistLines.filter((l) => l.id !== null || mapKnown);
+  const rows = lines
+    .filter((l): l is WishlistGroup<WishlistEntry> & { id: string } => l.id !== null)
+    .map((l) => ({ line: l, frag: fragranceById(l.id) }))
+    .filter((x): x is { line: WishlistGroup<WishlistEntry> & { id: string }; frag: DemoFragrance } => x.frag != null)
     .map((x) => {
       const price = wishlistPriceFacts(x.frag);
       return {
         ...x,
         price,
-        addedAt: x.entry.addedAt,
+        addedAt: x.line.primary.addedAt,
         priceGbp: price.sortGbp,
-        changeGbp: changeSinceSaved(x.entry.savedPriceGbp, price.sortGbp),
+        changeGbp: changeSinceSaved(x.line.savedPriceGbp, price.sortGbp),
         name: `${x.frag.brand} ${x.frag.name}`,
       };
     });
+  const gone = lines.filter((l) => l.id === null);
 
-  if (rows.length === 0) {
+  if (rows.length === 0 && gone.length === 0) {
     return `<p class="account-note">Nothing saved yet. Tap Save on a fragrance to add it here.</p>`;
   }
 
@@ -2232,33 +2274,54 @@ function wishlistListHtml(): string {
     wishlistSortsFor(hasAnyChange).map((s) => ({ value: s.id, label: s.label })),
     activeSort,
   );
-  const hiddenCount = state.wishlistEntries.length - rows.length;
+  const hiddenCount = state.wishlistLines.length - lines.length;
+  const storedIds = (l: WishlistGroup<WishlistEntry>) => l.rows.map((r) => r.fragranceId).join(' ');
 
   return `
-    <div class="controls">${wishlistSortControl}</div>
+    ${rows.length > 0 ? `<div class="controls">${wishlistSortControl}</div>` : ''}
     <ul class="shop-list wishlist-list">
       ${sorted
         .map(
-          ({ entry, frag, price, changeGbp }) => `<li class="wishlist-row">
+          ({ line, frag, price, changeGbp }) => `<li class="wishlist-row">
             <button class="shop-row" data-frag="${esc(frag.id)}">
               <span class="wishlist-art">${productArt(frag.photoUrl, 'sm', `${frag.brand} ${frag.name}`, frag.imageTransform)}</span>
               <span class="shop-row-text">
                 <span class="shop-row-name t-title">${esc(frag.brand)} ${esc(frag.name)}</span>
                 <span class="shop-row-meta t-caption">${esc(frag.concentration)}, ${esc(sizeLabel(frag))}</span>
                 <span class="shop-row-meta wishlist-price">${price.html}</span>
-                ${wishlistChangeHtml(entry.savedPriceGbp, changeGbp)}
-                <span class="shop-row-meta t-caption">${esc(savedOnLabel(entry.addedAt))}</span>
+                ${wishlistChangeHtml(line.savedPriceGbp, changeGbp)}
+                <span class="shop-row-meta t-caption">${esc(savedOnLabel(line.primary.addedAt))}</span>
+                ${line.merged ? `<span class="shop-row-meta t-caption wishlist-merged">${line.combined ? 'Saved more than once: those listings have merged into this one.' : 'This listing has merged into another, so your saved fragrance carries on here.'}</span>` : ''}
               </span>
               <span class="shop-row-go" aria-hidden="true">→</span>
             </button>
             <span class="wishlist-side">
               ${shareRowButton(frag)}
-              <button class="wishlist-remove" data-wishlist-remove="${esc(frag.id)}"
+              <button class="wishlist-remove" data-wishlist-remove="${esc(storedIds(line))}"
                   aria-label="Remove ${esc(frag.brand)} ${esc(frag.name)} from your wishlist">${ICON_CLOSE}</button>
             </span>
-            ${state.priceAlerts === true ? wishlistTargetHtml(entry, frag) : ''}
+            ${state.priceAlerts === true ? wishlistTargetHtml(line, frag) : ''}
           </li>`,
         )
+        .join('')}
+      ${gone
+        .map((line) => {
+          const old = dormantEntry(line.primary.fragranceId);
+          const label = old ? `${old.brand} ${old.name}` : 'A saved fragrance';
+          return `<li class="wishlist-row wishlist-gone">
+            <div class="shop-row">
+              <span class="shop-row-text">
+                <span class="shop-row-name t-title">${esc(label)}</span>
+                <span class="shop-row-meta wishlist-price">No longer listed</span>
+                <span class="shop-row-meta t-caption">${esc(savedOnLabel(line.primary.addedAt))}</span>
+              </span>
+            </div>
+            <span class="wishlist-side">
+              <button class="wishlist-remove" data-wishlist-remove="${esc(storedIds(line))}"
+                  aria-label="Remove ${esc(label)} from your wishlist">${ICON_CLOSE}</button>
+            </span>
+          </li>`;
+        })
         .join('')}
     </ul>
     ${hiddenCount > 0
@@ -2315,10 +2378,49 @@ function loadPhoto(): void {
   })();
 }
 
+/**
+ * Works the saved rows out into the lines to show, resolving every id through
+ * the merge map (src/services/wishlistResolve.ts) so a saved id that was
+ * folded into another product finds its price, its Save heart and its target
+ * again. Read side only: the rows and the database keep the ids as saved.
+ * `wishlistIds` holds each line's current id (the saved one for a product that
+ * no longer exists), so the menu count and the Save button agree with the page.
+ */
+function refreshWishlistLines(): void {
+  const isLive = (id: string) => fragranceById(id) !== undefined;
+  state.wishlistLines = groupWishlist(state.wishlistEntries, dormant.current()?.aliases ?? null, isLive);
+  state.wishlistIds = new Set(state.wishlistLines.map((l) => l.id ?? l.primary.fragranceId));
+}
+
+/** The ids as saved of every row that stands for this product, for removing it. */
+function savedIdsFor(productId: string): string[] {
+  const line = state.wishlistLines.find((l) => l.id === productId);
+  return line ? line.rows.map((r) => r.fragranceId) : [productId];
+}
+
+/** Removes each saved row in turn; the first failure is the answer. */
+async function removeSavedRows(ids: readonly string[]): Promise<{ ok: boolean; message?: string }> {
+  let answer: { ok: boolean; message?: string } = { ok: true };
+  for (const id of ids) {
+    const result = await removeFromWishlist(id);
+    if (!result.ok && answer.ok) answer = result;
+  }
+  return answer;
+}
+
 function loadWishlist(): void {
-  fetchWishlist().then((entries) => {
+  fetchWishlist().then(async (entries) => {
     state.wishlistEntries = entries;
-    state.wishlistIds = new Set(entries.map((e) => e.fragranceId));
+    // The merge map rides in the lazy file of pages with no current prices,
+    // so it is fetched only when a saved id is not in the catalogue.
+    if (entries.some((e) => fragranceById(e.fragranceId) === undefined)) {
+      try {
+        await dormant.load();
+      } catch (err) {
+        console.warn('PriceSniffs: the merged addresses could not be loaded', err);
+      }
+    }
+    refreshWishlistLines();
     state.wishlistLoaded = true;
     renderInPlace();
   });
@@ -3562,18 +3664,22 @@ const TABS: { id: ExploreTab; label: string }[] = [
   { id: 'brands', label: 'Brands' },
   { id: 'retailers', label: 'Retailers' },
   { id: 'notes', label: 'Notes' },
+  { id: 'oils', label: 'Oils' },
+  { id: 'sets', label: 'Sets' },
 ];
 
 /**
  * What each Explore tab draws. TABS above says which tabs there are and in
  * what order; this says what is under each. A tab is one line in each, so
- * adding one (Oils and Sets are planned after Notes, see
+ * adding one (Oils and Sets came after Notes, see
  * docs/GIFT-SETS-AND-OILS-PLAN.md) leaves the shell alone.
  */
 const EXPLORE_PANELS: Record<ExploreTab, () => string> = {
   brands: brandsPanel,
   retailers: retailersPanel,
   notes: notesPanel,
+  oils: () => tabs.panel('oils'),
+  sets: () => tabs.panel('sets'),
 };
 
 function exploreView(): string {
@@ -5505,7 +5611,9 @@ function currentRoute(): Route {
     case 'accountWishlist': return { name: 'accountWishlist', param: '', query: {} };
     case 'accountNotifications': return { name: 'accountNotifications', param: '', query: {} };
     case 'explore':
-      return { name: state.tab as RouteName, param: '', query: {} };
+      // The Oils and Sets tabs keep their search, sort and filters in the
+      // address, so a filtered list can be shared.
+      return { name: state.tab as RouteName, param: '', query: isTabKind(state.tab) ? tabs.query(state.tab) : {} };
   }
 }
 
@@ -5517,7 +5625,9 @@ function currentRoute(): Route {
  * rather than rendering an empty leaf.
  */
 function applyRoute(route: Route): boolean {
-  state.query = route.query.q ?? '';
+  // The Oils and Sets tabs have a search box of their own, whose words are in
+  // the address as `q` too; they are not the bar's search.
+  state.query = route.name === 'oils' || route.name === 'sets' ? '' : (route.query.q ?? '');
 
   switch (route.name) {
     case 'home': state.view = 'home'; return true;
@@ -5563,6 +5673,13 @@ function applyRoute(route: Route): boolean {
     case 'brands': case 'retailers': case 'notes':
       state.view = 'explore';
       state.tab = route.name as ExploreTab;
+      return true;
+
+    // The Oils and Sets tabs, whose search, sort and filters come with the address.
+    case 'oils': case 'sets':
+      state.view = 'explore';
+      state.tab = route.name;
+      tabs.fromQuery(route.name, route.query);
       return true;
 
     // The new address, /BRAND_NAME_VOLUME: the product the slug names, or the
@@ -5723,10 +5840,15 @@ function syncUrl(mode: 'push' | 'replace' = 'push'): void {
  */
 function fallbackBackRoute(): Route {
   switch (state.view) {
-    case 'detail':
-      return state.query || state.brand
-        ? { name: 'search', param: '', query: state.query ? { q: state.query } : {} }
-        : { name: 'home', param: '', query: {} };
+    case 'detail': {
+      if (state.query || state.brand) return { name: 'search', param: '', query: state.query ? { q: state.query } : {} };
+      // A set or an oil opened from a link goes back to its own tab, which is
+      // where a reader looking at one most likely came from.
+      const frag = fragranceById(state.fragranceId);
+      if (frag && isSet(frag)) return { name: 'sets', param: '', query: {} };
+      if (frag && isOil(frag)) return { name: 'oils', param: '', query: {} };
+      return { name: 'home', param: '', query: {} };
+    }
     case 'retailer': return { name: 'retailers', param: '', query: {} };
     case 'brand': return { name: 'brands', param: '', query: {} };
     case 'note': return { name: 'notes', param: '', query: {} };
@@ -6247,6 +6369,14 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
         (t) => `<button class="subnavbtn ${state.tab === t.id ? 'on' : ''}" data-tab="${t.id}">${t.label}</button>`,
       ).join('')
     : '';
+  // Five tabs fit a phone 360px wide and up; on a narrower one the row scrolls,
+  // and the tab the reader is on is brought into view rather than left off the
+  // end of it. Set directly on the row, so the page itself never scrolls.
+  const here = subnav.querySelector<HTMLElement>('.subnavbtn.on');
+  if (here && !subnav.hidden) {
+    const overhang = here.getBoundingClientRect().right - subnav.getBoundingClientRect().left - subnav.clientWidth;
+    if (overhang > 0) subnav.scrollLeft += Math.ceil(overhang);
+  }
 
   ($('#nav-home') as HTMLElement).classList.toggle('on', state.view === 'home');
   ($('#nav-deals') as HTMLElement).classList.toggle('on', state.view === 'deals');
@@ -6316,6 +6446,9 @@ function go(view: View): void {
 
 function openExplore(tab: ExploreTab): void {
   state.tab = tab;
+  // A tab opened from the bar starts clean, like every list: what was chosen
+  // before comes back only with Back (rememberListState) or a shared link.
+  if (isTabKind(tab)) tabs.reset(tab);
   go('explore');
 }
 
@@ -6389,6 +6522,7 @@ function init(): void {
       // not linger and render as if they belonged to whoever is here now.
       state.wishlistIds = new Set();
       state.wishlistEntries = [];
+      state.wishlistLines = [];
       state.wishlistLoaded = false;
       state.priceAlerts = null;
       state.priceAlertsLoaded = false;
@@ -6933,11 +7067,13 @@ function init(): void {
 
     const wishlistRemoveBtn = t.closest('[data-wishlist-remove]');
     if (wishlistRemoveBtn) {
-      const fragranceId = wishlistRemoveBtn.getAttribute('data-wishlist-remove')!;
-      state.wishlistIds.delete(fragranceId);
-      state.wishlistEntries = state.wishlistEntries.filter((e) => e.fragranceId !== fragranceId);
+      // The ids as saved of every row on the line (more than one where saved
+      // ids merged into one product), space separated: ids never hold a space.
+      const savedIds = wishlistRemoveBtn.getAttribute('data-wishlist-remove')!.split(' ').filter(Boolean);
+      state.wishlistEntries = state.wishlistEntries.filter((e) => !savedIds.includes(e.fragranceId));
+      refreshWishlistLines();
       render();
-      removeFromWishlist(fragranceId).then((result) => {
+      removeSavedRows(savedIds).then((result) => {
         if (!result.ok) {
           void showDialog({ title: 'Could Not Update Your Wishlist', message: result.message ?? 'Please try again.' });
           // Roll back by reloading from the server rather than guessing what
@@ -6966,7 +7102,7 @@ function init(): void {
       // (sold out everywhere, or no delivery stated), and then none is kept.
       const savingFrag = fragranceById(fragranceId);
       const savedAt = savingFrag ? wishlistPriceFacts(savingFrag).sortGbp : null;
-      const action = saved ? removeFromWishlist(fragranceId) : addToWishlist(fragranceId, null, savedAt);
+      const action = saved ? removeSavedRows(savedIdsFor(fragranceId)) : addToWishlist(fragranceId, null, savedAt);
       action.then((result) => {
         state.wishlistBusy = false;
         if (!result.ok) {
@@ -7014,6 +7150,21 @@ function init(): void {
     if (t.closest('[data-clear-brand]')) {
       state.brand = null;
       render('update');
+      rememberListStateSoon();
+      return;
+    }
+
+    if (t.closest('[data-tab-facets-toggle]') && isTabKind(state.tab)) {
+      tabs.toggleOpen(state.tab);
+      render('update');
+      rememberListStateSoon();
+      return;
+    }
+
+    if (t.closest('[data-tab-facets-clear]') && isTabKind(state.tab)) {
+      tabs.clearFilters(state.tab);
+      render('update');
+      syncUrl('replace');
       rememberListStateSoon();
       return;
     }
@@ -7075,17 +7226,31 @@ function init(): void {
         return;
       }
       const entry = state.wishlistEntries.find((x) => x.fragranceId === targetFragId);
+      const typed = parsed.value;
       setTargetPrice(targetFragId, parsed.value).then((result) => {
         if (!result.ok) {
           void showDialog({ title: 'Target Price Not Saved', message: result.message ?? 'Please try again.' });
           return;
         }
-        if (entry) entry.targetPriceGbp = parsed.value;
+        if (entry) entry.targetPriceGbp = typed;
+        refreshWishlistLines();
         input.value = parsed.value === null ? '' : parsed.value.toFixed(2);
       });
       return;
     }
     const value = (t as HTMLSelectElement).value;
+    // The Oils and Sets tabs: each filter and the sort is in its address.
+    if (state.view === 'explore' && isTabKind(state.tab) && (id === TAB_SORT_ID || id.startsWith(facetSelectId('')))) {
+      if (id === TAB_SORT_ID) tabs.setSort(state.tab, value);
+      else {
+        const box = t as HTMLInputElement;
+        tabs.setFacet(state.tab, id.slice(facetSelectId('').length), box.type === 'checkbox' ? (box.checked ? '1' : '') : value);
+      }
+      render('update');
+      syncUrl('replace');
+      rememberListStateSoon();
+      return;
+    }
     if (id === 'brand-sort') state.brandSort = value as BrandSort;
     else if (id === 'brand-filter') state.brandFilter = value as BrandFilter;
     else if (id === 'deal-sort') state.dealSort = value as DealSort;
@@ -7113,6 +7278,25 @@ function init(): void {
     } else return;
     render('update');
     rememberListStateSoon();
+  });
+
+  // The search box at the top of the Oils and Sets tabs. Typing replaces the
+  // address rather than pushing one, like the bar search (one history entry per
+  // keystroke would make Back a character by character undo), and the box is
+  // given back its focus and caret, because the draw replaces the whole page.
+  document.addEventListener('input', (e) => {
+    const box = e.target as HTMLInputElement;
+    if (box.id !== TAB_SEARCH_ID || !isTabKind(state.tab)) return;
+    const caret = box.selectionStart ?? box.value.length;
+    tabs.setQuery(state.tab, box.value);
+    render('update');
+    syncUrl('replace');
+    rememberListStateSoon();
+    const fresh = document.getElementById(TAB_SEARCH_ID) as HTMLInputElement | null;
+    if (fresh) {
+      fresh.focus({ preventScroll: true });
+      fresh.setSelectionRange(caret, caret);
+    }
   });
 
   // There is no server behind this page, so "send" means handing the message to
