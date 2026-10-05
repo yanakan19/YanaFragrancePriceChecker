@@ -217,20 +217,48 @@ describe('the licensing gate still governs every retailer named in PREFERRED_IMA
     }
   });
 
-  it('the-beauty-store-uk — the other shop the owner asked about — is not licensed', () => {
-    // Confirms the finding this whole change rests on: the-beauty-store-uk
-    // has no imageBasis (its Awin application was rejected — see that
-    // entry's own comment in retailers.ts), so its photos never reach
-    // pickImage regardless of how good they look, and it must never appear
-    // in PREFERRED_IMAGE_RETAILERS.
+  it('the-beauty-store-uk is shown on the owner decision of 2026-10-05 but is not ranked', () => {
+    // Its Awin application was rejected, so no licence was ever read for it:
+    // docs/DECISIONS.md D24 shows its photos as an unlicensed hot-link, like
+    // every other shop that stores one. Its sampled photos are mostly boxed
+    // (4 of 15 bottle-only, see PREFERRED_IMAGE_RETAILERS' notes), so it must
+    // not appear in the ranking.
     const retailer = RETAILERS.find((r) => r.id === 'the-beauty-store-uk');
     expect(retailer).toBeDefined();
-    expect(retailer!.affiliate.imageBasis).toBeUndefined();
+    expect(retailer!.affiliate.imageBasis).toBe('hotlink-unlicensed');
     expect(PREFERRED_IMAGE_RETAILERS).not.toContain('the-beauty-store-uk');
   });
 });
 
 describe('upgradeImageResolution', () => {
+  // ScentStore's 150x150 thumbnails, requested for real on 2026-10-05: the
+  // named ones return the original upload, the numeric ones the 600x600
+  // rendition (see SCENTSTORE_THUMBNAIL in pickImage.ts for the counts).
+  it('asks for the original upload where a ScentStore thumbnail has a word file name', () => {
+    expect(
+      upgradeImageResolution(
+        'https://www.scentstore.com/wp-content/uploads/2024/05/Jean-Paul-Gaultier-Scandal-Pour-Homme-Eau-de-Toilette-50ml-150x150.jpg',
+      ),
+    ).toBe('https://www.scentstore.com/wp-content/uploads/2024/05/Jean-Paul-Gaultier-Scandal-Pour-Homme-Eau-de-Toilette-50ml.jpg');
+  });
+
+  it('asks for the 600x600 rendition where a ScentStore thumbnail has a numeric SKU name', () => {
+    expect(upgradeImageResolution('https://www.scentstore.com/wp-content/uploads/2017/06/102390-150x150.jpg')).toBe(
+      'https://www.scentstore.com/wp-content/uploads/2017/06/102390-600x600.jpg',
+    );
+  });
+
+  it('touches no other -150x150 address: another host, another path, another size', () => {
+    for (const url of [
+      'https://www.example.com/wp-content/uploads/2024/05/thing-150x150.jpg',
+      'https://www.scentstore.com/images/thing-150x150.jpg',
+      'https://www.scentstore.com/wp-content/uploads/2024/05/thing-300x300.jpg',
+      'https://www.scentstore.com/wp-content/uploads/2024/05/thing.jpg',
+    ]) {
+      expect(upgradeImageResolution(url)).toBe(url);
+    }
+  });
+
   // Real URLs, real measured native sizes (2026-09-03) — see this function's
   // own doc comment in pickImage.ts for how each was checked.
   it('bumps a beautybase width parameter up to the upgrade width', () => {

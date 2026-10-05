@@ -1831,3 +1831,83 @@ answered through them, such as Selfridges past its first page, is allowed to go
 stale and drop off after the 7 day rule rather than be reached another way. The
 owner also set a $5 monthly hard limit in the Apify console as a safety net.
 Turning either tier back on needs a new owner decision recorded here.
+
+## D24 — Product photos are shown from every shop that supplies one
+
+Owner decision, 2026-10-05 ("option A"). Every enabled shop that stores a product
+image URL (bar the house storefronts named at the end) has `imageBasis: 'hotlink-unlicensed'` in `src/config/retailers.ts`, so
+its photos show on the product tiles and pages. Measured with `npm run photos:coverage`
+on the catalogue of 2026-10-05 (26,702 products shown): before, 14,394 had a photo and
+12,308 had none, 11,890 of those because an image was stored and loading but its shop
+had no basis (Nicchia Luxury UK, Bloom Perfumery, The Beauty Store UK, Perfume Direct, Escentual,
+Cult Beauty, Les Senteurs, Perfumeo, John Lewis, Parfumdreams, Debenhams and the
+smaller shops). After: 26,284 have a photo and 418 have none, every one of them because no
+shop gave an image URL for it. It is the same basis the first shops already ran on (commit
+659004f2, 2026-08-19): the visitor's browser loads the image from the shop's own
+server, beside a link that sends them to buy from that shop.
+
+What it covers: showing the shop's own photo of its own listing, linked from the
+shop's own image host. Each shop's registry entry carries a one line comment saying
+so, and `tests/imageBasisDecision.test.ts` fails for any shop that has the basis
+without it.
+
+What it does not cover:
+
+- **No copying.** No image is downloaded into the repository or the build output.
+- **No resizing or editing.** Nothing is cropped, recoloured or re-encoded here.
+  The page may ask a shop's own image service for a smaller rendition where that
+  service offers it (`demo/photo.ts`), which is the shop serving its own picture.
+- **No hosting the images ourselves.**
+- **No images from a third party site.** A photo is only ever the one the shop
+  itself published for that listing. A gift set never borrows a single bottle's
+  photo, nor the reverse (`tests/pickImage.test.ts`).
+- **No working around a block.** A host that refuses to serve images to a
+  visitor's browser keeps that shop's photos off.
+
+The stated risk: some shops' terms reserve their photographs as copyright, notably
+Nicchia Luxury UK and The Beauty Store UK, and no licence was obtained from any
+of these shops. A shop that objects, or any shop's request to stop, is honoured at
+once by removing its `imageBasis`. Its photos are hidden on the next build, and
+the page shows the plain "no image" marker. The legal page already says this
+(`demo/legal.ts`, "Product Images"), and counts the shops from the registry.
+
+How to switch one shop off: delete the shop's `imageBasis` line (and the comment
+above it) in `src/config/retailers.ts`, commit, and let the deploy build the page.
+No generated file needs editing by hand. For Armaf and Avon, which sell their own
+brand (`singleBrandOnly`), the house's own photo of its own bottle still shows on the
+`own-storefront` route in `scripts/build-demo-catalogue.ts` after the line is gone;
+take such a shop `enabled: false` if it must go entirely.
+
+One shop type was left as it was. Al Haramain, French Avenue, IBRAQ, Kayali, Zimaya
+and Beauty Pie sell only their own brand, and every photo they store is already shown
+on that `own-storefront` route (the house's own photograph of its own bottle), which is
+a stronger ground than a hot-link. They have no `imageBasis`, nothing of theirs is
+hidden, and giving them one would change no tile; it would only switch off the check
+that keeps their photo of another house's bottle out. Niche Beauty UK stores no image
+URL at all, so it has nothing to show.
+
+Checked the same day, by requesting real stored image URLs the way a browser does
+(30 spread over each shop's catalogue, with and without a `Referer`; the page itself
+sends none, `referrerpolicy="no-referrer"` in `demo/photo.ts`):
+
+- The page has no image host allow list and no Content Security Policy, so a new
+  shop's image host needs no entry anywhere; `scripts/image-link-check.ts` and the
+  box and size checks read the registry and pick the new shops up on their own.
+- Every host answered 200 with an image, with or without a `Referer`: Shopify's CDN
+  (Nicchia, Perfume Direct, The Beauty Store UK, Escentual, Bloom, FragranceHub, Les
+  Senteurs, Armaf, Avon), thgimages (Cult Beauty), johnlewiscontent, mediahub.debenhams,
+  spacenk.com, Parfumdreams' CDN, Paco, Perfume Market UK, Perfumeo, M&S, Home Bargains,
+  Beauty Bay and ScentStore. No host asked for a Referer or sat behind hot-link
+  protection, so no shop's photos were kept off. A stored URL can still be dead: 1
+  Perfume Direct URL of 30 returned 404, and the tile's own fallback shows the plain
+  marker for it.
+- ScentStore stores WordPress's 150x150 thumbnails, too small for a tile. All 577 were
+  requested for real and `upgradeImageResolution` now asks for the shop's own bigger
+  file (the original upload, or the 600x600 rendition for the old numeric names);
+  one thumbnail has neither and is left as it is.
+- Perfume Click's photos, shown since commit 659004f2 of 2026-08-19, are small (30 of 30 sampled are
+  under 200 pixels wide, 106 to 195 by 130). They are reported here, not changed: they
+  were already the owner's decision, and `pickImage` already treats the shop as a
+  thumbnail source. The other shops sampled had no photo under 200 pixels except single
+  ones (Oud Arabian 180, The Fragrance Counter 145, Justmylook's `_x100` files that the
+  existing upgrade already replaces).
