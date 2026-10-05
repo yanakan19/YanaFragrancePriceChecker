@@ -8,7 +8,7 @@
  * demo/index.html. There is no server-rendered HTML and no crawlable <a href>
  * trail into the deep catalogue: the links are built by script as a reader
  * clicks. So a crawler that does not run the app has no way at all to
- * discover /fragrance/ean-5045252668306, and one that does still has to click
+ * discover /creed_aventus_100ml, and one that does still has to click
  * its way through twelve thousand tiles to find it.
  *
  * The sitemap is the only complete list of what is here. It is generated from
@@ -108,7 +108,9 @@ for (const page of LEGAL_PAGES) {
 // ── Every fragrance the site can actually render ─────────────────────────
 for (const f of DEMO_FRAGRANCES) {
   entries.push({
-    loc: `/fragrance/${encodeURIComponent(f.id)}`,
+    // The product's own address, /BRAND_NAME_VOLUME (docs/PRODUCT-URLS.md). The
+    // slug is lower case a to z, 0 to 9 and underscores, so it needs no encoding.
+    loc: `/${f.slug}`,
     lastmod: lastPriceRead(f.id) ?? appMod,
     changefreq: 'daily',
   });
