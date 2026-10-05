@@ -78,7 +78,7 @@ describe('every sort option names both ends of its order', () => {
     expect(BROWSE_SORT_OPTIONS.map((o) => o.value)).toEqual(['stocked', ...LIST_SORT_OPTIONS.map((o) => o.value)]);
     expect(BRAND_SORT_OPTIONS.map((o) => o.value)).toEqual(['az', 'za']);
     expect(DEAL_SORT_OPTIONS.map((o) => o.value)).toEqual(['discount', 'lowest', 'highest']);
-    expect(NOTE_SORT_OPTIONS.map((o) => o.value)).toEqual(['common', 'az']);
+    expect(NOTE_SORT_OPTIONS.map((o) => o.value)).toEqual(['common', 'az', 'za']);
     expect(wishlistSortsFor(true).map((o) => o.id)).toEqual(['recent', 'cheapest', 'drop']);
   });
 });

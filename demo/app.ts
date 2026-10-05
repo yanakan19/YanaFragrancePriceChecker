@@ -66,7 +66,7 @@ import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './ge
 import { GIFT_SET_BAND, volumeBandFor, volumeOptions, type VolumeBand } from './volumeBands.js';
 import {
   BRAND_SORT_OPTIONS, BROWSE_SORT_OPTIONS, DEAL_SORT_OPTIONS, LIST_SORT_OPTIONS, NOTE_SORT_OPTIONS, SORT_LEAD,
-  sortFragrances, type BrowseSort, type ListSort,
+  sortFragrances, sortNotes, type BrowseSort, type ListSort, type NoteSort,
 } from './listSort.js';
 import {
   PER_ROW_CHOICES, PER_ROW_DEFAULT, clampPerRow, gridWidthFor, perRowChoicesFor,
@@ -133,7 +133,6 @@ type Layout = 'mobile' | 'desktop';
 type BrandSort = 'az' | 'za';
 type BrandFilter = RetailerTier | 'all';
 type DealSort = 'discount' | 'lowest' | 'highest';
-type NoteSort = 'common' | 'az';
 type NoteLayerFilter = NoteLayer | 'any';
 /** Sort for a fragrance list scoped to one note, brand or retailer. Same
  *  vocabulary as the rest of the app: alphabetical both ways (Brands),
@@ -3370,9 +3369,7 @@ function notesPanel(): string {
   const filtered = NOTE_INDEX.filter(
     (n) => state.noteLayer === 'any' || n.layers.has(state.noteLayer),
   );
-  const list = [...filtered].sort((a, b) =>
-    state.noteSort === 'az' ? a.name.localeCompare(b.name) : b.count - a.count || a.name.localeCompare(b.name),
-  );
+  const list = sortNotes(filtered, state.noteSort);
 
   const controls = `<div class="controls">
     ${sortControl('note-sort', 'Notes', ICON_SORT, NOTE_SORT_OPTIONS, state.noteSort)}
@@ -3384,45 +3381,44 @@ function notesPanel(): string {
     ], state.noteLayer)}
   </div>`;
 
-  // "Fragrance Note Groups" as the three layers the sourced note data
-  // genuinely carries — top, middle, base — rather than a scent-family
-  // taxonomy (floral, woody, gourmand...) this dataset has no real source
-  // for. Tapping one filters the alphabetical list below exactly like the
-  // dropdown above does; tapping the active one again clears it. "All"
-  // is the same clear, offered as its own card rather than only reachable
-  // by deselecting — the combined view every note actually starts on.
-  const groupCard = (id: NoteLayerFilter, label: string) => {
+  // The three layers the sourced note data genuinely carries (top, middle,
+  // base), rather than a scent family taxonomy (floral, woody, gourmand...)
+  // this dataset has no real source for, drawn as the same chips a note's own
+  // page uses for its layers. Tapping one filters the list below exactly like
+  // the dropdown above does; tapping the active one again clears it. "All" is
+  // the same clear, offered as its own chip rather than only reachable by
+  // deselecting: the combined view every note actually starts on. No heading
+  // sits over them, because each chip says what it is.
+  const layerChip = (id: NoteLayerFilter, label: string) => {
     const count = id === 'any' ? NOTE_INDEX.length : NOTE_INDEX.filter((n) => n.layers.has(id)).length;
-    return `<button class="note-group-card${state.noteLayer === id ? ' on' : ''}" data-note-layer="${id}">
-      <span class="note-group-count">${count}</span>
-      <span class="note-group-label">${label} Notes</span>
-    </button>`;
+    const on = state.noteLayer === id;
+    return `<button class="note-chip${on ? ' on' : ''}" data-note-layer="${id}" aria-pressed="${on}">${label} Notes &middot; ${count}</button>`;
   };
-  const groups = `<div class="notes-groups">
-    <p class="section-label t-eyebrow">Note Groups</p>
-    <div class="notes-groups-row">
-      ${groupCard('any', 'All')}
-      ${groupCard('top', 'Top')}
-      ${groupCard('middle', 'Middle')}
-      ${groupCard('base', 'Base')}
-    </div>
+  const chips = `<div class="note-chips note-chips-layers" role="group" aria-label="Note layers">
+    ${layerChip('any', 'All')}
+    ${layerChip('top', 'Top')}
+    ${layerChip('middle', 'Middle')}
+    ${layerChip('base', 'Base')}
   </div>`;
 
   if (list.length === 0) {
-    return `${groups}${controls}<p class="empty-note t-body">No notes recorded for that layer yet.</p>`;
+    return `<div class="page-head"><h1 class="t-page">Notes</h1><span class="count t-count">0</span></div>
+    ${controls}${chips}<p class="empty-note t-body">No notes recorded for that layer yet.</p>`;
   }
 
-  // The same row-list shape as Brands, including the alphabetical dividers —
-  // but only under the A-to-Z sort. Under "most common" the list is ranked by
-  // count, not by letter, so a divider between two counts would land on
-  // whichever letter their names happen to start with and break up entries
-  // that belong together in the ranking. The scrubber follows the same rule:
-  // it only makes sense to jump to a letter the list is actually ordered by.
+  // The same row-list shape as Brands, including the alphabetical dividers,
+  // but only under the two alphabetical sorts. Under "most used" the list is
+  // ranked by count, not by letter, so a divider between two counts would land
+  // on whichever letter their names happen to start with and break up entries
+  // that belong together in the ranking. The scrubber is stricter still: its
+  // letters run A down to Z, so it only matches a list that runs the same way.
+  // Under Z to A the list runs the other way and the strip is left out.
+  const alphabetical = state.noteSort === 'az' || state.noteSort === 'za';
   let out = '';
   let current = '';
   const seenLetters = new Set<string>();
   for (const n of list) {
-    if (state.noteSort === 'az') {
+    if (alphabetical) {
       const initial = (n.name[0] ?? '').toUpperCase();
       if (initial !== current) {
         current = initial;
@@ -3436,11 +3432,10 @@ function notesPanel(): string {
   }
 
   return `<div class="page-head"><h1 class="t-page">Notes</h1><span class="count t-count">${list.length}</span></div>
-    ${groups}
     ${controls}
+    ${chips}
     <p class="panel-note t-body">Only notes a shop has explicitly published. ${DEMO_FRAGRANCES.filter((f) => f.notes).length} of ${DEMO_FRAGRANCES.length} fragrances list them.</p>
     <div class="notes-browse">
-      <p class="section-label t-eyebrow">Browse Alphabetically</p>
       <div class="notes-browse-scroll" data-notes-scroll>
         <ul class="brand-list">${out}</ul>
       </div>
@@ -3493,14 +3488,20 @@ const TABS: { id: ExploreTab; label: string }[] = [
   { id: 'notes', label: 'Notes' },
 ];
 
+/**
+ * What each Explore tab draws. TABS above says which tabs there are and in
+ * what order; this says what is under each. A tab is one line in each, so
+ * adding one (Oils and Sets are planned after Notes, see
+ * docs/GIFT-SETS-AND-OILS-PLAN.md) leaves the shell alone.
+ */
+const EXPLORE_PANELS: Record<ExploreTab, () => string> = {
+  brands: brandsPanel,
+  retailers: retailersPanel,
+  notes: notesPanel,
+};
+
 function exploreView(): string {
-  const panel =
-    state.tab === 'brands'
-      ? brandsPanel()
-      : state.tab === 'retailers'
-        ? retailersPanel()
-        : notesPanel();
-  return `<div class="explore">${panel}</div>`;
+  return `<div class="explore">${EXPLORE_PANELS[state.tab]()}</div>`;
 }
 
 

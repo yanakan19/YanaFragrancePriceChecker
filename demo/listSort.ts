@@ -73,11 +73,34 @@ export const DEAL_SORT_OPTIONS: SortOption<'discount' | 'lowest' | 'highest'>[] 
   { value: 'highest', label: 'Highest to Lowest Price' },
 ];
 
-/** Explore, Notes. */
-export const NOTE_SORT_OPTIONS: SortOption<'common' | 'az'>[] = [
+/** How the Explore Notes list can be ordered. `common` is the order it opened in. */
+export type NoteSort = 'common' | 'az' | 'za';
+
+/** Explore, Notes. Most to Least Used is the order the list has always opened in. */
+export const NOTE_SORT_OPTIONS: SortOption<NoteSort>[] = [
   { value: 'common', label: 'Most to Least Used' },
   { value: 'az', label: 'A to Z' },
+  { value: 'za', label: 'Z to A' },
 ];
+
+/**
+ * The Explore Notes list in the chosen order. Z to A is exactly A to Z read
+ * from the other end, so the first note of one is the last of the other.
+ * Most to Least Used breaks ties on name, so equal counts keep a fixed order.
+ */
+export function sortNotes<T extends { name: string; count: number }>(list: readonly T[], sort: NoteSort): T[] {
+  // localeCompare can call two different names equal (emoji, some symbols),
+  // and then the sort would keep their arrival order in both directions.
+  // The plain code unit comparison after it makes the order total, so Z to A
+  // is A to Z reversed note for note.
+  const byName = (a: T, b: T): number =>
+    a.name.localeCompare(b.name) || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
+  return [...list].sort((a, b) => {
+    if (sort === 'az') return byName(a, b);
+    if (sort === 'za') return byName(b, a);
+    return b.count - a.count || byName(a, b);
+  });
+}
 
 /**
  * Every sort *except the two size sorts* ends on bottle size, smallest first.

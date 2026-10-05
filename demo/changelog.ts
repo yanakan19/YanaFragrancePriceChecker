@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.75.0',
+    date: '5 Oct 2026',
+    title: 'A cleaner Notes list with Z to A',
+    points: [
+      'Notes can now be sorted from Z to A',
+      'The extra headings above the list are gone',
+      'Layer filters use the same chips as note pages',
+    ],
+  },
+  {
     version: 'v3.74.0',
     date: '5 Oct 2026',
     title: 'Every sort now says Sort By',
