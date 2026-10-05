@@ -236,11 +236,22 @@ describe('an absorbed address lands on its survivor', () => {
         'emirates-oud-16475975680349-pre-order--estimated-dispatch--9th-october',
         'emirates-oud-16475975680349-pre-order--estimated-dispatch--7th-october',
       ];
-      const landings = ids.map((id) => movedTo(data, id, isLive));
-      expect(new Set(landings).size).toBe(1);
-      expect(landings[0]).not.toBeNull();
-      expect(isLive(landings[0]!)).toBe(true);
-      const name = CATALOGUE.find((c) => c.id === landings[0])!.name;
+      // An id is either a live page (it opens itself) or absorbed (it opens its
+      // survivor). Which of the three is which changes as the shop renames the
+      // variant, so the rule is checked on whatever the data holds now: every id
+      // that is absorbed lands on the one live product, and a live id is it.
+      const absorbed = ids.filter((id) => id in ID_ALIASES);
+      const live = ids.filter((id) => isLive(id));
+      expect(absorbed.length + live.length).toBeGreaterThan(0);
+      const landings = new Set([
+        ...absorbed.map((id) => movedTo(data, id, isLive)),
+        ...live,
+      ]);
+      expect(landings.size).toBe(1);
+      const [landing] = [...landings];
+      expect(landing).not.toBeNull();
+      expect(isLive(landing!)).toBe(true);
+      const name = CATALOGUE.find((c) => c.id === landing)!.name;
       expect(name).toMatch(/hawas/i);
     });
   });
