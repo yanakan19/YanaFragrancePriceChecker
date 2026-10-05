@@ -15,6 +15,7 @@ export type AccountMenuAction =
   | 'wishlist'
   | 'notifications'
   | 'settings'
+  | 'suggestions'
   | 'signIn'
   | 'signUp'
   | 'verify'
@@ -34,6 +35,9 @@ export interface AccountMenuItem {
  */
 export function accountMenuItems(state: AccountState, wishlistCount: number | null): AccountMenuItem[] {
   const settings: AccountMenuItem = { action: 'settings', label: 'Settings' };
+  // Directly under Settings in every menu: anyone can make a suggestion, so
+  // it never depends on an account (owner's decision, 2026-10-04).
+  const suggestions: AccountMenuItem = { action: 'suggestions', label: 'Suggestions' };
   switch (state.kind) {
     case 'signedIn':
       return [
@@ -41,6 +45,7 @@ export function accountMenuItems(state: AccountState, wishlistCount: number | nu
         { action: 'wishlist', label: wishlistCount === null ? 'View My Wishlist' : `View My Wishlist (${wishlistCount})` },
         { action: 'notifications', label: 'My Notifications' },
         settings,
+        suggestions,
         { action: 'signOut', label: 'Sign Out' },
       ];
     case 'signedOut':
@@ -48,6 +53,7 @@ export function accountMenuItems(state: AccountState, wishlistCount: number | nu
         { action: 'signIn', label: 'Sign In' },
         { action: 'signUp', label: 'Create an Account' },
         settings,
+        suggestions,
       ];
     case 'verify':
       // An account that exists but has not confirmed its address yet can do
@@ -56,13 +62,14 @@ export function accountMenuItems(state: AccountState, wishlistCount: number | nu
       return [
         { action: 'verify', label: 'Verify Your Email' },
         settings,
+        suggestions,
         ...(state.hasSession ? [{ action: 'signOut' as const, label: 'Sign Out' }] : []),
       ];
     case 'unconfigured':
     case 'loading':
       // Nothing to sign in to (or not known yet): the menu still reaches the
       // one item that never depends on an account.
-      return [settings];
+      return [settings, suggestions];
   }
 }
 
@@ -105,19 +112,19 @@ export function accountButtonLabel(state: AccountState): string {
 export type WishlistSort = 'recent' | 'cheapest' | 'drop';
 
 export const WISHLIST_SORTS: { id: WishlistSort; label: string }[] = [
-  { id: 'recent', label: 'Recently Saved' },
-  { id: 'cheapest', label: 'Cheapest' },
+  { id: 'recent', label: 'Newest to Oldest Saved' },
+  { id: 'cheapest', label: 'Lowest to Highest Price' },
 ];
 
-/** Biggest Drop, which exists only where at least one row has a change to rank. */
-const BIGGEST_DROP = { id: 'drop' as const, label: 'Biggest Drop' };
+/** Biggest to Smallest Drop, which exists only where at least one row has a change to rank. */
+const BIGGEST_DROP = { id: 'drop' as const, label: 'Biggest to Smallest Drop' };
 
 /** The sorts to offer: the two always, and Biggest Drop only when some row has a change since saved. */
 export function wishlistSortsFor(hasAnyChange: boolean): { id: WishlistSort; label: string }[] {
   return hasAnyChange ? [...WISHLIST_SORTS, BIGGEST_DROP] : WISHLIST_SORTS;
 }
 
-/** The sort to draw: the reader's choice, or Recently Saved where Biggest Drop is no longer on offer. */
+/** The sort to draw: the reader's choice, or Newest to Oldest Saved where Biggest to Smallest Drop is no longer on offer. */
 export function effectiveWishlistSort(chosen: WishlistSort, hasAnyChange: boolean): WishlistSort {
   return chosen === 'drop' && !hasAnyChange ? 'recent' : chosen;
 }

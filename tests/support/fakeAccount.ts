@@ -24,7 +24,7 @@ export interface FakePhotoFile {
 export interface FakeAccount {
   email: string;
   createdAt: string;
-  wishlist: { fragrance_id: string; target_price_gbp: number | null; added_at: string }[];
+  wishlist: { fragrance_id: string; target_price_gbp: number | null; added_at: string; saved_price_gbp?: number | null }[];
   priceAlerts: boolean;
   /**
    * Profile photos (migration 0006). Left out, or `enabled: false`, is a

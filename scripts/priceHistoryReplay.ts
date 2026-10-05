@@ -34,12 +34,13 @@
  * ── When a full replay is still forced ──────────────────────────────────────
  * A checkpoint is only as true as the rules that produced it. If
  * isFragrance, fragranceId, isAvailableListing, untrustworthyEans, the set of
- * currency-unconfirmed shops, or the set of fragrance-only catalogues
- * changes, every earlier commit's contribution may change with it (the
- * 2026-09-03 Riiffs fix moved seven products' identities, for one). So every
+ * currency-unconfirmed shops, the set of enabled shops, or the set of
+ * fragrance-only catalogues changes, every earlier commit's contribution may
+ * change with it (the 2026-09-03 Riiffs fix moved seven products' identities,
+ * for one). So every
  * checkpoint records a fingerprint of exactly that logic — the source of the
  * modules the replay imports, walked through their relative imports, plus
- * the two facts it reads out of the retailer registry — and a checkpoint
+ * the three facts it reads out of the retailer registry — and a checkpoint
  * whose fingerprint no longer matches is discarded, loudly, and the replay
  * starts from the first commit. That is the one remaining slow path, it
  * happens at most once per rules change rather than once per harvest, and
@@ -48,8 +49,10 @@
  *
  * The registry facts are hashed as values, not as the file: retailers.ts is
  * edited most days for reasons that cannot change a price point (delivery
- * terms, affiliate notes, a shop disabled), and hashing the whole file would
- * turn each of those into a full replay.
+ * terms, affiliate notes), and hashing the whole file would turn each of those
+ * into a full replay. Which shops are enabled is one of the three facts,
+ * since 2026-10-04: the points of a shop that is not on the site are left out
+ * of the series.
  *
  * Nothing about what a point IS has moved. The rules in the loop below are
  * scripts/build-price-history.ts's own, verbatim, and that file's header is
@@ -65,6 +68,26 @@ import { untrustworthyEans } from '../src/catalogue/productMatch.js';
 import { CURRENCY_UNCONFIRMED, RETAILERS } from '../src/config/retailers.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 import type { PriceHistoryGap } from '../src/services/priceHistoryGaps.js';
+
+/**
+ * A shop that is not on the site, whether switched off (`enabled: false`) or
+ * deleted from the registry, is off the site, and so is every price point it
+ * ever held: the chart names the shop that held each point, and a reader
+ * cannot be shown a shop the site does not list. This is the same rule as
+ * CURRENCY_UNCONFIRMED below and works the same way, through the past: the old
+ * commits still hold the figures, so the replay leaves them out and the
+ * cheapest point at each commit is the cheapest among shops that are on the
+ * site now. Switching a shop back on puts its points back, because the set of
+ * enabled shops is part of the checkpoint's fingerprint and the next run
+ * replays from the first commit. Nine shops were switched off and one deleted
+ * by the owner on 2026-10-04 (see src/config/retailers.ts).
+ */
+const ENABLED_SHOPS = new Set(RETAILERS.filter((r) => r.enabled).map((r) => r.id));
+
+/** True for a shop whose old listings must never become a price point. */
+function hasNoPriceHistory(retailerId: string): boolean {
+  return CURRENCY_UNCONFIRMED.has(retailerId) || !ENABLED_SHOPS.has(retailerId);
+}
 
 export const CATALOGUE_PATH = 'data/catalogue';
 export const CHECKPOINT_PATH = 'data/price-history-checkpoint.json';
@@ -194,7 +217,7 @@ export function replayCommit(root: string, state: ReplayState, { sha, at }: Cata
       // clearing its current snapshot cannot reach the past: this replays old
       // commits, so the pre-quarantine files are still right there holding the
       // figures the quarantine took down. See build-price-history.ts.
-      if (CURRENCY_UNCONFIRMED.has(l.retailerId)) continue;
+      if (hasNoPriceHistory(l.retailerId)) continue;
       // A listing with no price is not a price point — see build-price-history.ts
       // for why nulls arrive here by design and what an unguarded compare did.
       if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) continue;
@@ -214,7 +237,7 @@ export function replayCommit(root: string, state: ReplayState, { sha, at }: Cata
       // A single fragrance or a gift set, the same gate the catalogue uses,
       // each under its own id (a set never shares a single bottle's line).
       if (!isCatalogueListing(l)) continue;
-      if (CURRENCY_UNCONFIRMED.has(l.retailerId)) continue;
+      if (hasNoPriceHistory(l.retailerId)) continue;
       if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) continue;
       markEverPriced(everPriced, fragranceId(l, untrustworthyEverPriced), at);
     }
@@ -362,14 +385,14 @@ function contributionOf(snapshot: Snapshot | null): BlobContribution {
   const candidates: PriceCandidate[] = [];
   for (const l of active) {
     if (!isCatalogueListing(l)) continue;
-    if (CURRENCY_UNCONFIRMED.has(l.retailerId)) continue;
+    if (hasNoPriceHistory(l.retailerId)) continue;
     if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) continue;
     candidates.push({ id: fragranceId(l, untrustworthy), priceGbp: l.priceGbp, retailerId: l.retailerId });
   }
   const everPricedIds: string[] = [];
   for (const l of statusOnly) {
     if (!isCatalogueListing(l)) continue;
-    if (CURRENCY_UNCONFIRMED.has(l.retailerId)) continue;
+    if (hasNoPriceHistory(l.retailerId)) continue;
     if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) continue;
     everPricedIds.push(fragranceId(l, untrustworthyEverPriced));
   }
@@ -485,10 +508,11 @@ export function ruleModules(root: string): string[] {
   return [...seen].sort();
 }
 
-/** The two things the replay reads out of the retailer registry, as data. */
-export function registryFacts(): { currencyUnconfirmed: string[]; fragranceOnlyCatalogue: string[] } {
+/** The three things the replay reads out of the retailer registry, as data. */
+export function registryFacts(): { currencyUnconfirmed: string[]; enabled: string[]; fragranceOnlyCatalogue: string[] } {
   return {
     currencyUnconfirmed: [...CURRENCY_UNCONFIRMED.keys()].sort(),
+    enabled: [...ENABLED_SHOPS].sort(),
     fragranceOnlyCatalogue: RETAILERS.filter((r) => r.fragranceOnlyCatalogue === true)
       .map((r) => r.id)
       .sort(),

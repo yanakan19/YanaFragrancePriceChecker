@@ -31,7 +31,7 @@ import { BRAND_MERGES } from '../src/catalogue/brandName.js';
 
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
-  | 'notes' | 'note' | 'fragrance' | 'about' | 'settings' | 'legal' | 'account'
+  | 'notes' | 'note' | 'fragrance' | 'about' | 'settings' | 'suggestions' | 'legal' | 'account'
   | 'accountWishlist' | 'accountNotifications'
   | 'design' | 'notFound';
 
@@ -68,6 +68,7 @@ const LIST_ROUTES: Record<string, RouteName> = {
   notes: 'notes',
   about: 'about',
   settings: 'settings',
+  suggestions: 'suggestions',
   account: 'account',
   // Reachable by URL and from the footer, and deliberately nowhere in the top
   // bar: this is a shop for perfume, and a shopper looking for a cheap bottle
@@ -195,6 +196,7 @@ export function routeToPath(route: Route): string {
       case 'fragrance': return `/fragrance/${encodeURIComponent(param)}`;
       case 'about': return '/about';
       case 'settings': return '/settings';
+      case 'suggestions': return '/suggestions';
       case 'account': return '/account';
       case 'accountWishlist': return '/account/wishlist';
       case 'accountNotifications': return '/account/notifications';

@@ -14,8 +14,9 @@ const built = existsSync(resolve(root, 'demo/index.html'));
  *   - the bar search reads "Quick Search";
  *   - Explore carries no search box of its own (no Search tab, no field on
  *     Brands, Retailers or Notes): the Quick Search in the top bar is the one;
- *   - on a phone, "Got an idea?" is the last section of the home page, and on
- *     desktop it keeps the left column beside Update History.
+ *   - the "Got an Idea?" section is gone from the home page (owner's decision,
+ *     2026-10-04): it is Suggestions in the account menu now, see
+ *     tests/suggestions.test.ts.
  */
 async function visit(page: Page, route: string): Promise<void> {
   await page.evaluate(`(() => {
@@ -72,23 +73,27 @@ describe.skipIf(!built)('top bar, Explore and the home page bottom', () => {
     await page.close();
   }, 90_000);
 
-  it('puts "Got an idea?" last on a phone and keeps it on the left on desktop', async () => {
-    const where = async (width: number) => {
+  it('has no "Got an Idea?" section on the home page, and ends with Update History', async () => {
+    for (const width of [390, 1366]) {
       const page = await browser.newPage({ viewport: { width, height: 900 } });
       await page.goto(`http://localhost:${port}/`, { waitUntil: 'load' });
       await waitForApp(page);
       const r = (await page.evaluate(`(() => {
         const sections = [...document.querySelectorAll('#view section')];
         const lowest = sections.reduce((a, b) => (b.getBoundingClientRect().bottom > a.getBoundingClientRect().bottom ? b : a));
-        const idea = document.querySelector('.suggest-section').getBoundingClientRect();
-        const updates = document.querySelector('.updates-section').getBoundingClientRect();
-        return { lowest: lowest.className, ideaLeft: idea.left, updatesLeft: updates.left };
-      })()`)) as { lowest: string; ideaLeft: number; updatesLeft: number };
+        return {
+          lowest: lowest.className,
+          headings: [...document.querySelectorAll('#view h1, #view h2, #view h3')].map((h) => h.textContent.trim()),
+          form: document.querySelectorAll('#view form, #view textarea').length,
+          suggestSection: document.querySelectorAll('.suggest-section').length,
+        };
+      })()`)) as { lowest: string; headings: string[]; form: number; suggestSection: number };
+      // The update history may still mention the old section by name; no heading does.
+      expect(r.headings.join('|'), String(width)).not.toMatch(/Got an Idea/i);
+      expect(r.suggestSection, String(width)).toBe(0);
+      expect(r.form, `${width}: no form on the home page`).toBe(0);
+      expect(r.lowest, String(width)).toContain('updates-section');
       await page.close();
-      return r;
-    };
-    expect((await where(390)).lowest).toContain('suggest-section');
-    const desktop = await where(1366);
-    expect(desktop.ideaLeft).toBeLessThan(desktop.updatesLeft);
+    }
   }, 90_000);
 });

@@ -376,8 +376,11 @@ bytes.
 The one exception is **source 2**: a Commons PD SVG is public domain by its own
 licence template, so copying it is permitted by copyright, and hot-linking
 `upload.wikimedia.org` from a commercial site is worse practice than hosting
-the 3 KB ourselves. Those files — and only those — are committed, to
-`demo/logos/`, each with its Commons file page and licence recorded.
+the 3 KB ourselves. Those files are committed, to `demo/logos/`, each with its
+Commons file page and licence recorded. **Since 2026-10-04 there is a second
+exception, the owner's own call (§7):** the logos the owner sent are committed
+to `demo/logos/shops/`, flattened, trimmed and resized, with `basis:
+'owner-supplied'`.
 
 ### 4b. Storage and size budget
 
@@ -505,7 +508,13 @@ export type LogoBasis =
    * That merchant's own affiliate creative terms have been read and permit
    * its logo. Strongest available; today nothing holds it.
    */
-  | 'affiliate-creative';
+  | 'affiliate-creative'
+  /**
+   * The site owner sent the file and asked for it to be shown (§7). We host a
+   * copy at /logos/shops/<shop id>.png. A recorded decision of the owner's,
+   * not a licence from the shop; `source` says who sent it and when.
+   */
+  | 'owner-supplied';
 ```
 
 - **Retailers:** a `logo?: LogoRef` field on `Retailer` itself, not inside
@@ -698,9 +707,12 @@ initials tile instead of removing itself. Pinned by tests/offerMark.test.ts.
   `imageBasis`.
 - **No altering a logo.** No recolouring, no `currentColor`, no cropping, no
   trimming, no adding a stroke to the artwork. Style the container instead.
-  This is the clause the one read affiliate agreement actually contains.
+  This is the clause the one read affiliate agreement actually contains. *The
+  owner supplied files (§7) are flattened on white, trimmed, padded and
+  resized at the owner's instruction; none is recoloured.*
 - **No downloaded copy of a logo that is not `commons-public-domain`.**
-  Hot-link it or leave it out.
+  Hot-link it or leave it out. *Except the eight the owner sent on 2026-10-04
+  and asked for by name (§7), recorded as `owner-supplied`.*
 - **No broken image, no empty box, no "no logo" icon, ever.** Monogram is the
   default and the logo is the override; every `<img>` carries the `onerror`.
   Commit `a52f32e0` removed 348 grey placeholder icons from this site nine days
@@ -728,3 +740,114 @@ Two, and only one of them blocks anything.
    the licence for each is public domain and recorded, and the alternative is
    that roughly fifteen of the largest designer houses keep the monogram. Not a
    blocker for steps 1–5, which touch no committed file.
+
+---
+
+## 7. Owner supplied logos, 2026-10-04
+
+The owner sent eight shop logos and asked for them to be installed in place of
+the initials tiles. They are the one case where this repo hosts a copy of a
+mark that is not public domain, because the owner decided it: so they carry
+their own basis, `owner-supplied`, with `source` saying who sent the file and
+when (there is no page to point at) and `readAt` the day it was installed. The
+opt out is the same as for every other mark: the shop asks, the field is
+unset and the file is deleted.
+
+**The rule the owner set for every file:** a solid white background. Anything
+transparent is flattened onto white; the mark is trimmed of excess white and
+given a little margin; it is resized as small as stays sharp; the PNG is
+palette optimised. No file is recoloured. The processing was done once, with
+the same settings for all eight, and the result is what is committed: the
+originals are not.
+
+| shop id | file | what it is | size | shown in |
+|---|---|---|---|---|
+| `niche-beauty-uk` | `demo/logos/shops/niche-beauty-uk.png` | pink and red lips icon | 128 x 128, 0.6 KB | every square slot |
+| `the-fragrance-counter` | `demo/logos/shops/the-fragrance-counter.png` | framed lockup, nearly square | 128 x 128, 1.8 KB | every square slot |
+| `oud-arabian` | `demo/logos/shops/oud-arabian.png` | arch mark over the name; the source is only 276 px | 128 x 128, 1.0 KB | every square slot |
+| `bellavita-luxury` | `demo/logos/shops/bellavita-luxury.png` | gold flower over the name, from a 1500 px source | 128 x 128, 2.4 KB | every square slot |
+| `john-lewis` | `demo/logos/shops/john-lewis.png` | wordmark, black on white | 348 x 88, 3.9 KB | shop page only |
+| `space-nk` | `demo/logos/shops/space-nk.png` | wordmark, black on white | 360 x 76, 5.3 KB | shop page only |
+| `manchester-ouds` | `demo/logos/shops/manchester-ouds.png` | the shop has no logo; the owner asked for its name in plain type, MANCHESTER over OUDS | 302 x 88, 3.7 KB | shop page only |
+| `zimaya` | `demo/logos/shops/zimaya.png` | wordmark, black on white | 246 x 88, 3.7 KB | shop page and brand page only |
+
+**Square or wide, decided by looking at it at 20px.** Each file was drawn at
+20, 42 and 56 CSS pixels at 1x and 3x, and the wide slot at its real size, in
+the dark theme. A mark made of type alone (John Lewis, Space NK, Manchester
+Ouds, Zimaya) is a smudge at 20px at 1x, and at 3x the letters are about four
+CSS pixels tall. Those four are recorded as `shape: 'wordmark'` and stored as
+a trimmed wide PNG, so they fill the wide slot on the shop page (§4c, slot B:
+about 178 x 42 px, where "John Lewis" is 166 px wide) and the 20px offer row
+mark and the 42px Shops tile keep the initials, exactly as every other
+wordmark only shop does. The other four are a bold icon or a near square
+lockup, so they are `shape: 'square'` and replace the initials in every square
+slot. Two of those, The Fragrance Counter and Oud Arabian, are fine line work:
+at 20px at 1x they read as the frame and the pink script, and the arch mark,
+and their type is legible from about 40px. They are kept as tiles because the
+owner asked for these logos to replace the initials and they are not
+wordmarks, and this is the place to reverse that if the owner would rather
+have initials at 20px for them.
+
+`ink` is `'dark'` for all eight, which draws the artwork on the white tile
+(`--org-mark-light-bg`) in both themes, so the white tile stays visible on the
+dark page and the padding round a wide mark is white too.
+
+**Manchester Ouds.** The shop publishes no logo. The owner supplied an SVG with
+the name set in 76 px bold type on a 512 px canvas, which cuts off the M and
+the R. The PNG was rendered from that SVG with Chromium (Liberation Sans, the
+font the SVG names) on a canvas widened to 640 px, same text and position, then
+processed like the rest. It is not the shop's logo and says so: `source` reads
+"Made at the site owner's request ... this is its name set in plain type", and
+the Terms say that one shop shows its name in plain type because it has no
+logo. The SVG itself is not shipped, because the font it names is not on every
+device.
+
+**Brands.** Zimaya and BellaVita are single brand shops whose house is also a
+brand with a profile page; `demo/brandLogos.ts` carries the same file for each
+brand key that names them (`zimaya`, `bellavita`, `bellavita luxury uk`,
+`bellavita uk`).
+
+**Guards.** `tests/brandLogos.test.ts` requires every `owner-supplied` entry to
+point at an existing file under `/logos/shops/`, no larger than 8 KB, as a PNG
+with no transparency and a pure white corner on every side, and holds the
+folder to 100 KB. `tests/offerMark.test.ts` pins which shops get an image in
+the 20px slot and which keep initials. `scripts/image-link-check.ts` skips
+`owner-supplied` entries, like `commons-public-domain`, since they name a file
+this repo serves.
+
+---
+
+## 8. The brand pass of 2026-10-05
+
+The next 200 houses without a logo, worked from the top of the catalogue
+ranking (product count), 41 added. The list of who refused us and every
+rejection with its reason is in the header of `demo/brandLogos.ts`; the method
+is the one in §3 and §5 step 6, with these decisions made while doing it:
+
+- **Only what the brand's own site declares:** its `Organization.logo`, a
+  manifest icon, the apple touch icon or the favicon. `og:image` is never taken
+  (`logo-probe.ts --no-social` leaves it out). No Wikipedia, Wikidata, Commons,
+  search result or logo service, and no new Commons files.
+- **Hot-linked, not copied.** The owner's white background rule is met by the
+  tile: every new entry is drawn on the white tile in both themes (`ink:
+  'dark'`), except four marks that carry their own dark or coloured ground
+  (`own`: BDK, Diesel, Izod, Laurent Mazzone). A white or pale mark is rejected
+  instead of put on a dark tile, and `tests/brandLogos.test.ts` fails a new
+  entry with `ink: 'light'`.
+- **Size.** A raster has to be at least 64px and crisp (96px or more for
+  anything with fine detail), or an SVG under a few KB. A Shopify `width=`
+  parameter asks the same declared file for the size drawn; where the file's
+  original is 32px it is simply too small. Atkinsons' SVG is 1 MB and was left out.
+- **Looked at, every one,** at 42 and 56px on white and on dark, from the
+  exact bytes fetched. Marks that were another company's (Angular's logo in
+  Molton Brown's manifest), a parent storefront's, an anniversary badge, a
+  bare letter or plain web address text were rejected.
+- **robots.txt first, literally.** An unreachable (5xx, 429, no answer) or
+  refusing (401, 403) robots.txt, a Crawl-delay over 30s, or a Disallow on the
+  page or icon path means nothing from that origin. The probe now reads it that
+  way and honours a stated Crawl-delay.
+- **Two layout fixes the new marks showed up,** both in `demo/template.html`:
+  a wordmark wider than about 4 to 1 was cut off by its box (the hero image is
+  now capped at 180px and kept in proportion), and on a phone a wide mark beside
+  the name pushed the page sideways (the hero stacks under 520px when the mark
+  is a wordmark).
