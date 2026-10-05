@@ -1287,15 +1287,14 @@ function priceLine(f: DemoFragrance): string {
 }
 
 /**
- * The Share button in a tile's top right corner: a sibling beside the brand
- * label and the tile body, never inside the body's <button>, so a tap on it
- * cannot open the product. The drawn circle is 30px; the button around it is
- * the 44px touch target, and CSS keeps the brand label clear of it
- * (.share-tile in template.html). Shares the product's own address, whichever
- * list the tile is in. See openShareDialog.
+ * The Share control on a wishlist row (/account/wishlist): an icon button, the
+ * remove button's own size, stacked above it in the row's end column so the
+ * row gets no wider (see .wishlist-side in template.html). It is a sibling of
+ * the row's button, so a tap on it never opens the product. Same pop-up, link
+ * and text as the product page's button. See openShareDialog.
  */
-function shareTileButton(f: DemoFragrance): string {
-  return `<button type="button" class="share-btn share-tile" data-share="${esc(f.id)}"
+function shareRowButton(f: Pick<DemoFragrance, 'id' | 'brand' | 'name'>): string {
+  return `<button type="button" class="share-btn wishlist-share" data-share="${esc(f.id)}"
       aria-label="Share ${esc(f.brand)} ${esc(f.name)}" aria-haspopup="dialog">${ICON_SHARE}</button>`;
 }
 
@@ -1369,7 +1368,6 @@ function fragranceTile(
         <span class="tile-price">${opts?.trailing ?? priceLine(f)}</span>
         ${badgeRetailer ? `<span class="sold-by" title="${esc(`${badgePrefix} ${badgeRetailer}`)}"><span>${badgePrefix} ${esc(badgeRetailer)}</span></span>` : `<span class="sold-by" aria-hidden="true" style="visibility:hidden"><span>&nbsp;</span></span>`}
       </button>
-      ${shareTileButton(f)}
     </div>
   </li>`;
 }
@@ -2242,8 +2240,11 @@ function wishlistListHtml(): string {
               </span>
               <span class="shop-row-go" aria-hidden="true">→</span>
             </button>
-            <button class="wishlist-remove" data-wishlist-remove="${esc(frag.id)}"
-                aria-label="Remove ${esc(frag.brand)} ${esc(frag.name)} from your wishlist">${ICON_CLOSE}</button>
+            <span class="wishlist-side">
+              ${shareRowButton(frag)}
+              <button class="wishlist-remove" data-wishlist-remove="${esc(frag.id)}"
+                  aria-label="Remove ${esc(frag.brand)} ${esc(frag.name)} from your wishlist">${ICON_CLOSE}</button>
+            </span>
             ${state.priceAlerts === true ? wishlistTargetHtml(entry, frag) : ''}
           </li>`,
         )
@@ -3939,7 +3940,7 @@ const SHARE_COPIED_MS = 2000;
 let shareCopiedTimer = 0;
 
 /**
- * The Share pop-up (the button on every tile and product page): a native
+ * The Share pop-up (the button on a product page and on each wishlist row): a native
  * <dialog> opened with showModal(), like showDialog and the wrong price form,
  * so focus moves in, Esc closes it, the page behind is inert and screen
  * readers announce it. A tap on the dimmed backdrop closes it. It is a small
@@ -6590,8 +6591,9 @@ function init(): void {
       return;
     }
 
-    // The Share button on a tile or a product page. Its own sibling of the
-    // tile's body button, so it never reaches the data-frag handler below.
+    // The Share button on a product page or a wishlist row. On a wishlist row it
+    // is a sibling of the row's button, so it never reaches the data-frag
+    // handler below.
     const shareBtn = t.closest<HTMLElement>('[data-share]');
     if (shareBtn) {
       e.preventDefault();
