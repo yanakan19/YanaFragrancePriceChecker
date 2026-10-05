@@ -102,25 +102,28 @@ day (`git rev-list --objects <end> --not <start>`) packed as a push sends them
 `git verify-pack -v` on the indexed pack. Sizes are compressed, after git's
 delta compression, so they are what the repository actually grows by;
 GitHub's own repacking may differ by a few per cent. GitHub reported the
-repository at 690,445 kB that evening.
+repository at 690,445 kB on the evening of 2026-10-04 and 754,338 kB at
+03:00 UTC on 2026-10-05.
 
-| Day | Added | Commits |
+| Day (UTC) | Added | Commits |
 |---|---|---|
 | 2026-09-28 | 2.0 MB | 8 |
 | 2026-09-29 | 2.3 MB | 9 |
 | 2026-10-01 | 14.0 MB | 58 |
 | 2026-10-02 | 16.2 MB | 34 |
 | 2026-10-03 | 40.4 MB | 197 |
-| 2026-10-04 (to 22:00) | 57.3 MB | 142 |
+| 2026-10-04 | 60.5 MB | 153 |
+| 2026-10-05, to 03:00 | 6.7 MB | 11 |
 
-Where 2026-10-04's 57.3 MB went: the page's content-hashed data files 32.4 MB
-(`demo/data/catalogue.*` 25.4, `priceHistory.*` 6.1, `dormant.*` 0.6, `deals.*`
-0.3), social post images 9.6, `demo/catalogue.generated.ts` 4.6, the price
-history checkpoint 3.3, the harvest snapshots `data/catalogue` 3.1,
-`demo/priceHistory.generated.ts` 1.3, `demo/404.html` (with the identical
-`index.html`) 0.7, `demo/sitemap.xml` 0.6, everything else under 1.5. On
-2026-10-03: data files 24.1 of 40.4, checkpoint 3.7, snapshots 4.4,
-`catalogue.generated.ts` 3.9.
+Where 2026-10-04's 60.5 MB went: the page's content-hashed data files 32.8 MB
+(`demo/data/catalogue.*` 24.6, `priceHistory.*` 7.1, `dormant.*` 0.6, `deals.*`
+0.4, `fragranceLinks.*` 0.1), social post images 9.6,
+`demo/catalogue.generated.ts` 5.4, the price history checkpoint 4.3, the
+harvest snapshots `data/catalogue` 3.7, `demo/priceHistory.generated.ts` 1.5,
+`demo/404.html` (with the identical `index.html`) 0.7, `demo/sitemap.xml` 0.6,
+`demo/dormant.generated.ts` 0.3, `data/id-aliases.json` 0.1, everything else
+under 1. On 2026-10-03: data files 24.1 of 40.4, checkpoint 3.7, snapshots
+4.4, `catalogue.generated.ts` 3.9.
 
 The data files cost most because each build gives them a new name: git pairs
 a new version with the old one by path when it looks for a delta, so a new
@@ -133,9 +136,11 @@ Across the whole history (all objects repacked locally, 626 MB): snapshots
 2026-10-01) 172 MB, `demo/catalogue.generated.ts` 113 MB, `demo/data` 75 MB,
 social images 20 MB, checkpoint 17 MB, `data/houses` 15 MB, sitemap 8 MB.
 
-Largest files now: `demo/catalogue.generated.ts` 35.9 MB, the published
-catalogue data file 27.8 MB, the largest snapshot (`mybeauty-boutique.json`)
-28.8 MB, the checkpoint 16.2 MB, `demo/priceHistory.generated.ts` 15.0 MB.
+Largest files on 2026-10-05: `demo/catalogue.generated.ts` 36.8 MB, the
+published catalogue data file 28.5 MB, the largest snapshot
+(`mybeauty-boutique.json`) 28.8 MB, the checkpoint 16.2 MB,
+`demo/priceHistory.generated.ts` 15.2 MB; `data/id-aliases.json` and
+`demo/dormant.generated.ts` about 0.6 MB each.
 
 **The price history depends on the snapshots' history.** `scripts/priceHistoryReplay.ts`
 walks `git log -- data/catalogue` and reads every snapshot at every commit
@@ -148,20 +153,21 @@ their history intact; nothing below touches them.
 
 | Option | Saves a day (2026-10-04 terms) | Risk | Done? |
 |---|---|---|---|
-| (a) Build the page, data files, sitemap and ads.txt in the deploy; stop committing them | 33.7 MB (59%) | Low: the deploy checks the build before uploading; the generated modules stay committed, so tests, scripts and the crawl's own checks are unchanged | Yes (1a7351c3, 10ef3cbe) |
-| (a+) Also stop committing `demo/*.generated.ts`, the checkpoint, `data/id-aliases.json` | about 6.5 MB more | High: about 50 files import the generated modules (tests, price alerts, social, fragrance links, sitemap); the deploy would need the full replay and history; `id-aliases` reads its own last copy | No; possible later |
+| (a) Build the page, data files, sitemap and ads.txt in the deploy; stop committing them | 34.1 MB (56%) | Low: the deploy checks the build before uploading; the generated modules stay committed, so tests, scripts and the crawl's own checks are unchanged | Yes (1a7351c3, 10ef3cbe) |
+| (a+) Also stop committing `demo/*.generated.ts`, the checkpoint, `data/id-aliases.json` | about 7.5 MB more | High: about 50 files import the generated modules (tests, price alerts, social, fragrance links, sitemap); the deploy would need the full replay and history; `id-aliases` reads its own last copy | No; possible later |
 | (b1) Checkpoint compact on disk (the ever-priced end time written once) | 0.5 MB | Low; tested round trip, outside the rules fingerprint | Yes (b9aeade5) |
-| (b2) Checkpoint rewritten only when 10 commits or 6 hours behind | about 1.5 MB more | Low: an older resume point gives the same output | Yes (b9aeade5) |
+| (b2) Checkpoint rewritten only when 10 commits or 6 hours behind | about 2 MB more | Low: an older resume point gives the same output | Yes (b9aeade5) |
 | (b3) Drop unread fields, compact JSON for `catalogue.generated.ts` | small for growth (deltas already work on it), up to 8 MB off the file's size | Medium: tests and the app read most fields | No; recommended for the 100 MiB limit (row 15) |
 | (b4) Gzip the checkpoint | Negative: a compressed file has no deltas, each version would cost its full 1 to 2 MB | | No |
 | (c) Snapshots or checkpoint on a separate data branch or storage | 3 to 4 MB, moved not saved | High: the replay and the guard read this branch's history | No |
 | (d) Rewrite history to drop the old page files | about 255 MB once | High: new commit ids for everyone | Owner decision (OWNER-STEPS 7d) |
 | (d) Social images out of git | up to 9.6 MB on a posting day | Owner routines | Owner decision |
 
-**Expected after.** 2026-10-04 again: 57.3 − 33.7 − about 2 for the
-checkpoint ≈ 21.5 MB, of which 9.6 MB social images. 2026-10-03: 40.4 − 25.3
-− about 2.4 ≈ 12.7 MB. So about 12 to 13 MB on a busy crawl day plus whatever
-the social routines add, against 40 to 57 MB before.
+**Expected after.** 2026-10-04 again: 60.5 − 34.1 − about 2.8 for the
+checkpoint (two thirds of its 4.3) ≈ 23.6 MB, of which 9.6 MB social images,
+so about 14 MB from the crawl. 2026-10-03: 40.4 − 25.3 − about 2.4 ≈ 12.7 MB.
+So about 13 to 14 MB on a busy crawl day plus whatever the social routines
+add, against 40 to 60 MB before.
 
 ## Run times
 
