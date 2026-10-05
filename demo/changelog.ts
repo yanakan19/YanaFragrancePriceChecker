@@ -17,13 +17,23 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
-    version: 'v3.82.0',
+    version: 'v3.83.0',
     date: '5 Oct 2026',
     title: 'New: Oils and Sets under Explore',
     points: [
       'Two new tabs after Notes, each with its own search',
       'Sets are compared only with the same set',
       'Old Gift Sets links now open the Sets tab',
+    ],
+  },
+  {
+    version: 'v3.82.0',
+    date: '5 Oct 2026',
+    title: 'Saved fragrances follow product merges',
+    points: [
+      'Merged products keep their price on your wishlist',
+      'Price alert emails now cover them too',
+      'Gone products say No longer listed, with Remove',
     ],
   },
   {
