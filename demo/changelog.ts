@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.86.0',
+    date: '5 Oct 2026',
+    title: 'More perfume oils found',
+    points: [
+      'Oils a shop names in words now join the Oils tab',
+      'Nicchia attars and Ortigia roll ons are in Oils',
+      'A body oil no longer shows as a perfume',
+    ],
+  },
+  {
     version: 'v3.85.0',
     date: '5 Oct 2026',
     title: 'Many more products now show a photo',

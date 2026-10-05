@@ -2720,6 +2720,7 @@ function dormantFragrance(id: string, d: DormantEntry): DemoFragrance {
     notes: null,
     houseCeiling: null,
     giftSet: d.giftSet ?? null,
+    oil: null,
     // In no list, so the Gender filter never asks.
     gender: null,
   };
