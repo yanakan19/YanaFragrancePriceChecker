@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { BRAND_LOGOS, logoFor } from '../demo/brandLogos.js';
 import { BRAND_SITES } from '../demo/brandSites.js';
+import { DEMO_FRAGRANCES } from '../demo/data.js';
 import { RETAILERS } from '../src/config/retailers.js';
 import type { LogoRef, LogoBasis } from '../src/types/retailer.js';
 
@@ -348,5 +349,39 @@ describe('brand entries that reuse an owner supplied shop file', () => {
     const shop = RETAILERS.find((r) => r.logo?.src === logo.src);
     expect(shop, `${key}: no shop carries ${logo.src}`).toBeDefined();
     expect(shop!.logo!.shape).toBe(logo.shape);
+  });
+});
+
+/**
+ * The brand pass of 2026-10-05 (docs/LOGOS-PLAN.md §5 step 6, the next 200
+ * brands down the ranking). Its rules, held here so the next pass keeps them:
+ * a logo is only ever the one the brand's own site declares, never from
+ * Wikipedia, Wikidata, Commons or any search or logo service; it sits on a host
+ * of the brand's own domain (or a documented asset host, above); the artwork
+ * must work on the white tile the owner asked for in both themes, so no
+ * light-ink mark; and the key is a brand the catalogue really carries.
+ */
+describe('brand logos added from 2026-10-05', () => {
+  const entries = Object.entries(BRAND_LOGOS).filter(([, l]) => l.readAt >= '2026-10-05');
+  const brandsInCatalogue = new Set(
+    DEMO_FRAGRANCES.map((f) => f.brand.toLowerCase().replace(/[^a-z]+/g, ' ').trim()),
+  );
+
+  it('is not empty', () => {
+    expect(entries.length).toBeGreaterThan(0);
+  });
+
+  it.each(entries)('%s: a brand the catalogue carries, with a site on record', (key, logo) => {
+    expect(brandsInCatalogue.has(key), `${key} is not a brand in the catalogue`).toBe(true);
+    expect(BRAND_SITES[key], `${key} has no BRAND_SITES entry`).toBeDefined();
+    expect(logo.source, `${key}: source is the page the declaration was read off`).toBe(BRAND_SITES[key]);
+    expect(logo.basis).toBe('own-site-declared');
+    expect(logo.src.startsWith('https://')).toBe(true);
+  });
+
+  it.each(entries)('%s: never a third party reference source, never light ink', (key, logo) => {
+    const host = new URL(logo.src).host;
+    expect(host, `${key}: ${host}`).not.toMatch(/wikipedia|wikimedia|wikidata|google|bing|duckduckgo|clearbit|brandfetch|logo\.dev/i);
+    expect(logo.ink, `${key}: a light mark would vanish on the white tile`).not.toBe('light');
   });
 });

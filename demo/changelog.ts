@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.73.0',
+    date: '5 Oct 2026',
+    title: 'Logos for 41 more fragrance houses',
+    points: [
+      'Brand pages show the house logo from its own site',
+      'Every logo was checked by eye before it went in',
+      'Houses with no usable logo keep their initials',
+    ],
+  },
+  {
     version: 'v3.72.0',
     date: '4 Oct 2026',
     title: 'Suggestions moved to the account menu',

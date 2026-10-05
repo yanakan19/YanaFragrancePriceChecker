@@ -49,10 +49,59 @@ import type { LogoRef } from '../src/types/retailer.js';
  * `Dolce & Gabbana - logo (Italy, 1985-).svg`) was found and is genuinely
  * `Public domain`, but at 13,812 bytes it is over this repo's 8 KB
  * per-file budget (§4b) and was left uncommitted rather than shipped over
- * budget — Dolce & Gabbana keeps the monogram too.
+ * budget — Dolce & Gabbana kept the monogram then; the 2026-10-05 pass
+ * below found its own site's 192px manifest icon.
  *
  * That is 51 of the top 100 with a real mark and 49 keeping the monogram —
  * itself a legitimate outcome, not a gap to be filled by guessing.
+ *
+ * ── The 2026-10-05 pass: the next brands down the ranking ───────────────────
+ * Worked the catalogue's brands by product count, top down, over the first 200
+ * that had no logo (Al Haramain at 487 products down to Vyrao at 26). 61 of
+ * those 200 have no official site in BRAND_SITES, so there is nothing to ask
+ * and they keep the monogram. The other 139 were probed with
+ * `scripts/logo-probe.ts --brands=... --no-social` as PriceSniffsBot: robots.txt
+ * read first and obeyed literally (an unreachable or refusing robots.txt, a
+ * Crawl-delay over 30s, or a Disallow on the page or icon path means nothing is
+ * fetched from that origin), one request per host per 2s. 41 shipped.
+ *
+ * Refused us, recorded and not worked around: Guerlain, Givenchy, Jimmy Choo,
+ * Jo Malone, Bvlgari, Ralph Lauren, Estee Lauder, Tom Ford, Acqua di Parma,
+ * Kilian, Maison Francis Kurkdjian, Guess, Versace, Lacoste, Frederic Malle,
+ * Moncler, Salvatore Ferragamo, Missoni (robots.txt answered 403); Marc Jacobs,
+ * Viktor & Rolf, Tommy Hilfiger, Miu Miu (robots.txt 503); Byredo (robots.txt
+ * disallows the page); Giorgio Armani, Emporio Armani, Mugler, Coach, Sisley
+ * (homepage 403); Pepe Jeans (homepage 404); Police, Elie Saab, Britney Spears, Aramis (no answer at all,
+ * twice). Declared nothing usable: Narciso Rodriguez, Arabiyat, Milton Lloyd,
+ * Jenny Glow, Cerruti, Clean (homepage answered 200 with no icon or logo);
+ * Lanvin (its manifest icons answer 403).
+ *
+ * Looked at and rejected:
+ *   - another house's or a parent's mark: French Avenue (its declared logo and
+ *     favicon are Fragrance World's), New Brand and Cuba Paris (PC Design
+ *     Perfumes' PC), Casamorati (Xerjoff's), Jeanne Arthes (Groupe Arthes'
+ *     mark), Disney (a storefront, disneystore.co.uk), Molton Brown's manifest
+ *     icons (the Angular framework logo);
+ *   - anniversary badges: Al Haramain (50 and 55 Years), Ahmed Al Maghribi (25);
+ *   - not a mark: Issey Miyake's icon is the text "isseymiyake.com" again;
+ *     Tiffany's is a plain teal square; Rasasi's is the same gradient heart
+ *     rejected on 2026-09-10; Penhaligon's, Michael Kors, Azzaro, Moschino,
+ *     Carner, Ted Baker, Nasomatto and Fugazzi declare a bare letter, which is
+ *     no better than our own initials tile;
+ *   - too small or blurry (a 16 to 48px favicon, or a Shopify file whose
+ *     original is 32px): Jean Paul Gaultier (its larger icons answer 200 with
+ *     an empty body), Creed, Maison Crivelli, Serge Lutens, Houbigant, Avon,
+ *     Swiss Arabian, Mykonos, Initio, Essential Parfums, Floris,
+ *     Caron, Bond No. 9, Cristiano Ronaldo, Antonio Banderas, Lolita Lempicka,
+ *     Monotheme and the other 32px icons;
+ *   - thin or tiny type that cannot be read at the size drawn: Parfums de
+ *     Marly, Juliette Has a Gun, Oscar de la Renta, Goutal, Goldfield & Banks,
+ *     Thameen's wordmark, V Canto, Diptyque (clipped);
+ *   - light artwork that vanishes on the white tile: Assaf, Gulf Orchid, Ghost,
+ *     Surrati, Le Falcone, Sarah Jessica Parker, Laurent Mazzone's wordmark;
+ *   - weight or doubt: Atkinsons' only mark is a 1 MB SVG; Dkhoon Emirates'
+ *     logo is a 200px file stretched to 512 by a third party host; Trussardi's
+ *     and Cacharel's icons could not be told to be the house's mark.
  */
 export const BRAND_LOGOS: Record<string, LogoRef> = {
   // ── Own site declared (42) ──────────────────────────────────────────────
@@ -483,6 +532,344 @@ export const BRAND_LOGOS: Record<string, LogoRef> = {
     basis: 'owner-supplied',
     source: 'Supplied by the site owner on 4 October 2026',
     readAt: '2026-10-04',
+  },
+
+  // ── Own site declared, the 2026-10-05 pass (41) ──────────────────────────
+  // Every entry: the logo or icon the brand's own site declares (its
+  // Organization.logo, apple-touch-icon, manifest icon or favicon), hot-linked
+  // from the brand's own host, opened and looked at by eye at 42 and 56px on a
+  // white and a dark ground before it went in. All but four sit on the white
+  // tile (`ink: 'dark'`, a white tile in both themes, as the owner asked); the
+  // four that carry their own dark or coloured ground (BDK, Diesel, Izod,
+  // Laurent Mazzone) are `own`. A `&width=` on a Shopify URL asks
+  // the same file for a smaller or larger rendition and nothing else.
+  'vilhelm parfumerie': {
+    src: 'https://vilhelmparfumerie.com/cdn/shop/files/VP-LOGO_No_background_2024_copie.png?v=1707223106&width=500', // Vilhelm Parfumerie: Organization.logo
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://vilhelmparfumerie.com/',
+    readAt: '2026-10-05',
+  },
+  chanel: {
+    src: 'https://www.chanel.com/assets/icons/icon4.png?undefined', // Chanel: icon
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.chanel.com/gb/',
+    readAt: '2026-10-05',
+  },
+  kajal: {
+    src: 'https://kajalperfumes.com/cdn/shop/files/PITTOGRAMMA.png?v=1775831592&width=180', // Kajal: apple-touch-icon
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://kajalperfumes.com/',
+    readAt: '2026-10-05',
+  },
+  'street origins': {
+    src: 'https://streetorigins.co/cdn/shop/files/Street_SO_1_2.png?v=1763464854&width=500', // Street Origins: Organization.logo
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://streetorigins.co/',
+    readAt: '2026-10-05',
+  },
+  baldessarini: {
+    src: 'https://baldessarini-fragrances.com/cdn/shop/files/BALDESSARINI_CLASSIC_Logo_Black.png?v=1727098894&width=500', // Baldessarini: Organization.logo
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://baldessarini-fragrances.com/en',
+    readAt: '2026-10-05',
+  },
+  izod: {
+    src: 'https://izod.com/cdn/shop/files/ICON_96x.png?v=1632593762', // Izod: shortcut icon
+    shape: 'square',
+    ink: 'own',
+    basis: 'own-site-declared',
+    source: 'https://izod.com/',
+    readAt: '2026-10-05',
+  },
+  'sol de janeiro': {
+    src: 'https://soldejaneiro.com/cdn/shop/files/logo.svg?v=1788375686&width=500', // Sol de Janeiro: Organization.logo
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://soldejaneiro.com/',
+    readAt: '2026-10-05',
+  },
+  rabanne: {
+    src: 'https://www.rabanne.com/favicon.ico', // Rabanne: icon
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.rabanne.com/uk/en_GB/fragrance/homepagefragrance',
+    readAt: '2026-10-05',
+  },
+  kayali: {
+    src: 'https://uk.kayali.com/cdn/shop/files/favicon_v3_Kayali_logo_64x64.png?v=1771838288', // Kayali: shortcut icon
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://uk.kayali.com/',
+    readAt: '2026-10-05',
+  },
+  khadlaj: {
+    src: 'https://www.khadlaj-perfumes.co.uk/cdn/shop/files/Khadlaj_logo_160x_2x_160x_2x_58d4d523-785f-4796-b656-f59fe7c51c7e_small.avif?v=1762587505', // Khadlaj: Organization.logo
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.khadlaj-perfumes.co.uk/',
+    readAt: '2026-10-05',
+  },
+  'etat libre d orange': {
+    src: 'https://www.etatlibredorange.com/cdn/shop/files/image_10.png?v=1670345084&width=272', // Etat Libre d'Orange: Organization.logo
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.etatlibredorange.com/',
+    readAt: '2026-10-05',
+  },
+  bois: {
+    src: 'https://www.bois1920.it/wp-content/uploads/2014/07/bois1920-logo-home03.png', // Bois 1920: Organization.logo
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.bois1920.it/en/',
+    readAt: '2026-10-05',
+  },
+  'perris monte carlo': {
+    src: 'https://perrismontecarlo.com/cdn/shop/files/Perris_Monte_Carlo_logo_96x.png?v=1626093862', // Perris Monte Carlo: shortcut icon
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://perrismontecarlo.com/collections/all-perfums-extracts',
+    readAt: '2026-10-05',
+  },
+  'atelier des ors': {
+    src: 'https://atelierdesors.com/cdn/shop/files/Favicon_Atelier_des_ors_1.png?v=1753966669&width=180', // Atelier des Ors: apple-touch-icon
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://atelierdesors.com/en',
+    readAt: '2026-10-05',
+  },
+  joop: {
+    src: 'https://www.joop.com/static/joop/images/favicon/favicon.png', // Joop!: icon
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.joop.com/',
+    readAt: '2026-10-05',
+  },
+  'juicy couture': {
+    src: 'https://juicycouture.com/cdn/shop/files/JC_MAIN_LINE_LOGO_2X_5e707f7d-a418-4028-a2df-b6b16b79bd01.png?v=1623787953&width=638', // Juicy Couture: Organization.logo
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://juicycouture.com/',
+    readAt: '2026-10-05',
+  },
+  dsquared: {
+    src: 'https://www.dsquared2.com/on/demandware.static/Sites-dsquared2-row-Site/-/default/dw16a3111f/images/favicons/apple-icon-180x180.png', // DSquared2: apple-touch-icon
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.dsquared2.com/',
+    readAt: '2026-10-05',
+  },
+  'paris bleu': {
+    src: 'https://parisbleu.com/cdn/shop/files/PARIS_BLEU_1989_2.png?v=1749119442&width=500', // Paris Bleu: Organization.logo
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://parisbleu.com/',
+    readAt: '2026-10-05',
+  },
+  'tiziana terenzi': {
+    src: 'https://tizianaterenzi.com/wp-content/uploads/2023/02/download-removebg-preview.png', // Tiziana Terenzi: Organization.logo
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://tizianaterenzi.com/en/',
+    readAt: '2026-10-05',
+  },
+  'boadicea the victorious': {
+    src: 'https://boadiceaperfume.com/cdn/shop/files/site-logo-new.png?v=1765795877&width=500', // Boadicea The Victorious: Organization.logo
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://boadiceaperfume.com/',
+    readAt: '2026-10-05',
+  },
+  embark: {
+    src: 'https://www.embarkperfumes.com/cdn/shop/files/embarklogo_black.png?v=1748686266&width=500', // Embark: Organization.logo
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.embarkperfumes.com/',
+    readAt: '2026-10-05',
+  },
+  clinique: {
+    src: 'https://www.clinique.co.uk/cdn/shop/files/Clinique_Logo.png?format=webp&v=1789755130&width=500', // Clinique: Organization.logo
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.clinique.co.uk/',
+    readAt: '2026-10-05',
+  },
+  boucheron: {
+    src: 'https://www.boucheron.com/static/version1788955885/frontend/Boucheron/hyva/en_US/Magento_Theme/favicon.ico', // Boucheron: icon
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.boucheron.com/',
+    readAt: '2026-10-05',
+  },
+  thameen: {
+    src: 'https://thameenfragrance.com/cdn/shop/files/Thameen-Favicon-Black.svg?v=1771503285', // Thameen: icon
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://thameenfragrance.com/',
+    readAt: '2026-10-05',
+  },
+  'dolce gabbana': {
+    src: 'https://www.dolcegabbana.com/mobify/bundle/11395/static/img/global/app-icon-192.png', // Dolce & Gabbana: manifest icon
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.dolcegabbana.com/en-gb/beauty/',
+    readAt: '2026-10-05',
+  },
+  amouage: {
+    src: 'https://amouage.com/cdn/shop/files/LOGO_2_2_1.svg?v=1700649625&width=500', // Amouage: Organization.logo
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://amouage.com/',
+    readAt: '2026-10-05',
+  },
+  'molton brown': {
+    src: 'https://www.moltonbrown.co.uk/assets/icons/favicon_black.svg', // Molton Brown: icon
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.moltonbrown.co.uk/',
+    readAt: '2026-10-05',
+  },
+  'abercrombie fitch': {
+    src: 'https://img.abercrombie.com/is/image/anf/anf-favicon-196.png', // Abercrombie & Fitch: icon
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.abercrombie.com/',
+    readAt: '2026-10-05',
+  },
+  'lorenzo pazzaglia': {
+    src: 'https://www.lorenzopazzaglia.com/wp-content/uploads/2022/10/cropped-favicon-192x192.png', // Lorenzo Pazzaglia: icon
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.lorenzopazzaglia.com/en/',
+    readAt: '2026-10-05',
+  },
+  diesel: {
+    src: 'https://uk.diesel.com/on/demandware.static/Sites-DieselGB-Site/-/default/dw880a87e3/imgs/favicons/apple-touch-icon-114x114.png', // Diesel: apple-touch-icon
+    shape: 'square',
+    ink: 'own',
+    basis: 'own-site-declared',
+    source: 'https://uk.diesel.com/',
+    readAt: '2026-10-05',
+  },
+  'zadig voltaire': {
+    src: 'https://zadig-et-voltaire.com/apple-touch-icon.png', // Zadig & Voltaire: apple-touch-icon
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.zadig-et-voltaire.com/',
+    readAt: '2026-10-05',
+  },
+  'histoires de parfums': {
+    src: 'https://www.histoiresdeparfums.com/cdn/shop/files/android-chrome-192x192.png?v=1711468642&width=180', // Histoires de Parfums: apple-touch-icon
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.histoiresdeparfums.com/',
+    readAt: '2026-10-05',
+  },
+  'le labo': {
+    src: 'https://www.lelabofragrances.com/css/images/logonew.png', // Le Labo: Organization.logo
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.lelabofragrances.com/',
+    readAt: '2026-10-05',
+  },
+  'sabrina carpenter': {
+    src: 'https://fragrancebysabrina.com/cdn/shop/files/Sabrina-Logo.svg?v=1762866860&width=500', // Sabrina Carpenter: Organization.logo
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://fragrancebysabrina.com/',
+    readAt: '2026-10-05',
+  },
+  'bdk parfums': {
+    src: 'https://bdkparfums.com/cdn/shop/files/FavIcon.jpg?v=1787643443&width=192', // BDK Parfums: icon (larger rendition of the declared file)
+    shape: 'square',
+    ink: 'own',
+    basis: 'own-site-declared',
+    source: 'https://bdkparfums.com/en',
+    readAt: '2026-10-05',
+  },
+  'clive christian': {
+    src: 'https://www.clivechristian.com/cdn/shop/files/CC_favicon.png?v=1677227064&width=192', // Clive Christian: icon (larger rendition of the declared file)
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.clivechristian.com/',
+    readAt: '2026-10-05',
+  },
+  'shay blue': {
+    src: 'https://www.shayandblue.com/cdn/shop/files/SB_BP_Roundel-3035c_5d20691c-99cd-42ad-939b-ecb98de8127f.png?v=1648817832&width=192', // Shay & Blue: shortcut icon (larger rendition of the declared file)
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.shayandblue.com/',
+    readAt: '2026-10-05',
+  },
+  'ard al zaafaran': {
+    src: 'https://ardalzaafaranshop.com/cdn/shop/files/Ard_Al_Zaafaran_Logo_-_Edited_48ebb48f-0099-4e61-9a1e-d102fa94fa5d.png?v=1727696186&width=128', // Ard Al Zaafaran: shortcut icon (larger rendition of the declared file)
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://ardalzaafaranshop.com/',
+    readAt: '2026-10-05',
+  },
+  'laurent mazzone': {
+    src: 'https://www.lmparfums.com/cdn/shop/files/LM_logo.png?v=1779358604&width=225', // Laurent Mazzone: icon (larger rendition of the declared file)
+    shape: 'square',
+    ink: 'own',
+    basis: 'own-site-declared',
+    source: 'https://www.lmparfums.com/en-us',
+    readAt: '2026-10-05',
+  },
+  'miller harris': {
+    src: 'https://www.millerharris.com/cdn/shop/files/favicon-mh-v1-2026.png?v=1776445286&width=192', // Miller Harris: icon (larger rendition of the declared file)
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.millerharris.com/',
+    readAt: '2026-10-05',
+  },
+  'alexandre j': {
+    src: 'https://www.alexandre-j.com/cdn/shop/files/logo_02781552-349a-45cc-bd78-ba78eb2544b7.png?v=1728635947&width=160', // Alexandre.J: icon (larger rendition of the declared file)
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.alexandre-j.com/',
+    readAt: '2026-10-05',
   },
 };
 
