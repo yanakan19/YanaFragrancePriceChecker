@@ -84,6 +84,29 @@ export interface HarvestCursor {
    * an absent or unreadable entry reads as 0, the old behaviour.
    */
   discoveryOffset?: Record<string, number>;
+  /**
+   * Until when a shop's product files are not asked for their barcodes, per
+   * retailer id: ISO stamps, set when a read of them was refused (an HTTP 401,
+   * 403, 407, 429 or 503, or a page that was not the product file) and cleared
+   * by being in the past. See `readBarcodesFromProductJs`. Absent until a shop
+   * has refused one.
+   */
+  barcodeBackoff?: Record<string, string>;
+}
+
+/** How long a shop's barcode reads are left alone after it refused one. */
+export const BARCODE_BACKOFF_HOURS = 6;
+
+/** The time before which this shop's barcodes are not asked for, or null when nothing is holding them back. */
+export function barcodeBackoffUntil(cursor: HarvestCursor, id: string, now: Date): string | null {
+  const until = cursor.barcodeBackoff?.[id];
+  return typeof until === 'string' && Date.parse(until) > now.getTime() ? until : null;
+}
+
+/** A cursor with this shop's barcode reads held back for BARCODE_BACKOFF_HOURS from `now`. Pure. */
+export function withBarcodeBackoff(cursor: HarvestCursor, id: string, now: Date): HarvestCursor {
+  const until = new Date(now.getTime() + BARCODE_BACKOFF_HOURS * 3_600_000).toISOString();
+  return { ...cursor, barcodeBackoff: { ...(cursor.barcodeBackoff ?? {}), [id]: until } };
 }
 
 /** Where a shop's discovery starts this run. */
@@ -137,10 +160,12 @@ export function parseCursor(raw: string | null | undefined): HarvestCursor {
     // that file. It is also the safe direction: an absent stamp means the
     // bound allows one render, which is the same as a fresh install.
     const offsets = offsetMap((parsed as { discoveryOffset?: unknown }).discoveryOffset);
+    const backoff = stampMap((parsed as { barcodeBackoff?: unknown }).barcodeBackoff);
     return {
       attempted: stampMap(attempted),
       actorRendered: stampMap((parsed as { actorRendered?: unknown }).actorRendered),
       ...(offsets ? { discoveryOffset: offsets } : {}),
+      ...(Object.keys(backoff).length > 0 ? { barcodeBackoff: backoff } : {}),
     };
   } catch {
     return EMPTY_CURSOR;

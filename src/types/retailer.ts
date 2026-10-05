@@ -860,6 +860,24 @@ export interface Retailer {
    */
   availabilityFromProductPage?: boolean;
   /**
+   * The shop's `/products.json` carries no barcode (Shopify keeps `barcode` out
+   * of it), but each product's own `/products/<handle>.js` carries one per
+   * variant, so the harvest reads that file, once per product (never per
+   * variant), and stores the validated barcode in the listing's `ean`. See
+   * `src/catalogue/barcodeFromProductJs.ts` for the route, the validation and
+   * the stopping rules, and `src/catalogue/barcode.ts` for what counts as a
+   * barcode. Incremental: a barcode is read once and kept while the variant
+   * (Shopify's own variant id, stored beside it) is unchanged.
+   *
+   * `origin` is the host the files are read from (the host whose robots.txt
+   * was read; the apex host of a shop can answer differently), `gapMs` the
+   * least delay between two reads (a floor under the shop's own gap and any
+   * Crawl-delay), and `maxPerRun` how many products one harvest run may read,
+   * so a catalogue of thousands is read over several runs inside the shop's
+   * slot of the sweep. Needs `shopifyStorefront: true`.
+   */
+  barcodeFromProductJs?: { origin: string; gapMs: number; maxPerRun: number };
+  /**
    * This shop's "Travel Spray" variant is the same perfume in a small
    * atomiser, one more size on the perfume's own page (Kayali's "10ml Travel
    * Spray" beside its 100ml, 50ml, "10ml Miniature" and 1.5ml), so the word is

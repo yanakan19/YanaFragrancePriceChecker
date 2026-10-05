@@ -311,6 +311,9 @@ export async function crawlViaShopifyProducts(
       currency: parseCurrency,
       // Only a shop whose variants are not all UK bottles carries one.
       ...(retailer.shopifyVariantRule ? { variantRule: retailer.shopifyVariantRule } : {}),
+      // A shop whose barcodes are read from each product's own file ties a
+      // barcode to the variant it was read for.
+      ...(retailer.barcodeFromProductJs ? { keepVariantId: true } : {}),
     });
     listings.push(...batch);
 

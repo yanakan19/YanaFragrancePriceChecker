@@ -52,6 +52,23 @@ export interface RawListing {
   rawBrand: string | null;
   /** EAN or GTIN where the page exposes one. The best matching key we can get. */
   ean: string | null;
+  /**
+   * The shop's own id for the variant this listing is, as a decimal string.
+   * Set only where a shop's barcodes are read from a second file (Perfume
+   * Direct, `Retailer.barcodeFromProductJs`), where it is what a stored
+   * barcode is tied to: the barcode was read for this variant, and is read
+   * again only when the shop gives the listing a different one. Absent for
+   * every other shop.
+   */
+  shopVariantId?: string | null;
+  /**
+   * When a read of the shop's own product file last settled this listing's
+   * `ean`, ISO 8601, whether it found a barcode or found none that passes the
+   * barcode checks (then `ean` is null and the listing is not read again for a
+   * while). Absent for a listing never read, and for every shop whose barcodes
+   * come from its feed or its pages.
+   */
+  eanReadAt?: string | null;
   imageUrl: string | null;
   priceGbp: number | null;
   /** The retailer's own reference price, where the page publishes one. */
