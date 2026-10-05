@@ -49,6 +49,7 @@
     "tiktok:probe": "tsx scripts/tiktok-probe.ts",
     "images:check": "tsx scripts/image-link-check.ts",
     "photos:coverage": "tsx scripts/photo-coverage.ts",
+    "photos:better": "tsx scripts/better-photos.ts",
     "images:box-check": "tsx scripts/image-box-check.ts",
     "icons": "tsx scripts/generate-icons.ts",
     "og:preview": "tsx scripts/generate-og-preview.ts",

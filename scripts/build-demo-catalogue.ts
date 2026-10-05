@@ -89,6 +89,7 @@ import {
 } from '../src/catalogue/productName.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
 import { pickImage, upgradeImageResolution, type ImageBoxVerdict, type ImageDimensions } from '../src/catalogue/pickImage.js';
+import { betterPhotoFor, type BetterPhoto } from '../src/catalogue/betterPhotos.js';
 import { bottleScaleStyle, type SilhouetteBox } from '../src/catalogue/bottleScale.js';
 import { rejectPlaceholderImage } from '../src/catalogue/placeholderImage.js';
 
@@ -176,6 +177,27 @@ if (existsSync(imageBoxVerdictsPath)) {
     }
     storedUrlByUpgraded.set(upgradeImageResolution(url) ?? url, url);
   }
+}
+
+/**
+ * data/better-photos.json (scripts/better-photos.ts): a bigger picture the
+ * shop's own page gives for a listing whose feed image is a thumbnail, or that
+ * has none. Used in place of the feed's image while its source is switched on
+ * in src/config/photoSources.ts and the shop has an `imageBasis`; see
+ * betterPhotoFor() for what makes a record stop applying. The picture's
+ * measured size goes into `imageDimensions` so pickImage ranks it by what it is.
+ * Missing file is not an error: every listing then keeps its feed image.
+ */
+const betterPhotosPath = resolve(root, 'data/better-photos.json');
+const betterPhotos: Record<string, BetterPhoto> = existsSync(betterPhotosPath)
+  ? (JSON.parse(readFileSync(betterPhotosPath, 'utf8')) as { photos?: Record<string, BetterPhoto> }).photos ?? {}
+  : {};
+/** The image a listing shows: its better photo when one applies, else its feed image minus placeholders. */
+function listingImage(l: { retailerId: string; retailerSku: string; imageUrl: string | null }): string | null {
+  const better = betterPhotoFor(betterPhotos, l.retailerId, l.retailerSku, l.imageUrl ?? null, (id) => IMAGE_ALLOWED.has(id));
+  if (better === null) return rejectPlaceholderImage(l.imageUrl);
+  imageDimensions.set(better.url, { width: better.width, height: better.height });
+  return better.url;
 }
 
 /**
@@ -984,7 +1006,7 @@ for (const { retailer, listings } of eligible) {
       // harvested BEFORE that fix, which persist until the hourly crawl
       // overwrites them. Same shared list either way — see
       // src/catalogue/placeholderImage.ts — never a second copy of it.
-      imageUrl: rejectPlaceholderImage(l.imageUrl),
+      imageUrl: listingImage(l),
       description: l.description ?? null,
       rating: l.rating ?? null,
       sizeMl: size,
@@ -2322,7 +2344,7 @@ for (const [id, listings] of [...dormantListings].sort((a, b) => a[0].localeComp
     retailerId: l.retailerId,
     imageUrl:
       IMAGE_ALLOWED.has(l.retailerId) || isBrandDirectOffer(l.retailerId, facts.brand)
-        ? rejectPlaceholderImage(l.imageUrl)
+        ? listingImage(l)
         : null,
     fetchedAt: l.lastSeenAt,
   }));
