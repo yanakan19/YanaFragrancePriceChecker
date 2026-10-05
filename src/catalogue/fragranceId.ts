@@ -2,7 +2,7 @@ import type { StoredListing } from './types.js';
 import { RETAILERS, getRetailer } from '../config/retailers.js';
 import { trustworthyEan } from './productMatch.js';
 import { giftSetId, isGiftSet } from './giftSet.js';
-import { evidencedStrength } from './unstatedStrengthEvidence.js';
+import { declinesStrengthWords, evidencedStrength } from './unstatedStrengthEvidence.js';
 
 /**
  * What decides whether a listing is a fragrance, and the identity a
@@ -1235,6 +1235,10 @@ export function isFragrance(l: StoredListing): boolean {
   // (displayName): see isSingleTravelSpray.
   if (!kayaliStyle && isSingleTravelSpray(l.rawTitle)) t = withoutTravelSprayWords(t);
   if (NOT_A_FRAGRANCE.test(t)) return false;
+  // A THG shop's strength word may have been read from its page copy and put
+  // in the title (thgPageStrength.ts). For a house that says it uses none
+  // (Commodity), that word is the shop's, not the house's: not stated.
+  if (getRetailer(l.retailerId)?.sitemapRoute?.strengthFromPage === true && declinesStrengthWords(l)) return false;
   // Barber shop colognes: Debenhams' "Barber Marmara" range (No.3 Turkish
   // Cologne 500ml, No.24 Eau De Cologne Aftershave Spray 400ml), splashes for
   // after a shave, not perfume. The owner's call, 2026-10-03: drop them.

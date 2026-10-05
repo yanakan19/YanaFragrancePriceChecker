@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { CATALOGUE, CRAWLED } from '../demo/catalogue.generated.js';
-import { STRENGTH_EVIDENCE, evidencedStrength } from '../src/catalogue/unstatedStrengthEvidence.js';
+import { STRENGTH_EVIDENCE, declinesStrengthWords, evidencedStrength } from '../src/catalogue/unstatedStrengthEvidence.js';
 import { isFragrance } from '../src/catalogue/fragranceId.js';
 import { CONCENTRATION_NOT_STATED, concentrationOfStoredListing } from '../src/catalogue/productName.js';
 import type { StoredListing } from '../src/catalogue/types.js';
@@ -133,6 +133,15 @@ describe('what it unlocks', () => {
     expect(isFragrance(listing('Kismet Olfactive The Poet 50ml'))).toBe(false);
     expect(isFragrance(listing('Jo Malone London Revitalise Body Gel-Cream 200ml'))).toBe(false);
     expect(concentrationOfStoredListing(listing('Commodity Gold Personal 100ml'))).toBe(CONCENTRATION_NOT_STATED);
+  });
+
+  it('puts no strength on a Commodity bottle at a THG shop, even where the page copy or title says one', () => {
+    const t = 'Commodity Book- Personal Eau de Parfum 100ml';
+    expect(declinesStrengthWords({ rawTitle: t })).toBe(true);
+    expect(declinesStrengthWords({ rawTitle: 'Creed Wild Vetiver 50ml' })).toBe(false);
+    expect(isFragrance(listing(t))).toBe(false);
+    // The same words at a shop that is not read from page copy are that shop's own title.
+    expect(isFragrance(listing(t, { retailerId: 'bloom-perfumery' }))).toBe(true);
   });
 
   it('never overrules a strength the title states', () => {
