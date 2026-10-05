@@ -326,8 +326,35 @@ export function brandMatchesFolder(brand: string, folder: string): boolean {
   return long.length - short.length <= 2;
 }
 
+const FRAICHE_RE = /\beau fraiche\b/;
+
+/**
+ * A page that states no concentration ("Sauvage-31861") is the perfume's main
+ * page, and may stand for the other strengths of the same name only where
+ * Fragrantica has no page of its own for them. It cannot stand for a variant
+ * Fragrantica always lists separately: a Parfum, an Extrait, a Cologne, an Eau
+ * Fraiche. "Black Orchid Parfum" is not on the "Black Orchid" page, nor "Eros
+ * Parfum" on "Eros-16657", and a link that lands on the wrong strength's page
+ * is worse than a link to a search (audit of 2026-10-05).
+ */
+export function baseMayStandFor(wanted: WantedFragrance): boolean {
+  const named = concentrationClassOf(wanted.name);
+  if (named !== null) return false; // the name itself says Parfum / Cologne / ... ("mixed" included)
+  const c = wantedConcentration(wanted.concentration);
+  return c === null || c === 'edp' || c === 'edt';
+}
+
+export interface FragranticaMatchOptions {
+  /**
+   * The page is known (a person confirmed it, see data/fragrantica-link-review.json) to be the
+   * only Fragrantica page for this perfume whatever its strength, so a page that states no
+   * concentration may stand for a Parfum or an Extrait too. Never set from a guess.
+   */
+  singlePage?: boolean;
+}
+
 /** Does this Fragrantica URL belong to the wanted perfume? */
-export function matchFragranticaUrl(rawUrl: string, wanted: WantedFragrance): UrlMatch | null {
+export function matchFragranticaUrl(rawUrl: string, wanted: WantedFragrance, opts: FragranticaMatchOptions = {}): UrlMatch | null {
   const parts = parseFragranticaUrl(rawUrl);
   if (!parts) return null;
   if (!brandMatchesFolder(wanted.brand, parts.folder)) return null;
@@ -336,7 +363,18 @@ export function matchFragranticaUrl(rawUrl: string, wanted: WantedFragrance): Ur
   const want = canonicalName(wanted.name, wanted.brand, keep);
   const have = canonicalName(slugText, wanted.brand, keep);
   if (!want || want !== have) return null;
-  const quality = concentrationQuality(concentrationClassOf(slugText), wantedConcentration(wanted.concentration));
+  // "Eau Fraiche" is stripped from both names above as a concentration word, so it is compared here:
+  // both sides state it, or neither does.
+  if (FRAICHE_RE.test(fold(wanted.name)) !== FRAICHE_RE.test(fold(slugText))) return null;
+  const named = concentrationClassOf(wanted.name);
+  const wantedConc = named !== null && named !== 'mixed' ? named : wantedConcentration(wanted.concentration);
+  const pageConc = concentrationClassOf(slugText);
+  const quality = concentrationQuality(pageConc, wantedConc);
+  if (quality === 'base' && !opts.singlePage && !baseMayStandFor(wanted)) return null;
+  // Strength not known, page says Parfum / Extrait / Cologne and the name does not: that page is a
+  // different, stronger product, not the one a shop listed without saying (Escentric 02, not stated,
+  // is not "Escentric 02 Extrait").
+  if (quality === 'loose' && (pageConc === 'parfum' || pageConc === 'cologne') && named === null) return null;
   return quality ? { url: parts.url, quality } : null;
 }
 
