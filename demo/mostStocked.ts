@@ -1,4 +1,5 @@
 import type { DemoFragrance } from './data.js';
+import { isOilStrength } from '../src/catalogue/perfumeOil.js';
 
 /**
  * Who may be ranked in the home page's Most stocked list: the front page rail
@@ -16,7 +17,7 @@ import type { DemoFragrance } from './data.js';
  *     a ranking of the most stocked fragrances is about.
  */
 export function rankedInMostStocked(f: Pick<DemoFragrance, 'concentration' | 'giftSet'>): boolean {
-  return f.concentration !== 'Perfume Oil' && f.giftSet === null;
+  return !isOilStrength(f.concentration) && f.giftSet === null;
 }
 
 /**

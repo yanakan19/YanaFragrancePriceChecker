@@ -1,4 +1,5 @@
 import type { StoredListing } from './types.js';
+import { isPerfumeOilTitle, isReviewedOil } from './perfumeOil.js';
 import { RETAILERS, getRetailer } from '../config/retailers.js';
 import { trustworthyEan } from './productMatch.js';
 import { giftSetId, isGiftSet } from './giftSet.js';
@@ -127,7 +128,7 @@ export const CONCENTRATION =
  *     sets, no single bottle.
  */
 export const NOT_A_FRAGRANCE =
-  /\b(fragrance[- ]free|unperfumed|unscented|nappy|tissue|soap bar|body cream|shampoo|conditioner|deodorant|shower ?gel|body ?wash|candle|diffuser|reed|gift ?set|set of|bundle|tester|sample|refill|travel spray|decant|hand wash|moisturis|lotion|balm|scrub|talc|hair|serum|air ?freshener|room spray|lamp fragrance|home spray|body spray|body mist|socks?|refillable perfume spray|pet care|empty (?:perfume )?bottles?|travalo|rechargeable perfume|\d+\s*(?:pcs|pieces))\b/i;
+  /\b(fragrance[- ]free|unperfumed|unscented|nappy|tissue|soap bar|body cream|shampoo|conditioner|deodorant|shower ?gel|body ?wash|body oil|candle|diffuser|reed|gift ?set|set of|bundle|tester|sample|refill|travel spray|decant|hand wash|moisturis|lotion|balm|scrub|talc|hair|serum|air ?freshener|room spray|lamp fragrance|home spray|body spray|body mist|socks?|refillable perfume spray|pet care|empty (?:perfume )?bottles?|travalo|rechargeable perfume|\d+\s*(?:pcs|pieces))\b/i;
 
 /**
  * A description that says the product is for an animal.
@@ -1276,7 +1277,10 @@ export function isFragrance(l: StoredListing): boolean {
   // ("Fruit Crush 100ml", two 100ml bottles at £187), so the title rules
   // below cannot see it.
   if (l.productType && BUNDLE_PRODUCT_TYPE.test(l.productType)) return false;
-  if (l.productType && BODY_PRODUCT_TYPE.test(l.productType)) return false;
+  // Except the oils the owner has ruled on (src/catalogue/perfumeOil.ts): Ortigia's
+  // 10ml roll ons and Tauer's attar, which Nicchia files as scented body oil.
+  const ml = sizeMl(t, l.description);
+  if (l.productType && BODY_PRODUCT_TYPE.test(l.productType) && !isReviewedOil(l, ml)) return false;
   if (l.productType && REFILL_PRODUCT_TYPE.test(l.productType)) return false;
   // Asked of every shop, unlike the two rules inside the branch below — see
   // MULTI_PACK for why a quantity against a size is the one multi-pack signal
@@ -1299,7 +1303,15 @@ export function isFragrance(l: StoredListing): boolean {
   // Or the brand's own page names the strength the title leaves out: see
   // unstatedStrengthEvidence.ts. Only an exact whole title match, so it unlocks
   // those perfumes and nothing a skincare title could be mistaken for.
-  return CONCENTRATION.test(t) || productTypeStatesEauDeParfum(l) || evidencedStrength(l) !== null;
+  // A perfume oil the strength words above do not recognise ("Perfumed Oil",
+  // "Roll-On Oil"): src/catalogue/perfumeOil.ts.
+  return (
+    CONCENTRATION.test(t) ||
+    productTypeStatesEauDeParfum(l) ||
+    evidencedStrength(l) !== null ||
+    isPerfumeOilTitle(l, ml) ||
+    isReviewedOil(l, ml)
+  );
 }
 
 /**

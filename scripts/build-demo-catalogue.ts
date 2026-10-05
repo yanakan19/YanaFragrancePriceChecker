@@ -48,6 +48,7 @@ import {
   trustworthyEan,
 } from '../src/catalogue/productMatch.js';
 import { listingViolations, namespaceViolations } from '../src/catalogue/kindGuards.js';
+import { isOilStrength, oilFactsOfOffers } from '../src/catalogue/perfumeOil.js';
 import { auditPriceScale } from '../src/catalogue/priceScale.js';
 import { formatLabels } from '../src/catalogue/offerFormat.js';
 import type { DormantEntry } from '../src/catalogue/dormantProducts.js';
@@ -961,6 +962,10 @@ for (const { retailer, listings } of eligible) {
       }
       size = nominal.size;
       displayedName = nominal.name;
+      // "Noora Perfumed Oil 12ml Bottle": a shop saying what the oil comes in,
+      // which is no part of its name, and kept it was a different name from the
+      // maker's own "Noora" (src/catalogue/perfumeOil.ts).
+      if (isOilStrength(listingConcentration)) displayedName = displayedName.replace(/\s+bottle$/i, '');
     }
     const offer: Offer = {
       retailerId: l.retailerId,
@@ -2499,6 +2504,16 @@ const catalogue = ordered.map((p) => {
     // Omitted for every single bottle, so the shipped file only grows by the
     // gift sets themselves.
     ...(p.giftSet ? { giftSet: p.giftSet } : {}),
+    // Present only on an oil (src/catalogue/perfumeOil.ts), and then only with what
+    // a shop said about it: the format it comes in and "alcohol free", each with the
+    // shop that said so. {} for an oil no shop said anything about.
+    ...(!p.giftSet && isOilStrength(p.concentration)
+      ? {
+          oil: oilFactsOfOffers(
+            p.offers.map((o) => ({ retailerId: o.retailerId, rawTitle: o.rawTitle, description: o.description })),
+          ),
+        }
+      : {}),
     // Omitted for every product no shop's category label has named an audience
     // for, so the shipped file grows by those alone.
     ...(p.audience ? { gender: p.audience } : {}),
@@ -2644,6 +2659,14 @@ export interface CatalogueEntry {
    * their place when there are none.
    */
   giftSet?: { contents: string[] | null; title: string };
+  /**
+   * Present only on a perfume oil or an attar (src/catalogue/perfumeOil.ts): what
+   * its shops state about it and nothing they did not. \`format\` is how it comes
+   * (a roll on, a dropper) and \`alcoholFree\` is only ever true, each with the shop
+   * that said so; an oil no shop said anything about carries {}. Silence is never
+   * read as "contains alcohol" or "is a bottle".
+   */
+  oil?: { format?: 'roll-on' | 'dropper'; formatBy?: string; alcoholFree?: true; alcoholFreeBy?: string };
   /**
    * Who a shop's own category label says this bottle is for, present only where
    * one did and the name no longer says it: Perfume Direct's "Women's Perfume"
