@@ -13,6 +13,7 @@ import {
   type KindedProduct,
 } from '../src/catalogue/kindGuards.js';
 import { matchKey } from '../src/catalogue/productMatch.js';
+import { isOilStrength } from '../src/catalogue/perfumeOil.js';
 
 const root = resolve(import.meta.dirname, '..');
 
@@ -36,7 +37,7 @@ describe('the three kinds of product', () => {
     for (const f of DEMO_FRAGRANCES) counts[productKind(f)] += 1;
     expect(counts.bottle + counts.set + counts.oil).toBe(DEMO_FRAGRANCES.length);
     expect(counts.set).toBe(DEMO_FRAGRANCES.filter((f) => f.giftSet !== null).length);
-    expect(counts.oil).toBe(DEMO_FRAGRANCES.filter((f) => f.giftSet === null && f.concentration === 'Perfume Oil').length);
+    expect(counts.oil).toBe(DEMO_FRAGRANCES.filter((f) => f.giftSet === null && isOilStrength(f.concentration)).length);
     expect(counts.set).toBeGreaterThan(1000);
     expect(counts.oil).toBeGreaterThan(100);
     expect(counts.bottle).toBeGreaterThan(10000);
@@ -48,6 +49,16 @@ describe('the three kinds of product', () => {
       expect(isSet(f)).toBe(true);
       expect(isOil(f)).toBe(false);
     }
+  });
+});
+
+describe('an attar', () => {
+  it('is an oil everywhere an oil is: its kind, Most Stocked and the bottle posts', () => {
+    const attar = { concentration: 'Attar', giftSet: null };
+    expect(productKind(attar)).toBe('oil');
+    expect(isOil(attar)).toBe(true);
+    expect(rankedInMostStocked(attar)).toBe(false);
+    expect(eligibleForBottlePosts(attar)).toBe(false);
   });
 });
 
@@ -103,7 +114,7 @@ describe('guard 3: the strength keeps an oil apart from a bottle', () => {
   });
 
   it('holds on the real catalogue: no bottle carries the oil strength and no oil carries a set record', () => {
-    expect(DEMO_FRAGRANCES.filter((f) => productKind(f) === 'bottle' && f.concentration === 'Perfume Oil')).toEqual([]);
+    expect(DEMO_FRAGRANCES.filter((f) => productKind(f) === 'bottle' && isOilStrength(f.concentration))).toEqual([]);
     expect(DEMO_FRAGRANCES.filter((f) => productKind(f) === 'oil' && f.giftSet !== null)).toEqual([]);
   });
 });

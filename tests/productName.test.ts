@@ -367,8 +367,9 @@ describe('displayName: an orphaned separator left once both sides of it are stri
     expect(displayName('Blood Concept +MA Eau de Parfum 30ml Spray', 'Blood Concept', 'Blood Concept')).toBe(
       '+MA',
     );
+    // Named change (oils, phase 2): "Parfum Oil" is now read as the strength Perfume Oil and comes off the name.
     expect(displayName('Blood Concept Red+MA Parfum Oil 40ml Dropper', 'Blood Concept', 'Blood Concept')).toBe(
-      'Red+MA Oil Dropper',
+      'Red+MA Dropper',
     );
   });
 

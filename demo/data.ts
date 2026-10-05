@@ -2,6 +2,7 @@ import type { RetailerTier } from '../src/types/retailer.js';
 import { brandTierForName } from '../src/catalogue/brandTier.js';
 import { RETAILERS } from '../src/config/retailers.js';
 import { brandKey } from '../src/catalogue/brandName.js';
+import type { OilFacts } from '../src/catalogue/perfumeOil.js';
 import { isTooOldToShow, showableListingCount } from '../src/services/priceService.js';
 import { CATALOGUE, CRAWLED, type Notes } from './catalogue.generated.js';
 import { DEALS_RAW, DEALS_GENERATED_AT as DEALS_GENERATED_AT_RAW } from './deals.generated.js';
@@ -94,6 +95,11 @@ export interface DemoFragrance {
    * null, in which case `title` (the shop's own) is shown instead.
    */
   giftSet: { contents: string[] | null; title: string } | null;
+  /**
+   * Set only on a perfume oil or an attar (src/catalogue/perfumeOil.ts): what its
+   * shops state about it, never more. Null for everything else.
+   */
+  oil: OilFacts | null;
   /**
    * Who a shop's own category label said this bottle is for, set only where the
    * name no longer says it (Perfume Direct's "Women's Perfume" and "Men's
@@ -231,6 +237,7 @@ export const DEMO_FRAGRANCES: DemoFragrance[] = CATALOGUE.map((entry) => ({
   // means every reader tests one thing.
   houseCeiling: entry.houseCeiling ?? null,
   giftSet: entry.giftSet ?? null,
+  oil: entry.oil ?? null,
   gender: entry.gender ?? null,
 }));
 

@@ -83,7 +83,7 @@ export const CONCENTRATION_SPECIFIC =
  * word beats it.
  */
 const CONCENTRATION_OIL =
-  /\b(concentrated perfume oil|perfume oil|perfumed oil|fragrance oil)\b/i;
+  /\b(concentrated oil perfume|concentrated perfumed oil|concentrated perfume oil|perfume oil|perfumed oil|parfum oil|fragrance oil|roll[- ]?on oil|oil perfume)\b/i;
 const CONCENTRATION_GENERIC_PRIORITY = [
   'exdp', 'edp', 'edt', 'edc', 'parfum', 'perfume', 'aftershave', 'cologne', 'extrait', 'attar', 'oud',
 ] as const;
@@ -493,6 +493,9 @@ export function concentrationMatch(title: string): string | null {
 export function concentration(title: string): string {
   const raw = concentrationMatch(title);
   if (!raw) return CONCENTRATION_NOT_STATED;
+  // Every way a shop writes an oil is the one strength, whatever the spelling or
+  // the hyphen: "Roll-On Oil", "Concentrated Oil Perfume", "Parfum Oil".
+  if (CONCENTRATION_OIL.test(raw)) return 'Perfume Oil';
   const key = raw.toLowerCase();
   return CONCENTRATION_DISPLAY[key] ?? key.replace(/\b\w/g, (c) => c.toUpperCase());
 }
