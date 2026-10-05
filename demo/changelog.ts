@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.87.0',
+    date: '5 Oct 2026',
+    title: 'Sharper photos where a shop gave a tiny one',
+    points: [
+      'About 1,600 Perfume Click photos are now larger',
+      'They show only when no other shop has a photo',
+      'Six products that had no photo now show one',
+    ],
+  },
+  {
     version: 'v3.86.0',
     date: '5 Oct 2026',
     title: 'More perfume oils found',
