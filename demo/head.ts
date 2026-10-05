@@ -418,6 +418,16 @@ export function headFor(input: HeadInput): HeadTags {
 }
 
 /**
+ * The tags with noindex forced on while the ad layout preview is on
+ * (`?adpreview=1`, demo/ads.ts): a page drawn with placeholder frames is never
+ * for a search engine. The canonical address is left as it is, the path alone,
+ * so it never carries the parameter either.
+ */
+export function withPreviewNoindex(tags: HeadTags, preview: boolean): HeadTags {
+  return preview && !tags.noindex ? { ...tags, noindex: true } : tags;
+}
+
+/**
  * The canonical path for a route: the path alone, with the query dropped.
  *
  * Deliberately not routeToPath(), which preserves query state so the back

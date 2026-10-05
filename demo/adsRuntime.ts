@@ -4,8 +4,15 @@
  * Google's ad script, and asking it to fill each slot. Everything it decides
  * is in demo/ads.ts; this only carries it out.
  *
- * With ads off (demo/ads.ts ADS_ON false) every function here returns before
- * it touches the document, so nothing is added, loaded or requested.
+ * With ads off (demo/ads.ts ADS_ON false) and no preview, every function here
+ * returns before it touches the document, so nothing is added, loaded or
+ * requested.
+ *
+ * With the layout preview on (`?adpreview=1`, see demo/ads.ts) the slots are
+ * drawn as labelled frames with no `<ins>` in them: the styles are added and
+ * each frame's measured size is written into it, and that is all. There is
+ * nothing for the ad script to fill, so it is never added and nothing is
+ * requested.
  *
  * ── Order of events once ads are on ─────────────────────────────────────────
  *   1. installAds(), at start up, adds the ad styles: slots then reserve their
@@ -24,7 +31,7 @@
  *   5. A slot is filled only when it comes within 400px of the screen, so a
  *      long grid never asks for ads nobody scrolls to.
  */
-import { ADS_ON, AD_STYLES, adScriptUrl, nonPersonalisedFlag, type TcData } from './ads.js';
+import { ADS_ON, AD_STYLES, adPreviewOn, adScriptUrl, nonPersonalisedFlag, type TcData } from './ads.js';
 
 /** How long slots wait for the consent message's answer before asking non personalised. */
 const CONSENT_WAIT_MS = 2000;
@@ -40,9 +47,9 @@ let npa: 0 | 1 = 1;
 let observer: IntersectionObserver | null = null;
 const waiting = new Set<HTMLElement>();
 
-/** Adds the ad styles once. A no op with ads off. */
+/** Adds the ad styles once. A no op with ads off and no preview. */
 export function installAds(): void {
-  if (!ADS_ON || installed) return;
+  if (!(ADS_ON || adPreviewOn()) || installed) return;
   installed = true;
   const style = document.createElement('style');
   style.id = 'ps-ad-styles';
@@ -50,8 +57,12 @@ export function installAds(): void {
   document.head.appendChild(style);
 }
 
-/** Watches every slot on the page not yet asked for. A no op with ads off. */
+/** Watches every slot on the page not yet asked for. A no op with ads off and no preview. */
 export function mountAds(): void {
+  if (adPreviewOn()) {
+    mountPreview();
+    return;
+  }
   if (!ADS_ON) return;
   const fresh = Array.from(document.querySelectorAll<HTMLElement>('ins.ps-ad-ins:not([data-ps-seen])'));
   if (fresh.length === 0) return;
@@ -71,6 +82,31 @@ export function mountAds(): void {
   for (const ins of fresh) {
     ins.dataset.psSeen = '1';
     observer.observe(ins);
+  }
+}
+
+let sizeObserver: ResizeObserver | null = null;
+
+/** Preview only: writes each frame's measured size into it, and keeps it true as the window changes. */
+function mountPreview(): void {
+  const fresh = Array.from(document.querySelectorAll<HTMLElement>('.ps-ad-live:not([data-ps-seen])'));
+  if (fresh.length === 0) return;
+  installAds();
+  sizeObserver ??= new ResizeObserver((entries) => {
+    for (const e of entries) {
+      const text = e.target.querySelector<HTMLElement>('.ps-ad-live');
+      if (!e.target.isConnected || !text) {
+        sizeObserver?.unobserve(e.target);
+        continue;
+      }
+      const box = e.target.getBoundingClientRect();
+      text.textContent = `Slot ${Math.round(box.width)} × ${Math.round(box.height)} px`;
+    }
+  });
+  for (const live of fresh) {
+    live.dataset.psSeen = '1';
+    const well = live.closest('.ps-ad-well');
+    if (well) sizeObserver.observe(well);
   }
 }
 

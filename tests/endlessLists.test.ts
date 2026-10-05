@@ -8,7 +8,7 @@ import { BY_POPULARITY } from '../demo/data.js';
 import { rankedInMostStocked } from '../demo/mostStocked.js';
 import { onePerScent } from '../demo/oneScent.js';
 import { sortFragrances } from '../demo/listSort.js';
-import { GRID_AD_INTERVAL, WIDEST_ROW, interleaveAds, isGridAd, type AdConfig } from '../demo/ads.js';
+import { GRID_AD_FIRST_MIN, GRID_AD_MAX_GAP, GRID_AD_MIN_GAP, WIDEST_ROW, interleaveAds, isGridAd, type AdConfig } from '../demo/ads.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const built = existsSync(resolve(root, 'demo/index.html'));
@@ -32,28 +32,31 @@ describe('the ranking is longer than the old cap, so the cap would show', () => 
 });
 
 describe('ads keep their placement rule in an endless list', () => {
-  const on: AdConfig = { client: 'ca-pub-1234567890123456', slots: { grid: '1234567890', product: '1234567890' } };
+  const on: AdConfig = { client: 'ca-pub-1234567890123456', slots: { home: '1234567890', grid: '1234567890', product: '1234567890' } };
   const long = Array.from({ length: 5000 }, (_, i) => i);
-  const withAds = interleaveAds(long, on);
+  const withAds = interleaveAds(long, '/search', on);
 
-  it('puts none in the first row, one after every interval, and none at the very end', () => {
+  it('puts none in the first row, one every 8 to 12 tiles, and none at the very end', () => {
     const firstAd = withAds.findIndex(isGridAd);
     // Never in the first row at any column count.
-    expect(firstAd).toBeGreaterThanOrEqual(WIDEST_ROW);
+    expect(firstAd).toBeGreaterThanOrEqual(Math.max(WIDEST_ROW, GRID_AD_FIRST_MIN));
     expect(isGridAd(withAds[withAds.length - 1])).toBe(false);
-    // From the first ad on, ads fall at an even spacing however far the list runs,
-    // so chunk boundaries (48 items) change nothing about where they are.
+    // From the first ad on, the gap between ads stays in bounds however far
+    // the list runs, and chunk boundaries (48 items) change nothing about where they are.
     const positions = withAds.flatMap((x, i) => (isGridAd(x) ? [i] : []));
+    expect(positions.length).toBeGreaterThan(400);
     for (let k = 1; k < positions.length; k++) {
-      expect(positions[k]! - positions[k - 1]!).toBe(GRID_AD_INTERVAL + 1);
+      const tilesBetween = positions[k]! - positions[k - 1]! - 1;
+      expect(tilesBetween).toBeGreaterThanOrEqual(GRID_AD_MIN_GAP);
+      expect(tilesBetween).toBeLessThanOrEqual(GRID_AD_MAX_GAP);
     }
     // The products keep their order, and none is lost or doubled.
     expect(withAds.filter((x) => !isGridAd(x))).toEqual(long);
   });
 
   it('adds nothing when the placement is off', () => {
-    const off: AdConfig = { client: on.client, slots: { grid: '', product: '' } };
-    expect(interleaveAds(long, off)).toBe(long);
+    const off: AdConfig = { client: on.client, slots: { home: '', grid: '', product: '' } };
+    expect(interleaveAds(long, '/search', off)).toBe(long);
   });
 });
 

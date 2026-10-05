@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { headFor, shopsPhrase, SITE_URL, type HeadInput } from '../demo/head.js';
+import { headFor, shopsPhrase, withPreviewNoindex, SITE_URL, type HeadInput } from '../demo/head.js';
 import { matchRoute, type RouteName } from '../demo/router.js';
 
 const route = (name: RouteName, param = '', query: Record<string, string> = {}) => ({ name, param, query });
@@ -293,5 +293,30 @@ describe('fixed-route titles name the page, and match what the page shows', () =
     expect(description).toContain("brand’s own price");
     expect(description).not.toMatch(/history/i);
     expect(description.length).toBeLessThanOrEqual(160);
+  });
+});
+
+/** The ad layout preview (`?adpreview=1`, demo/ads.ts) is for the owner's eyes, never a search engine's. */
+describe('the ad layout preview', () => {
+  it('marks every page noindex while it is on, and changes nothing while it is off', () => {
+    for (const name of ['home', 'search', 'brands', 'deals', 'fragrance'] as RouteName[]) {
+      const t = tags({ route: route(name, name === 'fragrance' ? 'ean-123' : '', { adpreview: '1' }), leafName: 'X' });
+      expect(withPreviewNoindex(t, true).noindex).toBe(true);
+      expect(withPreviewNoindex(t, false)).toBe(t);
+    }
+  });
+
+  it('keeps the canonical address free of the parameter', () => {
+    for (const q of [{ adpreview: '1' }, { q: 'dior', adpreview: '1' }]) {
+      const t = withPreviewNoindex(tags({ route: route('search', '', q) }), true);
+      expect(t.canonical).toBe(`${SITE_URL}/search`);
+      expect(t.canonical).not.toContain('adpreview');
+    }
+    expect(withPreviewNoindex(tags({ route: route('home', '', { adpreview: '1' }) }), true).canonical).toBe(`${SITE_URL}/`);
+  });
+
+  it('is applied where the page head is written', () => {
+    const app = readFileSync(new URL('../demo/app.ts', import.meta.url), 'utf8');
+    expect(app).toContain('applyHead(withPreviewNoindex(headFor(headInputForState()), adPreviewOn()));');
   });
 });
