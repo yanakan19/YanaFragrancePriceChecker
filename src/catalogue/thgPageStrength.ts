@@ -2,6 +2,7 @@ import { ML_SIZE_RE, OZ_SIZE_RE } from './fragranceId.js';
 import { CONCENTRATION_NOT_STATED, concentration } from './productName.js';
 import { isGiftSet } from './giftSet.js';
 import { titleWithPageStrength } from './productPageStrength.js';
+import { declinesStrengthWords } from './unstatedStrengthEvidence.js';
 import type { RawListing } from './types.js';
 
 /**
@@ -229,6 +230,8 @@ export function titleWithThgPageStrength(
   const rawTitle = listing.rawTitle;
   if (concentration(rawTitle) !== CONCENTRATION_NOT_STATED) return rawTitle;
   if (looksLikeSeveralProducts(rawTitle)) return rawTitle;
+  // A house that says it uses no strength words (Commodity) gets none from a shop's copy.
+  if (declinesStrengthWords(listing)) return rawTitle;
   if (isGiftSet({ rawTitle, retailerId, productType: listing.productType ?? null, description: listing.description ?? null, rawBrand: listing.rawBrand })) {
     return rawTitle;
   }

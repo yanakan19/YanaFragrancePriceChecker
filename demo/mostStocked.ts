@@ -2,7 +2,7 @@ import type { DemoFragrance } from './data.js';
 
 /**
  * Who may be ranked in the home page's Most stocked list: the front page rail
- * and the capped list behind See Top 50. Kept out of demo/app.ts so a test
+ * and the full list behind See All. Kept out of demo/app.ts so a test
  * can hold the rule to the real catalogue (tests/mostStocked.test.ts).
  *
  * Two things are left out, and neither is hidden anywhere else: each keeps
@@ -23,7 +23,8 @@ export function rankedInMostStocked(f: Pick<DemoFragrance, 'concentration' | 'gi
  * The front page rail: the most stocked bottle of each of the `n` most
  * stocked brands. Owner feedback, 2026-10-01: ranked straight, 7 of the 12
  * were French Avenue and 3 were Afnan, which read as an advert for two
- * brands. The full, unmixed ranking is still one tap away under See Top 50.
+ * brands. The full, unmixed ranking is still one tap away under See All, and it has no
+ * end: it loads on as the reader scrolls.
  */
 export function mostStockedRail<T extends Pick<DemoFragrance, 'brand' | 'concentration' | 'giftSet'>>(
   byPopularity: readonly T[],

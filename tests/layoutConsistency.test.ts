@@ -27,7 +27,7 @@ const built = existsSync(resolve(root, 'demo/index.html'));
 const engine = process.env.LAYOUT_BROWSER === 'webkit' ? 'webkit' : 'chromium';
 
 const LIST_PAGES = ['/search', '/deals', '/brands/lattafa', '/retailers/fragrance-click', '/notes/vanilla'];
-const OTHER_PAGES = ['/', '/brands', '/notes', '/retailers', '/fragrance/ean-6290360375687', '/settings', '/account', '/legal/privacy'];
+const OTHER_PAGES = ['/', '/brands', '/notes', '/retailers', '/fragrance/ean-6290360375687', '/settings', '/suggestions', '/account', '/legal/privacy'];
 
 const CONTEXTS: Record<'phone' | 'desktop', BrowserContextOptions> =
   engine === 'webkit'

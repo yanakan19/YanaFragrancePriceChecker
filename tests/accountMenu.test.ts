@@ -25,25 +25,32 @@ const labels = (items: { label: string }[]) => items.map((i) => i.label);
 describe('the account menu', () => {
   it('offers the signed in items, with the wishlist count once it is known', () => {
     expect(labels(accountMenuItems(signedIn, 3))).toEqual([
-      'View My Profile', 'View My Wishlist (3)', 'My Notifications', 'Settings', 'Sign Out',
+      'View My Profile', 'View My Wishlist (3)', 'My Notifications', 'Settings', 'Suggestions', 'Sign Out',
     ]);
     // Before the wishlist has loaded the count is left off, never shown as 0.
     expect(labels(accountMenuItems(signedIn, null))).toContain('View My Wishlist');
     expect(labels(accountMenuItems(signedIn, 0))).toContain('View My Wishlist (0)');
   });
 
-  it('offers sign in, create an account and settings when signed out', () => {
-    expect(labels(accountMenuItems(signedOut, null))).toEqual(['Sign In', 'Create an Account', 'Settings']);
-    expect(accountMenuItems(signedOut, null).map((i) => i.action)).toEqual(['signIn', 'signUp', 'settings']);
+  it('offers sign in, create an account, settings and suggestions when signed out', () => {
+    expect(labels(accountMenuItems(signedOut, null))).toEqual(['Sign In', 'Create an Account', 'Settings', 'Suggestions']);
+    expect(accountMenuItems(signedOut, null).map((i) => i.action)).toEqual(['signIn', 'signUp', 'settings', 'suggestions']);
   });
 
-  it('offers only Settings while loading or when accounts are not set up', () => {
-    expect(labels(accountMenuItems(loading, null))).toEqual(['Settings']);
-    expect(labels(accountMenuItems(unconfigured, null))).toEqual(['Settings']);
+  it('offers only Settings and Suggestions while loading or when accounts are not set up', () => {
+    expect(labels(accountMenuItems(loading, null))).toEqual(['Settings', 'Suggestions']);
+    expect(labels(accountMenuItems(unconfigured, null))).toEqual(['Settings', 'Suggestions']);
   });
 
   it('sends an unverified account to verify, with a way to sign out of its session', () => {
-    expect(labels(accountMenuItems(verify, null))).toEqual(['Verify Your Email', 'Settings', 'Sign Out']);
+    expect(labels(accountMenuItems(verify, null))).toEqual(['Verify Your Email', 'Settings', 'Suggestions', 'Sign Out']);
+  });
+
+  it('puts Suggestions directly under Settings in every menu, since anyone can suggest', () => {
+    for (const s of [signedIn, signedOut, loading, unconfigured, verify]) {
+      const l = labels(accountMenuItems(s, null));
+      expect(l.indexOf('Suggestions'), s.kind).toBe(l.indexOf('Settings') + 1);
+    }
   });
 
   it('shows the first letter of the email once signed in, and an icon otherwise', () => {
@@ -120,8 +127,8 @@ describe('the wishlist sort', () => {
     { name: 'C', addedAt: '2026-10-02T00:00:00Z', priceGbp: 20 },
   ];
 
-  it('offers Recently Saved and Cheapest, and no drop it cannot measure', () => {
-    expect(WISHLIST_SORTS.map((s) => s.label)).toEqual(['Recently Saved', 'Cheapest']);
+  it('offers Newest to Oldest Saved and Lowest to Highest Price, and no drop it cannot measure', () => {
+    expect(WISHLIST_SORTS.map((s) => s.label)).toEqual(['Newest to Oldest Saved', 'Lowest to Highest Price']);
   });
 
   it('puts the newest save first', () => {

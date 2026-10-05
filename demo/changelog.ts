@@ -17,6 +17,85 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.75.0',
+    date: '5 Oct 2026',
+    title: 'A cleaner Notes list with Z to A',
+    points: [
+      'Notes can now be sorted from Z to A',
+      'The extra headings above the list are gone',
+      'Layer filters use the same chips as note pages',
+    ],
+  },
+  {
+    version: 'v3.74.0',
+    date: '5 Oct 2026',
+    title: 'Every sort now says Sort By',
+    points: [
+      'Each sort reads Sort By, then its order',
+      'Best to Worst Saving, Highest to Lowest Price',
+      'The wishlist and Explore sorts follow suit',
+    ],
+  },
+  {
+    version: 'v3.73.0',
+    date: '5 Oct 2026',
+    title: 'Logos for 41 more fragrance houses',
+    points: [
+      'Brand pages show the house logo from its own site',
+      'Every logo was checked by eye before it went in',
+      'Houses with no usable logo keep their initials',
+    ],
+  },
+  {
+    version: 'v3.72.0',
+    date: '4 Oct 2026',
+    title: 'Suggestions moved to the account menu',
+    points: [
+      'Got an Idea is gone from the home page',
+      'Suggestions sits under Settings for everyone',
+      'It opens the same form on its own page',
+    ],
+  },
+  {
+    version: 'v3.71.0',
+    date: '4 Oct 2026',
+    title: 'Lists now keep going as you scroll',
+    points: [
+      'See All opens every fragrance, most stocked first',
+      'Sorting and filters now cover the whole list',
+      'Long lists stay quick on a phone',
+    ],
+  },
+  {
+    version: 'v3.70.0',
+    date: '4 Oct 2026',
+    title: 'Logos for eight more shops',
+    points: [
+      'Four now show their logo beside their prices',
+      'Four wordmarks show on the shop page',
+      'Manchester Ouds shows its name in plain type',
+    ],
+  },
+  {
+    version: 'v3.69.0',
+    date: '4 Oct 2026',
+    title: 'Trustpilot links on more shop pages',
+    points: [
+      '11 more shops link to their Trustpilot page',
+      'Each address was checked by hand',
+    ],
+  },
+  {
+    version: 'v3.68.0',
+    date: '4 Oct 2026',
+    title: 'Ten shops taken off the site for now',
+    points: [
+      'Their prices, pages and deals are gone',
+      '115 offers and 62 bottles no longer listed',
+      'The site now covers 42 UK shops',
+    ],
+  },
+  {
     version: 'v3.67.0',
     date: '4 Oct 2026',
     title: 'Most Stocked is easier to browse',
@@ -437,7 +516,7 @@ export const CHANGELOG: ChangelogEntry[] = [
     title: 'Better photos and a missing shop found',
     points: [
       'Brand photos fill 656 empty picture spaces',
-      'Riiffs Perfumes listings now show up',
+      'One more shop\'s listings now show up',
       'Three Avon perfumes no longer shown as one',
     ],
   },
@@ -478,7 +557,7 @@ export const CHANGELOG: ChangelogEntry[] = [
     points: [
       'Each fragrance links to its brand and Fragrantica',
       'Brands spelt two ways now merged into one',
-      'Zara now shows real prices',
+      'One more shop now shows real prices',
     ],
   },
   {
@@ -488,7 +567,7 @@ export const CHANGELOG: ChangelogEntry[] = [
     points: [
       "Today's Deals has its own tab",
       'Sort results, including by bottle size',
-      'New shops: Avon, Riiffs, Perfumeo, FragranceHub',
+      'Four new shops, including Avon and Perfumeo',
     ],
   },
   {

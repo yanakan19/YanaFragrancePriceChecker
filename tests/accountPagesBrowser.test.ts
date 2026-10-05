@@ -147,7 +147,7 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
           await page.click('#account-btn');
           expect(await page.getAttribute('#account-btn', 'aria-expanded')).toBe('true');
           expect(await page.isVisible('#account-menu')).toBe(true);
-          expect(await menuLabels(page)).toEqual(['Sign In', 'Create an Account', 'Settings']);
+          expect(await menuLabels(page)).toEqual(['Sign In', 'Create an Account', 'Settings', 'Suggestions']);
           const sheet = (await page.evaluate(`getComputedStyle(document.querySelector('#account-pop')).position`)) as string;
           expect(sheet).toBe(width <= 600 ? 'fixed' : 'absolute');
           const pop = (await page.evaluate(`(() => {
@@ -184,7 +184,7 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
           await page.keyboard.press('ArrowDown');
           expect(await focused()).toBe('Create an Account');
           await page.keyboard.press('End');
-          expect(await focused()).toBe('Settings');
+          expect(await focused()).toBe('Suggestions');
           await page.keyboard.press('ArrowDown');
           expect(await focused()).toBe('Sign In');
           await page.keyboard.press('Escape');
@@ -195,6 +195,8 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
           await page.keyboard.press('ArrowDown');
           await page.keyboard.press('Tab');
           expect(await focused()).toBe('Create an Account');
+          // Settings, then Suggestions, then out of the menu.
+          await page.keyboard.press('Tab');
           await page.keyboard.press('Tab');
           await page.keyboard.press('Tab');
           expect(await page.getAttribute('#account-btn', 'aria-expanded'), 'tabbing out closes it').toBe('false');
@@ -213,13 +215,14 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
       expect((await page.textContent('#account-btn'))?.trim()).toBe('R');
       expect(await page.getAttribute('#account-btn', 'aria-label')).toBe('Account menu, signed in as reader@example.com');
       await page.click('#account-btn');
-      expect(await menuLabels(page)).toEqual(['View My Profile', 'View My Wishlist (2)', 'My Notifications', 'Settings', 'Sign Out']);
+      expect(await menuLabels(page)).toEqual(['View My Profile', 'View My Wishlist (2)', 'My Notifications', 'Settings', 'Suggestions', 'Sign Out']);
 
       const visits: [string, string, string, string][] = [
         ['View My Wishlist (2)', '/account/wishlist', 'PriceSniffs: My Wishlist', 'My Wishlist'],
         ['My Notifications', '/account/notifications', 'PriceSniffs: My Notifications', 'My Notifications'],
         ['View My Profile', '/account', 'PriceSniffs: My Profile', 'My Profile'],
         ['Settings', '/settings', 'PriceSniffs: Settings', 'Settings'],
+        ['Suggestions', '/suggestions', 'PriceSniffs: Suggestions', 'Suggestions'],
       ];
       for (const [label, path, title, h1] of visits) {
         if (!(await page.isVisible('#account-menu'))) await page.click('#account-btn');
@@ -287,7 +290,7 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
       }))`) as Promise<{ name: string; price: string; art: boolean; saved: boolean; target: string | null }[]>;
       const first = await rows();
       expect(first).toHaveLength(2);
-      // Recently Saved: the 3 Oct save before the 1 Oct one.
+      // Newest to Oldest Saved: the 3 Oct save before the 1 Oct one.
       expect(first[1]!.target).toBe('30.00');
       for (const r of first) {
         expect(r.art).toBe(true);
@@ -445,7 +448,7 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
           expect(await axe(page), `${width} axe`).toEqual([]);
           // The menu still opens from a photo button.
           await page.click('#account-btn');
-          expect(await menuLabels(page)).toEqual(['View My Profile', 'View My Wishlist (2)', 'My Notifications', 'Settings', 'Sign Out']);
+          expect(await menuLabels(page)).toEqual(['View My Profile', 'View My Wishlist (2)', 'My Notifications', 'Settings', 'Suggestions', 'Sign Out']);
         } finally {
           await context.close();
         }

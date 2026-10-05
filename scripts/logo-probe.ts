@@ -4,7 +4,9 @@
  *   npm run logo:probe                              # all 38 enabled retailers + top 100 brands
  *   npm run logo:probe -- --retailer=justmylook     # one retailer
  *   npm run logo:probe -- --brand=armaf             # one brand (BRAND_SITES key or display name)
+ *   npm run logo:probe -- --brands=al-haramain,rabanne   # several brands (comma separated BRAND_SITES keys or display names)
  *   npm run logo:probe -- --top=30                  # top N brands by product count with a BRAND_SITES entry
+ *   npm run logo:probe -- --no-social               # skip og:image / twitter:image candidates (banners, never an accepted logo)
  *   npm run logo:probe -- --limit=5                 # first N targets, for a quick look
  *   npm run logo:probe -- --require-all-ok          # exit 1 if any target 4xx/5xx'd outright
  *
@@ -72,6 +74,12 @@ function arg(name: string): string | null {
 
 const onlyRetailer = arg('retailer');
 const onlyBrand = arg('brand');
+/** --brands=a,b,c: several brands in one run, one report. Names or keys. */
+const onlyBrands = arg('brands');
+/** --no-social: leave og:image / twitter:image alone. For a brand pass they are
+ *  never an accepted logo (only Organization.logo, manifest icons, the apple
+ *  touch icon or the favicon are), so there is no reason to ask for them. */
+const noSocial = process.argv.includes('--no-social');
 const topN = Number.parseInt(arg('top') ?? '0', 10);
 const limitArg = Number.parseInt(arg('limit') ?? '0', 10);
 const requireAllOk = process.argv.includes('--require-all-ok');
@@ -110,6 +118,21 @@ function brandTargets(): Target[] {
   for (const e of CATALOGUE) counts.set(e.brand, (counts.get(e.brand) ?? 0) + 1);
   const ranked = [...counts.entries()].sort((a, b) => b[1] - a[1]);
 
+  if (onlyBrands) {
+    // Brands live under their catalogue display name where there is one, so
+    // the report ids match what a person sees; a name not in BRAND_SITES is
+    // skipped (no homepage on record, nothing to ask), never guessed.
+    const out: Target[] = [];
+    for (const name of onlyBrands.split(',').map((x) => x.trim()).filter(Boolean)) {
+      const key = normalizeBrand(name);
+      const url = BRAND_SITES[key];
+      if (!url) continue;
+      const display = ranked.find(([b]) => normalizeBrand(b) === key)?.[0] ?? name;
+      out.push({ id: display, kind: 'brand', homepage: url });
+    }
+    return out;
+  }
+
   if (onlyBrand) {
     const key = normalizeBrand(onlyBrand);
     const url = BRAND_SITES[key];
@@ -127,7 +150,7 @@ function brandTargets(): Target[] {
 
 let targets: Target[] = onlyRetailer
   ? retailerTargets()
-  : onlyBrand
+  : onlyBrand || onlyBrands
     ? brandTargets()
     : [...retailerTargets(), ...brandTargets()];
 
@@ -165,6 +188,11 @@ interface TargetReport {
 
 const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 const lastRequestAtHost = new Map<string, number>();
+/** Crawl-delay a host's robots.txt asks of us, in ms, where it states one. */
+const crawlDelayMsByHost = new Map<string, number>();
+/** A Crawl-delay longer than this is read as "do not bother this site from a
+ *  probe"; the origin is skipped rather than made to wait minutes per image. */
+const MAX_CRAWL_DELAY_S = 30;
 
 /** One request per host per 2s — an unthrottled sweep in the research behind
  *  docs/LOGOS-PLAN.md produced eight false 429s that a throttled retry
@@ -178,7 +206,7 @@ async function politeFetch(url: string): Promise<{ status: number; body: ArrayBu
   }
   const last = lastRequestAtHost.get(host);
   if (last !== undefined) {
-    const wait = 2000 - (Date.now() - last);
+    const wait = Math.max(2000, crawlDelayMsByHost.get(host) ?? 0) - (Date.now() - last);
     if (wait > 0) await sleep(wait);
   }
   lastRequestAtHost.set(host, Date.now());
@@ -210,17 +238,27 @@ async function politeFetch(url: string): Promise<{ status: number; body: ArrayBu
  * us", not as an empty file, so nothing further is fetched from that origin: a
  * block is respected, never worked around.
  */
-const robotsByOrigin = new Map<string, { blocked: boolean; rules: RobotsRules }>();
+const robotsByOrigin = new Map<string, { blocked: boolean; rules: RobotsRules; status: number }>();
 
-async function robotsFor(url: string): Promise<{ blocked: boolean; rules: RobotsRules }> {
+async function robotsFor(url: string): Promise<{ blocked: boolean; rules: RobotsRules; status: number }> {
   const origin = new URL(url).origin;
   const cached = robotsByOrigin.get(origin);
   if (cached) return cached;
   const res = await politeFetch(`${origin}/robots.txt`);
+  const parsed = res.ok ? parseRobots(Buffer.from(res.body).toString('utf8'), BOT_ROBOTS_TOKEN) : NO_RESTRICTIONS;
+  const delay = parsed.crawlDelaySeconds;
+  // RFC 9309 §2.3.1.4: a robots.txt that cannot be reached because the server
+  // failed (5xx, 429, a dropped connection) means "assume complete disallow".
+  // 401/403 is read the same way here (stricter than the RFC, deliberately: a
+  // wall is a refusal). Only a 404-style absence means "no restrictions".
   const rules = {
-    blocked: res.status === 401 || res.status === 403,
-    rules: res.ok ? parseRobots(Buffer.from(res.body).toString('utf8'), BOT_ROBOTS_TOKEN) : NO_RESTRICTIONS,
+    blocked:
+      res.status === 401 || res.status === 403 || res.status === 429 || res.status >= 500 || res.status === 0 ||
+      (delay !== null && delay > MAX_CRAWL_DELAY_S),
+    rules: parsed,
+    status: res.status,
   };
+  if (delay !== null && delay > 0) crawlDelayMsByHost.set(new URL(url).host, delay * 1000);
   robotsByOrigin.set(origin, rules);
   return rules;
 }
@@ -486,7 +524,11 @@ async function measureCandidate(c: Candidate, targetId: string): Promise<Measure
 
 async function probeTarget(target: Target): Promise<TargetReport> {
   if (!(await robotsAllows(target.homepage))) {
-    return { target, homepageStatus: 0, homepageError: 'robots.txt refuses this page, or refuses us outright', candidates: [] };
+    const r = await robotsFor(target.homepage);
+    const why = r.blocked
+      ? `robots.txt answered ${r.status || 'no response'} or states a Crawl-delay over ${MAX_CRAWL_DELAY_S}s: nothing fetched from this origin`
+      : 'robots.txt disallows the homepage path for PriceSniffsBot';
+    return { target, homepageStatus: 0, homepageError: why, candidates: [] };
   }
   const res = await politeFetch(target.homepage);
   if (!res.ok || res.body.byteLength === 0) {
@@ -494,7 +536,7 @@ async function probeTarget(target: Target): Promise<TargetReport> {
   }
   const html = Buffer.from(res.body).toString('utf8');
   const base = target.homepage;
-  const candidates = [...iconLinks(html, base), ...jsonLdLogo(html, base), ...socialImages(html, base)];
+  const candidates = [...iconLinks(html, base), ...jsonLdLogo(html, base), ...(noSocial ? [] : socialImages(html, base))];
   for (const m of manifestLinks(html, base)) candidates.push(...(await manifestIcons(m)));
   // Dedupe by resolved URL, keeping the first relation seen.
   const seen = new Map<string, Candidate>();

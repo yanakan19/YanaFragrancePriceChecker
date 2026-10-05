@@ -289,5 +289,28 @@ export function evidencedStrength(l: { rawTitle: string; rawBrand?: string | nul
   return null;
 }
 
+/**
+ * Houses whose own site says they do not use strength words, so a strength
+ * word a shop puts on one of their bottles is the shop's, not the house's.
+ * Commodity's FAQ (read 2026-10-04, see the header): "We've moved away from
+ * these terms because they simply don't apply".
+ *
+ * Where a shop's strength comes from its page copy (THG's template, read by
+ * thgPageStrength.ts), the word cannot be told from the shop's own habit, so
+ * for these houses it is neither read from the page nor trusted from the
+ * stored title: see isFragrance, which asks `declinesStrengthWords`.
+ */
+const HOUSES_WITHOUT_STRENGTH: readonly string[] = ['Commodity'];
+
+/** Whether the listing is a bottle from a house that says it uses no strength words. */
+export function declinesStrengthWords(l: { rawTitle: string; rawBrand?: string | null }): boolean {
+  const brand = l.rawBrand ? squash(l.rawBrand) : '';
+  const title = squash(l.rawTitle);
+  return HOUSES_WITHOUT_STRENGTH.some((h) => {
+    const s = squash(h);
+    return brand === s || title.startsWith(s);
+  });
+}
+
 /** The brands that have an entry, for the finder script. */
 export const EVIDENCED_BRANDS: ReadonlySet<string> = BRAND_SQUASHED;

@@ -10,7 +10,7 @@ import type { Retailer, SitemapRoute } from '../src/types/retailer.js';
  * The pinned sitemap routes (Retailer.sitemapRoute) and the parser shapes
  * built alongside them on 2026-10-03: a ProductGroup whose variants each name
  * their own size (Space NK, Parfumdreams), offers paired with a size list
- * (John Lewis), schema.org microdata (Shy Mimosa, Niche Beauty), the GBP
+ * (John Lewis), schema.org microdata (two niche shops), the GBP
  * check, and Beauty Bay's product API.
  */
 
@@ -132,10 +132,10 @@ describe('crawlViaSitemap along a pinned route', () => {
     const page = 'https://www.marksandspencer.com/white-musk-100ml/p/hbp22184550';
     expect(cleanListingUrl(`${page}?extid=af_Sub+Networks_Skimlinks&awc=1402_1`, page)).toBe(page);
     // A size fragment survives; a different path, or a page whose own address
-    // has a query (Shy Mimosa), is left exactly as given.
+    // has a query, is left exactly as given.
     expect(cleanListingUrl(`${page}?gclid=x#variation=2`, page)).toBe(`${page}#variation=2`);
     expect(cleanListingUrl('https://www.marksandspencer.com/other/p/1?a=1', page)).toBe('https://www.marksandspencer.com/other/p/1?a=1');
-    const q = 'https://www.shymimosa.co.uk/shop/products/view.asp?brand=A&name=B';
+    const q = 'https://shop.example/shop/products/view.asp?brand=A&name=B';
     expect(cleanListingUrl(q, q)).toBe(q);
   });
 
@@ -266,7 +266,7 @@ describe('parseListings: the currency a page states', () => {
 });
 
 describe('parseListings: schema.org microdata', () => {
-  const shyMimosa =
+  const microdataPage =
     '<body><div itemscope itemtype="http://schema.org/Product">' +
     '<h2 class="product-title"><span itemprop="name">Chypre Shot</span></h2>' +
     '<h4>Extrait de Parfum | <a href="/b"><span itemprop="brand">Olfactive Studio</span></a></h4>' +
@@ -274,10 +274,10 @@ describe('parseListings: schema.org microdata', () => {
     '<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">' +
     '<div class="current"><span itemprop="priceCurrency" content="GBP">&pound;</span><span itemprop="price">195.00</span></div>' +
     '</div></div></body>';
-  const pageUrl = 'https://www.shymimosa.co.uk/shop/products/view.asp?brand=Olfactive+Studio&name=Chypre+Shot';
+  const pageUrl = 'https://shop.example/shop/products/view.asp?brand=Olfactive+Studio&name=Chypre+Shot';
 
   it('reads a Product and its Offer, keyed by the query string when it has no sku', () => {
-    const [l] = parseListings(shyMimosa, { sectionId: 's', pageUrl, microdata: true, requireGbp: true });
+    const [l] = parseListings(microdataPage, { sectionId: 's', pageUrl, microdata: true, requireGbp: true });
     expect(l).toMatchObject({
       rawTitle: 'Chypre Shot', rawBrand: 'Olfactive Studio', priceGbp: 195,
       retailerSku: 'view.asp?brand=Olfactive+Studio&name=Chypre+Shot', url: pageUrl,
@@ -285,7 +285,7 @@ describe('parseListings: schema.org microdata', () => {
   });
 
   it('is not read unless asked for', () => {
-    expect(parseListings(shyMimosa, { sectionId: 's', pageUrl })).toEqual([]);
+    expect(parseListings(microdataPage, { sectionId: 's', pageUrl })).toEqual([]);
   });
 
   it('takes the printed £ beside a price held in content as its currency (Niche Beauty)', () => {

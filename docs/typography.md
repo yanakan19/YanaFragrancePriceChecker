@@ -107,7 +107,6 @@ the file — see the inconsistencies section below.
 | `.gone-head` (:1155) | "No longer stocked" divider above delisted offers on a detail page | 11px | 700 | .11em | yes |
 | `.sheet-title` (:1346) | Title inside the brand-filter bottom sheet | 11px | 700 | .11em | yes |
 | `.seg-label` (:1250) | Label above a segmented control in Settings (e.g. "Appearance") | 11px | 700 | .1em | yes |
-| `.section-label` (:905) | Generic section eyebrow, e.g. above the notes-groups row | 11px | 700 | .08em | yes |
 | `.note-layer-name` (:900) | "TOP / HEART / BASE" pyramid label on the Notes page | 11px | 700 | .08em | yes |
 | `.facet-group legend` (:1014) | Legend above a facet-pill group (e.g. "Concentration") in the filters panel | 10.5px | 700 | .07em | yes |
 | `.price-box-label` (:1094) | "LOWEST PRICE" label above the big price on a detail page | 10.5px | 700 | .1em | yes |
@@ -185,7 +184,7 @@ role (§5), and no two of them fully agree:
 
 - **Font sizes in play:** 9.5px (`.tag`), 10px (`.phead-brand`, `.from`),
   10.5px (`.facet-group legend`, `.price-box-label`, `.tile-price .off`),
-  11px (`.gone-head`, `.sheet-title`, `.seg-label`, `.section-label`,
+  11px (`.gone-head`, `.sheet-title`, `.seg-label`,
   `.note-layer-name`), 11.5px (`.hero-by`, `.section-head h3`).
 - **Letter-spacing in play:** .05em, .06em, .07em, .08em, .1em, .11em,
   .12em, .16em — eight different values for what is meant to read as one

@@ -64,7 +64,10 @@ import { productArt, photoSrcAttrs, HOUSE_IMG_SIZES, RETRY_ORIGINAL, type ArtSiz
 import { AA_TEXT, contrastRatio, parseColour, type Rgba } from './contrast.js';
 import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './gender.js';
 import { GIFT_SET_BAND, volumeBandFor, volumeOptions, type VolumeBand } from './volumeBands.js';
-import { LIST_SORT_OPTIONS, sortFragrances, type BrowseSort, type ListSort } from './listSort.js';
+import {
+  BRAND_SORT_OPTIONS, BROWSE_SORT_OPTIONS, DEAL_SORT_OPTIONS, LIST_SORT_OPTIONS, NOTE_SORT_OPTIONS, SORT_LEAD,
+  sortFragrances, sortNotes, type BrowseSort, type ListSort, type NoteSort,
+} from './listSort.js';
 import {
   PER_ROW_CHOICES, PER_ROW_DEFAULT, clampPerRow, gridWidthFor, perRowChoicesFor,
 } from './tileDensity.js';
@@ -120,7 +123,7 @@ import { UNSUBSCRIBE_PARAM, unsubscribeMessage } from '../src/alerts/unsubscribe
 
 type View =
   | 'home' | 'deals' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about'
-  | 'settings' | 'account' | 'accountWishlist' | 'accountNotifications' | 'design' | 'notFound';
+  | 'settings' | 'suggestions' | 'account' | 'accountWishlist' | 'accountNotifications' | 'design' | 'notFound';
 /** The three pages behind the account menu, each with its own address. */
 const ACCOUNT_VIEWS: readonly View[] = ['account', 'accountWishlist', 'accountNotifications'];
 type AuthTab = 'signIn' | 'signUp';
@@ -130,7 +133,6 @@ type Layout = 'mobile' | 'desktop';
 type BrandSort = 'az' | 'za';
 type BrandFilter = RetailerTier | 'all';
 type DealSort = 'discount' | 'lowest' | 'highest';
-type NoteSort = 'common' | 'az';
 type NoteLayerFilter = NoteLayer | 'any';
 /** Sort for a fragrance list scoped to one note, brand or retailer. Same
  *  vocabulary as the rest of the app: alphabetical both ways (Brands),
@@ -446,10 +448,9 @@ const TIER_LABEL: Record<RetailerTier, string> = {
  * daily snapshots per product, which only began accumulating this month.
  * Inventing any of that would be exactly the thing this project refuses to do.
  */
-const TOP_N = 50;
 
 // Perfume oils and gift sets are kept out of the Most stocked list (the rail
-// and See Top 50); the rule and the rail itself live in demo/mostStocked.ts,
+// and the full list behind See All); the rule and the rail itself live in demo/mostStocked.ts,
 // where tests/mostStocked.test.ts holds them to the real catalogue.
 const POPULAR = mostStockedRail(BY_POPULARITY);
 
@@ -1057,9 +1058,10 @@ const ICON_CLOSE = icon('<path d="M6 6l12 12M18 6 6 18" stroke="currentColor" st
 const ICON_STOP = icon('<rect x="7" y="7" width="10" height="10" rx="1.6" fill="currentColor"/>');
 
 /** A labelled dropdown with its icon, used for every sort and filter control. */
-function control(id: string, label: string, ico: string, options: { value: string; label: string }[], current: string): string {
-  return `<label class="control">
+function control(id: string, label: string, ico: string, options: { value: string; label: string }[], current: string, lead = ''): string {
+  return `<label class="control${lead ? ' control-sort' : ''}">
     <span class="control-ico">${ico}</span>
+    ${lead ? `<span class="control-lead">${esc(lead)}</span>` : ''}
     <span class="sr">${esc(label)}</span>
     <select id="${id}" class="dropdown">
       ${options.map((o) => `<option value="${esc(o.value)}" ${o.value === current ? 'selected' : ''}>${esc(o.label)}</option>`).join('')}
@@ -1068,10 +1070,27 @@ function control(id: string, label: string, ico: string, options: { value: strin
   </label>`;
 }
 
+/**
+ * Every sort dropdown on the site is built here, so every one of them says
+ * "Sort By:" in the closed state and names both ends of its order (owner's
+ * rule, 2026-10-04).
+ *
+ * The words come from a fixed label inside the control's box, not from a
+ * prefix on each option: the native select, and the picker the OS draws for
+ * it (the wheel on iPhone Safari), then list only the orders themselves
+ * instead of repeating "Sort By:" on every row. The label is real text, so
+ * it also names the control for a screen reader: `subject` is the hidden half
+ * ("fragrances"), read after the visible "Sort By:", and nothing else says
+ * "sort", so it is never read twice.
+ */
+function sortControl(id: string, subject: string, ico: string, options: { value: string; label: string }[], current: string): string {
+  return control(id, subject, ico, options, current, SORT_LEAD);
+}
+
 /** The sort dropdown offered on a note, brand or retailer page. The
  *  comparator itself and the option list are in demo/listSort.ts. */
 function listSortControl(id: string, current: ListSort): string {
-  return control(id, 'Sort fragrances', ICON_SORT, LIST_SORT_OPTIONS, current);
+  return sortControl(id, 'Fragrances', ICON_SORT, LIST_SORT_OPTIONS, current);
 }
 
 /**
@@ -1083,10 +1102,7 @@ function listSortControl(id: string, current: ListSort): string {
  * they saw before it existed.
  */
 function browseSortControl(current: BrowseSort): string {
-  return control('browse-sort', 'Sort fragrances', ICON_SORT, [
-    { value: 'stocked', label: 'Most Stocked' },
-    ...LIST_SORT_OPTIONS,
-  ], current);
+  return sortControl('browse-sort', 'Fragrances', ICON_SORT, BROWSE_SORT_OPTIONS, current);
 }
 
 /* ── shared pieces ───────────────────────────────────────────────────────── */
@@ -1424,21 +1440,6 @@ function railEagerCount(): number {
 
 const MEDALS = ['gold', 'silver', 'bronze'] as const;
 
-/**
- * Microcopy cull, 2026-08-25 (docs/MICROCOPY-INVENTORY-2026-08-21.md row 5).
- *
- * This note used to open "Tell us what you would like to see." That sentence
- * asked for nothing the reader had not been asked for twice already: the
- * heading directly above it says "Got an idea?" and the first field is
- * labelled "Your suggestion". What is left is the half carrying a fact — that
- * Send hands the message to the reader's own email client rather than posting
- * it anywhere — which is not inferable from looking at the form, and which a
- * reader who expects a web form to submit somewhere is entitled to know
- * before they type into it.
- */
-const SUGGEST_NOTE =
-  'Send opens your own email app with your message ready to go. Nothing goes to a server of ours.';
-
 /** Built once: both inputs are fixed for the life of the bundle. */
 const MARQUEE = marqueeHtml(marqueePhrases(DEMO_FRAGRANCES.length, COVERAGE));
 
@@ -1476,10 +1477,8 @@ function homeView(): string {
       </ul>
     </section>
 
-    <!-- Update History first and "Got an idea?" last in the markup, so on a
-         phone, where the two stack, the suggestion box is the last thing on
-         the home page (owner request, 2026-10-03). On desktop the stylesheet
-         puts it back in the left column, where it has always been. -->
+    <!-- The suggestion form that used to sit beside this moved to its own
+         page, Suggestions in the account menu (owner request, 2026-10-04). -->
     <div class="bottom-split">
       <section class="updates-section">
         <h2 class="t-section">Update History</h2>
@@ -1506,29 +1505,6 @@ function homeView(): string {
           ).join('')}
         </ul>
       </section>
-
-      <section class="suggest-section">
-        <h2 class="t-section">Got an Idea?</h2>
-        <p class="panel-note t-body">${SUGGEST_NOTE}</p>
-        <form id="home-suggest-form" class="contact-form">
-          <label class="field">
-            <span>Your Suggestion</span>
-            <textarea id="home-suggest-body" rows="3" placeholder="What should we add or change?"></textarea>
-          </label>
-          <label class="field">
-            <span>Your Name <span class="dimmer">(optional)</span></span>
-            <input id="home-suggest-name" type="text" placeholder="So we know who to thank" />
-          </label>
-          <label class="field">
-            <span>Your Email <span class="dimmer">(optional, if you would like a reply)</span></span>
-            <input id="home-suggest-email" type="email" placeholder="you@example.com" />
-          </label>
-          <button type="submit" class="contact-send">Send</button>
-        </form>
-        <p class="form-privacy t-caption">We keep what you send only for as long as it takes to reply.
-          <button type="button" class="link-btn" data-page="privacy">Privacy Notice</button></p>
-        <p id="home-suggest-confirm" class="contact-confirm" hidden></p>
-      </section>
     </div>`;
 }
 
@@ -1541,7 +1517,7 @@ function homeView(): string {
  * demo/mostStocked.ts), so Gift Sets is not an option there at all. The one
  * way to have it chosen with no query is the old /gift-sets address, which
  * lands here with Size set to Gift Sets (applyRoute); that list is then every
- * gift set, not the top 50 with the sets taken out of it, so the list stops
+ * gift set, not the Most Stocked ranking with the sets taken out of it, so the list stops
  * being the Most Stocked one while the choice stands and comes back when it
  * is cleared.
  */
@@ -1572,16 +1548,14 @@ function visibleFragrances(): DemoFragrance[] {
 function browseView(): string {
   const filtered = visibleFragrances();
   const faceted = applyFacets(filtered);
-  // With no brand or query in play this is the leading list, which is capped:
-  // an 879 row wall is not a starting point anyone can use.
+  // No list on the site is capped (owner's decision, 2026-10-04). The leading
+  // list is every fragrance in the Most Stocked ranking, one per scent, and
+  // it loads a chunk at a time as the reader scrolls (chunked, below), so the
+  // first paint is one chunk however long the list is. Sort and filters work
+  // on the whole ranking: sorting by price lists the cheapest of all of them,
+  // not the cheapest of a first fifty.
   const isTop = isMostStockedList();
-  // The cap is applied *before* the chosen sort, deliberately. Sorting the
-  // whole catalogue by price and then taking 50 would show the fifty cheapest
-  // bottles on the site, which is a different page from the one this is; the
-  // cap picks the fifty most stocked, and the sort then arranges those fifty.
-  // On a search or a brand there is no cap and the distinction does not arise.
-  const capped = isTop ? faceted.slice(0, TOP_N) : faceted;
-  const list = state.browseSort === 'stocked' ? capped : sortFragrances(capped, state.browseSort);
+  const list = state.browseSort === 'stocked' ? faceted : sortFragrances(faceted, state.browseSort);
   const title =
     state.brand ??
     (state.query.trim() ? `Results for "${state.query.trim()}"` : isTop ? `Most stocked` : `All Fragrances`);
@@ -1596,8 +1570,8 @@ function browseView(): string {
              listed once, in its most stocked size. This shows how widely a fragrance is stocked, not how well
              it sells: we do not count views or purchases.</p>`
         : isTop
-          ? `<p class="panel-note t-body">The ${TOP_N} most stocked fragrances, in the order you chose. Oils are
-               not listed here, and each perfume is listed once.</p>`
+          ? `<p class="panel-note t-body">Every fragrance in the Most Stocked ranking, in the order you chose. Oils
+               are not listed here, and each perfume is listed once.</p>`
           : ''
     }
     ${listControls(browseSortControl(state.browseSort), facets(filtered))}
@@ -2205,15 +2179,15 @@ function wishlistListHtml(): string {
   const hasAnyChange = rows.some((r) => r.changeGbp !== null);
   const activeSort = effectiveWishlistSort(state.wishlistSort, hasAnyChange);
   const sorted = sortWishlist(rows, activeSort);
-  const sortControl = control(
-    'wishlist-sort', 'Sort', ICON_SORT,
+  const wishlistSortControl = sortControl(
+    'wishlist-sort', 'Saved Fragrances', ICON_SORT,
     wishlistSortsFor(hasAnyChange).map((s) => ({ value: s.id, label: s.label })),
     activeSort,
   );
   const hiddenCount = state.wishlistEntries.length - rows.length;
 
   return `
-    <div class="controls">${sortControl}</div>
+    <div class="controls">${wishlistSortControl}</div>
     <ul class="shop-list wishlist-list">
       ${sorted
         .map(
@@ -2849,10 +2823,7 @@ function brandsPanel(): string {
   );
 
   const controls = `<div class="controls">
-    ${control('brand-sort', 'Sort brands', ICON_SORT, [
-      { value: 'az', label: 'A to Z' },
-      { value: 'za', label: 'Z to A' },
-    ], state.brandSort)}
+    ${sortControl('brand-sort', 'Brands', ICON_SORT, BRAND_SORT_OPTIONS, state.brandSort)}
     ${control('brand-filter', 'Filter brands', ICON_FILTER, [
       { value: 'all', label: 'All Types' },
       ...(['designer', 'niche', 'mideast'] as const).map((t) => ({ value: t, label: TIER_LABEL[t] })),
@@ -2923,11 +2894,7 @@ function dealsPanel(): string {
   const filtered = sorted.filter((d) => passesFacets(d.fragrance, null));
 
   const controls = listControls(
-    control('deal-sort', 'Sort deals', ICON_RANK, [
-      { value: 'discount', label: 'Best Saving' },
-      { value: 'lowest', label: 'Lowest Price' },
-      { value: 'highest', label: 'Highest Price' },
-    ], state.dealSort),
+    sortControl('deal-sort', 'Deals', ICON_RANK, DEAL_SORT_OPTIONS, state.dealSort),
     facets(sorted.map((d) => d.fragrance)),
   );
 
@@ -3236,7 +3203,9 @@ function inStockAt(f: DemoFragrance, retailerId: string): boolean {
 
 function retailerView(): string {
   const r = getRetailer(state.retailerId);
-  if (!r) return exploreView();
+  // A switched off shop has no page (see the 'retailer' route): the Shops
+  // list is where a stale shop id lands.
+  if (!r || !r.enabled) return exploreView();
   const filtered = fragrancesAt(r.id);
   const list = sortFragrances(applyFacets(filtered), state.retailerDetailSort)
     .filter((f) => !state.retailerInStockOnly || inStockAt(f, r.id));
@@ -3309,7 +3278,10 @@ function brandView(): string {
   // This house's own UK shop, when we carry one. It is kept out of the
   // Retailers directory (see retailersPanel) precisely so it can surface
   // here instead, where "buy direct from the brand" is what it means.
-  const ownShop = RETAILERS.find((r) => r.singleBrandOnly && !cannotCarryBrand(r, b));
+  // Switched off shops are left out: a house's own shop that is off the site
+  // gets no sentence here, so nothing on the page says it is checked or
+  // compared.
+  const ownShop = RETAILERS.find((r) => r.enabled && r.singleBrandOnly && !cannotCarryBrand(r, b));
 
   // Sort and facets, no tier filter: every fragrance from one brand shares
   // that brand's tier (brandTierFor is a function of the brand name alone),
@@ -3397,15 +3369,10 @@ function notesPanel(): string {
   const filtered = NOTE_INDEX.filter(
     (n) => state.noteLayer === 'any' || n.layers.has(state.noteLayer),
   );
-  const list = [...filtered].sort((a, b) =>
-    state.noteSort === 'az' ? a.name.localeCompare(b.name) : b.count - a.count || a.name.localeCompare(b.name),
-  );
+  const list = sortNotes(filtered, state.noteSort);
 
   const controls = `<div class="controls">
-    ${control('note-sort', 'Sort notes', ICON_SORT, [
-      { value: 'common', label: 'Most Used' },
-      { value: 'az', label: 'A to Z' },
-    ], state.noteSort)}
+    ${sortControl('note-sort', 'Notes', ICON_SORT, NOTE_SORT_OPTIONS, state.noteSort)}
     ${control('note-layer', 'Filter notes', ICON_FILTER, [
       { value: 'any', label: 'Any Layer' },
       { value: 'top', label: 'Top Notes' },
@@ -3414,45 +3381,44 @@ function notesPanel(): string {
     ], state.noteLayer)}
   </div>`;
 
-  // "Fragrance Note Groups" as the three layers the sourced note data
-  // genuinely carries — top, middle, base — rather than a scent-family
-  // taxonomy (floral, woody, gourmand...) this dataset has no real source
-  // for. Tapping one filters the alphabetical list below exactly like the
-  // dropdown above does; tapping the active one again clears it. "All"
-  // is the same clear, offered as its own card rather than only reachable
-  // by deselecting — the combined view every note actually starts on.
-  const groupCard = (id: NoteLayerFilter, label: string) => {
+  // The three layers the sourced note data genuinely carries (top, middle,
+  // base), rather than a scent family taxonomy (floral, woody, gourmand...)
+  // this dataset has no real source for, drawn as the same chips a note's own
+  // page uses for its layers. Tapping one filters the list below exactly like
+  // the dropdown above does; tapping the active one again clears it. "All" is
+  // the same clear, offered as its own chip rather than only reachable by
+  // deselecting: the combined view every note actually starts on. No heading
+  // sits over them, because each chip says what it is.
+  const layerChip = (id: NoteLayerFilter, label: string) => {
     const count = id === 'any' ? NOTE_INDEX.length : NOTE_INDEX.filter((n) => n.layers.has(id)).length;
-    return `<button class="note-group-card${state.noteLayer === id ? ' on' : ''}" data-note-layer="${id}">
-      <span class="note-group-count">${count}</span>
-      <span class="note-group-label">${label} Notes</span>
-    </button>`;
+    const on = state.noteLayer === id;
+    return `<button class="note-chip${on ? ' on' : ''}" data-note-layer="${id}" aria-pressed="${on}">${label} Notes &middot; ${count}</button>`;
   };
-  const groups = `<div class="notes-groups">
-    <p class="section-label t-eyebrow">Note Groups</p>
-    <div class="notes-groups-row">
-      ${groupCard('any', 'All')}
-      ${groupCard('top', 'Top')}
-      ${groupCard('middle', 'Middle')}
-      ${groupCard('base', 'Base')}
-    </div>
+  const chips = `<div class="note-chips note-chips-layers" role="group" aria-label="Note layers">
+    ${layerChip('any', 'All')}
+    ${layerChip('top', 'Top')}
+    ${layerChip('middle', 'Middle')}
+    ${layerChip('base', 'Base')}
   </div>`;
 
   if (list.length === 0) {
-    return `${groups}${controls}<p class="empty-note t-body">No notes recorded for that layer yet.</p>`;
+    return `<div class="page-head"><h1 class="t-page">Notes</h1><span class="count t-count">0</span></div>
+    ${controls}${chips}<p class="empty-note t-body">No notes recorded for that layer yet.</p>`;
   }
 
-  // The same row-list shape as Brands, including the alphabetical dividers —
-  // but only under the A-to-Z sort. Under "most common" the list is ranked by
-  // count, not by letter, so a divider between two counts would land on
-  // whichever letter their names happen to start with and break up entries
-  // that belong together in the ranking. The scrubber follows the same rule:
-  // it only makes sense to jump to a letter the list is actually ordered by.
+  // The same row-list shape as Brands, including the alphabetical dividers,
+  // but only under the two alphabetical sorts. Under "most used" the list is
+  // ranked by count, not by letter, so a divider between two counts would land
+  // on whichever letter their names happen to start with and break up entries
+  // that belong together in the ranking. The scrubber is stricter still: its
+  // letters run A down to Z, so it only matches a list that runs the same way.
+  // Under Z to A the list runs the other way and the strip is left out.
+  const alphabetical = state.noteSort === 'az' || state.noteSort === 'za';
   let out = '';
   let current = '';
   const seenLetters = new Set<string>();
   for (const n of list) {
-    if (state.noteSort === 'az') {
+    if (alphabetical) {
       const initial = (n.name[0] ?? '').toUpperCase();
       if (initial !== current) {
         current = initial;
@@ -3466,11 +3432,10 @@ function notesPanel(): string {
   }
 
   return `<div class="page-head"><h1 class="t-page">Notes</h1><span class="count t-count">${list.length}</span></div>
-    ${groups}
     ${controls}
+    ${chips}
     <p class="panel-note t-body">Only notes a shop has explicitly published. ${DEMO_FRAGRANCES.filter((f) => f.notes).length} of ${DEMO_FRAGRANCES.length} fragrances list them.</p>
     <div class="notes-browse">
-      <p class="section-label t-eyebrow">Browse Alphabetically</p>
       <div class="notes-browse-scroll" data-notes-scroll>
         <ul class="brand-list">${out}</ul>
       </div>
@@ -3523,14 +3488,20 @@ const TABS: { id: ExploreTab; label: string }[] = [
   { id: 'notes', label: 'Notes' },
 ];
 
+/**
+ * What each Explore tab draws. TABS above says which tabs there are and in
+ * what order; this says what is under each. A tab is one line in each, so
+ * adding one (Oils and Sets are planned after Notes, see
+ * docs/GIFT-SETS-AND-OILS-PLAN.md) leaves the shell alone.
+ */
+const EXPLORE_PANELS: Record<ExploreTab, () => string> = {
+  brands: brandsPanel,
+  retailers: retailersPanel,
+  notes: notesPanel,
+};
+
 function exploreView(): string {
-  const panel =
-    state.tab === 'brands'
-      ? brandsPanel()
-      : state.tab === 'retailers'
-        ? retailersPanel()
-        : notesPanel();
-  return `<div class="explore">${panel}</div>`;
+  return `<div class="explore">${EXPLORE_PANELS[state.tab]()}</div>`;
 }
 
 
@@ -3633,6 +3604,50 @@ function settingsView(): string {
       </div>
 
       <p class="settings-note t-caption">Your choice is saved on this device.</p>
+    </article>`;
+}
+
+/**
+ * What Send does, said once. Microcopy cull, 2026-08-25
+ * (docs/MICROCOPY-INVENTORY-2026-08-21.md row 5): the note opens with the
+ * fact a reader cannot see from the form, that Send hands the message to
+ * their own email app rather than posting it anywhere.
+ */
+const SUGGEST_NOTE =
+  'Send opens your own email app with your message ready to go. Nothing goes to a server of ours.';
+
+/**
+ * Suggestions, the page behind the account menu's item of that name (owner
+ * request, 2026-10-04; it was "Got an Idea?" on the home page). A page of its
+ * own like Settings, reached by its address and from the menu in every account
+ * state, because anyone can suggest. The form is the one the home page had:
+ * Send opens the reader's own email app (the suggest-form branch of the submit
+ * handler) and nothing is sent to a server.
+ */
+function suggestionsView(): string {
+  return `
+    <button class="back" data-back>Back</button>
+    <article class="doc suggest-doc">
+      <h1 class="t-page">Suggestions</h1>
+      <p class="panel-note t-body">${SUGGEST_NOTE}</p>
+      <form id="suggest-form" class="contact-form">
+        <label class="field">
+          <span>Your Suggestion</span>
+          <textarea id="suggest-body" rows="4" placeholder="What should we add or change?"></textarea>
+        </label>
+        <label class="field">
+          <span>Your Name <span class="dimmer">(optional)</span></span>
+          <input id="suggest-name" type="text" placeholder="So we know who to thank" />
+        </label>
+        <label class="field">
+          <span>Your Email <span class="dimmer">(optional, if you would like a reply)</span></span>
+          <input id="suggest-email" type="email" placeholder="you@example.com" />
+        </label>
+        <button type="submit" class="contact-send">Send</button>
+      </form>
+      <p class="form-privacy t-caption">We keep what you send only for as long as it takes to reply.
+        <button type="button" class="link-btn" data-page="privacy">Privacy Notice</button></p>
+      <p id="suggest-confirm" class="contact-confirm" hidden></p>
     </article>`;
 }
 
@@ -4293,7 +4308,7 @@ function syncAccountButton(): void {
   btn.classList.toggle('is-signed-in', avatar.signedIn);
   btn.classList.toggle('has-photo', photo !== null);
   btn.setAttribute('aria-label', accountButtonLabel(s));
-  btn.classList.toggle('on', ACCOUNT_VIEWS.includes(state.view) || state.view === 'settings');
+  btn.classList.toggle('on', ACCOUNT_VIEWS.includes(state.view) || state.view === 'settings' || state.view === 'suggestions');
   if (state.accountMenuOpen) fillAccountMenu();
 }
 
@@ -4313,6 +4328,7 @@ function fillAccountMenu(): void {
     wishlist: state.view === 'accountWishlist',
     notifications: state.view === 'accountNotifications',
     settings: state.view === 'settings',
+    suggestions: state.view === 'suggestions',
   };
   const head = s.kind === 'signedIn' && s.email
     ? `<p class="acct-menu-head"><span class="t-caption">Signed in as</span> <span class="acct-menu-email">${esc(s.email)}</span></p>`
@@ -4377,6 +4393,9 @@ function runAccountAction(action: AccountMenuAction): void {
       return;
     case 'settings':
       go('settings');
+      return;
+    case 'suggestions':
+      go('suggestions');
       return;
     case 'signIn':
     case 'signUp':
@@ -4506,14 +4525,32 @@ function legalView(): string {
 const CHUNK = 48;
 
 /**
- * Lists on the current page that still have items waiting, keyed by sentinel id.
+ * Lists on the current page, keyed by sentinel id, with what each still holds.
  *
  * A map rather than a single slot because a page can hold more than one chunked
  * list: the Houses tab renders one grid per house, so a single shared slot let
  * the second group overwrite the first and the first could never finish loading
  * — it sat at 48 of its items forever with a dead sentinel below it.
+ *
+ * `items` is the whole list and `at` how many of it are on the page. `els`
+ * and `real` are only kept for a tile grid (`windowed`): see keepNearTiles.
  */
-const pendingLists = new Map<string, { items: unknown[]; render: (item: unknown) => string }>();
+interface HeldList {
+  items: readonly unknown[];
+  at: number;
+  render: (item: unknown) => string;
+  windowed: boolean;
+  /** The element standing for each item loaded so far, a tile or its stand in. */
+  els: HTMLElement[];
+  /** 1 where `els[i]` is the item's own markup, 0 where it is the empty stand in. */
+  real: Uint8Array;
+  ul: HTMLElement | null;
+  /** The shared row height the grid has been held to, so rows never shrink. */
+  rowFloor: number;
+  /** The grid's width and column count when rowFloor was measured: other ones are another row height. */
+  floorKey: string;
+}
+const pendingLists = new Map<string, HeldList>();
 let listObserver: IntersectionObserver | null = null;
 let chunkSeq = 0;
 
@@ -4535,13 +4572,23 @@ function resetChunkedLists(): void {
  */
 function chunked<T>(items: readonly T[], renderItem: (item: T, index?: number) => string): string {
   const first = items.slice(0, CHUNK);
-  const rest = items.slice(CHUNK);
-  if (rest.length === 0) return first.map((item, i) => renderItem(item, i)).join('');
+  if (items.length <= CHUNK) return first.map((item, i) => renderItem(item, i)).join('');
 
+  // There is no cap on how long a list may be (owner's decision, 2026-10-04),
+  // so this is the only thing standing between a list of thousands and a
+  // frozen first paint: one chunk is built now, and the list is held whole
+  // with a cursor, so taking the next chunk copies nothing already taken.
   const id = `chunk-${++chunkSeq}`;
   pendingLists.set(id, {
-    items: rest as unknown[],
+    items,
+    at: CHUNK,
     render: renderItem as (i: unknown) => string,
+    windowed: false,
+    els: [],
+    real: new Uint8Array(0),
+    ul: null,
+    rowFloor: 0,
+    floorKey: '',
   });
   return (
     first.map((item, i) => renderItem(item, i)).join('') +
@@ -4571,27 +4618,61 @@ function mountChunkedList(): void {
     { rootMargin: '600px 0px' },
   );
 
-  for (const el of document.querySelectorAll('[data-more]')) listObserver.observe(el);
+  for (const el of document.querySelectorAll<HTMLElement>('[data-more]')) {
+    listObserver.observe(el);
+    // Tile grids are the lists that can run to thousands, and the only ones
+    // whose off screen tiles are swapped out (keepNearTiles).
+    const held = pendingLists.get(el.dataset.more ?? '');
+    const ul = el.parentElement;
+    if (!held || !ul?.classList.contains('tile-grid')) continue;
+    const first = Array.from(ul.children).filter((c) => c !== el) as HTMLElement[];
+    if (first.length !== Math.min(CHUNK, held.items.length)) continue;
+    held.windowed = true;
+    held.ul = ul;
+    held.els = first;
+    held.real = new Uint8Array(held.items.length);
+    held.real.fill(1, 0, first.length);
+  }
 }
 
 /** Paint the next chunk of the list whose sentinel this is. False if it had none left. */
 function appendNextChunk(el: HTMLElement): boolean {
   const id = el.dataset.more;
   const held = id ? pendingLists.get(id) : undefined;
-  if (!id || !held) return false;
+  if (!id || !held || held.at >= held.items.length) return false;
 
-  const next = held.items.slice(0, CHUNK);
-  const rest = held.items.slice(CHUNK);
+  const next = held.items.slice(held.at, held.at + CHUNK);
+  const before = el.previousElementSibling;
   el.insertAdjacentHTML('beforebegin', next.map((item) => held.render(item)).join(''));
+  if (held.windowed) {
+    const added: HTMLElement[] = [];
+    for (let n = before ? before.nextElementSibling : el.parentElement?.firstElementChild ?? null; n && n !== el; n = n.nextElementSibling) {
+      added.push(n as HTMLElement);
+    }
+    if (added.length === next.length) {
+      held.els.push(...added);
+      held.real.fill(1, held.at, held.at + added.length);
+    } else {
+      // Not one element per item: positions can no longer be trusted, so this
+      // list is left whole rather than risk swapping the wrong tile.
+      held.windowed = false;
+    }
+  }
+  held.at += next.length;
   mountAds();
 
-  if (rest.length === 0) {
-    pendingLists.delete(id);
+  if (held.at >= held.items.length) {
     listObserver?.unobserve(el);
     el.remove();
-  } else {
-    pendingLists.set(id, { items: rest, render: held.render });
+  } else if (listObserver) {
+    // An observer reports a change, not a state: if this chunk was too short to
+    // push the sentinel out of range (a very wide window, a short row) it
+    // would stay "intersecting" and never report again, and the list would
+    // stop mid scroll. Watching it afresh asks again.
+    listObserver.unobserve(el);
+    listObserver.observe(el);
   }
+  scheduleKeepNear();
   return true;
 }
 
@@ -4602,6 +4683,125 @@ function appendChunksEverywhere(): boolean {
     if (appendNextChunk(el)) any = true;
   });
   return any;
+}
+
+/* ── keeping a very long list light ──────────────────────────────────────────
+   Without a cap a list can run to every fragrance in the catalogue: the Most
+   Stocked ranking alone is 16,000 tiles. Appending a chunk at a time keeps
+   each step cheap, but nothing ever left the page, and measured on a phone
+   sized window the page held about 207,000 elements and half a million DOM
+   nodes by 10,000 tiles, took about 2 GB of memory, got slower with every
+   chunk, and was killed by the browser before the end.
+
+   So a tile grid only keeps the tiles near the screen. The ones further than
+   KEEP_SCREENS screens above or below the reader are swapped for an empty
+   <li> that holds their place in the grid, and swapped back as the reader
+   scrolls toward them. The grid's rows are all one height (grid-auto-rows:
+   1fr in the stylesheet), so a stand in changes nothing about the layout,
+   provided that height never shrinks while the tallest tile is out of the
+   page: rowFloor holds it. An advertisement is never swapped, so one is not
+   asked for twice, and neither is the tile the reader has focus in. */
+
+/** How many screens of real tiles are kept above and below what is on screen. */
+const KEEP_SCREENS = 3;
+
+let keepFrame = 0;
+function scheduleKeepNear(): void {
+  if (keepFrame || pendingLists.size === 0) return;
+  keepFrame = window.requestAnimationFrame(() => {
+    keepFrame = 0;
+    keepNearTiles();
+  });
+}
+
+function keepNearTiles(): void {
+  for (const held of pendingLists.values()) {
+    if (!held.windowed || !held.ul || !held.ul.isConnected || held.els.length === 0) continue;
+    keepNearTilesOf(held, held.ul);
+  }
+}
+
+function keepNearTilesOf(held: HeldList, ul: HTMLElement): void {
+  const style = window.getComputedStyle(ul);
+  const cols = Math.max(1, style.gridTemplateColumns.split(' ').filter(Boolean).length);
+  const gap = Number.parseFloat(style.rowGap) || 0;
+  const rect = ul.getBoundingClientRect();
+
+  // A different width or column count means a different row height: let the
+  // grid measure afresh.
+  const key = `${Math.round(rect.width)}x${cols}`;
+  if (key !== held.floorKey) {
+    ul.style.gridAutoRows = '';
+    held.rowFloor = 0;
+    held.floorKey = key;
+  }
+  // Every stand in is a row track tall, so any element tells the row height.
+  const rowHeight = held.els[0]!.getBoundingClientRect().height;
+  if (rowHeight <= 0) return;
+  if (rowHeight > held.rowFloor + 0.5) {
+    held.rowFloor = rowHeight;
+    ul.style.gridAutoRows = `minmax(${rowHeight}px, 1fr)`;
+  }
+
+  const stride = rowHeight + gap;
+  const margin = window.innerHeight * KEEP_SCREENS;
+  const top = -rect.top - margin;
+  const bottom = -rect.top + window.innerHeight + margin;
+  const from = Math.max(0, Math.floor(top / stride)) * cols;
+  const to = Math.min(held.els.length - 1, (Math.floor(bottom / stride) + 1) * cols - 1);
+
+  const active = document.activeElement;
+  let runStart = -1;
+  let runReal = false;
+  const flush = (end: number): void => {
+    if (runStart >= 0) swapTiles(held, runStart, end, runReal);
+    runStart = -1;
+  };
+  for (let i = 0; i < held.els.length; i++) {
+    const want = i >= from && i <= to;
+    if (want === (held.real[i] === 1)) {
+      flush(i - 1);
+      continue;
+    }
+    if (!want) {
+      const el = held.els[i]!;
+      // Kept: an ad (never asked for twice) and the tile the reader is in.
+      if (el.classList.contains('ps-ad') || (active && el.contains(active))) {
+        flush(i - 1);
+        continue;
+      }
+    }
+    if (runStart >= 0 && runReal !== want) flush(i - 1);
+    if (runStart < 0) {
+      runStart = i;
+      runReal = want;
+    }
+  }
+  flush(held.els.length - 1);
+}
+
+/** Swaps items from..to (inclusive) for their own markup (`real`) or for empty stand ins. */
+function swapTiles(held: HeldList, from: number, to: number, real: boolean): void {
+  if (!held.windowed) return;
+  const count = to - from + 1;
+  const html = real
+    ? held.items.slice(from, to + 1).map((item) => held.render(item)).join('')
+    : '<li class="tile-gone" aria-hidden="true"></li>'.repeat(count);
+  const first = held.els[from]!;
+  first.insertAdjacentHTML('beforebegin', html);
+  const fresh: HTMLElement[] = [];
+  for (let n = first.previousElementSibling; n && fresh.length < count; n = n.previousElementSibling) fresh.unshift(n as HTMLElement);
+  for (let i = from; i <= to; i++) held.els[i]!.remove();
+  if (fresh.length !== count) {
+    // The markup did not give one element per item. Put nothing else in play.
+    held.windowed = false;
+    return;
+  }
+  for (let k = 0; k < count; k++) {
+    held.els[from + k] = fresh[k]!;
+    held.real[from + k] = real ? 1 : 0;
+  }
+  if (real) mountAds();
 }
 
 /**
@@ -4889,7 +5089,7 @@ function headInputForState(): HeadInput {
 
     case 'retailer': {
       const r = getRetailer(state.retailerId);
-      if (!r) return { route };
+      if (!r?.enabled) return { route };
       const count = listingCountAt(r.id);
       return {
         route,
@@ -4954,6 +5154,7 @@ function currentRoute(): Route {
     case 'about': return { name: 'about', param: '', query: {} };
     case 'design': return { name: 'design', param: '', query: {} };
     case 'settings': return { name: 'settings', param: '', query: {} };
+    case 'suggestions': return { name: 'suggestions', param: '', query: {} };
     case 'account': return { name: 'account', param: '', query: {} };
     case 'accountWishlist': return { name: 'accountWishlist', param: '', query: {} };
     case 'accountNotifications': return { name: 'accountNotifications', param: '', query: {} };
@@ -4981,6 +5182,7 @@ function applyRoute(route: Route): boolean {
     case 'about': state.view = 'about'; return true;
     case 'design': state.view = 'design'; return true;
     case 'settings': state.view = 'settings'; return true;
+    case 'suggestions': state.view = 'suggestions'; return true;
     case 'account': {
       state.view = 'account';
       const token = route.query[UNSUBSCRIBE_PARAM];
@@ -5038,7 +5240,11 @@ function applyRoute(route: Route): boolean {
       return true;
     }
     case 'retailer': {
-      if (!getRetailer(route.param)) return false;
+      // A shop that is switched off has no page: its old address is Page Not
+      // Found, the same as an id that was never in the registry. (Ten shops
+      // were switched off by the owner on 2026-10-04; their pages come back
+      // with `enabled: true`.)
+      if (!getRetailer(route.param)?.enabled) return false;
       state.retailerId = route.param;
       state.view = 'retailer';
       return true;
@@ -5607,6 +5813,8 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
                         ? designView()
                         : state.view === 'settings'
                           ? settingsView()
+                          : state.view === 'suggestions'
+                            ? suggestionsView()
                           : state.view === 'account'
                             ? accountView()
                             : state.view === 'accountWishlist'
@@ -5662,38 +5870,7 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   // top right now, not from this row; its button carries the "you are here".
   syncAccountButton();
 
-  syncUpdatesHeight();
   mountTrustpilotWidgets();
-}
-
-/**
- * On desktop, the update history sits beside the suggestion box rather than
- * below it. The list of releases only grows over time, so left unchecked it
- * would run taller than the form next to it and the two columns would end at
- * different points. Capping the list's height to whatever the suggestion box
- * actually rendered at, and letting it scroll internally past that, keeps the
- * two bottoms aligned instead. Stacked on mobile, neither constraint applies,
- * so the cap is cleared there and the list just flows.
- */
-function syncUpdatesHeight(): void {
-  const suggest = document.querySelector('.suggest-section') as HTMLElement | null;
-  const list = document.querySelector('.updates-list') as HTMLElement | null;
-  if (!suggest || !list) return;
-  if (state.layout !== 'desktop') {
-    // Stacked on a phone: the list gets the same height as the suggestion box
-    // below it, less its own heading, and scrolls inside that.
-    const head = list.getBoundingClientRect().top - (list.parentElement as HTMLElement).getBoundingClientRect().top;
-    list.style.maxHeight = `${Math.max(240, suggest.getBoundingClientRect().height - head)}px`;
-    return;
-  }
-  // Measured from the list's own top, not the suggestion box's total height:
-  // the updates column carries its own heading above the list, so matching
-  // the suggestion box's full height would push the list past it. What has
-  // to match is the bottom edge, so the cap is exactly the gap between where
-  // the list starts and where the suggestion box ends.
-  const suggestBottom = suggest.getBoundingClientRect().bottom;
-  const listTop = list.getBoundingClientRect().top;
-  list.style.maxHeight = `${Math.max(120, suggestBottom - listTop)}px`;
 }
 
 /** The one method this app calls on Trustpilot's own global once it loads. */
@@ -6480,11 +6657,11 @@ function init(): void {
   // confirmation says exactly that rather than pretending we received it.
   document.addEventListener('submit', (e) => {
     const form = e.target as HTMLElement;
-    if (form.id === 'home-suggest-form') {
+    if (form.id === 'suggest-form') {
       e.preventDefault();
-      const suggestion = ($('#home-suggest-body') as HTMLTextAreaElement).value.trim();
-      const name = ($('#home-suggest-name') as HTMLInputElement).value.trim();
-      const email = ($('#home-suggest-email') as HTMLInputElement).value.trim();
+      const suggestion = ($('#suggest-body') as HTMLTextAreaElement).value.trim();
+      const name = ($('#suggest-name') as HTMLInputElement).value.trim();
+      const email = ($('#suggest-email') as HTMLInputElement).value.trim();
       const subject = `PriceSniffs: A suggestion`;
       const body = [
         suggestion,
@@ -6494,7 +6671,7 @@ function init(): void {
       const mailto = `mailto:${COMPANY.feedbackEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.location.href = mailto;
 
-      const confirm = $('#home-suggest-confirm') as HTMLElement;
+      const confirm = $('#suggest-confirm') as HTMLElement;
       confirm.textContent = `Your email app should now be open with your suggestion. Press send there to reach us. Thank you.`;
       confirm.hidden = false;
       return;
@@ -6653,6 +6830,11 @@ function init(): void {
   }, { passive: true });
   syncToTop();
 
+  // A long list keeps only the tiles near the screen (keepNearTiles), so a
+  // scroll or a resize asks which those are now. Passive, and one frame at a time.
+  window.addEventListener('scroll', scheduleKeepNear, { passive: true });
+  window.addEventListener('resize', scheduleKeepNear, { passive: true });
+
   toTop.addEventListener('click', () => {
     // Smooth unless the reader has asked for less motion, in which case a
     // long smooth scroll is exactly the thing they turned off.
@@ -6674,7 +6856,6 @@ function init(): void {
   window.addEventListener('resize', () => {
     window.clearTimeout(resizeTimer);
     resizeTimer = window.setTimeout(() => {
-      syncUpdatesHeight();
       syncPerRowControl();
     }, 120);
   });

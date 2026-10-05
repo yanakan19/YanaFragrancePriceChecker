@@ -1528,34 +1528,6 @@
       "scale": null
     },
     {
-      "retailerId": "shy-mimosa",
-      "name": "Shy Mimosa",
-      "route": "product-page",
-      "activeListings": 38,
-      "attempted": 23,
-      "compared": 0,
-      "agree": 0,
-      "drifted": 0,
-      "overstated": 0,
-      "understated": 0,
-      "unkeyed": 23,
-      "outOfStockLive": 0,
-      "overstatementGbpTotal": 0,
-      "medianAbsDriftGbp": 0,
-      "worst": [],
-      "notes": [
-        "gap 10000ms (registry 0, robots 10s)",
-        "storefront published no currency — its numbers are compared as pounds on the registry's word alone. To settle it: npm run currency:probe -- --shop=shy-mimosa --products=3",
-        "products.json: HTTP 404",
-        "stopped early: out of time budget"
-      ],
-      "fullPopulation": false,
-      "snapshotUpdatedAt": "2026-10-04T03:13:20.693Z",
-      "storefrontCurrency": null,
-      "notComparable": null,
-      "scale": null
-    },
-    {
       "retailerId": "paco-perfumerias-uk",
       "name": "Paco Perfumerías UK",
       "route": "product-page",

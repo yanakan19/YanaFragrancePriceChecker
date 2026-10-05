@@ -270,8 +270,10 @@ Each is a six slide 3:4 feed post (a carousel) in the
 * The cheap side is the product page's own cheapest offer, in stock, with
   delivery stated, and the page is sure it is the cheapest.
 * The dear side is the dearest in stock listing from a well known shop
-  (Selfridges, John Lewis, LOOKFANTASTIC, Superdrug, Allbeauty and the other
-  big names when they have prices).
+  (John Lewis, LOOKFANTASTIC and Allbeauty, the well known shops that are on
+  the site; Selfridges, Superdrug, Harvey Nichols, Boots, The Perfume Shop,
+  The Fragrance Shop and Notino were switched off by the owner on 2026-10-04,
+  so none of them can be the dear side until they are switched back on).
 * The perfume is worth over £60: the well known shop's bottle price, before
   delivery, is above £60.
 * Both prices were checked in the last 4 days. The saving is at least £5 and

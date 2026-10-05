@@ -44,6 +44,7 @@ export const DEFAULT_ROUTES = [
   '/retailers/fragrance-click',
   '/legal/privacy',
   '/settings',
+  '/suggestions',
   '/account',
 ];
 

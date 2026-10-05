@@ -164,6 +164,12 @@ describe('the rules fingerprint covers what decides a price point', () => {
     const facts = registryFacts();
     expect(facts.currencyUnconfirmed).toEqual([...facts.currencyUnconfirmed].sort());
     expect(facts.fragranceOnlyCatalogue).toEqual([...facts.fragranceOnlyCatalogue].sort());
+    expect(facts.enabled).toEqual([...facts.enabled].sort());
+    // A shop that is not on the site has no price points, so switching one on
+    // or off, or deleting one, is exactly the kind of change that must
+    // invalidate every checkpoint.
+    expect(facts.enabled).not.toContain('selfridges');
+    expect(facts.enabled).toContain('lookfantastic');
     // The four shops that carry the flag today (Kayali joined 2026-10-03); a
     // fifth joining is exactly the kind of change that must invalidate every
     // existing checkpoint.

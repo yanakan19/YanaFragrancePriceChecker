@@ -770,24 +770,14 @@
   /* ── popular rail ──────────────────────────────────────────────────────── */
   .pop-section { margin-top: 32px; }
 
-  /* ── bottom split: suggestions beside update history ─────────────────────
-     Stacked on mobile, with the suggestion box last; side by side once there
-     is room for two honest columns rather than one squeezed pair. */
+  /* ── update history ──────────────────────────────────────────────────────
+     The last block of the home page. The suggestion form that used to sit
+     beside it is now the Suggestions page (account menu, owner request
+     2026-10-04), so this stands alone: full width on a phone, a readable
+     column on desktop. */
   .bottom-split {
     margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line);
-    display: flex; flex-direction: column; gap: 36px;
   }
-  .suggest-section {
-    display: flex; flex-direction: column; align-items: center; text-align: center;
-  }
-  /* Both headings take .t-section in the markup — the same role the rest of
-     the site's section headings take — rather than an 18px size that existed
-     only here. Margins stay separate: each still needs its own gap to what
-     follows it. */
-  /* Section headings are h2 (under each view's h1) carrying .t-section; the
-     element selectors below said h3 from before the pages had an h1. */
-  .suggest-section h2 { margin: 0 0 6px; }
-  .suggest-section .panel-note { margin-top: 0; }
 
   .updates-section h2 { margin: 0 0 16px; }
   .updates-list {
@@ -799,9 +789,7 @@
   .updates-list::-webkit-scrollbar-track { background: transparent; }
   .updates-list::-webkit-scrollbar-thumb { background: var(--line-firm); border-radius: 3px; }
   .updates-list::-webkit-scrollbar-thumb:hover { background: var(--faint); }
-  /* JS (syncUpdatesHeight) sets the real cap once the suggestion box next to
-     it has actually rendered; this is only the pre-JS/no-JS fallback so the
-     list never runs unbounded before that. */
+  /* The list scrolls inside a fixed height so it never runs unbounded. */
   .updates-list { max-height: 420px; }
   :root[data-layout="desktop"] .updates-list { max-height: 480px; }
   /* A neutral rail, not an accent-tinted one. Each entry already names its
@@ -828,16 +816,7 @@
      rather than wrapping. */
   .update-title, .update-points li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-  :root[data-layout="desktop"] .bottom-split { flex-direction: row; align-items: flex-start; gap: 56px; }
-  :root[data-layout="desktop"] .bottom-split > section { flex: 1 1 0; min-width: 0; }
-  /* The markup puts "Got an idea?" after Update History so it is the last
-     thing on a phone's home page (owner request, 2026-10-03). Side by side
-     there is no "last", so it keeps the left column it always had. */
-  :root[data-layout="desktop"] .bottom-split > .suggest-section { order: -1; }
-  /* "Got an idea?" now centres on desktop too, same as it already does on
-     mobile — .suggest-section's own base rule (align-items: center;
-     text-align: center) already does this once the desktop override that
-     was left-aligning it is removed, so there is nothing to add here. */
+  :root[data-layout="desktop"] .bottom-split .updates-section { max-width: 640px; margin-inline: auto; }
   /* One section-heading treatment, replacing three that had drifted apart
      (uppercase-tracked, 17px bold, accent-underlined). Sentence case at
      15px/600, no rule and no accent: separation between blocks is space --
@@ -1345,6 +1324,33 @@
     .control { padding: 0 10px; }
   }
   .control-chevron .ico { width: 13px; height: 13px; }
+  /* "Sort By:" in front of the select, in the box, in the closed state. Real
+     text (it names the control for a screen reader), so it keeps the page's
+     own muted ink rather than --faint, which is for decoration. The longest
+     order ("Smallest to Largest Size") needs about 235px of its own after the
+     lead, more than a 160px grid column gives a plain filter, so a sort takes
+     two columns where there are columns to take (a little wider ones on a
+     computer) and the whole line on a phone, rather than cutting the words
+     off. Under 370px even the whole line is too short for the lead and the
+     words side by side, so the lead sits above the choice inside the same
+     box. The select stays a plain native select throughout. */
+  .control-lead { flex: none; color: var(--ink-2); font-weight: 500; white-space: nowrap; }
+  .control-sort .dropdown { padding-left: 0; }
+  .control-sort { grid-column: span 2; }
+  @media (min-width: 900px) {
+    .controls { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .control-sort { grid-column: 1 / -1; }
+  }
+  @media (max-width: 370px) {
+    .control-sort {
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center;
+      column-gap: 6px; padding-top: 7px;
+    }
+    .control-sort .control-lead { grid-column: 1 / -1; font-size: 13px; line-height: 1.2; }
+    .control-sort .dropdown { padding: 0 0 9px; }
+  }
   /* The open dropdown's popup is drawn by the OS, not this stylesheet — the
      closed control above only sets `color`, so the engine is free to pair
      that light (or dark) text with whichever background the platform's own
@@ -1442,7 +1448,11 @@
     display: flex; align-items: center; justify-content: center;
     border: 1px solid var(--org-mark-border);
   }
-  .org-mark--wordmark img { width: auto; height: 100%; }
+  /* Height fills the box and the width is capped at what the box has left
+     (200px less its 10px padding each side), with object-fit keeping the
+     proportions. Without the cap a wordmark wider than about 4 to 1 ran past
+     the box and overflow: hidden cut the end off ("Juicy Coutur"). */
+  .org-mark--wordmark img { width: auto; height: 100%; max-width: 180px; object-fit: contain; }
   .org-mark--light { background: var(--org-mark-light-bg); }
   .org-mark--dark  { background: var(--org-mark-dark-bg); }
   .org-mark--own   { background: none; }
@@ -1535,6 +1545,15 @@
   .org-hero { display: flex; align-items: flex-start; gap: 14px; padding: 6px 0 18px; text-align: left; }
   .org-hero .monogram { flex: none; width: 56px; height: 56px; border-radius: 15px; font-size: 18px; }
   .org-hero-text { flex: 1; min-width: 0; }
+  /* A wide mark (up to 200px) beside the text leaves a phone about 144px for
+     the name and the official site pill, which is 214px and does not wrap, so
+     the page scrolled sideways once a house's wordmark loaded. On a narrow
+     screen the wordmark gets a line to itself and the text runs full width
+     under it. */
+  @media (max-width: 520px) {
+    .org-hero:has(> .org-mark--wordmark) { flex-direction: column; gap: 10px; }
+    .org-hero:has(> .org-mark--wordmark) .org-hero-text { flex: none; width: 100%; }
+  }
   .org-hero-name { margin: 0; }
   .org-hero-count { color: var(--faint); }
   .org-hero-domain { margin: 2px 0 0; }
@@ -1653,41 +1672,15 @@
      four rows. */
   .notes-block .note-chips { justify-content: center; }
 
-  /* The eyebrow role now lives in .t-eyebrow, which this carries in the
-     markup; all that is left here is the gap to what follows. */
-  .section-label { margin: 0 0 10px; }
+  /* The layer chips above the Notes list: the note page's own chips, in a row
+     with room under it before the list. */
+  .note-chips.note-chips-layers { margin: 0 0 14px; }
 
-  /* Compact horizontally scrolling row rather than a fixed grid: three
-     groups today reads fine as a row, and a fourth would only ever need to
-     scroll into view rather than force every card narrower to fit. */
-  .notes-groups { margin: 4px 0 20px; }
-  .notes-groups-row {
-    display: flex; gap: 12px; overflow-x: auto; padding-bottom: 2px;
-    scrollbar-width: none;
-  }
-  .notes-groups-row::-webkit-scrollbar { display: none; }
-  .note-group-card {
-    flex: none; display: flex; flex-direction: column; gap: 4px;
-    min-width: 92px; padding: 12px 14px; border-radius: 12px;
-    background: var(--surface); border: 1px solid var(--line);
-    text-align: left; cursor: pointer; font: inherit; color: var(--ink);
-    transition: border-color .12s ease, background .12s ease;
-  }
-  .note-group-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  @media (hover: hover) and (pointer: fine) {
-    .note-group-card:hover { border-color: var(--line-firm); }
-  }
-  .note-group-card.on { background: var(--accent-sf); border-color: var(--accent); }
-  .note-group-count { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
-  .note-group-label { font-size: 12px; color: var(--faint); }
-  .note-group-card.on .note-group-label { color: var(--ink-2); }
-
-  /* The bottom half: a bounded, independently scrolling region rather than
-     the page's ordinary flow. Two things need that — it is what "Browse
-     Alphabetically" sitting under a fixed-height group row actually means,
-     and the scrubber's whole mechanic (map a finger's Y position to a
-     scroll position) only makes sense against a viewport with a stable,
-     known height, not a list that keeps growing the page underneath it. */
+  /* The list: a bounded, independently scrolling region rather than the
+     page's ordinary flow, because the scrubber's whole mechanic (map a
+     finger's Y position to a scroll position) only makes sense against a
+     viewport with a stable, known height, not a list that keeps growing the
+     page underneath it. */
   .notes-browse { position: relative; }
   .notes-browse-scroll {
     max-height: 50vh; overflow-y: auto; overscroll-behavior: contain;
@@ -2628,6 +2621,11 @@
     content-visibility: auto;
   }
   .tile-grid > li { contain-intrinsic-size: auto 260px; }
+  /* The empty stand in for a tile scrolled far out of range (keepNearTiles in
+     demo/app.ts). It holds its place in the grid and nothing else: it must not
+     reserve the 260px estimate above, which would make it a say in the shared
+     row height that a real tile alone should have. */
+  .tile-grid > li.tile-gone { content-visibility: visible; contain-intrinsic-size: none; min-height: 0; padding: 0; border: 0; }
   .house-grid > li { contain-intrinsic-size: auto 210px; }
 
   /* The sentinel that pulls in the next chunk. Occupies a row so the observer
@@ -2902,7 +2900,9 @@
   .acct-shortcuts { display: flex; flex-direction: column; gap: 8px; margin: 14px 0 4px; }
   .acct-shortcuts .account-entry { max-width: none; margin: 0; min-height: 48px; }
   .acct-shortcuts .account-entry svg { transform: rotate(-90deg); }
-  .account-doc .controls { grid-template-columns: minmax(0, 240px); }
+  /* One column, wide enough for the longest sort beside "Sort By:". */
+  .account-doc .controls { grid-template-columns: minmax(0, 400px); }
+  .account-doc .control-sort { grid-column: 1 / -1; }
   .acct-download { flex: none; display: inline-flex; padding: 8px 16px; border: 1px solid var(--line-firm); }
   .account-doc .account-actions { margin-top: 24px; }
   .wishlist-art { flex: none; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; }

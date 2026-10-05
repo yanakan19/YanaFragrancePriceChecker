@@ -21,6 +21,10 @@ import { STOCK_LABEL, noStockLabel, rowStockMarks } from '../demo/stockLabels.js
 import { priceShown } from '../demo/wrongPrice.js';
 import type { RawOffer } from '../src/types/offer.js';
 import { RETAILERS } from '../src/config/retailers.js';
+import { switchOnTheSwitchedOffShopsForThisFile } from './switchedOffShops.js';
+
+// The Fragrance Shop, Harvey Nichols and Boots are fixtures here: see that file.
+switchOnTheSwitchedOffShopsForThisFile();
 
 /**
  * Pre-orders (owner's request, 2026-10-04): a bottle a shop sells but is not

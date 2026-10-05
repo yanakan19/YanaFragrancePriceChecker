@@ -148,7 +148,7 @@ describe('canonicalPage', () => {
   });
 
   it('keeps a query that is the page itself, and a size fragment is one page', () => {
-    const q = 'https://www.shymimosa.co.uk/shop/products/view.asp?brand=A&name=B';
+    const q = 'https://shop.example/shop/products/view.asp?brand=A&name=B';
     expect(canonicalPage(q)).toBe(q);
     expect(canonicalPage('https://www.parfumdreams.co.uk/index_13043.aspx#variation=222365'))
       .toBe('https://www.parfumdreams.co.uk/index_13043.aspx');
