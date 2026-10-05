@@ -456,7 +456,7 @@ longer committed: the deploy builds them from the branch before each
 deployment (`deploy-pages.yml`), and the price history checkpoint is smaller
 and committed less often. Those were about two thirds of the daily growth;
 the numbers are in `docs/PIPELINE-FAILURE-MODES.md` ("Repository growth").
-Growth on a busy crawl day goes from 40 to 57 MB to about 13 MB, plus
+Growth on a busy crawl day goes from 40 to 60 MB to about 13 to 14 MB, plus
 whatever the social routines commit.
 
 **One small thing.** If the end of day changelog routine's prompt says to
@@ -466,7 +466,7 @@ commit `demo/index.html` and `demo/404.html`, change it to commit
 refused, so the routine would stop with an error instead.
 
 **Decision 1, optional: shrink what is already there.** GitHub reported
-690,445 kB on the evening of 4 October (651 MB that morning). The page files that are no longer committed still sit in the
+754,338 kB at 03:00 UTC on 5 October (651 MB on the morning of 4 October). The page files that are no longer committed still sit in the
 history: repacked locally they are about 255 of 626 MB (the old
 `demo/404.html` with the data inside it 172 MB, `demo/data` 75 MB, the
 sitemap 8 MB). Only rewriting history removes them, which nobody but you
