@@ -68,7 +68,7 @@ import {
   travelSizeIsASize,
   NOT_A_FRAGRANCE,
 } from '../src/catalogue/fragranceId.js';
-import { giftSetContents, giftSetName, isGiftSet } from '../src/catalogue/giftSet.js';
+import { buildKnownHouseProducts, giftSetContents, giftSetName, isGiftSet, registerKnownHouseProducts } from '../src/catalogue/giftSet.js';
 import {
   concentrationOfListing,
   concentrationOfStoredListing,
@@ -790,6 +790,26 @@ function readShopLabel(l: StoredListing, retailer: Retailer, title: string): { t
   const read = stripShopTitleLabel(title, l.retailerId);
   if (read.title === title) return read;
   return labelConflicts.has(shopLabelKey(l, retailer, read.title)) ? { title, audience: null } : read;
+}
+
+/* ── a house's bundles named only by their two products ──────────────────────
+   French Avenue's own storefront sells "Liquid Brun & Cocoa Morado" and nine
+   more like it: two full bottles, no size and no "set" in the title. A title
+   that joins two of the house's own single bottles is a set (giftSet.ts,
+   namesTwoKnownProducts). The single bottles are known here, before any listing
+   becomes a product, from every shop's single bottle listings. */
+{
+  const singles: { brands: (string | null)[]; name: string }[] = [];
+  for (const { retailer, listings } of eligible) {
+    for (const l of listings) {
+      if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0) || !isCatalogueListing(l) || isGiftSet(l)) continue;
+      const rawBrand = resolveRawBrand(l, retailer);
+      const brand = canonBrand(rawBrand);
+      const title = stripTrailingShopCredit(l.rawTitle, retailer.name, retailer.domain);
+      singles.push({ brands: [brand, rawBrand, l.rawBrand ?? null], name: displayName(readShopLabel(l, retailer, title).title, rawBrand, brand, travelSizeIsASize(l.retailerId)) });
+    }
+  }
+  registerKnownHouseProducts(buildKnownHouseProducts(singles));
 }
 
 for (const { retailer, listings } of eligible) {
