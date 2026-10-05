@@ -68,6 +68,9 @@ import {
   BRAND_SORT_OPTIONS, BROWSE_SORT_OPTIONS, DEAL_SORT_OPTIONS, LIST_SORT_OPTIONS, NOTE_SORT_OPTIONS, SORT_LEAD,
   sortFragrances, sortNotes, type BrowseSort, type ListSort, type NoteSort,
 } from './listSort.js';
+import { TAB_SEARCH_ID, TAB_SORT_ID, createTabs, facetSelectId, isTabKind, type TabKind } from './tabPanels.js';
+import type { TabListState } from './tabLists.js';
+import { isOil, isSet } from './productKind.js';
 import {
   PER_ROW_CHOICES, PER_ROW_DEFAULT, clampPerRow, gridWidthFor, perRowChoicesFor,
 } from './tileDensity.js';
@@ -130,7 +133,7 @@ type View =
 /** The three pages behind the account menu, each with its own address. */
 const ACCOUNT_VIEWS: readonly View[] = ['account', 'accountWishlist', 'accountNotifications'];
 type AuthTab = 'signIn' | 'signUp';
-type ExploreTab = 'brands' | 'retailers' | 'notes';
+type ExploreTab = 'brands' | 'retailers' | 'notes' | 'oils' | 'sets';
 type DisplayMode = 'dark' | 'light' | 'system';
 type Layout = 'mobile' | 'desktop';
 type BrandSort = 'az' | 'za';
@@ -298,6 +301,8 @@ interface ListSnapshot {
   brandDetailSort: ListSort;
   retailerDetailSort: ListSort;
   retailerInStockOnly: boolean;
+  /** The Oils and Sets tabs' own search, sort and filters (demo/tabPanels.ts). */
+  tabs: Record<TabKind, TabListState>;
   scrollY: number;
   /** The product tile at the top of the screen, and how far down it sat. */
   anchorFrag: string | null;
@@ -328,6 +333,7 @@ function snapshotListState(): ListSnapshot {
     brandDetailSort: state.brandDetailSort,
     retailerDetailSort: state.retailerDetailSort,
     retailerInStockOnly: state.retailerInStockOnly,
+    tabs: tabs.snapshot(),
     scrollY: window.scrollY,
   };
 }
@@ -357,6 +363,7 @@ function restoreListState(saved: ListSnapshot): void {
   state.brandDetailSort = s.brandDetailSort;
   state.retailerDetailSort = s.retailerDetailSort;
   state.retailerInStockOnly = s.retailerInStockOnly;
+  tabs.restore(s.tabs);
 }
 
 /**
@@ -1119,6 +1126,28 @@ function listSortControl(id: string, current: ListSort): string {
 function browseSortControl(current: BrowseSort): string {
   return sortControl('browse-sort', 'Fragrances', ICON_SORT, BROWSE_SORT_OPTIONS, current);
 }
+
+/**
+ * The Oils and Sets tabs under Explore: their lists, filters and search, all in
+ * demo/tabPanels.ts. The page hands in what it owns (the tile grid, the sort
+ * control, the shared filter attributes and options).
+ */
+const tabs = createTabs({
+  attrs: (f) => {
+    const a = facetAttrs(f);
+    return { concentration: a.concentration, gender: a.gender, tier: a.tier, priceBand: a.priceBand, inStock: a.inStock };
+  },
+  concentrationOptions: CONCENTRATION_GROUPS.map((g) => ({ value: g.id, label: g.label })),
+  genderOptions: GENDER_ORDER.map((g) => ({ value: g, label: GENDER_LABEL[g] })),
+  priceOptions: PRICE_BANDS.map((b) => ({ value: b.id, label: b.label })),
+  tierOptions: (['designer', 'niche', 'mideast'] as const).map((t) => ({ value: t, label: TIER_LABEL[t] })),
+  fragranceList: (list, empty) => fragranceList(list, empty),
+  sortControl: (id, subject, options, current) => sortControl(id, subject, ICON_SORT, [...options], current),
+  listControls: (sort, ui) => listControls(sort, ui),
+  esc,
+  iconFilter: ICON_FILTER,
+  iconChevron: ICON_CHEVRON,
+});
 
 /* ── shared pieces ───────────────────────────────────────────────────────── */
 
@@ -3562,18 +3591,22 @@ const TABS: { id: ExploreTab; label: string }[] = [
   { id: 'brands', label: 'Brands' },
   { id: 'retailers', label: 'Retailers' },
   { id: 'notes', label: 'Notes' },
+  { id: 'oils', label: 'Oils' },
+  { id: 'sets', label: 'Sets' },
 ];
 
 /**
  * What each Explore tab draws. TABS above says which tabs there are and in
  * what order; this says what is under each. A tab is one line in each, so
- * adding one (Oils and Sets are planned after Notes, see
+ * adding one (Oils and Sets came after Notes, see
  * docs/GIFT-SETS-AND-OILS-PLAN.md) leaves the shell alone.
  */
 const EXPLORE_PANELS: Record<ExploreTab, () => string> = {
   brands: brandsPanel,
   retailers: retailersPanel,
   notes: notesPanel,
+  oils: () => tabs.panel('oils'),
+  sets: () => tabs.panel('sets'),
 };
 
 function exploreView(): string {
@@ -5505,7 +5538,9 @@ function currentRoute(): Route {
     case 'accountWishlist': return { name: 'accountWishlist', param: '', query: {} };
     case 'accountNotifications': return { name: 'accountNotifications', param: '', query: {} };
     case 'explore':
-      return { name: state.tab as RouteName, param: '', query: {} };
+      // The Oils and Sets tabs keep their search, sort and filters in the
+      // address, so a filtered list can be shared.
+      return { name: state.tab as RouteName, param: '', query: isTabKind(state.tab) ? tabs.query(state.tab) : {} };
   }
 }
 
@@ -5517,7 +5552,9 @@ function currentRoute(): Route {
  * rather than rendering an empty leaf.
  */
 function applyRoute(route: Route): boolean {
-  state.query = route.query.q ?? '';
+  // The Oils and Sets tabs have a search box of their own, whose words are in
+  // the address as `q` too; they are not the bar's search.
+  state.query = route.name === 'oils' || route.name === 'sets' ? '' : (route.query.q ?? '');
 
   switch (route.name) {
     case 'home': state.view = 'home'; return true;
@@ -5563,6 +5600,13 @@ function applyRoute(route: Route): boolean {
     case 'brands': case 'retailers': case 'notes':
       state.view = 'explore';
       state.tab = route.name as ExploreTab;
+      return true;
+
+    // The Oils and Sets tabs, whose search, sort and filters come with the address.
+    case 'oils': case 'sets':
+      state.view = 'explore';
+      state.tab = route.name;
+      tabs.fromQuery(route.name, route.query);
       return true;
 
     // The new address, /BRAND_NAME_VOLUME: the product the slug names, or the
@@ -5723,10 +5767,15 @@ function syncUrl(mode: 'push' | 'replace' = 'push'): void {
  */
 function fallbackBackRoute(): Route {
   switch (state.view) {
-    case 'detail':
-      return state.query || state.brand
-        ? { name: 'search', param: '', query: state.query ? { q: state.query } : {} }
-        : { name: 'home', param: '', query: {} };
+    case 'detail': {
+      if (state.query || state.brand) return { name: 'search', param: '', query: state.query ? { q: state.query } : {} };
+      // A set or an oil opened from a link goes back to its own tab, which is
+      // where a reader looking at one most likely came from.
+      const frag = fragranceById(state.fragranceId);
+      if (frag && isSet(frag)) return { name: 'sets', param: '', query: {} };
+      if (frag && isOil(frag)) return { name: 'oils', param: '', query: {} };
+      return { name: 'home', param: '', query: {} };
+    }
     case 'retailer': return { name: 'retailers', param: '', query: {} };
     case 'brand': return { name: 'brands', param: '', query: {} };
     case 'note': return { name: 'notes', param: '', query: {} };
@@ -6247,6 +6296,14 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
         (t) => `<button class="subnavbtn ${state.tab === t.id ? 'on' : ''}" data-tab="${t.id}">${t.label}</button>`,
       ).join('')
     : '';
+  // Five tabs fit a phone 360px wide and up; on a narrower one the row scrolls,
+  // and the tab the reader is on is brought into view rather than left off the
+  // end of it. Set directly on the row, so the page itself never scrolls.
+  const here = subnav.querySelector<HTMLElement>('.subnavbtn.on');
+  if (here && !subnav.hidden) {
+    const overhang = here.getBoundingClientRect().right - subnav.getBoundingClientRect().left - subnav.clientWidth;
+    if (overhang > 0) subnav.scrollLeft += Math.ceil(overhang);
+  }
 
   ($('#nav-home') as HTMLElement).classList.toggle('on', state.view === 'home');
   ($('#nav-deals') as HTMLElement).classList.toggle('on', state.view === 'deals');
@@ -6316,6 +6373,9 @@ function go(view: View): void {
 
 function openExplore(tab: ExploreTab): void {
   state.tab = tab;
+  // A tab opened from the bar starts clean, like every list: what was chosen
+  // before comes back only with Back (rememberListState) or a shared link.
+  if (isTabKind(tab)) tabs.reset(tab);
   go('explore');
 }
 
@@ -7018,6 +7078,21 @@ function init(): void {
       return;
     }
 
+    if (t.closest('[data-tab-facets-toggle]') && isTabKind(state.tab)) {
+      tabs.toggleOpen(state.tab);
+      render('update');
+      rememberListStateSoon();
+      return;
+    }
+
+    if (t.closest('[data-tab-facets-clear]') && isTabKind(state.tab)) {
+      tabs.clearFilters(state.tab);
+      render('update');
+      syncUrl('replace');
+      rememberListStateSoon();
+      return;
+    }
+
     if (t.closest('[data-facets-toggle]')) {
       state.facetsOpen = !state.facetsOpen;
       render('update');
@@ -7086,6 +7161,18 @@ function init(): void {
       return;
     }
     const value = (t as HTMLSelectElement).value;
+    // The Oils and Sets tabs: each filter and the sort is in its address.
+    if (state.view === 'explore' && isTabKind(state.tab) && (id === TAB_SORT_ID || id.startsWith(facetSelectId('')))) {
+      if (id === TAB_SORT_ID) tabs.setSort(state.tab, value);
+      else {
+        const box = t as HTMLInputElement;
+        tabs.setFacet(state.tab, id.slice(facetSelectId('').length), box.type === 'checkbox' ? (box.checked ? '1' : '') : value);
+      }
+      render('update');
+      syncUrl('replace');
+      rememberListStateSoon();
+      return;
+    }
     if (id === 'brand-sort') state.brandSort = value as BrandSort;
     else if (id === 'brand-filter') state.brandFilter = value as BrandFilter;
     else if (id === 'deal-sort') state.dealSort = value as DealSort;
@@ -7113,6 +7200,25 @@ function init(): void {
     } else return;
     render('update');
     rememberListStateSoon();
+  });
+
+  // The search box at the top of the Oils and Sets tabs. Typing replaces the
+  // address rather than pushing one, like the bar search (one history entry per
+  // keystroke would make Back a character by character undo), and the box is
+  // given back its focus and caret, because the draw replaces the whole page.
+  document.addEventListener('input', (e) => {
+    const box = e.target as HTMLInputElement;
+    if (box.id !== TAB_SEARCH_ID || !isTabKind(state.tab)) return;
+    const caret = box.selectionStart ?? box.value.length;
+    tabs.setQuery(state.tab, box.value);
+    render('update');
+    syncUrl('replace');
+    rememberListStateSoon();
+    const fresh = document.getElementById(TAB_SEARCH_ID) as HTMLInputElement | null;
+    if (fresh) {
+      fresh.focus({ preventScroll: true });
+      fresh.setSelectionRange(caret, caret);
+    }
   });
 
   // There is no server behind this page, so "send" means handing the message to

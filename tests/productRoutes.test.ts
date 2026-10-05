@@ -104,7 +104,9 @@ describe('a product address cannot clash with the site\'s own routes', () => {
     }
     expect(matchRoute('/search').name).toBe('search');
     expect(matchRoute('/deals').name).toBe('deals');
-    expect(matchRoute('/gift-sets').name).toBe('search');
+    expect(matchRoute('/gift-sets').name).toBe('sets');
+    expect(matchRoute('/oils').name).toBe('oils');
+    expect(matchRoute('/sets').name).toBe('sets');
   });
 
   it('has no file or folder at the top of the published site with the shape of a product address', () => {
