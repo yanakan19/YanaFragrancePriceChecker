@@ -25,14 +25,58 @@ export type ListSort = 'az' | 'za' | 'price-low' | 'price-high' | 'size-low' | '
  */
 export type BrowseSort = ListSort | 'stocked';
 
-/** The six orderings offered wherever a fragrance list can be sorted. */
-export const LIST_SORT_OPTIONS: { value: ListSort; label: string }[] = [
+/**
+ * The words every sort control opens with, shown beside the select (see
+ * `control` in demo/app.ts) and never inside an option. Every option names
+ * both ends of its order, so together they read "Sort By: Lowest to Highest
+ * Price". Owner's rule, 2026-10-04: a sort must always say that it is a sort,
+ * and say where the list starts and where it ends.
+ */
+export const SORT_LEAD = 'Sort By:';
+
+/** One option of a sort control, whatever list it sorts. */
+export interface SortOption<T extends string = string> {
+  value: T;
+  label: string;
+}
+
+/**
+ * The six orderings offered wherever a fragrance list can be sorted. Each
+ * label names both ends, in Title Case, with no hyphen or dash. The values,
+ * and so every URL and saved state built from them, are unchanged.
+ */
+export const LIST_SORT_OPTIONS: SortOption<ListSort>[] = [
   { value: 'az', label: 'A to Z' },
   { value: 'za', label: 'Z to A' },
-  { value: 'price-low', label: 'Lowest Price' },
-  { value: 'price-high', label: 'Highest Price' },
-  { value: 'size-low', label: 'Smallest Size' },
-  { value: 'size-high', label: 'Largest Size' },
+  { value: 'price-low', label: 'Lowest to Highest Price' },
+  { value: 'price-high', label: 'Highest to Lowest Price' },
+  { value: 'size-low', label: 'Smallest to Largest Size' },
+  { value: 'size-high', label: 'Largest to Smallest Size' },
+];
+
+/** Browse and search: the stock ranking first, because it is what the list already did. */
+export const BROWSE_SORT_OPTIONS: SortOption<BrowseSort>[] = [
+  { value: 'stocked', label: 'Most to Least Stocked' },
+  ...LIST_SORT_OPTIONS,
+];
+
+/** Explore, Brands. */
+export const BRAND_SORT_OPTIONS: SortOption<'az' | 'za'>[] = [
+  { value: 'az', label: 'A to Z' },
+  { value: 'za', label: 'Z to A' },
+];
+
+/** Deals. */
+export const DEAL_SORT_OPTIONS: SortOption<'discount' | 'lowest' | 'highest'>[] = [
+  { value: 'discount', label: 'Best to Worst Saving' },
+  { value: 'lowest', label: 'Lowest to Highest Price' },
+  { value: 'highest', label: 'Highest to Lowest Price' },
+];
+
+/** Explore, Notes. */
+export const NOTE_SORT_OPTIONS: SortOption<'common' | 'az'>[] = [
+  { value: 'common', label: 'Most to Least Used' },
+  { value: 'az', label: 'A to Z' },
 ];
 
 /**

@@ -1324,6 +1324,33 @@
     .control { padding: 0 10px; }
   }
   .control-chevron .ico { width: 13px; height: 13px; }
+  /* "Sort By:" in front of the select, in the box, in the closed state. Real
+     text (it names the control for a screen reader), so it keeps the page's
+     own muted ink rather than --faint, which is for decoration. The longest
+     order ("Smallest to Largest Size") needs about 235px of its own after the
+     lead, more than a 160px grid column gives a plain filter, so a sort takes
+     two columns where there are columns to take (a little wider ones on a
+     computer) and the whole line on a phone, rather than cutting the words
+     off. Under 370px even the whole line is too short for the lead and the
+     words side by side, so the lead sits above the choice inside the same
+     box. The select stays a plain native select throughout. */
+  .control-lead { flex: none; color: var(--ink-2); font-weight: 500; white-space: nowrap; }
+  .control-sort .dropdown { padding-left: 0; }
+  .control-sort { grid-column: span 2; }
+  @media (min-width: 900px) {
+    .controls { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .control-sort { grid-column: 1 / -1; }
+  }
+  @media (max-width: 370px) {
+    .control-sort {
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center;
+      column-gap: 6px; padding-top: 7px;
+    }
+    .control-sort .control-lead { grid-column: 1 / -1; font-size: 13px; line-height: 1.2; }
+    .control-sort .dropdown { padding: 0 0 9px; }
+  }
   /* The open dropdown's popup is drawn by the OS, not this stylesheet — the
      closed control above only sets `color`, so the engine is free to pair
      that light (or dark) text with whichever background the platform's own
@@ -2899,7 +2926,9 @@
   .acct-shortcuts { display: flex; flex-direction: column; gap: 8px; margin: 14px 0 4px; }
   .acct-shortcuts .account-entry { max-width: none; margin: 0; min-height: 48px; }
   .acct-shortcuts .account-entry svg { transform: rotate(-90deg); }
-  .account-doc .controls { grid-template-columns: minmax(0, 240px); }
+  /* One column, wide enough for the longest sort beside "Sort By:". */
+  .account-doc .controls { grid-template-columns: minmax(0, 400px); }
+  .account-doc .control-sort { grid-column: 1 / -1; }
   .acct-download { flex: none; display: inline-flex; padding: 8px 16px; border: 1px solid var(--line-firm); }
   .account-doc .account-actions { margin-top: 24px; }
   .wishlist-art { flex: none; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; }

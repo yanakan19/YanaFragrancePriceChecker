@@ -64,7 +64,10 @@ import { productArt, photoSrcAttrs, HOUSE_IMG_SIZES, RETRY_ORIGINAL, type ArtSiz
 import { AA_TEXT, contrastRatio, parseColour, type Rgba } from './contrast.js';
 import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './gender.js';
 import { GIFT_SET_BAND, volumeBandFor, volumeOptions, type VolumeBand } from './volumeBands.js';
-import { LIST_SORT_OPTIONS, sortFragrances, type BrowseSort, type ListSort } from './listSort.js';
+import {
+  BRAND_SORT_OPTIONS, BROWSE_SORT_OPTIONS, DEAL_SORT_OPTIONS, LIST_SORT_OPTIONS, NOTE_SORT_OPTIONS, SORT_LEAD,
+  sortFragrances, type BrowseSort, type ListSort,
+} from './listSort.js';
 import {
   PER_ROW_CHOICES, PER_ROW_DEFAULT, clampPerRow, gridWidthFor, perRowChoicesFor,
 } from './tileDensity.js';
@@ -1056,9 +1059,10 @@ const ICON_CLOSE = icon('<path d="M6 6l12 12M18 6 6 18" stroke="currentColor" st
 const ICON_STOP = icon('<rect x="7" y="7" width="10" height="10" rx="1.6" fill="currentColor"/>');
 
 /** A labelled dropdown with its icon, used for every sort and filter control. */
-function control(id: string, label: string, ico: string, options: { value: string; label: string }[], current: string): string {
-  return `<label class="control">
+function control(id: string, label: string, ico: string, options: { value: string; label: string }[], current: string, lead = ''): string {
+  return `<label class="control${lead ? ' control-sort' : ''}">
     <span class="control-ico">${ico}</span>
+    ${lead ? `<span class="control-lead">${esc(lead)}</span>` : ''}
     <span class="sr">${esc(label)}</span>
     <select id="${id}" class="dropdown">
       ${options.map((o) => `<option value="${esc(o.value)}" ${o.value === current ? 'selected' : ''}>${esc(o.label)}</option>`).join('')}
@@ -1067,10 +1071,27 @@ function control(id: string, label: string, ico: string, options: { value: strin
   </label>`;
 }
 
+/**
+ * Every sort dropdown on the site is built here, so every one of them says
+ * "Sort By:" in the closed state and names both ends of its order (owner's
+ * rule, 2026-10-04).
+ *
+ * The words come from a fixed label inside the control's box, not from a
+ * prefix on each option: the native select, and the picker the OS draws for
+ * it (the wheel on iPhone Safari), then list only the orders themselves
+ * instead of repeating "Sort By:" on every row. The label is real text, so
+ * it also names the control for a screen reader: `subject` is the hidden half
+ * ("fragrances"), read after the visible "Sort By:", and nothing else says
+ * "sort", so it is never read twice.
+ */
+function sortControl(id: string, subject: string, ico: string, options: { value: string; label: string }[], current: string): string {
+  return control(id, subject, ico, options, current, SORT_LEAD);
+}
+
 /** The sort dropdown offered on a note, brand or retailer page. The
  *  comparator itself and the option list are in demo/listSort.ts. */
 function listSortControl(id: string, current: ListSort): string {
-  return control(id, 'Sort fragrances', ICON_SORT, LIST_SORT_OPTIONS, current);
+  return sortControl(id, 'Fragrances', ICON_SORT, LIST_SORT_OPTIONS, current);
 }
 
 /**
@@ -1082,10 +1103,7 @@ function listSortControl(id: string, current: ListSort): string {
  * they saw before it existed.
  */
 function browseSortControl(current: BrowseSort): string {
-  return control('browse-sort', 'Sort fragrances', ICON_SORT, [
-    { value: 'stocked', label: 'Most Stocked' },
-    ...LIST_SORT_OPTIONS,
-  ], current);
+  return sortControl('browse-sort', 'Fragrances', ICON_SORT, BROWSE_SORT_OPTIONS, current);
 }
 
 /* ── shared pieces ───────────────────────────────────────────────────────── */
@@ -2162,15 +2180,15 @@ function wishlistListHtml(): string {
   const hasAnyChange = rows.some((r) => r.changeGbp !== null);
   const activeSort = effectiveWishlistSort(state.wishlistSort, hasAnyChange);
   const sorted = sortWishlist(rows, activeSort);
-  const sortControl = control(
-    'wishlist-sort', 'Sort', ICON_SORT,
+  const wishlistSortControl = sortControl(
+    'wishlist-sort', 'Saved Fragrances', ICON_SORT,
     wishlistSortsFor(hasAnyChange).map((s) => ({ value: s.id, label: s.label })),
     activeSort,
   );
   const hiddenCount = state.wishlistEntries.length - rows.length;
 
   return `
-    <div class="controls">${sortControl}</div>
+    <div class="controls">${wishlistSortControl}</div>
     <ul class="shop-list wishlist-list">
       ${sorted
         .map(
@@ -2806,10 +2824,7 @@ function brandsPanel(): string {
   );
 
   const controls = `<div class="controls">
-    ${control('brand-sort', 'Sort brands', ICON_SORT, [
-      { value: 'az', label: 'A to Z' },
-      { value: 'za', label: 'Z to A' },
-    ], state.brandSort)}
+    ${sortControl('brand-sort', 'Brands', ICON_SORT, BRAND_SORT_OPTIONS, state.brandSort)}
     ${control('brand-filter', 'Filter brands', ICON_FILTER, [
       { value: 'all', label: 'All Types' },
       ...(['designer', 'niche', 'mideast'] as const).map((t) => ({ value: t, label: TIER_LABEL[t] })),
@@ -2880,11 +2895,7 @@ function dealsPanel(): string {
   const filtered = sorted.filter((d) => passesFacets(d.fragrance, null));
 
   const controls = listControls(
-    control('deal-sort', 'Sort deals', ICON_RANK, [
-      { value: 'discount', label: 'Best Saving' },
-      { value: 'lowest', label: 'Lowest Price' },
-      { value: 'highest', label: 'Highest Price' },
-    ], state.dealSort),
+    sortControl('deal-sort', 'Deals', ICON_RANK, DEAL_SORT_OPTIONS, state.dealSort),
     facets(sorted.map((d) => d.fragrance)),
   );
 
@@ -3364,10 +3375,7 @@ function notesPanel(): string {
   );
 
   const controls = `<div class="controls">
-    ${control('note-sort', 'Sort notes', ICON_SORT, [
-      { value: 'common', label: 'Most Used' },
-      { value: 'az', label: 'A to Z' },
-    ], state.noteSort)}
+    ${sortControl('note-sort', 'Notes', ICON_SORT, NOTE_SORT_OPTIONS, state.noteSort)}
     ${control('note-layer', 'Filter notes', ICON_FILTER, [
       { value: 'any', label: 'Any Layer' },
       { value: 'top', label: 'Top Notes' },

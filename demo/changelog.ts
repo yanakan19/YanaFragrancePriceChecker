@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.74.0',
+    date: '5 Oct 2026',
+    title: 'Every sort now says Sort By',
+    points: [
+      'Each sort reads Sort By, then its order',
+      'Best to Worst Saving, Highest to Lowest Price',
+      'The wishlist and Explore sorts follow suit',
+    ],
+  },
+  {
     version: 'v3.73.0',
     date: '5 Oct 2026',
     title: 'Logos for 41 more fragrance houses',

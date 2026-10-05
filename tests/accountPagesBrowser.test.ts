@@ -290,7 +290,7 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
       }))`) as Promise<{ name: string; price: string; art: boolean; saved: boolean; target: string | null }[]>;
       const first = await rows();
       expect(first).toHaveLength(2);
-      // Recently Saved: the 3 Oct save before the 1 Oct one.
+      // Newest to Oldest Saved: the 3 Oct save before the 1 Oct one.
       expect(first[1]!.target).toBe('30.00');
       for (const r of first) {
         expect(r.art).toBe(true);

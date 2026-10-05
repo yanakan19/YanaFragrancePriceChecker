@@ -127,8 +127,8 @@ describe('the wishlist sort', () => {
     { name: 'C', addedAt: '2026-10-02T00:00:00Z', priceGbp: 20 },
   ];
 
-  it('offers Recently Saved and Cheapest, and no drop it cannot measure', () => {
-    expect(WISHLIST_SORTS.map((s) => s.label)).toEqual(['Recently Saved', 'Cheapest']);
+  it('offers Newest to Oldest Saved and Lowest to Highest Price, and no drop it cannot measure', () => {
+    expect(WISHLIST_SORTS.map((s) => s.label)).toEqual(['Newest to Oldest Saved', 'Lowest to Highest Price']);
   });
 
   it('puts the newest save first', () => {

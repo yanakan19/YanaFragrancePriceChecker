@@ -112,19 +112,19 @@ export function accountButtonLabel(state: AccountState): string {
 export type WishlistSort = 'recent' | 'cheapest' | 'drop';
 
 export const WISHLIST_SORTS: { id: WishlistSort; label: string }[] = [
-  { id: 'recent', label: 'Recently Saved' },
-  { id: 'cheapest', label: 'Cheapest' },
+  { id: 'recent', label: 'Newest to Oldest Saved' },
+  { id: 'cheapest', label: 'Lowest to Highest Price' },
 ];
 
-/** Biggest Drop, which exists only where at least one row has a change to rank. */
-const BIGGEST_DROP = { id: 'drop' as const, label: 'Biggest Drop' };
+/** Biggest to Smallest Drop, which exists only where at least one row has a change to rank. */
+const BIGGEST_DROP = { id: 'drop' as const, label: 'Biggest to Smallest Drop' };
 
 /** The sorts to offer: the two always, and Biggest Drop only when some row has a change since saved. */
 export function wishlistSortsFor(hasAnyChange: boolean): { id: WishlistSort; label: string }[] {
   return hasAnyChange ? [...WISHLIST_SORTS, BIGGEST_DROP] : WISHLIST_SORTS;
 }
 
-/** The sort to draw: the reader's choice, or Recently Saved where Biggest Drop is no longer on offer. */
+/** The sort to draw: the reader's choice, or Newest to Oldest Saved where Biggest to Smallest Drop is no longer on offer. */
 export function effectiveWishlistSort(chosen: WishlistSort, hasAnyChange: boolean): WishlistSort {
   return chosen === 'drop' && !hasAnyChange ? 'recent' : chosen;
 }
