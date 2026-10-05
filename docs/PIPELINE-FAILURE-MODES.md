@@ -102,8 +102,9 @@ day (`git rev-list --objects <end> --not <start>`) packed as a push sends them
 `git verify-pack -v` on the indexed pack. Sizes are compressed, after git's
 delta compression, so they are what the repository actually grows by;
 GitHub's own repacking may differ by a few per cent. GitHub reported the
-repository at 690,445 kB on the evening of 2026-10-04 and 754,338 kB at
-03:00 UTC on 2026-10-05.
+repository at 690,445 kB on the evening of 2026-10-04, 754,338 kB at 03:00
+UTC on 2026-10-05 and 703,724 kB at 15:00 the same day (GitHub repacks on its
+own schedule, so its figure moves both ways; the pack sizes here do not).
 
 | Day (UTC) | Added | Commits |
 |---|---|---|
@@ -227,3 +228,32 @@ move to UK time before 25 October, and a decision on repository growth.
   least 14:26 UTC on 2026-10-04, through seven slots (every :15 from 10:15,
   and :45 once that tick existed from 12:45), which is
   failure mode 7 as it happens.
+
+### Proof of the deploy-time build (2026-10-04/05)
+
+- **Deploy #1008** (push of 1a7351c3, 2026-10-04 22:25 UTC, success, 1m37s):
+  the first deploy that builds. Checkout 31 s (full history, no blobs), build
+  44 s, check under 1 s, upload and deploy 10 s. Its data files had the same
+  hashes as the ones then committed, so the build is reproducible.
+- **Push of 42154225** (2026-10-05 03:21, the page no longer in git): deploy
+  #1033 for that commit, "Build manifest check" (the scratch rebuild against the
+  manifest) and "Layout check (Safari engine)" (builds the page itself now)
+  all green. The site then served `Last-Modified: 03:23:00 GMT`, the page
+  naming `data/catalogue.31e438049c6039c6.json`, the hash a local build of
+  the same commit produces; a product page, `/sitemap.xml` (27,572 URLs),
+  `/ads.txt` and the data files all served.
+- **Crawl #628** (workflow_dispatch `deals_refresh`, 03:24 to 03:34, success;
+  the one proof dispatch used): rebuild 1m03s with the write check passing,
+  then "Commit rebuilt app" pushed 5ba38cde with `demo/deals.generated.ts` and
+  `demo/testCount.generated.ts` only: no page, no data files, and the
+  checkpoint left alone (under 10 commits behind). The deploy it triggered
+  succeeded.
+- **The day after** (03:22 to 15:02 UTC on 2026-10-05): three harvests, two
+  Awin syncs, fragrance links, image checks, every one followed by a green
+  deploy; no workflow committed a page file, and the checkpoint was committed
+  once instead of after every rebuild. The branch grew 7.9 MB in those
+  11.7 hours (snapshots 3.6, `catalogue.generated.ts` 3.0, the rest under
+  0.4 each), against 60.5 MB for the whole of 2026-10-04. At 15:05 the site
+  served the build of the tip, 556be070: the same five data file hashes and
+  build stamp (`sha256:0a860d3ccc1f`) as a local `npm run demo` of that
+  commit, and `data/catalogue.5098a4dc3a4e3b02.json` byte-identical to it.

@@ -218,6 +218,13 @@ describe('placements in demo/app.ts', () => {
 
   it('every render and every appended chunk mounts new slots', () => {
     expect(app).toMatch(/mountChunkedList\(\);\n\n  \/\/ Ad slots[^\n]*\n  mountAds\(\);/);
-    expect(app).toMatch(/el\.insertAdjacentHTML\('beforebegin', next\.map\(\(item\) => held\.render\(item\)\)\.join\(''\)\);\n  mountAds\(\);/);
+    // An appended chunk is inserted, bookkeeping for the windowed list runs
+    // (held.windowed), and then the new slots are mounted, all inside
+    // appendNextChunk: mountAds() must follow the insert before the function ends.
+    const append = app.slice(app.indexOf('function appendNextChunk'));
+    const body = append.slice(0, append.indexOf('\n}\n'));
+    const inserted = body.indexOf("el.insertAdjacentHTML('beforebegin', next.map((item) => held.render(item)).join(''));");
+    expect(inserted).toBeGreaterThan(-1);
+    expect(body.indexOf('mountAds();', inserted)).toBeGreaterThan(inserted);
   });
 });
