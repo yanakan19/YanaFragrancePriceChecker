@@ -32,6 +32,8 @@ export type DormantProducts = Record<string, DormantEntry>;
 export interface DormantData {
   products: DormantProducts;
   aliases: IdAliases;
+  /** Slug of a product folded into another, to the id of the product that holds it now. */
+  slugAliases: Record<string, string>;
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -43,10 +45,15 @@ export function prepareDormant(raw: unknown): DormantData {
   const file = raw as Partial<DormantFile> | null;
   const products = file?.DORMANT_PRODUCTS;
   const aliases = file?.ID_ALIASES;
-  if (!isRecord(products) || !isRecord(aliases)) {
-    throw new Error('dormant products file is not { DORMANT_PRODUCTS, ID_ALIASES }');
+  const slugAliases = file?.SLUG_ALIASES;
+  if (!isRecord(products) || !isRecord(aliases) || !isRecord(slugAliases)) {
+    throw new Error('dormant products file is not { DORMANT_PRODUCTS, ID_ALIASES, SLUG_ALIASES }');
   }
-  return { products: products as DormantProducts, aliases: aliases as IdAliases };
+  return {
+    products: products as DormantProducts,
+    aliases: aliases as IdAliases,
+    slugAliases: slugAliases as Record<string, string>,
+  };
 }
 
 export function createDormant(fetchFile: (name: string) => Promise<unknown> = fetchLazyFile): LazyData<DormantData> {
@@ -68,6 +75,29 @@ export function dormantEntry(id: string): DormantEntry | undefined {
  */
 export function absorbedBy(data: DormantData, id: string): string | undefined {
   return Object.prototype.hasOwnProperty.call(data.aliases, id) ? data.aliases[id] : undefined;
+}
+
+/** Each loaded file's slug to id index, built the first time it is asked. */
+const slugIndexes = new WeakMap<DormantData, Map<string, string>>();
+
+/**
+ * The id a product address (a slug) that is not in the catalogue stands for, or
+ * null: the page with no current prices that holds the slug, or the product a
+ * merge folded the slug's own product into, when that product is a page.
+ * `isLive` says whether an id is in the catalogue.
+ */
+export function idForSlug(data: DormantData | null, slug: string, isLive: (id: string) => boolean): string | null {
+  if (data === null) return null;
+  let idBySlug = slugIndexes.get(data);
+  if (idBySlug === undefined) {
+    idBySlug = new Map(Object.entries(data.products).map(([id, entry]) => [entry.slug, id] as const));
+    slugIndexes.set(data, idBySlug);
+  }
+  const own = idBySlug.get(slug);
+  if (own !== undefined) return own;
+  if (!Object.prototype.hasOwnProperty.call(data.slugAliases, slug)) return null;
+  const to = data.slugAliases[slug]!;
+  return isLive(to) || Object.prototype.hasOwnProperty.call(data.products, to) ? to : null;
 }
 
 /**

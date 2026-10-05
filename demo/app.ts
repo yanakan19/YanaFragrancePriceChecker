@@ -2589,6 +2589,7 @@ function priceBoxRow(
 function dormantFragrance(id: string, d: DormantEntry): DemoFragrance {
   return {
     id,
+    slug: d.slug,
     brand: d.brand,
     name: d.name,
     concentration: d.concentration,
