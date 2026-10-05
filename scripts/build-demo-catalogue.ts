@@ -58,6 +58,7 @@ import {
   settleIdAliases,
   type IdAliasFile,
 } from '../src/catalogue/idAliases.js';
+import { assignSlugs, slugAliases, type SlugFile, type SlugProduct } from '../src/catalogue/productSlug.js';
 import { auditWasPrices } from '../src/catalogue/wasPriceCredibility.js';
 import {
   isFragrance,
@@ -2307,6 +2308,8 @@ for (const [id, listings] of [...dormantListings].sort((a, b) => a[0].localeComp
   }));
   const image = pickImage(candidates, now, imageBoxVerdicts, imageDimensions);
   const entry: DormantEntry = {
+    // Given below, once every product's slug is settled together.
+    slug: '',
     brand: facts.brand,
     name: facts.name,
     concentration: facts.concentration,
@@ -2406,6 +2409,43 @@ const idAliasResult = settleIdAliases({
 });
 const idAliases = idAliasResult.aliases;
 
+/* ── product addresses: /BRAND_NAME_VOLUME ──────────────────────────────────
+   Every product with a page (the catalogue and the pages with no current
+   prices) has a slug, given once and kept in data/product-slugs.json: the build
+   reads its own last copy and never changes a slug already in it, so an address
+   that has been published, shared or indexed does not move when a product is
+   renamed or resized. A product with no slug yet is given one by the rules in
+   src/catalogue/productSlug.ts (docs/PRODUCT-URLS.md). The slug of a product
+   that has since been folded into another stays in the file and becomes an
+   alias of the survivor (slugAliases below). */
+const productSlugsPath = resolve(root, 'data/product-slugs.json');
+const previousSlugs: Record<string, string> = existsSync(productSlugsPath)
+  ? (JSON.parse(readFileSync(productSlugsPath, 'utf8')) as SlugFile).slugs
+  : {};
+const slugProducts: SlugProduct[] = [
+  ...ordered.map((p) => ({
+    id: p.id,
+    brand: p.brand,
+    name: p.name,
+    concentration: p.concentration,
+    sizeMl: p.sizeMl,
+    giftSet: Boolean(p.giftSet),
+  })),
+  ...Object.entries(dormantProducts).map(([id, d]) => ({
+    id,
+    brand: d.brand,
+    name: d.name,
+    concentration: d.concentration,
+    sizeMl: d.sizeMl,
+    giftSet: d.giftSet !== undefined,
+  })),
+];
+const slugResult = assignSlugs(previousSlugs, slugProducts);
+const productSlugs = slugResult.slugs;
+for (const [id, d] of Object.entries(dormantProducts)) d.slug = productSlugs[id]!;
+const pageIds = new Set(slugProducts.map((p) => p.id));
+const slugAliasMap = slugAliases(productSlugs, idAliases, (id) => pageIds.has(id));
+
 const historyAliases: Record<string, string[]> = {};
 for (const p of ordered) {
   const ids = absorbedIds.get(p.id);
@@ -2420,6 +2460,7 @@ const catalogue = ordered.map((p) => {
   const image = pickImage(p.offers, now, imageBoxVerdicts, imageDimensions);
   return {
     id: p.id,
+    slug: productSlugs[p.id]!,
     brand: p.brand,
     name: p.name,
     concentration: p.concentration,
@@ -2517,6 +2558,12 @@ export interface Notes {
 
 export interface CatalogueEntry {
   id: string;
+  /**
+   * The product's address, pricesniffs.space/<slug>: brand, name and volume
+   * joined by underscores. Given once and never changed (data/product-slugs.json,
+   * src/catalogue/productSlug.ts, docs/PRODUCT-URLS.md).
+   */
+  slug: string;
   brand: string;
   name: string;
   concentration: string;
@@ -2693,9 +2740,21 @@ export const DORMANT_PRODUCTS: Record<string, DormantEntry> = ${JSON.stringify(d
 // rewritten to it. Built from the build's own merge decisions and kept from
 // build to build in data/id-aliases.json (src/catalogue/idAliases.ts).
 export const ID_ALIASES: Record<string, string> = ${JSON.stringify(idAliases)};
+
+// The slugs that were given to products now folded into another product, each
+// with the id of the product that holds it now: an old product address opens
+// that product, and the address bar is rewritten to its own. Built from
+// data/product-slugs.json and the aliases above (src/catalogue/productSlug.ts).
+export const SLUG_ALIASES: Record<string, string> = ${JSON.stringify(slugAliasMap)};
 `,
 );
 writeGenerated(root, 'data/id-aliases.json', `${JSON.stringify({ aliases: idAliases }, null, 1)}\n`);
+writeGenerated(root, 'data/product-slugs.json', `${JSON.stringify({ slugs: productSlugs }, null, 1)}\n`);
+console.log(
+  `product addresses: ${slugResult.stats.kept} kept, ${slugResult.stats.fresh} given ` +
+    `(${slugResult.stats.plain} plain, ${slugResult.stats.withStrength} with the strength, ${slugResult.stats.withVersion} with a version), ` +
+    `${Object.keys(slugAliasMap).length} slugs of merged products answer for the product that holds them (data/product-slugs.json)`,
+);
 
 const multi = ordered.filter((p) => p.offers.length > 1).length;
 // See sizeConflict in src/catalogue/fragranceId.ts and Product.sizeMl's own
