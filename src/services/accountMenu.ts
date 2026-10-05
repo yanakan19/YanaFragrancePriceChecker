@@ -15,6 +15,7 @@ export type AccountMenuAction =
   | 'wishlist'
   | 'notifications'
   | 'settings'
+  | 'suggestions'
   | 'signIn'
   | 'signUp'
   | 'verify'
@@ -34,6 +35,9 @@ export interface AccountMenuItem {
  */
 export function accountMenuItems(state: AccountState, wishlistCount: number | null): AccountMenuItem[] {
   const settings: AccountMenuItem = { action: 'settings', label: 'Settings' };
+  // Directly under Settings in every menu: anyone can make a suggestion, so
+  // it never depends on an account (owner's decision, 2026-10-04).
+  const suggestions: AccountMenuItem = { action: 'suggestions', label: 'Suggestions' };
   switch (state.kind) {
     case 'signedIn':
       return [
@@ -41,6 +45,7 @@ export function accountMenuItems(state: AccountState, wishlistCount: number | nu
         { action: 'wishlist', label: wishlistCount === null ? 'View My Wishlist' : `View My Wishlist (${wishlistCount})` },
         { action: 'notifications', label: 'My Notifications' },
         settings,
+        suggestions,
         { action: 'signOut', label: 'Sign Out' },
       ];
     case 'signedOut':
@@ -48,6 +53,7 @@ export function accountMenuItems(state: AccountState, wishlistCount: number | nu
         { action: 'signIn', label: 'Sign In' },
         { action: 'signUp', label: 'Create an Account' },
         settings,
+        suggestions,
       ];
     case 'verify':
       // An account that exists but has not confirmed its address yet can do
@@ -56,13 +62,14 @@ export function accountMenuItems(state: AccountState, wishlistCount: number | nu
       return [
         { action: 'verify', label: 'Verify Your Email' },
         settings,
+        suggestions,
         ...(state.hasSession ? [{ action: 'signOut' as const, label: 'Sign Out' }] : []),
       ];
     case 'unconfigured':
     case 'loading':
       // Nothing to sign in to (or not known yet): the menu still reaches the
       // one item that never depends on an account.
-      return [settings];
+      return [settings, suggestions];
   }
 }
 

@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.72.0',
+    date: '4 Oct 2026',
+    title: 'Suggestions moved to the account menu',
+    points: [
+      'Got an Idea is gone from the home page',
+      'Suggestions sits under Settings for everyone',
+      'It opens the same form on its own page',
+    ],
+  },
+  {
     version: 'v3.71.0',
     date: '4 Oct 2026',
     title: 'Lists now keep going as you scroll',

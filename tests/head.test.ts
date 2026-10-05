@@ -22,7 +22,7 @@ describe('canonical URLs', () => {
   it('gives every route a distinct canonical', () => {
     const names: RouteName[] = [
       'home', 'search', 'brands', 'brand', 'deals', 'retailers', 'retailer',
-      'notes', 'note', 'fragrance', 'about', 'settings', 'account', 'legal',
+      'notes', 'note', 'fragrance', 'about', 'settings', 'suggestions', 'account', 'legal',
       'design', 'notFound',
     ];
     const seen = new Map<string, RouteName>();
@@ -80,7 +80,7 @@ describe('descriptions', () => {
   it('never exceeds the window, and is never empty', () => {
     const names: RouteName[] = [
       'home', 'search', 'brands', 'brand', 'deals', 'retailers', 'retailer',
-      'notes', 'note', 'fragrance', 'about', 'settings', 'account', 'legal',
+      'notes', 'note', 'fragrance', 'about', 'settings', 'suggestions', 'account', 'legal',
       'design', 'notFound',
     ];
     for (const name of names) {
@@ -125,7 +125,7 @@ describe('descriptions', () => {
 
 describe('what may be indexed', () => {
   it('marks the routes that would waste or mislead a crawler', () => {
-    for (const name of ['search', 'settings', 'account', 'design', 'notFound'] as RouteName[]) {
+    for (const name of ['search', 'settings', 'suggestions', 'account', 'design', 'notFound'] as RouteName[]) {
       expect(tags({ route: route(name) }).noindex, `${name} should be noindex`).toBe(true);
     }
   });
@@ -258,6 +258,7 @@ describe('fixed-route titles name the page, and match what the page shows', () =
     ['about', 'PriceSniffs: About'],
     ['search', 'PriceSniffs: Search'],
     ['settings', 'PriceSniffs: Settings'],
+    ['suggestions', 'PriceSniffs: Suggestions'],
   ])('%s -> %s', (name, expected) => {
     expect(tags({ route: route(name as RouteName) }).title).toBe(expected);
   });
