@@ -1,3 +1,4 @@
+import { isOilStrength } from '../src/catalogue/perfumeOil.js';
 import type { DemoFragrance } from './data.js';
 
 /**
@@ -7,9 +8,9 @@ import type { DemoFragrance } from './data.js';
  *
  *   - A set carries a `giftSet` record (src/catalogue/giftSet.ts). Gift sets,
  *     miniature and discovery sets, and bundles of full bottles are all sets.
- *   - An oil has the strength `Perfume Oil` and is not a set. Three products
- *     are both a set and carry that strength (a set holding an oil); a set
- *     wins, so a product is never counted as two kinds.
+ *   - An oil has the strength `Perfume Oil` or `Attar` (src/catalogue/perfumeOil.ts)
+ *     and is not a set. Three products are both a set and carry that strength (a
+ *     set holding an oil); a set wins, so a product is never counted as two kinds.
  *   - Everything else is a bottle.
  *
  * Kept free of anything that reads the catalogue, so a script can import it.
@@ -23,12 +24,12 @@ export function isSet(f: Pick<DemoFragrance, 'giftSet'>): boolean {
 }
 
 export function isOil(f: KindFields): boolean {
-  return f.giftSet === null && f.concentration === 'Perfume Oil';
+  return f.giftSet === null && isOilStrength(f.concentration);
 }
 
 export function productKind(f: KindFields): ProductKind {
   if (f.giftSet !== null) return 'set';
-  return f.concentration === 'Perfume Oil' ? 'oil' : 'bottle';
+  return isOilStrength(f.concentration) ? 'oil' : 'bottle';
 }
 
 /**

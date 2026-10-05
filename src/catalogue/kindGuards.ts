@@ -9,6 +9,8 @@
  * Each returns a list of plain sentences, empty when the rule holds.
  */
 
+import { isOilStrength } from './perfumeOil.js';
+
 /** The fields every check needs, true of a build product and of a catalogue entry alike. */
 export interface KindedProduct {
   id: string;
@@ -22,7 +24,7 @@ type Kind = 'bottle' | 'set' | 'oil';
 
 function kindOf(p: KindedProduct): Kind {
   if (p.giftSet !== null && p.giftSet !== undefined) return 'set';
-  return p.concentration === 'Perfume Oil' ? 'oil' : 'bottle';
+  return isOilStrength(p.concentration) ? 'oil' : 'bottle';
 }
 
 /**
