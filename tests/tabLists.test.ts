@@ -14,6 +14,7 @@ import {
   type Facet,
 } from '../demo/tabLists.js';
 import { createTabs } from '../demo/tabPanels.js';
+import { isOilStrength } from '../src/catalogue/perfumeOil.js';
 import { matchRoute, routeToPath } from '../demo/router.js';
 
 /**
@@ -155,7 +156,7 @@ describe('the Oils and Sets tabs on the real catalogue', () => {
   });
 
   const sets = DEMO_FRAGRANCES.filter((f) => f.giftSet !== null);
-  const oils = DEMO_FRAGRANCES.filter((f) => f.giftSet === null && f.concentration === 'Perfume Oil');
+  const oils = DEMO_FRAGRANCES.filter((f) => f.giftSet === null && isOilStrength(f.concentration));
 
   it('list every set on Sets and every oil on Oils, and never a bottle', () => {
     tabs.reset('sets');
