@@ -47,6 +47,7 @@ import {
   untrustworthyEans as computeUntrustworthyEans,
   trustworthyEan,
 } from '../src/catalogue/productMatch.js';
+import { listingViolations, namespaceViolations } from '../src/catalogue/kindGuards.js';
 import { auditPriceScale } from '../src/catalogue/priceScale.js';
 import { formatLabels } from '../src/catalogue/offerFormat.js';
 import type { DormantEntry } from '../src/catalogue/dormantProducts.js';
@@ -245,6 +246,13 @@ function isHouseFragrance(l: StoredListing): boolean {
 
 interface Offer {
   retailerId: string;
+  /**
+   * The shop's own SKU for the listing this offer was made from. With
+   * `retailerId` it names the stored listing, which kindGuards.ts's
+   * listingViolations checks feeds only one product. Dropped before anything is
+   * written, like `rawTitle`.
+   */
+  listingSku: string;
   price: number;
   wasPrice: number | null;
   promoEndsAt: string | null;
@@ -956,6 +964,7 @@ for (const { retailer, listings } of eligible) {
     }
     const offer: Offer = {
       retailerId: l.retailerId,
+      listingSku: l.retailerSku,
       price: l.priceGbp!,
       wasPrice: l.wasPriceGbp,
       promoEndsAt: l.promoEndsAt,
@@ -2135,6 +2144,16 @@ const ordered = [...products.values()].sort(
     (a.sizeMl ?? Infinity) - (b.sizeMl ?? Infinity),
 );
 
+// A set or an oil never merges with a bottle: no stored listing feeds two
+// products (docs/GIFT-SETS-AND-OILS-PLAN.md, section 4.1; tests/setsOilsGuardrails.test.ts).
+// The barcode rule is data, not structure, so a test holds it and the build does not stop on it.
+{
+  const violations = [...namespaceViolations(ordered), ...listingViolations(ordered)];
+  if (violations.length > 0) {
+    throw new Error(`The catalogue breaks a set and oil guard, so it is not written:\n  ${violations.slice(0, 20).join('\n  ')}`);
+  }
+}
+
 // `description` is read for its notes above and then deliberately dropped: it
 // is several hundred words per product across hundreds of products, and
 // shipping all of it into a single page bundle would cost far more than the
@@ -2151,7 +2170,7 @@ const ordered = [...products.values()].sort(
 // twice over, for something no reader of the shipped file consults.
 const crawled: Record<
   string,
-  (Omit<Offer, 'description' | 'sizeMl' | 'brandDirect' | 'matchKey' | 'rawTitle'> & { format?: string })[]
+  (Omit<Offer, 'description' | 'sizeMl' | 'brandDirect' | 'matchKey' | 'rawTitle' | 'listingSku'> & { format?: string })[]
 > = {};
 // Two offers of one shop on one product, the same size, told apart by the
 // shop's own format words ("Miniature", "Travel Spray"): src/catalogue/
@@ -2184,6 +2203,7 @@ for (const p of ordered) {
         brandDirect: _house,
         matchKey: _key,
         rawTitle: _title,
+        listingSku: _sku,
         ...rest
       },
       i,
