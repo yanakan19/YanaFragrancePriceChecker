@@ -5,6 +5,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import type { Browser, BrowserContext, Page } from 'playwright';
 import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-audit.js';
 import { COMPANY } from '../demo/legal.js';
+import { fragranceById } from '../demo/data.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const built = existsSync(resolve(root, 'demo/index.html'));
@@ -21,6 +22,8 @@ describe.skipIf(!built)('wrong price report (built page, Chromium)', () => {
   let port = 0;
   let close: () => void = () => {};
   let productPath = '';
+  /** The product's own address, which is what the report's email names. */
+  let ownAddress = '';
 
   beforeAll(async () => {
     ({ port, close } = await startDemoServer());
@@ -31,7 +34,10 @@ describe.skipIf(!built)('wrong price report (built page, Chromium)', () => {
     await page.goto(`http://localhost:${port}/`);
     await waitForApp(page);
     const id = await page.getAttribute('.pop-rail [data-frag]', 'data-frag');
+    // Opened by the old address, which still works and is rewritten; the
+    // email names the address the product has now (docs/PRODUCT-URLS.md).
     productPath = `/fragrance/${encodeURIComponent(id!)}`;
+    ownAddress = `/${fragranceById(id!)!.slug}`;
     await page.close();
   }, 90_000);
 
@@ -153,7 +159,8 @@ describe.skipIf(!built)('wrong price report (built page, Chromium)', () => {
     const body = url.searchParams.get('body')!;
     expect(subject).toMatch(new RegExp(`^Wrong price: .+ at ${firstShop.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`));
     expect(body).toContain(`Page: http`);
-    expect(body).toContain(productPath);
+    expect(body).toContain(ownAddress);
+    expect(body).not.toContain('/fragrance/');
     expect(body).toContain(`Shop: ${firstShop}`);
     expect(body).toMatch(/Price shown: £\d+\.\d\d/);
     expect(body).toMatch(/Checked: \d{1,2} \w+ \d{4}, \d\d:\d\d UK time/);

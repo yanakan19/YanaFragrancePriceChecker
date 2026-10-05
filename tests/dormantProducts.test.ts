@@ -84,7 +84,10 @@ describe('the built data', () => {
 
   it('is not in the sitemap', () => {
     const sitemap = readFileSync(resolve(import.meta.dirname, '../demo/sitemap.xml'), 'utf8');
-    for (const id of ids) expect(sitemap.includes(`/fragrance/${id}<`), id).toBe(false);
+    for (const id of ids) {
+      expect(sitemap.includes(`/fragrance/${id}<`), id).toBe(false);
+      expect(sitemap.includes(`/${DORMANT_PRODUCTS[id]!.slug}<`), id).toBe(false);
+    }
   });
 
   it('gives every page something to draw: a name, and at least one price a shop once confirmed', () => {

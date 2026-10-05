@@ -114,9 +114,10 @@ function livePrice(offer: PresentedOffer): { status: 'match' | 'differs' | 'unre
   }
 }
 
-function siteLinkOk(id: string): boolean {
+function siteLinkOk(id: string, slug: string): boolean {
   try {
-    const out = curl(`${SITE}/fragrance/${id}`).toString();
+    // The product's own address, /BRAND_NAME_VOLUME (docs/PRODUCT-URLS.md).
+    const out = curl(`${SITE}/${slug}`).toString();
     const file = /data\/catalogue\.[a-f0-9]+\.json/.exec(out)?.[0];
     return Boolean(file) && curl(`${SITE}/${file}`).toString().includes(`"${id}"`);
   } catch {
@@ -290,7 +291,7 @@ async function main() {
       skipped.push(`${e.frag.id}: live price moved (${e.cheap.retailer.name} ${cheapLive.live ?? '?'}, ${e.dear.retailer.name} ${dearLive.live ?? '?'})`);
       continue;
     }
-    if (!siteLinkOk(e.frag.id)) {
+    if (!siteLinkOk(e.frag.id, e.frag.slug)) {
       skipped.push(`${e.frag.id}: product link not live on the site`);
       continue;
     }
@@ -303,7 +304,7 @@ async function main() {
     return;
   }
   const { e, checks } = chosen;
-  const url = `${SITE}/fragrance/${e.frag.id}`;
+  const url = `${SITE}/${e.frag.slug}`;
   const dir = join(ROOT, 'social', 'posts', opt('--out') ?? folder);
   mkdirSync(dir, { recursive: true });
   const photo = photoDataUri(e.frag.photoUrl!);

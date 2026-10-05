@@ -28,17 +28,23 @@
  */
 
 import { BRAND_MERGES } from '../src/catalogue/brandName.js';
+import { isProductSlug } from '../src/catalogue/productSlug.js';
 
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
-  | 'notes' | 'note' | 'fragrance' | 'about' | 'settings' | 'suggestions' | 'legal' | 'account'
+  | 'notes' | 'note' | 'fragrance' | 'product' | 'about' | 'settings' | 'suggestions' | 'legal' | 'account'
   | 'accountWishlist' | 'accountNotifications'
   | 'design' | 'notFound';
 
 /** What a matched URL says about where we are. */
 export interface Route {
   name: RouteName;
-  /** The path segment identifying a leaf, already decoded. Empty for lists. */
+  /**
+   * The path segment identifying a leaf, already decoded. Empty for lists.
+   * For `fragrance` it is the product's id (the old /fragrance/<id> address,
+   * and what the app holds internally); for `product` it is the slug, the new
+   * address /BRAND_NAME_VOLUME (docs/PRODUCT-URLS.md).
+   */
   param: string;
   /** Query string values the app cares about. */
   query: Record<string, string>;
@@ -126,6 +132,48 @@ const LEAF_ROUTES: Record<string, RouteName> = {
 };
 
 /**
+ * The page's way of finding a product's slug from its id. The router has no
+ * catalogue (this file is imported by tests under Node and stays free of the
+ * generated data), so the page registers the lookup once it has the catalogue
+ * and the lookup reads whatever is loaded at the time of the call.
+ */
+export type ProductSlugLookup = (id: string) => string | null | undefined;
+
+let slugOfId: ProductSlugLookup = () => null;
+
+/** Registers where product slugs come from. Called by the page at start up, and by tests. */
+export function setProductSlugLookup(lookup: ProductSlugLookup): void {
+  slugOfId = lookup;
+}
+
+/**
+ * The path of a product's page: /BRAND_NAME_VOLUME when its slug is known, the
+ * old /fragrance/<id> address otherwise. The old address still opens the
+ * product and the page rewrites it to the new one, so a product whose slug is
+ * not known yet (a page with no current prices whose file has not arrived) is
+ * a link that works, never one that does not.
+ */
+export function productPath(id: string): string {
+  const slug = slugOfId(id);
+  return slug ? `/${slug}` : `/fragrance/${encodeURIComponent(id)}`;
+}
+
+/**
+ * Every word the site uses as a first path segment: its own routes and the
+ * old product address. A product slug is never one of them (it has at least
+ * two underscores and none of these has any); tests/productSlug.test.ts reads
+ * this list against the slug shape so a new route cannot collide by accident.
+ */
+export function rootWords(): string[] {
+  return [
+    ...Object.keys(LIST_ROUTES),
+    ...Object.keys(ALIAS_ROUTES),
+    ...Object.keys(LEAF_ROUTES),
+    'account',
+  ].filter((w, i, all) => w !== '' && all.indexOf(w) === i);
+}
+
+/**
  * Parse a path and query into a route.
  *
  * Anything unrecognised resolves to `notFound` rather than throwing. On static
@@ -148,6 +196,16 @@ export function matchRoute(pathname: string, search = ''): Route {
     if (name) return { name, param: '', query };
     const alias = ALIAS_ROUTES[head!];
     if (alias) return { name: alias.name, param: '', query: { ...query, ...alias.query } };
+    // A product address, /BRAND_NAME_VOLUME. Lower cased here, so a link someone
+    // retyped with capitals opens the product and the address bar is rewritten.
+    let slug = head!;
+    try {
+      slug = decodeURIComponent(slug);
+    } catch {
+      // Not valid percent encoding: no product address looks like that.
+    }
+    slug = slug.toLowerCase();
+    if (isProductSlug(slug)) return { name: 'product', param: slug, query };
     return { name: 'notFound', param: pathname, query };
   }
 
@@ -193,7 +251,8 @@ export function routeToPath(route: Route): string {
       case 'retailer': return `/retailers/${encodeURIComponent(param)}`;
       case 'notes': return '/notes';
       case 'note': return `/notes/${encodeURIComponent(param)}`;
-      case 'fragrance': return `/fragrance/${encodeURIComponent(param)}`;
+      case 'fragrance': return productPath(param);
+      case 'product': return `/${param}`;
       case 'about': return '/about';
       case 'settings': return '/settings';
       case 'suggestions': return '/suggestions';

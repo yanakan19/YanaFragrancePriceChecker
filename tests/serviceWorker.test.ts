@@ -70,6 +70,7 @@ describe('service worker registration', () => {
     '/brands',
     '/brands/lattafa',
     '/fragrance/ean-5012345678900',
+    '/creed_aventus_100ml',
     '/legal/privacy',
     '/index.html',
     '/YanaFragrancePriceChecker/index.html',
@@ -88,6 +89,11 @@ describe('service worker registration', () => {
        basePath() comparison above. */
     expect((await registerCall('/brands/lattafa')).script).toBe('/sw.js');
     expect((await registerCall('/fragrance/ean-5012345678900')).script).toBe('/sw.js');
+    // A product's own address, /BRAND_NAME_VOLUME (docs/PRODUCT-URLS.md): one
+    // segment, so the base is the root, and no path based handling is needed in
+    // the worker itself (a navigation is network first for any path, with the
+    // cached index.html as the offline answer).
+    expect((await registerCall('/creed_aventus_100ml')).script).toBe('/sw.js');
   });
 
   /* Installing the worker pre-caches every data file the page names, the
