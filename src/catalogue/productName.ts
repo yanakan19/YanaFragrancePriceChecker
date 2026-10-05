@@ -1436,7 +1436,14 @@ export function concentrationOfListing(title: string, description: string | null
 export function concentrationOfStoredListing(
   l: Pick<StoredListing, 'rawTitle' | 'description' | 'retailerId' | 'productType'> & { rawBrand?: string | null },
 ): string {
-  const stated = concentrationOfListing(l.rawTitle, l.description ?? null);
+  // A shop's category label is a shelf, not a strength: Perfume Direct's "YSL
+  // MYSLF Le Parfum Men's Aftershave Spray (60ml)" says Aftershave only because
+  // the shop files men's fragrance there, and made a Le Parfum an Aftershave
+  // (46 products carried the strength, most of them from the label). The label
+  // comes off before the strength is read; an "Aftershave Lotion" or an
+  // "Aftershave Spray" with no label before it is the product and stays.
+  const title = stripShopTitleLabel(l.rawTitle, l.retailerId).title;
+  const stated = concentrationOfListing(title, l.description ?? null);
   if (stated !== CONCENTRATION_NOT_STATED) return stated;
   // The title names none: the shop's own product type where the registry says
   // that settles it, else the brand's own page (unstatedStrengthEvidence.ts).
@@ -2000,7 +2007,7 @@ export type ShopTitleAudience = 'mens' | 'womens' | 'unisex';
 const SHOP_TITLE_GENDER_WORD = String.raw`(?:women['’]?s|womens|men['’]?s|mens|unisex)`;
 const SHOP_TITLE_GENERIC_NOUN = String.raw`(?:perfume|aftershave|fragrance|scent|cologne)`;
 /** A product that is not the scent itself, so the label before it is part of its name. */
-const SHOP_TITLE_NOT_THE_SCENT = String.raw`(?!\s+(?:lotion|balm|gel|cream|wash|body|hair|deodorant|mist|oil|serum|soap|powder|shave|stick)\b)`;
+const SHOP_TITLE_NOT_THE_SCENT = String.raw`(?!\s+(?:lotion|balm|gel|cream|wash|body|hair|deodorant|mist|oil|serum|soap|powder|shave|stick|splash)\b)`;
 const SHOP_TITLE_STRENGTH = String.raw`(?:eau\s+de\s+(?:parfum|toilette|cologne)|parfum|extrait(?:\s+de\s+parfum)?)`;
 /** "Women's Perfume", "Men's Refillable Aftershave". */
 const SHOP_TITLE_LABEL_PHRASE = new RegExp(
@@ -2304,6 +2311,10 @@ export function displayName(
   }
   s = s
     .replace(/\b\d{1,4}(?:\.\d)?\s*ml\b/gi, '')
+    // A size written in US ounces is the same fact, in the size field already:
+    // "Ysl Black Opium 3 Oz" is Black Opium. Not after a digit or a point, so
+    // "0.17 Oz" goes whole (see OZ_SIZE_RE).
+    .replace(/\s*\(?(?<![\d.])\d{1,2}(?:\.\d{1,3})?\s*(?:fl\.?\s*)?oz\b\.?\)?/gi, ' ')
     // A size the shop put in brackets ("Molecule 01 - Portable (30ml)", Cult
     // Beauty's way of writing every size) leaves the brackets behind once the
     // size is gone. Cleared the way stripRedundantSize already clears them, so
@@ -2517,9 +2528,38 @@ export function displayName(
   // plain boundary trim just above never could, because a doubled or
   // mid-string "+ +" / "- +" is not a boundary problem at all.
   s = stripOrphanedSeparators(s);
+  s = stripAudienceOfSingleAudienceLine(s, [displayedBrand, brand]);
 
   const name = canonicalSeriesSpelling(s) || emptiedNameFallback(opener, brand, displayedBrand) || title;
   return ownTravelSpray && !/\btravel spray$/i.test(name) ? `${name} Travel Spray` : name;
+}
+
+/**
+ * Lines a house makes for one audience only, where "for Men" after the name is
+ * the shop's shelf label and not part of the name. YSL's MYSLF is the case:
+ * the house calls it MYSLF ("MYSLF Eau de Parfum", filed under its men's
+ * fragrance), there is no women's MYSLF, and Justmylook ("Myslf Eau De Parfum
+ * for Men 100ml") and Mybeauty Boutique ("Myslf For Men 100ml EDP Refillable
+ * Spray") wrote the label into the title, so "Myslf for Men" was a second
+ * product beside "Myslf" at 60, 100 and 150ml.
+ *
+ * Deliberately a list of lines and never a general rule: where a house makes
+ * both, "for Men" tells two bottles apart (Calvin Klein's "Obsession" and
+ * "Obsession for Men" are different scents with different barcodes), and YSL's
+ * own "Y for Men" is named that way by shops that sell it. A line is added here
+ * only where the house's name carries no audience word and the catalogue has no
+ * product of the line for any other audience.
+ */
+const SINGLE_AUDIENCE_LINES: readonly { brands: ReadonlySet<string>; line: RegExp }[] = [
+  { brands: new Set(['yvessaintlaurent', 'ysl']), line: /^myslf\b/i },
+];
+
+function stripAudienceOfSingleAudienceLine(name: string, brands: readonly (string | null)[]): string {
+  const keys = brands.filter((b): b is string => Boolean(b)).map(brandKey);
+  const entry = SINGLE_AUDIENCE_LINES.find((e) => e.line.test(name) && keys.some((k) => e.brands.has(k)));
+  if (!entry) return name;
+  const out = name.replace(/\s+for\s+men\b/gi, '').replace(/\s{2,}/g, ' ').trim();
+  return out || name;
 }
 
 /**

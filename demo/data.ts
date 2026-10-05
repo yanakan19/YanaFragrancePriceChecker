@@ -24,6 +24,12 @@ export type { Notes };
 
 export interface DemoFragrance {
   id: string;
+  /**
+   * The product's address, pricesniffs.space/<slug> (src/catalogue/productSlug.ts,
+   * docs/PRODUCT-URLS.md). Given once and never changed, so a link to it keeps
+   * working however the product is renamed.
+   */
+  slug: string;
   brand: string;
   name: string;
   concentration: string;
@@ -208,6 +214,7 @@ function tidyNotes(notes: Notes | null): Notes | null {
 
 export const DEMO_FRAGRANCES: DemoFragrance[] = CATALOGUE.map((entry) => ({
   id: entry.id,
+  slug: entry.slug,
   brand: entry.brand,
   name: entry.name,
   concentration: entry.concentration,
@@ -229,6 +236,10 @@ export const DEMO_FRAGRANCES: DemoFragrance[] = CATALOGUE.map((entry) => ({
 
 const BY_ID = new Map(DEMO_FRAGRANCES.map((f) => [f.id, f]));
 export const fragranceById = (id: string): DemoFragrance | undefined => BY_ID.get(id);
+
+const BY_SLUG = new Map(DEMO_FRAGRANCES.map((f) => [f.slug, f]));
+/** The catalogue product with this address, or undefined. */
+export const fragranceBySlug = (slug: string): DemoFragrance | undefined => BY_SLUG.get(slug);
 
 /**
  * Per brand tier, for the Brands page filter. A brand is Middle Eastern when it

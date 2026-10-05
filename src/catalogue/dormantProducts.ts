@@ -35,6 +35,8 @@ export interface DormantOffer {
  * offers: there is nothing current to compare.
  */
 export interface DormantEntry {
+  /** The product's address, as on a catalogue entry (src/catalogue/productSlug.ts). */
+  slug: string;
   brand: string;
   name: string;
   concentration: string;
@@ -59,4 +61,10 @@ export interface DormantFile {
    * question is the same one: an address that is not in the catalogue.
    */
   ID_ALIASES: Record<string, string>;
+  /**
+   * Slugs that were given to products now folded into another, each with the id
+   * of the product that holds it now (src/catalogue/productSlug.ts). Same file
+   * for the same reason: an address that is not in the catalogue.
+   */
+  SLUG_ALIASES: Record<string, string>;
 }
