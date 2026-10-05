@@ -566,29 +566,136 @@
     }
     .acct-item { min-height: 48px; font-size: 16px; }
   }
-  /* The account button costs the row about 40px (it sits at the right end
-     now, but the sum is the same), so the phone steps below
-     tighten the row to keep all four nav words in view without scrolling
-     (measured in Chromium: at 390, 375 and 320 the whole row fits, and the
-     quick search keeps its full width under it). */
+  /* ── country and currency selector (owner's request, 2026-10-05) ───────
+     A compact pill just left of the account button: a small flag, the
+     currency code and a chevron. UK and GBP is the only active choice and
+     nothing here changes any price or stores anything. Its panel reuses the
+     account menu's shape (.acct-pop, .acct-back): a dropdown lined up with
+     the button's right edge on a wide screen, a sheet from the bottom of the
+     screen at 600px and under. */
+  .region { position: relative; flex: none; display: flex; }
+  .region-btn {
+    height: 38px; flex: none; border-radius: 19px; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+    padding: 0 6px;
+    background: var(--surface-2); border: 1px solid var(--line-firm); color: var(--ink-2);
+    font: inherit; font-size: 13.5px; font-weight: 650; letter-spacing: .02em; line-height: 1;
+    transition: border-color var(--dur-2) var(--ease-standard), transform var(--dur-1) var(--ease-standard);
+  }
+  .region-btn .ico { width: 12px; height: 12px; flex: none; }
+  /* The currency code is shown only where there is room for it: a wide
+     screen on the desktop layout. The narrow layout (every phone, and a
+     tablet, which keeps the same 460px column) shows the flag and the
+     chevron alone, so the row of brandmark, four nav words, this and the
+     account button fits at 320 without wrapping or scrolling. The button's
+     accessible name still says "GBP", so nothing is lost to a screen reader. */
+  .region-btn-code { display: none; }
+  @media (min-width: 700px) {
+    :root[data-layout="desktop"] .region-btn-code { display: inline; }
+    :root[data-layout="desktop"] .region-btn { gap: 6px; padding: 0 9px 0 10px; }
+  }
+  .region-btn[aria-expanded="true"] { border-color: var(--accent); color: var(--ink); }
+  .region-btn[aria-expanded="true"] .ico { transform: rotate(180deg); }
+  .region-btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+  .region-btn:active { transform: scale(.96); }
+  @media (hover: hover) and (pointer: fine) {
+    .region-btn:hover { border-color: var(--accent); }
+  }
+  /* A flag is a white tile with a hairline ring, so one with white in it
+     (France, Italy, India, the USA) still reads against the dark theme. */
+  .flag {
+    display: block; flex: none; border-radius: 2px;
+    box-shadow: 0 0 0 1px var(--line-firm);
+  }
+  .region-pop { min-width: 272px; }
+  .region-items { display: flex; flex-direction: column; gap: 2px; }
+  .region-item {
+    display: flex; align-items: center; gap: 12px; width: 100%; min-height: 48px; padding: 6px 12px;
+    border-radius: 9px; text-align: left; color: var(--ink); cursor: pointer;
+    font-size: 15px; font-weight: 550;
+  }
+  .region-item[aria-checked="true"] { box-shadow: inset 3px 0 0 var(--accent); background: var(--surface-2); }
+  .region-item:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+  .region-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+  .region-line { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }
+  .region-code { font-size: 13px; font-weight: 650; letter-spacing: .02em; color: var(--ink-2); }
+  .region-note { font-size: 13px; font-weight: 450; color: var(--faint); }
+  .region-tick { display: inline-flex; flex: none; color: var(--accent-ink); }
+  .region-tick .ico { width: 18px; height: 18px; }
+  /* Greyed out, with no pointer and no hover lift. Still reachable with the
+     arrow keys, so a screen reader hears each one as unavailable. */
+  .region-item[aria-disabled="true"] { cursor: default; color: var(--ink-2); }
+  .region-item[aria-disabled="true"] .flag { opacity: .55; filter: grayscale(.5); }
+  @media (hover: hover) and (pointer: fine) {
+    .region-item:not([aria-disabled="true"]):hover { background: var(--surface-2); }
+  }
+  /* The same sheet the account menu becomes on a phone. */
+  @media (max-width: 600px) {
+    .region-pop { min-width: 0; }
+    .region-item { min-height: 52px; font-size: 16px; }
+  }
+
+  /* The account button costs the row about 40px, and the region selector
+     beside it about 45 more (2026-10-05), so the phone steps below tighten
+     the row to keep all four nav words in view without scrolling or
+     wrapping. The nav words and the brandmark scale with the viewport
+     (--nf, the nav font) down to a floor, so no width between 320 and 430
+     is left to a step that is a few pixels short. The numbers come from
+     measuring the row in Chromium at every width from 320 to 900: the row
+     fits with at least 3px to spare, and the quick search keeps its full
+     width under it. The region selector is the flag and the chevron alone
+     on all of them (see .region-btn-code). */
   @media (max-width: 430px) {
-    .bar-row, .nav-items { gap: 8px; }
-    .navbtn { font-size: 13px; }
-    .brandmark { font-size: 17px; }
+    .bar {
+      --nf: clamp(11px, calc((100vw - 134px) / 19.74), 13px);
+      padding-left: max(12px, var(--safe-left)); padding-right: max(12px, var(--safe-right));
+    }
+    .bar-row, .nav-items { gap: 5px; }
+    .navbtn { font-size: var(--nf); }
+    .brandmark { font-size: calc(var(--nf) * 1.27); }
     .acct-btn { width: 32px; height: 32px; }
     .acct-btn .ico { width: 18px; height: 18px; }
     .acct-letter { font-size: 15px; }
+    .region-btn { height: 32px; border-radius: 16px; padding: 0 4px; gap: 3px; }
+    .region-btn .ico { width: 10px; height: 10px; }
   }
-  /* The smallest phones (320 to 360 wide). The bar's own side padding
-     steps in a little here, as the rest of the row already has. */
-  @media (max-width: 360px) {
-    .bar { padding-left: max(12px, var(--safe-left)); padding-right: max(12px, var(--safe-right)); }
-    .bar-row, .nav-items { gap: 5px; }
-    .navbtn { font-size: 12.5px; }
-    .brandmark { font-size: 14.5px; }
+  /* A tablet, or any window from 431 wide, keeps the narrow layout's 460px
+     column, so the bar there takes the phone's buttons with a little more
+     air in the row. A forced desktop layout under 700 wide does the same.
+     :where() keeps this at the specificity of the plain selectors. */
+  @media (min-width: 431px) {
+    :where(:root:not([data-layout="desktop"])) .bar { padding-left: max(14px, var(--safe-left)); padding-right: max(14px, var(--safe-right)); }
+    :where(:root:not([data-layout="desktop"])) .bar-row,
+    :where(:root:not([data-layout="desktop"])) .nav-items { gap: 7px; }
+    :where(:root:not([data-layout="desktop"])) .navbtn { font-size: 13.5px; }
+    :where(:root:not([data-layout="desktop"])) .brandmark { font-size: 17.5px; }
+    :where(:root:not([data-layout="desktop"])) .acct-btn { width: 32px; height: 32px; }
+    :where(:root:not([data-layout="desktop"])) .acct-btn .ico { width: 18px; height: 18px; }
+    :where(:root:not([data-layout="desktop"])) .region-btn { height: 32px; border-radius: 16px; padding: 0 4px; gap: 3px; }
+    :where(:root:not([data-layout="desktop"])) .region-btn .ico { width: 10px; height: 10px; }
+  }
+  @media (min-width: 431px) and (max-width: 699px) {
+    :where(:root[data-layout="desktop"]) .bar-row,
+    :where(:root[data-layout="desktop"]) .nav-items { gap: 7px; }
+    :where(:root[data-layout="desktop"]) .navbtn { font-size: 13.5px; }
+    :where(:root[data-layout="desktop"]) .brandmark { font-size: 17.5px; }
+    :where(:root[data-layout="desktop"]) .acct-btn { width: 32px; height: 32px; }
+    :where(:root[data-layout="desktop"]) .acct-btn .ico { width: 18px; height: 18px; }
+    :where(:root[data-layout="desktop"]) .region-btn { height: 32px; border-radius: 16px; padding: 0 4px; gap: 3px; }
+    :where(:root[data-layout="desktop"]) .region-btn .ico { width: 10px; height: 10px; }
+  }
+  /* Small phones (375 and under, which takes in the iPhone mini down to the
+     320px SE): the same scaling, a closer row and the smallest buttons. */
+  @media (max-width: 375px) {
+    .bar {
+      --nf: clamp(10px, calc((100vw - 119px) / 19.74), 12.5px);
+      padding-left: max(10px, var(--safe-left)); padding-right: max(10px, var(--safe-right));
+    }
+    .bar-row, .nav-items { gap: 4px; }
     .acct-btn { width: 30px; height: 30px; }
     .acct-btn .ico { width: 17px; height: 17px; }
     .acct-letter { font-size: 14px; }
+    .region-btn { height: 30px; border-radius: 15px; padding: 0 3px; gap: 2px; }
   }
 
   /* Second level nav, shown only inside Explore and its leaves. Scrolls
@@ -3088,6 +3195,20 @@
            backdrop only shows on a phone, where the panel is a bottom sheet.
            Keyboard order across the bar: brandmark, the four nav items, this
            button, then the quick search below the row. -->
+      <!-- The country and currency selector (owner's request, 2026-10-05):
+           just left of the account button. UK and GBP is the only active
+           choice; the rest are listed greyed out as Coming Soon. Filled and
+           driven by demo/app.ts (openRegionMenu), after the pattern of the
+           account menu below. Keyboard order: ..., About, this button, the
+           account button, then the quick search. -->
+      <!-- A named region landmark, so the panel it opens (which sits outside
+           the nav items) is inside a landmark, as the account menu's nav is. -->
+      <div class="region" id="region" role="region" aria-label="Country and currency">
+        <button class="region-btn" id="region-btn" type="button" aria-haspopup="menu" aria-expanded="false"
+                aria-controls="region-menu" aria-label="Region and currency: United Kingdom, GBP"></button>
+        <div class="acct-back region-back" id="region-menu-back" hidden></div>
+        <div class="acct-pop region-pop" id="region-pop" hidden></div>
+      </div>
       <nav class="acct" aria-label="Account">
         <button class="acct-btn" id="account-btn" type="button" aria-haspopup="menu" aria-expanded="false"
                 aria-controls="account-menu" aria-label="Account menu"><span class="acct-icon" aria-hidden="true"></span></button>
