@@ -111,6 +111,8 @@ import {
   changeSinceSaved, effectiveWishlistSort, wishlistSortsFor, type AccountMenuAction, type DataExportInput,
   type WishlistSort,
 } from '../src/services/accountMenu.js';
+import { REGIONS, CURRENT_REGION, regionButtonLabel, type Region } from '../src/services/regions.js';
+import { flagSvg } from './flags.js';
 import { ABOUT } from './legal.js';
 import { liveCounts } from './data.js';
 import { fetchWishlist, addToWishlist, removeFromWishlist, setTargetPrice, type WishlistEntry } from './wishlist.js';
@@ -240,6 +242,8 @@ const state = {
   wishlistSort: 'recent' as WishlistSort,
   // The account menu at the top right of the bar (see openAccountMenu).
   accountMenuOpen: false,
+  // The country and currency menu just left of it (see openRegionMenu).
+  regionMenuOpen: false,
   // The profile photo (demo/profilePhoto.ts). photoAvailable is null until
   // read, false when the owner has not run migration 0006 yet (no control is
   // offered then), true once photos work. photoUrl is a blob: address for the
@@ -4586,6 +4590,7 @@ function openAccountMenu(focus: 'first' | 'last' = 'first'): void {
   const btn = document.getElementById('account-btn');
   const back = document.getElementById('account-menu-back');
   if (!menu || !btn) return;
+  closeRegionMenu(false);
   state.accountMenuOpen = true;
   fillAccountMenu();
   menu.hidden = false;
@@ -4606,6 +4611,79 @@ function closeAccountMenu(returnFocus: boolean): void {
   if (back) back.hidden = true;
   btn?.setAttribute('aria-expanded', 'false');
   document.documentElement.classList.remove('acct-menu-open');
+  if (returnFocus) btn?.focus();
+}
+
+/* ── the country and currency menu ──────────────────────────────────────────
+   A compact button just left of the account button: a small flag, "GBP" and
+   a chevron. UK and GBP is the site's only region, so the menu is a list of
+   where it works now (ticked) and where it may one day (greyed out, "Coming
+   Soon"). Choosing changes nothing: no storage, no cookie, no price moves.
+
+   It follows the account menu's pattern: a real <button> with aria-haspopup
+   and aria-expanded, a role="menu" panel right after it (so Tab from the
+   button lands on the first item), arrow keys, Home and End to move, Esc to
+   close and hand focus back, a click outside to close, and the same bottom
+   sheet on a phone. The greyed out items are aria-disabled and out of the
+   tab order, but the arrow keys still reach them, as the ARIA menu pattern
+   advises, so a screen reader reads each as unavailable with its note.
+   Opening either menu closes the other. */
+
+function regionMenuEl(): HTMLElement | null {
+  return document.getElementById('region-pop');
+}
+
+function regionItemHtml(r: Region): string {
+  const nameId = `region-name-${r.id}`;
+  const codeId = `region-code-${r.id}`;
+  const noteId = `region-note-${r.id}`;
+  const text = `<span class="region-text"><span class="region-line"><span id="${nameId}">${esc(r.name)}</span> <span class="region-code" id="${codeId}">${esc(r.currency)}</span></span>${
+    r.note ? `<span class="region-note" id="${noteId}">${esc(r.note)}</span>` : ''}</span>`;
+  const current = r.id === CURRENT_REGION.id;
+  const attrs = r.available
+    ? `tabindex="0" aria-checked="${current}"`
+    : `tabindex="-1" aria-checked="false" aria-disabled="true" aria-describedby="${noteId}"`;
+  return `<div role="menuitemradio" class="region-item" data-region="${r.id}" ${attrs} aria-labelledby="${nameId} ${codeId}">${flagSvg(r.id)}${text}${current ? `<span class="region-tick">${ICON_TICK}</span>` : ''}</div>`;
+}
+
+/** Paints the button and the list from the region data. Once, at start up:
+ *  nothing about either changes while the page is open. */
+function fillRegionMenu(): void {
+  const btn = document.getElementById('region-btn');
+  const menu = regionMenuEl();
+  if (!btn || !menu) return;
+  btn.innerHTML = `${flagSvg(CURRENT_REGION.id)}<span class="region-btn-code" aria-hidden="true">${esc(CURRENT_REGION.currency)}</span>${ICON_CHEVRON}`;
+  btn.setAttribute('aria-label', regionButtonLabel(CURRENT_REGION));
+  menu.innerHTML = `<div class="region-items" role="menu" id="region-menu" aria-labelledby="region-btn">${REGIONS.map(regionItemHtml).join('')}</div>`;
+}
+
+function regionMenuItemsEls(): HTMLElement[] {
+  return [...(regionMenuEl()?.querySelectorAll<HTMLElement>('[role="menuitemradio"]') ?? [])];
+}
+
+function openRegionMenu(focus: 'first' | 'last' = 'first'): void {
+  const menu = regionMenuEl();
+  const btn = document.getElementById('region-btn');
+  const back = document.getElementById('region-menu-back');
+  if (!menu || !btn) return;
+  closeAccountMenu(false);
+  state.regionMenuOpen = true;
+  menu.hidden = false;
+  if (back) back.hidden = false;
+  btn.setAttribute('aria-expanded', 'true');
+  const items = regionMenuItemsEls();
+  (focus === 'first' ? items[0] : items[items.length - 1])?.focus();
+}
+
+function closeRegionMenu(returnFocus: boolean): void {
+  const menu = regionMenuEl();
+  const btn = document.getElementById('region-btn');
+  const back = document.getElementById('region-menu-back');
+  if (!state.regionMenuOpen) return;
+  state.regionMenuOpen = false;
+  if (menu) menu.hidden = true;
+  if (back) back.hidden = true;
+  btn?.setAttribute('aria-expanded', 'false');
   if (returnFocus) btn?.focus();
 }
 
@@ -6353,6 +6431,67 @@ function init(): void {
     if (!state.accountMenuOpen || !to) return;
     if (to.closest('.acct')) return;
     closeAccountMenu(false);
+  });
+
+  // ── the country and currency menu (see openRegionMenu) ──────────────────
+  const regionBtn = $('#region-btn') as HTMLElement;
+  fillRegionMenu();
+  regionBtn.addEventListener('click', () => {
+    if (state.regionMenuOpen) closeRegionMenu(true);
+    else openRegionMenu('first');
+  });
+  regionBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      openRegionMenu(e.key === 'ArrowDown' ? 'first' : 'last');
+    }
+  });
+  const regionPop = $('#region-pop') as HTMLElement;
+  regionPop.addEventListener('keydown', (e) => {
+    const items = regionMenuItemsEls();
+    const at = items.indexOf(document.activeElement as HTMLElement);
+    let next = -1;
+    if (e.key === 'ArrowDown') next = (at + 1) % items.length;
+    else if (e.key === 'ArrowUp') next = (at - 1 + items.length) % items.length;
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = items.length - 1;
+    else if (e.key === 'Escape') {
+      e.preventDefault();
+      closeRegionMenu(true);
+      return;
+    } else if (e.key === 'Enter' || e.key === ' ') {
+      // The one active item is the choice already made: closing is all it
+      // does. A greyed out item does nothing at all.
+      e.preventDefault();
+      const item = document.activeElement as HTMLElement | null;
+      if (item && item.getAttribute('aria-disabled') !== 'true') closeRegionMenu(true);
+      return;
+    }
+    if (next >= 0 && items[next]) {
+      e.preventDefault();
+      items[next]!.focus();
+    }
+  });
+  regionPop.addEventListener('click', (e) => {
+    const item = (e.target as HTMLElement).closest<HTMLElement>('[data-region]');
+    if (!item || item.getAttribute('aria-disabled') === 'true') return;
+    closeRegionMenu(true);
+  });
+  ($('#region-menu-back') as HTMLElement).addEventListener('click', () => closeRegionMenu(true));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && state.regionMenuOpen) closeRegionMenu(true);
+  });
+  document.addEventListener('pointerdown', (e) => {
+    if (!state.regionMenuOpen) return;
+    const t = e.target as HTMLElement;
+    if (t.closest('#region-pop') || t.closest('#region-btn')) return;
+    closeRegionMenu(false);
+  });
+  ($('#region') as HTMLElement).addEventListener('focusout', (e) => {
+    const to = (e as FocusEvent).relatedTarget as HTMLElement | null;
+    if (!state.regionMenuOpen || !to) return;
+    if (to.closest('#region')) return;
+    closeRegionMenu(false);
   });
 
   // Hover shows a price history point; leaving it hides that point again

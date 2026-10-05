@@ -97,6 +97,7 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
                 return new Set(Array.from(range.getClientRects()).map((r) => Math.round(r.top))).size;
               }),
               wordTops: words.map((w) => Math.round(w.top)),
+              regionLeft: r('#region-btn').left, regionRight: r('#region-btn').right,
               btnLeft: r('#account-btn').left, btnRight: r('#account-btn').right,
               btnTop: r('#account-btn').top, btnBottom: r('#account-btn').bottom,
               brandLeft: r('#brand-home').left, brandRight: r('#brand-home').right,
@@ -108,7 +109,7 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
               rowRight: r('.bar-row').right,
             };
           })()`)) as { nav: string[]; lines: number[]; wordTops: number[] } & Record<
-            | 'doc' | 'vw' | 'navScroll' | 'navClient' | 'lastWordRight' | 'btnLeft' | 'btnRight' | 'btnTop' | 'btnBottom'
+            | 'doc' | 'vw' | 'navScroll' | 'navClient' | 'lastWordRight' | 'regionLeft' | 'regionRight' | 'btnLeft' | 'btnRight' | 'btnTop' | 'btnBottom'
             | 'brandLeft' | 'brandRight' | 'brandTop' | 'brandBottom' | 'brandScroll' | 'brandClient'
             | 'navLeft' | 'navRight' | 'searchLeft' | 'searchRight' | 'searchTop' | 'rowRight',
             number
@@ -118,6 +119,8 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
           expect(bar.navScroll, 'all four nav words in view').toBeLessThanOrEqual(bar.navClient + 1);
           expect(bar.brandRight, 'brandmark before the nav').toBeLessThanOrEqual(bar.navLeft);
           expect(bar.lastWordRight, 'nav words clear of the button').toBeLessThanOrEqual(bar.btnLeft);
+          expect(bar.lastWordRight, 'nav words clear of the region selector').toBeLessThanOrEqual(bar.regionLeft);
+          expect(bar.regionRight, 'region selector left of the account button').toBeLessThanOrEqual(bar.btnLeft);
           expect(bar.navRight, 'nav before the button').toBeLessThanOrEqual(bar.btnLeft);
           expect(Math.abs(bar.btnRight - bar.rowRight), 'button at the far right of the row').toBeLessThanOrEqual(1);
           expect(bar.btnRight).toBeLessThanOrEqual(bar.vw);
@@ -133,14 +136,14 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
           expect(await page.$('#nav-settings')).toBeNull();
 
           // Keyboard order across the bar: brandmark, the four nav items,
-          // the account button, then the quick search.
+          // the region selector, the account button, then the quick search.
           await page.focus('#brand-home');
           const order: string[] = ['brand-home'];
-          for (let i = 0; i < 6; i++) {
+          for (let i = 0; i < 7; i++) {
             await page.keyboard.press('Tab');
             order.push((await page.evaluate(`document.activeElement.id`)) as string);
           }
-          expect(order).toEqual(['brand-home', 'nav-home', 'nav-deals', 'nav-explore', 'nav-about', 'account-btn', 'search']);
+          expect(order).toEqual(['brand-home', 'nav-home', 'nav-deals', 'nav-explore', 'nav-about', 'region-btn', 'account-btn', 'search']);
           await page.evaluate(`document.activeElement.blur()`);
 
           // Mouse: open, then a click outside closes it.
