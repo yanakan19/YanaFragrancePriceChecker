@@ -94,7 +94,7 @@ import { mergeCheapestSeries } from '../src/services/priceHistoryMerge.js';
 import { HIDE_OFFER_AFTER_DAYS } from '../src/services/offerAge.js';
 import { HISTORY_SCOPES, priceHistoryChart, type ChartObservation, type PriceHistoryChartInput } from './priceHistoryChart.js';
 import { officialSiteFor } from './brandSites.js';
-import { fragranceLinksFor } from './fragranceLinks.js';
+import { fragranceLinksFor, fragranticaLabel } from './fragranceLinks.js';
 import { matchRoute, routeToPath, setProductSlugLookup, slugify, basePath, type Route, type RouteName } from './router.js';
 import { headFor, SITE_URL, type HeadTags, type HeadInput } from './head.js';
 import { WRONG_PRICE_PROBLEMS, OTHER_SHOP, wrongPriceMailto, type WrongPriceProblem } from './wrongPrice.js';
@@ -1248,8 +1248,10 @@ function brandButton(brand: string): string {
  * brand's homepage and is absent (renders nothing) when `officialSiteFor` has
  * no entry for the brand — same rule brandView() already follows, never a
  * placeholder — and Fragrantica falls back to a search for the perfume, which
- * always renders. See demo/fragranceLinks.ts for why each link is scoped the
- * way it is.
+ * always renders and says so: the pill reads "Fragrantica" only where it opens
+ * the perfume's own page and "Search Fragrantica" where it opens a search
+ * (owner request of 2026-10-05: a pill must not claim a page it does not
+ * open). See demo/fragranceLinks.ts for why each link is scoped the way it is.
  */
 function fragranceLinksBlock(f: DemoFragrance): string {
   const links = fragranceLinksFor(f.brand, f.name, f.concentration);
@@ -1264,7 +1266,7 @@ function fragranceLinksBlock(f: DemoFragrance): string {
     }
     <a class="brand-site-link" href="${esc(links.fragranticaUrl)}" target="_blank" rel="noopener nofollow">
       <span class="control-ico">${ICON_EXTERNAL}</span>
-      <span>Fragrantica</span>
+      <span>${fragranticaLabel(links)}</span>
     </a>
   </div>`;
 }

@@ -75,6 +75,9 @@ incoming  data/fragrance-links.json           npm run links:resolve
 incoming  data/fragrance-links-seen.json      npm run links:resolve
 incoming  demo/fragranceLinks.generated.ts    npm run links:resolve
 
+# ── audit of the Fragrantica links (run by hand, in no workflow) ──
+manual    data/fragrantica-link-audit.json    scripts/audit-fragrantica-links.ts --write
+
 # ── image-check.yml, image-measure-daily.yml ──
 incoming  data/image-link-report.json         npm run images:check
 incoming  data/image-referer-report.json      npm run images:check -- --referer-check

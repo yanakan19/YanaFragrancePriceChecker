@@ -17,13 +17,23 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
-    version: 'v3.79.0',
+    version: 'v3.80.0',
     date: '5 Oct 2026',
     title: 'Every product has a readable address',
     points: [
       'Like pricesniffs.space/creed_aventus_100ml',
       'Old product links still work and move over',
       'Share and email links use the new address',
+    ],
+  },
+  {
+    version: 'v3.79.0',
+    date: '5 Oct 2026',
+    title: 'Fragrantica links go to the right page',
+    points: [
+      'A search link now says Search Fragrantica',
+      'Parfum and Cologne no longer use the main page',
+      'Some men and women pages were mixed up, fixed',
     ],
   },
   {
