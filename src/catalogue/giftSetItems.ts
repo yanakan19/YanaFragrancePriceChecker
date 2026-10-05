@@ -74,7 +74,7 @@ const WORDS: readonly Word[] = [
   { re: /\bperfumes?\b|\bfragrance\b/, label: 'Perfume', kind: 'fragrance' },
   { re: /\bcologne\b/, label: 'Cologne', kind: 'fragrance' },
   { re: /\baftershave balm\b|after ?shave balm|a\/balm|post shave moisturi[sz]er/, label: 'Aftershave Balm', kind: 'body' },
-  { re: /\baftershave lotion\b|after ?shave lotion/, label: 'Aftershave Lotion', kind: 'body' },
+  { re: /\baftershave (?:lotion|gel)\b|after ?shave (?:lotion|gel)/, label: 'Aftershave Lotion', kind: 'body' },
   { re: /\baftershave\b/, label: 'Aftershave', kind: 'fragrance' },
   { re: /travel spray|travel size|travel set|travel atomi[sz]er|spray pen|mega spritzer|atomi[sz]er|purse spray|pocket spray/, label: 'Travel Spray', kind: 'travel' },
   { re: /\bminiatures?\b|\bmini\b/, label: 'Miniature', kind: 'travel' },
@@ -101,7 +101,7 @@ const TIDY: Record<string, string> = {
   'mega spritzer': 'Mega Spritzer', atomiser: 'Atomiser', atomizer: 'Atomiser', 'purse spray': 'Purse Spray', 'pocket spray': 'Pocket Spray',
   'perfume mist': 'Perfume Mist', 'fragrance mist': 'Fragrance Mist', 'hair mist': 'Hair Mist', 'body mist': 'Body Mist',
   'aftershave balm': 'Aftershave Balm', 'after shave balm': 'Aftershave Balm', 'a/balm': 'Aftershave Balm', 'post shave moisturiser': 'Post Shave Moisturiser',
-  'aftershave lotion': 'Aftershave Lotion', 'after shave lotion': 'Aftershave Lotion',
+  'aftershave lotion': 'Aftershave Lotion', 'after shave lotion': 'Aftershave Lotion', 'aftershave gel': 'Aftershave Gel', 'after shave gel': 'Aftershave Gel',
   'air freshener': 'Air Freshener', 'air freshner': 'Air Freshener',
   'ankle socks': 'Ankle Socks', socks: 'Socks', bag: 'Bag', case: 'Case', pouch: 'Pouch', mirror: 'Mirror', holder: 'Holder', charm: 'Charm',
   'toiletry bag': 'Toiletry Bag', 'make up case': 'Make Up Case', 'makeup case': 'Make Up Case', tissue: 'Tissues', tissues: 'Tissues',
@@ -130,6 +130,13 @@ function wordsIn(text: string): Found[] {
     }
   }
   return out.sort((a, b) => a.at - b.at);
+}
+
+/** A lower case text with every item word taken out (what is left is the scent's and the set's own words). */
+export function withoutItemWords(lower: string): string {
+  let t = lower;
+  for (const w of WORDS) t = t.replace(new RegExp(w.re.source, 'g'), ' ');
+  return t;
 }
 
 function titleCase(s: string): string {
