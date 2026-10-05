@@ -11,31 +11,34 @@ import { GIFT_SET_BAND, volumeOptions, type VolumeBand } from '../demo/volumeBan
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 /**
- * Gift sets are an option under Size and nothing else (owner's decision,
- * 2026-10-04): no section on the home page, no See All Gift Sets button, no
- * /gift-sets page. The old address is kept as a way in, not answered with a
- * not found.
+ * Gift sets have their own tab, Sets under Explore (owner's decision,
+ * 2026-10-05, which reverses the 2026-10-04 decision that they were only an
+ * option under Size). They stay an option under Size on the search list until
+ * Search stops listing sets (docs/GIFT-SETS-AND-OILS-PLAN.md, Phase 8). The old
+ * /gift-sets address is kept as a way in, not answered with a not found.
  */
-describe('/gift-sets, kept as an alias for the Size filter', () => {
-  it('lands on the search list with the Gift Sets option chosen, never a not found', () => {
+describe('/gift-sets, kept as an alias for the Sets tab', () => {
+  it('lands on the Sets tab, never a not found', () => {
     for (const path of ['/gift-sets', '/gift-sets/']) {
       const route = matchRoute(path);
-      expect(route.name, path).toBe('search');
-      expect(route.query.size, path).toBe(GIFT_SET_BAND.id);
+      expect(route.name, path).toBe('sets');
     }
-    // And a link that already carries a search keeps it.
-    expect(matchRoute('/gift-sets', '?q=lattafa').query).toEqual({ q: 'lattafa', size: GIFT_SET_BAND.id });
+    // A link that already carries a search keeps it for the tab's own search.
+    expect(matchRoute('/gift-sets', '?q=lattafa').query).toEqual({ q: 'lattafa' });
   });
 
-  it('has no route, path or page title of its own any more', () => {
-    expect(routeToPath({ name: 'search', param: '', query: {} })).toBe('/search');
-    expect(headFor({ route: matchRoute('/gift-sets') }).title).not.toMatch(/Gift Sets/);
-    expect(headFor({ route: matchRoute('/gift-sets') }).noindex).toBe(true);
+  it('is answered with the Sets page, which is the one in the sitemap', () => {
+    expect(routeToPath({ name: 'sets', param: '', query: {} })).toBe('/sets');
+    expect(headFor({ route: matchRoute('/gift-sets') }).title).toBe('PriceSniffs: Sets');
+    expect(headFor({ route: matchRoute('/gift-sets') }).canonical).toMatch(/\/sets$/);
+    expect(headFor({ route: matchRoute('/gift-sets') }).noindex).toBe(false);
   });
 
-  it('is not in the sitemap', () => {
+  it('is not itself in the sitemap, while /sets and /oils are', () => {
     const xml = readFileSync(resolve(root, 'demo/sitemap.xml'), 'utf8');
     expect(xml).not.toContain('/gift-sets');
+    expect(xml).toMatch(/<loc>[^<]*\/sets<\/loc>/);
+    expect(xml).toMatch(/<loc>[^<]*\/oils<\/loc>/);
   });
 });
 
@@ -112,14 +115,21 @@ describe.skipIf(!built)('Gift Sets on the built site', () => {
     expect(home.h2s).toContain('Most Stocked');
   });
 
-  it('opens the old address as the search list with Size set to Gift Sets', async () => {
+  it('opens the old address as the Sets tab, and rewrites it to /sets', async () => {
     const page = await read('/gift-sets');
-    // Rewritten to the list's own address, no 404, no dead page.
-    expect(page.path).toBe('/search');
-    expect(page.h1).not.toMatch(/not found/i);
-    expect(page.sizeValue).toBe(GIFT_SET_BAND.id);
+    // Rewritten to the tab's own address, no 404, no dead page.
+    expect(page.path).toBe('/sets');
+    expect(page.h1).toBe('Sets');
     expect(page.tiles.length).toBeGreaterThan(20);
     // Every tile on it is a gift set.
+    expect(page.tiles.every((t) => /gift set/i.test(t))).toBe(true);
+  });
+
+  it('opens the same list as the search list with Size set to Gift Sets', async () => {
+    const page = await read('/search?size=gift-set');
+    expect(page.path).toBe('/search');
+    expect(page.sizeValue).toBe(GIFT_SET_BAND.id);
+    expect(page.tiles.length).toBeGreaterThan(20);
     expect(page.tiles.every((t) => /gift set/i.test(t))).toBe(true);
   });
 

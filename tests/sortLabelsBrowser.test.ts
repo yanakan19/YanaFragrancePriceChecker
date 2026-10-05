@@ -36,7 +36,8 @@ const READER: FakeAccount = {
 /** Every page that has a sort, and the control ids that must be on it. */
 const PAGES: { route: string; ids: string[]; account?: boolean }[] = [
   { route: '/search', ids: ['browse-sort'] },
-  { route: '/gift-sets', ids: ['browse-sort'] },
+  { route: '/sets', ids: ['tab-sort'] },
+  { route: '/oils', ids: ['tab-sort'] },
   { route: '/deals', ids: ['deal-sort'] },
   { route: '/brands', ids: ['brand-sort'] },
   { route: '/notes', ids: ['note-sort'] },
@@ -158,7 +159,7 @@ describe.skipIf(!built)('every sort control on the built page', () => {
   // deals sort with its own icon, and the wishlist's with all three options.
   for (const mode of ['light', 'dark'] as const) {
     for (const width of [320, 390, 1280]) {
-      for (const { route, ids, account } of PAGES.filter((p) => ['/search', '/deals', '/account/wishlist'].includes(p.route))) {
+      for (const { route, ids, account } of PAGES.filter((p) => ['/search', '/deals', '/account/wishlist', '/sets', '/oils'].includes(p.route))) {
         it(`${route} at ${width}px (${mode}): axe passes, no sideways scroll`, async () => {
           const { context, page } = await open(route, width, mode, !!account);
           try {

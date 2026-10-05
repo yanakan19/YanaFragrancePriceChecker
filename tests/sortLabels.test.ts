@@ -3,7 +3,8 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
-  BRAND_SORT_OPTIONS, BROWSE_SORT_OPTIONS, DEAL_SORT_OPTIONS, LIST_SORT_OPTIONS, NOTE_SORT_OPTIONS, SORT_LEAD,
+  BRAND_SORT_OPTIONS, BROWSE_SORT_OPTIONS, DEAL_SORT_OPTIONS, LIST_SORT_OPTIONS, NOTE_SORT_OPTIONS, OIL_SORT_OPTIONS,
+  SET_SORT_OPTIONS, SORT_LEAD,
 } from '../demo/listSort.js';
 import { WISHLIST_SORTS, wishlistSortsFor } from '../src/services/accountMenu.js';
 
@@ -20,7 +21,9 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
  * way is the source check at the bottom.
  */
 const CONTROLS: Record<string, { label: string }[]> = {
-  'search, brand, note and shop pages, Most Stocked, Gift Sets (browse)': BROWSE_SORT_OPTIONS,
+  'search, brand, note and shop pages, Most Stocked (browse)': BROWSE_SORT_OPTIONS,
+  'Explore Sets': SET_SORT_OPTIONS,
+  'Explore Oils': OIL_SORT_OPTIONS,
   'brand, note and shop detail lists': LIST_SORT_OPTIONS,
   'Explore Brands': BRAND_SORT_OPTIONS,
   'Explore Notes': NOTE_SORT_OPTIONS,
@@ -97,5 +100,13 @@ describe('every sort control is built the one way', () => {
     expect([...app.matchAll(/\blistSortControl\(\s*'([a-z-]+)'/g)].map((m) => m[1]!).sort()).toEqual([
       'brand-detail-sort', 'note-detail-sort', 'retailer-detail-sort',
     ]);
+  });
+
+  it('draws the Oils and Sets sort through that same function, handed to demo/tabPanels.ts', () => {
+    const panels = readFileSync(resolve(root, 'demo/tabPanels.ts'), 'utf8');
+    // The tabs build no <select> of their own for a sort: the page's sortControl is the only one.
+    expect(panels).toContain('deps.sortControl(TAB_SORT_ID');
+    expect(panels).not.toMatch(/id="[^"]*sort[^"]*"/);
+    expect(app).toMatch(/sortControl:\s*\(id, subject, options, current\) => sortControl\(id, subject, ICON_SORT, \[\.\.\.options\], current\)/);
   });
 });

@@ -91,6 +91,10 @@ entries.push({ loc: '/', lastmod: appMod, changefreq: 'daily' });
 entries.push({ loc: '/brands', lastmod: appMod, changefreq: 'weekly' });
 entries.push({ loc: '/retailers', lastmod: gitLastModified('src/config/retailers.ts'), changefreq: 'weekly' });
 entries.push({ loc: '/notes', lastmod: appMod, changefreq: 'weekly' });
+// The Oils and Sets tabs under Explore (docs/GIFT-SETS-AND-OILS-PLAN.md). /gift-sets
+// is only the old way in to /sets and is never listed.
+entries.push({ loc: '/oils', lastmod: appMod, changefreq: 'weekly' });
+entries.push({ loc: '/sets', lastmod: appMod, changefreq: 'weekly' });
 entries.push({ loc: '/deals', lastmod: today(), changefreq: 'daily' });
 entries.push({ loc: '/about', lastmod: gitLastModified('demo/legal.ts'), changefreq: 'monthly' });
 
