@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.76.0',
+    date: '5 Oct 2026',
+    title: 'Fewer split products, bundles are sets',
+    points: [
+      'Edition wording and US ounce sizes no longer split',
+      'Bundles, duos and trios now sit under Gift Sets',
+      'MYSLF Le Parfum no longer says Aftershave',
+    ],
+  },
+  {
     version: 'v3.75.0',
     date: '5 Oct 2026',
     title: 'A cleaner Notes list with Z to A',
