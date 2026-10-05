@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.79.0',
+    date: '5 Oct 2026',
+    title: 'Every product has a readable address',
+    points: [
+      'Like pricesniffs.space/creed_aventus_100ml',
+      'Old product links still work and move over',
+      'Share and email links use the new address',
+    ],
+  },
+  {
     version: 'v3.78.0',
     date: '5 Oct 2026',
     title: 'A country and currency menu in the top bar',

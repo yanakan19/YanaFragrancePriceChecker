@@ -6,6 +6,8 @@ import AxeBuilder from '@axe-core/playwright';
 import type { Browser, BrowserContext, Page } from 'playwright';
 import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-audit.js';
 import { shareUrl } from '../demo/share.js';
+import { DEMO_FRAGRANCES } from '../demo/data.js';
+import { setProductSlugLookup } from '../demo/router.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const built = existsSync(resolve(root, 'demo/index.html'));
@@ -30,11 +32,18 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
   let close: () => void = () => {};
 
   beforeAll(async () => {
+    // The page links a product by its own address, /BRAND_NAME_VOLUME; the
+    // links this file expects are built by the same router, so it is given the
+    // same slugs (and the slug of the fixture below).
+    const slugs = new Map(DEMO_FRAGRANCES.map((f) => [f.id, f.slug]));
+    slugs.set('sh-test-dormant', 'test_house_quiet_ember_and_co_75ml');
+    setProductSlugLookup((id) => slugs.get(id) ?? null);
     ({ port, close } = await startDemoServer());
     browser = await launchChromium();
   }, 60_000);
 
   afterAll(async () => {
+    setProductSlugLookup(() => null);
     await browser?.close();
     close();
   });
@@ -197,7 +206,9 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
         await page.keyboard.press('Escape');
         expect(await dialogOpen(page)).toBe(false);
         expect(await ev<boolean>(page, `document.activeElement?.classList.contains('share-page')`)).toBe(true);
-        expect(await pathname(page)).toBe(`/fragrance/${encodeURIComponent(id)}`);
+        // The page was opened by its old address, and the bar now holds its own.
+        expect(await pathname(page)).toBe(new URL(shareUrl(id)).pathname);
+        expect(await pathname(page)).not.toContain('/fragrance/');
         await context.close();
       }, 120_000);
     }
