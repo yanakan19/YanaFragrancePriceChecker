@@ -74,7 +74,7 @@ import {
 import { trustpilotStateFor, trustpilotLinkMarkup, TRUSTPILOT_LINK_TEXT } from './trustpilotWidget.js';
 import { COVERAGE } from './legal.js';
 import { marqueeHtml, marqueePhrases } from './marquee.js';
-import { adSlotHtml, interleaveAds, isGridAd } from './ads.js';
+import { adPreviewOn, adPreviewRequested, adSlotHtml, interleaveAds, isGridAd, setAdPreview, withAdPreview } from './ads.js';
 import { installAds, mountAds } from './adsRuntime.js';
 import { deliveryLines } from './deliveryFacts.js';
 import {
@@ -96,7 +96,7 @@ import { HISTORY_SCOPES, priceHistoryChart, type ChartObservation, type PriceHis
 import { officialSiteFor } from './brandSites.js';
 import { fragranceLinksFor, fragranticaLabel } from './fragranceLinks.js';
 import { matchRoute, routeToPath, slugify, basePath, type Route, type RouteName } from './router.js';
-import { headFor, SITE_URL, type HeadTags, type HeadInput } from './head.js';
+import { headFor, withPreviewNoindex, SITE_URL, type HeadTags, type HeadInput } from './head.js';
 import { WRONG_PRICE_PROBLEMS, OTHER_SHOP, wrongPriceMailto, type WrongPriceProblem } from './wrongPrice.js';
 import { shareUrl, shareText, shareLinks, shareProductName, type ShareProduct, type SharePrice } from './share.js';
 import { SUPABASE_CONFIGURED } from './supabase.js';
@@ -1459,7 +1459,16 @@ function fragranceList(list: DemoFragrance[], empty: string): string {
  * product tiles.
  */
 function withGridAds<T>(list: readonly T[], tile: (item: T, index?: number) => string): ((index?: number) => string)[] {
-  return interleaveAds(list).map((item) => (isGridAd(item) ? () => adSlotHtml('grid') : (i?: number) => tile(item, i)));
+  return interleaveAds(list, adListSeed()).map((item) => (isGridAd(item) ? () => adSlotHtml('grid') : (i?: number) => tile(item, i)));
+}
+
+/**
+ * What names the list being drawn, for placing its ads: its address without
+ * the ad preview parameter (the route and its query), so the same list gets
+ * the same ad positions on every draw, scroll, windowing swap and Back.
+ */
+function adListSeed(): string {
+  return routeToPath(currentRoute());
 }
 
 /**
@@ -1516,7 +1525,7 @@ function homeView(): string {
       <ul class="pop-rail">
         ${POPULAR.map((f, i) => fragranceTile(f, { rank: i, rail: true, eager: i < railEagerCount() })).join('')}
       </ul>
-    </section>
+    </section>${adSlotHtml('home')}
 
     <!-- The suggestion form that used to sit beside this moved to its own
          page, Suggestions in the account menu (owner request, 2026-10-04). -->
@@ -5626,7 +5635,9 @@ function historyDepth(): number {
 
 /** Push the current state onto history, or replace the top of it. */
 function syncUrl(mode: 'push' | 'replace' = 'push'): void {
-  const url = basePath().replace(/\/$/, '') + routeToPath(currentRoute());
+  // The ad layout preview stays on the address while it is on, so a reload
+  // keeps it (withAdPreview in demo/ads.ts; the page itself is noindex then).
+  const url = basePath().replace(/\/$/, '') + withAdPreview(routeToPath(currentRoute()));
   const current = window.location.pathname + window.location.search;
   if (url === current) return;
   const depth = mode === 'push' ? historyDepth() + 1 : historyDepth();
@@ -6147,7 +6158,7 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   // description and — worst — the canonical URL of the homepage, which is an
   // instruction not to index them. See demo/head.ts for what this does and
   // does not reach.
-  applyHead(headFor(headInputForState()));
+  applyHead(withPreviewNoindex(headFor(headInputForState()), adPreviewOn()));
 
   // The wrapper is a fresh element on every render, so the rise it carries
   // just plays on insertion. No JS animation retriggering needed. It is the
@@ -6271,6 +6282,9 @@ function renderFromUrl(): void {
 /* ── wiring ──────────────────────────────────────────────────────────────── */
 
 function init(): void {
+  // `?adpreview=1` draws every ad slot as a labelled frame, for this page view
+  // only: held in memory, never stored. Set before anything draws.
+  setAdPreview(adPreviewRequested(window.location.search));
   installAds();
   loadMode();
   loadLayout();

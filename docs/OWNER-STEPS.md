@@ -232,12 +232,39 @@ your publisher id `ca-pub-6298711915135064`, and
 https://pricesniffs.space/ads.txt names it. No ad script loads and no ad
 shows until the ad unit ids below are filled in.
 
-Where ads go once on: one tile in the browse grids (search results, brand,
-shop and note pages, Explore lists, Deals and the Most stocked list)
-after every 8 product tiles, never in the first row; and one block on a
-perfume's page under the whole price list. Each says **Advertisement** above
-it. Never in the top bar, the home page hero, the price boxes, an offer row,
-an email or a social post, and ads never change the order of anything.
+Where ads go once on, three places and no others:
+
+1. **Home banner**: one wide strip directly under the Most Stocked section
+   on the home page. On a wide screen it is as wide as the six tile grid
+   above it and 90 pixels tall; on a phone it is the full width under the
+   swipe row and 100 pixels tall.
+2. **Grid tile**: one tile-sized box inside the browse grids (search
+   results, brand, shop and note pages, Explore lists, Deals and the full
+   Most stocked list), roughly every 10 product tiles. The gap is random,
+   between 8 and 12 tiles, so it is not a strict pattern; the first one is
+   after 16 to 20 tiles, so never in the first row at any column count, and
+   not before the third row at six across. It is never last in a list. The places are worked out from
+   the list's address (for example `/search?q=dior`), so a list always gets
+   the same places, and they do not move as you scroll, press Back or load
+   more.
+3. **Product page**: one block on a perfume's page under the whole price
+   list, 280 pixels tall.
+
+Each says **Advertisement** above it in a dashed frame. Never in the top bar,
+the home page hero, the price boxes, an offer row, an email or a social
+post, never in the product page's side column, and ads never change the
+order of anything.
+
+**See the layout before any ad is on.** Add `?adpreview=1` to the end of any
+address, for example https://pricesniffs.space/?adpreview=1 or
+https://pricesniffs.space/search?adpreview=1. Every place above then shows
+as a labelled dashed frame reading **Advertisement**, with what it is and
+its size in small text. It loads nothing from Google and sends no request. It
+is not saved anywhere (open the page without `?adpreview=1` and it is gone),
+the page tells search engines not to index it, and the page's own address for
+search engines ignores it. Without it, while ads are off, visitors see
+nothing at all: no frames, no gaps. The preview is for you; do not send the
+link to others.
 
 ### 5a. Sign up and get the site approved
 
@@ -289,20 +316,26 @@ Google for non personalised ads only. That is built in; nothing to set.
    Google can take a few days to recheck after approval; "Not found" in the
    first days is normal.
 
-### 5d. Create the two ad units and send me their ids
+### 5d. Create the three ad units and send me their ids
 
 Only once AdSense says the site is **Ready**:
 
 1. Left menu → **Ads** → **By ad unit** → **Display ads**.
-2. Name it `Grid tile`, shape **Square**, size **Responsive** → **Create**.
+2. Name it `Home banner`, shape **Horizontal**, size **Responsive** →
+   **Create**. Google then chooses a leaderboard shaped ad that fits: about
+   970 x 90 or 728 x 90 on a wide screen, 320 x 100 on a phone. The site
+   reserves 90 pixels (100 on a phone) for it.
 3. In the code it shows, find `data-ad-slot="1234567890"`. Copy only the
    digits. You do not need the rest of the code.
-4. Do the same again, named `Product page`, shape **Horizontal**,
-   **Responsive**.
-5. Send me both numbers (and today's date). Or paste them yourself into
+4. Do the same again, named `Grid tile`, shape **Square**, size
+   **Responsive**. The site gives it the size of one product tile.
+5. And once more, named `Product page`, shape **Horizontal**,
+   **Responsive**. The site reserves 280 pixels for it.
+6. Send me the three numbers (and today's date). Or paste them yourself into
    `demo/ads.ts`:
    ```ts
    export const AD_SLOTS: Readonly<Record<AdPlacement, string>> = {
+     home: '3333333333',    // the Home banner digits (the third one to paste)
      grid: '1111111111',    // the Grid tile digits
      product: '2222222222', // the Product page digits
    };
@@ -311,7 +344,9 @@ Only once AdSense says the site is **Ready**:
    then run `npm run demo` and commit. The ads, the advertising sections of
    the privacy and cookies pages, and their "Last updated" date all switch
    on together from that one edit. Leave a slot as `''` to keep that place
-   empty. To switch every ad off again, blank both slots.
+   empty: a blank slot shows nothing and reserves no space, so you can start
+   with one or two of the three. To switch every ad off again, blank all
+   three slots.
 
 ### 5e. What to expect after that
 
