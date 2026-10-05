@@ -60,6 +60,31 @@ export const BROWSE_SORT_OPTIONS: SortOption<BrowseSort>[] = [
   ...LIST_SORT_OPTIONS,
 ];
 
+/**
+ * The Explore Sets and Oils tabs (docs/GIFT-SETS-AND-OILS-PLAN.md). Most to
+ * Least Stocked leads, as on Search: it is the order these lists arrive in.
+ * Later phases add the orders only one of the two can honestly offer (a set's
+ * main bottle size, an oil's price per ml); each option here still names both
+ * ends, like every other sort on the site (tests/sortLabels.test.ts).
+ */
+export type TabSort = BrowseSort;
+
+export const SET_SORT_OPTIONS: SortOption<TabSort>[] = [
+  { value: 'stocked', label: 'Most to Least Stocked' },
+  { value: 'az', label: 'A to Z' },
+  { value: 'za', label: 'Z to A' },
+  { value: 'price-low', label: 'Lowest to Highest Price' },
+  { value: 'price-high', label: 'Highest to Lowest Price' },
+];
+
+export const OIL_SORT_OPTIONS: SortOption<TabSort>[] = [
+  { value: 'stocked', label: 'Most to Least Stocked' },
+  { value: 'az', label: 'A to Z' },
+  { value: 'za', label: 'Z to A' },
+  { value: 'price-low', label: 'Lowest to Highest Price' },
+  { value: 'price-high', label: 'Highest to Lowest Price' },
+];
+
 /** Explore, Brands. */
 export const BRAND_SORT_OPTIONS: SortOption<'az' | 'za'>[] = [
   { value: 'az', label: 'A to Z' },

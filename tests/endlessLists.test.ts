@@ -146,7 +146,8 @@ describe.skipIf(!built)('endless lists on the built site', () => {
   }, 120_000);
 
   it('keeps going on a brand page and on Gift Sets under Size', async () => {
-    const gifts = await open('/gift-sets');
+    // Gift sets under Size on the search list (the Sets tab, /sets, is held in tests/setsOilsTabs.test.ts).
+    const gifts = await open('/search?size=gift-set');
     const total = Number(await gifts.textContent('#view .page-head .count'));
     expect(total).toBeGreaterThan(OLD_CAP);
     expect(await tileCount(gifts)).toBe(CHUNK);

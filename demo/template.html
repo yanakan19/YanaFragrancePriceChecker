@@ -1384,6 +1384,11 @@
   .quick-search { display: contents; }
   .count { color: var(--faint); }
   .panel-note { margin: 0 0 14px; }
+  /* The search box at the top of the Oils and Sets tabs: the page's own search
+     field (input[type=search] above), without the gap that field carries under
+     the top bar, and a little room before the controls row. */
+  .tab-search { margin: 0 0 4px; }
+  .tab-search input[type="search"] { margin-top: 0; }
 
   /* Sort and filter controls: an icon, then the choice itself. */
   /* One grid on every list page and at every width, so the row reads the same
