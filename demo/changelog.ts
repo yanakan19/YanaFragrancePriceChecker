@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.78.0',
+    date: '5 Oct 2026',
+    title: 'A country and currency menu in the top bar',
+    points: [
+      'Sits just left of the account button',
+      'The UK and GBP are active, five more coming soon',
+      'Choosing nothing changes nothing, no cookies',
+    ],
+  },
+  {
     version: 'v3.77.0',
     date: '5 Oct 2026',
     title: 'Fewer split products, bundles are sets',
