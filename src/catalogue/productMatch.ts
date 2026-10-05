@@ -355,6 +355,15 @@ function identityWords(p: MatchableProduct): string[] {
   }
   while (words.length > 1 && ORPHAN_TAIL.has(words[words.length - 1]!)) words = words.slice(0, -1);
   if (words.length > 1 && words[words.length - 1] === 'new') words = words.slice(0, -1);
+  // "Edition" as a word of its own restates the name and says nothing more:
+  // "Vulcan Black Friday" and "Vulcan Black Friday Edition", "Amber Oud Gold"
+  // and "Amber Oud Gold Edition" (Al Haramain's own spelling, the shops drop it),
+  // "Cocktail Edition For Her" and "For Her Cocktail". What names an edition is
+  // the word beside it (Limited, Collector, Black Friday, 24K, a year) and that
+  // stays in the key, so two different editions still differ; and two different
+  // barcodes still keep a pair apart in findDuplicateGroups. Never when it would
+  // leave nothing. Measured: 22 pairs in the catalogue, none a different bottle.
+  if (words.length > 1 && words.includes('edition')) words = words.filter((w) => w !== 'edition');
   // Never reduce a name to nothing: the plain words are a worse key than none
   // at all, but an empty one would merge every such product with every other.
   return words.length > 0 ? words : titleWords(p.name);
