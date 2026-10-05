@@ -63,11 +63,14 @@ import {
   isFragrance,
   isCatalogueListing,
   sizeMl,
+  ML_SIZE_RE,
   fragranceId,
   repairMojibake,
   travelSizeIsASize,
   NOT_A_FRAGRANCE,
 } from '../src/catalogue/fragranceId.js';
+import { brandAliasKey, nameCore } from '../src/catalogue/duplicateKey.js';
+import { resolveOunceListing } from '../src/catalogue/ounceSizes.js';
 import { buildKnownHouseProducts, giftSetContents, giftSetName, isGiftSet, registerKnownHouseProducts } from '../src/catalogue/giftSet.js';
 import {
   concentrationOfListing,
@@ -812,6 +815,45 @@ function readShopLabel(l: StoredListing, retailer: Retailer, title: string): { t
   registerKnownHouseProducts(buildKnownHouseProducts(singles));
 }
 
+/* ── a US ounce title and the bottle's nominal size ───────────────────────────
+   The Beauty Store UK writes "Ysl Black Opium 3 Oz" (89ml converted) for the 90ml
+   bottle every other shop sells, and "Y By Ysl 2 Oz For Men" (59ml) for the 60ml.
+   Where the same product, or the same barcode, is sold at the nominal size by a
+   shop that states it in ml, the listing takes that size, and its "For Men" /
+   "For Women" label comes off if that is what the evidence found
+   (src/catalogue/ounceSizes.ts). Worked out here, before any listing becomes a
+   product, from the shops' own millilitre sizes. */
+const ounceNameKey = (brand: string, name: string): string => `${brandAliasKey(brand)}|${nameCore(name, brand, null)}`;
+const knownSizes: { byName: Map<string, Set<number>>; byEan: Map<string, Set<number>> } = { byName: new Map(), byEan: new Map() };
+{
+  const add = (m: Map<string, Set<number>>, key: string, ml: number) => (m.get(key) ?? m.set(key, new Set()).get(key)!).add(ml);
+  for (const { retailer, listings } of eligible) {
+    for (const l of listings) {
+      if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0) || !isCatalogueListing(l) || isGiftSet(l)) continue;
+      if (!ML_SIZE_RE.test(l.rawTitle)) continue;
+      const ml = sizeMl(l.rawTitle, l.description);
+      if (ml === null) continue;
+      const rawBrand = resolveRawBrand(l, retailer);
+      const brand = canonBrand(rawBrand);
+      if (!brand) continue;
+      const title = stripTrailingShopCredit(l.rawTitle, retailer.name, retailer.domain);
+      add(knownSizes.byName, ounceNameKey(brand, displayName(readShopLabel(l, retailer, title).title, rawBrand, brand, travelSizeIsASize(l.retailerId))), ml);
+      const ean = trustworthyEan(l, untrustworthyEans);
+      if (ean) add(knownSizes.byEan, ean, ml);
+    }
+  }
+}
+let ounceResolved = 0;
+const ounceResolvedByShop = new Map<string, number>();
+const ounceExamples: string[] = [];
+/** The size and name an ounce listing takes, where the evidence is there; otherwise the ones it was given. */
+function withNominalOunceSize(l: StoredListing, brand: string | null, name: string, size: number | null): { size: number | null; name: string } {
+  if (size === null || !brand) return { size, name };
+  const hit = resolveOunceListing({ title: l.rawTitle, name, ean: trustworthyEan(l, untrustworthyEans), nameKey: (n) => ounceNameKey(brand, n), known: knownSizes });
+  if (!hit || (hit.sizeMl === size && hit.name === name)) return { size, name };
+  return { size: hit.sizeMl, name: hit.name };
+}
+
 for (const { retailer, listings } of eligible) {
   for (const l of listings) {
     considered++;
@@ -850,7 +892,7 @@ for (const { retailer, listings } of eligible) {
     // A gift set has no size: it is not a bottle of any volume, and leaving
     // it unsized is what keeps every size keyed match (findDuplicateGroups,
     // houseCeilings, the reference price check) from ever pairing it with one.
-    const size = giftSet ? null : sizeMl(l.rawTitle, l.description);
+    let size = giftSet ? null : sizeMl(l.rawTitle, l.description);
     const id = fragranceId(l, untrustworthyEans);
     // The other ids this listing has answered to, kept for the id aliases
     // (src/catalogue/idAliases.ts): only a listing that really joins a product
@@ -898,9 +940,19 @@ for (const { retailer, listings } of eligible) {
     const labelled: { title: string; audience: ShopTitleAudience | null } = giftSet
       ? { title: titleWithoutShopCredit, audience: null }
       : readShopLabel(l, retailer, titleWithoutShopCredit);
-    const displayedName = giftSet
+    let displayedName = giftSet
       ? giftSetName(titleWithoutShopCredit, displayedBrand)
       : displayName(labelled.title, effectiveRawBrand, displayedBrand, travelSizeIsASize(l.retailerId));
+    if (!giftSet) {
+      const nominal = withNominalOunceSize(l, displayedBrand, displayedName, size);
+      if (nominal.size !== size) {
+        ounceResolved++;
+        ounceResolvedByShop.set(l.retailerId, (ounceResolvedByShop.get(l.retailerId) ?? 0) + 1);
+        if (ounceExamples.length < 12) ounceExamples.push(`${l.rawTitle} -> ${nominal.name} ${nominal.size}ml (was ${size}ml)`);
+      }
+      size = nominal.size;
+      displayedName = nominal.name;
+    }
     const offer: Offer = {
       retailerId: l.retailerId,
       price: l.priceGbp!,
@@ -2185,13 +2237,13 @@ const hiddenSameBottle = new Map<string, string>();
 function describeHiddenListing(l: StoredListing) {
   const retailer = RETAILERS.find((r) => r.id === l.retailerId)!;
   const giftSet = isGiftSet(l);
-  const size = giftSet ? null : sizeMl(l.rawTitle, l.description);
   const rawBrand = resolveRawBrand(l, retailer);
   const displayedBrand = canonBrand(rawBrand);
   const title = stripTrailingShopCredit(l.rawTitle, retailer.name, retailer.domain);
-  const name = giftSet
+  const readName = giftSet
     ? giftSetName(title, displayedBrand)
     : displayName(readShopLabel(l, retailer, title).title, rawBrand, displayedBrand, travelSizeIsASize(l.retailerId));
+  const { size, name } = giftSet ? { size: null, name: readName } : withNominalOunceSize(l, displayedBrand, readName, sizeMl(l.rawTitle, l.description));
   return { giftSet, size, brand: displayedBrand ?? 'Unbranded', name, concentration: concentrationOfStoredListing(l) };
 }
 for (const l of tooOldListings) {
@@ -2680,6 +2732,7 @@ console.log(
     '\n' +
     `  ${houseProducts.length} house products, catalogue-only (no sterling price yet)\n` +
     `  ${sizeUnknown} products carry a size their own title states two conflicting ways; shown as size not confirmed\n` +
+    `  ${ounceResolved} US ounce listings took the nominal bottle size the same product or barcode is sold at (${[...ounceResolvedByShop].map(([id, n]) => `${id} ${n}`).join(', ')}); e.g. ${ounceExamples.slice(0, 4).join('; ')}\n` +
     `  ${giftSetProducts.length} gift set products (${giftSetProducts.reduce((n, p) => n + p.offers.length, 0)} offers; ${[...giftSetListings.values()].reduce((n, v) => n + v, 0)} listings: ` +
     `${[...giftSetListings].sort((a, b) => b[1] - a[1]).map(([id, n]) => `${id} ${n}`).join(', ')}), never compared with a single bottle\n` +
     `  ${[...tooOldByShop.values()].reduce((n, v) => n + v.hidden, 0)} active listings hidden, price last confirmed over ${HIDE_OFFER_AFTER_DAYS} days ago` +
