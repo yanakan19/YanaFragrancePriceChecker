@@ -51,8 +51,9 @@ up and both should stay true:
   The rule that replaced it: an image is displayed only when its retailer
   records an `imageBasis` naming the grounds. Three are in use — `affiliate-terms`
   (Fragrance Click, whose creative terms were read), `own-storefront` (the
-  direct house catalogues), and `hotlink-unlicensed` (the four crawled shops,
-  on the owner's decision, referenced from their servers and never copied).
+  direct house catalogues), and `hotlink-unlicensed` (every other shop that
+  stores a photo, on the owner's decisions of 2026-08-19 and 2026-10-05, referenced from
+  their servers and never copied; docs/DECISIONS.md D24).
   The terms page describes all three plainly and offers any retailer an opt out.
   Adding a fourth basis, or changing what any of them means, means revisiting
   that clause again — it has already gone stale once.

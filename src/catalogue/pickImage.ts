@@ -243,12 +243,12 @@ function isUnsure(imageUrl: string | null, verdicts: ImageBoxVerdicts | undefine
  *     Not "always", but a clear enough majority to rank.
  *   - the-beauty-store-uk: only 4 of 15 fragrance photos were bottle-only —
  *     most (11/15) showed the box standing beside the bottle. The premise
- *     does not hold here. It also cannot matter: this retailer carries no
- *     `imageBasis` (its Awin application was rejected and no other basis was
- *     ever read — see that entry's own comment in retailers.ts), so
- *     IMAGE_ALLOWED already excludes every one of its photos before this
- *     list is ever consulted. Adding it here would change nothing — it is
- *     never reached.
+ *     does not hold here, so it is not ranked. (Until 2026-10-05 it also
+ *     could not matter, because the shop carried no `imageBasis` and
+ *     IMAGE_ALLOWED excluded every one of its photos. The owner's decision of
+ *     that date, docs/DECISIONS.md D24, gave it the same unlicensed hot-link
+ *     basis as every other shop that stores a photo, so its photos now reach
+ *     pickImage and compete in the unranked order below the ranked shops.)
  *
  * ORDER matters — earlier wins a tie — and the list's own note used to say
  * the ordering was untested "until a second retailer clears the same bar: a
@@ -608,6 +608,39 @@ const SHOPIFY_CDN_SIZE_SUFFIX =
   /^(https?:\/\/[^/]*(?:cdn\.shopify\.com|\/cdn\/shop\/)[^\s?]*)_x\d+(\.(?:jpe?g|png|webp|gif))(\?[^\s]*)?$/i;
 
 /**
+ * A ScentStore product photo stored as WordPress's 150x150 thumbnail, captured
+ * as (the uploads folder)(file name without the size)(extension).
+ *
+ * ── 2026-10-05: why this shop's thumbnails are swapped for bigger renditions ──
+ * 577 of ScentStore's 794 distinct stored image URLs end `-150x150.jpg` (or
+ * `.png`): WordPress's thumbnail, 150 pixels square, which on a
+ * tile reads as a blur and is under the 200px this site treats as too small.
+ * WordPress keeps the original upload and a set of renditions side by side,
+ * so the shop's own bigger files sit at predictable addresses. Nothing was
+ * assumed: every one of the 577 was requested for real (a browser's headers and
+ * no `Referer`, which is what this page sends; 2026-10-05) and the response decoded.
+ *
+ *   - 459 have a file name made of words (`Jean-Paul-Gaultier-Scandal-...-50ml`).
+ *     Dropping the size gives the original upload: 459 of 459 returned 200 and
+ *     an image of at least 600 pixels on its short side.
+ *   - 118 are numeric (`/2017/06/102390-150x150.jpg`, a SKU). Their original
+ *     upload is mostly gone: 117 of the 118 returned 404 without the size. The
+ *     `-600x600` rendition is there instead: 117 of 118 returned 200 and an
+ *     image at least 600 pixels on its short side.
+ *   - 1 (`2017/07/112683`) has neither, so nothing is verified for it and its
+ *     photo falls to the tile's own "no image" marker when it fails to load.
+ *     Its `-300x300` rendition exists, but one address is not a rule.
+ *
+ * The rule is therefore the one measured: numeric names ask for `-600x600`,
+ * every other name asks for the original. It is anchored to this one host's
+ * `/wp-content/uploads/YYYY/MM/` path and to a `-150x150` suffix, because the
+ * suffix only means "a rendition of this file" on a WordPress that keeps the
+ * original beside it; nothing is added to any other host or size.
+ */
+const SCENTSTORE_THUMBNAIL =
+  /^(https:\/\/www\.scentstore\.com\/wp-content\/uploads\/\d{4}\/\d{2}\/)([^/?#]+?)-150x150(\.(?:jpe?g|png))$/i;
+
+/**
  * Requests the same photo at a larger size, when the stored URL is already
  * asking a Shopify CDN to shrink it and a bigger size is free for the asking.
  *
@@ -689,6 +722,9 @@ const SHOPIFY_CDN_SIZE_SUFFIX =
  */
 export function upgradeImageResolution(url: string | null): string | null {
   if (url === null) return null;
+
+  const thumb = url.match(SCENTSTORE_THUMBNAIL);
+  if (thumb) return `${thumb[1]}${thumb[2]}${/^\d+$/.test(thumb[2]!) ? '-600x600' : ''}${thumb[3]}`;
 
   const sized = url.match(SHOPIFY_CDN_SIZE_SUFFIX);
   if (sized) {
