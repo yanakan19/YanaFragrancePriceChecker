@@ -1421,7 +1421,11 @@
     display: flex; align-items: center; justify-content: center;
     border: 1px solid var(--org-mark-border);
   }
-  .org-mark--wordmark img { width: auto; height: 100%; }
+  /* Height fills the box and the width is capped at what the box has left
+     (200px less its 10px padding each side), with object-fit keeping the
+     proportions. Without the cap a wordmark wider than about 4 to 1 ran past
+     the box and overflow: hidden cut the end off ("Juicy Coutur"). */
+  .org-mark--wordmark img { width: auto; height: 100%; max-width: 180px; object-fit: contain; }
   .org-mark--light { background: var(--org-mark-light-bg); }
   .org-mark--dark  { background: var(--org-mark-dark-bg); }
   .org-mark--own   { background: none; }
@@ -1514,6 +1518,15 @@
   .org-hero { display: flex; align-items: flex-start; gap: 14px; padding: 6px 0 18px; text-align: left; }
   .org-hero .monogram { flex: none; width: 56px; height: 56px; border-radius: 15px; font-size: 18px; }
   .org-hero-text { flex: 1; min-width: 0; }
+  /* A wide mark (up to 200px) beside the text leaves a phone about 144px for
+     the name and the official site pill, which is 214px and does not wrap, so
+     the page scrolled sideways once a house's wordmark loaded. On a narrow
+     screen the wordmark gets a line to itself and the text runs full width
+     under it. */
+  @media (max-width: 520px) {
+    .org-hero:has(> .org-mark--wordmark) { flex-direction: column; gap: 10px; }
+    .org-hero:has(> .org-mark--wordmark) .org-hero-text { flex: none; width: 100%; }
+  }
   .org-hero-name { margin: 0; }
   .org-hero-count { color: var(--faint); }
   .org-hero-domain { margin: 2px 0 0; }

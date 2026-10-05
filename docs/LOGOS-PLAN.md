@@ -814,3 +814,40 @@ folder to 100 KB. `tests/offerMark.test.ts` pins which shops get an image in
 the 20px slot and which keep initials. `scripts/image-link-check.ts` skips
 `owner-supplied` entries, like `commons-public-domain`, since they name a file
 this repo serves.
+
+---
+
+## 8. The brand pass of 2026-10-05
+
+The next 200 houses without a logo, worked from the top of the catalogue
+ranking (product count), 41 added. The list of who refused us and every
+rejection with its reason is in the header of `demo/brandLogos.ts`; the method
+is the one in §3 and §5 step 6, with these decisions made while doing it:
+
+- **Only what the brand's own site declares:** its `Organization.logo`, a
+  manifest icon, the apple touch icon or the favicon. `og:image` is never taken
+  (`logo-probe.ts --no-social` leaves it out). No Wikipedia, Wikidata, Commons,
+  search result or logo service, and no new Commons files.
+- **Hot-linked, not copied.** The owner's white background rule is met by the
+  tile: every new entry is drawn on the white tile in both themes (`ink:
+  'dark'`), except four marks that carry their own dark or coloured ground
+  (`own`: BDK, Diesel, Izod, Laurent Mazzone). A white or pale mark is rejected
+  instead of put on a dark tile, and `tests/brandLogos.test.ts` fails a new
+  entry with `ink: 'light'`.
+- **Size.** A raster has to be at least 64px and crisp (96px or more for
+  anything with fine detail), or an SVG under a few KB. A Shopify `width=`
+  parameter asks the same declared file for the size drawn; where the file's
+  original is 32px it is simply too small. Atkinsons' SVG is 1 MB and was left out.
+- **Looked at, every one,** at 42 and 56px on white and on dark, from the
+  exact bytes fetched. Marks that were another company's (Angular's logo in
+  Molton Brown's manifest), a parent storefront's, an anniversary badge, a
+  bare letter or plain web address text were rejected.
+- **robots.txt first, literally.** An unreachable (5xx, 429, no answer) or
+  refusing (401, 403) robots.txt, a Crawl-delay over 30s, or a Disallow on the
+  page or icon path means nothing from that origin. The probe now reads it that
+  way and honours a stated Crawl-delay.
+- **Two layout fixes the new marks showed up,** both in `demo/template.html`:
+  a wordmark wider than about 4 to 1 was cut off by its box (the hero image is
+  now capped at 180px and kept in proportion), and on a phone a wide mark beside
+  the name pushed the page sideways (the hero stacks under 520px when the mark
+  is a wordmark).
