@@ -7,6 +7,7 @@ import { DROP_MIN_GBP, dropThreshold, evaluateItem } from '../src/alerts/rules.j
 import { CAVEAT, INTRO, INTRO_MANY, MANAGE, STOP, WHY, renderAlertEmail, type AlertLine } from '../src/alerts/email.js';
 import {
   planRun,
+  productUrl,
   runPriceAlerts,
   ukDay,
   type AlertStore,
@@ -133,7 +134,15 @@ const bob: Recipient = { userId: 'u2', email: 'bob@example.com', token: '0f2a9c1
 
 const prices: Record<string, number | null> = { a: 90, b: 40, c: 70, d: 100, gone: null };
 const priceFor: PriceLookup = (id) =>
-  id in prices ? { price: prices[id]!, shop: 'Boots', name: `Fragrance ${id.toUpperCase()}, Eau de Parfum 100ml` } : null;
+  id in prices
+    ? {
+        price: prices[id]!,
+        shop: 'Boots',
+        name: `Fragrance ${id.toUpperCase()}, Eau de Parfum 100ml`,
+        // Only product "a" has a slug here; the others fall back to the old address.
+        ...(id === 'a' ? { slug: 'fragrance_a_eau_de_parfum_100ml' } : {}),
+      }
+    : null;
 
 const item = (wishlistId: string, userId: string, fragranceId: string, target: number | null = null): WishlistItem => ({
   wishlistId,
@@ -204,8 +213,13 @@ describe('one email per reader per day, listing every drop', () => {
     await runPriceAlerts({ store, provider, priceFor, siteUrl: SITE, now: NOW, dryRun: false, log: quiet().log, sleep: async () => {} });
     expect(outbox.map((e) => e.to).sort()).toEqual(['ann@example.com', 'bob@example.com']);
     const annMail = outbox.find((e) => e.to === 'ann@example.com')!;
-    expect(annMail.text).toContain('/fragrance/a');
-    expect(annMail.text).not.toContain('/fragrance/c');
+    // The email links to the product's own address, not the old one.
+    expect(annMail.text).toContain(`${SITE}/fragrance_a_eau_de_parfum_100ml`);
+    expect(annMail.text).not.toContain('/fragrance/a');
+    expect(annMail.text).not.toContain('fragrance_c');
+    const bobMail = outbox.find((e) => e.to === 'bob@example.com')!;
+    // A product with no slug still gets a link that works: the old address redirects.
+    expect(bobMail.text).toContain(`${SITE}/fragrance/c`);
   });
 });
 
@@ -297,6 +311,18 @@ describe('de-duplication', () => {
   it('uses the UK calendar day', () => {
     expect(ukDay(new Date('2026-07-01T23:30:00Z'))).toBe('2026-07-02'); // BST
     expect(ukDay(new Date('2026-12-01T23:30:00Z'))).toBe('2026-12-01'); // GMT
+  });
+});
+
+describe('the product link in an email', () => {
+  it('is the product\'s own address when its slug is known', () => {
+    expect(productUrl('https://pricesniffs.space', 'ean-1', 'creed_aventus_100ml')).toBe('https://pricesniffs.space/creed_aventus_100ml');
+    expect(productUrl('https://pricesniffs.space/', 'ean-1', 'creed_aventus_100ml')).toBe('https://pricesniffs.space/creed_aventus_100ml');
+  });
+
+  it('is the old address, which redirects, when it is not', () => {
+    expect(productUrl('https://pricesniffs.space', 'ean-1')).toBe('https://pricesniffs.space/fragrance/ean-1');
+    expect(productUrl('https://pricesniffs.space', 'a b', null)).toBe('https://pricesniffs.space/fragrance/a%20b');
   });
 });
 

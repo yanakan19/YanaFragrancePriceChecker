@@ -247,9 +247,14 @@ describe('an absorbed address lands on its survivor', () => {
 
   it('keeps every old address out of the sitemap, so search engines are offered one page, never two', () => {
     const sitemap = readFileSync(resolve(root, 'demo/sitemap.xml'), 'utf8');
-    const listed = new Set([...sitemap.matchAll(/\/fragrance\/([^<]+)</g)].map((m) => m[1]!));
+    const listed = new Set([...sitemap.matchAll(/<loc>[^<]*\/([^/<]+)<\/loc>/g)].map((m) => m[1]!));
     expect(listed.size).toBeGreaterThan(1000);
+    // The sitemap lists products by their own address now (docs/PRODUCT-URLS.md):
+    // no absorbed id, as an old address, is in it, and neither is the slug of a
+    // product a merge folded away.
+    expect(sitemap).not.toContain('/fragrance/');
     for (const from of Object.keys(ID_ALIASES)) expect(listed.has(from), from).toBe(false);
+    for (const slug of Object.keys(SLUG_ALIASES)) expect(listed.has(slug), slug).toBe(false);
   });
 });
 
@@ -264,9 +269,14 @@ describe('the page', () => {
   const app = readFileSync(resolve(root, 'demo/app.ts'), 'utf8');
 
   it('opens an absorbed address on its survivor and replaces the address, both for a first load and once the file arrives', () => {
+    // Both addresses of a product (the old /fragrance/<id> and the new
+    // /BRAND_NAME_VOLUME) open it through openProduct.
     const from = app.indexOf('function applyRoute');
-    const route = app.slice(app.indexOf("case 'fragrance': {", from), app.indexOf("case 'retailer': {", from));
-    expect(route).toContain('absorbedLanding(route.param)');
+    const cases = app.slice(app.indexOf("case 'product': {", from), app.indexOf("case 'retailer': {", from));
+    expect(cases).toContain('openProduct(');
+    expect(cases).toContain("case 'fragrance': return openProduct(route.param)");
+    const route = app.slice(app.indexOf('function openProduct'), app.indexOf('function handleUnsubscribeLink'));
+    expect(route).toContain('absorbedLanding(param)');
     expect(route).toContain("syncUrl('replace')");
     const settle = app.slice(app.indexOf('function settleDormantRoute'), app.indexOf('function detailView'));
     expect(settle).toContain('absorbedLanding(id)');
@@ -275,7 +285,7 @@ describe('the page', () => {
   });
 
   it('asks only the lazy file, never the catalogue, so the first load does not grow', () => {
-    expect(app).toContain("import { dormant, dormantEntry, movedTo } from './dormantStore.js';");
+    expect(app).toContain("import { dormant, dormantEntry, idForSlug, movedTo } from './dormantStore.js';");
     expect(app).not.toMatch(/ID_ALIASES/);
     expect(app).not.toMatch(/from '\.\/dormant\.generated/);
   });

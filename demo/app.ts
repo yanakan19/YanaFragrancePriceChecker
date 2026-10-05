@@ -57,7 +57,7 @@ import type { Retailer, RetailerTier, LogoRef } from '../src/types/retailer.js';
 import { logoFor } from './brandLogos.js';
 import {
   DEMO_FRAGRANCES, BY_POPULARITY, DEALS, NOTE_INDEX,
-  brandTierFor, fragranceById, fragrancesAt, listingCountAt, fragrancesWithNote, lowestPrice, compareVariants,
+  brandTierFor, fragranceById, fragranceBySlug, fragrancesAt, listingCountAt, fragrancesWithNote, lowestPrice, compareVariants,
   type DemoFragrance, type NoteLayer,
 } from './data.js';
 import { productArt, photoSrcAttrs, HOUSE_IMG_SIZES, RETRY_ORIGINAL, type ArtSize } from './photo.js';
@@ -85,7 +85,7 @@ import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { offersFor, SHOP_COUNT, HOUSE_PRODUCTS, HISTORY_ALIASES, OLDER_OFFERS } from './catalogue.generated.js';
 import { priceHistory, prefetchWhenIdle, type PriceHistoryData } from './priceHistoryStore.js';
-import { dormant, dormantEntry, movedTo } from './dormantStore.js';
+import { dormant, dormantEntry, idForSlug, movedTo } from './dormantStore.js';
 import type { DormantEntry } from '../src/catalogue/dormantProducts.js';
 import type { PriceHistoryPoint } from './priceHistory.generated.js';
 import type { RawHistoryPoint } from '../src/services/priceHistoryDaily.js';
@@ -95,7 +95,7 @@ import { HIDE_OFFER_AFTER_DAYS } from '../src/services/offerAge.js';
 import { HISTORY_SCOPES, priceHistoryChart, type ChartObservation, type PriceHistoryChartInput } from './priceHistoryChart.js';
 import { officialSiteFor } from './brandSites.js';
 import { fragranceLinksFor, fragranticaLabel } from './fragranceLinks.js';
-import { matchRoute, routeToPath, slugify, basePath, type Route, type RouteName } from './router.js';
+import { matchRoute, routeToPath, setProductSlugLookup, slugify, basePath, type Route, type RouteName } from './router.js';
 import { headFor, withPreviewNoindex, SITE_URL, type HeadTags, type HeadInput } from './head.js';
 import { WRONG_PRICE_PROBLEMS, OTHER_SHOP, wrongPriceMailto, type WrongPriceProblem } from './wrongPrice.js';
 import { shareUrl, shareText, shareLinks, shareProductName, type ShareProduct, type SharePrice } from './share.js';
@@ -1289,15 +1289,14 @@ function priceLine(f: DemoFragrance): string {
 }
 
 /**
- * The Share button in a tile's top right corner: a sibling beside the brand
- * label and the tile body, never inside the body's <button>, so a tap on it
- * cannot open the product. The drawn circle is 30px; the button around it is
- * the 44px touch target, and CSS keeps the brand label clear of it
- * (.share-tile in template.html). Shares the product's own address, whichever
- * list the tile is in. See openShareDialog.
+ * The Share control on a wishlist row (/account/wishlist): an icon button, the
+ * remove button's own size, stacked above it in the row's end column so the
+ * row gets no wider (see .wishlist-side in template.html). It is a sibling of
+ * the row's button, so a tap on it never opens the product. Same pop-up, link
+ * and text as the product page's button. See openShareDialog.
  */
-function shareTileButton(f: DemoFragrance): string {
-  return `<button type="button" class="share-btn share-tile" data-share="${esc(f.id)}"
+function shareRowButton(f: Pick<DemoFragrance, 'id' | 'brand' | 'name'>): string {
+  return `<button type="button" class="share-btn wishlist-share" data-share="${esc(f.id)}"
       aria-label="Share ${esc(f.brand)} ${esc(f.name)}" aria-haspopup="dialog">${ICON_SHARE}</button>`;
 }
 
@@ -1371,7 +1370,6 @@ function fragranceTile(
         <span class="tile-price">${opts?.trailing ?? priceLine(f)}</span>
         ${badgeRetailer ? `<span class="sold-by" title="${esc(`${badgePrefix} ${badgeRetailer}`)}"><span>${badgePrefix} ${esc(badgeRetailer)}</span></span>` : `<span class="sold-by" aria-hidden="true" style="visibility:hidden"><span>&nbsp;</span></span>`}
       </button>
-      ${shareTileButton(f)}
     </div>
   </li>`;
 }
@@ -2253,8 +2251,11 @@ function wishlistListHtml(): string {
               </span>
               <span class="shop-row-go" aria-hidden="true">→</span>
             </button>
-            <button class="wishlist-remove" data-wishlist-remove="${esc(frag.id)}"
-                aria-label="Remove ${esc(frag.brand)} ${esc(frag.name)} from your wishlist">${ICON_CLOSE}</button>
+            <span class="wishlist-side">
+              ${shareRowButton(frag)}
+              <button class="wishlist-remove" data-wishlist-remove="${esc(frag.id)}"
+                  aria-label="Remove ${esc(frag.brand)} ${esc(frag.name)} from your wishlist">${ICON_CLOSE}</button>
+            </span>
             ${state.priceAlerts === true ? wishlistTargetHtml(entry, frag) : ''}
           </li>`,
         )
@@ -2678,7 +2679,30 @@ function dormantDetailView(): string {
  * as the pages with no current prices, so it answers only once that is loaded.
  */
 function absorbedLanding(id: string): string | null {
-  return movedTo(dormant.current(), id, (other) => fragranceById(other) !== undefined);
+  const isLive = (other: string) => fragranceById(other) !== undefined;
+  // A product address (/BRAND_NAME_VOLUME) that is not in the catalogue waits
+  // for the same file: it may be a page with no current prices, or the address
+  // of a product a merge folded into another (SLUG_ALIASES).
+  if (id.startsWith(SLUG_PENDING)) return idForSlug(dormant.current(), id.slice(SLUG_PENDING.length), isLive);
+  return movedTo(dormant.current(), id, isLive);
+}
+
+/**
+ * What state.fragranceId holds, followed by the slug, while a product address
+ * that is not in the catalogue waits for the file of pages with no current
+ * prices to say what it is. Never a real id (ids have no colon), so it can
+ * only ever be settled or be Page Not Found, and currentRoute() turns it back
+ * into the same address so the address bar is not rewritten meanwhile.
+ */
+const SLUG_PENDING = 'slug:';
+
+/**
+ * The slug of a product page, for the router's routeToPath: what the catalogue
+ * says, or what the file of pages with no current prices says once it is in.
+ * Registered below, before the first render.
+ */
+function slugOfProduct(id: string): string | null {
+  return fragranceById(id)?.slug ?? dormantEntry(id)?.slug ?? null;
 }
 
 /**
@@ -3950,7 +3974,7 @@ const SHARE_COPIED_MS = 2000;
 let shareCopiedTimer = 0;
 
 /**
- * The Share pop-up (the button on every tile and product page): a native
+ * The Share pop-up (the button on a product page and on each wishlist row): a native
  * <dialog> opened with showModal(), like showDialog and the wrong price form,
  * so focus moves in, Esc closes it, the page behind is inert and screen
  * readers announce it. A tap on the dimmed backdrop closes it. It is a small
@@ -5402,6 +5426,7 @@ function headInputForState(): HeadInput {
         route,
         leafName: `${frag.brand} ${frag.name}${frag.sizeMl ? ` ${frag.sizeMl}ml` : ''}`,
         leafDetail: detail,
+        legacyAddress: onLegacyProductAddress(),
       };
     }
 
@@ -5463,7 +5488,10 @@ function currentRoute(): Route {
     case 'home': return { name: 'home', param: '', query: {} };
     case 'deals': return { name: 'deals', param: '', query: {} };
     case 'browse': return { name: 'search', param: '', query };
-    case 'detail': return { name: 'fragrance', param: state.fragranceId, query: {} };
+    case 'detail':
+      return state.fragranceId.startsWith(SLUG_PENDING)
+        ? { name: 'product', param: state.fragranceId.slice(SLUG_PENDING.length), query: {} }
+        : { name: 'fragrance', param: state.fragranceId, query: {} };
     case 'retailer': return { name: 'retailer', param: state.retailerId, query: {} };
     case 'brand': return { name: 'brand', param: slugify(state.brandProfile), query: {} };
     case 'note': return { name: 'note', param: slugify(state.noteName), query: {} };
@@ -5537,26 +5565,16 @@ function applyRoute(route: Route): boolean {
       state.tab = route.name as ExploreTab;
       return true;
 
-    case 'fragrance': {
-      if (!fragranceById(route.param)) {
-        // Not in the catalogue. It may still be a product with no current
-        // prices, which keeps its page (src/catalogue/dormantProducts.ts); that
-        // list is a file fetched on demand, so until it has arrived the page
-        // holds open and settles afterwards (dormantDetailView).
-        const known = dormant.current();
-        if (known !== null ? !dormantEntry(route.param) && absorbedLanding(route.param) === null : dormant.status() === 'failed') return false;
-      }
-      state.fragranceId = route.param;
-      // An address a merge absorbed: once the file is in, it opens the product
-      // that holds it, and the address bar is rewritten to that product's.
-      const landing = fragranceById(route.param) || dormantEntry(route.param) ? null : absorbedLanding(route.param);
-      if (landing !== null) {
-        state.fragranceId = landing;
-        queueMicrotask(() => syncUrl('replace'));
-      }
-      state.view = 'detail';
-      return true;
+    // The new address, /BRAND_NAME_VOLUME: the product the slug names, or the
+    // same wait as an id that is not in the catalogue (openProduct).
+    case 'product': {
+      const live = fragranceBySlug(route.param);
+      return openProduct(live ? live.id : `${SLUG_PENDING}${route.param}`);
     }
+    // The old address, /fragrance/<id>: opens the product and is then rewritten
+    // to its own address by syncUrl, with the head tags following (see
+    // onLegacyProductAddress).
+    case 'fragrance': return openProduct(route.param);
     case 'retailer': {
       // A shop that is switched off has no page: its old address is Page Not
       // Found, the same as an id that was never in the registry. (Ten shops
@@ -5600,6 +5618,32 @@ function applyRoute(route: Route): boolean {
 }
 
 /**
+ * Opens a product page for an id, or for `slug:<slug>` while a product address
+ * is waiting for the file of pages with no current prices. Returns false for an
+ * address that names nothing.
+ */
+function openProduct(param: string): boolean {
+  if (!fragranceById(param)) {
+    // Not in the catalogue. It may still be a product with no current
+    // prices, which keeps its page (src/catalogue/dormantProducts.ts); that
+    // list is a file fetched on demand, so until it has arrived the page
+    // holds open and settles afterwards (dormantDetailView).
+    const known = dormant.current();
+    if (known !== null ? !dormantEntry(param) && absorbedLanding(param) === null : dormant.status() === 'failed') return false;
+  }
+  state.fragranceId = param;
+  // An address a merge absorbed: once the file is in, it opens the product
+  // that holds it, and the address bar is rewritten to that product's.
+  const landing = fragranceById(param) || dormantEntry(param) ? null : absorbedLanding(param);
+  if (landing !== null) {
+    state.fragranceId = landing;
+    queueMicrotask(() => syncUrl('replace'));
+  }
+  state.view = 'detail';
+  return true;
+}
+
+/**
  * The one click unsubscribe link from a price drop email lands on
  * /account?unsubscribe=<token>. Works signed out: the token alone is the
  * credential (supabase/migrations/0004_price_alerts.sql). The token is dropped
@@ -5633,6 +5677,17 @@ function historyDepth(): number {
   return (window.history.state as { depth?: number } | null)?.depth ?? 0;
 }
 
+/**
+ * Whether the address bar holds the old /fragrance/<id> address of a product.
+ * That address still opens the product (it is in shared links, bookmarks, old
+ * emails and posts) and is rewritten to the product's own address straight
+ * away; until it is, the page asks search engines to leave it out.
+ */
+function onLegacyProductAddress(): boolean {
+  const path = window.location.pathname.slice(basePath().replace(/\/$/, '').length);
+  return path.startsWith('/fragrance/');
+}
+
 /** Push the current state onto history, or replace the top of it. */
 function syncUrl(mode: 'push' | 'replace' = 'push'): void {
   // The ad layout preview stays on the address while it is on, so a reload
@@ -5641,8 +5696,12 @@ function syncUrl(mode: 'push' | 'replace' = 'push'): void {
   const current = window.location.pathname + window.location.search;
   if (url === current) return;
   const depth = mode === 'push' ? historyDepth() + 1 : historyDepth();
+  const wasLegacy = onLegacyProductAddress();
   try {
     window.history[mode === 'push' ? 'pushState' : 'replaceState']({ depth }, '', url);
+    // The page was drawn while the old /fragrance/<id> address was in the bar,
+    // so its head said noindex. The address is the product's own now: say so.
+    if (wasLegacy && !onLegacyProductAddress()) applyHead(headFor(headInputForState()));
   } catch {
     // A sandboxed frame or a file:// document rejects pushState. The app is
     // fully usable without it, so this is not worth surfacing.
@@ -6285,6 +6344,9 @@ function init(): void {
   // `?adpreview=1` draws every ad slot as a labelled frame, for this page view
   // only: held in memory, never stored. Set before anything draws.
   setAdPreview(adPreviewRequested(window.location.search));
+  // Every address the app builds for a product goes through routeToPath, which
+  // finds the product's slug here (demo/router.ts, docs/PRODUCT-URLS.md).
+  setProductSlugLookup(slugOfProduct);
   installAds();
   loadMode();
   loadLayout();
@@ -6606,8 +6668,9 @@ function init(): void {
       return;
     }
 
-    // The Share button on a tile or a product page. Its own sibling of the
-    // tile's body button, so it never reaches the data-frag handler below.
+    // The Share button on a product page or a wishlist row. On a wishlist row it
+    // is a sibling of the row's button, so it never reaches the data-frag
+    // handler below.
     const shareBtn = t.closest<HTMLElement>('[data-share]');
     if (shareBtn) {
       e.preventDefault();

@@ -5,7 +5,7 @@
  *
  *   npm run demo                        # must run first
  *   npm run perf:images                 # the default four pages
- *   npm run perf:images -- /brands/chanel /fragrance/ean-3348900103870
+ *   npm run perf:images -- /brands/chanel /dior_dune_100ml
  *   npm run perf:images -- --by-host    # also split each page by image host
  *
  * Unlike scripts/measure-load.ts this has to reach the real retailer CDNs,
@@ -32,7 +32,9 @@ import { BOT_USER_AGENT } from '../src/catalogue/botIdentity.js';
 
 const PINNED_CHROMIUM = process.env.CHROMIUM_PATH ?? '/opt/pw-browsers/chromium';
 
-export const DEFAULT_IMAGE_ROUTES = ['/', '/deals', '/brands/dior', '/fragrance/ean-3348900103870'];
+// A product by its own address (docs/PRODUCT-URLS.md): the old /fragrance/<id>
+// address redirects, and a redirect would be measured as part of the page.
+export const DEFAULT_IMAGE_ROUTES = ['/', '/deals', '/brands/dior', '/dior_dune_100ml'];
 
 interface Fetched { url: string; bytes: number; type: string }
 

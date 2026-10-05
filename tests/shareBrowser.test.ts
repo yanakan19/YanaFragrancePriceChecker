@@ -6,6 +6,9 @@ import AxeBuilder from '@axe-core/playwright';
 import type { Browser, BrowserContext, Page } from 'playwright';
 import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-audit.js';
 import { shareUrl } from '../demo/share.js';
+import { DEMO_FRAGRANCES } from '../demo/data.js';
+import { routeToPath, setProductSlugLookup } from '../demo/router.js';
+import { stubSupabase, type FakeAccount } from './support/fakeAccount.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const built = existsSync(resolve(root, 'demo/index.html'));
@@ -20,28 +23,52 @@ const MODES: Mode[] = ['dark', 'light'];
 interface Box { x: number; y: number; width: number; height: number }
 
 /**
- * The Share button and its pop-up on the built page: on every product tile
- * (including tiles that were swapped out of a long list and back) and on the
- * product page, at the three widths and in both themes.
+ * Where the Share button is and is not, and its pop-up, on the built page, at
+ * the three widths and in both themes.
+ *   - Product tiles, in every list (including tiles swapped out of a long
+ *     list and back): no Share button, and the brand label has the full width.
+ *   - The product page: a Share pill beside Save.
+ *   - The wishlist rows on /account/wishlist: a small icon button at the end
+ *     of each row.
  */
+
+/** Two saved fragrances, the same ids tests/accountPagesBrowser.test.ts saves. */
+const READER: FakeAccount = {
+  email: 'reader@example.com',
+  createdAt: '2026-09-20T10:00:00Z',
+  wishlist: [
+    { fragrance_id: 'ean-6290360375687', target_price_gbp: 30, added_at: '2026-10-01T09:00:00Z' },
+    { fragrance_id: 'ean-3349668508587', target_price_gbp: null, added_at: '2026-10-03T09:00:00Z' },
+  ],
+  priceAlerts: true,
+};
+const productPath = (id: string): string => routeToPath({ name: 'fragrance', param: id, query: {} });
+
 describe.skipIf(!built)('the Share button and pop-up', () => {
   let browser: Browser;
   let port = 0;
   let close: () => void = () => {};
 
   beforeAll(async () => {
+    // The page links a product by its own address, /BRAND_NAME_VOLUME; the
+    // links this file expects are built by the same router, so it is given the
+    // same slugs (and the slug of the fixture below).
+    const slugs = new Map(DEMO_FRAGRANCES.map((f) => [f.id, f.slug]));
+    slugs.set('sh-test-dormant', 'test_house_quiet_ember_and_co_75ml');
+    setProductSlugLookup((id) => slugs.get(id) ?? null);
     ({ port, close } = await startDemoServer());
     browser = await launchChromium();
   }, 60_000);
 
   afterAll(async () => {
+    setProductSlugLookup(() => null);
     await browser?.close();
     close();
   });
 
   async function open(
     route: string,
-    opts: { width?: number; mode?: Mode; init?: string; routes?: (ctx: BrowserContext) => Promise<void> } = {},
+    opts: { width?: number; mode?: Mode; init?: string; routes?: (ctx: BrowserContext) => Promise<void>; account?: FakeAccount } = {},
   ): Promise<{ context: BrowserContext; page: Page }> {
     const width = opts.width ?? 390;
     const context = await browser.newContext({ viewport: { width, height: 844 }, hasTouch: width < 600, isMobile: width < 600 });
@@ -53,6 +80,7 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
     // Remote shop photos are not part of this check and would only slow it.
     await context.route((u) => u.hostname !== '127.0.0.1' && u.hostname !== 'localhost', (r) => r.abort());
     if (opts.routes) await opts.routes(context);
+    if (opts.account) await stubSupabase(context, opts.account, null);
     const page = await context.newPage();
     await page.goto(`http://127.0.0.1:${port}${route}`, { waitUntil: 'load' });
     await waitForApp(page);
@@ -87,44 +115,81 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
     expect(await linkValue(page)).toBe(shareUrl(expectedId));
   }
 
+  /** Taps the first tile on the page and waits for its product page: returns the product's id. */
+  async function openFirstProduct(page: Page): Promise<string> {
+    const id = (await page.locator('#view .tile .tile-body').first().getAttribute('data-frag'))!;
+    await page.locator('#view .tile .tile-body').first().click();
+    await page.waitForSelector('#view .share-page');
+    return id;
+  }
+
+  /** Share buttons anywhere in the page's lists: tiles, rails, stand ins. */
+  const SHARE_IN_LISTS = '#view .tile-grid .share-btn, #view .tile-grid [data-share], #view .pop-item .share-btn, #view .pop-item [data-share], #view .tile [aria-label^="Share "]';
+
+  /**
+   * The tiles matching `tileSel` have no Share button, and each brand label
+   * uses the tile's full inner width: nothing narrows it, so it is cut short
+   * only when the brand name is itself wider than the tile.
+   */
+  async function expectPlainTiles(page: Page, tileSel = '#view .tile'): Promise<number> {
+    const r = await ev<{ tiles: number; share: number; clipped: string[]; narrowed: string[] }>(page, `(() => {
+      const tiles = [...document.querySelectorAll('${tileSel}')];
+      const clipped = [];
+      const narrowed = [];
+      for (const t of tiles) {
+        const b = t.querySelector('.phead-brand');
+        if (!b) continue;
+        const tr = t.getBoundingClientRect();
+        const br = b.getBoundingClientRect();
+        const cs = getComputedStyle(t);
+        const inner = tr.width - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - 2;
+        if (b.scrollWidth > b.clientWidth + 1) clipped.push(b.textContent.trim());
+        // A label that is cut short while narrower than the tile's inner width was held back by something.
+        if (b.scrollWidth > b.clientWidth + 1 && br.width < inner - 1) narrowed.push(b.textContent.trim());
+      }
+      return {
+        tiles: tiles.length,
+        share: document.querySelectorAll('${SHARE_IN_LISTS}').length,
+        clipped, narrowed,
+      };
+    })()`);
+    expect(r.tiles).toBeGreaterThan(0);
+    expect(r.share, 'no Share button on any tile').toBe(0);
+    expect(r.narrowed, 'brand label held back by something other than the tile edge').toEqual([]);
+    return r.tiles;
+  }
+
   for (const width of WIDTHS) {
     for (const mode of MODES) {
-      it(`tile, pop-up and product page at ${width}px, ${mode}`, async () => {
+      it(`no tile button, product page pop-up and wishlist rows at ${width}px, ${mode}`, async () => {
         const { context, page } = await open('/deals', { width, mode });
-        await page.waitForSelector('#view .tile-grid .share-tile');
+        await page.waitForSelector('#view .tile-grid .tile');
 
-        // One button on every tile, named for its product, with a 44px target.
-        const counts = await ev<{ tiles: number; buttons: number; named: number }>(page, `({
-          tiles: document.querySelectorAll('#view .tile-grid .tile').length,
-          buttons: document.querySelectorAll('#view .tile-grid .tile .share-tile').length,
-          named: [...document.querySelectorAll('#view .tile-grid .tile')].filter((t) => {
-            const b = t.querySelector('.share-tile');
-            const body = t.querySelector('.tile-body');
-            return b && body && b.getAttribute('aria-label') === 'Share ' + body.getAttribute('aria-label');
-          }).length,
-        })`);
-        expect(counts.tiles).toBeGreaterThan(0);
-        expect(counts.buttons).toBe(counts.tiles);
-        expect(counts.named).toBe(counts.tiles);
-        const target = await box(page, '#view .tile .share-tile');
-        expect(target.width).toBeGreaterThanOrEqual(44);
-        expect(target.height).toBeGreaterThanOrEqual(44);
-
-        // It sits in the corner without crowding the brand label or the price.
-        const tile = await box(page, '#view .tile');
-        expect(target.x + target.width).toBeLessThanOrEqual(tile.x + tile.width + 0.5);
-        expect(target.y).toBeGreaterThanOrEqual(tile.y - 0.5);
-        const circle: Box = { x: target.x + 10, y: target.y + 8, width: 28, height: 28 };
-        expect(overlap(circle, await box(page, '#view .tile .phead-brand'))).toBe(false);
-        expect(overlap(target, await box(page, '#view .tile .tile-price'))).toBe(false);
+        // Tiles: no Share button at all, the brand label has its full width.
+        await expectPlainTiles(page);
+        expect(await ev<number>(page, `document.querySelectorAll('#view .tile > *').length`)).toBe(
+          await ev<number>(page, `document.querySelectorAll('#view .tile > .phead-brand, #view .tile > .tile-body').length`),
+        );
         await noSideScroll(page);
 
+        // Tapping a tile still opens the product, and the product page has the button.
         const id = (await page.locator('#view .tile .tile-body').first().getAttribute('data-frag'))!;
+        await page.locator('#view .tile .tile-body').first().click();
+        await page.waitForSelector('#view .share-page');
+        expect(await ev<number>(page, `document.querySelectorAll('#view .share-btn').length`)).toBe(1);
+        const pageBtn = await box(page, '#view .share-page');
+        expect(pageBtn.height).toBeGreaterThanOrEqual(44);
+        expect(await ev<string>(page, `document.querySelector('#view .share-page').getAttribute('aria-label')`)).toMatch(/^Share \S/);
+        expect(await ev<string>(page, `document.querySelector('#view .share-page').textContent.trim()`)).toBe('Share');
+        // The price boxes sit below the row, not under it.
+        const boxes = page.locator('#view .price-boxes');
+        if (await boxes.count()) expect(overlap(pageBtn, (await boxes.first().boundingBox())!)).toBe(false);
+        await noSideScroll(page);
 
-        // Tapping it opens the pop-up and never the product.
-        await openFrom(page, '#view .tile .share-tile', id);
-        expect(await pathname(page)).toBe('/deals');
-        expect(await ev<number>(page, `document.querySelectorAll('#view .detail-grid').length`)).toBe(0);
+        // Tapping it opens the pop-up and stays on the product.
+        const productRoute = await pathname(page);
+        await openFrom(page, '#view .share-page', id);
+        expect(await pathname(page)).toBe(productRoute);
         expect(await ev<string>(page, `document.querySelector('#ps-share-title').textContent`)).toBe('Share');
         expect(await ev<string>(page, `document.querySelector('.share-product').textContent`)).toMatch(/\S/);
 
@@ -170,67 +235,154 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
         // Esc closes it, and focus goes back to the button.
         await page.keyboard.press('Escape');
         expect(await dialogOpen(page)).toBe(false);
-        expect(await ev<boolean>(page, `document.activeElement?.classList.contains('share-tile')`)).toBe(true);
+        expect(await ev<boolean>(page, `document.activeElement?.classList.contains('share-page')`)).toBe(true);
 
         // So does a tap on the dimmed backdrop; a tap inside does not.
-        await openFrom(page, '#view .tile .share-tile', id);
+        await openFrom(page, '#view .share-page', id);
         await page.locator('#ps-share .share-product').click();
         expect(await dialogOpen(page)).toBe(true);
         await page.mouse.click(2, 2);
         expect(await dialogOpen(page)).toBe(false);
+        await noViolations(page);
 
-        // The product page has its own button, beside Save when that is shown.
-        await page.goto(`http://127.0.0.1:${port}/fragrance/${encodeURIComponent(id)}`, { waitUntil: 'load' });
+        // The same product by its own address, and by the old one, which the bar then replaces.
+        await page.goto(`http://127.0.0.1:${port}${productPath(id)}`, { waitUntil: 'load' });
         await waitForApp(page);
         await page.waitForSelector('#view .share-page');
-        const pageBtn = await box(page, '#view .share-page');
-        expect(pageBtn.height).toBeGreaterThanOrEqual(44);
-        expect(await ev<string>(page, `document.querySelector('#view .share-page').getAttribute('aria-label')`)).toMatch(/^Share \S/);
-        expect(await ev<string>(page, `document.querySelector('#view .share-page').textContent.trim()`)).toBe('Share');
-        // The price boxes sit below the row, not under it.
-        const boxes = page.locator('#view .price-boxes');
-        if (await boxes.count()) expect(overlap(pageBtn, (await boxes.first().boundingBox())!)).toBe(false);
-        await noSideScroll(page);
         await openFrom(page, '#view .share-page', id);
-        await noSideScroll(page);
-        await noViolations(page);
         await page.keyboard.press('Escape');
         expect(await dialogOpen(page)).toBe(false);
         expect(await ev<boolean>(page, `document.activeElement?.classList.contains('share-page')`)).toBe(true);
-        expect(await pathname(page)).toBe(`/fragrance/${encodeURIComponent(id)}`);
+        await page.goto(`http://127.0.0.1:${port}/fragrance/${encodeURIComponent(id)}`, { waitUntil: 'load' });
+        await waitForApp(page);
+        await page.waitForSelector('#view .share-page');
+        expect(await pathname(page)).toBe(new URL(shareUrl(id)).pathname);
+        expect(await pathname(page)).not.toContain('/fragrance/');
         await context.close();
-      }, 120_000);
+
+        // The wishlist page, signed in: a Share button at the end of each row.
+        const w = await open('/account/wishlist', { width, mode, account: READER });
+        try {
+          await w.page.waitForSelector('#view .wishlist-row');
+          const rows = await ev<{
+            n: number; names: string[]; share: number; sharesPerRow: number[];
+            rowOverlap: boolean; sideWidth: number; textMin: number; endOk: boolean; wraps: boolean;
+          }>(w.page, `(() => {
+            const rows = [...document.querySelectorAll('#view .wishlist-row')];
+            const side = (r) => r.querySelector('.wishlist-side').getBoundingClientRect();
+            return {
+              n: rows.length,
+              names: rows.map((r) => r.querySelector('[data-share]').getAttribute('aria-label')),
+              share: document.querySelectorAll('#view [data-share]').length,
+              sharesPerRow: rows.map((r) => r.querySelectorAll('[data-share]').length),
+              rowOverlap: rows.some((r) => {
+                const a = r.querySelector('[data-share]').getBoundingClientRect();
+                const b = r.querySelector('[data-wishlist-remove]').getBoundingClientRect();
+                return a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
+              }),
+              // The end column is no wider than the Remove button alone was (34px).
+              sideWidth: Math.max(...rows.map((r) => side(r).width)),
+              // The width the row's text has left.
+              textMin: Math.min(...rows.map((r) => r.querySelector('.shop-row-text').getBoundingClientRect().width)),
+              // The button sits inside its row, after the row's own button.
+              endOk: rows.every((r) => {
+                const a = r.querySelector('[data-share]').getBoundingClientRect();
+                const rr = r.getBoundingClientRect();
+                return a.right <= rr.right + 0.5 && a.left >= rr.left && a.top >= rr.top - 0.5 && a.bottom <= rr.bottom + 0.5
+                  && a.left >= r.querySelector('.shop-row').getBoundingClientRect().right - 2;
+              }),
+              // Share is beside the row, not wrapped under it.
+              wraps: rows.some((r) => r.querySelector('[data-share]').getBoundingClientRect().top > r.querySelector('.shop-row').getBoundingClientRect().bottom),
+            };
+          })()`);
+          expect(rows.n).toBe(2);
+          expect(rows.share).toBe(2);
+          expect(rows.sharesPerRow).toEqual([1, 1]);
+          for (const n of rows.names) expect(n).toMatch(/^Share \S/);
+          const rowNames = await ev<string[]>(w.page, `[...document.querySelectorAll('#view .wishlist-row .shop-row')].map((b) => b.querySelector('.shop-row-name').textContent.trim())`);
+          expect(rows.names).toEqual(rowNames.map((n) => `Share ${n}`));
+          expect(rows.rowOverlap, 'Share and Remove do not overlap').toBe(false);
+          expect(rows.sideWidth, 'no wider than Remove alone').toBeLessThanOrEqual(34.5);
+          expect(rows.endOk).toBe(true);
+          expect(rows.wraps).toBe(false);
+          // At 320 the row's text keeps the width it had with Remove alone: Share is stacked above Remove, not beside it.
+          if (width === 320) expect(rows.textMin).toBeGreaterThanOrEqual(130);
+          const wTarget = await box(w.page, '#view .wishlist-row [data-share]');
+          expect(wTarget.width).toBeGreaterThanOrEqual(34);
+          expect(wTarget.height).toBeGreaterThanOrEqual(34);
+          await noSideScroll(w.page);
+          await noViolations(w.page);
+
+          // Tapping it opens the pop-up for that row's product, and does not open the product.
+          const wid = (await w.page.locator('#view .wishlist-row .shop-row').first().getAttribute('data-frag'))!;
+          await openFrom(w.page, '#view .wishlist-row [data-share]', wid);
+          expect(await pathname(w.page)).toBe('/account/wishlist');
+          expect(await ev<string>(w.page, `document.querySelector('.share-product').textContent`)).toMatch(/\S/);
+          expect(await ev<string>(w.page, `document.querySelector('#ps-share .share-targets a').href`)).toMatch(/^https:\/\/wa\.me\/\?text=/);
+          await noSideScroll(w.page);
+          await noViolations(w.page);
+          await w.page.keyboard.press('Escape');
+          expect(await dialogOpen(w.page)).toBe(false);
+          expect(await ev<boolean>(w.page, `document.activeElement?.hasAttribute('data-share')`)).toBe(true);
+
+          // The second row shares its own product, not the first's.
+          const second = (await w.page.locator('#view .wishlist-row .shop-row').nth(1).getAttribute('data-frag'))!;
+          expect(second).not.toBe(wid);
+          await w.page.locator('#view .wishlist-row [data-share]').nth(1).click();
+          await w.page.waitForSelector('#ps-share[open]');
+          expect(await linkValue(w.page)).toBe(shareUrl(second));
+          await w.page.keyboard.press('Escape');
+
+          // Remove still works and still names its own product.
+          await w.page.click('#view .wishlist-row [data-wishlist-remove]');
+          await w.page.waitForTimeout(200);
+          expect(await w.page.locator('#view .wishlist-row').count()).toBe(1);
+          expect(await w.page.locator('#view .wishlist-row [data-share]').count()).toBe(1);
+        } finally {
+          await w.context.close();
+        }
+      }, 180_000);
     }
   }
 
-  it('shares the same link from the home rail, Explore, a brand, a note and search', async () => {
+  it('has no Share button on the tiles of any list: home rail, search, deals, brand, note, shop', async () => {
     const { context, page } = await open('/');
-    await page.waitForSelector('#view .pop-item .share-tile');
-    expect(await ev<number>(page, `document.querySelectorAll('#view .pop-item .tile').length`)).toBe(
-      await ev<number>(page, `document.querySelectorAll('#view .pop-item .share-tile').length`),
-    );
-    const homeId = (await page.locator('#view .pop-item .tile-body').first().getAttribute('data-frag'))!;
-    await openFrom(page, '#view .pop-item .share-tile', homeId);
-    await page.keyboard.press('Escape');
-    expect(await pathname(page)).toBe('/');
+    await page.waitForSelector('#view .pop-item .tile');
+    // The Most Stocked rail on Home.
+    expect(await expectPlainTiles(page, '#view .pop-item .tile')).toBeGreaterThan(0);
 
-    // A brand page, a note page and the search page: one tile each, same behaviour.
-    for (const route of ['/search', '/brands/dior', '/notes/vanilla']) {
+    for (const route of ['/search', '/deals', '/brands/dior', '/notes/vanilla']) {
       await page.goto(`http://127.0.0.1:${port}${route}`, { waitUntil: 'load' });
       await waitForApp(page);
-      await page.waitForSelector('#view .tile-grid .share-tile');
-      const id = (await page.locator('#view .tile-grid .tile-body').first().getAttribute('data-frag'))!;
-      await openFrom(page, '#view .tile-grid .share-tile', id);
-      await page.keyboard.press('Escape');
-      expect(await pathname(page)).toBe(route);
+      await page.waitForSelector('#view .tile-grid .tile');
+      expect(await expectPlainTiles(page), route).toBeGreaterThan(0);
+      expect(await ev<number>(page, `document.querySelectorAll('#view .share-btn, #view [data-share]').length`), route).toBe(0);
     }
+    // A shop's page: the first shop in the directory.
+    await page.goto(`http://127.0.0.1:${port}/retailers`, { waitUntil: 'load' });
+    await waitForApp(page);
+    const firstShop = await ev<string | null>(page, `document.querySelector('#view [data-retailer]')?.getAttribute('data-retailer') ?? null`);
+    expect(firstShop).not.toBeNull();
+    await page.locator('#view [data-retailer]').first().click();
+    await page.waitForSelector('#view .tile-grid .tile');
+    expect(await expectPlainTiles(page)).toBeGreaterThan(0);
+    expect(await ev<number>(page, `document.querySelectorAll('#view .share-btn, #view [data-share]').length`)).toBe(0);
     await context.close();
   }, 120_000);
 
+  it('opens the product from a tile and shares from there', async () => {
+    const { context, page } = await open('/search');
+    await page.waitForSelector('#view .tile-grid .tile');
+    const id = await openFirstProduct(page);
+    await openFrom(page, '#view .share-page', id);
+    await page.keyboard.press('Escape');
+    await context.close();
+  }, 60_000);
+
   it('copies the link to the clipboard, says Copied for about two seconds, then goes back', async () => {
     const { context, page } = await open('/deals');
-    const id = (await page.locator('#view .tile .tile-body').first().getAttribute('data-frag'))!;
-    await openFrom(page, '#view .tile .share-tile', id);
+    const id = await openFirstProduct(page);
+    await openFrom(page, '#view .share-page', id);
     // Focus lands on Copy, so Enter copies for a keyboard reader.
     expect(await ev<boolean>(page, `document.activeElement?.hasAttribute('data-share-copy')`)).toBe(true);
     expect(await ev<string>(page, `document.querySelector('.share-copy-label').textContent`)).toBe('Copy');
@@ -255,8 +407,8 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
              window.__copied = [];
              document.execCommand = (cmd) => { if (cmd !== 'copy') return false; window.__copied.push(getSelection().toString() || document.activeElement.value.slice(document.activeElement.selectionStart, document.activeElement.selectionEnd)); return true; };`,
     });
-    const id = (await page.locator('#view .tile .tile-body').first().getAttribute('data-frag'))!;
-    await openFrom(page, '#view .tile .share-tile', id);
+    const id = await openFirstProduct(page);
+    await openFrom(page, '#view .share-page', id);
     await page.locator('[data-share-copy]').click();
     await page.waitForFunction(`document.querySelector('.share-copy-label').textContent === 'Copied'`);
     expect(await ev<string[]>(page, 'window.__copied')).toEqual([shareUrl(id)]);
@@ -268,8 +420,8 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
       init: `Object.defineProperty(navigator, 'clipboard', { value: { writeText: () => Promise.reject(new DOMException('no', 'NotAllowedError')) }, configurable: true });
              document.execCommand = () => false;`,
     });
-    const id = (await page.locator('#view .tile .tile-body').first().getAttribute('data-frag'))!;
-    await openFrom(page, '#view .tile .share-tile', id);
+    const id = await openFirstProduct(page);
+    await openFrom(page, '#view .share-page', id);
     await page.locator('[data-share-copy]').click();
     await page.waitForFunction(`document.querySelector('#ps-share-note').textContent !== ''`);
     expect(await ev<string>(page, `document.querySelector('#ps-share-note').textContent`)).toMatch(/blocked.*selected/);
@@ -283,8 +435,8 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
     const { context, page } = await open('/deals', {
       init: `Object.defineProperty(navigator, 'share', { value: undefined, configurable: true });`,
     });
-    const id = (await page.locator('#view .tile .tile-body').first().getAttribute('data-frag'))!;
-    await openFrom(page, '#view .tile .share-tile', id);
+    const id = await openFirstProduct(page);
+    await openFrom(page, '#view .share-page', id);
     expect(await page.locator('[data-share-more]').count()).toBe(0);
     expect(await page.locator('#ps-share .share-target').count()).toBe(4);
     await page.locator('[data-share-instagram]').click();
@@ -302,8 +454,8 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
     const { context, page } = await open('/deals', {
       init: `window.__shared = []; Object.defineProperty(navigator, 'share', { value: (d) => { window.__shared.push(d); return Promise.resolve(); }, configurable: true });`,
     });
-    const id = (await page.locator('#view .tile .tile-body').first().getAttribute('data-frag'))!;
-    await openFrom(page, '#view .tile .share-tile', id);
+    const id = await openFirstProduct(page);
+    await openFrom(page, '#view .share-page', id);
     expect(await page.locator('[data-share-more]').count()).toBe(1);
     expect(await page.locator('#ps-share .share-target').count()).toBe(5);
     await noViolations(page);
@@ -326,8 +478,8 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
     const { context, page } = await open('/deals', {
       init: `Object.defineProperty(navigator, 'share', { value: () => Promise.reject(new DOMException('cancelled', 'AbortError')), configurable: true });`,
     });
-    const id = (await page.locator('#view .tile .tile-body').first().getAttribute('data-frag'))!;
-    await openFrom(page, '#view .tile .share-tile', id);
+    const id = await openFirstProduct(page);
+    await openFrom(page, '#view .share-page', id);
     await page.locator('[data-share-instagram]').click();
     await page.waitForTimeout(300);
     expect(await ev<string>(page, `document.querySelector('#ps-share-note').textContent`)).toBe('');
@@ -337,7 +489,7 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
 
   it('leaves the price out of the text for a product with no current prices', async () => {
     const id = 'sh-test-dormant';
-    const { context, page } = await open(`/fragrance/${id}`, {
+    const { context, page } = await open(productPath(id), {
       routes: async (ctx) => {
         // A fixture product, served in place of the empty dormant file, so the
         // page for a product with no current prices can be opened here.
@@ -366,11 +518,11 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
 
   it('puts the price, the shop and delivered in the text of a product that has a price', async () => {
     const { context, page } = await open('/deals');
-    const id = (await page.locator('#view .tile .tile-body').first().getAttribute('data-frag'))!;
-    await openFrom(page, '#view .tile .share-tile', id);
+    const id = await openFirstProduct(page);
+    await openFrom(page, '#view .share-page', id);
     const wa = await ev<string>(page, `document.querySelector('#ps-share .share-targets a').href`);
     const text = decodeURIComponent(wa.slice('https://wa.me/?text='.length));
-    // Every Deals tile has a buyable offer, so the price part is always there.
+    // Every Deals product has a buyable offer, so the price part is always there.
     expect(text).toMatch(/, (from £\d+\.\d\d delivered at .+ on PriceSniffs|£\d+\.\d\d at .+ with delivery not stated, on PriceSniffs) /);
     await context.close();
   }, 60_000);
@@ -378,7 +530,7 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
   describe('in the endless lists, where far tiles are empty stand ins', () => {
     const realTiles = `#view .tile-grid > li:not(.grid-more):not(.tile-gone) .tile`;
 
-    it('has a working button on tiles drawn after scrolling far, and none on stand ins', async () => {
+    it('has no Share button on tiles drawn after scrolling far, or on stand ins, and tiles still open', async () => {
       const { context, page } = await open('/search', { width: 390 });
       let count = 0;
       for (let i = 0; i < 80 && count < CHUNK * 20; i++) {
@@ -389,49 +541,44 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
       expect(count).toBeGreaterThanOrEqual(CHUNK * 20);
       await page.waitForTimeout(400);
 
-      const stats = await ev<{ real: number; stands: number; buttons: number; standButtons: number }>(page, `({
+      const stats = await ev<{ real: number; stands: number; buttons: number }>(page, `({
         real: document.querySelectorAll('${realTiles}').length,
         stands: document.querySelectorAll('#view .tile-grid > li.tile-gone').length,
-        buttons: document.querySelectorAll('${realTiles} .share-tile').length,
-        standButtons: document.querySelectorAll('#view .tile-grid > li.tile-gone .share-tile').length,
+        buttons: document.querySelectorAll('#view .tile-grid .share-btn, #view .tile-grid [data-share]').length,
       })`);
-      // Far tiles are stand ins now, and the ones still drawn each carry the button.
+      // Far tiles are stand ins now; neither they nor the tiles still drawn carry a button.
       expect(stats.stands).toBeGreaterThan(0);
       expect(stats.real).toBeGreaterThan(0);
-      expect(stats.buttons).toBe(stats.real);
-      expect(stats.standButtons).toBe(0);
+      expect(stats.buttons).toBe(0);
+      await expectPlainTiles(page, realTiles);
+      await noSideScroll(page);
 
-      // The tile on screen after the scroll: its button opens its own product's pop-up.
+      // The tile on screen after the scroll still opens its own product.
       const onScreen = await ev<string | null>(page, `(() => {
         for (const t of document.querySelectorAll('${realTiles}')) {
-          const r = t.querySelector('.share-tile').getBoundingClientRect();
+          const r = t.querySelector('.tile-body').getBoundingClientRect();
           if (r.top > 60 && r.bottom < window.innerHeight) return t.querySelector('.tile-body').dataset.frag;
         }
         return null;
       })()`);
       expect(onScreen).not.toBeNull();
-      const before = await ev<number>(page, 'window.scrollY');
-      await openFrom(page, `#view .tile-body[data-frag="${onScreen}"] + .share-tile`, onScreen!);
-      expect(await pathname(page)).toBe('/search');
-      await noSideScroll(page);
+      await page.locator(`#view .tile-body[data-frag="${onScreen}"]`).click();
+      await page.waitForSelector('#view .share-page');
+      await openFrom(page, '#view .share-page', onScreen!);
       await page.keyboard.press('Escape');
-      expect(await dialogOpen(page)).toBe(false);
-      // Closing it moved nothing.
-      expect(Math.abs((await ev<number>(page, 'window.scrollY')) - before)).toBeLessThanOrEqual(2);
 
-      // Back at the top the tiles that were swapped out are whole again, buttons and all.
+      // Back in the list at the top, the tiles that were swapped out are whole again, still without buttons.
+      await page.goBack();
+      await page.waitForSelector('#view .tile-grid .tile');
       await page.evaluate('window.scrollTo(0, 0)');
       await page.waitForTimeout(500);
-      const top = await ev<{ first: string | null; real: number; buttons: number }>(page, `({
-        first: document.querySelector('${realTiles} .tile-body')?.dataset.frag ?? null,
+      const top = await ev<{ real: number; buttons: number }>(page, `({
         real: document.querySelectorAll('${realTiles}').length,
-        buttons: document.querySelectorAll('${realTiles} .share-tile').length,
+        buttons: document.querySelectorAll('#view .tile-grid .share-btn, #view .tile-grid [data-share]').length,
       })`);
-      expect(top.first).not.toBeNull();
-      expect(top.buttons).toBe(top.real);
-      await openFrom(page, `#view .tile-body[data-frag="${top.first}"] + .share-tile`, top.first!);
-      await page.keyboard.press('Escape');
-      expect(await pathname(page)).toBe('/search');
+      expect(top.real).toBeGreaterThan(0);
+      expect(top.buttons).toBe(0);
+      await expectPlainTiles(page, realTiles);
       await context.close();
     }, 180_000);
   });
