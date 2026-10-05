@@ -48,7 +48,7 @@ describe('pickImage', () => {
 
   it('falls back to the freshest licensed offer once the preferred retailer is stale', () => {
     const offers = [
-      offer({ retailerId: 'perfume-click', fetchedAt: hoursAgo(10) }),
+      offer({ retailerId: 'justmylook', fetchedAt: hoursAgo(10) }),
       offer({
         retailerId: 'beautybase',
         fetchedAt: hoursAgo(PREFERRED_IMAGE_MAX_AGE_HOURS + 1),
@@ -57,7 +57,7 @@ describe('pickImage', () => {
     // beautybase's own photo is older than its normal rhythm allows, so a
     // stale ranked photo does not beat a fresh unranked one — freshness
     // takes back over exactly as it did before this retailer was ranked.
-    expect(pickImage(offers, NOW)).toBe('https://perfume-click.example/photo.jpg');
+    expect(pickImage(offers, NOW)).toBe('https://justmylook.example/photo.jpg');
   });
 
   it('treats a beautybase photo exactly at the bound as still fresh enough', () => {
@@ -167,9 +167,9 @@ describe('pickImage', () => {
     const offers = [
       offer({ retailerId: 'fragrance-click', fetchedAt: hoursAgo(PREFERRED_IMAGE_MAX_AGE_HOURS + 1) }),
       offer({ retailerId: 'beautybase', fetchedAt: hoursAgo(PREFERRED_IMAGE_MAX_AGE_HOURS + 2) }),
-      offer({ retailerId: 'perfume-click', fetchedAt: hoursAgo(1) }),
+      offer({ retailerId: 'justmylook', fetchedAt: hoursAgo(1) }),
     ];
-    expect(pickImage(offers, NOW)).toBe('https://perfume-click.example/photo.jpg');
+    expect(pickImage(offers, NOW)).toBe('https://justmylook.example/photo.jpg');
   });
 
   it('leaves a product with no licensed alternative exactly where it was', () => {
@@ -475,13 +475,11 @@ describe('a measured size describes the photo as DISPLAYED, not as stored', () =
     // photo clears it too. No need to fall back to the retailer list there.
     const offers = [
       offer({ retailerId: 'beautybase', imageUrl: BEAUTYBASE_BOXED, fetchedAt: hoursAgo(5) }),
-      offer({ retailerId: 'perfume-click', imageUrl: 'https://bgstatic.example/hypothetical.jpg', fetchedAt: hoursAgo(1) }),
+      offer({ retailerId: 'justmylook', imageUrl: 'https://justmylook.example/hypothetical.jpg', fetchedAt: hoursAgo(1) }),
     ];
     const v = verdicts({ [BEAUTYBASE_BOXED]: 'boxed' });
-    // perfume-click is on the retailer list, so only a real measurement can
-    // let this through — and it does, because 1200x1600 is not ambiguous.
-    expect(pickImage(offers, NOW, v, sizes({ 'https://bgstatic.example/hypothetical.jpg': [1200, 1600] }))).toBe(
-      'https://bgstatic.example/hypothetical.jpg',
+    expect(pickImage(offers, NOW, v, sizes({ 'https://justmylook.example/hypothetical.jpg': [1200, 1600] }))).toBe(
+      'https://justmylook.example/hypothetical.jpg',
     );
   });
 
@@ -699,12 +697,14 @@ describe('pickImage with imageBoxVerdicts (scripts/image-box-check.ts findings)'
     expect(pickImage(offers, NOW, v)).toBe('https://justmylook.example/clean.png');
   });
 
-  it('with no boxed verdict in play, the freshness fallback is unchanged even when the freshest is a thumbnail', () => {
+  it('with no boxed verdict in play, the freshness fallback no longer lets a fresher perfume-click thumbnail win', () => {
+    // Until 2026-10-05 the fresher thumbnail won here. Perfume Click is now
+    // the last resort (LAST_RESORT_IMAGE_RETAILERS), so the other shop wins.
     const offers = [
       offer({ retailerId: 'perfume-click', imageUrl: 'https://bgstatic.example/thumb_ml.jpg', fetchedAt: hoursAgo(1) }),
       offer({ retailerId: 'justmylook', imageUrl: 'https://justmylook.example/clean.png', fetchedAt: hoursAgo(9) }),
     ];
-    expect(pickImage(offers, NOW, verdicts({}))).toBe('https://bgstatic.example/thumb_ml.jpg');
+    expect(pickImage(offers, NOW, verdicts({}))).toBe('https://justmylook.example/clean.png');
   });
 
   it('never removes a product\'s only image, even when that image is a confirmed boxed photo', () => {
@@ -846,19 +846,26 @@ describe('"too small to swap to" measured per photo rather than per retailer', (
     expect(pickImage(offers, NOW, v, d)).toBe('https://emirates-oud.example/boxed.jpg');
   });
 
-  it('lets a measurement override the retailer list in the other direction too', () => {
-    // No perfume-click photo like this exists -- 30 sampled on 2026-09-09 all
-    // fit inside 195x130, and the bucket serves no larger variant (see
-    // THUMBNAIL_IMAGE_RETAILERS). This pins the precedence, not a real photo:
-    // a measured size is the better evidence, so it wins over the shop's name
-    // if the shop's photography ever changes.
+  it('a measured large photo from a shop on no list replaces a boxed one', () => {
+    const offers = [
+      offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/boxed.jpg', fetchedAt: hoursAgo(5) }),
+      offer({ retailerId: 'justmylook', imageUrl: 'https://justmylook.example/hypothetical.jpg', fetchedAt: hoursAgo(1) }),
+    ];
+    const v = verdicts({ 'https://beautybase.example/boxed.jpg': 'boxed' });
+    const d = sizes({ 'https://justmylook.example/hypothetical.jpg': [1200, 1600] });
+    expect(pickImage(offers, NOW, v, d)).toBe('https://justmylook.example/hypothetical.jpg');
+  });
+
+  it('a perfume-click photo loses to a boxed photo from any other shop, whatever it measures', () => {
+    // 2026-10-05: last resort means last. Even a (hypothetical) large
+    // Perfume Click file does not displace a boxed photo from another shop.
     const offers = [
       offer({ retailerId: 'beautybase', imageUrl: 'https://beautybase.example/boxed.jpg', fetchedAt: hoursAgo(5) }),
       offer({ retailerId: 'perfume-click', imageUrl: 'https://bgstatic.example/hypothetical.jpg', fetchedAt: hoursAgo(1) }),
     ];
     const v = verdicts({ 'https://beautybase.example/boxed.jpg': 'boxed' });
     const d = sizes({ 'https://bgstatic.example/hypothetical.jpg': [1200, 1600] });
-    expect(pickImage(offers, NOW, v, d)).toBe('https://bgstatic.example/hypothetical.jpg');
+    expect(pickImage(offers, NOW, v, d)).toBe('https://beautybase.example/boxed.jpg');
   });
 
   it('treats a photo with no measurement by its retailer, never as big enough', () => {
