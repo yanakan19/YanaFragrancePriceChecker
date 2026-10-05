@@ -236,6 +236,7 @@ export const RETAILERS: readonly Retailer[] = [
       // obtained — see the ImageBasis doc comment. Nothing is copied or
       // rehosted, and every image sits beside a link sending the reader to buy
       // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
     },
   },
@@ -338,6 +339,7 @@ export const RETAILERS: readonly Retailer[] = [
       // obtained — see the ImageBasis doc comment. Nothing is copied or
       // rehosted, and every image sits beside a link sending the reader to buy
       // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
     },
   },
@@ -1906,7 +1908,11 @@ export const RETAILERS: readonly Retailer[] = [
     // browser headers, no residential or rotating proxy (only this
     // sandbox's own fixed egress), nothing retried against a refusal. See
     // docs/outreach/ for the permission request drafted for the owner.
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'beautybase',
@@ -2021,6 +2027,7 @@ export const RETAILERS: readonly Retailer[] = [
       // obtained — see the ImageBasis doc comment. Nothing is copied or
       // rehosted, and every image sits beside a link sending the reader to buy
       // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
     },
   },
@@ -2156,6 +2163,7 @@ export const RETAILERS: readonly Retailer[] = [
       // obtained — see the ImageBasis doc comment. Nothing is copied or
       // rehosted, and every image sits beside a link sending the reader to buy
       // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
     },
   },
@@ -3080,6 +3088,7 @@ export const RETAILERS: readonly Retailer[] = [
       // obtained — see the ImageBasis doc comment. Nothing is copied or
       // rehosted, and every image sits beside a link sending the reader to buy
       // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
       ...awinActive('106925', '3017443'),
       // Deliberately not set: the merchant's Terms/Creative tab has not been
@@ -3258,7 +3267,11 @@ export const RETAILERS: readonly Retailer[] = [
     // Applied via Awin's own Activity Stream 2026-08-11, merchant id not yet
     // known — only surfaces once the programme accepts and its profile page
     // becomes readable.
-    affiliate: { ...awinRequested() },
+    affiliate: {
+      ...awinRequested(),
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'the-fragrance-counter',
@@ -3329,6 +3342,7 @@ export const RETAILERS: readonly Retailer[] = [
       // obtained — see the ImageBasis doc comment. Nothing is copied or
       // rehosted, and every image sits beside a link sending the reader to buy
       // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
     },
   },
@@ -3399,7 +3413,11 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
     },
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'perfume-shopping',
@@ -3547,6 +3565,7 @@ export const RETAILERS: readonly Retailer[] = [
       // obtained — see the ImageBasis doc comment. Nothing is copied or
       // rehosted, and every image sits beside a link sending the reader to buy
       // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
       ...awinActive('107736', '3017443'),
       notes:
@@ -3753,7 +3772,11 @@ export const RETAILERS: readonly Retailer[] = [
         'confirmed sterling; see this entry\'s comment above.',
     },
     catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'al-haramain',
@@ -4175,6 +4198,7 @@ export const RETAILERS: readonly Retailer[] = [
       // obtained — see the ImageBasis doc comment. Nothing is copied or
       // rehosted, and every image sits beside a link sending the reader to buy
       // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
     },
   },
@@ -4238,6 +4262,7 @@ export const RETAILERS: readonly Retailer[] = [
       // obtained — see the ImageBasis doc comment. Nothing is copied or
       // rehosted, and every image sits beside a link sending the reader to buy
       // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
     },
   },
@@ -4305,6 +4330,7 @@ export const RETAILERS: readonly Retailer[] = [
       // obtained — see the ImageBasis doc comment. Nothing is copied or
       // rehosted, and every image sits beside a link sending the reader to buy
       // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
     },
   },
@@ -4449,6 +4475,7 @@ export const RETAILERS: readonly Retailer[] = [
       // (see ImageBasis's doc comment) — explicitly requested here rather
       // than defaulted: "I want you to have all the listings and images
       // scraped with all my affiliate links active", 10 Aug 2026.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
       notes:
         'GoAffPro, not Awin — tracks purely from a ?ref= query parameter on ' +
@@ -4559,7 +4586,11 @@ export const RETAILERS: readonly Retailer[] = [
         'Left tests/registry.test.ts\'s unstated-delivery allowlist on 2026-10-01.',
     },
     catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'the-beauty-store-uk',
@@ -4689,6 +4720,8 @@ export const RETAILERS: readonly Retailer[] = [
     // route reaches 400 priced listings with this field exactly as it is.
     catalogue: null,
     affiliate: {
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
       network: 'awin',
       verified: true,
       status: 'rejected',
@@ -4700,9 +4733,12 @@ export const RETAILERS: readonly Retailer[] = [
         "The owner confirmed directly that this programme's application was not accepted — " +
         'rejected, not pending and not active. Merchant id 116255 is kept above only as a record ' +
         "of which programme this was; it names no live relationship. Prices now come from the " +
-        "shop's own storefront (see the entry-level comment above), not an affiliate feed, so no " +
-        'imageUsageConfirmed/imageBasis is set: there is no affiliate terms page granting a basis ' +
-        'for displaying their photography, and none is claimed.',
+        "shop's own storefront (see the entry-level comment above), not an affiliate feed, so " +
+        'imageUsageConfirmed stays unset: there is no affiliate terms page granting a basis for ' +
+        'displaying their photography, and none is claimed. Their photos are shown on the ' +
+        "owner's decision of 2026-10-05 (docs/DECISIONS.md D24) as an unlicensed hot-link, and " +
+        "this shop's terms reserve its photographs as copyright: remove `imageBasis` the day " +
+        'they ask, and the photos are hidden on the next build.',
     },
   },
   {
@@ -5227,6 +5263,7 @@ export const RETAILERS: readonly Retailer[] = [
       // obtained — see the ImageBasis doc comment. Nothing is copied or
       // rehosted, and every image sits beside a link sending the reader to buy
       // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
     },
   },
@@ -5570,7 +5607,11 @@ export const RETAILERS: readonly Retailer[] = [
         'that adds 14 days to returns) and UNLIMITED are never used for the headline.',
     },
     catalogue: null,
-    affiliate: { ...awinRequested() },
+    affiliate: {
+      ...awinRequested(),
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'niche-beauty-uk',
@@ -5920,7 +5961,11 @@ export const RETAILERS: readonly Retailer[] = [
     // whatever route actually gets their products in — a confirmed feed via
     // npm run awin:feed-sync, or a confirmed scrapable page structure — before
     // this can move past affiliate readiness to enabled: true.
-    affiliate: { ...awinActive('123544', '3017443') },
+    affiliate: {
+      ...awinActive('123544', '3017443'),
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'paco-perfumerias',
@@ -6501,7 +6546,11 @@ export const RETAILERS: readonly Retailer[] = [
         'reported "NO PAGE FOUND" because the page lives at /delivery/, a path it did not try.',
     },
     catalogue: null,
-    affiliate: { ...awinRequested() },
+    affiliate: {
+      ...awinRequested(),
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'parfumdreams-uk',
@@ -6612,7 +6661,11 @@ export const RETAILERS: readonly Retailer[] = [
         'Ireland, Jersey or Guernsey. Applied via Awin 2026-08-11.',
     },
     catalogue: null,
-    affiliate: { ...awinRequested() },
+    affiliate: {
+      ...awinRequested(),
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'perfume-click',
@@ -6725,6 +6778,7 @@ export const RETAILERS: readonly Retailer[] = [
       // obtained — see the ImageBasis doc comment. Nothing is copied or
       // rehosted, and every image sits beside a link sending the reader to buy
       // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
     },
   },
@@ -6878,7 +6932,11 @@ export const RETAILERS: readonly Retailer[] = [
       pageReader: 'beauty-bay-api',
     },
     catalogue: null,
-    affiliate: { ...awinRequested() },
+    affiliate: {
+      ...awinRequested(),
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'fragrancedirect',
@@ -7175,7 +7233,11 @@ export const RETAILERS: readonly Retailer[] = [
     // retrieval tier for a shop with no evidence of needing one would be
     // exactly the mistake this review's own brief warned against.
     catalogue: null,
-    affiliate: { ...awinRequested() },
+    affiliate: {
+      ...awinRequested(),
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
 
   // ── Confirmed Awin merchant, not yet applied to (Cosmetify) ─────────────────
@@ -7722,7 +7784,11 @@ export const RETAILERS: readonly Retailer[] = [
         'Currency is separately confirmed as sterling; see the comment above this entry.',
     },
     catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
 
   // ── 2026-08-20: department stores and a fashion retailer, named by the
@@ -8158,7 +8224,11 @@ export const RETAILERS: readonly Retailer[] = [
         'programme has been researched.',
     },
     catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'sephora-uk',
@@ -8402,7 +8472,11 @@ export const RETAILERS: readonly Retailer[] = [
         'HTTP 403. No affiliate programme has been researched.',
     },
     catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'house-of-fraser',
@@ -8562,7 +8636,11 @@ export const RETAILERS: readonly Retailer[] = [
         'researched.',
     },
     catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'les-senteurs',
@@ -8661,7 +8739,11 @@ export const RETAILERS: readonly Retailer[] = [
         'No affiliate programme has been researched.',
     },
     catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'bloom-perfumery',
@@ -8871,7 +8953,11 @@ export const RETAILERS: readonly Retailer[] = [
         'programme has been researched.',
     },
     catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'paco-perfumerias-uk',
@@ -8998,7 +9084,11 @@ export const RETAILERS: readonly Retailer[] = [
         'not modelled. No affiliate programme has been researched.',
     },
     catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'perfume-direct',
@@ -9090,7 +9180,11 @@ export const RETAILERS: readonly Retailer[] = [
         'researched.',
     },
     catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'tesco',
@@ -9772,7 +9866,11 @@ export const RETAILERS: readonly Retailer[] = [
         'has been researched.',
     },
     catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
 ] as const;
 
