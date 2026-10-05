@@ -52,6 +52,7 @@ async function main(): Promise<void> {
       price: best?.deliveredPriceGbp ?? null,
       shop: best?.retailer.name ?? '',
       name: `${frag.brand} ${frag.name}, ${frag.concentration}${size}`,
+      slug: frag.slug,
     };
   };
 

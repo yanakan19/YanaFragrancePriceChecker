@@ -57,6 +57,12 @@ export interface PriceToday {
   shop: string;
   /** Display name, "Brand Name Concentration Size". */
   name: string;
+  /**
+   * The product's own address segment (src/catalogue/productSlug.ts): the email
+   * links to /<slug>. Left out for a product that has none, which links to the
+   * old /fragrance/<id> address, which still opens it.
+   */
+  slug?: string | null;
 }
 
 /** Null when the fragrance is no longer in the catalogue at all. */
@@ -84,8 +90,14 @@ export function ukDay(now: Date): string {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit' }).format(now);
 }
 
-export function productUrl(siteUrl: string, fragranceId: string): string {
-  return `${siteUrl.replace(/\/$/, '')}/fragrance/${encodeURIComponent(fragranceId)}`;
+/**
+ * The link an email gives for a product: its own address, /BRAND_NAME_VOLUME,
+ * when its slug is known, and the old /fragrance/<id> address (which redirects
+ * to it) when it is not. The wishlist keeps ids; only the link is an address.
+ */
+export function productUrl(siteUrl: string, fragranceId: string, slug?: string | null): string {
+  const base = siteUrl.replace(/\/$/, '');
+  return slug ? `${base}/${slug}` : `${base}/fragrance/${encodeURIComponent(fragranceId)}`;
 }
 
 export interface PlanInput {
@@ -132,7 +144,7 @@ export function planRun({ recipients, items, history, priceFor, siteUrl, today }
       if (verdict.alert && verdict.write) {
         lines.push({
           name: found.name,
-          url: productUrl(siteUrl, item.fragranceId),
+          url: productUrl(siteUrl, item.fragranceId, found.slug),
           price: verdict.write.price,
           shop: found.shop,
           from: baseline,

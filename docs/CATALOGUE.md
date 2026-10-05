@@ -104,6 +104,12 @@ holds it, and the address bar is rewritten to that product's.
   load does not grow. The unknown address is kept off search engines until the
   file says where it went, then the address and canonical become the
   survivor's, and no old address is in the sitemap.
+- `data/product-slugs.json` is the same kind of memory for product addresses
+  (`/BRAND_NAME_VOLUME`, docs/PRODUCT-URLS.md): every product id ever given a
+  slug, never reassigned and never deleted, also a `rebuild` file. A slug is
+  written on each catalogue and dormant entry, and the slug of a product folded
+  into another is an alias of the survivor (`SLUG_ALIASES`, in the same lazy
+  file as `ID_ALIASES`).
 - To start the file afresh from what earlier builds published, run
   `scripts/id-alias-seed.sh <dir>` (reads the branch's history) and then
   `npm run catalogue:demo -- --seed-ids <dir>/ids.txt --seed-aliases <dir>/aliases.tsv`.

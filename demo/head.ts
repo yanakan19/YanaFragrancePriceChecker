@@ -40,7 +40,7 @@
  * can run it under Node with no DOM at all — which is what lets the sitemap
  * be checked against the noindex rules in the same test run.
  */
-import type { Route } from './router.js';
+import { productPath, type Route } from './router.js';
 import { ADS_ON } from './ads.js';
 
 /** One source of truth for the origin. scripts/build-demo.ts imports this. */
@@ -77,6 +77,13 @@ export interface HeadInput {
    * list.
    */
   leafEmpty?: boolean | undefined;
+  /**
+   * True while the address bar still holds the old /fragrance/<id> address of a
+   * product, before the page rewrites it to the product's own address
+   * (docs/PRODUCT-URLS.md). The canonical is the new address either way; this
+   * keeps the old one out of search engines for the moment it is showing.
+   */
+  legacyAddress?: boolean | undefined;
 }
 
 /** Search engines cut the title around here; longer is wasted, not harmful. */
@@ -151,7 +158,7 @@ export const shopsPhrase = (count: number): string =>
 const SITE_TAIL = 'Real prices read from the shops themselves, checked daily.';
 
 export function headFor(input: HeadInput): HeadTags {
-  const { route, leafName, leafDetail, productCount, retailerCount, leafEmpty } = input;
+  const { route, leafName, leafDetail, productCount, retailerCount, leafEmpty, legacyAddress } = input;
   // Query strings are filter state, not separate documents: /brands?tier=niche
   // and /brands are the same page in a different mood, and giving them
   // different canonicals would split one page's standing across many URLs.
@@ -178,6 +185,7 @@ export function headFor(input: HeadInput): HeadTags {
       };
 
     case 'fragrance':
+    case 'product':
       return {
         title: clamp(
           leafName ? `PriceSniffs: ${leafName} price comparison` : 'PriceSniffs: fragrance price comparison',
@@ -193,7 +201,7 @@ export function headFor(input: HeadInput): HeadTags {
         // A product with no current prices keeps its page but is a thin one:
         // no shop has a price for it, so it is kept off search engines and
         // out of the sitemap, like a shop with nothing to show.
-        noindex: leafEmpty === true,
+        noindex: leafEmpty === true || legacyAddress === true,
       };
 
     case 'brand':
@@ -436,7 +444,8 @@ function pathOf(route: Route): string {
     case 'retailer': return `/retailers/${p}`;
     case 'notes': return '/notes';
     case 'note': return `/notes/${p}`;
-    case 'fragrance': return `/fragrance/${p}`;
+    case 'fragrance': return productPath(route.param);
+    case 'product': return `/${p}`;
     case 'about': return '/about';
     case 'settings': return '/settings';
     case 'suggestions': return '/suggestions';

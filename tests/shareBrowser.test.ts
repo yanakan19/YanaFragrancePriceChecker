@@ -6,7 +6,8 @@ import AxeBuilder from '@axe-core/playwright';
 import type { Browser, BrowserContext, Page } from 'playwright';
 import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-audit.js';
 import { shareUrl } from '../demo/share.js';
-import { routeToPath } from '../demo/router.js';
+import { DEMO_FRAGRANCES } from '../demo/data.js';
+import { routeToPath, setProductSlugLookup } from '../demo/router.js';
 import { stubSupabase, type FakeAccount } from './support/fakeAccount.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -49,11 +50,18 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
   let close: () => void = () => {};
 
   beforeAll(async () => {
+    // The page links a product by its own address, /BRAND_NAME_VOLUME; the
+    // links this file expects are built by the same router, so it is given the
+    // same slugs (and the slug of the fixture below).
+    const slugs = new Map(DEMO_FRAGRANCES.map((f) => [f.id, f.slug]));
+    slugs.set('sh-test-dormant', 'test_house_quiet_ember_and_co_75ml');
+    setProductSlugLookup((id) => slugs.get(id) ?? null);
     ({ port, close } = await startDemoServer());
     browser = await launchChromium();
   }, 60_000);
 
   afterAll(async () => {
+    setProductSlugLookup(() => null);
     await browser?.close();
     close();
   });
@@ -237,12 +245,19 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
         expect(await dialogOpen(page)).toBe(false);
         await noViolations(page);
 
-        // The same product by its own address.
+        // The same product by its own address, and by the old one, which the bar then replaces.
         await page.goto(`http://127.0.0.1:${port}${productPath(id)}`, { waitUntil: 'load' });
         await waitForApp(page);
         await page.waitForSelector('#view .share-page');
         await openFrom(page, '#view .share-page', id);
         await page.keyboard.press('Escape');
+        expect(await dialogOpen(page)).toBe(false);
+        expect(await ev<boolean>(page, `document.activeElement?.classList.contains('share-page')`)).toBe(true);
+        await page.goto(`http://127.0.0.1:${port}/fragrance/${encodeURIComponent(id)}`, { waitUntil: 'load' });
+        await waitForApp(page);
+        await page.waitForSelector('#view .share-page');
+        expect(await pathname(page)).toBe(new URL(shareUrl(id)).pathname);
+        expect(await pathname(page)).not.toContain('/fragrance/');
         await context.close();
 
         // The wishlist page, signed in: a Share button at the end of each row.

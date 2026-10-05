@@ -22,7 +22,7 @@ describe('canonical URLs', () => {
   it('gives every route a distinct canonical', () => {
     const names: RouteName[] = [
       'home', 'search', 'brands', 'brand', 'deals', 'retailers', 'retailer',
-      'notes', 'note', 'fragrance', 'about', 'settings', 'suggestions', 'account', 'legal',
+      'notes', 'note', 'fragrance', 'product', 'about', 'settings', 'suggestions', 'account', 'legal',
       'design', 'notFound',
     ];
     const seen = new Map<string, RouteName>();

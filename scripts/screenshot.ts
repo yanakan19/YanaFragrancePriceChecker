@@ -2,7 +2,7 @@
  * Screenshots the built demo at chosen routes and viewport widths.
  *
  *   npm run demo                       # must run first: builds demo/index.html
- *   npm run screenshot -- /search?q=black%20fri /fragrance/french-avenue-17853
+ *   npm run screenshot -- /search?q=black%20fri /dior_dune_100ml
  *
  * ── Why this exists ──────────────────────────────────────────────────────────
  * Two UI changes shipped on 2026-08-25 — the tile-name clamp fix (df0122a) and
