@@ -63,8 +63,29 @@ describe('lookupLinks', () => {
     });
   });
 
-  it('falls back to the perfume\'s concentration-free page for a concentration with no entry', () => {
-    expect(lookupLinks(table, 'Dior', 'Sauvage', 'Parfum').fragrantica).toBe('https://www.fragrantica.com/perfume/Dior/Sauvage-31861.html');
+  it('falls back to the perfume\'s concentration-free page for an Eau de Toilette or Parfum-less strength with no entry', () => {
+    expect(lookupLinks(table, 'Dior', 'Sauvage', 'Eau de Toilette').fragrantica).toBe('https://www.fragrantica.com/perfume/Dior/Sauvage-31861.html');
+    expect(lookupLinks(table, 'Dior', 'Sauvage', 'Not stated').fragrantica).toBe('https://www.fragrantica.com/perfume/Dior/Sauvage-31861.html');
+  });
+
+  it('never lends the main page to a Parfum, an Extrait, a Cologne or an Eau Fraiche (audit of 2026-10-05)', () => {
+    for (const conc of ['Parfum', 'Extrait de Parfum', 'Eau de Cologne']) {
+      expect(lookupLinks(table, 'Dior', 'Sauvage', conc).fragrantica, conc).toBeNull();
+    }
+    expect(lookupLinks(table, 'Dior', 'Sauvage Parfum', 'Eau de Parfum').fragrantica).toBeNull();
+    expect(lookupLinks(table, 'Dior', 'Sauvage Eau Fraiche', 'Eau de Toilette').fragrantica).toBeNull();
+  });
+
+  it('shows no page, and not the sibling\'s, where an entry is marked refused', () => {
+    const marked = compactTable({
+      'burberry|london|edp': entry({ fragrantica: 'https://www.fragrantica.com/perfume/Burberry/London-813.html', fragranticaMatch: 'base' }),
+      'burberry|london|edt': entry({ fragranticaRefused: true }),
+    });
+    expect(marked['burberry|london|edt']).toEqual(['-', '']);
+    expect(lookupLinks(marked, 'Burberry', 'London', 'Eau de Parfum').fragrantica).toBe('https://www.fragrantica.com/perfume/Burberry/London-813.html');
+    expect(lookupLinks(marked, 'Burberry', 'London', 'Eau de Toilette').fragrantica).toBeNull();
+    // and a refused entry never becomes the brand|name page itself
+    expect(compactTable({ 'burberry|london|edt': entry({ fragranticaRefused: true }) })['burberry|london']).toBeUndefined();
   });
 
   it('is null for what is not stored, and for a perfume that is not there', () => {
