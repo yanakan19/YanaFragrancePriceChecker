@@ -17,6 +17,15 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.87.0',
+    date: '5 Oct 2026',
+    title: 'Gift sets say what is in the box',
+    points: [
+      'Most sets now name each item with its size',
+      'John Lewis and Kayali sets use the shop list',
+    ],
+  },
+  {
     version: 'v3.86.0',
     date: '5 Oct 2026',
     title: 'More perfume oils found',

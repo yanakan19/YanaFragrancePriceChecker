@@ -160,7 +160,7 @@ describe('what a shop\'s own description lists', () => {
   it('reads Kayali\'s bulleted list, with the balm in grams and no size of its own', () => {
     const l = find('kayali', /^Yummy Gelato Kiss Set$/);
     if (!l) return;
-    expect(readGiftSet({ rawTitle: l.rawTitle, description: l.description, productType: l.productType })).toMatchObject({
+    expect(readGiftSet({ rawTitle: l.rawTitle, description: l.description ?? null, productType: l.productType ?? null })).toMatchObject({
       contents: ['10ml Eau de Parfum', 'Lip Balm'],
       from: 'description',
     });
