@@ -63,6 +63,13 @@ export interface PriceToday {
    * old /fragrance/<id> address, which still opens it.
    */
   slug?: string | null;
+  /**
+   * The id of the product the price is for, when it is not the id asked for: a
+   * saved id that has since merged into another product (src/services/
+   * wishlistResolve.ts). Two saved rows that answer with the same one are one
+   * line in an email.
+   */
+  id?: string;
 }
 
 /** Null when the fragrance is no longer in the catalogue at all. */
@@ -129,6 +136,7 @@ export function planRun({ recipients, items, history, priceFor, siteUrl, today }
 
     const lines: AlertLine[] = [];
     const onSend: HistoryWrite[] = [];
+    const listed = new Set<string>();
     for (const item of itemsOf.get(recipient.userId) ?? []) {
       plan.itemsChecked++;
       const found = priceFor(item.fragranceId);
@@ -136,6 +144,11 @@ export function planRun({ recipients, items, history, priceFor, siteUrl, today }
         plan.itemsWithoutPrice++;
         continue;
       }
+      // Two saved ids that merged into one product are one line, not two. The
+      // second row is left as it is: nothing is written for it, nothing deleted.
+      const product = found.id ?? item.fragranceId;
+      if (listed.has(product)) continue;
+      listed.add(product);
       const baseline = baselineOf.get(item.wishlistId) ?? null;
       const verdict = evaluateItem({ current: found.price, baseline, target: item.targetPriceGbp });
       if (verdict.write?.when === 'now') {
