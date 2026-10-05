@@ -29,17 +29,23 @@ snapshots and reports, and the "deploy" files above).
 1. **Never edit a generated file by hand.** Change its source and rebuild.
 2. **Do not commit regenerated files unless your change needs them.** If you
    changed only tests, docs, scripts or workflows, leave `demo/*.generated.ts`,
-   `data/id-aliases.json` and `data/price-history-checkpoint.json` out of
+   `data/id-aliases.json`, `data/product-slugs.json` and
+   `data/price-history-checkpoint.json` out of
    your commit (`git checkout -- <file>` after a local build). The crawl
    rebuilds and commits them within hours anyway.
 3. **When your change does need them** (you changed something they are built
    from: the build scripts, `src/`, the catalogue code), run `npm run rebuild`
    (or the steps you need: `npm run catalogue:demo`, `npm run deals:build`,
    `npm run catalogue:history`) and commit, with your change, those of
-   `demo/*.generated.ts`, `data/id-aliases.json` and
-   `data/price-history-checkpoint.json` that changed. A change that only
+   `demo/*.generated.ts`, `data/id-aliases.json`, `data/product-slugs.json`
+   and `data/price-history-checkpoint.json` that changed. A change that only
    alters how the page looks (`demo/*.ts`, `demo/template.html`) needs none of
    them: the deploy builds the page.
+   **Memory files:** `data/product-slugs.json` (a product's published address,
+   `/<brand>_<name>_<volume>`) and `data/id-aliases.json` (where a merged id now
+   lives) are append only memories: the build only adds to them. Never delete or
+   change an entry and never reassign a slug, or a published link breaks. See
+   `docs/PRODUCT-URLS.md`.
 4. **A new generated file needs a line in `scripts/generated-files.txt`** in
    the same commit (and in `.gitignore` if it is a "deploy" file). Builds write
    through `writeGenerated` (`scripts/generatedFiles.ts`), which refuses an
