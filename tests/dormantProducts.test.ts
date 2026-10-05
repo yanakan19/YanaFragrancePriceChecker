@@ -14,6 +14,7 @@ import type { DormantEntry } from '../src/catalogue/dormantProducts.js';
  * learns of them.
  */
 const sample: DormantEntry = {
+  slug: 'lacoste_touch_of_pink_90ml',
   brand: 'Lacoste',
   name: 'Lacoste Touch of Pink',
   concentration: 'Eau de Toilette',
@@ -25,11 +26,11 @@ const sample: DormantEntry = {
 
 describe('the data file', () => {
   it('is a lazy file, so it is not in the first load', () => {
-    expect(LAZY_DATA_MODULES[DORMANT_FILE]).toEqual(['DORMANT_PRODUCTS', 'ID_ALIASES']);
+    expect(LAZY_DATA_MODULES[DORMANT_FILE]).toEqual(['DORMANT_PRODUCTS', 'ID_ALIASES', 'SLUG_ALIASES']);
   });
 
   it('accepts a file of the right shape and refuses any other', () => {
-    expect(prepareDormant({ DORMANT_PRODUCTS: { a: sample }, ID_ALIASES: {} })).toEqual({ products: { a: sample }, aliases: {} });
+    expect(prepareDormant({ DORMANT_PRODUCTS: { a: sample }, ID_ALIASES: {}, SLUG_ALIASES: {} })).toEqual({ products: { a: sample }, aliases: {}, slugAliases: {} });
     for (const bad of [null, [], {}, { DORMANT_PRODUCTS: null }, { DORMANT_PRODUCTS: [] }, 'x', { DORMANT_PRODUCTS: {} }]) {
       expect(() => prepareDormant(bad), JSON.stringify(bad)).toThrow();
     }
@@ -40,13 +41,13 @@ describe('the data file', () => {
     let fail = true;
     const store = createDormant((name) => {
       calls.push(name);
-      return fail ? Promise.reject(new Error('offline')) : Promise.resolve({ DORMANT_PRODUCTS: { a: sample }, ID_ALIASES: {} });
+      return fail ? Promise.reject(new Error('offline')) : Promise.resolve({ DORMANT_PRODUCTS: { a: sample }, ID_ALIASES: {}, SLUG_ALIASES: {} });
     });
     expect(store.current()).toBeNull();
     await expect(store.load()).rejects.toThrow('offline');
     expect(store.status()).toBe('failed');
     fail = false;
-    await expect(store.load()).resolves.toEqual({ products: { a: sample }, aliases: {} });
+    await expect(store.load()).resolves.toEqual({ products: { a: sample }, aliases: {}, slugAliases: {} });
     await store.load();
     expect(calls).toEqual(['dormant', 'dormant']);
   });

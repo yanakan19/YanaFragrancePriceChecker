@@ -10,6 +10,7 @@ import {
   statedMl,
 } from './fragranceId.js';
 import { trustworthyEan } from './productMatch.js';
+import { brandAliasKey, nameCore } from './duplicateKey.js';
 
 /**
  * Gift sets, as their own category (owner's decision, 2026-10-03).
@@ -56,7 +57,37 @@ import { trustworthyEan } from './productMatch.js';
 
 /** A title saying the listing is a set of several things. Run on folded text. */
 const SET_TITLE =
-  /\bgift ?sets?\b|\bcoffret\b|\bsets?\b|\bwardrobe\b|\bbundles?\b|\b\d+\s*(?:pcs|pc|ps|pieces?)\b|\bpack of [2-9]\b|\b(?:[2-9]|[1-9]\d)\s*[x×*]\s*\d{1,4}(?:\.\d)?\s*(?:ml|oz)\b|\bdiscovery (?:collection|kit)\b/i;
+  /\bgift ?sets?\b|\bcoffret\b|\bsets?\b|\bwardrobe\b|\bbundles?\b|\b\d+\s*(?:pcs|pc|ps|pieces?)\b|\bpack of [2-9]\b|\b(?:[2-9]|[1-9]\d)\s*[x×*]\s*\d{1,4}(?:\.\d)?\s*(?:ml|oz)\b|\bdiscovery (?:collection|kit)\b|\b(?:duo|trio|quartet)s?\b|\b(?:twin|dual) ?pack\b|\btravel ?set\b|\b\d{1,4}(?:\.\d)?\s*(?:ml|oz)\s*[x×*]\s*(?:[2-9]|[1-9]\d)\b/i;
+
+/**
+ * Two sizes joined by "+": a bottle and its travel size or mini in one box,
+ * priced as both. "Versace Dylan Blue 100ml EDT Spray +10ml EDT Mini + Trousse",
+ * "Issey Miyake Fusion d'Issey IGO EDT 80ml Spray + 20ml Cap To Go", "Tommy
+ * Hilfiger Impact Spark EDT 100ml + 4 ml", Nicchia's "Birdwatcher EDP 50+10 ml",
+ * "Guilty Pour Femme EDP 50Ml + Bl 50Ml Gs". Read as the first size alone it
+ * was priced against, and could be the "cheapest" for, a lone bottle of that
+ * size. One size and a "+" (the Escentric Molecules "Molecule 01 + Ginger
+ * 100ml", Blood Concept's "+MA 60ml") is a name, not a set, and never matches.
+ */
+const SIZE_PLUS_SIZE =
+  /\b\d{1,4}(?:\.\d)?\s*ml\b[^+]{0,60}\+[^+]{0,40}?\b\d{1,4}(?:\.\d)?\s*ml\b|\b\d{1,4}\s*\+\s*\d{1,4}(?:\.\d)?\s*ml\b/i;
+
+/**
+ * SIZE_PLUS_SIZE, less the two shapes that are one bottle:
+ *   - a "+ FREE" extra: Armaf's "Club De Nuit Sillage EDP 250ml + FREE Refillable
+ *     5ml" is the 250ml bottle with an empty atomiser given away, at the bottle's
+ *     own price;
+ *   - a list of the sizes a product comes in, then the size this row is: Al
+ *     Haramain's "Sultan Perfume Oil 3ml + 6ml + 12ml 24ml" (25 rows, one product
+ *     in up to five sizes, each priced alone).
+ */
+function sizePlusSize(t: string): boolean {
+  const joined = t.replace(/\+\s*free\b[^+]*/gi, ' ');
+  if (!SIZE_PLUS_SIZE.test(joined)) return false;
+  // Two or more "+" between sizes, then one more size with no "+" before it.
+  if (/\d\s*ml\s*\+\s*\d[\d.]*\s*ml\s*\+\s*\d[\d.]*\s*ml\s+\d[\d.]*\s*ml\s*$/i.test(joined.trim())) return false;
+  return true;
+}
 
 /** Phrases containing a set word that do not mean a set. */
 const NOT_A_SET = /\bset sail\b|\bwith coffret\b/gi;
@@ -84,6 +115,9 @@ const WITH_COMPANION =
  */
 const SCENT_PAIR = /\|\s*\d{2}\b[^|()]*\+[^|()]*\|\s*\d{2}\b/;
 
+/** Any stated size: the catalogue gate drops a title with none, which is what houseBundle relies on. */
+const SIZE_STATED = /\b\d{1,4}(?:\.\d+)?\s*(?:ml|cl|l|oz|fl\.? ?oz|g)\b/i;
+
 /** The shop's own category for a set. */
 const SET_PRODUCT_TYPE = /^\s*(?:bundles?|gift ?sets?|sets?)\s*$/i;
 
@@ -99,6 +133,70 @@ const SET_PRODUCT_TYPE = /^\s*(?:bundles?|gift ?sets?|sets?)\s*$/i;
 const NEVER_IN_A_SET =
   /\b(fragrance[- ]free|unperfumed|unscented|nappy|tissue|soap bar|shampoo|conditioner|candles?|diffuser|reed|tester|samples?|refill|decant|hand wash|moisturis|scrub|talc|hair|serum|air ?freshener|room spray|lamp fragrance|home spray|refillable perfume spray|pet care|empty (?:perfume )?bottles?|travalo|atomi[sz]er|rechargeable perfume|bakhoor|bukhoor|incense|burner|makeup|lipstick|mascara|eyeshadow|nail)\b/i;
 
+/**
+ * Two products of one house named in one title, with no size and no word that
+ * says "set": French Avenue's own storefront sells "Liquid Brun & Cocoa Morado",
+ * "Aether & Atlantis" and "Physical Touch - Royal Blend Sequoia & Liquid Brun"
+ * (10 listings, £37.50 to £77), each two full bottles at one price. Each name is
+ * a known single bottle of that house, so the joined title is a bundle.
+ *
+ * "Known" is the house's own single bottles as the build reads them (names of
+ * the listings that are single bottles at any shop), handed in once by the build
+ * with registerKnownHouseProducts. Until it is, nothing is known and this rule
+ * says nothing, so a process that never registers (a test, the price history)
+ * classifies exactly as before. It only ever applies to a title that states no
+ * size, which the catalogue gate drops as not a fragrance: a listing already kept
+ * as a bottle is never moved by it, so no product id changes because of it.
+ * Escentric Molecules' "Molecule 01 + Clary Sage" (one bottle, a name with a "+"
+ * in it) states its size and so is never asked.
+ */
+export type KnownHouseProducts = ReadonlyMap<string, ReadonlySet<string>>;
+
+let knownHouseProducts: KnownHouseProducts | null = null;
+
+/** Hand over the house's single bottle names (build-demo-catalogue.ts). Null clears them. */
+export function registerKnownHouseProducts(index: KnownHouseProducts | null): void {
+  knownHouseProducts = index;
+}
+
+/** The index from (brand spellings, displayed name) pairs, one per single bottle listing. */
+export function buildKnownHouseProducts(entries: Iterable<{ brands: readonly (string | null | undefined)[]; name: string }>): KnownHouseProducts {
+  const out = new Map<string, Set<string>>();
+  for (const { brands, name } of entries) {
+    const brand = brands.find((b): b is string => Boolean(b));
+    if (!brand) continue;
+    const core = nameCore(name, brand, null);
+    if (core.length < 3) continue;
+    for (const b of brands) {
+      if (!b) continue;
+      const key = brandAliasKey(b);
+      const set = out.get(key) ?? out.set(key, new Set()).get(key)!;
+      set.add(core);
+    }
+  }
+  return out;
+}
+
+const NAME_JOINER = /\s+(?:&|and|\+)\s+|\s*,\s*/i;
+
+/** Whether the title joins two or more of the house's own known single bottles. */
+export function namesTwoKnownProducts(rawTitle: string, rawBrand: string | null | undefined): boolean {
+  if (!knownHouseProducts || !rawBrand) return false;
+  const known = knownHouseProducts.get(brandAliasKey(rawBrand));
+  if (!known) return false;
+  const title = rawTitle.replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+  // A product that is itself called "A & B" is one bottle, whatever its parts are.
+  if (known.has(nameCore(title, rawBrand, null))) return false;
+  const parts = title.split(NAME_JOINER).filter((p) => p.trim().length > 0);
+  if (parts.length < 2) return false;
+  return parts.every((part) => {
+    // "The Extrovert x Introvert - Liquid Brun": the collection's name goes before the dash.
+    const candidate = part.split(/\s[-–]\s/).pop()!;
+    const core = nameCore(candidate, rawBrand, null);
+    return core.length >= 3 && known.has(core);
+  });
+}
+
 export function isGiftSet(l: Pick<StoredListing, 'rawTitle' | 'retailerId' | 'productType' | 'description' | 'rawBrand'>): boolean {
   const t = foldTitle(l.rawTitle);
   if (NEVER_IN_A_SET.test(t)) return false;
@@ -106,14 +204,16 @@ export function isGiftSet(l: Pick<StoredListing, 'rawTitle' | 'retailerId' | 'pr
   if (l.description && PET_PRODUCT.test(l.description)) return false;
 
   const scentPair = SCENT_PAIR.test(t);
-  const titleSaysSet = SET_TITLE.test(t.replace(NOT_A_SET, ' ')) || WITH_COMPANION.test(t) || scentPair;
+  const houseBundle = !SIZE_STATED.test(t) && namesTwoKnownProducts(l.rawTitle, l.rawBrand);
+  const titleSaysSet =
+    SET_TITLE.test(t.replace(NOT_A_SET, ' ')) || WITH_COMPANION.test(t) || sizePlusSize(t) || scentPair || houseBundle;
   const shopSaysSet = Boolean(l.productType && SET_PRODUCT_TYPE.test(l.productType));
   const copySaysSet = Boolean(l.description && DESCRIBED_AS_WASH_GIFT_SET.test(l.description));
   if (!titleSaysSet && !shopSaysSet && !copySaysSet) return false;
 
   // "Perfume mist" is a body or hair mist (Sol de Janeiro's Cheirosa sets),
   // so it is no evidence of a fragrance on its own.
-  const named = scentPair || CONCENTRATION.test(t.replace(/\bperfume mists?\b/gi, ' '));
+  const named = scentPair || houseBundle || CONCENTRATION.test(t.replace(/\bperfume mists?\b/gi, ' '));
   if (named) return true;
   // A shop that sells only fragrance does not have to name one, unless the
   // title says the set is bath and body products (Escentric Molecules'

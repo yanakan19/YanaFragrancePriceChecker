@@ -11,7 +11,7 @@ import {
 } from '../src/catalogue/idAliases.js';
 import { createDormant, movedTo, prepareDormant, type DormantData } from '../demo/dormantStore.js';
 import { matchRoute } from '../demo/router.js';
-import { DORMANT_PRODUCTS, ID_ALIASES } from '../demo/dormant.generated.js';
+import { DORMANT_PRODUCTS, ID_ALIASES, SLUG_ALIASES } from '../demo/dormant.generated.js';
 import { CATALOGUE } from '../demo/catalogue.generated.js';
 import { LAZY_DATA_MODULES } from '../scripts/dataFiles.js';
 import { readManifest, policyOf } from '../scripts/generatedFiles.js';
@@ -148,7 +148,7 @@ describe('reading the last build', () => {
 
 describe('the data file', () => {
   it('carries the aliases with the products with no current prices, so the first load does not grow', () => {
-    expect(LAZY_DATA_MODULES.dormant).toEqual(['DORMANT_PRODUCTS', 'ID_ALIASES']);
+    expect(LAZY_DATA_MODULES.dormant).toEqual(['DORMANT_PRODUCTS', 'ID_ALIASES', 'SLUG_ALIASES']);
   });
 
   it('is listed as a generated file, so a push conflict on it rebuilds it and the crawl commits it', () => {
@@ -157,16 +157,16 @@ describe('the data file', () => {
 
   it('is refused when either half is missing', () => {
     expect(() => prepareDormant({ DORMANT_PRODUCTS: {} })).toThrow();
-    expect(() => prepareDormant({ ID_ALIASES: {} })).toThrow();
-    expect(() => prepareDormant({ DORMANT_PRODUCTS: {}, ID_ALIASES: [] })).toThrow();
-    expect(prepareDormant({ DORMANT_PRODUCTS: {}, ID_ALIASES: { a: 'b' } }).aliases).toEqual({ a: 'b' });
+    expect(() => prepareDormant({ ID_ALIASES: {}, SLUG_ALIASES: {} })).toThrow();
+    expect(() => prepareDormant({ DORMANT_PRODUCTS: {}, ID_ALIASES: [], SLUG_ALIASES: {} })).toThrow();
+    expect(prepareDormant({ DORMANT_PRODUCTS: {}, ID_ALIASES: { a: 'b' }, SLUG_ALIASES: {} }).aliases).toEqual({ a: 'b' });
   });
 });
 
 describe('an absorbed address lands on its survivor', () => {
   const live = new Set(CATALOGUE.map((c) => c.id));
   const isLive = (id: string) => live.has(id);
-  const data: DormantData = { products: DORMANT_PRODUCTS, aliases: ID_ALIASES };
+  const data: DormantData = { products: DORMANT_PRODUCTS, aliases: ID_ALIASES, slugAliases: SLUG_ALIASES };
 
   it('has aliases at all', () => {
     expect(Object.keys(ID_ALIASES).length).toBeGreaterThan(1000);
@@ -199,12 +199,12 @@ describe('an absorbed address lands on its survivor', () => {
   });
 
   it('does not send an alias to a survivor that is no longer a page', () => {
-    expect(movedTo({ products: {}, aliases: { a: 'gone' } }, 'a', () => false)).toBeNull();
-    expect(movedTo({ products: { sleeping: DORMANT_PRODUCTS[Object.keys(DORMANT_PRODUCTS)[0]!]! }, aliases: { a: 'sleeping' } }, 'a', () => false)).toBe('sleeping');
+    expect(movedTo({ products: {}, aliases: { a: 'gone' }, slugAliases: {} }, 'a', () => false)).toBeNull();
+    expect(movedTo({ products: { sleeping: DORMANT_PRODUCTS[Object.keys(DORMANT_PRODUCTS)[0]!]! }, aliases: { a: 'sleeping' }, slugAliases: {} }, 'a', () => false)).toBe('sleeping');
   });
 
   it('reads the file the page fetches, by the route the address matches', async () => {
-    const store = createDormant(() => Promise.resolve({ DORMANT_PRODUCTS, ID_ALIASES }));
+    const store = createDormant(() => Promise.resolve({ DORMANT_PRODUCTS, ID_ALIASES, SLUG_ALIASES }));
     const loaded = await store.load();
     const route = matchRoute('/fragrance/escentric-molecules-m01-30c-unit');
     expect(route).toMatchObject({ name: 'fragrance', param: 'escentric-molecules-m01-30c-unit' });
