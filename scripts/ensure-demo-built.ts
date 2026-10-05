@@ -16,10 +16,11 @@
  *
  * "Current" is the same test the deploy and tests/demoBuildFreshness.test.ts
  * apply: the page's stamp matches the source (scripts/demoInputsHash.ts) and
- * every data file it names exists. A missing sitemap counts as stale too.
+ * every data file it names exists. A missing sitemap, or a file in demo/data
+ * the page does not name, counts as stale too.
  */
 import { spawnSync } from 'node:child_process';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { referencedDataFiles } from './dataFiles.js';
@@ -33,8 +34,14 @@ export function staleReason(root: string): string | null {
   const stamped = readStampedHash(html);
   if (stamped === null) return 'demo/index.html carries no build stamp';
   if (stamped !== computeDemoInputsHash(root).hash) return 'demo/index.html was built from different source';
-  const missing = referencedDataFiles(html).filter((p) => !existsSync(join(root, 'demo', p)));
+  const named = referencedDataFiles(html);
+  const missing = named.filter((p) => !existsSync(join(root, 'demo', p)));
   if (missing.length > 0) return `demo/index.html names data files that are missing: ${missing.join(', ')}`;
+  // Untracked, demo/data is no longer cleaned by git when a checkout or merge
+  // brings another build's page; the build deletes what its page does not
+  // name, and tests/demoDataFiles.test.ts holds the folder to that.
+  const extra = readdirSync(join(root, 'demo/data')).filter((f) => !named.includes(`data/${f}`));
+  if (extra.length > 0) return `demo/data holds files the page does not name: ${extra.join(', ')}`;
   for (const other of ['demo/404.html', 'demo/sitemap.xml']) {
     if (!existsSync(join(root, other))) return `${other} is not built`;
   }
