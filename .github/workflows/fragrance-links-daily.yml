@@ -68,15 +68,21 @@ jobs:
       # "incoming" in scripts/generated-files.txt, so a push conflict keeps
       # the other side and never needs a rebuild (and this shallow checkout
       # could not replay the price history for one).
+      #
+      # data/fragrantica-link-review.json is not copied over: people edit it
+      # (a page rejected, a gender corrected) and the run only adds the gender
+      # of pages it saw for the first time. scripts/merge-page-genders.ts adds
+      # those to the latest file and leaves everything else in it alone.
       - name: Lay the links on the latest commit
         timeout-minutes: 5
         run: |
           mkdir -p "$RUNNER_TEMP/links"
-          cp data/fragrance-links.json data/fragrance-links-seen.json demo/fragranceLinks.generated.ts "$RUNNER_TEMP/links/"
+          cp data/fragrance-links.json data/fragrance-links-seen.json data/fragrantica-link-review.json demo/fragranceLinks.generated.ts "$RUNNER_TEMP/links/"
           git fetch origin "$GITHUB_REF_NAME"
           git reset --hard "origin/$GITHUB_REF_NAME"
           cp "$RUNNER_TEMP/links/fragrance-links.json" "$RUNNER_TEMP/links/fragrance-links-seen.json" data/
           cp "$RUNNER_TEMP/links/fragranceLinks.generated.ts" demo/
+          npx tsx scripts/merge-page-genders.ts "$RUNNER_TEMP/links/fragrantica-link-review.json" data/fragrantica-link-review.json
 
       - name: Commit and push
         timeout-minutes: 15
@@ -84,4 +90,4 @@ jobs:
           ./scripts/commit-and-push.sh \
             "Fragrance links: $(date -u +%Y-%m-%d)" \
             data/fragrance-links.json data/fragrance-links-seen.json \
-            demo/fragranceLinks.generated.ts
+            data/fragrantica-link-review.json demo/fragranceLinks.generated.ts

@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-10-05T16:30:41.688Z";
+export const FRAGRANCE_LINKS_AT = "2026-10-05T19:11:55.334Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -2420,7 +2420,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "dolcegabbana|lightbluesummervibes": ["Dolce-Gabbana/Light-Blue-Summer-Vibes-80376",""],
   "dolcegabbana|lightbluesummervibes|edt": ["Dolce-Gabbana/Light-Blue-Summer-Vibes-80376","https://www.dolcegabbana.com/en-gb/beauty/perfumes-for-her/light-blue/light-blue-summer-vibes-eau-de-toilette/"],
   "dolcegabbana|lightblue|edp": ["Dolce-Gabbana/Light-Blue-485","https://www.dolcegabbana.com/en-gb/beauty/perfumes-for-her/light-blue/"],
-  "dolcegabbana|lightblue|edt": ["Dolce-Gabbana/Light-Blue-Eau-de-Toilette-104985","https://www.dolcegabbana.com/en-gb/beauty/perfumes-for-her/light-blue/light-blue-eau-de-toilette/"],
+  "dolcegabbana|lightblue|edt": ["-","https://www.dolcegabbana.com/en-gb/beauty/perfumes-for-her/light-blue/light-blue-eau-de-toilette/"],
   "dolcegabbana|limperatrice": ["","https://www.dolcegabbana.com/en-gb/beauty/perfumes-for-her/limperatrice/"],
   "dolcegabbana|limperatrice|edt": ["","https://www.dolcegabbana.com/en-gb/beauty/perfumes-for-her/limperatrice/"],
   "dolcegabbana|theone": ["","https://www.dolcegabbana.com/en-gb/beauty/perfumes-for-her/the-one/"],
