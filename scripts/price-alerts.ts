@@ -28,7 +28,7 @@ async function main(): Promise<void> {
 
   // Loaded only once configured: the catalogue is large, and an unconfigured
   // run has no reason to pay for it.
-  const [{ createClient }, { SUPABASE_URL }, { SITE_URL }, { COMPANY }, catalogue, data, prices, store, provider, run] =
+  const [{ createClient }, { SUPABASE_URL }, { SITE_URL }, { COMPANY }, catalogue, data, prices, store, provider, run, resolver, dormant] =
     await Promise.all([
       import('@supabase/supabase-js'),
       import('../demo/supabase.js'),
@@ -40,10 +40,17 @@ async function main(): Promise<void> {
       import('../src/alerts/supabaseStore.js'),
       import('../src/alerts/provider.js'),
       import('../src/alerts/run.js'),
+      import('../src/services/wishlistResolve.js'),
+      import('../demo/dormant.generated.js'),
     ]);
 
   const now = new Date();
-  const priceFor: import('../src/alerts/run.js').PriceLookup = (fragranceId) => {
+  // A saved id is looked up by the product it stands for today: one that was
+  // merged into another (ID_ALIASES) is priced as the survivor. The wishlist
+  // row itself keeps the id the reader saved.
+  const priceFor: import('../src/alerts/run.js').PriceLookup = (savedId) => {
+    const fragranceId = resolver.resolveFragranceId(savedId, dormant.ID_ALIASES, (id) => data.fragranceById(id) !== undefined);
+    if (fragranceId === null) return null;
     const frag = data.fragranceById(fragranceId);
     if (!frag) return null;
     const best = prices.bestOffer(prices.buildComparison(catalogue.offersFor(fragranceId), { sortBy: 'delivered', now }));
@@ -53,6 +60,7 @@ async function main(): Promise<void> {
       shop: best?.retailer.name ?? '',
       name: `${frag.brand} ${frag.name}, ${frag.concentration}${size}`,
       slug: frag.slug,
+      id: fragranceId,
     };
   };
 

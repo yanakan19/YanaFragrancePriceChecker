@@ -37,3 +37,4 @@ __pycache__/
 !.claude/settings.json
 !.claude/hooks/
 
+social/posts/*/_frames/
