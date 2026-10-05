@@ -130,6 +130,7 @@ export async function stubSupabase(
 
     if (url.pathname === '/rest/v1/wishlists') {
       if (req.method() === 'GET') return json(200, account?.wishlist ?? []);
+      account?.writes?.push(`wishlists ${req.method()} ${decodeURIComponent(url.search)}`);
       return route.fulfill({ status: 204, body: '' });
     }
     if (url.pathname === '/rest/v1/profiles') {
