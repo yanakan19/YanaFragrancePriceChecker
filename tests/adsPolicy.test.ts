@@ -24,7 +24,7 @@ describe('advertising in the legal pages', () => {
     expect(page('privacy')).toContain('no advertising');
     expect(page('cookies')).toContain('Why There Is No Cookie Banner');
     for (const id of ['privacy', 'cookies', 'affiliate']) expect(page(id)).not.toMatch(/AdSense|Google/);
-    expect(COMPANY.updated).toBe('4 October 2026');
+    expect(COMPANY.updated).toBe('5 October 2026');
   });
 
   it('with ads on, every page that touches it says so, and none still claims there is no advertising', () => {

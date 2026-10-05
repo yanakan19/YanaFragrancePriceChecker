@@ -98,6 +98,7 @@ import { fragranceLinksFor } from './fragranceLinks.js';
 import { matchRoute, routeToPath, slugify, basePath, type Route, type RouteName } from './router.js';
 import { headFor, SITE_URL, type HeadTags, type HeadInput } from './head.js';
 import { WRONG_PRICE_PROBLEMS, OTHER_SHOP, wrongPriceMailto, type WrongPriceProblem } from './wrongPrice.js';
+import { shareUrl, shareText, shareLinks, shareProductName, type ShareProduct, type SharePrice } from './share.js';
 import { SUPABASE_CONFIGURED } from './supabase.js';
 import {
   signUp, signIn, signOut, resendVerification, requestPasswordReset, currentUser, isVerified, onAuthChange,
@@ -1048,6 +1049,16 @@ const ICON_EXTERNAL = icon('<path d="M14 4h6v6M20 4l-8.5 8.5M19 13.5V18a2 2 0 0 
 // language every other toggle in this app already uses (.seg-btn.on, etc).
 const ICON_HEART = icon('<path d="M12 20.5s-7.5-4.6-10-9.3C.5 7.8 2.6 4.5 6 4.5c2 0 3.4 1 6 3.6 2.6-2.6 4-3.6 6-3.6 3.4 0 5.5 3.3 4 6.7-2.5 4.7-10 9.3-10 9.3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>');
 const ICON_CLOSE = icon('<path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>');
+// The share set (the Share button and its pop-up, see openShareDialog). Same
+// line drawn, single weight look as the rest. The four brand marks are plain
+// monochrome glyphs of our own drawing, not the companies' logo artwork.
+const ICON_SHARE = icon('<path d="M12 15.5V3.5M12 3.5 7.8 7.7M12 3.5l4.2 4.2M5 11.5v6.2A2.3 2.3 0 0 0 7.3 20h9.4a2.3 2.3 0 0 0 2.3-2.3v-6.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>');
+const ICON_COPY = icon('<rect x="8.5" y="8.5" width="11.5" height="11.5" rx="2.4" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 8.5V6.4A2.4 2.4 0 0 0 13.1 4H6.4A2.4 2.4 0 0 0 4 6.4v6.7a2.4 2.4 0 0 0 2.4 2.4h2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>');
+const ICON_TICK = icon('<path d="m5 12.8 4.6 4.6L19 7.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>');
+const ICON_MORE = icon('<circle cx="5.5" cy="12" r="1.7" fill="currentColor"/><circle cx="12" cy="12" r="1.7" fill="currentColor"/><circle cx="18.5" cy="12" r="1.7" fill="currentColor"/>');
+const ICON_WHATSAPP = icon('<path d="M3.6 20.4 5 15.9A8.5 8.5 0 1 1 8.2 19L3.6 20.4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.4 8.3c-.5.6-.6 1.4-.2 2.4.9 2 2.6 3.6 4.7 4.3 1 .3 1.8 0 2.3-.6l.2-.4-1.9-1-.9.8c-1-.4-2-1.3-2.5-2.4l.8-.9-1-1.9-.5-.3Z" fill="currentColor"/>');
+const ICON_SNAPCHAT = icon('<path d="M12 3.6c-2.6 0-4.3 2-4.3 4.5v2.2c-.5.3-1.4.4-2.2.5.2.5.6.9 1.3 1.1-.4 1.2-1.4 2.2-2.5 2.8.7.5 1.6.6 2.4.8.3.4.2 1 .8 1.3 1 .4 1.7-.3 2.6.2.5.3 1.2 1.3 1.9 1.3s1.4-1 1.9-1.3c.9-.5 1.6.2 2.6-.2.6-.3.5-.9.8-1.3.8-.2 1.7-.3 2.4-.8-1.1-.6-2.1-1.6-2.5-2.8.7-.2 1.1-.6 1.3-1.1-.8-.1-1.7-.2-2.2-.5V8.1c0-2.5-1.7-4.5-4.3-4.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>');
+const ICON_X = icon('<path d="M4.5 4.5h3.7l11.3 15h-3.7L4.5 4.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M19 4.5 13.2 11M5 19.5l5.8-6.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>');
 /* The one filled mark in this set, and the exception is the point: a stop
    square drawn as a 1.7px outline at this size reads as an empty checkbox,
    which is the opposite of a control that halts something. `currentColor`
@@ -1272,6 +1283,29 @@ function priceLine(f: DemoFragrance): string {
 }
 
 /**
+ * The Share button in a tile's top right corner: a sibling beside the brand
+ * label and the tile body, never inside the body's <button>, so a tap on it
+ * cannot open the product. The drawn circle is 30px; the button around it is
+ * the 44px touch target, and CSS keeps the brand label clear of it
+ * (.share-tile in template.html). Shares the product's own address, whichever
+ * list the tile is in. See openShareDialog.
+ */
+function shareTileButton(f: DemoFragrance): string {
+  return `<button type="button" class="share-btn share-tile" data-share="${esc(f.id)}"
+      aria-label="Share ${esc(f.brand)} ${esc(f.name)}" aria-haspopup="dialog">${ICON_SHARE}</button>`;
+}
+
+/**
+ * The Share button on a product page: the wishlist Save button's own shape,
+ * beside it (see .hero-actions in template.html), with its word showing
+ * because there is room for it.
+ */
+function sharePageButton(f: Pick<DemoFragrance, 'id' | 'brand' | 'name'>): string {
+  return `<button type="button" class="share-btn share-page" data-share="${esc(f.id)}"
+      aria-label="Share ${esc(f.brand)} ${esc(f.name)}" aria-haspopup="dialog">${ICON_SHARE}<span>Share</span></button>`;
+}
+
+/**
  * One tile in any grid of fragrances: the shape used for the home rail, and
  * for every browse, search, deals and retailer results list. The picture is
  * the point, sized at 90% of the tile in CSS, so this stays one component
@@ -1331,6 +1365,7 @@ function fragranceTile(
         <span class="tile-price">${opts?.trailing ?? priceLine(f)}</span>
         ${badgeRetailer ? `<span class="sold-by" title="${esc(`${badgePrefix} ${badgeRetailer}`)}"><span>${badgePrefix} ${esc(badgeRetailer)}</span></span>` : `<span class="sold-by" aria-hidden="true" style="visibility:hidden"><span>&nbsp;</span></span>`}
       </button>
+      ${shareTileButton(f)}
     </div>
   </li>`;
 }
@@ -2609,6 +2644,7 @@ function dormantDetailView(): string {
         ${productHead(frag, 'div', 't-page')}
         ${giftSetBlock(frag)}
         ${fragranceLinksBlock(frag)}
+        <div class="hero-actions">${sharePageButton(frag)}</div>
         <p class="hero-price none">No Current Prices</p>
       </div>
 
@@ -2720,7 +2756,7 @@ function detailView(): string {
         ${productHead(frag, 'div', 't-page')}
         ${giftSetBlock(frag)}
         ${fragranceLinksBlock(frag)}
-        ${wishlistButton(frag.id)}
+        <div class="hero-actions">${wishlistButton(frag.id)}${sharePageButton(frag)}</div>
         ${priceBoxRow(frag, rows, best, verdict)}
         ${notesBlock(frag)}
       </div>
@@ -3867,6 +3903,198 @@ function openWrongPriceDialog(): void {
   }, { once: true });
   if (typeof d.showModal === 'function') d.showModal();
   else window.location.href = `mailto:${COMPANY.feedbackEmail}`;
+}
+
+/**
+ * What the Share pop-up needs about a product: its name facts and the cheapest
+ * price the product page shows (bestOffer, the same figure as the tile and the
+ * page's Lowest Price box), or null when it has none. A product with no current
+ * prices is found in the lazy file; if neither knows the id, null.
+ */
+function shareSubject(id: string): { product: ShareProduct; price: SharePrice | null } | null {
+  const live = fragranceById(id);
+  const entry = live ? undefined : dormantEntry(id);
+  const frag = live ?? (entry ? dormantFragrance(id, entry) : null);
+  if (!frag) return null;
+  const best = live ? bestOffer(rowsFor(live)) : null;
+  return {
+    product: { id, brand: frag.brand, name: frag.name, sizeMl: frag.sizeMl, giftSet: frag.giftSet !== null },
+    price: best
+      ? {
+          gbp: best.deliveredPriceGbp ?? best.itemPriceGbp,
+          delivered: best.deliveredPriceGbp !== null,
+          shop: best.retailer.name,
+        }
+      : null,
+  };
+}
+
+/** How long the Copy button says Copied before it goes back to Copy. */
+const SHARE_COPIED_MS = 2000;
+let shareCopiedTimer = 0;
+
+/**
+ * The Share pop-up (the button on every tile and product page): a native
+ * <dialog> opened with showModal(), like showDialog and the wrong price form,
+ * so focus moves in, Esc closes it, the page behind is inert and screen
+ * readers announce it. A tap on the dimmed backdrop closes it. It is a small
+ * centred card on every width.
+ *
+ * Top: the product's canonical link in a read only field with a Copy button.
+ * Below: Instagram, WhatsApp, Snapchat, X and More.
+ *   - WhatsApp, X and Snapchat are plain links (demo/share.ts) that open in a
+ *     new tab or app. Nothing is sent anywhere until one is tapped.
+ *   - Instagram has no web share address. Where the browser has the Web Share
+ *     API (phones, some desktops) Instagram and More open the system share
+ *     sheet, where the reader picks Instagram. Where it does not, Instagram
+ *     copies the link and says so: it never claims to have posted anything.
+ *   - More is the system share sheet, and is not shown where there is none.
+ * The link is the product page's canonical address with no tracking and no
+ * affiliate link, whichever list or page the button was tapped on.
+ */
+function openShareDialog(id: string, opener?: HTMLElement | null): void {
+  const subject = shareSubject(id);
+  if (!subject) return;
+  const { product, price } = subject;
+  const url = shareUrl(id);
+  const text = shareText(product, price);
+  const links = shareLinks(url, text);
+  const name = shareProductName(product);
+  const canNativeShare = typeof navigator.share === 'function';
+
+  let dlg = document.getElementById('ps-share') as HTMLDialogElement | null;
+  if (!dlg) {
+    dlg = document.createElement('dialog');
+    dlg.id = 'ps-share';
+    dlg.className = 'ps-dialog is-form share-dialog';
+    dlg.setAttribute('aria-labelledby', 'ps-share-title');
+    const self = dlg;
+    self.addEventListener('click', (e) => {
+      if (e.target === self) self.close('cancel');
+    });
+    document.body.appendChild(dlg);
+  }
+  if (dlg.open) return;
+
+  const out = 'target="_blank" rel="noopener noreferrer"';
+  const newTab = '<span class="sr">, opens in a new tab</span>';
+  dlg.innerHTML = `<div class="ps-dialog-body share-body">
+      <div class="share-head">
+        <h2 id="ps-share-title" class="ps-dialog-title">Share</h2>
+        <p class="share-product t-caption">${esc(name)}</p>
+      </div>
+      <div class="share-copy">
+        <input type="text" class="share-link" id="ps-share-link" readonly value="${esc(url)}"
+          aria-label="Link to ${esc(name)}" autocomplete="off" autocapitalize="off" spellcheck="false" />
+        <button type="button" class="share-copy-btn" data-share-copy autofocus>
+          <span class="share-copy-ico share-copy-ico-copy">${ICON_COPY}</span><span class="share-copy-ico share-copy-ico-tick">${ICON_TICK}</span>
+          <span class="share-copy-label">Copy</span>
+        </button>
+      </div>
+      <p class="sr" id="ps-share-status" role="status" aria-live="polite"></p>
+      <p class="share-or t-eyebrow">Or Share On</p>
+      <ul class="share-targets">
+        <li><button type="button" class="share-target" data-share-instagram>${ICON_INSTAGRAM}<span>Instagram</span></button></li>
+        <li><a class="share-target" href="${esc(links.whatsapp)}" ${out}>${ICON_WHATSAPP}<span>WhatsApp</span>${newTab}</a></li>
+        <li><a class="share-target" href="${esc(links.snapchat)}" ${out}>${ICON_SNAPCHAT}<span>Snapchat</span>${newTab}</a></li>
+        <li><a class="share-target" href="${esc(links.x)}" ${out}>${ICON_X}<span>X</span>${newTab}</a></li>
+        ${canNativeShare ? `<li><button type="button" class="share-target" data-share-more>${ICON_MORE}<span>More</span></button></li>` : ''}
+      </ul>
+      <p class="share-note t-caption" id="ps-share-note" role="status" aria-live="polite"></p>
+      <div class="ps-dialog-actions"><button type="button" class="ps-dialog-btn" data-share-close>Close</button></div>
+    </div>`;
+
+  const d = dlg;
+  const $in = <T extends HTMLElement>(sel: string): T => d.querySelector(sel) as T;
+  const input = $in<HTMLInputElement>('#ps-share-link');
+  const copyBtn = $in<HTMLButtonElement>('[data-share-copy]');
+  const label = $in<HTMLElement>('.share-copy-label');
+  const status = $in<HTMLElement>('#ps-share-status');
+  const note = $in<HTMLElement>('#ps-share-note');
+
+  const resetCopy = (): void => {
+    window.clearTimeout(shareCopiedTimer);
+    copyBtn.classList.remove('is-copied');
+    label.textContent = 'Copy';
+  };
+  const showCopied = (): void => {
+    resetCopy();
+    copyBtn.classList.add('is-copied');
+    label.textContent = 'Copied';
+    status.textContent = 'Link copied';
+    shareCopiedTimer = window.setTimeout(() => {
+      copyBtn.classList.remove('is-copied');
+      label.textContent = 'Copy';
+      status.textContent = '';
+    }, SHARE_COPIED_MS);
+  };
+  /** Clipboard API first, then select and execCommand for older browsers. */
+  const copy = async (): Promise<boolean> => {
+    try {
+      if (window.isSecureContext && navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+        await navigator.clipboard.writeText(url);
+        return true;
+      }
+    } catch {
+      /* blocked: try the older way */
+    }
+    try {
+      input.focus();
+      input.select();
+      input.setSelectionRange(0, url.length);
+      if (document.execCommand('copy')) return true;
+    } catch {
+      /* fall through */
+    }
+    // Blocked: leave the link selected so it can be copied by hand.
+    input.focus();
+    input.select();
+    return false;
+  };
+  const shareNatively = async (): Promise<'shared' | 'cancelled' | 'failed'> => {
+    try {
+      await navigator.share({ title: name, text, url });
+      return 'shared';
+    } catch (err) {
+      return err instanceof DOMException && err.name === 'AbortError' ? 'cancelled' : 'failed';
+    }
+  };
+
+  copyBtn.addEventListener('click', () => {
+    note.textContent = '';
+    void copy().then((ok) => {
+      if (ok) showCopied();
+      else note.textContent = 'Copying was blocked. The link is selected, so you can copy it by hand.';
+    });
+  });
+  $in('[data-share-instagram]').addEventListener('click', () => {
+    note.textContent = '';
+    const pasteIt = (): void => {
+      void copy().then((ok) => {
+        note.textContent = ok
+          ? 'Link copied. Paste it into Instagram.'
+          : 'Copying was blocked. The link is selected, so you can copy it by hand, then paste it into Instagram.';
+      });
+    };
+    if (!canNativeShare) {
+      pasteIt();
+      return;
+    }
+    void shareNatively().then((result) => {
+      if (result === 'failed') pasteIt();
+    });
+  });
+  d.querySelector('[data-share-more]')?.addEventListener('click', () => {
+    note.textContent = '';
+    void shareNatively();
+  });
+  $in('[data-share-close]').addEventListener('click', () => d.close('cancel'));
+  d.addEventListener('close', () => {
+    resetCopy();
+    if (opener?.isConnected) opener.focus({ preventScroll: true });
+  }, { once: true });
+
+  if (typeof d.showModal === 'function') d.showModal();
 }
 
 /** The new-password form used after a reset link and for changing it. */
@@ -5535,6 +5763,13 @@ const DS_ICONS: { name: string; svg: string }[] = [
   { name: 'ICON_STOP', svg: ICON_STOP },
   { name: 'ICON_TIKTOK', svg: ICON_TIKTOK },
   { name: 'ICON_INSTAGRAM', svg: ICON_INSTAGRAM },
+  { name: 'ICON_SHARE', svg: ICON_SHARE },
+  { name: 'ICON_COPY', svg: ICON_COPY },
+  { name: 'ICON_TICK', svg: ICON_TICK },
+  { name: 'ICON_MORE', svg: ICON_MORE },
+  { name: 'ICON_WHATSAPP', svg: ICON_WHATSAPP },
+  { name: 'ICON_SNAPCHAT', svg: ICON_SNAPCHAT },
+  { name: 'ICON_X', svg: ICON_X },
 ];
 
 /** Tokens that are one value for every theme, so they are listed once. */
@@ -6212,6 +6447,15 @@ function init(): void {
           panel.hidden = panel.getAttribute('data-history-panel') !== want;
         }
       }
+      return;
+    }
+
+    // The Share button on a tile or a product page. Its own sibling of the
+    // tile's body button, so it never reaches the data-frag handler below.
+    const shareBtn = t.closest<HTMLElement>('[data-share]');
+    if (shareBtn) {
+      e.preventDefault();
+      openShareDialog(shareBtn.getAttribute('data-share')!, shareBtn);
       return;
     }
 

@@ -1075,6 +1075,7 @@
      like every other card in the app, instead of pinning its own colours and
      drifting from them. */
   .tile {
+    position: relative;
     width: 100%; display: flex; flex-direction: column; gap: 6px;
     background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
     padding: 12px 13px 14px; color: var(--ink);
@@ -1105,6 +1106,10 @@
      counterpart, not a differently styled control. */
   .tile .phead-brand {
     background: var(--surface-2); border-color: var(--line); color: var(--ink-2);
+    /* Stops short of the Share button in the corner (.share-tile): its drawn
+       circle starts 34px in from the tile's edge, 13px of which is padding,
+       and the label keeps 4px clear of it. */
+    max-width: calc(100% - 25px); padding-left: 8px; padding-right: 8px;
   }
   @media (hover: hover) and (pointer: fine) {
     .tile .phead-brand:hover { border-color: var(--accent); color: var(--accent); }
@@ -1818,6 +1823,101 @@
   .wishlist-toggle:active { transform: scale(.96); }
   .wishlist-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .wishlist-toggle[disabled] { opacity: .6; cursor: default; }
+
+  /* Share (openShareDialog in app.ts). On a product page it sits in a row with
+     the Save button above, the same pill beside it, so the two read as a
+     pair and the price boxes below do not move. The wishlist button's own
+     top margin moves to the row. */
+  .hero-actions {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: 10px; margin: 12px 0 0;
+  }
+  .hero-actions .wishlist-toggle { margin: 0; }
+  .share-btn {
+    font: inherit; color: var(--ink); cursor: pointer;
+    transition: transform var(--dur-1) var(--ease-standard),
+                border-color var(--dur-2) var(--ease-standard),
+                color var(--dur-2) var(--ease-standard);
+  }
+  .share-btn .ico { width: 16px; height: 16px; position: relative; }
+  .share-btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .share-btn:active { transform: scale(.94); transition-timing-function: var(--ease-exit); }
+  .share-page {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    min-height: 44px; padding: 8px 18px;
+    border-radius: 12px; border: 1px solid var(--line-firm);
+    background: var(--surface-2); font-size: 14px; font-weight: 600;
+  }
+  /* On a tile: an icon alone in the top right corner. The button is the 44px
+     touch target (the 44px square sits flush in the corner, over the padding);
+     the circle the eye sees is 28px, 6px from the tile's right edge and 8px from its top, lined up with the brand
+     label on the same row. It is not inside .tile-body, so a tap on it never
+     opens the product. */
+  .share-tile {
+    position: absolute; top: 0; right: 0; z-index: 1;
+    width: 44px; height: 44px; margin: 0; padding: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: none; border: 0; border-radius: 12px; color: var(--ink-2);
+  }
+  .share-tile::before {
+    content: ""; position: absolute; inset: 8px 6px 8px 10px; border-radius: 50%;
+    background: var(--surface-2); border: 1px solid var(--line);
+    transition: border-color var(--dur-2) var(--ease-standard);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .share-tile:hover { color: var(--accent); }
+    .share-tile:hover::before { border-color: var(--accent); }
+    .share-page:hover { border-color: var(--accent); color: var(--accent); }
+  }
+
+  /* The Share pop-up: the .ps-dialog card (below), holding a link field with
+     Copy beside it, then a row of places to share to. */
+  .share-body { display: flex; flex-direction: column; gap: 14px; }
+  .share-head .ps-dialog-title { margin: 0; }
+  .share-product { margin: 2px 0 0; color: var(--faint); overflow-wrap: anywhere; }
+  .share-copy { display: flex; align-items: stretch; gap: 8px; }
+  .share-link {
+    flex: 1; min-width: 0; min-height: 44px; padding: 0 12px;
+    font: inherit; font-size: 16px; color: var(--ink); background: var(--surface-2);
+    border: 1px solid var(--line-firm); border-radius: 10px; text-overflow: ellipsis;
+  }
+  .share-link:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+  .share-copy-btn {
+    flex: none; min-height: 44px; min-width: 88px; padding: 0 12px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    border-radius: 10px; border: 1px solid var(--ink); background: var(--ink); color: var(--bg);
+    font: inherit; font-size: 15px; font-weight: 650; cursor: pointer;
+  }
+  .share-copy-btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .share-copy-btn:active { transform: scale(.97); }
+  .share-copy-ico { display: inline-flex; }
+  .share-copy-ico .ico { width: 17px; height: 17px; }
+  .share-copy-ico-tick { display: none; }
+  .share-copy-btn.is-copied { background: var(--ok); border-color: var(--ok); color: var(--bg); }
+  .share-copy-btn.is-copied .share-copy-ico-copy { display: none; }
+  .share-copy-btn.is-copied .share-copy-ico-tick { display: inline-flex; }
+  .share-or { margin: 4px 0 -4px; color: var(--ink-2); }
+  .share-targets {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px;
+  }
+  /* An odd one out (More, where it is shown) takes the whole last row. */
+  .share-targets li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .share-target {
+    width: 100%; min-height: 48px; padding: 6px 12px;
+    display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 10px;
+    border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2);
+    color: var(--ink); font: inherit; font-size: 13px; font-weight: 600; text-decoration: none; cursor: pointer;
+  }
+  .share-target .ico { width: 22px; height: 22px; flex: none; }
+  .share-target:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .share-target:active { transform: scale(.97); }
+  @media (hover: hover) and (pointer: fine) {
+    .share-target:hover { border-color: var(--accent); color: var(--accent); }
+  }
+  .share-note { margin: 0; min-height: 0; color: var(--ink-2); overflow-wrap: anywhere; }
+  .share-note:empty { display: none; }
+  .share-body .ps-dialog-actions { margin-top: 2px; }
 
   /* The one number on the page a reader actually needs, in its own card so
      it cannot be mistaken for just another line of text. The 30px accent
@@ -2815,7 +2915,7 @@
     body { background: #fff; color: #000; }
     .bar, .subnav, .site-footer, .to-top, .skip-link,
     .controls, .facets-panel, .controls-row,
-    .wishlist-toggle, .grid-more { display: none !important; }
+    .wishlist-toggle, .share-btn, .grid-more { display: none !important; }
     .app { max-width: none; }
     main { padding: 0; }
     a[href^="http"]::after {

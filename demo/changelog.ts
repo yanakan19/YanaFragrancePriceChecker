@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.76.0',
+    date: '5 Oct 2026',
+    title: 'Share any fragrance with a friend',
+    points: [
+      'A Share button on every tile and product page',
+      'Copy the link or send it by WhatsApp, X and more',
+      'Nothing is sent until you choose where to share',
+    ],
+  },
+  {
     version: 'v3.75.0',
     date: '5 Oct 2026',
     title: 'A cleaner Notes list with Z to A',
