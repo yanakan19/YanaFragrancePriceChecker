@@ -34,6 +34,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { DEMO_FRAGRANCES, type DemoFragrance } from '../demo/data.js';
+import { eligibleForBottlePosts } from '../demo/productKind.js';
 import { offersFor, CRAWLED_AT } from '../demo/catalogue.generated.js';
 import { pickReferencePrice } from '../demo/referencePrice.js';
 import { msrpComparison } from '../demo/msrpComparison.js';
@@ -71,7 +72,7 @@ const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/London'
 
 /** The product page's own MSRP and cheapest boxes, or null if it shows either differently. */
 export function dealFor(frag: DemoFragrance): Pick | null {
-  if (frag.houseCeiling === null || !frag.photoUrl || frag.concentration === 'Perfume Oil') return null;
+  if (frag.houseCeiling === null || !frag.photoUrl || !eligibleForBottlePosts(frag)) return null;
   const rows = buildComparison(offersFor(frag.id), { sortBy: 'delivered' });
   const best = bestOffer(rows);
   if (!best || best.deliveredPriceGbp === null || !best.isPurchasable) return null;

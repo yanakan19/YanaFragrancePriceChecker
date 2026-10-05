@@ -26,6 +26,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { DEMO_FRAGRANCES } from '../demo/data.js';
+import { eligibleForBottlePosts } from '../demo/productKind.js';
 import { offersFor } from '../demo/catalogue.generated.js';
 import { resizedPhotoUrl } from '../demo/photo.js';
 import { buildComparison, bestOffer } from '../src/services/priceService.js';
@@ -77,7 +78,7 @@ function candidates(): Example[] {
   const forced = opt('--id');
   const out: Example[] = [];
   for (const frag of DEMO_FRAGRANCES) {
-    if (forced ? frag.id !== forced : !frag.photoUrl || frag.concentration === 'Perfume Oil') continue;
+    if (forced ? frag.id !== forced : !frag.photoUrl || !eligibleForBottlePosts(frag)) continue;
     const rows = buildComparison(offersFor(frag.id), { sortBy: 'delivered' });
     const cheap = bestOffer(rows);
     if (!cheap || cheap.deliveredPriceGbp === null || !cheap.isPurchasable || cheap.ageSeconds > MAX_AGE_HOURS * 3600) continue;

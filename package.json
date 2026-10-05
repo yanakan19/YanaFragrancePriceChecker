@@ -21,6 +21,7 @@
     "alerts:send": "tsx scripts/price-alerts.ts",
     "match:report": "tsx scripts/match-report.ts",
     "duplicates": "tsx scripts/find-duplicates.ts",
+    "sets-oils:report": "tsx scripts/sets-oils-report.ts",
     "demo": "tsc -p tsconfig.demo.json && tsx scripts/bundle-demo.ts && tsx scripts/build-demo.ts && tsx scripts/build-sitemap.ts",
     "catalogue": "tsx scripts/catalogue-run.ts",
     "catalogue:fixtures": "tsx scripts/catalogue-fixtures.ts",
