@@ -34,6 +34,7 @@
 rebuild   demo/catalogue.generated.ts         npm run catalogue:demo (scripts/build-demo-catalogue.ts)
 rebuild   demo/dormant.generated.ts           npm run catalogue:demo (scripts/build-demo-catalogue.ts)
 rebuild   data/id-aliases.json                npm run catalogue:demo (scripts/build-demo-catalogue.ts), reads its own last copy
+rebuild   data/product-slugs.json             npm run catalogue:demo (scripts/build-demo-catalogue.ts), reads its own last copy; a slug is never reassigned
 rebuild   demo/deals.generated.ts             npm run deals:build (scripts/build-deals.ts)
 rebuild   demo/priceHistory.generated.ts      npm run catalogue:history (scripts/build-price-history.ts)
 rebuild   data/price-history-checkpoint.json  npm run catalogue:history (scripts/priceHistoryReplay.ts)

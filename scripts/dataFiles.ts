@@ -60,7 +60,7 @@ export const LAZY_DATA_MODULES: Record<string, readonly string[]> = {
   // The same file carries ID_ALIASES (src/catalogue/idAliases.ts): the ids of
   // products folded into another, each with the id that holds it now. An
   // address that is not in the catalogue is the only thing that asks for it.
-  dormant: ['DORMANT_PRODUCTS', 'ID_ALIASES'],
+  dormant: ['DORMANT_PRODUCTS', 'ID_ALIASES', 'SLUG_ALIASES'],
 };
 
 /** A lazy data file: its module name and its path relative to the site root. */

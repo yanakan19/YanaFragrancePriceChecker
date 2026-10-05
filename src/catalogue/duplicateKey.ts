@@ -118,6 +118,9 @@ export function nameCore(name: string, brand: string, concentration?: string | n
     out = out.filter((w) => w !== 'extrait');
   }
   while (out.length > 1 && ['de', 'by', 'of', 'new'].includes(out[out.length - 1]!)) out.pop();
+  // "Edition" restates the name (same rule as identityWords in productMatch.ts):
+  // the word beside it ("Limited", "Collector", "Black Friday") still counts.
+  if (out.length > 1 && out.includes('edition')) out = out.filter((w) => w !== 'edition');
   return (out.length > 0 ? out : words).sort().join(' ');
 }
 

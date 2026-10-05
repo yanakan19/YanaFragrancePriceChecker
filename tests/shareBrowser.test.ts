@@ -346,9 +346,10 @@ describe.skipIf(!built)('the Share button and pop-up', () => {
             contentType: 'application/json',
             body: JSON.stringify({
               DORMANT_PRODUCTS: {
-                [id]: { brand: 'Test House', name: "Quiet Ember & Co", concentration: 'Eau de Parfum', sizeMl: 75, ean: null, image: null, older: [] },
+                [id]: { slug: 'test_house_quiet_ember_and_co_75ml', brand: 'Test House', name: "Quiet Ember & Co", concentration: 'Eau de Parfum', sizeMl: 75, ean: null, image: null, older: [] },
               },
               ID_ALIASES: {},
+              SLUG_ALIASES: {},
             }),
           }),
         );
