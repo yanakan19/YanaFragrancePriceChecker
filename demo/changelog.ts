@@ -17,13 +17,23 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
-    version: 'v3.78.0',
+    version: 'v3.79.0',
     date: '5 Oct 2026',
     title: 'Fragrantica links go to the right page',
     points: [
       'A search link now says Search Fragrantica',
       'Parfum and Cologne no longer use the main page',
       'Some men and women pages were mixed up, fixed',
+    ],
+  },
+  {
+    version: 'v3.78.0',
+    date: '5 Oct 2026',
+    title: 'A country and currency menu in the top bar',
+    points: [
+      'Sits just left of the account button',
+      'The UK and GBP are active, five more coming soon',
+      'Choosing nothing changes nothing, no cookies',
     ],
   },
   {
