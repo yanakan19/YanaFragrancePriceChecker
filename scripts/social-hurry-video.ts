@@ -72,7 +72,7 @@ await page.waitForTimeout(1500);
 // What the page itself says, read before drawing anything.
 const facts = await page.evaluate(() => {
   const text = (el: Element | null) => (el?.textContent ?? '').replace(/\s+/g, ' ').trim();
-  const rows = [...document.querySelectorAll('ul.offers li')].map((li) => text(li));
+  const rows = Array.from(document.querySelectorAll('ul.offers li')).map((li) => text(li));
   return { title: document.title, rows, head: text(document.querySelector('.hero')) };
 });
 console.log(facts.title);
@@ -129,7 +129,7 @@ const claims = await page.evaluate(() => {
   const rrp = money(/RRP\s*£([0-9.,]+)/.exec(heroText)?.[1]);
   const best = money(/Cheapest Price\s*£([0-9.,]+)/.exec(heroText)?.[1]);
   const shop = /from ([^]+?)(?:Notes|$)/.exec(heroText)?.[1]?.trim() ?? '';
-  const rows = [...document.querySelectorAll('ul.offers li')].map((li) => {
+  const rows = Array.from(document.querySelectorAll('ul.offers li')).map((li) => {
     const t = (li.textContent ?? '').replace(/\s+/g, ' ');
     return { t, price: money(/£([0-9]+\.[0-9]{2})(?!.*£[0-9]+\.[0-9]{2})/.exec(t)?.[1]) };
   });
