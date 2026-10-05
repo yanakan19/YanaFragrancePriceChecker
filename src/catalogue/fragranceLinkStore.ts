@@ -1,4 +1,5 @@
 import {
+  baseMayStandFor,
   fragranceBaseKey,
   fragranceLinkKey,
   fragranticaPath,
@@ -87,7 +88,9 @@ export function lookupLinks(
 ): ResolvedLinks {
   const own = table[fragranceLinkKey(brand, name, concentration)];
   const base = table[fragranceBaseKey(brand, name)];
-  const f = own?.[0] || base?.[0] || '';
+  // A perfume's main page stands for its other strengths only where baseMayStandFor allows it:
+  // never for a Parfum, an Extrait, a Cologne or an Eau Fraiche (audit of 2026-10-05).
+  const f = own?.[0] || (baseMayStandFor({ brand, name, concentration }) ? base?.[0] : '') || '';
   const o = own?.[1] || base?.[1] || '';
   return { fragrantica: f ? fragranticaUrlFromPath(f) : null, official: o || null };
 }
