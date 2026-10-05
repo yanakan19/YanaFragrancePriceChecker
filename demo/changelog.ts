@@ -17,13 +17,23 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
-    version: 'v3.76.0',
+    version: 'v3.77.0',
     date: '5 Oct 2026',
     title: 'Fewer split products, bundles are sets',
     points: [
       'Edition wording and US ounce sizes no longer split',
       'Bundles, duos and trios now sit under Gift Sets',
       'MYSLF Le Parfum no longer says Aftershave',
+    ],
+  },
+  {
+    version: 'v3.76.0',
+    date: '5 Oct 2026',
+    title: 'Share any fragrance with a friend',
+    points: [
+      'A Share button on every tile and product page',
+      'Copy the link or send it by WhatsApp, X and more',
+      'Nothing is sent until you choose where to share',
     ],
   },
   {

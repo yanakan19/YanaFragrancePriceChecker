@@ -313,7 +313,7 @@ export const COMPANY = {
    * The day these pages last changed. When ads switch on, their advertising
    * sections appear, so the date moves to ADS_SWITCHED_ON (demo/ads.ts).
    */
-  updated: ADS_ON && ADS_SWITCHED_ON ? ADS_SWITCHED_ON : '4 October 2026',
+  updated: ADS_ON && ADS_SWITCHED_ON ? ADS_SWITCHED_ON : '5 October 2026',
 } as const;
 
 /** Storage this site writes in the reader's browser, listed on the cookies page. */
@@ -671,7 +671,13 @@ export const LEGAL_PAGES: LegalPage[] = [
         <li><strong>Trustpilot reviews.</strong> On a shop's page you may see
         a button offering that shop's Trustpilot rating. Nothing loads from
         Trustpilot until you press it; when you do, your browser fetches their
-        widget from their servers under Trustpilot's own privacy policy.</li>${ADS_TEXT.collectItem}
+        widget from their servers under Trustpilot's own privacy policy.</li>
+        <li><strong>Share buttons.</strong> The Share button on a fragrance
+        opens a small window with its link. Nothing is sent to us or to anyone
+        else until you choose one of the apps or sites in it, or More. Copy
+        only puts the link on your own clipboard. A share choice opens the
+        app or site you chose, or your phone's own share sheet, and what
+        happens next is under their privacy policy.</li>${ADS_TEXT.collectItem}
       </ul>
       <p>We never see your payment details. Buying happens on the shop's own
       site, under their privacy policy rather than ours.</p>
@@ -769,6 +775,10 @@ export const LEGAL_PAGES: LegalPage[] = [
         show that shop's Trustpilot rating. Nothing is fetched from Trustpilot
         until you press it. When you do, their widget loads from their servers
         and may set cookies of its own, under Trustpilot's policy.</li>
+        <li><strong>Share targets.</strong> The Share window on a fragrance
+        only builds links. Nothing is sent until you choose one of the apps or
+        sites in it, or More, which opens that app or site, or your phone's
+        own share sheet, under its own policy and cookies.</li>
         <li><strong>Affiliate networks.</strong> Clicking a link marked
         Affiliate link takes you to the shop by way of the network, which may
         set a cookie on its own or the shop's site to match a purchase to us.
