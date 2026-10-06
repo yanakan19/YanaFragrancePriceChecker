@@ -305,6 +305,14 @@ export interface GiftSetRecord {
   mainMl?: number;
   bundle?: true;
   from?: 'description';
+  /** Letters for what is in the box besides fragrances: b body, d deodorant, w wash. */
+  box?: string;
+  /** Two or more fragrances. */
+  multi?: true;
+  /** A miniature or discovery set. */
+  mini?: true;
+  /** How many things the contents name. */
+  items?: number;
 }
 
 export function giftSetRecord(l: { rawTitle: string; description?: string | null; productType?: string | null }): GiftSetRecord {
@@ -315,8 +323,19 @@ export function giftSetRecord(l: { rawTitle: string; description?: string | null
     ...(f.mainMl !== null ? { mainMl: f.mainMl } : {}),
     ...(f.bundle ? { bundle: true as const } : {}),
     ...(f.from === 'description' && f.contents ? { from: 'description' as const } : {}),
+    ...(f.box ? { box: f.box } : {}),
+    ...(f.multi ? { multi: true as const } : {}),
+    ...(f.miniature ? { mini: true as const } : {}),
+    ...(f.items !== null ? { items: f.items } : {}),
   };
 }
+
+/** What the contents list decides, which goes with the contents it was read from. */
+const derived = (r: GiftSetRecord): Partial<GiftSetRecord> => ({
+  ...(r.box ? { box: r.box } : {}),
+  ...(r.multi ? { multi: true as const } : {}),
+  ...(r.items !== undefined ? { items: r.items } : {}),
+});
 
 /**
  * The record of a set sold by two shops: the first shop's, filled in by a later
@@ -327,10 +346,11 @@ export function giftSetRecord(l: { rawTitle: string; description?: string | null
 export function mergeGiftSetRecords(existing: GiftSetRecord, incoming: GiftSetRecord): GiftSetRecord {
   const fill = existing.contents === null && incoming.contents !== null;
   const base: GiftSetRecord = fill
-    ? { contents: incoming.contents, title: incoming.title, ...(incoming.from ? { from: incoming.from } : {}) }
-    : { contents: existing.contents, title: existing.title, ...(existing.from ? { from: existing.from } : {}) };
+    ? { contents: incoming.contents, title: incoming.title, ...derived(incoming), ...(incoming.from ? { from: incoming.from } : {}) }
+    : { contents: existing.contents, title: existing.title, ...derived(existing), ...(existing.from ? { from: existing.from } : {}) };
   const mainMl = existing.mainMl ?? incoming.mainMl;
   if (mainMl !== undefined) base.mainMl = mainMl;
   if (existing.bundle || incoming.bundle) base.bundle = true;
+  if (existing.mini || incoming.mini) base.mini = true;
   return base;
 }
