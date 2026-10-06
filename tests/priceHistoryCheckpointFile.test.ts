@@ -14,10 +14,10 @@ import {
   decodeCheckpoint,
   encodeCheckpoint,
   EXTERNAL_HISTORY_FILE_VERSION,
-  priceHistoryLiteral,
   readCheckpointFile,
   writeCheckpointFile,
 } from '../scripts/priceHistoryCheckpointFile.js';
+import { historyFromGenerated } from '../scripts/priceHistoryFile.js';
 import {
   CHECKPOINT_PATH, CHECKPOINT_VERSION, OUTPUT_PATH, fromCheckpoint, render, resumeFrom, ruleModules, type Checkpoint,
 } from '../scripts/priceHistoryReplay.js';
@@ -220,10 +220,8 @@ describe('version 3: the checkpoint without its copy of the history', () => {
     expect(JSON.stringify(readCheckpointFile(d))).toBe(JSON.stringify(sample()));
   });
 
-  it('finds the history literal in the real generated file', () => {
-    const literal = priceHistoryLiteral(readFileSync(join(REPO_ROOT, OUTPUT_PATH), 'utf8'))!;
-    expect(literal.startsWith('{')).toBe(true);
-    expect(literal.endsWith('}')).toBe(true);
-    expect(() => JSON.parse(literal)).not.toThrow();
+  it('finds the history in the real generated file', () => {
+    const history = historyFromGenerated(readFileSync(join(REPO_ROOT, OUTPUT_PATH), 'utf8'))!;
+    expect(Object.keys(history).length).toBeGreaterThan(1000);
   });
 });

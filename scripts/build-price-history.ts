@@ -107,6 +107,7 @@
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeGenerated } from './generatedFiles.js';
+import { compactHistoryBody } from './priceHistoryFile.js';
 import {
   CHECKPOINT_MAX_COMMITS_BEHIND,
   CHECKPOINT_MAX_HOURS_BEHIND,
@@ -173,8 +174,11 @@ console.log(
     `${gaps.never} never priced, ${gaps['sold-out']} priced only while out of stock, ${gaps['not-enough']} exactly one buyable reading`,
 );
 
-writeGenerated(root, OUTPUT_PATH, rendered.body);
-console.log(`\n${OUTPUT_PATH} written (${(rendered.body.length / 1024).toFixed(0)} kB)`);
+// Each commit time and shop written once (scripts/priceHistoryFile.ts): the
+// same series on import, a third of the bytes.
+const generatedBody = compactHistoryBody(rendered.body);
+writeGenerated(root, OUTPUT_PATH, generatedBody);
+console.log(`\n${OUTPUT_PATH} written (${(generatedBody.length / 1024).toFixed(0)} kB)`);
 // Written in the compact form (scripts/priceHistoryCheckpointFile.ts, outside
 // the replay's rules fingerprint, so neither it nor scripts/generatedFiles.ts
 // can force a full replay by being edited): `last` once for every fragrance
@@ -189,6 +193,6 @@ if (rewriteBecause === null) {
   const behind = decision.resume ? commits.length - decision.commitsReplayed : 0;
   console.log(`${CHECKPOINT_PATH} left as it is (${behind} commit(s) behind; rewritten at ${CHECKPOINT_MAX_COMMITS_BEHIND} commits or ${CHECKPOINT_MAX_HOURS_BEHIND} hours)`);
 } else {
-  const checkpointBytes = writeCheckpointFile(root, toCheckpoint(state, rules, commits), commits.at(-1)?.at, rendered.body);
+  const checkpointBytes = writeCheckpointFile(root, toCheckpoint(state, rules, commits), commits.at(-1)?.at, generatedBody);
   console.log(`${CHECKPOINT_PATH} written (${(checkpointBytes / 1024).toFixed(0)} kB) at commit ${commits.at(-1)?.sha.slice(0, 8)}: ${rewriteBecause}`);
 }
