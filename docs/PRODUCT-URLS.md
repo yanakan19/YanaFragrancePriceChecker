@@ -174,9 +174,14 @@ the old product's plain address is still held (never reassigned) it usually take
 the strength form. The old id and the old address both open it: the id through
 `data/id-aliases.json` (`listingIdForms` lists the SKU form, the barcode form and,
 for a set, the title form), the address through `SLUG_ALIASES`. Checked on the
-rebuilt data after the first barcodes: every id and address Perfume Direct's 3,094
-products held before them still opens a page. The cost is that those products'
-published address moves once, and the old one redirects.
+rebuilt data once every Perfume Direct barcode was read (2026-10-06): every id and
+address its 3,094 products held before them still opens a page, 1,801 as
+themselves and 1,293 by redirect. The cost is that those products' published
+address moves once, and the old one redirects. One record needed help: a product
+folded one way before the barcode and the other way after left a pair
+(`lookfantastic-15742061` and `perfume-direct-50942pd`) that point at each other
+in the append only record, so the shipped map takes this build's own decision for
+an id whose recorded chain closes on itself (`settleIdAliases`).
 
 ### Both memory files are append only
 
