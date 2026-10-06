@@ -6931,24 +6931,30 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
     const hadFocus = subnav.contains(document.activeElement);
     subnav.dataset.drawn = subnavKey;
     subnav.innerHTML = inExplore
-      ? TAB_GROUPS.map((group) =>
+      ? `<div class="subnav-tabs" role="tablist" aria-label="Explore">${TAB_GROUPS.map((group) =>
           group
             .map(
               (t) =>
                 `<button class="subnavbtn ${state.tab === t.id ? 'on' : ''}" role="tab" aria-selected="${state.tab === t.id}" tabindex="${state.tab === t.id ? 0 : -1}" data-tab="${t.id}">${t.label}</button>`,
             )
             .join(''),
-        ).join(SUBNAV_GAP)
+        ).join(SUBNAV_GAP)}</div>`
       : '';
-    // Six tabs and the gap fit a desktop; on a phone the row scrolls, and the tab
-    // the reader is on is brought into view (centred where it can be) rather than
-    // left off either end of it. Set directly on the row, so the page itself never scrolls.
+    // Six tabs and the gap fit a desktop; on a phone the row scrolls. It is left at the
+    // start for the first group and just before the gap for the second, so the tab the
+    // reader is on and the gap between the groups are in view (on a phone 320 wide the
+    // last tab, All Notes, is the one case where the gap is scrolled off); a tab
+    // still off an edge is then brought in. Set directly on the row, so the page itself never scrolls.
     const here = subnav.querySelector<HTMLElement>('.subnavbtn.on');
     if (here && !subnav.hidden) {
       const rowBox = subnav.getBoundingClientRect();
-      const box = here.getBoundingClientRect();
-      const centred = box.left - rowBox.left + subnav.scrollLeft - (subnav.clientWidth - box.width) / 2;
-      subnav.scrollLeft = Math.max(0, Math.round(centred));
+      const inSecond = TAB_GROUPS[1]!.some((t) => t.id === state.tab);
+      // Second group: the row starts just before the gap, or at its end where the group is narrower than the row.
+      const gapAt = subnav.querySelector<HTMLElement>('.subnav-gap')?.getBoundingClientRect().left ?? rowBox.left;
+      subnav.scrollLeft = inSecond ? Math.min(subnav.scrollWidth, Math.max(0, Math.round(gapAt - rowBox.left + subnav.scrollLeft) - 12)) : 0;
+      const after = here.getBoundingClientRect();
+      if (after.left < rowBox.left) subnav.scrollLeft += Math.floor(after.left - rowBox.left);
+      else if (after.right > rowBox.right) subnav.scrollLeft += Math.ceil(after.right - rowBox.right);
       if (hadFocus) here.focus({ preventScroll: true });
     }
   }

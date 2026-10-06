@@ -704,10 +704,10 @@
   /* Second level nav, shown only inside Explore and its leaves. Scrolls
      sideways rather than wrapping, so five tabs never push the bar taller on
      a narrow phone. */
-  .subnav {
-    display: flex; gap: 20px; margin-top: 2px; overflow-x: auto;
+  .subnav { margin-top: 2px; overflow-x: auto;
     scrollbar-width: none; -webkit-overflow-scrolling: touch;
   }
+  .subnav-tabs { display: flex; gap: 20px; width: max-content; }
   .subnav::-webkit-scrollbar { display: none; }
   .subnav[hidden] { display: none; }
   /* The gap between the two groups of Explore tabs: a thin rule with room either side. Decorative. */
@@ -3465,7 +3465,7 @@
     <div role="search" class="quick-search">
       <input type="search" id="search" placeholder="Quick Search" aria-label="Quick search by fragrance name" />
     </div>
-    <nav class="subnav" id="subnav" role="tablist" aria-label="Explore" hidden></nav>
+    <nav class="subnav" id="subnav" aria-label="Explore" hidden></nav>
   </div>
 
   <!-- tabindex="-1" so the skip link can actually move focus here: without
