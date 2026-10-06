@@ -36,14 +36,17 @@ function svgWords(svg: string): string[] {
 const all = files(POSTS);
 
 describe('social posts', () => {
-  it('every post folder has a caption and an image source', () => {
+  it('every post folder has a caption and an image source (a video names its script in source.md)', () => {
     const folders = readdirSync(POSTS).filter((n) => statSync(join(POSTS, n)).isDirectory());
     expect(folders.length).toBeGreaterThan(0);
     for (const f of folders) {
       expect(f, `${f} is not named YYYY-MM-DD-name`).toMatch(/^\d{4}-\d{2}-\d{2}-[a-z0-9-]+$/);
       const inside = readdirSync(join(POSTS, f));
       expect(inside, `${f} has no caption.txt`).toContain('caption.txt');
-      expect(inside.some((n) => n.endsWith('.svg') || n.endsWith('.html')), `${f} has no .svg or .html`).toBe(true);
+      expect(
+        inside.some((n) => n.endsWith('.svg') || n.endsWith('.html') || n === 'source.md'),
+        `${f} has no .svg, .html or source.md`,
+      ).toBe(true);
     }
   });
 
