@@ -795,3 +795,25 @@ WordPress houses — pariscorner.ae especially, whose photos are 2048x2560
 and up to 1.1 MB — have only pre-cut `-300x300` copies, which are crops,
 not resizes, and are missing for some images. Either would need the shop's
 say or a per-image check at build time, not a guess at runtime.
+
+## 8. Better photos from the shop's own page (built 2026-10-05, docs/DECISIONS.md D25)
+
+Perfume Click's feed image is a thumbnail (106 to 195 pixels wide, 130 high). Its
+product page shows a bigger file of the same photo, `<id>_xl_1.jpg`, 322 to 445
+pixels on the long edge. `npm run photos:better` (scripts/better-photos.ts) reads
+that page for every listing whose product has no other shop's photo, as
+PriceSniffsBot, one request a second, robots.txt of the shop and its image host
+obeyed, and writes data/better-photos.json: the picture, its size, the page it
+was read from and the source that found it (`perfume-click-page`).
+
+- The build (`listingImage()` in scripts/build-demo-catalogue.ts) uses a record in
+  place of the feed's image while its source is `enabled` in
+  src/config/photoSources.ts, the shop still has an `imageBasis`, and the feed's
+  image is still the one the record was made for. Set the source to `false` and
+  rebuild to switch it off; nothing in the data file needs deleting.
+- A listing is read again only when it has no record for its current feed image;
+  a page that gave no picture is not asked again for 30 days.
+- Re-run it after an Awin feed sync, then `npm run rebuild`, and commit the data
+  file with the rebuilt generated files. It is not a workflow step yet.
+- Perfume Click's photos, with or without this, are still the last resort in
+  `pickImage` (`LAST_RESORT_IMAGE_RETAILERS`): any other shop's photo wins.

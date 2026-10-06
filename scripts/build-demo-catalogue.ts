@@ -59,6 +59,7 @@ import {
   listingIdForms,
   productIdsIn,
   settleIdAliases,
+  assertAppendOnly,
   type IdAliasFile,
 } from '../src/catalogue/idAliases.js';
 import { assignSlugs, slugAliases, type SlugFile, type SlugProduct } from '../src/catalogue/productSlug.js';
@@ -94,6 +95,7 @@ import {
 } from '../src/catalogue/productName.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
 import { pickImage, upgradeImageResolution, type ImageBoxVerdict, type ImageDimensions } from '../src/catalogue/pickImage.js';
+import { betterPhotoFor, type BetterPhoto } from '../src/catalogue/betterPhotos.js';
 import { bottleScaleStyle, type SilhouetteBox } from '../src/catalogue/bottleScale.js';
 import { rejectPlaceholderImage } from '../src/catalogue/placeholderImage.js';
 
@@ -181,6 +183,27 @@ if (existsSync(imageBoxVerdictsPath)) {
     }
     storedUrlByUpgraded.set(upgradeImageResolution(url) ?? url, url);
   }
+}
+
+/**
+ * data/better-photos.json (scripts/better-photos.ts): a bigger picture the
+ * shop's own page gives for a listing whose feed image is a thumbnail, or that
+ * has none. Used in place of the feed's image while its source is switched on
+ * in src/config/photoSources.ts and the shop has an `imageBasis`; see
+ * betterPhotoFor() for what makes a record stop applying. The picture's
+ * measured size goes into `imageDimensions` so pickImage ranks it by what it is.
+ * Missing file is not an error: every listing then keeps its feed image.
+ */
+const betterPhotosPath = resolve(root, 'data/better-photos.json');
+const betterPhotos: Record<string, BetterPhoto> = existsSync(betterPhotosPath)
+  ? (JSON.parse(readFileSync(betterPhotosPath, 'utf8')) as { photos?: Record<string, BetterPhoto> }).photos ?? {}
+  : {};
+/** The image a listing shows: its better photo when one applies, else its feed image minus placeholders. */
+function listingImage(l: { retailerId: string; retailerSku: string; imageUrl: string | null }): string | null {
+  const better = betterPhotoFor(betterPhotos, l.retailerId, l.retailerSku, l.imageUrl ?? null, (id) => IMAGE_ALLOWED.has(id));
+  if (better === null) return rejectPlaceholderImage(l.imageUrl);
+  imageDimensions.set(better.url, { width: better.width, height: better.height });
+  return better.url;
 }
 
 /**
@@ -993,7 +1016,7 @@ for (const { retailer, listings } of eligible) {
       // harvested BEFORE that fix, which persist until the hourly crawl
       // overwrites them. Same shared list either way — see
       // src/catalogue/placeholderImage.ts — never a second copy of it.
-      imageUrl: rejectPlaceholderImage(l.imageUrl),
+      imageUrl: listingImage(l),
       description: l.description ?? null,
       rating: l.rating ?? null,
       sizeMl: size,
@@ -2372,7 +2395,7 @@ for (const [id, listings] of [...dormantListings].sort((a, b) => a[0].localeComp
     retailerId: l.retailerId,
     imageUrl:
       IMAGE_ALLOWED.has(l.retailerId) || isBrandDirectOffer(l.retailerId, facts.brand)
-        ? rejectPlaceholderImage(l.imageUrl)
+        ? listingImage(l)
         : null,
     fetchedAt: l.lastSeenAt,
   }));
@@ -2440,6 +2463,8 @@ const idAliasesPath = resolve(root, 'data/id-aliases.json');
 const previousIdAliases: Record<string, string> = existsSync(idAliasesPath)
   ? (JSON.parse(readFileSync(idAliasesPath, 'utf8')) as IdAliasFile).aliases
   : {};
+// What is on disk now, before any seed: the record may only grow from this.
+const idAliasesOnDisk: Record<string, string> = { ...previousIdAliases };
 // Which ids were pages before this build: the last catalogue and its pages with
 // no current prices (still in the working tree, since they are written only at
 // the foot of this file), plus any ids a re-seed names with
@@ -2461,13 +2486,12 @@ const seedAliasFlag = process.argv.indexOf('--seed-aliases');
 if (seedAliasFlag >= 0) {
   const seedFile = process.argv[seedAliasFlag + 1];
   if (!seedFile) throw new Error('--seed-aliases needs a file of "absorbed<TAB>survivor" lines');
-  // Oldest build first, so a later fold of the same id wins; the file's own
-  // earlier aliases are kept unless a fold says otherwise.
+  // Append only: a key the file already holds keeps its value; a seed adds keys.
   for (const line of readFileSync(seedFile, 'utf8').split('\n')) {
     const [from, to] = line.split('\t');
     // Only an id that was a page: a fold of two records in one build, neither
     // ever shown, is no address anyone held.
-    if (from && to && wasPage.has(from)) previousIdAliases[from] = to;
+    if (from && to && wasPage.has(from) && !Object.prototype.hasOwnProperty.call(previousIdAliases, from)) previousIdAliases[from] = to;
   }
 }
 const idAliasResult = settleIdAliases({
@@ -2477,7 +2501,10 @@ const idAliasResult = settleIdAliases({
   live: finalIds,
   dormant: new Set(Object.keys(dormantProducts)),
 });
-const idAliases = idAliasResult.aliases;
+// The record (data/id-aliases.json) only grows; the page serves the flat map.
+assertAppendOnly(idAliasesOnDisk, idAliasResult.aliases);
+const idAliasRecord = idAliasResult.aliases;
+const idAliases = idAliasResult.published;
 
 /* ── product addresses: /BRAND_NAME_VOLUME ──────────────────────────────────
    Every product with a page (the catalogue and the pages with no current
@@ -2860,7 +2887,7 @@ if (setMatchReport) {
   };
   writeGenerated(root, 'data/set-match-report.json', `${JSON.stringify(report, null, 1)}\n`);
 }
-writeGenerated(root, 'data/id-aliases.json', `${JSON.stringify({ aliases: idAliases }, null, 1)}\n`);
+writeGenerated(root, 'data/id-aliases.json', `${JSON.stringify({ aliases: idAliasRecord }, null, 1)}\n`);
 writeGenerated(root, 'data/product-slugs.json', `${JSON.stringify({ slugs: productSlugs }, null, 1)}\n`);
 console.log(
   `product addresses: ${slugResult.stats.kept} kept, ${slugResult.stats.fresh} given ` +
@@ -2917,7 +2944,7 @@ console.log(
     `(left out: ${olderOffersSkipped.notFragrance} not fragrance, ${olderOffersSkipped.noProductPage} for a product with no current offer and so no page, ${olderOffersSkipped.unpriced} unpriced or price scale withheld)` +
     `\n  ${Object.keys(dormantProducts).length} products with no current prices kept as pages of their own (${dormantSkipped.matchedALiveProduct} more hidden listings are the same bottle as a live product and ${dormantSkipped.ambiguousLiveMatch} could be two, so neither is a page); ${Object.values(dormantProducts).filter((d) => d.image !== null).length} have a photo` +
     `\n  ${Object.keys(historyAliases).length} products carry the price history of ids folded into them` +
-    `\n  ${Object.keys(idAliases).length} old product addresses open the product they were folded into (${idAliasResult.fresh} from this build's merges, ${idAliasResult.carried} kept from earlier builds, ${idAliasResult.dropped} dropped because their product is gone; ${idAliasResult.neverAPage} merged ids were never a page, so are not published)` +
+    `\n  ${Object.keys(idAliases).length} old product addresses open the product they were folded into; ${Object.keys(idAliasRecord).length} recorded, append only (${idAliasResult.fresh} added by this build's merges, ${idAliasResult.carried} kept from earlier builds, ${idAliasResult.healed} chain links added, ${idAliasResult.pageAgain} are a page again so the page wins, ${idAliasResult.unresolved} lead to no page now and are kept unpublished; ${idAliasResult.neverAPage} merged ids were never a page, so are not published)` +
     (skippedShops.length
       ? `\n  skipped: ${skippedShops.join(', ')}`
       : ''),
