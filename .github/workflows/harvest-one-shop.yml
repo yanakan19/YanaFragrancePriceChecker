@@ -75,13 +75,30 @@ jobs:
       # checks for each itself and prints a clear line leaving that tier
       # unavailable when its secret is absent, so an environment with neither
       # still runs the free routes and still reports what they found.
+      #
+      # "Nothing harvested" is this probe's answer, not a failed run
+      # (2026-10-06): 44 of the first 65 runs went red only because the shop
+      # asked yielded no priced listing (a 403 sitemap, a disabled shop, an
+      # empty page), so a red probe said nothing about whether the code
+      # worked. The harvest exits 3 for exactly that case
+      # (scripts/harvestExit.ts); it becomes a warning naming the shop, and
+      # any other failure (a crash, a bad argument) stays red. The inputs go
+      # through env, not straight into the script, so a shop id is only ever
+      # a value.
       - name: Ask one shop
+        timeout-minutes: 15
         env:
           APIFY_PROXY_PASSWORD: ${{ secrets.APIFY_PROXY_PASSWORD }}
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          SHOP: ${{ inputs.shop }}
+          HARVEST_MAX: ${{ inputs.harvest_max }}
+          METERED: ${{ inputs.allow_metered && '--allow-metered' || '' }}
         run: |
-          npm run harvest -- \
-            --shop=${{ inputs.shop }} \
-            --max=${{ inputs.harvest_max }} \
-            --dry-run \
-            ${{ inputs.allow_metered && '--allow-metered' || '' }}
+          set +e
+          npm run harvest -- --shop="$SHOP" --max="$HARVEST_MAX" --dry-run $METERED
+          rc=$?
+          if [ "$rc" -eq 3 ]; then
+            echo "::warning::$SHOP yielded no priced listing on this probe (see the log above for what it answered). That is the probe's answer; nothing was written."
+            exit 0
+          fi
+          exit "$rc"

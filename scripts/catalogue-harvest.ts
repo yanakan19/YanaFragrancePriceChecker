@@ -100,6 +100,7 @@ import { DEFAULT_REFRESH_AFTER_HOURS, dueUrls, refreshAfterHoursFor, shopFreshne
 import type { ReportedFreshness } from '../src/catalogue/harvestReport.js';
 import type { RawListing, StoredListing } from '../src/catalogue/types.js';
 import type { Retailer } from '../src/types/retailer.js';
+import { NOTHING_HARVESTED } from './harvestExit.js';
 
 /** A file that may not exist yet, as text. Absence is not an error here. */
 function readFileIfPresent(path: string): string | null {
@@ -1750,5 +1751,7 @@ if (reached === 0) {
     process.exit(0);
   }
   console.error('Nothing harvested. Not writing anything rather than showing an empty app.');
-  process.exit(1);
+  // Its own code, so the one shop probe can report this as its answer rather
+  // than a red run (scripts/harvestExit.ts); still a failure for the crawl.
+  process.exit(NOTHING_HARVESTED);
 }

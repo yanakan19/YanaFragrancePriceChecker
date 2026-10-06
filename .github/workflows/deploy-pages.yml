@@ -78,16 +78,9 @@ permissions:
   contents: read
   pages: write
   id-token: write
-
-# Only one deployment at a time. A deployment already running is left to
-# finish, and only the newest waiting one runs after it (GitHub keeps one
-# waiting run per group), which is GitHub's own advice for Pages: cancelling
-# deploy-pages mid deployment can leave the next one refused while the
-# cancelled one is still "in progress" on GitHub's side. Every run builds the
-# branch's tip, so the one that runs last always publishes the newest prices.
-concurrency:
-  group: pages
-  cancel-in-progress: false
+  # The decide job cancels a deploy run stuck waiting for a runner
+  # (scripts/deploy-watchdog.mjs).
+  actions: write
 
 jobs:
   # Light: a checkout of commits and trees only, plain node, two small fetches.
@@ -110,6 +103,16 @@ jobs:
         with:
           node-version: '22'
 
+      # Deploy #1165 (2026-10-06) waited almost four hours for a runner it
+      # never got, holding the pages group, and ten deploys behind it were
+      # replaced: the site stayed four hours behind. A job's timeout counts
+      # only once a runner has it, so this ends such a wait instead.
+      - name: Cancel an older deploy stuck waiting for a runner
+        timeout-minutes: 3
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/deploy-watchdog.mjs
+
       - id: decide
         name: Decide whether the page could have changed
         timeout-minutes: 3
@@ -121,6 +124,18 @@ jobs:
     needs: decide
     if: needs.decide.outputs.deploy == 'true'
     runs-on: ubuntu-latest
+    # Only one deployment at a time. A deployment already running is left to
+    # finish, and only the newest waiting one runs after it (GitHub keeps one
+    # waiting job per group), which is GitHub's own advice for Pages:
+    # cancelling deploy-pages mid deployment can leave the next one refused
+    # while the cancelled one is still "in progress" on GitHub's side. Every
+    # run builds the branch's tip, so the one that runs last always publishes
+    # the newest prices. The group is on this job, not the workflow
+    # (2026-10-06), so every run's decide job runs at once and can cancel a
+    # deploy stuck waiting for a runner (deploy-watchdog.mjs above).
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     # Checkout, install and build take about three minutes; the deployment
     # itself under one. A failed or stuck run is healed by the next (the
     # half hourly check deploys again while the live record is behind).

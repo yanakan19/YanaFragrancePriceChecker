@@ -157,10 +157,16 @@ describe('what it unlocks', () => {
     expect((CRAWLED[wild[0]!.id] ?? []).some((o) => o.retailerId === 'cult-beauty-global')).toBe(true);
   });
 
-  it('shows no Commodity perfume from Cult Beauty: the house names no strength, so none is put on it', () => {
+  // The rule, not a snapshot of today's listings: this pinned "no Commodity
+  // product from Cult Beauty at all" and failed when the shop's discovery kits
+  // arrived as gift sets (2026-10-06), which carry no strength and are right.
+  it('shows no Commodity bottle from Cult Beauty and puts no strength on anything of theirs there: the house names none', () => {
     const fromCult = CATALOGUE.filter(
       (p) => p.brand === 'Commodity' && (CRAWLED[p.id] ?? []).some((o) => o.retailerId === 'cult-beauty-global'),
     );
-    expect(fromCult.map((p) => `${p.name} ${p.concentration}`)).toEqual([]);
+    for (const p of fromCult) {
+      expect(p.concentration, p.id).toBe(CONCENTRATION_NOT_STATED);
+      expect(p.giftSet, `${p.id} is a single bottle with no stated strength`).toBeTruthy();
+    }
   });
 });
