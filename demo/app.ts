@@ -61,7 +61,7 @@ import type { Retailer, RetailerTier, LogoRef } from '../src/types/retailer.js';
 import { logoFor } from './brandLogos.js';
 import {
   DEMO_FRAGRANCES, BY_POPULARITY, DEALS, NOTE_INDEX, noteForAddress,
-  brandTierFor, fragranceById, fragranceBySlug, fragrancesAt, listingCountAt, fragrancesWithNote, lowestPrice, compareVariants, shopIdsOf,
+  brandTierFor, fragranceById, fragranceBySlug, fragrancesAt, listingCountAt, fragrancesWithNote, lowestPrice, compareVariants, shopIdsOf, shopNameOf,
   type Deal, type DemoFragrance, type NoteLayer,
 } from './data.js';
 import { productArt, photoSrcAttrs, HOUSE_IMG_SIZES, RETRY_ORIGINAL, type ArtSize } from './photo.js';
@@ -73,6 +73,7 @@ import {
   sortFragrances, sortNotes, type BrowseSort, type ListSort, type NoteSort,
 } from './listSort.js';
 import { pricePerMl, pricePerMlLabel, slugOf } from './tabFacets.js';
+import { otherOilSizes, shopTitleOf, siblingSets, sprayVersion, valueLine } from './setPage.js';
 import { TAB_SEARCH_ID, TAB_SORT_ID, createTabs, isTabKind, type TabKind } from './tabPanels.js';
 import {
   TICKED, fixedOptions, liftFacet, namedSelect, runFacets, selFromQuery, selToQuery, withChosen, withValue,
@@ -1148,13 +1149,49 @@ function productHead(f: DemoFragrance, tag = 'span', nameRole = 't-title'): stri
  * out, the shop's own title is shown instead of a guess.
  */
 function giftSetBlock(f: DemoFragrance): string {
-  if (!f.giftSet) return '';
+  if (!f.giftSet) return oilBlock(f);
   const contents = f.giftSet.contents
-    ? `<p class="giftset-contents t-body"><span class="giftset-label">In this set:</span> ${esc(f.giftSet.contents.join(', '))}</p>`
+    ? `<p class="giftset-contents t-body"><span class="giftset-label">In this set:</span></p>
+      <ul class="giftset-list t-body">${f.giftSet.contents.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>`
     : `<p class="giftset-contents t-body"><span class="giftset-label">As the shop lists it:</span> ${esc(f.giftSet.title)}</p>`;
+  const value = valueLine(f);
+  const valueHtml = value
+    ? `<p class="giftset-value t-body">At ${esc(value.shopName)} this set is ${formatGbp(value.setPrice)}. The ${esc(sizeLabel(value.bottle))} ${esc(shortConcentration(value.bottle.concentration))} bottle alone is ${formatGbp(value.bottlePrice)} at the same shop. <button type="button" class="link-btn" data-frag="${esc(value.bottle.id)}">See the bottle</button></p>`
+    : '';
+  const sibs = siblingSets(f);
+  const sibsHtml = sibs.length
+    ? `<p class="giftset-more t-caption"><span class="giftset-label">More sets of this scent:</span> ${sibs
+        .map((s) => `<button type="button" class="link-btn" data-frag="${esc(s.id)}">${esc(s.giftSet?.contents ? s.giftSet.contents.slice(0, 2).join(' and ') : s.name)}</button>`)
+        .join(', ')}</p>`
+    : '';
   return `<div class="giftset-block">
       ${contents}
-      <p class="giftset-note t-caption">Gift set prices are compared only with this same set, never with a single bottle.</p>
+      <p class="giftset-note t-caption">${f.giftSet.bundle ? 'Bundle' : 'Gift set'} prices are compared only with this same set, never with a single bottle.</p>
+      ${valueHtml}${sibsHtml}
+    </div>`;
+}
+
+/**
+ * What an oil's own page says: its format and whether it is alcohol free, each only
+ * where a shop stated it and naming that shop; the price of a millilitre at the
+ * cheapest shop; other sizes of the same oil; and a link to the spray of the same
+ * scent where the catalogue holds one. Links only, never a merge with the spray.
+ */
+function oilBlock(f: DemoFragrance): string {
+  if (!isOil(f)) return '';
+  const facts: string[] = [];
+  const o = f.oil;
+  if (o?.format) facts.push(`${o.format === 'roll-on' ? 'Roll On' : 'Dropper'}${o.formatBy ? ` <span class="t-caption">as ${esc(shopNameOf(o.formatBy))} describes it</span>` : ''}`);
+  if (o?.alcoholFree) facts.push(`Alcohol Free${o.alcoholFreeBy ? ` <span class="t-caption">as ${esc(shopNameOf(o.alcoholFreeBy))} describes it</span>` : ''}`);
+  const per = pricePerMl(f);
+  if (per !== null) facts.push(`${pricePerMlLabel(per)} <span class="t-caption">at the cheapest shop</span>`);
+  const sizes = otherOilSizes(f);
+  const spray = sprayVersion(f);
+  if (facts.length === 0 && sizes.length === 0 && !spray) return '';
+  return `<div class="giftset-block oil-block">
+      ${facts.length ? `<ul class="giftset-list t-body">${facts.map((x) => `<li>${x}</li>`).join('')}</ul>` : ''}
+      ${sizes.length ? `<p class="giftset-more t-caption"><span class="giftset-label">Other sizes:</span> ${sizes.map((s) => `<button type="button" class="link-btn" data-frag="${esc(s.id)}">${esc(sizeLabel(s))}</button>`).join(', ')}</p>` : ''}
+      ${spray ? `<p class="giftset-more t-caption"><button type="button" class="link-btn" data-frag="${esc(spray.id)}">The spray version</button></p>` : ''}
     </div>`;
 }
 
@@ -1741,6 +1778,7 @@ function offerRow(
   isBest: boolean,
   bestTag: string | null = 'Cheapest',
   msrp: MsrpComparison | null = null,
+  listedAs: string | null = null,
 ): string {
   // The shop's RRP restated against the figure printed below, so the struck
   // through RRP and the big number beside it can be checked against each
@@ -1831,6 +1869,9 @@ function offerRow(
         d && canShowCountdown(d)
           ? `<span class="offer-bot"><span class="ends">Offer ${esc(countdown(d.endsAt!))}</span></span>`
           : ''
+      }${
+        // A set's page names what each shop calls it, so two shops' wording can be compared.
+        listedAs ? `<span class="offer-bot"><span class="facts t-caption">Listed as: ${esc(listedAs)}</span></span>` : ''
       }
     </a>
   </li>`;
@@ -2909,21 +2950,21 @@ function detailView(): string {
 
         ${
           delivered.length
-            ? `<ul class="offers">${delivered.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
+            ? `<ul class="offers">${delivered.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null, shopTitleOf(frag, r.retailer.id))).join('')}</ul>`
             : ''
         }
 
         ${
           plusDelivery.length
             ? `<p class="gone-head t-eyebrow">Delivery Not Included</p>
-               <ul class="offers">${plusDelivery.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
+               <ul class="offers">${plusDelivery.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null, shopTitleOf(frag, r.retailer.id))).join('')}</ul>`
             : ''
         }
 
         ${
           gone.length
             ? `<p class="gone-head t-eyebrow">Sold Out</p>
-               <ul class="offers">${gone.map((r) => offerRow(r, false, 'Cheapest', mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
+               <ul class="offers">${gone.map((r) => offerRow(r, false, 'Cheapest', mayNameMsrp ? msrpFor(r, frag) : null, shopTitleOf(frag, r.retailer.id))).join('')}</ul>`
             : ''
         }
 
@@ -2933,7 +2974,7 @@ function detailView(): string {
           // in the heading's count (see offerGroups).
           preOrder.length
             ? `<p class="gone-head t-eyebrow">Preorder</p>
-               <ul class="offers">${preOrder.map((r) => offerRow(r, false, 'Cheapest', mayNameMsrp ? msrpFor(r, frag) : null)).join('')}</ul>`
+               <ul class="offers">${preOrder.map((r) => offerRow(r, false, 'Cheapest', mayNameMsrp ? msrpFor(r, frag) : null, shopTitleOf(frag, r.retailer.id))).join('')}</ul>`
             : ''
         }
 
