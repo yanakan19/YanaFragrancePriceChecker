@@ -53,6 +53,11 @@ export type AdapterStrategy =
   | 'proxied'
   /** Product feed from the affiliate network is the source of truth. */
   | 'affiliate-feed'
+  /**
+   * Pages the owner saved by hand are the source (scripts/import-notino-pages.ts).
+   * The harvest and probe skip it, like a feed shop: nothing is fetched.
+   */
+  | 'owner-import'
   /** Not yet determined — the Phase 0 spike has not covered this retailer. */
   | 'unknown';
 

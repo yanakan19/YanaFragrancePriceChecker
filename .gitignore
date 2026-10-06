@@ -14,6 +14,10 @@ dist-demo/
 # build (scripts/deploy-decision.mjs record), published, never committed.
 /demo/build-state.json
 coverage/
+# Pages the owner saves from notino.co.uk (docs/OWNER-STEPS.md). Raw pages can
+# hold account details, so they are never committed; scripts/import-notino-pages.ts
+# keeps product facts only.
+/data/notino-inbox/
 # `npm run screenshot` writes here by default. See scripts/screenshot.ts: these
 # are megabytes each and go stale the moment the catalogue is harvested again.
 screenshots/

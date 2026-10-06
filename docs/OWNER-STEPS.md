@@ -695,3 +695,35 @@ holds the secret and answers only you.
   **restricted key** with read access to balances, charges and subscriptions
   only, store it the same way, then tell me. The card then shows
   subscribers, payments and refunds.
+
+---
+
+## 9. Notino: bring its prices back from pages you save (optional, 5 minutes a week)
+
+Notino blocks automatic readers, so its prices are off the site. Until the
+CJ affiliate route in `docs/NOTINO-PLAN.md` is approved, you can keep a few
+products visible by saving Notino pages yourself. Notino's terms may limit
+copying, so keep it small and occasional, and stop if Notino objects.
+
+1. Open a **private (incognito) window** in your browser and go to
+   notino.co.uk. Do not log in. A private window means no account, name or
+   email is in the page.
+2. Open a brand page, a search results page or a single product page. Scroll
+   down once so the list has loaded, and click the size you want on a product
+   page (each size is its own price).
+3. Save it: **Ctrl+S** (Cmd+S on a Mac), choose "Webpage, HTML only" or
+   "Webpage, Complete", and save it into the folder `data/notino-inbox/` in
+   the project (make the folder if it is not there). One file per page. The
+   file's saved time is taken as the day you read the prices.
+4. Run `npm run notino:import`. It lists each file with how many products it
+   found, and refuses a "Just a moment" page or a page from another site. Add
+   `-- --dry-run` to look without saving.
+5. Prices show for 7 days after the day you saved the page, so repeat weekly.
+   The pages are never committed: the folder is ignored, and the importer
+   keeps only product facts (name, brand, size, barcode, price, stock, image,
+   notes, delivery) and discards everything else. Delete the saved files when
+   done.
+6. The shop is still switched off on the site (`enabled: false` in
+   `src/config/retailers.ts`). When you want Notino to appear again, tell me
+   and I will switch it on; it will not start crawling, its only source is
+   these saved pages.
