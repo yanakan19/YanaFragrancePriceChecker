@@ -118,6 +118,12 @@ export async function auditRoute(
     await page.goto(`http://127.0.0.1:${port}${route}`, { waitUntil: 'load' });
     await waitForApp(page);
     await page.waitForTimeout(500);
+    // The view fades in (.ps-rise). axe reads the blended colour of anything
+    // mid-fade, which fails marginal pairs such as an initials tile on a slow
+    // run, so wait for every animation to finish first.
+    await page.evaluate(
+      `Promise.all(document.getAnimations().filter((a) => a.effect.getComputedTiming().iterations !== Infinity).map((a) => a.finished.catch(() => undefined)))`,
+    );
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'])
       .analyze();

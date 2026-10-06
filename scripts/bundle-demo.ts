@@ -55,11 +55,15 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { build, type Plugin } from 'esbuild';
 import { inlineShopTimes, moveLiteralsToJson } from './dataLiterals.js';
 import { BLOBS_GLOBAL, LAZY_DATA_MODULES, type DataGroup, type DataManifest } from './dataFiles.js';
+import { applyNumbering, localMarker, numberGroups } from './dataNumbering.js';
 import { pruneContext, pruneMovedBlobs, removedSets, resolveSiteBuild } from './siteBuild.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const blobs: unknown[] = [];
-const groups: DataGroup[] = [];
+// Each module's literals, numbered from 0 within the module while esbuild loads
+// them (in whatever order they finish). They get their global numbers by module
+// name after the build (scripts/dataNumbering.ts), so the output never depends
+// on that order.
+const perModule = new Map<string, unknown[]>();
 const report: string[] = [];
 
 // The developer dashboard's switches for this build (scripts/siteBuild.ts):
@@ -85,16 +89,15 @@ const dataAsJson: Plugin = {
       // is what it was before the module stored each shop's time once
       // (scripts/dataLiterals.ts). Any other module comes back unchanged.
       const source = inlineShopTimes(await readFile(args.path, 'utf8'));
-      // Nothing may await between reading `start` and the move: that is what
-      // keeps this module's blobs contiguous while esbuild loads others.
-      const start = blobs.length;
-      const { code, moved } = moveLiteralsToJson(source, blobs);
       const name = args.path.split('/').pop()!;
-      pruneMovedBlobs(name.replace(/\.generated\.js$/, ''), moved, blobs, start, removed, prune);
-      if (moved.length) {
-        groups.push({ name: name.replace(/\.generated\.js$/, ''), start, count: moved.length });
-        report.push(`${name}: ${moved.length} literal(s) moved`);
-      }
+      const module = name.replace(/\.generated\.js$/, '');
+      if (perModule.has(module)) throw new Error(`two modules are named ${module}.generated`);
+      const local: unknown[] = [];
+      const { code: moved_, moved } = moveLiteralsToJson(source, local);
+      pruneMovedBlobs(module, moved, local, 0, removed, prune);
+      perModule.set(module, local);
+      if (moved.length) report.push(`${name}: ${moved.length} literal(s) moved`);
+      const code = moved_.replace(/__psData\((\d+)\)/g, (_m, i: string) => localMarker(module, Number(i)));
       return { contents: code, loader: 'js' };
     });
   },
@@ -117,7 +120,15 @@ await build({
   logLevel: 'warning',
 });
 
-groups.sort((a, b) => a.start - b.start);
+const groups: DataGroup[] = numberGroups(new Map([...perModule].map(([k, v]) => [k, v.length])));
+const blobs: unknown[] = groups.flatMap((g) => perModule.get(g.name)!);
+{
+  const bundlePath = resolve(root, 'dist-demo/bundle.js');
+  const { code, swapped } = applyNumbering(await readFile(bundlePath, 'utf8'), groups);
+  if (swapped !== blobs.length) throw new Error(`bundle.js uses ${swapped} data lookup(s) but ${blobs.length} literal(s) were moved`);
+  await writeFile(bundlePath, code);
+}
+report.sort();
 await rm(resolve(root, 'dist-demo/data'), { recursive: true, force: true });
 await rm(resolve(root, 'dist-demo/data.json'), { force: true });
 await mkdir(resolve(root, 'dist-demo/data'), { recursive: true });
