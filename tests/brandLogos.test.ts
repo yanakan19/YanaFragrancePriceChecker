@@ -393,15 +393,17 @@ describe('owner supplied brand logos are hosted PNGs on solid white', () => {
   const brandsDir = resolve(root, 'demo/logos/brands');
   const owned = Object.entries(BRAND_LOGOS).filter(([, l]) => l.src.startsWith('/logos/brands/'));
 
-  it('covers the five houses the owner sent files for', () => {
-    expect(owned.map(([k]) => k).sort()).toEqual(['al haramain', 'giorgio armani', 'jean paul gaultier', 'tom ford', 'versace']);
+  it('covers the first five houses the owner sent files for', () => {
+    for (const k of ['al haramain', 'giorgio armani', 'jean paul gaultier', 'tom ford', 'versace']) {
+      expect(owned.map(([key]) => key), k).toContain(k);
+    }
   });
 
   it.each(owned)('%s: owner supplied, recorded with who and when, no hyphens in the visible source', (_key, logo) => {
     expect(logo.basis).toBe('owner-supplied');
     expect(logo.source).toMatch(/site owner/);
     expect(logo.source).not.toMatch(/[-‐-―−]/);
-    expect(logo.readAt).toBe('2026-10-05');
+    expect(logo.readAt).toMatch(/^2026-10-(0[5-9]|[12]\d|3[01])$/);
   });
 
   it.each(owned)('%s: a PNG with no transparency and pure white on all four corners', (key, logo) => {
