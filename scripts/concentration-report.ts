@@ -18,6 +18,7 @@
  * coming from twelve is the market's.
  */
 import { readdirSync, readFileSync } from 'node:fs';
+import { decodeSnapshot } from '../src/catalogue/store.js';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CATALOGUE, CRAWLED } from '../demo/catalogue.generated.js';
@@ -66,7 +67,7 @@ const raw: { retailerId: string; rawTitle: string }[] = [];
 const dir = resolve(root, 'data/catalogue');
 for (const file of readdirSync(dir)) {
   if (!file.endsWith('.json')) continue;
-  const parsed = JSON.parse(readFileSync(resolve(dir, file), 'utf8')) as StoredFile;
+  const parsed = decodeSnapshot(JSON.parse(readFileSync(resolve(dir, file), 'utf8'))) as StoredFile;
   for (const l of parsed.listings ?? []) {
     if (l.status === 'delisted' || !l.rawTitle) continue;
     raw.push({ retailerId: l.retailerId ?? file.replace(/\.json$/, ''), rawTitle: l.rawTitle });

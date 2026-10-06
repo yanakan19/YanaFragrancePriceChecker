@@ -39,7 +39,7 @@ export const CHANGELOG: ChangelogEntry[] = [
           'Filters: tick several at once, shown as chips',
           'Oils and Sets: filters, sorting, price per ml',
           'Set and oil pages: contents, links, bottle price',
-          'Many more brand pages show the real logo',
+          'Brands show a real logo, or an initials tile',
           'A shorter About page and a Legal Notice page',
           'Privacy notice covers our cookieless visit count',
           'Each shop row shows how long ago it was checked',
