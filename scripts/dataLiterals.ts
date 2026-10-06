@@ -185,6 +185,8 @@ export function moveLiteralsToJson(
   src: string,
   blobs: unknown[],
   minBytes = MIN_BYTES,
+  /** The expression that reads blob `n` of `blobs`; scripts/bundle-demo.ts passes a placeholder it numbers later. */
+  lookup: (n: number) => string = (n) => `__psData(${n})`,
 ): { code: string; moved: string[] } {
   const decl = /^(?:export )?const ([A-Za-z_$][\w$]*) = (?=[[{])/gm;
   let out = '';
@@ -206,7 +208,7 @@ export function moveLiteralsToJson(
     } catch {
       continue;
     }
-    out += src.slice(last, start) + `__psData(${blobs.length})`;
+    out += src.slice(last, start) + lookup(blobs.length);
     blobs.push(value);
     moved.push(m[1]!);
     last = end + 1;

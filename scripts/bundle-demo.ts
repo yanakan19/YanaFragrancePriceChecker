@@ -34,9 +34,10 @@
  * slower, never wrong.
  *
  * Numbering is global across modules, and each module's literals are numbered
- * contiguously (moveLiteralsToJson runs synchronously once a module's source
- * has been read), so a file is fully described by its module and the index of
- * its first blob.
+ * contiguously, so a file is fully described by its module and the index of its
+ * first blob. esbuild loads modules concurrently, so the numbers are assigned
+ * after the build, in module name order, by rewriting placeholders in the
+ * bundle: the same data always gives the same bundle and loader list.
  *
  * ── Lazy modules ─────────────────────────────────────────────────────────────
  * A module in LAZY_DATA_MODULES (scripts/dataFiles.ts) is not bundled at all:
@@ -70,14 +71,25 @@ const site = await resolveSiteBuild(root);
 const removed = removedSets(site);
 const prune = pruneContext();
 
+// Blob indexes are not known while esbuild loads modules: it loads them
+// concurrently, so the order they finish reading in is not stable (two builds
+// of the same data once swapped deals and fragranceLinks). Each module's
+// literals are numbered from 0 here, as placeholders, and the final indexes
+// are assigned after the build in module name order.
+type Loaded = { name: string; blobs: unknown[]; moved: string[] };
+const loaded: Loaded[] = [];
+const toHex = (s: string): string => Buffer.from(s).toString('hex');
+const placeholder = (name: string, k: number): string => `__psData(__PSD_${toHex(name)}_${k})`;
+
 const dataAsJson: Plugin = {
   name: 'data-as-json',
   setup(b) {
     b.onLoad({ filter: /\.generated\.js$/ }, async (args) => {
-      const lazyName = args.path.split('/').pop()!.replace(/\.generated\.js$/, '');
-      if (Object.hasOwn(LAZY_DATA_MODULES, lazyName)) {
+      const file = args.path.split('/').pop()!;
+      const name = file.replace(/\.generated\.js$/, '');
+      if (Object.hasOwn(LAZY_DATA_MODULES, name)) {
         throw new Error(
-          `${lazyName}.generated is loaded on demand (LAZY_DATA_MODULES in scripts/dataFiles.ts) ` +
+          `${name}.generated is loaded on demand (LAZY_DATA_MODULES in scripts/dataFiles.ts) ` +
             'but the bundle imports it. Import its types only (`import type`), and read its data through demo/priceHistoryStore.ts.',
         );
       }
@@ -85,16 +97,9 @@ const dataAsJson: Plugin = {
       // is what it was before the module stored each shop's time once
       // (scripts/dataLiterals.ts). Any other module comes back unchanged.
       const source = inlineShopTimes(await readFile(args.path, 'utf8'));
-      // Nothing may await between reading `start` and the move: that is what
-      // keeps this module's blobs contiguous while esbuild loads others.
-      const start = blobs.length;
-      const { code, moved } = moveLiteralsToJson(source, blobs);
-      const name = args.path.split('/').pop()!;
-      pruneMovedBlobs(name.replace(/\.generated\.js$/, ''), moved, blobs, start, removed, prune);
-      if (moved.length) {
-        groups.push({ name: name.replace(/\.generated\.js$/, ''), start, count: moved.length });
-        report.push(`${name}: ${moved.length} literal(s) moved`);
-      }
+      const local: unknown[] = [];
+      const { code, moved } = moveLiteralsToJson(source, local, undefined, (k) => placeholder(name, k));
+      if (moved.length) loaded.push({ name, blobs: local, moved });
       return { contents: code, loader: 'js' };
     });
   },
@@ -117,7 +122,29 @@ await build({
   logLevel: 'warning',
 });
 
-groups.sort((a, b) => a.start - b.start);
+// Final numbering: modules in name order, each one's literals contiguous.
+loaded.sort((x, y) => (x.name < y.name ? -1 : x.name > y.name ? 1 : 0));
+const starts = new Map<string, number>();
+for (const m of loaded) {
+  const start = blobs.length;
+  starts.set(m.name, start);
+  blobs.push(...m.blobs);
+  pruneMovedBlobs(m.name, m.moved, blobs, start, removed, prune);
+  groups.push({ name: m.name, start, count: m.moved.length });
+  report.push(`${m.name}.generated.js: ${m.moved.length} literal(s) moved`);
+}
+const bundlePath = resolve(root, 'dist-demo/bundle.js');
+let placeholders = 0;
+const numbered = (await readFile(bundlePath, 'utf8')).replace(/__psData\(__PSD_([0-9a-f]+)_(\d+)\)/g, (_all, hex: string, k: string) => {
+  placeholders++;
+  const start = starts.get(Buffer.from(hex, 'hex').toString());
+  if (start === undefined) throw new Error(`bundle refers to unknown data module ${hex}`);
+  return `__psData(${start + Number(k)})`;
+});
+if (placeholders !== blobs.length || /__PSD_/.test(numbered)) {
+  throw new Error(`bundle has ${placeholders} blob lookups for ${blobs.length} blobs (a literal was dropped or duplicated)`);
+}
+await writeFile(bundlePath, numbered);
 await rm(resolve(root, 'dist-demo/data'), { recursive: true, force: true });
 await rm(resolve(root, 'dist-demo/data.json'), { force: true });
 await mkdir(resolve(root, 'dist-demo/data'), { recursive: true });
