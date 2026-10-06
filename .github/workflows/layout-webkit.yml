@@ -3,7 +3,8 @@ name: Layout check (Safari engine)
 # Runs tests/layoutConsistency.test.ts in WebKit, the engine inside Safari,
 # with iPhone 13 settings. The same test runs in Chromium on every crawl; this
 # is the half that catches what only Safari does differently, which is where
-# the filters were reported looking wrong on an iPhone.
+# the filters were reported looking wrong on an iPhone. The WebKit half of
+# tests/listFiltersBrowser.test.ts (the Filters panel on an iPhone) runs with it.
 #
 # Only on a change to the page's own source or to the test, never on a price
 # crawl: a harvest changes data, not layout, and the page it builds is checked
@@ -14,8 +15,14 @@ on:
     paths:
       - 'demo/app.ts'
       - 'demo/template.html'
+      # The Filters button, its chips and its panel (owner's revamp, 6 Oct 2026).
+      - 'demo/filterUi.ts'
+      - 'demo/listFilters.ts'
+      - 'demo/tabPanels.ts'
       - 'scripts/build-demo.ts'
       - 'tests/layoutConsistency.test.ts'
+      - 'tests/listFiltersBrowser.test.ts'
+      - 'tests/support/filterPanel.ts'
       - '.github/workflows/layout-webkit.yml'
   workflow_dispatch:
 
@@ -49,7 +56,9 @@ jobs:
         timeout-minutes: 10
         run: npm run demo
 
-      - name: Layout rules in WebKit with iPhone settings
+      # The layout rules, and the Filters panel driven as on an iPhone: a tap
+      # on several options, the page held still behind it, Escape and focus.
+      - name: Layout rules and the Filters panel in WebKit with iPhone settings
         env:
           LAYOUT_BROWSER: webkit
-        run: npx vitest run tests/layoutConsistency.test.ts
+        run: npx vitest run tests/layoutConsistency.test.ts tests/listFiltersBrowser.test.ts

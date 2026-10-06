@@ -3,6 +3,8 @@ import { DEMO_FRAGRANCES, shopIdsOf, type DemoFragrance } from '../demo/data.js'
 import { SET_SORT_OPTIONS, sortTab } from '../demo/listSort.js';
 import { MAIN_BOTTLE_BANDS, SET_BOX_OPTIONS, SET_KIND_OPTIONS, mainBottleBand, setBoxValues, setKindOf, slugOf } from '../demo/tabFacets.js';
 import { createTabs } from '../demo/tabPanels.js';
+import { tabDeps } from './support/tabDeps.js';
+import { sheetBodyHtml } from '../demo/filterUi.js';
 import { isSet } from '../demo/productKind.js';
 
 /**
@@ -10,19 +12,7 @@ import { isSet } from '../demo/productKind.js';
  * phase 5), recomputed from the catalogue: every option's count is the number of
  * sets that pass it, and an option nobody holds is absent.
  */
-const tabs = createTabs({
-  attrs: (f) => ({ concentration: 'edp', gender: 'notStated', tier: f.tier, priceBand: null, inStock: true }),
-  concentrationOptions: [{ value: 'edp', label: 'Eau de Parfum (EDP)' }],
-  genderOptions: [{ value: 'notStated', label: 'Not Stated' }],
-  priceOptions: [{ value: '0-25', label: 'Under £25' }],
-  tierOptions: [{ value: 'designer', label: 'Designer' }, { value: 'niche', label: 'Niche' }, { value: 'mideast', label: 'Middle East' }],
-  fragranceList: (list, empty) => (list.length ? `<ul>${list.length}</ul>` : `<p>${empty}</p>`),
-  sortControl: (id, _subject, options, current) => `<select id="${id}">${options.map((o) => `<option value="${o.value}"${o.value === current ? ' selected' : ''}>${o.label}</option>`).join('')}</select>`,
-  listControls: (sort, ui) => `${sort}${ui.toggle}${ui.panel}`,
-  esc: (s) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`),
-  iconFilter: '<i/>',
-  iconChevron: '<i/>',
-});
+const tabs = createTabs(tabDeps());
 
 const sets = DEMO_FRAGRANCES.filter(isSet);
 const view = (id: string) => {
@@ -124,10 +114,19 @@ describe('Brand and Shop', () => {
     expect(q).toEqual({ brand: top.value });
     tabs.reset('sets');
     tabs.fromQuery('sets', { ...q, shop: 'no-such-shop', kind: 'nonsense' });
-    expect(tabs.state('sets').sel).toEqual({ brand: top.value });
+    expect(tabs.state('sets').sel).toEqual({ brand: [top.value] });
   });
 
-  it('stay out of the way of each other: choosing a brand leaves the other brands in their dropdown', () => {
+  it('take two brands at once, listing the sets of either', () => {
+    const [a, b] = [...view('brand').options].sort((x, y) => y.count - x.count);
+    tabs.reset('sets');
+    tabs.setFacet('sets', 'brand', [a!.value, b!.value]);
+    expect(tabs.listOf('sets')).toHaveLength(a!.count + b!.count);
+    expect(tabs.query('sets').brand!.split(',').sort()).toEqual([a!.value, b!.value].sort());
+    tabs.reset('sets');
+  });
+
+  it('stay out of the way of each other: choosing a brand leaves the other brands in their list', () => {
     const all = view('brand').options.length;
     tabs.reset('sets');
     tabs.setFacet('sets', 'brand', view('brand').options[0]!.value);
@@ -175,9 +174,14 @@ describe('the Sets tab as drawn', () => {
     const ids = tabs.views('sets').map((v) => v.facet.id);
     for (const id of ['kind', 'box', 'main', 'brand', 'shop', 'price', 'stock']) expect(ids).toContain(id);
     expect(ids).not.toContain('sale');
-    tabs.toggleOpen('sets');
-    // Brand and shop names are the businesses' own and may carry a hyphen; every word of ours may not.
-    const html = tabs.panel('sets').replace(/<select id="tab-facet-(?:brand|shop)"[\s\S]*?<\/select>/g, '');
+    // Every group open, so every option is drawn. Brand and shop names are the
+    // businesses' own and may carry a hyphen; every word of ours may not.
+    const ctx = tabs.filterContext('sets');
+    const open = new Map(ctx.views.map((v) => [v.facet.id, true]));
+    const html = sheetBodyHtml(ctx, { open, find: new Map() }, { esc: (s: string) => s, iconFilter: '', iconClose: '', iconChevron: '' })
+      .replace(/<label class="fs-opt">\s*<input[^>]*data-fs-facet="(?:brand|shop)"[\s\S]*?<\/label>/g, '');
+    expect(html).toContain('In the Box');
+    expect(html).toContain('Main Bottle');
     expect(html.replace(/<[^>]+>/g, ' ')).not.toMatch(/[-‐-―−]/);
     tabs.reset('sets');
   });

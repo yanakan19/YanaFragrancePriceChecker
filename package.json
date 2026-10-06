@@ -57,6 +57,7 @@
     "a11y": "tsx scripts/a11y-audit.ts",
     "perf:load": "tsx scripts/measure-load.ts",
     "perf:images": "tsx scripts/measure-images.ts",
+    "perf:filters": "tsx scripts/measure-filters.ts",
     "changelog:suggest": "tsx scripts/changelog-suggest.ts",
     "quarantine:prices": "tsx scripts/quarantine-prices.ts",
     "sitemap": "tsx scripts/build-sitemap.ts",

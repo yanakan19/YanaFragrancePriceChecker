@@ -3,25 +3,15 @@ import { DEMO_FRAGRANCES, shopIdsOf, type DemoFragrance } from '../demo/data.js'
 import { OIL_SORT_OPTIONS, sortTab } from '../demo/listSort.js';
 import { OIL_FORMAT_OPTIONS, OIL_SIZE_BANDS, oilSizeBand, pricePerMl, pricePerMlLabel, slugOf } from '../demo/tabFacets.js';
 import { createTabs } from '../demo/tabPanels.js';
+import { tabDeps } from './support/tabDeps.js';
+import { sheetBodyHtml } from '../demo/filterUi.js';
 import { isOil } from '../demo/productKind.js';
 
 /**
  * The Oils tab's own filters, sort and per ml line (docs/GIFT-SETS-AND-OILS-PLAN.md,
  * 2.4 and phase 6), recomputed from the catalogue.
  */
-const tabs = createTabs({
-  attrs: (f) => ({ concentration: 'edp', gender: 'notStated', tier: f.tier, priceBand: null, inStock: true }),
-  concentrationOptions: [{ value: 'edp', label: 'Eau de Parfum (EDP)' }],
-  genderOptions: [{ value: 'notStated', label: 'Not Stated' }],
-  priceOptions: [{ value: '0-25', label: 'Under £25' }],
-  tierOptions: [{ value: 'designer', label: 'Designer' }, { value: 'niche', label: 'Niche' }, { value: 'mideast', label: 'Middle East' }],
-  fragranceList: (list, empty) => (list.length ? `<ul>${list.length}</ul>` : `<p>${empty}</p>`),
-  sortControl: (id, _subject, options, current) => `<select id="${id}">${options.map((o) => `<option value="${o.value}"${o.value === current ? ' selected' : ''}>${o.label}</option>`).join('')}</select>`,
-  listControls: (sort, ui) => `${sort}${ui.toggle}${ui.panel}`,
-  esc: (s) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`),
-  iconFilter: '<i/>',
-  iconChevron: '<i/>',
-});
+const tabs = createTabs(tabDeps());
 
 const oils = DEMO_FRAGRANCES.filter(isOil);
 const view = (id: string) => {
@@ -85,8 +75,8 @@ describe('Format and Alcohol Free', () => {
 
   it('say, in the panel, that they are what a shop says', () => {
     tabs.reset('oils');
-    tabs.toggleOpen('oils');
-    expect(tabs.panel('oils')).toMatch(/only what a shop says about an oil/);
+    const ctx = tabs.filterContext('oils');
+    expect(sheetBodyHtml(ctx, { open: new Map([['format', true]]), find: new Map() }, { esc: (s: string) => s, iconFilter: '', iconClose: '', iconChevron: '' })).toMatch(/only what a shop says about an oil/);
     tabs.reset('oils');
   });
 });
