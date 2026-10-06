@@ -92,7 +92,7 @@ import { COVERAGE } from './legal.js';
 import { marqueeHtml, marqueePhrases } from './marquee.js';
 import { adPreviewOn, adPreviewRequested, adSlotHtml, interleaveAds, isGridAd, setAdPreview, withAdPreview } from './ads.js';
 import { installAds, mountAds } from './adsRuntime.js';
-import { deliveryLines } from './deliveryFacts.js';
+import { compactDeliveryLine, deliveryLines } from './deliveryFacts.js';
 import {
   msrpComparison, msrpComparisonLabel, rrpSavingFor, rrpSavingLabel, shownPrice, type MsrpComparison,
 } from './msrpComparison.js';
@@ -3429,12 +3429,14 @@ function retailerView(): string {
     <button class="back" data-back-explore>Back</button>
     <div class="org-hero">
       ${orgMark(r.name, r.logo, true)}
-      <div class="org-hero-text">
+      <div class="org-hero-head">
         <h1 class="org-hero-name t-page">${esc(r.name)} <span class="org-hero-count t-count">${retailerCountMark(r.id)}</span></h1>
         <p class="org-hero-domain t-caption">${esc(r.domain)}</p>
+      </div>
+      <div class="org-hero-more">
         ${r.blurb ? `<p class="org-hero-blurb t-body">${esc(r.blurb)}</p>` : ''}
-        <ul class="fact-list">
-          ${deliveryLines(r).map((l) => `<li>${esc(l)}</li>`).join('')}
+        <ul class="fact-list fact-list--compact">
+          ${deliveryLines(r).map((l) => `<li>${esc(compactDeliveryLine(l))}</li>`).join('')}
         </ul>
         ${trustpilotWidget(r)}
       </div>
@@ -3499,7 +3501,7 @@ function brandView(): string {
     <button class="back" data-back-explore>Back</button>
     <div class="org-hero">
       ${orgMark(b, logoFor(b), true)}
-      <div class="org-hero-text">
+      <div class="org-hero-head">
         <h1 class="org-hero-name t-page">${esc(b)}</h1>
         ${
           site
@@ -3510,6 +3512,8 @@ function brandView(): string {
                </a>`
             : `<p class="org-hero-domain dimmer t-caption">Official site not yet confirmed</p>`
         }
+      </div>
+      <div class="org-hero-more">
         ${
           ownShop
             ? `<p class="org-hero-blurb t-body">Sells direct in the UK${
@@ -3517,8 +3521,8 @@ function brandView(): string {
                   ? ', and its own price is compared below like any other shop’s.'
                   : ', but its delivery terms are not confirmed yet, so its price is not compared.'
               }</p>
-               <ul class="fact-list">
-                 ${deliveryLines(ownShop).map((l) => `<li>${esc(l)}</li>`).join('')}
+               <ul class="fact-list fact-list--compact">
+                 ${deliveryLines(ownShop).map((l) => `<li>${esc(compactDeliveryLine(l))}</li>`).join('')}
                </ul>`
             : ''
         }
@@ -6797,6 +6801,7 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   syncAccountButton();
 
   mountTrustpilotWidgets();
+  alignHeroMarks();
 
   // The Filters panel, if open, follows the list it is for.
   syncFilterSheet();
@@ -6808,6 +6813,44 @@ interface TrustpilotGlobal {
 }
 
 let trustpilotScriptState: 'unloaded' | 'loading' | 'loaded' = 'unloaded';
+
+/**
+ * Sizes every hero logo box (.org-hero) to a square whose side is the height
+ * of the title through the site button beside it (.org-hero-head), so the
+ * logo is flush with the heading's top and the button's bottom. The head's
+ * height depends on how wide it is, which depends on the square, so this
+ * searches for the smallest side that is at least the head's own height at
+ * that side (the head only grows as the square does). When no side fits
+ * beside the text, the hero stacks instead (.org-hero--stack).
+ */
+function alignHeroMarks(): void {
+  for (const hero of Array.from(document.querySelectorAll<HTMLElement>('.org-hero'))) {
+    const head = hero.querySelector<HTMLElement>('.org-hero-head');
+    if (!head) continue;
+    hero.classList.remove('org-hero--stack');
+    const room = hero.clientWidth;
+    const heightAt = (side: number): number => {
+      hero.style.setProperty('--hero-side', `${side}px`);
+      return head.getBoundingClientRect().height;
+    };
+    const minSide = 40;
+    const maxSide = Math.max(minSide, Math.floor(room * 0.5));
+    if (room <= 0) continue;
+    if (heightAt(maxSide) > maxSide + 0.25) {
+      hero.classList.add('org-hero--stack');
+      hero.style.removeProperty('--hero-side');
+      continue;
+    }
+    let lo = minSide;
+    let hi = maxSide;
+    for (let i = 0; i < 14 && hi - lo > 0.25; i++) {
+      const mid = (lo + hi) / 2;
+      if (heightAt(mid) <= mid) hi = mid;
+      else lo = mid;
+    }
+    hero.style.setProperty('--hero-side', `${heightAt(hi)}px`);
+  }
+}
 
 /**
  * Trustpilot's bootstrap script is loaded on demand, the first time a
@@ -7970,8 +8013,10 @@ function init(): void {
     window.clearTimeout(resizeTimer);
     resizeTimer = window.setTimeout(() => {
       syncPerRowControl();
+      alignHeroMarks();
     }, 120);
   });
+  void document.fonts?.ready.then(alignHeroMarks);
 
   // First paint comes from whatever URL we were opened at, so a deep link,
   // a bookmark or a shared link lands on the right view. replaceState then
