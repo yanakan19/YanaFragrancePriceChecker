@@ -498,7 +498,67 @@ summer it misses commits made between midnight and 1am UK; and the "How much
 could you save?" routine's last run (3 October, 17:53 UK) failed after seven
 seconds with no reason given, worth one look.
 
-### 7d. The repository's size (done on 4 October; two optional decisions left)
+### 7d. The repository's size (done on 4 October; history rewritten 6 October)
+
+**History rewritten, 6 October 2026 (owner's explicit, one off exception to
+"never force push").** What was done, in order:
+
+1. Plan: measured the live branch packed (single branch, repacked): 643 MiB,
+   2,273 commits. The old page files no longer committed were 263 MB of it
+   (`demo/404.html` 172, `demo/data` 82, `demo/sitemap.xml` 8, `demo/index.html`
+   0.4), next to `data/catalogue` 189, `demo/catalogue.generated.ts` 133,
+   `social` 22. Chosen: the least risky rewrite, dropping only
+   `demo/index.html`, `demo/404.html`, `demo/data/`, `demo/sitemap.xml` and
+   `demo/ads.txt` from every commit (`git filter-repo --invert-paths`). None of
+   them is in the tip, so the tip tree stays the same; every snapshot, commit
+   date and file still at the tip (the slugs and id aliases memories, the
+   social images) is untouched. Squashing old history was rejected: the price
+   history is replayed from it.
+2. Backup: the old tip `2e54cdb5` was pushed to the branch
+   `backup/pre-rewrite-2026-10-06` (a tag push was refused by the session's
+   proxy).
+3. Paused: the six workflows that commit (catalogue crawl, delivery re-check,
+   fragrance links, image check, bottle measuring, price verification) were
+   disabled through the API for the duration, then enabled again.
+4. Checked before the push: tip tree hash identical (`d6f6a262`); a full
+   price history replay (`catalogue:history -- --full`) on the old and the
+   rewritten history gave a byte identical `demo/priceHistory.generated.ts`
+   (sha256 `4c03521b…`) and a checkpoint differing only in its commit id;
+   `npm run demo` and the whole test suite passed on the rewritten tree.
+5. Pushed with `--force-with-lease` against `2e54cdb5`. Result: 2,235 commits
+   (38 that only touched page files are gone), 392 MiB packed instead of
+   643 MiB. Every commit id changed; filter-repo rewrote ids quoted in commit
+   messages, but ids quoted in docs now resolve only in the backup branch, or
+   through `docs/history-rewrite-2026-10-06-commit-map.txt` (old id, new id).
+   The checkpoint's commit id went with them, so the first price history
+   rebuild after the push replays from the start (about ten minutes), by
+   itself.
+
+**What is still yours to do:**
+
+- **Every old clone must be thrown away**: your other Claude sessions,
+  worktrees and any local copy. Clone again
+  (`git clone https://github.com/yanakan19/YanaFragrancePriceChecker`). An old
+  clone that merges and pushes puts the old history back.
+- **The size GitHub shows does not drop by itself.** The old history is still
+  reachable from: the backup branch; the other branches
+  (`claude/modest-euler-3hwly2`, `claude/perfume-chatbot-multi-agent-lvf17y`,
+  `claude/relaxed-brahmagupta-wmey28`, `claude/wizardly-faraday-owdlz1`,
+  `claude/wonderful-brahmagupta-8edg4h`), which were not touched; and the pull
+  request refs `refs/pull/1` to `refs/pull/4`, which only GitHub can remove.
+  When you no longer need them: close or merge PRs 2, 3 and 4 (their base
+  history changed, so GitHub shows them as unrelated), delete the old
+  branches and the backup branch (Code → Branches), then ask GitHub Support
+  to remove the pull request refs and run garbage collection on the
+  repository. Until then a full clone fetches the old objects through those
+  refs (the rewrite itself added only 1.6 MB of new commits and trees).
+- **To undo** (only if something turns out wrong, and before anything new is
+  committed on top): pause the workflows again, then
+  `git push --force-with-lease=claude/scentday-retailer-registry-h92tth:<current tip> origin origin/backup/pre-rewrite-2026-10-06:refs/heads/claude/scentday-retailer-registry-h92tth`,
+  and clone again everywhere. Commits made after the rewrite would have to be
+  cherry picked onto it.
+
+The section below is the earlier plan, kept for the record.
 
 **Done, nothing for you to do.** The built page and its data files are no
 longer committed: the deploy builds them from the branch before each

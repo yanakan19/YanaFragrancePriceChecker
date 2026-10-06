@@ -2052,6 +2052,12 @@ built.
 Recommendation for the owner, 2026-10-06. **Status: open (OWNER-STEPS 7d,
 decision 1; strategy item 10).** Recommended: **no rewrite now.**
 
+**Decided 6 October 2026: the owner chose the rewrite** (page files only, as
+OWNER-STEPS 7d describes). Done the same day: 643 → 392 MiB packed, tip tree
+and price history byte identical; the old tip is kept in the branch
+`backup/pre-rewrite-2026-10-06`. Details and what is left (old clones, other
+branches, pull request refs, GitHub's garbage collection) are in OWNER-STEPS 7d.
+
 Measured 2026-10-06: GitHub reports 720,287 kB (about 703 MB; 754 MB on
 5 October before GitHub's own repack). A full agent clone's `.git` is 2.6 GB
 on disk unpacked (1.97 GiB loose objects plus 613 MB in packs), 2,262 commits

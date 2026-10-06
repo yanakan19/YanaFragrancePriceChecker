@@ -278,7 +278,7 @@ account or SQL only the owner can run.
 | 7 | Price event log (store only changes) beside the snapshots | Medium | Per listing history; replay in seconds; frees the snapshots' history (enables 10) | Low if written alongside first and compared with the replay before anything reads it | Without the owner | Proposed, **not done** 6 Oct: it adds growth (estimate 0.1 to 0.5 MB a day) and saves none until a history rewrite (10) is wanted; build it first if the owner chooses that rewrite |
 | 8 | Social images out of git (render when needed, or delete once posted) | Small | About 3 MB a day (21.1 MB in the week) | Owner's routines change | **Owner decision** (OWNER-STEPS 7d, decision 2) | Proposed, **not done** 6 Oct: now the largest item left (2 to 4 MB a day); a recommended design is in OWNER-STEPS 7d |
 | 9 | Descriptions in a separate per shop file | Medium | 67.5 MB off the snapshots' checkout; faster replay parsing; little growth | Medium: notes, filters and matching read them | Without the owner | **Not done** 6 Oct: measured, it saves 0.2 MB a day of growth (see "Item 6") |
-| 10 | Rewrite history to drop the old page files (and, after 7, old snapshot versions) | Owner runs it | About 255 MB once (OWNER-STEPS 7d); after 7, up to about 180 MB more | High: new commit ids, every clone again | **Owner only** | Proposed; do 7 first if both are wanted |
+| 10 | Rewrite history to drop the old page files (and, after 7, old snapshot versions) | Owner runs it | About 255 MB once (OWNER-STEPS 7d); after 7, up to about 180 MB more | High: new commit ids, every clone again | **Owner only** | **Done 2026-10-06** (page files only, owner's decision): 643 → 392 MiB packed; see "History rewritten, 6 October" below |
 | 11 | Prune delisted listings | Small | Up to 11% of snapshot rows | Relist detection and dormant pages | Not recommended now | |
 | 12 | The price history file writes each commit time and shop once, each point as `[time, price, shop]` (`scripts/priceHistoryFile.ts`) | Small, outside the replay's rules | Measured on 5 October's 13 versions: 1.42 → 0.79 MB of growth; the file 16.2 → 7.2 MB | Low: the module builds the same `PRICE_HISTORY`; the page's lazily loaded data file byte for byte the same | Without the owner | **Done** 2026-10-06 |
 
@@ -511,8 +511,33 @@ Together the first three would take the file from 34.6 to about 25 to 27 MB.
 - **Item 8**: the social images, as already asked in OWNER-STEPS 7d; now the
   largest thing the repository gains (section 5), with a recommended design
   there. Default if no answer: keep committing them (under 4 GB a year).
-- **Item 10**: the history rewrite, as already asked in OWNER-STEPS 7d; if
-  wanted, best after item 7 has run for a few weeks.
+- **Item 10**: decided 6 October: the history rewrite, page files only (see
+  below). The old snapshot versions stay (they need item 7 first).
+
+## History rewritten, 6 October
+
+On the owner's explicit instruction the live branch's history was rewritten
+once, with `git filter-repo --invert-paths` on `demo/index.html`,
+`demo/404.html`, `demo/data/`, `demo/sitemap.xml` and `demo/ads.txt`. None of
+them is committed since 4 October, so the tip tree is the same (tree
+`d6f6a262`); every snapshot under `data/catalogue`, every commit date and the
+append only memories are untouched. Packed, the branch went from 643 MiB
+(2,273 commits) to 392 MiB (2,235 commits). A full replay on both histories
+gave a byte identical `demo/priceHistory.generated.ts`, so the price history
+(which reads `git log -- data/catalogue` and author dates) is unaffected; the
+checkpoint's commit id changed, so the first rebuild after it replayed from
+the start once.
+
+Commit ids changed. Old ids quoted in this and other docs resolve in the
+branch `backup/pre-rewrite-2026-10-06` (the old tip, `2e54cdb5`) or through
+`docs/history-rewrite-2026-10-06-commit-map.txt`. That branch, the other
+branches and the pull request refs keep the old objects reachable, so the size
+GitHub reports drops only after they are gone and GitHub Support has run
+garbage collection (OWNER-STEPS 7d). **Recovering**: pause the workflows, force
+push `backup/pre-rewrite-2026-10-06` to the live branch with
+`--force-with-lease`, cherry pick anything committed since, and clone again
+everywhere. Every clone made before the rewrite must be replaced, as one that
+pushes brings the old history back.
 
 ## Method
 
