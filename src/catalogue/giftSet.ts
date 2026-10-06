@@ -12,6 +12,7 @@ import {
 import { trustworthyEan } from './productMatch.js';
 import { brandAliasKey, nameCore } from './duplicateKey.js';
 import { displayContents, itemsFromTitle, readGiftSet } from './giftSetItems.js';
+import { isReviewedUnnamedSet } from './unnamedSets.js';
 
 /**
  * Gift sets, as their own category (owner's decision, 2026-10-03).
@@ -46,7 +47,8 @@ import { displayContents, itemsFromTitle, readGiftSet } from './giftSetItems.js'
  * (NEVER_IN_A_SET): empty bottles, Travalo and other refill atomisers, pet
  * colognes, candles and home scent, testers, samples and decants, unscented
  * and skincare products, barber ranges. A set with no concentration word is a
- * body spray, wash or makeup set, not a fragrance one, and stays out.
+ * body spray, wash or makeup set, not a fragrance one, and stays out, except for the
+ * fragrance sets a reviewed rule names shop by shop (src/catalogue/unnamedSets.ts).
  *
  * Two titles that read as sets and are not, both measured:
  *   - "set sail": Tommy Bahama Set Sail is one 100ml bottle whose name has
@@ -198,11 +200,30 @@ export function namesTwoKnownProducts(rawTitle: string, rawBrand: string | null 
   });
 }
 
-export function isGiftSet(l: Pick<StoredListing, 'rawTitle' | 'retailerId' | 'productType' | 'description' | 'rawBrand'>): boolean {
+type SetListing = Pick<StoredListing, 'rawTitle' | 'retailerId' | 'productType' | 'description' | 'rawBrand'>;
+
+export function isGiftSet(l: SetListing): boolean {
+  return classify(l, true);
+}
+
+/**
+ * isGiftSet as it was before the reviewed rules for sets with no strength word
+ * (src/catalogue/unnamedSets.ts) were added. Only tests/unnamedSets.test.ts asks for it,
+ * to show the rules add sets and take nothing the general rule already decided.
+ */
+export function isGiftSetWithoutReviewedRules(l: SetListing): boolean {
+  return classify(l, false);
+}
+
+function classify(l: SetListing, reviewedRules: boolean): boolean {
   const t = foldTitle(l.rawTitle);
   if (NEVER_IN_A_SET.test(t)) return false;
   if (BARBER.test(t) || (l.rawBrand && BARBER.test(l.rawBrand))) return false;
   if (l.description && PET_PRODUCT.test(l.description)) return false;
+
+  // A fragrance set whose title carries no strength word, taken only by a reviewed rule
+  // for the shop that sells it (src/catalogue/unnamedSets.ts).
+  if (reviewedRules && isReviewedUnnamedSet(l)) return true;
 
   const scentPair = SCENT_PAIR.test(t);
   const houseBundle = !SIZE_STATED.test(t) && namesTwoKnownProducts(l.rawTitle, l.rawBrand);
