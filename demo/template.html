@@ -16,6 +16,8 @@
     --faint:     #8A8A92;
     --line:      #26262A;
     --line-firm: #3A3A40;
+    /* The brand pill on a tile: the shop pill grey (surface-2) one step lighter, so the pair reads as brand above, shop below without the brand shouting. Its text is ink-2, 8.9 to 1 here and 8.2 to 1 in light. */
+    --pill-brand: #222226;
     /* Rank badges on the deals list: first, second, third. Flat single
        values, not the two-stop gradients and six loose hex codes these
        replaced, and identical in every theme because a gold medal does not
@@ -84,6 +86,7 @@
     --faint:     #6B6B74;
     --line:      #E6E6EA;
     --line-firm: #CFCFD6;
+    --pill-brand: #F7F7F9;
     --rank-1: #C8A128; --rank-1-on: #1A1405;
     --rank-2: #C3C8D0; --rank-2-on: #23262B;
     --rank-3: #C08552; --rank-3-on: #2A1A0B;
@@ -122,7 +125,7 @@
     :root[data-mode="system"] {
       --bg: #FCFCFD; --surface: #FFFFFF; --surface-2: #F2F2F4;
       --ink: #0D0D0F; --ink-2: #4A4A52; --faint: #6B6B74;
-      --line: #E6E6EA; --line-firm: #CFCFD6;
+      --line: #E6E6EA; --line-firm: #CFCFD6; --pill-brand: #F7F7F9;
     --rank-1: #C8A128; --rank-1-on: #1A1405;
     --rank-2: #C3C8D0; --rank-2-on: #23262B;
     --rank-3: #C08552; --rank-3-on: #2A1A0B;
@@ -137,7 +140,7 @@
   :root[data-mode="system"][data-theme="light"] {
     --bg: #FCFCFD; --surface: #FFFFFF; --surface-2: #F2F2F4;
     --ink: #0D0D0F; --ink-2: #4A4A52; --faint: #6B6B74;
-    --line: #E6E6EA; --line-firm: #CFCFD6;
+    --line: #E6E6EA; --line-firm: #CFCFD6; --pill-brand: #F7F7F9;
     --rank-1: #C8A128; --rank-1-on: #1A1405;
     --rank-2: #C3C8D0; --rank-2-on: #23262B;
     --rank-3: #C08552; --rank-3-on: #2A1A0B;
@@ -151,7 +154,7 @@
   :root[data-mode="system"][data-theme="dark"] {
     --bg: #0A0A0B; --surface: #121214; --surface-2: #1A1A1D;
     --ink: #F7F7F8; --ink-2: #C2C2C7; --faint: #8A8A92;
-    --line: #26262A; --line-firm: #3A3A40;
+    --line: #26262A; --line-firm: #3A3A40; --pill-brand: #222226;
     --rank-1: #C8A128; --rank-1-on: #1A1405;
     --rank-2: #C3C8D0; --rank-2-on: #23262B;
     --rank-3: #C08552; --rank-3-on: #2A1A0B;
@@ -1237,14 +1240,24 @@
      size the deeper scale read as the card flinching away from the tap. */
   .tile-body:active { transform: scale(.985); }
   .tile .phead-meta { color: var(--faint); }
-  /* Same pill as .sold-by lower down the tile — same background, border and
-     ink — so the two read as a matched pair: this is the shop pill's brand
-     counterpart, not a differently styled control. */
+  /* The brand pill on a tile (owner, 6 Oct 2026: "too texty and regular"):
+     centred at the top, in the shop pill's own box (.sold-by below: 8px
+     corners, no outline, 12px 600 type, 10px sides) without its arrow, and
+     one step lighter in grey (--pill-brand) so the pair reads as brand above,
+     shop below. Light, not heavy: no border, no shadow. One line, truncated
+     with an ellipsis inside the pill (max-width keeps it inside the tile at
+     320px; the full name is the button's title). 13px line and 3px above and
+     below make it the 19px the old outlined label was, so no tile changes
+     height. Hover and focus draw their ring inside the box, so nothing moves. */
   .tile .phead-brand {
-    background: var(--surface-2); border-color: var(--line); color: var(--ink-2);
+    align-self: center; text-align: center;
+    background: var(--pill-brand); border: 0; color: var(--ink-2);
+    font: 600 11.5px/13px var(--font-sans); letter-spacing: 0;
+    padding: 3px 10px; border-radius: 8px;
+    transition: box-shadow .12s ease, color .12s ease;
   }
   @media (hover: hover) and (pointer: fine) {
-    .tile .phead-brand:hover { border-color: var(--accent); color: var(--accent); }
+    .tile .phead-brand:hover { box-shadow: inset 0 0 0 1px var(--accent); color: var(--accent); }
   }
   /* The wrapper the clamped name sits inside. -webkit-box (needed for
      -webkit-line-clamp) does not reliably centre its own content — tested
