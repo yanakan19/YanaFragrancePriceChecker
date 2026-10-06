@@ -18,7 +18,7 @@
  *
  * ── What honest means here ───────────────────────────────────────────────────
  * The user agent names the crawler and a page that says what it is
- * (/about), and nothing in a request pretends to be a browser. So these are
+ * (/about/bot, the crawler's own page since 2026-10-06), and nothing in a request pretends to be a browser. So these are
  * refused by `assertBotIdentity`, which every shared HTTP client runs before it
  * sends anything:
  *   - a `user-agent` that is not ours (above all one that starts "Mozilla");
@@ -33,9 +33,16 @@
  * or scripts/ carries a browser user agent, and that every client refuses one.
  */
 
-/** The crawler's name and the page that explains it. The one string every request carries. */
+/** The crawler's name, as the user agent and its page spell it. */
+export const BOT_NAME = 'PriceSniffsBot';
+
+/**
+ * The crawler's name and the page that explains it. The one string every
+ * request carries. The page, /about/bot (demo/app.ts, botPageView), says what
+ * the bot is, how often it visits, that it obeys robots.txt and how to stop it.
+ */
 export const BOT_USER_AGENT =
-  'PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about)';
+  'PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about/bot)';
 
 /**
  * The lowercase token a robots.txt group is matched on. The user agent above

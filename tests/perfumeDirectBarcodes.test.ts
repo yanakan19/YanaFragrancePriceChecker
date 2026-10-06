@@ -66,7 +66,7 @@ const SPLENDIDA_HANDLE = 'bvlgari-splendida-patchouli-tentation-eau-de-parfum-wo
 const ORIGIN = 'https://www.perfumedirect.com';
 const NOW = new Date('2026-10-06T10:00:00Z');
 const noSleep = async () => {};
-const HEADERS = { 'user-agent': 'PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about)' };
+const HEADERS = { 'user-agent': 'PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about/bot)' };
 
 const listing = (sku: string, handle: string, title: string, variantId: string | null, extra: Partial<RawListing> = {}): RawListing => ({
   retailerSku: sku,

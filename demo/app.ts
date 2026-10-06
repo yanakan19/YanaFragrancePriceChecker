@@ -52,6 +52,7 @@ import {
   type CheapestVerdict,
 } from '../src/index.js';
 import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
+import { BOT_NAME, BOT_USER_AGENT } from '../src/catalogue/botIdentity.js';
 import { availabilityHeading, offerGroups, offersInPageOrder, offerAge } from './offerGroups.js';
 import { mostStockedRail, rankedInMostStocked } from './mostStocked.js';
 import { bestDealPerScent, onePerScent } from './oneScent.js';
@@ -145,7 +146,7 @@ import { developerView, developerHeadName, type DeveloperHost } from './develope
 import { startSiteCounter } from './siteCounter.js';
 
 type View =
-  | 'home' | 'deals' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'legalNotice'
+  | 'home' | 'deals' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'legalNotice' | 'botPage'
   | 'settings' | 'suggestions' | 'account' | 'accountWishlist' | 'accountNotifications' | 'design' | 'developer' | 'notFound';
 /** The three pages behind the account menu, each with its own address. */
 const ACCOUNT_VIEWS: readonly View[] = ['account', 'accountWishlist', 'accountNotifications'];
@@ -4991,6 +4992,8 @@ function legalNoticeView(): string {
       <h1 class="t-page">Legal Notice</h1>
       <p class="t-body">The terms, privacy notice and affiliate disclosure for ${esc(COMPANY.name)}, run by
         ${esc(COMPANY.operator ?? 'one person')} as ${esc(COMPANY.legalName)}.</p>
+      <p class="t-body">For shops: how our crawler reads your pages, and how to stop it, is on the
+        <a href="/about/bot" data-goto="botPage">${esc(BOT_NAME)}</a> page.</p>
       <nav class="notice-toc" aria-label="On This Page">
         ${sections
           .map((x) => `<a class="notice-toc-link" href="/about/legal#${x.id}" data-page="${x.id}">${esc(x.short)}</a>`)
@@ -5005,6 +5008,43 @@ function legalNoticeView(): string {
       </section>`,
         )
         .join('')}
+    </article>`;
+}
+
+/**
+ * What our crawler is, /about/bot: the page its user agent names
+ * (src/catalogue/botIdentity.ts), for a shop that sees it in its logs. What it
+ * reads, how often, that it obeys robots.txt, its identity, and how to stop it
+ * or reach us. Each fact is the code's own: the user agent and robots token
+ * are imported, and the request gap is the harvest's default
+ * (scripts/catalogue-harvest.ts, 1.5 seconds, longer where Crawl-delay asks).
+ */
+function botPageView(): string {
+  return `
+    <button class="back" data-back>Back</button>
+    <article class="doc">
+      <h1 class="t-page">${esc(BOT_NAME)}</h1>
+      <p class="t-body">${esc(BOT_NAME)} is the crawler of ${esc(COMPANY.name)}, a UK fragrance price
+        comparison site. It reads the public product pages, sitemaps and product feeds of UK shops
+        to show their prices, stock and delivery costs, with a link to the shop.</p>
+      <h2 class="t-section">How Often It Visits</h2>
+      <p class="t-body">A few times a day at most for each shop, one request at a time, at least 1.5 seconds
+        apart. It never logs in, never fills a basket and never checks out.</p>
+      <h2 class="t-section">It Obeys robots.txt</h2>
+      <p class="t-body">It reads your robots.txt before anything else and follows it, a crawl delay
+        included. A page it may not read, it does not read. It does not change its name or
+        address to get past a refusal.</p>
+      <h2 class="t-section">How It Identifies Itself</h2>
+      <p class="t-body">Every request carries this user agent:</p>
+      <p class="t-body"><code>${esc(BOT_USER_AGENT)}</code></p>
+      <h2 class="t-section">To Stop It</h2>
+      <p class="t-body">Add this to your robots.txt. It stops at its next visit, and your prices
+        leave the site within a week.</p>
+      <pre class="t-body"><code>User-agent: ${esc(BOT_NAME)}
+Disallow: /</code></pre>
+      <h2 class="t-section">Contact</h2>
+      <p class="t-body">To ask a question, slow it down or have your shop removed, email
+        <a href="mailto:${esc(COMPANY.email)}">${esc(COMPANY.email)}</a>.</p>
     </article>`;
 }
 
@@ -5768,6 +5808,7 @@ function currentRoute(): Route {
     case 'notFound': return { name: 'notFound', param: state.notFoundPath, query: {} };
     case 'about': return { name: 'about', param: '', query: {} };
     case 'legalNotice': return { name: 'legalNotice', param: state.noticeSection, query: {} };
+    case 'botPage': return { name: 'botPage', param: '', query: {} };
     case 'design': return { name: 'design', param: '', query: {} };
     case 'developer': return { name: 'developer', param: '', query: {} };
     case 'settings': return { name: 'settings', param: '', query: {} };
@@ -5806,6 +5847,7 @@ function applyRoute(route: Route): boolean {
       state.noticeSection = isLegalNoticeId(route.param) ? route.param : '';
       state.view = 'legalNotice';
       return true;
+    case 'botPage': state.view = 'botPage'; return true;
     case 'design': state.view = 'design'; return true;
     case 'developer': state.view = 'developer'; return true;
     case 'settings': state.view = 'settings'; return true;
@@ -6044,6 +6086,7 @@ function fallbackBackRoute(): Route {
     // level above them.
     case 'legal':
     case 'legalNotice':
+    case 'botPage':
       return { name: 'about', param: '', query: {} };
     // The wishlist and notifications pages sit under the profile, which
     // links to both; the profile itself sits under home, since the menu
@@ -6732,6 +6775,8 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
                       ? aboutView()
                       : state.view === 'legalNotice'
                         ? legalNoticeView()
+                      : state.view === 'botPage'
+                        ? botPageView()
                       : state.view === 'design'
                         ? designView()
                       : state.view === 'developer'
@@ -6806,7 +6851,7 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   ($('#nav-deals') as HTMLElement).classList.toggle('on', state.view === 'deals');
   ($('#nav-explore') as HTMLElement).classList.toggle('on', inExplore || state.view === 'browse');
   // The Legal Notice sits under About, so About is the tab that is on there.
-  ($('#nav-about') as HTMLElement).classList.toggle('on', state.view === 'about' || state.view === 'legalNotice');
+  ($('#nav-about') as HTMLElement).classList.toggle('on', state.view === 'about' || state.view === 'legalNotice' || state.view === 'botPage');
   // Settings and the account pages are reached from the account menu at the
   // top right now, not from this row; its button carries the "you are here".
   syncAccountButton();
