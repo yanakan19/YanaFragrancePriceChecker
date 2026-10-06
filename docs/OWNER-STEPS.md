@@ -664,9 +664,10 @@ should list `site-stats-compact`. Why, and the numbers behind it:
 - **Remove**: hidden, and also left out of the next build of the site. A
   removed shop is no longer crawled either. **Show Again** brings it back
   with the next deploy (and the next crawl, for a shop). The deploy checks
-  the list every half hour and rebuilds the site when it changed, so either
-  reaches the build within about half an hour (GitHub's schedule can run a
-  little late).
+  the list after every crawl run, which your outside scheduler (7a) starts
+  every half hour, and rebuilds the site when it changed, so either reaches
+  the build within about half an hour. If that scheduler ever stops, GitHub's
+  own half hourly check is the fallback, and GitHub skips many of its ticks.
 - The list lives in the database (`site_overrides`), on top of the code's own
   list of shops in `src/config/retailers.ts`, which does not change. To clear
   everything at once: `delete from public.site_overrides;`
