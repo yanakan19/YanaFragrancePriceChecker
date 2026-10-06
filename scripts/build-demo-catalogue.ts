@@ -15,7 +15,7 @@
  *
  * Run after a harvest: npm run catalogue:demo
  */
-import { readdirSync, existsSync, readFileSync } from 'node:fs';
+import { readdirSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeGenerated } from './generatedFiles.js';
@@ -48,6 +48,7 @@ import {
   trustworthyEan,
 } from '../src/catalogue/productMatch.js';
 import { listingViolations, namespaceViolations } from '../src/catalogue/kindGuards.js';
+import { contentsSignature, matchSets, scentKey, type SetCandidate, type SetMatchResult } from '../src/catalogue/setMatch.js';
 import { isOilStrength, oilFactsOfOffers } from '../src/catalogue/perfumeOil.js';
 import { auditPriceScale } from '../src/catalogue/priceScale.js';
 import { formatLabels } from '../src/catalogue/offerFormat.js';
@@ -74,7 +75,10 @@ import {
 } from '../src/catalogue/fragranceId.js';
 import { brandAliasKey, nameCore } from '../src/catalogue/duplicateKey.js';
 import { resolveOunceListing } from '../src/catalogue/ounceSizes.js';
-import { buildKnownHouseProducts, giftSetContents, giftSetName, isGiftSet, registerKnownHouseProducts } from '../src/catalogue/giftSet.js';
+import {
+  buildKnownHouseProducts, giftSetName, giftSetRecord, isGiftSet, mergeGiftSetRecords, registerKnownHouseProducts,
+  type GiftSetRecord,
+} from '../src/catalogue/giftSet.js';
 import {
   concentrationOfListing,
   concentrationOfStoredListing,
@@ -399,7 +403,7 @@ interface Product {
    * single bottle) and the contents its title spells out, or null where the
    * title does not.
    */
-  giftSet: { contents: string[] | null; title: string } | null;
+  giftSet: GiftSetRecord | null;
 }
 
 /**
@@ -1047,10 +1051,7 @@ for (const { retailer, listings } of eligible) {
       }
       // A set whose first shop's title spelled out nothing may be spelled out
       // by the next one's.
-      if (existing.giftSet && existing.giftSet.contents === null) {
-        const contents = giftSetContents(l.rawTitle);
-        if (contents) existing.giftSet = { contents, title: l.rawTitle };
-      }
+      if (existing.giftSet) existing.giftSet = mergeGiftSetRecords(existing.giftSet, giftSetRecord(l));
     } else {
       // The displayed brand is handed to displayName as well as the raw
       // vendor field: it is the string that will sit beside the name on
@@ -1078,7 +1079,7 @@ for (const { retailer, listings } of eligible) {
         // every product to exist before it can ask what the house said.
         concentrationFromHouse: null,
         audience: labelled.audience,
-        giftSet: giftSet ? { contents: giftSetContents(l.rawTitle), title: l.rawTitle } : null,
+        giftSet: giftSet ? giftSetRecord(l) : null,
       });
     }
   }
@@ -1292,6 +1293,8 @@ function applyMerges(groups: ReturnType<typeof findDuplicateGroups<Product>>): v
         else concentrationsSeen.set(canonical.id, new Set(absorbedConcentrations));
         concentrationsSeen.delete(dupe.id);
       }
+      // A set's record keeps what either shop read from its own title.
+      if (canonical.giftSet && dupe.giftSet) canonical.giftSet = mergeGiftSetRecords(canonical.giftSet, dupe.giftSet);
       // The barcode is worth keeping if the canonical record lacked one.
       canonical.ean ??= dupe.ean;
       // The house's own wording of its own perfume's name wins. Which record
@@ -1765,6 +1768,48 @@ mergedProducts += mergedInSecondLook;
 if (mergedInSecondLook > 0) {
   collapseSameBottleRows();
   collapseIndistinguishableRows();
+}
+
+/* ── the same set at two shops: the third tier ─────────────────────────────
+   Two tiers already decide it (a trustworthy barcode, an identical title; see
+   giftSetId). This is the third (src/catalogue/setMatch.ts, docs/GIFT-SETS-AND-OILS-PLAN.md
+   section 3.3): the same brand, the same scent words with every number kept, the
+   same full contents, the same strength, no two barcodes, no shop twice and a price
+   spread inside a bound. It runs on sets alone, after every bottle merge and every
+   strength is settled, and folds through applyMerges like any other, so the ids it
+   retires answer through the id aliases. What it refuses goes to the report. */
+let setMatchReport: { result: SetMatchResult; candidates: Map<string, SetCandidate> } | null = null;
+{
+  const lowest = (p: Product): number | null => {
+    const prices = p.offers.map((o) => o.price).filter((x) => x > 0);
+    return prices.length ? Math.min(...prices) : null;
+  };
+  const candidates = new Map<string, SetCandidate>();
+  for (const p of products.values()) {
+    if (p.giftSet === null) continue;
+    candidates.set(p.id, {
+      id: p.id,
+      brand: p.brand,
+      name: p.name,
+      concentration: p.concentration,
+      ean: p.id.startsWith('set-ean-') ? p.id.slice('set-ean-'.length) : null,
+      contents: p.giftSet.contents,
+      shops: p.offers.map((o) => o.retailerId),
+      price: lowest(p),
+    });
+  }
+  const result = matchSets([...candidates.values()]);
+  setMatchReport = { result, candidates };
+  if (process.env.SET_MATCH_FIXTURE) {
+    // A snapshot of what the matcher was given, for tests/fixtures/set-match.json (see tests/setMatch.test.ts).
+    writeFileSync(
+      process.env.SET_MATCH_FIXTURE,
+      `${JSON.stringify({ candidates: [...candidates.values()], expected: result }, null, 1)}\n`,
+    );
+  }
+  const folds = result.groups.map((g) => ({ canonical: products.get(g.canonical)!, absorbed: g.absorbed.map((id) => products.get(id)!) }));
+  applyMerges(folds);
+  mergedProducts += result.groups.reduce((n, g) => n + g.absorbed.length, 0);
 }
 
 /* A barcode whose shops disagree about the strength is left reading
@@ -2369,7 +2414,7 @@ for (const [id, listings] of [...dormantListings].sort((a, b) => a[0].localeComp
   };
   const transform = imageTransformFor(image);
   if (transform !== undefined) entry.imageTransform = transform;
-  if (facts.giftSet) entry.giftSet = { contents: giftSetContents(lead.rawTitle), title: lead.rawTitle };
+  if (facts.giftSet) entry.giftSet = giftSetRecord(lead);
   dormantProducts[id] = entry;
 }
 
@@ -2680,7 +2725,7 @@ export interface CatalogueEntry {
    * does not; \`title\` is the shop title they were read from, shown in
    * their place when there are none.
    */
-  giftSet?: { contents: string[] | null; title: string };
+  giftSet?: { contents: string[] | null; title: string; mainMl?: number; bundle?: true; from?: 'description' };
   /**
    * Present only on a perfume oil or an attar (src/catalogue/perfumeOil.ts): what
    * its shops state about it and nothing they did not. \`format\` is how it comes
@@ -2813,6 +2858,30 @@ export const ID_ALIASES: Record<string, string> = ${JSON.stringify(idAliases)};
 export const SLUG_ALIASES: Record<string, string> = ${JSON.stringify(slugAliasMap)};
 `,
 );
+// What the third tier set matching did, and what it left to a person (data/set-match-report.json).
+if (setMatchReport) {
+  const { result, candidates } = setMatchReport;
+  const member = (id: string) => {
+    const c = candidates.get(id)!;
+    return {
+      id,
+      brand: c.brand,
+      name: c.name,
+      concentration: c.concentration,
+      ean: c.ean,
+      scent: scentKey(c.name),
+      signature: contentsSignature(c.contents),
+      shops: c.shops,
+    };
+  };
+  const report = {
+    note: 'Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.',
+    folded: result.groups.reduce((n, g) => n + g.absorbed.length, 0),
+    groups: result.groups.map((g) => ({ canonical: g.canonical, absorbed: g.absorbed, members: [g.canonical, ...g.absorbed].map(member) })),
+    refused: result.refused.map((r) => ({ reasons: r.reasons, members: r.ids.map(member) })),
+  };
+  writeGenerated(root, 'data/set-match-report.json', `${JSON.stringify(report, null, 1)}\n`);
+}
 writeGenerated(root, 'data/id-aliases.json', `${JSON.stringify({ aliases: idAliases }, null, 1)}\n`);
 writeGenerated(root, 'data/product-slugs.json', `${JSON.stringify({ slugs: productSlugs }, null, 1)}\n`);
 console.log(

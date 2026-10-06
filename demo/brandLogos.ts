@@ -534,6 +534,52 @@ export const BRAND_LOGOS: Record<string, LogoRef> = {
     readAt: '2026-10-04',
   },
 
+  // ── Owner supplied brand logos, 2026-10-05 ───────────────────────────────
+  // Files the site owner sent for houses whose own sites block a datacentre
+  // fetch, flattened on solid white and kept under /logos/brands/. Al Haramain
+  // and Versace are marks with a symbol, so they fill the square slot; the
+  // other three are type only, so they fill the wide slot.
+  'al haramain': {
+    src: '/logos/brands/al-haramain.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 5 October 2026',
+    readAt: '2026-10-05',
+  },
+  'giorgio armani': {
+    src: '/logos/brands/giorgio-armani.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 5 October 2026',
+    readAt: '2026-10-05',
+  },
+  'tom ford': {
+    src: '/logos/brands/tom-ford.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 5 October 2026',
+    readAt: '2026-10-05',
+  },
+  'jean paul gaultier': {
+    src: '/logos/brands/jean-paul-gaultier.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 5 October 2026',
+    readAt: '2026-10-05',
+  },
+  versace: {
+    src: '/logos/brands/versace.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 5 October 2026',
+    readAt: '2026-10-05',
+  },
+
   // ── Own site declared, the 2026-10-05 pass (41) ──────────────────────────
   // Every entry: the logo or icon the brand's own site declares (its
   // Organization.logo, apple-touch-icon, manifest icon or favicon), hot-linked
