@@ -39,11 +39,14 @@ out of git. This document does not repeat that work; it measures what is left.
    key could fill the free database with made up page names: migration
    `0008_site_stats_limits.sql` (new) caps rows per hour and folds old rows.
    Both are done; the owner runs the SQL (OWNER-STEPS 8e).
-6. **The site is redeployed about 50 times a day with nothing new**: every
-   crawl run that ends, including the half hourly ticks that skip in seconds,
-   starts a full deploy (86 deploys on 5 October, 58 from finished crawl
-   runs). Free for a public repository, but wasteful (item 4, an owner
-   decision because it slows "Remove" in the dashboard).
+6. **The site was redeployed about 50 times a day with nothing new**: every
+   crawl run that ended, including the half hourly ticks that skip in
+   seconds, started a full deploy (86 deploys on 5 October, 58 from finished
+   crawl runs). **Done 2026-10-06** (item 4, owner decision): a deploy now
+   runs only when a file that can change the page or the dashboard's list
+   changed since the live build. On 5 October's commits that is 13 crawl and
+   links commits instead of 58 runs; a "Remove" still reaches the build
+   within about half an hour.
 
 ## 1. Inventory
 
@@ -75,7 +78,7 @@ the crawl plus about 3 MB a day of social images.
 | What | Measured | Limit and cost |
 |---|---|---|
 | Catalogue crawl runs | 57 on 5 Oct (51 dispatches, most of them half hourly ticks that skip in seconds; 6 schedules), 592 wall minutes | Free (public repository) |
-| Deploy runs | 86 on 5 Oct (58 started by a finished crawl or links run, 28 by pushes), about 215 wall minutes, about 2.5 minutes each | Free |
+| Deploy runs | 86 on 5 Oct (58 started by a finished crawl or links run, 28 by pushes), about 215 wall minutes, about 2.5 minutes each. Since item 4 (6 Oct): on the same day's commits at most 13 after crawl and links runs (the runs that committed a generated module: 8 harvest rebuilds, 3 Awin feed syncs, 1 links run, 1 other rebuild) plus the 28 pushes, so about 41 instead of 86; every other run and the 48 half hourly checks stop after a `decide` job of under a minute | Free |
 | Pages artifacts | 30 live, 12.1 to 12.4 MB each, kept 1 day, 377 MB in all | Free for a public repository |
 | Android debug APK artifacts | 2 × 4.1 MB, kept 14 days | Free |
 | Published site | about 12.4 MB | Pages: 1 GB site, 100 GB a month soft bandwidth; the 10 builds an hour soft limit does not apply to an Actions deploy |
@@ -168,7 +171,7 @@ one listing last Tuesday.
 | R2. The same in the generated catalogue | Rebuild `05356c5d` to `fa20d9fa`: 68,382 lines in, 56,936 out; 34,000 of each are `fetchedAt` | Much of its 3.9 MB a day |
 | R3. History committed twice | Checkpoint `history` and `PRICE_HISTORY`: identical 12,273,929 byte JSON | About half of the two files' 2 to 3 MB a day; 12.3 MB of checkout |
 | R4. Descriptions in every snapshot | 67.5 MB of 143.6 MB; about 10 change a harvest | Checkout size and replay parsing time, little growth |
-| R5. Redeploys with nothing new | About 50 a day (crawl runs that skipped still start a deploy) | Runner time (free), 12 MB artifacts kept a day (free) |
+| R5. Redeploys with nothing new | About 50 a day (crawl runs that skipped still started a deploy); none since item 4 | Runner time (free), 12 MB artifacts kept a day (free) |
 | R6. History only in git | Every history question replays git; a history rewrite or moving snapshots out of git breaks the history | Blocks the cheaper designs below |
 
 **The most efficient design**, where this should end up:
@@ -260,7 +263,7 @@ account or SQL only the owner can run.
 | 1 | Fix the shop click pattern in 0007 | 5 lines | Clicks counted at all | None: the old function could not run | Owner reruns 0007 | **Done** |
 | 2 | 0008: cap rows per hour, fold old rows daily | 1 SQL file, tested in Postgres | Bounds the counter tables; keeps the free plan's 500 MB for accounts | Low: same signatures; undo by rerunning 0007 | Owner runs it (OWNER-STEPS 8e) | **Done**, waiting for the owner |
 | 3 | Write `demo/catalogue.generated.ts` one entry per line instead of indented (and `productIdsIn` in `src/catalogue/idAliases.ts` reads both forms) | Small code, one full rebuild | 43.1 → 34.6 MB now; keeps it under GitHub's 50 MiB warning for longer; smaller deltas | Medium: the id alias memory reads the old file's text, the crawl rebuilds it many times a day | Without the owner | **Done** 2026-10-06: 43.3 → 34.6 MB, the same data, an identical page; see "Item 3" below and PIPELINE-FAILURE-MODES row 15 |
-| 4 | Deploy after a crawl run only when the branch moved since the last deployment (compare the tip with the last `github-pages` deployment's commit) | Small workflow step | About 50 deploy runs a day | Low for the site; a "Remove" in the dashboard then waits for the next harvest (up to about 4 hours) or a manual deploy instead of up to 30 minutes | **Owner decision** (dashboard behaviour) | Proposed |
+| 4 | Deploy after a crawl run only when the page could change: the live site publishes `build-state.json` (the commit and the dashboard list it was built from), and a `decide` job compares it with the tip, through the push filter's folders, and with the list | Small workflow step, `scripts/deploy-decision.mjs` | About 45 deploy runs a day | Low: a missing or unreadable record, or a commit not in the history, deploys; a failed deploy leaves the old record, so the next check retries; a half hourly scheduled check keeps "Remove" and "Show Again" within about half an hour | Owner decided (6 Oct): skip pointless deploys, keep a path for the dashboard | **Done** 2026-10-06 |
 | 5 | Checkpoint without its copy of the history | Medium | 12.3 MB of checkout; about half of the two history files' growth (estimate 0.7 to 1.4 MB a day) | Low: the replay's equivalence test covers it | Without the owner | Proposed |
 | 6 | "Last seen" once per shop run, not per listing (snapshots), and per shop in the generated catalogue | Medium to large: the harvest writer, every reader, the replay over old commits | The largest crawl saving: most of R1 and R2, estimate 3 to 5 MB a day | Medium: freshness, the 7 day rule and offer ages all read it; needs readers that fill it in | Without the owner, as its own task | Proposed |
 | 7 | Price event log (store only changes) beside the snapshots | Medium | Per listing history; replay in seconds; frees the snapshots' history (enables 10) | Low if written alongside first and compared with the replay before anything reads it | Without the owner | Proposed |
@@ -333,10 +336,8 @@ Together the first three would take the file from 34.6 to about 25 to 27 MB.
 
 ## Owner decisions
 
-- **Item 4**: should a "Remove" in the dashboard keep reaching the site within
-  half an hour (today's redeploy after every crawl run), or wait for the next
-  harvest (up to about 4 hours) in exchange for about 50 fewer deploys a day?
-  Default if no answer: leave as is (it costs nothing on a public repository).
+- **Item 4**: decided 6 October: deploy only when the page could change,
+  with a half hourly check of the dashboard's list. Done.
 - **Item 8**: the social images, as already asked in OWNER-STEPS 7d.
 - **Item 10**: the history rewrite, as already asked in OWNER-STEPS 7d; if
   wanted, best after item 7 has run for a few weeks.
