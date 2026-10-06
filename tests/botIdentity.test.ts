@@ -2,8 +2,10 @@ import { createServer, type Server } from 'node:http';
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
+import { matchRoute } from '../demo/router.js';
 import {
   BOT_HEADERS,
+  BOT_NAME,
   BOT_USER_AGENT,
   METERED_TIERS_ENABLED,
   assertBotIdentity,
@@ -31,7 +33,10 @@ const root = resolve(import.meta.dirname, '..');
 describe('who the bot says it is', () => {
   it('is one user agent that names the crawler and a page that explains it', () => {
     expect(BOT_USER_AGENT).toMatch(/^PriceSniffsBot\/\d/);
-    expect(BOT_USER_AGENT).toContain('https://pricesniffs.space/about');
+    expect(BOT_USER_AGENT).toContain('+https://pricesniffs.space/about/bot)');
+    // The page it names is a route of the site, not a miss.
+    expect(matchRoute(new URL(BOT_USER_AGENT.match(/\+(https:[^)]+)\)/)![1]!).pathname).name).toBe('botPage');
+    expect(BOT_USER_AGENT.startsWith(`${BOT_NAME}/`)).toBe(true);
     expect(BOT_HEADERS['user-agent']).toBe(BOT_USER_AGENT);
     expect(ROUTE_HEADERS['user-agent']).toBe(BOT_USER_AGENT);
   });
