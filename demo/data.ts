@@ -370,6 +370,25 @@ export function fragrancesAt(retailerId: string): DemoFragrance[] {
 }
 
 /**
+ * The shops that list a product now: the same offers fragrancesAt counts (recent
+ * enough to show, not a pre-order), one entry per shop.
+ */
+export function shopIdsOf(id: string): string[] {
+  return [
+    ...new Set(
+      (CRAWLED[id] ?? [])
+        .filter((o) => o.stock !== 'preOrder' && !isTooOldToShow(o.fetchedAt))
+        .map((o) => o.retailerId),
+    ),
+  ];
+}
+
+/** A shop's name for a list or a filter, or its id where it is not in the registry. */
+export function shopNameOf(retailerId: string): string {
+  return RETAILERS.find((r) => r.id === retailerId)?.name ?? retailerId;
+}
+
+/**
  * How many listings a shop contributes, counting only offers recent enough to
  * show (see HIDE_OFFER_AFTER_DAYS). Used for the retailer directory, and zero
  * is what takes a shop off the Shops page and out of "Not available at".

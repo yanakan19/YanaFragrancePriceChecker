@@ -67,7 +67,7 @@ export const BROWSE_SORT_OPTIONS: SortOption<BrowseSort>[] = [
  * main bottle size, an oil's price per ml); each option here still names both
  * ends, like every other sort on the site (tests/sortLabels.test.ts).
  */
-export type TabSort = BrowseSort;
+export type TabSort = BrowseSort | 'main-low' | 'main-high' | 'items-high';
 
 export const SET_SORT_OPTIONS: SortOption<TabSort>[] = [
   { value: 'stocked', label: 'Most to Least Stocked' },
@@ -75,6 +75,9 @@ export const SET_SORT_OPTIONS: SortOption<TabSort>[] = [
   { value: 'za', label: 'Z to A' },
   { value: 'price-low', label: 'Lowest to Highest Price' },
   { value: 'price-high', label: 'Highest to Lowest Price' },
+  { value: 'main-low', label: 'Smallest to Largest Bottle' },
+  { value: 'main-high', label: 'Largest to Smallest Bottle' },
+  { value: 'items-high', label: 'Most to Fewest Items' },
 ];
 
 export const OIL_SORT_OPTIONS: SortOption<TabSort>[] = [
@@ -84,6 +87,31 @@ export const OIL_SORT_OPTIONS: SortOption<TabSort>[] = [
   { value: 'price-low', label: 'Lowest to Highest Price' },
   { value: 'price-high', label: 'Highest to Lowest Price' },
 ];
+
+/**
+ * A tab's list in the chosen order. The orders only a set can offer (its main
+ * bottle, its number of items) put a set that has none at the end of either
+ * direction: it cannot be placed on the scale, so it is not called the smallest
+ * or the largest (the rule sortFragrances follows for a null size). Ties fall to
+ * name, then id, so the order is total and Largest to Smallest is not Smallest to
+ * Largest with a different tiebreak.
+ */
+export function sortTab(list: DemoFragrance[], sort: TabSort): DemoFragrance[] {
+  if (sort === 'stocked') return list;
+  if (sort !== 'main-low' && sort !== 'main-high' && sort !== 'items-high') return sortFragrances(list, sort);
+  const value = (f: DemoFragrance): number | null => (sort === 'items-high' ? (f.giftSet?.items ?? null) : (f.giftSet?.mainMl ?? null));
+  return [...list].sort((a, b) => {
+    const x = value(a);
+    const y = value(b);
+    if (x === null || y === null) {
+      if (x === null && y !== null) return 1;
+      if (y === null && x !== null) return -1;
+    } else if (x !== y) {
+      return sort === 'main-low' ? x - y : y - x;
+    }
+    return `${a.brand} ${a.name}`.localeCompare(`${b.brand} ${b.name}`) || a.id.localeCompare(b.id);
+  });
+}
 
 /** Explore, Brands. */
 export const BRAND_SORT_OPTIONS: SortOption<'az' | 'za'>[] = [

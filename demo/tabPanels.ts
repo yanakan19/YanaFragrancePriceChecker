@@ -1,7 +1,17 @@
 import type { DemoFragrance } from './data.js';
-import { BY_POPULARITY } from './data.js';
-import { OIL_SORT_OPTIONS, SET_SORT_OPTIONS, sortFragrances, type ListSort, type SortOption, type TabSort } from './listSort.js';
+import { BY_POPULARITY, shopIdsOf, shopNameOf } from './data.js';
+import { OIL_SORT_OPTIONS, SET_SORT_OPTIONS, sortTab, type SortOption, type TabSort } from './listSort.js';
 import { isOil, isSet } from './productKind.js';
+import {
+  MAIN_BOTTLE_BANDS,
+  SET_BOX_OPTIONS,
+  SET_KIND_OPTIONS,
+  mainBottleBand,
+  namedSelect,
+  setBoxValues,
+  setKindOf,
+  slugOf,
+} from './tabFacets.js';
 import {
   applyFacets,
   emptyTabState,
@@ -99,6 +109,48 @@ export function createTabs(deps: TabDeps) {
   const type = select('type', 'Brand Type', 'Any Brand Type', deps.tierOptions, (f) => deps.attrs(f).tier);
   const inStock: Facet<DemoFragrance> = { kind: 'check', id: 'stock', label: 'In Stock', flag: (f) => deps.attrs(f).inStock };
 
+  /** Brand and Shop name whatever the list holds, so their labels come from the whole of it, read once. */
+  const labelsCache: Record<string, Map<string, string>> = {};
+  const labelsOf = (kind: TabKind, which: 'brand' | 'shop'): (() => ReadonlyMap<string, string>) => () =>
+    (labelsCache[`${kind}-${which}`] ??= new Map(
+      itemsOf(kind).flatMap((f): [string, string][] =>
+        which === 'brand' ? [[slugOf(f.brand), f.brand]] : shopIdsOf(f.id).map((id): [string, string] => [id, shopNameOf(id)]),
+      ),
+    ));
+  // A filter change runs every item through every filter, so what an item answers is kept: a
+  // brand's address form for good, the shops that list it for the minute (an offer can age out).
+  const brandSlugs = new Map<string, string[]>();
+  const brandValues = (f: DemoFragrance): string[] => {
+    let v = brandSlugs.get(f.brand);
+    if (!v) brandSlugs.set(f.brand, (v = [slugOf(f.brand)]));
+    return v;
+  };
+  const shopsByItem = new Map<string, string[]>();
+  let shopsMinute = -1;
+  const shopValues = (f: DemoFragrance): string[] => {
+    const minute = Math.floor(Date.now() / 60_000);
+    if (minute !== shopsMinute) {
+      shopsByItem.clear();
+      shopsMinute = minute;
+    }
+    let v = shopsByItem.get(f.id);
+    if (!v) shopsByItem.set(f.id, (v = shopIdsOf(f.id)));
+    return v;
+  };
+  const brandFacet = (kind: TabKind) => namedSelect<DemoFragrance>('brand', 'Brand', 'Any Brand', brandValues, labelsOf(kind, 'brand'));
+  const shopFacet = (kind: TabKind) => namedSelect<DemoFragrance>('shop', 'Shop', 'Any Shop', shopValues, labelsOf(kind, 'shop'));
+
+  const setKind = select('kind', 'Kind', 'Any Kind', SET_KIND_OPTIONS, (f) => setKindOf(f));
+  const inTheBox: SelectFacet<DemoFragrance> = {
+    kind: 'select',
+    id: 'box',
+    label: 'In the Box',
+    any: 'Anything in the Box',
+    values: (f) => setBoxValues(f),
+    ...fixedOptions(SET_BOX_OPTIONS),
+  };
+  const mainBottle = select('main', 'Main Bottle', 'Any Main Bottle', MAIN_BOTTLE_BANDS, (f) => mainBottleBand(f.giftSet?.mainMl));
+
   const specs: Record<TabKind, TabSpec> = {
     sets: {
       title: 'Sets',
@@ -107,7 +159,7 @@ export function createTabs(deps: TabDeps) {
         'Gift sets, miniature and discovery sets, and bundles of full size bottles. A set is compared only with the same set at another shop, never with a single bottle.',
       empty: 'No set matches that.',
       sorts: SET_SORT_OPTIONS,
-      facets: [concentration, gender, price, type, inStock],
+      facets: [setKind, inTheBox, mainBottle, brandFacet('sets'), concentration, gender, price, type, shopFacet('sets'), inStock],
       items: () => itemsOf('sets'),
     },
     oils: {
@@ -137,7 +189,7 @@ export function createTabs(deps: TabDeps) {
     const searched = st.q.trim() ? all.filter((f) => matchesSearch(`${f.brand} ${f.name} ${f.concentration}`, st.q)) : all;
     const views = facetViews(searched, spec.facets, st.sel);
     const faceted = applyFacets(searched, spec.facets, st.sel);
-    const list = st.sort === DEFAULT_SORT ? faceted : sortFragrances(faceted, st.sort as ListSort);
+    const list = st.sort === DEFAULT_SORT ? faceted : sortTab(faceted, st.sort as TabSort);
     return { list, views, searched };
   }
 
@@ -219,6 +271,8 @@ export function createTabs(deps: TabDeps) {
     panel,
     /** The tab's list as drawn, for the page's own use (and for tests). */
     listOf: (kind: TabKind) => listOf(kind).list,
+    /** Every filter's options and counts as the page draws them, for tests. */
+    views: (kind: TabKind): FacetView<DemoFragrance>[] => listOf(kind).views,
     state: (kind: TabKind): Readonly<TabListState> => states[kind],
     specOf: (kind: TabKind) => specs[kind],
 

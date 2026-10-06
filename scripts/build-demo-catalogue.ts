@@ -2703,7 +2703,7 @@ export interface CatalogueEntry {
    * does not; \`title\` is the shop title they were read from, shown in
    * their place when there are none.
    */
-  giftSet?: { contents: string[] | null; title: string; mainMl?: number; bundle?: true; from?: 'description' };
+  giftSet?: { contents: string[] | null; title: string; mainMl?: number; bundle?: true; from?: 'description'; box?: string; multi?: true; mini?: true; items?: number };
   /**
    * Present only on a perfume oil or an attar (src/catalogue/perfumeOil.ts): what
    * its shops state about it and nothing they did not. \`format\` is how it comes

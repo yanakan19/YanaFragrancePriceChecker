@@ -560,6 +560,40 @@ export function isBundle(title: string, productType: string | null | undefined, 
   return scents.size >= 2;
 }
 
+/**
+ * What a set holds besides fragrances, as sorted letters: b body (lotion, cream,
+ * balm), w wash (shower gel, body wash), d deodorant. The In the Box filter reads it.
+ */
+export function boxCode(items: readonly SetItem[]): string {
+  const kinds = new Set(items.map((i) => i.kind));
+  // A body mist, body spray, soap or lip balm is body care but not a lotion, cream or balm for the body.
+  const lotion = items.some((i) => i.kind === 'body' && !/mist|spray|soap|lip/i.test(i.label ?? ''));
+  return [lotion ? 'b' : '', kinds.has('deo') ? 'd' : '', kinds.has('wash') ? 'w' : ''].join('');
+}
+
+/** How many things the contents name, counting "5 x 10ml" as five; null where none are named. */
+export function itemTotal(items: readonly SetItem[]): number | null {
+  if (items.length === 0) return null;
+  return items.reduce((n, i) => n + (i.count ?? 1), 0);
+}
+
+const DISCOVERY_WORDS = /\b(?:discovery|sampler|miniatures?)\b/i;
+
+/**
+ * A miniature or discovery set: not a bundle, and either two or more fragrances all
+ * under a full size bottle (a set of 7ml and 7ml), or a title that says discovery,
+ * sampler or miniature while no fragrance in it is full size. A set with one small
+ * bottle and a body lotion is a gift set.
+ */
+export function isMiniatureSet(title: string, items: readonly SetItem[], bundle: boolean): boolean {
+  if (bundle) return false;
+  const main = mainMl(items);
+  const small = main === null || main < FULL_SIZE_ML;
+  if (!small) return false;
+  if (main !== null && fragranceCount(items) >= 2) return true;
+  return DISCOVERY_WORDS.test(title);
+}
+
 /** What is known of a set from one listing. */
 export interface GiftSetFacts {
   contents: string[] | null;
@@ -568,6 +602,14 @@ export interface GiftSetFacts {
   bundle: boolean;
   /** Where the contents come from: the title (always the first try) or the shop's own description. */
   from: 'title' | 'description';
+  /** boxCode of the contents; '' where nothing besides fragrances is named. */
+  box: string;
+  /** Two or more fragrances named. */
+  multi: boolean;
+  /** isMiniatureSet. */
+  miniature: boolean;
+  /** itemTotal of the contents. */
+  items: number | null;
 }
 
 export function readGiftSet(l: { rawTitle: string; description?: string | null; productType?: string | null }): GiftSetFacts {
@@ -576,11 +618,19 @@ export function readGiftSet(l: { rawTitle: string; description?: string | null; 
   // The title is the first try. The shop's own list replaces it only where it names more things by what they are.
   const useDescription = labelled(fromDescription) >= 2 && labelled(fromDescription) > labelled(fromTitle);
   const items = useDescription ? fromDescription : fromTitle;
+  const bundle = isBundle(l.rawTitle, l.productType, fromTitle);
+  const contents = displayContents(items);
+  // What the filters read comes from the same items the list is drawn from, and only where a list is shown.
+  const shown = contents ? items : [];
   return {
-    contents: displayContents(items),
+    contents,
     mainMl: mainMl(items),
-    bundle: isBundle(l.rawTitle, l.productType, fromTitle),
+    bundle,
     from: useDescription ? 'description' : 'title',
+    box: boxCode(shown),
+    multi: fragranceCount(shown) >= 2,
+    miniature: isMiniatureSet(l.rawTitle, items, bundle),
+    items: itemTotal(shown),
   };
 }
 

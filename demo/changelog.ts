@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.91.0',
+    date: '6 Oct 2026',
+    title: 'Sets: filter by kind, box and main bottle',
+    points: [
+      'Filter sets by kind, contents, brand and shop',
+      'Sort by main bottle size or number of items',
+      'Sets without a photo list what is inside',
+    ],
+  },
+  {
     version: 'v3.89.0',
     date: '6 Oct 2026',
     title: 'Five more brand logos',
