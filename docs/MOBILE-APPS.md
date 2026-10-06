@@ -90,7 +90,7 @@ unknown apps") to try the app today. You can also run it by hand from
 8. **Listing** (App Store Connect → the app → App Store tab), with text ready in §7:
    - Screenshots: 6.9" iPhone (1320×2868). Take them in the simulator
      (iPhone 16 Pro Max): ⌘S saves a screenshot.
-   - Privacy policy URL: `https://pricesniffs.space/about/legal#privacy` (the Legal Notice, at its privacy section; the older `/legal/privacy` opens the same place)
+   - Privacy policy URL: `https://pricesniffs.space/about/legal#privacy` (the Legal Notice, at its privacy section). In App Store Connect it is set under **App Information** → **Privacy Policy URL**; in Play Console under **Policy and programmes** → **App content** → **Privacy policy**.
    - Category: **Shopping**. Age rating: answer the questionnaire (4+).
    - **App Privacy** ("nutrition label"): the site collects an **email
      address** for sign-in and the **wishlist** (product IDs), both linked to
