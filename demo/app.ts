@@ -52,7 +52,7 @@ import {
   type CheapestVerdict,
 } from '../src/index.js';
 import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
-import { availabilityHeading, offerGroups, offersInPageOrder, rowShowsAge } from './offerGroups.js';
+import { availabilityHeading, offerGroups, offersInPageOrder, offerAge } from './offerGroups.js';
 import { mostStockedRail, rankedInMostStocked } from './mostStocked.js';
 import { bestDealPerScent, onePerScent } from './oneScent.js';
 import type { PresentedOffer } from '../src/types/offer.js';
@@ -938,18 +938,6 @@ function setPerRow(perRow: number): void {
 
 /* ── labels ──────────────────────────────────────────────────────────────── */
 
-function age(seconds: number): string {
-  if (seconds < 90) return 'just now';
-  const m = Math.round(seconds / 60);
-  if (m < 60) return `${m} min ago`;
-  const h = Math.round(m / 60);
-  // Past two days, "Nh ago" stops being readable at a glance (an offer six
-  // days old would otherwise read "144h ago") — days is the unit a reader
-  // actually judges freshness in beyond that point. Nothing shown here is
-  // older than HIDE_OFFER_AFTER_DAYS (7), so this reads "2d ago" to "7d ago".
-  return h < 48 ? `${h}h ago` : `${Math.round(h / 24)}d ago`;
-}
-
 function countdown(iso: string): string {
   const h = Math.floor((Date.parse(iso) - Date.now()) / 3_600_000);
   return h >= 24 ? `${Math.floor(h / 24)}d left` : `${h}h left`;
@@ -1731,15 +1719,17 @@ function msrpFor(row: PresentedOffer, frag: DemoFragrance): MsrpComparison | nul
  * price; line two says what the price contains and how it compares:
  *
  *   Perfume Click  CHEAPEST                                   £27.00
- *   Incl. £2.95 delivery · Affiliate link             27% below MSRP
+ *   Incl. £2.95 Delivery · Affiliate Link · 9h        27% below MSRP
  *
  * What went: the "£X more for free postage" hint (it read as a second,
  * contradictory delivery figure beside the one already included), the bottle
  * price repeated under the total, the "In stock" dot on every buyable row (the
  * section heading already says so; only Low stock / Preorder / unconfirmed
  * stock is still said), star ratings and the New tag. A delivery figure we have
- * not confirmed with the shop is still marked, as "est.", and a price more
- * than a day old still says how old it is, because both change what the number means.
+ * not confirmed with the shop is still marked, as "est.", and every row ends
+ * its line with how long ago that listing was last checked ("9h", "1d"; owner
+ * request, 6 Oct 2026, replacing the page's own "Updated" line), because both
+ * change what the number means.
  *
  * Both the MSRP percentage and the RRP saving are worked from the figure this
  * row prints, `totalGbp`, never from a figure it does not (see msrpFor and
@@ -1758,18 +1748,18 @@ function offerRow(
   // Only ever a delivered price where the shop actually states a delivery
   // cost — never the item price wearing a delivered price's clothes.
   const totalGbp = shownPrice(row).amountGbp;
+  // Each fact is plain text except the age, which is markup: the short value
+  // for the eye and its full sentence for a screen reader.
   const facts: string[] = [];
   // A pre-order is not buyable today, so it sits with the sold out rows, but
   // its price is the shop's live pre-order price rather than a last one, so
-  // it keeps the delivery and age facts and wears a Preorder tag instead.
+  // it keeps the delivery fact and wears a Preorder tag instead.
   const marks = rowStockMarks(row);
   // Two same size rows of one shop, told apart by the shop's own format words
   // ("Miniature", "Travel Spray"). Said first, because it is what the reader
   // is choosing between. Title Case already, from src/catalogue/offerFormat.ts.
   if (row.formatLabel) facts.push(row.formatLabel);
-  if (marks.lastPrice) {
-    facts.push('Last price');
-  } else {
+  if (!marks.lastPrice) {
     if (row.delivery.costGbp === null) {
       // Listed under "Delivery not included", so the heading says the rest.
       facts.push('+ delivery');
@@ -1787,11 +1777,6 @@ function offerRow(
     // A bottle below the shop's minimum basket cannot be bought on its own.
     const minimum = row.retailer.shipping.minimumOrderGbp;
     if (minimum && row.itemPriceGbp < minimum) facts.push(`${formatGbp(minimum)} minimum order`);
-    // Said on the row it applies to: the page caption gives the freshest age.
-    // Every row checked more than about a day ago states its own age (owner's
-    // decision, 2026-10-03): older offers are in the one list now, and the
-    // Cheapest tag can be on one of them, so its age is on the row itself.
-    if (rowShowsAge(row)) facts.push(age(row.ageSeconds));
   }
   // The CAP Code asks for an affiliate relationship to be obvious before the
   // click, so a commissioned shop's row says so, and rel="sponsored" tells
@@ -1799,6 +1784,20 @@ function offerRow(
   // page's own list, so the two can never disagree.
   const commissioned = row.retailer.affiliate.status === 'active';
   if (commissioned) facts.push('Affiliate link');
+  // A sold out row's price is the last one seen, and says so.
+  if (marks.lastPrice) facts.push('Last price');
+  // Capitalised words (owner request, 6 Oct 2026): "Free Delivery",
+  // "Affiliate Link", "Last Price".
+  const factHtml = facts.map((f) => `<span>${esc(f.replace(/(^|\s)([a-z])/g, (_m, sp: string, c: string) => sp + c.toUpperCase()))}</span>`);
+  // The <wbr> after each dot lets a long line wrap between facts at 320px
+  // instead of running under the comparison on the right.
+  // The age of this listing's own last check, last on the line (owner request,
+  // 6 Oct 2026). Every row states it, replacing the page's one "Updated" line.
+  // "9h" is for the eye; the screen reader gets "checked 9 hours ago".
+  const checked = offerAge(row.ageSeconds);
+  factHtml.push(
+    `<span class="checked"><span aria-hidden="true">${esc(checked.short)}</span><span class="sr">${esc(checked.long)}</span></span>`,
+  );
 
   return `<li class="offer ${isBest ? 'best' : ''} ${row.isPurchasable ? '' : 'unavail'}">
     <a class="offer-link" href="${esc(row.outboundUrl)}" data-shop="${esc(row.retailer.id)}" rel="nofollow noopener${commissioned ? ' sponsored' : ''}" target="_blank">
@@ -1820,7 +1819,7 @@ function offerRow(
         }">${formatGbp(totalGbp)}</span></span>
       </span>
       <span class="offer-bot">
-        <span class="facts t-caption">${facts.map((f) => `<span>${esc(f)}</span>`).join('<span class="sep">·</span>')}</span>${
+        <span class="facts t-caption">${factHtml.join('<span class="sep">·</span><wbr>')}</span>${
           msrp
             ? `<span class="off anchor${msrp.direction === 'above' ? ' over' : ''}">${msrpComparisonLabel(msrp)}</span>`
             : d
@@ -2834,7 +2833,6 @@ function detailView(): string {
   const bestTag = cheapestTag(verdict);
   const groups = offerGroups(rows);
   const { delivered, plusDelivery, gone, preOrder } = groups;
-  const newest = rows.length ? Math.min(...rows.map((r) => r.ageSeconds)) : 0;
   /**
    * Whether this page may print the word MSRP at all.
    *
@@ -2899,19 +2897,13 @@ function detailView(): string {
             // available at (nothing buyable — see priceBoxRow's own note
             // on that state, and cheapestVerdict for the rest of the
             // reasoning). The <p> stays in the document either way, empty
-            // rather than removed, so `.results-head`'s space-between still
-            // has two children and the caption on the right does not drift
-            // left into the gap the heading used to fill — see .results-head
-            // in the stylesheet for the narrow-width version of this row.
+            // rather than removed. The page's "Updated Nh ago" caption that
+            // used to sit on the right is gone (owner request, 6 Oct 2026):
+            // each row says its own age at the end of its facts line.
             // Every listed buyable row counts, whatever its age (owner's
             // decision, 2026-10-03; see availabilityHeading).
             esc(availabilityHeading(groups))
           }</p>
-          <span class="dim t-caption">${
-            // The one fact no row carries: how current the page is. Each row
-            // says what its own price contains; age() handles its own units.
-            `Updated ${esc(age(newest))}`
-          }</span>
         </div>
 
         ${

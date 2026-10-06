@@ -42,6 +42,7 @@ export const CHANGELOG: ChangelogEntry[] = [
           'Many more brand pages show the real logo',
           'A shorter About page and a Legal Notice page',
           'Privacy notice covers our cookieless visit count',
+          'Each shop row shows how long ago it was checked',
         ],
       },
       {
