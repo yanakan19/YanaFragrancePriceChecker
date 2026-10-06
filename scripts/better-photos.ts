@@ -31,6 +31,7 @@
  * every 20 listings, so a run that is stopped keeps what it found.
  */
 import { existsSync, readFileSync } from 'node:fs';
+import { decodeSnapshot } from '../src/catalogue/store.js';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CATALOGUE, CRAWLED } from '../demo/catalogue.generated.js';
@@ -85,7 +86,7 @@ interface Listing {
   priceGbp: number | null;
   status: string;
 }
-const pcFile = JSON.parse(readFileSync(resolve(root, 'data/catalogue/perfume-click.json'), 'utf8'));
+const pcFile = decodeSnapshot(JSON.parse(readFileSync(resolve(root, 'data/catalogue/perfume-click.json'), 'utf8')));
 const pcListings: Listing[] = Array.isArray(pcFile) ? pcFile : pcFile.listings;
 const byKey = new Map<string, Listing>();
 for (const l of pcListings) if (l.status === 'active') byKey.set(`${l.url}|${l.priceGbp}`, l);
