@@ -21,6 +21,7 @@
  * shops stock only needs one of them to have written "Pour Homme".
  */
 import { readdirSync, readFileSync } from 'node:fs';
+import { decodeSnapshot } from '../src/catalogue/store.js';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CATALOGUE } from '../demo/catalogue.generated.js';
@@ -63,7 +64,7 @@ const rawTitles: string[] = [];
 const dir = resolve(root, 'data/catalogue');
 for (const file of readdirSync(dir)) {
   if (!file.endsWith('.json')) continue;
-  const parsed = JSON.parse(readFileSync(resolve(dir, file), 'utf8')) as StoredFile;
+  const parsed = decodeSnapshot(JSON.parse(readFileSync(resolve(dir, file), 'utf8'))) as StoredFile;
   for (const listing of parsed.listings ?? []) {
     if (listing.status === 'delisted') continue;
     if (listing.rawTitle) rawTitles.push(listing.rawTitle);
