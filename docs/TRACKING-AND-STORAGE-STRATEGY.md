@@ -25,6 +25,9 @@ out of git. This document does not repeat that work; it measures what is left.
    Between two rebuilds, 34,000 of the generated catalogue's changed lines
    are the same "last seen" time per offer. Storing that once per shop run
    instead of once per listing is the biggest saving available (item 6).
+   **Done for the snapshots 2026-10-06**: a day of snapshot commits (the 12
+   of 5 October) packs to 0.48 MB of growth instead of 2.64 MB, with the
+   site's data byte for byte the same.
 3. **The same 12.3 MB price history was committed twice**: the history inside
    `data/price-history-checkpoint.json` was the same series as the
    `PRICE_HISTORY` in `demo/priceHistory.generated.ts`. **Done 2026-10-06**
@@ -267,7 +270,7 @@ account or SQL only the owner can run.
 | 3 | Write `demo/catalogue.generated.ts` one entry per line instead of indented (and `productIdsIn` in `src/catalogue/idAliases.ts` reads both forms) | Small code, one full rebuild | 43.1 → 34.6 MB now; keeps it under GitHub's 50 MiB warning for longer; smaller deltas | Medium: the id alias memory reads the old file's text, the crawl rebuilds it many times a day | Without the owner | **Done** 2026-10-06: 43.3 → 34.6 MB, the same data, an identical page; see "Item 3" below and PIPELINE-FAILURE-MODES row 15 |
 | 4 | Deploy after a crawl run only when the page could change: the live site publishes `build-state.json` (the commit and the dashboard list it was built from), and a `decide` job compares it with the tip, through the push filter's folders, and with the list | Small workflow step, `scripts/deploy-decision.mjs` | About 45 deploy runs a day | Low: a missing or unreadable record, or a commit not in the history, deploys; a failed deploy leaves the old record, so the next check retries; a half hourly scheduled check keeps "Remove" and "Show Again" within about half an hour | Owner decided (6 Oct): skip pointless deploys, keep a path for the dashboard | **Done** 2026-10-06 |
 | 5 | Checkpoint without its copy of the history (version 3): it keeps the series' ids in the replay's order and the hash of the history, and reads the series back from `demo/priceHistory.generated.ts`, taking off the points of the commits since | Medium | Measured: 15.9 → 5.0 MB of checkout; the nine rewrites of 5 and 6 October pack to 1.23 MB instead of 2.58 MB, so about 0.8 MB a day less | Low: only an exact hash match is resumed, anything else replays from the first commit; version 2 is still read and still written when the generated file cannot give the history back | Without the owner | **Done** 2026-10-06; see "Item 5" below |
-| 6 | "Last seen" once per shop run, not per listing (snapshots), and per shop in the generated catalogue | Medium to large: the harvest writer, every reader, the replay over old commits | The largest crawl saving: most of R1 and R2, estimate 3 to 5 MB a day | Medium: freshness, the 7 day rule and offer ages all read it; needs readers that fill it in | Without the owner, as its own task | Proposed |
+| 6 | "Last seen" once per shop run, not per listing (snapshots), and per shop in the generated catalogue | Medium to large: the harvest writer, every reader, the replay over old commits | The largest crawl saving: most of R1 and R2, estimate 3 to 5 MB a day | Medium: freshness, the 7 day rule and offer ages all read it; needs readers that fill it in | Without the owner, as its own task | **Snapshots done** 2026-10-06 (`encodeSnapshot` and `decodeSnapshot` in `src/catalogue/store.ts`): measured 2.64 → 0.48 MB a day; see "Item 6" below. The generated catalogue's `fetchedAt` is not changed: it is the page's data, and the owner asked for identical site data |
 | 7 | Price event log (store only changes) beside the snapshots | Medium | Per listing history; replay in seconds; frees the snapshots' history (enables 10) | Low if written alongside first and compared with the replay before anything reads it | Without the owner | Proposed |
 | 8 | Social images out of git (render when needed, or delete once posted) | Small | About 3 MB a day (21.1 MB in the week) | Owner's routines change | **Owner decision** (OWNER-STEPS 7d, decision 2) | Proposed |
 | 9 | Descriptions in a separate per shop file | Medium | 67.5 MB off the snapshots' checkout; faster replay parsing; little growth | Medium: notes, filters and matching read them | Without the owner | Proposed, low priority |
@@ -282,6 +285,40 @@ rest are proposals: 3, 5, 6, 7 and 9 an agent can take without the owner
 1 code). With 3, 5 and 6 done: estimate 4 to 6 MB a day, about 3 of it
 social. With 8 as well: 1 to 3 MB a day, and 1 GB moves from about four
 weeks away to many months.
+
+### Item 6: "last seen" once per run, in the snapshots
+
+Done 2026-10-06. On disk a snapshot writes the time most of its listings were
+last seen once, as `seenAt` after `updatedAt`, and a listing keeps its own
+`lastSeenAt` only when it differs (a page by page shop re-reads some listings
+each run; a delisted listing keeps the run that last saw it). The store's
+`read` puts each listing's field back in its place, so everything above the
+store sees what it always did; the scripts that read the files directly
+(image checks, reports, photo coverage, delivery recheck) go through
+`decodeSnapshot`. Old files have no `seenAt` and read unchanged, so nothing
+is converted: each shop's file changes form the next time a run writes it.
+The price history replay reads old and new files alike and never reads the
+field. Undo: write without `encodeSnapshot`; the reader takes both forms.
+
+Checked: all 75 snapshot files (51 shops, 24 houses; 89,889 listings, of
+which 18,216 keep their own time) read back exactly, key order included,
+after writing through the new store. Converting them all and rebuilding the
+site with the clock pinned (`npm run catalogue:demo`, `deals:build`, `demo`)
+gives byte for byte the same generated catalogue, dormant and deals files,
+`id-aliases.json`, `product-slugs.json`, set match report, every page data
+file, sitemap and page (two builds before the change were first checked to be
+identical to each other). Measured on the 12 snapshot commits of 5 October,
+each file's versions packed the way git packs them: 24.1 MB in all, of which
+2.64 MB is the day's growth, became 21.9 MB and 0.48 MB. Most of what is left
+is real change: prices, stock, new listings, and the page by page shops.
+
+Not done, and why: **descriptions out of the snapshots** (R4). Measured the
+same way, removing them would cut the checkout from 143 to 75 MB and the
+packed size of one copy by two thirds, but the day's growth only from 2.64
+to 2.43 MB (0.48 to 0.44 MB with item 6), because descriptions rarely
+change. A separate per shop file holds the same bytes, so the checkout gains
+nothing unless they leave git altogether, and notes, filters and matching
+read them. Not worth the risk for growth; listed for a later history rewrite.
 
 ### Item 5: the checkpoint without its copy of the history
 

@@ -23,6 +23,7 @@
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { decodeSnapshot } from '../src/catalogue/store.js';
 import { RETAILERS } from '../src/config/retailers.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import { BOT_HEADERS } from '../src/catalogue/botIdentity.js';
@@ -61,7 +62,7 @@ function listingCount(retailerId: string): number {
   const path = resolve(root, 'data/catalogue', `${retailerId}.json`);
   if (!existsSync(path)) return 0;
   try {
-    const parsed = JSON.parse(readFileSync(path, 'utf8')) as { listings?: unknown[] };
+    const parsed = decodeSnapshot(JSON.parse(readFileSync(path, 'utf8')) as { listings?: unknown[] });
     return Array.isArray(parsed.listings) ? parsed.listings.length : 0;
   } catch {
     return 0;

@@ -11,6 +11,7 @@
  * price, because one shop address can carry several variants.
  */
 import { readFileSync, readdirSync } from 'node:fs';
+import { decodeSnapshot } from '../src/catalogue/store.js';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CATALOGUE, CRAWLED } from '../demo/catalogue.generated.js';
@@ -24,7 +25,7 @@ const names = new Map(RETAILERS.map((r) => [r.id, r.name]));
 const stored = new Map<string, (string | null)[]>();
 for (const f of readdirSync(resolve(root, 'data/catalogue'))) {
   if (!f.endsWith('.json')) continue;
-  const d = JSON.parse(readFileSync(resolve(root, 'data/catalogue', f), 'utf8'));
+  const d = decodeSnapshot(JSON.parse(readFileSync(resolve(root, 'data/catalogue', f), 'utf8')));
   for (const l of Array.isArray(d) ? d : d.listings) {
     const k = `${l.retailerId}|${l.url}|${l.priceGbp}`;
     stored.set(k, [...(stored.get(k) ?? []), l.imageUrl ?? null]);
