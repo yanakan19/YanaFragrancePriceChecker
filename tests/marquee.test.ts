@@ -33,7 +33,7 @@ describe('the marquee phrases', () => {
   });
 
   it('states shop coverage with the rounding the rest of the site uses', () => {
-    expect(phrases[0]).toBe('20,000+ Fragrances Tracked');
+    expect(phrases[0]).toBe('20,000+ Products Tracked');
     expect(phrases[1]).toBe('More Than 30 UK Shops');
     expect(marqueePhrases(100, shopsPhrase(8))[1]).toBe('8 UK Shops');
   });
@@ -180,7 +180,7 @@ describe.skipIf(!built)('the marquee on the built home page', () => {
         // the bundle (scripts/dataFiles.ts moves only literals over a byte
         // threshold), so the page may count up to 499 more than the file.
         const allowed = new Set<string>();
-        for (let extra = 0; extra < 500; extra++) allowed.add(`${fragrancesPhrase(count + extra)} Fragrances Tracked`);
+        for (let extra = 0; extra < 500; extra++) allowed.add(`${fragrancesPhrase(count + extra)} Products Tracked`);
         expect(allowed.has(got.shown[0]!), `${got.shown[0]} against ${count} in the data file`).toBe(true);
         // Shop coverage, never more than the shops switched on.
         const shops = /^(?:More Than )?(\d+) UK Shops$/.exec(got.shown[1]!);

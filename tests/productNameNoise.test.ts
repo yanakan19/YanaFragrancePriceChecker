@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { CATALOGUE } from '../demo/catalogue.generated.js';
 import { brandKey } from '../src/catalogue/brandName.js';
+import { displayName } from '../src/catalogue/productName.js';
+import { isWithdrawnByShop } from '../src/catalogue/fragranceId.js';
 
 /**
  * Owner report, 2026-09-10: on the French Avenue brand page, four bottles each
@@ -24,22 +26,14 @@ import { brandKey } from '../src/catalogue/brandName.js';
  * themselves and for the measured evidence behind each.
  */
 /**
- * (2) VERIFIED NOISE, no safe rule. mybeauty-boutique publishes "Weekend |
- * DNL RECALLED" for Burberry Weekend — a shop's internal status code that
- * reached its public title. It is rubbish, it is one product, and nothing
- * about it generalises: there is no vocabulary to put "DNL" in and no shape
- * to match that would not also match a real name. Pinned by its exact
- * string, so if that shop's habit spreads to a second product this test
- * fails and someone has to look, which is the point.
- *
- * Held at module level because the pair test below honours it too. Since
- * 2026-10-03 (HIDE_OFFER_AFTER_DAYS in src/services/priceService.ts) the
- * offer that used to name the other Burberry Weekend EDP 50ml "Weekend For
- * Women" is too old to show, so that product now reads plain "Weekend" and
- * sits beside this one as a superset pair. Same one known product, same
- * reason it cannot be fixed by a rule; the pin still fails on a second one.
+ * (2) A shop's own status, never a name. MyBeauty.Boutique published "Burberry
+ * Weekend Edp 50ml Spray | DNL RECALLED" ("do not list", recalled), which read
+ * "Weekend | DNL RECALLED" here until 2026-10-06 and was pinned as unfixable.
+ * The listing is now kept out of the catalogue (isWithdrawnByShop in
+ * src/catalogue/fragranceId.ts: the shop says it is not for sale), and the
+ * status words come off any name all the same (NOISE_SEGMENT_STATUS_RE in
+ * productName.ts). Nothing is pinned any more.
  */
-const KNOWN_UNFIXED_PIPE_NAMES = new Set(['Weekend | DNL RECALLED']);
 
 describe('product names carry no shop descriptor rubbish', () => {
   it('is checking a real catalogue', () => {
@@ -148,8 +142,7 @@ describe('product names carry no shop descriptor rubbish', () => {
         !REAL_PIPE_NAMES.test(p.name) &&
         !(p.brand.toLowerCase() === 'kayali' && KAYALI_PIPE_NAMES.test(p.name)) &&
         !(p.brand.toLowerCase() === 'kayali' && p.giftSet && KAYALI_SET_PIPE_NAMES.test(p.name)) &&
-        !(TWO_PART_PIPE_HOUSES.has(p.brand.toLowerCase()) && isTwoPartLatinPipe(p.name)) &&
-        !KNOWN_UNFIXED_PIPE_NAMES.has(p.name),
+        !(TWO_PART_PIPE_HOUSES.has(p.brand.toLowerCase()) && isTwoPartLatinPipe(p.name)),
     ).map((p) => `${p.brand}: ${p.name}`);
     expect([...new Set(offenders)]).toEqual([]);
   });
@@ -238,7 +231,6 @@ describe('no bottle appears twice because a shop added a descriptor', () => {
       for (const longer of group) {
         const at = longer.name.indexOf('|');
         if (at < 0) continue;
-        if (KNOWN_UNFIXED_PIPE_NAMES.has(longer.name)) continue;
         const extra = words(longer.name);
         const segment = words(longer.name.slice(at));
         for (const w of words(longer.brand)) segment.add(w);
@@ -253,5 +245,26 @@ describe('no bottle appears twice because a shop added a descriptor', () => {
       }
     }
     expect(offenders).toEqual([]);
+  });
+});
+
+describe('a shop\'s marketing or status after a pipe', () => {
+  it('takes "| Unisex Fragrance" off a name', () => {
+    // Debenhams' own title, data/catalogue/debenhams.json, 2026-10-06.
+    expect(displayName('Farwah Oriental Eau De Parfum | Unisex Fragrance 100 ml', 'Maryaj', 'Maryaj')).toBe('Farwah Oriental');
+  });
+
+  it('never leaves a recall status in a name', () => {
+    expect(displayName('Burberry Weekend Edp 50ml Spray | DNL RECALLED', 'Burberry', 'Burberry')).toBe('Weekend');
+    for (const p of CATALOGUE) expect(p.name, p.name).not.toMatch(/\brecalled\b|\|\s*dnl\b/i);
+  });
+
+  it('keeps a listing its shop marks recalled or not to be listed out of the catalogue', () => {
+    expect(isWithdrawnByShop('Burberry Weekend Edp 50ml Spray | DNL RECALLED')).toBe(true);
+    expect(isWithdrawnByShop("Mane 'n Tail Original Conditioner 355 ml | DNL RECALLED")).toBe(true);
+    expect(isWithdrawnByShop('Example Scent Eau de Parfum 50ml | Do Not List')).toBe(true);
+    // Words that only look like it.
+    expect(isWithdrawnByShop('Burberry Weekend Eau de Parfum 50ml')).toBe(false);
+    expect(isWithdrawnByShop('Dnl Example Eau de Parfum 50ml')).toBe(false);
   });
 });

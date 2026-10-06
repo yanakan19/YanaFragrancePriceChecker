@@ -7,6 +7,7 @@ import type { Browser, BrowserContext, Download, Page } from 'playwright';
 import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-audit.js';
 import { stubSupabase, type FakeAccount, type FakePhotoFile } from './support/fakeAccount.js';
 import { liveCounts } from '../demo/data.js';
+import { COUNTS } from '../demo/counts.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const built = existsSync(resolve(root, 'demo/index.html'));
@@ -625,7 +626,8 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
         Object.fromEntries(els.map((e) => [e.getAttribute('data-stat'), Number(e.querySelector('dd')!.textContent!.replace(/,/g, ''))])),
       )) as Record<string, number>;
       const live = liveCounts();
-      expect(stats).toEqual({ shops: live.shops, fragrances: live.fragrances, offers: live.offers });
+      expect(stats).toEqual({ shops: live.shops, offers: live.offers, products: live.fragrances, fragrances: COUNTS.bottles, sets: COUNTS.sets, oils: COUNTS.oils });
+      expect(COUNTS.bottles + COUNTS.sets + COUNTS.oils).toBe(live.fragrances);
       expect(live.shops).toBeGreaterThan(0);
       expect(live.offers).toBeGreaterThan(0);
       expect(await axe(page)).toEqual([]);
