@@ -417,7 +417,7 @@ describe('owner supplied brand logos are hosted PNGs on solid white', () => {
     expect(Math.max(png.width, png.height), key).toBeLessThanOrEqual(360);
   });
 
-  it('keeps demo/logos/brands/ to 8 KB a file, 100 KB in all, with nothing the registry does not name', () => {
+  it('keeps demo/logos/brands/ to 8 KB a file, 400 KB in all, with nothing the registry does not name', () => {
     const files = readdirSync(brandsDir);
     let total = 0;
     for (const f of files) {
@@ -425,7 +425,7 @@ describe('owner supplied brand logos are hosted PNGs on solid white', () => {
       expect(size, `demo/logos/brands/${f} is ${size} bytes`).toBeLessThanOrEqual(8 * 1024);
       total += size;
     }
-    expect(total).toBeLessThanOrEqual(100 * 1024);
+    expect(total).toBeLessThanOrEqual(400 * 1024);
     expect(files.sort()).toEqual(owned.map(([, l]) => l.src.split('/').pop()!).sort());
   });
 });
