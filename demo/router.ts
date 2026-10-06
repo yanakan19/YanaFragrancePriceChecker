@@ -32,7 +32,7 @@ import { isProductSlug } from '../src/catalogue/productSlug.js';
 
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
-  | 'notes' | 'note' | 'oils' | 'sets' | 'fragrance' | 'product' | 'about' | 'legalNotice' | 'botPage' | 'settings' | 'suggestions' | 'legal' | 'account'
+  | 'notes' | 'note' | 'fragrances' | 'oils' | 'sets' | 'fragrance' | 'product' | 'about' | 'legalNotice' | 'botPage' | 'settings' | 'suggestions' | 'legal' | 'account'
   | 'accountWishlist' | 'accountNotifications'
   | 'design' | 'developer' | 'notFound';
 
@@ -74,6 +74,8 @@ const LIST_ROUTES: Record<string, RouteName> = {
   retailers: 'retailers',
   notes: 'notes',
   // The Explore tabs after Notes (docs/GIFT-SETS-AND-OILS-PLAN.md).
+  // All Fragrances, the first Explore tab (owner's request, 2026-10-06): every bottle, no oils or sets.
+  fragrances: 'fragrances',
   oils: 'oils',
   sets: 'sets',
   about: 'about',
@@ -103,6 +105,8 @@ const LIST_ROUTES: Record<string, RouteName> = {
  */
 const ALIAS_ROUTES: Record<string, { name: RouteName; query: Record<string, string> }> = {
   'gift-sets': { name: 'sets', query: {} },
+  // Explore itself has no page; it opens the first tab, All Fragrances.
+  explore: { name: 'fragrances', query: {} },
 };
 
 /**
@@ -282,6 +286,7 @@ export function routeToPath(route: Route): string {
       case 'retailer': return `/retailers/${encodeURIComponent(param)}`;
       case 'notes': return '/notes';
       case 'note': return `/notes/${encodeURIComponent(param)}`;
+      case 'fragrances': return '/fragrances';
       case 'oils': return '/oils';
       case 'sets': return '/sets';
       case 'fragrance': return productPath(param);

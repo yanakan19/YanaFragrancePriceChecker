@@ -710,6 +710,8 @@
   }
   .subnav::-webkit-scrollbar { display: none; }
   .subnav[hidden] { display: none; }
+  /* The gap between the two groups of Explore tabs: a thin rule with room either side. Decorative. */
+  .subnav-gap { flex: none; align-self: center; width: 1px; height: 16px; margin: 0 12px; background: var(--line-firm); }
   /* Was a row of outlined pills that filled with accent when selected, which
      put a second red "chosen" language on screen beside the top bar's
      underline and beside the best-price marker. It is the same kind of
@@ -3463,7 +3465,7 @@
     <div role="search" class="quick-search">
       <input type="search" id="search" placeholder="Quick Search" aria-label="Quick search by fragrance name" />
     </div>
-    <nav class="subnav" id="subnav" hidden></nav>
+    <nav class="subnav" id="subnav" role="tablist" aria-label="Explore" hidden></nav>
   </div>
 
   <!-- tabindex="-1" so the skip link can actually move focus here: without
