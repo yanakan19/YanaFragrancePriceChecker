@@ -159,6 +159,16 @@ export const BRAND_MERGES: readonly (readonly [from: string, to: string])[] = [
   ['New Brand Prestige', 'New Brand'],
   // The umbrella house; Bridgerton is a collaboration line within it.
   ['Floral Street x Bridgerton', 'Floral Street'],
+  // Owner decision, 6 Oct 2026: one house, two transliterations of the Roman
+  // BVLGARI. The house writes it Bvlgari (the V stands for U), and that is the
+  // spelling the logo is registered under, so Bulgari goes.
+  ['Bulgari', 'Bvlgari'],
+  // Found by the same sweep on 6 Oct 2026, each checked against the catalogue:
+  // the same house with a trailing word one shop's feed added.
+  ['Maison Francis Kurkdjian Paris', 'Maison Francis Kurkdjian'],
+  ['Lattafa Perfume', 'Lattafa'],
+  ['Dumont', 'Dumont Paris'],
+  ['Versatile Paris', 'Versatile'],
   // The house's full name on one side and a shortened form on the other.
   ['Francis Kurkdjian', 'Maison Francis Kurkdjian'],
   ['Alfred Dunhill', 'Dunhill'],

@@ -53,7 +53,7 @@ import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { build, type Plugin } from 'esbuild';
-import { moveLiteralsToJson } from './dataLiterals.js';
+import { inlineShopTimes, moveLiteralsToJson } from './dataLiterals.js';
 import { BLOBS_GLOBAL, LAZY_DATA_MODULES, type DataGroup, type DataManifest } from './dataFiles.js';
 import { pruneContext, pruneMovedBlobs, removedSets, resolveSiteBuild } from './siteBuild.js';
 
@@ -81,7 +81,10 @@ const dataAsJson: Plugin = {
             'but the bundle imports it. Import its types only (`import type`), and read its data through demo/priceHistoryStore.ts.',
         );
       }
-      const source = await readFile(args.path, 'utf8');
+      // inlineShopTimes: CRAWLED as one literal again, so the page's data file
+      // is what it was before the module stored each shop's time once
+      // (scripts/dataLiterals.ts). Any other module comes back unchanged.
+      const source = inlineShopTimes(await readFile(args.path, 'utf8'));
       // Nothing may await between reading `start` and the move: that is what
       // keeps this module's blobs contiguous while esbuild loads others.
       const start = blobs.length;

@@ -31,6 +31,7 @@
  * core. Read each group before merging anything.
  */
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { decodeSnapshot } from '../src/catalogue/store.js';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import type { CatalogueEntry, CrawledOffer } from '../demo/catalogue.generated.js';
@@ -271,7 +272,7 @@ if (opts.spellings) {
   const watched = new Map<string, Map<string, number>>();
   if (existsSync(dir)) {
     for (const f of readdirSync(dir).filter((x) => x.endsWith('.json'))) {
-      const snap = JSON.parse(readFileSync(resolve(dir, f), 'utf8')) as { listings?: { rawTitle: string; status?: string }[] };
+      const snap = decodeSnapshot(JSON.parse(readFileSync(resolve(dir, f), 'utf8')) as { listings?: { rawTitle: string; status?: string }[] });
       for (const l of snap.listings ?? []) {
         if (l.status && l.status !== 'active') continue;
         const phrase = concentrationMatch(l.rawTitle);

@@ -46,9 +46,36 @@ import { ADS_ON } from './ads.js';
 /** One source of truth for the origin. scripts/build-demo.ts imports this. */
 export const SITE_URL = 'https://pricesniffs.space';
 
+/**
+ * What a shared link to the site says, owner's exact words (6 Oct 2026): the
+ * title and the description of the preview in WhatsApp, iMessage, Facebook, X,
+ * Slack and Discord, and the home page's meta description. Also the site wide
+ * default in the built page (scripts/build-demo.ts).
+ */
+export const SHARE_TITLE = 'PriceSniffs: Fragrance Comparison Site';
+export const SHARE_DESCRIPTION = SHARE_TITLE;
+
+/**
+ * The preview picture: a screenshot of the top of the homepage, made by
+ * scripts/generate-og-preview.ts (npm run og:preview). Raise the version
+ * whenever the picture is regenerated: shared link caches and browsers key on
+ * the address, so a new value is what makes the new picture show up.
+ */
+export const OG_IMAGE_VERSION = '20261006';
+export const OG_IMAGE_URL = `${SITE_URL}/og-preview.png?v=${OG_IMAGE_VERSION}`;
+export const OG_IMAGE_WIDTH = 1200;
+export const OG_IMAGE_HEIGHT = 630;
+export const OG_IMAGE_ALT =
+  'The top of the PriceSniffs homepage: the search box, the headline and the first row of the most stocked fragrances with their prices.';
+
 export interface HeadTags {
   title: string;
   description: string;
+  /**
+   * The title a shared link shows, when it is not the tab title (the home
+   * page's tab says just PriceSniffs, its preview says SHARE_TITLE).
+   */
+  shareTitle?: string;
   canonical: string;
   /** True when the route should not be indexed at all. */
   noindex: boolean;
@@ -174,12 +201,9 @@ export function headFor(input: HeadInput): HeadTags {
         // nothing else here. Every other route earns a "PriceSniffs: " prefix
         // plus a page-specific part; home is just the part before the colon.
         title: 'PriceSniffs',
-        description: describe(
-          products && shops
-            ? `Compare ${products} fragrances across ${shops} UK shops, sorted by the price you actually pay including delivery.`
-            : 'Compare fragrance prices across UK shops, sorted by the price you actually pay including delivery.',
-          SITE_TAIL,
-        ),
+        shareTitle: SHARE_TITLE,
+        // The owner's exact words, the same as the preview in a shared link.
+        description: SHARE_DESCRIPTION,
         canonical,
         noindex: false,
       };

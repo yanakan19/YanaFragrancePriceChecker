@@ -46,6 +46,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { decodeSnapshot } from '../src/catalogue/store.js';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
@@ -167,7 +168,7 @@ function collectCandidateUrls(): Map<string, Set<string>> {
   const urlToRetailers = new Map<string, Set<string>>();
   for (const file of readdirSync(catalogueDir)) {
     if (!file.endsWith('.json')) continue;
-    const data = JSON.parse(readFileSync(resolve(catalogueDir, file), 'utf8')) as CatalogueFile;
+    const data = decodeSnapshot(JSON.parse(readFileSync(resolve(catalogueDir, file), 'utf8'))) as CatalogueFile;
     if (data.source !== 'live') continue;
     if (!IMAGE_ALLOWED.has(data.retailerId)) continue;
     if (SKIP_RETAILERS.has(data.retailerId)) continue;

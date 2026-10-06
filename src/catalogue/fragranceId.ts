@@ -1,7 +1,8 @@
 import type { StoredListing } from './types.js';
 import { isPerfumeOilTitle, isReviewedOil } from './perfumeOil.js';
 import { RETAILERS, getRetailer } from '../config/retailers.js';
-import { trustworthyEan } from './productMatch.js';
+import { trustworthyEan, type BarcodeSizeListing } from './productMatch.js';
+import { ownSizeTitle } from './shopifyJson.js';
 import { giftSetId, isGiftSet } from './giftSet.js';
 import { declinesStrengthWords, evidencedStrength } from './unstatedStrengthEvidence.js';
 
@@ -1324,6 +1325,25 @@ export function isFragrance(l: StoredListing): boolean {
 export function isCatalogueListing(l: StoredListing): boolean {
   if (isFragrance(l)) return true;
   return typeof l.priceGbp === 'number' && l.priceGbp > 0 && isGiftSet(l);
+}
+
+/**
+ * What a listing says about the size of the barcode it carries, for
+ * settleBarcodeSizes (productMatch.ts): its shop, its code and the size its own
+ * title states in millilitres. Null for a listing that has no say: no price, not
+ * in the catalogue, a gift set, no code `sharedCode` leaves it, or no size in
+ * millilitres (an ounce title is converted, 89ml for "3 Oz", and settled against
+ * the nominal size elsewhere). The one reading the catalogue build and the price
+ * history replay both use, so the two settle every code alike.
+ */
+export function barcodeSizeVote(l: StoredListing, sharedCode: ReadonlySet<string>): BarcodeSizeListing | null {
+  if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0) || !isCatalogueListing(l) || isGiftSet(l)) return null;
+  // Idempotent: a title the build has already read to its own size is unchanged.
+  const title = ownSizeTitle(l.rawTitle);
+  if (!ML_SIZE_RE.test(title)) return null;
+  const ean = trustworthyEan(l, sharedCode);
+  const ml = sizeMl(title, l.description);
+  return ean && ml !== null ? { retailerId: l.retailerId, retailerSku: l.retailerSku, ean, sizeMl: ml } : null;
 }
 
 /**

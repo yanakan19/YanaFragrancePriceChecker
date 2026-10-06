@@ -1260,6 +1260,126 @@ export const BRAND_LOGOS: Record<string, LogoRef> = {
     source: 'Supplied by the site owner on 6 October 2026',
     readAt: '2026-10-06',
   },
+  'bond no': {
+    src: '/logos/brands/bond-no-9.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  jeroboam: {
+    src: '/logos/brands/jeroboam.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  diptyque: {
+    src: '/logos/brands/diptyque.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  'emporio armani': {
+    src: '/logos/brands/emporio-armani.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  assaf: {
+    src: '/logos/brands/assaf.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  cartier: {
+    src: '/logos/brands/cartier.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  'flora ku paris': {
+    src: '/logos/brands/floraiku-paris.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  'olfactive studio': {
+    src: '/logos/brands/olfactive-studio.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  'ellen tracy': {
+    src: '/logos/brands/ellen-tracy.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  lanvin: {
+    src: '/logos/brands/lanvin.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  aramis: {
+    src: '/logos/brands/aramis.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  'miu miu': {
+    src: '/logos/brands/miu-miu.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  'matiere premiere': {
+    src: '/logos/brands/matiere-premiere.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  nasomatto: {
+    src: '/logos/brands/nasomatto.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  'orto parisi': {
+    src: '/logos/brands/orto-parisi.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
   // ── Own site declared, the 2026-10-05 pass (41) ──────────────────────────
   // Every entry: the logo or icon the brand's own site declares (its
   // Organization.logo, apple-touch-icon, manifest icon or favicon), hot-linked
@@ -1599,6 +1719,13 @@ export const BRAND_LOGOS: Record<string, LogoRef> = {
   },
 };
 
+/**
+ * Spellings of a brand that are one house with a logo filed under another
+ * spelling. "Bulgari" is merged into "Bvlgari" in the catalogue (6 Oct 2026),
+ * but an old link or a stray feed spelling still finds the same logo.
+ */
+const LOGO_SPELLINGS: Readonly<Record<string, string>> = { bulgari: 'bvlgari' };
+
 /** Lowercase, strip everything but letters — matches demo/brandSites.ts's own normalizeBrand exactly. */
 function normalizeBrand(brand: string): string {
   return brand
@@ -1616,5 +1743,6 @@ function normalizeBrand(brand: string): string {
  * not a new mechanism.
  */
 export function logoFor(brand: string): LogoRef | null {
-  return BRAND_LOGOS[normalizeBrand(brand)] ?? null;
+  const key = normalizeBrand(brand);
+  return BRAND_LOGOS[LOGO_SPELLINGS[key] ?? key] ?? null;
 }
