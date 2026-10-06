@@ -19,6 +19,7 @@ export function tabDeps(): TabDeps {
       { value: 'niche', label: 'Niche' },
       { value: 'mideast', label: 'Middle East' },
     ],
+    fragranceFacets: [],
     fragranceList: (list, empty) => (list.length ? `<ul>${list.length}</ul>` : `<p>${empty}</p>`),
     sortControl: (id, subject, options, current) =>
       `<select id="${id}" data-subject="${subject}">${options.map((o) => `<option value="${o.value}"${o.value === current ? ' selected' : ''}>${o.label}</option>`).join('')}</select>`,

@@ -153,7 +153,7 @@ type View =
 /** The three pages behind the account menu, each with its own address. */
 const ACCOUNT_VIEWS: readonly View[] = ['account', 'accountWishlist', 'accountNotifications'];
 type AuthTab = 'signIn' | 'signUp';
-type ExploreTab = 'brands' | 'retailers' | 'notes' | 'oils' | 'sets';
+type ExploreTab = 'fragrances' | 'brands' | 'retailers' | 'notes' | 'oils' | 'sets';
 type DisplayMode = 'dark' | 'light' | 'system';
 type Layout = 'mobile' | 'desktop';
 type BrandSort = 'az' | 'za';
@@ -181,7 +181,8 @@ const PER_ROW_KEY = 'pricesniffs.perrow';
 
 const state = {
   view: 'home' as View,
-  tab: 'brands' as ExploreTab,
+  // Explore opens on All Fragrances (docs/ROUTING-PLAN.md, Explore tabs): lighter to draw than All Brands.
+  tab: 'fragrances' as ExploreTab,
   fragranceId: '',
   retailerId: '',
   brandProfile: '',
@@ -1068,6 +1069,7 @@ const tabs = createTabs({
   priceOptions: PRICE_BANDS.map((b) => ({ value: b.id, label: b.label })),
   tierOptions: (['designer', 'niche', 'mideast'] as const).map((t) => ({ value: t, label: TIER_LABEL[t] })),
   fragranceList: (list, empty) => fragranceList(list, empty),
+  fragranceFacets: listFacets('browse'),
   sortControl: (id, subject, options, current) => sortControl(id, subject, ICON_SORT, [...options], current),
   listControls: (sort, ui) => listControls(sort, ui),
   filterControls: (ctx) => filterControls(ctx),
@@ -1616,7 +1618,7 @@ interface TabScope {
 }
 
 const tabItems: Partial<Record<TabKind, DemoFragrance[]>> = {};
-const itemsForTab = (kind: TabKind): DemoFragrance[] => (tabItems[kind] ??= BY_POPULARITY.filter(kind === 'sets' ? isSet : isOil));
+const itemsForTab = (kind: TabKind): DemoFragrance[] => (tabItems[kind] ??= BY_POPULARITY.filter(kind === 'sets' ? isSet : kind === 'oils' ? isOil : (f) => !isSet(f) && !isOil(f)));
 
 /** How many of a tab's products are in a scope: what the tab then lists when opened with it. */
 function tabCount(kind: TabKind, scope: TabScope): number {
@@ -3777,13 +3779,26 @@ function noteView(): string {
 
 /* ── explore shell ───────────────────────────────────────────────────────── */
 
-const TABS: { id: ExploreTab; label: string }[] = [
-  { id: 'brands', label: 'Brands' },
-  { id: 'retailers', label: 'Retailers' },
-  { id: 'notes', label: 'Notes' },
-  { id: 'oils', label: 'Oils' },
-  { id: 'sets', label: 'Sets' },
+/**
+ * Two groups with a gap between them (owner's request, 2026-10-06): the lists
+ * of products first, then the ways in by name. The gap is drawn by the bar
+ * (SUBNAV_GAP), not a tab.
+ */
+const TAB_GROUPS: { id: ExploreTab; label: string }[][] = [
+  [
+    { id: 'fragrances', label: 'All Fragrances' },
+    { id: 'oils', label: 'All Oils' },
+    { id: 'sets', label: 'All Sets' },
+  ],
+  [
+    { id: 'brands', label: 'All Brands' },
+    { id: 'retailers', label: 'All Retailers' },
+    { id: 'notes', label: 'All Notes' },
+  ],
 ];
+const TABS: { id: ExploreTab; label: string }[] = TAB_GROUPS.flat();
+/** The spacer between the groups: decorative, so a screen reader never meets it. */
+const SUBNAV_GAP = '<span class="subnav-gap" aria-hidden="true"></span>';
 
 /**
  * What each Explore tab draws. TABS above says which tabs there are and in
@@ -3792,6 +3807,7 @@ const TABS: { id: ExploreTab; label: string }[] = [
  * docs/GIFT-SETS-AND-OILS-PLAN.md) leaves the shell alone.
  */
 const EXPLORE_PANELS: Record<ExploreTab, () => string> = {
+  fragrances: () => tabs.panel('fragrances'),
   brands: brandsPanel,
   retailers: retailersPanel,
   notes: notesPanel,
@@ -5907,7 +5923,7 @@ function currentRoute(): Route {
 function applyRoute(route: Route): boolean {
   // The Oils and Sets tabs have a search box of their own, whose words are in
   // the address as `q` too; they are not the bar's search.
-  state.query = route.name === 'oils' || route.name === 'sets' ? '' : (route.query.q ?? '');
+  state.query = isTabKind(route.name) ? '' : (route.query.q ?? '');
 
   switch (route.name) {
     case 'home': state.view = 'home'; return true;
@@ -5965,7 +5981,7 @@ function applyRoute(route: Route): boolean {
       return true;
 
     // The Oils and Sets tabs, whose search, sort and filters come with the address.
-    case 'oils': case 'sets':
+    case 'fragrances': case 'oils': case 'sets':
       state.view = 'explore';
       state.tab = route.name;
       tabs.fromQuery(route.name, route.query);
@@ -6911,19 +6927,29 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   // browser lay the whole page out an extra time on every filter change.
   const subnavKey = inExplore ? state.tab : '';
   if (subnav.dataset.drawn !== subnavKey) {
+    // A keyboard user who chose a tab keeps their place: focus goes to the redrawn tab.
+    const hadFocus = subnav.contains(document.activeElement);
     subnav.dataset.drawn = subnavKey;
     subnav.innerHTML = inExplore
-      ? TABS.map(
-          (t) => `<button class="subnavbtn ${state.tab === t.id ? 'on' : ''}" data-tab="${t.id}">${t.label}</button>`,
-        ).join('')
+      ? TAB_GROUPS.map((group) =>
+          group
+            .map(
+              (t) =>
+                `<button class="subnavbtn ${state.tab === t.id ? 'on' : ''}" role="tab" aria-selected="${state.tab === t.id}" tabindex="${state.tab === t.id ? 0 : -1}" data-tab="${t.id}">${t.label}</button>`,
+            )
+            .join(''),
+        ).join(SUBNAV_GAP)
       : '';
-    // Five tabs fit a phone 360px wide and up; on a narrower one the row scrolls,
-    // and the tab the reader is on is brought into view rather than left off the
-    // end of it. Set directly on the row, so the page itself never scrolls.
+    // Six tabs and the gap fit a desktop; on a phone the row scrolls, and the tab
+    // the reader is on is brought into view (centred where it can be) rather than
+    // left off either end of it. Set directly on the row, so the page itself never scrolls.
     const here = subnav.querySelector<HTMLElement>('.subnavbtn.on');
     if (here && !subnav.hidden) {
-      const overhang = here.getBoundingClientRect().right - subnav.getBoundingClientRect().left - subnav.clientWidth;
-      if (overhang > 0) subnav.scrollLeft += Math.ceil(overhang);
+      const rowBox = subnav.getBoundingClientRect();
+      const box = here.getBoundingClientRect();
+      const centred = box.left - rowBox.left + subnav.scrollLeft - (subnav.clientWidth - box.width) / 2;
+      subnav.scrollLeft = Math.max(0, Math.round(centred));
+      if (hadFocus) here.focus({ preventScroll: true });
     }
   }
 
@@ -7246,6 +7272,19 @@ function init(): void {
   ($('#account-menu-back') as HTMLElement).addEventListener('click', () => closeAccountMenu(true));
   // Esc from anywhere while it is open (focus may have been moved out by a
   // pointer), and a click anywhere outside the button and the menu.
+  // The Explore tabs are a tablist: Left and Right (and Home and End) move between them
+  // without leaving the row, skipping the gap, which is not a tab. Enter or Space chooses.
+  ($('#subnav') as HTMLElement).addEventListener('keydown', (e) => {
+    const keys = ['ArrowLeft', 'ArrowRight', 'Home', 'End'];
+    if (!keys.includes(e.key) || e.altKey || e.ctrlKey || e.metaKey) return;
+    const all = [...($('#subnav') as HTMLElement).querySelectorAll<HTMLElement>('[role="tab"]')];
+    const at = all.indexOf(document.activeElement as HTMLElement);
+    if (at < 0) return;
+    const next = e.key === 'Home' ? 0 : e.key === 'End' ? all.length - 1 : (at + (e.key === 'ArrowRight' ? 1 : -1) + all.length) % all.length;
+    e.preventDefault();
+    all.forEach((t, i) => t.setAttribute('tabindex', i === next ? '0' : '-1'));
+    all[next]?.focus();
+  });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && state.accountMenuOpen) closeAccountMenu(true);
   });
