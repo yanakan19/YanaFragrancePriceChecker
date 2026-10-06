@@ -1,5 +1,6 @@
 import type { DemoFragrance } from './data.js';
 import { compareVariants, lowestPrice } from './data.js';
+import { pricePerMl } from './tabFacets.js';
 
 /**
  * How a list of fragrances can be ordered, and the comparator that does it.
@@ -67,7 +68,7 @@ export const BROWSE_SORT_OPTIONS: SortOption<BrowseSort>[] = [
  * main bottle size, an oil's price per ml); each option here still names both
  * ends, like every other sort on the site (tests/sortLabels.test.ts).
  */
-export type TabSort = BrowseSort | 'main-low' | 'main-high' | 'items-high';
+export type TabSort = BrowseSort | 'main-low' | 'main-high' | 'items-high' | 'ml-low';
 
 export const SET_SORT_OPTIONS: SortOption<TabSort>[] = [
   { value: 'stocked', label: 'Most to Least Stocked' },
@@ -86,6 +87,9 @@ export const OIL_SORT_OPTIONS: SortOption<TabSort>[] = [
   { value: 'za', label: 'Z to A' },
   { value: 'price-low', label: 'Lowest to Highest Price' },
   { value: 'price-high', label: 'Highest to Lowest Price' },
+  { value: 'size-low', label: 'Smallest to Largest Size' },
+  { value: 'size-high', label: 'Largest to Smallest Size' },
+  { value: 'ml-low', label: 'Lowest to Highest Per Ml' },
 ];
 
 /**
@@ -98,8 +102,9 @@ export const OIL_SORT_OPTIONS: SortOption<TabSort>[] = [
  */
 export function sortTab(list: DemoFragrance[], sort: TabSort): DemoFragrance[] {
   if (sort === 'stocked') return list;
-  if (sort !== 'main-low' && sort !== 'main-high' && sort !== 'items-high') return sortFragrances(list, sort);
-  const value = (f: DemoFragrance): number | null => (sort === 'items-high' ? (f.giftSet?.items ?? null) : (f.giftSet?.mainMl ?? null));
+  if (sort !== 'main-low' && sort !== 'main-high' && sort !== 'items-high' && sort !== 'ml-low') return sortFragrances(list, sort);
+  const value = (f: DemoFragrance): number | null =>
+    sort === 'items-high' ? (f.giftSet?.items ?? null) : sort === 'ml-low' ? pricePerMl(f) : (f.giftSet?.mainMl ?? null);
   return [...list].sort((a, b) => {
     const x = value(a);
     const y = value(b);
@@ -107,7 +112,7 @@ export function sortTab(list: DemoFragrance[], sort: TabSort): DemoFragrance[] {
       if (x === null && y !== null) return 1;
       if (y === null && x !== null) return -1;
     } else if (x !== y) {
-      return sort === 'main-low' ? x - y : y - x;
+      return sort === 'main-high' || sort === 'items-high' ? y - x : x - y;
     }
     return `${a.brand} ${a.name}`.localeCompare(`${b.brand} ${b.name}`) || a.id.localeCompare(b.id);
   });

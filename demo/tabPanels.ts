@@ -4,6 +4,9 @@ import { OIL_SORT_OPTIONS, SET_SORT_OPTIONS, sortTab, type SortOption, type TabS
 import { isOil, isSet } from './productKind.js';
 import {
   MAIN_BOTTLE_BANDS,
+  OIL_FORMAT_OPTIONS,
+  OIL_SIZE_BANDS,
+  oilSizeBand,
   SET_BOX_OPTIONS,
   SET_KIND_OPTIONS,
   mainBottleBand,
@@ -151,6 +154,10 @@ export function createTabs(deps: TabDeps) {
   };
   const mainBottle = select('main', 'Main Bottle', 'Any Main Bottle', MAIN_BOTTLE_BANDS, (f) => mainBottleBand(f.giftSet?.mainMl));
 
+  const oilSize = select('size', 'Size', 'Any Size', OIL_SIZE_BANDS, (f) => oilSizeBand(f.sizeMl));
+  const oilFormat = select('format', 'Format', 'Any Format', OIL_FORMAT_OPTIONS, (f) => f.oil?.format ?? null);
+  const alcoholFree: Facet<DemoFragrance> = { kind: 'check', id: 'alcohol', label: 'Alcohol Free', flag: (f) => f.oil?.alcoholFree === true };
+
   const specs: Record<TabKind, TabSpec> = {
     sets: {
       title: 'Sets',
@@ -169,7 +176,7 @@ export function createTabs(deps: TabDeps) {
         'Perfume oils, sold in small bottles and rollers rather than sprays. An oil is compared only with the same oil at another shop, never with a spray.',
       empty: 'No oil matches that.',
       sorts: OIL_SORT_OPTIONS,
-      facets: [gender, price, type, inStock],
+      facets: [oilSize, oilFormat, alcoholFree, brandFacet('oils'), gender, price, type, shopFacet('oils'), inStock],
       items: () => itemsOf('oils'),
     },
   };
@@ -236,6 +243,10 @@ export function createTabs(deps: TabDeps) {
       genderView && genderView.options.length >= 2
         ? `<p class="facet-note t-caption">Gender is read from wording in the title, such as Pour Homme or For Her. Not Stated is not the same as Unisex.</p>`
         : '';
+    const statedNote =
+      kind === 'oils' && views.some((v) => (v.facet.id === 'format' && v.options.length > 0) || (v.facet.id === 'alcohol' && v.count > 0))
+        ? `<p class="facet-note t-caption">Roll On, Dropper and Alcohol Free are only what a shop says about an oil. An oil that says nothing is not claimed to be anything else.</p>`
+        : '';
     return {
       toggle: `<button type="button" class="control facets-toggle" data-tab-facets-toggle aria-expanded="${st.open}">
       <span class="control-ico">${deps.iconFilter}</span>
@@ -246,6 +257,7 @@ export function createTabs(deps: TabDeps) {
         ? `<div class="facets-panel">
           <div class="facet-grid">${controls.join('')}</div>
           ${genderNote}
+          ${statedNote}
           ${chosen > 0 ? `<button type="button" class="link-btn facets-clear" data-tab-facets-clear>Clear All Filters</button>` : ''}
         </div>`
         : '',

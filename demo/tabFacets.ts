@@ -1,4 +1,4 @@
-import type { DemoFragrance } from './data.js';
+import { lowestPrice, type DemoFragrance } from './data.js';
 import type { Option, SelectFacet } from './tabLists.js';
 
 /**
@@ -69,6 +69,40 @@ export const MAIN_BOTTLE_BANDS: readonly { value: string; label: string; min: nu
 export function mainBottleBand(ml: number | null | undefined): string | null {
   if (ml === null || ml === undefined) return null;
   return MAIN_BOTTLE_BANDS.find((b) => ml >= b.min && (b.max === null || ml < b.max))?.value ?? null;
+}
+
+/* ── Oils ────────────────────────────────────────────────────────────────── */
+
+/** An oil's own size bands (oils run from 2ml to 50ml; the main Size bands would put most in one). Lower bound in, upper out. */
+export const OIL_SIZE_BANDS: readonly { value: string; label: string; min: number; max: number | null }[] = [
+  { value: 'u7', label: 'Under 7ml', min: 0, max: 7 },
+  { value: '7-13', label: '7 to 13ml', min: 7, max: 13 },
+  { value: '13-21', label: '13 to 21ml', min: 13, max: 21 },
+  { value: '21-45', label: '21 to 45ml', min: 21, max: 45 },
+  { value: '45+', label: '45ml and Over', min: 45, max: null },
+];
+
+export function oilSizeBand(ml: number | null | undefined): string | null {
+  if (ml === null || ml === undefined) return null;
+  return OIL_SIZE_BANDS.find((b) => ml >= b.min && (b.max === null || ml < b.max))?.value ?? null;
+}
+
+/** Only a format a shop stated: silence is never read as a bottle or a roll on. */
+export const OIL_FORMAT_OPTIONS: readonly Option[] = [
+  { value: 'roll-on', label: 'Roll On' },
+  { value: 'dropper', label: 'Dropper' },
+];
+
+/** The cheapest shop's item price over the size, or null where either is not known. */
+export function pricePerMl(f: Pick<DemoFragrance, 'id' | 'sizeMl'>): number | null {
+  if (f.sizeMl === null || f.sizeMl <= 0) return null;
+  const price = lowestPrice(f.id);
+  return Number.isFinite(price) && price > 0 ? price / f.sizeMl : null;
+}
+
+/** "£0.80 per ml": under ten pence a millilitre is given to three places so two oils do not read alike. */
+export function pricePerMlLabel(perMl: number): string {
+  return `£${perMl.toFixed(perMl < 0.1 ? 3 : 2)} per ml`;
 }
 
 /* ── a list of anything by name: Brand, Shop ─────────────────────────────── */

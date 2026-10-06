@@ -68,6 +68,7 @@ import {
   BRAND_SORT_OPTIONS, BROWSE_SORT_OPTIONS, DEAL_SORT_OPTIONS, LIST_SORT_OPTIONS, NOTE_SORT_OPTIONS, SORT_LEAD,
   sortFragrances, sortNotes, type BrowseSort, type ListSort, type NoteSort,
 } from './listSort.js';
+import { pricePerMl, pricePerMlLabel } from './tabFacets.js';
 import { TAB_SEARCH_ID, TAB_SORT_ID, createTabs, facetSelectId, isTabKind, type TabKind } from './tabPanels.js';
 import type { TabListState } from './tabLists.js';
 import { isOil, isSet } from './productKind.js';
@@ -1358,6 +1359,19 @@ function setTileLine(f: DemoFragrance): string {
     : `<span class="tile-contents t-caption"><span class="sr">As the shop lists it: </span>${esc(g.title)}</span>`;
 }
 
+/**
+ * What an oil's tile adds under its name: the price of a millilitre at the cheapest
+ * shop (the one honest comparison between oils, which come in so many sizes), and
+ * "Roll On", "Dropper" or "Alcohol Free" only where a shop said so.
+ */
+function oilTileLine(f: DemoFragrance): string {
+  if (!isOil(f)) return '';
+  const per = pricePerMl(f);
+  const tags = [f.oil?.format === 'roll-on' ? 'Roll On' : f.oil?.format === 'dropper' ? 'Dropper' : '', f.oil?.alcoholFree ? 'Alcohol Free' : ''].filter(Boolean);
+  const parts = [...(per !== null ? [pricePerMlLabel(per)] : []), ...tags];
+  return parts.length > 0 ? `<span class="tile-contents t-caption">${esc(parts.join(', '))}</span>` : '';
+}
+
 /** A set with no photo: its contents, a line to an item, where the picture would be. */
 function setContentsArt(g: NonNullable<DemoFragrance['giftSet']>): string {
   const SHOWN = 6;
@@ -1425,7 +1439,7 @@ function fragranceTile(
       ${brandButton(f.brand)}
       <button class="tile-body" data-frag="${f.id}" aria-label="${esc(f.brand)} ${esc(f.name)}">
         ${productHead(f)}
-        ${setTileLine(f)}
+        ${setTileLine(f)}${oilTileLine(f)}
         <span class="tile-art">
           ${medal ? `<span class="medal ${medal}" aria-label="Number ${opts!.rank! + 1} most popular"><span class="medal-disc">${opts!.rank! + 1}</span></span>` : ''}
           ${f.giftSet && !f.photoUrl ? setContentsArt(f.giftSet) : productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`, f.imageTransform, { eager: opts?.eager === true })}

@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.92.0',
+    date: '6 Oct 2026',
+    title: 'Oils: filters and price per ml',
+    points: [
+      'Filter oils by size, format, brand and shop',
+      'Each oil shows its price per ml',
+      'Sort oils by size or lowest price per ml',
+    ],
+  },
+  {
     version: 'v3.91.0',
     date: '6 Oct 2026',
     title: 'Sets: filter by kind, box and main bottle',
