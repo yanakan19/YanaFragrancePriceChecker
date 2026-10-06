@@ -34,7 +34,9 @@
  *
  * So a crawl run that committed nothing, or only snapshots and reports, does
  * not deploy, and a "Remove" or "Show again" in the dashboard reaches the
- * build at the next half hourly scheduled check. The page reads the live list
+ * build at the next check: after the next finished crawl run (the outside
+ * scheduler starts one every half hour), or a scheduled tick, whichever comes
+ * first. The page reads the live list
  * on every load anyway (scripts/siteBuild.ts), so hiding is immediate; the
  * deploy is what drops a removed brand's data and sitemap entries.
  *
