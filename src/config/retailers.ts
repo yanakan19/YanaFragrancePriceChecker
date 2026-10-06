@@ -488,7 +488,11 @@ export const RETAILERS: readonly Retailer[] = [
     // every tier this run tried, and are left as-is rather than chased
     // further without a credentialed proxy/actor tier to actually test.
     renderRefused: 'local',
-    adapter: 'headless',
+    // 2026-10-06: 'owner-import', so that switching the shop back on (`enabled`)
+    // never starts a crawl: the harvest and probe skip this adapter. Its only
+    // source is pages the owner saves by hand (scripts/import-notino-pages.ts,
+    // docs/NOTINO-PLAN.md route 3). Until a page is imported nothing changes.
+    adapter: 'owner-import',
     currency: 'GBP',
     shipping: {
       standardGbp: 2.99,
