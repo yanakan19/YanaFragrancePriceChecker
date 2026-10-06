@@ -22,7 +22,7 @@ describe('canonical URLs', () => {
   it('gives every route a distinct canonical', () => {
     const names: RouteName[] = [
       'home', 'search', 'brands', 'brand', 'deals', 'retailers', 'retailer',
-      'notes', 'note', 'fragrance', 'product', 'about', 'legalNotice', 'settings', 'suggestions', 'account', 'legal',
+      'notes', 'note', 'fragrance', 'product', 'about', 'legalNotice', 'botPage', 'settings', 'suggestions', 'account', 'legal',
       'design', 'notFound',
     ];
     const seen = new Map<string, RouteName>();
@@ -80,7 +80,7 @@ describe('descriptions', () => {
   it('never exceeds the window, and is never empty', () => {
     const names: RouteName[] = [
       'home', 'search', 'brands', 'brand', 'deals', 'retailers', 'retailer',
-      'notes', 'note', 'fragrance', 'about', 'legalNotice', 'settings', 'suggestions', 'account', 'legal',
+      'notes', 'note', 'fragrance', 'about', 'legalNotice', 'botPage', 'settings', 'suggestions', 'account', 'legal',
       'design', 'notFound',
     ];
     for (const name of names) {
@@ -254,6 +254,12 @@ describe('the Legal Notice route', () => {
     expect(matchRoute('/about/legal', '', 'terms').param).toBe('terms');
     expect(routeToPath({ name: 'legalNotice', param: '', query: {} })).toBe('/about/legal');
     expect(routeToPath({ name: 'legalNotice', param: 'privacy', query: {} })).toBe('/about/legal#privacy');
+  });
+
+  it('has the crawler\'s own page beside it, /about/bot', () => {
+    expect(matchRoute('/about/bot')).toEqual({ name: 'botPage', param: '', query: {} });
+    expect(routeToPath({ name: 'botPage', param: '', query: {} })).toBe('/about/bot');
+    expect(tags({ route: route('botPage') }).canonical).toBe(`${SITE_URL}/about/bot`);
   });
 
   it('does not answer for made up addresses under /about', () => {

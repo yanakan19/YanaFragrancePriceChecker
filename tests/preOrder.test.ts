@@ -93,7 +93,7 @@ const PAGES: Record<string, string> = {
 const ROBOTS = parseRobots(
   'User-agent: *\nDisallow: /cart\nDisallow: /checkout\nDisallow: /account\nDisallow: /search\nDisallow: /policies/\n',
 );
-const HEADERS = { 'user-agent': 'PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about)' };
+const HEADERS = { 'user-agent': 'PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about/bot)' };
 const noSleep = async () => {};
 
 function fakeHttp(seen: { url: string; ua: string }[], status = 200): Http {

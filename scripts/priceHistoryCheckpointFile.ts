@@ -58,6 +58,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { writeGenerated } from './generatedFiles.js';
+import { historyFromGenerated } from './priceHistoryFile.js';
 import {
   CHECKPOINT_PATH,
   CHECKPOINT_VERSION,
@@ -82,22 +83,6 @@ export interface ExternalHistoryCheckpointFile extends Omit<CompactCheckpointFil
   historyOrder: string[];
   /** sha256 of the history as JSON, in that order: what the reader must give back exactly. */
   historySha256: string;
-}
-
-const HISTORY_START = 'export const PRICE_HISTORY: Record<string, PriceHistoryPoint[]> = ';
-const HISTORY_END = ';\n\nexport const PRICE_HISTORY_GAP';
-
-/**
- * The PRICE_HISTORY literal of demo/priceHistory.generated.ts, as text, or
- * null when the file does not have the shape render() writes. JSON never
- * holds a raw newline, so the end marker cannot occur inside it.
- */
-export function priceHistoryLiteral(generated: string): string | null {
-  const start = generated.indexOf(HISTORY_START);
-  if (start < 0) return null;
-  const from = start + HISTORY_START.length;
-  const end = generated.indexOf(HISTORY_END, from);
-  return end < 0 ? null : generated.slice(from, end);
 }
 
 const sha256 = (text: string): string => createHash('sha256').update(text).digest('hex');
@@ -174,11 +159,11 @@ export function encodeCheckpointWithoutHistory(
   generatedBody: string,
   lastAt?: string,
 ): ExternalHistoryCheckpointFile | null {
-  const literal = priceHistoryLiteral(generatedBody);
-  if (literal === null) return null;
+  const shipped = historyFromGenerated(generatedBody);
+  if (shipped === null) return null;
   const order = Object.keys(checkpoint.history);
   const hash = historyHash(checkpoint.history);
-  const back = historyAt(JSON.parse(literal) as Record<string, PricePoint[]>, order, new Set());
+  const back = historyAt(shipped, order, new Set());
   if (back === null || historyHash(back) !== hash) return null;
   const compact = encodeCheckpoint(checkpoint, lastAt);
   return {
@@ -211,10 +196,10 @@ export function decodeExternalCheckpoint(
   const index = commits.findIndex((c) => c.sha === file.lastCommit);
   if (index < 0) return refuse(`its commit ${file.lastCommit.slice(0, 8)} is not among the commits touching the catalogue`);
   const path = join(root, file.historyIn);
-  const literal = existsSync(path) ? priceHistoryLiteral(readFileSync(path, 'utf8')) : null;
-  if (literal === null) return refuse(`${file.historyIn} is missing or not in the shape the rebuild writes`);
+  const shipped = existsSync(path) ? historyFromGenerated(readFileSync(path, 'utf8')) : null;
+  if (shipped === null) return refuse(`${file.historyIn} is missing or not in the shape the rebuild writes`);
   const laterAts = new Set(commits.slice(index + 1).map((c) => Date.parse(c.at)));
-  const history = historyAt(JSON.parse(literal) as Record<string, PricePoint[]>, file.historyOrder, laterAts);
+  const history = historyAt(shipped, file.historyOrder, laterAts);
   if (history === null || historyHash(history) !== file.historySha256) {
     return refuse(`${file.historyIn} does not give back its price history (take both files from the same side of a merge, or rebuild)`);
   }
@@ -270,8 +255,14 @@ export function readCheckpointFile(root: string, commits?: readonly CatalogueCom
 // fold property tests/priceHistoryReplay.test.ts holds), so the rebuild keeps
 // the one on disk until it is this far behind, at the cost of replaying a few
 // more commits (each reads only the snapshot files that changed).
-export const CHECKPOINT_MAX_COMMITS_BEHIND = 10;
-export const CHECKPOINT_MAX_HOURS_BEHIND = 6;
+//
+// 10 commits or 6 hours until 2026-10-06, 24 and 24 since. Version 3 (above)
+// made each rewrite smaller but the everPriced map still changes with every
+// one: the eight rewrites of 5 October pack to 0.61 MB of growth, the same
+// span rewritten twice to 0.32 MB. A rebuild then replays up to 24 commits
+// instead of 10, about three seconds each.
+export const CHECKPOINT_MAX_COMMITS_BEHIND = 24;
+export const CHECKPOINT_MAX_HOURS_BEHIND = 24;
 
 /**
  * Why the checkpoint should be rewritten after this replay, or null to leave

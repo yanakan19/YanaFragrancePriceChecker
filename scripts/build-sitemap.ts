@@ -113,6 +113,8 @@ entries.push({ loc: '/about', lastmod: gitLastModified('demo/legal.ts'), changef
 // and /legal/affiliate-disclosure, neither of which existed).
 const legalMod = gitLastModified('demo/legal.ts');
 entries.push({ loc: '/about/legal', lastmod: legalMod, changefreq: 'monthly' });
+// The crawler's own page, which its user agent names (src/catalogue/botIdentity.ts).
+entries.push({ loc: '/about/bot', lastmod: gitLastModified('demo/app.ts'), changefreq: 'monthly' });
 for (const page of LEGAL_PAGES) {
   if (isLegalNoticeId(page.id)) continue;
   entries.push({ loc: `/legal/${encodeURIComponent(page.id)}`, lastmod: legalMod, changefreq: 'monthly' });
