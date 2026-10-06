@@ -237,7 +237,17 @@ export function settleIdAliases(input: SettleInput): SettleResult {
       if (Object.prototype.hasOwnProperty.call(previous, id)) pageAgain++;
       continue;
     }
-    const to = resolveAlias(id, record, isPage);
+    let to = resolveAlias(id, record, isPage);
+    // A recorded chain can close on itself: a product folded one way in one build
+    // and the other way in a later one leaves A -> B and B -> A on file (Perfume
+    // Direct's 50942PD and Lookfantastic's 15742061, when the barcode changed which
+    // record survives). Neither key can be rewritten, so the record keeps both and
+    // the shipped map uses this build's own decision for the id, which names the
+    // page that holds it now.
+    if (to === null || to === id) {
+      const decided = successors.get(id);
+      to = decided !== undefined && decided !== id && live.has(decided) ? decided : null;
+    }
     if (to === null || to === id) {
       unresolved++;
       continue;

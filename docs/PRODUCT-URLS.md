@@ -165,6 +165,24 @@ with the id aliases (`SLUG_ALIASES`), so the first load does not grow by them.
 A slug that belonged to a product that is gone and was never merged answers Page
 Not Found, as its old id address does.
 
+**A shop's barcode arriving (Perfume Direct, 2026-10-05).** A listing that gains a
+barcode changes id (`perfume-direct-17448pd` becomes `ean-0783320411175`; a gift
+set's `set-<title>` becomes `set-ean-<ean>`), so the product it was is folded into
+the product of that barcode, which is a new product when no other shop sold the
+barcode. That product is given its own address by the rules above, and because
+the old product's plain address is still held (never reassigned) it usually takes
+the strength form. The old id and the old address both open it: the id through
+`data/id-aliases.json` (`listingIdForms` lists the SKU form, the barcode form and,
+for a set, the title form), the address through `SLUG_ALIASES`. Checked on the
+rebuilt data once every Perfume Direct barcode was read (2026-10-06): every id and
+address its 3,094 products held before them still opens a page, 1,801 as
+themselves and 1,293 by redirect. The cost is that those products' published
+address moves once, and the old one redirects. One record needed help: a product
+folded one way before the barcode and the other way after left a pair
+(`lookfantastic-15742061` and `perfume-direct-50942pd`) that point at each other
+in the append only record, so the shipped map takes this build's own decision for
+an id whose recorded chain closes on itself (`settleIdAliases`).
+
 ### Both memory files are append only
 
 `data/id-aliases.json` and `data/product-slugs.json` only grow. A key is never
