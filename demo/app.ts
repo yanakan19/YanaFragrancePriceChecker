@@ -85,6 +85,8 @@ import {
   type FilterContext, type FilterMarkupDeps,
 } from './filterUi.js';
 import { isOil, isSet } from './productKind.js';
+import { COUNTS } from './counts.js';
+import { countsPhrase, intentOf, leadingKind, searchMatches } from './searchIntent.js';
 import {
   PER_ROW_CHOICES, PER_ROW_DEFAULT, clampPerRow, gridWidthFor, perRowChoicesFor,
 } from './tileDensity.js';
@@ -1519,7 +1521,7 @@ function railEagerCount(): number {
 const MEDALS = ['gold', 'silver', 'bronze'] as const;
 
 /** Built once: both inputs are fixed for the life of the bundle. */
-const MARQUEE = marqueeHtml(marqueePhrases(DEMO_FRAGRANCES.length, COVERAGE));
+const MARQUEE = marqueeHtml(marqueePhrases(COUNTS.products, COVERAGE));
 
 function homeView(): string {
   return `
@@ -1591,17 +1593,69 @@ function homeView(): string {
 
 /**
  * Whether the search page is showing the leading Most Stocked list rather than
- * a brand page, a search or a Gift Sets list. No brand and no query means it
- * is, and oils and gift sets are kept out of that one list (see
- * demo/mostStocked.ts), so Gift Sets is not an option there at all. The one
- * way to have it chosen with no query is the old /gift-sets address, which
- * lands here with Size set to Gift Sets (applyRoute); that list is then every
- * gift set, not the Most Stocked ranking with the sets taken out of it, so the list stops
- * being the Most Stocked one while the choice stands and comes back when it
- * is cleared.
+ * a brand page or a search. No brand and no query means it is. Sets and oils are
+ * in no list on the search page, with or without a query (they have their own
+ * tabs, and a line above the results says how many also match), so neither is
+ * an option there (demo/mostStocked.ts, demo/searchIntent.ts).
  */
 function isMostStockedList(): boolean {
-  return !state.brand && !state.query.trim() && !(state.filters.size ?? []).includes(GIFT_SET_BAND.id);
+  return !state.brand && !state.query.trim();
+}
+
+/* ── the line that leads to Sets and Oils ──────────────────────────────────
+   Sets and oils are in no bottle list on the search page, a brand's page or a
+   shop's page; one line above each says how many there are and opens the tab
+   with the same words, brand or shop (docs/GIFT-SETS-AND-OILS-PLAN.md, 2.6). */
+
+interface TabScope {
+  /** The search words, as typed. */
+  q?: string;
+  brand?: string;
+  /** A shop's id. */
+  shop?: string;
+}
+
+const tabItems: Partial<Record<TabKind, DemoFragrance[]>> = {};
+const itemsForTab = (kind: TabKind): DemoFragrance[] => (tabItems[kind] ??= BY_POPULARITY.filter(kind === 'sets' ? isSet : isOil));
+
+/** How many of a tab's products are in a scope: what the tab then lists when opened with it. */
+function tabCount(kind: TabKind, scope: TabScope): number {
+  const q = scope.q?.trim() ?? '';
+  let n = 0;
+  for (const f of itemsForTab(kind)) {
+    if (scope.brand && f.brand !== scope.brand) continue;
+    if (scope.shop && !shopIdsOf(f.id).includes(scope.shop)) continue;
+    if (q && !searchMatches(`${f.brand} ${f.name} ${f.concentration}`, q)) continue;
+    n += 1;
+  }
+  return n;
+}
+
+/** The address of a tab opened with a scope. */
+function tabHref(kind: TabKind, scope: TabScope): string {
+  const query: Record<string, string> = {};
+  if (scope.q?.trim()) query.q = scope.q.trim();
+  if (scope.brand) query.brand = slugOf(scope.brand);
+  if (scope.shop) query.shop = scope.shop;
+  return routeToPath({ name: kind, param: '', query });
+}
+
+/**
+ * "5 Sets and 8 Oils also match: See Sets, See Oils". `lead` and `tail` frame the
+ * counts ("Rabanne also has", "here"); nothing at all where there are none. The
+ * tab the search's own words name (oil, attar, set, gift...) comes first.
+ */
+function tabsLine(lead: (counts: string) => string, scope: TabScope, intent = { oils: false, sets: false }): string {
+  const counts = { sets: tabCount('sets', scope), oils: tabCount('oils', scope) };
+  if (counts.sets + counts.oils === 0) return '';
+  const first = leadingKind(intent);
+  const kinds = (['sets', 'oils'] as const)
+    .filter((k) => counts[k] > 0)
+    .sort((a, b) => (a === first ? -1 : b === first ? 1 : 0));
+  const links = kinds
+    .map((k) => `<a class="link-btn" href="${esc(tabHref(k, scope))}" data-tab-jump="${k}">See ${k === 'sets' ? 'Sets' : 'Oils'}</a>`)
+    .join(', ');
+  return `<p class="tabs-line panel-note t-body">${esc(lead(countsPhrase(counts.sets, counts.oils, first)))}: ${links}</p>`;
 }
 
 /** The Most Stocked list before any filter: the same every time, so made once (see visibleFragrances). */
@@ -1624,10 +1678,11 @@ function visibleFragrances(): DemoFragrance[] {
   if (isMostStockedList()) return (mostStockedBase ??= onePerScent(BY_POPULARITY.filter(rankedInMostStocked)));
   const key = `${state.brand ?? ''}\u0000${q}`;
   if (searchBase?.key !== key) {
+    // Bottles only: sets and oils are counted in the line above the results.
     const list = BY_POPULARITY.filter((f) => {
+      if (isSet(f) || isOil(f)) return false;
       if (state.brand && f.brand !== state.brand) return false;
-      if (!q) return true;
-      return `${f.brand} ${f.name} ${f.concentration}`.toLowerCase().includes(q);
+      return searchMatches(`${f.brand} ${f.name} ${f.concentration}`, q);
     });
     searchBase = { key, list };
   }
@@ -1656,13 +1711,21 @@ function browseView(): string {
     ${
       isTop && state.browseSort === 'stocked'
         ? `<p class="panel-note t-body">Ranked by how many of our ${SHOP_COUNT} shops stock each one, then by
-             brand and name. A brand's own store does not count. Oils are not listed here, and each perfume is
-             listed once, in its most stocked size. This shows how widely a fragrance is stocked, not how well
-             it sells: we do not count views or purchases.</p>`
+             brand and name. A brand's own store does not count. Sets and oils are not listed here, they have
+             their own tabs under Explore, and each perfume is listed once, in its most stocked size. This shows
+             how widely a fragrance is stocked, not how well it sells: we do not count views or purchases.</p>`
         : isTop
-          ? `<p class="panel-note t-body">Every fragrance in the Most Stocked ranking, in the order you chose. Oils
-               are not listed here, and each perfume is listed once.</p>`
+          ? `<p class="panel-note t-body">Every fragrance in the Most Stocked ranking, in the order you chose. Sets
+               and oils are not listed here, they have their own tabs under Explore, and each perfume is listed once.</p>`
           : ''
+    }
+    ${
+      isTop
+        ? ''
+        : tabsLine((c) => `${c} also ${/^1 /.test(c) && !c.includes(' and ') ? 'matches' : 'match'}`, {
+            ...(state.query.trim() ? { q: state.query } : {}),
+            ...(state.brand ? { brand: state.brand } : {}),
+          }, intentOf(state.query))
     }
     ${listControls(browseSortControl(state.browseSort), filterControls(sharedFilterContext(facets, views, list.length)))}
     ${fragranceList(list, 'Nothing here matches that search.')}`;
@@ -3415,7 +3478,9 @@ function retailerView(): string {
   // A switched off shop has no page (see the 'retailer' route): the Shops
   // list is where a stale shop id lands.
   if (!r || !r.enabled) return exploreView();
-  const filtered = fragrancesAt(r.id);
+  const atShop = fragrancesAt(r.id);
+  // Bottles only: the shop's sets and oils are one line away (tabsLine).
+  const filtered = atShop.filter((f) => !isSet(f) && !isOil(f));
   // In Stock Here is this shop's own offer, not any other shop's: the same
   // isPurchasable flag the product page's "Available at" split reads, scoped
   // to this shop's row (stockHereFilter).
@@ -3433,7 +3498,7 @@ function retailerView(): string {
   // still be opened from an old link. It says so in a sentence instead of
   // printing "0 Fragrances Here" over a sort control and a filter that
   // cannot match anything.
-  const noCurrentPrices = filtered.length === 0;
+  const noCurrentPrices = atShop.length === 0;
 
   return `
     <button class="back" data-back-explore>Back</button>
@@ -3455,9 +3520,13 @@ function retailerView(): string {
     ${
       noCurrentPrices
         ? `<p class="empty-note t-body">We have no prices from ${esc(r.name)} checked in the last ${HIDE_OFFER_AFTER_DAYS} days, so none are shown.</p>`
-        : `<p class="gone-head t-eyebrow">${list.length} ${list.length === 1 ? 'Fragrance' : 'Fragrances'} Here</p>
-    ${controls}
-    ${fragranceList(list, 'Nothing from this shop matches that filter.')}`
+        : `${
+            filtered.length > 0
+              ? `<p class="gone-head t-eyebrow">${list.length} ${list.length === 1 ? 'Fragrance' : 'Fragrances'} Here</p>`
+              : ''
+          }
+    ${tabsLine((c) => `${r.name} also has ${c} here`, { shop: r.id })}
+    ${filtered.length > 0 ? `${controls}\n    ${fragranceList(list, 'Nothing from this shop matches that filter.')}` : ''}`
     }`;
 }
 
@@ -3480,7 +3549,8 @@ function retailerView(): string {
 function brandView(): string {
   const b = state.brandProfile;
   if (!b) return exploreView();
-  const filtered = BY_POPULARITY.filter((f) => f.brand === b);
+  // Bottles only: the brand's sets and oils are one line away (tabsLine).
+  const filtered = BY_POPULARITY.filter((f) => f.brand === b && !isSet(f) && !isOil(f));
   const facets = listFacets('brand');
   const { list: faceted, views } = runFacets(filtered, facets, state.filters);
   const list = sortFragrances(faceted, state.brandDetailSort);
@@ -3539,12 +3609,13 @@ function brandView(): string {
       </div>
     </div>
 
+    ${tabsLine((c) => `${b} also has ${c}`, { brand: b })}
     ${
       list.length > 0
         ? `<p class="gone-head t-eyebrow">${list.length} ${list.length === 1 ? 'Fragrance' : 'Fragrances'}</p>
            ${controls}
            ${fragranceList(list, 'We have no listings from this brand yet.')}`
-        : houseItems.length === 0
+        : houseItems.length === 0 && tabCount('sets', { brand: b }) + tabCount('oils', { brand: b }) === 0
           ? fragranceList(list, 'We have no listings from this brand yet.')
           : ''
     }
@@ -3653,7 +3724,7 @@ function notesPanel(): string {
   return `<div class="page-head"><h1 class="t-page">Notes</h1><span class="count t-count">${list.length}</span></div>
     ${controls}
     ${chips}
-    <p class="panel-note t-body">Only notes a shop has explicitly published. ${DEMO_FRAGRANCES.filter((f) => f.notes).length} of ${DEMO_FRAGRANCES.length} fragrances list them.</p>
+    <p class="panel-note t-body">Only notes a shop has explicitly published. ${DEMO_FRAGRANCES.filter((f) => f.notes).length} of ${COUNTS.products} products list them.</p>
     <div class="notes-browse">
       <div class="notes-browse-scroll" data-notes-scroll>
         <ul class="brand-list">${out}</ul>
@@ -4917,7 +4988,7 @@ function notFoundView(): string {
       <p class="t-body">Search the catalogue, or start from one of these:</p>
       <p class="notfound-links">
         <button class="link-btn" data-goto="home">Home</button>
-        <button class="link-btn" data-goto="browse">Search ${DEMO_FRAGRANCES.length.toLocaleString('en-GB')} Fragrances</button>
+        <button class="link-btn" data-goto="browse">Search ${COUNTS.bottles.toLocaleString('en-GB')} Fragrances</button>
         <button class="link-btn" data-tab="brands">Brands</button>
         <button class="link-btn" data-tab="retailers">Shops</button>
       </p>
@@ -4947,8 +5018,11 @@ function aboutView(): string {
         </section>
         <dl class="about-stats" aria-label="The site today">
           ${stat(live.shops, 'Shops With Current Prices', 'shops')}
-          ${stat(live.fragrances, 'Fragrances', 'fragrances')}
           ${stat(live.offers, 'Current Offers', 'offers')}
+          ${stat(live.fragrances, 'Products', 'products')}
+          ${stat(COUNTS.bottles, 'Fragrances', 'fragrances')}
+          ${stat(COUNTS.sets, 'Sets', 'sets')}
+          ${stat(COUNTS.oils, 'Oils', 'oils')}
         </dl>
       </div>
 
@@ -5739,7 +5813,7 @@ function headInputForState(): HeadInput {
     default:
       return {
         route,
-        productCount: DEMO_FRAGRANCES.length,
+        productCount: COUNTS.bottles,
         retailerCount: SHOP_COUNT,
       };
   }
@@ -5864,9 +5938,15 @@ function applyRoute(route: Route): boolean {
     case 'search':
       // The bar search's results. There is no second search box under
       // Explore any more (owner request, 2026-10-03), so this is the only
-      // search page there is. Its filters and sort come with the address:
-      // /search?size=gift-set, which /gift-sets once landed on, is still
-      // this list with Gift Sets chosen under Size.
+      // search page there is. Its filters and sort come with the address.
+      // /search?size=gift-set, which /gift-sets once landed on, is the Sets
+      // tab now: sets are in no list on this page.
+      if ((route.query.size ?? '').split(',').includes(GIFT_SET_BAND.id)) {
+        tabs.reset('sets');
+        state.view = 'explore';
+        state.tab = 'sets';
+        return true;
+      }
       state.view = 'browse';
       takeListQuery(route);
       return true;
@@ -7430,6 +7510,21 @@ function init(): void {
     const tab = t.closest('[data-tab]');
     if (tab) {
       openExplore(tab.getAttribute('data-tab') as ExploreTab);
+      return;
+    }
+
+    // "See Sets" and "See Oils" under a search, a brand or a shop: a real link to
+    // the tab with the same words, brand or shop, opened by the router when clicked
+    // normally (a modified click opens the address in a new tab, as for any link).
+    const jump = t.closest<HTMLAnchorElement>('[data-tab-jump]');
+    if (jump && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+      e.preventDefault();
+      const kind = jump.getAttribute('data-tab-jump') as TabKind;
+      const query = Object.fromEntries(new URL(jump.href, window.location.origin).searchParams);
+      tabs.reset(kind);
+      tabs.fromQuery(kind, query);
+      state.tab = kind;
+      go('explore');
       return;
     }
 

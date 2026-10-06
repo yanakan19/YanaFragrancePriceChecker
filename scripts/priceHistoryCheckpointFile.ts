@@ -270,8 +270,14 @@ export function readCheckpointFile(root: string, commits?: readonly CatalogueCom
 // fold property tests/priceHistoryReplay.test.ts holds), so the rebuild keeps
 // the one on disk until it is this far behind, at the cost of replaying a few
 // more commits (each reads only the snapshot files that changed).
-export const CHECKPOINT_MAX_COMMITS_BEHIND = 10;
-export const CHECKPOINT_MAX_HOURS_BEHIND = 6;
+//
+// 10 commits or 6 hours until 2026-10-06, 24 and 24 since. Version 3 (above)
+// made each rewrite smaller but the everPriced map still changes with every
+// one: the eight rewrites of 5 October pack to 0.61 MB of growth, the same
+// span rewritten twice to 0.32 MB. A rebuild then replays up to 24 commits
+// instead of 10, about three seconds each.
+export const CHECKPOINT_MAX_COMMITS_BEHIND = 24;
+export const CHECKPOINT_MAX_HOURS_BEHIND = 24;
 
 /**
  * Why the checkpoint should be rewritten after this replay, or null to leave
