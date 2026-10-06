@@ -51,6 +51,7 @@ import {
 import { listingViolations, namespaceViolations } from '../src/catalogue/kindGuards.js';
 import { contentsSignature, matchSets, scentKey, type SetCandidate, type SetMatchResult } from '../src/catalogue/setMatch.js';
 import { isOilStrength, oilFactsOfOffers } from '../src/catalogue/perfumeOil.js';
+import { headlineBottles, scentGroups, sprayVersions } from '../src/catalogue/setLinks.js';
 import { auditPriceScale } from '../src/catalogue/priceScale.js';
 import { formatLabels } from '../src/catalogue/offerFormat.js';
 import type { DormantEntry } from '../src/catalogue/dormantProducts.js';
@@ -2251,6 +2252,34 @@ const ordered = [...products.values()].sort(
   }
 }
 
+// Links from a set to its one headline bottle and to the other sets of its scent, and from
+// an oil to its spray (src/catalogue/setLinks.ts, docs/GIFT-SETS-AND-OILS-PLAN.md 2.5 and 3.5).
+// Links only: nothing here changes what any product is or merges anything.
+const sprayOf = new Map<string, string>();
+{
+  const bottles = ordered.filter((p) => !p.giftSet && !isOilStrength(p.concentration));
+  const links = bottles.map((p) => ({ id: p.id, brand: p.brand, name: p.name, concentration: p.concentration, sizeMl: p.sizeMl }));
+  const sets = ordered.filter((p) => p.giftSet);
+  const headline = headlineBottles(
+    sets.map((p) => ({ id: p.id, brand: p.brand, name: p.name, concentration: p.concentration, mainMl: p.giftSet!.mainMl })),
+    links,
+  );
+  const scents = scentGroups(sets.map((p) => ({ id: p.id, brand: p.brand, name: p.name })));
+  for (const p of sets) {
+    const bottleId = headline.get(p.id);
+    if (bottleId) p.giftSet!.bottleId = bottleId;
+    const scent = scents.get(p.id);
+    if (scent) p.giftSet!.scent = scent;
+  }
+  for (const [oil, spray] of sprayVersions(
+    ordered.filter((p) => !p.giftSet && isOilStrength(p.concentration)).map((p) => ({ id: p.id, brand: p.brand, name: p.name })),
+    links,
+  )) {
+    sprayOf.set(oil, spray);
+  }
+  console.log(`${headline.size} sets link to their one headline bottle, ${scents.size} sets have another set of the same scent, ${sprayOf.size} oils link to a spray`);
+}
+
 // `description` is read for its notes above and then deliberately dropped: it
 // is several hundred words per product across hundreds of products, and
 // shipping all of it into a single page bundle would cost far more than the
@@ -2267,7 +2296,7 @@ const ordered = [...products.values()].sort(
 // twice over, for something no reader of the shipped file consults.
 const crawled: Record<
   string,
-  (Omit<Offer, 'description' | 'sizeMl' | 'brandDirect' | 'matchKey' | 'rawTitle' | 'listingSku'> & { format?: string })[]
+  (Omit<Offer, 'description' | 'sizeMl' | 'brandDirect' | 'matchKey' | 'rawTitle' | 'listingSku'> & { format?: string; title?: string })[]
 > = {};
 // Two offers of one shop on one product, the same size, told apart by the
 // shop's own format words ("Miniature", "Travel Spray"): src/catalogue/
@@ -2307,7 +2336,10 @@ for (const p of ordered) {
     ) => {
       const format = formats[i];
       if (format) formatLabelled.set(rest.retailerId, (formatLabelled.get(rest.retailerId) ?? 0) + 1);
-      return format ? { ...rest, format } : rest;
+      // A set sold by two shops or more: the shop's own title, where it is not the one the
+      // set's record carries, so the page can show each shop's wording beside its price.
+      const own = p.giftSet && p.offers.length >= 2 && p.offers[i]!.rawTitle !== p.giftSet.title ? { title: p.offers[i]!.rawTitle } : {};
+      return format || own.title ? { ...rest, ...(format ? { format } : {}), ...own } : rest;
     },
   );
 }
@@ -2605,9 +2637,12 @@ const catalogue = ordered.map((p) => {
     // shop that said so. {} for an oil no shop said anything about.
     ...(!p.giftSet && isOilStrength(p.concentration)
       ? {
-          oil: oilFactsOfOffers(
-            p.offers.map((o) => ({ retailerId: o.retailerId, rawTitle: o.rawTitle, description: o.description })),
-          ),
+          oil: {
+            ...oilFactsOfOffers(
+              p.offers.map((o) => ({ retailerId: o.retailerId, rawTitle: o.rawTitle, description: o.description })),
+            ),
+            ...(sprayOf.has(p.id) ? { sprayId: sprayOf.get(p.id)! } : {}),
+          },
         }
       : {}),
     // Omitted for every product no shop's category label has named an audience
@@ -2676,6 +2711,11 @@ export interface CrawledOffer {
    * src/catalogue/offerFormat.ts.
    */
   format?: string;
+  /**
+   * On a gift set sold by two shops or more only: this shop's own title for it, where
+   * it differs from the title the set's record carries (giftSet.title).
+   */
+  title?: string;
 }
 
 export interface Notes {
@@ -2758,7 +2798,7 @@ export interface CatalogueEntry {
    * does not; \`title\` is the shop title they were read from, shown in
    * their place when there are none.
    */
-  giftSet?: { contents: string[] | null; title: string; mainMl?: number; bundle?: true; from?: 'description'; box?: string; multi?: true; mini?: true; items?: number };
+  giftSet?: { contents: string[] | null; title: string; mainMl?: number; bundle?: true; from?: 'description'; box?: string; multi?: true; mini?: true; items?: number; bottleId?: string; scent?: string };
   /**
    * Present only on a perfume oil or an attar (src/catalogue/perfumeOil.ts): what
    * its shops state about it and nothing they did not. \`format\` is how it comes
@@ -2766,7 +2806,7 @@ export interface CatalogueEntry {
    * that said so; an oil no shop said anything about carries {}. Silence is never
    * read as "contains alcohol" or "is a bottle".
    */
-  oil?: { format?: 'roll-on' | 'dropper'; formatBy?: string; alcoholFree?: true; alcoholFreeBy?: string };
+  oil?: { format?: 'roll-on' | 'dropper'; formatBy?: string; alcoholFree?: true; alcoholFreeBy?: string; sprayId?: string };
   /**
    * Who a shop's own category label says this bottle is for, present only where
    * one did and the name no longer says it: Perfume Direct's "Women's Perfume"
