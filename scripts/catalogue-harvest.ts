@@ -429,6 +429,7 @@ const enabledShops = RETAILERS.filter(
   (r) =>
     (r.enabled || askingAboutOneNamedShop) &&
     r.adapter !== 'affiliate-feed' &&
+    r.adapter !== 'owner-import' &&
     !removedShops.has(r.id) &&
     (!onlyShop || r.id === onlyShop),
 );
