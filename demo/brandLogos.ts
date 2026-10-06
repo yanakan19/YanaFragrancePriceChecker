@@ -988,6 +988,46 @@ export const BRAND_LOGOS: Record<string, LogoRef> = {
     source: 'Supplied by the site owner on 6 October 2026',
     readAt: '2026-10-06',
   },
+  'essential parfums': {
+    src: '/logos/brands/essential-parfums.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  'maison crivelli': {
+    src: '/logos/brands/maison-crivelli.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  'goldfield banks': {
+    src: '/logos/brands/goldfield-and-banks.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  'jenny glow': {
+    src: '/logos/brands/jenny-glow.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  'sarah jessica parker': {
+    src: '/logos/brands/sarah-jessica-parker.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
   // ── Own site declared, the 2026-10-05 pass (41) ──────────────────────────
   // Every entry: the logo or icon the brand's own site declares (its
   // Organization.logo, apple-touch-icon, manifest icon or favicon), hot-linked
