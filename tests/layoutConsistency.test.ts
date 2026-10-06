@@ -155,7 +155,10 @@ describe.skipIf(!built)(`page layout holds its rules (${engine})`, () => {
         })()`)) as Panel;
         await page.keyboard.press('Escape');
         await page.waitForFunction(`!document.getElementById('ps-filters').open`);
-        panels[route]!.focusBack = (await page.evaluate(`!!document.activeElement && document.activeElement.matches('#view [data-facets-toggle]')`)) as boolean;
+        // The dialog's close event, which puts focus back, comes a task after it shuts.
+        panels[route]!.focusBack = await page
+          .waitForFunction(`!!document.activeElement && document.activeElement.matches('#view [data-facets-toggle]')`, null, { timeout: 2000 })
+          .then(() => true, () => false);
       }
       await ctx.close();
 
