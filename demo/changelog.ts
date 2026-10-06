@@ -17,6 +17,15 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.88.0',
+    date: '5 Oct 2026',
+    title: 'The same gift set at two shops, joined',
+    points: [
+      'Sets sold at several shops now show one page',
+      'Only identical contents and scent are joined',
+    ],
+  },
+  {
     version: 'v3.87.0',
     date: '5 Oct 2026',
     title: 'Gift sets say what is in the box',

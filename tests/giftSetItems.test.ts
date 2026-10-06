@@ -152,9 +152,14 @@ describe('what a shop\'s own description lists', () => {
   };
 
   it('reads John Lewis\'s "Set contains" list', () => {
-    const l = find('john-lewis', /^Versace Crystal Noir Eau de Parfum 90ml Fragrance Gift Set$/);
-    if (!l) return;
-    expect(readGiftSet(l)).toMatchObject({ contents: ['90ml Eau de Parfum', '100ml Bath and Shower Gel', '100ml Body Lotion'], from: 'description', mainMl: 90 });
+    // The shop's text as it stood on 5 Oct 2026, pinned: the live listing is rewritten by the crawl.
+    const description =
+      'Versace Crystal Noir is a sumptuous fragrance. Set contains: Crystal Noir Eau de Parfum, 90ml Crystal Noir Body Lotion, 100ml Crystal Noir Shower Gel, 100ml Crystal Noir Eau de Parfum, Mini, 5ml';
+    expect(readGiftSet({ rawTitle: 'Versace Crystal Noir Eau de Parfum 90ml Fragrance Gift Set', description })).toMatchObject({
+      contents: ['90ml Eau de Parfum', '100ml Body Lotion', '100ml Shower Gel', '5ml Miniature'],
+      from: 'description',
+      mainMl: 90,
+    });
   });
 
   it('reads Kayali\'s bulleted list, with the balm in grams and no size of its own', () => {
