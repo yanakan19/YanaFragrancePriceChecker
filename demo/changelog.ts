@@ -17,6 +17,15 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.95.0',
+    date: '6 Oct 2026',
+    title: 'Fifty one brand logos from you',
+    points: [
+      'Creed, Kilian, Mugler, Byredo and many more',
+      'Brand pages show the real logo, not initials',
+    ],
+  },
+  {
     version: 'v3.94.0',
     date: '6 Oct 2026',
     title: 'Twenty more brand logos',
