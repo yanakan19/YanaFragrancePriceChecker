@@ -298,11 +298,14 @@ free and is served with the ad code, so the site has no banner of its own.
 3. User choices: tick **Consent**, **Manage options** and **Do not
    consent**. Offering a plain no next to yes is what the UK regulator, the
    ICO, expects.
-4. Leave the privacy policy link field as
-   `https://pricesniffs.space/legal/privacy`. It still works: since
-   2026-10-06 the privacy notice is a section of the Legal Notice page, and
-   that address opens it there (`https://pricesniffs.space/about/legal#privacy`
-   is the same place, and may be used instead).
+4. In the message's **Privacy policy link** field (on the message editor,
+   under the site and language), paste
+   `https://pricesniffs.space/about/legal#privacy`. Since 2026-10-06 the
+   privacy notice is a section of the Legal Notice page and that is its
+   address. A message already published with the older
+   `https://pricesniffs.space/legal/privacy` still works (that address opens
+   the same section), but change it: **Privacy & messaging** → **European
+   regulations** → the message → **Edit** → the same field → **Publish**.
 5. **Publish**. It now appears on the site the first time a UK or EEA
    visitor reaches a page with an ad.
 6. Leave the **US state regulations** message off unless you want US
@@ -310,6 +313,14 @@ free and is served with the ad code, so the site has no banner of its own.
 
 Until someone answers the message, or if it fails to load, the site asks
 Google for non personalised ads only. That is built in; nothing to set.
+
+**The same privacy address in the app stores** (only once the apps are
+listed, docs/MOBILE-APPS.md): paste `https://pricesniffs.space/about/legal#privacy`
+into
+- App Store Connect → the app → **App Information** → **Privacy Policy URL**
+  → **Save**;
+- Play Console → the app → **Policy and programmes** → **App content** →
+  **Privacy policy** → **Save**.
 
 ### 5c. Check ads.txt
 

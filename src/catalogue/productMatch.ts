@@ -603,6 +603,96 @@ export function untrustworthyEans(listings: readonly EanListing[]): ReadonlySet<
   return untrustworthy;
 }
 
+/** A single bottle listing with a barcode, as settleBarcodeSizes reads it. */
+export interface BarcodeSizeListing {
+  retailerId: string;
+  retailerSku: string;
+  /** The listing's barcode, already through trustworthyEan. */
+  ean: string;
+  /** The size its own title states in millilitres. */
+  sizeMl: number;
+}
+
+/** What settleBarcodeSizes decided. */
+export interface BarcodeSizeSettlement {
+  /**
+   * Codes (in untrustworthyEans' own per shop form, for trustworthyEan to read)
+   * that are no identity for this shop's listing: the shop's stated size
+   * disagrees with the size the code is sold at, and nothing outvotes it.
+   */
+  revoked: Set<string>;
+  /** `<retailerId>|<retailerSku>` to the size the code settles, for a listing outvoted on its size. */
+  outvoted: Map<string, number>;
+  /** One line per barcode whose shops disagreed, for the build log. */
+  disagreements: string[];
+}
+
+/**
+ * The size a barcode's product is, where the shops selling it state different
+ * sizes.
+ *
+ * Until 2026-10-06 a barcode's product took the size of whichever shop the
+ * build happened to read first, and every other shop's listing joined it
+ * whatever size its own title stated. Two harms, measured that day:
+ *
+ * - Perfume Click's "Baldessarini Uomo Mare Eau de Toilette 30ml" at £25.80
+ *   carries the barcode Parfumdreams sells as the 50ml at £50.66. Parfumdreams
+ *   was read first, so a 30ml price was shown as a 50ml price, half what the
+ *   50ml costs. One shop against one: nothing says which of them is right.
+ * - Perfume Direct names a variant of Givenchy Irresistible Eau de Toilette
+ *   "100ml" (£67.99). Its own product file (read 2026-10-06) titles the
+ *   product "(50ml, 80ml)" and puts barcode 3274872419315 on that variant,
+ *   the code Fragrance Click, Perfume Click and Lookfantastic all sell as the
+ *   80ml, and the house makes no 100ml of it. The 80ml is right; but had Perfume
+ *   Direct been read first, the product would have been a 100ml one.
+ *
+ * So a code's size is the one most shops state, each shop one vote, and a tie
+ * goes to the size read first (the size the product already had, so its
+ * address does not move). A shop alone in stating another size while at least
+ * two others agree is outvoted: its listing stays on the code's product and is
+ * read at the code's size (`outvoted`), as Perfume Direct's Givenchy is. Any
+ * other shop stating another size (a one against one tie, or two shops agreeing
+ * on a second size) keeps its own size, and the code is no identity for its
+ * listing (`revoked`), so the listing is matched on its name and size like a
+ * listing with no barcode. A price is never shown against a size its shop did
+ * not state on the say of a single other shop.
+ */
+export function settleBarcodeSizes(listings: Iterable<BarcodeSizeListing>): BarcodeSizeSettlement {
+  // Insertion ordered: the first size read for a code is the first key.
+  const byCode = new Map<string, Map<number, BarcodeSizeListing[]>>();
+  for (const l of listings) {
+    const sizes = byCode.get(l.ean) ?? byCode.set(l.ean, new Map()).get(l.ean)!;
+    (sizes.get(l.sizeMl) ?? sizes.set(l.sizeMl, []).get(l.sizeMl)!).push(l);
+  }
+  const revoked = new Set<string>();
+  const outvoted = new Map<string, number>();
+  const disagreements: string[] = [];
+  const shops = (ls: readonly BarcodeSizeListing[]) => new Set(ls.map((l) => l.retailerId)).size;
+  for (const [code, sizes] of byCode) {
+    if (sizes.size < 2) continue;
+    let settled: number | null = null;
+    let most = 0;
+    for (const [size, ls] of sizes) {
+      const n = shops(ls);
+      if (n > most) {
+        most = n;
+        settled = size;
+      }
+    }
+    const parts: string[] = [];
+    for (const [size, ls] of sizes) {
+      parts.push(`${size}ml ${[...new Set(ls.map((l) => l.retailerId))].join(', ')}`);
+      if (size === settled) continue;
+      for (const l of ls) {
+        if (most >= 2 && shops(ls) === 1) outvoted.set(`${l.retailerId}|${l.retailerSku}`, settled!);
+        else revoked.add(eanKey(l.retailerId, l.ean));
+      }
+    }
+    disagreements.push(`${code}: ${parts.join(' / ')} -> ${settled}ml`);
+  }
+  return { revoked, outvoted, disagreements };
+}
+
 /**
  * The ean a listing is safe to publish as its identity: the retailer's own
  * `ean` field, unless untrustworthyEans has already caught this exact shop
