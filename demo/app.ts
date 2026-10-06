@@ -3103,7 +3103,9 @@ function brandsPanel(): string {
       current = initial;
       out += `<li class="alpha-break" aria-hidden="true"><span>${esc(initial)}</span><i></i></li>`;
     }
-    out += `<li><button class="brand-row t-title" data-brand="${esc(b)}">${esc(b)}</button></li>`;
+    // Every row carries a square mark: the brand's logo when it has a square
+    // one, else its initials tile (orgMark; a wordmark never goes in a square).
+    out += `<li><button class="brand-row brand-row--mark t-title" data-brand="${esc(b)}">${orgMark(b, logoFor(b))}<span class="brand-row-name">${esc(b)}</span></button></li>`;
   }
   // A heading of its own, like Shops and Results: the tab bar names the
   // view but a tab is not a heading (axe page-has-heading-one, 2026-09-06).
@@ -3241,13 +3243,20 @@ function monogramHue(name: string): number {
   return Math.abs(hash) % 360;
 }
 
-/** Up to two initials from a name, the same reduction both `monogram` and
- *  `orgMark`'s CSS-drawn fallback use. */
+/** Up to two initials from a name: the first letters of its first two
+ *  significant words (skipping The, Maison, Parfums, de and &), upper case,
+ *  accents folded so Étienne gives E. The same reduction `monogram` and
+ *  `orgMark`'s CSS-drawn fallback use. A name made only of skipped words
+ *  falls back to all its words. */
 function initialsOf(name: string): string {
-  return name
-    .replace(/[^A-Za-z ]/g, '')
+  const words = name
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^A-Za-z0-9 ]/g, ' ')
     .split(/\s+/)
-    .filter(Boolean)
+    .filter(Boolean);
+  const real = words.filter((w) => !/^(the|maison|parfums?|de|di|du|des|la|le|and)$/i.test(w));
+  return (real.length ? real : words)
     .slice(0, 2)
     .map((w) => w[0]!.toUpperCase())
     .join('');
@@ -5633,8 +5642,10 @@ export function applyHead(tags: HeadTags): void {
   // (see this file's header), but a browser extension, a reading-list tool or
   // an in-page share that reads the live DOM will, and keeping them in step
   // with the title costs nothing.
-  setMeta('property', 'og:title', tags.title);
+  setMeta('property', 'og:title', tags.shareTitle ?? tags.title);
   setMeta('property', 'og:description', tags.description);
+  setMeta('name', 'twitter:title', tags.shareTitle ?? tags.title);
+  setMeta('name', 'twitter:description', tags.description);
   setMeta('property', 'og:url', tags.canonical);
 
   if (tags.noindex) setMeta('name', 'robots', 'noindex, follow');

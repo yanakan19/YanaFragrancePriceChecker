@@ -1541,6 +1541,13 @@
   @media (hover: hover) and (pointer: fine) {
     .brand-row:hover { color: var(--accent); }
   }
+  /* Brand rows: a 32px square mark (logo or initials tile) before the name. */
+  .brand-row--mark { display: flex; align-items: center; gap: 12px; }
+  .brand-row--mark > .monogram, .brand-row--mark > .org-mark {
+    width: 32px; height: 32px; border-radius: 9px; font-size: 12px; flex: none;
+  }
+  .brand-row--mark > .org-mark.org-mark-failed::after { font-size: 12px; }
+  .brand-row-name { min-width: 0; overflow-wrap: anywhere; }
   /* The initial, then a rule running to the end of the column, so a long
      alphabetical list breaks into scannable blocks. */
   .alpha-break {

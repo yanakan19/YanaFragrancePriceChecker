@@ -134,7 +134,7 @@ const rules = rulesFingerprint(root);
 
 const decision = fullReplay
   ? ({ resume: false, reason: '--full was passed' } as const)
-  : resumeFrom(readCheckpointFile(root), rules, commits);
+  : resumeFrom(readCheckpointFile(root, commits), rules, commits);
 
 let state = emptyState();
 let from = 0;
@@ -179,7 +179,8 @@ console.log(`\n${OUTPUT_PATH} written (${(rendered.body.length / 1024).toFixed(0
 // the replay's rules fingerprint, so neither it nor scripts/generatedFiles.ts
 // can force a full replay by being edited): `last` once for every fragrance
 // priced in the newest commit, which is what kept the committed file's daily
-// delta large.
+// delta large, and since 2026-10-06 without the history, which it reads back
+// from the file written just above (version 3, checked by its hash).
 // Rewritten only once it is well behind (checkpointRewriteReason): every
 // rewrite is a commit of a 14 MB file, and an older resume point gives the
 // same output.
@@ -188,6 +189,6 @@ if (rewriteBecause === null) {
   const behind = decision.resume ? commits.length - decision.commitsReplayed : 0;
   console.log(`${CHECKPOINT_PATH} left as it is (${behind} commit(s) behind; rewritten at ${CHECKPOINT_MAX_COMMITS_BEHIND} commits or ${CHECKPOINT_MAX_HOURS_BEHIND} hours)`);
 } else {
-  const checkpointBytes = writeCheckpointFile(root, toCheckpoint(state, rules, commits), commits.at(-1)?.at);
+  const checkpointBytes = writeCheckpointFile(root, toCheckpoint(state, rules, commits), commits.at(-1)?.at, rendered.body);
   console.log(`${CHECKPOINT_PATH} written (${(checkpointBytes / 1024).toFixed(0)} kB) at commit ${commits.at(-1)?.sha.slice(0, 8)}: ${rewriteBecause}`);
 }

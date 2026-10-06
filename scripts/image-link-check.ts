@@ -81,6 +81,7 @@
  * script already holds for a broken product photo.
  */
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { decodeSnapshot } from '../src/catalogue/store.js';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
@@ -148,7 +149,7 @@ let skippedInvisible = 0;
 
 for (const file of readdirSync(catalogueDir)) {
   if (!file.endsWith('.json')) continue;
-  const data = JSON.parse(readFileSync(resolve(catalogueDir, file), 'utf8')) as CatalogueFile;
+  const data = decodeSnapshot(JSON.parse(readFileSync(resolve(catalogueDir, file), 'utf8'))) as CatalogueFile;
 
   // Fixture snapshots carry invented image URLs — boots.com/images/boo-sauvage.jpg
   // and friends, which have never existed. build-demo-catalogue.ts already

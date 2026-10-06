@@ -1,4 +1,5 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { decodeSnapshot } from '../src/catalogue/store.js';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { CATALOGUE, CRAWLED } from '../demo/catalogue.generated.js';
@@ -27,7 +28,7 @@ function stored(): StoredListing[] {
   if (!existsSync(dir)) return [];
   return readdirSync(dir)
     .filter((f) => f.endsWith('.json'))
-    .flatMap((f) => (JSON.parse(readFileSync(resolve(dir, f), 'utf8')) as { listings: StoredListing[] }).listings);
+    .flatMap((f) => (decodeSnapshot(JSON.parse(readFileSync(resolve(dir, f), 'utf8')) as { listings: StoredListing[] })).listings);
 }
 const ALL = stored();
 const CATALOGUE_SHOPS = (id: string): string[] => (CRAWLED[id] ?? []).map((o) => o.retailerId);
