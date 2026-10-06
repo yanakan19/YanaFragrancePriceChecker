@@ -43,8 +43,8 @@ describe('advertising in the legal pages', () => {
     expect(visible).not.toMatch(/[‐-―-]/);
   });
 
-  it('the privacy page description in the head follows the same switch', () => {
-    const privacy = headFor({ route: { name: 'legal', param: 'privacy', query: {} }, leafName: 'Privacy' });
+  it('the Legal Notice description in the head follows the same switch', () => {
+    const privacy = headFor({ route: { name: 'legalNotice', param: 'privacy', query: {} } });
     expect(privacy.description).toContain(ADS_ON ? 'ads Google shows' : 'no analytics');
   });
 });

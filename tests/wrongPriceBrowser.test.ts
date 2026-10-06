@@ -64,7 +64,7 @@ describe.skipIf(!built)('wrong price report (built page, Chromium)', () => {
     expect(await page.locator('.detail-offers > .report-wrong [data-report-price]').count()).toBe(1);
     await page.close();
 
-    for (const path of ['/', '/deals', '/search', '/retailers/fragrance-click', '/legal/privacy']) {
+    for (const path of ['/', '/deals', '/search', '/retailers/fragrance-click', '/about/legal']) {
       const other = await open(path);
       expect(await other.locator('[data-report-price]').count(), path).toBe(0);
       await other.close();

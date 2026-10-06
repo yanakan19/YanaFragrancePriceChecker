@@ -55,19 +55,10 @@
  * (Boots, Harvey Nichols) are read from the registry for the same reason.
  */
 import { RETAILERS } from '../src/config/retailers.js';
-import { DEMO_FRAGRANCES } from './data.js';
 import { BRAND_LOGOS } from './brandLogos.js';
 import { SHOP_COUNT } from './catalogue.generated.js';
 import { shopsPhrase } from './head.js';
 import { ADS_ON, ADS_SWITCHED_ON } from './ads.js';
-
-const n = (v: number) => v.toLocaleString('en-GB');
-/** 1st, 2nd, 3rd, 4th … 11th, 12th, 13th, 21st: the English rule, not a lookup. */
-const ordinal = (v: number): string => {
-  const tens = v % 100;
-  const suffix = tens >= 11 && tens <= 13 ? 'th' : (['th', 'st', 'nd', 'rd'][v % 10] ?? 'th');
-  return `${v}${suffix}`;
-};
 
 /** Shops we actually fetch from today, as opposed to entries in the registry. */
 const ENABLED = RETAILERS.filter((r) => r.enabled);
@@ -339,76 +330,51 @@ function businessDetails(): string {
 }
 
 /**
- * The About page's copy, in pieces, so /about can lay it out as a page (a
- * mission line, four cards, a short FAQ) while /legal/about keeps the same
- * words as one document. Every figure is computed from the registry or the
- * catalogue, like the rest of this file; the live numbers at the top of
- * /about come from liveCounts() in demo/data.ts.
+ * The About page's copy (owner's revamp, 2026-10-06): as little text as will
+ * do. Why the site exists, in the owner's voice, then four one or two line
+ * cards on how it works, then who runs it. Everything else that About used to
+ * carry (the long method, the FAQ, the commission paragraph) is either on the
+ * How it works page or in the Legal Notice. The three live numbers at the top
+ * of /about come from liveCounts() in demo/data.ts, never typed.
  *
- * "Checked daily" is the wording the quick fixes of 2026-10-04 made true, and
- * it is always "every shop that lets us read its pages": a shop that refuses
- * us is never described as checked.
+ * Each card says only what the code does, so each is checkable:
+ *   - Prices: the harvest reads each shop's own public pages and feeds, and
+ *     delivery is added where the shop states it (src/services/shipping.ts).
+ *     The crawler itself is not named or described here, by the owner's
+ *     decision of 2026-10-04.
+ *   - Shops: src/config/retailers.ts and docs/DECISIONS.md D1. Every listed
+ *     shop is an established UK stockist that sells to UK customers and whose
+ *     prices reach us in sterling; a marketplace whose seller varies is left
+ *     out, because no one delivery policy can be attached to its prices. This
+ *     stops short of "genuine stock" on purpose: the terms say we cannot
+ *     guarantee the authenticity of what a shop sells.
+ *   - Cheapest: cheapestVerdict in src/services. A row is called Cheapest only
+ *     when its delivered total clearly leads; a shop with no stated delivery
+ *     charge can never lead.
+ *   - Affiliate links: COMMISSIONED below, and the Affiliate Disclosure.
  */
 export const ABOUT = {
-  mission: 'PriceSniffs shows what a bottle of fragrance really costs at UK shops, delivery included.',
-  story: `<p>Hi, I am Yanny. I built this after I bought a 100ml Club de Nuit and saw it twelve pounds cheaper four days later. Checking by hand meant nine tabs across different shops, and half of them hid the postage until checkout.</p>`,
-  checks: [
+  why: `<p>Hi, I am Yanny. I was tired of buying a fragrance and then seeing it cheaper somewhere else. So I built PriceSniffs. It compares UK shops, delivery included, so you know the best price before you buy.</p>`,
+  how: [
     {
-      title: 'Delivery Included',
-      body: `Every price includes the delivery the shop will charge you. ${deliveryExampleFull()} If we do not know a delivery charge, the listing says so and can never be called cheapest.`,
+      title: 'Prices',
+      body: 'Checked regularly from each shop’s own public listings and feeds. Delivery is included where the shop states it.',
     },
     {
-      title: 'Checked Daily',
-      body: 'Every shop that lets us read its pages is checked daily. No price is typed in by hand.',
+      title: 'Shops',
+      body: 'Established UK shops that sell to UK customers and show their prices in pounds. Marketplaces where the seller can change are left out.',
     },
     {
-      title: 'No Paid Placements',
-      body: 'No shop can pay to rank higher. Results are ordered by stock, then by price.',
+      title: 'Cheapest',
+      body: 'The lowest total, price plus delivery, among bottles in stock. A shop that does not state its delivery is never called cheapest.',
     },
     {
-      title: 'Real Price History',
-      body: 'Product pages chart the prices we actually recorded, so you can see whether today’s price is really low. An old price is never carried forward to fill a gap.',
-    },
-  ],
-  method: `<p>The full method, including which delivery charges we have checked with each shop, is on <a href="#" data-page="how-it-works">How it works</a>.</p>`,
-  money: `<p>${COMMISSIONED.length} shops pay us commission when you buy through our link. It costs you nothing and never changes the order of results. Those links are marked Affiliate link, and our <a href="#" data-page="affiliate">affiliate disclosure</a> names the shops.</p>`,
-  whoRuns: `<p>${COMPANY.operator ? `${COMPANY.operator} runs PriceSniffs, trading as ${COMPANY.legalName}.` : `One person runs PriceSniffs, trading as ${COMPANY.legalName}.`} It is not a company. Email <a href="mailto:${COMPANY.email}">${COMPANY.email}</a> about a wrong price, or a shop that should be the ${ordinal(ENABLED.length + 1)}. Zimaya was added because someone asked.</p>
-      <p>I also post about fragrance on <a href="https://www.tiktok.com/@yannysniffs" target="_blank" rel="noopener">TikTok</a> and <a href="https://www.instagram.com/yannysniffs" target="_blank" rel="noopener">Instagram</a> as yannysniffs. Full business details are on the <a href="#" data-page="contact">contact page</a>.</p>`,
-  /**
-   * Only questions the site's own pages already answer, in their words: How
-   * it works, the affiliate disclosure and the sign up form. Nothing here is
-   * a new promise.
-   */
-  faq: [
-    {
-      q: 'Do the prices include delivery?',
-      a: 'Yes. Every price includes standard delivery to a UK mainland address, and we work out whether your order reaches the shop’s spend for free delivery. Where a shop does not say what it charges, the listing says delivery not stated and can never come out cheapest.',
-    },
-    {
-      q: 'How often are prices checked?',
-      a: 'Once a day, at every shop that lets us read its pages. Every listing says when we last looked.',
-    },
-    {
-      q: 'Can a shop pay to appear higher?',
-      a: 'No. Results are ordered by stock and then by price, and commission never moves a listing.',
-    },
-    {
-      q: 'Why is a shop I use missing?',
-      a: `We have looked at ${RETAILERS.length} shops so far. ${SWITCHED_OFF.length} of them are switched off for now, some of them waiting on a delivery charge or on a way to read their listings at all. Email us to suggest one.`,
-    },
-    {
-      q: 'Do you show members only prices?',
-      a: 'Not as the headline. Where a shop runs a membership scheme we mention it, but the price we quote is one anyone can pay.',
-    },
-    {
-      q: 'Are the savings worked out by you?',
-      a: 'No. A previous price and a percentage saving are the shop’s own figures, and percentages round down.',
-    },
-    {
-      q: 'Do I need an account?',
-      a: 'No. Searching and comparing prices works without one. An account saves fragrances to a wishlist and lets you choose price alert emails.',
+      title: 'Affiliate Links',
+      body: 'Some shop links are affiliate links, marked on the page. We may earn commission if you buy, at no cost to you. It never changes the order of results.',
     },
   ],
+  /** The YannySniffs lines, as they were before the revamp (owner: keep them). */
+  whoRuns: `<p>${COMPANY.operator ? `${COMPANY.operator} runs PriceSniffs, trading as ${COMPANY.legalName}.` : `One person runs PriceSniffs, trading as ${COMPANY.legalName}.`} I also post about fragrance on <a href="https://www.tiktok.com/@yannysniffs" target="_blank" rel="noopener">TikTok</a> and <a href="https://www.instagram.com/yannysniffs" target="_blank" rel="noopener">Instagram</a> as yannysniffs.</p>`,
 };
 
 export interface LegalPage {
@@ -420,26 +386,6 @@ export interface LegalPage {
 }
 
 export const LEGAL_PAGES: LegalPage[] = [
-  {
-    id: 'about',
-    title: 'About PriceSniffs',
-    short: 'About',
-    // /about lays these same pieces out as a page (aboutView in demo/app.ts);
-    // this is the plain document form, kept so /legal/about still answers
-    // and so the words have one source.
-    body: `
-      <p>PriceSniffs shows what a bottle of fragrance really costs at ${COVERAGE} UK shops, delivery included. It covers ${n(DEMO_FRAGRANCES.length)} fragrances today.</p>
-      ${ABOUT.story}
-      <h2 class="t-section">How Prices Are Checked</h2>
-      <ul>
-        ${ABOUT.checks.map((c) => `<li>${c.body}</li>`).join('\n        ')}
-      </ul>
-      ${ABOUT.method}
-      <h2 class="t-section">How the Site Makes Money</h2>
-      ${ABOUT.money}
-      <h2 class="t-section">Who Runs It</h2>
-      ${ABOUT.whoRuns}`,
-  },
   {
     id: 'how-it-works',
     title: 'How PriceSniffs Works',
@@ -578,7 +524,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       <p>UK advertising rules, the CAP Code run by the Advertising Standards
       Authority, say affiliate links must be obvious before you click, not
       buried in a policy page. That is why the marker sits on the link itself,
-      and a note also appears at the bottom of every screen.</p>
+      and why the About page says so too.</p>
 
       <p class="meta">Last updated ${COMPANY.updated}.</p>`,
   },
@@ -949,10 +895,51 @@ export const LEGAL_PAGES: LegalPage[] = [
       removed, and we will come back to you.</p>
 
       <h2 class="t-section">Business Details</h2>
-      ${businessDetails()}`,
+      <p>Who runs PriceSniffs, and the postal address once it is settled, are
+      set out under <a href="#" data-page="terms">Who Runs This Site</a> in the
+      terms.</p>`,
   },
 ];
 
 export function legalPage(id: string): LegalPage | undefined {
   return LEGAL_PAGES.find((p) => p.id === id);
+}
+
+/**
+ * The Legal Notice: one page under About, /about/legal (owner's revamp,
+ * 2026-10-06), holding the pages that used to be six separate documents. Each
+ * keeps its own words, in LEGAL_PAGES above, and shows as a section of the
+ * notice in this order. The terms carry the logo and photo notices, the
+ * business details and the product image grounds; the affiliate disclosure
+ * names the shops whose programmes are live.
+ *
+ * An id here is also an anchor (/about/legal#privacy), and the old address of
+ * each page (/legal/privacy) still works: it opens the notice at that section
+ * and the address bar is rewritten to the new one. Renaming an id is a broken
+ * link, not a refactor. How it works is not a legal document and keeps its
+ * own page, /legal/how-it-works.
+ */
+export const LEGAL_NOTICE_IDS = ['terms', 'privacy', 'affiliate', 'cookies', 'refunds', 'contact'] as const;
+export type LegalNoticeId = (typeof LEGAL_NOTICE_IDS)[number];
+
+export function isLegalNoticeId(id: string): id is LegalNoticeId {
+  return (LEGAL_NOTICE_IDS as readonly string[]).includes(id);
+}
+
+/** The notice's sections, in order, each with the words of the page it came from. */
+export function legalNoticeSections(): { id: LegalNoticeId; title: string; short: string; body: string }[] {
+  return LEGAL_NOTICE_IDS.map((id) => {
+    const page = legalPage(id)!;
+    return { id, title: page.title, short: page.short, body: demoteHeadings(page.body) };
+  });
+}
+
+/**
+ * A page's body as a section of a longer one: its own headings, written as
+ * level two, go down to level three, because the section's title is the level
+ * two heading now and a page has one level one. Only the tag changes; the
+ * class, the id and every word stay.
+ */
+export function demoteHeadings(html: string): string {
+  return html.replace(/<h2(\s[^>]*)?>/g, '<h3$1>').replace(/<\/h2>/g, '</h3>');
 }

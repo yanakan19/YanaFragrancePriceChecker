@@ -39,6 +39,7 @@ export const CHANGELOG: ChangelogEntry[] = [
           'Oils: filters, sorting and price per ml',
           'Sets: filters, sorting and a list of contents',
           'Many more brand pages show the real logo',
+          'A shorter About page and a Legal Notice page',
         ],
       },
       {
