@@ -69,11 +69,21 @@ export function availabilityHeading(groups: Pick<OfferGroups, 'delivered' | 'plu
 }
 
 /**
- * Whether a row's facts line states its age: every row last checked more
- * than about a day ago. The page caption gives the freshest age, so a row
- * checked within the day says nothing extra.
+ * How long ago a listing was last checked, as the short value at the end of
+ * its facts line and the full sentence a screen reader gets in its place
+ * (owner request, 6 Oct 2026). Every row states its own age, from its own
+ * checked time; the page no longer carries one "last checked" line.
+ *
+ * Short values: "Now" under 90 seconds, "45m" under an hour, "9h" up to 23
+ * hours, then whole days, "1d" to "7d" (nothing older than
+ * HIDE_OFFER_AFTER_DAYS is shown at all, so the day count stays small).
  */
-export const ROW_AGE_AFTER_SECONDS = 24 * 60 * 60;
-export function rowShowsAge(row: Pick<PresentedOffer, 'ageSeconds'>): boolean {
-  return row.ageSeconds > ROW_AGE_AFTER_SECONDS;
+export function offerAge(ageSeconds: number): { short: string; long: string } {
+  if (ageSeconds < 90) return { short: 'Now', long: 'checked just now' };
+  const m = Math.round(ageSeconds / 60);
+  if (m < 60) return { short: `${m}m`, long: `checked ${m} ${m === 1 ? 'minute' : 'minutes'} ago` };
+  const h = Math.round(m / 60);
+  if (h < 24) return { short: `${h}h`, long: `checked ${h} ${h === 1 ? 'hour' : 'hours'} ago` };
+  const d = Math.round(h / 24);
+  return { short: `${d}d`, long: `checked ${d} ${d === 1 ? 'day' : 'days'} ago` };
 }
