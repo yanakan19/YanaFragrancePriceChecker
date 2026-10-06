@@ -2004,3 +2004,133 @@ under 300, and the 322 to 445 pixel Perfume Click pictures are above it); whethe
 `npm run photos:better` after each Awin feed sync, as a workflow step, so new Perfume
 Click listings get it (not wired: a workflow that commits needs the crawl's concurrency
 group); and whether the ~20 brand site matches in (c) are worth a per brand reader.
+
+## D26 — Fragrantica is not a search or notes source (recommendation, open)
+
+Recommendation for the owner, 2026-10-06. **Status: open until the owner says yes or no.**
+
+**Recommended: no, except what is already done.** Keep the Fragrantica *links*
+(a direct page where a person confirmed it, otherwise "Search Fragrantica"); do
+not read Fragrantica for search, notes, accords, ratings or reviews.
+
+How it came up: the backlog of 20 August (item 7) asked about Fragrantica ratings
+and ruled out scraping; item 11 built the per product links; the audit of
+5 October (`docs/FRAGRANTICA-LINK-AUDIT-2026-10-05.md`) checked those links using
+web search results only. No code reads Fragrantica's pages, and none should.
+
+Reasoning:
+
+- **The bot is refused.** robots.txt (`User-agent: *`) allows `/perfume/` but
+  disallows `/search` and `/ajax`, so search, the obvious use, is closed by the
+  file itself. A product page asked for as PriceSniffsBot answered 403 with a
+  Cloudflare challenge (audit, 5 October). D23 says a refusal is never worked
+  around, so PriceSniffsBot may not fetch it.
+- **Terms.** The terms page also answers 403 to our tools today, so its wording
+  was not re-read; the owner brief of August reported a ban on automated access
+  and a commercial licence for reuse of its content. Nothing found contradicts that.
+- **Legal risk in the UK.** Notes, accords and votes are a compiled database;
+  copying a substantial part is the kind of extraction the database right (UK
+  Copyright and Rights in Databases Regulations 1997) covers, and reviews are
+  their writers' copyright. A commercial price site with affiliate income is the
+  weakest position to defend. Risk: low chance of action, high cost if it comes,
+  and no way to make it lawful without a licence.
+- **Lawful alternatives, in order of value.** (1) The shops' own descriptions,
+  already parsed (`src/catalogue/notesPick.ts`, "As published by"); (2) the
+  fragrance houses' own storefronts, already first in that order, extended only
+  where their robots.txt lets the bot in (D25 c lists who refuses); (3) notes the
+  owner types for the products people look at most (a small reviewed file, the
+  same pattern as `data/fragrantica-link-review.json`); (4) Wikidata, open (CC0)
+  but thin for perfumes, so worth a measurement before any build, not a plan;
+  (5) a licence from Fragrantica (backlog 7a), the only lawful route to its data.
+
+What the owner must do: nothing to keep this as it is. Say "yes" only if you
+obtain a written licence from Fragrantica; say "owner typed notes" if you want (3)
+built.
+
+## D27 — Do not rewrite git history to shrink the repository (recommendation, open)
+
+Recommendation for the owner, 2026-10-06. **Status: open (OWNER-STEPS 7d,
+decision 1; strategy item 10).** Recommended: **no rewrite now.**
+
+Measured 2026-10-06: GitHub reports 720,287 kB (about 703 MB; 754 MB on
+5 October before GitHub's own repack). A full agent clone's `.git` is 2.6 GB
+on disk unpacked (1.97 GiB loose objects plus 613 MB in packs), 2,262 commits
+on the branch. Summing every blob's stored size by path (an overcount, as the
+local packs are not deltified against each other, but the order holds):
+`demo/catalogue.generated.ts` 628 MB, `data/catalogue` snapshots 573 MB,
+`demo/data` 351 MB, `demo/404.html` 288 MB, the checkpoint 72 MB,
+`demo/priceHistory.generated.ts` 69 MB, `data/houses` 42 MB, the sitemap 23 MB,
+`social/posts` 21 MB. Repacked, the page files no longer committed are about
+255 of 626 MB (OWNER-STEPS 7d).
+
+What a rewrite would save: about 255 MB once, roughly 40% of the packed size;
+up to about 180 MB more only after the price event log (strategy item 7) frees
+the old snapshots. It does not slow growth, which earlier work already cut
+(page built at deploy since 4 October, checkpoint version 3 on 6 October).
+
+What it would break:
+
+- **The live branch.** The crawl pushes several times a day and Pages deploys
+  from it; every workflow must be paused, or a push from an old checkout puts
+  the whole old history back.
+- **CLAUDE.md forbids force push**, and a rewrite is nothing else. Only the
+  owner could do it, once, as an explicit exception.
+- **Every clone, worktree and agent session** must be thrown away and cloned
+  again; any open session that merges and pushes undoes the rewrite.
+- **Every commit id changes**: ids quoted in docs, decisions and commit messages
+  stop resolving, and the checkpoint's commit id goes (one full replay, about ten
+  minutes). The price history is rebuilt from snapshot commits and dates, so it
+  must be checked identical before the push (7d step 4).
+- GitHub only shows the drop after Support runs garbage collection.
+
+Safer alternatives: (1) what is done already (deploy build, smaller checkpoint)
+stops most new growth; (2) shallow or partial clones (`--depth`, `--filter=blob:none`)
+for the crawl and agents give fast checkouts with no rewrite (the crawl's checkout
+took 43 to 69 seconds, not a problem); (3) a fresh orphan branch as the new live
+branch would start small but loses `git log` as the price history source and
+needs the same pause and re-clone, so it is a rewrite by another name;
+(4) moving data out of git (D28 for social images; the price event log for
+snapshots) is what keeps future growth down.
+
+What the owner must do: nothing. Revisit only if GitHub warns about the size
+(it recommends under 1 GB and strongly under 5 GB; at about 0.7 MB to
+2 MB a day net of D28, 1 GB is months away) or checkouts pass a few minutes; then follow
+OWNER-STEPS 7d exactly, after building the price event log.
+
+## D28 — Social images stop being committed; the deploy renders them (recommendation, open)
+
+Recommendation for the owner, 2026-10-06. **Status: open (OWNER-STEPS 7d,
+decision 2; strategy item 8).** Recommended: **yes, build the gitignored
+render**, as already outlined in OWNER-STEPS 7d.
+
+Where they live: the social routines write posts to `social/posts/<date>-<name>/`
+with the scripts `scripts/social-*.ts`, `scripts/render-social.ts` and
+`scripts/socialRender.ts` (rules in `social/DESIGN-SYSTEM.md`, which says to
+commit the folder after rendering). Only `_frames/` is gitignored. Today the
+tree holds 253 files under `social/`: 130 PNGs (17 MB), 71 HTML sources,
+33 captions, 9 `check.json`, 1 MP4 (`2026-10-05-hurry-deal-video`, 1.3 MB).
+In history `social/posts` is about 21 MB, 168 PNGs were committed in the last
+week, and it is now 2 to 4 MB a day, about a third of what the repository gains.
+`deploy-pages.yml` ignores `social/**`, so posts never trigger a deploy.
+
+Options weighed:
+
+- **Keep as is.** Simple, but the largest remaining growth, forever (deleting
+  posted images later saves nothing: history keeps them).
+- **Gitignored build, published by the deploy (recommended).** Commit the HTML,
+  captions and `check.json` (small text, diffable); add the PNG/MP4 paths to
+  `.gitignore` and `scripts/generated-files.txt`; the deploy renders recent posts
+  and publishes them at `pricesniffs.space/social/<post folder>/` for two weeks.
+  Growth from social drops to kilobytes; the owner still opens them by link on a
+  phone. Cost: rendering needs the fonts and a headless browser in the deploy,
+  and the images exist only while the post is in the two week window (they can
+  be rendered again from the committed HTML at any time).
+- **Release assets.** No repository growth and permanent, but each upload needs
+  a token step in the routine and a release per post; heavier than needed.
+- **Pages artifact only (no public page).** Downloadable from the Actions run for
+  90 days, but needs a GitHub login and a zip; worse on a phone.
+
+What the owner must do: say "do the social images". An agent then builds the
+deploy step, changes `social/DESIGN-SYSTEM.md` and the routines' instructions;
+the owner updates the routine prompts if they are kept outside the repository.
+Posts already committed stay as they are.
