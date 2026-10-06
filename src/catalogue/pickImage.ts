@@ -112,8 +112,13 @@ const MIN_SWAPPABLE_LONG_EDGE = 200;
  * hold a bigger one. These listings arrive through Awin, and
  * src/catalogue/awinFeed.ts already takes `merchant_image_url` in preference
  * to `aw_image_url`; the only other image-shaped column in that feed's schema
- * is `aw_thumb_url`, which is smaller by definition. There is no larger
- * perfume-click photo to fetch, so this entry stays.
+ * is `aw_thumb_url`, which is smaller by definition. So this entry stays.
+ *
+ * 2026-10-05 correction: the shop's own PRODUCT PAGE does name a bigger file of
+ * the same photo, `<id>_xl_1.jpg` (322 to 445 pixels on the long edge), a name
+ * none of those eight guesses was. It is only known by reading the page, which
+ * scripts/better-photos.ts does and records in data/better-photos.json
+ * (src/catalogue/perfumeClickPage.ts). The feed's own file stays a thumbnail.
  *
  * A second, independent reason it stays, found the same day: perfume-click's
  * photos are cropped flush to the product, which is the one input
@@ -195,6 +200,50 @@ function isTooSmallToSwapTo(offer: ImageCandidate, dimensions: ImageDimensionsBy
     if (upgradeImageResolution(offer.imageUrl) === offer.imageUrl) return true;
   }
   return THUMBNAIL_IMAGE_RETAILERS.has(offer.retailerId);
+}
+
+/**
+ * Shops whose photo is used only when no other shop has one for the product.
+ *
+ * Owner decision, 2026-10-05, after Dolce & Gabbana The One for Men
+ * (dolce_and_gabbana_the_one_for_men_edp_150ml) showed a Perfume Click picture
+ * about 130 pixels wide: keep Perfume Click's photos, but never let one win
+ * against a photo from any other shop. Perfume Click's files are small
+ * (106 to 195 pixels wide on the 2026-10-05 samples, docs/DECISIONS.md D25).
+ * Its product pages name a bigger file of the same photo, which the build uses
+ * when data/better-photos.json has it (see THUMBNAIL_IMAGE_RETAILERS), and
+ * that bigger file is still the last resort.
+ *
+ * "Any other shop" is meant literally: a stale ranked photo, a boxed photo, an
+ * unsure one and a photo of unknown size all beat it. The box and size rules
+ * further down decide among the photos that are left; they never bring a
+ * last resort photo back while another shop has one.
+ */
+export const LAST_RESORT_IMAGE_RETAILERS: ReadonlySet<string> = new Set(['perfume-click']);
+
+/**
+ * The long edge, in pixels, under which a photo that has been measured counts
+ * as small for the "prefer larger" rule below. It is the owner's figure of
+ * 2026-10-05 ("a photo under 300px wide"), not the 200 pixel floor above:
+ * that one decides whether a photo may displace another and is set from where
+ * the data splits into thumbnails and photographs. This one only decides
+ * whether a measured photo gives way to another photo that is not known to be
+ * small.
+ */
+export const SMALL_PHOTO_LONG_EDGE = 300;
+
+/**
+ * A photo whose own measurement says it is under SMALL_PHOTO_LONG_EDGE as it
+ * will actually be requested. Never true for an unmeasured photo: a missing
+ * size is not evidence either way, and it is never read as small (the last
+ * resort shops are handled by name, above). An upgradeable address is only
+ * conclusive when the measurement clears the line, as in isTooSmallToSwapTo.
+ */
+function isMeasuredSmall(offer: ImageCandidate, dimensions: ImageDimensionsByUrl | undefined): boolean {
+  const measured = offer.imageUrl === null ? undefined : dimensions?.get(offer.imageUrl);
+  if (!measured) return false;
+  if (Math.max(measured.width, measured.height) >= SMALL_PHOTO_LONG_EDGE) return false;
+  return upgradeImageResolution(offer.imageUrl) === offer.imageUrl;
 }
 
 function isVerifiedBoxed(imageUrl: string | null, verdicts: ImageBoxVerdicts | undefined): boolean {
@@ -500,8 +549,42 @@ export function pickImage(
   imageBoxVerdicts?: ImageBoxVerdicts,
   imageDimensions?: ImageDimensionsByUrl,
 ): string | null {
-  const licensed = offers.filter((o) => o.imageUrl !== null);
-  if (licensed.length === 0) return null;
+  const withImage = offers.filter((o) => o.imageUrl !== null);
+  if (withImage.length === 0) return null;
+
+  // 2026-10-05, owner decision: a last resort shop's photo (Perfume Click) is
+  // used only when no other shop has one. Every rule below runs exactly as it
+  // did on all the photos, and only when that choice lands on a last resort
+  // shop's photo is it made again among the other shops' photos. Done this way
+  // and not by dropping the last resort photos first, because their box and
+  // size verdicts used to trigger the "unsure gives way to a confirmed bottle"
+  // and boxed rules for the other shops' photos: dropping them up front moved
+  // 59 products off a verified bottle-only photo onto the freshest unchecked
+  // one (measured on the catalogue of 2026-10-05), for no reason the owner gave.
+  const first = chooseOffer(withImage, now, imageBoxVerdicts, imageDimensions);
+  if (LAST_RESORT_IMAGE_RETAILERS.has(first.retailerId)) {
+    const others = withImage.filter((o) => !LAST_RESORT_IMAGE_RETAILERS.has(o.retailerId));
+    if (others.length > 0) {
+      return upgradeImageResolution(chooseOffer(others, now, imageBoxVerdicts, imageDimensions).imageUrl);
+    }
+  }
+  return upgradeImageResolution(first.imageUrl);
+}
+
+/** The offer the rules above choose among `licensed`, which must not be empty. */
+function chooseOffer(
+  licensed: readonly ImageCandidate[],
+  now: Date,
+  imageBoxVerdicts: ImageBoxVerdicts | undefined,
+  imageDimensions: ImageDimensionsByUrl | undefined,
+): ImageCandidate {
+  // The "prefer larger" rule (also 2026-10-05). A photo that has been measured
+  // under SMALL_PHOTO_LONG_EDGE gives way to any photo that has not been
+  // measured that small, at the ranked tier and in the pool the freshness
+  // fallback picks from. It never touches an unmeasured photo, and it leaves
+  // the box rules' own 200px floor where it was: a measured 250px bottle-only
+  // photo may still displace a boxed one, as before.
+  const anyNotSmall = licensed.some((o) => !isMeasuredSmall(o, imageDimensions));
 
   // Whether this product has a photo the checker confirmed shows the bottle
   // alone, from a source whose files are big enough to be worth swapping to.
@@ -524,8 +607,9 @@ export function pickImage(
       // product did. Azzure Aoud is this exact case; see the header.
       continue;
     }
+    if (anyNotSmall && isMeasuredSmall(preferred, imageDimensions)) continue;
     const ageHours = (now.getTime() - new Date(preferred.fetchedAt).getTime()) / 3_600_000;
-    if (ageHours <= PREFERRED_IMAGE_MAX_AGE_HOURS) return upgradeImageResolution(preferred.imageUrl);
+    if (ageHours <= PREFERRED_IMAGE_MAX_AGE_HOURS) return preferred;
     // Stale: try the next ranked retailer before giving up on the ranking.
     //
     // This was `break` while the list held one entry, where it made no
@@ -559,7 +643,7 @@ export function pickImage(
       (o) => isVerifiedBottleOnly(o.imageUrl, imageBoxVerdicts) && !isTooSmallToSwapTo(o, imageDimensions),
     );
     const freshestConfirmed = [...confirmed].sort((a, b) => b.fetchedAt.localeCompare(a.fetchedAt))[0]!;
-    return upgradeImageResolution(freshestConfirmed.imageUrl);
+    return freshestConfirmed;
   }
 
   const boxedOffers = licensed.filter((o) => isVerifiedBoxed(o.imageUrl, imageBoxVerdicts));
@@ -576,8 +660,10 @@ export function pickImage(
     const fullSizedBoxed = boxedOffers.filter((o) => !isTooSmallToSwapTo(o, imageDimensions));
     pool = replacements.length > 0 ? replacements : fullSizedBoxed.length > 0 ? fullSizedBoxed : boxedOffers;
   }
+  const largerPool = pool.filter((o) => !isMeasuredSmall(o, imageDimensions));
+  if (largerPool.length > 0) pool = largerPool;
   const freshest = [...pool].sort((a, b) => b.fetchedAt.localeCompare(a.fetchedAt))[0]!;
-  return upgradeImageResolution(freshest.imageUrl);
+  return freshest;
 }
 
 /**

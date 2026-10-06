@@ -1911,3 +1911,96 @@ sends none, `referrerpolicy="no-referrer"` in `demo/photo.ts`):
   thumbnail source. The other shops sampled had no photo under 200 pixels except single
   ones (Oud Arabian 180, The Fragrance Counter 145, Justmylook's `_x100` files that the
   existing upgrade already replaces).
+
+## D25 — Perfume Click's photos are the last resort, and the shop's own page gives a bigger one
+
+Owner decision, 2026-10-05, after Dolce & Gabbana The One for Men
+(`dolce_and_gabbana_the_one_for_men_edp_150ml`) was seen with a Perfume Click picture
+about 130 pixels wide: keep Perfume Click's photos, but use one only when no other shop
+has a photo for the product, and look for a better picture for products whose only
+photo is a tiny one. Measured on the catalogue of 2026-10-05 (26,648 products shown).
+
+**The ranking.** `pickImage` runs every rule it had on all the photos; when the answer
+is a Perfume Click photo and another shop has one, it chooses again among the other
+shops' photos (`LAST_RESORT_IMAGE_RETAILERS`). Dropping Perfume Click's photos before
+the rules ran moved 59 products off a verified bottle-only photo, because its own box
+and size verdicts had been triggering the "unsure gives way to a confirmed bottle" and
+boxed rules for the others, so it is done after. It also prefers larger: a photo
+measured under 300 pixels on its long edge (`SMALL_PHOTO_LONG_EDGE`) gives way to a
+photo not measured that small, at the ranked tier and in the freshness pool. An
+unmeasured photo is never read as small. Result: 12 products moved off Perfume Click
+and 10 off a measured small mybeauty-boutique photo.
+
+**How many.** The owner's "about 5,800" is the 5,926 products that have a Perfume Click
+offer; most already show another shop's photo. 1,641 showed Perfume Click's (1,629
+after the ranking: those have no other photo at all, and 1,622 of them no other shop at
+all). Counting any displayed photo measured under 300 pixels as well (a long edge of 195
+at most for every Perfume Click file; 21 more, all mybeauty-boutique), 1,662 products had
+a tiny best photo. Sizes come from the stored sweep (`data/image-box-verdicts.json`, 1,626 of
+the 1,629 Perfume Click photos, every one under 300) and from 89 fresh header reads, as
+PriceSniffsBot, half a second apart, robots.txt first, across every other host the page
+shows (8 Perfume Click files 47 to 194 wide by 130 high; every other host's five or six
+samples 425 pixels or more on the long edge, the smallest a Fragrance Counter 425x346 and
+a Shopify 375x500). Oud Arabian's 180 and the Fragrance Counter's 145 in the earlier
+note are not shown on any product today.
+
+**Where a better picture can come from, in the order that worked.**
+
+a. *The shop's own product page* (built: `perfume-click-page`). The Awin feed gives
+   `photos/<id>_ml.jpg`; the product page (`merchantUrl`, never the `awin1.com` click
+   link) shows `photos/<id>_xl_1.jpg`, the same photo, 322 to 445 pixels on the long edge
+   (median 348), 2.5 times the feed's. The note in `pickImage.ts` that no larger file
+   exists had tried eight guessed suffixes, none of them this name, which is only known
+   by reading the page. 40 of 40 sampled pages (every 40th product on a thumbnail) named
+   the same photo number as the feed. The whole run, `npm run photos:better`: 1,749
+   listings on a thumbnail or no photo, 1,635 found, 114 pages with no picture (those
+   products keep the plain "no image" marker). Each page is read as PriceSniffsBot, one
+   request a second, with robots.txt of the shop and of its image host obeyed; the page
+   title must share 60% of the feed title's words, the photo number must match, and the
+   picture's size is read from its first 64 KB (at least 250 pixels on the long edge). 1,629
+   Perfume Click thumbnails are replaced and 6 products that had no photo now have one.
+   Every record is in `data/better-photos.json` with its source, page and size, and a
+   source is switched off in `src/config/photoSources.ts`. The picture is on the shop's
+   own image host and is hot linked, as D24 says; nothing is copied.
+b. *Other shops that carry the product but were not crawled for images* (not built).
+   Of the 1,629 products, 1,622 have no other shop at all. The other 7 are listed by
+   Beautybase with no stored image; their pages hold one for 1 of 7 (Davidoff Cool Water
+   Reborn 40ml, 2,000x2,000). Across all 122 active Beautybase listings with no stored
+   image, 3 of 12 sampled pages had one and one of those showed another product's title,
+   so the harvest is the place to fix it, not a second reader.
+c. *The brand's own site* (not built). 226 of the 308 brands have an official link and 1,449
+   of the 1,629 products are of those brands, but the link is to the brand, not to the
+   product. Of the 40 biggest, 8 refuse the bot with a 403 (Hugo Boss, Guess, Versace, Ralph
+   Lauren, Ferragamo, Bulgari, Tom Ford, Acqua di Parma) and are not worked around, 11 are
+   Shopify shops with an open `/products.json` (Armaf, Gulf Orchid, Lamborghini, Xerjoff,
+   Issey Miyake, DKNY, Street Origins, Trussardi, Ted Baker, Izod, Afnan). A name match of
+   their 196 products finds 37, and several are another size or strength (Sweet Heaven
+   Cherry 100ml against the brand's 20ml, Club de Nuit Intense Man EDT 10ml against its EDP
+   30ml, Xerjoff pages that carry one picture for every size): at most about 20 safe
+   matches, 1%, and a photo from another site than the shop's, which D24 says it does not
+   take. The houses already harvested (`data/houses/`) match 2 of the 1,629.
+d. *A search engine's image result* (not built: no source allows our bot). Google's
+   robots.txt disallows `/search`; Bing blocks the bot; `duckduckgo.com` disallows `/html`,
+   `/lite` and any query string, and its image results come from an unpublished token API;
+   Brave refuses the bot's request for robots.txt (429, "refused by the server") and its API
+   needs a paid key; Mojeek disallows `/search` and `/image?`, Ecosia `/search` and `/images`,
+   Qwant `?q=`, Startpage `/sp/`, Yandex `/images/*`; a public SearX answers with a captcha. Open Beauty
+   Facts, a data source and not a search engine, disallows `/api` and had a record for 2
+   of 30 barcodes, with no photo on either.
+
+**The result.** Products whose best photo was Perfume Click's: 1,641 before, 1,629 after
+the ranking, 0 thumbnails after the better photos (1,635 now show the shop's page picture,
+322 to 445 pixels). Still tiny: 11 mybeauty-boutique photos, 150 to 261 pixels, the only
+photo those products have and with no bigger file at that shop. The
+D&G The One for Men EDP 150ml tile never showed Perfume Click's picture in the committed
+data: it carries the Fragrance Click photo (800x800, the first ranked shop) before and
+after, so the picture the owner saw was another build's. The Perfume Click only D&G The One
+products are the Rollerball (159x322) and the Gift Set 100ml EDT + 50ml balm + 50ml
+shower gel (445x229), now both on the page's picture.
+
+For the owner: whether a photo under some width should be hidden or shown as a
+placeholder (the 11 mybeauty-boutique photos at 150 to 261 pixels are the only ones left
+under 300, and the 322 to 445 pixel Perfume Click pictures are above it); whether to run
+`npm run photos:better` after each Awin feed sync, as a workflow step, so new Perfume
+Click listings get it (not wired: a workflow that commits needs the crawl's concurrency
+group); and whether the ~20 brand site matches in (c) are worth a per brand reader.

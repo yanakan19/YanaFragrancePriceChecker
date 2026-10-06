@@ -27,6 +27,16 @@ export const CHANGELOG: ChangelogEntry[] = [
     ],
   },
   {
+    version: 'v3.90.0',
+    date: '6 Oct 2026',
+    title: 'Sharper photos where a shop gave a tiny one',
+    points: [
+      'About 1,600 Perfume Click photos are now larger',
+      'They show only when no other shop has a photo',
+      'Six products that had no photo now show one',
+    ],
+  },
+  {
     version: 'v3.89.0',
     date: '6 Oct 2026',
     title: 'Five more brand logos',

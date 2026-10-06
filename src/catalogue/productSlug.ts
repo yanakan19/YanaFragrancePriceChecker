@@ -286,7 +286,28 @@ export function assignSlugs(previous: Readonly<Record<string, string>>, products
 
   const sorted: Record<string, string> = {};
   for (const id of Object.keys(slugs).sort()) sorted[id] = slugs[id]!;
+  assertSlugsAppendOnly(previous, sorted);
   return { slugs: sorted, stats };
+}
+
+/**
+ * Throws if `next` lost a slug of `previous`, gave an id another slug, or gave
+ * one slug to two ids. A published address is never removed or reassigned
+ * (docs/PRODUCT-URLS.md section 3); assignSlugs calls this before it returns.
+ */
+export function assertSlugsAppendOnly(previous: Readonly<Record<string, string>>, next: Readonly<Record<string, string>>): void {
+  const bad: string[] = [];
+  for (const [id, slug] of Object.entries(previous)) {
+    if (!Object.prototype.hasOwnProperty.call(next, id)) bad.push(`${id} lost`);
+    else if (next[id] !== slug) bad.push(`${id} ${slug} -> ${next[id]}`);
+  }
+  const owner = new Map<string, string>();
+  for (const [id, slug] of Object.entries(next)) {
+    const other = owner.get(slug);
+    if (other !== undefined) bad.push(`${slug} given to ${other} and ${id}`);
+    else owner.set(slug, id);
+  }
+  if (bad.length) throw new Error(`data/product-slugs.json is append only, one id to one slug: ${bad.slice(0, 5).join('; ')} (${bad.length} in all)`);
 }
 
 /**
