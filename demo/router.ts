@@ -260,7 +260,11 @@ function sectionOf(hash: string): string {
 /** Build the path for a route. The inverse of matchRoute. */
 export function routeToPath(route: Route): string {
   const { name, param, query } = route;
-  const qs = new URLSearchParams(query).toString();
+  // A list's filter can hold several values, comma separated
+  // (/search?size=30-70,70-120, demo/listFilters.ts). A comma needs no
+  // escaping in a query and reads far better bare, so it is left bare;
+  // URLSearchParams reads it back the same either way.
+  const qs = new URLSearchParams(query).toString().replace(/%2C/gi, ',');
   const suffix = qs ? `?${qs}` : '';
   // Only the Legal Notice has an anchor, and it comes after any query string.
   const anchor = name === 'legalNotice' && param ? `#${encodeURIComponent(param)}` : '';

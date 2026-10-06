@@ -36,6 +36,7 @@ export const CHANGELOG: ChangelogEntry[] = [
       {
         heading: 'New',
         points: [
+          'Filters: tick several at once, shown as chips',
           'Oils: filters, sorting and price per ml',
           'Sets: filters, sorting and a list of contents',
           'Many more brand pages show the real logo',

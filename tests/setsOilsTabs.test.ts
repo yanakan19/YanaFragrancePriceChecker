@@ -9,6 +9,7 @@ import { adPositions } from '../demo/ads.js';
 import { sortFragrances } from '../demo/listSort.js';
 import { isOil, isSet } from '../demo/productKind.js';
 import { routeToPath, setProductSlugLookup } from '../demo/router.js';
+import { chips, closeFilters, isSheetOpen, tick } from './support/filterPanel.js';
 
 /**
  * The Explore Oils and Sets tabs on the built page (docs/GIFT-SETS-AND-OILS-PLAN.md,
@@ -128,10 +129,8 @@ describe.skipIf(!built)('the Oils and Sets tabs on the built site', () => {
     const { page, ctx } = await open('/sets', 390, 'dark', 844);
     await page.selectOption('#tab-sort', 'price-low');
     await page.waitForTimeout(200);
-    await page.click('[data-tab-facets-toggle]');
-    await page.waitForSelector('#tab-facet-type');
-    await page.selectOption('#tab-facet-type', 'designer');
-    await page.waitForTimeout(200);
+    await tick(page, 'type', 'designer');
+    await closeFilters(page);
     const want = sortFragrances(SETS.filter((f) => f.tier === 'designer'), 'price-low');
     expect((await heading(page)).count).toBe(want.length);
     expect(where(page)).toBe('/sets?sort=price-low&type=designer');
@@ -149,7 +148,7 @@ describe.skipIf(!built)('the Oils and Sets tabs on the built site', () => {
     await page.waitForTimeout(600);
     expect(where(page)).toBe('/sets?sort=price-low&type=designer');
     expect(await page.inputValue('#tab-sort')).toBe('price-low');
-    expect(await page.inputValue('#tab-facet-type')).toBe('designer');
+    expect(await chips(page)).toEqual(['type=designer']);
     expect((await heading(page)).count).toBe(want.length);
     const after = (await page.evaluate(`(() => { const el = document.querySelector('#view [data-frag="${before.id}"]'); return el ? { top: Math.round(el.getBoundingClientRect().top), y: scrollY } : null; })()`)) as { top: number; y: number } | null;
     expect(after, 'the tile left from is on screen again').not.toBeNull();
@@ -157,12 +156,12 @@ describe.skipIf(!built)('the Oils and Sets tabs on the built site', () => {
     await ctx.close();
   }, 120_000);
 
-  it('opens a shared link with its filters chosen, the panel open, and the list ordered as the address says', async () => {
+  it('opens a shared link with its filters chosen and shown as chips, and the list ordered as the address says', async () => {
     const { page, ctx } = await open('/oils?sort=price-high&type=mideast&q=musk', 1280);
     expect(await page.inputValue('#tab-sort')).toBe('price-high');
-    expect(await page.inputValue('#tab-facet-type')).toBe('mideast');
+    expect(await chips(page)).toEqual(['type=mideast']);
     expect(await page.inputValue('#tab-search')).toBe('musk');
-    expect(await page.getAttribute('[data-tab-facets-toggle]', 'aria-expanded')).toBe('true');
+    expect(await isSheetOpen(page)).toBe(false);
     const filtered = OILS.filter((f) => f.tier === 'mideast' && /musk/i.test(`${f.brand} ${f.name} ${f.concentration}`));
     expect(filtered.length).toBeGreaterThan(0);
     expect((await heading(page)).count).toBe(filtered.length);
@@ -179,18 +178,23 @@ describe.skipIf(!built)('the Oils and Sets tabs on the built site', () => {
     await ctx.close();
   }, 60_000);
 
-  it('puts every change in the address, replacing rather than pushing, and Clear All Filters empties it', async () => {
+  it('puts every change in the address, replacing rather than pushing, and Clear All empties it', async () => {
     const { page, ctx } = await open('/sets', 1280);
     const length = (await page.evaluate('history.length')) as number;
     await page.selectOption('#tab-sort', 'az');
     expect(where(page)).toBe('/sets?sort=az');
-    await page.click('[data-tab-facets-toggle]');
-    await page.selectOption('#tab-facet-type', 'niche');
+    await tick(page, 'type', 'niche');
     expect(where(page)).toBe('/sets?sort=az&type=niche');
-    expect(await page.textContent('[data-tab-facets-toggle] .facets-badge')).toBe('1');
-    await page.click('[data-tab-facets-clear]');
+    await tick(page, 'type', 'mideast');
+    expect(where(page)).toBe('/sets?sort=az&type=niche,mideast');
+    expect(await page.textContent('#view [data-facets-toggle] .facets-badge')).toBe('2');
+    expect((await heading(page)).count).toBe(SETS.filter((f) => f.tier === 'niche' || f.tier === 'mideast').length);
+    await closeFilters(page);
+    expect(await chips(page)).toEqual(['type=niche', 'type=mideast']);
+    await page.click('#view .filter-chips [data-facets-clear]');
     expect(where(page)).toBe('/sets?sort=az');
     expect((await heading(page)).count).toBe(SETS.length);
+    expect(await chips(page)).toEqual([]);
     expect(await page.evaluate('history.length')).toBe(length);
     await ctx.close();
   }, 60_000);
@@ -255,7 +259,7 @@ describe.skipIf(!built)('the Oils and Sets tabs on the built site', () => {
 
   for (const mode of ['light', 'dark'] as const) {
     for (const width of [320, 390, 1280]) {
-      it(`passes axe with no sideways scroll on /sets and /oils, filters open: ${width} wide, ${mode}`, async () => {
+      it(`passes axe with no sideways scroll on /sets and /oils, a filter chosen: ${width} wide, ${mode}`, async () => {
         for (const route of ['/sets', '/oils']) {
           const violations = await auditRoute(browser, port, `${route}?type=niche`, mode, width);
           expect(violations.map((v) => `${v.id}: ${v.nodes.join(' | ')}`), `${route} ${width} ${mode}`).toEqual([]);

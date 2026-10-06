@@ -61,20 +61,27 @@ import type { Retailer, RetailerTier, LogoRef } from '../src/types/retailer.js';
 import { logoFor } from './brandLogos.js';
 import {
   DEMO_FRAGRANCES, BY_POPULARITY, DEALS, NOTE_INDEX,
-  brandTierFor, fragranceById, fragranceBySlug, fragrancesAt, listingCountAt, fragrancesWithNote, lowestPrice, compareVariants,
-  type DemoFragrance, type NoteLayer,
+  brandTierFor, fragranceById, fragranceBySlug, fragrancesAt, listingCountAt, fragrancesWithNote, lowestPrice, compareVariants, shopIdsOf,
+  type Deal, type DemoFragrance, type NoteLayer,
 } from './data.js';
 import { productArt, photoSrcAttrs, HOUSE_IMG_SIZES, RETRY_ORIGINAL, type ArtSize } from './photo.js';
 import { AA_TEXT, contrastRatio, parseColour, type Rgba } from './contrast.js';
 import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './gender.js';
-import { GIFT_SET_BAND, volumeBandFor, volumeOptions, type VolumeBand } from './volumeBands.js';
+import { GIFT_SET_BAND, VOLUME_BANDS, volumeBandFor, type VolumeBand } from './volumeBands.js';
 import {
   BRAND_SORT_OPTIONS, BROWSE_SORT_OPTIONS, DEAL_SORT_OPTIONS, LIST_SORT_OPTIONS, NOTE_SORT_OPTIONS, SORT_LEAD,
   sortFragrances, sortNotes, type BrowseSort, type ListSort, type NoteSort,
 } from './listSort.js';
-import { pricePerMl, pricePerMlLabel } from './tabFacets.js';
-import { TAB_SEARCH_ID, TAB_SORT_ID, createTabs, facetSelectId, isTabKind, type TabKind } from './tabPanels.js';
-import type { TabListState } from './tabLists.js';
+import { pricePerMl, pricePerMlLabel, slugOf } from './tabFacets.js';
+import { TAB_SEARCH_ID, TAB_SORT_ID, createTabs, isTabKind, type TabKind } from './tabPanels.js';
+import {
+  TICKED, fixedOptions, liftFacet, namedSelect, runFacets, selFromQuery, selToQuery, withChosen, withValue,
+  type Facet, type Option, type Selection, type TabListState,
+} from './listFilters.js';
+import {
+  SHEET_ID, SHEET_TITLE_ID, filterControlsHtml, sheetBodyHtml, sheetShellHtml, showLabel,
+  type FilterContext, type FilterMarkupDeps,
+} from './filterUi.js';
 import { isOil, isSet } from './productKind.js';
 import {
   PER_ROW_CHOICES, PER_ROW_DEFAULT, clampPerRow, gridWidthFor, perRowChoicesFor,
@@ -158,8 +165,6 @@ type NoteLayerFilter = NoteLayer | 'any';
 type PriceBand = '0-25' | '25-50' | '50-100' | '100-200' | '200+';
 /** The Concentration facet's options: rare strengths share one "other" bucket. */
 type ConcentrationGroup = 'edp' | 'edt' | 'parfum' | 'edc' | 'oil' | 'other';
-/** Every facet a fragrance list can be narrowed by. Matches the state.facet* fields below 1:1. */
-type FacetGroup = 'volume' | 'concentration' | 'gender' | 'priceBand' | 'tier' | 'onSale' | 'inStock';
 
 const MODE_KEY = 'pricesniffs.display';
 const LAYOUT_KEY = 'pricesniffs.layout';
@@ -197,24 +202,16 @@ const state = {
   browseSort: 'stocked' as BrowseSort,
   brandDetailSort: 'az' as ListSort,
   retailerDetailSort: 'az' as ListSort,
-  // Scoped to *this* retailer's own offer, not the sitewide inStock facet
-  // above — a fragrance can be purchasable elsewhere while sold out here, and
-  // a shop's own page should only ever claim what is true of that shop.
-  retailerInStockOnly: false,
 
-  // ── facets ────────────────────────────────────────────────────────────────
-  // One shared set of selections rather than one per page: every list page
-  // resets them on navigation (see `go`), so nothing carries over somewhere it
-  // would not make sense, and one implementation covers Browse, Search, Deals,
-  // a retailer's page, a brand's page and a note's page alike.
-  facetsOpen: false,
-  facetVolume: new Set<VolumeBand>(),
-  facetConcentration: new Set<ConcentrationGroup>(),
-  facetGender: new Set<GenderReading>(),
-  facetPriceBand: new Set<PriceBand>(),
-  facetTier: new Set<RetailerTier>(),
-  facetOnSale: false,
-  facetInStock: false,
+  // ── filters ───────────────────────────────────────────────────────────────
+  // The chosen options of the list page on screen, by filter id (demo/listFilters.ts),
+  // several per filter. One shared set rather than one per page: every list
+  // page starts clean on navigation (see `go`), and the choice lives in the
+  // address, so Back, a reload and a shared link bring it back. One
+  // implementation covers Search, Most Stocked, Deals, a shop's page, a
+  // brand's page and a note's page alike; the Oils and Sets tabs keep their
+  // own (demo/tabPanels.ts) with the same engine.
+  filters: {} as Record<string, string[]>,
 
   // ── accounts (Module 7) ──────────────────────────────────────────────────
   authUser: null as User | null,
@@ -276,34 +273,19 @@ const state = {
 
 };
 
-/** Every facet selection back to empty. Called on every navigation — see `go`. */
+/** Every filter back to empty. Called on every navigation — see `go`. */
 function clearFacets(): void {
-  state.facetsOpen = false;
-  state.facetVolume.clear();
-  state.facetConcentration.clear();
-  state.facetGender.clear();
-  state.facetPriceBand.clear();
-  state.facetTier.clear();
-  state.facetOnSale = false;
-  state.facetInStock = false;
-  state.retailerInStockOnly = false;
+  state.filters = {};
 }
 
 /**
- * Everything a reader can set on a list page: facets, every sort and filter
- * dropdown, and how far down they had scrolled. Stored on that page's own
- * history entry (see rememberListState), so Back to a list brings it back
- * exactly as it was left, while a fresh visit still starts clean.
+ * Everything a reader can set on a list page that is not in its address (the
+ * filters and the sort of a fragrance list are: see currentRoute), and how far
+ * down they had scrolled. Stored on that page's own history entry (see
+ * rememberListState), so Back to a list brings it back exactly as it was left,
+ * while a fresh visit still starts clean.
  */
 interface ListSnapshot {
-  facetsOpen: boolean;
-  facetVolume: VolumeBand[];
-  facetConcentration: ConcentrationGroup[];
-  facetGender: GenderReading[];
-  facetPriceBand: PriceBand[];
-  facetTier: RetailerTier[];
-  facetOnSale: boolean;
-  facetInStock: boolean;
   brand: string | null;
   brandSort: BrandSort;
   brandFilter: BrandFilter;
@@ -314,7 +296,6 @@ interface ListSnapshot {
   browseSort: BrowseSort;
   brandDetailSort: ListSort;
   retailerDetailSort: ListSort;
-  retailerInStockOnly: boolean;
   /** The Oils and Sets tabs' own search, sort and filters (demo/tabPanels.ts). */
   tabs: Record<TabKind, TabListState>;
   scrollY: number;
@@ -328,14 +309,6 @@ function snapshotListState(): ListSnapshot {
   return {
     anchorFrag: anchor?.dataset.frag ?? null,
     anchorTop: anchor ? Math.round(anchor.getBoundingClientRect().top) : 0,
-    facetsOpen: state.facetsOpen,
-    facetVolume: [...state.facetVolume],
-    facetConcentration: [...state.facetConcentration],
-    facetGender: [...state.facetGender],
-    facetPriceBand: [...state.facetPriceBand],
-    facetTier: [...state.facetTier],
-    facetOnSale: state.facetOnSale,
-    facetInStock: state.facetInStock,
     brand: state.brand,
     brandSort: state.brandSort,
     brandFilter: state.brandFilter,
@@ -346,7 +319,6 @@ function snapshotListState(): ListSnapshot {
     browseSort: state.browseSort,
     brandDetailSort: state.brandDetailSort,
     retailerDetailSort: state.retailerDetailSort,
-    retailerInStockOnly: state.retailerInStockOnly,
     tabs: tabs.snapshot(),
     scrollY: window.scrollY,
   };
@@ -355,17 +327,9 @@ function snapshotListState(): ListSnapshot {
 function restoreListState(saved: ListSnapshot): void {
   // history.state outlives a deploy, so an entry saved by an older build may
   // lack a field added since; that field keeps its current value.
+  // The filters are not here: they come back with the address (applyRoute).
+  // Fields an entry from before 6 Oct 2026 carries for them are ignored.
   const s: ListSnapshot = { ...snapshotListState(), ...saved };
-  state.facetsOpen = s.facetsOpen;
-  state.facetVolume = new Set(s.facetVolume);
-  // Band and group ids can change between builds; an id this build does not
-  // offer would filter everything out behind a dropdown that cannot show it.
-  state.facetConcentration = new Set(s.facetConcentration.filter((v) => CONCENTRATION_GROUPS.some((g) => g.id === v)));
-  state.facetGender = new Set(s.facetGender);
-  state.facetPriceBand = new Set(s.facetPriceBand.filter((v) => PRICE_BANDS.some((b) => b.id === v)));
-  state.facetTier = new Set(s.facetTier);
-  state.facetOnSale = s.facetOnSale;
-  state.facetInStock = s.facetInStock;
   state.brand = s.brand;
   state.brandSort = s.brandSort;
   state.brandFilter = s.brandFilter;
@@ -376,7 +340,6 @@ function restoreListState(saved: ListSnapshot): void {
   state.browseSort = s.browseSort;
   state.brandDetailSort = s.brandDetailSort;
   state.retailerDetailSort = s.retailerDetailSort;
-  state.retailerInStockOnly = s.retailerInStockOnly;
   tabs.restore(s.tabs);
 }
 
@@ -406,18 +369,6 @@ function rememberListState(): void {
     // Same as syncUrl: a sandboxed frame rejects history writes, and the app
     // still works without remembering.
   }
-}
-
-function activeFacetCount(): number {
-  return (
-    state.facetVolume.size +
-    state.facetConcentration.size +
-    state.facetGender.size +
-    state.facetPriceBand.size +
-    state.facetTier.size +
-    (state.facetOnSale ? 1 : 0) +
-    (state.facetInStock ? 1 : 0)
-  );
 }
 
 const esc = (s: string) =>
@@ -597,7 +548,7 @@ function genderOf(f: DemoFragrance): GenderReading {
   return reading;
 }
 
-/** What every facet reads off one fragrance, worked out once. */
+/** What every filter reads off one fragrance, worked out once. */
 interface FacetAttrs {
   volume: VolumeBand | null;
   concentration: ConcentrationGroup;
@@ -606,9 +557,16 @@ interface FacetAttrs {
   priceBand: PriceBand | null;
   onSale: boolean;
   inStock: boolean;
+  /** The shops whose own offer can be bought now: In Stock Here on a shop's page. */
+  stockedAt: readonly string[];
+  /** The shops that list it, for the Shop filter. */
+  shops: readonly string[];
+  /**
+   * The same answers as the lists a filter reads (demo/listFilters.ts), made
+   * once here rather than on every pass of every filter over thousands of items.
+   */
+  lists: { size: readonly string[]; strength: readonly string[]; gender: readonly string[]; type: readonly string[]; price: readonly string[] };
 }
-
-const FACET_ORDER: FacetGroup[] = ['volume', 'concentration', 'gender', 'tier', 'priceBand', 'onSale', 'inStock'];
 
 /**
  * FacetAttrs per fragrance, kept for the current minute. The price band, sale
@@ -616,31 +574,53 @@ const FACET_ORDER: FacetGroup[] = ['volume', 'concentration', 'gender', 'tier', 
  * promotion can end), so they cannot be kept for the session; but rebuilding
  * every product's rows on every filter change, several times over, was most
  * of what made a change take 370ms on a phone-speed CPU.
+ *
+ * Keyed by the fragrance object, and the clock read once per draw
+ * (refreshFacetAttrs, at the top of render()) rather than on every call: a
+ * filter pass asks once per filter per item, 150,000 times on Most Stocked,
+ * and a clock read and a lookup by id string on each was a third of what a
+ * filter change cost (measured 6 Oct 2026).
  */
-const facetAttrsCache = new Map<string, FacetAttrs>();
+let facetAttrsCache = new WeakMap<DemoFragrance, FacetAttrs>();
 let facetAttrsMinute = -1;
+// The last fragrance asked about: a filter pass asks about one item once per
+// filter, one after another, so this answers all but the first of them.
+let lastAttrsOf: DemoFragrance | null = null;
+let lastAttrs: FacetAttrs | null = null;
 
-function facetAttrs(f: DemoFragrance): FacetAttrs {
+function refreshFacetAttrs(): void {
   const minute = Math.floor(Date.now() / 60_000);
   if (minute !== facetAttrsMinute) {
-    facetAttrsCache.clear();
+    facetAttrsCache = new WeakMap();
+    lastAttrsOf = null;
+    lastAttrs = null;
     facetAttrsMinute = minute;
   }
-  let a = facetAttrsCache.get(f.id);
+}
+
+const one = <T extends string>(v: T | null): readonly T[] => (v === null ? [] : [v]);
+
+function facetAttrs(f: DemoFragrance): FacetAttrs {
+  if (f === lastAttrsOf && lastAttrs) return lastAttrs;
+  let a = facetAttrsCache.get(f);
   if (!a) {
     const rows = rowsFor(f);
     const best = bestOffer(rows);
+    // A title that cannot be read as one size (volumeBandFor returns null —
+    // see its own comment) belongs to no band, the same "cannot answer, so
+    // it does not match a specific band" rule the price band applies to a
+    // delivery cost nobody states.
+    // A gift set is filed under its own Size option and in no size band.
+    const volume = volumeBandFor(f.sizeMl, f.giftSet !== null);
+    const concentration = concentrationGroupOf(f.concentration);
+    const gender = genderOf(f);
+    const priceBand = best ? priceBandFor(best.deliveredPriceGbp) : null;
     a = {
-      // A title that cannot be read as one size (volumeBandFor returns null —
-      // see its own comment) belongs to no band, the same "cannot answer, so
-      // it does not match a specific band" rule the price band applies to a
-      // delivery cost nobody states.
-      // A gift set is filed under its own Volume option and in no size band.
-      volume: volumeBandFor(f.sizeMl, f.giftSet !== null),
-      concentration: concentrationGroupOf(f.concentration),
-      gender: genderOf(f),
+      volume,
+      concentration,
+      gender,
       tier: f.tier,
-      priceBand: best ? priceBandFor(best.deliveredPriceGbp) : null,
+      priceBand,
       // On sale means the product page prints a sale price for at least one
       // row: the same decision offerRow makes (below MSRP, or else a saving
       // against the shop's RRP), on the same shown figure. Before 3 Oct 2026
@@ -651,224 +631,166 @@ function facetAttrs(f: DemoFragrance): FacetAttrs {
         return m ? m.direction === 'below' : rrpSavingFor(r) !== null;
       }),
       inStock: rows.some((r) => r.isPurchasable),
+      stockedAt: [...new Set(rows.filter((r) => r.isPurchasable).map((r) => r.retailer.id))],
+      shops: shopIdsOf(f.id),
+      lists: { size: one(volume), strength: [concentration], gender: [gender], type: [f.tier], price: one(priceBand) },
     };
-    facetAttrsCache.set(f.id, a);
+    facetAttrsCache.set(f, a);
   }
+  lastAttrsOf = f;
+  lastAttrs = a;
   return a;
 }
 
-/** Whether a fragrance fails one facet group as it is currently set. */
-function failsFacet(a: FacetAttrs, group: FacetGroup): boolean {
-  switch (group) {
-    case 'volume': return state.facetVolume.size > 0 && (a.volume === null || !state.facetVolume.has(a.volume));
-    case 'concentration': return state.facetConcentration.size > 0 && !state.facetConcentration.has(a.concentration);
-    case 'gender': return state.facetGender.size > 0 && !state.facetGender.has(a.gender);
-    case 'tier': return state.facetTier.size > 0 && !state.facetTier.has(a.tier);
-    case 'priceBand': return state.facetPriceBand.size > 0 && (a.priceBand === null || !state.facetPriceBand.has(a.priceBand));
-    case 'onSale': return state.facetOnSale && !a.onSale;
-    case 'inStock': return state.facetInStock && !a.inStock;
+/* ── the filters every fragrance list offers ─────────────────────────────────
+   One definition of each, read by every list (demo/listFilters.ts says how a
+   filter counts and combines). The id is the address parameter: /search?size=
+   30-70,70-120&price=0-25. The Oils and Sets tabs use the same ids for the
+   same filters (demo/tabPanels.ts), so a parameter means one thing wherever it
+   appears. */
+
+const TIER_OPTIONS: Option[] = (['designer', 'niche', 'mideast'] as const).map((t) => ({ value: t, label: TIER_LABEL[t] }));
+
+/** A filter with a fixed list of options, read off a fragrance's FacetAttrs. */
+function attrFilter(id: string, label: string, options: readonly Option[], read: (l: FacetAttrs['lists']) => readonly string[]): Facet<DemoFragrance> {
+  return { kind: 'select', id, label, values: (f) => read(facetAttrs(f).lists), ...fixedOptions(options) };
+}
+
+const FILTER_PRICE = attrFilter('price', 'Price', PRICE_BANDS.map((b) => ({ value: b.id, label: b.label })), (l) => l.price);
+// The five size bands smallest first, then Gift Sets (see volumeBandFor).
+const FILTER_SIZE = attrFilter('size', 'Size', [...VOLUME_BANDS, GIFT_SET_BAND].map((b) => ({ value: b.id, label: b.label })), (l) => l.size);
+const FILTER_STRENGTH = attrFilter('strength', 'Concentration', CONCENTRATION_GROUPS.map((g) => ({ value: g.id, label: g.label })), (l) => l.strength);
+const FILTER_GENDER = attrFilter('gender', 'Gender', GENDER_ORDER.map((g) => ({ value: g, label: GENDER_LABEL[g] })), (l) => l.gender);
+const FILTER_TYPE = attrFilter('type', 'Brand Type', TIER_OPTIONS, (l) => l.type);
+
+/** A brand's address form, kept per brand name: the same slug the Oils and Sets tabs use. */
+const brandSlugs = new Map<string, readonly string[]>();
+const brandValue = (f: Pick<DemoFragrance, 'brand'>): readonly string[] => {
+  let v = brandSlugs.get(f.brand);
+  if (!v) brandSlugs.set(f.brand, (v = [slugOf(f.brand)]));
+  return v;
+};
+let brandLabels: Map<string, string> | null = null;
+const brandLabelMap = (): ReadonlyMap<string, string> => (brandLabels ??= new Map(DEMO_FRAGRANCES.map((f) => [slugOf(f.brand), f.brand])));
+let shopLabels: Map<string, string> | null = null;
+const shopLabelMap = (): ReadonlyMap<string, string> => (shopLabels ??= new Map(RETAILERS.map((r) => [r.id, r.name])));
+
+const FILTER_BRAND = namedSelect<DemoFragrance>('brand', 'Brand', brandValue, brandLabelMap);
+const FILTER_SHOP = namedSelect<DemoFragrance>('shop', 'Shop', (f) => facetAttrs(f).shops, shopLabelMap);
+const FILTER_SALE: Facet<DemoFragrance> = { kind: 'check', id: 'sale', label: 'On Sale', flag: (f) => facetAttrs(f).onSale };
+const FILTER_STOCK: Facet<DemoFragrance> = { kind: 'check', id: 'stock', label: 'In Stock', flag: (f) => facetAttrs(f).inStock };
+
+/**
+ * A shop's own page: "In Stock" there has to mean in stock at that shop, not
+ * anywhere, so this replaces the sitewide box rather than sitting beside it as
+ * a second, different switch. Same address parameter.
+ */
+const stockHereFilter = (retailerId: string): Facet<DemoFragrance> => ({
+  kind: 'check',
+  id: 'stock',
+  label: 'In Stock Here',
+  flag: (f) => facetAttrs(f).stockedAt.includes(retailerId),
+});
+
+/** The fragrance lists whose filters live in state.filters, each with its own set of filters. */
+type ListPage = 'browse' | 'deals' | 'brand' | 'retailer' | 'note';
+
+/**
+ * Which filters a list offers. Every one of them, except where a filter could
+ * only ever hold one answer: a brand's page has no Brand filter, a shop's page
+ * no Shop filter. A filter left with one option is not shown anyway (Brand
+ * Type on a brand's page), but these two would cost a pass for nothing.
+ */
+function listFacets(page: ListPage, retailerId = ''): Facet<DemoFragrance>[] {
+  const head = [FILTER_PRICE, FILTER_SIZE, FILTER_STRENGTH, FILTER_GENDER, FILTER_TYPE];
+  switch (page) {
+    case 'brand': return [...head, FILTER_SHOP, FILTER_SALE, FILTER_STOCK];
+    case 'retailer': return [...head, FILTER_BRAND, FILTER_SALE, stockHereFilter(retailerId)];
+    default: return [...head, FILTER_BRAND, FILTER_SHOP, FILTER_SALE, FILTER_STOCK];
   }
 }
 
-/**
- * Whether one fragrance survives every active facet except `exclude`. Passing
- * a group's own id when computing that same group's option counts is what
- * makes ticking a second option within a group additive rather than
- * self-defeating — see the header comment above.
- */
-function passesFacets(f: DemoFragrance, exclude: FacetGroup | null): boolean {
-  const a = facetAttrs(f);
-  return FACET_ORDER.every((g) => g === exclude || !failsFacet(a, g));
-}
+/** A deal is filtered by its fragrance, except Shop, which is the shop offering the deal. */
+const dealShops = new Map<string, readonly string[]>();
+const DEAL_SHOP = namedSelect<Deal>(
+  'shop',
+  'Shop',
+  (d) => {
+    let v = dealShops.get(d.retailerId);
+    if (!v) dealShops.set(d.retailerId, (v = [d.retailerId]));
+    return v;
+  },
+  shopLabelMap,
+);
+const DEAL_FACETS: Facet<Deal>[] = listFacets('deals').map((f) => (f.id === 'shop' ? DEAL_SHOP : liftFacet<DemoFragrance, Deal>(f, (d) => d.fragrance)));
 
-function applyFacets(list: DemoFragrance[]): DemoFragrance[] {
-  return list.filter((f) => passesFacets(f, null));
-}
-
-interface FacetOption {
-  value: string;
-  label: string;
-  count: number;
-}
-
-/**
- * Every facet option worth offering for this list, each with a live count —
- * `list` should be the *pre-facet* candidates for the page (everything Browse
- * or a brand page would show with no facets applied), not the already-filtered
- * result, or every count would just read as "however many are left".
- */
-function facetGroups(list: DemoFragrance[]) {
-  const volume = new Map<VolumeBand, number>();
-  const concentration = new Map<ConcentrationGroup, number>();
-  const gender = new Map<GenderReading, number>();
-  const priceBand = new Map<PriceBand, number>();
-  const tier = new Map<RetailerTier, number>();
-  let onSale = 0;
-  let inStock = 0;
-
-  // One pass: a fragrance that fails no group counts in every group; one that
-  // fails exactly one group counts only in that group, which is what "every
-  // other facet but never its own" means; one that fails two counts nowhere.
-  for (const f of list) {
-    const a = facetAttrs(f);
-    let failed: FacetGroup | null = null;
-    let failures = 0;
-    for (const g of FACET_ORDER) {
-      if (!failsFacet(a, g)) continue;
-      failed = g;
-      if (++failures > 1) break;
-    }
-    if (failures > 1) continue;
-    const counts = (g: FacetGroup) => failures === 0 || failed === g;
-    if (counts('volume') && a.volume !== null) volume.set(a.volume, (volume.get(a.volume) ?? 0) + 1);
-    if (counts('concentration')) concentration.set(a.concentration, (concentration.get(a.concentration) ?? 0) + 1);
-    if (counts('gender')) gender.set(a.gender, (gender.get(a.gender) ?? 0) + 1);
-    if (counts('tier')) tier.set(a.tier, (tier.get(a.tier) ?? 0) + 1);
-    if (counts('priceBand') && a.priceBand !== null) priceBand.set(a.priceBand, (priceBand.get(a.priceBand) ?? 0) + 1);
-    if (counts('onSale') && a.onSale) onSale++;
-    if (counts('inStock') && a.inStock) inStock++;
+/** Which filters an address for a list may name: what applyRoute reads it against. */
+function routeFacets(name: RouteName): readonly Facet<unknown>[] {
+  switch (name) {
+    case 'search': return listFacets('browse') as Facet<unknown>[];
+    case 'deals': return DEAL_FACETS as Facet<unknown>[];
+    case 'brand': return listFacets('brand') as Facet<unknown>[];
+    case 'retailer': return listFacets('retailer') as Facet<unknown>[];
+    case 'note': return listFacets('note') as Facet<unknown>[];
+    default: return [];
   }
+}
 
-  const toOptions = <T extends string | number>(counts: Map<T, number>, label: (v: T) => string): FacetOption[] =>
-    [...counts.entries()]
-      .filter(([, count]) => count > 0)
-      .sort((a, b) => (typeof a[0] === 'number' ? (a[0] as number) - (b[0] as number) : String(a[0]).localeCompare(String(b[0]))))
-      .map(([value, count]) => ({ value: String(value), label: label(value), count }));
+const GENDER_NOTE = 'Gender is read from wording in the title, such as Pour Homme or For Her. Not Stated is not the same as Unisex.';
 
-  // Every group in a fixed order, not alphabetical or by count, so each
-  // dropdown reads the same way every time: sizes and prices low to high,
-  // strengths strongest-selling first with "Other or not stated" last, and
-  // gender's three stated readings before "Not stated". Same "only offer what
-  // would return something" rule as before: a value nobody here has is left out.
+/**
+ * What the Filters panel of a list in state.filters draws from, and what
+ * changing it does. Who a fragrance is for is read off wording in its title,
+ * and most titles have none, so "Not Stated" is the biggest gender reading by
+ * far; the panel says so under Gender, so a short Women's list is not mistaken
+ * for a thin catalogue or a broken filter.
+ */
+function sharedFilterContext<T>(
+  facets: readonly Facet<T>[],
+  views: FilterContext<T>['views'],
+  matched: number,
+  noun: readonly [string, string] = ['Fragrance', 'Fragrances'],
+): FilterContext<T> {
   return {
-    // The five size bands, then Gift Sets: see volumeOptions.
-    volume: volumeOptions(volume),
-    concentration: CONCENTRATION_GROUPS.filter((g) => (concentration.get(g.id) ?? 0) > 0).map((g) => ({
-      value: g.id, label: g.label, count: concentration.get(g.id)!,
-    })),
-    gender: GENDER_ORDER.filter((g) => (gender.get(g) ?? 0) > 0).map((g) => ({
-      value: g, label: GENDER_LABEL[g], count: gender.get(g)!,
-    })),
-    priceBand: PRICE_BANDS.filter((b) => (priceBand.get(b.id) ?? 0) > 0).map((b) => ({
-      value: b.id, label: b.label, count: priceBand.get(b.id)!,
-    })),
-    tier: toOptions(tier, (v) => TIER_LABEL[v as RetailerTier]),
-    onSale,
-    inStock,
+    facets,
+    views,
+    sel: state.filters,
+    matched,
+    noun,
+    notes: views.some((v) => v.facet.id === 'gender' && v.offered) ? { gender: GENDER_NOTE } : {},
+    set: (id, values) => {
+      state.filters = withChosen(state.filters, id, values);
+    },
+    clear: () => {
+      state.filters = {};
+    },
   };
 }
 
-/** The `<select>` id for each dropdown facet, read back by the change handler. */
-const FACET_SELECT_ID = {
-  volume: 'facet-volume',
-  concentration: 'facet-concentration',
-  gender: 'facet-gender',
-  priceBand: 'facet-price',
-  tier: 'facet-tier',
-} as const;
+/* ── the Filters button, its chips and its panel ─────────────────────────────
+   Drawn by demo/filterUi.ts. A list that draws filters registers what its
+   panel holds here while it renders; the panel itself is one <dialog> on
+   <body>, outside #view, so a redraw of the list underneath it leaves it, its
+   scroll and its focus alone (see openFilterSheet). */
 
-/**
- * One facet as the browser's own dropdown — the iPhone or Android picker on a
- * phone, a plain menu on a computer — with "Any …" first so choosing nothing
- * is a choice like any other. One value per facet: a native multiple-select is
- * a picker on phones but an always-open list box on desktop.
- *
- * A selected value whose count has dropped to nothing (another facet has
- * since ruled it out) stays in the list at 0. Leaving it out would make the
- * dropdown read "Any …" while the filter was still applied.
- */
-function facetSelect(group: keyof typeof FACET_SELECT_ID, label: string, anyLabel: string, options: FacetOption[], selected: Set<string>): string {
-  const current = [...selected][0];
-  const shown = current !== undefined && !options.some((o) => o.value === current)
-    ? [...options, { value: current, label: options.find((o) => o.value === current)?.label ?? current, count: 0 }]
-    : options;
-  if (shown.length < 2 && current === undefined) return '';
-  return `<label class="control facet-control">
-    <span class="sr">${esc(label)}</span>
-    <select id="${FACET_SELECT_ID[group]}" class="dropdown">
-      <option value="">${esc(anyLabel)}</option>
-      ${shown.map((o) => `<option value="${esc(o.value)}"${o.value === current ? ' selected' : ''}>${esc(o.label)} (${o.count.toLocaleString('en-GB')})</option>`).join('')}
-    </select>
-    <span class="control-chevron" aria-hidden="true">${ICON_CHEVRON}</span>
-  </label>`;
-}
+/** The filters of the list on screen, or null on a page with none. Reset at the top of render(). */
+let filterCtx: FilterContext<unknown> | null = null;
 
-/** A yes/no facet as the browser's own checkbox, boxed to match the dropdowns. */
-function facetCheckbox(id: string, label: string, count: number | null, checked: boolean): string {
-  return `<label class="control facet-check">
-    <input type="checkbox" id="${id}"${checked ? ' checked' : ''} />
-    <span class="facet-check-label">${esc(label)}</span>
-    ${count === null ? '' : `<span class="facet-count t-count">${count.toLocaleString('en-GB')}</span>`}
-  </label>`;
-}
+/** Read when called, not at load: the icons are defined further down this file. */
+const filterMarkup = (): FilterMarkupDeps => ({ esc, iconFilter: ICON_FILTER, iconClose: ICON_CLOSE, iconChevron: ICON_CHEVRON });
 
-/** A list page's filters: the toggle for its controls row and the panel shown under that row. */
-interface FacetUi {
-  toggle: string;
-  panel: string;
-}
-
-/**
- * The filters for a fragrance list. `list` is the page's candidates before
- * any facet is applied, so every count reads "how many would this give".
- *
- * `inStockHere` is for a shop's own page: there "In stock" has to mean in
- * stock at that shop, not anywhere, so the shop's own checkbox replaces the
- * sitewide one rather than sitting beside it as a second, different switch.
- * Like every other facet it is only offered when it would narrow the list
- * (or is already ticked, so it can be unticked).
- */
-function facets(list: DemoFragrance[], opts: { inStockHere?: { checked: boolean; narrows: boolean } } = {}): FacetUi {
-  const g = facetGroups(list);
-  const here = opts.inStockHere;
-  const count = activeFacetCount() + (here?.checked ? 1 : 0);
-
-  const controls = [
-    facetSelect('volume', 'Size', 'Any Size', g.volume, state.facetVolume),
-    facetSelect('concentration', 'Concentration', 'Any Concentration', g.concentration, state.facetConcentration),
-    facetSelect('gender', 'Gender', 'Any Gender', g.gender, state.facetGender),
-    facetSelect('priceBand', 'Price', 'Any Price', g.priceBand, state.facetPriceBand),
-    facetSelect('tier', 'Brand Type', 'Any Brand Type', g.tier, state.facetTier),
-    g.onSale > 0 || state.facetOnSale ? facetCheckbox('facet-on-sale', 'On Sale', g.onSale, state.facetOnSale) : '',
-    here
-      ? here.narrows || here.checked ? facetCheckbox('retailer-in-stock', 'In Stock Here', null, here.checked) : ''
-      : (g.inStock > 0 && g.inStock < list.length) || state.facetInStock
-        ? facetCheckbox('facet-in-stock', 'In Stock', g.inStock, state.facetInStock)
-        : '',
-  ].filter(Boolean);
-
-  if (controls.length === 0) return { toggle: '', panel: '' };
-
-  // Who a fragrance is for is read off wording in its title, and most titles
-  // have none, so "Not stated" is the biggest gender reading by far. Said
-  // once, in the panel, so a short Women's list is not mistaken for a thin
-  // catalogue or a broken filter.
-  const genderNote = g.gender.length >= 2
-    ? `<p class="facet-note t-caption">Gender is read from wording in the title, such as Pour Homme or For Her. Not Stated is not the same as Unisex.</p>`
-    : '';
-
-  return {
-    toggle: `<button type="button" class="control facets-toggle" data-facets-toggle aria-expanded="${state.facetsOpen}">
-      <span class="control-ico">${ICON_FILTER}</span>
-      <span>Filters</span>
-      ${count > 0 ? `<span class="facets-badge">${count}</span>` : ''}
-    </button>`,
-    panel: state.facetsOpen
-      ? `<div class="facets-panel">
-          <div class="facet-grid">${controls.join('')}</div>
-          ${genderNote}
-          ${count > 0 ? `<button type="button" class="link-btn facets-clear" data-facets-clear>Clear All Filters</button>` : ''}
-        </div>`
-      : '',
-  };
+/** The Filters button and chips for a list, and the list's filters remembered for its panel. */
+function filterControls<T>(ctx: FilterContext<T>): { toggle: string; panel: string } {
+  filterCtx = ctx as FilterContext<unknown>;
+  return filterControlsHtml(ctx, filterMarkup());
 }
 
 /**
  * The one controls row every fragrance list shares, in the same order on every
- * page: sort, filters, then (desktop only) tiles per row. The filter panel
- * opens underneath the row, full width, rather than inside it.
+ * page: sort, filters, then (desktop only) tiles per row. The chosen filters
+ * sit under the row as chips (`f.panel`).
  */
-function listControls(sort: string, f: FacetUi): string {
+function listControls(sort: string, f: { toggle: string; panel: string }): string {
   return `<div class="controls">${sort}${f.toggle}${perRowControl()}</div>${f.panel}`;
 }
 
@@ -1147,10 +1069,7 @@ function browseSortControl(current: BrowseSort): string {
  * control, the shared filter attributes and options).
  */
 const tabs = createTabs({
-  attrs: (f) => {
-    const a = facetAttrs(f);
-    return { concentration: a.concentration, gender: a.gender, tier: a.tier, priceBand: a.priceBand, inStock: a.inStock };
-  },
+  attrs: (f) => facetAttrs(f),
   concentrationOptions: CONCENTRATION_GROUPS.map((g) => ({ value: g.id, label: g.label })),
   genderOptions: GENDER_ORDER.map((g) => ({ value: g, label: GENDER_LABEL[g] })),
   priceOptions: PRICE_BANDS.map((b) => ({ value: b.id, label: b.label })),
@@ -1158,9 +1077,8 @@ const tabs = createTabs({
   fragranceList: (list, empty) => fragranceList(list, empty),
   sortControl: (id, subject, options, current) => sortControl(id, subject, ICON_SORT, [...options], current),
   listControls: (sort, ui) => listControls(sort, ui),
+  filterControls: (ctx) => filterControls(ctx),
   esc,
-  iconFilter: ICON_FILTER,
-  iconChevron: ICON_CHEVRON,
 });
 
 /* ── shared pieces ───────────────────────────────────────────────────────── */
@@ -1656,8 +1574,13 @@ function homeView(): string {
  * is cleared.
  */
 function isMostStockedList(): boolean {
-  return !state.brand && !state.query.trim() && !state.facetVolume.has(GIFT_SET_BAND.id);
+  return !state.brand && !state.query.trim() && !(state.filters.size ?? []).includes(GIFT_SET_BAND.id);
 }
+
+/** The Most Stocked list before any filter: the same every time, so made once (see visibleFragrances). */
+let mostStockedBase: DemoFragrance[] | null = null;
+/** The last search's list before any filter, by what was searched: a filter change searches nothing new. */
+let searchBase: { key: string; list: DemoFragrance[] } | null = null;
 
 function visibleFragrances(): DemoFragrance[] {
   const q = state.query.trim().toLowerCase();
@@ -1665,23 +1588,29 @@ function visibleFragrances(): DemoFragrance[] {
   // demo/mostStocked.ts). Dropped here rather than at the slice in browseView so the facet
   // counts and the row count agree with what is actually listed — a facet
   // offering "17 Perfume Oil" on a page that shows none is worse than either.
-  const isTop = isMostStockedList();
-  const list = BY_POPULARITY.filter((f) => {
-    if (isTop && !rankedInMostStocked(f)) return false;
-    if (state.brand && f.brand !== state.brand) return false;
-    if (!q) return true;
-    return `${f.brand} ${f.name} ${f.concentration}`.toLowerCase().includes(q);
-  });
   // The Most stocked list keeps one entry per scent, its best ranked size
   // (owner's decision, 2026-10-03; see demo/oneScent.ts). Before the facets,
-  // like the oil and gift set rule above, so the counts beside each filter
-  // option agree with the rows. A search or a brand still lists every size.
-  return isTop ? onePerScent(list) : list;
+  // like the oil and gift set rule, so the counts beside each filter option
+  // agree with the rows. A search or a brand still lists every size. Nothing
+  // it depends on changes while the page is open, and working it out again
+  // was a sixth of what each filter change on it cost.
+  if (isMostStockedList()) return (mostStockedBase ??= onePerScent(BY_POPULARITY.filter(rankedInMostStocked)));
+  const key = `${state.brand ?? ''}\u0000${q}`;
+  if (searchBase?.key !== key) {
+    const list = BY_POPULARITY.filter((f) => {
+      if (state.brand && f.brand !== state.brand) return false;
+      if (!q) return true;
+      return `${f.brand} ${f.name} ${f.concentration}`.toLowerCase().includes(q);
+    });
+    searchBase = { key, list };
+  }
+  return searchBase.list;
 }
 
 function browseView(): string {
   const filtered = visibleFragrances();
-  const faceted = applyFacets(filtered);
+  const facets = listFacets('browse');
+  const { list: faceted, views } = runFacets(filtered, facets, state.filters);
   // No list on the site is capped (owner's decision, 2026-10-04). The leading
   // list is every fragrance in the Most Stocked ranking, one per scent, and
   // it loads a chunk at a time as the reader scrolls (chunked, below), so the
@@ -1708,7 +1637,7 @@ function browseView(): string {
                are not listed here, and each perfume is listed once.</p>`
           : ''
     }
-    ${listControls(browseSortControl(state.browseSort), facets(filtered))}
+    ${listControls(browseSortControl(state.browseSort), filterControls(sharedFilterContext(facets, views, list.length)))}
     ${fragranceList(list, 'Nothing here matches that search.')}`;
 }
 
@@ -3100,6 +3029,22 @@ function dealsView(): string {
   return `<div class="page-head"><h1 class="t-page">Deals</h1></div>${dealsPanel()}`;
 }
 
+/** The deals with a photo, one per scent, in each order the page offers, each made the first time it is asked for. */
+const dealsByOrder = new Map<DealSort, Deal[]>();
+function dealsInOrder(sort: DealSort): Deal[] {
+  let list = dealsByOrder.get(sort);
+  if (!list) {
+    const withPhoto = bestDealPerScent(DEALS.filter((d) => d.fragrance.photoUrl !== null));
+    list = [...withPhoto].sort((a, b) => {
+      if (sort === 'lowest') return a.price - b.price;
+      if (sort === 'highest') return b.price - a.price;
+      return b.percentOff - a.percentOff;
+    });
+    dealsByOrder.set(sort, list);
+  }
+  return list;
+}
+
 function dealsPanel(): string {
   // A deal tile leads with the bottle's photo, so a fragrance with none —
   // photoUrl is only ever set for a retailer whose affiliate programme has
@@ -3113,20 +3058,17 @@ function dealsPanel(): string {
   // One deal per scent, the best of its sizes (owner's decision, 2026-10-03;
   // see bestDealPerScent in demo/oneScent.ts), chosen before the sort below
   // so the reader's sort order cannot change which size is shown.
-  const withPhoto = bestDealPerScent(DEALS.filter((d) => d.fragrance.photoUrl !== null));
-  const sorted = [...withPhoto].sort((a, b) => {
-    if (state.dealSort === 'lowest') return a.price - b.price;
-    if (state.dealSort === 'highest') return b.price - a.price;
-    return b.percentOff - a.percentOff;
-  });
-  // Facets are computed and applied against the fragrance each deal is on,
-  // not the deal record itself — same groups, same counts, as everywhere
-  // else a fragrance list appears.
-  const filtered = sorted.filter((d) => passesFacets(d.fragrance, null));
+  // Neither changes while the page is open, so both are made once per order
+  // rather than on every filter change (dealsInOrder).
+  const sorted = dealsInOrder(state.dealSort);
+  // Filters are applied to the fragrance each deal is on, not the deal record
+  // itself (same filters, same counts, as everywhere else a fragrance list
+  // appears), except Shop, which is the shop offering the deal (DEAL_FACETS).
+  const { list: filtered, views } = runFacets(sorted, DEAL_FACETS, state.filters);
 
   const controls = listControls(
     sortControl('deal-sort', 'Deals', ICON_RANK, DEAL_SORT_OPTIONS, state.dealSort),
-    facets(sorted.map((d) => d.fragrance)),
+    filterControls(sharedFilterContext(DEAL_FACETS, views, filtered.length, ['Deal', 'Deals'])),
   );
 
   if (DEALS.length === 0) {
@@ -3424,28 +3366,22 @@ function showTrustpilot(button: HTMLElement): void {
   mountTrustpilotWidgets();
 }
 
-/** Whether this retailer's own offer for `f` — not any other shop's — is
- *  currently purchasable. Reads the same `isPurchasable` flag the detail
- *  page's "Available at" / "No longer stocked" split uses, just scoped down
- *  to one retailer's row instead of every row. */
-function inStockAt(f: DemoFragrance, retailerId: string): boolean {
-  return rowsFor(f).some((row) => row.retailer.id === retailerId && row.isPurchasable);
-}
-
 function retailerView(): string {
   const r = getRetailer(state.retailerId);
   // A switched off shop has no page (see the 'retailer' route): the Shops
   // list is where a stale shop id lands.
   if (!r || !r.enabled) return exploreView();
   const filtered = fragrancesAt(r.id);
-  const list = sortFragrances(applyFacets(filtered), state.retailerDetailSort)
-    .filter((f) => !state.retailerInStockOnly || inStockAt(f, r.id));
+  // In Stock Here is this shop's own offer, not any other shop's: the same
+  // isPurchasable flag the product page's "Available at" split reads, scoped
+  // to this shop's row (stockHereFilter).
+  const facets = listFacets('retailer', r.id);
+  const { list: faceted, views } = runFacets(filtered, facets, state.filters);
+  const list = sortFragrances(faceted, state.retailerDetailSort);
 
   const controls = listControls(
     listSortControl('retailer-detail-sort', state.retailerDetailSort),
-    facets(filtered, {
-      inStockHere: { checked: state.retailerInStockOnly, narrows: filtered.some((f) => !inStockAt(f, r.id)) },
-    }),
+    filterControls(sharedFilterContext(facets, views, list.length)),
   );
 
   // A shop none of whose prices is recent enough to show (one that blocks us,
@@ -3499,7 +3435,9 @@ function brandView(): string {
   const b = state.brandProfile;
   if (!b) return exploreView();
   const filtered = BY_POPULARITY.filter((f) => f.brand === b);
-  const list = sortFragrances(applyFacets(filtered), state.brandDetailSort);
+  const facets = listFacets('brand');
+  const { list: faceted, views } = runFacets(filtered, facets, state.filters);
+  const list = sortFragrances(faceted, state.brandDetailSort);
   const site = officialSiteFor(b);
   // Products read straight from this house's own storefront, priced in
   // whatever currency it charges. Not part of the UK comparison (see the
@@ -3514,12 +3452,14 @@ function brandView(): string {
   // compared.
   const ownShop = RETAILERS.find((r) => r.enabled && r.singleBrandOnly && !cannotCarryBrand(r, b));
 
-  // Sort and facets, no tier filter: every fragrance from one brand shares
-  // that brand's tier (brandTierFor is a function of the brand name alone),
-  // so a tier filter here would only ever show everything or nothing — the
-  // Type facet group already knows this and hides itself for exactly that
-  // reason (an option only appears when at least two values exist).
-  const controls = listControls(listSortControl('brand-detail-sort', state.brandDetailSort), facets(filtered));
+  // Sort and filters, no Brand Type in practice: every fragrance from one
+  // brand shares that brand's tier (brandTierFor is a function of the brand
+  // name alone), so the filter would only ever show everything or nothing,
+  // and a filter with fewer than two options is not shown (demo/listFilters.ts).
+  const controls = listControls(
+    listSortControl('brand-detail-sort', state.brandDetailSort),
+    filterControls(sharedFilterContext(facets, views, list.length)),
+  );
 
   return `
     <button class="back" data-back-explore>Back</button>
@@ -3688,9 +3628,14 @@ function notesPanel(): string {
 function noteView(): string {
   const entry = NOTE_INDEX.find((n) => n.name === state.noteName);
   const filtered = fragrancesWithNote(state.noteName, state.noteLayer);
-  const list = sortFragrances(applyFacets(filtered), state.noteDetailSort);
+  const facets = listFacets('note');
+  const { list: faceted, views } = runFacets(filtered, facets, state.filters);
+  const list = sortFragrances(faceted, state.noteDetailSort);
 
-  const controls = listControls(listSortControl('note-detail-sort', state.noteDetailSort), facets(filtered));
+  const controls = listControls(
+    listSortControl('note-detail-sort', state.noteDetailSort),
+    filterControls(sharedFilterContext(facets, views, list.length)),
+  );
 
   const layerChips = entry
     ? (['top', 'middle', 'base'] as NoteLayer[])
@@ -5711,21 +5656,65 @@ function headInputForState(): HeadInput {
   }
 }
 
-function currentRoute(): Route {
-  const query: Record<string, string> = {};
-  if (state.query) query.q = state.query;
+/** A fragrance list's sort as its address carries it: where it is kept, what it may be, and the order the list opens in. */
+interface ListSortSlot {
+  get(): string;
+  set(value: string): void;
+  values: readonly string[];
+  fallback: string;
+}
 
+const LIST_SORT_SLOTS: Partial<Record<RouteName, ListSortSlot>> = {
+  search: { get: () => state.browseSort, set: (v) => { state.browseSort = v as BrowseSort; }, values: BROWSE_SORT_OPTIONS.map((o) => o.value), fallback: 'stocked' },
+  deals: { get: () => state.dealSort, set: (v) => { state.dealSort = v as DealSort; }, values: DEAL_SORT_OPTIONS.map((o) => o.value), fallback: 'discount' },
+  brand: { get: () => state.brandDetailSort, set: (v) => { state.brandDetailSort = v as ListSort; }, values: LIST_SORT_OPTIONS.map((o) => o.value), fallback: 'az' },
+  retailer: { get: () => state.retailerDetailSort, set: (v) => { state.retailerDetailSort = v as ListSort; }, values: LIST_SORT_OPTIONS.map((o) => o.value), fallback: 'az' },
+  note: { get: () => state.noteDetailSort, set: (v) => { state.noteDetailSort = v as ListSort; }, values: LIST_SORT_OPTIONS.map((o) => o.value), fallback: 'az' },
+};
+
+const NOTE_LAYERS: readonly NoteLayerFilter[] = ['top', 'middle', 'base'];
+
+/**
+ * A fragrance list's address query: its search, its sort where it is not the
+ * one the list opens in, a note page's layer, and its filters (owner's request,
+ * 6 Oct 2026: a filtered list can be shared, and Back and a reload keep it).
+ * An untouched list is its plain address.
+ */
+function listQuery(name: RouteName): Record<string, string> {
+  const query: Record<string, string> = {};
+  if (name === 'search' && state.query) query.q = state.query;
+  const slot = LIST_SORT_SLOTS[name];
+  if (slot && slot.get() !== slot.fallback) query.sort = slot.get();
+  if (name === 'note' && state.noteLayer !== 'any') query.layer = state.noteLayer;
+  return { ...query, ...selToQuery(state.filters, routeFacets(name)) };
+}
+
+/** The other half: a list's sort, layer and filters from its address. Anything the list does not offer is dropped. */
+function takeListQuery(route: Route): void {
+  state.filters = selFromQuery(route.query, routeFacets(route.name));
+  const slot = LIST_SORT_SLOTS[route.name];
+  if (slot) {
+    const sort = route.query.sort;
+    slot.set(sort !== undefined && slot.values.includes(sort) ? sort : slot.fallback);
+  }
+  if (route.name === 'note') {
+    const layer = route.query.layer as NoteLayerFilter | undefined;
+    state.noteLayer = layer !== undefined && NOTE_LAYERS.includes(layer) ? layer : 'any';
+  }
+}
+
+function currentRoute(): Route {
   switch (state.view) {
     case 'home': return { name: 'home', param: '', query: {} };
-    case 'deals': return { name: 'deals', param: '', query: {} };
-    case 'browse': return { name: 'search', param: '', query };
+    case 'deals': return { name: 'deals', param: '', query: listQuery('deals') };
+    case 'browse': return { name: 'search', param: '', query: listQuery('search') };
     case 'detail':
       return state.fragranceId.startsWith(SLUG_PENDING)
         ? { name: 'product', param: state.fragranceId.slice(SLUG_PENDING.length), query: {} }
         : { name: 'fragrance', param: state.fragranceId, query: {} };
-    case 'retailer': return { name: 'retailer', param: state.retailerId, query: {} };
-    case 'brand': return { name: 'brand', param: slugify(state.brandProfile), query: {} };
-    case 'note': return { name: 'note', param: slugify(state.noteName), query: {} };
+    case 'retailer': return { name: 'retailer', param: state.retailerId, query: listQuery('retailer') };
+    case 'brand': return { name: 'brand', param: slugify(state.brandProfile), query: listQuery('brand') };
+    case 'note': return { name: 'note', param: slugify(state.noteName), query: listQuery('note') };
     case 'legal': return { name: 'legal', param: state.legalId, query: {} };
     case 'notFound': return { name: 'notFound', param: state.notFoundPath, query: {} };
     case 'about': return { name: 'about', param: '', query: {} };
@@ -5784,24 +5773,20 @@ function applyRoute(route: Route): boolean {
     case 'search':
       // The bar search's results. There is no second search box under
       // Explore any more (owner request, 2026-10-03), so this is the only
-      // search page there is.
+      // search page there is. Its filters and sort come with the address:
+      // /search?size=gift-set, which /gift-sets once landed on, is still
+      // this list with Gift Sets chosen under Size.
       state.view = 'browse';
-      // /gift-sets, an address that used to be a page of its own, arrives
-      // here as this list with Gift Sets already chosen under Size (an alias
-      // in demo/router.ts). Once drawn, the address is rewritten to /search
-      // like any other, and the choice lives in the filter from then on.
-      if (route.query.size === GIFT_SET_BAND.id) {
-        state.facetVolume.add(GIFT_SET_BAND.id);
-        // The panel is opened so the choice is in plain sight, not only a
-        // badge on a closed Filters button.
-        state.facetsOpen = true;
-      }
+      takeListQuery(route);
       return true;
 
     // Deals is a top level view in its own right now, not a tab under
     // Explore, so it gets state.view set directly rather than falling into
     // the brands/retailers/notes case below that also sets state.tab.
-    case 'deals': state.view = 'deals'; return true;
+    case 'deals':
+      state.view = 'deals';
+      takeListQuery(route);
+      return true;
 
     case 'brands': case 'retailers': case 'notes':
       state.view = 'explore';
@@ -5833,6 +5818,7 @@ function applyRoute(route: Route): boolean {
       if (!getRetailer(route.param)?.enabled) return false;
       state.retailerId = route.param;
       state.view = 'retailer';
+      takeListQuery(route);
       return true;
     }
     case 'brand': {
@@ -5842,6 +5828,7 @@ function applyRoute(route: Route): boolean {
       if (!brand) return false;
       state.brandProfile = brand;
       state.view = 'brand';
+      takeListQuery(route);
       return true;
     }
     case 'note': {
@@ -5856,6 +5843,7 @@ function applyRoute(route: Route): boolean {
       if (!note) return false;
       state.noteName = note;
       state.view = 'note';
+      takeListQuery(route);
       return true;
     }
     case 'legal': {
@@ -6440,6 +6428,227 @@ function mountDesignSpecs(): void {
   }
 }
 
+/* ── the Filters panel ───────────────────────────────────────────────────────
+   One native <dialog> on <body>, opened with showModal(): focus moves into it
+   and stays there, Escape and Android's Back close it, the page behind is
+   inert and a screen reader announces it, all from the browser. A sheet from
+   the bottom on a phone, a panel down the right on a computer (template.html).
+
+   Every change applies at once, the list behind it is drawn again and the
+   address follows, so closing the panel is never a step that can lose a
+   choice. The panel's body is drawn again from the new counts each time, and
+   keeps where the reader was in it: its scroll, the box they are on, the
+   groups they opened, and what they typed in a long filter's search. */
+
+/** What the reader has done to the panel: groups opened or shut, words typed into a long filter's search. */
+const sheetUi = { open: new Map<string, boolean>(), find: new Map<string, string>() };
+/** Set by a change, so the next draw of the panel says the new count to a screen reader. */
+let sheetAnnounce = false;
+/** The page's scroll while the panel holds it still, and the width the scrollbar took. */
+let sheetLock: { y: number } | null = null;
+/** Set when the page closes the panel itself (Back, a navigation): focus stays where the page puts it. */
+let sheetQuietClose = false;
+
+function filterSheet(): HTMLDialogElement {
+  let dlg = document.getElementById(SHEET_ID) as HTMLDialogElement | null;
+  if (!dlg) {
+    dlg = document.createElement('dialog');
+    dlg.id = SHEET_ID;
+    dlg.className = 'fsheet';
+    dlg.setAttribute('aria-labelledby', SHEET_TITLE_ID);
+    dlg.innerHTML = sheetShellHtml(filterMarkup());
+    const self = dlg;
+    // A tap on the dimmed page around the panel closes it, as a phone's own sheets do.
+    self.addEventListener('click', (e) => {
+      if (e.target === self) self.close();
+    });
+    self.addEventListener('close', onFilterSheetClosed);
+    document.body.appendChild(dlg);
+  }
+  return dlg;
+}
+
+/**
+ * Holds the page still under the panel. overflow: hidden on the root is what
+ * stops a touch scroll behind a modal in Safari on iPhone (since iOS 16) and in
+ * Chrome on Android, and unlike pinning <body> with position: fixed it leaves
+ * the page where it is, so nothing behind the backdrop jumps and the reader is
+ * exactly where they were when it closes. Where a scrollbar took room, the page
+ * keeps that room so the list does not shift sideways.
+ */
+function lockPageScroll(): void {
+  if (sheetLock) return;
+  const root = document.documentElement;
+  const gap = Math.max(0, window.innerWidth - root.clientWidth);
+  sheetLock = { y: window.scrollY };
+  root.classList.add('fs-locked');
+  if (gap > 0) document.body.style.paddingRight = `${gap}px`;
+}
+
+function unlockPageScroll(): void {
+  if (!sheetLock) return;
+  const { y } = sheetLock;
+  sheetLock = null;
+  document.documentElement.classList.remove('fs-locked');
+  document.body.style.paddingRight = '';
+  if (Math.abs(window.scrollY - y) > 1) window.scrollTo({ top: y, behavior: 'instant' as ScrollBehavior });
+}
+
+function openFilterSheet(): void {
+  if (!filterCtx) return;
+  const dlg = filterSheet();
+  if (dlg.open) return;
+  sheetUi.find.clear();
+  sheetAnnounce = false;
+  drawFilterSheet(dlg, false);
+  lockPageScroll();
+  if (typeof dlg.showModal === 'function') dlg.showModal();
+  else dlg.setAttribute('open', '');
+  // Onto the panel's heading rather than its first button: a screen reader
+  // starts from what the panel is, and a tap draws no ring round the close
+  // button. Tab goes on from there.
+  dlg.querySelector<HTMLElement>(`#${SHEET_TITLE_ID}`)?.focus({ preventScroll: true });
+}
+
+/** Closes the panel. `quiet` when the page is moving somewhere itself and will put focus where it belongs. */
+function closeFilterSheet(quiet = false): void {
+  const dlg = document.getElementById(SHEET_ID) as HTMLDialogElement | null;
+  if (!dlg?.open) return;
+  sheetQuietClose = quiet;
+  // Before close(): the dialog's own close event comes a task later, after a
+  // navigation that called this has already put the reader somewhere else.
+  unlockPageScroll();
+  dlg.close();
+}
+
+function onFilterSheetClosed(): void {
+  unlockPageScroll();
+  if (sheetQuietClose) {
+    sheetQuietClose = false;
+    return;
+  }
+  // Back to the Filters button. The dialog's own return goes to the button it
+  // was opened from, and the list's redraws have replaced that one.
+  document.querySelector<HTMLElement>('#view [data-facets-toggle]')?.focus({ preventScroll: true });
+}
+
+/** Where the reader is in the panel: its scroll, the control they are on and how high it sits, a search box's caret. */
+interface SheetPlace {
+  scrollTop: number;
+  focused: boolean;
+  activeId: string;
+  anchorTop: number | null;
+  caret: number | null;
+}
+
+/** Read by applyFilterChange before the list is drawn again (see there), and used by the draw that follows. */
+let sheetPlace: SheetPlace | null = null;
+
+function sheetPlaceNow(dlg: HTMLDialogElement): SheetPlace {
+  const body = dlg.querySelector<HTMLElement>('[data-fs-body]')!;
+  const active = document.activeElement instanceof HTMLElement && body.contains(document.activeElement) ? document.activeElement : null;
+  return {
+    scrollTop: body.scrollTop,
+    focused: active !== null,
+    activeId: active?.id ?? '',
+    anchorTop: active ? active.getBoundingClientRect().top : null,
+    caret: active instanceof HTMLInputElement && active.type === 'search' ? active.selectionStart : null,
+  };
+}
+
+/**
+ * Draws the panel's body from the list's filters. `keep` keeps the reader's
+ * place: the body's scroll, the control they are on (by its id, and at the
+ * same height on screen even when a group above it grew or shrank), and the
+ * caret in a search box.
+ */
+function drawFilterSheet(dlg: HTMLDialogElement, keep: boolean): void {
+  const ctx = filterCtx;
+  if (!ctx) return;
+  const body = dlg.querySelector<HTMLElement>('[data-fs-body]')!;
+  const place = keep ? (sheetPlace ?? sheetPlaceNow(dlg)) : null;
+  sheetPlace = null;
+
+  body.innerHTML = sheetBodyHtml(ctx, sheetUi, filterMarkup());
+  body.scrollTop = place?.scrollTop ?? 0;
+
+  const show = dlg.querySelector<HTMLButtonElement>('[data-fs-show]')!;
+  show.textContent = showLabel(ctx);
+  const clear = dlg.querySelector<HTMLButtonElement>('.fs-clear')!;
+  clear.disabled = !ctx.views.some((v) => v.chosen.length > 0);
+  const status = dlg.querySelector<HTMLElement>('[data-fs-status]')!;
+  status.textContent = sheetAnnounce ? showLabel(ctx).replace(/^Show /, '') : '';
+  sheetAnnounce = false;
+
+  if (place?.focused) {
+    const again = place.activeId ? document.getElementById(place.activeId) : null;
+    if (again && body.contains(again)) {
+      again.focus({ preventScroll: true });
+      if (place.caret !== null && again instanceof HTMLInputElement) again.setSelectionRange(place.caret, place.caret);
+      // Back to the same height on screen, read in the next frame, before it
+      // is painted: reading it now would lay the whole page out on top of the
+      // layout that frame does anyway.
+      const anchorTop = place.anchorTop;
+      if (anchorTop !== null) {
+        window.requestAnimationFrame(() => {
+          if (again.isConnected) body.scrollTop += again.getBoundingClientRect().top - anchorTop;
+        });
+      }
+    } else {
+      // The option is gone (a yes or no filter that no longer narrows the
+      // list): the Show button is the next thing worth being on.
+      show.focus({ preventScroll: true });
+    }
+  }
+}
+
+/** After a draw: the open panel follows the list it is for, or closes when the page has none. */
+function syncFilterSheet(): void {
+  const dlg = document.getElementById(SHEET_ID) as HTMLDialogElement | null;
+  if (!dlg?.open) return;
+  if (!filterCtx) closeFilterSheet(true);
+  else drawFilterSheet(dlg, true);
+}
+
+/**
+ * A filter changed (a box in the panel, a chip, Clear All): the address first
+ * (the browser saves the scroll position when it changes, and doing that after
+ * the list is redrawn made it lay the whole page out again), then the list,
+ * which draws the open panel again too (syncFilterSheet).
+ */
+function applyFilterChange(): void {
+  // Where the reader is in the open panel, read now while the page's layout
+  // is still clean: once the list is drawn again, reading it would make the
+  // browser lay the whole page out an extra time before the frame.
+  const dlg = document.getElementById(SHEET_ID) as HTMLDialogElement | null;
+  if (dlg?.open) sheetPlace = sheetPlaceNow(dlg);
+  sheetAnnounce = true;
+  syncUrl('replace');
+  render('update');
+  rememberListStateSoon();
+}
+
+/**
+ * What typing in a long filter's search box does: hides the options that do
+ * not match, in place, without drawing anything again, so the box keeps its
+ * caret and the keyboard stays up.
+ */
+function findInFilter(box: HTMLInputElement): void {
+  const id = box.dataset.fsFind ?? '';
+  sheetUi.find.set(id, box.value);
+  const term = box.value.trim().toLowerCase();
+  const group = box.closest('.fs-group');
+  if (!group) return;
+  let shown = 0;
+  for (const opt of group.querySelectorAll<HTMLElement>('.fs-opt')) {
+    const hit = term === '' || (opt.querySelector('.fs-opt-label')?.textContent ?? '').toLowerCase().includes(term);
+    opt.hidden = !hit;
+    if (hit) shown++;
+  }
+  const none = group.querySelector<HTMLElement>('.fs-none');
+  if (none) none.hidden = shown > 0;
+}
+
 /* ── chrome ──────────────────────────────────────────────────────────────── */
 
 /**
@@ -6450,6 +6659,9 @@ function mountDesignSpecs(): void {
  */
 function render(mode: 'enter' | 'update' = 'enter'): void {
   resetChunkedLists();
+  refreshFacetAttrs();
+  // A list that draws filters registers them while it draws (filterControls).
+  filterCtx = null;
   const body =
     state.view === 'home'
       ? homeView()
@@ -6551,6 +6763,9 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   syncAccountButton();
 
   mountTrustpilotWidgets();
+
+  // The Filters panel, if open, follows the list it is for.
+  syncFilterSheet();
 }
 
 /** The one method this app calls on Trustpilot's own global once it loads. */
@@ -6601,6 +6816,7 @@ function go(view: View, noticeSection = ''): void {
   // entry, so Back restores it (see the popstate handler). The page being
   // opened is a different list, so it starts clean.
   rememberListState();
+  closeFilterSheet(true);
   clearFacets();
   state.view = view;
   // Only the Legal Notice has sections, and it is opened at one only by a link
@@ -6957,6 +7173,47 @@ function init(): void {
   document.addEventListener('click', (e) => {
     const t = e.target as HTMLElement;
 
+    // ── filters: the Filters button, its panel and the chips under the row ──
+    if (t.closest('[data-facets-toggle]')) {
+      openFilterSheet();
+      return;
+    }
+    if (t.closest('[data-filters-close]')) {
+      closeFilterSheet();
+      return;
+    }
+    // A group heading in the panel opens or shuts it. The page does it rather
+    // than the browser, so a long group's options are drawn before it shows.
+    const groupHead = t.closest<HTMLElement>(`#${SHEET_ID} summary.fs-sum`);
+    if (groupHead) {
+      e.preventDefault();
+      const group = groupHead.parentElement as HTMLDetailsElement;
+      sheetUi.open.set(group.dataset.fsGroup ?? '', !group.open);
+      drawFilterSheet(filterSheet(), true);
+      return;
+    }
+    const chip = t.closest<HTMLElement>('[data-filter-remove]');
+    if (chip && filterCtx) {
+      const all = [...document.querySelectorAll<HTMLElement>('#view [data-filter-remove]')];
+      const at = all.indexOf(chip);
+      const id = chip.dataset.filterRemove ?? '';
+      filterCtx.set(id, withValue(filterCtx.sel, id, chip.dataset.value ?? '', false)[id] ?? []);
+      applyFilterChange();
+      // Focus goes to the chip that took this one's place, else to the Filters button.
+      const left = document.querySelectorAll<HTMLElement>('#view [data-filter-remove]');
+      (left[Math.min(at, left.length - 1)] ?? document.querySelector<HTMLElement>('#view [data-facets-toggle]'))?.focus({ preventScroll: true });
+      return;
+    }
+    const clearAll = t.closest<HTMLElement>('[data-facets-clear]');
+    if (clearAll && filterCtx) {
+      const inSheet = clearAll.closest(`#${SHEET_ID}`) !== null;
+      filterCtx.clear();
+      applyFilterChange();
+      if (inSheet) document.querySelector<HTMLElement>(`#${SHEET_ID} [data-fs-show]`)?.focus({ preventScroll: true });
+      else document.querySelector<HTMLElement>('#view [data-facets-toggle]')?.focus({ preventScroll: true });
+      return;
+    }
+
     // Touch has no hover state to show a tip on, so a tap has to double as
     // both "show" and "stay open" — pinning it here is what keeps it up once
     // the finger lifts, and tapping the same point again (or anywhere else,
@@ -7071,6 +7328,8 @@ function init(): void {
     if (noteGroup) {
       const layer = noteGroup.getAttribute('data-note-layer') as NoteLayerFilter;
       state.noteLayer = state.noteLayer === layer ? 'any' : layer;
+      // On a note's own page the layer is one of the list's filters, so it is in the address.
+      if (state.view === 'note') syncUrl('replace');
       render();
       return;
     }
@@ -7349,35 +7608,6 @@ function init(): void {
       return;
     }
 
-    if (t.closest('[data-tab-facets-toggle]') && isTabKind(state.tab)) {
-      tabs.toggleOpen(state.tab);
-      render('update');
-      rememberListStateSoon();
-      return;
-    }
-
-    if (t.closest('[data-tab-facets-clear]') && isTabKind(state.tab)) {
-      tabs.clearFilters(state.tab);
-      render('update');
-      syncUrl('replace');
-      rememberListStateSoon();
-      return;
-    }
-
-    if (t.closest('[data-facets-toggle]')) {
-      state.facetsOpen = !state.facetsOpen;
-      render('update');
-      rememberListStateSoon();
-      return;
-    }
-
-    if (t.closest('[data-facets-clear]')) {
-      clearFacets();
-      state.facetsOpen = true; // stay open — the reader is mid-filtering, not leaving the page
-      render('update');
-      rememberListStateSoon();
-      return;
-    }
   });
 
   document.addEventListener('change', (e) => {
@@ -7433,14 +7663,18 @@ function init(): void {
       });
       return;
     }
+    // A box in the Filters panel: every list's filters, the Oils and Sets tabs' too.
+    const facetId = t.getAttribute('data-fs-facet');
+    if (facetId !== null && filterCtx) {
+      const box = t as HTMLInputElement;
+      filterCtx.set(facetId, withValue(filterCtx.sel, facetId, box.value, box.checked)[facetId] ?? []);
+      applyFilterChange();
+      return;
+    }
     const value = (t as HTMLSelectElement).value;
-    // The Oils and Sets tabs: each filter and the sort is in its address.
-    if (state.view === 'explore' && isTabKind(state.tab) && (id === TAB_SORT_ID || id.startsWith(facetSelectId('')))) {
-      if (id === TAB_SORT_ID) tabs.setSort(state.tab, value);
-      else {
-        const box = t as HTMLInputElement;
-        tabs.setFacet(state.tab, id.slice(facetSelectId('').length), box.type === 'checkbox' ? (box.checked ? '1' : '') : value);
-      }
+    // The Oils and Sets tabs' sort, which is in the tab's address.
+    if (state.view === 'explore' && isTabKind(state.tab) && id === TAB_SORT_ID) {
+      tabs.setSort(state.tab, value);
       // The address first: the browser saves the scroll position when it changes, and
       // doing that after the list is redrawn made it lay the whole page out again.
       syncUrl('replace');
@@ -7458,14 +7692,6 @@ function init(): void {
     else if (id === 'brand-detail-sort') state.brandDetailSort = value as ListSort;
     else if (id === 'retailer-detail-sort') state.retailerDetailSort = value as ListSort;
     else if (id === 'wishlist-sort') state.wishlistSort = value as WishlistSort;
-    else if (id === 'retailer-in-stock') state.retailerInStockOnly = (t as HTMLInputElement).checked;
-    else if (id === 'facet-on-sale') state.facetOnSale = (t as HTMLInputElement).checked;
-    else if (id === 'facet-in-stock') state.facetInStock = (t as HTMLInputElement).checked;
-    else if (id === FACET_SELECT_ID.volume) state.facetVolume = new Set(value ? [value as VolumeBand] : []);
-    else if (id === FACET_SELECT_ID.concentration) state.facetConcentration = new Set(value ? [value as ConcentrationGroup] : []);
-    else if (id === FACET_SELECT_ID.gender) state.facetGender = new Set(value ? [value as GenderReading] : []);
-    else if (id === FACET_SELECT_ID.priceBand) state.facetPriceBand = new Set(value ? [value as PriceBand] : []);
-    else if (id === FACET_SELECT_ID.tier) state.facetTier = new Set(value ? [value as RetailerTier] : []);
     else if (id === 'per-row') {
       // The grid reads a CSS variable, so the columns reflow without a
       // re-render. Returning early also keeps the search box from losing
@@ -7473,6 +7699,8 @@ function init(): void {
       setPerRow(Number(value));
       return;
     } else return;
+    // A fragrance list's sort is in its address (listQuery); a no op on any other page.
+    syncUrl('replace');
     render('update');
     rememberListStateSoon();
   });
@@ -7483,6 +7711,10 @@ function init(): void {
   // given back its focus and caret, because the draw replaces the whole page.
   document.addEventListener('input', (e) => {
     const box = e.target as HTMLInputElement;
+    if (box.hasAttribute('data-fs-find')) {
+      findInFilter(box);
+      return;
+    }
     if (box.id !== TAB_SEARCH_ID || !isTabKind(state.tab)) return;
     const caret = box.selectionStart ?? box.value.length;
     tabs.setQuery(state.tab, box.value);
@@ -7635,6 +7867,8 @@ function init(): void {
   // or saved before this existed — starts clean rather than inheriting
   // whatever the page just left had set.
   window.addEventListener('popstate', (e) => {
+    // Back or Forward with the Filters panel open leaves the list it was for.
+    closeFilterSheet(true);
     const saved = (e.state as { list?: ListSnapshot } | null)?.list;
     if (saved) restoreListState(saved);
     else clearFacets();
