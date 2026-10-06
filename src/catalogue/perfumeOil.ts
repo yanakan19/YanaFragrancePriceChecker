@@ -115,6 +115,8 @@ export interface OilFacts {
   formatBy?: string;
   alcoholFree?: true;
   alcoholFreeBy?: string;
+  /** A spray bottle of the same brand and scent, for the page's link (src/catalogue/setLinks.ts). */
+  sprayId?: string;
 }
 
 /**

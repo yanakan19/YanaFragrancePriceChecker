@@ -313,6 +313,10 @@ export interface GiftSetRecord {
   mini?: true;
   /** How many things the contents name. */
   items?: number;
+  /** The one catalogue bottle that is this set's main bottle (src/catalogue/setLinks.ts), where there is exactly one. */
+  bottleId?: string;
+  /** The scent words of this set, where another set of the same brand has them too. */
+  scent?: string;
 }
 
 export function giftSetRecord(l: { rawTitle: string; description?: string | null; productType?: string | null }): GiftSetRecord {
