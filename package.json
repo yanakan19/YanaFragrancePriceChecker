@@ -35,6 +35,7 @@
     "repair:delist": "tsx scripts/repair-mass-delist.ts",
     "repair:mojibake": "tsx scripts/repair-mojibake-at-rest.ts",
     "catalogue:feed": "tsx scripts/catalogue-feed.ts",
+    "notino:import": "tsx scripts/import-notino-pages.ts",
     "awin:feed-sync": "tsx scripts/awin-feed-sync.ts",
     "awin:feed-diag": "tsx scripts/awin-feed-diag.ts",
     "awin:memberships": "tsx scripts/awin-memberships.ts",

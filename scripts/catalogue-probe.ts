@@ -102,7 +102,7 @@ const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 // module — see the retailer's own comment — so the bypass lives here
 // instead.
 const shops = RETAILERS.filter(
-  (r) => r.adapter !== 'affiliate-feed' && (onlyShop ? r.id === onlyShop : r.enabled),
+  (r) => r.adapter !== 'affiliate-feed' && r.adapter !== 'owner-import' && (onlyShop ? r.id === onlyShop : r.enabled),
 );
 
 console.log(`\nAdaptive retrieval probe`);
