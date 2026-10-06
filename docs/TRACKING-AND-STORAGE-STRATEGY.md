@@ -277,6 +277,7 @@ account or SQL only the owner can run.
 | 9 | Descriptions in a separate per shop file | Medium | 67.5 MB off the snapshots' checkout; faster replay parsing; little growth | Medium: notes, filters and matching read them | Without the owner | Proposed, low priority |
 | 10 | Rewrite history to drop the old page files (and, after 7, old snapshot versions) | Owner runs it | About 255 MB once (OWNER-STEPS 7d); after 7, up to about 180 MB more | High: new commit ids, every clone again | **Owner only** | Proposed; do 7 first if both are wanted |
 | 11 | Prune delisted listings | Small | Up to 11% of snapshot rows | Relist detection and dormant pages | Not recommended now | |
+| 12 | The price history file writes each commit time and shop once, each point as `[time, price, shop]` (`scripts/priceHistoryFile.ts`) | Small, outside the replay's rules | Measured on 5 October's 13 versions: 1.42 → 0.79 MB of growth; the file 16.2 → 7.2 MB | Low: the module builds the same `PRICE_HISTORY`; the page's lazily loaded data file byte for byte the same | Without the owner | **Done** 2026-10-06 |
 
 Done in this change: 1 and 2, with this document and OWNER-STEPS 8e. The
 rest are proposals: 3, 5, 6, 7 and 9 an agent can take without the owner
@@ -286,6 +287,29 @@ rest are proposals: 3, 5, 6, 7 and 9 an agent can take without the owner
 1 code). With 3, 5 and 6 done: estimate 4 to 6 MB a day, about 3 of it
 social. With 8 as well: 1 to 3 MB a day, and 1 GB moves from about four
 weeks away to many months.
+
+### Item 12: the price history file, each time and shop once
+
+Done 2026-10-06. `render()` (in the replay, untouched) writes every point in
+full; `scripts/build-price-history.ts` now passes its output through
+`compactHistoryBody` (`scripts/priceHistoryFile.ts`, outside the rules
+fingerprint, so no full replay): the commit times and shop ids once, in
+`PRICE_TIMES` and `PRICE_SHOPS`, each point as `[time, price, shop]` or
+`[time]` for a gap marker, and `PRICE_HISTORY` built from them inside the
+module. The writer checks that the stored form expands to exactly what
+`render()` wrote, else writes it as before. The checkpoint (item 5) reads
+either form (`historyFromGenerated`).
+
+Checked: the module's `PRICE_HISTORY` and `PRICE_HISTORY_GAP` equal the full
+form's, key for key; with the clock pinned the page's lazily loaded
+`priceHistory` data file and every other data file are byte for byte the
+same. The page itself came out the same except for the order of two other
+data files (deals and fragrance links) in the loader's list, with their
+indexes swapped to match: `scripts/bundle-demo.ts` numbers the data files in
+the order esbuild finishes reading the modules, which is not fixed. Swapping
+them back gives the old page byte for byte. A rebuild resumed from a version 3
+checkpoint against the new form (hash matched). Packed: 1.42 MB of growth on
+5 October became 0.79 MB; the file is 16.2 MB → 7.2 MB.
 
 ### Item 6: "last seen" once per run, in the snapshots
 

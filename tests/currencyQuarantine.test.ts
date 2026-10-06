@@ -204,14 +204,19 @@ describe('the real snapshots on disk', () => {
     const { resolve, dirname } = await import('node:path');
     const { fileURLToPath } = await import('node:url');
     const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-    const history = readFileSync(resolve(repoRoot, 'demo/priceHistory.generated.ts'), 'utf8');
+    // Read through historyFromGenerated: since 2026-10-06 the file writes each
+    // shop once (scripts/priceHistoryFile.ts), not on every point.
+    const { historyFromGenerated } = await import('../scripts/priceHistoryFile.js');
+    const series = historyFromGenerated(readFileSync(resolve(repoRoot, 'demo/priceHistory.generated.ts'), 'utf8'));
 
     // Sanity: the file really is the point series, not something that has moved.
-    expect(history).toContain('"priceGbp":');
+    expect(series).not.toBeNull();
+    const shops = new Set(Object.values(series!).flatMap((s) => s.map((p) => p.retailerId)));
+    expect(shops.size).toBeGreaterThan(1);
 
     for (const id of CURRENCY_UNCONFIRMED.keys()) {
       expect(
-        history.includes(`"retailerId":"${id}"`),
+        shops.has(id),
         `demo/priceHistory.generated.ts plots points attributed to ${id}, whose currency is not ` +
           'established — rerun npm run catalogue:history',
       ).toBe(false);
