@@ -25,9 +25,10 @@ out of git. This document does not repeat that work; it measures what is left.
    Between two rebuilds, 34,000 of the generated catalogue's changed lines
    are the same "last seen" time per offer. Storing that once per shop run
    instead of once per listing is the biggest saving available (item 6).
-   **Done for the snapshots 2026-10-06**: a day of snapshot commits (the 12
-   of 5 October) packs to 0.48 MB of growth instead of 2.64 MB, with the
-   site's data byte for byte the same.
+   **Done 2026-10-06**, in the snapshots and in the generated catalogue: a
+   day of snapshot commits (the 12 of 5 October) packs to 0.48 MB of growth
+   instead of 2.64 MB, and an Awin sync rebuild of the catalogue to 28 kB
+   instead of 140 kB, with the site's data byte for byte the same.
 3. **The same 12.3 MB price history was committed twice**: the history inside
    `data/price-history-checkpoint.json` was the same series as the
    `PRICE_HISTORY` in `demo/priceHistory.generated.ts`. **Done 2026-10-06**
@@ -270,7 +271,7 @@ account or SQL only the owner can run.
 | 3 | Write `demo/catalogue.generated.ts` one entry per line instead of indented (and `productIdsIn` in `src/catalogue/idAliases.ts` reads both forms) | Small code, one full rebuild | 43.1 → 34.6 MB now; keeps it under GitHub's 50 MiB warning for longer; smaller deltas | Medium: the id alias memory reads the old file's text, the crawl rebuilds it many times a day | Without the owner | **Done** 2026-10-06: 43.3 → 34.6 MB, the same data, an identical page; see "Item 3" below and PIPELINE-FAILURE-MODES row 15 |
 | 4 | Deploy after a crawl run only when the page could change: the live site publishes `build-state.json` (the commit and the dashboard list it was built from), and a `decide` job compares it with the tip, through the push filter's folders, and with the list | Small workflow step, `scripts/deploy-decision.mjs` | About 45 deploy runs a day | Low: a missing or unreadable record, or a commit not in the history, deploys; a failed deploy leaves the old record, so the next check retries; a half hourly scheduled check keeps "Remove" and "Show Again" within about half an hour | Owner decided (6 Oct): skip pointless deploys, keep a path for the dashboard | **Done** 2026-10-06 |
 | 5 | Checkpoint without its copy of the history (version 3): it keeps the series' ids in the replay's order and the hash of the history, and reads the series back from `demo/priceHistory.generated.ts`, taking off the points of the commits since | Medium | Measured: 15.9 → 5.0 MB of checkout; the nine rewrites of 5 and 6 October pack to 1.23 MB instead of 2.58 MB, so about 0.8 MB a day less | Low: only an exact hash match is resumed, anything else replays from the first commit; version 2 is still read and still written when the generated file cannot give the history back | Without the owner | **Done** 2026-10-06; see "Item 5" below |
-| 6 | "Last seen" once per shop run, not per listing (snapshots), and per shop in the generated catalogue | Medium to large: the harvest writer, every reader, the replay over old commits | The largest crawl saving: most of R1 and R2, estimate 3 to 5 MB a day | Medium: freshness, the 7 day rule and offer ages all read it; needs readers that fill it in | Without the owner, as its own task | **Snapshots done** 2026-10-06 (`encodeSnapshot` and `decodeSnapshot` in `src/catalogue/store.ts`): measured 2.64 → 0.48 MB a day; see "Item 6" below. The generated catalogue's `fetchedAt` is not changed: it is the page's data, and the owner asked for identical site data |
+| 6 | "Last seen" once per shop run, not per listing (snapshots), and per shop in the generated catalogue | Medium to large: the harvest writer, every reader, the replay over old commits | The largest crawl saving: most of R1 and R2, estimate 3 to 5 MB a day | Medium: freshness, the 7 day rule and offer ages all read it; needs readers that fill it in | Without the owner, as its own task | **Done** 2026-10-06: snapshots (`encodeSnapshot`, `decodeSnapshot` in `src/catalogue/store.ts`), measured 2.64 → 0.48 MB a day; the generated catalogue (`CRAWLED_SHOP_TIMES`, `inlineShopTimes` in `scripts/dataLiterals.ts`), measured 610 → 195 kB over its four rebuilds of 6 October; the page and its data files byte for byte the same. See "Item 6" below |
 | 7 | Price event log (store only changes) beside the snapshots | Medium | Per listing history; replay in seconds; frees the snapshots' history (enables 10) | Low if written alongside first and compared with the replay before anything reads it | Without the owner | Proposed |
 | 8 | Social images out of git (render when needed, or delete once posted) | Small | About 3 MB a day (21.1 MB in the week) | Owner's routines change | **Owner decision** (OWNER-STEPS 7d, decision 2) | Proposed |
 | 9 | Descriptions in a separate per shop file | Medium | 67.5 MB off the snapshots' checkout; faster replay parsing; little growth | Medium: notes, filters and matching read them | Without the owner | Proposed, low priority |
@@ -311,6 +312,25 @@ identical to each other). Measured on the 12 snapshot commits of 5 October,
 each file's versions packed the way git packs them: 24.1 MB in all, of which
 2.64 MB is the day's growth, became 21.9 MB and 0.48 MB. Most of what is left
 is real change: prices, stock, new listings, and the page by page shops.
+
+**The generated catalogue** (R2). An offer's `fetchedAt` is its listing's
+last seen time, and with one product's offers on one line almost every line
+of `CRAWLED` changed with every rebuild. `demo/catalogue.generated.ts` now
+writes each shop's commonest time once, in `CRAWLED_SHOP_TIMES`, and
+`"fetchedAt":0` on each offer that shares it; `CRAWLED` is built from the
+two inside the module (`withShopTimes`), so every script and test that
+imports it sees the same offers. The page must hold the same data too:
+`scripts/bundle-demo.ts` first turns the compiled module back into the old
+one (`inlineShopTimes`: `CRAWLED` written out in full, the stored offers,
+the times and the helper removed, since esbuild merges neighbouring
+declarations and even unused ones would change the bundle's text), then
+moves its literals as before. Checked: two builds with the clock pinned,
+before and after, give byte for byte the same page (bundle included), data
+files, sitemap and every other generated file, the catalogue module's text
+apart; importing the two modules gives the same value for every export
+(`CRAWLED` key for key). The file is 34.9 → 33.9 MB. Packed: the Awin sync
+rebuild of 6 October 140 kB → 28 kB, and the four rebuilds after the
+one entry per line change 610 kB → 195 kB.
 
 Not done, and why: **descriptions out of the snapshots** (R4). Measured the
 same way, removing them would cut the checkout from 143 to 75 MB and the
