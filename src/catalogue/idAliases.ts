@@ -89,7 +89,15 @@ export function lineageKey(l: Pick<StoredListing, 'retailerId' | 'retailerSku'>)
   return m ? `${l.retailerId}:${m[1]}` : null;
 }
 
-/** The ids a catalogue file held, read from its generated text (one `"id"` line per product). */
+/**
+ * The ids a catalogue file held, read from its generated text. Reads both forms
+ * the build has written: indented JSON up to 2026-10-06, where each product's
+ * id is its own `    "id": "…"` line, and one product per line since
+ * (oneEntryPerLine in scripts/dataLiterals.ts), where each product's line
+ * starts `{"id":"…"`. A build reads the file the last build wrote, and
+ * scripts/id-alias-seed.sh reads every version in the branch's history, so
+ * both forms must keep reading.
+ */
 export function productIdsIn(generatedCatalogue: string): Set<string> {
   // Only the catalogue's own entries: the house products further down carry an
   // id too and are not pages.
@@ -97,7 +105,7 @@ export function productIdsIn(generatedCatalogue: string): Set<string> {
   const end = generatedCatalogue.indexOf('export const CRAWLED');
   const text = start >= 0 && end > start ? generatedCatalogue.slice(start, end) : generatedCatalogue;
   const ids = new Set<string>();
-  for (const m of text.matchAll(/^ {4}"id": "([^"]+)"/gm)) ids.add(m[1]!);
+  for (const m of text.matchAll(/^(?: {4}"id": |\{"id":)"([^"]+)"/gm)) ids.add(m[1]!);
   return ids;
 }
 

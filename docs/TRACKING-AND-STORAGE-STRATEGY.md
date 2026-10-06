@@ -28,10 +28,11 @@ out of git. This document does not repeat that work; it measures what is left.
 3. **The same 12.3 MB price history is committed twice**: the history inside
    `data/price-history-checkpoint.json` is byte for byte the
    `PRICE_HISTORY` in `demo/priceHistory.generated.ts` (item 5).
-4. **`demo/catalogue.generated.ts` is 43.1 MB**, up from 22.0 MB on
+4. **`demo/catalogue.generated.ts` was 43.1 MB**, up from 22.0 MB on
    2 October. GitHub warns at 50 MiB and refuses 100 MiB; the push script
-   refuses at 95 MiB. Writing it one entry per line takes it to 34.6 MB
-   (item 3), and should happen before the warning.
+   refuses at 95 MiB. It is now written one entry per line: 34.6 MB, the
+   same data (item 3, done 2026-10-06). What still makes it grow, and what
+   could come out, is in "Item 3: what the catalogue file is made of" below.
 5. **The visitor counter had a bug and no limits.** Its shop click function
    could never count (Postgres refuses the pattern `{1,256}`): fixed in
    `0007_site_stats.sql`. Its tables had no bound, so anyone with the public
@@ -51,7 +52,7 @@ out of git. This document does not repeat that work; it measures what is left.
 | What | Where | Size now | Added to the repository | Written | Notes |
 |---|---|---|---|---|---|
 | Shop snapshots, one file per shop: every listing ever seen, with price, stock, status, first and last seen, description | `data/catalogue/*.json` (51 files) | 143.6 MB; 84,644 listings (75,298 active, 9,346 delisted) | 16.1 MB in the week; 6.0 MB on 5 Oct | 11 commits on 5 Oct: 7 full sweeps, 3 Awin feed syncs, 2 one shop runs (one commit can be several) | **Is the price history's source**: the replay reads every version in git history. Descriptions are 47% of the bytes (67.5 MB) but change rarely (10 a harvest) |
-| Generated catalogue (the site's data) | `demo/catalogue.generated.ts` | 43.1 MB (22.0 on 2 Oct, 35.2 on 4 Oct) | 27.7 MB in the week; 9.0 MB on 5 Oct | 21 commits on 5 Oct: 8 harvest rebuilds, the rest agents' rebuilds | Indented JSON; `fetchedAt` per offer changes every harvest |
+| Generated catalogue (the site's data) | `demo/catalogue.generated.ts` | 43.1 MB (22.0 on 2 Oct, 35.2 on 4 Oct); 34.6 MB one entry per line from 6 Oct | 27.7 MB in the week; 9.0 MB on 5 Oct | 21 commits on 5 Oct: 8 harvest rebuilds, the rest agents' rebuilds | Indented JSON until item 3 (6 Oct), one entry per line since; `fetchedAt` per offer changes every harvest |
 | Price history (cheapest price per product over time) | `demo/priceHistory.generated.ts` | 16.4 MB; 42,367 products, 137,350 points (3.2 a product, 294 at most) | 4.8 MB in the week; 1.6 MB on 5 Oct | each rebuild | Rebuilt by replaying 556 harvest commits from the checkpoint |
 | Replay checkpoint | `data/price-history-checkpoint.json` | 15.9 MB (12.3 MB of it a copy of the history above, 3.6 MB `everPriced`) | 9.9 MB in the week; 1.9 MB on 5 Oct; 0.1 MB on 6 Oct to 09:00 | at most every 10 commits or 6 hours since b9aeade5 | Resume point; without it the replay starts from the first commit (about ten minutes) |
 | Dormant products | `demo/dormant.generated.ts` | 0.8 MB | 0.76 MB in the week | each rebuild | |
@@ -258,7 +259,7 @@ account or SQL only the owner can run.
 |---|---|---|---|---|---|---|
 | 1 | Fix the shop click pattern in 0007 | 5 lines | Clicks counted at all | None: the old function could not run | Owner reruns 0007 | **Done** |
 | 2 | 0008: cap rows per hour, fold old rows daily | 1 SQL file, tested in Postgres | Bounds the counter tables; keeps the free plan's 500 MB for accounts | Low: same signatures; undo by rerunning 0007 | Owner runs it (OWNER-STEPS 8e) | **Done**, waiting for the owner |
-| 3 | Write `demo/catalogue.generated.ts` one entry per line instead of indented (and `productIdsIn` in `src/catalogue/idAliases.ts` reads both forms) | Small code, one full rebuild | 43.1 → 34.6 MB now; keeps it under GitHub's 50 MiB warning for longer; smaller deltas | Medium: the id alias memory reads the old file's text, the crawl rebuilds it many times a day | Without the owner | Proposed, next; recommended in PIPELINE-FAILURE-MODES row 15 |
+| 3 | Write `demo/catalogue.generated.ts` one entry per line instead of indented (and `productIdsIn` in `src/catalogue/idAliases.ts` reads both forms) | Small code, one full rebuild | 43.1 → 34.6 MB now; keeps it under GitHub's 50 MiB warning for longer; smaller deltas | Medium: the id alias memory reads the old file's text, the crawl rebuilds it many times a day | Without the owner | **Done** 2026-10-06: 43.3 → 34.6 MB, the same data, an identical page; see "Item 3" below and PIPELINE-FAILURE-MODES row 15 |
 | 4 | Deploy after a crawl run only when the branch moved since the last deployment (compare the tip with the last `github-pages` deployment's commit) | Small workflow step | About 50 deploy runs a day | Low for the site; a "Remove" in the dashboard then waits for the next harvest (up to about 4 hours) or a manual deploy instead of up to 30 minutes | **Owner decision** (dashboard behaviour) | Proposed |
 | 5 | Checkpoint without its copy of the history | Medium | 12.3 MB of checkout; about half of the two history files' growth (estimate 0.7 to 1.4 MB a day) | Low: the replay's equivalence test covers it | Without the owner | Proposed |
 | 6 | "Last seen" once per shop run, not per listing (snapshots), and per shop in the generated catalogue | Medium to large: the harvest writer, every reader, the replay over old commits | The largest crawl saving: most of R1 and R2, estimate 3 to 5 MB a day | Medium: freshness, the 7 day rule and offer ages all read it; needs readers that fill it in | Without the owner, as its own task | Proposed |
@@ -276,6 +277,59 @@ rest are proposals: 3, 5, 6, 7 and 9 an agent can take without the owner
 1 code). With 3, 5 and 6 done: estimate 4 to 6 MB a day, about 3 of it
 social. With 8 as well: 1 to 3 MB a day, and 1 GB moves from about four
 weeks away to many months.
+
+### Item 3: what the catalogue file is made of
+
+Done 2026-10-06. `CATALOGUE_CHUNK_*`, `HOUSE_PRODUCTS_CHUNK_*` and `CRAWLED`
+are written one entry per line (`oneEntryPerLine` in
+`scripts/dataLiterals.ts`): one product, or one product's offers, a line.
+43,119,801 bytes indented became 34,429,811 (the same build with the clock
+pinned, so both are the same data); on the 08:50 harvest it went in with,
+the crawl's own 43,344,267 byte file became 34,610,351, again every export
+equal. Checked: every export of the two files
+deeply equal; the page's data files, bundle and sitemap byte for byte the
+same (only the build fingerprint in `index.html` differs);
+`data/id-aliases.json`, `data/product-slugs.json` and
+`demo/dormant.generated.ts` unchanged, by a build reading the old form and
+one reading the new. `productIdsIn` (`src/catalogue/idAliases.ts`) and
+`scripts/id-alias-seed.sh` read both forms. A chunk now always moves to the
+page's data file whatever its size (`moveLiteralsToJson`): the last
+catalogue chunk, 93 products, is under the 50 kB threshold once compact, and
+left as code it would have shipped in the page and escaped the dashboard's
+brand removals.
+
+Measured on the 6 October build (compact JSON, MB), against the file of
+2 October 00:17 (22.0 MB indented):
+
+| Part | 2 Oct | 6 Oct | Driver |
+|---|---|---|---|
+| `CRAWLED` (offers) | 9.8 | 19.6 | 25,214 → 45,779 offers (35 → 42 shops, more products). Offer `imageUrl` 1.9 → 5.1 (shops now give a photo: offers without one 6,732 → 590), `url` 2.1 → 4.0, `firstSeenAt` and `fetchedAt` 2.0 → 3.7 |
+| `CATALOGUE` (products) | 6.2 | 12.9 | 16,253 → 26,593 products. New since: `slug` 1.2, `giftSet` 0.4, `gender` 0.05; `image` 1.3 → 2.9, `imageTransform` 0.3 → 0.9, `notes` 2.0 → 3.1 |
+| `HOUSE_PRODUCTS` | 1.1 | 1.1 | |
+| `HISTORY_ALIASES` | none | 0.7 | new: merged ids for the price graph |
+
+The file grows with the number of offers and products, which is the point of
+the site. Avoidable, and **proposed, not changed** (each changes what the
+file holds, so each is its own task with its readers checked):
+
+- **Offer `firstSeenAt` (1.9 MB):** written on every offer, read by nothing
+  that reads the file: not the page (`offersFor` and `isNewAt` read neither
+  it nor `imageUrl`; no `demo/*.ts` reads them), not a test, not a script.
+  The new badge is already worked out into `isNew` at build time. Safe to
+  drop; it rarely changes, so it saves size more than churn.
+- **Offer `imageUrl` (5.1 MB, 2.7 MB of it the same address as the product's
+  own `image`):** not read by the page either. `tests/brandDirectImage.test.ts`
+  reads it to check how the product photo was chosen; that test would read
+  the stored listings instead. Dropping only the copies equal to `image` is
+  the smaller step.
+- **Null and false fields on offers (2.5 MB):** `rating` is null on 91% of
+  offers, `promoEndsAt` on 95%, `wasPrice` on 83%, `isNew` false on 78%.
+  Leaving them out, as `houseCeiling` and `format` already are, needs
+  `offersFor` and the other readers to fill in null, so it is medium risk.
+- **`fetchedAt` (1.8 MB, 82 distinct values over 45,779 offers):** item 6;
+  it is also most of the line churn between harvests.
+
+Together the first three would take the file from 34.6 to about 25 to 27 MB.
 
 ## Owner decisions
 

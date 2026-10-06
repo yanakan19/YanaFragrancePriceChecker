@@ -19,6 +19,7 @@ import { readdirSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeGenerated } from './generatedFiles.js';
+import { oneEntryPerLine } from './dataLiterals.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { isNewListing } from '../src/catalogue/newBadge.js';
 import { ownSizeTitle } from '../src/catalogue/shopifyJson.js';
@@ -2624,6 +2625,10 @@ const catalogue = ordered.map((p) => {
  * up. Splitting the literal into fixed-size chunks, each independently typed
  * and then spread into the exported array, keeps every individual check well
  * under the threshold no matter how large the catalogue grows from here.
+ *
+ * Each chunk, like CRAWLED below, is written one entry per line
+ * (oneEntryPerLine in scripts/dataLiterals.ts), not indented: 43.3 MB down to
+ * 34.6 MB on 2026-10-06, the same data.
  */
 function chunkedArrayLiteral(varName: string, typeName: string, items: unknown[], chunkSize = 500): string {
   if (items.length === 0) return `export const ${varName}: ${typeName}[] = [];`;
@@ -2632,7 +2637,7 @@ function chunkedArrayLiteral(varName: string, typeName: string, items: unknown[]
   for (let i = 0; i < items.length; i += chunkSize) {
     const chunkName = `${varName}_CHUNK_${chunkNames.length}`;
     chunkNames.push(chunkName);
-    chunkDecls.push(`const ${chunkName}: ${typeName}[] = ${JSON.stringify(items.slice(i, i + chunkSize), null, 2)};`);
+    chunkDecls.push(`const ${chunkName}: ${typeName}[] = ${oneEntryPerLine(items.slice(i, i + chunkSize))};`);
   }
   return `${chunkDecls.join('\n\n')}\n\nexport const ${varName}: ${typeName}[] = [${chunkNames.map((n) => `...${n}`).join(', ')}];`;
 }
@@ -2776,7 +2781,7 @@ export interface CatalogueEntry {
 /** Products, most widely stocked first. */
 ${chunkedArrayLiteral('CATALOGUE', 'CatalogueEntry', catalogue)}
 
-export const CRAWLED: Record<string, CrawledOffer[]> = ${JSON.stringify(crawled, null, 2)};
+export const CRAWLED: Record<string, CrawledOffer[]> = ${oneEntryPerLine(crawled)};
 
 /**
  * For the price graph only: each product's active offers whose price was last

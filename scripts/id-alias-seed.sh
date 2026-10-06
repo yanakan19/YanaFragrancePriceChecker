@@ -25,8 +25,11 @@ file=demo/catalogue.generated.ts
 : > "$dir/aliases.tsv"
 
 for sha in $(git log --reverse --format=%h -- "$file"); do
-  # Product ids: the catalogue's own entries are the four space indented "id" lines.
-  git show "$sha:$file" 2>/dev/null | grep -a -o '^    "id": "[^"]*"' | sed 's/^    "id": "//; s/"$//' >> "$dir/ids.raw" || true
+  # Product ids, in either form the build has written (productIdsIn in
+  # src/catalogue/idAliases.ts reads the same two): up to 2026-10-06 the
+  # entries were indented JSON, each id its own four space indented "id" line;
+  # since then each entry is one line starting {"id":"...".
+  git show "$sha:$file" 2>/dev/null | grep -a -o -E '^(    "id": |\{"id":)"[^"]*"' | sed -E 's/^(    "id": |\{"id":)"//; s/"$//' >> "$dir/ids.raw" || true
   # HISTORY_ALIASES: survivor -> the ids it absorbed in that build.
   git show "$sha:$file" 2>/dev/null | grep -a '^export const HISTORY_ALIASES' | node -e '
     const text = require("node:fs").readFileSync(0, "utf8").trim();
