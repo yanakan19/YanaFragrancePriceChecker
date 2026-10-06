@@ -166,6 +166,21 @@ describe('the stored Perfume Direct rows', () => {
     }
   });
 
+  /**
+   * Rows whose own size is the shop's slip, and the size the build reads them
+   * at instead (settleBarcodeSizes in src/catalogue/productMatch.ts: a shop
+   * alone in its size against two or more shops selling the same barcode).
+   * Each was read against the shop's own product file. Pinned by SKU, so a
+   * second one fails here and someone has to look.
+   *
+   * 18667PD, Givenchy Irresistible Eau de Toilette "100ml" at £67.99: the
+   * product file (read 2026-10-06, as PriceSniffsBot after robots.txt) titles
+   * the product "(50ml, 80ml)", its address ends "50ml-80ml", and the variant
+   * named "100ml" carries barcode 3274872419315, which Fragrance Click and
+   * Perfume Click sell as the 80ml. The house makes no 100ml of it.
+   */
+  const OUTVOTED_BY_BARCODE = new Map([['18667PD', 80]]);
+
   it('puts each of those rows on a product of its own size in the built catalogue', () => {
     const byId = new Map(CATALOGUE.map((c) => [c.id, c]));
     const holders = new Map<string, string[]>();
@@ -181,7 +196,7 @@ describe('the stored Perfume Direct rows', () => {
       const pids = holders.get(`${l.url}|${l.priceGbp}`) ?? [];
       // Two sizes of one page at one price cannot be told apart by this check.
       if (pids.length !== 1) continue;
-      const own = ownSizeOf(l.rawTitle);
+      const own = OUTVOTED_BY_BARCODE.get(l.retailerSku) ?? ownSizeOf(l.rawTitle);
       expect(byId.get(pids[0]!)!.sizeMl, `${l.rawTitle} (${l.priceGbp})`).toBe(own);
       checked++;
     }
