@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 212,
+ "folded": 213,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -6245,6 +6245,38 @@
    ]
   },
   {
+   "canonical": "set-jo-malone-london-festive-cologne-duo",
+   "absorbed": [
+    "set-jo-malone-london-festive-cologne-duo-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-jo-malone-london-festive-cologne-duo",
+     "brand": "Jo Malone",
+     "name": "London Festive Cologne Duo",
+     "concentration": "Eau de Cologne",
+     "ean": null,
+     "scent": "duo festive london",
+     "signature": "2p",
+     "shops": [
+      "cult-beauty-global"
+     ]
+    },
+    {
+     "id": "set-jo-malone-london-festive-cologne-duo-fragrance-gift-set",
+     "brand": "Jo Malone",
+     "name": "London Festive Cologne Duo Fragrance Gift Set",
+     "concentration": "Eau de Cologne",
+     "ean": null,
+     "scent": "duo festive london",
+     "signature": "2p",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-jo-malone-london-veggies-travel-cologne-trio",
    "absorbed": [
     "set-jo-malone-london-veggies-travel-cologne-trio-fragrance-gift-set"
@@ -8587,6 +8619,40 @@
      "signature": "1x100fragrance|1x100wash|1x?deo",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "strengths differ: Eau de Toilette, Parfum",
+    "two different barcodes: 3616305265180, 8005610460598",
+    "a shop lists more than one: fragrance-click"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616305265180",
+     "brand": "Hugo Boss",
+     "name": "Boss Bottled 100ml Parfum 3pcs Set",
+     "concentration": "Parfum",
+     "ean": "3616305265180",
+     "scent": "boss bottled",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "fragrance-click"
+     ]
+    },
+    {
+     "id": "set-ean-8005610460598",
+     "brand": "Hugo Boss",
+     "name": "Boss Bottled 100ml Eau de Toilette Travel Set",
+     "concentration": "Eau de Toilette",
+     "ean": "8005610460598",
+     "scent": "boss bottled",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "fragrance-click",
+      "paco-perfumerias-uk"
      ]
     }
    ]
