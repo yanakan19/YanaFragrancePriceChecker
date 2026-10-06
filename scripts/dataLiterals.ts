@@ -36,6 +36,123 @@ export function oneEntryPerLine(value: readonly unknown[] | Record<string, unkno
   return lines.length === 0 ? '{}' : `{\n${lines.join(',\n')}\n}`;
 }
 
+// ── Each shop's "fetched at" once, not once per offer (2026-10-06) ─────────────
+//
+// An offer's fetchedAt is its listing's lastSeenAt, so a harvest moved it on
+// almost every offer, and with one product's offers on one line almost every
+// line of CRAWLED changed with every rebuild: 140 kB of git delta for one Awin
+// sync rebuild, 28 kB without it (docs/TRACKING-AND-STORAGE-STRATEGY.md,
+// item 6). The generated module now writes the time most of a shop's offers
+// share once, in CRAWLED_SHOP_TIMES, and `"fetchedAt":0` on each offer that
+// has it; CRAWLED is built from the two (withShopTimes, written into the
+// module), so every script and test that imports CRAWLED sees exactly the
+// offers it always did. The page must too, byte for byte: bundle-demo.ts runs
+// inlineShopTimes below on the compiled module before moving its literals, so
+// the page's data file holds CRAWLED as it always has, and the helper and the
+// times, then unused, are left out of the bundle.
+
+/** The marker an offer carries in place of its shop's common time. */
+export const SHOP_TIME = 0;
+
+type Timed = { retailerId: string; fetchedAt: string | typeof SHOP_TIME };
+
+/** Each shop's commonest fetchedAt over these offers; the later one on a tie. */
+export function shopTimes(crawled: Record<string, readonly { retailerId: string; fetchedAt: string }[]>): Record<string, string> {
+  const counts = new Map<string, Map<string, number>>();
+  for (const offers of Object.values(crawled)) {
+    for (const o of offers) {
+      const byTime = counts.get(o.retailerId) ?? new Map<string, number>();
+      byTime.set(o.fetchedAt, (byTime.get(o.fetchedAt) ?? 0) + 1);
+      counts.set(o.retailerId, byTime);
+    }
+  }
+  const out: Record<string, string> = {};
+  for (const shop of [...counts.keys()].sort()) {
+    let best = '';
+    let bestCount = 0;
+    for (const [at, n] of counts.get(shop)!) {
+      if (n > bestCount || (n === bestCount && at > best)) {
+        best = at;
+        bestCount = n;
+      }
+    }
+    out[shop] = best;
+  }
+  return out;
+}
+
+/** CRAWLED as the module stores it: SHOP_TIME where an offer has its shop's common time. Key order kept. */
+export function withoutShopTimes<T extends { retailerId: string; fetchedAt: string }>(
+  crawled: Record<string, readonly T[]>,
+  times: Record<string, string>,
+): Record<string, Array<Omit<T, 'fetchedAt'> & { fetchedAt: string | typeof SHOP_TIME }>> {
+  const out: Record<string, Array<Omit<T, 'fetchedAt'> & { fetchedAt: string | typeof SHOP_TIME }>> = {};
+  for (const [id, offers] of Object.entries(crawled)) {
+    out[id] = offers.map((o) => (o.fetchedAt === times[o.retailerId] ? { ...o, fetchedAt: SHOP_TIME } : o));
+  }
+  return out;
+}
+
+/**
+ * The body of `withShopTimes`, the function the generated module carries to
+ * rebuild CRAWLED (it imports nothing at run time). Kept here so the build,
+ * the bundle pre-pass and the tests share one copy.
+ */
+export function withShopTimes<T extends Timed>(stored: Record<string, readonly T[]>, times: Record<string, string>): Record<string, Array<T & { fetchedAt: string }>> {
+  const out: Record<string, Array<T & { fetchedAt: string }>> = {};
+  for (const id of Object.keys(stored)) {
+    out[id] = stored[id]!.map((o) => (o.fetchedAt === 0 ? { ...o, fetchedAt: times[o.retailerId]! } : o) as T & { fetchedAt: string });
+  }
+  return out;
+}
+
+const STORED_DECL = /^const CRAWLED_STORED = (?=\{)/m;
+const TIMES_DECL = /^export const CRAWLED_SHOP_TIMES = (?=\{)/m;
+const BUILT_DECL = /^export const CRAWLED = withShopTimes\(CRAWLED_STORED, CRAWLED_SHOP_TIMES\);$/m;
+const HELPER_DECL = /^function withShopTimes\([^)]*\) (?=\{)/m;
+
+/**
+ * The compiled catalogue module with CRAWLED written out as one literal again,
+ * exactly the value withShopTimes builds, and the stored offers, the times and
+ * the helper gone, so the module the bundler sees is the one it saw before
+ * (esbuild merges neighbouring declarations, so even unused ones in between
+ * would change the bundle's text). A module without the declarations (an
+ * older build) comes back unchanged.
+ */
+export function inlineShopTimes(src: string): string {
+  const stored = STORED_DECL.exec(src);
+  const times = TIMES_DECL.exec(src);
+  const built = BUILT_DECL.exec(src);
+  if (!stored || !times || !built) return src;
+  const storedStart = stored.index + stored[0].length;
+  const storedEnd = closingBracket(src, storedStart);
+  const timesStart = times.index + times[0].length;
+  const timesEnd = closingBracket(src, timesStart);
+  if (storedEnd < 0 || timesEnd < 0) return src;
+  const value = withShopTimes(
+    JSON.parse(src.slice(storedStart, storedEnd + 1)) as Record<string, Timed[]>,
+    JSON.parse(src.slice(timesStart, timesEnd + 1)) as Record<string, string>,
+  );
+  const literal = `export const CRAWLED = ${oneEntryPerLine(value)};`;
+  // The stored declaration ends at its closing brace and the semicolon after it.
+  const stop = (end: number): number => (src[end + 1] === ';' ? end + 2 : end + 1);
+  const parts = [
+    { from: stored.index, to: stop(storedEnd), text: '' },
+    { from: times.index, to: stop(timesEnd), text: '' },
+    { from: built.index, to: built.index + built[0].length, text: literal },
+  ];
+  const helper = HELPER_DECL.exec(src);
+  if (helper) {
+    const bodyEnd = closingBracket(src, helper.index + helper[0].length);
+    if (bodyEnd < 0) return src;
+    parts.push({ from: helper.index, to: bodyEnd + 1, text: '' });
+  }
+  parts.sort((a, b) => b.from - a.from);
+  let out = src;
+  for (const part of parts) out = out.slice(0, part.from) + part.text + out.slice(part.to);
+  return out;
+}
+
 /** Literals smaller than this stay as code; moving them buys nothing. */
 export const MIN_BYTES = 50_000;
 

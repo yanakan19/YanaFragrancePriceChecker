@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { moveLiteralsToJson, oneEntryPerLine } from '../scripts/dataLiterals.js';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import ts from 'typescript';
+import {
+  inlineShopTimes, moveLiteralsToJson, oneEntryPerLine, SHOP_TIME, shopTimes, withoutShopTimes, withShopTimes,
+} from '../scripts/dataLiterals.js';
 
 /** Run transformed module code with a __psData that reads `blobs`, returning what it exports. */
 function evaluate(code: string, blobs: unknown[], names: string[]): Record<string, unknown> {
@@ -83,5 +88,85 @@ describe('oneEntryPerLine', () => {
     const blobs: unknown[] = [];
     expect(moveLiteralsToJson(src, blobs, 1000).moved).toEqual(['CHUNK_0']);
     expect(blobs[0]).toEqual(value);
+  });
+});
+
+// Each shop's "fetched at" written once in demo/catalogue.generated.ts
+// (2026-10-06): every importer and the page's data file must still see
+// exactly the CRAWLED they always did.
+describe('shop times', () => {
+  const T1 = '2026-10-06T08:50:40.023Z';
+  const T2 = '2026-10-05T10:00:00.000Z';
+  const offer = (retailerId: string, fetchedAt: string, price: number) =>
+    ({ retailerId, price, wasPrice: null, stock: 'in_stock', url: `https://${retailerId}.test/${price}`, fetchedAt, firstSeenAt: T2, isNew: false });
+  const crawled = {
+    'ean-1': [offer('boots', T1, 10), offer('escentual', T2, 11)],
+    'ean-2': [offer('boots', T1, 20), offer('boots', T2, 21)],
+    'ean-3': [offer('escentual', T2, 30)],
+  };
+
+  it('writes each shop\'s commonest time once and 0 on the offers that share it, keeping key order', () => {
+    const times = shopTimes(crawled);
+    expect(times).toEqual({ boots: T1, escentual: T2 });
+    const stored = withoutShopTimes(crawled, times);
+    expect(stored['ean-2']!.map((o) => o.fetchedAt)).toEqual([SHOP_TIME, T2]);
+    expect(Object.keys(stored['ean-1']![0]!)).toEqual(Object.keys(crawled['ean-1'][0]!));
+    expect(JSON.stringify(withShopTimes(stored, times))).toBe(JSON.stringify(crawled));
+  });
+
+  it('takes the later time on a tie', () => {
+    expect(shopTimes({ a: [offer('boots', T2, 1), offer('boots', T1, 2)] })).toEqual({ boots: T1 });
+  });
+
+  /** The catalogue module as tsc compiles it, in the stored form build-demo-catalogue.ts writes. */
+  function compiled(): string {
+    const times = shopTimes(crawled);
+    return [
+      'export const CATALOGUE = [];',
+      `export const CRAWLED_SHOP_TIMES = ${oneEntryPerLine(times)};`,
+      `const CRAWLED_STORED = ${oneEntryPerLine(withoutShopTimes(crawled, times))};`,
+      'function withShopTimes(stored, times) {',
+      '    const out = {};',
+      '    for (const id of Object.keys(stored)) {',
+      '        out[id] = stored[id].map((o) => (o.fetchedAt === 0 ? { ...o, fetchedAt: times[o.retailerId] } : o));',
+      '    }',
+      '    return out;',
+      '}',
+      'export const CRAWLED = withShopTimes(CRAWLED_STORED, CRAWLED_SHOP_TIMES);',
+      'export const CRAWLED_AT = "x";',
+    ].join('\n');
+  }
+
+  it('gives the bundler CRAWLED written out in full, and nothing of the stored form', () => {
+    const before = evaluate(compiled(), [], ['CRAWLED']);
+    const out = inlineShopTimes(compiled());
+    expect(out).not.toMatch(/CRAWLED_STORED|CRAWLED_SHOP_TIMES|withShopTimes/);
+    expect(out).toContain(`export const CRAWLED = ${oneEntryPerLine(crawled)};`);
+    expect(JSON.stringify(evaluate(out, [], ['CRAWLED']).CRAWLED)).toBe(JSON.stringify(before.CRAWLED));
+    const blobs: unknown[] = [];
+    expect(moveLiteralsToJson(out, blobs, 10).moved).toEqual(['CRAWLED']);
+    expect(JSON.stringify(blobs[0])).toBe(JSON.stringify(crawled));
+  });
+
+  it('leaves a module in the older form alone', () => {
+    const old = `export const CRAWLED = ${oneEntryPerLine(crawled)};\n`;
+    expect(inlineShopTimes(old)).toBe(old);
+  });
+
+  it('matches what tsc makes of the real generated module', () => {
+    const source = readFileSync(resolve(__dirname, '../demo/catalogue.generated.ts'), 'utf8');
+    if (!source.includes('const CRAWLED_STORED')) return;
+    // Only the part around CRAWLED, with the stored offers emptied: 34 MB of
+    // literals would prove nothing more.
+    const from = source.indexOf('export const CRAWLED_SHOP_TIMES');
+    const to = source.indexOf('\n', source.indexOf('export const CRAWLED: Record'));
+    const part = source.slice(from, to + 1)
+      .replace(/^const CRAWLED_STORED: ([^=]+)= \{\n[\s\S]*?\n\};$/m, 'const CRAWLED_STORED: $1= {};');
+    const js = ts.transpileModule(`type CrawledOffer = { retailerId: string; fetchedAt: string };\n${part}`, {
+      compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 },
+    }).outputText;
+    const out = inlineShopTimes(js);
+    expect(out).toContain('export const CRAWLED = {}');
+    expect(out).not.toMatch(/CRAWLED_STORED|CRAWLED_SHOP_TIMES|withShopTimes/);
   });
 });
