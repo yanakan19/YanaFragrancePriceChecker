@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 214,
+ "folded": 212,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -201,6 +201,38 @@
      "ean": null,
      "scent": "be delicious refreshing",
      "signature": "1x100fragrance|1x150wash",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0085715961198",
+   "absorbed": [
+    "set-dkny-be-delicious-fresh-blossom-gift-set-100ml-edp-125ml-body-mist-pouch"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0085715961198",
+     "brand": "DKNY",
+     "name": "Be Delicious Fresh Blossom Gift Set 100ml EDP + 125ml Body Mist + Pouch",
+     "concentration": "Eau de Parfum",
+     "ean": "0085715961198",
+     "scent": "be blossom delicious fresh",
+     "signature": "1x100fragrance|1x125body|1x?other",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-dkny-be-delicious-fresh-blossom-gift-set-100ml-edp-125ml-body-mist-pouch",
+     "brand": "DKNY",
+     "name": "Be Delicious Fresh Blossom Gift Set 100ml EDP + 125ml Body Mist + Pouch",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "be blossom delicious fresh",
+     "signature": "1x100fragrance|1x125body|1x?other",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -1995,38 +2027,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3349668635207",
-   "absorbed": [
-    "set-paco-rabanne-invictus-gift-set-50ml-edt-10ml-edt-100ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3349668635207",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne Invictus Gift Set 50ml EDT + 10ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "3349668635207",
-     "scent": "invictus paco rabanne",
-     "signature": "1x100wash|1x10fragrance|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-paco-rabanne-invictus-gift-set-50ml-edt-10ml-edt-100ml-shower-gel",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne Invictus Gift Set 50ml EDT + 10ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "invictus paco rabanne",
-     "signature": "1x100wash|1x10fragrance|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3349668643127",
    "absorbed": [
     "set-paco-rabanne-invictus-2-piece-gift-set-eau-de-toilette-100ml-eau-de-toilette-10ml"
@@ -3540,38 +3540,6 @@
      "signature": "1x30fragrance|1x50wash",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3616305266804",
-   "absorbed": [
-    "set-gucci-miniature-gift-set-2-x-5ml-bloom-edp-2-x-5ml-flora-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616305266804",
-     "brand": "Gucci",
-     "name": "Miniature Gift Set 2 x 5ml Bloom EDP + 2 x 5ml Flora EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3616305266804",
-     "scent": "bloom flora",
-     "signature": "4x5fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-gucci-miniature-gift-set-2-x-5ml-bloom-edp-2-x-5ml-flora-edp",
-     "brand": "Gucci",
-     "name": "Miniature Gift Set 2 x 5ml Bloom EDP + 2 x 5ml Flora EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "bloom flora",
-     "signature": "4x5fragrance",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
@@ -5237,38 +5205,6 @@
      "ean": null,
      "scent": "absolu bright crystal",
      "signature": "2x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8011003829224",
-   "absorbed": [
-    "set-versace-gift-set-30ml-bright-crystal-edt-30ml-bright-crystal-absolu-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003829224",
-     "brand": "Versace",
-     "name": "Gift Set 30ml Bright Crystal EDT + 30ml Bright Crystal Absolu EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "8011003829224",
-     "scent": "absolu bright crystal",
-     "signature": "1x30fragrance|1x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-gift-set-30ml-bright-crystal-edt-30ml-bright-crystal-absolu-edp",
-     "brand": "Versace",
-     "name": "Gift Set 30ml Bright Crystal EDT + 30ml Bright Crystal Absolu EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "absolu bright crystal",
-     "signature": "1x30fragrance|1x30fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -7545,6 +7481,37 @@
   },
   {
    "reasons": [
+    "two different barcodes: 3349668628209, 3349668666577"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3349668628209",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Invictus Eau de Toilette Men's Aftershave Gift Set Spray (100ml) with Deodorant & 10ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668628209",
+     "scent": "invictus paco rabanne",
+     "signature": "1x100fragrance|1x10fragrance|1x?deo",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-ean-3349668666577",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Invictus Gift Set 100ml EDT + 75g Deodorant Stick + 10ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668666577",
+     "scent": "invictus paco rabanne",
+     "signature": "1x100fragrance|1x10fragrance|1x?deo",
+     "shops": [
+      "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "a shop lists more than one: mybeauty-boutique"
    ],
    "members": [
@@ -8086,37 +8053,6 @@
      "signature": "1x100fragrance|1x10?|1x50wash",
      "shops": [
       "perfume-direct"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "two different barcodes: 3614273624060, 3660732649839"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3614273624060",
-     "brand": "Prada",
-     "name": "Luna Rossa Ocean 100ml Eau de Toilette + 10ml Set",
-     "concentration": "Eau de Toilette",
-     "ean": "3614273624060",
-     "scent": "luna ocean rossa",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "fragrance-click"
-     ]
-    },
-    {
-     "id": "set-ean-3660732649839",
-     "brand": "Prada",
-     "name": "Luna Rossa Ocean Eau de Toilette Gift Set 100ml EDT + 10ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3660732649839",
-     "scent": "luna ocean rossa",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "perfume-click"
      ]
     }
    ]
