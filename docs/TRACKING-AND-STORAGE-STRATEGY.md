@@ -343,8 +343,8 @@ read them. Not worth the risk for growth; listed for a later history rewrite.
 ### Item 5: the checkpoint without its copy of the history
 
 Done 2026-10-06 (`scripts/priceHistoryCheckpointFile.ts`, version 3). The
-generated file is rebuilt every time and the checkpoint only when ten commits
-or six hours behind, so the generated file is usually ahead of it. A series
+generated file is rebuilt every time and the checkpoint only when 24 commits
+or 24 hours behind, so the generated file is usually ahead of it. A series
 only grows at its end, one point per commit at that commit's time, so the
 checkpoint's series are the generated file's with the newer commits' points
 taken off the end and the newer series left out. The reader does exactly

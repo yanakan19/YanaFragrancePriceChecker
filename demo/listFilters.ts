@@ -25,6 +25,8 @@
  *     would narrow the list, or while it is ticked.
  */
 
+import { searchMatches } from './searchIntent.js';
+
 export interface Option {
   value: string;
   label: string;
@@ -280,15 +282,10 @@ export function withValue(sel: Selection, id: string, value: string, on: boolean
 /**
  * The words of a search, all of which must appear in the text. A search of
  * "rabanne invictus" finds "Rabanne Invictus Gift Set" whatever order the words
- * are in the text; it is not the main search's one run of letters, which would
- * miss it.
+ * are in the text. The words that name a kind of product ("oil", "set") match
+ * whole words only (demo/searchIntent.ts), the rule every search on the site uses.
  */
-export function matchesSearch(text: string, query: string): boolean {
-  const words = query.toLowerCase().split(/\s+/).filter(Boolean);
-  if (words.length === 0) return true;
-  const hay = text.toLowerCase();
-  return words.every((w) => hay.includes(w));
-}
+export const matchesSearch = searchMatches;
 
 /* ── the address ─────────────────────────────────────────────────────────── */
 

@@ -7,15 +7,15 @@ import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-aud
 import { matchRoute, routeToPath } from '../demo/router.js';
 import { headFor } from '../demo/head.js';
 import { GIFT_SET_BAND, volumeOptions, type VolumeBand } from '../demo/volumeBands.js';
-import { panelOptions, tick } from './support/filterPanel.js';
+import { panelOptions } from './support/filterPanel.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 /**
  * Gift sets have their own tab, Sets under Explore (owner's decision,
  * 2026-10-05, which reverses the 2026-10-04 decision that they were only an
- * option under Size). They stay an option under Size on the search list until
- * Search stops listing sets (docs/GIFT-SETS-AND-OILS-PLAN.md, Phase 8). The old
+ * option under Size). They were an option under Size on the search list
+ * until Phase 8 (docs/GIFT-SETS-AND-OILS-PLAN.md) took sets out of every bottle list. The old
  * /gift-sets address is kept as a way in, not answered with a not found.
  */
 describe('/gift-sets, kept as an alias for the Sets tab', () => {
@@ -115,11 +115,12 @@ describe.skipIf(!built)('Gift Sets on the built site', () => {
     expect(page.tiles.every((t) => /gift set|bundle/i.test(t))).toBe(true);
   });
 
-  it('opens the same list as the search list with Size set to Gift Sets, the choice kept in its address', async () => {
+  it('opens the old search address with Gift Sets chosen as the Sets tab, rewritten to /sets', async () => {
+    // Sets are in no list on the search page any more (Phase 8), so the address
+    // /gift-sets once rewrote to is answered with the tab.
     const page = await read('/search?size=gift-set');
-    expect(page.path).toBe('/search?size=gift-set');
-    expect(page.sizeChosen).toEqual([GIFT_SET_BAND.id]);
-    // Tiles below the fold are skipped by the browser and have no text to read; a set's tile is taller since it names its contents.
+    expect(page.path).toBe('/sets');
+    expect(page.h1).toBe('Sets');
     expect(page.tiles.length).toBeGreaterThan(10);
     expect(page.tiles.every((t) => /gift set|bundle/i.test(t))).toBe(true);
   });
@@ -132,37 +133,31 @@ describe.skipIf(!built)('Gift Sets on the built site', () => {
     expect(page.tiles.some((t) => /gift set/i.test(t))).toBe(false);
   });
 
-  it('offers Gift Sets under Size on a search, a brand page and a shop page that have sets', async () => {
-    for (const path of ['/search?q=set', '/brands/kayali', '/retailers/perfume-click']) {
+  it('lists no set on a search, a brand page or a shop page, and offers no Gift Sets under Size there', async () => {
+    for (const path of ['/search?q=set', '/search?q=invictus', '/brands/kayali', '/retailers/perfume-click']) {
       const page = await read(path);
-      expect(page.sizeOptions, path).not.toBeNull();
-      expect(page.sizeOptions, path).toContain(GIFT_SET_BAND.id);
-      // After the size bands, never among them.
-      expect(page.sizeOptions!.at(-1), path).toBe(GIFT_SET_BAND.id);
+      expect(page.tiles.length, path).toBeGreaterThan(0);
+      expect(page.tiles.some((t) => /gift set|bundle/i.test(t)), path).toBe(false);
+      if (page.sizeOptions) expect(page.sizeOptions, path).not.toContain(GIFT_SET_BAND.id);
     }
   }, 60_000);
 
-  it('narrows a list to its gift sets when the option is chosen', async () => {
+  it('reaches a shop\'s sets from the shop page, with the shop kept', async () => {
     const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
     try {
       const page = await context.newPage();
       await page.goto(`http://127.0.0.1:${port}/retailers/perfume-click`, { waitUntil: 'load' });
       await waitForApp(page);
-      // The list draws a screenful of tiles at a time, so the figure to
-      // compare is the count the page states above it.
-      const stated = async () =>
-        Number(((await page.evaluate(`document.querySelector('.gone-head').textContent`)) as string).replace(/\D/g, ''));
-      const before = await stated();
-      await tick(page, 'size', GIFT_SET_BAND.id);
-      await page.waitForTimeout(300);
+      const line = (await page.locator('.tabs-line').first().innerText()).trim();
+      expect(line).toMatch(/^Perfume Click also has [\d,]+ Sets/);
+      await page.locator('.tabs-line a[data-tab-jump="sets"]').click();
+      await page.waitForTimeout(400);
+      expect(new URL(page.url()).pathname + new URL(page.url()).search).toBe('/sets?shop=perfume-click');
       const tiles = (await page.evaluate(
         `[...document.querySelectorAll('.tile-grid > li')].map((li) => li.innerText.trim()).filter(Boolean)`,
       )) as string[];
       expect(tiles.length).toBeGreaterThan(0);
       expect(tiles.every((t) => /gift set|bundle/i.test(t))).toBe(true);
-      const after = await stated();
-      expect(after).toBeGreaterThan(0);
-      expect(after).toBeLessThan(before);
     } finally {
       await context.close();
     }

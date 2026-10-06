@@ -226,11 +226,13 @@ describe.skipIf(!built)('the Oils and Sets tabs on the built site', () => {
     await oils.ctx.close();
   }, 90_000);
 
-  it('leaves Search as it was: it still counts sets beside bottles (until the Search phase)', async () => {
+  it('leaves sets and oils out of Search: it counts and lists bottles only, and points to the tabs (Phase 8)', async () => {
     const { page, ctx } = await open('/search?q=rabanne', 1280);
-    const listed = DEMO_FRAGRANCES.filter((f) => `${f.brand} ${f.name} ${f.concentration}`.toLowerCase().includes('rabanne'));
-    expect(listed.some(isSet) && listed.some((f) => !isSet(f))).toBe(true);
-    expect((await heading(page)).count).toBe(listed.length);
+    const match = (f: (typeof DEMO_FRAGRANCES)[number]) => `${f.brand} ${f.name} ${f.concentration}`.toLowerCase().includes('rabanne');
+    const bottles = DEMO_FRAGRANCES.filter((f) => match(f) && !isSet(f) && !isOil(f));
+    expect(DEMO_FRAGRANCES.some((f) => match(f) && isSet(f))).toBe(true);
+    expect((await heading(page)).count).toBe(bottles.length);
+    expect(await page.locator('#view .tabs-line a[data-tab-jump="sets"]').count()).toBe(1);
     await ctx.close();
   }, 60_000);
 
