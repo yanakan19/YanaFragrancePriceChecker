@@ -251,7 +251,7 @@ describe('the size rule on a stored Beauty Pie listing', () => {
 
 describe('readSizesFromProductPages', () => {
   const ROBOTS = parseRobots('User-agent: *\nAllow: /\nDisallow: /cart/\nDisallow: /account\n');
-  const HEADERS = { 'user-agent': 'PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about)' };
+  const HEADERS = { 'user-agent': 'PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about/bot)' };
 
   const pages: Record<string, string> = {
     'https://www.beautypie.com/products/stole-the-morning-parfum': STOLE_THE_MORNING,

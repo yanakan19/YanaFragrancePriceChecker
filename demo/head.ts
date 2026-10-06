@@ -376,6 +376,17 @@ export function headFor(input: HeadInput): HeadTags {
         noindex: false,
       };
 
+    case 'botPage':
+      return {
+        title: 'PriceSniffs: PriceSniffsBot',
+        description: describe(
+          'What PriceSniffsBot, our price crawler, reads, how often it visits, how it follows robots.txt, and how a shop can stop it or contact us.',
+          SITE_TAIL,
+        ),
+        canonical,
+        noindex: false,
+      };
+
     case 'legal': {
       // What is left under /legal is the long How it works page. Its own page
       // title already says "PriceSniffs" ("How PriceSniffs works"), so
@@ -531,6 +542,7 @@ function pathOf(route: Route): string {
     case 'about': return '/about';
     // The anchor is not part of the canonical: the sections are one page.
     case 'legalNotice': return '/about/legal';
+    case 'botPage': return '/about/bot';
     case 'settings': return '/settings';
     case 'suggestions': return '/suggestions';
     case 'account': return '/account';
