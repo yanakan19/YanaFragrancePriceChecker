@@ -95,3 +95,21 @@ export function deliveryLines(r: Retailer): string[] {
   }
   return lines;
 }
+
+/**
+ * The same fact in fewer words, for the shop page's compact facts row, where
+ * "this shop's own delivery page" and "its prices here are item prices only"
+ * would otherwise be said in full against every line. Nothing is dropped:
+ * what was read, when, and what an unstated delivery cost means all stay.
+ * Lines this does not know are returned unchanged.
+ */
+export function compactDeliveryLine(line: string): string {
+  return line
+    .replace(/^Delivery not stated\. This shop publishes no standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest$/, 'Delivery not stated (the shop publishes no standard cost): item prices only, never ranked cheapest')
+    .replace(/^Delivery not stated\. We have not established this shop’s standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest$/, 'Delivery not stated (not established by us): item prices only, never ranked cheapest')
+    .replace(/^Read from this shop’s own delivery page on /, 'Read from its delivery page on ')
+    .replace(/^Checked by hand in this shop’s own basket on /, 'Checked in its own basket on ')
+    .replace(/^Confirmed against this shop’s own delivery page$/, 'Confirmed with its delivery page')
+    .replace(/^Not yet confirmed with the shop\. These delivery terms came from research, not from their own delivery page$/, 'Not yet confirmed with the shop: terms come from research')
+    .replace(/, so a cheaper bottle cannot be ordered on its own$/, ', so one cheap bottle cannot be ordered alone');
+}
