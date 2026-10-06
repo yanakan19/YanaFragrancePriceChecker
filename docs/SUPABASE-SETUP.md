@@ -98,6 +98,11 @@ an error, then move to the next.
    visit and shop click totals with the two functions that add to them, the
    owner only `site_stats()`, and `site_overrides`, the hidden and removed
    brands and shops. See docs/OWNER-STEPS.md, section 8.
+8. `supabase/migrations/0008_site_stats_limits.sql` — keeps those totals
+   small: at most 2,000 new rows an hour per table (the rest are added to a
+   catch all row, so nothing goes uncounted) and a daily fold of old hourly
+   rows into days and months. Optional. See docs/OWNER-STEPS.md, 8e, and
+   docs/TRACKING-AND-STORAGE-STRATEGY.md.
 
 Order matters: nothing in 0002 references 0001 directly, but 0001 is what
 makes an account exist in the first place.

@@ -250,7 +250,11 @@ declare
   v_brand text := left(regexp_replace(coalesce(p_brand, ''), '[[:cntrl:]]', '', 'g'), 120);
   v_retailer text := coalesce(p_retailer, '');
 begin
-  if v_product !~ '^[A-Za-z0-9_.:-]{1,256}$' or v_retailer !~ '^[a-z0-9-]{1,64}$' then
+  -- The length is checked apart from the pattern: Postgres refuses a
+  -- repetition count above 255 in a pattern ("invalid repetition count"), so
+  -- '{1,256}' made every click fail (found 2026-10-06, before any count).
+  if v_product !~ '^[A-Za-z0-9_.:-]+$' or char_length(v_product) > 256
+     or v_retailer !~ '^[a-z0-9-]{1,64}$' then
     return;
   end if;
   insert into public.site_shop_clicks as c (hour, product_id, brand, retailer_id, country, clicks)
