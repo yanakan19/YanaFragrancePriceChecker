@@ -17,6 +17,15 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.94.0',
+    date: '6 Oct 2026',
+    title: 'Twenty more brand logos',
+    points: [
+      'Guerlain, Givenchy, Jo Malone, Bvlgari and more',
+      'Brand pages show the real logo, not initials',
+    ],
+  },
+  {
     version: 'v3.93.0',
     date: '6 Oct 2026',
     title: 'Perfume Direct matched by barcode',
