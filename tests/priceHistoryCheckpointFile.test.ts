@@ -180,6 +180,16 @@ describe('version 3: the checkpoint without its copy of the history', () => {
     expect(decision.resume && decision.from).toBe(2);
   });
 
+  it('takes off a newer commit\'s points whichever way git wrote its time (Z or +00:00)', () => {
+    const d = dir();
+    writeCheckpointFile(d, sample(), T2, render(fromCheckpoint(sample()), atCheckpoint).body);
+    const next = later();
+    next.history['ean-1']!.at(-1)!.at = '2026-10-05T10:00:00Z';
+    next.history['ean-3']![0]!.at = '2026-10-05T10:00:00Z';
+    writeFileSync(join(d, OUTPUT_PATH), render(fromCheckpoint(next), commits).body);
+    expect(JSON.stringify(readCheckpointFile(d, commits))).toBe(JSON.stringify(sample()));
+  });
+
   it('refuses a generated file that does not give back its history, so the replay starts over instead of resuming wrong', () => {
     const d = dir();
     writeCheckpointFile(d, sample(), T2, render(fromCheckpoint(sample()), atCheckpoint).body);

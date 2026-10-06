@@ -306,6 +306,15 @@ the way git packs them, the nine checkpoint versions committed on 5 and
 6 October take 2,584,958 bytes as version 2 and 1,225,631 bytes as version 3
 (about 190 kB a rewrite down to about 77 kB).
 
+Found on the way: the git on GitHub's runners writes a commit's time as
+`2026-10-06T14:00:09Z`, an older git as `2026-10-06T14:00:09+00:00`, and the
+replay copies that text into each point. So a history rebuilt on an agent's
+machine is the same data as the crawl's in different text (8 kB longer at
+558 commits), and a version 3 checkpoint from one machine beside a generated
+file from the other is refused by its hash (a full replay, about 8 minutes),
+which is why CLAUDE.md's rule of taking both files from one side matters.
+The reader compares commit times as times, so the crawl's own files resume.
+
 ### Item 3: what the catalogue file is made of
 
 Done 2026-10-06. `CATALOGUE_CHUNK_*`, `HOUSE_PRODUCTS_CHUNK_*` and `CRAWLED`

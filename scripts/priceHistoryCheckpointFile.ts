@@ -105,20 +105,24 @@ const historyHash = (history: Checkpoint['history']): string => sha256(JSON.stri
 
 /**
  * The series `order` names, each with the points of the commits in `laterAts`
- * taken off its end; null when one is missing or would be left empty (it
+ * (commit times as milliseconds) taken off its end. Compared as times, not as
+ * text: the same commit's time is written `2026-10-06T14:00:09Z` by the git on
+ * GitHub's runners and `2026-10-06T14:00:09+00:00` by older ones, and both
+ * forms sit in the history. Null when a series is missing or would be left
+ * empty; null when one is missing or would be left empty (it
  * cannot then be the checkpoint's). The caller checks the result by its hash.
  */
 export function historyAt(
   shipped: Readonly<Record<string, PricePoint[]>>,
   order: readonly string[],
-  laterAts: ReadonlySet<string>,
+  laterAts: ReadonlySet<number>,
 ): Checkpoint['history'] | null {
   const history: Checkpoint['history'] = {};
   for (const id of order) {
     const series = shipped[id];
     if (!series) return null;
     let end = series.length;
-    while (end > 0 && laterAts.has(series[end - 1]!.at)) end--;
+    while (end > 0 && laterAts.has(Date.parse(series[end - 1]!.at))) end--;
     if (end === 0) return null;
     history[id] = end === series.length ? series : series.slice(0, end);
   }
@@ -209,7 +213,7 @@ export function decodeExternalCheckpoint(
   const path = join(root, file.historyIn);
   const literal = existsSync(path) ? priceHistoryLiteral(readFileSync(path, 'utf8')) : null;
   if (literal === null) return refuse(`${file.historyIn} is missing or not in the shape the rebuild writes`);
-  const laterAts = new Set(commits.slice(index + 1).map((c) => c.at));
+  const laterAts = new Set(commits.slice(index + 1).map((c) => Date.parse(c.at)));
   const history = historyAt(JSON.parse(literal) as Record<string, PricePoint[]>, file.historyOrder, laterAts);
   if (history === null || historyHash(history) !== file.historySha256) {
     return refuse(`${file.historyIn} does not give back its price history (take both files from the same side of a merge, or rebuild)`);
