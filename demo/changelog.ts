@@ -30,12 +30,13 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
-    version: 'v3.95.0',
+    version: 'v3.96.0',
     date: '6 Oct 2026',
     groups: [
       {
         heading: 'New',
         points: [
+          'Filters: tick several at once, shown as chips',
           'Oils: filters, sorting and price per ml',
           'Sets: filters, sorting and a list of contents',
           'Many more brand pages show the real logo',

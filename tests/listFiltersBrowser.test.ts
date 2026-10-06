@@ -237,7 +237,8 @@ describe.skipIf(!built || webkitOnly)('the Filters panel on the built site (Chro
     }
     await page.keyboard.press('Escape');
     await page.waitForFunction(`!document.getElementById('${SHEET_ID}').open`);
-    expect(await page.evaluate(`document.activeElement.matches('#view [data-facets-toggle]')`)).toBe(true);
+    // The dialog's close event, which puts focus back, comes a task after it shuts.
+    await page.waitForFunction(`document.activeElement.matches('#view [data-facets-toggle]')`, null, { timeout: 2000 });
     await ctx.close();
   }, 90_000);
 
@@ -399,7 +400,7 @@ describe.skipIf(!built || !webkitReady)('the Filters panel in WebKit, with iPhon
     await page.waitForFunction(`!document.getElementById('${SHEET_ID}').open`);
     expect(await page.evaluate('scrollY')).toBe(y);
     expect(await chips(page)).toEqual(['size=30-70', 'size=70-120']);
-    expect(await page.evaluate(`document.activeElement.matches('#view [data-facets-toggle]')`)).toBe(true);
+    await page.waitForFunction(`document.activeElement.matches('#view [data-facets-toggle]')`, null, { timeout: 2000 });
     // A chip comes off with a tap.
     await page.tap('#view [data-filter-remove="size"][data-value="30-70"]');
     expect(where(page)).toBe('/search?size=70-120');
