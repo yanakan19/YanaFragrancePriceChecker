@@ -17,6 +17,62 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.92.0',
+    date: '6 Oct 2026',
+    title: 'Oils: filters and price per ml',
+    points: [
+      'Filter oils by size, format, brand and shop',
+      'Each oil shows its price per ml',
+      'Sort oils by size or lowest price per ml',
+    ],
+  },
+  {
+    version: 'v3.91.0',
+    date: '6 Oct 2026',
+    title: 'Sets: filter by kind, box and main bottle',
+    points: [
+      'Filter sets by kind, contents, brand and shop',
+      'Sort by main bottle size or number of items',
+      'Sets without a photo list what is inside',
+    ],
+  },
+  {
+    version: 'v3.90.0',
+    date: '6 Oct 2026',
+    title: 'Sharper photos where a shop gave a tiny one',
+    points: [
+      'About 1,600 Perfume Click photos are now larger',
+      'They show only when no other shop has a photo',
+      'Six products that had no photo now show one',
+    ],
+  },
+  {
+    version: 'v3.89.0',
+    date: '6 Oct 2026',
+    title: 'Five more brand logos',
+    points: [
+      'Al Haramain, Armani, Tom Ford, Gaultier, Versace',
+    ],
+  },
+  {
+    version: 'v3.88.0',
+    date: '5 Oct 2026',
+    title: 'The same gift set at two shops, joined',
+    points: [
+      'Sets sold at several shops now show one page',
+      'Only identical contents and scent are joined',
+    ],
+  },
+  {
+    version: 'v3.87.0',
+    date: '5 Oct 2026',
+    title: 'Gift sets say what is in the box',
+    points: [
+      'Most sets now name each item with its size',
+      'John Lewis and Kayali sets use the shop list',
+    ],
+  },
+  {
     version: 'v3.86.0',
     date: '5 Oct 2026',
     title: 'More perfume oils found',

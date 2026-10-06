@@ -11,6 +11,7 @@ import {
 } from './fragranceId.js';
 import { trustworthyEan } from './productMatch.js';
 import { brandAliasKey, nameCore } from './duplicateKey.js';
+import { displayContents, itemsFromTitle, readGiftSet } from './giftSetItems.js';
 
 /**
  * Gift sets, as their own category (owner's decision, 2026-10-03).
@@ -273,71 +274,83 @@ export function giftSetName(title: string, brand: string | null): string {
   return name;
 }
 
-/** Companion and fragrance words read out of a set's title, longest first. */
-const ITEM_WORD =
-  /\b(eau de parfum intense|eau de parfum|eau de toilette|eau de cologne|extrait de parfum|parfum|perfume oil|perfume|edp|edt|edc|cologne|aftershave balm|after shave balm|aftershave|body ?wash|shower ?gel|shower cream|body lotion|lotion|deodorant stick|deodorant|deo spray|deo stick|body spray|body mist|body cream|balm|ankle socks|socks|travel spray|miniature|oil)\b/i;
-
-const WORD_LABEL: Record<string, string> = {
-  edp: 'Eau de Parfum',
-  edt: 'Eau de Toilette',
-  edc: 'Eau de Cologne',
-  bodywash: 'Body Wash',
-  showergel: 'Shower Gel',
-  sg: 'Shower Gel',
-};
-
-function itemLabel(word: string): string {
-  const key = word.toLowerCase().replace(/\s+/g, '');
-  if (WORD_LABEL[key]) return WORD_LABEL[key]!;
-  return word
-    .toLowerCase()
-    .split(/\s+/)
-    .map((w) => (w === 'de' ? w : w.charAt(0).toUpperCase() + w.slice(1)))
-    .join(' ');
-}
-
-/** The item word in `part` nearest to the size at `sizeAt`, or the first one when there is no size. */
-function nearestItemWord(part: string, sizeAt: number | null): string | null {
-  const words = [...part.matchAll(new RegExp(ITEM_WORD.source, 'gi'))];
-  if (words.length === 0) return null;
-  if (sizeAt === null) return words[0]![1]!;
-  const distance = (m: RegExpMatchArray) => Math.abs(m.index! - sizeAt);
-  return words.reduce((a, b) => (distance(b) < distance(a) ? b : a))[1]!;
-}
-
-const COUNT_TIMES_SIZE = /\b(\d+)\s*[x×*]\s*(\d{1,4}(?:\.\d)?)\s*ml\b/i;
-const PIECE_COUNT = /\b(\d+)\s*(?:pcs|pc|ps|pieces?|packs?)\b|\bpack of (\d+)\b/i;
-
 /**
- * What a set's title says is in it, where that can be read plainly: each part
- * of the title between "+", "&", ",", " - ", ":" or "with" that states a size
- * ("100ml Eau de Toilette", "Body Wash 150ml", "10ml"), a count against a size
- * ("4 x 10ml Eau de Parfum"), or else a stated piece count ("3 pieces"). Null
- * when the title does not spell its contents out, in which case the page
- * shows the shop's own title rather than a guess.
+ * What a set's title says is in it, where that can be read plainly: each part of
+ * the title between "+", "&", ",", " - ", ":" or "with" that states a size
+ * ("100ml Eau de Toilette", "Body Wash 150ml"), a count against a size ("4 x 10ml
+ * Eau de Parfum"), or else a stated piece count ("3 pieces", "Trio"). Null when
+ * the title does not spell its contents out, in which case the page shows the
+ * shop's own title rather than a guess. The reading is in giftSetItems.ts, which
+ * also reads a shop's own description, the main bottle and whether a set is a
+ * bundle (readGiftSet).
  */
 export function giftSetContents(title: string): string[] | null {
-  const t = foldTitle(title).replace(/&amp;/g, '&');
-  const items: string[] = [];
-  let counted = false;
-  for (const part of t.split(/\s*(?:\+|&|,|:|\s-\s|\bwith\b|\(|\))\s*/i)) {
-    if (!part) continue;
-    const multi = part.match(COUNT_TIMES_SIZE);
-    if (multi && Number(multi[1]) >= 2) {
-      const word = nearestItemWord(part, multi.index!);
-      items.push(`${Number(multi[1])} x ${statedMl(multi[2]!)}ml${word ? ` ${itemLabel(word)}` : ''}`);
-      counted = true;
-      continue;
-    }
-    const size = part.match(ML_SIZE_RE);
-    const word = nearestItemWord(part, size ? size.index! : null);
-    if (size) items.push(`${statedMl(size[1]!)}ml${word ? ` ${itemLabel(word)}` : ''}`);
-    else if (word && /\b(socks|body ?wash|shower ?gel|deodorant|lotion|balm|body spray|body mist)\b/i.test(word)) items.push(itemLabel(word));
-  }
-  if (items.length >= 2 || counted) return items;
-  const count = t.match(PIECE_COUNT);
-  const pieces = count ? Number(count[1] ?? count[2]) : null;
-  if (pieces !== null && pieces >= 2) return [...items, `${pieces} pieces`];
-  return null;
+  return displayContents(itemsFromTitle(title));
 }
 
+export { readGiftSet, type GiftSetFacts } from './giftSetItems.js';
+
+/**
+ * A set's record in the catalogue. `contents` is what the title (or, where the
+ * title says less, the shop's own description) spells out, or null, and `title` is
+ * the shop title the page shows in its place. `mainMl` is the largest fragrance
+ * bottle in it where one is stated, `bundle` is set only on a bundle (the shop's
+ * category or the title says so, or it holds two full size fragrances that
+ * differ), and `from` is set only where the contents came from the description.
+ * All three are omitted where they say nothing, so the file grows by what is known.
+ */
+export interface GiftSetRecord {
+  contents: string[] | null;
+  title: string;
+  mainMl?: number;
+  bundle?: true;
+  from?: 'description';
+  /** Letters for what is in the box besides fragrances: b body, d deodorant, w wash. */
+  box?: string;
+  /** Two or more fragrances. */
+  multi?: true;
+  /** A miniature or discovery set. */
+  mini?: true;
+  /** How many things the contents name. */
+  items?: number;
+}
+
+export function giftSetRecord(l: { rawTitle: string; description?: string | null; productType?: string | null }): GiftSetRecord {
+  const f = readGiftSet(l);
+  return {
+    contents: f.contents,
+    title: l.rawTitle,
+    ...(f.mainMl !== null ? { mainMl: f.mainMl } : {}),
+    ...(f.bundle ? { bundle: true as const } : {}),
+    ...(f.from === 'description' && f.contents ? { from: 'description' as const } : {}),
+    ...(f.box ? { box: f.box } : {}),
+    ...(f.multi ? { multi: true as const } : {}),
+    ...(f.miniature ? { mini: true as const } : {}),
+    ...(f.items !== null ? { items: f.items } : {}),
+  };
+}
+
+/** What the contents list decides, which goes with the contents it was read from. */
+const derived = (r: GiftSetRecord): Partial<GiftSetRecord> => ({
+  ...(r.box ? { box: r.box } : {}),
+  ...(r.multi ? { multi: true as const } : {}),
+  ...(r.items !== undefined ? { items: r.items } : {}),
+});
+
+/**
+ * The record of a set sold by two shops: the first shop's, filled in by a later
+ * one where the first said less. A later shop's contents replace a first one that
+ * had none (with the title they were read from); a main bottle and a bundle flag
+ * are kept from whichever shop had them.
+ */
+export function mergeGiftSetRecords(existing: GiftSetRecord, incoming: GiftSetRecord): GiftSetRecord {
+  const fill = existing.contents === null && incoming.contents !== null;
+  const base: GiftSetRecord = fill
+    ? { contents: incoming.contents, title: incoming.title, ...derived(incoming), ...(incoming.from ? { from: incoming.from } : {}) }
+    : { contents: existing.contents, title: existing.title, ...derived(existing), ...(existing.from ? { from: existing.from } : {}) };
+  const mainMl = existing.mainMl ?? incoming.mainMl;
+  if (mainMl !== undefined) base.mainMl = mainMl;
+  if (existing.bundle || incoming.bundle) base.bundle = true;
+  if (existing.mini || incoming.mini) base.mini = true;
+  return base;
+}

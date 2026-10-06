@@ -37,7 +37,7 @@ export interface IdAliasFile {
   aliases: IdAliases;
 }
 
-/** The longest chain of folds followed before an alias is judged a loop and dropped. */
+/** The longest chain of folds followed before an alias is judged a loop and not published. */
 const MAX_HOPS = 12;
 
 /**
@@ -122,70 +122,150 @@ export interface SettleInput {
 }
 
 export interface SettleResult {
+  /**
+   * The RECORD, what data/id-aliases.json holds: append only. Every key of
+   * `previous` is here with the value it had; a build only adds keys. It is a
+   * memory, not what the page serves, so a key may name a product that has
+   * since been folded again (a chain), be a live page again, or lead nowhere.
+   */
   aliases: IdAliases;
-  /** Aliases made by this build's own decisions. */
+  /** What the page serves (ID_ALIASES): each id that is no page now, with the live page or page with no current prices it resolves to. */
+  published: IdAliases;
+  /** Keys this build added from its own decisions. */
   fresh: number;
-  /** Earlier aliases kept, with their target moved on where it had since been folded again. */
+  /** Earlier keys kept unchanged. */
   carried: number;
-  /** Earlier aliases dropped because their target is no longer any page. */
-  dropped: number;
-  /** Ids this build folded that were never a page, so are not published. */
+  /** Chain links added so an earlier key whose target had gone reaches the product its id was folded into. */
+  healed: number;
+  /** Recorded keys that are a page again: the page wins, the record stays so the id can be folded again. */
+  pageAgain: number;
+  /** Recorded keys that resolve to no page now (the product is gone everywhere): kept, not published, the page says Not Found. */
+  unresolved: number;
+  /** Ids this build folded that were never a page, so are not recorded. */
   neverAPage: number;
 }
 
 /**
- * The aliases a build publishes: this build's decisions for ids that were
- * pages, plus every earlier alias still worth keeping, with chains followed to
- * the product that holds the id now.
+ * Follows `start` through the record to the first page (live, or with no
+ * current prices). A page wins over its own alias: an id that is a page again is
+ * returned as itself. Null when the chain ends on a non-page or loops.
+ */
+export function resolveAlias(
+  start: string,
+  record: Readonly<IdAliases>,
+  isPage: (id: string) => boolean,
+): string | null {
+  let t = start;
+  const seen = new Set<string>();
+  for (let hop = 0; hop <= MAX_HOPS; hop++) {
+    if (isPage(t)) return t;
+    if (seen.has(t)) return null;
+    seen.add(t);
+    const next = Object.prototype.hasOwnProperty.call(record, t) ? record[t] : undefined;
+    if (next === undefined) return null;
+    t = next;
+  }
+  return null;
+}
+
+/**
+ * The record a build writes, and what the page serves from it.
  *
- * An id that is a page again (live, or a page with no current prices) is never
- * an alias: a page that exists is not redirected. An alias whose target is no
- * page at all is dropped, since it would only swap one Page Not Found for
- * another.
+ * APPEND ONLY (CLAUDE.md, docs/PRODUCT-URLS.md): every key of `previous` stays,
+ * with its value. Earlier builds dropped a key when its target stopped being a
+ * page and re-pointed it when the target was folded again; 50 old addresses were
+ * lost that way. Now:
+ *   - a new decision adds a key; it never rewrites one. Where a decision names
+ *     the survivor of an id the record already holds and the recorded target no
+ *     longer leads to a page, the chain gets its missing link (the target's
+ *     last known name, as a new key, points at the survivor) so the old key and
+ *     the new truth are both kept;
+ *   - an id that is a page again is served as that page, and stays recorded;
+ *   - an id that leads to no page is recorded and not published.
+ * The shipped map (`published`) is flat: one hop from an old id to its page.
  */
 export function settleIdAliases(input: SettleInput): SettleResult {
   const { previous, wasPage, successors, live, dormant } = input;
   const isPage = (id: string) => live.has(id) || dormant.has(id);
-  const aliases = new Map<string, string>();
+  const aliases = new Map<string, string>(Object.entries(previous));
   let neverAPage = 0;
+  let fresh = 0;
+  let healed = 0;
 
   for (const [id, survivor] of successors) {
     if (id === survivor || isPage(id) || !live.has(survivor)) continue;
+    if (aliases.has(id)) continue; // never change a recorded value; healing below
     if (!wasPage.has(id)) {
       neverAPage++;
       continue;
     }
     aliases.set(id, survivor);
+    fresh++;
   }
-  const fresh = aliases.size;
 
-  /** Follows a target through this build's folds and the aliases made so far to the page that holds it now. */
-  const settleTarget = (start: string): string | null => {
-    let t = start;
-    for (let hop = 0; hop < MAX_HOPS; hop++) {
-      if (live.has(t)) return t;
-      const next = successors.get(t) ?? aliases.get(t);
-      if (next === undefined || next === t) return dormant.has(t) ? t : null;
-      t = next;
+  // Heal chains: a recorded id whose chain ends on something that is no page and
+  // is not recorded either, while this build knows where the id (or a link of
+  // its chain) went. The dead end gets a key of its own; nothing is rewritten.
+  const asRecord = () => Object.fromEntries(aliases);
+  for (const id of [...aliases.keys()].sort()) {
+    if (isPage(id)) continue;
+    let end = id;
+    let known: string | undefined;
+    const seen = new Set<string>();
+    while (!seen.has(end)) {
+      seen.add(end);
+      if (!known && successors.has(end) && live.has(successors.get(end)!)) known = successors.get(end);
+      if (isPage(end)) break;
+      const next = aliases.get(end);
+      if (next === undefined) break;
+      end = next;
     }
-    return null;
-  };
+    if (known && !isPage(end) && !aliases.has(end) && end !== known && !seen.has(known)) {
+      aliases.set(end, known);
+      healed++;
+    }
+  }
 
+  const record = asRecord();
+  const published: IdAliases = {};
+  let unresolved = 0;
+  let pageAgain = 0;
   let carried = 0;
-  let dropped = 0;
-  for (const [id, target] of Object.entries(previous)) {
-    if (aliases.has(id)) continue;
-    if (isPage(id)) continue; // a page again: not redirected, and not counted as dropped, it simply came back
-    const settled = settleTarget(target);
-    if (settled === null || settled === id) {
-      dropped++;
+  for (const id of [...aliases.keys()].sort()) {
+    if (Object.prototype.hasOwnProperty.call(previous, id)) carried++;
+    if (isPage(id)) {
+      if (Object.prototype.hasOwnProperty.call(previous, id)) pageAgain++;
       continue;
     }
-    aliases.set(id, settled);
-    carried++;
+    const to = resolveAlias(id, record, isPage);
+    if (to === null || to === id) {
+      unresolved++;
+      continue;
+    }
+    published[id] = to;
   }
 
   const sorted: IdAliases = {};
   for (const id of [...aliases.keys()].sort()) sorted[id] = aliases.get(id)!;
-  return { aliases: sorted, fresh, carried, dropped, neverAPage };
+  assertAppendOnly(previous, sorted);
+  return { aliases: sorted, published, fresh, carried, healed, pageAgain, unresolved, neverAPage };
+}
+
+/**
+ * Throws if `next` lacks a key of `previous` or holds it with another value.
+ * The build calls this through settleIdAliases, and tests call it on fixtures.
+ */
+export function assertAppendOnly(previous: Readonly<IdAliases>, next: Readonly<IdAliases>): void {
+  const lost: string[] = [];
+  const changed: string[] = [];
+  for (const [k, v] of Object.entries(previous)) {
+    if (!Object.prototype.hasOwnProperty.call(next, k)) lost.push(k);
+    else if (next[k] !== v) changed.push(k);
+  }
+  if (lost.length || changed.length) {
+    throw new Error(
+      `data/id-aliases.json is append only: ${lost.length} keys would be lost (${lost.slice(0, 3).join(', ')}), ` +
+        `${changed.length} changed (${changed.slice(0, 3).join(', ')}). Fix the build; never write a smaller or rewritten set.`,
+    );
+  }
 }

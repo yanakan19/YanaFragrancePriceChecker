@@ -201,7 +201,7 @@ describe('the Oils and Sets tabs on the real catalogue', () => {
     tabs.setSort('oils', 'az');
     expect(tabs.listOf('oils').map((f) => f.id)).toEqual(sortFragrances(oils, 'az').map((f) => f.id));
     // A sort the tab does not offer is the default.
-    tabs.setSort('oils', 'size-low');
+    tabs.setSort('oils', 'items-high');
     expect(tabs.state('oils').sort).toBe('stocked');
   });
 

@@ -68,6 +68,7 @@ import {
   BRAND_SORT_OPTIONS, BROWSE_SORT_OPTIONS, DEAL_SORT_OPTIONS, LIST_SORT_OPTIONS, NOTE_SORT_OPTIONS, SORT_LEAD,
   sortFragrances, sortNotes, type BrowseSort, type ListSort, type NoteSort,
 } from './listSort.js';
+import { pricePerMl, pricePerMlLabel } from './tabFacets.js';
 import { TAB_SEARCH_ID, TAB_SORT_ID, createTabs, facetSelectId, isTabKind, type TabKind } from './tabPanels.js';
 import type { TabListState } from './tabLists.js';
 import { isOil, isSet } from './productKind.js';
@@ -1174,7 +1175,7 @@ function sizeLabel(f: Pick<DemoFragrance, 'sizeMl' | 'giftSet'>): string {
   // A gift set is its own category (src/catalogue/giftSet.ts): it says so
   // where a single bottle states its size, and never "Size not confirmed",
   // which would read as a bottle whose size is in doubt.
-  if (f.giftSet) return 'Gift Set';
+  if (f.giftSet) return f.giftSet.bundle ? 'Bundle' : 'Gift Set';
   return f.sizeMl === null ? 'Size not confirmed' : `${f.sizeMl}ml`;
 }
 
@@ -1345,6 +1346,47 @@ function sharePageButton(f: Pick<DemoFragrance, 'id' | 'brand' | 'name'>): strin
 }
 
 /**
+ * What a set's tile says about what is in the box (docs/GIFT-SETS-AND-OILS-PLAN.md,
+ * 2.3). With a photo, one or two lines under the name; the shop's own title,
+ * labelled as such, where no contents are known. Without a photo the contents take
+ * the picture's place instead (setContentsArt), so this line is left out.
+ */
+function setTileLine(f: DemoFragrance): string {
+  const g = f.giftSet;
+  if (!g || !f.photoUrl) return '';
+  return g.contents
+    ? `<span class="tile-contents t-caption"><span class="sr">In this set: </span>${esc(g.contents.join(', '))}</span>`
+    : `<span class="tile-contents t-caption"><span class="sr">As the shop lists it: </span>${esc(g.title)}</span>`;
+}
+
+/**
+ * What an oil's tile adds under its name: the price of a millilitre at the cheapest
+ * shop (the one honest comparison between oils, which come in so many sizes), and
+ * "Roll On", "Dropper" or "Alcohol Free" only where a shop said so.
+ */
+function oilTileLine(f: DemoFragrance): string {
+  if (!isOil(f)) return '';
+  const per = pricePerMl(f);
+  const tags = [f.oil?.format === 'roll-on' ? 'Roll On' : f.oil?.format === 'dropper' ? 'Dropper' : '', f.oil?.alcoholFree ? 'Alcohol Free' : ''].filter(Boolean);
+  const parts = [...(per !== null ? [pricePerMlLabel(per)] : []), ...tags];
+  return parts.length > 0 ? `<span class="tile-contents t-caption">${esc(parts.join(', '))}</span>` : '';
+}
+
+/** A set with no photo: its contents, a line to an item, where the picture would be. */
+function setContentsArt(g: NonNullable<DemoFragrance['giftSet']>): string {
+  const SHOWN = 6;
+  const items = g.contents ?? [];
+  const body =
+    items.length > 0
+      ? `<span class="art-contents-head">In this set</span>${items
+          .slice(0, SHOWN)
+          .map((i) => `<span class="art-contents-item">${esc(i)}</span>`)
+          .join('')}${items.length > SHOWN ? `<span class="art-contents-more">and ${items.length - SHOWN} more</span>` : ''}`
+      : `<span class="art-contents-head">As the shop lists it</span><span class="art-contents-item art-contents-title">${esc(g.title)}</span>`;
+  return `<span class="art art-md art-contents">${body}</span>`;
+}
+
+/**
  * One tile in any grid of fragrances: the shape used for the home rail, and
  * for every browse, search, deals and retailer results list. The picture is
  * the point, sized at 90% of the tile in CSS, so this stays one component
@@ -1397,9 +1439,10 @@ function fragranceTile(
       ${brandButton(f.brand)}
       <button class="tile-body" data-frag="${f.id}" aria-label="${esc(f.brand)} ${esc(f.name)}">
         ${productHead(f)}
+        ${setTileLine(f)}${oilTileLine(f)}
         <span class="tile-art">
           ${medal ? `<span class="medal ${medal}" aria-label="Number ${opts!.rank! + 1} most popular"><span class="medal-disc">${opts!.rank! + 1}</span></span>` : ''}
-          ${productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`, f.imageTransform, { eager: opts?.eager === true })}
+          ${f.giftSet && !f.photoUrl ? setContentsArt(f.giftSet) : productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`, f.imageTransform, { eager: opts?.eager === true })}
         </span>
         <span class="tile-price">${opts?.trailing ?? priceLine(f)}</span>
         ${badgeRetailer ? `<span class="sold-by" title="${esc(`${badgePrefix} ${badgeRetailer}`)}"><span>${badgePrefix} ${esc(badgeRetailer)}</span></span>` : `<span class="sold-by" aria-hidden="true" style="visibility:hidden"><span>&nbsp;</span></span>`}
@@ -6365,18 +6408,25 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
     state.view === 'explore' || state.view === 'retailer' || state.view === 'brand' || state.view === 'note';
   const subnav = $('#subnav') as HTMLElement;
   subnav.hidden = !inExplore;
-  subnav.innerHTML = inExplore
-    ? TABS.map(
-        (t) => `<button class="subnavbtn ${state.tab === t.id ? 'on' : ''}" data-tab="${t.id}">${t.label}</button>`,
-      ).join('')
-    : '';
-  // Five tabs fit a phone 360px wide and up; on a narrower one the row scrolls,
-  // and the tab the reader is on is brought into view rather than left off the
-  // end of it. Set directly on the row, so the page itself never scrolls.
-  const here = subnav.querySelector<HTMLElement>('.subnavbtn.on');
-  if (here && !subnav.hidden) {
-    const overhang = here.getBoundingClientRect().right - subnav.getBoundingClientRect().left - subnav.clientWidth;
-    if (overhang > 0) subnav.scrollLeft += Math.ceil(overhang);
+  // Redrawn only when the tab changes. A filter or a sort changes the list under
+  // the row and nothing in it, and redrawing it (then measuring it, below) made the
+  // browser lay the whole page out an extra time on every filter change.
+  const subnavKey = inExplore ? state.tab : '';
+  if (subnav.dataset.drawn !== subnavKey) {
+    subnav.dataset.drawn = subnavKey;
+    subnav.innerHTML = inExplore
+      ? TABS.map(
+          (t) => `<button class="subnavbtn ${state.tab === t.id ? 'on' : ''}" data-tab="${t.id}">${t.label}</button>`,
+        ).join('')
+      : '';
+    // Five tabs fit a phone 360px wide and up; on a narrower one the row scrolls,
+    // and the tab the reader is on is brought into view rather than left off the
+    // end of it. Set directly on the row, so the page itself never scrolls.
+    const here = subnav.querySelector<HTMLElement>('.subnavbtn.on');
+    if (here && !subnav.hidden) {
+      const overhang = here.getBoundingClientRect().right - subnav.getBoundingClientRect().left - subnav.clientWidth;
+      if (overhang > 0) subnav.scrollLeft += Math.ceil(overhang);
+    }
   }
 
   ($('#nav-home') as HTMLElement).classList.toggle('on', state.view === 'home');
@@ -7247,8 +7297,10 @@ function init(): void {
         const box = t as HTMLInputElement;
         tabs.setFacet(state.tab, id.slice(facetSelectId('').length), box.type === 'checkbox' ? (box.checked ? '1' : '') : value);
       }
-      render('update');
+      // The address first: the browser saves the scroll position when it changes, and
+      // doing that after the list is redrawn made it lay the whole page out again.
       syncUrl('replace');
+      render('update');
       rememberListStateSoon();
       return;
     }
