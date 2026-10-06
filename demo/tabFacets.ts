@@ -1,5 +1,5 @@
 import { lowestPrice, type DemoFragrance } from './data.js';
-import type { Option, SelectFacet } from './tabLists.js';
+import type { Option } from './listFilters.js';
 
 /**
  * What the Sets and Oils tabs filter on, as plain functions over a product
@@ -116,29 +116,3 @@ export const slugOf = (name: string): string =>
     .replace(/&/g, ' and ')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-
-/**
- * A dropdown whose options are whatever the list holds (its brands, its shops),
- * named in A to Z order. `labels` is read once, lazily, from the whole list: an
- * address may name only a value the list has.
- */
-export function namedSelect<T>(
-  id: string,
-  label: string,
-  any: string,
-  values: (item: T) => readonly string[],
-  labels: () => ReadonlyMap<string, string>,
-): SelectFacet<T> {
-  return {
-    kind: 'select',
-    id,
-    label,
-    any,
-    values,
-    options: (found) =>
-      [...found.keys()]
-        .map((value) => ({ value, label: labels().get(value) ?? value }))
-        .sort((a, b) => a.label.localeCompare(b.label) || (a.value < b.value ? -1 : 1)),
-    known: (value) => labels().has(value),
-  };
-}

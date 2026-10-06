@@ -26,7 +26,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const built = existsSync(resolve(root, 'demo/index.html'));
 const engine = process.env.LAYOUT_BROWSER === 'webkit' ? 'webkit' : 'chromium';
 
-const LIST_PAGES = ['/search', '/deals', '/brands/lattafa', '/retailers/fragrance-click', '/notes/vanilla'];
+const LIST_PAGES = ['/search', '/deals', '/brands/lattafa', '/retailers/fragrance-click', '/notes/vanilla', '/sets', '/oils'];
 const OTHER_PAGES = ['/', '/brands', '/notes', '/retailers', '/fragrance/ean-6290360375687', '/settings', '/suggestions', '/account', '/about', '/about/legal'];
 
 const CONTEXTS: Record<'phone' | 'desktop', BrowserContextOptions> =
@@ -36,6 +36,17 @@ const CONTEXTS: Record<'phone' | 'desktop', BrowserContextOptions> =
         phone: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true },
         desktop: { viewport: { width: 1366, height: 900 } },
       };
+
+interface Panel {
+  fits: boolean;
+  options: number;
+  notCheckbox: number;
+  smallTargets: string[];
+  smallFields: number;
+  sideways: number;
+  pageHeld: boolean;
+  focusBack: boolean;
+}
 
 interface Measured {
   overflow: number;
@@ -112,25 +123,42 @@ describe.skipIf(!built)(`page layout holds its rules (${engine})`, () => {
       expect(problems).toEqual([]);
     }, 90_000);
 
-    it(`${size}: every fragrance list has the same controls row, in the same place, with native filters`, async () => {
+    it(`${size}: every fragrance list has the same controls row, in the same place, and a Filters panel of real checkboxes that fits the screen`, async () => {
       const ctx = await browser.newContext({ ...CONTEXTS[size], reducedMotion: 'reduce' });
       const page = await ctx.newPage();
       const rows: Record<string, Measured['row']> = {};
-      const panels: Record<string, { height: number; nonNative: number }> = {};
+      const panels: Record<string, Panel> = {};
       await page.goto(`http://localhost:${port}/`, { waitUntil: 'load' });
       await waitForApp(page);
       for (const route of LIST_PAGES) {
         await visit(page, route);
         rows[route] = (await measure(page, CONTEXTS[size].viewport!.width)).row;
-        await page.click('[data-facets-toggle]');
+        await page.click('#view [data-facets-toggle]');
+        await page.waitForSelector('#ps-filters[open]');
+        // A shut group of the panel is opened too, so its rows are measured.
+        await page.click('#ps-filters .fs-group:not([open]) > summary').catch(() => undefined);
         panels[route] = (await page.evaluate(`(() => {
-          const panel = document.querySelector('.facets-panel');
-          const controls = panel ? [...panel.querySelectorAll('.facet-grid > *')] : [];
+          const d = document.getElementById('ps-filters');
+          const r = d.getBoundingClientRect();
+          const body = d.querySelector('.fs-body');
+          const opts = [...d.querySelectorAll('.fs-opt')].filter((o) => o.offsetParent !== null);
+          const fields = [...d.querySelectorAll('input, select, textarea')].filter((el) => el.offsetParent !== null);
           return {
-            height: panel ? Math.round(panel.getBoundingClientRect().height) : -1,
-            nonNative: controls.filter((c) => !c.querySelector('select, input[type=checkbox]')).length,
+            fits: r.left >= -1 && r.top >= -1 && r.right <= innerWidth + 1 && r.bottom <= innerHeight + 1 && r.height > 100,
+            options: opts.length,
+            notCheckbox: opts.filter((o) => !o.querySelector('input[type=checkbox]')).length,
+            smallTargets: opts.filter((o) => o.getBoundingClientRect().height < 44).map((o) => o.textContent.trim().slice(0, 30)),
+            smallFields: fields.filter((el) => el.type !== 'checkbox' && parseFloat(getComputedStyle(el).fontSize) < 16).length,
+            sideways: body.scrollWidth - body.clientWidth,
+            pageHeld: getComputedStyle(document.documentElement).overflowY === 'hidden',
           };
-        })()`)) as { height: number; nonNative: number };
+        })()`)) as Panel;
+        await page.keyboard.press('Escape');
+        await page.waitForFunction(`!document.getElementById('ps-filters').open`);
+        // The dialog's close event, which puts focus back, comes a task after it shuts.
+        panels[route]!.focusBack = await page
+          .waitForFunction(`!!document.activeElement && document.activeElement.matches('#view [data-facets-toggle]')`, null, { timeout: 2000 })
+          .then(() => true, () => false);
       }
       await ctx.close();
 
@@ -138,17 +166,23 @@ describe.skipIf(!built)(`page layout holds its rules (${engine})`, () => {
         expect(row, route).not.toBeNull();
         expect([row!.first, row!.second], route).toEqual(['select', 'filters']);
       }
-      // Same cells at the same place on every list page, to the pixel.
+      // Same cells at the same place on every list page, to the pixel. The Oils
+      // and Sets tabs have a search box above the row, so only its cells' widths
+      // and left edges are compared.
       const first = rows[LIST_PAGES[0]!]!;
       for (const route of LIST_PAGES) {
         expect({ x: rows[route]!.x, widths: rows[route]!.widths }, route).toEqual({ x: first.x, widths: first.widths });
       }
       for (const [route, p] of Object.entries(panels)) {
-        expect(p.nonNative, `${route}: a filter that is not a native dropdown or checkbox`).toBe(0);
-        // The pill panel this replaced ran to 950-1,500px on a phone.
-        expect(p.height, `${route}: filter panel height`).toBeGreaterThan(0);
-        expect(p.height, `${route}: filter panel height`).toBeLessThan(size === 'phone' ? 600 : 300);
+        expect(p.fits, `${route}: the panel is on screen, whole`).toBe(true);
+        expect(p.options, `${route}: options in the panel`).toBeGreaterThan(0);
+        expect(p.notCheckbox, `${route}: an option that is not a real checkbox`).toBe(0);
+        expect(p.smallTargets, `${route}: an option under 44px tall`).toEqual([]);
+        expect(p.smallFields, `${route}: a field small enough for iPhone to zoom into`).toBe(0);
+        expect(p.sideways, `${route}: the panel scrolls sideways`).toBeLessThanOrEqual(0);
+        expect(p.pageHeld, `${route}: the page behind holds still`).toBe(true);
+        expect(p.focusBack, `${route}: Escape puts focus back on the Filters button`).toBe(true);
       }
-    }, 90_000);
+    }, 120_000);
   }
 });

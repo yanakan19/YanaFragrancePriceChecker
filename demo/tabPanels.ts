@@ -1,5 +1,6 @@
 import type { DemoFragrance } from './data.js';
 import { BY_POPULARITY, shopIdsOf, shopNameOf } from './data.js';
+import type { FilterContext } from './filterUi.js';
 import { OIL_SORT_OPTIONS, SET_SORT_OPTIONS, sortTab, type SortOption, type TabSort } from './listSort.js';
 import { isOil, isSet } from './productKind.js';
 import {
@@ -10,26 +11,26 @@ import {
   SET_BOX_OPTIONS,
   SET_KIND_OPTIONS,
   mainBottleBand,
-  namedSelect,
   setBoxValues,
   setKindOf,
   slugOf,
 } from './tabFacets.js';
 import {
-  applyFacets,
   emptyTabState,
-  facetViews,
   fixedOptions,
   matchesSearch,
+  namedSelect,
+  runFacets,
   sameTabState,
   tabFromQuery,
   tabToQuery,
+  withChosen,
   type Facet,
   type FacetView,
   type Option,
   type SelectFacet,
   type TabListState,
-} from './tabLists.js';
+} from './listFilters.js';
 
 /**
  * The Explore Oils and Sets tabs (docs/GIFT-SETS-AND-OILS-PLAN.md): what each
@@ -38,7 +39,8 @@ import {
  *
  * Returns markup and holds state; touches no document, so a test can draw a tab
  * in Node. demo/app.ts owns the page, the events and the parts every list shares
- * (the tile grid, the sort control, the Filters toggle), and hands them in.
+ * (the tile grid, the sort control, the Filters button, its chips and its
+ * panel), and hands them in.
  */
 
 export type TabKind = 'oils' | 'sets';
@@ -56,11 +58,11 @@ export interface TabDeps {
   fragranceList(list: DemoFragrance[], empty: string): string;
   /** The "Sort By:" dropdown, built by the one sort building function. */
   sortControl(id: string, subject: string, options: readonly Option[], current: string): string;
-  /** The controls row: sort, the Filters toggle, then the tiles per row chooser. */
+  /** The controls row: sort, the Filters button, then the tiles per row chooser; the chips under it. */
   listControls(sort: string, ui: { toggle: string; panel: string }): string;
+  /** The Filters button and the chips for a list, the same on every list (demo/filterUi.ts). */
+  filterControls(ctx: FilterContext<DemoFragrance>): { toggle: string; panel: string };
   esc(s: string): string;
-  iconFilter: string;
-  iconChevron: string;
 }
 
 interface TabSpec {
@@ -69,17 +71,20 @@ interface TabSpec {
   searchLabel: string;
   note: string;
   empty: string;
+  /** What the list is of, one and several, for the panel's Show button. */
+  noun: readonly [string, string];
   sorts: readonly SortOption<TabSort>[];
   facets: readonly Facet<DemoFragrance>[];
   items(): DemoFragrance[];
 }
 
-/** The select facet's id as the dropdown carries it on the page. */
-export const facetSelectId = (id: string): string => `tab-facet-${id}`;
 export const TAB_SORT_ID = 'tab-sort';
 export const TAB_SEARCH_ID = 'tab-search';
 
 const DEFAULT_SORT = 'stocked';
+
+const GENDER_NOTE = 'Gender is read from wording in the title, such as Pour Homme or For Her. Not Stated is not the same as Unisex.';
+const OIL_STATED_NOTE = 'Roll On, Dropper and Alcohol Free are only what a shop says about an oil. An oil that says nothing is not claimed to be anything else.';
 
 /** Built once, the first time a tab is opened: the first load never pays for it. */
 const itemsCache: Partial<Record<TabKind, DemoFragrance[]>> = {};
@@ -91,14 +96,12 @@ export function createTabs(deps: TabDeps) {
   const select = (
     id: string,
     label: string,
-    any: string,
     options: readonly Option[],
     value: (f: DemoFragrance) => string | null,
   ): SelectFacet<DemoFragrance> => ({
     kind: 'select',
     id,
     label,
-    any,
     values: (f) => {
       const v = value(f);
       return v === null ? [] : [v];
@@ -106,10 +109,10 @@ export function createTabs(deps: TabDeps) {
     ...fixedOptions(options),
   });
 
-  const concentration = select('strength', 'Concentration', 'Any Concentration', deps.concentrationOptions, (f) => deps.attrs(f).concentration);
-  const gender = select('gender', 'Gender', 'Any Gender', deps.genderOptions, (f) => deps.attrs(f).gender);
-  const price = select('price', 'Price', 'Any Price', deps.priceOptions, (f) => deps.attrs(f).priceBand);
-  const type = select('type', 'Brand Type', 'Any Brand Type', deps.tierOptions, (f) => deps.attrs(f).tier);
+  const concentration = select('strength', 'Concentration', deps.concentrationOptions, (f) => deps.attrs(f).concentration);
+  const gender = select('gender', 'Gender', deps.genderOptions, (f) => deps.attrs(f).gender);
+  const price = select('price', 'Price', deps.priceOptions, (f) => deps.attrs(f).priceBand);
+  const type = select('type', 'Brand Type', deps.tierOptions, (f) => deps.attrs(f).tier);
   const inStock: Facet<DemoFragrance> = { kind: 'check', id: 'stock', label: 'In Stock', flag: (f) => deps.attrs(f).inStock };
 
   /** Brand and Shop name whatever the list holds, so their labels come from the whole of it, read once. */
@@ -140,22 +143,21 @@ export function createTabs(deps: TabDeps) {
     if (!v) shopsByItem.set(f.id, (v = shopIdsOf(f.id)));
     return v;
   };
-  const brandFacet = (kind: TabKind) => namedSelect<DemoFragrance>('brand', 'Brand', 'Any Brand', brandValues, labelsOf(kind, 'brand'));
-  const shopFacet = (kind: TabKind) => namedSelect<DemoFragrance>('shop', 'Shop', 'Any Shop', shopValues, labelsOf(kind, 'shop'));
+  const brandFacet = (kind: TabKind) => namedSelect<DemoFragrance>('brand', 'Brand', brandValues, labelsOf(kind, 'brand'));
+  const shopFacet = (kind: TabKind) => namedSelect<DemoFragrance>('shop', 'Shop', shopValues, labelsOf(kind, 'shop'));
 
-  const setKind = select('kind', 'Kind', 'Any Kind', SET_KIND_OPTIONS, (f) => setKindOf(f));
+  const setKind = select('kind', 'Kind', SET_KIND_OPTIONS, (f) => setKindOf(f));
   const inTheBox: SelectFacet<DemoFragrance> = {
     kind: 'select',
     id: 'box',
     label: 'In the Box',
-    any: 'Anything in the Box',
     values: (f) => setBoxValues(f),
     ...fixedOptions(SET_BOX_OPTIONS),
   };
-  const mainBottle = select('main', 'Main Bottle', 'Any Main Bottle', MAIN_BOTTLE_BANDS, (f) => mainBottleBand(f.giftSet?.mainMl));
+  const mainBottle = select('main', 'Main Bottle', MAIN_BOTTLE_BANDS, (f) => mainBottleBand(f.giftSet?.mainMl));
 
-  const oilSize = select('size', 'Size', 'Any Size', OIL_SIZE_BANDS, (f) => oilSizeBand(f.sizeMl));
-  const oilFormat = select('format', 'Format', 'Any Format', OIL_FORMAT_OPTIONS, (f) => f.oil?.format ?? null);
+  const oilSize = select('size', 'Size', OIL_SIZE_BANDS, (f) => oilSizeBand(f.sizeMl));
+  const oilFormat = select('format', 'Format', OIL_FORMAT_OPTIONS, (f) => f.oil?.format ?? null);
   const alcoholFree: Facet<DemoFragrance> = { kind: 'check', id: 'alcohol', label: 'Alcohol Free', flag: (f) => f.oil?.alcoholFree === true };
 
   const specs: Record<TabKind, TabSpec> = {
@@ -165,8 +167,9 @@ export function createTabs(deps: TabDeps) {
       note:
         'Gift sets, miniature and discovery sets, and bundles of full size bottles. A set is compared only with the same set at another shop, never with a single bottle.',
       empty: 'No set matches that.',
+      noun: ['Set', 'Sets'],
       sorts: SET_SORT_OPTIONS,
-      facets: [setKind, inTheBox, mainBottle, brandFacet('sets'), concentration, gender, price, type, shopFacet('sets'), inStock],
+      facets: [setKind, inTheBox, mainBottle, price, concentration, gender, type, brandFacet('sets'), shopFacet('sets'), inStock],
       items: () => itemsOf('sets'),
     },
     oils: {
@@ -175,8 +178,9 @@ export function createTabs(deps: TabDeps) {
       note:
         'Perfume oils, sold in small bottles and rollers rather than sprays. An oil is compared only with the same oil at another shop, never with a spray.',
       empty: 'No oil matches that.',
+      noun: ['Oil', 'Oils'],
       sorts: OIL_SORT_OPTIONS,
-      facets: [oilSize, oilFormat, alcoholFree, brandFacet('oils'), gender, price, type, shopFacet('oils'), inStock],
+      facets: [oilSize, oilFormat, price, gender, type, brandFacet('oils'), shopFacet('oils'), alcoholFree, inStock],
       items: () => itemsOf('oils'),
     },
   };
@@ -188,79 +192,44 @@ export function createTabs(deps: TabDeps) {
 
   const sortValues = (kind: TabKind): string[] => specs[kind].sorts.map((o) => o.value);
 
-  /** A tab's own list, with its search, filters and sort applied. */
-  function listOf(kind: TabKind): { list: DemoFragrance[]; views: FacetView<DemoFragrance>[]; searched: DemoFragrance[] } {
+  /** A tab's own list, with its search, filters and sort applied, and every filter's options and counts. */
+  function listOf(kind: TabKind): { list: DemoFragrance[]; views: FacetView<DemoFragrance>[] } {
     const spec = specs[kind];
     const st = states[kind];
     const all = spec.items();
     const searched = st.q.trim() ? all.filter((f) => matchesSearch(`${f.brand} ${f.name} ${f.concentration}`, st.q)) : all;
-    const views = facetViews(searched, spec.facets, st.sel);
-    const faceted = applyFacets(searched, spec.facets, st.sel);
+    const { list: faceted, views } = runFacets(searched, spec.facets, st.sel);
     const list = st.sort === DEFAULT_SORT ? faceted : sortTab(faceted, st.sort as TabSort);
-    return { list, views, searched };
+    return { list, views };
   }
 
-  function selectControl(v: FacetView<DemoFragrance>): string {
-    const f = v.facet as SelectFacet<DemoFragrance>;
-    const current = v.chosen;
-    // A chosen value whose count has fallen to nothing stays in the list at 0:
-    // leaving it out would make the dropdown read "Any" while the filter applied.
-    const shown =
-      current !== undefined && !v.options.some((o) => o.value === current)
-        ? [...v.options, { value: current, label: current, count: 0 }]
-        : v.options;
-    if (shown.length < 2 && current === undefined) return '';
-    return `<label class="control facet-control">
-    <span class="sr">${deps.esc(f.label)}</span>
-    <select id="${facetSelectId(f.id)}" class="dropdown">
-      <option value="">${deps.esc(f.any)}</option>
-      ${shown.map((o) => `<option value="${deps.esc(o.value)}"${o.value === current ? ' selected' : ''}>${deps.esc(o.label)} (${o.count.toLocaleString('en-GB')})</option>`).join('')}
-    </select>
-    <span class="control-chevron" aria-hidden="true">${deps.iconChevron}</span>
-  </label>`;
+  /** The sentences the panel shows under a filter, where that filter is offered. */
+  function notesFor(kind: TabKind, views: FacetView<DemoFragrance>[]): Record<string, string> {
+    const offered = (id: string) => views.some((v) => v.facet.id === id && v.offered);
+    const notes: Record<string, string> = {};
+    if (offered('gender')) notes.gender = GENDER_NOTE;
+    if (kind === 'oils') {
+      if (offered('format')) notes.format = OIL_STATED_NOTE;
+      else if (offered('alcohol')) notes.alcohol = OIL_STATED_NOTE;
+    }
+    return notes;
   }
 
-  function checkControl(v: FacetView<DemoFragrance>, listLength: number): string {
-    const checked = v.chosen !== undefined;
-    // Offered only when it would narrow the list, or is ticked so it can be unticked.
-    if (!((v.count > 0 && v.count < listLength) || checked)) return '';
-    return `<label class="control facet-check">
-    <input type="checkbox" id="${facetSelectId(v.facet.id)}"${checked ? ' checked' : ''} />
-    <span class="facet-check-label">${deps.esc(v.facet.label)}</span>
-    <span class="facet-count t-count">${v.count.toLocaleString('en-GB')}</span>
-  </label>`;
-  }
-
-  function facetUi(kind: TabKind, views: FacetView<DemoFragrance>[], searchedLength: number): { toggle: string; panel: string } {
-    const st = states[kind];
-    const chosen = Object.keys(st.sel).length;
-    const controls = views
-      .map((v) => (v.facet.kind === 'select' ? selectControl(v) : checkControl(v, searchedLength)))
-      .filter(Boolean);
-    if (controls.length === 0) return { toggle: '', panel: '' };
-    const genderView = views.find((v) => v.facet.id === 'gender');
-    const genderNote =
-      genderView && genderView.options.length >= 2
-        ? `<p class="facet-note t-caption">Gender is read from wording in the title, such as Pour Homme or For Her. Not Stated is not the same as Unisex.</p>`
-        : '';
-    const statedNote =
-      kind === 'oils' && views.some((v) => (v.facet.id === 'format' && v.options.length > 0) || (v.facet.id === 'alcohol' && v.count > 0))
-        ? `<p class="facet-note t-caption">Roll On, Dropper and Alcohol Free are only what a shop says about an oil. An oil that says nothing is not claimed to be anything else.</p>`
-        : '';
+  function contextOf(kind: TabKind, views: FacetView<DemoFragrance>[], matched: number): FilterContext<DemoFragrance> {
+    const spec = specs[kind];
     return {
-      toggle: `<button type="button" class="control facets-toggle" data-tab-facets-toggle aria-expanded="${st.open}">
-      <span class="control-ico">${deps.iconFilter}</span>
-      <span>Filters</span>
-      ${chosen > 0 ? `<span class="facets-badge">${chosen}</span>` : ''}
-    </button>`,
-      panel: st.open
-        ? `<div class="facets-panel">
-          <div class="facet-grid">${controls.join('')}</div>
-          ${genderNote}
-          ${statedNote}
-          ${chosen > 0 ? `<button type="button" class="link-btn facets-clear" data-tab-facets-clear>Clear All Filters</button>` : ''}
-        </div>`
-        : '',
+      facets: spec.facets,
+      views,
+      sel: states[kind].sel,
+      matched,
+      noun: spec.noun,
+      notes: notesFor(kind, views),
+      set: (id, values) => {
+        states[kind].sel = withChosen(states[kind].sel, id, values);
+      },
+      clear: () => {
+        states[kind].sel = {};
+      },
     };
   }
 
@@ -268,14 +237,14 @@ export function createTabs(deps: TabDeps) {
   function panel(kind: TabKind): string {
     const spec = specs[kind];
     const st = states[kind];
-    const { list, views, searched } = listOf(kind);
+    const { list, views } = listOf(kind);
     const sort = deps.sortControl(TAB_SORT_ID, spec.title, spec.sorts, st.sort);
     return `<div class="page-head"><h1 class="t-page">${deps.esc(spec.title)}</h1><span class="count t-count">${list.length}</span></div>
     <p class="panel-note t-body">${deps.esc(spec.note)}</p>
     <div role="search" class="tab-search" aria-label="Search within ${deps.esc(spec.searchLabel)}">
       <input type="search" id="${TAB_SEARCH_ID}" placeholder="Search ${deps.esc(spec.searchLabel)}" aria-label="Search ${deps.esc(spec.searchLabel)}" value="${deps.esc(st.q)}" autocomplete="off" enterkeyhint="search" />
     </div>
-    ${deps.listControls(sort, facetUi(kind, views, searched.length))}
+    ${deps.listControls(sort, deps.filterControls(contextOf(kind, views, list.length)))}
     ${deps.fragranceList(list, spec.empty)}`;
   }
 
@@ -285,6 +254,11 @@ export function createTabs(deps: TabDeps) {
     listOf: (kind: TabKind) => listOf(kind).list,
     /** Every filter's options and counts as the page draws them, for tests. */
     views: (kind: TabKind): FacetView<DemoFragrance>[] => listOf(kind).views,
+    /** What the tab's Filters panel draws from, for tests. */
+    filterContext: (kind: TabKind): FilterContext<DemoFragrance> => {
+      const { list, views } = listOf(kind);
+      return contextOf(kind, views, list.length);
+    },
     state: (kind: TabKind): Readonly<TabListState> => states[kind],
     specOf: (kind: TabKind) => specs[kind],
 
@@ -298,51 +272,43 @@ export function createTabs(deps: TabDeps) {
     setSort(kind: TabKind, sort: string): void {
       states[kind].sort = sortValues(kind).includes(sort) ? sort : DEFAULT_SORT;
     },
-    /** Chooses one option of a dropdown, ticks or unticks a box; an empty value clears it. */
-    setFacet(kind: TabKind, id: string, value: string): void {
-      const sel = states[kind].sel;
-      if (value === '') delete sel[id];
-      else sel[id] = value;
+    /** Chooses a filter's options (one value, or several); an empty value or list clears it. */
+    setFacet(kind: TabKind, id: string, values: string | readonly string[]): void {
+      const list = typeof values === 'string' ? (values === '' ? [] : [values]) : values;
+      states[kind].sel = withChosen(states[kind].sel, id, list);
     },
-    toggleOpen(kind: TabKind): void {
-      states[kind].open = !states[kind].open;
-    },
-    /** Clears every filter, keeping the panel open: the reader is mid filtering, not leaving. */
     clearFilters(kind: TabKind): void {
       states[kind].sel = {};
-      states[kind].open = true;
     },
 
     /** The address's query for a tab. */
     query: (kind: TabKind): Record<string, string> => tabToQuery(states[kind], specs[kind].facets, DEFAULT_SORT),
-    /**
-     * Takes a tab's state from an address. When the address says what the tab
-     * already holds nothing changes, and the panel stays as the reader left it
-     * (Back to a tab); when it differs (a shared link, a typed address) the tab
-     * takes it, and a filter in it opens the panel so the choice is in plain
-     * sight rather than a badge on a shut button.
-     */
+    /** Takes a tab's state from an address (a shared link, a typed address, Back). */
     fromQuery(kind: TabKind, query: Readonly<Record<string, string>>): void {
       const read = tabFromQuery(query, specs[kind].facets, sortValues(kind), DEFAULT_SORT);
       if (sameTabState(states[kind], read)) return;
-      states[kind] = { ...read, open: Object.keys(read.sel).length > 0 };
+      states[kind] = read;
     },
 
     /** Both tabs' states for the history entry, and back again. */
     snapshot(): Record<TabKind, TabListState> {
-      return {
-        oils: { ...states.oils, sel: { ...states.oils.sel } },
-        sets: { ...states.sets, sel: { ...states.sets.sel } },
-      };
+      const copy = (s: TabListState): TabListState => ({ q: s.q, sort: s.sort, sel: Object.fromEntries(Object.entries(s.sel).map(([k, v]) => [k, [...v]])) });
+      return { oils: copy(states.oils), sets: copy(states.sets) };
     },
-    restore(saved: Partial<Record<TabKind, TabListState>> | undefined): void {
+    restore(saved: Partial<Record<TabKind, { q?: unknown; sort?: unknown; sel?: unknown }>> | undefined): void {
       for (const kind of TAB_KINDS) {
         const s = saved?.[kind];
         if (!s) continue;
         // An entry saved by an older build may name a filter or a sort this one
-        // does not offer: only what still exists comes back.
-        const read = tabFromQuery({ ...s.sel, q: s.q, sort: s.sort }, specs[kind].facets, sortValues(kind), DEFAULT_SORT);
-        states[kind] = { ...read, open: s.open === true };
+        // does not offer, or hold one value per filter where this one holds a
+        // list: only what still exists comes back.
+        const query: Record<string, string> = {};
+        for (const [k, v] of Object.entries((s.sel ?? {}) as Record<string, unknown>)) {
+          query[k] = Array.isArray(v) ? v.map(String).join(',') : String(v);
+        }
+        if (typeof s.q === 'string') query.q = s.q;
+        if (typeof s.sort === 'string') query.sort = s.sort;
+        states[kind] = tabFromQuery(query, specs[kind].facets, sortValues(kind), DEFAULT_SORT);
       }
     },
   };

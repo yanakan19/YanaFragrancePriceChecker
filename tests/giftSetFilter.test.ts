@@ -7,6 +7,7 @@ import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-aud
 import { matchRoute, routeToPath } from '../demo/router.js';
 import { headFor } from '../demo/head.js';
 import { GIFT_SET_BAND, volumeOptions, type VolumeBand } from '../demo/volumeBands.js';
+import { panelOptions, tick } from './support/filterPanel.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -68,8 +69,8 @@ describe.skipIf(!built)('Gift Sets on the built site', () => {
   });
 
   /**
-   * Opens a path and reads the page: its address, headings, Size options and
-   * tiles. The Filters panel is opened first unless the page opened it itself.
+   * Opens a path and reads the page: its address, headings and tiles, then the
+   * Size options in its Filters panel (the values offered, and which are ticked).
    */
   async function read(path: string) {
     const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
@@ -78,30 +79,19 @@ describe.skipIf(!built)('Gift Sets on the built site', () => {
       await page.goto(`http://127.0.0.1:${port}${path}`, { waitUntil: 'load' });
       await waitForApp(page);
       await page.waitForTimeout(300);
-      await page.evaluate(`(() => {
-        const toggle = document.querySelector('[data-facets-toggle]');
-        if (toggle && toggle.getAttribute('aria-expanded') === 'false') toggle.click();
-      })()`);
-      await page.waitForTimeout(200);
-      return (await page.evaluate(`(() => {
-        const size = document.querySelector('#facet-volume');
-        return {
-          path: location.pathname + location.search,
-          h1: document.querySelector('h1') ? document.querySelector('h1').textContent : null,
-          h2s: [...document.querySelectorAll('h2')].map((h) => h.textContent.trim()),
-          text: document.body.innerText,
-          sizeValue: size ? size.value : null,
-          sizeOptions: size ? [...size.options].map((o) => o.value) : null,
-          tiles: [...document.querySelectorAll('.tile-grid > li')].map((li) => li.innerText.trim()).filter(Boolean),
-        };
-      })()`)) as {
-        path: string;
-        h1: string | null;
-        h2s: string[];
-        text: string;
-        sizeValue: string | null;
-        sizeOptions: string[] | null;
-        tiles: string[];
+      const seen = (await page.evaluate(`(() => ({
+        path: location.pathname + location.search,
+        h1: document.querySelector('h1') ? document.querySelector('h1').textContent : null,
+        h2s: [...document.querySelectorAll('h2')].map((h) => h.textContent.trim()),
+        text: document.body.innerText,
+        tiles: [...document.querySelectorAll('.tile-grid > li')].map((li) => li.innerText.trim()).filter(Boolean),
+        hasFilters: !!document.querySelector('#view [data-facets-toggle]'),
+      }))()`)) as { path: string; h1: string | null; h2s: string[]; text: string; tiles: string[]; hasFilters: boolean };
+      const size = seen.hasFilters ? await panelOptions(page, 'size') : [];
+      return {
+        ...seen,
+        sizeChosen: size.filter((o) => o.checked).map((o) => o.value),
+        sizeOptions: seen.hasFilters ? size.map((o) => o.value) : null,
       };
     } finally {
       await context.close();
@@ -125,10 +115,10 @@ describe.skipIf(!built)('Gift Sets on the built site', () => {
     expect(page.tiles.every((t) => /gift set|bundle/i.test(t))).toBe(true);
   });
 
-  it('opens the same list as the search list with Size set to Gift Sets', async () => {
+  it('opens the same list as the search list with Size set to Gift Sets, the choice kept in its address', async () => {
     const page = await read('/search?size=gift-set');
-    expect(page.path).toBe('/search');
-    expect(page.sizeValue).toBe(GIFT_SET_BAND.id);
+    expect(page.path).toBe('/search?size=gift-set');
+    expect(page.sizeChosen).toEqual([GIFT_SET_BAND.id]);
     // Tiles below the fold are skipped by the browser and have no text to read; a set's tile is taller since it names its contents.
     expect(page.tiles.length).toBeGreaterThan(10);
     expect(page.tiles.every((t) => /gift set|bundle/i.test(t))).toBe(true);
@@ -163,8 +153,7 @@ describe.skipIf(!built)('Gift Sets on the built site', () => {
       const stated = async () =>
         Number(((await page.evaluate(`document.querySelector('.gone-head').textContent`)) as string).replace(/\D/g, ''));
       const before = await stated();
-      await page.click('[data-facets-toggle]');
-      await page.selectOption('#facet-volume', GIFT_SET_BAND.id);
+      await tick(page, 'size', GIFT_SET_BAND.id);
       await page.waitForTimeout(300);
       const tiles = (await page.evaluate(
         `[...document.querySelectorAll('.tile-grid > li')].map((li) => li.innerText.trim()).filter(Boolean)`,
