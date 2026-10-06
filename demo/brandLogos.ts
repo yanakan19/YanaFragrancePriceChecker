@@ -1068,6 +1068,46 @@ export const BRAND_LOGOS: Record<string, LogoRef> = {
     source: 'Supplied by the site owner on 6 October 2026',
     readAt: '2026-10-06',
   },
+  'ormonde jayne': {
+    src: '/logos/brands/ormonde-jayne.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  'd orsay': {
+    src: '/logos/brands/dorsay.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  'liquides imaginaires': {
+    src: '/logos/brands/liquides-imaginaires.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  moncler: {
+    src: '/logos/brands/moncler.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  caron: {
+    src: '/logos/brands/caron.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
   // ── Own site declared, the 2026-10-05 pass (41) ──────────────────────────
   // Every entry: the logo or icon the brand's own site declares (its
   // Organization.logo, apple-touch-icon, manifest icon or favicon), hot-linked
