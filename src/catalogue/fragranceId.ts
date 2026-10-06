@@ -1316,6 +1316,19 @@ export function isFragrance(l: StoredListing): boolean {
 }
 
 /**
+ * Whether the shop's own title says the product is withdrawn: recalled, or
+ * marked "do not list". MyBeauty.Boutique's "Burberry Weekend Edp 50ml Spray |
+ * DNL RECALLED" (2026-10-06, and a conditioner with the same tail): a status
+ * from the shop's own system that reached its public title. The shop says it
+ * should not be sold, so it is not shown, and the words never reach a name. Read
+ * from the title only: a description may say a scent "recalls" a place. "DNL"
+ * only after a pipe, where a status sits, never as a word of a name.
+ */
+export function isWithdrawnByShop(title: string): boolean {
+  return /\brecalled\b|\|\s*(?:dnl|do\s+not\s+list)\b/i.test(title);
+}
+
+/**
  * Whether a listing belongs in the catalogue at all: a single fragrance, or a
  * fragrance gift set (its own category; see src/catalogue/giftSet.ts). The
  * one gate scripts/build-demo-catalogue.ts and scripts/priceHistoryReplay.ts
@@ -1323,6 +1336,7 @@ export function isFragrance(l: StoredListing): boolean {
  * still needs a price.
  */
 export function isCatalogueListing(l: StoredListing): boolean {
+  if (isWithdrawnByShop(l.rawTitle)) return false;
   if (isFragrance(l)) return true;
   return typeof l.priceGbp === 'number' && l.priceGbp > 0 && isGiftSet(l);
 }
