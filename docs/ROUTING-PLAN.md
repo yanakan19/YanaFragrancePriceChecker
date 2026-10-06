@@ -191,7 +191,16 @@ tabs, the same panels — `exploreView()`'s dispatch on `state.tab`
 | `/notes/:noteSlug` | `view:'note', state.noteName = <note string>` | `noteView()` |
 | `/fragrance/:id` | `view:'detail', state.fragranceId` | `detailView()` |
 | `/settings` | `view:'settings'` | `settingsView()` |
-| `/legal/:pageSlug` | `view:'legal', state.legalId` | `legalView()` |
+| `/legal/:pageSlug` | `view:'legal', state.legalId` | `legalView()` (only `how-it-works` now; see below) |
+| `/about/legal`, `/about/legal#<section>` | `view:'legalNotice', state.noticeSection` | `legalNoticeView()` |
+
+Since 2026-10-06 the terms, privacy notice, affiliate disclosure, cookies,
+refunds and contact pages are sections of one Legal Notice page at
+`/about/legal`, each an anchor (`#terms`, `#privacy`, `#affiliate`, `#cookies`,
+`#refunds`, `#contact`). Their old `/legal/<id>` addresses are still matched:
+the app draws the notice at that section and rewrites the address bar
+(`applyRoute` and `syncUrl` in `demo/app.ts`). `/legal/about` opens `/about`.
+None of these aliases is in the sitemap.
 | *(anything unmatched)* | 404 → redirect to `/` (see §3) | `homeView()` |
 
 Optional query params, all non-load-bearing (safe defaults exist, never

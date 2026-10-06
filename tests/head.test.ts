@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { headFor, shopsPhrase, withPreviewNoindex, SITE_URL, type HeadInput } from '../demo/head.js';
-import { matchRoute, type RouteName } from '../demo/router.js';
+import { matchRoute, routeToPath, type RouteName } from '../demo/router.js';
 
 const route = (name: RouteName, param = '', query: Record<string, string> = {}) => ({ name, param, query });
 const tags = (input: HeadInput) => headFor(input);
@@ -22,7 +22,7 @@ describe('canonical URLs', () => {
   it('gives every route a distinct canonical', () => {
     const names: RouteName[] = [
       'home', 'search', 'brands', 'brand', 'deals', 'retailers', 'retailer',
-      'notes', 'note', 'fragrance', 'product', 'about', 'settings', 'suggestions', 'account', 'legal',
+      'notes', 'note', 'fragrance', 'product', 'about', 'legalNotice', 'settings', 'suggestions', 'account', 'legal',
       'design', 'notFound',
     ];
     const seen = new Map<string, RouteName>();
@@ -80,7 +80,7 @@ describe('descriptions', () => {
   it('never exceeds the window, and is never empty', () => {
     const names: RouteName[] = [
       'home', 'search', 'brands', 'brand', 'deals', 'retailers', 'retailer',
-      'notes', 'note', 'fragrance', 'about', 'settings', 'suggestions', 'account', 'legal',
+      'notes', 'note', 'fragrance', 'about', 'legalNotice', 'settings', 'suggestions', 'account', 'legal',
       'design', 'notFound',
     ];
     for (const name of names) {
@@ -131,7 +131,7 @@ describe('what may be indexed', () => {
   });
 
   it('leaves the pages the site is for indexable', () => {
-    for (const name of ['home', 'brands', 'brand', 'deals', 'retailers', 'retailer', 'notes', 'note', 'fragrance', 'about', 'legal'] as RouteName[]) {
+    for (const name of ['home', 'brands', 'brand', 'deals', 'retailers', 'retailer', 'notes', 'note', 'fragrance', 'about', 'legalNotice', 'legal'] as RouteName[]) {
       expect(tags({ route: route(name, 'x') }).noindex, `${name} should be indexable`).toBe(false);
     }
   });
@@ -235,7 +235,56 @@ describe('unmatched paths', () => {
     expect(matchRoute('/').name).toBe('home');
     expect(matchRoute('/brands').name).toBe('brands');
     expect(matchRoute('/fragrance/ean-123').name).toBe('fragrance');
-    expect(matchRoute('/legal/privacy').name).toBe('legal');
+    expect(matchRoute('/legal/how-it-works').name).toBe('legal');
+  });
+});
+
+/**
+ * The Legal Notice, /about/legal (owner's revamp, 2026-10-06): the terms,
+ * privacy notice and the rest as sections of one page under About. It is
+ * indexable, in the sitemap, and its canonical is the path alone, so every
+ * anchor on it is the one page.
+ */
+describe('the Legal Notice route', () => {
+  it('is /about/legal, with the section after the # as its param', () => {
+    expect(matchRoute('/about/legal')).toEqual({ name: 'legalNotice', param: '', query: {} });
+    expect(matchRoute('/about/legal/')).toEqual({ name: 'legalNotice', param: '', query: {} });
+    expect(matchRoute('/about/legal', '', '#privacy').param).toBe('privacy');
+    expect(matchRoute('/about/legal', '', 'terms').param).toBe('terms');
+    expect(routeToPath({ name: 'legalNotice', param: '', query: {} })).toBe('/about/legal');
+    expect(routeToPath({ name: 'legalNotice', param: 'privacy', query: {} })).toBe('/about/legal#privacy');
+  });
+
+  it('does not answer for made up addresses under /about', () => {
+    expect(matchRoute('/about/other').name).toBe('notFound');
+    expect(matchRoute('/about/legal/extra').name).toBe('notFound');
+    expect(matchRoute('/about').name).toBe('about');
+  });
+
+  it('keeps the old /legal/<id> addresses matched, never a not found', () => {
+    for (const id of ['about', 'terms', 'privacy', 'affiliate', 'cookies', 'refunds', 'contact', 'how-it-works']) {
+      expect(matchRoute(`/legal/${id}`), id).toEqual({ name: 'legal', param: id, query: {} });
+    }
+  });
+
+  it('has its own title, an indexable page, and the same canonical for every section', () => {
+    const t = tags({ route: route('legalNotice') });
+    expect(t.title).toBe('PriceSniffs: Legal Notice');
+    expect(t.noindex).toBe(false);
+    expect(t.canonical).toBe(`${SITE_URL}/about/legal`);
+    expect(tags({ route: route('legalNotice', 'privacy') }).canonical).toBe(`${SITE_URL}/about/legal`);
+    expect(t.description.length).toBeLessThanOrEqual(160);
+  });
+
+  it('is in the sitemap once, and the old /legal addresses of the moved pages are not', () => {
+    const xml = readFileSync(new URL('../demo/sitemap.xml', import.meta.url), 'utf8');
+    const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!);
+    expect(locs.filter((l) => l === `${SITE_URL}/about/legal`)).toHaveLength(1);
+    expect(locs).toContain(`${SITE_URL}/about`);
+    expect(locs).toContain(`${SITE_URL}/legal/how-it-works`);
+    for (const id of ['about', 'terms', 'privacy', 'affiliate', 'cookies', 'refunds', 'contact']) {
+      expect(locs, `/legal/${id} is only a way in to the Legal Notice`).not.toContain(`${SITE_URL}/legal/${id}`);
+    }
   });
 });
 

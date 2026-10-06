@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { COMPANY, LEGAL_PAGES, STORAGE_KEYS, legalPage } from '../demo/legal.js';
+import {
+  ABOUT, COMPANY, LEGAL_NOTICE_IDS, LEGAL_PAGES, STORAGE_KEYS, demoteHeadings, isLegalNoticeId, legalNoticeSections, legalPage,
+} from '../demo/legal.js';
 import { RETAILERS } from '../src/config/retailers.js';
 import { BRAND_LOGOS } from '../demo/brandLogos.js';
 
@@ -15,17 +17,19 @@ describe('the legal pages a UK site needs are all present', () => {
   it('carries every page the compliance checklist asks for, under a stable id', () => {
     // Privacy, terms, cookies and refunds are what the 2026-09-06 review
     // asked for; the affiliate disclosure is what the CAP Code asks for; the
-    // contact page is where the business details live. An id here is also a
-    // public URL (/legal/<id>) and a footer entry, so renaming one is a
-    // broken link, not a refactor.
-    for (const id of ['about', 'how-it-works', 'affiliate', 'privacy', 'cookies', 'refunds', 'terms', 'contact']) {
+    // contact page is where a reader is told how to reach us. An id here is
+    // also an anchor on the Legal Notice (/about/legal#<id>) and the old public
+    // URL (/legal/<id>), so renaming one is a broken link, not a refactor.
+    // About is not on the list: it has its own page, /about (aboutView).
+    for (const id of ['how-it-works', 'affiliate', 'privacy', 'cookies', 'refunds', 'terms', 'contact']) {
       expect(legalPage(id), `missing legal page: ${id}`).toBeDefined();
     }
+    expect(legalPage('about')).toBeUndefined();
   });
 
   it('every policy page says when it was last updated', () => {
     for (const page of LEGAL_PAGES) {
-      if (page.id === 'about' || page.id === 'how-it-works' || page.id === 'contact') continue;
+      if (page.id === 'how-it-works' || page.id === 'contact') continue;
       expect(page.body, `${page.id} has no Last updated line`).toContain('Last updated');
     }
   });
@@ -104,5 +108,90 @@ describe('house style: no dashes and no hyphenated words in reader-facing text',
       const hyphenated = prose.match(/[A-Za-z]-[A-Za-z]+/g) ?? [];
       expect(hyphenated, `${page.id} has hyphenated words: ${hyphenated.join(', ')}`).toEqual([]);
     }
+  });
+});
+
+describe('the Legal Notice holds every legal page, and each keeps its own words', () => {
+  it('is the terms, privacy, affiliate disclosure, cookies, refunds and contact pages, in that order', () => {
+    expect([...LEGAL_NOTICE_IDS]).toEqual(['terms', 'privacy', 'affiliate', 'cookies', 'refunds', 'contact']);
+    expect(legalNoticeSections().map((x) => x.id)).toEqual([...LEGAL_NOTICE_IDS]);
+    for (const id of LEGAL_NOTICE_IDS) expect(isLegalNoticeId(id)).toBe(true);
+    // How it works is not a legal document and keeps its own page.
+    expect(isLegalNoticeId('how-it-works')).toBe(false);
+    expect(isLegalNoticeId('about')).toBe(false);
+    expect(isLegalNoticeId('nonsense')).toBe(false);
+  });
+
+  it('carries every word of each page, with only its headings moved down one level', () => {
+    for (const section of legalNoticeSections()) {
+      const page = legalPage(section.id)!;
+      expect(section.title).toBe(page.title);
+      expect(section.body, `${section.id} has a level two heading left`).not.toMatch(/<h2[\s>]/);
+      // Undoing the change gives back the page exactly: nothing was added or cut.
+      expect(section.body.replace(/<h3(\s[^>]*)?>/g, '<h2$1>').replace(/<\/h3>/g, '</h2>')).toBe(page.body);
+    }
+  });
+
+  it('keeps the logo and photo notices, the business details and the live affiliate shops', () => {
+    const all = legalNoticeSections().map((x) => proseOf(x.body)).join(' ').replace(/\s+/g, ' ');
+    expect(all).toContain('Product Images');
+    expect(all).toContain('Logos');
+    expect(all).toContain('Who Runs This Site');
+    expect(all).toContain(COMPANY.email);
+    for (const r of RETAILERS.filter((x) => x.affiliate.status === 'active')) expect(all).toContain(r.name);
+    expect(all).toContain('Which Links Earn Commission');
+    expect(all).toContain('In Short');
+  });
+
+  it('shows the business details once, not twice', () => {
+    const sections = legalNoticeSections();
+    expect(sections.filter((x) => x.body.includes('class="biz-details"') && x.body.includes('Company Number')).length).toBe(1);
+  });
+
+  it('demoteHeadings changes the tag and nothing else', () => {
+    expect(demoteHeadings('<h2 class="t-section" id="x">A</h2><p>b</p>')).toBe('<h3 class="t-section" id="x">A</h3><p>b</p>');
+    expect(demoteHeadings('<h2>A</h2>')).toBe('<h3>A</h3>');
+    expect(demoteHeadings('<p>no heading</p>')).toBe('<p>no heading</p>');
+  });
+
+  it('never says a note sits at the bottom of every screen, which is no longer true', () => {
+    expect(legalPage('affiliate')!.body).not.toMatch(/bottom of every screen/);
+  });
+});
+
+describe('the About page copy: short, plain and true to the code', () => {
+  const copy = [ABOUT.why, ...ABOUT.how.map((c) => `${c.title} ${c.body}`), ABOUT.whoRuns].join(' ');
+
+  it('is the owner\'s reason, four cards and who runs it, and nothing long', () => {
+    expect(proseOf(ABOUT.why)).toContain('I was tired of buying a fragrance and then seeing it cheaper somewhere else');
+    expect(ABOUT.how.map((c) => c.title)).toEqual(['Prices', 'Shops', 'Cheapest', 'Affiliate Links']);
+    for (const c of ABOUT.how) expect(c.body.split(/\s+/).length, `${c.title} is long`).toBeLessThanOrEqual(30);
+    // Cut from 472 words: the whole copy now fits well inside this.
+    expect(proseOf(copy).split(/\s+/).length).toBeLessThanOrEqual(190);
+  });
+
+  it('does not tell the old story, and does not name or describe the crawler', () => {
+    expect(copy).not.toMatch(/Club de Nuit|twelve pounds|nine tabs/i);
+    expect(copy).not.toMatch(/\bbots?\b|crawl|scrap|spider|PriceSniffsBot/i);
+  });
+
+  it('says prices are checked regularly from the shops\' own listings and feeds, delivery where stated', () => {
+    const prices = ABOUT.how.find((c) => c.title === 'Prices')!.body;
+    expect(prices).toContain('Checked regularly');
+    expect(prices).toContain('own public listings and feeds');
+    expect(prices).toContain('where the shop states it');
+  });
+
+  it('keeps the YannySniffs lines as they were: who runs it, TikTok and Instagram', () => {
+    expect(ABOUT.whoRuns).toContain(`${COMPANY.operator} runs PriceSniffs, trading as ${COMPANY.legalName}.`);
+    expect(ABOUT.whoRuns).toContain('I also post about fragrance on');
+    expect(ABOUT.whoRuns).toContain('https://www.tiktok.com/@yannysniffs');
+    expect(ABOUT.whoRuns).toContain('https://www.instagram.com/yannysniffs');
+  });
+
+  it('follows the house style: no dashes and no hyphenated words', () => {
+    const prose = proseOf(copy);
+    expect(prose).not.toMatch(/[–—]/);
+    expect(prose.match(/[A-Za-z]-[A-Za-z]+/g) ?? []).toEqual([]);
   });
 });

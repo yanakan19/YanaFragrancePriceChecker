@@ -332,7 +332,20 @@ export function headFor(input: HeadInput): HeadTags {
         // twice in five words.
         title: 'PriceSniffs: About',
         description: describe(
-          'How this site gets its prices, what it earns from affiliate links, and the rule it holds to: never publish a number nobody checked.',
+          'Why PriceSniffs was built, how it gets its prices, which shops it lists and how the cheapest price is chosen.',
+          SITE_TAIL,
+        ),
+        canonical,
+        noindex: false,
+      };
+
+    case 'legalNotice':
+      return {
+        title: 'PriceSniffs: Legal Notice',
+        description: describe(
+          ADS_ON
+            ? 'The terms, the privacy notice and how affiliate links work. We collect almost nothing, and the ads Google shows on some pages ask for your consent first.'
+            : 'The terms, the privacy notice and how affiliate links work. We collect almost nothing: no analytics, no tracking cookies, and a display preference kept on your own device.',
           SITE_TAIL,
         ),
         canonical,
@@ -340,24 +353,17 @@ export function headFor(input: HeadInput): HeadTags {
       };
 
     case 'legal': {
-      // Two of legal.ts's own page titles already say "PriceSniffs" ("About
-      // PriceSniffs", "How PriceSniffs works"), so prefixing those verbatim
-      // would land the brand name twice in one title. Swapped for the part
-      // that still reads correctly after "PriceSniffs: " once said once;
-      // every other legal page title has no such collision and passes
-      // straight through.
-      const legalPart =
-        leafName === 'About PriceSniffs' ? 'about'
-        : leafName === 'How PriceSniffs works' ? 'how it works'
-        : leafName;
+      // What is left under /legal is the long How it works page. Its own page
+      // title already says "PriceSniffs" ("How PriceSniffs works"), so
+      // prefixing it verbatim would land the brand name twice in one title;
+      // it is swapped for the part that still reads correctly after
+      // "PriceSniffs: ". The terms, privacy and the rest moved onto the Legal
+      // Notice (2026-10-06) and their old addresses open that page instead.
+      const legalPart = leafName === 'How PriceSniffs works' ? 'how it works' : leafName;
       return {
-        title: clamp(legalPart ? `PriceSniffs: ${legalPart}` : 'PriceSniffs: terms and privacy', TITLE_MAX),
+        title: clamp(legalPart ? `PriceSniffs: ${legalPart}` : 'PriceSniffs: how it works', TITLE_MAX),
         description: describe(
-          leafName === 'Privacy'
-            ? ADS_ON
-              ? 'What this site collects, which is almost nothing, and how the ads Google shows on some pages ask for your consent first.'
-              : 'What this site collects, which is almost nothing: no analytics, no tracking cookies, and a display preference kept on your own device.'
-            : 'The terms this site is offered under, including what its prices are and are not a promise of.',
+          'How prices are checked, how delivery is counted, and what the words Cheapest and Lowest Total mean on this site.',
           SITE_TAIL,
         ),
         canonical,
@@ -481,6 +487,8 @@ function pathOf(route: Route): string {
     case 'fragrance': return productPath(route.param);
     case 'product': return `/${p}`;
     case 'about': return '/about';
+    // The anchor is not part of the canonical: the sections are one page.
+    case 'legalNotice': return '/about/legal';
     case 'settings': return '/settings';
     case 'suggestions': return '/suggestions';
     case 'account': return '/account';
