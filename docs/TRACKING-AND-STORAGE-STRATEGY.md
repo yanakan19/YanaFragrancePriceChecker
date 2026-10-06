@@ -385,6 +385,13 @@ each file's versions packed the way git packs them: 24.1 MB in all, of which
 2.64 MB is the day's growth, became 21.9 MB and 0.48 MB. Most of what is left
 is real change: prices, stock, new listings, and the page by page shops.
 
+On the crawl: the first harvest after these changes (run of 16:35 UTC,
+6 October, green) wrote all 59 shop and house files it changed in the new
+form (65,778 listings, 11,312 keeping their own time), and its rebuild
+(`81da7d42`) wrote the catalogue with `CRAWLED_SHOP_TIMES`, the compact price
+history and a version 3 checkpoint; the rebuild's diff was 7,867 lines
+added, against about 34,000 changed lines per rebuild before (R2).
+
 **The generated catalogue** (R2). An offer's `fetchedAt` is its listing's
 last seen time, and with one product's offers on one line almost every line
 of `CRAWLED` changed with every rebuild. `demo/catalogue.generated.ts` now
