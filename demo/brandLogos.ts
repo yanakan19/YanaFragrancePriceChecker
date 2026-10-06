@@ -1300,6 +1300,46 @@ export const BRAND_LOGOS: Record<string, LogoRef> = {
     source: 'Supplied by the site owner on 6 October 2026',
     readAt: '2026-10-06',
   },
+  cartier: {
+    src: '/logos/brands/cartier.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  'flora ku paris': {
+    src: '/logos/brands/floraiku-paris.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  'olfactive studio': {
+    src: '/logos/brands/olfactive-studio.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  'ellen tracy': {
+    src: '/logos/brands/ellen-tracy.png',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
+  lanvin: {
+    src: '/logos/brands/lanvin.png',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'owner-supplied',
+    source: 'Supplied by the site owner on 6 October 2026',
+    readAt: '2026-10-06',
+  },
   // ── Own site declared, the 2026-10-05 pass (41) ──────────────────────────
   // Every entry: the logo or icon the brand's own site declares (its
   // Organization.logo, apple-touch-icon, manifest icon or favicon), hot-linked
