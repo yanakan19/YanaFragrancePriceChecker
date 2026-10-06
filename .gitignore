@@ -10,6 +10,9 @@ dist-demo/
 /demo/data/
 /demo/sitemap.xml
 /demo/ads.txt
+# What a deployment was built from: written by deploy-pages.yml after the
+# build (scripts/deploy-decision.mjs record), published, never committed.
+/demo/build-state.json
 coverage/
 # `npm run screenshot` writes here by default. See scripts/screenshot.ts: these
 # are megabytes each and go stale the moment the catalogue is harvested again.
