@@ -54,6 +54,21 @@ describe('the brand pill palette', () => {
     expect(rule).toContain('border-radius: 8px');
     expect(rule).toContain('align-self: center');
     expect(rule).toContain('text-align: center');
+  });
+
+  it('is never wider than the outlined label it replaced: 11px type, 8px sides, the tile\'s whole content box and no more', () => {
+    const rule = /\.tile \.phead-brand \{([^}]*)\}/.exec(template)?.[1] ?? '';
+    // The old label: 11px 600 type, .02em tracking, a 1px border and 10px sides (text plus 22px).
+    // Bigger type or wider padding makes more brand names end in an ellipsis than before (6 Oct 2026).
+    const font = /font:\s*600\s+(\d+(?:\.\d+)?)px\//.exec(rule)?.[1];
+    expect(Number(font), 'font size in px').toBeLessThanOrEqual(11);
+    const tracking = /letter-spacing:\s*(-?[\d.]+)em/.exec(rule)?.[1];
+    expect(Number(tracking), 'letter spacing in em').toBeLessThanOrEqual(0.02);
+    const sides = /padding:\s*\d+px\s+(\d+)px/.exec(rule)?.[1];
+    expect(Number(sides) * 2, 'horizontal padding, both sides').toBeLessThanOrEqual(16);
+    expect(rule).toContain('border: 0');
+    expect(rule).toContain('max-width: 100%');
+    expect(rule).toContain('box-sizing: border-box');
     expect(/\.sold-by \{[^}]*border-radius: 8px/.test(template)).toBe(true);
   });
 });
@@ -127,6 +142,52 @@ describe.skipIf(!built)('the brand pill on a tile, in the built page', () => {
           expect(lum(r.bg), 'lighter than the shop pill').toBeGreaterThan(lum(r.shopBg));
           expect(contrastBetween(r.color, r.bg)!).toBeGreaterThanOrEqual(AA_TEXT);
           expect(await page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')).toBe(true);
+        } finally {
+          await done();
+        }
+      });
+    }
+  }
+
+  for (const width of [320, 390, 1280] as const) {
+    for (const mode of ['dark', 'light'] as const) {
+      it(`is no wider than the old outlined label, so no name is cut that was not cut before, at ${width}px, ${mode}`, async () => {
+        const { page, done } = await open('/search?q=black', width, mode);
+        try {
+          const r = await page.evaluate(() => {
+            const out = { pills: 0, wider: [] as string[], newlyCut: [] as string[], maxWidth: '', fontSize: '' };
+            for (const t of Array.from(document.querySelectorAll('#view .tile'))) {
+              const b = t.querySelector('.phead-brand') as HTMLElement | null;
+              if (!b) continue;
+              out.pills++;
+              const tcs = getComputedStyle(t);
+              const room = t.getBoundingClientRect().width - parseFloat(tcs.paddingLeft) - parseFloat(tcs.paddingRight);
+              // Natural width now, and the width the old label (11px, .02em, 1px border, 10px sides) would have had.
+              const measure = (old: boolean): number => {
+                const c = b.cloneNode(true) as HTMLElement;
+                c.style.cssText = 'position:absolute;visibility:hidden;max-width:none;width:max-content;'
+                  + (old ? 'border:1px solid transparent;padding:3px 10px;letter-spacing:.02em;font-size:11px;font-weight:600;' : '');
+                t.appendChild(c);
+                const w = c.getBoundingClientRect().width;
+                c.remove();
+                return w;
+              };
+              const now = measure(false);
+              const before = measure(true);
+              const name = b.textContent!.trim();
+              if (now > before - 0.5) out.wider.push(`${name} ${now.toFixed(1)} vs ${before.toFixed(1)}`);
+              if (now > room + 0.5 && before <= room + 0.5) out.newlyCut.push(name);
+            }
+            const cs = getComputedStyle(document.querySelector('#view .tile .phead-brand')!);
+            out.maxWidth = cs.maxWidth;
+            out.fontSize = cs.fontSize;
+            return out;
+          });
+          expect(r.pills).toBeGreaterThan(10);
+          expect(r.wider).toEqual([]);
+          expect(r.newlyCut).toEqual([]);
+          expect(r.fontSize).toBe('11px');
+          expect(r.maxWidth).toBe('100%');
         } finally {
           await done();
         }

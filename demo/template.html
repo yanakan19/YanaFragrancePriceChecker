@@ -1242,18 +1242,23 @@
   .tile .phead-meta { color: var(--faint); }
   /* The brand pill on a tile (owner, 6 Oct 2026: "too texty and regular"):
      centred at the top, in the shop pill's own box (.sold-by below: 8px
-     corners, no outline, 12px 600 type, 10px sides) without its arrow, and
-     one step lighter in grey (--pill-brand) so the pair reads as brand above,
-     shop below. Light, not heavy: no border, no shadow. One line, truncated
-     with an ellipsis inside the pill (max-width keeps it inside the tile at
-     320px; the full name is the button's title). 13px line and 3px above and
-     below make it the 19px the old outlined label was, so no tile changes
-     height. Hover and focus draw their ring inside the box, so nothing moves. */
+     corners, no outline, 600 type) without its arrow, and one step lighter in
+     grey (--pill-brand) so the pair reads as brand above, shop below. Light,
+     not heavy: no border, no shadow. One line, truncated with an ellipsis
+     inside the pill; the full name is the button's title.
+     It must never be cut more often than the outlined label it replaced
+     (11px type, .02em tracking, 1px border and 10px sides: text plus 22px).
+     So the type stays 11px (11.5px made every name wider), the tracking is .01em and the sides are 8px (text plus 16px, narrower than
+     the old label for every name in every font), and max-width is the tile's
+     whole content box, never wider, so nothing leaves the tile at 320px.
+     13px line and 3px above and below make it the 19px the old label was, so
+     no tile changes height. Hover draws its ring inside the box. */
   .tile .phead-brand {
     align-self: center; text-align: center;
+    box-sizing: border-box; max-width: 100%;
     background: var(--pill-brand); border: 0; color: var(--ink-2);
-    font: 600 11.5px/13px var(--font-sans); letter-spacing: 0;
-    padding: 3px 10px; border-radius: 8px;
+    font: 600 11px/13px var(--font-sans); letter-spacing: .01em;
+    padding: 3px 8px; border-radius: 8px;
     transition: box-shadow .12s ease, color .12s ease;
   }
   @media (hover: hover) and (pointer: fine) {
