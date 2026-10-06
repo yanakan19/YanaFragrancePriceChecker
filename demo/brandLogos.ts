@@ -1679,6 +1679,13 @@ export const BRAND_LOGOS: Record<string, LogoRef> = {
   },
 };
 
+/**
+ * Spellings of a brand that are one house with a logo filed under another
+ * spelling. "Bulgari" is merged into "Bvlgari" in the catalogue (6 Oct 2026),
+ * but an old link or a stray feed spelling still finds the same logo.
+ */
+const LOGO_SPELLINGS: Readonly<Record<string, string>> = { bulgari: 'bvlgari' };
+
 /** Lowercase, strip everything but letters — matches demo/brandSites.ts's own normalizeBrand exactly. */
 function normalizeBrand(brand: string): string {
   return brand
@@ -1696,5 +1703,6 @@ function normalizeBrand(brand: string): string {
  * not a new mechanism.
  */
 export function logoFor(brand: string): LogoRef | null {
-  return BRAND_LOGOS[normalizeBrand(brand)] ?? null;
+  const key = normalizeBrand(brand);
+  return BRAND_LOGOS[LOGO_SPELLINGS[key] ?? key] ?? null;
 }
