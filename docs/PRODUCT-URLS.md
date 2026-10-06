@@ -165,6 +165,19 @@ with the id aliases (`SLUG_ALIASES`), so the first load does not grow by them.
 A slug that belonged to a product that is gone and was never merged answers Page
 Not Found, as its old id address does.
 
+**A shop's barcode arriving (Perfume Direct, 2026-10-05).** A listing that gains a
+barcode changes id (`perfume-direct-17448pd` becomes `ean-0783320411175`; a gift
+set's `set-<title>` becomes `set-ean-<ean>`), so the product it was is folded into
+the product of that barcode, which is a new product when no other shop sold the
+barcode. That product is given its own address by the rules above, and because
+the old product's plain address is still held (never reassigned) it usually takes
+the strength form. The old id and the old address both open it: the id through
+`data/id-aliases.json` (`listingIdForms` lists the SKU form, the barcode form and,
+for a set, the title form), the address through `SLUG_ALIASES`. Checked on the
+rebuilt data after the first barcodes: every id and address Perfume Direct's 3,094
+products held before them still opens a page. The cost is that those products'
+published address moves once, and the old one redirects.
+
 ## 4. Routing: no clash with the site's own routes
 
 The site's own routes are single words: `/search`, `/deals`, `/brands`,
