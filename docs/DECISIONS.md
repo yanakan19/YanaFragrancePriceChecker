@@ -2093,8 +2093,10 @@ needs the same pause and re-clone, so it is a rewrite by another name;
 snapshots) is what keeps future growth down.
 
 What the owner must do: nothing. Revisit only if GitHub warns about the size
-(it recommends under 1 GB and strongly under 5 GB; at about 0.7 MB to
-2 MB a day net of D28, 1 GB is months away) or checkouts pass a few minutes; then follow
+(it recommends under 1 GB and strongly under 5 GB; the projection in
+`docs/TRACKING-AND-STORAGE-STRATEGY.md` passes 1 GB within about two months
+either way, the rewrite only buys about three months, and none of the rows
+reaches 5 GB in a year) or checkouts pass a few minutes; then follow
 OWNER-STEPS 7d exactly, after building the price event log.
 
 ## D28 — Social images stop being committed; the deploy renders them (recommendation, open)
