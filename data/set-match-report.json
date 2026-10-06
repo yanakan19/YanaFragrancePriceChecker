@@ -7593,7 +7593,8 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3423222106577, 3423222119706"
+    "two different barcodes: 3423222106577, 3423222119706",
+    "price spread 2.45 is over 1.5"
    ],
    "members": [
     {
@@ -7619,6 +7620,18 @@
      "shops": [
       "fragrance-click",
       "perfume-click"
+     ]
+    },
+    {
+     "id": "set-issey-miyake-le-sel-d-issey-eau-de-toilette-50ml-fragrance-gift-set",
+     "brand": "Issey Miyake",
+     "name": "Le Sel d'Issey Eau de Toilette 50ml Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d issey le sel",
+     "signature": "1x50fragrance|1x50wash",
+     "shops": [
+      "john-lewis"
      ]
     },
     {
