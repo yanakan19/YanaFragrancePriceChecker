@@ -451,7 +451,7 @@ export function listingCountAt(retailerId: string): number {
 export interface LiveCounts {
   /** Switched on shops with at least one price recent enough to show. */
   shops: number;
-  /** Fragrances in the catalogue, the same figure the home page states. */
+  /** Products in the catalogue (bottles, sets and oils), the same figure the home page states. */
   fragrances: number;
   /** Shop listings recent enough to show, from switched on shops. */
   offers: number;
