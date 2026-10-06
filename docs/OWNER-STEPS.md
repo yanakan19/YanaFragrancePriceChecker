@@ -548,6 +548,20 @@ their rendered PNGs under `social/`: 19.8 MB in the last week, 9.6 MB on
 the posts' text and settings in git and render the images when needed; or
 delete a post's images once it is published. Say which you prefer.
 
+*Update, 6 October:* the crawl's own growth is now much smaller (see
+`docs/TRACKING-AND-STORAGE-STRATEGY.md`, "Size per month"), which makes the
+social images the largest thing left: 2 to 4 MB on an ordinary day
+(a Deal of the Day is 0.6 MB, each savings carousel 1.7 MB), about a third
+of everything the repository gains. Deleting images after posting does not
+help (git keeps them in its history). Nothing was changed, because the
+routines are yours and every option changes how you get the pictures. The
+recommendation, if you want it: keep committing each post's HTML, captions
+and `check.json`, stop committing its PNGs, and have the deploy render them
+and publish them at `pricesniffs.space/social/<post folder>/` for two weeks,
+so you open them on your phone as you do on GitHub today. Say "do the social
+images" and an agent will build that and change the routines' instructions
+(`social/DESIGN-SYSTEM.md`); the posts already committed stay as they are.
+
 ---
 
 ## 8. Developer dashboard (10 minutes)
