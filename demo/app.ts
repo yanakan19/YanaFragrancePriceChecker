@@ -1614,19 +1614,20 @@ function homeView(): string {
              landed on. axe scrollable-region-focusable, 2026-09-06. -->
         <ul class="updates-list" tabindex="0" aria-label="Update history">
           ${CHANGELOG.map(
-            (entry) => {
-              const isPrelaunch = entry.version.startsWith('v0.');
-              return `<li class="update-entry${isPrelaunch ? ' prelaunch' : ''}">
+            (entry) => `<li class="update-entry">
                 <p class="update-head">
                   <span class="update-version">${esc(entry.version)}</span>
                   <span class="update-date">${esc(entry.date)}</span>
                 </p>
-                <p class="update-title">${esc(entry.title)}</p>
+                ${entry.groups
+                  .map(
+                    (group) => `<h3 class="update-group">${esc(group.heading)}</h3>
                 <ul class="update-points">
-                  ${entry.points.map((p) => `<li>${esc(p)}</li>`).join('')}
-                </ul>
-              </li>`;
-            },
+                  ${group.points.map((p) => `<li>${esc(p)}</li>`).join('')}
+                </ul>`,
+                  )
+                  .join('')}
+              </li>`,
           ).join('')}
         </ul>
       </section>
