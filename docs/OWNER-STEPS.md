@@ -299,7 +299,10 @@ free and is served with the ad code, so the site has no banner of its own.
    consent**. Offering a plain no next to yes is what the UK regulator, the
    ICO, expects.
 4. Leave the privacy policy link field as
-   `https://pricesniffs.space/legal/privacy`.
+   `https://pricesniffs.space/legal/privacy`. It still works: since
+   2026-10-06 the privacy notice is a section of the Legal Notice page, and
+   that address opens it there (`https://pricesniffs.space/about/legal#privacy`
+   is the same place, and may be used instead).
 5. **Publish**. It now appears on the site the first time a UK or EEA
    visitor reaches a page with an ad.
 6. Leave the **US state regulations** message off unless you want US

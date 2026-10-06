@@ -67,6 +67,7 @@ describe('service worker registration', () => {
   const pathnames = [
     '/',
     '/about',
+    '/about/legal',
     '/brands',
     '/brands/lattafa',
     '/fragrance/ean-5012345678900',

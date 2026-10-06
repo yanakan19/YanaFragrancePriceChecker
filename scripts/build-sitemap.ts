@@ -38,7 +38,7 @@ import { DEMO_FRAGRANCES } from '../demo/data.js';
 import { RETAILERS, enabledRetailers } from '../src/config/retailers.js';
 import { slugify } from '../demo/router.js';
 import { isProductSlug } from '../src/catalogue/productSlug.js';
-import { LEGAL_PAGES } from '../demo/legal.js';
+import { LEGAL_PAGES, isLegalNoticeId } from '../demo/legal.js';
 import { SITE_URL } from '../demo/head.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -98,15 +98,18 @@ entries.push({ loc: '/sets', lastmod: appMod, changefreq: 'weekly' });
 entries.push({ loc: '/deals', lastmod: today(), changefreq: 'daily' });
 entries.push({ loc: '/about', lastmod: gitLastModified('demo/legal.ts'), changefreq: 'monthly' });
 
-// ── Legal pages, read from the list the site itself renders ──────────────
-// Not a hardcoded list of ids: this file would have shipped /legal/cookies
-// and /legal/affiliate-disclosure, neither of which exists, while missing
-// /legal/how-it-works and /legal/contact, which do.
+// ── The Legal Notice, and the legal pages still under /legal ─────────────
+// The terms, privacy notice, affiliate disclosure, cookies, refunds and
+// contact pages are sections of one page, /about/legal (owner's revamp,
+// 2026-10-06). Their old /legal/<id> addresses still open it, but only as a
+// way in: they are never listed, so a crawler is offered one address for the
+// one page. What is left under /legal is read from the list the site itself
+// renders, not a hardcoded list of ids (this file once shipped /legal/cookies
+// and /legal/affiliate-disclosure, neither of which existed).
 const legalMod = gitLastModified('demo/legal.ts');
+entries.push({ loc: '/about/legal', lastmod: legalMod, changefreq: 'monthly' });
 for (const page of LEGAL_PAGES) {
-  // 'about' is reachable at /about in its own right; listing it twice would
-  // offer a crawler two URLs for one page.
-  if (page.id === 'about') continue;
+  if (isLegalNoticeId(page.id)) continue;
   entries.push({ loc: `/legal/${encodeURIComponent(page.id)}`, lastmod: legalMod, changefreq: 'monthly' });
 }
 

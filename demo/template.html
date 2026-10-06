@@ -2563,6 +2563,8 @@
   .biz-row { display: grid; grid-template-columns: 12em 1fr; gap: 6px 14px; align-items: baseline; }
   .biz-row dt { color: var(--faint); font-size: 13px; }
   .biz-row dd { margin: 0; }
+  /* A definition is body text like the paragraphs around it, not the browser's default 16px. */
+  .doc .biz-row dd { font-size: 14px; line-height: 1.62; color: var(--ink-2); }
   .biz-row code { font-size: 12.5px; overflow-wrap: anywhere; }
   @media (max-width: 560px) { .biz-row { grid-template-columns: 1fr; gap: 2px; } }
   .doc h2 { margin: 24px 0 7px; }
@@ -3149,38 +3151,69 @@
   .premium-list li { display: flex; flex-direction: column; gap: 2px; margin: 0; }
   .premium-list strong { font-size: 14.5px; }
 
-  /* ── About (2026-10-04) ───────────────────────────────────────────────── */
-  .doc .about-mission { font-size: 17px; line-height: 1.45; color: var(--ink); margin: 0 0 16px; }
-  .about-stats {
-    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0 0 18px;
+  /* ── About (2026-10-04, shortened 2026-10-06) ─────────────────────────────
+     Very little text: why the site exists, three live numbers, four short
+     cards, who runs it, the contact form. On the desktop layout the page
+     takes the whole width, like the lists (the 640px reading width every
+     other document keeps does not apply to it); on a phone it stacks. */
+  :root[data-layout="desktop"] .doc.about-doc { max-width: none; }
+  .about-hero { display: grid; gap: 12px; margin: 0 0 6px; }
+  .about-why {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 16px 16px 4px; min-width: 0;
   }
+  .doc .about-why h2 { margin: 0 0 8px; }
+  .doc .about-why p { font-size: 17px; line-height: 1.5; color: var(--ink); margin: 0 0 12px; }
+  .about-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0; }
   .about-stat {
     background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
-    padding: 10px 10px 12px; display: flex; flex-direction: column-reverse; gap: 2px; min-width: 0;
+    padding: 10px 10px 12px; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 2px; min-width: 0;
   }
   .about-stat dd { margin: 0; font-size: 22px; font-weight: 750; letter-spacing: -.02em; color: var(--ink); font-variant-numeric: tabular-nums; }
   .about-stat dt { color: var(--ink-2); line-height: 1.3; }
   @media (max-width: 400px) { .about-stat dd { font-size: 18px; } }
+  /* Text on the left, the three numbers stacked on the right. */
+  :root[data-layout="desktop"] .about-hero { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px; }
+  :root[data-layout="desktop"] .about-why { padding: 24px 28px 12px; }
+  :root[data-layout="desktop"] .doc .about-why p { font-size: 24px; line-height: 1.4; letter-spacing: -.01em; max-width: 34em; }
+  :root[data-layout="desktop"] .about-stats { grid-template-columns: minmax(0, 1fr); grid-auto-rows: 1fr; }
+  :root[data-layout="desktop"] .about-stat { padding: 14px 18px; flex-direction: row-reverse; align-items: baseline; justify-content: flex-end; gap: 12px; }
+  :root[data-layout="desktop"] .about-stat dd { font-size: 28px; }
+  :root[data-layout="desktop"] .about-stat dt { font-size: 14px; }
   .doc ul.about-cards {
-    list-style: none; padding: 0; margin: 0 0 12px;
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 10px;
+    list-style: none; padding: 0; margin: 0 0 8px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 10px;
   }
   .doc .about-card {
     margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;
   }
   .about-card-title { margin: 0 0 4px; font-size: 15px; font-weight: 700; color: var(--ink); }
   .doc .about-card p { margin: 0; font-size: 13.5px; }
-  .about-faq { border-top: 1px solid var(--line); }
-  .about-faq-item { border-bottom: 1px solid var(--line); }
-  .about-faq-item > summary {
-    cursor: pointer; padding: 12px 2px; min-height: 44px; box-sizing: border-box;
-    font-size: 15px; font-weight: 600; color: var(--ink);
+  .about-more { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 14px 0 0; }
+  .about-lower { display: grid; gap: 0 40px; }
+  :root[data-layout="desktop"] .about-lower { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+  .about-foot { margin-top: 28px; padding-top: 6px; border-top: 1px solid var(--line); }
+  .about-foot p { margin: 8px 0 0; }
+  .doc .about-foot .about-legal a { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; font-weight: 600; }
+  .about-foot .foot-legal { margin-top: 0; }
+
+  /* ── Legal Notice (2026-10-06): the legal pages as sections of one page ── */
+  .notice-toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
+  .doc a.notice-toc-link {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; box-sizing: border-box;
+    border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
+    color: var(--ink); font-size: 13.5px; font-weight: 600; text-decoration: none;
   }
-  .about-faq-item > summary:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
-  .doc .about-faq-item p { margin: 0 2px 12px; }
-  .about-foot { margin-top: 28px; padding-top: 6px; border-top: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; text-align: center; }
-  .about-foot h2 { align-self: stretch; text-align: left; }
-  .about-foot .foot-links, .about-foot .foot-legal { align-self: stretch; }
+  .doc a.notice-toc-link:hover { border-color: var(--line-firm); }
+  .doc a.notice-toc-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .notice-section {
+    margin-top: 36px; padding-top: 6px; border-top: 1px solid var(--line);
+    scroll-margin-top: calc(var(--bar-h) + 12px);
+  }
+  .notice-section:focus { outline: none; }
+  .doc .notice-title { font: 700 21px/1.2 var(--font-sans); letter-spacing: -.015em; color: var(--ink); margin: 22px 0 10px; }
+  .doc .notice-section h3 { margin: 22px 0 6px; }
+  .doc .summary-box h3 { margin: 0 0 8px; }
 
   /* Account page: the change-password fold and the sign out / delete row. */
   .account-more { margin: 4px 0 18px; }
@@ -3258,6 +3291,9 @@
 
   <footer class="site-footer">
     <div class="footer-social">
+      <!-- The Legal Notice (terms, privacy, affiliate disclosure), under About.
+           Linked from About too; a real href, intercepted like the one below. -->
+      <a class="footer-link" href="/about/legal" data-goto="legalNotice">Legal Notice</a>
       <!-- The one route into the design system page. A real href so it can be
            copied, opened in a new tab and linked to; the click handler in
            app.ts intercepts it for the in-app router the same way every other
