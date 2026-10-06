@@ -19,6 +19,7 @@
  * load, in any list, the sitemap or the counts changes.
  */
 import type { StockState } from '../types/offer.js';
+import type { GiftSetRecord } from './giftSet.js';
 
 /** One price a shop last confirmed for a dormant product, kept for its graph. */
 export interface DormantOffer {
@@ -47,7 +48,7 @@ export interface DormantEntry {
   /** The CSS transform that evens the bottle's size, only where one applies. */
   imageTransform?: string;
   /** Set only for a gift set, as on a catalogue entry. */
-  giftSet?: { contents: string[] | null; title: string };
+  giftSet?: GiftSetRecord;
   /** Every price the shops last confirmed, oldest first. */
   older: DormantOffer[];
 }

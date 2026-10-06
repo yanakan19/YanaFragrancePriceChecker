@@ -118,7 +118,8 @@ describe('giftSetContents and giftSetName', () => {
   it('reads the contents a title spells out', () => {
     expect(giftSetContents('Firetrap Oura Eau De Toilette 50ml & Bodywash 150ml')).toEqual(['50ml Eau de Toilette', '150ml Body Wash']);
     expect(giftSetContents('Pride No.1 Gift Set by Lattafa 5X20ml Eau De Parfum')).toEqual(['5 x 20ml Eau de Parfum']);
-    expect(giftSetContents('Azzaro Forever Wanted Elixir 100ml Parfum + 2x 10ml Set')).toEqual(['100ml Parfum', '2 x 10ml']);
+    // Named change (phase 3): a bare size takes the item word nearest it, so the 10ml after a 100ml Parfum is a Parfum.
+    expect(giftSetContents('Azzaro Forever Wanted Elixir 100ml Parfum + 2x 10ml Set')).toEqual(['100ml Parfum', '2 x 10ml Parfum']);
     expect(giftSetContents('Musamam White Intense Perfume 3pcs Unisex Gift Set')).toEqual(['3 pieces']);
   });
 
