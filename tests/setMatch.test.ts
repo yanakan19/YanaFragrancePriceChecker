@@ -203,13 +203,21 @@ describe('this build\'s own report', () => {
   it('answers every retired id: the old address opens the set that holds it now', () => {
     const live = new Set(CATALOGUE.map((c) => c.id));
     const data = { products: DORMANT_PRODUCTS, aliases: ID_ALIASES, slugAliases: SLUG_ALIASES };
+    // An id that was never a page needs no address to answer: a set first seen in the same
+    // build that folded it into another has no link anyone could hold (src/catalogue/idAliases.ts).
+    // Every page address ever published has a slug in data/product-slugs.json, append only.
+    const everAPage = new Set(Object.keys((JSON.parse(readFileSync(resolve(root, 'data/product-slugs.json'), 'utf8')) as { slugs: Record<string, string> }).slugs));
+    let answered = 0;
     for (const g of report.groups) {
       expect(live.has(g.canonical), g.canonical).toBe(true);
       for (const old of g.absorbed) {
         expect(live.has(old), `${old} is gone`).toBe(false);
+        if (!everAPage.has(old)) continue;
         expect(movedTo(data, old, (id) => live.has(id)), old).toBe(g.canonical);
+        answered++;
       }
     }
+    expect(answered).toBeGreaterThan(100);
   });
 
   it('left a set at two shops or more for what it folded, and none of them with a bottle or an oil', () => {
