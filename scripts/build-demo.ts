@@ -55,6 +55,10 @@ import {
 } from './dataFiles.js';
 import { adsTxt, verificationMeta } from '../demo/ads.js';
 import { readSiteBuild, siteHeadScript } from './siteBuild.js';
+import {
+  SITE_URL as HEAD_SITE_URL, SHARE_TITLE, SHARE_DESCRIPTION,
+  OG_IMAGE_URL, OG_IMAGE_WIDTH, OG_IMAGE_HEIGHT, OG_IMAGE_ALT,
+} from '../demo/head.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -151,14 +155,15 @@ writeFileSync(
 // in a shared link. og-preview.png is generated straight from this homepage
 // by scripts/generate-og-preview.ts, so it cannot drift from the real
 // branding the way a hand-made image would.
-const SITE_URL = 'https://pricesniffs.space';
+const SITE_URL = HEAD_SITE_URL;
 
 // The developer dashboard's switches (scripts/siteBuild.ts), right after the
 // loader because it chains onto the loader's promise. Nothing at all while the
 // counter is off and nothing is hidden, which is every build but the deploy's.
 const siteScript = siteHeadScript(readSiteBuild(root));
 const siteScriptTag = siteScript ? `<script>${siteScript}</script>\n` : '';
-const OG_DESCRIPTION = 'Compare real UK fragrance prices across every retailer that stocks them. No invented numbers.';
+// The site wide default a shared link shows, and the home page's description:
+// the owner's exact words (demo/head.ts).
 
 const standalone = `<!doctype html>
 ${demoBuildHashComment(inputsHash.hash)}
@@ -177,21 +182,23 @@ ${verificationMeta()}
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="PriceSniffs" />
 <meta name="mobile-web-app-capable" content="yes" />
-<meta name="description" content="${OG_DESCRIPTION}" />
+<meta name="description" content="${SHARE_DESCRIPTION}" />
 <link rel="canonical" href="${SITE_URL}/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PriceSniffs" />
-<meta property="og:title" content="PriceSniffs: compare fragrance prices across UK retailers" />
-<meta property="og:description" content="${OG_DESCRIPTION}" />
+<meta property="og:title" content="${SHARE_TITLE}" />
+<meta property="og:description" content="${SHARE_DESCRIPTION}" />
 <meta property="og:url" content="${SITE_URL}/" />
-<meta property="og:image" content="${SITE_URL}/og-preview.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="PriceSniffs: compare fragrance prices across UK retailers" />
+<meta property="og:image" content="${OG_IMAGE_URL}" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="${OG_IMAGE_WIDTH}" />
+<meta property="og:image:height" content="${OG_IMAGE_HEIGHT}" />
+<meta property="og:image:alt" content="${OG_IMAGE_ALT}" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="PriceSniffs: compare fragrance prices across UK retailers" />
-<meta name="twitter:description" content="${OG_DESCRIPTION}" />
-<meta name="twitter:image" content="${SITE_URL}/og-preview.png" />
+<meta name="twitter:title" content="${SHARE_TITLE}" />
+<meta name="twitter:description" content="${SHARE_DESCRIPTION}" />
+<meta name="twitter:image" content="${OG_IMAGE_URL}" />
+<meta name="twitter:image:alt" content="${OG_IMAGE_ALT}" />
 <script>${loaderScript(dataFiles, lazyFiles)}</script>
 ${siteScriptTag}${body}
 </html>
