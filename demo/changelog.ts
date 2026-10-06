@@ -17,6 +17,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.93.0',
+    date: '6 Oct 2026',
+    title: 'Perfume Direct matched by barcode',
+    points: [
+      '3,011 Perfume Direct bottles now match exactly',
+      '273 more of its bottles compare with other shops',
+      'Old links to merged pages still work',
+    ],
+  },
+  {
     version: 'v3.92.0',
     date: '6 Oct 2026',
     title: 'Oils: filters and price per ml',
