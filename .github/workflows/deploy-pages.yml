@@ -26,8 +26,20 @@ name: Deploy site
 # and the fragrance links job push with exactly that token. Chaining off their
 # *completion* sidesteps that, because the trigger is the finished run rather
 # than its push. It runs whether or not the run succeeded: the harvest commits
-# prices well before the later steps that can fail. A run that changed nothing
-# rebuilds and republishes the same page, which is harmless.
+# prices well before the later steps that can fail.
+#
+# ── Only when the page could change (owner decision, 2026-10-06) ─────────────
+# Until 6 October every finished crawl run deployed, the half hourly ticks
+# that skip in seconds included: 86 deploys on 5 October, about 50 of them
+# rebuilding the same page. Now the `decide` job (scripts/deploy-decision.mjs,
+# under a minute, no install) reads back build-state.json from the live site,
+# the commit and the dashboard's hidden and removed list the live page was
+# built from, and the `deploy` job runs only when a file that can change the
+# page (the push filter's folders below) changed since that commit, or the
+# list changed, or the record cannot be read. A push or a run by hand always
+# deploys. The schedule is the dashboard's path: a "Remove" or "Show again"
+# reaches the build within about half an hour, as it did before, and a deploy
+# that failed is retried by the next check.
 #
 # ── Which pushes deploy ──────────────────────────────────────────────────────
 # Any push to the branch except the folders that cannot change the page (data,
@@ -52,6 +64,10 @@ on:
   workflow_run:
     workflows: ['Catalogue crawl', 'Fragrance links daily']
     types: [completed]
+  # The dashboard's hidden and removed list, and a retry of a failed deploy.
+  # Off the hour and half hour, when GitHub's queue is longest.
+  schedule:
+    - cron: '7,37 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -70,11 +86,40 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Light: a checkout of commits and trees only, plain node, two small fetches.
+  decide:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      deploy: ${{ steps.decide.outputs.deploy }}
+      overrides: ${{ steps.decide.outputs.overrides }}
+    steps:
+      - uses: actions/checkout@v4
+        timeout-minutes: 5
+        with:
+          ref: ${{ github.event.workflow_run.head_branch || github.ref }}
+          fetch-depth: 0
+          filter: blob:none
+
+      - uses: actions/setup-node@v4
+        timeout-minutes: 5
+        with:
+          node-version: '22'
+
+      - id: decide
+        name: Decide whether the page could have changed
+        timeout-minutes: 3
+        env:
+          EVENT: ${{ github.event_name }}
+        run: node scripts/deploy-decision.mjs decide
+
   deploy:
+    needs: decide
+    if: needs.decide.outputs.deploy == 'true'
     runs-on: ubuntu-latest
     # Checkout, install and build take about three minutes; the deployment
-    # itself under one. A failed or stuck run is healed by the next (every
-    # crawl run and every push that can change the page starts one).
+    # itself under one. A failed or stuck run is healed by the next (the
+    # half hourly check deploys again while the live record is behind).
     timeout-minutes: 25
     environment:
       name: github-pages
@@ -135,6 +180,15 @@ jobs:
           test -s demo/sitemap.xml
           grep -q '<urlset' demo/sitemap.xml
           ls -la demo/index.html demo/404.html demo/sitemap.xml demo/data
+
+      # What this deployment is built from, published beside the page for the
+      # next run's `decide` job: the commit checked out above and the hidden
+      # and removed list's fingerprint as `decide` read it.
+      - name: Record what this deployment is built from
+        timeout-minutes: 2
+        env:
+          OVERRIDES: ${{ needs.decide.outputs.overrides }}
+        run: node scripts/deploy-decision.mjs record demo/build-state.json
 
       - uses: actions/configure-pages@v5
         timeout-minutes: 5

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-06T09:44:03.590Z",
+  "checkedAt": "2026-10-06T14:00:07.612Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -275,9 +275,9 @@
       "origin": "https://swissarabian.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 180,
+      "listings": 179,
       "pricedInGbp": 0,
-      "withPhoto": 180,
+      "withPhoto": 179,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

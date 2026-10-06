@@ -25,9 +25,11 @@ out of git. This document does not repeat that work; it measures what is left.
    Between two rebuilds, 34,000 of the generated catalogue's changed lines
    are the same "last seen" time per offer. Storing that once per shop run
    instead of once per listing is the biggest saving available (item 6).
-3. **The same 12.3 MB price history is committed twice**: the history inside
-   `data/price-history-checkpoint.json` is byte for byte the
-   `PRICE_HISTORY` in `demo/priceHistory.generated.ts` (item 5).
+3. **The same 12.3 MB price history was committed twice**: the history inside
+   `data/price-history-checkpoint.json` was the same series as the
+   `PRICE_HISTORY` in `demo/priceHistory.generated.ts`. **Done 2026-10-06**
+   (item 5): the checkpoint reads them back from the generated file, 15.9 MB
+   down to 5.0 MB, and each rewrite adds about 40% of what it did.
 4. **`demo/catalogue.generated.ts` was 43.1 MB**, up from 22.0 MB on
    2 October. GitHub warns at 50 MiB and refuses 100 MiB; the push script
    refuses at 95 MiB. It is now written one entry per line: 34.6 MB, the
@@ -39,11 +41,14 @@ out of git. This document does not repeat that work; it measures what is left.
    key could fill the free database with made up page names: migration
    `0008_site_stats_limits.sql` (new) caps rows per hour and folds old rows.
    Both are done; the owner runs the SQL (OWNER-STEPS 8e).
-6. **The site is redeployed about 50 times a day with nothing new**: every
-   crawl run that ends, including the half hourly ticks that skip in seconds,
-   starts a full deploy (86 deploys on 5 October, 58 from finished crawl
-   runs). Free for a public repository, but wasteful (item 4, an owner
-   decision because it slows "Remove" in the dashboard).
+6. **The site was redeployed about 50 times a day with nothing new**: every
+   crawl run that ended, including the half hourly ticks that skip in
+   seconds, started a full deploy (86 deploys on 5 October, 58 from finished
+   crawl runs). **Done 2026-10-06** (item 4, owner decision): a deploy now
+   runs only when a file that can change the page or the dashboard's list
+   changed since the live build. On 5 October's commits that is 13 crawl and
+   links commits instead of 58 runs; a "Remove" still reaches the build
+   within about half an hour.
 
 ## 1. Inventory
 
@@ -54,7 +59,7 @@ out of git. This document does not repeat that work; it measures what is left.
 | Shop snapshots, one file per shop: every listing ever seen, with price, stock, status, first and last seen, description | `data/catalogue/*.json` (51 files) | 143.6 MB; 84,644 listings (75,298 active, 9,346 delisted) | 16.1 MB in the week; 6.0 MB on 5 Oct | 11 commits on 5 Oct: 7 full sweeps, 3 Awin feed syncs, 2 one shop runs (one commit can be several) | **Is the price history's source**: the replay reads every version in git history. Descriptions are 47% of the bytes (67.5 MB) but change rarely (10 a harvest) |
 | Generated catalogue (the site's data) | `demo/catalogue.generated.ts` | 43.1 MB (22.0 on 2 Oct, 35.2 on 4 Oct); 34.6 MB one entry per line from 6 Oct | 27.7 MB in the week; 9.0 MB on 5 Oct | 21 commits on 5 Oct: 8 harvest rebuilds, the rest agents' rebuilds | Indented JSON until item 3 (6 Oct), one entry per line since; `fetchedAt` per offer changes every harvest |
 | Price history (cheapest price per product over time) | `demo/priceHistory.generated.ts` | 16.4 MB; 42,367 products, 137,350 points (3.2 a product, 294 at most) | 4.8 MB in the week; 1.6 MB on 5 Oct | each rebuild | Rebuilt by replaying 556 harvest commits from the checkpoint |
-| Replay checkpoint | `data/price-history-checkpoint.json` | 15.9 MB (12.3 MB of it a copy of the history above, 3.6 MB `everPriced`) | 9.9 MB in the week; 1.9 MB on 5 Oct; 0.1 MB on 6 Oct to 09:00 | at most every 10 commits or 6 hours since b9aeade5 | Resume point; without it the replay starts from the first commit (about ten minutes) |
+| Replay checkpoint | `data/price-history-checkpoint.json` | 15.9 MB (12.3 MB of it a copy of the history above, 3.6 MB `everPriced`); 5.0 MB since item 5 (6 Oct): `everPriced` 3.8 MB and the series' order 1.4 MB | 9.9 MB in the week; 1.9 MB on 5 Oct; 0.1 MB on 6 Oct to 09:00 | at most every 10 commits or 6 hours since b9aeade5 | Resume point; without it the replay starts from the first commit (about ten minutes) |
 | Dormant products | `demo/dormant.generated.ts` | 0.8 MB | 0.76 MB in the week | each rebuild | |
 | Product addresses (append only memory) | `data/product-slugs.json` | 2.2 MB | 0.4 MB in the week | each rebuild, only adds | Never shrink or rewrite: published links |
 | Merged id memory (append only) | `data/id-aliases.json` | 0.77 MB | 0.19 MB in the week | each rebuild, only adds | Same rule |
@@ -75,7 +80,7 @@ the crawl plus about 3 MB a day of social images.
 | What | Measured | Limit and cost |
 |---|---|---|
 | Catalogue crawl runs | 57 on 5 Oct (51 dispatches, most of them half hourly ticks that skip in seconds; 6 schedules), 592 wall minutes | Free (public repository) |
-| Deploy runs | 86 on 5 Oct (58 started by a finished crawl or links run, 28 by pushes), about 215 wall minutes, about 2.5 minutes each | Free |
+| Deploy runs | 86 on 5 Oct (58 started by a finished crawl or links run, 28 by pushes), about 215 wall minutes, about 2.5 minutes each. Since item 4 (6 Oct): on the same day's commits at most 13 after crawl and links runs (the runs that committed a generated module: 8 harvest rebuilds, 3 Awin feed syncs, 1 links run, 1 other rebuild) plus the 28 pushes, so about 41 instead of 86; every other run and the 48 half hourly checks stop after a `decide` job of under a minute | Free |
 | Pages artifacts | 30 live, 12.1 to 12.4 MB each, kept 1 day, 377 MB in all | Free for a public repository |
 | Android debug APK artifacts | 2 × 4.1 MB, kept 14 days | Free |
 | Published site | about 12.4 MB | Pages: 1 GB site, 100 GB a month soft bandwidth; the 10 builds an hour soft limit does not apply to an Actions deploy |
@@ -166,9 +171,9 @@ one listing last Tuesday.
 |---|---|---|
 | R1. "Still here" heartbeats | Harvest `c44bae3f` to `0a2d9b24`: of 82,900 listings in 41 changed files, 64,504 changed only `lastSeenAt` (plus `availabilityReadAt` on 909); 144 changed price, 111 stock, 11 status, 399 were new. Another pair (`9fe8a6a3` to `58bdde04`): 61,331 only `lastSeenAt`, 758 price, 141 stock, 104 status, and a one off backfill of 2,498 barcodes and 4,058 variant ids | Most of the snapshots' 2.3 MB a day |
 | R2. The same in the generated catalogue | Rebuild `05356c5d` to `fa20d9fa`: 68,382 lines in, 56,936 out; 34,000 of each are `fetchedAt` | Much of its 3.9 MB a day |
-| R3. History committed twice | Checkpoint `history` and `PRICE_HISTORY`: identical 12,273,929 byte JSON | About half of the two files' 2 to 3 MB a day; 12.3 MB of checkout |
+| R3. History committed twice | Checkpoint `history` and `PRICE_HISTORY`: identical 12,273,929 byte JSON | About half of the two files' 2 to 3 MB a day; 12.3 MB of checkout. Gone since item 5 |
 | R4. Descriptions in every snapshot | 67.5 MB of 143.6 MB; about 10 change a harvest | Checkout size and replay parsing time, little growth |
-| R5. Redeploys with nothing new | About 50 a day (crawl runs that skipped still start a deploy) | Runner time (free), 12 MB artifacts kept a day (free) |
+| R5. Redeploys with nothing new | About 50 a day (crawl runs that skipped still started a deploy); none since item 4 | Runner time (free), 12 MB artifacts kept a day (free) |
 | R6. History only in git | Every history question replays git; a history rewrite or moving snapshots out of git breaks the history | Blocks the cheaper designs below |
 
 **The most efficient design**, where this should end up:
@@ -260,8 +265,8 @@ account or SQL only the owner can run.
 | 1 | Fix the shop click pattern in 0007 | 5 lines | Clicks counted at all | None: the old function could not run | Owner reruns 0007 | **Done** |
 | 2 | 0008: cap rows per hour, fold old rows daily | 1 SQL file, tested in Postgres | Bounds the counter tables; keeps the free plan's 500 MB for accounts | Low: same signatures; undo by rerunning 0007 | Owner runs it (OWNER-STEPS 8e) | **Done**, waiting for the owner |
 | 3 | Write `demo/catalogue.generated.ts` one entry per line instead of indented (and `productIdsIn` in `src/catalogue/idAliases.ts` reads both forms) | Small code, one full rebuild | 43.1 → 34.6 MB now; keeps it under GitHub's 50 MiB warning for longer; smaller deltas | Medium: the id alias memory reads the old file's text, the crawl rebuilds it many times a day | Without the owner | **Done** 2026-10-06: 43.3 → 34.6 MB, the same data, an identical page; see "Item 3" below and PIPELINE-FAILURE-MODES row 15 |
-| 4 | Deploy after a crawl run only when the branch moved since the last deployment (compare the tip with the last `github-pages` deployment's commit) | Small workflow step | About 50 deploy runs a day | Low for the site; a "Remove" in the dashboard then waits for the next harvest (up to about 4 hours) or a manual deploy instead of up to 30 minutes | **Owner decision** (dashboard behaviour) | Proposed |
-| 5 | Checkpoint without its copy of the history | Medium | 12.3 MB of checkout; about half of the two history files' growth (estimate 0.7 to 1.4 MB a day) | Low: the replay's equivalence test covers it | Without the owner | Proposed |
+| 4 | Deploy after a crawl run only when the page could change: the live site publishes `build-state.json` (the commit and the dashboard list it was built from), and a `decide` job compares it with the tip, through the push filter's folders, and with the list | Small workflow step, `scripts/deploy-decision.mjs` | About 45 deploy runs a day | Low: a missing or unreadable record, or a commit not in the history, deploys; a failed deploy leaves the old record, so the next check retries; a half hourly scheduled check keeps "Remove" and "Show Again" within about half an hour | Owner decided (6 Oct): skip pointless deploys, keep a path for the dashboard | **Done** 2026-10-06 |
+| 5 | Checkpoint without its copy of the history (version 3): it keeps the series' ids in the replay's order and the hash of the history, and reads the series back from `demo/priceHistory.generated.ts`, taking off the points of the commits since | Medium | Measured: 15.9 → 5.0 MB of checkout; the nine rewrites of 5 and 6 October pack to 1.23 MB instead of 2.58 MB, so about 0.8 MB a day less | Low: only an exact hash match is resumed, anything else replays from the first commit; version 2 is still read and still written when the generated file cannot give the history back | Without the owner | **Done** 2026-10-06; see "Item 5" below |
 | 6 | "Last seen" once per shop run, not per listing (snapshots), and per shop in the generated catalogue | Medium to large: the harvest writer, every reader, the replay over old commits | The largest crawl saving: most of R1 and R2, estimate 3 to 5 MB a day | Medium: freshness, the 7 day rule and offer ages all read it; needs readers that fill it in | Without the owner, as its own task | Proposed |
 | 7 | Price event log (store only changes) beside the snapshots | Medium | Per listing history; replay in seconds; frees the snapshots' history (enables 10) | Low if written alongside first and compared with the replay before anything reads it | Without the owner | Proposed |
 | 8 | Social images out of git (render when needed, or delete once posted) | Small | About 3 MB a day (21.1 MB in the week) | Owner's routines change | **Owner decision** (OWNER-STEPS 7d, decision 2) | Proposed |
@@ -277,6 +282,38 @@ rest are proposals: 3, 5, 6, 7 and 9 an agent can take without the owner
 1 code). With 3, 5 and 6 done: estimate 4 to 6 MB a day, about 3 of it
 social. With 8 as well: 1 to 3 MB a day, and 1 GB moves from about four
 weeks away to many months.
+
+### Item 5: the checkpoint without its copy of the history
+
+Done 2026-10-06 (`scripts/priceHistoryCheckpointFile.ts`, version 3). The
+generated file is rebuilt every time and the checkpoint only when ten commits
+or six hours behind, so the generated file is usually ahead of it. A series
+only grows at its end, one point per commit at that commit's time, so the
+checkpoint's series are the generated file's with the newer commits' points
+taken off the end and the newer series left out. The reader does exactly
+that and resumes only when the result hashes to what the checkpoint recorded.
+The series' ids are kept in the replay's own order (1.4 MB, new ids only at
+the end) because that order decides the order of `PRICE_HISTORY_GAP`'s keys:
+without it the rebuilt file held the same data in another order.
+
+Checked on the real history: a version 3 checkpoint written at the branch's
+checkpoint commit (556 of 558 commits) and at an older one with the same
+rules (553), read back against the generated file rebuilt at the tip, gives
+the version 2 state exactly (key order included), and resuming from it gives
+a `demo/priceHistory.generated.ts` identical byte for byte to resuming from
+version 2. A second rebuild from the version 3 file changes nothing. Packed
+the way git packs them, the nine checkpoint versions committed on 5 and
+6 October take 2,584,958 bytes as version 2 and 1,225,631 bytes as version 3
+(about 190 kB a rewrite down to about 77 kB).
+
+Found on the way: the git on GitHub's runners writes a commit's time as
+`2026-10-06T14:00:09Z`, an older git as `2026-10-06T14:00:09+00:00`, and the
+replay copies that text into each point. So a history rebuilt on an agent's
+machine is the same data as the crawl's in different text (8 kB longer at
+558 commits), and a version 3 checkpoint from one machine beside a generated
+file from the other is refused by its hash (a full replay, about 8 minutes),
+which is why CLAUDE.md's rule of taking both files from one side matters.
+The reader compares commit times as times, so the crawl's own files resume.
 
 ### Item 3: what the catalogue file is made of
 
@@ -333,10 +370,8 @@ Together the first three would take the file from 34.6 to about 25 to 27 MB.
 
 ## Owner decisions
 
-- **Item 4**: should a "Remove" in the dashboard keep reaching the site within
-  half an hour (today's redeploy after every crawl run), or wait for the next
-  harvest (up to about 4 hours) in exchange for about 50 fewer deploys a day?
-  Default if no answer: leave as is (it costs nothing on a public repository).
+- **Item 4**: decided 6 October: deploy only when the page could change,
+  with a half hourly check of the dashboard's list. Done.
 - **Item 8**: the social images, as already asked in OWNER-STEPS 7d.
 - **Item 10**: the history rewrite, as already asked in OWNER-STEPS 7d; if
   wanted, best after item 7 has run for a few weeks.

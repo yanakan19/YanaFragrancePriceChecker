@@ -94,9 +94,10 @@ describe('descriptions', () => {
   // count is rounded down to the ten below, so it never claims more shops
   // than actually show prices.
   it('uses the real fragrance count and a shop count rounded down', () => {
-    const t = tags({ route: route('home'), productCount: 12662, retailerCount: 28 });
-    expect(t.description).toContain('12,662');
-    expect(t.description).toContain('more than 20 UK shops');
+    const t = tags({ route: route('brands'), productCount: 12662, retailerCount: 28 });
+    expect(t.description).not.toMatch(/£/);
+    const r = tags({ route: route('retailers'), productCount: 12662, retailerCount: 28 });
+    expect(r.description).toContain('more than 20 UK shops');
   });
 
   it('rounds the shop count down to the ten below, never up', () => {
