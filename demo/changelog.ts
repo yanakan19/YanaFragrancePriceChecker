@@ -30,15 +30,15 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
-    version: 'v3.98.0',
+    version: 'v3.99.0',
     date: '6 Oct 2026',
     groups: [
       {
         heading: 'New',
         points: [
           'Filters: tick several at once, shown as chips',
-          'Oils: filters, sorting and price per ml',
-          'Sets: filters, sorting and a list of contents',
+          'Oils and Sets: filters, sorting, price per ml',
+          'Set and oil pages: contents, links, bottle price',
           'Many more brand pages show the real logo',
           'A shorter About page and a Legal Notice page',
           'Privacy notice covers our cookieless visit count',
@@ -52,7 +52,7 @@ export const CHANGELOG: ChangelogEntry[] = [
           '3,011 Perfume Direct bottles now match exactly',
           '273 more of its bottles compare with other shops',
           'About 1,600 Perfume Click photos are now larger',
-          'Scent notes: cleaner names and fuller lists',
+          'Bulgari and Bvlgari are now one brand page',
         ],
       },
     ],

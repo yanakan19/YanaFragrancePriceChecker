@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { BRAND_MERGES, HAND_ALIASES, KNOWN_ALIASES, brandKey, buildBrandCanon } from '../src/catalogue/brandName.js';
 import { BRAND_ALIAS_SLUGS, matchRoute, slugify } from '../demo/router.js';
+import { logoFor } from '../demo/brandLogos.js';
+import { officialSiteFor } from '../demo/brandSites.js';
 
 describe('BRAND_MERGES', () => {
   it('has no chains, repeats or self merges', () => {
@@ -91,6 +93,38 @@ describe('BRAND_MERGES', () => {
     for (const [from, to] of BRAND_MERGES) {
       expect(`${from} ${to}`).not.toMatch(/\bintense\b/i);
     }
+  });
+});
+
+describe('Bvlgari and the spelling sweep of 6 Oct 2026', () => {
+  it('folds Bulgari, whatever the casing, into Bvlgari', () => {
+    const canon = buildBrandCanon(['Bvlgari', 'BVLGARI', 'Bulgari', 'BULGARI']);
+    for (const name of ['Bvlgari', 'BVLGARI', 'Bulgari', 'BULGARI']) expect(canon.get(name), name).toBe('Bvlgari');
+  });
+
+  it('folds the trailing word variants into the house name and leaves Essential apart', () => {
+    const canon = buildBrandCanon([
+      'Maison Francis Kurkdjian', 'Maison Francis Kurkdjian Paris', 'Lattafa', 'Lattafa Perfume', 'Dumont',
+      'Dumont Paris', 'Versatile', 'Versatile Paris', 'Essential Parfums', 'Essential Perfumes',
+    ]);
+    expect(canon.get('Maison Francis Kurkdjian Paris')).toBe('Maison Francis Kurkdjian');
+    expect(canon.get('Lattafa Perfume')).toBe('Lattafa');
+    expect(canon.get('Dumont')).toBe('Dumont Paris');
+    expect(canon.get('Versatile Paris')).toBe('Versatile');
+    expect(canon.get('Essential Perfumes')).toBe('Essential Perfumes');
+  });
+
+  it('sends the old Bulgari brand page to Bvlgari', () => {
+    expect(matchRoute('/brands/bulgari')).toMatchObject({ name: 'brand', param: 'bvlgari' });
+    expect(matchRoute('/brands/bvlgari')).toMatchObject({ name: 'brand', param: 'bvlgari' });
+  });
+
+  it('gives both spellings the same logo and the same site', () => {
+    expect(logoFor('Bulgari')).not.toBeNull();
+    expect(logoFor('Bulgari')).toBe(logoFor('Bvlgari'));
+    expect(logoFor('BULGARI')).toBe(logoFor('Bvlgari'));
+    expect(officialSiteFor('Bulgari')).toEqual(officialSiteFor('Bvlgari'));
+    expect(officialSiteFor('Bvlgari')).not.toBeNull();
   });
 });
 
