@@ -53,12 +53,12 @@ describe.skipIf(!built)('top bar, Explore and the home page bottom', () => {
     await page.close();
   }, 90_000);
 
-  it('has no search box under Brands, Retailers or Notes, only the Quick Search in the top bar; Oils and Sets have their own', async () => {
+  it('has no search box under Brands, Retailers or Notes, only the Quick Search in the top bar; Fragrances, Oils and Sets have their own', async () => {
     const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
     await page.goto(`http://localhost:${port}/brands`, { waitUntil: 'load' });
     await waitForApp(page);
     const found: Record<string, { tabs: string[]; fields: number; searchInputs: number }> = {};
-    for (const route of ['/brands', '/retailers', '/notes', '/oils', '/sets']) {
+    for (const route of ['/fragrances', '/brands', '/retailers', '/notes', '/oils', '/sets']) {
       await visit(page, route);
       found[route] = (await page.evaluate(`(() => ({
         tabs: [...document.querySelectorAll('#subnav [data-tab]')].map((b) => b.textContent.trim()),
@@ -67,10 +67,10 @@ describe.skipIf(!built)('top bar, Explore and the home page bottom', () => {
       }))()`)) as { tabs: string[]; fields: number; searchInputs: number };
     }
     for (const [route, f] of Object.entries(found)) {
-      expect(f.tabs, route).toEqual(['Brands', 'Retailers', 'Notes', 'Oils', 'Sets']);
-      // Oils and Sets each have a search box of their own, searching only within
+      expect(f.tabs, route).toEqual(['All Fragrances', 'All Oils', 'All Sets', 'All Brands', 'All Retailers', 'All Notes']);
+      // All Fragrances, Oils and Sets each have a search box of their own, searching only within
       // that tab (owner's decision, 2026-10-05); the other three have none.
-      const own = route === '/oils' || route === '/sets' ? 1 : 0;
+      const own = route === '/oils' || route === '/sets' || route === '/fragrances' ? 1 : 0;
       expect(f.fields, route).toBe(own);
       expect(f.searchInputs, `${route}: the top bar search${own ? ' and the tab\'s own' : ' only'}`).toBe(1 + own);
     }

@@ -1,7 +1,7 @@
 import type { DemoFragrance } from './data.js';
 import { BY_POPULARITY, shopIdsOf, shopNameOf } from './data.js';
 import type { FilterContext } from './filterUi.js';
-import { OIL_SORT_OPTIONS, SET_SORT_OPTIONS, sortTab, type SortOption, type TabSort } from './listSort.js';
+import { BROWSE_SORT_OPTIONS, OIL_SORT_OPTIONS, SET_SORT_OPTIONS, sortTab, type SortOption, type TabSort } from './listSort.js';
 import { isOil, isSet } from './productKind.js';
 import {
   MAIN_BOTTLE_BANDS,
@@ -43,9 +43,9 @@ import {
  * panel), and hands them in.
  */
 
-export type TabKind = 'oils' | 'sets';
-export const TAB_KINDS: readonly TabKind[] = ['oils', 'sets'];
-export const isTabKind = (x: string): x is TabKind => x === 'oils' || x === 'sets';
+export type TabKind = 'fragrances' | 'oils' | 'sets';
+export const TAB_KINDS: readonly TabKind[] = ['fragrances', 'oils', 'sets'];
+export const isTabKind = (x: string): x is TabKind => x === 'fragrances' || x === 'oils' || x === 'sets';
 
 /** What the page hands in. Kept to the things that need the page's own data or markup. */
 export interface TabDeps {
@@ -62,6 +62,8 @@ export interface TabDeps {
   listControls(sort: string, ui: { toggle: string; panel: string }): string;
   /** The Filters button and the chips for a list, the same on every list (demo/filterUi.ts). */
   filterControls(ctx: FilterContext<DemoFragrance>): { toggle: string; panel: string };
+  /** The filters the main fragrance list offers (Brand, Shop, Size, Price, Gender...), for All Fragrances. */
+  fragranceFacets: readonly Facet<DemoFragrance>[];
   esc(s: string): string;
 }
 
@@ -89,7 +91,9 @@ const OIL_STATED_NOTE = 'Roll On, Dropper and Alcohol Free are only what a shop 
 /** Built once, the first time a tab is opened: the first load never pays for it. */
 const itemsCache: Partial<Record<TabKind, DemoFragrance[]>> = {};
 function itemsOf(kind: TabKind): DemoFragrance[] {
-  return (itemsCache[kind] ??= BY_POPULARITY.filter(kind === 'sets' ? isSet : isOil));
+  return (itemsCache[kind] ??= BY_POPULARITY.filter(
+    kind === 'sets' ? isSet : kind === 'oils' ? isOil : (f) => !isSet(f) && !isOil(f),
+  ));
 }
 
 export function createTabs(deps: TabDeps) {
@@ -161,6 +165,18 @@ export function createTabs(deps: TabDeps) {
   const alcoholFree: Facet<DemoFragrance> = { kind: 'check', id: 'alcohol', label: 'Alcohol Free', flag: (f) => f.oil?.alcoholFree === true };
 
   const specs: Record<TabKind, TabSpec> = {
+    // Every bottle, every size, with the filters and sorts the search page has. Sets and
+    // oils are in no bottle list, the same rule as the search page and a brand's page.
+    fragrances: {
+      title: 'Fragrances',
+      searchLabel: 'Fragrances',
+      note: 'Every perfume we track, one line for each size. Sets and oils have their own tabs.',
+      empty: 'No fragrance matches that.',
+      noun: ['Fragrance', 'Fragrances'],
+      sorts: BROWSE_SORT_OPTIONS,
+      facets: deps.fragranceFacets,
+      items: () => itemsOf('fragrances'),
+    },
     sets: {
       title: 'Sets',
       searchLabel: 'Sets',
@@ -186,6 +202,7 @@ export function createTabs(deps: TabDeps) {
   };
 
   const states: Record<TabKind, TabListState> = {
+    fragrances: emptyTabState(DEFAULT_SORT),
     oils: emptyTabState(DEFAULT_SORT),
     sets: emptyTabState(DEFAULT_SORT),
   };
@@ -293,7 +310,7 @@ export function createTabs(deps: TabDeps) {
     /** Both tabs' states for the history entry, and back again. */
     snapshot(): Record<TabKind, TabListState> {
       const copy = (s: TabListState): TabListState => ({ q: s.q, sort: s.sort, sel: Object.fromEntries(Object.entries(s.sel).map(([k, v]) => [k, [...v]])) });
-      return { oils: copy(states.oils), sets: copy(states.sets) };
+      return { fragrances: copy(states.fragrances), oils: copy(states.oils), sets: copy(states.sets) };
     },
     restore(saved: Partial<Record<TabKind, { q?: unknown; sort?: unknown; sel?: unknown }>> | undefined): void {
       for (const kind of TAB_KINDS) {

@@ -75,7 +75,7 @@ describe.skipIf(!built)('the Oils and Sets tabs on the built site', () => {
     page.evaluate(`({ sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth })`) as Promise<{ sw: number; cw: number }>;
 
   for (const width of [390, 1280]) {
-    it(`draws /sets and /oils at ${width} wide with the five tabs in order, their own count, and no bottle`, async () => {
+    it(`draws /sets and /oils at ${width} wide with the six tabs in order, their own count, and no bottle`, async () => {
       for (const [route, label, want, own, other] of [
         ['/sets', 'Sets', SETS.length, SET_IDS, OIL_IDS],
         ['/oils', 'Oils', OILS.length, OIL_IDS, SET_IDS],
@@ -85,10 +85,10 @@ describe.skipIf(!built)('the Oils and Sets tabs on the built site', () => {
         expect(h, route).toEqual({ h1: label, count: want });
         expect(await page.title()).toBe(`PriceSniffs: ${label}`);
         const tabs = (await page.evaluate(`[...document.querySelectorAll('#subnav [data-tab]')].map((b) => [b.textContent.trim(), b.classList.contains('on')])`)) as [string, boolean][];
-        expect(tabs.map(([t]) => t), route).toEqual(['Brands', 'Retailers', 'Notes', 'Oils', 'Sets']);
-        expect(tabs.filter(([, on]) => on).map(([t]) => t), route).toEqual([label]);
-        if (width === 390) {
-          // All five labels are visible without scrolling the row.
+        expect(tabs.map(([t]) => t), route).toEqual(['All Fragrances', 'All Oils', 'All Sets', 'All Brands', 'All Retailers', 'All Notes']);
+        expect(tabs.filter(([, on]) => on).map(([t]) => t), route).toEqual([`All ${label}`]);
+        if (width === 1280) {
+          // All six labels are visible without scrolling the row.
           const fit = (await page.evaluate(`(() => { const s = document.getElementById('subnav'); return { sw: s.scrollWidth, cw: s.clientWidth }; })()`)) as { sw: number; cw: number };
           expect(fit.sw, `${route}: tab row`).toBeLessThanOrEqual(fit.cw);
         }
@@ -110,9 +110,10 @@ describe.skipIf(!built)('the Oils and Sets tabs on the built site', () => {
     const { page, ctx } = await open('/sets', 320);
     const r = (await page.evaluate(`(() => {
       const s = document.getElementById('subnav'); const on = s.querySelector('.on').getBoundingClientRect(); const box = s.getBoundingClientRect();
-      return { right: on.right, boxRight: box.right, sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth };
-    })()`)) as { right: number; boxRight: number; sw: number; cw: number };
+      return { right: on.right, left: on.left, boxLeft: box.left, boxRight: box.right, sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth };
+    })()`)) as { right: number; left: number; boxLeft: number; boxRight: number; sw: number; cw: number };
     expect(r.right).toBeLessThanOrEqual(r.boxRight + 1);
+    expect(r.left).toBeGreaterThanOrEqual(r.boxLeft - 1);
     expect(r.sw).toBeLessThanOrEqual(r.cw);
     await ctx.close();
   }, 60_000);
@@ -121,7 +122,7 @@ describe.skipIf(!built)('the Oils and Sets tabs on the built site', () => {
     const { page, ctx } = await open('/gift-sets');
     expect(where(page)).toBe('/sets');
     expect((await heading(page)).h1).toBe('Sets');
-    expect(await page.evaluate(`document.querySelector('#subnav .on').textContent.trim()`)).toBe('Sets');
+    expect(await page.evaluate(`document.querySelector('#subnav .on').textContent.trim()`)).toBe('All Sets');
     await ctx.close();
   }, 60_000);
 
