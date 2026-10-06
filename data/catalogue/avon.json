@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-06T16:59:44.144Z",
-  "seenAt": "2026-10-06T16:59:44.144Z",
+  "updatedAt": "2026-10-06T21:08:43.174Z",
+  "seenAt": "2026-10-06T21:08:43.174Z",
   "source": "live",
   "listings": [
     {
@@ -38700,7 +38700,7 @@
       "priceGbp": 17,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: Discover an aftershave that’s full of sophisticated charm with the Oriental and woody scents of Elite Gentleman Eau de Toilette. Pursue excellence with the tailor-made scents of sophisticated juniper, rich cardamom and refined cedarwood. Product specification: • Top note: juniper. • Middle note: cardamom. • Base note: cedarwood. • 75ml. How to use me: Add excellence into every step of your journey by spraying the Oriental and woody aftershave to your pulse points for a true scent experience..",
       "productType": "FRAGRANCE",

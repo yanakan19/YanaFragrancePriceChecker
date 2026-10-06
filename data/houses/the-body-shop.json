@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-10-06T17:53:29.378Z",
-  "seenAt": "2026-10-06T17:53:29.378Z",
+  "updatedAt": "2026-10-06T21:53:23.569Z",
+  "seenAt": "2026-10-06T21:53:23.569Z",
   "source": "live",
   "listings": [
     {
@@ -7443,7 +7443,7 @@
       "priceGbp": 10.5,
       "wasPriceGbp": 15,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Buy our best ever Coconut Body Lotion, help love, soothe & nourish very dry skin like never before. Vegan & made with 93% ingredients of natural origin..",
       "productType": "Body Lotions",
