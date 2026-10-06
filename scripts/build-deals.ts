@@ -51,6 +51,7 @@ import { RETAILERS, getRetailer } from '../src/config/retailers.js';
 import { dealCandidateForOffer } from '../src/services/dealCandidates.js';
 import { presentOffer } from '../src/services/priceService.js';
 import { shownPrice } from '../demo/msrpComparison.js';
+import { productKind } from '../demo/productKind.js';
 import type { StockState } from '../src/types/offer.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -214,6 +215,11 @@ const SINGLE_BRAND_ONLY_IDS = new Set(
 const now = new Date();
 
 const deals: RawDeal[] = DEMO_FRAGRANCES.flatMap((fragrance) => {
+  // Only a bottle can be a deal (docs/GIFT-SETS-AND-OILS-PLAN.md, 2.6). A set is
+  // compared only with the same set and has no reference price to be a saving
+  // against, and an oil is sold on a scale that does not compare with a spray;
+  // an explicit rule, not the absence of a reference price that kept sets out.
+  if (productKind(fragrance) !== 'bottle') return [];
   const candidates: RawDeal[] = [];
   for (const o of CRAWLED[fragrance.id] ?? []) {
     if (!BUYABLE.has(o.stock) || SINGLE_BRAND_ONLY_IDS.has(o.retailerId)) continue;
