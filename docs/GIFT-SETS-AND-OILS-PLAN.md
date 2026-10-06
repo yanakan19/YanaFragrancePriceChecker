@@ -1,7 +1,8 @@
 # Sets and Oils: plan
 
-Status: plan only, nothing built. Written 2026-10-05 against `8bcea068` (v3.74.0)
-on `claude/scentday-retailer-registry-h92tth`.
+Status: built, phases 0 to 10 (6 Oct 2026); see "Build record, phases 7 to 10" at the
+end. Written 2026-10-05 against `8bcea068` (v3.74.0) on
+`claude/scentday-retailer-registry-h92tth`.
 
 This plans the proper home for gift sets, bundles and perfume oils on
 pricesniffs.space without touching the main perfume comparison.
@@ -917,3 +918,73 @@ not a promise.
 The hand read figures (S2's 9 of 14, S7's real versus not, O3's 36) are a person's
 reading of a keyword search and are labelled so; Phase 2, 4 and 9 replace each with a
 tested figure.
+
+## Build record, phases 7 to 10 (6 Oct 2026)
+
+What was built after phase 6, and what was decided where the plan left a choice. Figures
+are from the build of that day and drift with every crawl.
+
+**Phase 7, product pages.** A set's page lists its contents one item to a line, says
+Bundle or Gift set in its note, names each shop's own title beside its price where two
+shops or more sell it, and links to more sets of the same scent. Where the set's main
+bottle is exactly one catalogue bottle (`giftSet.bottleId`, `src/catalogue/setLinks.ts`:
+same brand, scent words, strength and size, the audience agreeing) and one shop sells
+both in stock, it prints that shop's two prices with a link to the bottle, never a
+percentage or a saving. An oil's page states its format and alcohol free only as a shop
+describes it, its price per ml, other sizes, and a link to the spray of the same scent
+(`oil.sprayId`). 820 sets carry a headline bottle (about 410 have a shop selling both:
+about 90 cheaper than the bottle, about 270 dearer), 1,157 a scent group, 97 oils a spray.
+The page of a bottle holds none of it (`tests/setPageBrowser.test.ts`).
+
+**Phase 8, cross links, counts and Search.** Owner gates taken as the plan recommends,
+because the owner was away: question 1 yes (sets and oils leave every bottle list on the
+search page, a brand's page and a shop's page, and a line above says how many also match
+and opens the tab with the same words, brand or shop), question 6 "Products" (the banner
+says "N+ Products Tracked", the Search button and the page description count bottles, the
+About page gives products, fragrances, sets and oils). `demo/counts.ts` is the only
+source of those numbers, and a test fails if a page builds one from
+`DEMO_FRAGRANCES.length`. The words oil, attar, roll on, set, gift, bundle, coffret, duo
+and trio name a kind and match whole words only (`demo/searchIntent.ts`): "oil" finds 407
+products, not the 5,748 that contain the letters (Toilette). Deals has an explicit rule
+that only a bottle is a deal (6 oil deals left the page). Notes pages still list sets and
+oils, flagged by the tile's own line, as the plan says.
+
+**Phase 9, fragrance sets with no strength word.** `src/catalogue/unnamedSets.ts` is a
+reviewed list, one rule per shop (John Lewis, Cult Beauty, LookFantastic, Just My Look,
+Avon, Emirates Oud, Armaf, Al Haramain, IBRAQ at its shop and Manchester Ouds, Nicchia,
+Les Senteurs, Escentric Molecules, The Fragrance Counter, Fragrance Hub, ScentStore and
+Space NK). Question 8 as recommended: yes to the sets, no to vials (2.5ml or less). Sets
+2,505 to 2,726 (+221). Nothing that was a page changed id; one Kayali duo id is folded by
+set matching into the Kayali set and its old address answers.
+
+**Phase 10, the budget check.** Two measurements, the second the one that attributes.
+
+- File weight (section 4.3's 300 KB across the plan): the fields the plan added to the
+  catalogue and offers JSON are 165 KB raw (0.5% of the 33.2 MB file), 36 KB gzipped.
+  `tests/setsOilsWeight.test.ts` holds it under 300 KB.
+- Load (`npm run perf:load -- --runs 5`, Pixel 7, CPU 4x slower, on a machine shared with
+  other work, so run to run spread is about 0.3 s). The page just before phase 7
+  (`843a689c`) against the build with phases 7 to 9, back to back, twice:
+
+  | | first tiles | bytes by first tiles | transferred |
+  |---|---|---|---|
+  | before phase 7 | 4.46 s, 4.28 s | 4.27 MB | 5.67 MB |
+  | with phases 7 to 9 | 4.80 s, 4.44 s | 4.32 MB | 5.74 MB |
+
+  Phases 7 to 9 add 1.2% to the bytes (limit 2%) and 4 to 8% to the first tiles time on
+  that machine, against a limit of 5% and a noise of the same size.
+
+- The absolute limits of section 4.3 (2.31 s, 3.28 MB) were taken on 5 Oct against a
+  26.3 MB catalogue file. The file is now 33.2 MB for 26,971 products and a first visit
+  is 4.3 MB by the first tiles. That growth was there before phase 7 (the table above
+  starts at 4.27 MB) and is not the plan's: what grew it is outside the Sets and Oils work. The lazy file
+  of section 4.3 would take the sets' data (8.7% of the file, about 0.35 MB gzipped) out of
+  the first load and would not by itself return to 3.28 MB, so it was not built. It is the
+  lever if the owner wants a lighter first visit; the price history and the products with no
+  current prices already load that way (`LAZY_DATA_MODULES` in `scripts/dataFiles.ts`), but the
+  search, brand and shop lines, the Notes pages and Deals read sets today, so each would wait
+  for the file.
+
+Owner decisions taken for the owner (change them by asking): Search leaves sets and oils
+out (1); the banner says Products (6); sets of vials stay out, miniature and travel sets
+count (8).
