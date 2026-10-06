@@ -60,7 +60,7 @@ import { noStockLabel, rowStockMarks } from './stockLabels.js';
 import type { Retailer, RetailerTier, LogoRef } from '../src/types/retailer.js';
 import { logoFor } from './brandLogos.js';
 import {
-  DEMO_FRAGRANCES, BY_POPULARITY, DEALS, NOTE_INDEX,
+  DEMO_FRAGRANCES, BY_POPULARITY, DEALS, NOTE_INDEX, noteForAddress,
   brandTierFor, fragranceById, fragranceBySlug, fragrancesAt, listingCountAt, fragrancesWithNote, lowestPrice, compareVariants, shopIdsOf,
   type Deal, type DemoFragrance, type NoteLayer,
 } from './data.js';
@@ -110,6 +110,7 @@ import { HIDE_OFFER_AFTER_DAYS } from '../src/services/offerAge.js';
 import { HISTORY_SCOPES, priceHistoryChart, type ChartObservation, type PriceHistoryChartInput } from './priceHistoryChart.js';
 import { officialSiteFor } from './brandSites.js';
 import { fragranceLinksFor, fragranticaLabel } from './fragranceLinks.js';
+import { noteSlug } from '../src/catalogue/noteName.js';
 import { matchRoute, routeToPath, setProductSlugLookup, slugify, basePath, type Route, type RouteName } from './router.js';
 import { headFor, withPreviewNoindex, SITE_URL, type HeadTags, type HeadInput } from './head.js';
 import { WRONG_PRICE_PROBLEMS, OTHER_SHOP, wrongPriceMailto, type WrongPriceProblem } from './wrongPrice.js';
@@ -3590,7 +3591,7 @@ function notesPanel(): string {
   const seenLetters = new Set<string>();
   for (const n of list) {
     if (alphabetical) {
-      const initial = (n.name[0] ?? '').toUpperCase();
+      const initial = ((n.sort || n.name)[0] ?? '').toUpperCase();
       if (initial !== current) {
         current = initial;
         seenLetters.add(initial);
@@ -5714,7 +5715,7 @@ function currentRoute(): Route {
         : { name: 'fragrance', param: state.fragranceId, query: {} };
     case 'retailer': return { name: 'retailer', param: state.retailerId, query: listQuery('retailer') };
     case 'brand': return { name: 'brand', param: slugify(state.brandProfile), query: listQuery('brand') };
-    case 'note': return { name: 'note', param: slugify(state.noteName), query: listQuery('note') };
+    case 'note': return { name: 'note', param: noteSlug(state.noteName), query: listQuery('note') };
     case 'legal': return { name: 'legal', param: state.legalId, query: {} };
     case 'notFound': return { name: 'notFound', param: state.notFoundPath, query: {} };
     case 'about': return { name: 'about', param: '', query: {} };
@@ -5839,7 +5840,7 @@ function applyRoute(route: Route): boolean {
       // fell through to home instead. Only ever exposed via a real URL, not
       // the in-app buttons that set state.noteName directly — which is
       // exactly why it went unnoticed.
-      const note = NOTE_INDEX.find((n) => slugify(n.name) === route.param)?.name;
+      const note = noteForAddress(route.param);
       if (!note) return false;
       state.noteName = note;
       state.view = 'note';

@@ -3,7 +3,9 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import type { Browser } from 'playwright';
-import { NOTE_INDEX } from '../demo/data.js';
+import { NOTE_INDEX, noteForAddress } from '../demo/data.js';
+import { noteMergeKey, noteSlug } from '../src/catalogue/noteName.js';
+import { slugify } from '../demo/router.js';
 import { NOTE_SORT_OPTIONS, sortNotes } from '../demo/listSort.js';
 import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-audit.js';
 
@@ -50,6 +52,48 @@ describe('Explore Notes sort', () => {
   it('ranks Most to Least Used by count, then name', () => {
     const list = [{ name: 'b', count: 2 }, { name: 'a', count: 2 }, { name: 'c', count: 5 }];
     expect(sortNotes(list, 'common').map((n) => n.name)).toEqual(['c', 'a', 'b']);
+  });
+});
+
+describe('clean note names (owner request, 6 Oct 2026)', () => {
+  it('lists no note whose name starts or ends with an emoji, symbol or stray space', () => {
+    for (const n of NOTE_INDEX) {
+      expect(n.name, n.name).toMatch(/^[\p{L}\p{N}]/u);
+      expect(n.name, n.name).toMatch(/[\p{L}\p{N}]$/u);
+      expect(n.name, n.name).not.toMatch(/\p{Extended_Pictographic}|[​-‏­™®]|\s{2}|>/u);
+      expect(n.name, n.name).toBe(n.name.trim());
+    }
+  });
+
+  it('lists each note once: no two entries are the same note', () => {
+    const keys = NOTE_INDEX.map((n) => noteMergeKey(n.name));
+    expect(new Set(keys).size).toBe(keys.length);
+  });
+
+  it('keeps variants as separate notes', () => {
+    const names = new Set(NOTE_INDEX.map((n) => n.name.toLowerCase()));
+    for (const pair of [['madagascan vanilla', 'vanilla'], ['sambac jasmine', 'jasmine']]) {
+      for (const name of pair) expect(names.has(name), name).toBe(true);
+    }
+  });
+
+  it('gives every note its own address, and that address opens the note', () => {
+    const slugs = NOTE_INDEX.map((n) => noteSlug(n.name));
+    expect(new Set(slugs).size).toBe(slugs.length);
+    for (const n of NOTE_INDEX) expect(noteForAddress(noteSlug(n.name)), n.name).toBe(n.name);
+  });
+
+  it('opens a note from the address the router used to give it, and from a merged duplicate', () => {
+    // "Maté" used to have the address /notes/mat (the router drops accented letters).
+    expect(noteForAddress(slugify('Maté'))).toBe(noteForAddress('mate'));
+    expect(noteForAddress('lemon')).toBe('Lemon');
+    expect(noteForAddress('this-is-not-a-note')).toBeUndefined();
+  });
+
+  it('sorts A to Z by the clean key, with the letter dividers on the first letter of it', () => {
+    const az = sortNotes(NOTE_INDEX, 'az');
+    for (let i = 1; i < az.length; i++) expect(az[i - 1]!.sort.localeCompare(az[i]!.sort, 'en-GB')).toBeLessThanOrEqual(0);
+    for (const n of az) expect(n.sort, n.name).toMatch(/^[a-z0-9]/);
   });
 });
 

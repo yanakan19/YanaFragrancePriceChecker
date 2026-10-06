@@ -94,6 +94,7 @@ import {
   reattachArmafLine,
 } from '../src/catalogue/productName.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
+import { pickBestNotes, type NoteCandidate } from '../src/catalogue/notesPick.js';
 import { pickImage, upgradeImageResolution, type ImageBoxVerdict, type ImageDimensions } from '../src/catalogue/pickImage.js';
 import { betterPhotoFor, type BetterPhoto } from '../src/catalogue/betterPhotos.js';
 import { bottleScaleStyle, type SilhouetteBox } from '../src/catalogue/bottleScale.js';
@@ -447,20 +448,42 @@ export interface Notes {
 }
 
 /**
- * Notes from whichever offer published them most recently, tagged with which
- * offer that was. The provenance is what lets the app say "As published by
- * [Retailer]" instead of a generic line, and link back to the exact page the
- * notes were read from — see notesBlock in demo/app.ts.
+ * What the last `pickNotes` pass saw, for the build log: how many products had
+ * a shop publishing notes, how many had two or more to choose between, and how
+ * many took a fuller pyramid than the most recently fetched shop's.
+ */
+const noteStats = { withNotes: 0, contested: 0, fuller: 0, withBase: 0, bySource: new Map<string, number>() };
+
+/**
+ * The fullest note pyramid among the product's offers, tagged with which offer
+ * it came from. Every offer's copy is read, not only the newest: shops differ
+ * in how much they publish, and the fuller pyramid wins (src/catalogue/
+ * notesPick.ts holds the rule and the source order, docs/NOTES-PLAN.md the
+ * reasoning). The provenance is what lets the app say "As published by
+ * [Retailer]" and link back to the exact page the notes were read from; see
+ * notesBlock in demo/app.ts.
  */
 function pickNotes(offers: Offer[]): Notes | null {
-  const withCopy = offers
+  const candidates: NoteCandidate[] = [];
+  let newest: NoteCandidate | null = null;
+  const byRecency = offers
     .filter((o) => o.description)
     .sort((a, b) => b.fetchedAt.localeCompare(a.fetchedAt));
-  for (const o of withCopy) {
+  for (const o of byRecency) {
     const parsed = parseNotes(o.description);
-    if (parsed) return { ...parsed, source: { retailerId: o.retailerId, url: o.url } };
+    if (!parsed) continue;
+    const c: NoteCandidate = { retailerId: o.retailerId, url: o.url, brandDirect: o.brandDirect, notes: parsed };
+    newest ??= c;
+    candidates.push(c);
   }
-  return null;
+  const best = pickBestNotes(candidates);
+  if (!best) return null;
+  noteStats.withNotes++;
+  if (candidates.length > 1) noteStats.contested++;
+  if (best !== newest && JSON.stringify(best.notes) !== JSON.stringify(newest!.notes)) noteStats.fuller++;
+  if (best.notes.base.length > 0) noteStats.withBase++;
+  noteStats.bySource.set(best.retailerId, (noteStats.bySource.get(best.retailerId) ?? 0) + 1);
+  return { ...best.notes, source: { retailerId: best.retailerId, url: best.url } };
 }
 
 /**
@@ -2943,6 +2966,7 @@ console.log(
     `\n  ${olderOffersKept} of those kept for the price graph only, as older prices on ${Object.keys(olderOffers).length} products ` +
     `(left out: ${olderOffersSkipped.notFragrance} not fragrance, ${olderOffersSkipped.noProductPage} for a product with no current offer and so no page, ${olderOffersSkipped.unpriced} unpriced or price scale withheld)` +
     `\n  ${Object.keys(dormantProducts).length} products with no current prices kept as pages of their own (${dormantSkipped.matchedALiveProduct} more hidden listings are the same bottle as a live product and ${dormantSkipped.ambiguousLiveMatch} could be two, so neither is a page); ${Object.values(dormantProducts).filter((d) => d.image !== null).length} have a photo` +
+    `\n  notes: ${noteStats.withNotes} products show a note pyramid (${noteStats.withBase} with a base tier); ${noteStats.contested} had two or more shops publishing notes, ${noteStats.fuller} took a fuller pyramid than the most recently fetched shop's; from ${[...noteStats.bySource].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([id, n]) => `${id} ${n}`).join(', ')}` +
     `\n  ${Object.keys(historyAliases).length} products carry the price history of ids folded into them` +
     `\n  ${Object.keys(idAliases).length} old product addresses open the product they were folded into; ${Object.keys(idAliasRecord).length} recorded, append only (${idAliasResult.fresh} added by this build's merges, ${idAliasResult.carried} kept from earlier builds, ${idAliasResult.healed} chain links added, ${idAliasResult.pageAgain} are a page again so the page wins, ${idAliasResult.unresolved} lead to no page now and are kept unpublished; ${idAliasResult.neverAPage} merged ids were never a page, so are not published)` +
     (skippedShops.length
