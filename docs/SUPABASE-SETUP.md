@@ -93,11 +93,16 @@ an error, then move to the next.
    `avatars` Storage bucket, its four own file policies, a check on
    `profiles.avatar_path`, and the `profile_photos_enabled()` switch. See
    step 9.
+7. `supabase/migrations/0007_site_stats.sql` — the developer dashboard: the
+   owner flag `profiles.is_admin` (set only in the SQL Editor), the hourly
+   visit and shop click totals with the two functions that add to them, the
+   owner only `site_stats()`, and `site_overrides`, the hidden and removed
+   brands and shops. See docs/OWNER-STEPS.md, section 8.
 
 Order matters: nothing in 0002 references 0001 directly, but 0001 is what
 makes an account exist in the first place.
 
-All six files are safe to run more than once. Every statement in them is
+All seven files are safe to run more than once. Every statement in them is
 idempotent, so a half-finished paste, a re-run after fixing a typo, or simply
 not remembering whether you already did it all end in the same place.
 

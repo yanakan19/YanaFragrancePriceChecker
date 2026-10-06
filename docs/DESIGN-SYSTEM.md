@@ -1022,13 +1022,15 @@ to agree; they agree today by both saying nothing is collected.
 If tracking is ever added, the order is: change the privacy page first, then
 add the banner, then set the cookie. Never the other way round.
 
-### No analytics
+### Analytics: one cookieless counter, nothing else
 
-There is no analytics script, no tag manager, no pixel, and no first-party
-event collection. That is a commitment the site makes to readers on its own
-privacy page, not an unfinished task.
-
-"Install privacy-respecting analytics" is a reasonable default for a new
-product and a regression for this one. If the owner decides they want usage
-figures, that is a decision to change what the site promises, and it starts
-with rewriting the promise.
+There is no analytics script, no tag manager and no pixel. Since 2026-10-06,
+at the owner's request, there is one first-party counter
+(demo/siteCounter.ts, supabase/migrations/0007_site_stats.sql): hourly totals
+of page views and clicks through to shops, by page, country and linking site.
+It sets no cookie, stores nothing on the visitor's device, keeps no IP
+address and identifies no one, which is why it needs no consent banner. The
+privacy notice was rewritten to say so first (demo/legal.ts), the order this
+section always asked for. Anything beyond that (an identifier, a third party
+script, a fingerprint) is a change to what the site promises and starts with
+rewriting the promise.

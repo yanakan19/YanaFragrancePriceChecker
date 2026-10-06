@@ -32,6 +32,10 @@
  * dashes, no em dashes. Where a compound would normally take a hyphen, reword
  * it. Code comments are exempt.
  */
+// FIRST, before anything reads the catalogue: the brands and shops the owner
+// hid or removed in the developer dashboard come off the shipped data here
+// (demo/siteData.ts), so nothing below ever sees them.
+import { SITE_STATS_ON } from './siteData.js';
 import {
   buildComparison,
   bestOffer,
@@ -128,10 +132,12 @@ import {
 import { checkPhotoFile, PHOTO_ACCEPT_ATTR } from '../src/services/profilePhoto.js';
 import { parseTargetPrice } from '../src/alerts/target.js';
 import { UNSUBSCRIBE_PARAM, unsubscribeMessage } from '../src/alerts/unsubscribe.js';
+import { developerView, developerHeadName, type DeveloperHost } from './developer.js';
+import { startSiteCounter } from './siteCounter.js';
 
 type View =
   | 'home' | 'deals' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'legalNotice'
-  | 'settings' | 'suggestions' | 'account' | 'accountWishlist' | 'accountNotifications' | 'design' | 'notFound';
+  | 'settings' | 'suggestions' | 'account' | 'accountWishlist' | 'accountNotifications' | 'design' | 'developer' | 'notFound';
 /** The three pages behind the account menu, each with its own address. */
 const ACCOUNT_VIEWS: readonly View[] = ['account', 'accountWishlist', 'accountNotifications'];
 type AuthTab = 'signIn' | 'signUp';
@@ -1866,7 +1872,7 @@ function offerRow(
   if (commissioned) facts.push('Affiliate link');
 
   return `<li class="offer ${isBest ? 'best' : ''} ${row.isPurchasable ? '' : 'unavail'}">
-    <a class="offer-link" href="${esc(row.outboundUrl)}" rel="nofollow noopener${commissioned ? ' sponsored' : ''}" target="_blank">
+    <a class="offer-link" href="${esc(row.outboundUrl)}" data-shop="${esc(row.retailer.id)}" rel="nofollow noopener${commissioned ? ' sponsored' : ''}" target="_blank">
       <span class="offer-top">
         <span class="shop t-title">${offerMark(row.retailer)}${esc(row.retailer.name)}${
           isBest && bestTag
@@ -5683,6 +5689,11 @@ function headInputForState(): HeadInput {
     case 'legal':
       return { route, leafName: legalPage(state.legalId)?.title };
 
+    // 'Developer' only once the signed in account is the owner's; until then
+    // the tab says Page not found, the same as the page (demo/developer.ts).
+    case 'developer':
+      return { route, leafName: developerHeadName() };
+
     // The profile's tab says "My Profile" only while the page does; signed
     // out, /account is the sign in form and its tab says Account.
     case 'account':
@@ -5720,6 +5731,7 @@ function currentRoute(): Route {
     case 'about': return { name: 'about', param: '', query: {} };
     case 'legalNotice': return { name: 'legalNotice', param: state.noticeSection, query: {} };
     case 'design': return { name: 'design', param: '', query: {} };
+    case 'developer': return { name: 'developer', param: '', query: {} };
     case 'settings': return { name: 'settings', param: '', query: {} };
     case 'suggestions': return { name: 'suggestions', param: '', query: {} };
     case 'account': return { name: 'account', param: '', query: {} };
@@ -5757,6 +5769,7 @@ function applyRoute(route: Route): boolean {
       state.view = 'legalNotice';
       return true;
     case 'design': state.view = 'design'; return true;
+    case 'developer': state.view = 'developer'; return true;
     case 'settings': state.view = 'settings'; return true;
     case 'suggestions': state.view = 'suggestions'; return true;
     case 'account': {
@@ -6460,6 +6473,8 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
                         ? legalNoticeView()
                       : state.view === 'design'
                         ? designView()
+                      : state.view === 'developer'
+                        ? developerView(DEVELOPER_HOST)
                         : state.view === 'settings'
                           ? settingsView()
                           : state.view === 'suggestions'
@@ -6627,6 +6642,20 @@ function renderFromUrl(): void {
 
 /* ── wiring ──────────────────────────────────────────────────────────────── */
 
+/** What the owner's dashboard (demo/developer.ts) needs from the app. */
+const DEVELOPER_HOST: DeveloperHost = {
+  user: () => state.authUser,
+  authChecked: () => state.authChecked,
+  rerender: () => {
+    if (state.view === 'developer') renderInPlace();
+  },
+  notFoundHtml: () => {
+    state.notFoundPath = window.location.pathname;
+    return notFoundView();
+  },
+  confirm: (o) => showDialog({ title: o.title, message: o.message, confirmLabel: o.confirmLabel, danger: o.danger === true }),
+};
+
 function init(): void {
   // `?adpreview=1` draws every ad slot as a labelled frame, for this page view
   // only: held in memory, never stored. Set before anything draws.
@@ -6638,6 +6667,16 @@ function init(): void {
   loadMode();
   loadLayout();
   loadPerRow();
+  // The cookieless visitor counter, on only once the deploy found the
+  // database ready (demo/siteCounter.ts). A shop link's product is the one on
+  // screen: offer rows appear only on a product's page.
+  startSiteCounter(SITE_STATS_ON, {
+    page: () => routeToPath(currentRoute()),
+    product: () => {
+      const f = state.view === 'detail' ? fragranceById(state.fragranceId) : undefined;
+      return f ? { id: f.id, brand: f.brand } : null;
+    },
+  });
   // The very first render happens synchronously below, before either of
   // these callbacks can possibly fire — accountView's own `!state.authChecked`
   // branch, and wishlistButton's own `!state.authChecked` branch, are what

@@ -55,11 +55,20 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { build, type Plugin } from 'esbuild';
 import { moveLiteralsToJson } from './dataLiterals.js';
 import { BLOBS_GLOBAL, LAZY_DATA_MODULES, type DataGroup, type DataManifest } from './dataFiles.js';
+import { pruneContext, pruneMovedBlobs, removedSets, resolveSiteBuild } from './siteBuild.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const blobs: unknown[] = [];
 const groups: DataGroup[] = [];
 const report: string[] = [];
+
+// The developer dashboard's switches for this build (scripts/siteBuild.ts):
+// whether the visitor counter is on, and the brands and shops the owner
+// removed, which are left out of the data files below. Off, with nothing
+// removed, for every build but the deploy's.
+const site = await resolveSiteBuild(root);
+const removed = removedSets(site);
+const prune = pruneContext();
 
 const dataAsJson: Plugin = {
   name: 'data-as-json',
@@ -78,6 +87,7 @@ const dataAsJson: Plugin = {
       const start = blobs.length;
       const { code, moved } = moveLiteralsToJson(source, blobs);
       const name = args.path.split('/').pop()!;
+      pruneMovedBlobs(name.replace(/\.generated\.js$/, ''), moved, blobs, start, removed, prune);
       if (moved.length) {
         groups.push({ name: name.replace(/\.generated\.js$/, ''), start, count: moved.length });
         report.push(`${name}: ${moved.length} literal(s) moved`);
@@ -127,6 +137,12 @@ const manifest: DataManifest = { groups, lazy };
 await writeFile(resolve(root, 'dist-demo/data-files.json'), JSON.stringify(manifest, null, 2));
 
 for (const line of report) console.log(line);
+console.log(
+  `site switches         counter ${site.stats ? 'on' : 'off'}, ${site.overrides.length} hidden or removed (${site.source})` +
+    (prune.dropped.products || prune.dropped.offers
+      ? `; left out ${prune.dropped.products} product(s) and ${prune.dropped.offers} price(s) of removed brands and shops`
+      : ''),
+);
 const mb = (n: number): string => `${(n / 1024 / 1024).toFixed(1)} MB`;
 console.log(`dist-demo/bundle.js  ${mb((await readFile(resolve(root, 'dist-demo/bundle.js'))).length)} code`);
 for (const name of [...groups.map((g) => g.name), ...lazy]) {

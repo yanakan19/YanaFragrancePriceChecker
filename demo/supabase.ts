@@ -43,8 +43,13 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 // sender, so the project address is written down in exactly one place. The
 // sender pairs it with the service role key from a GitHub secret; that key
 // still never appears anywhere in this repository or this bundle.
+//
+// SUPABASE_ANON_KEY is exported for the visitor counter (demo/siteCounter.ts)
+// and the deploy's read of the hidden and removed list (scripts/siteBuild.ts),
+// which call the database's public functions without the client library.
+// It is the same public key, already readable in the bundle.
 export const SUPABASE_URL: string = 'https://kemjyocklbkgjsyfdqtf.supabase.co';
-const SUPABASE_ANON_KEY: string =
+export const SUPABASE_ANON_KEY: string =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtlbWp5b2NrbGJrZ2pzeWZkcXRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcwODM4NjYsImV4cCI6MjEwMjY1OTg2Nn0._U502yyU9FNWtVb3Y4fPyI4yON_Hl8GYgf0b-unwrKU';
 
 export const SUPABASE_CONFIGURED = SUPABASE_URL !== '' && SUPABASE_ANON_KEY !== '';

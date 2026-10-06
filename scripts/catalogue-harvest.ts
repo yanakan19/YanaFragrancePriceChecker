@@ -45,6 +45,7 @@ import { resolve, dirname } from 'node:path';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
+import { removedShopsForCrawl } from './siteBuild.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { reconcile } from '../src/catalogue/reconcile.js';
 import { crawlViaSitemap, DEFAULT_CRAWL_MS, type SitemapCrawlResult } from '../src/catalogue/sitemapCrawl.js';
@@ -418,10 +419,17 @@ const now = new Date().toISOString();
 // comment. Without --dry-run the enabled flag is absolute, so nothing a
 // disabled shop says can ever reach data/catalogue.
 const askingAboutOneNamedShop = onlyShop !== null && dryRun;
+// Shops the owner removed in the developer dashboard are not read at all
+// (demo/siteOverrides.ts; src/config/retailers.ts stays the code's own list,
+// and this is a layer on top of it). Asked of the database only when the
+// workflow sets SITE_OVERRIDES_FETCH=1; if it cannot be read, nothing is
+// skipped, which is how the crawl ran before the dashboard existed.
+const removedShops = await removedShopsForCrawl();
 const enabledShops = RETAILERS.filter(
   (r) =>
     (r.enabled || askingAboutOneNamedShop) &&
     r.adapter !== 'affiliate-feed' &&
+    !removedShops.has(r.id) &&
     (!onlyShop || r.id === onlyShop),
 );
 

@@ -30,6 +30,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeFileSync } from 'node:fs';
 import { RETAILERS } from '../src/config/retailers.js';
+import { removedShopsForCrawl } from './siteBuild.js';
 import type { Retailer } from '../src/types/retailer.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
@@ -254,8 +255,10 @@ async function repriceShop(retailer: Retailer): Promise<Outcome> {
   return outcome;
 }
 
+// A shop removed in the developer dashboard is not read (scripts/siteBuild.ts).
+const removedShops = await removedShopsForCrawl();
 const shops = RETAILERS.filter(
-  (r) => r.enabled && r.storefrontIsPriceAuthority && (!onlyShop || r.id === onlyShop),
+  (r) => r.enabled && r.storefrontIsPriceAuthority && !removedShops.has(r.id) && (!onlyShop || r.id === onlyShop),
 );
 
 console.log('\nStorefront re-price');

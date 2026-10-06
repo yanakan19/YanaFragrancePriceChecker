@@ -810,6 +810,9 @@ jobs:
         timeout-minutes: 30
         env:
           AWIN_FEED_LIST_URL: ${{ secrets.AWIN_FEED_LIST_URL }}
+          # The storefront re-price below skips shops removed in the developer
+          # dashboard (scripts/siteBuild.ts).
+          SITE_OVERRIDES_FETCH: '1'
         run: |
           # Gated on "long enough since the last one", not on the clock reading
           # exactly 00/06/12/18. A scheduled run does not start when it is
@@ -1102,6 +1105,9 @@ jobs:
         env:
           APIFY_PROXY_PASSWORD: ${{ secrets.APIFY_PROXY_PASSWORD }}
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          # Shops removed in the developer dashboard are not crawled: the
+          # harvest reads the public list from the database (scripts/siteBuild.ts).
+          SITE_OVERRIDES_FETCH: '1'
         run: |
           # ── The deadline is what the job can still afford ─────────────────
           # 56 minutes when the run is on time, less when the stages before

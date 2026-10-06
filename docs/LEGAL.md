@@ -71,7 +71,12 @@ and Provision of Services Regulations 2009, the CAP Code, and consumer law
   longer loads on page view: a button on the shop's page says what it will
   fetch and fetches it only when pressed. A banner would be consenting to
   nothing. If analytics or on-site affiliate tracking is ever added, consent
-  must be asked for *before* it is set.
+  must be asked for *before* it is set. (2026-10-06: the visit counter added
+  for the developer dashboard stores nothing on the device and identifies no
+  one: hourly totals by page, country and linking site, with no cookie and no
+  IP address kept. PECR regulation 6 is about storing or reading on the
+  device, which it does not do, so it needs no consent; the privacy notice
+  describes it and rests it on legitimate interests.)
 - **Disclosure before the click: done.** Every offer row for a shop whose
   programme is live carries an "Affiliate link" marker beside the shop's
   name, decided from the same registry field the disclosure page computes

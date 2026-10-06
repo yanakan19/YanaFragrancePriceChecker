@@ -54,6 +54,7 @@ import {
   type LazyDataFile,
 } from './dataFiles.js';
 import { adsTxt, verificationMeta } from '../demo/ads.js';
+import { readSiteBuild, siteHeadScript } from './siteBuild.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -151,6 +152,12 @@ writeFileSync(
 // by scripts/generate-og-preview.ts, so it cannot drift from the real
 // branding the way a hand-made image would.
 const SITE_URL = 'https://pricesniffs.space';
+
+// The developer dashboard's switches (scripts/siteBuild.ts), right after the
+// loader because it chains onto the loader's promise. Nothing at all while the
+// counter is off and nothing is hidden, which is every build but the deploy's.
+const siteScript = siteHeadScript(readSiteBuild(root));
+const siteScriptTag = siteScript ? `<script>${siteScript}</script>\n` : '';
 const OG_DESCRIPTION = 'Compare real UK fragrance prices across every retailer that stocks them. No invented numbers.';
 
 const standalone = `<!doctype html>
@@ -186,7 +193,7 @@ ${verificationMeta()}
 <meta name="twitter:description" content="${OG_DESCRIPTION}" />
 <meta name="twitter:image" content="${SITE_URL}/og-preview.png" />
 <script>${loaderScript(dataFiles, lazyFiles)}</script>
-${body}
+${siteScriptTag}${body}
 </html>
 `;
 writeGenerated(root, 'demo/index.html', standalone);

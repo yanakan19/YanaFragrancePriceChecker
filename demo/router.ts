@@ -34,7 +34,7 @@ export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
   | 'notes' | 'note' | 'oils' | 'sets' | 'fragrance' | 'product' | 'about' | 'legalNotice' | 'settings' | 'suggestions' | 'legal' | 'account'
   | 'accountWishlist' | 'accountNotifications'
-  | 'design' | 'notFound';
+  | 'design' | 'developer' | 'notFound';
 
 /** What a matched URL says about where we are. */
 export interface Route {
@@ -85,6 +85,10 @@ const LIST_ROUTES: Record<string, RouteName> = {
   // of Sauvage should never have to step over a swatch table to find it. See
   // designView in demo/app.ts.
   design: 'design',
+  // The owner's private dashboard (demo/developer.ts). Linked from nowhere,
+  // noindex, not in the sitemap, and the normal Page Not Found to anyone who
+  // is not the owner.
+  developer: 'developer',
 };
 
 /**
@@ -284,6 +288,7 @@ export function routeToPath(route: Route): string {
       case 'accountWishlist': return '/account/wishlist';
       case 'accountNotifications': return '/account/notifications';
       case 'design': return '/design';
+      case 'developer': return '/developer';
       case 'legal': return `/legal/${encodeURIComponent(param)}`;
       // Not a destination anything navigates *to*: syncUrl never rewrites the
       // address for a miss, so the wrong URL the reader typed stays in the bar
