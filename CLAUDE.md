@@ -53,6 +53,29 @@ snapshots and reports, and the "deploy" files above).
 5. **On a merge conflict in a generated file, do not merge it by hand.** Take
    either side, rebuild, and stage the result.
 
+## Update history
+
+The home page's update history is `demo/changelog.ts` (owner request,
+2026-10-06). `tests/changelog.test.ts` enforces the rules.
+
+- **One entry per day.** Never two entries with the same date, never an old
+  style entry with a `title` and `points`. An entry is
+  `{ version, date: '6 Oct 2026', groups: [{ heading, points }] }`.
+- **Add your change to today's entry**, under the heading that fits it best
+  (`New`, `Products and Matching`, `Fixes`, or another short heading; as few
+  groups as possible, one is fine). Create today's entry at the top if there
+  is none. Today's entry takes the version of your release, the next minor
+  after the previous entry's.
+- **Only major changes a visitor would notice get a line.** Tests, docs,
+  scripts, workflows, pipeline work, rebuilds and small tweaks get none, and a
+  commit that only does those does not touch the file.
+- Limits: up to 4 groups, a heading of at most 24 characters, up to 8 points
+  per group and 12 per day, a point of at most 50 characters, no hyphens or
+  dashes, plain British English. On a busy day fold related changes into one
+  line or drop the least noticeable.
+- On a merge conflict in the file, keep both sides' lines inside one entry
+  for the day.
+
 ## Pushing
 
 - Fetch and merge the branch just before you push; never force push.

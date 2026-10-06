@@ -286,9 +286,11 @@ function main(): void {
     console.log(`  ${c.hash.slice(0, 7)}  ${c.subject}`);
   }
   console.log(
-    `\nTurn the above into demo/changelog.ts prose per that file's own header rules: plain reader-facing ` +
-      'language, no engineering detail, one plain sentence per point, no trailing full stop. Only describe what is ' +
-      `actually there above, dated ${label} and nothing else — do not add, infer, or move anything to a different date.`,
+    `\nTurn the above into demo/changelog.ts prose per that file's own header rules: ONE entry for ${label}, ` +
+      'its changes under a few headed groups, only the major changes a visitor would notice (internal work gets no ' +
+      'line), plain reader-facing language, no engineering detail, one plain sentence per point, no trailing full ' +
+      `stop. Only describe what is actually there above, dated ${label} and nothing else — do not add, infer, or ` +
+      'move anything to a different date.',
   );
   process.exit(EXIT_OK);
 }
@@ -304,7 +306,10 @@ main();
  *   - Exit 0: it printed real commits for one specific date — the oldest day
  *     still missing from the changelog, which may NOT be today. Write ONE new
  *     entry to demo/changelog.ts for exactly that date, following the file's
- *     own header rules exactly, using only what the script printed — then
+ *     own header rules exactly (one entry for the day, a few headed groups,
+ *     only the major changes a visitor would notice; a day of purely internal
+ *     work, such as tests, docs and scripts, gets no entry), using only what
+ *     the script printed — then
  *     commit demo/changelog.ts alone (the page is built at deploy time and
  *     never committed since 2026-10-04; the push deploys it). Then run the
  *     script again: if it prints another
