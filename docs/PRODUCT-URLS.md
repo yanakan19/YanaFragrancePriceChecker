@@ -178,6 +178,31 @@ rebuilt data after the first barcodes: every id and address Perfume Direct's 3,0
 products held before them still opens a page. The cost is that those products'
 published address moves once, and the old one redirects.
 
+### Both memory files are append only
+
+`data/id-aliases.json` and `data/product-slugs.json` only grow. A key is never
+dropped and its value is never changed (measured 2026-10-06 over the last 60
+commits: the old build had lost 50 id aliases and re-pointed about 950).
+
+- **The file is the record, the page gets a flat map.** The record keeps chains
+  (`old -> old target -> survivor`) as they happened. The build resolves each
+  chain to the page that holds the id now and ships that one hop map
+  (`ID_ALIASES`, `SLUG_ALIASES`) in the lazy dormant file.
+- **A product folded again** adds one key (the old target to the new survivor);
+  the earlier key keeps its value. A target that vanished before this build
+  learned where its id went gets a key of its own pointing at the survivor.
+- **An alias key that is a live product again:** the live product wins, the
+  address opens the product, not a redirect. The key stays in the record, so if
+  that product is folded away again the old address redirects once more.
+- **A key whose product is gone from every shop** stays recorded, is not
+  served, and its address answers the existing Page Not Found. (6 on
+  2026-10-06; they are listed in `tests/fixtures/id-aliases-reference.json`.)
+- **Guards:** `settleIdAliases` and `assignSlugs` throw rather than return a
+  smaller or rewritten set, and the build checks the result against the file on
+  disk before writing. `tests/idAliasesAppendOnly.test.ts` checks the committed
+  file against the stored reference keys. To raise the reference, append keys to
+  the fixture; never remove one.
+
 ## 4. Routing: no clash with the site's own routes
 
 The site's own routes are single words: `/search`, `/deals`, `/brands`,

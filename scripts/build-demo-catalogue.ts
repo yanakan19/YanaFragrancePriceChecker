@@ -15,7 +15,7 @@
  *
  * Run after a harvest: npm run catalogue:demo
  */
-import { readdirSync, existsSync, readFileSync } from 'node:fs';
+import { readdirSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeGenerated } from './generatedFiles.js';
@@ -48,6 +48,7 @@ import {
   trustworthyEan,
 } from '../src/catalogue/productMatch.js';
 import { listingViolations, namespaceViolations } from '../src/catalogue/kindGuards.js';
+import { contentsSignature, matchSets, scentKey, type SetCandidate, type SetMatchResult } from '../src/catalogue/setMatch.js';
 import { isOilStrength, oilFactsOfOffers } from '../src/catalogue/perfumeOil.js';
 import { auditPriceScale } from '../src/catalogue/priceScale.js';
 import { formatLabels } from '../src/catalogue/offerFormat.js';
@@ -58,6 +59,7 @@ import {
   listingIdForms,
   productIdsIn,
   settleIdAliases,
+  assertAppendOnly,
   type IdAliasFile,
 } from '../src/catalogue/idAliases.js';
 import { assignSlugs, slugAliases, type SlugFile, type SlugProduct } from '../src/catalogue/productSlug.js';
@@ -74,7 +76,10 @@ import {
 } from '../src/catalogue/fragranceId.js';
 import { brandAliasKey, nameCore } from '../src/catalogue/duplicateKey.js';
 import { resolveOunceListing } from '../src/catalogue/ounceSizes.js';
-import { buildKnownHouseProducts, giftSetContents, giftSetName, isGiftSet, registerKnownHouseProducts } from '../src/catalogue/giftSet.js';
+import {
+  buildKnownHouseProducts, giftSetName, giftSetRecord, isGiftSet, mergeGiftSetRecords, registerKnownHouseProducts,
+  type GiftSetRecord,
+} from '../src/catalogue/giftSet.js';
 import {
   concentrationOfListing,
   concentrationOfStoredListing,
@@ -90,6 +95,7 @@ import {
 } from '../src/catalogue/productName.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
 import { pickImage, upgradeImageResolution, type ImageBoxVerdict, type ImageDimensions } from '../src/catalogue/pickImage.js';
+import { betterPhotoFor, type BetterPhoto } from '../src/catalogue/betterPhotos.js';
 import { bottleScaleStyle, type SilhouetteBox } from '../src/catalogue/bottleScale.js';
 import { rejectPlaceholderImage } from '../src/catalogue/placeholderImage.js';
 
@@ -177,6 +183,27 @@ if (existsSync(imageBoxVerdictsPath)) {
     }
     storedUrlByUpgraded.set(upgradeImageResolution(url) ?? url, url);
   }
+}
+
+/**
+ * data/better-photos.json (scripts/better-photos.ts): a bigger picture the
+ * shop's own page gives for a listing whose feed image is a thumbnail, or that
+ * has none. Used in place of the feed's image while its source is switched on
+ * in src/config/photoSources.ts and the shop has an `imageBasis`; see
+ * betterPhotoFor() for what makes a record stop applying. The picture's
+ * measured size goes into `imageDimensions` so pickImage ranks it by what it is.
+ * Missing file is not an error: every listing then keeps its feed image.
+ */
+const betterPhotosPath = resolve(root, 'data/better-photos.json');
+const betterPhotos: Record<string, BetterPhoto> = existsSync(betterPhotosPath)
+  ? (JSON.parse(readFileSync(betterPhotosPath, 'utf8')) as { photos?: Record<string, BetterPhoto> }).photos ?? {}
+  : {};
+/** The image a listing shows: its better photo when one applies, else its feed image minus placeholders. */
+function listingImage(l: { retailerId: string; retailerSku: string; imageUrl: string | null }): string | null {
+  const better = betterPhotoFor(betterPhotos, l.retailerId, l.retailerSku, l.imageUrl ?? null, (id) => IMAGE_ALLOWED.has(id));
+  if (better === null) return rejectPlaceholderImage(l.imageUrl);
+  imageDimensions.set(better.url, { width: better.width, height: better.height });
+  return better.url;
 }
 
 /**
@@ -377,7 +404,7 @@ interface Product {
    * single bottle) and the contents its title spells out, or null where the
    * title does not.
    */
-  giftSet: { contents: string[] | null; title: string } | null;
+  giftSet: GiftSetRecord | null;
 }
 
 /**
@@ -989,7 +1016,7 @@ for (const { retailer, listings } of eligible) {
       // harvested BEFORE that fix, which persist until the hourly crawl
       // overwrites them. Same shared list either way — see
       // src/catalogue/placeholderImage.ts — never a second copy of it.
-      imageUrl: rejectPlaceholderImage(l.imageUrl),
+      imageUrl: listingImage(l),
       description: l.description ?? null,
       rating: l.rating ?? null,
       sizeMl: size,
@@ -1025,10 +1052,7 @@ for (const { retailer, listings } of eligible) {
       }
       // A set whose first shop's title spelled out nothing may be spelled out
       // by the next one's.
-      if (existing.giftSet && existing.giftSet.contents === null) {
-        const contents = giftSetContents(l.rawTitle);
-        if (contents) existing.giftSet = { contents, title: l.rawTitle };
-      }
+      if (existing.giftSet) existing.giftSet = mergeGiftSetRecords(existing.giftSet, giftSetRecord(l));
     } else {
       // The displayed brand is handed to displayName as well as the raw
       // vendor field: it is the string that will sit beside the name on
@@ -1056,7 +1080,7 @@ for (const { retailer, listings } of eligible) {
         // every product to exist before it can ask what the house said.
         concentrationFromHouse: null,
         audience: labelled.audience,
-        giftSet: giftSet ? { contents: giftSetContents(l.rawTitle), title: l.rawTitle } : null,
+        giftSet: giftSet ? giftSetRecord(l) : null,
       });
     }
   }
@@ -1270,6 +1294,8 @@ function applyMerges(groups: ReturnType<typeof findDuplicateGroups<Product>>): v
         else concentrationsSeen.set(canonical.id, new Set(absorbedConcentrations));
         concentrationsSeen.delete(dupe.id);
       }
+      // A set's record keeps what either shop read from its own title.
+      if (canonical.giftSet && dupe.giftSet) canonical.giftSet = mergeGiftSetRecords(canonical.giftSet, dupe.giftSet);
       // The barcode is worth keeping if the canonical record lacked one.
       canonical.ean ??= dupe.ean;
       // The house's own wording of its own perfume's name wins. Which record
@@ -1743,6 +1769,48 @@ mergedProducts += mergedInSecondLook;
 if (mergedInSecondLook > 0) {
   collapseSameBottleRows();
   collapseIndistinguishableRows();
+}
+
+/* ── the same set at two shops: the third tier ─────────────────────────────
+   Two tiers already decide it (a trustworthy barcode, an identical title; see
+   giftSetId). This is the third (src/catalogue/setMatch.ts, docs/GIFT-SETS-AND-OILS-PLAN.md
+   section 3.3): the same brand, the same scent words with every number kept, the
+   same full contents, the same strength, no two barcodes, no shop twice and a price
+   spread inside a bound. It runs on sets alone, after every bottle merge and every
+   strength is settled, and folds through applyMerges like any other, so the ids it
+   retires answer through the id aliases. What it refuses goes to the report. */
+let setMatchReport: { result: SetMatchResult; candidates: Map<string, SetCandidate> } | null = null;
+{
+  const lowest = (p: Product): number | null => {
+    const prices = p.offers.map((o) => o.price).filter((x) => x > 0);
+    return prices.length ? Math.min(...prices) : null;
+  };
+  const candidates = new Map<string, SetCandidate>();
+  for (const p of products.values()) {
+    if (p.giftSet === null) continue;
+    candidates.set(p.id, {
+      id: p.id,
+      brand: p.brand,
+      name: p.name,
+      concentration: p.concentration,
+      ean: p.id.startsWith('set-ean-') ? p.id.slice('set-ean-'.length) : null,
+      contents: p.giftSet.contents,
+      shops: p.offers.map((o) => o.retailerId),
+      price: lowest(p),
+    });
+  }
+  const result = matchSets([...candidates.values()]);
+  setMatchReport = { result, candidates };
+  if (process.env.SET_MATCH_FIXTURE) {
+    // A snapshot of what the matcher was given, for tests/fixtures/set-match.json (see tests/setMatch.test.ts).
+    writeFileSync(
+      process.env.SET_MATCH_FIXTURE,
+      `${JSON.stringify({ candidates: [...candidates.values()], expected: result }, null, 1)}\n`,
+    );
+  }
+  const folds = result.groups.map((g) => ({ canonical: products.get(g.canonical)!, absorbed: g.absorbed.map((id) => products.get(id)!) }));
+  applyMerges(folds);
+  mergedProducts += result.groups.reduce((n, g) => n + g.absorbed.length, 0);
 }
 
 /* A barcode whose shops disagree about the strength is left reading
@@ -2327,7 +2395,7 @@ for (const [id, listings] of [...dormantListings].sort((a, b) => a[0].localeComp
     retailerId: l.retailerId,
     imageUrl:
       IMAGE_ALLOWED.has(l.retailerId) || isBrandDirectOffer(l.retailerId, facts.brand)
-        ? rejectPlaceholderImage(l.imageUrl)
+        ? listingImage(l)
         : null,
     fetchedAt: l.lastSeenAt,
   }));
@@ -2347,7 +2415,7 @@ for (const [id, listings] of [...dormantListings].sort((a, b) => a[0].localeComp
   };
   const transform = imageTransformFor(image);
   if (transform !== undefined) entry.imageTransform = transform;
-  if (facts.giftSet) entry.giftSet = { contents: giftSetContents(lead.rawTitle), title: lead.rawTitle };
+  if (facts.giftSet) entry.giftSet = giftSetRecord(lead);
   dormantProducts[id] = entry;
 }
 
@@ -2395,6 +2463,8 @@ const idAliasesPath = resolve(root, 'data/id-aliases.json');
 const previousIdAliases: Record<string, string> = existsSync(idAliasesPath)
   ? (JSON.parse(readFileSync(idAliasesPath, 'utf8')) as IdAliasFile).aliases
   : {};
+// What is on disk now, before any seed: the record may only grow from this.
+const idAliasesOnDisk: Record<string, string> = { ...previousIdAliases };
 // Which ids were pages before this build: the last catalogue and its pages with
 // no current prices (still in the working tree, since they are written only at
 // the foot of this file), plus any ids a re-seed names with
@@ -2416,13 +2486,12 @@ const seedAliasFlag = process.argv.indexOf('--seed-aliases');
 if (seedAliasFlag >= 0) {
   const seedFile = process.argv[seedAliasFlag + 1];
   if (!seedFile) throw new Error('--seed-aliases needs a file of "absorbed<TAB>survivor" lines');
-  // Oldest build first, so a later fold of the same id wins; the file's own
-  // earlier aliases are kept unless a fold says otherwise.
+  // Append only: a key the file already holds keeps its value; a seed adds keys.
   for (const line of readFileSync(seedFile, 'utf8').split('\n')) {
     const [from, to] = line.split('\t');
     // Only an id that was a page: a fold of two records in one build, neither
     // ever shown, is no address anyone held.
-    if (from && to && wasPage.has(from)) previousIdAliases[from] = to;
+    if (from && to && wasPage.has(from) && !Object.prototype.hasOwnProperty.call(previousIdAliases, from)) previousIdAliases[from] = to;
   }
 }
 const idAliasResult = settleIdAliases({
@@ -2432,7 +2501,10 @@ const idAliasResult = settleIdAliases({
   live: finalIds,
   dormant: new Set(Object.keys(dormantProducts)),
 });
-const idAliases = idAliasResult.aliases;
+// The record (data/id-aliases.json) only grows; the page serves the flat map.
+assertAppendOnly(idAliasesOnDisk, idAliasResult.aliases);
+const idAliasRecord = idAliasResult.aliases;
+const idAliases = idAliasResult.published;
 
 /* ── product addresses: /BRAND_NAME_VOLUME ──────────────────────────────────
    Every product with a page (the catalogue and the pages with no current
@@ -2658,7 +2730,7 @@ export interface CatalogueEntry {
    * does not; \`title\` is the shop title they were read from, shown in
    * their place when there are none.
    */
-  giftSet?: { contents: string[] | null; title: string };
+  giftSet?: { contents: string[] | null; title: string; mainMl?: number; bundle?: true; from?: 'description'; box?: string; multi?: true; mini?: true; items?: number };
   /**
    * Present only on a perfume oil or an attar (src/catalogue/perfumeOil.ts): what
    * its shops state about it and nothing they did not. \`format\` is how it comes
@@ -2791,7 +2863,31 @@ export const ID_ALIASES: Record<string, string> = ${JSON.stringify(idAliases)};
 export const SLUG_ALIASES: Record<string, string> = ${JSON.stringify(slugAliasMap)};
 `,
 );
-writeGenerated(root, 'data/id-aliases.json', `${JSON.stringify({ aliases: idAliases }, null, 1)}\n`);
+// What the third tier set matching did, and what it left to a person (data/set-match-report.json).
+if (setMatchReport) {
+  const { result, candidates } = setMatchReport;
+  const member = (id: string) => {
+    const c = candidates.get(id)!;
+    return {
+      id,
+      brand: c.brand,
+      name: c.name,
+      concentration: c.concentration,
+      ean: c.ean,
+      scent: scentKey(c.name),
+      signature: contentsSignature(c.contents),
+      shops: c.shops,
+    };
+  };
+  const report = {
+    note: 'Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.',
+    folded: result.groups.reduce((n, g) => n + g.absorbed.length, 0),
+    groups: result.groups.map((g) => ({ canonical: g.canonical, absorbed: g.absorbed, members: [g.canonical, ...g.absorbed].map(member) })),
+    refused: result.refused.map((r) => ({ reasons: r.reasons, members: r.ids.map(member) })),
+  };
+  writeGenerated(root, 'data/set-match-report.json', `${JSON.stringify(report, null, 1)}\n`);
+}
+writeGenerated(root, 'data/id-aliases.json', `${JSON.stringify({ aliases: idAliasRecord }, null, 1)}\n`);
 writeGenerated(root, 'data/product-slugs.json', `${JSON.stringify({ slugs: productSlugs }, null, 1)}\n`);
 console.log(
   `product addresses: ${slugResult.stats.kept} kept, ${slugResult.stats.fresh} given ` +
@@ -2848,7 +2944,7 @@ console.log(
     `(left out: ${olderOffersSkipped.notFragrance} not fragrance, ${olderOffersSkipped.noProductPage} for a product with no current offer and so no page, ${olderOffersSkipped.unpriced} unpriced or price scale withheld)` +
     `\n  ${Object.keys(dormantProducts).length} products with no current prices kept as pages of their own (${dormantSkipped.matchedALiveProduct} more hidden listings are the same bottle as a live product and ${dormantSkipped.ambiguousLiveMatch} could be two, so neither is a page); ${Object.values(dormantProducts).filter((d) => d.image !== null).length} have a photo` +
     `\n  ${Object.keys(historyAliases).length} products carry the price history of ids folded into them` +
-    `\n  ${Object.keys(idAliases).length} old product addresses open the product they were folded into (${idAliasResult.fresh} from this build's merges, ${idAliasResult.carried} kept from earlier builds, ${idAliasResult.dropped} dropped because their product is gone; ${idAliasResult.neverAPage} merged ids were never a page, so are not published)` +
+    `\n  ${Object.keys(idAliases).length} old product addresses open the product they were folded into; ${Object.keys(idAliasRecord).length} recorded, append only (${idAliasResult.fresh} added by this build's merges, ${idAliasResult.carried} kept from earlier builds, ${idAliasResult.healed} chain links added, ${idAliasResult.pageAgain} are a page again so the page wins, ${idAliasResult.unresolved} lead to no page now and are kept unpublished; ${idAliasResult.neverAPage} merged ids were never a page, so are not published)` +
     (skippedShops.length
       ? `\n  skipped: ${skippedShops.join(', ')}`
       : ''),

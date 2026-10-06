@@ -57,32 +57,60 @@ describe('which old ids open which product', () => {
     expect(r.aliases).toEqual({});
   });
 
-  it('keeps an earlier alias after the product it named is folded again, and points it at the last holder', () => {
-    // Last build: a -> b. This build: b is folded into c. a must now open c.
+  it('keeps an earlier alias after the product it named is folded again: a chain, and the page serves the last holder', () => {
+    // Last build: a -> b. This build: b is folded into c. The record keeps a -> b and adds b -> c.
     const r = settle({
       previous: { a: 'b' },
       wasPage: new Set(['b']),
       successors: new Map([['b', 'c']]),
       live: new Set(['c']),
     });
-    expect(r.aliases).toEqual({ a: 'c', b: 'c' });
+    expect(r.aliases).toEqual({ a: 'b', b: 'c' });
+    expect(r.published).toEqual({ a: 'c', b: 'c' });
     expect(r.carried).toBe(1);
   });
 
-  it('keeps an earlier alias whose product has no current prices, and drops one whose product is gone', () => {
+  it('keeps an earlier alias whose product has no current prices, and keeps (unpublished) one whose product is gone', () => {
     const r = settle({ previous: { a: 'sleeping', b: 'vanished' }, dormant: new Set(['sleeping']) });
-    expect(r.aliases).toEqual({ a: 'sleeping' });
-    expect(r.dropped).toBe(1);
+    expect(r.aliases).toEqual({ a: 'sleeping', b: 'vanished' });
+    expect(r.published).toEqual({ a: 'sleeping' });
+    expect(r.unresolved).toBe(1);
   });
 
-  it('lets an id that is a page again open its own page', () => {
+  it('lets an id that is a page again open its own page, and keeps the record so it can come back', () => {
     const r = settle({ previous: { a: 'b' }, live: new Set(['a', 'b']) });
-    expect(r.aliases).toEqual({});
+    expect(r.aliases).toEqual({ a: 'b' });
+    expect(r.published).toEqual({});
+    expect(r.pageAgain).toBe(1);
   });
 
-  it('ends a loop instead of following it', () => {
+  it('ends a loop instead of following it, and still keeps both keys', () => {
     const r = settle({ previous: { a: 'b', b: 'a' }, live: new Set(['z']) });
-    expect(r.aliases).toEqual({});
+    expect(r.aliases).toEqual({ a: 'b', b: 'a' });
+    expect(r.published).toEqual({});
+  });
+
+  it('never rewrites a recorded value when a new decision names another survivor; it links the dead end instead', () => {
+    // a -> gone was recorded; `gone` is no page and no key. This build folded a into c.
+    const r = settle({
+      previous: { a: 'gone' },
+      wasPage: new Set(['a']),
+      successors: new Map([['a', 'c']]),
+      live: new Set(['c']),
+    });
+    expect(r.aliases).toEqual({ a: 'gone', gone: 'c' });
+    expect(r.published).toEqual({ a: 'c', gone: 'c' });
+    expect(r.healed).toBe(1);
+  });
+
+  it('keeps the first value of a key already recorded when the target still leads to a page', () => {
+    const r = settle({
+      previous: { a: 'b', b: 'c' },
+      wasPage: new Set(['a']),
+      successors: new Map([['a', 'c']]),
+      live: new Set(['c']),
+    });
+    expect(r.aliases).toEqual({ a: 'b', b: 'c' });
   });
 
   it('is the same on a second run over its own output', () => {
@@ -270,9 +298,12 @@ describe('an absorbed address lands on its survivor', () => {
 });
 
 describe('the persisted file', () => {
-  it('is the same map the page is given', () => {
+  it('is the record the page map is flattened from: every served id is recorded, and no served target is itself served', () => {
     const file = JSON.parse(readFileSync(resolve(root, 'data/id-aliases.json'), 'utf8')) as { aliases: IdAliases };
-    expect(file.aliases).toEqual(ID_ALIASES);
+    for (const [from, to] of Object.entries(ID_ALIASES)) {
+      expect(from in file.aliases, from).toBe(true);
+      expect(to in ID_ALIASES, to).toBe(false);
+    }
   });
 });
 
