@@ -596,3 +596,28 @@ describe('a Perfume Direct gift set that gains a barcode keeps its old address',
   });
 });
 
+describe('a record that closed on itself still redirects, from this build’s own decision', () => {
+  // Real, 2026-10-06: Lookfantastic's Hugo Boss The Scent Le Parfum for Him 100ml and Perfume Direct's
+  // 50942PD were folded one way before the barcode and the other way after, leaving a pair on file.
+  const lf = 'lookfantastic-15742061';
+  const pd = 'perfume-direct-50942pd';
+  const page = 'ean-3616305040572';
+
+  it('publishes both old ids as the page that holds them, and rewrites neither key', () => {
+    const r = settleIdAliases({
+      previous: { [lf]: pd, [pd]: lf },
+      wasPage: new Set([lf, pd]),
+      successors: new Map([[lf, page], [pd, page]]),
+      live: new Set([page]),
+      dormant: new Set(),
+    });
+    expect(r.aliases).toEqual({ [lf]: pd, [pd]: lf });
+    expect(r.published).toEqual({ [lf]: page, [pd]: page });
+  });
+
+  it('publishes nothing for a closed record this build knows nothing about', () => {
+    const r = settleIdAliases({ previous: { a: 'b', b: 'a' }, wasPage: new Set(), successors: new Map(), live: new Set(['z']), dormant: new Set() });
+    expect(r.published).toEqual({});
+  });
+});
+
