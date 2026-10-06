@@ -5559,8 +5559,10 @@ export function applyHead(tags: HeadTags): void {
   // (see this file's header), but a browser extension, a reading-list tool or
   // an in-page share that reads the live DOM will, and keeping them in step
   // with the title costs nothing.
-  setMeta('property', 'og:title', tags.title);
+  setMeta('property', 'og:title', tags.shareTitle ?? tags.title);
   setMeta('property', 'og:description', tags.description);
+  setMeta('name', 'twitter:title', tags.shareTitle ?? tags.title);
+  setMeta('name', 'twitter:description', tags.description);
   setMeta('property', 'og:url', tags.canonical);
 
   if (tags.noindex) setMeta('name', 'robots', 'noindex, follow');
