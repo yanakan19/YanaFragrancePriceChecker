@@ -603,6 +603,34 @@ You should see codes such as `GB`. If every row has an empty country, the
 header is not reaching the database: tell me, and the dashboard keeps
 showing those visits as "Unknown" rather than guessing.
 
+### 8e. Keep the counts small (2 minutes, optional but recommended)
+
+**If you ran `0007_site_stats.sql` before the evening of 6 October, run it
+again** (it is safe to run twice). Its first version could never count a
+click through to a shop: Postgres refused one of its patterns, so every
+click failed silently. Page views were not affected.
+
+Then SQL Editor → **New query** → paste the whole of
+`supabase/migrations/0008_site_stats_limits.sql` → **Run**. It is safe to
+run twice and changes nothing a visitor sees. It does two things:
+
+- **A cap.** An hour holds at most 2,000 rows of page views and 2,000 of
+  clicks. Past that, a new page is added to the "/other" row instead of a
+  row of its own, so every view is still counted. Without it, anyone with the
+  site's public key could fill the free plan's 500 MB database with made up
+  page names, which would also stop sign in, wishlists and alerts.
+- **A daily fold** at 03:23 UTC: hourly rows older than three days become
+  one row per day, and rows older than 13 months one row per month. Every
+  bar on the dashboard stays the same (its Hour view only covers the last
+  24 hours).
+
+If the result mentions that `pg_cron` is not available, the daily fold is not
+scheduled: switch on **Integrations** → **Cron** in the Supabase dashboard and
+run the script again, or run `select public.site_stats_compact();` now and
+then. To check the job exists: `select jobname, schedule from cron.job;`
+should list `site-stats-compact`. Why, and the numbers behind it:
+`docs/TRACKING-AND-STORAGE-STRATEGY.md`.
+
 ### What Hide, Remove and Show Again do
 
 - **Hide**: the brand or shop disappears from the site on every visitor's
