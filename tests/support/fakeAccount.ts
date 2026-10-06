@@ -37,6 +37,14 @@ export interface FakeAccount {
   photo?: { enabled: boolean; file: FakePhotoFile | null };
   /** Filled by the stub, in order: each write the page made, for tests that check order. */
   writes?: string[];
+  /**
+   * The developer dashboard's database (migration 0007). Left out is a project
+   * where the owner has not run it: its functions and table answer as missing.
+   * `isAdmin` is this account's owner flag; `stats` is what site_stats answers
+   * (the shape demo/siteStats.ts parses); `overrides` is the hidden and
+   * removed list, which the stub changes as the page writes to it.
+   */
+  site?: { isAdmin: boolean; stats?: unknown; overrides?: { kind: string; key: string; state: string; name?: string }[] };
 }
 
 /** The one object path a reader may hold, the same rule as the migration. */
@@ -145,6 +153,43 @@ export async function stubSupabase(
     if (url.pathname === '/rest/v1/rpc/delete_own_account') {
       account?.writes?.push('rpc delete_own_account');
       return route.fulfill({ status: 204, body: '' });
+    }
+    // The developer dashboard (migration 0007).
+    const missing = (what: string) =>
+      json(404, { code: what.startsWith('rpc') ? 'PGRST202' : 'PGRST205', message: `Could not find ${what} in the schema cache` });
+    if (url.pathname === '/rest/v1/rpc/is_site_admin') {
+      if (!account) return json(401, { message: 'no session' });
+      return account.site ? json(200, account.site.isAdmin) : missing('rpc is_site_admin');
+    }
+    if (url.pathname === '/rest/v1/rpc/site_stats') {
+      const site = account?.site;
+      if (!site) return missing('rpc site_stats');
+      if (!site.isAdmin) return json(403, { code: '42501', message: 'not allowed' });
+      account?.writes?.push(`rpc site_stats ${req.postData() ?? ''}`);
+      return json(200, site.stats ?? {});
+    }
+    if (url.pathname === '/rest/v1/site_overrides') {
+      const site = account?.site;
+      if (!site) return missing('table site_overrides');
+      site.overrides ??= [];
+      if (req.method() === 'GET') return json(200, site.overrides);
+      if (!site.isAdmin) return json(403, { code: '42501', message: 'new row violates row-level security policy' });
+      if (req.method() === 'POST') {
+        const body = JSON.parse(req.postData() ?? '[]') as { kind: string; key: string; state: string; name?: string }[];
+        for (const row of Array.isArray(body) ? body : [body]) {
+          site.overrides = site.overrides.filter((o) => !(o.kind === row.kind && o.key === row.key));
+          site.overrides.push({ kind: row.kind, key: row.key, state: row.state, ...(row.name ? { name: row.name } : {}) });
+        }
+        account?.writes?.push(`site_overrides POST ${req.postData() ?? ''}`);
+        return route.fulfill({ status: 201, body: '' });
+      }
+      if (req.method() === 'DELETE') {
+        const kind = (url.searchParams.get('kind') ?? '').replace(/^eq\./, '');
+        const keys = (url.searchParams.get('key') ?? '').replace(/^in\.\(|\)$/g, '').split(',').map((k) => k.replace(/^"|"$/g, ''));
+        site.overrides = site.overrides.filter((o) => !(o.kind === kind && keys.includes(o.key)));
+        account?.writes?.push(`site_overrides DELETE ${kind} ${keys.join(',')}`);
+        return route.fulfill({ status: 204, body: '' });
+      }
     }
     if (url.pathname === '/rest/v1/rpc/profile_photos_enabled') {
       if (account?.photo?.enabled) return json(200, true);

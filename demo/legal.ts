@@ -24,7 +24,10 @@
  *     published (see COMPANY.postalAddress), and the pages say so.
  *   - UK GDPR and the Data Protection Act 2018: the privacy notice, written
  *     for what the site actually collects: optional accounts (Supabase),
- *     price drop emails (Resend) and email you send us. The chat assistant,
+ *     price drop emails (Resend), email you send us, and since 2026-10-06
+ *     the cookieless visit counter (demo/siteCounter.ts, migration 0007):
+ *     hourly totals of page views and shop clicks by page, country and
+ *     linking site, with no cookie, no device storage and no IP address. The chat assistant,
  *     which sent open questions to an AI service, was removed on
  *     2026-10-02, and with it everything the notice said about it.
  *   - PECR regulation 6 (cookies and similar storage): the cookies page lists
@@ -229,15 +232,17 @@ export function adsPolicy(on: boolean) {
       and the EEA Google's own consent message asks you first whether Google
       may use cookies and show personalised ads. If you say no, or do not
       answer, the ads are not personalised. You can change your answer at any
-      time from the privacy settings link that message leaves on the page. We
-      run no analytics and no tracking of our own.</p>`
+      time from the privacy settings link that message leaves on the page. Our
+      own visit counter writes nothing to your device and follows no one.</p>`
       : `<h2 class="t-section">Why There Is No Cookie Banner</h2>
       <p>UK rules, the Privacy and Electronic Communications Regulations, require
       consent before storing anything on your device that is not strictly
       necessary for a service you have asked for. Nothing below is written until
-      you take the action that needs it: choosing a theme or signing in. There is no analytics, no advertising and no tracking
-      of any kind. So there is nothing a banner would ask you to accept. If that
-      ever changes, we will ask for consent before anything is set, not after.</p>`,
+      you take the action that needs it: choosing a theme or signing in. We count
+      visits, but without cookies or anything else stored on your device, and
+      the count follows no one. There is no advertising and no tracking of
+      you. So there is nothing a banner would ask you to accept. If that ever
+      changes, we will ask for consent before anything is set, not after.</p>`,
     /** Cookies page, an extra item under "Third Parties". */
     cookiesThirdParty: on
       ? `<li><strong>Google AdSense.</strong> Pages that show an ad load Google's
@@ -304,7 +309,7 @@ export const COMPANY = {
    * The day these pages last changed. When ads switch on, their advertising
    * sections appear, so the date moves to ADS_SWITCHED_ON (demo/ads.ts).
    */
-  updated: ADS_ON && ADS_SWITCHED_ON ? ADS_SWITCHED_ON : '5 October 2026',
+  updated: ADS_ON && ADS_SWITCHED_ON ? ADS_SWITCHED_ON : '6 October 2026',
 } as const;
 
 /** Storage this site writes in the reader's browser, listed on the cookies page. */
@@ -536,17 +541,21 @@ export const LEGAL_PAGES: LegalPage[] = [
       <aside class="summary-box" aria-labelledby="privacy-summary">
         <h2 class="t-section" id="privacy-summary">In Short</h2>
         <ul>
-          <li><strong>What we collect.</strong> Nothing while you browse,
-          search or filter; that stays in your browser. Only what you choose to
+          <li><strong>What we collect.</strong> While you browse we count
+          page views and clicks through to shops: the page, the hour and your
+          country, with no cookie and no IP address kept. What you search or
+          filter stays in your browser. Beyond that, only what you choose to
           send: your email and password if you
           sign up, the fragrances on your Wishlist with any target price you
           type, whether you want price drop emails, a profile photo if you add
           one, and any email you write to us.</li>
           <li><strong>Why.</strong> To answer your question, run your account
-          and Wishlist, and reply to you. Under UK GDPR that rests on contract
-          for accounts and legitimate interests for email. ${ADS_TEXT.summary}</li>
+          and Wishlist, reply to you, and see which pages and shops are used.
+          Under UK GDPR that rests on contract for accounts and legitimate
+          interests for email and the visit counts. ${ADS_TEXT.summary}</li>
           <li><strong>Who processes it.</strong> ${COMPANY.accountsProvider}
-          holds your email, login, wishlist and any profile photo. ${COMPANY.emailProvider} sends
+          holds your email, login, wishlist and any profile photo, and the
+          visit counts. ${COMPANY.emailProvider} sends
           price drop emails if you ask for them. ${COMPANY.hosting} serves
           the pages. We never see card details; you pay the shop.</li>
           <li><strong>How long.</strong> Settings such
@@ -575,12 +584,25 @@ export const LEGAL_PAGES: LegalPage[] = [
       <a href="#" data-page="terms">terms page</a>.</p>
 
       <h2 class="t-section">What We Collect, and Why</h2>
-      <p>Browsing, searching and filtering happen entirely in your browser
-      against a fixed catalogue. None of it is sent to us or stored by us.
-      Two things do leave your browser, each only when you choose to use it:
-      the details you give when you create an account, and anything you email
-      us. ${ADS_TEXT.collect}</p>
+      <p>Searching and filtering happen entirely in your browser against a
+      fixed catalogue. What you type is never sent to us. When a page opens,
+      your browser adds one to a count of visits, described below, which says
+      nothing about who you are. Everything else leaves your browser only when
+      you choose to use it: the details you give when you create an account,
+      and anything you email us. ${ADS_TEXT.collect}</p>
       <ul>
+        <li><strong>Visit counts.</strong> To see which pages and shops are
+        useful, each page you open adds one to an hourly total, and so does
+        each click through to a shop. A total records only the page's address
+        (never what you searched for), the hour, your country, and, for the
+        first page of a visit, the name of the site that linked here, such as
+        google.com. A shop click records the product, its brand and the shop.
+        Your country is read from the country our database provider's network
+        attaches to the request; we never look up or store your IP address.
+        No cookie is set and nothing is stored on your device to count you,
+        so the totals cannot tell one visitor from another or follow anyone
+        from page to page. They are held by ${COMPANY.accountsProvider} and
+        only the person who runs the site can read them.</li>
         <li><strong>Your display preferences.</strong> Dark or light theme,
         mobile or desktop layout and tiles per row are saved on your own device
         only, using your browser's local storage. They never leave it and we
@@ -636,7 +658,9 @@ export const LEGAL_PAGES: LegalPage[] = [
         own privacy statement; we do not receive or store it.</li>
         <li><strong>${COMPANY.accountsProvider}</strong> holds account data,
         your email, login, wishlist and any profile photo, if you create an
-        account. We do not run
+        account, and the visit counts. Like any web service it handles your
+        connection's IP address in passing to answer a request, under its own
+        terms; we never receive or store it. We do not run
         a server of our own. Row level security on that database means only
         you, signed in as yourself, can read or change your own account data.
         The one exception is our morning price alert job, which reads the
@@ -658,6 +682,10 @@ export const LEGAL_PAGES: LegalPage[] = [
       <h2 class="t-section">Our Lawful Basis</h2>
       <p>For replying to messages you send us, we rely on legitimate interests:
       being able to answer you. You decide whether to send anything at all. For
+      the visit counts we also rely on legitimate interests: knowing which
+      pages and shops are useful, so we can improve the site and see which
+      shop links earn the commission that pays for it. The counts name no one
+      and set nothing on your device, which is why they need no consent. For
       account data, your email, login, wishlist and any profile photo, we
       rely on contract: creating and running the account you asked for. For
       price drop emails we rely on your consent, given when you tick the box,
@@ -672,8 +700,10 @@ export const LEGAL_PAGES: LegalPage[] = [
       <h2 class="t-section">How Long We Keep It</h2>
       <p>Emails are kept only as long as we need them to deal with what you have
       asked, then deleted. We do not
-      keep search history, browsing history or any other record of your visit,
-      because we never receive one. Account data is kept for as long as your
+      keep search history, browsing history or any other record of your visit
+      as yours, because we never receive one: the visit counts are hourly
+      totals that name no one, kept for as long as they are useful to compare
+      one period with another. Account data is kept for as long as your
       account exists, and deleted when you delete your account from the Account
       page or ask us to close it. The last price we emailed you about for a
       fragrance goes when you remove it from your wishlist. A profile photo

@@ -345,7 +345,7 @@ export function headFor(input: HeadInput): HeadTags {
         description: describe(
           ADS_ON
             ? 'The terms, the privacy notice and how affiliate links work. We collect almost nothing, and the ads Google shows on some pages ask for your consent first.'
-            : 'The terms, the privacy notice and how affiliate links work. We collect almost nothing: no analytics, no tracking cookies, and a display preference kept on your own device.',
+            : 'The terms, the privacy notice and how affiliate links work. We collect almost nothing: visit counts without cookies, and a display choice kept on your device.',
           SITE_TAIL,
         ),
         canonical,
@@ -443,6 +443,24 @@ export function headFor(input: HeadInput): HeadTags {
         noindex: true,
       };
 
+    // The owner's dashboard. To anyone else it is the not found page, and its
+    // tab says so too: app.ts passes leafName 'Developer' only once the
+    // signed in account is confirmed as the owner's. Never indexed.
+    case 'developer':
+      return leafName === 'Developer'
+        ? {
+            title: 'PriceSniffs: Developer',
+            description: 'Visitors, shop clicks and the brands and shops on the site, for the owner only.',
+            canonical,
+            noindex: true,
+          }
+        : {
+            title: 'PriceSniffs: Page not found',
+            description: 'That address does not match anything on this site.',
+            canonical,
+            noindex: true,
+          };
+
     case 'notFound':
       return {
         title: 'PriceSniffs: Page not found',
@@ -495,6 +513,7 @@ function pathOf(route: Route): string {
     case 'accountWishlist': return '/account/wishlist';
     case 'accountNotifications': return '/account/notifications';
     case 'design': return '/design';
+    case 'developer': return '/developer';
     case 'legal': return `/legal/${p}`;
     case 'notFound': return '/404';
   }

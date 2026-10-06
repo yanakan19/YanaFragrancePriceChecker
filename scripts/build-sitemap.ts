@@ -29,6 +29,11 @@
  * the file behind them, read from git. Nothing here is stamped with "today"
  * to look fresh, which is the usual way a sitemap starts lying.
  */
+// First, before anything reads the catalogue: the brands and shops the owner
+// hid or removed from the developer dashboard are taken out of the data, as
+// the page does, so the sitemap never lists a page the site does not show.
+import './siteApply.js';
+import { SITE_OVERRIDE_ROWS } from '../demo/siteData.js';
 import { execFileSync } from 'node:child_process';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -211,5 +216,6 @@ const emptyShops = enabledRetailers().length - listedShops;
 console.log(
   `demo/sitemap.xml  ${unique.length} URLs  (${DEMO_FRAGRANCES.length} fragrances, ` +
     `${brandSlugs.size} brands, ${listedShops} shops of ${RETAILERS.length} in the registry` +
-    `${emptyShops ? `; ${emptyShops} enabled but carrying no listing, left out` : ''})`,
+    `${emptyShops ? `; ${emptyShops} enabled but carrying no listing, left out` : ''}` +
+    `${SITE_OVERRIDE_ROWS.length ? `; ${SITE_OVERRIDE_ROWS.length} hidden or removed in the dashboard, left out` : ''})`,
 );

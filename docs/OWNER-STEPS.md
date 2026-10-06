@@ -1,6 +1,6 @@
 # Owner steps, in plain English
 
-Seven jobs only you can do. Each one is short. Do them in this order; the
+Eight jobs only you can do. Each one is short. Do them in this order; the
 first stops money going out (the old chat servers, now unused).
 
 ---
@@ -536,3 +536,105 @@ their rendered PNGs under `social/`: 19.8 MB in the last week, 9.6 MB on
 4 October alone, now the biggest single item. Options: keep as is; keep only
 the posts' text and settings in git and render the images when needed; or
 delete a post's images once it is published. Say which you prefer.
+
+---
+
+## 8. Developer dashboard (10 minutes)
+
+Your private page at **pricesniffs.space/developer**: visitors (with a
+country filter and Hour, Day, Week, Month and Year views), Shop Clicks (the
+products, brands and shops people click through to, which is what earns
+commission), every brand and every shop with its number of listings and
+Hide, Remove and Show Again, and places for AdSense and Stripe. Only your
+account can open it; to anyone else it is the ordinary Page Not Found, it is
+linked from nowhere and search engines are told to leave it alone.
+
+Until you do this, nothing is counted and the site works exactly as it does
+now. If you open /developer while signed in before step 8a, it says "Not Set
+Up Yet" and shows these steps with your own account id already filled in.
+Do step 2 of this file (accounts) first.
+
+### 8a. Run the database script
+
+Supabase dashboard → **SQL Editor** → **New query** → paste the whole of
+`supabase/migrations/0007_site_stats.sql` → **Run**. It must say success. It
+is safe to run twice. There is no Edge Function to deploy: everything is in
+that one script.
+
+### 8b. Make your account the owner
+
+1. Sign in on the live site with your own account and open
+   **pricesniffs.space/developer**. It shows "Not Set Up Yet" and, in step 2,
+   the exact line with your account id in it. Copy it.
+   (Or find the id yourself: Supabase → **Authentication** → **Users** → your
+   address → **User UID**.)
+2. SQL Editor → **New query** → paste it and **Run**:
+
+   ```sql
+   update public.profiles set is_admin = true
+   where id = 'YOUR-ACCOUNT-ID';
+   ```
+
+   It should say "1 row affected". Nobody can set this flag from the site or
+   the API, only here, and no address or id of yours is written anywhere in
+   the code.
+3. Reload /developer. You should see the dashboard.
+
+### 8c. Start counting
+
+Counting starts with the next deploy of the site, which happens after every
+price crawl (several times a day). To start it now: GitHub → **Actions** →
+**Deploy site** → **Run workflow**. The deploy log's "Build the site" step
+then says `counter on`.
+
+### 8d. Check the countries are coming through (the day after)
+
+The country of a visit comes from Cloudflare, which sits in front of
+Supabase and attaches it to each request as a two letter code; the site
+never looks up or stores an IP address. To check it is arriving, run:
+
+```sql
+select country, sum(views) as views, sum(visits) as visits
+from public.site_page_views
+group by country order by views desc;
+```
+
+You should see codes such as `GB`. If every row has an empty country, the
+header is not reaching the database: tell me, and the dashboard keeps
+showing those visits as "Unknown" rather than guessing.
+
+### What Hide, Remove and Show Again do
+
+- **Hide**: the brand or shop disappears from the site on every visitor's
+  next page load. Its data is kept, so **Show Again** brings it back the
+  same way.
+- **Remove**: hidden, and also left out of the next build of the site. A
+  removed shop is no longer crawled either. **Show Again** brings it back
+  with the next deploy (and the next crawl, for a shop).
+- The list lives in the database (`site_overrides`), on top of the code's own
+  list of shops in `src/config/retailers.ts`, which does not change. To clear
+  everything at once: `delete from public.site_overrides;`
+
+The counts keep only hourly totals per page, country and linking site, and
+per product, shop and country for clicks. Anyone could in principle add to a
+total with the public key, so treat a sudden spike from nowhere with
+suspicion; nobody but you can read them. If the tables ever grow large, old
+hours can be deleted with, for example,
+`delete from public.site_page_views where hour < now() - interval '2 years';`
+
+### Later: connect Google AdSense and Stripe
+
+The dashboard has a card for each, marked **Not Connected**. Both need a
+secret (an AdSense sign in, a Stripe key) that must never be in the code or
+the page, so each is connected through a small Supabase Edge Function that
+holds the secret and answers only you.
+
+- **AdSense**: once the site is approved (section 5), switch on the AdSense
+  Management API in Google Cloud, create an OAuth client, and sign in once to
+  get a refresh token. Store it in Supabase → **Edge Functions** → **Secrets**
+  (never in GitHub or the code), then tell me and I will add the function and
+  fill the card: ad earnings, ad views and ad clicks by day.
+- **Stripe**: once the account is open (docs/STRIPE-SETUP.md), make a
+  **restricted key** with read access to balances, charges and subscriptions
+  only, store it the same way, then tell me. The card then shows
+  subscribers, payments and refunds.
