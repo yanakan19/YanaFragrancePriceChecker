@@ -1601,18 +1601,15 @@
     flex: none; width: 42px; height: 42px; border-radius: 11px;
     border: 1px solid var(--org-mark-border);
   }
-  .org-hero .org-mark--square { width: 56px; height: 56px; border-radius: 15px; }
+  /* A wide mark sits centred inside the same square the other logos get
+     (the hero sizes every logo box to a square, see .org-hero below). The
+     padding keeps it off the border; object-fit keeps its proportions. */
   .org-mark--wordmark {
-    flex: none; height: 56px; max-width: 200px; width: auto;
-    padding: 6px 10px; border-radius: 8px;
+    flex: none; width: 56px; height: 56px; padding: 6px; border-radius: 15px;
     display: flex; align-items: center; justify-content: center;
     border: 1px solid var(--org-mark-border);
   }
-  /* Height fills the box and the width is capped at what the box has left
-     (200px less its 10px padding each side), with object-fit keeping the
-     proportions. Without the cap a wordmark wider than about 4 to 1 ran past
-     the box and overflow: hidden cut the end off ("Juicy Coutur"). */
-  .org-mark--wordmark img { width: auto; height: 100%; max-width: 180px; object-fit: contain; }
+  .org-mark--wordmark img { width: 100%; height: 100%; object-fit: contain; }
   .org-mark--light { background: var(--org-mark-light-bg); }
   .org-mark--dark  { background: var(--org-mark-dark-bg); }
   .org-mark--own   { background: none; }
@@ -1627,7 +1624,6 @@
     font-size: 14px; font-weight: 800; letter-spacing: -.02em;
     font-variant-numeric: tabular-nums;
   }
-  .org-hero .org-mark.org-mark-failed::after { font-size: 18px; }
   /* The 20px shop mark beside a name in a product's price list. Every row
      carries one, the same box either way: the shop's square logo on its
      tile, or (no square logo, or the logo failed to load) the shop's
@@ -1713,23 +1709,43 @@
      everything-centred-and-stacked layout, which spent most of a screen's
      height on a single shop. Shared by the retailer profile and the brand
      profile, so both read as the same kind of page. */
-  .org-hero { display: flex; align-items: flex-start; gap: 14px; padding: 6px 0 18px; text-align: left; }
-  .org-hero .monogram { flex: none; width: 56px; height: 56px; border-radius: 15px; font-size: 18px; }
-  .org-hero-text { flex: 1; min-width: 0; }
-  /* A wide mark (up to 200px) beside the text leaves a phone about 144px for
-     the name and the official site pill, which is 214px and does not wrap, so
-     the page scrolled sideways once a house's wordmark loaded. On a narrow
-     screen the wordmark gets a line to itself and the text runs full width
-     under it. */
-  @media (max-width: 520px) {
-    .org-hero:has(> .org-mark--wordmark) { flex-direction: column; gap: 10px; }
-    .org-hero:has(> .org-mark--wordmark) .org-hero-text { flex: none; width: 100%; }
+  /* The logo is a square whose side is the height of the title through the
+     site button beside it (.org-hero-head), so its top and bottom edges sit
+     flush with the heading's top and the button's bottom. The side is
+     measured by alignHeroMarks() in demo/app.ts into --hero-side (the text
+     wraps differently at every width, so no fixed number can do it); 56px
+     is what shows before that runs. Blurb, delivery facts and the Trustpilot
+     block sit under that row, full width, and are not part of the aligned
+     block. */
+  .org-hero {
+    display: grid; grid-template-columns: var(--hero-side, 56px) minmax(0, 1fr);
+    column-gap: 14px; align-items: start; padding: 6px 0 14px; text-align: left;
   }
+  .org-hero > .org-mark, .org-hero > .monogram {
+    grid-column: 1; grid-row: 1; box-sizing: border-box; flex: none;
+    width: var(--hero-side, 56px); height: var(--hero-side, 56px);
+    border-radius: min(15px, 27%);
+  }
+  .org-hero > .monogram, .org-hero > .org-mark.org-mark-failed::after {
+    font-size: clamp(18px, calc(var(--hero-side, 56px) * .32), 30px);
+  }
+  .org-hero-head { grid-column: 2; grid-row: 1; min-width: 0; align-self: start; }
+  .org-hero-head > :first-child { margin-top: 0; }
+  .org-hero-head > :last-child { margin-bottom: 0; }
+  .org-hero-head .brand-site-link { margin-top: 8px; max-width: 100%; flex-wrap: wrap; gap: 4px 6px; padding: 7px 10px 7px 9px; }
+  .org-hero-more { grid-column: 1 / -1; grid-row: 2; min-width: 0; margin-top: 8px; }
+  .org-hero-more > :first-child { margin-top: 0; }
+  /* No room for a square beside the text (a very narrow phone and a long
+     name): the logo goes above it at a fixed size instead. */
+  .org-hero--stack { grid-template-columns: minmax(0, 1fr); row-gap: 10px; }
+  .org-hero--stack > .org-mark, .org-hero--stack > .monogram { width: 64px; height: 64px; }
+  .org-hero--stack .org-hero-head { grid-column: 1; grid-row: 2; }
+  .org-hero--stack .org-hero-more { grid-row: 3; }
   .org-hero-name { margin: 0; }
   .org-hero-count { color: var(--faint); }
-  .org-hero-domain { margin: 2px 0 0; }
+  .org-hero-domain { margin: 2px 0 0; line-height: 1.3; }
   .org-hero-domain a { color: inherit; }
-  .org-hero-blurb { margin: 8px 0 0; }
+  .org-hero-blurb { margin: 0; line-height: 1.4; }
 
   /* The brand's own site: same icon-then-label shape and shading as the
      sort/filter controls (.control) above, so it reads as one more control
@@ -1788,6 +1804,11 @@
     font-size: 13px; color: var(--ink-2); padding: 6px 0 6px 14px;
     border-bottom: 1px solid var(--line); position: relative;
   }
+  /* The shop page's compact version: tighter lines, no rules, and short
+     facts share a row, so the same facts take fewer lines. */
+  .fact-list.fact-list--compact { display: flex; flex-wrap: wrap; gap: 0 18px; margin: 6px 0 4px; }
+  .fact-list.fact-list--compact li { font-size: 12.5px; line-height: 1.35; padding: 3px 0 3px 12px; border-bottom: 0; }
+  .fact-list.fact-list--compact li::before { top: 9px; width: 4px; height: 4px; }
   .fact-list li::before {
     content: ""; position: absolute; left: 0; top: 13px;
     width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
