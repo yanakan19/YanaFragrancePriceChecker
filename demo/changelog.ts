@@ -30,7 +30,7 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
-    version: 'v3.97.0',
+    version: 'v3.98.0',
     date: '6 Oct 2026',
     groups: [
       {
@@ -43,6 +43,7 @@ export const CHANGELOG: ChangelogEntry[] = [
           'A shorter About page and a Legal Notice page',
           'Privacy notice covers our cookieless visit count',
           'Each shop row shows how long ago it was checked',
+          'Brand names now sit in a neat pill on each tile',
         ],
       },
       {
