@@ -1887,35 +1887,158 @@
   .note-chips-profile { margin-bottom: 12px; }
   .notes-none { font-size: 13.5px; color: var(--faint); margin: 0; }
 
-  /* ── facets ────────────────────────────────────────────────────────────────
-     The Filters toggle is one more cell in the .controls grid. Its panel
-     opens underneath the row, full width: the browser's own dropdowns (the
-     iPhone or Android picker on a phone, a plain menu on a computer) and
-     checkboxes, one per facet. One per row on a phone, so a label such as
-     "Eau de Parfum (EDP) (10,158)" is never clipped; as many as fit across a
-     computer screen. It replaced a panel of one-tap pills, 17 to 30 of them
-     stacked one per line, that ran to 950-1,500px on a phone. */
+  /* ── filters ───────────────────────────────────────────────────────────────
+     Owner's revamp, 6 Oct 2026 (demo/filterUi.ts). The Filters button is one
+     more cell in the .controls grid. What is chosen sits under that row as
+     chips, one tap each to take off, then Clear All. The button opens a native
+     <dialog>: a sheet from the bottom of a phone, a panel down the right of a
+     computer, every option a real checkbox in a 48px row with its count beside
+     it, so several can be chosen at once. It replaced a panel of the browser's
+     own dropdowns, one choice per filter, which had replaced a panel of one tap
+     pills that ran to 950 to 1,500px on a phone. */
   .facets-toggle { position: relative; text-align: left; }
-  .facets-toggle[aria-expanded="true"] { border-color: var(--ink-2); }
   .facets-badge {
     display: inline-flex; align-items: center; justify-content: center;
     min-width: 18px; height: 18px; padding: 0 5px; margin-left: 2px;
     background: var(--accent); color: var(--accent-on);
     font-size: 11px; font-weight: 700; border-radius: 999px;
   }
-  .facets-panel { display: flex; flex-direction: column; gap: 10px; margin: -6px 0 18px; }
-  .facet-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 8px;
-  }
+  /* Still the account page's price alert checkbox (.alerts-check). */
   .facet-check { gap: 10px; }
   .facet-check input { accent-color: var(--accent); width: 18px; height: 18px; margin: 0; flex: none; }
   .facet-check-label { flex: 1 1 auto; min-width: 0; }
-  .facet-count { color: var(--faint); flex: none; font-variant-numeric: tabular-nums; }
-  .facets-clear { align-self: flex-start; }
-  /* Why the panel carries a sentence about gender at all: the reading is
-     derived from wording in a product's title, and most titles say nothing,
-     so "Not stated" is by far the biggest option. Said plainly, once. */
-  .facet-note { margin: 0; max-width: 60ch; }
+
+  .filter-chips {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+    list-style: none; margin: -6px 0 16px; padding: 0;
+  }
+  .filter-chips > li { display: flex; max-width: 100%; }
+  .filter-chip {
+    display: inline-flex; align-items: center; gap: 6px; min-height: 44px; max-width: 100%;
+    padding: 6px 10px 6px 14px; border-radius: 999px;
+    border: 1px solid var(--accent); background: var(--accent-sf); color: var(--ink);
+    font: inherit; font-size: 14px; font-weight: 600; line-height: 1.25; text-align: left; cursor: pointer;
+    transition: border-color var(--dur-2) var(--ease-standard), transform var(--dur-1) var(--ease-standard);
+  }
+  .filter-chip:active { transform: scale(.985); transition-timing-function: var(--ease-exit); }
+  .filter-chip .fc-name { font-weight: 500; color: var(--ink-2); }
+  .filter-chip .fc-x { display: flex; flex: none; color: var(--ink-2); }
+  .filter-chip .fc-x .ico { width: 15px; height: 15px; }
+  .filter-chip:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  @media (hover: hover) and (pointer: fine) {
+    .filter-chip:hover { border-color: var(--accent-press); }
+    .filter-chip:hover .fc-x { color: var(--ink); }
+  }
+  /* Clear All in the row: the link rank, without the negative margin that lets
+     it sit in a line of text, so it keeps its own 44px in a wrapping row. */
+  .filter-chips .filters-clear {
+    margin: 0; min-height: 44px; padding: 0 8px; font-size: 14px; font-weight: 600;
+  }
+
+  .fsheet {
+    position: fixed; inset: auto 0 0 0; margin: 0; padding: 0;
+    width: 100%; max-width: 100%; max-height: 88vh; max-height: 88dvh;
+    border: 0; border-top: 1px solid var(--line-firm); border-radius: 18px 18px 0 0;
+    background: var(--surface); color: var(--ink);
+    box-shadow: 0 -12px 40px rgba(0, 0, 0, .35);
+    overflow: hidden;
+  }
+  /* Movement only, never a fade from nothing: a sheet whose animation never
+     ran still shows. */
+  .fsheet[open] { display: flex; flex-direction: column; animation: fs-up var(--dur-3) var(--ease-standard); }
+  .fsheet::backdrop { background: rgba(0, 0, 0, .6); }
+  @keyframes fs-up { from { transform: translateY(40px); } to { transform: none; } }
+  @keyframes fs-in { from { transform: translateX(40px); } to { transform: none; } }
+  .fs-card { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+  .fs-head {
+    flex: none; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 8px 8px 8px 20px; border-bottom: 1px solid var(--line);
+  }
+  /* Where focus lands when the panel opens (openFilterSheet): it names the
+     panel, and is not a control, so it draws no ring. */
+  .fs-title { margin: 0; font-size: 18px; font-weight: 700; line-height: 1.3; outline: none; }
+  .fs-x {
+    flex: none; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center;
+    border: 0; border-radius: 10px; background: none; color: var(--ink); cursor: pointer;
+  }
+  .fs-x .ico { width: 20px; height: 20px; }
+  .fs-x:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+  /* The one part that scrolls. contain keeps a fling at its end from scrolling
+     the page behind, in Safari and Chrome alike. */
+  .fs-body {
+    flex: 1 1 auto; min-height: 0; overflow-y: auto;
+    overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+    padding: 0 20px 8px;
+  }
+  .fs-foot {
+    flex: none; display: flex; gap: 10px;
+    padding: 12px 20px calc(12px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid var(--line);
+  }
+  .fs-foot .ps-dialog-btn { padding: 6px 14px; line-height: 1.2; }
+  .fs-foot .fs-clear { flex: none; white-space: nowrap; }
+  .fs-foot .fs-show { flex: 1 1 auto; }
+  .fs-foot .fs-clear:disabled { opacity: .45; cursor: default; }
+  .fs-flags, .fs-opts { border: 0; margin: 0; padding: 0; min-width: 0; }
+  .fs-flags { padding: 12px 0 6px; border-bottom: 1px solid var(--line); }
+  .fs-flags > legend { padding: 0; margin: 0 0 2px; }
+  .fs-group { border-bottom: 1px solid var(--line); }
+  .fs-sum {
+    display: flex; align-items: center; gap: 8px; min-height: 52px; cursor: pointer;
+    list-style: none;
+  }
+  .fs-sum::-webkit-details-marker { display: none; }
+  .fs-sum::marker { content: ""; }
+  .fs-sum:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; border-radius: 8px; }
+  .fs-name { font-size: 15px; font-weight: 700; color: var(--ink); }
+  .fs-picked {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px;
+    background: var(--accent); color: var(--accent-on); font-size: 12px; font-weight: 700;
+  }
+  .fs-chev { margin-left: auto; display: flex; color: var(--faint); transition: transform var(--dur-2) var(--ease-standard); }
+  .fs-chev .ico { width: 16px; height: 16px; }
+  .fs-group[open] > .fs-sum .fs-chev { transform: rotate(180deg); }
+  .fs-opts { padding: 0 0 10px; }
+  .fs-opt {
+    display: flex; align-items: center; gap: 12px; min-height: 48px;
+    padding: 2px 6px; margin: 0 -6px; border-radius: 10px; cursor: pointer;
+  }
+  .fs-opt[hidden] { display: none; }
+  .fs-opt input {
+    flex: none; width: 22px; height: 22px; margin: 0; cursor: pointer; accent-color: var(--accent);
+  }
+  .fs-opt input:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .fs-opt-label { flex: 1 1 auto; min-width: 0; font-size: 16px; line-height: 1.3; color: var(--ink); }
+  .fs-opt-count { flex: none; font-size: 14px; color: var(--faint); font-variant-numeric: tabular-nums; }
+  @media (hover: hover) and (pointer: fine) {
+    .fs-opt:hover { background: var(--surface-2); }
+  }
+  .fs-find {
+    display: block; width: 100%; min-height: 44px; margin: 0 0 6px; padding: 0 12px;
+    font: inherit; font-size: 16px; color: var(--ink);
+    background: var(--bg); border: 1px solid var(--line-firm); border-radius: 10px;
+  }
+  .fs-find:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-sf); }
+  .fs-none { margin: 4px 0 10px; color: var(--ink-2); }
+  .fs-note { margin: 0 0 12px; max-width: 60ch; color: var(--ink-2); }
+  .fs-flags .fs-note { margin-top: 6px; }
+  .fs-empty { margin: 16px 0; color: var(--ink-2); }
+  /* A computer: a panel down the right, the list still in view beside it. */
+  @media (min-width: 700px) {
+    .fsheet {
+      inset: 0 0 0 auto; width: 440px; max-width: 100%;
+      height: 100vh; height: 100dvh; max-height: none;
+      border-top: 0; border-left: 1px solid var(--line-firm); border-radius: 0;
+      box-shadow: -12px 0 40px rgba(0, 0, 0, .35);
+    }
+    .fsheet[open] { animation-name: fs-in; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fsheet[open] { animation: none; }
+  }
+  /* The page holds still under the panel (lockPageScroll in demo/app.ts). */
+  html.fs-locked, html.fs-locked body { overflow: hidden; }
   .notes-source { margin: 10px 0 0; }
   /* Same icon-then-label shape as .footer-link below, at the notes block's own
      caption size rather than the footer's fixed one, so "As published by X"
@@ -3045,7 +3168,7 @@
     }
     body { background: #fff; color: #000; }
     .bar, .subnav, .site-footer, .to-top, .skip-link,
-    .controls, .facets-panel, .controls-row,
+    .controls, .filter-chips, .fsheet, .controls-row,
     .wishlist-toggle, .share-btn, .grid-more { display: none !important; }
     .app { max-width: none; }
     main { padding: 0; }
