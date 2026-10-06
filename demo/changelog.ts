@@ -52,7 +52,7 @@ export const CHANGELOG: ChangelogEntry[] = [
           '3,011 Perfume Direct bottles now match exactly',
           '273 more of its bottles compare with other shops',
           'About 1,600 Perfume Click photos are now larger',
-          'Scent notes: cleaner names and fuller lists',
+          'Bulgari and Bvlgari are now one brand page',
         ],
       },
     ],
