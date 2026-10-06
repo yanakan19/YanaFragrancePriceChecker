@@ -28,7 +28,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
  */
 const built = existsSync(resolve(root, 'demo/index.html'));
 
-const ROUTES = ['/', '/search', '/fragrance/ean-6290360375687', '/retailers/fragrance-click', '/legal/privacy', '/account'];
+const ROUTES = ['/', '/search', '/fragrance/ean-6290360375687', '/retailers/fragrance-click', '/about', '/about/legal', '/legal/how-it-works', '/account'];
 
 describe.skipIf(!built)('the built page has no axe violations', () => {
   let browser: Browser;
@@ -55,6 +55,20 @@ describe.skipIf(!built)('the built page has no axe violations', () => {
         const summary = violations.map((v) => `[${v.impact}] ${v.id}: ${v.nodes.slice(0, 3).join(' | ')}`).join('\n');
         expect(violations, summary).toEqual([]);
       }, 30_000);
+    }
+  }
+
+  // The shortened About page and the Legal Notice at phone widths (owner's
+  // revamp, 2026-10-06): nothing may overflow or lose contrast on a 320 screen.
+  for (const mode of ['dark', 'light'] as const) {
+    for (const route of ['/about', '/about/legal']) {
+      for (const width of [320, 390]) {
+        it(`${route} at ${width}px wide (${mode})`, async () => {
+          const violations = await auditRoute(browser, port, route, mode, width);
+          const summary = violations.map((v) => `[${v.impact}] ${v.id}: ${v.nodes.slice(0, 3).join(' | ')}`).join('\n');
+          expect(violations, summary).toEqual([]);
+        }, 30_000);
+      }
     }
   }
 

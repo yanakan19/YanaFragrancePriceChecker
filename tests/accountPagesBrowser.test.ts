@@ -593,7 +593,7 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
     }
   }, 60_000);
 
-  it('Settings holds only Theme and Layout; About holds Contact Us, the legal links and counted numbers', async () => {
+  it('Settings holds only Theme and Layout; About holds Contact Us, the Legal Notice link and counted numbers', async () => {
     const { context, page } = await open('/settings');
     try {
       const s = (await page.textContent('#view'))!;
@@ -610,12 +610,14 @@ describe.skipIf(!built)('the account menu, account pages, Settings and About', (
       await page.waitForTimeout(150);
       expect(await page.title()).toBe('PriceSniffs: About');
       expect(await page.$('#view #contact-form')).not.toBeNull();
-      const legal = await page.$$eval('#view nav[aria-label="Legal"] [data-page]', (els) => els.map((e) => e.getAttribute('data-page')));
-      expect(legal).toEqual(expect.arrayContaining(['privacy', 'terms', 'cookies', 'affiliate', 'contact']));
+      // The legal documents left About for the Legal Notice (2026-10-06): one link to it.
+      expect(await page.$('#view nav[aria-label="Legal"]')).toBeNull();
+      expect(await page.getAttribute('#view .about-legal a', 'href')).toBe('/about/legal');
       const a = (await page.textContent('#view'))!;
-      for (const s2 of ['How Prices Are Checked', 'Delivery Included', 'Checked Daily', 'No Paid Placements', 'Real Price History',
-        'How the Site Makes Money', 'Who Runs It', 'Hi, I am Yanny']) expect(a).toContain(s2);
-      expect(await page.$$eval('#view .about-faq details > summary', (els) => els.length)).toBeGreaterThanOrEqual(5);
+      for (const s2 of ['Why I Built This', 'How It Works', 'Prices', 'Shops', 'Cheapest', 'Affiliate Links',
+        'Who Runs It', 'Hi, I am Yanny', 'Legal Notice']) expect(a).toContain(s2);
+      expect(a).not.toMatch(/Club de Nuit/);
+      expect(await page.$('#view .about-faq')).toBeNull();
       expect(await page.getAttribute('#view a[href*="tiktok.com"]', 'href')).toContain('yannysniffs');
       expect(await page.getAttribute('#view a[href*="instagram.com"]', 'href')).toContain('yannysniffs');
 

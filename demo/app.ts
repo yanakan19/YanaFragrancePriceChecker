@@ -85,7 +85,7 @@ import {
   msrpComparison, msrpComparisonLabel, rrpSavingFor, rrpSavingLabel, shownPrice, type MsrpComparison,
 } from './msrpComparison.js';
 import { pickReferencePrice } from './referencePrice.js';
-import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
+import { COMPANY, legalPage, legalNoticeSections, isLegalNoticeId } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { offersFor, SHOP_COUNT, HOUSE_PRODUCTS, HISTORY_ALIASES, OLDER_OFFERS } from './catalogue.generated.js';
 import { priceHistory, prefetchWhenIdle, type PriceHistoryData } from './priceHistoryStore.js';
@@ -130,7 +130,7 @@ import { parseTargetPrice } from '../src/alerts/target.js';
 import { UNSUBSCRIBE_PARAM, unsubscribeMessage } from '../src/alerts/unsubscribe.js';
 
 type View =
-  | 'home' | 'deals' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about'
+  | 'home' | 'deals' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'legalNotice'
   | 'settings' | 'suggestions' | 'account' | 'accountWishlist' | 'accountNotifications' | 'design' | 'notFound';
 /** The three pages behind the account menu, each with its own address. */
 const ACCOUNT_VIEWS: readonly View[] = ['account', 'accountWishlist', 'accountNotifications'];
@@ -171,6 +171,8 @@ const state = {
   brandProfile: '',
   noteName: '',
   legalId: '',
+  /** The section of the Legal Notice the address points at (/about/legal#privacy), or empty. */
+  noticeSection: '',
   /** The address that matched nothing, shown back on the not-found view. */
   notFoundPath: '',
   brand: null as string | null,
@@ -3898,26 +3900,14 @@ function contactSectionHtml(): string {
         <button type="submit" class="contact-send">Send</button>
       </form>
       <p class="form-privacy t-caption">Send opens your own email app. Nothing goes to a server of ours.
-        We keep what you send only for as long as it takes to reply.
         <button type="button" class="link-btn" data-page="privacy">Privacy Notice</button></p>
       <p id="contact-confirm" class="contact-confirm" hidden></p>`;
 }
 
-/** The legal and policy documents, at the foot of the About page. */
+/** The way into the Legal Notice and the credit line, at the foot of the About page. */
 function legalLinksHtml(): string {
   return `
-      <h2 class="t-section">Legal</h2>
-      <nav class="foot-links" aria-label="Legal">
-        ${LEGAL_PAGES
-          // About is the page this list sits on, so it is not repeated here:
-          // this list is the legal and policy documents.
-          .filter((p) => p.id !== 'about')
-          .map((p) => `<button class="link-btn" data-page="${p.id}">${esc(p.short)}</button>`)
-          .join('')}
-      </nav>
-      <p class="foot-legal">Some shop links are affiliate links, marked on the page. We may earn
-        commission if you buy, at no cost to you, and it never changes the order of results.
-        <button class="link-btn" data-page="affiliate">How That Works</button></p>
+      <p class="about-legal"><a href="/about/legal" data-goto="legalNotice">Legal Notice</a></p>
       <p class="foot-legal dimmer">© ${new Date().getFullYear()} ${esc(COMPANY.name)}, run by ${esc(COMPANY.legalName)}.</p>`;
 }
 
@@ -4906,13 +4896,6 @@ function runAccountAction(action: AccountMenuAction): void {
 /* ── legal ───────────────────────────────────────────────────────────────── */
 
 /**
- * About, as its own top-level page beside Explore and Settings.
- *
- * Shares its copy with the legal-page registry so there is one source for the
- * text, but renders without a Back control: this is a nav destination reached
- * from the top bar, not a leaf you arrived at from somewhere else.
- */
-/**
  * What a wrong address gets.
  *
  * Every in-app path is served by demo/404.html, which is this same document,
@@ -4943,54 +4926,91 @@ function notFoundView(): string {
 }
 
 /**
- * /about as a page of its own (owner's revamp, 2026-10-04): the mission, live
- * numbers, how prices are checked, how the site makes money, who runs it, a
- * short FAQ, then Contact Us and the legal links that used to sit in
- * Settings. The words come from ABOUT in demo/legal.ts, the one source they
- * share with /legal/about; the three numbers are counted from the listings
+ * /about, as little text as will do (owner's revamp, 2026-10-06): why the site
+ * was built, in the owner's voice, three live numbers, four short cards on how
+ * it works, who runs it, the Contact Us form, and one link to the Legal
+ * Notice. It uses the whole width of the page on the desktop layout (the
+ * other pages that do are the lists); on a phone everything stacks. The words
+ * are ABOUT in demo/legal.ts; the three numbers are counted from the listings
  * by liveCounts() in demo/data.ts, never typed.
  */
 function aboutView(): string {
-  const page = legalPage('about');
-  if (!page) return homeView();
   const live = liveCounts();
   const stat = (value: number, label: string, key: string) =>
     `<div class="about-stat" data-stat="${key}"><dt class="t-caption">${label}</dt><dd>${value.toLocaleString('en-GB')}</dd></div>`;
   return `
     <article class="doc about-doc">
-      <h1 class="t-page">${esc(page.title)}</h1>
-      <p class="about-mission">${esc(ABOUT.mission)}</p>
-      <dl class="about-stats" aria-label="The site today">
-        ${stat(live.shops, 'Shops With Current Prices', 'shops')}
-        ${stat(live.fragrances, 'Fragrances', 'fragrances')}
-        ${stat(live.offers, 'Current Offers', 'offers')}
-      </dl>
-      ${ABOUT.story}
+      <h1 class="t-page">About PriceSniffs</h1>
+      <div class="about-hero">
+        <section class="about-why" aria-labelledby="about-why-title">
+          <h2 class="t-section" id="about-why-title">Why I Built This</h2>
+          ${ABOUT.why}
+        </section>
+        <dl class="about-stats" aria-label="The site today">
+          ${stat(live.shops, 'Shops With Current Prices', 'shops')}
+          ${stat(live.fragrances, 'Fragrances', 'fragrances')}
+          ${stat(live.offers, 'Current Offers', 'offers')}
+        </dl>
+      </div>
 
-      <h2 class="t-section">How Prices Are Checked</h2>
+      <h2 class="t-section">How It Works</h2>
       <ul class="about-cards">
-        ${ABOUT.checks.map((c) => `<li class="about-card"><h3 class="about-card-title">${esc(c.title)}</h3><p>${c.body}</p></li>`).join('')}
+        ${ABOUT.how.map((c) => `<li class="about-card"><h3 class="about-card-title">${esc(c.title)}</h3><p>${esc(c.body)}</p></li>`).join('')}
       </ul>
-      ${ABOUT.method}
+      <p class="about-more"><button type="button" class="link-btn" data-page="how-it-works">More on How It Works</button>
+        <button type="button" class="link-btn" data-page="affiliate">Affiliate Disclosure</button></p>
 
-      <h2 class="t-section">How the Site Makes Money</h2>
-      ${ABOUT.money}
-
-      <h2 class="t-section">Who Runs It</h2>
-      ${ABOUT.whoRuns}
-
-      <h2 class="t-section">Questions</h2>
-      <div class="about-faq">
-        ${ABOUT.faq.map((f) => `<details class="about-faq-item"><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')}
+      <div class="about-lower">
+        <section aria-labelledby="about-who-title">
+          <h2 class="t-section" id="about-who-title">Who Runs It</h2>
+          ${ABOUT.whoRuns}
+        </section>
+        <section class="about-contact">
+          ${contactSectionHtml()}
+        </section>
       </div>
 
       <div class="about-foot">
-        ${contactSectionHtml()}
         ${legalLinksHtml()}
       </div>
     </article>`;
 }
 
+/**
+ * The Legal Notice, /about/legal: the terms, privacy notice, affiliate
+ * disclosure, cookies, refunds and contact pages as sections of one page, each
+ * with its own words from LEGAL_PAGES (demo/legal.ts). A contents row at the
+ * top jumps to a section, and the address of each section is an anchor
+ * (/about/legal#privacy). The old addresses, /legal/privacy and the rest, draw
+ * this page and are rewritten to it (applyRoute). The page keeps a reading
+ * width on the desktop layout: it is read top to bottom, not scanned.
+ */
+function legalNoticeView(): string {
+  const sections = legalNoticeSections();
+  return `
+    <button class="back" data-back>Back</button>
+    <article class="doc notice-doc">
+      <h1 class="t-page">Legal Notice</h1>
+      <p class="t-body">The terms, privacy notice and affiliate disclosure for ${esc(COMPANY.name)}, run by
+        ${esc(COMPANY.operator ?? 'one person')} as ${esc(COMPANY.legalName)}.</p>
+      <nav class="notice-toc" aria-label="On This Page">
+        ${sections
+          .map((x) => `<a class="notice-toc-link" href="/about/legal#${x.id}" data-page="${x.id}">${esc(x.short)}</a>`)
+          .join('')}
+      </nav>
+      ${sections
+        .map(
+          (x) => `
+      <section class="notice-section" id="notice-${x.id}" aria-labelledby="notice-${x.id}-title" tabindex="-1">
+        <h2 class="notice-title" id="notice-${x.id}-title">${esc(x.title)}</h2>
+        ${x.body}
+      </section>`,
+        )
+        .join('')}
+    </article>`;
+}
+
+/** The pages still under /legal: only How it works, which is not a legal document. */
 function legalView(): string {
   const page = legalPage(state.legalId);
   if (!page) return homeView();
@@ -5000,6 +5020,55 @@ function legalView(): string {
       <h1 class="t-page">${esc(page.title)}</h1>
       ${page.body}
     </article>`;
+}
+
+/**
+ * Where a link to a legal page goes. The six legal documents are sections of
+ * the Legal Notice; About is its own page; what is left is How it works.
+ */
+function openLegalPage(id: string): void {
+  if (id === 'about') {
+    go('about');
+  } else if (isLegalNoticeId(id)) {
+    openNoticeSection(id);
+  } else {
+    state.legalId = id;
+    go('legal');
+  }
+}
+
+/**
+ * Open the Legal Notice at a section. Already on the notice (a link in its
+ * contents row, or one section pointing at another), the page stays and only
+ * scrolls, and the address gains the anchor without a history entry.
+ */
+function openNoticeSection(id: string): void {
+  if (state.view === 'legalNotice') {
+    state.noticeSection = id;
+    syncUrl('replace');
+    scrollToNoticeSection(true);
+    return;
+  }
+  go('legalNotice', id);
+}
+
+/**
+ * Bring the section the address points at into view and move focus to it, so a
+ * keyboard reader carries on from there. With no section (or one that does not
+ * exist) the page is left where it is.
+ *
+ * Smooth only for a jump within the page. A page opened at a section scrolls
+ * at once: the page can be redrawn in place a moment later (the sign in check
+ * finishing, renderInPlace), and that puts the reader back where the scroll
+ * position was when it started, which for a smooth scroll just begun is the top.
+ */
+function scrollToNoticeSection(smooth = false): void {
+  if (state.view !== 'legalNotice' || !state.noticeSection) return;
+  const el = document.getElementById(`notice-${state.noticeSection}`);
+  if (!el) return;
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+  el.scrollIntoView({ behavior: smooth && !reduced ? 'smooth' : 'auto', block: 'start' });
+  el.focus({ preventScroll: true });
 }
 
 
@@ -5649,6 +5718,7 @@ function currentRoute(): Route {
     case 'legal': return { name: 'legal', param: state.legalId, query: {} };
     case 'notFound': return { name: 'notFound', param: state.notFoundPath, query: {} };
     case 'about': return { name: 'about', param: '', query: {} };
+    case 'legalNotice': return { name: 'legalNotice', param: state.noticeSection, query: {} };
     case 'design': return { name: 'design', param: '', query: {} };
     case 'settings': return { name: 'settings', param: '', query: {} };
     case 'suggestions': return { name: 'suggestions', param: '', query: {} };
@@ -5681,6 +5751,11 @@ function applyRoute(route: Route): boolean {
       state.view = 'notFound';
       return true;
     case 'about': state.view = 'about'; return true;
+    case 'legalNotice':
+      // A section the notice has is scrolled to; any other anchor is ignored.
+      state.noticeSection = isLegalNoticeId(route.param) ? route.param : '';
+      state.view = 'legalNotice';
+      return true;
     case 'design': state.view = 'design'; return true;
     case 'settings': state.view = 'settings'; return true;
     case 'suggestions': state.view = 'suggestions'; return true;
@@ -5771,6 +5846,21 @@ function applyRoute(route: Route): boolean {
       return true;
     }
     case 'legal': {
+      // The old addresses of pages that moved: /legal/about is About, and the
+      // terms, privacy notice and the rest are sections of the Legal Notice.
+      // They are matched, never answered with a not found, for the same reason
+      // as the other aliases above: they are in bookmarks, posts and search
+      // results. The page they land on is drawn and the address is then
+      // rewritten to its own (syncUrl, called after every first draw).
+      if (route.param === 'about') {
+        state.view = 'about';
+        return true;
+      }
+      if (isLegalNoticeId(route.param)) {
+        state.noticeSection = route.param;
+        state.view = 'legalNotice';
+        return true;
+      }
       if (!legalPage(route.param)) return false;
       state.legalId = route.param;
       state.view = 'legal';
@@ -5855,7 +5945,9 @@ function syncUrl(mode: 'push' | 'replace' = 'push'): void {
   // The ad layout preview stays on the address while it is on, so a reload
   // keeps it (withAdPreview in demo/ads.ts; the page itself is noindex then).
   const url = basePath().replace(/\/$/, '') + withAdPreview(routeToPath(currentRoute()));
-  const current = window.location.pathname + window.location.search;
+  // Only an address that carries an anchor (the Legal Notice's sections) is
+  // compared with the one in the bar, anchor included.
+  const current = window.location.pathname + window.location.search + (url.includes('#') ? window.location.hash : '');
   if (url === current) return;
   const depth = mode === 'push' ? historyDepth() + 1 : historyDepth();
   const wasLegacy = onLegacyProductAddress();
@@ -5897,9 +5989,11 @@ function fallbackBackRoute(): Route {
     case 'retailer': return { name: 'retailers', param: '', query: {} };
     case 'brand': return { name: 'brands', param: '', query: {} };
     case 'note': return { name: 'notes', param: '', query: {} };
-    // Legal documents are linked from the About page now (they left
-    // Settings in the 2026-10-04 revamp), so that is the level above them.
+    // The Legal Notice and How it works are linked from the About page (the
+    // legal documents left Settings in the 2026-10-04 revamp), so that is the
+    // level above them.
     case 'legal':
+    case 'legalNotice':
       return { name: 'about', param: '', query: {} };
     // The wishlist and notifications pages sit under the profile, which
     // links to both; the profile itself sits under home, since the menu
@@ -6362,6 +6456,8 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
                     ? noteView()
                     : state.view === 'about'
                       ? aboutView()
+                      : state.view === 'legalNotice'
+                        ? legalNoticeView()
                       : state.view === 'design'
                         ? designView()
                         : state.view === 'settings'
@@ -6433,7 +6529,8 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   ($('#nav-home') as HTMLElement).classList.toggle('on', state.view === 'home');
   ($('#nav-deals') as HTMLElement).classList.toggle('on', state.view === 'deals');
   ($('#nav-explore') as HTMLElement).classList.toggle('on', inExplore || state.view === 'browse');
-  ($('#nav-about') as HTMLElement).classList.toggle('on', state.view === 'about');
+  // The Legal Notice sits under About, so About is the tab that is on there.
+  ($('#nav-about') as HTMLElement).classList.toggle('on', state.view === 'about' || state.view === 'legalNotice');
   // Settings and the account pages are reached from the account menu at the
   // top right now, not from this row; its button carries the "you are here".
   syncAccountButton();
@@ -6484,16 +6581,20 @@ function mountTrustpilotWidgets(): void {
   document.head.appendChild(script);
 }
 
-function go(view: View): void {
+function go(view: View, noticeSection = ''): void {
   // The page being left keeps its filters, sorts and scroll on its own history
   // entry, so Back restores it (see the popstate handler). The page being
   // opened is a different list, so it starts clean.
   rememberListState();
   clearFacets();
   state.view = view;
+  // Only the Legal Notice has sections, and it is opened at one only by a link
+  // that names it (openNoticeSection).
+  state.noticeSection = view === 'legalNotice' ? noticeSection : '';
   render();
   syncUrl('push');
   window.scrollTo({ top: 0 });
+  scrollToNoticeSection();
 }
 
 function openExplore(tab: ExploreTab): void {
@@ -6509,6 +6610,7 @@ function renderFromUrl(): void {
   const route = matchRoute(
     window.location.pathname.slice(basePath().replace(/\/$/, '').length) || '/',
     window.location.search,
+    window.location.hash,
   );
   if (!applyRoute(route)) {
     // applyRoute returns false when the address is well formed but names
@@ -6936,8 +7038,10 @@ function init(): void {
 
     const page = t.closest('[data-page]');
     if (page) {
-      state.legalId = page.getAttribute('data-page')!;
-      go('legal');
+      // Some of these are anchors in the policy text (href="#", or the notice's
+      // own contents row); the router handles them, so the browser does not.
+      e.preventDefault();
+      openLegalPage(page.getAttribute('data-page')!);
       return;
     }
 
@@ -7497,6 +7601,7 @@ function init(): void {
     else clearFacets();
     renderFromUrl();
     restoreScroll(saved ?? null);
+    scrollToNoticeSection();
   });
 
   // A window resize can change how the suggestion box wraps (and so its
@@ -7579,6 +7684,8 @@ function init(): void {
   renderFromUrl();
   syncUrl('replace');
   if (saved) restoreScroll(saved);
+  // An address that names a section of the Legal Notice opens at it.
+  scrollToNoticeSection();
 
   // The price history is only drawn on a product page, so the app starts
   // without it (demo/priceHistoryStore.ts). Fetched once the first paint is

@@ -32,7 +32,7 @@ import { isProductSlug } from '../src/catalogue/productSlug.js';
 
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
-  | 'notes' | 'note' | 'oils' | 'sets' | 'fragrance' | 'product' | 'about' | 'settings' | 'suggestions' | 'legal' | 'account'
+  | 'notes' | 'note' | 'oils' | 'sets' | 'fragrance' | 'product' | 'about' | 'legalNotice' | 'settings' | 'suggestions' | 'legal' | 'account'
   | 'accountWishlist' | 'accountNotifications'
   | 'design' | 'notFound';
 
@@ -43,7 +43,8 @@ export interface Route {
    * The path segment identifying a leaf, already decoded. Empty for lists.
    * For `fragrance` it is the product's id (the old /fragrance/<id> address,
    * and what the app holds internally); for `product` it is the slug, the new
-   * address /BRAND_NAME_VOLUME (docs/PRODUCT-URLS.md).
+   * address /BRAND_NAME_VOLUME (docs/PRODUCT-URLS.md). For `legalNotice` it is
+   * the section the address points at (the part after the #), or empty.
    */
   param: string;
   /** Query string values the app cares about. */
@@ -181,7 +182,7 @@ export function rootWords(): string[] {
  * through 404.html, so it is the only thing standing between a mistyped URL
  * and a page that silently pretends to be the homepage.
  */
-export function matchRoute(pathname: string, search = ''): Route {
+export function matchRoute(pathname: string, search = '', hash = ''): Route {
   const query: Record<string, string> = {};
   for (const [k, v] of new URLSearchParams(search)) query[k] = v;
 
@@ -215,6 +216,14 @@ export function matchRoute(pathname: string, search = ''): Route {
     return { name: 'notFound', param: pathname, query };
   }
 
+  // The Legal Notice sits under About. Its sections are anchors on the one
+  // page (/about/legal#privacy), so the part after the # is the param; the app
+  // checks it against the sections that exist and ignores one that is not.
+  if (head === 'about' && segments.length === 2) {
+    if (tail === 'legal') return { name: 'legalNotice', param: sectionOf(hash), query };
+    return { name: 'notFound', param: pathname, query };
+  }
+
   const leaf = LEAF_ROUTES[head!];
   if (leaf && tail) {
     const param = decodeURIComponent(tail);
@@ -234,11 +243,23 @@ export function matchRoute(pathname: string, search = ''): Route {
   return { name: 'notFound', param: pathname, query };
 }
 
+/** The anchor in an address (`#privacy` gives `privacy`), decoded, or empty. */
+function sectionOf(hash: string): string {
+  const raw = hash.replace(/^#/, '');
+  try {
+    return decodeURIComponent(raw);
+  } catch {
+    return '';
+  }
+}
+
 /** Build the path for a route. The inverse of matchRoute. */
 export function routeToPath(route: Route): string {
   const { name, param, query } = route;
   const qs = new URLSearchParams(query).toString();
   const suffix = qs ? `?${qs}` : '';
+  // Only the Legal Notice has an anchor, and it comes after any query string.
+  const anchor = name === 'legalNotice' && param ? `#${encodeURIComponent(param)}` : '';
 
   const path = (() => {
     switch (name) {
@@ -256,6 +277,7 @@ export function routeToPath(route: Route): string {
       case 'fragrance': return productPath(param);
       case 'product': return `/${param}`;
       case 'about': return '/about';
+      case 'legalNotice': return '/about/legal';
       case 'settings': return '/settings';
       case 'suggestions': return '/suggestions';
       case 'account': return '/account';
@@ -271,7 +293,7 @@ export function routeToPath(route: Route): string {
     }
   })();
 
-  return `${path}${suffix}`;
+  return `${path}${suffix}${anchor}`;
 }
 
 /**
