@@ -331,3 +331,85 @@ describe('parseNotes', () => {
     ]);
   });
 });
+
+describe('parseNotes: the base tier behind a trailing heading (owner request, 6 Oct 2026)', () => {
+  it('reads the whole Mugler Alien pyramid when "Launched: 2005" follows the base notes', () => {
+    // Perfume Direct's shape. The base list used to fail with "Launched: 2005"
+    // stuck to its last note, so Alien 30ml EDP showed only top and middle.
+    const description =
+      'Fragrance Type: Amber, Floral. Fragrance Notes: - Top notes: Sambac Jasmine - Middle notes: Cashmere - ' +
+      'Base notes: White Amber Launched: 2005. *Refillable Talisman* .';
+    expect(parseNotes(description)).toEqual({
+      top: ['Sambac Jasmine'],
+      middle: ['Cashmere'],
+      base: ['White Amber'],
+    });
+  });
+
+  it('reads Perfume Market UK, where the labels run on with no punctuation', () => {
+    const description = 'Fragrance Notes: Top Notes: Jasmine Sambac Middle Notes: Cashmere Wood Base Notes: White Amber';
+    expect(parseNotes(description)).toEqual({
+      top: ['Jasmine Sambac'],
+      middle: ['Cashmere Wood'],
+      base: ['White Amber'],
+    });
+  });
+
+  it('stops at a heading glued on to the last note', () => {
+    const description =
+      'Top Notes: Mint Heart Notes: Rose Base Notes: Vanilla, Musk, Warm WoodsFragrance Profile• Fragrance Family: Gourmand';
+    expect(parseNotes(description)?.base).toEqual(['Vanilla', 'Musk', 'Warm Woods']);
+  });
+
+  it('stops at other field headings after the list', () => {
+    expect(parseNotes('Top notes: Apple Base notes: Cedar, Musk Size: 50ml')?.base).toEqual(['Cedar', 'Musk']);
+    expect(parseNotes('Top notes: Apple Base notes: Cedar Recommended for: Daytime')?.base).toEqual(['Cedar']);
+  });
+
+  it('reads head notes as top notes', () => {
+    const description = 'Head note: lotus, rose Heart note: lily, jasmine Base note: Precious woods Character: Timeless';
+    expect(parseNotes(description)).toEqual({
+      top: ['lotus', 'rose'],
+      middle: ['lily', 'jasmine'],
+      base: ['Precious woods'],
+    });
+  });
+
+  it('drops a lead-in before the first note', () => {
+    expect(parseNotes('Top notes: A combination of bergamot, mandarin and spearmint. Heart notes: Rose.')?.top).toEqual([
+      'bergamot',
+      'mandarin',
+      'spearmint',
+    ]);
+    expect(parseNotes('Base note: A warm base of cedarwood, amber and musk. Design: Rectangular bottle')?.base).toEqual([
+      'cedarwood',
+      'amber',
+      'musk',
+    ]);
+  });
+
+  it('cuts "for ..." clauses after a note instead of reading them as notes', () => {
+    expect(parseNotes('Top note: Jasmine sambac for a bright, floral opening. Heart note: Cashmeran wood for warmth.')).toEqual({
+      top: ['Jasmine sambac'],
+      middle: ['Cashmeran wood'],
+      base: [],
+    });
+    expect(parseNotes('Base notes: sandalwood and musk for warmth. Light, everyday scent.')?.base).toEqual(['sandalwood', 'musk']);
+  });
+
+  it('does not let a prose mention with "for" hide the real list further down', () => {
+    const description =
+      'The fragrance lives in its top notes: juniper for the gin, lime and citrus for lift. ' +
+      'Top Notes: Juniperberry, Lemon, Lime. Base notes: Musk.';
+    expect(parseNotes(description)?.top).toEqual(['Juniperberry', 'Lemon', 'Lime']);
+  });
+
+  it('reads a twice encoded ampersand as one, not as a note named amp', () => {
+    const notes = parseNotes('Top Notes: Pink Pepper, Bergamot &amp;amp; Mandarin Middle Notes: Rose');
+    expect(notes?.top).toEqual(['Pink Pepper', 'Bergamot', 'Mandarin']);
+  });
+
+  it('does not read the left over words of a cut clause as notes', () => {
+    expect(parseNotes('Base notes: Perfect for spring and summer evenings.')).toBeNull();
+  });
+});

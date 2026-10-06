@@ -146,13 +146,23 @@ export const NOTE_SORT_OPTIONS: SortOption<NoteSort>[] = [
  * from the other end, so the first note of one is the last of the other.
  * Most to Least Used breaks ties on name, so equal counts keep a fixed order.
  */
-export function sortNotes<T extends { name: string; count: number }>(list: readonly T[], sort: NoteSort): T[] {
-  // localeCompare can call two different names equal (emoji, some symbols),
-  // and then the sort would keep their arrival order in both directions.
-  // The plain code unit comparison after it makes the order total, so Z to A
-  // is A to Z reversed note for note.
-  const byName = (a: T, b: T): number =>
-    a.name.localeCompare(b.name) || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
+export function sortNotes<T extends { name: string; count: number; sort?: string }>(list: readonly T[], sort: NoteSort): T[] {
+  // Notes are compared by their clean sort key (case and accents folded,
+  // emoji and symbols gone) where they carry one, so a name dressed in an
+  // emoji sorts where its letters say. localeCompare can still call two
+  // different names equal, and then the sort would keep their arrival order in
+  // both directions; the plain code unit comparison after it makes the order
+  // total, so Z to A is A to Z reversed note for note.
+  const keyOf = (n: T): string => n.sort ?? n.name;
+  const byName = (a: T, b: T): number => {
+    const x = keyOf(a);
+    const y = keyOf(b);
+    return (
+      x.localeCompare(y, 'en-GB') ||
+      (x < y ? -1 : x > y ? 1 : 0) ||
+      (a.name < b.name ? -1 : a.name > b.name ? 1 : 0)
+    );
+  };
   return [...list].sort((a, b) => {
     if (sort === 'az') return byName(a, b);
     if (sort === 'za') return byName(b, a);

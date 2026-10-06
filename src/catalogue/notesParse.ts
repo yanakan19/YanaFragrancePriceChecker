@@ -69,7 +69,10 @@ const canonicalNoteName = (s: string): string => NOTE_ALIASES[noteKey(s)] ?? s;
 const decodeEntities = (s: string): string =>
   s
     .replace(/&nbsp;|&#160;|&#xa0;/gi, ' ')
-    .replace(/&amp;/gi, '&');
+    // Twice encoded ("&amp;amp;", Oud Arabian) is still one "&": left at one
+    // level it surfaced as a note named "amp" in about 100 listings.
+    .replace(/&(?:amp;)+/gi, '&')
+    .replace(/&rsquo;|&lsquo;|&#8217;|&#8216;/gi, "'");
 
 export function parseNotes(descriptionRaw: string | null | undefined): ParsedNotes | null {
   if (!descriptionRaw) return null;
@@ -189,6 +192,12 @@ export function parseNotes(descriptionRaw: string | null | undefined): ParsedNot
     'winter',
     'daytime',
     'nighttime',
+    // What is left of "Perfect for spring", "ideal for evenings" and "linger
+    // for a moment" once the clause after "for" has been cut.
+    'perfect',
+    'ideal',
+    'linger',
+    'lingers',
   ]);
 
   /**
@@ -403,6 +412,39 @@ export function parseNotes(descriptionRaw: string | null | undefined): ParsedNot
    * and only a capitalised item can be a note; in a list, case is not
    * evidence of anything.
    */
+  /**
+   * The headings a shop puts after its last note list, in the same run of
+   * text: "Base notes: White Amber Launched: 2005." is Perfume Direct's whole
+   * catalogue shape, and with "Launched: 2005" riding along the last list
+   * failed the shape check, so a product whose copy gave a full pyramid showed
+   * only its top and middle (Mugler Alien 30ml EDP was one). A closed list of
+   * field names, each with its colon, in the same hand checked spirit as
+   * NOT_A_NOTE: the section ends where one of them begins.
+   */
+  const FIELD_LABEL =
+    /\s(?:launched|fragrance\s+(?:type|family|profile|character|notes?)|character|concentration|bottle|design|size|year|perfumer|nose|recommended(?:\s+for)?|occasion|season|gender|longevity|sillage|key\s+features?|dry\s*down(?:\s+notes?)?|why\s+you(?:'ll|\u2019ll)?\s+love\s+it|how\s+to\s+wear)\s*:/i;
+  // The same few headings glued straight onto the last note with no space,
+  // which is how a stripped line break leaves them: "AmberFragrance Profile:".
+  // Capitalised on purpose, and only after a lower case letter, so a word that
+  // merely ends in one of these is never cut.
+  const GLUED_FIELD_LABEL = /(?<=[a-z])(?:Fragrance\s+(?:Type|Family|Profile|Character)|Why\s+You|Launched\s*:)/;
+  const cutAtFieldLabel = (s: string): string => {
+    const at = Math.min(
+      ...[s.search(FIELD_LABEL), s.search(GLUED_FIELD_LABEL)].map((i) => (i === -1 ? s.length : i)),
+    );
+    return s.slice(0, at);
+  };
+
+  /**
+   * A lead-in sentence glued on before the first note: "A combination of
+   * bergamot, mandarin and spearmint" (Parfumdreams), "Spicy accents of black
+   * pepper and ginger", "A warm base of cedarwood". The noun that names a
+   * grouping, then "of", is read as the lead-in and dropped, leaving the
+   * notes. Applied once, to the start of a section only.
+   */
+  const LEAD_IN =
+    /^(?:an?\s+|the\s+)?(?:[\p{L}-]+\s+){0,2}?(?:blend|mix|mixture|combination|composition|bouquet|medley|selection|trio|duo|accords?|accents?|notes?|hints?|touch(?:es)?|base)\s+of\s+/iu;
+
   const bodyIsAList = (items: readonly string[]): boolean =>
     items.length > 0 && items.every(looksLikeNoteIgnoringCase);
 
@@ -421,14 +463,19 @@ export function parseNotes(descriptionRaw: string | null | undefined): ParsedNot
    * real list: that occurrence still wins, unchanged. Checked against
    * Emirates Oud's Hawas Elixir listing, which has exactly this shape.
    */
-  const extractSection = (label: string, connector: string): string[] => {
+  const extractSection = (label: string, connector: string, cutFor: 'heading' | 'any'): string[] => {
     const re = new RegExp(
-      `${label}\\s*${connector}\\s*([\\s\\S]*?)(?=(?:top|middle|heart|base|bottom)\\s+notes?\\s*:|$)`,
+      `${label}\\s*${connector}\\s*([\\s\\S]*?)(?=(?:top|head|middle|heart|base|bottom)\\s+notes?\\s*:|$)`,
       'gi',
     );
     let m: RegExpExecArray | null;
     while ((m = re.exec(description)) !== null) {
       if (m[1]) {
+        // A label that starts the copy or a sentence, or is written with a
+        // capital, is a heading; one in the middle of a sentence ("lives in its
+        // top notes: juniper for the gin") is prose that happens to say it.
+        const before = description.slice(0, m.index).trimEnd();
+        const isHeading = before === '' || /[.:;|)*\u2022\u2013\u2014-]$/.test(before) || /^[A-Z]/.test(m[0]);
         // Whatever sits between the label and the notes themselves — Al
         // Haramain writes "Top note:. -Bergamot" and the leading full stop
         // would otherwise make the sentence split below return an empty first
@@ -436,7 +483,11 @@ export function parseNotes(descriptionRaw: string | null | undefined): ParsedNot
         const body = m[1].replace(LEADING_FURNITURE, '');
         // Notes are a comma separated list, never sentences, so the first full
         // stop that ends a sentence also ends the list.
-        const listOnly = body.split(/\.\s|\.$/)[0] ?? '';
+        const listOnly = (cutAtFieldLabel(body).split(/\.\s|\.$/)[0] ?? '')
+          // "Jasmine sambac for a bright, floral opening": from "for" on, a
+          // shop is saying what the note does, not naming more notes.
+          .split(cutFor === 'any' || isHeading ? /\s+for\s+/i : /(?!)/)[0]!
+          .replace(LEAD_IN, '');
         const candidates = listOnly
           // "&" joins two notes as readily as "and" does — Beauty Base writes
           // "Top Notes: Pink Pepper Essence & Blackcurrant". It used to be
@@ -498,12 +549,20 @@ export function parseNotes(descriptionRaw: string | null | undefined): ParsedNot
    * with none (see the commit message for the exact counts).
    */
   const section = (label: string): string[] => {
-    const strict = extractSection(label, ':');
+    // "for" starts a clause about the note ("Jasmine sambac for a bright,
+    // floral opening"). It is cut at a heading straight away, and anywhere
+    // only once nothing better has been found, because a prose mention such as
+    // "lives in its top notes: juniper for the gin, lime..." would otherwise
+    // parse to one note and stop the walk before it reached the real list
+    // further down the same copy.
+    const strict = extractSection(label, ':', 'heading');
     if (strict.length > 0) return strict;
-    return extractSection(label, '(?::|\\b(?:are|is|include[s]?|of)\\b)?');
+    const cut = extractSection(label, ':', 'any');
+    if (cut.length > 0) return cut;
+    return extractSection(label, '(?::|\\b(?:are|is|include[s]?|of)\\b)?', 'any');
   };
 
-  const top = section('top\\s+notes?');
+  const top = section('(?:top|head)\\s+notes?');
   const middle = section('(?:middle|heart)\\s+notes?');
   // "Bottom notes" is Avon's own wording for the base — "Top Notes: Black
   // Pepper.. Middle Notes: Vanilla.. Bottom Notes: Cashmere Woods.." — and

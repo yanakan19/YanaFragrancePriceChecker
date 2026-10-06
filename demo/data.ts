@@ -2,6 +2,8 @@ import type { RetailerTier } from '../src/types/retailer.js';
 import { brandTierForName } from '../src/catalogue/brandTier.js';
 import { RETAILERS } from '../src/config/retailers.js';
 import { brandKey } from '../src/catalogue/brandName.js';
+import { groupNotes, noteMergeKey, noteSlug, noteSortKey, cleanNoteName } from '../src/catalogue/noteName.js';
+import { slugify } from './router.js';
 import type { OilFacts } from '../src/catalogue/perfumeOil.js';
 import type { GiftSetRecord } from '../src/catalogue/giftSet.js';
 import { isTooOldToShow, showableListingCount } from '../src/services/priceService.js';
@@ -194,12 +196,63 @@ function rankableShopCount(id: string): number {
 }
 
 /**
- * Notes as the shops published them, with two harvest artefacts removed:
- * the same note listed twice in one layer under two casings ("plum" and
- * "Plum" — two shops' pages merged into one list), and a note shouted in
- * capitals ("SWEET") where every other shop writes it as a word. Nothing is
- * added, reordered or dropped beyond the exact duplicate; the first
- * spelling seen wins, title-cased only when it was all capitals.
+ * Every note name the shops published, grouped into notes (src/catalogue/
+ * noteName.ts holds the rule and the reasons). `shown` turns any raw spelling
+ * into the one name the site shows for it. `addresses` maps every address a
+ * note page has ever had (the router's own slug of each raw spelling, and the
+ * cleaned one) to the note now showing, so an old note link keeps working and
+ * the page then rewrites the address to the note's own.
+ */
+const NOTE_NAMES = (() => {
+  const raw = new Map<string, number>();
+  for (const entry of CATALOGUE) {
+    if (!entry.notes) continue;
+    const seen = new Set<string>();
+    for (const layer of ['top', 'middle', 'base'] as const) {
+      for (const n of entry.notes[layer]) {
+        if (seen.has(n)) continue;
+        seen.add(n);
+        raw.set(n, (raw.get(n) ?? 0) + 1);
+      }
+    }
+  }
+  const groups = groupNotes(raw);
+  const shown = new Map<string, string>();
+  const own = new Map<string, string>();
+  const old = new Map<string, { name: string; products: number }>();
+  for (const g of groups) {
+    // A note shouted in capitals ("SWEET") is shown as a word.
+    const name =
+      g.display === g.display.toUpperCase() && /[A-Z]/.test(g.display)
+        ? g.display.charAt(0) + g.display.slice(1).toLowerCase()
+        : g.display;
+    own.set(noteSlug(name), name);
+    for (const r of g.raw) {
+      shown.set(r, name);
+      for (const a of [slugify(r), slugify(cleanNoteName(r)), noteSlug(r)]) {
+        if (a === '') continue;
+        const had = old.get(a);
+        if (!had || g.products > had.products) old.set(a, { name, products: g.products });
+      }
+    }
+  }
+  // A note's own address always means that note; an old one fills the gaps.
+  const addresses = new Map<string, string>([...[...old].map(([a, v]) => [a, v.name] as const), ...own]);
+  return { shown, addresses };
+})();
+
+/** The note an address (its current one or an old one) points at, or undefined. */
+export function noteForAddress(slug: string): string | undefined {
+  return NOTE_NAMES.addresses.get(slug);
+}
+
+/**
+ * Notes as the shops published them, with the harvest artefacts removed: each
+ * name is shown as its note's one name (emoji, stray symbols and extra spaces
+ * stripped, spellings that differ only by case, spacing, accents or hyphens
+ * joined), a note listed twice in one layer under two spellings is listed
+ * once, and a note shouted in capitals ("SWEET") is a word. Nothing is added,
+ * reordered or dropped beyond the exact duplicate.
  */
 function tidyNotes(notes: Notes | null): Notes | null {
   if (!notes) return notes;
@@ -207,12 +260,10 @@ function tidyNotes(notes: Notes | null): Notes | null {
     const seen = new Set<string>();
     const out: string[] = [];
     for (const n of raw) {
-      const name = n.trim();
-      if (!name) continue;
-      const key = name.toLowerCase();
-      if (seen.has(key)) continue;
-      seen.add(key);
-      out.push(name === name.toUpperCase() && /[A-Z]/.test(name) ? name.charAt(0) + name.slice(1).toLowerCase() : name);
+      const name = NOTE_NAMES.shown.get(n);
+      if (!name || seen.has(name)) continue;
+      seen.add(name);
+      out.push(name);
     }
     return out;
   };
@@ -446,20 +497,24 @@ export function liveCounts(): LiveCounts {
 
 export type NoteLayer = 'top' | 'middle' | 'base';
 
-/** Every distinct note name in the catalogue, with how many fragrances use it. */
-export const NOTE_INDEX: { name: string; count: number; layers: Set<NoteLayer> }[] = (() => {
-  const map = new Map<string, { name: string; count: number; layers: Set<NoteLayer> }>();
+/**
+ * Every distinct note in the catalogue, with how many fragrances use it.
+ * `name` is the clean name shown; `sort` is what A to Z compares (case and
+ * accents folded, symbols gone), so no note sorts out of place because of how a
+ * shop dressed its name.
+ */
+export const NOTE_INDEX: { name: string; sort: string; count: number; layers: Set<NoteLayer> }[] = (() => {
+  const map = new Map<string, { name: string; sort: string; count: number; layers: Set<NoteLayer> }>();
   for (const f of DEMO_FRAGRANCES) {
     if (!f.notes) continue;
     const seen = new Set<string>();
     for (const layer of ['top', 'middle', 'base'] as NoteLayer[]) {
-      for (const raw of f.notes[layer]) {
-        const name = raw.trim();
-        if (!name) continue;
-        const key = name.toLowerCase();
+      for (const name of f.notes[layer]) {
+        const key = noteMergeKey(name);
+        if (!key) continue;
         let entry = map.get(key);
         if (!entry) {
-          entry = { name, count: 0, layers: new Set() };
+          entry = { name, sort: noteSortKey(name), count: 0, layers: new Set() };
           map.set(key, entry);
         }
         entry.layers.add(layer);
