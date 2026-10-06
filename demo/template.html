@@ -2735,6 +2735,9 @@
     display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0;
   }
   .doc { padding: 4px 0 8px; }
+  /* The bot page's user agent and robots.txt lines: long unbroken text that must wrap on a phone. */
+  .doc code { overflow-wrap: anywhere; }
+  .doc pre { white-space: pre-wrap; }
   .doc h1 { margin: 8px 0 16px; }
   /* Business details and the storage-key list: a definition list laid out
      as label / value rows, stacking on narrow screens. */

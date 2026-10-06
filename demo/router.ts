@@ -32,7 +32,7 @@ import { isProductSlug } from '../src/catalogue/productSlug.js';
 
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
-  | 'notes' | 'note' | 'oils' | 'sets' | 'fragrance' | 'product' | 'about' | 'legalNotice' | 'settings' | 'suggestions' | 'legal' | 'account'
+  | 'notes' | 'note' | 'oils' | 'sets' | 'fragrance' | 'product' | 'about' | 'legalNotice' | 'botPage' | 'settings' | 'suggestions' | 'legal' | 'account'
   | 'accountWishlist' | 'accountNotifications'
   | 'design' | 'developer' | 'notFound';
 
@@ -225,6 +225,8 @@ export function matchRoute(pathname: string, search = '', hash = ''): Route {
   // checks it against the sections that exist and ignores one that is not.
   if (head === 'about' && segments.length === 2) {
     if (tail === 'legal') return { name: 'legalNotice', param: sectionOf(hash), query };
+    // What our crawler is, for the shops it visits: the page its user agent names.
+    if (tail === 'bot') return { name: 'botPage', param: '', query };
     return { name: 'notFound', param: pathname, query };
   }
 
@@ -286,6 +288,7 @@ export function routeToPath(route: Route): string {
       case 'product': return `/${param}`;
       case 'about': return '/about';
       case 'legalNotice': return '/about/legal';
+      case 'botPage': return '/about/bot';
       case 'settings': return '/settings';
       case 'suggestions': return '/suggestions';
       case 'account': return '/account';

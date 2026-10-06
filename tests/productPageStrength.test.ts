@@ -181,7 +181,7 @@ describe('wantsPageStrength', () => {
 
 describe('readStrengthsFromProductPages', () => {
   const ROBOTS = parseRobots('User-agent: *\nDisallow: /cart$\nDisallow: /checkouts/\nDisallow: /search\n');
-  const HEADERS = { 'user-agent': 'PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about)' };
+  const HEADERS = { 'user-agent': 'PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about/bot)' };
   const noSleep = async () => {};
 
   const pages: Record<string, string> = {

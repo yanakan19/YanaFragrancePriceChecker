@@ -18,7 +18,10 @@ out of git. This document does not repeat that work; it measures what is left.
    the price history checkpoint 9.9 (before its 4 October fix), the price
    history 4.8. At that pace the repository passes GitHub's 1 GB guidance in
    about four weeks (late October to early November). Nothing breaks at 1 GB;
-   checkouts get slower.
+   checkouts get slower. **Since the changes of 6 October**, measured on a
+   busy day's versions: 15.1 MB a day became 8.3, the crawl's share 11.8 → 5.0;
+   the projection for the next 12 months is in section 5 (about 4 GB after a
+   year instead of 6.7 GB).
 2. **Almost every byte the crawl commits is "still here, same price".** In
    one harvest 64,504 of 82,900 listings (78%) changed only their "last
    seen" time; 144 changed price, 111 stock, 11 were delisted or relisted.
@@ -272,20 +275,89 @@ account or SQL only the owner can run.
 | 4 | Deploy after a crawl run only when the page could change: the live site publishes `build-state.json` (the commit and the dashboard list it was built from), and a `decide` job compares it with the tip, through the push filter's folders, and with the list | Small workflow step, `scripts/deploy-decision.mjs` | About 45 deploy runs a day | Low: a missing or unreadable record, or a commit not in the history, deploys; a failed deploy leaves the old record, so the next check retries; a half hourly scheduled check keeps "Remove" and "Show Again" within about half an hour | Owner decided (6 Oct): skip pointless deploys, keep a path for the dashboard | **Done** 2026-10-06 |
 | 5 | Checkpoint without its copy of the history (version 3): it keeps the series' ids in the replay's order and the hash of the history, and reads the series back from `demo/priceHistory.generated.ts`, taking off the points of the commits since | Medium | Measured: 15.9 → 5.0 MB of checkout; the nine rewrites of 5 and 6 October pack to 1.23 MB instead of 2.58 MB, so about 0.8 MB a day less | Low: only an exact hash match is resumed, anything else replays from the first commit; version 2 is still read and still written when the generated file cannot give the history back | Without the owner | **Done** 2026-10-06; see "Item 5" below |
 | 6 | "Last seen" once per shop run, not per listing (snapshots), and per shop in the generated catalogue | Medium to large: the harvest writer, every reader, the replay over old commits | The largest crawl saving: most of R1 and R2, estimate 3 to 5 MB a day | Medium: freshness, the 7 day rule and offer ages all read it; needs readers that fill it in | Without the owner, as its own task | **Done** 2026-10-06: snapshots (`encodeSnapshot`, `decodeSnapshot` in `src/catalogue/store.ts`), measured 2.64 → 0.48 MB a day; the generated catalogue (`CRAWLED_SHOP_TIMES`, `inlineShopTimes` in `scripts/dataLiterals.ts`), measured 610 → 195 kB over its four rebuilds of 6 October; the page and its data files byte for byte the same. See "Item 6" below |
-| 7 | Price event log (store only changes) beside the snapshots | Medium | Per listing history; replay in seconds; frees the snapshots' history (enables 10) | Low if written alongside first and compared with the replay before anything reads it | Without the owner | Proposed |
-| 8 | Social images out of git (render when needed, or delete once posted) | Small | About 3 MB a day (21.1 MB in the week) | Owner's routines change | **Owner decision** (OWNER-STEPS 7d, decision 2) | Proposed |
-| 9 | Descriptions in a separate per shop file | Medium | 67.5 MB off the snapshots' checkout; faster replay parsing; little growth | Medium: notes, filters and matching read them | Without the owner | Proposed, low priority |
+| 7 | Price event log (store only changes) beside the snapshots | Medium | Per listing history; replay in seconds; frees the snapshots' history (enables 10) | Low if written alongside first and compared with the replay before anything reads it | Without the owner | Proposed, **not done** 6 Oct: it adds growth (estimate 0.1 to 0.5 MB a day) and saves none until a history rewrite (10) is wanted; build it first if the owner chooses that rewrite |
+| 8 | Social images out of git (render when needed, or delete once posted) | Small | About 3 MB a day (21.1 MB in the week) | Owner's routines change | **Owner decision** (OWNER-STEPS 7d, decision 2) | Proposed, **not done** 6 Oct: now the largest item left (2 to 4 MB a day); a recommended design is in OWNER-STEPS 7d |
+| 9 | Descriptions in a separate per shop file | Medium | 67.5 MB off the snapshots' checkout; faster replay parsing; little growth | Medium: notes, filters and matching read them | Without the owner | **Not done** 6 Oct: measured, it saves 0.2 MB a day of growth (see "Item 6") |
 | 10 | Rewrite history to drop the old page files (and, after 7, old snapshot versions) | Owner runs it | About 255 MB once (OWNER-STEPS 7d); after 7, up to about 180 MB more | High: new commit ids, every clone again | **Owner only** | Proposed; do 7 first if both are wanted |
 | 11 | Prune delisted listings | Small | Up to 11% of snapshot rows | Relist detection and dormant pages | Not recommended now | |
+| 12 | The price history file writes each commit time and shop once, each point as `[time, price, shop]` (`scripts/priceHistoryFile.ts`) | Small, outside the replay's rules | Measured on 5 October's 13 versions: 1.42 → 0.79 MB of growth; the file 16.2 → 7.2 MB | Low: the module builds the same `PRICE_HISTORY`; the page's lazily loaded data file byte for byte the same | Without the owner | **Done** 2026-10-06 |
 
-Done in this change: 1 and 2, with this document and OWNER-STEPS 8e. The
-rest are proposals: 3, 5, 6, 7 and 9 an agent can take without the owner
-(3 first, before the 50 MiB warning); 4, 8 and 10 wait for the owner.
+Done on 6 October: 1 to 6 and 12 (and the checkpoint now rewritten at 24
+commits or 24 hours, PIPELINE-FAILURE-MODES b2). Left: 7 and 9 (measured, not
+worth it alone), 8 and 10 (the owner's), 11 (not recommended).
 
-**Expected effect.** Today about 12 MB a day (8 from the crawl, 3 social,
-1 code). With 3, 5 and 6 done: estimate 4 to 6 MB a day, about 3 of it
-social. With 8 as well: 1 to 3 MB a day, and 1 GB moves from about four
-weeks away to many months.
+## 5. Size per month
+
+**What a day adds, measured.** Every version committed on 5 October of each
+crawl driven file, packed the way git packs versions of one path (the same
+`git pack-objects`, window 10, depth 50) as the files were and as the code of
+6 October writes the same data; growth is the packed total less one whole
+copy. 5 October was a busy day (21 rebuilds of the catalogue, 13 by agents);
+the crawl's own versions alone gave almost the same totals (7.8 MB before,
+4.2 MB after for the three rebuilt files), because versions further apart
+make bigger deltas.
+
+| Part | Before, MB a day | After, MB a day | Changed by |
+|---|---|---|---|
+| `demo/catalogue.generated.ts` | 5.01 (one entry per line, item 3) | 2.43 | item 6 |
+| `data/catalogue/*.json` | 2.64 | 0.48 | item 6 |
+| `data/price-history-checkpoint.json` | 1.97 | 0.56 | item 5, rewrite at 24/24 |
+| `demo/priceHistory.generated.ts` | 1.42 | 0.79 | item 12 |
+| Other generated files and reports (product slugs 0.40, houses 0.17, deals, dormant, aliases) | 0.75 | 0.70 | item 6 (houses) |
+| Crawl and data, together | **11.8** | **5.0** | |
+| Code, tests, docs (1.9 MB in the week to 6 Oct) | 0.3 | 0.3 | |
+| Social images (2 to 4 MB on an ordinary day) | 3.0 | 3.0 | owner decision 8 |
+| **All** | **15.1** | **8.3** | |
+
+**Projection.** GitHub's figure for the repository was 753,736 kB at 16:40
+UTC on 6 October. Each month is 30.4 days; the crawl and data part grows in
+step with the number of listings, assumed 20% more by the twelfth month
+(linearly); code and social stay as they are. End of each month, GB:
+
+| Month | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Before 6 October's changes | 1.22 | 1.69 | 2.16 | 2.64 | 3.13 | 3.62 | 4.12 | 4.63 | 5.14 | 5.65 | 6.18 | 6.71 |
+| After (as committed now) | 1.01 | 1.26 | 1.52 | 1.78 | 2.04 | 2.31 | 2.57 | 2.84 | 3.12 | 3.39 | 3.67 | 3.95 |
+| After, with the social images out of git (8) | 0.92 | 1.08 | 1.25 | 1.41 | 1.59 | 1.76 | 1.94 | 2.11 | 2.30 | 2.48 | 2.67 | 2.85 |
+| As above, and the one off history rewrite (10, about 255 MB) | 0.66 | 0.82 | 0.99 | 1.16 | 1.33 | 1.50 | 1.68 | 1.86 | 2.04 | 2.22 | 2.41 | 2.60 |
+
+GitHub's limits: no file over 100 MB (the largest committed file is now the
+33.9 MB catalogue; the push script refuses 95 MiB), a push under 2 GB, and a
+repository "ideally under 1 GB, strongly recommended under 5 GB". Before,
+the repository would have passed 5 GB in the ninth month. After, it stays
+under 4 GB for the year with a fifth of the 5 GB left, and under 3 GB with
+the social images moved. Nothing in the projection breaks a limit; past
+1 GB, clones and the crawl's checkout get slower (the crawl's checkout took
+43 to 69 seconds on 4 October).
+
+The projection is an estimate built on one measured day; GitHub's own figure
+moves with its repacking (it read 704,446 kB at 08:52 and 753,736 kB at 16:40
+on the same day, a day of many agent commits). To check it, compare GitHub's
+figure (`gh api repos/yanakan19/YanaFragrancePriceChecker --jq .size`, in kB)
+with the "After" row at the end of each month.
+
+### Item 12: the price history file, each time and shop once
+
+Done 2026-10-06. `render()` (in the replay, untouched) writes every point in
+full; `scripts/build-price-history.ts` now passes its output through
+`compactHistoryBody` (`scripts/priceHistoryFile.ts`, outside the rules
+fingerprint, so no full replay): the commit times and shop ids once, in
+`PRICE_TIMES` and `PRICE_SHOPS`, each point as `[time, price, shop]` or
+`[time]` for a gap marker, and `PRICE_HISTORY` built from them inside the
+module. The writer checks that the stored form expands to exactly what
+`render()` wrote, else writes it as before. The checkpoint (item 5) reads
+either form (`historyFromGenerated`).
+
+Checked: the module's `PRICE_HISTORY` and `PRICE_HISTORY_GAP` equal the full
+form's, key for key; with the clock pinned the page's lazily loaded
+`priceHistory` data file and every other data file are byte for byte the
+same. The page itself came out the same except for the order of two other
+data files (deals and fragrance links) in the loader's list, with their
+indexes swapped to match: `scripts/bundle-demo.ts` numbers the data files in
+the order esbuild finishes reading the modules, which is not fixed. Swapping
+them back gives the old page byte for byte. A rebuild resumed from a version 3
+checkpoint against the new form (hash matched). Packed: 1.42 MB of growth on
+5 October became 0.79 MB; the file is 16.2 MB → 7.2 MB.
 
 ### Item 6: "last seen" once per run, in the snapshots
 
@@ -343,8 +415,8 @@ read them. Not worth the risk for growth; listed for a later history rewrite.
 ### Item 5: the checkpoint without its copy of the history
 
 Done 2026-10-06 (`scripts/priceHistoryCheckpointFile.ts`, version 3). The
-generated file is rebuilt every time and the checkpoint only when ten commits
-or six hours behind, so the generated file is usually ahead of it. A series
+generated file is rebuilt every time and the checkpoint only when 24 commits
+or 24 hours behind, so the generated file is usually ahead of it. A series
 only grows at its end, one point per commit at that commit's time, so the
 checkpoint's series are the generated file's with the newer commits' points
 taken off the end and the newer series left out. The reader does exactly
@@ -429,7 +501,9 @@ Together the first three would take the file from 34.6 to about 25 to 27 MB.
 
 - **Item 4**: decided 6 October: deploy only when the page could change,
   with a half hourly check of the dashboard's list. Done.
-- **Item 8**: the social images, as already asked in OWNER-STEPS 7d.
+- **Item 8**: the social images, as already asked in OWNER-STEPS 7d; now the
+  largest thing the repository gains (section 5), with a recommended design
+  there. Default if no answer: keep committing them (under 4 GB a year).
 - **Item 10**: the history rewrite, as already asked in OWNER-STEPS 7d; if
   wanted, best after item 7 has run for a few weeks.
 
