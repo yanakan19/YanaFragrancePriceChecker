@@ -309,7 +309,7 @@ make bigger deltas.
 | Social images (2 to 4 MB on an ordinary day) | 3.0 | 3.0 | owner decision 8 |
 | **All** | **15.1** | **8.3** | |
 
-**Projection.** GitHub's figure for the repository was 753,736 kB at 16:40
+**Projection.** GitHub's figure for the repository was 753,736 kB at about 15:45
 UTC on 6 October. Each month is 30.4 days; the crawl and data part grows in
 step with the number of listings, assumed 20% more by the twelfth month
 (linearly); code and social stay as they are. End of each month, GB:
@@ -331,7 +331,7 @@ the social images moved. Nothing in the projection breaks a limit; past
 43 to 69 seconds on 4 October).
 
 The projection is an estimate built on one measured day; GitHub's own figure
-moves with its repacking (it read 704,446 kB at 08:52 and 753,736 kB at 16:40
+moves with its repacking (it read 704,446 kB at 08:52 and 753,736 kB at about 15:45
 on the same day, a day of many agent commits). To check it, compare GitHub's
 figure (`gh api repos/yanakan19/YanaFragrancePriceChecker --jq .size`, in kB)
 with the "After" row at the end of each month.
