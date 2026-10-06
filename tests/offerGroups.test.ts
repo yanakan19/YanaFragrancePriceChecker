@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { availabilityHeading, offerGroups, offersInPageOrder, rowShowsAge } from '../demo/offerGroups.js';
+import { availabilityHeading, offerGroups, offersInPageOrder, offerAge } from '../demo/offerGroups.js';
 import { bestOffer, buildComparison } from '../src/services/priceService.js';
 import type { RawOffer } from '../src/types/offer.js';
 
@@ -71,11 +71,15 @@ describe('offerGroups', () => {
     expect(availabilityHeading(offerGroups(soldOut))).toBe('');
   });
 
-  it('has every row older than about a day state its age', () => {
+  it('gives every row its own short age and a full sentence for a screen reader', () => {
+    expect(offerAge(30)).toEqual({ short: 'Now', long: 'checked just now' });
+    expect(offerAge(45 * 60)).toEqual({ short: '45m', long: 'checked 45 minutes ago' });
+    expect(offerAge(9 * 3_600)).toEqual({ short: '9h', long: 'checked 9 hours ago' });
+    expect(offerAge(3_600)).toEqual({ short: '1h', long: 'checked 1 hour ago' });
+    expect(offerAge(86_400)).toEqual({ short: '1d', long: 'checked 1 day ago' });
+    expect(offerAge(3 * 86_400)).toEqual({ short: '3d', long: 'checked 3 days ago' });
     const byId = new Map(rows.map((r) => [r.retailer.id, r]));
-    expect(rowShowsAge(byId.get('perfumeo')!)).toBe(true);
-    expect(rowShowsAge(byId.get('perfume-click')!)).toBe(false);
-    expect(rowShowsAge({ ageSeconds: 2 * 86_400 })).toBe(true);
-    expect(rowShowsAge({ ageSeconds: 3_600 })).toBe(false);
+    expect(offerAge(byId.get('perfumeo')!.ageSeconds).short).toMatch(/^\d+d$/);
+    expect(offerAge(byId.get('perfume-click')!.ageSeconds).short).toMatch(/^(Now|\d+[mh])$/);
   });
 });

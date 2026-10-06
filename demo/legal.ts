@@ -505,7 +505,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       us commission on a purchase made after clicking through from here:
       ${COMMISSIONED.map((r) => r.name).join(', ')}. Those programmes run through
       ${NETWORKS.join(' and ')}. Every link to one of those shops is marked
-      "Affiliate link" on the shop's row, under its name, so you see it before
+      "Affiliate Link" on the shop's row, under its name, so you see it before
       you click. Search engines are told the link is sponsored too. Links to
       every other shop carry no tracking and earn nothing.</p>
       <p>This list comes from the same records that decide which shops appear
@@ -756,7 +756,7 @@ export const LEGAL_PAGES: LegalPage[] = [
         sites in it, or More, which opens that app or site, or your phone's
         own share sheet, under its own policy and cookies.</li>
         <li><strong>Affiliate networks.</strong> Clicking a link marked
-        Affiliate link takes you to the shop by way of the network, which may
+        Affiliate Link takes you to the shop by way of the network, which may
         set a cookie on its own or the shop's site to match a purchase to us.
         That happens after you have left PriceSniffs and is governed by the
         network's and the shop's policies. See the
