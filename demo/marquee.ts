@@ -7,8 +7,10 @@
  * built, so they cannot drift out of date as shops and fragrances come and go.
  *
  * What each phrase rests on, checked when it was written:
- *   - "20,000+ Fragrances Tracked": the number of catalogue entries the build
- *     produced (DEMO_FRAGRANCES), rounded down so the "+" is strictly true,
+ *   - "20,000+ Products Tracked": the number of catalogue entries the build
+ *     produced (COUNTS.products in demo/counts.ts: bottles, sets and oils; it
+ *     says Products, not Fragrances, since 6 Oct 2026, when sets and oils got
+ *     their own tabs and left the bottle results), rounded down so the "+" is strictly true,
  *     in the same spirit as shopsPhrase in demo/head.ts.
  *   - "More Than 30 UK Shops": COVERAGE in demo/legal.ts, the rounded count
  *     of shops that show prices today, the same figure the hero sentence uses.
@@ -63,7 +65,7 @@ const titleCase = (s: string): string =>
  */
 export function marqueePhrases(fragranceCount: number, coverage: string): string[] {
   return [
-    `${fragrancesPhrase(fragranceCount)} Fragrances Tracked`,
+    `${fragrancesPhrase(fragranceCount)} Products Tracked`,
     `${titleCase(coverage)} UK Shops`,
     'Delivery Included Where Stated',
     'Prices Rechecked Automatically',
