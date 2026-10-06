@@ -14,6 +14,7 @@ import { matchRoute } from '../demo/router.js';
 import { DORMANT_PRODUCTS, ID_ALIASES, SLUG_ALIASES } from '../demo/dormant.generated.js';
 import { CATALOGUE } from '../demo/catalogue.generated.js';
 import { LAZY_DATA_MODULES } from '../scripts/dataFiles.js';
+import { oneEntryPerLine } from '../scripts/dataLiterals.js';
 import { readManifest, policyOf } from '../scripts/generatedFiles.js';
 
 const root = resolve(import.meta.dirname, '..');
@@ -166,6 +167,24 @@ describe('reading the last build', () => {
     const ids = productIdsIn(text);
     expect(ids.size).toBe(CATALOGUE.length);
     for (const c of CATALOGUE.slice(0, 200)) expect(ids.has(c.id), c.id).toBe(true);
+  });
+
+  it('reads both forms the build has written: indented up to 2026-10-06, one entry a line since', () => {
+    const products = [
+      { id: 'ean-1', slug: 'a_b_50ml', brand: 'A', giftSet: { contents: null, title: 'T' } },
+      { id: 'set-ean-2', slug: 'c_d', brand: 'C' },
+    ];
+    const house = [{ id: 'house-x', house: 'x' }];
+    const crawled = { 'ean-1': [{ retailerId: 'shop', url: 'u' }] };
+    const file = (write: (v: unknown) => string) =>
+      `const CATALOGUE_CHUNK_0: CatalogueEntry[] = ${write(products)};\n\n` +
+      `export const CATALOGUE: CatalogueEntry[] = [...CATALOGUE_CHUNK_0];\n\n` +
+      `export const CRAWLED: Record<string, CrawledOffer[]> = ${write(crawled)};\n\n` +
+      `const HOUSE_PRODUCTS_CHUNK_0: HouseProduct[] = ${write(house)};\n`;
+    const indented = file((v) => JSON.stringify(v, null, 2));
+    const perLine = file((v) => oneEntryPerLine(v as unknown[] | Record<string, unknown>));
+    expect([...productIdsIn(indented)]).toEqual(['ean-1', 'set-ean-2']);
+    expect([...productIdsIn(perLine)]).toEqual(['ean-1', 'set-ean-2']);
   });
 
   it('reads exactly the dormant pages from their generated file', () => {
