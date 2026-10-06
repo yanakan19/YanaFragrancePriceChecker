@@ -2126,6 +2126,9 @@ const NAME_NOISE_SEGMENT_WORDS: ReadonlySet<string> = new Set([
   'extrait', 'perfume', 'roll-on',
   // Gender, likewise its own field (see demo/gender.ts).
   'unisex',
+  // What the product is, which every product here is: Debenhams' "Farwah
+  // Oriental Eau De Parfum | Unisex Fragrance 100 ml" (2026-10-06).
+  'fragrance', 'fragrances',
   // Scent families and notes. Every one observed in a real trailing segment.
   'almond', 'amber', 'aquatic', 'aromatic', 'boozy', 'champagne', 'cherry',
   'citrus', 'clean', 'coconut', 'coffee', 'creamy', 'floral', 'fresh',
@@ -2211,6 +2214,15 @@ function stripTranslatedWords(s: string): string {
 const NOISE_SEGMENT_REVIEW_RE = /^notes\s*(?:&(?:amp;)?|and)\s*reviews?$/i;
 
 /**
+ * A trailing segment that is a shop's own stock status: MyBeauty.Boutique's
+ * "Burberry Weekend Edp 50ml Spray | DNL RECALLED" ("do not list", recalled).
+ * Such a listing is kept out of the catalogue altogether (isWithdrawnByShop in
+ * fragranceId.ts); this keeps the words out of a name whatever else lets one
+ * through. Anchored at both ends.
+ */
+const NOISE_SEGMENT_STATUS_RE = /^(?:dnl|do\s+not\s+list)?\s*(?:recalled)?$/i;
+
+/**
  * Whether the text after the last "|" in `s` is noise, by one of six
  * measured tests. Returns the name without that segment, or null to leave the
  * name exactly as it is.
@@ -2241,7 +2253,8 @@ function stripTrailingNoiseSegment(s: string): string | null {
     !NOISE_SEGMENT_OZ_RE.test(segment) &&
     !NOISE_SEGMENT_RELEASE_RE.test(segment) &&
     !NOISE_SEGMENT_DELIVERY_RE.test(segment) &&
-    !NOISE_SEGMENT_REVIEW_RE.test(segment)
+    !NOISE_SEGMENT_REVIEW_RE.test(segment) &&
+    !NOISE_SEGMENT_STATUS_RE.test(segment)
   ) {
     return null;
   }
