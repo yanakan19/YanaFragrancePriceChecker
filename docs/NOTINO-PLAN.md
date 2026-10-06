@@ -55,7 +55,7 @@ not assumed.
 whether they already supply a feed to comparison sites (Google Shopping,
 idealo, PriceRunner) that we could receive on the same terms. If they
 allowlist PriceSniffsBot, the existing harvest works with no new code: drop
-`renderRefused`, set `adapter: 'sitemap-jsonld'` style route, re-enable.
+`renderRefused`, set `adapter: 'json-ld'`, re-enable.
 
 **3. Owner imports saved pages.** The owner opens Notino as an ordinary
 customer, saves a brand or search results page (24 to 48 products) or a
