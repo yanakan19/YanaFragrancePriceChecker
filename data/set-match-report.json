@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 204,
+ "folded": 205,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -5807,6 +5807,38 @@
      "ean": null,
      "scent": "bad boy cobalt",
      "signature": "1x100fragrance|1x100wash|1x10fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8411114097350",
+   "absorbed": [
+    "set-air-val-eau-my-unicorn-gift-set-100ml-edt-lip-gloss-bag"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8411114097350",
+     "brand": "Air-Val",
+     "name": "Eau My Unicorn Gift Set 100ml EDT + Lip Gloss + Bag",
+     "concentration": "Eau de Toilette",
+     "ean": "8411114097350",
+     "scent": "eau gloss lip my unicorn",
+     "signature": "1x100fragrance|1x?other",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-air-val-eau-my-unicorn-gift-set-100ml-edt-lip-gloss-bag",
+     "brand": "Air-Val",
+     "name": "Eau My Unicorn Gift Set 100ml EDT + Lip Gloss + Bag",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "eau gloss lip my unicorn",
+     "signature": "1x100fragrance|1x?other",
      "shops": [
       "mybeauty-boutique"
      ]
