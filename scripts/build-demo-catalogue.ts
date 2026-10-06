@@ -47,6 +47,7 @@ import {
   rawTitlesAgree,
   untrustworthyEans as computeUntrustworthyEans,
   trustworthyEan,
+  settleBarcodeSizes,
 } from '../src/catalogue/productMatch.js';
 import { listingViolations, namespaceViolations } from '../src/catalogue/kindGuards.js';
 import { contentsSignature, matchSets, scentKey, type SetCandidate, type SetMatchResult } from '../src/catalogue/setMatch.js';
@@ -70,6 +71,7 @@ import {
   isCatalogueListing,
   sizeMl,
   ML_SIZE_RE,
+  barcodeSizeVote,
   fragranceId,
   repairMojibake,
   travelSizeIsASize,
@@ -814,7 +816,21 @@ if (existsSync(dir)) {
    listing with the same EAN reaches "if (existing)" it has already silently
    become an offer on the first one's product — too late for any check placed
    after that point to undo. */
-const untrustworthyEans = computeUntrustworthyEans(eligible.flatMap(({ listings }) => listings));
+const sharedCodeEans = computeUntrustworthyEans(eligible.flatMap(({ listings }) => listings));
+
+/* ── a barcode whose shops state different sizes ──────────────────────────────
+   A barcode's product used to take the size of the first shop read, and every
+   other shop's listing joined it whatever size it stated: a 30ml price shown as
+   a 50ml one. The size is settled here, before any listing becomes a product,
+   by the shops' own millilitre sizes, one vote a shop. See settleBarcodeSizes in
+   src/catalogue/productMatch.ts. A shop outvoted alone is read at the settled
+   size; any other disagreeing shop's code is no identity for its listing. */
+// scripts/priceHistoryReplay.ts settles each replayed commit the same way, so a
+// listing's price history follows it to the product it is on.
+const barcodeSizes = settleBarcodeSizes(
+  eligible.flatMap(({ listings }) => listings.flatMap((l) => barcodeSizeVote(l, sharedCodeEans) ?? [])),
+);
+const untrustworthyEans: ReadonlySet<string> = new Set([...sharedCodeEans, ...barcodeSizes.revoked]);
 /** Every listing that joined a product, with its own id and the other ids it has answered to. */
 const memberIdForms: { own: string; forms: string[]; lineage: string | null }[] = [];
 
@@ -892,7 +908,7 @@ const knownSizes: { byName: Map<string, Set<number>>; byEan: Map<string, Set<num
     for (const l of listings) {
       if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0) || !isCatalogueListing(l) || isGiftSet(l)) continue;
       if (!ML_SIZE_RE.test(l.rawTitle)) continue;
-      const ml = sizeMl(l.rawTitle, l.description);
+      const ml = barcodeSizes.outvoted.get(`${l.retailerId}|${l.retailerSku}`) ?? sizeMl(l.rawTitle, l.description);
       if (ml === null) continue;
       const rawBrand = resolveRawBrand(l, retailer);
       const brand = canonBrand(rawBrand);
@@ -953,7 +969,7 @@ for (const { retailer, listings } of eligible) {
     // A gift set has no size: it is not a bottle of any volume, and leaving
     // it unsized is what keeps every size keyed match (findDuplicateGroups,
     // houseCeilings, the reference price check) from ever pairing it with one.
-    let size = giftSet ? null : sizeMl(l.rawTitle, l.description);
+    let size = giftSet ? null : (barcodeSizes.outvoted.get(`${l.retailerId}|${l.retailerSku}`) ?? sizeMl(l.rawTitle, l.description));
     const id = fragranceId(l, untrustworthyEans);
     // The other ids this listing has answered to, kept for the id aliases
     // (src/catalogue/idAliases.ts): only a listing that really joins a product
@@ -2921,6 +2937,13 @@ console.log(
   `product addresses: ${slugResult.stats.kept} kept, ${slugResult.stats.fresh} given ` +
     `(${slugResult.stats.plain} plain, ${slugResult.stats.withStrength} with the strength, ${slugResult.stats.withVersion} with a version), ` +
     `${Object.keys(slugAliasMap).length} slugs of merged products answer for the product that holds them (data/product-slugs.json)`,
+);
+
+console.log(
+  `barcode sizes: ${barcodeSizes.disagreements.length} barcodes whose shops state different sizes, ` +
+    `${barcodeSizes.outvoted.size} listings outvoted and read at the barcode's size, ` +
+    `${barcodeSizes.revoked.size} shop codes no longer an identity (settleBarcodeSizes)` +
+    barcodeSizes.disagreements.map((d) => `\n  ${d}`).join(''),
 );
 
 const multi = ordered.filter((p) => p.offers.length > 1).length;

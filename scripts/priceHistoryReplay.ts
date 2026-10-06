@@ -62,11 +62,12 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
-import { isCatalogueListing, fragranceId } from '../src/catalogue/fragranceId.js';
+import { barcodeSizeVote, isCatalogueListing, fragranceId } from '../src/catalogue/fragranceId.js';
 import { isAvailableListing } from '../src/catalogue/listingAvailability.js';
-import { untrustworthyEans } from '../src/catalogue/productMatch.js';
+import { settleBarcodeSizes, trustworthyEan, untrustworthyEans } from '../src/catalogue/productMatch.js';
 import { CURRENCY_UNCONFIRMED, RETAILERS } from '../src/config/retailers.js';
 import type { StoredListing } from '../src/catalogue/types.js';
+import type { BarcodeSizeListing } from '../src/catalogue/productMatch.js';
 import type { PriceHistoryGap } from '../src/services/priceHistoryGaps.js';
 
 /**
@@ -206,7 +207,16 @@ export function replayCommit(root: string, state: ReplayState, { sha, at }: Cata
     // measurements behind also requiring `inStock !== false` here.
     activeAtCommit.push(statusOnly.filter(isAvailableListing));
   }
-  const untrustworthy = untrustworthyEans(activeAtCommit.flat());
+  // The code a shop's listing carries is no identity for it where the shops
+  // selling that code disagree about its size and nothing settles it for this
+  // shop (settleBarcodeSizes in productMatch.ts), exactly as
+  // build-demo-catalogue.ts decides it, so the listing's points land on the
+  // product it is shown on. Settled over the active listings, the build's own
+  // population.
+  const statusOnlyFlat = statusOnlyAtCommit.flat();
+  const sharedCodeEverPriced = untrustworthyEans(statusOnlyFlat);
+  const revokedForSize = settleBarcodeSizes(statusOnlyFlat.flatMap((l) => barcodeSizeVote(l, sharedCodeEverPriced) ?? [])).revoked;
+  const untrustworthy = new Set([...untrustworthyEans(activeAtCommit.flat()), ...revokedForSize]);
 
   for (const listings of activeAtCommit) {
     for (const l of listings) {
@@ -231,7 +241,7 @@ export function replayCommit(root: string, state: ReplayState, { sha, at }: Cata
   // because that was computed over a different set of listings and an EAN
   // collision only that stricter set avoids might still exist in this wider
   // one. This mirrors exactly what a real pre-4464daf run would have seen.
-  const untrustworthyEverPriced = untrustworthyEans(statusOnlyAtCommit.flat());
+  const untrustworthyEverPriced = new Set([...sharedCodeEverPriced, ...revokedForSize]);
   for (const listings of statusOnlyAtCommit) {
     for (const l of listings) {
       // A single fragrance or a gift set, the same gate the catalogue uses,
@@ -325,10 +335,21 @@ function foldCheapest(
 // falls back to replayCommit above, verbatim. tests/priceHistoryReplay.test.ts
 // replays real history both ways and requires the same bytes out.
 
-interface PriceCandidate {
-  id: string;
+interface PriceCandidate extends ListingId {
   priceGbp: number;
+}
+
+/**
+ * A listing's id, and the id it takes instead where the commit's barcode size
+ * settlement (settleBarcodeSizes) revokes its code for its shop. That is
+ * decided over every file of a commit at once, so a file's contribution
+ * carries both and the commit picks.
+ */
+interface ListingId {
+  id: string;
   retailerId: string;
+  /** The code the id was made from and the id without it; absent where the id uses no code. */
+  withoutCode?: { ean: string; id: string };
 }
 
 /** What one blob contributes to the fold, independent of every other file — see above for when that holds. */
@@ -340,7 +361,9 @@ interface BlobContribution {
   /** Price candidates from its buyable listings, in file order. */
   candidates: PriceCandidate[];
   /** Ever-priced ids from its active listings, in file order. */
-  everPricedIds: string[];
+  everPricedIds: ListingId[];
+  /** What its active listings say about the size of the codes they carry. */
+  sizeVotes: BarcodeSizeListing[];
 }
 
 /** Blob id → contribution, holding only the blobs of the last commit replayed. */
@@ -373,7 +396,21 @@ function readBlob(root: string, blob: string): Snapshot | null {
   }
 }
 
-const NOT_LIVE: BlobContribution = { live: false, retailers: new Set(), candidates: [], everPricedIds: [] };
+const NOT_LIVE: BlobContribution = { live: false, retailers: new Set(), candidates: [], everPricedIds: [], sizeVotes: [] };
+
+/** A listing's id under `untrustworthy`, and its id should its code be revoked for its shop. */
+function listingId(l: StoredListing, untrustworthy: ReadonlySet<string>): ListingId {
+  const id = fragranceId(l, untrustworthy);
+  const ean = trustworthyEan(l, untrustworthy);
+  if (!ean) return { id, retailerId: l.retailerId };
+  return { id, retailerId: l.retailerId, withoutCode: { ean, id: fragranceId({ ...l, ean: null }, untrustworthy) } };
+}
+
+/** The id a listing has once the commit's revoked codes are known. */
+function settledId(l: ListingId, revoked: ReadonlySet<string>): string {
+  if (!l.withoutCode) return l.id;
+  return trustworthyEan({ retailerId: l.retailerId, ean: l.withoutCode.ean, rawTitle: '' }, revoked) ? l.id : l.withoutCode.id;
+}
 
 /** The same filters and ids replayCommit applies, computed over one file with that file's own untrustworthy set. */
 function contributionOf(snapshot: Snapshot | null): BlobContribution {
@@ -387,16 +424,17 @@ function contributionOf(snapshot: Snapshot | null): BlobContribution {
     if (!isCatalogueListing(l)) continue;
     if (hasNoPriceHistory(l.retailerId)) continue;
     if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) continue;
-    candidates.push({ id: fragranceId(l, untrustworthy), priceGbp: l.priceGbp, retailerId: l.retailerId });
+    candidates.push({ ...listingId(l, untrustworthy), priceGbp: l.priceGbp });
   }
-  const everPricedIds: string[] = [];
+  const everPricedIds: ListingId[] = [];
   for (const l of statusOnly) {
     if (!isCatalogueListing(l)) continue;
     if (hasNoPriceHistory(l.retailerId)) continue;
     if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) continue;
-    everPricedIds.push(fragranceId(l, untrustworthyEverPriced));
+    everPricedIds.push(listingId(l, untrustworthyEverPriced));
   }
-  return { live: true, retailers: new Set(statusOnly.map((l) => l.retailerId)), candidates, everPricedIds };
+  const sizeVotes = statusOnly.flatMap((l) => barcodeSizeVote(l, untrustworthyEverPriced) ?? []);
+  return { live: true, retailers: new Set(statusOnly.map((l) => l.retailerId)), candidates, everPricedIds, sizeVotes };
 }
 
 /** What replayCommitCached did, for the test and the log. */
@@ -436,12 +474,13 @@ export function replayCommitCached(
     for (const r of c.retailers) seen.add(r);
   }
 
+  const revoked = settleBarcodeSizes(contributions.flatMap((c) => c.sizeVotes)).revoked;
   const cheapestThisCommit = new Map<string, { priceGbp: number; retailerId: string }>();
   for (const c of contributions) {
-    for (const p of c.candidates) offerCheapest(cheapestThisCommit, p.id, p.priceGbp, p.retailerId);
+    for (const p of c.candidates) offerCheapest(cheapestThisCommit, settledId(p, revoked), p.priceGbp, p.retailerId);
   }
   for (const c of contributions) {
-    for (const id of c.everPricedIds) markEverPriced(state.everPriced, id, commit.at);
+    for (const l of c.everPricedIds) markEverPriced(state.everPriced, settledId(l, revoked), commit.at);
   }
   foldCheapest(state.history, cheapestThisCommit, commit.at);
   return 'cached';
