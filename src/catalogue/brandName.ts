@@ -488,6 +488,9 @@ export const HAND_ALIASES: Record<string, string> = {
   [brandKey('Armaf - Miss Armaf')]: 'Armaf',
   [brandKey('Armaf - Niche')]: 'Armaf',
   [brandKey('Armaf - Nomad')]: 'Armaf',
+  // Added 2026-10-06 with the sets that carry no strength word: the house's own storefront
+  // files its Odyssey discovery sets under the line, the same feed artefact as the lines around it.
+  [brandKey('Armaf - Odyssey Series')]: 'Armaf',
   [brandKey('Armaf - Ombre')]: 'Armaf',
   [brandKey('Armaf - Oros Pure')]: 'Armaf',
   [brandKey('Armaf - Perle')]: 'Armaf',
