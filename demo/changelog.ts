@@ -17,6 +17,14 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.89.0',
+    date: '6 Oct 2026',
+    title: 'Five more brand logos',
+    points: [
+      'Al Haramain, Armani, Tom Ford, Gaultier, Versace',
+    ],
+  },
+  {
     version: 'v3.88.0',
     date: '5 Oct 2026',
     title: 'The same gift set at two shops, joined',

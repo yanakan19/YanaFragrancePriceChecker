@@ -95,7 +95,10 @@ describe('every LogoRef carries a recorded reason', () => {
         return;
       }
       if (logo.basis === 'owner-supplied') {
-        expect(logo.src.startsWith('/logos/shops/'), `${where}: owner-supplied must be a repo path under /logos/shops/, got ${logo.src}`).toBe(true);
+        expect(
+          logo.src.startsWith('/logos/shops/') || logo.src.startsWith('/logos/brands/'),
+          `${where}: owner-supplied must be a repo path under /logos/shops/ or /logos/brands/, got ${logo.src}`,
+        ).toBe(true);
         return;
       }
 
@@ -338,7 +341,7 @@ describe('owner supplied shop logos are hosted PNGs on solid white', () => {
 });
 
 describe('brand entries that reuse an owner supplied shop file', () => {
-  const owned = Object.entries(BRAND_LOGOS).filter(([, l]) => l.basis === 'owner-supplied');
+  const owned = Object.entries(BRAND_LOGOS).filter(([, l]) => l.basis === 'owner-supplied' && l.src.startsWith('/logos/shops/'));
 
   it('exist for the two houses that have a shop of their own', () => {
     expect(owned.map(([k]) => k).sort()).toEqual(['bellavita', 'bellavita luxury uk', 'bellavita uk', 'zimaya']);
@@ -362,7 +365,7 @@ describe('brand entries that reuse an owner supplied shop file', () => {
  * light-ink mark; and the key is a brand the catalogue really carries.
  */
 describe('brand logos added from 2026-10-05', () => {
-  const entries = Object.entries(BRAND_LOGOS).filter(([, l]) => l.readAt >= '2026-10-05');
+  const entries = Object.entries(BRAND_LOGOS).filter(([, l]) => l.readAt >= '2026-10-05' && l.basis === 'own-site-declared');
   const brandsInCatalogue = new Set(
     DEMO_FRAGRANCES.map((f) => f.brand.toLowerCase().replace(/[^a-z]+/g, ' ').trim()),
   );
@@ -383,5 +386,44 @@ describe('brand logos added from 2026-10-05', () => {
     const host = new URL(logo.src).host;
     expect(host, `${key}: ${host}`).not.toMatch(/wikipedia|wikimedia|wikidata|google|bing|duckduckgo|clearbit|brandfetch|logo\.dev/i);
     expect(logo.ink, `${key}: a light mark would vanish on the white tile`).not.toBe('light');
+  });
+});
+
+describe('owner supplied brand logos are hosted PNGs on solid white', () => {
+  const brandsDir = resolve(root, 'demo/logos/brands');
+  const owned = Object.entries(BRAND_LOGOS).filter(([, l]) => l.src.startsWith('/logos/brands/'));
+
+  it('covers the five houses the owner sent files for', () => {
+    expect(owned.map(([k]) => k).sort()).toEqual(['al haramain', 'giorgio armani', 'jean paul gaultier', 'tom ford', 'versace']);
+  });
+
+  it.each(owned)('%s: owner supplied, recorded with who and when, no hyphens in the visible source', (_key, logo) => {
+    expect(logo.basis).toBe('owner-supplied');
+    expect(logo.source).toMatch(/site owner/);
+    expect(logo.source).not.toMatch(/[-‐-―−]/);
+    expect(logo.readAt).toBe('2026-10-05');
+  });
+
+  it.each(owned)('%s: a PNG with no transparency and pure white on all four corners', (key, logo) => {
+    const png = decodePng(readFileSync(resolve(root, 'demo', logo.src.replace(/^\//, ''))));
+    expect(png.hasTransparencyChunk, `${key} must carry no tRNS chunk`).toBe(false);
+    for (const [x, y] of [[0, 0], [png.width - 1, 0], [0, png.height - 1], [png.width - 1, png.height - 1]] as const) {
+      expect(png.pixel(x, y), `${key} corner ${x},${y}`).toEqual([255, 255, 255]);
+    }
+    if (logo.shape === 'square') expect(png.width, key).toBe(png.height);
+    else expect(png.width / png.height, `${key} is a wordmark, so it is wide`).toBeGreaterThan(1.5);
+    expect(Math.max(png.width, png.height), key).toBeLessThanOrEqual(360);
+  });
+
+  it('keeps demo/logos/brands/ to 8 KB a file, 100 KB in all, with nothing the registry does not name', () => {
+    const files = readdirSync(brandsDir);
+    let total = 0;
+    for (const f of files) {
+      const size = statSync(resolve(brandsDir, f)).size;
+      expect(size, `demo/logos/brands/${f} is ${size} bytes`).toBeLessThanOrEqual(8 * 1024);
+      total += size;
+    }
+    expect(total).toBeLessThanOrEqual(100 * 1024);
+    expect(files.sort()).toEqual(owned.map(([, l]) => l.src.split('/').pop()!).sort());
   });
 });
