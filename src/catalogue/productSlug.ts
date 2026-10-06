@@ -51,7 +51,7 @@ export const PRODUCT_SLUG_RE = /^[a-z0-9]+(?:_[a-z0-9]+){2,}$/;
  */
 export const RESERVED_WORDS: readonly string[] = [
   'search', 'deals', 'explore', 'about', 'brands', 'retailers', 'notes', 'settings', 'account',
-  'suggestions', 'design', 'developer', 'legal', 'oils', 'sets', 'fragrance', 'gift-sets', 'index', '404',
+  'suggestions', 'design', 'developer', 'legal', 'oils', 'sets', 'fragrance', 'fragrances', 'gift-sets', 'index', '404',
   'sw', 'robots', 'sitemap', 'ads', 'manifest', 'favicon', 'cname', 'icons', 'data', 'logos',
 ];
 
