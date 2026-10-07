@@ -8461,13 +8461,13 @@ export const RETAILERS: readonly Retailer[] = [
       // stored as of 2026-10-01. No pricing effect while standardGbp is null.
       freeOverGbp: 25,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-10-06',
+      verifiedAt: '2026-10-07',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
         url: 'https://www.spacenk.com/uk/shipping',
         quote: 'FREE UK STANDARD DELIVERY on all orders over £25',
-        readAt: '2026-10-06',
+        readAt: '2026-10-07',
       },
       notes:
         'The £25 threshold is the shop\'s own banner, quoted in source; no rate below it is ' +
