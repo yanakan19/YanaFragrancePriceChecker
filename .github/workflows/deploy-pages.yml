@@ -16,7 +16,9 @@ name: Deploy site
 #
 # The build is checked before anything is uploaded (the page's stamp matches
 # the source it was built from, every data file it names exists, the deep-link
-# copy is identical, the sitemap is not empty). A build or check that fails
+# copy is identical, every fixed address has a page of its own so Pages answers
+# it 200 and not 404 (scripts/build-route-pages.ts), the sitemap is not empty).
+# A build or check that fails
 # stops this job before `upload-pages-artifact`, so the site stays on the last
 # good deployment: Pages never publishes an empty or half-built folder.
 #
@@ -196,6 +198,10 @@ jobs:
           test -s demo/index.html
           npx tsx scripts/check-demo-freshness.ts
           cmp demo/index.html demo/404.html
+          # A page of its own for every fixed address (/about is demo/about.html),
+          # so the host answers it 200 and not the 404.html fallback: present,
+          # from this build, with its own title and canonical.
+          npx tsx scripts/build-route-pages.ts --check
           test -s demo/sitemap.xml
           grep -q '<urlset' demo/sitemap.xml
           ls -la demo/index.html demo/404.html demo/sitemap.xml demo/data

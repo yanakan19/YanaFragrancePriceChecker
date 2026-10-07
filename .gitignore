@@ -10,6 +10,13 @@ dist-demo/
 /demo/data/
 /demo/sitemap.xml
 /demo/ads.txt
+# A page of its own for each fixed address (scripts/build-route-pages.ts): /about is
+# demo/about.html, /about/legal is demo/about/legal.html. The template is source.
+/demo/*.html
+!/demo/template.html
+/demo/about/
+/demo/legal/
+/demo/account/
 # What a deployment was built from: written by deploy-pages.yml after the
 # build (scripts/deploy-decision.mjs record), published, never committed.
 /demo/build-state.json

@@ -188,6 +188,22 @@ export function rootWords(): string[] {
 }
 
 /**
+ * The list routes the build writes a page of their own for, so the host answers
+ * them with HTTP 200 instead of the 404.html fallback (scripts/routePages.ts):
+ * every single word address in the route table above, as /word paths. Read from
+ * the table, so a route added there gets its page without anyone listing it a
+ * second time. Not the old aliases (they only open another page), and not the
+ * owner's dashboard, which stays the not found page to everyone else.
+ */
+const UNPUBLISHED_LIST_ROUTES: readonly string[] = ['developer'];
+
+export function listRoutePaths(): string[] {
+  return Object.keys(LIST_ROUTES)
+    .filter((word) => word !== '' && !UNPUBLISHED_LIST_ROUTES.includes(word))
+    .map((word) => `/${word}`);
+}
+
+/**
  * Parse a path and query into a route.
  *
  * Anything unrecognised resolves to `notFound` rather than throwing. On static

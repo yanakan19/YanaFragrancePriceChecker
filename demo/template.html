@@ -1,4 +1,5 @@
 <title>PriceSniffs</title>
+<script>document.documentElement.classList.add('js')</script>
 <style>
   /* Dark ground with a red accent, per the brief. One narrow column, centred on
      wider screens, so the phone layout is the only layout to maintain and a
@@ -3063,27 +3064,46 @@
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 
   /* ── site footer ────────────────────────────────────────────────────────
-     Narrow and quiet on purpose: it is a credit line, not a navigation
-     surface, so it takes as little vertical room as the two touch targets
-     allow and stays out of the way of everything above it. */
-  /* Wraps rather than overflows: the footer carries three links and a credit
-     line, which is more than fits on one row at 375px. */
+     Part of the static page, outside <main id="view">, so it is in the HTML
+     before any script runs. Its links are the one list in demo/footerLinks.ts,
+     written in at build time. Two short rows of links that wrap rather than
+     overflow (nothing has a fixed width, so 320px does not scroll sideways),
+     each link a 32px tall target, in --ink-2 rather than --faint so the text
+     clears AA on both grounds at its size. The credit line sits under them. */
   .site-footer {
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 8px 12px;
-    margin-top: 28px; padding: 12px 16px; border-top: 1px solid var(--line);
-    font-size: 11.5px; color: var(--faint);
+    margin-top: 28px; padding: 12px max(var(--gutter), var(--safe-right)) 20px max(var(--gutter), var(--safe-left));
+    border-top: 1px solid var(--line);
+    font-size: 12.5px; color: var(--faint);
   }
-  .footer-social {
-    display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end;
-    gap: 8px 16px;
+  .footer-nav { display: flex; flex-direction: column; gap: 0; }
+  .footer-list {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0 18px;
+    list-style: none; margin: 0; padding: 0;
   }
   .footer-link {
-    display: inline-flex; align-items: center; gap: 5px;
-    color: var(--faint); text-decoration: none; font-size: 11.5px; font-weight: 600;
+    display: inline-flex; align-items: center; min-height: 32px;
+    color: var(--ink-2); text-decoration: none; font-size: 13px; font-weight: 600;
   }
-  .footer-link .ico { width: 14px; height: 14px; }
-  .footer-link:hover, .footer-link:focus-visible { color: var(--accent); }
+  .footer-link:hover, .footer-link:focus-visible { color: var(--accent-ink); text-decoration: underline; }
+  .footer-note { margin: 6px 0 0; font-size: 12px; line-height: 1.5; color: var(--faint); }
+
+  /* ── the static intro ───────────────────────────────────────────────────
+     Plain text and links inside <main>, for a visitor or a crawler without
+     JavaScript (or when the script fails to load). The page's first inline
+     script puts class "js" on <html> before anything is drawn, and the app
+     replaces #view wholesale when it starts, so for a normal visitor this is
+     never painted and takes no room: nothing shifts. */
+  html.js .static-intro { display: none; }
+  .static-intro { padding: 24px 0 0; max-width: 62ch; }
+  .static-intro p { margin: 0 0 12px; }
+  .static-intro .t-section { margin: 20px 0 8px; }
+  .static-intro p a { color: var(--accent-ink); text-decoration: underline; }
+  .static-links { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 18px; }
+  .static-links a { display: inline-flex; align-items: center; min-height: 32px; color: var(--accent-ink); font-weight: 600; }
+  .ns-note {
+    margin: 16px 0 0; padding: 12px 14px; border: 1px solid var(--line-firm); border-radius: 12px;
+    background: var(--surface); color: var(--ink); font-size: 14px; line-height: 1.5;
+  }
 
   /* ── the design system page ────────────────────────────────────────────────
      Deliberately built out of the type roles, surfaces and lines this file
@@ -3191,6 +3211,8 @@
   /* The landmark takes focus programmatically, so it must not draw a ring
      around the whole page when it does. */
   #view:focus { outline: none; }
+  /* Contact Us on About, focused when the footer's Contact link brings it into view. */
+  #contact:focus { outline: none; }
 
   /* ── back to top ─────────────────────────────────────────────────────────
      The catalogue lists run to thousands of tiles, so the top of the page can
@@ -3500,22 +3522,41 @@
   <!-- tabindex="-1" so the skip link can actually move focus here: without
        it the browser scrolls to the landmark but leaves focus on the link,
        and the next Tab carries on from the top bar as if nothing happened. -->
-  <main id="view" tabindex="-1"></main>
+  <main id="view" tabindex="-1">
+    <noscript>
+      <p class="ns-note"><strong>JavaScript is switched off.</strong> PriceSniffs needs it to search and compare live prices. The pages below explain what the site does, and turning JavaScript on in your browser settings brings the prices back.</p>
+    </noscript>
+    <!-- Replaced when the app starts, and not painted at all before that for a
+         visitor with JavaScript (html.js hides it): see .static-intro. -->
+    <section class="static-intro" aria-labelledby="static-intro-title">
+      <h1 class="t-page" id="static-intro-title">Compare Fragrance Prices at UK Shops</h1>
+      <p class="t-body">PriceSniffs is a price comparison site for perfume. It puts the same bottle, gift set or oil from different UK shops side by side, with prices in pounds and delivery included where the shop states it, so you can see where it costs least before you buy.</p>
+      <p class="t-body">Prices come from each shop&rsquo;s own public listings and feeds. We do not sell fragrance ourselves. Some shop links are affiliate links: if you buy after following one, the shop may pay us a commission, at no extra cost to you. It never changes the order of results. Read the <a href="/about/legal#affiliate">affiliate disclosure</a>.</p>
+      <h2 class="t-section">Browse</h2>
+      <ul class="static-links">
+        <li><a href="/deals">Deals</a></li>
+        <li><a href="/fragrances">All Fragrances</a></li>
+        <li><a href="/sets">Gift Sets</a></li>
+        <li><a href="/oils">Oils</a></li>
+        <li><a href="/brands">Brands</a></li>
+        <li><a href="/retailers">Shops</a></li>
+        <li><a href="/notes">Notes</a></li>
+      </ul>
+      <h2 class="t-section">About the Site</h2>
+      <ul class="static-links">
+        <li><a href="/about">About</a></li>
+        <li><a href="/about/how-we-check-prices">How We Check Prices</a></li>
+        <li><a href="/guides">Guides</a></li>
+        <li><a href="/about#contact">Contact</a></li>
+        <li><a href="/about/legal">Legal Notice</a></li>
+        <li><a href="/about/legal#privacy">Privacy</a></li>
+      </ul>
+    </section>
+  </main>
 
   <footer class="site-footer">
-    <div class="footer-social">
-      <!-- The Legal Notice (terms, privacy, affiliate disclosure), under About.
-           Linked from About too; a real href, intercepted like the one below. -->
-      <a class="footer-link" href="/about/legal" data-goto="legalNotice">Legal Notice</a>
-      <!-- The one route into the design system page. A real href so it can be
-           copied, opened in a new tab and linked to; the click handler in
-           app.ts intercepts it for the in-app router the same way every other
-           internal navigation works. Down here rather than in the top bar
-           because a shopper looking for cheap perfume should never have to
-           step over a style guide to find it, and because a fifth primary nav
-           item breaks the phone layout at 375px. -->
-      <a class="footer-link" href="/design" data-goto="design">Design System</a>
-    </div>
+    <!--__FOOTER_LINKS__-->
+    <p class="footer-note">Some shop links earn us a commission, at no cost to you. It never changes the order of results.</p>
   </footer>
 </div>
 

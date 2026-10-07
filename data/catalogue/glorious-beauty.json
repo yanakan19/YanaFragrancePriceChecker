@@ -1,7 +1,7 @@
 {
   "retailerId": "glorious-beauty",
-  "updatedAt": "2026-10-07T17:01:24.525Z",
-  "seenAt": "2026-10-07T17:01:24.525Z",
+  "updatedAt": "2026-10-07T21:31:12.037Z",
+  "seenAt": "2026-10-07T21:31:12.037Z",
   "source": "live",
   "listings": [
     {
@@ -1033,8 +1033,8 @@
       "retailerId": "glorious-beauty",
       "firstSeenAt": "2026-10-01T19:08:16.454Z",
       "lastSeenAt": "2026-10-07T08:52:47.735Z",
-      "status": "active",
-      "delistedAt": null,
+      "status": "delisted",
+      "delistedAt": "2026-10-07T21:31:12.037Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null
