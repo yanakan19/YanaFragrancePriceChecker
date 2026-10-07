@@ -42,8 +42,13 @@ export function staleReason(root: string): string | null {
   // name, and tests/demoDataFiles.test.ts holds the folder to that.
   const extra = readdirSync(join(root, 'demo/data')).filter((f) => !named.includes(`data/${f}`));
   if (extra.length > 0) return `demo/data holds files the page does not name: ${extra.join(', ')}`;
-  for (const other of ['demo/404.html', 'demo/sitemap.xml']) {
+  for (const other of ['demo/404.html', 'demo/sitemap.xml', 'demo/about.html']) {
     if (!existsSync(join(root, other))) return `${other} is not built`;
+  }
+  // The page of each fixed address (scripts/build-route-pages.ts) is written
+  // last; one from an older build than the page means that step did not run.
+  if (readStampedHash(readFileSync(join(root, 'demo/about.html'), 'utf8')) !== stamped) {
+    return 'demo/about.html was built from different source than demo/index.html';
   }
   return null;
 }

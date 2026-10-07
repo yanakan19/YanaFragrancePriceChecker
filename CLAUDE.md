@@ -8,7 +8,9 @@ generated files while the crawl was building the same ones.
 ## The published site is built at deploy time
 
 Since 2026-10-04 the page (`demo/index.html`, `demo/404.html`), its data files
-(`demo/data/`), `demo/sitemap.xml` and `demo/ads.txt` are **not committed**.
+(`demo/data/`), `demo/sitemap.xml`, `demo/ads.txt` and the page of each fixed
+address (`demo/about.html`, `demo/about/legal.html` and the rest, so the host
+answers 200; `scripts/build-route-pages.ts`) are **not committed**.
 They are gitignored, and `.github/workflows/deploy-pages.yml` builds them with
 `npm run demo` from the committed source and `demo/*.generated.ts`, checks
 the build, and only then publishes it. A push or a manual run always

@@ -61,9 +61,13 @@ describe('scripts/generated-files.txt', () => {
     for (const path of [
       'demo/index.html', 'demo/404.html', 'demo/sitemap.xml', 'demo/ads.txt',
       'demo/data', 'demo/data/catalogue.0123456789abcdef.json',
+      // A page of its own for each fixed address (scripts/build-route-pages.ts).
+      'demo/about.html', 'demo/fragrances.html', 'demo/about/legal.html', 'demo/about/bot.html',
     ]) {
       expect(policyOf(path), path).toBe('deploy');
     }
+    // The page's own source sits beside them and is not a build output.
+    expect(policyOf('demo/template.html')).toBe('source');
     expect(policyOf('demo/testCount.generated.ts')).toBe('incoming');
     expect(policyOf('data/catalogue/boots.json')).toBe('incoming');
     expect(policyOf('src/config/retailers.ts')).toBe('manual');
@@ -84,13 +88,20 @@ describe('scripts/generated-files.txt', () => {
   // beside a newer build is the stale-page failure all over again.
   it('every deploy path is gitignored and untracked, so a local build can never be committed by accident', () => {
     const deploy = entries.filter((x) => x.policy === 'deploy');
-    expect(deploy.map((e) => e.pattern)).toEqual(['demo/index.html', 'demo/404.html', 'demo/data/', 'demo/ads.txt', 'demo/sitemap.xml']);
+    expect(deploy.map((e) => e.pattern)).toEqual([
+      'demo/index.html', 'demo/404.html', 'demo/data/', 'demo/ads.txt', 'demo/sitemap.xml',
+      'demo/*.html', 'demo/about/', 'demo/legal/', 'demo/account/',
+    ]);
     for (const e of deploy) {
-      const probe = e.pattern.endsWith('/') ? `${e.pattern}catalogue.0123456789abcdef.json` : e.pattern;
+      const probe = e.pattern.endsWith('/')
+        ? `${e.pattern}catalogue.0123456789abcdef.json`
+        : e.pattern.replace('*', 'sample');
       // `git check-ignore` exits 0 when the path is ignored, 1 when it is not.
       expect(() => execFileSync('git', ['check-ignore', '-q', '--no-index', probe], { cwd: REPO_ROOT }), `${probe} is not gitignored`).not.toThrow();
-      const tracked = execFileSync('git', ['ls-files', '--', e.pattern.replace(/\/$/, '')], { cwd: REPO_ROOT, encoding: 'utf8' }).trim();
-      expect(tracked, `${e.pattern} is tracked; \`git rm -r --cached\` it`).toBe('');
+      // A wildcard also names committed source that a "source" line above it claims (demo/template.html).
+      const tracked = execFileSync('git', ['ls-files', '--', e.pattern.replace(/\/$/, '')], { cwd: REPO_ROOT, encoding: 'utf8' })
+        .split('\n').filter((f) => f !== '' && policyOf(f) !== 'source');
+      expect(tracked, `${e.pattern} is tracked; \`git rm -r --cached\` it`).toEqual([]);
     }
   });
 
@@ -98,7 +109,7 @@ describe('scripts/generated-files.txt', () => {
     const deployWorkflow = readFileSync(join(WORKFLOWS, 'deploy-pages.yml'), 'utf8');
     expect(deployWorkflow).toContain('run: npm run demo');
     for (const e of entries.filter((x) => x.policy === 'deploy')) {
-      expect(e.writtenBy, e.pattern).toMatch(/^npm run demo \(scripts\/build-(demo|sitemap)\.ts\)/);
+      expect(e.writtenBy, e.pattern).toMatch(/^npm run demo \(scripts\/build-(demo|sitemap|route-pages)\.ts\)/);
     }
   });
 
@@ -118,7 +129,10 @@ describe('scripts/generated-files.txt', () => {
     expect(paths).toContain('demo/catalogue.generated.ts');
     // The crawl's page commit takes exactly this list: the built site is not on it.
     for (const p of ['demo/data', 'demo/index.html', 'demo/404.html', 'demo/sitemap.xml']) expect(paths).not.toContain(p);
-    expect(bash(['paths', 'deploy']).split(' ')).toEqual(['demo/index.html', 'demo/404.html', 'demo/data', 'demo/ads.txt', 'demo/sitemap.xml']);
+    expect(bash(['paths', 'deploy']).split(' ')).toEqual([
+      'demo/index.html', 'demo/404.html', 'demo/data', 'demo/ads.txt', 'demo/sitemap.xml',
+      'demo/*.html', 'demo/about', 'demo/legal', 'demo/account',
+    ]);
   });
 
   it('matches * across folders and a trailing / as a folder, as a bash case pattern does', () => {
