@@ -15,7 +15,7 @@ import { dirname, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 /** See the header of scripts/generated-files.txt; "deploy" files are built but never committed. */
-export type GeneratedPolicy = 'rebuild' | 'incoming' | 'manual' | 'deploy';
+export type GeneratedPolicy = 'rebuild' | 'incoming' | 'manual' | 'deploy' | 'source';
 
 export interface ManifestEntry {
   policy: GeneratedPolicy;
@@ -24,7 +24,7 @@ export interface ManifestEntry {
   writtenBy: string;
 }
 
-const POLICIES: readonly GeneratedPolicy[] = ['rebuild', 'incoming', 'manual', 'deploy'];
+const POLICIES: readonly GeneratedPolicy[] = ['rebuild', 'incoming', 'manual', 'deploy', 'source'];
 
 export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const MANIFEST_PATH = resolve(REPO_ROOT, 'scripts/generated-files.txt');

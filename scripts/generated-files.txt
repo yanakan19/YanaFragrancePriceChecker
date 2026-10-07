@@ -26,6 +26,9 @@
 #             built from the committed files by .github/workflows/deploy-pages.yml
 #             before every deployment. No workflow may commit one, and
 #             scripts/commit-and-push.sh refuses a caller that names one.
+#   source    Committed by people and never written by a build. Listed only so
+#             that a wider pattern further down (demo/*.html) does not claim it;
+#             first match wins, so it goes above that pattern.
 #
 # A path ending in / is a folder (everything under it). * matches any run of
 # characters, / included. Lines starting with # are comments.
@@ -49,6 +52,16 @@ deploy    demo/404.html                       npm run demo (scripts/build-demo.t
 deploy    demo/data/                          npm run demo (scripts/build-demo.ts), content-hashed, old files deleted
 deploy    demo/ads.txt                        npm run demo (scripts/build-demo.ts), from demo/ads.ts
 deploy    demo/sitemap.xml                    npm run demo (scripts/build-sitemap.ts)
+# A page of its own for every fixed address (/about is demo/about.html), so the host
+# answers 200 and not the 404.html fallback: scripts/build-route-pages.ts, last step
+# of npm run demo; the addresses come from the router's list routes and the sitemap
+# (scripts/routePages.ts). A route in a folder not named here is skipped with a
+# warning and fails tests/routePages.test.ts: add its folder here and in .gitignore.
+source    demo/template.html                  committed page source (the page build reads it); keeps demo/*.html below off it
+deploy    demo/*.html                         npm run demo (scripts/build-route-pages.ts), one per fixed address
+deploy    demo/about/                         npm run demo (scripts/build-route-pages.ts): /about/legal, /about/bot
+deploy    demo/legal/                         npm run demo (scripts/build-route-pages.ts): /legal/how-it-works
+deploy    demo/account/                       npm run demo (scripts/build-route-pages.ts): /account/wishlist and the like
 
 # ── catalogue-daily.yml: harvest, houses, Awin sync, shipping, probes ──
 incoming  data/catalogue/*.json               harvest, Awin feed sync, storefront reprice

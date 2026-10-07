@@ -413,6 +413,17 @@ Reasoning, weighed directly against the alternatives:
   with a trimmed per-page data slice, keep `/` as the full interactive
   app) should be revisited — flagged here as a deliberate, named,
   short-term tradeoff, not an oversight.
+- **Update, 2026-10-07: the fixed addresses answer 200.** `scripts/build-route-pages.ts`
+  (last step of `npm run demo`) writes a page of its own for every list route in
+  `demo/router.ts` and every non leaf address in `demo/sitemap.xml`: `/about` is
+  `demo/about.html`, `/about/legal` is `demo/about/legal.html`, and so on (16 files,
+  14.3 MB raw, 4.9 MB gzipped, half a second). Each is the same page as `index.html`
+  with that address's own title, description and canonical (`demo/head.ts`), so Pages
+  answers it 200. Products, brands, shops and notes (about 28,700 addresses) stay on
+  `404.html`, as does any address the router does not know. Emitting them would add
+  about 26 GB raw (7.7 GB gzipped) of copies of a 0.93 MB page, and about 15 minutes
+  of build time; that waits for the bundle and data to leave the page (option (c)).
+
 - **Service worker interaction:** `demo/sw.js`'s navigate handler
   (`fetch(event.request).then(...).catch(() => caches.match('./index.html'))`)
   is unaffected by this choice as long as `404.html` and `index.html`
