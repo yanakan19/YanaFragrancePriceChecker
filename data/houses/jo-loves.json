@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-07T05:53:02.292Z",
-  "seenAt": "2026-10-07T05:53:02.292Z",
+  "updatedAt": "2026-10-07T09:36:21.606Z",
+  "seenAt": "2026-10-07T09:36:21.606Z",
   "source": "live",
   "listings": [
     {
@@ -2291,7 +2291,7 @@
       "priceGbp": 60,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Refresh your space with our Amber Lime & Bergamot diffuser refill, inspired by the elegance of the Concours d’Elegance. Simply top up your existing diffuser to enjoy its warm, sophisticated scent for longer - sustainably and effortlessly.",
       "productType": null,
@@ -4016,7 +4016,7 @@
       "priceGbp": 60,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Discover the essence of Jo Loves Pomelo, a captivating fragrance that captures the magic of a beach holiday on Parrot Cay Island. Inspired by a moment of creative awakening, this diffuser refill combines the sparkling notes of rose and pomelo with the depth of vetiver, clove, patchouli, and suede, creating a scent that transports you to a serene, sun-kissed paradise. To enjoy the full fragrance experience, simply dip the reeds into the oil, turn them, and rotate them every few days for a lasting, mesmerising aroma that reminds you of your own creative journey.",
       "productType": null,
@@ -4223,7 +4223,7 @@
       "priceGbp": 60,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Enjoy the fresh, green scent of ripe Figs alongside delicately sweet Cassis and the warmth of amber with this Fig Trees Diffuser Refill, inspired by Jo's family holidays in Italy. Simply dip the reeds into the fragrance oil, turn them around, and keep rotating every few days for maximum fragrance effect, allowing you to instantly transport yourself to the Mediterranean and the memory of wonderful family holidays in Tuscany, with the smell of fresh fig, warm bread, coffee, and happy sunshine days.",
       "productType": null,
