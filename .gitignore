@@ -41,3 +41,8 @@ __pycache__/
 !.claude/hooks/
 
 social/posts/*/_frames/
+
+# Pages the owner saved by hand for scripts/catalogue-import-pages.ts: whole
+# shop pages (large, and the shop's own copy). The import reads them and the
+# snapshot it writes is what gets committed. See docs/OWNER-STEPS.md.
+/data/manual-pages/

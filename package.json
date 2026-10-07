@@ -25,6 +25,7 @@
     "demo": "tsc -p tsconfig.demo.json && tsx scripts/bundle-demo.ts && tsx scripts/build-demo.ts && tsx scripts/build-sitemap.ts",
     "catalogue": "tsx scripts/catalogue-run.ts",
     "catalogue:fixtures": "tsx scripts/catalogue-fixtures.ts",
+    "catalogue:import-pages": "tsx scripts/catalogue-import-pages.ts",
     "catalogue:demo": "tsx scripts/build-demo-catalogue.ts",
     "catalogue:history": "tsx scripts/build-price-history.ts",
     "deals:build": "tsx scripts/build-deals.ts",

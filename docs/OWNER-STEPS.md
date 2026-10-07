@@ -1,6 +1,6 @@
 # Owner steps, in plain English
 
-Eight jobs only you can do. Each one is short. Do them in this order; the
+Nine jobs only you can do (the last is optional). Each one is short. Do them in this order; the
 first stops money going out (the old chat servers, now unused).
 
 ---
@@ -694,3 +694,40 @@ holds the secret and answers only you.
   **restricted key** with read access to balances, charges and subscriptions
   only, store it the same way, then tell me. The card then shows
   subscribers, payments and refunds.
+
+---
+
+## 9. Add a shop's prices by hand, when its site refuses our crawler
+
+Optional, and only for a shop like Notino UK that says no to the crawler. You
+open the pages yourself, in your own browser, and we read the files you save.
+Nothing is fetched from the shop by us.
+
+1. In your browser, open a product page or a list page (for example
+   `https://www.notino.co.uk/fragrance/`). Check it shows real products and
+   prices in pounds, not a "Just a moment..." check.
+2. Save the page source: right click → **View page source** → select all →
+   copy, then paste it into a new text file. (Or use **Save page as** →
+   "Webpage, HTML only". Do not use "Complete" or "single file".)
+3. Optional but best: put these two lines at the very top of the file. They
+   record when you saved it and where it came from. Without the first, the
+   file's own date is used.
+
+   ```
+   <!-- saved: 2026-10-07T10:30:00Z -->
+   <!-- url: https://www.notino.co.uk/fragrance/ -->
+   ```
+4. Save it as `data/manual-pages/notino-uk/anything.html` (make the folder if
+   it is missing). One file per page. The folder is not committed; only the
+   result is. Or paste the page source to me in chat and I will save it there.
+5. Run `npm run catalogue:import-pages -- --shop=notino-uk`. Add `--dry-run`
+   first to see what it would do without changing anything.
+6. It prints one block per file: how many products it found, how many are new
+   or refreshed, and what is missing (brand, barcode and size are often absent
+   from list pages; that is normal). A file that is a Cloudflare check page is
+   refused, so go back to step 1 for that one. Nothing is ever deleted: a
+   product not on your pages simply keeps its last price until it ages out.
+7. Run `npm run rebuild`, then commit `data/catalogue/notino-uk.json` and the
+   rebuilt files, as in CLAUDE.md. Notino UK is switched off in the registry
+   (`enabled: false`), so its prices stay off the site until that is turned
+   back on; the import does not change that.
