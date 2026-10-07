@@ -54,13 +54,11 @@ import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { build, type Plugin } from 'esbuild';
-import { inlineShopTimes, moveLiteralsToJson } from './dataLiterals.js';
-import { BLOBS_GLOBAL, LAZY_DATA_MODULES, type DataGroup, type DataManifest } from './dataFiles.js';
+import { inlineShopTimes, moveLiteralsToJson, numberBlobs, placeholder, type LoadedModule } from './dataLiterals.js';
+import { BLOBS_GLOBAL, LAZY_DATA_MODULES, type DataManifest } from './dataFiles.js';
 import { pruneContext, pruneMovedBlobs, removedSets, resolveSiteBuild } from './siteBuild.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const blobs: unknown[] = [];
-const groups: DataGroup[] = [];
 const report: string[] = [];
 
 // The developer dashboard's switches for this build (scripts/siteBuild.ts):
@@ -76,10 +74,7 @@ const prune = pruneContext();
 // of the same data once swapped deals and fragranceLinks). Each module's
 // literals are numbered from 0 here, as placeholders, and the final indexes
 // are assigned after the build in module name order.
-type Loaded = { name: string; blobs: unknown[]; moved: string[] };
-const loaded: Loaded[] = [];
-const toHex = (s: string): string => Buffer.from(s).toString('hex');
-const placeholder = (name: string, k: number): string => `__psData(__PSD_${toHex(name)}_${k})`;
+const loaded: LoadedModule[] = [];
 
 const dataAsJson: Plugin = {
   name: 'data-as-json',
@@ -122,29 +117,15 @@ await build({
   logLevel: 'warning',
 });
 
-// Final numbering: modules in name order, each one's literals contiguous.
-loaded.sort((x, y) => (x.name < y.name ? -1 : x.name > y.name ? 1 : 0));
-const starts = new Map<string, number>();
-for (const m of loaded) {
-  const start = blobs.length;
-  starts.set(m.name, start);
-  blobs.push(...m.blobs);
-  pruneMovedBlobs(m.name, m.moved, blobs, start, removed, prune);
-  groups.push({ name: m.name, start, count: m.moved.length });
-  report.push(`${m.name}.generated.js: ${m.moved.length} literal(s) moved`);
-}
+// Final numbering: modules in name order, each one's literals contiguous
+// (numberBlobs, scripts/dataLiterals.ts).
 const bundlePath = resolve(root, 'dist-demo/bundle.js');
-let placeholders = 0;
-const numbered = (await readFile(bundlePath, 'utf8')).replace(/__psData\(__PSD_([0-9a-f]+)_(\d+)\)/g, (_all, hex: string, k: string) => {
-  placeholders++;
-  const start = starts.get(Buffer.from(hex, 'hex').toString());
-  if (start === undefined) throw new Error(`bundle refers to unknown data module ${hex}`);
-  return `__psData(${start + Number(k)})`;
-});
-if (placeholders !== blobs.length || /__PSD_/.test(numbered)) {
-  throw new Error(`bundle has ${placeholders} blob lookups for ${blobs.length} blobs (a literal was dropped or duplicated)`);
-}
-await writeFile(bundlePath, numbered);
+const result = numberBlobs(loaded, await readFile(bundlePath, 'utf8'), (m, start, all) =>
+  pruneMovedBlobs(m.name, m.moved, all, start, removed, prune),
+);
+const { blobs, groups } = result;
+for (const m of result.modules) report.push(`${m.name}.generated.js: ${m.moved.length} literal(s) moved`);
+await writeFile(bundlePath, result.bundle);
 await rm(resolve(root, 'dist-demo/data'), { recursive: true, force: true });
 await rm(resolve(root, 'dist-demo/data.json'), { force: true });
 await mkdir(resolve(root, 'dist-demo/data'), { recursive: true });
