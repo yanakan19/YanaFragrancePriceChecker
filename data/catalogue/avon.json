@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-07T17:01:24.525Z",
-  "seenAt": "2026-10-07T17:01:24.525Z",
+  "updatedAt": "2026-10-07T21:31:12.037Z",
+  "seenAt": "2026-10-07T21:31:12.037Z",
   "source": "live",
   "listings": [
     {
@@ -25567,7 +25567,7 @@
       "priceGbp": 11.5,
       "wasPriceGbp": 14,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . Escape and to enrich your senses with the beauty of nature with the floral and aqua perfume of Perceive Dew Eau de Parfum. Discover the dawn of a new era with beautiful freesia, fresh marine mist and vivid golden amber.. Product specification: . • Top note: freesia. • Middle note: marine mist. • Base note: golden amber. • 50ml.. How to wear me: . Spritz the floral and aqua fragrance onto your pulse points and enjoy the peaceful scent throughout the day..",
       "productType": "FRAGRANCE",
@@ -38723,7 +38723,7 @@
       "priceGbp": 19,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . Ignite attraction with the woody, fruity and musk fragrance in the Attraction for Her Eau de Parfum. An irresistible, long-lasting scent with tempting blackberry, mysterious orchid and vanilla amber.. Product specification: . • Top note: blackberry.. • Middle note: orchid.. • Base note: vanilla amber.. • 50ml.. How to wear me: . Kick your sensuality into full force by spraying the woody, fruity and musk fragrance onto your pulse points. Pair with the handy purse spray into your bag for a top-up of the desirable perfume when you're out..",
       "productType": "FRAGRANCE",

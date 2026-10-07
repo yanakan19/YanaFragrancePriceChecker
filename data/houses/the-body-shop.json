@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-10-07T18:03:07.673Z",
-  "seenAt": "2026-10-07T18:03:07.673Z",
+  "updatedAt": "2026-10-07T22:13:49.897Z",
+  "seenAt": "2026-10-07T22:13:49.897Z",
   "source": "live",
   "listings": [
     {
@@ -2981,7 +2981,7 @@
       "priceGbp": 12.5,
       "wasPriceGbp": 25,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Celebrate them with this indulgent mango gift set. .",
       "productType": "Bath and Body gifts",
@@ -8731,7 +8731,7 @@
       "priceGbp": 25,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Win them over with our British Rose Essentials. Filled with body care infused with rose extract, this fabulously floral gift set is sure to impress. .",
       "productType": "Bath and Body gifts",
