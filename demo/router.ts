@@ -29,10 +29,11 @@
 
 import { BRAND_MERGES } from '../src/catalogue/brandName.js';
 import { isProductSlug } from '../src/catalogue/productSlug.js';
+import { GUIDES_PATH, HOW_WE_CHECK, guidePath } from './guideList.js';
 
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
-  | 'notes' | 'note' | 'fragrances' | 'oils' | 'sets' | 'fragrance' | 'product' | 'about' | 'legalNotice' | 'botPage' | 'settings' | 'suggestions' | 'legal' | 'account'
+  | 'notes' | 'note' | 'fragrances' | 'oils' | 'sets' | 'fragrance' | 'product' | 'about' | 'legalNotice' | 'botPage' | 'howWeCheck' | 'guides' | 'guide' | 'settings' | 'suggestions' | 'legal' | 'account'
   | 'accountWishlist' | 'accountNotifications'
   | 'design' | 'developer' | 'notFound';
 
@@ -44,7 +45,8 @@ export interface Route {
    * For `fragrance` it is the product's id (the old /fragrance/<id> address,
    * and what the app holds internally); for `product` it is the slug, the new
    * address /BRAND_NAME_VOLUME (docs/PRODUCT-URLS.md). For `legalNotice` it is
-   * the section the address points at (the part after the #), or empty.
+   * the section the address points at (the part after the #), or empty. For
+   * `guide` it is the guide's slug (demo/guideList.ts).
    */
   param: string;
   /** Query string values the app cares about. */
@@ -79,6 +81,8 @@ const LIST_ROUTES: Record<string, RouteName> = {
   oils: 'oils',
   sets: 'sets',
   about: 'about',
+  // The guides index; each guide is /guides/<slug> (LEAF_ROUTES, demo/guideList.ts).
+  guides: 'guides',
   settings: 'settings',
   suggestions: 'suggestions',
   account: 'account',
@@ -138,6 +142,7 @@ const LEAF_ROUTES: Record<string, RouteName> = {
   notes: 'note',
   fragrance: 'fragrance',
   legal: 'legal',
+  guides: 'guide',
 };
 
 /**
@@ -231,6 +236,8 @@ export function matchRoute(pathname: string, search = '', hash = ''): Route {
     if (tail === 'legal') return { name: 'legalNotice', param: sectionOf(hash), query };
     // What our crawler is, for the shops it visits: the page its user agent names.
     if (tail === 'bot') return { name: 'botPage', param: '', query };
+    // How prices are collected (demo/guideList.ts, HOW_WE_CHECK).
+    if (tail === 'how-we-check-prices') return { name: 'howWeCheck', param: '', query };
     return { name: 'notFound', param: pathname, query };
   }
 
@@ -239,6 +246,8 @@ export function matchRoute(pathname: string, search = '', hash = ''): Route {
     const param = decodeURIComponent(tail);
     // An old brand address lands on the brand it was merged into.
     if (leaf === 'brand') return { name: leaf, param: BRAND_ALIAS_SLUGS[param] ?? param, query };
+    // Lower cased, so a retyped /guides/Decants-And-Testers opens the guide and the page rewrites the address.
+    if (leaf === 'guide') return { name: leaf, param: param.toLowerCase(), query };
     return { name: leaf, param, query };
   }
 
@@ -294,6 +303,9 @@ export function routeToPath(route: Route): string {
       case 'about': return '/about';
       case 'legalNotice': return '/about/legal';
       case 'botPage': return '/about/bot';
+      case 'howWeCheck': return HOW_WE_CHECK.path;
+      case 'guides': return GUIDES_PATH;
+      case 'guide': return guidePath(param);
       case 'settings': return '/settings';
       case 'suggestions': return '/suggestions';
       case 'account': return '/account';

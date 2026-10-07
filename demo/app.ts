@@ -146,10 +146,13 @@ import { parseTargetPrice } from '../src/alerts/target.js';
 import { UNSUBSCRIBE_PARAM, unsubscribeMessage } from '../src/alerts/unsubscribe.js';
 import { developerView, developerHeadName, type DeveloperHost } from './developer.js';
 import { startSiteCounter } from './siteCounter.js';
+import { GUIDES, GUIDES_PATH, HOW_WE_CHECK, guideBySlug, guidePath } from './guideList.js';
+import { itemSummary } from './itemSummary.js';
+import { guideBodies, guideHtml, guidesIndexHtml, howWeCheckHtml, methodBody } from './contentPages.js';
 
 type View =
   | 'home' | 'deals' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'legalNotice' | 'botPage'
-  | 'settings' | 'suggestions' | 'account' | 'accountWishlist' | 'accountNotifications' | 'design' | 'developer' | 'notFound';
+  | 'howWeCheck' | 'guides' | 'guide' | 'settings' | 'suggestions' | 'account' | 'accountWishlist' | 'accountNotifications' | 'design' | 'developer' | 'notFound';
 /** The three pages behind the account menu, each with its own address. */
 const ACCOUNT_VIEWS: readonly View[] = ['account', 'accountWishlist', 'accountNotifications'];
 type AuthTab = 'signIn' | 'signUp';
@@ -190,6 +193,8 @@ const state = {
   legalId: '',
   /** The section of the Legal Notice the address points at (/about/legal#privacy), or empty. */
   noticeSection: '',
+  /** The guide on screen (demo/guideList.ts): its slug, /guides/<slug>. */
+  guideSlug: '',
   /** The address that matched nothing, shown back on the not-found view. */
   notFoundPath: '',
   brand: null as string | null,
@@ -1155,6 +1160,7 @@ function productHead(f: DemoFragrance, tag = 'span', nameRole = 't-title'): stri
  */
 function giftSetBlock(f: DemoFragrance): string {
   if (!f.giftSet) return oilBlock(f);
+  const summary = summaryLine(f);
   const contents = f.giftSet.contents
     ? `<p class="giftset-contents t-body"><span class="giftset-label">In this set:</span></p>
       <ul class="giftset-list t-body">${f.giftSet.contents.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>`
@@ -1170,10 +1176,17 @@ function giftSetBlock(f: DemoFragrance): string {
         .join(', ')}</p>`
     : '';
   return `<div class="giftset-block">
+      ${summary}
       ${contents}
       <p class="giftset-note t-caption">${f.giftSet.bundle ? 'Bundle' : 'Gift set'} prices are compared only with this same set, never with a single bottle.</p>
       ${valueHtml}${sibsHtml}
     </div>`;
+}
+
+/** What a set or an oil is, in a line or two (demo/itemSummary.ts); nothing for a bottle. */
+function summaryLine(f: DemoFragrance): string {
+  const text = itemSummary(f);
+  return text ? `<p class="giftset-summary t-body">${esc(text)}</p>` : '';
 }
 
 /**
@@ -1184,6 +1197,7 @@ function giftSetBlock(f: DemoFragrance): string {
  */
 function oilBlock(f: DemoFragrance): string {
   if (!isOil(f)) return '';
+  const summary = summaryLine(f);
   const facts: string[] = [];
   const o = f.oil;
   if (o?.format) facts.push(`${o.format === 'roll-on' ? 'Roll On' : 'Dropper'}${o.formatBy ? ` <span class="t-caption">as ${esc(shopNameOf(o.formatBy))} describes it</span>` : ''}`);
@@ -1192,8 +1206,8 @@ function oilBlock(f: DemoFragrance): string {
   if (per !== null) facts.push(`${pricePerMlLabel(per)} <span class="t-caption">at the cheapest shop</span>`);
   const sizes = otherOilSizes(f);
   const spray = sprayVersion(f);
-  if (facts.length === 0 && sizes.length === 0 && !spray) return '';
   return `<div class="giftset-block oil-block">
+      ${summary}
       ${facts.length ? `<ul class="giftset-list t-body">${facts.map((x) => `<li>${x}</li>`).join('')}</ul>` : ''}
       ${sizes.length ? `<p class="giftset-more t-caption"><span class="giftset-label">Other sizes:</span> ${sizes.map((s) => `<button type="button" class="link-btn" data-frag="${esc(s.id)}">${esc(sizeLabel(s))}</button>`).join(', ')}</p>` : ''}
       ${spray ? `<p class="giftset-more t-caption"><button type="button" class="link-btn" data-frag="${esc(spray.id)}">The spray version</button></p>` : ''}
@@ -1562,6 +1576,19 @@ function homeView(): string {
     <!-- The suggestion form that used to sit beside this moved to its own
          page, Suggestions in the account menu (owner request, 2026-10-04). -->
     <div class="bottom-split">
+      <!-- Guides and the price checking page: plain links to written pages (the
+           words of which are lazy files, demo/contentPages.ts), so they add a few
+           hundred bytes here and nothing else to the first load. -->
+      <section class="guides-section" aria-labelledby="home-guides-title">
+        <div class="section-head">
+          <h2 class="t-section" id="home-guides-title">Guides</h2>
+          <a class="link-btn see-top" href="${GUIDES_PATH}" data-goto="guides">See All <span aria-hidden="true">→</span></a>
+        </div>
+        <ul class="guide-cards guide-cards--home">
+          ${GUIDES.map((g) => `<li class="guide-card"><a href="${guidePath(g.slug)}" data-nav>${esc(g.title)}</a></li>`).join('')}
+          <li class="guide-card"><a href="${HOW_WE_CHECK.path}" data-goto="howWeCheck">${esc(HOW_WE_CHECK.title)}</a></li>
+        </ul>
+      </section>
       <section class="updates-section">
         <h2 class="t-section">Update History</h2>
         <!-- The list scrolls on desktop (max-height in the stylesheet), and a
@@ -5047,7 +5074,9 @@ function aboutView(): string {
         ${ABOUT.how.map((c) => `<li class="about-card"><h3 class="about-card-title">${esc(c.title)}</h3><p>${esc(c.body)}</p></li>`).join('')}
       </ul>
       <p class="about-more"><button type="button" class="link-btn" data-page="how-it-works">More on How It Works</button>
-        <button type="button" class="link-btn" data-page="affiliate">Affiliate Disclosure</button></p>
+        <button type="button" class="link-btn" data-page="affiliate">Affiliate Disclosure</button>
+        <a class="link-btn" href="${HOW_WE_CHECK.path}" data-goto="howWeCheck">How We Check Prices</a>
+        <a class="link-btn" href="${GUIDES_PATH}" data-goto="guides">Perfume Guides</a></p>
 
       <div class="about-lower">
         <section aria-labelledby="about-who-title">
@@ -5136,6 +5165,35 @@ Disallow: /</code></pre>
       <p class="t-body">To ask a question, slow it down or have your shop removed, email
         <a href="mailto:${esc(COMPANY.email)}">${esc(COMPANY.email)}</a>.</p>
     </article>`;
+}
+
+/**
+ * The guides and the price checking page (demo/contentPages.ts). Their words
+ * are lazy data files, fetched the first time one of these pages is opened: the
+ * page is drawn at once with its heading and opening line, and drawn again in
+ * place when the words arrive, if the reader is still on it. A failed fetch is
+ * not retried by a redraw (that would loop), only by opening the page afresh.
+ */
+function settleContent(load: Promise<unknown>, stillHere: () => boolean): void {
+  const redraw = () => {
+    if (stillHere()) renderInPlace();
+  };
+  load.then(redraw, (err: unknown) => {
+    console.warn('PriceSniffs: the words of this page could not be loaded', err);
+    redraw();
+  });
+}
+
+function guideView(): string {
+  const guide = guideBySlug(state.guideSlug);
+  if (!guide) return notFoundView();
+  if (guideBodies.status() === 'idle') settleContent(guideBodies.load(), () => state.view === 'guide' && state.guideSlug === guide.slug);
+  return guideHtml(guide, guideBodies.current()?.[guide.slug] ?? null, guideBodies.status());
+}
+
+function howWeCheckView(): string {
+  if (methodBody.status() === 'idle') settleContent(methodBody.load(), () => state.view === 'howWeCheck');
+  return howWeCheckHtml(methodBody.current(), methodBody.status());
 }
 
 /** The pages still under /legal: only How it works, which is not a legal document. */
@@ -5899,6 +5957,9 @@ function currentRoute(): Route {
     case 'about': return { name: 'about', param: '', query: {} };
     case 'legalNotice': return { name: 'legalNotice', param: state.noticeSection, query: {} };
     case 'botPage': return { name: 'botPage', param: '', query: {} };
+    case 'howWeCheck': return { name: 'howWeCheck', param: '', query: {} };
+    case 'guides': return { name: 'guides', param: '', query: {} };
+    case 'guide': return { name: 'guide', param: state.guideSlug, query: {} };
     case 'design': return { name: 'design', param: '', query: {} };
     case 'developer': return { name: 'developer', param: '', query: {} };
     case 'settings': return { name: 'settings', param: '', query: {} };
@@ -5938,6 +5999,14 @@ function applyRoute(route: Route): boolean {
       state.view = 'legalNotice';
       return true;
     case 'botPage': state.view = 'botPage'; return true;
+    case 'howWeCheck': state.view = 'howWeCheck'; return true;
+    case 'guides': state.view = 'guides'; return true;
+    case 'guide':
+      // A slug that names no guide is Page Not Found, like any other miss.
+      if (!guideBySlug(route.param)) return false;
+      state.guideSlug = route.param;
+      state.view = 'guide';
+      return true;
     case 'design': state.view = 'design'; return true;
     case 'developer': state.view = 'developer'; return true;
     case 'settings': state.view = 'settings'; return true;
@@ -6183,7 +6252,11 @@ function fallbackBackRoute(): Route {
     case 'legal':
     case 'legalNotice':
     case 'botPage':
+    case 'howWeCheck':
       return { name: 'about', param: '', query: {} };
+    // A guide sits under the guides index, which sits under home.
+    case 'guide':
+      return { name: 'guides', param: '', query: {} };
     // The wishlist and notifications pages sit under the profile, which
     // links to both; the profile itself sits under home, since the menu
     // that opens it is on every page.
@@ -6873,6 +6946,12 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
                         ? legalNoticeView()
                       : state.view === 'botPage'
                         ? botPageView()
+                      : state.view === 'howWeCheck'
+                        ? howWeCheckView()
+                      : state.view === 'guides'
+                        ? guidesIndexHtml()
+                      : state.view === 'guide'
+                        ? guideView()
                       : state.view === 'design'
                         ? designView()
                       : state.view === 'developer'
@@ -6963,7 +7042,7 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   ($('#nav-deals') as HTMLElement).classList.toggle('on', state.view === 'deals');
   ($('#nav-explore') as HTMLElement).classList.toggle('on', inExplore || state.view === 'browse');
   // The Legal Notice sits under About, so About is the tab that is on there.
-  ($('#nav-about') as HTMLElement).classList.toggle('on', state.view === 'about' || state.view === 'legalNotice' || state.view === 'botPage');
+  ($('#nav-about') as HTMLElement).classList.toggle('on', state.view === 'about' || state.view === 'legalNotice' || state.view === 'botPage' || state.view === 'howWeCheck');
   // Settings and the account pages are reached from the account menu at the
   // top right now, not from this row; its button carries the "you are here".
   syncAccountButton();
@@ -7067,6 +7146,31 @@ function go(view: View, noticeSection = ''): void {
   // Only the Legal Notice has sections, and it is opened at one only by a link
   // that names it (openNoticeSection).
   state.noticeSection = view === 'legalNotice' ? noticeSection : '';
+  render();
+  syncUrl('push');
+  window.scrollTo({ top: 0 });
+  scrollToNoticeSection();
+}
+
+/**
+ * Opens an address on this site the way a click on a link to it does: the
+ * router reads it, the page is drawn and the address bar follows, with Back
+ * returning to where the reader was. For the [label](/path) links in the written
+ * pages (demo/contentPages.ts), whose targets are lists with filters already
+ * chosen, notes, other guides and a section of the Legal Notice.
+ */
+function openPath(path: string): void {
+  const url = new URL(path, window.location.origin);
+  const route = matchRoute(url.pathname, url.search, url.hash);
+  rememberListState();
+  closeFilterSheet(true);
+  clearFacets();
+  if (!applyRoute(route)) {
+    state.notFoundPath = url.pathname;
+    state.view = 'notFound';
+  }
+  const box = $('#search') as HTMLInputElement | null;
+  if (box) box.value = state.query;
   render();
   syncUrl('push');
   window.scrollTo({ top: 0 });
@@ -7529,6 +7633,13 @@ function init(): void {
     // opened in a new tab, but navigates through the router when clicked
     // normally. Modified clicks (new tab, new window, download) and any
     // non-primary button are left to the browser.
+    const navLink = t.closest<HTMLAnchorElement>('a[data-nav]');
+    if (navLink && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+      e.preventDefault();
+      openPath(navLink.getAttribute('href') ?? '/');
+      return;
+    }
+
     const gotoLink = t.closest<HTMLElement>('[data-goto]');
     if (gotoLink && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
       e.preventDefault();

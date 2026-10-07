@@ -45,6 +45,7 @@ import { slugify } from '../demo/router.js';
 import { isProductSlug } from '../src/catalogue/productSlug.js';
 import { LEGAL_PAGES, isLegalNoticeId } from '../demo/legal.js';
 import { SITE_URL } from '../demo/head.js';
+import { CONTENT_PATHS, GUIDES_PATH, HOW_WE_CHECK } from '../demo/guideList.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -103,6 +104,13 @@ entries.push({ loc: '/oils', lastmod: appMod, changefreq: 'weekly' });
 entries.push({ loc: '/sets', lastmod: appMod, changefreq: 'weekly' });
 entries.push({ loc: '/deals', lastmod: today(), changefreq: 'daily' });
 entries.push({ loc: '/about', lastmod: gitLastModified('demo/legal.ts'), changefreq: 'monthly' });
+
+// ── The guides, and how prices are collected ─────────────────────────────
+// Written pages (demo/guideList.ts, CONTENT_PATHS is the one list of them), dated
+// by the file whose words they are, so a guide's date moves when its words do.
+const contentFile = (loc: string): string =>
+  loc === GUIDES_PATH ? 'demo/guideList.ts' : loc === HOW_WE_CHECK.path ? 'demo/content/methodBody.ts' : 'demo/content/guideBodies.ts';
+for (const loc of CONTENT_PATHS) entries.push({ loc, lastmod: gitLastModified(contentFile(loc)), changefreq: 'monthly' });
 
 // ── The Legal Notice, and the legal pages still under /legal ─────────────
 // The terms, privacy notice, affiliate disclosure, cookies, refunds and

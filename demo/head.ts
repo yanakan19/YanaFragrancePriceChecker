@@ -42,6 +42,7 @@
  */
 import { productPath, type Route } from './router.js';
 import { ADS_ON } from './ads.js';
+import { GUIDES_INDEX, GUIDES_PATH, HOW_WE_CHECK, guideBySlug, guidePath } from './guideList.js';
 
 /** One source of truth for the origin. scripts/build-demo.ts imports this. */
 export const SITE_URL = 'https://pricesniffs.space';
@@ -398,6 +399,42 @@ export function headFor(input: HeadInput): HeadTags {
         noindex: false,
       };
 
+    case 'howWeCheck':
+      return {
+        title: `PriceSniffs: ${HOW_WE_CHECK.title}`,
+        description: clamp(HOW_WE_CHECK.description, DESC_MAX),
+        canonical,
+        noindex: false,
+      };
+
+    case 'guides':
+      return {
+        title: `PriceSniffs: ${GUIDES_INDEX.title}`,
+        description: clamp(GUIDES_INDEX.description, DESC_MAX),
+        canonical,
+        noindex: false,
+      };
+
+    // A guide's own title and description (demo/guideList.ts). An address that
+    // names no guide is Page Not Found in the app (applyRoute), and its tags are
+    // the not found ones; this branch is only reached for a guide that exists.
+    case 'guide': {
+      const guide = guideBySlug(route.param);
+      return guide
+        ? {
+            title: clamp(`PriceSniffs: ${guide.title}`, TITLE_MAX),
+            description: clamp(guide.description, DESC_MAX),
+            canonical,
+            noindex: false,
+          }
+        : {
+            title: 'PriceSniffs: Page not found',
+            description: 'That address does not match anything on this site.',
+            canonical,
+            noindex: true,
+          };
+    }
+
     case 'legal': {
       // What is left under /legal is the long How it works page. Its own page
       // title already says "PriceSniffs" ("How PriceSniffs works"), so
@@ -555,6 +592,9 @@ function pathOf(route: Route): string {
     // The anchor is not part of the canonical: the sections are one page.
     case 'legalNotice': return '/about/legal';
     case 'botPage': return '/about/bot';
+    case 'howWeCheck': return HOW_WE_CHECK.path;
+    case 'guides': return GUIDES_PATH;
+    case 'guide': return guidePath(route.param);
     case 'settings': return '/settings';
     case 'suggestions': return '/suggestions';
     case 'account': return '/account';

@@ -2575,6 +2575,7 @@
      the line saying its prices are compared only with the same set. */
   .giftset-block { margin: 10px 0 14px; }
   .giftset-contents { margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+  .giftset-summary { margin: 0 0 8px; color: var(--ink); }
   .giftset-label { font-weight: 600; color: var(--ink); }
   .giftset-note { margin: 4px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--faint); }
   .giftset-list { margin: 2px 0 0; padding: 0; list-style: none; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
@@ -3398,6 +3399,34 @@
   .doc .notice-title { font: 700 21px/1.2 var(--font-sans); letter-spacing: -.015em; color: var(--ink); margin: 22px 0 10px; }
   .doc .notice-section h3 { margin: 22px 0 6px; }
   .doc .summary-box h3 { margin: 0 0 8px; }
+
+  /* ── Guides and How we check prices (2026-10-07) ──
+     Written pages inside the ordinary .doc column; only the opening line, the
+     short note and the cards are their own. Words are lazy (demo/contentPages.ts). */
+  .doc .content-lead { font-size: 16px; line-height: 1.5; color: var(--ink); margin: 0 0 18px; }
+  .doc .content-note {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 14px; color: var(--ink); margin: 14px 0;
+  }
+  .doc .content-more { margin-top: 32px; padding-top: 6px; border-top: 1px solid var(--line); }
+  .doc .content-more ul { list-style: none; padding: 0; margin: 0; }
+  .doc .content-more li { margin: 0; }
+  .doc .content-more a { display: inline-flex; align-items: center; min-height: 44px; }
+  .doc ul.guide-cards, ul.guide-cards--home {
+    list-style: none; padding: 0; margin: 16px 0; display: grid; gap: 10px;
+  }
+  .guide-card { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 4px 14px 12px; }
+  .doc .guide-card-title { font: 700 16px/1.3 var(--font-sans); margin: 0; }
+  .doc .guide-card-title a { display: flex; align-items: center; min-height: 44px; padding: 8px 0 4px; box-sizing: border-box; color: var(--ink); }
+  .doc .guide-card p { margin: 0; }
+  .bottom-split .guides-section { margin-bottom: 32px; }
+  .bottom-split .guides-section .section-head { margin-top: 0; }
+  ul.guide-cards--home { margin: 0; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+  ul.guide-cards--home .guide-card { padding: 0 14px; }
+  ul.guide-cards--home .guide-card a {
+    display: flex; align-items: center; min-height: 48px; color: var(--ink); font-size: 14px; font-weight: 600;
+  }
+  ul.guide-cards--home .guide-card a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
 
   /* Account page: the change-password fold and the sign out / delete row. */
   .account-more { margin: 4px 0 18px; }

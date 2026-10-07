@@ -54,7 +54,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { build, type Plugin } from 'esbuild';
 import { inlineShopTimes, moveLiteralsToJson } from './dataLiterals.js';
-import { BLOBS_GLOBAL, LAZY_DATA_MODULES, type DataGroup, type DataManifest } from './dataFiles.js';
+import { BLOBS_GLOBAL, LAZY_CONTENT_MODULES, LAZY_DATA_MODULES, type DataGroup, type DataManifest } from './dataFiles.js';
 import { applyNumbering, localMarker, numberGroups } from './dataNumbering.js';
 import { pruneContext, pruneMovedBlobs, removedSets, resolveSiteBuild } from './siteBuild.js';
 
@@ -77,6 +77,14 @@ const prune = pruneContext();
 const dataAsJson: Plugin = {
   name: 'data-as-json',
   setup(b) {
+    // The written pages are lazy files too (LAZY_CONTENT_MODULES): if the bundle
+    // imported one, its sentences would be back in front of the first paint.
+    b.onLoad({ filter: /[\\/]demo[\\/]content[\\/][A-Za-z]+\.js$/ }, (args) => {
+      throw new Error(
+        `${args.path.split('/').pop()} is loaded on demand (LAZY_CONTENT_MODULES in scripts/dataFiles.ts) ` +
+          'but the bundle imports it. Import its types only (`import type`), and read it through demo/contentPages.ts.',
+      );
+    });
     b.onLoad({ filter: /\.generated\.js$/ }, async (args) => {
       const lazyName = args.path.split('/').pop()!.replace(/\.generated\.js$/, '');
       if (Object.hasOwn(LAZY_DATA_MODULES, lazyName)) {
@@ -146,6 +154,18 @@ for (const name of lazy) {
   }
   await writeFile(resolve(root, `dist-demo/data/${name}.json`), JSON.stringify(data));
   report.push(`${name}.generated.js: loaded on demand, not bundled`);
+}
+// Written pages: the compiled module's named exports, the same shape.
+for (const [name, { module, exports }] of Object.entries(LAZY_CONTENT_MODULES)) {
+  const mod = (await import(pathToFileURL(resolve(root, `dist-demo/demo/${module}.js`)).href)) as Record<string, unknown>;
+  const data: Record<string, unknown> = {};
+  for (const key of exports) {
+    if (mod[key] === undefined || typeof mod[key] === 'function') throw new Error(`${module} has no data export ${key}`);
+    data[key] = mod[key];
+  }
+  await writeFile(resolve(root, `dist-demo/data/${name}.json`), JSON.stringify(data));
+  lazy.push(name);
+  report.push(`${module}.js: loaded on demand, not bundled`);
 }
 const manifest: DataManifest = { groups, lazy };
 await writeFile(resolve(root, 'dist-demo/data-files.json'), JSON.stringify(manifest, null, 2));

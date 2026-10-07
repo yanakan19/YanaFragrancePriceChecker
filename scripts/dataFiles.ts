@@ -63,6 +63,30 @@ export const LAZY_DATA_MODULES: Record<string, readonly string[]> = {
   dormant: ['DORMANT_PRODUCTS', 'ID_ALIASES', 'SLUG_ALIASES'],
 };
 
+/**
+ * Written pages the app loads on demand, in the same way (a lazy data file, fetched
+ * with `__psLazy(name)` the first time the page is opened) but from modules of
+ * hand written words in demo/content/ rather than generated ones. The bundle
+ * must not import them either (scripts/bundle-demo.ts refuses to build if it
+ * does): they are the sentences of the guides and of /about/how-we-check-prices,
+ * and the first load does not carry them. Each entry is the file's name (letters
+ * only, like every data file), the compiled module that holds the words, relative
+ * to dist-demo/demo/, and the exports that make up its data file. What the page
+ * does know up front, each page's address, title and description, is in
+ * demo/guideList.ts. The file names are in demo/contentPages.ts.
+ *
+ * Measured when added (2026-10-07): the first load grew by the new code and the
+ * five page descriptions only; the words add about 18 kB across the two files
+ * (about 7 kB gzipped), which the service worker keeps like any data file.
+ */
+export const LAZY_CONTENT_MODULES: Record<string, { module: string; exports: readonly string[] }> = {
+  guides: { module: 'content/guideBodies', exports: ['GUIDE_BODIES'] },
+  method: { module: 'content/methodBody', exports: ['METHOD_BODY'] },
+};
+
+/** Every lazy data file's name: the generated modules' and the written pages'. */
+export const LAZY_NAMES: readonly string[] = [...Object.keys(LAZY_DATA_MODULES), ...Object.keys(LAZY_CONTENT_MODULES)];
+
 /** A lazy data file: its module name and its path relative to the site root. */
 export interface LazyDataFile {
   name: string;

@@ -16,6 +16,7 @@ import {
 } from '../demo/priceHistoryStore.js';
 import {
   LAZY_DATA_MODULES,
+  LAZY_NAMES,
   LAZY_GLOBAL,
   READY_GLOBAL,
   hashedDataPath,
@@ -201,7 +202,7 @@ describe('the built page', () => {
   const lazy = JSON.parse(/var lazy = (\{.*\});/.exec(html)![1]!) as Record<string, string>;
 
   it('starts without the price history, and still names its file', () => {
-    expect(Object.keys(lazy).sort()).toEqual(Object.keys(LAZY_DATA_MODULES).sort());
+    expect(Object.keys(lazy).sort()).toEqual([...LAZY_NAMES].sort());
     const historyPath = lazy[PRICE_HISTORY_FILE]!;
     expect(historyPath).toMatch(/^data\/priceHistory\.[0-9a-f]{16}\.json$/);
     expect(eager.map(([p]) => p)).not.toContain(historyPath);
