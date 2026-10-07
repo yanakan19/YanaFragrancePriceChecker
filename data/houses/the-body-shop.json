@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-10-07T05:53:01.185Z",
-  "seenAt": "2026-10-07T05:53:01.185Z",
+  "updatedAt": "2026-10-07T09:36:20.770Z",
+  "seenAt": "2026-10-07T09:36:20.770Z",
   "source": "live",
   "listings": [
     {
@@ -8225,7 +8225,7 @@
       "priceGbp": 21,
       "wasPriceGbp": 42,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "A fresh, aromatic, floral scent, infused with rose absolute extracted in Grasse, France. Fall in love with our new Full Rose Eau de Parfum..",
       "productType": "Eau De Parfum",
