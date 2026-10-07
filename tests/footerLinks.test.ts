@@ -9,16 +9,6 @@ import { matchRoute } from '../demo/router.js';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const template = readFileSync(resolve(root, 'demo/template.html'), 'utf8');
 
-/**
- * Pages other agents are adding to the router in parallel (the Phase 1 plan in
- * docs/ADVERTISING-PLAN.md): the footer and the static intro already link to
- * them, so until their routes land the router answers "not found" for these
- * and nothing else is allowed to. Delete an address from this list the moment
- * the router knows it; the test below fails on an entry that has no link, so
- * the list cannot outlive the links.
- */
-const LANDING_IN_PARALLEL = ['/about/how-we-check-prices', '/guides'];
-
 /** An address as written in an href, split the way the page splits it. */
 function resolveHref(href: string) {
   const [beforeHash, hash = ''] = href.split('#');
@@ -51,7 +41,6 @@ describe('footer links: one list, all known to the router', () => {
   it('points every link at an address the router knows', () => {
     for (const l of FOOTER_LINKS) {
       const { path, route } = resolveHref(l.href);
-      if (LANDING_IN_PARALLEL.includes(path)) continue;
       expect(route.name, `${l.href} ("${l.label}") is not a route: the router answers not found`).not.toBe('notFound');
     }
   });
@@ -66,11 +55,6 @@ describe('footer links: one list, all known to the router', () => {
       // A section of the Legal Notice must be one the notice has.
       if (route.name === 'legalNotice' && l.anchor) expect(isLegalNoticeId(l.anchor), `${l.href} names no section`).toBe(true);
     }
-  });
-
-  it('lists only landing-in-parallel addresses that the footer or the intro still link to', () => {
-    const linked = [...FOOTER_LINKS.map((l) => l.href), ...hrefsIn(mainBlock())].map((h) => h.split('#')[0]);
-    for (const path of LANDING_IN_PARALLEL) expect(linked, `${path} is no longer linked: remove it from LANDING_IN_PARALLEL`).toContain(path);
   });
 });
 
@@ -147,7 +131,6 @@ describe('the page without JavaScript', () => {
     }
     for (const href of hrefs) {
       const { path, route } = resolveHref(href);
-      if (LANDING_IN_PARALLEL.includes(path)) continue;
       expect(route.name, `${href} in the static intro is not a route`).not.toBe('notFound');
     }
   });

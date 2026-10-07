@@ -17,6 +17,7 @@ dist-demo/
 /demo/about/
 /demo/legal/
 /demo/account/
+/demo/guides/
 # What a deployment was built from: written by deploy-pages.yml after the
 # build (scripts/deploy-decision.mjs record), published, never committed.
 /demo/build-state.json

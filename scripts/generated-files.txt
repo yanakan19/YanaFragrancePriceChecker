@@ -62,6 +62,7 @@ deploy    demo/*.html                         npm run demo (scripts/build-route-
 deploy    demo/about/                         npm run demo (scripts/build-route-pages.ts): /about/legal, /about/bot
 deploy    demo/legal/                         npm run demo (scripts/build-route-pages.ts): /legal/how-it-works
 deploy    demo/account/                       npm run demo (scripts/build-route-pages.ts): /account/wishlist and the like
+deploy    demo/guides/                        npm run demo (scripts/build-route-pages.ts): /guides/<slug>, one per guide
 
 # ── catalogue-daily.yml: harvest, houses, Awin sync, shipping, probes ──
 incoming  data/catalogue/*.json               harvest, Awin feed sync, storefront reprice

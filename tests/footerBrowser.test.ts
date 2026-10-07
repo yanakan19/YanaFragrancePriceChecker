@@ -131,8 +131,17 @@ describe.skipIf(!built)('the footer and the page without JavaScript, on the buil
 
   it('a link whose page is not drawn in place still works as an ordinary link', async () => {
     const page = await open('/', 390);
-    const guides = page.locator('.site-footer a[href="/guides"]');
-    expect(await guides.getAttribute('data-goto')).toBeNull();
+    // Every footer link names a page the app draws in place now (guides and the price
+    // checking page included), so a link with no data-goto is added here to stand for one
+    // that is not.
+    await page.evaluate(() => {
+      const a = document.createElement('a');
+      a.href = '/guides';
+      a.id = 'plain-link';
+      a.textContent = 'plain';
+      document.querySelector('.site-footer')!.appendChild(a);
+    });
+    expect(await page.locator('#plain-link').getAttribute('data-goto')).toBeNull();
     // Not intercepted: the app's handler leaves the click to the browser. The window
     // listener runs after it, records whether it prevented the default, then stops the
     // navigation itself so the test stays on the page.
@@ -140,7 +149,7 @@ describe.skipIf(!built)('the footer and the page without JavaScript, on the buil
       () =>
         new Promise<boolean>((done) => {
           window.addEventListener('click', (e) => { done(e.defaultPrevented); e.preventDefault(); }, { once: true });
-          (document.querySelector('.site-footer a[href="/guides"]') as HTMLAnchorElement).click();
+          (document.getElementById('plain-link') as HTMLAnchorElement).click();
         }),
     );
     expect(prevented).toBe(false);
