@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 213,
+ "folded": 214,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -6040,6 +6040,39 @@
    ]
   },
   {
+   "canonical": "set-ean-8435415092067",
+   "absorbed": [
+    "set-jean-paul-gaultier-divine-gift-set-eau-de-parfum-100ml-eau-de-parfum-10ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8435415092067",
+     "brand": "Jean Paul Gaultier",
+     "name": "Divine 100ml Eau de Parfum Travel Set",
+     "concentration": "Eau de Parfum",
+     "ean": "8435415092067",
+     "scent": "divine",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "fragrance-click",
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jean-paul-gaultier-divine-gift-set-eau-de-parfum-100ml-eau-de-parfum-10ml",
+     "brand": "Jean Paul Gaultier",
+     "name": "Divine Gift Set Eau de Parfum 100ml + Eau de Parfum 10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "divine",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8435415112895",
    "absorbed": [
     "set-jean-paul-gaultier-classique-2-piece-gift-set-eau-de-toilette-50ml-body-lotion-75ml",
@@ -8614,7 +8647,7 @@
     {
      "id": "set-ean-8005610460598",
      "brand": "Hugo Boss",
-     "name": "Boss Bottled 100ml Eau de Toilette Travel Set",
+     "name": "Boss Bottled 100ml Eau de Toilette Set",
      "concentration": "Eau de Toilette",
      "ean": "8005610460598",
      "scent": "boss bottled",
@@ -9039,51 +9072,6 @@
      "signature": "1x100body|1x80fragrance",
      "shops": [
       "perfume-click"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "two different barcodes: 8435415077576, 8435415092067",
-    "a shop lists more than one: fragrance-click"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8435415077576",
-     "brand": "Jean Paul Gaultier",
-     "name": "Divine 100ml Eau de Parfum +10ml Set",
-     "concentration": "Eau de Parfum",
-     "ean": "8435415077576",
-     "scent": "divine",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "fragrance-click"
-     ]
-    },
-    {
-     "id": "set-ean-8435415092067",
-     "brand": "Jean Paul Gaultier",
-     "name": "Divine 100ml Eau de Parfum Travel Set",
-     "concentration": "Eau de Parfum",
-     "ean": "8435415092067",
-     "scent": "divine",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "fragrance-click",
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jean-paul-gaultier-divine-gift-set-eau-de-parfum-100ml-eau-de-parfum-10ml",
-     "brand": "Jean Paul Gaultier",
-     "name": "Divine Gift Set Eau de Parfum 100ml + Eau de Parfum 10ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "divine",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "the-beauty-store-uk"
      ]
     }
    ]
