@@ -26,6 +26,7 @@
     "catalogue": "tsx scripts/catalogue-run.ts",
     "catalogue:fixtures": "tsx scripts/catalogue-fixtures.ts",
     "catalogue:import-pages": "tsx scripts/catalogue-import-pages.ts",
+    "catalogue:bookmarklet": "tsx scripts/catalogue-bookmarklet.ts",
     "catalogue:demo": "tsx scripts/build-demo-catalogue.ts",
     "catalogue:history": "tsx scripts/build-price-history.ts",
     "deals:build": "tsx scripts/build-deals.ts",

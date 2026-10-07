@@ -706,10 +706,21 @@ Nothing is fetched from the shop by us.
 1. In your browser, open a product page or a list page (for example
    `https://www.notino.co.uk/fragrance/`). Check it shows real products and
    prices in pounds, not a "Just a moment..." check.
-2. Save the page source: right click → **View page source** → select all →
-   copy, then paste it into a new text file. (Or use **Save page as** →
-   "Webpage, HTML only". Do not use "Complete" or "single file".)
-3. Optional but best: put these two lines at the very top of the file. They
+2. Save it. The quickest way is the **Save for PriceSniffs** bookmark: one
+   click saves a small file holding only the page's product data, with the
+   time and address already written in, and none of your account details.
+   Install it once: run `npm run -s catalogue:bookmarklet` (or ask me for
+   the line), make a new bookmark in your browser, and paste that line as its
+   address. Then click the bookmark on each page you want; your browser
+   downloads one `.html` file per click. On a list page each click saves
+   every product the page shows; on a product page, every size. Skip step 3.
+
+   Or save the page source by hand: right click → **View page source** →
+   select all → copy, then paste it into a new text file. (Or use **Save
+   page as** → "Webpage, HTML only". Do not use "Complete" or "single
+   file".) A page saved this way also holds your email address and login
+   tokens, so never commit it or share it anywhere but here.
+3. Optional but best, for a page saved by hand: put these two lines at the very top of the file. They
    record when you saved it and where it came from. Without the first, the
    file's own date is used.
 
