@@ -3971,7 +3971,7 @@ function suggestionsView(): string {
  *  (the contact-form branch of the submit handler). */
 function contactSectionHtml(): string {
   return `
-      <h2 class="t-section" id="contact">Contact Us</h2>
+      <h2 class="t-section" id="contact" tabindex="-1">Contact Us</h2>
       <form id="contact-form" class="contact-form">
         <label class="field">
           <span>What Is This About</span>
@@ -3988,6 +3988,31 @@ function contactSectionHtml(): string {
       <p class="form-privacy t-caption">Send opens your own email app. Nothing goes to a server of ours.
         <button type="button" class="link-btn" data-page="privacy">Privacy Notice</button></p>
       <p id="contact-confirm" class="contact-confirm" hidden></p>`;
+}
+
+const ABOUT_CONTACT_ID = 'contact';
+
+/**
+ * Bring the Contact Us section of the About page into view and move focus to
+ * its heading, so a keyboard reader carries on from there. `setAddress` puts
+ * /about#contact in the address bar (a footer click); a page opened at that
+ * address (renderFromUrl) already has it. Smooth scrolling is skipped when the
+ * reader asks for reduced motion.
+ */
+function showAboutContact(setAddress = false, smooth = true): void {
+  if (state.view !== 'about') return;
+  const el = document.getElementById(ABOUT_CONTACT_ID);
+  if (!el) return;
+  if (setAddress) {
+    try {
+      window.history.replaceState(window.history.state, '', `${window.location.pathname}#${ABOUT_CONTACT_ID}`);
+    } catch {
+      // A sandboxed frame rejects it; the scroll below still works.
+    }
+  }
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+  el.scrollIntoView({ behavior: smooth && !reduced ? 'smooth' : 'auto', block: 'start' });
+  el.focus({ preventScroll: true });
 }
 
 /** The way into the Legal Notice and the credit line, at the foot of the About page. */
@@ -7099,6 +7124,9 @@ function renderFromUrl(): void {
   const box = $('#search') as HTMLInputElement | null;
   if (box) box.value = state.query;
   render();
+  // /about#contact, from a shared link or a reload: the page is drawn by the
+  // script, so the browser's own jump to an anchor has nothing to find yet.
+  if (state.view === 'about' && window.location.hash === `#${ABOUT_CONTACT_ID}`) showAboutContact(false, false);
 }
 
 /* ── wiring ──────────────────────────────────────────────────────────────── */
@@ -7532,7 +7560,16 @@ function init(): void {
     const gotoLink = t.closest<HTMLElement>('[data-goto]');
     if (gotoLink && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
       e.preventDefault();
-      go(gotoLink.getAttribute('data-goto') as View);
+      const view = gotoLink.getAttribute('data-goto') as View;
+      // A footer link that names a part of the page (demo/footerLinks.ts):
+      // the Legal Notice's sections have their own opener; About's Contact
+      // section is scrolled to once the page is drawn.
+      const anchor = gotoLink.getAttribute('data-anchor') ?? '';
+      if (view === 'legalNotice' && isLegalNoticeId(anchor)) openNoticeSection(anchor);
+      else {
+        go(view);
+        if (view === 'about' && anchor === ABOUT_CONTACT_ID) showAboutContact(true);
+      }
       return;
     }
 
@@ -8234,6 +8271,9 @@ function init(): void {
   if (saved) restoreScroll(saved);
   // An address that names a section of the Legal Notice opens at it.
   scrollToNoticeSection();
+  // So does /about#contact, from a shared link or the footer's Contact link in
+  // another tab: the browser's own jump found nothing, the page was not drawn yet.
+  if (state.view === 'about' && window.location.hash === `#${ABOUT_CONTACT_ID}`) showAboutContact(false, false);
 
   // The price history is only drawn on a product page, so the app starts
   // without it (demo/priceHistoryStore.ts). Fetched once the first paint is

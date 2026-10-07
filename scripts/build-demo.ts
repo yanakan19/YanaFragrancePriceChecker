@@ -54,6 +54,7 @@ import {
   type LazyDataFile,
 } from './dataFiles.js';
 import { adsTxt, verificationMeta } from '../demo/ads.js';
+import { withFooterLinks } from '../demo/footerLinks.js';
 import { readSiteBuild, siteHeadScript } from './siteBuild.js';
 import {
   SITE_URL as HEAD_SITE_URL, SHARE_TITLE, SHARE_DESCRIPTION,
@@ -69,7 +70,8 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 // that rules out hashing the output instead).
 const inputsHash = computeDemoInputsHash(root);
 
-const template = readFileSync(resolve(root, 'demo/template.html'), 'utf8');
+// The footer's links come from demo/footerLinks.ts, the one list, written in here.
+const template = withFooterLinks(readFileSync(resolve(root, 'demo/template.html'), 'utf8'));
 const bundle = readFileSync(resolve(root, 'dist-demo/bundle.js'), 'utf8');
 const { groups, lazy } = JSON.parse(readFileSync(resolve(root, 'dist-demo/data-files.json'), 'utf8')) as DataManifest;
 
