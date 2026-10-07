@@ -1,7 +1,7 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-10-07T13:43:35.337Z",
-  "seenAt": "2026-10-07T13:43:35.337Z",
+  "updatedAt": "2026-10-07T17:58:15.325Z",
+  "seenAt": "2026-10-07T17:58:15.325Z",
   "source": "live",
   "listings": [
     {
@@ -1938,7 +1938,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Oud Al Sharqiah Body Mist features a rich blend of oud with spicy and woody notes, creating a deep, exotic fragrance. Ideal for a bold scent.",
       "productType": "Body Mist",
