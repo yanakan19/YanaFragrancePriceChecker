@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-06T21:08:43.174Z",
-  "seenAt": "2026-10-06T21:08:43.174Z",
+  "updatedAt": "2026-10-07T00:52:34.602Z",
+  "seenAt": "2026-10-07T00:52:34.602Z",
   "source": "live",
   "listings": [
     {
@@ -5350,7 +5350,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": 44.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Safa Perfume 100ml EDP Arabiyat Prestige is a fruity floral fragrance for women. It is a soft but strong presence that moves easily from everyday moments to spectacular nights. This 100 ml Eau de Parfum from Arabiyat Prestige wraps you in a warm, inviting aura that feels both personal and magnetic. It's excellent for anybody looking for a trademark perfume that mixes delicate sweetness with refined depth.. Top Notes . Red berries, Litchi, Hazelnut. Middle Notes . Cypriol, Magnolia, Rose. Base Notes . Ambergris, Vanilla, Gourmand notes.",
       "productType": null,
@@ -8245,7 +8245,7 @@
       "rawBrand": "swiss arabian",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/sacasablanca1.jpg?v=1753350626",
-      "priceGbp": 54.99,
+      "priceGbp": 69.99,
       "wasPriceGbp": 74.99,
       "promoEndsAt": null,
       "inStock": true,
