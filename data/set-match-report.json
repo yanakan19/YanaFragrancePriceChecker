@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 205,
+ "folded": 213,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -201,6 +201,38 @@
      "ean": null,
      "scent": "be delicious refreshing",
      "signature": "1x100fragrance|1x150wash",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0085715961198",
+   "absorbed": [
+    "set-dkny-be-delicious-fresh-blossom-gift-set-100ml-edp-125ml-body-mist-pouch"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0085715961198",
+     "brand": "DKNY",
+     "name": "Be Delicious Fresh Blossom Gift Set 100ml EDP + 125ml Body Mist + Pouch",
+     "concentration": "Eau de Parfum",
+     "ean": "0085715961198",
+     "scent": "be blossom delicious fresh",
+     "signature": "1x100fragrance|1x125body|1x?other",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-dkny-be-delicious-fresh-blossom-gift-set-100ml-edp-125ml-body-mist-pouch",
+     "brand": "DKNY",
+     "name": "Be Delicious Fresh Blossom Gift Set 100ml EDP + 125ml Body Mist + Pouch",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "be blossom delicious fresh",
+     "signature": "1x100fragrance|1x125body|1x?other",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -1961,33 +1993,35 @@
    ]
   },
   {
-   "canonical": "set-ean-3349668635207",
+   "canonical": "set-ean-3349668630813",
    "absorbed": [
-    "set-paco-rabanne-invictus-gift-set-50ml-edt-10ml-edt-100ml-shower-gel"
+    "set-paco-rabanne-men-s-mini-fragrance-gift-set-4-x-5ml"
    ],
    "members": [
     {
-     "id": "set-ean-3349668635207",
+     "id": "set-ean-3349668630813",
      "brand": "Rabanne",
-     "name": "Paco Rabanne Invictus Gift Set 50ml EDT + 10ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "3349668635207",
-     "scent": "invictus paco rabanne",
-     "signature": "1x100wash|1x10fragrance|1x50fragrance",
+     "name": "Paco Rabanne 4 x 5ml Eau de Parfum Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": "3349668630813",
+     "scent": "paco rabanne",
+     "signature": "4x5fragrance",
      "shops": [
-      "perfume-click"
+      "fragrance-click",
+      "perfume-click",
+      "perfume-direct"
      ]
     },
     {
-     "id": "set-paco-rabanne-invictus-gift-set-50ml-edt-10ml-edt-100ml-shower-gel",
+     "id": "set-paco-rabanne-men-s-mini-fragrance-gift-set-4-x-5ml",
      "brand": "Rabanne",
-     "name": "Paco Rabanne Invictus Gift Set 50ml EDT + 10ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
+     "name": "Paco Rabanne Men's Mini Fragrance Gift Set 4 x 5ml",
+     "concentration": "Not stated",
      "ean": null,
-     "scent": "invictus paco rabanne",
-     "signature": "1x100wash|1x10fragrance|1x50fragrance",
+     "scent": "paco rabanne",
+     "signature": "4x5fragrance",
      "shops": [
-      "mybeauty-boutique"
+      "justmylook"
      ]
     }
    ]
@@ -3511,38 +3545,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3616305266804",
-   "absorbed": [
-    "set-gucci-miniature-gift-set-2-x-5ml-bloom-edp-2-x-5ml-flora-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616305266804",
-     "brand": "Gucci",
-     "name": "Miniature Gift Set 2 x 5ml Bloom EDP + 2 x 5ml Flora EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3616305266804",
-     "scent": "bloom flora",
-     "signature": "4x5fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-gucci-miniature-gift-set-2-x-5ml-bloom-edp-2-x-5ml-flora-edp",
-     "brand": "Gucci",
-     "name": "Miniature Gift Set 2 x 5ml Bloom EDP + 2 x 5ml Flora EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "bloom flora",
-     "signature": "4x5fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3616305439420",
    "absorbed": [
     "set-hugo-boss-boss-bottled-gift-set-50ml-edt-100ml-shower-gel"
@@ -4561,6 +4563,198 @@
    ]
   },
   {
+   "canonical": "set-ean-6287020283666",
+   "absorbed": [
+    "set-tobacco-collection-set-9x20ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-6287020283666",
+     "brand": "Ibrahim Al Qurashi",
+     "name": "Tobacco Collection Set (9x20ml)",
+     "concentration": "Not stated",
+     "ean": "6287020283666",
+     "scent": "collection tobacco",
+     "signature": "9x20?",
+     "shops": [
+      "manchester-ouds"
+     ]
+    },
+    {
+     "id": "set-tobacco-collection-set-9x20ml",
+     "brand": "Ibrahim Al Qurashi",
+     "name": "Tobacco Collection Set (9x20ml)",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "collection tobacco",
+     "signature": "9x20?",
+     "shops": [
+      "ibraq"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-6287020284489",
+   "absorbed": [
+    "set-irth-collection-3x100ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-6287020284489",
+     "brand": "Ibrahim Al Qurashi",
+     "name": "Irth Collection (3x100ml)",
+     "concentration": "Not stated",
+     "ean": "6287020284489",
+     "scent": "collection irth",
+     "signature": "3x100?",
+     "shops": [
+      "manchester-ouds"
+     ]
+    },
+    {
+     "id": "set-irth-collection-3x100ml",
+     "brand": "Ibrahim Al Qurashi",
+     "name": "Irth Collection (3x100ml)",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "collection irth",
+     "signature": "3x100?",
+     "shops": [
+      "ibraq"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-6287020284496",
+   "absorbed": [
+    "set-irth-collection-3x20ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-6287020284496",
+     "brand": "Ibrahim Al Qurashi",
+     "name": "Irth Collection (3x20ml)",
+     "concentration": "Not stated",
+     "ean": "6287020284496",
+     "scent": "collection irth",
+     "signature": "3x20?",
+     "shops": [
+      "manchester-ouds"
+     ]
+    },
+    {
+     "id": "set-irth-collection-3x20ml",
+     "brand": "Ibrahim Al Qurashi",
+     "name": "Irth Collection (3x20ml)",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "collection irth",
+     "signature": "3x20?",
+     "shops": [
+      "ibraq"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-6287020284779",
+   "absorbed": [
+    "set-blue-wish-set-1-3x75ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-6287020284779",
+     "brand": "Ibrahim Al Qurashi",
+     "name": "Blue Wish Set 1 (3x75ml)",
+     "concentration": "Not stated",
+     "ean": "6287020284779",
+     "scent": "1 blue wish",
+     "signature": "3x75?",
+     "shops": [
+      "manchester-ouds"
+     ]
+    },
+    {
+     "id": "set-blue-wish-set-1-3x75ml",
+     "brand": "Ibrahim Al Qurashi",
+     "name": "Blue Wish Set 1 (3x75ml)",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "1 blue wish",
+     "signature": "3x75?",
+     "shops": [
+      "ibraq"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-6287020284823",
+   "absorbed": [
+    "set-vintage-tobacco-collection-100ml-10ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-6287020284823",
+     "brand": "Ibrahim Al Qurashi",
+     "name": "Vintage Tobacco Collection (100ml+10ml)",
+     "concentration": "Not stated",
+     "ean": "6287020284823",
+     "scent": "collection tobacco vintage",
+     "signature": "1x100?|1x10?",
+     "shops": [
+      "manchester-ouds"
+     ]
+    },
+    {
+     "id": "set-vintage-tobacco-collection-100ml-10ml",
+     "brand": "Ibrahim Al Qurashi",
+     "name": "Vintage Tobacco Collection (100ml+10ml)",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "collection tobacco vintage",
+     "signature": "1x100?|1x10?",
+     "shops": [
+      "ibraq"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-6287020284953",
+   "absorbed": [
+    "set-moon-collection-150ml-100ml-75ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-6287020284953",
+     "brand": "Ibrahim Al Qurashi",
+     "name": "Moon Collection (150ml, 100ml, 75ml)",
+     "concentration": "Not stated",
+     "ean": "6287020284953",
+     "scent": "collection moon",
+     "signature": "1x100?|1x150?|1x75?",
+     "shops": [
+      "manchester-ouds"
+     ]
+    },
+    {
+     "id": "set-moon-collection-150ml-100ml-75ml",
+     "brand": "Ibrahim Al Qurashi",
+     "name": "Moon Collection (150ml, 100ml, 75ml)",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "collection moon",
+     "signature": "1x100?|1x150?|1x75?",
+     "shops": [
+      "ibraq"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-6294015135893",
    "absorbed": [
     "set-armaf-club-de-nuit-woman-gift-set-105ml-edp-200ml-body-spray"
@@ -5011,38 +5205,6 @@
      "ean": null,
      "scent": "absolu bright crystal",
      "signature": "2x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8011003829224",
-   "absorbed": [
-    "set-versace-gift-set-30ml-bright-crystal-edt-30ml-bright-crystal-absolu-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003829224",
-     "brand": "Versace",
-     "name": "Gift Set 30ml Bright Crystal EDT + 30ml Bright Crystal Absolu EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "8011003829224",
-     "scent": "absolu bright crystal",
-     "signature": "1x30fragrance|1x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-gift-set-30ml-bright-crystal-edt-30ml-bright-crystal-absolu-edp",
-     "brand": "Versace",
-     "name": "Gift Set 30ml Bright Crystal EDT + 30ml Bright Crystal Absolu EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "absolu bright crystal",
-     "signature": "1x30fragrance|1x30fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -6019,6 +6181,38 @@
    ]
   },
   {
+   "canonical": "set-fleur-majesty-duo-set-fleur-majesty-rose-royale-50ml-10-ml",
+   "absorbed": [
+    "set-kayali-fleur-majesty-duo-fleur-majesty-rose-royale-50ml-10ml"
+   ],
+   "members": [
+    {
+     "id": "set-fleur-majesty-duo-set-fleur-majesty-rose-royale-50ml-10-ml",
+     "brand": "Kayali",
+     "name": "Fleur Majesty Duo Set (Fleur Majesty Rose Royale) 50ml + 10 ml",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "duo fleur majesty rose royale",
+     "signature": "1x10?|1x50?",
+     "shops": [
+      "kayali"
+     ]
+    },
+    {
+     "id": "set-kayali-fleur-majesty-duo-fleur-majesty-rose-royale-50ml-10ml",
+     "brand": "Kayali",
+     "name": "Fleur Majesty Duo - Fleur Majesty Rose Royale 50ml + 10ml",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "duo fleur majesty rose royale",
+     "signature": "1x10?|1x50?",
+     "shops": [
+      "cult-beauty-global"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-hermes-terre-d-hermes-eau-de-toilette-gift-set-2-x-50ml-edt",
    "absorbed": [
     "set-terre-d-hermes-eau-de-toilette-gift-set-2-x-50ml-edt"
@@ -6051,6 +6245,38 @@
    ]
   },
   {
+   "canonical": "set-jo-malone-london-festive-cologne-duo",
+   "absorbed": [
+    "set-jo-malone-london-festive-cologne-duo-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-jo-malone-london-festive-cologne-duo",
+     "brand": "Jo Malone",
+     "name": "London Festive Cologne Duo",
+     "concentration": "Eau de Cologne",
+     "ean": null,
+     "scent": "duo festive london",
+     "signature": "2p",
+     "shops": [
+      "cult-beauty-global"
+     ]
+    },
+    {
+     "id": "set-jo-malone-london-festive-cologne-duo-fragrance-gift-set",
+     "brand": "Jo Malone",
+     "name": "London Festive Cologne Duo Fragrance Gift Set",
+     "concentration": "Eau de Cologne",
+     "ean": null,
+     "scent": "duo festive london",
+     "signature": "2p",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-jo-malone-london-veggies-travel-cologne-trio",
    "absorbed": [
     "set-jo-malone-london-veggies-travel-cologne-trio-fragrance-gift-set"
@@ -6078,6 +6304,38 @@
      "signature": "3p",
      "shops": [
       "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-kayali-marshmallow-candy-mini-duo-2-x-5ml",
+   "absorbed": [
+    "set-marshmallow-candy-mini-duo-set-2-x-5ml"
+   ],
+   "members": [
+    {
+     "id": "set-kayali-marshmallow-candy-mini-duo-2-x-5ml",
+     "brand": "Kayali",
+     "name": "Marshmallow Candy Mini Duo 2 x 5ml",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "candy duo marshmallow",
+     "signature": "2x5travel",
+     "shops": [
+      "cult-beauty-global"
+     ]
+    },
+    {
+     "id": "set-marshmallow-candy-mini-duo-set-2-x-5ml",
+     "brand": "Kayali",
+     "name": "Marshmallow Candy Mini Duo Set 2 x 5ml",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "candy duo marshmallow",
+     "signature": "2x5travel",
+     "shops": [
+      "kayali"
      ]
     }
    ]
@@ -6175,6 +6433,50 @@
      "signature": "1x50fragrance|1x75body",
      "shops": [
       "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "strengths differ: Eau de Parfum, Extrait de Parfum",
+    "a shop lists more than one: cult-beauty-global"
+   ],
+   "members": [
+    {
+     "id": "set-baccarat-rouge-540-travel-set-5-x-11ml",
+     "brand": "Maison Francis Kurkdjian",
+     "name": "Baccarat Rouge 540 Travel Set 5 x 11ml",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "540 baccarat rouge",
+     "signature": "5x11travel",
+     "shops": [
+      "les-senteurs"
+     ]
+    },
+    {
+     "id": "set-maison-francis-kurkdjian-baccarat-rouge-540-eau-de-parfum-travel-set-5-11ml",
+     "brand": "Maison Francis Kurkdjian",
+     "name": "BACCARAT ROUGE 540 Eau de Parfum Travel set 5*11ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "540 baccarat rouge",
+     "signature": "5x11travel",
+     "shops": [
+      "cult-beauty-global"
+     ]
+    },
+    {
+     "id": "set-maison-francis-kurkdjian-baccarat-rouge-540-extrait-de-parfum-travel-set-5-11ml",
+     "brand": "Maison Francis Kurkdjian",
+     "name": "BACCARAT ROUGE 540 Extrait de Parfum Travel set 5*11ml",
+     "concentration": "Extrait de Parfum",
+     "ean": null,
+     "scent": "540 baccarat rouge",
+     "signature": "5x11travel",
+     "shops": [
+      "cult-beauty-global"
      ]
     }
    ]
@@ -7211,6 +7513,37 @@
   },
   {
    "reasons": [
+    "two different barcodes: 3349668628209, 3349668666577"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3349668628209",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Invictus Eau de Toilette Men's Aftershave Gift Set Spray (100ml) with Deodorant & 10ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668628209",
+     "scent": "invictus paco rabanne",
+     "signature": "1x100fragrance|1x10fragrance|1x?deo",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-ean-3349668666577",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Invictus Gift Set 100ml EDT + 75g Deodorant Stick + 10ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668666577",
+     "scent": "invictus paco rabanne",
+     "signature": "1x100fragrance|1x10fragrance|1x?deo",
+     "shops": [
+      "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "a shop lists more than one: mybeauty-boutique"
    ],
    "members": [
@@ -7758,37 +8091,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3614273624060, 3660732649839"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3614273624060",
-     "brand": "Prada",
-     "name": "Luna Rossa Ocean 100ml Eau de Toilette + 10ml Set",
-     "concentration": "Eau de Toilette",
-     "ean": "3614273624060",
-     "scent": "luna ocean rossa",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "fragrance-click"
-     ]
-    },
-    {
-     "id": "set-ean-3660732649839",
-     "brand": "Prada",
-     "name": "Luna Rossa Ocean Eau de Toilette Gift Set 100ml EDT + 10ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3660732649839",
-     "scent": "luna ocean rossa",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "two different barcodes: 3614274102680, 3614274707397"
    ],
    "members": [
@@ -8317,6 +8619,40 @@
      "signature": "1x100fragrance|1x100wash|1x?deo",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "strengths differ: Eau de Toilette, Parfum",
+    "two different barcodes: 3616305265180, 8005610460598",
+    "a shop lists more than one: fragrance-click"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616305265180",
+     "brand": "Hugo Boss",
+     "name": "Boss Bottled 100ml Parfum 3pcs Set",
+     "concentration": "Parfum",
+     "ean": "3616305265180",
+     "scent": "boss bottled",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "fragrance-click"
+     ]
+    },
+    {
+     "id": "set-ean-8005610460598",
+     "brand": "Hugo Boss",
+     "name": "Boss Bottled 100ml Eau de Toilette Travel Set",
+     "concentration": "Eau de Toilette",
+     "ean": "8005610460598",
+     "scent": "boss bottled",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "fragrance-click",
+      "paco-perfumerias-uk"
      ]
     }
    ]
@@ -9288,38 +9624,6 @@
   },
   {
    "reasons": [
-    "strengths differ: Eau de Parfum, Extrait de Parfum",
-    "a shop lists more than one: cult-beauty-global"
-   ],
-   "members": [
-    {
-     "id": "set-maison-francis-kurkdjian-baccarat-rouge-540-eau-de-parfum-travel-set-5-11ml",
-     "brand": "Maison Francis Kurkdjian",
-     "name": "BACCARAT ROUGE 540 Eau de Parfum Travel set 5*11ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "540 baccarat rouge",
-     "signature": "5x11travel",
-     "shops": [
-      "cult-beauty-global"
-     ]
-    },
-    {
-     "id": "set-maison-francis-kurkdjian-baccarat-rouge-540-extrait-de-parfum-travel-set-5-11ml",
-     "brand": "Maison Francis Kurkdjian",
-     "name": "BACCARAT ROUGE 540 Extrait de Parfum Travel set 5*11ml",
-     "concentration": "Extrait de Parfum",
-     "ean": null,
-     "scent": "540 baccarat rouge",
-     "signature": "5x11travel",
-     "shops": [
-      "cult-beauty-global"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
     "a shop lists more than one: mybeauty-boutique"
    ],
@@ -9346,6 +9650,37 @@
      "signature": "1x10fragrance|1x150deo|1x50fragrance",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "a shop lists more than one: john-lewis"
+   ],
+   "members": [
+    {
+     "id": "set-penhaligon-s-minature-collection-for-her-fragrance-gift-set-5-x-5ml",
+     "brand": "Penhaligon's",
+     "name": "Minature Collection For Her Fragrance Gift Set, 5 x 5ml",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "collection minature",
+     "signature": "5x5fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    },
+    {
+     "id": "set-penhaligon-s-minature-collection-for-him-fragrance-gift-set-5-x-5ml",
+     "brand": "Penhaligon's",
+     "name": "Minature Collection For Him Fragrance Gift Set, 5 x 5ml",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "collection minature",
+     "signature": "5x5fragrance",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]

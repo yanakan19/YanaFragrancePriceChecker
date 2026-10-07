@@ -37,9 +37,12 @@ name: Deploy site
 # built from, and the `deploy` job runs only when a file that can change the
 # page (the push filter's folders below) changed since that commit, or the
 # list changed, or the record cannot be read. A push or a run by hand always
-# deploys. The schedule is the dashboard's path: a "Remove" or "Show again"
-# reaches the build within about half an hour, as it did before, and a deploy
-# that failed is retried by the next check.
+# deploys. Every check also compares the dashboard's list, so a "Remove" or
+# "Show again" reaches the build at the next finished crawl run: the outside
+# scheduler starts one every half hour (OWNER-STEPS 7a), so within about half
+# an hour, as before. The schedule below is a second path for when that
+# scheduler stops (GitHub runs few of its own ticks: 23% of the crawl's
+# arrived). A deploy that failed is retried by the next check.
 #
 # ── Which pushes deploy ──────────────────────────────────────────────────────
 # Any push to the branch except the folders that cannot change the page (data,
@@ -64,8 +67,9 @@ on:
   workflow_run:
     workflows: ['Catalogue crawl', 'Fragrance links daily']
     types: [completed]
-  # The dashboard's hidden and removed list, and a retry of a failed deploy.
-  # Off the hour and half hour, when GitHub's queue is longest.
+  # A second path for the dashboard's list and a retry of a failed deploy
+  # (finished crawl runs are the first). Off the hour and half hour, when
+  # GitHub's queue is longest; GitHub runs only some of its ticks.
   schedule:
     - cron: '7,37 * * * *'
   workflow_dispatch:
@@ -74,16 +78,9 @@ permissions:
   contents: read
   pages: write
   id-token: write
-
-# Only one deployment at a time. A deployment already running is left to
-# finish, and only the newest waiting one runs after it (GitHub keeps one
-# waiting run per group), which is GitHub's own advice for Pages: cancelling
-# deploy-pages mid deployment can leave the next one refused while the
-# cancelled one is still "in progress" on GitHub's side. Every run builds the
-# branch's tip, so the one that runs last always publishes the newest prices.
-concurrency:
-  group: pages
-  cancel-in-progress: false
+  # The decide job cancels a deploy run stuck waiting for a runner
+  # (scripts/deploy-watchdog.mjs).
+  actions: write
 
 jobs:
   # Light: a checkout of commits and trees only, plain node, two small fetches.
@@ -106,6 +103,16 @@ jobs:
         with:
           node-version: '22'
 
+      # Deploy #1165 (2026-10-06) waited almost four hours for a runner it
+      # never got, holding the pages group, and ten deploys behind it were
+      # replaced: the site stayed four hours behind. A job's timeout counts
+      # only once a runner has it, so this ends such a wait instead.
+      - name: Cancel an older deploy stuck waiting for a runner
+        timeout-minutes: 3
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/deploy-watchdog.mjs
+
       - id: decide
         name: Decide whether the page could have changed
         timeout-minutes: 3
@@ -117,6 +124,18 @@ jobs:
     needs: decide
     if: needs.decide.outputs.deploy == 'true'
     runs-on: ubuntu-latest
+    # Only one deployment at a time. A deployment already running is left to
+    # finish, and only the newest waiting one runs after it (GitHub keeps one
+    # waiting job per group), which is GitHub's own advice for Pages:
+    # cancelling deploy-pages mid deployment can leave the next one refused
+    # while the cancelled one is still "in progress" on GitHub's side. Every
+    # run builds the branch's tip, so the one that runs last always publishes
+    # the newest prices. The group is on this job, not the workflow
+    # (2026-10-06), so every run's decide job runs at once and can cancel a
+    # deploy stuck waiting for a runner (deploy-watchdog.mjs above).
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     # Checkout, install and build take about three minutes; the deployment
     # itself under one. A failed or stuck run is healed by the next (the
     # half hourly check deploys again while the live record is behind).

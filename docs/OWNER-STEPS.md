@@ -1,6 +1,6 @@
 # Owner steps, in plain English
 
-Nine jobs only you can do (the last is optional). Each one is short. Do them in this order; the
+Eight jobs only you can do. Each one is short. Do them in this order; the
 first stops money going out (the old chat servers, now unused).
 
 ---
@@ -498,7 +498,67 @@ summer it misses commits made between midnight and 1am UK; and the "How much
 could you save?" routine's last run (3 October, 17:53 UK) failed after seven
 seconds with no reason given, worth one look.
 
-### 7d. The repository's size (done on 4 October; two optional decisions left)
+### 7d. The repository's size (done on 4 October; history rewritten 6 October)
+
+**History rewritten, 6 October 2026 (owner's explicit, one off exception to
+"never force push").** What was done, in order:
+
+1. Plan: measured the live branch packed (single branch, repacked): 643 MiB,
+   2,273 commits. The old page files no longer committed were 263 MB of it
+   (`demo/404.html` 172, `demo/data` 82, `demo/sitemap.xml` 8, `demo/index.html`
+   0.4), next to `data/catalogue` 189, `demo/catalogue.generated.ts` 133,
+   `social` 22. Chosen: the least risky rewrite, dropping only
+   `demo/index.html`, `demo/404.html`, `demo/data/`, `demo/sitemap.xml` and
+   `demo/ads.txt` from every commit (`git filter-repo --invert-paths`). None of
+   them is in the tip, so the tip tree stays the same; every snapshot, commit
+   date and file still at the tip (the slugs and id aliases memories, the
+   social images) is untouched. Squashing old history was rejected: the price
+   history is replayed from it.
+2. Backup: the old tip `2e54cdb5` was pushed to the branch
+   `backup/pre-rewrite-2026-10-06` (a tag push was refused by the session's
+   proxy).
+3. Paused: the six workflows that commit (catalogue crawl, delivery re-check,
+   fragrance links, image check, bottle measuring, price verification) were
+   disabled through the API for the duration, then enabled again.
+4. Checked before the push: tip tree hash identical (`d6f6a262`); a full
+   price history replay (`catalogue:history -- --full`) on the old and the
+   rewritten history gave a byte identical `demo/priceHistory.generated.ts`
+   (sha256 `4c03521b…`) and a checkpoint differing only in its commit id;
+   `npm run demo` and the whole test suite passed on the rewritten tree.
+5. Pushed with `--force-with-lease` against `2e54cdb5`. Result: 2,235 commits
+   (38 that only touched page files are gone), 392 MiB packed instead of
+   643 MiB. Every commit id changed; filter-repo rewrote ids quoted in commit
+   messages, but ids quoted in docs now resolve only in the backup branch, or
+   through `docs/history-rewrite-2026-10-06-commit-map.txt` (old id, new id).
+   The checkpoint's commit id went with them, so the first price history
+   rebuild after the push replays from the start (about ten minutes), by
+   itself.
+
+**What is still yours to do:**
+
+- **Every old clone must be thrown away**: your other Claude sessions,
+  worktrees and any local copy. Clone again
+  (`git clone https://github.com/yanakan19/YanaFragrancePriceChecker`). An old
+  clone that merges and pushes puts the old history back.
+- **The size GitHub shows does not drop by itself.** The old history is still
+  reachable from: the backup branch; the other branches
+  (`claude/modest-euler-3hwly2`, `claude/perfume-chatbot-multi-agent-lvf17y`,
+  `claude/relaxed-brahmagupta-wmey28`, `claude/wizardly-faraday-owdlz1`,
+  `claude/wonderful-brahmagupta-8edg4h`), which were not touched; and the pull
+  request refs `refs/pull/1` to `refs/pull/4`, which only GitHub can remove.
+  When you no longer need them: close or merge PRs 2, 3 and 4 (their base
+  history changed, so GitHub shows them as unrelated), delete the old
+  branches and the backup branch (Code → Branches), then ask GitHub Support
+  to remove the pull request refs and run garbage collection on the
+  repository. Until then a full clone fetches the old objects through those
+  refs (the rewrite itself added only 1.6 MB of new commits and trees).
+- **To undo** (only if something turns out wrong, and before anything new is
+  committed on top): pause the workflows again, then
+  `git push --force-with-lease=claude/scentday-retailer-registry-h92tth:<current tip> origin origin/backup/pre-rewrite-2026-10-06:refs/heads/claude/scentday-retailer-registry-h92tth`,
+  and clone again everywhere. Commits made after the rewrite would have to be
+  cherry picked onto it.
+
+The section below is the earlier plan, kept for the record.
 
 **Done, nothing for you to do.** The built page and its data files are no
 longer committed: the deploy builds them from the branch before each
@@ -664,9 +724,10 @@ should list `site-stats-compact`. Why, and the numbers behind it:
 - **Remove**: hidden, and also left out of the next build of the site. A
   removed shop is no longer crawled either. **Show Again** brings it back
   with the next deploy (and the next crawl, for a shop). The deploy checks
-  the list every half hour and rebuilds the site when it changed, so either
-  reaches the build within about half an hour (GitHub's schedule can run a
-  little late).
+  the list after every crawl run, which your outside scheduler (7a) starts
+  every half hour, and rebuilds the site when it changed, so either reaches
+  the build within about half an hour. If that scheduler ever stops, GitHub's
+  own half hourly check is the fallback, and GitHub skips many of its ticks.
 - The list lives in the database (`site_overrides`), on top of the code's own
   list of shops in `src/config/retailers.ts`, which does not change. To clear
   everything at once: `delete from public.site_overrides;`
@@ -697,48 +758,40 @@ holds the secret and answers only you.
 
 ---
 
-## 9. Add a shop's prices by hand, when its site refuses our crawler
+## 9. Notino: bring its prices back from pages you save (optional, 5 minutes a week)
 
-Optional, and only for a shop like Notino UK that says no to the crawler. You
-open the pages yourself, in your own browser, and we read the files you save.
-Nothing is fetched from the shop by us.
+Notino blocks automatic readers, so the crawl cannot read its prices. Until
+the CJ affiliate route in `docs/NOTINO-PLAN.md` is approved, you can keep
+products visible by saving Notino pages yourself. Notino's terms may limit
+copying, so keep it small and occasional, and stop if Notino objects.
 
-1. In your browser, open a product page or a list page (for example
-   `https://www.notino.co.uk/fragrance/`). Check it shows real products and
-   prices in pounds, not a "Just a moment..." check.
-2. Save it. The quickest way is the **Save for PriceSniffs** bookmark: one
-   click saves a small file holding only the page's product data, with the
-   time and address already written in, and none of your account details.
-   Install it once: run `npm run -s catalogue:bookmarklet` (or ask me for
-   the line), make a new bookmark in your browser, and paste that line as its
-   address. Then click the bookmark on each page you want; your browser
-   downloads one `.html` file per click. On a list page each click saves
-   every product the page shows; on a product page, every size. Skip step 3.
+1. Open a **private (incognito) window** in your browser and go to
+   notino.co.uk. Do not log in. A private window means no account, name or
+   email is in the page.
+2. Open a brand page, a search results page or a single product page. Scroll
+   down once so the list has loaded, and click the size you want on a product
+   page (each size is its own price).
+3. Save it. Quickest: the **Save for PriceSniffs** bookmark. Install it once:
+   run `npm run -s catalogue:bookmarklet` (or ask me for the line), make a new
+   bookmark and paste that line as its address. One click on a Notino page
+   downloads a small file holding only the page's product data, its address
+   and the time, never your account details, even when you are logged in.
+   Put the files in `data/notino-inbox/`, or send them to me.
 
-   Or save the page source by hand: right click → **View page source** →
-   select all → copy, then paste it into a new text file. (Or use **Save
-   page as** → "Webpage, HTML only". Do not use "Complete" or "single
-   file".) A page saved this way also holds your email address and login
-   tokens, so never commit it or share it anywhere but here.
-3. Optional but best, for a page saved by hand: put these two lines at the very top of the file. They
-   record when you saved it and where it came from. Without the first, the
-   file's own date is used.
-
-   ```
-   <!-- saved: 2026-10-07T10:30:00Z -->
-   <!-- url: https://www.notino.co.uk/fragrance/ -->
-   ```
-4. Save it as `data/manual-pages/notino-uk/anything.html` (make the folder if
-   it is missing). One file per page. The folder is not committed; only the
-   result is. Or paste the page source to me in chat and I will save it there.
-5. Run `npm run catalogue:import-pages -- --shop=notino-uk`. Add `--dry-run`
-   first to see what it would do without changing anything.
-6. It prints one block per file: how many products it found, how many are new
-   or refreshed, and what is missing (brand, barcode and size are often absent
-   from list pages; that is normal). A file that is a Cloudflare check page is
-   refused, so go back to step 1 for that one. Nothing is ever deleted: a
-   product not on your pages simply keeps its last price until it ages out.
-7. Run `npm run rebuild`, then commit `data/catalogue/notino-uk.json` and the
-   rebuilt files, as in CLAUDE.md. Notino UK is switched off in the registry
-   (`enabled: false`), so its prices stay off the site until that is turned
-   back on; the import does not change that.
+   Or save it yourself: **Ctrl+S** (Cmd+S on a Mac), choose "Webpage, HTML only" or
+   "Webpage, Complete", and save it into the folder `data/notino-inbox/` in
+   the project (make the folder if it is not there). One file per page. The
+   file's saved time is taken as the day you read the prices.
+4. Run `npm run notino:import`. It lists each file with how many products it
+   found, and refuses a "Just a moment" page or a page from another site. Add
+   `-- --dry-run` to look without saving.
+5. Prices show for 7 days after the day you saved the page, so repeat weekly.
+   The pages are never committed: the folder is ignored, and the importer
+   keeps only product facts (name, brand, size, barcode, price, stock, image,
+   notes, delivery) and discards everything else. Delete the saved files when
+   done.
+6. Notino is switched on on the site again (owner, 2026-10-07). It does not
+   crawl: its only source is these saved pages, and a price leaves the site
+   7 days after the day it was read.
+7. Run `npm run rebuild` and commit `data/catalogue/notino-uk.json` with the
+   rebuilt files, as in CLAUDE.md (or ask me to).

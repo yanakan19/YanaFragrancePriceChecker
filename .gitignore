@@ -14,6 +14,10 @@ dist-demo/
 # build (scripts/deploy-decision.mjs record), published, never committed.
 /demo/build-state.json
 coverage/
+# Pages the owner saves from notino.co.uk (docs/OWNER-STEPS.md). Raw pages can
+# hold account details, so they are never committed; scripts/import-notino-pages.ts
+# keeps product facts only.
+/data/notino-inbox/
 # `npm run screenshot` writes here by default. See scripts/screenshot.ts: these
 # are megabytes each and go stale the moment the catalogue is harvested again.
 screenshots/
@@ -41,8 +45,3 @@ __pycache__/
 !.claude/hooks/
 
 social/posts/*/_frames/
-
-# Pages the owner saved by hand for scripts/catalogue-import-pages.ts: whole
-# shop pages (large, and the shop's own copy). The import reads them and the
-# snapshot it writes is what gets committed. See docs/OWNER-STEPS.md.
-/data/manual-pages/

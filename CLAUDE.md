@@ -11,8 +11,9 @@ Since 2026-10-04 the page (`demo/index.html`, `demo/404.html`), its data files
 (`demo/data/`), `demo/sitemap.xml` and `demo/ads.txt` are **not committed**.
 They are gitignored, and `.github/workflows/deploy-pages.yml` builds them with
 `npm run demo` from the committed source and `demo/*.generated.ts`, checks
-the build, and only then publishes it. A push that can change the page
-deploys by itself, and so does every completed crawl.
+the build, and only then publishes it. A push or a manual run always
+deploys. A completed crawl first runs a light check job
+(`scripts/deploy-decision.mjs`) and deploys only when the page could change.
 
 - Locally, `npm run demo` builds the page; `npm test` builds it first when it
   is missing or stale. Run `npm run demo` once before running a page test

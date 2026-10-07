@@ -429,13 +429,6 @@ export interface ParseOptions {
    * a route that asks for it (`variantSizesFromPage` on `SitemapRoute`).
    */
   variantSizesFromPage?: boolean;
-  /**
-   * Read every size a product page offers, where each offer has a name and an
-   * address of its own: see `offersWithOwnAddress`. Set only by the import of
-   * pages the owner saved (src/catalogue/importPages.ts), so no crawled shop's
-   * output changes.
-   */
-  everyOffer?: boolean;
 }
 
 /**
@@ -566,11 +559,10 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
     // each is a listing of its own. The same goes for an AggregateOffer that
     // carries its per-size offers inside it. Anything less keeps the old
     // behaviour exactly.
-    const ownAddress = options.everyOffer ? offersWithOwnAddress(node, options.pageUrl) : null;
-    const perSize = ownAddress ?? offersOfTheirOwn(node, sku);
+    const perSize = offersOfTheirOwn(node, sku);
     if (perSize) {
       for (const o of perSize) {
-        const oSku = ownAddress ? skuFromUrl(absolute(str(o['url']), options.pageUrl))! : ownIdentity(o)!;
+        const oSku = ownIdentity(o)!;
         if (seen.has(oSku)) continue;
         seen.add(oSku);
         const oPrice = parsePrice(o['price']) ?? parsePrice((o['priceSpecification'] as JsonValue)?.['price']);
@@ -583,10 +575,7 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
           rawBrand: brandName(node),
           ean: gtin(o),
           imageUrl: imageUrl(o) ?? imageUrl(node),
-          // A saved product page's own category ("eau de parfum for men" on
-          // Notino) says what the bottle is, in the words its list pages use
-          // as their description; the marketing copy is the fallback.
-          description: ownAddress ? (str(node['category']) ?? description(node)) : description(node),
+          description: description(node),
           priceGbp: money.priceGbp,
           wasPriceGbp:
             oListed !== null && money.priceGbp !== null && oListed > money.priceGbp ? oListed : null,
@@ -650,52 +639,6 @@ function offersOfTheirOwn(node: JsonValue, sku: string): JsonValue[] | null {
   if (offers.some((o) => offerIdentity(o) === sku)) return null;
   if (sizesOfTheirOwn(offers)) return offers;
   return namedBySizeList(node, offers);
-}
-
-/**
- * A product page's offers when each is a size with an address of its own:
- * Notino's product page lists "Armani Emporio Stronger With You Intensely
- * 150 ml" at /armani/.../p-16286591/ and the 50 ml at /armani/.../p-15802387/,
- * one offer each, and the Product's own sku is one of them, so neither
- * selectOffer nor offersOfTheirOwn reads more than that one size.
- *
- * The same page lists a size twice when a discount code applies: once at the
- * shelf price, once at the code's price with a `priceValidUntil`. A visitor
- * pays the shelf price unless they find the code, so the shelf price is the
- * one kept. Two offers for one address that cannot be told apart that way
- * make the page unreadable here, and the ordinary path runs instead.
- *
- * The Product's own barcode is not given to any of them: on the Armani page
- * its sku is the 100 ml's but its gtin13 is the 150 ml's.
- *
- * Every offer must have a name and an address, and after that clean-up no two
- * may share either; an address must not be the saved page itself, since an
- * offer for the page it sits on is not a size of its own.
- */
-function offersWithOwnAddress(node: JsonValue, productUrl: string): JsonValue[] | null {
-  const offers = flatten(node['offers']);
-  if (offers.length < 2) return null;
-  const byAddress = new Map<string, JsonValue>();
-  for (const o of offers) {
-    const raw = str(o['url']);
-    const address = raw ? absolute(raw, productUrl) : null;
-    if (!address || !str(o['name']) || address === productUrl || !skuFromUrl(address)) return null;
-    const held = byAddress.get(address);
-    if (!held) {
-      byAddress.set(address, o);
-      continue;
-    }
-    const heldIsCode = o['priceValidUntil'] == null && held['priceValidUntil'] != null;
-    const thisIsCode = o['priceValidUntil'] != null && held['priceValidUntil'] == null;
-    if (heldIsCode) byAddress.set(address, o);
-    else if (!thisIsCode) return null;
-  }
-  const kept = [...byAddress.values()];
-  if (kept.length < 2) return null;
-  const names = kept.map((o) => str(o['name']));
-  const skus = [...byAddress.keys()].map(skuFromUrl);
-  if (new Set(names).size !== kept.length || new Set(skus).size !== kept.length) return null;
-  return kept;
 }
 
 /** A size such as "50ml" or "7.5 ml" in millilitres, or null. */

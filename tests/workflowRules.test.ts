@@ -177,6 +177,25 @@ describe('catalogue-daily.yml', () => {
     expect(step('Commit rebuilt app')).toContain("steps.rebuild.outcome == 'success'");
   });
 
+  // #426 to #575 (49 runs, 2026-09-10 to 2026-10-03): the whole suite gated
+  // the harvest, and tests that pinned live data (a shop's price, a product's
+  // stock, the shops with listings) failed it whenever a shop changed. Since
+  // 2026-10-03 the gate is the harvest's own tests; none of them may read the
+  // generated catalogue, which every crawl rewrites.
+  it('gates the harvest only on tests that exist and read no data the crawl rewrites', () => {
+    const gate = step('Test the harvest before crawling');
+    const listed = [...gate.matchAll(/tests\/[\w./-]+\.test\.ts/g)].map((m) => m[0]);
+    expect(listed.length).toBeGreaterThan(10);
+    for (const t of listed) {
+      const path = join(REPO_ROOT, t);
+      expect(existsSync(path), t).toBe(true);
+      const src = readFileSync(path, 'utf8');
+      expect(src, `${t} imports a generated module`).not.toMatch(/from '[^']*\.generated(\.js)?'/);
+      expect(src, `${t} reads the harvest report or price history`).not.toMatch(/['/](harvest-report|price-history-checkpoint|harvest-cursor)\.json'/);
+    }
+    expect(step('Test everything else')).toContain('continue-on-error: true');
+  });
+
   it('runs the crawl on a pinned runner image, not ubuntu-latest, which moves to Ubuntu 26 on 2026-10-19', () => {
     const crawl = jobs('catalogue-daily.yml').find((j) => j.name === 'crawl')!;
     expect(crawl.body).toMatch(/\n {4}runs-on: ubuntu-\d\d\.\d\d\n/);
@@ -212,7 +231,23 @@ describe('deploy-pages.yml', () => {
   const at = (needle: string) => stepList.findIndex((s) => s.includes(needle));
 
   it('lets a running deployment finish rather than cancelling it mid deploy', () => {
-    expect(deploy).toMatch(/concurrency:\n {2}group: pages\n {2}cancel-in-progress: false/);
+    expect(job.body).toMatch(/\n {4}concurrency:\n {6}group: pages\n {6}cancel-in-progress: false/);
+  });
+
+  // Deploy #1165 (2026-10-06) waited four hours for a runner while holding
+  // the pages group; ten deploys behind it were replaced and the site stayed
+  // four hours behind. The group is the deploy job's, so every run's decide
+  // job can run and cancel such a wait (scripts/deploy-watchdog.mjs).
+  it('keeps the pages group off the decide job, which cancels a deploy stuck waiting for a runner', () => {
+    expect(deploy).not.toMatch(/\nconcurrency:/);
+    const decideJob = jobs('deploy-pages.yml').find((j) => j.name === 'decide')!;
+    expect(decideJob.body).not.toContain('concurrency:');
+    const decideSteps = steps(decideJob.body);
+    const watchdog = decideSteps.findIndex((s) => s.includes('run: node scripts/deploy-watchdog.mjs'));
+    expect(watchdog, 'the watchdog step').toBeGreaterThan(0);
+    expect(decideSteps[watchdog]).toContain('GH_TOKEN: ${{ github.token }}');
+    expect(watchdog).toBeLessThan(decideSteps.findIndex((s) => s.includes('deploy-decision.mjs decide')));
+    expect(deploy).toMatch(/\npermissions:\n(?: {2}.*\n| *#.*\n)*? {2}actions: write\n/);
   });
 
   // The page and its data files are built here, not committed (2026-10-04),
@@ -256,5 +291,32 @@ describe('deploy-pages.yml', () => {
 
   it('caps every step', () => {
     for (const step of stepList) expect(step, step.split('\n')[0]).toMatch(/\n {8}timeout-minutes: \d+/);
+  });
+});
+
+describe('harvest-one-shop.yml', () => {
+  const probe = text('harvest-one-shop.yml');
+  const ask = steps(jobs('harvest-one-shop.yml').find((j) => j.name === 'probe')!.body).find((s) => s.includes('name: Ask one shop'))!;
+
+  // 44 of the probe's first 65 runs went red only because the shop answered
+  // nothing, which is the answer a probe exists to give.
+  it('reports a shop that yields nothing as a warning, and every other failure as red', async () => {
+    const { NOTHING_HARVESTED } = await import('../scripts/harvestExit.js');
+    expect(NOTHING_HARVESTED).not.toBe(0);
+    expect(NOTHING_HARVESTED).not.toBe(1);
+    expect(ask).toContain('set +e');
+    expect(ask).toContain(`if [ "$rc" -eq ${NOTHING_HARVESTED} ]; then`);
+    expect(ask).toMatch(/::warning::[^\n]*\n {12}exit 0\n {10}fi\n {10}exit "\$rc"/);
+    expect(ask).toContain('--dry-run');
+    const harvest = readFileSync(join(REPO_ROOT, 'scripts/catalogue-harvest.ts'), 'utf8');
+    expect(harvest).toMatch(/Nothing harvested\. Not writing anything[^\n]*\n(?: *\/\/.*\n)* *process\.exit\(NOTHING_HARVESTED\);/);
+  });
+
+  it('passes its inputs to the script through env, never pasted into the command', () => {
+    const run = ask.slice(ask.indexOf('run: |'));
+    expect(run).not.toContain('${{');
+    for (const input of /\n {6}([a-z_]+):\n {8}description/g[Symbol.matchAll](probe)) {
+      expect(ask, input[1]).toContain(`inputs.${input[1]}`);
+    }
   });
 });

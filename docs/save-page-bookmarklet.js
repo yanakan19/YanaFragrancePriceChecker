@@ -5,7 +5,7 @@
  *
  * It keeps only the page's product data (its JSON-LD blocks), its canonical
  * address and the time, and downloads them as one small .html file that
- * `npm run catalogue:import-pages` reads. Everything else on the page is
+ * `npm run notino:import` reads. Everything else on the page is
  * left behind, which matters on Notino: its page source also carries the
  * signed in shopper's email address and session tokens.
  *
@@ -33,8 +33,7 @@
     return String(s).replace(/--/g, '%2D%2D');
   };
   var out =
-    '<!-- saved: ' + new Date().toISOString() + ' -->\n' +
-    '<!-- url: ' + comment(location.href) + ' -->\n' +
+    '<!-- captured ' + new Date().toISOString() + ' from ' + comment(canonical) + ' -->\n' +
     '<html><head><link rel="canonical" href="' + attr(canonical) + '"/></head><body>\n' +
     blocks.join('\n') +
     '\n</body></html>\n';

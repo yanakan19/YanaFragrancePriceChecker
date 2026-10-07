@@ -314,6 +314,17 @@ export function headFor(input: HeadInput): HeadTags {
         noindex: false,
       };
 
+    case 'fragrances':
+      return {
+        title: 'PriceSniffs: All Fragrances',
+        description: describe(
+          'Every perfume from the UK shops we track, with the lowest price at each shop. Filter by brand, shop, size and gender.',
+          SITE_TAIL,
+        ),
+        canonical,
+        noindex: false,
+      };
+
     case 'oils':
       return {
         title: 'PriceSniffs: Oils',
@@ -535,6 +546,7 @@ function pathOf(route: Route): string {
     case 'retailer': return `/retailers/${p}`;
     case 'notes': return '/notes';
     case 'note': return `/notes/${p}`;
+    case 'fragrances': return '/fragrances';
     case 'oils': return '/oils';
     case 'sets': return '/sets';
     case 'fragrance': return productPath(route.param);

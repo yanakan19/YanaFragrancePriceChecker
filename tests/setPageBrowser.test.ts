@@ -128,13 +128,16 @@ describe.skipIf(!built)('set and oil pages on the built site', () => {
     const { page, ctx } = await open(pathOf(setDearer));
     try {
       await page.locator('.giftset-value [data-frag]').click();
-      await page.waitForTimeout(500);
-      expect(new URL(page.url()).pathname).toBe(pathOf(bottle).replace(/\?.*$/, ''));
+      // Waits for the page it opens rather than a fixed half second.
+      const want = pathOf(bottle).replace(/\?.*$/, '');
+      await page.waitForFunction((p) => location.pathname === p, want, { timeout: 15_000 });
+      await page.locator('.giftset-block').waitFor({ state: 'detached', timeout: 15_000 });
+      expect(new URL(page.url()).pathname).toBe(want);
       expect(await page.locator('.giftset-block').count()).toBe(0);
     } finally {
       await ctx.close();
     }
-  });
+  }, 60_000);
 
   it('shows no value line on a set with no headline bottle', async () => {
     const lone = withValue.length ? sets.find((s) => !s.giftSet!.bottleId && s.giftSet!.contents)! : sets[0]!;

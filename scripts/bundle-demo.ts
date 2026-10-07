@@ -34,10 +34,9 @@
  * slower, never wrong.
  *
  * Numbering is global across modules, and each module's literals are numbered
- * contiguously, so a file is fully described by its module and the index of its
- * first blob. esbuild loads modules concurrently, so the numbers are assigned
- * after the build, in module name order, by rewriting placeholders in the
- * bundle: the same data always gives the same bundle and loader list.
+ * contiguously (moveLiteralsToJson runs synchronously once a module's source
+ * has been read), so a file is fully described by its module and the index of
+ * its first blob.
  *
  * ── Lazy modules ─────────────────────────────────────────────────────────────
  * A module in LAZY_DATA_MODULES (scripts/dataFiles.ts) is not bundled at all:
@@ -54,11 +53,17 @@ import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { build, type Plugin } from 'esbuild';
-import { inlineShopTimes, moveLiteralsToJson, numberBlobs, placeholder, type LoadedModule } from './dataLiterals.js';
-import { BLOBS_GLOBAL, LAZY_DATA_MODULES, type DataManifest } from './dataFiles.js';
+import { inlineShopTimes, moveLiteralsToJson } from './dataLiterals.js';
+import { BLOBS_GLOBAL, LAZY_DATA_MODULES, type DataGroup, type DataManifest } from './dataFiles.js';
+import { applyNumbering, localMarker, numberGroups } from './dataNumbering.js';
 import { pruneContext, pruneMovedBlobs, removedSets, resolveSiteBuild } from './siteBuild.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+// Each module's literals, numbered from 0 within the module while esbuild loads
+// them (in whatever order they finish). They get their global numbers by module
+// name after the build (scripts/dataNumbering.ts), so the output never depends
+// on that order.
+const perModule = new Map<string, unknown[]>();
 const report: string[] = [];
 
 // The developer dashboard's switches for this build (scripts/siteBuild.ts):
@@ -69,22 +74,14 @@ const site = await resolveSiteBuild(root);
 const removed = removedSets(site);
 const prune = pruneContext();
 
-// Blob indexes are not known while esbuild loads modules: it loads them
-// concurrently, so the order they finish reading in is not stable (two builds
-// of the same data once swapped deals and fragranceLinks). Each module's
-// literals are numbered from 0 here, as placeholders, and the final indexes
-// are assigned after the build in module name order.
-const loaded: LoadedModule[] = [];
-
 const dataAsJson: Plugin = {
   name: 'data-as-json',
   setup(b) {
     b.onLoad({ filter: /\.generated\.js$/ }, async (args) => {
-      const file = args.path.split('/').pop()!;
-      const name = file.replace(/\.generated\.js$/, '');
-      if (Object.hasOwn(LAZY_DATA_MODULES, name)) {
+      const lazyName = args.path.split('/').pop()!.replace(/\.generated\.js$/, '');
+      if (Object.hasOwn(LAZY_DATA_MODULES, lazyName)) {
         throw new Error(
-          `${name}.generated is loaded on demand (LAZY_DATA_MODULES in scripts/dataFiles.ts) ` +
+          `${lazyName}.generated is loaded on demand (LAZY_DATA_MODULES in scripts/dataFiles.ts) ` +
             'but the bundle imports it. Import its types only (`import type`), and read its data through demo/priceHistoryStore.ts.',
         );
       }
@@ -92,9 +89,15 @@ const dataAsJson: Plugin = {
       // is what it was before the module stored each shop's time once
       // (scripts/dataLiterals.ts). Any other module comes back unchanged.
       const source = inlineShopTimes(await readFile(args.path, 'utf8'));
+      const name = args.path.split('/').pop()!;
+      const module = name.replace(/\.generated\.js$/, '');
+      if (perModule.has(module)) throw new Error(`two modules are named ${module}.generated`);
       const local: unknown[] = [];
-      const { code, moved } = moveLiteralsToJson(source, local, undefined, (k) => placeholder(name, k));
-      if (moved.length) loaded.push({ name, blobs: local, moved });
+      const { code: moved_, moved } = moveLiteralsToJson(source, local);
+      pruneMovedBlobs(module, moved, local, 0, removed, prune);
+      perModule.set(module, local);
+      if (moved.length) report.push(`${name}: ${moved.length} literal(s) moved`);
+      const code = moved_.replace(/__psData\((\d+)\)/g, (_m, i: string) => localMarker(module, Number(i)));
       return { contents: code, loader: 'js' };
     });
   },
@@ -117,15 +120,15 @@ await build({
   logLevel: 'warning',
 });
 
-// Final numbering: modules in name order, each one's literals contiguous
-// (numberBlobs, scripts/dataLiterals.ts).
-const bundlePath = resolve(root, 'dist-demo/bundle.js');
-const result = numberBlobs(loaded, await readFile(bundlePath, 'utf8'), (m, start, all) =>
-  pruneMovedBlobs(m.name, m.moved, all, start, removed, prune),
-);
-const { blobs, groups } = result;
-for (const m of result.modules) report.push(`${m.name}.generated.js: ${m.moved.length} literal(s) moved`);
-await writeFile(bundlePath, result.bundle);
+const groups: DataGroup[] = numberGroups(new Map([...perModule].map(([k, v]) => [k, v.length])));
+const blobs: unknown[] = groups.flatMap((g) => perModule.get(g.name)!);
+{
+  const bundlePath = resolve(root, 'dist-demo/bundle.js');
+  const { code, swapped } = applyNumbering(await readFile(bundlePath, 'utf8'), groups);
+  if (swapped !== blobs.length) throw new Error(`bundle.js uses ${swapped} data lookup(s) but ${blobs.length} literal(s) were moved`);
+  await writeFile(bundlePath, code);
+}
+report.sort();
 await rm(resolve(root, 'dist-demo/data'), { recursive: true, force: true });
 await rm(resolve(root, 'dist-demo/data.json'), { force: true });
 await mkdir(resolve(root, 'dist-demo/data'), { recursive: true });

@@ -1,19 +1,18 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { parseSavedPage, type ImportShop } from '../src/catalogue/importPages.js';
+import { parseNotinoSavedPage } from '../src/catalogue/notinoSavedPage.js';
 import { bookmarkletUrl } from '../scripts/catalogue-bookmarklet.js';
 
 const source = readFileSync(resolve(__dirname, '../docs/save-page-bookmarklet.js'), 'utf8');
-const SHOP: ImportShop = { id: 'notino-uk', name: 'Notino UK', domain: 'notino.co.uk', catalogue: { sections: [{ id: 'fragrance' }] } };
 
 /** A Notino product page as a signed in shopper's browser holds it: product JSON-LD, plus their account in the app state. */
 const LD = {
-  '@context': 'https://schema.org', '@type': 'Product', name: 'Montale Arabians Tonka', sku: 'MNTARTU_AEDP10',
+  '@context': 'https://schema.org', '@type': 'Product', name: 'Montale Arabians Tonka', sku: 'MNTARTU_AEDP10', category: 'eau de parfum unisex',
   description: 'Not </script> the end',
   offers: [
-    { '@type': 'Offer', name: 'Montale Arabians Tonka 100 ml', price: 84.9, priceCurrency: 'GBP', availability: 'https://schema.org/InStock', url: '/montale/arabians-tonka-eau-de-parfum-unisex/p-16083959/' },
-    { '@type': 'Offer', name: 'Montale Arabians Tonka 50 ml', price: 53.9, priceCurrency: 'GBP', availability: 'https://schema.org/InStock', url: '/montale/arabians-tonka-eau-de-parfum-unisex/p-16218647/' },
+    { '@type': 'Offer', name: 'Montale Arabians Tonka 100 ml', sku: 'MNTARTU_AEDP10', price: 84.9, priceCurrency: 'GBP', availability: 'https://schema.org/InStock', url: '/montale/arabians-tonka-eau-de-parfum-unisex/p-16083959/' },
+    { '@type': 'Offer', name: 'Montale Arabians Tonka 50 ml', sku: 'MNTARTU_AEDP20', price: 53.9, priceCurrency: 'GBP', availability: 'https://schema.org/InStock', url: '/montale/arabians-tonka-eau-de-parfum-unisex/p-16218647/' },
   ],
 };
 const PAGE_URL = 'https://www.notino.co.uk/montale/arabians-tonka-eau-de-parfum-unisex/';
@@ -50,11 +49,14 @@ describe('the Save for PriceSniffs bookmarklet', () => {
     // A "</script>" inside the data cannot end the block early.
     expect(text!.match(/<\/script>/g)).toHaveLength(1);
 
-    const out = parseSavedPage(text!, SHOP, '2026-01-01T00:00:00.000Z', new Date(Date.now() + 60_000));
-    if (!out.ok) throw new Error(out.reason);
-    expect(out.page.capturedFrom).toBe('header');
-    expect(out.page.canonicalUrl).toBe(PAGE_URL);
-    expect(out.page.listings.map((l) => [l.retailerSku, l.priceGbp])).toEqual([['p-16083959', 84.9], ['p-16218647', 53.9]]);
+    expect(text!.startsWith(`<!-- captured 20`)).toBe(true);
+    expect(text).toContain(` from ${PAGE_URL} -->`);
+    const out = parseNotinoSavedPage(text!, { fileTime: null, now: new Date() });
+    expect(out.refusal).toBeNull();
+    expect(out.listings.map((l) => [l.retailerSku, l.rawTitle, l.priceGbp])).toEqual([
+      ['MNTARTU_AEDP10', 'Montale Arabians Tonka Eau de Parfum 100ml', 84.9],
+      ['MNTARTU_AEDP20', 'Montale Arabians Tonka Eau de Parfum 50ml', 53.9],
+    ]);
   });
 
   it('saves nothing on a page with no product data, such as the "Just a moment..." check', async () => {
@@ -71,7 +73,7 @@ describe('the Save for PriceSniffs bookmarklet', () => {
     const code = decodeURIComponent(url.slice('javascript:'.length));
     const fromBookmark = await click([JSON.stringify(LD)], PAGE_URL, code);
     const fromSource = await click([JSON.stringify(LD)], PAGE_URL);
-    const strip = (t: string | null) => t!.replace(/<!-- saved: [^>]+-->/, '');
+    const strip = (t: string | null) => t!.replace(/<!-- captured \S+/, '');
     expect(fromBookmark.downloads[0]!.name).toBe(fromSource.downloads[0]!.name);
     expect(strip(fromBookmark.text)).toBe(strip(fromSource.text));
   });

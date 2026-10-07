@@ -354,7 +354,7 @@ export const RETAILERS: readonly Retailer[] = [
     // Switched off by the owner on 2026-10-04, and back on at the owner's
     // request on 2026-10-07. Its prices now come from pages the owner opens
     // in their own browser and saves (docs/OWNER-STEPS.md section 9,
-    // `npm run catalogue:import-pages`); the crawl still reads it as
+    // `npm run notino:import`); the crawl still reads it as
     // PriceSniffsBot and stops at the refusal (D23). Each saved price shows
     // for HIDE_OFFER_AFTER_DAYS from the day it was saved.
     enabled: true,
@@ -493,7 +493,11 @@ export const RETAILERS: readonly Retailer[] = [
     // every tier this run tried, and are left as-is rather than chased
     // further without a credentialed proxy/actor tier to actually test.
     renderRefused: 'local',
-    adapter: 'headless',
+    // 2026-10-06: 'owner-import', so that switching the shop back on (`enabled`)
+    // never starts a crawl: the harvest and probe skip this adapter. Its only
+    // source is pages the owner saves by hand (scripts/import-notino-pages.ts,
+    // docs/NOTINO-PLAN.md route 3). Until a page is imported nothing changes.
+    adapter: 'owner-import',
     currency: 'GBP',
     shipping: {
       standardGbp: 2.99,
@@ -8468,13 +8472,13 @@ export const RETAILERS: readonly Retailer[] = [
       // stored as of 2026-10-01. No pricing effect while standardGbp is null.
       freeOverGbp: 25,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-10-05',
+      verifiedAt: '2026-10-06',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
         url: 'https://www.spacenk.com/uk/shipping',
         quote: 'FREE UK STANDARD DELIVERY on all orders over £25',
-        readAt: '2026-10-05',
+        readAt: '2026-10-06',
       },
       notes:
         'The £25 threshold is the shop\'s own banner, quoted in source; no rate below it is ' +

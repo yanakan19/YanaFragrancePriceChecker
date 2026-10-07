@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import ts from 'typescript';
 import {
-  inlineShopTimes, moveLiteralsToJson, numberBlobs, oneEntryPerLine, placeholder, SHOP_TIME, shopTimes, withoutShopTimes, withShopTimes,
+  inlineShopTimes, moveLiteralsToJson, oneEntryPerLine, SHOP_TIME, shopTimes, withoutShopTimes, withShopTimes,
 } from '../scripts/dataLiterals.js';
 
 /** Run transformed module code with a __psData that reads `blobs`, returning what it exports. */
@@ -168,41 +168,5 @@ describe('shop times', () => {
     const out = inlineShopTimes(js);
     expect(out).toContain('export const CRAWLED = {}');
     expect(out).not.toMatch(/CRAWLED_STORED|CRAWLED_SHOP_TIMES|withShopTimes/);
-  });
-});
-
-describe('numberBlobs', () => {
-  const mods = [
-    { name: 'deals', blobs: [{ d: 1 }, { d: 2 }], moved: ['A', 'B'] },
-    { name: 'catalogue', blobs: [[1], [2], [3]], moved: ['CATALOGUE_CHUNK_0', 'CRAWLED', 'X'] },
-    { name: 'fragranceLinks', blobs: [{ l: 1 }], moved: ['LINKS'] },
-  ];
-  const bundleText = 'var a=' + mods.flatMap((m) => m.moved.map((_n, k) => placeholder(m.name, k))).join(',') + ';';
-  const permutations = <T,>(xs: T[]): T[][] =>
-    xs.length <= 1 ? [xs] : xs.flatMap((x, i) => permutations([...xs.slice(0, i), ...xs.slice(i + 1)]).map((p) => [x, ...p]));
-
-  it('is identical for every load order', () => {
-    const base = numberBlobs(mods, bundleText);
-    expect(base.groups).toEqual([
-      { name: 'catalogue', start: 0, count: 3 },
-      { name: 'deals', start: 3, count: 2 },
-      { name: 'fragranceLinks', start: 5, count: 1 },
-    ]);
-    expect(base.bundle).toBe('var a=__psData(3),__psData(4),__psData(0),__psData(1),__psData(2),__psData(5);');
-    const perms = permutations(mods);
-    expect(perms).toHaveLength(6);
-    for (const p of perms) {
-      const r = numberBlobs(p, bundleText);
-      expect(r.groups).toEqual(base.groups);
-      expect(r.blobs).toEqual(base.blobs);
-      expect(r.bundle).toBe(base.bundle);
-      expect([...r.starts]).toEqual([...base.starts]);
-    }
-  });
-
-  it('throws when the placeholder count does not match the blobs', () => {
-    expect(() => numberBlobs(mods, bundleText.replace(placeholder('deals', 1), '0'))).toThrow(/5 blob lookups for 6 blobs/);
-    expect(() => numberBlobs(mods, bundleText + placeholder('deals', 0))).toThrow(/7 blob lookups for 6 blobs/);
-    expect(() => numberBlobs(mods, bundleText + placeholder('nope', 0))).toThrow(/unknown data module/);
   });
 });

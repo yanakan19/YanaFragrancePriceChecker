@@ -185,8 +185,6 @@ export function moveLiteralsToJson(
   src: string,
   blobs: unknown[],
   minBytes = MIN_BYTES,
-  /** The expression that reads blob `n` of `blobs`; scripts/bundle-demo.ts passes a placeholder it numbers later. */
-  lookup: (n: number) => string = (n) => `__psData(${n})`,
 ): { code: string; moved: string[] } {
   const decl = /^(?:export )?const ([A-Za-z_$][\w$]*) = (?=[[{])/gm;
   let out = '';
@@ -208,57 +206,11 @@ export function moveLiteralsToJson(
     } catch {
       continue;
     }
-    out += src.slice(last, start) + lookup(blobs.length);
+    out += src.slice(last, start) + `__psData(${blobs.length})`;
     blobs.push(value);
     moved.push(m[1]!);
     last = end + 1;
     decl.lastIndex = last;
   }
   return { code: out + src.slice(last), moved };
-}
-
-/** One data module as esbuild loaded it: its literals numbered from 0, and the names they replaced. */
-export interface LoadedModule {
-  name: string;
-  blobs: unknown[];
-  moved: string[];
-}
-
-/** The placeholder a module's k-th literal becomes while esbuild loads modules in no fixed order. */
-export const placeholder = (name: string, k: number): string => `__psData(__PSD_${Buffer.from(name).toString('hex')}_${k})`;
-
-/**
- * Final blob numbering, independent of the order the modules were loaded in:
- * modules in name order, each one's literals contiguous, and every placeholder
- * in `bundle` rewritten to its final index. `afterAppend` runs for each module
- * once its blobs are in `blobs` (the build prunes removed brands and shops
- * there; it may change blobs in place, never their count).
- */
-export function numberBlobs(
-  loaded: readonly LoadedModule[],
-  bundle: string,
-  afterAppend?: (m: LoadedModule, start: number, blobs: unknown[]) => void,
-): { modules: LoadedModule[]; starts: Map<string, number>; groups: { name: string; start: number; count: number }[]; blobs: unknown[]; bundle: string } {
-  const modules = [...loaded].sort((x, y) => (x.name < y.name ? -1 : x.name > y.name ? 1 : 0));
-  const blobs: unknown[] = [];
-  const groups: { name: string; start: number; count: number }[] = [];
-  const starts = new Map<string, number>();
-  for (const m of modules) {
-    const start = blobs.length;
-    starts.set(m.name, start);
-    blobs.push(...m.blobs);
-    afterAppend?.(m, start, blobs);
-    groups.push({ name: m.name, start, count: m.moved.length });
-  }
-  let placeholders = 0;
-  const numbered = bundle.replace(/__psData\(__PSD_([0-9a-f]+)_(\d+)\)/g, (_all, hex: string, k: string) => {
-    placeholders++;
-    const start = starts.get(Buffer.from(hex, 'hex').toString());
-    if (start === undefined) throw new Error(`bundle refers to unknown data module ${hex}`);
-    return `__psData(${start + Number(k)})`;
-  });
-  if (placeholders !== blobs.length || /__PSD_/.test(numbered)) {
-    throw new Error(`bundle has ${placeholders} blob lookups for ${blobs.length} blobs (a literal was dropped or duplicated)`);
-  }
-  return { modules, starts, groups, blobs, bundle: numbered };
 }

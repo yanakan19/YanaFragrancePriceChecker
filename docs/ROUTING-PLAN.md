@@ -709,3 +709,26 @@ permanently living with the disambiguation table.
 - `demo/manifest.webmanifest` (`start_url`/`scope`, relevant to whether the
   404 strategy affects installed-PWA deep links — it doesn't, `scope: "."`
   already covers any subpath)
+
+
+---
+
+## Explore tabs, 6 Oct 2026 (owner's request)
+
+The Explore bar is two groups with a gap between them: **All Fragrances, All
+Oils, All Sets**, then **All Brands, All Retailers, All Notes**. The gap is a
+decorative `aria-hidden` span; the bar is a `tablist` (arrow keys, Home and End
+move between the tabs, Enter chooses) inside a labelled `nav`, and on a phone it
+scrolls sideways, starting at the first group or just before the gap.
+
+- `/fragrances` is the new tab: every bottle (no oils, no sets, the same rule as
+  Search and a brand's page), every size, the Search page's filters and its sort
+  labels, and its own search box, with state in the address like Oils and Sets.
+  It is the `fragrances` TabKind in `demo/tabPanels.ts`.
+- `/brands`, `/retailers`, `/notes`, `/oils`, `/sets` and `/gift-sets` are
+  unchanged. `/explore` opens `/fragrances`. `fragrances` is a reserved word.
+- Default tab: All Fragrances. Measured first load at 390 wide, three runs each:
+  `/brands` 1.3 s, 4,532 DOM nodes, 247 KB of tile markup, 60,500 px tall;
+  `/fragrances` 1.5 s, 1,115 nodes, 87 KB, 9,100 px (one chunk of 48 tiles, the
+  rest windowed in as the reader scrolls). The tab builds its list of 26,000
+  bottles on first open, about 0.2 s of CPU; it is far lighter to hold and draw.
