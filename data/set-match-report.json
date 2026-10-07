@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 217,
+ "folded": 216,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -1801,38 +1801,6 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3346130438243",
-   "absorbed": [
-    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3346130438243",
-     "brand": "Hermès",
-     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
-     "concentration": "Eau de Toilette",
-     "ean": "3346130438243",
-     "scent": "d hermes terre",
-     "signature": "1x100fragrance|1x15fragrance|1x40wash",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
-     "brand": "Hermès",
-     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d hermes terre",
-     "signature": "1x100fragrance|1x15fragrance|1x40wash",
-     "shops": [
-      "john-lewis"
      ]
     }
    ]
@@ -6614,7 +6582,7 @@
   },
   {
    "reasons": [
-    "two different barcodes: 783320423437, 783320426919"
+    "two different barcodes: 783320407260, 783320423437, 783320426919"
    ],
    "members": [
     {
@@ -6651,6 +6619,18 @@
      "signature": "1x100fragrance|1x15fragrance",
      "shops": [
       "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ean-783320407260",
+     "brand": "Bvlgari",
+     "name": "Man in Black Eau de Parfum 100ml Spray + 15ml Spray",
+     "concentration": "Eau de Parfum",
+     "ean": "783320407260",
+     "scent": "black in man",
+     "signature": "1x100fragrance|1x15fragrance",
+     "shops": [
+      "paco-perfumerias-uk"
      ]
     },
     {
@@ -8098,12 +8078,13 @@
     {
      "id": "set-ean-3423222106577",
      "brand": "Issey Miyake",
-     "name": "Le Sel D'issey Eau De Toilette 50ml & Shower Gel 50ml Gift Set",
+     "name": "Le Sel D'Issey Eau de Toilette Spray 50ml Gift Set",
      "concentration": "Eau de Toilette",
      "ean": "3423222106577",
      "scent": "d issey le sel",
      "signature": "1x50fragrance|1x50wash",
      "shops": [
+      "allbeauty",
       "beautybase"
      ]
     },
