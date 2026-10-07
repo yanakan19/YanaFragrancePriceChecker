@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 74 retailers, 42 of them `enabled: true`. Every one of them is a legitimate
+ * 74 retailers, 43 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -351,8 +351,13 @@ export const RETAILERS: readonly Retailer[] = [
     trustpilotUrl: 'https://uk.trustpilot.com/review/notino.co.uk',
     trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer', 'niche', 'mideast'],
-    // Switched off by the owner on 2026-10-04: off the site for now.
-    enabled: false,
+    // Switched off by the owner on 2026-10-04, and back on at the owner's
+    // request on 2026-10-07. Its prices now come from pages the owner opens
+    // in their own browser and saves (docs/OWNER-STEPS.md section 9,
+    // `npm run catalogue:import-pages`); the crawl still reads it as
+    // PriceSniffsBot and stops at the refusal (D23). Each saved price shows
+    // for HIDE_OFFER_AFTER_DAYS from the day it was saved.
+    enabled: true,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
@@ -636,6 +641,12 @@ export const RETAILERS: readonly Retailer[] = [
       deeplinkTemplate: null,
       querySuffixTemplate: null,
       signupUrl: 'https://www.vivnetworks.com/en/affiliate-catalog/notinocom/',
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {

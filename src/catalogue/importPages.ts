@@ -34,6 +34,8 @@ import { parseListings } from './jsonld.js';
 import { reconcile } from './reconcile.js';
 import { renderRefusal } from './renderRefusal.js';
 import { markTitlePreOrders } from './listingAvailability.js';
+import { cleanBarcode } from './barcode.js';
+import { CONCENTRATION } from './fragranceId.js';
 import { titleWithSizeFromUrl } from './sizeFromUrl.js';
 import { CatalogueStore } from './store.js';
 import type { RawListing, StoredListing } from './types.js';
@@ -151,6 +153,50 @@ function onDomain(address: string, domain: string): boolean {
   }
 }
 
+/** A strength the shop's own description opens with, as Notino's do: "eau de parfum for men 100 ml". */
+const OPENING_STRENGTH = /^\s*(extrait de parfum|eau de parfum|eau de toilette|eau de cologne|parfum|perfume|cologne)\b/i;
+
+/**
+ * The title with the strength the shop's description opens with, where the
+ * title names none. Notino titles a bottle "Montale Arabians Tonka 100 ml"
+ * and says what it is only in its category, "eau de parfum unisex", which its
+ * list pages give as the description. The catalogue only takes a listing
+ * whose title names a strength (isFragrance in fragranceId.ts), so without
+ * this no Notino bottle got in. Only a description that starts with the
+ * strength counts: copy that merely mentions a perfume somewhere says nothing
+ * about this bottle. The strength goes before the size, where shops put it.
+ */
+export function titleWithStrengthFromDescription(title: string, description: string | null): string {
+  if (!description || CONCENTRATION.test(title)) return title;
+  const m = OPENING_STRENGTH.exec(description);
+  if (!m) return title;
+  const strength = m[1]!.toLowerCase().replace(/\b(eau|parfum|toilette|cologne|extrait|perfume)\b/g, (w) => w[0]!.toUpperCase() + w.slice(1));
+  const size = /\s+\d+(?:\.\d+)?\s?ml$/i.exec(title);
+  return size ? `${title.slice(0, size.index)} ${strength}${size[0]}` : `${title} ${strength}`;
+}
+
+/**
+ * The barcode of one size on a Notino product page, read from that size's own
+ * photo address, which Notino names by it: the 100 ml of "Armani Emporio
+ * Stronger With You Intensely" (/p-15802363/) is pictured at
+ * cdn.notinoimg.com/order_2k/armani/3614272225718_01-o/..., and 3614272225718
+ * is the barcode the same page's own data gives that size. All nine sizes of
+ * the three pages the owner saved on 2026-10-07 matched that way. Without it
+ * no Notino size has a barcode (the page's own gtin13 belongs to a different
+ * size than its sku), so a bottle other shops sell under its barcode became a
+ * second product beside theirs.
+ *
+ * Only for a size's own page (an address ending /p-<id>/), never a list page:
+ * a list page shows one photo for the whole product beside its cheapest
+ * price, so its photo's barcode may be another size's. And only a code that
+ * passes the same checks as any barcode a shop gives (cleanBarcode).
+ */
+export function eanFromVariantImage(url: string, imageUrl: string | null): string | null {
+  if (!imageUrl || !/\/p-\d+\/?$/.test(url)) return null;
+  const m = /^https:\/\/cdn\.notinoimg\.com\/[^?#]*\/(\d{12,14})_\d{2}(?:-o)?\//.exec(imageUrl);
+  return m ? cleanBarcode(m[1]) : null;
+}
+
 function hasSize(l: RawListing): boolean {
   return /\b\d+(?:\.\d+)?\s?(?:ml|cl|l|oz|fl\.?\s?oz|g)\b/i.test(`${l.rawTitle} ${l.description ?? ''}`);
 }
@@ -208,8 +254,9 @@ export function parseSavedPage(
   // The same two clean-ups the harvest applies on every route.
   const marked = markTitlePreOrders(onShop).listings as RawListing[];
   const listings = marked.map((l) => {
-    const titled = titleWithSizeFromUrl(l.rawTitle, l.url);
-    return titled === l.rawTitle ? l : { ...l, rawTitle: titled };
+    const titled = titleWithStrengthFromDescription(titleWithSizeFromUrl(l.rawTitle, l.url), l.description ?? null);
+    const ean = l.ean ?? eanFromVariantImage(l.url, l.imageUrl);
+    return titled === l.rawTitle && ean === l.ean ? l : { ...l, rawTitle: titled, ean };
   });
 
   const missing: Record<MissingField, number> = { price: 0, image: 0, brand: 0, barcode: 0, size: 0, stock: 0 };

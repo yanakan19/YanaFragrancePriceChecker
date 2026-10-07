@@ -583,7 +583,10 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
           rawBrand: brandName(node),
           ean: gtin(o),
           imageUrl: imageUrl(o) ?? imageUrl(node),
-          description: description(node),
+          // A saved product page's own category ("eau de parfum for men" on
+          // Notino) says what the bottle is, in the words its list pages use
+          // as their description; the marketing copy is the fallback.
+          description: ownAddress ? (str(node['category']) ?? description(node)) : description(node),
           priceGbp: money.priceGbp,
           wasPriceGbp:
             oListed !== null && money.priceGbp !== null && oListed > money.priceGbp ? oListed : null,

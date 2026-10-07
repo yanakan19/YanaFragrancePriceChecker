@@ -30,6 +30,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.101.0',
+    date: '7 Oct 2026',
+    groups: [
+      {
+        heading: 'New',
+        points: ['Notino UK prices are back'],
+      },
+    ],
+  },
+  {
     version: 'v3.100.0',
     date: '6 Oct 2026',
     groups: [

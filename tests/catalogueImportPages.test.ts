@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { mkdtempSync, mkdirSync, rmSync, writeFileSync, readFileSync, utimesSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
-import { importPages, parseSavedPage, mergePage, challengeReason, type ImportShop } from '../src/catalogue/importPages.js';
+import { importPages, parseSavedPage, mergePage, challengeReason, titleWithStrengthFromDescription, eanFromVariantImage, type ImportShop } from '../src/catalogue/importPages.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { parseListings } from '../src/catalogue/jsonld.js';
 
@@ -49,7 +49,9 @@ describe('parseSavedPage', () => {
     expect(out.page.capturedFrom).toBe('header');
     expect(out.page.canonicalUrl).toBe('https://www.notino.co.uk/fragrance/');
     expect(out.page.listings).toHaveLength(3);
-    const naxos = out.page.listings.find((l) => l.rawTitle === 'Xerjoff XJ 1861 Naxos');
+    const naxos = out.page.listings.find((l) => l.retailerSku === 'xj-1861-naxos-eau-de-parfum-unisex');
+    // The strength its description opens with is named in the title.
+    expect(naxos?.rawTitle).toBe('Xerjoff XJ 1861 Naxos Eau de Parfum');
     expect(naxos?.priceGbp).toBe(144.5);
     expect(naxos?.url).toBe('https://www.notino.co.uk/brand/xj-1861-naxos-eau-de-parfum-unisex/');
     expect(naxos?.retailerSku).toBe('xj-1861-naxos-eau-de-parfum-unisex');
@@ -123,15 +125,17 @@ describe('parseSavedPage', () => {
     const base = 'https://www.notino.co.uk/armani/emporio-stronger-with-you-intensely-eau-de-parfum-for-men/';
     const ld = {
       '@context': 'https://schema.org', '@type': 'Product', '@id': base, name: 'Armani Emporio Stronger With You Intensely',
-      sku: 'GIOSWIM_AEDP10', gtin13: '3614274347388', brand: { '@type': 'Brand', name: 'Armani' },
+      sku: 'GIOSWIM_AEDP10', gtin13: '3614274347388', category: 'eau de parfum for men', brand: { '@type': 'Brand', name: 'Armani' },
       aggregateRating: { '@type': 'AggregateRating', ratingValue: 4.6, ratingCount: 75 },
       offers: offers.map((o) => ({ '@type': 'Offer', priceCurrency: 'GBP', itemCountry: 'GB', ...o })),
     };
     return `<!-- saved: 2026-10-07T00:00:00Z --><html><head><link rel="canonical" href="${base}"/></head><body>
 <script type="application/ld+json">${JSON.stringify(ld)}</script>${'<p>padding</p>'.repeat(700)}</body></html>`;
   }
+  const EAN: Record<number, string> = { 150: '3614274347388', 100: '3614272225718', 50: '3614272225701', 30: '3614272225695', 10: '3614274857542' };
   const offer = (ml: number, id: number, price: number, extra: Record<string, unknown> = {}) => ({
     name: `Armani Emporio Stronger With You Intensely ${ml} ml`, sku: `GIOSWIM_${ml}`, price,
+    image: `https://cdn.notinoimg.com/order_2k/armani/${EAN[ml]}_01-o/emporio-stronger-with-you-intensely___190118.jpg`,
     availability: 'https://schema.org/InStock', url: `/armani/emporio-stronger-with-you-intensely-eau-de-parfum-for-men/p-${id}/`, ...extra,
   });
 
@@ -147,13 +151,39 @@ describe('parseSavedPage', () => {
     const bySku = Object.fromEntries(out.page.listings.map((l) => [l.retailerSku, l]));
     expect(Object.keys(bySku).sort()).toEqual(['p-15802363', 'p-16286591', 'p-16396178']);
     expect(bySku['p-15802363']).toMatchObject({
-      rawTitle: 'Armani Emporio Stronger With You Intensely 100 ml', priceGbp: 76.9, promoEndsAt: null, inStock: true,
+      // The strength comes from the page's own category, which is also kept as the description.
+      rawTitle: 'Armani Emporio Stronger With You Intensely Eau de Parfum 100 ml', description: 'eau de parfum for men',
+      rawBrand: 'Armani', priceGbp: 76.9, promoEndsAt: null, inStock: true,
       url: 'https://www.notino.co.uk/armani/emporio-stronger-with-you-intensely-eau-de-parfum-for-men/p-15802363/',
     });
     expect(bySku['p-16396178']).toMatchObject({ priceGbp: 29.9, inStock: false });
-    // The page's gtin13 is the 150 ml's although its sku is the 100 ml's, so no size is given it.
-    expect(out.page.listings.every((l) => l.ean === null)).toBe(true);
+    // The page's gtin13 is the 150 ml's although its sku is the 100 ml's, so no size is given it;
+    // each size's barcode comes from its own photo address instead.
+    expect(bySku['p-15802363']!.ean).toBe('3614272225718');
+    expect(bySku['p-16286591']!.ean).toBe('3614274347388');
     expect(out.page.missing.size).toBe(0);
+  });
+
+  it('reads a size\'s barcode from its own Notino photo address, and nowhere else', () => {
+    const img = 'https://cdn.notinoimg.com/order_2k/armani/3614272225718_01-o/emporio-stronger-with-you-intensely___190118.jpg';
+    const page = 'https://www.notino.co.uk/armani/emporio-stronger-with-you-intensely-eau-de-parfum-for-men/p-15802363/';
+    expect(eanFromVariantImage(page, img)).toBe('3614272225718');
+    // A list page's photo is the whole product's, beside its cheapest price.
+    expect(eanFromVariantImage('https://www.notino.co.uk/armani/emporio-stronger-with-you-intensely-eau-de-parfum-for-men/', img)).toBeNull();
+    // A code failing its check digit, another host, or no photo: nothing.
+    expect(eanFromVariantImage(page, img.replace('3614272225718', '3614272225719'))).toBeNull();
+    expect(eanFromVariantImage(page, img.replace('cdn.notinoimg.com', 'example.com'))).toBeNull();
+    expect(eanFromVariantImage(page, null)).toBeNull();
+  });
+
+  it('names the strength a Notino description opens with, and only that', () => {
+    expect(titleWithStrengthFromDescription('Montale Arabians Tonka 100 ml', 'eau de parfum unisex')).toBe('Montale Arabians Tonka Eau de Parfum 100 ml');
+    expect(titleWithStrengthFromDescription('Aramis Aramis', 'eau de toilette for men')).toBe('Aramis Aramis Eau de Toilette');
+    expect(titleWithStrengthFromDescription('Xerjoff Naxos 100 ml', 'extrait de parfum unisex 100 ml')).toBe('Xerjoff Naxos Extrait de Parfum 100 ml');
+    // A title that already names one, a description that only mentions one, or none at all: unchanged.
+    expect(titleWithStrengthFromDescription('Aramis Aramis EDT', 'eau de parfum for men')).toBe('Aramis Aramis EDT');
+    expect(titleWithStrengthFromDescription('Dior Solar Creme 50 ml', 'facial sunscreen, not a perfume')).toBe('Dior Solar Creme 50 ml');
+    expect(titleWithStrengthFromDescription('Dior Solar Creme 50 ml', null)).toBe('Dior Solar Creme 50 ml');
   });
 
   it('keeps the one listing it read before when two offers for one size cannot be told apart, and crawls are unchanged', () => {

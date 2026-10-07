@@ -672,7 +672,6 @@ describe('retailer registry', () => {
       'superdrug',
       'the-perfume-shop',
       'the-fragrance-shop',
-      'notino-uk',
       'zara',
       'harvey-nichols',
       'riiffs',
@@ -690,6 +689,13 @@ describe('retailer registry', () => {
     it('each carries the one line note beside `enabled: false`', () => {
       const note = '// Switched off by the owner on 2026-10-04: off the site for now.';
       expect(source.split(note).length - 1).toBe(switchedOff.length);
+    });
+
+    it('notino-uk came back on at the owner\'s request on 2026-10-07', () => {
+      // Its prices come from pages the owner saves (docs/OWNER-STEPS.md
+      // section 9); the crawl still stops at its refusal.
+      expect(getRetailer('notino-uk')!.enabled).toBe(true);
+      expect(enabledRetailers().map((e) => e.id)).toContain('notino-uk');
     });
   });
 
@@ -799,9 +805,9 @@ describe('retailer registry', () => {
       // on this shop". Every one of them keeps its cheaper tiers (plain
       // fetch, the Apify proxy) intact, and keeps the catalogue section URLs
       // those tiers and the render tier both still read from. Each stays
-      // enabled too, except the six the owner switched off for now on
+      // enabled too, except the five the owner switched off for now on
       // 2026-10-04 (their entries and notes are kept so they can come back).
-      const switchedOffByOwner = ['boots', 'zara', 'superdrug', 'the-fragrance-shop', 'the-perfume-shop', 'notino-uk'];
+      const switchedOffByOwner = ['boots', 'zara', 'superdrug', 'the-fragrance-shop', 'the-perfume-shop'];
       for (const id of flagged) {
         const r = getRetailer(id)!;
         expect(r.enabled, id).toBe(!switchedOffByOwner.includes(id));
