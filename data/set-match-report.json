@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 215,
+ "folded": 217,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -1448,6 +1448,39 @@
      "signature": "1x10fragrance|1x50fragrance",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0888066167055",
+   "absorbed": [
+    "set-tom-ford-cafe-rose-eau-de-parfum-50ml-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0888066167055",
+     "brand": "Tom Ford",
+     "name": "Cafe Rose Gift Set 50ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "0888066167055",
+     "scent": "cafe rose",
+     "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "perfume-click",
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-tom-ford-cafe-rose-eau-de-parfum-50ml-fragrance-gift-set",
+     "brand": "Tom Ford",
+     "name": "Café Rose Eau de Parfum 50ml Fragrance Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "cafe rose",
+     "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
@@ -3765,6 +3798,39 @@
      "signature": "1x75body|1x75fragrance",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3616306131699",
+   "absorbed": [
+    "set-marc-jacobs-perfect-eau-de-parfum-50ml-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616306131699",
+     "brand": "Marc Jacobs",
+     "name": "Perfect Gift Set 50ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3616306131699",
+     "scent": "perfect",
+     "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "perfume-click",
+      "scentstore"
+     ]
+    },
+    {
+     "id": "set-marc-jacobs-perfect-eau-de-parfum-50ml-fragrance-gift-set",
+     "brand": "Marc Jacobs",
+     "name": "Perfect Eau de Parfum 50ml Fragrance Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "perfect",
+     "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
@@ -7320,7 +7386,8 @@
      "scent": "invictus paco rabanne",
      "signature": "1x100fragrance|1x20fragrance",
      "shops": [
-      "fragrance-click"
+      "fragrance-click",
+      "paco-perfumerias-uk"
      ]
     },
     {
@@ -7357,6 +7424,38 @@
      "signature": "1x100fragrance|1x20fragrance",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 3349668604623, 3349668628728"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3349668604623",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Lady Million Eau de Parfum 80ml + 20ml Spray Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": "3349668604623",
+     "scent": "lady million paco rabanne",
+     "signature": "1x20fragrance|1x80fragrance",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-ean-3349668628728",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Lady Million Gift Set 80ml EDP + 20ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3349668628728",
+     "scent": "lady million paco rabanne",
+     "signature": "1x20fragrance|1x80fragrance",
+     "shops": [
+      "perfume-click",
+      "perfume-direct"
      ]
     }
    ]
