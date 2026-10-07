@@ -1,7 +1,7 @@
 {
   "retailerId": "french-avenue",
-  "updatedAt": "2026-10-07T08:52:47.735Z",
-  "seenAt": "2026-10-07T08:52:47.735Z",
+  "updatedAt": "2026-10-07T12:53:23.133Z",
+  "seenAt": "2026-10-07T12:53:23.133Z",
   "source": "live",
   "listings": [
     {
@@ -1187,7 +1187,7 @@
       "priceGbp": 40,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Vulcan Black Friday is a bold woody-leathery fragrance that embodies strength, depth, and timeless sophistication. The top bursts open with the warmth of saffron, crisp apple, and spicy cinnamon. At its heart, the rich essence of leather intertwines with the subtle elegance of rose. The base of papyrus, patchouli, musk, and moss adds an earthy and masculine depth, leaving a powerful, long-lasting impression. .",
       "productType": "Storable Product",
