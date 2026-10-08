@@ -288,6 +288,10 @@ What holds for all of them:
   and a WAF block or a region rule would still stand. An owner decision:
   it needs a Cloudflare account, an application, and request signing in
   `src/catalogue/botIdentity.ts`'s clients.
+- **Every lawful route, ranked per shop, with the owner's week:**
+  `docs/BLOCKED-SHOPS-ROUTES-2026-10-08.md` (affiliate networks and what a
+  small site needs, the Verified Bots and Akamai requirements measured against
+  PriceSniffsBot, syndication feeds, and the tricks that cross the line).
 
 ### The Fragrance Shop
 
