@@ -36,6 +36,39 @@ export function extractJsonLdBlocks(html: string): unknown[] {
   return blocks;
 }
 
+/**
+ * schema.org property names that some shops capitalise ("Offers", "SKU", "Brand"),
+ * which JSON-LD reads as different properties from the ones the vocabulary
+ * defines, so a price written that way is invisible to a reader that looks for
+ * "offers". Direct Cosmetics writes its whole Product block like that (read
+ * 2026-10-08, an Azzaro eau de toilette at £23.99 in GBP). Only these keys are
+ * renamed, and only when the right spelling is not already on the same object.
+ */
+const SCHEMA_KEY_CASE: Readonly<Record<string, string>> = {
+  Offers: 'offers',
+  Brand: 'brand',
+  SKU: 'sku',
+  Description: 'description',
+  Name: 'name',
+  Image: 'image',
+  Price: 'price',
+  PriceCurrency: 'priceCurrency',
+  Availability: 'availability',
+  itemcondition: 'itemCondition',
+};
+
+export function fixSchemaKeyCase(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(fixSchemaKeyCase);
+  if (!value || typeof value !== 'object') return value;
+  const source = value as Record<string, unknown>;
+  const out: Record<string, unknown> = {};
+  for (const [key, inner] of Object.entries(source)) {
+    const right = SCHEMA_KEY_CASE[key];
+    out[right !== undefined && !(right in source) ? right : key] = fixSchemaKeyCase(inner);
+  }
+  return out;
+}
+
 /** Some CMSs wrap the payload in CDATA or leave trailing commas. */
 function stripJsonComments(raw: string): string {
   return raw
@@ -471,7 +504,7 @@ export function pageCurrency(html: string): string | null {
  * retailer needs a different adapter.
  */
 export function parseListings(html: string, options: ParseOptions): RawListing[] {
-  const blocks = extractJsonLdBlocks(html);
+  const blocks = extractJsonLdBlocks(html).map(fixSchemaKeyCase);
   let nodes = (options.variantSizesFromPage ? withVariantSizes(blocks, html) : blocks).flatMap((b) => flatten(b));
   if (options.microdata && !nodes.some(isProduct)) {
     // A microdata product with no identifier of its own falls back to its

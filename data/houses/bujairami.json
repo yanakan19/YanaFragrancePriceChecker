@@ -1,9 +1,35 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-10-08T02:12:18.382Z",
-  "seenAt": "2026-10-08T02:12:18.382Z",
+  "updatedAt": "2026-10-08T06:48:46.080Z",
+  "seenAt": "2026-10-08T06:48:46.080Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "11004773269815-Default Title",
+      "url": "https://bujairami.ae/products/dubai-crush-original-creation",
+      "rawTitle": "Dubai Crush (Original Creation)",
+      "rawBrand": "Bujairami",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/1005/1957/5863/files/DubaiCrush.webp?v=1791431431",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "A captivating amber-woody fragrance opening with spicy saffron and fresh bergamot. The heart blends elegant rose with rich agarwood, while tonka bean, sugar cane, white musk, amber, and oakmoss create a smooth, warm, and luxurious finish. . Fragrance Notes . Top: Saffron, Bergamot . Heart: Rose, Agarwood . Base: Tonka Bean, Sugar Cane, White Musk, Amber, Oakmoss . Profile: Amber • Woody • Spicy • Floral • Musky .",
+      "productType": "Perfume",
+      "nativePrice": {
+        "amount": 200,
+        "currency": "AED"
+      },
+      "retailerId": "bujairami",
+      "firstSeenAt": "2026-10-08T04:13:41.160Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "10999434707255-Default Title",
       "url": "https://bujairami.ae/products/grand-affair-inspired-by-shalimar-eau-de-parfum-guerlain",

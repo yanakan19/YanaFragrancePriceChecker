@@ -53,11 +53,23 @@ fi
 # still names one (a workflow file older than that change, a routine's old
 # instructions) is refused here with the reason, before anything is staged,
 # rather than by git's "paths are ignored" error halfway through.
+#
+# ── Never commit a social post's pictures (2026-10-08, docs/DECISIONS.md D28) ─
+# Pictures and videos under social/ (*.png, *.jpg, *.mp4 and the rest) are
+# "social" in the manifest: gitignored, drawn from the post's committed text by
+# `npm run social:render` and by .github/workflows/social-pictures.yml, which
+# keeps them as a private workflow artifact. Refused the same way.
 for path in "$@"; do
-  if [ "$(manifest_policy "$path")" = deploy ]; then
-    echo "::error::Refusing to commit ${path}: it is built at deploy time and never committed (\"deploy\" in scripts/generated-files.txt; see .github/workflows/deploy-pages.yml). Drop it from the commit. Nothing was committed." >&2
-    exit 1
-  fi
+  case "$(manifest_policy "$path")" in
+    deploy)
+      echo "::error::Refusing to commit ${path}: it is built at deploy time and never committed (\"deploy\" in scripts/generated-files.txt; see .github/workflows/deploy-pages.yml). Drop it from the commit. Nothing was committed." >&2
+      exit 1
+      ;;
+    social)
+      echo "::error::Refusing to commit ${path}: a social post's pictures are rendered, never committed (\"social\" in scripts/generated-files.txt; see .github/workflows/social-pictures.yml and docs/DECISIONS.md D28). Commit the post's text only. Nothing was committed." >&2
+      exit 1
+      ;;
+  esac
 done
 
 git config user.name 'pricesniffs-bot'
@@ -102,6 +114,19 @@ fi
 if git diff --cached --quiet; then
   echo "Nothing changed."
   exit 0
+fi
+
+# A folder named above (social/posts, say) never stages a social picture on its
+# own, since they are gitignored; this catches one forced in some other way.
+social_staged=""
+while IFS= read -r staged_file; do
+  [ -n "$staged_file" ] || continue
+  if [ "$(manifest_policy "$staged_file")" = social ]; then social_staged="${social_staged} ${staged_file}"; fi
+done < <(git diff --cached --name-only --diff-filter=AMR)
+if [ -n "$social_staged" ]; then
+  git reset -q
+  echo "::error::Refusing to commit:${social_staged}. A social post's pictures are rendered, never committed (\"social\" in scripts/generated-files.txt). Nothing was committed." >&2
+  exit 1
 fi
 
 # ── GitHub's file size limit, checked before anything is committed ──────────

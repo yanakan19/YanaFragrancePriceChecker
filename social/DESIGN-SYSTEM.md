@@ -5,6 +5,12 @@ owner, a friend or Claude) looks like it came from the same place. The
 website's own design system is in `docs/DESIGN-SYSTEM.md`; this file is the
 social version of it and borrows its colours and its logo.
 
+**Pictures and videos are never committed** (from 8 October 2026,
+`docs/DECISIONS.md` D28). Every post script still draws its PNGs and MP4s in
+the post's folder, so look at them there as before, but git ignores them:
+commit the folder's text only (section 10). The owner gets the pictures from
+the Social pictures workflow, which draws them again from that text.
+
 ## 1. Colours
 
 There are two themes, built from the same four colours.
@@ -87,7 +93,8 @@ them, never stretch them, never put them on anything but the black.
 **Highlight covers** (`social/highlights/`, 1080 x 1080): the same build as
 the logo mark, one simple icon in a thick red outline with solid white shapes
 inside, on the black, about the logo's size and well inside the central circle
-Instagram crops to. Render with `npm run social:render -- social/highlights`.
+Instagram crops to. Render with `npm run social:render -- social/highlights`
+(the PNG is not committed; the SVG is the source).
 
 ## 4. Layouts
 
@@ -159,9 +166,11 @@ These rules apply to all post copy: the image text and the caption.
    only if the platform needs it).
 2. Replace the placeholder text. Keep to the line limits in section 2.
 3. Write `caption.txt` beside it and run the yanaaidetection check on it.
-4. Run `npm run social:render` to make the PNG beside the SVG.
-5. Run `npx vitest run tests/socialPosts.test.ts`.
-6. Look at the PNG, then commit the folder.
+4. Run `npm run social:render -- social/posts/YYYY-MM-DD-short-name` to make
+   the PNG beside the SVG. The first run also writes `pictures.json`.
+5. Run `npx vitest run tests/socialPosts.test.ts tests/socialPictures.test.ts`.
+6. Look at the PNG, then commit the folder (section 10: git leaves the PNG out
+   by itself).
 
 ## 7. Deal of the Day (automatic, every day at 12:00 UK)
 
@@ -171,7 +180,8 @@ routine does so first on every run.
 `npm run social:deal` makes the post in `social/posts/YYYY-MM-DD-deal-of-the-day/`:
 `post-9x16.png` (story, 1080 x 1920), `post-3x4.png` (feed, 1080 x 1440),
 `notes-3x4.png` (the scent profile, 1080 x 1440), their HTML sources,
-`caption.txt` and `check.json`.
+`caption.txt`, `check.json` and `pictures.json`. The PNGs are not committed
+(section 10).
 
 The two deal pictures have the same layout, top to bottom and centred. The 3:4 one is
 the same design set slightly denser (smaller type and gaps), never a
@@ -237,7 +247,9 @@ its caption.
 
 **Every run reports** the perfume, prices and saving, gives the product link
 as a plain https address in a copyable box for the story's link sticker, and
-gives the feed post caption in its own copyable box.
+gives the feed post caption in its own copyable box. Where it names the
+pictures, it gives the link to them as section 10 says (the paths alone no
+longer open anything on GitHub).
 
 ## 8. How much could you save? (automatic, two a day, made at 18:00 UK)
 
@@ -251,7 +263,8 @@ perfume. Post them a few hours apart. Each folder also holds the six
 
 Each is a six slide 3:4 feed post (a carousel) in the
 **standard black theme**, reel safe (section 4), in `social/posts/YYYY-MM-DD-savings/`: six
-`slide-N-3x4.png` with their HTML sources, `caption.txt` and `check.json`.
+`slide-N-3x4.png` with their HTML sources, `caption.txt`, `check.json` and
+`pictures.json`. The PNGs are not committed (section 10).
 
 1. "A real example: How much could you save?" with the product photo, name
    and brand
@@ -297,3 +310,48 @@ y 380 to 1460). The config is `scripts/social-video-template.ts`; the rules and
 how to make one are in `docs/SOCIAL-MEDIA-PLAN.md` section 9. Colours, type and
 the wording rules above apply to them unchanged. Deal of the Day videos use the
 standard black theme, informative videos the red one.
+
+## 10. Where the pictures go (from 8 October 2026)
+
+The owner said yes to D28 in `docs/DECISIONS.md`: a post's text is committed,
+its pictures and videos are not. They used to be most of what the repository
+grew by (26.5 MB in the tree on 8 October, 2 to 4 MB a day).
+
+* **What is committed:** the HTML or SVG every picture is drawn from,
+  `caption.txt`, `tiktok-caption.txt`, `check.json`, `source.md` and
+  `pictures.json` (which lists every picture, what it is drawn from, and the
+  size, length and fingerprint of the file as first made). Every post script
+  writes `pictures.json` itself.
+* **What is not:** `*.png`, `*.jpg`, `*.mp4` and the other picture types
+  under `social/`. They are gitignored and "social" in
+  `scripts/generated-files.txt`; `scripts/commit-and-push.sh` and
+  `tests/socialPictures.test.ts` refuse them.
+* **Committing a post:** stage the folder, `git add social/posts/<folder>`
+  (or `git add social/`), and git leaves the pictures out by itself. Never
+  name a picture file to `git add`, and never `git add -f` one.
+* **Looking at the pictures before committing:** they are drawn in the
+  post's folder as before; open them there.
+* **The owner's copy:** a push that changes a post folder starts the
+  **Social pictures** workflow
+  (`https://github.com/yanakan19/YanaFragrancePriceChecker/actions/workflows/social-pictures.yml`).
+  It draws the folder's pictures again from the committed text the same
+  way (its summary says, for each file, whether it came out identical to the
+  first) and keeps them as the run's artifact `social-pictures-<run number>` for 90 days: a
+  zip with `posts/<folder>/<file>`, the captions and an `index.html` to look
+  through. The run carries the commit's message and its summary lists the
+  folder. Nothing is published on the site. A routine's reply gives this link where it names the pictures, with
+  the file names inside the zip.
+* **Drawing them yourself:** `npm run social:render -- social/posts/<folder>`
+  draws a post's pictures beside its text and says whether each is identical
+  to the first one. `--out <dir>` writes them elsewhere with the captions
+  and an `index.html`.
+* **A past post:** the same command draws it again from its committed text.
+  For a post made before 8 October 2026, `--from-history` restores the
+  pictures exactly as committed then (git keeps them in its history). A video
+  is drawn from the current scripts, so for an exact copy of one whose
+  script has changed since, run the command in a checkout of the commit that
+  made the post. The 5 October hurry video was drawn from the live site and
+  can only be restored, not drawn again.
+* **A new kind of picture:** a new file type needs a "social" line in
+  `scripts/generated-files.txt` and a line in `.gitignore`; the renderers
+  refuse to write one that is not listed.

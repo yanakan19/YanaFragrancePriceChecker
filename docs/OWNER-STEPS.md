@@ -498,7 +498,64 @@ summer it misses commits made between midnight and 1am UK; and the "How much
 could you save?" routine's last run (3 October, 17:53 UK) failed after seven
 seconds with no reason given, worth one look.
 
-### 7d. The repository's size (done on 4 October; history rewritten 6 October)
+### 7d. The repository's size (done on 4 October; history rewritten 6 October; social pictures out of git 8 October)
+
+**Social pictures out of git, 8 October 2026 (your go ahead to D28, "only on
+command").** What changed:
+
+- Every post folder under `social/` keeps its text: the HTML or SVG each
+  picture is drawn from, the captions, `check.json`, `source.md` and a new
+  `pictures.json` (what each picture is drawn from, and the size, length and
+  fingerprint of the file as first made). The 134 pictures and videos
+  (129 PNGs, 17.5 MB; 5 MP4s, 9.0 MB) left the tree with `git rm --cached`:
+  **26.6 MB less in every checkout**, and each new post adds a few kB of text
+  instead of 0.6 to 2.9 MB. History was not rewritten: every picture committed
+  before today is still in it.
+- PNG, JPG, MP4 and the other picture types under `social/` are gitignored
+  and "social" in `scripts/generated-files.txt`; `scripts/commit-and-push.sh`
+  and the tests refuse them. The site never shows them: nothing is published.
+- A push that changes a post starts the **Social pictures** workflow
+  (`.github/workflows/social-pictures.yml`). It draws that post's pictures
+  again from the committed text and keeps them as a private download for 90
+  days. Drawn again on 8 October on a checkout without them, explainer
+  slides, a Deal of the Day post, a savings post, a Deal of the Day video and
+  both informative videos came out byte for byte identical to the committed
+  files.
+
+**How you get the pictures now** (instead of opening them on GitHub):
+
+1. Open
+   `https://github.com/yanakan19/YanaFragrancePriceChecker/actions/workflows/social-pictures.yml`,
+   signed in (on a phone, in the browser rather than the GitHub app).
+2. Tap the run that started just after the routine finished (it carries the
+   commit's message; its summary lists the post's folder).
+3. Under **Artifacts**, tap `social-pictures-<number>`: a zip with
+   `posts/<folder>/` (pictures and captions) and `index.html`, which shows
+   them all on one page.
+
+**A past post:** in the same workflow, **Run workflow**, type the folder name
+(for example `2026-10-04-savings`, or `all`), and tick "Restore the files as
+first committed" for a post made before 8 October to get the exact originals.
+On a computer: `npm run social:render -- social/posts/<folder>` (add
+`--from-history` for the originals). Full details:
+`docs/SOCIAL-MEDIA-PLAN.md` section 10.
+
+**What is yours to do:**
+
+- **Nothing, for the routines to keep working.** The Deal of the Day and
+  "How much could you save?" routines read `social/DESIGN-SYSTEM.md` first
+  and it wins over their prompts; its new section 10 tells them to commit
+  the folder (git leaves the pictures out) and to give you the workflow's
+  link. They still draw the pictures and look at them before committing. The
+  end of day update routine never touched the pictures.
+- **Optional, 2 minutes:** in those two routines' prompts, in the reply
+  step, after "the path of `post-9x16.png`" (Deal of the Day) and "the six
+  3:4 PNG paths" (savings), add: "These files are not committed: give the
+  link https://github.com/yanakan19/YanaFragrancePriceChecker/actions/workflows/social-pictures.yml
+  where I download them (social/DESIGN-SYSTEM.md section 10)." And in the
+  commit step: "Stage the folder, never a PNG by name."
+- The first download needs you signed in to GitHub. After 90 days a run's
+  download expires; run the workflow by hand to make it again.
 
 **History rewritten, 6 October 2026 (owner's explicit, one off exception to
 "never force push").** What was done, in order:
@@ -710,6 +767,10 @@ and publish them at `pricesniffs.space/social/<post folder>/` for two weeks,
 so you open them on your phone as you do on GitHub today. Say "do the social
 images" and an agent will build that and change the routines' instructions
 (`social/DESIGN-SYSTEM.md`); the posts already committed stay as they are.
+
+*Done, 8 October:* you said yes; built as described at the top of this
+section, with one change: the pictures are a private download from the
+workflow, not a page on pricesniffs.space.
 
 ---
 

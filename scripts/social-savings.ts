@@ -36,6 +36,7 @@ import { wholePercentDown } from '../src/services/money.js';
 import { BOT_USER_AGENT } from '../src/catalogue/botIdentity.js';
 import { launchChromium } from './a11y-audit.js';
 import { renderSmooth, tiktokCaption } from './socialRender.js';
+import { recordPictures } from './socialPictures.js';
 import { H, H_TIKTOK, MARK, THEMES, W, slide, tiktokSlide } from './socialSlides.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -327,6 +328,8 @@ async function main() {
     cheap: { shop: e.cheap.retailer.name, item: e.cheap.itemPriceGbp, delivery: e.cheap.delivery.costGbp, total: e.cheap.deliveredPriceGbp, hoursOld: age(e.cheap), link: e.cheap.outboundUrl, live: checks.cheapLive },
     skipped,
   }, null, 2) + '\n');
+  // The PNGs are not committed (docs/DECISIONS.md D28): pictures.json says what each is drawn from.
+  recordPictures(dir);
   if (!opt('--out')) {
     writeFileSync(HISTORY, JSON.stringify([...history.filter((h) => !sameSlot(h)), { date: today, slot, id: e.frag.id, dear: e.dear.retailer.id, cheap: e.cheap.retailer.id }], null, 2) + '\n');
   }

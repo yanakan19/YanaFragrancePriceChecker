@@ -4,7 +4,7 @@
 # and commits. Sourced by scripts/commit-and-push.sh, and runnable on its own:
 #
 #   scripts/generated-files.sh paths rebuild     # the rebuild paths, space separated
-#   scripts/generated-files.sh classify <path>   # rebuild | incoming | manual | deploy | none
+#   scripts/generated-files.sh classify <path>   # rebuild | incoming | manual | deploy | social | source | none
 #
 # The workflows' "commit the rebuilt app" steps call the first form, so a new
 # generated file is committed by adding one line to the manifest, and never by
@@ -65,7 +65,7 @@ if [ "${BASH_SOURCE[0]}" = "$0" ]; then
   set -euo pipefail
   case "${1:-}" in
     paths)
-      [ "$#" -eq 2 ] || { echo "usage: $0 paths <rebuild|incoming|manual|deploy>" >&2; exit 2; }
+      [ "$#" -eq 2 ] || { echo "usage: $0 paths <rebuild|incoming|manual|deploy|social>" >&2; exit 2; }
       manifest_entries > /dev/null
       manifest_paths "$2"
       ;;

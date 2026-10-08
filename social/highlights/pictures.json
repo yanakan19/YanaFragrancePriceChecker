@@ -1,0 +1,14 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/highlights . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "deals-cover.png",
+      "make": "svg",
+      "from": "deals-cover.svg",
+      "width": 1080,
+      "height": 1080,
+      "bytes": 50323,
+      "sha256": "a26ef588dc9d45d0e1501eb67a636a4f8e2a0127dffa155a026975ab560096b5"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/posts/2026-10-04-deal-of-the-day . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "notes-3x4.png",
+      "make": "html",
+      "from": "notes-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 158277,
+      "sha256": "90c227f6b364e22595736aa749bd287157fe6896c894aaf38b98d7983369d533"
+    },
+    {
+      "file": "post-3x4.png",
+      "make": "html",
+      "from": "post-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 196256,
+      "sha256": "5ab9fbbb4500590461a2ea59fc077f13903f4d6bb0d770804c8d6460827c4b1e"
+    },
+    {
+      "file": "post-9x16.png",
+      "make": "html",
+      "from": "post-9x16.html",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 228519,
+      "sha256": "0902194e217af1ddb01f002cb4eb43851c284680a567d113e09c7309aae8cbf4"
+    }
+  ]
+}

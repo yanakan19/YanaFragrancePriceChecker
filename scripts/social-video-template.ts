@@ -365,6 +365,49 @@ function dealCss(): string {
   .savepill { padding: 14px 44px; border-radius: 999px; background: #FF3B41; color: #FFFFFF; font-size: 56px; font-weight: 700; letter-spacing: 1px; }`;
 }
 
+/** "Thursday, 8 October 2026" for a YYYY-MM-DD day: the date a Deal of the Day video shows. */
+export const dayLabel = (day: string) =>
+  new Date(`${day}T12:00:00Z`).toLocaleDateString('en-GB', { timeZone: 'Europe/London', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+
+/** "02:23 UK, 8 Oct 2026": when the price was checked, as the video shows it. */
+export const checkedLabel = (at: Date) =>
+  `${at.toLocaleTimeString('en-GB', { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit' })} UK, ${at.toLocaleDateString('en-GB', { timeZone: 'Europe/London', day: 'numeric', month: 'short', year: 'numeric' })}`;
+
+/** The figures of a deal video as its check.json records them (scripts/social-video-deal.ts). */
+export interface DealVideoRecord {
+  /** The name as shown, size included ("Molecule 05 100ml"). */
+  name: string;
+  brand: string;
+  shop: string;
+  delivered: number;
+  msrp: number;
+  percent: number;
+  pricesCheckedAt: string;
+  photo: string;
+  /** The day the video shows (YYYY-MM-DD); recorded from 9 October 2026, read from source.md before. */
+  date?: string;
+}
+
+/**
+ * A deal video's data rebuilt from its check.json, so the video can be drawn
+ * again from the committed text alone (docs/DECISIONS.md D28). The name is
+ * recorded with its size, which dealScenes shows the same way.
+ */
+export function dealVideoFromRecord(r: DealVideoRecord, day: string, photo: string): DealVideoData {
+  return {
+    name: r.name,
+    sizeMl: null,
+    brand: r.brand,
+    photo,
+    shop: r.shop,
+    delivered: r.delivered,
+    msrp: r.msrp,
+    percent: r.percent,
+    dateLabel: dayLabel(day),
+    checked: checkedLabel(new Date(r.pricesCheckedAt)),
+  };
+}
+
 /** The scenes of a Deal of the Day video. Every figure comes from the caller, never from here. */
 export function dealScenes(d: DealVideoData): { id: string; html: string }[] {
   const name = undash(`${d.name}${d.sizeMl ? ` ${d.sizeMl}ml` : ''}`);

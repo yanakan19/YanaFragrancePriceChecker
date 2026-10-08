@@ -25,6 +25,7 @@ import { join } from 'node:path';
 import type { Browser } from 'playwright';
 import { launchChromium } from './a11y-audit.js';
 import { BRAND_FONT_CSS, FIT_SCRIPT } from './socialRender.js';
+import { assertPicturePath } from './socialPictures.js';
 import {
   VIDEO_TEMPLATE,
   buildTimeline,
@@ -178,6 +179,8 @@ export async function layoutProblems(browser: Browser, spec: VideoSpec, scenes: 
 }
 
 export async function renderVideo(job: RenderJob): Promise<RenderReport> {
+  // A video under social/ is never committed (docs/DECISIONS.md D28): its type must be "social" in the manifest.
+  assertPicturePath(join(job.outDir, job.file));
   const tpl = VIDEO_TEMPLATE;
   const log = job.log ?? ((l: string) => console.log(l));
   const tl = buildTimeline(job.spec, tpl);
