@@ -1,19 +1,19 @@
 {
-  "startedAt": "2026-10-08T03:57:44.105Z",
-  "finishedAt": "2026-10-08T04:06:13.861Z",
+  "startedAt": "2026-10-08T04:47:59.866Z",
+  "finishedAt": "2026-10-08T04:55:21.194Z",
   "complete": true,
   "endedReason": "swept-every-shop",
   "planned": [
-    "fenwick"
+    "liberty-london"
   ],
   "notReached": [],
   "shops": [
     {
-      "retailerId": "fenwick",
-      "name": "Fenwick",
-      "urlsDiscovered": 1054,
+      "retailerId": "liberty-london",
+      "name": "Liberty London",
+      "urlsDiscovered": 1663,
       "pagesFetched": 100,
-      "priced": 1054,
+      "priced": 100,
       "tier": "free",
       "renderer": null,
       "errorCount": 0,
@@ -24,15 +24,15 @@
         "due": 0,
         "gone": 0
       },
-      "finishedAt": "2026-10-08T04:06:13.830Z"
+      "finishedAt": "2026-10-08T04:55:21.187Z"
     }
   ],
   "freshness": {
-    "fenwick": {
-      "shown": 1054,
+    "liberty-london": {
+      "shown": 100,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-10-08T03:57:43.385Z",
+      "oldestShownAt": "2026-10-08T04:47:59.132Z",
       "answered": true
     }
   }
