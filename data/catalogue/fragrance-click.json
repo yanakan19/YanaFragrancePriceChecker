@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrance-click",
-  "updatedAt": "2026-10-07T21:26:28.127Z",
-  "seenAt": "2026-10-07T21:26:28.127Z",
+  "updatedAt": "2026-10-08T06:00:38.685Z",
+  "seenAt": "2026-10-08T06:00:38.685Z",
   "source": "live",
   "listings": [
     {
@@ -13799,28 +13799,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "8435137737819",
-      "url": "https://www.awin1.com/pclick.php?p=45201368664&a=3026001&m=124166",
-      "merchantUrl": "https://www.fragranceclick.co.uk/prada-luna-rossa-sport-100ml-eau-de-toilette.html",
-      "rawTitle": "Prada Luna Rossa Sport 100ml Eau de Toilette",
-      "rawBrand": "Prada",
-      "ean": "8435137737819",
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273544962.png",
-      "priceGbp": 59.95,
-      "wasPriceGbp": 97,
-      "promoEndsAt": null,
-      "inStock": false,
-      "sectionId": "awin-feed",
-      "description": "Prada's take on a elegant fragrance delivers here. Prada Luna Rossa Sport blends floral notes with feminine undertones in this 100ml eau de toilette.You'll catch Bergamot, Citrus straight away before Jasmine, Rose emerge in the heart. It finishes with Vanilla, Musk, which is where the fragrance really finds its character and sticks around.Whether you're wearing this to work or out for dinner, it adapts fairly well. The 100ml size means you're covered for a while, and the eau de toilette format delivers enough presence without filling a room.Scent Profile:Opening - Bergamot, Citrus, Fresh floralsHeart - Jasmine, Rose, Floral bouquetDry Down - Vanilla, Musk, Woody notes",
-      "retailerId": "fragrance-click",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "3605973048270",
       "url": "https://www.awin1.com/pclick.php?p=46173889297&a=3026001&m=124166",
       "merchantUrl": "https://www.fragranceclick.co.uk/ralph-lauren-polo-big-pony-2-100ml-eau-de-toilette.html",
@@ -16537,7 +16515,7 @@
       "priceGbp": 28.95,
       "wasPriceGbp": 78,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "awin-feed",
       "description": "#html-body [data-pb-style=U2HXFM6]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}Hugo Boss Deep Red Eau de Parfum is a warm, spice-laced oriental wrapped in juicy fruits and lush florals. Bold, feminine and unapologetically sensual.\n Blackcurrant, mandarin and blood orange open with a burst of rich, fruity energy, softened by a touch of sweet pear. The heart deepens with freesia, tuberose and hibiscus, given an edge by a punchy ginger note that lifts the whole composition. Warm wood, vanilla and musk form a smooth, enveloping base that settles into a long-lasting, inviting trail.\n A fragrance that comes into its own after dark, Deep Red is well suited to evenings out and occasions that call for something with presence. The 75ml EDP delivers strong projection and lasting wear. Cruelty free.",
       "retailerId": "fragrance-click",
@@ -18944,6 +18922,29 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "8435137737819",
+      "url": "https://www.awin1.com/pclick.php?p=45201368664&a=3026001&m=124166",
+      "merchantUrl": "https://www.fragranceclick.co.uk/prada-luna-rossa-sport-100ml-eau-de-toilette.html",
+      "rawTitle": "Prada Luna Rossa Sport 100ml Eau de Toilette",
+      "rawBrand": "Prada",
+      "ean": "8435137737819",
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273544962.png",
+      "priceGbp": 59.95,
+      "wasPriceGbp": 97,
+      "promoEndsAt": null,
+      "inStock": false,
+      "sectionId": "awin-feed",
+      "description": "Prada's take on a elegant fragrance delivers here. Prada Luna Rossa Sport blends floral notes with feminine undertones in this 100ml eau de toilette.You'll catch Bergamot, Citrus straight away before Jasmine, Rose emerge in the heart. It finishes with Vanilla, Musk, which is where the fragrance really finds its character and sticks around.Whether you're wearing this to work or out for dinner, it adapts fairly well. The 100ml size means you're covered for a while, and the eau de toilette format delivers enough presence without filling a room.Scent Profile:Opening - Bergamot, Citrus, Fresh floralsHeart - Jasmine, Rose, Floral bouquetDry Down - Vanilla, Musk, Woody notes",
+      "retailerId": "fragrance-click",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "lastSeenAt": "2026-10-07T21:26:28.127Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-08T06:00:38.685Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
       "variantId": null
     },
     {

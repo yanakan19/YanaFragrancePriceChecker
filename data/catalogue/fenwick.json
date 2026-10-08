@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-08T03:57:43.385Z",
-  "seenAt": "2026-10-08T03:57:43.385Z",
+  "updatedAt": "2026-10-08T06:03:30.337Z",
+  "seenAt": "2026-10-08T06:03:30.337Z",
   "source": "live",
   "listings": [
     {
@@ -14780,7 +14780,7 @@
       "priceGbp": 160.8,
       "wasPriceGbp": 201,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Acqua di Parma’s Colonia Eau de Cologne is a timeless Italian classic. Citrus top notes of lemon and orange blend with lavender and rosemary for a fresh, elegant finish..",
       "productType": "Unisex Fragrance",
@@ -15010,7 +15010,7 @@
       "priceGbp": 89.6,
       "wasPriceGbp": 112,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Givenchy L'Interdit Parfum is a floral woody fragrance that highlights a signature white flower bouquet. It features bitter almond, orange blossom, tuberose, jasmine, and mimosa, balanced with vetiver, patchouli, and warm balsam notes. The perfume comes in a sleek black bottle with gold accents, combining elegance with a modern design. This scent offers a sophisticated and inviting experience. .",
       "productType": "Unisex Fragrance",
@@ -17103,7 +17103,7 @@
       "priceGbp": 150.4,
       "wasPriceGbp": 188,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The Lost Cherry Eau de Parfum by Tom Ford layers black cherry and bitter almond with warm tonka and balsam. Lush, textured and irresistible, it captures a duality of sweetness and depth in signature Tom Ford style..",
       "productType": "Women's Fragrances",
