@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-08T06:50:44.899Z",
+  "checkedAt": "2026-10-08T07:57:28.433Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -138,13 +138,17 @@
     {
       "houseId": "lattafa",
       "name": "Lattafa",
-      "origin": "https://lattafa.com",
+      "origin": "https://www.lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 60,
+      "listings": 1,
       "pricedInGbp": 0,
-      "withPhoto": 59,
-      "errors": [],
+      "withPhoto": 1,
+      "errors": [
+        "https://lattafa.com did not answer; used https://www.lattafa.com instead",
+        "https://www.lattafa.com/products.json?limit=250&page=1: HTTP 0 AbortError: This operation was aborted",
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
