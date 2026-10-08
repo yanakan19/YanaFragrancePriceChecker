@@ -1,7 +1,7 @@
 {
   "retailerId": "al-haramain",
-  "updatedAt": "2026-10-08T09:44:18.320Z",
-  "seenAt": "2026-10-08T09:44:18.320Z",
+  "updatedAt": "2026-10-08T13:57:01.776Z",
+  "seenAt": "2026-10-08T13:57:01.776Z",
   "source": "live",
   "listings": [
     {
@@ -612,7 +612,7 @@
       "priceGbp": 3.5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The best-selling 15ml perfume, Madinah, is now available as a deodorant. A gentle and fresh fragrance that masterfully blends some of the most intriguing floral essences. A fragrance for all genders. Scent from above! The feeling of inner peace is palpable. The deep satisfaction with the day gone by is comforting, and the hopes you hold for tomorrow seem like rays of the rising sun themselves. Bringing with it the gift of peace and a promise for tomorrow, it is ironic that the illuminating fragrance of Haramain Madinah is a promised gift in itself.. Fragrance notes: . Top note:. -Rose, Geranium, Davana Blossoms, Bergamot, Orange . Middle note:. -Rose, Jasmine, Orchid, Clove, Saffron, Sandalwood, Cedar wood . Base note:. -Floral, Musk, Amber, Sandalwood, Cedar wood, Cashmere wood, Fruity.",
       "productType": "DEODORANT",
