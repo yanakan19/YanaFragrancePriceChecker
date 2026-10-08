@@ -256,3 +256,36 @@ Apify account exists in this environment, request-building and budget
 gating are unit tested against a fake transport
 (`tests/apifyActor.test.ts`, `tests/attempt.test.ts`), and the first real
 run with `APIFY_TOKEN` set is the verification step, not this document.
+
+## Switched-off shops: diagnosis, 8 October 2026
+
+Measured in `docs/SHOP-PROBES-2026-10-08.md` (exact error lines there), and
+diagnosed one shop at a time under the rules above: PriceSniffsBot only,
+robots.txt obeyed, no proxy, fingerprint, captcha or challenge worked round.
+What holds for all of them:
+
+- **The Apify tiers stay off** (D23). Where they once worked (the actor on
+  Selfridges and Zara in August) they worked by rendering as a visitor from a
+  residential address, which is the way round a refusal this project no
+  longer takes. `allow_metered` is accepted and does nothing.
+- **The free local render is never tried after a refusal**, so it cannot help
+  a shop that refuses robots.txt or its sitemap.
+- **Our side, fixed:** the one shop probe (`harvest-one-shop.yml`) did not
+  install Chromium, so it could not show the render tier the crawl has. It
+  now installs it as the crawl does. No refused shop changes because of it.
+- **Our side, open:** only an Awin feed reader exists. A shop whose programme
+  is on Rakuten Advertising (The Fragrance Shop) needs a Rakuten Product
+  Catalog reader once a programme approves us.
+
+### The Fragrance Shop
+
+- **Blocker:** Cloudflare managed challenge (HTTP 403, `cf-mitigated:
+  challenge`) on robots.txt, the three sections and the sitemap; HTTP 403 on
+  the sitemap from a GitHub runner. Zone wide, robots.txt included.
+- **Our side:** nothing that reaches past it. Identity, URLs and timeouts are
+  not the cause; no markup is served, so no parser or adapter can help.
+- **Lawful route:** Rakuten Advertising, The Fragrance Shop, advertiser ID
+  43488, with a daily product feed (the shop's own affiliates page, read
+  through a search engine extract). Awin closed, Webgains closing.
+- **Recommendation:** off. Owner applies on Rakuten
+  (`docs/outreach/the-fragrance-shop.md`); then build the Rakuten feed reader.

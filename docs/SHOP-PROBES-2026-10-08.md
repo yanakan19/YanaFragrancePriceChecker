@@ -806,3 +806,57 @@ used. Metered tiers off. Listings parsed: 0. Bytes: not logged.
 - Local requests went through the session proxy, which presented several
   addresses of one range (the three Riiffs captcha URLs carried three different
   ones). A different network, region or time of day was not tried.
+
+## Diagnosis
+
+Added 2026-10-08, one shop at a time in the order below, after the
+measurements above. Each answers: why it is not possible, whether any part is
+our side and fixable, what lawful route exists, and what to do. Rules as above
+(PriceSniffsBot only, robots.txt obeyed, nothing worked round). The Apify
+tiers are off by owner decision (docs/DECISIONS.md D23, `METERED_TIERS_ENABLED
+= false`), so `allow_metered` does nothing; where they once got through, they
+did it by rendering as a visitor from a residential address, which is exactly
+what D23 and these rules exclude. The free local render is never tried after
+a refusal.
+
+### 1. The Fragrance Shop
+
+- **Why not:** Cloudflare managed challenge. HTTP 403 with `cf-mitigated:
+  challenge` and the "Just a moment..." page on robots.txt, all three sections
+  and /sitemap.xml from this machine; HTTP 403 on /sitemap.xml from the CI
+  runner (run #66). Because robots.txt itself is challenged, the rule covers
+  the whole zone, not one path.
+- **Our side?** Checked, and nothing reaches past it:
+  - URL or section: not the cause; robots.txt, which has no section, is
+    challenged the same way.
+  - User agent: PriceSniffsBot, as required. Changing it would be
+    impersonation.
+  - Timeout: no; every answer came back in under a second.
+  - Parser or adapter: no markup was served, so there is nothing to parse.
+  - Render tier: never tried after a refusal; six local renders on
+    2026-08-25/26 were 403 at 27,487 to 27,573 bytes (`renderRefused:
+    'local'`).
+  - Apify proxy and actor: never run against this shop; off by D23, and here
+    they could only work round the challenge.
+  - Workflow: `harvest-one-shop.yml` did not install Chromium (found above).
+    **Fixed in this commit**: it now installs it as `catalogue-daily.yml`
+    does, pinned to the same `ubuntu-24.04` image. That makes the probe
+    representative of the crawl; it does not change this shop's answer.
+  - Missing reader: only an Awin feed reader exists
+    (`scripts/awin-feed-sync.ts`); a Rakuten one would be needed (below).
+- **Lawful route:** Rakuten Advertising. The shop's own affiliates page
+  (`https://www.thefragranceshop.co.uk/affiliates`, read through a search
+  engine extract on 2026-10-08, since the domain refuses us) says to join
+  Rakuten and apply to "The Fragrance Shop", **advertiser ID 43488**, and
+  offers "a fully automated daily product feed". Aggregator listings (affi.io)
+  show its Awin programme closed and its Webgains programme closing. Rakuten's
+  Product Catalog feed comes by SFTP as XML or pipe delimited text after both
+  Rakuten and the advertiser approve. A secondary, project wide option:
+  Cloudflare's Verified Bots programme (identification by Web Bot Auth
+  signature or IP list, robots.txt obeyed, applied for in a Cloudflare
+  dashboard); whether a verified bot passes depends on each shop's own rules.
+- **Recommendation:** stays off. Registry `affiliate` now records Rakuten,
+  `not-applied`, `verified: false` (not yet seen on Rakuten's own listing).
+  Owner applies to programme 43488 and asks for feed access; on approval an
+  agent builds the Rakuten reader and sets `adapter: 'affiliate-feed'`.
+  Permission email kept as the fallback (`docs/outreach/the-fragrance-shop.md`).

@@ -973,7 +973,48 @@ export const RETAILERS: readonly Retailer[] = [
     // browser headers, no residential or rotating proxy (only this
     // sandbox's own fixed egress), nothing retried against a refusal. See
     // docs/outreach/ for the permission request drafted for the owner.
-    affiliate: { ...NO_AFFILIATE_YET },
+    //
+    // ── Diagnosis, 2026-10-08 (docs/SHOP-PROBES-2026-10-08.md) ──────────────
+    // Blocker: a Cloudflare managed challenge (HTTP 403, `cf-mitigated:
+    // challenge`, "Just a moment...") on robots.txt, all three sections and
+    // /sitemap.xml from the sandbox, and HTTP 403 on /sitemap.xml from a
+    // GitHub runner (probe run #66, job 113116117730). robots.txt itself is
+    // challenged, so this is a zone wide bot rule, not a path rule, and no
+    // section URL, parser or adapter change on our side can reach past it.
+    // Our side, checked: identity is PriceSniffsBot as required; the answer
+    // came in under a second (no timeout); no markup was served, so no parser
+    // gap; the free local render is never tried after a refusal (and six
+    // renders on 2026-08-25/26 were 403s, hence `renderRefused: 'local'`);
+    // the Apify tiers never ran here and stay off (D23), and would only be a
+    // way round the challenge. The one shop probe workflow did not install
+    // Chromium; fixed 2026-10-08, but it changes nothing for a refused shop.
+    // Lawful route: Rakuten Advertising. The shop's own affiliates page
+    // (https://www.thefragranceshop.co.uk/affiliates, read through a search
+    // engine extract on 2026-10-08 because the domain refuses us) asks
+    // affiliates to join Rakuten and search "The Fragrance Shop" or advertiser
+    // ID 43488, and offers a daily product feed. Aggregator listings show its
+    // Awin programme closed and its Webgains programme closing. Not yet
+    // confirmed on Rakuten's own advertiser listing, hence `verified: false`.
+    // No Rakuten feed reader exists yet (scripts/awin-feed-sync.ts is Awin
+    // only): on approval, build one for Rakuten's Product Catalog feed (SFTP,
+    // XML or pipe delimited) and set `adapter: 'affiliate-feed'`.
+    // Recommendation: stays off. Owner applies to Rakuten programme 43488 and
+    // asks for product feed access; the permission email in
+    // docs/outreach/the-fragrance-shop.md is the fallback.
+    affiliate: {
+      network: 'rakuten',
+      verified: false,
+      status: 'not-applied',
+      publisherId: null,
+      deeplinkTemplate: null,
+      querySuffixTemplate: null,
+      signupUrl: 'https://www.thefragranceshop.co.uk/affiliates',
+      notes:
+        'Read 2026-10-08 from a search engine extract of the shop\'s own affiliates page: ' +
+        '"Sign up here for free to our affiliate network on Rakuten ... Search for The Fragrance ' +
+        'Shop or use our ID: 43488". The same page offers a daily product feed. Awin listing ' +
+        'shown closed by an aggregator. Not yet checked against Rakuten\'s own advertiser listing.',
+    },
   },
   {
     id: 'the-perfume-shop',
