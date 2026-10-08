@@ -6540,17 +6540,78 @@ export const RETAILERS: readonly Retailer[] = [
     // which the harvest cannot hold. The same JSON-LD also capitalises its keys
     // ('Offers', 'Brand', 'SKU'), so parseListings found the product but no
     // price. Blockers: not sterling to this tooling, and a parser gap.
+    //
+    // ── Measured again 2026-10-08: sterling through the shop's own setting ──────
+    //
+    // As PriceSniffsBot, plain fetch. robots.txt HTTP 200 (1,353 bytes): for
+    // "*" Crawl-delay 2 and Request-rate 1/2s (honoured: the gap below is 2 s),
+    // Disallow /products/, /sale/, /new/, /search/, /checkout/, /basket and a
+    // few more; product pages (/women-c2/...-p50853) and /sitemap-index.xml
+    // are permitted. The index names 131 sitemaps, written that day; ten of
+    // them are product sitemaps, 1,804 product addresses in all, 686 of them
+    // naming a strength or a gift set in women-c2, men-c11 or arabic-c1324.
+    //
+    // Currency: the shop picks a visitor's currency from where it thinks they
+    // are (a request from a US address gets `Set-Cookie: VSCurrency=USD`), and
+    // its own currency menu link /currency/GBP/ only sets VSCurrency=GBP. Sent
+    // that cookie, the Sabrina Carpenter Caramel Dream 75ml EDP page (668,893
+    // bytes) shows GBP as the active currency and its JSON-LD says
+    // priceCurrency GBP, price 25.00. The route sends the cookie (a stated
+    // currency, which botIdentity.ts counts as honest) and keeps a price only
+    // where the page names GBP for it (requireGbp), so a page that ignores the
+    // cookie yields nothing rather than dollars. The capitalised keys are now
+    // read (canonicalKeys in src/catalogue/jsonld.ts).
+    // Delivery read off https://www.scentsational.com/delivery-returns-i5 the
+    // same day: standard UK delivery 2-5 working days, £2.95 under £80, free
+    // over £80.
     enabled: false,
-    adapter: 'unknown',
+    adapter: 'json-ld',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
-      confidence: 'unverified',
-      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+      standardGbp: 2.95,
+      freeOverGbp: 80,
+      estimatedDays: [2, 5],
+      verifiedAt: '2026-10-08',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.scentsational.com/delivery-returns-i5',
+        quote: 'Orders under £80 incur a standard delivery charge of £2.95. Orders over £80 qualify for free standard delivery.',
+        readAt: '2026-10-08',
+      },
+      notes:
+        'Standard UK delivery, 2-5 working days. DPD next working day (£4.95) and Saturday (£6.95) ' +
+        'are other services and are not modelled. The Caramel Dream 75ml product page (£25.00) ' +
+        'labelled itself "FREE UK Delivery" the same day, which the delivery page does not say ' +
+        'for an order under £80; the delivery page is the figure used until a basket check settles it.',
     },
+    sitemapRoute: {
+      roots: ['https://www.scentsational.com/sitemap-index.xml'],
+      // The product sitemaps only, not the tag, brand, category or page ones.
+      follow: '/sitemap-products_[a-z0-9-]+\\.xml$',
+      // The index and its ten product sitemaps.
+      maxSitemaps: 12,
+      // A product page in the women's, men's or Arabic range whose address
+      // names a strength (EDP, EDT, EDC, eau de, parfum, cologne, extrait,
+      // attar) or a gift set. Hair, skin, make up and the men's grooming range
+      // (mens-c1213) are never asked for.
+      product:
+        '^https://www\\.scentsational\\.com/(?:women-c2|men-c11|arabic-c1324)/(?:(?:perfumes|fragrances|gift-sets)-c\\d+/)?' +
+        '(?=[a-z0-9-]*(?:edp|edt|edc|eau-de|parfum|cologne|perfume|extrait|attar|gift-set|giftset))[a-z0-9-]+-p\\d+$',
+      // Deodorants and mists that name a perfume, never a perfume themselves.
+      // Gift sets that hold a body lotion or shower gel beside the perfume
+      // are kept.
+      exclude: '(^|[/-])(perfumed-deodorant|deodorant-body-spray|body-mist|hair-mist|hair-perfume|candles?)(-|/|$)',
+      cookie: 'VSCurrency=GBP',
+      requireGbp: true,
+      // About 690 product pages to read once, each about 650 KB.
+      discoveryPages: 100,
+    },
+    // No catalogue sections on purpose. They exist for the render tier, which
+    // renders a section page as PriceSniffsBot without this route's currency
+    // cookie, so it would be quoted dollars, and reads a rendered page without
+    // requireGbp. The route above is the only way in. The request gap is the
+    // shop's own Crawl-delay of 2 s (the harvest takes the larger of that and
+    // its 1.5 s default).
     catalogue: null,
     affiliate: { ...awinRequested() },
   },
