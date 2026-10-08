@@ -19,6 +19,7 @@ import { join, resolve } from 'node:path';
 import { BOT_USER_AGENT } from '../src/catalogue/botIdentity.js';
 import { launchChromium } from './a11y-audit.js';
 import { renderSmooth } from './socialRender.js';
+import { recordPictures } from './socialPictures.js';
 import { H, H_TIKTOK, MARK, W, slide, tiktokSlide } from './socialSlides.js';
 import { resizedPhotoUrl } from '../demo/photo.js';
 
@@ -152,6 +153,7 @@ We show the total with delivery before you click, for more than 30 UK shops. Pri
   }
   await browser.close();
   writeFileSync(join(DIR, 'caption.txt'), caption);
+  recordPictures(DIR); // the PNGs are not committed (docs/DECISIONS.md D28)
   console.log(`saving ${gbp(saving)} (${percent}%), year ${gbp(year)}`);
 }
 

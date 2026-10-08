@@ -35,7 +35,11 @@ export const CHANGELOG: ChangelogEntry[] = [
     groups: [
       {
         heading: 'New',
-        points: ['Six new shops: Fenwick, Opulensi, Perfumoi', 'Also Saad, Sainte Cellier, The Perfume Closet'],
+        points: [
+          'Ten new shops: Fenwick, Liberty, Opulensi',
+          'Also Perfumoi, PerfumeUK, Direct Cosmetics',
+          'And Saad, Sainte Cellier, Perfume Closet, Rasasi',
+        ],
       },
     ],
   },

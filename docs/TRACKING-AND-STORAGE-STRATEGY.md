@@ -72,7 +72,7 @@ out of git. This document does not repeat that work; it measures what is left.
 | Merged id memory (append only) | `data/id-aliases.json` | 0.77 MB | 0.19 MB in the week | each rebuild, only adds | Same rule |
 | Houses (brand own shops) | `data/houses/*.json` | 5.7 MB | 1.2 MB in the week | each sweep | |
 | Reports | `data/image-box-verdicts.json` 8.3 MB, `data/fragrantica-link-audit.json` 8.1, `data/image-link-report.json` 5.7, `data/fragrance-links.json` 3.0, smaller ones | 26 MB together | about 1.3 MB in the week | daily or by hand | Small growth: deltas work |
-| Social posts with rendered images | `social/` | 20.3 MB | 21.1 MB in the week | the owner's social routines | Largest single item; owner decision 2 in OWNER-STEPS 7d |
+| Social posts with rendered images | `social/` | 20.3 MB (28.0 MB on 8 Oct, 1.5 MB after item 8) | 21.1 MB in the week | the owner's social routines | Item 8, done 8 Oct: the pictures are drawn, not committed (D28) |
 | Old page files (not committed since 4 Oct) | history only | about 255 MB of the pack (OWNER-STEPS 7d) | 91.2 MB in the week, almost all before 4 Oct; 4.2 MB still arrived on 5 Oct through older side branches | none now | Only a history rewrite removes them |
 | Code, tests, docs | | | 1.9 MB in the week | | |
 
@@ -276,7 +276,7 @@ account or SQL only the owner can run.
 | 5 | Checkpoint without its copy of the history (version 3): it keeps the series' ids in the replay's order and the hash of the history, and reads the series back from `demo/priceHistory.generated.ts`, taking off the points of the commits since | Medium | Measured: 15.9 → 5.0 MB of checkout; the nine rewrites of 5 and 6 October pack to 1.23 MB instead of 2.58 MB, so about 0.8 MB a day less | Low: only an exact hash match is resumed, anything else replays from the first commit; version 2 is still read and still written when the generated file cannot give the history back | Without the owner | **Done** 2026-10-06; see "Item 5" below |
 | 6 | "Last seen" once per shop run, not per listing (snapshots), and per shop in the generated catalogue | Medium to large: the harvest writer, every reader, the replay over old commits | The largest crawl saving: most of R1 and R2, estimate 3 to 5 MB a day | Medium: freshness, the 7 day rule and offer ages all read it; needs readers that fill it in | Without the owner, as its own task | **Done** 2026-10-06: snapshots (`encodeSnapshot`, `decodeSnapshot` in `src/catalogue/store.ts`), measured 2.64 → 0.48 MB a day; the generated catalogue (`CRAWLED_SHOP_TIMES`, `inlineShopTimes` in `scripts/dataLiterals.ts`), measured 610 → 195 kB over its four rebuilds of 6 October; the page and its data files byte for byte the same. See "Item 6" below |
 | 7 | Price event log (store only changes) beside the snapshots | Medium | Per listing history; replay in seconds; frees the snapshots' history (enables 10) | Low if written alongside first and compared with the replay before anything reads it | Without the owner | Proposed, **not done** 6 Oct: it adds growth (estimate 0.1 to 0.5 MB a day) and saves none until a history rewrite (10) is wanted; build it first if the owner chooses that rewrite |
-| 8 | Social images out of git (render when needed, or delete once posted) | Small | About 3 MB a day (21.1 MB in the week) | Owner's routines change | **Owner decision** (OWNER-STEPS 7d, decision 2) | Proposed, **not done** 6 Oct: now the largest item left (2 to 4 MB a day); a recommended design is in OWNER-STEPS 7d |
+| 8 | Social images out of git (render when needed, or delete once posted) | Small | About 3 MB a day (21.1 MB in the week); 26.6 MB off the tip tree | Owner's routines change | **Owner decided** 8 Oct (D28) | **Done** 2026-10-08: the posts' text and `pictures.json` stay committed, the pictures are drawn by `npm run social:render` and the Social pictures workflow (a private artifact, 90 days); D28 in `docs/DECISIONS.md` |
 | 9 | Descriptions in a separate per shop file | Medium | 67.5 MB off the snapshots' checkout; faster replay parsing; little growth | Medium: notes, filters and matching read them | Without the owner | **Not done** 6 Oct: measured, it saves 0.2 MB a day of growth (see "Item 6") |
 | 10 | Rewrite history to drop the old page files (and, after 7, old snapshot versions) | Owner runs it | About 255 MB once (OWNER-STEPS 7d); after 7, up to about 180 MB more | High: new commit ids, every clone again | **Owner only** | **Done 2026-10-06** (page files only, owner's decision): 643 → 392 MiB packed; see "History rewritten, 6 October" below |
 | 11 | Prune delisted listings | Small | Up to 11% of snapshot rows | Relist detection and dormant pages | Not recommended now | |
@@ -508,9 +508,9 @@ Together the first three would take the file from 34.6 to about 25 to 27 MB.
 
 - **Item 4**: decided 6 October: deploy only when the page could change,
   with a half hourly check of the dashboard's list. Done.
-- **Item 8**: the social images, as already asked in OWNER-STEPS 7d; now the
-  largest thing the repository gains (section 5), with a recommended design
-  there. Default if no answer: keep committing them (under 4 GB a year).
+- **Item 8**: decided 8 October: the social images leave git; done (D28).
+  The "After, with the social images out of git" row of section 5 now
+  applies.
 - **Item 10**: decided 6 October: the history rewrite, page files only (see
   below). The old snapshot versions stay (they need item 7 first).
 

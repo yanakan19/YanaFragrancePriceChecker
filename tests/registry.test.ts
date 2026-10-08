@@ -159,13 +159,14 @@ describe('retailer registry', () => {
     // that date (docs/RETAILER-CANDIDATES-2026-10-08.md) and read from their own
     // Shopify /products.json: Opulensi, The Perfume Closet, Perfumoi, Saad
     // Fragrance, Sainte Cellier and Fenwick. All six are enabled, so the enabled
-    // count goes 42 to 48.
+    // count goes 42 to 48. The same day 80 becomes 84, all four enabled (52): PerfumeUK,
+    // Liberty London, Rasasi UK Store and Direct Cosmetics, read through their sitemaps.
     //
-    // 2026-10-08: 80 becomes 76. Paco Perfumerias (the Spanish .com), Sabina
+    // 2026-10-08: 84 becomes 80. Paco Perfumerias (the Spanish .com), Sabina
     // Store, Bath & Body Works and Fragrancedirect retired at the owner's
     // decision and deleted outright (docs/DECISIONS.md D29). None was enabled,
-    // so the enabled count stays 48 and nothing on the site changed.
-    expect(RETAILERS).toHaveLength(76);
+    // so the enabled count stays 52 and nothing on the site changed.
+    expect(RETAILERS).toHaveLength(80);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was

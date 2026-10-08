@@ -23,9 +23,13 @@
  * same shop, price and brand price. If the two disagree nothing is made. No
  * figure is typed anywhere in this file.
  *
- * It writes the video, caption.txt, tiktok-caption.txt, check.json and
- * source.md. It does not touch social/deal-of-the-day-history.json: whoever
- * posts the video as the day's deal records it there (see the plan).
+ * It writes the video, caption.txt, tiktok-caption.txt, check.json,
+ * pictures.json and source.md. The video itself is not committed
+ * (docs/DECISIONS.md D28): `npm run social:render -- <folder>` draws it again
+ * from check.json's figures alone (dealVideoFromRecord), and the Social
+ * pictures workflow does so for every post pushed. It does not touch
+ * social/deal-of-the-day-history.json: whoever posts the video as the day's
+ * deal records it there (see the plan).
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -44,8 +48,9 @@ import {
   type HistoryEntry,
   type Pick,
 } from './social-deal-of-day.js';
+import { recordPictures } from './socialPictures.js';
 import { renderVideo } from './social-video-render.js';
-import { DEAL_VIDEO, dealScenes, undash, type DealVideoData } from './social-video-template.js';
+import { DEAL_VIDEO, checkedLabel, dayLabel, dealScenes, undash, type DealVideoData } from './social-video-template.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SITE = 'https://pricesniffs.space';
@@ -103,8 +108,8 @@ async function main() {
 
   const url = `${SITE}/${p.frag.slug}`;
   const checkedAt = new Date(opt('--checked-at') ?? p.best.fetchedAt ?? CRAWLED_AT);
-  const checked = `${checkedAt.toLocaleTimeString('en-GB', { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit' })} UK, ${checkedAt.toLocaleDateString('en-GB', { timeZone: 'Europe/London', day: 'numeric', month: 'short', year: 'numeric' })}`;
-  const dateLabel = new Date(`${today}T12:00:00Z`).toLocaleDateString('en-GB', { timeZone: 'Europe/London', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  const checked = checkedLabel(checkedAt);
+  const dateLabel = dayLabel(today);
   const outDir = resolve(ROOT, opt('--out') ?? join('social', 'posts', `${today}-deal-video-${slugPart(p)}`));
 
   console.log(`${today}: ${p.frag.brand} ${p.frag.name} ${p.frag.sizeMl ?? ''}ml ${p.delivered.toFixed(2)} at ${p.best.retailer.name}, MSRP ${p.msrp.toFixed(2)} (${p.percent}% less), checked ${checked}`);
@@ -146,13 +151,15 @@ async function main() {
       {
         id: p.frag.id,
         url,
-        name: undash(`${opt('--name') ?? p.frag.name} ${p.frag.sizeMl ?? ''}ml`),
+        // The name as the video shows it (dealScenes), so the video can be drawn again from this file.
+        name: undash(`${opt('--name') ?? p.frag.name}${p.frag.sizeMl ? ` ${p.frag.sizeMl}ml` : ''}`),
         brand: p.frag.brand,
         delivered: p.delivered,
         msrp: p.msrp,
         shop: p.best.retailer.name,
         percent: p.percent,
         pricesCheckedAt: checkedAt.toISOString(),
+        date: today,
         dealsList: { generatedAt: DEALS_GENERATED_AT, retailerId: listed.raw.retailerId, price: listed.raw.price, wasPrice: listed.raw.wasPrice, percentOff: listed.raw.percentOff, kind: listed.raw.kind },
         photo: p.frag.photoUrl,
         brandRule: { restDays: BRAND_REST_DAYS, overridden: flag('--allow-brand-repeat') },
@@ -172,10 +179,13 @@ async function main() {
 (\`scripts/social-video-template.ts\`; rules in \`docs/SOCIAL-MEDIA-PLAN.md\` section 9). The deal is
 read from the site's own data at the time (\`demo/deals.generated.ts\`, built ${DEALS_GENERATED_AT});
 nothing on screen is typed in. \`check.json\` holds the figures and the video's measured length.
+The video is not committed (docs/DECISIONS.md D28). Draw it again from \`check.json\` with
+\`npm run social:render -- ${rel}\`. The command that first made it:
 
     npx tsx scripts/social-video-deal.ts --id ${p.frag.id} --date ${today} --out ${rel} --checked-at ${checkedAt.toISOString()}
 `,
   );
+  recordPictures(outDir, { [VIDEO_FILE]: { make: 'deal-video' } });
   console.log(`Link for the caption: ${url}`);
 }
 

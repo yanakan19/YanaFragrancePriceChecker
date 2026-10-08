@@ -354,7 +354,9 @@ function mp4Seconds(file: string): number {
 }
 
 describe('committed template videos', () => {
-  // D28 may move videos out of git later (docs/DECISIONS.md); a folder without its file is skipped.
+  // Since 2026-10-08 (docs/DECISIONS.md D28) the videos are not committed: these run only on a
+  // folder where `npm run social:render` has drawn the file. tests/socialPictures.test.ts holds
+  // the length and size recorded in each post's pictures.json to the same rules.
   const folders = existsSync(POSTS) ? readdirSync(POSTS).filter((n) => statSync(join(POSTS, n)).isDirectory()) : [];
   const deals = folders.filter((n) => /-deal-video-/.test(n));
   const explainers = folders.filter((n) => /-explainer-video-/.test(n));

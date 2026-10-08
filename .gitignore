@@ -53,3 +53,15 @@ __pycache__/
 !.claude/hooks/
 
 social/posts/*/_frames/
+# A social post's pictures and videos: "social" in scripts/generated-files.txt
+# (docs/DECISIONS.md D28, 2026-10-08). Drawn from the post's committed text with
+# `npm run social:render -- social/posts/<folder>`, and by
+# .github/workflows/social-pictures.yml into a private workflow artifact.
+/social/**/*.png
+/social/**/*.jpg
+/social/**/*.jpeg
+/social/**/*.webp
+/social/**/*.gif
+/social/**/*.mp4
+/social/**/*.mov
+/social/**/*.webm

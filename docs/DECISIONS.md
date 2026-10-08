@@ -2105,11 +2105,49 @@ either way, the rewrite only buys about three months, and none of the rows
 reaches 5 GB in a year) or checkouts pass a few minutes; then follow
 OWNER-STEPS 7d exactly, after building the price event log.
 
-## D28 — Social images stop being committed; the deploy renders them (recommendation, open)
+## D28 — Social images stop being committed; a workflow renders them (decided, done 2026-10-08)
 
-Recommendation for the owner, 2026-10-06. **Status: open (OWNER-STEPS 7d,
-decision 2; strategy item 8).** Recommended: **yes, build the gitignored
-render**, as already outlined in OWNER-STEPS 7d.
+Recommendation for the owner, 2026-10-06. **Status: decided and done
+2026-10-08** (the owner: "only on command", and the command came on
+8 October). Built as recommended with one change the owner asked for: the
+pictures are **not published on the site**. What was done:
+
+- The posts' text stays committed (HTML, SVG, captions, `check.json`,
+  `source.md`, the history files) plus a new `pictures.json` per post: each
+  picture, what it is drawn from (`svg`, `html`, `html` with `tiktok`,
+  `deal-video` from `check.json`, `explainer-video`, or `history`), and the
+  bytes, sha256 and size or length of the file as first made
+  (`scripts/socialPictures.ts`; every post script writes it).
+- The 129 PNGs (17.5 MB) and 5 MP4s (9.0 MB) left the tip tree with
+  `git rm --cached` (26.6 MB); history keeps them, and
+  `npm run social:render -- <folder> --from-history` restores them.
+- Picture types under `social/` are gitignored and a new policy, "social",
+  in `scripts/generated-files.txt` (`scripts/generatedFiles.ts`,
+  `scripts/generated-files.sh`); the renderers refuse to write an unlisted
+  one (`assertPicturePath`), `scripts/commit-and-push.sh` refuses one by name
+  and after staging, and `tests/workflowRules.test.ts`,
+  `tests/generatedFiles.test.ts` and `tests/socialPictures.test.ts` hold it.
+- `npm run social:render -- <folder>` draws a post again from its text and
+  compares each file with `pictures.json` (a different pixel size or video
+  length fails). Drawn again on 8 October on a checkout without the pictures,
+  explainer slides, a Deal of the Day post and a savings post were byte for
+  byte identical (the product photos downloaded again from the addresses in
+  the HTML), and so were the Molecule 05 deal video (300 frames, 10.00 s) and
+  both informative videos (795 frames, 26.50 s; 25.90 s). A video render
+  Chromium crashes part way (memory) goes on from its kept frames, up to
+  eight tries.
+- `.github/workflows/social-pictures.yml` (not the deploy, which runs about
+  40 times a day and ignores `social/**`) draws the posts a push changes and
+  uploads them, with the captions and an `index.html`, as the private
+  artifact `social-pictures-<run>` for 90 days. A run by hand draws any post,
+  or restores the originals. Nothing is committed or published.
+- The 5 October hurry video was drawn from the live site and cannot be drawn
+  again; its original is in history.
+
+How the owner gets the pictures, and how to re-render a past post:
+OWNER-STEPS 7d, `docs/SOCIAL-MEDIA-PLAN.md` section 10,
+`social/DESIGN-SYSTEM.md` section 10. The recommendation as written on
+6 October follows.
 
 Where they live: the social routines write posts to `social/posts/<date>-<name>/`
 with the scripts `scripts/social-*.ts`, `scripts/render-social.ts` and
@@ -2156,8 +2194,8 @@ were deleted outright, not switched off, so nobody re-adds them by accident:
 | `fragrancedirect` | fragrancedirect.co.uk | A holding page that only links to allbeauty.com (evidence below). Allbeauty is already in the registry. |
 
 None of the four was ever enabled and none had a catalogue snapshot or a
-listing, so the site, the Shops list and the enabled count (48) did not change.
-The total went 80 to 76. The repository had no "retired" flag; it already
+listing, so the site, the Shops list and the enabled count did not change. The
+registry total went down by four. The repository had no "retired" flag; it already
 removed shops it will not carry (very.co.uk and Wowcher, Khadlaj, Morrisons
 and B&M, the Bristol niche perfumery), so this follows that. Nothing new was
 added to the `Retailer` type.
@@ -2193,8 +2231,8 @@ not as a revival of this one.
   them. `npm run demo` builds as before.
 - No changelog line: nothing a visitor could notice.
 
-**Guards.** `tests/registry.test.ts` pins the total at 76 (with the dated
-history beside it, as for every earlier removal), and has a block that fails
+**Guards.** `tests/registry.test.ts` pins the total (84 becomes 80, with the
+dated history beside it, as for every earlier removal), and has a block that fails
 if any of the four ids or domains is back in `RETAILERS` or in
 `CURRENCY_UNCONFIRMED`, and checks the UK Paco shop is still live. The
 registry header says the same. Older comments in `src/config/retailers.ts`

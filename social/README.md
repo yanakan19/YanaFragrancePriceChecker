@@ -6,7 +6,7 @@ Everything for PriceSniffs social media posts.
 |---|---|
 | `DESIGN-SYSTEM.md` | Colours, type, logo, layouts and wording rules. Read this first. |
 | `templates/` | Blank layouts to copy for a new post. Vertical 9:16 is the default |
-| `posts/` | One folder per day's set, named `YYYY-MM-DD-short-name`: 9:16 stories (no caption, link sticker), 3:4 feed posts and `caption.txt` (the feed post's caption) |
+| `posts/` | One folder per day's set, named `YYYY-MM-DD-short-name`: the sources of its 9:16 stories (no caption, link sticker) and 3:4 feed posts, `caption.txt` (the feed post's caption) and `pictures.json` (the pictures, which are drawn, not committed) |
 | `highlights/` | Story highlight covers (1080 x 1080, shown as a circle): `deals-cover` for the Deals highlight |
 | `fonts/` | Liberation Sans, the logo's font, with its licence |
 
@@ -15,8 +15,15 @@ Deal of the Day posts are made automatically every day at 12:00 UK
 could you save?" carousels every day at 18:00 UK (`npm run social:savings`,
 section 8).
 
-Make the PNGs with `npm run social:render` (every post) or
-`npm run social:render -- social/posts/<folder>` (one post).
+**Pictures and videos are not committed** (from 8 October 2026,
+`docs/DECISIONS.md` D28). Each post folder keeps the text they are drawn
+from and `pictures.json`, which lists them. Draw them with
+`npm run social:render -- social/posts/<folder>` (one post, beside its text)
+or `npm run social:render` (every post); `--from-history` restores a post
+made before 8 October exactly as it was committed. A push that changes a post
+starts the **Social pictures** workflow, which draws them and keeps them as a
+private artifact for 90 days (Actions, Social pictures, the run named after
+the commit, Artifacts). DESIGN-SYSTEM.md section 10 has the details.
 
 Videos come from one template (`scripts/social-video-template.ts`): `npm run social:video -- --id <id>` for a
 Deal of the Day video and `npm run social:video:explainers` for the informative ones. Rules: `docs/SOCIAL-MEDIA-PLAN.md`

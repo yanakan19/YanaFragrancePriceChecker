@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 76 retailers, 48 of them `enabled: true`. Every one of them is a legitimate
+ * 80 retailers, 52 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -10293,6 +10293,313 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
     },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+    },
+  },
+  {
+    id: 'perfumeuk',
+    name: 'PerfumeUK',
+    domain: 'perfumeuk.co.uk',
+    homepage: 'https://www.perfumeuk.co.uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/perfumeuk.co.uk',
+    trustpilotCheckedOn: '2026-10-08',
+    tiers: ['designer'],
+    // Added 2026-10-08 (docs/RETAILER-CANDIDATES-2026-10-08.md). Found by WebSearch: a UK discount
+    // perfume shop ("FREE UK DELIVERY AVAILABLE") selling designer fragrance by house, from Abercrombie
+    // & Fitch to Yves Saint Laurent. Then read directly, as PriceSniffsBot only, robots.txt first.
+    //
+    // robots.txt (https://www.perfumeuk.co.uk/robots.txt, HTTP 200, 113 B) disallows /admin/ and /api/
+    // and asks for a crawl delay of 1 second; product pages and the sitemap are not disallowed. The
+    // apex address answers 200 as well.
+    //
+    // Route: the sitemap (https://www.perfumeuk.co.uk/sitemap.xml, 183 KB, 1,291 URLs) lists the shop's
+    // pages, blog posts, brand pages and 1,159 products; a product's address ends in its size
+    // ("/dolce-gabbana-k-edt-50ml", "/giorgio-armani-si-edp-50ml-gift-set"). A product page (37 KB)
+    // carries one schema.org Product with the name, brand, sku, gtin13, and an Offer of "42.00" with
+    // priceCurrency GBP, so `requireGbp` holds and a price the page does not label sterling is not
+    // kept. The pinned route below keeps those addresses and leaves out deodorants, body products,
+    // mists, soaps, candles and hair products (gift sets stay: the catalogue sorts them out).
+    // The site's search is a POST form and its listing pages are not paged by an address, so there
+    // is no `catalogue` block to give.
+    //
+    // Delivery: the shop's own /shipping page, read 2026-10-08: "FREE UK DELIVERY - Royal Mail Tracked
+    // 48 ... delivered within 2-4 working days ... for UK deliveries there are no postage and packing
+    // charges", with Royal Mail Tracked 24 at £3 and Special Delivery at £9 as upgrades, not modelled.
+    //
+    // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=perfumeuk --dry-run --max=60` found 1,137
+    // product addresses on the route, read 112 of them before the local six minute ceiling (the runner's
+    // is 40) and priced all 112, every one on its own page in GBP, at about 3 s a page.
+    //
+    // Affiliate: directories (affi.io) list Sale Gains, Paid On Results and BlueAff, all open to GB,
+    // with no commission shown. Nothing applied to.
+    enabled: true,
+    adapter: 'unknown',
+    sitemapRoute: {
+      roots: ['https://www.perfumeuk.co.uk/sitemap.xml'],
+      product: '^https://www\\.perfumeuk\\.co\\.uk/[a-z0-9-]+-\\d+(?:\\.\\d+)?ml(?:-[a-z0-9-]+)?$',
+      exclude: 'deodorant|body-|shower|lotion|mist|soap|candle|hair|cream|diffuser',
+      requireGbp: true,
+      // 1,159 products against about 42 never read pages a run: a first full read in days, not weeks.
+      discoveryPages: 150,
+    },
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 0,
+      freeOverGbp: 0,
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-10-08',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.perfumeuk.co.uk/shipping',
+        quote:
+          'FREE UK DELIVERY - Royal Mail Tracked 48. We aim to dispatch your order within 1 working day. We expect that your order will be delivered within 2-4 working days. Postage and packing is by Royal Mail Tracked 48 delivery and for UK deliveries there are no postage and packing charges.',
+        readAt: '2026-10-08',
+      },
+      notes:
+        'Express (Royal Mail Tracked 24, £3) and Special Delivery by 1pm (£9) are upgrades, not ' +
+        'modelled. Every product page also states "Free UK Delivery" among its properties. ' +
+        'PerfumeUK delivers to the UK only. Nothing was added to a cart.',
+    },
+    catalogue: null,
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+    },
+  },
+  {
+    id: 'liberty-london',
+    name: 'Liberty London',
+    domain: 'libertylondon.com',
+    homepage: 'https://www.libertylondon.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.libertylondon.com',
+    trustpilotCheckedOn: '2026-10-08',
+    tiers: ['designer', 'niche'],
+    // Added 2026-10-08 (docs/RETAILER-CANDIDATES-2026-10-08.md). Found by WebSearch: the Great
+    // Marlborough Street department store, whose beauty hall and online shop carry Byredo, Le Labo,
+    // Maison Margiela, Comme des Garçons, Parfums de Marly, Perfumer H, Guerlain and others. Then read
+    // directly, as PriceSniffsBot only, robots.txt first.
+    //
+    // robots.txt (https://www.libertylondon.com/robots.txt, HTTP 200, 2,933 B) disallows the checkout and
+    // account handlers, search (/*/search and ?q=), faceted listing parameters and a few named pages; a
+    // product page (/uk/<name>-<id>.html) and the sitemap are not disallowed. It sets a crawl delay of 1
+    // second for Pinterestbot only. A Salesforce Commerce Cloud storefront.
+    //
+    // Route: sitemap_index.xml names sitemap_0-product.xml (9.2 MB, 37,068 addresses: 18,534 under /uk/
+    // and the same 18,534 under /us/). The pinned route keeps /uk/ addresses whose name says perfume and
+    // leaves out candles, bath and body, hair, discovery sets and samples: 1,667 on 2026-10-08. A product
+    // page is about 500 KB and carries a schema.org Product with an Offer in GBP (Odeur 53 Eau de
+    // Toilette 200ml, 135). Each size is a page of its own. The shop's
+    // search is disallowed to the bot and no fragrance listing is paged by an address robots.txt
+    // permits, so there is no `catalogue` block to give.
+    //
+    // Delivery: the Delivery & Returns panel of the same product page, read 2026-10-08, in the UK view:
+    // "Standard Delivery: £5.95 or FREE OVER £100", "Free UK Standard Delivery on all orders over £100!
+    // Delivered within 3-5 working days. Normally £5.95." Express and Click & Collect are not modelled.
+    //
+    // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=liberty-london --dry-run --max=40` found 1,667
+    // product addresses on the route, read 100 of them (the run's discovery floor) and priced all 100,
+    // every one on its own page in GBP.
+    //
+    // Affiliate: the shop's own page (https://www.libertylondon.com/uk/information/the-liberty-london-
+    // affiliate-program.html, read 2026-10-08) says its programme is managed by Partnerize, with a
+    // product feed updated daily and a 30 day cookie; applicants first join Partnerize, then are
+    // considered by Liberty. Not applied to.
+    enabled: true,
+    adapter: 'unknown',
+    sitemapRoute: {
+      roots: ['https://www.libertylondon.com/sitemap_index.xml'],
+      follow: '/sitemap_\\d+-product\\.xml$',
+      product:
+        '^https://www\\.libertylondon\\.com/uk/[^/?#]*(?:eau-de-(?:parfum|toilette|cologne)|parfum|perfume|cologne|extrait|aftershave)[^/?#]*\\.html$',
+      exclude: 'candle|diffuser|home-fragrance|body-|bath-|shower|hand-|soap|lotion|cream|hair-|deodorant|room-|incense|discovery|sample',
+      maxSitemaps: 2,
+      requireGbp: true,
+      // 1,641 product pages of 500 KB each against about 42 never read a run.
+      discoveryPages: 100,
+    },
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 5.95,
+      freeOverGbp: 100,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-10-08',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.libertylondon.com/uk/odeur-53-eau-de-toilette-200ml-72631.html',
+        quote:
+          'Free UK Standard Delivery on all orders over £100! Delivered within 3-5 working days. Normally £5.95. UK DELIVERY Standard Delivery: £5.95 or FREE OVER £100',
+        readAt: '2026-10-08',
+      },
+      notes:
+        'The page also names Click & Collect and express delivery for the UK and, for other countries, ' +
+        '"Free Express Delivery over $200"; none of those is modelled. Nothing was added to a cart.',
+    },
+    catalogue: null,
+    affiliate: {
+      network: 'partnerize',
+      verified: true,
+      status: 'not-applied',
+      publisherId: null,
+      deeplinkTemplate: null,
+      querySuffixTemplate: null,
+      signupUrl: 'https://www.libertylondon.com/uk/information/the-liberty-london-affiliate-program.html',
+      notes:
+        "Read on the shop's own affiliate page, 2026-10-08: managed by Partnerize, a product feed " +
+        'updated daily, a 30 day cookie, and membership of Partnerize needed before Liberty considers ' +
+        'an application. An older copy of the UK page named Rakuten; the page now says Partnerize. ' +
+        'Not applied to.',
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+    },
+  },
+  {
+    id: 'rasasi-uk-store',
+    name: 'Rasasi UK Store',
+    domain: 'rasasistore.co.uk',
+    homepage: 'https://www.rasasistore.co.uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/rasasistore.co.uk',
+    trustpilotCheckedOn: '2026-10-08',
+    tiers: ['mideast'],
+    singleBrandOnly: 'Rasasi',
+    // Everything it sells is Rasasi perfume or a set of it: all 27 pages read on 2026-10-08, none is a
+    // body product, and the one title with no strength word (Rumz Al Rasasi 9325 Zebra Pour Lui 50ml)
+    // is a perfume.
+    fragranceOnlyCatalogue: true,
+    // Added 2026-10-08 (docs/RETAILER-CANDIDATES-2026-10-08.md). Found by WebSearch: a UK storefront that
+    // calls itself the "Official Hawas & Arabian Perfume Store" of the Dubai house Rasasi. It sells
+    // Rasasi alone, so it is a single brand storefront like Armaf's. Whether Rasasi itself runs it was
+    // not established (the contact address is a trading company's); it is listed as the shop it says
+    // it is, and the owner can remove it. Then read directly, as PriceSniffsBot only, robots.txt first.
+    //
+    // robots.txt (https://www.rasasistore.co.uk/robots.txt, HTTP 200, 629 B) allows everything except
+    // admin, auth, API, cart, checkout, account, tracking and a few sorted or filtered address shapes,
+    // and names the sitemap. No crawl delay.
+    //
+    // Route: the sitemap (9.6 KB, 64 addresses) lists 27 pages under /product/ (Hawas Ice, Hawas
+    // for Him, Shuhrah Avenoir, La Yuqawam, Rumz Al Rasasi and travel sets, duos and a gift set), and the
+    // rest are collections, journal articles and policy pages. A product page (90 KB, server rendered)
+    // carries a schema.org Product with brand Rasasi and an Offer (Hawas Ice 100ml, 29.99); the page
+    // title gives the strength and size ("Rasasi Hawas Ice Eau De Parfum 100ml For Him").
+    //
+    // Delivery: its /shipping-returns page, read 2026-10-08: "Free on every order, delivered in 2-4
+    // working days", and "NEXT-DAY UK: Free next-day delivery. Order before 11am (UK time) on a working
+    // day for same-day dispatch." Final prices are confirmed at checkout, which was not used.
+    //
+    // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=rasasi-uk-store --dry-run` found 27 product
+    // addresses, read all 27 and priced all 27, every one in GBP on its own page.
+    //
+    // Affiliate: none found.
+    enabled: true,
+    adapter: 'unknown',
+    sitemapRoute: {
+      roots: ['https://www.rasasistore.co.uk/sitemap.xml'],
+      product: '^https://www\\.rasasistore\\.co\\.uk/product/[a-z0-9-]+$',
+      requireGbp: true,
+      // The structured data names the scent alone ("Hawas Boa"); the strength and the size are in the
+      // page's <title> ("Rasasi Hawas Boa 100ml EDP For Him | Rasasi UK"), read from there and nowhere
+      // else on the page, so a link to another product cannot lend its size.
+      titleParts: [
+        '<title>[^<]*?\\b(EDP|EDT|Eau De Parfum|Eau De Toilette)\\b',
+        '<title>[^<]*?(\\d+(?:\\.\\d+)?\\s?ml)\\b',
+      ],
+    },
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 0,
+      freeOverGbp: 0,
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-10-08',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.rasasistore.co.uk/shipping-returns',
+        quote: 'FREE UK DELIVERY. Free on every order, delivered in 2–4 working days. NEXT-DAY UK: Free next-day delivery. Order before 11am (UK time) on a working day for same-day dispatch.',
+        readAt: '2026-10-08',
+      },
+      notes:
+        'The page ends "Delivery options and final prices are confirmed at checkout"; the checkout was ' +
+        'not used. Returns: 30 days on unopened items.',
+    },
+    catalogue: null,
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+    },
+  },
+  {
+    id: 'direct-cosmetics',
+    name: 'Direct Cosmetics',
+    domain: 'directcosmetics.com',
+    homepage: 'https://www.directcosmetics.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.directcosmetics.com',
+    trustpilotCheckedOn: '2026-10-08',
+    tiers: ['designer'],
+    // Added 2026-10-08 (docs/RETAILER-CANDIDATES-2026-10-08.md). Found by WebSearch: a family run UK
+    // discount beauty retailer (it says it has traded since 1977) whose fragrance shelf is large and
+    // often unboxed or tester stock ("Why are some items unsealed?", "What are testers?"). Then read
+    // directly, as PriceSniffsBot only, robots.txt first.
+    //
+    // robots.txt (https://www.directcosmetics.com/robots.txt, HTTP 200, 1,290 B) shuts out a list of named
+    // SEO and scraper bots; the group that covers the crawler (`*`) asks for a crawl delay of 2 seconds,
+    // allows the site, and disallows the basket, checkout, account and ajax handlers. Product pages and
+    // the sitemaps are not disallowed. The registry's 2 second gap follows it.
+    //
+    // Route: sitemap-index.xml lists a sitemap per department; the fragrance ones are
+    // sitemap-products_fragrances-c35-1.xml to -6.xml (250 addresses each, 1,491 in all, 2026-10-08). A
+    // product address ends in -p<id>. A product page is about 650 KB and carries a schema.org Product
+    // whose properties the shop spells with capitals ("Offers", "SKU", "Brand"), which the JSON-LD reader
+    // did not see until `fixSchemaKeyCase`. Read that way: price 23.99, priceCurrency GBP, InStock,
+    // gtin13 (Azzaro Pour Homme L'Eau EDT 100ml). Its titles repeat the brand at both ends ("Azzaro Azzaro
+    // Pour Homme L'Eau Eau de Toilette Spray 100ml Azzaro"), which the name cleaner already removes.
+    //
+    // Delivery, from its Delivery & Returns page (/delivery-returns-i5), read 2026-10-08, UK mainland:
+    // Royal Mail Standard £2.95 under £35, 3-5 working days; "FREE on orders over £35.00 using code:
+    // FREESHIP35 at the checkout (cannot be used in conjunction with any discount code, sale item ...)".
+    // The code and the sale item condition cannot be modelled, so the free threshold is left unset and
+    // every basket is priced at £2.95, which can overstate and never understates.
+    //
+    // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=direct-cosmetics --dry-run --max=40` found 1,491
+    // product addresses, read 96 of them before the local six minute ceiling (the runner's is 40) and priced
+    // all 96, each on its own page in GBP.
+    //
+    // Affiliate: not researched.
+    enabled: true,
+    adapter: 'unknown',
+    sitemapRoute: {
+      roots: ['https://www.directcosmetics.com/sitemap-index.xml'],
+      follow: '/sitemap-products_fragrances-c35-\\d+\\.xml$',
+      product: '^https://www\\.directcosmetics\\.com/[^/?#]+-p\\d+$',
+      requireGbp: true,
+      maxSitemaps: 7,
+      // 1,491 pages of 650 KB at a 2 second gap against about 42 never read pages a run.
+      discoveryPages: 100,
+    },
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 2.95,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-10-08',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.directcosmetics.com/delivery-returns-i5',
+        quote: 'Royal Mail Standard: ... £2.95 for orders ... - 3-5 working days',
+        readAt: '2026-10-08',
+      },
+      notes:
+        'The quote leaves out, on purpose, the clause that sits between its parts: "FREE on orders over ' +
+        '£35.00 using code: FREESHIP35 at the checkout (cannot be used in conjunction with any discount ' +
+        'code, sale item and will not apply for orders over 10kg\'s)". A code and a sale item exclusion ' +
+        'cannot be modelled, and stating free delivery that a basket may not get is the error this model ' +
+        'exists to avoid, so every basket is priced at £2.95, which can overstate and never understates. ' +
+        'Royal Mail Tracked 48 £3.95 (2-3 days) and FedEx Next Working Day £5.95 are upgrades, not ' +
+        'modelled; Northern Ireland, Highlands and Islands are dearer. Nothing was added to a cart.',
+    },
+    catalogue: null,
     affiliate: {
       ...NO_AFFILIATE_YET,
       // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named

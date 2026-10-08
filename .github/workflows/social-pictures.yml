@@ -1,0 +1,162 @@
+name: Social pictures
+
+# Draws the social posts' pictures and videos from their committed text and
+# keeps them as a private workflow artifact for 90 days.
+#
+# ── Why (docs/DECISIONS.md D28, owner's go ahead 2026-10-08) ─────────────────
+# The social routines used to commit every PNG and MP4 they made: 26.5 MB in
+# the tip tree by 8 October, and 2 to 4 MB a day, a third of what the
+# repository grew by. Since then only the posts' text is committed (the HTML or
+# SVG each picture is drawn from, the captions, check.json, pictures.json); the
+# pictures are gitignored ("social" in scripts/generated-files.txt) and
+# scripts/commit-and-push.sh refuses them. The renderers are deterministic: the
+# same text, fonts and Chromium give the same bytes (`npm run social:render`
+# compares every result with the facts pictures.json kept of the first one).
+#
+# ── What it does ─────────────────────────────────────────────────────────────
+# On a push that changes a post folder (a routine committing today's Deal of
+# the Day, say) it draws that folder's pictures with
+# `npm run social:render -- --out <dir> <folders>` and uploads them, with the
+# captions and an index.html to look through, as the artifact
+# "social-pictures-<run number>". The owner downloads it from the run's page
+# (Actions → Social pictures → the run named after the commit → Artifacts).
+# Nothing is committed and nothing is published: the pictures never reach the
+# public site (deploy-pages.yml publishes demo/ only and ignores social/**).
+# A run by hand draws the folders named in "posts" (or "all"); "from_history"
+# restores the files as first committed instead, for posts made before
+# 8 October 2026.
+#
+# A picture that cannot be drawn (a product photo the shop no longer serves)
+# turns the run red after the others are drawn and uploaded; the summary says
+# which and why.
+on:
+  push:
+    branches: [claude/scentday-retailer-registry-h92tth]
+    paths:
+      - 'social/posts/**'
+      - 'social/highlights/**'
+  workflow_dispatch:
+    inputs:
+      posts:
+        description: 'Post folders, space separated (2026-10-08-deal-of-the-day or social/posts/...), or "all"'
+        required: false
+        default: ''
+      from_history:
+        description: 'Restore the files as first committed (posts made before 8 October 2026) instead of drawing them'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    # Pinned, not ubuntu-latest (which moves to Ubuntu 26 on 2026-10-19): a new
+    # image brings a new font set and could change the pictures' bytes.
+    runs-on: ubuntu-24.04
+    # One post is a minute or two; every post at once (a run by hand with
+    # "all") about fifteen.
+    timeout-minutes: 45
+    steps:
+      # Commits and trees for the whole history, blobs on demand: the diff of
+      # this push, and `--from-history`, which reads old pictures with git show.
+      - uses: actions/checkout@v4
+        timeout-minutes: 10
+        with:
+          fetch-depth: 0
+          filter: blob:none
+
+      - id: pick
+        name: Pick the post folders to draw
+        timeout-minutes: 2
+        env:
+          POSTS: ${{ inputs.posts }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          if [ "$POSTS" = all ]; then
+            folders="$(ls -d social/posts/*/ | sed 's#/$##' | tr '\n' ' ') social/highlights"
+          elif [ -n "$POSTS" ]; then
+            folders=""
+            for p in $POSTS; do
+              case "$p" in social/*) d="$p" ;; *) d="social/posts/$p" ;; esac
+              d="${d%/}"
+              if [ -d "$d" ]; then folders="$folders $d"; else echo "::warning::No such post folder: $p"; fi
+            done
+          else
+            base="$BEFORE"
+            if [ -z "$base" ] || ! git cat-file -e "${base}^{commit}" 2>/dev/null; then base="HEAD~1"; fi
+            folders="$(git diff --name-only "$base" HEAD -- social/posts social/highlights \
+              | awk -F/ '$2 == "posts" && NF >= 4 { print "social/posts/" $3 } $2 == "highlights" { print "social/highlights" }' \
+              | sort -u | while read -r d; do if [ -d "$d" ]; then echo "$d"; fi; done | tr '\n' ' ')"
+          fi
+          folders="$(echo $folders)"
+          echo "Folders: ${folders:-none}"
+          echo "folders=$folders" >> "$GITHUB_OUTPUT"
+          if [ -z "$folders" ]; then echo "No post folder changed: nothing to draw." >> "$GITHUB_STEP_SUMMARY"; fi
+
+      - uses: actions/setup-node@v4
+        if: steps.pick.outputs.folders != ''
+        timeout-minutes: 5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.pick.outputs.folders != ''
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
+
+      # The pictures are screenshots of HTML in headless Chromium.
+      - name: Install Chromium
+        if: steps.pick.outputs.folders != ''
+        timeout-minutes: 10
+        run: scripts/retry.sh 2 npx playwright install --with-deps --only-shell chromium
+
+      # The videos are encoded with ffmpeg; the same static build the posts were
+      # first made with (scripts/social-video-render.ts finds it through Python).
+      - uses: actions/setup-python@v5
+        if: steps.pick.outputs.folders != ''
+        timeout-minutes: 5
+        with:
+          python-version: '3.12'
+
+      - name: Install ffmpeg
+        if: steps.pick.outputs.folders != ''
+        timeout-minutes: 5
+        run: scripts/retry.sh 3 python -m pip install --disable-pip-version-check imageio-ffmpeg==0.6.0
+
+      - name: Draw the pictures
+        if: steps.pick.outputs.folders != ''
+        timeout-minutes: 40
+        env:
+          FOLDERS: ${{ steps.pick.outputs.folders }}
+          FROM_HISTORY: ${{ inputs.from_history && '--from-history' || '' }}
+        run: |
+          set -euo pipefail
+          # shellcheck disable=SC2086
+          npx tsx scripts/render-social.ts --out "$RUNNER_TEMP/social-pictures" $FROM_HISTORY $FOLDERS
+
+      - id: upload
+        if: ${{ !cancelled() && steps.pick.outputs.folders != '' }}
+        timeout-minutes: 10
+        uses: actions/upload-artifact@v4
+        with:
+          name: social-pictures-${{ github.run_number }}
+          path: ${{ runner.temp }}/social-pictures
+          retention-days: 90
+          if-no-files-found: error
+
+      - name: Say where the pictures are
+        if: ${{ !cancelled() && steps.pick.outputs.folders != '' }}
+        timeout-minutes: 2
+        env:
+          URL: ${{ steps.upload.outputs.artifact-url }}
+        run: |
+          {
+            echo "## Social pictures"
+            echo
+            if [ -n "$URL" ]; then echo "Download: [social-pictures-${GITHUB_RUN_NUMBER}]($URL) (a zip, kept 90 days; open index.html inside to look through)."; fi
+            echo
+            if [ -f "$RUNNER_TEMP/social-pictures/summary.md" ]; then cat "$RUNNER_TEMP/social-pictures/summary.md"; fi
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -1,6 +1,6 @@
 # UK fragrance retailer candidates, 2026-10-08
 
-Written 2026-10-08. The registry held 74 shops (42 enabled) when this search began. The aim: find UK
+Written 2026-10-08. The registry held 74 shops (42 enabled) when this search began; it holds 84 (52 enabled) now. The aim: find UK
 fragrance retailers and resellers that are not in it, that sell perfume in sterling with UK delivery,
 and add the ones that can be read now by a route D23 allows.
 
@@ -40,18 +40,18 @@ above on 2026-10-08. Bytes are as received after decompression.
 | 4 | Perfumoi | perfumoi.co.uk | Designer fragrance at discount, a few Arabian lines | Shopify | None found | 200, 3,624 B, stock file, allowed | Yes. 354 products, GBP, 464 priced variants, all typed by strength |
 | 5 | Saad Fragrance | saadfragrance.com | Arabian houses (Lattafa, Azhrance, Ahmed Al Maghribi, Escalo, Ard Al Zaafaran) | Shopify | None found | 200, 3,636 B, stock file, allowed | Yes. 156 products, GBP; a third of titles name no strength or no size |
 | 6 | Sainte Cellier | saintecellier.com | Independent niche houses (Les Indémodables, Marissa Zappas, Aromag, Neela Vermeire, Frassaï); London | Shopify | None found | 200, 3,636 B, stock file, allowed | Yes. 261 products, GBP, 268 perfume variants after its sample sets, 2ml samples and discovery boxes are left out; titles are scent names with the strength only in the product type |
+| 7 | Liberty London | libertylondon.com | Department store; niche and designer fragrance (Byredo, Le Labo, Comme des Garçons, Guerlain) | Salesforce Commerce Cloud | Partnerize, by the shop's own page: daily feed, 30 day cookie | 200, 2,933 B, 52 rules, product pages and sitemap allowed | Yes. `sitemap_0-product.xml` 9.2 MB, 37,068 URLs (18,534 UK, 18,534 US); 1,667 UK perfume pages on the route; a product page (508 KB) carries JSON-LD Product in GBP (Odeur 53 EDT 200ml 135) |
+| 8 | PerfumeUK | perfumeuk.co.uk | Designer discounter | custom | Sale Gains, Paid On Results, BlueAff (directory only) | 200, 113 B, crawl delay 1 | Yes. One sitemap of 1,291 URLs, 1,137 on the route; a product page (37 KB) has JSON-LD Product with GBP, SKU and gtin13 (Dolce & Gabbana K EDT 50ml 42) |
+| 9 | Rasasi UK Store | rasasistore.co.uk | Rasasi only; calls itself the official UK store | custom (React, server rendered) | None found | 200, 629 B, allowed | Yes. 27 product pages, all priced; the structured data names the scent alone, so the strength and size are read from the page title |
+| 10 | Direct Cosmetics | directcosmetics.com | Discount beauty, 1,491 fragrance pages, often unboxed or tester stock | custom | Not checked | 200, 1,290 B, crawl delay 2 for the bot | Yes. Six fragrance sitemaps; a product page (650 KB) has JSON-LD Product in GBP, spelt with capital letters ("Offers", "SKU"), which the reader now accepts |
 
 ### Readable now, not added in this pass
 
 | # | Shop | Domain | Sells | Platform | Affiliate | robots.txt | Readable now? | Why not added |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 7 | Liberty London | libertylondon.com | Department store; niche and designer fragrance | Salesforce Commerce Cloud | Partnerize per its own UK page (an older snapshot said Rakuten); 30 day cookie, daily feed | 200, 2,933 B, 52 rules, product sitemap allowed | Yes. `sitemap_0-product.xml` 9.2 MB, 37,068 URLs; a product page (508 KB) carries JSON-LD Product with GBP (Odeur 53 EDT 200ml 135) | Needs a pinned sitemap route like John Lewis, and 500 KB pages mean a slow fill |
-| 8 | PerfumeUK | perfumeuk.co.uk | Designer discounter | custom | Sale Gains, Paid On Results, BlueAff (directory only) | 200, 113 B, crawl delay 1 | Yes. One sitemap of 1,291 URLs; a product page (37 KB) has JSON-LD Product with GBP price, SKU and gtin13 (Dolce & Gabbana K EDT 50ml 42) | Not yet routed |
-| 9 | Mankind | mankind.co.uk | Men's grooming (THG) with a fragrance range | custom | Network unconfirmed (FlexOffers listing only) | 200, 5,529 B, product sitemaps allowed | Yes. 2,773 product URLs in one gzip sitemap; a page (213 KB) has JSON-LD with a GBP price (Juicy Couture EDP 50ml 55) | Not yet routed; fragrance is about 100 of the 2,773 |
-| 10 | Rasasi UK Store | rasasistore.co.uk | Rasasi only, the shop calls itself the official UK store | custom (React, server rendered) | None found | 200, 629 B, allowed | Yes. Sitemap of 64 URLs, about 25 products; a page (90 KB) has JSON-LD with a price (Hawas Ice 100ml 29.99) | Single brand and 25 products |
-| 11 | Perfumes Club UK | perfumesclub.co.uk | Large discounter (Spanish group) | custom | FlexOffers listing at 0% (unreliable); Webgains, Skimlinks (directory only) | 200, 3,273 B, 79 rules, crawl delay 1 | Yes. 22,892 URLs in `sitemap-G.xml`; a page (418 KB) has JSON-LD price (Dolce & Gabbana Intense 67.52) | JSON-LD name is the product name alone, no brand or strength |
-| 12 | Matalan | matalan.co.uk | Fashion retailer with a small fragrance shelf | custom (same platform as Mankind) | Not checked | 200, 5,413 B | Yes. 21,393 product URLs, about 107 fragrance; JSON-LD prices (Jimmy Choo EDT 30) | Fragrance is half a percent of the range |
-| 13 | Direct Cosmetics | directcosmetics.com | Discount beauty with six fragrance sitemaps | custom | Not checked | 200, 1,290 B, crawl delay 2 | Partly. Dedicated `sitemap-products_fragrances-c35-1..6.xml`; a product page (673 KB) parses to a listing with no price | Price is not in the JSON-LD; needs a reader |
+| 11 | Mankind | mankind.co.uk | Men's grooming (THG) with a fragrance range | custom | Network unconfirmed (FlexOffers listing only) | 200, 5,529 B, product pages allowed | Yes. One gzip product sitemap of 2,773 URLs, written 2026-09-03, with about 100 fragrance pages; a page (213 KB) has JSON-LD with a GBP price (Juicy Couture EDP 50ml 55) | A small shelf on a month old sitemap; worth a route if the range grows |
+| 12 | Perfumes Club UK | perfumesclub.co.uk | Large discounter (Spanish group) | custom | FlexOffers listing at 0% (unreliable); Webgains, Skimlinks (directory only) | 200, 3,273 B, 79 rules, crawl delay 1 | Yes. 22,892 URLs in `sitemap-G.xml`; a page (418 KB) has JSON-LD price (Dolce & Gabbana Intense 67.52) | JSON-LD name is the product name alone, no brand or strength |
+| 13 | Matalan | matalan.co.uk | Fashion retailer with a small fragrance shelf | custom (same platform as Mankind) | Not checked | 200, 5,413 B | Yes. 21,393 product URLs, about 107 fragrance; JSON-LD prices (Jimmy Choo EDT 30) | Fragrance is half a percent of the range |
 | 14 | Perfume Plus Direct | perfumeplusdirect.co.uk | Discount designer fragrance | Magento | FlexOffers and BlueAff open, MyLead closed (directory only) | 200, 355 B | Partly. Home page 146 KB with prices; `/sitemap.xml` is a 404 | Needs a category walk |
 | 15 | Ormonde Jayne | ormondejayne.com | One niche house, own shop | Shopify | None found | 200, 3,632 B, stock file | Yes. 113 products, GBP | A house storefront: belongs in `src/config/houses.ts` |
 | 16 | Jo Loves | joloves.com | One house, candles and fragrance | Shopify | Not checked | 200, 3,628 B, stock file | Yes. 207 products, GBP | Already a house in `src/config/houses.ts` |
@@ -98,29 +98,42 @@ Nothing was worked around.
 
 ## What was added, and what each entry stands on
 
-Every entry is on the Shopify route (`shopifyStorefront: true`, `adapter: 'unknown'`) with a `catalogue`
-block whose section is the shop's own collection page. All six are `enabled: true` after a dry run from
-this sandbox read real priced listings:
+Ten shops, all `enabled: true` after a dry run from this sandbox read real priced listings. Six are on the
+Shopify route (`shopifyStorefront: true`, `adapter: 'unknown'`) with a `catalogue` block whose section is the
+shop's own collection page. Four are read through their sitemap and the Product block on each page, on a
+pinned `sitemapRoute` with `requireGbp`, so a price the page does not label sterling is never kept; none
+of the four has a listing page that is paged by an address its robots.txt permits, so they carry
+`catalogue: null`.
 
-| Shop | Priced variants read | Pass the catalogue's fragrance test | In stock | Delivery, from the shop's own page, 2026-10-08 |
+| Shop | Route | Priced listings read (sandbox) | Pass the catalogue's fragrance test | Delivery, from the shop's own page, 2026-10-08 |
 | --- | --- | --- | --- | --- |
-| Fenwick | 1,054 | 892 | 644 | £5 standard, free over £100, 3 working days (product page panel) |
-| Opulensi | 554 | 495 | 222 | Free over £30, 1 to 5 working days, charge below it not published |
-| The Perfume Closet | 1,067 | 836 | 277 | Options named (standard 3 days, first class 1 to 2), no price printed |
-| Perfumoi | 464 | 445 | 319 | Free next day on every UK order |
-| Saad Fragrance | 156 | 114 | 76 | Free on every order, 3 to 4 working days |
-| Sainte Cellier | 268 | 260 | 184 | Not read: the shipping terms sit under `/policies/`, which robots.txt disallows. Recorded as unverified |
+| Fenwick | `/products.json`, 4 product types of 25,000 products | 1,054 | 892 (644 in stock) | £5 standard, free over £100, 3 working days (product page panel) |
+| Opulensi | `/products.json` | 554 | 495 (222) | Free over £30, 1 to 5 working days, charge below it not published |
+| The Perfume Closet | `/products.json` | 1,067 | 836 (277) | Options named (standard 3 days, first class 1 to 2), no price printed |
+| Perfumoi | `/products.json` | 464 | 445 (319) | Free next day on every UK order |
+| Saad Fragrance | `/products.json` | 156 | 114 (76) | Free on every order, 3 to 4 working days |
+| Sainte Cellier | `/products.json`, perfume types, no samples | 268 | 260 (184) | Not read: the shipping terms sit under `/policies/`, which robots.txt disallows. Recorded as unverified |
+| Liberty London | sitemap, 1,667 UK perfume pages | 100 of 1,667 | n/a (read per page) | £5.95 standard, free over £100, 3 to 5 working days (product page panel) |
+| PerfumeUK | sitemap, 1,137 product pages | 112 of 1,137 (6 minute local ceiling) | n/a | Free on every UK order, 2 to 4 working days |
+| Rasasi UK Store | sitemap, 27 product pages, title parts | 27 of 27 | 27 of 27 | Free on every order, 2 to 4 working days |
+| Direct Cosmetics | sitemap, 6 fragrance sitemaps, 1,491 pages | 96 of 1,491 (6 minute local ceiling) | n/a | £2.95 standard, 3 to 5 working days; the free delivery over £35 needs a code and is not applied |
 
-Photos stay off for all six. Product photos show only for shops the owner's decision of 2026-10-05
-(D24) covers, and `tests/imageBasisDecision.test.ts` fails if the basis is added without it. See the
-owner steps.
+Sitemap shops fill in over several runs (about 42 never read pages a run, more where the route sets
+`discoveryPages`), so their counts on the site grow for a day or two.
 
-Two fixes in shared code came out of reading these shops, both with tests:
+Photos stay off for all ten. Product photos show only for shops the owner's decision of 2026-10-05 (D24)
+covers, and `tests/imageBasisDecision.test.ts` fails if the basis is added without it. See the owner steps.
+
+Three fixes in shared code came out of reading these shops, each with tests:
 
 - `crawlViaShopifyProducts` asks a page that answered HTTP 5xx once more after 15 s. Fenwick's perfume
   sits late in a 100 page feed, so a walk that stopped at the first 503 would miss most of it.
 - A `shopifyVariantRule` that only filters product types no longer puts "Default Title" or a "0"
-  placeholder into the title it builds.
+  placeholder into the title it builds. Two new rule fields, `excludeTitle` and `minVariantMl`, keep
+  Sainte Cellier's discovery boxes and 2ml samples out.
+- The JSON-LD reader accepts the capitalised property names Direct Cosmetics writes ("Offers", "SKU",
+  "Brand"), which it did not see at all before. Only a fixed list of keys is renamed, and only when the
+  right spelling is absent.
 
 ## Owner steps
 
@@ -129,7 +142,7 @@ Applications, with the network, so they can be made when convenient:
 | Network | Shops |
 | --- | --- |
 | Awin | Opulensi (merchant 123248, in the registry as `awinPending`); Pharmacy2U Shop / Chemist Direct (2102, blocked to the bot); Al Jazeera Perfumes UK (128425, a client rendered site) |
-| Partnerize | Fenwick (2%, per directories); Liberty London (30 day cookie, daily feed, per its own UK page) |
+| Partnerize | Liberty London (30 day cookie, daily feed, confirmed on its own UK page, recorded in the registry); Fenwick (2%, per directories only) |
 | CJ Affiliate | Argos (blocked to the bot) |
 | Rakuten | Flannels (blocked to the bot); Jo Malone London (unconfirmed) |
 | Sale Gains, Paid On Results, BlueAff | PerfumeUK |
@@ -138,11 +151,14 @@ Applications, with the network, so they can be made when convenient:
 
 Decisions and checks:
 
-1. Photos. Say whether D24 covers these shops. If yes, one `imageBasis` line per shop with the decision
+1. Photos. Say whether D24 covers these ten shops. If yes, one `imageBasis` line per shop with the decision
    comment above it.
 2. Sainte Cellier's delivery price. Its pages say "calculated at checkout" and the terms page is
    disallowed to the bot. A basket check by hand would settle it.
 3. Opulensi and The Perfume Closet print no price for standard delivery. A basket check would let them
-   rank on delivered price.
+   rank on delivered price. Direct Cosmetics' free delivery over £35 needs a code (FREESHIP35) and excludes
+   sale items; a basket check would say whether it should be applied.
+5. Rasasi UK Store calls itself the official UK store but its contact address is a trading company's; if
+   Rasasi does not stand behind it, set `enabled: false`.
 4. Perfumoi's "free next day delivery" is worded "currently". Worth re-reading on the next delivery
    recheck, as is Saad Fragrance's (a one person company formed in 2024).
