@@ -1,7 +1,39 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 219,
+ "folded": 225,
  "groups": [
+  {
+   "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
+   "absorbed": [
+    "set-125th-bloom-eau-de-parfum-3x10ml"
+   ],
+   "members": [
+    {
+     "id": "set-125th-bloom-eau-de-parfum-3x10-ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "125th & Bloom Eau de Parfum 3x10 ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "125th bloom",
+     "signature": "3x10fragrance",
+     "shops": [
+      "nicchia-luxury-uk"
+     ]
+    },
+    {
+     "id": "set-125th-bloom-eau-de-parfum-3x10ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "125th & Bloom Eau de Parfum 3x10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "125th bloom",
+     "signature": "3x10fragrance",
+     "shops": [
+      "liberty-london"
+     ]
+    }
+   ]
+  },
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
    "absorbed": [
@@ -30,6 +62,38 @@
      "signature": "1x100fragrance|1x10fragrance",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-dear-polly-eau-de-parfum-3-x-10ml",
+   "absorbed": [
+    "set-dear-polly-eau-de-parfum-3x10-ml"
+   ],
+   "members": [
+    {
+     "id": "set-dear-polly-eau-de-parfum-3-x-10ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Dear Polly Eau de Parfum 3 x 10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "dear polly",
+     "signature": "3x10fragrance",
+     "shops": [
+      "liberty-london"
+     ]
+    },
+    {
+     "id": "set-dear-polly-eau-de-parfum-3x10-ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Dear Polly Eau de Parfum 3x10 ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "dear polly",
+     "signature": "3x10fragrance",
+     "shops": [
+      "nicchia-luxury-uk"
      ]
     }
    ]
@@ -1769,6 +1833,38 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3346130438243",
+   "absorbed": [
+    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130438243",
+     "brand": "Hermès",
+     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
+     "concentration": "Eau de Toilette",
+     "ean": "3346130438243",
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
@@ -6309,7 +6405,8 @@
      "scent": "all christmas edition le male over",
      "signature": "1x75fragrance|1x75wash",
      "shops": [
-      "perfume-click"
+      "perfume-click",
+      "perfumeuk"
      ]
     },
     {
@@ -6546,6 +6643,102 @@
      "signature": "2x5travel",
      "shops": [
       "kayali"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-mango-skin-eau-de-parfum-3x10-ml",
+   "absorbed": [
+    "set-mango-skin-eau-de-parfum-3x10ml"
+   ],
+   "members": [
+    {
+     "id": "set-mango-skin-eau-de-parfum-3x10-ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Mango Skin Eau de Parfum 3x10 ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "mango skin",
+     "signature": "3x10fragrance",
+     "shops": [
+      "nicchia-luxury-uk"
+     ]
+    },
+    {
+     "id": "set-mango-skin-eau-de-parfum-3x10ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Mango Skin Eau de Parfum 3x10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "mango skin",
+     "signature": "3x10fragrance",
+     "shops": [
+      "liberty-london"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-morning-chess-eau-de-parfum-3-x-10ml",
+   "absorbed": [
+    "set-morning-chess-eau-de-parfum-3x10-ml"
+   ],
+   "members": [
+    {
+     "id": "set-morning-chess-eau-de-parfum-3-x-10ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Morning Chess Eau de Parfum 3 x 10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "chess morning",
+     "signature": "3x10fragrance",
+     "shops": [
+      "liberty-london"
+     ]
+    },
+    {
+     "id": "set-morning-chess-eau-de-parfum-3x10-ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Morning Chess Eau de Parfum 3x10 ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "chess morning",
+     "signature": "3x10fragrance",
+     "shops": [
+      "nicchia-luxury-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-poets-of-berlin-eau-de-parfum-3-x-10ml",
+   "absorbed": [
+    "set-poets-of-berlin-eau-de-parfum-3x10-ml"
+   ],
+   "members": [
+    {
+     "id": "set-poets-of-berlin-eau-de-parfum-3-x-10ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Poets of Berlin Eau de Parfum 3 x 10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "berlin poets",
+     "signature": "3x10fragrance",
+     "shops": [
+      "liberty-london"
+     ]
+    },
+    {
+     "id": "set-poets-of-berlin-eau-de-parfum-3x10-ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Poets Of Berlin Eau de Parfum 3x10 ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "berlin poets",
+     "signature": "3x10fragrance",
+     "shops": [
+      "nicchia-luxury-uk"
      ]
     }
    ]
