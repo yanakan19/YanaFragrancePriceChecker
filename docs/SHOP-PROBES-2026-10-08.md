@@ -860,3 +860,48 @@ a refusal.
   Owner applies to programme 43488 and asks for feed access; on approval an
   agent builds the Rakuten reader and sets `adapter: 'affiliate-feed'`.
   Permission email kept as the fallback (`docs/outreach/the-fragrance-shop.md`).
+- **After the workflow fix:** one probe on the fixed workflow, run
+  [#76](https://github.com/yanakan19/YanaFragrancePriceChecker/actions/runs/37719860005)
+  (job 113124796199, commit 220e4092, `allow_metered: false`), 02:50:46Z.
+  "Install Chromium for the local render tier" succeeded in 31 s on
+  `ubuntu-24.04`; the shop's answer did not change:
+  `the-fragrance-shop refused PriceSniffsBot: https://www.thefragranceshop.co.uk/sitemap.xml: HTTP 403. Not retried any other way.`
+  and `0 urls, 0 fetched, 0 priced listings (2 errors)`.
+
+### 2. The Perfume Shop
+
+- **Why not:** Akamai edge deny. AkamaiGHost "Access Denied", HTTP 403, 388
+  to 454 bytes with an errors.edgesuite.net reference, on robots.txt, all four
+  sections, /sitemap.xml and the known product page from this machine; HTTP
+  403 on /sitemap.xml from the CI runner (run #67). The deny is served before
+  robots.txt, so it is a rule about the requester, not a path. It is the same
+  block shape Superdrug returns from the same Akamai host (both AS Watson
+  brands), which reads as one group wide rule.
+- **Our side?** Nothing to fix:
+  - URL or section: the four category paths were confirmed in a browser on
+    2026-08-06, and robots.txt is refused the same way, so the paths are not
+    the cause.
+  - User agent: PriceSniffsBot, as required.
+  - Timeout: no; answers in under a second.
+  - Parser or adapter: no markup served.
+  - Render tier: never tried after a refusal; five local renders on
+    2026-08-25/26 were 403 at 326 to 344 bytes (`renderRefused: 'local'`).
+  - Apify tiers: off by D23 (the 74 stored offers date from 2026-08-20 to
+    2026-08-22, the window in which the shared Apify credit ran out on
+    2026-08-21, before D23); turning them on would only work round the deny.
+  - Stored pages: the 74 are correctly not re-read once the sitemap refuses;
+    they are past the 7 day rule and not shown.
+  - Workflow: the probe now installs Chromium (shop 1), which does not change
+    a refused shop.
+- **Lawful route:** the shop's own affiliate programme at
+  `https://www.theperfumeshop.com/affiliates` (refused to us). The network is
+  not confirmed: Tradedoubler's blog says it became the exclusive network in
+  December 2018; affi.io shows that Tradedoubler listing and an Awin listing
+  closed, and a **Rakuten Advertising** GB listing open; affsignal lists
+  Rakuten Advertising. The owner's browser can read the join link in a minute.
+  Fallback: permission email to the customer service page; as an AS Watson
+  brand sharing Superdrug's edge rule, a group level yes could cover both.
+- **Recommendation:** stays off. Registry `affiliate` now records Rakuten,
+  `not-applied`, `verified: false` (likely network). Owner confirms the
+  network on the affiliates page and applies, asking for the product feed
+  (`docs/outreach/the-perfume-shop.md`).

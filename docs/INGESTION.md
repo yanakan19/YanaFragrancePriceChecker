@@ -289,3 +289,18 @@ What holds for all of them:
   through a search engine extract). Awin closed, Webgains closing.
 - **Recommendation:** off. Owner applies on Rakuten
   (`docs/outreach/the-fragrance-shop.md`); then build the Rakuten feed reader.
+
+### The Perfume Shop
+
+- **Blocker:** Akamai edge deny (AkamaiGHost "Access Denied", HTTP 403) on
+  robots.txt, the four sections, the sitemap and a known product page; HTTP
+  403 on the sitemap from a GitHub runner. The same group wide rule as
+  Superdrug (both AS Watson).
+- **Our side:** nothing. Identity, URLs and timeouts are not the cause; the
+  74 stored pages are rightly not re-read after the sitemap refusal.
+- **Lawful route:** the shop's affiliate programme (its own /affiliates
+  page). Network unconfirmed: Tradedoubler (exclusive from 2018) and Awin
+  are listed closed, Rakuten Advertising GB listed open by aggregators.
+- **Recommendation:** off. Owner reads the join link on the affiliates page
+  and applies, most likely on the same Rakuten account
+  (`docs/outreach/the-perfume-shop.md`).

@@ -1178,7 +1178,47 @@ export const RETAILERS: readonly Retailer[] = [
     // browser headers, no residential or rotating proxy (only this
     // sandbox's own fixed egress), nothing retried against a refusal. See
     // docs/outreach/ for the permission request drafted for the owner.
-    affiliate: { ...NO_AFFILIATE_YET },
+    //
+    // ── Diagnosis, 2026-10-08 (docs/SHOP-PROBES-2026-10-08.md) ──────────────
+    // Blocker: an Akamai edge deny (AkamaiGHost "Access Denied", HTTP 403,
+    // 388 to 454 bytes, errors.edgesuite.net reference) on robots.txt, all four
+    // sections, /sitemap.xml and a known product page from the sandbox, and
+    // HTTP 403 on /sitemap.xml from a GitHub runner (probe run #67, job
+    // 113116386630). The deny comes before robots.txt, so it is an edge rule
+    // on the requester, the same shape Superdrug gets (both AS Watson).
+    // Our side, checked: PriceSniffsBot as required; answers in under a
+    // second (no timeout); no markup, so no parser gap; the section paths
+    // were confirmed in a browser on 2026-08-06 and are not what is refused
+    // (robots.txt is); the local render is never tried after a refusal and
+    // five renders on 2026-08-25/26 were 403s; the Apify tiers stay off (D23);
+    // the 74 stored pages are rightly not re-read after the sitemap refusal.
+    // Nothing on our side to fix.
+    // Lawful route: the shop's own affiliate programme
+    // (https://www.theperfumeshop.com/affiliates, which refuses us). Its
+    // network is not confirmed: Tradedoubler announced itself the exclusive
+    // network from December 2018 and aggregators now show that listing and
+    // the Awin one closed, while affi.io lists a Rakuten Advertising GB
+    // programme as open and affsignal lists Rakuten Advertising. Recorded as
+    // the likely network, `verified: false`, until the owner reads the join
+    // link on that page in a browser.
+    // Recommendation: stays off. Owner opens the affiliates page, applies on
+    // the network it names (most likely Rakuten, the same account The
+    // Fragrance Shop needs) and asks for the product feed; permission email
+    // in docs/outreach/the-perfume-shop.md as the fallback.
+    affiliate: {
+      network: 'rakuten',
+      verified: false,
+      status: 'not-applied',
+      publisherId: null,
+      deeplinkTemplate: null,
+      querySuffixTemplate: null,
+      signupUrl: 'https://www.theperfumeshop.com/affiliates',
+      notes:
+        'Likely network only (2026-10-08): affi.io lists The Perfume Shop on Rakuten Advertising, ' +
+        'GB, open, and on Awin and Tradedoubler, closed; affsignal lists Rakuten Advertising. ' +
+        'Tradedoubler was exclusive from December 2018 (its own blog). Confirm on the shop\'s ' +
+        'affiliates page before applying.',
+    },
   },
   {
     id: 'john-lewis',
