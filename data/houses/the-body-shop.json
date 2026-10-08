@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-10-08T19:04:47.075Z",
-  "seenAt": "2026-10-08T19:04:47.075Z",
+  "updatedAt": "2026-10-08T23:03:25.643Z",
+  "seenAt": "2026-10-08T23:03:25.643Z",
   "source": "live",
   "listings": [
     {
@@ -4200,7 +4200,7 @@
       "priceGbp": 11,
       "wasPriceGbp": 20,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Our White Musk® L’Eau Eau de Toilette has fresh, light and fruity notes that leave you feeling unafraid to express yourself. Made with cruelty-free musk..",
       "productType": "Eau De Toilette",

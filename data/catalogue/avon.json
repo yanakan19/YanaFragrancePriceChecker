@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-08T17:59:37.255Z",
-  "seenAt": "2026-10-08T17:59:37.255Z",
+  "updatedAt": "2026-10-08T21:59:56.361Z",
+  "seenAt": "2026-10-08T21:59:56.361Z",
   "source": "live",
   "listings": [
     {
@@ -149,7 +149,7 @@
       "rawBrand": "Anew",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0327/1498/1421/files/prod_s28945_1_613x613_a879b370-ba75-401d-912f-a8c3f99aecf5.jpg?v=1791468449",
-      "priceGbp": 24,
+      "priceGbp": 20,
       "wasPriceGbp": 53,
       "promoEndsAt": null,
       "inStock": true,
@@ -22347,7 +22347,7 @@
       "priceGbp": 3.5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know: . Tough day? We’ve got just the thing to wash away those worries. Say hi to our Senses White Lily Shower Cream.. This irresistibly scented bath time treat is infused with natural extracts for a touch of TLC; and a sophisticated blend of white lily and musk notes to indulge your senses.. It also creates an irresistibly foamy, ultra-rich lather; and leaves your skin feeling soft and moisturised from the very first use.. Brace yourself because bath time is about to become a whole lot more blissful!. 720ml. Why you’ll love it: . • Has a white lily and musk fragrance you can’t help but love. • It’s infused with skin-kind ingredients so it’s perfect for everyday use. • Has recyclable packaging* that’s better for the planet.. *Excludes pump. Please remove before recycling. What’s in: Natural extracts that are kind to your skin.. What’s out: Shower gels that dry out your skin.. How to use it: . Wash up Wet your skin, apply the body wash to a washcloth or your hands, and lather up.. Rinse off Once you’re done, rinse it off thoroughly.. Opt for a bath Have a little more time on your hands? Try the matching bubble bath instead..",
       "productType": "TOILETRIES",

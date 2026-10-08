@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-08T17:59:37.255Z",
-  "seenAt": "2026-10-08T17:59:37.255Z",
+  "updatedAt": "2026-10-08T21:59:56.361Z",
+  "seenAt": "2026-10-08T21:59:56.361Z",
   "source": "live",
   "listings": [
     {
@@ -6040,7 +6040,7 @@
       "priceGbp": 72.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Carolina Herrera Good Girl Legere Eau de Parfum is a warm fragrance created for customers who enjoy a sophisticated scent. It opens with radiant jasmine sambac imperial, develops into a balanced heart with Tonka bean, and settles into a smooth lasting base of dulce de leche. Suitable for daytime and cooler weather, this scent feels elegant and polished.. Why customers choose it Well-suited for cooler weather and dressier occasions. A great option for daily wear and special events. Designed for customers who prefer warm, expressive scents.",
       "productType": "Eau de Parfum",
