@@ -376,3 +376,17 @@ What holds for all of them:
 - **Recommendation:** off. Owner applies on CJ and sends the email the same
   day (`docs/outreach/notino-uk.md`); weekly saved pages are an optional
   bridge.
+
+### Riiffs Perfumes
+
+- **Blocker:** SiteGround bot captcha (HTTP 202, `sg-captcha: challenge`) on
+  robots.txt, the sitemap and product pages, from the sandbox and a GitHub
+  runner.
+- **Our side, fixed:** a 2xx captcha served in place of robots.txt used to
+  parse as an empty robots file ("nothing forbidden"), so the harvest asked
+  the shop's platform endpoints and sitemap after it had already refused.
+  `src/catalogue/robotsSource.ts` now reads a bot wall at robots.txt as a
+  refusal and asks nothing else, for every shop. More polite; prices nothing.
+- **Lawful route:** no affiliate programme or feed found. Permission from the
+  shop, which can have its host let PriceSniffsBot through.
+- **Recommendation:** off until the shop agrees (`docs/outreach/riiffs.md`).

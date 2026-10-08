@@ -4201,6 +4201,30 @@ export const RETAILERS: readonly Retailer[] = [
     // browser headers, no residential or rotating proxy (only this
     // sandbox's own fixed egress), nothing retried against a refusal. See
     // docs/outreach/ for the permission request drafted for the owner.
+    //
+    // ── Diagnosis, 2026-10-08 (docs/SHOP-PROBES-2026-10-08.md) ──────────────
+    // Blocker: SiteGround's bot captcha (HTTP 202, `sg-captcha: challenge`,
+    // a meta refresh to /.well-known/sgcaptcha/) on robots.txt,
+    // sitemap_index.xml and a product page from the sandbox, and on
+    // /sitemap.xml from a GitHub runner (probe run #71, job 113118354454,
+    // "stopped early: the shop answered with a captcha"). A captcha is never
+    // solved or followed here.
+    // Our side, found and fixed: src/catalogue/robotsSource.ts read a 2xx
+    // captcha in place of robots.txt as a robots file with no rules, that is
+    // "nothing forbidden", so the harvest went on to ask this shop's Shopify
+    // and WooCommerce endpoints and its sitemap before the sitemap walk
+    // stopped at the same captcha. A bot wall at robots.txt is now a refusal
+    // and nothing else is asked (tests/robotsSource.test.ts, on the measured
+    // body with the egress address redacted). That makes us more polite; it
+    // cannot price anything, since every route the shop has is behind the
+    // captcha. `catalogue: null` is not a gap: the sitemap route needs no
+    // section URLs (`sitemapHarvestConfirmed`). Apify is off (D23).
+    // Lawful route: no affiliate programme or feed found (brand of Sterling
+    // Perfumes Industries, Dubai). Only the shop, through its host, can let
+    // PriceSniffsBot past the captcha, so the route is the permission email
+    // in docs/outreach/riiffs.md. Its perfumes are also sold by FragranceHub
+    // and Perfume Click, which stay on the site.
+    // Recommendation: stays off until the shop says yes.
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {

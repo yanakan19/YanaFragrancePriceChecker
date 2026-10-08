@@ -1050,3 +1050,44 @@ a refusal.
   to Notino UK and sends the refreshed email the same day
   (`docs/outreach/notino-uk.md`, now with the "same terms as your comparison
   feeds" line the plan asked for); optional weekly saved pages meanwhile.
+
+### 7. Riiffs Perfumes
+
+- **Why not:** SiteGround captcha. HTTP 202 with `sg-captcha: challenge` and
+  a single `<meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/...">`
+  on robots.txt, sitemap_index.xml and `/product/raheeq/` from this machine,
+  and on /sitemap.xml from the CI runner (run #71: "HTTP 202, a SiteGround
+  captcha challenge instead of the page (refused, not empty)", "stopped early:
+  the shop answered with a captcha"). Captchas are never solved or followed.
+  The last run to price anything began 2026-09-14T04:56Z (66 priced).
+- **Our side?** One gap, **fixed in this commit**:
+  - `readRobotsResponse` in `src/catalogue/robotsSource.ts` treated any 2xx
+    with a body as a robots file. The captcha page has no User-agent line, so
+    it parsed to no rules, which `isAllowed` reads as "nothing forbidden". With
+    141 stored live listings, the harvest then asked the shop's Shopify check
+    and WooCommerce Store API (`refreshFromPlatform`) and its sitemap, each
+    answered by the same captcha, before the sitemap walk's own captcha check
+    stopped it. That is up to three requests after the shop had refused at
+    robots.txt, against the owner's rule that a bot wall is a refusal and the
+    shop is left alone.
+  - Now a 2xx robots.txt whose body carries a known challenge marker
+    (SiteGround `sgcaptcha`, Cloudflare `_cf_chl_opt` or
+    `/cdn-cgi/challenge-platform/`, `_Incapsula_Resource`, DataDome
+    `captcha-delivery.com`, `px-captcha`) and no robots directive is a
+    refusal: `probeRobots` stops at that address, records "a captcha or
+    challenge page instead of robots.txt (refused; nothing else asked)", and
+    the shop is held off like an unreachable robots.txt. A 4xx keeps its
+    RFC 9309 meaning. Tests: `tests/robotsSource.test.ts`, on the measured
+    SiteGround body with the egress address replaced by 192.0.2.1.
+  - Effect: one request to this shop per run instead of up to four. It
+    cannot yield a priced listing; every route the shop has is behind the
+    captcha.
+  - Not gaps: `catalogue: null` (the sitemap route needs no section URLs,
+    `sitemapHarvestConfirmed: true`); the render tier (never after a
+    refusal); Apify (off by D23).
+- **Lawful route:** no affiliate programme, network listing or feed was
+  found; the brand belongs to Sterling Perfumes Industries (Dubai). Only the
+  shop, through its host's bot settings, can let PriceSniffsBot through, so the
+  route is a permission email (`docs/outreach/riiffs.md`, refreshed). Its
+  perfumes are also sold by FragranceHub and Perfume Click, which stay listed.
+- **Recommendation:** stays off until the shop agrees.
