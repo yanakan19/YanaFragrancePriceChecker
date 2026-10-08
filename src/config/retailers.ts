@@ -6652,6 +6652,19 @@ export const RETAILERS: readonly Retailer[] = [
     // requested. A harvest probe from a runner, run 37085047598 job
     // 111093456847, priced nothing. Blocker: refused at the home page; currency
     // still unread.
+    //
+    // ── Measured again 2026-10-08: still refused ────────────────────────────────
+    //
+    // As PriceSniffsBot, plain fetch. robots.txt HTTP 200 (344 bytes): for "*"
+    // only `Disallow: /*?search=*`, sitemap /sitemap_indice.xml, and named
+    // Allow groups for GPTBot, ChatGPT-User, Google-Extended, PerplexityBot and
+    // Anthropic-Bot. Everything else answered HTTP 403 with Cloudflare's
+    // "Sorry, you have been blocked" page (5,490 bytes): the home page, /en/,
+    // /gb/, the bare domain and /sitemap_indice.xml itself. From a GitHub
+    // runner, harvest probe run 37720273728 job 113126087766: /sitemap.xml
+    // HTTP 403, 0 priced, recorded as refused. A refusal is not worked around
+    // (docs/DECISIONS.md D23), so it stays off; its currency and delivery
+    // terms are still unread, because no page of the shop could be read.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
