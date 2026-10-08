@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 215,
+ "folded": 219,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -1108,38 +1108,6 @@
      "signature": "1x100body|1x100fragrance|1x100wash",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-0849017015405",
-   "absorbed": [
-    "set-ellen-tracy-dream-florals-red-dahlia-gift-set-edp-100ml-body-lotion-100ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0849017015405",
-     "brand": "Ellen Tracy",
-     "name": "Dream Florals Red Dahlia Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "0849017015405",
-     "scent": "dahlia dream florals red",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ellen-tracy-dream-florals-red-dahlia-gift-set-edp-100ml-body-lotion-100ml",
-     "brand": "Ellen Tracy",
-     "name": "Dream Florals Red Dahlia Gift Set EDP 100ml + Body Lotion 100ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "dahlia dream florals red",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "the-beauty-store-uk"
      ]
     }
    ]
@@ -2729,6 +2697,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3423222119683",
+   "absorbed": [
+    "set-issey-miyake-l-eau-d-issey-pour-homme-3-piece-gift-set-eau-de-toilette-125ml-shower-gel-50ml-eau-de-toilette-10ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3423222119683",
+     "brand": "Issey Miyake",
+     "name": "L'Eau d'Issey Pour Homme Gift Set 125ml EDT + 50ml Shower Gel + 10ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3423222119683",
+     "scent": "d eau homme issey l pour",
+     "signature": "1x10fragrance|1x125fragrance|1x50wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-issey-miyake-l-eau-d-issey-pour-homme-3-piece-gift-set-eau-de-toilette-125ml-shower-gel-50ml-eau-de-toilette-10ml",
+     "brand": "Issey Miyake",
+     "name": "L'eau D'issey Pour Homme 3 Piece Gift Set: Eau De Toilette 125ml - Shower Gel 50ml - Eau De Toilette 10ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d eau homme issey l pour",
+     "signature": "1x10fragrance|1x125fragrance|1x50wash",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3423222133856",
    "absorbed": [
     "set-narciso-rodriguez-all-of-me-3-piece-gift-set-eau-de-parfum-90ml-body-lotion-50ml-eau-de-parfum-10ml"
@@ -3578,6 +3578,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3616305266804",
+   "absorbed": [
+    "set-gucci-miniature-gift-set-2-x-5ml-bloom-edp-2-x-5ml-flora-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616305266804",
+     "brand": "Gucci",
+     "name": "Miniature Gift Set 2 x 5ml Bloom EDP + 2 x 5ml Flora EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3616305266804",
+     "scent": "bloom flora",
+     "signature": "4x5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-gucci-miniature-gift-set-2-x-5ml-bloom-edp-2-x-5ml-flora-edp",
+     "brand": "Gucci",
+     "name": "Miniature Gift Set 2 x 5ml Bloom EDP + 2 x 5ml Flora EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "bloom flora",
+     "signature": "4x5fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3616305439420",
    "absorbed": [
     "set-hugo-boss-boss-bottled-gift-set-50ml-edt-100ml-shower-gel"
@@ -3980,6 +4012,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3660732601424",
+   "absorbed": [
+    "set-ralph-lauren-polo-red-gift-set-edt-125ml-edt-15ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3660732601424",
+     "brand": "Ralph Lauren",
+     "name": "Polo Red Gift Set 125ml EDT + 15ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3660732601424",
+     "scent": "polo red",
+     "signature": "1x125fragrance|1x15fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ralph-lauren-polo-red-gift-set-edt-125ml-edt-15ml",
+     "brand": "Ralph Lauren",
+     "name": "Polo Red Gift Set EDT 125ml + EDT 15ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "polo red",
+     "signature": "1x125fragrance|1x15fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3660732641499",
    "absorbed": [
     "set-giorgio-armani-acqua-di-gio-gift-set-30ml-edt-30ml-edt"
@@ -4181,12 +4245,13 @@
     {
      "id": "set-ean-5060426158728",
      "brand": "Sarah Jessica Parker",
-     "name": "Lovely Women's Perfume Gift Set (100ml EDP + 15ml EDP)",
+     "name": "Lovely Gift Set 100ml EDP + 15ml EDP",
      "concentration": "Eau de Parfum",
      "ean": "5060426158728",
      "scent": "lovely",
      "signature": "1x100fragrance|1x15fragrance",
      "shops": [
+      "perfume-click",
       "perfume-direct"
      ]
     },
@@ -5002,6 +5067,83 @@
      "signature": "1x100fragrance|1x150body",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-7640171199092",
+   "absorbed": [
+    "set-lalique-soleil-vibrant-3-piece-gift-set-eau-de-parfum-15ml-necklace-bag"
+   ],
+   "members": [
+    {
+     "id": "set-ean-7640171199092",
+     "brand": "Lalique",
+     "name": "Soleil Vibrant Gift Set 15ml EDP + Necklace + Bag",
+     "concentration": "Eau de Parfum",
+     "ean": "7640171199092",
+     "scent": "necklace soleil vibrant",
+     "signature": "1x15fragrance|1x?other",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-lalique-soleil-vibrant-3-piece-gift-set-eau-de-parfum-15ml-necklace-bag",
+     "brand": "Lalique",
+     "name": "Soleil Vibrant 3 Piece Gift Set: Eau De Parfum 15ml - Necklace - Bag",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "necklace soleil vibrant",
+     "signature": "1x15fragrance|1x?other",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-7640171199214",
+   "absorbed": [
+    "set-lalique-soleil-2-piece-gift-set-eau-de-parfum-50ml-body-lotion-150ml",
+    "set-lalique-soleil-gift-set-50ml-edp-150ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-7640171199214",
+     "brand": "Lalique",
+     "name": "Soleil Gift Set 50ml EDP + 150ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "7640171199214",
+     "scent": "soleil",
+     "signature": "1x150body|1x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-lalique-soleil-2-piece-gift-set-eau-de-parfum-50ml-body-lotion-150ml",
+     "brand": "Lalique",
+     "name": "Soleil 2 Piece Gift Set: Eau de Parfum 50ml - Body Lotion 150ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "soleil",
+     "signature": "1x150body|1x50fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-lalique-soleil-gift-set-50ml-edp-150ml-body-lotion",
+     "brand": "Lalique",
+     "name": "Soleil Gift Set 50ml EDP + 150ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "soleil",
+     "signature": "1x150body|1x50fragrance",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -6404,38 +6546,6 @@
      "signature": "2x5travel",
      "shops": [
       "kayali"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-lalique-soleil-2-piece-gift-set-eau-de-parfum-50ml-body-lotion-150ml",
-   "absorbed": [
-    "set-lalique-soleil-gift-set-50ml-edp-150ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-lalique-soleil-2-piece-gift-set-eau-de-parfum-50ml-body-lotion-150ml",
-     "brand": "Lalique",
-     "name": "Soleil 2 Piece Gift Set: Eau de Parfum 50ml - Body Lotion 150ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "soleil",
-     "signature": "1x150body|1x50fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-lalique-soleil-gift-set-50ml-edp-150ml-body-lotion",
-     "brand": "Lalique",
-     "name": "Soleil Gift Set 50ml EDP + 150ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "soleil",
-     "signature": "1x150body|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
@@ -8443,7 +8553,8 @@
      "signature": "1x30fragrance|1x50body",
      "shops": [
       "beautybase",
-      "fragrance-click"
+      "fragrance-click",
+      "perfume-click"
      ]
     }
    ]
