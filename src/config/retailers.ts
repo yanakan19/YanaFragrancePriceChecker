@@ -4,10 +4,21 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 84 retailers, 55 of them `enabled: true`. Every one of them is a legitimate
+ * 80 retailers, 55 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
+ *
+ * Retired on 2026-10-08, deleted at the owner's decision, not to be added back:
+ * `paco-perfumerias` (pacoperfumerias.com, the Spanish storefront, no sterling
+ * prices; the UK shop `paco-perfumerias-uk` is a separate entry and stays live,
+ * and an older comment that says "the paco-perfumerias entry" means the retired
+ * .com), `sabina` (sabina.com) and `bath-body-works-uk` (bathandbodyworks.co.uk),
+ * whose pounds are conversions for a US delivery, and `fragrancedirect`
+ * (fragrancedirect.co.uk), a holding page that only links to allbeauty.com.
+ * None was enabled or had a listing, so no page and no count changed.
+ * docs/DECISIONS.md D29 has the evidence, and tests/registry.test.ts fails if
+ * any of the four ids or domains comes back.
  *
  * Counts in this header are asserted by `tests/registry.test.ts`, so a header
  * that has drifted from the array below fails the build rather than quietly
@@ -15,8 +26,8 @@ import { brandKey } from '../catalogue/brandName.js';
  * there were 55 — that is what this note is guarding against.
  *
  * "UK retailers" is not quite what this list is, either. Most are UK
- * storefronts; several are not (Nicchia Luxury is Italian, Paco Perfumerias
- * Spanish, Beauty The Shop ships from Madrid). What every *enabled* entry has
+ * storefronts; several are not (Nicchia Luxury is Italian, Beauty The
+ * Shop ships from Madrid). What every *enabled* entry has
  * in common is that it sells to UK customers and its prices reach us in
  * sterling — which is a claim about each shop that has to be established, not
  * assumed, and the subject of the CURRENCY_UNCONFIRMED list at the foot of
@@ -5606,75 +5617,6 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
   },
-  {
-    id: 'bath-body-works-uk',
-    name: 'Bath & Body Works',
-    domain: 'bathandbodyworks.co.uk',
-    homepage: 'https://www.bathandbodyworks.co.uk',
-    tiers: ['designer'],
-    singleBrandOnly: 'Bath & Body Works',
-    // NOT Shopify — checked, not guessed, across two runs. Currency probe,
-    // run 32255284750 job 96075537892, 2026-08-19T12:57Z, commit 14eede4:
-    // robots.txt did not answer at all ("COULD NOT ASK"), so nothing was
-    // requested that pass. Retried, run 32256639926 job 96079766579,
-    // 2026-08-19T13:11Z, commit fc97aad: robots.txt answered this time and
-    // permitted every request (home page 200 for all nine ways of asking),
-    // but /products.json came back "not a Shopify products payload" on every
-    // one of them — the multinational US parent's UK site is not on Shopify.
-    // No candidate published a currency either. A dead end for the Shopify
-    // route specifically; this shop is a large non-Shopify retailer and
-    // would need a different strategy (the ordinary sitemap walk, or a
-    // dedicated adapter) if it is ever pursued.
-    //
-    // ── The ordinary sitemap walk was pursued, 2026-08-20 ───────────────────
-    // Harvest probe run 17, job 96347788808, commit eb8bb05. robots.txt read
-    // and permitting; /sitemap.xml 404s but robots.txt names others and a
-    // real product URL was discovered through them. Fetching it:
-    //
-    //     https://www.bathandbodyworks.co.uk/style/su468821/ah7419: HTTP 403
-    //     stopped early: the shop began refusing requests
-    //
-    // So the sitemap walk is answered too: this shop publishes a sitemap,
-    // permits crawling in robots.txt, and then 403s the product pages from
-    // this network. That is a measured refusal at the page level, not an
-    // untried route, and it is the reason this stays off.
-    //
-    // ── Tested 2026-10-03 (phase 4): product pages refused, unchanged ───────────
-    //
-    // robots.txt (https://www.bathandbodyworks.co.uk/robots.txt, HTTP 200):
-    // User-agent * with 554 Disallow lines (the legacy Next structure); /style/
-    // product pages are not disallowed; sitemap /sitemap-index.xml. Home page,
-    // sitemap index and BABW-GB-EN-Products.xml.gz answered HTTP 200; the first
-    // product it lists,
-    // https://www.bathandbodyworks.co.uk/style/su468821/ah7556, came back HTTP
-    // 403 from AkamaiGHost, Access Denied, the same refusal as August. A
-    // harvest probe from a runner, run 37085000019 job 111093316922, priced
-    // nothing. Blocker: product pages refused.
-    enabled: false,
-    adapter: 'unknown',
-    currency: 'GBP',
-    shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [3, 6],
-      verifiedAt: '2026-08-05',
-      confidence: 'unverified',
-      notes:
-        'Search only surfaced the US site\'s $50 threshold, which is not this UK site\'s terms. ' +
-        'No standard-delivery cost for bathandbodyworks.co.uk found. Fine fragrance mists rather ' +
-        'than EDP/EDT in the main, worth confirming isFragrance actually recognises their ' +
-        'listings — fragranceOnlyCatalogue is deliberately NOT set here, unlike a single-house ' +
-        'storefront, precisely because this shop sells mostly non-fragrance body/bath product ' +
-        'and the concentration-word title test is what keeps that out; see that field\'s own doc ' +
-        'comment in src/types/retailer.ts, which names this shop specifically. Shipping probe, ' +
-        'run 32279983083 job 96156214531, 2026-08-19T17:09Z: robots.txt still permits every ' +
-        'request, but every candidate delivery path came back either 404 or a genuine server ' +
-        'error (/pages/help: HTTP 500) — "0 pages UNREACHABLE". Not a robots.txt refusal this ' +
-        'time, a live 500 from their own server; worth retrying rather than treating as settled.',
-    },
-    catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
-  },
 
   // ── Applied via Awin, 2026-08-11 ───────────────────────────────────────────
   // Temporary placeholders, exactly as requested: every one of these is a
@@ -6236,127 +6178,6 @@ export const RETAILERS: readonly Retailer[] = [
       // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
     },
-  },
-  {
-    id: 'paco-perfumerias',
-    name: 'Paco Perfumerias',
-    domain: 'pacoperfumerias.com',
-    homepage: 'https://www.pacoperfumerias.com',
-    tiers: ['designer', 'niche'],
-    // CURRENCY NOT CONFIRMED. Do not flip this to true on the strength of the
-    // Awin application alone — read `shipping.notes` below and
-    // CURRENCY_UNCONFIRMED at the foot of this file first. The `currency:
-    // 'GBP'` on the next line is what the Retailer type forces, not a fact
-    // about this shop: it is Spanish, and nobody has established what its
-    // checkout charges in. Enabling it while that is open publishes euros as
-    // pounds. The guard below throws rather than let that happen quietly.
-    //
-    // Currency probe (run 32257096463, job 96081230582, 2026-08-19): robots.txt
-    // answers with no disallow, and the bare origin answers 200 — but no
-    // candidate, of the nine tried, published any currency at all. No
-    // Shopify.currency in the theme, no /meta.json, at any address (/en-gb,
-    // /gb, /uk, /en-uk all 404 too). /products.json also 404s everywhere, so
-    // this is not a confirmed Shopify storefront either. A genuinely silent
-    // storefront, not a foreign-currency one — the honest reading is "unknown"
-    // rather than "not sterling", and there is no route (Shopify or otherwise)
-    // yet proven for this shop.
-    //
-    // ── Tested 2026-10-03 (phase 4): the Spanish store, and a UK one found ──────
-    //
-    // robots.txt (https://www.pacoperfumerias.com/robots.txt, HTTP 200): User-
-    // agent * with 97 Disallow lines (checkout, customer, cart-add and filter
-    // paths); it names /sitemap_index.xml. The home page answered HTTP 200,
-    // title 'Tienda de perfumes y cosmética · Mejor Precio - Paco Perfumerías'.
-    // No product page was read here, so currency is still unread for this .com.
-    //
-    // What changes the picture: perfumeprice.co.uk now redirects to
-    // www.pacoperfumerias.co.uk, a UK storefront of the same retailer that
-    // prices in GBP (see the perfume-price entry, which records its robots, a
-    // parsed product page and its delivery terms). The UK Awin programme this
-    // entry was added for is most likely that store, not this one. Blocker for
-    // this id as it stands: a Spanish storefront with no sterling reading.
-    // Owner decision: repoint this entry at pacoperfumerias.co.uk, or keep it
-    // as the .com and retire it.
-    enabled: false,
-    adapter: 'unknown',
-    currency: 'GBP',
-    shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [3, 7],
-      verifiedAt: '2026-08-11',
-      confidence: 'unverified',
-      notes:
-        'Applied via Awin 2026-08-11. A Spanish retailer (pacoperfumerias.com); whether its Awin ' +
-        'UK programme actually checks out in GBP or this is an EU-priced site with a UK-targeted ' +
-        'affiliate programme has not been confirmed — so the GBP above is the type talking, not ' +
-        'a checked figure, and this entry is listed in CURRENCY_UNCONFIRMED at the foot of this ' +
-        'file. Delivery terms and page structure not yet read.',
-    },
-    catalogue: null,
-    affiliate: { ...awinRequested() },
-  },
-  {
-    id: 'sabina',
-    name: 'Sabina Store',
-    domain: 'sabina.com',
-    homepage: 'https://www.sabina.com',
-    // The registry needs at least one tier and nobody has measured this shop's
-    // range, so 'designer' is a placeholder to be corrected from a real
-    // catalogue, not a finding.
-    tiers: ['designer'],
-    // DISABLED, AND IT CANNOT BE SWITCHED ON AS THINGS STAND. A Spanish
-    // PrestaShop shop (Sabina Store, www.sabina.com), looked at on 2026-10-04.
-    // What was found, and why each point blocks it:
-    //
-    //   - robots.txt allows the product pages but disallows */modules/.
-    //   - The shop picks the delivery country from the visitor's location. A
-    //     US address gets USD, so no price read from this sandbox or from a CI
-    //     runner is the price a UK shopper pays.
-    //   - The pound price available to such a visitor is the shop's own
-    //     conversion of a euro base price at a rate of about 0.8757, for a US
-    //     delivery, with no UK VAT treatment. It is reachable by
-    //     ?SubmitCurrency=1&id_currency=2. That is a converted figure for the
-    //     wrong market, not the price of a bottle delivered to the UK, which
-    //     is what every price on this site claims to be.
-    //   - The only way to set the delivery country to the United Kingdom is
-    //     /modules/mclocationselector/ajax.php, which robots.txt disallows.
-    //     This project does not ask for what a shop's robots.txt refuses, so
-    //     there is no route to the UK price, and the entry stays off until
-    //     the shop changes that or gives permission.
-    //   - Delivery to the UK is £7.50, free from £79, 4 to 8 business days,
-    //     per the shop's own shipping page (recorded below).
-    //   - JSON-LD on product pages carries one offer per size, with a GTIN.
-    //     Useful the day a UK price can be read; nothing is wired to it.
-    //
-    // In CURRENCY_UNCONFIRMED at the foot of this file for the reason above:
-    // the pounds it can show are a conversion for a US delivery, so the guard
-    // throws on import if this entry is ever enabled before that is settled.
-    // Nothing from this shop reaches the site, the Shops list or any count.
-    enabled: false,
-    adapter: 'unknown',
-    currency: 'GBP',
-    shipping: {
-      standardGbp: 7.5,
-      freeOverGbp: 79,
-      estimatedDays: [4, 8],
-      verifiedAt: '2026-10-04',
-      confidence: 'unverified',
-      notes:
-        'Recorded 2026-10-04 from the shop\'s own shipping page as reported by the owner: ' +
-        'delivery to the United Kingdom £7.50, free from £79, 4 to 8 business days. The page ' +
-        'address and the sentence it was read from were not recorded, so this is not marked ' +
-        'confirmed: it needs a re-read before anything relies on it. Not used anywhere while the ' +
-        'entry is disabled. Why it is disabled: robots.txt disallows */modules/, the shop sets the ' +
-        'delivery country from the visitor\'s location (a US address gets USD), its pound price is ' +
-        'its own conversion of a euro base price at about 0.8757 for a US delivery with no UK VAT ' +
-        'treatment (?SubmitCurrency=1&id_currency=2), and the only way to set the country to the ' +
-        'United Kingdom is /modules/mclocationselector/ajax.php, which robots.txt disallows. ' +
-        'Product pages carry JSON-LD with one offer per size and a GTIN. No affiliate programme ' +
-        'has been researched.',
-    },
-    catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
   },
   {
     id: 'beauty-pie',
@@ -7437,74 +7258,6 @@ export const RETAILERS: readonly Retailer[] = [
       // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
     },
-  },
-  {
-    id: 'fragrancedirect',
-    name: 'Fragrancedirect',
-    domain: 'fragrancedirect.co.uk',
-    homepage: 'https://www.fragrancedirect.co.uk',
-    tiers: ['designer'],
-    // CURRENCY NOT CONFIRMED — see CURRENCY_UNCONFIRMED at the foot of this
-    // file. Currency probe (run 32256534104, job 96079423648, 2026-08-19):
-    // robots.txt answers with no disallow, and the bare origin answers 200 —
-    // but no candidate, of the nine tried, published any currency at all. No
-    // Shopify.currency in the theme, no /meta.json, at any address (/en-gb,
-    // /gb, /uk, /en-uk all 404 too). /products.json also 404s everywhere. A
-    // .co.uk domain is not evidence of sterling pricing on its own (see
-    // zimaya's entry below) — this storefront is simply silent about its
-    // currency rather than confirming anything, and no harvest route has been
-    // established either.
-    //
-    // ── 2026-09-10: there is no storefront to harvest ───────────────────────
-    // Asked directly, three URLs, one answer. `/` (HTTP 200), `/robots.txt`
-    // (HTTP 404) and `/sitemap.xml` (HTTP 404) all return the same 5,063-byte
-    // page titled "Fragrance Direct | We're making some changes": "Fragrance
-    // Direct is making improvements behind the scenes. Visit our sister site
-    // allbeauty.com for the best deals on your fragrance favourites." It
-    // carries `<meta name="robots" content="noindex, nofollow">` and a link
-    // to allbeauty.com, and nothing else — no navigation, no products, no
-    // JSON-LD. The 2026-08-19 probe's "no candidate published any currency"
-    // was this page too: a holding page has no currency to publish.
-    //
-    // So there is nothing to enable. No catalogue exists at this domain today
-    // (its sister, Allbeauty, is already enabled above), no route is blocked
-    // — a 404 robots.txt is "no restrictions" under RFC 9309, and nothing
-    // refused us — and no adapter could extract listings from a page that
-    // has none. Stays `enabled: false`, `catalogue: null`.
-    //
-    // The Awin application (merchant 9, 2026-08-11) is unchanged. Even if it
-    // has been accepted, a product feed for a shop with no storefront would
-    // be stale at best and empty at worst; the `awin_memberships` dispatch
-    // named in Boots' entry above lists this merchant's status alongside
-    // 2041's, and if a feed row does exist for it, `npm run awin:feed-diag
-    // -- --shop=fragrancedirect` from CI says whether it carries anything.
-    // Re-check the domain itself first: a storefront that comes back is the
-    // thing that would change this entry.
-    //
-    // ── Rechecked 2026-10-03: still the holding page ────────────────────────
-    // `/robots.txt` (HTTP 404), `/` (HTTP 200) and `/sitemap.xml` (HTTP 404)
-    // each returned the same 5,063 bytes, titled "Fragrance Direct | We're
-    // making some changes", still `noindex, nofollow`, and its only links are
-    // its own favicon and https://www.allbeauty.com. No storefront, so
-    // nothing changes here.
-    enabled: false,
-    adapter: 'unknown',
-    currency: 'GBP',
-    shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
-      confidence: 'unverified',
-      notes:
-        // Merchant id 9, same account-wide network as Fragrance Click UK's — found while
-        // confirming this domain, not guessed.
-        'Applied via Awin 2026-08-11 (merchant id 9). Delivery terms and page structure not yet read. ' +
-        'As of 2026-09-10, and again when rechecked on 2026-10-03, the domain serves only a ' +
-        'holding page pointing at allbeauty.com. See the dated comments above.',
-    },
-    catalogue: null,
-    affiliate: { ...awinRequested('9') },
   },
   {
     id: 'cult-beauty-global',
@@ -10400,6 +10153,9 @@ export const RETAILERS: readonly Retailer[] = [
     // are deodorants, bakhoor, air fresheners, two backpacks and a wallet, which the catalogue's own
     // fragrance test leaves out. 512 of the 517 listings that name a strength also name a size.
     //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 4 requests, 554 listings priced in GBP, no errors, 249 in stock.
+    //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=opulensi --dry-run` read 554 priced listings,
     // all in GBP; 495 of them pass the catalogue's own fragrance test and 222 of those are in stock.
     //
@@ -10461,6 +10217,9 @@ export const RETAILERS: readonly Retailer[] = [
     // to be read from the title, and there is no product type. 833 of the 903 listings that name a
     // strength also name a size (in the title or in a "Size (ml)" option). About two thirds of the range
     // is out of stock on the shop's own list; the stock flag is kept as the shop states it.
+    //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 4 requests, 1,067 listings priced in GBP, no errors, 377 in stock.
     //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=perfume-closet --dry-run` read 1067 priced listings,
     // all in GBP; 836 of them pass the catalogue's own fragrance test and 277 of those are in stock.
@@ -10524,6 +10283,9 @@ export const RETAILERS: readonly Retailer[] = [
     // 153, Cologne 5, Parfum 5, Aftershave Lotion 5, Deodorant Spray 5, Deodorant Stick 4 and a few body
     // products); all 442 listings that name a strength also name a size in the title. 330 of the 464
     // variants are out of stock on the shop's own list; the stock flag is kept as the shop states it.
+    //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 3 requests, 464 listings priced in GBP, no errors, 330 in stock.
     //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=perfumoi --dry-run` read 464 priced listings,
     // all in GBP; 445 of them pass the catalogue's own fragrance test and 319 of those are in stock.
@@ -10589,6 +10351,9 @@ export const RETAILERS: readonly Retailer[] = [
     // rule drops a title with two sizes: 93 listings pass with it, 114 without. 63 of the 156 products are
     // in stock; the bundles ("Combo ...") and one body lotion fall out under the catalogue's own rules.
     //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 2 requests, 156 listings priced in GBP, no errors, 106 in stock.
+    //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=saad-fragrance --dry-run` read 156 priced listings,
     // all in GBP; 114 of them pass the catalogue's own fragrance test and 76 of those are in stock.
     //
@@ -10653,6 +10418,9 @@ export const RETAILERS: readonly Retailer[] = [
     // drops any variant under 5ml and any "discovery" box; product types keep out the sample sets,
     // soaps, incense, gift cards and event tickets. Every one of the listings that then passed the
     // catalogue's test was read title by title on 2026-10-08.
+    //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 3 requests, 268 listings priced in GBP, no errors, 188 in stock.
     //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=sainte-cellier --dry-run` read 268 priced listings,
     // all in GBP; 260 of them pass the catalogue's own fragrance test and 184 of those are in stock.
@@ -10732,6 +10500,10 @@ export const RETAILERS: readonly Retailer[] = [
     // 2.5 s gaps, 3 pages of the 100 answered HTTP 503 and the same page answered 200 on a retry 15 s
     // later. The walk used to stop at a failed page, so `crawlViaShopifyProducts` now asks a 5xx page once more.
     //
+    // Runner proof, 2026-10-08, harvest_shop=fenwick, run 37723837125, commit 7d9e58b3, as
+    // PriceSniffsBot, tier free: 100 pages, 1,054 listings priced in GBP, no errors, 752 in stock;
+    // the full sweep of commit 874377da read it again the same way.
+    //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=fenwick --dry-run` read 1054 priced listings,
     // all in GBP; 892 of them pass the catalogue's own fragrance test and 644 of those are in stock.
     //
@@ -10806,6 +10578,10 @@ export const RETAILERS: readonly Retailer[] = [
     // 48 ... delivered within 2-4 working days ... for UK deliveries there are no postage and packing
     // charges", with Royal Mail Tracked 24 at £3 and Special Delivery at £9 as upgrades, not modelled.
     //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 1,137 addresses on the route, 150 pages read, 150 priced in GBP,
+    // no errors, 93 in stock.
+    //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=perfumeuk --dry-run --max=60` found 1,137
     // product addresses on the route, read 112 of them before the local six minute ceiling (the runner's
     // is 40) and priced all 112, every one on its own page in GBP, at about 3 s a page.
@@ -10876,6 +10652,10 @@ export const RETAILERS: readonly Retailer[] = [
     // Delivery: the Delivery & Returns panel of the same product page, read 2026-10-08, in the UK view:
     // "Standard Delivery: £5.95 or FREE OVER £100", "Free UK Standard Delivery on all orders over £100!
     // Delivered within 3-5 working days. Normally £5.95." Express and Click & Collect are not modelled.
+    //
+    // Runner proof, 2026-10-08, harvest_shop=liberty-london, run 37727829201, commit 007b3fe5, as
+    // PriceSniffsBot, tier free: 1,663 product addresses on the route, 100 pages read, 100 priced
+    // in GBP, no errors; 200 held after the full sweep of commit 874377da.
     //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=liberty-london --dry-run --max=40` found 1,667
     // product addresses on the route, read 100 of them (the run's discovery floor) and priced all 100,
@@ -10966,6 +10746,9 @@ export const RETAILERS: readonly Retailer[] = [
     // working days", and "NEXT-DAY UK: Free next-day delivery. Order before 11am (UK time) on a working
     // day for same-day dispatch." Final prices are confirmed at checkout, which was not used.
     //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 27 of 27 pages read and priced in GBP, no errors, 23 in stock.
+    //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=rasasi-uk-store --dry-run` found 27 product
     // addresses, read all 27 and priced all 27, every one in GBP on its own page.
     //
@@ -11038,6 +10821,10 @@ export const RETAILERS: readonly Retailer[] = [
     // FREESHIP35 at the checkout (cannot be used in conjunction with any discount code, sale item ...)".
     // The code and the sale item condition cannot be modelled, so the free threshold is left unset and
     // every basket is priced at £2.95, which can overstate and never understates.
+    //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 1,491 addresses on the route, 100 pages read, 100 priced in GBP,
+    // no errors, 100 in stock.
     //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=direct-cosmetics --dry-run --max=40` found 1,491
     // product addresses, read 96 of them before the local six minute ceiling (the runner's is 40) and priced
@@ -11164,26 +10951,6 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
   // JSON-LD through every candidate that reached it. See the comment on its
   // registry entry above. It is now `enabled: true`.
   [
-    'paco-perfumerias',
-    'A Spanish retailer (pacoperfumerias.com) with a UK-targeted Awin programme. Whether that ' +
-      'programme checks out in GBP, or the site is EU-priced throughout, has not been confirmed. ' +
-      'Currency probe, run 32257096463 job 96081230582, 2026-08-19: robots.txt answers with no ' +
-      'disallow, and the bare origin answers 200, but none of the nine ways of asking published ' +
-      'any currency at all — no Shopify.currency in the theme, no /meta.json, and /en-gb /gb /uk ' +
-      '/en-uk all 404. /products.json also 404s everywhere, so this is not a confirmed Shopify ' +
-      'storefront either. A genuinely silent storefront, not evidence either way.',
-  ],
-  [
-    'sabina',
-    'A Spanish PrestaShop shop (sabina.com) that picks the delivery country from the visitor\'s ' +
-      'location: a US address gets USD. The pound price a visitor can reach, with ' +
-      '?SubmitCurrency=1&id_currency=2, is the shop\'s own conversion of a euro base price at ' +
-      'about 0.8757 for a US delivery with no UK VAT treatment, so it is not what a UK shopper ' +
-      'pays. The only way to set the country to the United Kingdom is ' +
-      '/modules/mclocationselector/ajax.php, which robots.txt disallows (as it does */modules/), ' +
-      'so no UK price can be read. Looked at 2026-10-04.',
-  ],
-  [
     'beauty-the-shop-uk',
     'Ships from Madrid, Spain. Whether UK orders are actually GBP-priced has not been confirmed. ' +
       'Currency probe attempted twice, 2026-08-19 (run 32256970672 job 96080822225, and run ' +
@@ -11231,15 +10998,6 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
   // GBP. Its pinned route sets requireGbp, so a price is stored only when its
   // own offer says GBP, and probe run #569 (job 111191127386) read all 20 of
   // the listings it fetched that way from a runner. It is now `enabled: true`.
-  [
-    'fragrancedirect',
-    'Currency probe, run 32256534104 job 96079423648, 2026-08-19: robots.txt answers with no ' +
-      'disallow, and the bare origin answers 200, but none of the nine ways of asking published ' +
-      'any currency at all — no Shopify.currency, no /meta.json, and /en-gb /gb /uk /en-uk all ' +
-      '404. /products.json also 404s everywhere. A .co.uk domain is not evidence of sterling ' +
-      'pricing on its own (uk.zimayaperfumes.com quotes dollars) — this storefront is simply ' +
-      'silent about its currency rather than confirming anything.',
-  ],
   [
     'cosmetify',
     'Currency probe, run 32256674382 job 96079949118, 2026-08-19: robots.txt answers with no ' +

@@ -161,7 +161,12 @@ describe('retailer registry', () => {
     // Fragrance, Sainte Cellier and Fenwick. All six are enabled, so the enabled
     // count goes 42 to 48. The same day 80 becomes 84, all four enabled (52): PerfumeUK,
     // Liberty London, Rasasi UK Store and Direct Cosmetics, read through their sitemaps.
-    expect(RETAILERS).toHaveLength(84);
+    //
+    // 2026-10-08: 84 becomes 80. Paco Perfumerias (the Spanish .com), Sabina
+    // Store, Bath & Body Works and Fragrancedirect retired at the owner's
+    // decision and deleted outright (docs/DECISIONS.md D29). None was enabled,
+    // so the enabled count is unchanged and nothing on the site changed.
+    expect(RETAILERS).toHaveLength(80);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
@@ -461,31 +466,11 @@ describe('retailer registry', () => {
     // The specific case this was written for. Named rather than derived, so
     // deleting the entry from CURRENCY_UNCONFIRMED fails here too and has to
     // be a deliberate act with a checkout behind it.
-    it('still covers the Spanish and Madrid-shipping entries', () => {
-      expect(CURRENCY_UNCONFIRMED.has('paco-perfumerias')).toBe(true);
+    // The Spanish Paco Perfumerias .com and Sabina Store were on this list until
+    // the owner retired them on 2026-10-08 (docs/DECISIONS.md D29); the Madrid
+    // shipper is what is left of the case this test was written for.
+    it('still covers the Madrid-shipping entry', () => {
       expect(CURRENCY_UNCONFIRMED.has('beauty-the-shop-uk')).toBe(true);
-    });
-
-    // Sabina Store (sabina.com), recorded 2026-10-04 so the findings are not
-    // lost, and disabled because nothing it can show is a UK price: its pounds
-    // are the shop's conversion for a US delivery, and the one way to set the
-    // country to the United Kingdom is a path its robots.txt disallows.
-    it('records Sabina Store as disabled and currency unconfirmed, with what was found', () => {
-      const sabina = getRetailer('sabina')!;
-      expect(sabina.enabled).toBe(false);
-      expect(sabina.domain).toBe('sabina.com');
-      expect(CURRENCY_UNCONFIRMED.has('sabina')).toBe(true);
-      // Never part of the enabled set that every count, list and page reads.
-      expect(enabledRetailers().map((r) => r.id)).not.toContain('sabina');
-      expect(sabina.shipping.standardGbp).toBe(7.5);
-      expect(sabina.shipping.freeOverGbp).toBe(79);
-      expect(sabina.shipping.estimatedDays).toEqual([4, 8]);
-      // Not marked confirmed: the page address and the sentence were not kept.
-      expect(sabina.shipping.confidence).toBe('unverified');
-      const note = sabina.shipping.notes ?? '';
-      for (const finding of ['*/modules/', '0.8757', 'id_currency=2', '/modules/mclocationselector/ajax.php', 'GTIN']) {
-        expect(note, finding).toContain(finding);
-      }
     });
 
     // zimaya was removed 2026-08-19 on a currency probe that read a sterling
@@ -674,6 +659,35 @@ describe('retailer registry', () => {
     it('is gone from the registry, not just switched off', () => {
       expect(getRetailer(['shy', 'mimosa'].join('-'))).toBeUndefined();
       expect(RETAILERS.map((r) => r.id).filter((id) => id.includes('mimosa'))).toEqual([]);
+    });
+  });
+
+  // Retired at the owner's decision on 2026-10-08 and deleted, not switched off
+  // (docs/DECISIONS.md D29 has why). This is the guard that stops one of them
+  // being added again by accident, by id or by domain, with the reason beside
+  // each so a failure says what to read.
+  describe('shops the owner retired on 2026-10-08', () => {
+    const retired = [
+      { id: 'paco-perfumerias', domain: 'pacoperfumerias.com', why: 'Spanish storefront without sterling prices' },
+      { id: 'sabina', domain: 'sabina.com', why: 'its pounds are a conversion for a US delivery' },
+      { id: 'bath-body-works-uk', domain: 'bathandbodyworks.co.uk', why: 'its pounds are a conversion for a US delivery' },
+      { id: 'fragrancedirect', domain: 'fragrancedirect.co.uk', why: 'a holding page that only links to allbeauty.com' },
+    ];
+
+    it.each(retired)('$id is gone from the registry ($why)', ({ id, domain, why }) => {
+      expect(getRetailer(id), `${id} was retired (${why}); read docs/DECISIONS.md D29 before adding it back`).toBeUndefined();
+      expect(
+        RETAILERS.some((r) => r.domain === domain),
+        `${domain} was retired (${why}); read docs/DECISIONS.md D29 before adding it back`,
+      ).toBe(false);
+      expect(CURRENCY_UNCONFIRMED.has(id)).toBe(false);
+    });
+
+    // The UK storefront of the same retailer is a different entry and is live.
+    it('keeps the live UK Paco Perfumerias shop', () => {
+      const uk = getRetailer('paco-perfumerias-uk');
+      expect(uk?.domain).toBe('pacoperfumerias.co.uk');
+      expect(uk?.enabled).toBe(true);
     });
   });
 
