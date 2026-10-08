@@ -397,3 +397,18 @@ What holds for all of them:
 - **Recommendation:** off for now as the owner's choice, not a blocker; safe
   to switch back on whenever the owner wants (a challenged run now costs one
   request). The email (`docs/outreach/riiffs.md`) would make it reliable.
+
+### Perfume Shopping
+
+- **Blocker:** a Cloudflare region rule: HTTP 403, "We are sorry, this
+  service is not available in your region.", on robots.txt, both sections and
+  the sitemap, from the sandbox and a GitHub runner. A refusal by where we ask
+  from, not a bot challenge.
+- **Our side:** nothing in code. Where we ask from is ours: a UK self-hosted
+  runner would still be PriceSniffsBot, but changing network in answer to a
+  403 is the owner's call under D23. Not done.
+- **Lawful route:** Awin merchant 5901 (found on Awin's own profile page
+  today), applied 2026-08-11; not among the 5 accepted advertisers on
+  2026-10-08. Joined, it needs no code: the Awin feed sync reads it.
+- **Recommendation:** off. Owner chases 5901 in Awin
+  (`docs/outreach/perfume-shopping.md`).
