@@ -546,17 +546,106 @@ seconds with no reason given, worth one look.
   `claude/relaxed-brahmagupta-wmey28`, `claude/wizardly-faraday-owdlz1`,
   `claude/wonderful-brahmagupta-8edg4h`), which were not touched; and the pull
   request refs `refs/pull/1` to `refs/pull/4`, which only GitHub can remove.
-  When you no longer need them: close or merge PRs 2, 3 and 4 (their base
-  history changed, so GitHub shows them as unrelated), delete the old
-  branches and the backup branch (Code → Branches), then ask GitHub Support
-  to remove the pull request refs and run garbage collection on the
-  repository. Until then a full clone fetches the old objects through those
-  refs (the rewrite itself added only 1.6 MB of new commits and trees).
+  When you no longer need them: delete the old branches and the backup branch
+  (Code → Branches), then ask GitHub Support to remove the pull request refs
+  and run garbage collection on the repository. Until then a full clone
+  fetches the old objects through those refs (the rewrite itself added only
+  1.6 MB of new commits and trees). Where each of these stands, and the text
+  to send to Support: "Cleanup, 8 October 2026" just below.
 - **To undo** (only if something turns out wrong, and before anything new is
   committed on top): pause the workflows again, then
   `git push --force-with-lease=claude/scentday-retailer-registry-h92tth:<current tip> origin origin/backup/pre-rewrite-2026-10-06:refs/heads/claude/scentday-retailer-registry-h92tth`,
   and clone again everywhere. Commits made after the rewrite would have to be
   cherry picked onto it.
+
+**Cleanup, 8 October 2026 (agent, owner authorised).** Compared by content
+and through the commit map, not by ancestry.
+
+Pull requests. Nothing was merged or reopened.
+
+- #1 (service worker on deep links): merged on 1 October. Its tip
+  `6455989b` is `a4e62705` on the live branch.
+- #2, #3 and #4 were closed by GitHub itself at 18:57 UTC on 6 October, when
+  the force push left their base with no shared history. A comment saying
+  why each stays closed was added on 8 October:
+  - #2 (catalogue in one `data.json`): superseded by the live branch's
+    hashed data files (`def0ff1`, now `18ae7734`) and by the deploy time
+    build.
+  - #4 (deterministic blob numbering): merged in substance, `12ff8f3a`
+    (`scripts/dataNumbering.ts`).
+  - #3 (parser: a ProductGroup's variant by page address, else every
+    distinct size; Space NK and Parfumdreams notes): **not on the live
+    branch**. `src/catalogue/jsonld.ts` there has no address fallback and
+    still needs two variants. Real work: an agent should reapply the one
+    commit (`b444d261`) on the live branch and open a new pull request
+    before its branch goes. It no longer applies cleanly.
+- #5 (Notino UK back on, the "Save for PriceSniffs" bookmark, importer
+  fixes): open, built on the new history, not merged. Left open for you.
+
+Branches. **None was deleted**: this session's GitHub access refuses branch
+deletion (the API and `git push --delete` both answered 403). Delete them
+yourself in Code → Branches. Until GitHub's garbage collection runs, a
+deleted branch can be restored there, or recreated from the tip below.
+
+| Branch | Tip | Verdict |
+|---|---|---|
+| `claude/relaxed-brahmagupta-wmey28` | `6455989b` | Delete. #1, merged; the tip is `a4e62705` on the live branch, same tree apart from the dropped page files |
+| `claude/wizardly-faraday-owdlz1` | `e98e4a25` | Delete. #2, superseded as above |
+| `claude/modest-euler-3hwly2` | `b444d261` | Keep until #3 is reapplied, then delete. It holds the old history up to 3 October |
+| `claude/perfume-chatbot-multi-agent-lvf17y` | `1dd47e83` | Your call. The chatbot it prototyped went into the live branch (`dd14870a`, 10 August) and came out again with Fly.io (`104056cd`, 6 September). Its own five commits never merged: your local setup notes (`YanaFreeAPIMerger/SETUP_LOG.md`), the Oracle VM scripts and the Fly.io files. Delete it if you do not want those notes |
+| `claude/wonderful-brahmagupta-8edg4h` | `dff4ab94` | Keep: #5's branch, on the new history |
+| `backup/pre-rewrite-2026-10-06` | `2e54cdb5` | Yours to decide. It alone keeps the whole old history |
+| `claude/scentday-retailer-registry-h92tth` | | The live and default branch |
+
+The request to GitHub Support (only you can send it). Send it **after** the
+backup branch and every old branch above are deleted: garbage collection
+removes only what no branch or ref reaches, and any one of them keeps
+nearly all the old history. Where: https://support.github.com/contact, signed
+in as the owner, topic "Repository size / remove unreachable objects" (or
+the nearest repository topic the form offers), repository
+`yanakan19/YanaFragrancePriceChecker`. Copy this:
+
+```text
+Subject: Remove pull request refs and run garbage collection on yanakan19/YanaFragrancePriceChecker
+
+Hello,
+
+I own the repository yanakan19/YanaFragrancePriceChecker. On 6 October 2026
+(the force push was at about 18:57 UTC) I rewrote the history of its default
+branch, claude/scentday-retailer-registry-h92tth, with git filter-repo to
+remove large generated files (demo/index.html, demo/404.html, demo/data/,
+demo/sitemap.xml, demo/ads.txt) from every commit. I have since deleted every
+branch that pointed at the old history.
+
+The old objects are still reachable through the head refs of four closed
+pull requests:
+
+  refs/pull/1/head  (6455989b340218ac9bd3e4fa9d64f1862021d94b)
+  refs/pull/2/head  (e98e4a257d3fbbf48457ea1c8aea6fc0f3115270)
+  refs/pull/3/head  (b444d2613f2ac6ebcb8aa5ff1a61ff737ae5ef3f)
+  refs/pull/4/head  (4ced52a220561c3f4e5043b7c622dccea3288995)
+
+Please remove those four refs (the pull requests themselves can stay, closed)
+and run garbage collection on the repository, so that the unreachable objects
+are pruned and the repository size reflects the rewritten history. Please
+keep refs/pull/5, an open pull request on the new history.
+
+The repository reports about 684 MB today; the rewritten branch packs to
+about 392 MiB.
+
+Thank you.
+```
+
+Live site, 8 October. The deploy of the guides commit (`920f1ecf`, pushed
+23:12 UTC on 7 October) is deploy-pages run #1301, finished 23:15 UTC; the
+later runs up to #1305 found nothing new to deploy. `curl -sI` answered 200
+for `/about/legal`, `/about/how-we-check-prices` and `/guides`, and 404 for
+the product address `/jimmy_choo_i_want_choo_forever_60ml`, which is the
+host's normal answer for a product page (`docs/PRODUCT-URLS.md`, section 7):
+the page itself shows.
+
+Size: GitHub reported 684,131 kB on 8 October (754,338 kB on 5 October). It
+drops to about the rewritten size only after Support's garbage collection.
 
 The section below is the earlier plan, kept for the record.
 

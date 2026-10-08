@@ -18,7 +18,10 @@
  * The router, the head tags and the sitemap read this list and need no edit.
  *
  * House style, as for the Legal Notice: plain British English, no hyphens or
- * dashes in reader facing text. This file imports nothing, so a script or a
+ * dashes in reader facing text, titles in Title Case. Each title is under 60
+ * characters with the "PriceSniffs: " prefix and each description is 100 to
+ * 155 characters and ends with a full stop, so search engines show both whole
+ * (tests/contentPages.test.ts). This file imports nothing, so a script or a
  * test can read it without the catalogue.
  */
 
@@ -36,31 +39,31 @@ export const GUIDES: readonly GuideInfo[] = [
     slug: 'perfume-strengths-explained',
     title: 'Perfume Strengths Explained',
     description:
-      'What EDT, EDP, Parfum and Extrait mean, roughly how strong each one is, and how to pick a strength for the weather, the occasion and your budget.',
+      'What EDT, EDP, Parfum and Extrait mean, roughly how strong each one is, and how to choose a strength for the season, the occasion and your budget.',
   },
   {
     slug: 'perfume-notes-explained',
     title: 'How Perfume Notes Work',
     description:
-      'Top, middle and base notes in plain language: what each layer does, how a scent changes over a few hours, and how to read a notes list before you buy.',
+      'Top, middle and base notes in plain words: what each layer does, how a scent changes over a few hours, and how to read a notes list before you buy.',
   },
   {
     slug: 'compare-perfume-prices-per-ml',
     title: 'Comparing Perfume Prices Per Ml',
     description:
-      'A bigger bottle is not always the better deal. The one sum that compares any two sizes fairly, and why delivery changes the answer for small orders.',
+      'A bigger bottle is not always the better buy. The one sum that compares any two sizes fairly, and why delivery can change the answer on small orders.',
   },
   {
     slug: 'spot-fake-or-grey-market-perfume',
     title: 'Spotting Fake and Grey Market Perfume',
     description:
-      'The difference between a fake and a grey market bottle, the warning signs before you buy, the checks to make when it arrives, and how to protect your money.',
+      'How a fake differs from a grey market bottle, the warning signs before you buy, the checks to make when it arrives, and how to protect your money.',
   },
   {
     slug: 'decants-and-testers',
     title: 'Decants, Testers and Miniatures',
     description:
-      'What a tester, a miniature and a decant really are, what each one saves and risks, and the safest ways to try a scent before you buy a full bottle.',
+      'What a tester, a miniature and a decant really are, what each one saves and risks, and the safer ways to try a scent before buying a full bottle.',
   },
 ];
 

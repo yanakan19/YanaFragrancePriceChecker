@@ -7,16 +7,18 @@ import {
 } from '../demo/guideList.js';
 import {
   GUIDES_FILE, METHOD_FILE, blocksHtml, blocksText, createGuideBodies, createMethodBody, guideHtml, guidesIndexHtml,
-  howWeCheckHtml, inlineHtml, linksIn, prepareGuides, prepareMethod, type Block,
+  howWeCheckHtml, inlineHtml, inlineText, linksIn, prepareGuides, prepareMethod, type Block,
 } from '../demo/contentPages.js';
 import { GUIDE_BODIES } from '../demo/content/guideBodies.js';
 import { METHOD_BODY } from '../demo/content/methodBody.js';
 import { headFor, SITE_URL } from '../demo/head.js';
 import { matchRoute, rootWords, routeToPath } from '../demo/router.js';
 import { LAZY_CONTENT_MODULES, LAZY_DATA_MODULES } from '../scripts/dataFiles.js';
-import { DEMO_FRAGRANCES, noteForAddress } from '../demo/data.js';
+import { DEMO_FRAGRANCES, fragrancesWithNote, noteForAddress } from '../demo/data.js';
 import { slugOf } from '../demo/tabFacets.js';
-import { VOLUME_BANDS } from '../demo/volumeBands.js';
+import { VOLUME_BANDS, volumeBandFor } from '../demo/volumeBands.js';
+import { OIL_SORT_OPTIONS, SET_SORT_OPTIONS } from '../demo/listSort.js';
+import { isOil, isSet } from '../demo/productKind.js';
 import { LEGAL_NOTICE_IDS } from '../demo/legal.js';
 import { RETAILERS } from '../src/config/retailers.js';
 import { HIDE_OFFER_AFTER_DAYS } from '../src/services/offerAge.js';
@@ -30,6 +32,64 @@ const built = existsSync(resolve(root, 'demo/index.html'));
 const DASH = /[-‐‑‒–—―−﹘﹣－]/;
 
 const words = (text: string): number => text.split(/\s+/).filter(Boolean).length;
+
+/** Every line of text in a page's blocks, one per paragraph, list item, heading or note. */
+const lines = (body: readonly Block[]): string[] => body.flatMap((b) => (b.t === 'ul' ? b.x : [b.x]));
+
+/** Every link a page's blocks carry. */
+const linksOf = (body: readonly Block[]): string[] => lines(body).flatMap(linksIn);
+
+/**
+ * US spellings and words, so the pages stay plain British English. Whole words
+ * where a British word starts the same way ("program" but not "programme").
+ */
+const AMERICAN: readonly RegExp[] = [
+  /\bcolor/i, /\bflavor/i, /\bfavorite/i, /\bodor/i, /\bbehavior/i, /\bhonor/i, /\bneighbor/i,
+  /\b(?:organiz|recogniz|realiz|apologiz|customiz|prioritiz|minimiz|maximiz|analyz|summariz|personaliz)/i,
+  /\bcenter\b/i, /\bmeter\b/i, /\bliter\b/i, /millilit(?:er|ers)\b/i, /\bfiber\b/i,
+  /\bgray\b/i, /\bpercent\b/i, /\bmom\b/i, /\bcatalog\b/i, /\bprogram\b/i, /\bjewelry\b/i,
+  /\btraveling\b/i, /\btraveled\b/i, /\bcanceled\b/i, /\bdefense\b/i, /\boffense\b/i,
+  /\bgotten\b/i, /\bzip code\b/i, /\bmall\b/i, /\bcheckout\b/i, /\bmailman\b/i,
+];
+
+/** Hype and claims a careful guide does not make: no exclamations, no medical or legal promises. */
+const NOT_OUR_TONE: readonly RegExp[] = [
+  /!/, /\bamazing\b/i, /\bincredible\b/i, /\bunbeatable\b/i, /\bultimate\b/i, /\brevolutionary\b/i,
+  /\bmust have\b/i, /\bbest ever\b/i, /\bguarantee(?:d|s)?\b(?! the authenticity)/i, /\b100 per cent\b/i,
+  /\btoxic\b/i, /\bharmful\b/i, /\bdangerous\b/i, /\ballerg/i, /\bcures?\b/i, /\bhealth\b/i,
+  /\billegal\b/i, /\bunlawful\b/i, /\bsue\b/i, /\blegally\b/i, /\byou are entitled\b/i,
+];
+
+/** Words a Title Case heading keeps in lower case, unless one starts the heading. */
+const SMALL_WORDS = new Set(['a', 'an', 'and', 'as', 'at', 'by', 'for', 'in', 'of', 'on', 'or', 'the', 'to', 'vs']);
+
+/** The words of a heading that break Title Case: a lower case word that is not a small word, or a small word capitalised mid heading. */
+function titleCaseSlips(heading: string): string[] {
+  return heading
+    .split(/\s+/)
+    .map((w) => w.replace(/[,.:?]$/, ''))
+    .filter((w, i) => {
+      if (!/^[a-z]/i.test(w)) return false;
+      if (/^[a-z]/.test(w)) return !SMALL_WORDS.has(w);
+      return i > 0 && SMALL_WORDS.has(w.toLowerCase());
+    });
+}
+
+/** Whether a text names this, as a whole name: "Boots" but not "boots" inside a word. */
+function names(text: string, name: string): boolean {
+  let from = 0;
+  for (;;) {
+    const at = text.indexOf(name, from);
+    if (at < 0) return false;
+    const before = text[at - 1] ?? ' ';
+    const after = text[at + name.length] ?? ' ';
+    if (!/[A-Za-z0-9]/.test(before) && !/[A-Za-z0-9]/.test(after)) return true;
+    from = at + 1;
+  }
+}
+
+/** A paragraph, list item or note longer than this is not a short paragraph. */
+const MAX_WORDS_PER_BLOCK = 70;
 
 /**
  * The guides and /about/how-we-check-prices (advertising plan, phase 1, content
@@ -94,13 +154,39 @@ describe('the head tags', () => {
       expect(t.title.startsWith('PriceSniffs: '), t.title).toBe(true);
       expect(t.title.length, t.title).toBeLessThanOrEqual(60);
       expect(t.description.length, `${path}: ${t.description.length} chars`).toBeGreaterThanOrEqual(100);
-      expect(t.description.length, `${path}: ${t.description.length} chars`).toBeLessThanOrEqual(160);
+      expect(t.description.length, `${path}: ${t.description.length} chars`).toBeLessThanOrEqual(155);
       expect(t.description, path).toMatch(/[.!]$/);
       titles.add(t.title);
       descriptions.add(t.description);
     }
     expect(titles.size).toBe(CONTENT_PATHS.length);
     expect(descriptions.size).toBe(CONTENT_PATHS.length);
+  });
+
+  it('gives each page a title and description no other fixed page of the site has', () => {
+    const others = ['/', '/brands', '/retailers', '/notes', '/fragrances', '/oils', '/sets', '/deals', '/about', '/about/legal', '/about/bot', '/legal/how-it-works'];
+    const taken = others.map((path) => tagsFor(path));
+    for (const path of CONTENT_PATHS) {
+      const t = tagsFor(path);
+      for (const o of taken) {
+        expect(t.title, path).not.toBe(o.title);
+        expect(t.description, path).not.toBe(o.description);
+      }
+    }
+    // The guide's own name, without the prefix, is distinct too: no two guides
+    // differ only in case or spacing.
+    const names = GUIDES.map((g) => g.title.toLowerCase().replace(/\s+/g, ' '));
+    expect(new Set(names).size).toBe(names.length);
+  });
+
+  it('keeps the words it is given: no title or description is cut short to fit', () => {
+    for (const g of GUIDES) {
+      expect(`PriceSniffs: ${g.title}`.length, g.title).toBeLessThan(60);
+      expect(g.description.length, g.slug).toBeLessThanOrEqual(155);
+      expect(tagsFor(guidePath(g.slug)).description, g.slug).toBe(g.description);
+    }
+    expect(tagsFor(GUIDES_PATH).description).toBe(GUIDES_INDEX.description);
+    expect(tagsFor(HOW_WE_CHECK.path).description).toBe(HOW_WE_CHECK.description);
   });
 
   it('names the page in its title: the guide, the index, the method', () => {
@@ -171,10 +257,32 @@ describe('the words of the guides', () => {
       });
 
       it('is plain British English', () => {
+        const all = `${guide.title} ${guide.description} ${text}`;
+        for (const american of AMERICAN) expect(all, String(american)).not.toMatch(american);
+      });
+
+      it('is warm but factual: no hype, no exclamations, no medical or legal claims', () => {
+        const all = `${guide.title} ${guide.description} ${text}`;
+        for (const bad of NOT_OUR_TONE) expect(all, String(bad)).not.toMatch(bad);
+      });
+
+      it('names no shop, so no shop is praised or run down', () => {
         const all = `${guide.description} ${text}`;
-        for (const american of [/\bcolor/i, /\bflavor/i, /\bfavorite/i, /\borganiz/i, /\bcenter\b/i, /\bgray\b/i, /\bpercent\b/i, /\bmom\b/i]) {
-          expect(all, String(american)).not.toMatch(american);
+        for (const r of RETAILERS) expect(names(all, r.name), r.name).toBe(false);
+      });
+
+      it('has Title Case headings with no colons, like the rest of the site', () => {
+        for (const part of [guide.title, ...body.filter((b) => b.t === 'h').map((b) => b.x as string)]) {
+          expect(titleCaseSlips(part), part).toEqual([]);
+          expect(part, part).not.toContain(':');
         }
+      });
+
+      it('keeps to short paragraphs: none over ' + MAX_WORDS_PER_BLOCK + ' words', () => {
+        for (const line of lines(body)) {
+          expect(words(inlineText(line)), line).toBeLessThanOrEqual(MAX_WORDS_PER_BLOCK);
+        }
+        expect(words(guide.description)).toBeLessThanOrEqual(35);
       });
 
       it('has no leftover marks, double spaces or empty text', () => {
@@ -187,10 +295,12 @@ describe('the words of the guides', () => {
         }
       });
 
-      it('links only to places the site has', () => {
-        const links = body.flatMap((b) => (b.t === 'ul' ? b.x : [b.x])).flatMap(linksIn);
+      it('links only to places the site has, each with a list that is not empty', () => {
+        const links = linksOf(body);
         expect(links.length, 'a guide with no links to the site').toBeGreaterThanOrEqual(2);
         for (const href of links) checkInternalLink(href);
+        // Never to itself: the foot of the page already lists the others.
+        expect(links, guide.slug).not.toContain(guidePath(guide.slug));
       });
     });
   }
@@ -217,7 +327,21 @@ describe('the words of the guides', () => {
   });
 });
 
-/** An address a written page links to must be one the router and the catalogue answer. */
+/** The strengths the Concentration filter offers, and the strengths each one holds (CONCENTRATION_GROUPS, demo/app.ts). */
+const STRENGTH_FILTER: Record<string, readonly string[]> = {
+  edp: ['Eau de Parfum'],
+  edt: ['Eau de Toilette'],
+  parfum: ['Parfum', 'Extrait de Parfum'],
+  edc: ['Eau de Cologne'],
+  oil: ['Perfume Oil'],
+};
+
+/**
+ * An address a written page links to must be one the router and the catalogue
+ * answer, and a link to a list must open a list with something in it: a note
+ * that some fragrance lists in that layer, a strength and a size some bottle
+ * has, a sort the tab offers.
+ */
 function checkInternalLink(href: string): void {
   expect(href.startsWith('/') && !href.startsWith('//'), href).toBe(true);
   const url = new URL(href, 'https://pricesniffs.space');
@@ -228,9 +352,12 @@ function checkInternalLink(href: string): void {
       expect(guideBySlug(route.param), href).toBeDefined();
       break;
     case 'note': {
-      expect(noteForAddress(route.param), `${href}: no such note`).toBeDefined();
+      const note = noteForAddress(route.param);
+      expect(note, `${href}: no such note`).toBeDefined();
       const layer = route.query.layer;
       if (layer !== undefined) expect(['top', 'middle', 'base'], href).toContain(layer);
+      const layered = (layer ?? 'any') as 'top' | 'middle' | 'base' | 'any';
+      expect(fragrancesWithNote(note!, layered).length, `${href}: no fragrance lists it there`).toBeGreaterThan(0);
       break;
     }
     case 'brand':
@@ -242,13 +369,25 @@ function checkInternalLink(href: string): void {
     default:
       break;
   }
-  // The filters the lists read: ids and values the lists really have.
+  // The filters the lists read: ids and values the lists really have, each
+  // with at least one bottle behind it.
   const strength = url.searchParams.get('strength');
-  if (strength !== null) expect(['edp', 'edt', 'parfum', 'edc', 'oil'], href).toContain(strength);
+  if (strength !== null) {
+    expect(Object.keys(STRENGTH_FILTER), href).toContain(strength);
+    expect(DEMO_FRAGRANCES.some((f) => STRENGTH_FILTER[strength]!.includes(f.concentration)), `${href}: no bottle has that strength`).toBe(true);
+  }
   const size = url.searchParams.get('size');
-  if (size !== null) expect(VOLUME_BANDS.map((b) => b.id as string), href).toContain(size);
+  if (size !== null) {
+    expect(VOLUME_BANDS.map((b) => b.id as string), href).toContain(size);
+    expect(DEMO_FRAGRANCES.some((f) => !isSet(f) && volumeBandFor(f.sizeMl) === size), `${href}: no bottle in that size`).toBe(true);
+  }
   const sort = url.searchParams.get('sort');
-  if (sort !== null) expect(['ml-low'], href).toContain(sort);
+  if (sort !== null) {
+    const offered = route.name === 'oils' ? OIL_SORT_OPTIONS : route.name === 'sets' ? SET_SORT_OPTIONS : [];
+    expect(offered.map((o) => o.value as string), `${href}: that list offers no such sort`).toContain(sort);
+  }
+  if (route.name === 'oils') expect(DEMO_FRAGRANCES.some((f) => isOil(f)), href).toBe(true);
+  if (route.name === 'sets') expect(DEMO_FRAGRANCES.some((f) => isSet(f)), href).toBe(true);
 }
 
 describe('the words of /about/how-we-check-prices', () => {
@@ -286,10 +425,50 @@ describe('the words of /about/how-we-check-prices', () => {
 
   it('says the same about the crawler as the crawler page does', () => {
     const app = readFileSync(resolve(root, 'demo/app.ts'), 'utf8');
-    expect(text).toContain('at least 1.5 seconds apart');
-    expect(app).toContain('at least 1.5 seconds');
     expect(app).toContain('never fills a basket');
     expect(text).toContain('never logs in, fills a basket or checks out');
+    expect(app).toContain('one request at a time');
+    expect(text).toContain('one page at a time');
+  });
+
+  it('claims no longer a gap between requests than the slowest shop setting keeps', () => {
+    // The harvest waits the shop's minRequestGapMs (1500 where unset) or the
+    // robots.txt crawl delay, whichever is longer (scripts/catalogue-harvest.ts).
+    // So the page may promise no more than the smallest of those settings.
+    const gaps = RETAILERS.filter((r) => r.enabled).map((r) => r.catalogue?.minRequestGapMs ?? 1500);
+    const floorSeconds = Math.min(...gaps) / 1000;
+    const stated = /at least (a|one|[\d.]+) seconds? apart/.exec(text);
+    expect(stated, 'the page says how far apart the requests are').not.toBeNull();
+    const seconds = stated![1] === 'a' || stated![1] === 'one' ? 1 : Number(stated![1]);
+    expect(seconds, `the page says ${seconds}s, a shop is read every ${floorSeconds}s`).toBeLessThanOrEqual(floorSeconds);
+  });
+
+  it('is plain British English, with no hype and Title Case headings', () => {
+    const all = `${HOW_WE_CHECK.title} ${HOW_WE_CHECK.description} ${GUIDES_INDEX.title} ${GUIDES_INDEX.description} ${text}`;
+    for (const american of AMERICAN) expect(all, String(american)).not.toMatch(american);
+    for (const bad of NOT_OUR_TONE) expect(all, String(bad)).not.toMatch(bad);
+    for (const h of [HOW_WE_CHECK.title, GUIDES_INDEX.title, ...METHOD_BODY.filter((b) => b.t === 'h').map((b) => b.x as string)]) {
+      expect(titleCaseSlips(h), h).toEqual([]);
+    }
+  });
+
+  it('keeps to short paragraphs', () => {
+    for (const line of lines(METHOD_BODY)) expect(words(inlineText(line)), line).toBeLessThanOrEqual(MAX_WORDS_PER_BLOCK);
+  });
+
+  it('does not say a percentage saving is the shop’s own figure: the site works it out', () => {
+    // rrpSavingFor (demo/msrpComparison.ts) works the percentage from the
+    // shop's RRP and the row's own price, so only the previous price is the shop's.
+    expect(text).not.toMatch(/percentage saving are the shop/);
+    expect(text).toMatch(/previous price[^.]*shop’s own figure/);
+  });
+
+  it('does not say a tester stays on the site: a title with Tester in it is left out', () => {
+    // NOT_A_FRAGRANCE (src/catalogue/fragranceId.ts) drops it.
+    expect(text).not.toMatch(/Tester or Unboxed in its name stays/);
+    const decants = blocksText(GUIDE_BODIES['decants-and-testers']!);
+    expect(decants).not.toMatch(/Tester or Unboxed in its name stays/);
+    expect(decants).toMatch(/title says Tester is left out/);
   });
 
   it('uses no hyphens or dashes and no leftover marks', () => {
@@ -300,7 +479,7 @@ describe('the words of /about/how-we-check-prices', () => {
   });
 
   it('links only to places the site has', () => {
-    const links = METHOD_BODY.flatMap((b) => (b.t === 'ul' ? b.x : [b.x])).flatMap(linksIn);
+    const links = linksOf(METHOD_BODY);
     expect(links.length).toBeGreaterThanOrEqual(3);
     for (const href of links) checkInternalLink(href);
   });
