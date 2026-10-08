@@ -24,6 +24,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { launchChromium } from './a11y-audit.js';
 import { renderSmooth } from './socialRender.js';
+import { recordPictures } from './socialPictures.js';
 import { H, H_TIKTOK, MARK, TICK, W, slide, tiktokSlide } from './socialSlides.js';
 import { RETAILERS } from '../src/config/retailers.js';
 
@@ -193,6 +194,7 @@ for (const post of POSTS) {
   }
   writeFileSync(join(dir, 'caption.txt'), `${post.body}\n\n${post.feedEnd ?? 'The link is in our bio, or go to pricesniffs.space'}\n\n${post.feedTags}\n`);
   writeFileSync(join(dir, 'tiktok-caption.txt'), `${post.body}\n\n${post.tiktokEnd ?? 'See it for yourself at pricesniffs.space'}\n\n${post.tiktokTags}\n`);
+  recordPictures(dir); // the PNGs are not committed (docs/DECISIONS.md D28)
   console.log(post.dir);
 }
 await browser.close();

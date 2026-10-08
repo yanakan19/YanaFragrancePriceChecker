@@ -13,6 +13,10 @@
  *   --date YYYY-MM-DD   the date in the folder name (default: today, UK)
  *   --keep-frames       keep the drawn frames in _frames/ (git ignores them)
  *
+ * The videos are not committed (docs/DECISIONS.md D28): pictures.json names
+ * each one by its key here, and `npm run social:render -- <folder>` draws it
+ * again from this file's scenes.
+ *
  * Every claim is one the site's own guides make (demo/content/guideBodies.ts:
  * "perfume-strengths-explained" and "perfume-notes-explained").
  * tests/socialVideoTemplate.test.ts holds the figures and the key phrases to
@@ -24,6 +28,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { renderVideo } from './social-video-render.js';
+import { recordPictures } from './socialPictures.js';
 import { MARK } from './socialSlides.js';
 import { OUTRO_SCENE, VIDEO_TEMPLATE, esc, outroHtml, type VideoSpec } from './social-video-template.js';
 
@@ -355,10 +360,13 @@ async function main() {
 (\`scripts/social-video-template.ts\`; rules in \`docs/SOCIAL-MEDIA-PLAN.md\` section 9). Every claim is one the
 site's own guide makes (\`demo/content/guideBodies.ts\`); \`tests/socialVideoTemplate.test.ts\` holds the figures
 to that text. Length ${report.facts.seconds.toFixed(2)} seconds, ${report.facts.frames} frames.
+The video is not committed (docs/DECISIONS.md D28). Draw it again with
+\`npm run social:render -- social/posts/${date}-${v.folder}\`. The command that first made it:
 
     npx tsx scripts/social-video-explainers.ts --only ${key} --date ${date}
 `,
     );
+    recordPictures(outDir, { [v.file]: { make: 'explainer-video', video: key } });
   }
 }
 

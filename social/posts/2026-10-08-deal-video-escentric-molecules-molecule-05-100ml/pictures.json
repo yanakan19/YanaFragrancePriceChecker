@@ -1,0 +1,12 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/posts/2026-10-08-deal-video-escentric-molecules-molecule-05-100ml . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "deal-video-9x16.mp4",
+      "make": "deal-video",
+      "seconds": 10,
+      "bytes": 1027265,
+      "sha256": "be5abdad0831705eac33a6d6ef6ac5b58ec8e529418ded001c4f862b4f68cb82"
+    }
+  ]
+}

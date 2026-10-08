@@ -20,6 +20,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { launchChromium } from './a11y-audit.js';
 import { renderSmooth } from './socialRender.js';
+import { recordPictures } from './socialPictures.js';
 import { H, H_TIKTOK, MARK, TICK, W, slide, tiktokSlide } from './socialSlides.js';
 import { HIDE_OFFER_AFTER_DAYS } from '../src/services/offerAge.js';
 
@@ -126,3 +127,4 @@ for (const [i, inner] of SLIDES.entries()) {
 await browser.close();
 writeFileSync(join(DIR, 'caption.txt'), CAPTION);
 writeFileSync(join(DIR, 'tiktok-caption.txt'), TIKTOK_CAPTION);
+recordPictures(DIR); // the PNGs are not committed (docs/DECISIONS.md D28)

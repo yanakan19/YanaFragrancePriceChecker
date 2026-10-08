@@ -1,0 +1,13 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/posts/2026-10-08-explainer-video-perfume-strengths . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "perfume-strengths-9x16.mp4",
+      "make": "explainer-video",
+      "video": "strengths",
+      "seconds": 25.9,
+      "bytes": 2912283,
+      "sha256": "a53a7c1ad1d61659a4705406e74ad08cd4ab975894aae7e9a7c0ad9551580353"
+    }
+  ]
+}

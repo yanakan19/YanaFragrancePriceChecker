@@ -1,5 +1,6 @@
 # Every file a workflow step or a build script writes and commits to the branch,
-# and the files the page build writes that are built at deploy time instead.
+# the files the page build writes that are built at deploy time instead, and the
+# social posts' pictures and videos, which are rendered and never committed.
 #
 # This is the one list. scripts/commit-and-push.sh reads it (through
 # scripts/generated-files.sh) to decide how to settle a push conflict, the
@@ -10,8 +11,8 @@
 # path it does not cover. Run #592 (2026-10-04) died because the sitemap was
 # written by the build but missing from the script's own copy of this list.
 #
-# Adding a generated file: add a line here in the same commit. A "deploy" file
-# also needs a line in .gitignore (tests/generatedFiles.test.ts checks).
+# Adding a generated file: add a line here in the same commit. A "deploy" or
+# "social" file also needs a line in .gitignore (tests/generatedFiles.test.ts checks).
 #
 # Columns: policy, path, who writes it (free text, for people).
 #
@@ -26,6 +27,13 @@
 #             built from the committed files by .github/workflows/deploy-pages.yml
 #             before every deployment. No workflow may commit one, and
 #             scripts/commit-and-push.sh refuses a caller that names one.
+#   social    A social post's picture or video (docs/DECISIONS.md D28, from
+#             2026-10-08). Rendered from the post's committed text (its HTML or
+#             SVG, check.json, pictures.json) by scripts/social-*.ts and never
+#             committed: gitignored, made on demand with
+#             `npm run social:render -- social/posts/<folder>`, and rendered by
+#             .github/workflows/social-pictures.yml into a private workflow
+#             artifact. scripts/commit-and-push.sh refuses a caller that names one.
 #   source    Committed by people and never written by a build. Listed only so
 #             that a wider pattern further down (demo/*.html) does not claim it;
 #             first match wins, so it goes above that pattern.
@@ -63,6 +71,22 @@ deploy    demo/about/                         npm run demo (scripts/build-route-
 deploy    demo/legal/                         npm run demo (scripts/build-route-pages.ts): /legal/how-it-works
 deploy    demo/account/                       npm run demo (scripts/build-route-pages.ts): /account/wishlist and the like
 deploy    demo/guides/                        npm run demo (scripts/build-route-pages.ts): /guides/<slug>, one per guide
+
+# ── social media: the pictures and videos of the posts (D28, owner's go ahead 2026-10-08) ──
+# Committed by the social routines until then: 26.5 MB in the tip tree and 2 to
+# 4 MB a day. The posts' text (HTML, SVG, captions, check.json, pictures.json,
+# source.md, the history files) stays committed; the pictures are drawn from it.
+# Posts made before 2026-10-08 keep their originals in git history
+# (`npm run social:render -- <folder> --from-history`). A new picture type needs
+# a line here and in .gitignore: the renderers refuse an unlisted one.
+social    social/*.png                        npm run social:render (scripts/render-social.ts) and the post scripts (scripts/social-*.ts); social-pictures.yml uploads them as an artifact
+social    social/*.jpg                        as above
+social    social/*.jpeg                       as above
+social    social/*.webp                       as above
+social    social/*.gif                        as above
+social    social/*.mp4                        npm run social:render, scripts/social-video-deal.ts, scripts/social-video-explainers.ts; social-pictures.yml uploads them
+social    social/*.mov                        as above
+social    social/*.webm                       as above
 
 # ── catalogue-daily.yml: harvest, houses, Awin sync, shipping, probes ──
 incoming  data/catalogue/*.json               harvest, Awin feed sync, storefront reprice

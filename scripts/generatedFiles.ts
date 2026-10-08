@@ -14,8 +14,12 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-/** See the header of scripts/generated-files.txt; "deploy" files are built but never committed. */
-export type GeneratedPolicy = 'rebuild' | 'incoming' | 'manual' | 'deploy' | 'source';
+/**
+ * See the header of scripts/generated-files.txt; "deploy" files are built but
+ * never committed, and so are "social" files (a social post's pictures and
+ * videos, rendered from its committed text: docs/DECISIONS.md D28).
+ */
+export type GeneratedPolicy = 'rebuild' | 'incoming' | 'manual' | 'deploy' | 'social' | 'source';
 
 export interface ManifestEntry {
   policy: GeneratedPolicy;
@@ -24,7 +28,7 @@ export interface ManifestEntry {
   writtenBy: string;
 }
 
-const POLICIES: readonly GeneratedPolicy[] = ['rebuild', 'incoming', 'manual', 'deploy', 'source'];
+const POLICIES: readonly GeneratedPolicy[] = ['rebuild', 'incoming', 'manual', 'deploy', 'social', 'source'];
 
 export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const MANIFEST_PATH = resolve(REPO_ROOT, 'scripts/generated-files.txt');

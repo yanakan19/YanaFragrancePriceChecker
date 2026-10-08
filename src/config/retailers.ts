@@ -3656,7 +3656,39 @@ export const RETAILERS: readonly Retailer[] = [
     // Applied via Awin's own Activity Stream 2026-08-11, merchant id not yet
     // known — only surfaces once the programme accepts and its profile page
     // becomes readable.
-    affiliate: { ...awinRequested() },
+    // Merchant id found 2026-10-08: Awin's own public profile
+    // https://ui.awin.com/merchant-profile/5901 names "Perfume Shopping",
+    // perfumeshopping.com, 5% starting commission, prices in pounds. So the
+    // pending application is to Awin merchant 5901, and the feed sync can find
+    // it by that id once it is accepted.
+    //
+    // ── Diagnosis, 2026-10-08 (docs/SHOP-PROBES-2026-10-08.md) ──────────────
+    // Blocker: a Cloudflare region rule. HTTP 403, a 90 byte text/plain body
+    // "We are sorry, this service is not available in your region.", `server:
+    // cloudflare`, on robots.txt, both sections and /sitemap.xml from the
+    // sandbox, and HTTP 403 on /sitemap.xml from a GitHub runner (probe run
+    // #74, job 113120946482). DNS (2026-10-08): Cloudflare addresses. Not a
+    // bot challenge: a refusal by where the request comes from. Neither the
+    // sandbox's egress nor GitHub's hosted runners is shown to be in the UK;
+    // the shop prices in pounds, so it likely serves UK addresses only, but
+    // with no UK vantage point that is an inference, not a measurement.
+    // Our side, checked: identity is PriceSniffsBot; URLs were confirmed in a
+    // browser (2026-08-06); no markup reached us, so no parser question; the
+    // render is never tried after a refusal; the Apify GB proxy is off (D23).
+    // The one thing that is ours is where we ask from. Asking from a UK
+    // address (a self-hosted runner on a UK machine) would still be
+    // PriceSniffsBot, not a rotating or residential proxy, but it would be a
+    // change of network in answer to a 403, which D23 leaves to the owner.
+    // Not done.
+    // Lawful route: Awin merchant 5901, applied 2026-08-11. The Awin
+    // memberships check of 2026-10-08 (catalogue-daily run #797, job
+    // 113130683063) lists 5 accepted advertisers and 5901 is not among them,
+    // so it is still pending or declined. Once joined it needs no code:
+    // `awinActive('5901', '3017443')`, `adapter: 'affiliate-feed'`, and the
+    // existing Awin feed sync reads it.
+    // Recommendation: stays off. Owner chases 5901 in the Awin dashboard
+    // (docs/outreach/perfume-shopping.md).
+    affiliate: { ...awinRequested('5901') },
   },
   {
     id: 'glorious-beauty',

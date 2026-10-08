@@ -1,0 +1,119 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/posts/2026-10-04-savings . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "slide-1-3x4.png",
+      "make": "html",
+      "from": "slide-1-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 161075,
+      "sha256": "e21cb61a423946723b4150f84c99554ea9b9b0f77887fb1c80e91673712113dd"
+    },
+    {
+      "file": "slide-1-9x16.png",
+      "make": "html",
+      "from": "slide-1-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 189760,
+      "sha256": "da0d449c37c4b5735e6d153765eaf76aec7d5957242cfb574f36db00144db980"
+    },
+    {
+      "file": "slide-2-3x4.png",
+      "make": "html",
+      "from": "slide-2-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 137283,
+      "sha256": "690872a0a670e90dd643b29933dcd49e0357977841778839019b372a9334316b"
+    },
+    {
+      "file": "slide-2-9x16.png",
+      "make": "html",
+      "from": "slide-2-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 157657,
+      "sha256": "f0d688bd1c8dba759cf6a2c852eb4cbb20ae26345ea6d8f2192511625c832954"
+    },
+    {
+      "file": "slide-3-3x4.png",
+      "make": "html",
+      "from": "slide-3-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 143755,
+      "sha256": "5ae43daa8c6e1a1dfdfaae01fe4ad5ed96dd9a1b35839587b58b75af0bfadb8d"
+    },
+    {
+      "file": "slide-3-9x16.png",
+      "make": "html",
+      "from": "slide-3-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 164844,
+      "sha256": "4d95d4f103df48eaf3efb60bbadeb51fd2f9658322a2b7c5f87ce12c591aa210"
+    },
+    {
+      "file": "slide-4-3x4.png",
+      "make": "html",
+      "from": "slide-4-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 112588,
+      "sha256": "c43d3f4886883608f75b9d40c17f5f9ce51e3dc037411cbfe28aa19f1a20b009"
+    },
+    {
+      "file": "slide-4-9x16.png",
+      "make": "html",
+      "from": "slide-4-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 132519,
+      "sha256": "494ba2149ab15befee88e6e9d3f797c1cdc417123c2967dbf51e5695cac3c2a8"
+    },
+    {
+      "file": "slide-5-3x4.png",
+      "make": "html",
+      "from": "slide-5-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 124934,
+      "sha256": "0a92ba7ee08308df5649a7ab0ad218bb4fdc32ded190db1ec75fff0ce652d72f"
+    },
+    {
+      "file": "slide-5-9x16.png",
+      "make": "html",
+      "from": "slide-5-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 145445,
+      "sha256": "562e75b728309590b6ed376f3ebd90fcc138b0bc6cc26766eb16c527a91e1e40"
+    },
+    {
+      "file": "slide-6-3x4.png",
+      "make": "html",
+      "from": "slide-6-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 86970,
+      "sha256": "e02fcb5a1acdf59501f7e28dcb36f304d8234021bee1a0bc63364d4301c77d32"
+    },
+    {
+      "file": "slide-6-9x16.png",
+      "make": "html",
+      "from": "slide-6-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 104247,
+      "sha256": "89f77e8280ae12f5755e303bbd22112e76d2e35dd57c49b1abd3e86831981404"
+    }
+  ]
+}
