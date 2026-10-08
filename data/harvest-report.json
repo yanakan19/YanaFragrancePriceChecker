@@ -1,19 +1,19 @@
 {
-  "startedAt": "2026-10-08T03:57:44.105Z",
-  "finishedAt": "2026-10-08T04:06:13.861Z",
+  "startedAt": "2026-10-08T07:32:18.593Z",
+  "finishedAt": "2026-10-08T07:47:33.086Z",
   "complete": true,
   "endedReason": "swept-every-shop",
   "planned": [
-    "fenwick"
+    "gorgeous-shop"
   ],
   "notReached": [],
   "shops": [
     {
-      "retailerId": "fenwick",
-      "name": "Fenwick",
-      "urlsDiscovered": 1054,
-      "pagesFetched": 100,
-      "priced": 1054,
+      "retailerId": "gorgeous-shop",
+      "name": "Gorgeous Shop",
+      "urlsDiscovered": 282,
+      "pagesFetched": 150,
+      "priced": 150,
       "tier": "free",
       "renderer": null,
       "errorCount": 0,
@@ -24,15 +24,15 @@
         "due": 0,
         "gone": 0
       },
-      "finishedAt": "2026-10-08T04:06:13.830Z"
+      "finishedAt": "2026-10-08T07:47:33.081Z"
     }
   ],
   "freshness": {
-    "fenwick": {
-      "shown": 1054,
+    "gorgeous-shop": {
+      "shown": 150,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-10-08T03:57:43.385Z",
+      "oldestShownAt": "2026-10-08T07:32:17.953Z",
       "answered": true
     }
   }

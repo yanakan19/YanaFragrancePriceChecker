@@ -412,9 +412,10 @@ const now = new Date().toISOString();
 // writes nothing, so it may ask about a disabled one — the same bypass, for
 // the same reason, that scripts/catalogue-probe.ts's own `--shop` already
 // documents: a candidate cannot be shown to have a working route without
-// being asked, and switching it on to find out is exactly backwards. Four
-// registry entries are currently off with "no working route" as the recorded
-// reason (riiffs, perfumeo, bath-body-works-uk, lush), and at least one of
+// being asked, and switching it on to find out is exactly backwards. Three
+// registry entries were off with "no working route" as the recorded reason
+// (riiffs, perfumeo, lush; a fourth, bath-body-works-uk, was retired on
+// 2026-10-08, see docs/DECISIONS.md D29), and at least one of
 // those readings is now known to have come from the www-subdomain robots bug
 // this file's robots probe fixes — see src/catalogue/attempt.ts's loadRobots
 // comment. Without --dry-run the enabled flag is absolute, so nothing a

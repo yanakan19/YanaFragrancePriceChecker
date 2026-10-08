@@ -39,6 +39,7 @@ export const CHANGELOG: ChangelogEntry[] = [
           'Ten new shops: Fenwick, Liberty, Opulensi',
           'Also Perfumoi, PerfumeUK, Direct Cosmetics',
           'And Saad, Sainte Cellier, Perfume Closet, Rasasi',
+          'Plus Gorgeous Shop, Beauty Flash, Scentsational',
           'More sizes listed at some shops',
         ],
       },

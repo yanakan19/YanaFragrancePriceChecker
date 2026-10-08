@@ -23,6 +23,7 @@ import {
   type Checkpoint,
   type ReplayState,
 } from '../scripts/priceHistoryReplay.js';
+import { RETAILERS } from '../src/config/retailers.js';
 import { isCatalogueListing } from '../src/catalogue/fragranceId.js';
 import { isAvailableListing } from '../src/catalogue/listingAvailability.js';
 import type { StoredListing } from '../src/catalogue/types.js';
@@ -170,10 +171,13 @@ describe('the rules fingerprint covers what decides a price point', () => {
     // invalidate every checkpoint.
     expect(facts.enabled).not.toContain('selfridges');
     expect(facts.enabled).toContain('lookfantastic');
-    // The four shops that carry the flag today (Kayali joined 2026-10-03); a
-    // fifth joining is exactly the kind of change that must invalidate every
-    // existing checkpoint.
-    expect(facts.fragranceOnlyCatalogue).toEqual(['escentric-molecules', 'kayali', 'riiffs', 'zimaya']);
+    // The rule, not today's list: the facts are exactly the registry's shops
+    // that carry the flag, so a shop joining or leaving the flag changes what
+    // the fingerprint hashes and invalidates every existing checkpoint. Which
+    // shops those are is the registry's to say and changes as shops join.
+    const flagged = RETAILERS.filter((r) => r.fragranceOnlyCatalogue === true).map((r) => r.id).sort();
+    expect(facts.fragranceOnlyCatalogue).toEqual(flagged);
+    expect(facts.fragranceOnlyCatalogue.length).toBeGreaterThan(0);
   });
 });
 

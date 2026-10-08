@@ -1,4 +1,4 @@
-import type { Retailer } from '../types/retailer.js';
+import type { Retailer, SitemapRoute } from '../types/retailer.js';
 import type { RawListing } from './types.js';
 import type { Http } from './attempt.js';
 import { parseListings } from './jsonld.js';
@@ -6,7 +6,7 @@ import { isAllowed, type RobotsRules } from './robots.js';
 import { readRobotsResponse, resolveRobotsReadings } from './robotsSource.js';
 import { BEAUTY_BAY_API, beautyBayApiUrl, beautyBayParts, parseBeautyBayProduct } from './beautyBayApi.js';
 import { titleWithThgPageStrength } from './thgPageStrength.js';
-import { BOT_HEADERS } from './botIdentity.js';
+import { BOT_HEADERS, botHeaders } from './botIdentity.js';
 
 /**
  * Harvest a shop's catalogue through the sitemap it publishes.
@@ -384,6 +384,15 @@ export function redirectedAway(asked: string, finalUrl: string | undefined): boo
  */
 export const ROUTE_HEADERS: Record<string, string> = BOT_HEADERS;
 
+/**
+ * The headers of one pinned route: ROUTE_HEADERS, plus the route's currency
+ * cookie where it sets one (`SitemapRoute.cookie`). Still the bot, by
+ * construction: `botHeaders` refuses anything that would disguise it.
+ */
+export function routeHeaders(route: Pick<SitemapRoute, 'cookie'> | null | undefined): Record<string, string> {
+  return route?.cookie ? botHeaders({ cookie: route.cookie }) : ROUTE_HEADERS;
+}
+
 /** Upper bound on a pinned route's sitemap fetches, whatever the entry asks. */
 const MAX_ROUTE_SITEMAPS = 60;
 
@@ -505,7 +514,7 @@ async function walkCategories(
         break;
       }
       if (fetched > 0 && gapMs > 0) await sleep(gapMs);
-      const res = await http(url, ROUTE_HEADERS);
+      const res = await http(url, routeHeaders(route));
       fetched++;
       onProgress?.(fetched, kept.size);
       if (!res.ok) {
@@ -619,7 +628,7 @@ async function discoverViaRoute(
     }
 
     if ((fetched > 0 || categoryPages > 0) && gapMs > 0) await sleep(gapMs);
-    const res = await http(url, ROUTE_HEADERS);
+    const res = await http(url, routeHeaders(route));
     fetched++;
     onProgress?.(fetched, kept.size);
     if (!res.ok) {
@@ -914,7 +923,7 @@ export async function crawlViaSitemap(
   const route = options.retailer.sitemapRoute ?? null;
   // A pinned route always identifies itself honestly, whatever the caller
   // passed: see SitemapRoute's own doc comment.
-  const headers = route ? ROUTE_HEADERS : options.headers;
+  const headers = route ? routeHeaders(route) : options.headers;
   const sleep = options.sleep ?? ((ms: number) => new Promise<void>((r) => setTimeout(r, ms)));
 
   const deadlineAt = Date.now() + (options.maxDurationMs ?? DEFAULT_CRAWL_MS);

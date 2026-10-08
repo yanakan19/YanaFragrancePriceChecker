@@ -2,6 +2,11 @@
 
 Drafted 2026-10-03, refreshed 2026-10-08 for the owner. Nothing has been sent.
 
+Email rewritten 2026-10-08 (second pass): shorter, with tracked links offered,
+the crawler's details and a contact address. Send it on the same day as the
+affiliate application it mentions. Routes and odds for every shop:
+`docs/BLOCKED-SHOPS-ROUTES-2026-10-08.md`.
+
 ## Do this first: the shop's affiliate programme
 
 The Perfume Shop runs an affiliate programme from its own page,
@@ -26,9 +31,10 @@ Steps for the owner:
 4. Tell an agent the network, the advertiser ID and the outcome; the registry
    entry records it and a feed reader is built for that network if needed.
 
-## Fallback: the permission email
+## The permission email, the same day
 
-Use this if no programme with a product feed accepts us.
+Send it the same day as the affiliate application: it mentions the application
+and also asks the crawler question, which the application does not.
 
 **Where to send it:** the customer service page,
 https://theperfumeshop.com/customer-service (from a web search; we could not
@@ -39,22 +45,26 @@ Akamai deny, so one yes from the group's e-commerce team could cover both.
 
 Replace [YOUR NAME] before sending.
 
-    Subject: Permission to show The Perfume Shop prices on PriceSniffs
+    Subject: The Perfume Shop on PriceSniffs: a product feed, or permission for our crawler
 
     Hello,
 
-    My name is [YOUR NAME] and I run PriceSniffs (https://pricesniffs.space), a free UK price comparison site for fragrance.
+    I run PriceSniffs (https://pricesniffs.space), an independent UK fragrance price comparison site. For each perfume it shows the price at every UK shop that sells it, delivery included, and every listing links straight to the shop's own product page. It lists about 26,000 products from more than 45 UK shops.
 
-    PriceSniffs shows what a bottle costs at each UK shop that sells it, with delivery included, so a shopper sees the real total before they click. Every listing links straight to the shop's own product page, where the sale happens. We never change a shop's price, and if we cannot keep a price current we take it off the site rather than show an old one.
+    We would like to list The Perfume Shop. At the moment your website's security turns our crawler away ("Access Denied", robots.txt included). We respect that and have stopped asking.
 
-    We would like to include The Perfume Shop. At the moment our checks of your public pages, robots.txt included, are turned away by your website's security ("Access Denied"), and we respect that, so we have stopped trying.
+    Either of these would let us send you shoppers with current prices:
 
-    Would you be willing to share a product data feed with prices, stock and product links, for example through your affiliate programme? Or, if you prefer, to let our crawler, which identifies itself as PriceSniffsBot and follows robots.txt, read your public product pages at a gentle rate? Either would let us send shoppers to you with accurate, current prices.
+    1. A product feed with prices, stock and product links through your affiliate programme, which we are applying to, so every sale we send you is tracked to you.
 
-    Whichever suits you, we will follow any conditions you set, such as how often we check or which pages we use. I would be glad to answer any questions.
+    2. Permission for our crawler to read your public product pages. It names itself on every request as "PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about/bot)", reads robots.txt first and obeys it, asks one page at a time at least a second apart, a few times a day, and never logs in or fills a basket. It runs on cloud servers without fixed addresses; if your team needs more than the user agent to recognise it, tell us what you accept (for example signed requests under Web Bot Auth) and we will look at setting it up.
+
+    If the same answer suits Superdrug, whose website turns us away in the same way, we would be glad to list it on the same terms.
+
+    What you get: free listings, tracked links that send buyers only to your own pages, and prices we take down rather than show out of date. We will follow any conditions you set (which pages, how often, removal on request).
 
     Kind regards,
 
     [YOUR NAME]
-    PriceSniffs
-    https://pricesniffs.space
+    PriceSniffs, https://pricesniffs.space
+    yannysniffs@gmail.com

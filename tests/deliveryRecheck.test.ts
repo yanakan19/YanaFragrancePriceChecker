@@ -267,8 +267,20 @@ describe('targets', () => {
     };
     const targets = recheckTargets(RETAILERS, count);
     expect(targets.length).toBeGreaterThan(0);
-    expect(targets.filter((t) => t.url === null).map((t) => t.retailerId)).toEqual([]);
-    for (const t of targets) expect(new URL(t.url!).protocol).toBe('https:');
+    // The rule: a shop with a recorded delivery figure has a page to compare it
+    // with. A shop that has no figure yet (nothing read, confidence 'unverified',
+    // e.g. one just added whose policy page robots.txt disallows) has nothing to
+    // re-check, and the recheck reports it as unreadable rather than failing.
+    const noPage = targets.filter((t) => t.url === null);
+    const withFigure = noPage.filter(
+      (t) =>
+        t.recorded.standardGbp !== null ||
+        t.recorded.freeOverGbp !== null ||
+        t.recorded.standardRateNotPublished ||
+        t.recorded.confidence === 'confirmed',
+    );
+    expect(withFigure.map((t) => t.retailerId)).toEqual([]);
+    for (const t of targets.filter((t) => t.url !== null)) expect(new URL(t.url!).protocol).toBe('https:');
   });
 });
 

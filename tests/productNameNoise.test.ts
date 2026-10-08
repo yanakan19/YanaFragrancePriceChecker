@@ -131,6 +131,8 @@ describe('product names carry no shop descriptor rubbish', () => {
     'maison matine',
     'ylem',
   ]);
+  /** The house name without accents, so "Comme Des Garçons" is the house listed as 'comme des garcons'. */
+  const houseKey = (brand: string): string => brand.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
   const isTwoPartLatinPipe = (name: string): boolean =>
     /^[^|]*[^|\s]\s*\|\s*[^|\s][^|]*$/.test(name) && !/[^\p{Script=Latin}\p{N}\p{P}\p{S}\s]/u.test(name);
 
@@ -142,7 +144,7 @@ describe('product names carry no shop descriptor rubbish', () => {
         !REAL_PIPE_NAMES.test(p.name) &&
         !(p.brand.toLowerCase() === 'kayali' && KAYALI_PIPE_NAMES.test(p.name)) &&
         !(p.brand.toLowerCase() === 'kayali' && p.giftSet && KAYALI_SET_PIPE_NAMES.test(p.name)) &&
-        !(TWO_PART_PIPE_HOUSES.has(p.brand.toLowerCase()) && isTwoPartLatinPipe(p.name)),
+        !(TWO_PART_PIPE_HOUSES.has(houseKey(p.brand)) && isTwoPartLatinPipe(p.name)),
     ).map((p) => `${p.brand}: ${p.name}`);
     expect([...new Set(offenders)]).toEqual([]);
   });

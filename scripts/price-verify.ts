@@ -72,6 +72,7 @@ import {
 } from '../src/catalogue/robots.js';
 import type { Http } from '../src/catalogue/attempt.js';
 import { BOT_HEADERS } from '../src/catalogue/botIdentity.js';
+import { routeHeaders } from '../src/catalogue/sitemapCrawl.js';
 import { parseShopCurrency } from '../src/catalogue/shopifyJson.js';
 import { probeMarkets, subfolderCandidates } from '../src/catalogue/marketProbe.js';
 import {
@@ -863,7 +864,9 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
     }
 
     outcome.attempted++;
-    const res = await http(url, BOT_HEADERS);
+    // A pinned route's currency cookie (SitemapRoute.cookie) goes with the
+    // check too, so the page is read in the market the harvest read it in.
+    const res = await http(url, routeHeaders(retailer.sitemapRoute));
     if (!res.ok) {
       outcome.unkeyed++;
       if (outcome.notes.length < 12) outcome.notes.push(`HTTP ${res.status} on ${new URL(url).pathname}`);

@@ -288,6 +288,10 @@ What holds for all of them:
   and a WAF block or a region rule would still stand. An owner decision:
   it needs a Cloudflare account, an application, and request signing in
   `src/catalogue/botIdentity.ts`'s clients.
+- **Every lawful route, ranked per shop, with the owner's week:**
+  `docs/BLOCKED-SHOPS-ROUTES-2026-10-08.md` (affiliate networks and what a
+  small site needs, the Verified Bots and Akamai requirements measured against
+  PriceSniffsBot, syndication feeds, and the tricks that cross the line).
 
 ### The Fragrance Shop
 
@@ -412,3 +416,76 @@ What holds for all of them:
   2026-10-08. Joined, it needs no code: the Awin feed sync reads it.
 - **Recommendation:** off. Owner chases 5901 in Awin
   (`docs/outreach/perfume-shopping.md`).
+
+## Retired shops, 8 October 2026
+
+The owner retired four entries from the registry on 2026-10-08 (D29 in
+`docs/DECISIONS.md`): Paco Perfumerias (the Spanish .com; the UK shop stays
+live), Sabina Store, Bath & Body Works and Fragrancedirect. They are deleted,
+not switched off, and `tests/registry.test.ts` fails if one comes back. None
+had a listing, so no harvest, snapshot or page changed.
+
+### Fragrancedirect, read before it was retired
+
+One plain request per URL on 2026-10-08, robots.txt first, as
+`PriceSniffsBot/0.2 (UK fragrance price comparison;
++https://pricesniffs.space/about/bot)`, no cookies, no proxy worked round.
+
+- `https://www.fragrancedirect.co.uk/robots.txt`: HTTP 404, which RFC 9309
+  reads as no restrictions. The body was the holding page below.
+- `https://www.fragrancedirect.co.uk/`: HTTP 200, 5,063 bytes. Title
+  "Fragrance Direct | We're making some changes"; `<meta name="robots"
+  content="noindex, nofollow">`. Page text: "Fragrance Direct is making
+  improvements behind the scenes. Visit our sister site allbeauty.com for the
+  best deals on your fragrance favourites." The only links are
+  `https://www.allbeauty.com` and the shop's own favicon.
+
+So it is a holding page that only links to Allbeauty, as the earlier readings
+(2026-09-10, 2026-10-03) said. Nothing to harvest, no route to build.
+
+### The other three
+
+- **Paco Perfumerias (.com):** a Spanish storefront with no sterling reading.
+  The UK store, pacoperfumerias.co.uk (`paco-perfumerias-uk`), prices in GBP,
+  has its own route and delivery terms, and was not touched.
+- **Sabina Store:** pounds are the shop's conversion of a euro price for a US
+  delivery; the one way to set the UK is a path its robots.txt disallows.
+- **Bath & Body Works:** pound prices are conversions for US delivery; product
+  pages were refused at the edge in August and again on 2026-10-03.
+
+## Four Awin shops measured again (8 October 2026)
+
+Gorgeous Shop, Beauty Flash, Scentsational and Beauty The Shop UK had sat
+disabled since August with `adapter: 'unknown'` and no route. Each was measured
+again on 8 October 2026, as PriceSniffsBot only, robots.txt first, then proved
+(or not) by one dry run of `harvest-one-shop.yml` from a GitHub runner. Nothing
+went through a proxy or a rendered browser.
+
+| Shop | What answered | Route | Runner probe | Result |
+|---|---|---|---|---|
+| Gorgeous Shop | robots.txt, home, aisles, product pages: HTTP 200 (the October 3 Cloudflare 403 is gone) | the shop's `/fragrance` aisle as a pinned category walk (`am-page-count`, 30 cards a page), product JSON-LD in GBP, 5 s gap; its sitemap is from 2023 and is not used | run 37717902614: 268 addresses, 78 pages, 80 priced | on |
+| Beauty Flash | the same Magento build and operator as Gorgeous Shop, all HTTP 200 | the same route on `beautyflash.co.uk/fragrance` | run 37718622282: 311 addresses, 74 pages, 74 priced | on |
+| Scentsational | all HTTP 200; Crawl-delay 2 honoured | its product sitemaps (written that day), pinned to perfume and gift set addresses, with the shop's own currency cookie `VSCurrency=GBP` (`SitemapRoute.cookie`) and `requireGbp` | run 37719553362: 701 addresses, 80 pages, 80 priced in GBP | on |
+| Beauty The Shop UK | robots.txt only; every page, the sitemap included, HTTP 403 "Sorry, you have been blocked" (Cloudflare) | none | run 37720273728: `/sitemap.xml` HTTP 403, 0 priced | off |
+
+Two things were learned on the way that apply beyond these shops.
+
+- **A 1.5 s gap can be too fast for a Cloudflare zone.** A local dry run of
+  Gorgeous Shop at 1.5 s, straight after a 110 page measurement walk from the
+  same address, was answered HTTP 429 after about 40 requests, and the harvest
+  stopped as it should. Both Magento shops now ask at 5 s, the gap their
+  robots.txt asks of bingbot; the runner probes at that pace saw no refusal.
+- **A page's currency label can be the only honest thing about it.**
+  Scentsational's JSON-LD carries the same figure whatever currency a visitor is
+  shown: from a US address it says `"priceCurrency": "USD", "price": "25.00"`
+  beside a visible $33.05, and with the shop's own `VSCurrency=GBP` it says GBP
+  25.00 beside a visible £25.00. The cookie is the shop's own currency menu
+  (`/currency/GBP/` sets nothing else), which `botIdentity.ts` counts as an
+  honest stated preference; `requireGbp` keeps any page that ignores it from
+  publishing a price. Its keys are capitalised (`Offers`, `Brand`, `SKU`), now
+  read by `fixSchemaKeyCase` in `src/catalogue/jsonld.ts` (added the same day for Direct Cosmetics).
+
+Not settled: Scentsational's product page labelled a £25 bottle "FREE UK
+Delivery" while its delivery page says £2.95 under £80; the delivery page is the
+figure used until someone checks the basket. Beauty The Shop UK's currency and
+delivery terms are still unread, because none of its pages can be read.

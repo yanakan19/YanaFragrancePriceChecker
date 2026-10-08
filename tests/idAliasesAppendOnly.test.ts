@@ -42,7 +42,21 @@ describe('data/id-aliases.json against the reference keys', () => {
 
   it('the flat serving map agrees with following the record', () => {
     for (const [from, to] of Object.entries(ID_ALIASES).slice(0, 3000)) {
-      expect(resolveAlias(from, record, (id) => pages.has(id)), from).toBe(to);
+      const followed = resolveAlias(from, record, (id) => pages.has(id));
+      if (followed === null) {
+        // A recorded chain can close on itself (A -> B -> A, kept because no key may
+        // be rewritten); the build then publishes its own decision for the id
+        // (settleIdAliases). That is the only way following the record may fail here.
+        const seen = new Set<string>();
+        let t: string | undefined = from;
+        while (t !== undefined && !seen.has(t)) {
+          seen.add(t);
+          t = Object.prototype.hasOwnProperty.call(record, t) ? record[t] : undefined;
+        }
+        expect(t, `${from}: the record does not lead to a page, and is not a closed loop`).toBeDefined();
+      } else {
+        expect(followed, from).toBe(to);
+      }
     }
   });
 });

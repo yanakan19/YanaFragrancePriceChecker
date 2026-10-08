@@ -2,6 +2,11 @@
 
 Drafted 2026-10-08 for the owner. Nothing has been sent.
 
+Email rewritten 2026-10-08 (second pass): shorter, with tracked links offered,
+the crawler's details and a contact address. Send it on the same day as the
+affiliate application it mentions. Routes and odds for every shop:
+`docs/BLOCKED-SHOPS-ROUTES-2026-10-08.md`.
+
 ## Do this first: chase the Awin application (merchant 5901)
 
 The owner applied to Perfume Shopping on Awin on 2026-08-11 (Activity
@@ -26,7 +31,7 @@ Steps for the owner:
    Fragrance Click. Nothing else needs building.
 4. If it is declined, the email below is the only other route.
 
-## Fallback: the permission email
+## The permission email, the same day
 
 The site answers every request from our crawler, robots.txt included, with
 Cloudflare's "We are sorry, this service is not available in your region."
@@ -40,22 +45,24 @@ contact page.
 
 Replace [YOUR NAME] before sending.
 
-    Subject: PriceSniffs: showing Perfume Shopping prices to UK shoppers
+    Subject: Perfume Shopping on PriceSniffs: a product feed, or permission for our crawler
 
     Hello,
 
-    My name is [YOUR NAME] and I run PriceSniffs (https://pricesniffs.space), a free UK price comparison site for fragrance. We applied to your Awin programme (5901) in August.
+    I run PriceSniffs (https://pricesniffs.space), an independent UK fragrance price comparison site. For each perfume it shows the price at every UK shop that sells it, delivery included, and every listing links straight to the shop's own product page. It lists about 26,000 products from more than 45 UK shops.
 
-    PriceSniffs shows what a bottle costs at each UK shop that sells it, with delivery included, so a shopper sees the real total before they click. Every listing links straight to the shop's own product page, where the sale happens. We never change a shop's price, and if we cannot keep a price current we take it off the site rather than show an old one.
+    We would like to list Perfume Shopping. At the moment every request from our crawler, robots.txt included, is answered "this service is not available in your region". Our crawler runs on cloud servers outside the UK, so a region rule meant for shoppers may be catching it. We respect that and have stopped asking.
 
-    We would like to include Perfume Shopping. At the moment every request from our crawler, robots.txt included, is answered "this service is not available in your region". Our crawler runs from cloud servers outside the UK, so we think a region rule for shoppers is catching it, and we respect that, so we have stopped trying.
+    Either of these would let us send you shoppers with current prices:
 
-    Would you be willing to approve us on Awin so we can use your product feed? Or, if you prefer, to let our crawler, which identifies itself as PriceSniffsBot and follows robots.txt, read your public product pages at a gentle rate? Either would let us send UK shoppers to you with accurate, current prices.
+    1. Approval on your Awin programme (5901), which we applied to in August, and your product feed there, so every sale we send you is tracked to you.
 
-    Whichever suits you, we will follow any conditions you set. I would be glad to answer any questions.
+    2. Permission for our crawler to read your public product pages. It names itself on every request as "PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about/bot)", reads robots.txt first and obeys it, asks one page at a time at least a second apart, a few times a day, and never logs in or fills a basket. It runs on cloud servers without fixed addresses; if your team needs more than the user agent to recognise it, tell us what you accept (for example signed requests under Web Bot Auth) and we will look at setting it up.
+
+    What you get: free listings, tracked links that send buyers only to your own pages, and prices we take down rather than show out of date. We will follow any conditions you set (which pages, how often, removal on request).
 
     Kind regards,
 
     [YOUR NAME]
-    PriceSniffs
-    https://pricesniffs.space
+    PriceSniffs, https://pricesniffs.space
+    yannysniffs@gmail.com
