@@ -1,7 +1,7 @@
 {
   "retailerId": "sainte-cellier",
-  "updatedAt": "2026-10-08T13:57:01.776Z",
-  "seenAt": "2026-10-08T13:57:01.776Z",
+  "updatedAt": "2026-10-08T17:59:37.255Z",
+  "seenAt": "2026-10-08T17:59:37.255Z",
   "source": "live",
   "listings": [
     {
@@ -359,7 +359,7 @@
       "priceGbp": 200,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Eau de Parfum. A creamy-white confection skewered straight through the heart and roasted over the embers of a sandalwood flame. Don’t let the graham crackers fool you, this isn’t a treat… it’s dinner.. Curling smoke from a freshly lit Capri drifts into musky clouds of orris, tonka, and ambrette, smudging the line between confection and carnal.. Composition: . Graham Cracker Dust. Toasted Marshmallow, Roasted Orris. Ambrette, Tonka, Sandalwood, Musk. Perfumer: Marissa Zappas, 2026.",
       "productType": "EAU DE PARFUM",

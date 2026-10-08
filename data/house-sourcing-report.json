@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-08T14:55:00.630Z",
+  "checkedAt": "2026-10-08T19:04:50.372Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -75,10 +75,12 @@
       "origin": "https://assaf.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 276,
+      "listings": 249,
       "pricedInGbp": 0,
-      "withPhoto": 275,
-      "errors": [],
+      "withPhoto": 248,
+      "errors": [
+        "https://assaf.ae/products.json?limit=250&page=2: HTTP 503"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "Assaf Trading LLC, UAE. A second domain (3saf.com) also brands itself Assaf — not confirmed as the same storefront before trusting its listings",
@@ -90,31 +92,33 @@
       "name": "Gulf Orchid",
       "origin": "https://shop-gulforchid.com",
       "routeUsed": "shopify-products-json",
-      "currency": "AED",
+      "currency": null,
       "listings": 251,
       "pricedInGbp": 0,
       "withPhoto": 251,
-      "errors": [],
+      "errors": [
+        "storefront currency could not be established — no sterling price recorded"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "Dubai-based manufacturer, trading since 1987. Sister brand to Maison Asrar (below) — the two share a manufacturer, not a storefront, so each still needs its own harvest",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "Dubai-based manufacturer, trading since 1987. Sister brand to Maison Asrar (below) — the two share a manufacturer, not a storefront, so each still needs its own harvest"
       ]
     },
     {
       "houseId": "maison-asrar",
       "name": "Maison Asrar",
       "origin": "https://maisonasrar.com",
-      "routeUsed": "shopify-products-json",
-      "currency": "AED",
-      "listings": 130,
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
       "pricedInGbp": 0,
-      "withPhoto": 130,
-      "errors": [],
+      "withPhoto": 0,
+      "errors": [
+        "robots.txt unreachable at https://maisonasrar.com and https://www.maisonasrar.com — holding off rather than guessing we are welcome"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "manufactured by Gulf Orchid (above), branded and sold separately",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "manufactured by Gulf Orchid (above), branded and sold separately"
       ]
     },
     {
@@ -141,9 +145,9 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 45,
+      "listings": 26,
       "pricedInGbp": 0,
-      "withPhoto": 45,
+      "withPhoto": 26,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -157,13 +161,15 @@
     {
       "houseId": "surrati",
       "name": "Surrati",
-      "origin": "https://surrati.ae",
+      "origin": "https://www.surrati.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
       "listings": 108,
       "pricedInGbp": 0,
       "withPhoto": 107,
-      "errors": [],
+      "errors": [
+        "https://surrati.ae did not answer; used https://www.surrati.ae instead"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "founded 1929 in Makkah. Search also surfaced surratiperfumes.com and surrati.com.pk as separate storefronts — not confirmed whether these are the same business or independent distributors before trusting any of them interchangeably",
@@ -516,9 +522,9 @@
       "origin": "https://www.thebodyshop.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 415,
-      "pricedInGbp": 415,
-      "withPhoto": 415,
+      "listings": 425,
+      "pricedInGbp": 425,
+      "withPhoto": 425,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

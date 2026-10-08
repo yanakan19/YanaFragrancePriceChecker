@@ -1,12 +1,12 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-10-08T14:49:40.576Z",
-  "seenAt": "2026-10-08T14:49:40.576Z",
+  "updatedAt": "2026-10-08T18:59:46.129Z",
+  "seenAt": "2026-10-08T18:59:46.129Z",
   "source": "live",
   "listings": [
     {
       "retailerSku": "101044392",
-      "url": "https://surrati.ae/products/hajar-al-aswad",
+      "url": "https://www.surrati.ae/products/hajar-al-aswad",
       "rawTitle": "Hajar Al Aswad",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -32,7 +32,7 @@
     },
     {
       "retailerSku": "101044333",
-      "url": "https://surrati.ae/products/jewel-140-ml-opulent-spray-heritage-collection",
+      "url": "https://www.surrati.ae/products/jewel-140-ml-opulent-spray-heritage-collection",
       "rawTitle": "Jewel",
       "rawBrand": "My Store",
       "ean": null,
@@ -58,7 +58,7 @@
     },
     {
       "retailerSku": "101044332",
-      "url": "https://surrati.ae/products/dream-valley-140-ml-timeless-spray-heritage-collection",
+      "url": "https://www.surrati.ae/products/dream-valley-140-ml-timeless-spray-heritage-collection",
       "rawTitle": "Dream Valley",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -84,7 +84,7 @@
     },
     {
       "retailerSku": "101044331",
-      "url": "https://surrati.ae/products/blue-moon",
+      "url": "https://www.surrati.ae/products/blue-moon",
       "rawTitle": "Blue Moon",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -110,7 +110,7 @@
     },
     {
       "retailerSku": "101044356",
-      "url": "https://surrati.ae/products/lady-rose",
+      "url": "https://www.surrati.ae/products/lady-rose",
       "rawTitle": "Lady Rose",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -136,7 +136,7 @@
     },
     {
       "retailerSku": "101044365",
-      "url": "https://surrati.ae/products/rosso-omber",
+      "url": "https://www.surrati.ae/products/rosso-omber",
       "rawTitle": "Rosso Omber",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -162,7 +162,7 @@
     },
     {
       "retailerSku": "10806961996085-Default Title",
-      "url": "https://surrati.ae/products/i-a-enterprises-usa-llc",
+      "url": "https://www.surrati.ae/products/i-a-enterprises-usa-llc",
       "rawTitle": "Muhammed Affan Perfumes. ca",
       "rawBrand": "Dubai",
       "ean": null,
@@ -188,7 +188,7 @@
     },
     {
       "retailerSku": "101044393",
-      "url": "https://surrati.ae/products/kiswa-140-ml",
+      "url": "https://www.surrati.ae/products/kiswa-140-ml",
       "rawTitle": "Kiswa 140 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -214,7 +214,7 @@
     },
     {
       "retailerSku": "101044298",
-      "url": "https://surrati.ae/products/spray-amber-noir-100-ml",
+      "url": "https://www.surrati.ae/products/spray-amber-noir-100-ml",
       "rawTitle": "Spray Amber Noir 100 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -240,7 +240,7 @@
     },
     {
       "retailerSku": "101044269",
-      "url": "https://surrati.ae/products/spray-mashaekh-100-ml",
+      "url": "https://www.surrati.ae/products/spray-mashaekh-100-ml",
       "rawTitle": "Spray Mashaekh 100 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -266,7 +266,7 @@
     },
     {
       "retailerSku": "101044216",
-      "url": "https://surrati.ae/products/spray-ameer-al-oud-100-ml",
+      "url": "https://www.surrati.ae/products/spray-ameer-al-oud-100-ml",
       "rawTitle": "Spray Ameer Al Oud 100 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -292,7 +292,7 @@
     },
     {
       "retailerSku": "9850132005173-Default Title",
-      "url": "https://surrati.ae/products/white-gold",
+      "url": "https://www.surrati.ae/products/white-gold",
       "rawTitle": "Spray White Gold 100 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -318,7 +318,7 @@
     },
     {
       "retailerSku": "101044268",
-      "url": "https://surrati.ae/products/spray-turquoise-stone-100-ml",
+      "url": "https://www.surrati.ae/products/spray-turquoise-stone-100-ml",
       "rawTitle": "Spray Turquoise Stone 100 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -344,7 +344,7 @@
     },
     {
       "retailerSku": "101015069",
-      "url": "https://surrati.ae/products/bakhoor-oud-ambre-70-gms-r",
+      "url": "https://www.surrati.ae/products/bakhoor-oud-ambre-70-gms-r",
       "rawTitle": "Bakhoor Oud Ambre 70 Gms (R)",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -370,7 +370,7 @@
     },
     {
       "retailerSku": "101015038",
-      "url": "https://surrati.ae/products/bakhoor-manahel",
+      "url": "https://www.surrati.ae/products/bakhoor-manahel",
       "rawTitle": "Bakhoor Manahel",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -396,7 +396,7 @@
     },
     {
       "retailerSku": "101015001",
-      "url": "https://surrati.ae/products/bakhoor-salwa-murabba-1",
+      "url": "https://www.surrati.ae/products/bakhoor-salwa-murabba-1",
       "rawTitle": "Bakhoor Salwa Murabba",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -422,7 +422,7 @@
     },
     {
       "retailerSku": "101015011",
-      "url": "https://surrati.ae/products/bakhoor-mabsoos-zain",
+      "url": "https://www.surrati.ae/products/bakhoor-mabsoos-zain",
       "rawTitle": "Bakhoor Mabsoos Zain",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -448,7 +448,7 @@
     },
     {
       "retailerSku": "101025192",
-      "url": "https://surrati.ae/products/amber-oud-30-ml",
+      "url": "https://www.surrati.ae/products/amber-oud-30-ml",
       "rawTitle": "Amber Oud 30 Ml - Timeless Opulent Unisex Attar",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -474,7 +474,7 @@
     },
     {
       "retailerSku": "101044358",
-      "url": "https://surrati.ae/products/omniyat",
+      "url": "https://www.surrati.ae/products/omniyat",
       "rawTitle": "Omniya",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -500,7 +500,7 @@
     },
     {
       "retailerSku": "101044357",
-      "url": "https://surrati.ae/products/atlantis",
+      "url": "https://www.surrati.ae/products/atlantis",
       "rawTitle": "Atlantis",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -526,7 +526,7 @@
     },
     {
       "retailerSku": "101044314",
-      "url": "https://surrati.ae/products/valley-33",
+      "url": "https://www.surrati.ae/products/valley-33",
       "rawTitle": "Valley 33",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -552,7 +552,7 @@
     },
     {
       "retailerSku": "101044362",
-      "url": "https://surrati.ae/products/cuban-latte",
+      "url": "https://www.surrati.ae/products/cuban-latte",
       "rawTitle": "Cuban Latte",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -578,7 +578,7 @@
     },
     {
       "retailerSku": "101044373",
-      "url": "https://surrati.ae/products/candy-kiss",
+      "url": "https://www.surrati.ae/products/candy-kiss",
       "rawTitle": "Candy Kiss",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -604,7 +604,7 @@
     },
     {
       "retailerSku": "101044367",
-      "url": "https://surrati.ae/products/pur-musk",
+      "url": "https://www.surrati.ae/products/pur-musk",
       "rawTitle": "Pur Musk",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -630,7 +630,7 @@
     },
     {
       "retailerSku": "101044380",
-      "url": "https://surrati.ae/products/dubai-oud",
+      "url": "https://www.surrati.ae/products/dubai-oud",
       "rawTitle": "Dubai Ocean",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -656,7 +656,7 @@
     },
     {
       "retailerSku": "101044378",
-      "url": "https://surrati.ae/products/oud-dubai",
+      "url": "https://www.surrati.ae/products/oud-dubai",
       "rawTitle": "Oud Dubai",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -682,7 +682,7 @@
     },
     {
       "retailerSku": "101044379",
-      "url": "https://surrati.ae/products/arabic-coffee",
+      "url": "https://www.surrati.ae/products/arabic-coffee",
       "rawTitle": "Arabic Coffee",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -708,7 +708,7 @@
     },
     {
       "retailerSku": "101044355",
-      "url": "https://surrati.ae/products/luxury-oud",
+      "url": "https://www.surrati.ae/products/luxury-oud",
       "rawTitle": "Luxury Oud",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -734,7 +734,7 @@
     },
     {
       "retailerSku": "101044330",
-      "url": "https://surrati.ae/products/cuban-tobacco",
+      "url": "https://www.surrati.ae/products/cuban-tobacco",
       "rawTitle": "Cuban Tobacco",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -760,7 +760,7 @@
     },
     {
       "retailerSku": "101044372",
-      "url": "https://surrati.ae/products/oud-de-dubai",
+      "url": "https://www.surrati.ae/products/oud-de-dubai",
       "rawTitle": "Oud De Dubai",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -786,7 +786,7 @@
     },
     {
       "retailerSku": "101044371",
-      "url": "https://surrati.ae/products/sara",
+      "url": "https://www.surrati.ae/products/sara",
       "rawTitle": "Sara",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -812,7 +812,7 @@
     },
     {
       "retailerSku": "101044370",
-      "url": "https://surrati.ae/products/bora-bora",
+      "url": "https://www.surrati.ae/products/bora-bora",
       "rawTitle": "Bora  Bora",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -838,7 +838,7 @@
     },
     {
       "retailerSku": "101044369",
-      "url": "https://surrati.ae/products/adham",
+      "url": "https://www.surrati.ae/products/adham",
       "rawTitle": "Adham",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -864,7 +864,7 @@
     },
     {
       "retailerSku": "101044366",
-      "url": "https://surrati.ae/products/fabrica-1929",
+      "url": "https://www.surrati.ae/products/fabrica-1929",
       "rawTitle": "Fabrica 1929",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -890,7 +890,7 @@
     },
     {
       "retailerSku": "101044364",
-      "url": "https://surrati.ae/products/purple-candy",
+      "url": "https://www.surrati.ae/products/purple-candy",
       "rawTitle": "Purple Candy",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -916,7 +916,7 @@
     },
     {
       "retailerSku": "101044361",
-      "url": "https://surrati.ae/products/miss-world",
+      "url": "https://www.surrati.ae/products/miss-world",
       "rawTitle": "Miss World",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -942,7 +942,7 @@
     },
     {
       "retailerSku": "101044359",
-      "url": "https://surrati.ae/products/italian",
+      "url": "https://www.surrati.ae/products/italian",
       "rawTitle": "Italian Tobacco",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -968,7 +968,7 @@
     },
     {
       "retailerSku": "101044368",
-      "url": "https://surrati.ae/products/gold-musk",
+      "url": "https://www.surrati.ae/products/gold-musk",
       "rawTitle": "Gold Musk",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -994,7 +994,7 @@
     },
     {
       "retailerSku": "101044360",
-      "url": "https://surrati.ae/products/miss-world-charisma-1",
+      "url": "https://www.surrati.ae/products/miss-world-charisma-1",
       "rawTitle": "Miss World Charisma",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1020,7 +1020,7 @@
     },
     {
       "retailerSku": "101025190",
-      "url": "https://surrati.ae/products/diala",
+      "url": "https://www.surrati.ae/products/diala",
       "rawTitle": "Diala",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1046,7 +1046,7 @@
     },
     {
       "retailerSku": "101025164",
-      "url": "https://surrati.ae/products/kariman",
+      "url": "https://www.surrati.ae/products/kariman",
       "rawTitle": "Kariman",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1072,7 +1072,7 @@
     },
     {
       "retailerSku": "101044310",
-      "url": "https://surrati.ae/products/cuban",
+      "url": "https://www.surrati.ae/products/cuban",
       "rawTitle": "Oud Cuban",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1098,7 +1098,7 @@
     },
     {
       "retailerSku": "101044329",
-      "url": "https://surrati.ae/products/spray-ghazala-100-ml",
+      "url": "https://www.surrati.ae/products/spray-ghazala-100-ml",
       "rawTitle": "Ghazala",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1124,7 +1124,7 @@
     },
     {
       "retailerSku": "101044336",
-      "url": "https://surrati.ae/products/dolce-marina-140-ml-heritage-collection-sophisticated-spray",
+      "url": "https://www.surrati.ae/products/dolce-marina-140-ml-heritage-collection-sophisticated-spray",
       "rawTitle": "Dolce Marina",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1150,7 +1150,7 @@
     },
     {
       "retailerSku": "101044147",
-      "url": "https://surrati.ae/products/spray-ward-taifi-75-ml",
+      "url": "https://www.surrati.ae/products/spray-ward-taifi-75-ml",
       "rawTitle": "Spray Ward Taifi 75 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1176,7 +1176,7 @@
     },
     {
       "retailerSku": "104044273",
-      "url": "https://surrati.ae/products/rose-gold",
+      "url": "https://www.surrati.ae/products/rose-gold",
       "rawTitle": "Spray Rose Gold 100 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1202,7 +1202,7 @@
     },
     {
       "retailerSku": "101044274",
-      "url": "https://surrati.ae/products/turquoise",
+      "url": "https://www.surrati.ae/products/turquoise",
       "rawTitle": "Spray Turquoise 100 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1228,7 +1228,7 @@
     },
     {
       "retailerSku": "101044313",
-      "url": "https://surrati.ae/products/spray-imperial-210-ml",
+      "url": "https://www.surrati.ae/products/spray-imperial-210-ml",
       "rawTitle": "Imperial",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1254,7 +1254,7 @@
     },
     {
       "retailerSku": "101044221",
-      "url": "https://surrati.ae/products/oud-kalimantano-100-ml-copy",
+      "url": "https://www.surrati.ae/products/oud-kalimantano-100-ml-copy",
       "rawTitle": "Oud Malino 100 ML",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1280,7 +1280,7 @@
     },
     {
       "retailerSku": "201003035",
-      "url": "https://surrati.ae/products/dehan-oudh-combodi-qadeem-6-ml",
+      "url": "https://www.surrati.ae/products/dehan-oudh-combodi-qadeem-6-ml",
       "rawTitle": "Dehan Oudh Combodi Qadeem 6 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1306,7 +1306,7 @@
     },
     {
       "retailerSku": "101025175",
-      "url": "https://surrati.ae/products/khamayel-12-ml",
+      "url": "https://www.surrati.ae/products/khamayel-12-ml",
       "rawTitle": "Khamayel 12 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1332,7 +1332,7 @@
     },
     {
       "retailerSku": "101025174",
-      "url": "https://surrati.ae/products/musk-rose-12-ml",
+      "url": "https://www.surrati.ae/products/musk-rose-12-ml",
       "rawTitle": "Musk Rose 12 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1358,7 +1358,7 @@
     },
     {
       "retailerSku": "101025179",
-      "url": "https://surrati.ae/products/nagham-12-ml",
+      "url": "https://www.surrati.ae/products/nagham-12-ml",
       "rawTitle": "Nagham 12 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1384,7 +1384,7 @@
     },
     {
       "retailerSku": "101024010",
-      "url": "https://surrati.ae/products/niche-fragrance-sheikha-rouge-500-ml",
+      "url": "https://www.surrati.ae/products/niche-fragrance-sheikha-rouge-500-ml",
       "rawTitle": "Sheikha Rouge",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1410,7 +1410,7 @@
     },
     {
       "retailerSku": "101024005",
-      "url": "https://surrati.ae/products/niche-fragrance-musk-al-aroos-500-ml",
+      "url": "https://www.surrati.ae/products/niche-fragrance-musk-al-aroos-500-ml",
       "rawTitle": "Musk Al Aroos",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1436,7 +1436,7 @@
     },
     {
       "retailerSku": "101024002",
-      "url": "https://surrati.ae/products/niche-fragrance-sultan-500-ml",
+      "url": "https://www.surrati.ae/products/niche-fragrance-sultan-500-ml",
       "rawTitle": "Sultan 500 ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1462,7 +1462,7 @@
     },
     {
       "retailerSku": "101024006",
-      "url": "https://surrati.ae/products/niche-fragrance-habaytak-500-ml",
+      "url": "https://www.surrati.ae/products/niche-fragrance-habaytak-500-ml",
       "rawTitle": "Habaytak",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1488,7 +1488,7 @@
     },
     {
       "retailerSku": "101024004",
-      "url": "https://surrati.ae/products/niche-fragrance-khaltah-al-malik-500-ml",
+      "url": "https://www.surrati.ae/products/niche-fragrance-khaltah-al-malik-500-ml",
       "rawTitle": "Khaltah Al Malik",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1514,7 +1514,7 @@
     },
     {
       "retailerSku": "101024001",
-      "url": "https://surrati.ae/products/niche-fragrance-ayan-500-ml",
+      "url": "https://www.surrati.ae/products/niche-fragrance-ayan-500-ml",
       "rawTitle": "Ayan",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1540,7 +1540,7 @@
     },
     {
       "retailerSku": "101044311",
-      "url": "https://surrati.ae/products/spray-collector-210-ml",
+      "url": "https://www.surrati.ae/products/spray-collector-210-ml",
       "rawTitle": "Collector",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1566,7 +1566,7 @@
     },
     {
       "retailerSku": "101044335",
-      "url": "https://surrati.ae/products/honey-oud-140-ml-marina-spray-heritage-collection",
+      "url": "https://www.surrati.ae/products/honey-oud-140-ml-marina-spray-heritage-collection",
       "rawTitle": "Honey Oud",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1592,7 +1592,7 @@
     },
     {
       "retailerSku": "101025211",
-      "url": "https://surrati.ae/products/musk-al-bait-25-ml",
+      "url": "https://www.surrati.ae/products/musk-al-bait-25-ml",
       "rawTitle": "Musk al Bait 25 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1618,7 +1618,7 @@
     },
     {
       "retailerSku": "101044198",
-      "url": "https://surrati.ae/products/spray-ward-al-malik-60-ml",
+      "url": "https://www.surrati.ae/products/spray-ward-al-malik-60-ml",
       "rawTitle": "Spray Ward Al Malik 60 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1644,7 +1644,7 @@
     },
     {
       "retailerSku": "101044312",
-      "url": "https://surrati.ae/products/rose-vanilla-210-ml",
+      "url": "https://www.surrati.ae/products/rose-vanilla-210-ml",
       "rawTitle": "Rose Vanilla",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1670,7 +1670,7 @@
     },
     {
       "retailerSku": "101044227",
-      "url": "https://surrati.ae/products/spray-over-dose-100-ml",
+      "url": "https://www.surrati.ae/products/spray-over-dose-100-ml",
       "rawTitle": "Luxury Spray Over Dose 100 Ml - Premium Citrus Scent",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1696,7 +1696,7 @@
     },
     {
       "retailerSku": "101044334",
-      "url": "https://surrati.ae/products/pink-miss-140-ml-elegant-spray-heritage-collection",
+      "url": "https://www.surrati.ae/products/pink-miss-140-ml-elegant-spray-heritage-collection",
       "rawTitle": "Pink Miss",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1722,7 +1722,7 @@
     },
     {
       "retailerSku": "101026006",
-      "url": "https://surrati.ae/products/moattar-fawah-fajr",
+      "url": "https://www.surrati.ae/products/moattar-fawah-fajr",
       "rawTitle": "Opulent Moattar Fawah Fajar Air Freshner - Sophisticated Oriental Aroma",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1748,7 +1748,7 @@
     },
     {
       "retailerSku": "101024003",
-      "url": "https://surrati.ae/products/niche-fragrance-black-oud-500-ml",
+      "url": "https://www.surrati.ae/products/niche-fragrance-black-oud-500-ml",
       "rawTitle": "Black Oud",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1774,7 +1774,7 @@
     },
     {
       "retailerSku": "101045015",
-      "url": "https://surrati.ae/products/body-mist-strawberry-250-ml",
+      "url": "https://www.surrati.ae/products/body-mist-strawberry-250-ml",
       "rawTitle": "Body Mist Strawberry 250 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1800,7 +1800,7 @@
     },
     {
       "retailerSku": "101045003",
-      "url": "https://surrati.ae/products/body-mist-shagaf-homme-250-ml",
+      "url": "https://www.surrati.ae/products/body-mist-shagaf-homme-250-ml",
       "rawTitle": "Body Mist Shagaf Homme 250 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1826,7 +1826,7 @@
     },
     {
       "retailerSku": "101045004",
-      "url": "https://surrati.ae/products/body-mist-shagaf-femme-250-ml",
+      "url": "https://www.surrati.ae/products/body-mist-shagaf-femme-250-ml",
       "rawTitle": "Body Mist Shagaf Femme 250 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1852,7 +1852,7 @@
     },
     {
       "retailerSku": "101045012",
-      "url": "https://surrati.ae/products/body-mist-royal-musk-250-ml",
+      "url": "https://www.surrati.ae/products/body-mist-royal-musk-250-ml",
       "rawTitle": "Body Mist Royal Musk 250 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1878,7 +1878,7 @@
     },
     {
       "retailerSku": "101045016",
-      "url": "https://surrati.ae/products/body-mist-raspberry-250-ml",
+      "url": "https://www.surrati.ae/products/body-mist-raspberry-250-ml",
       "rawTitle": "Body Mist Raspberry 250 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1904,7 +1904,7 @@
     },
     {
       "retailerSku": "101045018",
-      "url": "https://surrati.ae/products/body-mist-peach-250-ml",
+      "url": "https://www.surrati.ae/products/body-mist-peach-250-ml",
       "rawTitle": "Body Mist Peach 250 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1930,7 +1930,7 @@
     },
     {
       "retailerSku": "101045014",
-      "url": "https://surrati.ae/products/body-mist-oud-al-sharqiah-250-ml",
+      "url": "https://www.surrati.ae/products/body-mist-oud-al-sharqiah-250-ml",
       "rawTitle": "Body Mist Oud Al Sharqiah 250 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1956,7 +1956,7 @@
     },
     {
       "retailerSku": "101045017",
-      "url": "https://surrati.ae/products/body-mist-fresh-berries-250-ml",
+      "url": "https://www.surrati.ae/products/body-mist-fresh-berries-250-ml",
       "rawTitle": "Body Mist Fresh Berries 250 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -1982,7 +1982,7 @@
     },
     {
       "retailerSku": "101045002",
-      "url": "https://surrati.ae/products/body-mist-fedaytuk-250-ml",
+      "url": "https://www.surrati.ae/products/body-mist-fedaytuk-250-ml",
       "rawTitle": "Body Mist Fedaytuk 250 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2008,7 +2008,7 @@
     },
     {
       "retailerSku": "101045011",
-      "url": "https://surrati.ae/products/body-mist-blue-250-ml",
+      "url": "https://www.surrati.ae/products/body-mist-blue-250-ml",
       "rawTitle": "Body Mist Blue 250 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2034,7 +2034,7 @@
     },
     {
       "retailerSku": "101045001",
-      "url": "https://surrati.ae/products/body-mist-anfasak-oud-250-ml",
+      "url": "https://www.surrati.ae/products/body-mist-anfasak-oud-250-ml",
       "rawTitle": "Body Mist Anfasak Oud 250 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2060,7 +2060,7 @@
     },
     {
       "retailerSku": "101044231",
-      "url": "https://surrati.ae/products/spray-oud-al-sharqi-120-ml",
+      "url": "https://www.surrati.ae/products/spray-oud-al-sharqi-120-ml",
       "rawTitle": "Spray Oud Al Sharqi 120 ML",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2086,7 +2086,7 @@
     },
     {
       "retailerSku": "101044160",
-      "url": "https://surrati.ae/products/spray-ayan-100-ml",
+      "url": "https://www.surrati.ae/products/spray-ayan-100-ml",
       "rawTitle": "Spray Ayan 100 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2112,7 +2112,7 @@
     },
     {
       "retailerSku": "101044264",
-      "url": "https://surrati.ae/products/shaikha-rouge-90-ml",
+      "url": "https://www.surrati.ae/products/shaikha-rouge-90-ml",
       "rawTitle": "Shaikha Rouge 90 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2138,7 +2138,7 @@
     },
     {
       "retailerSku": "101044284",
-      "url": "https://surrati.ae/products/spray-santal-amber-120-ml",
+      "url": "https://www.surrati.ae/products/spray-santal-amber-120-ml",
       "rawTitle": "Spray Santal Amber 120 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2164,7 +2164,7 @@
     },
     {
       "retailerSku": "101044285",
-      "url": "https://surrati.ae/products/spray-santal-oud-120-ml",
+      "url": "https://www.surrati.ae/products/spray-santal-oud-120-ml",
       "rawTitle": "Spray Santal oud 120 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2190,7 +2190,7 @@
     },
     {
       "retailerSku": "101044199",
-      "url": "https://surrati.ae/products/spray-oud-al-malik-60-ml",
+      "url": "https://www.surrati.ae/products/spray-oud-al-malik-60-ml",
       "rawTitle": "Spray Oud Al Malik 60 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2216,7 +2216,7 @@
     },
     {
       "retailerSku": "101044302",
-      "url": "https://surrati.ae/products/spray-niche-leather-100-ml",
+      "url": "https://www.surrati.ae/products/spray-niche-leather-100-ml",
       "rawTitle": "Spray Niche Leather 100 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2242,7 +2242,7 @@
     },
     {
       "retailerSku": "101044316",
-      "url": "https://surrati.ae/products/spray-arabian-eagle-100-ml",
+      "url": "https://www.surrati.ae/products/spray-arabian-eagle-100-ml",
       "rawTitle": "Spray Arabian Eagle",
       "rawBrand": "My Store",
       "ean": null,
@@ -2268,7 +2268,7 @@
     },
     {
       "retailerSku": "101044317",
-      "url": "https://surrati.ae/products/spray-black-horse-100-ml",
+      "url": "https://www.surrati.ae/products/spray-black-horse-100-ml",
       "rawTitle": "Spray Black Horse 100 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2294,7 +2294,7 @@
     },
     {
       "retailerSku": "101044229",
-      "url": "https://surrati.ae/products/spray-anfas-al-oud-120-ml",
+      "url": "https://www.surrati.ae/products/spray-anfas-al-oud-120-ml",
       "rawTitle": "Spray Anfas Al Oud 120 ML",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2320,7 +2320,7 @@
     },
     {
       "retailerSku": "101044159",
-      "url": "https://surrati.ae/products/spray-ayat-100-ml",
+      "url": "https://www.surrati.ae/products/spray-ayat-100-ml",
       "rawTitle": "Spray Ayat 100 Ml",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2346,7 +2346,7 @@
     },
     {
       "retailerSku": "101044315",
-      "url": "https://surrati.ae/products/spray-arabian-horse-100-ml",
+      "url": "https://www.surrati.ae/products/spray-arabian-horse-100-ml",
       "rawTitle": "Arabian Horse",
       "rawBrand": "My Store",
       "ean": null,
@@ -2372,7 +2372,7 @@
     },
     {
       "retailerSku": "101015111",
-      "url": "https://surrati.ae/products/mamool-oud-hindi-qadeem-80-gms",
+      "url": "https://www.surrati.ae/products/mamool-oud-hindi-qadeem-80-gms",
       "rawTitle": "Mamool Oud Hindi Qadeem 80 Gms",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2398,7 +2398,7 @@
     },
     {
       "retailerSku": "101015034",
-      "url": "https://surrati.ae/products/bakhoor-turas-al-arabi",
+      "url": "https://www.surrati.ae/products/bakhoor-turas-al-arabi",
       "rawTitle": "Bakhoor Turas Al Arabi",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2424,7 +2424,7 @@
     },
     {
       "retailerSku": "101015073",
-      "url": "https://surrati.ae/products/bakhoor-oud-al-sharqi-70-gms-r",
+      "url": "https://www.surrati.ae/products/bakhoor-oud-al-sharqi-70-gms-r",
       "rawTitle": "Bakhoor Oud Al Sharqi 70 Gms (R)",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2450,7 +2450,7 @@
     },
     {
       "retailerSku": "101015072",
-      "url": "https://surrati.ae/products/bakhoor-oud-al-sultan-70-gms-r",
+      "url": "https://www.surrati.ae/products/bakhoor-oud-al-sultan-70-gms-r",
       "rawTitle": "Bakhoor Oud Al Sultan 70 Gms (R)",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2476,7 +2476,7 @@
     },
     {
       "retailerSku": "101015071",
-      "url": "https://surrati.ae/products/bakhoor-oud-al-ameer-70-gms-r",
+      "url": "https://www.surrati.ae/products/bakhoor-oud-al-ameer-70-gms-r",
       "rawTitle": "Bakhoor Oud Al Ameer 70 Gms (R)",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2502,7 +2502,7 @@
     },
     {
       "retailerSku": "101015060",
-      "url": "https://surrati.ae/products/bakhoor-mamool-fakhir-rose",
+      "url": "https://www.surrati.ae/products/bakhoor-mamool-fakhir-rose",
       "rawTitle": "Bakhoor Mamool Fakhir Rose",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2528,7 +2528,7 @@
     },
     {
       "retailerSku": "101015075",
-      "url": "https://surrati.ae/products/bakhoor-luban-al-oud-70-gms",
+      "url": "https://www.surrati.ae/products/bakhoor-luban-al-oud-70-gms",
       "rawTitle": "Bakhoor Luban Al Oud 70 Gms",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2554,7 +2554,7 @@
     },
     {
       "retailerSku": "101015090",
-      "url": "https://surrati.ae/products/bakhoor-kisr-al-oud-mudhab-50-gms",
+      "url": "https://www.surrati.ae/products/bakhoor-kisr-al-oud-mudhab-50-gms",
       "rawTitle": "Bakhoor Kisr Al Oud Mudhab",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2580,7 +2580,7 @@
     },
     {
       "retailerSku": "101015083",
-      "url": "https://surrati.ae/products/bakhoor-jazeerat-al-oud",
+      "url": "https://www.surrati.ae/products/bakhoor-jazeerat-al-oud",
       "rawTitle": "Bakhoor Jazeerat Al Oud",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2606,7 +2606,7 @@
     },
     {
       "retailerSku": "101015067",
-      "url": "https://surrati.ae/products/bakhoor-black-oud-70-gms-r",
+      "url": "https://www.surrati.ae/products/bakhoor-black-oud-70-gms-r",
       "rawTitle": "Bakhoor Black Oud 70 Gms (R)",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2632,7 +2632,7 @@
     },
     {
       "retailerSku": "101015070",
-      "url": "https://surrati.ae/products/bakhoor-anfas-al-oud-70-gms-r",
+      "url": "https://www.surrati.ae/products/bakhoor-anfas-al-oud-70-gms-r",
       "rawTitle": "Bakhoor Anfas Al Oud 70 Gms (R)",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2658,7 +2658,7 @@
     },
     {
       "retailerSku": "101015050",
-      "url": "https://surrati.ae/products/bakhoor-al-oud-al-aswad",
+      "url": "https://www.surrati.ae/products/bakhoor-al-oud-al-aswad",
       "rawTitle": "Bakhoor Al Oud Al Aswad",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2684,7 +2684,7 @@
     },
     {
       "retailerSku": "101025189",
-      "url": "https://surrati.ae/products/dehan-oud-saden-luxe-3-ml-1",
+      "url": "https://www.surrati.ae/products/dehan-oud-saden-luxe-3-ml-1",
       "rawTitle": "Dehan Oud Saden Luxe 3 ML",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2710,7 +2710,7 @@
     },
     {
       "retailerSku": "101025024",
-      "url": "https://surrati.ae/products/dehan-al-oud-al-malki-6-ml-1",
+      "url": "https://www.surrati.ae/products/dehan-al-oud-al-malki-6-ml-1",
       "rawTitle": "Dehan Al Oud Al Malki 6 ML",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2736,7 +2736,7 @@
     },
     {
       "retailerSku": "101025163",
-      "url": "https://surrati.ae/products/mehyar-30-ml",
+      "url": "https://www.surrati.ae/products/mehyar-30-ml",
       "rawTitle": "Mehyar",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2762,7 +2762,7 @@
     },
     {
       "retailerSku": "101025177",
-      "url": "https://surrati.ae/products/sahar-regal-saffron-12-ml",
+      "url": "https://www.surrati.ae/products/sahar-regal-saffron-12-ml",
       "rawTitle": "Sahar 12 ML",
       "rawBrand": "Surrati Perfumes",
       "ean": null,
@@ -2788,7 +2788,7 @@
     },
     {
       "retailerSku": "101025172",
-      "url": "https://surrati.ae/products/ausaaf-12-ml",
+      "url": "https://www.surrati.ae/products/ausaaf-12-ml",
       "rawTitle": "Gold Royal Oud Essence 12 ML",
       "rawBrand": "Surrati Perfumes",
       "ean": null,

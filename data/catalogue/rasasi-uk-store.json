@@ -1,7 +1,7 @@
 {
   "retailerId": "rasasi-uk-store",
-  "updatedAt": "2026-10-08T13:57:01.776Z",
-  "seenAt": "2026-10-08T13:57:01.776Z",
+  "updatedAt": "2026-10-08T17:59:37.255Z",
+  "seenAt": "2026-10-08T17:59:37.255Z",
   "source": "live",
   "listings": [
     {
@@ -344,7 +344,7 @@
       "ean": null,
       "imageUrl": "https://www.rasasistore.co.uk/__l5e/assets-v1/3e3c1428-6114-40e0-937c-28d5e87ba24f/hawas-ice-travel-set-1.jpg",
       "description": "Hawas Ice made travel-ready: the full-size 100ml Eau de Parfum plus a pocketable 8ml mini. Frozen apple and Italian citrus over iced plum, finished with driftwood and amber — one bottle for home, one for the carry-on, gym bag or desk drawer.",
-      "priceGbp": 35.99,
+      "priceGbp": 32.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
@@ -369,7 +369,7 @@
       "ean": null,
       "imageUrl": "https://www.rasasistore.co.uk/__l5e/assets-v1/ede27942-7fd0-4038-9a25-cff86879072d/hawas-for-him-travel-set-1.jpg",
       "description": "The original Hawas For Him in a two-piece travel set: the full-size 100ml Eau de Parfum plus an 8ml mini that slips into a pocket, bag or carry-on. Fresh bergamot, apple and cinnamon over amber, musk and patchouli — the signature that started the collection, at home and away.",
-      "priceGbp": 34.99,
+      "priceGbp": 32.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,

@@ -1,7 +1,7 @@
 {
   "retailerId": "gulf-orchid",
-  "updatedAt": "2026-10-08T14:46:36.120Z",
-  "seenAt": "2026-10-08T14:46:36.120Z",
+  "updatedAt": "2026-10-08T18:56:34.741Z",
+  "seenAt": "2026-10-08T18:56:34.741Z",
   "source": "live",
   "listings": [
     {
@@ -20,7 +20,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 110,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-10-01T20:04:48.939Z",
@@ -46,7 +46,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 110,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-10-01T20:04:48.939Z",
@@ -72,7 +72,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 110,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-10-01T20:04:48.939Z",
@@ -98,7 +98,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 185,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-10-01T20:04:48.939Z",
@@ -124,7 +124,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 349,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-28T01:53:32.452Z",
@@ -150,7 +150,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 150,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-20T00:02:02.228Z",
@@ -176,7 +176,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 55,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
@@ -202,7 +202,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 55,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
@@ -228,7 +228,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 55,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
@@ -254,7 +254,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 55,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
@@ -280,7 +280,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 55,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
@@ -306,7 +306,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 184,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
@@ -332,7 +332,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 184,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
@@ -358,7 +358,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 184,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
@@ -384,7 +384,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 55,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
@@ -410,7 +410,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 184,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
@@ -436,7 +436,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 184,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
@@ -462,7 +462,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 184,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
@@ -488,7 +488,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 133,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -514,7 +514,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 133,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -540,7 +540,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 123.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -566,7 +566,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 123.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -592,7 +592,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 220,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -618,7 +618,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 123.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -644,7 +644,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 213.75,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -670,7 +670,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 123.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -696,7 +696,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 123.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -722,7 +722,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 123.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -748,7 +748,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 195,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -774,7 +774,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 374,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -800,7 +800,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 344,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -826,7 +826,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 344,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -852,7 +852,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 335,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -878,7 +878,7 @@
       "productType": "Upcart - Shipping Protection",
       "nativePrice": {
         "amount": 10,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -904,7 +904,7 @@
       "productType": "Reed Diffuser",
       "nativePrice": {
         "amount": 40,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -930,7 +930,7 @@
       "productType": "Reed Diffuser",
       "nativePrice": {
         "amount": 40,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -956,7 +956,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 10,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-18T13:33:12.899Z",
@@ -982,7 +982,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 10,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-18T13:33:12.899Z",
@@ -1008,7 +1008,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 187,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1034,7 +1034,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 142.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1060,7 +1060,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 148.75,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1086,7 +1086,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 148.75,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1112,7 +1112,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 148.75,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1138,7 +1138,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 104.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1164,7 +1164,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 157.25,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1190,7 +1190,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 166.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1216,7 +1216,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 166.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1242,7 +1242,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 198,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1268,7 +1268,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 198,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1294,7 +1294,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 198,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1320,7 +1320,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 123.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1346,7 +1346,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 123.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1372,7 +1372,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 185.25,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-10-01T20:04:48.939Z",
@@ -1398,7 +1398,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 187,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1424,7 +1424,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 212.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1450,7 +1450,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 212.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1476,7 +1476,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 212.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1502,7 +1502,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 136,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1528,7 +1528,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 136,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1554,7 +1554,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 270,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1580,7 +1580,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 123.25,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1606,7 +1606,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 270,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1632,7 +1632,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 365,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1658,7 +1658,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 380,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1684,7 +1684,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 295,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1710,7 +1710,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 119,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1736,7 +1736,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 119,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1762,7 +1762,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 119,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1788,7 +1788,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 119,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1814,7 +1814,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 119,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1840,7 +1840,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 119,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1866,7 +1866,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 119,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1892,7 +1892,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 89.1,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1918,7 +1918,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 89.1,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1944,7 +1944,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 79.2,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1970,7 +1970,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 148.75,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -1996,7 +1996,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 148.75,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2022,7 +2022,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 119,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2048,7 +2048,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 79.2,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2074,7 +2074,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 72,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2100,7 +2100,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 76.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2126,7 +2126,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 450,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2152,7 +2152,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 72,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2178,7 +2178,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 157.25,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2204,7 +2204,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 148,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2230,7 +2230,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 297.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2256,7 +2256,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 297.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2282,7 +2282,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 93.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2308,7 +2308,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 99,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2334,7 +2334,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 99,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2360,7 +2360,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 99,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2386,7 +2386,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 99,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2412,7 +2412,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 232,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2438,7 +2438,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 232,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2464,7 +2464,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 232,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2490,7 +2490,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 280,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2516,7 +2516,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 246.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2542,7 +2542,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 72,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2568,7 +2568,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 39.2,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2594,7 +2594,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 39.2,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2620,7 +2620,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 191.25,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2646,7 +2646,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 337.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2672,7 +2672,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 49,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2698,7 +2698,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 52,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2724,7 +2724,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 112.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2750,7 +2750,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 112.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2776,7 +2776,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 112.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2802,7 +2802,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 72,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2828,7 +2828,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 72,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2854,7 +2854,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 110.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2880,7 +2880,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 110.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2906,7 +2906,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 110.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2932,7 +2932,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2958,7 +2958,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 75,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -2984,7 +2984,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3010,7 +3010,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3036,7 +3036,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3062,7 +3062,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3088,7 +3088,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3114,7 +3114,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 297.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3140,7 +3140,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 148.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3166,7 +3166,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 75,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3192,7 +3192,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 75,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3218,7 +3218,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 75,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3244,7 +3244,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 350,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3270,7 +3270,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 570,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3296,7 +3296,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 153,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3322,7 +3322,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 64,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3348,7 +3348,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 64,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3374,7 +3374,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 88,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3400,7 +3400,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 99,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3426,7 +3426,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 440,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3452,7 +3452,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 93.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3478,7 +3478,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 176,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3504,7 +3504,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 56,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3530,7 +3530,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3556,7 +3556,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 52,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3582,7 +3582,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 52,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3608,7 +3608,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 93.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3634,7 +3634,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 93.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3660,7 +3660,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 93.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3686,7 +3686,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 68,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3712,7 +3712,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 69,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3738,7 +3738,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 69,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3764,7 +3764,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 54,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3790,7 +3790,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 93.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3816,7 +3816,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 99,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3842,7 +3842,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 50,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3868,7 +3868,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 50,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3894,7 +3894,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 50,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3920,7 +3920,7 @@
       "productType": "Body Mist",
       "nativePrice": {
         "amount": 27,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3946,7 +3946,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3972,7 +3972,7 @@
       "productType": "Body Mist",
       "nativePrice": {
         "amount": 27,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -3998,7 +3998,7 @@
       "productType": "Body Mist",
       "nativePrice": {
         "amount": 27,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4024,7 +4024,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4050,7 +4050,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 110.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4076,7 +4076,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 110.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4102,7 +4102,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4128,7 +4128,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 176,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4154,7 +4154,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 52,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4180,7 +4180,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 52,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4206,7 +4206,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 64,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4232,7 +4232,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 52,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4258,7 +4258,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 56,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4284,7 +4284,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 68,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4310,7 +4310,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 93.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4336,7 +4336,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4362,7 +4362,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 420,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4388,7 +4388,7 @@
       "productType": "Body Mist",
       "nativePrice": {
         "amount": 27,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4414,7 +4414,7 @@
       "productType": "Body Mist",
       "nativePrice": {
         "amount": 27,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4440,7 +4440,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4466,7 +4466,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 180.4,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4492,7 +4492,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 180.4,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4518,7 +4518,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 153,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4544,7 +4544,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4570,7 +4570,7 @@
       "productType": "Body Mist",
       "nativePrice": {
         "amount": 27,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4596,7 +4596,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4622,7 +4622,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 54,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4648,7 +4648,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 76.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4674,7 +4674,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 76.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4700,7 +4700,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 76.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4726,7 +4726,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 120,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4752,7 +4752,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4778,7 +4778,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4804,7 +4804,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 120,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4830,7 +4830,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4856,7 +4856,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4882,7 +4882,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 120,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4908,7 +4908,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 127.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4934,7 +4934,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 49,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4960,7 +4960,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 49,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -4986,7 +4986,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 52,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5012,7 +5012,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 139,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5038,7 +5038,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 123.25,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5064,7 +5064,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 68,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5090,7 +5090,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 68,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5116,7 +5116,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 54,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5142,7 +5142,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 76.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5168,7 +5168,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 64,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5194,7 +5194,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 54,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5220,7 +5220,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 59.5,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5246,7 +5246,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 56,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5272,7 +5272,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 56,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5298,7 +5298,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 56,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5324,7 +5324,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 56,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5350,7 +5350,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 64,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5376,7 +5376,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 64,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5402,7 +5402,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 49,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5428,7 +5428,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 49,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5454,7 +5454,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 56,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5480,7 +5480,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 52,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5506,7 +5506,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 63.75,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5532,7 +5532,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 52,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5558,7 +5558,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 118.9,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5584,7 +5584,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 232,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5610,7 +5610,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 118.9,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5636,7 +5636,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 220,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5662,7 +5662,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 220,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5688,7 +5688,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 220,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5714,7 +5714,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 220,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5740,7 +5740,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 180,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5766,7 +5766,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 180,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5792,7 +5792,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 180,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5818,7 +5818,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 180,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5844,7 +5844,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 72,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5870,7 +5870,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 80,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5896,7 +5896,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 200,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5922,7 +5922,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 299,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5948,7 +5948,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 390,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -5974,7 +5974,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 299,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6000,7 +6000,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 299,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6026,7 +6026,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 299,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6052,7 +6052,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 410,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6078,7 +6078,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 375,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6104,7 +6104,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 280,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6130,7 +6130,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 229,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6156,7 +6156,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 205,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6182,7 +6182,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 140,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6208,7 +6208,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 400,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6234,7 +6234,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 72,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6260,7 +6260,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 118.9,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6286,7 +6286,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 90.2,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6312,7 +6312,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6338,7 +6338,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6364,7 +6364,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 50,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6390,7 +6390,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 50,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6416,7 +6416,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 118.9,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6442,7 +6442,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 118.9,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6468,7 +6468,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 54,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6494,7 +6494,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 64,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
@@ -6520,7 +6520,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 118.9,
-        "currency": "AED"
+        "currency": "unknown"
       },
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",

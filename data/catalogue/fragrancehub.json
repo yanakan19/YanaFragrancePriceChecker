@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-08T13:57:01.776Z",
-  "seenAt": "2026-10-08T13:57:01.776Z",
+  "updatedAt": "2026-10-08T17:59:37.255Z",
+  "seenAt": "2026-10-08T17:59:37.255Z",
   "source": "live",
   "listings": [
     {
@@ -1049,7 +1049,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": 44.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "California Signature Extrait De Parfum by Mykonos (100ml) is a citrus aromatic fragrance inspired by Lafayette Street. Bright citrus, smooth aromatics, and warm woods blend into a modern luxury scent with clean sophistication.. The fragrance opens with mandarin orange and lemon, creating a sparkling citrus introduction that feels vibrant, refreshing, and uplifting.. At the heart, lychee, rosemary, cardamom, lavender, geranium, and aquatic notes create a refined aromatic blend with subtle sweetness, freshness, and smooth aquatic depth.. As the scent settles, the base of tonka bean, teak wood, and vetiver delivers a warm, woody finish with creamy sophistication and lasting elegance.. Top Notes: Mandarin Orange, Lemon. Middle Notes: Lychee, Rosemary, Cardamom, Lavender, Geranium, Aquatic Notes. Base Notes: Tonka Bean, Teak Wood, Vetiver.",
       "productType": null,
