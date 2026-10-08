@@ -1,0 +1,349 @@
+{
+ "products": [
+  {
+   "id": 15993990840654,
+   "title": "Ombré Leather Reserve Eau De Parfum",
+   "handle": "tom-ford-ombre-leather-reserve",
+   "vendor": "Tom Ford",
+   "product_type": "Men's Fragrances",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size"
+    }
+   ],
+   "variants": [
+    {
+     "id": 60372718387534,
+     "sku": "F-01775547",
+     "title": "100ml",
+     "option1": "100ml",
+     "option2": null,
+     "option3": null,
+     "price": "189.00",
+     "compare_at_price": "0.00",
+     "available": true
+    },
+    {
+     "id": 60372718354766,
+     "sku": "F-01775546",
+     "title": "50ml",
+     "option1": "50ml",
+     "option2": null,
+     "option3": null,
+     "price": "135.00",
+     "compare_at_price": "0.00",
+     "available": true
+    },
+    {
+     "id": 60372718321998,
+     "sku": "F-01775545",
+     "title": "10ml",
+     "option1": "10ml",
+     "option2": null,
+     "option3": null,
+     "price": "46.00",
+     "compare_at_price": "0.00",
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 10722653536590,
+   "title": "Michael Kors Pour Femme Absolu Eau De Parfum 100ml",
+   "handle": "michael-kors-michael-kors-pour-femme-absolu-edp-100ml",
+   "vendor": "Michael Kors",
+   "product_type": "Women's Fragrances",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size"
+    }
+   ],
+   "variants": [
+    {
+     "id": 54549000028494,
+     "sku": "F-01579610",
+     "title": "100ml",
+     "option1": "100ml",
+     "option2": null,
+     "option3": null,
+     "price": "91.80",
+     "compare_at_price": "108.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15966160585038,
+   "title": "Hibiscus Mahajad Extrait De Parfum",
+   "handle": "maison-crivelli-hibiscus-mahajad-extrait-de-parfum",
+   "vendor": "Maison Crivelli",
+   "product_type": "Unisex Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size"
+    }
+   ],
+   "variants": [
+    {
+     "id": 60267807670606,
+     "sku": "F-01771043",
+     "title": "100ml",
+     "option1": "100ml",
+     "option2": null,
+     "option3": null,
+     "price": "360.00",
+     "compare_at_price": "0.00",
+     "available": true
+    },
+    {
+     "id": 60267807637838,
+     "sku": "F-01771041",
+     "title": "50ml",
+     "option1": "50ml",
+     "option2": null,
+     "option3": null,
+     "price": "205.00",
+     "compare_at_price": "0.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 10850914369870,
+   "title": "Real Luxury Reed Diffuser Refill 100ml",
+   "handle": "neom-real-luxury-reed-diffuser-refill-100ml",
+   "vendor": "NEOM Wellbeing",
+   "product_type": "Home Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Colour"
+    }
+   ],
+   "variants": [
+    {
+     "id": 55192705696078,
+     "sku": "F-01567438",
+     "title": "0",
+     "option1": "0",
+     "option2": null,
+     "option3": null,
+     "price": "38.00",
+     "compare_at_price": "0.00",
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 10818973270350,
+   "title": "Bad Boy Eau de Toilette Gift Set 100ml",
+   "handle": "carolina-herrera-bad-boy-edt-100ml-gift-set-25",
+   "vendor": "Carolina Herrera",
+   "product_type": "Gift Sets",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Colour"
+    }
+   ],
+   "variants": [
+    {
+     "id": 55076043555150,
+     "sku": "F-01611341",
+     "title": "0",
+     "option1": "0",
+     "option2": null,
+     "option3": null,
+     "price": "66.33",
+     "compare_at_price": "99.00",
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 15798535356750,
+   "title": "Soft Suede Unlined Lace Up Trainers Brown",
+   "handle": "whistles-chocolate-soft-suede-unlined-sneaker-41232",
+   "vendor": "Whistles",
+   "product_type": "Trainers",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size"
+    },
+    {
+     "name": "Colour"
+    }
+   ],
+   "variants": [
+    {
+     "id": 59525802885454,
+     "sku": "F-01728657",
+     "title": "36 / Chocolate",
+     "option1": "36",
+     "option2": "Chocolate",
+     "option3": null,
+     "price": "115.00",
+     "compare_at_price": "0.00",
+     "available": false
+    },
+    {
+     "id": 59525802918222,
+     "sku": "F-01728661",
+     "title": "37 / Chocolate",
+     "option1": "37",
+     "option2": "Chocolate",
+     "option3": null,
+     "price": "115.00",
+     "compare_at_price": "0.00",
+     "available": false
+    },
+    {
+     "id": 59525802950990,
+     "sku": "F-01728664",
+     "title": "38 / Chocolate",
+     "option1": "38",
+     "option2": "Chocolate",
+     "option3": null,
+     "price": "115.00",
+     "compare_at_price": "0.00",
+     "available": true
+    },
+    {
+     "id": 59525802983758,
+     "sku": "F-01728667",
+     "title": "39 / Chocolate",
+     "option1": "39",
+     "option2": "Chocolate",
+     "option3": null,
+     "price": "115.00",
+     "compare_at_price": "0.00",
+     "available": false
+    },
+    {
+     "id": 59525803016526,
+     "sku": "F-01728720",
+     "title": "40 / Chocolate",
+     "option1": "40",
+     "option2": "Chocolate",
+     "option3": null,
+     "price": "115.00",
+     "compare_at_price": "0.00",
+     "available": true
+    },
+    {
+     "id": 59525803049294,
+     "sku": "F-01728724",
+     "title": "41 / Chocolate",
+     "option1": "41",
+     "option2": "Chocolate",
+     "option3": null,
+     "price": "115.00",
+     "compare_at_price": "0.00",
+     "available": true
+    },
+    {
+     "id": 59525803082062,
+     "sku": "F-01728726",
+     "title": "42 / Chocolate",
+     "option1": "42",
+     "option2": "Chocolate",
+     "option3": null,
+     "price": "115.00",
+     "compare_at_price": "0.00",
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 10376121352526,
+   "title": "HUILE DOUCE Les Exclusifs de CHANEL Gentle Oil Hair and Body 250ml",
+   "handle": "chanel-huile-douce-les-exclusifs-de-chanel-gentle-oil-hair-and-body-250ml",
+   "vendor": "CHANEL",
+   "product_type": "Women's Fragrances",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size"
+    }
+   ],
+   "variants": [
+    {
+     "id": 52595486720334,
+     "sku": "F-01267741",
+     "title": "250ml",
+     "option1": "250ml",
+     "option2": null,
+     "option3": null,
+     "price": "175.00",
+     "compare_at_price": "0.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 10638023000398,
+   "title": "Paradigme Eau de Parfum Refill 150ml",
+   "handle": "prada-paradigme-edp-refill-150ml",
+   "vendor": "PRADA",
+   "product_type": "Women's Fragrances",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size"
+    }
+   ],
+   "variants": [
+    {
+     "id": 54001082401102,
+     "sku": "F-01569532",
+     "title": "150ml",
+     "option1": "150ml",
+     "option2": null,
+     "option3": null,
+     "price": "112.00",
+     "compare_at_price": "140.00",
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 10890070884686,
+   "title": "Eldaria Eau de Parfum 1.7ml Vial Smart Sample",
+   "handle": "creed-eldaria-edp-1-7ml-sample-vial",
+   "vendor": "Creed",
+   "product_type": "Women's Fragrances",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 55366195413326,
+     "sku": "F-01687882",
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "0.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

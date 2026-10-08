@@ -30,6 +30,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.104.0',
+    date: '8 Oct 2026',
+    groups: [
+      {
+        heading: 'New',
+        points: ['Six new shops: Fenwick, Opulensi, Perfumoi', 'Also Saad, Sainte Cellier, The Perfume Closet'],
+      },
+    ],
+  },
+  {
     version: 'v3.103.0',
     date: '7 Oct 2026',
     groups: [
