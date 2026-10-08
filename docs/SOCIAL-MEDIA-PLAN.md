@@ -276,3 +276,77 @@ Look at which videos got watched to the end and make more like those.
 | Newsletter and WhatsApp subscribers | Beehiiv/Buttondown, WhatsApp | Audience you own |
 
 Stop doing whatever does not move any of these after 60 days.
+
+---
+
+## 9. Video template (from 8 October 2026)
+
+Every **Deal of the Day video**, and the informative videos (strengths, notes
+and the ones that follow), are made from one template, so they all move the
+same way. There is one config: `VIDEO_TEMPLATE` in
+`scripts/social-video-template.ts`. `tests/socialVideoTemplate.test.ts` reads
+it and holds every rule below, so a change cannot quietly break one.
+
+| Rule | In the config |
+|---|---|
+| **Format** | Vertical 9:16, 1080 x 1920, 30 fps, H.264, no sound (add music in the app), under 8 MB. |
+| **Deal of the Day: length** | **Exactly 10 seconds** (300 frames). |
+| **Informative videos: length** | As long as the content needs, 20 to 30 seconds. |
+| **The very start** | A clean still. Nothing moves for the first 0.8 seconds, so the first frame is a finished picture (and a usable cover). Then the motion begins. |
+| **Between scenes** | A dissolve or a swipe left, alternating. Every scene also zooms in slowly (Ken Burns): 5 per cent over its length, easing in and out. |
+| **Swipes and dissolves** | **None longer than 0.5 seconds.** Swipe 0.4 s, dissolve 0.5 s. |
+| **The end** | The PriceSniffs mark and wordmark on their own for at least 1.2 s, then the whole frame fades out to the background over **exactly 1 second**. The last frame is the plain background. |
+| **Safe margins** | All text and pictures stay inside x 110 to 970, y 380 to 1460 (the TikTok box in `social/DESIGN-SYSTEM.md` section 4), even at the end of every zoom. The renderer measures this and refuses to draw otherwise. A name too long to fit is refused, never cut: shorten it with `--name`. |
+| **Theme and type** | Deal of the Day: the standard black theme. Informative videos: the red explainer theme (DESIGN-SYSTEM section 1); change `VIDEO_TEMPLATE.informative.theme` to `'standard'` for black. Liberation Sans, the post sizes or bigger, and the post wording rules (section 5 there: no hyphens or dashes, plain British English). |
+
+**The Deal of the Day video, scene by scene** (seconds):
+
+| From | Scene | Shows |
+|---|---|---|
+| 0.0 | Bottle (still until 0.8) | Wordmark, the date in a grey pill, "Deal of the Day" with the UK flag, the product photo with the SAVE badge, name and size, brand |
+| 2.6 | Swipe to prices | The red MSRP box ("Brand's Current Price"), "Save N%", the green Cheapest price box with the shop, "Price includes delivery" |
+| 5.1 | Dissolve to the note | "Prices move during the day. So check before you buy." and when the price was checked |
+| 7.4 | Swipe to PriceSniffs | The wordmark, held to 9.0, then the one second fade to the background at 10.0 |
+
+**Making one**
+
+```
+npx tsx scripts/social-video-deal.ts --id <fragrance id>      # npm run social:video -- --id <id>
+npx tsx scripts/social-video-explainers.ts [--only strengths|notes]   # npm run social:video:explainers
+```
+
+* The deal is the one the daily post would make (`dealFor` in
+  `scripts/social-deal-of-day.ts`: the product page's own MSRP and cheapest
+  boxes), and it must also be in `demo/deals.generated.ts` with the same shop,
+  price and brand price, or nothing is made. No figure is typed anywhere. The
+  link is checked on the live site. Without `--id` it takes the next deal by
+  the daily rules.
+* The brand rule is the daily one (a brand rests 7 days, a bottle is never
+  posted twice). The script does **not** write
+  `social/deal-of-the-day-history.json`: whoever posts a video as the day's
+  deal adds its date, id and brand there, so the daily run does not repeat it.
+* A folder `social/posts/YYYY-MM-DD-deal-video-<product>/` holds
+  `deal-video-9x16.mp4`, `caption.txt`, `tiktok-caption.txt` (the address
+  instead of "link in bio", TikTok's tags), `check.json` (the figures, the
+  shop, the live check, the measured length) and `source.md` (the command that
+  remakes it). The date on the video is the date it was made: remake it with
+  `--date` (and recheck the price) if it goes out another day.
+* Informative videos take their facts from the site's own guides
+  (`demo/content/guideBodies.ts`); the test holds the figures and key phrases
+  to that text, and longevity is shown only as the guide states it (more oil
+  usually lasts longer), never as hours. To add one, copy a video in
+  `scripts/social-video-explainers.ts`: scenes are plain HTML, the timeline is
+  a list of scene lengths and transitions.
+* Drawing takes about 40 seconds for a deal video and 90 for an informative
+  one (Playwright Chromium for the frames, ffmpeg for the encode; there is no
+  ffprobe, so the renderer decodes the file and counts the frames). Frames go
+  in `_frames/` beside the video (git ignores them), a killed run resumes where
+  it stopped, and heavy renders should run one at a time.
+
+**What came before.** The picture posts (DESIGN-SYSTEM section 7) are
+unchanged. The 5 October "hurry" video
+(`social/posts/2026-10-05-hurry-deal-video/`) plays the real product page at
+24 fps and ends on a call to action; it was not re-rendered and is the only
+deal video that does not follow the template. Every video from 8 October 2026
+does. Videos are committed like the rest of `social/posts/`; if the owner
+approves D28 in `docs/DECISIONS.md` they move out of git with the images.
