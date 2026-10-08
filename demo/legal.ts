@@ -437,11 +437,14 @@ export const LEGAL_PAGES: LegalPage[] = [
       of them are switched off for now, some of them waiting on a delivery
       charge or on a way to read their listings at all.</p>
 
-      <h2 class="t-section">Reductions Come From the Shop</h2>
-      <p>A previous price and a percentage saving are the shop's own figures. We
-      never work one out ourselves. Percentages round down, so a saving of 19.6
-      per cent shows as 19 per cent, never 20. A countdown appears only when the
-      shop has published a closing time for the offer. We never invent one.</p>
+      <h2 class="t-section">Reductions Start From the Shop</h2>
+      <p>A previous price, shown struck through as RRP, is the shop's own
+      figure, and we show it only when it could be checked against what other
+      shops charge and held up. The percentage beside it is worked out by
+      PriceSniffs from that figure and the price on the row. It rounds down, so
+      a saving of 19.6 per cent shows as 19 per cent, never 20. A countdown
+      appears only when the shop has published a closing time for the offer.
+      We never invent one.</p>
 
       <h2 class="t-section">Membership Rates Are Not the Headline</h2>
       <p>${membershipExample()} We never build a members only rate into the

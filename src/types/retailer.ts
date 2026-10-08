@@ -550,6 +550,21 @@ export interface ShopifyVariantRule {
    * does.
    */
   sizeOption?: { name: string; minMl: number };
+  /**
+   * Drop a product whose title matches this expression (source text, case
+   * blind). For a shop whose range holds a kind of product the product type
+   * cannot tell from a bottle: Sainte Cellier files its "DISCOVERY SET" of
+   * sample vials under the same product types as its perfume.
+   */
+  excludeTitle?: string;
+  /**
+   * Drop a variant that names a bottle smaller than this many millilitres
+   * anywhere in its option values ("2ml Glass Spray Sample", "Full Size 50ml |
+   * 1.7oz"). Unlike `sizeOption` it does not need the option to be a plain
+   * millilitre size, so it suits a shop whose sizes read "30ml | 1oz". A
+   * variant naming no millilitre size is left alone.
+   */
+  minVariantMl?: number;
 }
 
 /**
