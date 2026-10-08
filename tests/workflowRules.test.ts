@@ -2,7 +2,9 @@
 // (2026-10-04) and the failure mode review in docs/PIPELINE-FAILURE-MODES.md.
 // The files are read as text: they are indented consistently, and the repo
 // carries no YAML parser.
+import { spawnSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { policyOf, readManifest, REPO_ROOT } from '../scripts/generatedFiles.js';
@@ -318,5 +320,61 @@ describe('harvest-one-shop.yml', () => {
     for (const input of /\n {6}([a-z_]+):\n {8}description/g[Symbol.matchAll](probe)) {
       expect(ask, input[1]).toContain(`inputs.${input[1]}`);
     }
+  });
+});
+
+// 2026-10-08 (docs/DECISIONS.md D28): a social post's pictures and videos are
+// drawn from its committed text and never committed ("social" in
+// scripts/generated-files.txt). The Social pictures workflow draws them for
+// every post pushed and keeps them as a private artifact; the site never
+// publishes them.
+describe('social pictures', () => {
+  const code = (f: string) => text(f).split('\n').filter((l) => !l.trimStart().startsWith('#')).join('\n');
+
+  it('no workflow commits one, and scripts/commit-and-push.sh refuses one before it stages anything', () => {
+    for (const f of files) {
+      for (const job of jobs(f)) {
+        for (const p of committedPaths(job.body)) expect(policyOf(p), `${f} commits ${p}`).not.toBe('social');
+      }
+    }
+    for (const picture of ['social/posts/2026-10-08-deal-of-the-day/post-3x4.png', 'social/posts/2026-10-08-deal-video-x/deal-video-9x16.mp4']) {
+      // Run from an empty folder: the refusal comes before any git command.
+      const run = spawnSync('bash', [join(REPO_ROOT, 'scripts/commit-and-push.sh'), 'Deal of the Day: test', 'social/posts/x/caption.txt', picture], {
+        cwd: tmpdir(),
+        encoding: 'utf8',
+      });
+      expect(run.status, run.stderr).toBe(1);
+      expect(run.stderr).toContain(`Refusing to commit ${picture}: a social post's pictures are rendered, never committed`);
+    }
+    // The script names the same policy the manifest uses, and checks what was staged too.
+    const script = readFileSync(join(REPO_ROOT, 'scripts/commit-and-push.sh'), 'utf8');
+    expect(script).toMatch(/\n {4}social\)\n/);
+    expect(script).toContain('[ "$(manifest_policy "$staged_file")" = social ]');
+    expect(readManifest().filter((e) => e.policy === 'social').length).toBeGreaterThanOrEqual(3);
+  });
+
+  it('social-pictures.yml draws the pushed posts and keeps them as a private 90 day artifact, committing and publishing nothing', () => {
+    const wf = code('social-pictures.yml');
+    const render = jobs('social-pictures.yml').find((j) => j.name === 'render')!;
+    const stepList = steps(render.body);
+    const at = (needle: string) => stepList.findIndex((s) => s.includes(needle));
+    expect(wf).toMatch(/\n {2}push:\n {4}branches: \[claude\/scentday-retailer-registry-h92tth\]\n {4}paths:\n {6}- 'social\/posts\/\*\*'\n/);
+    expect(wf).toMatch(/\npermissions:\n {2}contents: read\n/);
+    expect(wf).not.toMatch(/commit-and-push|git commit|contents: write|pages: write|upload-pages-artifact|deploy-pages/);
+    const draw = at('scripts/render-social.ts --out');
+    const upload = at('actions/upload-artifact@v4');
+    expect(draw, 'the drawing step').toBeGreaterThan(0);
+    expect(upload, 'the upload').toBeGreaterThan(draw);
+    expect(stepList[upload]).toContain('retention-days: 90');
+    expect(stepList[upload]).toContain('path: ${{ runner.temp }}/social-pictures');
+    // Uploaded even when one picture failed, so the rest still reach the owner.
+    expect(stepList[upload]).toContain('!cancelled()');
+    for (const step of stepList) expect(step, step.split('\n')[0]).toMatch(/\n {8}timeout-minutes: \d+/);
+  });
+
+  it('the deploy never publishes them: it uploads demo/ only, and a push under social/ does not deploy', () => {
+    const deploy = text('deploy-pages.yml');
+    expect(deploy).toContain("      - '!social/**'");
+    expect(deploy).toMatch(/upload-pages-artifact@v\d+\n(?: {8}.*\n)*? {10}path: demo\n/);
   });
 });

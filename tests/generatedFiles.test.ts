@@ -105,6 +105,31 @@ describe('scripts/generated-files.txt', () => {
     }
   });
 
+  // 2026-10-08 (docs/DECISIONS.md D28): a social post's pictures and videos are
+  // drawn from its committed text by `npm run social:render` and the Social
+  // pictures workflow, and never committed. They were 26.5 MB of the tip tree.
+  it('every social path is gitignored and untracked, so a post\'s pictures are never committed', () => {
+    const social = entries.filter((x) => x.policy === 'social');
+    expect(social.map((e) => e.pattern)).toEqual([
+      'social/*.png', 'social/*.jpg', 'social/*.jpeg', 'social/*.webp', 'social/*.gif', 'social/*.mp4', 'social/*.mov', 'social/*.webm',
+    ]);
+    for (const e of social) {
+      expect(e.writtenBy, e.pattern).toMatch(/npm run social:render|as above/);
+      for (const probe of ['posts/2026-10-08-deal-of-the-day/post-3x4', 'highlights/deals-cover'].map((p) => e.pattern.replace('*', p))) {
+        expect(policyOf(probe), probe).toBe('social');
+        expect(() => execFileSync('git', ['check-ignore', '-q', '--no-index', probe], { cwd: REPO_ROOT }), `${probe} is not gitignored`).not.toThrow();
+      }
+      // A git pathspec's * crosses folders, as the manifest's does.
+      const tracked = execFileSync('git', ['ls-files', '--', e.pattern], { cwd: REPO_ROOT, encoding: 'utf8' }).split('\n').filter(Boolean);
+      expect(tracked, `${e.pattern} is tracked; \`git rm --cached\` it`).toEqual([]);
+    }
+    // The posts' text is committed: it is what the pictures are drawn from.
+    for (const text of ['social/posts/x/post-3x4.html', 'social/posts/x/post-9x16.svg', 'social/posts/x/caption.txt', 'social/posts/x/pictures.json', 'social/posts/x/check.json']) {
+      expect(policyOf(text), text).toBeNull();
+      expect(() => execFileSync('git', ['check-ignore', '-q', '--no-index', text], { cwd: REPO_ROOT }), `${text} is gitignored`).toThrow();
+    }
+  });
+
   it('every deploy path is what the deploy workflow builds before it uploads', () => {
     const deployWorkflow = readFileSync(join(WORKFLOWS, 'deploy-pages.yml'), 'utf8');
     expect(deployWorkflow).toContain('run: npm run demo');
@@ -185,6 +210,7 @@ describe('the workflows commit only what the manifest covers', () => {
         const deploy = policyOf(token) === 'deploy' ||
           readManifest().some((e) => e.policy === 'deploy' && e.pattern.startsWith(`${token}/`));
         expect(deploy, `${file} commits ${token}, which is built at deploy time and never committed`).toBe(false);
+        expect(policyOf(token), `${file} commits ${token}, a social picture, which is rendered and never committed`).not.toBe('social');
       }
     }
   });

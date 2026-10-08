@@ -1,0 +1,12 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/posts/2026-10-08-deal-video-french-avenue-nectare-extradose-100ml . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "deal-video-9x16.mp4",
+      "make": "deal-video",
+      "seconds": 10,
+      "bytes": 1022213,
+      "sha256": "072c9aee9ce39b7f79cafb8408264c8f2cdefd295930deed7d0243eb9ffe38d3"
+    }
+  ]
+}

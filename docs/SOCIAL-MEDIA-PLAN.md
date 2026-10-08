@@ -72,7 +72,8 @@ within the month · **3** = reserve the name, use later.
 **Post design and wording:** every post follows `social/DESIGN-SYSTEM.md`
 (colours, font, layouts, no hyphens or dashes, the yanaaidetection check).
 Posts live in `social/posts/`, one folder each. The launch post is
-`social/posts/2026-10-01-launch-welcome/`.
+`social/posts/2026-10-01-launch-welcome/`. Their pictures and videos are not
+committed (from 8 October 2026): see section 10 for how to get them.
 
 ### 2b. The logo
 
@@ -326,11 +327,13 @@ npx tsx scripts/social-video-explainers.ts [--only strengths|notes]   # npm run 
   `social/deal-of-the-day-history.json`: whoever posts a video as the day's
   deal adds its date, id and brand there, so the daily run does not repeat it.
 * A folder `social/posts/YYYY-MM-DD-deal-video-<product>/` holds
-  `deal-video-9x16.mp4`, `caption.txt`, `tiktok-caption.txt` (the address
-  instead of "link in bio", TikTok's tags), `check.json` (the figures, the
-  shop, the live check, the measured length) and `source.md` (the command that
-  remakes it). The date on the video is the date it was made: remake it with
-  `--date` (and recheck the price) if it goes out another day.
+  `deal-video-9x16.mp4` (not committed, section 10), `caption.txt`,
+  `tiktok-caption.txt` (the address instead of "link in bio", TikTok's tags),
+  `check.json` (the figures, the shop, the date, the live check, the measured
+  length), `pictures.json` and `source.md` (the command that first made it).
+  `npm run social:render -- <folder>` draws the same video again from
+  `check.json` alone. The date on the video is the date it was made: make a
+  new one with `--date` (and recheck the price) if it goes out another day.
 * Informative videos take their facts from the site's own guides
   (`demo/content/guideBodies.ts`); the test holds the figures and key phrases
   to that text, and longevity is shown only as the guide states it (more oil
@@ -348,5 +351,59 @@ unchanged. The 5 October "hurry" video
 (`social/posts/2026-10-05-hurry-deal-video/`) plays the real product page at
 24 fps and ends on a call to action; it was not re-rendered and is the only
 deal video that does not follow the template. Every video from 8 October 2026
-does. Videos are committed like the rest of `social/posts/`; if the owner
-approves D28 in `docs/DECISIONS.md` they move out of git with the images.
+does. Since 8 October 2026 the videos, like the pictures, are not committed
+(section 10); the hurry video's original stays in git history.
+
+---
+
+## 10. Getting the pictures and videos (from 8 October 2026)
+
+The owner said yes to D28 (`docs/DECISIONS.md`): a post's text stays in git,
+its pictures and videos do not. Until then the routines committed every PNG
+and MP4 they made: 26.5 MB in the tree on 8 October, 2 to 4 MB more a day.
+The rules for whoever makes a post are in `social/DESIGN-SYSTEM.md` section 10.
+
+**Today's posts.** The Deal of the Day and savings routines work as before:
+they draw the pictures, look at them, and commit the post's folder, but git
+now leaves the pictures out. The push starts the **Social pictures** workflow,
+which draws the same pictures again from the committed text in two or three
+minutes and keeps them, with the captions, as a private download:
+
+1. Open
+   `https://github.com/yanakan19/YanaFragrancePriceChecker/actions/workflows/social-pictures.yml`
+   (signed in to GitHub; on a phone, in the browser rather than the app).
+2. Tap the run that started just after the routine finished. It carries the
+   commit's message ("Deal of the Day: ...", or a "Merge" line when the
+   routine merged before pushing); its summary lists the post's folder.
+3. Under **Artifacts**, tap `social-pictures-<number>`. It downloads a zip;
+   inside, `posts/<folder>/` holds the pictures and captions, and
+   `index.html` shows them all on one page.
+
+Each download is kept 90 days. Nothing is put on the website: only someone
+signed in to the repository can get them. Each run's summary says, for every
+file, whether it came out identical to the one the routine drew.
+
+**A past post.** In the same workflow, **Run workflow** with the post's
+folder name (for example `2026-10-04-savings`, several separated by spaces,
+or `all`) draws it again and gives a new download. Tick "Restore the files
+as first committed" for a post made before 8 October to get the files exactly
+as they were committed then. On a computer with the repository:
+
+```
+npm run social:render -- social/posts/<folder>                  # beside the post's text
+npm run social:render -- social/posts/<folder> --from-history   # as committed (before 8 October)
+npm run social:render -- social/posts/<folder> --out <dir>      # elsewhere, with captions and index.html
+```
+
+How each picture is drawn: from its HTML or SVG (the product photo is
+downloaded again from the address in the HTML), a Deal of the Day video from
+its `check.json`, an informative video from
+`scripts/social-video-explainers.ts`. Drawn again on 8 October, explainer
+slides, a Deal of the Day post, a savings post, a Deal of the Day video and
+both informative videos came out byte for byte the same as the committed
+files. Two limits: a shop that has changed or
+removed its product photo since gives a different or failed picture (the
+original of any post made before 8 October is still in history), and a video
+is drawn from the current scripts, so for an exact copy after its script
+changed, draw it in a checkout of the commit that made it. The 5 October
+hurry video was drawn from the live site; it can only be restored.

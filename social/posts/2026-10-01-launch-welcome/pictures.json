@@ -1,0 +1,23 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/posts/2026-10-01-launch-welcome . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "post-3x4.png",
+      "make": "svg",
+      "from": "post-3x4.svg",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 124310,
+      "sha256": "b9cd51c2c99dadbc0ee4c1088e079ee51cc0cf4937ae71d05f577fce9d302b75"
+    },
+    {
+      "file": "post-9x16.png",
+      "make": "svg",
+      "from": "post-9x16.svg",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 153765,
+      "sha256": "f1200187f2c6e7f75c006d85574680505c94f60fdd9a26bb1b4311212c1075b1"
+    }
+  ]
+}

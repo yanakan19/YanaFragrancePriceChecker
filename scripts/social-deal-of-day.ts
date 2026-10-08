@@ -47,6 +47,7 @@ import type { PresentedOffer } from '../src/types/offer.js';
 import { BOT_USER_AGENT } from '../src/catalogue/botIdentity.js';
 import { launchChromium } from './a11y-audit.js';
 import { FIT_SCRIPT, renderSmooth, tiktokCaption } from './socialRender.js';
+import { recordPictures } from './socialPictures.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SITE = 'https://pricesniffs.space';
@@ -559,6 +560,8 @@ async function main() {
     join(dir, 'check.json'),
     JSON.stringify({ id: p.frag.id, url, delivered: p.delivered, msrp: p.msrp, shop: p.best.retailer.name, percent: p.percent, pricesCheckedAt: checkedAt.toISOString(), brandRule: { restDays: BRAND_REST_DAYS, overridden: flag('--allow-brand-repeat') }, liveCheck: check, gender, notes: { used: notes.notes ? notes.notes.from : 'none', source: notes.notes?.source ?? null, reasons: notes.reasons, top: notes.notes?.top ?? [], middle: notes.notes?.middle ?? [], base: notes.notes?.base ?? [] } }, null, 2) + '\n',
   );
+  // The PNGs are not committed (docs/DECISIONS.md D28): pictures.json says what each is drawn from.
+  recordPictures(dir);
   const next = history.filter((h) => h.date !== today);
   next.push({ date: today, id: p.frag.id, brand: p.frag.brand });
   writeFileSync(HISTORY, JSON.stringify(next, null, 2) + '\n');

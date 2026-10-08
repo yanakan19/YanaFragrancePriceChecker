@@ -173,7 +173,7 @@ their history intact; nothing below touches them.
 | (b4) Gzip the checkpoint | Negative: a compressed file has no deltas, each version would cost its full 1 to 2 MB | | No |
 | (c) Snapshots or checkpoint on a separate data branch or storage | 3 to 4 MB, moved not saved | High: the replay and the guard read this branch's history | No |
 | (d) Rewrite history to drop the old page files | about 255 MB once | High: new commit ids for everyone | Owner decision (OWNER-STEPS 7d) |
-| (d) Social images out of git | up to 9.6 MB on a posting day | Owner routines | Owner decision |
+| (d) Social images out of git | up to 9.6 MB on a posting day; 26.6 MB off the tip tree | Low: the pictures are drawn again from the committed text by `npm run social:render` and the Social pictures workflow (a private artifact, 90 days) | Yes (2026-10-08, D28, owner's go ahead) |
 
 **Expected after.** 2026-10-04 again: 60.5 − 34.1 − about 2.8 for the
 checkpoint (two thirds of its 4.3) ≈ 23.6 MB, of which 9.6 MB social images,

@@ -1,0 +1,12 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/posts/2026-10-05-hurry-deal-video . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "hurry-deal-9x16.mp4",
+      "make": "history",
+      "seconds": 10,
+      "bytes": 1288949,
+      "sha256": "4da5cfb95aa4fb96a8ff469bb1c1f409b373a1008ad26ab16ef72dce090247d8"
+    }
+  ]
+}
