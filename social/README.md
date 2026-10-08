@@ -18,6 +18,10 @@ section 8).
 Make the PNGs with `npm run social:render` (every post) or
 `npm run social:render -- social/posts/<folder>` (one post).
 
+Videos come from one template (`scripts/social-video-template.ts`): `npm run social:video -- --id <id>` for a
+Deal of the Day video and `npm run social:video:explainers` for the informative ones. Rules: `docs/SOCIAL-MEDIA-PLAN.md`
+section 9.
+
 What to post, where and when: `docs/SOCIAL-MEDIA-PLAN.md`.
 
 ## Posts
@@ -37,6 +41,10 @@ What to post, where and when: `docs/SOCIAL-MEDIA-PLAN.md`.
 | 2026-10-04 | `posts/2026-10-04-explainer-how-we-make-money/` | Explainer: how PriceSniffs makes money (five red slides, 3:4 and 9:16) |
 | 2026-10-04 | `posts/2026-10-04-explainer-missing-shop/` | Explainer: why a shop might be missing (five red slides, 3:4 and 9:16) |
 | 2026-10-05 | `posts/2026-10-05-deal-of-the-day/` | Deal of the Day: Armaf Private Key To My Life (9:16 story, 3:4 post and scent profile) |
+| 2026-10-08 | `posts/2026-10-08-deal-video-escentric-molecules-molecule-05-100ml/` | Deal of the Day video: Escentric Molecules Molecule 05 100ml, £75.00 at John Lewis against £125.00 (exactly 10 seconds, 9:16 MP4, video template) |
+| 2026-10-08 | `posts/2026-10-08-deal-video-french-avenue-nectare-extradose-100ml/` | Deal of the Day video: French Avenue Nectare Extradose 100ml, £28.98 at Emirates Oud against £45.00 (exactly 10 seconds, 9:16 MP4, video template) |
+| 2026-10-08 | `posts/2026-10-08-explainer-video-perfume-strengths/` | Informative video: Perfume strengths explained (EDC, EDT, EDP, Parfum; about 26 seconds, 9:16 MP4, red theme) |
+| 2026-10-08 | `posts/2026-10-08-explainer-video-perfume-notes/` | Informative video: What are perfume notes? (top, middle, base and how a scent unfolds; about 26 seconds, 9:16 MP4, red theme) |
 | 2026-10-05 | `posts/2026-10-05-hurry-deal-video/` | Hurry deal video: Dolce & Gabbana The One for Men 150ml, £59.95 against RRP £153 (10 second 9:16 MP4, real site UI) |
 | 2026-10-02 | `posts/2026-10-02-what-is-pricesniffs/` | Intro carousel: "What is PriceSniffs?" (4 slides, 3:4 post). Remake with `npx tsx scripts/social-intro-slides.ts` |
 | 2026-10-02 | `posts/2026-10-02-savings-example/` | Savings example carousel: Miss Dior, Selfridges vs Justmylook (6 slides, 3:4 post). Remake with `npx tsx scripts/social-savings-example.ts` (inverted theme, hand picked figures, reel safe) |

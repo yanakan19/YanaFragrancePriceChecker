@@ -4201,6 +4201,49 @@ export const RETAILERS: readonly Retailer[] = [
     // browser headers, no residential or rotating proxy (only this
     // sandbox's own fixed egress), nothing retried against a refusal. See
     // docs/outreach/ for the permission request drafted for the owner.
+    //
+    // ── Diagnosis, 2026-10-08 (docs/SHOP-PROBES-2026-10-08.md) ──────────────
+    // Blocker: SiteGround's bot captcha (HTTP 202, `sg-captcha: challenge`,
+    // a meta refresh to /.well-known/sgcaptcha/) on robots.txt,
+    // sitemap_index.xml and a product page from the sandbox, and on
+    // /sitemap.xml from a GitHub runner (probe run #71, job 113118354454,
+    // "stopped early: the shop answered with a captcha"). A captcha is never
+    // solved or followed here.
+    // Our side, found and fixed: src/catalogue/robotsSource.ts read a 2xx
+    // captcha in place of robots.txt as a robots file with no rules, that is
+    // "nothing forbidden", so the harvest went on to ask this shop's Shopify
+    // and WooCommerce endpoints and its sitemap before the sitemap walk
+    // stopped at the same captcha. A bot wall at robots.txt is now a refusal
+    // and nothing else is asked (tests/robotsSource.test.ts, on the measured
+    // body with the egress address redacted). That makes us more polite; it
+    // cannot price anything, since every route the shop has is behind the
+    // captcha. `catalogue: null` is not a gap: the sitemap route needs no
+    // section URLs (`sitemapHarvestConfirmed`). Apify is off (D23).
+    // Lawful route: no affiliate programme or feed found (brand of Sterling
+    // Perfumes Industries, Dubai). Only the shop, through its host, can let
+    // PriceSniffsBot past the captcha, so the route is the permission email
+    // in docs/outreach/riiffs.md. Its perfumes are also sold by FragranceHub
+    // and Perfume Click, which stay on the site.
+    // Recommendation: stays off until the shop says yes.
+    //
+    // ── The captcha is intermittent: proved after the fix, 2026-10-08 ───────
+    // One probe on the fixed code, run #78 (job 113130005757, commit
+    // 0816f1a9, 03:11Z, `allow_metered: false`), was not challenged at all:
+    // robots.txt read, "woocommerce catalogue re-priced 141 of 141 stored
+    // listings in 3 request(s)", then "145 urls 14 fetched 13 priced
+    // listings". The probe 45 minutes earlier (run #71) was challenged. The
+    // crawl had also read this shop cleanly on 2026-10-04 at 21:43Z (41
+    // priced, 141 re-priced from the WooCommerce Store API), two hours before
+    // the owner switched it off (ff68d662, 23:41Z). So SiteGround challenges
+    // some requests and not others, and the route as PriceSniffsBot works
+    // whenever it is not challenged; nothing is solved or followed either way.
+    // Not switched back on here: the owner took it off while it was
+    // answering, and it carried 8 offers on the site then. With the robots
+    // fix above a challenged run now costs one request, so switching it back
+    // on is safe whenever the owner wants it: `enabled: true`, take it out of
+    // the switched-off lists (tests/registry.test.ts, tests/switchedOffShops.ts),
+    // `npm run rebuild` (the price history replays, since the enabled set is in
+    // its fingerprint), and a changelog line.
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {

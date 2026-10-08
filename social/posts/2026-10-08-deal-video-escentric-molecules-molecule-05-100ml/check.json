@@ -1,0 +1,62 @@
+{
+  "id": "ean-5060103310609",
+  "url": "https://pricesniffs.space/escentric_molecules_molecule_05_100ml",
+  "name": "Molecule 05 100ml",
+  "brand": "Escentric Molecules",
+  "delivered": 75,
+  "msrp": 125,
+  "shop": "John Lewis",
+  "percent": 40,
+  "pricesCheckedAt": "2026-10-08T01:23:01.700Z",
+  "dealsList": {
+    "generatedAt": "2026-10-08T02:15:23.894Z",
+    "retailerId": "john-lewis",
+    "price": 75,
+    "wasPrice": 125,
+    "percentOff": 40,
+    "kind": "house"
+  },
+  "photo": "https://www.spacenk.com/on/demandware.static/-/Sites-spacenkmastercatalog/default/dw4e650a49/products/ESCENT_MOL/UK200032928_ESCENT_MOL.jpg",
+  "brandRule": {
+    "restDays": 7,
+    "overridden": false
+  },
+  "liveCheck": {
+    "status": 404,
+    "servesApp": true,
+    "inLiveData": true,
+    "ok": true
+  },
+  "video": {
+    "file": "deal-video-9x16.mp4",
+    "seconds": 10,
+    "frames": 300,
+    "bytes": 1027265,
+    "transitions": [
+      {
+        "kind": "swipe",
+        "from": "bottle",
+        "to": "prices",
+        "start": 2.6,
+        "end": 3,
+        "seconds": 0.4
+      },
+      {
+        "kind": "dissolve",
+        "from": "prices",
+        "to": "note",
+        "start": 5.1,
+        "end": 5.6,
+        "seconds": 0.5
+      },
+      {
+        "kind": "swipe",
+        "from": "note",
+        "to": "outro",
+        "start": 7.4,
+        "end": 7.8,
+        "seconds": 0.4
+      }
+    ]
+  }
+}

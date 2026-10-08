@@ -65,7 +65,9 @@
     "social:render": "tsx scripts/render-social.ts",
     "links:resolve": "tsx scripts/resolve-fragrance-links.ts",
     "social:deal": "tsx scripts/social-deal-of-day.ts",
-    "social:savings": "tsx scripts/social-savings.ts"
+    "social:savings": "tsx scripts/social-savings.ts",
+    "social:video": "tsx scripts/social-video-deal.ts",
+    "social:video:explainers": "tsx scripts/social-video-explainers.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",

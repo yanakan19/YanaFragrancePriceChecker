@@ -376,3 +376,24 @@ What holds for all of them:
 - **Recommendation:** off. Owner applies on CJ and sends the email the same
   day (`docs/outreach/notino-uk.md`); weekly saved pages are an optional
   bridge.
+
+### Riiffs Perfumes
+
+- **Blocker:** SiteGround bot captcha (HTTP 202, `sg-captcha: challenge`) on
+  robots.txt, the sitemap and product pages, from the sandbox and a GitHub
+  runner.
+- **Our side, fixed:** a 2xx captcha served in place of robots.txt used to
+  parse as an empty robots file ("nothing forbidden"), so the harvest asked
+  the shop's platform endpoints and sitemap after it had already refused.
+  `src/catalogue/robotsSource.ts` now reads a bot wall at robots.txt as a
+  refusal and asks nothing else, for every shop. More polite; prices nothing.
+- **Lawful route:** no affiliate programme or feed found. Permission from the
+  shop, which can have its host let PriceSniffsBot through.
+- **Intermittent, proved after the fix:** probe run #78 (03:11Z) was not
+  challenged: WooCommerce re-priced 141 of 141 stored listings in 3 requests,
+  13 new pages priced. The crawl had also read it cleanly on 2026-10-04,
+  two hours before the owner switched it off. So the route works whenever
+  SiteGround does not challenge.
+- **Recommendation:** off for now as the owner's choice, not a blocker; safe
+  to switch back on whenever the owner wants (a challenged run now costs one
+  request). The email (`docs/outreach/riiffs.md`) would make it reliable.
