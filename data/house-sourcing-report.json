@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-08T07:57:28.433Z",
+  "checkedAt": "2026-10-08T10:37:07.128Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,10 +59,12 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "GBP",
-      "listings": 511,
+      "listings": 405,
       "pricedInGbp": 0,
-      "withPhoto": 489,
-      "errors": [],
+      "withPhoto": 386,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
@@ -138,22 +140,21 @@
     {
       "houseId": "lattafa",
       "name": "Lattafa",
-      "origin": "https://www.lattafa.com",
-      "routeUsed": "sitemap-jsonld",
+      "origin": "https://lattafa.com",
+      "routeUsed": null,
       "currency": "USD",
-      "listings": 1,
+      "listings": 0,
       "pricedInGbp": 0,
-      "withPhoto": 1,
+      "withPhoto": 0,
       "errors": [
-        "https://lattafa.com did not answer; used https://www.lattafa.com instead",
-        "https://www.lattafa.com/products.json?limit=250&page=1: HTTP 0 AbortError: This operation was aborted",
-        "stopped early: exceeded this house's time budget"
+        "https://lattafa.com/sitemap_index.xml: HTTP 0 AbortError: This operation was aborted"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
         "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap",
-        "prices are in USD, not GBP — needs a UK price source before these are comparable"
+        "prices are in USD, not GBP — needs a UK price source before these are comparable",
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {

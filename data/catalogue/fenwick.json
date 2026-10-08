@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-08T06:03:30.337Z",
-  "seenAt": "2026-10-08T06:03:30.337Z",
+  "updatedAt": "2026-10-08T09:44:18.320Z",
+  "seenAt": "2026-10-08T09:44:18.320Z",
   "source": "live",
   "listings": [
     {
@@ -16321,7 +16321,7 @@
       "priceGbp": 93.5,
       "wasPriceGbp": 110,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The First Eau de Toilette by Van Cleef & Arpels is a timeless floral fragrance that blends elegance with soft sensuality. Delicately composed yet enduring, it reflects classic perfumery with a refined finish. A sophisticated choice for everyday wear and traditional fragrance collections..",
       "productType": "Women's Fragrances",
