@@ -2838,6 +2838,30 @@ export const RETAILERS: readonly Retailer[] = [
     // On this, the Partnerize signup at partnerize.com/partners looks worth
     // the owner's time rather than worth delaying for a fresher signal.
     // `enabled` and pricing are unchanged by this comment.
+    //
+    // ── Diagnosis, 2026-10-08 (docs/SHOP-PROBES-2026-10-08.md) ──────────────
+    // Blocker: a Cloudflare block page ("Attention Required! | Cloudflare",
+    // "Sorry, you have been blocked", HTTP 403, 4,550 to 5,488 bytes) on
+    // robots.txt, the section, /sitemap.xml and a known product page from the
+    // sandbox, and HTTP 403 on /sitemap.xml from a GitHub runner (probe run
+    // #68, job 113116748477). A block, not a challenge: nothing a browser
+    // could pass even if passing were allowed. robots.txt is blocked too.
+    // The last priced harvest was the free local browser render of page one
+    // at 2026-10-04T15:38:54Z (data/harvest-report.json in c6d07f18: tier
+    // "render", 60 priced), two hours before the PriceSniffsBot only rule
+    // (3f565184, 17:35Z). Since then the render rightly does not run after
+    // the sitemap refusal, and the bot itself is blocked at the edge.
+    // Our side, checked: the section URL is right (browser, 2026-08-06) and
+    // the parser exists (src/catalogue/selfridgesRsc.ts, prices and markdowns
+    // settled); no timeout; identity is PriceSniffsBot as required. Nothing on
+    // our side reaches past a WAF block; the Apify actor that once rendered
+    // the page (2026-08-20) is off by D23 and would only route round it.
+    // Lawful route: Partnerize, below (2022 move, still listed by
+    // aggregators; Partnerize lets a brand offer product feeds to the
+    // partners on its campaign). Recommendation: stays off; owner signs up
+    // as a Partnerize partner, applies to Selfridges and asks for its product
+    // feed and whether a comparison site is accepted
+    // (docs/outreach/selfridges.md). The 299 stored listings age out.
     affiliate: {
       network: 'partnerize',
       verified: true,

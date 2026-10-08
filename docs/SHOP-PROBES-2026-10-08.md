@@ -905,3 +905,41 @@ a refusal.
   `not-applied`, `verified: false` (likely network). Owner confirms the
   network on the affiliates page and applies, asking for the product feed
   (`docs/outreach/the-perfume-shop.md`).
+
+### 3. Selfridges
+
+- **Why not:** Cloudflare WAF block. "Attention Required! | Cloudflare",
+  "Sorry, you have been blocked ... You are unable to access selfridges.com",
+  HTTP 403, on robots.txt (4,550 bytes), the section, /sitemap.xml and the
+  known product page (5,487 to 5,488 bytes) from this machine; HTTP 403 on
+  /sitemap.xml from the CI runner (run #68). This is a block page, not an
+  interactive challenge: there is nothing to pass, by browser or otherwise.
+- **What changed since it last priced:** `data/harvest-report.json` in
+  commit c6d07f18 records the last priced Selfridges harvest at
+  2026-10-04T15:38:54Z: `tier: "render"`, `renderer: "local browser"`, 1 page,
+  60 priced. The PriceSniffsBot only rule landed at 17:35Z that day
+  (3f565184). Since then the bot is blocked at the edge, and the render, which
+  never runs after a refusal, is not reached. The 2026-10-03 run (#577) had
+  already seen pages 2 to 5 refused.
+- **Our side?** Nothing to fix:
+  - URL: the section was confirmed in a browser on 2026-08-06; robots.txt is
+    blocked as well, so the URL is not the cause.
+  - Parser: present and tested (`src/catalogue/selfridgesRsc.ts` reads the
+    RSC flight stream; price and markdown semantics settled 2026-08-22).
+  - Identity: PriceSniffsBot, as required. Timeout: no.
+  - Render tier: correctly not tried after the refusal.
+  - Apify: the actor rendered the section (HTTP 200, 949,307 bytes) on
+    2026-08-20; off by D23, and it would be a route round a WAF block.
+  - Workflow: the probe now installs Chromium (shop 1); not relevant here.
+- **Lawful route:** **Partnerize.** PerformanceIN (18 May 2022) reported
+  Selfridges consolidating its affiliate programme onto Partnerize and retiring
+  Awin and Rakuten; aggregators still list a Partnerize programme, and affi.io
+  shows the Awin listing closed. Partnerize lets a brand offer product feeds to
+  the partners on its campaign. Registry already records `partnerize`,
+  `verified: true`, `not-applied`. Fallback: permission email through the
+  contact page's Customer Services (no affiliate address found).
+- **Recommendation:** stays off. Owner signs up at partnerize.com/partners,
+  applies to Selfridges, asks for the product feed and whether comparison
+  sites are accepted (`docs/outreach/selfridges.md`, new today). A Partnerize
+  feed reader would be needed on approval. The 299 stored listings age out
+  under the 7 day rule.

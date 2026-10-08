@@ -274,8 +274,10 @@ What holds for all of them:
   install Chromium, so it could not show the render tier the crawl has. It
   now installs it as the crawl does. No refused shop changes because of it.
 - **Our side, open:** only an Awin feed reader exists. A shop whose programme
-  is on Rakuten Advertising (The Fragrance Shop) needs a Rakuten Product
-  Catalog reader once a programme approves us.
+  is on Rakuten Advertising (The Fragrance Shop, probably The Perfume Shop)
+  or Partnerize (Selfridges) needs a reader for that network's product feed
+  once a programme approves us. Build it against a real approved feed, not
+  before.
 
 ### The Fragrance Shop
 
@@ -304,3 +306,19 @@ What holds for all of them:
 - **Recommendation:** off. Owner reads the join link on the affiliates page
   and applies, most likely on the same Rakuten account
   (`docs/outreach/the-perfume-shop.md`).
+
+### Selfridges
+
+- **Blocker:** Cloudflare block page ("Attention Required!", "Sorry, you
+  have been blocked", HTTP 403) on robots.txt, the section, the sitemap and a
+  product page; HTTP 403 on the sitemap from a GitHub runner. A WAF block,
+  not a challenge.
+- **Our side:** nothing to fix. URL and parser (`selfridgesRsc.ts`) are
+  right. The last priced run (60 listings, 2026-10-04 15:38Z) was the free
+  local render, two hours before the PriceSniffsBot only rule; the render now
+  rightly stops at the refusal.
+- **Lawful route:** Partnerize (Selfridges moved there from Awin and Rakuten
+  in 2022); Partnerize lets a brand give its partners a product feed.
+- **Recommendation:** off. Owner signs up on Partnerize and applies, asking
+  for the feed and whether comparison sites are accepted
+  (`docs/outreach/selfridges.md`).
