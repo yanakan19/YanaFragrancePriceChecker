@@ -632,6 +632,30 @@ export const RETAILERS: readonly Retailer[] = [
     // browser headers, no residential or rotating proxy (only this
     // sandbox's own fixed egress), nothing retried against a refusal. See
     // docs/outreach/ for the permission request drafted for the owner.
+    //
+    // ── Diagnosis, 2026-10-08 (docs/SHOP-PROBES-2026-10-08.md) ──────────────
+    // Blocker: a Cloudflare managed challenge (HTTP 403, 5,680 bytes,
+    // `cf-mitigated: challenge`, "Just a moment...") on the section
+    // /fragrance/?f=1-1-55544 from the sandbox, while robots.txt answered 200
+    // and allows that section, the sitemap and product pages for `*`. So the
+    // shop's stated crawl policy admits us and its Cloudflare zone does not:
+    // a bot management verdict, not a robots.txt refusal.
+    // Our side, checked: no harvest was dispatched because `owner-import`
+    // is skipped by the harvest on purpose (2026-10-06), so a dispatch has
+    // nothing to ask; that is a decision, not a gap. The section URL and
+    // pagination are the shop's own (read off its markup), the parser reads
+    // its CollectionPage JSON-LD (fixture test), the saved page importer
+    // exists (`npm run notino:import`). Missing: a CJ feed reader, to build
+    // against a real feed file once approved (docs/NOTINO-PLAN.md). The
+    // local render was refused five times (2026-09-11/12) and is never tried
+    // after a refusal; the Apify tiers are off (D23).
+    // Lawful route: CJ Affiliate, Notino UK via VIVnetworks, XML feed (below).
+    // Also, because robots.txt allows us, Cloudflare's Verified Bots
+    // programme (signed or IP validated PriceSniffsBot) is the one honest
+    // identity route that could change the challenge, if Notino's zone
+    // admits verified bots; unproven, and an owner level project decision.
+    // Recommendation: stays off. Owner applies on CJ and sends the email
+    // (docs/outreach/notino-uk.md); optional weekly saved pages meanwhile.
     affiliate: {
       network: 'cj',
       verified: true,

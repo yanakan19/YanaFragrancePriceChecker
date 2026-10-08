@@ -1011,3 +1011,42 @@ a refusal.
   perfumes (`singleBrandOnly`), so its listings are never compared with
   another shop's. Permission email refreshed (`docs/outreach/zara.md`), to send
   last if at all.
+
+### 6. Notino UK
+
+- **Why not:** Cloudflare managed challenge. The section
+  `/fragrance/?f=1-1-55544` answered HTTP 403, 5,680 bytes, `cf-mitigated:
+  challenge`, "Just a moment...", while robots.txt answered HTTP 200 and its
+  `User-agent: *` group allows that section, `/sitemap.xml` and product pages
+  (`isAllowed` true). A DNS lookup today shows `www.notino.co.uk` on a
+  Cloudflare address (172.64.147.195). So the shop's own crawl policy admits
+  PriceSniffsBot and its Cloudflare bot rule does not: a bot management
+  verdict, not a robots.txt refusal. The same challenge met the sitemap and a
+  product page on 2026-09-10 and the home page on 2026-10-03.
+- **Our side?** Nothing broken:
+  - Harvest: not dispatched, because `adapter: 'owner-import'` is skipped by
+    the harvest on purpose (owner, 2026-10-06), so re-enabling the shop can
+    never start a crawl. A dispatch would ask nothing; that is a decision, not
+    a workflow gap.
+  - URL and pagination: `?f=<page>-1-55544` is the shop's own (read off its
+    `rel="next"` link, 2026-08-27).
+  - Parser: reads its CollectionPage `mainEntity` JSON-LD (fixed 2026-08-27,
+    tested on a real fixture).
+  - Saved page importer: built (`npm run notino:import`,
+    `docs/OWNER-STEPS.md` section 9).
+  - Render tier: refused on all four pages in five runs, 2026-09-11/12
+    (`renderRefused: 'local'`), and never tried after a refusal.
+  - Apify: never run here; off by D23.
+  - Missing: a CJ feed reader. Built only against a real feed file
+    (`docs/NOTINO-PLAN.md` step 3).
+- **Lawful route:** **CJ Affiliate**, Notino UK programme run by VIVnetworks
+  (Publicis Groupe); VIVnetworks' own catalogue page lists "XML feed: yes"
+  (registry `cj`, `verified: true`, `not-applied`). Not on Awin. In parallel,
+  the permission email; and, because robots.txt already allows us,
+  Cloudflare's Verified Bots programme (an honest, verifiable PriceSniffsBot)
+  is the one identity route that could change the challenge, if Notino's zone
+  admits verified bots. Unproven, and an owner decision for the whole project.
+- **Recommendation:** stays off. Owner opens a CJ publisher account, applies
+  to Notino UK and sends the refreshed email the same day
+  (`docs/outreach/notino-uk.md`, now with the "same terms as your comparison
+  feeds" line the plan asked for); optional weekly saved pages meanwhile.

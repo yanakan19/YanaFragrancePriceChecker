@@ -278,6 +278,16 @@ What holds for all of them:
   or Partnerize (Selfridges) needs a reader for that network's product feed
   once a programme approves us. Build it against a real approved feed, not
   before.
+- **One project wide honest route, not tried:** Cloudflare's Verified Bots
+  programme. A bot that identifies itself verifiably (a Web Bot Auth
+  signature, or a published IP list with a stable user agent) and obeys
+  robots.txt can be listed, and many Cloudflare zones let verified bots past
+  their bot rules. Four of the eight are on Cloudflare (The Fragrance Shop,
+  Selfridges, Notino UK, Perfume Shopping), and Notino's robots.txt already
+  allows us. Whether a given zone admits verified bots is the shop's setting,
+  and a WAF block or a region rule would still stand. An owner decision:
+  it needs a Cloudflare account, an application, and request signing in
+  `src/catalogue/botIdentity.ts`'s clients.
 
 ### The Fragrance Shop
 
@@ -350,3 +360,19 @@ What holds for all of them:
   only.
 - **Recommendation:** off, lowest priority: a single brand shop is never
   compared with another shop here (`docs/outreach/zara.md`).
+
+### Notino UK
+
+- **Blocker:** Cloudflare managed challenge (HTTP 403, `cf-mitigated:
+  challenge`) on the section; robots.txt answers 200 and allows the section,
+  product pages and the sitemap. The shop's crawl policy admits us; its
+  Cloudflare zone does not.
+- **Our side:** nothing broken. The harvest skips `owner-import` on purpose;
+  the URL, pagination, parser and saved page importer are in place. Missing:
+  a CJ feed reader, to build against a real feed (`docs/NOTINO-PLAN.md`).
+- **Lawful route:** CJ Affiliate, Notino UK programme run by VIVnetworks,
+  "XML feed: yes". Also the permission email, and the Verified Bots route
+  above, which fits best here because robots.txt already allows us.
+- **Recommendation:** off. Owner applies on CJ and sends the email the same
+  day (`docs/outreach/notino-uk.md`); weekly saved pages are an optional
+  bridge.
