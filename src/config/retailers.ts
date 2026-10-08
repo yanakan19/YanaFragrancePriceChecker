@@ -10170,6 +10170,9 @@ export const RETAILERS: readonly Retailer[] = [
     // are deodorants, bakhoor, air fresheners, two backpacks and a wallet, which the catalogue's own
     // fragrance test leaves out. 512 of the 517 listings that name a strength also name a size.
     //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 4 requests, 554 listings priced in GBP, no errors, 249 in stock.
+    //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=opulensi --dry-run` read 554 priced listings,
     // all in GBP; 495 of them pass the catalogue's own fragrance test and 222 of those are in stock.
     //
@@ -10231,6 +10234,9 @@ export const RETAILERS: readonly Retailer[] = [
     // to be read from the title, and there is no product type. 833 of the 903 listings that name a
     // strength also name a size (in the title or in a "Size (ml)" option). About two thirds of the range
     // is out of stock on the shop's own list; the stock flag is kept as the shop states it.
+    //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 4 requests, 1,067 listings priced in GBP, no errors, 377 in stock.
     //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=perfume-closet --dry-run` read 1067 priced listings,
     // all in GBP; 836 of them pass the catalogue's own fragrance test and 277 of those are in stock.
@@ -10294,6 +10300,9 @@ export const RETAILERS: readonly Retailer[] = [
     // 153, Cologne 5, Parfum 5, Aftershave Lotion 5, Deodorant Spray 5, Deodorant Stick 4 and a few body
     // products); all 442 listings that name a strength also name a size in the title. 330 of the 464
     // variants are out of stock on the shop's own list; the stock flag is kept as the shop states it.
+    //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 3 requests, 464 listings priced in GBP, no errors, 330 in stock.
     //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=perfumoi --dry-run` read 464 priced listings,
     // all in GBP; 445 of them pass the catalogue's own fragrance test and 319 of those are in stock.
@@ -10359,6 +10368,9 @@ export const RETAILERS: readonly Retailer[] = [
     // rule drops a title with two sizes: 93 listings pass with it, 114 without. 63 of the 156 products are
     // in stock; the bundles ("Combo ...") and one body lotion fall out under the catalogue's own rules.
     //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 2 requests, 156 listings priced in GBP, no errors, 106 in stock.
+    //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=saad-fragrance --dry-run` read 156 priced listings,
     // all in GBP; 114 of them pass the catalogue's own fragrance test and 76 of those are in stock.
     //
@@ -10423,6 +10435,9 @@ export const RETAILERS: readonly Retailer[] = [
     // drops any variant under 5ml and any "discovery" box; product types keep out the sample sets,
     // soaps, incense, gift cards and event tickets. Every one of the listings that then passed the
     // catalogue's test was read title by title on 2026-10-08.
+    //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 3 requests, 268 listings priced in GBP, no errors, 188 in stock.
     //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=sainte-cellier --dry-run` read 268 priced listings,
     // all in GBP; 260 of them pass the catalogue's own fragrance test and 184 of those are in stock.
@@ -10502,6 +10517,10 @@ export const RETAILERS: readonly Retailer[] = [
     // 2.5 s gaps, 3 pages of the 100 answered HTTP 503 and the same page answered 200 on a retry 15 s
     // later. The walk used to stop at a failed page, so `crawlViaShopifyProducts` now asks a 5xx page once more.
     //
+    // Runner proof, 2026-10-08, harvest_shop=fenwick, run 37723837125, commit 7d9e58b3, as
+    // PriceSniffsBot, tier free: 100 pages, 1,054 listings priced in GBP, no errors, 752 in stock;
+    // the full sweep of commit 874377da read it again the same way.
+    //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=fenwick --dry-run` read 1054 priced listings,
     // all in GBP; 892 of them pass the catalogue's own fragrance test and 644 of those are in stock.
     //
@@ -10576,6 +10595,10 @@ export const RETAILERS: readonly Retailer[] = [
     // 48 ... delivered within 2-4 working days ... for UK deliveries there are no postage and packing
     // charges", with Royal Mail Tracked 24 at £3 and Special Delivery at £9 as upgrades, not modelled.
     //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 1,137 addresses on the route, 150 pages read, 150 priced in GBP,
+    // no errors, 93 in stock.
+    //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=perfumeuk --dry-run --max=60` found 1,137
     // product addresses on the route, read 112 of them before the local six minute ceiling (the runner's
     // is 40) and priced all 112, every one on its own page in GBP, at about 3 s a page.
@@ -10646,6 +10669,10 @@ export const RETAILERS: readonly Retailer[] = [
     // Delivery: the Delivery & Returns panel of the same product page, read 2026-10-08, in the UK view:
     // "Standard Delivery: £5.95 or FREE OVER £100", "Free UK Standard Delivery on all orders over £100!
     // Delivered within 3-5 working days. Normally £5.95." Express and Click & Collect are not modelled.
+    //
+    // Runner proof, 2026-10-08, harvest_shop=liberty-london, run 37727829201, commit 007b3fe5, as
+    // PriceSniffsBot, tier free: 1,663 product addresses on the route, 100 pages read, 100 priced
+    // in GBP, no errors; 200 held after the full sweep of commit 874377da.
     //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=liberty-london --dry-run --max=40` found 1,667
     // product addresses on the route, read 100 of them (the run's discovery floor) and priced all 100,
@@ -10736,6 +10763,9 @@ export const RETAILERS: readonly Retailer[] = [
     // working days", and "NEXT-DAY UK: Free next-day delivery. Order before 11am (UK time) on a working
     // day for same-day dispatch." Final prices are confirmed at checkout, which was not used.
     //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 27 of 27 pages read and priced in GBP, no errors, 23 in stock.
+    //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=rasasi-uk-store --dry-run` found 27 product
     // addresses, read all 27 and priced all 27, every one in GBP on its own page.
     //
@@ -10808,6 +10838,10 @@ export const RETAILERS: readonly Retailer[] = [
     // FREESHIP35 at the checkout (cannot be used in conjunction with any discount code, sale item ...)".
     // The code and the sale item condition cannot be modelled, so the free threshold is left unset and
     // every basket is priced at £2.95, which can overstate and never understates.
+    //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 1,491 addresses on the route, 100 pages read, 100 priced in GBP,
+    // no errors, 100 in stock.
     //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=direct-cosmetics --dry-run --max=40` found 1,491
     // product addresses, read 96 of them before the local six minute ceiling (the runner's is 40) and priced

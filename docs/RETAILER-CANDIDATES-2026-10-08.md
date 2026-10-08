@@ -50,7 +50,7 @@ above on 2026-10-08. Bytes are as received after decompression.
 | # | Shop | Domain | Sells | Platform | Affiliate | robots.txt | Readable now? | Why not added |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 11 | Mankind | mankind.co.uk | Men's grooming (THG) with a fragrance range | custom | Network unconfirmed (FlexOffers listing only) | 200, 5,529 B, product pages allowed | Yes. One gzip product sitemap of 2,773 URLs, written 2026-09-03, with about 100 fragrance pages; a page (213 KB) has JSON-LD with a GBP price (Juicy Couture EDP 50ml 55) | A small shelf on a month old sitemap; worth a route if the range grows |
-| 12 | Perfumes Club UK | perfumesclub.co.uk | Large discounter (Spanish group) | custom | FlexOffers listing at 0% (unreliable); Webgains, Skimlinks (directory only) | 200, 3,273 B, 79 rules, crawl delay 1 | Yes. 22,892 URLs in `sitemap-G.xml`; a page (418 KB) has JSON-LD price (Dolce & Gabbana Intense 67.52) | JSON-LD name is the product name alone, no brand or strength |
+| 12 | Perfumes Club UK | perfumesclub.co.uk | Large discounter (Spanish group) | custom | FlexOffers listing at 0% (unreliable); Webgains, Skimlinks (directory only) | 200, 3,273 B, 79 rules, crawl delay 1 | Yes. 22,892 URLs in `sitemap-G.xml`; a page (418 KB) has JSON-LD price (Dolce & Gabbana Intense 67.52) | JSON-LD name is the scent alone ("INTENSE"), the page title adds only the brand, and no size is named in the markup, so a listing cannot be sized |
 | 13 | Matalan | matalan.co.uk | Fashion retailer with a small fragrance shelf | custom (same platform as Mankind) | Not checked | 200, 5,413 B | Yes. 21,393 product URLs, about 107 fragrance; JSON-LD prices (Jimmy Choo EDT 30) | Fragrance is half a percent of the range |
 | 14 | Perfume Plus Direct | perfumeplusdirect.co.uk | Discount designer fragrance | Magento | FlexOffers and BlueAff open, MyLead closed (directory only) | 200, 355 B | Partly. Home page 146 KB with prices; `/sitemap.xml` is a 404 | Needs a category walk |
 | 15 | Ormonde Jayne | ormondejayne.com | One niche house, own shop | Shopify | None found | 200, 3,632 B, stock file | Yes. 113 products, GBP | A house storefront: belongs in `src/config/houses.ts` |
@@ -117,6 +117,17 @@ of the four has a listing page that is paged by an address its robots.txt permit
 | PerfumeUK | sitemap, 1,137 product pages | 112 of 1,137 (6 minute local ceiling) | n/a | Free on every UK order, 2 to 4 working days |
 | Rasasi UK Store | sitemap, 27 product pages, title parts | 27 of 27 | 27 of 27 | Free on every order, 2 to 4 working days |
 | Direct Cosmetics | sitemap, 6 fragrance sitemaps, 1,491 pages | 96 of 1,491 (6 minute local ceiling) | n/a | £2.95 standard, 3 to 5 working days; the free delivery over £35 needs a code and is not applied |
+
+Proved from a GitHub runner, as PriceSniffsBot, robots.txt first, free tier, no errors for any of the ten.
+Two shops had their own one shop dispatch (`harvest_shop`): Fenwick (run 37723837125, commit 7d9e58b3: 100
+pages, 1,054 listings priced, 752 in stock) and Liberty London (run 37727829201, commit 007b3fe5: 100 of 1,663
+pages priced). Each dispatch takes about 50 minutes of the crawl's concurrency group (tests, houses, rebuild),
+and the other eight were read by the full sweep of commit 874377da at 06:03Z, 90 minutes after they were
+pushed, with the same code and the same report fields, so they were not dispatched one by one: Opulensi 554
+priced (249 in stock), The Perfume Closet 1,067 (377), Perfumoi 464 (330), Saad Fragrance 156 (106),
+Sainte Cellier 268 (188), PerfumeUK 150 of 1,137 pages (93), Rasasi UK Store 27 of 27 (23), Direct Cosmetics
+100 of 1,491 (100). `npm run rebuild` on the merged tree changed only timestamps in two generated files,
+so none is committed: the crawl's own rebuild already carries all ten shops.
 
 Sitemap shops fill in over several runs (about 42 never read pages a run, more where the route sets
 `discoveryPages`), so their counts on the site grow for a day or two.
