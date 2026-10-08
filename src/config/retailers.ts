@@ -632,6 +632,30 @@ export const RETAILERS: readonly Retailer[] = [
     // browser headers, no residential or rotating proxy (only this
     // sandbox's own fixed egress), nothing retried against a refusal. See
     // docs/outreach/ for the permission request drafted for the owner.
+    //
+    // ── Diagnosis, 2026-10-08 (docs/SHOP-PROBES-2026-10-08.md) ──────────────
+    // Blocker: a Cloudflare managed challenge (HTTP 403, 5,680 bytes,
+    // `cf-mitigated: challenge`, "Just a moment...") on the section
+    // /fragrance/?f=1-1-55544 from the sandbox, while robots.txt answered 200
+    // and allows that section, the sitemap and product pages for `*`. So the
+    // shop's stated crawl policy admits us and its Cloudflare zone does not:
+    // a bot management verdict, not a robots.txt refusal.
+    // Our side, checked: no harvest was dispatched because `owner-import`
+    // is skipped by the harvest on purpose (2026-10-06), so a dispatch has
+    // nothing to ask; that is a decision, not a gap. The section URL and
+    // pagination are the shop's own (read off its markup), the parser reads
+    // its CollectionPage JSON-LD (fixture test), the saved page importer
+    // exists (`npm run notino:import`). Missing: a CJ feed reader, to build
+    // against a real feed file once approved (docs/NOTINO-PLAN.md). The
+    // local render was refused five times (2026-09-11/12) and is never tried
+    // after a refusal; the Apify tiers are off (D23).
+    // Lawful route: CJ Affiliate, Notino UK via VIVnetworks, XML feed (below).
+    // Also, because robots.txt allows us, Cloudflare's Verified Bots
+    // programme (signed or IP validated PriceSniffsBot) is the one honest
+    // identity route that could change the challenge, if Notino's zone
+    // admits verified bots; unproven, and an owner level project decision.
+    // Recommendation: stays off. Owner applies on CJ and sends the email
+    // (docs/outreach/notino-uk.md); optional weekly saved pages meanwhile.
     affiliate: {
       network: 'cj',
       verified: true,
@@ -973,7 +997,48 @@ export const RETAILERS: readonly Retailer[] = [
     // browser headers, no residential or rotating proxy (only this
     // sandbox's own fixed egress), nothing retried against a refusal. See
     // docs/outreach/ for the permission request drafted for the owner.
-    affiliate: { ...NO_AFFILIATE_YET },
+    //
+    // ── Diagnosis, 2026-10-08 (docs/SHOP-PROBES-2026-10-08.md) ──────────────
+    // Blocker: a Cloudflare managed challenge (HTTP 403, `cf-mitigated:
+    // challenge`, "Just a moment...") on robots.txt, all three sections and
+    // /sitemap.xml from the sandbox, and HTTP 403 on /sitemap.xml from a
+    // GitHub runner (probe run #66, job 113116117730). robots.txt itself is
+    // challenged, so this is a zone wide bot rule, not a path rule, and no
+    // section URL, parser or adapter change on our side can reach past it.
+    // Our side, checked: identity is PriceSniffsBot as required; the answer
+    // came in under a second (no timeout); no markup was served, so no parser
+    // gap; the free local render is never tried after a refusal (and six
+    // renders on 2026-08-25/26 were 403s, hence `renderRefused: 'local'`);
+    // the Apify tiers never ran here and stay off (D23), and would only be a
+    // way round the challenge. The one shop probe workflow did not install
+    // Chromium; fixed 2026-10-08, but it changes nothing for a refused shop.
+    // Lawful route: Rakuten Advertising. The shop's own affiliates page
+    // (https://www.thefragranceshop.co.uk/affiliates, read through a search
+    // engine extract on 2026-10-08 because the domain refuses us) asks
+    // affiliates to join Rakuten and search "The Fragrance Shop" or advertiser
+    // ID 43488, and offers a daily product feed. Aggregator listings show its
+    // Awin programme closed and its Webgains programme closing. Not yet
+    // confirmed on Rakuten's own advertiser listing, hence `verified: false`.
+    // No Rakuten feed reader exists yet (scripts/awin-feed-sync.ts is Awin
+    // only): on approval, build one for Rakuten's Product Catalog feed (SFTP,
+    // XML or pipe delimited) and set `adapter: 'affiliate-feed'`.
+    // Recommendation: stays off. Owner applies to Rakuten programme 43488 and
+    // asks for product feed access; the permission email in
+    // docs/outreach/the-fragrance-shop.md is the fallback.
+    affiliate: {
+      network: 'rakuten',
+      verified: false,
+      status: 'not-applied',
+      publisherId: null,
+      deeplinkTemplate: null,
+      querySuffixTemplate: null,
+      signupUrl: 'https://www.thefragranceshop.co.uk/affiliates',
+      notes:
+        'Read 2026-10-08 from a search engine extract of the shop\'s own affiliates page: ' +
+        '"Sign up here for free to our affiliate network on Rakuten ... Search for The Fragrance ' +
+        'Shop or use our ID: 43488". The same page offers a daily product feed. Awin listing ' +
+        'shown closed by an aggregator. Not yet checked against Rakuten\'s own advertiser listing.',
+    },
   },
   {
     id: 'the-perfume-shop',
@@ -1137,7 +1202,47 @@ export const RETAILERS: readonly Retailer[] = [
     // browser headers, no residential or rotating proxy (only this
     // sandbox's own fixed egress), nothing retried against a refusal. See
     // docs/outreach/ for the permission request drafted for the owner.
-    affiliate: { ...NO_AFFILIATE_YET },
+    //
+    // ── Diagnosis, 2026-10-08 (docs/SHOP-PROBES-2026-10-08.md) ──────────────
+    // Blocker: an Akamai edge deny (AkamaiGHost "Access Denied", HTTP 403,
+    // 388 to 454 bytes, errors.edgesuite.net reference) on robots.txt, all four
+    // sections, /sitemap.xml and a known product page from the sandbox, and
+    // HTTP 403 on /sitemap.xml from a GitHub runner (probe run #67, job
+    // 113116386630). The deny comes before robots.txt, so it is an edge rule
+    // on the requester, the same shape Superdrug gets (both AS Watson).
+    // Our side, checked: PriceSniffsBot as required; answers in under a
+    // second (no timeout); no markup, so no parser gap; the section paths
+    // were confirmed in a browser on 2026-08-06 and are not what is refused
+    // (robots.txt is); the local render is never tried after a refusal and
+    // five renders on 2026-08-25/26 were 403s; the Apify tiers stay off (D23);
+    // the 74 stored pages are rightly not re-read after the sitemap refusal.
+    // Nothing on our side to fix.
+    // Lawful route: the shop's own affiliate programme
+    // (https://www.theperfumeshop.com/affiliates, which refuses us). Its
+    // network is not confirmed: Tradedoubler announced itself the exclusive
+    // network from December 2018 and aggregators now show that listing and
+    // the Awin one closed, while affi.io lists a Rakuten Advertising GB
+    // programme as open and affsignal lists Rakuten Advertising. Recorded as
+    // the likely network, `verified: false`, until the owner reads the join
+    // link on that page in a browser.
+    // Recommendation: stays off. Owner opens the affiliates page, applies on
+    // the network it names (most likely Rakuten, the same account The
+    // Fragrance Shop needs) and asks for the product feed; permission email
+    // in docs/outreach/the-perfume-shop.md as the fallback.
+    affiliate: {
+      network: 'rakuten',
+      verified: false,
+      status: 'not-applied',
+      publisherId: null,
+      deeplinkTemplate: null,
+      querySuffixTemplate: null,
+      signupUrl: 'https://www.theperfumeshop.com/affiliates',
+      notes:
+        'Likely network only (2026-10-08): affi.io lists The Perfume Shop on Rakuten Advertising, ' +
+        'GB, open, and on Awin and Tradedoubler, closed; affsignal lists Rakuten Advertising. ' +
+        'Tradedoubler was exclusive from December 2018 (its own blog). Confirm on the shop\'s ' +
+        'affiliates page before applying.',
+    },
   },
   {
     id: 'john-lewis',
@@ -2757,6 +2862,30 @@ export const RETAILERS: readonly Retailer[] = [
     // On this, the Partnerize signup at partnerize.com/partners looks worth
     // the owner's time rather than worth delaying for a fresher signal.
     // `enabled` and pricing are unchanged by this comment.
+    //
+    // ── Diagnosis, 2026-10-08 (docs/SHOP-PROBES-2026-10-08.md) ──────────────
+    // Blocker: a Cloudflare block page ("Attention Required! | Cloudflare",
+    // "Sorry, you have been blocked", HTTP 403, 4,550 to 5,488 bytes) on
+    // robots.txt, the section, /sitemap.xml and a known product page from the
+    // sandbox, and HTTP 403 on /sitemap.xml from a GitHub runner (probe run
+    // #68, job 113116748477). A block, not a challenge: nothing a browser
+    // could pass even if passing were allowed. robots.txt is blocked too.
+    // The last priced harvest was the free local browser render of page one
+    // at 2026-10-04T15:38:54Z (data/harvest-report.json in c6d07f18: tier
+    // "render", 60 priced), two hours before the PriceSniffsBot only rule
+    // (3f565184, 17:35Z). Since then the render rightly does not run after
+    // the sitemap refusal, and the bot itself is blocked at the edge.
+    // Our side, checked: the section URL is right (browser, 2026-08-06) and
+    // the parser exists (src/catalogue/selfridgesRsc.ts, prices and markdowns
+    // settled); no timeout; identity is PriceSniffsBot as required. Nothing on
+    // our side reaches past a WAF block; the Apify actor that once rendered
+    // the page (2026-08-20) is off by D23 and would only route round it.
+    // Lawful route: Partnerize, below (2022 move, still listed by
+    // aggregators; Partnerize lets a brand offer product feeds to the
+    // partners on its campaign). Recommendation: stays off; owner signs up
+    // as a Partnerize partner, applies to Selfridges and asks for its product
+    // feed and whether a comparison site is accepted
+    // (docs/outreach/selfridges.md). The 299 stored listings age out.
     affiliate: {
       network: 'partnerize',
       verified: true,
@@ -2891,7 +3020,46 @@ export const RETAILERS: readonly Retailer[] = [
     // browser headers, no residential or rotating proxy (only this
     // sandbox's own fixed egress), nothing retried against a refusal. See
     // docs/outreach/ for the permission request drafted for the owner.
-    affiliate: { ...NO_AFFILIATE_YET },
+    //
+    // ── Diagnosis, 2026-10-08 (docs/SHOP-PROBES-2026-10-08.md) ──────────────
+    // Blocker: no HTTP response at all to robots.txt. From the sandbox the
+    // HTTP/2 stream is reset (curl 92, INTERNAL_ERROR) in about half a second
+    // on both www and the apex, and one HTTP/1.1 try got 0 bytes in 30 s; from
+    // a GitHub runner both hosts end in AbortError (probe run #69, job
+    // 113116999655). DNS (read 2026-10-08, no request to the shop) puts both
+    // hosts on Akamai: www is a CNAME to sdpremium.edgekey.net and
+    // e28400.dscksd.akamaiedge.net, the apex answers from Akamai addresses.
+    // So it is a connection reset or stall at the Akamai edge, the network
+    // layer form of the deny The Perfume Shop and Zara get as a 403; which
+    // Akamai action it is cannot be read from outside. In August the same
+    // edge answered 503 in under a second to bot and browser user agents.
+    // Our side, checked: RFC 9309 and src/catalogue/robots.ts treat an
+    // unreachable robots.txt as "ask nothing", correctly, so no section,
+    // sitemap or render is requested; a longer timeout would only wait on a
+    // stall; identity is PriceSniffsBot. The one shop probe could not render
+    // (no Chromium) until 2026-10-08; it can now, which matters here if the
+    // shop ever answers, since its grid is drawn by script (`headless`).
+    // Nothing on our side reaches past the edge; the Apify tiers are off (D23).
+    // Lawful route: Rakuten Advertising. affi.io lists "Harvey Nichols & Co
+    // Ltd" on Rakuten Advertising, GB, open (and FlexOffers, a sub network);
+    // no affiliates page on harveynichols.com was found, so the network is
+    // unconfirmed (`verified: false`).
+    // Recommendation: stays off; owner applies on Rakuten with the same
+    // publisher account as The Fragrance Shop and asks for the product feed;
+    // permission email in docs/outreach/harvey-nichols.md as the fallback.
+    affiliate: {
+      network: 'rakuten',
+      verified: false,
+      status: 'not-applied',
+      publisherId: null,
+      deeplinkTemplate: null,
+      querySuffixTemplate: null,
+      signupUrl: 'https://rakutenadvertising.com/',
+      notes:
+        'Likely network only (2026-10-08): affi.io lists Harvey Nichols & Co Ltd on Rakuten ' +
+        'Advertising, GB, open, and on FlexOffers, GB, open. No affiliates page found on the ' +
+        'shop\'s own domain. Search for Harvey Nichols in the Rakuten publisher dashboard.',
+    },
   },
   {
     id: 'fragrance-click',
@@ -5157,6 +5325,29 @@ export const RETAILERS: readonly Retailer[] = [
     // browser headers, no residential or rotating proxy (only this
     // sandbox's own fixed egress), nothing retried against a refusal. See
     // docs/outreach/ for the permission request drafted for the owner.
+    //
+    // ── Diagnosis, 2026-10-08 (docs/SHOP-PROBES-2026-10-08.md) ──────────────
+    // Blocker: an Akamai edge deny ("Access Denied", HTTP 403, 375 to 476
+    // bytes, errors.edgesuite.net reference) on robots.txt, both sections,
+    // /sitemap.xml and the known product page from the sandbox, and HTTP 403
+    // on /sitemap.xml from a GitHub runner (probe run #70, job 113118100955).
+    // DNS (2026-10-08): www.zara.com is a CNAME to zara.com.edgekey.net, on
+    // Akamai. The deny comes before robots.txt, so it is a rule about the
+    // requester.
+    // Our side, checked: the sections are real pages, the JSON-LD parser
+    // already prices this shop's render (8 priced, 2026-08-22), identity is
+    // PriceSniffsBot, answers come in under a second. The only route that
+    // ever reached the page was the Apify actor on a residential address
+    // (2.76 to 2.94 MB); the free local render got 403 four times
+    // (`renderRefused: 'local'`) and is never tried after a refusal anyway;
+    // the actor is off by D23 and would be a route round the deny. Nothing
+    // on our side to fix.
+    // Lawful route: none with a feed. Zara runs no open affiliate programme
+    // (only an invitation only creator "Ambassador" scheme, reported to run
+    // through LTK), so the only route is a permission request to Zara
+    // (Inditex). Recommendation: stays off, lowest priority of the eight:
+    // a single brand shop whose perfumes no other shop sells is never
+    // compared here. Email in docs/outreach/zara.md, to send last if at all.
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {

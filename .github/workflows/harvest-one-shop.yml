@@ -32,6 +32,9 @@ name: Harvest probe (one shop)
 # It is capped the same way every other caller is: MAX_ACTOR_PAGES_PER_RUN in
 # src/catalogue/apifyActor.ts is a whole-run ceiling of 10 rendered pages and
 # is not overridable from here. One shop per run, deliberately.
+# (Since 2026-10-04, docs/DECISIONS.md D23: the metered tiers are off in code,
+# METERED_TIERS_ENABLED in src/catalogue/botIdentity.ts, so `allow_metered` is
+# accepted and does nothing until the owner records a new decision.)
 
 on:
   workflow_dispatch:
@@ -51,13 +54,16 @@ on:
 
 jobs:
   probe:
-    runs-on: ubuntu-latest
+    # Pinned to the crawl's image (catalogue-daily.yml), because the Chromium
+    # step below names Ubuntu packages per release.
+    runs-on: ubuntu-24.04
     # Generous next to the work, tight next to catalogue-daily's 100. The
     # Apify actor's synchronous endpoint alone can hold a request for up to
     # 300 seconds (see apifyActor.ts), and a slow shop retried at the 60s
     # timeout can spend a few minutes more, but nothing here walks a whole
-    # catalogue.
-    timeout-minutes: 20
+    # catalogue. 30 rather than 20 since 2026-10-08, to leave the Chromium
+    # install its own 10 minute cap without eating the shop's 15.
+    timeout-minutes: 30
 
     steps:
       # Shallow on purpose. Nothing here replays commit history — that is
@@ -70,6 +76,19 @@ jobs:
           cache: npm
 
       - run: scripts/retry.sh 3 npm ci
+
+      # The same browser install as catalogue-daily.yml's "Install Chromium for
+      # the local render tier". Without it this probe could never show the
+      # render tier the crawl has: its run of 2026-10-03 (job 111092664586)
+      # logged "local browser unavailable: browserType.launch: Executable
+      # doesn't exist" for both section URLs (docs/SHOP-PROBES-2026-10-08.md).
+      # The render still only runs as PriceSniffsBot, for a shop that answered
+      # but draws its grid with JavaScript, and never after a refusal.
+      # continue-on-error: losing the browser loses the render tier, not the probe.
+      - name: Install Chromium for the local render tier
+        continue-on-error: true
+        timeout-minutes: 10
+        run: scripts/retry.sh 2 npx playwright install --with-deps --only-shell chromium
 
       # Both credentials are passed unconditionally. catalogue-harvest.ts
       # checks for each itself and prints a clear line leaving that tier

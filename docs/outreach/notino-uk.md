@@ -1,14 +1,35 @@
-# Notino: permission request (draft, not sent)
+# Notino: affiliate application and permission request (draft, not sent)
 
-Drafted 2026-10-03 for the owner to send. Nothing has been sent.
+Drafted 2026-10-03, refreshed 2026-10-08 for the owner. Nothing has been sent.
+The full plan is `docs/NOTINO-PLAN.md`; this file is the owner's part of it.
 
-## Where to send it
+## Do this first: CJ Affiliate (Notino UK, run by VIVnetworks)
 
-**Best route found:** the contact page, https://www.notino.co.uk/contact
+Notino UK's programme runs on **CJ Affiliate**, managed by VIVnetworks
+(Publicis Groupe), whose own catalogue page,
+https://www.vivnetworks.com/en/affiliate-catalog/notinocom/, lists
+"XML feed: yes" (read 2026-09-10). Notino is not on Awin.
 
-That address came from a web search, which lists it as notino.co.uk's own contact page. We could not open it ourselves: notino.co.uk's home page answered our request with a 403 challenge page on 2026-10-03. Open it in an ordinary browser and use the form it offers. No press or partnerships page was found.
+Steps for the owner (also in `docs/OWNER-STEPS.md` and `docs/NOTINO-PLAN.md`):
 
-## The email
+1. Make a free publisher account at cj.com with https://pricesniffs.space as
+   the site and "price comparison" as the promotional method.
+2. In CJ, search for "Notino UK" and apply. VIVnetworks decides by hand; it
+   can take weeks, and a small site may be held.
+3. When accepted, ask for the product feed and tell an agent your CJ
+   publisher id (never a password or token). A CJ feed reader is built then,
+   against the real file.
+
+## In parallel: the permission email
+
+Send it the same day; it costs nothing. Notino's own robots.txt already
+allows our crawler on `/fragrance/`, product pages and the sitemap; it is
+Cloudflare's challenge in front of them that turns us away.
+
+**Where to send it:** the contact page, https://www.notino.co.uk/contact
+(from a web search; notino.co.uk answers our requests with a Cloudflare
+challenge). Open it in an ordinary browser and use the form it offers. No
+press or partnerships page was found.
 
 Replace [YOUR NAME] before sending.
 
@@ -20,9 +41,9 @@ Replace [YOUR NAME] before sending.
 
     PriceSniffs shows what a bottle costs at each UK shop that sells it, with delivery included, so a shopper sees the real total before they click. Every listing links straight to the shop's own product page, where the sale happens. We never change a shop's price, and if we cannot keep a price current we take it off the site rather than show an old one.
 
-    We would like to include Notino UK. At the moment our checks of your public pages are turned away by your website's security, and we respect that, so we have stopped trying.
+    We would like to include Notino UK. Your robots.txt allows crawlers on your fragrance pages, but at the moment our requests are turned away by your website's security (a Cloudflare challenge), and we respect that, so we have stopped trying.
 
-    Would you be willing to let us read your public product prices, for example by allowing our crawler (it identifies itself as PriceSniffsBot) to visit at a gentle rate? Or, if you prefer, would you share a product data feed with prices, stock and product links? Either would let us send shoppers to you with accurate, current prices.
+    Would you be willing to let our crawler, which identifies itself as PriceSniffsBot and follows robots.txt, read your public product prices at a gentle rate? Or, if you prefer, would you share a product data feed with prices, stock and product links? If you already supply a feed to comparison sites, we would be glad to receive it on the same terms. We are also applying to your programme on CJ.
 
     Whichever suits you, we will follow any conditions you set, such as how often we check or which pages we use. I would be glad to answer any questions.
 
@@ -31,4 +52,3 @@ Replace [YOUR NAME] before sending.
     [YOUR NAME]
     PriceSniffs
     https://pricesniffs.space
-

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { itemSummary } from '../demo/itemSummary.js';
+import { articleFor, itemSummary } from '../demo/itemSummary.js';
 import { DEMO_FRAGRANCES } from '../demo/data.js';
 import { isOil, isSet } from '../demo/productKind.js';
 
@@ -33,17 +33,27 @@ describe('what a set is', () => {
 
   it('names what else is in the box, only from the box letters it knows', () => {
     expect(itemSummary(set({ contents: null, title: 't', box: 'bw' }))).toBe(
-      'This is a gift set. As the shops list it, the box also holds a body product and a wash.',
+      'This is a gift set. The shops list a body lotion or balm and a shower gel or body wash in the box as well.',
     );
-    expect(itemSummary(set({ contents: null, title: 't', box: 'bdw' }))).toContain('a body product, a deodorant and a wash');
+    expect(itemSummary(set({ contents: null, title: 't', box: 'bdw' }))).toContain('a body lotion or balm, a deodorant and a shower gel or body wash');
     expect(itemSummary(set({ contents: null, title: 't', box: 'z' }))).toBe('This is a gift set.');
+  });
+});
+
+describe('a or an before a size', () => {
+  it('follows the number as it is read aloud', () => {
+    for (const ml of [8, 8.5, 11, 18, 80, 85, 800]) expect(articleFor(ml), String(ml)).toBe('an');
+    for (const ml of [1, 1.8, 5, 10, 12, 15, 30, 50, 100, 110, 118, 180]) expect(articleFor(ml), String(ml)).toBe('a');
+    expect(itemSummary(set({ contents: null, title: 't', mainMl: 80 }))).toBe('This is a gift set with an 80ml main bottle.');
   });
 });
 
 describe('what an oil is', () => {
   it('says perfume oil or attar, the size, and the site rule about comparing', () => {
-    expect(itemSummary(oil('Perfume Oil', 12))).toBe('This is a perfume oil of 12ml. It is compared only with the same oil at other shops, never with a spray.');
-    expect(itemSummary(oil('Attar', 6))).toContain('This is an attar of 6ml.');
+    expect(itemSummary(oil('Perfume Oil', 12))).toBe('This is a 12ml perfume oil. It is compared only with the same oil at other shops, never with a spray.');
+    expect(itemSummary(oil('Attar', 6))).toContain('This is a 6ml attar.');
+    expect(itemSummary(oil('Attar', 8))).toContain('This is an 8ml attar.');
+    expect(itemSummary(oil('Attar', null))).toMatch(/^This is an attar\. It is compared/);
     expect(itemSummary(oil('Perfume Oil', null))).toMatch(/^This is a perfume oil\. It is compared/);
   });
 });
@@ -67,6 +77,8 @@ describe('every set and oil in the catalogue', () => {
       expect(DASH.test(text!), `${f.id}: ${text}`).toBe(false);
       expect(text!.split(/(?<=\.) /).length, f.id).toBeLessThanOrEqual(3);
       expect(text!.length, f.id).toBeLessThan(220);
+      // "a 8ml", "a 80ml": the article must suit the number as it is spoken.
+      for (const m of text!.matchAll(/\b(an?) ([\d.]+)ml\b/g)) expect(m[1], `${f.id}: ${text}`).toBe(articleFor(Number(m[2])));
     }
   });
 
@@ -77,7 +89,7 @@ describe('every set and oil in the catalogue', () => {
         expect(/\d+ items?/.test(text), f.id).toBe(f.giftSet.items !== undefined && f.giftSet.items > 0);
         expect(text.includes('main bottle'), f.id).toBe(f.giftSet.mainMl !== undefined && f.giftSet.mainMl > 0);
       } else {
-        expect(/of [\d.]+ml/.test(text), f.id).toBe(f.sizeMl !== null && f.sizeMl > 0);
+        expect(/[\d.]+ml/.test(text), f.id).toBe(f.sizeMl !== null && f.sizeMl > 0);
       }
     }
   });

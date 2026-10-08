@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-07T21:31:12.037Z",
-  "seenAt": "2026-10-07T21:31:12.037Z",
+  "updatedAt": "2026-10-08T01:23:01.700Z",
+  "seenAt": "2026-10-08T01:23:01.700Z",
   "source": "live",
   "listings": [
     {
@@ -5718,7 +5718,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Lynked Forever is a luminous and captivating fragrance that celebrates feminine elegance with a touch of modern allure. Radiant florals melt into soft, creamy woods, creating a scent that feels both sensual and timeless—an ode to confidence, charm, and everlasting allure.. PERFUME NOTES. Top Notes: Mandarin, Berries. Middle Notes: Gardenia, Tuberose, Ylang. Base Notes: Coconut, Sandalwood, Musk, Dry woods.",
       "productType": null,

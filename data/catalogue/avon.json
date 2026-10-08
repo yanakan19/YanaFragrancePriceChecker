@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-07T21:31:12.037Z",
-  "seenAt": "2026-10-07T21:31:12.037Z",
+  "updatedAt": "2026-10-08T01:23:01.700Z",
+  "seenAt": "2026-10-08T01:23:01.700Z",
   "source": "live",
   "listings": [
     {
@@ -474,7 +474,7 @@
       "priceGbp": 14,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know: . The Rare Gold gift set is a beautifully balanced fragrance duo that celebrates classic beauty with a golden glow . . . Featuring the iconic Rare Gold Eau de Parfum and an exclusive hair mist , it’s designed for elegant layering and all‑day allure. Warm, refined and unmistakably timeless. . . Set includes: . Eau de Parfum 50 ml . Hair Mist 50 ml . . Scent type: . A sophisticated floral aldehydic fragrance with a warm, elegant trail. . . Key notes: . Top: Ylang‑ylang, Peach, Mandarin Orange, Bergamot Middle: Tuberose, Jasmine, Gardenia Bottom: Amber, Sandalwood, Vanilla . . Why you’ll love it: . • Creates a refined, long‑lasting scent from morning to evening. . • Hair Mist leaves hair feeling soft, smooth and silky to the touch — only available in this set . . • Presented in a beautiful, ready‑to‑gift box – no wrapping needed. . . . How do you use it? . Spray the Eau de Parfum onto pulse points to release the fragrance. . Lightly spray the Hair Mist onto dry hair from approximately 30 cm away for a soft, elegant finish. . .",
       "productType": "FRAGRANCE",
