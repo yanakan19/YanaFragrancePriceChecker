@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 217,
+ "folded": 215,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -1801,38 +1801,6 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3346130438243",
-   "absorbed": [
-    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3346130438243",
-     "brand": "Hermès",
-     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
-     "concentration": "Eau de Toilette",
-     "ean": "3346130438243",
-     "scent": "d hermes terre",
-     "signature": "1x100fragrance|1x15fragrance|1x40wash",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
-     "brand": "Hermès",
-     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d hermes terre",
-     "signature": "1x100fragrance|1x15fragrance|1x40wash",
-     "shops": [
-      "john-lewis"
      ]
     }
    ]
@@ -4037,38 +4005,6 @@
      "ean": null,
      "scent": "acqua di gio",
      "signature": "2x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3700559606735",
-   "absorbed": [
-    "set-maison-francis-kurkdjian-baccarat-rouge-540-extrait-de-parfum-travel-set-3-x-11ml-extrait-de-parfum-refills"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3700559606735",
-     "brand": "Maison Francis Kurkdjian",
-     "name": "Baccarat Rouge 540 Extrait de Parfum Travel Set 3 x 11ml Extrait de Parfum Refills",
-     "concentration": "Extrait de Parfum",
-     "ean": "3700559606735",
-     "scent": "540 baccarat refills rouge",
-     "signature": "3x11fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-maison-francis-kurkdjian-baccarat-rouge-540-extrait-de-parfum-travel-set-3-x-11ml-extrait-de-parfum-refills",
-     "brand": "Maison Francis Kurkdjian",
-     "name": "Baccarat Rouge 540 Extrait de Parfum Travel Set 3 x 11ml Extrait de Parfum Refills",
-     "concentration": "Extrait de Parfum",
-     "ean": null,
-     "scent": "540 baccarat refills rouge",
-     "signature": "3x11fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -8917,6 +8853,49 @@
      "ean": null,
      "scent": "boss bottled",
      "signature": "1x150deo|1x50fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "strengths differ: Eau de Parfum, Extrait de Parfum"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3700559606735",
+     "brand": "Maison Francis Kurkdjian",
+     "name": "Baccarat Rouge 540 Extrait de Parfum Travel Set 3 x 11ml Extrait de Parfum Refills",
+     "concentration": "Extrait de Parfum",
+     "ean": "3700559606735",
+     "scent": "540 baccarat refills rouge",
+     "signature": "3x11fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-maison-francis-kurkdjian-baccarat-rouge-540-eau-de-parfum-refills-3-x-11ml",
+     "brand": "Maison Francis Kurkdjian",
+     "name": "Baccarat Rouge 540 Eau de Parfum Refills, 3 x 11ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "540 baccarat refills rouge",
+     "signature": "3x11fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    },
+    {
+     "id": "set-maison-francis-kurkdjian-baccarat-rouge-540-extrait-de-parfum-travel-set-3-x-11ml-extrait-de-parfum-refills",
+     "brand": "Maison Francis Kurkdjian",
+     "name": "Baccarat Rouge 540 Extrait de Parfum Travel Set 3 x 11ml Extrait de Parfum Refills",
+     "concentration": "Extrait de Parfum",
+     "ean": null,
+     "scent": "540 baccarat refills rouge",
+     "signature": "3x11fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
