@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 74 retailers, 42 of them `enabled: true`. Every one of them is a legitimate
+ * 74 retailers, 43 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -6344,7 +6344,13 @@ export const RETAILERS: readonly Retailer[] = [
     // Delivery read off https://www.gorgeousshop.com/uk-delivery-options the
     // same day: UK Saver Delivery 2-4 days, £2.95, free over £25 (Express and
     // Click & Collect are other services and not modelled).
-    enabled: false,
+    //
+    // Proved from a GitHub runner the same day: harvest probe run
+    // 37717902614, job 113118559094 (dry run, this route, 5 s gap). 10 aisle
+    // pages found 268 product addresses, 78 product pages read, 80 priced
+    // listings, no refusal; it stopped only at the probe's 8 minute ceiling.
+    // Switched on for that.
+    enabled: true,
     adapter: 'json-ld',
     currency: 'GBP',
     shipping: {
