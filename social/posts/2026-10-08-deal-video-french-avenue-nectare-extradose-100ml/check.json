@@ -1,0 +1,62 @@
+{
+  "id": "emirates-oud-15785000534365-default-title",
+  "url": "https://pricesniffs.space/french_avenue_nectare_extradose_100ml",
+  "name": "Nectare Extradose 100ml",
+  "brand": "French Avenue",
+  "delivered": 28.98,
+  "msrp": 45,
+  "shop": "Emirates Oud",
+  "percent": 35,
+  "pricesCheckedAt": "2026-10-08T01:23:01.700Z",
+  "dealsList": {
+    "generatedAt": "2026-10-08T02:15:23.894Z",
+    "retailerId": "emirates-oud",
+    "price": 28.98,
+    "wasPrice": 45,
+    "percentOff": 35,
+    "kind": "house"
+  },
+  "photo": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nectare-Extradose-100ml-EDP-French-Avenue-181146355.jpg?v=1764403498",
+  "brandRule": {
+    "restDays": 7,
+    "overridden": false
+  },
+  "liveCheck": {
+    "status": 404,
+    "servesApp": true,
+    "inLiveData": true,
+    "ok": true
+  },
+  "video": {
+    "file": "deal-video-9x16.mp4",
+    "seconds": 10,
+    "frames": 300,
+    "bytes": 1022213,
+    "transitions": [
+      {
+        "kind": "swipe",
+        "from": "bottle",
+        "to": "prices",
+        "start": 2.6,
+        "end": 3,
+        "seconds": 0.4
+      },
+      {
+        "kind": "dissolve",
+        "from": "prices",
+        "to": "note",
+        "start": 5.1,
+        "end": 5.6,
+        "seconds": 0.5
+      },
+      {
+        "kind": "swipe",
+        "from": "note",
+        "to": "outro",
+        "start": 7.4,
+        "end": 7.8,
+        "seconds": 0.4
+      }
+    ]
+  }
+}

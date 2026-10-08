@@ -214,7 +214,7 @@ function curl(url: string, extra: string[] = []): Buffer {
   return execFileSync('curl', ['-sSL', '-A', BOT_USER_AGENT, '--max-time', '30', ...extra, url], { maxBuffer: 64 * 1024 * 1024 });
 }
 
-function photoDataUri(url: string): string {
+export function photoDataUri(url: string): string {
   const src = resizedPhotoUrl(url, 800) ?? url;
   for (const u of [src, url]) {
     try {
@@ -473,7 +473,7 @@ export function notesHtml(p: Pick, dateLabel: string, notes: NotesResult, gender
 </main>${FIT_SCRIPT}</body></html>`;
 }
 
-function caption(p: Pick, url: string, checked: string, dateLabel: string): string {
+export function caption(p: Pick, url: string, checked: string, dateLabel: string): string {
   const name = undash(`${p.frag.name}${p.frag.sizeMl ? ` ${sizeLabel(p.frag.sizeMl)}` : ''}`);
   const brandTag = p.frag.brand.toLowerCase().replace(/[^a-z0-9]/g, '');
   return `Deal of the Day 🇬🇧 ${dateLabel}
@@ -493,7 +493,7 @@ ${url}
  * index.html), so the check is that the app is served at that address and the
  * live catalogue contains the perfume, not the bare status code.
  */
-function liveCheck(id: string, url: string): { status: number; servesApp: boolean; inLiveData: boolean; ok: boolean } {
+export function liveCheck(id: string, url: string): { status: number; servesApp: boolean; inLiveData: boolean; ok: boolean } {
   const out = curl(url, ['-w', '\n%{http_code}']).toString();
   const status = Number(out.slice(out.lastIndexOf('\n') + 1).trim());
   const file = /data\/catalogue\.[a-f0-9]+\.json/.exec(out)?.[0];
