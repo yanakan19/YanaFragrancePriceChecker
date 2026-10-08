@@ -4225,6 +4225,25 @@ export const RETAILERS: readonly Retailer[] = [
     // in docs/outreach/riiffs.md. Its perfumes are also sold by FragranceHub
     // and Perfume Click, which stay on the site.
     // Recommendation: stays off until the shop says yes.
+    //
+    // ── The captcha is intermittent: proved after the fix, 2026-10-08 ───────
+    // One probe on the fixed code, run #78 (job 113130005757, commit
+    // 0816f1a9, 03:11Z, `allow_metered: false`), was not challenged at all:
+    // robots.txt read, "woocommerce catalogue re-priced 141 of 141 stored
+    // listings in 3 request(s)", then "145 urls 14 fetched 13 priced
+    // listings". The probe 45 minutes earlier (run #71) was challenged. The
+    // crawl had also read this shop cleanly on 2026-10-04 at 21:43Z (41
+    // priced, 141 re-priced from the WooCommerce Store API), two hours before
+    // the owner switched it off (ff68d662, 23:41Z). So SiteGround challenges
+    // some requests and not others, and the route as PriceSniffsBot works
+    // whenever it is not challenged; nothing is solved or followed either way.
+    // Not switched back on here: the owner took it off while it was
+    // answering, and it carried 8 offers on the site then. With the robots
+    // fix above a challenged run now costs one request, so switching it back
+    // on is safe whenever the owner wants it: `enabled: true`, take it out of
+    // the switched-off lists (tests/registry.test.ts, tests/switchedOffShops.ts),
+    // `npm run rebuild` (the price history replays, since the enabled set is in
+    // its fingerprint), and a changelog line.
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {

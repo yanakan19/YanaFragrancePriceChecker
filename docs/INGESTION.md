@@ -389,4 +389,11 @@ What holds for all of them:
   refusal and asks nothing else, for every shop. More polite; prices nothing.
 - **Lawful route:** no affiliate programme or feed found. Permission from the
   shop, which can have its host let PriceSniffsBot through.
-- **Recommendation:** off until the shop agrees (`docs/outreach/riiffs.md`).
+- **Intermittent, proved after the fix:** probe run #78 (03:11Z) was not
+  challenged: WooCommerce re-priced 141 of 141 stored listings in 3 requests,
+  13 new pages priced. The crawl had also read it cleanly on 2026-10-04,
+  two hours before the owner switched it off. So the route works whenever
+  SiteGround does not challenge.
+- **Recommendation:** off for now as the owner's choice, not a blocker; safe
+  to switch back on whenever the owner wants (a challenged run now costs one
+  request). The email (`docs/outreach/riiffs.md`) would make it reliable.

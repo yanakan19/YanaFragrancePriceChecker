@@ -1090,4 +1090,25 @@ a refusal.
   shop, through its host's bot settings, can let PriceSniffsBot through, so the
   route is a permission email (`docs/outreach/riiffs.md`, refreshed). Its
   perfumes are also sold by FragranceHub and Perfume Click, which stay listed.
-- **Recommendation:** stays off until the shop agrees.
+- **After the fix, one probe (and a surprise):** run
+  [#78](https://github.com/yanakan19/YanaFragrancePriceChecker/actions/runs/37721515661)
+  (job 113130005757, commit 0816f1a9, 03:11Z, `allow_metered: false`) was
+  **not challenged**: robots.txt read, then
+  `Riiffs Perfumes: woocommerce catalogue re-priced 141 of 141 stored listings in 3 request(s)`
+  and `Riiffs Perfumes        145 urls   14 fetched   13 priced listings  [+141 re-priced from woocommerce catalogue]`.
+  Run #71, 45 minutes earlier, was challenged. The committed harvest report
+  of 2026-10-04 (c92b1cf0, run started 21:43:50Z) also shows a clean read:
+  142 URLs, 41 priced, 141 re-priced from WooCommerce. The owner switched the
+  shop off at 23:41Z that day (ff68d662), while it was answering. So the
+  captcha is **intermittent**: SiteGround challenges some requests or
+  addresses and not others, and the route as PriceSniffsBot works whenever it
+  is not challenged. Nothing is solved, followed or retried either way.
+- **Recommendation:** stays off for now, as an owner decision rather than a
+  blocker. It was taken off while readable, and it carried 8 offers on the
+  site then (ff68d662's own count). Our fix did not
+  make it answer; it makes a challenged run cost one request. Switching it
+  back on is safe whenever the owner wants it: `enabled: true`, take `riiffs`
+  out of the switched-off lists (`tests/registry.test.ts`,
+  `tests/switchedOffShops.ts`), `npm run rebuild` (the price history replays,
+  because the enabled set is in its checkpoint fingerprint), and a changelog
+  line. The permission email would make it reliable rather than intermittent.
