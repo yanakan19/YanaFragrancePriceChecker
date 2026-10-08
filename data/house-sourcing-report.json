@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-07T22:13:51.567Z",
+  "checkedAt": "2026-10-08T02:14:26.374Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -534,9 +534,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 196,
-      "pricedInGbp": 196,
-      "withPhoto": 195,
+      "listings": 197,
+      "pricedInGbp": 197,
+      "withPhoto": 196,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",

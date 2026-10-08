@@ -32,7 +32,20 @@ function list(parts: readonly string[]): string {
   return parts.length > 1 ? `${parts.slice(0, -1).join(', ')} and ${parts[parts.length - 1]}` : (parts[0] ?? '');
 }
 
-const BOX_WORDS: Record<string, string> = { b: 'a body product', d: 'a deodorant', w: 'a wash' };
+/**
+ * The box letters in words, as the Sets tab's In the Box filter names them
+ * (SET_BOX_OPTIONS in demo/tabFacets.ts; boxCode in src/catalogue/giftSetItems.ts):
+ * b is a body lotion, cream or balm, w a shower gel or body wash.
+ */
+/**
+ * "a" or "an" before a size as it is read aloud: an 8ml, an 11ml, an 18ml, an
+ * 80ml, but a 100ml and a 15ml.
+ */
+export function articleFor(ml: number): 'a' | 'an' {
+  return /^(8|1[18](\.|$))/.test(String(ml)) ? 'an' : 'a';
+}
+
+const BOX_WORDS: Record<string, string> = { b: 'a body lotion or balm', d: 'a deodorant', w: 'a shower gel or body wash' };
 
 /**
  * One or two sentences on what the item is, or null for a bottle (which needs
@@ -51,16 +64,17 @@ function setSummary(f: SummaryFields): string | null {
   if (!g) return null;
   const kind = g.mini ? 'a miniature or discovery set' : g.bundle ? 'a bundle of full size bottles' : 'a gift set';
   const items = g.items !== undefined && g.items > 0 ? `${g.items} ${g.items === 1 ? 'item' : 'items'}` : null;
-  const main = g.mainMl !== undefined && g.mainMl > 0 ? `a ${g.mainMl}ml main bottle` : null;
+  const main = g.mainMl !== undefined && g.mainMl > 0 ? `${articleFor(g.mainMl)} ${g.mainMl}ml main bottle` : null;
   const detail = [items ? `of ${items}` : null, main ? `with ${main}` : null].filter((x): x is string => x !== null);
   const first = `This is ${kind}${detail.length ? ` ${detail.join(' ')}` : ''}.`;
   const extras = [...(g.box ?? '')].map((c) => BOX_WORDS[c]).filter((w): w is string => w !== undefined);
-  const second = extras.length ? ` As the shops list it, the box also holds ${list(extras)}.` : '';
+  const second = extras.length ? ` The shops list ${list(extras)} in the box as well.` : '';
   return `${first}${second}`;
 }
 
 function oilSummary(f: SummaryFields): string {
-  const kind = f.concentration === 'Attar' ? 'an attar' : 'a perfume oil';
-  const size = f.sizeMl !== null && f.sizeMl > 0 ? ` of ${f.sizeMl}ml` : '';
-  return `This is ${kind}${size}. It is compared only with the same oil at other shops, never with a spray.`;
+  const kind = f.concentration === 'Attar' ? 'attar' : 'perfume oil';
+  const sized = f.sizeMl !== null && f.sizeMl > 0;
+  const what = sized ? `${articleFor(f.sizeMl!)} ${f.sizeMl}ml ${kind}` : kind === 'attar' ? 'an attar' : 'a perfume oil';
+  return `This is ${what}. It is compared only with the same oil at other shops, never with a spray.`;
 }
