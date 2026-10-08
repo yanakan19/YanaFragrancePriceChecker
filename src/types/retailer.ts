@@ -689,6 +689,20 @@ export interface SitemapRoute {
    */
   requireGbp?: boolean;
   /**
+   * A cookie sent with every request this route makes (sitemaps, category
+   * pages, product pages): the storefront's own currency setting, for a shop
+   * that chooses a visitor's currency from where it thinks they are and lets
+   * them change it. Scentsational is the case: a GitHub runner is quoted US
+   * dollars, and the shop's own currency menu (/currency/GBP/) does nothing but
+   * set `VSCurrency=GBP`, after which its pages and their JSON-LD say GBP.
+   *
+   * It states the market the bot asks to be priced in, which botIdentity.ts
+   * counts as honest; it is never a session, a login or anything that gets past
+   * a refusal. Set it only together with `requireGbp`, so a page that ignores
+   * it and answers in another currency still yields no price.
+   */
+  cookie?: string;
+  /**
    * Regular expressions (source text, one capture group each) read off a
    * product page and appended to its listing's title, for a shop whose
    * structured data names a fragrance without its concentration or size

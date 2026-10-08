@@ -6315,18 +6315,91 @@ export const RETAILERS: readonly Retailer[] = [
     // further was requested. A harvest probe from a runner, run 37085041182 job
     // 111093438164, priced nothing. Blocker: refused at the home page, as the
     // August probe also found.
+    //
+    // ── Measured again 2026-10-08: the bot is answered ──────────────────────────
+    //
+    // Every request below as PriceSniffsBot, plain fetch, nothing else.
+    // robots.txt (HTTP 200, 893 bytes): the same Magento file as before, crawl
+    // delays only for named bots (bingbot, Semrush, Ahrefs and so on), and for
+    // "*" 14 Disallow lines (/catalog/, /customer/account/, /searchanise/result,
+    // index.php and the like); category pages, ?p=N and product pages are not
+    // among them. Home page HTTP 200 (152,762 bytes, theme "Limely/gorgeous",
+    // Magento 2), no Cloudflare page this time. /sitemap.xml is an index of two
+    // files (10.5 MB and 2.6 MB, 10,534 addresses) last written 2023-02-23, so
+    // it is not used: the route reads the shop's own fragrance aisles instead.
+    // Category pages answer HTTP 200 in about 1 s, 30 product cards a page
+    // (`<a href="..." class="full-block">`), and state their page count in
+    // `<div id="am-page-count">`; a page past the last lists no product. Every
+    // page of every fragrance aisle was walked that day: /fragrance (29 pages)
+    // listed 843 products, and every product of perfume (23 pages, 687), for
+    // her (17, 509), for him (6, 163) and the gift sets is among them, so the
+    // route walks /fragrance alone. Its other 156 are bath and body, home
+    // fragrance and aromatherapy, which the catalogue's own rules leave out
+    // (14 of them are perfumes filed there, 4711 Original EDC among them). Product
+    // pages carry one schema.org Product in JSON-LD, priceCurrency GBP, for
+    // example Jimmy Choo Blossom Eau de Parfum Spray 40ml at 23.65 (out of
+    // stock), and Kylie Minogue Darling Eau De Parfum as an AggregateOffer with
+    // a named offer per size (30ml 22, 75ml 15.2), each size's own address
+    // answering 200.
+    // Delivery read off https://www.gorgeousshop.com/uk-delivery-options the
+    // same day: UK Saver Delivery 2-4 days, £2.95, free over £25 (Express and
+    // Click & Collect are other services and not modelled).
     enabled: false,
-    adapter: 'unknown',
+    adapter: 'json-ld',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
-      confidence: 'unverified',
-      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+      standardGbp: 2.95,
+      freeOverGbp: 25,
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-10-08',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.gorgeousshop.com/uk-delivery-options',
+        quote: 'For all UK orders under £25 you will be charged £2.95.',
+        readAt: '2026-10-08',
+      },
+      notes:
+        'UK Saver Delivery, 2-4 days, free over £25. UK Express (next working day, £4.49) and EVRi ' +
+        'Click & Collect (free over £15, £1.99 under) are other services and are not modelled. ' +
+        'Northern Ireland and the Scottish Islands and Highlands are excluded from free UK Saver Delivery.',
     },
-    catalogue: null,
+    sitemapRoute: {
+      // No sitemap: the shop's own is from 2023 (see above). Its fragrance
+      // aisles are the whole route.
+      roots: [],
+      product: '^https://www\\.gorgeousshop\\.com/[a-z0-9-]+$',
+      // Only what is never a perfume, whatever else its name says. Body care
+      // words are not named out: the shop's gift sets carry them beside the
+      // perfume (Korres White Tea EDT 50ml with body milk 125ml), and a body
+      // lotion on its own fails the catalogue's strength rule anyway.
+      exclude: '(^|[/-])(candles?|diffusers?|room-spray|hair-perfume|hair-mist|body-oil|bath-oil|pulse-point-roller)(-|/|$)',
+      requireGbp: true,
+      categories: {
+        pages: ['https://www.gorgeousshop.com/fragrance'],
+        pageParam: 'p',
+        productLink: '<a href="(https://www\\.gorgeousshop\\.com/[a-z0-9-]+)" class="full-block"',
+        pageCount: 'id="am-page-count"[^>]*>\\s*(\\d+)\\s*<',
+        maxPages: 60,
+        // Page one and a third of the rest, a different third each run:
+        // about 10 of the 29 pages.
+        rotation: 3,
+      },
+      // About 840 products to read once, about 700 of them perfume.
+      discoveryPages: 150,
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://www.gorgeousshop.com/searchanise/result?q={q}',
+      sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.gorgeousshop.com/fragrance?p={page}', tier: 'designer' },
+      ],
+      firstPage: 1,
+      maxPages: 60,
+      // Five seconds, the gap its robots.txt asks of bingbot. A local dry run
+      // at 1.5 s on 2026-10-08 was answered HTTP 429 (Cloudflare) after about
+      // 40 requests, on the heels of a 110 page walk of the aisles from the
+      // same address, and the harvest stopped as it should.
+      minRequestGapMs: 5000,
+    },
     affiliate: { ...awinRequested() },
   },
   {
@@ -6355,18 +6428,81 @@ export const RETAILERS: readonly Retailer[] = [
     // a GitHub runner, harvest probe run 37084782624 job 111092682073:
     // /sitemap.xml HTTP 403, 0 priced. Blocker: refused at the edge from both
     // networks.
+    //
+    // ── Measured again 2026-10-08: the bot is answered ──────────────────────────
+    //
+    // The same operator and the same Magento 2 build as Gorgeous Shop above
+    // (theme "Limely/beautyflash"), so the same route. As PriceSniffsBot, plain
+    // fetch: robots.txt HTTP 200 (895 bytes), byte for byte Gorgeous Shop's
+    // rules (crawl delays only for named bots; for "*" /catalog/,
+    // /customer/account/, /searchanise/result, index.php and the like; category
+    // pages, ?p=N and product pages permitted). Home page HTTP 200 (166,877
+    // bytes). /sitemap.xml is an index of two files (10.5 MB and 2.1 MB, 9,424
+    // addresses) last written 2023-02-23, so it is not used. Category pages
+    // answer HTTP 200 with 30 product cards a page and `am-page-count`. Walked
+    // whole that day: /fragrance (32 pages) listed 939 products, every one of
+    // perfume's (8 pages, 229) among them and 555 more whose addresses name a
+    // strength (EDP, EDT, EDC), so the route walks /fragrance alone. Product
+    // pages carry schema.org Product JSON-LD with priceCurrency GBP, as on
+    // Gorgeous Shop.
+    // Delivery read off https://www.beautyflash.co.uk/uk-delivery-options the
+    // same day: UK Saver Delivery 2-4 days, £2.95, free over £25 (Express,
+    // free over £125, and Click & Collect are other services, not modelled).
     enabled: false,
-    adapter: 'unknown',
+    adapter: 'json-ld',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
-      confidence: 'unverified',
-      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+      standardGbp: 2.95,
+      freeOverGbp: 25,
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-10-08',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.beautyflash.co.uk/uk-delivery-options',
+        quote: 'For all UK orders under £25 you will be charged £2.95.',
+        readAt: '2026-10-08',
+      },
+      notes:
+        'UK Saver Delivery, 2-4 days, free over £25. UK Express (next working day, £4.49, free over £125) ' +
+        'and EVRi Click & Collect (free over £15, £1.99 under) are other services and are not modelled. ' +
+        'Northern Ireland and the Scottish Islands and Highlands are excluded from free UK Saver Delivery.',
     },
-    catalogue: null,
+    sitemapRoute: {
+      // No sitemap: the shop's own is from 2023 (see above).
+      roots: [],
+      product: '^https://www\\.beautyflash\\.co\\.uk/[a-z0-9-]+$',
+      // Only what is never a perfume, whatever else its name says. Body care
+      // words are not named out: the shop's gift sets carry them beside the
+      // perfume (Korres White Tea EDT 50ml with body milk 125ml), and a body
+      // lotion on its own fails the catalogue's strength rule anyway.
+      exclude: '(^|[/-])(candles?|diffusers?|room-spray|hair-perfume|hair-mist|body-oil|bath-oil|pulse-point-roller)(-|/|$)',
+      requireGbp: true,
+      categories: {
+        pages: ['https://www.beautyflash.co.uk/fragrance'],
+        pageParam: 'p',
+        productLink: '<a href="(https://www\\.beautyflash\\.co\\.uk/[a-z0-9-]+)" class="full-block"',
+        pageCount: 'id="am-page-count"[^>]*>\\s*(\\d+)\\s*<',
+        maxPages: 60,
+        // Page one and a third of the rest, a different third each run:
+        // about 11 of the 32 pages.
+        rotation: 3,
+      },
+      // About 940 products to read once, about 780 of them perfume.
+      discoveryPages: 150,
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://www.beautyflash.co.uk/searchanise/result?q={q}',
+      sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.beautyflash.co.uk/fragrance?p={page}', tier: 'designer' },
+      ],
+      firstPage: 1,
+      maxPages: 60,
+      // Five seconds, the gap its robots.txt asks of bingbot. A local dry run
+      // at 1.5 s on 2026-10-08 was answered HTTP 429 (Cloudflare) after about
+      // 40 requests, on the heels of a 110 page walk of the aisles from the
+      // same address, and the harvest stopped as it should.
+      minRequestGapMs: 5000,
+    },
     affiliate: { ...awinRequested() },
   },
   {
