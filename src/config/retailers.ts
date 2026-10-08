@@ -2996,7 +2996,46 @@ export const RETAILERS: readonly Retailer[] = [
     // browser headers, no residential or rotating proxy (only this
     // sandbox's own fixed egress), nothing retried against a refusal. See
     // docs/outreach/ for the permission request drafted for the owner.
-    affiliate: { ...NO_AFFILIATE_YET },
+    //
+    // ── Diagnosis, 2026-10-08 (docs/SHOP-PROBES-2026-10-08.md) ──────────────
+    // Blocker: no HTTP response at all to robots.txt. From the sandbox the
+    // HTTP/2 stream is reset (curl 92, INTERNAL_ERROR) in about half a second
+    // on both www and the apex, and one HTTP/1.1 try got 0 bytes in 30 s; from
+    // a GitHub runner both hosts end in AbortError (probe run #69, job
+    // 113116999655). DNS (read 2026-10-08, no request to the shop) puts both
+    // hosts on Akamai: www is a CNAME to sdpremium.edgekey.net and
+    // e28400.dscksd.akamaiedge.net, the apex answers from Akamai addresses.
+    // So it is a connection reset or stall at the Akamai edge, the network
+    // layer form of the deny The Perfume Shop and Zara get as a 403; which
+    // Akamai action it is cannot be read from outside. In August the same
+    // edge answered 503 in under a second to bot and browser user agents.
+    // Our side, checked: RFC 9309 and src/catalogue/robots.ts treat an
+    // unreachable robots.txt as "ask nothing", correctly, so no section,
+    // sitemap or render is requested; a longer timeout would only wait on a
+    // stall; identity is PriceSniffsBot. The one shop probe could not render
+    // (no Chromium) until 2026-10-08; it can now, which matters here if the
+    // shop ever answers, since its grid is drawn by script (`headless`).
+    // Nothing on our side reaches past the edge; the Apify tiers are off (D23).
+    // Lawful route: Rakuten Advertising. affi.io lists "Harvey Nichols & Co
+    // Ltd" on Rakuten Advertising, GB, open (and FlexOffers, a sub network);
+    // no affiliates page on harveynichols.com was found, so the network is
+    // unconfirmed (`verified: false`).
+    // Recommendation: stays off; owner applies on Rakuten with the same
+    // publisher account as The Fragrance Shop and asks for the product feed;
+    // permission email in docs/outreach/harvey-nichols.md as the fallback.
+    affiliate: {
+      network: 'rakuten',
+      verified: false,
+      status: 'not-applied',
+      publisherId: null,
+      deeplinkTemplate: null,
+      querySuffixTemplate: null,
+      signupUrl: 'https://rakutenadvertising.com/',
+      notes:
+        'Likely network only (2026-10-08): affi.io lists Harvey Nichols & Co Ltd on Rakuten ' +
+        'Advertising, GB, open, and on FlexOffers, GB, open. No affiliates page found on the ' +
+        'shop\'s own domain. Search for Harvey Nichols in the Rakuten publisher dashboard.',
+    },
   },
   {
     id: 'fragrance-click',

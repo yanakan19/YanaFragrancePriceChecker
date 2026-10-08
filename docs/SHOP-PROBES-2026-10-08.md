@@ -943,3 +943,41 @@ a refusal.
   sites are accepted (`docs/outreach/selfridges.md`, new today). A Partnerize
   feed reader would be needed on approval. The 299 stored listings age out
   under the 7 day rule.
+
+### 4. Harvey Nichols
+
+- **Why not:** connection level refusal at an Akamai edge. robots.txt gets no
+  HTTP response: HTTP/2 stream reset (`curl (92) ... INTERNAL_ERROR`) in 0.53
+  and 0.62 s on www and the apex, one HTTP/1.1 try with 0 bytes in 30 s, and
+  `HTTP 0 — AbortError` on both hosts from the CI runner (run #69). A DNS
+  lookup made today (no request to the shop) shows `www.harveynichols.com` as
+  a CNAME to `sdpremium.edgekey.net` and `e28400.dscksd.akamaiedge.net`, and
+  `harveynichols.com` on Akamai addresses (2.21.240.66, 2a02:26f0:...). The
+  same edge answered HTTP 503 in under a second to both a bot and a browser
+  user agent from CI on 2026-08-20, and HTTP 200 (with an empty, script drawn
+  grid) on 2026-08-10. So the shop moved from answering, to a 503, to
+  resetting or stalling the connection; which Akamai action produces a reset
+  and a stall cannot be read from outside.
+- **Our side?** Nothing to fix:
+  - robots.txt rule: RFC 9309 and `src/catalogue/robots.ts` treat a
+    robots.txt that cannot be read as "ask nothing"; the harvest asked once
+    more after 30 s and stopped. Correct.
+  - Timeout: the HTTP/1.1 try got no byte in 30 s; a longer wait would only
+    sit on a stall.
+  - URL: the section was confirmed in a browser on 2026-08-06; never reached.
+  - Identity: PriceSniffsBot. Render: never reached (robots.txt first).
+  - Workflow: before today the one shop probe could not render (no Chromium),
+    which mattered most for this `headless` shop; now fixed (shop 1). It would
+    only show something if the edge starts answering.
+  - Apify: the actor was refused by Apify itself (permission approval) and the
+    proxy failed on every shop in August; both off by D23.
+- **Lawful route:** **Rakuten Advertising**, likely: affi.io lists
+  "Harvey Nichols & Co Ltd" on Rakuten Advertising, GB, open, and on
+  FlexOffers, GB, open (a sub network). affi.io's "Harvey Nichols" page also
+  lists US programmes on Partnerize, Sale Gains and FlexOffers. No affiliates
+  page on harveynichols.com was found to confirm. Registry `affiliate` now
+  records Rakuten, `not-applied`, `verified: false`.
+- **Recommendation:** stays off. Owner searches the Rakuten publisher
+  directory for Harvey Nichols (same account as The Fragrance Shop), applies
+  and asks for the product feed; permission email as the fallback
+  (`docs/outreach/harvey-nichols.md`).

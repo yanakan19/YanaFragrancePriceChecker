@@ -322,3 +322,18 @@ What holds for all of them:
 - **Recommendation:** off. Owner signs up on Partnerize and applies, asking
   for the feed and whether comparison sites are accepted
   (`docs/outreach/selfridges.md`).
+
+### Harvey Nichols
+
+- **Blocker:** no HTTP response to robots.txt on either host: an HTTP/2
+  stream reset (INTERNAL_ERROR) or a stall with 0 bytes, from the sandbox and
+  a GitHub runner. DNS puts both hosts on Akamai (www via
+  sdpremium.edgekey.net), so it is a connection level refusal at the Akamai
+  edge. An unreachable robots.txt means nothing may be asked (RFC 9309).
+- **Our side:** nothing to fix; the robots rule is applied correctly and a
+  longer timeout would only wait on a stall. The probe's new Chromium step
+  matters here only if the shop ever answers (its grid is drawn by script).
+- **Lawful route:** Rakuten Advertising (affi.io: "Harvey Nichols & Co Ltd",
+  GB, open). Unconfirmed; no affiliates page found on the shop's domain.
+- **Recommendation:** off. Owner searches Rakuten for the programme and
+  applies (`docs/outreach/harvey-nichols.md`).
