@@ -1090,4 +1090,80 @@ a refusal.
   shop, through its host's bot settings, can let PriceSniffsBot through, so the
   route is a permission email (`docs/outreach/riiffs.md`, refreshed). Its
   perfumes are also sold by FragranceHub and Perfume Click, which stay listed.
-- **Recommendation:** stays off until the shop agrees.
+- **After the fix, one probe (and a surprise):** run
+  [#78](https://github.com/yanakan19/YanaFragrancePriceChecker/actions/runs/37721515661)
+  (job 113130005757, commit 0816f1a9, 03:11Z, `allow_metered: false`) was
+  **not challenged**: robots.txt read, then
+  `Riiffs Perfumes: woocommerce catalogue re-priced 141 of 141 stored listings in 3 request(s)`
+  and `Riiffs Perfumes        145 urls   14 fetched   13 priced listings  [+141 re-priced from woocommerce catalogue]`.
+  Run #71, 45 minutes earlier, was challenged. The committed harvest report
+  of 2026-10-04 (c92b1cf0, run started 21:43:50Z) also shows a clean read:
+  142 URLs, 41 priced, 141 re-priced from WooCommerce. The owner switched the
+  shop off at 23:41Z that day (ff68d662), while it was answering. So the
+  captcha is **intermittent**: SiteGround challenges some requests or
+  addresses and not others, and the route as PriceSniffsBot works whenever it
+  is not challenged. Nothing is solved, followed or retried either way.
+- **Recommendation:** stays off for now, as an owner decision rather than a
+  blocker. It was taken off while readable, and it carried 8 offers on the
+  site then (ff68d662's own count). Our fix did not
+  make it answer; it makes a challenged run cost one request. Switching it
+  back on is safe whenever the owner wants it: `enabled: true`, take `riiffs`
+  out of the switched-off lists (`tests/registry.test.ts`,
+  `tests/switchedOffShops.ts`), `npm run rebuild` (the price history replays,
+  because the enabled set is in its checkpoint fingerprint), and a changelog
+  line. The permission email would make it reliable rather than intermittent.
+
+### 8. Perfume Shopping
+
+- **Why not:** a Cloudflare region rule. HTTP 403 with a 90 byte
+  `text/plain` body, "We are sorry, this service is not available in your
+  region.", `server: cloudflare`, on robots.txt, both sections and
+  /sitemap.xml from this machine; HTTP 403 on /sitemap.xml from the CI runner
+  (run #74). A DNS lookup today shows `www.perfumeshopping.com` on Cloudflare
+  addresses (2606:4700:20::681a:537 and :437). This is a custom rule keyed on
+  the requester's region, not a bot challenge and not a robots.txt rule.
+  Neither this machine's egress nor GitHub's hosted runners is shown to be in
+  the UK; the shop prices in pounds, so it probably serves UK addresses only,
+  but with no UK vantage point that is an inference.
+- **Our side?** Nothing in code:
+  - URLs: both sections confirmed in a browser on 2026-08-06; robots.txt is
+    refused the same way.
+  - Identity: PriceSniffsBot. Timeout: no. Parser: no markup reached us.
+  - Render: never tried after a refusal. Apify (a GB proxy is possible
+    there): off by D23.
+  - Where we ask from is the one part that is ours. A self-hosted runner on a
+    UK machine would still send PriceSniffsBot and would not be a rotating or
+    residential proxy, but it would be a change of network in answer to a 403,
+    which D23 leaves to the owner. Not done, and not recommended ahead of the
+    Awin route.
+- **Lawful route:** **Awin**, merchant **5901**. Awin's own public profile
+  (`https://ui.awin.com/merchant-profile/5901`, read today) names "Perfume
+  Shopping", perfumeshopping.com, 5% starting commission, prices in pounds. The
+  owner applied on 2026-08-11. One `awin_memberships` dispatch today
+  (catalogue-daily run
+  [#797](https://github.com/yanakan19/YanaFragrancePriceChecker/actions/runs/37721719914),
+  job 113130683063, dispatched 03:13:45Z when no crawl was in progress) printed
+  `5 advertiser(s) this account has been accepted onto: 124166 Fragrance Click UK,
+  106925 MyBeauty.Boutique, 123544 Nicchia Luxury UK, 21605 Paco Perfumerias,
+  6561 Perfume Click`, so 5901 is not accepted. (In the same run "Test
+  everything else" hit its 15 minute cap and was reported as a warning; the
+  harvest's own tests passed.) Registry `affiliate` is now
+  `awinRequested('5901')`, so later membership checks report 5901 by name. On
+  acceptance no code is needed: `awinActive('5901', '3017443')`,
+  `adapter: 'affiliate-feed'`, and the existing Awin feed sync reads it.
+- **Recommendation:** stays off. Owner opens Perfume Shopping (5901) in the
+  Awin dashboard, chases or re-applies, and uses the email as the fallback
+  (`docs/outreach/perfume-shopping.md`, new today).
+
+### Summary of the diagnosis
+
+| # | Shop | Blocker (mechanism) | Our-side fix | Lawful route | On/off |
+|---|---|---|---|---|---|
+| 1 | The Fragrance Shop | Cloudflare managed challenge, robots.txt included | No fix reaches it; probe workflow now installs Chromium | Rakuten Advertising, advertiser 43488, daily product feed | Off |
+| 2 | The Perfume Shop | Akamai edge deny (AS Watson rule) | None | Own programme, likely Rakuten Advertising (Tradedoubler, Awin closed) | Off |
+| 3 | Selfridges | Cloudflare WAF block page | None (parser and URL fine) | Partnerize (product feeds for partners) | Off |
+| 4 | Harvey Nichols | Connection reset or stall at an Akamai edge, robots.txt unreachable | None | Likely Rakuten Advertising (Harvey Nichols & Co Ltd, GB) | Off |
+| 5 | Zara | Akamai edge deny | None | No programme or feed; permission from Inditex only | Off, lowest priority |
+| 6 | Notino UK | Cloudflare managed challenge; robots.txt allows us | None needed; CJ reader to build on a real feed | CJ Affiliate, Notino UK via VIVnetworks, XML feed | Off |
+| 7 | Riiffs Perfumes | SiteGround captcha, intermittent | Fixed: a captcha at robots.txt is a refusal, nothing else asked | Permission email; the route works when not challenged | Off (owner's choice; safe to switch on) |
+| 8 | Perfume Shopping | Cloudflare region rule | None in code (UK runner is an owner call) | Awin merchant 5901, applied, not yet accepted | Off |

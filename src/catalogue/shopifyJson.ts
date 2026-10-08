@@ -161,6 +161,14 @@ function optionNamesOf(product: JsonValue): string[] {
   );
 }
 
+/**
+ * The value Shopify gives the one variant of a product that has no options
+ * ("Default Title"), and the "0" a department store's feed (Fenwick) puts in a
+ * Colour option it does not use. Neither says anything about the bottle, so
+ * neither goes into a title built from option values.
+ */
+const PLACEHOLDER_OPTION_VALUE = /^(?:default title|0)$/i;
+
 /** One size, in plain millilitres: "50 ml", "7.5ml", "50  ml". Nothing else. */
 const PLAIN_ML = /^(\d+(?:\.\d+)?)\s*ml$/i;
 
@@ -173,6 +181,7 @@ export function productPassesVariantRule(product: JsonValue, rule: ShopifyVarian
     const type = (str(product['product_type']) ?? '').toLowerCase();
     if (!rule.productTypes.some((t) => t.toLowerCase() === type)) return false;
   }
+  if (rule.excludeTitle && new RegExp(rule.excludeTitle, 'i').test(str(product['title']) ?? '')) return false;
   const names = optionNamesOf(product).map((n) => n.toLowerCase());
   if (rule.requiredOptions && !rule.requiredOptions.every((r) => names.includes(r.toLowerCase()))) return false;
   if (rule.marketOption && !names.includes(rule.marketOption.name.toLowerCase())) return false;
@@ -194,6 +203,10 @@ export function variantPassesVariantRule(
     const at = lower.indexOf(rule.marketOption.name.toLowerCase());
     const value = (optionValues[at] ?? '').trim().toLowerCase();
     if (!rule.marketOption.keep.some((k) => k.toLowerCase() === value)) return false;
+  }
+  if (rule.minVariantMl !== undefined) {
+    const named = /(\d+(?:\.\d+)?)\s*ml\b/i.exec(optionValues.filter((v): v is string => v !== null).join(' '));
+    if (named && Number.parseFloat(named[1]!) < rule.minVariantMl) return false;
   }
   if (rule.sizeOption) {
     const at = lower.indexOf(rule.sizeOption.name.toLowerCase());
@@ -396,13 +409,18 @@ export function parseShopifyProducts(body: string, options: ShopifyParseOptions)
             )
             .filter((v): v is string => v !== null)
             .map((v) => v.replace(/\s+/g, ' ').trim())
+            .filter((v) => !PLACEHOLDER_OPTION_VALUE.test(v))
             .join(' ')
         : null;
+      // Under a rule the options are the name, and a product whose options were all
+      // placeholders keeps its plain title rather than falling back to the variant's.
       const variantTitle = ruleTitle
         ? `${title} ${ruleTitle}`
-        : variant.title && !/^default/i.test(variant.title)
-          ? `${title} ${variant.title}`
-          : title;
+        : rule
+          ? title
+          : variant.title && !/^default/i.test(variant.title)
+            ? `${title} ${variant.title}`
+            : title;
 
       // A product whose title lists its sizes names each variant by its own
       // (see ownSizeTitle): without it every row reads the first size listed.

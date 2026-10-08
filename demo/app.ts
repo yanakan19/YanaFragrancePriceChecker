@@ -5160,8 +5160,11 @@ function legalNoticeView(): string {
  * (src/catalogue/botIdentity.ts), for a shop that sees it in its logs. What it
  * reads, how often, that it obeys robots.txt, its identity, and how to stop it
  * or reach us. Each fact is the code's own: the user agent and robots token
- * are imported, and the request gap is the harvest's default
- * (scripts/catalogue-harvest.ts, 1.5 seconds, longer where Crawl-delay asks).
+ * are imported, and the request gap is the harvest's: the longer of a shop's
+ * minRequestGapMs (1.5 seconds where unset, 1.2 seconds at the two quickest
+ * shops) and its Crawl-delay (scripts/catalogue-harvest.ts). So the page says
+ * "at least a second", which every setting keeps; tests/crawlerClaims.test.ts
+ * checks that against the registry.
  */
 function botPageView(): string {
   return `
@@ -5172,7 +5175,7 @@ function botPageView(): string {
         comparison site. It reads the public product pages, sitemaps and product feeds of UK shops
         to show their prices, stock and delivery costs, with a link to the shop.</p>
       <h2 class="t-section">How Often It Visits</h2>
-      <p class="t-body">A few times a day at most for each shop, one request at a time, at least 1.5 seconds
+      <p class="t-body">A few times a day at most for each shop, one request at a time, at least a second
         apart. It never logs in, never fills a basket and never checks out.</p>
       <h2 class="t-section">It Obeys robots.txt</h2>
       <p class="t-body">It reads your robots.txt before anything else and follows it, a crawl delay

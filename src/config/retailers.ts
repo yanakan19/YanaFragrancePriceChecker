@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 74 retailers, 42 of them `enabled: true`. Every one of them is a legitimate
+ * 80 retailers, 48 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -3656,7 +3656,39 @@ export const RETAILERS: readonly Retailer[] = [
     // Applied via Awin's own Activity Stream 2026-08-11, merchant id not yet
     // known — only surfaces once the programme accepts and its profile page
     // becomes readable.
-    affiliate: { ...awinRequested() },
+    // Merchant id found 2026-10-08: Awin's own public profile
+    // https://ui.awin.com/merchant-profile/5901 names "Perfume Shopping",
+    // perfumeshopping.com, 5% starting commission, prices in pounds. So the
+    // pending application is to Awin merchant 5901, and the feed sync can find
+    // it by that id once it is accepted.
+    //
+    // ── Diagnosis, 2026-10-08 (docs/SHOP-PROBES-2026-10-08.md) ──────────────
+    // Blocker: a Cloudflare region rule. HTTP 403, a 90 byte text/plain body
+    // "We are sorry, this service is not available in your region.", `server:
+    // cloudflare`, on robots.txt, both sections and /sitemap.xml from the
+    // sandbox, and HTTP 403 on /sitemap.xml from a GitHub runner (probe run
+    // #74, job 113120946482). DNS (2026-10-08): Cloudflare addresses. Not a
+    // bot challenge: a refusal by where the request comes from. Neither the
+    // sandbox's egress nor GitHub's hosted runners is shown to be in the UK;
+    // the shop prices in pounds, so it likely serves UK addresses only, but
+    // with no UK vantage point that is an inference, not a measurement.
+    // Our side, checked: identity is PriceSniffsBot; URLs were confirmed in a
+    // browser (2026-08-06); no markup reached us, so no parser question; the
+    // render is never tried after a refusal; the Apify GB proxy is off (D23).
+    // The one thing that is ours is where we ask from. Asking from a UK
+    // address (a self-hosted runner on a UK machine) would still be
+    // PriceSniffsBot, not a rotating or residential proxy, but it would be a
+    // change of network in answer to a 403, which D23 leaves to the owner.
+    // Not done.
+    // Lawful route: Awin merchant 5901, applied 2026-08-11. The Awin
+    // memberships check of 2026-10-08 (catalogue-daily run #797, job
+    // 113130683063) lists 5 accepted advertisers and 5901 is not among them,
+    // so it is still pending or declined. Once joined it needs no code:
+    // `awinActive('5901', '3017443')`, `adapter: 'affiliate-feed'`, and the
+    // existing Awin feed sync reads it.
+    // Recommendation: stays off. Owner chases 5901 in the Awin dashboard
+    // (docs/outreach/perfume-shopping.md).
+    affiliate: { ...awinRequested('5901') },
   },
   {
     id: 'glorious-beauty',
@@ -4225,6 +4257,25 @@ export const RETAILERS: readonly Retailer[] = [
     // in docs/outreach/riiffs.md. Its perfumes are also sold by FragranceHub
     // and Perfume Click, which stay on the site.
     // Recommendation: stays off until the shop says yes.
+    //
+    // ── The captcha is intermittent: proved after the fix, 2026-10-08 ───────
+    // One probe on the fixed code, run #78 (job 113130005757, commit
+    // 0816f1a9, 03:11Z, `allow_metered: false`), was not challenged at all:
+    // robots.txt read, "woocommerce catalogue re-priced 141 of 141 stored
+    // listings in 3 request(s)", then "145 urls 14 fetched 13 priced
+    // listings". The probe 45 minutes earlier (run #71) was challenged. The
+    // crawl had also read this shop cleanly on 2026-10-04 at 21:43Z (41
+    // priced, 141 re-priced from the WooCommerce Store API), two hours before
+    // the owner switched it off (ff68d662, 23:41Z). So SiteGround challenges
+    // some requests and not others, and the route as PriceSniffsBot works
+    // whenever it is not challenged; nothing is solved or followed either way.
+    // Not switched back on here: the owner took it off while it was
+    // answering, and it carried 8 offers on the site then. With the robots
+    // fix above a challenged run now costs one request, so switching it back
+    // on is safe whenever the owner wants it: `enabled: true`, take it out of
+    // the switched-off lists (tests/registry.test.ts, tests/switchedOffShops.ts),
+    // `npm run rebuild` (the price history replays, since the enabled set is in
+    // its fingerprint), and a changelog line.
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -10089,6 +10140,410 @@ export const RETAILERS: readonly Retailer[] = [
       ...NO_AFFILIATE_YET,
       // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
+    },
+  },
+  // ── Added 2026-10-08: the UK retailer search of that date (docs/RETAILER-CANDIDATES-2026-10-08.md) ──
+  {
+    id: 'opulensi',
+    name: 'Opulensi',
+    domain: 'opulensi.com',
+    homepage: 'https://www.opulensi.com',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/opulensi.com',
+    trustpilotCheckedOn: '2026-10-08',
+    tiers: ['mideast'],
+    // Added 2026-10-08 (docs/RETAILER-CANDIDATES-2026-10-08.md). Found by WebSearch: a Leicester based
+    // specialist in Arabian houses that names itself an authorised seller of Anfar, Lattafa, Maison
+    // Alhambra, Sapil, Al-Rehab, Ard Al Zaafaran, Fragrance World, Afnan, Ajmal and Al Wataniah. Then read
+    // directly, as PriceSniffsBot only, robots.txt first, 1.5 s apart.
+    //
+    // robots.txt (https://www.opulensi.com/robots.txt, HTTP 200; the apex address redirects to www) is
+    // Shopify's stock file: /cart, /checkout, /account, /orders, /search and /policies/ disallowed,
+    // collection sort and filter URLs disallowed, product pages and /products.json not disallowed, no
+    // crawl delay for any agent, one sitemap named.
+    //
+    // /meta.json: opulensi.myshopify.com, currency GBP, country GB, 541 published products. The shop sends
+    // a US caller to /en-us, so the market was checked: page 1 of /products.json (250 variants) read at
+    // the origin, with ?country=GB and with the localization=GB cookie gave identical prices, and Lattafa
+    // Khamrah Waha 100ml £34.99 matches the UK product page (£34.99, was £39.99).
+    //
+    // Route: /products.json, 3 pages of 250. 509 of the 541 products are product type Perfume; the rest
+    // are deodorants, bakhoor, air fresheners, two backpacks and a wallet, which the catalogue's own
+    // fragrance test leaves out. 512 of the 517 listings that name a strength also name a size.
+    //
+    // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=opulensi --dry-run` read 554 priced listings,
+    // all in GBP; 495 of them pass the catalogue's own fragrance test and 222 of those are in stock.
+    //
+    // Affiliate: a confirmed Awin merchant, "Opulensi Perfumes Lattafa Sapil Anfar", programme 123248
+    // (https://ui.awin.com/merchant-profile/123248, read 2026-10-08). Not applied to.
+    enabled: true,
+    adapter: 'unknown',
+    shopifyStorefront: true,
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: 30,
+      estimatedDays: [1, 5],
+      verifiedAt: '2026-10-08',
+      confidence: 'confirmed',
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://www.opulensi.com/products/lattafa-khamrah-waha-unisex-eau-de-parfum-100ml',
+        quote:
+          'Free Shipping: Available for orders over £30 within the UK. Delivery Time: Your package will arrive between 1-5 working days, based on the shipping service selected. Shipping Rates: Shipping fees depend on the delivery destination and size of the order. Calculate the final price at checkout.',
+        readAt: '2026-10-08',
+      },
+      notes:
+        'Read off the Shipping & Delivery panel of a product page asked for in the UK market (?country=GB; ' +
+        'the US view of the same page says "Fast USA Shipping"), 2026-10-08. Carriers named: DPD, UPS, Evri and ' +
+        'Royal Mail Tracked 24/48. The charge below £30 is printed nowhere readable: the shipping policy page ' +
+        'is under /policies/, which robots.txt disallows, and the FAQ says only that charges are shown at ' +
+        'checkout. Nothing was added to a cart.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://www.opulensi.com/search?q={q}',
+      sections: [
+        { id: 'all', label: 'All products', urlTemplate: 'https://www.opulensi.com/collections/all?page={page}', tier: 'mideast' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
+    affiliate: {
+      ...awinPending('123248'),
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+    },
+  },
+  {
+    id: 'perfume-closet',
+    name: 'The Perfume Closet',
+    domain: 'theperfumecloset.co.uk',
+    homepage: 'https://theperfumecloset.co.uk',
+    tiers: ['mideast', 'designer'],
+    // Added 2026-10-08 (docs/RETAILER-CANDIDATES-2026-10-08.md). Found by WebSearch: a Birmingham shop at
+    // 462 Stratford Road that sells Arabian houses (Lattafa, Ajmal, Reef, Al Haramain, Ard Al Zaafaran) and
+    // some designer lines online. Then read directly, as PriceSniffsBot only, robots.txt first, 1.5 s apart.
+    //
+    // robots.txt (https://theperfumecloset.co.uk/robots.txt, HTTP 200) is Shopify's stock file; product
+    // pages and /products.json are not disallowed. /meta.json: mvvtz1-5g.myshopify.com, currency GBP,
+    // country GB, 724 published products. Page 1 of /products.json read at the origin and with
+    // ?country=GB: 277 variants, no price differs.
+    //
+    // Route: /products.json, 3 pages. The vendor of every product is the shop's own name, so the brand has
+    // to be read from the title, and there is no product type. 833 of the 903 listings that name a
+    // strength also name a size (in the title or in a "Size (ml)" option). About two thirds of the range
+    // is out of stock on the shop's own list; the stock flag is kept as the shop states it.
+    //
+    // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=perfume-closet --dry-run` read 1067 priced listings,
+    // all in GBP; 836 of them pass the catalogue's own fragrance test and 277 of those are in stock.
+    //
+    // Affiliate: none found.
+    enabled: true,
+    adapter: 'unknown',
+    shopifyStorefront: true,
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 6],
+      verifiedAt: '2026-10-08',
+      confidence: 'confirmed',
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://theperfumecloset.co.uk/pages/delivery-and-returns',
+        quote:
+          'We aim to despatch your items within 1-3 working days of ordering them. STANDARD POSTAGE – Available to UK addresses. Delivery aim within 3 working days of despatch. FIRST CLASS POSTAGE – Available to UK addresses. Delivery aim within 1-2 working days of despatch.',
+        readAt: '2026-10-08',
+      },
+      notes:
+        'The delivery page names the options and their windows and prints no price for any of them; the ' +
+        'shop\'s footer line is "shipping and discounts calculated at checkout". The window is dispatch in 1 ' +
+        'to 3 working days plus up to 3 working days of Royal Mail standard postage. A line about free ' +
+        'shipping on £2,000 is for the USA and is not a UK term. Nothing was added to a cart.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://theperfumecloset.co.uk/search?q={q}',
+      sections: [
+        { id: 'all', label: 'All products', urlTemplate: 'https://theperfumecloset.co.uk/collections/all?page={page}', tier: 'mideast' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+    },
+  },
+  {
+    id: 'perfumoi',
+    name: 'Perfumoi',
+    domain: 'perfumoi.co.uk',
+    homepage: 'https://perfumoi.co.uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/perfumoi.co.uk',
+    trustpilotCheckedOn: '2026-10-08',
+    tiers: ['designer', 'mideast'],
+    // Added 2026-10-08 (docs/RETAILER-CANDIDATES-2026-10-08.md). Found by WebSearch: a UK online
+    // perfume and beauty shop selling designer fragrance, with a few Arabian lines (Lattafa, Afnan), that
+    // says its stock comes through UK and European wholesale channels and carries original batch codes.
+    // Then read directly, as PriceSniffsBot only, robots.txt first, 1.5 s apart.
+    //
+    // robots.txt (https://perfumoi.co.uk/robots.txt, HTTP 200) is Shopify's stock file; product pages and
+    // /products.json are not disallowed. /meta.json: rxnaye-3j.myshopify.com, currency GBP, country GB,
+    // 354 published products. Page 1 of /products.json read at the origin and with ?country=GB: 314
+    // variants, no price differs.
+    //
+    // Route: /products.json, 2 pages. Product types are the strengths (Eau de Parfum 171, Eau de Toilette
+    // 153, Cologne 5, Parfum 5, Aftershave Lotion 5, Deodorant Spray 5, Deodorant Stick 4 and a few body
+    // products); all 442 listings that name a strength also name a size in the title. 330 of the 464
+    // variants are out of stock on the shop's own list; the stock flag is kept as the shop states it.
+    //
+    // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=perfumoi --dry-run` read 464 priced listings,
+    // all in GBP; 445 of them pass the catalogue's own fragrance test and 319 of those are in stock.
+    //
+    // Affiliate: none found.
+    enabled: true,
+    adapter: 'unknown',
+    shopifyStorefront: true,
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 0,
+      freeOverGbp: 0,
+      estimatedDays: [1, 2],
+      verifiedAt: '2026-10-08',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://perfumoi.co.uk/products/boucheron-pour-homme-eau-de-parfum-spray-100ml',
+        quote:
+          'Shipping charges: We currently offer free next-day shipping on all UK orders placed before 3:00 PM (UK time), Monday to Saturday via Royal Mail.',
+        readAt: '2026-10-08',
+      },
+      notes:
+        'Read off the Delivery & Returns panel of a product page on 2026-10-08, which also names Royal Mail ' +
+        'Tracked 24 as the default service and Royal Mail Standard Delivery at 1 to 2 working days. The home ' +
+        'page banner and the FAQ say the same ("Free Next-Day Delivery"), with no minimum spend anywhere. The ' +
+        '"currently" in the shop\'s wording is the reason to re-read this page on the delivery recheck. The ' +
+        'shipping policy page is under /policies/, which robots.txt disallows, and was not read.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://perfumoi.co.uk/search?q={q}',
+      sections: [
+        { id: 'all', label: 'All products', urlTemplate: 'https://perfumoi.co.uk/collections/all?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+    },
+  },
+  {
+    id: 'saad-fragrance',
+    name: 'Saad Fragrance',
+    domain: 'saadfragrance.com',
+    homepage: 'https://saadfragrance.com',
+    tiers: ['mideast'],
+    // Added 2026-10-08 (docs/RETAILER-CANDIDATES-2026-10-08.md). Found by WebSearch: a UK company
+    // (SAADFRAGRANCE LTD, Thornton Heath, per a company directory) selling Arabian houses: Lattafa,
+    // Riiffs, French Avenue, Ard Al Zaafaran, Afnan, Ahmed Al Maghribi, Azhrance, Escalo, Rayhaan.
+    // Then read directly, as PriceSniffsBot only, robots.txt first, 1.5 s apart.
+    //
+    // robots.txt (https://saadfragrance.com/robots.txt, HTTP 200) is Shopify's stock file; product pages
+    // and /products.json are not disallowed. /meta.json: ca667b-a2.myshopify.com, currency GBP, country
+    // GB, 156 published products. Page 1 of /products.json read at the origin and with ?country=GB: 156
+    // variants, no price differs.
+    //
+    // Route: /products.json, one page. 107 of the 156 products have no product type; 121 of the 137
+    // listings that name a strength also name a size. The house names are in the vendor field (Lattafa 25,
+    // Azhrance 22, Ahmed Al Maghribi 15, Escalo 12, Exotic Scents 9, Ard Al Zaafaran 8). Titles often give
+    // a size and no strength ("Eclair lattafa perfumes for women 100ml"); `fragranceOnlyCatalogue` was
+    // tried and left off, because the shop repeats the size ("75ml ... for women 75ML") and that flag's
+    // rule drops a title with two sizes: 93 listings pass with it, 114 without. 63 of the 156 products are
+    // in stock; the bundles ("Combo ...") and one body lotion fall out under the catalogue's own rules.
+    //
+    // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=saad-fragrance --dry-run` read 156 priced listings,
+    // all in GBP; 114 of them pass the catalogue's own fragrance test and 76 of those are in stock.
+    //
+    // Affiliate: none found. No Trustpilot page was found for this domain.
+    enabled: true,
+    adapter: 'unknown',
+    shopifyStorefront: true,
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 0,
+      freeOverGbp: 0,
+      estimatedDays: [3, 4],
+      verifiedAt: '2026-10-08',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://saadfragrance.com/products/riiffs-momento-100ml-extrait-de-parfum',
+        quote:
+          'Free Delivery Across the UK. We offer fast and free delivery on all orders. Delivery Time: 3–4 working days. Shipping Fee: Free shipping on all orders.',
+        readAt: '2026-10-08',
+      },
+      notes:
+        'Read off the Shipping & Returns panel of a product page on 2026-10-08; the same "Free Delivery ' +
+        'Across the UK" line sits above the add to cart button. No minimum spend is stated. The shop is a ' +
+        'one person company formed in 2024 (company directory), so the line is worth re-reading on the ' +
+        'delivery recheck.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://saadfragrance.com/search?q={q}',
+      sections: [
+        { id: 'all', label: 'All products', urlTemplate: 'https://saadfragrance.com/collections/all?page={page}', tier: 'mideast' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+    },
+  },
+  {
+    id: 'sainte-cellier',
+    name: 'Sainte Cellier',
+    domain: 'saintecellier.com',
+    homepage: 'https://saintecellier.com',
+    tiers: ['niche'],
+    fragranceOnlyCatalogue: true,
+    // Added 2026-10-08 (docs/RETAILER-CANDIDATES-2026-10-08.md). Found by WebSearch: a London based online
+    // niche perfumery (founded 2025) selling independent houses: Les Indémodables, Marissa Zappas, Aromag,
+    // Neela Vermeire Créations, Frassaï, Studio Tanaï, St. Clair Scents, Odette Parfum Co., Eris Parfums.
+    // Then read directly, as PriceSniffsBot only, robots.txt first, 1.5 s apart.
+    //
+    // robots.txt (https://saintecellier.com/robots.txt, HTTP 200) is Shopify's stock file; product pages
+    // and /products.json are not disallowed. /meta.json: saintecellier.myshopify.com, currency GBP,
+    // country GB, 261 published products. The shop sends a US caller to /en-us; page 1 of /products.json
+    // read at the origin and with ?country=GB: 476 variants, no price differs.
+    //
+    // Route: /products.json, 2 pages. Titles are the fragrance's name alone ("LE CARROUSEL") and the
+    // strength is only in the product type (EAU DE PARFUM 149, EXTRAIT DE PARFUM 51, EAU DE TOILETTE 7,
+    // PARFUM 5), so the catalogue's concentration test cannot read them: `fragranceOnlyCatalogue` is set,
+    // which keeps a listing that names a size in millilitres. The variants are sizes ("30ml | 1oz",
+    // "Full Size 50ml | 1.7oz", "9ml | .3oz") and 2ml glass spray samples, spelt six ways, so the rule
+    // drops any variant under 5ml and any "discovery" box; product types keep out the sample sets,
+    // soaps, incense, gift cards and event tickets. Every one of the listings that then passed the
+    // catalogue's test was read title by title on 2026-10-08.
+    //
+    // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=sainte-cellier --dry-run` read 268 priced listings,
+    // all in GBP; 260 of them pass the catalogue's own fragrance test and 184 of those are in stock.
+    //
+    // Affiliate: none found. No Trustpilot page was found for this domain.
+    enabled: true,
+    adapter: 'unknown',
+    shopifyStorefront: true,
+    shopifyVariantRule: {
+      // Perfume only: the shop files 17 sample sets and duos under PERFUME SAMPLES, and its soaps,
+      // incense, gift cards and event tickets under other types. The three misspelled types are the
+      // shop's own (read 2026-10-08), as is the empty one on two bottles (Pine, Edge Effects).
+      productTypes: [
+        'EAU DE PARFUM', 'EXTRAIT DE PARFUM', 'EAU DE TOILETTE', 'PARFUM', 'Perfume & Cologne',
+        'EXTRAIT ABSOLU', 'EAU DE COLOGNE', 'COLOGNE ASBOLUTE', 'EAU DE PARFUM CONCETREE',
+        'EAU DE PARFUM INTENSE', '',
+      ],
+      // Its "DISCOVERY SET" boxes of sample vials sit under the same types as the bottles, and its 2ml
+      // sample variants are spelt six ways ("Sample", "Samples", "Samplel", "Saple"), so the size is
+      // what keeps them out.
+      excludeTitle: '\\bdiscovery\\b',
+      minVariantMl: 5,
+    },
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-10-08',
+      confidence: 'unverified',
+      notes:
+        'No delivery figure was read. Every page says "Shipping calculated at checkout" and the footer ' +
+        'link to the shipping terms goes under /policies/, which robots.txt disallows, so it was not ' +
+        'asked for. The window is a placeholder, not a reading. Orders of £100 or more in full price, ' +
+        'full size perfume include three complimentary samples (product page, 2026-10-08), which is not a ' +
+        'delivery term. To be settled from the shop\'s own basket by the owner.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://saintecellier.com/search?q={q}',
+      sections: [
+        { id: 'all', label: 'All products', urlTemplate: 'https://saintecellier.com/collections/all?page={page}', tier: 'niche' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+    },
+  },
+  {
+    id: 'fenwick',
+    name: 'Fenwick',
+    domain: 'fenwick.co.uk',
+    homepage: 'https://fenwick.co.uk',
+    trustpilotUrl: 'https://uk.trustpilot.com/review/www.fenwick.co.uk',
+    trustpilotCheckedOn: '2026-10-08',
+    tiers: ['designer', 'niche'],
+    // Added 2026-10-08 (docs/RETAILER-CANDIDATES-2026-10-08.md). Found by WebSearch: the independent
+    // department store (eight stores, Newcastle the largest beauty hall outside London) whose online shop
+    // sells Acqua di Parma, Amouage, Diptyque, Jo Malone London, Tom Ford, Dior, Gucci and others. Then read
+    // directly, as PriceSniffsBot only, robots.txt first.
+    //
+    // robots.txt (https://fenwick.co.uk/robots.txt, HTTP 200; www redirects to the apex) is Shopify's stock
+    // file: /cart, /checkout, /account, /orders, /search and /policies/ disallowed, product pages and
+    // /products.json not disallowed, no crawl delay for the bot, a sitemap named. /meta.json:
+    // 66c9b4-f5.myshopify.com, currency GBP, country GB, 25,001 published products. The theme names GB at
+    // rate 1; page 1 of /products.json at the origin and with ?country=GB: 1,194 variants, no price differs.
+    //
+    // Route: /products.json, all 100 pages of 250 (Shopify's own page cap, so 25,000 of 25,001 products;
+    // read in full on 2026-10-08). It is a whole department store, so the shop's own product types pick
+    // the perfume out: Women's Fragrances 591, Unisex Fragrance 276, Men's Fragrances 145 and Fragrance 20,
+    // 1,032 products. Left out on purpose: Gift Sets (720, most of them skincare or candles; fragrance
+    // sets can be added once a run shows what they price as), Travel Size Fragrance (10), Home
+    // Fragrance (165) and Home Fragrance & Candles (130). The perfume sits late in the feed (pages 3, 4,
+    // 25 to 33, 47 and 64 to 70 hold most of it), so a walk cut short misses it. Reading it at 1.5 to
+    // 2.5 s gaps, 3 pages of the 100 answered HTTP 503 and the same page answered 200 on a retry 15 s
+    // later. The walk used to stop at a failed page, so `crawlViaShopifyProducts` now asks a 5xx page once more.
+    //
+    // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=fenwick --dry-run` read 1054 priced listings,
+    // all in GBP; 892 of them pass the catalogue's own fragrance test and 644 of those are in stock.
+    //
+    // Affiliate: not researched by us. Third party directories (affi.io, affsignal) list the UK programme on
+    // Partnerize at 2% and on Sale Gains; Fenwick's own pages were not found saying so. Not applied to.
+    enabled: true,
+    adapter: 'unknown',
+    shopifyStorefront: true,
+    shopifyVariantRule: {
+      productTypes: ["Women's Fragrances", 'Unisex Fragrance', "Men's Fragrances", 'Fragrance'],
+    },
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 5,
+      freeOverGbp: 100,
+      estimatedDays: [3, 3],
+      verifiedAt: '2026-10-08',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://fenwick.co.uk/products/tom-ford-ombre-leather-reserve',
+        quote:
+          'Standard Delivery £5, or FREE on orders over £100 — Delivered in 3 working days*. Excludes weekend and Bank Holidays',
+        readAt: '2026-10-08',
+      },
+      notes:
+        'Read off the Delivery & Returns panel of a fragrance product page on 2026-10-08, which also lists ' +
+        'Next Day Delivery (order by 6pm) £8, Nominated Day Delivery £8 and Click & Collect, none modelled. ' +
+        'The banner above every page says "Free Delivery on Orders Over £100*". Furniture and large items ' +
+        '(Barker & Stonehouse £29, Heal\'s) have their own rates, which do not apply to perfume. Nothing was ' +
+        'added to a cart.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://fenwick.co.uk/search?q={q}',
+      sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://fenwick.co.uk/collections/fragrance?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
     },
   },
 ] as const;
