@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 224,
+ "folded": 223,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -299,38 +299,6 @@
      "signature": "1x100fragrance|1x125body|1x?other",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-0085805377441",
-   "absorbed": [
-    "set-elizabeth-arden-red-door-eau-de-toilette-women-s-gift-set-perfume-spray-100ml-with-100ml-body-lotion-100ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0085805377441",
-     "brand": "Elizabeth Arden",
-     "name": "Red Door Gift Set 100ml EDT + 100ml Shower Gel + 100ml Body Lotion",
-     "concentration": "Eau de Toilette",
-     "ean": "0085805377441",
-     "scent": "door red",
-     "signature": "1x100body|1x100fragrance|1x100wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-elizabeth-arden-red-door-eau-de-toilette-women-s-gift-set-perfume-spray-100ml-with-100ml-body-lotion-100ml-shower-gel",
-     "brand": "Elizabeth Arden",
-     "name": "Red Door Eau de Toilette Women's Gift Set Perfume Spray (100ml) with 100ml Body Lotion & 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "door red",
-     "signature": "1x100body|1x100fragrance|1x100wash",
-     "shops": [
-      "perfume-direct"
      ]
     }
    ]
