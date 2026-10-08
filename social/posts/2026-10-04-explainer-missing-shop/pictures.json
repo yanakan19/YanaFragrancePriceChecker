@@ -1,0 +1,100 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/posts/2026-10-04-explainer-missing-shop . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "slide-1-3x4.png",
+      "make": "html",
+      "from": "slide-1-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 91647,
+      "sha256": "93f82e7661c9f644dc282599aa54b3dd235bf6a703d44dae46a58fe3d6ffa2ed"
+    },
+    {
+      "file": "slide-1-9x16.png",
+      "make": "html",
+      "from": "slide-1-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 110326,
+      "sha256": "df131ca3729e5888f0de9fe765fc31b26792b7f337e988d8e994262ea0a6b05b"
+    },
+    {
+      "file": "slide-2-3x4.png",
+      "make": "html",
+      "from": "slide-2-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 125063,
+      "sha256": "1319962d746d0f2b0ce9b6b0b1e48eac46ad5742e392ce58078d796843c97e45"
+    },
+    {
+      "file": "slide-2-9x16.png",
+      "make": "html",
+      "from": "slide-2-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 145858,
+      "sha256": "3ea333809c48d72cd283967544b40f1ae30fb828be15fa6eb6142e9d93435c39"
+    },
+    {
+      "file": "slide-3-3x4.png",
+      "make": "html",
+      "from": "slide-3-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 95433,
+      "sha256": "47732b78e5eea554ce4066250570cb1c7b62a0bb542dfde1b22ec17676b1049c"
+    },
+    {
+      "file": "slide-3-9x16.png",
+      "make": "html",
+      "from": "slide-3-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 114484,
+      "sha256": "ef2421ba107504ff995f60905ab96a700fbaeefd15972e8addb1d621615bc3b1"
+    },
+    {
+      "file": "slide-4-3x4.png",
+      "make": "html",
+      "from": "slide-4-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 131601,
+      "sha256": "510d3b23edfab46c5643500a47fb7d9cf33f31ae7cf7440c161e868c7af2ec8c"
+    },
+    {
+      "file": "slide-4-9x16.png",
+      "make": "html",
+      "from": "slide-4-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 151388,
+      "sha256": "53cf889b8c593957c813c7a34ba3c30dc16712d896f41d1d3cd267db28ca6ff7"
+    },
+    {
+      "file": "slide-5-3x4.png",
+      "make": "html",
+      "from": "slide-5-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 77680,
+      "sha256": "aa70ceb980907ecdedecd3483981b5309950fbf583b9b91f5f391817a661b881"
+    },
+    {
+      "file": "slide-5-9x16.png",
+      "make": "html",
+      "from": "slide-5-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 93275,
+      "sha256": "6ae67e23050cc4cd97e09b58a7b9c7385cdefa9827f07dda7128f9411e07edcc"
+    }
+  ]
+}

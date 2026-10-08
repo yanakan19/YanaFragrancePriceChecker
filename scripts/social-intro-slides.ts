@@ -12,6 +12,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { launchChromium } from './a11y-audit.js';
 import { renderSmooth } from './socialRender.js';
+import { recordPictures } from './socialPictures.js';
 import { H, MARK, TICK, W, slide } from './socialSlides.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -87,3 +88,4 @@ for (const [i, html] of SLIDES.entries()) {
 }
 await browser.close();
 writeFileSync(join(DIR, 'caption.txt'), CAPTION);
+recordPictures(DIR); // the PNGs are not committed (docs/DECISIONS.md D28)

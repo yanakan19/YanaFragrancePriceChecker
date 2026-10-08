@@ -1,0 +1,41 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/posts/2026-10-02-what-is-pricesniffs . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "slide-1-3x4.png",
+      "make": "html",
+      "from": "slide-1-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 115586,
+      "sha256": "872e6f6e11cee1e3a56ef8ab477eb73c84715566cfd293ad2ce12ca8fa0cfd49"
+    },
+    {
+      "file": "slide-2-3x4.png",
+      "make": "html",
+      "from": "slide-2-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 179598,
+      "sha256": "6a63adfc048f36a9ab13f63e711ea54ab3c832ded6ec3bfb583215e84f718041"
+    },
+    {
+      "file": "slide-3-3x4.png",
+      "make": "html",
+      "from": "slide-3-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 180788,
+      "sha256": "fe3ddbd82e20aafebee0e11cc69fe57545a8d698f07402cb9db76718843bdb62"
+    },
+    {
+      "file": "slide-4-3x4.png",
+      "make": "html",
+      "from": "slide-4-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 87742,
+      "sha256": "1eaa68d981f0f2c5f23beff320f59995d344b30500f44e0b7514f22b5e5ecd13"
+    }
+  ]
+}

@@ -27,7 +27,7 @@ export function extractJsonLdBlocks(html: string): unknown[] {
     const body = match[1];
     if (!body) continue;
     try {
-      blocks.push(canonicalKeys(JSON.parse(stripJsonComments(body))));
+      blocks.push(JSON.parse(stripJsonComments(body)));
     } catch {
       // A malformed block is common and never fatal. Skip it and carry on with
       // the others rather than losing the whole page.
@@ -37,35 +37,34 @@ export function extractJsonLdBlocks(html: string): unknown[] {
 }
 
 /**
- * The schema.org properties this parser reads, spelled as the specification
- * spells them.
- *
- * Some themes capitalise them. Scentsational's Visualsoft product pages
- * (read 2026-10-03 and 2026-10-08) write `"Offers"`, `"Brand"`, `"SKU"` and
- * `"Description"` beside a lower case `"name"` and `"image"`, so the product
- * was found and its price was not. JSON keys are case sensitive and schema.org
- * names are not ambiguous, so a key that matches one of these ignoring case is
- * also given the canonical spelling, unless the node already carries that
- * spelling (which then wins).
+ * schema.org property names that some shops capitalise ("Offers", "SKU", "Brand"),
+ * which JSON-LD reads as different properties from the ones the vocabulary
+ * defines, so a price written that way is invisible to a reader that looks for
+ * "offers". Direct Cosmetics writes its whole Product block like that (read
+ * 2026-10-08, an Azzaro eau de toilette at £23.99 in GBP). Only these keys are
+ * renamed, and only when the right spelling is not already on the same object.
  */
-const SCHEMA_PROPERTIES = [
-  'offers', 'brand', 'sku', 'mpn', 'name', 'description', 'image', 'url', 'price', 'priceCurrency',
-  'priceSpecification', 'priceValidUntil', 'lowPrice', 'highPrice', 'offerCount', 'availability',
-  'itemCondition', 'gtin', 'gtin8', 'gtin12', 'gtin13', 'gtin14', 'aggregateRating', 'ratingValue',
-  'reviewCount', 'ratingCount', 'hasVariant', 'productGroupID', 'itemListElement', 'mainEntity',
-] as const;
-const CANONICAL_PROPERTY = new Map<string, string>(SCHEMA_PROPERTIES.map((k) => [k.toLowerCase(), k]));
+const SCHEMA_KEY_CASE: Readonly<Record<string, string>> = {
+  Offers: 'offers',
+  Brand: 'brand',
+  SKU: 'sku',
+  Description: 'description',
+  Name: 'name',
+  Image: 'image',
+  Price: 'price',
+  PriceCurrency: 'priceCurrency',
+  Availability: 'availability',
+  itemcondition: 'itemCondition',
+};
 
-/** A parsed JSON-LD value with every capitalised schema.org property also under its canonical name. */
-function canonicalKeys(value: unknown, depth = 0): unknown {
-  if (depth > 32) return value;
-  if (Array.isArray(value)) return value.map((v) => canonicalKeys(v, depth + 1));
+export function fixSchemaKeyCase(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(fixSchemaKeyCase);
   if (!value || typeof value !== 'object') return value;
-  const out: JsonValue = {};
-  for (const [key, v] of Object.entries(value as JsonValue)) out[key] = canonicalKeys(v, depth + 1);
-  for (const key of Object.keys(out)) {
-    const canonical = CANONICAL_PROPERTY.get(key.toLowerCase());
-    if (canonical && canonical !== key && !(canonical in out)) out[canonical] = out[key];
+  const source = value as Record<string, unknown>;
+  const out: Record<string, unknown> = {};
+  for (const [key, inner] of Object.entries(source)) {
+    const right = SCHEMA_KEY_CASE[key];
+    out[right !== undefined && !(right in source) ? right : key] = fixSchemaKeyCase(inner);
   }
   return out;
 }
@@ -505,7 +504,7 @@ export function pageCurrency(html: string): string | null {
  * retailer needs a different adapter.
  */
 export function parseListings(html: string, options: ParseOptions): RawListing[] {
-  const blocks = extractJsonLdBlocks(html);
+  const blocks = extractJsonLdBlocks(html).map(fixSchemaKeyCase);
   let nodes = (options.variantSizesFromPage ? withVariantSizes(blocks, html) : blocks).flatMap((b) => flatten(b));
   if (options.microdata && !nodes.some(isProduct)) {
     // A microdata product with no identifier of its own falls back to its

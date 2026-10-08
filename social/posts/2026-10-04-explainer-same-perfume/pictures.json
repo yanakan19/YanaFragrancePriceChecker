@@ -1,0 +1,100 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/posts/2026-10-04-explainer-same-perfume . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "slide-1-3x4.png",
+      "make": "html",
+      "from": "slide-1-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 92473,
+      "sha256": "389a40d77dfa1b3dc2bab7cf80d4983f0fbea89f7a2438f7c3299e5b571a5130"
+    },
+    {
+      "file": "slide-1-9x16.png",
+      "make": "html",
+      "from": "slide-1-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 110652,
+      "sha256": "e597e135f3d7eb29147a40332293e67bc45ee9c8dc4ca7caa78b7778be6fefac"
+    },
+    {
+      "file": "slide-2-3x4.png",
+      "make": "html",
+      "from": "slide-2-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 114831,
+      "sha256": "669648a0f5186c0c37e9cad8b3246f05f46671e9492e2d54bf54a1c45c18ad68"
+    },
+    {
+      "file": "slide-2-9x16.png",
+      "make": "html",
+      "from": "slide-2-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 135729,
+      "sha256": "5fbf7a6c2ca99b9dca3dfe3327d679aa20c28873e033878607ee9111c41a97ab"
+    },
+    {
+      "file": "slide-3-3x4.png",
+      "make": "html",
+      "from": "slide-3-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 116651,
+      "sha256": "7268c7262d7447a2c5ec6972cb5713ea466ce4c10a8f02e0832cc061631df7f2"
+    },
+    {
+      "file": "slide-3-9x16.png",
+      "make": "html",
+      "from": "slide-3-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 141246,
+      "sha256": "fa377cca3c23f4ab36371f0e318d3b228c34bc7575ce12bdbfc907af9f7372f8"
+    },
+    {
+      "file": "slide-4-3x4.png",
+      "make": "html",
+      "from": "slide-4-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 123085,
+      "sha256": "7ece8d6059bacce5d8b31f2cdfe59f6f12eced53ce6bc6c69fd41911251347cf"
+    },
+    {
+      "file": "slide-4-9x16.png",
+      "make": "html",
+      "from": "slide-4-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 143874,
+      "sha256": "0d81fbf508324ff5380cfc7233967c19fa00c5a9772b134eee237adcc0c50654"
+    },
+    {
+      "file": "slide-5-3x4.png",
+      "make": "html",
+      "from": "slide-5-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 86486,
+      "sha256": "b82055b15b8f700e0b6649caa0d1359fc33711a3ad51e3e002846781a448c332"
+    },
+    {
+      "file": "slide-5-9x16.png",
+      "make": "html",
+      "from": "slide-5-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 101293,
+      "sha256": "c27837ce47ca84170d4b504296f00b680f96017552c68a83a6381099ffcbc0d8"
+    }
+  ]
+}

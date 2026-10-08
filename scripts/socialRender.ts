@@ -1,5 +1,7 @@
 /**
  * Shared rendering for social posts (render-social.ts, social-deal-of-day.ts).
+ * The pictures it writes are not committed: socialPictures.ts and
+ * docs/DECISIONS.md D28.
  *
  * Smooth edges: every picture is drawn at twice its size and scaled down with
  * high quality smoothing, which gives the soft, natural letter edges of a
@@ -15,6 +17,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import type { Browser } from 'playwright';
+import { assertPicturePath } from './socialPictures.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
 
@@ -60,6 +63,8 @@ export const FIT_SCRIPT = `<script>
 
 /** Renders HTML at 2x, then scales it down smoothly to w x h and writes a PNG. */
 export async function renderSmooth(browser: Browser, html: string, w: number, h: number, out: string): Promise<void> {
+  // A picture under social/ is never committed (docs/DECISIONS.md D28): its type must be "social" in the manifest.
+  assertPicturePath(out);
   const page = await browser.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: 2 });
   await page.setContent(html.replace('<head>', `<head><style>${BRAND_FONT_CSS}</style>`));
   await page.evaluate('document.fonts.ready');

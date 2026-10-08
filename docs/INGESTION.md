@@ -443,7 +443,7 @@ Two things were learned on the way that apply beyond these shops.
   (`/currency/GBP/` sets nothing else), which `botIdentity.ts` counts as an
   honest stated preference; `requireGbp` keeps any page that ignores it from
   publishing a price. Its keys are capitalised (`Offers`, `Brand`, `SKU`), now
-  read by `canonicalKeys` in `src/catalogue/jsonld.ts`.
+  read by `fixSchemaKeyCase` in `src/catalogue/jsonld.ts` (added the same day for Direct Cosmetics).
 
 Not settled: Scentsational's product page labelled a £25 bottle "FREE UK
 Delivery" while its delivery page says £2.95 under £80; the delivery page is the
