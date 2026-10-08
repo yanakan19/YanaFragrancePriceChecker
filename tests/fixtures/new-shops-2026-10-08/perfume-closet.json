@@ -1,0 +1,188 @@
+{
+ "products": [
+  {
+   "id": 15742564139348,
+   "title": "Reef 27 Perfume 100ml edp",
+   "handle": "reef-6-perfume-100ml-edp-copy",
+   "vendor": "The Perfume Closet",
+   "product_type": "",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 57040754082132,
+     "sku": null,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "65.00",
+     "compare_at_price": "79.99",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 12031043862868,
+   "title": "VALENTINO UOMO CORAL FANTASY EDT For Him",
+   "handle": "valentino-uomo-coral-fantasy-edt-for-him",
+   "vendor": "The Perfume Closet",
+   "product_type": "",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size (ml)"
+    }
+   ],
+   "variants": [
+    {
+     "id": 51933070066004,
+     "sku": null,
+     "title": "100 ml",
+     "option1": "100 ml",
+     "option2": null,
+     "option3": null,
+     "price": "76.00",
+     "compare_at_price": null,
+     "available": false
+    },
+    {
+     "id": 51933070098772,
+     "sku": null,
+     "title": "50 ml",
+     "option1": "50 ml",
+     "option2": null,
+     "option3": null,
+     "price": "56.00",
+     "compare_at_price": null,
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 12031032492372,
+   "title": "ACQUA DI GIÒ ABSOLU EDP For Him",
+   "handle": "acqua-di-gio-absolu",
+   "vendor": "The Perfume Closet",
+   "product_type": "",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size (ml)"
+    }
+   ],
+   "variants": [
+    {
+     "id": 51933012820308,
+     "sku": null,
+     "title": "40 ml",
+     "option1": "40 ml",
+     "option2": null,
+     "option3": null,
+     "price": "60.00",
+     "compare_at_price": null,
+     "available": false
+    },
+    {
+     "id": 51933012853076,
+     "sku": null,
+     "title": "75 ml",
+     "option1": "75 ml",
+     "option2": null,
+     "option3": null,
+     "price": "82.00",
+     "compare_at_price": null,
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 11958285271380,
+   "title": "LATTAFA OUD MOOD AIR FRESHENER 300ML",
+   "handle": "lattafa-oud-mood-air-freshener-300ml",
+   "vendor": "The Perfume Closet",
+   "product_type": "",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 51715292168532,
+     "sku": null,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "4.99",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 11958285009236,
+   "title": "YVES SAINT LAURENT MON PARIS 50ml EDP GIFT SET",
+   "handle": "yves-saint-laurent-mon-paris-50ml-edp-gift-set",
+   "vendor": "The Perfume Closet",
+   "product_type": "",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 51715291906388,
+     "sku": null,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "39.99",
+     "compare_at_price": "78.00",
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 15641676448084,
+   "title": "Moroccan Dust 12ml parfum oil",
+   "handle": "moroccan-dust-12ml-parfum-oil",
+   "vendor": "The Perfume Closet",
+   "product_type": "",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 56578865103188,
+     "sku": null,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "24.99",
+     "compare_at_price": "38.00",
+     "available": true
+    }
+   ]
+  }
+ ]
+}

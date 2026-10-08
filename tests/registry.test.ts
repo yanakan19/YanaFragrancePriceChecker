@@ -154,7 +154,13 @@ describe('retailer registry', () => {
     // owner's request rather than switched off: its entry, its catalogue
     // snapshot and its other data are gone. It was enabled, so the enabled
     // count went 52 to 42 with the nine others that are only switched off.
-    expect(RETAILERS).toHaveLength(74);
+    //
+    // 2026-10-08: 74 becomes 80. Six shops found by the UK retailer search of
+    // that date (docs/RETAILER-CANDIDATES-2026-10-08.md) and read from their own
+    // Shopify /products.json: Opulensi, The Perfume Closet, Perfumoi, Saad
+    // Fragrance, Sainte Cellier and Fenwick. All six are enabled, so the enabled
+    // count goes 42 to 48.
+    expect(RETAILERS).toHaveLength(80);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
@@ -313,8 +319,17 @@ describe('retailer registry', () => {
       // its own product pages, and its delivery link lands on its checkout
       // provider's page saying the cost is worked out at checkout (probe run
       // #572).
+      // opulensi, perfume-closet and sainte-cellier joined 2026-10-08, each on a
+      // Shopify route proved from its own /products.json (shopifyStorefront).
+      // opulensi and perfume-closet were read on their own pages and publish no
+      // flat rate (a free threshold of £30 for the first, none for the second);
+      // sainte-cellier's shipping terms sit under /policies/, which its
+      // robots.txt disallows, so nothing was read and its entry says so.
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'niche-beauty-uk',
+        'opulensi',
+        'perfume-closet',
+        'sainte-cellier',
         'space-nk',
       ]);
       for (const r of unstated) {

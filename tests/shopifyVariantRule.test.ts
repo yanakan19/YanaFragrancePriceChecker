@@ -151,6 +151,76 @@ describe('parseShopifyProducts with a variant rule', () => {
   });
 });
 
+describe('a rule that only filters product types (a department store, a niche shop)', () => {
+  // Fenwick and Sainte Cellier keep a product type and nothing else. Their products
+  // have no real options, so the one variant's option is Shopify's "Default Title",
+  // or the "0" Fenwick puts in an unused Colour option, and neither is part of a bottle's name.
+  const TYPES_ONLY: ShopifyVariantRule = { productTypes: ['Unisex Fragrance'] };
+  const plain = (title: string, option: string, over: Record<string, unknown> = {}) =>
+    product({
+      title,
+      handle: title.toLowerCase().replace(/\W+/g, '-'),
+      product_type: 'Unisex Fragrance',
+      options: [{ name: 'Title' }],
+      variants: [{ sku: `SKU-${title}`, title: option, option1: option, price: '95.00', available: true }],
+      ...over,
+    });
+
+  it('leaves "Default Title" and a "0" placeholder out of the title', () => {
+    const rows = parse(
+      [plain('Spellbound Eau De Parfum Spray', 'Default Title'), plain('Black Orchid Reserve', '0')],
+      TYPES_ONLY,
+    );
+    expect(rows.map((r) => r.rawTitle)).toEqual(['Spellbound Eau De Parfum Spray', 'Black Orchid Reserve']);
+  });
+
+  it('still adds a real size, and still drops a product of another type', () => {
+    const sized = plain('Hibiscus Mahajad Extrait De Parfum', '100ml', { options: [{ name: 'Size' }] });
+    const candle = plain('Figue Candle', '0', { product_type: 'Home Fragrance' });
+    const rows = parse([sized, candle], TYPES_ONLY);
+    expect(rows.map((r) => r.rawTitle)).toEqual(['Hibiscus Mahajad Extrait De Parfum 100ml']);
+  });
+});
+
+describe('excludeTitle and minVariantMl (a niche shop whose sizes read "30ml | 1oz")', () => {
+  const RULE2: ShopifyVariantRule = {
+    productTypes: ['EAU DE PARFUM'],
+    excludeTitle: '\\bdiscovery\\b',
+    minVariantMl: 5,
+  };
+  const scent = (title: string, sizes: [string, string][], type = 'EAU DE PARFUM') =>
+    product({
+      title,
+      handle: title.toLowerCase().replace(/\W+/g, '-'),
+      product_type: type,
+      options: [{ name: 'Size' }],
+      variants: sizes.map(([size, price], i) => ({
+        sku: `${title}-${i}`, title: size, option1: size, price, available: true,
+      })),
+    });
+
+  it('drops the 2ml sample variant and keeps the full size, whatever the shop spells after it', () => {
+    const rows = parse(
+      [scent('CUIR DE CHINE', [['Full Size 50ml | 1.7oz', '195.00'], ['2ml Spray Sample', '12.00'], ['2ml Glass Spray Samplel', '12.00']])],
+      RULE2,
+    );
+    expect(rows.map((r) => r.rawTitle)).toEqual(['CUIR DE CHINE Full Size 50ml | 1.7oz']);
+  });
+
+  it('keeps a 9ml travel size and a variant that names no millilitre size at all', () => {
+    const rows = parse([scent('AJEDREZ', [['9ml | .3oz', '40.00']]), scent('NO SIZE', [['Default Title', '30.00']])], RULE2);
+    expect(rows.map((r) => r.rawTitle)).toEqual(['AJEDREZ 9ml | .3oz', 'NO SIZE']);
+  });
+
+  it('drops a discovery set by its title, in any case, and leaves a scent with the word inside another', () => {
+    const rows = parse(
+      [scent('MARISSA ZAPPAS Discovery Set', [['Default Title', '70.00']]), scent('DISCOVERY', [['30ml', '80.00']]), scent('UNDISCOVERED', [['30ml', '80.00']])],
+      RULE2,
+    );
+    expect(rows.map((r) => r.rawTitle)).toEqual(['UNDISCOVERED 30ml']);
+  });
+});
+
 describe('the Bloom Perfumery registry entry', () => {
   const bloom = RETAILERS.find((r) => r.id === 'bloom-perfumery')!;
 

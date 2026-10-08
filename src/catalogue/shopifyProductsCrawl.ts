@@ -103,6 +103,11 @@ export interface ShopifyProductsCrawlResult {
    * true.
    */
   complete: boolean;
+  /**
+   * How many pages were asked a second time because the first answer was a
+   * server error (see SERVER_ERROR_RETRY_MS). Zero for a shop that never had one.
+   */
+  retriedPages: number;
 }
 
 /**
@@ -126,6 +131,24 @@ export const SHOPIFY_PAGE_SIZE = 250;
  * products, is the most this endpoint can ever hand over.
  */
 export const SHOPIFY_MAX_PAGE = 100;
+
+/**
+ * How long to wait before asking a page again after the shop answered it with a
+ * server error (HTTP 500 to 599).
+ *
+ * A 5xx is not a refusal (src/catalogue/refusal.ts leaves it unjudged: a shop
+ * can have a bad minute), but this walk used to treat it as the end of the
+ * catalogue, and on a storefront of 100 pages one bad minute ends it for the
+ * day. Fenwick answered 3 of 100 pages with HTTP 503 on 2026-10-08, read 1.5 to
+ * 2.5 seconds apart, and answered the same page with 200 fifteen seconds later;
+ * its perfume sits in pages 3 and 4, 25 to 33, 47 and 64 to 70, so a walk that
+ * stopped at the first 503 would have missed most of it, nearly every run.
+ *
+ * One more ask, once per page, after this wait. A page that fails twice still
+ * ends the walk, as before. Never applied to 401, 403, 407 or 429: those are
+ * the shop saying no, and a no is not asked again.
+ */
+export const SERVER_ERROR_RETRY_MS = 15_000;
 
 export interface ShopifyProductsCrawlOptions {
   retailer: Retailer;
@@ -183,6 +206,7 @@ export async function crawlViaShopifyProducts(
   let pagesFetched = 0;
   let isShopify = true;
   let complete = false;
+  let retriedPages = 0;
 
   // Asked before the catalogue is read, not after, so there is never a moment
   // where a converted price list has been parsed as pounds and is waiting to
@@ -273,9 +297,17 @@ export async function crawlViaShopifyProducts(
       break;
     }
 
-    const res = await http(url, marketHeaders);
+    let res = await http(url, marketHeaders);
     pagesFetched++;
     options.onProgress?.(pagesFetched, listings.length);
+    // A bad minute at the shop is asked about once more before it ends the walk.
+    // The second ask is not counted as a page: `maxPages` is the catalogue's own
+    // page cap, and a retry is not a page of it.
+    if (res.status >= 500 && res.status <= 599) {
+      await sleep(SERVER_ERROR_RETRY_MS);
+      retriedPages++;
+      res = await http(url, marketHeaders);
+    }
 
     if (!res.ok) {
       // A 404 on the first page just means "not a Shopify storefront", which
@@ -331,5 +363,8 @@ export async function crawlViaShopifyProducts(
 
   // A catalogue read in a currency that is not established as sterling is
   // not a complete read of anything a caller may act on.
-  return { listings, pagesFetched, errors, isShopify, currency, market, complete: complete && isShopify && currency.isSterling };
+  return {
+    listings, pagesFetched, errors, isShopify, currency, market, retriedPages,
+    complete: complete && isShopify && currency.isSterling,
+  };
 }
