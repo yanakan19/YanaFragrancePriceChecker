@@ -2,6 +2,11 @@
 
 Drafted 2026-10-03, refreshed 2026-10-08 for the owner. Nothing has been sent.
 
+Email rewritten 2026-10-08 (second pass): shorter, with tracked links offered,
+the crawler's details and a contact address. There is no affiliate programme
+to apply to first. Routes and odds for every shop:
+`docs/BLOCKED-SHOPS-ROUTES-2026-10-08.md`.
+
 ## Why an email is the route
 
 No affiliate programme or product feed for Riiffs was found (searched
@@ -29,22 +34,26 @@ uk.riiffsperfumes.com and riiffsperfumes.com both answered our robots.txt reques
 
 Replace [YOUR NAME] before sending.
 
-    Subject: Permission to show Riiffs Perfumes prices on PriceSniffs
+    Subject: Riiffs Perfumes on PriceSniffs: a product feed, or permission for our crawler
 
     Hello,
 
-    My name is [YOUR NAME] and I run PriceSniffs (https://pricesniffs.space), a free UK price comparison site for fragrance.
+    I run PriceSniffs (https://pricesniffs.space), an independent UK fragrance price comparison site. For each perfume it shows the price at every UK shop that sells it, delivery included, and every listing links straight to the shop's own product page. It lists about 26,000 products from more than 45 UK shops.
 
-    PriceSniffs shows what a bottle costs at each UK shop that sells it, with delivery included, so a shopper sees the real total before they click. Every listing links straight to the shop's own product page, where the sale happens. We never change a shop's price, and if we cannot keep a price current we take it off the site rather than show an old one.
+    We would like to list Riiffs Perfumes. Your host's bot protection often shows our crawler a captcha, even on robots.txt, and when it does we stop; at other times your shop answers normally. We respect that and have stopped asking.
 
-    We would like to include Riiffs Perfumes, which we listed until mid September. Since then your UK website often shows our crawler a captcha (your host's bot protection, on every page including robots.txt), and we respect that: when it does, we stop.
+    Either of these would let us send you shoppers with current prices:
 
-    Would you be willing to let our crawler, which identifies itself as PriceSniffsBot and follows robots.txt, read your sitemap and product pages at a gentle rate, for example by asking your host to let it through? Or, if you prefer, would you share a product data feed with prices, stock and product links? Either would let us send shoppers to you with accurate, current prices.
+    1. A product data feed (a WooCommerce product export is fine) with prices, stock and product links.
 
-    Whichever suits you, we will follow any conditions you set, such as how often we check or which pages we use. I would be glad to answer any questions.
+    2. Permission for our crawler to read your public product pages. It names itself on every request as "PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about/bot)", reads robots.txt first and obeys it, asks one page at a time at least a second apart, a few times a day, and never logs in or fills a basket. It runs on cloud servers without fixed addresses; if your team needs more than the user agent to recognise it, tell us what you accept (for example signed requests under Web Bot Auth) and we will look at setting it up.
+
+    Only your host, SiteGround, can stop the captcha for our crawler; its support can do that at your request.
+
+    What you get: free listings, tracked links that send buyers only to your own pages, and prices we take down rather than show out of date. We will follow any conditions you set (which pages, how often, removal on request).
 
     Kind regards,
 
     [YOUR NAME]
-    PriceSniffs
-    https://pricesniffs.space
+    PriceSniffs, https://pricesniffs.space
+    yannysniffs@gmail.com

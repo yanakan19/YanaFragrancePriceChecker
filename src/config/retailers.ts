@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 80 retailers, 52 of them `enabled: true`. Every one of them is a legitimate
+ * 80 retailers, 55 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -6402,18 +6402,97 @@ export const RETAILERS: readonly Retailer[] = [
     // further was requested. A harvest probe from a runner, run 37085041182 job
     // 111093438164, priced nothing. Blocker: refused at the home page, as the
     // August probe also found.
-    enabled: false,
-    adapter: 'unknown',
+    //
+    // ── Measured again 2026-10-08: the bot is answered ──────────────────────────
+    //
+    // Every request below as PriceSniffsBot, plain fetch, nothing else.
+    // robots.txt (HTTP 200, 893 bytes): the same Magento file as before, crawl
+    // delays only for named bots (bingbot, Semrush, Ahrefs and so on), and for
+    // "*" 14 Disallow lines (/catalog/, /customer/account/, /searchanise/result,
+    // index.php and the like); category pages, ?p=N and product pages are not
+    // among them. Home page HTTP 200 (152,762 bytes, theme "Limely/gorgeous",
+    // Magento 2), no Cloudflare page this time. /sitemap.xml is an index of two
+    // files (10.5 MB and 2.6 MB, 10,534 addresses) last written 2023-02-23, so
+    // it is not used: the route reads the shop's own fragrance aisles instead.
+    // Category pages answer HTTP 200 in about 1 s, 30 product cards a page
+    // (`<a href="..." class="full-block">`), and state their page count in
+    // `<div id="am-page-count">`; a page past the last lists no product. Every
+    // page of every fragrance aisle was walked that day: /fragrance (29 pages)
+    // listed 843 products, and every product of perfume (23 pages, 687), for
+    // her (17, 509), for him (6, 163) and the gift sets is among them, so the
+    // route walks /fragrance alone. Its other 156 are bath and body, home
+    // fragrance and aromatherapy, which the catalogue's own rules leave out
+    // (14 of them are perfumes filed there, 4711 Original EDC among them). Product
+    // pages carry one schema.org Product in JSON-LD, priceCurrency GBP, for
+    // example Jimmy Choo Blossom Eau de Parfum Spray 40ml at 23.65 (out of
+    // stock), and Kylie Minogue Darling Eau De Parfum as an AggregateOffer with
+    // a named offer per size (30ml 22, 75ml 15.2), each size's own address
+    // answering 200.
+    // Delivery read off https://www.gorgeousshop.com/uk-delivery-options the
+    // same day: UK Saver Delivery 2-4 days, £2.95, free over £25 (Express and
+    // Click & Collect are other services and not modelled).
+    //
+    // Proved from a GitHub runner the same day: harvest probe run
+    // 37717902614, job 113118559094 (dry run, this route, 5 s gap). 10 aisle
+    // pages found 268 product addresses, 78 product pages read, 80 priced
+    // listings, no refusal; it stopped only at the probe's 8 minute ceiling.
+    // Switched on for that.
+    enabled: true,
+    adapter: 'json-ld',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
-      confidence: 'unverified',
-      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+      standardGbp: 2.95,
+      freeOverGbp: 25,
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-10-08',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.gorgeousshop.com/uk-delivery-options',
+        quote: 'For all UK orders under £25 you will be charged £2.95.',
+        readAt: '2026-10-08',
+      },
+      notes:
+        'UK Saver Delivery, 2-4 days, free over £25. UK Express (next working day, £4.49) and EVRi ' +
+        'Click & Collect (free over £15, £1.99 under) are other services and are not modelled. ' +
+        'Northern Ireland and the Scottish Islands and Highlands are excluded from free UK Saver Delivery.',
     },
-    catalogue: null,
+    sitemapRoute: {
+      // No sitemap: the shop's own is from 2023 (see above). Its fragrance
+      // aisles are the whole route.
+      roots: [],
+      product: '^https://www\\.gorgeousshop\\.com/[a-z0-9-]+$',
+      // Only what is never a perfume, whatever else its name says. Body care
+      // words are not named out: the shop's gift sets carry them beside the
+      // perfume (Korres White Tea EDT 50ml with body milk 125ml), and a body
+      // lotion on its own fails the catalogue's strength rule anyway.
+      exclude: '(^|[/-])(candles?|diffusers?|room-spray|hair-perfume|hair-mist|body-oil|bath-oil|pulse-point-roller)(-|/|$)',
+      requireGbp: true,
+      categories: {
+        pages: ['https://www.gorgeousshop.com/fragrance'],
+        pageParam: 'p',
+        productLink: '<a href="(https://www\\.gorgeousshop\\.com/[a-z0-9-]+)" class="full-block"',
+        pageCount: 'id="am-page-count"[^>]*>\\s*(\\d+)\\s*<',
+        maxPages: 60,
+        // Page one and a third of the rest, a different third each run:
+        // about 10 of the 29 pages.
+        rotation: 3,
+      },
+      // About 840 products to read once, about 700 of them perfume.
+      discoveryPages: 150,
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://www.gorgeousshop.com/searchanise/result?q={q}',
+      sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.gorgeousshop.com/fragrance?p={page}', tier: 'designer' },
+      ],
+      firstPage: 1,
+      maxPages: 60,
+      // Five seconds, the gap its robots.txt asks of bingbot. A local dry run
+      // at 1.5 s on 2026-10-08 was answered HTTP 429 (Cloudflare) after about
+      // 40 requests, on the heels of a 110 page walk of the aisles from the
+      // same address, and the harvest stopped as it should.
+      minRequestGapMs: 5000,
+    },
     affiliate: { ...awinRequested() },
   },
   {
@@ -6442,18 +6521,87 @@ export const RETAILERS: readonly Retailer[] = [
     // a GitHub runner, harvest probe run 37084782624 job 111092682073:
     // /sitemap.xml HTTP 403, 0 priced. Blocker: refused at the edge from both
     // networks.
-    enabled: false,
-    adapter: 'unknown',
+    //
+    // ── Measured again 2026-10-08: the bot is answered ──────────────────────────
+    //
+    // The same operator and the same Magento 2 build as Gorgeous Shop above
+    // (theme "Limely/beautyflash"), so the same route. As PriceSniffsBot, plain
+    // fetch: robots.txt HTTP 200 (895 bytes), byte for byte Gorgeous Shop's
+    // rules (crawl delays only for named bots; for "*" /catalog/,
+    // /customer/account/, /searchanise/result, index.php and the like; category
+    // pages, ?p=N and product pages permitted). Home page HTTP 200 (166,877
+    // bytes). /sitemap.xml is an index of two files (10.5 MB and 2.1 MB, 9,424
+    // addresses) last written 2023-02-23, so it is not used. Category pages
+    // answer HTTP 200 with 30 product cards a page and `am-page-count`. Walked
+    // whole that day: /fragrance (32 pages) listed 939 products, every one of
+    // perfume's (8 pages, 229) among them and 555 more whose addresses name a
+    // strength (EDP, EDT, EDC), so the route walks /fragrance alone. Product
+    // pages carry schema.org Product JSON-LD with priceCurrency GBP, as on
+    // Gorgeous Shop.
+    // Delivery read off https://www.beautyflash.co.uk/uk-delivery-options the
+    // same day: UK Saver Delivery 2-4 days, £2.95, free over £25 (Express,
+    // free over £125, and Click & Collect are other services, not modelled).
+    //
+    // Proved from a GitHub runner the same day: harvest probe run
+    // 37718622282, job 113120848922 (dry run, this route, 5 s gap). 11 aisle
+    // pages found 311 product addresses, 74 product pages read, 74 priced
+    // listings, no refusal; it stopped only at the probe's 8 minute ceiling.
+    // Switched on for that.
+    enabled: true,
+    adapter: 'json-ld',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
-      confidence: 'unverified',
-      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+      standardGbp: 2.95,
+      freeOverGbp: 25,
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-10-08',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.beautyflash.co.uk/uk-delivery-options',
+        quote: 'For all UK orders under £25 you will be charged £2.95.',
+        readAt: '2026-10-08',
+      },
+      notes:
+        'UK Saver Delivery, 2-4 days, free over £25. UK Express (next working day, £4.49, free over £125) ' +
+        'and EVRi Click & Collect (free over £15, £1.99 under) are other services and are not modelled. ' +
+        'Northern Ireland and the Scottish Islands and Highlands are excluded from free UK Saver Delivery.',
     },
-    catalogue: null,
+    sitemapRoute: {
+      // No sitemap: the shop's own is from 2023 (see above).
+      roots: [],
+      product: '^https://www\\.beautyflash\\.co\\.uk/[a-z0-9-]+$',
+      // Only what is never a perfume, whatever else its name says. Body care
+      // words are not named out: the shop's gift sets carry them beside the
+      // perfume (Korres White Tea EDT 50ml with body milk 125ml), and a body
+      // lotion on its own fails the catalogue's strength rule anyway.
+      exclude: '(^|[/-])(candles?|diffusers?|room-spray|hair-perfume|hair-mist|body-oil|bath-oil|pulse-point-roller)(-|/|$)',
+      requireGbp: true,
+      categories: {
+        pages: ['https://www.beautyflash.co.uk/fragrance'],
+        pageParam: 'p',
+        productLink: '<a href="(https://www\\.beautyflash\\.co\\.uk/[a-z0-9-]+)" class="full-block"',
+        pageCount: 'id="am-page-count"[^>]*>\\s*(\\d+)\\s*<',
+        maxPages: 60,
+        // Page one and a third of the rest, a different third each run:
+        // about 11 of the 32 pages.
+        rotation: 3,
+      },
+      // About 940 products to read once, about 780 of them perfume.
+      discoveryPages: 150,
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://www.beautyflash.co.uk/searchanise/result?q={q}',
+      sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.beautyflash.co.uk/fragrance?p={page}', tier: 'designer' },
+      ],
+      firstPage: 1,
+      maxPages: 60,
+      // Five seconds, the gap its robots.txt asks of bingbot. A local dry run
+      // at 1.5 s on 2026-10-08 was answered HTTP 429 (Cloudflare) after about
+      // 40 requests, on the heels of a 110 page walk of the aisles from the
+      // same address, and the harvest stopped as it should.
+      minRequestGapMs: 5000,
+    },
     affiliate: { ...awinRequested() },
   },
   {
@@ -6462,8 +6610,8 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'scentsational.com',
     homepage: 'https://www.scentsational.com',
     tiers: ['designer'],
-    // CURRENCY NOT CONFIRMED — see CURRENCY_UNCONFIRMED at the foot of this
-    // file. Currency probe (run 32255905250, job 96077421762, 2026-08-19):
+    // Off CURRENCY_UNCONFIRMED since 2026-10-08 (see the dated section below
+    // and the note at the foot of this file). Currency probe (run 32255905250, job 96077421762, 2026-08-19):
     // robots.txt answers (2s crawl-delay, honoured), and the bare origin
     // answers 200 — quoting this US runner USD, not GBP, and every other way
     // of asking (?country=GB, both cookies, Accept-Language en-GB) agrees at
@@ -6491,17 +6639,86 @@ export const RETAILERS: readonly Retailer[] = [
     // which the harvest cannot hold. The same JSON-LD also capitalises its keys
     // ('Offers', 'Brand', 'SKU'), so parseListings found the product but no
     // price. Blockers: not sterling to this tooling, and a parser gap.
-    enabled: false,
-    adapter: 'unknown',
+    //
+    // ── Measured again 2026-10-08: sterling through the shop's own setting ──────
+    //
+    // As PriceSniffsBot, plain fetch. robots.txt HTTP 200 (1,353 bytes): for
+    // "*" Crawl-delay 2 and Request-rate 1/2s (honoured: the gap below is 2 s),
+    // Disallow /products/, /sale/, /new/, /search/, /checkout/, /basket and a
+    // few more; product pages (/women-c2/...-p50853) and /sitemap-index.xml
+    // are permitted. The index names 131 sitemaps, written that day; ten of
+    // them are product sitemaps, 1,804 product addresses in all, 686 of them
+    // naming a strength or a gift set in women-c2, men-c11 or arabic-c1324.
+    //
+    // Currency: the shop picks a visitor's currency from where it thinks they
+    // are (a request from a US address gets `Set-Cookie: VSCurrency=USD`), and
+    // its own currency menu link /currency/GBP/ only sets VSCurrency=GBP. Sent
+    // that cookie, the Sabrina Carpenter Caramel Dream 75ml EDP page (668,893
+    // bytes) shows GBP as the active currency and its JSON-LD says
+    // priceCurrency GBP, price 25.00. The route sends the cookie (a stated
+    // currency, which botIdentity.ts counts as honest) and keeps a price only
+    // where the page names GBP for it (requireGbp), so a page that ignores the
+    // cookie yields nothing rather than dollars. The capitalised keys are now
+    // read (fixSchemaKeyCase in src/catalogue/jsonld.ts).
+    // Delivery read off https://www.scentsational.com/delivery-returns-i5 the
+    // same day: standard UK delivery 2-5 working days, £2.95 under £80, free
+    // over £80.
+    //
+    // Proved from a GitHub runner the same day: harvest probe run
+    // 37719553362, job 113123821680 (dry run, this route, cookie sent). The
+    // product sitemaps gave 701 addresses, 80 product pages read, 80 priced
+    // listings, every one labelled GBP; it stopped only at the probe's 8
+    // minute ceiling. Switched on for that.
+    enabled: true,
+    adapter: 'json-ld',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
-      estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
-      confidence: 'unverified',
-      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+      standardGbp: 2.95,
+      freeOverGbp: 80,
+      estimatedDays: [2, 5],
+      verifiedAt: '2026-10-08',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.scentsational.com/delivery-returns-i5',
+        quote: 'Orders under £80 incur a standard delivery charge of £2.95. Orders over £80 qualify for free standard delivery.',
+        readAt: '2026-10-08',
+      },
+      notes:
+        'Standard UK delivery, 2-5 working days. DPD next working day (£4.95) and Saturday (£6.95) ' +
+        'are other services and are not modelled. The Caramel Dream 75ml product page (£25.00) ' +
+        'labelled itself "FREE UK Delivery" the same day, which the delivery page does not say ' +
+        'for an order under £80; the delivery page is the figure used until a basket check settles it. ' +
+        'Currency: sterling, read 2026-10-08 with the shop\'s own currency setting (VSCurrency=GBP); ' +
+        'removed from CURRENCY_UNCONFIRMED that day.',
     },
+    sitemapRoute: {
+      roots: ['https://www.scentsational.com/sitemap-index.xml'],
+      // The product sitemaps only, not the tag, brand, category or page ones.
+      follow: '/sitemap-products_[a-z0-9-]+\\.xml$',
+      // The index and its ten product sitemaps.
+      maxSitemaps: 12,
+      // A product page in the women's, men's or Arabic range whose address
+      // names a strength (EDP, EDT, EDC, eau de, parfum, cologne, extrait,
+      // attar) or a gift set. Hair, skin, make up and the men's grooming range
+      // (mens-c1213) are never asked for.
+      product:
+        '^https://www\\.scentsational\\.com/(?:women-c2|men-c11|arabic-c1324)/(?:(?:perfumes|fragrances|gift-sets)-c\\d+/)?' +
+        '(?=[a-z0-9-]*(?:edp|edt|edc|eau-de|parfum|cologne|perfume|extrait|attar|gift-set|giftset))[a-z0-9-]+-p\\d+$',
+      // Deodorants and mists that name a perfume, never a perfume themselves.
+      // Gift sets that hold a body lotion or shower gel beside the perfume
+      // are kept.
+      exclude: '(^|[/-])(perfumed-deodorant|deodorant-body-spray|body-mist|hair-mist|hair-perfume|candles?)(-|/|$)',
+      cookie: 'VSCurrency=GBP',
+      requireGbp: true,
+      // About 690 product pages to read once, each about 650 KB.
+      discoveryPages: 100,
+    },
+    // No catalogue sections on purpose. They exist for the render tier, which
+    // renders a section page as PriceSniffsBot without this route's currency
+    // cookie, so it would be quoted dollars, and reads a rendered page without
+    // requireGbp. The route above is the only way in. The request gap is the
+    // shop's own Crawl-delay of 2 s (the harvest takes the larger of that and
+    // its 1.5 s default).
     catalogue: null,
     affiliate: { ...awinRequested() },
   },
@@ -6536,6 +6753,19 @@ export const RETAILERS: readonly Retailer[] = [
     // requested. A harvest probe from a runner, run 37085047598 job
     // 111093456847, priced nothing. Blocker: refused at the home page; currency
     // still unread.
+    //
+    // ── Measured again 2026-10-08: still refused ────────────────────────────────
+    //
+    // As PriceSniffsBot, plain fetch. robots.txt HTTP 200 (344 bytes): for "*"
+    // only `Disallow: /*?search=*`, sitemap /sitemap_indice.xml, and named
+    // Allow groups for GPTBot, ChatGPT-User, Google-Extended, PerplexityBot and
+    // Anthropic-Bot. Everything else answered HTTP 403 with Cloudflare's
+    // "Sorry, you have been blocked" page (5,490 bytes): the home page, /en/,
+    // /gb/, the bare domain and /sitemap_indice.xml itself. From a GitHub
+    // runner, harvest probe run 37720273728 job 113126087766: /sitemap.xml
+    // HTTP 403, 0 priced, recorded as refused. A refusal is not worked around
+    // (docs/DECISIONS.md D23), so it stays off; its currency and delivery
+    // terms are still unread, because no page of the shop could be read.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -9923,6 +10153,9 @@ export const RETAILERS: readonly Retailer[] = [
     // are deodorants, bakhoor, air fresheners, two backpacks and a wallet, which the catalogue's own
     // fragrance test leaves out. 512 of the 517 listings that name a strength also name a size.
     //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 4 requests, 554 listings priced in GBP, no errors, 249 in stock.
+    //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=opulensi --dry-run` read 554 priced listings,
     // all in GBP; 495 of them pass the catalogue's own fragrance test and 222 of those are in stock.
     //
@@ -9984,6 +10217,9 @@ export const RETAILERS: readonly Retailer[] = [
     // to be read from the title, and there is no product type. 833 of the 903 listings that name a
     // strength also name a size (in the title or in a "Size (ml)" option). About two thirds of the range
     // is out of stock on the shop's own list; the stock flag is kept as the shop states it.
+    //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 4 requests, 1,067 listings priced in GBP, no errors, 377 in stock.
     //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=perfume-closet --dry-run` read 1067 priced listings,
     // all in GBP; 836 of them pass the catalogue's own fragrance test and 277 of those are in stock.
@@ -10047,6 +10283,9 @@ export const RETAILERS: readonly Retailer[] = [
     // 153, Cologne 5, Parfum 5, Aftershave Lotion 5, Deodorant Spray 5, Deodorant Stick 4 and a few body
     // products); all 442 listings that name a strength also name a size in the title. 330 of the 464
     // variants are out of stock on the shop's own list; the stock flag is kept as the shop states it.
+    //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 3 requests, 464 listings priced in GBP, no errors, 330 in stock.
     //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=perfumoi --dry-run` read 464 priced listings,
     // all in GBP; 445 of them pass the catalogue's own fragrance test and 319 of those are in stock.
@@ -10112,6 +10351,9 @@ export const RETAILERS: readonly Retailer[] = [
     // rule drops a title with two sizes: 93 listings pass with it, 114 without. 63 of the 156 products are
     // in stock; the bundles ("Combo ...") and one body lotion fall out under the catalogue's own rules.
     //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 2 requests, 156 listings priced in GBP, no errors, 106 in stock.
+    //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=saad-fragrance --dry-run` read 156 priced listings,
     // all in GBP; 114 of them pass the catalogue's own fragrance test and 76 of those are in stock.
     //
@@ -10176,6 +10418,9 @@ export const RETAILERS: readonly Retailer[] = [
     // drops any variant under 5ml and any "discovery" box; product types keep out the sample sets,
     // soaps, incense, gift cards and event tickets. Every one of the listings that then passed the
     // catalogue's test was read title by title on 2026-10-08.
+    //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 3 requests, 268 listings priced in GBP, no errors, 188 in stock.
     //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=sainte-cellier --dry-run` read 268 priced listings,
     // all in GBP; 260 of them pass the catalogue's own fragrance test and 184 of those are in stock.
@@ -10255,6 +10500,10 @@ export const RETAILERS: readonly Retailer[] = [
     // 2.5 s gaps, 3 pages of the 100 answered HTTP 503 and the same page answered 200 on a retry 15 s
     // later. The walk used to stop at a failed page, so `crawlViaShopifyProducts` now asks a 5xx page once more.
     //
+    // Runner proof, 2026-10-08, harvest_shop=fenwick, run 37723837125, commit 7d9e58b3, as
+    // PriceSniffsBot, tier free: 100 pages, 1,054 listings priced in GBP, no errors, 752 in stock;
+    // the full sweep of commit 874377da read it again the same way.
+    //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=fenwick --dry-run` read 1054 priced listings,
     // all in GBP; 892 of them pass the catalogue's own fragrance test and 644 of those are in stock.
     //
@@ -10329,6 +10578,10 @@ export const RETAILERS: readonly Retailer[] = [
     // 48 ... delivered within 2-4 working days ... for UK deliveries there are no postage and packing
     // charges", with Royal Mail Tracked 24 at £3 and Special Delivery at £9 as upgrades, not modelled.
     //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 1,137 addresses on the route, 150 pages read, 150 priced in GBP,
+    // no errors, 93 in stock.
+    //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=perfumeuk --dry-run --max=60` found 1,137
     // product addresses on the route, read 112 of them before the local six minute ceiling (the runner's
     // is 40) and priced all 112, every one on its own page in GBP, at about 3 s a page.
@@ -10399,6 +10652,10 @@ export const RETAILERS: readonly Retailer[] = [
     // Delivery: the Delivery & Returns panel of the same product page, read 2026-10-08, in the UK view:
     // "Standard Delivery: £5.95 or FREE OVER £100", "Free UK Standard Delivery on all orders over £100!
     // Delivered within 3-5 working days. Normally £5.95." Express and Click & Collect are not modelled.
+    //
+    // Runner proof, 2026-10-08, harvest_shop=liberty-london, run 37727829201, commit 007b3fe5, as
+    // PriceSniffsBot, tier free: 1,663 product addresses on the route, 100 pages read, 100 priced
+    // in GBP, no errors; 200 held after the full sweep of commit 874377da.
     //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=liberty-london --dry-run --max=40` found 1,667
     // product addresses on the route, read 100 of them (the run's discovery floor) and priced all 100,
@@ -10489,6 +10746,9 @@ export const RETAILERS: readonly Retailer[] = [
     // working days", and "NEXT-DAY UK: Free next-day delivery. Order before 11am (UK time) on a working
     // day for same-day dispatch." Final prices are confirmed at checkout, which was not used.
     //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 27 of 27 pages read and priced in GBP, no errors, 23 in stock.
+    //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=rasasi-uk-store --dry-run` found 27 product
     // addresses, read all 27 and priced all 27, every one in GBP on its own page.
     //
@@ -10561,6 +10821,10 @@ export const RETAILERS: readonly Retailer[] = [
     // FREESHIP35 at the checkout (cannot be used in conjunction with any discount code, sale item ...)".
     // The code and the sale item condition cannot be modelled, so the free threshold is left unset and
     // every basket is priced at £2.95, which can overstate and never understates.
+    //
+    // Runner proof, 2026-10-08, the full sweep of commit 874377da (06:03Z, on a runner), as
+    // PriceSniffsBot, tier free: 1,491 addresses on the route, 100 pages read, 100 priced in GBP,
+    // no errors, 100 in stock.
     //
     // Sandbox proof, 2026-10-08: `npm run harvest -- --shop=direct-cosmetics --dry-run --max=40` found 1,491
     // product addresses, read 96 of them before the local six minute ceiling (the runner's is 40) and priced
@@ -10720,15 +10984,15 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'asking published any currency at all, and /products.json 404s everywhere too. Now a ' +
       'genuinely silent storefront rather than an unopened one — still no basis for sterling.',
   ],
-  [
-    'scentsational',
-    'scentsational.com quotes this US runner USD by default and at every request shape tried ' +
-      '(currency probe, run 32255905250 job 96077421762, 2026-08-19): origin, ?country=GB, both ' +
-      'localisation cookies and Accept-Language en-GB all settle USD; /en-gb, /gb, /uk, /en-uk ' +
-      'all 404, so there is no market-prefix address to try instead. /products.json 404s ' +
-      'everywhere too, so this is not a confirmed Shopify storefront either. Unlike escentual, ' +
-      'no request this repo knows how to make has found a GBP reading anywhere on this shop.',
-  ],
+  // scentsational was removed from this list on 2026-10-08. Its own currency
+  // menu (/currency/GBP/) sets one cookie, VSCurrency=GBP, and with it the
+  // product pages label every offer priceCurrency GBP beside a visible £ price
+  // equal to the JSON-LD figure (Caramel Dream 75ml: £25.00; the same page in
+  // dollars shows $33.05 while its JSON-LD still says 25.00, so sterling is the
+  // price list and dollars the conversion). Its pinned route sends the cookie
+  // and sets requireGbp, so a price is stored only when its own offer says
+  // GBP, and probe run 37719553362 (job 113123821680) read all 80 of the
+  // listings it fetched that way from a runner. It is now `enabled: true`.
   // parfumdreams-uk was removed from this list on 2026-10-03, on the angle
   // its own note here named: product pages label every offer priceCurrency
   // GBP. Its pinned route sets requireGbp, so a price is stored only when its

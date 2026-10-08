@@ -165,7 +165,7 @@ describe('retailer registry', () => {
     // 2026-10-08: 84 becomes 80. Paco Perfumerias (the Spanish .com), Sabina
     // Store, Bath & Body Works and Fragrancedirect retired at the owner's
     // decision and deleted outright (docs/DECISIONS.md D29). None was enabled,
-    // so the enabled count stays 52 and nothing on the site changed.
+    // so the enabled count is unchanged and nothing on the site changed.
     expect(RETAILERS).toHaveLength(80);
 
     // And the file's own header has to say the same thing. It said "Nineteen

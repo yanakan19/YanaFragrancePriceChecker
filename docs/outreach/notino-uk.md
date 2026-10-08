@@ -3,6 +3,11 @@
 Drafted 2026-10-03, refreshed 2026-10-08 for the owner. Nothing has been sent.
 The full plan is `docs/NOTINO-PLAN.md`; this file is the owner's part of it.
 
+Email rewritten 2026-10-08 (second pass): shorter, with tracked links offered,
+the crawler's details and a contact address. Send it on the same day as the
+affiliate application it mentions. Routes and odds for every shop:
+`docs/BLOCKED-SHOPS-ROUTES-2026-10-08.md`.
+
 ## Do this first: CJ Affiliate (Notino UK, run by VIVnetworks)
 
 Notino UK's programme runs on **CJ Affiliate**, managed by VIVnetworks
@@ -33,22 +38,24 @@ press or partnerships page was found.
 
 Replace [YOUR NAME] before sending.
 
-    Subject: Permission to show Notino prices on PriceSniffs
+    Subject: Notino UK on PriceSniffs: a product feed, or permission for our crawler
 
     Hello,
 
-    My name is [YOUR NAME] and I run PriceSniffs (https://pricesniffs.space), a free UK price comparison site for fragrance.
+    I run PriceSniffs (https://pricesniffs.space), an independent UK fragrance price comparison site. For each perfume it shows the price at every UK shop that sells it, delivery included, and every listing links straight to the shop's own product page. It lists about 26,000 products from more than 45 UK shops.
 
-    PriceSniffs shows what a bottle costs at each UK shop that sells it, with delivery included, so a shopper sees the real total before they click. Every listing links straight to the shop's own product page, where the sale happens. We never change a shop's price, and if we cannot keep a price current we take it off the site rather than show an old one.
+    We would like to list Notino UK. Your robots.txt allows crawlers on your fragrance pages, but your website's security turns our requests away (a Cloudflare challenge). We respect that and have stopped asking.
 
-    We would like to include Notino UK. Your robots.txt allows crawlers on your fragrance pages, but at the moment our requests are turned away by your website's security (a Cloudflare challenge), and we respect that, so we have stopped trying.
+    Either of these would let us send you shoppers with current prices:
 
-    Would you be willing to let our crawler, which identifies itself as PriceSniffsBot and follows robots.txt, read your public product prices at a gentle rate? Or, if you prefer, would you share a product data feed with prices, stock and product links? If you already supply a feed to comparison sites, we would be glad to receive it on the same terms. We are also applying to your programme on CJ.
+    1. Your product feed through your CJ programme (Notino UK), which we are applying to, so every sale we send you is tracked to you. If you already supply a feed to comparison sites, we would be glad to receive it on the same terms.
 
-    Whichever suits you, we will follow any conditions you set, such as how often we check or which pages we use. I would be glad to answer any questions.
+    2. Permission for our crawler to read your public product pages. It names itself on every request as "PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.space/about/bot)", reads robots.txt first and obeys it, asks one page at a time at least a second apart, a few times a day, and never logs in or fills a basket. It runs on cloud servers without fixed addresses; if your team needs more than the user agent to recognise it, tell us what you accept (for example signed requests under Web Bot Auth) and we will look at setting it up.
+
+    What you get: free listings, tracked links that send buyers only to your own pages, and prices we take down rather than show out of date. We will follow any conditions you set (which pages, how often, removal on request).
 
     Kind regards,
 
     [YOUR NAME]
-    PriceSniffs
-    https://pricesniffs.space
+    PriceSniffs, https://pricesniffs.space
+    yannysniffs@gmail.com
