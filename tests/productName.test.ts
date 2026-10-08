@@ -1596,6 +1596,33 @@ describe('a delivery offer in a shop title is not part of the name', () => {
   });
 });
 
+describe('shop labels after a pipe: size labels, audience descriptors and a credit before the size', () => {
+  it('takes the credit off when the size follows the shop name, and keeps the size', () => {
+    const credited = stripTrailingShopCredit(
+      'Guerlain Aqua Allegoria Herba Fresca Eau de Toilette Spray | Scentstore 75ml',
+      'Scentstore',
+      'scentstore.com',
+    );
+    expect(credited).toBe('Guerlain Aqua Allegoria Herba Fresca Eau de Toilette Spray 75ml');
+    expect(displayName(credited, 'Guerlain', 'Guerlain')).toBe('Aqua Allegoria Herba Fresca');
+    // Another shop's name there is part of the title and stays.
+    expect(stripTrailingShopCredit('Name | Other Shop 75ml', 'Scentstore', 'scentstore.com')).toBe('Name | Other Shop 75ml');
+  });
+
+  it('takes a shop\'s own size label off the name (Sainte Cellier)', () => {
+    expect(displayName('AJEDREZ 9ml | .3oz', 'FRASSAÏ', 'FRASSAÏ')).toBe('AJEDREZ');
+    expect(displayName('WILD NARCISSUS | 野水仙 Full Size 50ml | 1.7oz', 'AROMAG', 'AROMAG')).toBe('WILD NARCISSUS');
+    expect(displayName("monto'ac 10ml | .33oz Rolllerball", 'SOURCE ADAGE', 'SOURCE ADAGE')).toBe("monto'ac");
+  });
+
+  it('takes a scent descriptor with an audience tail off, and keeps an audience on its own', () => {
+    expect(displayName('Ombre 100ml EDP | Bold Woody Fragrance For Men & Women', 'French Arabian Perfume', null)).toBe('Ombre');
+    expect(displayName('Eternity | For Him', 'Calvin Klein', 'Calvin Klein')).toContain('For Him');
+    // "Bold" alone is Commodity's variant name, not a descriptor.
+    expect(displayName('Book | Bold 100 ml EdP', 'Commodity', 'Commodity')).toContain('Bold');
+  });
+});
+
 describe('a shop\'s translation of a name, after a pipe, is not part of the name', () => {
   // Bloom Perfumery's own titles, read from data/catalogue/bloom-perfumery.json on 2026-10-04.
   it.each([

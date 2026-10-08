@@ -1939,7 +1939,15 @@ export function stripTrailingShopCredit(
   for (let pass = 0; pass < 3; pass++) {
     const m = s.match(SHOP_CREDIT_SEPARATOR);
     if (!m) break;
-    const words = m[1]!.trim().split(/\s+/);
+    let words = m[1]!.trim().split(/\s+/);
+    // Scentstore signs "Guerlain Aqua Allegoria Herba Fresca Eau de Toilette Spray |
+    // Scentstore 75ml", the size after its name. The size is not part of the
+    // signature: it is looked past here and put back on the end of the name.
+    let size = '';
+    if (words.length > 1 && /^\d+(?:\.\d+)?ml$/i.test(words[words.length - 1]!)) {
+      size = words[words.length - 1]!;
+      words = words.slice(0, -1);
+    }
     const last = words[words.length - 1]!.toLowerCase();
     const withoutQualifier =
       words.length > 1 && SHOP_CREDIT_QUALIFIERS.has(last) ? words.slice(0, -1) : words;
@@ -1947,7 +1955,7 @@ export function stripTrailingShopCredit(
     const remainder = s.slice(0, m.index!).trim();
     // Never leave the name empty — see the third lock above.
     if (!remainder) break;
-    s = remainder;
+    s = size ? `${remainder} ${size}` : remainder;
   }
   return s;
 }
@@ -2136,6 +2144,10 @@ const NAME_NOISE_SEGMENT_WORDS: ReadonlySet<string> = new Set([
   'musk', 'oud', 'pineapple', 'powdery', 'raspberry', 'resin', 'rose',
   'saffron', 'salty', 'smoky', 'spice', 'spicy', 'suede', 'sweet', 'tea',
   'tobacco', 'vanilla', 'warm', 'white', 'woods', 'woody',
+  // Opulensi's "| Oriental Woody Oud Perfume" and "| Juicy, Fruity, Creamy,
+  // Amber" (2026-10-08). "Bold" is deliberately not here: Commodity's "Book |
+  // Bold" is a variant name (see the vocabulary test in stripTrailingNoiseSegment).
+  'juicy', 'oriental',
 ]);
 
 /**
@@ -2146,6 +2158,24 @@ const NAME_NOISE_SEGMENT_WORDS: ReadonlySet<string> = new Set([
  * Oudgasm naming and must survive (see NAME_NOISE_SEGMENT_WORDS).
  */
 const NOISE_SEGMENT_OZ_RE = /^\/?\s*\d+(?:\.\d+)?\s*fl\s*oz$/i;
+
+/**
+ * A trailing segment that is only a size label of the shop's own: Sainte
+ * Cellier's "Gold Dust | Full Size 50ml | 1.7oz" (the millilitres come off with
+ * every size; this is what is left), and its 9ml and 10ml "| .3oz" and "|
+ * .33oz Rolllerball" variants. The size is the product's own sizeMl field.
+ * Anchored at both ends and spelled out, so a real name merely containing
+ * "full" or "size" survives; a bare number after a pipe is still KAYALI's.
+ */
+const NOISE_SEGMENT_SIZE_LABEL_RE =
+  /^(?:full\s+size|(?:\d+)?\.?\d+\s*oz(?:\s+roll+er\s?ball)?)$/i;
+
+/**
+ * The audience a shop closes a descriptor with ("Bold Woody Fragrance For Men &
+ * Women"). Taken off a segment only when descriptor words remain in front of
+ * it, so "Eternity | For Him" keeps its words.
+ */
+const NOISE_SEGMENT_AUDIENCE_TAIL_RE = /\s+for\s+(?:men|women|him|her)(?:\s*(?:&|and)\s*(?:men|women))?$/i;
 
 /**
  * A trailing segment that is a release marker — "New 2023", "New 2026
@@ -2244,13 +2274,24 @@ function stripTrailingNoiseSegment(s: string): string | null {
   if (!segment || !head) return null;
 
   const words = segment.split(/\s+/).map((w) => w.toLowerCase().replace(/[^a-z0-9-]+/g, ''));
-  const vocabulary = words.every((w) => NAME_NOISE_SEGMENT_WORDS.has(w));
+  const descriptor = segment.replace(NOISE_SEGMENT_AUDIENCE_TAIL_RE, '');
+  const descriptorWords =
+    descriptor === segment || descriptor === ''
+      ? words
+      : descriptor.split(/\s+/).map((w) => w.toLowerCase().replace(/[^a-z0-9-]+/g, ''));
+  // "Bold" is a descriptor only as the first word of a longer one (French Arabian's
+  // "| Bold Woody Fragrance For Men & Women"); on its own it names a Commodity
+  // variant ("Book | Bold"), which is what tells it from "Book | Personal".
+  const vocabulary = descriptorWords.every(
+    (w, i) => NAME_NOISE_SEGMENT_WORDS.has(w) || (w === 'bold' && i === 0 && descriptorWords.length > 1),
+  );
   const headWords = new Set(head.toLowerCase().match(/[a-z0-9]+/g) ?? []);
   const restatement = words.every((w) => w !== '' && headWords.has(w));
   if (
     !vocabulary &&
     !restatement &&
     !NOISE_SEGMENT_OZ_RE.test(segment) &&
+    !NOISE_SEGMENT_SIZE_LABEL_RE.test(segment) &&
     !NOISE_SEGMENT_RELEASE_RE.test(segment) &&
     !NOISE_SEGMENT_DELIVERY_RE.test(segment) &&
     !NOISE_SEGMENT_REVIEW_RE.test(segment) &&
